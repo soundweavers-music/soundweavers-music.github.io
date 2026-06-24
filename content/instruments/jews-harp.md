@@ -11,23 +11,33 @@ wikidata_id: "Q185003"
 ---
 ## 介紹
 
-# Jew's harp
+# 口簧琴
 
-The Jew's harp, also known as jaw harp, juice harp, or mouth harp, is a lamellophone instrument, consisting of a flexible metal or bamboo tongue or reed attached to a frame. Despite the colloquial name, the Jew's harp most likely originated in China, with the earliest known Jew's harps dating back 4,000 years ago from Shaanxi. It has no relation to the Jewish people.
-Jew's harps may be categorized as idioglot or heteroglot (whether or not the frame and the tine are one piece); by the shape of the frame (rod or plaque); by the number of tines, and whether the tines are plucked, joint-tapped, or string-pulled.
+口簧琴（原名：Jew's harp）是一種打擊樂器。通常透過敲擊、搖動、摩擦或刮奏產生聲音，常負責節奏與音色層次。
+
+目前可查資料顯示，它與中國的音樂文化或演奏傳統有關。
+
+材料與構造是它音色的重要線索；不同材質會讓聲音呈現更明亮、厚實或有共鳴感的差異。
 
 ## 可查證來源
 
-- 圖像檔案：https://upload.wikimedia.org/wikipedia/commons/b/b7/Jew%27s_harp.jpg
-- 主要來源：https://en.wikipedia.org/wiki/Jew%27s_harp
+- Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Jew%27s_harp
+
+- Wikidata ID：Q185003
 
 ## 歷史背景
 
-## Jew's harp 的歷史背景
+口簧琴（Jew's harp）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。
 
-此預設條目以 Wikidata/Wikipedia 的公開結構化資料建立。若需要精確年代、地域流變、演奏流派與製作工藝，建議由管理員在後台根據專書或博物館資料補充。
+它可以先放在中國相關音樂文化中理解，後續可再補代表樂派、演奏場合與製作工藝。
 
-來源：https://en.wikipedia.org/wiki/Jew%27s_harp
+作為打擊樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。 若要深入研究，可優先查找中國的博物館、民族音樂學資料或地方樂器圖錄。
+
+打擊樂器通常和節奏、信號、祭儀、舞蹈或群體活動關係密切。它們的歷史不一定只寫在樂譜裡，也常出現在節慶、宗教、軍事或地方生活的脈絡中。
+
+閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。
+
+來源：https://zh.wikipedia.org/wiki/%E5%8F%A3%E7%B0%A7%E7%90%B4
 
 ## 音色描述
 

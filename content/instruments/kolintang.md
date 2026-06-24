@@ -11,21 +11,35 @@ wikidata_id: "Q111735185"
 ---
 ## 介紹
 
-# Kolintang
+# Kolintang（暫譯）
 
-Kolintang is a traditional Minahasan percussion instrument from North Sulawesi, Indonesia, consisting of wooden blades arranged in a row and mounted on a wooden tub. Kolintang is usually played in ensemble music. Kolintang in the Minahasan community is used to accompany traditional ceremonies, dance, singing, and music. The wood used to make Kolintang blades is light but strong local wood such as Telur wood, Wenuang wood, Cempaka wood, Waru wood, and the like which have a fiber construction. parallel. Meanwhile, kolintang resonator crates are usually made of hardwood materials such as teak or mahogany.
-In 2013, the kolintang musical instrument from the Minahasan, North Sulawesi was recognized as National Intangible Cultural Heritage of Indonesia by the Indonesian Ministry of Education and Culture.
+Kolintang（暫譯）（原名：Kolintang）是一種打擊樂器。通常透過敲擊、搖動、摩擦或刮奏產生聲音，常負責節奏與音色層次。
+
+目前可查資料顯示，它與印尼的音樂文化或演奏傳統有關。
+
+英文資料中特別提到它的使用或演奏情境，因此理解這項樂器時，不只要看外形，也要看它在樂曲、儀式或合奏中的角色。
+
+材料與構造是它音色的重要線索；不同材質會讓聲音呈現更明亮、厚實或有共鳴感的差異。
+
+它常被放在傳統或民俗音樂脈絡中討論，代表它不只是發聲工具，也承載地方文化記憶。
 
 ## 可查證來源
 
-- 圖像檔案：https://upload.wikimedia.org/wikipedia/commons/7/71/Kolintang_Ensemble.jpg
-- 主要來源：https://en.wikipedia.org/wiki/Kolintang
+- Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Kolintang
+
+- Wikidata ID：Q111735185
 
 ## 歷史背景
 
-## Kolintang 的歷史背景
+Kolintang（暫譯）（Kolintang）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。
 
-此預設條目以 Wikidata/Wikipedia 的公開結構化資料建立。若需要精確年代、地域流變、演奏流派與製作工藝，建議由管理員在後台根據專書或博物館資料補充。
+它可以先放在印尼相關音樂文化中理解，後續可再補代表樂派、演奏場合與製作工藝。
+
+作為打擊樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。 若要深入研究，可優先查找印尼的博物館、民族音樂學資料或地方樂器圖錄。
+
+打擊樂器通常和節奏、信號、祭儀、舞蹈或群體活動關係密切。它們的歷史不一定只寫在樂譜裡，也常出現在節慶、宗教、軍事或地方生活的脈絡中。
+
+閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。
 
 來源：https://en.wikipedia.org/wiki/Kolintang
 

@@ -11,22 +11,27 @@ wikidata_id: "Q4867989"
 ---
 ## 介紹
 
-# Bass sarrusophone
+# Bass sarrusophone（暫譯）
 
-The bass sarrusophone is the bass member of the sarrusophone family of metal double reed conical bore wind instruments. Pitched in the key of B♭, it has a range almost identical to the bass saxophone, and can cover the bassoon range up to F4.
-Historically it was built in the late 19th and early 20th centuries principally by its inventor Pierre-Louis Gautrot and his successor, Couesnon & Co., as well as Evette & Schaeffer and Orsi of Milan. It is currently only available by custom order from Orsi.
-There is very little repertoire specifically for bass sarrusophone; Roupen Shakarian has written a piece for it called Sarruso Rex.
+Bass sarrusophone（暫譯）（原名：Bass sarrusophone）是一種管樂器。主要靠氣流與管體、簧片或吹口產生聲音，音色會受吹奏方式與管身構造影響。
+
+材料與構造是它音色的重要線索；不同材質會讓聲音呈現更明亮、厚實或有共鳴感的差異。
 
 ## 可查證來源
 
-- 圖像檔案：https://upload.wikimedia.org/wikipedia/commons/4/4b/MET_bass_sarrusophone.png
-- 主要來源：https://en.wikipedia.org/wiki/Bass_sarrusophone
+- Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Bass_sarrusophone
+
+- Wikidata ID：Q4867989
 
 ## 歷史背景
 
-## Bass sarrusophone 的歷史背景
+Bass sarrusophone（暫譯）（Bass sarrusophone）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。
 
-此預設條目以 Wikidata/Wikipedia 的公開結構化資料建立。若需要精確年代、地域流變、演奏流派與製作工藝，建議由管理員在後台根據專書或博物館資料補充。
+作為管樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。
+
+管樂器的發展常和吹口、簧片、管身長度與開孔方式有關。隨著材料與製作工藝變化，音準、音域和音量都可能逐漸穩定，進而進入宮廷、宗教、軍樂或現代樂團。
+
+閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。
 
 來源：https://en.wikipedia.org/wiki/Bass_sarrusophone
 

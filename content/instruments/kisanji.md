@@ -11,20 +11,29 @@ wikidata_id: "Q10314435"
 ---
 ## 介紹
 
-# Kisanji
+# Kisanji（暫譯）
 
-Kisanji is the name given to the lamellaphone of the Ngala-speaking people of western DR Congo and eastern Congo Republic. It is also known as Ikembe, Chisanji, Eleke or sanza, and is played by holding the instrument in both hands and plucking the keys with the thumbs. The pitch of each metal key is determined by the width of the key. Most often the placement of the keys is symmetrical, with the lowest keys in the middle and the higher keys on each end of the instrument. The most common tuning is the pentatonic scale without semitones, for example do re mi sol la, which varies by region. The music played on the sanza is polyrhythmic with overlapping rhythms. The instrument is often used to accompany the voice, to great effect.  The keys are attached to a sounding board by metal strips or wires and placed over a gourd or clay resonator of varying sizes. The number of keys varies by region, as well. Within each region the instrument can take on a variety of shapes. The sanza in the accompanying photo has a resonator made from a turtle shell that has been attached to the sounding board with natural fibers.
+Kisanji（暫譯）（原名：Kisanji）是一種打擊樂器。通常透過敲擊、搖動、摩擦或刮奏產生聲音，常負責節奏與音色層次。
+
+英文資料中特別提到它的使用或演奏情境，因此理解這項樂器時，不只要看外形，也要看它在樂曲、儀式或合奏中的角色。
+
+材料與構造是它音色的重要線索；不同材質會讓聲音呈現更明亮、厚實或有共鳴感的差異。
 
 ## 可查證來源
 
-- 圖像檔案：https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Kisanji.ogv/500px--Kisanji.ogv.jpg
-- 主要來源：https://en.wikipedia.org/wiki/Kisanji
+- Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Kisanji
+
+- Wikidata ID：Q10314435
 
 ## 歷史背景
 
-## Kisanji 的歷史背景
+Kisanji（暫譯）（Kisanji）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。
 
-此預設條目以 Wikidata/Wikipedia 的公開結構化資料建立。若需要精確年代、地域流變、演奏流派與製作工藝，建議由管理員在後台根據專書或博物館資料補充。
+作為打擊樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。
+
+打擊樂器通常和節奏、信號、祭儀、舞蹈或群體活動關係密切。它們的歷史不一定只寫在樂譜裡，也常出現在節慶、宗教、軍事或地方生活的脈絡中。
+
+閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。
 
 來源：https://en.wikipedia.org/wiki/Kisanji
 

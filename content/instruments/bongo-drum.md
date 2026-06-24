@@ -11,24 +11,39 @@ wikidata_id: "Q243998"
 ---
 ## 介紹
 
-# Bongo drum
+# 邦哥鼓
 
-Bongos (Spanish: bongó) are an Afro-Cuban percussion instrument consisting of a pair of small open bottomed hand drums of different sizes. The pair consists of the larger hembra (lit. 'female') and the smaller macho (lit. 'male'), which are joined by a wooden bridge. They are played with both hands and usually held between the legs, although in some cases, as in classical music, they may be played with sticks or mounted on stands.
-Bongos are mainly employed in the rhythm section of son cubano and salsa ensembles, often alongside other drums such as the larger congas and the stick-struck timbales. In these groups, the bongo player is known as bongosero (or bongocero) and often plays a continuous eight-stroke pattern called martillo (lit. 'hammer') as well as more rhythmically free parts, providing improvisatory flourishes and rhythmic counterpoint.
-Bongos originated in eastern Cuba at the end of the 19th century, possibly from a pair of larger drums such as the bokú. These older, larger bongos are known as bongó del monte and played in changüí. The smaller bongos used in son cubano were popular across Cuba by the 1910s and reached the concert halls of the eastern United States in the 1930s. By the 1940s, bongos and congas were sharing the stage as son ensembles grew in size and Latin music began to cross-pollinate with jazz and other genres. During the second half of the 20th century, bongos began to be played in a wide variety of genres, from bachata to Latin rock.
+邦哥鼓（原名：Bongo drum）是一種打擊樂器。通常透過敲擊、搖動、摩擦或刮奏產生聲音，常負責節奏與音色層次。
+
+目前可查資料顯示，它與西班牙的音樂文化或演奏傳統有關。
+
+若從年代脈絡看，這項樂器可先放在「19 世紀」中理解。
+
+英文資料中特別提到它的使用或演奏情境，因此理解這項樂器時，不只要看外形，也要看它在樂曲、儀式或合奏中的角色。
+
+材料與構造是它音色的重要線索；不同材質會讓聲音呈現更明亮、厚實或有共鳴感的差異。
 
 ## 可查證來源
 
-- 圖像檔案：https://upload.wikimedia.org/wikipedia/commons/7/73/Bongos_Meinl_HB100-NT.jpg
-- 主要來源：https://en.wikipedia.org/wiki/Bongo_drum
+- Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Bongo_drum
+
+- Wikidata ID：Q243998
 
 ## 歷史背景
 
-## Bongo drum 的歷史背景
+邦哥鼓（Bongo drum）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。
 
-此預設條目以 Wikidata/Wikipedia 的公開結構化資料建立。若需要精確年代、地域流變、演奏流派與製作工藝，建議由管理員在後台根據專書或博物館資料補充。
+它可以先放在西班牙相關音樂文化中理解，後續可再補代表樂派、演奏場合與製作工藝。
 
-來源：https://en.wikipedia.org/wiki/Bongo_drum
+年代線索暫時指向「19 世紀」，可作為閱讀時的時間定位。
+
+作為打擊樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。 若要深入研究，可優先查找西班牙的博物館、民族音樂學資料或地方樂器圖錄。 「19 世紀」可作為初步年代標籤，但實際流傳時間仍應以專門資料校正。
+
+打擊樂器通常和節奏、信號、祭儀、舞蹈或群體活動關係密切。它們的歷史不一定只寫在樂譜裡，也常出現在節慶、宗教、軍事或地方生活的脈絡中。
+
+閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。
+
+來源：https://zh.wikipedia.org/wiki/%E9%82%A6%E5%93%A5%E9%BC%93
 
 ## 音色描述
 

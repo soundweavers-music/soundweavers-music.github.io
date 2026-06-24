@@ -11,24 +11,37 @@ wikidata_id: "Q178389"
 ---
 ## 介紹
 
-# Balalaika
+# 巴拉莱卡琴
 
-The balalaika (Russian: балала́йка, pronounced [bəɫɐˈɫajkə])  is a Russian stringed musical instrument with a characteristic triangular wooden, hollow body, fretted neck, and three strings. Two strings are usually tuned to the same note and the third string is a perfect fourth higher. The higher-pitched balalaikas are used to play melodies and chords. The instrument generally has a short sustain, necessitating rapid strumming or plucking when it is used to play melodies. Balalaikas are often used for Russian folk music and dancing.
-The balalaika family of instruments includes instruments of various sizes, from the highest-pitched to the lowest: the piccolo balalaika, prima balalaika, secunda balalaika, alto balalaika, bass balalaika, and contrabass balalaika. There are balalaika orchestras which consist solely of different balalaikas; these ensembles typically play classical music that has been arranged for balalaikas. The prima balalaika is the most common; the piccolo is rare. There have also been descant and tenor balalaikas, but these are considered obsolete. All have three-sided bodies; spruce, evergreen, or fir tops; and backs made of three to nine wooden sections (usually maple).
-The prima, secunda, and alto balalaikas are played either with the fingers or a plectrum (pick), depending on the music being played, and the bass and contrabass (equipped with extension legs that rest on the floor) are played with leather plectra. The rare piccolo instrument is usually played with a pick.
+巴拉莱卡琴（原名：Balalaika）是一種弦樂器。主要靠弦的振動發聲，常透過撥、拉、彈、擊等方式演奏。
+
+目前可查資料顯示，它與俄羅斯的音樂文化或演奏傳統有關。
+
+英文資料中特別提到它的使用或演奏情境，因此理解這項樂器時，不只要看外形，也要看它在樂曲、儀式或合奏中的角色。
+
+材料與構造是它音色的重要線索；不同材質會讓聲音呈現更明亮、厚實或有共鳴感的差異。
+
+它常被放在傳統或民俗音樂脈絡中討論，代表它不只是發聲工具，也承載地方文化記憶。
 
 ## 可查證來源
 
-- 圖像檔案：https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/3_string_prim_balalaika.png/960px-3_string_prim_balalaika.png
-- 主要來源：https://en.wikipedia.org/wiki/Balalaika
+- Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Balalaika
+
+- Wikidata ID：Q178389
 
 ## 歷史背景
 
-## Balalaika 的歷史背景
+巴拉莱卡琴（Balalaika）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。
 
-此預設條目以 Wikidata/Wikipedia 的公開結構化資料建立。若需要精確年代、地域流變、演奏流派與製作工藝，建議由管理員在後台根據專書或博物館資料補充。
+它可以先放在俄羅斯相關音樂文化中理解，後續可再補代表樂派、演奏場合與製作工藝。
 
-來源：https://en.wikipedia.org/wiki/Balalaika
+作為弦樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。 若要深入研究，可優先查找俄羅斯的博物館、民族音樂學資料或地方樂器圖錄。
+
+弦樂器的歷史常和弦材、共鳴箱、調音方式與演奏技法的演變有關。從民間伴奏到獨奏舞台，許多弦樂器都會因音量需求、音域擴張或樂曲風格改變而改良形制。
+
+閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。
+
+來源：https://zh.wikipedia.org/wiki/%E5%B7%B4%E6%8B%89%E8%8E%B1%E5%8D%A1%E7%90%B4
 
 ## 音色描述
 

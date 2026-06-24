@@ -11,22 +11,35 @@ wikidata_id: "Q244976"
 ---
 ## 介紹
 
-# Bodhrán
+# 愛爾蘭手鼓
 
-The bodhrán (, Irish: [ˈbˠəuɾˠaːnˠ]; plural bodhráin) is a  frame drum used in Irish music ranging from 25 to 65 cm (10–26 in) in diameter, with most drums measuring 35–45 cm (14–18 in). The sides of the drum are 9–20 cm (3+1⁄2–8 in) deep. A goatskin hide is tacked to one side (synthetic heads or other animal skins are sometimes used). The other side is open-ended for one hand to be placed against the inside of the drum head to control the pitch and timbre.
-One or two crossbars, sometimes removable, may be inside the frame, but this is increasingly rare on modern instruments. Some professional modern bodhráns integrate mechanical tuning systems similar to those used on drums found in drum kits. It is usually with a hex key that the bodhrán skins are tightened or loosened depending on the atmospheric conditions.
-Some notable music acts and people who have made use of the bodhrán include Christy Moore, Planxty, Moving Hearts, The Chieftains, The Boys of the Lough, The Pogues, Hothouse Flowers, Stockton's Wing, De Dannan, The Saw Doctors, Great Big Sea, Flogging Molly, Imelda May, John Joe Kelly and Ruairi Glasheen.
+愛爾蘭手鼓（原名：Bodhrán）是一種打擊樂器。通常透過敲擊、搖動、摩擦或刮奏產生聲音，常負責節奏與音色層次。
+
+目前可查資料顯示，它與愛爾蘭的音樂文化或演奏傳統有關。
+
+英文資料中特別提到它的使用或演奏情境，因此理解這項樂器時，不只要看外形，也要看它在樂曲、儀式或合奏中的角色。
+
+材料與構造是它音色的重要線索；不同材質會讓聲音呈現更明亮、厚實或有共鳴感的差異。
+
+近現代的演出環境也影響了它的使用方式，尤其在錄音、舞台擴音或電子聲響中更容易出現新的變化。
 
 ## 可查證來源
 
-- 圖像檔案：https://upload.wikimedia.org/wikipedia/commons/1/1a/Bodhran.jpg
-- 主要來源：https://en.wikipedia.org/wiki/Bodhr%C3%A1n
+- Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Bodhr%C3%A1n
+
+- Wikidata ID：Q244976
 
 ## 歷史背景
 
-## Bodhrán 的歷史背景
+愛爾蘭手鼓（Bodhrán）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。
 
-此預設條目以 Wikidata/Wikipedia 的公開結構化資料建立。若需要精確年代、地域流變、演奏流派與製作工藝，建議由管理員在後台根據專書或博物館資料補充。
+它可以先放在愛爾蘭相關音樂文化中理解，後續可再補代表樂派、演奏場合與製作工藝。
+
+作為打擊樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。 若要深入研究，可優先查找愛爾蘭的博物館、民族音樂學資料或地方樂器圖錄。
+
+打擊樂器通常和節奏、信號、祭儀、舞蹈或群體活動關係密切。它們的歷史不一定只寫在樂譜裡，也常出現在節慶、宗教、軍事或地方生活的脈絡中。
+
+閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。
 
 來源：https://en.wikipedia.org/wiki/Bodhr%C3%A1n
 

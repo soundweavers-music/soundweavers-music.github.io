@@ -11,20 +11,37 @@ wikidata_id: "Q1400830"
 ---
 ## 介紹
 
-# Clapper (musical instrument)
+# Clapper (musical instrument)（暫譯）
 
-A clapper is a basic form of percussion instrument. It consists of two long solid pieces that are struck together producing sound. They exist in many forms in many different cultures around the world. Clappers can take a number of forms and be made of a wide variety of material. Wood is most common, but metal and ivory have also been used. The plastic thundersticks that have recently come to be popular at sporting events can be considered a form of inflated plastic clapper.
-Several specific forms of clapper have their own names, such as the Chinese guban, Japanese hyoshigi, or the Korean bak. In the classical music of Thailand, a similar instrument is called krap. In India cooking tongs or cimṭā are often used to provide rhythm while singing religious hymns in many areas (sometimes tongs made specifically for the purpose are also equipped with bells). In Vietnam, the coin clapper called sinh tiền is widely used. In medieval French music, clappers called tablettes or cliquettes were used. In the Western symphony orchestra, a clapper called the whip (also called slapstick) is occasionally used in the percussion section.
+Clapper (musical instrument)（暫譯）（原名：Clapper (musical instrument)）是一種打擊樂器。通常透過敲擊、搖動、摩擦或刮奏產生聲音，常負責節奏與音色層次。
+
+目前可查資料顯示，它與中國的音樂文化或演奏傳統有關。
+
+若從年代脈絡看，這項樂器可先放在「中世紀」中理解。
+
+英文資料中特別提到它的使用或演奏情境，因此理解這項樂器時，不只要看外形，也要看它在樂曲、儀式或合奏中的角色。
+
+材料與構造是它音色的重要線索；不同材質會讓聲音呈現更明亮、厚實或有共鳴感的差異。
 
 ## 可查證來源
 
-- 主要來源：https://en.wikipedia.org/wiki/Clapper_(musical_instrument)
+- Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Clapper_(musical_instrument)
+
+- Wikidata ID：Q1400830
 
 ## 歷史背景
 
-## Clapper (musical instrument) 的歷史背景
+Clapper (musical instrument)（暫譯）（Clapper (musical instrument)）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。
 
-此預設條目以 Wikidata/Wikipedia 的公開結構化資料建立。若需要精確年代、地域流變、演奏流派與製作工藝，建議由管理員在後台根據專書或博物館資料補充。
+它可以先放在中國相關音樂文化中理解，後續可再補代表樂派、演奏場合與製作工藝。
+
+年代線索暫時指向「中世紀」，可作為閱讀時的時間定位。
+
+作為打擊樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。 若要深入研究，可優先查找中國的博物館、民族音樂學資料或地方樂器圖錄。 「中世紀」可作為初步年代標籤，但實際流傳時間仍應以專門資料校正。
+
+打擊樂器通常和節奏、信號、祭儀、舞蹈或群體活動關係密切。它們的歷史不一定只寫在樂譜裡，也常出現在節慶、宗教、軍事或地方生活的脈絡中。
+
+閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。
 
 來源：https://en.wikipedia.org/wiki/Clapper_(musical_instrument)
 

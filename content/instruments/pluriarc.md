@@ -11,24 +11,33 @@ wikidata_id: "Q3392660"
 ---
 ## 介紹
 
-# Pluriarc
+# Pluriarc（暫譯）
 
-The pluriarc, also called paata, mapu, luku, kissanga, and bow lute is a stringed musical instrument of West Africa, classified as a type of lute.
-It has a hollow body and several curved, pliable necks made of reeds. The strings stretch from the necks to the bridge, which stands approximately 1.5 inches (38 mm) above the body.
-The body may be round, rectangular, or triangular, and is usually made of light wood. The top of the body can either be a separate board, bound or nailed to the lower part, or made from the same piece of wood as the rest. A hole may exist on the underside that can be opened or closed to change the timbre.
-It is played by plucking the strings, which are usually open but sometimes contain a stop. The strings may be plucked with fingers or a plectrum. The flexible nature of the necks means the instrument cannot be tuned precisely.
-Pluriarc designs have been characterized into three types by country of origin: those of southwestern Africa, central west Africa, and western Nigeria.
+Pluriarc（暫譯）（原名：Pluriarc）是一種打擊樂器。通常透過敲擊、搖動、摩擦或刮奏產生聲音，常負責節奏與音色層次。
+
+目前可查資料顯示，它與非洲的音樂文化或演奏傳統有關。
+
+英文資料中特別提到它的使用或演奏情境，因此理解這項樂器時，不只要看外形，也要看它在樂曲、儀式或合奏中的角色。
+
+材料與構造是它音色的重要線索；不同材質會讓聲音呈現更明亮、厚實或有共鳴感的差異。
 
 ## 可查證來源
 
-- 圖像檔案：https://upload.wikimedia.org/wikipedia/commons/1/10/COLLECTIE_TROPENMUSEUM_Meervoudige_muziekboog_TMnr_A-10433.jpg
-- 主要來源：https://en.wikipedia.org/wiki/Pluriarc
+- Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Pluriarc
+
+- Wikidata ID：Q3392660
 
 ## 歷史背景
 
-## Pluriarc 的歷史背景
+Pluriarc（暫譯）（Pluriarc）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。
 
-此預設條目以 Wikidata/Wikipedia 的公開結構化資料建立。若需要精確年代、地域流變、演奏流派與製作工藝，建議由管理員在後台根據專書或博物館資料補充。
+它可以先放在非洲相關音樂文化中理解，後續可再補代表樂派、演奏場合與製作工藝。
+
+作為打擊樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。 若要深入研究，可優先查找非洲的博物館、民族音樂學資料或地方樂器圖錄。
+
+打擊樂器通常和節奏、信號、祭儀、舞蹈或群體活動關係密切。它們的歷史不一定只寫在樂譜裡，也常出現在節慶、宗教、軍事或地方生活的脈絡中。
+
+閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。
 
 來源：https://en.wikipedia.org/wiki/Pluriarc
 

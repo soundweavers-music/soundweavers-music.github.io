@@ -11,21 +11,33 @@ wikidata_id: "Q807780"
 ---
 ## 介紹
 
-# Barbat (lute)
+# 巴爾巴特琴
 
-The barbat (Persian: بربت) or barbud is a lute of Greater Iranian or Persian origin, and widespread across Central Asia, especially since the Sassanid Empire. Barbat is characterized as carved from a single piece of wood, including the neck and a wooden sound board. Possibly a skin-topped instrument for part of its history, it is ancestral to the wood-topped oud and biwa and the skin-topped Yemeni qanbus.
-Although the original barbat disappeared, modern Iranian luthiers have invented a new instrument, inspired by the Barbat. The modern re-created instrument (Iranian Barbat) resembles the oud, although differences include a smaller body, longer neck, a slightly raised fingerboard, and a sound that is distinct from that of the oud.
+巴爾巴特琴（原名：Barbat (lute)）是一種弦樂器。主要靠弦的振動發聲，常透過撥、拉、彈、擊等方式演奏。
+
+目前可查資料顯示，它與伊朗的音樂文化或演奏傳統有關。
+
+材料與構造是它音色的重要線索；不同材質會讓聲音呈現更明亮、厚實或有共鳴感的差異。
+
+近現代的演出環境也影響了它的使用方式，尤其在錄音、舞台擴音或電子聲響中更容易出現新的變化。
 
 ## 可查證來源
 
-- 圖像檔案：https://upload.wikimedia.org/wikipedia/commons/7/79/Barbat.jpg
-- 主要來源：https://en.wikipedia.org/wiki/Barbat_(lute)
+- Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Barbat_(lute)
+
+- Wikidata ID：Q807780
 
 ## 歷史背景
 
-## Barbat (lute) 的歷史背景
+巴爾巴特琴（Barbat (lute)）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。
 
-此預設條目以 Wikidata/Wikipedia 的公開結構化資料建立。若需要精確年代、地域流變、演奏流派與製作工藝，建議由管理員在後台根據專書或博物館資料補充。
+它可以先放在伊朗相關音樂文化中理解，後續可再補代表樂派、演奏場合與製作工藝。
+
+作為弦樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。 若要深入研究，可優先查找伊朗的博物館、民族音樂學資料或地方樂器圖錄。
+
+弦樂器的歷史常和弦材、共鳴箱、調音方式與演奏技法的演變有關。從民間伴奏到獨奏舞台，許多弦樂器都會因音量需求、音域擴張或樂曲風格改變而改良形制。
+
+閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。
 
 來源：https://en.wikipedia.org/wiki/Barbat_(lute)
 

@@ -11,22 +11,35 @@ wikidata_id: "Q5317665"
 ---
 ## 介紹
 
-# Duxianqin
+# 獨弦琴
 
-The duxianqin is a Chinese plucked string instrument with only one string; it is derived from the Vietnamese đàn bầu. Chinese sources describe duxianqin as being an instrument of the Jing (also spelled Gin or Kinh) ethnic group, who are ethnic Vietnamese living in China. It is still commonly played by this ethnic group. Sometimes the body of the instrument is made from a large tube of bamboo rather than wood, which is more common in Vietnam.
+獨弦琴（原名：Duxianqin）是一種弦樂器。主要靠弦的振動發聲，常透過撥、拉、彈、擊等方式演奏。
+
+目前可查資料顯示，它與中國的音樂文化或演奏傳統有關。
+
+英文資料中特別提到它的使用或演奏情境，因此理解這項樂器時，不只要看外形，也要看它在樂曲、儀式或合奏中的角色。
+
+材料與構造是它音色的重要線索；不同材質會讓聲音呈現更明亮、厚實或有共鳴感的差異。
 
 ## 可查證來源
 
-- 圖像檔案：https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Cmglee_London_Covent_Garden_duxianqin_left.jpg/960px-Cmglee_London_Covent_Garden_duxianqin_left.jpg
-- 主要來源：https://en.wikipedia.org/wiki/Duxianqin
+- Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Duxianqin
+
+- Wikidata ID：Q5317665
 
 ## 歷史背景
 
-## Duxianqin 的歷史背景
+獨弦琴（Duxianqin）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。
 
-此預設條目以 Wikidata/Wikipedia 的公開結構化資料建立。若需要精確年代、地域流變、演奏流派與製作工藝，建議由管理員在後台根據專書或博物館資料補充。
+它可以先放在中國相關音樂文化中理解，後續可再補代表樂派、演奏場合與製作工藝。
 
-來源：https://en.wikipedia.org/wiki/Duxianqin
+作為弦樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。 若要深入研究，可優先查找中國的博物館、民族音樂學資料或地方樂器圖錄。
+
+弦樂器的歷史常和弦材、共鳴箱、調音方式與演奏技法的演變有關。從民間伴奏到獨奏舞台，許多弦樂器都會因音量需求、音域擴張或樂曲風格改變而改良形制。
+
+閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。
+
+來源：https://zh.wikipedia.org/wiki/%E7%8D%A8%E5%BC%A6%E7%90%B4
 
 ## 音色描述
 

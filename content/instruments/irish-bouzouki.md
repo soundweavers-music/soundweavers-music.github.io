@@ -11,21 +11,33 @@ wikidata_id: "Q2660670"
 ---
 ## 介紹
 
-# Irish bouzouki
+# 愛爾蘭布祖基琴
 
-The Irish bouzouki (Irish: búsúcaí) is an adaptation of the Greek bouzouki (Greek: μπουζούκι). The newer Greek tetrachordo bouzouki (4 courses of strings) was introduced into Irish traditional music in the mid-1960s by Johnny Moynihan of the folk group Sweeney's Men, who retuned it from its traditional Greek tuning C³F³A³D⁴ to G²D³A³D⁴, a tuning he had pioneered previously on the mandolin. Alec Finn, first in the Cana Band and subsequently in De Dannan, introduced the first Greek trichordo (3 course) bouzouki into Irish music.
-In the early 1970s, Andy Irvine, who was a member of Sweeney's Men with Johnny Moynihan, gave a Greek tetrachordo bouzouki to Dónal Lunny, who replaced the octave strings on the two lower G and D courses with unison strings, thus reinforcing their lower frequencies. Soon after, on a visit with Irvine to the workshop of luthier Peter Abnett, Lunny commissioned a four-course bouzouki with a three-piece, partially staved back. This was the first bouzouki built specifically for Irish music. Since then, the instrument has been adapted by many instrument builders for Irish traditional and other styles of folk music.
+愛爾蘭布祖基琴（原名：Irish bouzouki）是一種弦樂器。主要靠弦的振動發聲，常透過撥、拉、彈、擊等方式演奏。
+
+目前可查資料顯示，它與愛爾蘭的音樂文化或演奏傳統有關。
+
+材料與構造是它音色的重要線索；不同材質會讓聲音呈現更明亮、厚實或有共鳴感的差異。
+
+它常被放在傳統或民俗音樂脈絡中討論，代表它不只是發聲工具，也承載地方文化記憶。
 
 ## 可查證來源
 
-- 圖像檔案：https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Ashbury_Irish_Bouzouki_Front.jpg/960px-Ashbury_Irish_Bouzouki_Front.jpg
-- 主要來源：https://en.wikipedia.org/wiki/Irish_bouzouki
+- Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Irish_bouzouki
+
+- Wikidata ID：Q2660670
 
 ## 歷史背景
 
-## Irish bouzouki 的歷史背景
+愛爾蘭布祖基琴（Irish bouzouki）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。
 
-此預設條目以 Wikidata/Wikipedia 的公開結構化資料建立。若需要精確年代、地域流變、演奏流派與製作工藝，建議由管理員在後台根據專書或博物館資料補充。
+它可以先放在愛爾蘭相關音樂文化中理解，後續可再補代表樂派、演奏場合與製作工藝。
+
+作為弦樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。 若要深入研究，可優先查找愛爾蘭的博物館、民族音樂學資料或地方樂器圖錄。
+
+弦樂器的歷史常和弦材、共鳴箱、調音方式與演奏技法的演變有關。從民間伴奏到獨奏舞台，許多弦樂器都會因音量需求、音域擴張或樂曲風格改變而改良形制。
+
+閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。
 
 來源：https://en.wikipedia.org/wiki/Irish_bouzouki
 

@@ -11,27 +11,35 @@ wikidata_id: "Q211028"
 ---
 ## 介紹
 
-# Bass drum
+# 大鼓
 
-The bass drum is a large drum that produces a note of low definite or indefinite pitch. The instrument is typically cylindrical, with the drum's diameter usually greater than its depth, with a struck head at both ends of the cylinder. The heads may be made of calfskin or plastic, and there is usually a way to adjust the tension, either by threaded taps or by strings. Bass drums are built in a variety of sizes, but size does not dictate the volume produced by the drum. The pitch and sound can vary significantly with different sizes, but the size is also chosen based on convenience and aesthetics. Bass drums are percussion instruments that vary in size and are used in various musical genres. Three major types of bass drums can be distinguished.
+大鼓（原名：Bass drum）是一種打擊樂器。通常透過敲擊、搖動、摩擦或刮奏產生聲音，常負責節奏與音色層次。
 
-The type usually seen or heard in orchestral, ensemble or concert band music is the orchestral, or concert bass drum (in Italian: gran cassa, gran tamburo). It is the largest drum of the orchestra.
-The kick drum, a term for a bass drum associated with a drum kit, which is much smaller than the above-mentioned bass drum. It is struck with a beater attached to a pedal.
-The pitched bass drum, generally used in marching bands and drum corps, is tuned to a specific pitch and is usually played in a set of three to six drums.
-In many forms of music, the bass drum is used to mark or keep time. The bass drum makes a low, boom sound when the mallet hits the drumhead. In marches, it is used to project tempo (marching bands historically march to the beat of the bass). A basic beat for rock and roll has the bass drum played on the first and third beats of bars in common time, with the snare drum on the second and fourth beats, called backbeats. In jazz, the bass drum can vary from almost entirely being a timekeeping medium to being a melodic voice in conjunction with the other parts of the set.
+目前可查資料顯示，它與義大利的音樂文化或演奏傳統有關。
+
+英文資料中特別提到它的使用或演奏情境，因此理解這項樂器時，不只要看外形，也要看它在樂曲、儀式或合奏中的角色。
+
+材料與構造是它音色的重要線索；不同材質會讓聲音呈現更明亮、厚實或有共鳴感的差異。
 
 ## 可查證來源
 
-- 圖像檔案：https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Gran_cassa.jpg/960px-Gran_cassa.jpg
-- 主要來源：https://en.wikipedia.org/wiki/Bass_drum
+- Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Bass_drum
+
+- Wikidata ID：Q211028
 
 ## 歷史背景
 
-## Bass drum 的歷史背景
+大鼓（Bass drum）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。
 
-此預設條目以 Wikidata/Wikipedia 的公開結構化資料建立。若需要精確年代、地域流變、演奏流派與製作工藝，建議由管理員在後台根據專書或博物館資料補充。
+它可以先放在義大利相關音樂文化中理解，後續可再補代表樂派、演奏場合與製作工藝。
 
-來源：https://en.wikipedia.org/wiki/Bass_drum
+作為打擊樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。 若要深入研究，可優先查找義大利的博物館、民族音樂學資料或地方樂器圖錄。
+
+打擊樂器通常和節奏、信號、祭儀、舞蹈或群體活動關係密切。它們的歷史不一定只寫在樂譜裡，也常出現在節慶、宗教、軍事或地方生活的脈絡中。
+
+閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。
+
+來源：https://zh.wikipedia.org/wiki/%E5%A4%A7%E9%BC%93
 
 ## 音色描述
 

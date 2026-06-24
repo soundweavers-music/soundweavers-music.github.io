@@ -11,73 +11,29 @@ wikidata_id: "Q5280487"
 ---
 ## 介紹
 
-# Directly struck membranophones
+# 直击式膜鸣乐器
 
-Directly struck membranophones is one of the sub-categories of musical instruments found in the Hornbostel-Sachs system of musical instrument classification. The type of membranophones or drums found in this group are those instruments that produce sound when struck directly by the performer. The membrane of these drums is hit with a stick, the hand, or something else. Drums that produce sound by means of plucking an attached string or by means of friction are grouped in a different category.
+直击式膜鸣乐器（原名：Directly struck membranophones）是一種打擊樂器。通常透過敲擊、搖動、摩擦或刮奏產生聲音，常負責節奏與音色層次。
 
-211.1 Instruments in which the body of the drum is dish- or bowl-shaped (kettle drums)
-211.11 Single instruments
-211.12 Sets of instruments
-211.2 Instruments in which the body is tubular (tubular drums)
-211.21 Instruments in which the body has the same diameter at the middle and end (cylindrical drums)
-211.211 Instruments which have only one usable membrane
-211.211.1 Instruments in which the end without a membrane is open
-211.211.2 Instruments in which the end without a membrane is closed
-211.212 Instruments which have two usable membranes
-211.212.1 Single instruments
-211.212.2 Sets of instruments
-211.22 Instruments in which the body is barrel-shaped (barrel drums)
-211.221 Instruments which have only one usable membrane
-211.221.1 Instruments in which the end without a membrane is open
-211.221.2 Instruments in which the end without a membrane is closed
-211.222 Instruments which have two usable membranes
-211.222.1 Single instruments
-211.222.2 Sets of instruments
-211.23 Instruments in which the body is double-conical
-211.231 Instruments which have only one usable membrane
-211.231.1 Instruments in which the end without a membrane is open
-211.231.2 Instruments in which the end without a membrane is closed
-211.232 Instruments which have two usable membranes
-211.232.1 Single instruments
-211.232.2 Sets of instruments
-211.24 Instruments in which the body is hourglass-shaped
-211.241 Instruments which have only one usable membrane
-211.241.1 Instruments in which the end without a membrane is open
-211.241.2 Instruments in which the end without a membrane is closed
-211.242 Instruments which have two usable membranes
-211.242.1 Single instruments
-211.242.2 Sets of instruments
-211.25 Instruments in which the body is conical-shaped (conical drums)
-211.251 Instruments which have only one usable membrane
-211.251.1 Instruments in which the end without a membrane is open
-211.251.2 Instruments in which the end without a membrane is closed
-211.252 Instruments which have two usable membranes
-211.252.1 Single instruments
-211.252.2 Sets of instruments
-211.26 Instruments in which the body is goblet-shaped (goblet drums)
-211.261 Instruments which have only one usable membrane
-211.261.1 Instruments in which the end without a membrane is open
-211.261.2 Instruments in which the end without a membrane is closed
-211.262 Instruments which have two usable membranes
-211.262.1 Single instruments
-211.262.2 Sets of instruments
-211.3 Instruments in which the body depth is not greater than the radius of the membrane (frame drums)
-211.31 Instruments which do not have a handle
-211.311 Instruments which have only one usable membrane
-211.312 Instruments which have two usable membranes
-211.32 Instruments which have a handle
-211.321 Instruments which have only one usable membrane
-211.322 Instruments which have two usable membranes
+英文資料中特別提到它的使用或演奏情境，因此理解這項樂器時，不只要看外形，也要看它在樂曲、儀式或合奏中的角色。
+
+材料與構造是它音色的重要線索；不同材質會讓聲音呈現更明亮、厚實或有共鳴感的差異。
 
 ## 可查證來源
 
-- 主要來源：https://en.wikipedia.org/wiki/Directly_struck_membranophones
+- Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Directly_struck_membranophones
+
+- Wikidata ID：Q5280487
 
 ## 歷史背景
 
-## Directly struck membranophones 的歷史背景
+直击式膜鸣乐器（Directly struck membranophones）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。
 
-此預設條目以 Wikidata/Wikipedia 的公開結構化資料建立。若需要精確年代、地域流變、演奏流派與製作工藝，建議由管理員在後台根據專書或博物館資料補充。
+作為打擊樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。
+
+打擊樂器通常和節奏、信號、祭儀、舞蹈或群體活動關係密切。它們的歷史不一定只寫在樂譜裡，也常出現在節慶、宗教、軍事或地方生活的脈絡中。
+
+閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。
 
 來源：https://en.wikipedia.org/wiki/Directly_struck_membranophones
 

@@ -11,21 +11,27 @@ wikidata_id: "Q935171"
 ---
 ## 介紹
 
-# Semi-acoustic guitar
+# Semi-原聲吉他
 
-A semi-acoustic guitar, also known as a hollow-body electric guitar, is a type of electric guitar designed to be played with a guitar amplifier featuring a fully or partly hollow body and at least one electromagnetic pickup. First created in the 1930s, they became popular in jazz and blues, where they remain widely used, and the early period of rock & roll, though they were later largely supplanted by solid-body electric guitars in rock.
-They differ from an acoustic-electric guitar, which is an acoustic guitar that has been fitted with some means of amplification to increase volume without changing the instrument's tone.
+Semi-原聲吉他（原名：Semi-acoustic guitar）是一種弦樂器。主要靠弦的振動發聲，常透過撥、拉、彈、擊等方式演奏。
+
+英文資料中特別提到它的使用或演奏情境，因此理解這項樂器時，不只要看外形，也要看它在樂曲、儀式或合奏中的角色。
 
 ## 可查證來源
 
-- 圖像檔案：https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Gibson_ES-150.png/960px-Gibson_ES-150.png
-- 主要來源：https://en.wikipedia.org/wiki/Semi-acoustic_guitar
+- Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Semi-acoustic_guitar
+
+- Wikidata ID：Q935171
 
 ## 歷史背景
 
-## Semi-acoustic guitar 的歷史背景
+Semi-原聲吉他（Semi-acoustic guitar）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。
 
-此預設條目以 Wikidata/Wikipedia 的公開結構化資料建立。若需要精確年代、地域流變、演奏流派與製作工藝，建議由管理員在後台根據專書或博物館資料補充。
+作為弦樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。
+
+弦樂器的歷史常和弦材、共鳴箱、調音方式與演奏技法的演變有關。從民間伴奏到獨奏舞台，許多弦樂器都會因音量需求、音域擴張或樂曲風格改變而改良形制。
+
+閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。
 
 來源：https://en.wikipedia.org/wiki/Semi-acoustic_guitar
 

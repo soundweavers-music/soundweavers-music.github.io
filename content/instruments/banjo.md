@@ -11,24 +11,41 @@ wikidata_id: "Q258896"
 ---
 ## 介紹
 
-# Banjo
+# 班卓琴
 
-The banjo is a stringed instrument with a thin membrane stretched over a frame or cavity to form a resonator. The membrane is typically circular, and in modern forms is usually made of BOPET, where early membranes were made of goat skin.
-Early forms of the instrument were fashioned by African Americans and had African antecedents, and the instrument was strongly associated with black people. In the 19th century, interest in the instrument was spread across the United States and United Kingdom by traveling shows of the highly popular traveling blackface minstrel shows, followed by mass production and mail-order sales, including instructional books. The inexpensive or home-made banjo remained part of rural folk culture, but five-string and four-string banjos also became popular for home parlor music entertainment, college music clubs, and early 20th century jazz bands. By the early 20th century, the banjo was most frequently associated with folk, cowboy music, and country music.
-By mid-century it had come to be strongly associated with bluegrass. Eventually it began to be employed occasionally and sporadically in various kinds or other kinds of popular music. Some famous American bluegrass players of the banjo are Ralph Stanley and Earl Scruggs.
-Historically, the banjo occupied a central place in Black American traditional music and rural folk culture before entering the mainstream via the minstrel shows of the 19th century. Along with the fiddle, the banjo is a mainstay of American styles of music, such as bluegrass and old-time music. It is also very frequently used in Dixieland jazz, as well as in Caribbean genres like biguine, calypso, mento and twoubadou.
+班卓琴（原名：Banjo）是一種弦樂器。主要靠弦的振動發聲，常透過撥、拉、彈、擊等方式演奏。
+
+目前可查資料顯示，它與非洲的音樂文化或演奏傳統有關。
+
+若從年代脈絡看，這項樂器可先放在「19 世紀」中理解。
+
+英文資料中特別提到它的使用或演奏情境，因此理解這項樂器時，不只要看外形，也要看它在樂曲、儀式或合奏中的角色。
+
+材料與構造是它音色的重要線索；不同材質會讓聲音呈現更明亮、厚實或有共鳴感的差異。
+
+它常被放在傳統或民俗音樂脈絡中討論，代表它不只是發聲工具，也承載地方文化記憶。
 
 ## 可查證來源
 
-- 主要來源：https://en.wikipedia.org/wiki/Banjo
+- Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Banjo
+
+- Wikidata ID：Q258896
 
 ## 歷史背景
 
-## Banjo 的歷史背景
+班卓琴（Banjo）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。
 
-此預設條目以 Wikidata/Wikipedia 的公開結構化資料建立。若需要精確年代、地域流變、演奏流派與製作工藝，建議由管理員在後台根據專書或博物館資料補充。
+它可以先放在非洲相關音樂文化中理解，後續可再補代表樂派、演奏場合與製作工藝。
 
-來源：https://en.wikipedia.org/wiki/Banjo
+年代線索暫時指向「19 世紀」，可作為閱讀時的時間定位。
+
+作為弦樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。 若要深入研究，可優先查找非洲的博物館、民族音樂學資料或地方樂器圖錄。 「19 世紀」可作為初步年代標籤，但實際流傳時間仍應以專門資料校正。
+
+弦樂器的歷史常和弦材、共鳴箱、調音方式與演奏技法的演變有關。從民間伴奏到獨奏舞台，許多弦樂器都會因音量需求、音域擴張或樂曲風格改變而改良形制。
+
+閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。
+
+來源：https://zh.wikipedia.org/wiki/%E7%8F%AD%E5%8D%93%E7%90%B4
 
 ## 音色描述
 

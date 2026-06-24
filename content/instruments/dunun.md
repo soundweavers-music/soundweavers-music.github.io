@@ -11,28 +11,35 @@ wikidata_id: "Q3511343"
 ---
 ## 介紹
 
-# Dunun
+# 杜农鼓
 
-Dunun (Malinké: [ˈdu.nun]; plural dunun) (also spelled dundun or doundoun) is the generic name for a family of West African drums that have developed alongside the djembe in the Mande drum ensemble.
-A dunun is a rope-tuned cylindrical drum with a rawhide skin at both ends, most commonly cow or goat. The drum is played with a stick. Depending on the region, a plain straight stick, curved stick with flat head (similar to the stick used for a tama), or a straight stick with a cylindrical head attached at right angles near one end may be used to strike the skin.
-Traditionally, the drum is played horizontally (placed on a stand or worn with a shoulder strap). For a right-handed player, the right hand plays the skin and the left hand optionally plays a bell that may be mounted on top of the drum or held in the left hand. The latter style is popular in Mali and originally from the Khassonké people.
-Three different sizes of dunun are commonly played in West Africa.
+杜农鼓（原名：Dunun）是一種打擊樂器。通常透過敲擊、搖動、摩擦或刮奏產生聲音，常負責節奏與音色層次。
 
-The dundunba (also spelled dununba) is the largest dunun and has the lowest pitch. Typical size is 60–70 cm (24–28 in) in length and 40–50 cm (16–20 in) in diameter. "Ba" means "big" in the Malinké language, so "dundunba" literally means "big dunun".
-The sangban is of medium size, with higher pitch than the dundunba. Typical size is 50–60 cm (20–24 in) in length and 30–40 cm (12–16 in) in diameter.
-The kenkeni is the smallest dunun and has the highest pitch. Typical size is 45–50 cm (18–20 in) in length and 25–35 cm (9.8–13.8 in) in diameter.
-Dunun are always played in an ensemble with one or more djembes.
+目前可查資料顯示，它與非洲的音樂文化或演奏傳統有關。
+
+英文資料中特別提到它的使用或演奏情境，因此理解這項樂器時，不只要看外形，也要看它在樂曲、儀式或合奏中的角色。
+
+材料與構造是它音色的重要線索；不同材質會讓聲音呈現更明亮、厚實或有共鳴感的差異。
+
+它常被放在傳統或民俗音樂脈絡中討論，代表它不只是發聲工具，也承載地方文化記憶。
 
 ## 可查證來源
 
-- 圖像檔案：https://upload.wikimedia.org/wikipedia/en/thumb/4/49/Dundun.JPG/960px-Dundun.JPG
-- 主要來源：https://en.wikipedia.org/wiki/Dunun
+- Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Dunun
+
+- Wikidata ID：Q3511343
 
 ## 歷史背景
 
-## Dunun 的歷史背景
+杜农鼓（Dunun）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。
 
-此預設條目以 Wikidata/Wikipedia 的公開結構化資料建立。若需要精確年代、地域流變、演奏流派與製作工藝，建議由管理員在後台根據專書或博物館資料補充。
+它可以先放在非洲相關音樂文化中理解，後續可再補代表樂派、演奏場合與製作工藝。
+
+作為打擊樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。 若要深入研究，可優先查找非洲的博物館、民族音樂學資料或地方樂器圖錄。
+
+打擊樂器通常和節奏、信號、祭儀、舞蹈或群體活動關係密切。它們的歷史不一定只寫在樂譜裡，也常出現在節慶、宗教、軍事或地方生活的脈絡中。
+
+閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。
 
 來源：https://en.wikipedia.org/wiki/Dunun
 

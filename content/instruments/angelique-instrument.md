@@ -11,21 +11,35 @@ wikidata_id: "Q356330"
 ---
 ## 介紹
 
-# Angélique (instrument)
+# Angélique (instrument)（暫譯）
 
-The angélique (French, from Italian angelica) is a plucked string instrument of the lute family of the baroque era. It combines features of the lute, the harp, and the theorbo.
-Like the lute, it has a pear-shaped body and vibrating string lengths ranging from 54 to 70 cm. Differing from the lute, the 16 string angelica was single-strung like a theorbo, with which it shares its extended neck with a second peg box, bearing six bass strings.
+Angélique (instrument)（暫譯）（原名：Angélique (instrument)）是一種弦樂器。主要靠弦的振動發聲，常透過撥、拉、彈、擊等方式演奏。
+
+目前可查資料顯示，它與法國的音樂文化或演奏傳統有關。
+
+若從年代脈絡看，這項樂器可先放在「巴洛克」中理解。
+
+材料與構造是它音色的重要線索；不同材質會讓聲音呈現更明亮、厚實或有共鳴感的差異。
 
 ## 可查證來源
 
-- 圖像檔案：https://upload.wikimedia.org/wikipedia/commons/1/19/Ang%C3%A9lique_Bonnard-Robert_.jpeg
-- 主要來源：https://en.wikipedia.org/wiki/Ang%C3%A9lique_(instrument)
+- Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Ang%C3%A9lique_(instrument)
+
+- Wikidata ID：Q356330
 
 ## 歷史背景
 
-## Angélique (instrument) 的歷史背景
+Angélique (instrument)（暫譯）（Angélique (instrument)）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。
 
-此預設條目以 Wikidata/Wikipedia 的公開結構化資料建立。若需要精確年代、地域流變、演奏流派與製作工藝，建議由管理員在後台根據專書或博物館資料補充。
+它可以先放在法國相關音樂文化中理解，後續可再補代表樂派、演奏場合與製作工藝。
+
+年代線索暫時指向「巴洛克」，可作為閱讀時的時間定位。
+
+作為弦樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。 若要深入研究，可優先查找法國的博物館、民族音樂學資料或地方樂器圖錄。 「巴洛克」可作為初步年代標籤，但實際流傳時間仍應以專門資料校正。
+
+弦樂器的歷史常和弦材、共鳴箱、調音方式與演奏技法的演變有關。從民間伴奏到獨奏舞台，許多弦樂器都會因音量需求、音域擴張或樂曲風格改變而改良形制。
+
+閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。
 
 來源：https://en.wikipedia.org/wiki/Ang%C3%A9lique_(instrument)
 

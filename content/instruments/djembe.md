@@ -11,26 +11,37 @@ wikidata_id: "Q537750"
 ---
 ## 介紹
 
-# Djembe
+# 金贝鼓
 
-A djembe or jembe ( JEM-bay; from Malinke jembe [dʲẽbe], N'Ko: ߖߋ߲߰ߓߋ) is a rope-tuned, skin-covered goblet drum played with bare hands from the Sabar family, originally from Senegal that is widely used in West Africa.
-According to the Bambara people in Mali, the name "djembe" comes from the saying "Anke djé, anke bé," which translates to "everyone gather together in peace" and defines the drum's purpose. In the Bambara language, "djé" is the verb for "gather" and "bé" translates as "peace."
-The djembe has a body (or shell) carved of hardwood and a drumhead made of untreated (not limed) rawhide, most commonly made from goatskin. Excluding rings, djembes have an exterior diameter of 30–38 cm (12–15 in) and a height of 58–63 cm (23–25 in). The majority have a diameter in the 13 to 14 inch range. The weight of a djembe ranges from 5 kg to 13 kg (11–29 lbs.) and depends on size and shell material. A medium-size djembe carved from one of the traditional woods (including skin, rings, and rope) weighs around 9 kg (20 lbs.).
-The djembe can produce a wide variety of sounds, making it an extremely versatile drum. The drum is very loud, allowing it to be heard clearly as a solo instrument over a large percussion ensemble. The Mandinka people say that a skilled drummer is one who "can make the djembe talk", meaning that the player can tell an emotional story (the Malinké never used the djembe as a signaling drum).
-Traditionally, the djembe is played only by men, as are the dunun that always accompany the djembe. Conversely, other percussion instruments that are commonly played as part of an ensemble, such as the shekere (a hollowed-out gourd covered with a net of beads), karignan (a tubular bell), and kese kese (a woven basket rattle), are usually played by women. Even today, it is rare to see women play djembe or dunun in West Africa, and African women express astonishment when they do see a female djembe player.
+金贝鼓（原名：Djembe）是一種打擊樂器。通常透過敲擊、搖動、摩擦或刮奏產生聲音，常負責節奏與音色層次。
+
+目前可查資料顯示，它與非洲的音樂文化或演奏傳統有關。
+
+英文資料中特別提到它的使用或演奏情境，因此理解這項樂器時，不只要看外形，也要看它在樂曲、儀式或合奏中的角色。
+
+材料與構造是它音色的重要線索；不同材質會讓聲音呈現更明亮、厚實或有共鳴感的差異。
+
+它常被放在傳統或民俗音樂脈絡中討論，代表它不只是發聲工具，也承載地方文化記憶。
 
 ## 可查證來源
 
-- 圖像檔案：https://upload.wikimedia.org/wikipedia/commons/6/60/Lenke_djembe_from_Mali.jpeg
-- 主要來源：https://en.wikipedia.org/wiki/Djembe
+- Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Djembe
+
+- Wikidata ID：Q537750
 
 ## 歷史背景
 
-## Djembe 的歷史背景
+金贝鼓（Djembe）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。
 
-此預設條目以 Wikidata/Wikipedia 的公開結構化資料建立。若需要精確年代、地域流變、演奏流派與製作工藝，建議由管理員在後台根據專書或博物館資料補充。
+它可以先放在非洲相關音樂文化中理解，後續可再補代表樂派、演奏場合與製作工藝。
 
-來源：https://en.wikipedia.org/wiki/Djembe
+作為打擊樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。 若要深入研究，可優先查找非洲的博物館、民族音樂學資料或地方樂器圖錄。
+
+打擊樂器通常和節奏、信號、祭儀、舞蹈或群體活動關係密切。它們的歷史不一定只寫在樂譜裡，也常出現在節慶、宗教、軍事或地方生活的脈絡中。
+
+閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。
+
+來源：https://zh.wikipedia.org/wiki/%E9%87%91%E8%B4%9D%E9%BC%93
 
 ## 音色描述
 

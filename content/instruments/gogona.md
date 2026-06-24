@@ -11,25 +11,35 @@ wikidata_id: "Q3913027"
 ---
 ## 介紹
 
-# Gogona
+# Gogona（暫譯）
 
-The gogona is a jaw harp, a vibrating reed instrument that is used primarily in the traditional Bihu music in Assam, India. In Boro language, it is known as Gongina.. Similar bamboo mouth harp is seen among other Sino-tibetan tribes like Kiranti people of Nepal, Bugun, Yi people, Tripuri people, etc. It is made of a piece of bamboo/horn that has a bifurcation on one end. The solid end is gripped with the teeth and the free ends are then struck repeatedly with the fingers to emit the distinctive sound of the gogona.
+Gogona（暫譯）（原名：Gogona）是一種打擊樂器。通常透過敲擊、搖動、摩擦或刮奏產生聲音，常負責節奏與音色層次。
 
-There are two main types of gogona:
+目前可查資料顯示，它與印度的音樂文化或演奏傳統有關。
 
-Ramdhan Gogona : This type is played by men. It is designed to be shorter, wider, and slightly heavier to fit properly in a man's hand. Traditionally, it is often tucked into a tongali (waist tie) or a gamusa (head cloth) while performing.
-Lahori Gogona : Crafted to fit a woman's hand, the Lahori Gogona is slightly slimmer and longer than the Ramdhan Gogona. Women typically tuck it into their hair knot while dancing Bihu. During Bihu celebrations, women are often seen adorning the Lahori Gogona as a hairpin, especially in the initial stages of the festivities when they dance to the rhythms of the dhol and pepa drums.
+英文資料中特別提到它的使用或演奏情境，因此理解這項樂器時，不只要看外形，也要看它在樂曲、儀式或合奏中的角色。
+
+材料與構造是它音色的重要線索；不同材質會讓聲音呈現更明亮、厚實或有共鳴感的差異。
+
+它常被放在傳統或民俗音樂脈絡中討論，代表它不只是發聲工具，也承載地方文化記憶。
 
 ## 可查證來源
 
-- 圖像檔案：https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/%E0%A6%97%E0%A6%97%E0%A6%A3%E0%A6%BE.JPG/960px-%E0%A6%97%E0%A6%97%E0%A6%A3%E0%A6%BE.JPG
-- 主要來源：https://en.wikipedia.org/wiki/Gogona
+- Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Gogona
+
+- Wikidata ID：Q3913027
 
 ## 歷史背景
 
-## Gogona 的歷史背景
+Gogona（暫譯）（Gogona）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。
 
-此預設條目以 Wikidata/Wikipedia 的公開結構化資料建立。若需要精確年代、地域流變、演奏流派與製作工藝，建議由管理員在後台根據專書或博物館資料補充。
+它可以先放在印度相關音樂文化中理解，後續可再補代表樂派、演奏場合與製作工藝。
+
+作為打擊樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。 若要深入研究，可優先查找印度的博物館、民族音樂學資料或地方樂器圖錄。
+
+打擊樂器通常和節奏、信號、祭儀、舞蹈或群體活動關係密切。它們的歷史不一定只寫在樂譜裡，也常出現在節慶、宗教、軍事或地方生活的脈絡中。
+
+閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。
 
 來源：https://en.wikipedia.org/wiki/Gogona
 

@@ -11,22 +11,29 @@ wikidata_id: "Q471918"
 ---
 ## 介紹
 
-# Pong lang
+# Pong lang（暫譯）
 
-The pong lang (Thai: โปงลาง, RTGS: ponglang, Thai pronunciation: [pōːŋ.lāːŋ]) is a xylophone from the Isan region of northeast Thailand. The instrument may be played as a standalone instrument, in pairs with one player playing melody and the other harmonizing, or as part of an orchestra. Players use carved two hardwood mallets.
-The instrument is not standardized and the number of tone bars and their size can vary. Unlike the ranat ek lek and ranat thum lek which are strung over a box, the pong lang is hung from a post or tree with the string of tone bars arcing down toward the ground. wide to short. The number of tone bars varies, and 12 or 15 tone bars may make up a set. The wider bars with lower pitch sit at the top of the string and the other end (with smaller high-pitched bars) may be hooked to the player's toe or to a belt around the player's waist.
-When there are two performers, they may sit on opposite sides of the post, facing one another. With two instruments, one plays the melody, the other plays a drone accompaniment or harmonics. The pong lang is mostly used for many occasions, especially for festivals and ceremonies. The instrument can be played solo or in an ensemble.
+Pong lang（暫譯）（原名：Pong lang）是一種打擊樂器。通常透過敲擊、搖動、摩擦或刮奏產生聲音，常負責節奏與音色層次。
+
+英文資料中特別提到它的使用或演奏情境，因此理解這項樂器時，不只要看外形，也要看它在樂曲、儀式或合奏中的角色。
+
+材料與構造是它音色的重要線索；不同材質會讓聲音呈現更明亮、厚實或有共鳴感的差異。
 
 ## 可查證來源
 
-- 圖像檔案：https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Pong_lang_%28Thai_xylophone%29.jpg/960px-Pong_lang_%28Thai_xylophone%29.jpg
-- 主要來源：https://en.wikipedia.org/wiki/Pong_lang
+- Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Pong_lang
+
+- Wikidata ID：Q471918
 
 ## 歷史背景
 
-## Pong lang 的歷史背景
+Pong lang（暫譯）（Pong lang）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。
 
-此預設條目以 Wikidata/Wikipedia 的公開結構化資料建立。若需要精確年代、地域流變、演奏流派與製作工藝，建議由管理員在後台根據專書或博物館資料補充。
+作為打擊樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。
+
+打擊樂器通常和節奏、信號、祭儀、舞蹈或群體活動關係密切。它們的歷史不一定只寫在樂譜裡，也常出現在節慶、宗教、軍事或地方生活的脈絡中。
+
+閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。
 
 來源：https://en.wikipedia.org/wiki/Pong_lang
 

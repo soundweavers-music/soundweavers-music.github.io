@@ -11,23 +11,31 @@ wikidata_id: "Q42890140"
 ---
 ## 介紹
 
-# Reed (mouthpiece)
+# 簧片
 
-A reed (or lamella) is a thin strip of material that vibrates to produce a sound on a musical instrument. Most woodwind instrument reeds are made from Arundo donax ("Giant cane") or synthetic material. Tuned reeds (as in harmonicas and accordions) are made of metal or synthetics. Musical instruments are classified according to the type and number of reeds.
-The earliest types of single-reed instruments used idioglottal reeds, where the vibrating reed is a tongue cut and shaped on the tube of cane. Much later, single-reed instruments started using heteroglottal reeds, which are cut and separated from the tube of cane and attached to some type of mouthpiece. By contrast, in an uncapped double reed instrument (such as the oboe and bassoon), there is no mouthpiece; the two parts of the reed vibrate against one another.
+簧片（原名：Reed (mouthpiece)）是一種打擊樂器。通常透過敲擊、搖動、摩擦或刮奏產生聲音，常負責節奏與音色層次。
+
+英文資料中特別提到它的使用或演奏情境，因此理解這項樂器時，不只要看外形，也要看它在樂曲、儀式或合奏中的角色。
+
+材料與構造是它音色的重要線索；不同材質會讓聲音呈現更明亮、厚實或有共鳴感的差異。
 
 ## 可查證來源
 
-- 圖像檔案：https://upload.wikimedia.org/wikipedia/commons/6/65/Saxophone_reeds-alto%2C_tenor.jpeg
-- 主要來源：https://en.wikipedia.org/wiki/Reed_(mouthpiece)
+- Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Reed_(mouthpiece)
+
+- Wikidata ID：Q42890140
 
 ## 歷史背景
 
-## Reed (mouthpiece) 的歷史背景
+簧片（Reed (mouthpiece)）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。
 
-此預設條目以 Wikidata/Wikipedia 的公開結構化資料建立。若需要精確年代、地域流變、演奏流派與製作工藝，建議由管理員在後台根據專書或博物館資料補充。
+作為打擊樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。
 
-來源：https://en.wikipedia.org/wiki/Reed_(mouthpiece)
+打擊樂器通常和節奏、信號、祭儀、舞蹈或群體活動關係密切。它們的歷史不一定只寫在樂譜裡，也常出現在節慶、宗教、軍事或地方生活的脈絡中。
+
+閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。
+
+來源：https://zh.wikipedia.org/wiki/%E7%B0%A7%E7%89%87
 
 ## 音色描述
 
