@@ -193,48 +193,57 @@ def build_index(instruments):
         <div><strong>{len(eras)}</strong><span>年代</span></div>
       </section>
 
-      <section class="section">
-        <div class="section-heading"><h2>下拉式分類</h2><span id="dropdown-count" class="section-note"></span></div>
-        <div class="dropdown-browser">
-          <label>
-            <span>分類</span>
-            <select id="filter-category"><option value="">全部分類</option></select>
-          </label>
-          <label>
-            <span>旅圖</span>
-            <select id="filter-journey"><option value="">全部旅圖</option></select>
-          </label>
-          <label>
-            <span>發聲</span>
-            <select id="filter-sound"><option value="">全部發聲</option></select>
-          </label>
-          <label>
-            <span>國家/地區</span>
-            <select id="filter-country"><option value="">全部國家/地區</option></select>
-          </label>
-          <label>
-            <span>年代</span>
-            <select id="filter-era"><option value="">全部年代</option></select>
-          </label>
-          <button id="filter-reset" type="button">重設</button>
-        </div>
-        <div id="dropdown-results" class="dropdown-results"></div>
+      <section class="view-switch" aria-label="瀏覽模式">
+        <button id="mode-dropdown" class="is-active" type="button">下拉式分類</button>
+        <button id="mode-cards" type="button">卡片分類</button>
       </section>
 
-      <section class="section">
-        <div class="section-heading"><h2>分類瀏覽</h2><a href="{site_url('/categories/')}">全部分類</a></div>
-        <div class="facet-grid">{category_links}</div>
-      </section>
+      <div id="dropdown-mode" class="browse-mode">
+        <section class="section">
+          <div class="section-heading"><h2>下拉式分類</h2><span id="dropdown-count" class="section-note"></span></div>
+          <div class="dropdown-browser">
+            <label>
+              <span>分類</span>
+              <select id="filter-category"><option value="">全部分類</option></select>
+            </label>
+            <label>
+              <span>旅圖</span>
+              <select id="filter-journey"><option value="">全部旅圖</option></select>
+            </label>
+            <label>
+              <span>發聲</span>
+              <select id="filter-sound"><option value="">全部發聲</option></select>
+            </label>
+            <label>
+              <span>國家/地區</span>
+              <select id="filter-country"><option value="">全部國家/地區</option></select>
+            </label>
+            <label>
+              <span>年代</span>
+              <select id="filter-era"><option value="">全部年代</option></select>
+            </label>
+            <button id="filter-reset" type="button">重設</button>
+          </div>
+          <div id="dropdown-results" class="dropdown-results"></div>
+        </section>
+      </div>
 
-      <section class="section">
-        <div class="section-heading"><h2>旅圖瀏覽</h2><a href="{site_url('/journeys/')}">全部旅圖</a></div>
-        <div class="facet-grid">{journey_links}</div>
-      </section>
+      <div id="card-mode" class="browse-mode" hidden>
+        <section class="section">
+          <div class="section-heading"><h2>分類瀏覽</h2><a href="{site_url('/categories/')}">全部分類</a></div>
+          <div class="facet-grid">{category_links}</div>
+        </section>
 
-      <section class="section">
-        <div class="section-heading"><h2>樂器條目</h2><a href="{site_url('/instruments/')}">查看全部</a></div>
-        <div class="instrument-grid">{sample_cards}</div>
-      </section>
+        <section class="section">
+          <div class="section-heading"><h2>旅圖瀏覽</h2><a href="{site_url('/journeys/')}">全部旅圖</a></div>
+          <div class="facet-grid">{journey_links}</div>
+        </section>
+
+        <section class="section">
+          <div class="section-heading"><h2>樂器條目</h2><a href="{site_url('/instruments/')}">查看全部</a></div>
+          <div class="instrument-grid">{sample_cards}</div>
+        </section>
+      </div>
     </main>
     """
     write(OUTPUT_DIR / "index.html", page("首頁", body))
@@ -336,6 +345,10 @@ h2 { margin:0; }
 .stats div,.facet-card,.instrument-card { border:1px solid var(--line); background:#fff; border-radius:8px; padding:16px; }
 .stats strong { display:block; font-size:26px; }
 .stats span,.facet-card span,.instrument-card span,.instrument-card small { color:var(--muted); }
+.view-switch { display:flex; flex-wrap:wrap; gap:8px; margin:10px 0 0; }
+.view-switch button { min-height:40px; border:1px solid var(--line); border-radius:7px; padding:0 16px; background:#fff; color:var(--ink); font-weight:800; cursor:pointer; }
+.view-switch button.is-active { border-color:var(--accent); background:var(--accent); color:#fff; }
+.browse-mode[hidden] { display:none !important; }
 .section { margin-top:38px; }
 .section-heading { display:flex; justify-content:space-between; align-items:end; margin-bottom:16px; }
 .section-heading a { color:var(--blue); font-weight:700; text-decoration:none; }
@@ -348,6 +361,7 @@ h2 { margin:0; }
 .dropdown-results { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin-top:12px; }
 .dropdown-results a strong,.search-results a strong { display:block; margin-bottom:4px; }
 .dropdown-results a span,.search-results a span { color:var(--muted); font-size:13px; line-height:1.45; }
+.dropdown-results a small,.search-results a small { display:block; margin-top:4px; color:#667085; font-size:12px; line-height:1.45; }
 .facet-grid,.instrument-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; }
 .facet-card,.instrument-card { display:flex; min-height:112px; flex-direction:column; gap:8px; text-decoration:none; }
 .instrument-card strong { font-size:18px; }
@@ -394,6 +408,10 @@ const input = document.getElementById('site-search');
 const results = document.getElementById('search-results');
 const dropdownResults = document.getElementById('dropdown-results');
 const dropdownCount = document.getElementById('dropdown-count');
+const modeDropdown = document.getElementById('mode-dropdown');
+const modeCards = document.getElementById('mode-cards');
+const dropdownMode = document.getElementById('dropdown-mode');
+const cardMode = document.getElementById('card-mode');
 const filterControls = {{
   category: document.getElementById('filter-category'),
   journey: document.getElementById('filter-journey'),
@@ -410,9 +428,25 @@ function appendResult(container, item) {{
   title.textContent = item.title;
   const meta = document.createElement('span');
   meta.textContent = `${{item.original_name}} · ${{item.category}} · ${{item.country}} · ${{item.era}}`;
+  const details = document.createElement('small');
+  details.textContent = [item.journey, item.sound_class, item.family, item.playing_method].filter(Boolean).join(' · ');
   link.append(title, meta);
+  if (details.textContent) link.append(details);
   container.append(link);
 }}
+
+function setBrowseMode(mode) {{
+  if (!dropdownMode || !cardMode || !modeDropdown || !modeCards) return;
+  const useDropdown = mode !== 'cards';
+  dropdownMode.hidden = !useDropdown;
+  cardMode.hidden = useDropdown;
+  modeDropdown.classList.toggle('is-active', useDropdown);
+  modeCards.classList.toggle('is-active', !useDropdown);
+}}
+
+modeDropdown?.addEventListener('click', () => setBrowseMode('dropdown'));
+modeCards?.addEventListener('click', () => setBrowseMode('cards'));
+setBrowseMode('dropdown');
 
 if (input && results) {{
   input.addEventListener('input', () => {{
@@ -456,7 +490,7 @@ function renderDropdownResults() {{
   const filters = selectedFilters();
   const hits = SEARCH_INDEX.filter(item => Object.entries(filters).every(([field, value]) => !value || item[field] === value));
   if (dropdownCount) dropdownCount.textContent = `${{hits.length}} 筆`;
-  for (const item of hits.slice(0, 60)) {{
+  for (const item of hits) {{
     appendResult(dropdownResults, item);
   }}
 }}

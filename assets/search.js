@@ -3,6 +3,10 @@ const input = document.getElementById('site-search');
 const results = document.getElementById('search-results');
 const dropdownResults = document.getElementById('dropdown-results');
 const dropdownCount = document.getElementById('dropdown-count');
+const modeDropdown = document.getElementById('mode-dropdown');
+const modeCards = document.getElementById('mode-cards');
+const dropdownMode = document.getElementById('dropdown-mode');
+const cardMode = document.getElementById('card-mode');
 const filterControls = {
   category: document.getElementById('filter-category'),
   journey: document.getElementById('filter-journey'),
@@ -19,9 +23,25 @@ function appendResult(container, item) {
   title.textContent = item.title;
   const meta = document.createElement('span');
   meta.textContent = `${item.original_name} · ${item.category} · ${item.country} · ${item.era}`;
+  const details = document.createElement('small');
+  details.textContent = [item.journey, item.sound_class, item.family, item.playing_method].filter(Boolean).join(' · ');
   link.append(title, meta);
+  if (details.textContent) link.append(details);
   container.append(link);
 }
+
+function setBrowseMode(mode) {
+  if (!dropdownMode || !cardMode || !modeDropdown || !modeCards) return;
+  const useDropdown = mode !== 'cards';
+  dropdownMode.hidden = !useDropdown;
+  cardMode.hidden = useDropdown;
+  modeDropdown.classList.toggle('is-active', useDropdown);
+  modeCards.classList.toggle('is-active', !useDropdown);
+}
+
+modeDropdown?.addEventListener('click', () => setBrowseMode('dropdown'));
+modeCards?.addEventListener('click', () => setBrowseMode('cards'));
+setBrowseMode('dropdown');
 
 if (input && results) {
   input.addEventListener('input', () => {
@@ -65,7 +85,7 @@ function renderDropdownResults() {
   const filters = selectedFilters();
   const hits = SEARCH_INDEX.filter(item => Object.entries(filters).every(([field, value]) => !value || item[field] === value));
   if (dropdownCount) dropdownCount.textContent = `${hits.length} 筆`;
-  for (const item of hits.slice(0, 60)) {
+  for (const item of hits) {
     appendResult(dropdownResults, item);
   }
 }

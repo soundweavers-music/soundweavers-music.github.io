@@ -40,47 +40,55 @@
         <div><strong>16</strong><span>年代</span></div>
       </section>
 
-      <section class="section">
-        <div class="section-heading"><h2>下拉式分類</h2><span id="dropdown-count" class="section-note"></span></div>
-        <div class="dropdown-browser">
-          <label>
-            <span>分類</span>
-            <select id="filter-category"><option value="">全部分類</option></select>
-          </label>
-          <label>
-            <span>旅圖</span>
-            <select id="filter-journey"><option value="">全部旅圖</option></select>
-          </label>
-          <label>
-            <span>發聲</span>
-            <select id="filter-sound"><option value="">全部發聲</option></select>
-          </label>
-          <label>
-            <span>國家/地區</span>
-            <select id="filter-country"><option value="">全部國家/地區</option></select>
-          </label>
-          <label>
-            <span>年代</span>
-            <select id="filter-era"><option value="">全部年代</option></select>
-          </label>
-          <button id="filter-reset" type="button">重設</button>
-        </div>
-        <div id="dropdown-results" class="dropdown-results"></div>
+      <section class="view-switch" aria-label="瀏覽模式">
+        <button id="mode-dropdown" class="is-active" type="button">下拉式分類</button>
+        <button id="mode-cards" type="button">卡片分類</button>
       </section>
 
-      <section class="section">
-        <div class="section-heading"><h2>分類瀏覽</h2><a href="/categories/">全部分類</a></div>
-        <div class="facet-grid"><a class="facet-card" href="/categories/打擊樂器/"><strong>打擊樂器</strong><span>340 筆</span></a><a class="facet-card" href="/categories/弦樂器/"><strong>弦樂器</strong><span>277 筆</span></a><a class="facet-card" href="/categories/管樂器/"><strong>管樂器</strong><span>212 筆</span></a><a class="facet-card" href="/categories/鍵盤樂器/"><strong>鍵盤樂器</strong><span>127 筆</span></a><a class="facet-card" href="/categories/其他/"><strong>其他</strong><span>60 筆</span></a><a class="facet-card" href="/categories/電子樂器/"><strong>電子樂器</strong><span>10 筆</span></a></div>
-      </section>
+      <div id="dropdown-mode" class="browse-mode">
+        <section class="section">
+          <div class="section-heading"><h2>下拉式分類</h2><span id="dropdown-count" class="section-note"></span></div>
+          <div class="dropdown-browser">
+            <label>
+              <span>分類</span>
+              <select id="filter-category"><option value="">全部分類</option></select>
+            </label>
+            <label>
+              <span>旅圖</span>
+              <select id="filter-journey"><option value="">全部旅圖</option></select>
+            </label>
+            <label>
+              <span>發聲</span>
+              <select id="filter-sound"><option value="">全部發聲</option></select>
+            </label>
+            <label>
+              <span>國家/地區</span>
+              <select id="filter-country"><option value="">全部國家/地區</option></select>
+            </label>
+            <label>
+              <span>年代</span>
+              <select id="filter-era"><option value="">全部年代</option></select>
+            </label>
+            <button id="filter-reset" type="button">重設</button>
+          </div>
+          <div id="dropdown-results" class="dropdown-results"></div>
+        </section>
+      </div>
 
-      <section class="section">
-        <div class="section-heading"><h2>旅圖瀏覽</h2><a href="/journeys/">全部旅圖</a></div>
-        <div class="facet-grid"><a class="facet-card" href="/journeys/旅圖一/"><strong>旅圖一</strong><span>148 筆</span></a><a class="facet-card" href="/journeys/旅圖二/"><strong>旅圖二</strong><span>138 筆</span></a><a class="facet-card" href="/journeys/旅圖六/"><strong>旅圖六</strong><span>112 筆</span></a><a class="facet-card" href="/journeys/旅圖五/"><strong>旅圖五</strong><span>108 筆</span></a><a class="facet-card" href="/journeys/旅圖四/"><strong>旅圖四</strong><span>108 筆</span></a><a class="facet-card" href="/journeys/旅圖三/"><strong>旅圖三</strong><span>103 筆</span></a></div>
-      </section>
+      <div id="card-mode" class="browse-mode" hidden>
+        <section class="section">
+          <div class="section-heading"><h2>分類瀏覽</h2><a href="/categories/">全部分類</a></div>
+          <div class="facet-grid"><a class="facet-card" href="/categories/打擊樂器/"><strong>打擊樂器</strong><span>340 筆</span></a><a class="facet-card" href="/categories/弦樂器/"><strong>弦樂器</strong><span>277 筆</span></a><a class="facet-card" href="/categories/管樂器/"><strong>管樂器</strong><span>212 筆</span></a><a class="facet-card" href="/categories/鍵盤樂器/"><strong>鍵盤樂器</strong><span>127 筆</span></a><a class="facet-card" href="/categories/其他/"><strong>其他</strong><span>60 筆</span></a><a class="facet-card" href="/categories/電子樂器/"><strong>電子樂器</strong><span>10 筆</span></a></div>
+        </section>
 
-      <section class="section">
-        <div class="section-heading"><h2>樂器條目</h2><a href="/instruments/">查看全部</a></div>
-        <div class="instrument-grid">
+        <section class="section">
+          <div class="section-heading"><h2>旅圖瀏覽</h2><a href="/journeys/">全部旅圖</a></div>
+          <div class="facet-grid"><a class="facet-card" href="/journeys/旅圖一/"><strong>旅圖一</strong><span>148 筆</span></a><a class="facet-card" href="/journeys/旅圖二/"><strong>旅圖二</strong><span>138 筆</span></a><a class="facet-card" href="/journeys/旅圖六/"><strong>旅圖六</strong><span>112 筆</span></a><a class="facet-card" href="/journeys/旅圖五/"><strong>旅圖五</strong><span>108 筆</span></a><a class="facet-card" href="/journeys/旅圖四/"><strong>旅圖四</strong><span>108 筆</span></a><a class="facet-card" href="/journeys/旅圖三/"><strong>旅圖三</strong><span>103 筆</span></a></div>
+        </section>
+
+        <section class="section">
+          <div class="section-heading"><h2>樂器條目</h2><a href="/instruments/">查看全部</a></div>
+          <div class="instrument-grid">
     <a class="instrument-card" href="/instruments/3rd-bridge/">
       <span>弦樂器 · 待考 · 傳統／年代待考</span>
       <strong>3rd bridge（暫譯）</strong>
@@ -164,7 +172,8 @@
       <small>African Bow Harp</small>
     </a>
     </div>
-      </section>
+        </section>
+      </div>
     </main>
     
   <script src="/assets/search.js"></script>
