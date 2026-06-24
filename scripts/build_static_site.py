@@ -33,6 +33,13 @@ def site_url(path):
     return f"{SITE_BASE_PATH}{path}" or "/"
 
 
+def safe_external_url(value):
+    value = (value or "").strip()
+    if value.startswith(("https://", "http://")):
+        return value
+    return ""
+
+
 def parse_frontmatter(text):
     if not text.startswith("---\n"):
         return {}, text
@@ -100,6 +107,8 @@ def page(title, body):
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer-when-downgrade">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>{escape(title)}｜世界樂器百科</title>
   <link rel="stylesheet" href="{site_url('/assets/site.css')}">
 </head>
@@ -205,15 +214,18 @@ def build_index(instruments):
 
 def build_detail_pages(instruments):
     for item in instruments:
-        image = f'<img class="instrument-image" src="{escape(item["image"])}" alt="{escape(item["title"])}">' if item["image"] else ""
+        image_url = safe_external_url(item["image"])
+        listen_url = safe_external_url(item["listen_link"])
+        source_url = safe_external_url(item["source_url"])
+        image = f'<img class="instrument-image" src="{escape(image_url)}" alt="{escape(item["title"])}">' if image_url else ""
         listen = (
-            f'<a class="listen-button" href="{escape(item["listen_link"])}" target="_blank" rel="noopener noreferrer">播放聆聽</a>'
-            if item["listen_link"]
+            f'<a class="listen-button" href="{escape(listen_url)}" target="_blank" rel="noopener noreferrer">播放聆聽</a>'
+            if listen_url
             else ""
         )
         source = (
-            f'<a href="{escape(item["source_url"])}" target="_blank" rel="noopener noreferrer">{escape(item["source_url"])}</a>'
-            if item["source_url"]
+            f'<a href="{escape(source_url)}" target="_blank" rel="noopener noreferrer">{escape(source_url)}</a>'
+            if source_url
             else "待補"
         )
         detail_meta = [
@@ -346,10 +358,19 @@ const results = document.getElementById('search-results');
 if (input && results) {{
   input.addEventListener('input', () => {{
     const q = input.value.trim().toLowerCase();
-    results.innerHTML = '';
+    results.replaceChildren();
     if (!q) return;
     const hits = SEARCH_INDEX.filter(item => Object.values(item).join(' ').toLowerCase().includes(q)).slice(0, 20);
-    results.innerHTML = hits.map(item => `<a href="${{item.url}}"><strong>${{item.title}}</strong><br><span>${{item.original_name}} · ${{item.category}} · ${{item.country}} · ${{item.era}}</span></a>`).join('');
+    for (const item of hits) {{
+      const link = document.createElement('a');
+      link.href = item.url;
+      const title = document.createElement('strong');
+      title.textContent = item.title;
+      const meta = document.createElement('span');
+      meta.textContent = `${{item.original_name}} · ${{item.category}} · ${{item.country}} · ${{item.era}}`;
+      link.append(title, document.createElement('br'), meta);
+      results.append(link);
+    }}
   }});
 }}
 """

@@ -4,9 +4,18 @@ const results = document.getElementById('search-results');
 if (input && results) {
   input.addEventListener('input', () => {
     const q = input.value.trim().toLowerCase();
-    results.innerHTML = '';
+    results.replaceChildren();
     if (!q) return;
     const hits = SEARCH_INDEX.filter(item => Object.values(item).join(' ').toLowerCase().includes(q)).slice(0, 20);
-    results.innerHTML = hits.map(item => `<a href="${item.url}"><strong>${item.title}</strong><br><span>${item.original_name} · ${item.category} · ${item.country} · ${item.era}</span></a>`).join('');
+    for (const item of hits) {
+      const link = document.createElement('a');
+      link.href = item.url;
+      const title = document.createElement('strong');
+      title.textContent = item.title;
+      const meta = document.createElement('span');
+      meta.textContent = `${item.original_name} · ${item.category} · ${item.country} · ${item.era}`;
+      link.append(title, document.createElement('br'), meta);
+      results.append(link);
+    }
   });
 }
