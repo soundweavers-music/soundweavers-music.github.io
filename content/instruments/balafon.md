@@ -2,10 +2,28 @@
 title: "巴拉風"
 original_name: "Balafon"
 category: "打擊樂器"
-country: "非洲"
+country: "全球"
 era: "傳統／年代待考"
+journey: "旅圖五"
+journey_name: "城市與星塵的節奏"
+chapter_number: "10"
+chapter_name: "木石金屬的回聲城市"
+chapter_subtitle: "定音體鳴、材料敲擊與鑼鐘木琴系統"
+sound_class: "體鳴"
+hs_class: "Idiophone／體鳴樂器"
+family: "木片與木琴"
+playing_method: "槌擊"
+body_listening: "材料、回聲、群體分工、音列"
+soundscape: "木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）"
+region_type: "跨文化／多地"
+region_verification: "承接553條目地域欄"
+article_type: "正式樂器篇"
+production_status: "規劃中"
+image_spec: "六張圖＋DOCX"
+source_basis: "10_補充後總清單＋553條目地域欄"
+database_status: "現有"
+database_note: "六張圖＋DOCX"
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/African_Balafon_in_Museu_Oscar_Niemeyer.jpg/960px-African_Balafon_in_Museu_Oscar_Niemeyer.jpg"
-listen_link: ""
 source_url: "https://zh.wikipedia.org/wiki/%E5%B7%B4%E6%8B%89%E9%A2%A8"
 wikidata_id: "Q789141"
 ---
@@ -42,3 +60,23 @@ wikidata_id: "Q789141"
 ## 音色描述
 
 音色多由材質本體振動決定，常呈現清晰、短促或具有明顯泛音的聲響。
+
+## 旅圖分類與補充說明
+- **旅圖段落**：旅圖五｜城市與星塵的節奏
+- **章節**：10｜木石金屬的回聲城市
+- **章節主分類**：定音體鳴、材料敲擊與鑼鐘木琴系統
+- **原聲音地景**：木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+- **專業發聲大類**：體鳴
+- **Hornbostel–Sachs 近似分類**：Idiophone／體鳴樂器
+- **家族／支系**：木片與木琴
+- **演奏方式**：槌擊
+- **身體／聽覺關聯**：材料、回聲、群體分工、音列
+- **主要地區／國家**：全球
+- **地區類型**：跨文化／多地
+- **資料狀態**：承接553條目地域欄
+### 讀者導覽
+閱讀 Balafon 時，可以先從「木片與木琴」與「槌擊」切入，觀察它如何把材料、手勢與共鳴連在一起。
+
+聲音感受上，資料庫把它連到「材料、回聲、群體分工、音列」，適合在聆聽時留意身體哪個部位先被聲音碰到。
+
+在旅圖敘事裡，它被放進「木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。

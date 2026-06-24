@@ -1,11 +1,29 @@
 ---
 title: "自動豎琴"
 original_name: "Autoharp"
-category: "弦樂器"
-country: "待考"
+category: "鍵盤樂器"
+country: "東亞／中亞／歐洲／東南亞／非洲／美洲"
 era: "傳統／年代待考"
+journey: "旅圖二"
+journey_name: "懷裡與大地的弦"
+chapter_number: "5"
+chapter_name: "平放在大地上的弦"
+chapter_subtitle: "齊特琴、箏類、擊弦與鍵盤化弦鳴"
+sound_class: "弦鳴"
+hs_class: "Chordophone／弦鳴樂器"
+family: "中東與歐亞箱式齊特"
+playing_method: "撥弦"
+body_listening: "手掌、弦面、推音、敲擊"
+soundscape: "平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）"
+region_type: "地區／文化圈"
+region_verification: "承接553條目地域欄"
+article_type: "正式樂器篇"
+production_status: "規劃中"
+image_spec: "六張圖＋DOCX"
+source_basis: "10_補充後總清單＋553條目地域欄"
+database_status: "現有"
+database_note: "六張圖＋DOCX"
 image: "https://upload.wikimedia.org/wikipedia/commons/a/ad/Autoharp_today.jpg"
-listen_link: ""
 source_url: "https://zh.wikipedia.org/wiki/%E8%87%AA%E5%8B%95%E8%B1%8E%E7%90%B4"
 wikidata_id: "Q370915"
 ---
@@ -40,3 +58,23 @@ wikidata_id: "Q370915"
 ## 音色描述
 
 音色由弦長、張力、共鳴箱與演奏法影響，可呈現撥奏、擦奏或擊弦的不同質感。
+
+## 旅圖分類與補充說明
+- **旅圖段落**：旅圖二｜懷裡與大地的弦
+- **章節**：5｜平放在大地上的弦
+- **章節主分類**：齊特琴、箏類、擊弦與鍵盤化弦鳴
+- **原聲音地景**：平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
+- **專業發聲大類**：弦鳴
+- **Hornbostel–Sachs 近似分類**：Chordophone／弦鳴樂器
+- **家族／支系**：中東與歐亞箱式齊特
+- **演奏方式**：撥弦
+- **身體／聽覺關聯**：手掌、弦面、推音、敲擊
+- **主要地區／國家**：東亞／中亞／歐洲／東南亞／非洲／美洲
+- **地區類型**：地區／文化圈
+- **資料狀態**：承接553條目地域欄
+### 讀者導覽
+閱讀 Autoharp 時，可以先從「中東與歐亞箱式齊特」與「撥弦」切入，觀察它如何把材料、手勢與共鳴連在一起。
+
+聲音感受上，資料庫把它連到「手掌、弦面、推音、敲擊」，適合在聆聽時留意身體哪個部位先被聲音碰到。
+
+在旅圖敘事裡，它被放進「平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。

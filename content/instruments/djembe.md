@@ -2,10 +2,28 @@
 title: "金贝鼓"
 original_name: "Djembe"
 category: "打擊樂器"
-country: "非洲"
+country: "全球"
 era: "傳統／年代待考"
+journey: "旅圖四"
+journey_name: "地心與手邊的微光"
+chapter_number: "8"
+chapter_name: "皮膜敲醒的地心脈動"
+chapter_subtitle: "膜鳴鼓類、框鼓、杯鼓與鼓組"
+sound_class: "膜鳴"
+hs_class: "Membranophone／膜鳴樂器"
+family: "手鼓與杯鼓"
+playing_method: "手打"
+body_listening: "手掌、腳底、低音、舞步"
+soundscape: "手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）"
+region_type: "跨文化／多地"
+region_verification: "承接553條目地域欄"
+article_type: "正式樂器篇"
+production_status: "規劃中"
+image_spec: "六張圖＋DOCX"
+source_basis: "10_補充後總清單＋553條目地域欄"
+database_status: "現有"
+database_note: "六張圖＋DOCX"
 image: "https://upload.wikimedia.org/wikipedia/commons/6/60/Lenke_djembe_from_Mali.jpeg"
-listen_link: ""
 source_url: "https://zh.wikipedia.org/wiki/%E9%87%91%E8%B4%9D%E9%BC%93"
 wikidata_id: "Q537750"
 ---
@@ -46,3 +64,23 @@ wikidata_id: "Q537750"
 ## 音色描述
 
 音色由鼓膜張力、腔體形狀與敲擊方式影響，常具有明確起音與節奏性。
+
+## 旅圖分類與補充說明
+- **旅圖段落**：旅圖四｜地心與手邊的微光
+- **章節**：8｜皮膜敲醒的地心脈動
+- **章節主分類**：膜鳴鼓類、框鼓、杯鼓與鼓組
+- **原聲音地景**：手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+- **專業發聲大類**：膜鳴
+- **Hornbostel–Sachs 近似分類**：Membranophone／膜鳴樂器
+- **家族／支系**：手鼓與杯鼓
+- **演奏方式**：手打
+- **身體／聽覺關聯**：手掌、腳底、低音、舞步
+- **主要地區／國家**：全球
+- **地區類型**：跨文化／多地
+- **資料狀態**：承接553條目地域欄
+### 讀者導覽
+閱讀 Djembe 時，可以先從「手鼓與杯鼓」與「手打」切入，觀察它如何把材料、手勢與共鳴連在一起。
+
+聲音感受上，資料庫把它連到「手掌、腳底、低音、舞步」，適合在聆聽時留意身體哪個部位先被聲音碰到。
+
+在旅圖敘事裡，它被放進「手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。

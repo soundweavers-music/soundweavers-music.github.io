@@ -2,10 +2,27 @@
 title: "管风琴"
 original_name: "Pipe organ"
 category: "鍵盤樂器"
-country: "待考"
+country: "全球"
 era: "傳統／年代待考"
-image: ""
-listen_link: ""
+journey: "旅圖六"
+journey_name: "按鍵打開房間，眾聲走向廣場"
+chapter_number: "12"
+chapter_name: "按鍵打開的機械房間"
+chapter_subtitle: "鍵盤介面、風箱、電子與取樣"
+sound_class: "氣鳴"
+hs_class: "Aerophone／氣鳴樂器"
+family: "管風琴與風箱鍵盤"
+playing_method: "鍵盤＋氣流"
+body_listening: "手指、機械距離、記憶、電聲"
+soundscape: "按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）"
+region_type: "跨文化／多地"
+region_verification: "承接553條目地域欄"
+article_type: "正式樂器篇"
+production_status: "規劃中"
+image_spec: "六張圖＋DOCX"
+source_basis: "10_補充後總清單＋553條目地域欄"
+database_status: "現有"
+database_note: "六張圖＋DOCX"
 source_url: "https://zh.wikipedia.org/wiki/%E7%AE%A1%E9%A3%8E%E7%90%B4"
 wikidata_id: "ENWIKI-669c80c634"
 ---
@@ -38,3 +55,23 @@ wikidata_id: "ENWIKI-669c80c634"
 ## 音色描述
 
 音色由氣流、管體、簧片或唇振控制，常具有延展性強的旋律線條。
+
+## 旅圖分類與補充說明
+- **旅圖段落**：旅圖六｜按鍵打開房間，眾聲走向廣場
+- **章節**：12｜按鍵打開的機械房間
+- **章節主分類**：鍵盤介面、風箱、電子與取樣
+- **原聲音地景**：按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
+- **專業發聲大類**：氣鳴
+- **Hornbostel–Sachs 近似分類**：Aerophone／氣鳴樂器
+- **家族／支系**：管風琴與風箱鍵盤
+- **演奏方式**：鍵盤＋氣流
+- **身體／聽覺關聯**：手指、機械距離、記憶、電聲
+- **主要地區／國家**：全球
+- **地區類型**：跨文化／多地
+- **資料狀態**：承接553條目地域欄
+### 讀者導覽
+閱讀 Pipe Organ 時，可以先從「管風琴與風箱鍵盤」與「鍵盤＋氣流」切入，觀察它如何把材料、手勢與共鳴連在一起。
+
+聲音感受上，資料庫把它連到「手指、機械距離、記憶、電聲」，適合在聆聽時留意身體哪個部位先被聲音碰到。
+
+在旅圖敘事裡，它被放進「按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。

@@ -71,6 +71,17 @@ def read_instruments():
                 "listen_link": meta.get("listen_link", ""),
                 "source_url": meta.get("source_url", ""),
                 "wikidata_id": meta.get("wikidata_id", ""),
+                "journey": meta.get("journey", ""),
+                "journey_name": meta.get("journey_name", ""),
+                "chapter_number": meta.get("chapter_number", ""),
+                "chapter_name": meta.get("chapter_name", ""),
+                "chapter_subtitle": meta.get("chapter_subtitle", ""),
+                "sound_class": meta.get("sound_class", ""),
+                "hs_class": meta.get("hs_class", ""),
+                "family": meta.get("family", ""),
+                "playing_method": meta.get("playing_method", ""),
+                "body_listening": meta.get("body_listening", ""),
+                "soundscape": meta.get("soundscape", ""),
                 "body": body,
                 "html": html,
             }
@@ -98,6 +109,8 @@ def page(title, body):
     <nav>
       <a href="{site_url('/instruments/')}">全部樂器</a>
       <a href="{site_url('/categories/')}">分類</a>
+      <a href="{site_url('/journeys/')}">旅圖</a>
+      <a href="{site_url('/sound-classes/')}">發聲</a>
       <a href="{site_url('/countries/')}">國家</a>
       <a href="{site_url('/eras/')}">年代</a>
     </nav>
@@ -110,9 +123,10 @@ def page(title, body):
 
 
 def card(instrument):
+    context = instrument.get("journey") or instrument.get("sound_class") or instrument["era"]
     return f"""
     <a class="instrument-card" href="{site_url(f'/instruments/{instrument["slug"]}/')}">
-      <span>{escape(instrument['category'])} · {escape(instrument['country'])} · {escape(instrument['era'])}</span>
+      <span>{escape(instrument['category'])} · {escape(instrument['country'])} · {escape(context)}</span>
       <strong>{escape(instrument['title'])}</strong>
       <small>{escape(instrument['original_name'])}</small>
     </a>
@@ -139,9 +153,15 @@ def build_index(instruments):
     categories = Counter(item["category"] for item in instruments)
     countries = Counter(item["country"] for item in instruments)
     eras = Counter(item["era"] for item in instruments)
+    journeys = Counter(item["journey"] for item in instruments if item.get("journey"))
+    sound_classes = Counter(item["sound_class"] for item in instruments if item.get("sound_class"))
     category_links = "".join(
         f'<a class="facet-card" href="{site_url(f"/categories/{slugify(name)}/")}"><strong>{escape(name)}</strong><span>{count} 筆</span></a>'
         for name, count in categories.most_common()
+    )
+    journey_links = "".join(
+        f'<a class="facet-card" href="{site_url(f"/journeys/{slugify(name)}/")}"><strong>{escape(name)}</strong><span>{count} 筆</span></a>'
+        for name, count in journeys.most_common()
     )
     sample_cards = "\n".join(card(item) for item in instruments[:12])
     body = f"""
@@ -150,7 +170,7 @@ def build_index(instruments):
         <p class="eyebrow">Static Markdown Edition</p>
         <h1>世界樂器百科</h1>
         <div class="search-panel">
-          <input id="site-search" type="search" placeholder="搜尋中文名、英文名、分類、國家或年代...">
+          <input id="site-search" type="search" placeholder="搜尋中文名、英文名、分類、旅圖、發聲類型、國家或年代...">
         </div>
         <div id="search-results" class="search-results"></div>
       </section>
@@ -158,6 +178,8 @@ def build_index(instruments):
       <section class="stats">
         <div><strong>{len(instruments)}</strong><span>樂器條目</span></div>
         <div><strong>{len(categories)}</strong><span>分類</span></div>
+        <div><strong>{len(journeys)}</strong><span>旅圖段落</span></div>
+        <div><strong>{len(sound_classes)}</strong><span>發聲類型</span></div>
         <div><strong>{len(countries)}</strong><span>國家/地區</span></div>
         <div><strong>{len(eras)}</strong><span>年代</span></div>
       </section>
@@ -165,6 +187,11 @@ def build_index(instruments):
       <section class="section">
         <div class="section-heading"><h2>分類瀏覽</h2><a href="{site_url('/categories/')}">全部分類</a></div>
         <div class="facet-grid">{category_links}</div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading"><h2>旅圖瀏覽</h2><a href="{site_url('/journeys/')}">全部旅圖</a></div>
+        <div class="facet-grid">{journey_links}</div>
       </section>
 
       <section class="section">
@@ -189,6 +216,22 @@ def build_detail_pages(instruments):
             if item["source_url"]
             else "待補"
         )
+        detail_meta = [
+            ("分類", item["category"]),
+            ("國家/地區", item["country"]),
+            ("年代", item["era"]),
+            ("旅圖", "｜".join(part for part in [item.get("journey"), item.get("journey_name")] if part)),
+            ("章節", "｜".join(part for part in [item.get("chapter_number"), item.get("chapter_name")] if part)),
+            ("發聲分類", item.get("sound_class")),
+            ("H-S 近似分類", item.get("hs_class")),
+            ("家族/支系", item.get("family")),
+            ("演奏方式", item.get("playing_method")),
+        ]
+        meta_grid = "".join(
+            f"<div><dt>{escape(label)}</dt><dd>{escape(value)}</dd></div>"
+            for label, value in detail_meta
+            if value
+        )
         body = f"""
         <main class="instrument-page">
           <div class="breadcrumb"><a href="{site_url('/')}">首頁</a><span>/</span><a href="{site_url('/instruments/')}">樂器</a></div>
@@ -198,9 +241,7 @@ def build_detail_pages(instruments):
               <h1>{escape(item['title'])}</h1>
               <p class="lead">{escape(item['original_name'])}</p>
               <dl class="meta-grid">
-                <div><dt>分類</dt><dd>{escape(item['category'])}</dd></div>
-                <div><dt>國家/地區</dt><dd>{escape(item['country'])}</dd></div>
-                <div><dt>年代</dt><dd>{escape(item['era'])}</dd></div>
+                {meta_grid}
               </dl>
               {listen}
               <p class="source-note">資料來源：{source}</p>
@@ -216,7 +257,8 @@ def build_detail_pages(instruments):
 def build_facet_pages(instruments, field, folder, title):
     grouped = defaultdict(list)
     for item in instruments:
-        grouped[item[field]].append(item)
+        if item.get(field):
+            grouped[item[field]].append(item)
 
     facet_cards = "".join(
         f'<a class="facet-card" href="{site_url(f"/{folder}/{slugify(name)}/")}"><strong>{escape(name)}</strong><span>{len(items)} 筆</span></a>'
@@ -250,7 +292,7 @@ h2 { margin:0; }
 .search-panel input { width:100%; min-height:48px; border:1px solid var(--line); border-radius:8px; padding:0 14px; font-size:16px; background:#fff; }
 .search-results { margin-top:12px; display:grid; gap:8px; }
 .search-results a { padding:10px 12px; border:1px solid var(--line); border-radius:8px; background:#fff; text-decoration:none; }
-.stats { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:14px 0 36px; }
+.stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin:14px 0 36px; }
 .stats div,.facet-card,.instrument-card { border:1px solid var(--line); background:#fff; border-radius:8px; padding:16px; }
 .stats strong { display:block; font-size:26px; }
 .stats span,.facet-card span,.instrument-card span,.instrument-card small { color:var(--muted); }
@@ -264,7 +306,7 @@ h2 { margin:0; }
 .breadcrumb a { text-decoration:none; }
 .instrument-header { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr); gap:30px; margin-bottom:32px; align-items:start; }
 .instrument-image { width:100%; border:1px solid var(--line); border-radius:8px; background:var(--soft); }
-.meta-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:24px 0; }
+.meta-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; margin:24px 0; }
 .meta-grid div { border:1px solid var(--line); border-radius:8px; padding:12px; background:#fff; }
 .meta-grid dt { color:var(--muted); font-size:13px; }
 .meta-grid dd { margin:4px 0 0; font-weight:800; }
@@ -273,7 +315,7 @@ h2 { margin:0; }
 .source-note a { color:var(--blue); }
 .markdown-body { color:#344054; line-height:1.75; font-size:16px; }
 .markdown-body h2 { color:var(--ink); margin-top:1.4em; border-bottom:1px solid var(--line); padding-bottom:8px; }
-@media (max-width:900px){ .facet-grid,.instrument-grid,.stats{grid-template-columns:repeat(2,1fr)} .instrument-header{grid-template-columns:1fr} }
+@media (max-width:900px){ .facet-grid,.instrument-grid{grid-template-columns:repeat(2,1fr)} .instrument-header{grid-template-columns:1fr} }
 @media (max-width:620px){ .site-header{align-items:flex-start; flex-direction:column} h1{font-size:34px} .facet-grid,.instrument-grid,.stats,.meta-grid{grid-template-columns:1fr} }
 """
     search_index = [
@@ -283,6 +325,16 @@ h2 { margin:0; }
             "category": item["category"],
             "country": item["country"],
             "era": item["era"],
+            "journey": item.get("journey", ""),
+            "journey_name": item.get("journey_name", ""),
+            "chapter_name": item.get("chapter_name", ""),
+            "chapter_subtitle": item.get("chapter_subtitle", ""),
+            "sound_class": item.get("sound_class", ""),
+            "hs_class": item.get("hs_class", ""),
+            "family": item.get("family", ""),
+            "playing_method": item.get("playing_method", ""),
+            "body_listening": item.get("body_listening", ""),
+            "soundscape": item.get("soundscape", ""),
             "url": site_url(f"/instruments/{item['slug']}/"),
         }
         for item in instruments
@@ -316,6 +368,8 @@ def main():
     build_detail_pages(instruments)
     write(OUTPUT_DIR / "instruments" / "index.html", list_page("全部樂器", instruments))
     build_facet_pages(instruments, "category", "categories", "分類")
+    build_facet_pages(instruments, "journey", "journeys", "旅圖")
+    build_facet_pages(instruments, "sound_class", "sound-classes", "發聲分類")
     build_facet_pages(instruments, "country", "countries", "國家/地區")
     build_facet_pages(instruments, "era", "eras", "年代")
     write(OUTPUT_DIR / ".nojekyll", "")

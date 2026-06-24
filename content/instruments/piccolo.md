@@ -2,10 +2,27 @@
 title: "短笛"
 original_name: "Piccolo"
 category: "管樂器"
-country: "待考"
+country: "全球"
 era: "傳統／年代待考"
-image: ""
-listen_link: ""
+journey: "旅圖一"
+journey_name: "氣息離開身體"
+chapter_number: "1"
+chapter_name: "一口氣走過山谷"
+chapter_subtitle: "無簧吹管、長音與氣息樂器"
+sound_class: "氣鳴"
+hs_class: "Aerophone／氣鳴樂器"
+family: "橫吹笛"
+playing_method: "橫吹"
+body_listening: "氣息、胸腔、長音、空間"
+soundscape: "一口氣走過山谷（竹管、陶管、長音與世界笛聲）"
+region_type: "跨文化／多地"
+region_verification: "承接553條目地域欄"
+article_type: "正式樂器篇"
+production_status: "規劃中"
+image_spec: "六張圖＋DOCX"
+source_basis: "10_補充後總清單＋553條目地域欄"
+database_status: "現有"
+database_note: "六張圖＋DOCX"
 source_url: "https://zh.wikipedia.org/wiki/%E7%9F%AD%E7%AC%9B"
 wikidata_id: "ENWIKI-f88988a8d8"
 ---
@@ -38,3 +55,23 @@ wikidata_id: "ENWIKI-f88988a8d8"
 ## 音色描述
 
 音色由氣流、管體、簧片或唇振控制，常具有延展性強的旋律線條。
+
+## 旅圖分類與補充說明
+- **旅圖段落**：旅圖一｜氣息離開身體
+- **章節**：1｜一口氣走過山谷
+- **章節主分類**：無簧吹管、長音與氣息樂器
+- **原聲音地景**：一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+- **專業發聲大類**：氣鳴
+- **Hornbostel–Sachs 近似分類**：Aerophone／氣鳴樂器
+- **家族／支系**：橫吹笛
+- **演奏方式**：橫吹
+- **身體／聽覺關聯**：氣息、胸腔、長音、空間
+- **主要地區／國家**：全球
+- **地區類型**：跨文化／多地
+- **資料狀態**：承接553條目地域欄
+### 讀者導覽
+閱讀 Piccolo 時，可以先從「橫吹笛」與「橫吹」切入，觀察它如何把材料、手勢與共鳴連在一起。
+
+聲音感受上，資料庫把它連到「氣息、胸腔、長音、空間」，適合在聆聽時留意身體哪個部位先被聲音碰到。
+
+在旅圖敘事裡，它被放進「一口氣走過山谷（竹管、陶管、長音與世界笛聲）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。

@@ -2,10 +2,28 @@
 title: "Teponaztli（暫譯）"
 original_name: "Teponaztli"
 category: "打擊樂器"
-country: "待考"
+country: "拉丁美洲／非洲／歐洲／亞洲／全球"
 era: "傳統／年代待考"
-image: ""
-listen_link: ""
+journey: "旅圖五"
+journey_name: "城市與星塵的節奏"
+chapter_number: "11"
+chapter_name: "掌心搖落的節奏星塵"
+chapter_subtitle: "小型節奏體鳴、沙鈴、刮器與身體打擊"
+sound_class: "體鳴"
+hs_class: "Idiophone／體鳴樂器"
+family: "裂縫鼓／體鳴"
+playing_method: "槌擊"
+body_listening: "手腕、腳踝、短音、節奏對齊"
+soundscape: "手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）"
+region_type: "跨文化／多地"
+region_verification: "系統初稿推定，需逐篇來源核對"
+article_type: "正式樂器篇"
+priority: "B"
+production_status: "規劃中"
+image_spec: "中美洲木製裂縫鼓"
+source_basis: "10_補充後總清單＋553條目地域欄"
+database_status: "建議新增"
+database_note: "中美洲木製裂縫鼓"
 source_url: "https://en.wikipedia.org/wiki/Teponaztli"
 wikidata_id: "ENWIKI-024493618f"
 ---
@@ -38,3 +56,23 @@ Teponaztli（暫譯）（Teponaztli）的歷史背景可先從可查來源、樂
 ## 音色描述
 
 音色多由材質本體振動決定，常呈現清晰、短促或具有明顯泛音的聲響。
+
+## 旅圖分類與補充說明
+- **旅圖段落**：旅圖五｜城市與星塵的節奏
+- **章節**：11｜掌心搖落的節奏星塵
+- **章節主分類**：小型節奏體鳴、沙鈴、刮器與身體打擊
+- **原聲音地景**：手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+- **專業發聲大類**：體鳴
+- **Hornbostel–Sachs 近似分類**：Idiophone／體鳴樂器
+- **家族／支系**：裂縫鼓／體鳴
+- **演奏方式**：槌擊
+- **身體／聽覺關聯**：手腕、腳踝、短音、節奏對齊
+- **主要地區／國家**：拉丁美洲／非洲／歐洲／亞洲／全球
+- **地區類型**：跨文化／多地
+- **資料狀態**：系統初稿推定，需逐篇來源核對
+### 讀者導覽
+閱讀 Teponaztli 時，可以先從「裂縫鼓／體鳴」與「槌擊」切入，觀察它如何把材料、手勢與共鳴連在一起。
+
+聲音感受上，資料庫把它連到「手腕、腳踝、短音、節奏對齊」，適合在聆聽時留意身體哪個部位先被聲音碰到。
+
+在旅圖敘事裡，它被放進「手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。

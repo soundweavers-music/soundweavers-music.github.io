@@ -16,7 +16,7 @@ h2 { margin:0; }
 .search-panel input { width:100%; min-height:48px; border:1px solid var(--line); border-radius:8px; padding:0 14px; font-size:16px; background:#fff; }
 .search-results { margin-top:12px; display:grid; gap:8px; }
 .search-results a { padding:10px 12px; border:1px solid var(--line); border-radius:8px; background:#fff; text-decoration:none; }
-.stats { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:14px 0 36px; }
+.stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin:14px 0 36px; }
 .stats div,.facet-card,.instrument-card { border:1px solid var(--line); background:#fff; border-radius:8px; padding:16px; }
 .stats strong { display:block; font-size:26px; }
 .stats span,.facet-card span,.instrument-card span,.instrument-card small { color:var(--muted); }
@@ -30,7 +30,7 @@ h2 { margin:0; }
 .breadcrumb a { text-decoration:none; }
 .instrument-header { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr); gap:30px; margin-bottom:32px; align-items:start; }
 .instrument-image { width:100%; border:1px solid var(--line); border-radius:8px; background:var(--soft); }
-.meta-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:24px 0; }
+.meta-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; margin:24px 0; }
 .meta-grid div { border:1px solid var(--line); border-radius:8px; padding:12px; background:#fff; }
 .meta-grid dt { color:var(--muted); font-size:13px; }
 .meta-grid dd { margin:4px 0 0; font-weight:800; }
@@ -39,5 +39,5 @@ h2 { margin:0; }
 .source-note a { color:var(--blue); }
 .markdown-body { color:#344054; line-height:1.75; font-size:16px; }
 .markdown-body h2 { color:var(--ink); margin-top:1.4em; border-bottom:1px solid var(--line); padding-bottom:8px; }
-@media (max-width:900px){ .facet-grid,.instrument-grid,.stats{grid-template-columns:repeat(2,1fr)} .instrument-header{grid-template-columns:1fr} }
+@media (max-width:900px){ .facet-grid,.instrument-grid{grid-template-columns:repeat(2,1fr)} .instrument-header{grid-template-columns:1fr} }
 @media (max-width:620px){ .site-header{align-items:flex-start; flex-direction:column} h1{font-size:34px} .facet-grid,.instrument-grid,.stats,.meta-grid{grid-template-columns:1fr} }

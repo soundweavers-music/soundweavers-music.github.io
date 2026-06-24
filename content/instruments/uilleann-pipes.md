@@ -2,10 +2,27 @@
 title: "爱尔兰风笛"
 original_name: "Uilleann pipes"
 category: "管樂器"
-country: "待考"
+country: "愛爾蘭"
 era: "傳統／年代待考"
-image: ""
-listen_link: ""
+journey: "旅圖一"
+journey_name: "氣息離開身體"
+chapter_number: "2"
+chapter_name: "簧片裡的鼻音與歌聲"
+chapter_subtitle: "口簧、自由簧、單簧雙簧與風袋"
+sound_class: "氣鳴"
+hs_class: "Aerophone／氣鳴樂器"
+family: "風笛系"
+playing_method: "氣囊供氣"
+body_listening: "口腔、舌頭、簧片震動、鼻音"
+soundscape: "簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）"
+region_type: "單一國家或文化源流"
+region_verification: "系統初稿推定，需逐篇來源核對"
+article_type: "正式樂器篇"
+production_status: "規劃中"
+image_spec: "六張圖＋DOCX"
+source_basis: "10_補充後總清單＋553條目地域欄"
+database_status: "現有"
+database_note: "六張圖＋DOCX"
 source_url: "https://zh.wikipedia.org/wiki/%E7%88%B1%E5%B0%94%E5%85%B0%E9%A3%8E%E7%AC%9B"
 wikidata_id: "ENWIKI-8360be3fda"
 ---
@@ -38,3 +55,23 @@ wikidata_id: "ENWIKI-8360be3fda"
 ## 音色描述
 
 音色由氣流、管體、簧片或唇振控制，常具有延展性強的旋律線條。
+
+## 旅圖分類與補充說明
+- **旅圖段落**：旅圖一｜氣息離開身體
+- **章節**：2｜簧片裡的鼻音與歌聲
+- **章節主分類**：口簧、自由簧、單簧雙簧與風袋
+- **原聲音地景**：簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+- **專業發聲大類**：氣鳴
+- **Hornbostel–Sachs 近似分類**：Aerophone／氣鳴樂器
+- **家族／支系**：風笛系
+- **演奏方式**：氣囊供氣
+- **身體／聽覺關聯**：口腔、舌頭、簧片震動、鼻音
+- **主要地區／國家**：愛爾蘭
+- **地區類型**：單一國家或文化源流
+- **資料狀態**：系統初稿推定，需逐篇來源核對
+### 讀者導覽
+閱讀 Uilleann Pipes 時，可以先從「風笛系」與「氣囊供氣」切入，觀察它如何把材料、手勢與共鳴連在一起。
+
+聲音感受上，資料庫把它連到「口腔、舌頭、簧片震動、鼻音」，適合在聆聽時留意身體哪個部位先被聲音碰到。
+
+在旅圖敘事裡，它被放進「簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。

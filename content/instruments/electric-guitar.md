@@ -2,10 +2,27 @@
 title: "电吉他"
 original_name: "Electric guitar"
 category: "電子樂器"
-country: "美國"
+country: "中東／歐亞／東亞／美洲／全球"
 era: "20 世紀"
-image: ""
-listen_link: ""
+journey: "旅圖二"
+journey_name: "懷裡與大地的弦"
+chapter_number: "4"
+chapter_name: "旅人懷裡撥動的故事線"
+chapter_subtitle: "魯特琴、短頸長頸撥弦與民謠弦聲"
+sound_class: "弦鳴／電鳴"
+hs_class: "Chordophone／弦鳴樂器；Electrophone／電鳴樂器"
+family: "吉他與現代錄音室"
+playing_method: "撥弦／電聲"
+body_listening: "懷抱、手指、腳步、敘事"
+soundscape: "旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）"
+region_type: "跨文化／多地"
+region_verification: "承接553條目地域欄"
+article_type: "正式樂器篇"
+production_status: "規劃中"
+image_spec: "六張圖＋DOCX"
+source_basis: "10_補充後總清單＋553條目地域欄"
+database_status: "現有"
+database_note: "六張圖＋DOCX"
 source_url: "https://zh.wikipedia.org/wiki/%E7%94%B5%E5%90%89%E4%BB%96"
 wikidata_id: "Q78987"
 ---
@@ -50,3 +67,23 @@ wikidata_id: "Q78987"
 ## 音色描述
 
 音色由弦長、張力、共鳴箱與演奏法影響，可呈現撥奏、擦奏或擊弦的不同質感。
+
+## 旅圖分類與補充說明
+- **旅圖段落**：旅圖二｜懷裡與大地的弦
+- **章節**：4｜旅人懷裡撥動的故事線
+- **章節主分類**：魯特琴、短頸長頸撥弦與民謠弦聲
+- **原聲音地景**：旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+- **專業發聲大類**：弦鳴／電鳴
+- **Hornbostel–Sachs 近似分類**：Chordophone／弦鳴樂器；Electrophone／電鳴樂器
+- **家族／支系**：吉他與現代錄音室
+- **演奏方式**：撥弦／電聲
+- **身體／聽覺關聯**：懷抱、手指、腳步、敘事
+- **主要地區／國家**：中東／歐亞／東亞／美洲／全球
+- **地區類型**：跨文化／多地
+- **資料狀態**：承接553條目地域欄
+### 讀者導覽
+閱讀 Electric Guitar 時，可以先從「吉他與現代錄音室」與「撥弦／電聲」切入，觀察它如何把材料、手勢與共鳴連在一起。
+
+聲音感受上，資料庫把它連到「懷抱、手指、腳步、敘事」，適合在聆聽時留意身體哪個部位先被聲音碰到。
+
+在旅圖敘事裡，它被放進「旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。

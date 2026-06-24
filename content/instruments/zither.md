@@ -1,11 +1,29 @@
 ---
 title: "齊特琴"
 original_name: "Zither"
-category: "打擊樂器"
-country: "待考"
+category: "鍵盤樂器"
+country: "中歐"
 era: "傳統／年代待考"
-image: ""
-listen_link: ""
+journey: "旅圖二"
+journey_name: "懷裡與大地的弦"
+chapter_number: "5"
+chapter_name: "平放在大地上的弦"
+chapter_subtitle: "齊特琴、箏類、擊弦與鍵盤化弦鳴"
+sound_class: "弦鳴"
+hs_class: "Chordophone／弦鳴樂器"
+family: "齊特琴"
+playing_method: "撥奏"
+body_listening: "室內沙龍、分列弦群、細緻和聲"
+soundscape: "平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化弦鳴）"
+region_type: "單一地區／文化圈"
+region_verification: "本次新增初稿，需逐篇來源核對"
+article_type: "正式樂器篇／補充篇"
+priority: "中"
+production_status: "規劃中"
+image_spec: "六張圖＋DOCX；正式篇須核對外型與演奏姿勢"
+source_basis: "本次二輪缺口補充"
+database_status: "本次建議新增"
+database_note: "新增候選；建議正式寫作前再查證中文譯名、源流與代表影像"
 source_url: "https://zh.wikipedia.org/wiki/%E9%BD%8A%E7%89%B9%E7%90%B4"
 wikidata_id: "ENWIKI-091109bb69"
 ---
@@ -38,3 +56,23 @@ wikidata_id: "ENWIKI-091109bb69"
 ## 音色描述
 
 音色多由材質本體振動決定，常呈現清晰、短促或具有明顯泛音的聲響。
+
+## 旅圖分類與補充說明
+- **旅圖段落**：旅圖二｜懷裡與大地的弦
+- **章節**：5｜平放在大地上的弦
+- **章節主分類**：齊特琴、箏類、擊弦與鍵盤化弦鳴
+- **原聲音地景**：平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化弦鳴）
+- **專業發聲大類**：弦鳴
+- **Hornbostel–Sachs 近似分類**：Chordophone／弦鳴樂器
+- **家族／支系**：齊特琴
+- **演奏方式**：撥奏
+- **身體／聽覺關聯**：室內沙龍、分列弦群、細緻和聲
+- **主要地區／國家**：中歐
+- **地區類型**：單一地區／文化圈
+- **資料狀態**：本次新增初稿，需逐篇來源核對
+### 讀者導覽
+閱讀 齊特琴 時，可以先從「齊特琴」與「撥奏」切入，觀察它如何把材料、手勢與共鳴連在一起。
+
+聲音感受上，資料庫把它連到「室內沙龍、分列弦群、細緻和聲」，適合在聆聽時留意身體哪個部位先被聲音碰到。
+
+在旅圖敘事裡，它被放進「平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化弦鳴）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。

@@ -2,10 +2,28 @@
 title: "巴爾巴特琴"
 original_name: "Barbat (lute)"
 category: "弦樂器"
-country: "伊朗"
+country: "中東／歐亞／東亞／美洲／全球"
 era: "傳統／年代待考"
+journey: "旅圖二"
+journey_name: "懷裡與大地的弦"
+chapter_number: "4"
+chapter_name: "旅人懷裡撥動的故事線"
+chapter_subtitle: "魯特琴、短頸長頸撥弦與民謠弦聲"
+sound_class: "弦鳴"
+hs_class: "Chordophone／弦鳴樂器"
+family: "短頸魯特琴"
+playing_method: "撥弦"
+body_listening: "懷抱、手指、腳步、敘事"
+soundscape: "旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）"
+region_type: "跨文化／多地"
+region_verification: "承接553條目地域欄"
+article_type: "正式樂器篇"
+production_status: "規劃中"
+image_spec: "六張圖＋DOCX"
+source_basis: "10_補充後總清單＋553條目地域欄"
+database_status: "現有"
+database_note: "六張圖＋DOCX"
 image: "https://upload.wikimedia.org/wikipedia/commons/7/79/Barbat.jpg"
-listen_link: ""
 source_url: "https://en.wikipedia.org/wiki/Barbat_(lute)"
 wikidata_id: "Q807780"
 ---
@@ -44,3 +62,23 @@ wikidata_id: "Q807780"
 ## 音色描述
 
 音色由弦長、張力、共鳴箱與演奏法影響，可呈現撥奏、擦奏或擊弦的不同質感。
+
+## 旅圖分類與補充說明
+- **旅圖段落**：旅圖二｜懷裡與大地的弦
+- **章節**：4｜旅人懷裡撥動的故事線
+- **章節主分類**：魯特琴、短頸長頸撥弦與民謠弦聲
+- **原聲音地景**：旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+- **專業發聲大類**：弦鳴
+- **Hornbostel–Sachs 近似分類**：Chordophone／弦鳴樂器
+- **家族／支系**：短頸魯特琴
+- **演奏方式**：撥弦
+- **身體／聽覺關聯**：懷抱、手指、腳步、敘事
+- **主要地區／國家**：中東／歐亞／東亞／美洲／全球
+- **地區類型**：跨文化／多地
+- **資料狀態**：承接553條目地域欄
+### 讀者導覽
+閱讀 Barbat 時，可以先從「短頸魯特琴」與「撥弦」切入，觀察它如何把材料、手勢與共鳴連在一起。
+
+聲音感受上，資料庫把它連到「懷抱、手指、腳步、敘事」，適合在聆聽時留意身體哪個部位先被聲音碰到。
+
+在旅圖敘事裡，它被放進「旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。

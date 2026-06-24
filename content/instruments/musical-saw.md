@@ -1,11 +1,30 @@
 ---
 title: "鋸琴"
 original_name: "Musical saw"
-category: "電子樂器"
-country: "義大利"
+category: "打擊樂器"
+country: "東南亞／東亞／非洲／歐洲／全球"
 era: "17 世紀"
+journey: "旅圖五"
+journey_name: "城市與星塵的節奏"
+chapter_number: "10"
+chapter_name: "木石金屬的回聲城市"
+chapter_subtitle: "定音體鳴、材料敲擊與鑼鐘木琴系統"
+sound_class: "體鳴"
+hs_class: "Idiophone／體鳴樂器"
+family: "金屬摩擦體鳴"
+playing_method: "弓擦"
+body_listening: "材料、回聲、群體分工、音列"
+soundscape: "木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）"
+region_type: "跨文化／多地"
+region_verification: "系統初稿推定，需逐篇來源核對"
+article_type: "正式樂器篇"
+priority: "B"
+production_status: "規劃中"
+image_spec: "鋸琴，體鳴與擦弦身體手勢交界"
+source_basis: "10_補充後總清單＋553條目地域欄"
+database_status: "建議新增"
+database_note: "鋸琴，體鳴與擦弦身體手勢交界"
 image: "https://upload.wikimedia.org/wikipedia/commons/9/96/Pascal-Ayerbe-scie-musicale.jpg"
-listen_link: ""
 source_url: "https://zh.wikipedia.org/wiki/%E9%8B%B8%E7%90%B4"
 wikidata_id: "Q1144761"
 ---
@@ -46,3 +65,23 @@ wikidata_id: "Q1144761"
 ## 音色描述
 
 音色多由材質本體振動決定，常呈現清晰、短促或具有明顯泛音的聲響。
+
+## 旅圖分類與補充說明
+- **旅圖段落**：旅圖五｜城市與星塵的節奏
+- **章節**：10｜木石金屬的回聲城市
+- **章節主分類**：定音體鳴、材料敲擊與鑼鐘木琴系統
+- **原聲音地景**：木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+- **專業發聲大類**：體鳴
+- **Hornbostel–Sachs 近似分類**：Idiophone／體鳴樂器
+- **家族／支系**：金屬摩擦體鳴
+- **演奏方式**：弓擦
+- **身體／聽覺關聯**：材料、回聲、群體分工、音列
+- **主要地區／國家**：東南亞／東亞／非洲／歐洲／全球
+- **地區類型**：跨文化／多地
+- **資料狀態**：系統初稿推定，需逐篇來源核對
+### 讀者導覽
+閱讀 Musical Saw 時，可以先從「金屬摩擦體鳴」與「弓擦」切入，觀察它如何把材料、手勢與共鳴連在一起。
+
+聲音感受上，資料庫把它連到「材料、回聲、群體分工、音列」，適合在聆聽時留意身體哪個部位先被聲音碰到。
+
+在旅圖敘事裡，它被放進「木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。

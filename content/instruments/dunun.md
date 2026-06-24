@@ -2,10 +2,29 @@
 title: "杜农鼓"
 original_name: "Dunun"
 category: "打擊樂器"
-country: "非洲"
+country: "非洲／中東／亞洲／歐洲／美洲"
 era: "傳統／年代待考"
+journey: "旅圖四"
+journey_name: "地心與手邊的微光"
+chapter_number: "8"
+chapter_name: "皮膜敲醒的地心脈動"
+chapter_subtitle: "膜鳴鼓類、框鼓、杯鼓與鼓組"
+sound_class: "膜鳴"
+hs_class: "Membranophone／膜鳴樂器"
+family: "西非低音鼓"
+playing_method: "槌擊"
+body_listening: "手掌、腳底、低音、舞步"
+soundscape: "手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）"
+region_type: "地區／文化圈"
+region_verification: "系統初稿推定，需逐篇來源核對"
+article_type: "正式樂器篇"
+priority: "B"
+production_status: "規劃中"
+image_spec: "Mande 鼓樂中的低音鼓組"
+source_basis: "10_補充後總清單＋553條目地域欄"
+database_status: "建議新增"
+database_note: "Mande 鼓樂中的低音鼓組"
 image: "https://upload.wikimedia.org/wikipedia/en/thumb/4/49/Dundun.JPG/960px-Dundun.JPG"
-listen_link: ""
 source_url: "https://en.wikipedia.org/wiki/Dunun"
 wikidata_id: "Q3511343"
 ---
@@ -46,3 +65,23 @@ wikidata_id: "Q3511343"
 ## 音色描述
 
 音色由鼓膜張力、腔體形狀與敲擊方式影響，常具有明確起音與節奏性。
+
+## 旅圖分類與補充說明
+- **旅圖段落**：旅圖四｜地心與手邊的微光
+- **章節**：8｜皮膜敲醒的地心脈動
+- **章節主分類**：膜鳴鼓類、框鼓、杯鼓與鼓組
+- **原聲音地景**：手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+- **專業發聲大類**：膜鳴
+- **Hornbostel–Sachs 近似分類**：Membranophone／膜鳴樂器
+- **家族／支系**：西非低音鼓
+- **演奏方式**：槌擊
+- **身體／聽覺關聯**：手掌、腳底、低音、舞步
+- **主要地區／國家**：非洲／中東／亞洲／歐洲／美洲
+- **地區類型**：地區／文化圈
+- **資料狀態**：系統初稿推定，需逐篇來源核對
+### 讀者導覽
+閱讀 Dunun 時，可以先從「西非低音鼓」與「槌擊」切入，觀察它如何把材料、手勢與共鳴連在一起。
+
+聲音感受上，資料庫把它連到「手掌、腳底、低音、舞步」，適合在聆聽時留意身體哪個部位先被聲音碰到。
+
+在旅圖敘事裡，它被放進「手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。

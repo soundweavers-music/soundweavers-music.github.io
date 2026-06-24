@@ -2,10 +2,28 @@
 title: "刮瓜"
 original_name: "Güiro"
 category: "打擊樂器"
-country: "西班牙"
+country: "全球"
 era: "古代"
+journey: "旅圖五"
+journey_name: "城市與星塵的節奏"
+chapter_number: "11"
+chapter_name: "掌心搖落的節奏星塵"
+chapter_subtitle: "小型節奏體鳴、沙鈴、刮器與身體打擊"
+sound_class: "體鳴"
+hs_class: "Idiophone／體鳴樂器"
+family: "刮器與摩擦體鳴"
+playing_method: "刮奏"
+body_listening: "手腕、腳踝、短音、節奏對齊"
+soundscape: "手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）"
+region_type: "跨文化／多地"
+region_verification: "承接553條目地域欄"
+article_type: "正式樂器篇"
+production_status: "規劃中"
+image_spec: "六張圖＋DOCX"
+source_basis: "10_補充後總清單＋553條目地域欄"
+database_status: "現有"
+database_note: "六張圖＋DOCX"
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Phoenix-Musical_Instrument_Museum-Puerto_Rican_G%C3%BCiro.jpg/960px-Phoenix-Musical_Instrument_Museum-Puerto_Rican_G%C3%BCiro.jpg"
-listen_link: ""
 source_url: "https://zh.wikipedia.org/wiki/%E5%88%AE%E7%93%9C"
 wikidata_id: "Q2237198"
 ---
@@ -48,3 +66,23 @@ wikidata_id: "Q2237198"
 ## 音色描述
 
 音色多由材質本體振動決定，常呈現清晰、短促或具有明顯泛音的聲響。
+
+## 旅圖分類與補充說明
+- **旅圖段落**：旅圖五｜城市與星塵的節奏
+- **章節**：11｜掌心搖落的節奏星塵
+- **章節主分類**：小型節奏體鳴、沙鈴、刮器與身體打擊
+- **原聲音地景**：手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+- **專業發聲大類**：體鳴
+- **Hornbostel–Sachs 近似分類**：Idiophone／體鳴樂器
+- **家族／支系**：刮器與摩擦體鳴
+- **演奏方式**：刮奏
+- **身體／聽覺關聯**：手腕、腳踝、短音、節奏對齊
+- **主要地區／國家**：全球
+- **地區類型**：跨文化／多地
+- **資料狀態**：承接553條目地域欄
+### 讀者導覽
+閱讀 Guiro 時，可以先從「刮器與摩擦體鳴」與「刮奏」切入，觀察它如何把材料、手勢與共鳴連在一起。
+
+聲音感受上，資料庫把它連到「手腕、腳踝、短音、節奏對齊」，適合在聆聽時留意身體哪個部位先被聲音碰到。
+
+在旅圖敘事裡，它被放進「手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。

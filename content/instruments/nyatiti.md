@@ -1,11 +1,30 @@
 ---
 title: "Nyatiti（暫譯）"
 original_name: "Nyatiti"
-category: "鍵盤樂器"
-country: "待考"
+category: "弦樂器"
+country: "肯亞"
 era: "傳統／年代待考"
+journey: "旅圖三"
+journey_name: "天空裡拉長的弦"
+chapter_number: "6"
+chapter_name: "開放弦的天空與河流"
+chapter_subtitle: "豎琴、里拉與開放弦樂器"
+sound_class: "弦鳴"
+hs_class: "Chordophone／弦鳴樂器"
+family: "羅uo里拉琴"
+playing_method: "撥奏"
+body_listening: "吟唱支撐、節奏腳鈴、故事敘事"
+soundscape: "開放弦的天空與河流（豎琴、里拉與開放弦樂器）"
+region_type: "單一地區／文化圈"
+region_verification: "本次新增初稿，需逐篇來源核對"
+article_type: "正式樂器篇／補充篇"
+priority: "中"
+production_status: "規劃中"
+image_spec: "六張圖＋DOCX；正式篇須核對外型與演奏姿勢"
+source_basis: "本次二輪缺口補充"
+database_status: "本次建議新增"
+database_note: "新增候選；建議正式寫作前再查證中文譯名、源流與代表影像"
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Nyatiti.jpg/960px-Nyatiti.jpg"
-listen_link: ""
 source_url: "https://en.wikipedia.org/wiki/Nyatiti"
 wikidata_id: "Q3346604"
 ---
@@ -42,3 +61,23 @@ Nyatiti（暫譯）（Nyatiti）的歷史背景可先從可查來源、樂器分
 ## 音色描述
 
 音色多由材質本體振動決定，常呈現清晰、短促或具有明顯泛音的聲響。
+
+## 旅圖分類與補充說明
+- **旅圖段落**：旅圖三｜天空裡拉長的弦
+- **章節**：6｜開放弦的天空與河流
+- **章節主分類**：豎琴、里拉與開放弦樂器
+- **原聲音地景**：開放弦的天空與河流（豎琴、里拉與開放弦樂器）
+- **專業發聲大類**：弦鳴
+- **Hornbostel–Sachs 近似分類**：Chordophone／弦鳴樂器
+- **家族／支系**：羅uo里拉琴
+- **演奏方式**：撥奏
+- **身體／聽覺關聯**：吟唱支撐、節奏腳鈴、故事敘事
+- **主要地區／國家**：肯亞
+- **地區類型**：單一地區／文化圈
+- **資料狀態**：本次新增初稿，需逐篇來源核對
+### 讀者導覽
+閱讀 尼亞提提琴 時，可以先從「羅uo里拉琴」與「撥奏」切入，觀察它如何把材料、手勢與共鳴連在一起。
+
+聲音感受上，資料庫把它連到「吟唱支撐、節奏腳鈴、故事敘事」，適合在聆聽時留意身體哪個部位先被聲音碰到。
+
+在旅圖敘事裡，它被放進「開放弦的天空與河流（豎琴、里拉與開放弦樂器）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。

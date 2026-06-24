@@ -2,10 +2,27 @@
 title: "Panduri（暫譯）"
 original_name: "Panduri"
 category: "弦樂器"
-country: "待考"
+country: "中東／歐洲／亞洲／美洲"
 era: "古代"
-image: ""
-listen_link: ""
+journey: "旅圖二"
+journey_name: "懷裡與大地的弦"
+chapter_number: "4"
+chapter_name: "旅人懷裡撥動的故事線"
+chapter_subtitle: "魯特琴、短頸長頸撥弦與民謠弦聲"
+sound_class: "弦鳴"
+hs_class: "Chordophone／弦鳴樂器"
+family: "撥弦地域分支"
+playing_method: "撥弦"
+body_listening: "懷抱、手指、腳步、敘事"
+soundscape: "旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）"
+region_type: "地區／文化圈"
+region_verification: "系統初稿推定，需逐篇來源核對"
+article_type: "正式樂器篇"
+production_status: "規劃中"
+image_spec: "六張圖＋DOCX"
+source_basis: "10_補充後總清單＋553條目地域欄"
+database_status: "現有"
+database_note: "六張圖＋DOCX"
 source_url: "https://en.wikipedia.org/wiki/Panduri"
 wikidata_id: "ENWIKI-e9f2e4bc85"
 ---
@@ -42,3 +59,23 @@ Panduri（暫譯）（Panduri）的歷史背景可先從可查來源、樂器分
 ## 音色描述
 
 音色由弦長、張力、共鳴箱與演奏法影響，可呈現撥奏、擦奏或擊弦的不同質感。
+
+## 旅圖分類與補充說明
+- **旅圖段落**：旅圖二｜懷裡與大地的弦
+- **章節**：4｜旅人懷裡撥動的故事線
+- **章節主分類**：魯特琴、短頸長頸撥弦與民謠弦聲
+- **原聲音地景**：旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+- **專業發聲大類**：弦鳴
+- **Hornbostel–Sachs 近似分類**：Chordophone／弦鳴樂器
+- **家族／支系**：撥弦地域分支
+- **演奏方式**：撥弦
+- **身體／聽覺關聯**：懷抱、手指、腳步、敘事
+- **主要地區／國家**：中東／歐洲／亞洲／美洲
+- **地區類型**：地區／文化圈
+- **資料狀態**：系統初稿推定，需逐篇來源核對
+### 讀者導覽
+閱讀 Panduri 時，可以先從「撥弦地域分支」與「撥弦」切入，觀察它如何把材料、手勢與共鳴連在一起。
+
+聲音感受上，資料庫把它連到「懷抱、手指、腳步、敘事」，適合在聆聽時留意身體哪個部位先被聲音碰到。
+
+在旅圖敘事裡，它被放進「旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。

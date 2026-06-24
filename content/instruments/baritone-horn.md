@@ -2,10 +2,28 @@
 title: "細管上低音號"
 original_name: "Baritone horn"
 category: "管樂器"
-country: "待考"
+country: "歐洲／全球"
 era: "20 世紀"
+journey: "旅圖一"
+journey_name: "氣息離開身體"
+chapter_number: "3"
+chapter_name: "吹向遠方的號角"
+chapter_subtitle: "唇振氣鳴、天然號角與銅管"
+sound_class: "氣鳴"
+hs_class: "Aerophone／氣鳴樂器"
+family: "號角延伸與地方銅管"
+playing_method: "唇振"
+body_listening: "嘴唇、遠方、召喚、空間方向"
+soundscape: "吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）"
+region_type: "跨文化／多地"
+region_verification: "承接553條目地域欄"
+article_type: "正式樂器篇"
+production_status: "規劃中"
+image_spec: "六張圖＋DOCX"
+source_basis: "10_補充後總清單＋553條目地域欄"
+database_status: "現有"
+database_note: "六張圖＋DOCX"
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Yamaha_Baritone_horn_YBH-621S_by_Yamaha_%28crop%29.jpg/960px-Yamaha_Baritone_horn_YBH-621S_by_Yamaha_%28crop%29.jpg"
-listen_link: ""
 source_url: "https://zh.wikipedia.org/wiki/%E7%B4%B0%E7%AE%A1%E4%B8%8A%E4%BD%8E%E9%9F%B3%E8%99%9F"
 wikidata_id: "Q790468"
 ---
@@ -42,3 +60,23 @@ wikidata_id: "Q790468"
 ## 音色描述
 
 音色由氣流、管體、簧片或唇振控制，常具有延展性強的旋律線條。
+
+## 旅圖分類與補充說明
+- **旅圖段落**：旅圖一｜氣息離開身體
+- **章節**：3｜吹向遠方的號角
+- **章節主分類**：唇振氣鳴、天然號角與銅管
+- **原聲音地景**：吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
+- **專業發聲大類**：氣鳴
+- **Hornbostel–Sachs 近似分類**：Aerophone／氣鳴樂器
+- **家族／支系**：號角延伸與地方銅管
+- **演奏方式**：唇振
+- **身體／聽覺關聯**：嘴唇、遠方、召喚、空間方向
+- **主要地區／國家**：歐洲／全球
+- **地區類型**：跨文化／多地
+- **資料狀態**：承接553條目地域欄
+### 讀者導覽
+閱讀 Baritone Horn 時，可以先從「號角延伸與地方銅管」與「唇振」切入，觀察它如何把材料、手勢與共鳴連在一起。
+
+聲音感受上，資料庫把它連到「嘴唇、遠方、召喚、空間方向」，適合在聆聽時留意身體哪個部位先被聲音碰到。
+
+在旅圖敘事裡，它被放進「吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。

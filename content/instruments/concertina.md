@@ -1,11 +1,29 @@
 ---
 title: "六角手风琴"
 original_name: "Concertina"
-category: "管樂器"
-country: "德國"
+category: "鍵盤樂器"
+country: "歐洲／西方古典與民俗"
 era: "傳統／年代待考"
+journey: "旅圖一"
+journey_name: "氣息離開身體"
+chapter_number: "2"
+chapter_name: "簧片裡的鼻音與歌聲"
+chapter_subtitle: "口簧、自由簧、單簧雙簧與風袋"
+sound_class: "氣鳴"
+hs_class: "Aerophone／氣鳴樂器"
+family: "簧片鍵盤／風箱"
+playing_method: "風箱＋簧片"
+body_listening: "口腔、舌頭、簧片震動、鼻音"
+soundscape: "簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）"
+region_type: "地區／文化圈"
+region_verification: "系統初稿推定，需逐篇來源核對"
+article_type: "正式樂器篇"
+production_status: "規劃中"
+image_spec: "六張圖＋DOCX"
+source_basis: "10_補充後總清單＋553條目地域欄"
+database_status: "現有"
+database_note: "六張圖＋DOCX"
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Concertina_%E4%BA%8C%E9%87%8D%E5%A5%8F%E5%BC%8F%E5%85%AD%E8%A7%92%E6%89%8B%E9%A3%8E%E7%90%B4_%E8%8B%B1%E5%BC%8F%E5%85%AD%E8%A7%92%E6%89%8B%E9%A3%8E%E7%90%B4_%E7%9B%8E%E6%A0%BC%E9%B2%81%E5%BC%8F%E5%85%AD%E8%A7%92%E6%89%8B%E9%A3%8E%E7%90%B4.jpg/960px-Concertina_%E4%BA%8C%E9%87%8D%E5%A5%8F%E5%BC%8F%E5%85%AD%E8%A7%92%E6%89%8B%E9%A3%8E%E7%90%B4_%E8%8B%B1%E5%BC%8F%E5%85%AD%E8%A7%92%E6%89%8B%E9%A3%8E%E7%90%B4_%E7%9B%8E%E6%A0%BC%E9%B2%81%E5%BC%8F%E5%85%AD%E8%A7%92%E6%89%8B%E9%A3%8E%E7%90%B4.jpg"
-listen_link: ""
 source_url: "https://zh.wikipedia.org/wiki/%E5%85%AD%E8%A7%92%E6%89%8B%E9%A3%8E%E7%90%B4"
 wikidata_id: "ENWIKI-188602e522"
 ---
@@ -42,3 +60,23 @@ wikidata_id: "ENWIKI-188602e522"
 ## 音色描述
 
 音色由氣流、管體、簧片或唇振控制，常具有延展性強的旋律線條。
+
+## 旅圖分類與補充說明
+- **旅圖段落**：旅圖一｜氣息離開身體
+- **章節**：2｜簧片裡的鼻音與歌聲
+- **章節主分類**：口簧、自由簧、單簧雙簧與風袋
+- **原聲音地景**：簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+- **專業發聲大類**：氣鳴
+- **Hornbostel–Sachs 近似分類**：Aerophone／氣鳴樂器
+- **家族／支系**：簧片鍵盤／風箱
+- **演奏方式**：風箱＋簧片
+- **身體／聽覺關聯**：口腔、舌頭、簧片震動、鼻音
+- **主要地區／國家**：歐洲／西方古典與民俗
+- **地區類型**：地區／文化圈
+- **資料狀態**：系統初稿推定，需逐篇來源核對
+### 讀者導覽
+閱讀 Concertina 時，可以先從「簧片鍵盤／風箱」與「風箱＋簧片」切入，觀察它如何把材料、手勢與共鳴連在一起。
+
+聲音感受上，資料庫把它連到「口腔、舌頭、簧片震動、鼻音」，適合在聆聽時留意身體哪個部位先被聲音碰到。
+
+在旅圖敘事裡，它被放進「簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。

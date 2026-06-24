@@ -2,10 +2,28 @@
 title: "二胡"
 original_name: "Erhu"
 category: "弦樂器"
-country: "中國"
+country: "亞洲／歐洲／中東／全球"
 era: "傳統／年代待考"
+journey: "旅圖三"
+journey_name: "天空裡拉長的弦"
+chapter_number: "7"
+chapter_name: "弓毛拉出的哭與唱"
+chapter_subtitle: "擦弦、輪弦與提琴家族"
+sound_class: "弦鳴"
+hs_class: "Chordophone／弦鳴樂器"
+family: "胡琴與東亞擦弦"
+playing_method: "弓擦"
+body_listening: "胸口、嗓音、拉長的情緒"
+soundscape: "像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）"
+region_type: "跨文化／多地"
+region_verification: "承接553條目地域欄"
+article_type: "正式樂器篇"
+production_status: "規劃中"
+image_spec: "六張圖＋DOCX"
+source_basis: "10_補充後總清單＋553條目地域欄"
+database_status: "現有"
+database_note: "六張圖＋DOCX"
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Erhu_in_the_Mets.jpg/960px-Erhu_in_the_Mets.jpg"
-listen_link: ""
 source_url: "https://zh.wikipedia.org/wiki/%E4%BA%8C%E8%83%A1"
 wikidata_id: "Q726306"
 ---
@@ -42,3 +60,23 @@ wikidata_id: "Q726306"
 ## 音色描述
 
 音色由弦長、張力、共鳴箱與演奏法影響，可呈現撥奏、擦奏或擊弦的不同質感。
+
+## 旅圖分類與補充說明
+- **旅圖段落**：旅圖三｜天空裡拉長的弦
+- **章節**：7｜弓毛拉出的哭與唱
+- **章節主分類**：擦弦、輪弦與提琴家族
+- **原聲音地景**：像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+- **專業發聲大類**：弦鳴
+- **Hornbostel–Sachs 近似分類**：Chordophone／弦鳴樂器
+- **家族／支系**：胡琴與東亞擦弦
+- **演奏方式**：弓擦
+- **身體／聽覺關聯**：胸口、嗓音、拉長的情緒
+- **主要地區／國家**：亞洲／歐洲／中東／全球
+- **地區類型**：跨文化／多地
+- **資料狀態**：承接553條目地域欄
+### 讀者導覽
+閱讀 Erhu 時，可以先從「胡琴與東亞擦弦」與「弓擦」切入，觀察它如何把材料、手勢與共鳴連在一起。
+
+聲音感受上，資料庫把它連到「胸口、嗓音、拉長的情緒」，適合在聆聽時留意身體哪個部位先被聲音碰到。
+
+在旅圖敘事裡，它被放進「像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。
