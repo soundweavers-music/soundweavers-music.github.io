@@ -127,9 +127,8 @@ def read_instruments():
     instruments = []
     for path in sorted(CONTENT_DIR.glob("*.md")):
         meta, body = parse_frontmatter(path.read_text(encoding="utf-8"))
-        intro_body = extract_introduction_headings(body)
-        html = markdown.markdown(intro_body, extensions=["extra", "tables", "fenced_code"], output_format="html5")
-        html = strip_wiki_links(html)
+        body_html = markdown.markdown(body.strip(), extensions=["extra", "tables", "fenced_code"], output_format="html5")
+        body_html = strip_wiki_links(body_html)
         instruments.append(
             {
                 "slug": path.stem,
@@ -139,7 +138,13 @@ def read_instruments():
                 "country": meta.get("country", "待考"),
                 "era": meta.get("era", "傳統／年代待考"),
                 "sound_class": meta.get("sound_class", ""),
-                "html": html,
+                "hs_class": meta.get("hs_class", ""),
+                "family": meta.get("family", ""),
+                "playing_method": meta.get("playing_method", ""),
+                "body_listening": meta.get("body_listening", ""),
+                "soundscape": meta.get("soundscape", ""),
+                "region_type": meta.get("region_type", ""),
+                "html": body_html,
             }
         )
     return instruments
@@ -276,16 +281,38 @@ def build_index(instruments):
     write(index_path, page("首頁", body, index_path))
 
 
+def meta_row(label, value):
+    if not value:
+        return ""
+    return f'<div><dt>{escape(label)}</dt><dd>{escape(value)}</dd></div>'
+
+
 def build_detail_pages(instruments):
     for item in instruments:
+        meta_fields = [
+            ("分類", item["category"]),
+            ("國家／地區", item["country"]),
+            ("年代", item["era"]),
+            ("發聲原理", item["sound_class"]),
+            ("HS 分類", item["hs_class"]),
+            ("樂器家族", item["family"]),
+            ("演奏方式", item["playing_method"]),
+            ("身體聆聽", item["body_listening"]),
+            ("聲音地景", item["soundscape"]),
+            ("地區類型", item["region_type"]),
+        ]
+        meta_grid = "".join(meta_row(label, val) for label, val in meta_fields if val)
+        orig = f'<p class="original-name">{escape(item["original_name"])}</p>' if item["original_name"] and item["original_name"] != item["title"] else ""
         body = f"""
         <main class="instrument-page">
           <header class="instrument-header">
             <div>
               <p class="eyebrow">{escape(item['category'])}</p>
               <h1>{escape(item['title'])}</h1>
+              {orig}
             </div>
           </header>
+          {"<dl class='meta-grid'>" + meta_grid + "</dl>" if meta_grid else ""}
           <article class="markdown-body">{item['html']}</article>
         </main>
         """
@@ -356,12 +383,13 @@ h2 { margin:0; }
 .instrument-card strong { font-size:18px; }
 .breadcrumb { display:flex; gap:8px; color:var(--muted); margin-bottom:16px; font-size:14px; }
 .breadcrumb a { text-decoration:none; }
-.instrument-header { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr); gap:30px; margin-bottom:32px; align-items:start; }
+.instrument-header { display:grid; grid-template-columns:minmax(0,1fr); gap:8px; margin-bottom:24px; align-items:start; }
+.original-name { color:var(--muted); font-size:15px; margin:4px 0 0; }
 .instrument-image { width:100%; border:1px solid var(--line); border-radius:8px; background:var(--soft); }
-.meta-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; margin:24px 0; }
+.meta-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:10px; margin:0 0 32px; }
 .meta-grid div { border:1px solid var(--line); border-radius:8px; padding:12px; background:#fff; }
 .meta-grid dt { color:var(--muted); font-size:13px; }
-.meta-grid dd { margin:4px 0 0; font-weight:800; }
+.meta-grid dd { margin:4px 0 0; font-weight:700; font-size:15px; }
 .listen-button { display:inline-flex; align-items:center; min-height:42px; padding:0 16px; border-radius:6px; background:var(--accent); color:white; text-decoration:none; font-weight:800; }
 .source-note { color:var(--muted); font-size:14px; line-height:1.6; word-break:break-word; }
 .source-note a { color:var(--blue); }
