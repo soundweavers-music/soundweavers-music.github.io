@@ -1,5 +1,5 @@
 ---
-title: Dhantal（暫譯）
+title: 丹塔爾鼓
 original_name: Dhantal
 category: 打擊樂器
 country: 待考
@@ -7,7 +7,7 @@ era: 傳統／年代待考
 ---
 ## 介紹
 
-The dhantal (dandtal) is a long steel rod based percussion instrument (sounding similar to the triangle), which was adapted from the iron "bows" which yoked the oxen that pulled the carts on the estates in Guyana, Suriname, Trinidad and Tobago, other parts of the Caribbean, and Fiji. The original beater (which is called a kartaal/taali) was an actual horseshoe, a shape which is still retained in the modern dhantal's beater.
+丹塔爾鼓（dandtal）是一種長型鋼棒打擊樂器（音色類似三角鐵），改編自鐵製「弓形物」，這些弓形物原本是用來給牛軛牲口拉動蓋亞那、蘇利南、千里達及托巴哥、加勒比海其他地區和斐濟莊園的車輛。原始的敲棒（稱為kartaal/taali）是實際的馬蹄鐵，而這種形狀在現代丹塔爾鼓的敲棒上仍然保留著。
 ## 歷史背景
 
 ## 音色描述

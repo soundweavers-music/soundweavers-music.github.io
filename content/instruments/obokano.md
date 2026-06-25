@@ -15,7 +15,7 @@ region_type: 單一地區／文化圈
 ---
 ## 介紹
 
-The obokano (also spelled obukano) is a large bass bowl lyre from Kenya. It is used by the Gusii ethnic group. The instrument is made from a skin of a cow or goat and a bowl like structure curved out of a wood stump. It consists of eight strings whose tensions on the crossbar can be adjusted to produce different tones. It has been described as "the double-bass of East Africa." This is the largest such lyre in Kenya and instruments may be as large as six feet tall. It is used to accompany singing and dancing, Gusii music usually being vocal.
+奧博卡諾琴（也拼作obukano）是來自肯亞的一種大型低音碗形豎琴。它由古西族使用。該樂器由牛或羊的皮膚和從木樁雕刻而成的碗形結構製成。它由八根弦組成，弦在橫梁上的張力可以調整以產生不同的音調。它被描述為「東非的低音提琴」。這是肯亞最大的此類豎琴，樂器可以高達六英尺。它用於伴奏歌唱和舞蹈，古西族音樂通常是聲樂形式。
 ## 歷史背景
 
 ## 音色描述

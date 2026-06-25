@@ -1,5 +1,5 @@
 ---
-title: Hyoshigi（暫譯）
+title: 拍子木
 original_name: Hyoshigi
 category: 打擊樂器
 country: 待考

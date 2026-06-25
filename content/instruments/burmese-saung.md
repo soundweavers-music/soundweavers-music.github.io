@@ -1,5 +1,5 @@
 ---
-title: Burmese Saung
+title: 緬甸豎琴
 original_name: Burmese Saung
 category: 弦樂器
 country: 緬甸

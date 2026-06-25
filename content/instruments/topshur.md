@@ -1,5 +1,5 @@
 ---
-title: Topshur（暫譯）
+title: 託布秀爾
 original_name: Topshur
 category: 弦樂器
 country: 待考

@@ -1,5 +1,5 @@
 ---
-title: Hurdy-Gurdy
+title: 手搖琴
 original_name: Hurdy-Gurdy
 category: 弦樂器
 country: 亞洲／歐洲／中東／全球
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The hurdy-gurdy is a string instrument that produces sound by means of a hand-cranked rosined wheel that rubs against the strings. The wheel functions much like a violin (or nyckelharpa) bow, and single notes played on the instrument sound similar to those of a violin. Melodies are played on a keyboard that presses tangents—small wedges, typically made of wood or metal—against one or more of the strings to change their pitch. Like most other acoustic stringed instruments, it has a sound board and hollow cavity to make the vibration of the strings audible.
+手搖琴是一種弦樂器，通過手搖的上過松香的輪子摩擦琴弦來產生聲音。這個輪子的作用類似於小提琴（或鍵盤豎琴）的琴弓，手搖琴演奏的單音聽起來與小提琴相似。旋律通過一個鍵盤演奏，該鍵盤按下小楔形物—通常由木材或金屬製成—來接觸一根或多根琴弦，以改變它們的音高。與大多數其他聲學弦樂器一樣，它配備有音板和空心腔體，以使琴弦的振動清晰可聞。
 ## 歷史背景
 
 ## 音色描述

@@ -1,5 +1,5 @@
 ---
-title: Nose Flute
+title: 鼻笛
 original_name: Nose Flute
 category: 管樂器
 country: 全球

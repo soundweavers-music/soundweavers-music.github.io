@@ -1,5 +1,5 @@
 ---
-title: Babarak（暫譯）
+title: 蘇林笛
 original_name: Babarak
 category: 管樂器
 country: 待考
@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Kacapi-suling.J
 ---
 ## 介紹
 
-The suling (Sundanese: ᮞᮥᮜᮤᮀ) is a musical instrument of the Sundanese people in Indonesia. It is used in the Degung ensemble. Bamboo ring flute can also be found in Southeast Asia, especially in Brunei, Indonesia, Malaysia, the Philippines and Singapore.
+蘇林笛（sundanese：ᮞᮥᮜᮤᮀ）是印尼巽他人的樂器。它用於德貢合奏中。竹製環笛也可在東南亞找到，特別是在汶萊、印尼、馬來西亞、菲律賓和新加坡。
 ## 歷史背景
 
 ## 音色描述

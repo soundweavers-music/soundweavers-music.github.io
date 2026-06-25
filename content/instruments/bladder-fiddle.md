@@ -1,5 +1,5 @@
 ---
-title: Bladder fiddle（暫譯）
+title: 豬膀胱提琴
 original_name: Bladder fiddle
 category: 弦樂器
 country: 待考
@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Bumbass_or_blad
 ---
 ## 介紹
 
-The bladder fiddle was a folk instrument used throughout Europe and in the Americas. The instrument was originally a simple large stringed fiddle (a musical bow) made with a long stick, one or more thick gut strings, and a pig's-bladder resonator. It was bowed with either a notched stick or a horsehair bow. The folk instrument was historically played by "wandering musicians" and beggars up to the early 19th century. Although it may be used in serious folk music it has also been used for humor. Changes in the instrument have produced two distinct modern variations.
+豬膀胱提琴是一種在整個歐洲和美洲使用的民間樂器。該樂器最初是一種簡單的大型弦樂提琴（一種音樂弓），由一根長桿、一根或多根粗腸弦和豬膀胱共鳴器組成。它由有刻痕的木棍或馬尾弓拉奏。這種民間樂器歷史上由「流浪音樂家」和乞丐演奏，直到19世紀初。雖然它可能用於認真的民間音樂中，但也被用於幽默。樂器的改變產生了兩種不同的現代變體。
 ## 歷史背景
 
 ## 音色描述

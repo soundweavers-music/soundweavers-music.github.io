@@ -1,5 +1,5 @@
 ---
-title: Cajita
+title: 卡吉塔
 original_name: Cajita
 category: 打擊樂器
 country: 拉丁美洲／非洲／歐洲／亞洲／全球
@@ -14,7 +14,13 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-Cajita may refer to: Eschweilera mexicana, a species of woody plant only found in Mexico Cajita (instrument), a Latin percussion instrument in which a little box is opened and closed A subset of the JavaScript programming language based on the principles of object-capabilities, see Caja project
+卡吉塔可能指：
+
+墨西哥木患樹，一種僅在墨西哥發現的木本植物物種
+
+卡吉塔（樂器），一種拉丁打擊樂器，通過打開和關閉一個小盒子來演奏
+
+基於物件能力原則的JavaScript程式設計語言子集，請參閱Caja項目
 ## 歷史背景
 
 ## 音色描述

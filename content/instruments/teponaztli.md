@@ -1,5 +1,5 @@
 ---
-title: Teponaztli（暫譯）
+title: 特波那茲特鼓
 original_name: Teponaztli
 category: 打擊樂器
 country: 拉丁美洲／非洲／歐洲／亞洲／全球
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-A teponaztli [tepoˈnast͡ɬi] is a type of slit drum used in central Mexico by the Aztecs and related cultures.
+特波那茲特鼓 [tepoˈnast͡ɬi] 是中墨西哥的阿茲特克人及相關文化所使用的一種狹縫鼓。
 ## 歷史背景
 
 ## 音色描述

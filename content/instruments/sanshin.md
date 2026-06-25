@@ -1,5 +1,5 @@
 ---
-title: 三线
+title: 三線
 original_name: Sanshin
 category: 弦樂器
 country: 琉球國

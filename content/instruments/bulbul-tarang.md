@@ -1,5 +1,5 @@
 ---
-title: Bulbul tarang（暫譯）
+title: 夜鶯琴
 original_name: Bulbul tarang
 category: 鍵盤樂器
 country: 全球
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The Bulbul Tarang (बुलबुल तरंग) literally "waves of nightingales", alternately Indian Banjo) is a string instrument from India, that evolved from the Japanese taishōgoto, which likely arrived in South Asia in the 1930s. The Bulbul Tarang has evolved through the time. Currently the Bulbul Tarang has a total of 14 strings which is divided in 3 parts: 2 Main(Melody & Bass) strings, 4 Jhala Strings and 8, Swarmandal Strings.
+夜鶯琴（बुलबुल तरंग，字面意思為「夜鶯的波浪」，又稱印度班卓琴）是一種源自印度的弦樂器，由日本的大正琴演變而來，很可能在1930年代傳入南亞。夜鶯琴經歷了時間的演變而不斷發展。目前夜鶯琴共有14根弦，分為3個部分：2根主弦（旋律弦和低音弦）、4根Jhala弦和8根Swarmandal弦。
 ## 歷史背景
 
 ## 音色描述

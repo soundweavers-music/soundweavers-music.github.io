@@ -1,5 +1,5 @@
 ---
-title: Buhay（暫譯）
+title: 烏克蘭摩擦鼓
 original_name: Buhay
 category: 打擊樂器
 country: 待考
@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/c/cb/%D0%91%D1%83%D0%B3%D0
 ---
 ## 介紹
 
-The buhay (Ukrainian: бугай) (also known as a bugai, buhai, berebenytsia, bika, buga, bochka) is a musical instrument that is used in Ukraine and is classified as a friction drum. Buhay is the Ukrainian word for great bittern (Botaurus stellaris), and its use as name of the instrument refers to the sound produced. The mating call or contact call of the male buhay (Botaurus stellaris) is a deep, sighing fog-horn or bull-like boom with a quick rise and an only slightly longer fall, easily audible from a distance of 3 mi (4.8 km) on a calm night.
+烏克蘭摩擦鼓（烏克蘭語：бугай）（也稱為 bugai、buhai、berebenytsia、bika、buga、bochka）是一種在烏克蘭使用的樂器，屬於摩擦鼓類。烏克蘭語中的「buhay」是大麻鷺（Botaurus stellaris）的意思，該樂器以此命名是因為它所發出的聲音。雄性大麻鷺（Botaurus stellaris）的求偶叫聲或聯絡叫聲是一種低沉、嘆息般的霧笛音或牛叫聲，具有快速上升和略長的下降，在平靜的夜晚可以從 3 英里（4.8 公里）的距離內清晰聽到。
 ## 歷史背景
 
 ## 音色描述

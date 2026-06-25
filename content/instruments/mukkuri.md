@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Mukkuri-Leo-Tad
 ---
 ## 介紹
 
-The mukkuri is a traditional Japanese plucked idiophone indigenous to the Ainu. It is made from bamboo and is 10 cm long and 1.5 cm wide. Sound is made by pulling the string and, similar to a Jew's harp, vibrating the reed as it is placed in the performer's mouth.
+暮樂（Mukkuri）是一種傳統日本撥弦打擊樂器，源自阿伊努民族。它由竹子製成，長約10厘米，寬約1.5厘米。演奏者將其放入口中，通過拉動琴弦使簧片振動來發出聲音，其原理類似於猶太豎琴。
 ## 歷史背景
 
 ## 音色描述

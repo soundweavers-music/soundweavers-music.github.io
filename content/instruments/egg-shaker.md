@@ -1,5 +1,5 @@
 ---
-title: Egg Shaker
+title: 蛋形沙鈴
 original_name: Egg Shaker
 category: 打擊樂器
 country: 全球
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-An egg shaker or ganzá is a hand percussion instrument, in the idiophone category, that makes a noise when shaken. Functionally it is similar to a maraca. Typically the outer casing or container is ovoidal or egg-shaped. It is partially full of small, loose objects, such as seeds or beads, which create the percussive sounds as they collide, both with each other and with the inside surface of the container. The egg shaker is a Latin American instrument, cheap to buy and relatively simple to play.
+蛋形沙鈴（又稱為甘沙鈴）是一種手持打擊樂器，屬於體鳴樂器類別，搖晃時會發出聲音。功能上與沙錘相似。通常外殼或容器呈卵形或蛋形。內部裝有部分小型鬆散物體，如種子或珠子，當搖晃時，這些物體彼此碰撞以及與容器內部表面碰撞，從而產生打擊樂器的聲音。蛋形沙鈴是一種拉丁美洲樂器，價格便宜，相對容易演奏。
 ## 歷史背景
 
 ## 音色描述

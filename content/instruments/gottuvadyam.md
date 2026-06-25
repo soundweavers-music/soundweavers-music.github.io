@@ -14,7 +14,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The gottuvadyam is a 20 or 21-string fretless lute-style veena in Carnatic music from around the late 19th and early 20th centuries, named by Sakha Rama Rao from Tiruvidaimarudur, who was responsible for bringing it back to the concert scene. It is also known as chitravina (Sanskrit: चित्रवीणा), chitra veena, chitraveena, chitra vina, hanumad vina and mahanataka vina. Today it is played mainly in South India, though its origins can be traced back to Bharata's Natya Shastra (200 BCE-200 CE), where it is mentioned as a seven string fretless instrument.
+葛圖瓦賈姆琴是卡納塔克音樂中的一種20或21弦無品琵琶式維那琴，大約出現於19世紀末至20世紀初，由來自蒂魯維代馬魯杜爾的薩卡·拉瑪·饒命名，他曾將其重新帶回音樂會舞台。它也被稱為吉特拉維那（梵文：चित्रवीणा）、吉特拉維那琴、奇特拉維那琴、吉特拉維那、哈努曼維那琴和摩訶納塔卡維那琴。今天它主要在南印度演奏，但其起源可以追溯到《婆羅多戲論》（公元前200年至公元200年），其中提到它是一種七弦無品樂器。
 ## 歷史背景
 
 ## 音色描述

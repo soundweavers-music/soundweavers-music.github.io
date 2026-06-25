@@ -1,5 +1,5 @@
 ---
-title: Aboriginal Trumpet
+title: 迪吉里杜管
 original_name: Aboriginal Trumpet
 category: 管樂器
 country: 全球／亞洲／歐洲／美洲／大洋洲

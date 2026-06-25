@@ -1,5 +1,5 @@
 ---
-title: Animal Horn
+title: 動物號角
 original_name: Animal Horn
 category: 管樂器
 country: 全球／中東／歐洲／亞洲／高山與宗教文化圈

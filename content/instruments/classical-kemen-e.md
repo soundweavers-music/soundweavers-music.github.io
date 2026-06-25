@@ -1,5 +1,5 @@
 ---
-title: Classical Kemençe
+title: 古典肯曼切琴
 original_name: Classical Kemençe
 category: 弦樂器
 country: 亞洲／歐洲／中東／南亞／中亞
@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The classical kemenche (Turkish: Klasik kemençe), Armudî kemençe ('pear-shaped kemenche') or Politiki lyra (Greek: πολίτικη λύρα, 'Constantinopolitan lyre', similarly Turkish: İstanbul kemençesi, lit. 'Kemenche of Istanbul') is a pear-shaped bowed instrument with three strings that derives from the medieval Greek Byzantine lyre . It was mainly used by Greek immigrants from Asia Minor and in classical Ottoman music. The instrument was also used earlier for popular music, such as early "Smyrna-Style" rebetiko and continues to be played in the present day.
+古典肯曼切琴（土耳其語：Klasik kemençe）、梨形肯曼切琴（Armudî kemençe）或君士坦丁堡琴（希臘語：πολίτικη λύρα，意為「君士坦丁堡琴」，類似土耳其語：İstanbul kemençesi，字面意思為「伊斯坦堡的肯曼切琴」）是一種梨形的有弓弦樂器，擁有三根琴弦，源自中世紀希臘拜占庭琴。它主要被來自小亞細亞的希臘移民和古典鄂圖曼音樂所使用。該樂器早期也曾用於流行音樂，如早期的「士麥那風格」雷貝提克音樂，並在當今繼續被演奏。
 ## 歷史背景
 
 ## 音色描述

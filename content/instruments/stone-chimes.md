@@ -1,5 +1,5 @@
 ---
-title: Stone Chimes
+title: 石磬
 original_name: Stone Chimes
 category: 打擊樂器
 country: 東南亞／東亞／非洲／歐洲／全球

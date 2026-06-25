@@ -1,5 +1,5 @@
 ---
-title: Sheng (instrument)（暫譯）
+title: 笙
 original_name: Sheng (instrument)
 category: 管樂器
 country: 亞洲／歐洲／中東／全球

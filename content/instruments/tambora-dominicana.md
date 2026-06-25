@@ -1,5 +1,5 @@
 ---
-title: Batajón / Tambora Dominicana
+title: 坦博拉鼓
 original_name: Tambora Dominicana
 category: 打擊樂器
 country: 非洲／中東／亞洲／歐洲／美洲

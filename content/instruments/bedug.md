@@ -15,7 +15,7 @@ region_type: 區域／多國
 ---
 ## 介紹
 
-The bedug is one of the drums used in the gamelan. It is also played in mosques in Indonesia and Malaysia to signal prayer times. The hitting of the instrument is particularly done according to a rhythm that goes in an increasingly rapid (or accelerando) pace.
+貝杜格鼓是甘美蘭樂隊中使用的鼓之一。它也在印度尼西亞和馬來西亞的清真寺中演奏，用來標記祈禱時間。這種樂器的敲擊方式特別是按照一種以越來越快速（或漸快）的節奏進行。
 ## 歷史背景
 
 ## 音色描述

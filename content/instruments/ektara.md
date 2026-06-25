@@ -1,5 +1,5 @@
 ---
-title: Ektara（暫譯）
+title: 一弦琴
 original_name: Ektara
 category: 鍵盤樂器
 country: 伊朗／亞塞拜然／高加索
@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The ektara (Bengali: একতারা, Nepali: एकतारे; literally 'one-string', also called, ektar, golki Nepali: गोल्) is a one-stringed musical instrument used in the traditional music of Bengal, and used in modern-day music of Bangladesh, and eastern India. Two-stringed versions are called dotara (two strings), a name which also applies to another instrument of the same name. In origin, the ektara was a regular string instrument of Bauls and is plucked with one finger. The ektara is a drone lute consisting of a gourd resonator covered with skin, through which a bamboo neck is inserted.
+一弦琴（孟加拉語：একতারা，尼泊爾語：एकतारे；字面意思為「一根弦」，也稱為 ektar、golki 尼泊爾語：गोल्）是一種單弦樂器，用於孟加拉的傳統音樂，以及現代孟加拉和印度東部的音樂中。雙弦版本稱為 dotara（兩根弦），這個名稱也適用於另一種同名樂器。一弦琴起源於瑜伽苦行者（Bauls）的常規弦樂器，用一根手指撥奏。一弦琴是一種持續音魯特琴，由一個葫蘆形共鳴器組成，共鳴器覆有皮膜，竹製琴頸穿過其中。
 ## 歷史背景
 
 ## 音色描述

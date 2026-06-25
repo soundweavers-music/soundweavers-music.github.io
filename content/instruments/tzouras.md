@@ -1,5 +1,5 @@
 ---
-title: Tzouras（暫譯）
+title: 齊塔拉琴
 original_name: Tzouras
 category: 弦樂器
 country: 全球
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The tzouras (Greek: τζουράς), is a Greek stringed musical instrument related to the bouzouki. Its name comes from the Turkish cura. It is made in six-string and eight-string varieties. Similar musical instruments in Turkish culture are generally referred to as Bağlama. The six-string model has the same arrangement of strings tuned to the same pitches as the six-string (trichordo) bouzouki. There are three pairs of strings, tuned to D3D4–A3A3–D4D4 or D4D3–A3A3–D4D4. The strings are made of steel.
+齊塔拉琴（希臘語：τζουράς）是一種與布祖基琴相關的希臘弦樂器。其名稱源自土耳其的庫拉琴。它有六弦和八弦兩種規格。土耳其文化中類似的樂器通常被稱為巴格拉瑪琴。六弦型號的弦列排列和音高與六弦（三音組）布祖基琴相同。共有三對弦，調音為D3D4–A3A3–D4D4或D4D3–A3A3–D4D4。琴弦由鋼製成。
 ## 歷史背景
 
 ## 音色描述

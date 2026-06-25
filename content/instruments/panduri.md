@@ -1,5 +1,5 @@
 ---
-title: Panduri（暫譯）
+title: 潘杜裡琴
 original_name: Panduri
 category: 弦樂器
 country: 中東／歐洲／亞洲／美洲
@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The panduri (Georgian: ფანდური) is a traditional Georgian three-string plucked instrument common in all regions of Eastern Georgia: such as Pshav-Khevsureti, Tusheti, Kakheti and Kartli. The panduri is generally used to accompany solo heroic, comic and love songs, as well as dance.
+潘杜里琴（格魯吉亞語：ფანდური）是傳統的格魯吉亞三弦撥弦樂器，在格魯吉亞東部的所有地區都很常見，例如普沙夫-赫夫蘇雷蒂、圖什蒂、卡赫蒂和卡特利。潘杜里琴通常用於伴奏獨唱的英雄歌曲、喜劇歌曲和愛情歌曲，以及舞蹈。
 ## 歷史背景
 
 ## 音色描述

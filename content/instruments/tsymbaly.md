@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The tsymbaly (Ukrainian: цимбали) is the Ukrainian version of the hammer dulcimer. It is a chordophone made up of a trapezoidal box with metal (steel or bronze) strings strung across it. The tsymbaly is played by striking two beaters against the strings. The strings are strung in groups of 3–5, which are tuned in unison. The bass strings may have 1 or 2 wrapped strings tuned in union. The beaters were quite short in comparison to those used by the Cymbalom although not as short as those of the Belarus variety.
+齊姆巴利琴（烏克蘭語：цимбали）是烏克蘭版本的槌擊揚琴。它是一種弦鳴樂器，由一個梯形箱體組成，上面張有金屬（鋼或青銅）弦。齊姆巴利琴通過用兩根槌棒敲擊琴弦來演奏。琴弦分組張設，每組3至5根弦，以同音調調音。低音弦可能有1或2根纏繞弦以同音調調音。相比於揚琴使用的槌棒，齊姆巴利琴的槌棒相當短，但不如白俄羅斯版本那麼短。
 ## 歷史背景
 
 ## 音色描述

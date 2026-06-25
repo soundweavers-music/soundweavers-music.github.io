@@ -1,5 +1,5 @@
 ---
-title: Scheitholt（暫譯）
+title: 無
 original_name: Scheitholt
 category: 鍵盤樂器
 country: 東亞／中亞／歐洲／東南亞／非洲／美洲
@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The scheitholt or scheitholz is a traditional German stringed instrument and an ancestor of the modern zither. It falls into the category of drone zithers.
+謝特霍爾特琴（scheitholt 或 scheitholz）是一種傳統的德國弦樂器，也是現代揚琴的祖先。它屬於無人聲持續音揚琴的範疇。
 ## 歷史背景
 
 ## 音色描述

@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Glass_Marimba_%
 ---
 ## 介紹
 
-The glass marimba is a type of idiophone that uses glass structural elements instead of wood. Instruments made with glass are known as crystallophone instruments. Marimba translates to "a xylophone-like instrument" from an African language, probably Bantu. The glass keys are made of either hard glass (plate glass) or soft glass (stained glass). The keys are resonated with either a single open top box or individual resonators for each key. Mallets used to play the marimba can be constructed using a compressed silicone ball (bouncy ball) attached to one end of a wooden or synthetic dowel.
+玻璃馬林巴琴是一種體鳴樂器，使用玻璃結構元素來代替木材。用玻璃製成的樂器被稱為水晶音樂琴。馬林巴琴這個名字來自非洲語言（可能是班圖語），意思是「類似木琴的樂器」。玻璃琴鍵由硬玻璃（平板玻璃）或軟玻璃（彩色玻璃）製成。琴鍵透過單個開口頂部的箱體或各個琴鍵下的獨立共鳴器進行共鳴。演奏馬林巴琴的琴槌可以用壓縮矽膠球（彈力球）附著在木製或合成木棍的一端來製作。
 ## 歷史背景
 
 ## 音色描述

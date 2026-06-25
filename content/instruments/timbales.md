@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-Timbales () are shallow single-headed drums with metal casing. They are shallower than single-headed tom-toms and usually tuned much higher, especially for their size. Timbales are struck with wooden sticks on the heads and shells, although bare hands are sometimes used. The player (called a timbalero) uses a variety of stick strokes, rim shots, and rolls to produce a wide range of percussive expression during solos and at transitional sections of music, and usually plays the shells (or auxiliary percussion such as a cowbell or cymbal) to keep time in other parts of the song.
+蒂姆巴雷斯鼓是具有金屬外殼的淺型單面鼓。它們比單面湯姆鼓更淺，通常音調調得更高，特別是相對於其尺寸而言。蒂姆巴雷斯鼓用木棍敲擊鼓面和鼓殼，雖然有時也使用赤手。演奏者（稱為蒂姆巴雷羅）在獨奏和音樂過渡段落中使用各種棍擊技巧、邊緣敲擊和滾音來產生多種打擊樂表現，通常在歌曲的其他部分敲擊鼓殼（或輔助打擊樂器如牛鈴或鈸）來保持節奏。
 ## 歷史背景
 
 ## 音色描述

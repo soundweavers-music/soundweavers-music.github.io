@@ -1,5 +1,5 @@
 ---
-title: Waterphone（暫譯）
+title: 水琴
 original_name: Waterphone
 category: 打擊樂器
 country: 東南亞／東亞／非洲／歐洲／全球
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-A waterphone (also ocean harp) is a type of inharmonic acoustic tuned idiophone consisting of a stainless steel resonator bowl or pan with a cylindrical neck and bronze rods of different lengths and diameters around the rim of the bowl. The resonator may contain a small amount of water giving the waterphone a vibrant ethereal sound that has appeared in movie soundtracks, record albums, and live performances. The instrument was invented, developed, and manufactured by American Richard Waters (1935–2013).
+水琴（也稱海洋豎琴）是一種非諧和音聲調自鳴樂器，由不銹鋼共鳴碗或平底鍋組成，具有圓柱形的頸部，以及圍繞碗邊緣、長度和直徑各異的青銅棒。共鳴器可能含有少量水分，使水琴發出生動飄渺的聲音，這種聲音已出現在電影配樂、唱片專輯和現場演出中。該樂器由美國發明家理查德·沃特斯（1935–2013）發明、開發和製造。
 ## 歷史背景
 
 ## 音色描述

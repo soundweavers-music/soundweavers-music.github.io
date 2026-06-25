@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Bulgarian_Tambu
 ---
 ## 介紹
 
-The balkan tambura, balkan tamburası or tambura is a stringed instrument that is played as a folk instrument in Thrace and Balkans namely in Bosnia and Herzegovina, Bulgaria, Croatia, Hungary, North Macedonia, Serbia (especially in Vojvodina region), Montenegro and Turkey. It has doubled steel strings and is played with a plectrum, similar to mandolin and bağlama.
+巴爾幹坦伯拉琴（巴爾幹坦布拉琴）或坦伯拉琴是一種弦樂器，在色雷斯和巴爾幹地區作為民俗樂器演奏，特別是在波士尼亞和黑塞哥維那、保加利亞、克羅埃西亞、匈牙利、北馬其頓、塞爾維亞（尤其是沃伊伏迪納地區）、蒙特內哥羅和土耳其。它具有雙層鋼弦，用撥片演奏，類似於曼陀林和巴格拉瑪琴。
 ## 歷史背景
 
 ## 音色描述

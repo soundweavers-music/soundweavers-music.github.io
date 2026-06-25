@@ -1,5 +1,5 @@
 ---
-title: Saw U
+title: 椰胡
 original_name: Saw U
 category: 弦樂器
 country: 全球
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The saw u (Thai: ซออู้, RTGS: so u, pronounced [sɔː ʔûː]; also spelled saw ou) is a Thai bowed string instrument. It has a lower pitch than the saw duang and is the lowest sounding of the saw family. Reliable evidence shows that pattern of the Saw U was probably taken from the Chinese instrument and it is very similar to a two stringed Chinese instrument called the hu hu. The saw U was invented since the age of the present Bangkok period (c. 1782) or perhaps from the end of the preceding in the age of Ayudya (c.1700 - 1767).
+椰胡（泰語：ซออู้，RTGS：so u，發音為[sɔː ʔûː]；也拼寫為saw ou）是一種泰國弓弦樂器。它的音高低於锯杜昂琴，是椰胡家族中音調最低的樂器。可靠的證據表明椰胡的設計模式可能源自中國樂器，與一種名為胡胡的中國雙弦樂器非常相似。椰胡的發明時間大約在現代曼谷時期（約1782年）或可能更早，追溯至前一個阿育陀耶時期的末期（約1700-1767年）。
 ## 歷史背景
 
 ## 音色描述

@@ -1,5 +1,5 @@
 ---
-title: Đàn bầu（暫譯）
+title: 彈匏
 original_name: Đàn bầu
 category: 鍵盤樂器
 country: 東亞／中亞／歐洲／東南亞／非洲／美洲

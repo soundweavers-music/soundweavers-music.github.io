@@ -1,5 +1,5 @@
 ---
-title: Kong Vong
+title: 鑼圈
 original_name: Kong Vong
 category: 打擊樂器
 country: 東南亞／東亞／非洲／歐洲／全球

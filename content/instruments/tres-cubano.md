@@ -1,5 +1,5 @@
 ---
-title: Tres Cubano
+title: 特雷斯吉他
 original_name: Tres Cubano
 category: 弦樂器
 country: 全球

@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-A bell tree, also known as tree bells or Chinese bell tree (often confused with the mark tree), is a percussion instrument, consisting of vertically nested inverted metal bowls. The bowls, placed on a vertical rod, are arranged roughly in order of pitch. The number of bowls can vary between approximately 14 and 28. An effective glissando is produced by sliding a triangle beater, a glockenspiel mallet, or a xylophone mallet down the length of the tree. The bells are usually pitched to microtonal intervals and do not represent any formal scale.
+樹鈴（又稱鐘樹或中國鐘樹，常與記號樹混淆）是一種打擊樂器，由垂直堆疊的倒置金屬碗組成。這些碗放在垂直桿上，大致按音高順序排列。碗的數量可在約14到28個之間變化。通過用三角鐵槌、鐘琴槌或木琴槌沿著樹鈴的長度滑動，可以產生有效的滑音效果。鐘通常調至微分音程，不代表任何正式的音階。
 ## 歷史背景
 
 ## 音色描述

@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/4/4b/MET_bass_sarrusophone
 ---
 ## 介紹
 
-The bass sarrusophone is the bass member of the sarrusophone family of metal double reed conical bore wind instruments. Pitched in the key of B♭, it has a range almost identical to the bass saxophone, and can cover the bassoon range up to F4. Historically it was built in the late 19th and early 20th centuries principally by its inventor Pierre-Louis Gautrot and his successor, Couesnon & Co., as well as Evette & Schaeffer and Orsi of Milan. It is currently only available by custom order from Orsi.
+低音薩魯梭風是薩魯梭風樂器家族中的低音成員，屬於金屬雙簧錐形管孔木管樂器。音調為B♭調，其音域幾乎與低音薩克斯風相同，可涵蓋巴松管音域至F4音。歷史上，它主要由其發明者皮埃爾-路易·高特羅在19世紀末和20世紀初製造，其繼承者庫埃斯農公司、埃韋特與謝費爾公司以及米蘭的奧西公司也有製造。目前只能從奧西公司定制購買。
 ## 歷史背景
 
 ## 音色描述

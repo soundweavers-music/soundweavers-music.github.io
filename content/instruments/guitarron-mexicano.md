@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The guitarrón mexicano (Spanish for "big Mexican guitar", the suffix -ón being a Spanish augmentative) or Mexican guitarrón is a very large, deep-bodied Mexican six-string acoustic bass guitar played traditionally in Mariachi groups. Although similar to the guitar, it is not a derivative of that instrument, but was independently developed from the sixteenth-century Spanish bajo de uña ("fingernail[-plucked] bass"). Because its great size gives it volume, it does not require electric amplification for performances in small venues.
+墨西哥大吉他（西班牙文為「guitarrón mexicano」，意為「大墨西哥吉他」，字尾-ón為西班牙文的增大詞綴）是一種體型非常龐大、琴身深厚的墨西哥六弦原聲貝斯吉他，傳統上在馬里亞奇樂隊中演奏。雖然外形類似於吉他，但它並非吉他的衍生樂器，而是獨立發展自十六世紀西班牙的「bajo de uña」（指甲撥彈貝斯）。由於其龐大的體型賦予它強大的音量，在小型場地的演出中無需電力放大。
 ## 歷史背景
 
 ## 音色描述

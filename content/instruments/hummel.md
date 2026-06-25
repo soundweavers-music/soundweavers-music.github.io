@@ -14,7 +14,7 @@ region_type: 區域／多國
 ---
 ## 介紹
 
-Hummel may refer to:
+胡梅爾可能指的是：
 ## 歷史背景
 
 ## 音色描述

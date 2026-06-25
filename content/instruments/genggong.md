@@ -15,7 +15,7 @@ region_type: 單一地區／文化圈
 ---
 ## 介紹
 
-The genggong is a kind of jew's harp used in the music of Bali. It consists of a wooden frame and tongue cut from a single piece of the leaf stem of the sugar palm. The left end is held firmly against the cheek, while a string tied to the right end is jerked rhythmically to set the tongue into motion (in contrast to other jaw harps in which the tongue itself is plucked to produce sound). Different harmonics are produced by pronouncing different vowel sounds.
+根貢是一種在峇里島音樂中使用的口琴。它由一個木製框架和從甘蔗葉莖中切割出來的簧片組成，兩者都來自同一塊材料。左端牢牢貼住臉頰，而綁在右端的繩子被有節奏地拉動以使簧片運動（與其他口琴不同，其他口琴是通過撥動簧片本身來發聲）。通過發出不同的元音，可以產生不同的泛音。
 ## 歷史背景
 
 ## 音色描述

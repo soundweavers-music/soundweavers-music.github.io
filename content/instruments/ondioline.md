@@ -15,7 +15,7 @@ region_type: 歷史／電子音樂
 ---
 ## 介紹
 
-The Ondioline is an electronic analog synthesizer, developed and built by Frenchman Georges Jenny. Sometimes referred to as the "Jenny Ondioline," the instrument is considered a forerunner of the synthesizer. First conceived by Jenny in 1939, he continued refining and reconfiguring the device, producing dozens of variant models up until his death in 1975. Though monophonic, the Ondioline is capable of creating a wide variety of sounds. Its keyboard spans three octaves, but by adjusting a register knob a player can render up to eight octaves.
+昂迪歐琳琴是一種電子類比合成器，由法國人喬治·詹尼開發並製造。這種樂器有時也被稱為「詹尼昂迪歐琳琴」，被認為是合成器的先驅。詹尼最初在1939年構思了這一樂器，他持續改進和重新配置該裝置，直到1975年去世為止製造了數十種變型模型。儘管是單音的，昂迪歐琳琴能夠創造出多種多樣的聲音。其鍵盤跨越三個八度音程，但通過調整音栓旋鈕，演奏者可以達到八個八度音程。
 ## 歷史背景
 
 ## 音色描述

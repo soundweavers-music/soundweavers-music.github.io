@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The cobza (also cobsa, cobuz, koboz) is a multi-stringed instrument of the lute family of folk origin popular in Romanian, Moldovan and contemporary Hungarian folk music. The cobza is a pear-shaped string instrument with a short neck and wooden body, traditionally used to provide rhythm and harmony in folk music. It can be played solo or in groups and is usually strummed with a folded goose feather. It is considered the oldest accompaniment instrument in the region comprising Romania and Moldova.
+科布扎魯特琴（亦稱cobsa、cobuz、koboz）是魯特琴家族中的多弦樂器，源自民間音樂，在羅馬尼亞、摩爾多瓦及當代匈牙利民間音樂中頗受歡迎。科布扎魯特琴是一種梨形弦樂器，具有短頸和木製琴身，傳統上用於在民間音樂中提供節奏和和聲。它可以獨奏或與他人合奏，通常用摺疊的鵝毛撥彈。它被認為是羅馬尼亞和摩爾多瓦地區最古老的伴奏樂器。
 ## 歷史背景
 
 ## 音色描述

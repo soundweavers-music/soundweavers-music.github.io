@@ -1,5 +1,5 @@
 ---
-title: African Bow Harp
+title: 非洲弓豎琴
 original_name: African Bow Harp
 category: 弦樂器
 country: 非洲／歐洲／亞洲／美洲

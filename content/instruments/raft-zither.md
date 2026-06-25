@@ -1,5 +1,5 @@
 ---
-title: Raft zither（暫譯）
+title: 筏狀箏
 original_name: Raft zither
 category: 鍵盤樂器
 country: 亞洲／歐洲／全球
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-A raft zither is a group of single-cord tube zithers, connected together to form a "raft". Tube zithers use a tube as a platform to hold a string (either tied onto the tube or cut out of the tube itself), raised with bridges. The flat surface of the raft is the base for the strings, and the multiple instruments form a single instrument with many notes. Each tube zither in the raft zither has a different note, and the idiochord instruments become a single heterochord instrument. The raft zither is also related to the board zither, which uses a board as the base for its many strings.
+筏狀箏是一組單弦管狀箏，連接在一起形成一個「筏」。管狀箏使用一根管子作為平台來固定弦（弦要麼被綁在管子上，要麼從管子本身切割而出），並用琴橋抬起。筏狀箏的平坦表面是弦的基座，多個樂器組合形成單一樂器，具有多個音符。筏狀箏中的每根管狀箏都發出不同的音符，同弦樂器變成了異弦樂器。筏狀箏也與板狀箏有關，後者使用木板作為其多條弦的基座。
 ## 歷史背景
 
 ## 音色描述

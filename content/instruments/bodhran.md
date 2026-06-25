@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The bodhrán (, Irish: [ˈbˠəuɾˠaːnˠ]; plural bodhráin) is a frame drum used in Irish music ranging from 25 to 65 cm (10–26 in) in diameter, with most drums measuring 35–45 cm (14–18 in). The sides of the drum are 9–20 cm (3+1⁄2–8 in) deep. A goatskin hide is tacked to one side (synthetic heads or other animal skins are sometimes used). The other side is open-ended for one hand to be placed against the inside of the drum head to control the pitch and timbre. One or two crossbars, sometimes removable, may be inside the frame, but this is increasingly rare on modern instruments.
+愛爾蘭手鼓（bodhrán，愛爾蘭語：[ˈbˠəuɾˠaːnˠ]；複數形式為bodhráin）是用於愛爾蘭音樂的框式鼓，直徑範圍從25到65厘米（10-26英寸），其中大多數鼓的直徑為35-45厘米（14-18英寸）。鼓的側邊深度為9-20厘米（3½-8英寸）。山羊皮被釘在一側（有時使用合成鼓皮或其他動物皮革）。另一側是開放式的，可以將一隻手放在鼓皮內側以控制音高和音色。框架內部可能有一到兩根橫樑，有時是可移動的，但這在現代樂器上越來越罕見。
 ## 歷史背景
 
 ## 音色描述

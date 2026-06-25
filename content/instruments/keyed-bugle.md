@@ -1,5 +1,5 @@
 ---
-title: Keyed Bugle
+title: 鍵盤軍號
 original_name: Keyed Bugle
 category: 管樂器
 country: 全球／中東／歐洲／亞洲／高山與宗教文化圈
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The bugle is a simple signaling brass instrument with a wide conical bore. It normally has no valves or other pitch-altering devices, and is thus limited to its natural harmonic notes, and pitch is controlled entirely by varying the air and embouchure.
+軍號是一種簡單的信號銅管樂器，具有寬闊的圓錐形管孔。它通常沒有活塞或其他改變音高的裝置，因此僅限於其自然泛音音符，音高完全由改變氣流和唇形來控制。
 ## 歷史背景
 
 ## 音色描述

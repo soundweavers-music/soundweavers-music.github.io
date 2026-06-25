@@ -1,5 +1,5 @@
 ---
-title: Udu（暫譯）
+title: 巫毒鼓
 original_name: Udu
 category: 打擊樂器
 country: 非洲／中東／亞洲／歐洲／美洲
@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The kim-kim or Udu is a plosive aerophone (in this case implosive) and an idiophone of the Igbo of Nigeria. In the Igbo language, ùdù means 'vessel' or 'pot'. This is a hand percussion instrument and it is one of the most important instruments in Igbo music.
+金金鼓或烏杜鼓是奈及利亞伊博人的爆裂性氣鳴樂器（在此情況下為內爆型）和自鳴樂器。在伊博語中，ùdù 意為「容器」或「鍋」。這是一種手打擊樂器，也是伊博音樂中最重要的樂器之一。
 ## 歷史背景
 
 ## 音色描述

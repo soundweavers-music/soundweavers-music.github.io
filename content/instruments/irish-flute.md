@@ -1,5 +1,5 @@
 ---
-title: Irish Flute
+title: 笛
 original_name: Irish Flute
 category: 管樂器
 country: 愛爾蘭
@@ -15,7 +15,7 @@ region_type: 單一國家或文化源流
 ---
 ## 介紹
 
-The Irish flute is a conical-bore, simple-system, wooden flute of the type favoured by classical flautists of the early 19th century, or to a flute of modern manufacture derived from this design (often with modifications to optimize its use in Irish Traditional Music, Scottish Traditional Music or Music of Brittany and other Celtic nations). The majority of traditional Irish flute players use a wooden, simple-system flute.
+愛爾蘭長笛是一種圓錐形吹孔、簡易系統的木製長笛，這類長笛是十九世紀初期古典長笛演奏家所青睞的類型，或是根據這種設計製造的現代長笛（通常會進行改良，以優化其在愛爾蘭傳統音樂、蘇格蘭傳統音樂或不列塔尼音樂及其他凱爾特民族音樂中的使用效果）。大多數傳統愛爾蘭長笛演奏家都使用木製的簡易系統長笛。
 ## 歷史背景
 
 ## 音色描述

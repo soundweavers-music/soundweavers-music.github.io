@@ -1,5 +1,5 @@
 ---
-title: 班杜里亞琴
+title: 班杜裡亞琴
 original_name: Bandurria
 category: 弦樂器
 country: 中東／歐洲／亞洲／美洲
@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The bandurria is a plucked chordophone from Spain, similar to the mandolin and bandola, primarily used in Spanish folk music, but also found in former Spanish colonies.
+班杜里亞琴是來自西班牙的撥弦弦樂器，類似於曼陀林琴和班多拉琴，主要用於西班牙民間音樂，但也在曾經的西班牙殖民地中使用。
 ## 歷史背景
 
 ## 音色描述

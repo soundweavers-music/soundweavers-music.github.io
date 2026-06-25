@@ -1,5 +1,5 @@
 ---
-title: Fangxiang（暫譯）
+title: 方響
 original_name: Fangxiang
 category: 打擊樂器
 country: 待考

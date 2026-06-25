@@ -14,7 +14,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The ocean drum is a percussion instrument that emulates the sounds of the ocean, invented by Olivier Messiaen in 1972.
+海浪鼓是一種打擊樂器，能夠模擬海洋的聲音，由奧利維埃·梅西安在1972年發明。
 ## 歷史背景
 
 ## 音色描述

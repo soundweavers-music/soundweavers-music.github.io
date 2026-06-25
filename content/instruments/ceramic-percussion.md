@@ -1,5 +1,5 @@
 ---
-title: Ceramic Percussion
+title: 陶土打擊樂器
 original_name: Ceramic Percussion
 category: 打擊樂器
 country: 東南亞／東亞／非洲／歐洲／全球

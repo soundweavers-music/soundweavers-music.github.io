@@ -1,5 +1,5 @@
 ---
-title: Electrophone（暫譯）
+title: 電子樂器
 original_name: Electrophone
 category: 打擊樂器
 country: 待考
@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Bob_Moog3.jpg/5
 ---
 ## 介紹
 
-An electronic musical instrument or electrophone is a musical instrument that produces sound using electronic circuitry. Such an instrument sounds by outputting an electrical, electronic or digital audio signal that ultimately is plugged into a power amplifier which drives a loudspeaker, creating the sound heard by the performer and listener. An electronic instrument might include a user interface for controlling its sound, often by adjusting the pitch, frequency, or duration of each note.
+電子樂器或電聲樂器是一種利用電子電路產生聲音的樂器。這類樂器通過輸出電學、電子或數位音訊信號來發聲，該信號最終被輸入功率放大器，放大器驅動揚聲器，從而產生演奏者和聽眾所聽到的聲音。電子樂器可能包含一個用戶界面，用於控制其聲音，通常通過調整每個音符的音高、頻率或持續時間來實現。
 ## 歷史背景
 
 ## 音色描述

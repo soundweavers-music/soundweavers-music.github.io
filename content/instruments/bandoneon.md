@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The bandoneon (Spanish: bandoneón) or bandonion is a type of concertina particularly popular in Argentina and Uruguay, used in most tango ensembles. As with other members of the concertina family, it is held between the hands, and played by pulling and pushing air through bellows, routing it through sets of tuned metal reeds by pressing the instrument's buttons. Unlike most accordions, bandoneons always employ the same sets of reeds to produce their sound, and do not usually have the register switches common on accordions.
+班東尼琴（西班牙語：bandoneón）或班東尼安琴是一種手風琴，在阿根廷和烏拉圭特別受歡迎，用於大多數探戈樂團中。與其他手風琴家族成員一樣，它夾在雙手之間演奏，通過拉動和推動風箱中的空氣，經由按下琴鍵來控制調音金屬簧片組發聲。與大多數手風琴不同的是，班東尼琴始終採用相同的簧片組來產生聲音，通常沒有手風琴上常見的音栓開關。
 ## 歷史背景
 
 ## 音色描述

@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The launeddas (also called Sardinian triple clarinet) are a traditional Sardinian woodwind instrument made of three pipes, each of which has an idioglot single reed. They are a polyphonic instrument, with one of the pipes functioning as a drone and the other two playing the melody in thirds and sixths. Predecessors of the launeddas are found throughout Northern Africa and the Middle East.
+勞內達笛（也稱撒丁島三管豎笛）是一種傳統的撒丁島木管樂器，由三根管子組成，每根管子都裝有一個原始單簧片。它是一種復調樂器，其中一根管子充當持續音，另外兩根管子以三度和六度音程演奏旋律。勞內達笛的前身遍布北非和中東地區。
 ## 歷史背景
 
 ## 音色描述

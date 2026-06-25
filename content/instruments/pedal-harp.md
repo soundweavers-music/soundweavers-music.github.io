@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The pedal harp (also known as the concert harp) is a large and technologically modern harp, designed primarily for use in art music. It may be played solo, as part of a chamber ensemble, or in an orchestra. It typically has 47 strings with seven strings per octave, giving a range of six and a half octaves. In this type of harp the pedals alter the pitch of the strings, so that the pedal harp can easily play works written in any key. This is particularly important in the harmonically complex music of the Romantic period and later 20th-century classical music.
+踏板豎琴（也稱為音樂廳豎琴）是一種大型且技術先進的豎琴，主要設計用於藝術音樂。它可以獨奏、作為室內樂合奏的一部分，或在管弦樂隊中演奏。它通常有47根琴弦，每八度音階七根琴弦，音域範圍達六個半八度。在這種豎琴中，踏板改變琴弦的音高，因此踏板豎琴可以輕鬆演奏以任何調式創作的作品。這在聲響複雜的浪漫主義時期音樂及20世紀後期的古典音樂中尤為重要。
 ## 歷史背景
 
 ## 音色描述

@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The timbau or Brazilian timbal is a membranophone instrument derived from the caxambu drum, usually played with both hands. Slightly conical and of varying sizes, it is usually light in weight and made of lacquered wood or metal (usually aluminum) with a tunable nylon head. It is in the shape of an ice cream cone with the top and the point cut off. The drum is most often found in Bahia, originating in Salvador, Bahia, and is used mainly to play Afro-Brazilian rhythms, such as axé and samba-reggae.
+蒂姆巴爾鼓或巴西蒂姆巴爾是一種膜鳴樂器，源自卡沙姆布鼓，通常用雙手演奏。它略呈圓錐形，尺寸各異，通常重量輕，由上漆木材或金屬（通常是鋁）製成，配有可調音的尼龍鼓皮。其形狀像一個冰淇淋甜筒，上端和尖端被切掉。這種鼓最常見於巴伊亞州，起源於巴伊亞州的薩爾瓦多，主要用於演奏非洲-巴西節奏，例如阿克塞和森巴-雷鬼。
 ## 歷史背景
 
 ## 音色描述

@@ -1,5 +1,5 @@
 ---
-title: Kamale Ngoni
+title: 卡瑪萊恩貢尼
 original_name: Kamale Ngoni
 category: 弦樂器
 country: 西非／馬利

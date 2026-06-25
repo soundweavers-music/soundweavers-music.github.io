@@ -1,5 +1,5 @@
 ---
-title: Electronic Drums
+title: 電子鼓
 original_name: Electronic Drums
 category: 電子樂器
 country: 非洲／中東／亞洲／歐洲／美洲

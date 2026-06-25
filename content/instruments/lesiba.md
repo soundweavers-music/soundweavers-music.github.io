@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Lesiba_quill.JP
 ---
 ## 介紹
 
-The term lesiba (Tswana for 'feather') refers to a class of "unbraced mouth-resonated bow[s]" with a flattened quill attached to a long string, stretched over a hard stick, acting as the main source of vibration. Holding both hands around the quill, positioned without touching just inside the lips, the player sharply inhales or exhales against it, creating vibration in the string. This "produces a powerful buzzing sound," usually in short notes on a small, limited scale.
+「Lesiba」（茨瓦納語意為「羽毛」）一詞指的是一類「無框口腔共鳴弓」，其特徵是在長弦上附有一根扁平的羽管，該羽管拉伸於堅硬的木棒上，作為主要振動源。演奏者雙手握住羽管，將其置於嘴唇內側但不接觸嘴唇，然後急速吸氣或呼氣，使弦產生振動。這種方式「產生強有力的嗡嗡聲」，通常以短音符的形式在較小、有限的音階範圍內演奏。
 ## 歷史背景
 
 ## 音色描述

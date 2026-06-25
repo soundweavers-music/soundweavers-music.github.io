@@ -1,5 +1,5 @@
 ---
-title: Bombo Legüero
+title: 邦博鼓
 original_name: Bombo Legüero
 category: 打擊樂器
 country: 非洲／中東／亞洲／歐洲／美洲

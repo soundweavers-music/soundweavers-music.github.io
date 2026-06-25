@@ -1,5 +1,5 @@
 ---
-title: Ankle Bells
+title: 踝鈴
 original_name: Ankle Bells
 category: 打擊樂器
 country: 拉丁美洲／非洲／歐洲／亞洲／全球

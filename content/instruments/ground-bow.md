@@ -1,5 +1,5 @@
 ---
-title: Ground bow（暫譯）
+title: 地弓琴
 original_name: Ground bow
 category: 弦樂器
 country: 待考
@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Dyulu-tama_grou
 ---
 ## 介紹
 
-The ground-bow, also known as an earth-bow or ground harp, is a single-string bow-shaped folk musical instrument, classified as a chordophone. It is known in cultures of equatorial and south Africa, and in other cultures with African roots. It consists of a flexible stick planted into the ground (possibly a stripped sapling or a branch), with a string from its free end to a resonator of some kind based on a pit in the ground. It looks like a game trap or a child toy, therefore its distribution over Africa used to be overlooked.
+地弓琴，又稱為土地弓或地面豎琴，是一種單弦弓形民族樂器，被歸類為弦鳴樂器。它在赤道非洲和南非的文化中為人所知，以及在具有非洲根源的其他文化中也存在。它由一根插入地面的柔性木棍組成（可能是剝去樹皮的樹苗或樹枝），從其自由端連接一根弦到某種共鳴器，該共鳴器以地面上的一個凹陷為基礎。由於其看起來像獵捕陷阱或兒童玩具，因此其在整個非洲的分佈過去常被人們所忽視。
 ## 歷史背景
 
 ## 音色描述

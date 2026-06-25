@@ -1,5 +1,5 @@
 ---
-title: Tilinkó
+title: 蒂林科
 original_name: Tilinkó
 category: 管樂器
 country: 全球／亞洲／歐洲／美洲／大洋洲

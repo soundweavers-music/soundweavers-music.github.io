@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The dutar (also dotar; Persian: دوتار, romanized: dutâr; Russian: Дутар; Tajik: Дутор; Uzbek: Дутор; Uyghur: دۇتار, Дутар, romanized: Dutar; Dungan: Дутар) is a traditional Iranian long-necked two-stringed lute found in Iran and Central Asia. Its name comes from the Persian word for "two strings", دوتار do tār (< دو do "two",تار tār "string"), although the Herati dutar of Afghanistan has fourteen strings. Dutar is very popular in Tajikistan and Khorasan province of Iran.
+多塔爾琴（也稱為多塔琴；波斯語：دوتار，音譯：dutâr；俄語：Дутар；塔吉克語：Дутор；烏茲別克語：Дутор；維吾爾語：دۇتار、Дутар，音譯：Dutar；敦干語：Дутар）是一種傳統的伊朗長頸兩弦魯特琴，見於伊朗和中亞地區。其名稱來自波斯語中表示「兩根弦」的詞彙دوتار do tār（< دو do「二」，تار tār「弦」），儘管阿富汗的赫拉特多塔爾琴擁有十四根弦。多塔爾琴在塔吉克斯坦和伊朗霍拉桑省非常受歡迎。
 ## 歷史背景
 
 ## 音色描述

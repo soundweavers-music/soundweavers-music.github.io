@@ -1,5 +1,5 @@
 ---
-title: Cuatro Venezolano
+title: 委內瑞拉四絃琴
 original_name: Cuatro Venezolano
 category: 弦樂器
 country: 中東／歐洲／亞洲／美洲

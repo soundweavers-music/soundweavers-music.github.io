@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/d/df/Item-tenor-guitar-503
 ---
 ## 介紹
 
-The tenor guitar or four-string guitar is a slightly smaller, four-string relative of the steel-string acoustic guitar or electric guitar. The instrument was initially developed in its acoustic form by Gibson and C.F. Martin so that players of the four-string tenor banjo could double on guitar.
+次中音吉他或四弦吉他是鋼弦民謠吉他或電吉他的一種略小的四弦親戚樂器。這種樂器最初由吉普森和C.F. 馬丁公司以原聲形式開發，目的是讓四弦次中音班卓琴的演奏者可以兼彈吉他。
 ## 歷史背景
 
 ## 音色描述

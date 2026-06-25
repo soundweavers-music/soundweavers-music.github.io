@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The gue is an extinct type of two-stringed bowed lyre or zither from the Shetland Isles. The instrument was described in 1809 by Arthur Edmondston in View of the Ancient and Present State of the Zetland Islands:"Before violins were introduced, the musicians performed on an instrument called a gue, which appears to have had some similarity to the violin, but had only two strings of horse hair, and was played upon in the same manner as a violoncello."The exact details of the gue are unclear, but it possibly resembled extinct bowed lyres such as the Norwegian giga, or the extant Swedish and Eston…
+格弓琴是一種已絕跡的雙弦弓弦琴或齊特琴，來自設得蘭群島。該樂器在1809年由亞瑟·埃德蒙茲頓在《澤蘭群島古今風貌》中被描述："在小提琴引進之前，音樂家用一種叫做格弓琴的樂器演奏，該樂器似乎與小提琴有些相似之處，但只有兩根馬尾弦，演奏方式與大提琴相同。"格弓琴的確切細節尚不清楚，但它可能類似於已絕跡的弓弦琴，如挪威的吉加琴，或現存的瑞典和愛沙尼亞的...
 ## 歷史背景
 
 ## 音色描述

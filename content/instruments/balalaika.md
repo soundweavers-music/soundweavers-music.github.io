@@ -1,5 +1,5 @@
 ---
-title: 巴拉莱卡琴
+title: 巴拉萊卡琴
 original_name: Balalaika
 category: 弦樂器
 country: 中東／歐亞／東亞／美洲／全球

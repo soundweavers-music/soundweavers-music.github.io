@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The kora (Manding languages: ߞߐߙߊ kɔra) is a stringed instrument used extensively in West Africa. A kora typically has 21 strings, which are played by plucking with the fingers. It has features of the lute and harp.
+科拉琴（曼德語：ߞߐߙߊ kɔra）是一種在西非地區廣泛使用的弦樂器。科拉琴通常有21根琴弦，由演奏者用手指撥弦演奏。它具有魯特琴和豎琴的特點。
 ## 歷史背景
 
 ## 音色描述

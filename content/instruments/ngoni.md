@@ -14,7 +14,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-Ngoni may refer to:
+恩貢尼可能指的是：
 ## 歷史背景
 
 ## 音色描述

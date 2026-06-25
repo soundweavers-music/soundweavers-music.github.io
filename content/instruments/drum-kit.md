@@ -1,5 +1,5 @@
 ---
-title: Drum Kit
+title: 爵士鼓
 original_name: Drum Kit
 category: 電子樂器
 country: 全球
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-A drum kit, acoustic drum kit or drum set (also known as a trap set or simply drums in popular music and jazz contexts) is a musical instrument consisting of a collection of percussion instruments arranged to be played by a single musician. It typically includes drums, cymbals, and sometimes other auxiliary percussion instruments, such as a tambourine or a cowbell.
+爵士鼓、木製爵士鼓或鼓組（在流行音樂和爵士樂中也稱為陷阱鼓或簡稱為鼓）是一種音樂樂器，由一系列打擊樂器組成，排列成供單個樂手演奏。它通常包括鼓、銅鈸，有時還包括其他輔助打擊樂器，例如鈴鼓或牛鈴。
 ## 歷史背景
 
 ## 音色描述

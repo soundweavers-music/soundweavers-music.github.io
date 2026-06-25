@@ -1,5 +1,5 @@
 ---
-title: 坎泰莱琴
+title: 坎泰萊琴
 original_name: Kantele
 category: 鍵盤樂器
 country: 東亞／中亞／歐洲／東南亞／非洲／美洲

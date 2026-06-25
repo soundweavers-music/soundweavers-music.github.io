@@ -1,5 +1,5 @@
 ---
-title: Morsing（暫譯）
+title: 聖巴泰勒米行政長官列表
 original_name: Morsing
 category: 管樂器
 country: 亞洲／歐洲／中東／全球
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The morsing (also mukharshanku, mourching, morching or morchang; Sanskrit: दंत वाद्यन्तरात्मसत्रस्य, Telugu: మోర్సింగ్, Kannada: ಮೋರ್ಸಿಂಗ್, Rajasthani: मोरचंग, Tamil: நாமுழவு அல்லது முகச்சங்கு, Malayalam: മുഖർശംഖ്, English: "jaw harp") is an instrument similar to the Jew's harp, mainly used in Rajasthan, in the Carnatic music of South India, and in Sindh, Pakistan. It can be categorized under lamellophones, which is a sub-category of plucked idiophones.
+莫爾辛格（也稱為穆卡沙庫、莫爾欽、莫爾昌；梵文：दंत वाद्यन्तरात्मसत्रस्य，泰盧固文：మోర్సింగ్，卡納達文：ಮೋರ್ಸಿಂಗ್，拉賈斯坦文：मोरचंग，泰米爾文：நாமுழவு அல்லது முகச்சங்கு，馬拉雅拉姆文：മുഖർശംഖ്，英文：「颌琴」）是一種類似於猶太人豎琴的樂器，主要用於拉賈斯坦邦、南印度卡納蒂克音樂和巴基斯坦信德省。它可以歸類為簧片琴，這是撥弦打擊樂器的一個子類別。
 ## 歷史背景
 
 ## 音色描述

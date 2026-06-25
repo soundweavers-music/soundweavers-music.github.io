@@ -1,5 +1,5 @@
 ---
-title: Agung a tamlang（暫譯）
+title: 竹製鑼鼓
 original_name: Agung a tamlang
 category: 打擊樂器
 country: 菲律賓
@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Agung_a_Tamlang
 ---
 ## 介紹
 
-The agung a tamlang is a type of Philippine slit drum made of hollowed out bamboo in imitation of the real agung. Pitch is determined by the length and depth of the slit. It is used as practice for the real agung: players either use either one agung a tamlang (hold it with one hand and using the other to strike it with a beater) or using two agung a tamlangs where the other agung is held with one’s feet.
+竹製鑼鼓（agung a tamlang）是一種菲律賓的竹製狹縫鼓，由挖空的竹子製成，用以模仿真正的鑼鼓。音高由狹縫的長度和深度決定。它被用作真正鑼鼓的練習工具：演奏者可以使用一個竹製鑼鼓（用一隻手持握，另一隻手用槌棒敲擊），或使用兩個竹製鑼鼓，其中另一個鑼鼓用腳來持握。
 ## 歷史背景
 
 ## 音色描述

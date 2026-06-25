@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The EMS Synthi A and the EMS Synthi AKS are portable modular analog synthesisers made by EMS of England. The Synthi A model debuted in May 1971, and then Synthi AKS model appeared in March 1972 a with a built-in keyboard and sequencer. The EMS Synthi models are notable for its patch pin matrix, its functions and internal design are similar to the VCS 3 synthesiser, also made by EMS. EMS is still run by Robin Wood in Cornwall, and in addition to continuing to build and sell new units, the company repairs and refurbishes EMS equipment.
+EMS Synthi A 和 EMS Synthi AKS 是由英國 EMS 公司製造的便攜式模組化類比合成器。Synthi A 型號於 1971 年 5 月首次推出，隨後 Synthi AKS 型號於 1972 年 3 月推出，內建鍵盤和音序器。EMS Synthi 型號以其接線柱矩陣而著稱，其功能和內部設計與同樣由 EMS 製造的 VCS 3 合成器相似。EMS 目前仍由 Robin Wood 在康瓦爾運營，除了持續製造和銷售新機型外，公司還提供 EMS 設備的維修和翻新服務。
 ## 歷史背景
 
 ## 音色描述

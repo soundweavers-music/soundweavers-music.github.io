@@ -1,5 +1,5 @@
 ---
-title: Kou Xiang
+title: 口弦
 original_name: Kou Xiang
 category: 管樂器
 country: 全球／非洲／亞洲／現代療癒與街頭音樂

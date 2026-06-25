@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-Rhodes ( ; Greek: Ρόδος, romanized: Ródos [ˈroðos]) is the largest of Greece's Dodecanese islands and their historical capital; it is the ninth largest island in the Mediterranean Sea. Administratively, Rhodes constitutes a separate municipality within the Rhodes regional unit, which is part of the South Aegean administrative region. The principal town of the island and seat of the municipality is the city of Rhodes, home to 50,636 inhabitants according to the 2011 census. By 2022, the island’s population had grown to 125,113 people.
+羅茲（希臘語：Ρόδος，拉丁化：Ródos [ˈroðos]）是希臘十二島群中最大的島嶼，也是其歷史首都；它是地中海第九大島嶼。在行政上，羅茲構成羅茲地區單位內的一個獨立市鎮，該地區是南愛琴海行政區的一部分。島上的主要城鎮和市鎮所在地是羅茲市，根據2011年人口普查，該市有50,636名居民。到2022年，該島人口已增長至125,113人。
 ## 歷史背景
 
 ## 音色描述

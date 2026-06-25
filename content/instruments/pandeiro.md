@@ -15,7 +15,7 @@ region_type: 單一國家或文化源流
 ---
 ## 介紹
 
-The pandeiro (Portuguese pronunciation: [pɐ̃ˈdejɾu]) is a type of hand frame drum popular in Brazil. The pandeiro is used in a number of Brazilian music forms, such as samba, choro, coco, capoeira, and bossa nova music. The drumhead is tunable, and the rim holds metal jingles (platinelas) which are cupped, creating a crisper, drier and less sustained tone on the pandeiro than on the tambourine. It is held in one hand, and struck on the head by the other hand to produce the sound. Typical pandeiro patterns are played by alternating the thumb, fingertips, heel, and palm of the hand.
+潘德羅框鼓（葡萄牙語發音：[pɐ̃ˈdejɾu]）是一種在巴西廣受歡迎的手持框鼓。潘德羅框鼓用於多種巴西音樂形式，如森巴、舒洛、可可、卡波耶拉和波薩諾瓦音樂。鼓面可調音，框上裝有金屬搖撼片（platinelas），呈杯形，相比鈴鼓，潘德羅框鼓能發出更清脆、更乾爽且音程更短暫的音色。它由一隻手握持，用另一隻手敲擊鼓面以產生聲音。典型的潘德羅框鼓演奏方式是通過交替使用大拇指、指尖、手掌根部和掌面來完成。
 ## 歷史背景
 
 ## 音色描述

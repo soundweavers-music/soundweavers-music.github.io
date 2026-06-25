@@ -1,5 +1,5 @@
 ---
-title: Pi Chanai
+title: 嗩吶
 original_name: Pi Chanai
 category: 管樂器
 country: 全球／亞洲／中東／歐洲

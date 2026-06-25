@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-Fife ( FYFE, Scottish English: [fɐi̯f]; Scottish Gaelic: Fìobha [ˈfiːvə]; Scots: Fife) is a council area and lieutenancy area in Scotland. A peninsula, it is bordered by the Firth of Tay to the north, the North Sea to the east, the Firth of Forth to the south, Clackmannanshire to the south-west, and Perth and Kinross to the west. The largest settlement is the city of Dunfermline, and the administrative centre is Glenrothes. Fife has an area of 512 square miles (1,330 km2) and had a resident population of 374,760 in 2024, making it Scotland's 3rd largest local authority area by population.
+法夫郡（英文：FYFE，蘇格蘭英語：[fɐi̯f]；蘇格蘭蓋爾語：Fìobha [ˈfiːvə]；蘇格蘭語：Fife）是蘇格蘭的一個議會區和郡尉轄區。作為一個半島，它向北以泰河河口為界，向東以北海為界，向南以福思河河口為界，向西南與克拉克曼南郡相鄰，向西與珀斯和金羅斯相鄰。最大的聚居地是鄧弗姆林市，行政中心是格倫羅西斯。法夫郡面積為512平方英里（1,330平方公里），2024年常住人口為374,760人，是蘇格蘭按人口計第3大地方當局轄區。
 ## 歷史背景
 
 ## 音色描述

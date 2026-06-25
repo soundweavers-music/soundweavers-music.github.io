@@ -1,5 +1,5 @@
 ---
-title: Mbira Nyunga Nyunga
+title: 姆比拉
 original_name: Mbira Nyunga Nyunga
 category: 打擊樂器
 country: 非洲／辛巴威／剛果／全球現代

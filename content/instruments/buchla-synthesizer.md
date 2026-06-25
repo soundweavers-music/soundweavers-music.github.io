@@ -1,5 +1,5 @@
 ---
-title: Buchla Synthesizer
+title: 布克拉合成器
 original_name: Buchla Synthesizer
 category: 鍵盤樂器
 country: 歐洲／美國／全球現代錄音室

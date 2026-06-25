@@ -14,7 +14,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The sipsi (pronounced [sipˈsi]) is a clarinet-like, single-reed instrument used mainly in folk music and native to the Aegean region of Turkey. The word sipsi is possibly onomatopoeic. The sipsi can be made of bone, wood, or reed, though the reed variant is most common. Its size varies from region to region, but it generally contains five finger holes in the front, and one finger hole in the back. The sipsi is one of many reed instruments in Turkey used to play lead melodies in instrumental folk music. It is generally played in the Western part in the Aegean Region of Turkey.
+希普西笛（發音為 [sipˈsi]）是一種類似單簧管的單簧片樂器，主要用於民間音樂，原產於土耳其愛琴海地區。「希普西笛」這個詞可能是擬聲詞。希普西笛可以由骨頭、木頭或蘆葦製成，但蘆葦製的版本最為常見。其大小因地區而異，但通常在前面有五個指孔，在後面有一個指孔。希普西笛是土耳其眾多簧片樂器之一，用於在器樂民間音樂中演奏主旋律。它通常在土耳其愛琴海地區的西部地帶演奏。
 ## 歷史背景
 
 ## 音色描述

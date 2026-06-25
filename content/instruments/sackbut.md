@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-A sackbut is an early form of the trombone used during the Renaissance and Baroque eras. A sackbut has the characteristic telescopic slide of a trombone, used to vary the length of the tube to change pitch, but is distinct from later trombones by its smaller, more cylindrically-proportioned bore, and its less-flared bell. Unlike the earlier slide trumpet from which it evolved, the sackbut possesses a U-shaped slide with two parallel sliding tubes, rather than just one. Records of the term trombone predate the term sackbut by two decades, and evidence for the German term Posaune is even older.
+薩克布特長號是文藝復興時期和巴洛克時代使用的早期長號形式。薩克布特長號具有長號特有的伸縮滑管，用於改變管身長度以改變音高，但它與後來的長號的區別在於其較小的、更具圓柱形比例的音孔，以及喇叭口較少張開。與其演變而來的早期滑管小號不同，薩克布特長號擁有U形滑管，具有兩根平行的滑動管，而不是只有一根。長號這個術語的記錄比薩克布特這個術語早出現二十年，而德文術語「Posaune」的證據甚至更早。
 ## 歷史背景
 
 ## 音色描述

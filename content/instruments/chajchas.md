@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-Chajchas (also chapchas; Spanish: uñas, "toenails") are a small percussion instrument of the rattle family, typically made from goat or sheep hooves, and originating in the Central Andes. The instrument is used in traditional rituals and ceremonies, and can also be heard in much of the folk music of the region, especially the countries of Colombia, Bolivia, Peru, Chile, Ecuador.
+查查斯蹄鈴（也稱為查普查斯；西班牙語：uñas，意為「腳趾甲」）是一種小型打擊樂器，屬於沙鈴樂器家族，通常由山羊或綿羊的蹄子製成，起源於中安地斯山脈地區。該樂器被用於傳統儀式和典禮中，也常見於該地區的民間音樂中，特別是在哥倫比亞、玻利維亞、秘魯、智利和厄瓜多等國家。
 ## 歷史背景
 
 ## 音色描述

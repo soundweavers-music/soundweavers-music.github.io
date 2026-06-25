@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The gyile is a type of West African xylophone, with seventeen keys constructed over gourds. It holds a place in the musical traditions of the Dagara and Birifor people of northern Ghana and southern Burkina Faso. Bernard Woma (d. 2018) was a well-known gyile player from Upper West Ghana who spent many years teaching the instrument and introducing it to audiences around the world.
+吉爾木琴是一種西非木琴，由十七個鍵盤安裝在葫蘆上而成。它在迦納北部和布基納法索南部的達加拉人和比里福爾人的音樂傳統中佔有重要地位。伯納德·沃瑪（卒於2018年）是來自迦納上西部地區著名的吉爾木琴演奏家，他花費多年時間教授這種樂器，並將其介紹給世界各地的觀眾。
 ## 歷史背景
 
 ## 音色描述

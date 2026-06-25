@@ -14,7 +14,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-Cura or CURA may refer to:
+庫拉（Cura）或庫拉（CURA）可能指的是：
 ## 歷史背景
 
 ## 音色描述

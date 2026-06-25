@@ -15,7 +15,7 @@ region_type: 單一地區／文化圈
 ---
 ## 介紹
 
-The baglamas (Greek: μπαγλαμάς Turkish: bağlama), plural baglamades) or baglamadaki (μπαγλαμαδάκι), a long necked bowl-lute, is a plucked string instrument used in Greek music; it is a smaller version of the bouzouki pitched an octave higher (nominally D-A-D), with unison pairs on the four highest strings and an octave pair on the lower D. Musically, the baglamas is most often found supporting the bouzouki in the Piraeus city style of rebetiko.
+希臘巴格拉馬琴（希臘語：μπαγλαμάς，土耳其語：bağlama），複數形式為baglamades）或baglamadaki（μπαγλαμαδάκι），是一種長頸碗形魯特琴，是用於希臘音樂的撥弦樂器；它是布祖基琴的較小版本，音高比布祖基琴高八度（標準調為D-A-D），四根最高弦為一度對（同度弦對），下方D弦為八度對（八度弦對）。在音樂應用上，巴格拉馬琴最常見於皮里埃斯城市風格的雷貝蒂科音樂中，用來襯托布祖基琴。
 ## 歷史背景
 
 ## 音色描述

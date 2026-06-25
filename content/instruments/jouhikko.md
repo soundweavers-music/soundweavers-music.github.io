@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The jouhikko (Finnish: [ˈjou̯hikːo]) is a traditional, two- or three-stringed bowed lyre, from Finland and Karelia. Its strings are traditionally of horsehair. The playing of this instrument died out in the early 20th century but has been revived and there are now a number of musicians playing it.
+約伊希科弓琴（芬蘭語：[ˈjou̯hikːo]）是一種傳統的二弦或三弦擦弦琴，來自芬蘭和卡累利亞。其琴弦傳統上由馬尾毛製成。這種樂器的演奏在20世紀初期已逐漸消亡，但後來被重新復興，現在已有許多音樂家在演奏它。
 ## 歷史背景
 
 ## 音色描述

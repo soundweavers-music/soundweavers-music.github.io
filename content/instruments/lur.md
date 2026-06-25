@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-A lur, also lure or lurr, is a long natural horn without finger holes that is played with a brass-type embouchure. Lurs can be straight or curved in various shapes. The purpose of the curves was to make long instruments easier to carry (e.g. for marching, like the modern sousaphone) and to avoid directing the loud noise at nearby people. The name lur is used for two distinct types of ancient wind instruments. The more recent type is made of wood and was in use in Scandinavia during the Middle Ages.
+盧爾號（也稱為 lure 或 lurr）是一種長形天然號角，沒有按孔，以銅管類的吹嘴演奏。盧爾號可以是直形或各種彎曲的形狀。彎曲的目的是使長樂器更容易攜帶（例如行進時，如同現代的低音號），以及避免將大聲的音量指向附近的人。盧爾號這個名稱用於兩種不同類型的古代管樂器。較新近的類型由木材製成，在中世紀時於斯堪地那維亞地區使用。
 ## 歷史背景
 
 ## 音色描述

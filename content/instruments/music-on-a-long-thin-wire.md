@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/AlvinLucier-Mus
 ---
 ## 介紹
 
-″Music on a Long Thin Wire" is a musical piece by Alvin Lucier conceived in 1977. In his own words (1992): "Music on a Long Thin Wire is constructed as follows: the wire is extended across a large room, clamped to tables at both ends. The ends of the wire are connected to the loudspeaker terminals of a power amplifier placed under one of the tables. A sine wave oscillator is connected to the amplifier. A magnet straddles the wire at one end. Wooden bridges are inserted under the wire at both ends to which contact microphones are embedded, routed to a stereo sound system.
+《長細線上的音樂》是阿爾文·盧西耶於1977年創作的音樂作品。根據他本人的描述（1992年）："《長細線上的音樂》的構成如下：將金屬線拉伸穿過一個大房間，兩端用夾子固定在桌子上。金屬線的兩端連接到放在其中一張桌子下方的功率放大器的揚聲器端子。正弦波振盪器連接到該放大器。一塊磁鐵跨越金屬線的一端。在金屬線下方的兩端各插入一個木製琴橋，其上嵌入接觸式麥克風，並接入立體聲音響系統。
 ## 歷史背景
 
 ## 音色描述

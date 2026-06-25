@@ -1,5 +1,5 @@
 ---
-title: Monochord（暫譯）
+title: 單弦樂器
 original_name: Monochord
 category: 鍵盤樂器
 country: 古希臘／歐洲
@@ -15,7 +15,7 @@ region_type: 歷史文化圈
 ---
 ## 介紹
 
-A monochord, also known as sonometer (see below), is an ancient musical and scientific laboratory instrument, involving one (mono-) string (chord). The term monochord is sometimes used as the class-name for any musical stringed instrument having only one string and a stick shaped body, also known as musical bows. According to the Hornbostel–Sachs system, string bows are bar zithers (311.1) while monochords are traditionally board zithers (314).
+單弦樂器，又稱音測器（見下文），是一種古老的音樂和科學實驗室樂器，由一條（單）弦組成。單弦樂器這個術語有時被用作任何只有一根弦和棒狀琴身的弦樂器的通稱，也稱為音樂弓。根據霍恩博斯特爾-薩克斯系統，弦弓是棒形揚琴（311.1），而單弦樂器傳統上是板形揚琴（314）。
 ## 歷史背景
 
 ## 音色描述

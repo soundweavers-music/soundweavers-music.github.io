@@ -1,5 +1,5 @@
 ---
-title: Tuntuna
+title: 土土那琴
 original_name: Tuntuna
 category: 鍵盤樂器
 country: 亞洲／歐洲／全球

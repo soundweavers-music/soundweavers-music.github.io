@@ -1,5 +1,5 @@
 ---
-title: 横波
+title: 橫波
 original_name: Transverse wave
 category: 弦樂器
 country: 待考

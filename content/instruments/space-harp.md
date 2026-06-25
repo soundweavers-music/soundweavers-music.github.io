@@ -7,7 +7,7 @@ era: 傳統／年代待考
 ---
 ## 介紹
 
-The space harp, also known as a frankiphone, is an electrified lamellophone invented by Phil Cohran as part of a musicological experiment exploring his African roots. He named it after his mother, Frankie. It was first recorded during his tenure with Sun Ra on his album "Angels and Demons at Play". Later recordings of the space harp include his work in the 1960s with The Artistic Heritage Ensemble, now available on the album entitled On the Beach.
+太空豎琴，又稱為法蘭基風琴，是由菲爾·科倫發明的電動金屬舌簧樂器，是他探索非洲根源的音樂學實驗的一部分。他以母親弗蘭基的名字為其命名。它首次被錄製是在他與太陽神樂隊合作期間，收錄在專輯《天使與惡魔在遊樂》中。太空豎琴的後期錄製包括他在1960年代與藝術遺產樂團的合作，現已收錄在名為《在海灘上》的專輯中。
 ## 歷史背景
 
 ## 音色描述

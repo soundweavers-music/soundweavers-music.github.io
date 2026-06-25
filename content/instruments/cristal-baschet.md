@@ -15,7 +15,7 @@ region_type: 單一地區／文化圈
 ---
 ## 介紹
 
-The Cristal Baschet is a musical instrument developed in 1952 by the brothers Bernard and François Baschet. Models of the crystal organs range from 3.5 to 6 octaves and are made of 56 chromatically tuned glass rods. To play it, musicians rub the rods with wet fingertips.
+克里斯塔爾·巴榭琴是由兄弟伯納德·巴榭和弗朗索瓦·巴榭在1952年開發的樂器。水晶琴型號的音域範圍從3.5到6個八度，由56根按半音調諧的玻璃棒組成。演奏時，音樂家用濕潤的指尖摩擦這些玻璃棒。
 ## 歷史背景
 
 ## 音色描述

@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The Javanese siter and celempung are plucked string instruments used in Javanese gamelan. They are related to the kacapi used in Sundanese gamelan. The siter and celempung each have between 11 and 13 pairs of strings, strung on each side, between a box resonator. Typically the strings on one side tuned to pélog and the other to slendro. The siter is generally about a foot long and fits in a box (which it is set upon while played), while the celempung is about three feet long and sits on four legs, and is tuned one octave below the siter.
+爪哇西特爾琴和切倫蒲琴是用於爪哇甘美蘭樂隊的撥弦樂器。它們與巽他甘美蘭樂隊中使用的卡恰皮琴有關。西特爾琴和切倫蒲琴各有11至13對弦，分別繃在共鳴箱的兩側。通常一側的弦調至佩洛調式，另一側調至斯倫德羅調式。西特爾琴通常約一英尺長，裝在一個木箱中（演奏時放在其上），而切倫蒲琴約三英尺長，配有四條腿，調音比西特爾琴低一個八度。
 ## 歷史背景
 
 ## 音色描述

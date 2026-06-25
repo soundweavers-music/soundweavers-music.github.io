@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Dulcimer_%28UP%
 ---
 ## 介紹
 
-The term dulcimer refers to two families of musical string instruments.
+德西馬琴一詞指的是兩個系列的弦樂器家族。
 ## 歷史背景
 
 ## 音色描述

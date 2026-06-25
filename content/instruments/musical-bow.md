@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The musical bow (bowstring or string bow, a subset of bar zithers) is a string instrument used by a number of African peoples as well as Indigenous peoples of the Americas. It consists of a flexible, usually wooden, stick 1.5 to 10 feet (0.5 to 3 m) long, and strung end to end with a taut cord, usually metal. It can be played with the hands or a wooden stick or branch. It is uncertain if the musical bow developed from the hunting bow, though the San or Bushmen people of the Kalahari Desert do convert their hunting bows to musical use.
+樂弓（弓弦或弦弓，屬於棒形齊特琴的一個分類）是一種弦樂器，被許多非洲民族以及美洲原住民所使用。它由一根柔軟的木棍組成，通常長度為1.5至10英尺（0.5至3公尺），兩端用緊繃的繩子（通常為金屬弦）連接。可以用手或木棍或樹枝來演奏。樂弓是否由狩獵弓發展而來仍不確定，儘管卡拉哈迪沙漠的桑人或布希曼人確實會將他們的狩獵弓改作音樂用途。
 ## 歷史背景
 
 ## 音色描述

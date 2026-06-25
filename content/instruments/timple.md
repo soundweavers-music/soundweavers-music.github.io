@@ -15,7 +15,7 @@ region_type: 單一地區／文化圈
 ---
 ## 介紹
 
-The timple is a traditional five-string plucked string instrument of the Canary Islands. It started being manufactured in the 19th century. In La Palma island and in the north of the island of Tenerife, many timple players omit the first (D) string, in order to play the timple as a four-string ukulele, though this is considered less traditional by players and advocates of the five-string version.
+加那利小吉他是加那利群島的一種傳統五弦撥弦樂器。它從19世紀開始製造。在拉帕爾馬島和特內里費島北部，許多加那利小吉他演奏者會省略第一根（D）弦，以便將其作為四弦烏克麗麗來演奏，但這被五弦版本的演奏者和倡導者認為傳統性較低。
 ## 歷史背景
 
 ## 音色描述

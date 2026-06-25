@@ -1,5 +1,5 @@
 ---
-title: 加蓬
+title: 加彭
 original_name: Gabon
 category: 弦樂器
 country: 待考

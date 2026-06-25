@@ -14,7 +14,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-Caixa may refer to: a Brazilian snare drum A Caixa, a 1994 Portuguese comedy film directed by Manoel de Oliveira Caixa Econômica Federal, also referred to as Caixa, a Brazilian bank Caixa Geral de Depósitos, also referred to as Caixa, the second largest bank in Portugal Caixa (São Vicente), a mountain on the island of São Vicente, Cape Verde La Caixa, a Spanish banking institution La Caixa, Barcelona, headquarters and skyscrapers of La Caixa bank
+卡伊沙可能指的是：一種巴西小鼓 電影《盒子》，1994年葡萄牙喜劇電影，由曼努埃爾·德·奧利維拉執導 巴西經濟儲蓄銀行，也稱為卡伊沙，是一家巴西銀行 葡萄牙儲蓄總行，也稱為卡伊沙，是葡萄牙第二大銀行 聖文森特山上的卡伊沙，位於佛得角聖文森特島上的一座山 西班牙儲蓄銀行，一家西班牙銀行機構 拉卡伊沙巴塞隆納，拉卡伊沙銀行的總部和摩天大樓
 ## 歷史背景
 
 ## 音色描述

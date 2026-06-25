@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The esraj or esraaj (from the Punjabi: ਇਸਰਾਜ Shahmukhi: اسراج Bengali: এস্রাজ) is a stringed instrument found in two forms throughout South Asia. It is a relatively recent instrument, being only about 300 years old. It is found in Pakistan and North India, primarily Punjab, where it is used in Sikh music, Bangladesh and West Bengal, India where it is used in Rabindra Sangeet and Classical Music. The esraj is a modern variant of the dilruba, differing slightly in structure. The dilruba and its variant, the esraj, had been declining in popularity for many decades.
+以斯拉吉琴或艾斯拉吉琴（來自旁遮普語：ਇਸਰਾਜ 沙姆克語：اسراج 孟加拉語：এস্রাজ）是一種在整個南亞以兩種形式存在的弦樂器。它是一種相對較新的樂器，距今約有300年的歷史。它在巴基斯坦和印度北部（主要是旁遮普邦）找到，在那裡被用於錫克教音樂；在孟加拉和印度西孟加拉邦使用，用於泰戈爾音樂和古典音樂。以斯拉吉琴是迪爾魯巴琴的現代變體，在結構上略有不同。迪爾魯巴琴及其變體以斯拉吉琴的受歡迎程度已經下降了許多年。
 ## 歷史背景
 
 ## 音色描述

@@ -1,5 +1,5 @@
 ---
-title: Ugal（暫譯）
+title: 烏格
 original_name: Ugal
 category: 打擊樂器
 country: 待考
@@ -7,7 +7,7 @@ era: 傳統／年代待考
 ---
 ## 介紹
 
-The ugal is an instrument in the Indonesian gamelan orchestra. It is a bronze metallophone played one handed with a small hammer, often in a dance-like manner. There are usually ten keys, giving a maximum range spanning about two octaves. Like the gangsa and gendèr, they are suspended over tuned bamboo resonators. The ugal features mainly in gamelan gong kebyar, where it carries the central melody (pokok) of the piece. Sometimes it may give its melodic duty to the jublag, where it then takes over as the leader of a kotekan.
+烏格是印尼甘美蘭樂隊中的樂器。它是一種青銅金屬琴，用單手用小槌敲擊，通常以舞蹈般的方式演奏。通常有十個琴鍵，音域範圍約為兩個八度。與甘薩琴和亨德琴一樣，它們懸掛在調音過的竹製共鳴器上。烏格主要出現在甘美蘭鑼克比亞樂隊中，負責演奏樂曲的中心旋律（波科克）。有時它可能將旋律職責交給朱布拉琴，然後接管科特肯的領導角色。
 ## 歷史背景
 
 ## 音色描述

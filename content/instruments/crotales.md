@@ -1,5 +1,5 @@
 ---
-title: Crotales（暫譯）
+title: 古鈸
 original_name: Crotales
 category: 打擊樂器
 country: 歐洲／全球
@@ -15,7 +15,7 @@ region_type: 跨文化／古典與現代
 ---
 ## 介紹
 
-Crotales (, ), sometimes called antique cymbals, are percussion instruments consisting of small, tuned bronze or brass disks. Each is about 10 cm (4 in) in diameter with a flat top surface and a nipple on the base. They are commonly played by being struck with hard mallets. However, they may also be played by striking two disks together in the same manner as finger cymbals, or by bowing. Their sound is rather like a small tuned bell, only with a much brighter sound and a much longer resonance.
+古鈸（又稱古代鈸）是由小型調音銅盤或黃銅盤組成的打擊樂器。每個古鈸直徑約10公分（4英寸），頂部平坦，底部有一個乳頭狀突起。它們通常用硬槌敲擊演奏。不過，也可以像指鈸一樣用兩個盤片相互敲擊，或用弓擦奏。其音色類似小型調音鐘，但音質更明亮，共鳴時間更長。
 ## 歷史背景
 
 ## 音色描述

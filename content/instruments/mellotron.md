@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The Mellotron is an electro-mechanical musical instrument developed in Birmingham, England, in 1963. It is played by pressing its keys, each of which causes a length of magnetic tape to contact a capstan, which pulls it across a playback head. As the key is released, the tape is retracted by a spring to its initial position. Different portions of the tape can be played for different sounds. The Mellotron evolved from the similar Chamberlin, but could be mass-produced more efficiently.
+梅樂頓是一種電機械樂器，於1963年在英國伯明罕開發。它通過按下琴鍵來演奏，每個琴鍵都會使一段磁帶與滑輪接觸，滑輪將磁帶拉過播放磁頭。當琴鍵鬆開時，磁帶會被彈簧收回到初始位置。磁帶的不同部分可以播放以產生不同的聲音。梅樂頓由類似的錢伯林樂器演變而來，但可以更有效地進行大規模生產。
 ## 歷史背景
 
 ## 音色描述

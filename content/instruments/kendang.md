@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-A kendang or gendang (Javanese: ꦏꦼꦤ꧀ꦝꦁ, romanized: kendhang, Sundanese: ᮊᮨᮔ᮪ᮓᮀ, romanized: kendang, Balinese: ᬓᬾᬦ᭄ᬤᬂ, romanized: kendang, Tausug/Bajau/Maranao: gandang, Bugis: gendrang and Makassar: gandrang or ganrang) is a two-headed drum used by people from the Indonesian Archipelago. The kendang is one of the primary instruments used in the gamelan ensembles of Javanese, Sundanese, and Balinese music. It is also used in various Kulintang ensembles in Indonesia, Brunei, Malaysia, Singapore, and the Philippines. It is constructed in a variety of ways by different ethnic groups.
+肯當鼓或甘當鼓（爪哇文：ꦏꦼꦤ꧀ꦝꦁ，羅馬拼音：kendhang；巽他文：ᮊᮨᮔ᪪ᮓᮀ，羅馬拼音：kendang；巴里文：ᬓᬾᬦ᭄ᬤᬂ，羅馬拼音：kendang；他蘇格文/巴瑤文/馬拉瑙文：gandang；布吉斯文：gendrang；馬卡薩文：gandrang或ganrang）是印度尼西亞群島人民使用的雙面鼓。肯當鼓是爪哇、巽他和巴里音樂伽瑪蘭合奏中的主要樂器之一。它也被用於印度尼西亞、汶萊、馬來西亞、新加坡和菲律賓的各種庫林坦合奏中。不同的民族群體以各種方式製作肯當鼓。
 ## 歷史背景
 
 ## 音色描述

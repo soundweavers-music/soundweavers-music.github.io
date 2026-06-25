@@ -14,7 +14,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-Cornu (pl. cornua) is a Latin word for horn. Cornu may also refer to: Cornu (horn), an ancient musical instrument
+科爾奴號（複數形式：cornua）是拉丁文中代表號角的詞彙。科爾奴號也可以指：科爾奴號（號角），一種古代樂器。
 ## 歷史背景
 
 ## 音色描述

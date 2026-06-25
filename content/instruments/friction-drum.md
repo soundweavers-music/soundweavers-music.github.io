@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Zambomba-Pe%C3%
 ---
 ## 介紹
 
-A friction drum is a musical instrument found in various forms in Africa, Asia, Europe and South America. In Europe it emerged in the 16th century and was associated with specific religious and ceremonial occasions.
+摩擦鼓是一種在非洲、亞洲、歐洲和南美洲以各種形式出現的樂器。在歐洲，它出現於16世紀，並與特定的宗教和儀式場合相關聯。
 ## 歷史背景
 
 ## 音色描述

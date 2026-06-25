@@ -1,5 +1,5 @@
 ---
-title: Khlui（暫譯）
+title: 克魯伊笛
 original_name: Khlui
 category: 管樂器
 country: 全球／亞洲／歐洲／美洲／大洋洲
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The khlui (Thai: ขลุ่ย, Thai pronunciation: [kʰlùj]) is a vertical duct bamboo flute from Thailand, which originated before or during the Sukhothai period (1238–1583). It was officially recognized as a Thai instrument by King Trailokkanat (1431–1488), who set the official model of each traditional Thai instrument. It is generally made of bamboo, though it can also be made from other types of wood or plastic.
+克魯伊笛（泰文：ขลุ่ย，泰語發音：[kʰlùj]）是來自泰國的豎吹管竹笛，起源於素可泰時期（1238–1583）之前或期間。它由國王三佛齊（1431–1488）正式確認為泰國樂器，該國王制定了每種傳統泰國樂器的官方模式。它通常由竹子製成，但也可以由其他類型的木材或塑膠製成。
 ## 歷史背景
 
 ## 音色描述

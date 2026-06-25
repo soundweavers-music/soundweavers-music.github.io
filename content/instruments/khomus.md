@@ -1,5 +1,5 @@
 ---
-title: 克和木斯口弦琴
+title: 克和木斯口絃琴
 original_name: Khomus
 category: 管樂器
 country: 亞洲／歐洲／中東／全球
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The temir komuz (sometimes temir qomuz meaning 'iron komuz/qomuz', ooz komuz meaning 'mouth komuz', or gubuz) is a Kyrgyz jaw harp, while the komuz is a three-stringed fretless lute. As an instrument, the temir komuz is unrelated to the komuz in terms of style and structure; however, it takes its name from the other popular Turkic instrument. The stringed komuz is used by Turkic people living in central Asia e.g., Kyrgyz, Uzbeks, Kazakhs, Turkmens, and Uyghurs, as well as by Azeri, Turkish, and Yakut people.
+特米爾克和木斯口弦琴（有時稱為「鐵克和木斯」、「口弦琴克和木斯」或「古布茲」）是一種吉爾吉斯口弦琴，而克和木斯是一種三弦無品魯特琴。作為樂器，特米爾克和木斯在風格和結構上與克和木斯無關；然而，它的名稱來自於另一種流行的突厥樂器。弦樂克和木斯被生活在中亞的突厥民族使用，例如吉爾吉斯人、烏茲別克人、哈薩克人、土庫曼人和維吾爾人，以及阿塞拜疆人、土耳其人和雅庫特人。
 ## 歷史背景
 
 ## 音色描述

@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The daf (Persian: دف), also known as dap (دپ), dâyere or riq, is an Iranian frame drum musical instrument, also used in popular and classical music in Persian-influenced South and Central Asia, such as in Afghanistan, Azerbaijan, Tajikistan, Iran, Uzbekistan, Turkey many regions of Georgia, Armenia, Pakistan as well as in parts of India and Russian polar regions. It is also popular among Balkans, Caucasians, Bukharan Jews, Kurds, and Macedonians.
+達夫（波斯語：دف），也稱為達普（دپ）、達葉雷或瑞克，是一種伊朗框鼓樂器，也用於波斯文化影響的南亞和中亞的流行音樂和古典音樂中，例如在阿富汗、阿塞拜疆、塔吉克斯坦、伊朗、烏茲別克斯坦、土耳其、喬治亞的許多地區、亞美尼亞、巴基斯坦以及印度的部分地區和俄羅斯北極地區。它在巴爾幹人、高加索人、布哈拉猶太人、庫爾德人和馬其頓人中也很受歡迎。
 ## 歷史背景
 
 ## 音色描述

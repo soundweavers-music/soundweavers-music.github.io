@@ -1,5 +1,5 @@
 ---
-title: Divan Saz
+title: 迪凡薩茲琴
 original_name: Divan Saz
 category: 弦樂器
 country: 土耳其／安納托利亞

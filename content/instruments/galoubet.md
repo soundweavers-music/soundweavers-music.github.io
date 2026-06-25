@@ -14,7 +14,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-Galoubet may refer to: Galoubet A (1972–2005), a show jumping horse Galoubet, a type of pipe instrument
+加羅笛可能指的是：加羅笛A（1972–2005），一匹障礙馬術賽馬，加羅笛，一種管樂器。
 ## 歷史背景
 
 ## 音色描述

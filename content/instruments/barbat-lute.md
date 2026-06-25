@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The barbat (Persian: بربت) or barbud is a lute of Greater Iranian or Persian origin, and widespread across Central Asia, especially since the Sassanid Empire. Barbat is characterized as carved from a single piece of wood, including the neck and a wooden sound board. Possibly a skin-topped instrument for part of its history, it is ancestral to the wood-topped oud and biwa and the skin-topped Yemeni qanbus. Although the original barbat disappeared, modern Iranian luthiers have invented a new instrument, inspired by the Barbat.
+巴爾巴特琴（波斯語：بربت）或巴爾布德琴是一種源自大伊朗或波斯的琵琶，自薩珊帝國以來在中亞地區廣泛流行。巴爾巴特琴的特點是由單一木料雕刻而成，包括琴頸和木製音板。在其歷史的某個時期可能是由皮膜覆蓋的樂器，它是木質音板烏德琴和琵琶，以及皮膜覆蓋的葉門坎布斯琴的祖先。雖然原始的巴爾巴特琴已經消失，但現代伊朗製琴師受到巴爾巴特琴的啟發，發明了一種新樂器。
 ## 歷史背景
 
 ## 音色描述

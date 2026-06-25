@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The kaval is a chromatic end-blown oblique flute traditionally played throughout the Balkans (in Albania, Romania, Bulgaria, Southern Serbia, Kosovo, North Macedonia, Northern Greece, and elsewhere) and Anatolia (including Turkey and Armenia). The kaval is primarily associated with mountain shepherds. Unlike the transverse flute, the kaval is fully open at both ends, and is played by blowing on the sharpened edge of one end. The kaval has eight playing holes (seven in front and one in the back for the thumb) and usually four more unfingered intonation holes near the bottom of the kaval.
+卡瓦爾笛是一種半音階末端吹奏的斜吹笛，傳統上在巴爾幹地區（包括阿爾巴尼亞、羅馬尼亞、保加利亞、南塞爾維亞、科索沃、北馬其頓、北希臘及其他地區）和安納托利亞地區（包括土耳其和亞美尼亞）演奏。卡瓦爾笛主要與山區牧羊人相關聯。與橫笛不同，卡瓦爾笛在兩端完全開放，通過吹奏一端的銳利邊緣來演奏。卡瓦爾笛有八個音孔（前面七個，背面一個用於大拇指），通常在笛子底部還有四個未按指的音準調節孔。
 ## 歷史背景
 
 ## 音色描述

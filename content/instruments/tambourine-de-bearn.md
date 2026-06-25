@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Espartenhas_-_C
 ---
 ## 介紹
 
-The string drum or Tambourin de Béarn (in French) is a long rectangular box zither beaten with a mallet. It is paired with a one-handed flute (French: galoubet) with three finger holes, similar to a pipe and tabor. It has also been called tambourin de Gascogne, tambourin à cordes in Catalan, Pyrenean string drum, ttun-ttun in Basque (pronounced [cunˈcun]), salmo in Spanish, and chicotén in Aragonese. It was known in the middle ages as the choron or chorus. In specific usage, this name denotes a form of long psaltery-styled instrument that is tuned to provide drone chords when drummed.
+弦鼓或貝亞恩手鼓（法文：Tambourin de Béarn）是一種長方形的木盒揚琴，用木槌敲擊。它與單手短笛（法文：galoubet）配對使用，該短笛有三個指孔，類似於風笛和鼓的組合。它也被稱為「加斯科尼手鼓」（tambourin de Gascogne）、加泰羅尼亞語的「弦手鼓」（tambourin à cordes）、庇里牛斯弦鼓、巴斯克語的「ttun-ttun」（發音為[cunˈcun]）、西班牙語的「salmo」，以及阿拉貢語的「chicotén」。在中世紀時被稱為「choron」或「chorus」。具體來說，這個名稱指的是一種長形詩篇琴風格的樂器，調音後可在敲擊時提供持續音和弦。
 ## 歷史背景
 
 ## 音色描述

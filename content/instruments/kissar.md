@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The kissar (also spelled kissir), tanbour or gytarah barbaryeh is the traditional Nubian lyre, still in use in Egypt, Sudan, Eritrea and Ethiopia. It consists of a body having instead of the traditional tortoise-shell back, a shallow, round bowl of wood, covered with a soundboard of sheepskin, in which are two small round sound-holes. The arms, set through the soundboard at points distant about the third of the diameter from the circumference, have the familiar fan shape.
+基薩爾里拉琴（也拼作基西爾琴）、坦布爾琴或吉他拉芭芭瑞耶琴是傳統的努比亞里拉琴，至今仍在埃及、蘇丹、厄立特里亞和衣索比亞使用。它由一個琴身組成，其背部不是傳統的烏龜殼，而是一個淺圓形木碗，上面覆蓋著羊皮音板，音板上有兩個小圓形音孔。琴臂穿過音板，位置距離圓周邊緣約直徑的三分之一處，呈現熟悉的扇形。
 ## 歷史背景
 
 ## 音色描述

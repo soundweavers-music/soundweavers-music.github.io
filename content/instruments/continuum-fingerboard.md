@@ -15,7 +15,7 @@ region_type: 現代／電子音樂
 ---
 ## 介紹
 
-The Continuum Fingerboard or Haken Continuum is a music performance controller and synthesizer developed by Lippold Haken, a professor of Electrical and Computer Engineering at the University of Illinois, and sold by Haken Audio, located in Champaign, Illinois. The Continuum Fingerboard was initially developed from 1983 to 1998 at the CERL Sound Group at the University of Illinois, to control sound-producing algorithms on the Platypus audio signal processor and the Kyma/Capybara workstation. In 1999, the first Continuum Fingerboard was commercially sold.
+連續指板（Continuum Fingerboard）或哈肯連續指板（Haken Continuum）是由伊利諾大學電機與計算機工程教授利波德·哈肯（Lippold Haken）開發的音樂表演控制器與合成器，由位於伊利諾州香檳市的哈肯音頻公司（Haken Audio）出售。連續指板最初於1983年至1998年間在伊利諾大學的CERL聲音小組開發，用於控制鴨嘴獸音頻信號處理器和Kyma/水豚工作站上的音頻生成演算法。1999年，第一台連續指板開始商業銷售。
 ## 歷史背景
 
 ## 音色描述

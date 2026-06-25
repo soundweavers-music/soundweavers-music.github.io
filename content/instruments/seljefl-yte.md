@@ -15,7 +15,7 @@ region_type: 單一地區／文化圈
 ---
 ## 介紹
 
-The willow flute, also known as sallow flute (Norwegian: seljefløyte, Swedish: sälgflöjt or sälgpipa, Finnish: pitkähuilu or pajupilli, Latvian: kārkla stabule, Lithuanian: švilpynė), is a Nordic folk flute, or whistle, consisting of a simple tube with a transverse fipple mouthpiece and no finger holes. The mouthpiece is typically constructed by inserting a grooved plug into one end of the tube, and cutting an edged opening in the tube a short distance away from the plug.
+柳笛，又稱柳樹笛（挪威語：seljefløyte，瑞典語：sälgflöjt 或 sälgpipa，芬蘭語：pitkähuilu 或 pajupilli，拉脫維亞語：kārkla stabule，立陶宛語：švilpynė），是一種北歐民間長笛或哨笛，由簡單的管子組成，具有橫向的吹孔式笛頭，但沒有指孔。笛頭通常是通過在管子的一端插入一個槽形塞子，並在離塞子不遠的地方在管子上切割出一個有邊緣的開口來製作的。
 ## 歷史背景
 
 ## 音色描述

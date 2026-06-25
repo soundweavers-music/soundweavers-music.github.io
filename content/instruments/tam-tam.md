@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-A gong is a percussion instrument originating from Southeast Asia, and used widely in Southeast Asian and East Asian musical traditions. Gongs are made of metal and are circular and flat or bowl-like in shape, and can come in various sizes. They are typically struck with a mallet. They can be played alone, giving a characteristic "crashing" sound, or played as part of a tuned set that produce bell-like sounds. The earliest possible depictions of gongs is from the details on the surface of the Ngọc Lũ I bronze drum (c. 3rd to 2nd century BC) from the Dong Son culture of northern Vietnam.
+大鑼是一種打擊樂器，起源於東南亞，在東南亞和東亞的音樂傳統中廣泛使用。大鑼由金屬製成，呈圓形扁平或碗狀，尺寸大小各異。通常用木槌敲擊。大鑼可以單獨演奏，發出特有的「撞擊」聲音，也可以作為調定的樂器組的一部分演奏，產生鐘聲般的音效。最早關於大鑼的描繪可能來自於越南北部東山文化時期（約公元前3至2世紀）的玉蘆I號銅鼓表面的細節紋飾。
 ## 歷史背景
 
 ## 音色描述

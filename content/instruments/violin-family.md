@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/8/8c/Cello_front_side.jpg
 ---
 ## 介紹
 
-The violin family of musical instruments was developed in Italy in the 16th century. At the time the name of this family of instruments was viole da braccio which was used to distinguish them from the viol family (viole da gamba). The standard modern violin family consists of the violin, viola, cello, and (possibly) double bass. Instrument names in the violin family are all derived from the root viola, which is a derivative of the Medieval Latin word vitula (meaning "stringed instrument").
+提琴族樂器是在16世紀於義大利發展而來。當時這類樂器的名稱為「臂上提琴」（viole da braccio），用來區別於維奧爾琴族（viole da gamba）。現代標準的提琴族包括小提琴、中提琴、大提琴，以及（可能的）低音提琴。提琴族樂器的名稱均衍生自「viola」這個詞根，而該詞是來自中世紀拉丁文的「vitula」（意為「弦樂器」）。
 ## 歷史背景
 
 ## 音色描述

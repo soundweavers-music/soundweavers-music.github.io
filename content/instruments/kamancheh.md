@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The kamancheh is an Iranian bowed string instrument used in Persian, Azerbaijani, Armenian, Kurdish, Georgian, Turkmen, and Uzbek music with slight variations in the structure of the instrument. The kamancheh is related to the rebab which is the historical ancestor of the kamancheh and the bowed Byzantine lyra. The strings are played with a variable-tension bow. In 2017, the art of crafting and playing with Kamantcheh/Kamancha was included into the UNESCO Intangible Cultural Heritage Lists of Iran and Azerbaijan.
+卡曼賈是一種伊朗弓弦樂器，用於波斯、阿塞拜疆、亞美尼亞、庫爾德、喬治亞、土庫曼和烏茲別克音樂中，其樂器結構略有不同。卡曼賈與雷巴布有關，雷巴布是卡曼賈的歷史祖先，也是弓弦拜占庭豎琴的祖先。琴弦由可調張力的弓演奏。2017年，卡曼賈的製作工藝和演奏藝術被列入伊朗和阿塞拜疆的聯合國教科文組織非物質文化遺產名錄。
 ## 歷史背景
 
 ## 音色描述

@@ -15,7 +15,7 @@ region_type: 單一地區／文化圈
 ---
 ## 介紹
 
-The sasando, also called sasandu from Sandu or Sanu, is a tube zither, a harp-like traditional music string instrument native to Rote Island of East Nusa Tenggara, Indonesia. The name sasando is derived from the Rote dialect word ”sasandu”, which means "vibrating" or "sounded instrument". It is believed that the sasando had already been known to the Rote people since the 7th century. The main part of the sasando is a bamboo tube that serves as the frame of the instrument.
+薩桑多琴，又稱薩桑杜琴，是一種管狀箜篌琴，是一種豎琴式的傳統弦樂器，原產於印度尼西亞東努沙登加拉省羅地島。薩桑多琴的名稱源自羅地方言中的「薩桑杜」一詞，意為「振動」或「發聲樂器」。據信薩桑多琴自七世紀起就已為羅地人所知。薩桑多琴的主要部分是一根竹筒，用作樂器的框架。
 ## 歷史背景
 
 ## 音色描述

@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The bendir (Arabic: بندير, bindīr; pl.: بنادير, binādīr) is a wooden-framed frame drum of North Africa and Southwest Asia. The bendir is a traditional instrument that is played throughout North Africa, as well as in Sufi ceremonies; it was played, too, in Ancient Egypt and Mesopotamia. In Turkish, the word bendir means "a big hand frame drum".
+本迪爾框鼓（阿拉伯語：بندير，bindīr；複數：بنادير，binādīr）是北非和西南亞的木製框架鼓。本迪爾是一種傳統樂器，在整個北非以及蘇菲教儀式中演奏；它在古埃及和美索不達米亞時期也曾被演奏過。在土耳其語中，本迪爾一詞的意思是「一種大型手持框架鼓」。
 ## 歷史背景
 
 ## 音色描述

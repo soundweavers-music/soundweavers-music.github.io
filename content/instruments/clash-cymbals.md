@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Suworow-Kadette
 ---
 ## 介紹
 
-Clash cymbals (also called concert cymbals, orchestral cymbals, or crash cymbals) are cymbals played in matched pairs by holding one cymbal in each hand and striking the two together. To differentiate this type of cymbal from a suspended cymbal, they are also called hand cymbals.
+對鈸（也稱為音樂會鈸、管弦樂鈸或碰撞鈸）是指一對配對的鈸，演奏者手中各持一面鈸，將兩面鈸互相敲擊而發聲。為了區別於吊鈸這種類型的鈸，對鈸也被稱為手鈸。
 ## 歷史背景
 
 ## 音色描述

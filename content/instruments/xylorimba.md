@@ -1,5 +1,5 @@
 ---
-title: Xylorimba（暫譯）
+title: 木琴馬林巴
 original_name: Xylorimba
 category: 打擊樂器
 country: 待考
@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Xylorimba_%28fr
 ---
 ## 介紹
 
-The xylorimba (sometimes referred to as xylo-marimba or marimba-xylophone) is a pitched percussion instrument similar to an extended-range xylophone with a range identical to some 5-octave celestas or 5-octave marimbas, though typically an octave higher than the latter. Despite its name, it is not a combination of a xylophone and a marimba; its name has been a source of confusion, as many composers have called for a 'xylorimba', including Alban Berg, Pierre Boulez and Olivier Messiaen, but for parts requiring only a four-octave xylophone.
+木琴馬林巴（有時稱為木琴-馬林巴或馬林巴-木琴）是一種音高打擊樂器，類似於音域擴展的木琴，其音域與某些五八度鐵琴或五八度馬林巴相同，但通常比後者高一個八度。儘管名稱如此，它並不是木琴和馬林巴的組合；其名稱一直是混亂的根源，因為許多作曲家（包括阿爾班·貝爾格、皮埃爾·布列茲和奧利維埃·梅西安）都曾要求使用「木琴馬林巴」，但實際上只需要四八度的木琴。
 ## 歷史背景
 
 ## 音色描述

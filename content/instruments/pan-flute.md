@@ -1,5 +1,5 @@
 ---
-title: Pan Flute
+title: 排簫
 original_name: Pan Flute
 category: 管樂器
 country: 全球
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-A pan flute (also known as panpipes or syrinx) is a musical instrument based on the principle of the closed tube, consisting of multiple pipes of gradually increasing length (and occasionally girth). Numerous varieties of pan flutes have been popular as folk instruments. The pipes are typically made from bamboo, giant cane, or local reeds. Other materials include wood, plastic, metal, and clay.
+排簫（也稱為排笛或牧神笛）是一種基於閉管原理的樂器，由多根逐漸增長的管子組成（有時管徑也會增加）。多種多樣的排簫作為民間樂器廣受歡迎。這些管子通常由竹子、巨型蘆葦或當地蘆葦製成。其他材料包括木材、塑膠、金屬和黏土。
 ## 歷史背景
 
 ## 音色描述

@@ -1,5 +1,5 @@
 ---
-title: Pitch pipe（暫譯）
+title: 音高笛
 original_name: Pitch pipe
 category: 管樂器
 country: 待考
@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/PitchPipes.JPG/
 ---
 ## 介紹
 
-A pitch pipe is a small device (a type of tuning harmonica) used to provide a pitch reference for musicians. Although it may be described as a musical instrument, it is not typically used to play music as such.
+音高笛是一種小型裝置（一種調音口琴），用於為音樂家提供音高參考。雖然它可能被描述為樂器，但通常不用於演奏音樂本身。
 ## 歷史背景
 
 ## 音色描述

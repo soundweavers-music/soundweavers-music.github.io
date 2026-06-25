@@ -1,5 +1,5 @@
 ---
-title: Appalachian Dulcimer
+title: 阿帕拉契亞揚琴
 original_name: Appalachian Dulcimer
 category: 鍵盤樂器
 country: 東亞／中亞／歐洲／東南亞／非洲／美洲

@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Gibson_ES-150.p
 ---
 ## 介紹
 
-A semi-acoustic guitar, also known as a hollow-body electric guitar, is a type of electric guitar designed to be played with a guitar amplifier featuring a fully or partly hollow body and at least one electromagnetic pickup. First created in the 1930s, they became popular in jazz and blues, where they remain widely used, and the early period of rock & roll, though they were later largely supplanted by solid-body electric guitars in rock.
+半空心電吉他，也稱為空心體電吉他，是一種電吉他，設計用於搭配吉他擴大器演奏，具有完全或部分空心的琴體，以及至少一個電磁拾音器。半空心電吉他最初在1930年代創製，隨後在爵士樂和藍調音樂中流行開來，至今仍被廣泛使用，並在搖滾樂的早期也很受歡迎。不過，在搖滾樂的發展過程中，它們後來在很大程度上被實心體電吉他所取代。
 ## 歷史背景
 
 ## 音色描述

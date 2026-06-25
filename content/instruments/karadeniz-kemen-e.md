@@ -1,5 +1,5 @@
 ---
-title: Kemençe of the Black Sea
+title: 黑海克曼琴
 original_name: Karadeniz Kemençe
 category: 弦樂器
 country: 亞洲／歐洲／中東／南亞／中亞

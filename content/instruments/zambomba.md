@@ -1,5 +1,5 @@
 ---
-title: Zambomba
+title: 摩擦鼓
 original_name: Zambomba
 category: 打擊樂器
 country: 非洲／中東／亞洲／歐洲／美洲
@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-A friction drum is a musical instrument found in various forms in Africa, Asia, Europe and South America. In Europe it emerged in the 16th century and was associated with specific religious and ceremonial occasions.
+摩擦鼓是一種樂器，在非洲、亞洲、歐洲和南美洲都以各種形式存在。在歐洲，它於16世紀出現，並與特定的宗教和儀式場合相關聯。
 ## 歷史背景
 
 ## 音色描述

@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-Keroncong or Kroncong (from Javanese ꦏꦼꦫꦺꦴꦤ꧀ꦕꦺꦴꦁ, keroncong 'rumble', Javanese pronunciation: [kəˈrɔnt͡ʃɔŋ]; Javindo: krontjong) refers to both a specific Cak–Cuk, a ukulele-like Javanese instrument, and a unique classical colonial Java and Eastern Indonesian (particularly Maluku and eastern East Nusa Tenggara) musical genre that evolved and first developed in Java Island, especially at the Java port cities of Sunda Kelapa in Greater Jakarta, Semarang and Surakarta in Central Java, as well as Surabaya in East Java, dates back to at least 16th century.
+科倫謅吉他（印尼爪哇語：ꦏꦼꦫꦺꦴꦤ꧀ꦕꦺꦴꦁ，keroncong，爪哇語發音：[kəˈrɔnt͡ʃɔŋ]；印尼爪哇語：krontjong）既指一種特定的Cak-Cuk，一種類似於烏克麗麗的爪哇樂器，也指一種獨特的古典殖民地爪哇及東印度尼西亞（特別是馬魯古和東努沙登加拉東部）的音樂類型。該音樂類型在爪哇島進化發展而來，首先在爪哇島的港口城市發展，包括大雅加達的巽他克拉巴港、中爪哇的三寶瓏和蘇拉卡爾塔，以及東爪哇的泗水，其歷史可追溯至少到16世紀。
 ## 歷史背景
 
 ## 音色描述

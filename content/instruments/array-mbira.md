@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The Array mbira is a handcrafted modern musical instrument with a unique harp- or bell-like sound. It is made in the United States by its inventor Bill Wesley and manufactured by Wesley with Patrick Hadley in San Diego, California, United States. Its development began in the 1960s. It is a radical redesign of the Shona African mbira from Zimbabwe and is part of the lamellaphone family. The metal tines are grouped into multiple octaves.
+Array mbira是一種手工製作的現代樂器，具有獨特的豎琴或鐘聲般的音質。它由其發明者比爾·韋斯利在美國製造，並由韋斯利與帕特里克·哈德利在美國加州聖地亞哥合作生產。它的開發始於1960年代。它是對來自津巴布韋肖納人非洲mbira樂器的徹底重新設計，是金屬舌簧樂器家族的一部分。金屬舌片被分組排列成多個八度音階。
 ## 歷史背景
 
 ## 音色描述

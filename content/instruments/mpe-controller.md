@@ -1,5 +1,5 @@
 ---
-title: MPE Controller
+title: 多維觸控鍵盤
 original_name: MPE Controller
 category: 鍵盤樂器
 country: 全球

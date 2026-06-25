@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The ondes Martenot ( OHND mar-tə-NOH; French: [ɔ̃d maʁtəno], lit. 'Martenot waves') or ondes musicales (lit. 'musical waves') is an early electronic musical instrument. Early models were played only by moving a ring tied to a wire, creating "wavering" sounds similar to a theremin, but a lateral-vibrato keyboard was soon added. Dynamics and timbre are adjusted using controls in a drawer on the instrument's left side. A player of the ondes Martenot is called an ondist. The ondes Martenot was invented in 1928 by the French inventor Maurice Martenot.
+馬特諾電子波琴（英文：ondes Martenot，法文：[ɔ̃d maʁtəno]，字面意思為「馬特諾波」）或音樂波琴（字面意思為「音樂波」）是一種早期的電子樂器。早期型號只能通過移動綁在導線上的環來演奏，產生類似於特雷門琴的「波動」聲音，但很快就添加了橫向顫音鍵盤。動態和音色可以使用位於樂器左側抽屜中的控制器進行調整。馬特諾電子波琴的演奏者稱為波琴演奏者。馬特諾電子波琴是由法國發明家莫里斯·馬特諾於1928年發明的。
 ## 歷史背景
 
 ## 音色描述

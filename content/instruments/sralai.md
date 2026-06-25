@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The sralai (Khmer: ស្រឡៃ) is a Cambodian wind instrument that uses a quadruple reed to produce sound. The instrument is used in the pinpeat orchestra, where it is the only wind instrument. The set of quadruple reeds are made of palm leaf. The bore of the instrument is not evenly bored, but "slightly conical." Its cousin, the Western oboe, has a double reed and a conical bore. The pinpeat instruments tune to the sralai's pitch, and the player must learn circular breathing to play continuously without stopping for breath.
+斯拉萊管（高棉語：ស្រឡៃ）是柬埔寨的一種風樂器，使用四重簧片來發出聲音。該樂器用於平碧樂隊中，是該樂隊中唯一的風樂器。四重簧片由棕櫚葉製成。樂器的管孔並非均勻鑽孔，而是「略呈圓錐形」。它的親戚——西方雙簧管擁有雙簧片和圓錐形管孔。平碧樂器根據斯拉萊管的音高進行調音，演奏者必須學會循環呼吸法才能連續演奏而無需停下來呼吸。
 ## 歷史背景
 
 ## 音色描述

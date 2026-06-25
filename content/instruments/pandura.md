@@ -1,5 +1,5 @@
 ---
-title: Pandura（暫譯）
+title: 潘杜拉琴
 original_name: Pandura
 category: 弦樂器
 country: 待考
@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Muse_with_%CE%A
 ---
 ## 介紹
 
-The pandura (Ancient Greek: πανδοῦρα, pandoura) or pandore, an ancient Greek string instrument, belonged in the broad class of the lute and guitar instruments. Akkadians played similar instruments from the 3rd millennium BC. Ancient Greek artwork depicts such lutes from the 3rd or 4th century BC onward.
+潘杜拉琴（古希臘語：πανδοῦρα，pandoura）或潘多雷琴是一種古希臘弦樂器，屬於魯特琴和吉他樂器的廣泛類別。阿卡德人早在西元前3千年就已經演奏類似的樂器。古代希臘藝術作品中描繪的此類魯特琴可追溯至西元前3世紀或4世紀起。
 ## 歷史背景
 
 ## 音色描述

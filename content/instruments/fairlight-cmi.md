@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The Fairlight CMI (short for Computer Musical Instrument) is a digital synthesizer, music sampler, and digital audio workstation (DAW) introduced in 1979 by Fairlight. It was based on a commercial licence of the Qasar M8 developed by Tony Furse of Creative Strategies in Sydney, Australia. It was one of the earliest electronic music workstations with an embedded sampler and is credited for coining the term sampling in music. It rose to prominence in the early 1980s and competed with the Synclavier from New England Digital.
+費爾萊特CMI（簡稱Computer Musical Instrument，電腦音樂儀器）是一款由費爾萊特公司於1979年推出的數位合成器、音樂採樣器和數位音頻工作站（DAW）。它基於澳洲悉尼創意策略公司的托尼·弗斯開發的Qasar M8的商業許可證。它是最早的具有內置採樣器的電子音樂工作站之一，並因在音樂中推廣採樣術語而受到認可。它在1980年代初期聲名鵲起，與新英格蘭數位公司的Synclavier展開競爭。
 ## 歷史背景
 
 ## 音色描述

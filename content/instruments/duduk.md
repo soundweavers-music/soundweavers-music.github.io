@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The Armenian duduk ( doo-DOOK; Armenian: դուդուկ IPA: [duˈduk]) or tsiranapogh (Armenian: ծիրանափող, meaning "apricot-made wind instrument"), is a double reed woodwind instrument made of apricot wood originating from Armenia. Variations of the Armenian duduk appear throughout the Caucasus, the Balkans, and the Middle East. The duduk, balaban and mey are almost identical, except for historical and geographical differences.
+亞美尼亞都杜克管（發音：doo-DOOK；亞美尼亞語：դուդուկ，國際音標：[duˈduk]）或稱為茨拉納波格（亞美尼亞語：ծիրանափող，意為「杏木製風樂器」），是一種由杏木製成的雙簧木管樂器，起源於亞美尼亞。亞美尼亞都杜克管的變體遍佈高加索地區、巴爾幹半島和中東。都杜克管、巴拉班管和梅伊笛除了歷史和地理差異外，幾乎完全相同。
 ## 歷史背景
 
 ## 音色描述

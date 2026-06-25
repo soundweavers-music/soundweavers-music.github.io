@@ -1,5 +1,5 @@
 ---
-title: Biwa（暫譯）
+title: 琵琶
 original_name: Biwa
 category: 弦樂器
 country: 日本

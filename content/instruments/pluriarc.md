@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/COLLECTIE_TROPE
 ---
 ## 介紹
 
-The pluriarc, also called paata, mapu, luku, kissanga, and bow lute is a stringed musical instrument of West Africa, classified as a type of lute. It has a hollow body and several curved, pliable necks made of reeds. The strings stretch from the necks to the bridge, which stands approximately 1.5 inches (38 mm) above the body. The body may be round, rectangular, or triangular, and is usually made of light wood. The top of the body can either be a separate board, bound or nailed to the lower part, or made from the same piece of wood as the rest.
+多弦弧琴（也稱為paata、mapu、luku、kissanga和弓琴）是西非的一種弦樂器，被分類為琉特琴的一種。它具有一個空心琴體和多根由蘆葦製成的彎曲、柔韌琴頸。琴弦從琴頸延伸到琴橋，琴橋距琴體約1.5英寸（38毫米）。琴體可以是圓形、矩形或三角形，通常由輕木製成。琴體的上部可以是一塊獨立的木板，通過綁定或釘子固定在下部，或者由與琴體其餘部分相同的木料製成。
 ## 歷史背景
 
 ## 音色描述

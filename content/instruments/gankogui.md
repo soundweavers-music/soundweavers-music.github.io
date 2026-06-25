@@ -15,7 +15,7 @@ region_type: 單一地區／文化圈
 ---
 ## 介紹
 
-An agogô (Yoruba: ['aɡoɡo]) is idiophone bell percussion instrument. With origins in West African music, it is now commonly used in traditional and popular Brazilian music. Agogôs are typically made from two cone-shaped pieces of metal with different pitches.
+岡科圭雙鐘（約魯巴語：['aɡoɡo]）是一種體鳴樂器。起源於西非音樂，現已普遍用於巴西傳統和流行音樂中。岡科圭雙鐘通常由兩個錐形金屬片組成，具有不同的音高。
 ## 歷史背景
 
 ## 音色描述

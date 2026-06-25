@@ -1,5 +1,5 @@
 ---
-title: Drum Machine Hybrid
+title: 動物試驗
 original_name: Drum Machine Hybrid
 category: 電子樂器
 country: 非洲／中東／亞洲／歐洲／美洲

@@ -1,5 +1,5 @@
 ---
-title: Thunder Tube
+title: 雷鳴管
 original_name: Thunder Tube
 category: 打擊樂器
 country: 拉丁美洲／非洲／歐洲／亞洲／全球

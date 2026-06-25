@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The dholak is a two-headed hand drum and folk percussion instrument of South Asian origin. The dholak can be anywhere about 16" to 24" in length. It is widely used in qawwali, kirtan, bhajan, bhangra, chutney, baithak gana, Hindi film music, lokgeet and various classical styles such as Hindustani, Carnatic and Trinidadian local classical / Guyanese taan. The drum has two different sized drumheads. There is a smaller drumhead that can be from 5.5 to 8 inches in diameter and is made for sharp notes while the bigger drumhead, which can be from 7.5 to 10 inches in diametre, is made for low pitch.
+卓拉克鼓是源自南亞的雙面手鼓及民族打擊樂器。卓拉克鼓的長度約為16英寸至24英寸。它廣泛應用於卡瓦利音樂、唱讚歌、婆詞歌、旁遮普民俗舞蹈音樂、咖喱歌曲、家庭音樂會歌曲、寶萊塢電影音樂、民謠以及各種古典風格，如印度斯坦古典音樂、卡納提克古典音樂和特立尼達當地古典音樂/蓋亞那讚美詩。這面鼓有兩個大小不同的鼓面。較小的鼓面直徑為5.5至8英寸，用於演奏尖銳高音；而較大的鼓面直徑為7.5至10英寸，用於演奏低音。
 ## 歷史背景
 
 ## 音色描述

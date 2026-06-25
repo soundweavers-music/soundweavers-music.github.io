@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The Portuguese guitar (Portuguese: guitarra portuguesa, pronounced [ɡiˈtaʁɐ puɾtuˈɣezɐ]) is a plucked string instrument with twelve steel strings, strung in six courses of two strings. It is one of the few musical instruments that still uses watch-key or Preston tuners. It is iconically associated with the fado musical genre.
+葡萄牙吉他（葡萄牙語：guitarra portuguesa，發音為 [ɡiˈtaʁɐ puɾtuˈɣezɐ]）是一種撥弦樂器，有十二根鋼弦，分為六組雙弦排列。它是少數仍使用手錶鑰匙式或普雷斯頓調音器的樂器之一。它在標誌性上與法多音樂流派密切相關。
 ## 歷史背景
 
 ## 音色描述

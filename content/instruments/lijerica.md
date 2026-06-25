@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The lijerica (Croatian pronunciation: [lîjeritsa]) is a musical instrument from the Croatian region of Dalmatia and Croat parts of eastern Herzegovina. It is a pear-shaped, three-stringed instrument which is played with a bow. It is played to accompany the traditional linđo dance from the region. The lijerica's name comes from the lyra (Greek: λύρα), the bowed instrument of the Byzantine Empire which it probably evolved from. While the lijerica is most often associated with traditional folk music, it is still found in modern music from the region.
+克羅埃西亞弓琴（克羅埃西亞語發音：[lîjeritsa]）是一種來自克羅埃西亞的達爾馬提亞地區及克羅埃西亞東赫塞哥維納地區的樂器。它是一種梨形的三弦樂器，用弓演奏。它用於伴奏該地區的傳統林迪舞蹈。克羅埃西亞弓琴的名稱來自於里拉琴（希臘語：λύρα），這是拜占庭帝國的一種弓弦樂器，克羅埃西亞弓琴可能由此演變而來。雖然克羅埃西亞弓琴最常與傳統民間音樂相關聯，但在該地區的現代音樂中仍然可以找到它。
 ## 歷史背景
 
 ## 音色描述

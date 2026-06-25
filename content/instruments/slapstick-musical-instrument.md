@@ -1,5 +1,5 @@
 ---
-title: Slapstick (musical instrument)（暫譯）
+title: 拍板
 original_name: Slapstick (musical instrument)
 category: 打擊樂器
 country: 歐洲／劇場
@@ -14,7 +14,7 @@ region_type: 跨文化／劇場
 ---
 ## 介紹
 
-A clapper is a basic form of percussion instrument. It consists of two long solid pieces that are struck together producing sound. They exist in many forms in many different cultures around the world. Clappers can take a number of forms and be made of a wide variety of material. Wood is most common, but metal and ivory have also been used. The plastic thundersticks that have recently come to be popular at sporting events can be considered a form of inflated plastic clapper. Several specific forms of clapper have their own names, such as the Chinese guban, Japanese hyoshigi, or the Korean bak.
+拍板是一種基本的打擊樂器。它由兩根長形的實心木棒組成，敲擊時會產生聲音。世界上許多不同的文化中都存在多種形式的拍板。拍板可以採取多種形式，並由各種不同的材料製成。木材最為常見，但也曾使用過金屬和象牙。最近在體育賽事中流行的塑膠充氣棒可被視為一種充氣塑膠拍板。某些特定形式的拍板有各自的名稱，例如中國的竹板、日本的檀板或韓國的拍板。
 ## 歷史背景
 
 ## 音色描述

@@ -1,5 +1,5 @@
 ---
-title: Shawm（暫譯）
+title: 雙簧管
 original_name: Shawm
 category: 管樂器
 country: 待考
@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Herderstafereel
 ---
 ## 介紹
 
-The shawm () is a conical bore, double-reed woodwind instrument made in Europe from the 13th or possibly 12th century to the present day. It achieved its peak of popularity during the medieval and Renaissance periods, after which it was gradually eclipsed by the oboe family of descendant instruments in classical music. It is likely to have come to Western Europe from the Eastern Mediterranean around the time of the Crusades.
+雙簧管是一種錐形管孔的雙簧木管樂器，從13世紀或可能12世紀開始在歐洲製造，一直沿用至今。它在中世紀和文藝復興時期達到最高的流行度，之後在古典音樂中逐漸被其後代樂器—雙簧管族取代。它很可能在十字軍東征時期左右從東地中海傳入西歐。
 ## 歷史背景
 
 ## 音色描述

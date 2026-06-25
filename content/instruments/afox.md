@@ -1,5 +1,5 @@
 ---
-title: Afoxé
+title: 阿弗歇鼓
 original_name: Afoxé
 category: 打擊樂器
 country: 拉丁美洲／非洲／歐洲／亞洲／全球

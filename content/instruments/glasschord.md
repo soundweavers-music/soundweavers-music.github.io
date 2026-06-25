@@ -1,5 +1,5 @@
 ---
-title: Glasschord（暫譯）
+title: 玻璃絃琴
 original_name: Glasschord
 category: 打擊樂器
 country: 待考
@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/1786_Beyer_Glas
 ---
 ## 介紹
 
-The glasschord (French: fortepiano à cordes de verre) is a struck crystallophone resembling the celesta.
+玻璃弦琴（法文：fortepiano à cordes de verre）是一種敲擊式玻璃琴，外形類似鋼片琴。
 ## 歷史背景
 
 ## 音色描述

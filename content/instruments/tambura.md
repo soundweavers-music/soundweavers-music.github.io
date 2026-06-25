@@ -1,5 +1,5 @@
 ---
-title: Tambura
+title: 坦布拉琴
 original_name: Tambura
 category: 弦樂器
 country: 中東／歐洲／亞洲／美洲
@@ -14,7 +14,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-Tambura may refer to:
+坦布拉琴可能指的是：
 ## 歷史背景
 
 ## 音色描述

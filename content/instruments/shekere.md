@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The shekere (from Yoruba Ṣẹ̀kẹ̀rẹ̀) is a percussion instrument consisting of a dried gourd with beads or cowries woven into a net covering the gourd. The Spiritual Birth (Ajé Olókun): The Ṣẹ̀kẹ̀rẹ̀ Ajé was born out of the worship of the goddess of wealth. It was an instrument used by priests and initiates to invite prosperity and drive away sorrow. It originated from Ife kingdoms but later expanded during the old Oyo Empire. There are multiple ways to produce sounds with the instrument. It can be shaken or hit against the hand.
+謝科雷葫蘆鈴（源自約魯巴語的Ṣẹ̀kẹ̀rẹ̀）是一種打擊樂器，由乾燥的葫蘆組成，外面包裹著編織成網狀的珠子或貝殼。精神誕生（阿傑·奧洛昆）：謝科雷葫蘆鈴阿傑源自對財富女神的崇拜而誕生。這是一種由祭司和啟蒙者使用的樂器，用來邀請繁榮並驅趕悲傷。它起源於伊費王國，但後來在古代歐約帝國時期得到推廣和發展。這種樂器可以通過多種方式產生聲音。可以搖晃或敲打手掌來發聲。
 ## 歷史背景
 
 ## 音色描述

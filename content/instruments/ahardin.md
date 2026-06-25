@@ -1,5 +1,5 @@
 ---
-title: Ahardin（暫譯）
+title: 阿哈迪恩琴
 original_name: Ahardin
 category: 弦樂器
 country: 待考
@@ -7,7 +7,7 @@ era: 傳統／年代待考
 ---
 ## 介紹
 
-Ahardin is a musical bow played by southern Tuaregs consists of a curved branch held with a twisted rope of raw leather or bark of acacia. Serving as a sound box, a reversed calabash is placed on the curved part of the bow on the ground. To hold the whole, the player presses her knee on the container. With the fingers of the left hand, as with the imzad, she defines the melody, while with the thumb and forefinger of the right hand, she grip the string with a regular gesture vibrate.
+阿哈迪恩琴是由南部圖瓦雷格人演奏的樂弓，由一根彎曲的樹枝組成，用扭絞的生皮革或金合歡樹皮繩固定。作為共鳴箱，一個倒置的葫蘆被放在弓的彎曲部分下方。為了固定整個樂器，演奏者用膝蓋按壓容器。演奏者用左手的手指像演奏伊姆扎德琴一樣定義旋律，同時用右手的大拇指和食指以規律的姿態夾持琴弦並使其振動。
 ## 歷史背景
 
 ## 音色描述

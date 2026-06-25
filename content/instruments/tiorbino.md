@@ -1,5 +1,5 @@
 ---
-title: Tiorbino（暫譯）
+title: 小西奧爾博琴
 original_name: Tiorbino
 category: 弦樂器
 country: 待考
@@ -7,7 +7,7 @@ era: 傳統／年代待考
 ---
 ## 介紹
 
-A tiorbino, a small theorbo (tiorbo in Italian), is a rare stringed instrument, a type of long-necked lute resembling a theorbo but significantly smaller and pitched an octave higher. The tiorbino was created in the late 16th century and was played in the 17th century, as in the 1622 composition Capricci a due stromenti cioe tiorba e tiorbino e per sonar varie sorti de balli.. by Bellerofonte Castaldi. The tiorbino was then abandoned, only to return in the late 20th century with the renaissance of interest in early music.
+小西奧爾博琴是一種罕見的弦樂器，是一種長頸琉特琴的變種，形似西奧爾博琴但體積明顯較小，音調高八度音。小西奧爾博琴創製於16世紀末，並在17世紀被演奏，例如貝萊羅豐特·卡斯塔爾迪創作的1622年作品《雙樂器隨想曲，即西奧爾博琴和小西奧爾博琴以及用於演奏各種舞蹈》。小西奧爾博琴隨後被遺棄，直到20世紀末隨著人們對早期音樂的興趣復興才重新出現。
 ## 歷史背景
 
 ## 音色描述

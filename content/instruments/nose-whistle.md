@@ -1,5 +1,5 @@
 ---
-title: Nose Whistle
+title: 鼻笛
 original_name: Nose Whistle
 category: 管樂器
 country: 全球／亞洲／歐洲／美洲／大洋洲

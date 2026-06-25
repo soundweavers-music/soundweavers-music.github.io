@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The cavaquinho (European Portuguese pronunciation: [kɐvɐˈkiɲu]) is a small Portuguese string instrument in the European guitar family, with four wires or gut strings. A cavaquinho player is called a cavaquista.
+卡瓦基紐琴（歐洲葡萄牙語發音：[kɐvɐˈkiɲu]）是一種小型葡萄牙弦樂器，屬於歐洲吉他家族，配有四根金屬弦或羊腸弦。演奏卡瓦基紐琴的樂手被稱為卡瓦基紐琴演奏家。
 ## 歷史背景
 
 ## 音色描述

@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-Nyckelharpa (Swedish: [ˈnʏ̂kːɛlˌharːpa], roughly "keyed fiddle" in Swedish, lit. 'key-harp', plural: nyckelharpor) is a "keyed" bowed chordophone, primarily originating from Sweden in its modern form, but with its historical roots scattered across medieval Europe. It is similar in appearance to a fiddle or violin but larger (in its earlier forms essentially a modified vielle), which employs key-actuated tangents along the neck to change the pitch during play, much like a hurdy-gurdy.
+鍵鈕弓琴（瑞典語：[ˈnʏ̂kːɛlˌharːpa]，瑞典語中大致意為「鍵弦琴」，字面意思為「鑰匙豎琴」，複數形式：nyckelharpor）是一種「鍵控」擦弦樂器，其現代形式主要源自瑞典，但其歷史根源散佈在中世紀歐洲各地。它在外觀上類似於提琴或小提琴，但體型更大（在其早期形式中基本上是改良的維埃爾琴），沿著琴頸配備由鍵驅動的撥片，可在演奏時改變音高，其工作原理與手搖風琴相似。
 ## 歷史背景
 
 ## 音色描述

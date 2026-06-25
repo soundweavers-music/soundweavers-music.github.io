@@ -1,5 +1,5 @@
 ---
-title: Earth Harp
+title: 地球豎琴
 original_name: Earth Harp
 category: 弦樂器
 country: 非洲／歐洲／亞洲／美洲

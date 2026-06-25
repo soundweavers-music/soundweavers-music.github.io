@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-A flamenco guitar is a guitar similar to a classical guitar, but with lower action, thinner tops, smaller bodies, and less internal bracing. It usually has nylon strings, like the classical guitar, but it generally possesses a livelier, grittier sound compared to the classical guitar. It is used in toque, the guitar-playing part of the art of flamenco.
+佛朗明哥吉他是一種類似於古典吉他的吉他，但具有較低的弦距、較薄的面板、較小的琴身和較少的內部支撑。它通常配備尼龍弦，如同古典吉他一樣，但相比古典吉他，它通常具有更生動、更粗糙的音色。它用於托奎（toque），即佛朗明哥藝術中的吉他演奏部分。
 ## 歷史背景
 
 ## 音色描述

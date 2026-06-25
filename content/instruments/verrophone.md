@@ -1,5 +1,5 @@
 ---
-title: Verrophone（暫譯）
+title: 玻璃音管琴
 original_name: Verrophone
 category: 打擊樂器
 country: 待考
@@ -7,7 +7,7 @@ era: 傳統／年代待考
 ---
 ## 介紹
 
-A verrophone ("glass-euphonium") is a musical instrument, invented in 1983 by Sascha Reckert, which, "uses tuned glass tubes," open at one end and arranged in various sizes (usually in a chromatic scale, arranged from large to small, like the pipes of a pipe organ). The sound is made by rubbing one end of one or more of the glass tubes, or also by striking them or rubbing them with a special mallet. The tubes are close together so that chords can be played by rubbing more than one at the same time.
+玻璃音管琴（「玻璃低音號」）是一種樂器，由薩沙·雷克爾特於1983年發明，其「採用調音玻璃管」，一端開口，並按各種尺寸排列（通常按半音階排列，由大到小排列，如風琴的風管）。聲音通過摩擦一個或多個玻璃管的一端，或用特殊槌棒敲擊或摩擦它們而產生。這些玻璃管緊密排列在一起，因此可以通過同時摩擦多個玻璃管來演奏和弦。
 ## 歷史背景
 
 ## 音色描述

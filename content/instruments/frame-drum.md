@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Bebny_szama%C5%
 ---
 ## 介紹
 
-A frame drum is a drum that has a drumhead width greater than its depth. It is one of the most ancient musical instruments, and perhaps the first drum to be invented. It has a single drumhead that is usually made of rawhide, but man-made materials may also be used. Some frame drums have mechanical tuning, while on many others the drumhead is tacked in place. The drumhead is stretched over a round, wooden frame called a shell. The shell is traditionally constructed of rosewood, oak, ash etc.
+框架鼓是一種鼓面寬度大於深度的鼓。它是最古老的樂器之一，也許是最早被發明的鼓。它具有單個鼓面，通常由生皮製成，但也可能使用人造材料。有些框架鼓具有機械調音裝置，而許多其他框架鼓的鼓面則是釘牢固定的。鼓面被拉伸在一個稱為鼓殼的圓形木製框架上。鼓殼傳統上由玫瑰木、橡木、梣木等材料製成。
 ## 歷史背景
 
 ## 音色描述

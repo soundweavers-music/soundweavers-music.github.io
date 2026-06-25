@@ -1,5 +1,5 @@
 ---
-title: 卡龙琴
+title: 卡龍琴
 original_name: Qanun (instrument)
 category: 鍵盤樂器
 country: 東亞／中亞／歐洲／東南亞／非洲／美洲

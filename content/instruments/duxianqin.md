@@ -1,5 +1,5 @@
 ---
-title: 獨弦琴
+title: 獨絃琴
 original_name: Duxianqin
 category: 弦樂器
 country: 中國

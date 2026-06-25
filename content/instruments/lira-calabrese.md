@@ -1,5 +1,5 @@
 ---
-title: Calabrian Lira
+title: 卡拉布裡亞琴
 original_name: Lira Calabrese
 category: 弦樂器
 country: 亞洲／歐洲／中東／南亞／中亞
@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The Calabrian lira (Italian: lira Calabrese) is a traditional musical instrument characteristic of some areas of Calabria, a region in southern Italy.
+卡拉布里亞琴（義大利語：lira Calabrese）是一種傳統樂器，其特色是在義大利南部的卡拉布里亞地區的某些地區使用。
 ## 歷史背景
 
 ## 音色描述

@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The clavioline is an electronic analog synthesizer. It was invented by French engineer Constant Martin in 1947 in Versailles. The instrument consists of a keyboard and a separate amplifier and speaker unit. The keyboard usually covered three octaves, and had a number of switches to alter the tone of the sound produced, add vibrato (a defining feature of the instrument), and provide other effects. The Clavioline used a vacuum tube oscillator to produce a buzzy waveform, almost a square wave, which could then be altered using high-pass and low-pass filtering, as well as the vibrato.
+克拉維奧林電子琴是一種電子類比合成器。它由法國工程師康斯坦丁·馬丁於1947年在凡爾賽發明。該樂器由一台鍵盤和一個獨立的放大器與揚聲器組成。鍵盤通常涵蓋三個八度音程，並配有多個開關以改變所產生聲音的音色、添加顫音（這是該樂器的一個顯著特點），以及提供其他效果。克拉維奧林電子琴採用真空管振盪器產生嗡嗡聲波形，幾乎是方波，然後可以使用高通和低通濾波以及顫音進行改變。
 ## 歷史背景
 
 ## 音色描述

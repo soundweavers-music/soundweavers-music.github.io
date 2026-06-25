@@ -1,5 +1,5 @@
 ---
-title: 薩泰里琴
+title: 薩泰裡琴
 original_name: Psaltery
 category: 鍵盤樂器
 country: 全球

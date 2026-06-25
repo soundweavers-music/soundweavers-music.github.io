@@ -14,7 +14,19 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-Sampler may refer to: Sampler (signal), a digital signal processing device that converts a continuous signal to a discrete signal Sampler (needlework), a handstitched piece of embroidery used to demonstrate skill in needlework Sampler (surname) A quilt where each block is constructed using a different pattern Sampler, or hydrocarbon well logging, or mud logger In sampling (medicine), the instrument used
+取樣器可能指：
+
+取樣器（訊號），一種數位訊號處理設備，將連續訊號轉換為離散訊號
+
+取樣器（針線活），一種手工刺繡製品，用於展示針線活技能
+
+取樣器（姓氏）
+
+一種棉被，其中每個方塊使用不同的圖案構成
+
+取樣器，或烴類油井測井，或泥漿測井員
+
+在取樣（醫學）中使用的儀器
 ## 歷史背景
 
 ## 音色描述

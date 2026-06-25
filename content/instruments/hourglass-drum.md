@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Janggu.jpg/500p
 ---
 ## 介紹
 
-Hourglass drums are a sub-category of membranophone, or drum, characterized by an hourglass shape. They are also known as waisted drums. Drumheads are attached by laces, which may be squeezed during a performance to alter the pitch. The category also includes pellet drums such as the damaru, although not all pellet drums are hourglass shaped (such as the Korean do, nodo, noedo, and yeongdo, which are barrel shaped). Hourglass drums exists in most regions of the world, but have very different construction methods, dimensions, purposes and playing methods.
+沙漏鼓是膜鳴樂器或鼓的一個子類別，其特徵是沙漏形的外形。它們也被稱為收腰鼓。鼓面由繩索固定，在演奏時可以擠壓繩索來改變音高。該類別還包括丸鼓，如達瑪如鼓，雖然並非所有丸鼓都是沙漏形（例如韓國的鼓、嗩吶鼓、嗯鼓和靈鼓，它們是桶形的）。沙漏鼓存在於世界上大多數地區，但其製造方法、尺寸、用途和演奏方法差異很大。
 ## 歷史背景
 
 ## 音色描述

@@ -1,5 +1,5 @@
 ---
-title: Wobble board（暫譯）
+title: 搖晃板
 original_name: Wobble board
 category: 打擊樂器
 country: 待考
@@ -7,7 +7,7 @@ era: 傳統／年代待考
 ---
 ## 介紹
 
-The wobble board is a musical instrument invented and popularized by Australian musician and artist Rolf Harris, and is featured in his best-known song "Tie Me Kangaroo Down, Sport". A wobble board, like some other musical instruments, can be ornately decorated because its large surface area can act as a canvas without detracting from its musical capability. The instrument is played by holding the board lengthwise with the hands holding the edges and flicking the board outward, thereby making a characteristic "whoop-whoop" noise.
+搖晃板是一種由澳洲音樂家兼藝術家羅夫·哈里斯發明並推廣的樂器，在他最著名的歌曲《把我的袋鼠綁起來，夥計》中有所特色。搖晃板和其他某些樂器一樣，可以精心裝飾，因為它寬大的表面積可以作為畫布，而不會損害其音樂功能。這件樂器的演奏方法是沿著長度方向握住木板，雙手握住邊緣並向外彈動木板，從而發出特有的「嗚嗚」聲。
 ## 歷史背景
 
 ## 音色描述

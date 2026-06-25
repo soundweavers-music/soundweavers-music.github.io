@@ -1,5 +1,5 @@
 ---
-title: Paraguayan Harp
+title: 巴拉圭豎琴
 original_name: Paraguayan Harp
 category: 弦樂器
 country: 非洲／歐洲／美洲／亞洲

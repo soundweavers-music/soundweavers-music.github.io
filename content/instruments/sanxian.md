@@ -1,5 +1,5 @@
 ---
-title: 三弦
+title: 三絃
 original_name: Sanxian
 category: 弦樂器
 country: 中東／歐亞／東亞／美洲／全球

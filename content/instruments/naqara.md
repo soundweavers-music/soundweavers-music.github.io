@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The naqareh, naqqāra, nagara or nagada is a Middle Eastern drum with a rounded back and a hide head, usually played in pairs. It is thus a membranophone of the kettle drum variety. The term naqqāra (نقاره), also نقارات naqqarat, naqqarah, naqqåre, nakkare, nagora comes from the Urdu verb naqr- that means "to strike, beat". The instrument was also adopted in Europe following the Crusades, and known as the naccaire or naker.
+納卡拉鼓（naqareh、naqqāra、nagara 或 nagada）是一種中東鼓樂器，具有圓形的鼓身和獸皮鼓面，通常成對演奏。因此它是一種定音鼓類的膜鳴樂器。術語 naqqāra（نقاره）及其複數形式 naqqarat、naqqarah、naqqåre、nakkare、nagora 源自烏爾都語動詞 naqr-，意思是「敲擊、打擊」。十字軍東征後，這種樂器也被歐洲採納，並被稱為 naccaire 或 naker。
 ## 歷史背景
 
 ## 音色描述

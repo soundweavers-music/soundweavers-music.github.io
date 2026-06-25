@@ -1,5 +1,5 @@
 ---
-title: Bawu（暫譯）
+title: 巴烏
 original_name: Bawu
 category: 管樂器
 country: 亞洲／歐洲／中東／全球

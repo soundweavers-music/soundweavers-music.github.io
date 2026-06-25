@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The psalmodicon (psalmodikon or salmodikon) is a stringed musical instrument a type of Monochord; the most common variants have a single string. It was developed in Scandinavia for simplifying music in churches and schools, and as an alternative to the fiddle for sacred music. The instrument could be plucked or bowed. Beginning in the early 19th century, it was adopted by many rural churches in Scandinavia; later, immigrants brought the instrument to the United States. At the time, many congregations could not afford organs.
+薩爾莫迪康琴（psalmodicon、psalmodikon或salmodikon）是一種弦樂器，屬於單弦琴的一種；最常見的變體只有單根弦。它在斯堪的納維亞半島發展而成，目的是為了簡化教堂和學校的音樂，也可作為聖樂小提琴的替代品。這種樂器既可以撥弦也可以用弓拉奏。從19世紀初開始，它被斯堪的納維亞半島許多鄉村教堂採用；後來，移民將這種樂器帶到了美國。當時，許多教區無法負擔管風琴的費用。
 ## 歷史背景
 
 ## 音色描述

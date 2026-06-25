@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-A bell /ˈbɛl/ () is a directly struck idiophone percussion instrument. Most bells have the shape of a hollow cup that—when struck—vibrates in a single strong strike tone, with its sides forming an efficient resonator. The strike may be made by an internal "clapper" or "uvula", an external hammer, or—in small bells—by a small loose sphere enclosed within the body of the bell (jingle bell). Bells are usually cast from bell metal (a type of bronze) for its resonant properties, but can also be made from other hard materials. This depends on the function.
+鈴鐺是一種直接敲擊的自鳴樂器。大多數鈴鐺呈中空杯形，敲擊時會產生單一而有力的響亮音調，其側壁形成一個高效的共鳴器。敲擊可以由內部的「舌」或「懸錘」、外部錘子，或——在小型鈴鐺中——由封閉在鈴鐺體內的一個小鬆動的球體（搖鈴）來完成。鈴鐺通常由鐘金屬（一種青銅）鑄造而成，以利用其共鳴特性，但也可以由其他硬材料製成。這取決於其用途。
 ## 歷史背景
 
 ## 音色描述

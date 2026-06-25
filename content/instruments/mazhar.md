@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The mazhar (Arabic: مزهر; pl.: mazāhar, مزاهر) is a large, heavy tambourine used in Arabic music. The mazhar's frame is generally made out of wood. Its single head is considerably thicker than that of the riq, its smaller cousin. Some drums have brass zills that are about 10–13 centimetres (4–5 inches) in diameter; these may be played with a shaking technique. The Egyptian percussionist Hossam Ramzy was a notable performer of the mazhar.
+馬扎爾框鼓（阿拉伯語：مزهر；複數形式：mazāhar，مزاهر）是阿拉伯音樂中使用的一種大型、沉重的鈴鼓。馬扎爾框鼓的框架通常由木料製成。它的單個鼓面比其較小的親戚樂器里克鼓（riq）的鼓面厚得多。有些鼓配有直徑約為10-13厘米（4-5英寸）的黃銅鈸片；這些可以用搖晃技巧演奏。埃及打擊樂演奏家侯賽姆·拉姆齊是馬扎爾框鼓的著名演奏者。
 ## 歷史背景
 
 ## 音色描述

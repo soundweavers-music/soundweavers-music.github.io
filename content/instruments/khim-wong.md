@@ -1,5 +1,5 @@
 ---
-title: Khim Wong
+title: 泰國揚琴
 original_name: Khim Wong
 category: 打擊樂器
 country: 東南亞／東亞／非洲／歐洲／全球

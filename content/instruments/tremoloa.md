@@ -1,5 +1,5 @@
 ---
-title: Tremoloa
+title: 特莫洛亞琴
 original_name: Tremoloa
 category: 鍵盤樂器
 country: 亞洲／歐洲／全球
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The tremoloa , plural tremoloas, is a stringed instrument belonging to the fretless zither family. It was produced in the United States in response to the rapid increase in popularity of Hawaiian music during the 1920s, and continued to be produced until the 1950s. Musical collective Broken Social Scene features the instrument in "Tremoloa Debut." The instrument is also featured sporadically on The Magnetic Fields' album 69 Love Songs.
+特莫洛亞琴（複數形為特莫洛亞琴）是一種弦樂器，屬於無品齊特琴家族。它是在1920年代夏威夷音樂迅速流行的背景下，在美國製造的，並一直生產到1950年代。音樂團體破碎社交場景（Broken Social Scene）在歌曲《特莫洛亞琴首秀》中採用了這種樂器。該樂器也零星出現在磁場樂隊（The Magnetic Fields）的專輯《69首情歌》中。
 ## 歷史背景
 
 ## 音色描述

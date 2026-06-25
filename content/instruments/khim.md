@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The khim (Thai: ขิม [kʰǐm]; Lao: ຂິມ [kʰĭm]; Khmer: ឃឹម [kʰɨm]) is a stringed musical instrument derived from the Mesopotamian or Persian Santur. It is similar to the Hammered Dulcimer or Cimbalom. This khim was introduced to Thailand from China, where a similar (though, since the late 20th century, usually larger) instrument is called yangqin. It is played with two flexible bamboo sticks with soft leather at the tips to produce a soft tone.
+克因揚琴（泰語：ขิม [kʰǐm]；寮語：ຂິມ [kʰĭm]；高棉語：ឃឹម [kʰɨm]）是一種弦樂器，源自美索不達米亞或波斯的桑圖琴。它類似於錘擊揚琴或齊特琴。克因揚琴由中國傳入泰國，在中國有一種類似的樂器名為揚琴（自20世紀末以來通常體積更大）。它用兩根末端包有柔軟皮革的竹製擊棒演奏，可產生柔和的音色。
 ## 歷史背景
 
 ## 音色描述

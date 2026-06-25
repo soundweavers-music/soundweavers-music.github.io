@@ -15,7 +15,7 @@ region_type: 歷史／電子音樂
 ---
 ## 介紹
 
-The Telharmonium (also known as the Dynamophone) was an early electrical organ, developed by Thaddeus Cahill c. 1896 and patented in 1897. The electrical signal from the Telharmonium was transmitted over wires; it was heard on the receiving end by means of "horn" speakers. Like the later Hammond organ, the Telharmonium used tonewheels to generate musical sounds as electrical signals by additive synthesis. It is considered to be the first electromechanical musical instrument.
+泰爾哈莫尼琴（亦稱為動力發聲琴）是一種早期電風琴，由撒迪厄斯·凱希爾於西元1896年左右開發，並於1897年獲得專利。泰爾哈莫尼琴產生的電信號透過電線傳輸；接收端則透過「號筒」揚聲器來播放聲音。與後來的哈蒙德風琴類似，泰爾哈莫尼琴使用音輪以加法合成方式產生電信號形式的樂音。它被認為是第一台機電樂器。
 ## 歷史背景
 
 ## 音色描述

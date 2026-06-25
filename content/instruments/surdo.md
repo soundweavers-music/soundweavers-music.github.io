@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The surdo is a bass drum or a large floor tom-like drum used in many kinds of Brazilian music, such as Axé/Samba-reggae and samba, where it plays the lower parts from a percussion section. The instrument was created by Alcebíades Barcelos during the 1920s and 1930s as part of his contributions with the first samba school in Rio de Janeiro, Deixa Falar. It is also notable for its association with the cucumbi genre of the Ancient Near East. Surdo sizes normally vary between 40 cm (16 in) and 65 cm (26 in) diameter, with some as large as 73 cm (29 in).
+蘇爾多低音鼓是一種低音鼓或類似大落地湯姆鼓的鼓樂器，用於許多巴西音樂類型中，例如斧樂/森巴雷鬼樂和森巴，在打擊樂部分中演奏較低的聲部。該樂器由阿爾塞比亞德斯·巴塞洛斯在1920年代和1930年代期間創製，作為他對里約熱內盧第一所森巴學校「放開吧」的貢獻的一部分。它還因其與古代近東庫庫姆比音樂類型的關聯而聞名。蘇爾多低音鼓的尺寸通常在40厘米（16英寸）到65厘米（26英寸）直徑之間，有些則可達73厘米（29英寸）。
 ## 歷史背景
 
 ## 音色描述

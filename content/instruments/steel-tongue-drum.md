@@ -1,5 +1,5 @@
 ---
-title: Steel Tongue Drum
+title: 鋼舌鼓
 original_name: Steel Tongue Drum
 category: 打擊樂器
 country: 全球／非洲／現代

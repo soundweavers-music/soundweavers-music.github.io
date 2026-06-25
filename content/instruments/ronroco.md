@@ -14,7 +14,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The ronroco (also spelt ronrroco) is a bass or baritone member of the charango family, with a 44–50-centimetre scale length. It was invented in 1968 by brothers Gonzalo and Wilson Hermosa, of the group Los Kjarkas from Cochabamba, Bolivia, and spread to common usage during the 1980s. In the 1990s and 2000s, it was further popularised by Argentinian musician and composer Gustavo Santaolalla. Ronrocos have 10 strings in five courses. They are built from carved wood or bent sides (like modern charangos), and not from an armadillo shell (in the manner of older charangos).
+朗羅科琴（也拼寫為ronrroco）是查蘭哥琴家族中的低音或中音成員，琴弦長度為44至50公分。它由玻利維亞科恰班巴的樂隊洛斯卡爾卡斯樂隊的兄弟岡薩洛和威爾遜·埃爾莫薩在1968年發明，並在1980年代普及。在1990年代和2000年代，阿根廷音樂家兼作曲家古斯塔沃·桑塔歐拉進一步推廣了這種樂器。朗羅科琴有10根弦，分為5組。它們由雕刻木材或彎曲的琴側製成（如現代查蘭哥琴），而不是用犰狳殼製成（如同較舊的查蘭哥琴）。
 ## 歷史背景
 
 ## 音色描述

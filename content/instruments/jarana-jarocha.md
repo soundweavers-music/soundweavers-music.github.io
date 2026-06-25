@@ -1,5 +1,5 @@
 ---
-title: Jarana Jarocha
+title: 哈拉納吉他
 original_name: Jarana Jarocha
 category: 弦樂器
 country: 全球
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The jarana jarocha is a guitar-shaped fretted stringed instrument from the southern region of the state of Veracruz, Mexico. Typically strung with 8 strings in 5 courses, usually arranged in two single outer strings with three double-courses in between. The strings are usually nylon, although they were gut in the past. The body is somewhat narrower than a guitar because of its direct lineage from the Spanish baroque guitar of the sixteenth century. It's usually around 50-70 centimeters.
+哈拉納吉他是一種來自墨西哥韋拉克魯茲州南部地區的吉他形撥弦樂器。通常配有8根琴弦分為5個音程，通常排列為兩條外側單弦，中間夾著三組雙弦。琴弦通常使用尼龍製成，儘管過去曾使用羊腸弦。由於其直接源於十六世紀西班牙巴洛克吉他的血統，琴身比吉他略窄。其長度通常約為50-70厘米。
 ## 歷史背景
 
 ## 音色描述

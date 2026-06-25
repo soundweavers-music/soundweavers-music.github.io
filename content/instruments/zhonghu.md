@@ -1,5 +1,5 @@
 ---
-title: Zhonghu（暫譯）
+title: 中胡
 original_name: Zhonghu
 category: 弦樂器
 country: 亞洲／歐洲／中東／全球

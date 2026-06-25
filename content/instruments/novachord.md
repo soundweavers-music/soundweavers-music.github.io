@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The Novachord is the world's first commercial polyphonic synthesizer. Incorporating many circuit and control elements found in modern synthesizers, and using subtractive synthesis to generate tones, it was designed by John M. Hanert, Laurens Hammond and C. N. Williams, and was manufactured by the Hammond company. Only 1,069 Novachords were built over a period from 1939 to 1942. It was one of very few electronic products released by Hammond that was not intended to emulate the sound of an organ.
+諾瓦科德電子琴是世界上第一台商用複音合成器。它融合了現代合成器中的許多電路和控制元件，並採用減法合成技術來產生音色，由約翰·M·哈內特、勞倫斯·哈蒙德和C·N·威廉斯設計，由哈蒙德公司製造。在1939年至1942年期間，僅製造了1,069台諾瓦科德電子琴。它是哈蒙德公司推出的極少數不旨在模擬風琴聲音的電子產品之一。
 ## 歷史背景
 
 ## 音色描述

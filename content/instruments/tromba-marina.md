@@ -1,5 +1,5 @@
 ---
-title: Tromba marina（暫譯）
+title: 海號琴
 original_name: Tromba marina
 category: 弦樂器
 country: 歐洲
@@ -15,7 +15,7 @@ region_type: 歷史文化圈
 ---
 ## 介紹
 
-A tromba marina, marine trumpet, trumpet marine or nuns' fiddle (Fr. trompette marine; Ger. Marientrompete, Trompetengeige, Nonnengeige or Trumscheit, Pol. tubmaryna) is a triangular bowed string instrument used in medieval and Renaissance Europe that was highly popular in the 15th century in England and survived into the 18th century. The tromba marina consists of a body and neck in the shape of a truncated cone resting on a triangular base. It is usually four to seven feet long, and is a monochord (although some versions have sympathetically-vibrating strings).
+海號琴（法文：trompette marine；德文：Marientrompete、Trompetengeige、Nonnengeige 或 Trumscheit；波蘭文：tubmaryna），又稱為海洋小號、小號琴或修女提琴，是一種三角形弓弦樂器，在中世紀和文藝復興時期的歐洲使用，在15世紀的英格蘭極為流行，並延續使用至18世紀。海號琴由一個身體和頸部組成，形狀為截頂圓錐體，置於三角形的底座上。它通常長四到七英尺，是一種單弦樂器（儘管某些版本具有同情共鳴的弦）。
 ## 歷史背景
 
 ## 音色描述

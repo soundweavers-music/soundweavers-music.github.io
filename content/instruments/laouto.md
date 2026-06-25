@@ -1,5 +1,5 @@
 ---
-title: 希臘拉烏托琴
+title: 希臘拉烏託琴
 original_name: Laouto
 category: 弦樂器
 country: 希臘
@@ -15,7 +15,7 @@ region_type: 單一地區／文化圈
 ---
 ## 介紹
 
-The laouto (Greek: λαούτο, pl. laouta λαούτα) is a long-neck fretted instrument of the lute family, found in Greece and Cyprus, and similar in appearance to the oud. It has four double-strings. It is played in most respects like the oud (plucked with a long plectrum); in Cyprus the laouto is plucked with a feather. This instrument is known in Albania as "llautë" (indefinite form) or "llauta" (definite form), and in Romania as "lăuta".
+希臘拉烏托琴（希臘文：λαούτο，複數形式 λαούτα）是琉特琴族中的一種長頸撥弦樂器，見於希臘和塞浦路斯，外觀與烏德琴相似。它有四組雙弦。在大多數方面，它的演奏方式與烏德琴相似（用長撥片撥弦）；在塞浦路斯，拉烏托琴則是用羽毛撥弦。這種樂器在阿爾巴尼亞被稱為「llautë」（不定形式）或「llauta」（定形式），在羅馬尼亞則被稱為「lăuta」。
 ## 歷史背景
 
 ## 音色描述

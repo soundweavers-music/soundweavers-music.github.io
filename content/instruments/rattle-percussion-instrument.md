@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/PNG_Rattle_QM-r
 ---
 ## 介紹
 
-A rattle is a type of percussion instrument which produces a sound when shaken. Rattles are described in the Hornbostel–Sachs system as Shaken Idiophones or Rattles (112.1). According to Sachs, SHAKEN IDIOPHONES are rattles (not to be confused with clappers). The material is important, but more important is the arrangement of the sounding parts that strike together when the implement is shaken. Rattles include: Maracas, widely used in Cha Cha Cha and jazz. Chac-chac, as known in Trinidad, Dominica and the French Antilles.
+搖鈴是一種打擊樂器，搖晃時會發出聲音。搖鈴在霍恩博斯特爾-薩克斯體系中被描述為搖動體鳴樂器或搖鈴（112.1）。根據薩克斯的分類，搖動體鳴樂器是搖鈴（不應與拍打樂器混淆）。材料很重要，但更重要的是發聲部分的排列方式，這些部分在搖晃樂器時會相互碰撞。搖鈴包括：馬拉卡斯，廣泛用於恰恰舞和爵士樂。查克查克，在特立尼達、多米尼加和法屬安的列斯群島中被稱為這個名稱。
 ## 歷史背景
 
 ## 音色描述

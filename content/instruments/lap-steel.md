@@ -1,5 +1,5 @@
 ---
-title: Lap Steel
+title: 夏威夷吉他
 original_name: Lap Steel
 category: 電子樂器
 country: 中東／歐洲／亞洲／美洲
@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The lap steel guitar, also known as a Hawaiian guitar or lap slide guitar, is a type of steel guitar without pedals that is typically played with the instrument in a horizontal position across the performer's lap. Unlike the usual manner of playing a traditional acoustic guitar, in which the performer's fingertips press the strings against frets, the pitch of a steel guitar is changed by pressing a polished steel bar against strings while plucking them with the opposite hand. The steel guitar's name is derived from this steel bar.
+膝蓋鋼琴，又稱為夏威夷吉他或膝蓋滑音吉他，是一種沒有踏板的鋼琴，通常以水平方式放在演奏者的膝蓋上進行演奏。與傳統原聲吉他的通常演奏方式不同，在傳統原聲吉他中，演奏者的指尖將琴弦按在琴品上，而鋼琴的音高則是通過用拋光的鋼條按壓琴弦，同時用另一隻手撥弦來改變的。鋼琴的名稱正是源於這根鋼條。
 ## 歷史背景
 
 ## 音色描述

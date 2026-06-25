@@ -1,5 +1,5 @@
 ---
-title: Temir komuz（暫譯）
+title: 鐵口琴
 original_name: Temir komuz
 category: 管樂器
 country: 全球／非洲／亞洲／現代療癒與街頭音樂
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The temir komuz (sometimes temir qomuz meaning 'iron komuz/qomuz', ooz komuz meaning 'mouth komuz', or gubuz) is a Kyrgyz jaw harp, while the komuz is a three-stringed fretless lute. As an instrument, the temir komuz is unrelated to the komuz in terms of style and structure; however, it takes its name from the other popular Turkic instrument. The stringed komuz is used by Turkic people living in central Asia e.g., Kyrgyz, Uzbeks, Kazakhs, Turkmens, and Uyghurs, as well as by Azeri, Turkish, and Yakut people.
+鐵口琴（有時稱為「鐵科木茲」意為「鐵質科木茲」、「口科木茲」意為「口腔科木茲」，或「古布茲」）是吉爾吉斯族的口琴，而科木茲則是一種三弦無品魯特琴。作為樂器，鐵口琴在風格和結構上與科木茲無關；然而，它的名稱源自另一種流行的突厥樂器。弦樂科木茲被中亞地區的突厥民族使用，例如吉爾吉斯人、烏茲別克人、哈薩克人、土庫曼人和維吾爾人，以及阿塞拜疆人、土耳其人和雅庫特人。
 ## 歷史背景
 
 ## 音色描述

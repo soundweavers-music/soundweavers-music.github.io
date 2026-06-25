@@ -15,7 +15,7 @@ region_type: 跨文化／現代
 ---
 ## 介紹
 
-The harp guitar is a guitar-based stringed instrument generally defined as a "guitar, in any of its accepted forms, with any number of additional unstopped strings that can accommodate individual plucking." The word "harp" is used in reference to its harp-like unstopped open strings. A harp guitar must have at least one unfretted string lying off the main fretboard, typically played as an open string. This family consists of many varieties of instrument configurations.
+豎琴吉他是一種以吉他為基礎的弦樂器，通常定義為「任何公認形式的吉他，配備任意數量的額外開放弦，能夠進行單獨撥彈」。「豎琴」一詞是指其類似豎琴的開放弦。豎琴吉他必須至少擁有一根位於主指板外的無品弦，通常作為開放弦演奏。這個樂器家族包含許多不同的配置種類。
 ## 歷史背景
 
 ## 音色描述

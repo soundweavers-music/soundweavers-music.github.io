@@ -1,5 +1,5 @@
 ---
-title: Steel Band
+title: 鋼鼓
 original_name: Steel Band
 category: 其他
 country: 千里達及托巴哥
@@ -15,7 +15,7 @@ region_type: 單一地區／文化圈
 ---
 ## 介紹
 
-The steelpan (also known as a pan or steel drum) is a musical instrument originating in Trinidad and Tobago. Steelpan musicians are called pannists. In 1992, the steelpan was declared Trinidad and Tobago’s national instrument by Prime Minister Patrick Manning. This helped turn the steelpan into a source of national pride and cultural identity, recognized both locally and internationally. In 2023, the United Nations General Assembly declared 11 August as World Steelpan Day.
+鋼鼓（也稱為pan或steel drum）是一種源自千里達及托巴哥的樂器。演奏鋼鼓的音樂家被稱為pannist。1992年，總理帕特里克·曼寧宣佈鋼鼓為千里達及托巴哥的國家樂器。這有助於將鋼鼓轉變為國家驕傲和文化認同的象徵，在本地和國際上都得到認可。2023年，聯合國大會將8月11日宣佈為世界鋼鼓日。
 ## 歷史背景
 
 ## 音色描述

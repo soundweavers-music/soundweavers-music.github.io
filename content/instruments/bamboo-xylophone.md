@@ -1,5 +1,5 @@
 ---
-title: Bamboo Xylophone
+title: 竹木琴
 original_name: Bamboo Xylophone
 category: 打擊樂器
 country: 東南亞／東亞／非洲／歐洲／全球

@@ -1,5 +1,5 @@
 ---
-title: Guqin（暫譯）
+title: 古琴
 original_name: Guqin
 category: 鍵盤樂器
 country: 東亞／中亞／歐洲／東南亞／非洲／美洲

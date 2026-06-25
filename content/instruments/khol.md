@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The khol is a terracotta two-sided drum used in northern and eastern India for accompaniment with devotional music (bhakti). It is also known as a mridanga (< Sanskrit mṛd + aṅga, lit. 'clay limb'), not to be confused with mridangam. It originates from the Indian states of Odisha, West Bengal, Assam and Manipur. The drum is played with palms and fingers of both hands.
+科爾鼓是一種陶土雙面鼓，在印度北部和東部用於伴奏虔誠音樂（巴克提音樂）。它也被稱為姆里丹加鼓（源自梵文 mṛd + aṅga，字面意思為「黏土肢體」），不要與姆里丹加鼓混淆。它起源於印度的奧里薩邦、西孟加拉邦、阿薩姆邦和曼尼普爾邦。這種鼓用雙手的手掌和手指演奏。
 ## 歷史背景
 
 ## 音色描述

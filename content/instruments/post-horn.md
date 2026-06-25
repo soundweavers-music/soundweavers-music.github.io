@@ -15,7 +15,7 @@ region_type: 歷史文化圈
 ---
 ## 介紹
 
-The post horn is a valveless cylindrical brass instrument with a cupped mouthpiece. The instrument was used to signal the arrival or departure of a post rider or mail coach. It was used by postilions of the 18th and 19th centuries.
+郵號是一種無活塞的圓筒形銅製樂器，配有杯形吹口。這種樂器用於發出郵遞騎手或郵車到達或出發的信號。它在十八和十九世紀由郵遞馬車夫使用。
 ## 歷史背景
 
 ## 音色描述

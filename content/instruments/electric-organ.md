@@ -1,5 +1,5 @@
 ---
-title: Electric Organ
+title: 電子琴
 original_name: Electric Organ
 category: 鍵盤樂器
 country: 歐洲／美國／全球現代錄音室
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-An electric organ, also known as electronic organ, is an electronic keyboard instrument which was derived from the harmonium, pipe organ and theatre organ. Originally designed to imitate their sound, or orchestral sounds, it has since developed into several types of instruments: Hammond-style organs used in many styles of popular music including Pop, Rock, Country, Blues, Gospel and Jazz; digital church organs, which imitate pipe organs and are used primarily in churches; other types including combo organs, home organs, and software organs.
+電子琴，也稱為電子琴，是一種電子鍵盤樂器，源自風琴、管風琴和劇院風琴。它最初設計用於模仿這些樂器或管弦樂隊的聲音，但後來發展成了幾種類型的樂器：漢蒙德式風琴，用於流行音樂、搖滾樂、鄉村音樂、藍調音樂、福音音樂和爵士樂等多種風格；數位教堂風琴，模仿管風琴，主要用於教堂；以及其他類型，包括組合風琴、家庭風琴和軟體風琴。
 ## 歷史背景
 
 ## 音色描述

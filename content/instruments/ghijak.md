@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The ghijak is a group of related spike fiddles, used by Afghans, Uzbeks, Uyghurs, Tajiks, Turkmens, Qaraqalpaks and in the Xinjiang province of western China. Despite the similarity of the name, it is more closely related to the Persian kamancheh than the ghaychak.
+吉賈克琴是一種相關的尖刺提琴家族樂器，被阿富汗人、烏茲別克人、維吾爾人、塔吉克人、土庫曼人、卡拉卡爾帕克人以及中國西部新疆省的人民所使用。儘管名稱相似，但它與波斯卡曼徹琴的關係更密切，而非與蓋查克琴相關。
 ## 歷史背景
 
 ## 音色描述

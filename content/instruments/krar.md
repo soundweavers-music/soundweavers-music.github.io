@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The krar (Geʽez: ክራር) is a five-or-six stringed bowl-shaped lyre from Ethiopia and Eritrea. It is tuned to a pentatonic scale. A modern krar may be amplified, much in the same way as an electric guitar or violin. The krar, along with the masenqo and the washint, is one of the most widespread musical instruments in Northern Ethiopia and Eritrea.
+克拉爾琴（蓋茲語：ክራር）是一種來自衣索比亞和厄立垂亞的五弦或六弦碗形豎琴。它調至五聲音階。現代克拉爾琴可能會被放大，就像電吉他或電提琴一樣。克拉爾琴與馬森克琴和瓦欣特笛一起，是北衣索比亞和厄立垂亞最普遍的樂器之一。
 ## 歷史背景
 
 ## 音色描述

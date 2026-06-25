@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/%D0%A0%D1%83%D1
 ---
 ## 介紹
 
-The Russian guitar (sometimes referred to as a "Gypsy guitar") is an acoustic seven-string guitar that was developed in Russia toward the end of the 18th century: it shares most of its organological features with the Spanish guitar, although some historians insist on English guitar descent. It is known in Russian as the semistrunnaya gitara (семиструнная гитара), or affectionately as the semistrunka (семиструнка), which translates to "seven-stringer". These guitars are most commonly tuned to an open G chord as follows: D2 G2 B2 D3 G3 B3 D4.
+俄羅斯吉他（有時被稱為「吉普賽吉他」）是一種七弦民族吉他，於18世紀末在俄羅斯發展而來。雖然有些歷史學家堅持其源於英國吉他，但它在樂器學特徵上與西班牙吉他大體相同。在俄語中，它被稱為「semistrunnaya gitara」（семиструнная гитара），親暱地被稱為「semistrunka」（семиструнка），意為「七弦琴」。這些吉他最常被調成開放G和弦，調弦如下：D2 G2 B2 D3 G3 B3 D4。
 ## 歷史背景
 
 ## 音色描述

@@ -1,5 +1,5 @@
 ---
-title: Saung Gauk
+title: 緬甸豎琴
 original_name: Saung Gauk
 category: 弦樂器
 country: 非洲／歐洲／美洲／亞洲

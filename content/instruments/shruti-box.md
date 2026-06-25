@@ -1,5 +1,5 @@
 ---
-title: Shruti Box
+title: 施魯蒂箱
 original_name: Shruti Box
 category: 管樂器
 country: 全球

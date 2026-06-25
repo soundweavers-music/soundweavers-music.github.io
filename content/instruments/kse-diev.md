@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Yoeun_Mek_tries
 ---
 ## 介紹
 
-The kse diev (Khmer: ខ្សែដៀវ) or khse mhoy (Khmer: ខ្សែមួយ) is a Cambodian stick zither with a single copper or brass string and a gourd resonator. The resonator is held to the bow with a nylon cord and is open at the other end. The nylon cord holds on the resonator and acts as a loop around the copper string, bringing it to the stick. The nylon loop acts as the nut on a guitar, the place below which the string vibrates and sound begins.
+克塞迪耶夫（高棉語：ខ្សែដៀវ）或克塞姆歡（高棉語：ខ្សែមួយ）是一種柬埔寨擊弦樂器，配有單根銅製或黃銅弦和葫蘆形共鳴箱。共鳴箱用尼龍繩與木棒相連，另一端開放。尼龍繩固定共鳴箱，並環繞銅弦形成一個迴路，將弦連接到木棒上。尼龍繩環的作用相當於吉他的琴枕，是弦振動發聲的起點。
 ## 歷史背景
 
 ## 音色描述

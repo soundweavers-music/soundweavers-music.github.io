@@ -1,5 +1,5 @@
 ---
-title: Hawaiian Nose Flute
+title: 夏威夷鼻笛
 original_name: Hawaiian Nose Flute
 category: 管樂器
 country: 全球／亞洲／歐洲／美洲／大洋洲

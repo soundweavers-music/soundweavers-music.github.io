@@ -1,5 +1,5 @@
 ---
-title: 三角铁
+title: 三角鐵
 original_name: Triangle (musical instrument)
 category: 打擊樂器
 country: 全球

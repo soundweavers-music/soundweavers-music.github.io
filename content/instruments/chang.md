@@ -1,5 +1,5 @@
 ---
-title: Chang
+title: 箏
 original_name: Chang
 category: 弦樂器
 country: 瑞士／歐洲／全球現代
@@ -14,7 +14,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-Chang may refer to:
+箏可能指的是：
 ## 歷史背景
 
 ## 音色描述

@@ -15,7 +15,7 @@ region_type: 單一地區／文化圈
 ---
 ## 介紹
 
-The kobyz or qobyz, also known as the kylkobyz, is an ancient Turkic bowed string instrument, spread among Kazakhs, Karakalpaks, Bashkirs, and Tatars. The Kyrgyz variant is called the kyl-kyiak). The kobyz has two strings made of horsehair. The resonating cavity is usually covered with goat leather. Traditionally kobyzes were sacred instruments, owned by shamans and baksıs (traditional spiritual medics). According to legends, the kobyz and its music could banish evil spirits, sickness and death.
+海琴（kobyz或qobyz），又稱為kylkobyz，是一種古老的突厥弓弦樂器，在哈薩克人、卡拉卡爾帕克人、巴什基爾人和韃靼人中廣泛流傳。吉爾吉斯人的變體稱為kyl-kyiak。海琴有兩根由馬尾製成的琴弦。共鳴腔體通常用山羊皮覆蓋。傳統上，海琴是神聖的樂器，由薩滿教巫師和巴克西（傳統精神治療者）擁有。根據傳說，海琴及其音樂可以驅趕邪靈、疾病和死亡。
 ## 歷史背景
 
 ## 音色描述

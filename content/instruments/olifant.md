@@ -14,7 +14,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-Olifant, Oliphant, Olyphant and similar variations may refer to:
+象牙號、象牙號、象牙號及類似變體可能指的是：
 ## 歷史背景
 
 ## 音色描述

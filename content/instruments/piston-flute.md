@@ -7,7 +7,7 @@ era: 傳統／年代待考
 ---
 ## 介紹
 
-A slide whistle (variously known as a swanee or swannee whistle, lotus flute, piston flute, or jazz flute) is a wind instrument consisting of a tube with a piston in it, and a fipple mouthpiece similar to a recorder at one end. This enables the player to vary the pitch with a slide while blowing the whistle, producing an ascending or descending glissando. Because the air column is cylindrical and open at one end and closed at the other, it overblows the third harmonic.
+活塞長笛（亦稱為斯威尼長笛、蓮花笛、活塞笛或爵士笛）是一種管樂器，由一根內部裝有活塞的管子和一端類似於豎笛的指孔式吹嘴組成。這使演奏者在吹奏時能夠通過活塞改變音高，產生上升或下降的滑音效果。由於氣柱呈圓筒形，一端開放，一端關閉，它會過吹第三泛音。
 ## 歷史背景
 
 ## 音色描述

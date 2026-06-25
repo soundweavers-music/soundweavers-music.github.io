@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The sarangi is a bowed, short-necked three-stringed instrument played in traditional music from India. It is said to resemble the sound of the human voice through its ability to imitate vocal ornaments such as Gamaks or Gamakam (shakes) and meends (sliding movements). The Nepali sarangi is similar, but is a four-stringed, simpler folk instrument.
+薩朗吉琴是一種弓奏、短頸的三弦樂器，用於印度傳統音樂中。據說它能夠模仿人聲，通過其模仿聲樂裝飾音的能力，例如顫音（Gamaks或Gamakam）和滑音（meends，滑動動作）。尼泊爾薩朗吉琴類似，但是一種四弦的簡單民間樂器。
 ## 歷史背景
 
 ## 音色描述

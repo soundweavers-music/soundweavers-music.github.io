@@ -1,5 +1,5 @@
 ---
-title: Marxophone（暫譯）
+title: 馬克索風琴
 original_name: Marxophone
 category: 鍵盤樂器
 country: 亞洲／歐洲／全球
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The Marxophone is a fretless zither played via a system of metal hammers. It features two octaves of double melody strings in the key of C major (middle C to C''), and four sets of chord strings (C major, G major, F major, and D7). Sounding somewhat like a mandolin, the Marxophone's timbre is also reminiscent of various types of hammered dulcimers. The player typically strums the chords with the left hand. The right hand plays the melody strings by depressing spring steel strips that hold small lead hammers over the strings.
+馬克索風琴是一種無品齊特琴，通過一套金屬錘系統演奏。它具有兩個八度的雙旋律弦，音調為C大調（中央C至C''），以及四組和弦弦（C大調、G大調、F大調和D7）。馬克索風琴的音色有點像曼陀林，也讓人想起各種敲擊揚琴。演奏者通常用左手彈奏和弦。右手通過按下彈簧鋼條來演奏旋律弦，這些鋼條上有小鉛錘懸在弦上方。
 ## 歷史背景
 
 ## 音色描述

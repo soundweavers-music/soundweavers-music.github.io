@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The chalumeau (English: ; French: [ʃa.ly.mo]; plural chalumeaux) is a single-reed woodwind instrument of the late baroque and early classical eras. The chalumeau is a folk instrument that is the predecessor to the modern-day clarinet. It has a cylindrical bore with eight tone holes (seven in front and one in back for the thumb) and a broad mouthpiece with a single heteroglot reed (i.e. separate, not a continuous part of the instrument's body) made of cane. Similar to the clarinet, the chalumeau overblows a twelfth.
+夏呂莫單簧管（英文：；法文：[ʃa.ly.mo]；複數形 chalumeaux）是晚巴洛克時期至古典初期的單簧管木管樂器。夏呂莫單簧管是一種民俗樂器，是現代單簧管的前身。它具有圓筒形音孔，有八個音孔（前面七個，背面一個供拇指使用），以及寬闊的吹口配備單一異質簧片（即分開的，不是樂器本體的連續部分），由蘆葦製成。與單簧管類似，夏呂莫單簧管可以超吹十二度音程。
 ## 歷史背景
 
 ## 音色描述

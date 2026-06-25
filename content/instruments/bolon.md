@@ -14,7 +14,25 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-Bolon may refer to: Bolon, name of several gods in Mayan mythology Bolon (eyewear brand), a Chinese eyewear brand Bolon (flooring company), a flooring company in Sweden Bolon of Macedon (fl. 330 BC) soldier who gave a speech against Philotas, son of one of Alexander's generals Lake Bolon, in Russia's Khabarovsk Krai Bolon, ethnic group in Mali Bolon language, White Bolon and Black Bolon dialects, of the ethnic group in Mali Bolon (musical instrument), kind of harp found in Mali Comté de Bolon, old name for Boulon, Calvados, France
+博隆可能指的是：
+
+博隆，瑪雅神話中幾位神的名字
+
+博隆（眼鏡品牌），一個中國眼鏡品牌
+
+博隆（地板公司），瑞典的一家地板公司
+
+馬其頓的博隆（約公元前330年活躍），士兵，曾發表演講反對腓力塔斯，他是亞歷山大將軍之一的兒子
+
+博隆湖，位於俄羅斯的哈巴羅夫斯克邊疆區
+
+博隆，馬里的一個民族
+
+博隆語，白博隆方言和黑博隆方言，屬於馬里的該民族語言
+
+博隆（樂器），馬里發現的一種豎琴
+
+博隆郡，法國卡爾瓦多斯省布隆的舊名
 ## 歷史背景
 
 ## 音色描述

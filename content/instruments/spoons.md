@@ -14,7 +14,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-Spoons may refer to:
+湯匙可能是指：
 ## 歷史背景
 
 ## 音色描述

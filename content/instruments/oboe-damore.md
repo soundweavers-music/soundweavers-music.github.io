@@ -7,7 +7,7 @@ era: 傳統／年代待考
 ---
 ## 介紹
 
-The oboe d'amore (Italian for 'love oboe'; (pronounced [ˈɔːboe daˈmoːre]), less commonly hautbois d'amour (French: [obwɑ damuʁ]), is a double reed woodwind musical instrument in the oboe family. Slightly larger than the oboe, it has a less assertive and a more tranquil and serene tone, and is considered sometimes considered the alto of the oboe family, between the oboe (soprano) and the cor anglais, or English horn (tenor, but sometimes also considered an alto). It is a transposing instrument pitched in A sounding a minor third lower than it is notated.
+愛之雙簧管（義大利文意為「愛的雙簧管」；英文發音[ˈɔːboe daˈmoːre]），較少見的法文名稱為hautbois d'amour（法文發音[obwɑ damuʁ]），是雙簧管家族中的一種雙簧木管樂器。它的體型略大於普通雙簧管，音色較不尖銳，更為寧靜祥和，有時被認為是雙簧管家族中的中音樂器，介於雙簧管（高音）和英國管（低音，但有時也被認為是中音）之間。它是一種移調樂器，以A調定音，發出的聲音比記譜低小三度。
 ## 歷史背景
 
 ## 音色描述

@@ -1,5 +1,5 @@
 ---
-title: Shamisen（暫譯）
+title: 三味線
 original_name: Shamisen
 category: 弦樂器
 country: 中東／歐亞／東亞／美洲／全球

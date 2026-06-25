@@ -1,5 +1,5 @@
 ---
-title: Washboard (musical instrument)（暫譯）
+title: 米蘭達·蘭伯特
 original_name: Washboard (musical instrument)
 category: 打擊樂器
 country: 拉丁美洲／非洲／歐洲／亞洲／全球
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The washboard and frottoir (from Louisiana French "frotter", to rub) are used as a percussion instrument, employing the ribbed metal surface of the cleaning device as a rhythm instrument. As traditionally used in jazz, zydeco, skiffle, jug band, and old-time music, the washboard remains in its wooden frame and is played primarily by tapping, but also by scraping with thimbles. Often the washboard has additional traps, such as a wood block, a cowbell, and even small cymbals.
+搓衣板和摩擦板（源自路易斯安那州法語「frotter」，意為摩擦）被用作打擊樂器，利用清潔工具的肋狀金屬表面作為節奏樂器。在傳統爵士樂、克里奧爾音樂、民謠、罐樂隊和老時代音樂中，搓衣板保持其木製框架，主要通過敲擊來演奏，但也可以用指套刮擦。搓衣板上通常還裝有額外的陷阱裝置，如木塊、牛鈴，甚至小鈸。
 ## 歷史背景
 
 ## 音色描述

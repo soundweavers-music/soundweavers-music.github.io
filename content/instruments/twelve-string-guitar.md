@@ -1,5 +1,5 @@
 ---
-title: 十二弦吉他
+title: 十二絃吉他
 original_name: Twelve-string guitar
 category: 弦樂器
 country: 待考

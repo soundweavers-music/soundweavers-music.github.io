@@ -1,5 +1,5 @@
 ---
-title: Duduk Bass
+title: 杜德克低音管
 original_name: Duduk Bass
 category: 管樂器
 country: 亞美尼亞／高加索

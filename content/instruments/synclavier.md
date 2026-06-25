@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The Synclavier is an early digital synthesizer, polyphonic digital sampling system, and music workstation manufactured by New England Digital Corporation of Norwich, Vermont. It was produced in various forms from the late 1970s into the early 1990s. Used by many notable musicians, the Synclavier was inducted into the TECnology Hall of Fame, an honor given to "products and innovations that have had an enduring impact on the development of audio technology," in 2004.
+辛克拉維耶是由位於佛蒙特州諾威奇的新英格蘭數位公司製造的早期數位合成器、複音數位取樣系統和音樂工作站。它從1970年代後期到1990年代初期以各種形式生產。辛克拉維耶被許多知名音樂家使用，並於2004年入選TECnology名人堂，這是授予「對音頻技術發展產生持久影響的產品和創新」的榮譽。
 ## 歷史背景
 
 ## 音色描述

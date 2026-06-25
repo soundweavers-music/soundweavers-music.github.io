@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Chitarra_batten
 ---
 ## 介紹
 
-The chitarra battente (in Italian "strumming guitar", however "battente" literally means "beating" related to the fact that this guitar thumps the rhythm of the music) is a musical instrument, a chordophone of the guitar family. It is similar to the 5-course baroque guitar, but larger and typically strung with five double strings, traditionally made of brass, but currently - steel.
+巴坦特吉他（義大利文「掃弦吉他」，但「battente」字面上意指「敲打」，與這種吉他敲打音樂節奏的特點有關）是一種弦樂器，屬於吉他家族。它類似於五弦巴洛克吉他，但體型更大，通常配有五組雙弦，傳統上由黃銅製成，但現在通常為鋼製。
 ## 歷史背景
 
 ## 音色描述

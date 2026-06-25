@@ -1,5 +1,5 @@
 ---
-title: Surbahar（暫譯）
+title: 蘇巴哈爾琴
 original_name: Surbahar
 category: 弦樂器
 country: 中東／歐亞／東亞／美洲／全球
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-Surbahar (Hindi pronunciation: [s̪urbəhɑːr]; transl. Springtime of Notes) sometimes known as bass sitar, is a plucked string instrument used in the Hindustani classical music of the Indian subcontinent. It is closely related to the sitar, but has a lower pitch. Depending on the instrument's size, it is usually pitched two to five whole steps below the standard sitar.
+蘇巴哈爾琴（印地語發音：[s̪urbəhɑːr]；譯為「音符的春天」），有時亦稱為低音西塔琴，是用於印度次大陸印度古典音樂的撥弦樂器。它與西塔琴關係密切，但音調較低。根據樂器的大小，其音調通常比標準西塔琴低兩到五個全音。
 ## 歷史背景
 
 ## 音色描述

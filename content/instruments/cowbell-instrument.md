@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The cowbell is an idiophone hand percussion instrument used in various styles of music, such as Latin and rock. It is named after the similar bell used by herdsmen to keep track of the whereabouts of cows. The instrument initially and traditionally has been metallic; however, contemporarily, some variants are made of synthetic materials.
+牛鈴是一種鐵片打擊樂器，用於各種音樂風格，例如拉丁音樂和搖滾樂。它之所以得名，是因為牧民使用類似的鈴鐺來追蹤牛隻的位置。該樂器最初和傳統上是由金屬製成的；然而，在當代，某些變體是由合成材料製造的。
 ## 歷史背景
 
 ## 音色描述

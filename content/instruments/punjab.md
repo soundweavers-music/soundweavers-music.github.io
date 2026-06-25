@@ -1,5 +1,5 @@
 ---
-title: 旁遮普地区
+title: 旁遮普地區
 original_name: Punjab
 category: 弦樂器
 country: 印度

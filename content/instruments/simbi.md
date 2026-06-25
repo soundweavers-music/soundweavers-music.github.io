@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-A Simbi (also spelled Cymbee and Sim'bi, pl. Bisimbi or Basimbi) is a Central African guardian spirit of the water and nature in traditional Bakongo religion, as well as in African diaspora spiritual traditions, such as Hoodoo in the southern United States and Palo in Cuba. Simbi have been historically identified as water people, or mermaids, pottery, snakes, gourds, and fire. Due to the Atlantic slave trade, a large percentage of Bantu peoples were either bought or stolen from Africa to the Americas.
+辛比（也拼寫為Cymbee和Sim'bi，複數形式為Bisimbi或Basimbi）是中非傳統巴剛果宗教中的守護水和自然的靈體，也存在於非洲散居精神傳統中，例如美國南方的根源巫術（Hoodoo）和古巴的帕羅教（Palo）。歷史上，辛比被認為是水族人類或美人魚、陶器、蛇、葫蘆和火的化身。由於大西洋奴隸貿易，大量班圖人民被從非洲買賣或掠奪到美洲。
 ## 歷史背景
 
 ## 音色描述

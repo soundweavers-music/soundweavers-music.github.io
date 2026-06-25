@@ -1,5 +1,5 @@
 ---
-title: Tape Machine
+title: 磁帶機
 original_name: Tape Machine
 category: 鍵盤樂器
 country: 歐洲／美國／全球現代錄音室

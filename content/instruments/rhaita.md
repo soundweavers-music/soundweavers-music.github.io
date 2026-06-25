@@ -15,7 +15,7 @@ region_type: 單一地區／文化圈
 ---
 ## 介紹
 
-The rhaita or ghaita (Arabic: غيطة, romanized: ghayṭa) is a double reed instrument from West North Africa, specifically Morocco, Algeria, Libya, Mauritania, and occasionally Tunisia. It is nearly identical in construction to the Arabic mizmar and the Turkish zurna. The distinctive name owes to a medieval Gothic-Iberian influence. In southern Iberia, various sorts of wind instruments, including the related shawm, are known as gaitas, but in northern Iberia gaita refers only to bagpipes.
+萊塔管或蓋塔管（阿拉伯語：غيطة，音譯：ghayṭa）是一種來自西北非洲的雙簧管樂器，具體分布在摩洛哥、阿爾及利亞、利比亞、茅利塔尼亞，偶爾也在突尼西亞出現。其構造幾乎與阿拉伯米茲瑪爾管和土耳其祖爾納管完全相同。其獨特的名稱源於中世紀哥德-伊比利亞的影響。在南伊比利亞，各種風管樂器，包括相關的雙簧管樂器，都被稱為蓋塔斯，但在北伊比利亞，蓋塔僅指風笛。
 ## 歷史背景
 
 ## 音色描述

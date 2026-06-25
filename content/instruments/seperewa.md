@@ -1,5 +1,5 @@
 ---
-title: Seperewa（暫譯）
+title: 塞佩雷瓦琴
 original_name: Seperewa
 category: 弦樂器
 country: 非洲／歐洲／亞洲／美洲
@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The seperewa, also known as seprewa or sanku, is a Ghanaian (specifically Akan) harp-lute, similar to the Dagaare/Sisaala koriduo, the Mandé kora, the Gere duu, and Baoule aloko.
+塞佩雷瓦琴，也稱為塞普雷瓦琴或桑庫琴，是一種迦納（特別是阿坎民族）的豎琴魯特琴，與達加雷/西薩拉科里杜琴、曼德科拉琴、格雷杜琴和巴烏萊阿洛科琴相似。
 ## 歷史背景
 
 ## 音色描述

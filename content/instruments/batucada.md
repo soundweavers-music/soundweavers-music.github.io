@@ -15,7 +15,7 @@ region_type: 單一地區／文化圈
 ---
 ## 介紹
 
-Batucada ([batuˈkadɐ]) is a substyle of samba and refers to a percussive style, usually performed by an ensemble, known as a bateria. Batucada music is characterized by its syncopated style and fast pace with a marked rhythm. Originally from Rio de Janeiro and Bahia, Brazil, the rhythm has become popular around the world and is played specially in carnival festivities and celebrations, and also in street performances many times using big percussionist ensembles for greater impact. In some parts of Spain it has become a popular music, especially in parades and carnivals.
+巴圖卡達（[batuˈkadɐ]）是森巴的一種分支風格，指的是一種打擊樂風格，通常由稱為巴特裡亞的樂隊演奏。巴圖卡達音樂的特點是具有切分音風格和快速的節奏感。起源於巴西里約熱內盧和巴伊亞，這種節奏已在世界各地流行，特別是在嘉年華慶典和慶祝活動中演奏，也常在街頭表演中使用大型打擊樂隊來增加影響力。在西班牙的某些地區，它已成為一種流行音樂，特別是在遊行和嘉年華中。
 ## 歷史背景
 
 ## 音色描述

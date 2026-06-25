@@ -1,5 +1,5 @@
 ---
-title: Setar（暫譯）
+title: 塞特琴
 original_name: Setar
 category: 弦樂器
 country: 中東／歐亞／東亞／美洲／全球
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-A setar (Persian: سه‌تار, pronounced [seˈt̪ʰɒːɾ]) (lit: "Three Strings") is a stringed instrument, a type of lute used in Persian traditional music, played solo or accompanying voice. It is a member of the tanbur family of long-necked lutes with a range of more than two and a half octaves. Originally a three stringed instrument, the addition of a fourth string is commonly credited to Sufi mystic and musician Moshtaq Ali Shah. It is played with the index finger of the right hand. It has been speculated that the setar originated in Persia by the 9th century AD.
+塞特琴（波斯語：سه‌تار，發音為 [seˈt̪ʰɒːɾ]）（字面意思為「三弦琴」）是一種弦樂器，是波斯傳統音樂中使用的魯特琴類樂器，可獨奏或伴唱。它屬於坦布爾琴族，是一種長頸魯特琴，音域超過兩個半八度音階。原本是一種三弦樂器，第四根弦的加入通常被歸功於蘇非神秘主義者和音樂家莫什塔格·阿里·沙赫。演奏時使用右手的食指。據推測，塞特琴於西元九世紀左右起源於波斯。
 ## 歷史背景
 
 ## 音色描述

@@ -14,7 +14,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-A jarana is a guitar-like string instrument from Mexico. There are different regional versions of the jarana, notably: Jarana huasteca, string instrument of the Huastec region, Mexico Jarana jarocha, string instrument of Veracruz, Mexico Jarana yucateca, dance and musical form of Yucatán, Mexico It can also refer to: Harana (serenade), a serenade tradition in rural areas in the Philippines A traditional Mexican couples dance, typical of Yucatán and Campeche, on the music which accompanies it The noun jarana in Spanish translates to "revelry" or "animated party".
+哈拉納琴是一種來自墨西哥的吉他類弦樂器。哈拉納琴有不同的地區版本，特別是：瓦斯特克哈拉納琴，墨西哥瓦斯特克地區的弦樂器；哈羅查哈拉納琴，墨西哥韋拉克魯茲州的弦樂器；猶卡坦哈拉納琴，墨西哥猶卡坦州的舞蹈和音樂形式。它也可以指：哈拉納（小夜曲），菲律賓農村地區的小夜曲傳統；一種傳統的墨西哥couple舞蹈，典型於猶卡坦州和坎佩切州，伴隨著相應的音樂。西班牙語中的名詞「jarana」翻譯為「狂歡」或「熱鬧的派對」。
 ## 歷史背景
 
 ## 音色描述

@@ -1,5 +1,5 @@
 ---
-title: Loop Station
+title: 迴圈站
 original_name: Loop Station
 category: 鍵盤樂器
 country: 全球

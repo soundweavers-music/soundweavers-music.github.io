@@ -1,5 +1,5 @@
 ---
-title: Tuned Coconut Lamellophone
+title: 椰子木琴
 original_name: Coconut Lamellophone
 category: 打擊樂器
 country: 全球／非洲／亞洲／現代療癒與街頭音樂

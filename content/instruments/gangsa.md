@@ -1,5 +1,5 @@
 ---
-title: Gangsa（暫譯）
+title: 甘薩琴
 original_name: Gangsa
 category: 打擊樂器
 country: 印尼／菲律賓
@@ -15,7 +15,7 @@ region_type: 區域／多國
 ---
 ## 介紹
 
-A gangsa is a type of metallophone which is used mainly in Balinese and Javanese Gamelan music in Indonesia. In Balinese gong kebyar styles, there are two types of gangsa typically used: the smaller, higher pitched kantilan and the larger pemade. Each instrument consists of several tuned metal bars (either iron or bronze) each placed over an individual resonator. The bars are hit with a wooden panggul, each producing a different pitch. Duration of sound intensity and sound quality factors are generally accomplished by damping the vibration of the bar with the fingers of the free hand.
+甘薩琴是一種金屬琴，主要用於印尼的巴里島和爪哇島甘美蘭音樂中。在巴里島鑼克比亞風格中，通常使用兩種甘薩琴：較小、音調較高的坎蒂蘭琴和較大的佩馬德琴。每件樂器由若干調好音的金屬琴鍵組成（由鐵或青銅製成），每根琴鍵都放在各自的共鳴器上方。用木製的邦古爾敲擊琴鍵，每根琴鍵都能發出不同的音高。聲音強度的持續時間和音質因素通常是通過用另一隻手的手指來阻止琴鍵的振動而實現的。
 ## 歷史背景
 
 ## 音色描述

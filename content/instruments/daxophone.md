@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Deutsches_Jazzf
 ---
 ## 介紹
 
-The daxophone, invented by Hans Reichel, is an electric wooden experimental musical instrument of the friction idiophones category.
+暹克索風琴是由漢斯·賴歇爾發明的一種電動木製實驗樂器，屬於摩擦體鳴樂器的範疇。
 ## 歷史背景
 
 ## 音色描述

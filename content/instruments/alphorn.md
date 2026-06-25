@@ -1,5 +1,5 @@
 ---
-title: 阿尔卑斯长号
+title: 阿爾卑斯長號
 original_name: Alphorn
 category: 管樂器
 country: 全球

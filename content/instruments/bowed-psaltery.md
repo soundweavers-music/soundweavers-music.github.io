@@ -1,5 +1,5 @@
 ---
-title: Bowed Psaltery
+title: 弓形詩篇琴
 original_name: Bowed Psaltery
 category: 鍵盤樂器
 country: 亞洲／歐洲／全球

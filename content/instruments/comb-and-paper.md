@@ -1,5 +1,5 @@
 ---
-title: Comb and paper（暫譯）
+title: 紙梳
 original_name: Comb and paper
 category: 打擊樂器
 country: 待考
@@ -7,7 +7,7 @@ era: 傳統／年代待考
 ---
 ## 介紹
 
-Comb and paper is a rudimentary musical instrument which consists of a comb with a piece of paper pressed to it. To play it, one has to press their lips to the paper pressed to the comb and sing or vocalize into it. The voice makes the paper vibrate and changes the voice quality. The 1911 Encyclopedia Britannica refers to it as "the comb-music of the nursery". "Comb and paper" belongs to the category of "singing membranophones", sometimes called "mirlitons" after "mirliton", another name for the eunuch flute.
+紙梳是一種簡陋的樂器，由一把梳子和一張貼在上面的紙張組成。演奏時，演奏者將嘴唇按在貼著梳子的紙張上，然後唱歌或發聲。聲音使紙張振動並改變聲音品質。1911年的《大英百科全書》將其稱為「托兒所的梳子音樂」。「紙梳」屬於「唱鳴膜鳴樂器」的類別，有時也被稱為「米利頓」，這個名稱來自「米利頓」，是太監笛的另一個名稱。
 ## 歷史背景
 
 ## 音色描述

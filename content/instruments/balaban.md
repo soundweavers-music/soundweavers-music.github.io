@@ -14,7 +14,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-Balaban may refer to:
+巴拉班管可能指的是：
 ## 歷史背景
 
 ## 音色描述

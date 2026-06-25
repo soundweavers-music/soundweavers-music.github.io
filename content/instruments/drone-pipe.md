@@ -1,5 +1,5 @@
 ---
-title: Drone Pipe
+title: 低音管
 original_name: Drone Pipe
 category: 管樂器
 country: 全球／亞洲／歐洲／美洲／大洋洲

@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-A groovebox is a self-contained electronic or digital musical instrument for the production of live, loop-based electronic music with a high degree of user control facilitating improvisation. The term "Groovebox" was originally used by Roland Corporation to refer to its MC-303, released in 1996. The term has since entered general use, and the concept dates back to the Movement Computer Systems Drum Computer in 1981 and Fairlight CMI Page R in 1982. A groovebox consists of three integrated elements.
+節拍合成器是一種自成一體的電子或數位樂器，用於製作實時、基於迴圈的電子音樂，具有高度的使用者控制能力，便於即興創作。「節拍合成器」一詞最初由羅蘭公司用來指代其1996年發佈的MC-303。該術語此後已進入通用範圍，其概念可追溯至1981年的Movement Computer Systems鼓機和1982年的Fairlight CMI Page R。節拍合成器由三個整合元件組成。
 ## 歷史背景
 
 ## 音色描述

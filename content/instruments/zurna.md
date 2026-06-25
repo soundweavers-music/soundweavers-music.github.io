@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The zurna is a double reed wind instrument played in Central Asia, West Asia, the Caucasus, Southeast Europe and parts of North Africa. It is also used in Sri Lanka. It is usually accompanied by a davul (bass drum) in Armenian, Anatolian and Assyrian folk music. The zurna is largely played in Turkey.
+佐爾納嗩吶是一種雙簧風樂器，在中亞、西亞、高加索、東南歐及北非部分地區演奏。在斯里蘭卡也有使用。在亞美尼亞、安納托利亞和亞述民間音樂中，通常與達夫爾鼓（低音鼓）一起演奏。佐爾納嗩吶在土耳其被廣泛演奏。
 ## 歷史背景
 
 ## 音色描述

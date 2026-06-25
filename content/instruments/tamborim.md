@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-A tamborim (Portuguese pronunciation: [tɐ̃boˈɾĩ] or [tɐ̃buˈɾĩ]) is a small round Brazilian frame drum, developed from other similar percussive instruments brought by the Portuguese. The frame is 6" in width and may be made of metal, plastic, or wood. The head is typically made of nylon and is normally very tightly tuned in order to ensure a high, sharp timbre and a minimum of sustain. The drum is devoid of snares or jingles. They are frequently confused with the more common tambourine. The size and weight of the tamborim compare with those of the small frame drums of the Orff Schulwerk.
+塔博林鼓（葡萄牙語發音：[tɐ̃boˈɾĩ] 或 [tɐ̃buˈɾĩ]）是一種小型圓形巴西框架鼓，由葡萄牙人帶來的其他類似打擊樂器發展而成。鼓框寬度為6英寸，可由金屬、塑料或木材製成。鼓面通常由尼龍製成，通常調得非常緊張，以確保高、尖銳的音色和最少的延音。這種鼓不帶響弦或金屬片。它經常與更常見的鈴鼓混淆。塔博林鼓的大小和重量與奧爾夫音樂教學法中的小型框架鼓相似。
 ## 歷史背景
 
 ## 音色描述

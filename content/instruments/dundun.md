@@ -14,7 +14,13 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-Dundun may refer to: The Yoruba talking drum Dunun, dundun or doundoun, a family of West African bass drums Dunedin, the second-largest city in the South Island of New Zealand Dundun, a snack in Yoruba Nigerian cuisine, made by roasting or deep-frying slices of yam Dun Dun Noodles
+敦敦鼓可能指：
+
+約魯巴語的傳聲鼓
+敦敦鼓（Dunun、dundun 或 doundoun），西非低音鼓的一個家族
+但尼丁，紐西蘭南島第二大城市
+敦敦，約魯巴奈及利亞美食中的小食，由烘烤或油炸山藥片製成
+敦敦麵
 ## 歷史背景
 
 ## 音色描述

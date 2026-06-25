@@ -1,5 +1,5 @@
 ---
-title: Zither Harp
+title: 古箏
 original_name: Zither Harp
 category: 鍵盤樂器
 country: 亞洲／歐洲／全球

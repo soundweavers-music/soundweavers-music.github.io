@@ -1,5 +1,5 @@
 ---
-title: 金贝鼓
+title: 金貝鼓
 original_name: Djembe
 category: 打擊樂器
 country: 全球

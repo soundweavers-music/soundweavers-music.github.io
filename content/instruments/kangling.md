@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-Kangling (Tibetan: རྐང་གླིང་།, Wylie: rkang-gling), literally translated as "leg" (kang) "flute" (ling), is the Tibetan name for a trumpet or horn made out of a human tibia or femur, used in Tibetan Buddhism for various chöd rituals as well as funerals performed by a chöpa. The leg bone of a deceased person is used. Alternatively, the leg bone of a respected teacher may be used. The kangling may also be made out of wood. The kangling should only be used in chöd rituals performed outdoors with the chöd damaru and bell.
+脛骨號（藏語：རྐང་གླིང་།，威利轉寫：rkang-gling），字面翻譯為「腿」（kang）「笛」（ling），是用人類脛骨或股骨製成的喇叭或號角的藏語名稱，在藏傳佛教中用於各種斷法儀式以及由斷法師執行的葬禮。使用已故者的腿骨。或者，也可以使用受尊敬的上師的腿骨。脛骨號也可以用木頭製作。脛骨號應只在戶外進行的斷法儀式中使用，配合斷法鼓和鈴鐸使用。
 ## 歷史背景
 
 ## 音色描述

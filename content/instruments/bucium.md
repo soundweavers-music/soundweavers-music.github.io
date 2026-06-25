@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The bucium (Romanian pronunciation: [ˈbutʃjum], also called trâmbiță or tulnic) is a type of alphorn from Romania and Moldova. The word is derived from Latin bucinum, originally meaning "curved horn", an instrument used by the Romans. The word is a cognate with English "bugle". A bucium may have either a straight or curved tube, and may be conical throughout its entire length or only in the bell. Its tube, which measures 1.5 to over 3 meters in length, may be made from fir, ash, limetree, or hazel wood and bound with birch, cherry, or lime bark.
+布奇烏姆號（羅馬尼亞語發音：[ˈbutʃjum]，也稱為trâmbiță或tulnic）是源自羅馬尼亞和摩爾多瓦的一種阿爾卑斯號。該詞源自拉丁文bucinum，原意為「彎曲的號角」，是羅馬人使用的樂器。這個詞與英文「bugle」（軍號）同源。布奇烏姆號的管身可以是直的或彎曲的，且可以沿其整個長度呈圓錐形，也可以僅在喇叭口部分呈圓錐形。其管身長度為1.5米至3米以上，可由冷杉、白蠟樹、椴樹或榛樹木製成，並用樺樹皮、櫻桃樹皮或椴樹皮綁紮。
 ## 歷史背景
 
 ## 音色描述

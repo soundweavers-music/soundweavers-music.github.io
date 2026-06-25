@@ -1,5 +1,5 @@
 ---
-title: Xun (instrument)（暫譯）
+title: 塤
 original_name: Xun (instrument)
 category: 管樂器
 country: 全球

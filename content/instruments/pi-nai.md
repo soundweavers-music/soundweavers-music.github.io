@@ -1,5 +1,5 @@
 ---
-title: Pi Nai
+title: 鼻笛
 original_name: Pi Nai
 category: 管樂器
 country: 歐洲／中東／南亞／東南亞

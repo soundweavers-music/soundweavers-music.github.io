@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/c/c6/MET_tenor_sarrusophon
 ---
 ## 介紹
 
-The tenor sarrusophone is the tenor member of the sarrusophone family of metal double reed wind instruments, pitched in B♭ with the same range as the tenor saxophone. They were originally made in the late 19th and early 20th century by Orsi, Gautrot and his successor Couesnon, and Evette & Schaeffer (now Buffet Crampon). Currently they are made only by Orsi on special order.
+次中音薩魯梭風是薩魯梭風家族中的次中音成員，屬於金屬雙簧片風樂器，音高為降B調，音域與次中音薩克斯風相同。這些樂器原本在19世紀末至20世紀初由奧西、高特羅及其後繼者庫埃松，以及埃維特與謝弗爾公司（現為布費克朗松公司）製造。目前僅由奧西根據特殊訂單製造。
 ## 歷史背景
 
 ## 音色描述

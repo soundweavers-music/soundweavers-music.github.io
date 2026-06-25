@@ -1,5 +1,5 @@
 ---
-title: Sarunay（暫譯）
+title: 庫林當鐵琴
 original_name: Sarunay
 category: 打擊樂器
 country: 待考
@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Sarunay.jpg/500
 ---
 ## 介紹
 
-The kulintang a tiniok is a type of Philippine metallophone with eight tuned knobbed metal plates strung together via string atop a wooden antangan (rack). Kulintang a tiniok is a Maguindanaon term meaning "kulintang with string," but they also could call them kulintang a putao, meaning "kulintang of metal." The Maranao refer to this instrument as a sarunay (or salunay, salonay, saronay, saronai or sarunai), terminology which has become popular for this instrument in North America. This is considered a relatively recent instrument and surprisingly many of them are only made of tin-can.
+庫林當鐵琴（庫林當·提尼奧克）是菲律賓的一種打擊樂器，由八塊音調各異的凸頭金屬板組成，通過繩子串聯在一起，固定在木製的安唐甘架子上。庫林當鐵琴是馬京達瑙人的術語，意為「有弦的庫林當」，但他們也可能稱之為庫林當·普塔奧，意思是「金屬庫林當」。馬拉瑙人將這種樂器稱為薩魯奈（或薩盧奈、薩隆奈、薩隆奈、薩隆奈或薩魯奈），這一術語在北美已變得流行。這被認為是一種相對較新的樂器，令人驚訝的是，許多樂器竟然只是由罐頭製成的。
 ## 歷史背景
 
 ## 音色描述

@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/a/a8/MET_baritone_sarrusop
 ---
 ## 介紹
 
-The baritone sarrusophone is the baritone member of the sarrusophone family of metal double reed conical bore wind instruments. Sometimes colloquially known as the combat bassoon, it is pitched in E♭ and has the same range as the baritone saxophone, and is about the same height as a bassoon. Its body is wrapped around only once, whereas the contrabass sarrusophone wraps around twice.
+中低音薩魯梭風是薩魯梭風樂器家族中的中低音成員，屬於金屬雙簧錐形管孔風樂器。有時俗稱為「戰鬥巴松管」，音調為E♭，音域與中低音薩克斯風相同，高度約與巴松管相當。其樂器主體纏繞一圈，而超低音薩魯梭風則纏繞兩圈。
 ## 歷史背景
 
 ## 音色描述

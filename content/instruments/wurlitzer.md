@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The Rudolph Wurlitzer Company, usually referred to as simply Wurlitzer, is an American company started in Cincinnati in 1853 by German immigrant (Franz) Rudolph Wurlitzer. The company initially imported stringed, woodwind and brass instruments from Germany for resale in the United States. Wurlitzer enjoyed initial success, largely due to defense contracts to provide musical instruments to the U.S. military. In 1880, the company began manufacturing pianos and eventually relocated to North Tonawanda, New York.
+魯道夫·武利澤公司（通常簡稱為武利澤公司）是一家美國公司，由德國移民（弗朗茲）魯道夫·武利澤於1853年在辛辛那提創辦。該公司最初從德國進口弦樂器、木管樂器和銅管樂器，用於在美國轉售。武利澤公司初期取得了成功，主要得益於向美國軍方提供樂器的國防合同。1880年，該公司開始製造鋼琴，並最終遷至紐約州北托納瓦達。
 ## 歷史背景
 
 ## 音色描述

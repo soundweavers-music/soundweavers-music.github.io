@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Marimbaphone_ad
 ---
 ## 介紹
 
-The marimbaphone is an obsolete tuned percussion instrument, developed by J. C. Deagan, Inc., of Chicago, Illinois, in the early 20th century.
+馬林巴手機琴是一種已淘汰的定音打擊樂器，由芝加哥伊利諾州的J. C. Deagan公司在20世紀初開發。
 ## 歷史背景
 
 ## 音色描述

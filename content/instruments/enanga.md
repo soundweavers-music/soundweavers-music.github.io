@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The inānga (also known as enanga, ennanga, ikivuvu, and indimbagazo) is a traditional musical instrument played in Burundi, Rwanda, Uganda, and parts of the Democratic Republic of Congo. It consists of a slightly concave soundboard framed by a thick notched rim which holds strings in place over the board. Ināngas typically have between six and eight strings.
+恩南加豎琴（又稱為 enanga、ennanga、ikivuvu 和 indimbagazo）是一種傳統樂器，在布隆迪、盧旺達、烏干達和剛果民主共和國的部分地區演奏。它由一個略呈凹形的音板組成，音板由厚重的刻槽邊框保護，邊框在音板上固定琴弦。恩南加豎琴通常有六至八根琴弦。
 ## 歷史背景
 
 ## 音色描述

@@ -1,5 +1,5 @@
 ---
-title: Blue Man Group（暫譯）
+title: 藍人樂團
 original_name: Blue Man Group
 category: 管樂器
 country: 待考
@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Blue_Man4_%28SP
 ---
 ## 介紹
 
-Blue Man Group is an American performance art company founded in New York City in 1987. It is known for its stage productions that incorporate many kinds of music and art, both popular and obscure. Its performers, known as Blue Men, have their skin painted blue. They are mute during shows and always appear in groups of three. As of 2025, the company's only United States shows are in Las Vegas and Orlando. A typical production employs seven to nine full-time Blue Men who are selected by audition.
+藍人樂團是一家美國表演藝術公司，成立於1987年的紐約市。該公司以其舞台製作聞名，融合了許多流行和冷門的音樂和藝術。其演員被稱為藍人，他們的皮膚被塗成藍色。在演出期間他們保持沉默，且總是以三人一組的形式出現。截至2025年，該公司在美國僅有的演出地點是拉斯維加斯和奧蘭多。典型的製作會僱用七到九名全職藍人，他們通過試鏡選拔。
 ## 歷史背景
 
 ## 音色描述

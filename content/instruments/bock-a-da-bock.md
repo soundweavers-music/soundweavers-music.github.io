@@ -7,7 +7,7 @@ era: 傳統／年代待考
 ---
 ## 介紹
 
-The bock-a-da-bock is a musical instrument in the percussion family consisting of two small cymbals attached to each other by a set of metal tongs. They are typically played in a pair by one percussionist, much like the castanets. However, several other instruments of this type are also referred to as bock-a-da-bocks, such as the squash cymbal and the hand-sock cymbal.
+波克打打波克是打擊樂家族中的一種樂器，由兩個小鈸通過一組金屬夾子相互連接而成。它們通常由一名打擊樂手成對演奏，類似於響板。不過，還有幾種其他類型的樂器也被稱為波克打打波克，例如南瓜鈸和手套鈸。
 ## 歷史背景
 
 ## 音色描述

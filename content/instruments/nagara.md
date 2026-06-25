@@ -14,7 +14,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-Nagara may refer to:
+納加拉鼓可能指：
 ## 歷史背景
 
 ## 音色描述

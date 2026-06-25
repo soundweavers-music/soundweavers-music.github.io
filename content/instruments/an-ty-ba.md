@@ -1,5 +1,5 @@
 ---
-title: Đàn tỳ bà（暫譯）
+title: 琵琶
 original_name: Đàn tỳ bà
 category: 弦樂器
 country: 待考

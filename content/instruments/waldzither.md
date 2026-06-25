@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The waldzither (German: "forest zither") is a plucked string instrument from Germany. It is a type of cittern that has nine (sometimes ten) steel strings in five courses. Different types of waldzither come in different tunings, which are generally open tunings as usual in citterns. The most Common Tuning for the Waldzither is Open C (C3, G3, C4, E4, G4) which is the same tuning as a Banjeaurine (or a 5 string Banjo with a Capo on the 5th fret) except that the 5th string is 2 Octaves lower than on the Banjeaurine.
+森林齊特琴（德語：「森林齊特琴」）是一種來自德國的撥弦樂器。它是一種十三弦琴，具有九根（有時十根）鋼弦分為五組。不同類型的森林齊特琴採用不同的調弦方式，這些調弦方式通常是齊特琴常見的開放調弦。森林齊特琴最常見的調弦方式是C大調開放調弦（C3、G3、C4、E4、G4），與班卓琴琴或五弦班卓琴第五品夾鐵的調弦方式相同，只不過第五根弦的音高比班卓琴琴低兩個八度。
 ## 歷史背景
 
 ## 音色描述

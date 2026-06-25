@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The goblet drum (also chalice drum, tarabuka, tarabaki, darbuka, darabuka, derbake, debuka, doumbek, dumbec, dumbeg, dumbelek, toumperleki, tumbak, tabla, or zerbaghali; Arabic: دربوكة / Romanized: darbuka) is a single-head membranophone with a goblet-shaped body. It is most commonly used in the traditional music of North Africa and the Middle East. The instrument is also featured in traditional music from South Asia, and Eastern Europe. The West African djembe and bougarabou are also goblet membranophones.
+多姆貝克鼓（亦稱高腳杯鼓、塔拉布卡鼓、達卜卡、多姆貝克、阿拉伯語：دربوكة / 羅馬字轉寫：darbuka）是一種單層鼓皮的高腳杯形膜鳴樂器。它最常用於北非和中東的傳統音樂中。該樂器也出現在南亞和東歐的傳統音樂中。西非的傑姆貝鼓和布加拉布鼓也是高腳杯形膜鳴樂器。
 ## 歷史背景
 
 ## 音色描述

@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Harpejji.jpg/50
 ---
 ## 介紹
 
-The harpejji ( har-PEJ-ee) is an electric 12-to-24-stringed musical instrument developed in 2007 by American audio engineer Tim Meeks. It has been described by its manufacturer as a cross between a piano and a guitar, and by Jacob Collier as a cross between an accordion and a pedal steel guitar. The playing surface has a layout arranged in ascending whole tones across strings, and ascending semi-tones as the strings travel away from the player, with the 24-string models featuring a five-octave range from A0 to A5, and the 22-stringed M5 also offering a 5 octave range from C1 to C6.
+豎琴吉他（har-PEJ-ee）是由美國音頻工程師蒂姆·米克斯（Tim Meeks）於2007年開發的電子12至24弦樂器。其製造商將其描述為鋼琴和吉他的結合體，而音樂家雅各布·科利爾（Jacob Collier）則將其描述為手風琴和踏板鋼琴吉他的結合體。演奏表面的佈局設計使得弦與弦之間呈全音階遞增排列，而隨著弦遠離演奏者呈半音階遞增排列。24弦型號的音域範圍達五個八度，從A0到A5；而22弦的M5型號也提供五個八度的音域範圍，從C1到C6。
 ## 歷史背景
 
 ## 音色描述

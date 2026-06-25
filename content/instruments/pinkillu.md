@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-A pinkillu, pinkuyllu or pinqullu (Quechua or Aymara, Hispanicized spellings pincollo, pincuyllo, pingullo, pinquillo, also pinkillo, pinkiyo, pinkullo, pinkuyo) is a flute found throughout the Andes, used primarily in Argentina northwest, Bolivia, Chile, Ecuador and Peru. It is usually played with one hand, leaving the other one free to accompany oneself on a drum like the tinya. It is used in a variety of public festivals and other kinds of communal ceremonies.
+平基優笛（克丘亞語或艾馬拉語，西班牙化拼寫為pincollo、pincuyllo、pingullo、pinquillo，也稱pinkillo、pinkiyo、pinkullo、pinkuyo）是一種在安地斯山脈各地發現的笛子，主要用於阿根廷西北部、玻利維亞、智利、厄瓜多和秘魯。通常用一隻手演奏，另一隻手可自由地用鼓（如提亞鼓）伴奏。它用於各種公共節慶和其他類型的社群儀式中。
 ## 歷史背景
 
 ## 音色描述

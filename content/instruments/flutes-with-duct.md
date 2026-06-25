@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Embouchure_fipp
 ---
 ## 介紹
 
-The term fipple specifies a variety of end-blown flute that includes the flageolet, recorder, and tin whistle. The Hornbostel–Sachs system for classifying musical instruments places this group under the heading "Flutes with duct or duct flutes." The label "fipple flute" is frequently applied to members of the subgroup but there is no general agreement about the structural detail of the sound-producing mechanism that constitutes the fipple itself.
+「導管」一詞指稱一類包括小號笛、直笛和錫哨在內的吹口笛。霍恩博斯特爾-薩克斯樂器分類系統將這一組樂器歸類在「有導管長笛」的標題下。「導管笛」的標籤經常被應用於該亞群的成員，但對於構成導管本身的發聲機制的結構細節，目前還沒有普遍共識。
 ## 歷史背景
 
 ## 音色描述

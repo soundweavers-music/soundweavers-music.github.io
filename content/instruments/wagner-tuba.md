@@ -1,5 +1,5 @@
 ---
-title: Wagner Tuba
+title: 瓦格納低音號
 original_name: Wagner Tuba
 category: 管樂器
 country: 歐洲／全球
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The Wagner tuba is a four-valve brass instrument commissioned by and named after Richard Wagner. It combines technical features of both standard tubas and French horns, though despite its name, the Wagner tuba is more similar to the latter, and is usually played by horn players. Wagner commissioned the instrument for his four-part opera cycle Der Ring des Nibelungen, where its purpose was to bridge the acoustical and textural gap between the French horn and trombone. The sound produced by this instrument has been variously described as "smoky", "metallic", "unearthly" and "majestic".
+瓦格納低音號是一種四活塞銅管樂器，由理查德·瓦格納委託製作並以其名字命名。它結合了標準低音號和法國號的技術特徵，儘管名稱中有「低音號」，但瓦格納低音號實際上更接近法國號，通常由法國號演奏家演奏。瓦格納為其四部歌劇組曲《尼伯龍根的指環》委託製作了這種樂器，其目的是彌合法國號和長號之間的音響和音色差距。這種樂器所產生的聲音被形容為「煙霧般的」、「金屬般的」、「超凡脫俗的」和「雄偉的」。
 ## 歷史背景
 
 ## 音色描述

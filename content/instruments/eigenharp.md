@@ -14,7 +14,7 @@ region_type: 現代／電子音樂
 ---
 ## 介紹
 
-Eigenharp is a brand of electronic instruments made by Eigenlabs, a company based in Devon, UK. The "instrument" is in essence a highly flexible and portable controller, with the sound being actually generated in the software it drives.
+艾根豎琴是由英國德文郡公司Eigenlabs製造的電子樂器品牌。這個「樂器」本質上是一個高度靈活且便攜的控制器，其聲音實際上由它所驅動的軟體生成。
 ## 歷史背景
 
 ## 音色描述

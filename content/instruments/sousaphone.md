@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The sousaphone ( SOO-zə-fohn) is a brass musical instrument in the tuba family. It was first created around 1893 by J. W. Pepper as a modification of the helicon, at the direction of American bandleader John Philip Sousa, after whom the instrument was named. Sousa intended the bass sound of his helicons to better project above the heads of the band, and into the auditorium. Like the tuba, sound is produced by moving air past the lips, causing them to vibrate or "buzz" into a large cupped mouthpiece.
+低音大號（SOO-zə-fohn）是銅管樂器家族中的一種銅管樂器。它最初在1893年左右由J. W. Pepper根據美國樂隊指揮約翰·菲利普·蘇薩的指示，對螺旋低音號進行改良而創造出來的，樂器也因此以蘇薩的名字命名。蘇薩希望他的螺旋低音號能夠更好地將低音投射到樂隊成員的頭頂上方，並傳入到觀眾席。與低音號相似，聲音是通過將空氣經過嘴唇而產生的，使嘴唇振動或「嗡鳴」進入一個大型杯狀吹口。
 ## 歷史背景
 
 ## 音色描述

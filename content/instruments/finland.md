@@ -1,5 +1,5 @@
 ---
-title: 芬兰
+title: 芬蘭
 original_name: Finland
 category: 弦樂器
 country: 待考

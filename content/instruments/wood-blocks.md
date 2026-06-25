@@ -1,5 +1,5 @@
 ---
-title: Wood Blocks
+title: 木魚
 original_name: Wood Blocks
 category: 打擊樂器
 country: 東南亞／東亞／非洲／歐洲／全球

@@ -1,5 +1,5 @@
 ---
-title: 拱鲁特琴
+title: 拱魯特琴
 original_name: Archlute
 category: 弦樂器
 country: 西班牙

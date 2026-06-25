@@ -15,7 +15,7 @@ region_type: 單一地區／文化圈
 ---
 ## 介紹
 
-According to the 1st Book of Samuel Chapter 25, Nabal (Hebrew: נָבָל Nāḇāl, "fool") was a rich Calebite, described as harsh and surly. He is featured in a story in which he is threatened by David over an insult, and ultimately killed by God.
+根據《撒母耳記上》第25章，納巴爾（希伯來文：נָבָל Nāḇāl，意為「愚人」）是一位富有的迦勒人，被描述為性格粗暴且脾氣暴躁。他出現在一個故事中，在該故事裡他因為侮辱了大衛而遭到威脅，最終被上帝擊殺。
 ## 歷史背景
 
 ## 音色描述

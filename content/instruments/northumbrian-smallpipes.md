@@ -1,5 +1,5 @@
 ---
-title: Northumbrian smallpipes（暫譯）
+title: 諾桑伯蘭小風笛
 original_name: Northumbrian smallpipes
 category: 管樂器
 country: 全球／亞洲／中東／歐洲
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The Northumbrian smallpipes (also known as the Northumbrian pipes) are bellows-blown bagpipes from Northeastern England, where they have been an important factor in the local musical culture for more than 250 years. The family of the Duke of Northumberland have had an official piper for over 250 years.
+諾桑伯蘭小風笛（也稱為諾桑伯蘭風笛）是來自英格蘭東北部的風箱吹奏風笛，在該地區的音樂文化中已有超過250年的重要影響力。諾桑伯蘭公爵家族已經擁有官方風笛手超過250年。
 ## 歷史背景
 
 ## 音色描述

@@ -7,7 +7,7 @@ era: 傳統／年代待考
 ---
 ## 介紹
 
-The Weymann Mandolute was one of the products sold under Weymann, the Philadelphia-based brand of Weymann and Sons, established 1864. The 'mandolutes' were actually mandolins with eight strings and tuned exactly the same. The scale length is also within the standard mandolin scale; between 13 inches (330 mm) and 13+7⁄8 inches (350 mm). They advertised using scientific principles to create vibrations, power and volume as well as sustained sweet and mellow tones, all in the same instrument.
+韋曼曼陀魯特琴是韋曼品牌銷售的產品之一，韋曼及其子公司是一家位於費城的品牌，成立於1864年。這些「曼陀魯特琴」實際上是八弦曼陀林，調音方式完全相同。琴頸長度也在標準曼陀林的範圍內，介於13英寸（330毫米）至13又7/8英寸（350毫米）之間。他們宣傳利用科學原理在同一件樂器中創造振動、功率和音量，以及持久甘美、溫和的音色。
 ## 歷史背景
 
 ## 音色描述

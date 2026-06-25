@@ -1,5 +1,5 @@
 ---
-title: Tube zither（暫譯）
+title: 管絃琴
 original_name: Tube zither
 category: 打擊樂器
 country: 待考
@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Kong_ring_%28%E
 ---
 ## 介紹
 
-The tube zither is a stringed musical instrument in which a tube functions both as an instrument's neck and its soundbox. As the neck, it holds strings taut and allows them to vibrate. As a soundbox, it modifies the sound and transfers it to the open air. The instruments are among the oldest of chordophones, being "a very early stage" in the development of chordophones, and predate some of the oldest chordophones, such as the Chinese Se, zithers built on a tube split in half. Most tube zithers are made of bamboo, played today in Madagascar, India, Southeast Asia and Taiwan.
+管弦琴是一種弦樂器，其中一根管子既作為樂器的琴頸，也作為共鳴箱。作為琴頸，它使琴弦保持張力並允許它們振動。作為共鳴箱，它改變聲音並將其傳遞到空氣中。這些樂器是最古老的弦樂器之一，處於弦樂器發展的「早期階段」，甚至早於一些最古老的弦樂器，例如中國的瑟——由分開的管子製成的古箏。大多數管弦琴由竹子製成，今天在馬達加斯加、印度、東南亞和台灣演奏。
 ## 歷史背景
 
 ## 音色描述

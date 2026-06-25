@@ -15,7 +15,7 @@ region_type: 區域／多國
 ---
 ## 介紹
 
-Balkan brass, popularly known by the Serbian name Truba (Serbian Cyrillic: Труба, "Trumpet"), is a style of music originating in the Balkan region as a fusion between military music and folk music. It is popular in the Balkans, especially in Serbia, North Macedonia, Bulgaria, Moldova, and Romania. The style has influenced techno-synth fusion songs as well as pop music songs such as Worth It by Fifth Harmony and Talk Dirty by Jason Derulo. The energetic and fast beats and loud performances encourage dance and audience participation and are egalitarian.
+巴爾幹銅管樂，通常以塞爾維亞名稱「Truba」（塞爾維亞西里爾字母：Труба，意為「小號」）著稱，是源自巴爾幹地區的音樂風格，是軍樂與民俗音樂的融合。它在巴爾幹地區非常流行，尤其是在塞爾維亞、北馬其頓、保加利亞、摩爾多瓦和羅馬尼亞。該風格影響了電子合成融合歌曲，以及《Worth It》（五佳人樂隊）和《Talk Dirty》（傑森·德魯羅）等流行音樂歌曲。充滿活力的快速節奏和響亮的表演鼓勵舞蹈和觀眾參與，體現了平等主義精神。
 ## 歷史背景
 
 ## 音色描述

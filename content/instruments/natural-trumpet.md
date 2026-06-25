@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-A natural trumpet is a valveless brass instrument that is able to play the notes of the harmonic series.
+自然小號是一種無活塞的銅管樂器，能夠演奏泛音列中的音符。
 ## 歷史背景
 
 ## 音色描述

@@ -7,7 +7,7 @@ era: 20 世紀
 ---
 ## 介紹
 
-Dobro () is an American brand of resonator guitars owned by Gibson and manufactured by its subsidiary Epiphone. The term "dobro" is also used as a generic term for any wood-bodied, single-cone resonator guitar. The Dobro was originally a guitar manufacturing company founded by the Dopyera brothers as the Dobro Manufacturing Company. Their guitar design, with a single outward-facing resonator cone, was introduced to compete with the patented inward-facing tricone and biscuit designs produced by the National String Instrument Corporation.
+多布羅吉他（Dobro）是一個美國品牌的共鳴吉他，由吉普森公司擁有，由其子公司愛比風製造。「多布羅」一詞也被用作任何木製琴身、單圓錐共鳴吉他的通用術語。多布羅最初是由多皮埃拉兄弟創立的吉他製造公司，名為多布羅製造公司。他們的吉他設計採用單個向外的共鳴錐，目的是與國家弦樂器公司生產的專利向內三圓錐和餅乾設計進行競爭。
 ## 歷史背景
 
 ## 音色描述

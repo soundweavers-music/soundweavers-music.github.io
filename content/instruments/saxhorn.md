@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The saxhorn is a family of valved brass instruments that have conical bores and deep cup-shaped mouthpieces. The saxhorn family was developed by Adolphe Sax, who is also known for creating the saxophone family. The sound of the saxhorn has a characteristic mellow tone quality and blends well with other brass.
+薩克斯號是一個有活塞的銅管樂器家族，具有圓錐形的管身和深杯形的吹嘴。薩克斯號家族由阿道夫·薩克斯開發，他同時也以創造薩克斯風家族而聞名。薩克斯號的音色具有特有的柔和音質特徵，與其他銅管樂器的配合效果良好。
 ## 歷史背景
 
 ## 音色描述

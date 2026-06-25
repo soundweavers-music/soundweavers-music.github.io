@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-A buccina (Latin: buccina) or bucina (Latin: būcina; Ancient Greek: βυκάνη), anglicized buccin or bucine, is a brass instrument that was used in the ancient Roman army, similar to the cornu. An aeneator who blew a buccina was called a "buccinator" or "bucinator" (Latin: buccinātor, būcinātor).
+布奇那號（拉丁文：buccina）或布基那號（拉丁文：būcina；古希臘文：βυκάνη），英文音譯為 buccin 或 bucine，是一種銅製樂器，在古羅馬軍隊中使用，類似於角號。吹奏布奇那號的銅管樂器手被稱為「布奇那吹奏者」或「布基那吹奏者」（拉丁文：buccinātor、būcinātor）。
 ## 歷史背景
 
 ## 音色描述

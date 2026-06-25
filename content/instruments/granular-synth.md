@@ -1,5 +1,5 @@
 ---
-title: Granular Synth
+title: 顆粒合成器
 original_name: Granular Synth
 category: 鍵盤樂器
 country: 歐洲／美國／全球現代錄音室

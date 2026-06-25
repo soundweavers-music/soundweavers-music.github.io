@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The rebec (sometimes rebecha, rebeckha, and other spellings, pronounced or ) is a bowed stringed instrument of the Middle Ages and the early Renaissance. In its most common form, it has a narrow boat-shaped body and one to five strings.
+雷貝克弓琴（有時拼寫為rebecha、rebeckha等，發音為）是中世紀和早期文藝復興時期的一種弓弦樂器。在其最常見的形式中，它具有狹窄的船形琴身和一到五根弦。
 ## 歷史背景
 
 ## 音色描述

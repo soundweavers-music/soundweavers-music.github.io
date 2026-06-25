@@ -1,5 +1,5 @@
 ---
-title: Morin khuur（暫譯）
+title: 馬頭琴
 original_name: Morin khuur
 category: 弦樂器
 country: 亞洲／歐洲／中東／全球

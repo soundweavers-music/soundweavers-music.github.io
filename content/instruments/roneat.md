@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-Roneat (Khmer: រនាត, rônéat [rɔniət]) is the generic Khmer word for referring to several types of xylophones used in traditional Cambodian music; the pinpeat and mohaori. Roneat may refers to several Cambodian xylophone types such as roneat thmor, roneat ek, roneat thung, roneat dek, and roneat thaong.
+羅乃木琴（高棉語：រនាត，rônéat [rɔniət]）是高棉語中用於指稱傳統柬埔寨音樂中多種木琴的通用詞彙，包括平畢樂隊和莫哈歐里樂隊所用的樂器。羅乃木琴可以指稱多種柬埔寨木琴類型，例如羅乃木琴、羅乃艾克、羅乃通、羅乃德克和羅乃塔翁。
 ## 歷史背景
 
 ## 音色描述

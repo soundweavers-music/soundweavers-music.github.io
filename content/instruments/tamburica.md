@@ -14,7 +14,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-Tamburica ( tam-BOOR-it-sə or TAM-bər-IT-sə; sometimes written tamburrizza or tamburitza; Serbo-Croatian: tamburica / тамбурица, lit. 'little tamboura') or tamboura (Hungarian: tambura; Greek: ταμπουράς, romanized: tampourás) refers to a family of long-necked lutes popular in Southeast Europe and southeastern Central Europe, especially Bosnia and Herzegovina, Croatia (of which it is the national string instrument), Hungary, Serbia (of which it is the national string instrument along with Gusle, present also in Vojvodina, Mačva, and Posavo-Tamnava), and Slovenia.
+坦布里察琴（英文發音：tam-BOOR-it-sə 或 TAM-bər-IT-sə；有時拼作 tamburrizza 或 tamburitza；塞爾維亞-克羅地亞語：tamburica / тамбурица，字面意思為「小坦布拉琴」）或坦布拉琴（匈牙利語：tambura；希臘語：ταμπουράς，羅馬化：tampourás）是指一類長頸琵琶樂器，在東南歐及東南中歐地區很受歡迎，特別是在波士尼亞和黑塞哥維那、克羅地亞（是該國的民族弦樂器）、匈牙利、塞爾維亞（是該國的民族弦樂器，與蓋斯勒琴並列，同時也出現在沃伊伏丁那、馬奇瓦及波薩瓦-塔姆納瓦地區）和斯洛文尼亞。
 ## 歷史背景
 
 ## 音色描述

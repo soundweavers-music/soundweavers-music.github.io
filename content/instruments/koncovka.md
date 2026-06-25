@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The koncovka is a Slovak duct-blown overtone fipple flute without finger holes, traditionally played by shepherds. The koncovka is played by closing and opening the bottom hole of the flute. By increasing the air speed, two different harmonic series of notes can be played with the end either open or closed. Traditional koncovka melodies use the partial Lydian scale available on this instrument.
+康切夫卡是一種斯洛伐克導吹式泛音竹笛，沒有指孔，傳統上由牧羊人演奏。康切夫卡通過關閉和打開笛子底部的孔洞來演奏。通過增加氣流速度，無論底端是開放還是關閉，都可以演奏兩個不同的諧波音階。傳統的康切夫卡旋律使用這種樂器上可用的部分呂第亞音階。
 ## 歷史背景
 
 ## 音色描述

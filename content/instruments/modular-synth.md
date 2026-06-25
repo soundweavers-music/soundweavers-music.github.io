@@ -1,5 +1,5 @@
 ---
-title: Modular Synth
+title: 模組化合成器
 original_name: Modular Synth
 category: 鍵盤樂器
 country: 全球

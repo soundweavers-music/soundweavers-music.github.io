@@ -1,5 +1,5 @@
 ---
-title: Rubab Kabuli
+title: 卡布裡魯巴卜琴
 original_name: Kabuli Rubab
 category: 弦樂器
 country: 中東／歐洲／亞洲／美洲

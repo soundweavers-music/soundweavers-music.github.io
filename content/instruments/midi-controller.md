@@ -1,5 +1,5 @@
 ---
-title: MIDI Controller
+title: MIDI控制器
 original_name: MIDI Controller
 category: 鍵盤樂器
 country: 歐洲／美國／全球現代錄音室

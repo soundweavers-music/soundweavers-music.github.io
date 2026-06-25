@@ -1,5 +1,5 @@
 ---
-title: Nyatiti（暫譯）
+title: 尼亞蒂蒂琴
 original_name: Nyatiti
 category: 弦樂器
 country: 肯亞
@@ -15,7 +15,7 @@ region_type: 單一地區／文化圈
 ---
 ## 介紹
 
-The nyatiti is a five to eight-stringed plucked bowl yoke lute from Kenya. It is a classical instrument played by the Luo people of Western Kenya, specifically in the Siaya region north of Kisumu. It is about two to three feet long with a bowl-shaped, carved wood resonator covered in cow skin. Historically, strings were fashioned from cattle tendons, but modern players almost exclusively use nylon and plastic fishing line of various sizes, a move which changed the sound of the nyatiti drastically. The nyatiti as played in Kenya usually has eight strings.
+尼亞蒂蒂琴是一種來自肯亞的五至八弦撥奏碗形軛式魯特琴。它是肯亞西部盧奧人的古典樂器，特別是在基蘇木北部的錫亞亞地區演奏。琴長約兩至三英尺，具有碗形的雕刻木共鳴器，外覆牛皮。歷史上，琴弦由牛腱製成，但現代演奏者幾乎完全使用尼龍和各種規格的塑膠釣魚線，這一變化大幅改變了尼亞蒂蒂琴的音質。在肯亞演奏的尼亞蒂蒂琴通常有八根琴弦。
 ## 歷史背景
 
 ## 音色描述

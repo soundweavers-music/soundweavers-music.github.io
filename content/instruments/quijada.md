@@ -1,5 +1,5 @@
 ---
-title: Jawbone
+title: 頜骨鼓
 original_name: Quijada
 category: 打擊樂器
 country: 全球
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The quijada, charrasca, or jawbone (in English) is an idiophone percussion instrument made from the jawbone of a donkey, horse, mule, or cattle, producing a powerful buzzing sound. The jawbone is cleaned of tissue and dried to make the teeth loose and act as a rattle. It is used in music in most of Latin America, including Mexico, Peru, El Salvador, Ecuador, and Cuba. It was also historically used in the early American minstrel show.
+頜骨鼓（西班牙文：quijada、charrasca，英文：jawbone）是一種體鳴打擊樂器，由驢、馬、騾子或牛的下顎骨製成，能發出強大的嗡鳴聲。將下顎骨清理乾淨並晾乾，使牙齒變得鬆動並起到撥浪鼓的作用。它在拉丁美洲大部分地區的音樂中使用，包括墨西哥、秘魯、薩爾瓦多、厄瓜多和古巴。在美國早期的民謠表演秀中也曾歷史性地被使用過。
 ## 歷史背景
 
 ## 音色描述

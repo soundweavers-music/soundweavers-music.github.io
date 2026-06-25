@@ -1,5 +1,5 @@
 ---
-title: Shahi baaja（暫譯）
+title: 沙希巴傑琴
 original_name: Shahi baaja
 category: 弦樂器
 country: 待考
@@ -7,7 +7,7 @@ era: 傳統／年代待考
 ---
 ## 介紹
 
-The shahi baaja ("royal instrument") is an electrified and slightly modified version of the Indian bulbul tarang, a type of Indian zither to which have been added typewriter keys which depress two of the strings to change their pitch. The modifications also include the addition of 10 additional unfretted strings which serve as an attached swarmandal (drone harp). The instrument is currently used in everything from semi-classical and popular Indian music to ambient techno, and psychedelic rock. A few musicians are now trying to adapt this instrument to play Indian Classical Music.
+沙希巴傑琴（「皇家樂器」）是印度夜鶯琴的電子化及略微改良版本，夜鶯琴是一種印度箏琴，其上裝有打字機按鍵，可以按下兩根弦以改變其音高。這些改良還包括增加了10條無品格琴弦，作為附加的斯瓦曼達爾琴（伴奏豎琴）。該樂器目前被用於從半古典音樂、流行印度音樂到環境電子音樂和迷幻搖滾等各種音樂風格。現在有一些音樂家正在嘗試改編這件樂器以演奏印度古典音樂。
 ## 歷史背景
 
 ## 音色描述

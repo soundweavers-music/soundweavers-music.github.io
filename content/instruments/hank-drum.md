@@ -1,5 +1,5 @@
 ---
-title: Hank Drum
+title: 手鼓
 original_name: Hank Drum
 category: 打擊樂器
 country: 歐洲／美國／全球現代

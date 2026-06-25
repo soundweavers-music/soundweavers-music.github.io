@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The ophicleide ( OFF-ih-klyde) is a family of conical-bore keyed brass instruments invented in early 19th-century France to extend the keyed bugle into the lower range. Of these, the bass ophicleide in eight-foot (8′) C or 9′ B♭ took root over the course of the 19th century in military bands and as the bass of orchestral brass sections throughout Western Europe, replacing the serpent and its later upright derivatives.
+奧菲克萊德號（OFF-ih-klyde）是一個圓錐形孔徑有鍵黃銅樂器家族，在19世紀初的法國發明，用以將有鍵號角樂器延伸至更低的音域。其中，八英尺（8′）C調或9英尺降B調的低音奧菲克萊德號在整個19世紀中扎根於軍樂隊，並作為整個西歐交響樂團銅管樂器聲部的低音樂器，取代了蛇形管及其後來的直立衍生樂器。
 ## 歷史背景
 
 ## 音色描述

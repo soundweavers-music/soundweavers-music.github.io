@@ -1,5 +1,5 @@
 ---
-title: Devil chase（暫譯）
+title: 驅魔竹
 original_name: Devil chase
 category: 打擊樂器
 country: 待考
@@ -7,7 +7,7 @@ era: 傳統／年代待考
 ---
 ## 介紹
 
-The devil chaser is a percussion instrument originating in Southern Asia and commonly found in India and the Philippines. It is an idiophone made from a bamboo stalk split for about half of its length, and the resulting fork vibrates when struck against the hand. Rich humming noises are produced from the natural cracks in the bamboo, and a musician can place their thumb over the tuning hole at one end of the instrument to control the air to flow in and out while striking it, adding a characteristic buzzing sound. The sound ranges from a hum to a roar, depending on size and playing technique.
+驅魔竹是源自南亞的打擊樂器，常見於印度和菲律賓。它是一種自鳴樂器，由一根竹秆製成，竹秆沿著約一半的長度被劈開，當擊打手掌時，形成的叉狀部分會振動。竹子上的天然裂縫會產生豐富的嗡鳴聲，音樂家可以用拇指按住樂器一端的調音孔來控制空氣的進出，同時擊打樂器，從而增加特有的嗡嗡聲。根據樂器的大小和演奏技巧的不同，所發出的聲音範圍從嗡鳴聲到咆哮聲不等。
 ## 歷史背景
 
 ## 音色描述

@@ -1,5 +1,5 @@
 ---
-title: Singing bowl（暫譯）
+title: 磬 (法器)
 original_name: Singing bowl
 category: 打擊樂器
 country: 全球／非洲／亞洲／現代療癒與街頭音樂
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-A standing bell or resting bell is an inverted bell, supported from below with the rim uppermost. Such bells are normally bowl-shaped, and exist in a wide range of sizes, from a few centimetres to a metre in diameter. They are often played by striking, but some—known as singing bowls—may also be played by rotating a suede covered mallet around the outside rim to produce a sustained musical note. Struck bowls are used in some Buddhist religious practices to accompany periods of meditation and chanting.
+立鐘或臥鐘是一種倒置的鐘，從下方支撐，鐘口朝上。這類鐘通常呈碗形，尺寸範圍廣泛，從幾厘米到直徑一米不等。它們通常通過敲擊來演奏，但有些被稱為唱鐘的樂器也可以通過用絨面包裹的槌棒繞著外邊緣旋轉來演奏，以產生持續的樂音。敲擊碗形鐘在某些佛教宗教儀式中被用來伴隨冥想和誦經。
 ## 歷史背景
 
 ## 音色描述

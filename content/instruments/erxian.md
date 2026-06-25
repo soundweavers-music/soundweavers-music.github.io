@@ -1,5 +1,5 @@
 ---
-title: 二弦琴
+title: 二絃琴
 original_name: Erxian
 category: 弦樂器
 country: 亞洲／歐洲／中東／南亞／中亞

@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The sitar (English: or ; IAST: sitāra) is a plucked stringed instrument, originating from the Indian subcontinent, used in Hindustani classical music. The instrument was invented in the 18th century, and arrived at its present form in 19th-century India. Khusrau Khan, an 18th-century figure of the Mughal Empire, has been identified by modern scholarship as the inventor of the sitar. According to most historians, he developed the sitar from the setar, an Iranian instrument of Abbasid or Safavid origin.
+錫塔琴（英語：sitar；IAST：sitāra）是一種撥弦樂器，源自印度次大陸，用於印度斯坦古典音樂。該樂器在18世紀被發明，並在19世紀印度時期達到其現代形式。18世紀莫臥兒帝國人物庫斯勞·汗被現代學術界認定為錫塔琴的發明者。根據大多數歷史學家的說法，他從瑟塔琴（setar）發展而來錫塔琴，瑟塔琴是一種伊朗樂器，源自阿拔斯王朝或薩非王朝時期。
 ## 歷史背景
 
 ## 音色描述

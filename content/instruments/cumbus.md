@@ -1,5 +1,5 @@
 ---
-title: Cümbüş（暫譯）
+title: 坎布什琴
 original_name: Cümbüş
 category: 弦樂器
 country: 土耳其
@@ -15,7 +15,7 @@ region_type: 單一地區／文化圈
 ---
 ## 介紹
 
-The cümbüş (; Turkish pronunciation: [dʒymˈbyʃ]) is a Turkish stringed instrument of relatively modern origin. It was developed in 1930 by Zeynel Abidin Cümbüş as an oud-like instrument that could be heard as part of a larger ensemble. The cümbüş is shaped like an American banjo, with a spun-aluminium resonator bowl and skin soundboard. Although originally configured as an oud, the instrument has been converted to other instruments by attaching a different set of neck and strings. The standard cümbüş is fretless, but guitar, mandolin and ukulele versions have fretboards.
+坎布什琴（土耳其語發音：[dʒymˈbyʃ]）是一種土耳其弦樂器，起源相對較新。它由澤內爾·阿比丁·坎布什於1930年開發，目的是創造一種類似烏德琴的樂器，在較大的樂隊中也能聽到其聲音。坎布什琴的形狀類似美式五弦琴，具有旋壓鋁製的共鳴盆和皮膚音板。雖然原本是按烏德琴的配置製造，但通過安裝不同的琴頸和琴弦組合，這種樂器已被轉改成其他樂器。標準的坎布什琴是無品的，但吉他、曼陀林和烏克麗麗版本則配有琴品。
 ## 歷史背景
 
 ## 音色描述

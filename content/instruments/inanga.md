@@ -14,7 +14,11 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-Inanga may refer to Common galaxias or inanga, a species of freshwater fish Dwarf inanga or Galaxias gracilis, a species of freshwater fish Inanga (instrument), a type of string instrument in Africa
+伊南加可能指的是：
+
+普通銀河魚或伊南加，一種淡水魚物種
+侏儒伊南加或優雅銀河魚，一種淡水魚物種
+伊南加（樂器），非洲的一種弦樂器
 ## 歷史背景
 
 ## 音色描述

@@ -1,5 +1,5 @@
 ---
-title: Talking Drum
+title: 會說話的鼓
 original_name: Talking Drum
 category: 打擊樂器
 country: 全球
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The talking drum is an hourglass-shaped drum from West Africa, which can be used as a form of speech surrogacy by regulating its pitch and rhythm to mimic the tone and prosody of human speech. It has two drumheads connected by leather tension cords. It is often played while being held under the arm. The player can change the pitch of the drum by tightening and loosening the cords between their arm and body. Originating from the 18th century, talking drum players used tones to disseminate messages, such as news of ceremonies and commands, over 4–5-mile (6.4–8.0 km) distances.
+會說話的鼓是一種來自西非的沙漏形鼓，可以通過調節其音高和節奏來模擬人類語音的音調和韻律，作為一種言語替代形式。它有兩個鼓頭，由皮革張力繩連接。通常在夾於腋下時演奏。演奏者可以通過收緊和鬆開手臂和身體之間的繩索來改變鼓的音高。起源於18世紀，會說話的鼓演奏者使用音調在4至5英里（6.4至8.0公里）的距離內傳播信息，例如儀式消息和命令。
 ## 歷史背景
 
 ## 音色描述

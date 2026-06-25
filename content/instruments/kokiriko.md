@@ -14,7 +14,7 @@ region_type: 單一地區／文化圈
 ---
 ## 介紹
 
-The kokiriko (kanji: こきりこ; is a Japanese musical instrument used when singing and dancing to Japanese folk songs such as the "Kokiriko Bushi" (Kokiriko Dance). In kanji, it is written as "Chikuko." In the Middle Ages, it was a type of street performer, known as a kokiriko, which was always carried by the houka, who mainly performed acrobatics.
+小切子（日語：こきりこ；漢字：小切子）是一種日本樂器，在演唱和跳舞日本民間歌曲時使用，例如「小切子節」（小切子舞）。用漢字表示時寫作「竹筒」。在中世紀，它是一種街頭藝人稱為小切子，經常由主要表演特技的鳳歌者攜帶。
 ## 歷史背景
 
 ## 音色描述

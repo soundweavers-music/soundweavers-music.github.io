@@ -1,5 +1,5 @@
 ---
-title: Sound board (music)（暫譯）
+title: 音板
 original_name: Sound board (music)
 category: 弦樂器
 country: 待考
@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Resonance_Chlad
 ---
 ## 介紹
 
-A soundboard (or sounding board) is the surface of a string instrument that the strings vibrate against, usually via some sort of bridge. Depending on the instrument, it is also called a top, top plate, resonator, table, sound-table, or belly. It is usually made of a softwood, often spruce. Pianos, guitars, banjos, and many other stringed instruments incorporate soundboards. The resonant properties of the soundboard and the interior of the instrument greatly increase the loudness of the vibrating strings.
+音板（或音響板）是弦樂器的表面，弦通過某種形式的琴橋在其上振動。根據樂器的不同，它也被稱為頂板、面板、共鳴器、琴台、音台或琴腹。它通常由軟木製成，常見的是雲杉。鋼琴、吉他、班卓琴和許多其他弦樂器都配有音板。音板和樂器內部的共鳴特性大大增加了振動弦的音量。
 ## 歷史背景
 
 ## 音色描述

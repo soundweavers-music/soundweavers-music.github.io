@@ -1,5 +1,5 @@
 ---
-title: Handpan（暫譯）
+title: 手鼓
 original_name: Handpan
 category: 打擊樂器
 country: 全球／非洲／現代
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-Handpan is a generic term for a group of musical instruments that are classified as a subset of the steelpan. Several handpan makers and brands emerged following growing worldwide interest in the Hang after it was introduced in 2000. The basic form of a handpan consists of two metal half-shells glued together, a centre tone field surrounded by a circle of at least seven tone fields on the upper side and an opening in the bottom side.
+手鼓是一類樂器的通稱，屬於鋼鼓的分類範疇。在Hang樂器於2000年推出後引起全球廣泛關注，隨之出現了多家手鼓製造商和品牌。手鼓的基本結構由兩個金屬半殼膠合而成，上側有一個中心音場周圍環繞著至少七個音場，下側則有一個開口。
 ## 歷史背景
 
 ## 音色描述

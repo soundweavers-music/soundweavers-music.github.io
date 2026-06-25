@@ -1,5 +1,5 @@
 ---
-title: Aeolian Harp
+title: 風鳴琴
 original_name: Aeolian Harp
 category: 弦樂器
 country: 全球
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-An Aeolian harp (also wind harp) is a musical instrument that is played by the wind. Named after Aeolus, the ancient Greek god of the wind, the traditional Aeolian harp is essentially a wooden box including a sounding board, with strings stretched lengthwise across two bridges. It is often placed in a slightly opened window where the wind can blow across the strings to produce sounds. The strings can be made of different materials (or thicknesses) and all be tuned to the same pitch, or identical strings can be tuned to different pitches.
+風鳴琴（又稱風琴）是一種由風吹動而發聲的樂器。以古希臘風神埃俄羅斯命名，傳統風鳴琴本質上是一個木製箱體，包括音板，弦張在兩個琴馬之間。它通常被放在微微開啟的窗戶處，風能夠吹過琴弦而發出聲音。琴弦可由不同材料（或不同厚度）製成，並全部調至相同音高，或相同的琴弦可調至不同音高。
 ## 歷史背景
 
 ## 音色描述

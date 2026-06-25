@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The begena, (Amharic: በገና) is a ten-stringed box-lyre instrument from Ethiopia, and is the sole melodic instrument devoted only to the zema, the spiritual part of Ethiopian music.
+貝格納豎琴（阿姆哈拉語：በገና）是源自衣索比亞的十弦箱形豎琴樂器，是唯一專門用於演奏澤馬（zema）的旋律樂器，而澤馬是衣索比亞音樂中的精神部分。
 ## 歷史背景
 
 ## 音色描述

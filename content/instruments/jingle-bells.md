@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-"Jingle Bells" is an American song and one of the most commonly sung Christmas songs in the world. It was written by James Lord Pierpont. It is an unsettled question where and when Pierpont originally composed the song that would become known as "Jingle Bells". It was published under the title "The One Horse Open Sleigh" in September 1857. Although it has no original connection to Christmas, it became associated with winter and Christmas in the 1860s and 1870s, and it was featured in a variety of parlor song and college anthologies in the 1880s.
+《Jingle Bells》是一首美國歌曲，也是世界上最常演唱的聖誕歌曲之一。這首歌由詹姆斯·洛德·皮爾龐特所作。皮爾龐特最初在何時何地創作這首後來被稱為《Jingle Bells》的歌曲仍是一個懸而未決的問題。該歌曲於1857年9月以《The One Horse Open Sleigh》為題目發表。雖然它最初與聖誕節沒有直接關聯，但在1860年代和1870年代期間，它逐漸與冬季和聖誕節產生了關聯，並在1880年代被收錄在各種客廳歌曲和大學歌集中。
 ## 歷史背景
 
 ## 音色描述

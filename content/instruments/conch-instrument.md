@@ -1,5 +1,5 @@
 ---
-title: Conch (instrument)（暫譯）
+title: 海螺號
 original_name: Conch (instrument)
 category: 管樂器
 country: 待考
@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Moibung_Khongba
 ---
 ## 介紹
 
-A conch (US: KONK, KONCH, UK: KONCH) or conque, also called a "seashell instrument" or "shell natural instruments", is a wind instrument that is made from a conch, the shell of several different kinds of sea snails. Their natural conical bore is used to produce a musical tone. Conch shell natural instruments have been played in many Pacific island countries, as well as South America and South Asia. The shells of large marine gastropods are blown into as if they were natural instruments, as in blowing instrument. A completely unmodified conch may be used, or a mouth hole may be created.
+海螺號（美式發音：KONK、KONCH，英式發音：KONCH），又稱「貝殼樂器」或「天然貝殼樂器」，是由海螺製成的管樂器，即多種海螺的貝殼。其天然的圓錐形孔道被用來產生音樂音調。海螺號貝殼樂器在許多太平洋島嶼國家、南美洲和南亞地區都曾被演奏過。大型海洋腹足動物的貝殼被吹奏，就像天然樂器一樣，如同吹奏樂器。可以使用完全未經改造的海螺，或者在其上開製一個吹口。
 ## 歷史背景
 
 ## 音色描述

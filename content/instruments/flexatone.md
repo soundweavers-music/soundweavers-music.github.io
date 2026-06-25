@@ -1,5 +1,5 @@
 ---
-title: Flexatone（暫譯）
+title: 彈音器
 original_name: Flexatone
 category: 打擊樂器
 country: 全球
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The flexatone or fleximetal is a modern percussion instrument (an indirectly struck idiophone) consisting of a small flexible metal sheet suspended in a wire frame ending in a handle. Used in classic cartoons for its glissando effect, its sound is comparable to the musical saw.
+彈音器（flexatone）或彈性金屬器（fleximetal）是一種現代打擊樂器（間接敲擊的自鳴樂器），由懸掛在帶有把手的鐵絲框架中的小型柔性金屬片組成。由於其滑音效果在經典卡通中被使用，其聲音可與音樂鋸相提並論。
 ## 歷史背景
 
 ## 音色描述

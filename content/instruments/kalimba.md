@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-Mbira ( əm-BEER-ə; Shona pronunciation: [ᵐbira]), also known as kalimba and zanza (or variant spellings), are a family of musical instruments, traditional to the Shona people of Zimbabwe. The instruments consist of a wooden board (often fitted with a resonator) with attached staggered metal tines, played by holding the instrument in the hands and plucking the tines with the thumbs and/or fingers. Musicologists classify it as a lamellaphone, part of the plucked idiophone family of musical instruments.
+姆比拉（發音：əm-BEER-ə；紹納語發音：[ᵐbira]），又稱為卡林巴和贊紮（或其他拼寫變體），是一族傳統樂器，源自津巴布韋的紹納人民。該樂器由一塊木板（通常配有共鳴器）組成，上面附著錯落排列的金屬片，演奏者將樂器拿在手中，用大拇指和/或手指撥奏這些金屬片。音樂學家將其分類為簧片琴，屬於撥弦打擊樂器系列的一部分。
 ## 歷史背景
 
 ## 音色描述

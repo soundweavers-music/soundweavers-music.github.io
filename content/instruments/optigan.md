@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The Optigan (a portmanteau of optical organ) is an electronic keyboard instrument designed for the consumer market. The name stems from the instrument's reliance on pre-recorded optical soundtracks to reproduce sound. Later versions (built under license and aimed at the professional market) were sold under the name Orchestron.
+光學風琴（英文名稱為光學風琴的縮合詞）是一種為消費市場設計的電子鍵盤樂器。其名稱源自於該樂器依賴預先錄製的光學音軌來重現聲音的特點。後來的版本（在授權下製造並針對專業市場）則以管弦樂風琴的名稱銷售。
 ## 歷史背景
 
 ## 音色描述

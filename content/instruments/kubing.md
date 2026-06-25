@@ -1,5 +1,5 @@
 ---
-title: Kubing（暫譯）
+title: 庫賓琴
 original_name: Kubing
 category: 打擊樂器
 country: 待考
@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Kubing.jpg/500p
 ---
 ## 介紹
 
-The kubing is a type of Philippine jaw harp from bamboo found among the Maguindanaon and other Muslim and non-Muslim tribes in the Philippines and Indonesia. It is also called kobing (Maranao), kolibau (Tingguian), aru-ding (Tagbanwa), kuribaw (Ibanag and Itawes), aribao (Isneg), aroding (Palawan), kulaing (Yakan), ulibaw (Kalinga), karombi (Toraja), yori (Kailinese) or Kulibaw. Ones made of sugar palm-leaf are called karinta (Munanese), ore-ore mbondu or ore Ngkale (Butonese).
+庫賓琴是一種菲律賓竹製口琴，在菲律賓和印尼的馬京達瑙人及其他穆斯林和非穆斯林部落中使用。它也被稱為科賓琴（馬拉瑙族）、科利包琴（廷古安族）、阿魯丁琴（塔格班瓦族）、庫里巴琴（伊班納格族和伊塔韋斯族）、阿里包琴（伊斯內格族）、阿羅丁琴（巴拉望族）、庫萊英琴（亞干族）、烏利包琴（卡林加族）、卡隆比琴（托拉查族）、約里琴（凱利內斯族）或庫利包琴。用糖棕葉製成的被稱為卡林塔琴（穆南族）、歐蕾歐蕾恩邦都琴或歐蕾恩卡萊琴（布頓族）。
 ## 歷史背景
 
 ## 音色描述

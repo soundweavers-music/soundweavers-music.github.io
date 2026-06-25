@@ -1,5 +1,5 @@
 ---
-title: Kèn bầu
+title: 越南雙簧管
 original_name: Kèn bầu
 category: 管樂器
 country: 歐洲／中東／南亞／東南亞
@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The kèn bầu (Vietnamese: [kɛ̂n ɓə̂w]) is one of several types of kèn, a double reed wind instrument used in the traditional music of Vietnam. It is similar in construction and sound to the Chinese suona and the Korean taepyeongso. It comes in various sizes and is a primary instrument of the former royal court music of Huế.
+越南雙簧管（越南語：[kɛ̂n ɓə̂w]）是多種嗩吶的其中一種，是用於越南傳統音樂的雙簧管樂器。其構造和音色類似於中國的嗩吶和韓國的大平簫。它有多種尺寸，是前順化皇家宮廷音樂的主要樂器。
 ## 歷史背景
 
 ## 音色描述

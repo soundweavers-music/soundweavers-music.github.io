@@ -1,5 +1,5 @@
 ---
-title: Cretan Lyra
+title: 克里特琴
 original_name: Cretan Lyra
 category: 弦樂器
 country: 全球
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The Cretan lyra (Greek: Κρητική λύρα) is a pear-shaped three-stringed Greek lyra, a traditional musical instrument, central to the traditional music of Crete and other islands in the Dodecanese and the Aegean Archipelago, in Greece. The Cretan lyra is considered to be the most popular surviving form of the medieval Byzantine lyra, an ancestor of most European bowed instruments.
+克里特琴（希臘語：Κρητική λύρα）是一種梨形三弦希臘琴，是一種傳統樂器，在克里特島及希臘十二島嶼群島和愛琴海群島的傳統音樂中佔有核心地位。克里特琴被認為是中世紀拜占庭琴最受歡迎的現存形式，而拜占庭琴是大多數歐洲弓弦樂器的祖先。
 ## 歷史背景
 
 ## 音色描述

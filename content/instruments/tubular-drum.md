@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Civic_Orchestra
 ---
 ## 介紹
 
-A membranophone is any musical instrument which produces sound primarily by way of a vibrating stretched membrane. It is one of the four main divisions of instruments in the original Hornbostel-Sachs scheme of musical instrument classification. According to Sachs, The sound is produced by a membrane ["skin" or "head"] stretched over an opening. Most, but not all, membranophones are generally called drums. They are classified according to material, if it's single or double headed, shape, skin(s), skin fastening, playing positions, and manner of playing.
+膜鳴樂器是指任何主要透過振動的拉伸膜產生聲音的樂器。在原始的霍恩博斯特爾-薩克斯樂器分類方案中，它是四大樂器類別之一。根據薩克斯的說法，聲音是由拉伸在開口上的膜（「皮膚」或「鼓面」）產生的。大多數（但並非全部）膜鳴樂器通常被稱為鼓。它們根據材料、單頭或雙頭、形狀、鼓皮、鼓皮固定方式、演奏位置和演奏方式進行分類。
 ## 歷史背景
 
 ## 音色描述

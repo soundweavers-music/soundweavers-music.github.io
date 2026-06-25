@@ -1,5 +1,5 @@
 ---
-title: Castanets（暫譯）
+title: 響板
 original_name: Castanets
 category: 打擊樂器
 country: 全球
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-Castanets, also known as clackers or palillos, are a percussion instrument (idiophonic), used in Spanish, Calé, Moorish, Ottoman, Greek, Italian, Mexican, Sephardic, Portuguese, Filipino, Brazilian, and Swiss music. In ancient Greece and ancient Rome there was a similar instrument called the crotalum. The instrument consists of a pair of concave shells joined on one edge by a string. They are held in the hand and used to produce clicks for rhythmic accents or a ripping or rattling sound consisting of a rapid series of clicks.
+響板，又稱為拍擊器或木製響棒，是一種打擊樂器（自鳴樂器），用於西班牙、卡雷語、摩爾、鄂圖曼、希臘、義大利、墨西哥、塞法迪、葡萄牙、菲律賓、巴西和瑞士音樂中。在古希臘和古羅馬，曾有一種類似的樂器稱為克羅塔琴。該樂器由一對凹殼組成，在一側邊緣由一條繩子連接。演奏者將其握在手中，用來製造點擊聲以強調節奏，或發出撕裂或嘎嘎聲，由一系列快速的點擊聲組成。
 ## 歷史背景
 
 ## 音色描述

@@ -15,7 +15,7 @@ region_type: 單一地區／文化圈
 ---
 ## 介紹
 
-The haegeum (Korean: 해금) is a traditional Korean string instrument, resembling a vertical fiddle with two strings; derived from the ancient Chinese xiqin. It has a rodlike neck, a hollow wooden soundbox, and two silk strings, and is held vertically on the knee of the performer and played with a bow. It is also popularly known as kkangkkang-i (깡깡이), kkaengkkaeng-i (깽깽이), or aeng-geum (앵금). The haegeum is one of the most widely used instruments in Korean music. The haegeum is used in court music as well as madangnori (ordinary people's music).
+奚琴（韓文：해금）是一種傳統韓國弦樂器，外形類似直立的小提琴，有兩根弦；源自古代中國的奚琴。它具有杆狀的琴頸、空心的木製共鳴箱和兩根絲弦，演奏者將其豎放在膝蓋上，用弓來演奏。它也通俗地被稱為깡깡이（kkangkkang-i）、깽깽이（kkaengkkaeng-i）或앵금（aeng-geum）。奚琴是韓國音樂中應用最廣泛的樂器之一。奚琴既用於宮廷音樂，也用於마당놀이（普通民眾的音樂）。
 ## 歷史背景
 
 ## 音色描述

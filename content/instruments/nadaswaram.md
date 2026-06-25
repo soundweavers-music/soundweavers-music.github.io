@@ -15,7 +15,7 @@ region_type: 單一地區／文化圈
 ---
 ## 介紹
 
-The nadaswaram (Tamil: நாதஸ்வரம்) (Malayalam: നാദസ്വരം) is a double reed wind instrument from Tamil Nadu. It is used as a traditional classical instrument in Tamil Nadu, Andhra Pradesh, Telangana, Karnataka, Kerala and in the northern and eastern parts of Sri Lanka. This instrument is "among the world's loudest non-brass acoustic instruments". It is a wind instrument partially similar to the North Indian shehnai, but much longer, with a hardwood body, and a large flaring bell made of wood or metal, and also with a double reed rather than a quadruple reed.
+納達斯瓦拉姆管（泰米爾語：நாதஸ்வரம்）（馬拉雅拉姆語：നാദസ്വരം）是一種來自泰米爾納德邦的雙簧風琴樂器。它在泰米爾納德邦、安得拉邦、特倫甘納邦、卡納塔克邦、喀拉拉邦以及斯里蘭卡北部和東部地區被用作傳統古典樂器。這件樂器「在世界上最響亮的非銅管樂器中佔有一席之地」。它是一種風琴樂器，在某些方面類似於北印度的謝赫奈笛，但長度更長，擁有硬木琴身、一個由木材或金屬製成的大型喇叭形喇叭口，並且採用雙簧而非四簧設計。
 ## 歷史背景
 
 ## 音色描述

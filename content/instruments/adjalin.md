@@ -7,7 +7,7 @@ era: 傳統／年代待考
 ---
 ## 介紹
 
-The adjalin is a type of zither native to Benin. It consists of a rectangular form constructed of bamboo branches, tied together with raffia. It is used in the traditional music of Benin, particularly in public festivals and rituals.
+阿扎林琴是一種源自貝南的古箏類樂器。它由竹枝構成的矩形框架組成，用棕櫚纖維繩綁紮在一起。它被用於貝南的傳統音樂中，特別是在公共慶典和儀式中。
 ## 歷史背景
 
 ## 音色描述

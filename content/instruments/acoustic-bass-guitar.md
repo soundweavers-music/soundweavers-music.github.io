@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Vea.guitarra.ba
 ---
 ## 介紹
 
-The acoustic bass guitar (sometimes shortened to acoustic bass or initialized ABG) is a bass instrument with a hollow wooden body similar to, though usually larger than, a steel-string acoustic guitar. Like the traditional electric bass guitar and the double bass, the acoustic bass guitar commonly has four strings usually tuned E-A-D-G, an octave below the lowest four strings of the 6-string guitar.
+原聲低音吉他（有時簡稱為原聲低音或縮寫為 ABG）是一種低音樂器，具有空心木製琴身，與鋼弦民謠吉他相似，但通常更大。像傳統電貝司吉他和低音提琴一樣，原聲低音吉他通常有四條弦，通常調音為 E-A-D-G，比六弦吉他最低的四條弦低一個八度。
 ## 歷史背景
 
 ## 音色描述

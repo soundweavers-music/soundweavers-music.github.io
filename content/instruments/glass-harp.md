@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-A glass harp (also called musical glasses, singing glasses, angelic organ, verrillon or ghost fiddle) is a musical instrument made of upright wine glasses. It is played by running moistened or chalked fingers around the rim of the glasses. Each glass is tuned to a different pitch, either by grinding each goblet to the specified pitch, in which case the tuning is invariable, or by filling the glass with water until the desired pitch is achieved. Adding water causes the pitch to go down. Each glass model may have its pitch lowered by a fourth or even larger interval.
+玻璃豎琴（也稱為音樂玻璃杯、唱歌玻璃杯、天使風琴、玻璃琴或幽靈提琴）是一種用直立的葡萄酒杯製成的樂器。演奏時用潮濕或粉筆塗過的手指在杯緣周圍滑動。每個玻璃杯都被調至不同的音高，可以通過研磨每個高腳杯至特定音高來實現，這樣調音是不變的；也可以在玻璃杯中加水直到達到所需音高。加水會導致音高下降。每個玻璃杯型號的音高可能降低四度或更大的音程。
 ## 歷史背景
 
 ## 音色描述

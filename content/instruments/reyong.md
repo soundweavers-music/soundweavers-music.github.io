@@ -1,5 +1,5 @@
 ---
-title: Reyong（暫譯）
+title: 雷翁鑼
 original_name: Reyong
 category: 打擊樂器
 country: 印尼巴厘島
@@ -15,7 +15,7 @@ region_type: 單一地區／文化圈
 ---
 ## 介紹
 
-The reyong (also spelled reong) is a musical instrument used in Balinese gamelan. It consists of a long row of metal gongs suspended on a frame. In gamelan gong kebyar, it is played by four players at once, each with two mallets. Often the individual pots can be removed from the frame and played individually as bonang in beleganjur.
+雷翁鑼（也拼作reong）是峇里島甘美蘭音樂中使用的樂器。它由一排懸掛在框架上的金屬鑼組成。在甘美蘭鑼克比亞樂隊中，由四名演奏者同時演奏，每人持兩支鼓槌。通常各個鑼罐可以從框架上移除，作為波浪鑼在貝樂甘朱樂隊中單獨演奏。
 ## 歷史背景
 
 ## 音色描述

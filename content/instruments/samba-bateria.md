@@ -1,5 +1,5 @@
 ---
-title: Samba Bateria
+title: 桑巴鼓組
 original_name: Samba Bateria
 category: 其他
 country: 全球／地域合奏與現代混合

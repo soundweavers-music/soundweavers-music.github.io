@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-A zabumba (Portuguese pronunciation: [zaˈbũbɐ]) is a type of bass drum used in Brazilian music. The player wears the drum while standing up and uses both hands while playing. The zabumba generally ranges in diameter from 16 to 22 inches, and is 5 to 8 inches tall. The shell is made of wood and may utilize either skin or plastic drum heads and is usually tensioned via metal lugs and tension rods. The top head is usually muted with tape or cloth strip(s) and struck with a cloth-covered mallet (held in the right hand) to produce a low fundamental note with minimal overtones.
+扎布巴大鼓（葡萄牙語發音：[zaˈbũbɐ]）是一種用於巴西音樂的低音鼓。演奏者在站立時穿戴著鼓，並用雙手演奏。扎布巴大鼓的直徑通常在16到22英寸之間，高度為5到8英寸。鼓殼由木材製成，可以使用獸皮或塑膠鼓面，通常通過金屬耳環和張力桿進行張緊。上方的鼓面通常用膠帶或布條進行消音，並用布包覆的鼓槌（右手持握）敲擊以產生低基本音，泛音最少。
 ## 歷史背景
 
 ## 音色描述

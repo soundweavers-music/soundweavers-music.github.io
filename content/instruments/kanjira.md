@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The kanjira, khanjira, khanjiri or ganjira, a South Indian frame drum, is an instrument of the tambourine family. As a folk and bhajan instrument, it has been used in the Indian subcontinent for many centuries. The Kanjira's emergence in South Indian Carnatic music, as well as the development of the modern form of the instrument, is credited to Manpoondia Pillai. In the 1880s, Manpoondia Pillai was a temple lantern-bearer who sought to study drumming. He modified the kanjira to a frame drum with a single pair of jingles and brought the instrument to a classical stage.
+坎吉拉鼓（kanjira、khanjira、khanjiri或ganjira）是一種南印度的手鼓，屬於鈴鼓家族的樂器。作為民間和奉愛歌曲樂器，它在印度次大陸已被使用了許多世紀。坎吉拉鼓在南印度卡那提克音樂中的出現，以及該樂器現代形式的發展，都歸功於曼普迪亞·皮萊。在1880年代，曼普迪亞·皮萊是一位寺廟燈籠管理員，他致力於研究鼓樂。他將坎吉拉鼓改良為只有一對鈴片的手鼓，並將該樂器推上古典音樂的舞臺。
 ## 歷史背景
 
 ## 音色描述

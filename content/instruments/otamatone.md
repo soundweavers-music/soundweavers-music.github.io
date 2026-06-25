@@ -15,7 +15,7 @@ region_type: 單一地區／文化圈
 ---
 ## 介紹
 
-The Otamatone (Japanese: オタマトーン, Hepburn: Otamatōn) is an electronic musical synthesizer. Shaped like an eighth note, the ribbon controller on its stem is used to control pitch, while the notes produced by the synthesizer are played from the Otamatone's "head". It was developed in Japan by the CUBE Works toy company and the Maywa Denki design firm, led by the brothers Masamichi and Nobumichi Tosa, and is produced and marketed by Hamee.
+音樂蝌蚪（日語：オタマトーン，羅馬拼音：Otamatōn）是一種電子音樂合成器。它的外形像一個八分音符，莖部上的帶狀控制器用來控制音高，而合成器產生的音符由音樂蝌蚪的「頭部」播放。它由日本玩具公司CUBE Works和設計公司Maywa Denki聯合開發，由兄弟檔土佐雅通和土佐信道領導，由Hamee公司生產和銷售。
 ## 歷史背景
 
 ## 音色描述

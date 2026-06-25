@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Resonator_Style
 ---
 ## 介紹
 
-A resonator guitar or resophonic guitar (often generically called a "Dobro") is an acoustic guitar that produces sound by conducting string vibrations through the bridge to one or more spun metal cones (resonators), instead of to the guitar's sounding board (top). Resonator guitars were originally designed to be louder than regular acoustic guitars, which were overwhelmed by horns and percussion instruments in dance orchestras.
+諧振吉他或共鳴吉他（通常泛稱為「杜布羅琴」）是一種原聲吉他，它通過將弦振動從琴橋傳導到一個或多個旋轉金屬錐體（共鳴器）來產生聲音，而不是傳導到吉他的音板（頂部）。諧振吉他最初的設計目的是比普通原聲吉他更大聲，因為普通吉他在舞蹈樂隊中會被號樂器和打擊樂器淹沒。
 ## 歷史背景
 
 ## 音色描述

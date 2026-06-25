@@ -1,5 +1,5 @@
 ---
-title: Timple Canario
+title: 坦普雷小吉他
 original_name: Timple Canario
 category: 弦樂器
 country: 中東／歐洲／亞洲／美洲

@@ -1,5 +1,5 @@
 ---
-title: Vihuela Mexicana
+title: 墨西哥維瑞拉琴
 original_name: Vihuela Mexicana
 category: 弦樂器
 country: 中東／歐洲／亞洲／美洲

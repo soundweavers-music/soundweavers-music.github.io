@@ -1,5 +1,5 @@
 ---
-title: Electric Harp
+title: 電豎琴
 original_name: Electric Harp
 category: 弦樂器
 country: 非洲／歐洲／亞洲／美洲

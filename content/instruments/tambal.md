@@ -1,5 +1,5 @@
 ---
-title: Tambal
+title: 揚琴
 original_name: Tambal
 category: 鍵盤樂器
 country: 亞洲／歐洲／全球
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The cimbalom (; Hungarian: [ˈt͡simbɒlom]; also cimbal or concert cimbalom) is a type of chordophone composed of a large, trapezoidal box on legs with metal strings stretched across its top and a damping pedal underneath. It was designed and created by V. Josef Schunda in 1874 in Budapest, based on his modifications to the existing hammered dulcimer instruments which were already present in Central and Eastern Europe. Today the instrument is mainly played in Hungary, Slovakia, Moravia, Belarus, Romania, Moldova, and Ukraine.
+揚琴（匈牙利語：[ˈt͡simbɒlom]；也稱為cimbal或音樂廳揚琴）是一種弦鳴樂器，由一個大型梯形木箱組成，木箱置於腿架上，頂部張有金屬弦，下方配有制音踏板。該樂器由V. Josef Schunda於1874年在布達佩斯設計製造，其設計基礎是對中歐和東歐已有的敲擊揚琴樂器的改進。如今，該樂器主要在匈牙利、斯洛伐克、摩拉維亞、白俄羅斯、羅馬尼亞、摩爾多瓦和烏克蘭演奏。
 ## 歷史背景
 
 ## 音色描述

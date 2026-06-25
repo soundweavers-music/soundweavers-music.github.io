@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The mellophone is a brass instrument used in some marching bands in place of French horns. It is a middle-voiced instrument, typically pitched in the key of F, though models in E♭, D, C, and G (as a bugle) have also historically existed. It has a conical bore and piston valves, like those of the euphonium and flugelhorn. These instruments are used instead of French horns for marching because their bells face forward instead of to the back (or to the side), as dissipation of the sound becomes a concern in the open-air environment of marching.
+次中音號是一種銅管樂器，在某些行進樂隊中用來替代法國號。它是一種中音域樂器，通常以F調演奏，但歷史上也曾出現過E♭調、D調、C調和G調（作為軍號）的型號。它具有圓錐形音管和活塞閥，類似於低音號和短號。這些樂器在行進樂隊中用來替代法國號，因為它們的號口朝向前方而不是朝向後方（或側方），這樣在行進的戶外環境中，聲音的散逸會成為一個考量因素。
 ## 歷史背景
 
 ## 音色描述

@@ -1,5 +1,5 @@
 ---
-title: Chitra Veena
+title: 齊特拉維那琴
 original_name: Chitra Veena
 category: 弦樂器
 country: 中東／歐洲／亞洲／美洲

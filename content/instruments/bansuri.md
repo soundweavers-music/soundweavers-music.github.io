@@ -1,5 +1,5 @@
 ---
-title: 班蘇里笛
+title: 班蘇裡笛
 original_name: Bansuri
 category: 管樂器
 country: 全球
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-A bansuri/flute is an ancient side-blown bamboo flute originating from the Indian Subcontinent. It is an aerophone produced from bamboo and metal-like material, used in many Indian, Sri Lankan and Nepali folk songs. A bansuri is traditionally made from a single hollow shaft of bamboo with seven finger holes. Some modern designs come in ivory, fiberglass and various metals. The six-hole instrument covers two and a half octaves of music. The bansuri is typically between 30 and 75 centimetres (12 and 30 in) in length, and the thickness of a human thumb.
+班蘇里笛是一種古老的橫吹竹笛，起源於印度次大陸。它是一種由竹子和金屬類材料製成的氣鳴樂器，被廣泛用於許多印度、斯里蘭卡和尼泊爾的民間歌曲中。班蘇里笛傳統上由一根中空的竹子製成，上面有七個指孔。一些現代設計採用象牙、玻璃纖維和各種金屬製造。六孔樂器可涵蓋兩個半八度音的音樂。班蘇里笛的長度通常在30至75公分（12至30英寸）之間，厚度相當於人類大拇指的寬度。
 ## 歷史背景
 
 ## 音色描述

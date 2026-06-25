@@ -1,5 +1,5 @@
 ---
-title: Donso Ngoni
+title: 頓索恩戈尼琴
 original_name: Donso Ngoni
 category: 弦樂器
 country: 西非／馬利

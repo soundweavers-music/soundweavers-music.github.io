@@ -1,5 +1,5 @@
 ---
-title: Reed organ（暫譯）
+title: 簧風琴
 original_name: Reed organ
 category: 鍵盤樂器
 country: 歐洲／美國／全球現代錄音室
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The pump organ or reed organ is a type of organ that uses free reeds to generate sound, with air passing over vibrating thin metal strips mounted in a frame. Types include the pressure-based harmonium, the suction reed organ (which employs a vacuum system), and the Indian harmonium. Historical examples include the Kunstharmonium and the American reed organ, while earlier forms include the physharmonica and the seraphine.
+風琴或簧風琴是一種利用自由簧片產生聲音的風琴，空氣經過安裝在框架中振動的薄金屬片上方。類型包括基於壓力的手風琴、吸吸簧風琴（採用真空系統）和印度手風琴。歷史上的例子包括藝術手風琴和美國簧風琴，而較早的形式包括物理和聲琴和六翼天使琴。
 ## 歷史背景
 
 ## 音色描述

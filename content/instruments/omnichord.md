@@ -1,5 +1,5 @@
 ---
-title: 全音弦琴
+title: 全音絃琴
 original_name: Omnichord
 category: 鍵盤樂器
 country: 歐洲／美國／全球現代錄音室
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The Omnichord is an electronic musical instrument introduced in 1981 by the Suzuki Musical Instrument Corporation. Conceived as an electronic autoharp, it allows users to play harp-like arpeggios produced through an electronic strum plate, simulating the experience of playing a stringed instrument. The Omnichord found popularity due to its portability, unique timbre, and kitsch value. The various Omnichord models feature organ-like chords, preset drum rhythms and auto-bass line functionality.
+全音弦琴是由鈴木樂器公司於1981年推出的電子樂器。它被構想為電子豎琴，允許使用者透過電子掃弦板演奏類似豎琴的琶音，模擬演奏弦樂器的體驗。全音弦琴因其便攜性、獨特的音色和復古趣味而廣受歡迎。各種全音弦琴型號都配備風琴式和弦、預設鼓節奏和自動低音線功能。
 ## 歷史背景
 
 ## 音色描述

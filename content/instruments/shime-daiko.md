@@ -1,5 +1,5 @@
 ---
-title: Shime-daiko（暫譯）
+title: 締太鼓
 original_name: Shime-daiko
 category: 打擊樂器
 country: 日本

@@ -1,5 +1,5 @@
 ---
-title: Wankara Lyre
+title: 瓦卡拉豎琴
 original_name: Wankara Lyre
 category: 弦樂器
 country: 非洲／歐洲／亞洲／美洲

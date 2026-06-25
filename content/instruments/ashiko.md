@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The ashiko is a drum, shaped like a tapered cylinder or truncated cone with the head on the wide end, and the narrow end open. It is made of hardwood and generally has a calfskin hide. Nowadays, goatskin is sometimes used, in imitation of the high sound of the popular djembe drum. It is played with the hands, and tuned by ropes. Ashiko drums – or variants thereof – are traditionally found in West Africa, as well as part of the Americas.
+阿希科鼓是一種鼓，形狀像錐形圓筒或截圓錐體，寬端為鼓面，窄端開放。它由硬木製成，通常使用小牛皮。如今，有時會使用山羊皮，以模仿流行的傑姆貝鼓的高音。它用手演奏，並通過繩子調音。阿希科鼓──或其變種──傳統上存在於西非以及美洲的部分地區。
 ## 歷史背景
 
 ## 音色描述

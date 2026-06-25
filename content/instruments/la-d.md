@@ -1,5 +1,5 @@
 ---
-title: Laúd
+title: 西班牙琉特琴
 original_name: Laúd
 category: 弦樂器
 country: 中東／歐洲／亞洲／美洲
@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-Laúd (Spanish: "lute") is a plectrum-plucked chordophone from Spain, played also in diaspora countries such as Cuba and the Philippines. Its name, just as lute itself, stems from Arabic al-oud العود, literally meaning “the wood”. The laúd belongs to the cittern family of instruments. The Spanish and Cuban instruments have six double courses in unison (i.e. twelve strings in pairs); the Philippine instrument has 14 strings with some courses singled or tripled. A similar, but smaller instrument, with a shorter neck, is the bandurria, which also exists in 12- and 14-string versions.
+西班牙琉特琴（西班牙文：「lute」）是一種來自西班牙的撥弦弦鳴樂器，也在古巴和菲律賓等僑居國家中演奏。它的名稱如同琉特琴本身一樣，源自阿拉伯文al-oud（العود），字面意思是「木頭」。西班牙琉特琴屬於齊特琴樂器家族。西班牙和古巴樂器各有六對同度弦（即成對的十二條弦）；菲律賓樂器則有十四條弦，部分弦對為單弦或三弦。班杜里亞是一種類似但更小的樂器，琴頸較短，也有十二弦和十四弦版本。
 ## 歷史背景
 
 ## 音色描述

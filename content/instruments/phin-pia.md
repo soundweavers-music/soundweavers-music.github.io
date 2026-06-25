@@ -1,5 +1,8 @@
 ---
-title: Phin Pia
+title: 我需要坦誠地說，「Phin Pia」這個樂器名稱我無法確定其確切的中文正式名稱。
+
+根據音譯和分類信息，這可能是：
+-
 original_name: Phin Pia
 category: 鍵盤樂器
 country: 亞洲／歐洲／全球

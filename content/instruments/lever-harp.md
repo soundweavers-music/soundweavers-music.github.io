@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Trinity_College
 ---
 ## 介紹
 
-The Celtic harp is a triangular frame harp traditional to the Celtic nations of northwest Europe. It is known as cláirseach in Irish, clàrsach in Scottish Gaelic, telenn in Breton and telyn in Welsh. In Ireland and Scotland, it was a wire-strung instrument requiring great skill and long practice to play, and was traditionally associated with the Gaelic nobility of Ireland. It appears on Irish coins, Guinness products, and the coat of arms of the Republic of Ireland, Montserrat, Canada and the United Kingdom.
+凱爾特豎琴是傳統於歐洲西北部凱爾特民族的三角形框架豎琴。在愛爾蘭語中稱為cláirseach，在蘇格蘭蓋爾語中稱為clàrsach，在布列塔尼語中稱為telenn，在威爾士語中稱為telyn。在愛爾蘭和蘇格蘭，它是一種金屬弦樂器，需要高超的技巧和長期的練習才能演奏，傳統上與愛爾蘭的蓋爾貴族相關聯。它出現在愛爾蘭硬幣、吉尼斯產品以及愛爾蘭共和國、蒙特塞拉特、加拿大和英國的國徽上。
 ## 歷史背景
 
 ## 音色描述

@@ -1,5 +1,5 @@
 ---
-title: Huaca (instrument)（暫譯）
+title: 陶笛
 original_name: Huaca (instrument)
 category: 管樂器
 country: 待考
@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/2016-01_Ocarina
 ---
 ## 介紹
 
-The ocarina (otherwise known as a potato flute) is a wind musical instrument; it is a type of vessel flute. Variations exist, but a typical ocarina is an enclosed space with four to twelve finger holes and a mouthpiece that projects from the body. It is traditionally made from clay or ceramic, but other materials are also used, such as plastic, wood, glass, metal, or bone. The Italian Ocarina was invented in 1853 by 17-year-old Giuseppe Donati, who also gave it the name ocarina. Donati handmade each ocarina from clay, with anything from 7 to 10 finger-holes and a spout for a mouthpiece.
+陶笛（又名馬鈴薯笛）是一種風樂器，屬於容器笛的一種。雖然存在各種變化，但典型的陶笛是一個封閉的空間，有四至十二個指孔和一個從笛身突出的吹嘴。陶笛傳統上由黏土或陶瓷製成，但也使用其他材料，如塑膠、木頭、玻璃、金屬或骨頭。義大利陶笛由17歲的朱塞佩·多納蒂（Giuseppe Donati）於1853年發明，他也是陶笛名稱的創造者。多納蒂用黏土手工製作每一個陶笛，配有7至10個指孔和一個吹嘴。
 ## 歷史背景
 
 ## 音色描述

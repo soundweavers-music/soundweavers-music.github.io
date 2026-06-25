@@ -15,7 +15,7 @@ region_type: 區域／多國
 ---
 ## 介紹
 
-The lavta is a plucked string music instrument from Istanbul.
+拉夫塔琴是一種來自伊斯坦堡的撥弦樂器。
 ## 歷史背景
 
 ## 音色描述

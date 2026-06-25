@@ -1,5 +1,5 @@
 ---
-title: Hun
+title: 匈人
 original_name: Hun
 category: 管樂器
 country: 全球／亞洲／歐洲／美洲／大洋洲
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The Huns were a nomadic people who lived in Central Asia, the Caucasus, and Eastern Europe between the 4th and 6th centuries CE. According to European tradition, they were first reported living east of the Volga River, in an area that was part of Scythia at the time. By 370 CE, the Huns had arrived on the Volga, causing the westwards movement of Goths and Alans. By 430, they had established a vast, but short-lived, empire on the Danubian frontier of the Roman empire in Europe.
+匈人是生活在公元4至6世紀間的遊牧民族，居住在中亞、高加索和東歐地區。根據歐洲傳統記載，他們最初被報告生活在伏爾加河以東，該地區當時是西徐亞的一部分。到公元370年，匈人已到達伏爾加河，導致哥特人和阿蘭人向西遷移。到公元430年，他們在羅馬帝國歐洲領土的多瑙河邊界建立了一個廣闊但短暫存在的帝國。
 ## 歷史背景
 
 ## 音色描述

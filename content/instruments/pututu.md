@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-Titanostrombus galeatus, the Eastern Pacific giant conch, is a species of large sea snail, a marine gastropod mollusk in the family Strombidae, the true conchs and their allies. It is an eastern Pacific species that occurs from the Gulf of California to Peru. The shells of this species were used as a wind instruments by the Chavín, an ancient civilization from the northern Andean highlands of Peru. They are still used for this purpose in the Andes, where they are known as pututu.
+加州巨螺（Titanostrombus galeatus），又稱東太平洋巨螺，是一種大型海螺，屬於海洋腹足綱軟體動物，隸屬於鶉螺科（真螺及其近親）。牠是分佈於東太平洋的物種，從加州灣延伸至秘魯。該物種的貝殼曾被查溫文明（一個來自秘魯北部安地斯高地的古老文明）用作風樂器。在安地斯山脈地區，人們仍將其用於此目的，在當地被稱為普圖圖海螺號。
 ## 歷史背景
 
 ## 音色描述

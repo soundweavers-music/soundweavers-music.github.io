@@ -1,5 +1,5 @@
 ---
-title: Jaw Harp
+title: 口琴
 original_name: Jaw Harp
 category: 管樂器
 country: 亞洲／歐洲／中東／全球
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The Jew's harp, also known as jaw harp, juice harp, or mouth harp, is a lamellophone instrument, consisting of a flexible metal or bamboo tongue or reed attached to a frame. Despite the colloquial name, the Jew's harp most likely originated in China, with the earliest known Jew's harps dating back 4,000 years ago from Shaanxi. It has no relation to the Jewish people.
+猶太豎琴，又稱頜琴、果汁琴或口琴，是一種金屬舌簧樂器，由一根靈活的金屬或竹製舌片或簧片連接到框架上組成。儘管有這個通俗的名稱，猶太豎琴最有可能起源於中國，最早已知的猶太豎琴可以追溯到4,000年前的陝西。它與猶太民族沒有任何關聯。
 ## 歷史背景
 
 ## 音色描述

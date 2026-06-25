@@ -1,5 +1,5 @@
 ---
-title: Đàn môi（暫譯）
+title: 唇琴
 original_name: Đàn môi
 category: 打擊樂器
 country: 待考

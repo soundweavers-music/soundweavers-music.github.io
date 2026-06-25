@@ -1,5 +1,5 @@
 ---
-title: Washtub bass（暫譯）
+title: 低音
 original_name: Washtub bass
 category: 弦樂器
 country: 待考
@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/1/1d/Washtub-bass-Kianti-E
 ---
 ## 介紹
 
-The washtub bass, or gutbucket, is a stringed instrument used in American folk music that uses a metal washtub as a resonator. Although it is possible for a washtub bass to have four or more strings and tuning pegs, traditional washtub basses have a single string whose pitch is adjusted by pushing or pulling on a staff or stick to change the tension. The washtub bass was used in jug bands that were popular in some African-American communities in the early 1900s.
+洗臉盆低音貝斯（washtub bass）或稱為古桶貝斯（gutbucket），是一種用於美國民族音樂的弦樂器，它使用金屬洗臉盆作為共鳴器。雖然洗臉盆低音貝斯可能有四根或更多的琴弦和調音栓，但傳統的洗臉盆低音貝斯只有一根琴弦，其音高可以通過推動或拉動一根木棒或木桿來改變張力而進行調整。洗臉盆低音貝斯被用於1900年代初期在一些非裔美國社區中流行的水罐樂隊中。
 ## 歷史背景
 
 ## 音色描述

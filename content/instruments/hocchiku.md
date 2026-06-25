@@ -1,5 +1,5 @@
 ---
-title: Hocchiku（暫譯）
+title: 法竹笛
 original_name: Hocchiku
 category: 管樂器
 country: 待考

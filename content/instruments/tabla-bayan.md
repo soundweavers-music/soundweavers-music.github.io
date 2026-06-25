@@ -1,5 +1,5 @@
 ---
-title: Tabla Bayan
+title: 塔布拉鼓
 original_name: Tabla Bayan
 category: 打擊樂器
 country: 印度／南亞

@@ -14,7 +14,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-Nai or NAI may refer to:
+奈依笛或NAI可能指：
 ## 歷史背景
 
 ## 音色描述

@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-A fortepiano [ˌfɔrteˈpjaːno] is an early piano. In principle, the word "fortepiano" can designate any piano dating from the invention of the instrument by Bartolomeo Cristofori in 1700 up to the early 19th century. Most typically, however, it is used to refer to the mid-18th to early-19th century instruments, for which composers of the Classical era such as Haydn and Mozart wrote their piano music. Sometimes, the works of Beethoven and Schubert are likewise considered fortepiano music.
+弗特比亞諾琴[ˌfɔrteˈpjaːno]是一種早期鋼琴。原則上，「弗特比亞諾琴」這個詞可以指稱從巴托洛梅奧·克里斯托弗利在1700年發明該樂器起，直到19世紀初期的任何鋼琴。不過，最常見的用法是指18世紀中期到19世紀初期的樂器，海頓和莫札特等古典時期作曲家就是為這類鋼琴創作他們的鋼琴音樂。有時，貝多芬和舒伯特的作品也被視為弗特比亞諾琴音樂。
 ## 歷史背景
 
 ## 音色描述

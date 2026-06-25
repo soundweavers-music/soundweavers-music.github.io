@@ -14,7 +14,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The mijwiz (Arabic: مجوز‎, DIN: miǧwiz) is a traditional West Asian musical instrument originating from the Levant( Palestine, Syria, Lebanon and Jordan.)Its name in Arabic means "dual", because of its consisting of two, short, bamboo pipes with reed tips put together, making the mijwiz a double-pipe, single-reed woodwind instrument.
+米日維茲雙管（阿拉伯語：مجوز‎，DIN：miǧwiz）是一種源自黎凡特地區（巴勒斯坦、敘利亞、黎巴嫩和約旦）的傳統西亞樂器。它在阿拉伯語中的名字意為「雙重」，因為它由兩根短竹管組成，竹管頂端裝有蘆葦片，使得米日維茲成為一種雙管、單簧片的木管樂器。
 ## 歷史背景
 
 ## 音色描述

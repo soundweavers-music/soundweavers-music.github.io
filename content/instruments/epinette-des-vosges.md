@@ -1,5 +1,5 @@
 ---
-title: Epinette des Vosges（暫譯）
+title: 沃日山區撥絃琴
 original_name: Epinette des Vosges
 category: 鍵盤樂器
 country: 全球
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The épinette des Vosges (French pronunciation: [epinɛt dɛ voʒ]) is a traditional plucked-string instrument of the zither family, whose use was confined to two areas in the Vosges mountains of France approximately 50 km apart: around Val-d'Ajol and around Gérardmer.
+沃日山區撥弦琴（法語發音：[epinɛt dɛ voʒ]）是揚琴家族中的一種傳統撥弦樂器，其使用範圍僅限於法國沃日山脈中相距約50公里的兩個地區：瓦勒阿若爾周邊地區和傑拉德梅周邊地區。
 ## 歷史背景
 
 ## 音色描述

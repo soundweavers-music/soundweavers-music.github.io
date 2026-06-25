@@ -14,7 +14,11 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-Karimba may refer to: Karimba, Palakkad, India Kaarimba, town in Victoria, Australia Karimba, an album by the Peruvian band Novalima A variation of the musical instrument Mbira
+卡林巴可能指的是：
+卡林巴，位於印度帕拉卡德的地方
+卡里姆巴，澳大利亞維多利亞州的城鎮
+《卡林巴》，秘魯樂隊諾瓦利馬的一張專輯
+非洲樂器姆比拉的一個變體
 ## 歷史背景
 
 ## 音色描述

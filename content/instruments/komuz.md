@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The komuz or qomuz (Kyrgyz: комуз Kyrgyz pronunciation: [qoˈmuz], Turkish: Kopuz, Azerbaijani: Qopuz) is an ancient fretless string instrument used in Central Asian music, related to certain other Turkic string instruments, the Mongolian tovshuur, and the lute. The instrument can be found in Turkic ethnic groups, from China to Turkey. Forms of this instrument are used in China by the Naxi people and are called Huobusi, Hebisi, and Hunbusi. It is the best-known national instrument and one of the better-known Kyrgyz national symbols.
+庫姆茲琴或庫姆茲琴（吉爾吉斯語：комуз，吉爾吉斯語發音：[qoˈmuz]，土耳其語：Kopuz，阿塞拜疆語：Qopuz）是一種古老的無品弦樂器，用於中亞音樂中，與某些其他突厥弦樂器、蒙古托夫舒爾琴和魯特琴相關。該樂器可在從中國到土耳其的突厥民族中找到。納西人在中國使用的這種樂器的形式被稱為火撥思、河必思和渾不思。它是最著名的民族樂器，也是較為著名的吉爾吉斯民族象徵之一。
 ## 歷史背景
 
 ## 音色描述

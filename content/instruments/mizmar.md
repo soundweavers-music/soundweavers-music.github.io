@@ -14,7 +14,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-Mizmar (Arabic: مزمار) can refer to Mizmar (instrument) Mizmar (dance)
+米茲瑪爾（阿拉伯語：مزمار）可以指米茲瑪爾（樂器）米茲瑪爾（舞蹈）
 ## 歷史背景
 
 ## 音色描述

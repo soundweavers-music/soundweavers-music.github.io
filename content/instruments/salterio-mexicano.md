@@ -1,5 +1,5 @@
 ---
-title: Salterio Mexicano
+title: 墨西哥揚琴
 original_name: Salterio Mexicano
 category: 鍵盤樂器
 country: 全球

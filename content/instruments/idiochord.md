@@ -1,5 +1,5 @@
 ---
-title: Idiochord（暫譯）
+title: 自鳴絃琴
 original_name: Idiochord
 category: 弦樂器
 country: 待考
@@ -7,7 +7,7 @@ era: 傳統／年代待考
 ---
 ## 介紹
 
-An idiochord (Latin: idio – "self", chord – "string", also known as a drum zither) is a musical instrument in which the "string" of the instrument is made from the same material as its resonating body. Such instruments may be found in the Indian Ocean region, disparate regions of Africa and its diaspora, and parts of Europe and North America. Bamboo is often a popular material for idiochords: a tube of bamboo may be slit to loosen portions of the husk at the middle, leaving them attached at the ends, and these "strings" may be raised up by inserting sticks to serve as bridges.
+自鳴弦琴（拉丁文：idio──「自身」，chord──「弦」，亦稱鼓琴）是一種樂器，其弦由與共鳴箱相同的材料製成。這類樂器可在印度洋地區、非洲各地及其僑民區、以及歐洲和北美的部分地區找到。竹子經常是製作自鳴弦琴的受歡迎材料：竹管可以在中間切割以鬆動外殼的部分，在兩端保持相連，這些「弦」可以通過插入木棍作為琴橋而抬起。
 ## 歷史背景
 
 ## 音色描述

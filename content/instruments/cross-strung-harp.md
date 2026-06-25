@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/9/9a/Chromatic_Harp.jpg
 ---
 ## 介紹
 
-The cross-strung harp or chromatic double harp is a multi-course harp that has two rows of strings which intersect without touching. While accidentals are played on the pedal harp via the pedals and on the lever harp with levers, the cross-strung harp features two rows so that each of the twelve semitones of the chromatic scale has its own string.
+交叉弦豎琴或半音雙豎琴是一種多弦豎琴，具有兩排相交但不接觸的琴弦。雖然踏板豎琴通過踏板演奏變音，杠桿豎琴通過杠桿演奏變音，但交叉弦豎琴具有兩排琴弦的設計，使得半音階的十二個半音各有自己的琴弦。
 ## 歷史背景
 
 ## 音色描述

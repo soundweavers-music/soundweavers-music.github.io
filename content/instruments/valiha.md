@@ -1,5 +1,5 @@
 ---
-title: Valiha（暫譯）
+title: 瓦麗哈琴
 original_name: Valiha
 category: 鍵盤樂器
 country: 東亞／中亞／歐洲／東南亞／非洲／美洲
@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The valiha is a tube zither from Madagascar made from a species of local bamboo; it is considered the "national instrument" of Madagascar. The term is also used to describe a number of related zithers of differing shapes and materials. The instrument has been held in high regard among the Malagasy particularly in the Merina rule over the island that having long fingernails ideal for plucking its strings were marks "distinguishing the aristocracy from the labourers". Aside from recreational music, the valiha is also used for ritual music to summon spirits.
+瓦麗哈琴是一種來自馬達加斯加的竹製筒形箏琴，由當地的竹子製成；它被視為馬達加斯加的「民族樂器」。這個名詞也用來描述多種相關的箏琴，具有不同的形狀和材料。在馬達加斯加人中，特別是在梅里納王朝統治島嶼期間，這樂器備受推崇，留著長指甲以便撥弦被視為「區分貴族與勞動者」的標誌。除了娛樂音樂外，瓦麗哈琴也用於祭祀音樂以召喚靈魂。
 ## 歷史背景
 
 ## 音色描述

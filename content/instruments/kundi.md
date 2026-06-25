@@ -14,7 +14,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-Kundi may refer to: Kundi (film), Urdu film from Pakistan Kundi (harp) Kundi (Pashtun tribe), in Pakistan Kundi (stealing power), the practice of stealing electric power in some parts of Brazil, India, Pakistan and Turkey Kundi, Ethiopia, a town in Guradamole, Somali Kundi, Haripur, in Pakistan Kundi, Uttar Pradesh, a village in India An Assyrian fortress probably identical with later Cyinda
+孔迪可能指的是：孔迪（電影），巴基斯坦烏爾都語電影 孔迪（豎琴） 孔迪（普什圖族部落），位於巴基斯坦 孔迪（竊電行為），在巴西、印度、巴基斯坦和土耳其的某些地區竊取電力的行為 孔迪，埃塞俄比亞，古拉達莫萊的一個城鎮 孔迪，哈里普爾，位於巴基斯坦 孔迪，北方邦，印度的一個村莊 一座亞述堡壘，可能與後來的基因達相同
 ## 歷史背景
 
 ## 音色描述

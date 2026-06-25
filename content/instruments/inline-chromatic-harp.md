@@ -7,7 +7,7 @@ era: 傳統／年代待考
 ---
 ## 介紹
 
-An inline chromatic harp is a harp where the strings for all 12 chromatic notes of the octave are placed in one row (the same way strings are placed on a standard concert harp), as opposed to their being placed in two or three (parallel or crossing) courses. At least one example of a harp with two parallel inline chromatic courses has also been produced. Single course inline chromatic harps have been produced for at least the past 110 years: in 1902 Karel Weigel of Hanover (Germany) patented a model of inline chromatic harp.
+直列半音豎琴是一種豎琴，其中一個八度音階的全部12個半音弦都排列在一列中（方式與標準演奏廳豎琴的弦排列方式相同），而不是排列在兩列或三列（平行或交叉）琴弦組中。至少已有一種配備兩列平行直列半音豎琴琴弦的豎琴被製造出來。單列直列半音豎琴的製造已有至少110年的歷史：1902年，德國漢諾威的卡雷爾·韋格爾（Karel Weigel）獲得了直列半音豎琴設計的專利。
 ## 歷史背景
 
 ## 音色描述

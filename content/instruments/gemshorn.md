@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The gemshorn is an instrument of the ocarina family that was historically made from the horn of a chamois, goat, or other suitable animal. The gemshorn receives its name from the German language, in which Gemshorn means a "chamois horn".
+寶石角笛是陶笛家族的樂器，歷史上由羚羊、山羊或其他合適的動物角製成。寶石角笛的名稱來自德語，其中Gemshorn意為「羚羊角」。
 ## 歷史背景
 
 ## 音色描述

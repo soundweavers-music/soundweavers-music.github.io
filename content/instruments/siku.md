@@ -14,7 +14,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-Siku may refer to: Siku (instrument), a kind of pan flute from the Andes Siku (Bolivia), a mountain in the Bolivian Andes Siku Toys, a German brand of toy vehicles Siku (comics), an artist Siku (polar bear), a bear cub who became an overnight online sensation Siku Quanshu, a compendium of Chinese literature completed in 1782 Secoo, Chinese online retailer Siku Allooloo, indigenous writer Siku Ya Bibi (Day of the Lady) Siku Njema, a Swahili novel
+西庫可能指的是：西庫（樂器），一種來自安地斯山脈的排笛 西庫（玻利維亞），玻利維亞安地斯山脈中的一座山 西庫玩具，一個德國玩具車品牌 西庫（漫畫），一位藝術家 西庫（北極熊），一隻成為網路一夜成名的熊寶寶 四庫全書，一部於1782年完成的中文文獻彙編 秒購，一個中文線上零售商 西庫·阿盧盧，一位土著作家 西庫亞比比（淑女之日） 西庫恩傑瑪，一部斯瓦希里語小說
 ## 歷史背景
 
 ## 音色描述

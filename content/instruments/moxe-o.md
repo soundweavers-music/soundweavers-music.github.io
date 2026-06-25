@@ -1,5 +1,5 @@
 ---
-title: Moxeño Flute
+title: 莫克塞尼管
 original_name: Moxeño
 category: 管樂器
 country: 全球

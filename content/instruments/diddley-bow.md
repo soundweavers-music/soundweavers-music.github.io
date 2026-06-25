@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Moses_Williams_
 ---
 ## 介紹
 
-The diddley bow is a single-stringed American instrument that influenced the development of the blues sound. It consists of a single string of baling wire tensioned between two nails on a board over a glass bottle, which is used both as a bridge and as a means to amplify the instrument's sound. It was traditionally considered a starter or children's instrument in the Deep South, especially in the African American community, and is rarely heard outside the rural South. It may have been influenced to some degree by West African instruments.
+迪德里一弦琴是一種單弦美國樂器，對藍調音樂的發展產生了影響。它由一根鐵絲繃在木板上的兩根釘子之間組成，木板上方放著一個玻璃瓶，玻璃瓶既用作琴橋，也用於放大樂器的音量。在美國南方深處，特別是在非洲裔美國人社區中，它傳統上被視為初學者或兒童樂器，在鄉村南方以外很少能聽到。它可能在某種程度上受到了西非樂器的影響。
 ## 歷史背景
 
 ## 音色描述

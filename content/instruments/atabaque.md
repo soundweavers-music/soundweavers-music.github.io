@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The atabaque (UK: AT-ə-BAK-ee, US: AH-tə-BAH-kee, Brazilian Portuguese: [ataˈbaki]) is a tall, wooden, Afro-Brazilian hand drum, similar to conga. The shell is made traditionally of Jacaranda wood from Brazil. The head is traditionally made from calfskin. A system of ropes are intertwined around the body, connecting a metal ring near the base to the head. Because of this tuning mechanism the drum is sometimes known as 'Atabaque de Corda'. Wooden wedges are jammed between this ring and the body and a hammer is used to tighten or loosen the ropes, raising or lowering the pitch of the drum.
+阿塔巴克鼓（英式英語：AT-ə-BAK-ee，美式英語：AH-tə-BAH-kee，巴西葡萄牙語：[ataˈbaki]）是一種高大的木製非裔巴西手鼓，類似於康加鼓。鼓殼傳統上由巴西的紫檀木製成。鼓頭傳統上由牛皮製成。一套繩索系統纏繞在鼓身周圍，連接靠近鼓底的金屬環和鼓頭。由於這種調音機制，該鼓有時被稱為「繩索阿塔巴克鼓」(Atabaque de Corda)。木製楔子被夾在金屬環和鼓身之間，使用錘子來緊張或放鬆繩索，從而提高或降低鼓的音高。
 ## 歷史背景
 
 ## 音色描述

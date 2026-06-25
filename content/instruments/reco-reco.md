@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The reco-reco (also called the raspador, caracaxá or querequexé) is a scraper of African origin used as a percussion instrument in Brazilian music, but also in many Latin American countries, where it is known as güiro, güira, guayo and guacharaca. Traditionally, the reco-reco was made from a sawtooth notched cylindrical body made of bamboo or wood, and played with a wooden stick. The instrument is used in many styles of Brazilian music, such as samba and related genres.
+雷科雷科竹刮器（又稱為raspador、caracaxá或querequexé）是一種源自非洲的刮奏樂器，用於巴西音樂中，但也在許多拉丁美洲國家使用，在那些地方被稱為güiro、güira、guayo和guacharaca。傳統上，雷科雷科竹刮器是由竹子或木頭製成的鋸齒狀刻槽圓筒形樂器，用木製的棍子演奏。該樂器被用於許多巴西音樂風格中，例如桑巴及相關樂種。
 ## 歷史背景
 
 ## 音色描述

@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The toy piano, also known as the kinderklavier (lit. 'children's piano' in German), is a small piano-like musical instrument. Most modern toy pianos use round metal rods, as opposed to strings in a regular piano, to produce sound. The U.S. Library of Congress recognizes the toy piano as a unique instrument with the subject designation, Toy Piano Scores: M175 T69. The most famous example of a dedicated composition for the instrument is the "Suite for Toy Piano" (1948) by John Cage.
+玩具鋼琴，又稱為「kinderklavier」（德文中字面意思為「兒童鋼琴」），是一種小型的類鋼琴樂器。大多數現代玩具鋼琴使用圓形金屬棒而非普通鋼琴的琴弦來產生聲音。美國國會圖書館將玩具鋼琴認定為獨特的樂器，編號為玩具鋼琴樂譜：M175 T69。最著名的為該樂器創作的專門作品是約翰·凱奇於1948年創作的《玩具鋼琴組曲》。
 ## 歷史背景
 
 ## 音色描述

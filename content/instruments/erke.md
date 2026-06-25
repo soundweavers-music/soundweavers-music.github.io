@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The erke (alternatively erque, coroneta, or quepa) is a large labrosone (lip reed) instrument native to the Gran Chaco of Bolivia, northern Chile, and the Argentine Northwest.
+埃爾克角號（另稱埃爾克、科羅內塔或克帕）是一種大型唇簧樂器，原產於玻利維亞的大查科地區、智利北部和阿根廷西北部。
 ## 歷史背景
 
 ## 音色描述

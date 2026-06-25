@@ -1,5 +1,5 @@
 ---
-title: Bandura（暫譯）
+title: 班杜拉琴
 original_name: Bandura
 category: 弦樂器
 country: 待考
@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Bandura_range.t
 ---
 ## 介紹
 
-A bandura (Ukrainian: бандура [bɐnˈdurɐ] ) is a Ukrainian plucked-string folk-instrument. It combines elements of the zither and lute and, up until the 1940s, was also often called a kobza. Early instruments (c. 1700) had 5 to 12 strings and resembled lutes. In the 20th century, the number of strings increased initially to 31 strings (1926), then to 56 strings – 68 strings on modern "concert" instruments (1954). Musicians who play the bandura are referred to as bandurists. In the 19th and early 20th centuries traditional bandura players, often blind, were called kobzars.
+班杜拉琴（烏克蘭語：бандура [bɐnˈdurɐ]）是一種烏克蘭撥弦民間樂器。它融合了揚琴和琵琶的元素，直到1940年代，它也經常被稱為科布扎琴。早期樂器（約1700年）有5至12根弦，外形類似琵琶。在20世紀，弦的數量初期增加到31根弦（1926年），隨後增加到56根弦──現代「音樂會」樂器上有68根弦（1954年）。演奏班杜拉琴的音樂家被稱為班杜拉琴演奏家。在19世紀和20世紀初，傳統的班杜拉琴演奏者，通常是盲人，被稱為科布扎樂手。
 ## 歷史背景
 
 ## 音色描述

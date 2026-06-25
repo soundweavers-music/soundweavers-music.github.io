@@ -1,5 +1,5 @@
 ---
-title: Putipù（暫譯）
+title: 普蒂普鼓
 original_name: Putipù
 category: 打擊樂器
 country: 待考
@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Pu-ti-p%C3%BA_-
 ---
 ## 介紹
 
-The putipù is a musical instrument traditionally used in folk music of Southern Italy, in particular of Naples and surrounding regions. It is a friction drum, consisting of a cylindrical sound box closed at the top by a stretched membrane, with a bamboo cane attached at the center. The instrument is played by rubbing the rod with a wet hand, cloth, or sponge, that causes the membrane to vibrate. The putipu exists in several variants, differing on the materials and dimensions.
+普蒂普鼓是一種傳統樂器，主要用於義大利南部的民間音樂，尤其是在那不勒斯及其周邊地區。它是一種摩擦鼓，由一個圓筒形的音箱組成，頂部由一層拉緊的膜封閉，中心附有一根竹製的桿。演奏者用濕潤的手、布或海綿摩擦桿，使膜產生振動。普蒂普鼓存在多種變體，在材料和尺寸上各不相同。
 ## 歷史背景
 
 ## 音色描述

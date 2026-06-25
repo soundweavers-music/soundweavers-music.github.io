@@ -1,5 +1,5 @@
 ---
-title: 杜农鼓
+title: 杜農鼓
 original_name: Dunun
 category: 打擊樂器
 country: 非洲／中東／亞洲／歐洲／美洲
@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-Dunun (Malinké: [ˈdu.nun]; plural dunun) (also spelled dundun or doundoun) is the generic name for a family of West African drums that have developed alongside the djembe in the Mande drum ensemble. A dunun is a rope-tuned cylindrical drum with a rawhide skin at both ends, most commonly cow or goat. The drum is played with a stick. Depending on the region, a plain straight stick, curved stick with flat head (similar to the stick used for a tama), or a straight stick with a cylindrical head attached at right angles near one end may be used to strike the skin.
+杜農鼓（馬林克語：[ˈdu.nun]；複數形式 dunun）（也拼作 dundun 或 doundoun）是西非鼓類樂器的統稱，它與傑姆貝鼓在曼德鼓樂團中一起發展演變而來。杜農鼓是一種繩調式圓筒形鼓，兩端均覆蓋生皮鼓面，最常見的是牛皮或羊皮。該鼓用鼓槌敲擊。根據不同地區，可能使用普通直木槌、頭部呈平面的彎木槌（類似於塔馬鼓使用的槌）或直木槌配上在靠近一端處以直角連接的圓筒形槌頭來敲擊鼓面。
 ## 歷史背景
 
 ## 音色描述

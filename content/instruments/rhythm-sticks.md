@@ -1,5 +1,5 @@
 ---
-title: Rhythm Sticks
+title: 節奏棒
 original_name: Rhythm Sticks
 category: 打擊樂器
 country: 拉丁美洲／非洲／歐洲／亞洲／全球

@@ -7,7 +7,7 @@ era: 傳統／年代待考
 ---
 ## 介紹
 
-The huiringua, kuiringua, kiringua, quiringua, cuiringua is a percussion instrument of the group of slit drums. It consists of a hollow log with closed ends with a slit along the instrument. The shell becomes the resonating chamber for the sound vibrations created when the slit is struck with a pair of wood mallets.
+慧林瓜（暫譯）、庫林瓜、基林瓜、奎林瓜、崔林瓜是打擊樂器中狹縫鼓這一類樂器。它由兩端密閉、沿著樂器開有狹縫的空心木頭組成。當用一對木槌敲擊狹縫時，外殼作為共鳴室，產生聲音振動。
 ## 歷史背景
 
 ## 音色描述

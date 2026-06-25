@@ -14,7 +14,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-Bombard may refer to the act of carrying out a bombardment. It may also refer to:
+轟炸可能指的是進行轟炸的行為。它也可能指的是：
 ## 歷史背景
 
 ## 音色描述

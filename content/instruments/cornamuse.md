@@ -1,5 +1,5 @@
 ---
-title: Cornamuse（暫譯）
+title: 角笛
 original_name: Cornamuse
 category: 管樂器
 country: 待考
@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Cornamuse_text.
 ---
 ## 介紹
 
-The cornamuse is a double reed instrument dating from the Renaissance period. It is similar to the crumhorn in having a windcap over the reed and cylindrical bore. The only evidence for the cornamuse comes from a description and a few comments by Michael Praetorius in Syntagma musicum II, published in 1619. Since the paragraph by Praetorius is the only clear description of the cornamuse and no period specimen or picture has been found, all reconstructions of the instrument rely on a certain amount of conjecture.
+角笛是一種源自文藝復興時期的雙簧樂器。它與克倫霍恩相似，都在簧片上方有一個風帽，並具有圓筒形的管孔。關於角笛的唯一證據來自米夏埃爾·普萊托里烏斯在1619年出版的《音樂綱要第二卷》中的描述和一些評論。由於普萊托里烏斯的段落是對角笛唯一清晰的描述，且未曾發現任何當代文物或圖片，所以該樂器的所有重建都在一定程度上依賴於推測。
 ## 歷史背景
 
 ## 音色描述

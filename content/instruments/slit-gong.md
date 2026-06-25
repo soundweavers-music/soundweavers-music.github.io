@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/TamTam.jpg/500p
 ---
 ## 介紹
 
-A slit drum, or slit gong, is a hollow percussion instrument, often made out of wood or bamboo. In spite of its often being called a drum, it is not a true drum, because it lacks a drumhead, the membrane (made out of animal skin or plastic) stretched across the top of a true drum. It is classed instead as an idiophone in which the entire instrument vibrates.
+裂縫鑼（或裂縫鑼鼓）是一種中空的打擊樂器，通常由木頭或竹子製成。儘管它經常被稱為鼓，但它並不是真正的鼓，因為它缺少鼓皮——在真正的鼓頂部拉伸的薄膜（由動物皮革或塑膠製成）。相反，它被歸類為自鳴樂器，整個樂器都會振動。
 ## 歷史背景
 
 ## 音色描述

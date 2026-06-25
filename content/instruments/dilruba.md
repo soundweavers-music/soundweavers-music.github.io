@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The dilruba (also spelled dilrupa) is a bowed musical instrument originating in India. It is a type of bowed sitar that's slightly larger than an esraj and has a larger, square resonance box like a sarangi. The dilruba holds particular importance in Sikh history. It became more widely known outside India in the 1960s through use in songs by Western artists, such as the Beatles during their psychedelic phase (most notably in the song "Within You Without You").
+迪爾魯巴琴（也拼作迪爾魯帕琴）是一種源自印度的弓弦樂器。它是一種弓弦西塔琴，體積略大於艾斯拉琴，擁有如薩朗琴般的較大方形共鳴箱。迪爾魯巴琴在錫克教歷史上具有特殊重要性。1960年代，它通過西方藝術家的歌曲使用而在印度外更廣泛地為人所知，例如披頭四樂隊在其迷幻時期的使用（最著名的是在歌曲《你中有我》中）。
 ## 歷史背景
 
 ## 音色描述

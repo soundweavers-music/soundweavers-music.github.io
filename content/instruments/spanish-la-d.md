@@ -1,5 +1,5 @@
 ---
-title: Laúd Español
+title: 西班牙琵琶
 original_name: Spanish Laúd
 category: 弦樂器
 country: 中東／歐洲／亞洲／美洲

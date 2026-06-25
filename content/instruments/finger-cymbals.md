@@ -1,5 +1,5 @@
 ---
-title: Finger Cymbals
+title: 指鈸
 original_name: Finger Cymbals
 category: 打擊樂器
 country: 全球
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-Zills, zillia, zils, or sagat, also known as finger cymbals or fanglesnaps, are small metallic cymbals used in belly dancing and similar performances. They are similar to Tibetan tingsha bells. In Western music, several pairs can be set in a frame to make a tambourine. Other names include nuqaisāt (after the naqus) and ṣunnūj ṣaghīra in Arabic, sanj angshati in Persian, zil in Turkish.
+指鈸（Zills、zillia、zils 或 sagat），也稱為手指鈸或 fanglesnaps，是用於肚皮舞和類似表演的小型金屬鈸。它們類似於藏族的頸鈸。在西方音樂中，可以將多對指鈸裝在框架中製成鈴鼓。其他名稱包括阿拉伯語中的 nuqaisāt（取自 naqus）和 ṣunnūj ṣaghīra、波斯語中的 sanj angshati 和土耳其語中的 zil。
 ## 歷史背景
 
 ## 音色描述

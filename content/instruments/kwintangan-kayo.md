@@ -7,7 +7,7 @@ era: 傳統／年代待考
 ---
 ## 介紹
 
-The luntang is a type of Philippine xylophone of the Maguindanaon people, strung vertically, with five horizontal logs hung in ascending order arranged by pitch. The Maguindanaon refer to this instrument as a luntang while the Yakan call it a kwintangan kayo. The cylindrical logs are beaten at the edge to create sounds and can be played either solo or with two people on either side. Among the Maguindanaon, the luntang is used only for self-entertainment purposes, to keep farmers awake while at the same time keeping the birds away from the fields.
+倫當琴（Luntang）是菲律賓棉蘭老人民的一種木琴，由垂直懸掛的五根橫向木製圓柱組成，按音高升序排列。棉蘭老人稱此樂器為倫當琴，而亞干人則稱之為「暨因塘卡約」（kwintangan kayo）。這些圓柱形木料從邊緣敲打以發出聲音，可由一人獨奏，也可由兩人分別站在兩側演奏。在棉蘭老人中，倫當琴僅用於自娛自樂，既能讓農民在田間勞動時保持清醒，同時也能驅趕鳥類遠離田地。
 ## 歷史背景
 
 ## 音色描述

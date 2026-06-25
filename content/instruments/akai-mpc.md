@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The Akai MPC (originally MIDI Production Center, now Music Production Center) is a series of music workstations produced by Akai from 1988 onwards. MPCs combine sampling and sequencing functions, allowing users to record portions of sound, modify them and play them back as sequences. The MPC was created by the American engineer Roger Linn, who had designed the successful LM-1 and LinnDrum drum machines in the 1980s. Linn aimed to create an intuitive instrument, with a grid of pads that can be played similarly to a traditional instrument such as a keyboard or drum kit.
+Akai MPC（原名MIDI製作中心，現為音樂製作中心）是Akai公司自1988年起推出的音樂工作站系列。MPC結合了取樣和音序功能，允許使用者錄製聲音片段、修改它們，並將其作為音序播放。MPC由美國工程師羅傑·林恩（Roger Linn）創造，他在1980年代設計了成功的LM-1和LinnDrum鼓機。林恩的目標是創造一種直觀的樂器，配備可以像傳統樂器（如鍵盤或鼓組）一樣演奏的墊板網格。
 ## 歷史背景
 
 ## 音色描述

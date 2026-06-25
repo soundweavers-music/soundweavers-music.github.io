@@ -1,5 +1,5 @@
 ---
-title: Umuduri（暫譯）
+title: 烏姆杜裡琴
 original_name: Umuduri
 category: 弦樂器
 country: 待考
@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Instrument_musi
 ---
 ## 介紹
 
-The umuduri is a Burundian and Rwandan stringed instrument. It is a musical bow consisting of a string supported by a flexible wooden string bearer or bow that is 125–135 cm in length. The string is traditionally made from plant fiber and animal gut. However, metal wire is becoming widespread.
+烏姆杜里琴是一種布隆迪和盧旺達的弦樂器。它是一種音樂弓，由一根弦和一個柔軟的木製弦承體或弓組成，長度為125–135厘米。琴弦傳統上由植物纖維和動物腸製成。然而，金屬弦正日益普及。
 ## 歷史背景
 
 ## 音色描述

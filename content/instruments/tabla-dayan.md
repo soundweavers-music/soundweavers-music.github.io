@@ -1,5 +1,5 @@
 ---
-title: Tabla Dayan
+title: 塔布拉鼓
 original_name: Tabla Dayan
 category: 打擊樂器
 country: 印度／南亞

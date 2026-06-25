@@ -1,5 +1,5 @@
 ---
-title: Roneat Ek
+title: 柬埔寨木琴
 original_name: Roneat Ek
 category: 打擊樂器
 country: 東南亞／東亞／非洲／歐洲／全球

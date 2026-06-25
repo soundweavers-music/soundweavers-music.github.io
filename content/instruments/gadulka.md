@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The gadulka (Bulgarian: гъдулка) is a traditional Bulgarian bowed string instrument. Alternate spellings are "gǎdulka", "gudulka" and "g'dulka". Its name comes from a root meaning "to make noise, hum or buzz". The gadulka is an integral part of Bulgarian traditional instrumental ensembles, commonly played in the context of dance music. The gadulka commonly has three (occasionally four or five Mincho Minchev) main strings with up to sixteen sympathetic resonating strings underneath introduced by the legendary Mincho Nedyalkov.
+保加利亞弓琴（保加利亞語：гъдулка）是一種傳統保加利亞弓弦樂器。其他拼寫方式有「gǎdulka」、「gudulka」和「g'dulka」。其名稱來自於意為「製造噪音、嗡嗡聲或嗡鳴」的詞根。保加利亞弓琴是保加利亞傳統器樂合奏的重要組成部分，通常在舞蹈音樂的背景下演奏。保加利亞弓琴通常有三根主弦（偶爾有四根或五根 Mincho Minchev），下方還有由傳奇人物 Mincho Nedyalkov 引入的多達十六根共鳴弦。
 ## 歷史背景
 
 ## 音色描述

@@ -1,5 +1,5 @@
 ---
-title: Tamak'（暫譯）
+title: 塔馬克鼓
 original_name: Tamak'
 category: 打擊樂器
 country: 印度
@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Traditional_Ins
 ---
 ## 介紹
 
-The tamak' is a stick-struck double-headed drum of the Santal people of the Indian subcontinent. The body of the drum is made from metal and shaped like a large bowl. The head of the drum is usually cowhide and 14-18 inches in diameter. The player strikes the drum with a pair of drumsticks. The Santal believe that the tamak' has special religious powers and it is often used for religious ceremonies and Santal festivals. The rhythm of the tamak' often sets the basic metric/rhythmic pattern for Santal dances and is an essential instrument for traditional Santal music.
+塔馬克鼓是印度次大陸桑塔爾人使用的木槌敲擊雙面鼓。鼓體由金屬製成，形狀如同一個大碗。鼓面通常由牛皮製成，直徑為14至18英寸。演奏者用一對鼓槌敲擊鼓面。桑塔爾人相信塔馬克鼓具有特殊的宗教力量，經常用於宗教儀式和桑塔爾人的節慶活動。塔馬克鼓的節奏通常為桑塔爾舞蹈奠定基本的度量和節奏模式，是傳統桑塔爾音樂的重要樂器。
 ## 歷史背景
 
 ## 音色描述

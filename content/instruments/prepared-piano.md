@@ -1,5 +1,5 @@
 ---
-title: Prepared Piano
+title: 準備鋼琴
 original_name: Prepared Piano
 category: 鍵盤樂器
 country: 全球
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-A prepared piano is a piano that has had its sounds temporarily altered by placing bolts, screws, mutes, rubber erasers, and/or other objects on or between the strings. Its invention is usually traced to John Cage, who used the technique in his dance music for Bacchanale (1940), created for a performance in a Seattle venue that lacked sufficient space for a percussion ensemble. Cage has cited Henry Cowell as an inspiration for developing piano extended techniques, involving strings within a piano being manipulated instead of the keyboard.
+準備鋼琴是一種通過在琴弦上或琴弦之間放置螺栓、螺釘、靜音器、橡皮擦和/或其他物體，暫時改變其聲音的鋼琴。它的發明通常被追溯到約翰·凱奇，他在為1940年的《酒神頌》創作舞蹈音樂時使用了這種技術，該作品是為一個沒有足夠空間容納打擊樂團的西雅圖場地而創作的。凱奇引用亨利·考威爾作為開發鋼琴擴展技巧的靈感來源，該技巧涉及操縱鋼琴內的琴弦而非鍵盤。
 ## 歷史背景
 
 ## 音色描述

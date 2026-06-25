@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The madal (Nepali: मादल) or maadal is a Nepalese folk musical instrument. The madal is used mainly for rhythm-keeping in Nepalese folk music. It is very popular and widely used as a hand drum in Nepal. The madal has a cylindrical body with a slight bulge at its center and heads at both ends, one head larger than the other. It is usually played horizontally in a seated position, with both heads played simultaneously. The madal is the national instrument of Nepal and is the backbone of most Nepali folk music.
+馬達爾鼓（尼泊爾語：मादल）或稱馬阿達爾鼓，是一種尼泊爾民間樂器。馬達爾鼓主要用於尼泊爾民間音樂的節奏伴奏。它在尼泊爾非常受歡迎，被廣泛用作手鼓。馬達爾鼓具有圓筒形的鼓身，中心略微突起，兩端各有一個鼓面，其中一個鼓面較大。通常採用水平方式演奏，演奏者坐姿，同時敲擊兩個鼓面。馬達爾鼓是尼泊爾的民族樂器，是大多數尼泊爾民間音樂的基礎。
 ## 歷史背景
 
 ## 音色描述

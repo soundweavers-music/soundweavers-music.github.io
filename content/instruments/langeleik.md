@@ -1,5 +1,5 @@
 ---
-title: Langeleik（暫譯）
+title: 朗格萊克琴
 original_name: Langeleik
 category: 鍵盤樂器
 country: 全球
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The langeleik, also called langleik, is a Norwegian stringed folklore musical instrument, a droned zither.
+朗格萊克琴，也稱為蘭格萊克琴，是一種挪威弦樂民間樂器，屬於持續低音齊特琴。
 ## 歷史背景
 
 ## 音色描述

@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The cabasa, similar to the shekere, is a percussion instrument that is constructed with loops of steel ball chain wrapped around a wooden cylinder. The cylinder is fixed to a long, wooden or plastic handle. The metal cabasa was created by Martin Cohen, founder of Latin Percussion. This company has built a more durable cabasa that they call an afuche-cabasa (pictured). It provides a metallic, rattling sound when shaken or twisted, similar to the sound of a rattlesnake. It is often used in Latin jazz, especially in bossa nova pieces.
+卡巴薩搖響器與沙克雷鼓相似，是一種打擊樂器，由纏繞在木製圓筒周圍的鋼珠鏈環構成。圓筒固定在一根長的木製或塑膠把手上。金屬卡巴薩由拉丁打擊樂公司創始人馬丁·科恩創製。該公司製造了一種更耐用的卡巴薩，稱為非洲芬奇-卡巴薩（如圖所示）。搖晃或扭轉時會產生金屬般的嘎嘎聲，類似於響尾蛇的聲音。它經常用於拉丁爵士樂，特別是在巴薩諾瓦樂曲中。
 ## 歷史背景
 
 ## 音色描述

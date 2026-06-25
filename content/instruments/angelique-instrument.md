@@ -1,5 +1,5 @@
 ---
-title: Angélique (instrument)（暫譯）
+title: 天使琴
 original_name: Angélique (instrument)
 category: 弦樂器
 country: 法國

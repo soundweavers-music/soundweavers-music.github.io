@@ -15,7 +15,7 @@ region_type: 單一國家或文化源流
 ---
 ## 介紹
 
-The uilleann pipes ( IL-ən or IL-yən, Irish: [ˈɪl̠ʲən̪ˠ]), also known as Union pipes and sometimes called Irish pipes, are the characteristic national bagpipe of Ireland. Their current name is a partial translation of the Irish language terms píobaí uilleann (literally, "pipes of the elbow"), from their method of inflation. There is no historical record of the name or use of the term uilleann pipes before the 20th century. The name was an invention of Grattan Flood and it stuck.
+愛爾蘭風笛（uilleann pipes，發音為 IL-ən 或 IL-yən，愛爾蘭語：[ˈɪl̠ʲən̪ˠ]），也被稱為聯合風笛，有時被稱為愛爾蘭風笛，是愛爾蘭的典型民族風笛。其現今名稱是愛爾蘭語術語「píobaí uilleann」（字面意思為「手肘風笛」）的部分翻譯，源自其充氣方法的名稱。在20世紀之前，沒有關於愛爾蘭風笛這個名稱或術語使用的歷史記載。這個名稱是格拉頓·弗洛德的發明，並沿用至今。
 ## 歷史背景
 
 ## 音色描述

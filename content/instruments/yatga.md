@@ -1,5 +1,5 @@
 ---
-title: 雅托格琴
+title: 雅託格琴
 original_name: Yatga
 category: 鍵盤樂器
 country: 東亞／中亞／歐洲／東南亞／非洲／美洲
@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The yatga (Mongolian: ᠶᠠᠲᠤᠭ᠎ᠠ, romanized: yatug-a, Khalkha dialect: ятга, yatga; pronounced [ˈjɑtʰəq]; is a traditional plucked zither of Mongolia. Yatga may vary widely in size, tuning, and number of bridges and strings; The body is a long wooden box, one end of which is angled downward. The performer plucks the strings with the fingernails of the right hand; the left hand is used to put pressure on the strings, varying the note. The left hand can also be used to play the bass strings without plectrums (picks). Depending on style the higher strings are picked by fingers or by picks.
+雅托格琴（蒙古語：ᠶᠠᠲᠤᠭ᠎ᠠ，拉丁字母轉寫：yatug-a，哈薩克方言：ятга，yatga；發音：[ˈjɑtʰəq]）是蒙古的一種傳統撥弦箏類樂器。雅托格琴的大小、調音、琴橋數量和琴弦數量差異很大；琴體是一個細長的木製盒子，其中一端向下傾斜。演奏者用右手指甲撥動琴弦；左手用來按壓琴弦，改變音高。左手也可以在不使用撥片的情況下彈奏低音弦。根據不同的演奏風格，高音弦可以用手指或撥片來彈奏。
 ## 歷史背景
 
 ## 音色描述

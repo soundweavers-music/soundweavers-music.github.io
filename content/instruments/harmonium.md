@@ -1,5 +1,5 @@
 ---
-title: Harmonium（暫譯）
+title: 手風琴
 original_name: Harmonium
 category: 鍵盤樂器
 country: 全球
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The pump organ or reed organ is a type of organ that uses free reeds to generate sound, with air passing over vibrating thin metal strips mounted in a frame. Types include the pressure-based harmonium, the suction reed organ (which employs a vacuum system), and the Indian harmonium. Historical examples include the Kunstharmonium and the American reed organ, while earlier forms include the physharmonica and the seraphine.
+打泵風琴或簧管風琴是一種使用自由簧片產生聲音的風琴，空氣通過裝在框架中的振動薄金屬片而產生聲響。類型包括基於壓力的手風琴、抽吸簧管風琴（採用真空系統）和印度手風琴。歷史範例包括藝術手風琴和美式簧管風琴，而早期形式包括物理手風琴和血清風琴。
 ## 歷史背景
 
 ## 音色描述

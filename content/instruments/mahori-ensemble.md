@@ -1,5 +1,5 @@
 ---
-title: 泰國瑪荷里合奏
+title: 泰國瑪荷裡合奏
 original_name: Mahori Ensemble
 category: 其他
 country: 泰國

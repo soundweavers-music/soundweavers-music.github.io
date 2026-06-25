@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-A bougarabou (alternative spelling “Boucarabou”) is a set of drums commonly used in West Africa. The drums are single headed (cow skin), with an elongated goblet or roughly conical shape, usually placed on a single stand, and most commonly played in sets of three to four. Until the last few decades the Bougarabou was played only one at a time, usually with one hand and a stick, but in the last generation or two (since the 1940s), possibly influenced from congueros in the western hemisphere, players play multiple drum setups.
+布加拉布鼓是一組常見於西非的鼓樂器。這些鼓採用單層鼓面（牛皮），具有細長的高腳杯形或大致圓錐形的外觀，通常放在單個支架上，最常見的是成組演奏，每組三到四個鼓。在過去的幾十年前，布加拉布鼓通常一次只演奏一個，多使用一隻手配合鼓槌，但在最近一兩代以來（自1940年代起），可能受到西半球康加鼓手的影響，演奏者開始演奏多個鼓的設置。
 ## 歷史背景
 
 ## 音色描述

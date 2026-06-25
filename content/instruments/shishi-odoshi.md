@@ -1,5 +1,5 @@
 ---
-title: Shishi-odoshi（暫譯）
+title: 鹿威
 original_name: Shishi-odoshi
 category: 打擊樂器
 country: 待考

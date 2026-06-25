@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-African harps, particularly arched or "bow" harps, are found in several Sub-Saharan African music traditions, particularly in the north-east. Used from early times in Africa, they resemble the form of harps in ancient Egypt with a vaulted body of wood, parchment faced, and a neck, perpendicular to the resonant face, on which the strings are wound.
+非洲豎琴，尤其是拱形或「弓形」豎琴，在撒哈拉以南非洲的多個音樂傳統中出現，特別是在東北部。這種樂器在非洲自古就被使用，其形狀類似於古埃及豎琴，具有木製的拱形琴體、羊皮鼓面，以及一個垂直於共鳴面的琴頸，琴弦繞在琴頸上。
 ## 歷史背景
 
 ## 音色描述

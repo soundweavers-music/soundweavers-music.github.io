@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_
 ---
 ## 介紹
 
-The trumpet is a brass instrument. The most common type of trumpet is a transposing instrument in B♭, with pitches sounding a whole step lower than written. The trumpet family includes instruments ranging from the piccolo trumpet, with the highest register in the brass family, to the bass trumpet, pitched one octave below the standard B♭ or C trumpet. Trumpet-like instruments have historically been used as signaling devices in battle or hunting, with examples dating back to the 2nd Millennium BC. They began to be used as musical instruments only in the late 14th or early 15th century.
+小號是一種銅管樂器。最常見的小號類型是降B調移調樂器，其音高比記譜低整個全音。小號家族包括從高音域最高的短小號到比標準降B調或C調小號低一個八度的低音小號等多種樂器。類似小號的樂器在歷史上曾被用作戰爭或狩獵中的信號裝置，其例子可以追溯到公元前第二個千年。它們直到14世紀晚期或15世紀早期才開始被用作音樂樂器。
 ## 歷史背景
 
 ## 音色描述

@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-A tiple (Spanish pronunciation: [ˈtiple], literally treble or soprano), is a particular type of guitar, typically with 10 or 12 strings but sometimes fewer, and is built in several distinct regional styles. A tiple player is called a tiplista. The first written mention of an instrument called "tiple" comes from musicologist Pablo Minguet e Irol in 1752. The 12-string Colombian tiple is considered the country's national instrument. The Puerto Rican tiple characteristically has fewer than twelve strings, as do those from Cuba, Mallorca, and North America.
+蒂普勒（西班牙語發音：[ˈtiple]，字面意思為高音或女高音）是一種特殊類型的吉他，通常有10或12根弦，有時更少，並以多種獨特的地域風格製造。蒂普勒演奏者被稱為蒂普勒斯塔（tiplista）。關於稱為「蒂普勒」的樂器的第一次書面記載來自於1752年的音樂學家帕布羅·明蓋特·伊羅爾。12弦的哥倫比亞蒂普勒被視為該國的民族樂器。波多黎各蒂普勒的特點是弦數少於12根，古巴、馬略卡和北美的蒂普勒也是如此。
 ## 歷史背景
 
 ## 音色描述

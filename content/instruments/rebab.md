@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-Rebab (Arabic: ربابة, rabāba, variously spelled rebap, rubob, rebeb, rababa, rabeba, robab, rubab, rebob, etc) is the name of several related string instruments that independently spread via Islamic trading routes over much of North Africa, Middle East, Central Asia, Southeast Asia, and parts of Europe. The instrument is typically bowed, but is sometimes plucked. It is one of the earliest known bowed instruments, named no later than the 8th century, and is the parent of many bowed and stringed instruments.
+熱巴普（阿拉伯語：ربابة，rabāba，拼寫方式眾多，包括rebap、rubob、rebeb、rababa、rabeba、robab、rubab、rebob等）是指多種相關弦樂器的總稱。這些樂器通過伊斯蘭貿易路線獨立傳播，遍及北非、中東、中亞、東南亞以及歐洲的部分地區。該樂器通常是用弓拉奏的，但有時也會被彈撥。它是已知最古老的弓奏樂器之一，命名時間不晚於八世紀，也是許多弓奏及弦樂器的祖先。
 ## 歷史背景
 
 ## 音色描述

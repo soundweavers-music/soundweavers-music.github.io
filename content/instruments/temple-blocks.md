@@ -1,5 +1,5 @@
 ---
-title: Temple Blocks
+title: 寺廟木魚
 original_name: Temple Blocks
 category: 打擊樂器
 country: 全球

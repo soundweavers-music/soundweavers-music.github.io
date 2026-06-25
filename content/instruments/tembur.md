@@ -1,5 +1,5 @@
 ---
-title: Tembûr（暫譯）
+title: 庫爾德坦布林琴
 original_name: Tembûr
 category: 弦樂器
 country: 待考
@@ -7,7 +7,7 @@ era: 傳統／年代待考
 ---
 ## 介紹
 
-Kurdish tanbur (Kurdish: ته‌مبوور, romanized: Tembûr) or tanbour a fretted string instrument, is an initial and main form of the tanbūr instrument family, used by the Kurds. It is highly associated with the Yarsan (Ehli Heq) religion in Kurdish areas and in the Lorestān provinces of Iran. It is one of the few musical instruments used in Ehli Heq rituals, and practitioners venerate the tembûr as a sacred object. Another popular percussion instrument used together with the tembur is the Kurdish daf, but that's not sacred in Yarsan spirituality and Jam praying ceremony.
+庫爾德坦布爾琴（庫爾德語：ته‌مبوور，拉丁字母轉寫：Tembûr）或坦布爾琴是一種有品柱的弦樂器，是坦布爾琴族樂器的初始和主要形式，由庫爾德人使用。它與庫爾德地區和伊朗洛雷斯坦省的雅爾桑教（埃赫里海格教）密切相關。它是在埃赫里海格儀式中使用的少數幾種樂器之一，信徒們將坦布爾琴尊為聖物。另一種與坦布爾琴一起使用的流行打擊樂器是庫爾德達夫琴，但在雅爾桑靈性和詹姆祈禱儀式中並不被視為聖物。
 ## 歷史背景
 
 ## 音色描述

@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The quena (hispanicized spelling of Quechua qina, sometimes also written kena in English) is the traditional flute of the Andes. Traditionally made of cane or wood, it has 6 finger holes and one thumb hole, and is open on both ends or the bottom is half-closed (choked). To produce sound, the player closes the top end of the pipe with the flesh between the chin and lower lip, and blows a stream of air downward, along the axis of the pipe, over an elliptical notch cut into the end. It is normally in the key of G, with G4 being the lowest note.
+克納笛（西班牙化拼寫法為Quechua語的qina，英文有時也寫作kena）是安地斯山脈的傳統笛子。傳統上由蘆葦或木材製成，有6個手指孔和1個拇指孔，兩端開放或底部半封閉（悶音）。為了發出聲音，演奏者用下巴與下唇之間的肌肉閉合管子的頂端，並將氣流向下吹出，沿著管子的軸線，吹過頂端切割的橢圓形凹口上方。它通常以G調為標準，最低音為G4。
 ## 歷史背景
 
 ## 音色描述

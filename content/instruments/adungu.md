@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The Adungu, also called the Endongo or Ennanga or Bow harp in English, is a traditional stringed musical instrument of the Acholi people of Northern Uganda and the Alur people of northwestern Uganda. It is an arched harp of varying dimensions, ranging from six to ten strings or more.
+阿杜古弓形豎琴（也稱為恩東戈琴、恩南加琴，英文為弓形豎琴）是烏干達北部阿喬利人和烏干達西北部阿盧爾人的傳統弦樂器。它是一種拱形豎琴，尺寸多樣，琴弦數量從六根到十根或更多。
 ## 歷史背景
 
 ## 音色描述

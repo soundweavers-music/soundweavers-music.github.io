@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/%E0%B4%93%E0%B4
 ---
 ## 介紹
 
-An onavillu is a simple, short, bow-shaped musical instrument. Its name may come from Onam, a festival in Kerala where the instrument is used in dances, and villu, which means 'bow' in Malayalam (and several other South Indian languages). Although still regularly used in rural art forms, use of the onavillu is on the decline. Onavillu also refers to flat, tapered wooden artifacts decorated with tassels and used in ceremonies of devotion to Lord Vishnu.
+奧那維盧（Onavillu）是一種簡單、短小、弓形的樂器。其名稱可能來自於喀拉拉邦的節日奧南（Onam），該樂器在當地舞蹈中使用，以及馬拉雅拉姆語（以及其他南印度語言）中表示「弓」的詞彙維盧（villu）。儘管在鄉村藝術形式中仍被定期使用，奧那維盧的使用正在衰退。奧那維盧也指扁平、逐漸變窄的木製製品，裝飾有流蘇，用於對毗濕奴勳爵的虔誠儀式。
 ## 歷史背景
 
 ## 音色描述

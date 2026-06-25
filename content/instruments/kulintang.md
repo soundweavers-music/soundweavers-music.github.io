@@ -1,5 +1,5 @@
 ---
-title: Kulintang（暫譯）
+title: 索科斯克薩爾根
 original_name: Kulintang
 category: 打擊樂器
 country: 待考
@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Mindanao_Bangsa
 ---
 ## 介紹
 
-Kulintang (Indonesian: kolintang, Malay: kulintangan) is a modern term for an ancient instrumental form of music composed on a row of small, horizontally laid gongs that function melodically, accompanied by larger, suspended gongs and drums.
+庫林當（印尼語：kolintang，馬來語：kulintangan）是一種現代術語，用於指稱一種古老的樂器音樂形式，由一排水平放置的小鑼組成，這些小鑼發揮旋律功能，並由更大的懸掛鑼和鼓伴奏。
 ## 歷史背景
 
 ## 音色描述

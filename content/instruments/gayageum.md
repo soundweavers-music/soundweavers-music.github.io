@@ -1,5 +1,5 @@
 ---
-title: Gayageum（暫譯）
+title: 伽倻琴
 original_name: Gayageum
 category: 鍵盤樂器
 country: 東亞／中亞／歐洲／東南亞／非洲／美洲

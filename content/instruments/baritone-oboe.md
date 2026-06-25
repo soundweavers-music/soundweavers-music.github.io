@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Bass_oboe_-_St_
 ---
 ## 介紹
 
-The bass oboe or baritone oboe is a double reed instrument in the woodwind family. It is essentially twice the size of the familiar soprano oboe in C, sounding an octave lower; it has a deep, full tone somewhat akin to that of its higher-pitched cousin, the cor anglais (English horn). The bass oboe is notated in treble clef, sounding one octave lower than written.
+低音雙簧管或男中音雙簧管是木管樂器家族中的雙簧樂器。它的體積基本上是熟悉的C調高音雙簧管的兩倍，音域低一個八度；它具有深沉、飽滿的音色，在某種程度上類似於其較高音域的表親英國管（英國號角）。低音雙簧管用高音譜號記譜，其音響比譜面低一個八度。
 ## 歷史背景
 
 ## 音色描述

@@ -1,5 +1,5 @@
 ---
-title: Gendér（暫譯）
+title: 甘美蘭鐵琴
 original_name: Gendér
 category: 打擊樂器
 country: 全球
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-A gendèr is a type of metallophone used in Balinese and Javanese gamelan music. It consists of 10 to 14 tuned metal bars suspended over a tuned resonator of bamboo or metal, which are tapped with a mallet made of wooden disks (Bali) or a padded wooden disk (Java). Each key is a note of a different pitch, often extending a little more than two octaves. There are five notes per octave, so in the seven-note pélog scale, some pitches are left out according to the pathet. Most gamelans include three gendèr, one for sléndro, one for pelog pathet nem and lima, and one for pelog pathet barang.
+甘美蘭鐵琴（gendèr）是一種用於峇里島和爪哇甘美蘭音樂的金屬琴。它由10至14根調好音的金屬條組成，這些金屬條懸掛在用竹子或金屬製成的調諧共鳴器上，用木製圓盤琴槌（峇里島）或墊襯木製圓盤琴槌（爪哇）敲擊。每根琴鍵代表不同音高的音符，通常範圍超過兩個八度。每個八度有五個音符，因此在七聲佩洛格音階中，某些音高會根據帕塞特而被省略。大多數甘美蘭樂隊包含三把甘美蘭鐵琴，分別用於斯蘭德羅、佩洛格帕塞特內姆和利馬，以及佩洛格帕塞特巴朗。
 ## 歷史背景
 
 ## 音色描述

@@ -1,5 +1,5 @@
 ---
-title: 三弦古巴吉他
+title: 三絃古巴吉他
 original_name: Tres
 category: 弦樂器
 country: 中東／歐洲／亞洲／美洲
@@ -14,7 +14,20 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-Tres may refer to: Tres (instrument), a Cuban musical instrument Tres, Trentino, municipality in Italy Tres (2014 film), a Filipino anthology drama film based on short stories "Tres" (song) by Juanes "Tres", a song by Líbido from their album Hembra TrES, the Trans-Atlantic Exoplanet Survey Templi Resurgentes Equites Synarchici, a fictional secret society in the novel Foucault's Pendulum MTV Tres, an American cable network which targets programming towards young Hispanic-Americans Tea Research and Extension Station, Taiwan Tres (Fiel a la Vega album), 1999 Tres (Álvaro Torres album), 1985 Tres…
+三弦古巴吉他可能指的是：
+
+三弦古巴吉他（樂器），一種古巴音樂樂器
+特雷斯，特倫蒂諾，意大利的一個市鎮
+《三》（2014年電影），一部菲律賓選集劇情片，改編自短篇故事
+《三弦》（歌曲），胡安尼斯演唱的歌曲
+《三弦》，利比多樂隊專輯《母性》中的一首歌曲
+TrES，跨大西洋系外行星調查
+聖殿復興騎士團，小說《傅科的鐘擺》中虛構的秘密社團
+MTV三弦頻道，一個針對年輕西班牙裔美國人的美國有線電視網
+茶葉研究推廣站，台灣
+《三弦》，菲爾·阿·拉·維加樂隊1999年專輯
+《三弦》，阿爾瓦羅·托雷斯1985年專輯
+三弦…
 ## 歷史背景
 
 ## 音色描述

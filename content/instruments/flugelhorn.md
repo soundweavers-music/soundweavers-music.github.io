@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The flugelhorn (, also fluegelhorn, flugel horn; from German, Flügelhorn) is a high brass instrument similar to the trumpet and cornet, but with the wider conical bore of a bugle producing a darker, mellower sound. Like trumpets and cornets, most flugelhorns are pitched in 4½-foot (4½′) B♭, though some are in 4′ C. It is a type of valved bugle, developed in Germany in the early 19th century from earlier traditional valveless bugles, and to replace the keyed bugle.
+翼號（德語：Flügelhorn）是一種高音銅管樂器，類似於小號和短號，但具有更寬的圓錐形管身，如號角般能夠發出深沉、柔和的音色。與小號和短號一樣，大多數翼號採用4½-foot（4½′）B♭調，但也有一些採用4′ C調。它是一種裝有活塞的號角，在19世紀初由德國開發，目的是為了改進早期的傳統無活塞號角，並取代鍵盤號角。
 ## 歷史背景
 
 ## 音色描述

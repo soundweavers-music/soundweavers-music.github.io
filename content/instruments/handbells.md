@@ -14,7 +14,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-A handbell is a bell designed to be rung by hand. To ring a handbell, a ringer grasps the bell by its slightly flexible handle – traditionally made of leather, but often now made of plastic – and moves the arm to make the hinged clapper strike the inside of the bell. An individual handbell can be used simply as a signal to catch people's attention or summon them together, but handbells are also often heard in tuned sets.
+手搖鈴是一種設計用來以手搖動的鈴。要搖動手搖鈴，搖鈴者用手握住鈴的略微柔軟的手柄——傳統上由皮革製成，但現在經常由塑料製成——並移動手臂使鉸鏈式的舌頭撞擊鈴的內部。單個手搖鈴可以簡單地用作吸引人們注意或召喚他們聚集的信號，但手搖鈴也經常被聽到與調音組合一起使用。
 ## 歷史背景
 
 ## 音色描述

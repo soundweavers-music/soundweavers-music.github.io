@@ -1,5 +1,5 @@
 ---
-title: Hosho (instrument)（暫譯）
+title: 荷索鼓
 original_name: Hosho (instrument)
 category: 打擊樂器
 country: 全球
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The hosho are Zimbabwean musical instruments consisting of a pair of maranka (mapudzi) gourds with seeds. They are used as major instruments in many traditional Shona music genres, such as in mbira ensembles and in mhande. They typically contain hota (Canna indica) seeds inside them. Before the hota seeds are added, the hosho is boiled in salted water and the inside is scraped out with a corncob, newspaper plug, or woven wire. Removing the debris inside the hosho allows for a more sharp and percussive tone. The hosho are used to accompany Shona music, especially mbira music.
+荷索鼓是津巴布韋的樂器，由一對裝有種子的馬蘭卡（馬普茲）葫蘆組成。它們在許多傳統肖納音樂類型中被用作主要樂器，例如在姆比拉合奏樂隊和姆漢德中使用。它們通常在內部裝有荷塔（美人蕉）種子。在加入荷塔種子之前，荷索鼓要在鹽水中煮沸，內部用玉米穗、報紙塞或編織金屬絲刮掉。清除荷索鼓內部的雜物可以產生更尖銳和打擊感更強的音色。荷索鼓用於伴奏肖納音樂，尤其是姆比拉音樂。
 ## 歷史背景
 
 ## 音色描述

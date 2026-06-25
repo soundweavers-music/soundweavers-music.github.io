@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-Talharpa, tagelharpa ("tail-hair harp"), or stråkharpa ("bowed harp") in Swedish, and hiiu kannel or hiiurootsi kannel in Estonian, is a two- to four-stringed bowed lyre from northern Europe. It is questionable whether it was formerly common and widespread in Scandinavia.
+塔爾哈帕（Talharpa）、塔格爾哈帕（tagelharpa，意為「馬尾琴」）或瑞典語中的斯特羅克哈帕（stråkharpa，意為「弓琴」），以及愛沙尼亞語中的希烏坎內爾（hiiu kannel）或希烏魯茨基坎內爾（hiiurootsi kannel），是一種來自北歐的二到四弦弓形豎琴。它曾經在斯堪地那維亞地區是否普遍存在和廣泛流行仍有疑問。
 ## 歷史背景
 
 ## 音色描述

@@ -15,7 +15,7 @@ region_type: 單一地區／文化圈
 ---
 ## 介紹
 
-The taphon (Thai: ตะโพน, pronounced [ta.pʰoːn]) is a traditional drum of Thailand. It is barrel-shaped with two heads, and is played by the hands and fingers of both hands, much like the more popular congas. Originally called the Sa Phon, the taphon is used in the classical Thai wind-and-percussion ensemble called piphat. Moreover, it is the most commonly used drum in Thai folk music, and is performed often in Bangkok and Chiang Mai.
+塔蓬鼓（泰文：ตะโพน，發音為[ta.pʰoːn]）是泰國的傳統鼓樂器。它呈桶形，有兩個鼓面，用雙手的手掌和手指演奏，與更受歡迎的康加鼓類似。塔蓬鼓原名為薩馮鼓，用於稱為「皮派」的泰國古典管樂和打擊樂器樂隊。此外，它是泰國民間音樂中最常用的鼓樂器，經常在曼谷和清邁進行表演。
 ## 歷史背景
 
 ## 音色描述

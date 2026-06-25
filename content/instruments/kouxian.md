@@ -1,5 +1,5 @@
 ---
-title: Kouxian（暫譯）
+title: 口弦
 original_name: Kouxian
 category: 打擊樂器
 country: 待考

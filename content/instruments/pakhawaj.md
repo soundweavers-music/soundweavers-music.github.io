@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The pakhavaj is a barrel-shaped, two-headed drum, originating from the Indian subcontinent, kendang of Maritime Southeast Asia and other South Asian double-headed drums. Its older forms were made with clay. It is the percussion instrument most commonly used in the dhrupad style of Indian classical music and less often used as a rhythm accompaniment for various other sub-forms of music and dance performances (e.g. kathak, odissi, marathi). It has a low, mellow tone that is quite rich in harmonics. The sides of the pakhawaj are made with animal skin (often goat skin).
+帕卡瓦吉鼓是一種桶形、雙鼓面的鼓，起源於印度次大陸，與東南亞海域的肯當鼓和其他南亞雙鼓面鼓類樂器相關。其較古老的形式採用黏土製作。它是印度古典音樂中德魯帕德唱法最常使用的打擊樂器，也較少用作各種其他音樂形式和舞蹈表演的節奏伴奏（例如卡塔克舞、奧迪西舞、馬拉地舞）。它具有低沉、溫和的音色，泛音極為豐富。帕卡瓦吉鼓的側面由動物皮革製成（通常為羊皮）。
 ## 歷史背景
 
 ## 音色描述

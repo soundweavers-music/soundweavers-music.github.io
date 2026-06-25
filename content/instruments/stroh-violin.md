@@ -1,5 +1,5 @@
 ---
-title: Stroh Violin
+title: 斯特羅小提琴
 original_name: Stroh Violin
 category: 弦樂器
 country: 全球

@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The Tabl, tapan, atabal or davul is a large double-headed drum that is played with mallets. It has many names depending on the country and region. These drums are commonly used in the music of West Asia and the Balkans.
+達烏爾鼓（Tabl、tapan、atabal或davul）是一種大型的雙面鼓，用鼓槌敲打。根據不同的國家和地區，它有許多不同的名稱。這種鼓普遍用於西亞和巴爾幹地區的音樂中。
 ## 歷史背景
 
 ## 音色描述

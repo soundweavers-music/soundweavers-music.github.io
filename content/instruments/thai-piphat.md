@@ -1,5 +1,5 @@
 ---
-title: Thai Piphat
+title: 泰國皮帕特樂隊
 original_name: Thai Piphat
 category: 其他
 country: 全球／地域合奏與現代混合

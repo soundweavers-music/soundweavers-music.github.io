@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Guitar_MET_DP23
 ---
 ## 介紹
 
-The Baroque guitar (c. 1600–1750) is a string instrument with five courses of gut strings and moveable gut frets. The first (highest pitched) course sometimes used only a single string.
+巴洛克吉他（約1600-1750年）是一種弦樂器，配有五組腸弦和可移動的腸製指板。第一組（音調最高）有時只使用單根琴弦。
 ## 歷史背景
 
 ## 音色描述

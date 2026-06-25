@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The fujara (Slovak pronunciation: [ˈfujara]) is a large wind instrument of the tabor pipe class. It originated in central Slovakia as a sophisticated folk shepherd's overtone fipple flute of unique design in the contrabass range. Ranging from 160 to 200 cm long (5'3" – 6'6") and tuned in A, G, or F. It has three tone holes (also called finger holes) located on the lower part of the main body. The sound is produced by a fipple at the upper end of the main body of the fujara.
+富亞拉大笛（斯洛伐克語發音：[ˈfujara]）是一種大型風樂器，屬於鼓笛類。它起源於斯洛伐克中部，是一種設計獨特的精緻民間牧羊人泛音管笛，音域為低音提琴範圍。富亞拉大笛長度從160到200厘米（5英尺3英寸至6英尺6英寸），音調可調為A、G或F。它在主體下部有三個音孔（也稱為指孔）。聲音由位於主體上端的吹口產生。
 ## 歷史背景
 
 ## 音色描述

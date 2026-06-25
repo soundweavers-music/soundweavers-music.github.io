@@ -1,5 +1,5 @@
 ---
-title: Đàn tính（暫譯）
+title: 越南十六絃琴
 original_name: Đàn tính
 category: 弦樂器
 country: 待考

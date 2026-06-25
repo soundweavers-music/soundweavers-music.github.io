@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-Naqada (Egyptian Arabic: نقادة‎ Naqāda; Coptic language: ⲛⲉⲕⲁⲧⲏⲣⲓⲟⲛ Nekatērion; Ancient Greek: Παμπανις Pampanis, Ancient Egyptian: Nbyt "City of Gold") is a town on the west bank of the Nile in Qena Governorate, Egypt, situated ca. 20 km north of Luxor. It includes the villages of Tukh, Khatara, Danfiq, and Zawayda. According to the 1960 census, it is one of the most sparsely populated areas and had only 3,000 inhabitants, mostly of the Christian faith who preserved elements of the Coptic language up until the 1930s. The ancient town contained a cemetery that held approximately 2,000 graves.
+納加達（埃及阿拉伯語：نقادة Naqāda；科普特語：ⲛⲉⲕⲁⲧⲏⲣⲓⲟⲛ Nekatērion；古希臘語：Παμπανις Pampanis，古埃及語：Nbyt「黃金之城」）是位於埃及塞納省尼羅河西岸的一個城鎮，距盧克索北部約20公里。它包括圖克、哈塔拉、丹菲克和扎瓦伊達等村莊。根據1960年的人口普查，它是人口最稀少的地區之一，僅有3,000名居民，大多信奉基督教，他們保留了科普特語的一些元素，直到1930年代。古城內有一個墓地，裡面約有2,000座墳墓。
 ## 歷史背景
 
 ## 音色描述

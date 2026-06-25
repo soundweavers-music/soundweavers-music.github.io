@@ -1,5 +1,5 @@
 ---
-title: Suling（暫譯）
+title: 蘇林笛
 original_name: Suling
 category: 管樂器
 country: 印尼／馬來群島
@@ -15,7 +15,7 @@ region_type: 區域／多國
 ---
 ## 介紹
 
-The suling (Sundanese: ᮞᮥᮜᮤᮀ) is a musical instrument of the Sundanese people in Indonesia. It is used in the Degung ensemble. Bamboo ring flute can also be found in Southeast Asia, especially in Brunei, Indonesia, Malaysia, the Philippines and Singapore.
+蘇林笛（巽他語：ᮞᮥᮜᮤᮀ）是印度尼西亞巽他人的一種樂器。它被用於德貢樂隊中。竹環笛也可以在東南亞找到，特別是在汶萊、印度尼西亞、馬來西亞、菲律賓和新加坡。
 ## 歷史背景
 
 ## 音色描述

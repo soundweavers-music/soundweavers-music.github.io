@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The carnyx (pl.: carnyces) is a wind instrument that was common in Celtic cultures during the Iron Age, between c. 200 BC and c. 200 AD. It is a type of trumpet made of bronze with an elongated S shape, held so that the long straight central portion was vertical and the short mouthpiece end section and the much wider bell were horizontal in opposed directions. The bell was styled in the shape of the head of an open-mouthed boar or other animal. The Celts used the carnyx in warfare, probably to incite troops to battle and to intimidate opponents, as Polybius recounts.
+卡爾尼克斯號（複數：carnyces）是一種在凱爾特文化中普遍使用的管樂器，時間約在公元前200年至公元200年的鐵器時代。它是一種由青銅製成的號角，呈拉長的S形，演奏時將長而筆直的中央部分保持垂直，而較短的吹口端部和寬得多的喇叭口則水平指向相反的方向。喇叭口的造型為張開嘴巴的野豬或其他動物的頭部形狀。據波利比烏斯所述，凱爾特人在戰爭中使用卡爾尼克斯號，可能是為了激勵軍隊投入戰鬥，並使對手感到恐懼。
 ## 歷史背景
 
 ## 音色描述

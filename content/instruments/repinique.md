@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-A repinique is a two-headed drum used in samba baterias (percussion ensembles). It is used in the Rio de Janeiro and São Paulo Carnival baterias and in the baterias of Bahia, where it is known as repique. It is equivalent to the tik-tik in the non-Brazilian drum kit or to the tenor drum in marching bands. It is tuned very high to produce a tone that cuts through the sound of the rest of the bateria and is used as both a lead and solo instrument. Typically its body is made of metal. The heads, made of nylon, are tightened through the use of metal tuning rods.
+雷皮尼克鼓是一種雙面鼓，用於森巴打擊樂隊（打擊樂合奏）中。它被用於里約熱內盧和聖保羅嘉年華打擊樂隊，以及巴伊亞的打擊樂隊中，在當地被稱為雷皮克鼓。它相當於非巴西鼓組中的tik-tik鼓，或管樂隊中的次中音鼓。它的音調被調得非常高，以產生能穿透整個打擊樂隊聲音的音色，並被用作主奏和獨奏樂器。通常其鼓身由金屬製成。鼓面由尼龍製成，通過金屬調音桿來緊縮。
 ## 歷史背景
 
 ## 音色描述

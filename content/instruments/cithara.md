@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The kithara (Greek: κιθάρα, romanized: kithára), Latinized as cithara, was an ancient Greek musical instrument in the yoke lutes family. It was a seven-stringed professional version of the lyre, which was regarded as a rustic, or folk instrument, appropriate for teaching music to beginners. As opposed to the simpler lyre, the cithara was primarily used by professional musicians, called kitharodes. In modern Greek, the word kithara has come to mean "guitar"; etymologically, the word guitar derives from kithara.
+奇薩拉琴（希臘文：κιθάρα，拉丁化為 cithara）是古代希臘的弦樂器，屬於軛式魯特琴家族。它是豎琴的七弦專業版本，而豎琴被認為是一種鄉村或民間樂器，適合用於教導初學者學習音樂。與較為簡單的豎琴相比，奇薩拉琴主要由稱為奇薩拉琴手（kitharodes）的專業音樂家使用。在現代希臘語中，「奇薩拉琴」一詞已演變為「吉他」的意思；從詞源學上講，「吉他」一詞源自奇薩拉琴。
 ## 歷史背景
 
 ## 音色描述

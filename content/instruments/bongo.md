@@ -14,7 +14,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-Bongo may refer to:
+邦戈鼓可能指：
 ## 歷史背景
 
 ## 音色描述

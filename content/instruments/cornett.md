@@ -15,7 +15,7 @@ region_type: 歷史文化圈
 ---
 ## 介紹
 
-The cornett (Italian: cornetto, German: Zink) is a lip-reed wind instrument that dates from the Medieval, Renaissance and Baroque periods, popular from 1500 to 1650. Although smaller and larger sizes were made in both straight and curved forms, surviving cornetts are mostly curved, built in the treble size from 51 to 63 cm (20 to 25 in) in length, usually described as in G. The note sounded with all finger-holes covered is A3, which can be lowered a further whole tone to G by slackening the embouchure. The name cornett comes from the Italian cornetto, meaning "small horn".
+辛克號（義大利語：cornetto，德語：Zink）是一種唇簧木管樂器，源於中世紀、文藝復興和巴洛克時期，在1500年至1650年間相當流行。雖然曾製作過大小不同的直形和彎曲形辛克號，但現存的辛克號多為彎曲形，為高音規格，長度在51至63公分（20至25英寸）之間，通常以G調描述。當所有指孔都覆蓋時發出的音是A3，透過放鬆唇形可進一步降低一個全音至G調。辛克號的名稱來自義大利語cornetto，意為「小角」。
 ## 歷史背景
 
 ## 音色描述

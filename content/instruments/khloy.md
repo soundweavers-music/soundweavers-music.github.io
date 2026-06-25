@@ -1,5 +1,5 @@
 ---
-title: Khloy（暫譯）
+title: 克洛伊笛
 original_name: Khloy
 category: 管樂器
 country: 待考
@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Khloy.jpg/500px
 ---
 ## 介紹
 
-The khloy (Khmer: ខ្លុយ, Burmese: ပုလွေ, Khmer pronunciation: [kʰloj]) is a traditional bamboo vertical duct flute from Cambodia and more specifically the Khmer people. The khloy and other similar bamboo flutes can be found throughout Asia, due to bamboo's abundance in the region. The khloy is a duct flute and has two sizes: smaller, higher-pitched (khloy ek) and larger, lower-pitched (khloy thomm). It has six finger holes and a thumb hole, or seven finger holes and no thumb hole.
+克洛伊笛（高棉語：ខ្លុយ，緬甸語：ပုလွေ，高棉語發音：[kʰloj]）是一種源自柬埔寨、特別是高棉人的傳統竹製豎式導管笛。克洛伊笛和其他類似的竹笛在整個亞洲都能找到，這是因為竹子在該地區非常豐富。克洛伊笛是一種導管笛，有兩種尺寸：較小的高音克洛伊笛（克洛伊笛一號）和較大的低音克洛伊笛（克洛伊笛湯姆）。它有六個指孔和一個拇指孔，或七個指孔而沒有拇指孔。
 ## 歷史背景
 
 ## 音色描述

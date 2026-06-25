@@ -1,5 +1,5 @@
 ---
-title: Davul-Zurna Pair
+title: 達夫鼓-祖爾納管組合
 original_name: Davul-Zurna Pair
 category: 打擊樂器
 country: 中東／土耳其／伊朗／巴爾幹

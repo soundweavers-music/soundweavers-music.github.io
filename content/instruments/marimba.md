@@ -1,5 +1,5 @@
 ---
-title: 马林巴
+title: 馬林巴
 original_name: Marimba
 category: 打擊樂器
 country: 全球

@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-A Shankha (Sanskrit: शङ्ख, romanized: śaṅkha, lit. 'conch') has religious ritual importance in Hinduism. In Hinduism, the shankha called panchajanya is a sacred emblem of the Hindu preserver deity Vishnu. It is still used as a trumpet in Hindu ritual, and in the past was used as a war trumpet. According to Arunava Bose, "The shankha is praised in Hindu scriptures as a giver of fame, longevity and prosperity, the cleanser of sin and the abode of goddess Lakshmi, who is the goddess of prosperity and consort of Vishnu". The shankha is displayed in Hindu art in association with Vishnu.
+海螺（梵文：शङ्ख，音譯：śaṅkha，字義為「螺殼」）在印度教中具有宗教儀式的重要意義。在印度教中，稱為「五箭之螺」的海螺是印度教保護神毗濕奴的神聖象徵。它仍被用作印度教儀式中的號角，過去曾被用作戰爭號角。根據阿魯納瓦·博斯的說法，「海螺在印度教經文中被讚美為名聲、長壽和繁榮的賜予者，罪惡的淨化者，以及財富女神拉克什米的住所，拉克什米是繁榮女神也是毗濕奴的妻子」。在印度教藝術中，海螺與毗濕奴一起展現。
 ## 歷史背景
 
 ## 音色描述

@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The trembita (from the old Germanic trumba, "to trumpet", in Ukrainian трембíта) is a type of an alpine horn made of wood. It is common among Galicians highlanders Hutsuls who live in western Ukraine (Galicia), eastern Poland, Slovakia, and northern Romania. In Poland it is known as a trombita (in the south), a bazuna (in the north), or a ligawka (in central Poland). Trembita is also one of the Galician folk musical instruments.
+特倫比塔長號（源自古日耳曼語 trumba，意為「吹奏喇叭」，烏克蘭語為 трембíта）是一種由木材製成的高山號。它在住於烏克蘭西部（加利西亞）、波蘭東部、斯洛伐克和羅馬尼亞北部的加利西亞高地人胡楚爾人中很常見。在波蘭，它被稱為特隆比塔（南部）、巴祖納（北部）或利加夫卡（波蘭中部）。特倫比塔也是加利西亞民間樂器之一。
 ## 歷史背景
 
 ## 音色描述

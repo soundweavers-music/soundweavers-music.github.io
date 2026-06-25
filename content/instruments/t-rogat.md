@@ -1,5 +1,5 @@
 ---
-title: 塔羅加托管
+title: 塔羅加託管
 original_name: Tárogató
 category: 管樂器
 country: 匈牙利
@@ -15,7 +15,7 @@ region_type: 單一地區／文化圈
 ---
 ## 介紹
 
-The tárogató (töröksíp, Turkish pipe; plural tárogatók or, anglicized, tárogatós; or torogoata) is a woodwind instrument commonly used in Hungarian folk music. The modern tárogató was intended to be a recreation of the original tárogató, but the two instruments are thought to have little in common.
+塔羅加托管（töröksíp，土耳其管；複數形式為tárogatók或英文化的tárogatós；或torogoata）是一種常見於匈牙利民間音樂中的木管樂器。現代塔羅加托管原本是想要重現原始塔羅加托管，但這兩種樂器被認為幾乎沒有共同之處。
 ## 歷史背景
 
 ## 音色描述

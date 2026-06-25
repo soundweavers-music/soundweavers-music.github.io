@@ -1,5 +1,5 @@
 ---
-title: Octobass（暫譯）
+title: 低音提琴
 original_name: Octobass
 category: 弦樂器
 country: 全球
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The octobass is an extremely large and rare bowed string instrument, a larger three-stringed version of the double bass, first built around 1850 in Paris by the French luthier Jean-Baptiste Vuillaume (1798–1875). The specimen in the collection of the Musée de la Musique in Paris measures 3.48 metres (11 ft 5 in) in length, whereas a full-size double bass is generally approximately 2 m (6 ft 7 in) in length.
+低音提琴是一種極其巨大且罕見的擦弦樂器，是低音大提琴的一個更大的三弦版本，首次於1850年左右在巴黎由法國樂器製造家讓-巴蒂斯特·維約姆（1798–1875）製造。巴黎音樂博物館收藏的標本長3.48公尺（11英尺5英寸），而標準尺寸的低音大提琴通常長約2公尺（6英尺7英寸）。
 ## 歷史背景
 
 ## 音色描述

@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Page_674_%28A_D
 ---
 ## 介紹
 
-The glass harmonica, also known as the glass armonica, glass harmonium, bowl organ, hydrocrystalophone, or simply the armonica or harmonica is a type of musical instrument that uses a series of glass bowls or goblets graduated in size to produce musical tones by means of friction (instruments of this type are known as friction idiophones). It was invented in 1761 by Benjamin Franklin and produces sound similar to the glockenspiel.
+玻璃琴，又稱玻璃樂器、玻璃風琴、碗風琴、水晶琴，或簡稱樂器或口琴，是一種利用一系列大小遞增的玻璃碗或高腳杯，通過摩擦產生音樂音調的樂器（這類樂器被稱為摩擦打擊樂器）。它由班傑明·富蘭克林於1761年發明，產生的聲音類似於鐘琴。
 ## 歷史背景
 
 ## 音色描述

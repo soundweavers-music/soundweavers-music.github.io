@@ -1,5 +1,5 @@
 ---
-title: Qanbus（暫譯）
+title: 卡姆布斯琴
 original_name: Qanbus
 category: 弦樂器
 country: 中東／歐洲／亞洲／美洲
@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-A qanbūs (Arabic: قنبوس) is a short-necked lute that originated in Yemen and spread throughout the Arabian Peninsula. Sachs considered that it derived its name from the Turkic komuz, but it is more comparable to the oud. The instrument was related to or a descendant of the barbat, a (possibly) skin-topped lute from Central Asia. The qanbūs has 6 or 7 nylon strings that are plucked with a plectrum to generate sound. Unlike many other lute-family instruments, the gambus has no frets.
+卡姆布斯琴（阿拉伯語：قنبوس）是一種源自葉門的短頸魯特琴，後來傳播至整個阿拉伯半島。薩克斯認為它的名稱源自突厥語的科木茲琴，但它更類似於烏德琴。該樂器與中亞的巴爾巴特琴（可能是皮面魯特琴）有關或是其後代。卡姆布斯琴擁有6至7根尼龍弦，用撥片撥動以產生聲音。與許多其他魯特琴族樂器不同，卡姆布斯琴沒有品柱。
 ## 歷史背景
 
 ## 音色描述

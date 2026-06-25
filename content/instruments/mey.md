@@ -14,7 +14,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-Mey or MEY may refer to:
+梅依管或梅依可能指：
 ## 歷史背景
 
 ## 音色描述

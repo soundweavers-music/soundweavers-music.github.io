@@ -14,7 +14,12 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-Melodeon may refer to: Melodeon (accordion), a type of button accordion Melodeon (organ), a type of 19th-century reed organ Melodeon (Boston, Massachusetts), a concert hall in 19th-century Boston Melodeon Records, a U.S. record label in the 1960s The Melodeon, a 1977 novel by Glendon Swarthout
+梅洛迪恩可能指的是：
+梅洛迪恩（手風琴），一種按鈕手風琴
+梅洛迪恩（風琴），一種19世紀簧管風琴
+梅洛迪恩（波士頓，馬薩諸塞州），19世紀波士頓的一個音樂廳
+梅洛迪恩唱片公司，一家1960年代的美國唱片公司
+《梅洛迪恩》，格倫登·斯沃思瑟特1977年的小說
 ## 歷史背景
 
 ## 音色描述

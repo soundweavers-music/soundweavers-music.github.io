@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Kitty_Stephens%
 ---
 ## 介紹
 
-The harp lute, or dital harp, is a musical instrument that combines features of harp and lute and to increase its compass of the latter. It was invented in 1795 by Edward Light, (though an earlier form is shown in The Garden of Earthly Delights (~1500) by Hieronymus Bosch).
+魯特豎琴（或稱指彈豎琴）是一種結合豎琴和魯特琴特點的樂器，用來擴展後者的音域。它由愛德華·萊特於1795年發明（儘管耶羅尼穆斯·博斯於約1500年創作的《人間樂園》中曾出現過早期形式）。
 ## 歷史背景
 
 ## 音色描述

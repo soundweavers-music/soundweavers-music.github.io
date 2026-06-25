@@ -1,5 +1,5 @@
 ---
-title: Hammond Organ
+title: 哈蒙德電風琴
 original_name: Hammond Organ
 category: 鍵盤樂器
 country: 歐洲／美國／全球現代錄音室
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The Hammond organ is an electric organ invented by Laurens Hammond and John M. Hanert, first manufactured in 1935. Multiple models have been produced, most of which use sliding drawbars to vary sounds. Until 1975, sound was created from rotating a metal tonewheel near an electromagnetic pickup, and amplifying the electric signal into a speaker cabinet. The organ is commonly used with the Leslie speaker. Around two million Hammond organs have been manufactured.
+哈蒙德電風琴是由勞倫斯·哈蒙德和約翰·M·哈內特發明的電子風琴，於1935年首次製造。已生產多種型號，其中大多數使用滑動拉桿來改變音色。到1975年為止，聲音是通過旋轉金屬音輪靠近電磁拾音器，然後將電信號放大到揚聲器箱中而產生的。該風琴通常與萊斯利揚聲器配合使用。已製造了約200萬台哈蒙德電風琴。
 ## 歷史背景
 
 ## 音色描述

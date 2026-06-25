@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The shehnai (also spelled shenai) is a musical instrument from South Asia. It is made of wood, with a double reed at one end and a metal or wooden flared bell at the other end. It was one of the nine instruments found in the royal court. The shehnai is similar to South India's nadaswaram.
+謝海笛（也拼作 shenai）是一種來自南亞的樂器。它由木材製成，一端有雙簧片，另一端有金屬或木製的喇叭形喇叭口。它曾是皇室宮廷中發現的九種樂器之一。謝海笛與南印度的那達斯瓦蘭琴相似。
 ## 歷史背景
 
 ## 音色描述

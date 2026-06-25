@@ -1,5 +1,5 @@
 ---
-title: 几内亚
+title: 幾內亞
 original_name: Guinea
 category: 弦樂器
 country: 待考

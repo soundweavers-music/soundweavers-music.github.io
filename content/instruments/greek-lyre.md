@@ -1,5 +1,5 @@
 ---
-title: Ancient Greek Lyre
+title: 尼刻
 original_name: Greek Lyre
 category: 弦樂器
 country: 非洲／歐洲／亞洲／美洲

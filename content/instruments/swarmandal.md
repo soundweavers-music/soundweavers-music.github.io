@@ -1,5 +1,5 @@
 ---
-title: Swarmandal（暫譯）
+title: 比伯軍曹寂寞芳心俱樂部
 original_name: Swarmandal
 category: 鍵盤樂器
 country: 全球
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The swarmandal (Hindi: स्वरमण्डल [s̪ʋərməɳɖəl̪]), surmandal, or Indian harp is a plucked box zither, originating from India, similar to the qanun that is today most commonly used as an accompanying instrument for vocal Indian classical music. It is part of the culture of Northern India and is used in concerts to accompany vocal music. The name combines Sanskrit words svara (notes) and maṇḍala (circle), representing its ability to produce many notes. The instrument was seen as equivalent by the Ā'īn-i-akbarī to the qanun.
+斯瓦曼達爾琴（印地語：स्वरमण्डल [s̪ʋərməɳɖəl̪]），又稱蘇曼達爾琴或印度豎琴，是一種源自印度的撥奏箱形齊特琴，與卡農琴相似，如今最常用作印度古典聲樂的伴奏樂器。它是北印度文化的一部分，在音樂會中用於伴奏聲樂。樂器的名稱結合了梵文詞彙「斯瓦拉」（音符）和「曼達拉」（圓形），代表了它能夠產生多種音符的能力。根據《阿克巴爾治世記》的記載，該樂器被視為與卡農琴相當的樂器。
 ## 歷史背景
 
 ## 音色描述

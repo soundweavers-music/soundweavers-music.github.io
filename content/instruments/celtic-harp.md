@@ -1,5 +1,5 @@
 ---
-title: Celtic Harp
+title: 凱爾特豎琴
 original_name: Celtic Harp
 category: 弦樂器
 country: 非洲／歐洲／美洲／亞洲

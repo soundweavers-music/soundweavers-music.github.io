@@ -1,5 +1,5 @@
 ---
-title: Fipple（暫譯）
+title: 豎笛
 original_name: Fipple
 category: 打擊樂器
 country: 待考
@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Embouchure_fipp
 ---
 ## 介紹
 
-The term fipple specifies a variety of end-blown flute that includes the flageolet, recorder, and tin whistle. The Hornbostel–Sachs system for classifying musical instruments places this group under the heading "Flutes with duct or duct flutes." The label "fipple flute" is frequently applied to members of the subgroup but there is no general agreement about the structural detail of the sound-producing mechanism that constitutes the fipple itself.
+「竖笛」一詞特指包括雙音笛、直笛和锡哨在內的一類末端吹奏笛。霍恩博斯特爾－薩克斯樂器分類系統將這一類樂器列在「帶導管或導管笛」的標題下。「竖笛」的標籤經常被應用於該子群體的成員，但對於構成竖笛本身的發聲機制的結構細節並沒有普遍的共識。
 ## 歷史背景
 
 ## 音色描述

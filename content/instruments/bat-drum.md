@@ -1,5 +1,5 @@
 ---
-title: Ilú Batá
+title: 非洲鼓
 original_name: Batá Drum
 category: 打擊樂器
 country: 非洲／中東／亞洲／歐洲／美洲

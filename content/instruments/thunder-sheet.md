@@ -1,5 +1,5 @@
 ---
-title: Thunder sheet（暫譯）
+title: 雷鳴板
 original_name: Thunder sheet
 category: 打擊樂器
 country: 全球
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-A thunder sheet is a thin sheet of metal used to produce sound effects for musical or dramatic events. The device may be shaken, causing it to vibrate, or struck with a mallet. It is also known as a thunder machine, though this can also refer to a large drum used for a similar sound effect. Thunder sheets are available from some cymbal makers including Paiste and Sabian, or can easily be made out of any scrap metal sheet. The thinner and larger the sheet, the louder the sound. The thunder sheet needs to be "warmed up" before sounding.
+雷鳴板是一種薄金屬板，用於製造音樂或戲劇表演的音效。這種裝置可以被搖動使其振動，或用槌敲擊。它也被稱為雷鳴機，但這個名稱也可能指用於製造類似音效的大鼓。雷鳴板可從某些鈸製造商（包括Paiste和Sabian）購買，或可用任何廢舊金屬板輕鬆製作。金屬板越薄越大，聲音越響亮。雷鳴板在發聲前需要「預熱」。
 ## 歷史背景
 
 ## 音色描述

@@ -1,5 +1,5 @@
 ---
-title: Bar zither（暫譯）
+title: 板箏
 original_name: Bar zither
 category: 弦樂器
 country: 非洲
@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/An_African_Banj
 ---
 ## 介紹
 
-Bar zither is class of musical instruments (subset of zither) within the Hornbostel-Sachs classification system for a type of chordophone (stringed instrument), in which the body of the instrument is shaped like a bar. In the system, bar zithers are made up of musical bows and stick zithers. Musical bows have flexible ends, stick zithers are rigid or have only one flexed end. Bar zithers, whether musical bow or stick zithers, often have some form of resonator. Examples of resonators include the player's mouth, an attached gourd or an inflated balloon or bladder.
+板箏是霍恩博斯特爾-薩克斯樂器分類系統中的一類樂器（箏的子集），屬於弦鳴樂器（弦樂器），其樂器主體呈棒狀。在該分類系統中，板箏由音樂弓和棒箏組成。音樂弓具有柔軟的末端，棒箏則是剛性的或只有一端彎曲。板箏無論是音樂弓還是棒箏，通常都配備某種形式的共鳴器。共鳴器的例子包括演奏者的嘴、附加的葫蘆或充氣的氣球或膀胱。
 ## 歷史背景
 
 ## 音色描述

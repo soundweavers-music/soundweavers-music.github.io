@@ -1,5 +1,5 @@
 ---
-title: Tiqin（暫譯）
+title: 提琴
 original_name: Tiqin
 category: 弦樂器
 country: 待考

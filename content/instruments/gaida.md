@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The bagpipe is a woodwind instrument using enclosed reeds fed from a constant reservoir of air in the form of a bag. The Scottish Great Highland bagpipe is well known, but people have played bagpipes for centuries throughout large parts of Europe, North Africa, West Asia, around the Persian Gulf and northern parts of South Asia. The term bagpipes is also used, though pipers usually refer to the bagpipes as "the pipes", "a set of pipes" or "a stand of pipes". Bagpipes are part of the aerophone group because to play the instrument, air must be blown into it to produce a sound.
+風笛是一種木管樂器，使用密閉的簧片，由儲存在袋子中的恆定氣流供應。蘇格蘭大高地風笛聞名於世，但人們已在歐洲大部分地區、北非、西亞、波斯灣周圍以及南亞北部等地區演奏風笛數個世紀之久。風笛一詞也被使用，雖然風笛手通常稱風笛為「風管」、「一套風管」或「一架風管」。風笛屬於氣鳴樂器類，因為要演奏這種樂器，必須吹入空氣才能產生聲音。
 ## 歷史背景
 
 ## 音色描述

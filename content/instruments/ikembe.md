@@ -1,5 +1,5 @@
 ---
-title: Ikembe（暫譯）
+title: 鐵舌琴
 original_name: Ikembe
 category: 打擊樂器
 country: 東非／中非
@@ -15,7 +15,7 @@ region_type: 區域／多國
 ---
 ## 介紹
 
-Ikembe, is a type of musical instrument of the lamellaphone group, common amongst the people of Rwanda, Burundi and the Congo. The instrument consists of several iron lamellae, fixed to a rectangular wooden soundbox. In Swahili the word imba means song. Kuimba means to sing, as in the phrase "nitakwenda kuimba" (I go to sing). Swahili, as in many languages, uses a type of binomial nomenclature to create new words to describe unfamiliar or new objects, occurrences or people, based on existing words or concepts.
+伊肯貝琴是一種舌簧樂器族群的樂器，在盧旺達、布隆迪和剛果人民中很常見。該樂器由固定在矩形木製共鳴箱上的幾根鐵舌片組成。在斯瓦希里語中，「imba」一詞意為歌曲。「kuimba」意為唱歌，如短語「nitakwenda kuimba」（我去唱歌）。斯瓦希里語與許多語言一樣，使用一種二項式命名法來創造新詞，以描述不熟悉的或新的物體、現象或人物，並基於現有的詞語或概念。
 ## 歷史背景
 
 ## 音色描述

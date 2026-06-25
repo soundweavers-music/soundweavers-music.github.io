@@ -15,7 +15,7 @@ region_type: 單一地區／文化圈
 ---
 ## 介紹
 
-The Kenong is a musical instrument of Indonesia used in gamelan music. It is a kind of gong and is placed on its side. It has the same length and width. Thus, it is similar to the bonang, kempyang, and ketuk, which are also cradled gongs. Kenongs are generally much larger than the aforementioned instruments. However, the kenong has a considerably higher pitch. Its sound stands out because of its unique timbre. Kenong sticks are taller than those of the bonang. The kenong is sometimes played by the same player as the kempyang and ketuk.
+克農鑼是印尼的一種樂器，用於甘美蘭音樂中。它是一種鑼，橫放使用。它的長度和寬度相同。因此，它類似於邦鑼、肯皮央鑼和克圖克鑼，這些樂器也都是搖籃式鑼。克農鑼通常比上述樂器大得多。然而，克農鑼的音高相當較高。由於其獨特的音色，它的聲音突出明顯。克農鑼槌比邦鑼槌更高。克農鑼有時由與肯皮央鑼和克圖克鑼相同的演奏者演奏。
 ## 歷史背景
 
 ## 音色描述

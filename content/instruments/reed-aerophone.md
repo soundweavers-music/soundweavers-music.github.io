@@ -7,7 +7,21 @@ era: 古代
 ---
 ## 介紹
 
-Reed aerophones is one of the categories of musical instruments found in the Hornbostel-Sachs system of musical instrument classification. In order to produce sound with these aerophones, the player's breath is directed against a lamella or pair of lamellae which periodically interrupt the airflow and cause the air to be set in motion. 422 Reed aerophones 422.1 Double reed instruments - There are two lamellae which beat against one another. 422.11 (Single) oboes. 422.111 With cylindrical bore. 422.111.1 Without fingerholes. 422.111.2 With fingerholes. Duduk Piri 422.112 With conical bore.
+簧振氣鳴樂器是在霍恩博斯特爾-薩克斯樂器分類系統中發現的樂器類別之一。為了用這些氣鳴樂器產生聲音，演奏者的呼吸被導向一個薄片或一對薄片，這些薄片會周期性地中斷氣流，導致空氣運動。
+
+422 簧振氣鳴樂器
+
+422.1 雙簧樂器 - 有兩個薄片相互拍打。
+
+422.11 （單）雙簧管。
+
+422.111 具有圓筒形音孔。
+
+422.111.1 沒有指孔。
+
+422.111.2 有指孔。杜德克管 皮日笛
+
+422.112 具有圓錐形音孔。
 ## 歷史背景
 
 ## 音色描述

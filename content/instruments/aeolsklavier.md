@@ -1,5 +1,5 @@
 ---
-title: Aeolsklavier（暫譯）
+title: 風琴鋼琴
 original_name: Aeolsklavier
 category: 打擊樂器
 country: 待考

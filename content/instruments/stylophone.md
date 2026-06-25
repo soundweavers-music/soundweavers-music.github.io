@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The Stylophone is a miniature analog synthesizer played with a stylus. Invented in 1967 by Brian Jarvis, it entered production in 1968, manufactured by Dubreq in London. Some three million units were sold during its original run, mostly as children's toys, but it was also used by professional musicians such as John Lennon, Kraftwerk and David Bowie. The Stylophone was relaunched in 2007 by the toy company Re:, in partnership with a rebuilt Dubreq, and has since been released in several new models.
+電子筆琴是一種用觸控筆演奏的微型類比合成器。由布萊恩·賈維斯於1967年發明，於1968年由倫敦的杜布雷克公司開始生產。在其原始生產期間售出約三百萬台，主要作為兒童玩具，但也被約翰·藍儂、克拉夫特威克和大衛·鮑伊等專業音樂家使用過。電子筆琴於2007年由玩具公司Re:與重組後的杜布雷克公司合作推出，此後已推出多個新型號。
 ## 歷史背景
 
 ## 音色描述

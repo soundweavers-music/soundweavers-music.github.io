@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-Tulum (Spanish pronunciation: [tuˈlun]; Yucatec Maya: Tulu'um) is the site of a pre-Columbian Mayan walled city which served as a major port for Coba, in the Mexican state of Quintana Roo. The ruins are situated on 12-meter-tall (39 ft) cliffs along the east coast of the Yucatán Peninsula on the Caribbean Sea. Tulum was one of the last cities built and inhabited by the Maya and achieved its greatest prominence between the 13th and 15th centuries.
+圖盧姆（西班牙語發音：[tuˈlun]；猶卡坦瑪雅語：Tulu'um）是前哥倫布時期瑪雅文明的城牆城市遺址，曾作為科巴的主要港口，位於墨西哥金塔納羅奧州。這些遺跡坐落在猶卡坦半島東海岸加勒比海沿岸12米高（39英尺）的懸崖上。圖盧姆是瑪雅人建造並居住的最後幾座城市之一，其最為繁盛的時期是在13至15世紀之間。
 ## 歷史背景
 
 ## 音色描述

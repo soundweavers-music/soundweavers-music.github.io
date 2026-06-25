@@ -1,5 +1,5 @@
 ---
-title: Sleigh Bells
+title: 雪橇鈴
 original_name: Sleigh Bells
 category: 打擊樂器
 country: 拉丁美洲／非洲／歐洲／亞洲／全球
@@ -14,7 +14,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-Sleigh bells are a type of bell which produces a distinctive 'jingle' sound, especially in large numbers. Sleigh Bells may refer to: Sleigh Bells (band), a band from New York Sleigh Bells (film), a 1928 animated film
+雪橇鈴是一種鈴鐺，能夠發出獨特的「叮噹」聲響，尤其是在數量眾多時更為明顯。雪橇鈴可能指的是：雪橇鈴樂隊，一支來自紐約的樂隊；雪橇鈴，一部1928年的動畫電影。
 ## 歷史背景
 
 ## 音色描述

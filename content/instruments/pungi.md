@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The pungi, also known as bīn or Murli, is a musical instrument that originates from the Indian subcontinent. The instrument consists of a reservoir into which air is blown and then channelled into two reed pipes. It is played with no pauses, as the player employs circular breathing. In street performances, the pungi is used for snake charming.
+蛇笛（pungi），亦稱為bīn或Murli，是源自印度次大陸的樂器。該樂器由一個儲氣室組成，空氣被吹入其中，然後流向兩支蘆葦管。演奏時使用循環呼吸法，因此沒有停頓。在街頭表演中，蛇笛被用於馴蛇。
 ## 歷史背景
 
 ## 音色描述

@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/1/10/Enfant_jouant_du_mirl
 ---
 ## 介紹
 
-The eunuch flute, onion flute, or mirliton (; French: flûte eunuque, flûte à l'oignon or mirliton; German: Zwiebelflöte) is a membranophone that was in use during the 16th and 17th centuries. It produces a sound akin to a comb and paper and is still manufactured as a toy. The sound of the eunuch flute resembles that of a kazoo. Unlike the kazoo, it is held transversally (basically a transverse kazoo) against the mouth while the user vocalizes into the aperture. The eunuch flute consists of a wooden tube widening out slightly to form a bell.
+太監笛、洋蔥笛或米利頓（法文：flûte eunuque、flûte à l'oignon或mirliton；德文：Zwiebelflöte）是一種膜鳴樂器，在16和17世紀期間被使用。它發出的聲音類似於梳子和紙張的聲音，至今仍作為玩具製造。太監笛的聲音類似於卡祖笛。與卡祖笛不同的是，它是橫向握持並靠在嘴邊，使用者對著開口發聲。太監笛由一根木製管子組成，逐漸擴寬形成一個喇叭口。
 ## 歷史背景
 
 ## 音色描述

@@ -15,7 +15,7 @@ region_type: 區域／多國
 ---
 ## 介紹
 
-Diple (pluralia tantum; pronounced [dîple̞], from Greek δῐπλόος lit. 'double, two-fold'), also known as misnjiče, miješnice and mih, is a traditional woodwind musical instrument originating in the Adriatic Littoral. It is played in Bosnia and Herzegovina, Croatia, Slovenia, Montenegro, and Serbia.
+雙管笛（複數專用詞；發音為[dîple̞]，源自希臘文δῐπλόος，字面意思為「雙重、兩倍」），亦稱為misnjiče、miješnice和mih，是一種源自亞得里亞海沿岸地區的傳統木管樂器。它在波士尼亞和赫塞哥維那、克羅埃西亞、斯洛文尼亞、蒙特內哥羅和塞爾維亞等地被演奏。
 ## 歷史背景
 
 ## 音色描述

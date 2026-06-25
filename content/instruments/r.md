@@ -1,5 +1,5 @@
 ---
-title: Çöğür
+title: 柯古爾
 original_name: Çöğür
 category: 弦樂器
 country: 中東／歐洲／亞洲／美洲

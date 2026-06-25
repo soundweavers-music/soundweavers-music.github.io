@@ -15,7 +15,7 @@ region_type: 現代／電子音樂
 ---
 ## 介紹
 
-The Moog synthesizer ( MOHG) is a modular synthesizer invented by the American engineer Robert Moog in 1964. Moog's company, R. A. Moog Co., produced numerous models from 1965 to 1981, and again from 2014. It was the first commercial synthesizer and established the analog synthesizer concept. The Moog synthesizer consists of separate modules which create and shape sounds, which are connected via patch cords. Modules include voltage-controlled oscillators, amplifiers, filters, envelope generators, noise generators, triggers and mixers.
+穆格合成器（MOHG）是美國工程師羅伯特·穆格在1964年發明的模組化合成器。穆格的公司R. A. Moog Co.從1965年至1981年期間生產了多個型號，之後又在2014年開始生產。它是第一台商用合成器，確立了類比合成器的概念。穆格合成器由多個獨立模組組成，這些模組用於創造和塑造聲音，並通過補丁線連接。模組包括電壓控制振盪器、放大器、濾波器、包絡生成器、噪聲生成器、觸發器和混音器。
 ## 歷史背景
 
 ## 音色描述

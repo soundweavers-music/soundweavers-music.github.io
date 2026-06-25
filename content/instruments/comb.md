@@ -1,5 +1,5 @@
 ---
-title: Comb（暫譯）
+title: 梳子琴
 original_name: Comb
 category: 打擊樂器
 country: 待考
@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Plastic_comb%2C
 ---
 ## 介紹
 
-A comb is a tool consisting of a shaft that holds a row of teeth for pulling through the hair to clean, untangle, or style it. Combs have been used since prehistoric times, having been discovered in very refined forms from settlements dating back to 5,000 years ago in Persia. Weaving combs made of whalebone dating to the middle and late Iron Age have been found on archaeological digs in Orkney and Somerset.
+梳子是一種工具，由一根軸桿組成，軸桿上附著一排齒齒，用於梳理頭髮以清潔、解開纏結或整理髮型。梳子自史前時代起就已被使用，在波斯已發現距今5000年前的定居點出土的精製梳子。在奧克尼和薩默塞特進行的考古挖掘中，發現了中鐵器時代中期至晚期用鯨骨製作的織布梳。
 ## 歷史背景
 
 ## 音色描述

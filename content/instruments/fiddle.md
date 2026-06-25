@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-A fiddle is a bowed string musical instrument, most often a violin or a bass. Fiddle is a colloquial term for the violin, used by players in all genres, including classical music. Although in many cases violin and fiddle are essentially synonymous, the style of the music played may determine specific construction differences between fiddles and classical violins.
+民俗小提琴是一種用弓拉奏的弦樂器，通常是小提琴或低音提琴。民俗小提琴是小提琴的通俗說法，被各類音樂風格的演奏家使用，包括古典音樂演奏家。儘管在許多情況下，小提琴和民俗小提琴在本質上是同義詞，但所演奏音樂的風格可能會決定民俗小提琴和古典小提琴之間的具體構造差異。
 ## 歷史背景
 
 ## 音色描述

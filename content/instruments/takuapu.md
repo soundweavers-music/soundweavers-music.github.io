@@ -1,5 +1,5 @@
 ---
-title: Takuapu（暫譯）
+title: 塔誇普鼓
 original_name: Takuapu
 category: 打擊樂器
 country: 待考
@@ -7,7 +7,7 @@ era: 傳統／年代待考
 ---
 ## 介紹
 
-The takuapu (IPA: /takwa'pu /) is a musical percussion instrument used by the indigenous Guaraní people of South America, made from a hollow bamboo tube. The player grasps the takuapu in the middle, holds it vertically, and drops it so that it strikes the ground, producing a deep sound. The name takuapu is a compound of the Guaraní words takua (‘bamboo’) and pu (‘sound’). A takuapu is up to two meters long and 20 to 30 centimeters in diameter. The varieties of bamboo used are takuára (Guadua angustifolia) and takuarusu (Guadua trinii).
+塔夸普鼓（國際音標：/takwa'pu /）是南美洲土著瓜拉尼人使用的打擊樂器，由空心竹管製成。演奏者在中部握住塔夸普鼓，將其豎直持握，然後讓其下落以敲擊地面，產生深沉的聲音。塔夸普鼓這個名稱是瓜拉尼語單詞塔夸（「竹子」）和普（「聲音」）的複合詞。塔夸普鼓長度可達兩米，直徑為20至30厘米。使用的竹子品種包括塔夸拉（Guadua angustifolia）和塔夸魯蘇（Guadua trinii）。
 ## 歷史背景
 
 ## 音色描述

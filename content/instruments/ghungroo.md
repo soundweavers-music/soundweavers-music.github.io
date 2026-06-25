@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-A ghungroo, also known as ghunghroo, ghunghru, ghungur or ghungura in Northern India, and chilanka, salangai, sadangai or gejje in the South, is one of many small metallic bells strung together to form ghungroos, a musical anklet tied to the feet of classical Indian dancers.
+腳鈴（ghungroo），在印度北部也稱為 ghunghroo、ghunghru、ghungur 或 ghungura，在南部則稱為 chilanka、salangai、sadangai 或 gejje，是多個小金屬鈴串在一起形成的腳鈴，是一種繫在古典印度舞者腳上的音樂踝鈴。
 ## 歷史背景
 
 ## 音色描述

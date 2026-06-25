@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-Barrel drums are a class of membranophone, or drum, characterized by a barrel-shape with a bulge in the middle. They can be one-headed and open at the bottom, or two-headed at opposite ends. Examples include the Vietnamese trong chau and the bendre of the Mossi of Burkina Faso.
+桶鼓是一類膜鳴樂器或鼓，其特徵是呈桶狀，中間有凸起。它可以是單面鼓且底部開放，或在相對兩端各有鼓面。例子包括越南的桶鼓（trong chau）和布吉納法索莫西人的本德雷鼓（bendre）。
 ## 歷史背景
 
 ## 音色描述

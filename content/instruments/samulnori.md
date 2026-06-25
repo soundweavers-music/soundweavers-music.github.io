@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-Samul nori (Korean: 사물놀이; lit. 'four objects play') is a genre of Korean percussion music. It is a modern adaptation of traditional Korean musics, namely the ritual farming music nongak and Korean shamanic music muak, for the indoor stage. As per its name, samul nori is performed with four traditional Korean musical instruments: a small gong kkwaenggwari, the larger gong jing, an hourglass-shaped drum janggu; and a barrel drum called buk. With dozens of professional and amateur groups, samul nori has been called "Korea’s most successful traditional music".
+四物農樂（韓文：사물놀이；字面意思為「四物遊戲」）是一種韓國打擊樂音樂流派。它是傳統韓國音樂的現代改編版本，特別是將儀式農樂音樂農樂和韓國薩滿音樂巫樂改編成室內舞臺表演。如其名稱所示，四物農樂使用四種傳統韓國樂器演奏：小鑼（小鑔）、較大的鑼（大鑔）、沙漏形鼓（長鼓）以及稱為鼓的桶形鼓。擁有數十個專業和業餘團體，四物農樂被稱為「韓國最成功的傳統音樂」。
 ## 歷史背景
 
 ## 音色描述

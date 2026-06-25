@@ -14,7 +14,7 @@ region_type: 單一地區／文化圈
 ---
 ## 介紹
 
-Sopilka (, Ukrainian: Cопiлка) is a name applied to a variety of woodwind instruments of the end-blown flute family used by Ukrainian folk instrumentalists. Sopilka most commonly refers to a fife made of a variety of materials (but traditionally out of elderberry or viburnum wood) that has six to ten finger holes. The term is also used to describe a related set of folk instruments similar to the recorder, incorporating a fipple and having a constricted end.
+索皮爾卡笛（烏克蘭語：Cопiлка）是烏克蘭民間樂器師使用的各種末吹式長笛族木管樂器的總稱。索皮爾卡笛最常指的是用各種材料製成的豎笛（但傳統上由接骨木或歐洲荚蒾木製成），具有六到十個指孔。該術語也用於描述一套相關的民間樂器，類似於直笛，配有吹嘴且末端呈縮小狀。
 ## 歷史背景
 
 ## 音色描述

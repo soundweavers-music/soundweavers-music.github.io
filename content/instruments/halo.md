@@ -1,5 +1,5 @@
 ---
-title: Halo
+title: 光環鼓
 original_name: Halo
 category: 打擊樂器
 country: 歐洲／美國／全球現代
@@ -14,7 +14,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-HALO, halo, halos or haloes may refer to:
+光環、光環、光環或光暈可能指的是：
 ## 歷史背景
 
 ## 音色描述

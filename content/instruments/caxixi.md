@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-A caxixi (pronounced [kaˈʃiʃi]) is a percussion instrument consisting of a closed basket with a flat bottom filled with seeds or other small particles. The round bottom is traditionally cut from a dried gourd. The caxixi is an indirectly struck idiophone. Like the maraca, it is sounded by shaking. Variations in sound are produced by varying the angle at which the caxixi is shaken, determining whether the contents strike the reed basket (softer sound) or the hard bottom (louder, sharper sound).
+卡西西搖響器（發音為 [kaˈʃiʃi]）是一種打擊樂器，由一個閉合的籃子組成，籃子底部平坦，內部填充有種子或其他細小顆粒。圓形底部傳統上由乾燥的葫蘆切割而成。卡西西搖響器是一種間接敲擊的自鳴樂器。與響葫蘆類似，它是通過搖晃來發聲的。通過改變卡西西搖響器的搖晃角度可以產生音色的變化，決定內部物質是撞擊蘆葦籃子（柔和的聲音）還是堅硬的底部（更響亮、更尖銳的聲音）。
 ## 歷史背景
 
 ## 音色描述

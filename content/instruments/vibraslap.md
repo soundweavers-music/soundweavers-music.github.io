@@ -1,5 +1,5 @@
 ---
-title: Vibraslap（暫譯）
+title: 振音拍
 original_name: Vibraslap
 category: 打擊樂器
 country: 拉丁美洲／非洲／歐洲／亞洲／全球
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The vibraslap is a percussion instrument consisting of a piece of stiff wire (bent into a U-shape) connecting a wooden ball to a hollow box of wood with metal “teeth” inside. The percussionist holds the metal wire in one hand and strikes the ball (usually against the palm of their other hand). The box acts as a resonating body for a metal mechanism placed inside with a number of loosely fastened pins or rivets that vibrate and rattle against the box. The instrument is a modern version of the jawbone.
+振音拍是一種打擊樂器，由一根硬鐵絲（彎成U形）組成，連接一個木球和一個內部裝有金屬「齒」的空心木盒。打擊樂手用一隻手握住金屬鐵絲，敲擊木球（通常敲擊在另一隻手的手掌上）。木盒充當共鳴體，內部放有金屬機關，其中有多個鬆散固定的針釘或鉚釘，可以振動並撞擊木盒發出聲響。該樂器是現代版的頜骨樂器。
 ## 歷史背景
 
 ## 音色描述

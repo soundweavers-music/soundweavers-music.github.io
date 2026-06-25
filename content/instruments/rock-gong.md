@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Ethiopian_Litho
 ---
 ## 介紹
 
-A rock gong is a slab of rock that is hit like a drum, and is an example of a lithophone. Examples have been found in Africa, Asia, and Europe. Regional names for the rock gong include kungering, kwerent dutse, gwangalan, kungereng, kongworian, and kuge. These names are all onomatopœic, except for "kuge" which is the Hausa word for a double iron bell and "dawal" which is the Ge`ez word for a church's stone gong.
+石鑼是一塊被敲擊如鼓的岩石板，是岩石樂器的一個例子。在非洲、亞洲和歐洲都發現過石鑼。石鑼的地區名稱包括kungereng、kwerent dutse、gwangalan、kungereng、kongworian和kuge。除了「kuge」（豪薩語中雙鐵鈴的意思）和「dawal」（蓋茲語中教堂石鑼的意思）外，這些名稱都是擬聲詞。
 ## 歷史背景
 
 ## 音色描述

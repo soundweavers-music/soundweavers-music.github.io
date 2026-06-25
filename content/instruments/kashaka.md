@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The kashaka is a simple percussion instrument consisting of two small gourds filled with beans (essentially, two small shakers connected by a string). One gourd is held in the hand and the other is quickly swung from side to side around the hand, creating a "clack" sound upon impact. It originated in West Africa, but has been reproduced in various countries under different names: Patica (Japan), Kosika (USA). Other names include Asalato, Kes Kes, Tchangot Tche, Koshkah, and many others.
+卡沙卡是一種簡單的打擊樂器，由兩個裝有豆類的小葫蘆組成（本質上是由繩子連接的兩個小搖響器）。一個葫蘆握在手中，另一個則在手周圍快速左右搖擺，在撞擊時發出「咔噠」聲。它起源於西非，但已在各個國家以不同名稱重現：帕蒂卡（日本）、科西卡（美國）。其他名稱還包括阿薩拉托、克斯克斯、特昌戈特切、科什卡及許多其他名稱。
 ## 歷史背景
 
 ## 音色描述

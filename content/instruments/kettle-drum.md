@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-A kettledrum (or kettle drum) () is a type of percussion instrument in which a membrane is stretched over a large hemispherical bowl. Traditionally, the bowl is made of a metal such as copper or bronze, but materials such as clay and wood are also used. In Western music, timpani are the most commonly used types of kettledrums, so much so that their names have almost become synonymous. However, most cultures, especially those of South Asia and the Middle East, have their own distinct types of kettledrums.
+鍋鼓（或稱釜鼓）是一種打擊樂器，其特點是在一個大型半球形碗體上繃緊一層膜。傳統上，碗體由銅或青銅等金屬製成，但也可以使用粘土和木材等材料。在西方音樂中，定音鼓是最常見的鍋鼓類型，其使用之廣泛使得兩個名稱幾乎已成為同義詞。然而，大多數文化，尤其是南亞和中東地區的文化，都擁有各自獨特的鍋鼓類型。
 ## 歷史背景
 
 ## 音色描述

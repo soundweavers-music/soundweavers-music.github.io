@@ -1,5 +1,5 @@
 ---
-title: Jegog（暫譯）
+title: 傑歌克
 original_name: Jegog
 category: 打擊樂器
 country: 印尼巴厘島
@@ -15,7 +15,7 @@ region_type: 單一地區／文化圈
 ---
 ## 介紹
 
-Jegog is a form of gamelan music indigenous to Bali, Indonesia, played on instruments made of bamboo. The tradition of jegog is centered in Jembrana, a region in Western Bali. In recent years jegog has started to become popular in other regions of Bali with a few groups being established in central Bali to entertain tourists. International interest has been spread by tourists visiting Bali and by recordings.
+傑歌克是印度尼西亞峇里島本土的甘美蘭音樂形式，使用竹製樂器演奏。傑歌克傳統以峇里島西部的詹巴拉納地區為中心。近年來，傑歌克開始在峇里島其他地區變得流行，幾支樂隊在中峇里島成立以招待遊客。國際興趣的傳播是通過到訪峇里島的遊客和錄音作品帶動的。
 ## 歷史背景
 
 ## 音色描述

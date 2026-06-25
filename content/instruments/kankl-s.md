@@ -1,5 +1,5 @@
 ---
-title: Kanklės
+title: 坎克萊琴
 original_name: Kanklės
 category: 鍵盤樂器
 country: 東亞／中亞／歐洲／東南亞／非洲／美洲
@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The kanklės (Lithuanian: [ˈkɐŋʲkʲlʲeːs]; Samogitian: Konklē) is a Lithuanian plucked string instrument (chordophone) belonging to the Baltic box zither family known as the Baltic psaltery, along with the Latvian kokles, Estonian kannel, Finnish kantele, and Russian gusli.
+坎克萊琴（立陶宛語：[ˈkɐŋʲkʲlʲeːs]；薩莫吉提亞語：Konklē）是一種立陶宛撥弦樂器（弦樂器），屬於波羅的海箱形齊特琴家族，也稱為波羅的海詩篇琴，其他同族樂器還包括拉脫維亞的科克萊琴、愛沙尼亞的坎內琴、芬蘭的坎特琴和俄羅斯的古斯里琴。
 ## 歷史背景
 
 ## 音色描述

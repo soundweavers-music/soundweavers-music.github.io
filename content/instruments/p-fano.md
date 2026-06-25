@@ -1,5 +1,5 @@
 ---
-title: Pífano
+title: 短笛
 original_name: Pífano
 category: 管樂器
 country: 全球／亞洲／歐洲／美洲／大洋洲

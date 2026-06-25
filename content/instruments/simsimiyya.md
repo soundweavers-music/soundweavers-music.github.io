@@ -15,7 +15,7 @@ region_type: 區域／港口文化
 ---
 ## 介紹
 
-The simsimiyya (Arabic: سمسمية or سنسمية simsimyya/sinsimiyya; pl. simsimiyyāt/sinsimiyyāt, سمسميات) is a box or bowl lyre used in Egypt. Models exist with both circular soundboxes as well as rectangular. In the past, Egyptian models had 5 strings. The strings are held in place by pegs instead of tuning rings. Today, images of the instrument in Egypt may show 12 strings. It has been played since ancient times. It is used in Egypt in certain genres of Egyptian music, including Sawahli (coastal) music, which is a type of popular Egyptian music from the country's northern coast.
+西姆西米亞琴（阿拉伯語：سمسمية或سنسمية simsimyya/sinsimiyya；複數形式：simsimiyyāt/sinsimiyyāt，سمسميات）是埃及使用的一種箱形或碗形豎琴。該樂器存在圓形音箱和矩形音箱兩種型號。過去，埃及型號有5根琴弦。琴弦由琴栓固定，而不是用調音環。如今，埃及的樂器圖像可能顯示有12根琴弦。該樂器自古代以來就被演奏。在埃及，它被用於某些埃及音樂風格中，包括薩瓦赫利音樂（海岸音樂），這是一種來自該國北海岸的流行埃及音樂類型。
 ## 歷史背景
 
 ## 音色描述

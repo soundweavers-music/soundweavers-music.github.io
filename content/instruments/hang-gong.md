@@ -1,5 +1,5 @@
 ---
-title: Hang Gong
+title: 手碟
 original_name: Hang Gong
 category: 打擊樂器
 country: 瑞士／歐洲／全球現代

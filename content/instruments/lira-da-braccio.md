@@ -1,5 +1,5 @@
 ---
-title: Lira da Braccio
+title: 臂琴
 original_name: Lira da Braccio
 category: 弦樂器
 country: 全球

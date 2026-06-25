@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Redhead_Mandoce
 ---
 ## 介紹
 
-The mandocello (Italian: mandoloncello, Liuto cantabile, liuto moderno) is a plucked string instrument of the mandolin family. It is larger than the mandolin, and is the baritone instrument of the mandolin family. Its eight strings are in four paired courses, with the strings in each course tuned in unison. Overall tuning of the courses is in fifths like a mandolin, but beginning on bass C (C2). It can be described as being to the mandolin what the cello is to the violin.
+曼陀大提琴（義大利語：mandoloncello、Liuto cantabile、liuto moderno）是曼陀林家族的撥弦樂器。它比曼陀林更大，是曼陀林家族中的男中音樂器。其八根弦分為四對課程，每對課程中的弦以單一音調調音。課程的整體調音與曼陀林一樣為五度音程，但始於低音C（C2）。它可以被描述為：曼陀大提琴之於曼陀林，就如大提琴之於小提琴。
 ## 歷史背景
 
 ## 音色描述

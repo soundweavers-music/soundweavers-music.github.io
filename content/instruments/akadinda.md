@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The xylophone (from Ancient Greek ξύλον (xúlon) 'wood' and φωνή (phōnḗ) 'sound, voice'; lit. 'sound of wood') is a musical instrument in the percussion family that consists of wooden bars struck by mallets. Each bar is an idiophone tuned to a pitch of a musical scale, whether pentatonic or heptatonic in the case of many African and Asian instruments, diatonic in many western children's instruments, or chromatic for orchestral use. The term xylophone may be used generally, to include all such instruments such as the marimba, balafon and even the semantron.
+木琴（源自古希臘語 ξύλον (xúlon)「木頭」和 φωνή (phōnḗ)「聲音、嗓音」；字面意為「木頭的聲音」）是打擊樂器家族中的一種樂器，由用木槌敲擊的木條組成。每根木條都是調至音樂音階音高的自鳴樂器，許多非洲和亞洲樂器採用五聲音階或七聲音階，許多西方兒童樂器採用全音階，而管弦樂隊樂器則採用半音階。木琴一詞可籠統地使用，涵蓋所有此類樂器，如馬林巴琴、巴拉芬琴，甚至聖樂木琴。
 ## 歷史背景
 
 ## 音色描述

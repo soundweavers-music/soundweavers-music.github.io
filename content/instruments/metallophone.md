@@ -1,5 +1,5 @@
 ---
-title: Metallophone（暫譯）
+title: 鐵琴
 original_name: Metallophone
 category: 打擊樂器
 country: 全球
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-A metallophone is any musical instrument in which the sound-producing body is a piece of metal (other than a metal string), such as tuned metal bars, tubes, rods, bowls, or plates. Most frequently the metal body is struck to produce sound, usually with a mallet, but may also be activated by friction, keyboard action, or other means. Metallophones have been used in music in Asia for thousands of years. There are several different types used in Balinese and Javanese gamelan ensembles, including the gendèr, gangsa and saron.
+鐵琴是任何一種樂器，其發聲體是金屬製品（金屬弦除外），例如調音金屬棒、管、桿、碗或板。金屬發聲體通常通過敲擊（通常用槌棒）來產生聲音，但也可以通過摩擦、鍵盤作用或其他方式啟動。鐵琴在亞洲已被用於音樂中數千年。巴厘島和爪哇甘美蘭樂隊中使用的鐵琴有多種不同類型，包括恩德琴、剛薩琴和薩榮琴。
 ## 歷史背景
 
 ## 音色描述

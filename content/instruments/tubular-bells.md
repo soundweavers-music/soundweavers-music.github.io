@@ -1,5 +1,5 @@
 ---
-title: 管钟
+title: 管鍾
 original_name: Tubular bells
 category: 打擊樂器
 country: 全球

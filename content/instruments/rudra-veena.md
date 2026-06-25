@@ -1,5 +1,5 @@
 ---
-title: Rudra Veena
+title: 魯德拉維納琴
 original_name: Rudra Veena
 category: 弦樂器
 country: 中東／歐洲／亞洲／美洲
@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The rudra veena (Sanskrit: रुद्र वीणा) (also spelled rudraveena or rudra vīnā), also called the bīn in North India, is a large plucked string instrument used in Hindustani music, especially dhrupad. It is one of the major types of veena played in Indian classical music, notable for its deep bass resonance. Oral tradition ascribes the instrument to Shiva, the principal deity within Hinduism. The rudra veena is seen in temple architecture predating the Mughals.
+魯德拉維納琴（梵文：रुद्र वीणा）（也拼寫為 rudraveena 或 rudra vīnā），在北印度也稱為琵琶，是一種用於印度斯坦音樂尤其是德魯帕德唱法的大型撥弦樂器。它是印度古典音樂中主要的維納琴類型之一，以其深沉的低音共鳴而著稱。口頭傳統將這件樂器歸於印度教主神濕婆。魯德拉維納琴在蒙兀爾人統治之前的寺廟建築中就已出現。
 ## 歷史背景
 
 ## 音色描述

@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The kkwaenggwari (Korean: 꽹과리; Korean pronunciation: [k͈wɛŋ.gwa.ɾi]) is a small flat gong used in traditional Korean music. It is made of brass and is played with a hard stick. It produces a distinctively high-pitched, metallic tone that breaks into a cymbal-like crashing timbre when struck forcefully. It is particularly important in samul nori and pungmul, although it is also used in other genres such as Korean shamanic music. This gong is struck with a wooden mallet to produce a sharp, attention commanding sound.
+꽹과리（韓語：꽹과리；韓語發音：[k͈wɛŋ.gwa.ɾi]）是傳統韓國音樂中使用的小平鑼。它由黃銜製成，用硬木棒敲擊。它產生獨特的高音金屬音調，當用力敲擊時會破裂成鈸鑼般的碰撞音色。它在三物農樂和風物中尤為重要，儘管它也用於其他流派，例如韓國薩滿音樂。這種鑼用木槌敲擊以產生尖銳、引人注目的聲音。
 ## 歷史背景
 
 ## 音色描述

@@ -1,5 +1,5 @@
 ---
-title: Zink
+title: 短笛
 original_name: Cornett / Zink
 category: 管樂器
 country: 歐洲／全球

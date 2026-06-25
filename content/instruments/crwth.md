@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-See Rotte for the psaltery, or Rotte for the plucked lyre. The crwth ( KROOTH, Welsh: [kruːθ]), also called a crowd or rote or crotta, is a bowed lyre, a type of stringed instrument, associated particularly with Welsh music, now archaic but once widely played in Europe. Four historical examples have survived and are to be found in St Fagans National Museum of History (Cardiff); National Library of Wales (Aberystwyth); Warrington Museum & Art Gallery; and the Museum of Fine Arts, Boston (US).
+見「Rotte」關於詩篇琴或撥奏豎琴的說明。克魯斯弓琴（KROOTH，威爾斯語：[kruːθ]），也稱為克勞德琴或羅特琴或克羅塔琴，是一種擦弦豎琴，屬於弦樂器的一種，特別與威爾斯音樂相關聯，現已成為古老樂器，但曾在歐洲廣泛演奏。四件歷史遺存的克魯斯弓琴現藏於聖法根斯國家歷史博物館（卡迪夫）、威爾斯國家圖書館（亞伯里斯特威斯）、沃靈頓博物館與美術館，以及波士頓美術館（美國）。
 ## 歷史背景
 
 ## 音色描述

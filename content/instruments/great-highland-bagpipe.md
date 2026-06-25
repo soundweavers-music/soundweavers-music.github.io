@@ -15,7 +15,7 @@ region_type: 單一國家或文化源流
 ---
 ## 介紹
 
-The great Highland bagpipe (Scottish Gaelic: a' phìob mhòr pronounced [ə ˌfiːp ˈvoːɾ] lit. 'the great pipe') is a type of bagpipe native to Scotland, and the Scottish analogue to the great Irish warpipes. It has acquired widespread recognition through its usage in the British military and in pipe bands throughout the world. The bagpipe of any kind is first attested in Scotland around 1400.
+蘇格蘭高地風笛（蘇格蘭蓋爾語：a' phìob mhòr，發音[ə ˌfiːp ˈvoːɾ]，字面意思為「大風笛」）是一種源於蘇格蘭的風笛，是蘇格蘭對應於愛爾蘭大型戰爭風笛的樂器。它因在英國軍隊和世界各地風笛樂隊中的使用而獲得廣泛認可。任何類型的風笛最早在蘇格蘭的記載可追溯至1400年左右。
 ## 歷史背景
 
 ## 音色描述

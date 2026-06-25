@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-A concertina is a free-reed musical instrument, like the various accordions and the harmonica. It consists of expanding and contracting bellows, with buttons (or keys) usually on both ends, unlike accordion buttons, which are on the front. The concertina was developed independently in both England and Germany. The English version was invented in 1829 by Sir Charles Wheatstone, while Carl Friedrich Uhlig introduced the German version five years later, in 1834.
+六角手風琴是一種自由簧片樂器，類似於各種手風琴和口琴。它由可以伸縮的風箱組成，通常在兩端都有按鈕（或按鍵），這與手風琴的按鈕位於前面不同。六角手風琴在英國和德國各自獨立開發。英國版本由查爾斯·惠特斯通爵士在1829年發明，而德國版本則由卡爾·弗里德里希·烏利希在五年後的1834年推出。
 ## 歷史背景
 
 ## 音色描述

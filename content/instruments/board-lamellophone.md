@@ -1,5 +1,5 @@
 ---
-title: African Board Lamellophone
+title: 木琴
 original_name: Board Lamellophone
 category: 打擊樂器
 country: 全球／非洲／亞洲／現代療癒與街頭音樂

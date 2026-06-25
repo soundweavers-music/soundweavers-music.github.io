@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-Tingsha, or ting-sha (Tibetan: ཏིང་ཤགས་, Wylie: ting-shags), are small cymbals used in prayer and rituals by Tibetan Buddhist practitioners. Two cymbals are joined together by a leather strap or chain. The cymbals are struck together producing a clear and high pitched tone. Typical sizes range from 2.5–4 inches in diameter. Tingsha are very thick and produce a unique long ringing tone. Antique tingsha were made from special bronze alloys that produce harmonic overtones.
+銅鈴，或稱丁沙（藏文：ཏིང་ཤགས་，威利轉寫法：ting-shags），是藏傳佛教修行者在祈禱和儀式中使用的小鈸。兩片鈸通過皮帶或鍊條連接在一起。鈸片相互敲擊會產生清晰而高亢的音調。典型的尺寸範圍從2.5到4英寸直徑。銅鈴非常厚重，能產生獨特的長鳴音。古董銅鈴由特殊青銅合金製成，能夠產生諧波泛音。
 ## 歷史背景
 
 ## 音色描述

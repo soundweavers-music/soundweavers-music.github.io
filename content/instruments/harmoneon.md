@@ -1,5 +1,5 @@
 ---
-title: Harmoneon（暫譯）
+title: 和聲手風琴
 original_name: Harmoneon
 category: 管樂器
 country: 待考
@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Harmoneon_cavag
 ---
 ## 介紹
 
-The Harmoneon or concert accordion (French: Harmonéon, accordeon de concert) is a French free reed aerophone, invented by Pierre Monichon in 1948, although he only patented the instrument four years later in 1952. It has been taught in musical conservatories since 1974. The instrument has great similarity to both the duet concertina and button accordion.
+和聲手風琴或演奏會手風琴（法語：Harmonéon、accordeon de concert）是一種法國自由簧氣鳴樂器，由皮埃爾·蒙尼雄於1948年發明，但他直到四年後的1952年才為該樂器申請專利。自1974年以來，它已在音樂保守音樂學院中教授。該樂器與二重奏手風琴和按鈕手風琴都有很大的相似性。
 ## 歷史背景
 
 ## 音色描述

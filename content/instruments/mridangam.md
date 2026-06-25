@@ -1,5 +1,5 @@
 ---
-title: 姆里丹加鼓
+title: 姆裡丹加鼓
 original_name: Mridangam
 category: 打擊樂器
 country: 全球
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The mridangam is an ancient percussion instrument originating from the Indian subcontinent. It is a traditional royal instrument originating in the south Indian state of Tamil Nadu and is widely used in south Indian classical music, called Carnatic music. It is the primary rhythmic accompaniment in a Carnatic music ensemble. In dhrupad, a modified version, the pakhawaj, is the primary percussion instrument. A related instrument is the kendang, played in the Maritime Southeast Asia. During a percussion ensemble, the mridangam is often accompanied by the ghatam, the kanjira, and the morsing.
+姆里丹加鼓是一種起源於印度次大陸的古老打擊樂器。它是一種傳統的皇家樂器，源於南印度的泰米爾納德邦，並廣泛應用於南印度古典音樂（稱為卡納提克音樂）中。它是卡納提克音樂合奏中主要的節奏伴奏樂器。在德魯帕德音樂中，一種改良版本的帕卡瓦吉鼓是主要的打擊樂器。相關的樂器是肯當鼓，在東南亞海洋地區演奏。在打擊樂合奏中，姆里丹加鼓經常與陶罐鼓、坎吉拉鼓和莫西鼓相伴奏。
 ## 歷史背景
 
 ## 音色描述

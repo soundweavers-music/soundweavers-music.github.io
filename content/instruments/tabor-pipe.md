@@ -1,5 +1,5 @@
 ---
-title: Tabor Pipe
+title: 笛
 original_name: Tabor Pipe
 category: 管樂器
 country: 全球

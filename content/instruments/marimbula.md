@@ -1,5 +1,5 @@
 ---
-title: Marímbula（暫譯）
+title: 馬林巴琴
 original_name: Marímbula
 category: 打擊樂器
 country: 全球／非洲／亞洲／現代療癒與街頭音樂
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The marímbula (Spanish pronunciation: [maˈɾimbula]) is a plucked box musical instrument of the Caribbean. In Cuba it is common in the changüí genre, as well as old styles of son. In Mexico, where it is known as marimbol is played in son jarocho; in the Dominican Republic, where it is known as marimba, it is played in merengue típico, and in Jamaica it is known as rumba box and played in mento. The marímbula is usually classified as part of the lamellophone family of musical instruments.
+馬林巴琴（西班牙語發音：[maˈɾimbula]）是一種加勒比海地區的撥奏木箱樂器。在古巴，它常見於昌古依音樂類型，以及古老的桑巴音樂風格中。在墨西哥，它被稱為馬林博爾琴，用於演奏哈羅科桑巴音樂；在多米尼加共和國，它被稱為馬林巴琴，用於演奏典型梅倫格音樂；在牙買加，它被稱為倫巴箱琴，用於演奏門托音樂。馬林巴琴通常被歸類為簧片琴族樂器的一部分。
 ## 歷史背景
 
 ## 音色描述

@@ -15,7 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
-The vielle is a European bowed stringed instrument used in the medieval period, similar to a modern violin but with a somewhat longer and deeper body, three to five gut strings, and a leaf-shaped pegbox with frontal tuning pegs, sometimes with a figure-8 shaped body. Whatever external form they had, the box-soundchest consisted of back and belly joined by ribs, which experience has shown to be the construction for bowed instruments.
+維埃爾弓琴是中世紀歐洲使用的弓弦樂器，類似於現代小提琴，但琴身更長更深，具有三至五根羊腸弦，以及葉形琴頭，琴頭上有正面調音栓，有時琴身呈8字形。無論外形如何，箱形音箱由背板和面板通過肋木連接而成，實踐證明這是弓弦樂器的標準結構。
 ## 歷史背景
 
 ## 音色描述

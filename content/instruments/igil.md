@@ -14,7 +14,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The igil, also known as ikhel (Mongolian: ихэл, (Tuvan: игил) is a two-stringed Tuvan musical instrument, played by bowing the strings. (It is called "ikili" in Western Mongolia.) The neck and lute-shaped sound box are usually made of a solid piece of pine or larch. The top of the sound box may be covered with skin or a thin wooden plate. The strings, and those of the bow, are traditionally made of hair from a horse's tail (strung parallel), but may also be made of nylon.
+伊吉勒馬頭琴，又稱為伊克赫（蒙古語：ихэл，圖瓦語：игил），是一種圖瓦兩弦樂器，通過拉弓使琴弦振動發聲。（在蒙古西部被稱為「伊基利」。）琴頸和琴箱通常由整塊松木或落葉松製成。琴箱頂部可能覆蓋有獸皮或薄木板。琴弦和弓弦傳統上由馬尾毛製成（並行排列），但也可以用尼龍製造。
 ## 歷史背景
 
 ## 音色描述

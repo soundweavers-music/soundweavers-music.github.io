@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Drums_schematic
 ---
 ## 介紹
 
-A hi-hat, hihat, or high-hat is a combination of two cymbals and a pedal, all mounted on a metal stand. It is a part of the standard drum kit used by drummers in many styles of music including rock, pop, jazz, and blues. Hi-hats consist of a matching pair of small to medium-sized cymbals mounted on a stand, with the two cymbals facing each other. The bottom cymbal is fixed and the top is mounted on a rod which moves the top cymbal toward the bottom one when the pedal is depressed (a hi-hat that is in this position is said to be "closed" or "closed hi-hats").
+踩鈸（hi-hat）是一種由兩片鈸和一個踏板組成的樂器，全部安裝在金屬架上。它是標準鼓組的一部分，被搖滾、流行、爵士和藍調等多種音樂風格的鼓手使用。踩鈸由一對配套的中小型鈸組成，安裝在架子上，兩片鈸相向而立。下方的鈸是固定的，上方的鈸則安裝在一根桿上，當踩下踏板時，上方的鈸會向下方的鈸靠近（處於這種位置的踩鈸被稱為「閉合」或「閉合踩鈸」）。
 ## 歷史背景
 
 ## 音色描述

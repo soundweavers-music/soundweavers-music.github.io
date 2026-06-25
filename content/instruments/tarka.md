@@ -14,7 +14,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-Tarka and similar may refer to:
+塔爾卡及類似樂器可能指的是：
 ## 歷史背景
 
 ## 音色描述

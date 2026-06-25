@@ -1,5 +1,5 @@
 ---
-title: Electric Violin
+title: 電小提琴
 original_name: Electric Violin
 category: 弦樂器
 country: 全球
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-An electric violin is a violin equipped with an electronic output of its sound. The term most properly refers to an instrument intentionally made to be electrified with built-in pickups, usually with a solid body. It can also refer to a violin fitted with an electric pickup of some type, although "amplified violin" or "electro-acoustic violin" are more accurate then.
+電小提琴是一種配備電子聲音輸出的小提琴。該術語最準確地指的是專為電氣化而設計的樂器，具有內置拾音器，通常採用實心琴體。它也可以指配備某種電子拾音器的小提琴，儘管「放大小提琴」或「電聲混合小提琴」在這種情況下更為準確。
 ## 歷史背景
 
 ## 音色描述

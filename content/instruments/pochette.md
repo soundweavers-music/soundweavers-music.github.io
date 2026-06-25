@@ -14,7 +14,11 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-Pochette is a French word for "little pocket", it may refer to: Pochette (musical instrument), a small bowed lute box A type of small handbag
+袋形小提琴是一個法語詞彙，意思是「小口袋」，它可能指的是：
+
+袋形小提琴（樂器），一種小型的擁有共鳴箱的弓弦樂器
+
+一種小型手提包
 ## 歷史背景
 
 ## 音色描述

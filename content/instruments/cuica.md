@@ -1,5 +1,5 @@
 ---
-title: Cuíca（暫譯）
+title: 奎卡鼓
 original_name: Cuíca
 category: 打擊樂器
 country: 全球
@@ -15,7 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
-The cuíca (Portuguese pronunciation: [kuˈikɐ]) is a Brazilian friction drum with a large pitch range, produced by changing tension on the head of the drum. Cuíca is Portuguese for the gray four-eyed opossum (Philander opossum) which is known for its high-pitched cry. The cuíca is frequently used in carnivals, as well as often in samba music. The tone it produces has a high-pitched squeaky timbre. It has been called a 'laughing gourd' due to this sound. The General MIDI drum kit provides cuíca sounds at the notes F♯5 and G5.
+奎卡鼓（葡萄牙語發音：[kuˈikɐ]）是一種巴西摩擦鼓，音域寬廣，通過改變鼓面的張力來改變音高。奎卡是葡萄牙語中灰色四眼負鼠（學名：Philander opossum）的名稱，這種動物以其高音調的叫聲而聞名。奎卡鼓經常用於狂歡節，也常見於桑巴音樂中。它發出的音色具有高音調的尖銳音質。由於這種聲音，它被稱為「笑聲葫蘆」。通用MIDI鼓組在F♯5和G5音符處提供奎卡鼓的聲音。
 ## 歷史背景
 
 ## 音色描述

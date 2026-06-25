@@ -1,5 +1,5 @@
 ---
-title: Malagasy Tube Zither
+title: 馬達加斯加管狀齊特琴
 original_name: Malagasy Tube Zither
 category: 鍵盤樂器
 country: 亞洲／歐洲／全球

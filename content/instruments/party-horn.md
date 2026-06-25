@@ -8,7 +8,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Party_Horn.jpg/
 ---
 ## 介紹
 
-A party horn (also known as a party blower) is a paper noisemaker which unfurls and produces a horn-like noise when a person blows into it. Party horns may be distributed at birthday parties, New Year's Eve, and other celebrations to create festive noise. English does not have a single, consistent term for this but different places employ neologisms and variants with synonyms of blowing (puffing, blowout etc.) and onomatopoeic names (whistle, squeak etc.). The term for party horn in several other languages translates to "a mother in law's tongue" (e.g. Portuguese língua de sogra).
+派對號角（也稱為派對吹筒）是一種紙質噪音製造工具，當人們吹入時會展開並發出類似號角的聲音。派對號角通常在生日派對、跨年夜和其他慶祝活動中分發，以製造喜慶的噪音。英語中沒有單一一致的術語來稱呼它，不同地區採用了不同的新詞和變體，包含吹氣的同義詞（吹脹、吹出等）和擬聲詞（哨聲、尖叫聲等）。在其他幾種語言中，派對號角的術語翻譯為「婆婆的舌頭」（例如葡萄牙語的 língua de sogra）。
 ## 歷史背景
 
 ## 音色描述
