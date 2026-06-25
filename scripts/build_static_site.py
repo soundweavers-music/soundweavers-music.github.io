@@ -29,8 +29,24 @@ SITE_BASE_PATH = normalize_base_path(SITE_BASE_PATH)
 
 
 def site_url(path):
-    path = f"/{path.lstrip('/')}"
+    path = f"/{path.lstrip('/') }"
     return f"{SITE_BASE_PATH}{path}" or "/"
+
+
+def resolve_url(page_path, target):
+    target = f"/{target.lstrip('/')}"
+    if SITE_BASE_PATH:
+        return f"{SITE_BASE_PATH}{target}"
+    if page_path is None:
+        return target
+    page_dir = page_path.parent
+    asset_path = OUTPUT_DIR / target.lstrip("/")
+    url = os.path.relpath(asset_path, page_dir).replace("\\", "/")
+    if target.endswith("/") and not url.endswith("/"):
+        url += "/"
+    if url == ".":
+        return "./"
+    return url
 
 
 def safe_external_url(value):
@@ -38,6 +54,52 @@ def safe_external_url(value):
     if value.startswith(("https://", "http://")):
         return value
     return ""
+
+
+def is_wiki_url(value):
+    return bool(value and re.search(r"//(?:[^/]+\.)?(?:wikipedia|wikidata|wikimedia)\.org\b", value, flags=re.IGNORECASE))
+
+
+def strip_wiki_links(html):
+    if not html:
+        return html
+    link_pattern = re.compile(
+        r'<a\b[^>]*href=["\'](?:https?://)?(?:[^/]+\.)?(?:wikipedia|wikidata|wikimedia)\.org[^"\']*["\'][^>]*>(.*?)</a>',
+        flags=re.IGNORECASE | re.DOTALL,
+    )
+    url_pattern = re.compile(
+        r"https?://(?:[^/\s]+\.)?(?:wikipedia|wikidata|wikimedia)\.org[^\s<>\"']*",
+        flags=re.IGNORECASE,
+    )
+    while True:
+        new_html = link_pattern.sub(lambda m: m.group(1), html)
+        if new_html == html:
+            break
+        html = new_html
+    return url_pattern.sub("", html)
+
+
+def extract_introduction_section(markdown_text):
+    if not markdown_text:
+        return ""
+    match = re.search(
+        r"(^#{1,6}\s*介紹\b.*?$)(.*?)(?=^#{1,6}\s*\S|\Z)",
+        markdown_text,
+        flags=re.MULTILINE | re.DOTALL,
+    )
+    if not match:
+        return ""
+    heading = match.group(1).strip()
+    body = match.group(2).strip()
+    return f"{heading}\n\n{body}" if body else heading
+
+
+def extract_introduction_headings(markdown_text):
+    section = extract_introduction_section(markdown_text)
+    if not section:
+        return ""
+    lines = [line for line in section.splitlines() if line.lstrip().startswith("#")]
+    return "\n".join(lines)
 
 
 def parse_frontmatter(text):
@@ -65,7 +127,9 @@ def read_instruments():
     instruments = []
     for path in sorted(CONTENT_DIR.glob("*.md")):
         meta, body = parse_frontmatter(path.read_text(encoding="utf-8"))
-        html = markdown.markdown(body, extensions=["extra", "tables", "fenced_code"], output_format="html5")
+        intro_body = extract_introduction_headings(body)
+        html = markdown.markdown(intro_body, extensions=["extra", "tables", "fenced_code"], output_format="html5")
+        html = strip_wiki_links(html)
         instruments.append(
             {
                 "slug": path.stem,
@@ -74,22 +138,7 @@ def read_instruments():
                 "category": meta.get("category", "其他"),
                 "country": meta.get("country", "待考"),
                 "era": meta.get("era", "傳統／年代待考"),
-                "image": meta.get("image", ""),
-                "listen_link": meta.get("listen_link", ""),
-                "source_url": meta.get("source_url", ""),
-                "wikidata_id": meta.get("wikidata_id", ""),
-                "journey": meta.get("journey", ""),
-                "journey_name": meta.get("journey_name", ""),
-                "chapter_number": meta.get("chapter_number", ""),
-                "chapter_name": meta.get("chapter_name", ""),
-                "chapter_subtitle": meta.get("chapter_subtitle", ""),
                 "sound_class": meta.get("sound_class", ""),
-                "hs_class": meta.get("hs_class", ""),
-                "family": meta.get("family", ""),
-                "playing_method": meta.get("playing_method", ""),
-                "body_listening": meta.get("body_listening", ""),
-                "soundscape": meta.get("soundscape", ""),
-                "body": body,
                 "html": html,
             }
         )
@@ -101,7 +150,7 @@ def write(path, content):
     path.write_text(content, encoding="utf-8")
 
 
-def page(title, body):
+def page(title, body, page_path=None):
     return f"""<!doctype html>
 <html lang="zh-Hant">
 <head>
@@ -110,40 +159,37 @@ def page(title, body):
   <meta name="referrer" content="no-referrer-when-downgrade">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>{escape(title)}｜世界樂器百科</title>
-  <link rel="stylesheet" href="{site_url('/assets/site.css')}">
+  <link rel="stylesheet" href="{resolve_url(page_path, '/assets/site.css')}">
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="{site_url('/')}">世界樂器百科</a>
+    <a class="brand" href="{resolve_url(page_path, '/')}">世界樂器百科</a>
     <nav>
-      <a href="{site_url('/instruments/')}">全部樂器</a>
-      <a href="{site_url('/categories/')}">分類</a>
-      <a href="{site_url('/journeys/')}">旅圖</a>
-      <a href="{site_url('/sound-classes/')}">發聲</a>
-      <a href="{site_url('/countries/')}">國家</a>
-      <a href="{site_url('/eras/')}">年代</a>
+      <a href="{resolve_url(page_path, '/instruments/')}">全部樂器</a>
+      <a href="{resolve_url(page_path, '/categories/')}">分類</a>
+      <a href="{resolve_url(page_path, '/sound-classes/')}">發聲</a>
+      <a href="{resolve_url(page_path, '/countries/')}">國家</a>
+      <a href="{resolve_url(page_path, '/eras/')}">年代</a>
     </nav>
   </header>
   {body}
-  <script src="{site_url('/assets/search.js')}"></script>
+  <script src="{resolve_url(page_path, '/assets/search.js')}"></script>
 </body>
 </html>
 """
 
 
-def card(instrument):
-    context = instrument.get("journey") or instrument.get("sound_class") or instrument["era"]
+def card(instrument, page_path=None):
     return f"""
-    <a class="instrument-card" href="{site_url(f'/instruments/{instrument["slug"]}/')}">
-      <span>{escape(instrument['category'])} · {escape(instrument['country'])} · {escape(context)}</span>
+    <a class="instrument-card" href="{resolve_url(page_path, '/instruments/' + instrument['slug'] + '/')}">
+      <span>{escape(instrument['category'])}</span>
       <strong>{escape(instrument['title'])}</strong>
-      <small>{escape(instrument['original_name'])}</small>
     </a>
     """
 
 
-def list_page(title, instruments):
-    cards = "\n".join(card(item) for item in instruments) or '<p class="empty">目前沒有資料。</p>'
+def list_page(title, instruments, page_path=None):
+    cards = "\n".join(card(item, page_path) for item in instruments) or '<p class="empty">目前沒有資料。</p>'
     return page(
         title,
         f"""
@@ -155,31 +201,27 @@ def list_page(title, instruments):
           <div class="instrument-grid">{cards}</div>
         </main>
         """,
+        page_path,
     )
 
 
 def build_index(instruments):
+    index_path = OUTPUT_DIR / "index.html"
     categories = Counter(item["category"] for item in instruments)
     countries = Counter(item["country"] for item in instruments)
     eras = Counter(item["era"] for item in instruments)
-    journeys = Counter(item["journey"] for item in instruments if item.get("journey"))
-    sound_classes = Counter(item["sound_class"] for item in instruments if item.get("sound_class"))
     category_links = "".join(
-        f'<a class="facet-card" href="{site_url(f"/categories/{slugify(name)}/")}"><strong>{escape(name)}</strong><span>{count} 筆</span></a>'
+        f'<a class="facet-card" href="{resolve_url(index_path, f"/categories/{slugify(name)}/")}"><strong>{escape(name)}</strong><span>{count} 筆</span></a>'
         for name, count in categories.most_common()
     )
-    journey_links = "".join(
-        f'<a class="facet-card" href="{site_url(f"/journeys/{slugify(name)}/")}"><strong>{escape(name)}</strong><span>{count} 筆</span></a>'
-        for name, count in journeys.most_common()
-    )
-    sample_cards = "\n".join(card(item) for item in instruments[:12])
+    sample_cards = "\n".join(card(item, index_path) for item in instruments[:12])
     body = f"""
     <main class="page">
       <section class="hero">
         <p class="eyebrow">Static Markdown Edition</p>
         <h1>世界樂器百科</h1>
         <div class="search-panel">
-          <input id="site-search" type="search" placeholder="搜尋中文名、英文名、分類、旅圖、發聲類型、國家或年代...">
+          <input id="site-search" type="search" placeholder="搜尋中文名、英文名、分類、國家或年代...">
         </div>
         <div id="search-results" class="search-results"></div>
       </section>
@@ -187,8 +229,6 @@ def build_index(instruments):
       <section class="stats">
         <div><strong>{len(instruments)}</strong><span>樂器條目</span></div>
         <div><strong>{len(categories)}</strong><span>分類</span></div>
-        <div><strong>{len(journeys)}</strong><span>旅圖段落</span></div>
-        <div><strong>{len(sound_classes)}</strong><span>發聲類型</span></div>
         <div><strong>{len(countries)}</strong><span>國家/地區</span></div>
         <div><strong>{len(eras)}</strong><span>年代</span></div>
       </section>
@@ -207,14 +247,6 @@ def build_index(instruments):
               <select id="filter-category"><option value="">全部分類</option></select>
             </label>
             <label>
-              <span>旅圖</span>
-              <select id="filter-journey"><option value="">全部旅圖</option></select>
-            </label>
-            <label>
-              <span>發聲</span>
-              <select id="filter-sound"><option value="">全部發聲</option></select>
-            </label>
-            <label>
               <span>國家/地區</span>
               <select id="filter-country"><option value="">全部國家/地區</option></select>
             </label>
@@ -230,72 +262,29 @@ def build_index(instruments):
 
       <div id="card-mode" class="browse-mode" hidden>
         <section class="section">
-          <div class="section-heading"><h2>分類瀏覽</h2><a href="{site_url('/categories/')}">全部分類</a></div>
+          <div class="section-heading"><h2>分類瀏覽</h2><a href="{resolve_url(index_path, '/categories/')}">全部分類</a></div>
           <div class="facet-grid">{category_links}</div>
         </section>
 
         <section class="section">
-          <div class="section-heading"><h2>旅圖瀏覽</h2><a href="{site_url('/journeys/')}">全部旅圖</a></div>
-          <div class="facet-grid">{journey_links}</div>
-        </section>
-
-        <section class="section">
-          <div class="section-heading"><h2>樂器條目</h2><a href="{site_url('/instruments/')}">查看全部</a></div>
+          <div class="section-heading"><h2>樂器條目</h2><a href="{resolve_url(index_path, '/instruments/')}">查看全部</a></div>
           <div class="instrument-grid">{sample_cards}</div>
         </section>
       </div>
     </main>
     """
-    write(OUTPUT_DIR / "index.html", page("首頁", body))
+    write(index_path, page("首頁", body, index_path))
 
 
 def build_detail_pages(instruments):
     for item in instruments:
-        image_url = safe_external_url(item["image"])
-        listen_url = safe_external_url(item["listen_link"])
-        source_url = safe_external_url(item["source_url"])
-        image = f'<img class="instrument-image" src="{escape(image_url)}" alt="{escape(item["title"])}">' if image_url else ""
-        listen = (
-            f'<a class="listen-button" href="{escape(listen_url)}" target="_blank" rel="noopener noreferrer">播放聆聽</a>'
-            if listen_url
-            else ""
-        )
-        source = (
-            f'<a href="{escape(source_url)}" target="_blank" rel="noopener noreferrer">{escape(source_url)}</a>'
-            if source_url
-            else "待補"
-        )
-        detail_meta = [
-            ("分類", item["category"]),
-            ("國家/地區", item["country"]),
-            ("年代", item["era"]),
-            ("旅圖", "｜".join(part for part in [item.get("journey"), item.get("journey_name")] if part)),
-            ("章節", "｜".join(part for part in [item.get("chapter_number"), item.get("chapter_name")] if part)),
-            ("發聲分類", item.get("sound_class")),
-            ("H-S 近似分類", item.get("hs_class")),
-            ("家族/支系", item.get("family")),
-            ("演奏方式", item.get("playing_method")),
-        ]
-        meta_grid = "".join(
-            f"<div><dt>{escape(label)}</dt><dd>{escape(value)}</dd></div>"
-            for label, value in detail_meta
-            if value
-        )
         body = f"""
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="{site_url('/')}">首頁</a><span>/</span><a href="{site_url('/instruments/')}">樂器</a></div>
           <header class="instrument-header">
             <div>
               <p class="eyebrow">{escape(item['category'])}</p>
               <h1>{escape(item['title'])}</h1>
-              <p class="lead">{escape(item['original_name'])}</p>
-              <dl class="meta-grid">
-                {meta_grid}
-              </dl>
-              {listen}
-              <p class="source-note">資料來源：{source}</p>
             </div>
-            {image}
           </header>
           <article class="markdown-body">{item['html']}</article>
         </main>
@@ -384,20 +373,10 @@ h2 { margin:0; }
     search_index = [
         {
             "title": item["title"],
-            "original_name": item["original_name"],
+            "original_name": item.get("original_name", ""),
             "category": item["category"],
             "country": item["country"],
             "era": item["era"],
-            "journey": item.get("journey", ""),
-            "journey_name": item.get("journey_name", ""),
-            "chapter_name": item.get("chapter_name", ""),
-            "chapter_subtitle": item.get("chapter_subtitle", ""),
-            "sound_class": item.get("sound_class", ""),
-            "hs_class": item.get("hs_class", ""),
-            "family": item.get("family", ""),
-            "playing_method": item.get("playing_method", ""),
-            "body_listening": item.get("body_listening", ""),
-            "soundscape": item.get("soundscape", ""),
             "url": site_url(f"/instruments/{item['slug']}/"),
         }
         for item in instruments
@@ -414,8 +393,6 @@ const dropdownMode = document.getElementById('dropdown-mode');
 const cardMode = document.getElementById('card-mode');
 const filterControls = {{
   category: document.getElementById('filter-category'),
-  journey: document.getElementById('filter-journey'),
-  sound_class: document.getElementById('filter-sound'),
   country: document.getElementById('filter-country'),
   era: document.getElementById('filter-era')
 }};
@@ -427,11 +404,8 @@ function appendResult(container, item) {{
   const title = document.createElement('strong');
   title.textContent = item.title;
   const meta = document.createElement('span');
-  meta.textContent = `${{item.original_name}} · ${{item.category}} · ${{item.country}} · ${{item.era}}`;
-  const details = document.createElement('small');
-  details.textContent = [item.journey, item.sound_class, item.family, item.playing_method].filter(Boolean).join(' · ');
+  meta.textContent = `${{item.category}} · ${{item.country}} · ${{item.era}}`;
   link.append(title, meta);
-  if (details.textContent) link.append(details);
   container.append(link);
 }}
 
@@ -497,8 +471,6 @@ function renderDropdownResults() {{
 
 if (dropdownResults) {{
   fillSelect(filterControls.category, 'category');
-  fillSelect(filterControls.journey, 'journey');
-  fillSelect(filterControls.sound_class, 'sound_class');
   fillSelect(filterControls.country, 'country');
   fillSelect(filterControls.era, 'era');
   for (const select of Object.values(filterControls)) {{
@@ -528,7 +500,6 @@ def main():
     build_detail_pages(instruments)
     write(OUTPUT_DIR / "instruments" / "index.html", list_page("全部樂器", instruments))
     build_facet_pages(instruments, "category", "categories", "分類")
-    build_facet_pages(instruments, "journey", "journeys", "旅圖")
     build_facet_pages(instruments, "sound_class", "sound-classes", "發聲分類")
     build_facet_pages(instruments, "country", "countries", "國家/地區")
     build_facet_pages(instruments, "era", "eras", "年代")

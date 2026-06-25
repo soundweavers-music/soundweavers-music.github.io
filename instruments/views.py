@@ -1,5 +1,6 @@
 import bleach
 import markdown
+import re
 
 from django.core.paginator import Paginator
 from django.db.models import Count, Q
@@ -42,19 +43,52 @@ ALLOWED_ATTRIBUTES = {
 }
 
 
+def strip_wiki_links(html):
+    if not html:
+        return html
+    link_pattern = re.compile(
+        r'<a\b[^>]*href=["\'](?:https?://)?(?:[^/]+\.)?(?:wikipedia|wikidata|wikimedia)\.org[^"\']*["\'][^>]*>(.*?)</a>',
+        flags=re.IGNORECASE | re.DOTALL,
+    )
+    url_pattern = re.compile(
+        r"https?://(?:[^/\s]+\.)?(?:wikipedia|wikidata|wikimedia)\.org[^\s<>\"']*",
+        flags=re.IGNORECASE,
+    )
+    while True:
+        new_html = link_pattern.sub(lambda m: m.group(1), html)
+        if new_html == html:
+            break
+        html = new_html
+    return url_pattern.sub("", html)
+
+
+def extract_introduction_section(markdown_text):
+    if not markdown_text:
+        return ""
+    match = re.search(
+        r"(^#{1,6}\s*介紹\b.*?$)(.*?)(?=^#{1,6}\s*\S|\Z)",
+        markdown_text,
+        flags=re.MULTILINE | re.DOTALL,
+    )
+    if not match:
+        return ""
+    return match.group(1).strip()
+
+
 def render_markdown(md_text):
     raw_html = markdown.markdown(
-        md_text or "",
+        extract_introduction_section(md_text) or "",
         extensions=["extra", "toc", "tables", "fenced_code", "nl2br"],
         output_format="html5",
     )
-    return bleach.clean(
+    safe_html = bleach.clean(
         raw_html,
         tags=ALLOWED_TAGS,
         attributes=ALLOWED_ATTRIBUTES,
         protocols=["http", "https", "mailto"],
         strip=True,
     )
+    return strip_wiki_links(safe_html)
 
 
 def home(request):
@@ -133,6 +167,5 @@ def instrument_detail(request, pk):
         {
             "instrument": instrument,
             "introduction_html": render_markdown(instrument.introduction_md),
-            "history_html": render_markdown(instrument.history_md),
         },
     )

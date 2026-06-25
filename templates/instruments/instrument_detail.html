@@ -14,44 +14,7 @@
     <div>
       <h1 class="instrument-title">{{ instrument.name }}</h1>
       <span class="category-badge">{{ instrument.category.name }}</span>
-
-      {% if instrument.timbre_description %}
-        <section class="instrument-section">
-          <h2>音色描述</h2>
-          <div class="timbre-box">
-            {{ instrument.timbre_description|linebreaks }}
-          </div>
-        </section>
-      {% endif %}
-
-      {% if instrument.listen_link %}
-        <a
-          class="listen-button"
-          href="{{ instrument.listen_link }}"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          播放聆聽
-        </a>
-      {% endif %}
-
-      {% if instrument.source_url %}
-        <p class="source-note">
-          資料來源：
-          <a href="{{ instrument.source_url }}" target="_blank" rel="noopener noreferrer">
-            {{ instrument.source_url }}
-          </a>
-        </p>
-      {% endif %}
     </div>
-
-    {% if instrument.exploded_view_image %}
-      <img
-        class="instrument-image"
-        src="{{ instrument.exploded_view_image }}"
-        alt="{{ instrument.name }} 拆解圖"
-      >
-    {% endif %}
   </header>
 
   <section class="instrument-section">
@@ -60,14 +23,5 @@
       {{ introduction_html|safe }}
     </article>
   </section>
-
-  {% if history_html %}
-    <section class="instrument-section">
-      <h2>歷史背景</h2>
-      <article class="markdown-body">
-        {{ history_html|safe }}
-      </article>
-    </section>
-  {% endif %}
 </main>
 {% endblock %}
