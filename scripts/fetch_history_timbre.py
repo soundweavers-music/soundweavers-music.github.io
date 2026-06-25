@@ -63,7 +63,8 @@ def parse_frontmatter(text):
 
 def section_is_empty(text, heading):
     """Return True if the ## heading exists but has no content before the next heading."""
-    pattern = rf"^## {re.escape(heading)}\s*\n(.*?)(?=\n## |\Z)"
+    # Use [ \t]* (not \s*) to avoid consuming the blank line between headings
+    pattern = rf"^## {re.escape(heading)}[ \t]*\n(.*?)(?=\n## |\Z)"
     m = re.search(pattern, text, re.DOTALL | re.MULTILINE)
     if not m:
         return True
@@ -72,10 +73,14 @@ def section_is_empty(text, heading):
 
 
 def set_section_content(text, heading, content):
-    """Replace the empty section body with content."""
-    pattern = rf"(^## {re.escape(heading)}\s*\n)(.*?)(?=\n## |\Z)"
+    """Replace or append section body with content."""
+    pattern = rf"(^## {re.escape(heading)}[ \t]*\n)(.*?)(?=\n## |\Z)"
     replacement = rf"\g<1>\n{content}\n"
-    return re.sub(pattern, replacement, text, count=1, flags=re.DOTALL | re.MULTILINE)
+    result = re.sub(pattern, replacement, text, count=1, flags=re.DOTALL | re.MULTILINE)
+    if result == text:
+        # Section heading not present — append at end
+        result = text.rstrip() + f"\n## {heading}\n\n{content}\n"
+    return result
 
 
 def get_wikipedia_sections(en_title):
