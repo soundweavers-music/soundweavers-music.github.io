@@ -593,7 +593,7 @@ h2 { margin:0; font-weight:700; }
 }
 .meta-item { border:1px solid var(--line); border-radius:var(--radius); padding:14px; background:var(--surface); box-shadow:var(--shadow); }
 .meta-item dt { color:var(--muted); font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; margin-bottom:6px; }
-.meta-item dd { margin:0; font-weight:700; font-size:14px; line-height:1.4; }
+.meta-item dd { margin:0; font-weight:700; font-size:14px; line-height:1.4; word-break:break-word; }
 
 /* ── YouTube embeds ──────────────────────────────────────────── */
 .yt-section { margin-bottom:32px; }
@@ -653,6 +653,7 @@ h2 { margin:0; font-weight:700; }
 @media (max-width:960px) {
   .instrument-grid { grid-template-columns:repeat(auto-fill,minmax(170px,1fr)); }
   .dropdown-browser { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .dropdown-browser button { grid-column:1 / -1; }
   .dropdown-results { grid-template-columns:repeat(2,minmax(0,1fr)); }
   .stats { grid-template-columns:repeat(2,1fr); }
   .yt-grid { grid-template-columns:1fr; }
