@@ -91,10 +91,14 @@ def search_youtube(query, limit=10):
 
 
 def set_frontmatter_field(text, field, value):
-    """Set a frontmatter field, inserting before closing --- if absent."""
+    """Set a frontmatter field, inserting before the closing --- if absent."""
     if re.search(rf"^{field}:\s*", text, re.MULTILINE):
         return re.sub(rf"^{field}:.*$", f"{field}: {value}", text, count=1, flags=re.MULTILINE)
-    return re.sub(r"(---\n)(## )", rf"\1{field}: {value}\n\2", text, count=1)
+    # Insert before the closing --- (first \n---\n after the opening ---)
+    before, sep, after = text.partition("\n---\n")
+    if sep:
+        return before + f"\n{field}: {value}" + sep + after
+    return text
 
 
 def build_query(title, orig, category):
