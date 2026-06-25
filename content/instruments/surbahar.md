@@ -4,6 +4,7 @@ original_name: Surbahar
 category: 弦樂器
 country: 中東／歐亞／東亞／美洲／全球
 era: 傳統／年代待考
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Sur2.jpg/500px-Sur2.jpg
 sound_class: 弦鳴
 hs_class: Chordophone／弦鳴樂器
 family: 長頸魯特琴
@@ -14,6 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
+Surbahar (Hindi pronunciation: [s̪urbəhɑːr]; transl. Springtime of Notes) sometimes known as bass sitar, is a plucked string instrument used in the Hindustani classical music of the Indian subcontinent. It is closely related to the sitar, but has a lower pitch. Depending on the instrument's size, it is usually pitched two to five whole steps below the standard sitar.
 ## 歷史背景
 
 ## 音色描述

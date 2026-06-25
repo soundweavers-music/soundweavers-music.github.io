@@ -14,6 +14,7 @@ region_type: 現代／電子音樂
 ---
 ## 介紹
 
+Seaboard is a synonym for coastline. It can also refer to:
 ## 歷史背景
 
 ## 音色描述

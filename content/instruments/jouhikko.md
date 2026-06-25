@@ -4,6 +4,7 @@ original_name: Jouhikko
 category: 弦樂器
 country: 非洲／歐洲／亞洲／美洲
 era: 傳統／年代待考
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Jouhikko_player.jpg/500px-Jouhikko_player.jpg
 sound_class: 弦鳴
 hs_class: Chordophone／弦鳴樂器
 family: 豎琴與里拉延伸
@@ -14,6 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
+The jouhikko (Finnish: [ˈjou̯hikːo]) is a traditional, two- or three-stringed bowed lyre, from Finland and Karelia. Its strings are traditionally of horsehair. The playing of this instrument died out in the early 20th century but has been revived and there are now a number of musicians playing it.
 ## 歷史背景
 
 ## 音色描述

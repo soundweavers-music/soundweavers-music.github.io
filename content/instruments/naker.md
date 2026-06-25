@@ -14,6 +14,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
+Naker may refer to: One of the two Islamic angels, Munkar and Nakir, who visit the dead after their funeral the European variant of the naqareh, a small Arabic kettle-drum, called nakers in English
 ## 歷史背景
 
 ## 音色描述

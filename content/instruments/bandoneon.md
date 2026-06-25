@@ -4,6 +4,7 @@ original_name: Bandoneon
 category: 鍵盤樂器
 country: 全球
 era: 19 世紀
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Buenos_Aires_-_Bandoneon_tango_player_-_7435.jpg/500px-Buenos_Aires_-_Bandoneon_tango_player_-_7435.jpg
 sound_class: 氣鳴
 hs_class: Aerophone／氣鳴樂器
 family: 簧片鍵盤／風箱
@@ -14,6 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
+The bandoneon (Spanish: bandoneón) or bandonion is a type of concertina particularly popular in Argentina and Uruguay, used in most tango ensembles. As with other members of the concertina family, it is held between the hands, and played by pulling and pushing air through bellows, routing it through sets of tuned metal reeds by pressing the instrument's buttons. Unlike most accordions, bandoneons always employ the same sets of reeds to produce their sound, and do not usually have the register switches common on accordions.
 ## 歷史背景
 
 ## 音色描述

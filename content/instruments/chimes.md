@@ -14,6 +14,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
+Chimes are a percussion instrument, sets of bells in varying pitches. These include: Chime (bell instrument), an array of large bells, typically housed in a tower and played from a keyboard Cymbalum or cymbala, word from which chimes derives, used for Greek and medieval instruments Chimes, the sounds produced by a striking clock to announce the hours Bar chimes (also known as "mark tree"), a series of many small chimes of decreasing length, arranged horizontally Bianzhong, chime bell sets from China, oldest sets are about 2,000 and 3,600 years old Carillon, larger set of tower-mounted bells, p…
 ## 歷史背景
 
 ## 音色描述

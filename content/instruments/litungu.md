@@ -14,6 +14,7 @@ region_type: 單一地區／文化圈
 ---
 ## 介紹
 
+The litungu is a traditional lyre played by the Luhya ethnic group of Kenya (including the Bukusu subgroup). It has seven strings. Other varieties of litungu are used by the Kurya and Kisii ethnic groups.
 ## 歷史背景
 
 ## 音色描述

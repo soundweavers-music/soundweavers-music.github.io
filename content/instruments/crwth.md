@@ -4,6 +4,7 @@ original_name: Crwth
 category: 弦樂器
 country: 亞洲／歐洲／中東／全球
 era: 傳統／年代待考
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Crwth-in-case.jpg/500px-Crwth-in-case.jpg
 sound_class: 弦鳴
 hs_class: Chordophone／弦鳴樂器
 family: 歐洲民俗擦弦
@@ -14,6 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
+See Rotte for the psaltery, or Rotte for the plucked lyre. The crwth ( KROOTH, Welsh: [kruːθ]), also called a crowd or rote or crotta, is a bowed lyre, a type of stringed instrument, associated particularly with Welsh music, now archaic but once widely played in Europe. Four historical examples have survived and are to be found in St Fagans National Museum of History (Cardiff); National Library of Wales (Aberystwyth); Warrington Museum & Art Gallery; and the Museum of Fine Arts, Boston (US).
 ## 歷史背景
 
 ## 音色描述

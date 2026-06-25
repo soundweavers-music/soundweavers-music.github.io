@@ -4,6 +4,7 @@ original_name: Buccina
 category: 管樂器
 country: 全球／中東／歐洲／亞洲／高山與宗教文化圈
 era: 傳統／年代待考
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Buccina_1.png/500px-Buccina_1.png
 sound_class: 氣鳴
 hs_class: Aerophone／氣鳴樂器
 family: 號角延伸與地方銅管
@@ -14,6 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
+A buccina (Latin: buccina) or bucina (Latin: būcina; Ancient Greek: βυκάνη), anglicized buccin or bucine, is a brass instrument that was used in the ancient Roman army, similar to the cornu. An aeneator who blew a buccina was called a "buccinator" or "bucinator" (Latin: buccinātor, būcinātor).
 ## 歷史背景
 
 ## 音色描述

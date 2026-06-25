@@ -14,6 +14,7 @@ region_type: 單一地區／文化圈
 ---
 ## 介紹
 
+The kokiriko (kanji: こきりこ; is a Japanese musical instrument used when singing and dancing to Japanese folk songs such as the "Kokiriko Bushi" (Kokiriko Dance). In kanji, it is written as "Chikuko." In the Middle Ages, it was a type of street performer, known as a kokiriko, which was always carried by the houka, who mainly performed acrobatics.
 ## 歷史背景
 
 ## 音色描述

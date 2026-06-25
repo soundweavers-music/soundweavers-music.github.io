@@ -4,6 +4,7 @@ original_name: Gankogui
 category: 打擊樂器
 country: 迦納／埃維文化圈
 era: 傳統／年代待考
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Modern-Agogo.jpg/500px-Modern-Agogo.jpg
 sound_class: 體鳴
 hs_class: Idiophone／體鳴樂器
 family: 雙鐵鐘
@@ -14,6 +15,7 @@ region_type: 單一地區／文化圈
 ---
 ## 介紹
 
+An agogô (Yoruba: ['aɡoɡo]) is idiophone bell percussion instrument. With origins in West African music, it is now commonly used in traditional and popular Brazilian music. Agogôs are typically made from two cone-shaped pieces of metal with different pitches.
 ## 歷史背景
 
 ## 音色描述

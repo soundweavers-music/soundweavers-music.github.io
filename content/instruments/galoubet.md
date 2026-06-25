@@ -14,6 +14,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
+Galoubet may refer to: Galoubet A (1972–2005), a show jumping horse Galoubet, a type of pipe instrument
 ## 歷史背景
 
 ## 音色描述

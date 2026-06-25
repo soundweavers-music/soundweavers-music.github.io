@@ -14,6 +14,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
+Sleigh bells are a type of bell which produces a distinctive 'jingle' sound, especially in large numbers. Sleigh Bells may refer to: Sleigh Bells (band), a band from New York Sleigh Bells (film), a 1928 animated film
 ## 歷史背景
 
 ## 音色描述

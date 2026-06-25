@@ -4,6 +4,7 @@ original_name: Ghijak
 category: 弦樂器
 country: 亞洲／歐洲／中東／南亞／中亞
 era: 傳統／年代待考
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/2GhichakGurminj.jpg/500px-2GhichakGurminj.jpg
 sound_class: 弦鳴
 hs_class: Chordophone／弦鳴樂器
 family: 南亞與中亞擦弦
@@ -14,6 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
+The ghijak is a group of related spike fiddles, used by Afghans, Uzbeks, Uyghurs, Tajiks, Turkmens, Qaraqalpaks and in the Xinjiang province of western China. Despite the similarity of the name, it is more closely related to the Persian kamancheh than the ghaychak.
 ## 歷史背景
 
 ## 音色描述

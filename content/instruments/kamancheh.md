@@ -4,6 +4,7 @@ original_name: Kamancheh
 category: 弦樂器
 country: 亞洲／歐洲／中東／全球
 era: 傳統／年代待考
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/2_Kam%C4%81nches%2C_Persia%2C_ca._1880.jpg/500px-2_Kam%C4%81nches%2C_Persia%2C_ca._1880.jpg
 sound_class: 弦鳴
 hs_class: Chordophone／弦鳴樂器
 family: 南亞與中亞擦弦
@@ -14,6 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
+The kamancheh is an Iranian bowed string instrument used in Persian, Azerbaijani, Armenian, Kurdish, Georgian, Turkmen, and Uzbek music with slight variations in the structure of the instrument. The kamancheh is related to the rebab which is the historical ancestor of the kamancheh and the bowed Byzantine lyra. The strings are played with a variable-tension bow. In 2017, the art of crafting and playing with Kamantcheh/Kamancha was included into the UNESCO Intangible Cultural Heritage Lists of Iran and Azerbaijan.
 ## 歷史背景
 
 ## 音色描述

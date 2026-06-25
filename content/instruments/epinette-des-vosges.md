@@ -4,6 +4,7 @@ original_name: Epinette des Vosges
 category: 鍵盤樂器
 country: 全球
 era: 傳統／年代待考
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Epinette.PNG/500px-Epinette.PNG
 sound_class: 弦鳴
 hs_class: Chordophone／弦鳴樂器
 family: 箱式齊特
@@ -14,6 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
+The épinette des Vosges (French pronunciation: [epinɛt dɛ voʒ]) is a traditional plucked-string instrument of the zither family, whose use was confined to two areas in the Vosges mountains of France approximately 50 km apart: around Val-d'Ajol and around Gérardmer.
 ## 歷史背景
 
 ## 音色描述

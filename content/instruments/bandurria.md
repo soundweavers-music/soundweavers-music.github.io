@@ -4,6 +4,7 @@ original_name: Bandurria
 category: 弦樂器
 country: 中東／歐洲／亞洲／美洲
 era: 傳統／年代待考
+image: https://upload.wikimedia.org/wikipedia/commons/0/00/Bandurria-tuning.png
 sound_class: 弦鳴
 hs_class: Chordophone／弦鳴樂器
 family: 撥弦地域分支
@@ -14,6 +15,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
+The bandurria is a plucked chordophone from Spain, similar to the mandolin and bandola, primarily used in Spanish folk music, but also found in former Spanish colonies.
 ## 歷史背景
 
 ## 音色描述

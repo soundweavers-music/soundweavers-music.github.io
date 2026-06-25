@@ -14,6 +14,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
+Tama may mean:
 ## 歷史背景
 
 ## 音色描述

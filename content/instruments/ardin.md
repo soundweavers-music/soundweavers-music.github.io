@@ -14,6 +14,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
+Ardin may refer to: Ardin, Deux-Sèvres, France Ardin, North Khorasan, Iran Ardin, Zanjan, Iran Ardin, Khorramdarreh, Zanjan Province, Iran Ardin (harp), a musical instrument of Mauritania Mattias Ardin (born 1969), Swedish officer
 ## 歷史背景
 
 ## 音色描述

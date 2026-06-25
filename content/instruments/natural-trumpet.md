@@ -4,6 +4,7 @@ original_name: Natural trumpet
 category: 管樂器
 country: 全球
 era: 傳統／年代待考
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Natural_Trumpet_in_D_MET_DP-12679-012.jpg/500px-Natural_Trumpet_in_D_MET_DP-12679-012.jpg
 sound_class: 氣鳴
 hs_class: Aerophone／氣鳴樂器
 family: 號角延伸與地方銅管
@@ -14,6 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
+A natural trumpet is a valveless brass instrument that is able to play the notes of the harmonic series.
 ## 歷史背景
 
 ## 音色描述

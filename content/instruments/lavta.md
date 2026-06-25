@@ -4,6 +4,7 @@ original_name: Lavta
 category: 弦樂器
 country: 土耳其／希臘
 era: 傳統／年代待考
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Lavta_front.jpg/500px-Lavta_front.jpg
 sound_class: 弦鳴
 hs_class: Chordophone／弦鳴樂器
 family: 短頸魯特琴
@@ -14,6 +15,7 @@ region_type: 區域／多國
 ---
 ## 介紹
 
+The lavta is a plucked string music instrument from Istanbul.
 ## 歷史背景
 
 ## 音色描述

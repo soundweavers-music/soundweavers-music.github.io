@@ -14,6 +14,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
+Serpent or The Serpent may refer to: Snake, a carnivorous reptile of the suborder Serpentes
 ## 歷史背景
 
 ## 音色描述

@@ -14,6 +14,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
+Sansi may refer to: Sansi people, an ethnic group of India Sansi language, an Indo-Aryan language Sansi, Benin, in Borgou Department, Benin Sansi Township, Xingtai, Hebei, China Three Bureaus (三司; Sānsī), an office in imperial Chinese governments Wu Sansi (died 707), Chinese official
 ## 歷史背景
 
 ## 音色描述

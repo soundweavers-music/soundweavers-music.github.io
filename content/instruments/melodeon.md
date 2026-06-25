@@ -14,6 +14,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
+Melodeon may refer to: Melodeon (accordion), a type of button accordion Melodeon (organ), a type of 19th-century reed organ Melodeon (Boston, Massachusetts), a concert hall in 19th-century Boston Melodeon Records, a U.S. record label in the 1960s The Melodeon, a 1977 novel by Glendon Swarthout
 ## 歷史背景
 
 ## 音色描述

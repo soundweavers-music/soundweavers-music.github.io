@@ -14,6 +14,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
+The arghul (Arabic: أرغول or يرغول), also spelled argul, arghoul, arghool, argol, or yarghul, is a musical instrument in the reed family. It has been used since ancient Egyptian and Ancient Levantine civilizations(such as the Canaanites) times and is still used as a traditional instrument in Egypt, Palestine, Syria, Lebanon and Jordan.
 ## 歷史背景
 
 ## 音色描述

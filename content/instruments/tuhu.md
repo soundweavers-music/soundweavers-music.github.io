@@ -14,6 +14,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
+The tuhu (土胡, pinyin: tǔhú) is a Chinese bowed string instrument in the huqin family of instruments. It is used primarily by non-Han ethnic groups of southern China, particularly the Zhuang, who live in the Guangxi province and use it in their bayin (八音, lit. "eight sounds") ensemble. It is also used in Yunnan, most prominently in Funing County, Wenshan Zhuang and Miao Autonomous Prefecture. The instrument's sound box is made from a bottle gourd, which is covered on the playing end with snake skin. The instrument has two strings that are tuned to the interval of a fifth.
 ## 歷史背景
 
 ## 音色描述

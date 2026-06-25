@@ -14,6 +14,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
+The bobre is a musical bow traditional in Mauritius and Réunion, particularly the traditional genres, sega and maloya. It is a long bow, made of wood with a vegetable fibre string, with a calabash acting as a resonator. It is played by striking the string with a stick. It is no longer used in Mauritian sega but is still popular in Réunion. It is also used in Maloya.
 ## 歷史背景
 
 ## 音色描述

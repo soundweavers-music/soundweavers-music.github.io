@@ -4,6 +4,7 @@ original_name: Kotsuzumi
 category: 打擊樂器
 country: 日本
 era: 傳統／年代待考
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Japanese_Drum.jpg/500px-Japanese_Drum.jpg
 sound_class: 膜鳴
 hs_class: Membranophone／膜鳴樂器
 family: 沙漏鼓
@@ -14,6 +15,7 @@ region_type: 單一地區／文化圈
 ---
 ## 介紹
 
+The tsudzumi (鼓) or tsuzumi is a hand drum of Japanese origin. It consists of a wooden body shaped like an hourglass, and it is taut, with two drum heads with cords that can be squeezed or released to increase or decrease the tension of the heads respectively. This mechanism allows the player to raise or lower the pitch of the drum while playing, not unlike the African talking drum and the Indian dhadd.
 ## 歷史背景
 
 ## 音色描述

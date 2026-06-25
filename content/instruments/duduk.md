@@ -4,6 +4,7 @@ original_name: Duduk
 category: 管樂器
 country: 亞洲／歐洲／中東／全球
 era: 傳統／年代待考
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Kids_Playing_duduk.jpg/500px-Kids_Playing_duduk.jpg
 sound_class: 氣鳴
 hs_class: Aerophone／氣鳴樂器
 family: 雙簧管系
@@ -14,6 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
+The Armenian duduk ( doo-DOOK; Armenian: դուդուկ IPA: [duˈduk]) or tsiranapogh (Armenian: ծիրանափող, meaning "apricot-made wind instrument"), is a double reed woodwind instrument made of apricot wood originating from Armenia. Variations of the Armenian duduk appear throughout the Caucasus, the Balkans, and the Middle East. The duduk, balaban and mey are almost identical, except for historical and geographical differences.
 ## 歷史背景
 
 ## 音色描述

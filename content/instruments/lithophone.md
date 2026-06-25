@@ -4,6 +4,7 @@ original_name: Lithophone
 category: 打擊樂器
 country: 全球
 era: 傳統／年代待考
+image: https://upload.wikimedia.org/wikipedia/commons/2/23/Organ_and_Chimes_-_Caverns_of_Luray_Va_1906_postcard.png
 sound_class: 體鳴
 hs_class: Idiophone／體鳴樂器
 family: 石琴與陶石聲響
@@ -14,6 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
+A lithophone is a musical instrument consisting of a rock or pieces of rock which are struck to produce musical notes. Notes may be sounded in combination (producing harmony) or in succession (melody). It is an idiophone comparable to instruments such as the glockenspiel, vibraphone, xylophone and marimba. In the Hornbostel-Sachs classification system, lithophones are designated as '111.22' – directly-struck percussion plaques.
 ## 歷史背景
 
 ## 音色描述

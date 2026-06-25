@@ -4,6 +4,7 @@ original_name: Gudok
 category: 弦樂器
 country: 全球
 era: 傳統／年代待考
+image: https://upload.wikimedia.org/wikipedia/commons/3/35/Russ_instr_gudok.gif
 sound_class: 弦鳴
 hs_class: Chordophone／弦鳴樂器
 family: 擦弦延伸與地方提琴
@@ -14,6 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
+The gudok (IPA: [gʊˈdok], Russian: гудок), or gudochek (IPA: [gʊˈdot͡ɕɪk], Russian: гудочек), is a Russian folk string instrument, played with a bow. The oldest gudoks are dated to the 11th–14th centuries in Novgorod. The instrument is now obsolete and has been reconstructed based on fragments found in excavations.
 ## 歷史背景
 
 ## 音色描述

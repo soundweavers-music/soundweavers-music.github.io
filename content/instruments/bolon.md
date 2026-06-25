@@ -14,6 +14,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
+Bolon may refer to: Bolon, name of several gods in Mayan mythology Bolon (eyewear brand), a Chinese eyewear brand Bolon (flooring company), a flooring company in Sweden Bolon of Macedon (fl. 330 BC) soldier who gave a speech against Philotas, son of one of Alexander's generals Lake Bolon, in Russia's Khabarovsk Krai Bolon, ethnic group in Mali Bolon language, White Bolon and Black Bolon dialects, of the ethnic group in Mali Bolon (musical instrument), kind of harp found in Mali Comté de Bolon, old name for Boulon, Calvados, France
 ## 歷史背景
 
 ## 音色描述

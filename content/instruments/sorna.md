@@ -14,6 +14,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
+The sornā or sornāy (Persian: سُرنای، سُرنا, also سورنای، سورنا surnā, surnāy and also Zurna) is an ancient Iranian woodwind instrument.
 ## 歷史背景
 
 ## 音色描述

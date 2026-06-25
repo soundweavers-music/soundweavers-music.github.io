@@ -14,6 +14,7 @@ region_type: 地區／文化圈
 ---
 ## 介紹
 
+Kundi may refer to: Kundi (film), Urdu film from Pakistan Kundi (harp) Kundi (Pashtun tribe), in Pakistan Kundi (stealing power), the practice of stealing electric power in some parts of Brazil, India, Pakistan and Turkey Kundi, Ethiopia, a town in Guradamole, Somali Kundi, Haripur, in Pakistan Kundi, Uttar Pradesh, a village in India An Assyrian fortress probably identical with later Cyinda
 ## 歷史背景
 
 ## 音色描述

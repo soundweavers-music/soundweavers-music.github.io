@@ -14,6 +14,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
+Cuatro, Spanish (and other Romance languages) for the number 4, may refer to: Cuatro (instrument), a family of Latin American string instruments, including: Cuatro (Venezuela) Puerto Rican cuatro Cuatro (TV channel), a Spanish free-to-air television channel TV4 (Guanajuato), or TV Cuatro, a state-owned public broadcaster serving Guanajuato, Mexico ¡Cuatro!, a 2013 documentary by Green Day Cuatro (album) a 2024 album by Camilo
 ## 歷史背景
 
 ## 音色描述

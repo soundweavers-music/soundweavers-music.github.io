@@ -4,6 +4,7 @@ original_name: Erke
 category: 管樂器
 country: 全球／中東／歐洲／亞洲／高山與宗教文化圈
 era: 傳統／年代待考
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Erke_-_Noroeste_Argentino.jpg/500px-Erke_-_Noroeste_Argentino.jpg
 sound_class: 氣鳴
 hs_class: Aerophone／氣鳴樂器
 family: 號角延伸與地方銅管
@@ -14,6 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
+The erke (alternatively erque, coroneta, or quepa) is a large labrosone (lip reed) instrument native to the Gran Chaco of Bolivia, northern Chile, and the Argentine Northwest.
 ## 歷史背景
 
 ## 音色描述

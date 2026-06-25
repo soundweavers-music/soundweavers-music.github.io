@@ -4,6 +4,7 @@ original_name: Teponaztli
 category: 打擊樂器
 country: 拉丁美洲／非洲／歐洲／亞洲／全球
 era: 傳統／年代待考
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Two_Teponaztli.jpg/500px-Two_Teponaztli.jpg
 sound_class: 體鳴
 hs_class: Idiophone／體鳴樂器
 family: 裂縫鼓／體鳴
@@ -14,6 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
+A teponaztli [tepoˈnast͡ɬi] is a type of slit drum used in central Mexico by the Aztecs and related cultures.
 ## 歷史背景
 
 ## 音色描述

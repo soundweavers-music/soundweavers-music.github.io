@@ -4,6 +4,7 @@ original_name: Genggong
 category: 打擊樂器
 country: 印尼巴厘島
 era: 傳統／年代待考
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/COLLECTIE_TROPENMUSEUM_Mondharp_van_bamboe_TMnr_A-979.jpg/500px-COLLECTIE_TROPENMUSEUM_Mondharp_van_bamboe_TMnr_A-979.jpg
 sound_class: 體鳴
 hs_class: Idiophone／體鳴樂器
 family: 口簧／體鳴近身聲
@@ -14,6 +15,7 @@ region_type: 單一地區／文化圈
 ---
 ## 介紹
 
+The genggong is a kind of jew's harp used in the music of Bali. It consists of a wooden frame and tongue cut from a single piece of the leaf stem of the sugar palm. The left end is held firmly against the cheek, while a string tied to the right end is jerked rhythmically to set the tongue into motion (in contrast to other jaw harps in which the tongue itself is plucked to produce sound). Different harmonics are produced by pronouncing different vowel sounds.
 ## 歷史背景
 
 ## 音色描述

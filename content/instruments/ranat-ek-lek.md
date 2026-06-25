@@ -4,6 +4,7 @@ original_name: Ranat ek lek
 category: 打擊樂器
 country: 東南亞／東亞／非洲／歐洲／全球
 era: 傳統／年代待考
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Ranat_ek_lek.jpg/500px-Ranat_ek_lek.jpg
 sound_class: 體鳴
 hs_class: Idiophone／體鳴樂器
 family: 金屬排琴
@@ -14,6 +15,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
+The ranat ek lek (Thai: ระนาดเอกเหล็ก, pronounced [ranâːt ʔèːk lèk]) is a metallophone used in the classical music of Thailand. It is the smaller of the two sizes of Thai metallophone; the larger one is called ranat thum lek. This musical instrument was originated in the reign of King Rama IV (1854-1868). The ranat ek lek consists of flat metal slabs placed over a rectangular wooden resonator. It is played with two bamboo sticks with padded ends. The ranat ek lek is very similar to the Khmer roneat dek.
 ## 歷史背景
 
 ## 音色描述

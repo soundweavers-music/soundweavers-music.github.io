@@ -14,6 +14,7 @@ region_type: 跨文化／多地
 ---
 ## 介紹
 
+Jing can refer to: Jing (software), formerly Jing Project Jing (name), a Chinese surname and given name Jing River, in China Jing (instrument) (징), a large gong used in Korean traditional music 井 (jǐng), a Chinese word for well and various other things named after the well
 ## 歷史背景
 
 ## 音色描述
