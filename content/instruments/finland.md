@@ -1,9 +1,9 @@
 ---
-title: "芬兰"
-original_name: "Finland"
-category: "弦樂器"
-country: "待考"
-era: "傳統／年代待考"
+title: 芬兰
+original_name: Finland
+category: 弦樂器
+country: 待考
+era: 傳統／年代待考
 ---
 ## 介紹
 

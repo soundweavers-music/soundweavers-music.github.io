@@ -1,9 +1,9 @@
 ---
-title: "Blue Man Group（暫譯）"
-original_name: "Blue Man Group"
-category: "管樂器"
-country: "待考"
-era: "傳統／年代待考"
+title: Blue Man Group（暫譯）
+original_name: Blue Man Group
+category: 管樂器
+country: 待考
+era: 傳統／年代待考
 ---
 ## 介紹
 

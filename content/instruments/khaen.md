@@ -1,16 +1,16 @@
 ---
-title: "Khaen"
-original_name: "Khaen"
-category: "管樂器"
-country: "亞洲／歐洲／中東／全球"
-era: "傳統／年代待考"
-sound_class: "氣鳴"
-hs_class: "Aerophone／氣鳴樂器"
-family: "自由簧吹奏"
-playing_method: "自由簧"
-body_listening: "口腔、舌頭、簧片震動、鼻音"
-soundscape: "簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）"
-region_type: "跨文化／多地"
+title: 笙（寮國）
+original_name: Khaen
+category: 管樂器
+country: 亞洲／歐洲／中東／全球
+era: 傳統／年代待考
+sound_class: 氣鳴
+hs_class: Aerophone／氣鳴樂器
+family: 自由簧吹奏
+playing_method: 自由簧
+body_listening: 口腔、舌頭、簧片震動、鼻音
+soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+region_type: 跨文化／多地
 ---
 ## 介紹
 

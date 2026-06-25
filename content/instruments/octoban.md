@@ -1,9 +1,9 @@
 ---
-title: "Octoban"
-original_name: "Octoban"
-category: "打擊樂器"
-country: "待考"
-era: "傳統／年代待考"
+title: 八音桶鼓
+original_name: Octoban
+category: 打擊樂器
+country: 待考
+era: 傳統／年代待考
 ---
 ## 介紹
 

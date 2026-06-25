@@ -1,9 +1,9 @@
 ---
-title: "Slit 鑼"
-original_name: "Slit gong"
-category: "打擊樂器"
-country: "待考"
-era: "傳統／年代待考"
+title: 裂縫鑼
+original_name: Slit gong
+category: 打擊樂器
+country: 待考
+era: 傳統／年代待考
 ---
 ## 介紹
 

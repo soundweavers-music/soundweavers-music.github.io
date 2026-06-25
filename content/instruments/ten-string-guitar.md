@@ -1,9 +1,9 @@
 ---
-title: "Ten-string 吉他"
-original_name: "Ten-string guitar"
-category: "弦樂器"
-country: "待考"
-era: "傳統／年代待考"
+title: 十弦吉他
+original_name: Ten-string guitar
+category: 弦樂器
+country: 待考
+era: 傳統／年代待考
 ---
 ## 介紹
 

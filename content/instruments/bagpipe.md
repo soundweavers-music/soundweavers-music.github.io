@@ -1,9 +1,9 @@
 ---
-title: "風笛"
-original_name: "Bagpipe"
-category: "管樂器"
-country: "待考"
-era: "傳統／年代待考"
+title: 風笛
+original_name: Bagpipe
+category: 管樂器
+country: 待考
+era: 傳統／年代待考
 ---
 ## 介紹
 

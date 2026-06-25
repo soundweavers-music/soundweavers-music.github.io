@@ -1,9 +1,9 @@
 ---
-title: "Hi-hat 鈸"
-original_name: "Hi-hat cymbal"
-category: "打擊樂器"
-country: "待考"
-era: "傳統／年代待考"
+title: 踩鈸
+original_name: Hi-hat cymbal
+category: 打擊樂器
+country: 待考
+era: 傳統／年代待考
 ---
 ## 介紹
 

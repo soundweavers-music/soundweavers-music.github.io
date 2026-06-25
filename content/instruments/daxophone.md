@@ -1,9 +1,9 @@
 ---
-title: "Daxophone（暫譯）"
-original_name: "Daxophone"
-category: "打擊樂器"
-country: "待考"
-era: "傳統／年代待考"
+title: Daxophone（暫譯）
+original_name: Daxophone
+category: 打擊樂器
+country: 待考
+era: 傳統／年代待考
 ---
 ## 介紹
 

@@ -1,9 +1,9 @@
 ---
-title: "Washtub bass（暫譯）"
-original_name: "Washtub bass"
-category: "弦樂器"
-country: "待考"
-era: "傳統／年代待考"
+title: Washtub bass（暫譯）
+original_name: Washtub bass
+category: 弦樂器
+country: 待考
+era: 傳統／年代待考
 ---
 ## 介紹
 

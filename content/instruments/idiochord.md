@@ -1,9 +1,9 @@
 ---
-title: "Idiochord（暫譯）"
-original_name: "Idiochord"
-category: "弦樂器"
-country: "待考"
-era: "傳統／年代待考"
+title: Idiochord（暫譯）
+original_name: Idiochord
+category: 弦樂器
+country: 待考
+era: 傳統／年代待考
 ---
 ## 介紹
 

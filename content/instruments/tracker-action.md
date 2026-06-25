@@ -1,9 +1,9 @@
 ---
-title: "Tracker action（暫譯）"
-original_name: "Tracker action"
-category: "打擊樂器"
-country: "待考"
-era: "傳統／年代待考"
+title: Tracker action（暫譯）
+original_name: Tracker action
+category: 打擊樂器
+country: 待考
+era: 傳統／年代待考
 ---
 ## 介紹
 

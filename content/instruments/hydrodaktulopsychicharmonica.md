@@ -1,9 +1,9 @@
 ---
-title: "Hydrodaktulopsychic口琴"
-original_name: "Hydrodaktulopsychicharmonica"
-category: "打擊樂器"
-country: "待考"
-era: "傳統／年代待考"
+title: 水鍵口琴
+original_name: Hydrodaktulopsychicharmonica
+category: 打擊樂器
+country: 待考
+era: 傳統／年代待考
 ---
 ## 介紹
 

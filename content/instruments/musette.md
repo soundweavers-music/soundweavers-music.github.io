@@ -1,16 +1,16 @@
 ---
-title: "Musette"
-original_name: "Musette"
-category: "管樂器"
-country: "法國"
-era: "傳統／年代待考"
-sound_class: "氣鳴"
-hs_class: "Aerophone／氣鳴樂器"
-family: "風笛系"
-playing_method: "氣囊供氣"
-body_listening: "口腔、舌頭、簧片震動、鼻音"
-soundscape: "簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）"
-region_type: "單一國家或文化源流"
+title: 穆塞特小風笛
+original_name: Musette
+category: 管樂器
+country: 法國
+era: 傳統／年代待考
+sound_class: 氣鳴
+hs_class: Aerophone／氣鳴樂器
+family: 風笛系
+playing_method: 氣囊供氣
+body_listening: 口腔、舌頭、簧片震動、鼻音
+soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+region_type: 單一國家或文化源流
 ---
 ## 介紹
 

@@ -1,9 +1,9 @@
 ---
-title: "英国管"
-original_name: "Cor anglais"
-category: "管樂器"
-country: "待考"
-era: "傳統／年代待考"
+title: 英國管
+original_name: Cor anglais
+category: 管樂器
+country: 待考
+era: 傳統／年代待考
 ---
 ## 介紹
 

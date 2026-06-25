@@ -1,16 +1,16 @@
 ---
-title: "Sundanese Gamelan"
-original_name: "Gamelan Degung"
-category: "其他"
-country: "印尼／爪哇／峇里"
-era: "傳統／年代待考"
-sound_class: "合奏系統"
-hs_class: "Ensemble／合奏與編制系統"
-family: "地域合奏系統"
-playing_method: "合奏"
-body_listening: "身體、群體、互聽、分工"
-soundscape: "一群人一起建造的聲音（地域合奏、樂團編制與現代混合系統）"
-region_type: "地區／文化圈"
+title: Sundanese Gamelan
+original_name: Gamelan Degung
+category: 其他
+country: 印尼／爪哇／峇里
+era: 傳統／年代待考
+sound_class: 合奏系統
+hs_class: Ensemble／合奏與編制系統
+family: 地域合奏系統
+playing_method: 合奏
+body_listening: 身體、群體、互聽、分工
+soundscape: 一群人一起建造的聲音（地域合奏、樂團編制與現代混合系統）
+region_type: 地區／文化圈
 ---
 ## 介紹
 

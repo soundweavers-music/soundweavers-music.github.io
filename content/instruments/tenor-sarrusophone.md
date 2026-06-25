@@ -1,9 +1,9 @@
 ---
-title: "Tenor sarrusophone（暫譯）"
-original_name: "Tenor sarrusophone"
-category: "管樂器"
-country: "待考"
-era: "傳統／年代待考"
+title: 次中音薩魯梭風
+original_name: Tenor sarrusophone
+category: 管樂器
+country: 待考
+era: 傳統／年代待考
 ---
 ## 介紹
 

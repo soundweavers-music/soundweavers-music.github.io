@@ -1,16 +1,16 @@
 ---
-title: "Melodeon"
-original_name: "Melodeon"
-category: "鍵盤樂器"
-country: "歐洲／美國／全球現代錄音室"
-era: "傳統／年代待考"
-sound_class: "氣鳴"
-hs_class: "Aerophone／氣鳴樂器"
-family: "管風琴與風箱鍵盤"
-playing_method: "鍵盤＋氣流"
-body_listening: "手指、機械距離、記憶、電聲"
-soundscape: "按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）"
-region_type: "跨文化／多地"
+title: 梅洛迪恩風琴
+original_name: Melodeon
+category: 鍵盤樂器
+country: 歐洲／美國／全球現代錄音室
+era: 傳統／年代待考
+sound_class: 氣鳴
+hs_class: Aerophone／氣鳴樂器
+family: 管風琴與風箱鍵盤
+playing_method: 鍵盤＋氣流
+body_listening: 手指、機械距離、記憶、電聲
+soundscape: 按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
+region_type: 跨文化／多地
 ---
 ## 介紹
 

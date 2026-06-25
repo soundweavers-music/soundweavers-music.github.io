@@ -1,9 +1,9 @@
 ---
-title: "Clapper (musical instrument)（暫譯）"
-original_name: "Clapper (musical instrument)"
-category: "打擊樂器"
-country: "中國"
-era: "中世紀"
+title: Clapper (musical instrument)（暫譯）
+original_name: Clapper (musical instrument)
+category: 打擊樂器
+country: 中國
+era: 中世紀
 ---
 ## 介紹
 

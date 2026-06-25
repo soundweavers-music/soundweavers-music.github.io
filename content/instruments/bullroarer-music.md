@@ -1,9 +1,9 @@
 ---
-title: "Bullroarer (music)（暫譯）"
-original_name: "Bullroarer (music)"
-category: "管樂器"
-country: "待考"
-era: "傳統／年代待考"
+title: Bullroarer (music)（暫譯）
+original_name: Bullroarer (music)
+category: 管樂器
+country: 待考
+era: 傳統／年代待考
 ---
 ## 介紹
 

@@ -1,9 +1,9 @@
 ---
-title: "Tenor 吉他"
-original_name: "Tenor guitar"
-category: "弦樂器"
-country: "待考"
-era: "傳統／年代待考"
+title: 次中音吉他
+original_name: Tenor guitar
+category: 弦樂器
+country: 待考
+era: 傳統／年代待考
 ---
 ## 介紹
 

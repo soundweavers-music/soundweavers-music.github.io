@@ -1,16 +1,16 @@
 ---
-title: "Flexatone（暫譯）"
-original_name: "Flexatone"
-category: "打擊樂器"
-country: "全球"
-era: "傳統／年代待考"
-sound_class: "體鳴"
-hs_class: "Idiophone／體鳴樂器"
-family: "材料敲擊延伸"
-playing_method: "敲擊"
-body_listening: "材料、回聲、群體分工、音列"
-soundscape: "木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）"
-region_type: "跨文化／多地"
+title: Flexatone（暫譯）
+original_name: Flexatone
+category: 打擊樂器
+country: 全球
+era: 傳統／年代待考
+sound_class: 體鳴
+hs_class: Idiophone／體鳴樂器
+family: 材料敲擊延伸
+playing_method: 敲擊
+body_listening: 材料、回聲、群體分工、音列
+soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+region_type: 跨文化／多地
 ---
 ## 介紹
 

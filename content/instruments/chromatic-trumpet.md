@@ -1,9 +1,9 @@
 ---
-title: "Chromatic 小號"
-original_name: "Chromatic trumpet"
-category: "打擊樂器"
-country: "待考"
-era: "傳統／年代待考"
+title: 半音小號
+original_name: Chromatic trumpet
+category: 打擊樂器
+country: 待考
+era: 傳統／年代待考
 ---
 ## 介紹
 

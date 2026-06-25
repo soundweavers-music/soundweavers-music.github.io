@@ -1,16 +1,16 @@
 ---
-title: "Sampler"
-original_name: "Sampler"
-category: "鍵盤樂器"
-country: "全球"
-era: "傳統／年代待考"
-sound_class: "電鳴"
-hs_class: "Electrophone／電鳴樂器"
-family: "合成器與取樣器"
-playing_method: "電子震盪／取樣"
-body_listening: "手指、機械距離、記憶、電聲"
-soundscape: "按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）"
-region_type: "跨文化／多地"
+title: 取樣器
+original_name: Sampler
+category: 鍵盤樂器
+country: 全球
+era: 傳統／年代待考
+sound_class: 電鳴
+hs_class: Electrophone／電鳴樂器
+family: 合成器與取樣器
+playing_method: 電子震盪／取樣
+body_listening: 手指、機械距離、記憶、電聲
+soundscape: 按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
+region_type: 跨文化／多地
 ---
 ## 介紹
 

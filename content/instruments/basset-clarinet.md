@@ -1,9 +1,9 @@
 ---
-title: "巴塞單簧管"
-original_name: "Basset clarinet"
-category: "管樂器"
-country: "待考"
-era: "傳統／年代待考"
+title: 巴塞單簧管
+original_name: Basset clarinet
+category: 管樂器
+country: 待考
+era: 傳統／年代待考
 ---
 ## 介紹
 

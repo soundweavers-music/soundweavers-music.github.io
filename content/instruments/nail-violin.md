@@ -1,9 +1,9 @@
 ---
-title: "釘子提琴"
-original_name: "Nail violin"
-category: "打擊樂器"
-country: "德國"
-era: "傳統／年代待考"
+title: 釘子提琴
+original_name: Nail violin
+category: 打擊樂器
+country: 德國
+era: 傳統／年代待考
 ---
 ## 介紹
 

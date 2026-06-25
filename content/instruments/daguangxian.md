@@ -1,9 +1,9 @@
 ---
-title: "大廣弦"
-original_name: "Daguangxian"
-category: "弦樂器"
-country: "中國"
-era: "傳統／年代待考"
+title: 大廣弦
+original_name: Daguangxian
+category: 弦樂器
+country: 中國
+era: 傳統／年代待考
 ---
 ## 介紹
 

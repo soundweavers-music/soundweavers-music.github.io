@@ -1,9 +1,9 @@
 ---
-title: "小提琴 family"
-original_name: "Violin family"
-category: "弦樂器"
-country: "待考"
-era: "傳統／年代待考"
+title: 提琴族
+original_name: Violin family
+category: 弦樂器
+country: 待考
+era: 傳統／年代待考
 ---
 ## 介紹
 

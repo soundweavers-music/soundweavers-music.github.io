@@ -1,16 +1,16 @@
 ---
-title: "Zink"
-original_name: "Cornett / Zink"
-category: "管樂器"
-country: "歐洲／全球"
-era: "傳統／年代待考"
-sound_class: "氣鳴"
-hs_class: "Aerophone／氣鳴樂器"
-family: "木製號角／銅管交界"
-playing_method: "唇振＋指孔"
-body_listening: "嘴唇、遠方、召喚、空間方向"
-soundscape: "吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）"
-region_type: "跨文化／多地"
+title: Zink
+original_name: Cornett / Zink
+category: 管樂器
+country: 歐洲／全球
+era: 傳統／年代待考
+sound_class: 氣鳴
+hs_class: Aerophone／氣鳴樂器
+family: 木製號角／銅管交界
+playing_method: 唇振＋指孔
+body_listening: 嘴唇、遠方、召喚、空間方向
+soundscape: 吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
+region_type: 跨文化／多地
 ---
 ## 介紹
 

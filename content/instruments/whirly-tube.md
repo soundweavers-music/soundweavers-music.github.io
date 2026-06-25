@@ -1,9 +1,9 @@
 ---
-title: "Whirly tube（暫譯）"
-original_name: "Whirly tube"
-category: "管樂器"
-country: "待考"
-era: "傳統／年代待考"
+title: Whirly tube（暫譯）
+original_name: Whirly tube
+category: 管樂器
+country: 待考
+era: 傳統／年代待考
 ---
 ## 介紹
 

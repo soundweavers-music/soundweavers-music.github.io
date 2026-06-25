@@ -1,9 +1,9 @@
 ---
-title: "Rattle 鼓"
-original_name: "Rattle drum"
-category: "打擊樂器"
-country: "待考"
-era: "傳統／年代待考"
+title: 搖鼓
+original_name: Rattle drum
+category: 打擊樂器
+country: 待考
+era: 傳統／年代待考
 ---
 ## 介紹
 

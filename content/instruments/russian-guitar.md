@@ -1,9 +1,9 @@
 ---
-title: "俄罗斯吉他"
-original_name: "Russian guitar"
-category: "鍵盤樂器"
-country: "俄羅斯"
-era: "古代"
+title: 俄羅斯吉他
+original_name: Russian guitar
+category: 鍵盤樂器
+country: 俄羅斯
+era: 古代
 ---
 ## 介紹
 

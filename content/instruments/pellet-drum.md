@@ -1,9 +1,9 @@
 ---
-title: "Pellet 鼓"
-original_name: "Pellet drum"
-category: "打擊樂器"
-country: "待考"
-era: "傳統／年代待考"
+title: 圓珠鼓
+original_name: Pellet drum
+category: 打擊樂器
+country: 待考
+era: 傳統／年代待考
 ---
 ## 介紹
 

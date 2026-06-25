@@ -1,9 +1,9 @@
 ---
-title: "獨弦琴"
-original_name: "Duxianqin"
-category: "弦樂器"
-country: "中國"
-era: "傳統／年代待考"
+title: 獨弦琴
+original_name: Duxianqin
+category: 弦樂器
+country: 中國
+era: 傳統／年代待考
 ---
 ## 介紹
 

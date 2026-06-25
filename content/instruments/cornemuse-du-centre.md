@@ -1,9 +1,9 @@
 ---
-title: "Cornemuse du Centre（暫譯）"
-original_name: "Cornemuse du Centre"
-category: "管樂器"
-country: "待考"
-era: "傳統／年代待考"
+title: Cornemuse du Centre（暫譯）
+original_name: Cornemuse du Centre
+category: 管樂器
+country: 待考
+era: 傳統／年代待考
 ---
 ## 介紹
 

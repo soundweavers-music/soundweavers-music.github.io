@@ -1,9 +1,9 @@
 ---
-title: "鼓板"
-original_name: "Guban (instrument)"
-category: "打擊樂器"
-country: "中國"
-era: "傳統／年代待考"
+title: 鼓板
+original_name: Guban (instrument)
+category: 打擊樂器
+country: 中國
+era: 傳統／年代待考
 ---
 ## 介紹
 

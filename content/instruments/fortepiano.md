@@ -1,16 +1,16 @@
 ---
-title: "Fortepiano"
-original_name: "Fortepiano"
-category: "鍵盤樂器"
-country: "全球"
-era: "傳統／年代待考"
-sound_class: "弦鳴"
-hs_class: "Chordophone／弦鳴樂器"
-family: "撥弦與擊弦鍵盤"
-playing_method: "鍵盤＋撥／擊"
-body_listening: "手指、機械距離、記憶、電聲"
-soundscape: "按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）"
-region_type: "跨文化／多地"
+title: 早期鋼琴
+original_name: Fortepiano
+category: 鍵盤樂器
+country: 全球
+era: 傳統／年代待考
+sound_class: 弦鳴
+hs_class: Chordophone／弦鳴樂器
+family: 撥弦與擊弦鍵盤
+playing_method: 鍵盤＋撥／擊
+body_listening: 手指、機械距離、記憶、電聲
+soundscape: 按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
+region_type: 跨文化／多地
 ---
 ## 介紹
 

@@ -1,9 +1,9 @@
 ---
-title: "雙簧管 d'amore"
-original_name: "Oboe d'amore"
-category: "管樂器"
-country: "待考"
-era: "傳統／年代待考"
+title: 愛之雙簧管
+original_name: Oboe d'amore
+category: 管樂器
+country: 待考
+era: 傳統／年代待考
 ---
 ## 介紹
 

@@ -1,9 +1,9 @@
 ---
-title: "3rd bridge（暫譯）"
-original_name: "3rd bridge"
-category: "弦樂器"
-country: "待考"
-era: "傳統／年代待考"
+title: 3rd bridge（暫譯）
+original_name: 3rd bridge
+category: 弦樂器
+country: 待考
+era: 傳統／年代待考
 ---
 ## 介紹
 

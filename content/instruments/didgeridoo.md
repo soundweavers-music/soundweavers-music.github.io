@@ -1,16 +1,16 @@
 ---
-title: "Didgeridoo"
-original_name: "Didgeridoo"
-category: "管樂器"
-country: "全球"
-era: "傳統／年代待考"
-sound_class: "氣鳴"
-hs_class: "Aerophone／氣鳴樂器"
-family: "低鳴管與循環呼吸"
-playing_method: "唇振／氣柱"
-body_listening: "氣息、胸腔、長音、空間"
-soundscape: "一口氣走過山谷（竹管、陶管、長音與世界笛聲）"
-region_type: "跨文化／多地"
+title: 迪吉里杜管
+original_name: Didgeridoo
+category: 管樂器
+country: 全球
+era: 傳統／年代待考
+sound_class: 氣鳴
+hs_class: Aerophone／氣鳴樂器
+family: 低鳴管與循環呼吸
+playing_method: 唇振／氣柱
+body_listening: 氣息、胸腔、長音、空間
+soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+region_type: 跨文化／多地
 ---
 ## 介紹
 

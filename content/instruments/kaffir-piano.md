@@ -1,9 +1,9 @@
 ---
-title: "Kaffir 鋼琴"
-original_name: "Kaffir piano"
-category: "鍵盤樂器"
-country: "待考"
-era: "古代"
+title: 南非鐵片琴
+original_name: Kaffir piano
+category: 鍵盤樂器
+country: 待考
+era: 古代
 ---
 ## 介紹
 

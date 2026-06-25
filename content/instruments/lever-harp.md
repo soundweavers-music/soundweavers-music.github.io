@@ -1,9 +1,9 @@
 ---
-title: "Lever 豎琴"
-original_name: "Lever harp"
-category: "弦樂器"
-country: "待考"
-era: "古代"
+title: 拉桿豎琴
+original_name: Lever harp
+category: 弦樂器
+country: 待考
+era: 古代
 ---
 ## 介紹
 

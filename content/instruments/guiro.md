@@ -1,16 +1,16 @@
 ---
-title: "刮瓜"
-original_name: "Güiro"
-category: "打擊樂器"
-country: "全球"
-era: "古代"
-sound_class: "體鳴"
-hs_class: "Idiophone／體鳴樂器"
-family: "刮器與摩擦體鳴"
-playing_method: "刮奏"
-body_listening: "手腕、腳踝、短音、節奏對齊"
-soundscape: "手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）"
-region_type: "跨文化／多地"
+title: 刮瓜
+original_name: Güiro
+category: 打擊樂器
+country: 全球
+era: 古代
+sound_class: 體鳴
+hs_class: Idiophone／體鳴樂器
+family: 刮器與摩擦體鳴
+playing_method: 刮奏
+body_listening: 手腕、腳踝、短音、節奏對齊
+soundscape: 手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+region_type: 跨文化／多地
 ---
 ## 介紹
 

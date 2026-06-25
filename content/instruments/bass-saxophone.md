@@ -1,9 +1,9 @@
 ---
-title: "低音薩克斯風"
-original_name: "Bass saxophone"
-category: "管樂器"
-country: "待考"
-era: "19 世紀"
+title: 低音薩克斯風
+original_name: Bass saxophone
+category: 管樂器
+country: 待考
+era: 19 世紀
 ---
 ## 介紹
 

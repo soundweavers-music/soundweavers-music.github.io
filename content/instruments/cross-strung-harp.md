@@ -1,9 +1,9 @@
 ---
-title: "Cross-strung 豎琴"
-original_name: "Cross-strung harp"
-category: "弦樂器"
-country: "待考"
-era: "傳統／年代待考"
+title: 交叉弦豎琴
+original_name: Cross-strung harp
+category: 弦樂器
+country: 待考
+era: 傳統／年代待考
 ---
 ## 介紹
 

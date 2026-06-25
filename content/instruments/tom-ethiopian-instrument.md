@@ -1,9 +1,9 @@
 ---
-title: "Tom (Ethiopian instrument)（暫譯）"
-original_name: "Tom (Ethiopian instrument)"
-category: "打擊樂器"
-country: "待考"
-era: "傳統／年代待考"
+title: Tom (Ethiopian instrument)（暫譯）
+original_name: Tom (Ethiopian instrument)
+category: 打擊樂器
+country: 待考
+era: 傳統／年代待考
 ---
 ## 介紹
 

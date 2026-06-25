@@ -1,9 +1,9 @@
 ---
-title: "Tom-tom 鼓"
-original_name: "Tom-tom drum"
-category: "打擊樂器"
-country: "待考"
-era: "傳統／年代待考"
+title: 通通鼓
+original_name: Tom-tom drum
+category: 打擊樂器
+country: 待考
+era: 傳統／年代待考
 ---
 ## 介紹
 

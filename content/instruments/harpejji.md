@@ -1,9 +1,9 @@
 ---
-title: "豎琴ejji"
-original_name: "Harpejji"
-category: "弦樂器"
-country: "待考"
-era: "傳統／年代待考"
+title: 豎琴吉他
+original_name: Harpejji
+category: 弦樂器
+country: 待考
+era: 傳統／年代待考
 ---
 ## 介紹
 

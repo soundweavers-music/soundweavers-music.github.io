@@ -1,9 +1,9 @@
 ---
-title: "Piston 長笛"
-original_name: "Piston flute"
-category: "管樂器"
-country: "待考"
-era: "傳統／年代待考"
+title: 活塞長笛
+original_name: Piston flute
+category: 管樂器
+country: 待考
+era: 傳統／年代待考
 ---
 ## 介紹
 

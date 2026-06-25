@@ -1,16 +1,16 @@
 ---
-title: "Likembe la basse"
-original_name: "Bass Likembe"
-category: "打擊樂器"
-country: "非洲／辛巴威／剛果／全球現代"
-era: "傳統／年代待考"
-sound_class: "體鳴"
-hs_class: "Idiophone／體鳴樂器"
-family: "大型低音舌片琴"
-playing_method: "手指撥片"
-body_listening: "指尖、掌心、尾音、近身聆聽"
-soundscape: "手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）"
-region_type: "跨文化／多地"
+title: 低音利肯貝
+original_name: Bass Likembe
+category: 打擊樂器
+country: 非洲／辛巴威／剛果／全球現代
+era: 傳統／年代待考
+sound_class: 體鳴
+hs_class: Idiophone／體鳴樂器
+family: 大型低音舌片琴
+playing_method: 手指撥片
+body_listening: 指尖、掌心、尾音、近身聆聽
+soundscape: 手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）
+region_type: 跨文化／多地
 ---
 ## 介紹
 

@@ -1,9 +1,9 @@
 ---
-title: "Party 號角"
-original_name: "Party horn"
-category: "管樂器"
-country: "待考"
-era: "傳統／年代待考"
+title: 派對號角
+original_name: Party horn
+category: 管樂器
+country: 待考
+era: 傳統／年代待考
 ---
 ## 介紹
 

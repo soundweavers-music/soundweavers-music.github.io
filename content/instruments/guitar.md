@@ -1,9 +1,9 @@
 ---
-title: "吉他"
-original_name: "Guitar"
-category: "弦樂器"
-country: "待考"
-era: "傳統／年代待考"
+title: 吉他
+original_name: Guitar
+category: 弦樂器
+country: 待考
+era: 傳統／年代待考
 ---
 ## 介紹
 

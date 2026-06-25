@@ -1,9 +1,9 @@
 ---
-title: "音律管"
-original_name: "Boomwhacker"
-category: "管樂器"
-country: "待考"
-era: "傳統／年代待考"
+title: 音律管
+original_name: Boomwhacker
+category: 管樂器
+country: 待考
+era: 傳統／年代待考
 ---
 ## 介紹
 

@@ -1,9 +1,9 @@
 ---
-title: "Crum號角"
-original_name: "Crumhorn"
-category: "管樂器"
-country: "待考"
-era: "傳統／年代待考"
+title: 彎管號
+original_name: Crumhorn
+category: 管樂器
+country: 待考
+era: 傳統／年代待考
 ---
 ## 介紹
 

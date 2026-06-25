@@ -1,16 +1,16 @@
 ---
-title: "Irish Flute"
-original_name: "Irish Flute"
-category: "管樂器"
-country: "愛爾蘭"
-era: "傳統／年代待考"
-sound_class: "氣鳴"
-hs_class: "Aerophone／氣鳴樂器"
-family: "橫吹笛"
-playing_method: "橫吹"
-body_listening: "氣息、胸腔、長音、空間"
-soundscape: "一口氣走過山谷（竹管、陶管、長音與世界笛聲）"
-region_type: "單一國家或文化源流"
+title: Irish Flute
+original_name: Irish Flute
+category: 管樂器
+country: 愛爾蘭
+era: 傳統／年代待考
+sound_class: 氣鳴
+hs_class: Aerophone／氣鳴樂器
+family: 橫吹笛
+playing_method: 橫吹
+body_listening: 氣息、胸腔、長音、空間
+soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+region_type: 單一國家或文化源流
 ---
 ## 介紹
 

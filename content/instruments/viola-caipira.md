@@ -1,16 +1,16 @@
 ---
-title: "卡伊皮拉維奧拉"
-original_name: "Viola Caipira"
-category: "弦樂器"
-country: "巴西"
-era: "傳統／年代待考"
-sound_class: "弦鳴"
-hs_class: "Chordophone／弦鳴樂器"
-family: "十弦吉他族"
-playing_method: "撥奏"
-body_listening: "鄉村敘事、雙弦共鳴、民歌生活感"
-soundscape: "旅人懷裡撥動的故事線（魯特琴、短頸長頸撥弦與民謠弦聲）"
-region_type: "單一地區／文化圈"
+title: 卡伊皮拉維奧拉
+original_name: Viola Caipira
+category: 弦樂器
+country: 巴西
+era: 傳統／年代待考
+sound_class: 弦鳴
+hs_class: Chordophone／弦鳴樂器
+family: 十弦吉他族
+playing_method: 撥奏
+body_listening: 鄉村敘事、雙弦共鳴、民歌生活感
+soundscape: 旅人懷裡撥動的故事線（魯特琴、短頸長頸撥弦與民謠弦聲）
+region_type: 單一地區／文化圈
 ---
 ## 介紹
 

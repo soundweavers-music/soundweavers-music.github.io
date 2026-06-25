@@ -1,16 +1,16 @@
 ---
-title: "中提琴"
-original_name: "Viola"
-category: "弦樂器"
-country: "亞洲／歐洲／中東／全球"
-era: "18 世紀"
-sound_class: "弦鳴"
-hs_class: "Chordophone／弦鳴樂器"
-family: "提琴家族收束"
-playing_method: "弓擦"
-body_listening: "胸口、嗓音、拉長的情緒"
-soundscape: "像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）"
-region_type: "跨文化／多地"
+title: 中提琴
+original_name: Viola
+category: 弦樂器
+country: 亞洲／歐洲／中東／全球
+era: 18 世紀
+sound_class: 弦鳴
+hs_class: Chordophone／弦鳴樂器
+family: 提琴家族收束
+playing_method: 弓擦
+body_listening: 胸口、嗓音、拉長的情緒
+soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+region_type: 跨文化／多地
 ---
 ## 介紹
 

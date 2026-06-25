@@ -1,9 +1,9 @@
 ---
-title: "馬林巴琴phone"
-original_name: "Marimbaphone"
-category: "打擊樂器"
-country: "待考"
-era: "傳統／年代待考"
+title: 馬林巴手機琴
+original_name: Marimbaphone
+category: 打擊樂器
+country: 待考
+era: 傳統／年代待考
 ---
 ## 介紹
 

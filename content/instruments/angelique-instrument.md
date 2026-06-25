@@ -1,9 +1,9 @@
 ---
-title: "Angélique (instrument)（暫譯）"
-original_name: "Angélique (instrument)"
-category: "弦樂器"
-country: "法國"
-era: "巴洛克"
+title: Angélique (instrument)（暫譯）
+original_name: Angélique (instrument)
+category: 弦樂器
+country: 法國
+era: 巴洛克
 ---
 ## 介紹
 

@@ -1,16 +1,16 @@
 ---
-title: "Cümbüş（暫譯）"
-original_name: "Cümbüş"
-category: "弦樂器"
-country: "土耳其"
-era: "古代"
-sound_class: "弦鳴"
-hs_class: "Chordophone／弦鳴樂器"
-family: "金屬共鳴魯特琴"
-playing_method: "撥奏"
-body_listening: "金屬亮聲、民間歌唱與街頭能量"
-soundscape: "旅人懷裡撥動的故事線（魯特琴、短頸長頸撥弦與民謠弦聲）"
-region_type: "單一地區／文化圈"
+title: Cümbüş（暫譯）
+original_name: Cümbüş
+category: 弦樂器
+country: 土耳其
+era: 古代
+sound_class: 弦鳴
+hs_class: Chordophone／弦鳴樂器
+family: 金屬共鳴魯特琴
+playing_method: 撥奏
+body_listening: 金屬亮聲、民間歌唱與街頭能量
+soundscape: 旅人懷裡撥動的故事線（魯特琴、短頸長頸撥弦與民謠弦聲）
+region_type: 單一地區／文化圈
 ---
 ## 介紹
 

@@ -1,9 +1,9 @@
 ---
-title: "Khloy（暫譯）"
-original_name: "Khloy"
-category: "管樂器"
-country: "待考"
-era: "古代"
+title: Khloy（暫譯）
+original_name: Khloy
+category: 管樂器
+country: 待考
+era: 古代
 ---
 ## 介紹
 
