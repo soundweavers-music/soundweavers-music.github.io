@@ -322,7 +322,6 @@ def page(title, body, page_path=None, meta_extra="", extra_head=""):
       <a href="{resolve_url(page_path, '/countries/')}">國家</a>
       <a href="{resolve_url(page_path, '/eras/')}">年代</a>
       <a href="{resolve_url(page_path, '/map/')}">地圖</a>
-      <a href="{resolve_url(page_path, '/manage/')}">管理</a>
     </nav>
   </header>
   {body}
@@ -1366,7 +1365,7 @@ def build_manager_page(instruments):
     <h1>管理者頁面</h1>
   </section>
 
-  <div id="manage-app" style="display:none;">
+  <div id="manage-app">
     <div class="manage-card">
       <h2>下載 Excel 樂器總資料庫</h2>
       <p>將所有樂器的 Markdown 檔案匯出為 Excel 格式。包含所有 frontmatter 欄位與介紹、歷史、音色描述等內容。第一列為英文欄位名稱，第二列為中文說明。</p>
@@ -1384,16 +1383,7 @@ def build_manager_page(instruments):
     </div>
   </div>
 
-  <div id="manage-locked" style="display:block;">
-    <div class="manage-card" style="text-align:center;">
-      <h2>請輸入密碼</h2>
-      <p>請輸入管理員密碼以存取此頁面。</p>
-      <input type="password" id="password-input" style="padding:10px 12px;border:1px solid var(--line);border-radius:6px;font-size:16px;width:200px;margin-bottom:12px;">
-      <br>
-      <button class="btn btn-primary" id="password-submit">確認</button>
-      <div id="password-error" style="color:#c2410c;margin-top:8px;font-size:14px;"></div>
-    </div>
-  </div>
+
 </main>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
