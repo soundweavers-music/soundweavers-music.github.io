@@ -1396,32 +1396,22 @@ def build_manager_page(instruments):
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <script>
 (function() {
-  var locked = document.getElementById('manage-locked');
-  var app = document.getElementById('manage-app');
-
   if (sessionStorage.getItem('manage_pass') === 'ok') {
-    locked.style.display = 'none';
-    app.style.display = 'block';
+    document.getElementById('manage-locked').style.display = 'none';
+    document.getElementById('manage-app').style.display = 'block';
   } else {
-    locked.style.display = 'block';
-    app.style.display = 'none';
-    document.getElementById('password-submit').onclick = function() {
-      var pw = document.getElementById('password-input').value;
-      try {
-        if (btoa(pw) === 'NTIwMTMxNA==') {
-          locked.style.display = 'none';
-          app.style.display = 'block';
-          sessionStorage.setItem('manage_pass', 'ok');
-        } else {
-          document.getElementById('password-error').textContent = '密碼錯誤，請再試一次。';
-        }
-      } catch(e) {
-        document.getElementById('password-error').textContent = '錯誤：' + e.message;
+    document.getElementById('manage-locked').style.display = 'block';
+    document.getElementById('manage-app').style.display = 'none';
+    setTimeout(function() {
+      var c = prompt('管理者密碼：');
+      if (c && c === atob('NTIwMTMxNA==')) {
+        sessionStorage.setItem('manage_pass', 'ok');
+        document.getElementById('manage-locked').style.display = 'none';
+        document.getElementById('manage-app').style.display = 'block';
+      } else if (c !== null) {
+        document.getElementById('password-error').textContent = '密碼錯誤';
       }
-    };
-    document.getElementById('password-input').onkeypress = function(e) {
-      if (e.key === 'Enter') document.getElementById('password-submit').click();
-    };
+    }, 200);
   }
 
   function slugify(name) {
