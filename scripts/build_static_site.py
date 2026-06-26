@@ -1396,45 +1396,33 @@ def build_manager_page(instruments):
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <script>
 (function() {
-  var PASSWORD_CHECK = 'NTIwMTMxNA==';
-  var SALT = 'wmie2024';
+  var locked = document.getElementById('manage-locked');
+  var app = document.getElementById('manage-app');
 
-  function unlockApp() {
-    document.getElementById('manage-app').style.display = 'block';
-    document.getElementById('manage-locked').style.display = 'none';
-    sessionStorage.setItem('manage_unlocked', 'true');
-  }
-
-  function showLock() {
-    document.getElementById('manage-app').style.display = 'none';
-    document.getElementById('manage-locked').style.display = 'block';
-    sessionStorage.removeItem('manage_unlocked');
-  }
-
-  // Check if already unlocked in this session
-  if (sessionStorage.getItem('manage_unlocked') === 'true') {
-    unlockApp();
+  if (sessionStorage.getItem('manage_pass') === 'ok') {
+    locked.style.display = 'none';
+    app.style.display = 'block';
   } else {
-    showLock();
-  }
-
-  document.getElementById('password-submit')?.addEventListener('click', function() {
-    var pw = document.getElementById('password-input').value;
-    try {
-      if (btoa(pw) === PASSWORD_CHECK) {
-        unlockApp();
-      } else {
-        document.getElementById('password-error').textContent = '密碼錯誤，請再試一次。';
-        document.getElementById('password-input').value = '';
+    locked.style.display = 'block';
+    app.style.display = 'none';
+    document.getElementById('password-submit').onclick = function() {
+      var pw = document.getElementById('password-input').value;
+      try {
+        if (btoa(pw) === 'NTIwMTMxNA==') {
+          locked.style.display = 'none';
+          app.style.display = 'block';
+          sessionStorage.setItem('manage_pass', 'ok');
+        } else {
+          document.getElementById('password-error').textContent = '密碼錯誤，請再試一次。';
+        }
+      } catch(e) {
+        document.getElementById('password-error').textContent = '錯誤：' + e.message;
       }
-    } catch(e) {
-      document.getElementById('password-error').textContent = '驗證失敗：' + e.message;
-    }
-  });
-
-  document.getElementById('password-input')?.addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') document.getElementById('password-submit').click();
-  });
+    };
+    document.getElementById('password-input').onkeypress = function(e) {
+      if (e.key === 'Enter') document.getElementById('password-submit').click();
+    };
+  }
 
   function slugify(name) {
     if (!name) return 'instrument';
