@@ -321,6 +321,7 @@ def page(title, body, page_path=None, meta_extra="", extra_head=""):
       <a href="{resolve_url(page_path, '/categories/')}">分類</a>
       <a href="{resolve_url(page_path, '/countries/')}">國家</a>
       <a href="{resolve_url(page_path, '/eras/')}">年代</a>
+      <a href="{resolve_url(page_path, '/about/')}">關於</a>
       <a href="{resolve_url(page_path, '/map/')}">地圖</a>
     </nav>
   </header>
@@ -874,6 +875,32 @@ h2 { margin:0; font-weight:700; }
 .footer-nav a { color:var(--muted); text-decoration:none; }
 .footer-nav a:hover { color:var(--accent); }
 
+/* ── About page ─────────────────────────────────────────────── */
+.about-hero {
+  padding:80px 24px; text-align:center; color:#fff; border-radius:0 0 20px 20px;
+  margin:-36px -24px 0; min-height:320px; display:flex; align-items:center; justify-content:center;
+}
+.about-hero-content { max-width:640px; }
+.about-eyebrow { color:rgba(255,255,255,0.7); font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; margin:0 0 12px; }
+.about-hero h1 { font-size:clamp(28px,4vw,42px); margin:0 0 16px; color:#fff; text-shadow:0 2px 8px rgba(0,0,0,0.3); }
+.about-subtitle { font-size:18px; opacity:0.9; margin:0; }
+.about-body { max-width:800px; margin:40px auto; }
+.about-section { margin-bottom:40px; }
+.about-section h2 { font-size:22px; margin:0 0 16px; padding-bottom:8px; border-bottom:2px solid var(--accent); display:inline-block; }
+.about-text p { color:var(--ink2); line-height:1.9; font-size:16px; margin:0 0 16px; }
+.about-author { display:flex; gap:24px; align-items:start; flex-wrap:wrap; }
+.author-avatar { width:80px; height:80px; border-radius:50%; background:var(--accent); color:#fff; display:flex; align-items:center; justify-content:center; font-size:28px; font-weight:800; flex-shrink:0; }
+.author-info { flex:1; min-width:200px; }
+.author-info h3 { font-size:20px; margin:0 0 8px; }
+.author-info p { color:var(--ink2); line-height:1.7; margin:0 0 8px; }
+.about-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+.service-list { list-style:none; padding:0; margin:0; }
+.service-list li { padding:10px 14px; border:1px solid var(--line); border-radius:8px; margin-bottom:8px; background:var(--surface); font-size:15px; display:flex; align-items:center; gap:10px; }
+.service-icon { font-size:20px; }
+.contact-info p { margin:0 0 12px; font-size:16px; }
+.contact-info a { color:var(--blue); text-decoration:none; font-weight:600; }
+.contact-info a:hover { text-decoration:underline; }
+
 /* ── Image credit ───────────────────────────────────────────── */
 .image-credit { font-size:12px; color:var(--muted); text-align:center; margin-top:6px; }
 
@@ -1190,7 +1217,8 @@ def build_sitemap(instruments):
             f"<url><loc>{base}/eras/</loc></url>",
             f"<url><loc>{base}/popular/</loc></url>",
             f"<url><loc>{base}/uncommon/</loc></url>",
-            f"<url><loc>{base}/map/</loc></url>"]
+            f"<url><loc>{base}/map/</loc></url>",
+            f"<url><loc>{base}/about/</loc></url>"]
     for item in instruments:
         urls.append(f"<url><loc>{base}/instruments/{item['slug']}/</loc></url>")
     xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
@@ -1499,6 +1527,68 @@ def build_manager_page(instruments):
     write(page_dir_ / "index.html", page("管理者頁面", body, page_dir_ / "index.html", meta_extra='<meta name="robots" content="noindex">'))
 
 
+
+def build_about_page():
+    """Build the About page with website info and author details."""
+    page_dir_ = OUTPUT_DIR / "about"
+    page_dir_.mkdir(parents=True, exist_ok=True)
+    bg_url = "https://yt3.googleusercontent.com/6nBZ7RVoXGMH2fuMPWiju_tpAET9D-qVkOhg1HjGqh8m9EaO-u9wO_oHVA12Sy0DzoKn7mGVmA=w1707-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj"
+    body = f"""<main class="about-page">
+  <section class="about-hero" style="background:linear-gradient(135deg,rgba(0,0,0,0.7),rgba(0,0,0,0.4)),url({bg_url}) center/cover no-repeat;">
+    <div class="about-hero-content">
+      <p class="about-eyebrow">World Musical Instruments Encyclopedia</p>
+      <h1>關於世界樂器百科</h1>
+      <p class="about-subtitle">循著聲音，走進不同文化的現場</p>
+    </div>
+  </section>
+
+  <div class="about-body">
+    <section class="about-section">
+      <h2>創建網站理念</h2>
+      <div class="about-text">
+        <p>這個網站的出發點，來自於我對世界樂器長期的喜愛與好奇。每一件樂器都不只是聲音的工具，它也承載著一個地方的生活方式、信仰、節慶、遷徙、工藝與情感記憶。當我們聽見一種陌生的音色，有時會感到遙遠，有時卻會莫名產生共鳴。這正是世界樂器迷人的地方。</p>
+        <p>目前網路上雖然能找到許多樂器資料，但多半分散在不同網站、影片、學術資料或零散文章中，缺少一個清楚、完整、可持續擴充的整理系統。對一般讀者來說，常常很難從樂器分類、地域分布、聲音特質、演奏方式、文化背景與現代應用之間建立完整的理解。</p>
+        <p>因此，我想建立一個兼具知識性、可讀性與探索感的樂器百科平台。網站將以更有系統的方式整理世界各地的樂器，包含樂器名稱、分類、起源地區、構造特色、演奏方式、音色描述、文化背景、代表曲目、延伸聆聽與創作應用等內容，讓讀者可以像翻閱地圖一樣，循著聲音走進不同文化的現場。</p>
+        <p>這個網站的核心目標，是讓世界樂器不再只是冷冰冰的資料條目，而是成為人們認識音樂、理解文化、激發創作靈感的一扇門。無論是音樂創作者、教育工作者、學生、樂器愛好者，或只是單純對聲音感到好奇的人，都能在這裡找到清楚、有脈絡、值得慢慢探索的內容。</p>
+      </div>
+    </section>
+
+    <section class="about-section">
+      <h2>作者</h2>
+      <div class="about-author">
+        <div class="author-avatar">NW</div>
+        <div class="author-info">
+          <h3>隔壁織音人</h3>
+          <p>為隔壁音樂工作室 Next Door Music 的音樂團體</p>
+          <p>隔壁音樂匯聚熱愛音樂夥伴的創意單位。我們將每位合作夥伴視為珍貴的「音樂鄰居」，在此紀錄彼此的創作火花。</p>
+          <p>我們致力探索音符的無限可能，打造高品質聽覺體驗，並提供專業音樂製作服務。</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="about-grid">
+      <section class="about-section">
+        <h2>服務項目 Service</h2>
+        <ul class="service-list">
+          <li><span class="service-icon">🎵</span>編曲製作｜翻唱改編．風格重塑</li>
+          <li><span class="service-icon">🎼</span>詞曲訂製｜原創詞曲</li>
+          <li><span class="service-icon">🎚️</span>後期處理｜人聲修音．混音</li>
+          <li><span class="service-icon">🎤</span>人聲錄製｜DEMO 代唱．導唱</li>
+        </ul>
+      </section>
+
+      <section class="about-section">
+        <h2>聯絡我們 Contact Us</h2>
+        <div class="contact-info">
+          <p>✉️ <a href="mailto:nextdoor20250726@gmail.com">nextdoor20250726@gmail.com</a></p>
+          <p>🔗 <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">YouTube 頻道：隔壁織音人</a></p>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>"""
+    write(page_dir_ / "index.html", page("關於", body, page_dir_ / "index.html"))
+
 def build_robots(instruments):
     """Generate robots.txt allowing all crawlers and referencing sitemap."""
     robots_txt = "User-agent: *\nAllow: /\nSitemap: " + site_url("/sitemap.xml") + "\n"
@@ -1513,6 +1603,7 @@ def main():
     build_assets(instruments)
     build_index(instruments)
     build_map_page(instruments)
+    build_about_page()
     build_manager_page(instruments)
     build_detail_pages(instruments)
     build_special_pages(instruments)
