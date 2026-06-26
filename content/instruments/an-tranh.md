@@ -4,6 +4,7 @@ original_name: Đàn tranh
 category: 鍵盤樂器
 country: 東亞／中亞／歐洲／東南亞／非洲／美洲
 era: 傳統／年代待考
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flickr_-_dalbera_-_Huong_Thanh_Trio%2C_%28mus%C3%A9e_Guimet%2C_Paris%29.jpg/500px-Flickr_-_dalbera_-_Huong_Thanh_Trio%2C_%28mus%C3%A9e_Guimet%2C_Paris%29.jpg
 sound_class: 弦鳴
 hs_class: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
 family: 齊特琴、箏類、擊弦與鍵盤化弦鳴
@@ -11,10 +12,13 @@ playing_method: 撥弦／擊弦／按鍵擊弦
 body_listening: 手掌、弦面、推音、敲擊
 soundscape: 平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
 region_type: 地區／文化圈
+youtube_ids: gf6v59c5yuY d2snVgXI0rY
 ---
 ## 介紹
 
 ## 歷史背景
+
+越南箏起源於中國，於公元十一世紀傳入越南，經過數百年的本地化演變，逐漸發展成具有獨特越南特色的樂器。初期越南箏深受中國古箏影響，但越南音樂家根據本地民族特點和審美偏好，對樂器結構和演奏技巧進行了創新改良。越南箏音色溫潤柔和，音域寬廣，能表現出越南音樂獨有的抒情氣質。隨著越南文化的發展，越南箏逐漸成為宮廷音樂和民間音樂中不可或缺的重要樂器。十九世紀末至二十世紀初，越南箏的演奏技藝不斷完善，並在傳統音樂保護運動中被重視。現今，越南箏已成為越南文化象徵，在國際音樂舞台上代表越南音樂傳統。
 
 ## 音色描述
 

@@ -8,10 +8,19 @@ region_type: 單一地區／文化圈
 soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
 body_listening: 氣息、胸腔、長音、空間
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/YUNGhocchiku_utagchi.jpg/500px-YUNGhocchiku_utagchi.jpg
+youtube_ids: Js-MeLKpl-Y SF3tZSH8yC0
 ---
 ## 介紹
 
 The hotchiku (法竹(ほっちく), "bamboo of [the] dharma"; lit. 'dharma bamboo'), sometimes romanized as hocchiku or hochiku, is a Japanese aerophone, an end-blown bamboo flute, crafted from root sections of bamboo. The bamboo root is cleaned and sanded, resulting in a surface patterned with many small, circular knots where the roots formerly joined the stalk. The same part of the bamboo plant is also used to produce the shakuhachi but, unlike the shakuhachi, the hotchiku's inside (bore) and outside surfaces are left unlacquered, and an inlay is not used in the mouthpiece.
 ## 歷史背景
 
+法竹笛起源於日本，是一種以竹根製作的直吹竹笛。其名稱「法竹」意為「佛法之竹」，反映了該樂器與日本禪宗文化的深厚淵源。法竹笛在中世紀日本逐漸發展完善，特別是在禪宗寺院中得到廣泛應用。製作工藝獨特，工匠選用竹根部分，經過細心清潔與打磨，形成獨有的紋理表面。
+
+法竹笛音色溫暖沙啞，具有禪意韻味，因此成為日本古典音樂與宗教儀式的重要樂器。隨著日本傳統音樂的保存與傳承，法竹笛文化逐步傳播至海外，在日本民族音樂復興運動中佔有重要地位。今日，法竹笛仍是日本傳統樂器文化的象徵，其獨特的聲響與製作技藝繼續吸引世界各地音樂愛好者的關注與學習。
+
 ## 音色描述
+
+法竹笛擁有深沉溫潤的音色，帶有獨特的蒼涼感與禪意。其音質較為暗沉內斂，不似西方長笛的明亮清脆，反而呈現出幽玄、悠遠的氣質。樂器音域相對較低，以中低音區為主，音色厚重而富有共鳴感。
+
+由於取材自竹根，法竹笛的腔體不規則，使其產生豐富的泛音與自然共鳴，形成多層次的音響效果。相比現代長笛的純淨通透，法竹笛更接近中國簫笛的柔和與東方風韻；與尺八相比，音色稍微明亮些許，但同樣具有禪宗美學的冥想特質。其音響具有有機的生命力，隨著吹奏力度與技巧變化而呈現細微的音色變化，營造出靜謐而深邃的聆聽體驗。

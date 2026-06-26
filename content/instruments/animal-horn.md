@@ -4,6 +4,7 @@ original_name: Animal Horn
 category: 管樂器
 country: 全球／中東／歐洲／亞洲／高山與宗教文化圈
 era: 傳統／年代待考
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Shofar-16-Zachi-Evenor.jpg/500px-Shofar-16-Zachi-Evenor.jpg
 sound_class: 氣鳴
 hs_class: 423 唇振氣鳴／號角與銅管
 family: 唇振氣鳴、天然號角與銅管
@@ -11,10 +12,17 @@ playing_method: 唇振吹奏
 body_listening: 嘴唇、遠方、召喚、空間方向
 soundscape: 吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
 region_type: 跨文化／多地
+youtube_ids: 9Xd8xq06FCw gekvMh0ZeGY
 ---
 ## 介紹
 
 ## 歷史背景
+
+動物號角是人類最古老的樂器之一，起源於非洲和亞洲的狩獵民族。早期人類利用動物骨骼、牙齒和角製作簡單的吹奏樂器，用於狩獵時的信號傳遞與部落溝通。考古證據表明，距今約四萬年前的舊石器時代已有類似樂器存在。
+
+隨著文明發展，動物號角在古埃及、美索不達米亞和古希臘等文明中被廣泛應用於宗教儀式、軍事作戰和宴樂活動。中世紀歐洲獵人則將其改進為狩獵號角，成為貴族運動的象徵。非洲和美洲土著民族保留了傳統製作與使用方式，將其融入祭祀和音樂表演中。
+
+隨著金屬樂器的出現，動物號角逐漸式微，但在民族音樂、儀式表演和考古復原中仍保有重要地位，代表人類音樂文明的早期發展軌跡。
 
 ## 音色描述
 

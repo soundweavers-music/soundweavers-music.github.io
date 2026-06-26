@@ -11,12 +11,15 @@ playing_method: 弓擦／輪擦
 body_listening: 胸口、嗓音、拉長的情緒
 soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
 region_type: 地區／文化圈
+youtube_ids: UCcvaAYlcbI vdsI4LBusPA
 ---
 ## 介紹
 
 The tuhu (土胡, pinyin: tǔhú) is a Chinese bowed string instrument in the huqin family of instruments. It is used primarily by non-Han ethnic groups of southern China, particularly the Zhuang, who live in the Guangxi province and use it in their bayin (八音, lit. "eight sounds") ensemble. It is also used in Yunnan, most prominently in Funing County, Wenshan Zhuang and Miao Autonomous Prefecture. The instrument's sound box is made from a bottle gourd, which is covered on the playing end with snake skin. The instrument has two strings that are tuned to the interval of a fifth.
 ## 歷史背景
 
+土胡是中國南方少數民族樂器，主要流行於廣西地區的壯族。作為胡琴家族的成員，土胡源於中國古代弓弦樂器的發展演變。其名稱中的「土」字體現了其民間、地方的特色，反映了非漢族文化的獨特性。土胡在壯族傳統音樂中佔有重要地位，常作為八音樂隊的重要樂器使用。八音是壯族傳統民間樂隊編制，包含八種樂器，在婚喪嫁娶等重要社交場合演奏。土胡以其溫厚沉鬱的音色，成為南方民族音樂不可或缺的組成部分。隨著文化交流的深入，土胡的演奏技巧與樂曲逐漸被記錄與傳承，成為研究中國民族音樂多樣性的重要文獻。
+
 ## 音色描述
 
-### 讀者導覽
+土胡音色溫潤深沉，具有濃厚的民族特色。其音質介於二胡與高胡之間，既保留了胡琴族樂器的蒼勁感，又帶有獨特的滄桑韻味。音域主要集中在中低音區，音色渾厚而富有表現力，特別是在演奏悠長的旋律時，能發出如歌唱般的共鳴效果。與二胡相比，土胡的音色更顯樸實粗獷；與高胡相較，則顯得低沉厚重。其共鳴腔體結構使得音波能充分迴盪，賦予樂器獨特的空間感和穿透力。這種音響特徵使土胡成為南方民族音樂中不可或缺的重要樂器，尤其適合表現廣西壯族的傳統音樂氣韻。

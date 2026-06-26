@@ -12,12 +12,21 @@ playing_method: 撥弦／擊弦／按鍵擊弦
 body_listening: 手掌、弦面、推音、敲擊
 soundscape: 平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
 region_type: 地區／文化圈
+youtube_ids: h0AAFhx3RmA XmBji07OtwA
 ---
 ## 介紹
 
 The guqin ([kùtɕʰǐn] ; Chinese: 古琴) is a plucked seven-string Chinese musical instrument. It has been played since ancient times, and has traditionally been favoured by scholars and literati as an instrument of great subtlety and refinement, as highlighted by the quote "a gentleman does not part with his qin or se without good reason," as well as being associated with the ancient Chinese philosopher Confucius. It is sometimes referred to by the Chinese as "the father of Chinese music" or "the instrument of the sages".
 ## 歷史背景
 
+古琴是中國傳統音樂文化中最古老的樂器之一，起源於中國上古時期。根據歷史記載，古琴最早出現於商周時代，距今已有三千多年的歷史。這件七弦樂器在中國古代社會中逐漸演變完善，到了周代已具備相當成熟的形制。
+
+古琴自古便與中華文人雅士的精神追求相結合，被視為修身養性的高雅樂器。孔子、伯牙等歷代聖賢均精於琴藝，使其在儒家文化中占據重要地位。隨著時間推移，古琴逐漸發展出完整的理論體系與演奏技法，成為中國古代「琴棋書畫」四藝之首。
+
+古琴的傳播沿著中華文明的發展脈絡向外擴展，經由絲綢之路傳入日本、朝鮮及東南亞地區，對東亞音樂文化產生深遠影響。直至今日，古琴仍被聯合國教科文組織列為人類非物質文化遺產，代表著中國傳統音樂文化的精髓。
+
 ## 音色描述
 
-### 讀者導覽
+古琴音色深邃而溫潤，具有獨特的蒼涼感與禪意。其音質既不明亮刺耳，亦不沉悶晦暗，而是帶有滄桑的溫暖感。琴聲音域寬廣，跨越四個八度，低音渾厚有力，中音純淨溫和，高音清亮悠遠。
+
+古琴的共鳴方式獨特，通過琴身木制共鳴箱的自然振動，使聲音具有良好的延展性與穿透力。相較於鋼琴的明晰有力，古琴更顯含蓄內斂；與吉他相比，古琴的泛音更豐富，餘韻悠長。其音色靈動中見蒼勁，細膩中現高遠，猶如山水意境般深遠悠長，極富表現力與感染力。

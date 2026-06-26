@@ -4,6 +4,7 @@ original_name: Angklung
 category: 打擊樂器
 country: 全球
 era: 傳統／年代待考
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Eight-pitch_Angklung%2C_Mitchell_Park%2C_Milwaukee.jpg/500px-Eight-pitch_Angklung%2C_Mitchell_Park%2C_Milwaukee.jpg
 sound_class: 體鳴
 hs_class: 11/12 定音體鳴／鑼鐘木琴石琴系統
 family: 定音體鳴、材料敲擊與鑼鐘木琴系統
@@ -11,10 +12,17 @@ playing_method: 敲擊／搖奏／材料共鳴
 body_listening: 材料、回聲、群體分工、音列
 soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
 region_type: 跨文化／多地
+youtube_ids: 2hhzmcHC2HY 9yeEBoiQaN4
 ---
 ## 介紹
 
 ## 歷史背景
+
+# 安克隆竹琴的歷史背景
+
+安克隆竹琴起源於印度尼西亞的爪哇島，距今已有超過一千年的歷史。這種樂器在古代爪哇王國時期就已出現，最初被用於農業儀式和宗教祭祀，象徵著對豐收和神靈的祈禱。安克隆竹琴由數根竹筒組成，每根竹筒發出不同的音高，演奏者通過搖晃樂器使竹筒碰撞發聲。
+
+隨著時間推移，安克隆竹琴逐漸從宗教用途演變為民間娛樂樂器，在爪哇社區中廣泛使用。十九世紀末，印度尼西亞音樂家蘇卡爾皮改進了其設計和音階系統，使其更適合演奏西方音樂，大大提升了樂器的藝術性。自此，安克隆竹琴傳播到東南亞各地乃至世界各地，成為代表印度尼西亞文化的重要符號，並於2010年被聯合國教科文組織列為人類非物質文化遺產。
 
 ## 音色描述
 
