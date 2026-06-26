@@ -264,6 +264,7 @@ def read_instruments():
                 "range": meta.get("range", ""),
                 "is_popular": meta.get("is_popular", "").lower() == "true",
                 "is_uncommon": meta.get("is_uncommon", "").lower() == "true",
+                "site_url": meta.get("site_url", ""),
                 "html": body_html,
                 "tutorial": "",
             }
@@ -1315,6 +1316,8 @@ def build_manager_page(instruments):
         ("introduction", "介紹內容"),
         ("history", "歷史背景"),
         ("timbre", "音色描述"),
+        ("material", "樂器材質"),
+        ("tutorial", "教學"),
     ]
     field_keys = [f[0] for f in fm_fields]
 
@@ -1344,7 +1347,8 @@ def build_manager_page(instruments):
                  "timbre": "## \u97f3\u8272\u63cf\u8ff0",
                  "listen": "## \u8046\u807d\u793a\u7bc4",
                  "representative": "## \u4ee3\u8868\u6027\u4f5c\u54c1",
-                 "material": "## \u6a02\u5668\u6750\u8cea"}
+                 "material": "## \u6a02\u5668\u6750\u8cea",
+                 "tutorial": "## \u6559\u5b78"}
 
     md_files = sorted(OUTPUT_DIR.parent.parent.glob("content/instruments/*.md"))
     md_body_cache = {}
@@ -1368,7 +1372,7 @@ def build_manager_page(instruments):
         for col_idx, key in enumerate(field_keys, 1):
             val = item.get(key, "")
             # For body keys, get from parsed markdown
-            if key in ("introduction", "history", "timbre"):
+            if key in ("introduction", "history", "timbre", "material", "tutorial"):
                 val = body_sections.get(key, "")
             if val:
                 cell = ws.cell(row=row_idx, column=col_idx, value=str(val))
