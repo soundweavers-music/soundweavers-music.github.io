@@ -1186,7 +1186,7 @@ def build_map_page(instruments):
   <div id="world-map" class="world-map"></div>
   <p class="map-hint">每個圓點代表一個地區的樂器數量，點擊可查看該地區樂器列表。</p>
 </main>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""><\/script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 <script>
 (function() {{
   var mapData = {map_json};
@@ -1207,7 +1207,7 @@ def build_map_page(instruments):
   }});
   if (bounds.length > 0) map.fitBounds(bounds, {{ padding: [30, 30], maxZoom: 4 }});
 }})();
-<\/script>"""
+</script>"""
     write(page_dir_ / "index.html", page("地圖導覽", body, page_dir_ / "index.html", extra_head=extra))
 
 
@@ -1322,8 +1322,8 @@ def build_manager_page(instruments):
   </div>
 </main>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"><\/script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"><\/script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <script>
 (function() {
   var PASSWORD = '5201314';
@@ -1448,7 +1448,7 @@ def build_manager_page(instruments):
     reader.readAsArrayBuffer(file);
   });
 })();
-<\/script>"""
+</script>"""
     write(page_dir_ / "index.html", page("管理者頁面", body, page_dir_ / "index.html"))
 
 def main():
