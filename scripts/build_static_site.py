@@ -621,7 +621,7 @@ def build_detail_pages(instruments):
           </div>
           <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">{body_html}</article></div>
           <div id="tab-tutorial" class="tab-pane"><article class="markdown-body">{item["tutorial"]}</article></div>
-          ''' if item.get("tutorial") else f'<article class="markdown-body">{body_html}</article>'}
+          '''}
           {related_html}
         </main>
         """
@@ -1396,50 +1396,8 @@ def build_manager_page(instruments):
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <script>
 (function() {
-  var PASSWORD_HASH = '2233189ca1209e21444a84869660aea98b9afc75d859a63e0b2b70892948775d';
+  var PASSWORD_CHECK = 'NTIwMTMxNA==';
   var SALT = 'wmie2024';
-
-  // Simple SHA-256 fallback (works without crypto.subtle)
-  function sha256(str) {
-    function rightRotate(v, c) { return (v >>> c) | (v << (32 - c)); }
-    var k = [0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,
-             0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,
-             0xe49b69c1,0xefbe4786,0x0fc19dc6,0x240ca1cc,0x2de92c6f,0x4a7484aa,0x5cb0a9dc,0x76f988da,
-             0x983e5152,0xa831c66d,0xb00327c8,0xbf597fc7,0xc6e00bf3,0xd5a79147,0x06ca6351,0x14292967,
-             0x27b70a85,0x2e1b2138,0x4d2c6dfc,0x53380d13,0x650a7354,0x766a0abb,0x81c2c92e,0x92722c85,
-             0xa2bfe8a1,0xa81a664b,0xc24b8b70,0xc76c51a3,0xd192e819,0xd6990624,0xf40e3585,0x106aa070,
-             0x19a4c116,0x1e376c08,0x2748774c,0x34b0bcb5,0x391c0cb3,0x4ed8aa4a,0x5b9cca4f,0x682e6ff3,
-             0x748f82ee,0x78a5636f,0x84c87814,0x8cc70208,0x90befffa,0xa4506ceb,0xbef9a3f7,0xc67178f2];
-    var h = [0x6a09e667,0xbb67ae85,0x3c6ef372,0xa54ff53a,0x510e527f,0x9b05688c,0x1f83d9ab,0x5be0cd19];
-    var bytes = []; var i;
-    for (i = 0; i < str.length; i++) { var c = str.charCodeAt(i); if (c < 128) bytes.push(c); else if (c < 2048) { bytes.push(192 | (c>>6)); bytes.push(128 | (c & 63)); } else if (c < 65536) { bytes.push(224 | (c>>12)); bytes.push(128 | ((c>>6) & 63)); bytes.push(128 | (c & 63)); } }
-    var bitLen = bytes.length * 8; bytes.push(128);
-    while ((bytes.length * 8) % 512 !== 448) bytes.push(0);
-    for (i = 7; i >= 0; i--) bytes.push((bitLen >>> (i*8)) & 255);
-    for (i = 0; i < bytes.length; i += 64) {
-      var w = []; for (var t = 0; t < 64; t++) w[t] = t < 16 ? (bytes[i+t*4]<<24)|(bytes[i+t*4+1]<<16)|(bytes[i+t*4+2]<<8)|bytes[i+t*4+3] : (rightRotate(w[t-2], 17) ^ rightRotate(w[t-2], 19) ^ (w[t-2]>>>10)) + w[t-7] + (rightRotate(w[t-15], 7) ^ rightRotate(w[t-15], 18) ^ (w[t-15]>>>3)) + w[t-16] | 0;
-      var a = h[0], b = h[1], c2 = h[2], d = h[3], e = h[4], f = h[5], g = h[6], hh = h[7];
-      for (var t = 0; t < 64; t++) { var S1 = rightRotate(e, 6) ^ rightRotate(e, 11) ^ rightRotate(e, 25); var ch = (e & f) ^ ((~e) & g); var temp1 = hh + S1 + ch + k[t] + w[t]; var S0 = rightRotate(a, 2) ^ rightRotate(a, 13) ^ rightRotate(a, 22); var maj = (a & b) ^ (a & c2) ^ (b & c2); var temp2 = S0 + maj; hh = g; g = f; f = e; e = d + temp1 | 0; d = c2; c2 = b; b = a; a = temp1 + temp2 | 0; }
-      h[0] = h[0] + a | 0; h[1] = h[1] + b | 0; h[2] = h[2] + c2 | 0; h[3] = h[3] + d | 0; h[4] = h[4] + e | 0; h[5] = h[5] + f | 0; h[6] = h[6] + g | 0; h[7] = h[7] + hh | 0;
-    }
-    var hex = [];
-    for (i = 0; i < 8; i++) for (var t = 3; t >= 0; t--) hex.push(((h[i] >>> (t*8)) & 255).toString(16).padStart(2, '0'));
-    return hex.join('');
-  }
-
-  async function hashCheck(input) {
-    try {
-      if (typeof crypto !== 'undefined' && crypto.subtle) {
-        var encoder = new TextEncoder();
-        var data = encoder.encode(input + SALT);
-        var hashBuffer = await crypto.subtle.digest('SHA-256', data);
-        var hashArray = Array.from(new Uint8Array(hashBuffer));
-        return hashArray.map(function(b) { return b.toString(16).padStart(2, '0'); }).join('');
-      }
-    } catch(e) { /* fall through to JS fallback */ }
-    // Fallback: use pure JS SHA-256 (works everywhere)
-    return sha256(input + SALT);
-  }
 
   function unlockApp() {
     document.getElementById('manage-app').style.display = 'block';
@@ -1460,15 +1418,10 @@ def build_manager_page(instruments):
     showLock();
   }
 
-  document.getElementById('password-submit')?.addEventListener('click', async function() {
+  document.getElementById('password-submit')?.addEventListener('click', function() {
     var pw = document.getElementById('password-input').value;
     try {
-      if (typeof crypto === 'undefined' || !crypto.subtle) {
-        document.getElementById('password-error').textContent = '錯誤：此頁面需要使用HTTPS才能驗證密碼。';
-        return;
-      }
-      var h = await hashCheck(pw);
-      if (h === PASSWORD_HASH) {
+      if (btoa(pw) === PASSWORD_CHECK) {
         unlockApp();
       } else {
         document.getElementById('password-error').textContent = '密碼錯誤，請再試一次。';
@@ -1476,7 +1429,6 @@ def build_manager_page(instruments):
       }
     } catch(e) {
       document.getElementById('password-error').textContent = '驗證失敗：' + e.message;
-      console.error('Password error:', e);
     }
   });
 
