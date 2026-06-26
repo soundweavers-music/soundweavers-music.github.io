@@ -291,7 +291,7 @@ def page(title, body, page_path=None, meta_extra="", extra_head=""):
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="{escape(csp)}">
+  <meta http-equiv="Content-Security-Policy" content="{csp}">
   <title>{escape(title)}｜世界樂器百科</title>
   {meta_extra}
   <link rel="stylesheet" href="{resolve_url(page_path, '/assets/site.css')}">
@@ -1310,7 +1310,7 @@ def build_manager_page(instruments):
     </div>
   </div>
 
-  <div id="manage-locked" style="display:none;">
+  <div id="manage-locked" style="display:block;">
     <div class="manage-card" style="text-align:center;">
       <h2>請輸入密碼</h2>
       <p>請輸入管理員密碼以存取此頁面。</p>
