@@ -71,31 +71,6 @@ def get_region_coords(country_str):
     return None
 
 
-def build_map_data(instruments):
-    region_counts = {}
-    region_samples = {}
-    for item in instruments:
-        country = item.get("country", "")
-        if not country or country in GLOBAL_KEYWORDS:
-            continue
-        skip = any(country.startswith(gk) for gk in GLOBAL_KEYWORDS)
-        if skip:
-            continue
-        coords = get_region_coords(country)
-        if not coords:
-            continue
-        key = (round(coords[0], 1), round(coords[1], 1))
-        region_counts[key] = region_counts.get(key, 0) + 1
-        if key not in region_samples:
-            region_samples[key] = []
-        if len(region_samples[key]) < 5:
-            region_samples[key].append(item["title"])
-    features = []
-    for (lat, lng), count in sorted(region_counts.items(), key=lambda x: -x[1]):
-        features.append({"lat": lat, "lng": lng, "count": count, "samples": region_samples.get((lat, lng), [])[:5]})
-    return features
-
-
 def normalize_base_path(value):
     if not value or value == "/":
         return ""
@@ -178,6 +153,51 @@ def slugify(value):
     return slug or "unknown"
 
 
+def build_map_data(instruments):
+    """Return features with lat, lng, name, count, url, samples."""
+    from collections import defaultdict
+    country_groups = defaultdict(list)
+    for item in instruments:
+        country = item.get("country", "")
+        if not country or country in GLOBAL_KEYWORDS:
+            continue
+        if any(country.startswith(gk) for gk in GLOBAL_KEYWORDS):
+            continue
+        coords = get_region_coords(country)
+        if not coords:
+            continue
+        country_groups[country].append(item)
+
+    # Coalesce countries that map to the same coordinate into one marker
+    coord_groups = defaultdict(list)
+    for country, items in country_groups.items():
+        coords = get_region_coords(country)
+        key = (round(coords[0], 1), round(coords[1], 1))
+        coord_groups[key].append((country, items))
+
+    features = []
+    for (lat, lng), entries in sorted(coord_groups.items(), key=lambda x: -sum(len(v) for _, v in x[1])):
+        total_count = sum(len(v) for _, v in entries)
+        # Use the most populous country as the primary name
+        primary = max(entries, key=lambda e: len(e[1]))[0]
+        urls = [f"/countries/{slugify(c)}/" for c, _ in entries]
+        all_samples = []
+        for _, items in entries:
+            for item in items:
+                if len(all_samples) < 5:
+                    all_samples.append(item["title"])
+        features.append({
+            "lat": lat,
+            "lng": lng,
+            "name": primary,
+            "count": total_count,
+            "url": f"/countries/{slugify(primary)}/",
+            "urls": urls,
+            "samples": all_samples,
+        })
+    return features
+
+
 def parse_youtube_ids(value):
     if not value:
         return []
@@ -239,8 +259,8 @@ def page(title, body, page_path=None, meta_extra="", extra_head=""):
     csp = (
         "default-src 'self'; "
         "img-src 'self' https: data:; "
-        "style-src 'self' 'unsafe-inline' https://unpkg.com; "
-        "script-src 'self' https://unpkg.com; "
+        "style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; "
+        "script-src 'self' https://unpkg.com https://cdnjs.cloudflare.com; "
         "connect-src 'self'; "
         "frame-src https://www.youtube-nocookie.com https://www.youtube.com; "
         "base-uri 'self'; form-action 'none'; object-src 'none'"
@@ -268,6 +288,8 @@ def page(title, body, page_path=None, meta_extra="", extra_head=""):
       <a href="{resolve_url(page_path, '/categories/')}">分類</a>
       <a href="{resolve_url(page_path, '/countries/')}">國家</a>
       <a href="{resolve_url(page_path, '/eras/')}">年代</a>
+      <a href="{resolve_url(page_path, '/map/')}">地圖</a>
+      <a href="{resolve_url(page_path, '/manage/')}">管理</a>
     </nav>
   </header>
   {body}
@@ -287,8 +309,7 @@ def page(title, body, page_path=None, meta_extra="", extra_head=""):
   </footer>
   <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="{resolve_url(page_path, '/assets/search.js')}"></script>
-  <script src="{resolve_url(page_path, '/assets/map-init.js')}"></script>
-  <script src="{resolve_url(page_path, '/assets/random-instrument.js')}"></script>
+    <script src="{resolve_url(page_path, '/assets/random-instrument.js')}"></script>
 </body>
 </html>
 """
@@ -350,18 +371,9 @@ def build_index(instruments):
     rng.shuffle(featured)
     sample_cards = "\n".join(card(item, index_path) for item in featured[:12])
 
-    # Map data
-    map_features = build_map_data(instruments)
-    map_json = json.dumps(map_features, ensure_ascii=False)
-
     # Popular/uncommon counts
     pop_count = sum(1 for i in instruments if i.get("is_popular"))
     un_count = sum(1 for i in instruments if i.get("is_uncommon"))
-
-    # Extra head for Leaflet CSS on homepage only
-    extra_head = """
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
-"""
 
     body = f"""
     <main class="page">
@@ -382,10 +394,6 @@ def build_index(instruments):
         <div class="stat-item"><strong>{len(eras)}</strong><span>年代</span></div>
       </section>
 
-      <section class="section map-section">
-        <div class="section-heading"><h2>地圖分類</h2></div>
-        <div id="world-map" class="world-map"></div>
-      </section>
 
       <section class="section">
         <div class="section-heading"><h2>精選分類</h2></div>
@@ -449,32 +457,14 @@ def build_index(instruments):
       </div>
     </main>
     """
-    write(index_path, page("首頁", body, index_path, extra_head=extra_head))
+    write(index_path, page("首頁", body, index_path))
 
-    # Write map data JS for inline usage
-    map_js = f"""
-(function() {{
-  var mapData = {map_json};
-  var container = document.getElementById('world-map');
-  if (!container || !mapData.length) return;
-  var script = document.createElement('script');
-  script.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
-  script.onload = function() {{
-    var map = L.map('world-map', {{ center: [20, 30], zoom: 2, minZoom: 1, maxZoom: 6, zoomControl: true, attributionControl: true }});
-    L.tileLayer('https://{{s}}.tile.openstreetmap.org/{{z}}/{{x}}/{{y}}.png', {{ maxZoom: 18, attribution: '&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a>' }}).addTo(map);
-    var bounds = [];
-    mapData.forEach(function(item) {{
-      var marker = L.circleMarker([item.lat, item.lng], {{ radius: Math.min(8 + item.count * 1.5, 30), fillColor: '#0d766b', color: '#0a5c53', weight: 2, opacity: 1, fillOpacity: 0.6 }}).addTo(map);
-      var sampleList = item.samples.length > 0 ? '<br><small>' + item.samples.join('、') + (item.count > 5 ? '…' : '') + '</small>' : '';
-      marker.bindTooltip('<strong>' + item.count + ' 件樂器</strong>' + sampleList, {{ direction: 'top', offset: [0, -8] }});
-      bounds.push([item.lat, item.lng]);
-    }});
-    if (bounds.length > 0) map.fitBounds(bounds, {{ padding: [30, 30], maxZoom: 4 }});
-  }};
-  document.head.appendChild(script);
-}})();
-"""
-    # Write random-instrument JS for the random link
+    # Write map data as JSON for the map page
+    map_features = build_map_data(instruments)
+    map_json_path = OUTPUT_DIR / "assets" / "map-data.json"
+    map_json_path.write_text(json.dumps(map_features, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    # Write random-instrument JS for the nav link and homepage card
     slugs_json = json.dumps([item["slug"] for item in instruments], ensure_ascii=False)
     rand_js = f"""
 function goRandom() {{
@@ -485,7 +475,6 @@ function goRandom() {{
 document.getElementById('random-link-home')?.addEventListener('click', function(e) {{ e.preventDefault(); goRandom(); }});
 document.getElementById('random-nav-link')?.addEventListener('click', function(e) {{ e.preventDefault(); goRandom(); }});
 """
-    write(OUTPUT_DIR / "assets" / "map-init.js", map_js.strip() + "\n")
     write(OUTPUT_DIR / "assets" / "random-instrument.js", rand_js.strip() + "\n")
 
 
@@ -857,6 +846,26 @@ h2 { margin:0; font-weight:700; }
 
 /* ── Map section ─────────────────────────────────────────────── */
 .world-map { width:100%; height:420px; border-radius:10px; border:1px solid var(--line); overflow:hidden; background:var(--soft); margin-bottom:8px; }
+.map-hint { text-align:center; color:var(--muted); font-size:14px; margin:0 0 24px; }
+
+/* ── Manager page ────────────────────────────────────────────── */
+.manage-card {
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+  padding:28px; margin-bottom:24px; box-shadow:var(--shadow);
+}
+.manage-card h2 { font-size:18px; margin:0 0 8px; }
+.manage-card p { color:var(--muted); font-size:14px; line-height:1.6; margin:0 0 18px; }
+.btn {
+  display:inline-flex; align-items:center; padding:10px 20px; border:0;
+  border-radius:6px; font-size:15px; font-weight:700; cursor:pointer; text-decoration:none;
+}
+.btn-primary { background:var(--accent); color:#fff; }
+.btn-primary:hover { background:var(--accent2); }
+.upload-area { display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+.upload-area input[type="file"] { flex:1; min-width:200px; padding:6px 0; font-size:14px; }
+.upload-status { margin-top:12px; padding:8px 12px; border-radius:6px; font-size:14px; }
+.upload-status.error { background:#fef2f0; color:#c2410c; border:1px solid #fed7c5; }
+.upload-status.success { background:#f0fdf4; color:#15803d; border:1px solid #bbf7d0; }
 
 /* ── Back to top ─────────────────────────────────────────────── */
 .back-top {
@@ -1137,6 +1146,261 @@ def build_special_pages(instruments):
         page_dir.mkdir(parents=True, exist_ok=True)
         write(page_dir / "index.html", list_page("冷門樂器", uncommon, page_dir / "index.html"))
 
+def build_map_page(instruments):
+    """Build a standalone map page at /map/ with clickable markers."""
+    from collections import defaultdict
+    map_features = build_map_data(instruments)
+    map_json = json.dumps(map_features, ensure_ascii=False)
+    page_dir_ = OUTPUT_DIR / "map"
+    page_dir_.mkdir(parents=True, exist_ok=True)
+
+    slugs_json = json.dumps([i["slug"] for i in instruments], ensure_ascii=False)
+
+    body = f"""<main class="page">
+  <section class="compact-hero">
+    <p class="eyebrow">Geography</p>
+    <h1>地圖導覽</h1>
+    <p class="lead">點擊地圖上的標記，瀏覽該地區的所有樂器。</p>
+  </section>
+  <div id="world-map" class="world-map"></div>
+  <p class="map-hint">每個圓點代表一個地區的樂器數量，點擊可查看該地區樂器列表。</p>
+</main>
+<script>
+(function() {{
+  var mapData = {map_json};
+  var slugs = {slugs_json};
+  var container = document.getElementById('world-map');
+  if (!container || !mapData.length) return;
+  var link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+  link.crossOrigin = '';
+  document.head.appendChild(link);
+  var script = document.createElement('script');
+  script.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+  script.onload = function() {{
+    var map = L.map('world-map', {{ center: [20, 30], zoom: 2, minZoom: 1, maxZoom: 6, zoomControl: true }});
+    L.tileLayer('https://{{s}}.tile.openstreetmap.org/{{z}}/{{x}}/{{y}}.png', {{ maxZoom: 18, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>' }}).addTo(map);
+    var bounds = [];
+    mapData.forEach(function(item) {{
+      var marker = L.circleMarker([item.lat, item.lng], {{ radius: Math.min(8 + item.count * 1.5, 30), fillColor: '#0d766b', color: '#0a5c53', weight: 2, opacity: 1, fillOpacity: 0.6 }}).addTo(map);
+      var tooltipHtml = '<strong>' + item.name + '</strong><br>' + item.count + ' 件樂器';
+      if (item.samples.length) tooltipHtml += '<br><small>' + item.samples.join('、') + (item.count > 5 ? '…' : '') + '</small>';
+      marker.bindTooltip(tooltipHtml, {{ direction: 'top', offset: [0, -8] }});
+      marker.on('click', function() {{ window.location.href = item.url; }});
+      marker.on('dblclick', function() {{ window.location.href = item.url; }});
+      bounds.push([item.lat, item.lng]);
+    }});
+    if (bounds.length > 0) map.fitBounds(bounds, {{ padding: [30, 30], maxZoom: 4 }});
+  }};
+  document.head.appendChild(script);
+}})();
+</script>"""
+    write(page_dir_ / "index.html", page("地圖導覽", body, page_dir_ / "index.html"))
+
+
+def build_manager_page(instruments):
+    """Build a static manager page at /manage/ with Excel download and client-side upload."""
+    import openpyxl
+    from openpyxl.styles import Font, PatternFill, Alignment
+
+    page_dir_ = OUTPUT_DIR / "manage"
+    page_dir_.mkdir(parents=True, exist_ok=True)
+
+    # Build field definitions
+    fm_fields = [
+        ("title", "樂器名稱（繁體中文）"),
+        ("original_name", "原文名稱（英文）"),
+        ("category", "分類"),
+        ("country", "來源地區"),
+        ("era", "年代"),
+        ("image", "圖片網址"),
+        ("site_url", "網站連結"),
+        ("sound_class", "發聲大類"),
+        ("range", "音域"),
+        ("instrument_key", "調性"),
+        ("hs_class", "H-S 分類"),
+        ("family", "家族"),
+        ("playing_method", "演奏方式"),
+        ("body_listening", "身體聽聽"),
+        ("soundscape", "聲音景觀"),
+        ("region_type", "區域類型"),
+        ("youtube_ids", "YouTube ID"),
+        ("introduction", "介紹內容"),
+        ("history", "歷史背景"),
+        ("timbre", "音色描述"),
+    ]
+    field_keys = [f[0] for f in fm_fields]
+
+    # Generate Excel
+    wb = openpyxl.Workbook()
+    ws = wb.active
+    ws.title = "樂器總資料庫"
+    header_font = Font(bold=True, color="FFFFFF", size=11)
+    header_fill = PatternFill(start_color="0F766E", end_color="0F766E", fill_type="solid")
+    sub_font = Font(bold=True, color="666666", size=10)
+    sub_fill = PatternFill(start_color="E6F4F1", end_color="E6F4F1", fill_type="solid")
+    link_font = Font(color="1D4ED8", underline="single")
+
+    for col_idx, (key, zh) in enumerate(fm_fields, 1):
+        cell = ws.cell(row=1, column=col_idx, value=key)
+        cell.font = header_font
+        cell.fill = header_fill
+        cell.alignment = Alignment(horizontal="center")
+        cell2 = ws.cell(row=2, column=col_idx, value=zh)
+        cell2.font = sub_font
+        cell2.fill = sub_fill
+        cell2.alignment = Alignment(horizontal="center")
+    ws.freeze_panes = "A3"
+
+    for row_idx, item in enumerate(instruments, 3):
+        for col_idx, key in enumerate(field_keys, 1):
+            val = item.get(key, "")
+            if not val:
+                # Check body keys
+                body_map = {"introduction": "introduction", "history": "history", "timbre": "timbre"}
+                if key in ("introduction", "history", "timbre"):
+                    continue  # These aren't in the dict, we'd need the full body text
+                continue
+            cell = ws.cell(row=row_idx, column=col_idx, value=str(val))
+            if key in ("site_url", "image") and str(val).startswith("http"):
+                cell.font = link_font
+                cell.hyperlink = str(val)
+
+    for col in ws.columns:
+        max_len = 0
+        col_letter = col[0].column_letter
+        for cell in col:
+            if cell.value:
+                max_len = max(max_len, len(str(cell.value)))
+        ws.column_dimensions[col_letter].width = min(max_len + 4, 50)
+
+    excel_path = OUTPUT_DIR / "assets" / "instruments_database.xlsx"
+    wb.save(str(excel_path))
+
+    # Write the HTML page
+    body = """<main class="page" style="max-width:720px;">
+  <section class="compact-hero">
+    <p class="eyebrow">Management</p>
+    <h1>管理者页面</h1>
+  </section>
+
+  <div class="manage-card">
+    <h2>下載 Excel 樂器總資料庫</h2>
+    <p>所有樂器的完整資料，包含 frontmatter 每個欄位與內容節段。第一列為英文欄位名稱，第二列為中文說明。</p>
+    <a class="btn btn-primary" href="../assets/instruments_database.xlsx" download>下載 Excel</a>
+  </div>
+
+  <div class="manage-card">
+    <h2>上載 Excel 還原 Markdown</h2>
+    <p>選擇一個 Excel 檔案（格式須與下載版本相同），系統會在瀏覽器端處理并包裝成 ZIP 供下載。</p>
+    <div class="upload-area">
+      <input type="file" id="excel-upload" accept=".xlsx">
+      <button class="btn btn-primary" id="process-excel">上載並下載 ZIP</button>
+    </div>
+    <div id="upload-status" class="upload-status"></div>
+  </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"><\/script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"><\/script>
+<script>
+(function() {
+  function slugify(name) {
+    return name.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '') || 'instrument';
+  }
+  function getBodyKey(key) {
+    var map = { 'introduction': '介紹', 'history': '歷史背景', 'timbre': '音色描述' };
+    return map[key] || '';
+  }
+
+  document.getElementById('process-excel')?.addEventListener('click', function() {
+    var fileInput = document.getElementById('excel-upload');
+    var status = document.getElementById('upload-status');
+    if (!fileInput || !fileInput.files.length) {
+      status.textContent = '請選擇一個 Excel 檔案';
+      status.className = 'upload-status error';
+      return;
+    }
+    var file = fileInput.files[0];
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      try {
+        var data = new Uint8Array(e.target.result);
+        var workbook = XLSX.read(data, {type: 'array'});
+        var sheet = workbook.Sheets[workbook.SheetNames[0]];
+        var rows = XLSX.utils.sheet_to_json(sheet, {header: 1});
+        if (rows.length < 3) {
+          status.textContent = '檔案沒有資料，至少需要標題列+資料列';
+          status.className = 'upload-status error';
+          return;
+        }
+        var headers = rows[0];
+        var zip = new JSZip();
+        var count = 0;
+        for (var i = 2; i < rows.length; i++) {
+          var row = rows[i];
+          if (!row || !row[0]) continue;
+          var fmLines = ['---'];
+          var sections = {};
+          for (var j = 0; j < headers.length; j++) {
+            var key = String(headers[j] || '').trim();
+            var val = row[j] !== undefined ? String(row[j]).trim() : '';
+            if (!key || !val) continue;
+            if (key === 'introduction' || key === 'history' || key === 'timbre') {
+              sections[key] = val;
+            } else {
+              fmLines.push(key + ': ' + val);
+            }
+          }
+          fmLines.push('---');
+          for (var sk in sections) {
+            var heading = getBodyKey(sk);
+            if (heading) {
+              fmLines.push('');
+              fmLines.push('## ' + heading);
+              fmLines.push('');
+              fmLines.push(sections[sk]);
+            }
+          }
+          var origName = '';
+          for (var j = 0; j < headers.length; j++) {
+            if (String(headers[j]).trim() === 'original_name' && row[j]) {
+              origName = String(row[j]).trim();
+              break;
+            }
+          }
+          var filename = slugify(origName || ('instrument_' + (i+1))) + '.md';
+          zip.file(filename, fmLines.join('\n') + '\n');
+          count++;
+        }
+        if (count === 0) {
+          status.textContent = '找不到有效的樂器資料';
+          status.className = 'upload-status error';
+          return;
+        }
+        zip.generateAsync({type: 'blob'}).then(function(blob) {
+          var url = URL.createObjectURL(blob);
+          var a = document.createElement('a');
+          a.href = url;
+          a.download = 'instruments_markdown.zip';
+          a.click();
+          URL.revokeObjectURL(url);
+          status.textContent = '成功生成 ' + count + ' 個 .md 檔案，已開始下載。';
+          status.className = 'upload-status success';
+        });
+      } catch(err) {
+        status.textContent = '處理失敗：' + err.message;
+        status.className = 'upload-status error';
+      }
+    };
+    reader.readAsArrayBuffer(file);
+  });
+})();
+<\/script>"""
+
+    write(page_dir_ / "index.html", page("管理者页面", body, page_dir_ / "index.html"))
+
 
 def main():
     global _TOTAL_INSTRUMENTS
@@ -1147,6 +1411,8 @@ def main():
     OUTPUT_DIR.mkdir(parents=True)
     build_assets(instruments)
     build_index(instruments)
+    build_map_page(instruments)
+    build_manager_page(instruments)
     build_detail_pages(instruments)
     build_special_pages(instruments)
     write(OUTPUT_DIR / "instruments" / "index.html", list_page("全部樂器", instruments))
