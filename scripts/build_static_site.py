@@ -205,12 +205,14 @@ def build_map_data(instruments):
     for (lat, lng), count in sorted(coord_counts.items(), key=lambda x: -x[1]):
         countries_list = sorted(coord_country_names.get((lat, lng), []))
         primary = max(countries_list, key=len) if countries_list else "未知地區"
+        all_urls = [SITE_BASE_PATH + '/countries/' + slugify(c) + '/' for c in countries_list]
         features.append({
             "lat": lat,
             "lng": lng,
             "name": primary,
             "count": count,
-            "url": f"/countries/{slugify(primary)}/",
+            "url": all_urls[0] if all_urls else "{SITE_BASE_PATH}/countries/",
+            "urls": all_urls[:10],
             "samples": coord_samples.get((lat, lng), [])[:5],
         })
     return features
@@ -488,7 +490,7 @@ def build_index(instruments):
 function goRandom() {{
   var slugs = {slugs_json};
   var idx = Math.floor(Math.random() * slugs.length);
-  window.location.href = '{resolve_url(index_path, '/instruments/')}' + slugs[idx] + '/';
+  window.location.href = '{SITE_BASE_PATH}/instruments/' + slugs[idx] + '/';
 }}
 document.getElementById('random-link-home')?.addEventListener('click', function(e) {{ e.preventDefault(); goRandom(); }});
 document.getElementById('random-nav-link')?.addEventListener('click', function(e) {{ e.preventDefault(); goRandom(); }});
@@ -1199,7 +1201,8 @@ def build_map_page(instruments):
     var tip = '<strong>' + item.name + '<\/strong><br>' + item.count + ' 件樂器';
     if (item.samples.length) tip += '<br><small>' + item.samples.join('、') + (item.count > 5 ? '…' : '') + '<\/small>';
     marker.bindTooltip(tip, {{ direction: 'top', offset: [0, -8] }});
-    marker.on('click', function() {{ window.location.href = item.url; }});
+    var links = '<div style="max-height:200px;overflow-y:auto">' + (item.urls || [item.url]).map(function(u) {{ return '<a href="' + u + '" style="display:block;padding:4px 0;color:#1d4ed8;text-decoration:none;border-bottom:1px solid #eee">' + u.split('/').filter(Boolean).pop() + '</a>'; }}).join('') + '</div>';
+    marker.bindPopup('<strong>' + item.name + '</strong><br>' + item.count + ' 件樂器' + links, {{ maxWidth: 300 }});
     bounds.push([item.lat, item.lng]);
   }});
   if (bounds.length > 0) map.fitBounds(bounds, {{ padding: [30, 30], maxZoom: 4 }});
@@ -1289,7 +1292,7 @@ def build_manager_page(instruments):
     <h1>管理者頁面</h1>
   </section>
 
-  <div id="manage-app">
+  <div id="manage-app" style="display:none;">
     <div class="manage-card">
       <h2>下載 Excel 樂器總資料庫</h2>
       <p>將所有樂器的 Markdown 檔案匯出為 Excel 格式。包含所有 frontmatter 欄位與介紹、歷史、音色描述等內容。第一列為英文欄位名稱，第二列為中文說明。</p>
@@ -1364,6 +1367,11 @@ def build_manager_page(instruments):
   }
 
   document.getElementById('process-excel')?.addEventListener('click', function() {
+    if (typeof XLSX === 'undefined' || typeof JSZip === 'undefined') {
+      document.getElementById('upload-status').textContent = '函式庫載入中，請稍後再試...';
+      document.getElementById('upload-status').className = 'upload-status error';
+      return;
+    }
     var fileInput = document.getElementById('excel-upload');
     var status = document.getElementById('upload-status');
     if (!fileInput || !fileInput.files.length) {
