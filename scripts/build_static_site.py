@@ -264,8 +264,10 @@ def page(title, body, page_path=None, meta_extra="", extra_head=""):
       <a href="{resolve_url(page_path, '/instruments/')}">全部樂器</a>
       <a href="{resolve_url(page_path, '/popular/')}">熱門</a>
       <a href="{resolve_url(page_path, '/uncommon/')}">冷門</a>
+      <a href="#" id="random-nav-link" class="random-link">隨選</a>
       <a href="{resolve_url(page_path, '/categories/')}">分類</a>
       <a href="{resolve_url(page_path, '/countries/')}">國家</a>
+      <a href="{resolve_url(page_path, '/eras/')}">年代</a>
     </nav>
   </header>
   {body}
@@ -475,12 +477,13 @@ def build_index(instruments):
     # Write random-instrument JS for the random link
     slugs_json = json.dumps([item["slug"] for item in instruments], ensure_ascii=False)
     rand_js = f"""
-document.getElementById('random-link-home')?.addEventListener('click', function(e) {{
-  e.preventDefault();
+function goRandom() {{
   var slugs = {slugs_json};
   var idx = Math.floor(Math.random() * slugs.length);
   window.location.href = '{resolve_url(index_path, '/instruments/')}' + slugs[idx] + '/';
-}});
+}}
+document.getElementById('random-link-home')?.addEventListener('click', function(e) {{ e.preventDefault(); goRandom(); }});
+document.getElementById('random-nav-link')?.addEventListener('click', function(e) {{ e.preventDefault(); goRandom(); }});
 """
     write(OUTPUT_DIR / "assets" / "map-init.js", map_js.strip() + "\n")
     write(OUTPUT_DIR / "assets" / "random-instrument.js", rand_js.strip() + "\n")
