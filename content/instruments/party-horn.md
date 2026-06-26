@@ -4,6 +4,10 @@ site_url: https://soundweavers-music.github.io/instruments/party-horn/
 title: 派對號角
 original_name: Party horn
 category: 管樂器
+playing_method: 吹奏
+family: 管樂器類
+hs_class: 4 气鳴樂器
+sound_class: 气鳴
 country: 歐洲
 era: 傳統／年代待考
 region_type: 跨文化／多地

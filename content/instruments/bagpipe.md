@@ -4,6 +4,10 @@ site_url: https://soundweavers-music.github.io/instruments/bagpipe/
 title: 風笛
 original_name: Bagpipe
 category: 管樂器
+sound_class: 氣鳴
+hs_class: 422 單簧管類樂器
+family: 風笛類
+playing_method: 吹奏／袋管
 country: 凱爾特地區／蘇格蘭／愛爾蘭
 era: 傳統／年代待考
 region_type: 跨文化／多地

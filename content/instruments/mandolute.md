@@ -4,6 +4,10 @@ site_url: https://soundweavers-music.github.io/instruments/mandolute/
 title: 曼陀魯特琴
 original_name: Mandolute
 category: 弦樂器
+playing_method: 撥弦／擦弦／擊弦
+family: 弦樂器類
+hs_class: 3 弦鳴樂器
+sound_class: 弦鳴
 country: 美國
 era: 傳統／年代待考
 image: https://upload.wikimedia.org/wikipedia/commons/e/e3/Weymann_mandolute.jpg

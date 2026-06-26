@@ -4,6 +4,10 @@ site_url: https://soundweavers-music.github.io/instruments/hourglass-drum/
 title: 沙漏鼓
 original_name: Hourglass drum
 category: 打擊樂器
+playing_method: 敲擊鼓面
+family: 鼓類
+hs_class: 2 膜鳴樂器
+sound_class: 膜鳴
 country: 非洲／西非
 era: 傳統／年代待考
 region_type: 跨文化／多地

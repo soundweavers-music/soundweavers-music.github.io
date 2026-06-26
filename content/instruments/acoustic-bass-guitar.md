@@ -4,6 +4,10 @@ site_url: https://soundweavers-music.github.io/instruments/acoustic-bass-guitar/
 title: 原聲低音吉他
 original_name: Acoustic bass guitar
 category: 弦樂器
+playing_method: 撥弦／擦弦／擊弦
+family: 弦樂器類
+hs_class: 3 弦鳴樂器
+sound_class: 弦鳴
 country: 美洲／北美
 era: 傳統／年代待考
 region_type: 跨文化／多地

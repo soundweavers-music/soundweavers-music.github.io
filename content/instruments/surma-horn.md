@@ -3,6 +3,10 @@ site_url: https://soundweavers-music.github.io/instruments/surma-horn/
 title: 蘇爾瑪號
 original_name: Surma-horn
 category: 管樂器
+playing_method: 吹奏
+family: 管樂器類
+hs_class: 4 气鳴樂器
+sound_class: 气鳴
 country: 烏克蘭/高加索地區/土耳其
 era: 傳統／年代待考
 region_type: 跨文化／多地

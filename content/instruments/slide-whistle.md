@@ -4,6 +4,10 @@ site_url: https://soundweavers-music.github.io/instruments/slide-whistle/
 title: 滑音哨笛
 original_name: Slide whistle
 category: 管樂器
+sound_class: 氣鳴
+hs_class: 421.2 哨笛類
+family: 活塞笛類
+playing_method: 吹奏／活塞
 country: 美洲／北美
 era: 傳統／年代待考
 region_type: 跨文化／多地

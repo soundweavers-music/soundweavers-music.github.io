@@ -3,7 +3,7 @@ is_popular: true
 site_url: https://soundweavers-music.github.io/instruments/glockenspiel/
 title: 鐘琴
 original_name: Glockenspiel
-category: 打擊樂器
+category: 鍵盤樂器
 country: 歐洲／德國
 era: 傳統／年代待考
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Glockenspiel-malletech.jpg/500px-Glockenspiel-malletech.jpg

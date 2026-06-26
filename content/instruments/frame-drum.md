@@ -4,6 +4,10 @@ site_url: https://soundweavers-music.github.io/instruments/frame-drum/
 title: 框架鼓
 original_name: Frame drum
 category: 打擊樂器
+playing_method: 敲擊鼓面
+family: 鼓類
+hs_class: 2 膜鳴樂器
+sound_class: 膜鳴
 country: 全球／多地
 era: 傳統／年代待考
 region_type: 地區／文化圈

@@ -4,6 +4,10 @@ site_url: https://soundweavers-music.github.io/instruments/cor-anglais/
 title: 英國管
 original_name: Cor anglais
 category: 管樂器
+sound_class: 氣鳴
+hs_class: 422 雙簧管類樂器
+family: 雙簧管類
+playing_method: 吹奏／雙簧片
 country: 歐洲
 era: 傳統／年代待考
 region_type: 單一地區／文化圈

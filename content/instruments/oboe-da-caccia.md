@@ -4,6 +4,10 @@ site_url: https://soundweavers-music.github.io/instruments/oboe-da-caccia/
 title: 狩獵雙簧管
 original_name: Oboe da caccia
 category: 管樂器
+playing_method: 吹奏
+family: 管樂器類
+hs_class: 4 气鳴樂器
+sound_class: 气鳴
 country: 歐洲／巴洛克時期歐洲
 era: 傳統／年代待考
 region_type: 地區／文化圈

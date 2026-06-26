@@ -4,6 +4,10 @@ site_url: https://soundweavers-music.github.io/instruments/resonator-guitar/
 title: 諧振吉他
 original_name: Resonator guitar
 category: 弦樂器
+playing_method: 撥弦／擦弦／擊弦
+family: 弦樂器類
+hs_class: 3 弦鳴樂器
+sound_class: 弦鳴
 country: 美洲／北美
 era: 傳統／年代待考
 region_type: 單一地區／文化圈

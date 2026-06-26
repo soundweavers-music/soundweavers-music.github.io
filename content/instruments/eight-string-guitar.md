@@ -4,6 +4,10 @@ site_url: https://soundweavers-music.github.io/instruments/eight-string-guitar/
 title: 八弦吉他
 original_name: Eight-string guitar
 category: 弦樂器
+playing_method: 撥弦／擦弦／擊弦
+family: 弦樂器類
+hs_class: 3 弦鳴樂器
+sound_class: 弦鳴
 country: 義大利
 era: 19 世紀
 region_type: 單一地區／文化圈

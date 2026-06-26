@@ -5,6 +5,10 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Bass_oboe_-_St_
 title: 低音雙簧管
 original_name: Bass oboe
 category: 管樂器
+playing_method: 吹奏
+family: 管樂器類
+hs_class: 4 气鳴樂器
+sound_class: 气鳴
 country: 法國
 era: 傳統／年代待考
 region_type: 單一地區／文化圈

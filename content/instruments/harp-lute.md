@@ -3,7 +3,11 @@ is_popular: true
 site_url: https://soundweavers-music.github.io/instruments/harp-lute/
 title: 魯特豎琴
 original_name: Harp lute
-category: 打擊樂器
+category: 弦樂器
+playing_method: 撥弦／擦弦／擊弦
+family: 弦樂器類
+hs_class: 3 弦鳴樂器
+sound_class: 弦鳴
 country: 歐洲（英國）
 era: 18 世紀
 region_type: 單一地區／文化圈

@@ -4,6 +4,10 @@ site_url: https://soundweavers-music.github.io/instruments/bass-clarinet/
 title: 低音單簧管
 original_name: Bass clarinet
 category: 管樂器
+sound_class: 氣鳴
+hs_class: 422 單簧管類樂器
+family: 低音單簧管類
+playing_method: 吹奏／單簧片
 country: 歐洲
 era: 古代
 region_type: 單一地區／文化圈

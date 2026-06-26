@@ -4,6 +4,10 @@ site_url: https://soundweavers-music.github.io/instruments/glass-marimba/
 title: 玻璃馬林巴琴
 original_name: Glass Marimba
 category: 打擊樂器
+playing_method: 敲擊／搖晃／撥彈
+family: 體鳴打擊樂器類
+hs_class: 1 体鳴樂器
+sound_class: 体鳴
 country: 非洲／全球
 era: 傳統／年代待考
 region_type: 跨文化／多地

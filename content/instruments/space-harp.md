@@ -3,7 +3,11 @@ is_popular: true
 site_url: https://soundweavers-music.github.io/instruments/space-harp/
 title: 太空豎琴
 original_name: Space Harp
-category: 打擊樂器
+category: 弦樂器
+playing_method: 撥弦／擦弦／擊弦
+family: 弦樂器類
+hs_class: 3 弦鳴樂器
+sound_class: 弦鳴
 country: 非洲
 era: 傳統／年代待考
 image: https://upload.wikimedia.org/wikipedia/commons/4/4e/Harp.png

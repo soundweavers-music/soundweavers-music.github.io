@@ -4,6 +4,10 @@ site_url: https://soundweavers-music.github.io/instruments/goblet-drum/
 title: 高腳鼓
 original_name: Goblet drum
 category: 打擊樂器
+playing_method: 敲擊鼓面
+family: 鼓類
+hs_class: 2 膜鳴樂器
+sound_class: 膜鳴
 country: 中東／非洲／北非
 era: 傳統／年代待考
 region_type: 單一地區／文化圈

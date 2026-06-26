@@ -4,6 +4,10 @@ site_url: https://soundweavers-music.github.io/instruments/bass-saxophone/
 title: 低音薩克斯風
 original_name: Bass saxophone
 category: 管樂器
+playing_method: 吹奏
+family: 管樂器類
+hs_class: 4 气鳴樂器
+sound_class: 气鳴
 country: 比利時
 era: 19 世紀
 region_type: 單一地區／文化圈

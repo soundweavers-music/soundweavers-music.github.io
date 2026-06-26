@@ -3,7 +3,11 @@ is_popular: true
 site_url: https://soundweavers-music.github.io/instruments/lute/
 title: 魯特琴
 original_name: Lute
-category: 打擊樂器
+category: 弦樂器
+playing_method: 撥弦／擦弦／擊弦
+family: 弦樂器類
+hs_class: 3 弦鳴樂器
+sound_class: 弦鳴
 country: 中東／歐洲
 era: 中世紀
 region_type: 單一地區／文化圈

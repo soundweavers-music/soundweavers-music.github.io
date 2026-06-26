@@ -3,7 +3,11 @@ is_popular: true
 site_url: https://soundweavers-music.github.io/instruments/tube-zither/
 title: 管絃琴
 original_name: Tube zither
-category: 打擊樂器
+category: 弦樂器
+playing_method: 撥弦／擦弦／擊弦
+family: 弦樂器類
+hs_class: 3 弦鳴樂器
+sound_class: 弦鳴
 country: 馬達加斯加／印度／東南亞／台灣
 era: 傳統／年代待考
 region_type: 跨文化／多地

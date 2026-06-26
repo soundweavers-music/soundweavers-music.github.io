@@ -4,6 +4,10 @@ site_url: https://soundweavers-music.github.io/instruments/alto-clarinet/
 title: 中音單簧管
 original_name: Alto clarinet
 category: 管樂器
+playing_method: 吹奏
+family: 管樂器類
+hs_class: 4 气鳴樂器
+sound_class: 气鳴
 country: 歐洲／德國
 era: 19 世紀
 region_type: 地區／文化圈

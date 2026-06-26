@@ -4,6 +4,10 @@ site_url: https://soundweavers-music.github.io/instruments/baroque-guitar/
 title: 巴洛克吉他
 original_name: Baroque guitar
 category: 弦樂器
+playing_method: 撥弦／擦弦／擊弦
+family: 弦樂器類
+hs_class: 3 弦鳴樂器
+sound_class: 弦鳴
 country: 西班牙／伊比利亞半島
 era: 巴洛克
 region_type: 地區／文化圈

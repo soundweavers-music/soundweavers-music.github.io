@@ -4,6 +4,10 @@ site_url: https://soundweavers-music.github.io/instruments/tabla/
 title: 塔布拉鼓
 original_name: Tabla
 category: 打擊樂器
+sound_class: 膜鳴
+hs_class: 211 筒形鼓
+family: 塔布拉鼓類
+playing_method: 敲擊鼓面／手指
 country: 亞洲／南亞（印度）
 era: 傳統／年代待考
 region_type: 地區／文化圈

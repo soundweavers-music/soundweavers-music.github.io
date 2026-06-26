@@ -5,6 +5,10 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/3_Bassett-Klari
 title: 巴塞單簧管
 original_name: Basset clarinet
 category: 管樂器
+playing_method: 吹奏
+family: 管樂器類
+hs_class: 4 气鳴樂器
+sound_class: 气鳴
 country: 德國／奧地利
 era: 傳統／年代待考
 region_type: 地區／文化圈

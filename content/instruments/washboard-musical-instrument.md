@@ -1,7 +1,7 @@
 ---
 is_popular: true
 site_url: https://soundweavers-music.github.io/instruments/washboard-musical-instrument/
-title: 米蘭達·蘭伯特
+title: 洗衣板樂器
 original_name: Washboard (musical instrument)
 category: 打擊樂器
 country: 美洲／北美

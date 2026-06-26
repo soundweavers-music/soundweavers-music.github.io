@@ -3,7 +3,7 @@ is_popular: true
 site_url: https://soundweavers-music.github.io/instruments/drum-kit/
 title: 爵士鼓
 original_name: Drum Kit
-category: 電子樂器
+category: 打擊樂器
 country: 美洲／北美
 era: 傳統／年代待考
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Drum_kit_parts.png/500px-Drum_kit_parts.png

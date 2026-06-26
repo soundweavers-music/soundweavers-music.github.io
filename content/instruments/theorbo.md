@@ -4,6 +4,10 @@ site_url: https://soundweavers-music.github.io/instruments/theorbo/
 title: 西奧爾博琴
 original_name: Theorbo
 category: 弦樂器
+playing_method: 撥弦／擦弦／擊弦
+family: 弦樂器類
+hs_class: 3 弦鳴樂器
+sound_class: 弦鳴
 country: 義大利／地中海地區
 era: 傳統／年代待考
 region_type: 地區／文化圈

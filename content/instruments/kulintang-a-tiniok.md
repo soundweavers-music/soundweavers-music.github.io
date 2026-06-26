@@ -4,6 +4,10 @@ site_url: https://soundweavers-music.github.io/instruments/kulintang-a-tiniok/
 title: 庫林坦鼓
 original_name: Kulintang a tiniok
 category: 打擊樂器
+playing_method: 敲擊／搖晃／撥彈
+family: 體鳴打擊樂器類
+hs_class: 1 体鳴樂器
+sound_class: 体鳴
 country: 菲律賓
 era: 傳統／年代待考
 region_type: 單一地區／文化圈

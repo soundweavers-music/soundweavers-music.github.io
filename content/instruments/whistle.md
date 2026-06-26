@@ -4,6 +4,10 @@ site_url: https://soundweavers-music.github.io/instruments/whistle/
 title: 哨子（樂器）
 original_name: Whistle
 category: 管樂器
+playing_method: 吹奏
+family: 管樂器類
+hs_class: 4 气鳴樂器
+sound_class: 气鳴
 country: 全球／多地
 era: 傳統／年代待考
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Tin_Whistles.jpg/500px-Tin_Whistles.jpg

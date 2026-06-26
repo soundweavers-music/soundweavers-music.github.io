@@ -3,7 +3,7 @@ is_popular: true
 site_url: https://soundweavers-music.github.io/instruments/theremin/
 title: 特雷門
 original_name: Theremin
-category: 鍵盤樂器
+category: 電子樂器
 country: 歐洲／俄羅斯
 era: 傳統／年代待考
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Etherwave_Theremin_Kit.jpg/500px-Etherwave_Theremin_Kit.jpg

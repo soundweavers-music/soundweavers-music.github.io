@@ -4,6 +4,10 @@ site_url: https://soundweavers-music.github.io/instruments/pan-pipes/
 title: 排簫
 original_name: Pan pipes
 category: 管樂器
+sound_class: 氣鳴
+hs_class: 421.1 邊稜音樂器
+family: 排笛類
+playing_method: 吹奏／排笛
 country: 美洲／南美
 era: 傳統／年代待考
 region_type: 跨文化／多地

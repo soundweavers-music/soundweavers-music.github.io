@@ -4,6 +4,10 @@ site_url: https://soundweavers-music.github.io/instruments/harmonica/
 title: 口琴
 original_name: Harmonica
 category: 管樂器
+sound_class: 氣鳴
+hs_class: 412.1 自由簧樂器
+family: 口琴類
+playing_method: 吹奏／口含
 country: 歐洲／德國
 era: 傳統／年代待考
 region_type: 單一地區／文化圈

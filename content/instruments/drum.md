@@ -4,6 +4,10 @@ site_url: https://soundweavers-music.github.io/instruments/drum/
 title: 鼓
 original_name: Drum
 category: 打擊樂器
+sound_class: 膜鳴
+hs_class: 211 筒形鼓
+family: 鼓類
+playing_method: 敲擊鼓面
 country: 全球／多地
 era: 古代
 region_type: 單一地區／文化圈

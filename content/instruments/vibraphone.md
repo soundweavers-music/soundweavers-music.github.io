@@ -3,7 +3,7 @@ is_popular: true
 site_url: https://soundweavers-music.github.io/instruments/vibraphone/
 title: 顫音琴
 original_name: Vibraphone
-category: 打擊樂器
+category: 鍵盤樂器
 country: 美洲／北美
 era: 傳統／年代待考
 image: https://upload.wikimedia.org/wikipedia/commons/5/5c/Vibes_joelocke_koeln2007.jpg

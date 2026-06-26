@@ -4,6 +4,10 @@ site_url: https://soundweavers-music.github.io/instruments/cymbal/
 title: 銅鈸
 original_name: Cymbal
 category: 打擊樂器
+sound_class: 體鳴
+hs_class: 111.2 擊奏金屬體鳴樂器
+family: 鈸類
+playing_method: 敲擊／對擊
 country: 亞洲／中東／歐洲
 era: 傳統／年代待考
 region_type: 地區／文化圈

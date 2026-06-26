@@ -4,6 +4,10 @@ site_url: https://soundweavers-music.github.io/instruments/martinshorn/
 title: 號角
 original_name: Martinshorn
 category: 管樂器
+playing_method: 吹奏
+family: 管樂器類
+hs_class: 4 气鳴樂器
+sound_class: 气鳴
 country: 歐洲
 era: 傳統／年代待考
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Souffle_et_fleurs_%283316237250%29.jpg/500px-Souffle_et_fleurs_%283316237250%29.jpg

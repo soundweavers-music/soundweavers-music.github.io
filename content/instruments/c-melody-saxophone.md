@@ -4,6 +4,10 @@ site_url: https://soundweavers-music.github.io/instruments/c-melody-saxophone/
 title: C調薩克斯風
 original_name: C melody saxophone
 category: 管樂器
+playing_method: 吹奏
+family: 管樂器類
+hs_class: 4 气鳴樂器
+sound_class: 气鳴
 country: 中國
 era: 21 世紀
 region_type: 單一地區／文化圈

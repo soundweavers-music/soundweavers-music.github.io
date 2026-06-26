@@ -4,6 +4,10 @@ site_url: https://soundweavers-music.github.io/instruments/rock-gong/
 title: 石鑼
 original_name: Rock gong
 category: 打擊樂器
+playing_method: 敲擊／搖晃／撥彈
+family: 體鳴打擊樂器類
+hs_class: 1 体鳴樂器
+sound_class: 体鳴
 country: 非洲
 era: 傳統／年代待考
 region_type: 單一地區／文化圈

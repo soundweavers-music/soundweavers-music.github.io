@@ -1,7 +1,7 @@
 ---
 is_popular: true
 site_url: https://soundweavers-music.github.io/instruments/swarmandal/
-title: 比伯軍曹寂寞芳心俱樂部
+title: 斯瓦爾曼達爾
 original_name: Swarmandal
 category: 鍵盤樂器
 country: 亞洲／南亞（印度）

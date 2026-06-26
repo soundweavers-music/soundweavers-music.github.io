@@ -3,6 +3,10 @@ site_url: https://soundweavers-music.github.io/instruments/calliope-music/
 title: 汽笛琴
 original_name: Calliope (music)
 category: 管樂器
+playing_method: 吹奏
+family: 管樂器類
+hs_class: 4 气鳴樂器
+sound_class: 气鳴
 country: 美國
 era: 傳統／年代待考
 region_type: 單一地區／文化圈

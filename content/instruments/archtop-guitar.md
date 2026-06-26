@@ -4,6 +4,10 @@ site_url: https://soundweavers-music.github.io/instruments/archtop-guitar/
 title: 拱頂吉他
 original_name: Archtop guitar
 category: 弦樂器
+playing_method: 撥弦／擦弦／擊弦
+family: 弦樂器類
+hs_class: 3 弦鳴樂器
+sound_class: 弦鳴
 country: 歐洲／意大利
 era: 傳統／年代待考
 image: https://upload.wikimedia.org/wikipedia/commons/c/c8/Super400ces.png

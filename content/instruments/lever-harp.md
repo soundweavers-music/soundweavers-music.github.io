@@ -4,6 +4,10 @@ site_url: https://soundweavers-music.github.io/instruments/lever-harp/
 title: 拉桿豎琴
 original_name: Lever harp
 category: 弦樂器
+playing_method: 撥弦／擦弦／擊弦
+family: 弦樂器類
+hs_class: 3 弦鳴樂器
+sound_class: 弦鳴
 country: 歐洲西北部（凱爾特地區）／愛爾蘭、蘇格蘭、威爾士、布列塔尼
 era: 古代
 region_type: 跨文化／多地

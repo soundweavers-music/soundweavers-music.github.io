@@ -4,6 +4,10 @@ site_url: https://soundweavers-music.github.io/instruments/oboe-damore/
 title: 愛之雙簧管
 original_name: Oboe d'amore
 category: 管樂器
+playing_method: 吹奏
+family: 管樂器類
+hs_class: 4 气鳴樂器
+sound_class: 气鳴
 country: 歐洲/德國-義大利地區
 era: 傳統／年代待考
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Oboe_d%27Amore_in_A_MET_202997.jpg/500px-Oboe_d%27Amore_in_A_MET_202997.jpg

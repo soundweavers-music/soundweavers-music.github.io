@@ -4,6 +4,10 @@ site_url: https://soundweavers-music.github.io/instruments/jingle-bell/
 title: 馬鈴
 original_name: Jingle bell
 category: 打擊樂器
+playing_method: 敲擊／搖晃／撥彈
+family: 體鳴打擊樂器類
+hs_class: 1 体鳴樂器
+sound_class: 体鳴
 country: 歐洲
 era: 傳統／年代待考
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Sleigh_Bells.jpg/500px-Sleigh_Bells.jpg

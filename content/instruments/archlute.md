@@ -4,6 +4,10 @@ site_url: https://soundweavers-music.github.io/instruments/archlute/
 title: 拱魯特琴
 original_name: Archlute
 category: 弦樂器
+playing_method: 撥弦／擦弦／擊弦
+family: 弦樂器類
+hs_class: 3 弦鳴樂器
+sound_class: 弦鳴
 country: 西班牙
 era: 文藝復興
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Archlute_MET_DT5914.jpg/500px-Archlute_MET_DT5914.jpg
