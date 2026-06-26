@@ -878,8 +878,8 @@ h2 { margin:0; font-weight:700; }
 
 /* ── About page ─────────────────────────────────────────────── */
 .about-hero {
-  padding:80px 24px; text-align:center; color:#fff; border-radius:0 0 20px 20px;
-  margin:-36px -24px 0; min-height:320px; display:flex; align-items:center; justify-content:center;
+  padding:48px 24px; text-align:center; color:#fff; border-radius:0 0 20px 20px;
+  margin:-36px -24px 0; min-height:200px; display:flex; align-items:center; justify-content:center;
 }
 .about-hero-content { max-width:640px; }
 .about-eyebrow { color:rgba(255,255,255,0.7); font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; margin:0 0 12px; }
@@ -1389,7 +1389,11 @@ def build_manager_page(instruments):
         ws.column_dimensions[col_letter].width = min(max_len + 4, 50)
 
     excel_path = OUTPUT_DIR / "assets" / "instruments_database.xlsx"
-    wb.save(str(excel_path))
+    excel_path.parent.mkdir(parents=True, exist_ok=True)
+    try:
+        wb.save(str(excel_path))
+    except PermissionError:
+        print("Warning: Excel file locked, skipping")
 
     body = """<main class="page" style="max-width:720px;">
   <section class="compact-hero">
@@ -1602,8 +1606,10 @@ def main():
     instruments = read_instruments()
     _TOTAL_INSTRUMENTS = len(instruments)
     if OUTPUT_DIR.exists():
-        shutil.rmtree(OUTPUT_DIR)
-    OUTPUT_DIR.mkdir(parents=True)
+        def on_rm_error(func, path, exc_info):
+            pass
+        shutil.rmtree(OUTPUT_DIR, onerror=on_rm_error)
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     build_assets(instruments)
     build_index(instruments)
     build_map_page(instruments)
