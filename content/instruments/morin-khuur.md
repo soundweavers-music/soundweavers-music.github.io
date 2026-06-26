@@ -6,6 +6,8 @@ country: 亞洲／歐洲／中東／全球
 era: 傳統／年代待考
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Morin_Khuur%2C_Today%27s_North_Mongolian_Style.jpg/500px-Morin_Khuur%2C_Today%27s_North_Mongolian_Style.jpg
 sound_class: 弦鳴
+range: 低音至中高音，約2-3個8度
+instrument_key: 無固定調性
 hs_class: 321.3 擦弦／輪弦／提琴家族
 family: 擦弦、輪弦與提琴家族
 playing_method: 弓擦／輪擦
@@ -17,6 +19,12 @@ youtube_ids: L6dRxitCSY4 PtzmzK9dtz4
 ## 介紹
 
 The morin khuur (Mongolian: морин хуур, romanized: morin khuur, Mongolian pronunciation: [mɔ̙ɾɪ̆ɴ χʊ̙ːr̥]；Mandarin Chinese: 马头琴 Mǎ tóu qín), also known as the horsehead fiddle, is a traditional Mongolian bowed string instrument. It is one of the most important musical instruments of the Mongol people, and is considered a symbol of the nation of Mongolia. The morin khuur is one of the Masterpieces of the Oral and Intangible Heritage of Humanity identified by UNESCO.
+## 聆聽示範
+
+### 代表性作品
+
+《蒙古馬》是馬頭琴的經典曲目，展現草原騎手的豪邁氣概。《姑娘》則是傳統民謠改編作品，以其抒情優美著稱。現代作曲家創作的《馬背上的夢》融合傳統與當代元素。《呼麥頌歌》結合馬頭琴與蒙古傳統唱法，深刻表現蒙古文化特色，這些作品都廣泛流傳於蒙古及國際舞台。
+
 ## 歷史背景
 
 馬頭琴起源有多個傳說。其中一個講述牧羊人庫胡烏·南吉爾得到一匹會飛的馬，他騎著它在夜間飛去見心愛的人。一名嫉妒的女子將馬的翅膀割掉，馬從空中墜落死亡。悲傷的牧羊人用這匹馬的皮膚和尾毛製作了馬頭琴，用它演奏關於失去愛馬的哀傷歌曲。
@@ -28,3 +36,6 @@ The morin khuur (Mongolian: морин хуур, romanized: morin khuur, Mongoli
 ## 音色描述
 
 馬頭琴的音色深邃而蒼涼，帶著濃厚的民族特色。其音質溫潤而略帶沙啞，兼具明亮與暗沉的雙重特徵，能夠表現出遼闊草原的蒼涼感。樂器的音域從低音至中高音相當寬廣，低音區渾厚有力，具有強烈的共鳴效果，能產生獨特的諧音層次。相比小提琴的銳利與明亮，馬頭琴的音色更為粗獷與蒼涼；相比大提琴的溫厚，它又多了幾分野性與原始氣息。由於其特殊的琴身結構與弦張特性，馬頭琴在共鳴腔內產生的聲波具有獨特的迴響，使其音響具有穿透力強、餘音悠長的特點，能有效表現蒙古民族音樂的悲壯與雄渾氣勢。
+## 樂器材質
+
+馬頭琴琴身採用木製梯形共鳴箱，通常由松木或楓木製成。琴桿與琴頭多用紅木或樺木雕刻，馬頭雕飾為其標誌性特徵。琴弦傳統上由馬尾毛製成，具有獨特的音質特性。琴身表面貼覆馬皮或羊皮作為面板，增強共鳴效果。弓桿採用竹製或木製，弓毛同樣使用馬尾。部分現代樂器採用尼龍弦替代傳統馬尾弦。

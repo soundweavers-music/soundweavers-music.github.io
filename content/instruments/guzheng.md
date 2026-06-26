@@ -6,6 +6,8 @@ country: 東亞／中亞／歐洲／東南亞／非洲／美洲
 era: 傳統／年代待考
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Guzheng_2020_by_Glenn_Francis.jpg/500px-Guzheng_2020_by_Glenn_Francis.jpg
 sound_class: 弦鳴
+range: 約3.5個8度
+instrument_key: 全調性
 hs_class: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
 family: 齊特琴、箏類、擊弦與鍵盤化弦鳴
 playing_method: 撥弦／擊弦／按鍵擊弦
@@ -17,6 +19,12 @@ youtube_ids: gf6v59c5yuY GwyXQO0tSW4
 ## 介紹
 
 The zheng (pinyin: zhēng), or guzheng (Chinese: 古筝; pinyin: gǔzhēng; lit. 'ancient zheng'), is a Chinese plucked zither. The modern guzheng commonly has 21, 25, or 26 strings, is 64 inches (1.6 m; 5 ft 4 in) long, and is tuned in a major pentatonic scale. It has a large, resonant soundboard made from Paulownia wood. Other components are often made from other woods for structural or decorative reasons. Guzheng players often wear a fingerpick made from materials such as plastic, resin, tortoiseshell, or ivory on one or both hands.
+## 聆聽示範
+
+### 代表性作品
+
+《高山流水》是古箏傳統名曲，寓意深遠，旨在表現高山與流水的壯麗景象。《漁舟唱晚》為20世紀上半葉娄树松創作，以優美的旋律描繪江南水鄉的詩意風景。《戰台風》由韓延文創作於1965年，運用現代技法表現抗風救災的緊張場景。《茉莉花》是經典民歌改編曲，古箏版本展現了傳統音樂的優雅氣質。
+
 ## 歷史背景
 
 古箏的起源有多種說法。據稱早期類似古箏的樂器由秦朝（西元前221－206年）將軍蒙恬發明，主要受到瑟的影響。另一說法指古箏最初作為竹管箏發展，如《說文解字》所記載，後來被更大的弧形木板所取代，並配備可移動的琴馬以更接近瑟的形制。第三個傳說則稱古箏源於兩人爭奪一把25弦瑟，將其破成兩半，一人得12弦，另一人得13弦。
@@ -26,3 +34,6 @@ The zheng (pinyin: zhēng), or guzheng (Chinese: 古筝; pinyin: gǔzhēng; lit.
 ## 音色描述
 
 古箏音色清亮透徹，具有明媚流暢的音質特徵。其音色溫潤而富有歌唱性，高音區明亮清脆，中音區飽滿圓潤，低音區深沉厚重，音域寬廣。彈奏時，琴弦振動引發共鳴箱內空氣共鳴，產生延綿悠長的餘音，具有天然的迴響效果。相比於鋼琴的精確乾淨，古箏更具東方韻味的柔和性；相比於吉他的明亮跳躍，古箏則更顯雅致深邃。其獨特的滑音、按弦技巧更能表現中國傳統音樂的微妙音韻變化，營造出寧靜致遠、意境悠長的音樂氛圍，極富感染力與表現力。
+## 樂器材質
+
+古箏採用優質紅木或梧桐木製作共鳴箱，具有良好的音響效果。箏面通常為梧桐木薄板，易於振動產生共鳴。琴架多由紅木製成，提供結構支撐。琴弦早期用蠶絲製造，清朝後逐漸改用黃銅等金屬弦，提升音量與耐久性。可移動的琴馬由木料或骨質材料製成，調整不同弦高。箏首、箏尾等裝飾部位常用紅木或其他高級木材精心雕刻。

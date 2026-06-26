@@ -6,6 +6,8 @@ country: 亞洲／歐洲／中東／全球
 era: 傳統／年代待考
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Sheng_MET_DP216617.jpg/500px-Sheng_MET_DP216617.jpg
 sound_class: 氣鳴
+range: 約2至3個八度
+instrument_key: 全調性
 hs_class: Aerophone／氣鳴樂器
 family: 自由簧吹奏
 playing_method: 自由簧
@@ -17,6 +19,12 @@ youtube_ids: lfZcIe4s0C4 _iR-KrbeFs0
 ## 介紹
 
 The sheng (Chinese: 笙) is a Chinese mouth-blown polyphonic free reed instrument consisting of vertical pipes. It is one of the oldest Chinese instruments, with images depicting its kind dating back to 1100 BCE, and there are original instruments from the Han dynasty that are preserved in museums today. Traditionally, the sheng has been used as an accompaniment instrument for solo suona or dizi performances. It is one of the main instruments in kunqu and some other forms of Chinese opera.
+## 聆聽示範
+
+### 代表性作品
+
+笙的代表作品包括《鳳凰展翅》，展現笙的高超和聲能力；傳統曲目《蕭聲咿呀》融合笙與蕭的對話；現代作曲家譚盾創作的《笙》（1989年）探索笙在當代音樂中的表現可能；以及日本作曲家武滿徹與笙藝術家合作的作品，將東方笙音融入西方現代音樂語言。
+
 ## 歷史背景
 
 中國的自由簧氣鳴樂器「竽」和「笙」最早在距今14至12世紀的甲骨文中被提及，後來文獻將其識別為笙的類型。「笙」一詞首次出現在《詩經》的詩篇中，可追溯至西周時期。考古發現於現今湖北省的曾侯乙墓和湖南省馬王堆漢墓中出土的古代樂器，均採用葫蘆形風室、數量不等的管子，配備竹製或金屬簧片。
@@ -28,3 +36,6 @@ The sheng (Chinese: 笙) is a Chinese mouth-blown polyphonic free reed instrumen
 ## 音色描述
 
 笙的音色溫潤飽滿，具有獨特的蘆葦簧片音質，既不如簫那般飄然若思，亦不如竹笛般銳利明亮，而是帶著柔和的琥珀色光澤。其音域寬廣，可跨越兩至三個八度，低音沉厚蒼涼，中音溫暖醇厚，高音清亮而不刺耳。笙通過共鳴管形成自然的共鳴效應，多根簧片同時發聲時形成豐富的泛音層次，使其具有近似鋼琴的和聲功能。相比西方樂器，笙的音色更具東方特質，溫和內斂；與古琴相比，笙更富於表現力和穿透力，是中樂隊中重要的和聲與旋律樂器。
+## 樂器材質
+
+笙的風室採用葫�orridor形設計，傳統多以葫蘆或木質材料製成；管子通常由竹製或木製成，現代亦有使用金屬合金；簧片採用竹片或金屬（銅、鐵）製作，是發聲的關鍵部件；吹口多為竹製或木製的長彎形設計；整體結構融合天然材料與工藝加工，使其具有獨特的共鳴特性與音質特徵。

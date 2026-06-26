@@ -5,6 +5,8 @@ category: 打擊樂器
 country: 東南亞／東亞／非洲／歐洲／全球
 era: 傳統／年代待考
 sound_class: 體鳴
+range: 約2個8度
+instrument_key: 無固定調性
 hs_class: 11/12 定音體鳴／鑼鐘木琴石琴系統
 family: 定音體鳴、材料敲擊與鑼鐘木琴系統
 playing_method: 敲擊／搖奏／材料共鳴
@@ -16,6 +18,12 @@ youtube_ids: IvUU8joBb1Q RIz3klPET3o
 ## 介紹
 
 Jing can refer to: Jing (software), formerly Jing Project Jing (name), a Chinese surname and given name Jing River, in China Jing (instrument) (징), a large gong used in Korean traditional music 井 (jǐng), a Chinese word for well and various other things named after the well
+## 聆聽示範
+
+### 代表性作品
+
+京鑼在韓國傳統音樂中廣泛應用於多部代表性作品。在農樂表演中，京鑼作為節奏領導樂器，被運用於各類民俗慶典音樂。在宮廷雅樂中，京鑼與其他打擊樂器配合，呈現於朝鮮王朝時期的宮廷儀式音樂。在巫樂祭祀中，京鑼強有力的音色被用於烘托神聖氛圍。其在傳統樂隊中的角色歷久彌新，是韓國傳統音樂體系中不可或缺的打擊樂器。
+
 ## 歷史背景
 
 京鑼是韓國傳統音樂中的重要打擊樂器，為一種大型銅鑼。其起源可追溯至東亞古代的金屬樂器製造傳統，深受中國古代銅鑼文化的影響。在韓國，京鑼於中世紀時期逐漸發展成熟，成為宮廷音樂與民間音樂的核心樂器。
@@ -27,3 +35,6 @@ Jing can refer to: Jing (software), formerly Jing Project Jing (name), a Chinese
 ## 音色描述
 
 京鑼是韓國傳統音樂中的大型銅鑼，音色明亮而富有穿透力，具有強烈的金屬質感。其音域偏高，敲擊時能發出清脆、嘹亮的聲響，常作為樂隊中的領導樂器。京鑼的共鳴方式獨特，敲擊後聲音能在空間中持續迴盪，產生豐富的泛音。相比於中國的大鑼音色較為沉厚，京鑼更顯輕快靈動；與琵琶等弦樂相比，其音色更具爆發力和穿透感。通過改變敲擊力度和部位，可以呈現從清亮到深沉的多樣音色變化。
+## 樂器材質
+
+京鑼主要由銅合金鑄造而成，通常採用銅與錫的混合比例製作鑼面，以獲得最佳的音色效果。鑼面經過精密的鑄造與鍛打工藝，確保其厚度均勻與音質純正。鑼邊緣則經特殊處理以增強結構強度。傳統京鑼多配備以木製敲槌，槌頭覆以布料或皮革，使演奏者可根據需求調整敲擊音色。木製的敲槌把手便於操控，整體設計兼具藝術性與功能性。

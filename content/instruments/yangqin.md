@@ -6,6 +6,8 @@ country: 東亞／中亞／歐洲／東南亞／非洲／美洲
 era: 傳統／年代待考
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Yangqin1.jpg/500px-Yangqin1.jpg
 sound_class: 弦鳴
+range: 約3至4個八度
+instrument_key: 全調性
 hs_class: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
 family: 齊特琴、箏類、擊弦與鍵盤化弦鳴
 playing_method: 撥弦／擊弦／按鍵擊弦
@@ -17,6 +19,12 @@ youtube_ids: 5ZmAluuKdRQ nNwJgEIecys
 ## 介紹
 
 The trapezoidal yangqin (simplified Chinese: 扬琴; traditional Chinese: 揚琴; pinyin: yángqín; Jyutping: joeng4 kam4) is a Chinese hammered dulcimer, likely derived from the Iranian santur or the European dulcimer. It used to be written with the characters 洋琴 (lit. "foreign zither"), but the first character was changed in the early 20th century to 揚 (also pronounced yáng), meaning "acclaimed". It is also spelled yang ch'in. Hammered dulcimers of various types are now very popular not only in China, but also Eastern Europe, the Middle East, India, Iran, and Pakistan.
+## 聆聽示範
+
+### 代表性作品
+
+揚琴的代表作品包括《平湖秋月》，這是一首傳統粵樂佳作，由何大華改編為揚琴獨奏曲，展現了樂器清脆透澈的音色特質。另有《彝族舞曲》由王志明創作，充分發揮揚琴音域寬廣的優勢。《步步高》則是一首節奏明快的傳統樂曲，經揚琴詮釋後更顯輕盈活潑。此外，《雨打芭蕉》亦是經典保留曲目，以其獨特的音樂意象與揚琴的音色相得益彰。
+
 ## 歷史背景
 
 歷史學家提出多種理論解釋揚琴如何傳入中國：第一，樂器可能經由陸路絲綢之路傳入；第二，通過廣州港由海路傳入；第三，由中國人獨立發明而無外來影響。
@@ -30,3 +38,6 @@ The trapezoidal yangqin (simplified Chinese: 扬琴; traditional Chinese: 揚琴
 ## 音色描述
 
 揚琴音色明亮清脆，具有水晶般的透澈感與輕盈的質感。其音域寬廣，跨越三至四個八度，高音區尖銳亮麗，低音區則帶有溫暖的共鳴底蘊。透過雙槌敲擊琴弦產生聲音，琴體內部形成的共鳴腔室使音色具有獨特的迴盪感與層次感。揚琴音色介於豎琴的柔和與鋼琴的堅實之間，兼具兩者特點。相比琵琶的撥弦音色，揚琴更顯透徹而富有穿透力；與古箏相比，揚琴音色更加乾脆明快，少了幾分深沉。其音響特徵使其既能獨立承擔旋律線，亦能擔當伴奏角色，在民樂合奏中具有畫龍點睛的效果。
+## 樂器材質
+
+揚琴琴體採用梧桐木或椴木等軟木製作共鳴腔室，提供溫暖的音響底蘊。琴弦多採用鋼弦或銅弦，具有良好的張力與音質穩定性。琴架由硬木如紅木、楠木等製成，提供穩固的支撐結構。擊槌通常以竹製或木製槌頭配合竹桿製作，槌頭外層裹覆棉線或羊毛，以產生柔和而清晰的音色。部分高級揚琴的琴弦裝置採用金屬調音機制，確保音準穩定性。

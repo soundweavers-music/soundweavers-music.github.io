@@ -18,6 +18,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 CONTENT_DIR = BASE_DIR / "content" / "instruments"
 OUTPUT_DIR = BASE_DIR / "outputs" / "world-instruments-static"
 SITE_BASE_PATH = os.environ.get("SITE_BASE_PATH", "").strip()
+_TOTAL_INSTRUMENTS = 0  # set in main()
 
 
 def normalize_base_path(value):
@@ -144,6 +145,8 @@ def read_instruments():
                 "region_type": meta.get("region_type", ""),
                 "image": meta.get("image", ""),
                 "youtube_ids": parse_youtube_ids(meta.get("youtube_ids", "")),
+                "instrument_key": meta.get("instrument_key", ""),
+                "range": meta.get("range", ""),
                 "html": body_html,
             }
         )
@@ -181,7 +184,7 @@ def page(title, body, page_path=None, meta_extra=""):
   {body}
   <footer class="site-footer">
     <div class="footer-inner">
-      <span>世界樂器百科 — 收錄 943 件世界樂器</span>
+      <span>世界樂器百科 — 收錄 {_TOTAL_INSTRUMENTS} 件世界樂器</span>
       <nav class="footer-nav">
         <a href="{resolve_url(page_path, '/')}">首頁</a>
         <a href="{resolve_url(page_path, '/categories/')}">分類</a>
@@ -324,7 +327,8 @@ def meta_row(label, value):
     return f'<div class="meta-item"><dt>{escape(label)}</dt><dd>{escape(value)}</dd></div>'
 
 
-def build_youtube_section(youtube_ids):
+def build_youtube_grid(youtube_ids):
+    """Return the yt-grid div HTML for injecting into the 聆聽示範 section."""
     if not youtube_ids:
         return ""
     iframes = []
@@ -335,7 +339,19 @@ def build_youtube_section(youtube_ids):
             f'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" '
             f'allowfullscreen loading="lazy"></iframe></div>'
         )
-    return f'<section class="yt-section"><h2 class="yt-heading">聆聽示範</h2><div class="yt-grid">{"".join(iframes)}</div></section>'
+    return f'<div class="yt-grid">{"".join(iframes)}</div>'
+
+
+def inject_youtube_into_body(body_html, youtube_ids):
+    """Inject YouTube iframes after the <h2>聆聽示範</h2> heading in body HTML."""
+    grid_html = build_youtube_grid(youtube_ids)
+    if not grid_html:
+        return body_html
+    return body_html.replace(
+        '<h2>聆聽示範</h2>',
+        f'<h2>聆聽示範</h2>{grid_html}',
+        1,
+    )
 
 
 def build_detail_pages(instruments):
@@ -349,6 +365,8 @@ def build_detail_pages(instruments):
             ("國家／地區", item["country"]),
             ("年代", item["era"]),
             ("發聲原理", item["sound_class"]),
+            ("樂器調性", item.get("instrument_key", "")),
+            ("音域範圍", item.get("range", "")),
             ("HS 分類", item["hs_class"]),
             ("樂器家族", item["family"]),
             ("演奏方式", item["playing_method"]),
@@ -362,9 +380,10 @@ def build_detail_pages(instruments):
         img_url = safe_external_url(item.get("image", ""))
         img_html = f'<img class="instrument-image" src="{img_url}" alt="{escape(item["title"])}" loading="lazy" onerror="this.style.display=\'none\'">' if img_url else ""
         header_class = "instrument-header has-image" if img_url else "instrument-header"
-        youtube_html = build_youtube_section(item.get("youtube_ids", []))
+        # Inject YouTube iframes into the 聆聽示範 section in the article body
+        body_html = inject_youtube_into_body(item['html'], item.get("youtube_ids", []))
         # Extract plain-text description from first paragraph of HTML body
-        desc_match = re.search(r'<p>(.*?)</p>', item['html'], re.DOTALL)
+        desc_match = re.search(r'<p>(.*?)</p>', body_html, re.DOTALL)
         desc_text = re.sub(r'<[^>]+>', '', desc_match.group(1))[:160] if desc_match else ""
         og_tags = "\n".join(filter(None, [
             f'<meta name="description" content="{escape(desc_text)}">' if desc_text else "",
@@ -397,8 +416,7 @@ def build_detail_pages(instruments):
             {f'<div class="header-image">{img_html}</div>' if img_url else ""}
           </header>
           {"<dl class='meta-grid'>" + meta_grid + "</dl>" if meta_grid else ""}
-          {youtube_html}
-          <article class="markdown-body">{item['html']}</article>
+          <article class="markdown-body">{body_html}</article>
           {related_html}
         </main>
         """
@@ -596,9 +614,7 @@ h2 { margin:0; font-weight:700; }
 .meta-item dd { margin:0; font-weight:700; font-size:14px; line-height:1.4; word-break:break-word; }
 
 /* ── YouTube embeds ──────────────────────────────────────────── */
-.yt-section { margin-bottom:32px; }
-.yt-heading { font-size:20px; margin-bottom:16px; color:var(--ink); }
-.yt-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+.yt-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin:16px 0 24px; }
 .yt-embed { position:relative; padding-bottom:56.25%; border-radius:var(--radius); overflow:hidden; background:#000; box-shadow:var(--shadow-md); }
 .yt-embed iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
 
@@ -656,7 +672,7 @@ h2 { margin:0; font-weight:700; }
   .dropdown-browser button { grid-column:1 / -1; }
   .dropdown-results { grid-template-columns:repeat(2,minmax(0,1fr)); }
   .stats { grid-template-columns:repeat(2,1fr); }
-  .yt-grid { grid-template-columns:1fr; }
+  .yt-grid { grid-template-columns:1fr !important; }
 }
 @media (max-width:700px) {
   .site-header { flex-direction:column; align-items:flex-start; gap:10px; padding:14px 18px; }
@@ -898,7 +914,9 @@ def build_sitemap(instruments):
 
 
 def main():
+    global _TOTAL_INSTRUMENTS
     instruments = read_instruments()
+    _TOTAL_INSTRUMENTS = len(instruments)
     if OUTPUT_DIR.exists():
         shutil.rmtree(OUTPUT_DIR)
     OUTPUT_DIR.mkdir(parents=True)

@@ -6,6 +6,8 @@ country: 全球／非洲／亞洲／現代療癒與街頭音樂
 era: 傳統／年代待考
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/5_Leaf_Kouxian.jpg/500px-5_Leaf_Kouxian.jpg
 sound_class: 氣鳴
+range: 中高音區（約1個8度）
+instrument_key: 無固定調性
 hs_class: 412/422 簧鳴與自由簧／單簧雙簧
 family: 口簧、自由簧、單簧雙簧與風袋
 playing_method: 吹奏／簧片振動／風袋或風箱
@@ -17,6 +19,12 @@ youtube_ids: Br-0gYtT-s0 AXDlnRf0-ig
 ## 介紹
 
 Kouxian (Chinese: 口弦; pinyin: kǒuxián; lit. 'mouth string') is a general Chinese term for any variety of jaw harp. The jaw harp is a plucked idiophone in which the lamella is mounted in a small frame, and the player's open mouth serves as a resonance chamber. Chinese jaw harps may comprise multiple idiophones that are lashed together at one end and spread in a fan formation. They may be made from bamboo or a metal alloy, such as brass. Modern kouxian with three or more idiophones might be tuned to the first few tones of the minor pentatonic scale. The jaw harp likely originated in Asia.
+## 聆聽示範
+
+### 代表性作品
+
+口弦作為傳統民族樂器，主要出現在民間音樂和傳統藝術表演中。其代表性應用包括蒙古民歌伴奏、新疆維吾爾族民間音樂、藏族傳統音樂等。現代作曲家如谷建芬創作的民族器樂作品中融入口弦元素，強調其原始質樸的音樂特徵。口弦也常見於中國民族管弦樂團的民間音樂改編作品中，突出其獨特的文化韻味與地域特色。
+
 ## 歷史背景
 
 # 口弦
@@ -30,3 +38,6 @@ Kouxian (Chinese: 口弦; pinyin: kǒuxián; lit. 'mouth string') is a general C
 ## 音色描述
 
 口弦音色獨特而富有民族特色，具有明亮清脆的音質，帶有細微的金屬質感。其音域相對狹窄，主要集中在中高音區，音量較為柔和內斂。演奏時，口腔作為主要的共鳴腔體，通過改變口形和舌位位置來調節音色和音高，產生豐富的泛音變化，使聲音帶有一定的鼻音特徵。與笛子相比，口弦音色更加溫潤含蓄；與琵琶相比則缺乏穿透力但更顯親密感。其音響特徵介於打擊樂和旋律樂器之間，常用於營造原始、質樸的音樂意境，在傳統民族音樂中具有重要的表現力。
+## 樂器材質
+
+口弦主要由金屬材料製成，簧片採用鋼製或銅製金屬片，具有良好的彈性與共鳴特性。外框通常使用竹片或木製材料（如樺木或楠木），提供結構支撐。現代口弦的簧片採用優質鋼材製作，經過精心打磨與調音處理。演奏者口腔內部充當主要共鳴腔體，利用口腔的天然形狀與舌位變化來改變音色。整體設計簡潔輕便，易於攜帶與演奏。
