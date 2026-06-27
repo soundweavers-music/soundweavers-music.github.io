@@ -900,6 +900,7 @@ h2 { margin:0; font-weight:700; }
 .about-text p { color:var(--ink2); line-height:1.9; font-size:16px; margin:0 0 16px; }
 .about-author { display:flex; gap:24px; align-items:start; flex-wrap:wrap; }
 .author-avatar { width:80px; height:80px; border-radius:50%; background:var(--accent); color:#fff; display:flex; align-items:center; justify-content:center; font-size:28px; font-weight:800; flex-shrink:0; }
+.author-avatar img,img.author-avatar { width:80px; height:80px; border-radius:50%; object-fit:cover; display:block; }
 .author-info { flex:1; min-width:200px; }
 .author-info h3 { font-size:20px; margin:0 0 8px; }
 .author-info p { color:var(--ink2); line-height:1.7; margin:0 0 8px; }
@@ -1572,6 +1573,14 @@ def build_about_page():
     page_dir_ = OUTPUT_DIR / "about"
     page_dir_.mkdir(parents=True, exist_ok=True)
     bg_url = "https://yt3.googleusercontent.com/6nBZ7RVoXGMH2fuMPWiju_tpAET9D-qVkOhg1HjGqh8m9EaO-u9wO_oHVA12Sy0DzoKn7mGVmA=w1707-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj"
+    # Copy author logo into output assets
+    src_logo = BASE_DIR / "static" / "author-logo.jpg"
+    dst_logo = OUTPUT_DIR / "assets" / "author-logo.jpg"
+    dst_logo.parent.mkdir(parents=True, exist_ok=True)
+    if src_logo.exists():
+        import shutil as _shutil
+        _shutil.copy2(str(src_logo), str(dst_logo))
+    logo_url = resolve_url(page_dir_ / "index.html", "/assets/author-logo.jpg")
     body = f"""<main class="about-page">
   <section class="about-hero" style="background:linear-gradient(135deg,rgba(0,0,0,0.7),rgba(0,0,0,0.4)),url({bg_url}) center/cover no-repeat;">
     <div class="about-hero-content">
@@ -1596,7 +1605,7 @@ def build_about_page():
     <section class="about-section">
       <h2>作者</h2>
       <div class="about-author">
-        <div class="author-avatar">NW</div>
+        <img class="author-avatar" src="{logo_url}" alt="隔壁織音人" loading="lazy">
         <div class="author-info">
           <h3>隔壁織音人</h3>
           <p>為隔壁音樂工作室 Next Door Music 的音樂團體</p>

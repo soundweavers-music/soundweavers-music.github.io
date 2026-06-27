@@ -20,6 +20,7 @@
 .about-text p { color:#344054; line-height:1.9; font-size:16px; margin:0 0 16px; }
 .about-author { display:flex; gap:24px; align-items:start; flex-wrap:wrap; }
 .author-avatar { width:80px; height:80px; border-radius:50%; background:var(--accent); color:#fff; display:flex; align-items:center; justify-content:center; font-size:28px; font-weight:800; flex-shrink:0; }
+.author-avatar img,img.author-avatar { width:80px; height:80px; border-radius:50%; object-fit:cover; display:block; }
 .author-info { flex:1; min-width:200px; }
 .author-info h3 { font-size:20px; margin:0 0 8px; }
 .author-info p { color:#344054; line-height:1.7; margin:0 0 8px; }
@@ -58,7 +59,7 @@
     <section class="about-section">
       <h2>作者</h2>
       <div class="about-author">
-        <div class="author-avatar">NW</div>
+        <img class="author-avatar" src="{% static 'author-logo.jpg' %}" alt="隔壁織音人">
         <div class="author-info">
           <h3>隔壁織音人</h3>
           <p>為隔壁音樂工作室 Next Door Music 的音樂團體</p>
