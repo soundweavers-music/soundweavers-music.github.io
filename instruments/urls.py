@@ -11,4 +11,6 @@ urlpatterns = [
     path("popular/", views.popular_instruments, name="popular_instruments"),
     path("uncommon/", views.uncommon_instruments, name="uncommon_instruments"),
     path("random/", views.random_instrument, name="random_instrument"),
+    path("about/", views.about, name="about"),
+    path("theory/", views.theory, name="theory"),
 ]

@@ -412,3 +412,11 @@ def random_instrument(request):
         return redirect("home")
     random_pk = random.choice(Instrument.objects.values_list("pk", flat=True))
     return redirect(reverse("instrument_detail", kwargs={"pk": random_pk}))
+
+
+def about(request):
+    return render(request, "instruments/about.html")
+
+
+def theory(request):
+    return render(request, "instruments/theory.html")

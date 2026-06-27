@@ -16,6 +16,8 @@
       <a href="{% url 'popular_instruments' %}">熱門</a>
       <a href="{% url 'uncommon_instruments' %}">冷門</a>
       <a href="{% url 'random_instrument' %}">隨選</a>
+      <a href="{% url 'theory' %}">樂理</a>
+      <a href="{% url 'about' %}">關於</a>
       <a href="/admin/">管理後台</a>
     </nav>
   </header>
@@ -25,6 +27,8 @@
   <footer class="site-footer">
     <p>
       作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a>
+      ｜<a href="{% url 'about' %}">關於本站</a>
+      ｜<a href="{% url 'theory' %}">樂理基礎</a>
       ｜資料來源：<a href="https://www.wikipedia.org/" target="_blank" rel="noopener">Wikipedia</a>
       ｜<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube 頻道</a>
     </p>
