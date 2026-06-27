@@ -396,6 +396,75 @@ def list_page(title, instruments, page_path=None):
     )
 
 
+def build_instruments_list_page(instruments):
+    """Build the /instruments/ page with view-switch: filter dropdown + category cards."""
+    page_path = OUTPUT_DIR / "instruments" / "index.html"
+    by_cat = defaultdict(list)
+    for item in instruments:
+        by_cat[item["category"]].append(item)
+    category_links = "".join(
+        f'<a class="facet-card" href="../../categories/{slugify(name)}/"><strong>{escape(name)}</strong><span>{len(items)} 筆</span></a>'
+        for name, items in sorted(by_cat.items())
+    )
+    cards = "\n".join(card(item, page_path) for item in instruments) or '<p class="empty">目前沒有資料。</p>'
+    body = f"""
+    <main class="page">
+      <section class="compact-hero">
+        <p class="eyebrow">All Instruments</p>
+        <h1>全部樂器</h1>
+        <p class="lead">{len(instruments)} 件樂器</p>
+        <div class="search-panel" style="max-width:520px;margin-top:16px;">
+          <input id="site-search" type="search" placeholder="搜尋中文名、英文名、分類、國家或年代…" autocomplete="off" spellcheck="false">
+        </div>
+        <div id="search-results" class="search-results"></div>
+      </section>
+
+      <section class="view-switch" aria-label="瀏覽模式">
+        <button id="mode-dropdown" class="is-active" type="button">🔍 篩選瀏覽</button>
+        <button id="mode-cards" type="button">📂 分類卡片</button>
+      </section>
+
+      <div id="dropdown-mode" class="browse-mode">
+        <section class="section">
+          <div class="section-heading"><h2>篩選樂器</h2><span id="dropdown-count" class="section-note"></span></div>
+          <div class="dropdown-browser">
+            <label>
+              <span>分類</span>
+              <select id="filter-category"><option value="">全部分類</option></select>
+            </label>
+            <label>
+              <span>國家/地區</span>
+              <select id="filter-country"><option value="">全部國家/地區</option></select>
+            </label>
+            <label>
+              <span>年代</span>
+              <select id="filter-era"><option value="">全部年代</option></select>
+            </label>
+            <label>
+              <span>發聲方式</span>
+              <select id="filter-sound-class"><option value="">全部發聲</option></select>
+            </label>
+            <button id="filter-reset" type="button">✕ 重設</button>
+          </div>
+          <div id="dropdown-results" class="dropdown-results"></div>
+        </section>
+      </div>
+
+      <div id="card-mode" class="browse-mode" hidden>
+        <section class="section">
+          <div class="section-heading"><h2>分類瀏覽</h2></div>
+          <div class="facet-grid">{category_links}</div>
+        </section>
+        <section class="section">
+          <div class="section-heading"><h2>全部樂器</h2><span class="section-note">{len(instruments)} 件</span></div>
+          <div class="instrument-grid">{cards}</div>
+        </section>
+      </div>
+    </main>
+    """
+    write(page_path, page("全部樂器", body, page_path))
+
+
 def build_index(instruments):
     index_path = OUTPUT_DIR / "index.html"
     categories = Counter(item["category"] for item in instruments)
@@ -1664,10 +1733,13 @@ def build_about_page():
     <section class="about-section">
       <h2>回饋建議 Feedback</h2>
       <div class="about-text">
-        <p>如果您對本網站有任何建議、發現資料錯誤、或想推薦更多樂器資料，歡迎透過 LINE 機器人告訴我們！您的反饋是我們持續改善的重要動力。</p>
+        <p>如果您對本網站有任何建議、發現資料錯誤、或想推薦更多樂器資料，歡迎透過 LINE 官方帳號告訴我們！您的回饋是我們持續改善的重要動力。</p>
         <div class="feedback-actions">
           <a class="btn btn-line" href="https://line.me/R/ti/p/@971xnxql" target="_blank" rel="noopener">
             <span class="btn-icon">💬</span>透過 LINE 送出回饋
+          </a>
+          <a class="btn" href="mailto:nextdoor20250726@gmail.com" style="display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:var(--blue);color:#fff;border-radius:8px;text-decoration:none;font-weight:700;font-size:15px;box-shadow:0 2px 6px rgba(29,78,216,.3);">
+            <span class="btn-icon">✉️</span>email：nextdoor20250726@gmail.com
           </a>
         </div>
       </div>
@@ -1926,7 +1998,7 @@ def main():
     build_manager_page(instruments)
     build_detail_pages(instruments)
     build_special_pages(instruments)
-    write(OUTPUT_DIR / "instruments" / "index.html", list_page("全部樂器", instruments))
+    build_instruments_list_page(instruments)
     build_facet_pages(instruments, "category", "categories", "分類")
     build_facet_pages(instruments, "sound_class", "sound-classes", "發聲分類")
     build_facet_pages(instruments, "country", "countries", "國家/地區")
