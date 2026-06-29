@@ -98,13 +98,13 @@ def page(title, body, page_path=None, extra_head=""):
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Security-Policy" content="{csp}">
-  <title>{escape(title)}｜隔壁織音人</title>
+  <title>{escape(title)}｜世界聲音百科</title>
   <link rel="stylesheet" href="{resolve_url(page_path, '/assets/site.css')}">
   {extra_head}
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="{resolve_url(page_path, '/')}">🌍 世界樂器百科</a>
+    <a class="brand" href="{resolve_url(page_path, '/')}">🌍 世界聲音百科</a>
     <nav>
       <div class="nav-dropdown">
         <a href="{resolve_url(page_path, '/instruments/')}" class="dropdown-trigger">全部樂器</a>
@@ -127,7 +127,7 @@ def page(title, body, page_path=None, extra_head=""):
   {body}
   <footer class="site-footer">
     <div class="footer-inner">
-      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>世界聲音百科 — 世界樂器、人聲與音樂文化的旅圖</span>
       <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
       <nav class="footer-nav">
         <a href="{resolve_url(page_path, '/')}">首頁</a>
@@ -186,9 +186,9 @@ def build_portal_homepage(instruments):
 
     body = f"""<main>
   <section class="portal-hero">
-    <h1>隔壁織音人</h1>
-    <p class="hero-sub">循著聲音，走進不同文化的現場</p>
-    <p class="hero-desc">一個收錄世界樂器、人聲歌唱教學、音樂理論與製作知識的整合平台。無論你是音樂創作者、教育工作者、學生，或只是對聲音感到好奇的人，這裡都有值得你慢慢探索的內容。</p>
+    <h1>世界聲音百科</h1>
+    <p class="hero-sub">世界樂器・人聲歌唱・音樂文化 — 循著聲音，走進不同文化的現場</p>
+    <p class="hero-desc">從數千年的古老樂器到當代的人聲技法，從基礎樂理到錄音後製，這是一幅連結聲音、文化與創作靈感的知識地圖。無論你是音樂創作者、教育工作者、學生，或只是對聲音感到好奇的人，這裡都有值得你慢慢探索的內容。</p>
   </section>
 
   <div class="portal-grid">

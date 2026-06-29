@@ -313,14 +313,14 @@ def page(title, body, page_path=None, meta_extra="", extra_head=""):
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
   <meta http-equiv="Content-Security-Policy" content="{csp}">
-  <title>{escape(title)}｜世界樂器百科</title>
+  <title>{escape(title)}｜世界聲音百科</title>
   {meta_extra}
   <link rel="stylesheet" href="{resolve_url(page_path, '/assets/site.css')}">
   {extra_head}
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="{resolve_url(page_path, '/')}">🌍 世界樂器百科</a>
+    <a class="brand" href="{resolve_url(page_path, '/')}">🌍 世界聲音百科</a>
     <nav>
       <div class="nav-dropdown">
         <a href="{resolve_url(page_path, '/instruments/')}" class="dropdown-trigger">全部樂器</a>
@@ -343,7 +343,7 @@ def page(title, body, page_path=None, meta_extra="", extra_head=""):
   {body}
   <footer class="site-footer">
     <div class="footer-inner">
-      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>世界聲音百科 — 世界樂器、人聲與音樂文化的旅圖</span>
       <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
       <nav class="footer-nav">
         <a href="{resolve_url(page_path, '/')}">首頁</a>
@@ -501,7 +501,7 @@ def build_index(instruments):
     <main class="page">
       <section class="hero">
         <p class="eyebrow">World Musical Instruments Encyclopedia</p>
-        <h1>世界樂器百科</h1>
+        <h1>世界聲音百科</h1>
         <p class="lead hero-lead">收錄來自世界各地的傳統與現代樂器，探索人類音樂的多元面貌。</p>
         <div class="search-panel">
           <input id="site-search" type="search" placeholder="搜尋中文名、英文名、分類、國家或年代…" autocomplete="off" spellcheck="false">
@@ -673,7 +673,7 @@ def build_detail_pages(instruments):
         desc_text = re.sub(r'<[^>]+>', '', desc_match.group(1))[:160] if desc_match else ""
         og_tags = "\n".join(filter(None, [
             f'<meta name="description" content="{escape(desc_text)}">' if desc_text else "",
-            f'<meta property="og:title" content="{escape(item["title"])}｜世界樂器百科">',
+            f'<meta property="og:title" content="{escape(item["title"])}｜世界聲音百科">',
             f'<meta property="og:description" content="{escape(desc_text)}">' if desc_text else "",
             f'<meta property="og:image" content="{img_url}">' if img_url else "",
             f'<meta property="og:type" content="article">',
@@ -1684,7 +1684,7 @@ def build_about_page():
   <section class="about-hero" style="background:linear-gradient(135deg,rgba(0,0,0,0.7),rgba(0,0,0,0.4)),url({bg_url}) center/cover no-repeat;">
     <div class="about-hero-content">
       <p class="about-eyebrow">World Musical Instruments Encyclopedia</p>
-      <h1>關於世界樂器百科</h1>
+      <h1>關於世界聲音百科</h1>
       <p class="about-subtitle">循著聲音，走進不同文化的現場</p>
     </div>
   </section>
