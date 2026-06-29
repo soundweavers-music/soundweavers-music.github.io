@@ -334,22 +334,26 @@ def page(title, body, page_path=None, meta_extra="", extra_head=""):
           <a href="{resolve_url(page_path, '/map/')}">地圖</a>
         </div>
       </div>
+      <a href="{resolve_url(page_path, '/vocal/')}">人聲與歌唱</a>
       <a href="{resolve_url(page_path, '/theory/')}">樂理</a>
       <a href="{resolve_url(page_path, '/about/')}">關於</a>
+      <a href="{resolve_url(page_path, '/contact/')}">聯絡我們</a>
     </nav>
   </header>
   {body}
   <footer class="site-footer">
     <div class="footer-inner">
-      <span>世界樂器百科 — 收錄 {_TOTAL_INSTRUMENTS} 件世界樂器</span>
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
       <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
       <nav class="footer-nav">
         <a href="{resolve_url(page_path, '/')}">首頁</a>
+        <a href="{resolve_url(page_path, '/vocal/')}">人聲與歌唱</a>
         <a href="{resolve_url(page_path, '/categories/')}">分類</a>
         <a href="{resolve_url(page_path, '/countries/')}">國家</a>
         <a href="{resolve_url(page_path, '/popular/')}">熱門</a>
         <a href="{resolve_url(page_path, '/uncommon/')}">冷門</a>
         <a href="{resolve_url(page_path, '/theory/')}">樂理</a>
+        <a href="{resolve_url(page_path, '/contact/')}">聯絡我們</a>
         <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
       <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
       </nav>

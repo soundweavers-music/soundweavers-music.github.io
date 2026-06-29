@@ -30,7 +30,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install Markdown openpyxl
+          pip install Markdown openpyxl bleach
 
       - name: Build static site
         run: |
@@ -41,6 +41,16 @@ jobs:
             export SITE_BASE_PATH="/$REPO_NAME"
           fi
           python scripts/build_static_site.py
+
+      - name: Build vocal & extra pages
+        run: |
+          REPO_NAME="${GITHUB_REPOSITORY#*/}"
+          if [[ "$REPO_NAME" == *.github.io ]]; then
+            export SITE_BASE_PATH=""
+          else
+            export SITE_BASE_PATH="/$REPO_NAME"
+          fi
+          python scripts/build_vocal_extra.py
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
