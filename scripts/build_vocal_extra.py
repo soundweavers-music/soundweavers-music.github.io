@@ -265,21 +265,33 @@ def build_vocal_pages():
     advanced = [c for c in chapters if c["level"] == "進階"]
 
     # ── Index page ──
-    def ch_list(chaps):
+    # Build lookup: chapter_num → chapter data
+    ch_lookup = {c["num"]: c for c in chapters}
+
+    def ch_range_html(start, end):
+        """Generate chapter list items for a range, with 'writing' placeholders."""
         items = []
         idx_path = out_dir / "index.html"
-        for c in chaps:
-            items.append(f"""<li class="chapter-item has-link">
-          <a href="{resolve_url(idx_path, f'/vocal/{c["num"]}/')}">
-            <span class="ch-num done">{c["num"]}</span>
+        for num in range(start, end + 1):
+            if num in ch_lookup:
+                c = ch_lookup[num]
+                items.append(f"""<li class="chapter-item has-link">
+          <a href="{resolve_url(idx_path, f'/vocal/{num}/')}">
+            <span class="ch-num done">{num}</span>
             <span class="ch-title">{escape(c["title"])}</span>
             <span class="ch-status ch-status-done">可閱讀</span>
           </a>
         </li>""")
+            else:
+                items.append(f"""<li class="chapter-item">
+            <span class="ch-num pending">{num}</span>
+            <span class="ch-title">第 {num} 章</span>
+            <span class="ch-status ch-status-writing">撰寫中</span>
+        </li>""")
         return "\n".join(items)
 
-    bh = ch_list(beginner)
-    ah = ch_list(advanced)
+    bh = ch_range_html(1, 15)
+    ah = ch_range_html(16, 50)
 
     research = "\n".join(
         f'<div class="research-item"><div class="research-num">專欄{i}</div><div class="research-title">{escape(t)}</div><span class="ch-status ch-status-writing" style="display:inline-block;margin-top:8px;">撰寫中</span></div>'
