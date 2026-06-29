@@ -119,7 +119,7 @@ def page(title, body, page_path=None, extra_head=""):
         </div>
       </div>
       <a href="{resolve_url(page_path, '/vocal/')}">人聲與歌唱</a>
-      <a href="{resolve_url(page_path, '/theory/')}">樂理</a>
+      <a href="{resolve_url(page_path, '/theory/')}">樂理基礎</a>
       <a href="{resolve_url(page_path, '/about/')}">關於</a>
       <a href="{resolve_url(page_path, '/contact/')}">聯絡我們</a>
     </nav>
@@ -136,7 +136,7 @@ def page(title, body, page_path=None, extra_head=""):
         <a href="{resolve_url(page_path, '/countries/')}">國家</a>
         <a href="{resolve_url(page_path, '/popular/')}">熱門</a>
         <a href="{resolve_url(page_path, '/uncommon/')}">冷門</a>
-        <a href="{resolve_url(page_path, '/theory/')}">樂理</a>
+        <a href="{resolve_url(page_path, '/theory/')}">樂理基礎</a>
         <a href="{resolve_url(page_path, '/contact/')}">聯絡我們</a>
         <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
       </nav>
@@ -206,7 +206,7 @@ def build_portal_homepage(instruments):
     </a>
     <a class="portal-card card-theory" href="{resolve_url(index_path, '/theory/')}">
       <div class="card-icon">🎼</div>
-      <div class="card-label">基礎樂理</div>
+      <div class="card-label">樂理基礎</div>
       <div class="card-desc">認識譜號、節拍、拍號、音調、音域與發聲原理，系統了解音樂理論的基礎知識。</div>
       <span class="card-badge badge-ready">已上線</span>
     </a>
@@ -293,16 +293,30 @@ def build_vocal_pages():
     bh = ch_range_html(1, 15)
     ah = ch_range_html(16, 50)
 
-    research = "\n".join(
-        f'<div class="research-item"><div class="research-num">專欄{i}</div><div class="research-title">{escape(t)}</div><span class="ch-status ch-status-writing" style="display:inline-block;margin-top:8px;">撰寫中</span></div>'
-        for i, t in enumerate([
-            "人聲頻率與共鳴的聲學分析 (Formants & Harmonics)",
-            "錄音室人聲後製與修音 (Vocal Tuning) 的聲學標準：歌手該如何配合？",
-            "當代流行音樂的和聲編排邏輯：從主旋律到多聲部交織",
-            "不同麥克風種類（動圈 vs 電容）對歌手發聲技巧的影響與反饋",
-            "流行聲樂教學的系統化與個人化：如何為不同音色的歌手制定訓練菜單",
-        ], 1)
-    )
+    # Check if research article file exists
+    research_file = vocal_dir / "人聲共鳴聲學分析研究.md"
+    research_has_content = research_file.exists()
+    if research_has_content:
+        research_raw = research_file.read_text(encoding="utf-8")
+        research_title_line = research_raw.strip().split("\n")[0].lstrip("#").strip().strip("*")
+    else:
+        research_title_line = ""
+
+    research_items = []
+    # Column 1 - may have content
+    if research_has_content:
+        research_items.append(f'<div class="research-item has-link"><a href="{resolve_url(out_dir / "index.html", "/vocal/research/1/")}" class="research-link"><div class="research-num">專欄1</div><div class="research-title">{escape(research_title_line)}</div><span class="ch-status ch-status-done">可閱讀</span></a></div>')
+    else:
+        research_items.append(f'<div class="research-item"><div class="research-num">專欄1</div><div class="research-title">人聲頻率與共鳴的聲學分析 (Formants & Harmonics)</div><span class="ch-status ch-status-writing" style="display:inline-block;margin-top:8px;">撰寫中</span></div>')
+    # Columns 2-5 - writing
+    for i, t in enumerate([
+        "錄音室人聲後製與修音 (Vocal Tuning) 的聲學標準：歌手該如何配合？",
+        "當代流行音樂的和聲編排邏輯：從主旋律到多聲部交織",
+        "不同麥克風種類（動圈 vs 電容）對歌手發聲技巧的影響與反饋",
+        "流行聲樂教學的系統化與個人化：如何為不同音色的歌手制定訓練菜單",
+    ], 2):
+        research_items.append(f'<div class="research-item"><div class="research-num">專欄{i}</div><div class="research-title">{escape(t)}</div><span class="ch-status ch-status-writing" style="display:inline-block;margin-top:8px;">撰寫中</span></div>')
+    research = "\n".join(research_items)
 
     idx_body = f"""<main>
   <section class="vocal-hero">
@@ -400,6 +414,37 @@ document.addEventListener('DOMContentLoaded', function() {{
   <a class="back-link" href="{resolve_url(ch_dir / "index.html", "/vocal/")}">← 返回課程總覽</a>
 </main>"""
         write(ch_dir / "index.html", page(escape(c["title"]), detail_body, ch_dir / "index.html"))
+
+    # ── Research article detail pages ──
+    research_file = vocal_dir / "人聲共鳴聲學分析研究.md"
+    if research_file.exists():
+        research_raw = research_file.read_text(encoding="utf-8")
+        first_line = research_raw.strip().split("\n")[0]
+        r_title = first_line.lstrip("#").strip().strip("*")
+        r_html = markdown_to_html(research_raw)
+        from bleach.sanitizer import ALLOWED_TAGS as BTAGS2, ALLOWED_ATTRIBUTES as BATTRS2
+        import bleach as _bl
+        allowed_tags = BTAGS2.union({"p","pre","code","h1","h2","h3","h4","ul","ol","li","blockquote","strong","em","table","thead","tbody","tr","th","td","hr","br","img"})
+        allowed_attrs = {**BATTRS2, "a": ["href","title","target","rel"], "img": ["src","alt","title"]}
+        r_html = _bl.clean(r_html, tags=allowed_tags, attributes=allowed_attrs, protocols=["http","https","mailto"], strip=True)
+        r_dir = out_dir / "research" / "1"
+        r_dir.mkdir(parents=True, exist_ok=True)
+        r_body = f"""<main class="vocal-detail-page">
+  <div class="vocal-detail-header">
+    <div class="breadcrumb">
+      <a href="{resolve_url(r_dir / "index.html", "/vocal/")}">← 人聲與歌唱</a>
+      <span>/</span>
+      <span>研究專欄</span>
+    </div>
+    <span class="level-tag level-tag-beginner">🔬 研究專欄</span>
+    <h1>{escape(r_title)}</h1>
+    <p class="level-name">音樂製作與聲學探討</p>
+  </div>
+  <div class="vocal-content markdown-body">{r_html}</div>
+  <a class="back-link" href="{resolve_url(r_dir / "index.html", "/vocal/")}">← 返回課程總覽</a>
+</main>"""
+        write(r_dir / "index.html", page(escape(r_title), r_body, r_dir / "index.html"))
+        print("  Research article page written.")
 
     print(f"  Vocal index + {len(chapters)} chapter pages written.")
 
@@ -527,6 +572,9 @@ def append_css():
 .chapter-item a { text-decoration:none; color:inherit; display:flex; align-items:center; gap:12px; flex:1; }
 .research-grid { display:grid; gap:12px; }
 .research-item { padding:18px 20px; border:1px solid var(--line); border-radius:10px; background:var(--surface); }
+.research-item.has-link { padding:0; transition:border-color .15s,box-shadow .15s; }
+.research-item.has-link:hover { border-color:var(--accent); box-shadow:0 2px 8px rgba(0,0,0,.06); }
+.research-link { display:block; padding:18px 20px; text-decoration:none; color:inherit; }
 .research-item .research-num { display:inline-block; padding:2px 10px; border-radius:20px; background:#e0e7ff; color:#3730a3; font-size:11px; font-weight:700; margin-bottom:6px; }
 .research-item .research-title { font-weight:600; font-size:15px; }
 .vocal-detail-page { max-width:800px; margin:0 auto; padding:32px 20px 80px; }

@@ -335,7 +335,7 @@ def page(title, body, page_path=None, meta_extra="", extra_head=""):
         </div>
       </div>
       <a href="{resolve_url(page_path, '/vocal/')}">人聲與歌唱</a>
-      <a href="{resolve_url(page_path, '/theory/')}">樂理</a>
+      <a href="{resolve_url(page_path, '/theory/')}">樂理基礎</a>
       <a href="{resolve_url(page_path, '/about/')}">關於</a>
       <a href="{resolve_url(page_path, '/contact/')}">聯絡我們</a>
     </nav>
@@ -352,7 +352,7 @@ def page(title, body, page_path=None, meta_extra="", extra_head=""):
         <a href="{resolve_url(page_path, '/countries/')}">國家</a>
         <a href="{resolve_url(page_path, '/popular/')}">熱門</a>
         <a href="{resolve_url(page_path, '/uncommon/')}">冷門</a>
-        <a href="{resolve_url(page_path, '/theory/')}">樂理</a>
+        <a href="{resolve_url(page_path, '/theory/')}">樂理基礎</a>
         <a href="{resolve_url(page_path, '/contact/')}">聯絡我們</a>
         <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
       <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
@@ -1946,25 +1946,19 @@ def build_theory_page():
         f'<div id="tab-{t["id"]}" class="tab-pane{" is-active" if i == 0 else ""}"><article class="markdown-body">{t["content"].strip()}</article></div>'
         for i, t in enumerate(theory_tabs)
     )
-
-    extra_css = """
+    extra_head = """
 <style>
 .theory-hero { padding:48px 0 28px; }
 .theory-page { max-width:860px; }
-.theory-tabs { margin-top:8px; }
-.theory-tabs .tab-bar { margin-bottom:24px; }
-.theory-tabs .tab-btn { font-size:13px; padding:8px 14px; }
-.theory-tabs .markdown-body p { margin:0 0 1.2em; }
-.theory-tabs .markdown-body h2 { font-size:22px; margin-top:1.6em; }
-.theory-nav { display:flex; flex-wrap:wrap; gap:10px; margin:28px 0 8px; }
+.theory-nav { display:flex; flex-wrap:wrap; gap:10px; margin:28px 0 32px; padding-bottom:16px; border-bottom:2px solid var(--line); position:sticky; top:70px; background:var(--soft); z-index:5; }
 .theory-nav a { display:inline-flex; align-items:center; gap:6px; padding:8px 14px; border:1px solid var(--line); border-radius:8px; background:var(--surface); text-decoration:none; font-size:13px; font-weight:600; color:var(--ink2); transition:all .15s; }
 .theory-nav a:hover { border-color:var(--accent); color:var(--accent); background:rgba(13,118,107,.04); }
-@media (max-width:700px) {
-  .theory-tabs .tab-bar { flex-wrap:wrap; }
-  .theory-tabs .tab-btn { flex:1; min-width:80px; text-align:center; }
-}
+.theory-section { margin-bottom:40px; padding-top:8px; }
+.theory-section .markdown-body p { margin:0 0 1.2em; }
+.theory-section .markdown-body h2 { font-size:22px; margin-top:1.6em; }
 </style>
 """
+
     body = f"""<main class="page theory-page">
   <section class="theory-hero">
     <p class="eyebrow">Music Theory</p>
@@ -1972,15 +1966,13 @@ def build_theory_page():
     <p class="lead">認識音樂的構成要素，從譜號、節拍到發聲原理，系統性了解音樂理論的基礎知識。</p>
   </section>
   <div class="theory-nav">
-    {"".join(f'<a href="#tab-{t["id"]}">{t["icon"]} {t["label"]}</a>' for t in theory_tabs)}
+    {"".join(f'<a href="#sec-{t["id"]}">{t["icon"]} {t["label"]}</a>' for t in theory_tabs)}
   </div>
-  <div class="theory-tabs">
-    <div class="tab-bar">{tab_buttons}</div>
-    {tab_panes}
+  <div class="theory-sections">
+    {"".join(f'<section id="sec-{t["id"]}" class="theory-section">{t["icon"]}<h2 style="display:inline;margin-left:6px;">{t["label"]}</h2><article class="markdown-body" style="margin-top:12px;">{t["content"].strip()}</article>' + '</section>' for t in theory_tabs)}
   </div>
 </main>
 """
-    extra_head = extra_css
     write(page_dir_ / "index.html", page("樂理基礎", body, page_dir_ / "index.html", extra_head=extra_head))
 
 
