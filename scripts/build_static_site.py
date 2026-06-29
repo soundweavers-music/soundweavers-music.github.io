@@ -309,7 +309,7 @@ def page(title, body, page_path=None, meta_extra="", extra_head="", meta_descrip
     )
     raw_canon = resolve_url(page_path, "/") if page_path else "/"
     clean_canon = raw_canon.replace("./", "/").replace("../", "/").rstrip("/") or "/"
-    canonical_url = f"https://soundweavers-music.github.io{clean_canon}"
+    canonical_url = f"https://soundweavers-music.github.io{clean_canon}".rstrip(".")
     og_image = "https://yt3.googleusercontent.com/6nBZ7RVoXGMH2fuMPWiju_tpAET9D-qVkOhg1HjGqh8m9EaO-u9wO_oHVA12Sy0DzoKn7mGVmA=w1707-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj"
     jsonld = f'''{{
   "@context": "https://schema.org",
