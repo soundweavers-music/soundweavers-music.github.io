@@ -293,29 +293,31 @@ def build_vocal_pages():
     bh = ch_range_html(1, 15)
     ah = ch_range_html(16, 50)
 
-    # Check if research article file exists
-    research_file = vocal_dir / "人聲共鳴聲學分析研究.md"
-    research_has_content = research_file.exists()
-    if research_has_content:
-        research_raw = research_file.read_text(encoding="utf-8")
-        research_title_line = research_raw.strip().split("\n")[0].lstrip("#").strip().strip("*")
-    else:
-        research_title_line = ""
+    # Research columns: (filename, fallback_title)
+    research_columns = [
+        ("人聲共鳴聲學分析研究.md", "人聲頻率與共鳴的聲學分析 (Formants & Harmonics)"),
+        ("人聲修音聲學標準研究.md", "錄音室人聲後製與修音 (Vocal Tuning) 的聲學標準：歌手該如何配合？"),
+        (None, "當代流行音樂的和聲編排邏輯：從主旋律到多聲部交織"),
+        (None, "不同麥克風種類（動圈 vs 電容）對歌手發聲技巧的影響與反饋"),
+        (None, "流行聲樂教學的系統化與個人化：如何為不同音色的歌手制定訓練菜單"),
+    ]
 
     research_items = []
-    # Column 1 - may have content
-    if research_has_content:
-        research_items.append(f'<div class="research-item has-link"><a href="{resolve_url(out_dir / "index.html", "/vocal/research/1/")}" class="research-link"><div class="research-num">專欄1</div><div class="research-title">{escape(research_title_line)}</div><span class="ch-status ch-status-done">可閱讀</span></a></div>')
-    else:
-        research_items.append(f'<div class="research-item"><div class="research-num">專欄1</div><div class="research-title">人聲頻率與共鳴的聲學分析 (Formants & Harmonics)</div><span class="ch-status ch-status-writing" style="display:inline-block;margin-top:8px;">撰寫中</span></div>')
-    # Columns 2-5 - writing
-    for i, t in enumerate([
-        "錄音室人聲後製與修音 (Vocal Tuning) 的聲學標準：歌手該如何配合？",
-        "當代流行音樂的和聲編排邏輯：從主旋律到多聲部交織",
-        "不同麥克風種類（動圈 vs 電容）對歌手發聲技巧的影響與反饋",
-        "流行聲樂教學的系統化與個人化：如何為不同音色的歌手制定訓練菜單",
-    ], 2):
-        research_items.append(f'<div class="research-item"><div class="research-num">專欄{i}</div><div class="research-title">{escape(t)}</div><span class="ch-status ch-status-writing" style="display:inline-block;margin-top:8px;">撰寫中</span></div>')
+    research_count = 0
+    for idx, (fname, fallback_title) in enumerate(research_columns, 1):
+        if fname:
+            rf = vocal_dir / fname
+            has_content = rf.exists()
+        else:
+            has_content = False
+
+        if has_content:
+            research_count += 1
+            raw = rf.read_text(encoding="utf-8")
+            title_line = raw.strip().split("\n")[0].lstrip("#").strip().strip("*")
+            research_items.append(f'<div class="research-item has-link"><a href="{resolve_url(out_dir / "index.html", f"/vocal/research/{idx}/")}" class="research-link"><div class="research-num">專欄{idx}</div><div class="research-title">{escape(title_line)}</div><span class="ch-status ch-status-done">可閱讀</span></a></div>')
+        else:
+            research_items.append(f'<div class="research-item"><div class="research-num">專欄{idx}</div><div class="research-title">{escape(fallback_title)}</div><span class="ch-status ch-status-writing" style="display:inline-block;margin-top:8px;">撰寫中</span></div>')
     research = "\n".join(research_items)
 
     idx_body = f"""<main>
@@ -329,7 +331,7 @@ def build_vocal_pages():
       <div class="vocal-tab-bar">
         <button class="vocal-tab-btn is-active" data-tab="beginner">🌱 初階篇 ({len(beginner)}/15)</button>
         <button class="vocal-tab-btn" data-tab="advanced">🌲 進階篇 ({len(advanced)}/35)</button>
-        <button class="vocal-tab-btn" data-tab="research">🔬 研究專欄 (0/5)</button>
+        <button class="vocal-tab-btn" data-tab="research">🔬 研究專欄 ({research_count}/5)</button>
       </div>
 
       <div id="tab-beginner" class="vocal-tab-pane is-active">
@@ -416,18 +418,24 @@ document.addEventListener('DOMContentLoaded', function() {{
         write(ch_dir / "index.html", page(escape(c["title"]), detail_body, ch_dir / "index.html"))
 
     # ── Research article detail pages ──
-    research_file = vocal_dir / "人聲共鳴聲學分析研究.md"
-    if research_file.exists():
-        research_raw = research_file.read_text(encoding="utf-8")
-        first_line = research_raw.strip().split("\n")[0]
+    research_files = [
+        ("人聲共鳴聲學分析研究.md", 1),
+        ("人聲修音聲學標準研究.md", 2),
+    ]
+    for r_fname, r_idx in research_files:
+        rf = vocal_dir / r_fname
+        if not rf.exists():
+            continue
+        r_raw = rf.read_text(encoding="utf-8")
+        first_line = r_raw.strip().split("\n")[0]
         r_title = first_line.lstrip("#").strip().strip("*")
-        r_html = markdown_to_html(research_raw)
+        r_html = markdown_to_html(r_raw)
         from bleach.sanitizer import ALLOWED_TAGS as BTAGS2, ALLOWED_ATTRIBUTES as BATTRS2
         import bleach as _bl
         allowed_tags = BTAGS2.union({"p","pre","code","h1","h2","h3","h4","ul","ol","li","blockquote","strong","em","table","thead","tbody","tr","th","td","hr","br","img"})
         allowed_attrs = {**BATTRS2, "a": ["href","title","target","rel"], "img": ["src","alt","title"]}
         r_html = _bl.clean(r_html, tags=allowed_tags, attributes=allowed_attrs, protocols=["http","https","mailto"], strip=True)
-        r_dir = out_dir / "research" / "1"
+        r_dir = out_dir / "research" / str(r_idx)
         r_dir.mkdir(parents=True, exist_ok=True)
         r_body = f"""<main class="vocal-detail-page">
   <div class="vocal-detail-header">
@@ -444,7 +452,7 @@ document.addEventListener('DOMContentLoaded', function() {{
   <a class="back-link" href="{resolve_url(r_dir / "index.html", "/vocal/")}">← 返回課程總覽</a>
 </main>"""
         write(r_dir / "index.html", page(escape(r_title), r_body, r_dir / "index.html"))
-        print("  Research article page written.")
+        print(f"  Research article {r_idx} page written.")
 
     print(f"  Vocal index + {len(chapters)} chapter pages written.")
 
