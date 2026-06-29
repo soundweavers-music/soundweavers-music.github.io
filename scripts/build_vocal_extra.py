@@ -278,7 +278,7 @@ def build_vocal_pages():
                 items.append(f"""<li class="chapter-item has-link">
           <a href="{resolve_url(idx_path, f'/vocal/{num}/')}">
             <span class="ch-num done">{num}</span>
-            <span class="ch-title">{escape(c["title"])}</span>
+            <span class="ch-title">第 {num} 章：{escape(c["title"])}</span>
             <span class="ch-status ch-status-done">可閱讀</span>
           </a>
         </li>""")
@@ -311,25 +311,56 @@ def build_vocal_pages():
     <p class="lead">從啟蒙覺察到錄音室實戰，系統化的流行歌唱教學體系。無論你是零基礎初學者、進階歌者，還是對聲音科學感興趣的音樂人，都能在這裡找到適合的內容。</p>
   </section>
   <div class="vocal-page">
-    <section class="vocal-level">
-      <div class="vocal-level-header"><h2>🌱 初階篇：啟蒙與覺察</h2></div>
-      <p class="vocal-level-desc">適合零基礎、常覺得唱歌會累、抓不到音準或氣息，希望在日常中輕鬆唱歌的初學者。建立放鬆的發聲觀念，認識自己的聲音，並具備基礎的氣息與共鳴概念。</p>
-      <div class="vocal-progress"><span>{len(beginner)}/15 堂已上線</span></div>
-      <ol class="chapter-list">{bh}</ol>
-    </section>
-    <section class="vocal-level">
-      <div class="vocal-level-header"><h2>🌲 進階篇：肌肉精操與錄音室實戰</h2></div>
-      <p class="vocal-level-desc">已具備基礎氣息與音準，希望解決換聲區斷層、豐富音色色彩，並能進階處理錄音室演唱與情感細節的歌者。</p>
-      <div class="vocal-progress"><span>{len(advanced)}/35 堂已上線</span></div>
-      <ol class="chapter-list" start="16">{ah}</ol>
-    </section>
-    <section class="vocal-level">
-      <div class="vocal-level-header"><h2>🔬 研究專欄：音樂製作與聲學探討</h2></div>
-      <p class="vocal-level-desc">結合科學數據、編曲邏輯與後製觀點，提供超越單純演唱的全面性視角。</p>
-      <div class="research-grid">{research}</div>
-    </section>
+    <div class="vocal-tabs">
+      <div class="vocal-tab-bar">
+        <button class="vocal-tab-btn is-active" data-tab="beginner">🌱 初階篇 ({len(beginner)}/15)</button>
+        <button class="vocal-tab-btn" data-tab="advanced">🌲 進階篇 ({len(advanced)}/35)</button>
+        <button class="vocal-tab-btn" data-tab="research">🔬 研究專欄 (0/5)</button>
+      </div>
+
+      <div id="tab-beginner" class="vocal-tab-pane is-active">
+        <section class="vocal-level">
+          <div class="vocal-level-header"><h2>🌱 初階篇：啟蒙與覺察</h2></div>
+          <p class="vocal-level-desc">適合零基礎、常覺得唱歌會累、抓不到音準或氣息，希望在日常中輕鬆唱歌的初學者。建立放鬆的發聲觀念，認識自己的聲音，並具備基礎的氣息與共鳴概念。</p>
+          <div class="vocal-progress"><span>{len(beginner)}/15 堂已上線</span><div class="vocal-progress-bar"><div class="vocal-progress-fill" style="width:{100 * len(beginner) // 15}%"></div></div></div>
+          <ol class="chapter-list">{bh}</ol>
+        </section>
+      </div>
+
+      <div id="tab-advanced" class="vocal-tab-pane">
+        <section class="vocal-level">
+          <div class="vocal-level-header"><h2>🌲 進階篇：肌肉精操與錄音室實戰</h2></div>
+          <p class="vocal-level-desc">已具備基礎氣息與音準，希望解決換聲區斷層、豐富音色色彩，並能進階處理錄音室演唱與情感細節的歌者。</p>
+          <div class="vocal-progress"><span>{len(advanced)}/35 堂已上線</span><div class="vocal-progress-bar"><div class="vocal-progress-fill" style="width:{100 * len(advanced) // 35}%"></div></div></div>
+          <ol class="chapter-list" start="16">{ah}</ol>
+        </section>
+      </div>
+
+      <div id="tab-research" class="vocal-tab-pane">
+        <section class="vocal-level">
+          <div class="vocal-level-header"><h2>🔬 研究專欄：音樂製作與聲學探討</h2></div>
+          <p class="vocal-level-desc">結合科學數據、編曲邏輯與後製觀點，提供超越單純演唱的全面性視角。適合聲樂教師、音樂製作人、配唱製作人，或是對聲音科學有濃厚興趣的歌者。</p>
+          <div class="research-grid">{research}</div>
+        </section>
+      </div>
+    </div>
   </div>
-</main>"""
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {{
+  var tabs = document.querySelectorAll('.vocal-tab-btn');
+  tabs.forEach(function(btn) {{
+    btn.addEventListener('click', function() {{
+      tabs.forEach(function(b) {{ b.classList.remove('is-active'); }});
+      document.querySelectorAll('.vocal-tab-pane').forEach(function(p) {{ p.classList.remove('is-active'); }});
+      btn.classList.add('is-active');
+      var pane = document.getElementById('tab-' + btn.dataset.tab);
+      if (pane) pane.classList.add('is-active');
+    }});
+  }});
+}});
+</script>"""
     write(out_dir / "index.html", page("人聲與歌唱", idx_body, out_dir / "index.html"))
 
     # ── Detail pages ──
@@ -520,6 +551,21 @@ def append_css():
 .vocal-nav-link.disabled { opacity:.35; pointer-events:none; }
 .back-link { display:inline-flex; align-items:center; gap:6px; margin-top:40px; padding:10px 18px; border:1px solid var(--line); border-radius:8px; text-decoration:none; font-weight:600; font-size:14px; color:var(--muted); transition:all .15s; }
 .back-link:hover { border-color:var(--accent); color:var(--accent); }
+.vocal-tabs { margin-top: 8px; }
+.vocal-tab-bar { display:flex; gap:4px; margin:0 0 24px; border-bottom:2px solid var(--line); padding-bottom:0; }
+.vocal-tab-btn {
+  padding:10px 20px; border:1px solid var(--line); border-bottom:none;
+  border-radius:8px 8px 0 0; background:var(--soft); color:var(--muted);
+  font-weight:700; font-size:14px; cursor:pointer; transition:all .15s;
+  position:relative; top:2px;
+}
+.vocal-tab-btn:hover { color:var(--accent); }
+.vocal-tab-btn.is-active { background:var(--surface); color:var(--accent); border-color:var(--line); border-bottom-color:var(--surface); }
+.vocal-tab-pane { display:none; }
+.vocal-tab-pane.is-active { display:block; }
+.vocal-progress-bar { height:6px; border-radius:3px; background:var(--line); flex:1; max-width:260px; overflow:hidden; }
+.vocal-progress-fill { height:100%; border-radius:3px; background:linear-gradient(90deg,var(--accent),#34d399); transition:width .4s; }
+@media (max-width:700px) { .vocal-tab-bar { flex-wrap:wrap; } .vocal-tab-btn { flex:1; min-width:80px; text-align:center; } }
 
 /* ── Contact page ─────────────────────────── */
 .contact-page { max-width:740px; margin:0 auto; padding:48px 20px 80px; }
