@@ -4,65 +4,132 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>沙槌｜世界樂器百科</title>
+  <meta name="description" content="沙槌（圖皮語：maraca），亦稱為沙錘、砂槌、沙鈴或沙球，是一種敲擊樂器，屬於體鳴樂器，沿自南美洲哥倫比亞。大概已有超過1500年的歷史。除哥倫比亞外，在不少的南美國家都可以找到相近的古代沙鈴證據。包括有牙買加、委內瑞拉、古巴和特立尼達島等。 和擊木一樣，沙鈴較常以一對演奏，但單使用一隻亦可以。">
+<meta property="og:title" content="沙槌｜世界樂器百科">
+<meta property="og:description" content="沙槌（圖皮語：maraca），亦稱為沙錘、砂槌、沙鈴或沙球，是一種敲擊樂器，屬於體鳴樂器，沿自南美洲哥倫比亞。大概已有超過1500年的歷史。除哥倫比亞外，在不少的南美國家都可以找到相近的古代沙鈴證據。包括有牙買加、委內瑞拉、古巴和特立尼達島等。 和擊木一樣，沙鈴較常以一對演奏，但單使用一隻亦可以。">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Colorful_Maracas.JPG/500px-Colorful_Maracas.JPG">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>沙槌</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">打擊樂器</p>
               <h1>沙槌</h1>
-              <p class="lead">Maraca</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>打擊樂器</dd></div><div><dt>國家/地區</dt><dd>美國</dd></div><div><dt>年代</dt><dd>古代</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://zh.wikipedia.org/wiki/%E6%B2%99%E6%A7%8C" target="_blank" rel="noopener noreferrer">https://zh.wikipedia.org/wiki/%E6%B2%99%E6%A7%8C</a></p>
+              <p class="original-name">Maraca</p>
+              <p class="soundscape-tag">手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）</p>
+              <p class="badge-row"><span class="badge badge-hot">熱門</span></p>
             </div>
-            <img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/9/96/Colorful_Maracas.JPG" alt="沙槌">
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Colorful_Maracas.JPG/500px-Colorful_Maracas.JPG" alt="沙槌" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>沙槌</h1>
-<p>沙槌是一種打擊樂器。沙槌（圖皮語：maraca），亦稱為沙錘、砂槌、沙鈴或沙球，是一種敲擊樂器，屬於體鳴樂器，沿自南美洲哥倫比亞。大概已有超過1500年的歷史。除哥倫比亞外，在不少的南美國家都可以找到相近的古代沙槌證據。包括有牙買加、委內瑞拉、古巴和特立尼達島等。</p>
-<p>簡單來說，和擊木一樣，沙槌較常以一對演奏，但單使用一隻亦可以。</p>
-<p>在地域脈絡上，它和美國的音樂文化有關。</p>
-<p>年代上可暫歸在「古代」相關脈絡中理解。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>中文維基百科：https://zh.wikipedia.org/wiki/%E6%B2%99%E6%A7%8C</p>
-</li>
-<li>
-<p>原始來源：https://en.wikipedia.org/wiki/Maraca</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>打擊樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>非洲／美洲</dd></div><div class="meta-item"><dt>年代</dt><dd>古代</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>体鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>無固定調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>中高頻段（無明確音高定位）</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>1 体鳴樂器</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>體鳴打擊樂器類</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>敲擊／搖晃／撥彈</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>手腕、腳踝、短音、節奏對齊</dd></div><div class="meta-item"><dt>地區類型</dt><dd>單一地區／文化圈</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>沙槌（圖皮語：maraca），亦稱為沙錘、砂槌、沙鈴或沙球，是一種敲擊樂器，屬於體鳴樂器，沿自南美洲哥倫比亞。大概已有超過1500年的歷史。除哥倫比亞外，在不少的南美國家都可以找到相近的古代沙鈴證據。包括有牙買加、委內瑞拉、古巴和特立尼達島等。 和擊木一樣，沙鈴較常以一對演奏，但單使用一隻亦可以。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/fUgj-aL6EXg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/Hrhkn4QqhXs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>沙槌作為節奏樂器，多見於拉丁音樂作品中。著名作曲家皮亞佐拉的探戈作品《牽牛花》（1921年）及《遺忘》等採用沙槌營造南美風情。此外，古巴音樂家布埃納維斯塔社會俱樂部的《傳奇》（1997年）亦廣泛運用沙槌等打擊樂器，強化了加勒比海音樂的熱帶特色與節奏感染力。</p>
 <h2>歷史背景</h2>
-<p>沙槌（Maraca）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>它可以先放在美國相關音樂文化中理解，後續可再補代表樂派、演奏場合與製作工藝。</p>
-<p>年代線索暫時指向「古代」，可作為閱讀時的時間定位。</p>
-<p>作為打擊樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。 若要深入研究，可優先查找美國的博物館、民族音樂學資料或地方樂器圖錄。 「古代」可作為初步年代標籤，但實際流傳時間仍應以專門資料校正。</p>
-<p>打擊樂器通常和節奏、信號、祭儀、舞蹈或群體活動關係密切。它們的歷史不一定只寫在樂譜裡，也常出現在節慶、宗教、軍事或地方生活的脈絡中。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://zh.wikipedia.org/wiki/%E6%B2%99%E6%A7%8C</p>
+<p>沙槌起源於南美洲哥倫比亞地區，距今已有超過一千五百年的悠久歷史。這種敲擊樂器由當地原住民文明發展而來，是古代儀式和音樂表演的重要工具。考古證據顯示，沙鈴的蹤跡不僅遍佈哥倫比亞，更在委內瑞拉、牙買加、古巴和特立尼達島等南美及加勒比海地區發現，反映出沙槌在整個地區廣泛的使用傳統。沙槌通常以一對演奏，透過搖晃產生沙沙聲響，但單個使用亦可行。隨著時間推移，沙槌逐漸傳入歐洲和全球音樂文化中，成為拉丁音樂和打擊樂團的標配樂器，並在現代流行音樂、民族音樂和舞蹈伴奏中佔據重要地位。</p>
 <h2>音色描述</h2>
-<p>音色多由材質本體振動決定，常呈現清晰、短促或具有明顯泛音的聲響。</p></article>
+<p>沙槌音色輕快明亮，具有清脆爽朗的質感。其聲音由內部細小顆粒摩擦產生，帶有沙沙的沙礫感，音色透明而富有穿透力。音域主要集中在中高頻段，不具備明確的音高定位，而是以節奏性的音響效果為主。沙槌的共鳴方式獨特，依靠球體內部顆粒的相互碰撞產生持續的沙沙聲，音量隨搖晃力度遞減。相較於鼓類樂器的厚重，沙槌音色更為輕盈靈動；與鈴鼓相比，其聲響更柔和細膩，缺少金屬的尖銳感。沙槌常用於營造節奏感和營造熱帶、民族風情的音樂氛圍。</p>
+<h2>樂器材質</h2>
+<p>沙槌主體為中空的球形或卵形外殼，通常採用木材（如楓木或桃花心木）或葫蘆製成。內部填充乾豆、沙粒、米粒或塑膠珠等細小顆粒。握柄多由木材或塑膠製作，部分高級款式使用硬木材質以增強耐久性。現代沙槌有時採用塑膠或纖維復合材料製造球體，使音色更均勻穩定。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>將樂器以正確姿勢持於手中。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/malimbe/">
+      <div class="card-thumb card-thumb--empty" aria-hidden="true">♩</div>
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">馬林貝琴</strong>
+        <span class="card-orig">Malimbe</span>
+        <span class="card-meta">非洲中部（剛果）/ 非洲東部（坦尚尼亞）</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/kong-vong/">
+      <div class="card-thumb card-thumb--empty" aria-hidden="true">♩</div>
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">鑼圈</strong>
+        <span class="card-orig">Kong Vong</span>
+        <span class="card-meta">東南亞／東亞／非洲／歐洲／全球</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/marimba/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Marimba_One_4000_Series.jpg/500px-Marimba_One_4000_Series.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">馬林巴</strong>
+        <span class="card-orig">Marimba</span>
+        <span class="card-meta">非洲／美洲</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/bass-drum/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Drum_kit_parts.png/500px-Drum_kit_parts.png" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">大鼓</strong>
+        <span class="card-orig">Bass drum</span>
+        <span class="card-meta">義大利</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

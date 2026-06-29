@@ -4,80 +4,132 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
-  <title>Gusli（暫譯）｜世界樂器百科</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <title>古斯里琴｜世界樂器百科</title>
+  <meta name="description" content="古斯里琴（俄語：гусли，俄語發音：[ˈɡuslʲɪ]）或胡斯拉琴（烏克蘭語：гусла，husla）是最古老的東斯拉夫多弦撥弦樂器，屬於齊特琴家族，因為其琴弦平行於共鳴板。它的根源在於諾夫哥羅德大公國的維利基·諾夫哥羅德。它在歐洲和世界各地都有親緣樂器：芬蘭的康特萊琴/坎內爾琴、愛沙尼亞的坎內爾琴、立陶宛的康克列琴">
+<meta property="og:title" content="古斯里琴｜世界樂器百科">
+<meta property="og:description" content="古斯里琴（俄語：гусли，俄語發音：[ˈɡuslʲɪ]）或胡斯拉琴（烏克蘭語：гусла，husla）是最古老的東斯拉夫多弦撥弦樂器，屬於齊特琴家族，因為其琴弦平行於共鳴板。它的根源在於諾夫哥羅德大公國的維利基·諾夫哥羅德。它在歐洲和世界各地都有親緣樂器：芬蘭的康特萊琴/坎內爾琴、愛沙尼亞的坎內爾琴、立陶宛的康克列琴">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Gusli_tradition.png/500px-Gusli_tradition.png">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>古斯里琴</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">鍵盤樂器</p>
-              <h1>Gusli（暫譯）</h1>
-              <p class="lead">Gusli</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>鍵盤樂器</dd></div><div><dt>國家/地區</dt><dd>東亞／中亞／歐洲／東南亞／非洲／美洲</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div><div><dt>旅圖</dt><dd>旅圖二｜懷裡與大地的弦</dd></div><div><dt>章節</dt><dd>5｜平放在大地上的弦</dd></div><div><dt>發聲分類</dt><dd>弦鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Chordophone／弦鳴樂器</dd></div><div><dt>家族/支系</dt><dd>中東與歐亞箱式齊特</dd></div><div><dt>演奏方式</dt><dd>撥弦</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://en.wikipedia.org/wiki/Gusli" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Gusli</a></p>
+              <h1>古斯里琴</h1>
+              <p class="original-name">Gusli</p>
+              <p class="soundscape-tag">平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）</p>
+              <p class="badge-row"><span class="badge badge-cold">冷門</span></p>
             </div>
-            
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Gusli_tradition.png/500px-Gusli_tradition.png" alt="古斯里琴" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>Gusli（暫譯）</h1>
-<p>Gusli（暫譯）（原名：Gusli）是一種弦樂器。主要靠弦的振動發聲，常透過撥、拉、彈、擊等方式演奏。</p>
-<p>目前中文資料較少，因此本條目先依英文維基與 Wikidata 的可查資料整理。後續可再補充 Gusli 的製作方式、代表曲目與地方流派。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Gusli</p>
-</li>
-<li>
-<p>Wikidata ID：ENWIKI-5d25cd64d7</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>鍵盤樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>東亞／中亞／歐洲／東南亞／非洲／美洲</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>弦鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>全調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>約3-4個8度</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>314/315/316 齊特琴／擊弦／鍵盤化弦鳴</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>齊特琴、箏類、擊弦與鍵盤化弦鳴</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>撥弦／擊弦／按鍵擊弦</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>手掌、弦面、推音、敲擊</dd></div><div class="meta-item"><dt>地區類型</dt><dd>地區／文化圈</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>古斯里琴（俄語：гусли，俄語發音：[ˈɡuslʲɪ]）或胡斯拉琴（烏克蘭語：гусла，husla）是最古老的東斯拉夫多弦撥弦樂器，屬於齊特琴家族，因為其琴弦平行於共鳴板。它的根源在於諾夫哥羅德大公國的維利基·諾夫哥羅德。它在歐洲和世界各地都有親緣樂器：芬蘭的康特萊琴/坎內爾琴、愛沙尼亞的坎內爾琴、立陶宛的康克列琴、拉脫維亞的科克列琴、德國的齊特琴、捷克共和國的西特拉琴，以及法國的詩篇琴。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/6v_ktzgIitY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/5gmZlJHBpbg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>古斯里琴在俄羅斯民族音樂中佔據重要地位。林姆斯基-柯薩科夫在歌劇《雪娘》（1881年）中運用古斯里琴營造神話氛圍；普羅科菲耶夫的《伊凡王子的故事》（1945年）亦融入此樂器以強化斯拉夫民族特色。此外，許多俄羅斯民間交響樂編排中皆見古斯里琴蹤跡，用於詮釋古老的民間敘事詩與宮廷音樂，展現東斯拉夫文化的深厚底蘊與詩意意境。</p>
 <h2>歷史背景</h2>
-<p>Gusli（暫譯）（Gusli）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>作為弦樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。</p>
-<p>弦樂器的歷史常和弦材、共鳴箱、調音方式與演奏技法的演變有關。從民間伴奏到獨奏舞台，許多弦樂器都會因音量需求、音域擴張或樂曲風格改變而改良形制。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://en.wikipedia.org/wiki/Gusli</p>
+<p>古斯里琴一詞源自動詞「gǫsti」（發出聲音、呼號、演奏音樂），加上後綴「slь」（來自原始印歐語的「-trom」）。在基輔羅斯時代，古斯里琴一詞泛指任何弦樂器。該詞根源於「在風中發出聲音」的含義。後來，該術語與梯形古斯里琴詩篇琴相關聯，該樂器可能起源於拜占庭。維克托·瓦斯涅佐夫於1899年創作的「古斯里琴音樂家」繪畫作品記錄了這一古老樂器在俄羅斯文化中的重要地位。</p>
 <h2>音色描述</h2>
-<p>音色由弦長、張力、共鳴箱與演奏法影響，可呈現撥奏、擦奏或擊弦的不同質感。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖二｜懷裡與大地的弦</li>
-<li><strong>章節</strong>：5｜平放在大地上的弦</li>
-<li><strong>章節主分類</strong>：齊特琴、箏類、擊弦與鍵盤化弦鳴</li>
-<li><strong>原聲音地景</strong>：平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）</li>
-<li><strong>專業發聲大類</strong>：弦鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Chordophone／弦鳴樂器</li>
-<li><strong>家族／支系</strong>：中東與歐亞箱式齊特</li>
-<li><strong>演奏方式</strong>：撥弦</li>
-<li><strong>身體／聽覺關聯</strong>：手掌、弦面、推音、敲擊</li>
-<li><strong>主要地區／國家</strong>：東亞／中亞／歐洲／東南亞／非洲／美洲</li>
-<li><strong>地區類型</strong>：地區／文化圈</li>
-<li><strong>資料狀態</strong>：承接553條目地域欄</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 Gusli 時，可以先從「中東與歐亞箱式齊特」與「撥弦」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「手掌、弦面、推音、敲擊」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>古斯里琴音色溫潤而富有詩意，具有明亮清透的特質，透露著東斯拉夫民族的深厚文化底蘊。其音域寬廣，從低音域的渾厚共鳴到高音域的晶瑩剔透，層次分明。因琴弦平行於共鳴板的設計，共鳴方式獨特，產生均勻飽滿的音響，具有良好的延音特性。與吉他相比，古斯里琴音色更顯柔和內斂；與豎琴相較，其聲質更具穿透力；與鋼琴對比，則帶有更強的民族韻味和溫暖感。撥弦時音色靈動活潑，經常用於表現民間敘事詩和宮廷音樂，具有高度的表現力與感染力。</p>
+<h2>樂器材質</h2>
+<p>古斯里琴主體採用精選木材製作，共鳴板通常使用雲杉或松木以獲得最佳共鳴效果。琴弦採用鋼絲或腸弦製成，現代樂器多用尼龍弦。琴體框架採用硬木如樺木或橡木製造，確保結構穩定性。梯形琴體設計便於演奏者手指撥弦。某些高級樂器的飾邊與細部裝飾可能採用金屬或象牙進行點綴，體現工藝精緻。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>將琴平放於桌面或琴架上。將樂器穩定持於身前。左手負責按弦或改變有效弦長以控制音高，右手負責使弦震動發聲。弦鳴樂器的發聲原理是弦的振動透過共鳴箱放大。用指尖或撥子撥奏弦線，注意觸弦角度和力度控制。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/mellotron/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Mellotron.jpg/500px-Mellotron.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">梅樂頓</strong>
+        <span class="card-orig">Mellotron</span>
+        <span class="card-meta">歐洲／英國</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/buchla-synthesizer/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Deadmau5_Buchla_synthesizer%2C_National_Music_Centre_%28clip%29.jpg/500px-Deadmau5_Buchla_synthesizer%2C_National_Music_Centre_%28clip%29.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">布克拉合成器</strong>
+        <span class="card-orig">Buchla Synthesizer</span>
+        <span class="card-meta">歐洲／美國／全球現代錄音室</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/kantele/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Concert_kantele.jpg/500px-Concert_kantele.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">坎泰萊琴</strong>
+        <span class="card-orig">Kantele</span>
+        <span class="card-meta">東亞／中亞／歐洲／東南亞／非洲／美洲</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/ajaeng/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Ajaeng_player.JPG/500px-Ajaeng_player.JPG" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">牙箏</strong>
+        <span class="card-orig">Ajaeng</span>
+        <span class="card-meta">韓國</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

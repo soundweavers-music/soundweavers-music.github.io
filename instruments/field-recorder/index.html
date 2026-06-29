@@ -4,67 +4,133 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>Field Recorder｜世界樂器百科</title>
+  <meta name="description" content="田野錄音機是一種便攜式音頻記錄設備，外形小巧輕便，具有內置或外接麥克風、錄音媒介和揚聲器。其主要用途是在現場環境中捕捉和記錄真實聲音，廣泛應用於民族音樂學、人類學、聲音藝術和紀錄片製作。其特色在於能夠保留環境的原生音景，捕捉自然泛音的豐富層次，提供高保真的聲音還原，使其成為文化遺產保存和田野調查的重要工具。">
+<meta property="og:title" content="Field Recorder｜世界樂器百科">
+<meta property="og:description" content="田野錄音機是一種便攜式音頻記錄設備，外形小巧輕便，具有內置或外接麥克風、錄音媒介和揚聲器。其主要用途是在現場環境中捕捉和記錄真實聲音，廣泛應用於民族音樂學、人類學、聲音藝術和紀錄片製作。其特色在於能夠保留環境的原生音景，捕捉自然泛音的豐富層次，提供高保真的聲音還原，使其成為文化遺產保存和田野調查的重要工具。">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>Field Recorder</span>
+          </nav>
           <header class="instrument-header">
-            <div>
+            <div class="header-text">
               <p class="eyebrow">鍵盤樂器</p>
               <h1>Field Recorder</h1>
-              <p class="lead">Field Recorder</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>鍵盤樂器</dd></div><div><dt>國家/地區</dt><dd>歐洲／美國／全球現代錄音室</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div><div><dt>旅圖</dt><dd>旅圖六｜按鍵打開房間，眾聲走向廣場</dd></div><div><dt>章節</dt><dd>12｜按鍵打開的機械房間</dd></div><div><dt>發聲分類</dt><dd>電鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Electrophone／電鳴樂器</dd></div><div><dt>家族/支系</dt><dd>電子與錄音室延伸</dd></div><div><dt>演奏方式</dt><dd>控制／取樣／合成</dd></div>
-              </dl>
               
-              <p class="source-note">資料來源：待補</p>
+              <p class="soundscape-tag">按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）</p>
+              <p class="badge-row"><span class="badge badge-hot">熱門</span></p>
             </div>
             
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<p>Field Recorder 是收錄在《隔壁家的世界聲音旅圖》資料庫中的鍵盤樂器。目前資料庫將它歸在「電鳴」脈絡下，主要可從電子與錄音室延伸、控制／取樣／合成與聲音地景來認識。</p>
-<p>初步地區標註為「歐洲／美國／全球現代錄音室」。這個欄位仍屬企劃初稿，後續可依博物館、百科條目、民族音樂學資料或演奏者資料逐篇核對。</p>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>鍵盤樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>歐洲／美國／全球現代錄音室</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>鍵盤／電鳴／機械混合</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>無固定調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>次低音至超高音（全音域）</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>412/31/52 鍵盤、自由簧、電鳴與機械介面</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>鍵盤介面、風箱、電子與取樣</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>按鍵／風箱／電控／取樣</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>手指、機械距離、記憶、電聲</dd></div><div class="meta-item"><dt>地區類型</dt><dd>跨文化／多地</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>田野錄音機是一種便攜式音頻記錄設備，外形小巧輕便，具有內置或外接麥克風、錄音媒介和揚聲器。其主要用途是在現場環境中捕捉和記錄真實聲音，廣泛應用於民族音樂學、人類學、聲音藝術和紀錄片製作。其特色在於能夠保留環境的原生音景，捕捉自然泛音的豐富層次，提供高保真的聲音還原，使其成為文化遺產保存和田野調查的重要工具。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/esfUwg1-xrI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/HF42gE0gp4E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>田野錄音機在當代聲音藝術中的應用包括：Alvin Lucier的《I Am Sitting in a Room》（1969）利用錄音機進行反饋實驗；Chris Watson的生態聲景作品系列記錄自然環境聲音；以及Alan Lomax在1930年代至1960年代進行的美國民間音樂田野錄音檔案，這些作品均展現了錄音設備在藝術與研究中的創意應用。</p>
 <h2>歷史背景</h2>
-<p>Field Recorder 的歷史背景目前先以資料庫分類建立閱讀入口。它位於「12｜按鍵打開的機械房間」的脈絡中，代表這件樂器可以和氣息、材料、身體動作、地方儀式或現代舞台之間的關係一起閱讀。</p>
-<p>如果要補寫成正式百科條目，建議優先查證三個方向：一是它最早出現或被記錄的地區，二是電子與錄音室延伸的形制演變，三是控制／取樣／合成如何影響音色、用途與傳播。</p>
+<h1>田野錄音機的歷史背景</h1>
+<p>田野錄音機起源於20世紀初的歐洲，最初是為了便於現場記錄聲音而設計的便攜式設備。隨著磁帶技術和晶體管的發明，1950年代起便攜式錄音機逐漸普及。美國民族音樂學家和人類學家開始使用這類設備進行田野調查，記錄民間音樂、方言和口頭傳統。</p>
+<p>1960年代至1980年代，隨著錄音技術的進步，田野錄音機成為人類學、民族音樂學和聲音藝術領域的重要工具。它不僅幫助研究者保存瀕危的文化資產，也促進了實驗音樂和聲景音樂的發展。進入數位時代後，田野錄音機進一步輕量化和高品質化，現已廣泛應用於紀錄片製作、環境音樂採集、學術研究與當代聲音藝術創作。</p>
 <h2>音色描述</h2>
-<p>資料庫把它的身體／聽覺關聯標為「手指、機械距離、記憶、電聲」。實際音色仍需要搭配可信錄音或現場演奏資料補充。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖六｜按鍵打開房間，眾聲走向廣場</li>
-<li><strong>章節</strong>：12｜按鍵打開的機械房間</li>
-<li><strong>章節主分類</strong>：鍵盤介面、風箱、電子與取樣</li>
-<li><strong>原聲音地景</strong>：按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）</li>
-<li><strong>專業發聲大類</strong>：電鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Electrophone／電鳴樂器</li>
-<li><strong>家族／支系</strong>：電子與錄音室延伸</li>
-<li><strong>演奏方式</strong>：控制／取樣／合成</li>
-<li><strong>身體／聽覺關聯</strong>：手指、機械距離、記憶、電聲</li>
-<li><strong>主要地區／國家</strong>：歐洲／美國／全球現代錄音室</li>
-<li><strong>地區類型</strong>：跨文化／多地</li>
-<li><strong>資料狀態</strong>：系統初稿推定，需逐篇來源核對</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 Field Recorder 時，可以先從「電子與錄音室延伸」與「控制／取樣／合成」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「手指、機械距離、記憶、電聲」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>Field Recorder是一種便攜式錄音設備，其音色特徵獨特而多變。由於直接捕捉現場聲音，音色具有高度的真實性與自然感，音域極寬廣，涵蓋次低音至超高音。其共鳴方式源於麥克風的拾音特性與錄音媒介的還原能力，音色通常呈現清晰、透明的質感，富有環境空間感。相比傳統樂器的持續音，Field Recorder的聲音具有瞬間性與片段性。與合成器的電子音色相比，它保留了自然泛音的豐富性；與麥克風相比，它提供更穩定的信號處理。其音色能從溫潤的人聲到明亮的環境音效，展現出高度的表現力與詩意張力。</p>
+<h2>樂器材質</h2>
+<p>田野錄音機主要由塑膠或鋁合金機殼構成，內部採用精密電子元件如晶體管、積體電路和電容器。麥克風通常採用動圈式或電容式設計，搭配金屬網罩保護。錄音媒介曾包括磁帶、數位儲存晶片等。揚聲器採用紙質或塑膠振膜配合磁鐵。電池倉多為塑膠製造，部分高端機型使用不鏽鋼和橡膠防震墊，整體設計強調耐用性與環境適應性。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>直立持笛，吹口含入嘴中約1公分。左手在上（拇指按背孔），右手在下。以輕柔穩定的氣流吹奏。練習吐音（用舌頭輕輕發出「嘟」音來分隔音符）。直笛是學習音樂的入門樂器。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/novachord/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Novachord_frontS.jpg/500px-Novachord_frontS.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">諾瓦科德電子琴</strong>
+        <span class="card-orig">Novachord</span>
+        <span class="card-meta">歐洲／美國／全球現代錄音室</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/hammered-dulcimer/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Hammered_dulcimer.JPG/500px-Hammered_dulcimer.JPG" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">揚琴</strong>
+        <span class="card-orig">Hammered dulcimer</span>
+        <span class="card-meta">中東</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/fairlight-cmi/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Fairlight_green_screen.jpg/500px-Fairlight_green_screen.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">費爾萊特CMI</strong>
+        <span class="card-orig">Fairlight CMI</span>
+        <span class="card-meta">澳洲／全球取樣器文化</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/siter/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Traditional_indonesian_stringed_instrument.jpg/500px-Traditional_indonesian_stringed_instrument.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">西特爾</strong>
+        <span class="card-orig">Siter</span>
+        <span class="card-meta">亞洲／歐洲／全球</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

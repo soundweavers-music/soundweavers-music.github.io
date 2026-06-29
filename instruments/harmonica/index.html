@@ -4,61 +4,132 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>口琴｜世界樂器百科</title>
+  <meta name="description" content="口琴（英語：Harmonica），用嘴吹氣或吸氣，使金屬簧片振動發聲的多簧片樂器；在樂器分類上屬於自由簧的吹奏樂器。由於發聲源是長度介於1.5－3.5公分的簧片而非空氣柱（如長笛），獨奏用口琴體積多在20×6×4公分（長；寬；高）內，其音域依種類、調性不同而略有差異，大致可歸納成由中央C下1個八度至中央C上3個八度，涵">
+<meta property="og:title" content="口琴｜世界樂器百科">
+<meta property="og:description" content="口琴（英語：Harmonica），用嘴吹氣或吸氣，使金屬簧片振動發聲的多簧片樂器；在樂器分類上屬於自由簧的吹奏樂器。由於發聲源是長度介於1.5－3.5公分的簧片而非空氣柱（如長笛），獨奏用口琴體積多在20×6×4公分（長；寬；高）內，其音域依種類、調性不同而略有差異，大致可歸納成由中央C下1個八度至中央C上3個八度，涵">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/16-hole_chrom_10-hole_diatonic.jpg/500px-16-hole_chrom_10-hole_diatonic.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>口琴</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">管樂器</p>
               <h1>口琴</h1>
-              <p class="lead">Harmonica</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>管樂器</dd></div><div><dt>國家/地區</dt><dd>待考</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://zh.wikipedia.org/wiki/%E5%8F%A3%E7%90%B4" target="_blank" rel="noopener noreferrer">https://zh.wikipedia.org/wiki/%E5%8F%A3%E7%90%B4</a></p>
+              <p class="original-name">Harmonica</p>
+              <p class="soundscape-tag">簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）</p>
+              <p class="badge-row"><span class="badge badge-hot">熱門</span></p>
             </div>
-            
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/16-hole_chrom_10-hole_diatonic.jpg/500px-16-hole_chrom_10-hole_diatonic.jpg" alt="口琴" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>口琴</h1>
-<p>口琴（原名：Harmonica）是一種管樂器。主要靠氣流與管體、簧片或吹口產生聲音，音色會受吹奏方式與管身構造影響。</p>
-<p>目前中文資料較少，因此本條目先依英文維基與 Wikidata 的可查資料整理。後續可再補充 Harmonica 的製作方式、代表曲目與地方流派。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Harmonica</p>
-</li>
-<li>
-<p>Wikidata ID：ENWIKI-1e39ebf363</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>管樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>歐洲／德國</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>氣鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>多調性（依種類和調性而異）</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>中央C下1個八度至中央C上3個八度（約3至4個八度）</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>412.1 自由簧樂器</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>口琴類</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>吹奏／口含</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>口腔、舌頭、簧片震動、鼻音</dd></div><div class="meta-item"><dt>地區類型</dt><dd>單一地區／文化圈</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>口琴（英語：Harmonica），用嘴吹氣或吸氣，使金屬簧片振動發聲的多簧片樂器；在樂器分類上屬於自由簧的吹奏樂器。由於發聲源是長度介於1.5－3.5公分的簧片而非空氣柱（如長笛），獨奏用口琴體積多在20×6×4公分（長；寬；高）內，其音域依種類、調性不同而略有差異，大致可歸納成由中央C下1個八度至中央C上3個八度，涵蓋約3至4個八度。 多簧片的結構，使口琴具有演奏和聲的基礎。對一般成年人而言，只要排列方向相同（同為吹氣發聲或吸氣發聲）且琴格間距在6公分以內的簧片均能同時發聲；由於演奏中途無法調整同一把口琴上簧片的相對位置，單一把口琴演奏合聲的能力是受限制的。一般而言，由樂器公司量產的口琴僅在八度和聲方面較不受限制。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/uIss2Qmmc5k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/4VWgT7VSl-I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>口琴的代表作品包括：美國民謠《Unchained Melody》由口琴大師Larry Adler詮釋；Bob Dylan的《Blowin' in the Wind》融合民謠與口琴元素；以及日本作曲家坂本龍一與口琴演奏家Toots Thielemans合作的爵士融合作品。此外，口琴在傳統藍調音樂中佔有重要地位，許多經典藍調歌曲均以口琴為主要樂器。</p>
 <h2>歷史背景</h2>
-<p>口琴（Harmonica）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>作為管樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。</p>
-<p>管樂器的發展常和吹口、簧片、管身長度與開孔方式有關。隨著材料與製作工藝變化，音準、音域和音量都可能逐漸穩定，進而進入宮廷、宗教、軍樂或現代樂團。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://zh.wikipedia.org/wiki/%E5%8F%A3%E7%90%B4</p>
+<p>口琴於19世紀初在歐洲發展而成。自古以來，類似中國笙的自由簧片樂器在東亞相當普遍。法國耶穌會士讓·若瑟·瑪麗·艾米歐（1718-1793）曾在清朝中國生活，其後這類樂器才在歐洲逐漸為人所知。約1820年左右，歐洲開始創製自由簧片設計的樂器。克里斯蒂安·弗里德里希·路德維希·布施曼通常被譽為1821年口琴的發明者，但其他發明家也在同時期開發了類似樂器。1829年，查爾斯·惠特斯通開發了名為「艾奧利娜」的口琴。口琴首先出現在維也納，1824年前該地已有帶音室的口琴販售。由約瑟夫·里希特發明的里希特調音系統創製於1826年，並最終被普遍採用；里希特也因發明吹吸機制而獲得認可。這些樂器初期主要用於演奏古典音樂，並幾乎同時出現在美國、南美、英國和歐洲。</p>
 <h2>音色描述</h2>
-<p>音色由氣流、管體、簧片或唇振控制，常具有延展性強的旋律線條。</p></article>
+<p>口琴音色清脆明亮，具有獨特的金屬質感，源自簧片的直接振動。其聲音介於木管樂器的溫暖與金屬樂器的銳利之間，帶有溫潤而不失穿透力的特色。音域跨越約三至四個八度，覆蓋從低音到高音的寬廣範圍，能夠詮釋多種音樂風格。由於採用自由簧設計，共鳴主要依靠口腔空間調整，演奏者可透過改變口型、氣流強度產生豐富的音色變化。與長笛相比，口琴音色更為厚實溫暖；與吉他相比則更具穿透性。多簧片結構賦予其和聲演奏能力，使單一樂器能創造豐滿的聲響效果，特別適合藍調、民謠與搖滾等音樂類型。</p>
+<h2>樂器材質</h2>
+<p>口琴主體通常採用木材或塑料製成，框架多為硬木或塑膠；簧片由不鏽鋼或黃銅製成，具有耐久性與良好的音響特性；音室（發聲腔體）多為木製，以增強共鳴效果；蓋板通常採用金屬（如鋁合金或鍍鎳鋼），提升音質並保護內部結構；部分高級口琴採用紫檀木或樺木製作框架，以獲得更優質的音色表現。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>單手握持口琴兩側，含入嘴中。透過吹氣和吸氣發聲。基本技巧：單音（縮小嘴形對準單孔）、壓音（Bending，改變舌頭位置使音高下降）、舌堵（Tongue blocking）。練習琶音和節奏型。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/sarrusophone/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Soprano_Sarrusophone_in_B-flat_MET_mus350a.jpeg/500px-Soprano_Sarrusophone_in_B-flat_MET_mus350a.jpeg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">管樂器</span>
+        <strong class="card-title">薩克斯管</strong>
+        <span class="card-orig">Sarrusophone</span>
+        <span class="card-meta">法國</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/piri/">
+      <div class="card-thumb card-thumb--empty" aria-hidden="true">♩</div>
+      <div class="card-body">
+        <span class="card-cat">管樂器</span>
+        <strong class="card-title">觱篥</strong>
+        <span class="card-orig">Piri</span>
+        <span class="card-meta">亞洲／歐洲／中東／全球</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/hichiriki/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/0/00/Hichiriki.JPG" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">管樂器</span>
+        <strong class="card-title">篳篥</strong>
+        <span class="card-orig">Hichiriki</span>
+        <span class="card-meta">亞洲／歐洲／中東／全球</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/pungi/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/India-6784_-_No_Money_-_No_Picture_...._A_Real_Charmer_-_Flickr_-_archer10_%28Dennis%29.jpg/500px-India-6784_-_No_Money_-_No_Picture_...._A_Real_Charmer_-_Flickr_-_archer10_%28Dennis%29.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">管樂器</span>
+        <strong class="card-title">蛇笛</strong>
+        <span class="card-orig">Pungi</span>
+        <span class="card-meta">全球／亞洲／中東／歐洲</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

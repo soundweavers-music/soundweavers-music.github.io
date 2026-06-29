@@ -4,67 +4,133 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>卡伊皮拉維奧拉｜世界樂器百科</title>
+  <meta name="description" content="卡伊皮拉維奧拉是源自巴西聖保羅州內陸的傳統弦樂器，融合了葡萄牙維奧拉與巴西民俗文化特色。其外型類似古典吉他，但琴身稍小，配備特殊設計的琴頸。這種樂器音色明亮溫暖，具有獨特的鼻音共鳴質感，兼具古典吉他的柔和與民謠吉他的明亮。主要用於演奏巴西卡伊皮拉民間音樂、敘事歌謠與傳統民謠，是農村社區文化傳承的重要樂器，在吟唱故事與傳">
+<meta property="og:title" content="卡伊皮拉維奧拉｜世界樂器百科">
+<meta property="og:description" content="卡伊皮拉維奧拉是源自巴西聖保羅州內陸的傳統弦樂器，融合了葡萄牙維奧拉與巴西民俗文化特色。其外型類似古典吉他，但琴身稍小，配備特殊設計的琴頸。這種樂器音色明亮溫暖，具有獨特的鼻音共鳴質感，兼具古典吉他的柔和與民謠吉他的明亮。主要用於演奏巴西卡伊皮拉民間音樂、敘事歌謠與傳統民謠，是農村社區文化傳承的重要樂器，在吟唱故事與傳">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>卡伊皮拉維奧拉</span>
+          </nav>
           <header class="instrument-header">
-            <div>
+            <div class="header-text">
               <p class="eyebrow">弦樂器</p>
               <h1>卡伊皮拉維奧拉</h1>
-              <p class="lead">Viola Caipira</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>弦樂器</dd></div><div><dt>國家/地區</dt><dd>巴西</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div><div><dt>旅圖</dt><dd>旅圖二｜懷裡與大地的弦</dd></div><div><dt>章節</dt><dd>4｜旅人懷裡撥動的故事線</dd></div><div><dt>發聲分類</dt><dd>弦鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Chordophone／弦鳴樂器</dd></div><div><dt>家族/支系</dt><dd>十弦吉他族</dd></div><div><dt>演奏方式</dt><dd>撥奏</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：待補</p>
+              <p class="original-name">Viola Caipira</p>
+              <p class="soundscape-tag">旅人懷裡撥動的故事線（魯特琴、短頸長頸撥弦與民謠弦聲）</p>
+              <p class="badge-row"><span class="badge badge-hot">熱門</span></p>
             </div>
             
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<p>卡伊皮拉維奧拉（Viola Caipira） 是收錄在《隔壁家的世界聲音旅圖》資料庫中的弦樂器。目前資料庫將它歸在「弦鳴」脈絡下，主要可從十弦吉他族、撥奏與聲音地景來認識。</p>
-<p>初步地區標註為「巴西」。這個欄位仍屬企劃初稿，後續可依博物館、百科條目、民族音樂學資料或演奏者資料逐篇核對。</p>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>弦樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>巴西</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>弦鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>全調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>中高音區（約2個8度）</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>Chordophone／弦鳴樂器</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>十弦吉他族</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>撥奏</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>鄉村敘事、雙弦共鳴、民歌生活感</dd></div><div class="meta-item"><dt>地區類型</dt><dd>單一地區／文化圈</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>卡伊皮拉維奧拉是源自巴西聖保羅州內陸的傳統弦樂器，融合了葡萄牙維奧拉與巴西民俗文化特色。其外型類似古典吉他，但琴身稍小，配備特殊設計的琴頸。這種樂器音色明亮溫暖，具有獨特的鼻音共鳴質感，兼具古典吉他的柔和與民謠吉他的明亮。主要用於演奏巴西卡伊皮拉民間音樂、敘事歌謠與傳統民謠，是農村社區文化傳承的重要樂器，在吟唱故事與傳統歌曲時具有強烈的表現力與辨識度。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/EA5fCUx7qgE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/1vbO_foZgLQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>卡伊皮拉維奧拉主要用於演奏傳統民間音樂與敘事歌謠，代表性作品包括《莫達英尼亞之歌》（Modinha）等巴西傳統民謠，以及眾多未有固定作曲者的民間敘事歌謠（Toada）。此樂器在二十世紀被現代作曲家改編運用於音樂創作中，成為表現巴西民俗特色的重要樂器。</p>
 <h2>歷史背景</h2>
-<p>卡伊皮拉維奧拉（Viola Caipira） 的歷史背景目前先以資料庫分類建立閱讀入口。它位於「4｜旅人懷裡撥動的故事線」的脈絡中，代表這件樂器可以和氣息、材料、身體動作、地方儀式或現代舞台之間的關係一起閱讀。</p>
-<p>如果要補寫成正式百科條目，建議優先查證三個方向：一是它最早出現或被記錄的地區，二是十弦吉他族的形制演變，三是撥奏如何影響音色、用途與傳播。</p>
+<h1>卡伊皮拉維奧拉的歷史背景</h1>
+<p>卡伊皮拉維奧拉起源於巴西聖保羅州內陸的卡伊皮拉地區，是葡萄牙維奧拉與當地民俗文化的融合產物。十六世紀，葡萄牙殖民者帶來了維奧拉樂器，經過數百年與巴西土著文化的交融，逐漸演變成具有獨特風格的樂器。</p>
+<p>這種樂器在十九至二十世紀間，成為卡伊皮拉民間音樂的核心樂器，伴隨著傳統的民謠和故事傳唱。它在農村社區中廣泛使用，特別是在吟唱敘事歌謠時。隨著巴西民俗音樂的國際傳播，卡伊皮拉維奧拉逐漸獲得更廣泛的認可，成為代表巴西傳統文化的重要樂器之一，並在世界各地的民族音樂舞臺上佔據一席之地。</p>
 <h2>音色描述</h2>
-<p>資料庫把它的身體／聽覺關聯標為「鄉村敘事、雙弦共鳴、民歌生活感」。實際音色仍需要搭配可信錄音或現場演奏資料補充。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖二｜懷裡與大地的弦</li>
-<li><strong>章節</strong>：4｜旅人懷裡撥動的故事線</li>
-<li><strong>章節主分類</strong>：魯特琴、短頸長頸撥弦與民謠弦聲</li>
-<li><strong>原聲音地景</strong>：旅人懷裡撥動的故事線（魯特琴、短頸長頸撥弦與民謠弦聲）</li>
-<li><strong>專業發聲大類</strong>：弦鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Chordophone／弦鳴樂器</li>
-<li><strong>家族／支系</strong>：十弦吉他族</li>
-<li><strong>演奏方式</strong>：撥奏</li>
-<li><strong>身體／聽覺關聯</strong>：鄉村敘事、雙弦共鳴、民歌生活感</li>
-<li><strong>主要地區／國家</strong>：巴西</li>
-<li><strong>地區類型</strong>：單一地區／文化圈</li>
-<li><strong>資料狀態</strong>：本次新增初稿，需逐篇來源核對</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 卡伊皮拉維奧拉 時，可以先從「十弦吉他族」與「撥奏」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「鄉村敘事、雙弦共鳴、民歌生活感」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「旅人懷裡撥動的故事線（魯特琴、短頸長頸撥弦與民謠弦聲）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>卡伊皮拉維奧拉音色明亮而溫暖，具有獨特的鼻音共鳴質感。其音域為中高音區，音色相較於古典吉他更具穿透力與民謠特徵。琴弦通過共鳴箱產生的聲響帶有一定的金屬感，營造出朴實而富有表現力的音響效果。其獨特之處在於音色兼具古典吉他的柔和與民謠吉他的明亮，同時保留了巴西民間音樂的地方特色。低音區溫潤圓潤，高音區清晰透亮，共鳴具有良好的持久性。這種音響特徵使其在巴西民間音樂中具有強烈的辨識度，能有效表現鄉村與傳統音樂的氛圍。</p>
+<h2>樂器材質</h2>
+<p>卡伊皮拉維奧拉琴身採用巴西本地硬木製作，通常使用像巴西梨木或黑檀等優質木材。面板多採用雲杉或松木，背板與側板選用較硬的木材以增強共鳴。琴頸與琴柱使用堅硬耐用的木材。琴弦通常採用尼龍或羊腸材質，共五對雙弦設計。琴橋、琴枕等部件採用骨料或象牙替代品，某些部位採用金屬件加強結構穩定性。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>坐姿，將樂器穩定持於身前。將樂器穩定持於身前。左手負責按弦或改變有效弦長以控制音高，右手負責使弦震動發聲。弦鳴樂器的發聲原理是弦的振動透過共鳴箱放大。用指尖或撥子撥奏弦線，注意觸弦角度和力度控制。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/simbi/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/3/34/Dona_Fish_-_Mamba_Muntu_-_Simbi.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">辛比琴</strong>
+        <span class="card-orig">Simbi</span>
+        <span class="card-meta">非洲／歐洲／亞洲／美洲</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/tamburica/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/NLC416-03jh004376-19754_%E8%8B%B1%E5%9C%8B%E5%8F%B2.pdf/page1-500px-NLC416-03jh004376-19754_%E8%8B%B1%E5%9C%8B%E5%8F%B2.pdf.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">坦布里察琴</strong>
+        <span class="card-orig">Tamburica</span>
+        <span class="card-meta">中東／歐洲／亞洲／美洲</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/byzantine-lyra/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/3/30/Byzantine_Lyra_Museo_Nazionale.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">拜占庭里拉琴</strong>
+        <span class="card-orig">Byzantine Lyra</span>
+        <span class="card-meta">拜占庭／東地中海</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/cura/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Cura.png/500px-Cura.png" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">Cura</strong>
+        
+        <span class="card-meta">中東／歐洲／亞洲／美洲</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

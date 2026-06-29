@@ -4,81 +4,132 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
-  <title>Handpan（暫譯）｜世界樂器百科</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <title>手鼓｜世界樂器百科</title>
+  <meta name="description" content="手鼓是一類樂器的通稱，屬於鋼鼓的分類範疇。在Hang樂器於2000年推出後引起全球廣泛關注，隨之出現了多家手鼓製造商和品牌。手鼓的基本結構由兩個金屬半殼膠合而成，上側有一個中心音場周圍環繞著至少七個音場，下側則有一個開口。">
+<meta property="og:title" content="手鼓｜世界樂器百科">
+<meta property="og:description" content="手鼓是一類樂器的通稱，屬於鋼鼓的分類範疇。在Hang樂器於2000年推出後引起全球廣泛關注，隨之出現了多家手鼓製造商和品牌。手鼓的基本結構由兩個金屬半殼膠合而成，上側有一個中心音場周圍環繞著至少七個音場，下側則有一個開口。">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Handpans_2020_by_Glenn_Francis.jpg/500px-Handpans_2020_by_Glenn_Francis.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>手鼓</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">打擊樂器</p>
-              <h1>Handpan（暫譯）</h1>
-              <p class="lead">Handpan</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>打擊樂器</dd></div><div><dt>國家/地區</dt><dd>全球／非洲／現代</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div><div><dt>旅圖</dt><dd>旅圖四｜地心與手邊的微光</dd></div><div><dt>章節</dt><dd>9｜手邊發光的小宇宙</dd></div><div><dt>發聲分類</dt><dd>體鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Idiophone／體鳴樂器</dd></div><div><dt>家族/支系</dt><dd>金屬泛音容器</dd></div><div><dt>演奏方式</dt><dd>手拍／敲擊</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://en.wikipedia.org/wiki/Handpan" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Handpan</a></p>
+              <h1>手鼓</h1>
+              <p class="original-name">Handpan</p>
+              <p class="soundscape-tag">手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）</p>
+              <p class="badge-row"><span class="badge badge-hot">熱門</span></p>
             </div>
-            <img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Handpans_2020_by_Glenn_Francis.jpg/960px-Handpans_2020_by_Glenn_Francis.jpg" alt="Handpan（暫譯）">
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Handpans_2020_by_Glenn_Francis.jpg/500px-Handpans_2020_by_Glenn_Francis.jpg" alt="手鼓" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>Handpan（暫譯）</h1>
-<p>Handpan（暫譯）（原名：Handpan）是一種打擊樂器。通常透過敲擊、搖動、摩擦或刮奏產生聲音，常負責節奏與音色層次。</p>
-<p>英文資料中特別提到它的使用或演奏情境，因此理解這項樂器時，不只要看外形，也要看它在樂曲、儀式或合奏中的角色。</p>
-<p>材料與構造是它音色的重要線索；不同材質會讓聲音呈現更明亮、厚實或有共鳴感的差異。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Handpan</p>
-</li>
-<li>
-<p>Wikidata ID：Q5647544</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>打擊樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>歐洲／瑞士</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>體鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>多調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>約2.5個8度（中低音至高音）</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>12 體鳴／舌片琴／金屬共鳴</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>近身體鳴、舌片琴與手奏金屬共鳴</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>手敲／拇指撥片／近身共鳴</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>指尖、掌心、尾音、近身聆聽</dd></div><div class="meta-item"><dt>地區類型</dt><dd>跨文化／多地</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>手鼓是一類樂器的通稱，屬於鋼鼓的分類範疇。在Hang樂器於2000年推出後引起全球廣泛關注，隨之出現了多家手鼓製造商和品牌。手鼓的基本結構由兩個金屬半殼膠合而成，上側有一個中心音場周圍環繞著至少七個音場，下側則有一個開口。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/uwEaQk5VeS4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/j_3C0z96GE0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>手鼓作為相對新興的樂器，代表性作品主要出自演奏家而非傳統作曲家。德國手鼓演奏家Manu Delago的《Håndværk》（2015）展現了手鼓的音樂多樣性，融合電子與世界音樂元素。加拿大演奏家Joel Kianspel創作的多首手鼓獨奏曲展現了其冥想性特質。英國藝術家Hang Massive的作品則將手鼓融入電子音樂製作，開拓了新的音樂方向。這些作品均強調手鼓溫暖治癒的音色特性。</p>
 <h2>歷史背景</h2>
-<p>Handpan（暫譯）（Handpan）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>作為打擊樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。</p>
-<p>打擊樂器通常和節奏、信號、祭儀、舞蹈或群體活動關係密切。它們的歷史不一定只寫在樂譜裡，也常出現在節慶、宗教、軍事或地方生活的脈絡中。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://en.wikipedia.org/wiki/Handpan</p>
+<p>「手鼓」這個術語首次出現於2007年，出現在美國鋼鼓製造商潘塞昂鋼鐵公司(Pantheon Steel)的網站上。該公司使用此術語來描述他們開發的新樂器，作為對「Hang」樂器的替代品。「Hang」的名稱已被瑞士公司PANArt Hangbau AG申請專利。此後，「手鼓」一詞進入了已停運的線上Hang音樂論壇的討論中。該論壇的後繼者於2009年創立，名為handpan.org。隨著時間推移，「手鼓」逐漸演變成一個通用術語，用以指稱各類相似及相關樂器。如今，全球各地有眾多手鼓製造商，他們製造的樂器在材料、製造技術、形狀、音色和品質等方面各不相同。</p>
 <h2>音色描述</h2>
-<p>音色多由材質本體振動決定，常呈現清晰、短促或具有明顯泛音的聲響。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖四｜地心與手邊的微光</li>
-<li><strong>章節</strong>：9｜手邊發光的小宇宙</li>
-<li><strong>章節主分類</strong>：近身體鳴、舌片琴與手奏金屬共鳴</li>
-<li><strong>原聲音地景</strong>：手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）</li>
-<li><strong>專業發聲大類</strong>：體鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Idiophone／體鳴樂器</li>
-<li><strong>家族／支系</strong>：金屬泛音容器</li>
-<li><strong>演奏方式</strong>：手拍／敲擊</li>
-<li><strong>身體／聽覺關聯</strong>：指尖、掌心、尾音、近身聆聽</li>
-<li><strong>主要地區／國家</strong>：全球／非洲／現代</li>
-<li><strong>地區類型</strong>：跨文化／多地</li>
-<li><strong>資料狀態</strong>：承接553條目地域欄</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 Handpan 時，可以先從「金屬泛音容器」與「手拍／敲擊」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「指尖、掌心、尾音、近身聆聽」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>手鼓音色溫潤悠揚，具有獨特的金屬質感與共鳴深度。其音域跨越中低音至高音，中心音場音調較低沉飽滿，周圍音場則逐漸升高，形成豐富的音階變化。擊奏時產生的音色既不如鐵琴般明亮刺激，亦不似木琴那般乾脆清晰，而是呈現溫暖、柔和的特質。手鼓的共鳴方式獨特，下側開口允許音波自由流動，使其聲音具有良好的穿透力與包圍感。相比鋼鼓的銳利，手鼓更顯冥想性與治癒感；相較於馬林巴琴的清亮，其音色更具空間感與共鳴的延續性，適合營造寧靜祥和的音樂氛圍。</p>
+<h2>樂器材質</h2>
+<p>手鼓主體由兩個鋼製金屬半殼膠合而成，通常採用冷軋鋼或特殊合金鋼材料。上表面（音場區域）經過精密加工與調音處理，以產生準確的音高。下半殼則保持開口設計，允許音波共鳴。邊緣部分可能包含橡膠或矽膠墊圈，增強耐用性與減少雜音。某些製造商使用不銹鋼或特殊熱處理鋼材以提升音質與耐候性。整體結構不含傳統木材或皮革成分。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>手持樂器，以敲擊方式發聲。手持樂器本體，透過敲擊、搖晃、刮奏或撥彈等方式使樂器本身震動發聲。不同部位和不同力道會產生不同音色。練習時先確認正確持琴姿勢，掌握基本發聲方式後再練習節奏型和旋律。用指尖或撥子撥奏弦線，注意觸弦角度和力度控制。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/stone-chimes/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/%E9%AD%9A%E5%BD%A2%E7%9F%B3%E7%A3%AC%EF%BC%88%E7%B7%A8%E7%A3%AC%EF%BC%89.jpg/500px-%E9%AD%9A%E5%BD%A2%E7%9F%B3%E7%A3%AC%EF%BC%88%E7%B7%A8%E7%A3%AC%EF%BC%89.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">石磬</strong>
+        <span class="card-orig">Stone Chimes</span>
+        <span class="card-meta">東南亞／東亞／非洲／歐洲／全球</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/dhol/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Bhangra_at_Vasakhi.jpg/500px-Bhangra_at_Vasakhi.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">卓爾鼓</strong>
+        <span class="card-orig">Dhol</span>
+        <span class="card-meta">亞洲／南亞（印度）</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/ocean-drum/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Geophonephoto.jpg/500px-Geophonephoto.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">海浪鼓</strong>
+        <span class="card-orig">Ocean Drum</span>
+        <span class="card-meta">拉丁美洲／非洲／歐洲／亞洲／全球</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/agog/">
+      <div class="card-thumb card-thumb--empty" aria-hidden="true">♩</div>
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">阿哥哥鈴</strong>
+        <span class="card-orig">Agogô</span>
+        <span class="card-meta">巴西／西非</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

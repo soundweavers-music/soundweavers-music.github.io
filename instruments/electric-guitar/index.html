@@ -4,86 +4,134 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
-  <title>电吉他｜世界樂器百科</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <title>電吉他｜世界樂器百科</title>
+  <meta name="description" content="電吉他（英語：Electric guitar）是一種廣泛運用於多種音樂風格中的電聲撥弦樂器。電吉他透過電磁學原理髮聲，它透過拾音器將琴弦上的機械振動轉化為電訊號。這些電訊號經過放大與處理後，透過音箱轉換成聲音訊號而發聲。由於電吉他產生的電訊號可以經過各種效果器的處理，故電吉他的音色非常豐富。這個特點使它被廣泛運用在多種">
+<meta property="og:title" content="電吉他｜世界樂器百科">
+<meta property="og:description" content="電吉他（英語：Electric guitar）是一種廣泛運用於多種音樂風格中的電聲撥弦樂器。電吉他透過電磁學原理髮聲，它透過拾音器將琴弦上的機械振動轉化為電訊號。這些電訊號經過放大與處理後，透過音箱轉換成聲音訊號而發聲。由於電吉他產生的電訊號可以經過各種效果器的處理，故電吉他的音色非常豐富。這個特點使它被廣泛運用在多種">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Fender_Highway_1_Stratocaster.jpg/500px-Fender_Highway_1_Stratocaster.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>電吉他</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">電子樂器</p>
-              <h1>电吉他</h1>
-              <p class="lead">Electric guitar</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>電子樂器</dd></div><div><dt>國家/地區</dt><dd>中東／歐亞／東亞／美洲／全球</dd></div><div><dt>年代</dt><dd>20 世紀</dd></div><div><dt>旅圖</dt><dd>旅圖二｜懷裡與大地的弦</dd></div><div><dt>章節</dt><dd>4｜旅人懷裡撥動的故事線</dd></div><div><dt>發聲分類</dt><dd>弦鳴／電鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Chordophone／弦鳴樂器；Electrophone／電鳴樂器</dd></div><div><dt>家族/支系</dt><dd>吉他與現代錄音室</dd></div><div><dt>演奏方式</dt><dd>撥弦／電聲</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://zh.wikipedia.org/wiki/%E7%94%B5%E5%90%89%E4%BB%96" target="_blank" rel="noopener noreferrer">https://zh.wikipedia.org/wiki/%E7%94%B5%E5%90%89%E4%BB%96</a></p>
+              <h1>電吉他</h1>
+              <p class="original-name">Electric guitar</p>
+              <p class="soundscape-tag">旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）</p>
+              <p class="badge-row"><span class="badge badge-hot">熱門</span></p>
             </div>
-            
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Fender_Highway_1_Stratocaster.jpg/500px-Fender_Highway_1_Stratocaster.jpg" alt="電吉他" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>电吉他</h1>
-<p>电吉他（原名：Electric guitar）是一種電子樂器。以電子振盪、取樣、放大或數位處理塑造聲音，音色變化空間很大。</p>
-<p>目前可查資料顯示，它與美國的音樂文化或演奏傳統有關。</p>
-<p>若從年代脈絡看，這項樂器可先放在「20 世紀」中理解。</p>
-<p>英文資料中特別提到它的使用或演奏情境，因此理解這項樂器時，不只要看外形，也要看它在樂曲、儀式或合奏中的角色。</p>
-<p>材料與構造是它音色的重要線索；不同材質會讓聲音呈現更明亮、厚實或有共鳴感的差異。</p>
-<p>它常被放在傳統或民俗音樂脈絡中討論，代表它不只是發聲工具，也承載地方文化記憶。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Electric_guitar</p>
-</li>
-<li>
-<p>Wikidata ID：Q78987</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>電子樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>美洲／北美</dd></div><div class="meta-item"><dt>年代</dt><dd>20 世紀</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>弦鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>全調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>E1–B5（約4個8度）</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>321/322 魯特琴類／撥弦</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>魯特琴、短頸長頸撥弦與民謠弦聲</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>撥弦／刷弦／撥片</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>懷抱、手指、腳步、敘事</dd></div><div class="meta-item"><dt>地區類型</dt><dd>跨文化／多地</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>電吉他（英語：Electric guitar）是一種廣泛運用於多種音樂風格中的電聲撥弦樂器。電吉他透過電磁學原理髮聲，它透過拾音器將琴弦上的機械振動轉化為電訊號。這些電訊號經過放大與處理後，透過音箱轉換成聲音訊號而發聲。由於電吉他產生的電訊號可以經過各種效果器的處理，故電吉他的音色非常豐富。這個特點使它被廣泛運用在多種不同的音樂風格中，例如鄉村、布魯斯、爵士、搖滾與金屬等等。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/WSdEuYDztvw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/UuMn2S-3rwE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>埃里克·克萊普頓的《Layla》（1970年）展現了電吉他的藍調表現力；吉米·亨德里克斯的《Purple Haze》（1967年）開創了失真音色的新紀元；范·海倫的《Eruption》（1978年）將點弦技巧推向極致；大衛·吉他手的《Comfortably Numb》（1979年）展示了電吉他在搖滾樂中的情感深度與音色多樣性。</p>
 <h2>歷史背景</h2>
-<p>电吉他（Electric guitar）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>它可以先放在美國相關音樂文化中理解，後續可再補代表樂派、演奏場合與製作工藝。</p>
-<p>年代線索暫時指向「20 世紀」，可作為閱讀時的時間定位。</p>
-<p>作為電子樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。 若要深入研究，可優先查找美國的博物館、民族音樂學資料或地方樂器圖錄。 「20 世紀」可作為初步年代標籤，但實際流傳時間仍應以專門資料校正。</p>
-<p>電子樂器的歷史和錄音技術、電路、合成器、取樣與數位控制密不可分。它們常在短時間內快速變化，也更容易跨越古典、流行、實驗與影像配樂等領域。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://zh.wikipedia.org/wiki/%E7%94%B5%E5%90%89%E4%BB%96</p>
+<p>二十世紀初期，人們開始進行多項實驗，嘗試電氣放大弦樂器的振動。1910年代的專利記錄顯示，電話傳送器被改裝並放入小提琴和班卓琴內以放大聲音。1920年代的業餘愛好者在琴橋上裝置碳鈕麥克風，但這些裝置只能偵測琴橋上的振動，導致信號微弱。</p>
+<p>電吉他最初由聲學吉他製造商和樂器製造商設計開發。大樂隊時代到來時，對放大吉他的需求隨之增加。隨著樂隊規模擴大，吉他手意識到吉他放大和電氣化的必要性。爵士樂中最早使用的電吉他採用中空拱頂聲學吉他琴身搭配電磁換能器。</p>
+<p>第一款商業化銷售的電氣放大弦樂器是由美國國家弦樂器公司總經理喬治·博徹普與副總裁保羅·巴斯於1931年設計的鑄鋁踏膝鋼吉他，暱稱「煎鍋」。博徹普與阿道夫·瑞克巴克共同發明了電磁拾音器，透過纏繞在磁鐵周圍的線圈產生電磁場。</p>
 <h2>音色描述</h2>
-<p>音色由弦長、張力、共鳴箱與演奏法影響，可呈現撥奏、擦奏或擊弦的不同質感。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖二｜懷裡與大地的弦</li>
-<li><strong>章節</strong>：4｜旅人懷裡撥動的故事線</li>
-<li><strong>章節主分類</strong>：魯特琴、短頸長頸撥弦與民謠弦聲</li>
-<li><strong>原聲音地景</strong>：旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）</li>
-<li><strong>專業發聲大類</strong>：弦鳴／電鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Chordophone／弦鳴樂器；Electrophone／電鳴樂器</li>
-<li><strong>家族／支系</strong>：吉他與現代錄音室</li>
-<li><strong>演奏方式</strong>：撥弦／電聲</li>
-<li><strong>身體／聽覺關聯</strong>：懷抱、手指、腳步、敘事</li>
-<li><strong>主要地區／國家</strong>：中東／歐亞／東亞／美洲／全球</li>
-<li><strong>地區類型</strong>：跨文化／多地</li>
-<li><strong>資料狀態</strong>：承接553條目地域欄</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 Electric Guitar 時，可以先從「吉他與現代錄音室」與「撥弦／電聲」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「懷抱、手指、腳步、敘事」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>電吉他的音色具有高度的可塑性與表現力。其基本音色溫潤而富有穿透力，既能展現明亮的金屬感，亦可呈現暗沉的厚重質感，取決於拾音器類型與效果器設定。音域寬廣，從低沈的貝斯音到尖銳的高頻音皆能涵蓋，特別擅長中高頻段的表現。電吉他透過放大器產生共鳴，使聲音具有強大的感染力與延展性。相比原聲吉他的溫和自然，電吉他音色更具侵略性；相比鋼琴的清晰獨立，電吉他能營造出更富情感的漸進式音響效果。經由失真、延遲、混響等效果器處理，電吉他可呈現從柔和到激烈的多樣音色變化，使其成為各類音樂風格中最具表現彈性的樂器之一。</p>
+<h2>樂器材質</h2>
+<p>琴身通常採用實木製造，多用洋松、樺木或桃花心木等；琴頸多為楓木或紅木，指板常用烏木或玫瑰木；弦釘與品座由鎳銀或銅製成；拾音器內含鈷磁鐵與銅線圈；機械頭採用鎳合金或鍍金金屬；弦為鋼弦或鎳弦；音箱則以硬木製成，內部搭配紙質或布質音圈的揚聲器。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>坐姿將琴抱於懷中或放在膝上。將樂器穩定持於身前。左手負責按弦或改變有效弦長以控制音高，右手負責使弦震動發聲。弦鳴樂器的發聲原理是弦的振動透過共鳴箱放大。用指尖或撥子撥奏弦線，注意觸弦角度和力度控制。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/classical-guitar/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Range_guitar.png/500px-Range_guitar.png" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">電子樂器</span>
+        <strong class="card-title">古典吉他</strong>
+        <span class="card-orig">Classical guitar</span>
+        <span class="card-meta">歐洲／西班牙</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/flamenco-guitar/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Tapplates1.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">電子樂器</span>
+        <strong class="card-title">佛朗明哥吉他</strong>
+        <span class="card-orig">Flamenco guitar</span>
+        <span class="card-meta">歐洲／西班牙</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/drum-machine-hybrid/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Korg_Volca_Beats_7928.jpg/500px-Korg_Volca_Beats_7928.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">電子樂器</span>
+        <strong class="card-title">動物試驗</strong>
+        <span class="card-orig">Drum Machine Hybrid</span>
+        <span class="card-meta">非洲／中東／亞洲／歐洲／美洲</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/resonator/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Marimba-Antonko-AMC12.jpg/500px-Marimba-Antonko-AMC12.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">電子樂器</span>
+        <strong class="card-title">共鳴管</strong>
+        <span class="card-orig">Resonator</span>
+        <span class="card-meta">全球／多地</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

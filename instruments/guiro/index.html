@@ -4,85 +4,134 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>刮瓜｜世界樂器百科</title>
+  <meta name="description" content="刮瓜（西班牙語：güiro，台灣稱為「刮葫」或「刮壺」），屬於體鳴樂器（Idiophone）。源自波多黎各。巴西稱該樂器為「reco-reco」。">
+<meta property="og:title" content="刮瓜｜世界樂器百科">
+<meta property="og:description" content="刮瓜（西班牙語：güiro，台灣稱為「刮葫」或「刮壺」），屬於體鳴樂器（Idiophone）。源自波多黎各。巴西稱該樂器為「reco-reco」。">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/180_Museu_de_la_M%C3%BAsica%2C_el_Bosc.jpg/500px-180_Museu_de_la_M%C3%BAsica%2C_el_Bosc.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>刮瓜</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">打擊樂器</p>
               <h1>刮瓜</h1>
-              <p class="lead">Güiro</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>打擊樂器</dd></div><div><dt>國家/地區</dt><dd>全球</dd></div><div><dt>年代</dt><dd>古代</dd></div><div><dt>旅圖</dt><dd>旅圖五｜城市與星塵的節奏</dd></div><div><dt>章節</dt><dd>11｜掌心搖落的節奏星塵</dd></div><div><dt>發聲分類</dt><dd>體鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Idiophone／體鳴樂器</dd></div><div><dt>家族/支系</dt><dd>刮器與摩擦體鳴</dd></div><div><dt>演奏方式</dt><dd>刮奏</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://zh.wikipedia.org/wiki/%E5%88%AE%E7%93%9C" target="_blank" rel="noopener noreferrer">https://zh.wikipedia.org/wiki/%E5%88%AE%E7%93%9C</a></p>
+              <p class="original-name">Güiro</p>
+              <p class="soundscape-tag">手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）</p>
+              <p class="badge-row"><span class="badge badge-hot">熱門</span></p>
             </div>
-            <img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Phoenix-Musical_Instrument_Museum-Puerto_Rican_G%C3%BCiro.jpg/960px-Phoenix-Musical_Instrument_Museum-Puerto_Rican_G%C3%BCiro.jpg" alt="刮瓜">
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/180_Museu_de_la_M%C3%BAsica%2C_el_Bosc.jpg/500px-180_Museu_de_la_M%C3%BAsica%2C_el_Bosc.jpg" alt="刮瓜" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>刮瓜</h1>
-<p>刮瓜（原名：Güiro）是一種打擊樂器。通常透過敲擊、搖動、摩擦或刮奏產生聲音，常負責節奏與音色層次。</p>
-<p>目前可查資料顯示，它與西班牙的音樂文化或演奏傳統有關。</p>
-<p>若從年代脈絡看，這項樂器可先放在「古代」中理解。</p>
-<p>英文資料中特別提到它的使用或演奏情境，因此理解這項樂器時，不只要看外形，也要看它在樂曲、儀式或合奏中的角色。</p>
-<p>材料與構造是它音色的重要線索；不同材質會讓聲音呈現更明亮、厚實或有共鳴感的差異。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/G%C3%BCiro</p>
-</li>
-<li>
-<p>Wikidata ID：Q2237198</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>打擊樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>非洲／美洲</dd></div><div class="meta-item"><dt>年代</dt><dd>古代</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>體鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>無固定調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>中高頻範圍（約1個8度）</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>Idiophone／體鳴樂器</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>刮器與摩擦體鳴</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>刮奏</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>手腕、腳踝、短音、節奏對齊</dd></div><div class="meta-item"><dt>地區類型</dt><dd>跨文化／多地</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>刮瓜（西班牙語：güiro，台灣稱為「刮葫」或「刮壺」），屬於體鳴樂器（Idiophone）。源自波多黎各。巴西稱該樂器為「reco-reco」。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/LTiwSVmR8ow" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/bSItOIS0k5w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>刮瓜作為拉丁美洲傳統樂器，主要應用於民間音樂而非古典樂曲。在波多黎各和多米尼加共和國的傳統音樂中廣泛使用，特別是在梅倫格舞曲（Merengue）和薩爾薩舞曲（Salsa）中扮演重要角色。現代作曲家如皮亞佐拉等融合拉丁元素的樂曲中亦有採用。刮瓜在爵士樂和世界音樂融合作品中也被廣泛應用，成為營造加勒比海地域風情的重要樂器。</p>
 <h2>歷史背景</h2>
-<p>刮瓜（Güiro）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>它可以先放在西班牙相關音樂文化中理解，後續可再補代表樂派、演奏場合與製作工藝。</p>
-<p>年代線索暫時指向「古代」，可作為閱讀時的時間定位。</p>
-<p>作為打擊樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。 若要深入研究，可優先查找西班牙的博物館、民族音樂學資料或地方樂器圖錄。 「古代」可作為初步年代標籤，但實際流傳時間仍應以專門資料校正。</p>
-<p>打擊樂器通常和節奏、信號、祭儀、舞蹈或群體活動關係密切。它們的歷史不一定只寫在樂譜裡，也常出現在節慶、宗教、軍事或地方生活的脈絡中。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://zh.wikipedia.org/wiki/%E5%88%AE%E7%93%9C</p>
+<p>在阿拉瓦克語中，這是拉丁美洲及加勒比海地區原住民的語言，由泰諾人等民族群體使用，「güiro」一詞指的是güira果實及用güira果實製作的樂器。</p>
+<p>刮瓜最初由加勒比海地區的原住民民族製造和使用。這種樂器由乾燥的葫蘆類果實製成，表面刻有凹槽，演奏者用木棒或硬刷刮過凹槽以產生聲音。刮瓜在加勒比海傳統音樂中扮演重要角色，特別是在波多黎各和多米尼加共和國等地。</p>
+<p>隨著時間推移，刮瓜逐漸在拉丁美洲和加勒比海的各種音樂風格中獲得廣泛使用，包括薩爾薩舞、梅倫格舞等現代音樂類型。今日，刮瓜已成為全球流行音樂和世界音樂中不可或缺的打擊樂器，其獨特的聲音特性使其在各類音樂創作中備受歡迎。</p>
 <h2>音色描述</h2>
-<p>音色多由材質本體振動決定，常呈現清晰、短促或具有明顯泛音的聲響。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖五｜城市與星塵的節奏</li>
-<li><strong>章節</strong>：11｜掌心搖落的節奏星塵</li>
-<li><strong>章節主分類</strong>：小型節奏體鳴、沙鈴、刮器與身體打擊</li>
-<li><strong>原聲音地景</strong>：手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）</li>
-<li><strong>專業發聲大類</strong>：體鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Idiophone／體鳴樂器</li>
-<li><strong>家族／支系</strong>：刮器與摩擦體鳴</li>
-<li><strong>演奏方式</strong>：刮奏</li>
-<li><strong>身體／聽覺關聯</strong>：手腕、腳踝、短音、節奏對齊</li>
-<li><strong>主要地區／國家</strong>：全球</li>
-<li><strong>地區類型</strong>：跨文化／多地</li>
-<li><strong>資料狀態</strong>：承接553條目地域欄</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 Guiro 時，可以先從「刮器與摩擦體鳴」與「刮奏」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「手腕、腳踝、短音、節奏對齊」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>刮瓜具有清脆明亮的音色質感，帶有輕快活潑的特性。其音域屬於中高頻範圍，發出的聲響乾爽而富有穿透力。當用木棒或塑膠棒在其凹槽表面上下刮動時，會產生顆粒感明顯的沙沙聲，具有節奏感強烈的特點。音色介於鈴鼓的金屬質感與木魚的木質乾脆感之間，但更具有層次感。共鳴方式主要依靠葫蘆形空心體的共鳴腔產生，使聲音具有適度的擴散性。其獨特的刮擦音色在樂隊中起到營造拉丁風情和烘托節奏感的作用，與康加鼓和邦戈鼓形成良好的音色互補。</p>
+<h2>樂器材質</h2>
+<p>刮瓜主要由乾燥的葫蘆類果實製成，其空心體充當共鳴腔。表面精心刻製凹槽紋路，以增加刮擦時的聲響效果。演奏時配合木棒或塑膠棒使用，這些棒槌通常由硬木或耐用的塑膠材質製成。某些現代版本的刮瓜採用玻璃纖維或樹脂等合成材料製造外殼，以提高耐久性。握把部分多由木材或塑膠包裹，便於演奏者持握。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>手持樂器，以敲擊方式發聲。手持樂器本體，透過敲擊、搖晃、刮奏或撥彈等方式使樂器本身震動發聲。不同部位和不同力道會產生不同音色。練習時先確認正確持琴姿勢，掌握基本發聲方式後再練習節奏型和旋律。用棒或指甲在樂器表面刮奏，產生連續性的聲響效果。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/rainstick/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Cactus_rain_sticks.jpg/500px-Cactus_rain_sticks.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">雨聲器</strong>
+        <span class="card-orig">Rainstick</span>
+        <span class="card-meta">美洲／南美</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/roneat/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Pierre_Dieulefils_postcard_1662_crop-Roneats.jpg/500px-Pierre_Dieulefils_postcard_1662_crop-Roneats.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">羅乃木琴</strong>
+        <span class="card-orig">Roneat</span>
+        <span class="card-meta">東南亞／東亞／非洲／歐洲／全球</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/teponaztli/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Two_Teponaztli.jpg/500px-Two_Teponaztli.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">特波那茲特鼓</strong>
+        <span class="card-orig">Teponaztli</span>
+        <span class="card-meta">拉丁美洲／非洲／歐洲／亞洲／全球</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/dunun/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/en/thumb/4/49/Dundun.JPG/500px-Dundun.JPG" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">杜農鼓</strong>
+        <span class="card-orig">Dunun</span>
+        <span class="card-meta">非洲／中東／亞洲／歐洲／美洲</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

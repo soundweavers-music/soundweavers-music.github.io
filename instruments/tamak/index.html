@@ -4,67 +4,132 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
-  <title>Tamak&#x27;（暫譯）｜世界樂器百科</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <title>塔馬克鼓｜世界樂器百科</title>
+  <meta name="description" content="塔馬克鼓是印度次大陸桑塔爾人使用的木槌敲擊雙面鼓。鼓體由金屬製成，形狀如同一個大碗。鼓面通常由牛皮製成，直徑為14至18英寸。演奏者用一對鼓槌敲擊鼓面。桑塔爾人相信塔馬克鼓具有特殊的宗教力量，經常用於宗教儀式和桑塔爾人的節慶活動。塔馬克鼓的節奏通常為桑塔爾舞蹈奠定基本的度量和節奏模式，是傳統桑塔爾音樂的重要樂器。">
+<meta property="og:title" content="塔馬克鼓｜世界樂器百科">
+<meta property="og:description" content="塔馬克鼓是印度次大陸桑塔爾人使用的木槌敲擊雙面鼓。鼓體由金屬製成，形狀如同一個大碗。鼓面通常由牛皮製成，直徑為14至18英寸。演奏者用一對鼓槌敲擊鼓面。桑塔爾人相信塔馬克鼓具有特殊的宗教力量，經常用於宗教儀式和桑塔爾人的節慶活動。塔馬克鼓的節奏通常為桑塔爾舞蹈奠定基本的度量和節奏模式，是傳統桑塔爾音樂的重要樂器。">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Traditional_Instruments_of_Odisha_-_Tamak_02.jpg/500px-Traditional_Instruments_of_Odisha_-_Tamak_02.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>塔馬克鼓</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">打擊樂器</p>
-              <h1>Tamak&#x27;（暫譯）</h1>
-              <p class="lead">Tamak&#x27;</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>打擊樂器</dd></div><div><dt>國家/地區</dt><dd>印度</dd></div><div><dt>年代</dt><dd>古代</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://en.wikipedia.org/wiki/Tamak%27" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Tamak%27</a></p>
+              <h1>塔馬克鼓</h1>
+              <p class="original-name">Tamak&#x27;</p>
+              <p class="soundscape-tag">手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）</p>
+              <p class="badge-row"></p>
             </div>
-            <img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Traditional_Instruments_of_Odisha_-_Tamak_02.jpg/960px-Traditional_Instruments_of_Odisha_-_Tamak_02.jpg" alt="Tamak&#x27;（暫譯）">
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Traditional_Instruments_of_Odisha_-_Tamak_02.jpg/500px-Traditional_Instruments_of_Odisha_-_Tamak_02.jpg" alt="塔馬克鼓" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>Tamak'（暫譯）</h1>
-<p>Tamak'（暫譯）（原名：Tamak'）是一種打擊樂器。通常透過敲擊、搖動、摩擦或刮奏產生聲音，常負責節奏與音色層次。</p>
-<p>目前可查資料顯示，它與印度的音樂文化或演奏傳統有關。</p>
-<p>若從年代脈絡看，這項樂器可先放在「古代」中理解。</p>
-<p>英文資料中特別提到它的使用或演奏情境，因此理解這項樂器時，不只要看外形，也要看它在樂曲、儀式或合奏中的角色。</p>
-<p>材料與構造是它音色的重要線索；不同材質會讓聲音呈現更明亮、厚實或有共鳴感的差異。</p>
-<p>它常被放在傳統或民俗音樂脈絡中討論，代表它不只是發聲工具，也承載地方文化記憶。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Tamak%27</p>
-</li>
-<li>
-<p>Wikidata ID：Q3514627</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>打擊樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>印度</dd></div><div class="meta-item"><dt>年代</dt><dd>古代</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>無固定調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>中低音範圍（約1個8度）</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>手掌、腳底、低音、舞步</dd></div><div class="meta-item"><dt>地區類型</dt><dd>單一地區／文化圈</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>塔馬克鼓是印度次大陸桑塔爾人使用的木槌敲擊雙面鼓。鼓體由金屬製成，形狀如同一個大碗。鼓面通常由牛皮製成，直徑為14至18英寸。演奏者用一對鼓槌敲擊鼓面。桑塔爾人相信塔馬克鼓具有特殊的宗教力量，經常用於宗教儀式和桑塔爾人的節慶活動。塔馬克鼓的節奏通常為桑塔爾舞蹈奠定基本的度量和節奏模式，是傳統桑塔爾音樂的重要樂器。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/DVPKldOnoKw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/2SUOONTZcvY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>塔馬克鼓作為桑塔爾傳統音樂的核心樂器，主要應用於民族儀式音樂而非獨立作品創作。在桑塔爾人的傳統舞蹈音樂中，塔馬克鼓提供節奏基礎，如狩獵儀式音樂、豐收慶典與宗教儀式中的鼓樂表演。現代民族音樂學家與音樂家逐漸將其融入當代世界音樂創作中，但具體作品名稱與作曲者記載有限，主要以民間口頭傳統與集體創作形式存在於桑塔爾社群的文化實踐中。</p>
 <h2>歷史背景</h2>
-<p>Tamak'（暫譯）（Tamak'）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>它可以先放在印度相關音樂文化中理解，後續可再補代表樂派、演奏場合與製作工藝。</p>
-<p>年代線索暫時指向「古代」，可作為閱讀時的時間定位。</p>
-<p>作為打擊樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。 若要深入研究，可優先查找印度的博物館、民族音樂學資料或地方樂器圖錄。 「古代」可作為初步年代標籤，但實際流傳時間仍應以專門資料校正。</p>
-<p>打擊樂器通常和節奏、信號、祭儀、舞蹈或群體活動關係密切。它們的歷史不一定只寫在樂譜裡，也常出現在節慶、宗教、軍事或地方生活的脈絡中。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://en.wikipedia.org/wiki/Tamak%27</p>
+<p>塔馬克鼓源於印度次大陸的桑塔爾人社群，是該民族傳統文化的重要象徵。這件金屬碗形鼓樂器在桑塔爾人的歷史發展中，逐漸演變成為宗教儀式和民俗慶典的核心樂器。桑塔爾人世代相傳，將製作和演奏塔馬克鼓的技藝融入日常生活與精神信仰中。隨著時間推移，塔馬克鼓的使用範圍不斷擴展，從宗教儀式延伸至各類民族節慶活動。其獨特的牛皮鼓面設計與精準的節奏控制，使其成為桑塔爾傳統舞蹈的節拍基礎。透過代際傳承與社群內的文化交流，塔馬克鼓的影響力逐漸向周邊地區傳播，成為印度民族音樂文化多樣性的重要組成部分，彰顯著桑塔爾人獨特的藝術創造力與文化認同。</p>
 <h2>音色描述</h2>
-<p>音色由鼓膜張力、腔體形狀與敲擊方式影響，常具有明確起音與節奏性。</p></article>
+<p>塔馬克鼓音色渾厚而富有穿透力，具有溫暖的暗沉質感。其金屬鼓體與牛皮鼓面結合，產生明確而有力的低頻共鳴，音域集中在中低音範圍，富有節奏感和力度表現。敲擊時鼓聲迅速衰減，具有清晰的音頭定義，適合標記樂句的節奏邊界。鼓體金屬構造使聲音具有微妙的金屬質感，與純木製鼓相比更具張力與銳度。其音響特徵介於深沉的低音鼓與明亮的銅鑼之間，既有打擊樂的直接衝擊力，又帶有共鳴樂器的溫潤特性，使其成為桑塔爾音樂中理想的節奏基石。</p>
+<h2>樂器材質</h2>
+<p>塔馬克鼓的鼓體由金屬製成，形狀如大碗，提供共鳴與音響的基礎結構。鼓面採用天然牛皮製作，具有良好的彈性與振動特性，厚度與張力經過精心調整以產生理想的音色。演奏時使用專門製作的木製鼓槌，鼓槌頭部通常包覆軟質材料以控制音色的柔和度。金屬鼓體與牛皮鼓面的結合設計，賦予樂器獨特的音響特徵與耐用性。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>將樂器以正確姿勢持於手中。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/wobble-board/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/1892_wobble_board_precursor_by_William_Madsen.png/500px-1892_wobble_board_precursor_by_William_Madsen.png" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">搖晃板</strong>
+        <span class="card-orig">Wobble board</span>
+        <span class="card-meta">大洋洲／澳洲</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/kenong/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Gamelan_Jawa_-_Set_Kenong.jpg/500px-Gamelan_Jawa_-_Set_Kenong.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">克農鑼</strong>
+        <span class="card-orig">Kenong</span>
+        <span class="card-meta">印尼爪哇島</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/thunder-sheet/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Macchina_del_tuono.jpg/500px-Macchina_del_tuono.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">雷鳴板</strong>
+        <span class="card-orig">Thunder sheet</span>
+        <span class="card-meta">全球</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/octoban/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Octobans.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">八音桶鼓</strong>
+        <span class="card-orig">Octoban</span>
+        <span class="card-meta">亞洲／東亞（日本）</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

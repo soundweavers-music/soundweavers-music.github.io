@@ -4,80 +4,132 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>低音提琴｜世界樂器百科</title>
+  <meta name="description" content="低音提琴是西洋弦樂器中的一種，也是現代交響樂隊中弦樂組中發音最低的樂器。">
+<meta property="og:title" content="低音提琴｜世界樂器百科">
+<meta property="og:description" content="低音提琴是西洋弦樂器中的一種，也是現代交響樂隊中弦樂組中發音最低的樂器。">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/AGK_bass1_full.jpg/500px-AGK_bass1_full.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>低音提琴</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">弦樂器</p>
               <h1>低音提琴</h1>
-              <p class="lead">Double Bass</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>弦樂器</dd></div><div><dt>國家/地區</dt><dd>亞洲／歐洲／中東／全球</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div><div><dt>旅圖</dt><dd>旅圖三｜天空裡拉長的弦</dd></div><div><dt>章節</dt><dd>7｜弓毛拉出的哭與唱</dd></div><div><dt>發聲分類</dt><dd>弦鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Chordophone／弦鳴樂器</dd></div><div><dt>家族/支系</dt><dd>提琴家族收束</dd></div><div><dt>演奏方式</dt><dd>弓擦</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://en.wikipedia.org/wiki/Double_Bass" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Double_Bass</a></p>
+              <p class="original-name">Double Bass</p>
+              <p class="soundscape-tag">像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）</p>
+              <p class="badge-row"><span class="badge badge-hot">熱門</span></p>
             </div>
-            
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/AGK_bass1_full.jpg/500px-AGK_bass1_full.jpg" alt="低音提琴" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>低音提琴</h1>
-<p>低音提琴（原名：Double Bass）是一種弦樂器。主要靠弦的振動發聲，常透過撥、拉、彈、擊等方式演奏。</p>
-<p>目前中文資料較少，因此本條目先依英文維基與 Wikidata 的可查資料整理。後續可再補充 Double Bass 的製作方式、代表曲目與地方流派。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Double_Bass</p>
-</li>
-<li>
-<p>Wikidata ID：ENWIKI-58a1b4f24b</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>弦樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>歐洲／義大利</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>弦鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>全調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>E1–G4（約3個半8度）</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>321.3 擦弦／輪弦／提琴家族</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>擦弦、輪弦與提琴家族</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>弓擦／輪擦</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>胸口、嗓音、拉長的情緒</dd></div><div class="meta-item"><dt>地區類型</dt><dd>跨文化／多地</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>低音提琴是西洋弦樂器中的一種，也是現代交響樂隊中弦樂組中發音最低的樂器。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/SRIIO408ats" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/nUUVSxZ4ohI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>貝多芬《第九交響曲》（1824年）中低音提琴聲部的厚重表現；柴可夫斯基《1812序曲》（1880年）中的低音基礎；聖桑《動物狂歡節》中以低音提琴詮釋大象的笨重步伐（1886年）；德弗札克《新世界交響曲》（1893年）中低音提琴對旋律的有力支撐。</p>
 <h2>歷史背景</h2>
-<p>低音提琴（Double Bass）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>作為弦樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。</p>
-<p>弦樂器的歷史常和弦材、共鳴箱、調音方式與演奏技法的演變有關。從民間伴奏到獨奏舞台，許多弦樂器都會因音量需求、音域擴張或樂曲風格改變而改良形制。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://en.wikipedia.org/wiki/Double_Bass</p>
+<p>低音提琴通常被視為十五世紀起源於歐洲的維奧爾琴家族成員「大維奧爾琴」（義大利文「violone」，意為「大提琴」）的現代後代。二十世紀以前，許多低音提琴只有三根弦，與維奧爾琴家族的五至六根弦或小提琴家族的四根弦形成對比。低音提琴的比例異於小提琴和大提琴，例如其琴身深度相對更深。此外，小提琴具有凸起的琴肩，而大多數低音提琴的琴肩則雕刻成更銳角的斜坡，類似維奧爾琴家族的特徵。許多古老的低音提琴已根據現代演奏技巧進行改良。低音提�spiritualé琴是唯一以四度音程調弦的現代弓弦樂器，類似維奧爾琴而非五度音程。儘管低音提琴被普遍認為是維奧爾琴家族的直系後代，但其確切的淵源仍存有學術爭議。</p>
 <h2>音色描述</h2>
-<p>音色由弦長、張力、共鳴箱與演奏法影響，可呈現撥奏、擦奏或擊弦的不同質感。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖三｜天空裡拉長的弦</li>
-<li><strong>章節</strong>：7｜弓毛拉出的哭與唱</li>
-<li><strong>章節主分類</strong>：擦弦、輪弦與提琴家族</li>
-<li><strong>原聲音地景</strong>：像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）</li>
-<li><strong>專業發聲大類</strong>：弦鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Chordophone／弦鳴樂器</li>
-<li><strong>家族／支系</strong>：提琴家族收束</li>
-<li><strong>演奏方式</strong>：弓擦</li>
-<li><strong>身體／聽覺關聯</strong>：胸口、嗓音、拉長的情緒</li>
-<li><strong>主要地區／國家</strong>：亞洲／歐洲／中東／全球</li>
-<li><strong>地區類型</strong>：跨文化／多地</li>
-<li><strong>資料狀態</strong>：承接553條目地域欄</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 Double Bass 時，可以先從「提琴家族收束」與「弓擦」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「胸口、嗓音、拉長的情緒」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>低音提琴音色深沉、厚重而富有共鳴感，具有溫潤的暗沉質感。其音域極低，是交響樂隊中音域最寬廣的弦樂器，能夠奏出從極低音到中音區的豐富層次。低音提琴的琴體龐大，共鳴箱充分，使其發出的聲音具有強大的穿透力與蓬鬆感，能有效支撐整個樂隊的低音基礎。與大提琴相比，低音提琴的音色更加深邃有力；與小提琴相比，其音響更加渾厚沈穩。當以撥弦方式演奏時，音色清晰靈活；以弓弦演奏時，則顯得莊重有力。低音提琴常承擔低音聲部與節奏支撐的角色，為整個樂隊奠定穩固的音響基礎。</p>
+<h2>樂器材質</h2>
+<p>琴身主要採用雲杉製作面板，提供共鳴效果，背板與側板多用楓木製成，增強音色深度與穩定性。琴頸與琴頭採用硬度較高的檀木或楓木，確保結構耐用。指板以烏木或黑檀木製作，提供光滑的演奏表面。琴弦通常由羊腸纏以金屬線製成，現代多用合成纖維或尼龍製造。琴尾塊與內部音樑採用質地緻密的木材，微調器與弦軫等配件使用金屬製造。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>站立或坐高凳，琴身靠身，琴頸在左側。左手按弦（指距很大），右手撥奏或拉弓。低音提琴是弦樂家族最低音的成員。練習走步低音（Walking Bass）是爵士風格的基礎。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/sanshin/">
+      <div class="card-thumb card-thumb--empty" aria-hidden="true">♩</div>
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">三線</strong>
+        <span class="card-orig">Sanshin</span>
+        <span class="card-meta">琉球國</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/wheel-fiddle/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Louvet_Drehleier.JPG/500px-Louvet_Drehleier.JPG" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">手搖琴</strong>
+        <span class="card-orig">Wheel Fiddle</span>
+        <span class="card-meta">亞洲／歐洲／中東／南亞／中亞</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/zhonghu/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Zhonghuplayer.jpg/500px-Zhonghuplayer.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">中胡</strong>
+        <span class="card-orig">Zhonghu</span>
+        <span class="card-meta">亞洲／歐洲／中東／全球</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/ronroco/">
+      <div class="card-thumb card-thumb--empty" aria-hidden="true">♩</div>
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">朗羅科琴</strong>
+        <span class="card-orig">Ronroco</span>
+        <span class="card-meta">中東／歐洲／亞洲／美洲</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

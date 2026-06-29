@@ -4,83 +4,133 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>樂弓｜世界樂器百科</title>
+  <meta name="description" content="樂弓（弓弦或弦弓，屬於棒形齊特琴的一個分類）是一種弦樂器，被許多非洲民族以及美洲原住民所使用。它由一根柔軟的木棍組成，通常長度為1.5至10英尺（0.5至3公尺），兩端用緊繃的繩子（通常為金屬弦）連接。可以用手或木棍或樹枝來演奏。樂弓是否由狩獵弓發展而來仍不確定，儘管卡拉哈迪沙漠的桑人或布希曼人確實會將他們的狩獵弓改作">
+<meta property="og:title" content="樂弓｜世界樂器百科">
+<meta property="og:description" content="樂弓（弓弦或弦弓，屬於棒形齊特琴的一個分類）是一種弦樂器，被許多非洲民族以及美洲原住民所使用。它由一根柔軟的木棍組成，通常長度為1.5至10英尺（0.5至3公尺），兩端用緊繃的繩子（通常為金屬弦）連接。可以用手或木棍或樹枝來演奏。樂弓是否由狩獵弓發展而來仍不確定，儘管卡拉哈迪沙漠的桑人或布希曼人確實會將他們的狩獵弓改作">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/2/2e/MusicalBow.gif">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>樂弓</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">弦樂器</p>
               <h1>樂弓</h1>
-              <p class="lead">Musical bow</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>弦樂器</dd></div><div><dt>國家/地區</dt><dd>東亞／中亞／歐洲／東南亞／非洲／美洲</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div><div><dt>旅圖</dt><dd>旅圖三｜天空裡拉長的弦</dd></div><div><dt>章節</dt><dd>6｜開放弦的天空與河流</dd></div><div><dt>發聲分類</dt><dd>弦鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Chordophone／弦鳴樂器</dd></div><div><dt>家族/支系</dt><dd>弓形豎琴</dd></div><div><dt>演奏方式</dt><dd>撥弦</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://en.wikipedia.org/wiki/Musical_bow" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Musical_bow</a></p>
+              <p class="original-name">Musical bow</p>
+              <p class="soundscape-tag">開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）</p>
+              <p class="badge-row"><span class="badge badge-hot">熱門</span></p>
             </div>
-            <img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/2/2e/MusicalBow.gif" alt="樂弓">
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/2/2e/MusicalBow.gif" alt="樂弓" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>樂弓</h1>
-<p>樂弓（原名：Musical bow）是一種打擊樂器。通常透過敲擊、搖動、摩擦或刮奏產生聲音，常負責節奏與音色層次。</p>
-<p>目前可查資料顯示，它與非洲的音樂文化或演奏傳統有關。</p>
-<p>英文資料中特別提到它的使用或演奏情境，因此理解這項樂器時，不只要看外形，也要看它在樂曲、儀式或合奏中的角色。</p>
-<p>材料與構造是它音色的重要線索；不同材質會讓聲音呈現更明亮、厚實或有共鳴感的差異。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Musical_bow</p>
-</li>
-<li>
-<p>Wikidata ID：Q1630744</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>弦樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>非洲／南非</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>弦鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>無固定調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>約2至3個8度</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>322 豎琴與里拉類</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>豎琴、里拉與開放弦樂器</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>撥弦／開放弦共鳴</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>循環、河流感、開放弦、吟唱</dd></div><div class="meta-item"><dt>地區類型</dt><dd>地區／文化圈</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>樂弓（弓弦或弦弓，屬於棒形齊特琴的一個分類）是一種弦樂器，被許多非洲民族以及美洲原住民所使用。它由一根柔軟的木棍組成，通常長度為1.5至10英尺（0.5至3公尺），兩端用緊繃的繩子（通常為金屬弦）連接。可以用手或木棍或樹枝來演奏。樂弓是否由狩獵弓發展而來仍不確定，儘管卡拉哈迪沙漠的桑人或布希曼人確實會將他們的狩獵弓改作音樂用途。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/e4McVxHYg24" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/Faj6qVhIaxY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>樂弓作為原始樂器，缺乏傳統意義的「作品」記載。然而在現代民族音樂學研究中，南非桑人的狩獵樂弓演奏被記錄於多部民族音樂紀錄片中。20世紀美洲原住民音樂採集者記錄了北美印第安人的樂弓音樂傳統。當代作曲家如皮埃爾·謝弗在具象音樂創作中亦採樣使用樂弓音色，融入現代音樂作品。</p>
 <h2>歷史背景</h2>
-<p>樂弓（Musical bow）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>它可以先放在非洲相關音樂文化中理解，後續可再補代表樂派、演奏場合與製作工藝。</p>
-<p>作為打擊樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。 若要深入研究，可優先查找非洲的博物館、民族音樂學資料或地方樂器圖錄。</p>
-<p>打擊樂器通常和節奏、信號、祭儀、舞蹈或群體活動關係密切。它們的歷史不一定只寫在樂譜裡，也常出現在節慶、宗教、軍事或地方生活的脈絡中。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://en.wikipedia.org/wiki/Musical_bow</p>
+<p>樂弓可能早在公元前13000年左右就被用作樂器。法國考古學家亨利·布勒伊爾調查了法國特瓦·弗雷爾洞穴，並繪製了一幅版畫，試圖將約公元前13000年的洞窟壁畫轉錄為黑白石版畫。版畫中出現一個神秘人物形象，被描繪為「偽裝成野牛的人」，身處獸群之中，「驅趕動物並演奏樂弓」。由於原始藝術作品不夠清晰，後人在彩色復原時費力才呈現出可辨認的影像。有人將這「魔法師-獵人」的形象中的獵弓解釋為單弦樂器。</p>
+<p>關於洞穴插圖中的弓是狩獵工具還是樂器，音樂學家推測樂弓可能與弦樂器族群（如琵琶、豎琴、豎琴和古箏）存在關聯。庫特·薩克斯認為無充分理由將獵弓視為樂弓，因為已知最古老的樂弓長達10英尺，不適合狩獵。</p>
 <h2>音色描述</h2>
-<p>音色多由材質本體振動決定，常呈現清晰、短促或具有明顯泛音的聲響。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖三｜天空裡拉長的弦</li>
-<li><strong>章節</strong>：6｜開放弦的天空與河流</li>
-<li><strong>章節主分類</strong>：豎琴、里拉與開放弦樂器</li>
-<li><strong>原聲音地景</strong>：開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）</li>
-<li><strong>專業發聲大類</strong>：弦鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Chordophone／弦鳴樂器</li>
-<li><strong>家族／支系</strong>：弓形豎琴</li>
-<li><strong>演奏方式</strong>：撥弦</li>
-<li><strong>身體／聽覺關聯</strong>：循環、河流感、開放弦、吟唱</li>
-<li><strong>主要地區／國家</strong>：東亞／中亞／歐洲／東南亞／非洲／美洲</li>
-<li><strong>地區類型</strong>：地區／文化圈</li>
-<li><strong>資料狀態</strong>：承接553條目地域欄</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 Musical Bow 時，可以先從「弓形豎琴」與「撥弦」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「循環、河流感、開放弦、吟唱」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>樂弓發出的聲音具有獨特的原始質感，音色介於明亮與暗沉之間，帶有溫潤而略顯滄桑的特徵。其音域較為寬廣，能夠產生從低沉的基音到較高的泛音。演奏時，樂弓通過弦的振動與木製共鳴腔（若有安裝）產生共鳴，音響具有天然的渾厚感。與現代弦樂器相比，樂弓的音色更顯粗獷與自然，帶有明顯的原始性與民族特色，類似於豎琴的柔和卻不若其華麗，而其滑音與泛音的表現力則接近小提琴。整體音響富有空靈感與冥想意境，具有深刻的文化魅力與療癒特質。</p>
+<h2>樂器材質</h2>
+<p>樂弓主要由柔軟有彈性的木材製成，通常採用竹子或檞木等材料作為弓身。兩端連接的弦通常由動物腸線或金屬弦（如銅、鐵）組成。某些樂弓設有共鳴腔，可採用葫蘆、木質空心球體或獸皮製作。演奏時使用的擊奏工具常為木棍、樹枝或獸毛製成的簡易撥片。不同民族因地制宜選用當地可得的天然材料。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>坐姿將琴靠於肩上或置於身前。將樂器穩定持於身前。左手負責按弦或改變有效弦長以控制音高，右手負責使弦震動發聲。弦鳴樂器的發聲原理是弦的振動透過共鳴箱放大。用指尖或撥子撥奏弦線，注意觸弦角度和力度控制。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/tambura-bugarija/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Dangubica.jpg/500px-Dangubica.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">布加利亞坦布拉琴</strong>
+        <span class="card-orig">Tambura Bugarija</span>
+        <span class="card-meta">中東／歐洲／亞洲／美洲</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/double-bass/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/AGK_bass1_full.jpg/500px-AGK_bass1_full.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">低音提琴</strong>
+        <span class="card-orig">Double Bass</span>
+        <span class="card-meta">歐洲／義大利</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/cross-strung-harp/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Chromatic_Harp.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">交叉弦豎琴</strong>
+        <span class="card-orig">Cross-strung harp</span>
+        <span class="card-meta">歐洲</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/ahardin/">
+      <div class="card-thumb card-thumb--empty" aria-hidden="true">♩</div>
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">阿哈迪恩琴</strong>
+        <span class="card-orig">Ahardin</span>
+        <span class="card-meta">非洲西部</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

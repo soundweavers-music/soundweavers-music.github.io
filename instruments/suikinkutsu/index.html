@@ -4,62 +4,133 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>水琴窟｜世界樂器百科</title>
+  <meta name="description" content="水琴窟（日語：水琴窟／すいきんくつ，羅馬化：Suikinkutsu）是指一種日本庭園裝飾和樂器，其結構包括一個倒轉的密封壺，流水通過壺上部的一個洞口流入壺內的小水池，從而在壺內產生悅耳的擊水聲音，其音像鈴聲或日本琴。水琴窟通常設立在手水鉢旁邊，而這些手水鉢往往設立在茶室的入口處，供進行茶道儀式的客人洗手之用。">
+<meta property="og:title" content="水琴窟｜世界樂器百科">
+<meta property="og:description" content="水琴窟（日語：水琴窟／すいきんくつ，羅馬化：Suikinkutsu）是指一種日本庭園裝飾和樂器，其結構包括一個倒轉的密封壺，流水通過壺上部的一個洞口流入壺內的小水池，從而在壺內產生悅耳的擊水聲音，其音像鈴聲或日本琴。水琴窟通常設立在手水鉢旁邊，而這些手水鉢往往設立在茶室的入口處，供進行茶道儀式的客人洗手之用。">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/EnkoujiSuikinkutsu.jpg/500px-EnkoujiSuikinkutsu.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>水琴窟</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">打擊樂器</p>
               <h1>水琴窟</h1>
-              <p class="lead">Suikinkutsu</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>打擊樂器</dd></div><div><dt>國家/地區</dt><dd>日本</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://zh.wikipedia.org/wiki/%E6%B0%B4%E7%90%B4%E7%AA%9F" target="_blank" rel="noopener noreferrer">https://zh.wikipedia.org/wiki/%E6%B0%B4%E7%90%B4%E7%AA%9F</a></p>
+              <p class="original-name">Suikinkutsu</p>
+              <p class="soundscape-tag">手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）</p>
+              <p class="badge-row"><span class="badge badge-cold">冷門</span></p>
             </div>
-            <img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/EnkoujiSuikinkutsu.jpg/960px-EnkoujiSuikinkutsu.jpg" alt="水琴窟">
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/EnkoujiSuikinkutsu.jpg/500px-EnkoujiSuikinkutsu.jpg" alt="水琴窟" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>水琴窟</h1>
-<p>水琴窟是一種打擊樂器。水琴窟（日語：水琴窟／すいきんくつ，羅馬化：Suikinkutsu）是指一種日本庭園裝飾和樂器，其結構包括一個倒轉的密封壺，流水通過壺上部的一個洞口流入壺內的小水池，從而在壺內產生悅耳的擊水聲音，其音像鈴聲或日本琴。水琴窟通常設立在手水鉢旁邊，而這些手水鉢往往設立在茶室的入口處，供進行茶道儀式的客人洗手之用。</p>
-<p>在地域脈絡上，它和日本的音樂文化有關。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>中文維基百科：https://zh.wikipedia.org/wiki/%E6%B0%B4%E7%90%B4%E7%AA%9F</p>
-</li>
-<li>
-<p>原始來源：https://en.wikipedia.org/wiki/Suikinkutsu</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>打擊樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>日本</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>無固定調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>中高音區（約1個8度）</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>手腕、腳踝、短音、節奏對齊</dd></div><div class="meta-item"><dt>地區類型</dt><dd>單一地區／文化圈</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>水琴窟（日語：水琴窟／すいきんくつ，羅馬化：Suikinkutsu）是指一種日本庭園裝飾和樂器，其結構包括一個倒轉的密封壺，流水通過壺上部的一個洞口流入壺內的小水池，從而在壺內產生悅耳的擊水聲音，其音像鈴聲或日本琴。水琴窟通常設立在手水鉢旁邊，而這些手水鉢往往設立在茶室的入口處，供進行茶道儀式的客人洗手之用。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/IcrxaS0iCv8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/R9KEKUMIXDQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>水琴窟雖主要作為庭園裝飾而非獨奏樂器，但在現代藝術創作中被採用。日本作曲家武滿徹曾在環境音樂創作中融入水琴窟的概念。此外，許多日本當代音樂家與錄音藝術家紀錄水琴窟的自然聲響，用於冥想音樂、禪宗主題的音樂作品與電影配樂中，使其成為東方美學與現代藝術的重要聲音元素。</p>
 <h2>歷史背景</h2>
-<p>水琴窟（Suikinkutsu）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>它可以先放在日本相關音樂文化中理解，後續可再補代表樂派、演奏場合與製作工藝。</p>
-<p>作為打擊樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。 若要深入研究，可優先查找日本的博物館、民族音樂學資料或地方樂器圖錄。</p>
-<p>打擊樂器通常和節奏、信號、祭儀、舞蹈或群體活動關係密切。它們的歷史不一定只寫在樂譜裡，也常出現在節慶、宗教、軍事或地方生活的脈絡中。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://zh.wikipedia.org/wiki/%E6%B0%B4%E7%90%B4%E7%AA%9F</p>
+<p>水琴窟在歷史上曾被稱為「水琴」，但在日本庭園中使用甚少。據信最初是將容器倒扣埋在日本庭園的洗手盆旁作為排水系統，有時會產生悅耳的聲音。園丁們隨後致力改善其音質。水琴窟的流行及其名稱源於江戶時代中期（1603–1867），與石製洗手盆的發展時代相近。當時著名茶道大師小堀遠州的庭園中設有水琴窟，他被譽為水琴窟的發明者。江戶時代末期，水琴窟的製作變少，但在明治時代（1867–1912）重新流行。</p>
+<p>二十世紀初昭和初期，水琴窟的名稱和裝置幾乎被遺忘。東京農業大學平山勝三教授於1959年的報告發現日本僅存兩個水琴窟，且皆已損毀且填滿泥土。直到1982年，朝日新聞記者撰文介紹水琴窟並向公眾徵求相關資訊，促使許多水琴窟被重新發現。1985年，NHK播放電視節目介紹水琴窟，引發復興潮，許多新的水琴窟隨之建設。</p>
 <h2>音色描述</h2>
-<p>音色多由材質本體振動決定，常呈現清晰、短促或具有明顯泛音的聲響。</p></article>
+<p>水琴窟具有清澈透亮的音色，帶有明快而靈動的質感。其音域集中於中高音區，宛如風鈴或水滴般晶瑩剔透。當流水滴入陶壺內部時，密閉空間產生共鳴，使聲音具有自然的迴響與深度，音響層次豐富。其音色兼具金屬樂器的清脆與木質樂器的溫潤特質，類似鐵琴或馬林巴琴的敲擊感，卻更顯柔和流暢。聲音呈現漸強漸弱的自然起伏，具有禪意的靜謐感，既不失樂器本身的辨識度，又蘊含水聲特有的撫慰性，營造寧靜致遠的聽覺意象。</p>
+<h2>樂器材質</h2>
+<p>水琴窟的主體結構由陶土製成，採用倒轉密封的陶壺作為共鳴室。壺身通常採用陶瓷或石陶材料，具有良好的聲學特性。壺上部開有小孔供水流進入，內部設有小水池承接流水。外部結構常與石製洗手盆（手水鉢）配套，洗手盆多由天然石材或陶瓷製成。排水系統則利用竹筒或石製導水管引導水流進入陶壺，形成完整的音響裝置。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>將樂器以正確姿勢持於手中。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/woodblock-instrument/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Dos_bloques.JPG/500px-Dos_bloques.JPG" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">木魚</strong>
+        <span class="card-orig">Woodblock (instrument)</span>
+        <span class="card-meta">亞洲／東亞</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/khim-wong/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/20131205_Istanbul_321_cropped.jpg/500px-20131205_Istanbul_321_cropped.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">泰國揚琴</strong>
+        <span class="card-orig">Khim Wong</span>
+        <span class="card-meta">東南亞／東亞／非洲／歐洲／全球</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/gender/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Traditional_indonesian_instruments03.jpg/500px-Traditional_indonesian_instruments03.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">甘美蘭鐵琴</strong>
+        <span class="card-orig">Gendér</span>
+        <span class="card-meta">亞洲／東南亞（印尼）</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/kotsuzumi/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Japanese_Drum.jpg/500px-Japanese_Drum.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">小鼓／鼓胴</strong>
+        <span class="card-orig">Kotsuzumi</span>
+        <span class="card-meta">日本</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

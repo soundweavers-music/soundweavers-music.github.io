@@ -4,67 +4,133 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>拉夫塔琴｜世界樂器百科</title>
+  <meta name="description" content="拉夫塔琴是一種來自伊斯坦堡的撥弦樂器。">
+<meta property="og:title" content="拉夫塔琴｜世界樂器百科">
+<meta property="og:description" content="拉夫塔琴是一種來自伊斯坦堡的撥弦樂器。">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Lavta_front.jpg/500px-Lavta_front.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>拉夫塔琴</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">弦樂器</p>
               <h1>拉夫塔琴</h1>
-              <p class="lead">Lavta</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>弦樂器</dd></div><div><dt>國家/地區</dt><dd>土耳其／希臘</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div><div><dt>旅圖</dt><dd>旅圖二｜懷裡與大地的弦</dd></div><div><dt>章節</dt><dd>4｜旅人懷裡撥動的故事線</dd></div><div><dt>發聲分類</dt><dd>弦鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Chordophone／弦鳴樂器</dd></div><div><dt>家族/支系</dt><dd>短頸魯特琴</dd></div><div><dt>演奏方式</dt><dd>撥奏</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：待補</p>
+              <p class="original-name">Lavta</p>
+              <p class="soundscape-tag">旅人懷裡撥動的故事線（魯特琴、短頸長頸撥弦與民謠弦聲）</p>
+              <p class="badge-row"></p>
             </div>
-            
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Lavta_front.jpg/500px-Lavta_front.jpg" alt="拉夫塔琴" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<p>拉夫塔琴（Lavta） 是收錄在《隔壁家的世界聲音旅圖》資料庫中的弦樂器。目前資料庫將它歸在「弦鳴」脈絡下，主要可從短頸魯特琴、撥奏與聲音地景來認識。</p>
-<p>初步地區標註為「土耳其／希臘」。這個欄位仍屬企劃初稿，後續可依博物館、百科條目、民族音樂學資料或演奏者資料逐篇核對。</p>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>弦樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>土耳其／希臘</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>弦鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>無固定調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>約2個8度</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>Chordophone／弦鳴樂器</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>短頸魯特琴</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>撥奏</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>鄂圖曼城市音樂、柔和撥弦</dd></div><div class="meta-item"><dt>地區類型</dt><dd>區域／多國</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>拉夫塔琴是一種來自伊斯坦堡的撥弦樂器。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/AMPuJqFB6FE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/Q6JCk04IhuA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>由於拉夫塔琴的歷史文獻相對稀少，具體的代表性作品記載有限。然而，該樂器在二十世紀初期的土耳其、希臘和亞美尼亞傳統音樂中廣泛應用，特別是在著名坦布爾琴演奏家傑米爾·貝伊（Tanburi Cemil Bey）的演奏中得到體現。該樂器主要用於演奏傳統民間音樂和宮廷音樂，具有重要的文化意義，但系統的樂曲文獻整理工作仍待進一步研究。</p>
 <h2>歷史背景</h2>
-<p>拉夫塔琴（Lavta） 的歷史背景目前先以資料庫分類建立閱讀入口。它位於「4｜旅人懷裡撥動的故事線」的脈絡中，代表這件樂器可以和氣息、材料、身體動作、地方儀式或現代舞台之間的關係一起閱讀。</p>
-<p>如果要補寫成正式百科條目，建議優先查證三個方向：一是它最早出現或被記錄的地區，二是短頸魯特琴的形制演變，三是撥奏如何影響音色、用途與傳播。</p>
+<p>拉夫塔琴在亞美尼亞語中稱為「lavuta」（լավութա），希臘語中有時也被稱為「政治家魯托琴」（來自君士坦丁堡的魯特琴）。這種樂器在二十世紀初期廣受歡迎，特別是在希臘、亞美尼亞和土耳其社群中流行，著名土耳其坦布爾琴演奏家傑米爾·貝伊（Tanburi Cemil Bey）也經常演奏此樂器。隨著烏德琴的出現，拉夫塔琴逐漸被取代，但至今仍保留下來。從1980年代開始，人們對這種樂器的興趣重新被喚起，如今在土耳其和希臘都可以再次找到拉夫塔琴的蹤跡。其右手演奏技巧與烏德琴相似，使用細長的撥片進行演奏。</p>
 <h2>音色描述</h2>
-<p>資料庫把它的身體／聽覺關聯標為「鄂圖曼城市音樂、柔和撥弦」。實際音色仍需要搭配可信錄音或現場演奏資料補充。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖二｜懷裡與大地的弦</li>
-<li><strong>章節</strong>：4｜旅人懷裡撥動的故事線</li>
-<li><strong>章節主分類</strong>：魯特琴、短頸長頸撥弦與民謠弦聲</li>
-<li><strong>原聲音地景</strong>：旅人懷裡撥動的故事線（魯特琴、短頸長頸撥弦與民謠弦聲）</li>
-<li><strong>專業發聲大類</strong>：弦鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Chordophone／弦鳴樂器</li>
-<li><strong>家族／支系</strong>：短頸魯特琴</li>
-<li><strong>演奏方式</strong>：撥奏</li>
-<li><strong>身體／聽覺關聯</strong>：鄂圖曼城市音樂、柔和撥弦</li>
-<li><strong>主要地區／國家</strong>：土耳其／希臘</li>
-<li><strong>地區類型</strong>：區域／多國</li>
-<li><strong>資料狀態</strong>：本次新增初稿，需逐篇來源核對</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 拉夫塔琴 時，可以先從「短頸魯特琴」與「撥奏」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「鄂圖曼城市音樂、柔和撥弦」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「旅人懷裡撥動的故事線（魯特琴、短頸長頸撥弦與民謠弦聲）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>拉夫塔琴音色明亮透徹，具有獨特的金屬質感與溫潤的共鳴特徵。其高音區明亮而尖銳，具有穿透力強的特點，中音區溫暖富有表現力，低音區則沉穩深邃。樂器採用羊腸弦或尼龍弦，撥奏時能產生豐富的泛音，營造出如同琉璃般晶瑩剔透的音響效果。</p>
+<p>相比烏德琴的柔和厚重，拉夫塔琴音色更顯輕盈靈動；與曼陀林相較，前者更具東方的典雅氣質，音色深度更強。其共鳴體精巧而靈敏，使每一次撥弦都能激發豐富的泛音層次，形成獨特的音色光澤，是中東傳統音樂中不可或缺的聲音色彩。</p>
+<h2>樂器材質</h2>
+<p>拉夫塔琴的共鳴體採用精心挑選的木材製作，通常以楓木、樺木或胡桃木為主。琴頸部分多採用堅硬的橡木或檀木。面板採用雲杉或松木，具有良好的音響傳導性。弦軸和弦馬由硬木或骨質材料製成。琴弦採用羊腸弦或現代尼龍弦。整體設計精巧，各部件搭配精妙，以確保最佳的音響效果和演奏便利性。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>坐姿將琴抱於懷中或放在膝上。將樂器穩定持於身前。左手負責按弦或改變有效弦長以控制音高，右手負責使弦震動發聲。弦鳴樂器的發聲原理是弦的振動透過共鳴箱放大。用指尖或撥子撥奏弦線，注意觸弦角度和力度控制。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/karadeniz-kemen-e/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Kemenche0.jpg/500px-Kemenche0.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">黑海克曼琴</strong>
+        <span class="card-orig">Karadeniz Kemençe</span>
+        <span class="card-meta">亞洲／歐洲／中東／南亞／中亞</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/requinto-jarocho/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Guitarra_de_son_o_requinto_jarocho_de_cuatro_cuerdas_01.jpg/500px-Guitarra_de_son_o_requinto_jarocho_de_cuatro_cuerdas_01.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">哈羅基小提琴</strong>
+        <span class="card-orig">Requinto Jarocho</span>
+        <span class="card-meta">中東／歐洲／亞洲／美洲</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/pandura/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Muse_with_%CE%A0%CE%B1%CE%BD%CE%B4%CE%BF%CF%8D%CF%81%CE%B1_Pandura_Pandora_Panduris_ancient_Greece_old_guitar_Athens_IV_BCE_siglo_IV_AEC.jpg/500px-Muse_with_%CE%A0%CE%B1%CE%BD%CE%B4%CE%BF%CF%8D%CF%81%CE%B1_Pandura_Pandora_Panduris_ancient_Greece_old_guitar_Athens_IV_BCE_siglo_IV_AEC.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">潘杜拉琴</strong>
+        <span class="card-orig">Pandura</span>
+        <span class="card-meta">拉丁美洲／安地斯／加勒比</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/tambura/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/e/eb/%E8%94%A1%E4%BE%9D%E6%9E%97%E5%87%BA%E5%B8%AD%E7%8E%8B%E5%9B%BD%E5%A4%A7%E5%B8%9D%E5%85%A8%E7%90%83%E5%B7%A1%E5%9B%9E%E8%B5%9B%E7%8E%B0%E5%9C%BA_cropped_%28cropped%29.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">坦布拉琴</strong>
+        <span class="card-orig">Tambura</span>
+        <span class="card-meta">中東／歐洲／亞洲／美洲</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

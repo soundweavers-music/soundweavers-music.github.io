@@ -4,84 +4,132 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>中提琴｜世界樂器百科</title>
+  <meta name="description" content="中提琴（英語：Viola）是一種弓弦樂器，其音域比小提琴低完全五度。其空弦從低到高依序是c3-g3-d4-a4。音色相較於小提琴、大提琴顯得相對隱晦。平時使用中音譜記號（alto clef）記譜，高音域則使用高音譜記號。 在18世紀中葉之前，中提琴只在管弦樂團中使用。之後隨著弦樂四重奏的興盛，成為室內樂中不可或缺的樂器">
+<meta property="og:title" content="中提琴｜世界樂器百科">
+<meta property="og:description" content="中提琴（英語：Viola）是一種弓弦樂器，其音域比小提琴低完全五度。其空弦從低到高依序是c3-g3-d4-a4。音色相較於小提琴、大提琴顯得相對隱晦。平時使用中音譜記號（alto clef）記譜，高音域則使用高音譜記號。 在18世紀中葉之前，中提琴只在管弦樂團中使用。之後隨著弦樂四重奏的興盛，成為室內樂中不可或缺的樂器">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Bratsche.jpg/500px-Bratsche.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>中提琴</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">弦樂器</p>
               <h1>中提琴</h1>
-              <p class="lead">Viola</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>弦樂器</dd></div><div><dt>國家/地區</dt><dd>亞洲／歐洲／中東／全球</dd></div><div><dt>年代</dt><dd>18 世紀</dd></div><div><dt>旅圖</dt><dd>旅圖三｜天空裡拉長的弦</dd></div><div><dt>章節</dt><dd>7｜弓毛拉出的哭與唱</dd></div><div><dt>發聲分類</dt><dd>弦鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Chordophone／弦鳴樂器</dd></div><div><dt>家族/支系</dt><dd>提琴家族收束</dd></div><div><dt>演奏方式</dt><dd>弓擦</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://zh.wikipedia.org/wiki/%E4%B8%AD%E6%8F%90%E7%90%B4" target="_blank" rel="noopener noreferrer">https://zh.wikipedia.org/wiki/%E4%B8%AD%E6%8F%90%E7%90%B4</a></p>
+              <p class="original-name">Viola</p>
+              <p class="soundscape-tag">像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）</p>
+              <p class="badge-row"><span class="badge badge-hot">熱門</span></p>
             </div>
-            <img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Bratsche.jpg" alt="中提琴">
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Bratsche.jpg/500px-Bratsche.jpg" alt="中提琴" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>中提琴</h1>
-<p>中提琴是一種弦樂器。中提琴（英語：Viola）是一種弓弦樂器，其音域比小提琴低完全五度。其空弦從低到高依序是c3-g3-d4-a4。音色相較於小提琴、大提琴顯得相對隱晦。平時使用中音譜記號（alto clef）記譜，高音域則使用高音譜記號。</p>
-<p>簡單來說，在18世紀中葉之前，中提琴只在管弦樂團中使用。之後隨著弦樂四重奏的興盛，成為室內樂中不可或缺的樂器。但當作獨奏樂器使用則要一直到18世紀後半才開始普及。著名的中提琴獨奏曲有史塔密茲的D大調中提琴協奏曲，白遼士的《哈羅德在義大利》等。</p>
-<p>在地域脈絡上，它和義大利的音樂文化有關。</p>
-<p>年代上可暫歸在「18 世紀」相關脈絡中理解。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>中文維基百科：https://zh.wikipedia.org/wiki/%E4%B8%AD%E6%8F%90%E7%90%B4</p>
-</li>
-<li>
-<p>原始來源：https://en.wikipedia.org/wiki/Viola</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>弦樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>歐洲／義大利</dd></div><div class="meta-item"><dt>年代</dt><dd>18 世紀</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>弦鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>全調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>C3–A5（約3個半8度）</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>321.3 擦弦／輪弦／提琴家族</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>擦弦、輪弦與提琴家族</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>弓擦／輪擦</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>胸口、嗓音、拉長的情緒</dd></div><div class="meta-item"><dt>地區類型</dt><dd>跨文化／多地</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>中提琴（英語：Viola）是一種弓弦樂器，其音域比小提琴低完全五度。其空弦從低到高依序是c3-g3-d4-a4。音色相較於小提琴、大提琴顯得相對隱晦。平時使用中音譜記號（alto clef）記譜，高音域則使用高音譜記號。 在18世紀中葉之前，中提琴只在管弦樂團中使用。之後隨著弦樂四重奏的興盛，成為室內樂中不可或缺的樂器。但當作獨奏樂器使用則要一直到18世紀後半才開始普及。著名的中提琴獨奏曲有史塔密茲的D大調中提琴協奏曲，白遼士的《哈羅德在義大利》等。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/-ICh9zhr87Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/ZKxpRfybe1U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>中提琴的代表作品包括史塔密茲創作的《D大調中提琴協奏曲》，展現了中提琴作為獨奏樂器的優雅魅力；白遼士的《哈羅德在義大利》將中提琴推向室內樂與管弦樂的重要角色；此外，巴托克的《中提琴協奏曲》以及莫札特創作的中提琴奏鳴曲，均為中提琴文獻的重要經典之作。</p>
 <h2>歷史背景</h2>
-<p>中提琴（Viola）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>它可以先放在義大利相關音樂文化中理解，後續可再補代表樂派、演奏場合與製作工藝。</p>
-<p>年代線索暫時指向「18 世紀」，可作為閱讀時的時間定位。</p>
-<p>作為弦樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。 若要深入研究，可優先查找義大利的博物館、民族音樂學資料或地方樂器圖錄。 「18 世紀」可作為初步年代標籤，但實際流傳時間仍應以專門資料校正。</p>
-<p>弦樂器的歷史常和弦材、共鳴箱、調音方式與演奏技法的演變有關。從民間伴奏到獨奏舞台，許多弦樂器都會因音量需求、音域擴張或樂曲風格改變而改良形制。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://zh.wikipedia.org/wiki/%E4%B8%AD%E6%8F%90%E7%90%B4</p>
+<p>中提琴源於十六世紀的義大利，為小提琴家族中不可或缺的一員。早期主要在管弦樂團中擔任和聲伴奏角色，音色隱晦的特性使其長期被忽視。十八世紀中葉後，隨著弦樂四重奏的興盛與推廣，中提琴逐漸成為室內樂的核心樂器，地位獲得提升。十八世紀後半，作曲家開始為中提�acontecimientos創作獨奏曲目，促進其作為獨奏樂器的認可。史塔密茲與白遼士等大師級作曲家的傑作，如《D大調中提琴協奏曲》和《哈羅德在義大利》，更進一步推動了中提琴音樂的發展。自此，中提琴從幕後配角逐漸躍升為舞台主角，成為古典與現代音樂重要的表現樂器。</p>
 <h2>音色描述</h2>
-<p>音色由弦長、張力、共鳴箱與演奏法影響，可呈現撥奏、擦奏或擊弦的不同質感。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖三｜天空裡拉長的弦</li>
-<li><strong>章節</strong>：7｜弓毛拉出的哭與唱</li>
-<li><strong>章節主分類</strong>：擦弦、輪弦與提琴家族</li>
-<li><strong>原聲音地景</strong>：像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）</li>
-<li><strong>專業發聲大類</strong>：弦鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Chordophone／弦鳴樂器</li>
-<li><strong>家族／支系</strong>：提琴家族收束</li>
-<li><strong>演奏方式</strong>：弓擦</li>
-<li><strong>身體／聽覺關聯</strong>：胸口、嗓音、拉長的情緒</li>
-<li><strong>主要地區／國家</strong>：亞洲／歐洲／中東／全球</li>
-<li><strong>地區類型</strong>：跨文化／多地</li>
-<li><strong>資料狀態</strong>：承接553條目地域欄</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 Viola 時，可以先從「提琴家族收束」與「弓擦」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「胸口、嗓音、拉長的情緒」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>中提琴音色溫暖而內斂，帶有獨特的沙啞質感，既不如小提琴明亮刺激，也不若大提琴低沉厚重，而是展現出一種成熟而含蓄的魅力。其音域介於小提琴與大提琴之間，低音域渾厚有力，中高音域則略顯柔和。中提琴的共鳴特性使其具有良好的穿透力，在樂團中能有效填補聲部空隙。相較於小提琴的璀璨華麗，中提琴音色更顯沉靜神秘；與大提琴相比，則保有更多的靈活性與表現力。正是這份既內斂又富於表情的音色特質，使中提琴成為室內樂不可或缺的聲部，能夠提供溫和的過渡與平衡的和聲基礎。</p>
+<h2>樂器材質</h2>
+<p>中提琴主要由木材構成，琴身採用雲杉木製作面板，背板與側板則使用楓木，具有良好的音響特性。琴頸採用堅硬的楓木製成，指板通常以烏木製作，提供耐用性與美觀性。琴弦多採用羊腸或合成材料製成，高音弦則纏繞鋁、銀等金屬線。弓則由木材、馬尾毛及金屬配件組成，共同產生中提琴特有的溫暖音色。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>將琴夾在左肩與下巴之間（比小提琴稍大）。左手按弦，右手運弓。中提琴比小提琴大五度，指距更寬。運弓需更多力量，音色濃厚。練習換把位和雙音是重要技巧。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/karadeniz-kemen-e/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Kemenche0.jpg/500px-Kemenche0.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">黑海克曼琴</strong>
+        <span class="card-orig">Karadeniz Kemençe</span>
+        <span class="card-meta">亞洲／歐洲／中東／南亞／中亞</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/washtub-bass/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Washtub-bass-Kianti-Ecolove.png" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">低音</strong>
+        <span class="card-orig">Washtub bass</span>
+        <span class="card-meta">美洲／北美</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/rebec/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Rebac.jpg/500px-Rebac.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">雷貝克弓琴</strong>
+        <span class="card-orig">Rebec</span>
+        <span class="card-meta">中東／歐洲／東南亞</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/flutes-with-duct/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Embouchure_fipple_flute.jpg/500px-Embouchure_fipple_flute.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">有導管長笛</strong>
+        <span class="card-orig">Flutes with duct</span>
+        <span class="card-meta">全球／多地</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

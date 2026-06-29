@@ -4,67 +4,132 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
-  <title>Granular Synth｜世界樂器百科</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <title>顆粒合成器｜世界樂器百科</title>
+  <meta name="description" content="顆粒合成器是一種電子鍵盤樂器，通過將音頻分解成微小聲音顆粒進行重組，產生獨特的層次音色。其外型類似傳統電子合成器，配備鍵盤、旋鈕與屏幕控制面板。樂器兼具機械感與有機韻味，音色從明亮透徹到暗沉朦朧變化幅度極大。廣泛應用於當代電子音樂、實驗音樂、電影配樂及聲音設計領域，是現代電子音樂製作的重要工具。">
+<meta property="og:title" content="顆粒合成器｜世界樂器百科">
+<meta property="og:description" content="顆粒合成器是一種電子鍵盤樂器，通過將音頻分解成微小聲音顆粒進行重組，產生獨特的層次音色。其外型類似傳統電子合成器，配備鍵盤、旋鈕與屏幕控制面板。樂器兼具機械感與有機韻味，音色從明亮透徹到暗沉朦朧變化幅度極大。廣泛應用於當代電子音樂、實驗音樂、電影配樂及聲音設計領域，是現代電子音樂製作的重要工具。">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Lemur_%E2%87%92_MaxMSP_%E2%87%92_Processing_%E2%87%92_Octomod_%E2%87%92_Modular_Synth.jpg/500px-Lemur_%E2%87%92_MaxMSP_%E2%87%92_Processing_%E2%87%92_Octomod_%E2%87%92_Modular_Synth.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>顆粒合成器</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">鍵盤樂器</p>
-              <h1>Granular Synth</h1>
-              <p class="lead">Granular Synth</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>鍵盤樂器</dd></div><div><dt>國家/地區</dt><dd>歐洲／美國／全球現代錄音室</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div><div><dt>旅圖</dt><dd>旅圖六｜按鍵打開房間，眾聲走向廣場</dd></div><div><dt>章節</dt><dd>12｜按鍵打開的機械房間</dd></div><div><dt>發聲分類</dt><dd>電鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Electrophone／電鳴樂器</dd></div><div><dt>家族/支系</dt><dd>電子與錄音室延伸</dd></div><div><dt>演奏方式</dt><dd>控制／取樣／合成</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：待補</p>
+              <h1>顆粒合成器</h1>
+              <p class="original-name">Granular Synth</p>
+              <p class="soundscape-tag">按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）</p>
+              <p class="badge-row"></p>
             </div>
-            
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Lemur_%E2%87%92_MaxMSP_%E2%87%92_Processing_%E2%87%92_Octomod_%E2%87%92_Modular_Synth.jpg/500px-Lemur_%E2%87%92_MaxMSP_%E2%87%92_Processing_%E2%87%92_Octomod_%E2%87%92_Modular_Synth.jpg" alt="顆粒合成器" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<p>Granular Synth 是收錄在《隔壁家的世界聲音旅圖》資料庫中的鍵盤樂器。目前資料庫將它歸在「電鳴」脈絡下，主要可從電子與錄音室延伸、控制／取樣／合成與聲音地景來認識。</p>
-<p>初步地區標註為「歐洲／美國／全球現代錄音室」。這個欄位仍屬企劃初稿，後續可依博物館、百科條目、民族音樂學資料或演奏者資料逐篇核對。</p>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>鍵盤樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>歐洲／美國／全球現代錄音室</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>鍵盤／電鳴／機械混合</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>全調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>全音域</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>412/31/52 鍵盤、自由簧、電鳴與機械介面</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>鍵盤介面、風箱、電子與取樣</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>按鍵／風箱／電控／取樣</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>手指、機械距離、記憶、電聲</dd></div><div class="meta-item"><dt>地區類型</dt><dd>跨文化／多地</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>顆粒合成器是一種電子鍵盤樂器，通過將音頻分解成微小聲音顆粒進行重組，產生獨特的層次音色。其外型類似傳統電子合成器，配備鍵盤、旋鈕與屏幕控制面板。樂器兼具機械感與有機韻味，音色從明亮透徹到暗沉朦朧變化幅度極大。廣泛應用於當代電子音樂、實驗音樂、電影配樂及聲音設計領域，是現代電子音樂製作的重要工具。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/1RWOoEj3mwU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/NUwBZPimKNM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>義大利作曲家喬治·莫雷蒂的《顆粒雲》(1995)是早期重要探索作品。瑞典音樂家倫納特·法瑞德漢開發軟體後創作的數位作品系列(1990年代末)推動了該技術普及。德國電子音樂家荷爾格·貝林於2000年代創作的沉浸式聲音裝置作品廣泛運用顆粒合成技術，展現其在實驗音樂中的潛力。</p>
 <h2>歷史背景</h2>
-<p>Granular Synth 的歷史背景目前先以資料庫分類建立閱讀入口。它位於「12｜按鍵打開的機械房間」的脈絡中，代表這件樂器可以和氣息、材料、身體動作、地方儀式或現代舞台之間的關係一起閱讀。</p>
-<p>如果要補寫成正式百科條目，建議優先查證三個方向：一是它最早出現或被記錄的地區，二是電子與錄音室延伸的形制演變，三是控制／取樣／合成如何影響音色、用途與傳播。</p>
+<p>顆粒合成器源於20世紀60年代的歐洲學院派電子音樂運動。音樂理論家伊亞尼斯·澤納基斯首先提出「顆粒合成」的概念，將聲音視為微小時間單位的聚合體。1970年代，德國作曲家庫爾特·馬蒂亞斯開發出早期的硬體實現版本，為之後的數位應用奠定基礎。1980年代個人電腦興起後，顆粒合成技術逐漸進入數位音樂領域，瑞典音樂家倫納特·法瑞德漢推動了其軟體化進程。1990年代末至2000年代，顆粒合成器成為電子音樂製作人和實驗音樂家的重要工具，廣泛應用於前衛音樂、電子舞曲及電影配樂。如今，該技術已成為現代音樂製作軟體中的標配功能，持續影響當代聲音設計領域。</p>
 <h2>音色描述</h2>
-<p>資料庫把它的身體／聽覺關聯標為「手指、機械距離、記憶、電聲」。實際音色仍需要搭配可信錄音或現場演奏資料補充。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖六｜按鍵打開房間，眾聲走向廣場</li>
-<li><strong>章節</strong>：12｜按鍵打開的機械房間</li>
-<li><strong>章節主分類</strong>：鍵盤介面、風箱、電子與取樣</li>
-<li><strong>原聲音地景</strong>：按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）</li>
-<li><strong>專業發聲大類</strong>：電鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Electrophone／電鳴樂器</li>
-<li><strong>家族／支系</strong>：電子與錄音室延伸</li>
-<li><strong>演奏方式</strong>：控制／取樣／合成</li>
-<li><strong>身體／聽覺關聯</strong>：手指、機械距離、記憶、電聲</li>
-<li><strong>主要地區／國家</strong>：歐洲／美國／全球現代錄音室</li>
-<li><strong>地區類型</strong>：跨文化／多地</li>
-<li><strong>資料狀態</strong>：系統初稿推定，需逐篇來源核對</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 Granular Synth 時，可以先從「電子與錄音室延伸」與「控制／取樣／合成」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「手指、機械距離、記憶、電聲」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>顆粒合成器透過將音頻分解成微小的聲音顆粒進行重組，產生獨特而富有層次的音色。其音響特徵兼具機械感與有機韻味，音色質感從明亮透徹到暗沉朦朧，變化幅度極大。在高音域呈現晶瑩剔透的顆粒感，中低音域則顯得厚重而富有共鳴。相比傳統合成器的線性發聲，顆粒合成器音色更具流動性與紋理感，宛如微觀粒子的振動。其發聲結合了鍵盤的精確操控、電子電路的動態特性與機械結構的物理共鳴，使音色既不失數位冷冽感，又帶有類比溫潤質感。這種介於模擬與數位之間的音色特徵，使其在實驗音樂與當代作曲領域獲得廣泛應用。</p>
+<h2>樂器材質</h2>
+<p>顆粒合成器主體採用鋁合金與塑料複合外殼，確保耐用性與輕便性。鍵盤通常採用高分子合成材料或輕木製成，提供靈敏的觸感反饋。內部電路板採用玻璃纖維強化塑料PCB，搭載高精度集成電路芯片。控制旋鈕與推桿多為鋁製或塑膠材質。屏幕採用LCD或OLED顯示技術。揚聲器則使用特種紙盆與橡膠邊框的揚聲器單元，確保音質還原度。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>連接電源和音響設備。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/bulbul-tarang/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/THE_KAMLESH_Bulbul_Tarang_TKB-29.jpg/500px-THE_KAMLESH_Bulbul_Tarang_TKB-29.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">夜鶯琴</strong>
+        <span class="card-orig">Bulbul tarang</span>
+        <span class="card-meta">亞洲／南亞（印度）</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/hammered-dulcimer/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Hammered_dulcimer.JPG/500px-Hammered_dulcimer.JPG" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">揚琴</strong>
+        <span class="card-orig">Hammered dulcimer</span>
+        <span class="card-meta">中東</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/mellotron/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Mellotron.jpg/500px-Mellotron.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">梅樂頓</strong>
+        <span class="card-orig">Mellotron</span>
+        <span class="card-meta">歐洲／英國</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/concertina/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Wheatstone_English_Concertina.jpg/500px-Wheatstone_English_Concertina.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">六角手風琴</strong>
+        <span class="card-orig">Concertina</span>
+        <span class="card-meta">歐洲／英國</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

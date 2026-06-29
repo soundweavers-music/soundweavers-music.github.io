@@ -4,67 +4,133 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>昂迪歐琳琴｜世界樂器百科</title>
+  <meta name="description" content="昂迪歐琳琴是一種電子類比合成器，由法國人喬治·詹尼開發並製造。這種樂器有時也被稱為「詹尼昂迪歐琳琴」，被認為是合成器的先驅。詹尼最初在1939年構思了這一樂器，他持續改進和重新配置該裝置，直到1975年去世為止製造了數十種變型模型。儘管是單音的，昂迪歐琳琴能夠創造出多種多樣的聲音。其鍵盤跨越三個八度音程，但通過調整音栓">
+<meta property="og:title" content="昂迪歐琳琴｜世界樂器百科">
+<meta property="og:description" content="昂迪歐琳琴是一種電子類比合成器，由法國人喬治·詹尼開發並製造。這種樂器有時也被稱為「詹尼昂迪歐琳琴」，被認為是合成器的先驅。詹尼最初在1939年構思了這一樂器，他持續改進和重新配置該裝置，直到1975年去世為止製造了數十種變型模型。儘管是單音的，昂迪歐琳琴能夠創造出多種多樣的聲音。其鍵盤跨越三個八度音程，但通過調整音栓">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Classic50sModelOndioline-1-A6A1448-Cleaned--Sam-Valle-Retouch.jpg/500px-Classic50sModelOndioline-1-A6A1448-Cleaned--Sam-Valle-Retouch.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>昂迪歐琳琴</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">鍵盤樂器</p>
               <h1>昂迪歐琳琴</h1>
-              <p class="lead">Ondioline</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>鍵盤樂器</dd></div><div><dt>國家/地區</dt><dd>法國</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div><div><dt>旅圖</dt><dd>旅圖六｜按鍵打開房間，眾聲走向廣場</dd></div><div><dt>章節</dt><dd>12｜按鍵打開的機械房間</dd></div><div><dt>發聲分類</dt><dd>複合／電鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Electrophone／電鳴與複合鍵盤</dd></div><div><dt>家族/支系</dt><dd>早期電子鍵盤</dd></div><div><dt>演奏方式</dt><dd>鍵盤／膝控表情</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：待補</p>
+              <p class="original-name">Ondioline</p>
+              <p class="soundscape-tag">按鍵打開的機械房間（鍵盤介面、風箱、電子與取樣）</p>
+              <p class="badge-row"></p>
             </div>
-            
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Classic50sModelOndioline-1-A6A1448-Cleaned--Sam-Valle-Retouch.jpg/500px-Classic50sModelOndioline-1-A6A1448-Cleaned--Sam-Valle-Retouch.jpg" alt="昂迪歐琳琴" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<p>昂迪歐琳琴（Ondioline） 是收錄在《隔壁家的世界聲音旅圖》資料庫中的鍵盤樂器。目前資料庫將它歸在「複合／電鳴」脈絡下，主要可從早期電子鍵盤、鍵盤／膝控表情與聲音地景來認識。</p>
-<p>初步地區標註為「法國」。這個欄位仍屬企劃初稿，後續可依博物館、百科條目、民族音樂學資料或演奏者資料逐篇核對。</p>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>鍵盤樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>法國</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>複合／電鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>全調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>約8個八度音程</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>Electrophone／電鳴與複合鍵盤</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>早期電子鍵盤</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>鍵盤／膝控表情</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>顫音、滑音、復古電聲歌唱性</dd></div><div class="meta-item"><dt>地區類型</dt><dd>歷史／電子音樂</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>昂迪歐琳琴是一種電子類比合成器，由法國人喬治·詹尼開發並製造。這種樂器有時也被稱為「詹尼昂迪歐琳琴」，被認為是合成器的先驅。詹尼最初在1939年構思了這一樂器，他持續改進和重新配置該裝置，直到1975年去世為止製造了數十種變型模型。儘管是單音的，昂迪歐琳琴能夠創造出多種多樣的聲音。其鍵盤跨越三個八度音程，但通過調整音栓旋鈕，演奏者可以達到八個八度音程。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/7pOqkn9JgO8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/3-ysWwOeFXA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>昂迪歐琳琴因其獨特的電子音色，在前衛音樂與電影配樂中獲得應用。法國作曲家皮埃爾·舍費爾在1950年代的具體音樂實驗中使用過此樂器。美國作曲家约翰·威廉斯在其早期電子音樂作品中亦有採用。此外，該樂器也出現在多部1950至1960年代的科幻電影配樂中，為當時的未來主義視覺效果增添獨特的聲音氛圍。</p>
 <h2>歷史背景</h2>
-<p>昂迪歐琳琴（Ondioline） 的歷史背景目前先以資料庫分類建立閱讀入口。它位於「12｜按鍵打開的機械房間」的脈絡中，代表這件樂器可以和氣息、材料、身體動作、地方儀式或現代舞台之間的關係一起閱讀。</p>
-<p>如果要補寫成正式百科條目，建議優先查證三個方向：一是它最早出現或被記錄的地區，二是早期電子鍵盤的形制演變，三是鍵盤／膝控表情如何影響音色、用途與傳播。</p>
+<p>喬治·詹尼於1939年左右在法國南部的療養院養病期間開始製造第一個原型機（當時尚未命名）。該樂器採用基於真空管的系統，內置放大器。1946年，詹尼的工作模型在巴黎博覽會的發明競賽中獲得一等獎。</p>
+<p>1947年，詹尼開始在巴黎商業化製造該設備，並正式命名為「昂迪歐琳琴」。為降低成本並減少零售價格，詹尼經常使用低質量零件，因此這些樂器需要定期維護。數十年間，詹尼在其巴黎公司「詹尼聲音樂浪」（後更名為「電子音樂」）不斷重新設計和製造新版本的樂器。後期型號提供自動顫音和震音等功能，但並無統一的標準型號。詹尼拒絕將該樂器授權用於大規模生產。</p>
 <h2>音色描述</h2>
-<p>資料庫把它的身體／聽覺關聯標為「顫音、滑音、復古電聲歌唱性」。實際音色仍需要搭配可信錄音或現場演奏資料補充。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖六｜按鍵打開房間，眾聲走向廣場</li>
-<li><strong>章節</strong>：12｜按鍵打開的機械房間</li>
-<li><strong>章節主分類</strong>：鍵盤介面、風箱、電子與取樣</li>
-<li><strong>原聲音地景</strong>：按鍵打開的機械房間（鍵盤介面、風箱、電子與取樣）</li>
-<li><strong>專業發聲大類</strong>：複合／電鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Electrophone／電鳴與複合鍵盤</li>
-<li><strong>家族／支系</strong>：早期電子鍵盤</li>
-<li><strong>演奏方式</strong>：鍵盤／膝控表情</li>
-<li><strong>身體／聽覺關聯</strong>：顫音、滑音、復古電聲歌唱性</li>
-<li><strong>主要地區／國家</strong>：法國</li>
-<li><strong>地區類型</strong>：歷史／電子音樂</li>
-<li><strong>資料狀態</strong>：本次新增初稿，需逐篇來源核對</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 昂迪歐琳琴 時，可以先從「早期電子鍵盤」與「鍵盤／膝控表情」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「顫音、滑音、復古電聲歌唱性」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「按鍵打開的機械房間（鍵盤介面、風箱、電子與取樣）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>昂迪歐琳琴的音色具有獨特的電子特質，音色質感介於明亮與溫潤之間，帶有濃厚的復古未來主義風格。其聲音具有柔和流暢的特徵，彷彿介於電風琴與小提琴之間。雖然樂器本身為單音設計，但通過複雜的類比電路調控，可產生從清脆尖銳到深沉濃郁的多樣變化。音域跨越八個八度音程，提供寬廣的表現範圍。其共鳴方式完全電子化，不同於傳統樂器的共鳴箱共鳴，而是透過電子振盪電路產生聲波。相比傳統弦樂器的溫暖厚實，昂迪歐琳琴呈現出更具實驗性與神秘感的音響特徵，極具辨識度。</p>
+<h2>樂器材質</h2>
+<p>昂迪歐琳琴主要由真空管、電子元件與金屬構件組成。樂器外殼採用木製框架與金屬面板，鍵盤由象牙質或塑膠製成的琴鍵組成。內部包含真空管振盪電路、電阻、電容等類比電子元件，以及內置放大器與喇叭單元。音栓旋鈕採用金屬與塑膠材質製作。為降低成本，詹尼常使用低質量零件與回收材料，導致樂器需要定期維護保養。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>連接電源和音響設備。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/monochord/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Monochord_Jeans.svg/500px-Monochord_Jeans.svg.png" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">單弦樂器</strong>
+        <span class="card-orig">Monochord</span>
+        <span class="card-meta">歐洲／希臘</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/eurorack-modular/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Eurorack_Modular_Synthesizer.jpg/500px-Eurorack_Modular_Synthesizer.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">歐系模組合成器</strong>
+        <span class="card-orig">Eurorack Modular</span>
+        <span class="card-meta">全球／現代</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/mountain-dulcimer/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Dulcimer_%28UP%29.jpg/500px-Dulcimer_%28UP%29.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">《指環王》系列電影配樂</strong>
+        <span class="card-orig">Mountain Dulcimer</span>
+        <span class="card-meta">亞洲／歐洲／全球</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/langeleik/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Langeleik.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">朗格萊克琴</strong>
+        <span class="card-orig">Langeleik</span>
+        <span class="card-meta">歐洲／挪威</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

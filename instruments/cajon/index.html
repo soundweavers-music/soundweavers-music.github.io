@@ -4,64 +4,132 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>箱鼓｜世界樂器百科</title>
+  <meta name="description" content="木箱鼓（西班牙語：cajón，發音：[kaˈxon]，本意為木箱或抽屜），或稱鼓箱，音譯為卡宏鼓，是一種箱狀的木質打擊樂器。演奏時用手拍敲木箱前端薄板發聲，聲音類似於爵士鼓。流行於古巴、秘魯等地。木箱鼓在佛朗明哥和倫巴等拉丁系音樂中經常被使用，一些民謠音樂中也選擇用木箱鼓來伴奏。 近年木箱鼓漸漸在世界各地流行起來，尤其">
+<meta property="og:title" content="箱鼓｜世界樂器百科">
+<meta property="og:description" content="木箱鼓（西班牙語：cajón，發音：[kaˈxon]，本意為木箱或抽屜），或稱鼓箱，音譯為卡宏鼓，是一種箱狀的木質打擊樂器。演奏時用手拍敲木箱前端薄板發聲，聲音類似於爵士鼓。流行於古巴、秘魯等地。木箱鼓在佛朗明哥和倫巴等拉丁系音樂中經常被使用，一些民謠音樂中也選擇用木箱鼓來伴奏。 近年木箱鼓漸漸在世界各地流行起來，尤其">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Cajon_musician.jpg/500px-Cajon_musician.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>箱鼓</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">打擊樂器</p>
               <h1>箱鼓</h1>
-              <p class="lead">Cajón</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>打擊樂器</dd></div><div><dt>國家/地區</dt><dd>秘魯</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://zh.wikipedia.org/wiki/%E7%AE%B1%E9%BC%93" target="_blank" rel="noopener noreferrer">https://zh.wikipedia.org/wiki/%E7%AE%B1%E9%BC%93</a></p>
+              <p class="original-name">Cajón</p>
+              <p class="soundscape-tag">手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）</p>
+              <p class="badge-row"></p>
             </div>
-            <img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Homemade_caj%C3%B3n.jpg/960px-Homemade_caj%C3%B3n.jpg" alt="箱鼓">
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Cajon_musician.jpg/500px-Cajon_musician.jpg" alt="箱鼓" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>箱鼓</h1>
-<p>箱鼓（原名：Cajón）是一種打擊樂器。通常透過敲擊、搖動、摩擦或刮奏產生聲音，常負責節奏與音色層次。</p>
-<p>目前可查資料顯示，它與秘魯的音樂文化或演奏傳統有關。</p>
-<p>英文資料中特別提到它的使用或演奏情境，因此理解這項樂器時，不只要看外形，也要看它在樂曲、儀式或合奏中的角色。</p>
-<p>材料與構造是它音色的重要線索；不同材質會讓聲音呈現更明亮、厚實或有共鳴感的差異。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Caj%C3%B3n</p>
-</li>
-<li>
-<p>Wikidata ID：Q748455</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>打擊樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>秘魯</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>膜鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>無固定調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>約2個8度（中高頻域）</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>2 膜鳴樂器</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>鼓類</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>敲擊鼓面</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>手掌、腳底、低音、舞步</dd></div><div class="meta-item"><dt>地區類型</dt><dd>單一地區／文化圈</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>木箱鼓（西班牙語：cajón，發音：[kaˈxon]，本意為木箱或抽屜），或稱鼓箱，音譯為卡宏鼓，是一種箱狀的木質打擊樂器。演奏時用手拍敲木箱前端薄板發聲，聲音類似於爵士鼓。流行於古巴、秘魯等地。木箱鼓在佛朗明哥和倫巴等拉丁系音樂中經常被使用，一些民謠音樂中也選擇用木箱鼓來伴奏。 近年木箱鼓漸漸在世界各地流行起來，尤其是一些街頭音樂表演團體，由於它可以奏出和爵士鼓相近的音色，而且亦比爵士鼓易於擕帶和使用，因而成為近年來不少打擊樂手所學習和使用。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/6vaJiSlguBg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/-3kKtIc5ynI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>箱鼓在現代音樂中的代表應用包括：西班牙佛朗明哥音樂傳統中的經典演奏、秘魯民謠音樂作品如「黑人音樂」(Música Negra)系列、當代世界音樂藝術家Susana Baca的專輯《Gracias a la Vida》(2011)中的箱鼓伴奏，以及爵士與拉丁融合音樂中的廣泛應用。箱鼓亦常見於街頭表演團體的現場演奏中。</p>
 <h2>歷史背景</h2>
-<p>箱鼓（Cajón）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>它可以先放在秘魯相關音樂文化中理解，後續可再補代表樂派、演奏場合與製作工藝。</p>
-<p>作為打擊樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。 若要深入研究，可優先查找秘魯的博物館、民族音樂學資料或地方樂器圖錄。</p>
-<p>打擊樂器通常和節奏、信號、祭儀、舞蹈或群體活動關係密切。它們的歷史不一定只寫在樂譜裡，也常出現在節慶、宗教、軍事或地方生活的脈絡中。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://zh.wikipedia.org/wiki/%E7%AE%B1%E9%BC%93</p>
+<p>箱鼓是自十九世紀晚期以來使用最廣泛的秘魯非洲音樂樂器。來自西非和中非的被奴役人民被認為是箱鼓的起源。該樂器在沿海秘魯奴隸制時期發展而來，到1850年達到流行高峰。十九世紀末，箱鼓演奏者開始通過彎曲樂器外殼的木板來改變音振動模式，進行樂器設計實驗。廢除奴隸制後，箱鼓傳播到更廣泛的觀眾，包括克里奧爾人。由於箱鼓起源於西班牙殖民地美洲的被奴役音樂家，該樂器有兩種互補的起源理論。其一認為箱鼓直接源自西非和中非，特別是安哥拉和安的列斯群島的多種盒狀樂器。被奴役者根據西班牙運輸箱進行改造。在馬坦薩斯等港口城市，鱈魚運輸箱和抽屜被改製成類似樂器。如今，箱鼓在美洲和西班牙的音樂表演中普遍使用。</p>
 <h2>音色描述</h2>
-<p>音色多由材質本體振動決定，常呈現清晰、短促或具有明顯泛音的聲響。</p></article>
+<p>箱鼓的音色具有溫潤而富有穿透力的特質，敲擊面板時能發出明亮清脆的聲響，同時兼具溫暖的底蘊。其音域集中於中高頻，不具備低頻的深沉感，但音色層次豐富，可根據敲擊位置與力度產生從輕快到厚實的多種變化。木質共鳴腔體內的空間產生自然的共鳴效應，使聲音具有良好的延展性與迴響感。與爵士鼓相比，箱鼓音色更為溫潤柔和，缺乏爵士鼓的金屬質感和冷冽感；與木琴相較，箱鼓具有更豐厚的共鳴感。其獨特的木質共振特性使其在拉丁音樂中能營造出溫暖而富有民族特色的音響氛圍。</p>
+<h2>樂器材質</h2>
+<p>箱鼓主體由實心木材製成，通常採用杉木、松木或其他共鳴性良好的軟木。前面板為較薄的硬木板，用以提供清脆的音色。側面與背面採用厚實木板增強共鳴腔體的穩定性。內部空腔設計產生自然共鳴效應。部分現代箱鼓在音孔周圍加裝金屬響簧或尼龍弦，以產生額外的音色變化。演奏時直接用手或手指敲擊，無需額外的打擊棒或槌。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>坐於木箱鼓上，微微前傾。用手掌敲擊正面板（Tapa）發聲。低音：手掌在面板中央敲擊；高音：手指在面板邊緣敲擊。練習基本Flamenco和Latin節奏型。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/kendang/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Traditional_indonesian_drums.jpg/500px-Traditional_indonesian_drums.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">肯當鼓</strong>
+        <span class="card-orig">Kendang</span>
+        <span class="card-meta">亞洲／東南亞（印尼）</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/kettle-drum/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Nagara%2C_a_percussion_instrument%2C_Rajasthan.jpg/500px-Nagara%2C_a_percussion_instrument%2C_Rajasthan.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">鍋鼓</strong>
+        <span class="card-orig">Kettle drum</span>
+        <span class="card-meta">中東／歐洲</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/marimba/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Marimba_One_4000_Series.jpg/500px-Marimba_One_4000_Series.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">馬林巴</strong>
+        <span class="card-orig">Marimba</span>
+        <span class="card-meta">非洲／美洲</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/bell-instrument/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Parts_of_a_Bell.svg/500px-Parts_of_a_Bell.svg.png" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">鈴鐺</strong>
+        <span class="card-orig">Bell (instrument)</span>
+        <span class="card-meta">全球／多地</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

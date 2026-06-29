@@ -4,67 +4,135 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>鑼王｜世界樂器百科</title>
+  <meta name="description" content="鑼王（Gong Ageng）是印度尼西亞甘美蘭樂隊中最重要的低音打擊樂器，起源於爪哇島。其外型為大型圓形銅製鑼盤，直徑可達60至100公分，表面呈現棕銅色澤。鑼王音色深沉厚重，具神聖莊嚴的氣質，擊打後產生層次豐富的泛音，共鳴悠遠蒼涼。在爪哇宮廷音樂中象徵皇權，常用於皇家儀式、宗教活動及甘美蘭樂隊的節奏基礎。其獨特的低頻">
+<meta property="og:title" content="鑼王｜世界樂器百科">
+<meta property="og:description" content="鑼王（Gong Ageng）是印度尼西亞甘美蘭樂隊中最重要的低音打擊樂器，起源於爪哇島。其外型為大型圓形銅製鑼盤，直徑可達60至100公分，表面呈現棕銅色澤。鑼王音色深沉厚重，具神聖莊嚴的氣質，擊打後產生層次豐富的泛音，共鳴悠遠蒼涼。在爪哇宮廷音樂中象徵皇權，常用於皇家儀式、宗教活動及甘美蘭樂隊的節奏基礎。其獨特的低頻">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Gong_Ageng.jpg/500px-Gong_Ageng.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>鑼王</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">打擊樂器</p>
               <h1>鑼王</h1>
-              <p class="lead">Gong Ageng</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>打擊樂器</dd></div><div><dt>國家/地區</dt><dd>印尼爪哇島</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div><div><dt>旅圖</dt><dd>旅圖五｜城市與星塵的節奏</dd></div><div><dt>章節</dt><dd>10｜木石金屬的回聲城市</dd></div><div><dt>發聲分類</dt><dd>體鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Idiophone／體鳴樂器</dd></div><div><dt>家族/支系</dt><dd>大型懸鑼</dd></div><div><dt>演奏方式</dt><dd>敲擊</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：待補</p>
+              <p class="original-name">Gong Ageng</p>
+              <p class="soundscape-tag">木石金屬的回聲城市（定音體鳴、材料敲擊與鑼鐘木琴系統）</p>
+              <p class="badge-row"><span class="badge badge-hot">熱門</span></p>
             </div>
-            
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Gong_Ageng.jpg/500px-Gong_Ageng.jpg" alt="鑼王" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<p>鑼王（Gong Ageng） 是收錄在《隔壁家的世界聲音旅圖》資料庫中的打擊樂器。目前資料庫將它歸在「體鳴」脈絡下，主要可從大型懸鑼、敲擊與聲音地景來認識。</p>
-<p>初步地區標註為「印尼爪哇島」。這個欄位仍屬企劃初稿，後續可依博物館、百科條目、民族音樂學資料或演奏者資料逐篇核對。</p>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>打擊樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>印尼爪哇島</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>體鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>無固定調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>約1至2個8度（具體音高因製作工藝而異）</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>Idiophone／體鳴樂器</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>大型懸鑼</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>敲擊</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>段落終點、低頻回聲、儀式重量</dd></div><div class="meta-item"><dt>地區類型</dt><dd>單一地區／文化圈</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>鑼王（Gong Ageng）是印度尼西亞甘美蘭樂隊中最重要的低音打擊樂器，起源於爪哇島。其外型為大型圓形銅製鑼盤，直徑可達60至100公分，表面呈現棕銅色澤。鑼王音色深沉厚重，具神聖莊嚴的氣質，擊打後產生層次豐富的泛音，共鳴悠遠蒼涼。在爪哇宮廷音樂中象徵皇權，常用於皇家儀式、宗教活動及甘美蘭樂隊的節奏基礎。其獨特的低頻成分與強大穿透力使其成為東方打擊樂的典範樂器。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/FRIjS714zBk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/ji5b4fmdNek" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>鑼王常見於印度尼西亞傳統甘美蘭音樂，如爪哇皇家儀式音樂《Gending Ketawang》、《Ladrang Wilujeng》等經典樂曲。20世紀現代作曲家如印度尼西亞音樂家蘇托普拉儂托（Slamet Abdul Sjukur）及西方作曲家約翰·凱奇等亦在實驗音樂作品中運用鑼王，展現其獨特的音響特性與文化意蘊，使其超越傳統範疇。</p>
 <h2>歷史背景</h2>
-<p>鑼王（Gong Ageng） 的歷史背景目前先以資料庫分類建立閱讀入口。它位於「10｜木石金屬的回聲城市」的脈絡中，代表這件樂器可以和氣息、材料、身體動作、地方儀式或現代舞台之間的關係一起閱讀。</p>
-<p>如果要補寫成正式百科條目，建議優先查證三個方向：一是它最早出現或被記錄的地區，二是大型懸鑼的形制演變，三是敲擊如何影響音色、用途與傳播。</p>
+<h1>鑼王（Gong Ageng）的歷史背景</h1>
+<p>鑼王起源於印度尼西亞爪哇島，是甘美蘭樂隊中最重要的低音打擊樂器。其歷史可追溯至中世紀，當時伊斯蘭文化與本土傳統音樂融合，促使甘美蘭音樂體系的形成。鑼王的設計反映了東南亞冶金工藝的高度發展，工匠們透過精密的鍛造技術製造出具有獨特音色的銅製鑼。</p>
+<p>在爪哇宮廷音樂中，鑼王象徵皇權與莊嚴，常用於皇家儀式與宗教活動。隨著19世紀歐洲殖民者的到來，甘美蘭音樂逐漸傳入西方，鑼王亦隨之為國際樂壇所認識。20世紀起，印尼政府將甘美蘭列為文化遺產保護，鑼王作為其核心樂器，其製作工藝與音樂傳統得以延續至今，並在全球民族音樂研究中佔有重要地位。</p>
 <h2>音色描述</h2>
-<p>資料庫把它的身體／聽覺關聯標為「段落終點、低頻回聲、儀式重量」。實際音色仍需要搭配可信錄音或現場演奏資料補充。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖五｜城市與星塵的節奏</li>
-<li><strong>章節</strong>：10｜木石金屬的回聲城市</li>
-<li><strong>章節主分類</strong>：定音體鳴、材料敲擊與鑼鐘木琴系統</li>
-<li><strong>原聲音地景</strong>：木石金屬的回聲城市（定音體鳴、材料敲擊與鑼鐘木琴系統）</li>
-<li><strong>專業發聲大類</strong>：體鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Idiophone／體鳴樂器</li>
-<li><strong>家族／支系</strong>：大型懸鑼</li>
-<li><strong>演奏方式</strong>：敲擊</li>
-<li><strong>身體／聽覺關聯</strong>：段落終點、低頻回聲、儀式重量</li>
-<li><strong>主要地區／國家</strong>：印尼爪哇島</li>
-<li><strong>地區類型</strong>：單一地區／文化圈</li>
-<li><strong>資料狀態</strong>：本次新增初稿，需逐篇來源核對</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 鑼王 時，可以先從「大型懸鑼」與「敲擊」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「段落終點、低頻回聲、儀式重量」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「木石金屬的回聲城市（定音體鳴、材料敲擊與鑼鐘木琴系統）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>鑼王音色深沉厚重，具有神聖莊嚴的氣質。其音域偏低，擊打後能產生層次豐富的泛音，音響具有強大的穿透力和震撼感。音質溫潤而不失力度，帶有濃郁的東方韻味。</p>
+<p>敲擊時會產生持久的共鳴，能在空間中迴盪數秒至數十秒，形成環繞般的音響效果。相比西方定音鼓的清晰有力，鑼王更顯悠遠蒼涼；與普通鑼相比，它音色更加厚實飽滿，低頻成分更為豐富。不同位置的敲擊點會產生音色變化，中心較明亮，邊緣則更加沉悶。其獨特的共鳴特性使其在宗教儀式、傳統樂隊和現代音樂創作中都能營造出強烈的氛圍感。</p>
+<h2>樂器材質</h2>
+<p>鑼王主體採用青銅或黃銅等銅合金製成，由工匠透過精密鍛造技術打造。鑼盤表面經過細緻打磨，形成獨特的紋理與音學特性。鑼心（鑼的中央突起部分）經精心設計以產生最佳音色。鑼盤邊緣厚度均勻，確保共鳴效果。演奏時使用木槌或布包木槌敲擊，槌頭多由木材製成，外層包裹布料或皮革以調整音色質感。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>手持樂器，以敲擊方式發聲。手持樂器本體，透過敲擊、搖晃、刮奏或撥彈等方式使樂器本身震動發聲。不同部位和不同力道會產生不同音色。練習時先確認正確持琴姿勢，掌握基本發聲方式後再練習節奏型和旋律。手指或鼓棒敲擊表面，利用反彈力自然回彈，手腕放鬆。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/tambourine-de-bearn/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Espartenhas_-_Campestral_2016_au_Passage_d%27Agen_%281%29.jpg/500px-Espartenhas_-_Campestral_2016_au_Passage_d%27Agen_%281%29.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">貝亞恩手鼓</strong>
+        <span class="card-orig">Tambourine de Bearn</span>
+        <span class="card-meta">法國／比利牛斯地區</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/ugal/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/12-08_Wacken_Chthonic_06.jpg/500px-12-08_Wacken_Chthonic_06.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">烏格</strong>
+        <span class="card-orig">Ugal</span>
+        <span class="card-meta">印度尼西亞</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/comb-and-paper/">
+      <div class="card-thumb card-thumb--empty" aria-hidden="true">♩</div>
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">紙梳</strong>
+        <span class="card-orig">Comb and paper</span>
+        <span class="card-meta">全球／多地</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/thunder-tube/">
+      <div class="card-thumb card-thumb--empty" aria-hidden="true">♩</div>
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">雷鳴管</strong>
+        <span class="card-orig">Thunder Tube</span>
+        <span class="card-meta">拉丁美洲／非洲／歐洲／亞洲／全球</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

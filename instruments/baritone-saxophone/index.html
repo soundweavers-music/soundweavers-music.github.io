@@ -4,64 +4,133 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>上低音薩克斯｜世界樂器百科</title>
+  <meta name="description" content="上低音薩克斯風，常簡稱為「上低音薩」，是薩克斯風樂器家族的一員，體型比次中音薩克斯風大（音域更低），但比低音薩克斯風小（音域更高）。它是常見使用中音域最低的薩克斯風——低音、倍低音和超低音薩克斯風相對較少見。與所有薩克斯風一樣，它是單簧片樂器。它常見於音樂會樂團、室內樂、軍樂隊、大樂隊和爵士小樂隊中。它也可見於其他樂團">
+<meta property="og:title" content="上低音薩克斯｜世界樂器百科">
+<meta property="og:description" content="上低音薩克斯風，常簡稱為「上低音薩」，是薩克斯風樂器家族的一員，體型比次中音薩克斯風大（音域更低），但比低音薩克斯風小（音域更高）。它是常見使用中音域最低的薩克斯風——低音、倍低音和超低音薩克斯風相對較少見。與所有薩克斯風一樣，它是單簧片樂器。它常見於音樂會樂團、室內樂、軍樂隊、大樂隊和爵士小樂隊中。它也可見於其他樂團">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Baritone_Saxophone_Amati.png/500px-Baritone_Saxophone_Amati.png">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>上低音薩克斯</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">管樂器</p>
               <h1>上低音薩克斯</h1>
-              <p class="lead">Baritone saxophone</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>管樂器</dd></div><div><dt>國家/地區</dt><dd>待考</dd></div><div><dt>年代</dt><dd>古代</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://en.wikipedia.org/wiki/Baritone_saxophone" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Baritone_saxophone</a></p>
+              <p class="original-name">Baritone saxophone</p>
+              <p class="soundscape-tag">簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）</p>
+              <p class="badge-row"><span class="badge badge-hot">熱門</span></p>
             </div>
-            <img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Baritone_Saxophone_Amati.png/960px-Baritone_Saxophone_Amati.png" alt="上低音薩克斯">
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Baritone_Saxophone_Amati.png/500px-Baritone_Saxophone_Amati.png" alt="上低音薩克斯" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>上低音薩克斯</h1>
-<p>上低音薩克斯（原名：Baritone saxophone）是一種管樂器。主要靠氣流與管體、簧片或吹口產生聲音，音色會受吹奏方式與管身構造影響。</p>
-<p>若從年代脈絡看，這項樂器可先放在「古代」中理解。</p>
-<p>英文資料中特別提到它的使用或演奏情境，因此理解這項樂器時，不只要看外形，也要看它在樂曲、儀式或合奏中的角色。</p>
-<p>近現代的演出環境也影響了它的使用方式，尤其在錄音、舞台擴音或電子聲響中更容易出現新的變化。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Baritone_saxophone</p>
-</li>
-<li>
-<p>Wikidata ID：Q808218</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>管樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>歐洲／比利時</dd></div><div class="meta-item"><dt>年代</dt><dd>古代</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>气鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>降B大調</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>A1–F#5（約4個半8度）</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>4 气鳴樂器</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>管樂器類</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>吹奏</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>口腔、舌頭、簧片震動、鼻音</dd></div><div class="meta-item"><dt>地區類型</dt><dd>單一地區／文化圈</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>上低音薩克斯風，常簡稱為「上低音薩」，是薩克斯風樂器家族的一員，體型比次中音薩克斯風大（音域更低），但比低音薩克斯風小（音域更高）。它是常見使用中音域最低的薩克斯風——低音、倍低音和超低音薩克斯風相對較少見。與所有薩克斯風一樣，它是單簧片樂器。它常見於音樂會樂團、室內樂、軍樂隊、大樂隊和爵士小樂隊中。它也可見於其他樂團形式，如搖滾樂隊和行進樂隊。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/XBWyE1v8--I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/iwJhDOX0M6c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>上低音薩克斯的代表作品包括：美國作曲家葛羅菲《大峽谷組曲》（1931年）中的低音聲部；法國作曲家德里優斯《爵士樂組曲》（1930年代）中的獨奏樂章；美國爵士樂手蓋瑞·穆利根《背景音樂》（1950年代）展現其作為低音襯底的重要角色；以及當代作曲家保羅·哈里斯《薩克斯風協奏曲》中對上低音薩克斯獨奏性能的深入探索。</p>
 <h2>歷史背景</h2>
-<p>上低音薩克斯（Baritone saxophone）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>年代線索暫時指向「古代」，可作為閱讀時的時間定位。</p>
-<p>作為管樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。 「古代」可作為初步年代標籤，但實際流傳時間仍應以專門資料校正。</p>
-<p>管樂器的發展常和吹口、簧片、管身長度與開孔方式有關。隨著材料與製作工藝變化，音準、音域和音量都可能逐漸穩定，進而進入宮廷、宗教、軍樂或現代樂團。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://en.wikipedia.org/wiki/Baritone_saxophone</p>
+<p>上低音薩克斯於1846年由比利時樂器製造商阿道夫·薩克斯創製，為14種薩克斯家族樂器之一。薩克斯認為這些樂器能在木管樂器與銅管樂器之間提供有用的音色連接。該樂器家族分為兩組，各有7種薩克斯，從高音到低音薩克斯。儘管設計中包含F調上低音薩克斯，但已知不存在此類樂器。由於在軍樂隊中的受歡迎程度，B調與E調薩克斯系列更為成功。</p>
+<p>所有薩克斯原本都採用低B音設計，但低B機制在1887年獲得專利，到1910年已成為大多數薩克斯（包括上低音薩克斯）的標準配置。從1930年代至1950年代，製造商嘗試延伸喇叭口以添加低A音鍵。最簡單的方法是在喇叭口和彎管間添加圓柱形段以提供額外長度和音孔。然而這些樂器通常在最低音符處存在音準問題，演奏者普遍認為其音色較差。</p>
 <h2>音色描述</h2>
-<p>音色由氣流、管體、簧片或唇振控制，常具有延展性強的旋律線條。</p></article>
+<p>上低音薩克斯風音色渾厚深沉，帶有溫潤的金屬質感，既不如中音薩克斯明亮刺激，亦不若低音薩克斯厚重沉悶。其音域介於次中音與低音薩克斯之間，低音區特別飽滿有力，中音區溫暖柔和，高音區則顯得略微暗沉。樂器共鳴方式獨特，整體音響具有穿透力，能在樂隊中清晰凸顯低音聲部。與長號相比，上低音薩克斯音色更圓潤柔軟；與大提琴相比，則多了金屬的現代感。在爵士樂隊中，其厚實的低音襯底功能不可或缺，常為整個樂隊音響提供堅實的基礎。</p>
+<h2>樂器材質</h2>
+<p>上低音薩克斯主體採用黃銅合金鑄造，提供溫暖的音色基礎。音嘴由硬橡膠或木料（通常為黑檀木）製成。簧片採用蘆葦製作，具有適當的彈性。內部音孔墊圈多為軟皮革或合成皮革材料。鍵機系統採用銀色或金色電鍍處理的黃銅，確保耐久性與靈活度。整體設計兼顧音響品質與耐用性。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>站立或坐直，薩克斯風掛在胸前的吊帶上。吹口含入嘴中，下唇包住下齒。左手在上方，右手在下方。薩克斯風的單簧片設計類似單簧管。練習長音和泛音是進階技巧。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/animal-horn/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Shofar-16-Zachi-Evenor.jpg/500px-Shofar-16-Zachi-Evenor.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">管樂器</span>
+        <strong class="card-title">動物號角</strong>
+        <span class="card-orig">Animal Horn</span>
+        <span class="card-meta">全球／中東／歐洲／亞洲／高山與宗教文化圈</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/guanzi/">
+      <div class="card-thumb card-thumb--empty" aria-hidden="true">♩</div>
+      <div class="card-body">
+        <span class="card-cat">管樂器</span>
+        <strong class="card-title">管子</strong>
+        <span class="card-orig">Guanzi</span>
+        <span class="card-meta">亞洲／歐洲／中東／全球</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/komabue/">
+      <div class="card-thumb card-thumb--empty" aria-hidden="true">♩</div>
+      <div class="card-body">
+        <span class="card-cat">管樂器</span>
+        <strong class="card-title">高麗笛</strong>
+        <span class="card-orig">Komabue</span>
+        <span class="card-meta">日本</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/huaca-instrument/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/2016-01_Ocarina_front.jpg/500px-2016-01_Ocarina_front.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">管樂器</span>
+        <strong class="card-title">陶笛</strong>
+        <span class="card-orig">Huaca (instrument)</span>
+        <span class="card-meta">義大利</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

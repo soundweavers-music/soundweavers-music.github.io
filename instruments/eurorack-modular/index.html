@@ -4,67 +4,132 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>歐系模組合成器｜世界樂器百科</title>
+  <meta name="description" content="歐系模組合成器是一種模組化電子樂器，由獨立的功能模組（如振盪器、濾波器、包絡線等）透過補丁線自由組合而成。其外型為機架式設計，採用3U標準，模組排列緊湊。用途廣泛，適合實驗電子音樂、工業音樂、環境音樂創作。特色在於高度可定製性，能產生從冷硬金屬感到溫潤類比溫度的豐富音色，具無限可塑性，是現代電子音樂創作的重要工具。">
+<meta property="og:title" content="歐系模組合成器｜世界樂器百科">
+<meta property="og:description" content="歐系模組合成器是一種模組化電子樂器，由獨立的功能模組（如振盪器、濾波器、包絡線等）透過補丁線自由組合而成。其外型為機架式設計，採用3U標準，模組排列緊湊。用途廣泛，適合實驗電子音樂、工業音樂、環境音樂創作。特色在於高度可定製性，能產生從冷硬金屬感到溫潤類比溫度的豐富音色，具無限可塑性，是現代電子音樂創作的重要工具。">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Eurorack_Modular_Synthesizer.jpg/500px-Eurorack_Modular_Synthesizer.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>歐系模組合成器</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">鍵盤樂器</p>
               <h1>歐系模組合成器</h1>
-              <p class="lead">Eurorack Modular</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>鍵盤樂器</dd></div><div><dt>國家/地區</dt><dd>全球／現代</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div><div><dt>旅圖</dt><dd>旅圖六｜按鍵打開房間，眾聲走向廣場</dd></div><div><dt>章節</dt><dd>12｜按鍵打開的機械房間</dd></div><div><dt>發聲分類</dt><dd>複合／電鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Electrophone／電鳴與複合鍵盤</dd></div><div><dt>家族/支系</dt><dd>模組合成器系統</dd></div><div><dt>演奏方式</dt><dd>接線／旋鈕／序列</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：待補</p>
+              <p class="original-name">Eurorack Modular</p>
+              <p class="soundscape-tag">按鍵打開的機械房間（鍵盤介面、風箱、電子與取樣）</p>
+              <p class="badge-row"></p>
             </div>
-            
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Eurorack_Modular_Synthesizer.jpg/500px-Eurorack_Modular_Synthesizer.jpg" alt="歐系模組合成器" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<p>歐系模組合成器（Eurorack Modular） 是收錄在《隔壁家的世界聲音旅圖》資料庫中的鍵盤樂器。目前資料庫將它歸在「複合／電鳴」脈絡下，主要可從模組合成器系統、接線／旋鈕／序列與聲音地景來認識。</p>
-<p>初步地區標註為「全球／現代」。這個欄位仍屬企劃初稿，後續可依博物館、百科條目、民族音樂學資料或演奏者資料逐篇核對。</p>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>鍵盤樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>全球／現代</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>複合／電鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>全調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>約6至8個8度（可達極低至極高頻率）</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>Electrophone／電鳴與複合鍵盤</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>模組合成器系統</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>接線／旋鈕／序列</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>聲音實驗、電壓路線、可變音場</dd></div><div class="meta-item"><dt>地區類型</dt><dd>跨文化／現代</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>歐系模組合成器是一種模組化電子樂器，由獨立的功能模組（如振盪器、濾波器、包絡線等）透過補丁線自由組合而成。其外型為機架式設計，採用3U標準，模組排列緊湊。用途廣泛，適合實驗電子音樂、工業音樂、環境音樂創作。特色在於高度可定製性，能產生從冷硬金屬感到溫潤類比溫度的豐富音色，具無限可塑性，是現代電子音樂創作的重要工具。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/g_Gue_MZ-Dk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/8_0kZkfOiek" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>Ryoji Ikeda的《Datamatics》系列（2006年起）結合視覺與聲音的極簡主義作品；Merzbow早期實驗噪音作品大量使用模組合成器；Alva Noto（Olaf Bender）的《Unitxt》（2011）展現精密控制的聲音設計；Suzanne Ciani的《Buchla Concerts 1975》則展示類比合成器的早期探索。</p>
 <h2>歷史背景</h2>
-<p>歐系模組合成器（Eurorack Modular） 的歷史背景目前先以資料庫分類建立閱讀入口。它位於「12｜按鍵打開的機械房間」的脈絡中，代表這件樂器可以和氣息、材料、身體動作、地方儀式或現代舞台之間的關係一起閱讀。</p>
-<p>如果要補寫成正式百科條目，建議優先查證三個方向：一是它最早出現或被記錄的地區，二是模組合成器系統的形制演變，三是接線／旋鈕／序列如何影響音色、用途與傳播。</p>
+<p>歐系模組合成器起源於1990年代後期的歐洲，由德國電子音樂愛好者Dieter Doepfer於1996年推出Doepfer A-100系統而開創。該系統基於經典的Moog和ARP合成器設計理念，但採用更小巧、模組化的結構，使用3U機架標準和5mm的CV/Gate控制電壓規格。隨著開源設計理念的傳播，眾多製造商加入此生態系統，推動其迅速發展。2000年代初期，歐系模組合成器逐漸在實驗電子音樂圈獲得關注，特別是在IDM、工業和噪音音樂社群中流行。進入2010年代，DIY精神與網路社群的推動，使其從小眾工具演變為主流音樂製作選擇，吸引音樂製作人、藝術家和教育機構廣泛採用。</p>
 <h2>音色描述</h2>
-<p>資料庫把它的身體／聽覺關聯標為「聲音實驗、電壓路線、可變音場」。實際音色仍需要搭配可信錄音或現場演奏資料補充。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖六｜按鍵打開房間，眾聲走向廣場</li>
-<li><strong>章節</strong>：12｜按鍵打開的機械房間</li>
-<li><strong>章節主分類</strong>：鍵盤介面、風箱、電子與取樣</li>
-<li><strong>原聲音地景</strong>：按鍵打開的機械房間（鍵盤介面、風箱、電子與取樣）</li>
-<li><strong>專業發聲大類</strong>：複合／電鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Electrophone／電鳴與複合鍵盤</li>
-<li><strong>家族／支系</strong>：模組合成器系統</li>
-<li><strong>演奏方式</strong>：接線／旋鈕／序列</li>
-<li><strong>身體／聽覺關聯</strong>：聲音實驗、電壓路線、可變音場</li>
-<li><strong>主要地區／國家</strong>：全球／現代</li>
-<li><strong>地區類型</strong>：跨文化／現代</li>
-<li><strong>資料狀態</strong>：本次新增初稿，需逐篇來源核對</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 歐系模組合成器 時，可以先從「模組合成器系統」與「接線／旋鈕／序列」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「聲音實驗、電壓路線、可變音場」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「按鍵打開的機械房間（鍵盤介面、風箱、電子與取樣）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>歐系模組合成器以其豐富多變的音色聞名。通過振盪器、濾波器、包絡線等模組的自由組合，可產生從明亮刺激到深沉厚重的各式音質。其音色具有強烈的電子特徵，常帶有冷硬的金屬感或溫潤的類比溫度。音域寬廣，可覆蓋極低到極高的頻率範圍。共鳴方式主要透過電路反饋與模組交互作用產生，能創造出有機流動的動態變化。相比傳統樂器的固定音色，模組合成器具有無限可塑性；與鋼琴相比更具電子冷感，與小提琴相比缺乏有機溫暖感，卻能創造兩者難以達到的複雜且前衛的聲響質地，成為實驗電子音樂的理想工具。</p>
+<h2>樂器材質</h2>
+<p>機架採用鋁合金或鋼鐵製造，提供結構穩定性。模組面板多為鋁製或阻燃塑料，印刷控制標識。內部電路使用銅製PCB（印刷電路板）與各類電子元件。旋鈕與滑桿採用塑料或金屬製造。補丁線為屏蔽音頻線，內芯銅製，外包絕緣塑料或橡膠。插孔使用鍍金黃銅，確保良好接觸與耐久性。部分高級模組採用木製外殼或面板裝飾。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/glockenspiel/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Glockenspiel-malletech.jpg/500px-Glockenspiel-malletech.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">鐘琴</strong>
+        <span class="card-orig">Glockenspiel</span>
+        <span class="card-meta">歐洲／德國</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/tuntina/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Ektara_2.jpg/500px-Ektara_2.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">一弦琴</strong>
+        <span class="card-orig">Tuntina</span>
+        <span class="card-meta">亞洲／歐洲／全球</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/seaboard/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/20131205_Istanbul_321_cropped.jpg/500px-20131205_Istanbul_321_cropped.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">羅利海岸鍵盤</strong>
+        <span class="card-orig">Seaboard</span>
+        <span class="card-meta">英國／全球</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/kacapi/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Kacapi-suling-full.jpg/500px-Kacapi-suling-full.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">卡恰皮琴</strong>
+        <span class="card-orig">Kacapi</span>
+        <span class="card-meta">亞洲／歐洲／全球</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

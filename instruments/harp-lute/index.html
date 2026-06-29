@@ -4,63 +4,132 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>魯特豎琴｜世界樂器百科</title>
+  <meta name="description" content="魯特豎琴（或稱指彈豎琴）是一種結合豎琴和魯特琴特點的樂器，用來擴展後者的音域。它由愛德華·萊特於1795年發明（儘管耶羅尼穆斯·博斯於約1500年創作的《人間樂園》中曾出現過早期形式）。">
+<meta property="og:title" content="魯特豎琴｜世界樂器百科">
+<meta property="og:description" content="魯特豎琴（或稱指彈豎琴）是一種結合豎琴和魯特琴特點的樂器，用來擴展後者的音域。它由愛德華·萊特於1795年發明（儘管耶羅尼穆斯·博斯於約1500年創作的《人間樂園》中曾出現過早期形式）。">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Kitty_Stephens%2C_later_Countess_of_Essex_%281794-1882%29_by_George_Henry_Harlow.jpg/500px-Kitty_Stephens%2C_later_Countess_of_Essex_%281794-1882%29_by_George_Henry_Harlow.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
-              <p class="eyebrow">打擊樂器</p>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>魯特豎琴</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
+              <p class="eyebrow">弦樂器</p>
               <h1>魯特豎琴</h1>
-              <p class="lead">Harp lute</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>打擊樂器</dd></div><div><dt>國家/地區</dt><dd>待考</dd></div><div><dt>年代</dt><dd>18 世紀</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://en.wikipedia.org/wiki/Harp_lute" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Harp_lute</a></p>
+              <p class="original-name">Harp lute</p>
+              <p class="soundscape-tag">開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）</p>
+              <p class="badge-row"><span class="badge badge-hot">熱門</span></p>
             </div>
-            <img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Kitty_Stephens%2C_later_Countess_of_Essex_%281794-1882%29_by_George_Henry_Harlow.jpg/960px-Kitty_Stephens%2C_later_Countess_of_Essex_%281794-1882%29_by_George_Henry_Harlow.jpg" alt="魯特豎琴">
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Kitty_Stephens%2C_later_Countess_of_Essex_%281794-1882%29_by_George_Henry_Harlow.jpg/500px-Kitty_Stephens%2C_later_Countess_of_Essex_%281794-1882%29_by_George_Henry_Harlow.jpg" alt="魯特豎琴" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>魯特豎琴</h1>
-<p>魯特豎琴（原名：Harp lute）是一種打擊樂器。通常透過敲擊、搖動、摩擦或刮奏產生聲音，常負責節奏與音色層次。</p>
-<p>若從年代脈絡看，這項樂器可先放在「18 世紀」中理解。</p>
-<p>目前中文資料較少，因此本條目先依英文維基與 Wikidata 的可查資料整理。後續可再補充 Harp lute 的製作方式、代表曲目與地方流派。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Harp_lute</p>
-</li>
-<li>
-<p>Wikidata ID：Q3623687</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>弦樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>歐洲（英國）</dd></div><div class="meta-item"><dt>年代</dt><dd>18 世紀</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>弦鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>全調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>約3個八度</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>3 弦鳴樂器</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>弦樂器類</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>撥弦／擦弦／擊弦</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>循環、河流感、開放弦、吟唱</dd></div><div class="meta-item"><dt>地區類型</dt><dd>單一地區／文化圈</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>魯特豎琴（或稱指彈豎琴）是一種結合豎琴和魯特琴特點的樂器，用來擴展後者的音域。它由愛德華·萊特於1795年發明（儘管耶羅尼穆斯·博斯於約1500年創作的《人間樂園》中曾出現過早期形式）。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/g-qnBRZnk5w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/WjdWVNRVO1I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>魯特豎琴作為18世紀末的創新樂器，在古典音樂中的代表作品較為有限。英國作曲家為適應該樂器的特性創作了室內樂作品，其中包括為魯特豎琴與弦樂組合編寫的奏鳴曲。19世紀初期，隨著鋼琴的興盛，為魯特豎琴創作的作品逐漸減少，但其在浪漫時期仍偶見於貴族音樂會的演奏曲目中，多為改編自豎琴或魯特琴的經典作品。</p>
 <h2>歷史背景</h2>
-<p>魯特豎琴（Harp lute）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>年代線索暫時指向「18 世紀」，可作為閱讀時的時間定位。</p>
-<p>作為打擊樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。 「18 世紀」可作為初步年代標籤，但實際流傳時間仍應以專門資料校正。</p>
-<p>打擊樂器通常和節奏、信號、祭儀、舞蹈或群體活動關係密切。它們的歷史不一定只寫在樂譜裡，也常出現在節慶、宗教、軍事或地方生活的脈絡中。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://en.wikipedia.org/wiki/Harp_lute</p>
+<p>魯特豎琴起源於歐洲，是魯特琴與豎琴相結合的創新樂器。雖然早在15世紀末，耶羅尼穆斯·博斯的名畫《人間樂園》中已出現其原始形態，但真正的現代魯特豎琴由英國發明家愛德華·萊特於1795年正式發明。該樂器旨在擴展傳統魯特琴有限的音域，結合了魯特琴的指彈特性與豎琴的豐富音色。魯特豎琴採用半豎琴的弦設計，融合了兩種樂器的優勢，在18世紀末至19世紀初的歐洲古典音樂圈獲得關注。儘管後來逐漸為鋼琴所取代，但魯特豎琴仍在早期浪漫主義音樂中佔有一席之地，代表了當時樂器創新的精神。</p>
 <h2>音色描述</h2>
-<p>音色多由材質本體振動決定，常呈現清晰、短促或具有明顯泛音的聲響。</p></article>
+<p>魯特豎琴音色明亮溫潤，兼具豎琴的清脆與魯特琴的溫和特質。其音域寬廣，可涵蓋多個八度音程，使其具有豐富的表現力。樂器採用撥弦發聲，透過共鳴箱的共鳴產生柔和而富有層次感的音響。高音區明快透亮，低音區則較為醇厚深沉。相比傳統豎琴，魯特豎琴音色較為內斂溫雅；相較魯特琴，其音量更飽滿，共鳴更持久。弦與共鳴箱的相互作用產生自然衰減的音響特徵，使其在古典室內樂中呈現出既優雅又富有親密感的音色風格。</p>
+<h2>樂器材質</h2>
+<p>魯特豎琴的琴身主要採用雲杉或鮑魚木製作的共鳴箱，提供溫暖的音響特性。琴頸和支架多由楓木或橡木製成，確保結構穩定性。琴弦採用羊腸弦或金屬弦（古代弦樂器多用羊腸弦），低音弦常纏繞細金屬線以增加張力與音量。琴橋則使用硬木製作，高音部可能配備象牙或骨製的琴柱，其他部位則以各類硬木飾面增強外觀與耐用性。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>將樂器以正確姿勢持於手中。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/3rd-bridge/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Home_swinger.jpg/500px-Home_swinger.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">第三琴橋</strong>
+        <span class="card-orig">3rd bridge</span>
+        <span class="card-meta">美洲／北美</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/baroque-guitar/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Guitar_MET_DP232758.jpg/500px-Guitar_MET_DP232758.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">巴洛克吉他</strong>
+        <span class="card-orig">Baroque guitar</span>
+        <span class="card-meta">西班牙／伊比利亞半島</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/finland/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_Finland.svg/500px-Flag_of_Finland.svg.png" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">芬蘭</strong>
+        <span class="card-orig">Finland</span>
+        <span class="card-meta">北歐／斯堪的納維亞地區</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/rebab/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Rebab-Tiga_tali_%28cropped%29.png" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">熱巴普</strong>
+        <span class="card-orig">Rebab</span>
+        <span class="card-meta">亞洲／歐洲／中東／全球</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

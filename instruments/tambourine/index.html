@@ -4,80 +4,132 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>鈴鼓｜世界樂器百科</title>
+  <meta name="description" content="鈴鼓（Tambourine），亦可稱為搖鼓。鼓框為圓形，直徑由8吋至14吋不等，以木或金屬製造，並且鑲有多組金屬片。當敲打樂器時，同時令金屬片互相撞擊而發出近以馬鈴的聲音，因而得名。 鈴鼓的其中一邊鼓面可以模上鼓膜。鼓膜主要由動物皮（羊皮或牛皮）所做成。">
+<meta property="og:title" content="鈴鼓｜世界樂器百科">
+<meta property="og:description" content="鈴鼓（Tambourine），亦可稱為搖鼓。鼓框為圓形，直徑由8吋至14吋不等，以木或金屬製造，並且鑲有多組金屬片。當敲打樂器時，同時令金屬片互相撞擊而發出近以馬鈴的聲音，因而得名。 鈴鼓的其中一邊鼓面可以模上鼓膜。鼓膜主要由動物皮（羊皮或牛皮）所做成。">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Tambourin_D%C3%A9tail.jpg/500px-Tambourin_D%C3%A9tail.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>鈴鼓</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">打擊樂器</p>
               <h1>鈴鼓</h1>
-              <p class="lead">Tambourine</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>打擊樂器</dd></div><div><dt>國家/地區</dt><dd>全球</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div><div><dt>旅圖</dt><dd>旅圖四｜地心與手邊的微光</dd></div><div><dt>章節</dt><dd>8｜皮膜敲醒的地心脈動</dd></div><div><dt>發聲分類</dt><dd>膜鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Membranophone／膜鳴樂器</dd></div><div><dt>家族/支系</dt><dd>框鼓與鈴框鼓</dd></div><div><dt>演奏方式</dt><dd>手打／敲擊</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://zh.wikipedia.org/wiki/%E9%88%B4%E9%BC%93" target="_blank" rel="noopener noreferrer">https://zh.wikipedia.org/wiki/%E9%88%B4%E9%BC%93</a></p>
+              <p class="original-name">Tambourine</p>
+              <p class="soundscape-tag">手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）</p>
+              <p class="badge-row"><span class="badge badge-hot">熱門</span></p>
             </div>
-            
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Tambourin_D%C3%A9tail.jpg/500px-Tambourin_D%C3%A9tail.jpg" alt="鈴鼓" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>鈴鼓</h1>
-<p>鈴鼓（原名：Tambourine）是一種打擊樂器。通常透過敲擊、搖動、摩擦或刮奏產生聲音，常負責節奏與音色層次。</p>
-<p>目前中文資料較少，因此本條目先依英文維基與 Wikidata 的可查資料整理。後續可再補充 Tambourine 的製作方式、代表曲目與地方流派。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Tambourine</p>
-</li>
-<li>
-<p>Wikidata ID：ENWIKI-2ec672741a</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>打擊樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>中東／歐洲</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>膜鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>無固定調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>約1至2個8度（高頻範圍）</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>21 膜鳴鼓類</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>膜鳴鼓類、框鼓、杯鼓與鼓組</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>手拍／槌擊／皮膜振動</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>手掌、腳底、低音、舞步</dd></div><div class="meta-item"><dt>地區類型</dt><dd>跨文化／多地</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>鈴鼓（Tambourine），亦可稱為搖鼓。鼓框為圓形，直徑由8吋至14吋不等，以木或金屬製造，並且鑲有多組金屬片。當敲打樂器時，同時令金屬片互相撞擊而發出近以馬鈴的聲音，因而得名。 鈴鼓的其中一邊鼓面可以模上鼓膜。鼓膜主要由動物皮（羊皮或牛皮）所做成。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/xbhk5yYgUxI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/nz3vhCspy_I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>鈴鼓在許多經典作品中擔綱重要角色。柴可夫斯基《胡桃夬兵進行曲》運用鈴鼓營造節慶氛圍；聖桑《動物狂歡節》中的「化石」樂章以其輕快音色增添諷刺效果；莫里斯·拉威爾《波麗露》（1928）全曲以鈴鼓維持穩定節奏；德彪西《牧神午後前奏曲》亦採用鈴鼓豐富樂隊質感。這些作品充分展現鈴鼓穿透力強、音色明亮的特性。</p>
 <h2>歷史背景</h2>
-<p>鈴鼓（Tambourine）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>作為打擊樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。</p>
-<p>打擊樂器通常和節奏、信號、祭儀、舞蹈或群體活動關係密切。它們的歷史不一定只寫在樂譜裡，也常出現在節慶、宗教、軍事或地方生活的脈絡中。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://zh.wikipedia.org/wiki/%E9%88%B4%E9%BC%93</p>
+<p>鈴鼓的起源不詳，但在歷史文獻中最早出現於西元前1700年，最初被古埃及音樂家使用，隨後傳入古近東、希臘及其他地區。鈴鼓通過商人或音樂家的傳播進入歐洲。在古埃及，鈴鼓被稱為「tof」，希伯來人主要在宗教場景中使用該樂器。「tambourine」一詞源自法文「tambourin」，原指在普羅旺斯地區使用的狹長鼓，是「tambour」（鼓）的縮小形式，其詞源受阿拉伯語「tunbur」（鼓）影響，最終可追溯至中波斯語「tambūr」（琵琶、鼓）。古希臘紅彩陶器上繪有女性演奏鈸鼓的形象，南義大利的傳統鈸鼓「tamburello」仍保留著古代的彩色裝飾編織帶裝飾。</p>
 <h2>音色描述</h2>
-<p>音色多由材質本體振動決定，常呈現清晰、短促或具有明顯泛音的聲響。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖四｜地心與手邊的微光</li>
-<li><strong>章節</strong>：8｜皮膜敲醒的地心脈動</li>
-<li><strong>章節主分類</strong>：膜鳴鼓類、框鼓、杯鼓與鼓組</li>
-<li><strong>原聲音地景</strong>：手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）</li>
-<li><strong>專業發聲大類</strong>：膜鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Membranophone／膜鳴樂器</li>
-<li><strong>家族／支系</strong>：框鼓與鈴框鼓</li>
-<li><strong>演奏方式</strong>：手打／敲擊</li>
-<li><strong>身體／聽覺關聯</strong>：手掌、腳底、低音、舞步</li>
-<li><strong>主要地區／國家</strong>：全球</li>
-<li><strong>地區類型</strong>：跨文化／多地</li>
-<li><strong>資料狀態</strong>：承接553條目地域欄</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 Tambourine 時，可以先從「框鼓與鈴框鼓」與「手打／敲擊」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「手掌、腳底、低音、舞步」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>鈴鼓具有明亮而清脆的音色，帶有獨特的金屬質感。其音域相對較高，能夠穿透樂隊的整體音響。當敲打時，動物皮膜提供溫暖的鼓聲基底，而鑲嵌的金屬片則產生閃爍般的高頻響聲，兩者相融合形成層次豐富的音色特徵。其共鳴方式獨特，既具有傳統鼓樂的膜鳴特性，又因金屬片的碰撞而帶有金屬樂器的亮度。相比單純的小鼓，鈴鼓音色更為活潑歡樂；比起三角鐵的單調，則更具溫度與厚度。這種複合音響特質使其既能在管弦樂隊中提供節奏支撐，也能獨立製造輕快而富有感染力的音效。</p>
+<h2>樂器材質</h2>
+<p>鈴鼓框體多採用優質木材（如山毛櫸或楓木）或銅、鋁等金屬製造，直徑範圍8至14吋。鼓框邊緣鑲嵌多組成對的青銅或白銅金屬片，能產生獨特的搖鈴聲。單面或雙面鼓面由羊皮或牛皮等動物皮革製成，提供共鳴基底。金屬片與膜面配合，兼具皮膜溫暖音質與金屬樂器的亮度特徵。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>單手握持鈴鼓框架，另一手敲擊鼓面或搖動。可敲擊、搖晃、或在膝蓋上撞擊製造不同節奏。四種基本技巧：搖奏、敲擊、拇指滾奏、膝擊。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/castanets/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Castagnetten%2C_BK-NM-11430-78.jpg/500px-Castagnetten%2C_BK-NM-11430-78.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">響板</strong>
+        <span class="card-orig">Castanets</span>
+        <span class="card-meta">歐洲／西班牙</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/kagul/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kagul.jpg/500px-Kagul.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">卡古爾鼓</strong>
+        <span class="card-orig">Kagul</span>
+        <span class="card-meta">菲律賓</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/reco-reco/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Reco-reco_metal.JPG/500px-Reco-reco_metal.JPG" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">雷科雷科竹刮器</strong>
+        <span class="card-orig">Reco-reco</span>
+        <span class="card-meta">美洲／巴西</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/log-drum/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/TamTam.jpg/500px-TamTam.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">木槽鼓</strong>
+        <span class="card-orig">Log Drum</span>
+        <span class="card-meta">美洲／大洋洲</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

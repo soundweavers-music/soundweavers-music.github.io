@@ -4,67 +4,132 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>豎琴｜世界樂器百科</title>
+  <meta name="description" content="豎琴，是一種大型撥弦樂器，是現代管弦樂團的重要樂器之一。豎琴可作獨奏、重奏和合奏，屬多功能的複音樂器。其流傳地區甚廣，在歐洲、美洲和亞洲等地區亦有出現豎琴類的樂器。豎琴在古埃及稱為貝尼琴，古希臘和古羅馬稱為里拉琴，中國又有一種稱之為箜篌的豎琴。">
+<meta property="og:title" content="豎琴｜世界樂器百科">
+<meta property="og:description" content="豎琴，是一種大型撥弦樂器，是現代管弦樂團的重要樂器之一。豎琴可作獨奏、重奏和合奏，屬多功能的複音樂器。其流傳地區甚廣，在歐洲、美洲和亞洲等地區亦有出現豎琴類的樂器。豎琴在古埃及稱為貝尼琴，古希臘和古羅馬稱為里拉琴，中國又有一種稱之為箜篌的豎琴。">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/4/4e/Harp.png">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
-              <p class="eyebrow">打擊樂器</p>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>豎琴</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
+              <p class="eyebrow">弦樂器</p>
               <h1>豎琴</h1>
-              <p class="lead">Harp</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>打擊樂器</dd></div><div><dt>國家/地區</dt><dd>伊朗</dd></div><div><dt>年代</dt><dd>古代</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://zh.wikipedia.org/wiki/%E8%B1%8E%E7%90%B4" target="_blank" rel="noopener noreferrer">https://zh.wikipedia.org/wiki/%E8%B1%8E%E7%90%B4</a></p>
+              <p class="original-name">Harp</p>
+              <p class="soundscape-tag">開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）</p>
+              <p class="badge-row"><span class="badge badge-hot">熱門</span></p>
             </div>
-            <img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Harp.png" alt="豎琴">
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Harp.png" alt="豎琴" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>豎琴</h1>
-<p>豎琴（原名：Harp）是一種打擊樂器。通常透過敲擊、搖動、摩擦或刮奏產生聲音，常負責節奏與音色層次。</p>
-<p>目前可查資料顯示，它與伊朗的音樂文化或演奏傳統有關。</p>
-<p>若從年代脈絡看，這項樂器可先放在「古代」中理解。</p>
-<p>英文資料中特別提到它的使用或演奏情境，因此理解這項樂器時，不只要看外形，也要看它在樂曲、儀式或合奏中的角色。</p>
-<p>材料與構造是它音色的重要線索；不同材質會讓聲音呈現更明亮、厚實或有共鳴感的差異。</p>
-<p>它常被放在傳統或民俗音樂脈絡中討論，代表它不只是發聲工具，也承載地方文化記憶。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Harp</p>
-</li>
-<li>
-<p>Wikidata ID：Q47369</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>弦樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>全球／多地</dd></div><div class="meta-item"><dt>年代</dt><dd>古代</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>弦鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>全調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>約五個八度以上</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>3 弦鳴樂器</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>弦樂器類</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>撥弦／擦弦／擊弦</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>循環、河流感、開放弦、吟唱</dd></div><div class="meta-item"><dt>地區類型</dt><dd>單一地區／文化圈</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>豎琴，是一種大型撥弦樂器，是現代管弦樂團的重要樂器之一。豎琴可作獨奏、重奏和合奏，屬多功能的複音樂器。其流傳地區甚廣，在歐洲、美洲和亞洲等地區亦有出現豎琴類的樂器。豎琴在古埃及稱為貝尼琴，古希臘和古羅馬稱為里拉琴，中國又有一種稱之為箜篌的豎琴。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/dCvEgqePl84" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/iCbQuajzShs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>喬治·比才的《卡門》序曲運用豎琴營造戲劇氛圍；德彪西的《月光》展現其柔和意境；莫里斯·拉威爾的《波萊羅》利用豎琴的清脆音色增添色彩；李姆斯基-柯薩可夫的《舍赫拉莎德》中豎琴部分展示其如珍珠般明亮的音響效果。</p>
 <h2>歷史背景</h2>
-<p>豎琴（Harp）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>它可以先放在伊朗相關音樂文化中理解，後續可再補代表樂派、演奏場合與製作工藝。</p>
-<p>年代線索暫時指向「古代」，可作為閱讀時的時間定位。</p>
-<p>作為打擊樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。 若要深入研究，可優先查找伊朗的博物館、民族音樂學資料或地方樂器圖錄。 「古代」可作為初步年代標籤，但實際流傳時間仍應以專門資料校正。</p>
-<p>打擊樂器通常和節奏、信號、祭儀、舞蹈或群體活動關係密切。它們的歷史不一定只寫在樂譜裡，也常出現在節慶、宗教、軍事或地方生活的脈絡中。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://zh.wikipedia.org/wiki/%E8%B1%8E%E7%90%B4</p>
+<p>豎琴自古以來就在亞洲、非洲和歐洲為人所知，其歷史可追溯至少到公元前3000年。現存最古老的弦樂器是伊朗霍加米什出土的豎琴。最早的豎琴和七弦琴出現在蘇美爾，約在公元前2500年，烏爾的埋藏坑和皇家陵墓中出土了多件豎琴。古埃及尼羅河流域墓室的壁畫中可見最古老的無前柱豎琴，時代約在公元前三千年中期，這些壁畫描繪的弧形豎琴形似獵人之弓，缺少現代豎琴的支柱。豎琴在中世紀和文藝復興時期在歐洲廣受歡迎，隨著新技術發展而演變出多種變體，並傳入歐洲殖民地，在拉丁美洲特別流行。雖然豎琴家族的某些古代成員在近東和南亞消亡，但其早期後代仍在緬甸和非洲部分地區演奏，而在歐洲和亞洲已絕跡的變體則被現代民間音樂家使用。</p>
 <h2>音色描述</h2>
-<p>音色多由材質本體振動決定，常呈現清晰、短促或具有明顯泛音的聲響。</p></article>
+<p>豎琴擁有晶瑩剔透、如珍珠般明亮的音色，具有高度的穿透力。其音域寬廣，從低音區的沉穩溫潤到高音區的清脆靈動，能夠跨越五個八度以上。琴弦與共鳴箱的相互作用產生豐富的泛音，使音色兼具溫暖與清透的特質。相較於鋼琴的厚重與力度感，豎琴的音響更顯柔和優雅；而與小提琴相比，豎琴缺乏弓弦樂器的歌唱性，卻擁有更多的音響層次與閃爍感。其獨特的撥弦共鳴方式賦予樂器如流水般的流暢感，在樂團中常用於營造夢幻、寧靜的意境，是製造特殊音響效果的理想選擇。</p>
+<h2>樂器材質</h2>
+<p>豎琴的琴身多採用優質木材製造，共鳴箱通常以雲杉或楓木等軟硬木結合而成；琴頸和柱子採用堅硬的木材如橡木或楓木；琴弦採用羊腸製成的弦或現代尼龍弦，根據音區選擇不同粗細；踏板機制含有金屬零件以控制制音，部分高級豎琴在琴身內部使用金屬支架增強結構穩定性。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>坐姿，豎琴靠在右肩，雙手在琴弦兩側。用拇指和食指指腹撥弦，手掌不觸弦。七個踏板控制所有音階升降。基本技巧有琶音、滑奏（Glissando）等。練習左右手獨立協調。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/rubab-instrument/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Rubab.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">熱瓦甫</strong>
+        <span class="card-orig">Rubab (instrument)</span>
+        <span class="card-meta">中東／歐亞／東亞／美洲／全球</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/fundamental-frequency/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Harmonic_partials_on_strings.svg/500px-Harmonic_partials_on_strings.svg.png" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">基本頻率</strong>
+        <span class="card-orig">Fundamental frequency</span>
+        <span class="card-meta">全球</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/saraswati-veena/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Saraswati_veena_%28Indian_long-necked_lute%29.png/500px-Saraswati_veena_%28Indian_long-necked_lute%29.png" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">薩拉斯瓦蒂維那琴</strong>
+        <span class="card-orig">Saraswati Veena</span>
+        <span class="card-meta">中東／歐洲／亞洲／美洲</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/tenor-guitar/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/d/df/Item-tenor-guitar-503_lg.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">次中音吉他</strong>
+        <span class="card-orig">Tenor guitar</span>
+        <span class="card-meta">美國</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

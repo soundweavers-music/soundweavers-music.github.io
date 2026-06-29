@@ -4,61 +4,132 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>拱頂吉他｜世界樂器百科</title>
+  <meta name="description" content="拱頂吉他是由歐維爾·吉布森於1902年創立的吉布森公司所開發的弦樂器。其最大特色是採用小提琴風格的拱形琴頸與琴身，由單一木料雕刻而成，中間厚度大於邊緣。琴體側板同樣由單一木塊雕刻，內部缺少支架與接合處，以最大化樂器的音量與音質。拱頂吉他以溫潤醇厚的音色著稱，廣泛應用於爵士樂、布魯斯與鄉村音樂演奏，音色介於民謠吉他的清亮">
+<meta property="og:title" content="拱頂吉他｜世界樂器百科">
+<meta property="og:description" content="拱頂吉他是由歐維爾·吉布森於1902年創立的吉布森公司所開發的弦樂器。其最大特色是採用小提琴風格的拱形琴頸與琴身，由單一木料雕刻而成，中間厚度大於邊緣。琴體側板同樣由單一木塊雕刻，內部缺少支架與接合處，以最大化樂器的音量與音質。拱頂吉他以溫潤醇厚的音色著稱，廣泛應用於爵士樂、布魯斯與鄉村音樂演奏，音色介於民謠吉他的清亮">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/c/c8/Super400ces.png">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>拱頂吉他</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">弦樂器</p>
               <h1>拱頂吉他</h1>
-              <p class="lead">Archtop guitar</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>弦樂器</dd></div><div><dt>國家/地區</dt><dd>待考</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://en.wikipedia.org/wiki/Archtop_guitar" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Archtop_guitar</a></p>
+              <p class="original-name">Archtop guitar</p>
+              <p class="soundscape-tag">旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）</p>
+              <p class="badge-row"><span class="badge badge-hot">熱門</span></p>
             </div>
-            <img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/c/c8/Super400ces.png" alt="拱頂吉他">
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/c/c8/Super400ces.png" alt="拱頂吉他" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>拱頂吉他</h1>
-<p>拱頂吉他（原名：Archtop guitar）是一種弦樂器。主要靠弦的振動發聲，常透過撥、拉、彈、擊等方式演奏。</p>
-<p>材料與構造是它音色的重要線索；不同材質會讓聲音呈現更明亮、厚實或有共鳴感的差異。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Archtop_guitar</p>
-</li>
-<li>
-<p>Wikidata ID：Q636313</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>弦樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>歐洲／意大利</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>弦鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>全調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>E1–E5（約4個8度）</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>3 弦鳴樂器</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>弦樂器類</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>撥弦／擦弦／擊弦</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>懷抱、手指、腳步、敘事</dd></div><div class="meta-item"><dt>地區類型</dt><dd>地區／文化圈</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>拱頂吉他是由歐維爾·吉布森於1902年創立的吉布森公司所開發的弦樂器。其最大特色是採用小提琴風格的拱形琴頸與琴身，由單一木料雕刻而成，中間厚度大於邊緣。琴體側板同樣由單一木塊雕刻，內部缺少支架與接合處，以最大化樂器的音量與音質。拱頂吉他以溫潤醇厚的音色著稱，廣泛應用於爵士樂、布魯斯與鄉村音樂演奏，音色介於民謠吉他的清亮與爵士吉他的溫暖之間。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/Yg4WJ09PtI4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/T-3BbsDuTnA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>拱頂吉他在爵士樂中備受推崇。喬·帕斯（Joe Pass）創作的《Virtuoso》系列（1973年起）展現了其深厚的爵士表現力。吉他大師威斯·蒙哥馬利（Wes Montgomery）在其經典專輯《The Incredible Jazz Guitar of Wes Montgomery》（1960年）中運用拱頂吉他詮釋爵士標準曲目。此外，爵士吉他先驅迪克·麥克唐納德的作品亦充分展現此樂器的獨特音色。</p>
 <h2>歷史背景</h2>
-<p>拱頂吉他（Archtop guitar）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>作為弦樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。</p>
-<p>弦樂器的歷史常和弦材、共鳴箱、調音方式與演奏技法的演變有關。從民間伴奏到獨奏舞台，許多弦樂器都會因音量需求、音域擴張或樂曲風格改變而改良形制。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://en.wikipedia.org/wiki/Archtop_guitar</p>
+<p>拱頂吉他通常被認為是由歐維爾·吉布森所創，他的革新設計導致了1902年吉布森mandolin-吉他製造公司的成立。吉布森1898年的mandolin專利同樣適用於吉他，旨在增強樂器的「音量和音質」。該樂器的特色包括小提琴風格的拱形琴頸和琴身，各自由單一木料雕刻而成，中間厚度大於邊緣；琴體側板由單一木塊雕刻成形；以及內部缺少「支架、接合處、木塊或橋接器」，這些若使用會減損樂器的音量。然而，吉布森並非首位將小提琴設計原理應用於吉他者。製琴師A·H·梅里爾於1896年獲得專利，設計了造型現代的樂器「屬吉他和mandolin類型」，具蛋形琴體和漸變式凸形琴底及琴面。該樂器配備金屬弦錐和淚滴形音孔，與1930年代的拱頂吉他高度相似。詹姆斯·S·巴克於1893年獲得第508,858號專利，其吉他設計包括拱形琴面等特色。</p>
 <h2>音色描述</h2>
-<p>音色由弦長、張力、共鳴箱與演奏法影響，可呈現撥奏、擦奏或擊弦的不同質感。</p></article>
+<p>拱頂吉他以其溫潤、醇厚的音色著稱，音質飽滿而富有穿透力。其拱形的面板與背板設計賦予樂器獨特的共鳴特性，使聲音具有明亮的中高頻與深沉的低頻基礎，介於民謠吉他的清亮與爵士吉他的溫暖之間。相比平面吉他的開放共鳴，拱頂吉他的聲音更加聚焦與集中，帶有溫潤的質感。其音域寬廣，從低沉的貝司音色到清晰的高音都能表現得當。獨特的弧形結構使其在爵士、布魯斯與鄉村音樂中表現出色，音色既具有小提琴的歌唱性，又保留了吉他的指彈特性，成為許多專業音樂家的首選樂器。</p>
+<h2>樂器材質</h2>
+<p>拱頂吉他面板與背板通常採用雲杉（Spruce）或玫瑰木（Rosewood）等高級木材雕刻而成。琴頸多由桃花心木（Mahogany）製作，指板則採用烏木（Ebony）或玫瑰木。琴身側板與背板使用相同或相近的木材以保持音色一致性。機械弦鈕採用鍍金或鍍鎳金屬，弦為鋼製。有些琴款會在琴頭與琴身邊框裝飾貝殼或骨質嵌板，增添美感與耐用性。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>將樂器以正確姿勢持於手中。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/vietnam/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/500px-Flag_of_Vietnam.svg.png" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">越南</strong>
+        <span class="card-orig">Vietnam</span>
+        <span class="card-meta">東南亞／越南</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/berimbau/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/History_of_Inventions_USNM_41_Angola_Muscial_Bow.jpg/500px-History_of_Inventions_USNM_41_Angola_Muscial_Bow.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">伯林巴烏琴</strong>
+        <span class="card-orig">Berimbau</span>
+        <span class="card-meta">非洲（安哥拉）／巴西</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/semi-acoustic-guitar/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Gibson_ES-150.png/500px-Gibson_ES-150.png" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">半空心吉他</strong>
+        <span class="card-orig">Semi-acoustic guitar</span>
+        <span class="card-meta">美國</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/pedal-harp/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Range_harp.svg/500px-Range_harp.svg.png" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">踏板豎琴</strong>
+        <span class="card-orig">Pedal harp</span>
+        <span class="card-meta">非洲／歐洲／亞洲／美洲</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

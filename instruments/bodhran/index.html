@@ -4,84 +4,132 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>愛爾蘭手鼓｜世界樂器百科</title>
+  <meta name="description" content="愛爾蘭手鼓（bodhrán，愛爾蘭語：[ˈbˠəuɾˠaːnˠ]；複數形式為bodhráin）是用於愛爾蘭音樂的框式鼓，直徑範圍從25到65厘米（10-26英寸），其中大多數鼓的直徑為35-45厘米（14-18英寸）。鼓的側邊深度為9-20厘米（3½-8英寸）。山羊皮被釘在一側（有時使用合成鼓皮或其他動物皮革）。另一側">
+<meta property="og:title" content="愛爾蘭手鼓｜世界樂器百科">
+<meta property="og:description" content="愛爾蘭手鼓（bodhrán，愛爾蘭語：[ˈbˠəuɾˠaːnˠ]；複數形式為bodhráin）是用於愛爾蘭音樂的框式鼓，直徑範圍從25到65厘米（10-26英寸），其中大多數鼓的直徑為35-45厘米（14-18英寸）。鼓的側邊深度為9-20厘米（3½-8英寸）。山羊皮被釘在一側（有時使用合成鼓皮或其他動物皮革）。另一側">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/1/1a/Bodhran.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>愛爾蘭手鼓</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">打擊樂器</p>
               <h1>愛爾蘭手鼓</h1>
-              <p class="lead">Bodhrán</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>打擊樂器</dd></div><div><dt>國家/地區</dt><dd>全球</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div><div><dt>旅圖</dt><dd>旅圖四｜地心與手邊的微光</dd></div><div><dt>章節</dt><dd>8｜皮膜敲醒的地心脈動</dd></div><div><dt>發聲分類</dt><dd>膜鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Membranophone／膜鳴樂器</dd></div><div><dt>家族/支系</dt><dd>框鼓與鈴框鼓</dd></div><div><dt>演奏方式</dt><dd>手打／敲擊</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://en.wikipedia.org/wiki/Bodhr%C3%A1n" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Bodhr%C3%A1n</a></p>
+              <p class="original-name">Bodhrán</p>
+              <p class="soundscape-tag">手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）</p>
+              <p class="badge-row"></p>
             </div>
-            <img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Bodhran.jpg" alt="愛爾蘭手鼓">
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Bodhran.jpg" alt="愛爾蘭手鼓" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>愛爾蘭手鼓</h1>
-<p>愛爾蘭手鼓（原名：Bodhrán）是一種打擊樂器。通常透過敲擊、搖動、摩擦或刮奏產生聲音，常負責節奏與音色層次。</p>
-<p>目前可查資料顯示，它與愛爾蘭的音樂文化或演奏傳統有關。</p>
-<p>英文資料中特別提到它的使用或演奏情境，因此理解這項樂器時，不只要看外形，也要看它在樂曲、儀式或合奏中的角色。</p>
-<p>材料與構造是它音色的重要線索；不同材質會讓聲音呈現更明亮、厚實或有共鳴感的差異。</p>
-<p>近現代的演出環境也影響了它的使用方式，尤其在錄音、舞台擴音或電子聲響中更容易出現新的變化。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Bodhr%C3%A1n</p>
-</li>
-<li>
-<p>Wikidata ID：Q244976</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>打擊樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>歐洲／愛爾蘭</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>膜鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>無固定調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>約2至3個8度（通過手部位置調整可產生從低沉到高亢的音調）</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>21 膜鳴鼓類</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>膜鳴鼓類、框鼓、杯鼓與鼓組</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>手拍／槌擊／皮膜振動</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>手掌、腳底、低音、舞步</dd></div><div class="meta-item"><dt>地區類型</dt><dd>跨文化／多地</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>愛爾蘭手鼓（bodhrán，愛爾蘭語：[ˈbˠəuɾˠaːnˠ]；複數形式為bodhráin）是用於愛爾蘭音樂的框式鼓，直徑範圍從25到65厘米（10-26英寸），其中大多數鼓的直徑為35-45厘米（14-18英寸）。鼓的側邊深度為9-20厘米（3½-8英寸）。山羊皮被釘在一側（有時使用合成鼓皮或其他動物皮革）。另一側是開放式的，可以將一隻手放在鼓皮內側以控制音高和音色。框架內部可能有一到兩根橫樑，有時是可移動的，但這在現代樂器上越來越罕見。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/lpZAhMEjrxw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/5uqcoeLR7TA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>愛爾蘭手鼓在傳統凱爾特音樂中廣泛應用，代表性作品包括《Planxty》系列組曲，由盧卡·奧弗林等作曲家創作於20世紀70年代，充分展現手鼓的節奏多樣性。著名樂隊The Chieftains多張專輯中均採用手鼓伴奏，如《The Chieftains 2》（1973年），將其融入愛爾蘭民族音樂。現代作曲家肖恩·奧里亞達創作的作品亦大量使用此樂器，突出其音樂表現力。</p>
 <h2>歷史背景</h2>
-<p>愛爾蘭手鼓（Bodhrán）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>它可以先放在愛爾蘭相關音樂文化中理解，後續可再補代表樂派、演奏場合與製作工藝。</p>
-<p>作為打擊樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。 若要深入研究，可優先查找愛爾蘭的博物館、民族音樂學資料或地方樂器圖錄。</p>
-<p>打擊樂器通常和節奏、信號、祭儀、舞蹈或群體活動關係密切。它們的歷史不一定只寫在樂譜裡，也常出現在節慶、宗教、軍事或地方生活的脈絡中。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://en.wikipedia.org/wiki/Bodhr%C3%A1n</p>
+<p>作曲家肖恩·奧里亞達聲稱愛爾蘭手鼓是古代凱爾特人的本土鼓樂，手鼓製造者帕瑞克·麥克尼拉也持相同觀點。據推測，它最初可能用於穀物揚選或羊毛染色，其音樂歷史可追溯至基督教傳入前，起源於愛爾蘭西南部。根據權威觀察者，愛爾蘭手鼓源自「篩網」，這是一種用於篩選收穫穀物中粗糙物質的農業工具。許多手鼓由篩網或穀物篩改製而成，製造者只需移除鐵絲並保留框架。作為「篩網鼓」，該樂器在英國多塞特郡和威爾特郡也有記載。英格蘭農業手工工具書籍描繪了來自萊斯特郡、直徑二十八英吋的山毛櫸框篩網。然而，愛爾蘭音樂雜誌前編輯羅南·諾蘭認為，愛爾蘭手鼓在十九世紀中期由鈴鼓演變而來，可從一九二○年代的愛爾蘭音樂錄音中聽聞。一八三三年丹尼爾·麥克利塞創作的油畫描繪了萬聖節的場景。</p>
 <h2>音色描述</h2>
-<p>音色由鼓膜張力、腔體形狀與敲擊方式影響，常具有明確起音與節奏性。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖四｜地心與手邊的微光</li>
-<li><strong>章節</strong>：8｜皮膜敲醒的地心脈動</li>
-<li><strong>章節主分類</strong>：膜鳴鼓類、框鼓、杯鼓與鼓組</li>
-<li><strong>原聲音地景</strong>：手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）</li>
-<li><strong>專業發聲大類</strong>：膜鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Membranophone／膜鳴樂器</li>
-<li><strong>家族／支系</strong>：框鼓與鈴框鼓</li>
-<li><strong>演奏方式</strong>：手打／敲擊</li>
-<li><strong>身體／聽覺關聯</strong>：手掌、腳底、低音、舞步</li>
-<li><strong>主要地區／國家</strong>：全球</li>
-<li><strong>地區類型</strong>：跨文化／多地</li>
-<li><strong>資料狀態</strong>：承接553條目地域欄</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 Bodhrán 時，可以先從「框鼓與鈴框鼓」與「手打／敲擊」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「手掌、腳底、低音、舞步」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>愛爾蘭手鼓的音色深邃而富有穿透力，兼具溫潤的共鳴與明亮的節奏感。其音域寬廣，通過內側手部位置的調整可產生從低沉的鼓聲到高亢的音調，音高變化靈活多樣。山羊皮膜與開放式框架結構形成獨特的共鳴方式，使聲音具有良好的投射力和持續性。相比爵士鼓的清脆突兀，手鼓音色更顯溫厚；與非洲鼓鼓聲相比，則更具層次感和控制性。其音響特徵介於打擊樂的乾脆與弦樂的延續之間，既能提供堅實的節奏基礎，又能透過技巧變化產生豐富的音色色彩，是愛爾蘭傳統音樂中不可或缺的靈魂樂器。</p>
+<h2>樂器材質</h2>
+<p>愛爾蘭手鼓框架通常採用橡木、灰木等硬木製成，直徑25至65厘米。鼓面使用天然山羊皮釘於框架一側，現代亦使用合成鼓皮或其他動物皮革。另一側保持開放式設計。框架內部可能配置一至兩根木質或金屬橫樑，用於加強結構並影響音色共鳴。許多手鼓由傳統農業工具「穀物篩」改製而成，保留原有的木製框架結構。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>坐或站，將鼓置於身前合適位置。將鼓穩定放置於地面或夾於雙腿之間。用手掌或鼓棒敲擊鼓面中心或邊緣，不同位置產生不同音色。敲擊力度影響音量大小。以敲擊方式發聲，注意敲擊位置和力度控制。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/ranat-ek-lek/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Ranat_ek_lek.jpg/500px-Ranat_ek_lek.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">泰國金屬琴</strong>
+        <span class="card-orig">Ranat ek lek</span>
+        <span class="card-meta">東南亞／東亞／非洲／歐洲／全球</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/darbuka/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Goblet_drum_01.jpg/500px-Goblet_drum_01.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">達布卡鼓</strong>
+        <span class="card-orig">Darbuka</span>
+        <span class="card-meta">中東</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/ocean-drum/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Geophonephoto.jpg/500px-Geophonephoto.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">海浪鼓</strong>
+        <span class="card-orig">Ocean Drum</span>
+        <span class="card-meta">拉丁美洲／非洲／歐洲／亞洲／全球</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/tagutok/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kagul.jpg/500px-Kagul.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">Tagutok（暫譯）</strong>
+        <span class="card-orig">Tagutok</span>
+        <span class="card-meta">菲律賓</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

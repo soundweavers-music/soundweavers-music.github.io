@@ -4,79 +4,133 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
-  <title>颤音琴｜世界樂器百科</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <title>顫音琴｜世界樂器百科</title>
+  <meta name="description" content="顫音琴（英語：Vibraphone，又可稱為Vibraharp，簡稱Vibes），是打擊樂器的一種。琴鍵以金屬製造，通常為黃銅或鋁合金所造。琴鍵下設有共鳴管，最特別之處乃在各支管頂上加裝了能轉動的扇葉，並且連接至琴身旁的馬達。當供電及開啟開關掣後，扇葉便能轉動，導致共鳴管不斷被開合。當敲打琴鍵時，聲波震動空氣傳入共鳴管">
+<meta property="og:title" content="顫音琴｜世界樂器百科">
+<meta property="og:description" content="顫音琴（英語：Vibraphone，又可稱為Vibraharp，簡稱Vibes），是打擊樂器的一種。琴鍵以金屬製造，通常為黃銅或鋁合金所造。琴鍵下設有共鳴管，最特別之處乃在各支管頂上加裝了能轉動的扇葉，並且連接至琴身旁的馬達。當供電及開啟開關掣後，扇葉便能轉動，導致共鳴管不斷被開合。當敲打琴鍵時，聲波震動空氣傳入共鳴管">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/5/5c/Vibes_joelocke_koeln2007.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
-              <p class="eyebrow">打擊樂器</p>
-              <h1>颤音琴</h1>
-              <p class="lead">Vibraphone</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>打擊樂器</dd></div><div><dt>國家/地區</dt><dd>全球</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div><div><dt>旅圖</dt><dd>旅圖五｜城市與星塵的節奏</dd></div><div><dt>章節</dt><dd>10｜木石金屬的回聲城市</dd></div><div><dt>發聲分類</dt><dd>體鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Idiophone／體鳴樂器</dd></div><div><dt>家族/支系</dt><dd>金屬片與鍵板</dd></div><div><dt>演奏方式</dt><dd>槌擊</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://zh.wikipedia.org/wiki/%E9%A2%A4%E9%9F%B3%E7%90%B4" target="_blank" rel="noopener noreferrer">https://zh.wikipedia.org/wiki/%E9%A2%A4%E9%9F%B3%E7%90%B4</a></p>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>顫音琴</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
+              <p class="eyebrow">鍵盤樂器</p>
+              <h1>顫音琴</h1>
+              <p class="original-name">Vibraphone</p>
+              <p class="soundscape-tag">木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）</p>
+              <p class="badge-row"><span class="badge badge-hot">熱門</span></p>
             </div>
-            <img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Vibes_joelocke_koeln2007.jpg" alt="颤音琴">
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Vibes_joelocke_koeln2007.jpg" alt="顫音琴" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>颤音琴</h1>
-<p>颤音琴是一種打擊樂器。顫音琴（英語：Vibraphone，又可稱為Vibraharp，簡稱Vibes），是打擊樂器的一種。琴鍵以金屬製造，通常為黃銅或鋁合金所造。琴鍵下設有共鳴管，最特別之處乃在各支管頂上加裝了能轉動的扇葉，並且連接至琴身旁的馬達。當供電及開啟開關掣後，扇葉便能轉動，導致共鳴管不斷被開合。當敲打琴鍵時，聲波震動空氣傳入共鳴管，扇頁打開時便能擴音及增加迴音，但扇頁關閉時音波則被阻擋，能進入共鳴管的音波大幅減少，所產生的共鳴和迴音也較少。最終便產生出忽響忽暗的音色，「顫音琴」的名稱就是這樣而來。另外，顫音琴一般都會附有踏板，令琴鍵不會被止音墊止震，而令發音延長。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>中文維基百科：https://zh.wikipedia.org/wiki/%E9%A2%A4%E9%9F%B3%E7%90%B4</p>
-</li>
-<li>
-<p>原始來源：https://en.wikipedia.org/wiki/Vibraphone</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>鍵盤樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>美洲／北美</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>體鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>全調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>F到F（約3個八度）</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>11/12 定音體鳴／鑼鐘木琴石琴系統</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>定音體鳴、材料敲擊與鑼鐘木琴系統</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>敲擊／搖奏／材料共鳴</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>材料、回聲、群體分工、音列</dd></div><div class="meta-item"><dt>地區類型</dt><dd>跨文化／多地</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>顫音琴（英語：Vibraphone，又可稱為Vibraharp，簡稱Vibes），是打擊樂器的一種。琴鍵以金屬製造，通常為黃銅或鋁合金所造。琴鍵下設有共鳴管，最特別之處乃在各支管頂上加裝了能轉動的扇葉，並且連接至琴身旁的馬達。當供電及開啟開關掣後，扇葉便能轉動，導致共鳴管不斷被開合。當敲打琴鍵時，聲波震動空氣傳入共鳴管，扇頁打開時便能擴音及增加迴音，但扇頁關閉時音波則被阻擋，能進入共鳴管的音波大幅減少，所產生的共鳴和迴音也較少。最終便產生出忽響忽暗的音色，「顫音琴」的名稱就是這樣而來。另外，顫音琴一般都會附有踏板，令琴鍵不會被止音墊止震，而令發音延長。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/IvUU8joBb1Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/lzzMHoi3r2w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>1924年，雜技表演者路易斯·弗蘭克·奇哈用顫音琴錄製了新穎錄音。在爵士樂領域，顫音琴成為重要樂器，被廣泛應用於現代音樂創作中。20世紀中期，許多爵士樂大師如米爾特·傑克遜等人創作了多部經典作品，使顫音琴在爵士樂、古典樂及當代音樂中都佔據重要地位。顫音琴獨特的顫動音色使其成為許多作曲家的首選樂器。</p>
 <h2>歷史背景</h2>
-<p>颤音琴（Vibraphone）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>作為打擊樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。</p>
-<p>打擊樂器通常和節奏、信號、祭儀、舞蹈或群體活動關係密切。它們的歷史不一定只寫在樂譜裡，也常出現在節慶、宗教、軍事或地方生活的脈絡中。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://zh.wikipedia.org/wiki/%E9%A2%A4%E9%9F%B3%E7%90%B4</p>
+<p>約1916年，李迪製造公司的樂器製造者赫曼·溫特霍夫開始在一台三個八度音程（F到F）的鋼制馬林巴琴上進行人聲效果實驗。他的原始設計試圖通過上下移動共鳴器來產生明顯的顫音效果。1921年，溫特霍夫通過改進設計，在琴鍵下方安裝馬達轉動小圓盤來達到相同效果。銷售經理喬治·H·韋將這種樂器命名為「顫音琴」，從1924年起由李迪公司推向市場。1924年，雜技表演者路易斯·弗蘭克·奇哈用顫音琴錄製了新穎錄音《阿羅哈》和《吉普賽愛情歌》，使李迪顫音琴獲得相當程度的知名度。</p>
+<p>然而，這種樂器與現在的「顫音琴」存在重大差異。李迪顫音琴沒有踏板機制，琴鍵由鋼製成而非鋁製。競爭對手J·C·迪根公司於1927年要求其首席調音師亨利·施盧特開發類似樂器。施盧特未僅複製李迪設計，而是引入了重要改進，採用鋁製琴鍵以獲得更柔和的音色，並調整琴鍵的尺寸和音調。</p>
 <h2>音色描述</h2>
-<p>音色多由材質本體振動決定，常呈現清晰、短促或具有明顯泛音的聲響。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖五｜城市與星塵的節奏</li>
-<li><strong>章節</strong>：10｜木石金屬的回聲城市</li>
-<li><strong>章節主分類</strong>：定音體鳴、材料敲擊與鑼鐘木琴系統</li>
-<li><strong>原聲音地景</strong>：木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）</li>
-<li><strong>專業發聲大類</strong>：體鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Idiophone／體鳴樂器</li>
-<li><strong>家族／支系</strong>：金屬片與鍵板</li>
-<li><strong>演奏方式</strong>：槌擊</li>
-<li><strong>身體／聽覺關聯</strong>：材料、回聲、群體分工、音列</li>
-<li><strong>主要地區／國家</strong>：全球</li>
-<li><strong>地區類型</strong>：跨文化／多地</li>
-<li><strong>資料狀態</strong>：承接553條目地域欄</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 Vibraphone 時，可以先從「金屬片與鍵板」與「槌擊」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「材料、回聲、群體分工、音列」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>顫音琴音色明亮透澈，具有獨特的波浪狀顫動感。其最顯著的音響特徵在於電動扇葉的開閉作用，使聲音呈現規律的音量起伏，宛如溫柔的呼吸感。琴鍵採用金屬材質，敲擊時能產生清脆而富有穿透力的聲響，兼具馬林巴琴的溫暖與鐵琴的明亮特質。音域跨越三個八度，覆蓋中高音範圍，共鳴管的振動賦予其豐厚的共鳴體感。相比馬林巴琴的溫潤沉厚，顫音琴更顯輕盈靈動；相較鐵琴的冷硬尖銳，其音色更具親和力。這種可控的顫音效果使其兼具現代感與爵士韻味，在室內樂和當代音樂中獨樹一幟。</p>
+<h2>樂器材質</h2>
+<p>顫音琴琴鍵由金屬製造，通常採用黃銅或鋁合金材質，具有良好的共鳴特性。琴鍵下方設置共鳴管以增強音響效果。琴身採用木質框架結構提供穩定支撐。最特殊的部件為各支共鳴管頂部安裝的轉動扇葉，由馬達驅動，實現電動顫音效果。馬達與琴身連接，通過電力驅動扇葉轉動，使共鳴管不斷開合，調節音量起伏，創造獨特的波浪狀音色。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>站於鐵琴前，雙手持棒，腳踩踏板控制延音。鐵琴有共鳴管和旋轉扇葉產生顫音。使用軟棒或中硬棒。練習踏板控制和顫音速度調整。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/clavinet/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Wurlitzer_model_112_electric_piano_1956.JPG/500px-Wurlitzer_model_112_electric_piano_1956.JPG" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">電鋼琴</strong>
+        <span class="card-orig">Clavinet</span>
+        <span class="card-meta">美洲／北美</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/carillon/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Carillon_of_PeterAndPaulCathedral_1.JPG/500px-Carillon_of_PeterAndPaulCathedral_1.JPG" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">鐘琴 (銅鐘)</strong>
+        <span class="card-orig">Carillon</span>
+        <span class="card-meta">中國</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/tremoloa/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/TremoloaEscanabaMichigan.jpg/500px-TremoloaEscanabaMichigan.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">特莫洛亞琴</strong>
+        <span class="card-orig">Tremoloa</span>
+        <span class="card-meta">亞洲／歐洲／全球</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/ondioline/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Classic50sModelOndioline-1-A6A1448-Cleaned--Sam-Valle-Retouch.jpg/500px-Classic50sModelOndioline-1-A6A1448-Cleaned--Sam-Valle-Retouch.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">昂迪歐琳琴</strong>
+        <span class="card-orig">Ondioline</span>
+        <span class="card-meta">法國</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

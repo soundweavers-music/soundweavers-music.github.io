@@ -4,61 +4,132 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
-  <title>Frame 鼓｜世界樂器百科</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <title>框架鼓｜世界樂器百科</title>
+  <meta name="description" content="框架鼓是一種鼓面寬度大於深度的鼓。它是最古老的樂器之一，也許是最早被發明的鼓。它具有單個鼓面，通常由生皮製成，但也可能使用人造材料。有些框架鼓具有機械調音裝置，而許多其他框架鼓的鼓面則是釘牢固定的。鼓面被拉伸在一個稱為鼓殼的圓形木製框架上。鼓殼傳統上由玫瑰木、橡木、梣木等材料製成。">
+<meta property="og:title" content="框架鼓｜世界樂器百科">
+<meta property="og:description" content="框架鼓是一種鼓面寬度大於深度的鼓。它是最古老的樂器之一，也許是最早被發明的鼓。它具有單個鼓面，通常由生皮製成，但也可能使用人造材料。有些框架鼓具有機械調音裝置，而許多其他框架鼓的鼓面則是釘牢固定的。鼓面被拉伸在一個稱為鼓殼的圓形木製框架上。鼓殼傳統上由玫瑰木、橡木、梣木等材料製成。">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Bebny_szama%C5%84skie.jpg/500px-Bebny_szama%C5%84skie.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>框架鼓</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">打擊樂器</p>
-              <h1>Frame 鼓</h1>
-              <p class="lead">Frame drum</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>打擊樂器</dd></div><div><dt>國家/地區</dt><dd>待考</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://en.wikipedia.org/wiki/Frame_drum" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Frame_drum</a></p>
+              <h1>框架鼓</h1>
+              <p class="original-name">Frame drum</p>
+              <p class="soundscape-tag">手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）</p>
+              <p class="badge-row"><span class="badge badge-hot">熱門</span></p>
             </div>
-            
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Bebny_szama%C5%84skie.jpg/500px-Bebny_szama%C5%84skie.jpg" alt="框架鼓" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>Frame 鼓</h1>
-<p>Frame 鼓（原名：Frame drum）是一種打擊樂器。通常透過敲擊、搖動、摩擦或刮奏產生聲音，常負責節奏與音色層次。</p>
-<p>目前中文資料較少，因此本條目先依英文維基與 Wikidata 的可查資料整理。後續可再補充 Frame drum 的製作方式、代表曲目與地方流派。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Frame_drum</p>
-</li>
-<li>
-<p>Wikidata ID：ENWIKI-b490143ff2</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>打擊樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>全球／多地</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>膜鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>無固定調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>約2個8度</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>2 膜鳴樂器</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>鼓類</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>敲擊鼓面</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>手掌、腳底、低音、舞步</dd></div><div class="meta-item"><dt>地區類型</dt><dd>地區／文化圈</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>框架鼓是一種鼓面寬度大於深度的鼓。它是最古老的樂器之一，也許是最早被發明的鼓。它具有單個鼓面，通常由生皮製成，但也可能使用人造材料。有些框架鼓具有機械調音裝置，而許多其他框架鼓的鼓面則是釘牢固定的。鼓面被拉伸在一個稱為鼓殼的圓形木製框架上。鼓殼傳統上由玫瑰木、橡木、梣木等材料製成。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/1M6QvpxbB7E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/oQ1UI6F1zGA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>框架鼓在世界民族音樂中有豐富的應用。西班牙作曲家薩拉薩蒂的《卡門幻想曲》（1883年）運用手鼓營造西班牙風情；愛爾蘭傳統音樂中，博德蘭鼓是凱爾特音樂的重要樂器；現代作曲家約翰·威廉斯在電影配樂中頻繁使用框架鼓增添民族特色；印度古典音樂傳統中，手鼓作為節奏樂器在卡塔克舞蹈音樂中扮演關鍵角色。</p>
 <h2>歷史背景</h2>
-<p>Frame 鼓（Frame drum）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>作為打擊樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。</p>
-<p>打擊樂器通常和節奏、信號、祭儀、舞蹈或群體活動關係密切。它們的歷史不一定只寫在樂譜裡，也常出現在節慶、宗教、軍事或地方生活的脈絡中。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://en.wikipedia.org/wiki/Frame_drum</p>
+<p>框架鼓起源於中東和北非地區，距今已有數千年的歷史，是人類最古老的樂器之一。在古埃及文明中，框架鼓被廣泛應用於宗教儀式和娛樂活動中。隨後，這種樂器經由絲綢之路傳入亞洲，特別是中國、日本和印度，逐漸融入各地的音樂文化。在中世紀，框架鼓傳入歐洲，並在民間音樂和舞蹈中佔據重要地位。不同文化地區根據當地需求對框架鼓進行改良，發展出眾多變體，如西班牙的手鼓、愛爾蘭的博德蘭鼓等。時至今日，框架鼓已成為世界各地民族音樂的重要組成部分，其獨特的音色與易攜帶的特點使其在現代音樂創作中仍保持旺盛的生命力。</p>
 <h2>音色描述</h2>
-<p>音色多由材質本體振動決定，常呈現清晰、短促或具有明顯泛音的聲響。</p></article>
+<p>框架鼓的音色明亮清脆，具有獨特的穿透力。其音域集中在中高頻，能夠產生清晰的打擊音，富有節奏感且易於識別。由於鼓面張力調整的靈活性，其音色可從溫潤柔和到尖銳刺激。框架鼓的共鳴方式獨特，由於缺乏深度的封閉共鳴腔體，聲音會迅速散發，產生較短的餘音。相比低音鼓的沉悶渾厚，框架鼓更加輕盈靈動；與定音鼓相比，其音質更為明快，泛音更少。框架鼓廣泛應用於世界各地民族音樂中，其親切而富有表現力的音色使其成為打擊樂器中最具親和力的樂器之一。</p>
+<h2>樂器材質</h2>
+<p>框架鼓的鼓殼傳統採用玫瑰木、橡木、梣木等優質木材製成，部分現代樂器使用桦木或其他硬木。鼓面通常由天然生皮製成，包括羊皮、山羊皮或魚皮，也可採用現代人造皮革材料。某些類型的框架鼓邊緣安裝金屬製的碟片或鈴鐺，產生特殊音效。調音機制多由金屬螺栓或張力環組成，確保鼓面張力可調。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>將樂器以正確姿勢持於手中。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/glass-marimba/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Glass_Marimba_%28from_Emil_Richards_Collection%29.jpg/500px-Glass_Marimba_%28from_Emil_Richards_Collection%29.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">玻璃馬林巴琴</strong>
+        <span class="card-orig">Glass Marimba</span>
+        <span class="card-meta">非洲／全球</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/putipu/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Pu-ti-p%C3%BA_-_Vista_de_arriba.jpg/500px-Pu-ti-p%C3%BA_-_Vista_de_arriba.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">普蒂普鼓</strong>
+        <span class="card-orig">Putipù</span>
+        <span class="card-meta">義大利南部／地中海地區</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/paiban/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/A_palace_concert.jpg/500px-A_palace_concert.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">拍板</strong>
+        <span class="card-orig">Paiban</span>
+        <span class="card-meta">中國</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/mark-tree/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Mark-twain-tree-4.jpg/500px-Mark-twain-tree-4.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">馬克樹</strong>
+        <span class="card-orig">Mark Tree</span>
+        <span class="card-meta">拉丁美洲／非洲／歐洲／亞洲／全球</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

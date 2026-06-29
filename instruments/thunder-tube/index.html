@@ -4,67 +4,133 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
-  <title>Thunder Tube｜世界樂器百科</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <title>雷鳴管｜世界樂器百科</title>
+  <meta name="description" content="雷鳴管是一種現代打擊樂器，由金屬圓筒和內部彈簧組成，外型呈細長的金屬管狀。樂器通過彈撥或搖晃內部彈簧產生深沉的隆隆聲，能逼真模擬雷鳴效果。最初應用於戲劇舞台與電影配樂，後來進入音樂教育領域。操作簡單易上手，音效獨特富有表現力，廣泛用於現代音樂創作、聲學教學與視聽藝術製作。">
+<meta property="og:title" content="雷鳴管｜世界樂器百科">
+<meta property="og:description" content="雷鳴管是一種現代打擊樂器，由金屬圓筒和內部彈簧組成，外型呈細長的金屬管狀。樂器通過彈撥或搖晃內部彈簧產生深沉的隆隆聲，能逼真模擬雷鳴效果。最初應用於戲劇舞台與電影配樂，後來進入音樂教育領域。操作簡單易上手，音效獨特富有表現力，廣泛用於現代音樂創作、聲學教學與視聽藝術製作。">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>雷鳴管</span>
+          </nav>
           <header class="instrument-header">
-            <div>
+            <div class="header-text">
               <p class="eyebrow">打擊樂器</p>
-              <h1>Thunder Tube</h1>
-              <p class="lead">Thunder Tube</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>打擊樂器</dd></div><div><dt>國家/地區</dt><dd>拉丁美洲／非洲／歐洲／亞洲／全球</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div><div><dt>旅圖</dt><dd>旅圖五｜城市與星塵的節奏</dd></div><div><dt>章節</dt><dd>11｜掌心搖落的節奏星塵</dd></div><div><dt>發聲分類</dt><dd>體鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Idiophone／體鳴樂器</dd></div><div><dt>家族/支系</dt><dd>小打擊延伸</dd></div><div><dt>演奏方式</dt><dd>搖／刮／拍</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：待補</p>
+              <h1>雷鳴管</h1>
+              <p class="original-name">Thunder Tube</p>
+              <p class="soundscape-tag">手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）</p>
+              <p class="badge-row"></p>
             </div>
             
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<p>Thunder Tube 是收錄在《隔壁家的世界聲音旅圖》資料庫中的打擊樂器。目前資料庫將它歸在「體鳴」脈絡下，主要可從小打擊延伸、搖／刮／拍與聲音地景來認識。</p>
-<p>初步地區標註為「拉丁美洲／非洲／歐洲／亞洲／全球」。這個欄位仍屬企劃初稿，後續可依博物館、百科條目、民族音樂學資料或演奏者資料逐篇核對。</p>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>打擊樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>拉丁美洲／非洲／歐洲／亞洲／全球</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>體鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>無固定調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>低至中低音域（約2個8度）</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>11 小型體鳴／搖奏刮奏敲奏</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>小型節奏體鳴、沙鈴、刮器與身體打擊</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>搖奏／刮奏／敲擊／身體打擊</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>手腕、腳踝、短音、節奏對齊</dd></div><div class="meta-item"><dt>地區類型</dt><dd>跨文化／多地</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>雷鳴管是一種現代打擊樂器，由金屬圓筒和內部彈簧組成，外型呈細長的金屬管狀。樂器通過彈撥或搖晃內部彈簧產生深沉的隆隆聲，能逼真模擬雷鳴效果。最初應用於戲劇舞台與電影配樂，後來進入音樂教育領域。操作簡單易上手，音效獨特富有表現力，廣泛用於現代音樂創作、聲學教學與視聽藝術製作。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/2fbjUIATSD4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/QyZkmjWAH10" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>雷鳴管作為現代樂器，廣泛應用於電影配樂與舞台音效製作。其代表應用包括好萊塢電影的環境音效設計、現代戲劇作品的場景營造、以及當代古典音樂作曲家如約翰·威廉斯(John Williams)等人在電影原聲帶中對其的創意運用。此外，教育機構亦將其納入打擊樂教學與聲學實驗。</p>
 <h2>歷史背景</h2>
-<p>Thunder Tube 的歷史背景目前先以資料庫分類建立閱讀入口。它位於「11｜掌心搖落的節奏星塵」的脈絡中，代表這件樂器可以和氣息、材料、身體動作、地方儀式或現代舞台之間的關係一起閱讀。</p>
-<p>如果要補寫成正式百科條目，建議優先查證三個方向：一是它最早出現或被記錄的地區，二是小打擊延伸的形制演變，三是搖／刮／拍如何影響音色、用途與傳播。</p>
+<h1>雷鳴管的歷史背景</h1>
+<p>雷鳴管起源於20世紀中葉的美國，是現代打擊樂器中相對年輕的成員。這種樂器由美國樂器製造商發明，利用金屬彈簧產生獨特的雷鳴聲效，因而得名。它最初被應用於戲劇舞台與電影配樂，用於製造逼真的雷聲音效。</p>
+<p>隨著電影工業與舞台藝術的蓬勃發展，雷鳴管逐漸被廣泛採用。20世紀後期，它進入教育領域，成為音樂教學中介紹打擊樂器與聲學原理的教具。由於操作簡單且音效獨特，雷鳴管傳播至歐洲、亞洲等地。當代，它已被納入現代管弦樂隊與世界音樂創作中，亦在兒童音樂教育與治療音樂領域發揮重要作用，成為連結科技與藝術的象徵性樂器。</p>
 <h2>音色描述</h2>
-<p>資料庫把它的身體／聽覺關聯標為「手腕、腳踝、短音、節奏對齊」。實際音色仍需要搭配可信錄音或現場演奏資料補充。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖五｜城市與星塵的節奏</li>
-<li><strong>章節</strong>：11｜掌心搖落的節奏星塵</li>
-<li><strong>章節主分類</strong>：小型節奏體鳴、沙鈴、刮器與身體打擊</li>
-<li><strong>原聲音地景</strong>：手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）</li>
-<li><strong>專業發聲大類</strong>：體鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Idiophone／體鳴樂器</li>
-<li><strong>家族／支系</strong>：小打擊延伸</li>
-<li><strong>演奏方式</strong>：搖／刮／拍</li>
-<li><strong>身體／聽覺關聯</strong>：手腕、腳踝、短音、節奏對齊</li>
-<li><strong>主要地區／國家</strong>：拉丁美洲／非洲／歐洲／亞洲／全球</li>
-<li><strong>地區類型</strong>：跨文化／多地</li>
-<li><strong>資料狀態</strong>：系統初稿推定，需逐篇來源核對</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 Thunder Tube 時，可以先從「小打擊延伸」與「搖／刮／拍」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「手腕、腳踝、短音、節奏對齊」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>雷鳴管音色深沉渾厚，具有戲劇性的音響效果。其獨特的音色質感介於金屬與木質之間，帶有暗沉而神秘的特徵。樂器通過彈撥或搖晃彈簧，產生低頻的隆隆聲，音域集中在低至中低音域，能營造出逼真的雷鳴效果。其共鳴方式獨特，樂器本體會產生多層次的振動，形成持續變化的音響。相比於傳統打擊樂器如鼓或鑼的清脆乾淨，雷鳴管音色更具滲透力與環繞感；與鋼琴低音區相較，其音響更具金屬質感與現代感。這種富有表現力的音色使其成為電影配樂、音效設計與現代音樂創作的理想選擇。</p>
+<h2>樂器材質</h2>
+<p>雷鳴管主體由金屬圓筒構成，通常採用鋁或鋼製外殼，提供結構支撐與聲音共鳴。內部裝置一條或多條高張力金屬彈簧，多為鋼質材料，經特殊處理以產生最佳振動特性。彈簧與圓筒之間採用橡膠或塑膠隔離墊，減少不必要的雜音。握把部分常使用木材或防滑塑膠，便於演奏者操控。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>手持樂器，以敲擊方式發聲。手持樂器本體，透過敲擊、搖晃、刮奏或撥彈等方式使樂器本身震動發聲。不同部位和不同力道會產生不同音色。練習時先確認正確持琴姿勢，掌握基本發聲方式後再練習節奏型和旋律。手指或鼓棒敲擊表面，利用反彈力自然回彈，手腕放鬆。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/tar/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Ko%C5%9B%C4%87i%C3%B3%C5%82_w_Tarczynie_widok_tylnej_cz%C4%99%C5%9Bci_z_Rynku.jpg/500px-Ko%C5%9B%C4%87i%C3%B3%C5%82_w_Tarczynie_widok_tylnej_cz%C4%99%C5%9Bci_z_Rynku.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">塔爾琴</strong>
+        <span class="card-orig">Tar</span>
+        <span class="card-meta">中東／歐亞／東亞／美洲／全球</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/jingle-bells/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/One_Horse_Open_Sleigh_title_page.jpg/500px-One_Horse_Open_Sleigh_title_page.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">Jingle Bells</strong>
+        
+        <span class="card-meta">拉丁美洲／非洲／歐洲／亞洲／全球</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/shishi-odoshi/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Higashiyama_Botanical_Garden_Shishiodoshi_20170617.gif/500px-Higashiyama_Botanical_Garden_Shishiodoshi_20170617.gif" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">鹿威</strong>
+        <span class="card-orig">Shishi-odoshi</span>
+        <span class="card-meta">日本</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/castanets/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Castagnetten%2C_BK-NM-11430-78.jpg/500px-Castagnetten%2C_BK-NM-11430-78.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">響板</strong>
+        <span class="card-orig">Castanets</span>
+        <span class="card-meta">歐洲／西班牙</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

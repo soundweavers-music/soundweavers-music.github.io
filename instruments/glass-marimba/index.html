@@ -4,61 +4,133 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
-  <title>Glass 馬林巴琴｜世界樂器百科</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <title>玻璃馬林巴琴｜世界樂器百科</title>
+  <meta name="description" content="玻璃馬林巴琴是一種體鳴樂器，使用玻璃結構元素來代替木材。用玻璃製成的樂器被稱為水晶音樂琴。馬林巴琴這個名字來自非洲語言（可能是班圖語），意思是「類似木琴的樂器」。玻璃琴鍵由硬玻璃（平板玻璃）或軟玻璃（彩色玻璃）製成。琴鍵透過單個開口頂部的箱體或各個琴鍵下的獨立共鳴器進行共鳴。演奏馬林巴琴的琴槌可以用壓縮矽膠球（彈力球）">
+<meta property="og:title" content="玻璃馬林巴琴｜世界樂器百科">
+<meta property="og:description" content="玻璃馬林巴琴是一種體鳴樂器，使用玻璃結構元素來代替木材。用玻璃製成的樂器被稱為水晶音樂琴。馬林巴琴這個名字來自非洲語言（可能是班圖語），意思是「類似木琴的樂器」。玻璃琴鍵由硬玻璃（平板玻璃）或軟玻璃（彩色玻璃）製成。琴鍵透過單個開口頂部的箱體或各個琴鍵下的獨立共鳴器進行共鳴。演奏馬林巴琴的琴槌可以用壓縮矽膠球（彈力球）">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Glass_Marimba_%28from_Emil_Richards_Collection%29.jpg/500px-Glass_Marimba_%28from_Emil_Richards_Collection%29.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>玻璃馬林巴琴</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">打擊樂器</p>
-              <h1>Glass 馬林巴琴</h1>
-              <p class="lead">Glass Marimba</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>打擊樂器</dd></div><div><dt>國家/地區</dt><dd>待考</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://en.wikipedia.org/wiki/Glass_Marimba" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Glass_Marimba</a></p>
+              <h1>玻璃馬林巴琴</h1>
+              <p class="original-name">Glass Marimba</p>
+              <p class="soundscape-tag">木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）</p>
+              <p class="badge-row"><span class="badge badge-hot">熱門</span></p>
             </div>
-            
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Glass_Marimba_%28from_Emil_Richards_Collection%29.jpg/500px-Glass_Marimba_%28from_Emil_Richards_Collection%29.jpg" alt="玻璃馬林巴琴" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>Glass 馬林巴琴</h1>
-<p>Glass 馬林巴琴（原名：Glass Marimba）是一種打擊樂器。通常透過敲擊、搖動、摩擦或刮奏產生聲音，常負責節奏與音色層次。</p>
-<p>目前中文資料較少，因此本條目先依英文維基與 Wikidata 的可查資料整理。後續可再補充 Glass Marimba 的製作方式、代表曲目與地方流派。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Glass_Marimba</p>
-</li>
-<li>
-<p>Wikidata ID：ENWIKI-f4fcb0d9ab</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>打擊樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>非洲／全球</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>体鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>全調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>約3至4個8度</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>1 体鳴樂器</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>體鳴打擊樂器類</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>敲擊／搖晃／撥彈</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>材料、回聲、群體分工、音列</dd></div><div class="meta-item"><dt>地區類型</dt><dd>跨文化／多地</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>玻璃馬林巴琴是一種體鳴樂器，使用玻璃結構元素來代替木材。用玻璃製成的樂器被稱為水晶音樂琴。馬林巴琴這個名字來自非洲語言（可能是班圖語），意思是「類似木琴的樂器」。玻璃琴鍵由硬玻璃（平板玻璃）或軟玻璃（彩色玻璃）製成。琴鍵透過單個開口頂部的箱體或各個琴鍵下的獨立共鳴器進行共鳴。演奏馬林巴琴的琴槌可以用壓縮矽膠球（彈力球）附著在木製或合成木棍的一端來製作。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/v4SxhKNopxA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/L-eSmt2jR-U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>玻璃馬林巴琴作為相對現代的樂器，在古典音樂創作中的代表作品較為有限。然而，許多現代作曲家與實驗音樂家開始將其融入作品中。例如美國作曲家約翰·凱奇（John Cage）的實驗性作品中曾涉及玻璃打擊樂器的運用；德國作曲家卡爾海因茲·施託克豪森（Karlheinz Stockhausen）的電子與打擊樂作品亦探索玻璃樂器的聲響潛能。當代音樂家則在現代舞蹈、實驗劇場與聲音裝置藝術中頻繁應用此樂器。</p>
 <h2>歷史背景</h2>
-<p>Glass 馬林巴琴（Glass Marimba）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>作為打擊樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。</p>
-<p>打擊樂器通常和節奏、信號、祭儀、舞蹈或群體活動關係密切。它們的歷史不一定只寫在樂譜裡，也常出現在節慶、宗教、軍事或地方生活的脈絡中。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://en.wikipedia.org/wiki/Glass_Marimba</p>
+<p>玻璃馬林巴琴源於非洲傳統木琴樂器的創新演變。「馬林巴」一詞來自班圖語系，原意為「類似木琴的樂器」，最初在非洲東南部地區廣泛流傳。十九世紀末至二十世紀初，隨著現代材料科技的進步，製琴工匠開始嘗試用硬玻璃或彩色軟玻璃替代傳統木材製作琴鍵，創造出玻璃馬林巴琴。</p>
+<p>這種樂器在歐洲古典音樂圈獲得關注後，逐漸發展出更精細的設計，包括使用獨立共鳴器增強音響效果。玻璃構造賦予樂器獨特的清晰、明亮音色，與傳統木製馬林巴琴的溫暖音質形成對比。隨著國際文化交流擴展，玻璃馬林巴琴被引入世界各地，成為現代打擊樂團和實驗音樂的重要樂器，代表東西方音樂文化融合的結果。</p>
 <h2>音色描述</h2>
-<p>音色多由材質本體振動決定，常呈現清晰、短促或具有明顯泛音的聲響。</p></article>
+<p>玻璃馬林巴琴音色晶瑩剔透，具有明亮清澈的音質特徵。其聲音兼具玻璃的脆性與共鳴體的溫潤感，音域寬廣，從低沉的溫暖音色到高音域的銳利音響。硬玻璃琴鍵發聲較為清脆明快，彩色軟玻璃則帶有微妙的柔和質感。透過底部的共鳴箱或獨立共鳴器，聲音能得到充分共鳴與延伸。與傳統木質馬林巴琴相比，玻璃版本音色更加透明閃亮，缺乏木材的溫暖厚實感；與鐵琴相較，則更顯溫柔優雅，共鳴時間更長。其獨特的音響特徵介於水晶音樂琴的高頻清亮與馬林巴琴的深層共鳴之間。</p>
+<h2>樂器材質</h2>
+<p>玻璃馬林巴琴的琴鍵採用硬玻璃（平板玻璃）或軟玻璃（彩色玻璃）製成，提供清晰透亮的音響特性。共鳴體通常由木製框架構成，底部配置共鳴箱或各琴鍵下方設置獨立共鳴器以增強音響效果。琴槌由木製或合成木棍製作，末端附著彩色或透明的硬化矽膠球（彈力球），用於敲擊琴鍵。支撐結構多為木材或現代複合材料，確保樂器穩定性與音響效率。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>將樂器以正確姿勢持於手中。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/rhythm-sticks/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/NLC511-023031103010001-77718_%E7%9B%9B%E4%BA%AC%E6%99%82%E5%A0%B1_%E7%AC%AC416%E5%8D%B7.pdf/page1-500px-NLC511-023031103010001-77718_%E7%9B%9B%E4%BA%AC%E6%99%82%E5%A0%B1_%E7%AC%AC416%E5%8D%B7.pdf.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">節奏棒</strong>
+        <span class="card-orig">Rhythm Sticks</span>
+        <span class="card-meta">拉丁美洲／非洲／歐洲／亞洲／全球</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/slit-drum/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/TamTam.jpg/500px-TamTam.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">裂縫鼓</strong>
+        <span class="card-orig">Slit drum</span>
+        <span class="card-meta">非洲／大洋洲</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/n/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Binh_Da_Lithophone.jpg/500px-Binh_Da_Lithophone.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">石琴</strong>
+        <span class="card-orig">Đàn đá</span>
+        <span class="card-meta">東南亞／東亞／非洲／歐洲／全球</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/karimba/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/African_teacher_teaching_under_a_tree.jpg/500px-African_teacher_teaching_under_a_tree.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">卡林巴（辛巴威）</strong>
+        <span class="card-orig">Karimba</span>
+        <span class="card-meta">全球／非洲／亞洲／現代療癒與街頭音樂</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

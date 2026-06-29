@@ -4,80 +4,132 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
-  <title>Metallophone（暫譯）｜世界樂器百科</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <title>鐵琴｜世界樂器百科</title>
+  <meta name="description" content="鐵琴是任何一種樂器，其發聲體是金屬製品（金屬弦除外），例如調音金屬棒、管、桿、碗或板。金屬發聲體通常通過敲擊（通常用槌棒）來產生聲音，但也可以通過摩擦、鍵盤作用或其他方式啟動。鐵琴在亞洲已被用於音樂中數千年。巴厘島和爪哇甘美蘭樂隊中使用的鐵琴有多種不同類型，包括恩德琴、剛薩琴和薩榮琴。">
+<meta property="og:title" content="鐵琴｜世界樂器百科">
+<meta property="og:description" content="鐵琴是任何一種樂器，其發聲體是金屬製品（金屬弦除外），例如調音金屬棒、管、桿、碗或板。金屬發聲體通常通過敲擊（通常用槌棒）來產生聲音，但也可以通過摩擦、鍵盤作用或其他方式啟動。鐵琴在亞洲已被用於音樂中數千年。巴厘島和爪哇甘美蘭樂隊中使用的鐵琴有多種不同類型，包括恩德琴、剛薩琴和薩榮琴。">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Traditional_indonesian_instruments.jpg/500px-Traditional_indonesian_instruments.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>鐵琴</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">打擊樂器</p>
-              <h1>Metallophone（暫譯）</h1>
-              <p class="lead">Metallophone</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>打擊樂器</dd></div><div><dt>國家/地區</dt><dd>全球</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div><div><dt>旅圖</dt><dd>旅圖五｜城市與星塵的節奏</dd></div><div><dt>章節</dt><dd>10｜木石金屬的回聲城市</dd></div><div><dt>發聲分類</dt><dd>體鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Idiophone／體鳴樂器</dd></div><div><dt>家族/支系</dt><dd>金屬片與鍵板</dd></div><div><dt>演奏方式</dt><dd>槌擊</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://en.wikipedia.org/wiki/Metallophone" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Metallophone</a></p>
+              <h1>鐵琴</h1>
+              <p class="original-name">Metallophone</p>
+              <p class="soundscape-tag">木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）</p>
+              <p class="badge-row"><span class="badge badge-cold">冷門</span></p>
             </div>
-            
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Traditional_indonesian_instruments.jpg/500px-Traditional_indonesian_instruments.jpg" alt="鐵琴" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>Metallophone（暫譯）</h1>
-<p>Metallophone（暫譯）（原名：Metallophone）是一種打擊樂器。通常透過敲擊、搖動、摩擦或刮奏產生聲音，常負責節奏與音色層次。</p>
-<p>材料與構造是它音色的重要線索；不同材質會讓聲音呈現更明亮、厚實或有共鳴感的差異。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Metallophone</p>
-</li>
-<li>
-<p>Wikidata ID：ENWIKI-18c40b07b9</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>打擊樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>亞洲／東南亞</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>體鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>無固定調性（因設計而異）</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>中高音區（約2至3個8度，因具體設計而異）</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>11/12 定音體鳴／鑼鐘木琴石琴系統</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>定音體鳴、材料敲擊與鑼鐘木琴系統</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>敲擊／搖奏／材料共鳴</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>材料、回聲、群體分工、音列</dd></div><div class="meta-item"><dt>地區類型</dt><dd>跨文化／多地</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>鐵琴是任何一種樂器，其發聲體是金屬製品（金屬弦除外），例如調音金屬棒、管、桿、碗或板。金屬發聲體通常通過敲擊（通常用槌棒）來產生聲音，但也可以通過摩擦、鍵盤作用或其他方式啟動。鐵琴在亞洲已被用於音樂中數千年。巴厘島和爪哇甘美蘭樂隊中使用的鐵琴有多種不同類型，包括恩德琴、剛薩琴和薩榮琴。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/lzzMHoi3r2w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/mPr_SvnJ_z0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>鐵琴在甘美蘭樂隊中廣泛應用，代表作品包括巴厘島傳統甘美蘭樂曲《克比亞爾》（Kbyar）和《佳亞克》（Gianak），這些樂曲通常為宗教儀式和民俗表演而作，年代可追溯至數百年前。現代作曲家亦創作融合鐵琴的當代作品，如印尼作曲家創作的現代甘美蘭音樂，將傳統鐵琴音色與現代音樂語言相結合。</p>
 <h2>歷史背景</h2>
-<p>Metallophone（暫譯）（Metallophone）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>作為打擊樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。</p>
-<p>打擊樂器通常和節奏、信號、祭儀、舞蹈或群體活動關係密切。它們的歷史不一定只寫在樂譜裡，也常出現在節慶、宗教、軍事或地方生活的脈絡中。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://en.wikipedia.org/wiki/Metallophone</p>
+<p>鐵琴源於亞洲，其歷史可追溯至數千年前。東南亞地區，尤其是印度尼西亞的巴厘島和爪哇，成為鐵琴文化的重要發祥地。在當地傳統甘美蘭樂隊中，鐵琴佔據核心地位，包括恩德琴、剛薩琴和薩榮琴等多種類型，各具獨特音色和功能。這些樂器通過敲擊金屬發聲體產生聲音，在宗教儀式和民俗表演中扮演關鍵角色。隨著全球文化交流的深化，鐵琴逐漸向世界各地傳播，特別是經由音樂學家和民族音樂研究者的介紹，西方國家開始認識並欣賞這一古老樂器。今日，鐵琴已成為國際音樂教育與民族音樂保護的重要內容，其獨特的音質與製作工藝繼續受到重視。</p>
 <h2>音色描述</h2>
-<p>音色多由材質本體振動決定，常呈現清晰、短促或具有明顯泛音的聲響。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖五｜城市與星塵的節奏</li>
-<li><strong>章節</strong>：10｜木石金屬的回聲城市</li>
-<li><strong>章節主分類</strong>：定音體鳴、材料敲擊與鑼鐘木琴系統</li>
-<li><strong>原聲音地景</strong>：木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）</li>
-<li><strong>專業發聲大類</strong>：體鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Idiophone／體鳴樂器</li>
-<li><strong>家族／支系</strong>：金屬片與鍵板</li>
-<li><strong>演奏方式</strong>：槌擊</li>
-<li><strong>身體／聽覺關聯</strong>：材料、回聲、群體分工、音列</li>
-<li><strong>主要地區／國家</strong>：全球</li>
-<li><strong>地區類型</strong>：跨文化／多地</li>
-<li><strong>資料狀態</strong>：承接553條目地域欄</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 Metallophone 時，可以先從「金屬片與鍵板」與「槌擊」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「材料、回聲、群體分工、音列」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>鐵琴音色明亮銳利，具有金屬特有的光澤感與清脆質感。其音域因設計而異，通常涵蓋中高音區，音程清晰界定。敲擊時產生的聲音具有快速的起音和自然衰減特性，共鳴方式以金屬板或棒的直接振動為主，聲音直接穿透，不如木琴溫潤柔和。與木琴相比，鐵琴音色更具穿透力和金屬感；與鐘琴相比，音色較為乾淨靈動，缺少鐘琴的厚重感。在甘美蘭樂隊中，鐵琴的明亮音色與竹製樂器形成對比，共同構築層次豐富的音響空間，具有獨特的東南亞音樂特徵。</p>
+<h2>樂器材質</h2>
+<p>鐵琴的發聲體主要由各種金屬材料製成，包括鐵、銅、青銅等合金，具有良好的共鳴特性。金屬棒或金屬板形成鍵盤部分，通常安裝在木製框架上。支撐結構採用硬質木材（如柚木、紫檀等）製作，以確保穩定性。下方配置共鳴管或共鳴室，多由竹子或木材製成，用以增強音色的共鳴效果。敲擊工具通常由木棒、竹棒或包覆絨布的槌棒組成。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>站於琴前，雙手持棒敲擊琴鍵中央。手持樂器本體，透過敲擊、搖晃、刮奏或撥彈等方式使樂器本身震動發聲。不同部位和不同力道會產生不同音色。練習時先確認正確持琴姿勢，掌握基本發聲方式後再練習節奏型和旋律。手指或鼓棒敲擊表面，利用反彈力自然回彈，手腕放鬆。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/kkwaenggwari/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Korea-Ggaenggwari-01.jpg/500px-Korea-Ggaenggwari-01.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">小鑼（農樂）</strong>
+        <span class="card-orig">Kkwaenggwari</span>
+        <span class="card-meta">東南亞／東亞／非洲／歐洲／全球</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/crotales/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Crotales_-_Paiste_brand.jpg/500px-Crotales_-_Paiste_brand.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">古鈸</strong>
+        <span class="card-orig">Crotales</span>
+        <span class="card-meta">歐洲</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/asalato/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Asalato_%28Kashaka%29%2C_percussion_instrument_of_West_Africa_%28photozou_29416265%29_by_Ludwig_D._Omen.jpg/500px-Asalato_%28Kashaka%29%2C_percussion_instrument_of_West_Africa_%28photozou_29416265%29_by_Ludwig_D._Omen.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">阿薩拉託</strong>
+        <span class="card-orig">Asalato</span>
+        <span class="card-meta">拉丁美洲／非洲／歐洲／亞洲／全球</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/talking-drum/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/TalkingDrum.jpg/500px-TalkingDrum.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">會說話的鼓</strong>
+        <span class="card-orig">Talking Drum</span>
+        <span class="card-meta">非洲／西非</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

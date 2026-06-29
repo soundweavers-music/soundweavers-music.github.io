@@ -4,65 +4,132 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>坦伯拉琴｜世界樂器百科</title>
+  <meta name="description" content="巴爾幹坦伯拉琴（巴爾幹坦布拉琴）或坦伯拉琴是一種弦樂器，在色雷斯和巴爾幹地區作為民俗樂器演奏，特別是在波士尼亞和黑塞哥維那、保加利亞、克羅埃西亞、匈牙利、北馬其頓、塞爾維亞（尤其是沃伊伏迪納地區）、蒙特內哥羅和土耳其。它具有雙層鋼弦，用撥片演奏，類似於曼陀林和巴格拉瑪琴。">
+<meta property="og:title" content="坦伯拉琴｜世界樂器百科">
+<meta property="og:description" content="巴爾幹坦伯拉琴（巴爾幹坦布拉琴）或坦伯拉琴是一種弦樂器，在色雷斯和巴爾幹地區作為民俗樂器演奏，特別是在波士尼亞和黑塞哥維那、保加利亞、克羅埃西亞、匈牙利、北馬其頓、塞爾維亞（尤其是沃伊伏迪納地區）、蒙特內哥羅和土耳其。它具有雙層鋼弦，用撥片演奏，類似於曼陀林和巴格拉瑪琴。">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Bulgarian_Tambura.png/500px-Bulgarian_Tambura.png">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>坦伯拉琴</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">弦樂器</p>
               <h1>坦伯拉琴</h1>
-              <p class="lead">Balkan tambura</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>弦樂器</dd></div><div><dt>國家/地區</dt><dd>土耳其</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://en.wikipedia.org/wiki/Balkan_tambura" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Balkan_tambura</a></p>
+              <p class="original-name">Balkan tambura</p>
+              <p class="soundscape-tag">旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）</p>
+              <p class="badge-row"><span class="badge badge-cold">冷門</span></p>
             </div>
-            <img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Bulgarian_Tambura.png/960px-Bulgarian_Tambura.png" alt="坦伯拉琴">
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Bulgarian_Tambura.png/500px-Bulgarian_Tambura.png" alt="坦伯拉琴" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>坦伯拉琴</h1>
-<p>坦伯拉琴（原名：Balkan tambura）是一種弦樂器。主要靠弦的振動發聲，常透過撥、拉、彈、擊等方式演奏。</p>
-<p>目前可查資料顯示，它與土耳其的音樂文化或演奏傳統有關。</p>
-<p>英文資料中特別提到它的使用或演奏情境，因此理解這項樂器時，不只要看外形，也要看它在樂曲、儀式或合奏中的角色。</p>
-<p>材料與構造是它音色的重要線索；不同材質會讓聲音呈現更明亮、厚實或有共鳴感的差異。</p>
-<p>它常被放在傳統或民俗音樂脈絡中討論，代表它不只是發聲工具，也承載地方文化記憶。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Balkan_tambura</p>
-</li>
-<li>
-<p>Wikidata ID：Q508805</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>弦樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>土耳其</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>全調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>中高音區（約2個8度）</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>懷抱、手指、腳步、敘事</dd></div><div class="meta-item"><dt>地區類型</dt><dd>單一地區／文化圈</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>巴爾幹坦伯拉琴（巴爾幹坦布拉琴）或坦伯拉琴是一種弦樂器，在色雷斯和巴爾幹地區作為民俗樂器演奏，特別是在波士尼亞和黑塞哥維那、保加利亞、克羅埃西亞、匈牙利、北馬其頓、塞爾維亞（尤其是沃伊伏迪納地區）、蒙特內哥羅和土耳其。它具有雙層鋼弦，用撥片演奏，類似於曼陀林和巴格拉瑪琴。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/JRZM0sIf1_M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/hb2hiwYCGMk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>巴爾幹坦伯拉琴在民俗音樂中廣泛應用，代表性作品包括塞爾維亞民謠《Pesma od Bola》和波士尼亞傳統民謠《Sevdah》系列，這些作品充分展現了樂器明亮穿透的音色特徵。匈牙利作曲家李斯特在19世紀收集並改編的《匈牙利狂想曲》中融入了巴爾幹弦樂傳統元素，坦伯拉琴在現代民族音樂復興運動中被廣泛應用於傳統樂隊編制。</p>
 <h2>歷史背景</h2>
-<p>坦伯拉琴（Balkan tambura）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>它可以先放在土耳其相關音樂文化中理解，後續可再補代表樂派、演奏場合與製作工藝。</p>
-<p>作為弦樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。 若要深入研究，可優先查找土耳其的博物館、民族音樂學資料或地方樂器圖錄。</p>
-<p>弦樂器的歷史常和弦材、共鳴箱、調音方式與演奏技法的演變有關。從民間伴奏到獨奏舞台，許多弦樂器都會因音量需求、音域擴張或樂曲風格改變而改良形制。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://en.wikipedia.org/wiki/Balkan_tambura</p>
+<p>坦伯拉琴源於色雷斯和巴爾幹地區，是東南歐民間音樂文化的重要樂器。其起源可追溯至古代中東和中亞的弦樂傳統，隨著奧圖曼帝國的擴張而傳入巴爾幹半島。該樂器在波士尼亞、塞爾維亞、保加利亞等地逐漸扎根發展，形成各具特色的地方風格。坦伯拉琴因其獨特的雙層鋼弦結構和撥片演奏方式，與曼陀林和巴格拉瑪琴有相似之處，卻發展出自身的音樂特徵。從中世紀至今，它在民族音樂和傳統民謠中發揮核心角色，特別在匈牙利和沃伊伏迪納地區備受推崇。如今，坦伯拉琴已成為巴爾幹民族文化認同的象徵，其傳統演奏技藝代代相傳，持續豐富東南歐音樂遺產。</p>
 <h2>音色描述</h2>
-<p>音色由弦長、張力、共鳴箱與演奏法影響，可呈現撥奏、擦奏或擊弦的不同質感。</p></article>
+<p>坦伯拉琴音色明亮而富有穿透力，具有獨特的金屬質感。其雙層鋼弦結構賦予樂器閃爍、晶瑩的音響特徵，音域屬中高音區，音符清晰而富有顆粒感。撥片演奏方式強調了其輝煌而靈動的音質，音符間具有明顯的層次感。共鳴方式富有迴響性，使得音符能在空間中散發出溫暖的迴蕩。與曼陀林相比，坦伯拉琴音色更加厚實溫潤；與巴格拉瑪琴相較，則更顯明亮尖銳。其音響特徵介於民族樂器與現代樂器之間，既保留了傳統弦樂的溫和，又呈現出金屬樂器的輝煌，特別適合表現巴爾幹地區熱烈奔放的民俗音樂。</p>
+<h2>樂器材質</h2>
+<p>坦伯拉琴琴身通常採用雲杉或松木製作，提供良好的共鳴特性。琴頸採用堅硬的楓木或橡木，確保結構穩定性。雙層鋼弦是其核心特徵，鋼弦經過精心調整以產生獨特的金屬音質。琴橋、弦枕等關鍵部件多由黃�楊木或象牙替代品製成。琴體背板採用山毛櫸或其他硬質木材，增強音響反射效果，部分高級樂器採用珍貴木材裝飾，提升整體工藝水準。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>將樂器以正確姿勢持於手中。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/yueqin/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/%E6%A1%83%E5%9C%92%E6%99%AF%E7%A6%8F%E5%AE%AE%E9%88%9E%E5%A4%A9%E7%A4%BE%E6%9C%88%E7%90%B4.jpg/500px-%E6%A1%83%E5%9C%92%E6%99%AF%E7%A6%8F%E5%AE%AE%E9%88%9E%E5%A4%A9%E7%A4%BE%E6%9C%88%E7%90%B4.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">月琴</strong>
+        <span class="card-orig">Yueqin</span>
+        <span class="card-meta">中東／歐亞／東亞／美洲／全球</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/setar/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/a/ac/Tar_Range.png" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">塞特琴</strong>
+        <span class="card-orig">Setar</span>
+        <span class="card-meta">中東／歐亞／東亞／美洲／全球</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/dutar/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Joueur_de_dutar_ouzbek.jpg/500px-Joueur_de_dutar_ouzbek.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">都塔爾</strong>
+        <span class="card-orig">Dutar</span>
+        <span class="card-meta">伊朗／中亞</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/kabuli-rubab/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Rubab.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">卡布裡魯巴卜琴</strong>
+        <span class="card-orig">Kabuli Rubab</span>
+        <span class="card-meta">中東／歐洲／亞洲／美洲</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

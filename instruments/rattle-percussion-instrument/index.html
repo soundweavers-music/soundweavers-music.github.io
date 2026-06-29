@@ -4,63 +4,134 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
-  <title>摇铃 (打击乐器)｜世界樂器百科</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <title>搖鈴（打擊樂器）｜世界樂器百科</title>
+  <meta name="description" content="搖鈴是一種打擊樂器，搖晃時會發出聲音。搖鈴在霍恩博斯特爾-薩克斯體系中被描述為搖動體鳴樂器或搖鈴（112.1）。根據薩克斯的分類，搖動體鳴樂器是搖鈴（不應與拍打樂器混淆）。材料很重要，但更重要的是發聲部分的排列方式，這些部分在搖晃樂器時會相互碰撞。搖鈴包括：馬拉卡斯，廣泛用於恰恰舞和爵士樂。查克查克，在特立尼達、多米尼">
+<meta property="og:title" content="搖鈴（打擊樂器）｜世界樂器百科">
+<meta property="og:description" content="搖鈴是一種打擊樂器，搖晃時會發出聲音。搖鈴在霍恩博斯特爾-薩克斯體系中被描述為搖動體鳴樂器或搖鈴（112.1）。根據薩克斯的分類，搖動體鳴樂器是搖鈴（不應與拍打樂器混淆）。材料很重要，但更重要的是發聲部分的排列方式，這些部分在搖晃樂器時會相互碰撞。搖鈴包括：馬拉卡斯，廣泛用於恰恰舞和爵士樂。查克查克，在特立尼達、多米尼">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/PNG_Rattle_QM-r.jpg/500px-PNG_Rattle_QM-r.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>搖鈴（打擊樂器）</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">打擊樂器</p>
-              <h1>摇铃 (打击乐器)</h1>
-              <p class="lead">Rattle (percussion instrument)</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>打擊樂器</dd></div><div><dt>國家/地區</dt><dd>法國</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://zh.wikipedia.org/wiki/%E6%91%87%E9%93%83_(%E6%89%93%E5%87%BB%E4%B9%90%E5%99%A8)" target="_blank" rel="noopener noreferrer">https://zh.wikipedia.org/wiki/%E6%91%87%E9%93%83_(%E6%89%93%E5%87%BB%E4%B9%90%E5%99%A8)</a></p>
+              <h1>搖鈴（打擊樂器）</h1>
+              <p class="original-name">Rattle (percussion instrument)</p>
+              <p class="soundscape-tag">手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）</p>
+              <p class="badge-row"><span class="badge badge-hot">熱門</span></p>
             </div>
-            <img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/PNG_Rattle_QM-r.jpg/960px-PNG_Rattle_QM-r.jpg" alt="摇铃 (打击乐器)">
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/PNG_Rattle_QM-r.jpg/500px-PNG_Rattle_QM-r.jpg" alt="搖鈴（打擊樂器）" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>摇铃 (打击乐器)</h1>
-<p>摇铃 (打击乐器)是一種打擊樂器。搖鈴是一種打擊樂器，通過搖動發出聲音。在霍恩博斯特-薩克斯分類法中，搖鈴被稱為「搖動自鳴樂器」。</p>
-<p>簡單來說，搖鈴的發聲特性依賴材料和部件排列方式。 搖鈴在古埃及的儀式中具有重要地位。古埃及人使用陶製搖鈴進行葬禮儀式，象徵重生。後期，搖鈴逐漸採用木材、籃材和石材製作，形狀也發生了變化。</p>
-<p>在地域脈絡上，它和法國的音樂文化有關。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>中文維基百科：https://zh.wikipedia.org/wiki/%E6%91%87%E9%93%83_(%E6%89%93%E5%87%BB%E4%B9%90%E5%99%A8)</p>
-</li>
-<li>
-<p>原始來源：https://en.wikipedia.org/wiki/Rattle_(percussion_instrument)</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>打擊樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>法國</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>体鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>無固定調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>中高頻區域（約2-3個8度）</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>1 体鳴樂器</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>體鳴打擊樂器類</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>敲擊／搖晃／撥彈</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>手腕、腳踝、短音、節奏對齊</dd></div><div class="meta-item"><dt>地區類型</dt><dd>單一地區／文化圈</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>搖鈴是一種打擊樂器，搖晃時會發出聲音。搖鈴在霍恩博斯特爾-薩克斯體系中被描述為搖動體鳴樂器或搖鈴（112.1）。根據薩克斯的分類，搖動體鳴樂器是搖鈴（不應與拍打樂器混淆）。材料很重要，但更重要的是發聲部分的排列方式，這些部分在搖晃樂器時會相互碰撞。搖鈴包括：馬拉卡斯，廣泛用於恰恰舞和爵士樂。查克查克，在特立尼達、多米尼加和法屬安的列斯群島中被稱為這個名稱。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/qbkNNTkmJQ4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/N6xBthcGwnw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>搖鈴作為打擊樂器，廣泛應用於多種音樂風格。在古典音樂中，柏遼茲《幻想交響曲》第五樂章運用搖鈴營造詭異氛圍；在拉丁音樂中，馬拉卡斯搖鈴是恰恰舞和薩爾薩舞的必備樂器，20世紀中期拉丁爵士樂大師如蒂托·普恩特經常使用；在現代流行音樂中，搖鈴因其明亮音色被廣泛應用於錄音製作。</p>
 <h2>歷史背景</h2>
-<p>摇铃 (打击乐器)（Rattle (percussion instrument)）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>它可以先放在法國相關音樂文化中理解，後續可再補代表樂派、演奏場合與製作工藝。</p>
-<p>作為打擊樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。 若要深入研究，可優先查找法國的博物館、民族音樂學資料或地方樂器圖錄。</p>
-<p>打擊樂器通常和節奏、信號、祭儀、舞蹈或群體活動關係密切。它們的歷史不一定只寫在樂譜裡，也常出現在節慶、宗教、軍事或地方生活的脈絡中。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://zh.wikipedia.org/wiki/%E6%91%87%E9%93%83_(%E6%89%93%E5%87%BB%E4%B9%90%E5%99%A8)</p>
+<p>在古埃及，搖鈴被用於葬禮儀式中，象徵來世的重生。搖鈴被視為神聖物品，成為西斯特琴的前身。最早的埃及搖鈴呈卵形，由陶土製成。在前王朝時期和古王國時期，搖鈴配上把手，形狀也趨於多樣化，並採用籃子、木材和石頭等不同材料製作。</p>
+<p>在北美原住民文化中，搖鈴常被用於祭典舞蹈中。這些搖鈴通常代表某種含義，其上的圖案或描繪可與部落的神聖事物相關聯。薩滿在使用搖鈴時，其聲音往往形成與超自然世界的連結。烏鴉搖鈴象徵力量，在舞蹈中使用時，代表具有世襲使用權的酋長的地位。</p>
 <h2>音色描述</h2>
-<p>音色多由材質本體振動決定，常呈現清晰、短促或具有明顯泛音的聲響。</p></article>
+<p>搖鈴具有清脆、明亮的音色特徵，帶有輕快而富有穿透力的質感。其音域集中在中高頻區域，能有效穿過樂隊音樂。搖鈴的共鳴方式獨特——內部的珠粒或金屬片相互碰撞產生聲響，形成持續而略帶顆粒感的音效，音色帶有些許乾淨的「沙沙」質地。</p>
+<p>相比於鼓類樂器的厚實低沉，搖鈴音色更輕盈；相比於鈴鼓的清亮，搖鈴更具層次感與複雜性。其音響特徵因內部填充物不同而異——米粒或沙粒填充的搖鈴音色柔和溫潤，而金屬珠粒填充的則更加尖銳明亮。搖鈴在節奏樂隊中提供輕快的律動感，特別適合恰恰舞與拉丁音樂風格。</p>
+<h2>樂器材質</h2>
+<p>搖鈴材質多樣化。外殼可採用木材、陶土、塑膠或竹子製成；把手通常選用木材或塑膠；內部填充物決定音色特徵，包括金屬珠粒、米粒、沙粒或小石子。古埃及搖鈴多由陶土製成，現代馬拉卡斯常使用木質球體配以塑膠或皮革裝飾。金屬環或鈴片有時裝嵌於外殼邊緣，增強音色層次感。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>將樂器以正確姿勢持於手中。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/dundun/">
+      <div class="card-thumb card-thumb--empty" aria-hidden="true">♩</div>
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">敦敦鼓</strong>
+        <span class="card-orig">Dundun</span>
+        <span class="card-meta">非洲／西非</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/cajon/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Cajon_musician.jpg/500px-Cajon_musician.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">箱鼓</strong>
+        <span class="card-orig">Cajón</span>
+        <span class="card-meta">秘魯</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/repinique/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Repique.JPG/500px-Repique.JPG" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">雷皮尼克鼓</strong>
+        <span class="card-orig">Repinique</span>
+        <span class="card-meta">美洲／巴西</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/caj-n-brushes/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Vea.cajon.jpg/500px-Vea.cajon.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">卡洪刷棒</strong>
+        <span class="card-orig">Cajón Brushes</span>
+        <span class="card-meta">全球／現代</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

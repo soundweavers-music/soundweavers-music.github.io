@@ -4,61 +4,132 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
-  <title>Calliope (music)（暫譯）｜世界樂器百科</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <title>汽笛琴｜世界樂器百科</title>
+  <meta name="description" content="汽笛琴（不要與機械風琴混淆）（發音請參見下文）是一種美式樂器，它通過將氣體（最初是蒸氣，最近則是壓縮空氣）送入大型汽笛（最初是機車汽笛）來產生聲音。汽笛琴通常聲音很大。即使是一些小型汽笛琴的聲音也能傳播數英里遠。沒有辦法改變音色或音量。在音樂上，唯一可能的表現方式只有音調、節奏和音符的時長。蒸汽汽笛琴也被稱為蒸汽風琴（">
+<meta property="og:title" content="汽笛琴｜世界樂器百科">
+<meta property="og:description" content="汽笛琴（不要與機械風琴混淆）（發音請參見下文）是一種美式樂器，它通過將氣體（最初是蒸氣，最近則是壓縮空氣）送入大型汽笛（最初是機車汽笛）來產生聲音。汽笛琴通常聲音很大。即使是一些小型汽笛琴的聲音也能傳播數英里遠。沒有辦法改變音色或音量。在音樂上，唯一可能的表現方式只有音調、節奏和音符的時長。蒸汽汽笛琴也被稱為蒸汽風琴（">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Calliope%2C_the_wonderful_operonicon_or_steam_car_of_the_muses%2C_advertising_poster%2C_1874.jpg/500px-Calliope%2C_the_wonderful_operonicon_or_steam_car_of_the_muses%2C_advertising_poster%2C_1874.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>汽笛琴</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">管樂器</p>
-              <h1>Calliope (music)（暫譯）</h1>
-              <p class="lead">Calliope (music)</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>管樂器</dd></div><div><dt>國家/地區</dt><dd>待考</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://en.wikipedia.org/wiki/Calliope_(music)" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Calliope_(music)</a></p>
+              <h1>汽笛琴</h1>
+              <p class="original-name">Calliope (music)</p>
+              <p class="soundscape-tag">一口氣走過山谷（竹管、陶管、長音與世界笛聲）</p>
+              <p class="badge-row"></p>
             </div>
-            
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Calliope%2C_the_wonderful_operonicon_or_steam_car_of_the_muses%2C_advertising_poster%2C_1874.jpg/500px-Calliope%2C_the_wonderful_operonicon_or_steam_car_of_the_muses%2C_advertising_poster%2C_1874.jpg" alt="汽笛琴" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>Calliope (music)（暫譯）</h1>
-<p>Calliope (music)（暫譯）（原名：Calliope (music)）是一種管樂器。主要靠氣流與管體、簧片或吹口產生聲音，音色會受吹奏方式與管身構造影響。</p>
-<p>目前中文資料較少，因此本條目先依英文維基與 Wikidata 的可查資料整理。後續可再補充 Calliope (music) 的製作方式、代表曲目與地方流派。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Calliope_(music)</p>
-</li>
-<li>
-<p>Wikidata ID：ENWIKI-0db83b6f16</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>管樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>美國</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>气鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>全調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>全音域</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>4 气鳴樂器</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>管樂器類</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>吹奏</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>氣息、胸腔、長音、空間</dd></div><div class="meta-item"><dt>地區類型</dt><dd>單一地區／文化圈</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>汽笛琴（不要與機械風琴混淆）（發音請參見下文）是一種美式樂器，它通過將氣體（最初是蒸氣，最近則是壓縮空氣）送入大型汽笛（最初是機車汽笛）來產生聲音。汽笛琴通常聲音很大。即使是一些小型汽笛琴的聲音也能傳播數英里遠。沒有辦法改變音色或音量。在音樂上，唯一可能的表現方式只有音調、節奏和音符的時長。蒸汽汽笛琴也被稱為蒸汽風琴（魁北克法語為 orgue à vapeur）或蒸汽鋼琴（魁北克法語為 piano à vapeur）。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/Olnm66Uxy8U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/SFgqDSBba1g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>汽笛琴作為19世紀美式樂器，主要應用於馬戲團、河船和工業展示中。約書亞·斯託達德於1855年取得專利後，其美國蒸汽音樂公司製作了多台汽笛琴。1859年倫敦水晶宮展示的改進型汽笛琴成為歐洲觀眾的奇觀。亞瑟·丹尼推廣的「氣風琴」版本試圖拓展其音樂應用，但因音色侷限和音樂表現力不足，未能成為傳統音樂會的常用樂器。</p>
 <h2>歷史背景</h2>
-<p>Calliope (music)（暫譯）（Calliope (music)）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>作為管樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。</p>
-<p>管樂器的發展常和吹口、簧片、管身長度與開孔方式有關。隨著材料與製作工藝變化，音準、音域和音量都可能逐漸穩定，進而進入宮廷、宗教、軍樂或現代樂團。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://en.wikipedia.org/wiki/Calliope_(music)</p>
+<p>馬薩諸塞州伍斯特的約書亞·C·斯託達德於1855年10月9日獲得汽笛琴的專利，雖然他的設計呼應了先前的概念，如1832年的蒸汽喇叭（後來稱為火車汽笛）。1851年，印第安納州杜邦的威廉·霍伊特聲稱曾想到類似斯託達德汽笛琴的裝置，但從未申請專利。後來，斯託達德美國蒸汽音樂公司的員工亞瑟·S·丹尼試圖在歐洲推銷「改進型汽笛琴」和類似的「氣風琴」，但未獲成功。1859年，他在倫敦水晶宮展示了該樂器。與其他汽笛琴不同，丹尼的改進型樂器讓演奏者能控制蒸汽壓力，從而控制音樂音量。斯託達德原本打算讓汽笛琴作為鐵路和沿海河輪的信號裝置；1950年代流行的一則傳說聲稱他發明它是為了取代鐘琴召集教徒參加禮拜。該樂器迅速獲得廣泛應用。</p>
 <h2>音色描述</h2>
-<p>音色由氣流、管體、簧片或唇振控制，常具有延展性強的旋律線條。</p></article>
+<p>汽笛琴的音色具有尖銳、明亮且充滿穿透力的特徵，帶有濃厚的工業感。其音質粗獷而直接，類似於蒸汽火車的汽笛聲，音色幾乎無法改變，呈現單一且不可調節的質感。樂器音域寬廣，能夠覆蓋多個音高範圍，但缺乏傳統管樂器的溫潤感和音色層次。共鳴方式簡單而粗暴，依靠龐大的氣流直接激發汽笛振動。與管樂器相比，汽笛琴缺乏表現力與細膩度；與打擊樂相比，又具有更明確的音高。其獨特的金屬質感和震撼力使其在音樂中極具存在感，常用於創造戲劇效果或營造懷舊的蒸汽朋克氛圍。</p>
+<h2>樂器材質</h2>
+<p>汽笛琴主要由金屬製成，包含大型鋼製或銅製汽笛作為音源部分。風管系統採用金屬管道（通常為鐵或銅），連接蒸汽或壓縮空氣的供給裝置。控制機制採用金屬槓桿和閥門系統。外部框架多為木製結構（通常為堅硬木材如橡木或楓木），以支撐龐大的笛管陣列和複雜的管道系統。整體設計強調耐久性和氣密性。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>將樂器以正確姿勢持於手中。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/bass-saxophone/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/WANZ_Instrument_2024-09_IMG_7848_bass_saxophone_%28edit%29.png/500px-WANZ_Instrument_2024-09_IMG_7848_bass_saxophone_%28edit%29.png" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">管樂器</span>
+        <strong class="card-title">低音薩克斯風</strong>
+        <span class="card-orig">Bass saxophone</span>
+        <span class="card-meta">比利時</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/tulum/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Tulum_2.jpg/500px-Tulum_2.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">管樂器</span>
+        <strong class="card-title">圖盧姆風笛</strong>
+        <span class="card-orig">Tulum</span>
+        <span class="card-meta">全球／亞洲／中東／歐洲</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/duduk-bass/">
+      <div class="card-thumb card-thumb--empty" aria-hidden="true">♩</div>
+      <div class="card-body">
+        <span class="card-cat">管樂器</span>
+        <strong class="card-title">杜德克低音管</strong>
+        <span class="card-orig">Duduk Bass</span>
+        <span class="card-meta">亞美尼亞／高加索</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/great-highland-bagpipe/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/f/f4/HighlandersPiperMajor.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">管樂器</span>
+        <strong class="card-title">Great Highland 風笛</strong>
+        <span class="card-orig">Great Highland Bagpipe</span>
+        <span class="card-meta">歐洲／英國（蘇格蘭）</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

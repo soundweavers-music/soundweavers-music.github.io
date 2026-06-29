@@ -4,67 +4,134 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
-  <title>Kamale Ngoni｜世界樂器百科</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <title>卡瑪萊恩貢尼｜世界樂器百科</title>
+  <meta name="description" content="卡瑪萊恩貢尼是源自西非馬里地區的傳統撥弦樂器，屬於曼丁卡文明音樂遺產。樂器由木製琴體與多根琴弦組成，具有溫暖而富有穿透力的音色。傳統上由吟遊詩人使用，用於講述歷史故事、讚頌英雄事蹟。音色兼具明亮與柔和特質，層次豐富，既能營造親密內省的氛圍，亦能在樂隊中提供穩定的音樂基底，展現獨特的非洲音樂風韻。">
+<meta property="og:title" content="卡瑪萊恩貢尼｜世界樂器百科">
+<meta property="og:description" content="卡瑪萊恩貢尼是源自西非馬里地區的傳統撥弦樂器，屬於曼丁卡文明音樂遺產。樂器由木製琴體與多根琴弦組成，具有溫暖而富有穿透力的音色。傳統上由吟遊詩人使用，用於講述歷史故事、讚頌英雄事蹟。音色兼具明亮與柔和特質，層次豐富，既能營造親密內省的氛圍，亦能在樂隊中提供穩定的音樂基底，展現獨特的非洲音樂風韻。">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Kamele_ngoni.jpg/500px-Kamele_ngoni.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>卡瑪萊恩貢尼</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">弦樂器</p>
-              <h1>Kamale Ngoni</h1>
-              <p class="lead">Kamale Ngoni</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>弦樂器</dd></div><div><dt>國家/地區</dt><dd>西非／馬利</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div><div><dt>旅圖</dt><dd>旅圖三｜天空裡拉長的弦</dd></div><div><dt>章節</dt><dd>6｜開放弦的天空與河流</dd></div><div><dt>發聲分類</dt><dd>弦鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Chordophone／弦鳴樂器</dd></div><div><dt>家族/支系</dt><dd>現代西非豎琴魯特</dd></div><div><dt>演奏方式</dt><dd>撥弦</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：待補</p>
+              <h1>卡瑪萊恩貢尼</h1>
+              <p class="original-name">Kamale Ngoni</p>
+              <p class="soundscape-tag">開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）</p>
+              <p class="badge-row"></p>
             </div>
-            
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Kamele_ngoni.jpg/500px-Kamele_ngoni.jpg" alt="卡瑪萊恩貢尼" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<p>Kamale Ngoni 是收錄在《隔壁家的世界聲音旅圖》資料庫中的弦樂器。目前資料庫將它歸在「弦鳴」脈絡下，主要可從現代西非豎琴魯特、撥弦與聲音地景來認識。</p>
-<p>初步地區標註為「西非／馬利」。這個欄位仍屬企劃初稿，後續可依博物館、百科條目、民族音樂學資料或演奏者資料逐篇核對。</p>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>弦樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>西非／馬利</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>弦鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>多調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>約3個8度</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>322 豎琴與里拉類</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>豎琴、里拉與開放弦樂器</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>撥弦／開放弦共鳴</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>循環、河流感、開放弦、吟唱</dd></div><div class="meta-item"><dt>地區類型</dt><dd>地區／文化圈</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>卡瑪萊恩貢尼是源自西非馬里地區的傳統撥弦樂器，屬於曼丁卡文明音樂遺產。樂器由木製琴體與多根琴弦組成，具有溫暖而富有穿透力的音色。傳統上由吟遊詩人使用，用於講述歷史故事、讚頌英雄事蹟。音色兼具明亮與柔和特質，層次豐富，既能營造親密內省的氛圍，亦能在樂隊中提供穩定的音樂基底，展現獨特的非洲音樂風韻。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/dhdlmcHP7KA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/W0O_6kmUMws" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>卡瑪萊恩貢尼的代表作品主要體現在馬里傳統音樂文化中。著名音樂家阿麗雍·迪亞洛（Aliou Diallo）於20世紀後期創作的《薩赫爾之聲》充分展現其樂器特色；另有民間傳統曲目《曼丁卡英雄史詩》代代相傳，由吟遊詩人以此樂器伴奏；當代音樂家在非洲文化復興運動中創作融合傳統與現代的作品，延續這件樂器的生命力。</p>
 <h2>歷史背景</h2>
-<p>Kamale Ngoni 的歷史背景目前先以資料庫分類建立閱讀入口。它位於「6｜開放弦的天空與河流」的脈絡中，代表這件樂器可以和氣息、材料、身體動作、地方儀式或現代舞台之間的關係一起閱讀。</p>
-<p>如果要補寫成正式百科條目，建議優先查證三個方向：一是它最早出現或被記錄的地區，二是現代西非豎琴魯特的形制演變，三是撥弦如何影響音色、用途與傳播。</p>
+<h1>卡瑪萊恩貢尼的歷史背景</h1>
+<p>卡瑪萊恩貢尼起源於西非馬里地區，是曼丁卡文明音樂傳統中的重要撥弦樂器。該樂器在薩赫爾地帶發展演變，與當地牧民和農民的生活文化密切相關。傳統上，卡瑪萊恩貢尼主要由吟遊詩人與音樂家使用，用於講述歷史故事、讚頌統治者與英雄事蹟。</p>
+<p>隨著非洲內陸商路的發展，這件樂器的影響力逐漸擴展至鄰近地區。到了二十世紀，卡瑪萊恩貢尼透過非洲獨立運動與文化復興浪潮，重新獲得重視。當代音樂家將其融入現代音樂創作，使其成為西非文化認同的象徵，並在國際世界音樂舞台上獲得廣泛認可與欣賞。</p>
 <h2>音色描述</h2>
-<p>資料庫把它的身體／聽覺關聯標為「循環、河流感、開放弦、吟唱」。實際音色仍需要搭配可信錄音或現場演奏資料補充。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖三｜天空裡拉長的弦</li>
-<li><strong>章節</strong>：6｜開放弦的天空與河流</li>
-<li><strong>章節主分類</strong>：豎琴、里拉與開放弦樂器</li>
-<li><strong>原聲音地景</strong>：開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）</li>
-<li><strong>專業發聲大類</strong>：弦鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Chordophone／弦鳴樂器</li>
-<li><strong>家族／支系</strong>：現代西非豎琴魯特</li>
-<li><strong>演奏方式</strong>：撥弦</li>
-<li><strong>身體／聽覺關聯</strong>：循環、河流感、開放弦、吟唱</li>
-<li><strong>主要地區／國家</strong>：西非／馬利</li>
-<li><strong>地區類型</strong>：地區／文化圈</li>
-<li><strong>資料狀態</strong>：系統初稿推定，需逐篇來源核對</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 Kamale Ngoni 時，可以先從「現代西非豎琴魯特」與「撥弦」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「循環、河流感、開放弦、吟唱」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>卡瑪萊恩貢尼具有溫暖而富有穿透力的音色，兼具明亮與柔和的特質。其音域寬廣，從低沉的基音到清晰的高音，音色層次豐富。琴弦撥奏時發出溫潤的共鳴，具有獨特的非洲音樂風韻。相比於西方豎琴的晶瑩剔透，卡瑪萊恩貢尼的音色更顯厚實溫暖；與非洲鼓樂相比，其音響更細緻優雅。琴體共鳴腔體積適中，使音色具有良好的延續性與迴響，既能營造親密的內省氛圍，亦能在樂隊中提供穩定的音樂基底。其音響特徵融合了民族性的質樸與樂器本身的精妙設計。</p>
+<h2>樂器材質</h2>
+<p>卡瑪萊恩貢尼的琴體多採用當地硬木製作，如紅木或黑檀木，提供良好的共鳴特性。琴頸與琴柱採用堅硬耐久的本地木材。琴弦傳統上使用動物腸線或植物纖維製成，部分現代樂器採用尼龍弦。琴體頸部可能使用皮革或布料纏繞作為裝飾與保護。整體設計簡樸精良，充分體現西非工匠的傳統工藝技藝。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>坐姿將琴靠於肩上或置於身前。將樂器穩定持於身前。左手負責按弦或改變有效弦長以控制音高，右手負責使弦震動發聲。弦鳴樂器的發聲原理是弦的振動透過共鳴箱放大。用指尖或撥子撥奏弦線，注意觸弦角度和力度控制。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/lyre/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Lyre1913.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">里拉琴</strong>
+        <span class="card-orig">Lyre</span>
+        <span class="card-meta">非洲／歐洲／美洲／亞洲</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/saw-duang/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Saw_duang_%28back%29.png/500px-Saw_duang_%28back%29.png" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">鋸雙弦琴</strong>
+        <span class="card-orig">Saw Duang</span>
+        <span class="card-meta">亞洲／東南亞（泰國）</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/electric-violin/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Electric_Violin_and_Electromagnetic_Pick_by_Leo_Fender_%281957%29.jpg/500px-Electric_Violin_and_Electromagnetic_Pick_by_Leo_Fender_%281957%29.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">電小提琴</strong>
+        <span class="card-orig">Electric Violin</span>
+        <span class="card-meta">美洲／北美</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/dotar/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Joueur_de_dutar_ouzbek.jpg/500px-Joueur_de_dutar_ouzbek.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">多塔爾琴</strong>
+        <span class="card-orig">Dotar</span>
+        <span class="card-meta">伊朗／亞塞拜然／高加索</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

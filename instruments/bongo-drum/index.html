@@ -4,66 +4,133 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>邦哥鼓｜世界樂器百科</title>
+  <meta name="description" content="邦哥鼓（英語：Bongos），又稱為曼波鼓，是源於拉丁美洲的一種鼓。以兩個不同大小的單皮鼓為一組，以鐵片或木將兩個鼓接駁在一起，因此英文名稱多寫成Bongos（間中亦有寫成Bongoes，但s才是正確寫法）。">
+<meta property="og:title" content="邦哥鼓｜世界樂器百科">
+<meta property="og:description" content="邦哥鼓（英語：Bongos），又稱為曼波鼓，是源於拉丁美洲的一種鼓。以兩個不同大小的單皮鼓為一組，以鐵片或木將兩個鼓接駁在一起，因此英文名稱多寫成Bongos（間中亦有寫成Bongoes，但s才是正確寫法）。">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Bongo.jpg/500px-Bongo.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>邦哥鼓</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">打擊樂器</p>
               <h1>邦哥鼓</h1>
-              <p class="lead">Bongo drum</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>打擊樂器</dd></div><div><dt>國家/地區</dt><dd>西班牙</dd></div><div><dt>年代</dt><dd>19 世紀</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://zh.wikipedia.org/wiki/%E9%82%A6%E5%93%A5%E9%BC%93" target="_blank" rel="noopener noreferrer">https://zh.wikipedia.org/wiki/%E9%82%A6%E5%93%A5%E9%BC%93</a></p>
+              <p class="original-name">Bongo drum</p>
+              <p class="soundscape-tag">手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）</p>
+              <p class="badge-row"><span class="badge badge-hot">熱門</span></p>
             </div>
-            <img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/7/73/Bongos_Meinl_HB100-NT.jpg" alt="邦哥鼓">
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Bongo.jpg/500px-Bongo.jpg" alt="邦哥鼓" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>邦哥鼓</h1>
-<p>邦哥鼓（原名：Bongo drum）是一種打擊樂器。通常透過敲擊、搖動、摩擦或刮奏產生聲音，常負責節奏與音色層次。</p>
-<p>目前可查資料顯示，它與西班牙的音樂文化或演奏傳統有關。</p>
-<p>若從年代脈絡看，這項樂器可先放在「19 世紀」中理解。</p>
-<p>英文資料中特別提到它的使用或演奏情境，因此理解這項樂器時，不只要看外形，也要看它在樂曲、儀式或合奏中的角色。</p>
-<p>材料與構造是它音色的重要線索；不同材質會讓聲音呈現更明亮、厚實或有共鳴感的差異。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Bongo_drum</p>
-</li>
-<li>
-<p>Wikidata ID：Q243998</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>打擊樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>西班牙</dd></div><div class="meta-item"><dt>年代</dt><dd>19 世紀</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>膜鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>無固定調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>約1.5至2個8度</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>2 膜鳴樂器</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>鼓類</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>敲擊鼓面</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>手掌、腳底、低音、舞步</dd></div><div class="meta-item"><dt>地區類型</dt><dd>單一地區／文化圈</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>邦哥鼓（英語：Bongos），又稱為曼波鼓，是源於拉丁美洲的一種鼓。以兩個不同大小的單皮鼓為一組，以鐵片或木將兩個鼓接駁在一起，因此英文名稱多寫成Bongos（間中亦有寫成Bongoes，但s才是正確寫法）。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/xhcp-8vfKyg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/vcaQr-Ph6OU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>邦哥鼓在拉丁音樂中應用廣泛。蒂托·普恩特（Tito Puente）的《王牌薩爾薩》（1974）採用邦哥鼓作為節奏基礎；古巴作曲家埃內斯托·萊庫奧納的《洛斯·西爾維斯特雷斯》（The Silvestre）展現了邦哥鼓在傳統古巴音樂中的角色；現代爵士樂手蒙克·蒙特羅（Mongo Santamaria）的《Afro Blue》（1959）則將邦哥鼓融入爵士語境，成為跨界經典。</p>
 <h2>歷史背景</h2>
-<p>邦哥鼓（Bongo drum）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>它可以先放在西班牙相關音樂文化中理解，後續可再補代表樂派、演奏場合與製作工藝。</p>
-<p>年代線索暫時指向「19 世紀」，可作為閱讀時的時間定位。</p>
-<p>作為打擊樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。 若要深入研究，可優先查找西班牙的博物館、民族音樂學資料或地方樂器圖錄。 「19 世紀」可作為初步年代標籤，但實際流傳時間仍應以專門資料校正。</p>
-<p>打擊樂器通常和節奏、信號、祭儀、舞蹈或群體活動關係密切。它們的歷史不一定只寫在樂譜裡，也常出現在節慶、宗教、軍事或地方生活的脈絡中。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://zh.wikipedia.org/wiki/%E9%82%A6%E5%93%A5%E9%BC%93</p>
+<p>邦哥鼓的起源大多不明確。其使用最早在19世紀末的古巴東部地區（東方省）有文獻記載，當時用於南貢、昌圭等音樂風格及其衍生的古巴兒子樂。據費南多·奧爾蒂茲所言，「邦哥」一詞源自班圖語的「mgombo」或「ngoma」，意為鼓。他推測該詞經過語音轉換及與班圖語「mbongo」相似而演變而來。根據奧爾蒂茲20世紀初的信息提供者所述，用於昌圭的大型山邦哥鼓是小型邦哥鼓的祖先，後者用於古巴兒子樂和薩爾薩舞樂。</p>
+<p>據東古巴居民向本傑明·拉皮德斯所述，東方省昌圭音樂家的口頭傳統認為，邦哥鼓起源於替代成對的博庫鼓，這些鼓原本被斜掛在演奏者膝蓋上。博庫鼓是東方各省流行的高型鼓，特別是在狂歡遊行中使用，並出現在早期昌圭樂隊中。後來這些鼓被切成兩半製成邦哥鼓。這或許解釋了為何用於昌圭的山邦哥鼓比用於古巴兒子樂的邦哥鼓更大。</p>
 <h2>音色描述</h2>
-<p>音色由鼓膜張力、腔體形狀與敲擊方式影響，常具有明確起音與節奏性。</p></article>
+<p>邦哥鼓音色明亮而富有穿透力，具有溫暖的鼓樂質感。其雙鼓設計賦予其寬廣的音域範圍，大鼓發出低沉渾厚的基調，小鼓則產生清脆高亢的聲響，兩者形成鮮明對比。敲擊時音粒飽滿，具有良好的定音性，每次撃打都能產生清晰的音頭。共鳴方式獨特，鼓皮的振動與木製鼓體相互作用，產生溫潤而富有彈性的音響。相比於重低音的大鼓，邦哥鼓更顯靈動；與爵士鼓相比，其音色更具民族特色和溫度。邦哥鼓的音響特別適合拉丁音樂，能營造出熱烈、律動感十足的音樂氛圍。</p>
+<h2>樂器材質</h2>
+<p>邦哥鼓通常由木製鼓體構成，多採用橡木或其他硬木材料製作兩個不同尺寸的圓筒形鼓身。鼓皮採用天然動物皮革，常見為山羊皮或牛皮，張繃於鼓口上端。鼓皮下方設置共鳴腔室以增強音響效果。兩個鼓體通常以金屬夾具或木製連接件固定在一起，便於演奏者用手指敲擊。金屬配件包括張緊螺栓和夾具，確保鼓皮張力穩定且便於調音。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>坐姿，邦哥鼓夾在雙膝之間。較小的鼓（Hembra）在左側，音高較高；較大的鼓（Macho）在右側，音高較低。用指尖和手掌根部敲擊。基本節奏Martillo（鎚擊）是核心技巧。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/hang-instrument/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Panart-freies-integrales-hang.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">手碟</strong>
+        <span class="card-orig">Hang (instrument)</span>
+        <span class="card-meta">全球／非洲／現代</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/kendang/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Traditional_indonesian_drums.jpg/500px-Traditional_indonesian_drums.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">肯當鼓</strong>
+        <span class="card-orig">Kendang</span>
+        <span class="card-meta">亞洲／東南亞（印尼）</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/putipu/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Pu-ti-p%C3%BA_-_Vista_de_arriba.jpg/500px-Pu-ti-p%C3%BA_-_Vista_de_arriba.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">普蒂普鼓</strong>
+        <span class="card-orig">Putipù</span>
+        <span class="card-meta">義大利南部／地中海地區</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/ceramic-percussion/">
+      <div class="card-thumb card-thumb--empty" aria-hidden="true">♩</div>
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">陶土打擊樂器</strong>
+        <span class="card-orig">Ceramic Percussion</span>
+        <span class="card-meta">東南亞／東亞／非洲／歐洲／全球</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

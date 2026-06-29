@@ -4,67 +4,134 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
-  <title>Drum Machine｜世界樂器百科</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <title>鼓機｜世界樂器百科</title>
+  <meta name="description" content="鼓機是一種電子樂器，用於製造打擊樂聲音、鼓聲節奏和模式。鼓機可以模仿鼓組或其他打擊樂器，或者產生獨特的聲音，例如合成電子音調。鼓機通常配備針對流行音樂、搖滾樂和舞蹈音樂等流行類型和風格的預設節奏和模式。在2010年代和2020年代製造的大多數現代鼓機還允許用戶編程自己的節奏和鼓聲。鼓機可以使用類比合成法製造聲音或播放預">
+<meta property="og:title" content="鼓機｜世界樂器百科">
+<meta property="og:description" content="鼓機是一種電子樂器，用於製造打擊樂聲音、鼓聲節奏和模式。鼓機可以模仿鼓組或其他打擊樂器，或者產生獨特的聲音，例如合成電子音調。鼓機通常配備針對流行音樂、搖滾樂和舞蹈音樂等流行類型和風格的預設節奏和模式。在2010年代和2020年代製造的大多數現代鼓機還允許用戶編程自己的節奏和鼓聲。鼓機可以使用類比合成法製造聲音或播放預">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Elektron_Analog_RYTM_-_2014_NAMM_Show.jpg/500px-Elektron_Analog_RYTM_-_2014_NAMM_Show.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>鼓機</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">鍵盤樂器</p>
-              <h1>Drum Machine</h1>
-              <p class="lead">Drum Machine</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>鍵盤樂器</dd></div><div><dt>國家/地區</dt><dd>全球</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div><div><dt>旅圖</dt><dd>旅圖六｜按鍵打開房間，眾聲走向廣場</dd></div><div><dt>章節</dt><dd>12｜按鍵打開的機械房間</dd></div><div><dt>發聲分類</dt><dd>電鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Electrophone／電鳴樂器</dd></div><div><dt>家族/支系</dt><dd>合成器與取樣器</dd></div><div><dt>演奏方式</dt><dd>電子震盪／取樣</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：待補</p>
+              <h1>鼓機</h1>
+              <p class="original-name">Drum Machine</p>
+              <p class="soundscape-tag">按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）</p>
+              <p class="badge-row"><span class="badge badge-hot">熱門</span></p>
             </div>
-            
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Elektron_Analog_RYTM_-_2014_NAMM_Show.jpg/500px-Elektron_Analog_RYTM_-_2014_NAMM_Show.jpg" alt="鼓機" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<p>Drum Machine 是收錄在《隔壁家的世界聲音旅圖》資料庫中的鍵盤樂器。目前資料庫將它歸在「電鳴」脈絡下，主要可從合成器與取樣器、電子震盪／取樣與聲音地景來認識。</p>
-<p>初步地區標註為「全球」。這個欄位仍屬企劃初稿，後續可依博物館、百科條目、民族音樂學資料或演奏者資料逐篇核對。</p>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>鍵盤樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>美洲／北美</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>鍵盤／電鳴／機械混合</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>全調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>低頻重鼓聲至高頻清脆鈸音，約3至4個8度</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>412/31/52 鍵盤、自由簧、電鳴與機械介面</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>鍵盤介面、風箱、電子與取樣</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>按鍵／風箱／電控／取樣</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>手指、機械距離、記憶、電聲</dd></div><div class="meta-item"><dt>地區類型</dt><dd>跨文化／多地</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>鼓機是一種電子樂器，用於製造打擊樂聲音、鼓聲節奏和模式。鼓機可以模仿鼓組或其他打擊樂器，或者產生獨特的聲音，例如合成電子音調。鼓機通常配備針對流行音樂、搖滾樂和舞蹈音樂等流行類型和風格的預設節奏和模式。在2010年代和2020年代製造的大多數現代鼓機還允許用戶編程自己的節奏和鼓聲。鼓機可以使用類比合成法製造聲音或播放預錄製的樣本。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/IvUU8joBb1Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/BlaY8kSTO28" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>鼓機在流行音樂中廣泛應用。Kraftwerk的《The Robots》（1978）運用早期鼓機創造電子舞曲經典；Prince的《When Doves Cry》（1984）以LinnDrum鼓機打造標誌性節奏；New Order的《Blue Monday》（1983）結合鼓機與合成器創作新浪潮電子樂；Timbaland在2000年代使用鼓機與採樣技術製作嘻哈音樂的創新節奏。</p>
 <h2>歷史背景</h2>
-<p>Drum Machine 的歷史背景目前先以資料庫分類建立閱讀入口。它位於「12｜按鍵打開的機械房間」的脈絡中，代表這件樂器可以和氣息、材料、身體動作、地方儀式或現代舞台之間的關係一起閱讀。</p>
-<p>如果要補寫成正式百科條目，建議優先查證三個方向：一是它最早出現或被記錄的地區，二是合成器與取樣器的形制演變，三是電子震盪／取樣如何影響音色、用途與傳播。</p>
+<p>1930至1932年間，傳奇發明家萊昂·瑟門應音樂家亨利·考威爾的要求，開發了革新性的「節奏康」（Rhythmicon）。考威爾希望創造一件能演奏包含多個節奏樣式的作品，複雜程度遠超現有鍵盤樂器的樂器。該發明可產生十六種不同節奏，每種節奏對應特定音高，可單獨或組合使用。節奏康於1932年公開亮相後獲得廣泛關注，但隨後被考威爾擱置。</p>
+<p>1957年，來自愛荷華州的工程師哈利·張伯林創製「張伯林節奏器」，使用者可在十四條鼓組與打擊樂器的錄音帶迴圈中選擇，演奏各種節拍。此設計與張伯林電子琴相似，主要面向家庭卡拉OK。約售出百台。</p>
+<p>1959年，胡利茲公司推出「Side Man」，採用旋轉圓盤機械式生成聲音，類似八音盒原理。滑塊可控制速度（每分鐘34至150拍）。按鈕面板亦可觸發個別聲音。Side Man獲得商業成功，美國音樂家聯合會於1961年裁定，地方分會無權禁用Side Man。</p>
 <h2>音色描述</h2>
-<p>資料庫把它的身體／聽覺關聯標為「手指、機械距離、記憶、電聲」。實際音色仍需要搭配可信錄音或現場演奏資料補充。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖六｜按鍵打開房間，眾聲走向廣場</li>
-<li><strong>章節</strong>：12｜按鍵打開的機械房間</li>
-<li><strong>章節主分類</strong>：鍵盤介面、風箱、電子與取樣</li>
-<li><strong>原聲音地景</strong>：按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）</li>
-<li><strong>專業發聲大類</strong>：電鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Electrophone／電鳴樂器</li>
-<li><strong>家族／支系</strong>：合成器與取樣器</li>
-<li><strong>演奏方式</strong>：電子震盪／取樣</li>
-<li><strong>身體／聽覺關聯</strong>：手指、機械距離、記憶、電聲</li>
-<li><strong>主要地區／國家</strong>：全球</li>
-<li><strong>地區類型</strong>：跨文化／多地</li>
-<li><strong>資料狀態</strong>：承接553條目地域欄</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 Drum Machine 時，可以先從「合成器與取樣器」與「電子震盪／取樣」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「手指、機械距離、記憶、電聲」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>鼓機的音色具有鮮明的電子特質，音色明亮而乾淨，帶有輕微的機械感。其音域跨越低頻的重鼓聲到高頻的清脆鈸音，覆蓋廣闊的頻率範圍。使用類比合成法製造的聲音具有溫暖而富有厚度的特徵，而播放樣本則能呈現逼真的鼓組音色。鼓機的共鳴方式較為直接，缺乏傳統鼓組的自然共鳴，聲音輪廓較為銳利清晰。與真實鼓組相比，鼓機的聲音更具規律性和精確性，節奏感極強；與其他電子樂器相比，其打擊音的衝擊力更為突出，提供強有力的節奏驅動力，成為現代流行音樂的重要基礎元素。</p>
+<h2>樂器材質</h2>
+<p>鼓機主要由塑膠或金屬外殼構成，內部搭載電路板與數位晶片。音頻輸出部分採用揚聲器或內建放大器。類比鼓機使用電子元件如電容器與電阻器產生音色；數位鼓機則採用記憶體儲存樣本。鍵盤採用橡膠或塑膠按鍵。部分型號配備旋鈕與推桿以調整參數。電源由電池或AC變壓器供應。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>連接電源和音響設備。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/eurorack-modular/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Eurorack_Modular_Synthesizer.jpg/500px-Eurorack_Modular_Synthesizer.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">歐系模組合成器</strong>
+        <span class="card-orig">Eurorack Modular</span>
+        <span class="card-meta">全球／現代</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/electric-organ/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Yamaha_GX-1_%28clip%29_%40_Yamaha_Design_Masterworks.png/500px-Yamaha_GX-1_%28clip%29_%40_Yamaha_Design_Masterworks.png" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">電子琴</strong>
+        <span class="card-orig">Electric Organ</span>
+        <span class="card-meta">歐洲／希臘</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/bandoneon/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Buenos_Aires_-_Bandoneon_tango_player_-_7435.jpg/500px-Buenos_Aires_-_Bandoneon_tango_player_-_7435.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">班東尼琴</strong>
+        <span class="card-orig">Bandoneon</span>
+        <span class="card-meta">歐洲／德國／美洲／阿根廷</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/otamatone/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/MaywaDenki_OtamaTone.jpg/500px-MaywaDenki_OtamaTone.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">音樂蝌蚪</strong>
+        <span class="card-orig">Otamatone</span>
+        <span class="card-meta">日本</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

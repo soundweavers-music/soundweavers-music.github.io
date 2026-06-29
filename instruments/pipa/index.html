@@ -4,80 +4,133 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>琵琶｜世界樂器百科</title>
+  <meta name="description" content="琵琶，是東亞傳統彈撥樂器，在中國已經有2000多年的歷史，最早被稱為「琵琶」的樂器大約在秦朝時期出現的。在唐朝以前，琵琶也是漢語裡對所有短頸魯特琴族（又稱琉特屬）彈撥樂器的總稱。 在古代，琵琶有四弦琵琶（曲頸琵琶）和五弦琵琶（直頸琵琶）兩種，其中五弦琵琶後來逐漸失傳，不再使用，但在敦煌壁畫上經常可以看到飛天彈奏此種樂器">
+<meta property="og:title" content="琵琶｜世界樂器百科">
+<meta property="og:description" content="琵琶，是東亞傳統彈撥樂器，在中國已經有2000多年的歷史，最早被稱為「琵琶」的樂器大約在秦朝時期出現的。在唐朝以前，琵琶也是漢語裡對所有短頸魯特琴族（又稱琉特屬）彈撥樂器的總稱。 在古代，琵琶有四弦琵琶（曲頸琵琶）和五弦琵琶（直頸琵琶）兩種，其中五弦琵琶後來逐漸失傳，不再使用，但在敦煌壁畫上經常可以看到飛天彈奏此種樂器">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/T%E1%BB%B3_b%C3%A0.jpg/500px-T%E1%BB%B3_b%C3%A0.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>琵琶</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">弦樂器</p>
               <h1>琵琶</h1>
-              <p class="lead">Pipa</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>弦樂器</dd></div><div><dt>國家/地區</dt><dd>中東／歐亞／東亞／美洲／全球</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div><div><dt>旅圖</dt><dd>旅圖二｜懷裡與大地的弦</dd></div><div><dt>章節</dt><dd>4｜旅人懷裡撥動的故事線</dd></div><div><dt>發聲分類</dt><dd>弦鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Chordophone／弦鳴樂器</dd></div><div><dt>家族/支系</dt><dd>短頸魯特琴</dd></div><div><dt>演奏方式</dt><dd>撥弦</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://en.wikipedia.org/wiki/Pipa" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Pipa</a></p>
+              <p class="original-name">Pipa</p>
+              <p class="soundscape-tag">旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）</p>
+              <p class="badge-row"><span class="badge badge-hot">熱門</span></p>
             </div>
-            
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/T%E1%BB%B3_b%C3%A0.jpg/500px-T%E1%BB%B3_b%C3%A0.jpg" alt="琵琶" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>琵琶</h1>
-<p>琵琶（原名：Pipa）是一種弦樂器。主要靠弦的振動發聲，常透過撥、拉、彈、擊等方式演奏。</p>
-<p>目前中文資料較少，因此本條目先依英文維基與 Wikidata 的可查資料整理。後續可再補充 Pipa 的製作方式、代表曲目與地方流派。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Pipa</p>
-</li>
-<li>
-<p>Wikidata ID：ENWIKI-d8f6278799</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>弦樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>中東／歐亞／東亞／美洲／全球</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>弦鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>無固定調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>約3個8度</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>321/322 魯特琴類／撥弦</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>魯特琴、短頸長頸撥弦與民謠弦聲</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>撥弦／刷弦／撥片</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>懷抱、手指、腳步、敘事</dd></div><div class="meta-item"><dt>地區類型</dt><dd>跨文化／多地</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>琵琶，是東亞傳統彈撥樂器，在中國已經有2000多年的歷史，最早被稱為「琵琶」的樂器大約在秦朝時期出現的。在唐朝以前，琵琶也是漢語裡對所有短頸魯特琴族（又稱琉特屬）彈撥樂器的總稱。 在古代，琵琶有四弦琵琶（曲頸琵琶）和五弦琵琶（直頸琵琶）兩種，其中五弦琵琶後來逐漸失傳，不再使用，但在敦煌壁畫上經常可以看到飛天彈奏此種樂器；而四弦琵琶則在中國和日本發展出了多種類型，並且很多至今仍在演奏。四弦琵琶（曲頸）與西亞的烏德琴和歐洲的魯特琴有著共同的起源，其形狀也非常相似。它的共鳴箱呈現為像豎著切開的半個蛋形，並連接著一根琴頸，琴頭（弦軸部分）以近乎直角向後彎曲，形成了這一樂器的典型外觀。五弦琵琶（直頸）則被認為起源於印度，琴頭不彎曲，而是直線延伸。唯一現存的五弦琵琶實物收藏於宮內廳正倉院北院，即「螺鈿紫檀五弦琵琶」。 中國琵琶傳到東亞其他地區，發展成日本琵琶、朝鮮琵琶、越南琵琶和琉球琵琶。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/nI-6Uv0U028" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/SUKYeApEots" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>琵琶的代表作品包括《十面埋伏》，為傳統琵琶大套文曲，描繪楚漢戰爭場景，氣勢恢宏；《浔陽月夜》取材於白居易《琵琶行》，以琵琶音樂表現悲歡離合；《昭君出塞》由華彥鈞創作，以琵琶獨奏演繹王昭君遠嫁異域的悲涼故事；《龍船》則為傳統南派琵琶樂曲，表現划龍舟的歡樂氛圍。</p>
 <h2>歷史背景</h2>
-<p>琵琶（Pipa）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>作為弦樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。</p>
-<p>弦樂器的歷史常和弦材、共鳴箱、調音方式與演奏技法的演變有關。從民間伴奏到獨奏舞台，許多弦樂器都會因音量需求、音域擴張或樂曲風格改變而改良形制。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://en.wikipedia.org/wiki/Pipa</p>
+<p>琵琶的起源存在多種説法和爭議。這可能因為「琵琶」一詞在秦至唐代的古籍中被用來描述多種撥弦樂器，包括長頸尖角琵琶和短頸琵琶，且這些古籍記載不一。傳統中文敍事偏好漢代劉細君公主被遣嫁烏孫王的故事，相傳琵琶因她能在馬上彈奏音樂以寄託鄉愁而被發明。然而，現代研究者如勞倫斯·皮肯、岸邊成雄和約翰·邁爾斯等提出琵琶起源於非中國文化。</p>
+<p>琵琶在中文文獻中最早出現於東漢末期，約公元2世紀。據劉熙的《釋名》記載，「琵琶」一詞可能源於擬聲，其音似樂器演奏聲。書中提及琵琶起源於胡人，他們在馬上彈奏此樂器，向外撥弦稱「琵」，向內撥弦稱「琶」，因而得名。</p>
 <h2>音色描述</h2>
-<p>音色由弦長、張力、共鳴箱與演奏法影響，可呈現撥奏、擦奏或擊弦的不同質感。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖二｜懷裡與大地的弦</li>
-<li><strong>章節</strong>：4｜旅人懷裡撥動的故事線</li>
-<li><strong>章節主分類</strong>：魯特琴、短頸長頸撥弦與民謠弦聲</li>
-<li><strong>原聲音地景</strong>：旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）</li>
-<li><strong>專業發聲大類</strong>：弦鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Chordophone／弦鳴樂器</li>
-<li><strong>家族／支系</strong>：短頸魯特琴</li>
-<li><strong>演奏方式</strong>：撥弦</li>
-<li><strong>身體／聽覺關聯</strong>：懷抱、手指、腳步、敘事</li>
-<li><strong>主要地區／國家</strong>：中東／歐亞／東亞／美洲／全球</li>
-<li><strong>地區類型</strong>：跨文化／多地</li>
-<li><strong>資料狀態</strong>：承接553條目地域欄</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 Pipa 時，可以先從「短頸魯特琴」與「撥弦」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「懷抱、手指、腳步、敘事」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>琵琶音色清亮透徹，具有金屬質感與穿透力，特別是在高音區展現出璀璨的光澤。其音域寬廣，從低沉厚重的低音到尖銳明快的高音均有涉獵，音色層次豐富。由於琴體採用蛋形共鳴箱設計，音色既不失溫潤感，又帶有適度的亮度，能夠有效傳遞細微的音樂表情。彈撥時產生的音粒飽滿清晰，具有強烈的指向性和爆發力。與古箏的柔和飄然相比，琵琶音色更加剛健有力；與二胡的絲滑婉轉相異，琵琶的音色更具顆粒感與跳躍性。其獨特的輪指技法能營造出連綿如雨的音響效果，展現出東方弦樂器特有的魅力與表現力。</p>
+<h2>樂器材質</h2>
+<p>琵琶琴體採用蛋形共鳴箱設計，面板多用梧桐木或楓木製造，背板和側板則選用紫檀木、紅木等名貴硬木。琴頸採用硬質木材如紅木或烏木製成，品柱（琴格）由竹片或象牙製作。弦軸通常為木製或象牙製，弦為絲製或鋼絲纏繞。琴弦張力由木製或象牙弦軸調節，共鳴箱內部結構複雜精妙。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>坐姿，琵琶直立抱在懷中。右手用義甲彈奏，有五種基本指法：彈、挑、勾、抹、扣。左手按弦在品上移動。練習輪指（連續快速彈挑）是琵琶特色技巧。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/dilruba/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Dilruba_boy.jpg/500px-Dilruba_boy.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">迪爾魯巴琴</strong>
+        <span class="card-orig">Dilruba</span>
+        <span class="card-meta">亞洲／歐洲／中東／全球</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/guinea/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Flag_of_Guinea.svg/500px-Flag_of_Guinea.svg.png" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">幾內亞</strong>
+        <span class="card-orig">Guinea</span>
+        <span class="card-meta">西非（幾內亞地區）</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/3rd-bridge/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Home_swinger.jpg/500px-Home_swinger.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">第三琴橋</strong>
+        <span class="card-orig">3rd bridge</span>
+        <span class="card-meta">美洲／北美</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/rebec/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Rebac.jpg/500px-Rebac.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">雷貝克弓琴</strong>
+        <span class="card-orig">Rebec</span>
+        <span class="card-meta">中東／歐洲／東南亞</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

@@ -4,64 +4,132 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
-  <title>俄罗斯吉他｜世界樂器百科</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <title>俄羅斯吉他｜世界樂器百科</title>
+  <meta name="description" content="俄羅斯吉他（有時被稱為「吉普賽吉他」）是一種七弦民族吉他，於18世紀末在俄羅斯發展而來。雖然有些歷史學家堅持其源於英國吉他，但它在樂器學特徵上與西班牙吉他大體相同。在俄語中，它被稱為「semistrunnaya gitara」（семиструнная гитара），親暱地被稱為「semistrunka」（семис">
+<meta property="og:title" content="俄羅斯吉他｜世界樂器百科">
+<meta property="og:description" content="俄羅斯吉他（有時被稱為「吉普賽吉他」）是一種七弦民族吉他，於18世紀末在俄羅斯發展而來。雖然有些歷史學家堅持其源於英國吉他，但它在樂器學特徵上與西班牙吉他大體相同。在俄語中，它被稱為「semistrunnaya gitara」（семиструнная гитара），親暱地被稱為「semistrunka」（семис">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B0%D1%8F_%D1%81%D0%B5%D0%BC%D0%B8%D1%81%D1%82%D1%80%D1%83%D0%BD%D0%BD%D0%B0%D1%8F_%D0%B3%D0%B8%D1%82%D0%B0%D1%80%D0%B0.JPG/500px-%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B0%D1%8F_%D1%81%D0%B5%D0%BC%D0%B8%D1%81%D1%82%D1%80%D1%83%D0%BD%D0%BD%D0%B0%D1%8F_%D0%B3%D0%B8%D1%82%D0%B0%D1%80%D0%B0.JPG">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
-              <p class="eyebrow">鍵盤樂器</p>
-              <h1>俄罗斯吉他</h1>
-              <p class="lead">Russian guitar</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>鍵盤樂器</dd></div><div><dt>國家/地區</dt><dd>俄羅斯</dd></div><div><dt>年代</dt><dd>古代</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://zh.wikipedia.org/wiki/%E4%BF%84%E7%BD%97%E6%96%AF%E5%90%89%E4%BB%96" target="_blank" rel="noopener noreferrer">https://zh.wikipedia.org/wiki/%E4%BF%84%E7%BD%97%E6%96%AF%E5%90%89%E4%BB%96</a></p>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>俄羅斯吉他</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
+              <p class="eyebrow">弦樂器</p>
+              <h1>俄羅斯吉他</h1>
+              <p class="original-name">Russian guitar</p>
+              <p class="soundscape-tag">旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）</p>
+              <p class="badge-row"><span class="badge badge-hot">熱門</span></p>
             </div>
-            <img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B0%D1%8F_%D1%81%D0%B5%D0%BC%D0%B8%D1%81%D1%82%D1%80%D1%83%D0%BD%D0%BD%D0%B0%D1%8F_%D0%B3%D0%B8%D1%82%D0%B0%D1%80%D0%B0.JPG/960px-%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B0%D1%8F_%D1%81%D0%B5%D0%BC%D0%B8%D1%81%D1%82%D1%80%D1%83%D0%BD%D0%BD%D0%B0%D1%8F_%D0%B3%D0%B8%D1%82%D0%B0%D1%80%D0%B0.JPG" alt="俄罗斯吉他">
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B0%D1%8F_%D1%81%D0%B5%D0%BC%D0%B8%D1%81%D1%82%D1%80%D1%83%D0%BD%D0%BD%D0%B0%D1%8F_%D0%B3%D0%B8%D1%82%D0%B0%D1%80%D0%B0.JPG/500px-%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B0%D1%8F_%D1%81%D0%B5%D0%BC%D0%B8%D1%81%D1%82%D1%80%D1%83%D0%BD%D0%BD%D0%B0%D1%8F_%D0%B3%D0%B8%D1%82%D0%B0%D1%80%D0%B0.JPG" alt="俄羅斯吉他" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>俄罗斯吉他</h1>
-<p>俄罗斯吉他是一種鍵盤樂器。俄羅斯吉他（也被稱為「吉普賽吉他」）是一種七弦原聲吉他，始於 18 世紀末在俄羅斯的俄羅斯，它和西班牙吉他都具有相同的管風琴特徵，儘管一些歷史學家堅持認為它起源於英國吉他。它在俄語中被稱為semistrunnaya gitara（семиструнная гитара），或稱為semistrunka（семиструнка），名為「七弦吉他」。這些吉他最常見的調音是開放的和弦，如下所示：D 2 G 2 B 2 D 3 G 3 B 3 D 4。在古典文學中，最低的弦（D）偶爾會調至到 C。</p>
-<p>在地域脈絡上，它和俄羅斯的音樂文化有關。</p>
-<p>年代上可暫歸在「古代」相關脈絡中理解。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>中文維基百科：https://zh.wikipedia.org/wiki/%E4%BF%84%E7%BD%97%E6%96%AF%E5%90%89%E4%BB%96</p>
-</li>
-<li>
-<p>原始來源：https://en.wikipedia.org/wiki/Russian_guitar</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>弦樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>俄羅斯</dd></div><div class="meta-item"><dt>年代</dt><dd>古代</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>弦鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>G大調（開放G和弦調弦）</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>D2–G5（約3個半8度）</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>3 弦鳴樂器</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>弦樂器類</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>撥弦／擦弦／擊弦</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>懷抱、手指、腳步、敘事</dd></div><div class="meta-item"><dt>地區類型</dt><dd>單一地區／文化圈</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>俄羅斯吉他（有時被稱為「吉普賽吉他」）是一種七弦民族吉他，於18世紀末在俄羅斯發展而來。雖然有些歷史學家堅持其源於英國吉他，但它在樂器學特徵上與西班牙吉他大體相同。在俄語中，它被稱為「semistrunnaya gitara」（семиструнная гитара），親暱地被稱為「semistrunka」（семиструнка），意為「七弦琴」。這些吉他最常被調成開放G和弦，調弦如下：D2 G2 B2 D3 G3 B3 D4。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/inBKFMB-yPg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/YzgTMh21zhI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>安德烈·西克拉是俄羅斯吉他最重要的作曲家，創作超過千部作品。其中《俄羅斯吉他練習曲集》是19世紀最重要的教學曲集，由斯特洛夫斯基於1840年代首次出版，古泰爾於1880年代再版，部分作品於1926年在蘇聯重新出版。西克拉的作品將民間音樂與古典音樂技巧相結合，深刻影響了整個俄羅斯吉他演奏學派的發展方向。</p>
 <h2>歷史背景</h2>
-<p>俄罗斯吉他（Russian guitar）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>它可以先放在俄羅斯相關音樂文化中理解，後續可再補代表樂派、演奏場合與製作工藝。</p>
-<p>年代線索暫時指向「古代」，可作為閱讀時的時間定位。</p>
-<p>作為鍵盤樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。 若要深入研究，可優先查找俄羅斯的博物館、民族音樂學資料或地方樂器圖錄。 「古代」可作為初步年代標籤，但實際流傳時間仍應以專門資料校正。</p>
-<p>鍵盤樂器的歷史多半和機械結構、調律系統與演奏場域有關。從早期的撥弦、擊弦或管風琴機構，到現代舞台與錄音室，鍵盤介面讓複音演奏變得更容易。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://zh.wikipedia.org/wiki/%E4%BF%84%E7%BD%97%E6%96%AF%E5%90%89%E4%BB%96</p>
+<p>雖然許多資料將俄羅斯吉他的發明歸功於安德烈·西克拉（1773–1850年），但有充分證據表明該樂器在西克拉開始其職業生涯之前已被使用。西克拉在創立俄羅斯吉他演奏學派方面確實影響深遠。他留下了超過一千部作品，其中七十五首在1840年代由斯特洛夫斯基出版，隨後在1880年代由古泰爾再版，部分作品並於1926年在蘇聯重新出版。已知最早的七弦吉他書面教學於1798年12月15日在聖彼得堡由伊格納茲·海爾德（1766–1816年）發表。俄羅斯版七弦吉他因其靈活性而受專業演奏家歡迎，同時因基本和弦相對簡單、易於演奏交替低音樂線，也深受業餘愛好者歡迎，特別是俄羅斯吟遊詩人。</p>
 <h2>音色描述</h2>
-<p>音色由弦長、張力、共鳴箱與演奏法影響，可呈現撥奏、擦奏或擊弦的不同質感。</p></article>
+<p>俄羅斯吉他音色溫暖而富有民族特色，兼具明亮與深沉的雙重質感。七弦設計使其音域寬廣，低音弦渾厚深邃，中高音清晰透亮，層次感豐富。開放G和弦調弦賦予其天然的共鳴諧波，使琴聲具有自然和聲的韻味。相較於西班牙古典吉他的纖細優雅，俄羅斯吉他音色更為粗獷有力；與民謠吉他相比，其音響更柔和圓潤，帶有獨特的東歐風情。共鳴腔體設計使琴聲易於投射，適合室內樂演奏。其共鳴方式介於撥弦樂器的清晰與弦樂器的溫潤之間，具有深厚的民族韻味。</p>
+<h2>樂器材質</h2>
+<p>俄羅斯吉他琴體採用雲杉或松木製作音板，提供溫暖共鳴；背板與側板多用玫瑰木、楓木或白樺木，增強音色深度。琴頸通常以楓木或桃花心木製成，指板採用烏木或玫瑰木。七條弦由鋼絲製成，提供獨特的金屬質感與穿透力。機械弦軸由金屬製造，確保調音穩定性與耐用性。共鳴腔內部設計特殊，部分型號使用木製結構增強諧波共鳴。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>將樂器以正確姿勢持於手中。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/mandola/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Mandos.jpg/500px-Mandos.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">曼陀</strong>
+        <span class="card-orig">Mandola</span>
+        <span class="card-meta">中東／歐亞／東亞／美洲／全球</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/sanshin/">
+      <div class="card-thumb card-thumb--empty" aria-hidden="true">♩</div>
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">三線</strong>
+        <span class="card-orig">Sanshin</span>
+        <span class="card-meta">琉球國</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/idiochord/">
+      <div class="card-thumb card-thumb--empty" aria-hidden="true">♩</div>
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">自鳴絃琴</strong>
+        <span class="card-orig">Idiochord</span>
+        <span class="card-meta">印度洋地區／非洲／歐洲和北美</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/bar-zither/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/An_African_Banjo%2C_Zambia%2C_ca.1905-ca.1940_%28imp-cswc-GB-237-CSWC47-LS6-048%29.jpg/500px-An_African_Banjo%2C_Zambia%2C_ca.1905-ca.1940_%28imp-cswc-GB-237-CSWC47-LS6-048%29.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">板箏</strong>
+        <span class="card-orig">Bar zither</span>
+        <span class="card-meta">非洲</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

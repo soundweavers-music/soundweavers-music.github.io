@@ -4,67 +4,134 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
-  <title>Angklung｜世界樂器百科</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <title>安克隆竹琴｜世界樂器百科</title>
+  <meta name="description" content="安克隆竹琴是源自印度尼西亞爪哇島的打擊樂器，距今已有超過一千年歷史。樂器由數根不同長度的竹筒組成，每根竹筒發出不同音高。演奏者通過搖晃樂器使竹筒相互碰撞發聲，產生清脆明亮的音色。其音域多為中高音範圍，具有獨特的竹質溫潤感和波浪般的搖晃效果。安克隆竹琴最初用於農業儀式和宗教祭祀，後來演變為民間娛樂樂器，廣泛應用於爪哇民俗">
+<meta property="og:title" content="安克隆竹琴｜世界樂器百科">
+<meta property="og:description" content="安克隆竹琴是源自印度尼西亞爪哇島的打擊樂器，距今已有超過一千年歷史。樂器由數根不同長度的竹筒組成，每根竹筒發出不同音高。演奏者通過搖晃樂器使竹筒相互碰撞發聲，產生清脆明亮的音色。其音域多為中高音範圍，具有獨特的竹質溫潤感和波浪般的搖晃效果。安克隆竹琴最初用於農業儀式和宗教祭祀，後來演變為民間娛樂樂器，廣泛應用於爪哇民俗">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Eight-pitch_Angklung%2C_Mitchell_Park%2C_Milwaukee.jpg/500px-Eight-pitch_Angklung%2C_Mitchell_Park%2C_Milwaukee.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>安克隆竹琴</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">打擊樂器</p>
-              <h1>Angklung</h1>
-              <p class="lead">Angklung</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>打擊樂器</dd></div><div><dt>國家/地區</dt><dd>全球</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div><div><dt>旅圖</dt><dd>旅圖五｜城市與星塵的節奏</dd></div><div><dt>章節</dt><dd>10｜木石金屬的回聲城市</dd></div><div><dt>發聲分類</dt><dd>體鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Idiophone／體鳴樂器</dd></div><div><dt>家族/支系</dt><dd>竹與管狀敲擊</dd></div><div><dt>演奏方式</dt><dd>敲擊／搖動</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：待補</p>
+              <h1>安克隆竹琴</h1>
+              <p class="original-name">Angklung</p>
+              <p class="soundscape-tag">木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）</p>
+              <p class="badge-row"><span class="badge badge-cold">冷門</span></p>
             </div>
-            
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Eight-pitch_Angklung%2C_Mitchell_Park%2C_Milwaukee.jpg/500px-Eight-pitch_Angklung%2C_Mitchell_Park%2C_Milwaukee.jpg" alt="安克隆竹琴" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<p>Angklung 是收錄在《隔壁家的世界聲音旅圖》資料庫中的打擊樂器。目前資料庫將它歸在「體鳴」脈絡下，主要可從竹與管狀敲擊、敲擊／搖動與聲音地景來認識。</p>
-<p>初步地區標註為「全球」。這個欄位仍屬企劃初稿，後續可依博物館、百科條目、民族音樂學資料或演奏者資料逐篇核對。</p>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>打擊樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>亞洲／東南亞（印尼）</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>體鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>多調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>中高音範圍（約2至3個8度）</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>11/12 定音體鳴／鑼鐘木琴石琴系統</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>定音體鳴、材料敲擊與鑼鐘木琴系統</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>敲擊／搖奏／材料共鳴</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>材料、回聲、群體分工、音列</dd></div><div class="meta-item"><dt>地區類型</dt><dd>跨文化／多地</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>安克隆竹琴是源自印度尼西亞爪哇島的打擊樂器，距今已有超過一千年歷史。樂器由數根不同長度的竹筒組成，每根竹筒發出不同音高。演奏者通過搖晃樂器使竹筒相互碰撞發聲，產生清脆明亮的音色。其音域多為中高音範圍，具有獨特的竹質溫潤感和波浪般的搖晃效果。安克隆竹琴最初用於農業儀式和宗教祭祀，後來演變為民間娛樂樂器，廣泛應用於爪哇民俗音樂中，常用於營造歡樂愉快的氛圍。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/2hhzmcHC2HY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/9yeEBoiQaN4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>安克隆竹琴的代表作品主要見於印度尼西亞傳統民俗音樂中。19世紀末音樂家蘇卡爾皮改進樂器設計後，創作了多首利用安克隆竹琴的民族樂曲。聯合國教科文組織於2010年將印度尼西亞安克隆竹琴藝術列入人類非物質文化遺產代表作名錄，確認其在傳統音樂中的重要地位與文化價值。</p>
 <h2>歷史背景</h2>
-<p>Angklung 的歷史背景目前先以資料庫分類建立閱讀入口。它位於「10｜木石金屬的回聲城市」的脈絡中，代表這件樂器可以和氣息、材料、身體動作、地方儀式或現代舞台之間的關係一起閱讀。</p>
-<p>如果要補寫成正式百科條目，建議優先查證三個方向：一是它最早出現或被記錄的地區，二是竹與管狀敲擊的形制演變，三是敲擊／搖動如何影響音色、用途與傳播。</p>
+<h1>安克隆竹琴的歷史背景</h1>
+<p>安克隆竹琴起源於印度尼西亞的爪哇島，距今已有超過一千年的歷史。這種樂器在古代爪哇王國時期就已出現，最初被用於農業儀式和宗教祭祀，象徵著對豐收和神靈的祈禱。安克隆竹琴由數根竹筒組成，每根竹筒發出不同的音高，演奏者通過搖晃樂器使竹筒碰撞發聲。</p>
+<p>隨著時間推移，安克隆竹琴逐漸從宗教用途演變為民間娛樂樂器，在爪哇社區中廣泛使用。十九世紀末，印度尼西亞音樂家蘇卡爾皮改進了其設計和音階系統，使其更適合演奏西方音樂，大大提升了樂器的藝術性。自此，安克隆竹琴傳播到東南亞各地乃至世界各地，成為代表印度尼西亞文化的重要符號，並於2010年被聯合國教科文組織列為人類非物質文化遺產。</p>
 <h2>音色描述</h2>
-<p>資料庫把它的身體／聽覺關聯標為「材料、回聲、群體分工、音列」。實際音色仍需要搭配可信錄音或現場演奏資料補充。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖五｜城市與星塵的節奏</li>
-<li><strong>章節</strong>：10｜木石金屬的回聲城市</li>
-<li><strong>章節主分類</strong>：定音體鳴、材料敲擊與鑼鐘木琴系統</li>
-<li><strong>原聲音地景</strong>：木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）</li>
-<li><strong>專業發聲大類</strong>：體鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Idiophone／體鳴樂器</li>
-<li><strong>家族／支系</strong>：竹與管狀敲擊</li>
-<li><strong>演奏方式</strong>：敲擊／搖動</li>
-<li><strong>身體／聽覺關聯</strong>：材料、回聲、群體分工、音列</li>
-<li><strong>主要地區／國家</strong>：全球</li>
-<li><strong>地區類型</strong>：跨文化／多地</li>
-<li><strong>資料狀態</strong>：承接553條目地域欄</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 Angklung 時，可以先從「竹與管狀敲擊」與「敲擊／搖動」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「材料、回聲、群體分工、音列」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>安克隆竹琴音色清脆明亮，具有獨特的竹質溫潤感。其發聲時帶有輕盈飄然的質感，音域多為中高音範圍，音色穿透力強，能在樂隊中清晰凸顯。由於採用共鳴竹筒結構，搖晃時會產生層次豐富的共鳴效果，形成柔和而不失活力的音響。相比木琴的乾脆，安克隆竹琴更顯溫潤；與鐘琴相比則缺乏金屬光澤，卻多了有機的自然感。其特有的搖晃技巧使音色具有波浪感，營造出輕鬆愉快的氛圍，常用於民俗音樂中營造歡樂氣氛。</p>
+<h2>樂器材質</h2>
+<p>安克隆竹琴主要採用竹材製作。樂器由多根竹筒組成，每根竹筒經精心選材與切割，以產生特定音高。竹筒通常使用天然竹材，具有良好的共鳴特性。竹筒之間通過竹製框架連接，框架同樣採用竹材雕製而成。為增強耐用性和音響效果，竹筒內部常經過特殊處理。樂器整體保持竹的天然特性，部分地區會使用繩索或藤條作為連接材料，以增加結構的穩定性和靈活性。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>站於琴前，雙手持棒敲擊琴鍵中央。手持樂器本體，透過敲擊、搖晃、刮奏或撥彈等方式使樂器本身震動發聲。不同部位和不同力道會產生不同音色。練習時先確認正確持琴姿勢，掌握基本發聲方式後再練習節奏型和旋律。手指或鼓棒敲擊表面，利用反彈力自然回彈，手腕放鬆。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/dundun/">
+      <div class="card-thumb card-thumb--empty" aria-hidden="true">♩</div>
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">敦敦鼓</strong>
+        <span class="card-orig">Dundun</span>
+        <span class="card-meta">非洲／西非</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/dhantal/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Dhantal.svg/500px-Dhantal.svg.png" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">丹塔爾鼓</strong>
+        <span class="card-orig">Dhantal</span>
+        <span class="card-meta">加勒比海地區</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/tambourine-de-bearn/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Espartenhas_-_Campestral_2016_au_Passage_d%27Agen_%281%29.jpg/500px-Espartenhas_-_Campestral_2016_au_Passage_d%27Agen_%281%29.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">貝亞恩手鼓</strong>
+        <span class="card-orig">Tambourine de Bearn</span>
+        <span class="card-meta">法國／比利牛斯地區</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/hyoshigi/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/2/22/Hyoshigi01.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">拍子木</strong>
+        <span class="card-orig">Hyoshigi</span>
+        <span class="card-meta">日本</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

@@ -4,80 +4,133 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
-  <title>Cuíca（暫譯）｜世界樂器百科</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <title>奎卡鼓｜世界樂器百科</title>
+  <meta name="description" content="奎卡鼓（葡萄牙語發音：[kuˈikɐ]）是一種巴西摩擦鼓，音域寬廣，通過改變鼓面的張力來改變音高。奎卡是葡萄牙語中灰色四眼負鼠（學名：Philander opossum）的名稱，這種動物以其高音調的叫聲而聞名。奎卡鼓經常用於狂歡節，也常見於桑巴音樂中。它發出的音色具有高音調的尖銳音質。由於這種聲音，它被稱為「笑聲葫蘆」">
+<meta property="og:title" content="奎卡鼓｜世界樂器百科">
+<meta property="og:description" content="奎卡鼓（葡萄牙語發音：[kuˈikɐ]）是一種巴西摩擦鼓，音域寬廣，通過改變鼓面的張力來改變音高。奎卡是葡萄牙語中灰色四眼負鼠（學名：Philander opossum）的名稱，這種動物以其高音調的叫聲而聞名。奎卡鼓經常用於狂歡節，也常見於桑巴音樂中。它發出的音色具有高音調的尖銳音質。由於這種聲音，它被稱為「笑聲葫蘆」">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/7/79/Cuica.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>奎卡鼓</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">打擊樂器</p>
-              <h1>Cuíca（暫譯）</h1>
-              <p class="lead">Cuíca</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>打擊樂器</dd></div><div><dt>國家/地區</dt><dd>全球</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div><div><dt>旅圖</dt><dd>旅圖四｜地心與手邊的微光</dd></div><div><dt>章節</dt><dd>8｜皮膜敲醒的地心脈動</dd></div><div><dt>發聲分類</dt><dd>膜鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Membranophone／膜鳴樂器</dd></div><div><dt>家族/支系</dt><dd>摩擦鼓</dd></div><div><dt>演奏方式</dt><dd>摩擦棒＋鼓膜</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://en.wikipedia.org/wiki/Cu%C3%ADca" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Cu%C3%ADca</a></p>
+              <h1>奎卡鼓</h1>
+              <p class="original-name">Cuíca</p>
+              <p class="soundscape-tag">手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）</p>
+              <p class="badge-row"></p>
             </div>
-            
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/7/79/Cuica.jpg" alt="奎卡鼓" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>Cuíca（暫譯）</h1>
-<p>Cuíca（暫譯）（原名：Cuíca）是一種打擊樂器。通常透過敲擊、搖動、摩擦或刮奏產生聲音，常負責節奏與音色層次。</p>
-<p>目前中文資料較少，因此本條目先依英文維基與 Wikidata 的可查資料整理。後續可再補充 Cuíca 的製作方式、代表曲目與地方流派。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Cu%C3%ADca</p>
-</li>
-<li>
-<p>Wikidata ID：ENWIKI-6852a0f22a</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>打擊樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>美洲／巴西</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>膜鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>無固定調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>F♯5–G5（約半音以內）</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>21 膜鳴鼓類</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>膜鳴鼓類、框鼓、杯鼓與鼓組</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>手拍／槌擊／皮膜振動</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>手掌、腳底、低音、舞步</dd></div><div class="meta-item"><dt>地區類型</dt><dd>跨文化／多地</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>奎卡鼓（葡萄牙語發音：[kuˈikɐ]）是一種巴西摩擦鼓，音域寬廣，通過改變鼓面的張力來改變音高。奎卡是葡萄牙語中灰色四眼負鼠（學名：Philander opossum）的名稱，這種動物以其高音調的叫聲而聞名。奎卡鼓經常用於狂歡節，也常見於桑巴音樂中。它發出的音色具有高音調的尖銳音質。由於這種聲音，它被稱為「笑聲葫蘆」。通用MIDI鼓組在F♯5和G5音符處提供奎卡鼓的聲音。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/mmlK94QvwiA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/NVOtE1qSymU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>奎卡鼓作為巴西桑巴音樂的標誌性樂器，在眾多狂歡節音樂作品中被廣泛應用。著名作曲家湯姆·喬賓（Tom Jobim）的《伊帕內瑪的女孩》（Girl from Ipanema，1962年）融入了桑巴節奏中的奎卡鼓聲。此外，在巴西傳統桑巴樂隊的編制中，奎卡鼓成為不可或缺的打擊樂器，為里約熱內盧狂歡節的各類花車巡遊和舞蹈表演提供了獨特的高音調襯托。</p>
 <h2>歷史背景</h2>
-<p>Cuíca（暫譯）（Cuíca）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>作為打擊樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。</p>
-<p>打擊樂器通常和節奏、信號、祭儀、舞蹈或群體活動關係密切。它們的歷史不一定只寫在樂譜裡，也常出現在節慶、宗教、軍事或地方生活的脈絡中。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://en.wikipedia.org/wiki/Cu%C3%ADca</p>
+<p>奎卡鼓在全球各地存在多種風格。其起源存在爭議：不同的資料來源將其追溯至被奴役的班圖人，他們來自安哥拉並使用類似pwita/kipuita的樂器；也有人認為其起源於西班牙，或由穆斯林商人傳入。從結構上看，奎卡鼓與葡萄牙、西班牙、加泰隆尼亞和巴利阿里群島等地的同類樂器完全相同。這樣的多元起源反映了其在不同文化之間的交流與融合，特別是通過大西洋奴隸貿易和跨地中海商業活動的傳播。無論其確切來源為何，奎卡鼓已成為多個地區音樂傳統的重要組成部分，尤其在巴西桑巴音樂中佔據重要地位。</p>
 <h2>音色描述</h2>
-<p>音色由鼓膜張力、腔體形狀與敲擊方式影響，常具有明確起音與節奏性。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖四｜地心與手邊的微光</li>
-<li><strong>章節</strong>：8｜皮膜敲醒的地心脈動</li>
-<li><strong>章節主分類</strong>：膜鳴鼓類、框鼓、杯鼓與鼓組</li>
-<li><strong>原聲音地景</strong>：手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）</li>
-<li><strong>專業發聲大類</strong>：膜鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Membranophone／膜鳴樂器</li>
-<li><strong>家族／支系</strong>：摩擦鼓</li>
-<li><strong>演奏方式</strong>：摩擦棒＋鼓膜</li>
-<li><strong>身體／聽覺關聯</strong>：手掌、腳底、低音、舞步</li>
-<li><strong>主要地區／國家</strong>：全球</li>
-<li><strong>地區類型</strong>：跨文化／多地</li>
-<li><strong>資料狀態</strong>：承接553條目地域欄</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 Cuíca 時，可以先從「摩擦鼓」與「摩擦棒＋鼓膜」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「手掌、腳底、低音、舞步」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>奎卡鼓發出高音調、尖銳刺耳的音色，帶有明亮而富有穿透力的質感。其音域集中在較高的頻率範圍，通常在F♯5至G5音符附近，使其在樂隊中極具辨識度。通過改變鼓面張力，演奏者能夠靈活調整音高，產生滑動變化的音效。</p>
+<p>其共鳴方式獨特，採用膜鳴原理與摩擦技術結合，產生類似動物叫聲的聲響特色。與傳統打擊樂器相比，奎卡鼓的音色更接近人聲笑聲，具有富有表情的特徵，因此被譽為「笑聲葫蘆」。相較於溫潤的鼓類樂器，其音響效果更為尖銳突兀，在桑巴和狂歡節音樂中能有效營造歡快、熱烈的節慶氛圍。</p>
+<h2>樂器材質</h2>
+<p>奎卡鼓由木製圓筒形共鳴體構成，通常採用輕質木材製作。鼓面使用動物皮膜（多為牛皮或羊皮）張緊於筒口，內部穿過一根木製或竹製摩擦棒。演奏者通過用濕布摩擦棒身產生振動，使鼓膜共鳴發聲。鼓的側面通常設有調音螺栓或繩索，用於調節鼓面張力以改變音高。整體結構簡潔實用，充分體現了巴西樂器的工藝特點。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>坐或站，將鼓置於身前合適位置。將鼓穩定放置於地面或夾於雙腿之間。用手掌或鼓棒敲擊鼓面中心或邊緣，不同位置產生不同音色。敲擊力度影響音量大小。以敲擊方式發聲，注意敲擊位置和力度控制。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/talking-drum/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/TalkingDrum.jpg/500px-TalkingDrum.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">會說話的鼓</strong>
+        <span class="card-orig">Talking Drum</span>
+        <span class="card-meta">非洲／西非</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/powwow-drum/">
+      <div class="card-thumb card-thumb--empty" aria-hidden="true">♩</div>
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">國家影片登記表</strong>
+        <span class="card-orig">Powwow Drum</span>
+        <span class="card-meta">美洲／北美</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/sansi/">
+      <div class="card-thumb card-thumb--empty" aria-hidden="true">♩</div>
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">桑西琴</strong>
+        <span class="card-orig">Sansi</span>
+        <span class="card-meta">全球／非洲／現代</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/khong-wong-lek/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Khong_wong_lek.jpg/500px-Khong_wong_lek.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">小鑼圈</strong>
+        <span class="card-orig">Khong Wong Lek</span>
+        <span class="card-meta">泰國</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

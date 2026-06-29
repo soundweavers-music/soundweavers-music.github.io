@@ -4,67 +4,133 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
-  <title>Loop Station｜世界樂器百科</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <title>迴圈站｜世界樂器百科</title>
+  <meta name="description" content="迴圈站是一種電子音樂製作設備，外型為便携式控制台或腳踏板，集錄音、迴放與即時音效處理於一身。主要用途是在現場演奏中即時錄製多軌音樂層次，使表演者能夠單獨創造豐富的樂隊效果。其特色在於具備直觀的觸發界面、高品質的音訊處理與多樣化的效果器，適合民謠、電子音樂與街頭表演。迴圈站音色清晰現代，音域寬廣，通過數位疊層營造飽滿聲場">
+<meta property="og:title" content="迴圈站｜世界樂器百科">
+<meta property="og:description" content="迴圈站是一種電子音樂製作設備，外型為便携式控制台或腳踏板，集錄音、迴放與即時音效處理於一身。主要用途是在現場演奏中即時錄製多軌音樂層次，使表演者能夠單獨創造豐富的樂隊效果。其特色在於具備直觀的觸發界面、高品質的音訊處理與多樣化的效果器，適合民謠、電子音樂與街頭表演。迴圈站音色清晰現代，音域寬廣，通過數位疊層營造飽滿聲場">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>迴圈站</span>
+          </nav>
           <header class="instrument-header">
-            <div>
+            <div class="header-text">
               <p class="eyebrow">鍵盤樂器</p>
-              <h1>Loop Station</h1>
-              <p class="lead">Loop Station</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>鍵盤樂器</dd></div><div><dt>國家/地區</dt><dd>全球</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div><div><dt>旅圖</dt><dd>旅圖六｜按鍵打開房間，眾聲走向廣場</dd></div><div><dt>章節</dt><dd>12｜按鍵打開的機械房間</dd></div><div><dt>發聲分類</dt><dd>電鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Electrophone／電鳴樂器</dd></div><div><dt>家族/支系</dt><dd>電子與錄音室延伸</dd></div><div><dt>演奏方式</dt><dd>控制／取樣／合成</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：待補</p>
+              <h1>迴圈站</h1>
+              <p class="original-name">Loop Station</p>
+              <p class="soundscape-tag">按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）</p>
+              <p class="badge-row"></p>
             </div>
             
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<p>Loop Station 是收錄在《隔壁家的世界聲音旅圖》資料庫中的鍵盤樂器。目前資料庫將它歸在「電鳴」脈絡下，主要可從電子與錄音室延伸、控制／取樣／合成與聲音地景來認識。</p>
-<p>初步地區標註為「全球」。這個欄位仍屬企劃初稿，後續可依博物館、百科條目、民族音樂學資料或演奏者資料逐篇核對。</p>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>鍵盤樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>美洲／北美</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>鍵盤／電鳴／機械混合</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>全調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>全音域</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>412/31/52 鍵盤、自由簧、電鳴與機械介面</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>鍵盤介面、風箱、電子與取樣</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>按鍵／風箱／電控／取樣</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>手指、機械距離、記憶、電聲</dd></div><div class="meta-item"><dt>地區類型</dt><dd>跨文化／多地</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>迴圈站是一種電子音樂製作設備，外型為便携式控制台或腳踏板，集錄音、迴放與即時音效處理於一身。主要用途是在現場演奏中即時錄製多軌音樂層次，使表演者能夠單獨創造豐富的樂隊效果。其特色在於具備直觀的觸發界面、高品質的音訊處理與多樣化的效果器，適合民謠、電子音樂與街頭表演。迴圈站音色清晰現代，音域寬廣，通過數位疊層營造飽滿聲場，已成為當代音樂表演的重要工具。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/IvUU8joBb1Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/dck6m5guuIE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>Ed Sheeran運用迴圈站進行個人巡迴演唱會表演，展示其在民謠流行音樂中的應用；Boyz II Men等樂團於現場演奏時利用迴圈站創造複雜的和聲層次；街頭藝術家廣泛採用迴圈站進行即興音樂創作表演，產生大量創意作品；電子音樂製作人則利用其功能進行實驗性的實時音樂創意組合。</p>
 <h2>歷史背景</h2>
-<p>Loop Station 的歷史背景目前先以資料庫分類建立閱讀入口。它位於「12｜按鍵打開的機械房間」的脈絡中，代表這件樂器可以和氣息、材料、身體動作、地方儀式或現代舞台之間的關係一起閱讀。</p>
-<p>如果要補寫成正式百科條目，建議優先查證三個方向：一是它最早出現或被記錄的地區，二是電子與錄音室延伸的形制演變，三是控制／取樣／合成如何影響音色、用途與傳播。</p>
+<h1>迴圈站的歷史背景</h1>
+<p>迴圈站起源於1980年代的日本，由Roland公司首次開發推出。這項革命性的音樂科技融合了錄音、迴放與即時音效處理功能，使音樂家能夠在表演中層疊多軌音樂。最初主要應用於鍵盤手與吉他手的現場演奏，後來逐漸被民謠、電子音樂與街頭表演藝術家採納。</p>
+<p>2000年代初期，迴圈站的價格下降與功能優化，促使其在全球音樂市場快速普及。許多著名藝術家如Ed Sheeran與Boyz II Men將其納入標誌性的表演形式。隨著技術進步，現代迴圈站不僅提供更高的音質與儲存容量，更整合了鼓機、音效器與外部控制功能。如今，迴圈站已成為專業與業餘音樂家的必備工具，廣泛應用於音樂教育、現場演奏與音樂製作領域。</p>
 <h2>音色描述</h2>
-<p>資料庫把它的身體／聽覺關聯標為「手指、機械距離、記憶、電聲」。實際音色仍需要搭配可信錄音或現場演奏資料補充。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖六｜按鍵打開房間，眾聲走向廣場</li>
-<li><strong>章節</strong>：12｜按鍵打開的機械房間</li>
-<li><strong>章節主分類</strong>：鍵盤介面、風箱、電子與取樣</li>
-<li><strong>原聲音地景</strong>：按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）</li>
-<li><strong>專業發聲大類</strong>：電鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Electrophone／電鳴樂器</li>
-<li><strong>家族／支系</strong>：電子與錄音室延伸</li>
-<li><strong>演奏方式</strong>：控制／取樣／合成</li>
-<li><strong>身體／聽覺關聯</strong>：手指、機械距離、記憶、電聲</li>
-<li><strong>主要地區／國家</strong>：全球</li>
-<li><strong>地區類型</strong>：跨文化／多地</li>
-<li><strong>資料狀態</strong>：承接553條目地域欄</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 Loop Station 時，可以先從「電子與錄音室延伸」與「控制／取樣／合成」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「手指、機械距離、記憶、電聲」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>迴圈站的音色特徵取決於其內置音色庫，通常呈現電子合成的清晰質感，兼具現代感與人工化特點。音域寬廣，可覆蓋低音至高音範圍，適合多聲部的疊層錄製。其共鳴方式主要透過數位處理與揚聲器放大，缺乏傳統樂器的自然泛音，但提供豐富的效果器調節空間。相比鍵盤合成器的單一穩定音色，迴圈站強調疊層性與時間性；相比吉他效果器，其音色更多元但缺乏有機感。音質整體呈現乾淨而略顯冷峻的特徵，通過疊層營造飽滿的聲場效果，適合現代音樂創作與現場表演的即時編織需求。</p>
+<h2>樂器材質</h2>
+<p>迴圈站主要由塑膠或鋁合金外殼構成，提供耐用的機械結構。內部配備高品質的電子元件，包含數位信號處理芯片、記憶體模組與音訊介面電路。控制面板採用橡膠墊或矽膠按鈕，確保長期使用的舒適度與耐用性。揚聲器系統通常使用鋁製振膜喇叭單體。連接埠採用金屬插頭設計，支援XLR、3.5mm等音訊接頭，內部線路採用銅製導體確保訊號品質。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>連接電源和音響設備。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/kokle/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Gunta_Niedoli%C5%86a_kokles.jpg/500px-Gunta_Niedoli%C5%86a_kokles.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">科克勒琴</strong>
+        <span class="card-orig">Kokle</span>
+        <span class="card-meta">東亞／中亞／歐洲／東南亞／非洲／美洲</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/yatga/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Mongolian_yatga_front_view.JPG/500px-Mongolian_yatga_front_view.JPG" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">雅託格琴</strong>
+        <span class="card-orig">Yatga</span>
+        <span class="card-meta">東亞／中亞／歐洲／東南亞／非洲／美洲</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/hummel/">
+      <div class="card-thumb card-thumb--empty" aria-hidden="true">♩</div>
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">胡梅爾琴</strong>
+        <span class="card-orig">Hummel</span>
+        <span class="card-meta">瑞典／北歐</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/fairlight-cmi/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Fairlight_green_screen.jpg/500px-Fairlight_green_screen.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">費爾萊特CMI</strong>
+        <span class="card-orig">Fairlight CMI</span>
+        <span class="card-meta">澳洲／全球取樣器文化</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

@@ -4,64 +4,132 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>巴洛克吉他｜世界樂器百科</title>
+  <meta name="description" content="巴洛克吉他（約1600-1750年）是一種弦樂器，配有五組腸弦和可移動的腸製指板。第一組（音調最高）有時只使用單根琴弦。">
+<meta property="og:title" content="巴洛克吉他｜世界樂器百科">
+<meta property="og:description" content="巴洛克吉他（約1600-1750年）是一種弦樂器，配有五組腸弦和可移動的腸製指板。第一組（音調最高）有時只使用單根琴弦。">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Guitar_MET_DP232758.jpg/500px-Guitar_MET_DP232758.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>巴洛克吉他</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">弦樂器</p>
               <h1>巴洛克吉他</h1>
-              <p class="lead">Baroque guitar</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>弦樂器</dd></div><div><dt>國家/地區</dt><dd>待考</dd></div><div><dt>年代</dt><dd>巴洛克</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://en.wikipedia.org/wiki/Baroque_guitar" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Baroque_guitar</a></p>
+              <p class="original-name">Baroque guitar</p>
+              <p class="soundscape-tag">旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）</p>
+              <p class="badge-row"><span class="badge badge-hot">熱門</span></p>
             </div>
-            <img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Guitar_MET_DP232758.jpg/960px-Guitar_MET_DP232758.jpg" alt="巴洛克吉他">
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Guitar_MET_DP232758.jpg/500px-Guitar_MET_DP232758.jpg" alt="巴洛克吉他" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>巴洛克吉他</h1>
-<p>巴洛克吉他（原名：Baroque guitar）是一種弦樂器。主要靠弦的振動發聲，常透過撥、拉、彈、擊等方式演奏。</p>
-<p>若從年代脈絡看，這項樂器可先放在「巴洛克」中理解。</p>
-<p>英文資料中特別提到它的使用或演奏情境，因此理解這項樂器時，不只要看外形，也要看它在樂曲、儀式或合奏中的角色。</p>
-<p>材料與構造是它音色的重要線索；不同材質會讓聲音呈現更明亮、厚實或有共鳴感的差異。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Baroque_guitar</p>
-</li>
-<li>
-<p>Wikidata ID：Q748119</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>弦樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>西班牙／伊比利亞半島</dd></div><div class="meta-item"><dt>年代</dt><dd>巴洛克</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>弦鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>全調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>約2個八度</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>3 弦鳴樂器</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>弦樂器類</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>撥弦／擦弦／擊弦</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>懷抱、手指、腳步、敘事</dd></div><div class="meta-item"><dt>地區類型</dt><dd>地區／文化圈</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>巴洛克吉他（約1600-1750年）是一種弦樂器，配有五組腸弦和可移動的腸製指板。第一組（音調最高）有時只使用單根琴弦。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/inBKFMB-yPg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/e26zZ83Oh6Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>巴洛克吉他的代表作品包括西班牙作曲家胡安·卡洛斯·阿馬特的《五套弦西班牙吉他》(1674年)，這是巴洛克吉他首部專論著作；義大利作曲家馬里亞諾·蘭貝蒂的吉他組曲；法國作曲家羅貝爾·德·維塞的《吉他曲集》；以及西班牙作曲家桑提亞哥·德·穆爾西亞的各類吉他作品，這些作品展現了巴洛克時期吉他音樂的藝術高度與演奏技巧。</p>
 <h2>歷史背景</h2>
-<p>巴洛克吉他（Baroque guitar）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>年代線索暫時指向「巴洛克」，可作為閱讀時的時間定位。</p>
-<p>作為弦樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。 「巴洛克」可作為初步年代標籤，但實際流傳時間仍應以專門資料校正。</p>
-<p>弦樂器的歷史常和弦材、共鳴箱、調音方式與演奏技法的演變有關。從民間伴奏到獨奏舞台，許多弦樂器都會因音量需求、音域擴張或樂曲風格改變而改良形制。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://en.wikipedia.org/wiki/Baroque_guitar</p>
+<p>五弦吉他最早的記載出現在十六世紀中期。西班牙作曲家胡安·貝爾穆多於1555年出版的《樂器說明書》中提及，1554年米蓋爾·富恩亞納的《孤兒琴》已包含五套弦的維烏埃拉音樂。貝爾穆多在其著作中記錄：「我們在西班牙見過一把五套弦的吉他」，並指出傳統吉他通常有四根弦，暗示五弦吉他是相對較新的發明。巴洛克吉他的首部專論是胡安·卡洛斯·阿馬特著的《五套弦西班牙吉他》。文獻記載五弦吉他在十七世紀初期在西班牙極受歡迎，也廣泛流行於法國和義大利。現存的巴洛克吉他大多由義大利製造，這反映了樂器製造與文獻記載之間的差異。</p>
 <h2>音色描述</h2>
-<p>音色由弦長、張力、共鳴箱與演奏法影響，可呈現撥奏、擦奏或擊弦的不同質感。</p></article>
+<p>巴洛克吉他音色溫潤而柔和，帶有獨特的古樸質感。由於採用腸弦製作，其音色相較現代鋼弦吉他更顯溫暖內斂，而非刺激明亮。樂器音域跨越兩個八度，中高音域尤其優雅動人。五組弦的設計使其共鳴層次豐富，低音厚實而有深度，高音清晰卻不尖銳。與文藝復興吉他相比，巴洛克吉他音量更大、音色更飽滿；與現代古典吉他相比則顯得更加內向幽雅。其共鳴方式獨特，可移動的腸製指板增強了音色的溫潤感，使其在巴洛克音樂中呈現出典雅而富有表現力的藝術效果，特別適合伴奏和室內樂演奏。</p>
+<h2>樂器材質</h2>
+<p>巴洛克吉他的琴身採用歐洲雲杉或意大利松木製作音板，背板與側板則使用玫瑰木、梧桐木或楓木等硬木。琴頸由桃花心木或楓木製成，指板採用可移動的腸製材質設計。音弦全由羊腸製作，分為五組弦，第一弦常為單根。裝飾部分可能使用象牙、烏木或骨質的鑲嵌。整體結構強調共鳴性能與音色溫暖。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>將樂器以正確姿勢持於手中。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/music-on-a-long-thin-wire/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/AlvinLucier-MusicOnALongThinWire-CoverDetail-1980.jpg/500px-AlvinLucier-MusicOnALongThinWire-CoverDetail-1980.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">Music On A Long Thin Wire（暫譯）</strong>
+        <span class="card-orig">Music On A Long Thin Wire</span>
+        <span class="card-meta">美國</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/bladder-fiddle/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Bumbass_or_bladder_fiddle.jpg/500px-Bumbass_or_bladder_fiddle.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">豬膀胱提琴</strong>
+        <span class="card-orig">Bladder fiddle</span>
+        <span class="card-meta">歐洲和美洲</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/onavillu/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/%E0%B4%93%E0%B4%A3%E0%B4%B5%E0%B4%BF%E0%B4%B2%E0%B5%8D%E0%B4%B2%E0%B5%8D_%E0%B4%89%E0%B4%AA%E0%B4%AF%E0%B5%8B%E0%B4%97%E0%B4%BF%E0%B4%9A%E0%B5%8D%E0%B4%9A%E0%B5%81%E0%B4%B3%E0%B5%8D%E0%B4%B3_%E0%B4%AA%E0%B4%BE%E0%B4%9F%E0%B5%8D%E0%B4%9F%E0%B5%8D%E0%B5%A7.resized.jpg/500px-%E0%B4%93%E0%B4%A3%E0%B4%B5%E0%B4%BF%E0%B4%B2%E0%B5%8D%E0%B4%B2%E0%B5%8D_%E0%B4%89%E0%B4%AA%E0%B4%AF%E0%B5%8B%E0%B4%97%E0%B4%BF%E0%B4%9A%E0%B5%8D%E0%B4%9A%E0%B5%81%E0%B4%B3%E0%B5%8D%E0%B4%B3_%E0%B4%AA%E0%B4%BE%E0%B4%9F%E0%B5%8D%E0%B4%9F%E0%B5%8D%E0%B5%A7.resized.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">Onavillu（暫譯）</strong>
+        <span class="card-orig">Onavillu</span>
+        <span class="card-meta">印度／南亞</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/masenqo/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/COLLECTIE_TROPENMUSEUM_Langhalsluit_met_1_snaar_TMnr_2997-19a.jpg/500px-COLLECTIE_TROPENMUSEUM_Langhalsluit_met_1_snaar_TMnr_2997-19a.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">馬辛可琴</strong>
+        <span class="card-orig">Masenqo</span>
+        <span class="card-meta">非洲之角（厄立特里亞、衣索比亞）</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

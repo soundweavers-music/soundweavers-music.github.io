@@ -4,61 +4,132 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
-  <title>Pandura（暫譯）｜世界樂器百科</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <title>潘杜拉琴｜世界樂器百科</title>
+  <meta name="description" content="潘杜拉琴（古希臘語：πανδοῦρα，pandoura）或潘多雷琴是一種古希臘弦樂器，屬於魯特琴和吉他樂器的廣泛類別。阿卡德人早在西元前3千年就已經演奏類似的樂器。古代希臘藝術作品中描繪的此類魯特琴可追溯至西元前3世紀或4世紀起。">
+<meta property="og:title" content="潘杜拉琴｜世界樂器百科">
+<meta property="og:description" content="潘杜拉琴（古希臘語：πανδοῦρα，pandoura）或潘多雷琴是一種古希臘弦樂器，屬於魯特琴和吉他樂器的廣泛類別。阿卡德人早在西元前3千年就已經演奏類似的樂器。古代希臘藝術作品中描繪的此類魯特琴可追溯至西元前3世紀或4世紀起。">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Muse_with_%CE%A0%CE%B1%CE%BD%CE%B4%CE%BF%CF%8D%CF%81%CE%B1_Pandura_Pandora_Panduris_ancient_Greece_old_guitar_Athens_IV_BCE_siglo_IV_AEC.jpg/500px-Muse_with_%CE%A0%CE%B1%CE%BD%CE%B4%CE%BF%CF%8D%CF%81%CE%B1_Pandura_Pandora_Panduris_ancient_Greece_old_guitar_Athens_IV_BCE_siglo_IV_AEC.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>潘杜拉琴</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">弦樂器</p>
-              <h1>Pandura（暫譯）</h1>
-              <p class="lead">Pandura</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>弦樂器</dd></div><div><dt>國家/地區</dt><dd>待考</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://en.wikipedia.org/wiki/Pandura" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Pandura</a></p>
+              <h1>潘杜拉琴</h1>
+              <p class="original-name">Pandura</p>
+              <p class="soundscape-tag">旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）</p>
+              <p class="badge-row"><span class="badge badge-cold">冷門</span></p>
             </div>
-            
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Muse_with_%CE%A0%CE%B1%CE%BD%CE%B4%CE%BF%CF%8D%CF%81%CE%B1_Pandura_Pandora_Panduris_ancient_Greece_old_guitar_Athens_IV_BCE_siglo_IV_AEC.jpg/500px-Muse_with_%CE%A0%CE%B1%CE%BD%CE%B4%CE%BF%CF%8D%CF%81%CE%B1_Pandura_Pandora_Panduris_ancient_Greece_old_guitar_Athens_IV_BCE_siglo_IV_AEC.jpg" alt="潘杜拉琴" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>Pandura（暫譯）</h1>
-<p>Pandura（暫譯）（原名：Pandura）是一種弦樂器。主要靠弦的振動發聲，常透過撥、拉、彈、擊等方式演奏。</p>
-<p>目前中文資料較少，因此本條目先依英文維基與 Wikidata 的可查資料整理。後續可再補充 Pandura 的製作方式、代表曲目與地方流派。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Pandura</p>
-</li>
-<li>
-<p>Wikidata ID：ENWIKI-c91734b0dd</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>弦樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>拉丁美洲／安地斯／加勒比</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>弦鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>無固定調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>中高音區域，約2個8度</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>321/322 魯特琴類／撥弦</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>魯特琴、短頸長頸撥弦與民謠弦聲</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>撥弦／刷弦／撥片</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>懷抱、手指、腳步、敘事</dd></div><div class="meta-item"><dt>地區類型</dt><dd>跨文化／多地</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>潘杜拉琴（古希臘語：πανδοῦρα，pandoura）或潘多雷琴是一種古希臘弦樂器，屬於魯特琴和吉他樂器的廣泛類別。阿卡德人早在西元前3千年就已經演奏類似的樂器。古代希臘藝術作品中描繪的此類魯特琴可追溯至西元前3世紀或4世紀起。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/ZlayI0WKX40" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/f605gDO91Gs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>潘杜拉琴作為古希臘樂器，其代表作品主要見於古代藝術作品描繪而非樂譜記載。古希臘陶瓶繪畫中常見潘杜拉琴伴奏的抒情詩演唱，特別是在西元前4至3世紀的雅典陶瓶上。此樂器也出現在古羅馬馬賽克藝術中，作為宴飲與娛樂場景的音樂伴奏。現代音樂學家根據古代文獻記載重建其演奏傳統，用於再現古希臘音樂文化。</p>
 <h2>歷史背景</h2>
-<p>Pandura（暫譯）（Pandura）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>作為弦樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。</p>
-<p>弦樂器的歷史常和弦材、共鳴箱、調音方式與演奏技法的演變有關。從民間伴奏到獨奏舞台，許多弦樂器都會因音量需求、音域擴張或樂曲風格改變而改良形制。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://en.wikipedia.org/wiki/Pandura</p>
+<p>潘杜拉琴的名稱源於弦樂器的起源。最初，弓箭被加上共鳴器而成為樂弓，後來被拉直演變成琉特琴。在蘇美語中，「弓」或拱形豎琴稱為「giš.ban」。當加上表示「小」的形容詞「tur」時，便成為「gišban.tur」，意指「比狩獵弓更小的樂器」，以此區別於更大型的樂器。Ban.tur演變為「小弓」，當弓被拉直轉變成琉特琴時，所製成的樂器「可能保留了ban.tur的名稱」，最終導致潘杜拉琴的出現。同樣地，雖然不一定是最早的琉特琴，但ban.tur這個術語也可能是其他琉特琴名稱的起源，如坦布爾琴或坦布爾琴等。</p>
 <h2>音色描述</h2>
-<p>音色由弦長、張力、共鳴箱與演奏法影響，可呈現撥奏、擦奏或擊弦的不同質感。</p></article>
+<p>潘杜拉琴音色明亮清透，具有獨特的金屬質感與穿透力。其音域屬於中高音區域，音色輕盈而靈活，適合表現輕快、活潑的旋律線條。樂器的共鳴依賴於琴身內部空腔與琴弦的協振，產生相對簡潔而直接的音響效果。相比於現代吉他的溫潤厚實，潘杜拉琴音色更加纖細透亮；對比魯特琴的柔和內斂，則顯得更具生命力和張力。由於其結構緊湊、琴頸細長的特點，琴弦震動所產生的泛音豐富而清晰，整體音響具有古典優雅的韻味，既保留了弦樂的溫度感，又展現出堅實有力的撥弦觸感。</p>
+<h2>樂器材質</h2>
+<p>潘杜拉琴琴身採用共鳴腔設計，通常由優質木材製成，包括桃花心木或紫檀等硬木。琴頸細長，多為楓木或橡木製成，便於手指靈活按弦。琴弦原為羊腸弦或絲弦，後期可能使用金屬弦增強音色穿透力。琴身表面可能飾以象牙或貝殼鑲嵌。共鳴板採用雲杉或其他軟木製成，以優化音響效果。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>坐姿將琴抱於懷中或放在膝上。將樂器穩定持於身前。左手負責按弦或改變有效弦長以控制音高，右手負責使弦震動發聲。弦鳴樂器的發聲原理是弦的振動透過共鳴箱放大。用指尖或撥子撥奏弦線，注意觸弦角度和力度控制。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/saung-gauk/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Burmese_Harp_in_Manihoto.jpg/500px-Burmese_Harp_in_Manihoto.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">緬甸豎琴</strong>
+        <span class="card-orig">Saung Gauk</span>
+        <span class="card-meta">非洲／歐洲／美洲／亞洲</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/cuatro-venezolano/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hombre_cantando_por_dinero_en_las_cercan%C3%ADas_del_Hotel_Humbodlt.jpg/500px-Hombre_cantando_por_dinero_en_las_cercan%C3%ADas_del_Hotel_Humbodlt.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">委內瑞拉四絃琴</strong>
+        <span class="card-orig">Cuatro Venezolano</span>
+        <span class="card-meta">中東／歐洲／亞洲／美洲</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/twelve-string-guitar/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Yamaha_FG720S-12.jpg/500px-Yamaha_FG720S-12.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">十二絃吉他</strong>
+        <span class="card-orig">Twelve-string guitar</span>
+        <span class="card-meta">美國</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/gudok/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/3/35/Russ_instr_gudok.gif" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">古多克弓琴</strong>
+        <span class="card-orig">Gudok</span>
+        <span class="card-meta">歐洲／俄羅斯</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

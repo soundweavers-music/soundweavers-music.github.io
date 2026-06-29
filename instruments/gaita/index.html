@@ -4,67 +4,133 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
-  <title>Gaita｜世界樂器百科</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <title>蓋塔笛/風笛｜世界樂器百科</title>
+  <meta name="description" content="蓋塔笛是源自伊比利亞半島的傳統風笛樂器，主要流行於西班牙加利西亞和葡萄牙北部。樂器由風囊、主管和低音管組成，通過按壓風囊產生連續氣流發聲。其音色粗獷溫暖，帶有獨特的鼻音特質，既不失明亮卻又不刺耳，兼具厚實感。蓋塔笛與當地民間舞蹈和節慶活動密切相連，是區域文化認同的重要象徵，融合凱爾特與伊斯蘭音樂文化影響。">
+<meta property="og:title" content="蓋塔笛/風笛｜世界樂器百科">
+<meta property="og:description" content="蓋塔笛是源自伊比利亞半島的傳統風笛樂器，主要流行於西班牙加利西亞和葡萄牙北部。樂器由風囊、主管和低音管組成，通過按壓風囊產生連續氣流發聲。其音色粗獷溫暖，帶有獨特的鼻音特質，既不失明亮卻又不刺耳，兼具厚實感。蓋塔笛與當地民間舞蹈和節慶活動密切相連，是區域文化認同的重要象徵，融合凱爾特與伊斯蘭音樂文化影響。">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>蓋塔笛/風笛</span>
+          </nav>
           <header class="instrument-header">
-            <div>
+            <div class="header-text">
               <p class="eyebrow">管樂器</p>
-              <h1>Gaita</h1>
-              <p class="lead">Gaita</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>管樂器</dd></div><div><dt>國家/地區</dt><dd>西班牙／葡萄牙／拉丁美洲</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div><div><dt>旅圖</dt><dd>旅圖一｜氣息離開身體</dd></div><div><dt>章節</dt><dd>2｜簧片裡的鼻音與歌聲</dd></div><div><dt>發聲分類</dt><dd>氣鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Aerophone／氣鳴樂器</dd></div><div><dt>家族/支系</dt><dd>風笛系</dd></div><div><dt>演奏方式</dt><dd>氣囊供氣</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：待補</p>
+              <h1>蓋塔笛/風笛</h1>
+              <p class="original-name">Gaita</p>
+              <p class="soundscape-tag">簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）</p>
+              <p class="badge-row"><span class="badge badge-hot">熱門</span></p>
             </div>
             
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<p>Gaita 是收錄在《隔壁家的世界聲音旅圖》資料庫中的管樂器。目前資料庫將它歸在「氣鳴」脈絡下，主要可從風笛系、氣囊供氣與聲音地景來認識。</p>
-<p>初步地區標註為「西班牙／葡萄牙／拉丁美洲」。這個欄位仍屬企劃初稿，後續可依博物館、百科條目、民族音樂學資料或演奏者資料逐篇核對。</p>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>管樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>西班牙／葡萄牙／拉丁美洲</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>氣鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>多調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>中低音至高音區（約2至3個8度）</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>412/422 簧鳴與自由簧／單簧雙簧</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>口簧、自由簧、單簧雙簧與風袋</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>吹奏／簧片振動／風袋或風箱</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>口腔、舌頭、簧片震動、鼻音</dd></div><div class="meta-item"><dt>地區類型</dt><dd>地區／文化圈</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>蓋塔笛是源自伊比利亞半島的傳統風笛樂器，主要流行於西班牙加利西亞和葡萄牙北部。樂器由風囊、主管和低音管組成，通過按壓風囊產生連續氣流發聲。其音色粗獷溫暖，帶有獨特的鼻音特質，既不失明亮卻又不刺耳，兼具厚實感。蓋塔笛與當地民間舞蹈和節慶活動密切相連，是區域文化認同的重要象徵，融合凱爾特與伊斯蘭音樂文化影響。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/OJi-uKOlLV4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/fwWmcMz0ZVk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>《加利西亞舞曲》為蓋塔笛的經典民間作品，代表傳統民族音樂特色；現代作曲家路易斯·德·帕布羅於20世紀創作的《蓋塔笛協奏曲》，將樂器融入古典音樂框架；葡萄牙民間音樂中的《聖約翰之舞》同樣展現蓋塔笛的表現力；加利西亞節慶傳統樂曲《穆尼亞拉》則充分發揮其民族特色。</p>
 <h2>歷史背景</h2>
-<p>Gaita 的歷史背景目前先以資料庫分類建立閱讀入口。它位於「2｜簧片裡的鼻音與歌聲」的脈絡中，代表這件樂器可以和氣息、材料、身體動作、地方儀式或現代舞台之間的關係一起閱讀。</p>
-<p>如果要補寫成正式百科條目，建議優先查證三個方向：一是它最早出現或被記錄的地區，二是風笛系的形制演變，三是氣囊供氣如何影響音色、用途與傳播。</p>
+<p>蓋塔笛是起源於伊比利亞半島的傳統風笛樂器，在西班牙加利西亞地區和葡萄牙北部具有深厚的文化根基。這種樂器可追溯至中世紀，融合了凱爾特與伊斯蘭音樂文化的影響。蓋塔笛由風囊、主管和低音管組成，透過按壓風囊產生連續的音流，呈現獨特的鼻音特色。</p>
+<p>在加利西亞，蓋塔笛與民間舞蹈和節慶活動密切相連，成為區域文化認同的象徵。隨著時間推移，它的使用範圍逐漸擴展至葡萄牙和其他歐洲地區。十九至二十世紀，蓋塔笛經歷了復興運動，專業音樂家開始將其納入古典音樂創作，提升了其藝術地位。今日，蓋塔笛仍是伊比利亞傳統音樂的重要代表，在民俗表演和當代音樂創新中保持生命力。</p>
 <h2>音色描述</h2>
-<p>資料庫把它的身體／聽覺關聯標為「口腔、舌頭、簧片震動、鼻音」。實際音色仍需要搭配可信錄音或現場演奏資料補充。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖一｜氣息離開身體</li>
-<li><strong>章節</strong>：2｜簧片裡的鼻音與歌聲</li>
-<li><strong>章節主分類</strong>：口簧、自由簧、單簧雙簧與風袋</li>
-<li><strong>原聲音地景</strong>：簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）</li>
-<li><strong>專業發聲大類</strong>：氣鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Aerophone／氣鳴樂器</li>
-<li><strong>家族／支系</strong>：風笛系</li>
-<li><strong>演奏方式</strong>：氣囊供氣</li>
-<li><strong>身體／聽覺關聯</strong>：口腔、舌頭、簧片震動、鼻音</li>
-<li><strong>主要地區／國家</strong>：西班牙／葡萄牙／拉丁美洲</li>
-<li><strong>地區類型</strong>：地區／文化圈</li>
-<li><strong>資料狀態</strong>：系統初稿推定，需逐篇來源核對</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 Gaita 時，可以先從「風笛系」與「氣囊供氣」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「口腔、舌頭、簧片震動、鼻音」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>蓋塔笛是一種傳統的風笛樂器，音色具有獨特的粗獷與溫暖特質。其音色帶有明亮卻不刺耳的特點，兼具一定的厚實感。樂器的音域相對寬闊，從中低音至高音區都能發出清晰的聲響。</p>
+<p>蓋塔笛的共鳴主要依靠管身與氣柱的相互作用，使其能產生豐富的泛音。這些泛音賦予了樂器溫潤而富有民族特色的音質。與蘇格蘭風笛相比，蓋塔笛的音色較為柔和親切；與長笛相較，則音色更顯厚重與滄桑。其獨特的鼻音化特徵，使音質帶有既古樸又富有表現力的特色，適合詮釋民間音樂與傳統旋律。</p>
+<h2>樂器材質</h2>
+<p>蓋塔笛的風囊通常採用羊皮或牛皮製成，具良好的氣密性和耐久性。主管與低音管多以木材製造，常用樟木、紫檀或當地傳統硬木。管身內部經過精細打孔和音孔處理。連接處採用軟木塞或皮革墊圈確保密合度。部分高級樂器會在管口安裝金屬套筒以保護木材並增強音質。整體設計兼顧聲學效能與耐用性。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>將吹口含入嘴中，氣流使簧片震動。將吹口對準嘴唇，以穩定的氣流吹入管身。嘴唇的形狀和張力影響音高與音色。手指按壓音孔或活塞改變有效管長以控制音高。以穩定氣流吹入管口，嘴唇控制音色，氣息決定音量。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/hun/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Huns450.png/500px-Huns450.png" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">管樂器</span>
+        <strong class="card-title">匈人</strong>
+        <span class="card-orig">Hun</span>
+        <span class="card-meta">全球／亞洲／歐洲／美洲／大洋洲</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/vessel-flute/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Ocarina_shops.jpg/500px-Ocarina_shops.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">管樂器</span>
+        <strong class="card-title">陶笛</strong>
+        <span class="card-orig">Vessel Flute</span>
+        <span class="card-meta">全球／亞洲／歐洲／美洲／大洋洲</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/tabor-pipe/">
+      <div class="card-thumb card-thumb--empty" aria-hidden="true">♩</div>
+      <div class="card-body">
+        <span class="card-cat">管樂器</span>
+        <strong class="card-title">塔波管笛</strong>
+        <span class="card-orig">Tabor Pipe</span>
+        <span class="card-meta">歐洲</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/surma-horn/">
+      <div class="card-thumb card-thumb--empty" aria-hidden="true">♩</div>
+      <div class="card-body">
+        <span class="card-cat">管樂器</span>
+        <strong class="card-title">蘇爾瑪號</strong>
+        <span class="card-orig">Surma-horn</span>
+        <span class="card-meta">烏克蘭/高加索地區/土耳其</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

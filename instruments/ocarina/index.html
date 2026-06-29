@@ -4,84 +4,132 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>陶笛｜世界樂器百科</title>
+  <meta name="description" content="陶笛（拉丁語：Ocarina），是一種具有悠久歷史的吹管樂器。現代陶笛的雛型曾在不同文化中出現。 在中國有一種近似陶笛的古老樂器：塤。至於中國的「塤」跟陶笛有沒有共同源頭，已無從稽考，但是，在中國除了「塤」之外，還有很多陶土樂器，例如1200年歷史，源於寧夏回族自治區的「泥哇嗚」、源於湖北春秋戰國時期的「嗚嘟」卻與現代">
+<meta property="og:title" content="陶笛｜世界樂器百科">
+<meta property="og:description" content="陶笛（拉丁語：Ocarina），是一種具有悠久歷史的吹管樂器。現代陶笛的雛型曾在不同文化中出現。 在中國有一種近似陶笛的古老樂器：塤。至於中國的「塤」跟陶笛有沒有共同源頭，已無從稽考，但是，在中國除了「塤」之外，還有很多陶土樂器，例如1200年歷史，源於寧夏回族自治區的「泥哇嗚」、源於湖北春秋戰國時期的「嗚嘟」卻與現代">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/2016-01_Ocarina_front.jpg/500px-2016-01_Ocarina_front.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>陶笛</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">管樂器</p>
               <h1>陶笛</h1>
-              <p class="lead">Ocarina</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>管樂器</dd></div><div><dt>國家/地區</dt><dd>全球</dd></div><div><dt>年代</dt><dd>6 世紀</dd></div><div><dt>旅圖</dt><dd>旅圖一｜氣息離開身體</dd></div><div><dt>章節</dt><dd>1｜一口氣走過山谷</dd></div><div><dt>發聲分類</dt><dd>氣鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Aerophone／氣鳴樂器</dd></div><div><dt>家族/支系</dt><dd>陶笛與容器笛</dd></div><div><dt>演奏方式</dt><dd>容器共鳴</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://zh.wikipedia.org/wiki/%E9%99%B6%E7%AC%9B" target="_blank" rel="noopener noreferrer">https://zh.wikipedia.org/wiki/%E9%99%B6%E7%AC%9B</a></p>
+              <p class="original-name">Ocarina</p>
+              <p class="soundscape-tag">一口氣走過山谷（竹管、陶管、長音與世界笛聲）</p>
+              <p class="badge-row"><span class="badge badge-hot">熱門</span></p>
             </div>
-            <img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/2016-01_Ocarina_front.jpg/960px-2016-01_Ocarina_front.jpg" alt="陶笛">
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/2016-01_Ocarina_front.jpg/500px-2016-01_Ocarina_front.jpg" alt="陶笛" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>陶笛</h1>
-<p>陶笛是一種管樂器。陶笛（拉丁語：Ocarina），是一種具有悠久歷史的吹管樂器。現代陶笛的雛型曾在不同文化中出現。</p>
-<p>簡單來說，在中國有一種近似陶笛的古老樂器：塤。至於中國的「塤」跟陶笛有沒有共同源頭，已無從稽考，但是，在中國除了「塤」之外，還有很多陶土樂器，例如1200年歷史，源於寧夏回族自治區的「泥哇嗚」、源於湖北春秋戰國時期的「嗚嘟」卻與現代陶笛的基本特徵完全一致，不但在外形上區別不大，而且都具備陶笛哨口，甚至連孔數都完全一致；另外的共通點則是都是主要以陶泥燒製的閉管式樂器。 而在南美的瑪雅人和阿茲特克人亦於六世紀出現一種用於裝飾和祭祀的仿鳥鳴的彩繪樂器，也被認為可能是現代陶笛的雛型。</p>
-<p>在地域脈絡上，它和中國的音樂文化有關。</p>
-<p>年代上可暫歸在「6 世紀」相關脈絡中理解。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>中文維基百科：https://zh.wikipedia.org/wiki/%E9%99%B6%E7%AC%9B</p>
-</li>
-<li>
-<p>原始來源：https://en.wikipedia.org/wiki/Ocarina</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>管樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>全球／多地</dd></div><div class="meta-item"><dt>年代</dt><dd>6 世紀</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>氣鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>全調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>約1至2個8度</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>421 邊棱氣鳴／無簧笛類</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>無簧吹管、長音與氣息樂器</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>吹奏／端吹／橫吹／容器共鳴</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>氣息、胸腔、長音、空間</dd></div><div class="meta-item"><dt>地區類型</dt><dd>跨文化／多地</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>陶笛（拉丁語：Ocarina），是一種具有悠久歷史的吹管樂器。現代陶笛的雛型曾在不同文化中出現。 在中國有一種近似陶笛的古老樂器：塤。至於中國的「塤」跟陶笛有沒有共同源頭，已無從稽考，但是，在中國除了「塤」之外，還有很多陶土樂器，例如1200年歷史，源於寧夏回族自治區的「泥哇嗚」、源於湖北春秋戰國時期的「嗚嘟」卻與現代陶笛的基本特徵完全一致，不但在外形上區別不大，而且都具備陶笛哨口，甚至連孔數都完全一致；另外的共通點則是都是主要以陶泥燒製的閉管式樂器。 而在南美的瑪雅人和阿茲特克人亦於六世紀出現一種用於裝飾和祭祀的仿鳥鳴的彩繪樂器，也被認為可能是現代陶笛的雛型。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/Ys8ReXj1Ygw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/Nad5AJaIcBI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>陶笛在現代音樂中的代表作品包括《薩爾達傳說》系列遊戲配樂，其中陶笛音色營造了神秘奇幻的氛圍。義大利作曲家保羅·莫里亞於20世紀創作的《翠鳥》等世界音樂作品廣泛運用陶笛。此外，許多民族音樂創作者如荷蘭陶笛演奏家約翰·鄧肯於1990年代推出的專輯《大地之聲》，將陶笛與世界各地音樂風格結合，展現其深厚的表現力與文化底蘊。</p>
 <h2>歷史背景</h2>
-<p>陶笛（Ocarina）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>它可以先放在中國相關音樂文化中理解，後續可再補代表樂派、演奏場合與製作工藝。</p>
-<p>年代線索暫時指向「6 世紀」，可作為閱讀時的時間定位。</p>
-<p>作為管樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。 若要深入研究，可優先查找中國的博物館、民族音樂學資料或地方樂器圖錄。 「6 世紀」可作為初步年代標籤，但實際流傳時間仍應以專門資料校正。</p>
-<p>管樂器的發展常和吹口、簧片、管身長度與開孔方式有關。隨著材料與製作工藝變化，音準、音域和音量都可能逐漸穩定，進而進入宮廷、宗教、軍樂或現代樂團。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://zh.wikipedia.org/wiki/%E9%99%B6%E7%AC%9B</p>
+<p>陶笛屬於歷史悠久的樂器家族，相信可追溯至12,000年前。陶笛在中國和中美洲文化中特別重要。在中國，陶笛在悠久的歌舞傳統中扮演重要角色。陶笛的特徵類似於中國樂器塤，但不同之處在於陶笛使用內部導管發音，而塤則由吹奏外邊緣發音。在韓國，塤稱為「hun」；在日本則稱為「ocarina」。包括科爾特斯遠征隊在內的多次中美洲探險，導致陶笛被引入歐洲宮廷。瑪雅人和阿茲特克人都製作過陶笛，但阿茲特克人將陶笛伴隨的歌舞傳入歐洲。陶笛隨後在歐洲社區作為玩具樂器而流行。歐洲最古老的陶笛之一來自科索沃的魯尼克遺址，為新石器時代的笛類樂器，是科索沃最早的音樂樂器。現代歐洲陶笛源於19世紀，當時來自義大利博洛尼亞附近城鎮布德里奧的朱塞佩·多納蒂將陶笛從只能演奏幾個音符的玩具樂器，轉變成更複雜的樂器。</p>
 <h2>音色描述</h2>
-<p>音色由氣流、管體、簧片或唇振控制，常具有延展性強的旋律線條。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖一｜氣息離開身體</li>
-<li><strong>章節</strong>：1｜一口氣走過山谷</li>
-<li><strong>章節主分類</strong>：無簧吹管、長音與氣息樂器</li>
-<li><strong>原聲音地景</strong>：一口氣走過山谷（竹管、陶管、長音與世界笛聲）</li>
-<li><strong>專業發聲大類</strong>：氣鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Aerophone／氣鳴樂器</li>
-<li><strong>家族／支系</strong>：陶笛與容器笛</li>
-<li><strong>演奏方式</strong>：容器共鳴</li>
-<li><strong>身體／聽覺關聯</strong>：氣息、胸腔、長音、空間</li>
-<li><strong>主要地區／國家</strong>：全球</li>
-<li><strong>地區類型</strong>：跨文化／多地</li>
-<li><strong>資料狀態</strong>：承接553條目地域欄</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 Ocarina 時，可以先從「陶笛與容器笛」與「容器共鳴」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「氣息、胸腔、長音、空間」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「一口氣走過山谷（竹管、陶管、長音與世界笛聲）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>陶笛音色溫潤醇厚，帶有陶土特有的溫暖質感，既不如長笛般明亮銳利，也不至於過於沉悶。其音域適中，通常跨越一至兩個八度，低音區溫柔飽滿，中高音區則富有穿透力與表現力。陶笛的共鳴主要源自陶土腔體的諧振，使聲音具有獨特的內斂感與親近感。相較於金屬笛類的清脆透亮，陶笛音色更顯沉靜典雅；與竖笛相比，陶笛音質更為溫厚柔和。其音響特徵頗具原始質樸之美，易於營造神秘、寧靜的氛圍，特別適合演繹民族風情與冥想性樂曲。</p>
+<h2>樂器材質</h2>
+<p>陶笛主要採用高溫陶土製作，經手工塑造後置於窯爐中燒製而成。樂器主體為陶土空心腔體，內部精心設計的導管與音孔系統決定了音高與音質。部分高級陶笛會在陶土表面進行釉彩裝飾或打磨拋光，增強視覺美感。發聲哨口由精密打造的內部導管構成，確保氣流順暢。某些專業級陶笛可能搭配不同硬度的陶土組合，以優化音色與耐久性，整體不含金屬或其他材質配件。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>將吹口對準嘴唇，穩定吹氣入管。將吹口對準嘴唇，以穩定的氣流吹入管身。嘴唇的形狀和張力影響音高與音色。手指按壓音孔或活塞改變有效管長以控制音高。以穩定氣流吹入管口，嘴唇控制音色，氣息決定音量。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/piccolo-oboe/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/MUSETTE.jpg/500px-MUSETTE.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">管樂器</span>
+        <strong class="card-title">高音雙簧管</strong>
+        <span class="card-orig">Piccolo oboe</span>
+        <span class="card-meta">歐洲</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/sho/">
+      <div class="card-thumb card-thumb--empty" aria-hidden="true">♩</div>
+      <div class="card-body">
+        <span class="card-cat">管樂器</span>
+        <strong class="card-title">笙（日本）</strong>
+        <span class="card-orig">Sho</span>
+        <span class="card-meta">日本</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/huaca-instrument/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/2016-01_Ocarina_front.jpg/500px-2016-01_Ocarina_front.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">管樂器</span>
+        <strong class="card-title">陶笛</strong>
+        <span class="card-orig">Huaca (instrument)</span>
+        <span class="card-meta">義大利</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/siku/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/POL_COA_Trzaska.svg/500px-POL_COA_Trzaska.svg.png" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">管樂器</span>
+        <strong class="card-title">西庫排笛</strong>
+        <span class="card-orig">Siku</span>
+        <span class="card-meta">美洲／南美（安地斯）</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

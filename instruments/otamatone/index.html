@@ -4,67 +4,134 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>音樂蝌蚪｜世界樂器百科</title>
+  <meta name="description" content="音樂蝌蚪（日語：オタマトーン，羅馬拼音：Otamatōn）是一種電子音樂合成器。它的外形像一個八分音符，莖部上的帶狀控制器用來控制音高，而合成器產生的音符由音樂蝌蚪的「頭部」播放。它由日本玩具公司CUBE Works和設計公司Maywa Denki聯合開發，由兄弟檔土佐雅通和土佐信道領導，由Hamee公司生產和銷售。">
+<meta property="og:title" content="音樂蝌蚪｜世界樂器百科">
+<meta property="og:description" content="音樂蝌蚪（日語：オタマトーン，羅馬拼音：Otamatōn）是一種電子音樂合成器。它的外形像一個八分音符，莖部上的帶狀控制器用來控制音高，而合成器產生的音符由音樂蝌蚪的「頭部」播放。它由日本玩具公司CUBE Works和設計公司Maywa Denki聯合開發，由兄弟檔土佐雅通和土佐信道領導，由Hamee公司生產和銷售。">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/MaywaDenki_OtamaTone.jpg/500px-MaywaDenki_OtamaTone.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>音樂蝌蚪</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">鍵盤樂器</p>
               <h1>音樂蝌蚪</h1>
-              <p class="lead">Otamatone</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>鍵盤樂器</dd></div><div><dt>國家/地區</dt><dd>日本</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div><div><dt>旅圖</dt><dd>旅圖六｜按鍵打開房間，眾聲走向廣場</dd></div><div><dt>章節</dt><dd>12｜按鍵打開的機械房間</dd></div><div><dt>發聲分類</dt><dd>複合／電鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Electrophone／電鳴與複合鍵盤</dd></div><div><dt>家族/支系</dt><dd>小型電子玩具樂器</dd></div><div><dt>演奏方式</dt><dd>觸控／擠壓</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：待補</p>
+              <p class="original-name">Otamatone</p>
+              <p class="soundscape-tag">按鍵打開的機械房間（鍵盤介面、風箱、電子與取樣）</p>
+              <p class="badge-row"><span class="badge badge-hot">熱門</span></p>
             </div>
-            
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/MaywaDenki_OtamaTone.jpg/500px-MaywaDenki_OtamaTone.jpg" alt="音樂蝌蚪" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<p>音樂蝌蚪（Otamatone） 是收錄在《隔壁家的世界聲音旅圖》資料庫中的鍵盤樂器。目前資料庫將它歸在「複合／電鳴」脈絡下，主要可從小型電子玩具樂器、觸控／擠壓與聲音地景來認識。</p>
-<p>初步地區標註為「日本」。這個欄位仍屬企劃初稿，後續可依博物館、百科條目、民族音樂學資料或演奏者資料逐篇核對。</p>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>鍵盤樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>日本</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>複合／電鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>全調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>全音域（約3至4個8度）</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>Electrophone／電鳴與複合鍵盤</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>小型電子玩具樂器</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>觸控／擠壓</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>可愛滑音、人聲模仿、生活幽默</dd></div><div class="meta-item"><dt>地區類型</dt><dd>單一地區／文化圈</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>音樂蝌蚪（日語：オタマトーン，羅馬拼音：Otamatōn）是一種電子音樂合成器。它的外形像一個八分音符，莖部上的帶狀控制器用來控制音高，而合成器產生的音符由音樂蝌蚪的「頭部」播放。它由日本玩具公司CUBE Works和設計公司Maywa Denki聯合開發，由兄弟檔土佐雅通和土佐信道領導，由Hamee公司生產和銷售。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/mHQXadp_OcI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/9w5ZHMwIzvY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>音樂蝌蚪作為新興電子樂器，主要出現在實驗音樂與表演藝術領域。Maywa Denki樂隊多次將其融入現場表演與音樂裝置藝術中。日本藝術家利用音樂蝌蚪創作電子實驗音樂作品，展示其獨特的滑音與合成音色。此樂器亦被用於教育性音樂創作與網路文化表演中，成為當代數位音樂的象徵性樂器。</p>
 <h2>歷史背景</h2>
-<p>音樂蝌蚪（Otamatone） 的歷史背景目前先以資料庫分類建立閱讀入口。它位於「12｜按鍵打開的機械房間」的脈絡中，代表這件樂器可以和氣息、材料、身體動作、地方儀式或現代舞台之間的關係一起閱讀。</p>
-<p>如果要補寫成正式百科條目，建議優先查證三個方向：一是它最早出現或被記錄的地區，二是小型電子玩具樂器的形制演變，三是觸控／擠壓如何影響音色、用途與傳播。</p>
+<p>音樂蝌蚪由日本藝術與設計團體Maywa Denki與CUBE Works合作發明，於2009年首次向公眾推出，結合了電子音樂與趣味產品設計的元素。初期雖以玩具身份行銷，卻迅速與實驗音樂及表演藝術相聯繫。</p>
+<p>在早期階段，音樂蝌蚪在日本獲得廣泛歡迎，其獨特的外觀與幽默角色吸引了廣大受眾。其滑音設計與音樂合成器Theremin相似，但不同之處在於音樂蝌蚪需要直接接觸。這些相似之處激發了音樂愛好者的好奇心，他們既欣賞其新穎性，也看重其創意潛力。</p>
+<p>到了2010年代中期，音樂蝌蚪通過社群媒體與YouTube等影片分享平台獲得國際認可。病毒式表演與翻唱歌曲向全球觀眾展示了其表現力與喜劇魅力。它在網路文化中特別受歡迎，迷因與協作表演凸顯了其古怪特質。隨著時間推移，該樂器超越了新奇事物的地位，逐漸被視為電子樂器的重要一員。</p>
 <h2>音色描述</h2>
-<p>資料庫把它的身體／聽覺關聯標為「可愛滑音、人聲模仿、生活幽默」。實際音色仍需要搭配可信錄音或現場演奏資料補充。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖六｜按鍵打開房間，眾聲走向廣場</li>
-<li><strong>章節</strong>：12｜按鍵打開的機械房間</li>
-<li><strong>章節主分類</strong>：鍵盤介面、風箱、電子與取樣</li>
-<li><strong>原聲音地景</strong>：按鍵打開的機械房間（鍵盤介面、風箱、電子與取樣）</li>
-<li><strong>專業發聲大類</strong>：複合／電鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Electrophone／電鳴與複合鍵盤</li>
-<li><strong>家族／支系</strong>：小型電子玩具樂器</li>
-<li><strong>演奏方式</strong>：觸控／擠壓</li>
-<li><strong>身體／聽覺關聯</strong>：可愛滑音、人聲模仿、生活幽默</li>
-<li><strong>主要地區／國家</strong>：日本</li>
-<li><strong>地區類型</strong>：單一地區／文化圈</li>
-<li><strong>資料狀態</strong>：本次新增初稿，需逐篇來源核對</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 音樂蝌蚪 時，可以先從「小型電子玩具樂器」與「觸控／擠壓」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「可愛滑音、人聲模仿、生活幽默」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「按鍵打開的機械房間（鍵盤介面、風箱、電子與取樣）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>音樂蝌蚪的音色具有獨特的電子合成特徵，音質明亮且富有童趣感，帶有輕微的電子噪聲質感。其音域涵蓋寬廣的音高範圍，從低沉的基音到尖銳的高音均能表現，音高變化流暢連貫，類似於人聲滑音的效果。音響共鳴方式主要依靠內置揚聲器的電子擴音，無自然共鳴體，聲音直接而人工化。與傳統樂器相比，其音色更接近電子合成器或口哨的特性，但比口哨更具電子感；與小提琴相近的是其連貫流暢的音高變化能力，卻缺乏弦樂溫潤、有機的質感。整體音響特徵簡潔、清脆，富有實驗性和娛樂性，適合創意表演與音樂創作。</p>
+<h2>樂器材質</h2>
+<p>音樂蝌蚪主體採用塑膠或樹脂材質製成，外形模擬八分音符設計。內部搭載電子合成電路與揚聲器，莖部配備導電帶狀控制器用於調控音高。頭部採用柔軟橡膠或矽膠材質作為揚聲器外殼，提供舒適的視覺與觸覺體驗。整體設計輕量化，便於手持操作。電源通常採用電池或USB供電，機身內部集成微型晶片與放大電路。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>連接電源和音響設備。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/tambal/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Cimbalom_%28from_Emil_Richards_Collection%29.jpg/500px-Cimbalom_%28from_Emil_Richards_Collection%29.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">揚琴</strong>
+        <span class="card-orig">Tambal</span>
+        <span class="card-meta">亞洲／歐洲／全球</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/kantele/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Concert_kantele.jpg/500px-Concert_kantele.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">坎泰萊琴</strong>
+        <span class="card-orig">Kantele</span>
+        <span class="card-meta">東亞／中亞／歐洲／東南亞／非洲／美洲</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/zither/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/2012-03-04-Trachselwald_%28Foto_Dietrich_Michael_Weidmann%29_002.JPG/500px-2012-03-04-Trachselwald_%28Foto_Dietrich_Michael_Weidmann%29_002.JPG" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">齊特琴</strong>
+        <span class="card-orig">Zither</span>
+        <span class="card-meta">歐洲</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/marxophone/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Marxophone.JPG/500px-Marxophone.JPG" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">馬克索風琴</strong>
+        <span class="card-orig">Marxophone</span>
+        <span class="card-meta">亞洲／歐洲／全球</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

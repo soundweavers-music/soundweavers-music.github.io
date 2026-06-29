@@ -4,65 +4,132 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>鼓｜世界樂器百科</title>
+  <meta name="description" content="鼓（英語：Drum）是一種打擊樂器，也是一種通訊工具，非洲某些部落用以傳達信息，中國古代軍隊用以發號施令。堅固的鼓身（常為圓桶狀）的一面或雙面蒙上拉緊的膜。鼓可以用手或鼓杵(槌)敲擊出聲。鼓在非洲的傳統音樂以及在現代音樂中是一種比較重要的樂器，有的樂隊完全由以鼓為主的打擊樂器組成。鼓除了作為樂器外，在古代許多文明中還用">
+<meta property="og:title" content="鼓｜世界樂器百科">
+<meta property="og:description" content="鼓（英語：Drum）是一種打擊樂器，也是一種通訊工具，非洲某些部落用以傳達信息，中國古代軍隊用以發號施令。堅固的鼓身（常為圓桶狀）的一面或雙面蒙上拉緊的膜。鼓可以用手或鼓杵(槌)敲擊出聲。鼓在非洲的傳統音樂以及在現代音樂中是一種比較重要的樂器，有的樂隊完全由以鼓為主的打擊樂器組成。鼓除了作為樂器外，在古代許多文明中還用">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/%E4%B8%80%E5%80%8B%E5%A4%A7%E9%BC%93.jpg/500px-%E4%B8%80%E5%80%8B%E5%A4%A7%E9%BC%93.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>鼓</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">打擊樂器</p>
               <h1>鼓</h1>
-              <p class="lead">Drum</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>打擊樂器</dd></div><div><dt>國家/地區</dt><dd>非洲</dd></div><div><dt>年代</dt><dd>古代</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://zh.wikipedia.org/wiki/%E9%BC%93" target="_blank" rel="noopener noreferrer">https://zh.wikipedia.org/wiki/%E9%BC%93</a></p>
+              <p class="original-name">Drum</p>
+              <p class="soundscape-tag">手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）</p>
+              <p class="badge-row"><span class="badge badge-hot">熱門</span></p>
             </div>
-            <img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/2/2a/DrumMozartRegiment.jpg" alt="鼓">
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/%E4%B8%80%E5%80%8B%E5%A4%A7%E9%BC%93.jpg/500px-%E4%B8%80%E5%80%8B%E5%A4%A7%E9%BC%93.jpg" alt="鼓" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>鼓</h1>
-<p>鼓是一種打擊樂器。鼓（英語：Drum）是一種打擊樂器，也是一種通訊工具，非洲某些部落用以傳達信息，中國古代軍隊用以發號施令。堅固的鼓身（常為圓桶狀）的一面或雙面蒙上拉緊的膜。鼓可以用手或鼓杵(槌)敲擊出聲。鼓在非洲的傳統音樂以及在現代音樂中是一種比較重要的樂器，有的樂隊完全由以鼓為主的打擊樂器組成。鼓除了作為樂器外，在古代許多文明中還用鼓來傳播信息。</p>
-<p>簡單來說，不同類型的鼓，如定音鼓等，均被調校至特定的音調中。更常見的是將不同類型的鼓或打擊樂器互相組合，以構成常於流行音樂出現的爵士鼓。</p>
-<p>在地域脈絡上，它和非洲的音樂文化有關。</p>
-<p>年代上可暫歸在「古代」相關脈絡中理解。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>中文維基百科：https://zh.wikipedia.org/wiki/%E9%BC%93</p>
-</li>
-<li>
-<p>原始來源：https://en.wikipedia.org/wiki/Drum</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>打擊樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>全球／多地</dd></div><div class="meta-item"><dt>年代</dt><dd>古代</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>膜鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>無固定調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>深沉低音至清晰中高音（約2至3個8度，取決於鼓身大小和鼓皮張力）</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>211 筒形鼓</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>鼓類</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>敲擊鼓面</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>手掌、腳底、低音、舞步</dd></div><div class="meta-item"><dt>地區類型</dt><dd>單一地區／文化圈</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>鼓（英語：Drum）是一種打擊樂器，也是一種通訊工具，非洲某些部落用以傳達信息，中國古代軍隊用以發號施令。堅固的鼓身（常為圓桶狀）的一面或雙面蒙上拉緊的膜。鼓可以用手或鼓杵(槌)敲擊出聲。鼓在非洲的傳統音樂以及在現代音樂中是一種比較重要的樂器，有的樂隊完全由以鼓為主的打擊樂器組成。鼓除了作為樂器外，在古代許多文明中還用鼓來傳播信息。 不同類型的鼓，如定音鼓等，均被調校至特定的音調中。更常見的是將不同類型的鼓或打擊樂器互相組合，以構成常於流行音樂出現的爵士鼓。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/MHj9XlV3fFg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/JTtx42_Bpog" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>《波萊羅》（Bolero）由法國作曲家拉威爾創作於1928年，鼓聲貫穿全曲營造律動感；《春祭》（The Rite of Spring）由俄國作曲家史特拉汶斯基創作於1913年，打擊樂部分包含複雜的鼓組編排；《士兵的故事》（The Soldier's Tale）同樣由史特拉汶斯基創作於1918年，運用鼓樂表現戲劇張力；馬勒《第六交響曲》運用定音鼓創造深刻的悲劇氛圍。</p>
 <h2>歷史背景</h2>
-<p>鼓（Drum）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>它可以先放在非洲相關音樂文化中理解，後續可再補代表樂派、演奏場合與製作工藝。</p>
-<p>年代線索暫時指向「古代」，可作為閱讀時的時間定位。</p>
-<p>作為打擊樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。 若要深入研究，可優先查找非洲的博物館、民族音樂學資料或地方樂器圖錄。 「古代」可作為初步年代標籤，但實際流傳時間仍應以專門資料校正。</p>
-<p>打擊樂器通常和節奏、信號、祭儀、舞蹈或群體活動關係密切。它們的歷史不一定只寫在樂譜裡，也常出現在節慶、宗教、軍事或地方生活的脈絡中。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://zh.wikipedia.org/wiki/%E9%BC%93</p>
+<p>鼓是人類最古老的樂器之一，起源於非洲大陸。早期人類發現敲擊空心物體能產生聲響，逐漸發展出用獸皮蒙面的鼓。在非洲傳統社會中，鼓不僅是音樂表演的工具，更是重要的通訊媒介，部落透過不同的鼓聲節奏傳遞信息。隨著人類文明的發展，鼓傳入亞洲地區，中國古代軍隊採用鼓來發號施令，指揮作戰。中東和歐洲也各自發展出獨特的鼓樂文化。鼓於十八世紀傳入歐洲後，經歷了漫長的改良與創新，逐漸演變成現代管弦樂團中的定音鼓等專業樂器。二十世紀爵士樂的興起，促使各類鼓樂組合的發展，爵士鼓成為流行音樂的核心要素。如今，鼓已成為全球音樂文化中不可或缺的樂器。</p>
 <h2>音色描述</h2>
-<p>音色由鼓膜張力、腔體形狀與敲擊方式影響，常具有明確起音與節奏性。</p></article>
+<p>鼓的音色具有鮮明的穿透力，音質既不屬於明亮也不屬於暗沉，而是具有厚重而結實的質感。其音域範圍相對寬闊，取決於鼓皮的張力和鼓身大小，可從深沉的低音到清晰的中高音。鼓的共鳴方式獨特，透過敲擊鼓皮使鼓腔內空氣振動而產生聲響，具有強烈的即時衝擊力。相較於弦樂器的溫潤婉轉，鼓聲更為直接有力；與管樂器相比，鼓的音色更具律動感而非旋律性。不同大小和材質的鼓組合使用時，能營造出豐富的層次感和節奏動感，是現代樂隊中不可或缺的節奏基礎。</p>
+<h2>樂器材質</h2>
+<p>鼓身通常採用優質木材製造，如楓木、白樺木或橡木，提供堅固共鳴腔體。鼓皮傳統使用動物獸皮（牛皮、羊皮）蒙面，現代則常用合成膜材。鼓框由金屬製成，通常為鋁合金或鋼製，增強耐久性。鼓的張力調整機構採用金屬螺栓與拉繩，便於改變音調。鼓杵（鼓槌）多用木材製作，頂端包裹羊毛或塑膠材料，影響音色表現。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>將樂器以正確姿勢持於手中。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/agong/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Arms_of_the_Yang_di-Pertuan_Agong_of_Malaysia.svg/500px-Arms_of_the_Yang_di-Pertuan_Agong_of_Malaysia.svg.png" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">A鑼</strong>
+        <span class="card-orig">Agong</span>
+        <span class="card-meta">馬來西亞</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/timbales/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Timbalesy_HLTBR-1011_firmy_Hayman.jpg/500px-Timbalesy_HLTBR-1011_firmy_Hayman.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">蒂姆巴雷斯鼓</strong>
+        <span class="card-orig">Timbales</span>
+        <span class="card-meta">美洲／古巴</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/handbells/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Lewis_Carroll_-_Henry_Holiday_-_Hunting_of_the_Snark_-_Plate_1.jpg/500px-Lewis_Carroll_-_Henry_Holiday_-_Hunting_of_the_Snark_-_Plate_1.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">手搖鈴</strong>
+        <span class="card-orig">Handbells</span>
+        <span class="card-meta">歐洲／英國</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/tam-tam/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/COLLECTIE_TROPENMUSEUM_Gong_hangend_in_een_standaard_onderdeel_van_gamelan_Semar_Pagulingan_TMnr_1340-13.jpg/500px-COLLECTIE_TROPENMUSEUM_Gong_hangend_in_een_standaard_onderdeel_van_gamelan_Semar_Pagulingan_TMnr_1340-13.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">大鑼</strong>
+        <span class="card-orig">Tam-tam</span>
+        <span class="card-meta">亞洲／東亞</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

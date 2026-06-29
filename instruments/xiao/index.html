@@ -4,67 +4,132 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
-  <title>Xiao｜世界樂器百科</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <title>簫｜世界樂器百科</title>
+  <meta name="description" content="簫又稱洞簫、長簫、簫管，是中國古老的吹管樂器，特徵為單管、豎吹、開管、邊稜音發聲。「簫」字在唐代以前本指排簫，唐宋以來，由於單管豎吹的簫日漸流行，便稱編管簫爲排簫，以示區別。至於「洞簫」之名，則來自於簫管底端之開孔。 其音色圓潤輕柔，幽靜典雅，常用於獨奏、琴簫合奏或絲竹樂演奏。尤其常見於表現抒情曲調。">
+<meta property="og:title" content="簫｜世界樂器百科">
+<meta property="og:description" content="簫又稱洞簫、長簫、簫管，是中國古老的吹管樂器，特徵為單管、豎吹、開管、邊稜音發聲。「簫」字在唐代以前本指排簫，唐宋以來，由於單管豎吹的簫日漸流行，便稱編管簫爲排簫，以示區別。至於「洞簫」之名，則來自於簫管底端之開孔。 其音色圓潤輕柔，幽靜典雅，常用於獨奏、琴簫合奏或絲竹樂演奏。尤其常見於表現抒情曲調。">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/%E7%90%B4%E8%95%AD%E8%88%87%E6%B4%9E%E8%95%AD.JPG/500px-%E7%90%B4%E8%95%AD%E8%88%87%E6%B4%9E%E8%95%AD.JPG">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>簫</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">管樂器</p>
-              <h1>Xiao</h1>
-              <p class="lead">Xiao</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>管樂器</dd></div><div><dt>國家/地區</dt><dd>全球</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div><div><dt>旅圖</dt><dd>旅圖一｜氣息離開身體</dd></div><div><dt>章節</dt><dd>1｜一口氣走過山谷</dd></div><div><dt>發聲分類</dt><dd>氣鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Aerophone／氣鳴樂器</dd></div><div><dt>家族/支系</dt><dd>端吹笛</dd></div><div><dt>演奏方式</dt><dd>端吹</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：待補</p>
+              <h1>簫</h1>
+              <p class="original-name">Xiao</p>
+              <p class="soundscape-tag">一口氣走過山谷（竹管、陶管、長音與世界笛聲）</p>
+              <p class="badge-row"><span class="badge badge-hot">熱門</span></p>
             </div>
-            
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/%E7%90%B4%E8%95%AD%E8%88%87%E6%B4%9E%E8%95%AD.JPG/500px-%E7%90%B4%E8%95%AD%E8%88%87%E6%B4%9E%E8%95%AD.JPG" alt="簫" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<p>Xiao 是收錄在《隔壁家的世界聲音旅圖》資料庫中的管樂器。目前資料庫將它歸在「氣鳴」脈絡下，主要可從端吹笛、端吹與聲音地景來認識。</p>
-<p>初步地區標註為「全球」。這個欄位仍屬企劃初稿，後續可依博物館、百科條目、民族音樂學資料或演奏者資料逐篇核對。</p>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>管樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>亞洲／東亞（中國）</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>氣鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>無固定調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>約2-3個8度</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>421 邊棱氣鳴／無簧笛類</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>無簧吹管、長音與氣息樂器</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>吹奏／端吹／橫吹／容器共鳴</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>氣息、胸腔、長音、空間</dd></div><div class="meta-item"><dt>地區類型</dt><dd>跨文化／多地</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>簫又稱洞簫、長簫、簫管，是中國古老的吹管樂器，特徵為單管、豎吹、開管、邊稜音發聲。「簫」字在唐代以前本指排簫，唐宋以來，由於單管豎吹的簫日漸流行，便稱編管簫爲排簫，以示區別。至於「洞簫」之名，則來自於簫管底端之開孔。 其音色圓潤輕柔，幽靜典雅，常用於獨奏、琴簫合奏或絲竹樂演奏。尤其常見於表現抒情曲調。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/GwyXQO0tSW4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/XmBji07OtwA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>《蕭聲》為傳統曲目，表現蕭的幽靜意境；《臨安遺恨》是經典琴蕭合奏作品，融合古琴與蕭的婉轉之聲；現代作曲家譚盾創作的《蕭協奏曲》（21世紀初）將蕭推向國際舞台；《姑蘇行》則是傳統絲竹樂名作，蕭在其中扮演重要角色。</p>
 <h2>歷史背景</h2>
-<p>Xiao 的歷史背景目前先以資料庫分類建立閱讀入口。它位於「1｜一口氣走過山谷」的脈絡中，代表這件樂器可以和氣息、材料、身體動作、地方儀式或現代舞台之間的關係一起閱讀。</p>
-<p>如果要補寫成正式百科條目，建議優先查證三個方向：一是它最早出現或被記錄的地區，二是端吹笛的形制演變，三是端吹如何影響音色、用途與傳播。</p>
+<p>簫是中國古老的吹管樂器，起源於新石器時代，最初以骨製和竹製材料製作。在商周時期，簫已具雛形，而「簫」字在唐代以前原指編管排簫。隨著單管豎吹簫的流行發展，唐宋時期才將其區分為排簫與單管簫。「洞簫」之名源於管底開孔的獨特結構，這一設計使其音色圓潤輕柔、幽靜典雅。簫在中國歷代文人墨客中備受推崇，成為傳統雅樂的重要樂器。其後傳入日本、越南等東亞地區，在各地音樂文化中扎根。至今，簫仍常用於獨奏、琴簫合奏或絲竹樂演奏，尤其擅長表現抒情曲調，是中國傳統音樂中不可或缺的樂器。</p>
 <h2>音色描述</h2>
-<p>資料庫把它的身體／聽覺關聯標為「氣息、胸腔、長音、空間」。實際音色仍需要搭配可信錄音或現場演奏資料補充。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖一｜氣息離開身體</li>
-<li><strong>章節</strong>：1｜一口氣走過山谷</li>
-<li><strong>章節主分類</strong>：無簧吹管、長音與氣息樂器</li>
-<li><strong>原聲音地景</strong>：一口氣走過山谷（竹管、陶管、長音與世界笛聲）</li>
-<li><strong>專業發聲大類</strong>：氣鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Aerophone／氣鳴樂器</li>
-<li><strong>家族／支系</strong>：端吹笛</li>
-<li><strong>演奏方式</strong>：端吹</li>
-<li><strong>身體／聽覺關聯</strong>：氣息、胸腔、長音、空間</li>
-<li><strong>主要地區／國家</strong>：全球</li>
-<li><strong>地區類型</strong>：跨文化／多地</li>
-<li><strong>資料狀態</strong>：承接553條目地域欄</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 Xiao 時，可以先從「端吹笛」與「端吹」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「氣息、胸腔、長音、空間」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「一口氣走過山谷（竹管、陶管、長音與世界笛聲）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>簫的音色圓潤溫潤，具有獨特的幽靜典雅韻味。其音質較為暗沉內斂，帶有沉思冥想的意境，迥異於笛子的明亮清脆。簫的音域寬廣，從低音區的深沉蒼涼到高音區的輕柔飄渺，均具良好的表現力。其發聲方式採邊稜音原理，氣流衝擊管口邊稜產生共鳴，使得音色更具共鳴感與穿透力。簫的低音區尤其富有磁性與質感，能營造出悠遠蒼涼的意象。相較於笛子的穿透力強勁，簫更顯溫和內省；相比於簫笛的高亢，簫則沉著深邃。其獨特的音色特別適合表現抒情婉轉的旋律，在琴簫合奏中更能烘托出意境悠遠的藝術效果。</p>
+<h2>樂器材質</h2>
+<p>蕭多以竹製為主，採用生長期長、質地堅實的竹材製作管身，內部經過精細打磨以確保音色均勻。管口邊稜部分精心雕琢以形成發聲結構。底端開孔（洞孔）決定樂器的音高與音色特性。傳統製作亦使用骨製蕭，部分高級蕭則採用紫竹或梅竹等特殊竹種，使音色更具共鳴感與溫潤質感。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>將吹口對準嘴唇，穩定吹氣入管。將吹口對準嘴唇，以穩定的氣流吹入管身。嘴唇的形狀和張力影響音高與音色。手指按壓音孔或活塞改變有效管長以控制音高。以穩定氣流吹入管口，嘴唇控制音色，氣息決定音量。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/pan-flute/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Flute_de_pan_MHNT_ETH_AC_NH_31_Sav%C3%A8s.jpg/500px-Flute_de_pan_MHNT_ETH_AC_NH_31_Sav%C3%A8s.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">管樂器</span>
+        <strong class="card-title">排簫</strong>
+        <span class="card-orig">Pan Flute</span>
+        <span class="card-meta">美洲／南美</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/clarinet/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/8/85/Range_clarinet.png" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">管樂器</span>
+        <strong class="card-title">單簧管</strong>
+        <span class="card-orig">Clarinet</span>
+        <span class="card-meta">歐洲／德國</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/bansuri/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Bansuri_bamboo_flute_23inch.jpg/500px-Bansuri_bamboo_flute_23inch.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">管樂器</span>
+        <strong class="card-title">班蘇裡笛</strong>
+        <span class="card-orig">Bansuri</span>
+        <span class="card-meta">亞洲／南亞（印度）</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/bass-oboe/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Bass_oboe_-_St_Cecilia%27s_Hall.webm/500px--Bass_oboe_-_St_Cecilia%27s_Hall.webm.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">管樂器</span>
+        <strong class="card-title">低音雙簧管</strong>
+        <span class="card-orig">Bass oboe</span>
+        <span class="card-meta">法國</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

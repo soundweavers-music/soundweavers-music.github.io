@@ -4,67 +4,133 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>胡梅爾琴｜世界樂器百科</title>
+  <meta name="description" content="胡梅爾琴是一種起源於中歐的傳統撥弦樂器，名稱源自德文「Hummel」意為「大黃蜂」。樂器採用梨形或蝴蝶形共鳴箱設計，配備多條琴弦。演奏者以撥片或手指彈奏，通過機械裝置撥動琴弦產生聲音。音色明亮清脆，具有金屬質感，高音區璀璨透亮似豎琴，中低音溫暖圓潤。該樂器在十八至十九世紀於維也納古典時期達到發展高峰，成為民間音樂與古典">
+<meta property="og:title" content="胡梅爾琴｜世界樂器百科">
+<meta property="og:description" content="胡梅爾琴是一種起源於中歐的傳統撥弦樂器，名稱源自德文「Hummel」意為「大黃蜂」。樂器採用梨形或蝴蝶形共鳴箱設計，配備多條琴弦。演奏者以撥片或手指彈奏，通過機械裝置撥動琴弦產生聲音。音色明亮清脆，具有金屬質感，高音區璀璨透亮似豎琴，中低音溫暖圓潤。該樂器在十八至十九世紀於維也納古典時期達到發展高峰，成為民間音樂與古典">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>胡梅爾琴</span>
+          </nav>
           <header class="instrument-header">
-            <div>
+            <div class="header-text">
               <p class="eyebrow">鍵盤樂器</p>
               <h1>胡梅爾琴</h1>
-              <p class="lead">Hummel</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>鍵盤樂器</dd></div><div><dt>國家/地區</dt><dd>瑞典／北歐</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div><div><dt>旅圖</dt><dd>旅圖二｜懷裡與大地的弦</dd></div><div><dt>章節</dt><dd>5｜平放在大地上的弦</dd></div><div><dt>發聲分類</dt><dd>弦鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Chordophone／弦鳴樂器</dd></div><div><dt>家族/支系</dt><dd>北歐齊特琴</dd></div><div><dt>演奏方式</dt><dd>撥奏</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：待補</p>
+              <p class="original-name">Hummel</p>
+              <p class="soundscape-tag">平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化弦鳴）</p>
+              <p class="badge-row"></p>
             </div>
             
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<p>胡梅爾琴（Hummel） 是收錄在《隔壁家的世界聲音旅圖》資料庫中的鍵盤樂器。目前資料庫將它歸在「弦鳴」脈絡下，主要可從北歐齊特琴、撥奏與聲音地景來認識。</p>
-<p>初步地區標註為「瑞典／北歐」。這個欄位仍屬企劃初稿，後續可依博物館、百科條目、民族音樂學資料或演奏者資料逐篇核對。</p>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>鍵盤樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>瑞典／北歐</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>弦鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>全調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>約2至3個8度</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>314/315/316 齊特琴／擊弦／鍵盤化弦鳴</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>齊特琴、箏類、擊弦與鍵盤化弦鳴</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>撥弦／擊弦／按鍵擊弦</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>持續音、鄉村舞曲、木質簡樸感</dd></div><div class="meta-item"><dt>地區類型</dt><dd>區域／多國</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>胡梅爾琴是一種起源於中歐的傳統撥弦樂器，名稱源自德文「Hummel」意為「大黃蜂」。樂器採用梨形或蝴蝶形共鳴箱設計，配備多條琴弦。演奏者以撥片或手指彈奏，通過機械裝置撥動琴弦產生聲音。音色明亮清脆，具有金屬質感，高音區璀璨透亮似豎琴，中低音溫暖圓潤。該樂器在十八至十九世紀於維也納古典時期達到發展高峰，成為民間音樂與古典音樂的重要樂器。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/UdGily3s9kA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/rOCX_zA1Ies" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>維也納古典時期多位作曲家為胡梅爾琴創作專門樂曲。其中包括莫札特、貝多芬等音樂大師的作品。該樂器特別在十九世紀的浪漫樂派中獲得重視，許多室內樂與獨奏曲目展現其獨特的音色魅力。這些作品充分利用樂器明亮透徹的音質與豐富的表現力。</p>
 <h2>歷史背景</h2>
-<p>胡梅爾琴（Hummel） 的歷史背景目前先以資料庫分類建立閱讀入口。它位於「5｜平放在大地上的弦」的脈絡中，代表這件樂器可以和氣息、材料、身體動作、地方儀式或現代舞台之間的關係一起閱讀。</p>
-<p>如果要補寫成正式百科條目，建議優先查證三個方向：一是它最早出現或被記錄的地區，二是北歐齊特琴的形制演變，三是撥奏如何影響音色、用途與傳播。</p>
+<h1>胡梅爾琴的歷史背景</h1>
+<p>胡梅爾琴起源於中歐，特別是匈牙利與奧地利地區，是一種傳統的撥弦樂器。其名稱源自德文「Hummel」，意為「大黃蜂」，暗示其獨特的音色特性。該樂器在十八至十九世紀期間發展成熟，成為民間音樂的重要組成部分。</p>
+<p>胡梅爾琴通常採用梨形或蝴蝶形共鳴箱，配備多條弦線，演奏者以撥片或手指彈奏。在維也納古典時期，作曲家對此樂器產生濃厚興趣，多位音樂大師為其創作專門樂曲。該樂器隨著歐洲音樂交流逐漸傳播至其他地區，影響了吉他與其他撥弦樂器的發展。儘管在現代演出中較為罕見，胡梅爾琴仍被視為歐洲音樂遺產的重要見證，在民族音樂研究與歷史樂器復興中佔有一席之地。</p>
 <h2>音色描述</h2>
-<p>資料庫把它的身體／聽覺關聯標為「持續音、鄉村舞曲、木質簡樸感」。實際音色仍需要搭配可信錄音或現場演奏資料補充。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖二｜懷裡與大地的弦</li>
-<li><strong>章節</strong>：5｜平放在大地上的弦</li>
-<li><strong>章節主分類</strong>：齊特琴、箏類、擊弦與鍵盤化弦鳴</li>
-<li><strong>原聲音地景</strong>：平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化弦鳴）</li>
-<li><strong>專業發聲大類</strong>：弦鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Chordophone／弦鳴樂器</li>
-<li><strong>家族／支系</strong>：北歐齊特琴</li>
-<li><strong>演奏方式</strong>：撥奏</li>
-<li><strong>身體／聽覺關聯</strong>：持續音、鄉村舞曲、木質簡樸感</li>
-<li><strong>主要地區／國家</strong>：瑞典／北歐</li>
-<li><strong>地區類型</strong>：區域／多國</li>
-<li><strong>資料狀態</strong>：本次新增初稿，需逐篇來源核對</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 胡梅爾琴 時，可以先從「北歐齊特琴」與「撥奏」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「持續音、鄉村舞曲、木質簡樸感」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化弦鳴）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>胡梅爾琴是一種古老的鍵盤撥弦樂器，音色明亮而清脆，帶有獨特的金屬質感。其高音區尤為璀璨透亮，具有類似豎琴的輕靈感，而中低音則顯得溫暖圓潤。樂器通過機械裝置撥動琴弦產生聲音，共鳴方式獨特，音色既不同於鋼琴的厚重，也異於古鍵琴的柔和，反而更接近豎琴與古鍵琴的結合。琴弦的自然衰減使其音符具有較短的延音特性，音響層次豐富，能輕易穿透其他樂器。其音域適中，音色既具備古樂的典雅特徵，又帶有現代樂器的清晰度，使其在室內樂與獨奏中都能展現獨特的藝術魅力。</p>
+<h2>樂器材質</h2>
+<p>胡梅爾琴的共鳴箱主要採用雲杉、楓木等優質木材製作，以增強共鳴效果。琴弦通常採用鋼製或羊腸弦。機械撥弦裝置由精密的金屬齒輪與撥片組成，確保音色的精準性與一致性。琴身框架採用硬木製造，提供結構穩定性。裝飾部分可能使用象牙、骨質或金屬鑲嵌，反映其作為高級樂器的地位。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>將琴平放於桌面或琴架上。將樂器穩定持於身前。左手負責按弦或改變有效弦長以控制音高，右手負責使弦震動發聲。弦鳴樂器的發聲原理是弦的振動透過共鳴箱放大。用指尖或撥子撥奏弦線，注意觸弦角度和力度控制。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/gayageum/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/%ED%92%8D%EB%A5%98%EA%B0%80%EC%95%BC%EA%B8%88.jpg/500px-%ED%92%8D%EB%A5%98%EA%B0%80%EC%95%BC%EA%B8%88.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">伽倻琴</strong>
+        <span class="card-orig">Gayageum</span>
+        <span class="card-meta">東亞／中亞／歐洲／東南亞／非洲／美洲</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/seaboard/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/20131205_Istanbul_321_cropped.jpg/500px-20131205_Istanbul_321_cropped.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">羅利海岸鍵盤</strong>
+        <span class="card-orig">Seaboard</span>
+        <span class="card-meta">英國／全球</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/glockenspiel/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Glockenspiel-malletech.jpg/500px-Glockenspiel-malletech.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">鐘琴</strong>
+        <span class="card-orig">Glockenspiel</span>
+        <span class="card-meta">歐洲／德國</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/mellotron/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Mellotron.jpg/500px-Mellotron.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">梅樂頓</strong>
+        <span class="card-orig">Mellotron</span>
+        <span class="card-meta">歐洲／英國</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

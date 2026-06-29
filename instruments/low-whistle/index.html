@@ -4,67 +4,132 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>低音哨笛｜世界樂器百科</title>
+  <meta name="description" content="低音哨笛是源於愛爾蘭的傳統管樂器，屬於凱爾特音樂文化的重要組成部分。樂器外型細長，多為木製，通常採用G調或C調。其音色溫潤深沉，帶有獨特的木質感與滄桑韻味，特別擅長詮釋凱爾特民謠與世界音樂。相比高音哨笛的明亮清脆，低音哨笛音域更寬廣，低音區渾厚有力，中音區溫暖柔和，既能溫柔低迴，也能激情高昂，在民族樂隊中扮演重要角色。">
+<meta property="og:title" content="低音哨笛｜世界樂器百科">
+<meta property="og:description" content="低音哨笛是源於愛爾蘭的傳統管樂器，屬於凱爾特音樂文化的重要組成部分。樂器外型細長，多為木製，通常採用G調或C調。其音色溫潤深沉，帶有獨特的木質感與滄桑韻味，特別擅長詮釋凱爾特民謠與世界音樂。相比高音哨笛的明亮清脆，低音哨笛音域更寬廣，低音區渾厚有力，中音區溫暖柔和，既能溫柔低迴，也能激情高昂，在民族樂隊中扮演重要角色。">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>低音哨笛</span>
+          </nav>
           <header class="instrument-header">
-            <div>
+            <div class="header-text">
               <p class="eyebrow">管樂器</p>
               <h1>低音哨笛</h1>
-              <p class="lead">Low Whistle</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>管樂器</dd></div><div><dt>國家/地區</dt><dd>愛爾蘭／英國</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div><div><dt>旅圖</dt><dd>旅圖一｜氣息離開身體</dd></div><div><dt>章節</dt><dd>1｜一口氣走過山谷</dd></div><div><dt>發聲分類</dt><dd>氣鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Aerophone／氣鳴樂器</dd></div><div><dt>家族/支系</dt><dd>低音哨笛</dd></div><div><dt>演奏方式</dt><dd>吹奏</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：待補</p>
+              <p class="original-name">Low Whistle</p>
+              <p class="soundscape-tag">一口氣走過山谷（無簧吹管、長音與氣息樂器）</p>
+              <p class="badge-row"><span class="badge badge-hot">熱門</span></p>
             </div>
             
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<p>低音哨笛（Low Whistle） 是收錄在《隔壁家的世界聲音旅圖》資料庫中的管樂器。目前資料庫將它歸在「氣鳴」脈絡下，主要可從低音哨笛、吹奏與聲音地景來認識。</p>
-<p>初步地區標註為「愛爾蘭／英國」。這個欄位仍屬企劃初稿，後續可依博物館、百科條目、民族音樂學資料或演奏者資料逐篇核對。</p>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>管樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>愛爾蘭／英國</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>氣鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>G調、C調</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>約2.5個8度</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>Aerophone／氣鳴樂器</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>低音哨笛</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>吹奏</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>柔暗長音、民謠敘事、近身呼吸</dd></div><div class="meta-item"><dt>地區類型</dt><dd>區域／多國</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>低音哨笛是源於愛爾蘭的傳統管樂器，屬於凱爾特音樂文化的重要組成部分。樂器外型細長，多為木製，通常採用G調或C調。其音色溫潤深沉，帶有獨特的木質感與滄桑韻味，特別擅長詮釋凱爾特民謠與世界音樂。相比高音哨笛的明亮清脆，低音哨笛音域更寬廣，低音區渾厚有力，中音區溫暖柔和，既能溫柔低迴，也能激情高昂，在民族樂隊中扮演重要角色。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/2H1P_Lam76E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/3V80-Fm_5Gs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>低音哨笛廣泛應用於凱爾特民族音樂中。代表作品包括愛爾蘭傳統民謠《Whiskey in the Jar》，以其深沉的音色詮釋經典旋律；電影《鐵達尼號》原聲帶中的凱爾特配樂，運用低音哨笛營造蒼涼氛圍；以及芮妮·瑪麗亞（Enya）作品中的多個配器樂段，展現低音哨笛的溫暖特質。</p>
 <h2>歷史背景</h2>
-<p>低音哨笛（Low Whistle） 的歷史背景目前先以資料庫分類建立閱讀入口。它位於「1｜一口氣走過山谷」的脈絡中，代表這件樂器可以和氣息、材料、身體動作、地方儀式或現代舞台之間的關係一起閱讀。</p>
-<p>如果要補寫成正式百科條目，建議優先查證三個方向：一是它最早出現或被記錄的地區，二是低音哨笛的形制演變，三是吹奏如何影響音色、用途與傳播。</p>
+<p>低音哨笛源於愛爾蘭，是傳統凱爾特音樂文化的重要組成部分。其前身可追溯至中世紀的愛爾蘭木製哨笛，經過數百年的演變而來。傳統哨笛多為D調，而低音哨笛則音域更低，通常為G調或C調，音色溫暖深沉。</p>
+<p>十九世紀末至二十世紀初，隨著愛爾蘭民族文化的復興運動，低音哨笛逐漸受到重視。它在凱爾特民謠樂隊中扮演重要角色，與高音哨笛、小提琴等樂器相互配合。二十世紀後半，低音哨笛透過世界音樂的傳播，逐漸在世界各地的民族音樂、融合音樂和電影配樂中出現，成為極具辨識度的凱爾特樂器代表。</p>
 <h2>音色描述</h2>
-<p>資料庫把它的身體／聽覺關聯標為「柔暗長音、民謠敘事、近身呼吸」。實際音色仍需要搭配可信錄音或現場演奏資料補充。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖一｜氣息離開身體</li>
-<li><strong>章節</strong>：1｜一口氣走過山谷</li>
-<li><strong>章節主分類</strong>：無簧吹管、長音與氣息樂器</li>
-<li><strong>原聲音地景</strong>：一口氣走過山谷（無簧吹管、長音與氣息樂器）</li>
-<li><strong>專業發聲大類</strong>：氣鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Aerophone／氣鳴樂器</li>
-<li><strong>家族／支系</strong>：低音哨笛</li>
-<li><strong>演奏方式</strong>：吹奏</li>
-<li><strong>身體／聽覺關聯</strong>：柔暗長音、民謠敘事、近身呼吸</li>
-<li><strong>主要地區／國家</strong>：愛爾蘭／英國</li>
-<li><strong>地區類型</strong>：區域／多國</li>
-<li><strong>資料狀態</strong>：本次新增初稿，需逐篇來源核對</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 低音哨笛 時，可以先從「低音哨笛」與「吹奏」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「柔暗長音、民謠敘事、近身呼吸」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「一口氣走過山谷（無簧吹管、長音與氣息樂器）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>低音哨笛音色溫潤深沉，帶有獨特的木質感與滄桑韻味。其音域寬廣，從低音區至中高音區均能清晰表達，低音區特別渾厚有力，中音區則溫暖柔和。樂器採用邊棱吹奏原理，聲波在內部腔體形成共鳴，產生豐富的泛音。相較於高音哨笛的明亮清脆，低音哨笛顯得內斂而富表現力；與竖笛相比，其音色更具穿透力與民族特色；與陶笛相近，但音域更廣、音質更鮮明。低音哨笛特別擅長詮釋凱爾特民謠與世界音樂，音色既能溫柔低迴，也能激情高昂，是極富表現力的民族吹管樂器。</p>
+<h2>樂器材質</h2>
+<p>低音哨笛主要採用優質木材製造，常用黑木、楓木或紫檀等密度較高的木料，確保音色溫暖深沉。笛身內部精心挖製，形成共鳴腔體以增強泛音。吹孔邊緣採用精密設計，某些高級樂器會在關鍵部位嵌入金屬墊片以提升耐久性。笛孔周圍有時採用骨製或玉石裝飾。現代製造亦有使用高科技複合材料的版本，但傳統木製低音哨笛仍為主流。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>將吹口對準嘴唇，穩定吹氣入管。將吹口對準嘴唇，以穩定的氣流吹入管身。嘴唇的形狀和張力影響音高與音色。手指按壓音孔或活塞改變有效管長以控制音高。以穩定氣流吹入管口，嘴唇控制音色，氣息決定音量。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/suling/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Kacapi-suling.JPG/500px-Kacapi-suling.JPG" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">管樂器</span>
+        <strong class="card-title">蘇林笛</strong>
+        <span class="card-orig">Suling</span>
+        <span class="card-meta">亞洲／東南亞</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/baritone-saxophone/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Baritone_Saxophone_Amati.png/500px-Baritone_Saxophone_Amati.png" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">管樂器</span>
+        <strong class="card-title">上低音薩克斯</strong>
+        <span class="card-orig">Baritone saxophone</span>
+        <span class="card-meta">歐洲／比利時</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/bagpipe/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Bagpipe_performer.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">管樂器</span>
+        <strong class="card-title">風笛</strong>
+        <span class="card-orig">Bagpipe</span>
+        <span class="card-meta">凱爾特地區／蘇格蘭／愛爾蘭</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/natural-trumpet/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Natural_Trumpet_in_D_MET_DP-12679-012.jpg/500px-Natural_Trumpet_in_D_MET_DP-12679-012.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">管樂器</span>
+        <strong class="card-title">自然小號</strong>
+        <span class="card-orig">Natural trumpet</span>
+        <span class="card-meta">歐洲</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

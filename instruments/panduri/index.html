@@ -4,82 +4,133 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
-  <title>Panduri（暫譯）｜世界樂器百科</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <title>潘杜裡琴｜世界樂器百科</title>
+  <meta name="description" content="潘杜里琴（格魯吉亞語：ფანდური）是傳統的格魯吉亞三弦撥弦樂器，在格魯吉亞東部的所有地區都很常見，例如普沙夫-赫夫蘇雷蒂、圖什蒂、卡赫蒂和卡特利。潘杜里琴通常用於伴奏獨唱的英雄歌曲、喜劇歌曲和愛情歌曲，以及舞蹈。">
+<meta property="og:title" content="潘杜裡琴｜世界樂器百科">
+<meta property="og:description" content="潘杜里琴（格魯吉亞語：ფანდური）是傳統的格魯吉亞三弦撥弦樂器，在格魯吉亞東部的所有地區都很常見，例如普沙夫-赫夫蘇雷蒂、圖什蒂、卡赫蒂和卡特利。潘杜里琴通常用於伴奏獨唱的英雄歌曲、喜劇歌曲和愛情歌曲，以及舞蹈。">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Georgia_2011_052_%285681237150%29.jpg/500px-Georgia_2011_052_%285681237150%29.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>潘杜裡琴</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">弦樂器</p>
-              <h1>Panduri（暫譯）</h1>
-              <p class="lead">Panduri</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>弦樂器</dd></div><div><dt>國家/地區</dt><dd>中東／歐洲／亞洲／美洲</dd></div><div><dt>年代</dt><dd>古代</dd></div><div><dt>旅圖</dt><dd>旅圖二｜懷裡與大地的弦</dd></div><div><dt>章節</dt><dd>4｜旅人懷裡撥動的故事線</dd></div><div><dt>發聲分類</dt><dd>弦鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Chordophone／弦鳴樂器</dd></div><div><dt>家族/支系</dt><dd>撥弦地域分支</dd></div><div><dt>演奏方式</dt><dd>撥弦</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://en.wikipedia.org/wiki/Panduri" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Panduri</a></p>
+              <h1>潘杜裡琴</h1>
+              <p class="original-name">Panduri</p>
+              <p class="soundscape-tag">旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）</p>
+              <p class="badge-row"><span class="badge badge-cold">冷門</span></p>
             </div>
-            
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Georgia_2011_052_%285681237150%29.jpg/500px-Georgia_2011_052_%285681237150%29.jpg" alt="潘杜裡琴" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>Panduri（暫譯）</h1>
-<p>Panduri（暫譯）（原名：Panduri）是一種弦樂器。主要靠弦的振動發聲，常透過撥、拉、彈、擊等方式演奏。</p>
-<p>若從年代脈絡看，這項樂器可先放在「古代」中理解。</p>
-<p>目前中文資料較少，因此本條目先依英文維基與 Wikidata 的可查資料整理。後續可再補充 Panduri 的製作方式、代表曲目與地方流派。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Panduri</p>
-</li>
-<li>
-<p>Wikidata ID：ENWIKI-e9f2e4bc85</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>弦樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>中東／歐洲／亞洲／美洲</dd></div><div class="meta-item"><dt>年代</dt><dd>古代</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>弦鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>全調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>中高音區（約2個8度）</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>321/322 魯特琴類／撥弦</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>魯特琴、短頸長頸撥弦與民謠弦聲</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>撥弦／刷弦／撥片</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>懷抱、手指、腳步、敘事</dd></div><div class="meta-item"><dt>地區類型</dt><dd>地區／文化圈</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>潘杜里琴（格魯吉亞語：ფანდური）是傳統的格魯吉亞三弦撥弦樂器，在格魯吉亞東部的所有地區都很常見，例如普沙夫-赫夫蘇雷蒂、圖什蒂、卡赫蒂和卡特利。潘杜里琴通常用於伴奏獨唱的英雄歌曲、喜劇歌曲和愛情歌曲，以及舞蹈。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/mHAkrp6Wuqg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/W38eUJTXcYI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>潘杜裡琴主要用於格魯吉亞傳統民間音樂的伴奏，代表性作品包括《英雄敘事歌曲》系列，這些歌曲通常由民間藝人口頭相傳，未有具體作曲者記載；《格魯吉亞愛情歌曲》作為傳統民謠，在東部地區如卡赫蒂和卡特利廣泛流傳；以及各地民間舞蹈伴奏音樂，特別是普沙夫-赫夫蘇雷蒂和圖什蒂地區的傳統舞曲，這些作品均為民族文化的重要組成部分。</p>
 <h2>歷史背景</h2>
-<p>Panduri（暫譯）（Panduri）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>年代線索暫時指向「古代」，可作為閱讀時的時間定位。</p>
-<p>作為弦樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。 「古代」可作為初步年代標籤，但實際流傳時間仍應以專門資料校正。</p>
-<p>弦樂器的歷史常和弦材、共鳴箱、調音方式與演奏技法的演變有關。從民間伴奏到獨奏舞台，許多弦樂器都會因音量需求、音域擴張或樂曲風格改變而改良形制。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://en.wikipedia.org/wiki/Panduri</p>
+<p>潘杜裡琴是格魯吉亞的傳統三弦撥弦樂器，起源於高加索地區的格魯吉亞東部。這件樂器在普沙夫-赫夫蘇雷蒂、圖什蒂、卡赫蒂和卡特利等地區廣泛流傳，深深植根於當地民間音樂文化之中。潘杜裡琴的發展與格魯吉亞悠久的音樂傳統密不可分，它逐漸成為民族文化的重要象徵。</p>
+<p>在歷史演進中，潘杜裡琴主要用於伴奏各類傳統歌曲，包括英雄敘事歌曲、喜劇歌曲和愛情歌曲，同時也常見於舞蹈伴奏。這件樂器透過民間藝人的代際相傳而保存至今，成為格魯吉亞音樂遺產的活態見證。潘杜裡琴的傳播主要侷限於格魯吉亞本土及其相鄰地區，但其在高加索民族音樂中的地位始終舉足輕重，代表著該區域獨特的音樂審美與文化認同。</p>
 <h2>音色描述</h2>
-<p>音色由弦長、張力、共鳴箱與演奏法影響，可呈現撥奏、擦奏或擊弦的不同質感。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖二｜懷裡與大地的弦</li>
-<li><strong>章節</strong>：4｜旅人懷裡撥動的故事線</li>
-<li><strong>章節主分類</strong>：魯特琴、短頸長頸撥弦與民謠弦聲</li>
-<li><strong>原聲音地景</strong>：旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）</li>
-<li><strong>專業發聲大類</strong>：弦鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Chordophone／弦鳴樂器</li>
-<li><strong>家族／支系</strong>：撥弦地域分支</li>
-<li><strong>演奏方式</strong>：撥弦</li>
-<li><strong>身體／聽覺關聯</strong>：懷抱、手指、腳步、敘事</li>
-<li><strong>主要地區／國家</strong>：中東／歐洲／亞洲／美洲</li>
-<li><strong>地區類型</strong>：地區／文化圈</li>
-<li><strong>資料狀態</strong>：系統初稿推定，需逐篇來源核對</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 Panduri 時，可以先從「撥弦地域分支」與「撥弦」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「懷抱、手指、腳步、敘事」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>潘杜裡琴音色明亮而富有穿透力，具有清晰的金屬質感和鮮活的民族特色。其音域集中在中高音區，發出的聲音既不過於尖銳，也不顯沉悶，帶有溫暖的人性化韻味。由於琴身結構精巧，共鳴箱能有效放大弦音振動，使其具有良好的共鳴性和延音特性。與魯特琴相比，潘杜裡琴音色更為明朗直率；與吉他相比則更顯纖細靈巧。其撥弦音響兼具彈性和柔韌性，特別適合表現格魯吉亞民間音樂中的英雄氣概與抒情意韻，在伴奏人聲時既能烘托歌唱的溫情，又能凸顯音樂的民族特徵。</p>
+<h2>樂器材質</h2>
+<p>潘杜裡琴琴身採用高加索地區的優質木材製作，共鳴箱以梨木或核桃木精心雕刻而成，琴頸採用堅硬的白木或楓木，確保結構穩定。三根琴弦傳統上使用羊腸製成，現代製作則常用尼龍或鋼弦替代。琴首和琴馬可能採用象牙或骨質材料裝飾，而琴身表面常施以傳統漆料保護，整體工藝體現了格魯吉亞民間手工藝的精湛技術。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>坐姿將琴抱於懷中或放在膝上。將樂器穩定持於身前。左手負責按弦或改變有效弦長以控制音高，右手負責使弦震動發聲。弦鳴樂器的發聲原理是弦的振動透過共鳴箱放大。用指尖或撥子撥奏弦線，注意觸弦角度和力度控制。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/an-tinh/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/4/45/Thai_tinh_tau.png" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">越南十六絃琴</strong>
+        <span class="card-orig">Đàn tính</span>
+        <span class="card-meta">越南</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/berimbau/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/History_of_Inventions_USNM_41_Angola_Muscial_Bow.jpg/500px-History_of_Inventions_USNM_41_Angola_Muscial_Bow.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">伯林巴烏琴</strong>
+        <span class="card-orig">Berimbau</span>
+        <span class="card-meta">非洲（安哥拉）／巴西</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/ahardin/">
+      <div class="card-thumb card-thumb--empty" aria-hidden="true">♩</div>
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">阿哈迪恩琴</strong>
+        <span class="card-orig">Ahardin</span>
+        <span class="card-meta">非洲西部</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/lesiba/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Lesiba_quill.JPG/500px-Lesiba_quill.JPG" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">Lesiba（暫譯）</strong>
+        <span class="card-orig">Lesiba</span>
+        <span class="card-meta">非洲／南非</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

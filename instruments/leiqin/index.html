@@ -4,67 +4,132 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>擂琴｜世界樂器百科</title>
+  <meta name="description" content="擂琴（「擂」字亦作「雷」），又稱擂胡，是中國的傳統拉弦樂器，由墜胡改造而成。擂琴音色獨特、音量較大，善於模仿人聲，獨奏、合奏均可。有大擂、小擂兩種。">
+<meta property="og:title" content="擂琴｜世界樂器百科">
+<meta property="og:description" content="擂琴（「擂」字亦作「雷」），又稱擂胡，是中國的傳統拉弦樂器，由墜胡改造而成。擂琴音色獨特、音量較大，善於模仿人聲，獨奏、合奏均可。有大擂、小擂兩種。">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Blind_street_musician_playing_%E6%93%82%E7%90%B4_%289451424508%29_%28cropped%29.jpg/500px-Blind_street_musician_playing_%E6%93%82%E7%90%B4_%289451424508%29_%28cropped%29.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>擂琴</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">弦樂器</p>
               <h1>擂琴</h1>
-              <p class="lead">Leiqin</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>弦樂器</dd></div><div><dt>國家/地區</dt><dd>亞洲／歐洲／中東／南亞／中亞</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div><div><dt>旅圖</dt><dd>旅圖三｜天空裡拉長的弦</dd></div><div><dt>章節</dt><dd>7｜弓毛拉出的哭與唱</dd></div><div><dt>發聲分類</dt><dd>弦鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Chordophone／弦鳴樂器</dd></div><div><dt>家族/支系</dt><dd>胡琴支系</dd></div><div><dt>演奏方式</dt><dd>弓擦</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：待補</p>
+              <p class="original-name">Leiqin</p>
+              <p class="soundscape-tag">像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）</p>
+              <p class="badge-row"></p>
             </div>
-            
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Blind_street_musician_playing_%E6%93%82%E7%90%B4_%289451424508%29_%28cropped%29.jpg/500px-Blind_street_musician_playing_%E6%93%82%E7%90%B4_%289451424508%29_%28cropped%29.jpg" alt="擂琴" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<p>擂琴（Leiqin） 是收錄在《隔壁家的世界聲音旅圖》資料庫中的弦樂器。目前資料庫將它歸在「弦鳴」脈絡下，主要可從胡琴支系、弓擦與聲音地景來認識。</p>
-<p>初步地區標註為「亞洲／歐洲／中東／南亞／中亞」。這個欄位仍屬企劃初稿，後續可依博物館、百科條目、民族音樂學資料或演奏者資料逐篇核對。</p>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>弦樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>亞洲／歐洲／中東／南亞／中亞</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>弦鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>全調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>約3個音域（低、中、高音域）</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>Chordophone／弦鳴樂器</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>胡琴支系</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>弓擦</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>胸口、嗓音、拉長的情緒</dd></div><div class="meta-item"><dt>地區類型</dt><dd>地區／文化圈</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>擂琴（「擂」字亦作「雷」），又稱擂胡，是中國的傳統拉弦樂器，由墜胡改造而成。擂琴音色獨特、音量較大，善於模仿人聲，獨奏、合奏均可。有大擂、小擂兩種。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/Tuzl9-WqiAM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/hr0om5G4dRw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>擂琴作為20世紀創製的樂器，主要用於山東傳統民間音樂和戲曲伴奏。代表性應用包括山東琴書、京劇伴奏等民間音樂形式。由於擂琴創製較晚，缺乏具體命名的代表作品文獻記載，但其在民間戲曲唱腔模仿和樂隊合奏中的應用廣泛，特別是在傳統戲曲音樂中發揮重要作用，展現了其獨特的音樂表現力和藝術價值。</p>
 <h2>歷史背景</h2>
-<p>擂琴（Leiqin） 的歷史背景目前先以資料庫分類建立閱讀入口。它位於「7｜弓毛拉出的哭與唱」的脈絡中，代表這件樂器可以和氣息、材料、身體動作、地方儀式或現代舞台之間的關係一起閱讀。</p>
-<p>如果要補寫成正式百科條目，建議優先查證三個方向：一是它最早出現或被記錄的地區，二是胡琴支系的形制演變，三是弓擦如何影響音色、用途與傳播。</p>
+<p>擂琴是由山東傳統民間音樂家王殿玉在1920年代末期創製的樂器。它是在一種較早的傳統樂器「墜胡」的基礎上改進而來。王殿玉對墜胡進行了創新改良，開發出了擂琴這一新樂器。擂琴的創造標誌著中國民間樂器發展的一個重要里程碑，它融合了傳統樂器的特點，同時又具有獨特的音樂表現力。這件樂器誕生於20世紀初期中國音樂文化蓬勃發展的時代，反映了民間藝人不斷創新和改進傳統樂器的精神。擂琴後來在民間音樂演奏中得到廣泛應用，成為中國傳統民樂的重要組成部分。</p>
 <h2>音色描述</h2>
-<p>資料庫把它的身體／聽覺關聯標為「胸口、嗓音、拉長的情緒」。實際音色仍需要搭配可信錄音或現場演奏資料補充。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖三｜天空裡拉長的弦</li>
-<li><strong>章節</strong>：7｜弓毛拉出的哭與唱</li>
-<li><strong>章節主分類</strong>：擦弦、輪弦與提琴家族</li>
-<li><strong>原聲音地景</strong>：像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）</li>
-<li><strong>專業發聲大類</strong>：弦鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Chordophone／弦鳴樂器</li>
-<li><strong>家族／支系</strong>：胡琴支系</li>
-<li><strong>演奏方式</strong>：弓擦</li>
-<li><strong>身體／聽覺關聯</strong>：胸口、嗓音、拉長的情緒</li>
-<li><strong>主要地區／國家</strong>：亞洲／歐洲／中東／南亞／中亞</li>
-<li><strong>地區類型</strong>：地區／文化圈</li>
-<li><strong>資料狀態</strong>：系統初稿推定，需逐篇來源核對</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 擂琴 時，可以先從「胡琴支系」與「弓擦」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「胸口、嗓音、拉長的情緒」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>擂琴音色獨特而富有表現力，音質兼具溫潤與蒼勁的特徵。其音色明亮而不刺耳，帶有溫暖的人聲質感，尤其善於模仿戲曲唱腔，具有極強的歌唱性。音域寬闊，可演奏高、中、低三個音域，低音渾厚有力，中音飽滿溫潤，高音明亮穿透。擂琴通過共鳴箱的共鳴作用，使聲音富有穿透力，音量較大，在樂隊中具有良好的表現力。與同為拉弦樂器的二胡相比，擂琴音色更加蒼涼有力；與琵琶相比，則多了拉弦樂器特有的連貫性和表現力，使其在傳統戲曲和民樂合奏中具有獨特的藝術價值。</p>
+<h2>樂器材質</h2>
+<p>擂琴的共鳴箱採用優質木材製造，通常使用硬木如紫檀、紅木或楠木等。琴杆由堅硬的木材製成，確保結構穩定性。琴弦採用絲弦或鋼弦，提供清晰的音色。琴軫（調音裝置）多採用硬木或骨料製作。琴皮為傳統蟒皮或其他動物皮革，負責振動產生聲音。弓由竹竿和馬尾製成，是發聲的關鍵部件。各部位的金屬配件如弦軫、鐵片等採用銅或鐵材料。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>坐姿，將樂器穩定持於身前。將樂器穩定持於身前。左手負責按弦或改變有效弦長以控制音高，右手負責使弦震動發聲。弦鳴樂器的發聲原理是弦的振動透過共鳴箱放大。運弓平穩，利用手臂重量而非手腕力量。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/litungu/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/CADAL09009962_%E5%B4%87%E6%96%87%E7%B8%BD%E7%9B%AE%C2%B7%EF%BC%88%E4%B8%80%EF%BC%89.djvu/page1-500px-CADAL09009962_%E5%B4%87%E6%96%87%E7%B8%BD%E7%9B%AE%C2%B7%EF%BC%88%E4%B8%80%EF%BC%89.djvu.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">利通古琴</strong>
+        <span class="card-orig">Litungu</span>
+        <span class="card-meta">肯亞</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/acoustic-bass-guitar/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Vea.guitarra.baixa.png/500px-Vea.guitarra.baixa.png" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">原聲低音吉他</strong>
+        <span class="card-orig">Acoustic bass guitar</span>
+        <span class="card-meta">美洲／北美</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/lesiba/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Lesiba_quill.JPG/500px-Lesiba_quill.JPG" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">Lesiba（暫譯）</strong>
+        <span class="card-orig">Lesiba</span>
+        <span class="card-meta">非洲／南非</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/adjalin/">
+      <img class="card-thumb" src="https://commons.wikimedia.org/w/resources/assets/file-type-icons/fileicon-ogg.png" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">Adjalin（暫譯）</strong>
+        <span class="card-orig">Adjalin</span>
+        <span class="card-meta">非洲西部</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

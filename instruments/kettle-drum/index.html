@@ -4,80 +4,134 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
-  <title>Kettle 鼓｜世界樂器百科</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <title>鍋鼓｜世界樂器百科</title>
+  <meta name="description" content="鍋鼓（或稱釜鼓）是一種打擊樂器，其特點是在一個大型半球形碗體上繃緊一層膜。傳統上，碗體由銅或青銅等金屬製成，但也可以使用粘土和木材等材料。在西方音樂中，定音鼓是最常見的鍋鼓類型，其使用之廣泛使得兩個名稱幾乎已成為同義詞。然而，大多數文化，尤其是南亞和中東地區的文化，都擁有各自獨特的鍋鼓類型。">
+<meta property="og:title" content="鍋鼓｜世界樂器百科">
+<meta property="og:description" content="鍋鼓（或稱釜鼓）是一種打擊樂器，其特點是在一個大型半球形碗體上繃緊一層膜。傳統上，碗體由銅或青銅等金屬製成，但也可以使用粘土和木材等材料。在西方音樂中，定音鼓是最常見的鍋鼓類型，其使用之廣泛使得兩個名稱幾乎已成為同義詞。然而，大多數文化，尤其是南亞和中東地區的文化，都擁有各自獨特的鍋鼓類型。">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Nagara%2C_a_percussion_instrument%2C_Rajasthan.jpg/500px-Nagara%2C_a_percussion_instrument%2C_Rajasthan.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>鍋鼓</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">打擊樂器</p>
-              <h1>Kettle 鼓</h1>
-              <p class="lead">Kettle drum</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>打擊樂器</dd></div><div><dt>國家/地區</dt><dd>非洲／中東／亞洲／歐洲／美洲</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div><div><dt>旅圖</dt><dd>旅圖四｜地心與手邊的微光</dd></div><div><dt>章節</dt><dd>8｜皮膜敲醒的地心脈動</dd></div><div><dt>發聲分類</dt><dd>膜鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Membranophone／膜鳴樂器</dd></div><div><dt>家族/支系</dt><dd>鍋鼓與定音鼓</dd></div><div><dt>演奏方式</dt><dd>槌擊／調音</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://en.wikipedia.org/wiki/Kettle_drum" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Kettle_drum</a></p>
+              <h1>鍋鼓</h1>
+              <p class="original-name">Kettle drum</p>
+              <p class="soundscape-tag">手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）</p>
+              <p class="badge-row"><span class="badge badge-hot">熱門</span></p>
             </div>
-            
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Nagara%2C_a_percussion_instrument%2C_Rajasthan.jpg/500px-Nagara%2C_a_percussion_instrument%2C_Rajasthan.jpg" alt="鍋鼓" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>Kettle 鼓</h1>
-<p>Kettle 鼓（原名：Kettle drum）是一種打擊樂器。通常透過敲擊、搖動、摩擦或刮奏產生聲音，常負責節奏與音色層次。</p>
-<p>目前中文資料較少，因此本條目先依英文維基與 Wikidata 的可查資料整理。後續可再補充 Kettle drum 的製作方式、代表曲目與地方流派。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Kettle_drum</p>
-</li>
-<li>
-<p>Wikidata ID：ENWIKI-333dd14a31</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>打擊樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>中東／歐洲</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>膜鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>全調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>約2-3個8度（通過調整膜張力改變音高）</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>21 膜鳴鼓類</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>膜鳴鼓類、框鼓、杯鼓與鼓組</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>手拍／槌擊／皮膜振動</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>手掌、腳底、低音、舞步</dd></div><div class="meta-item"><dt>地區類型</dt><dd>地區／文化圈</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>鍋鼓（或稱釜鼓）是一種打擊樂器，其特點是在一個大型半球形碗體上繃緊一層膜。傳統上，碗體由銅或青銅等金屬製成，但也可以使用粘土和木材等材料。在西方音樂中，定音鼓是最常見的鍋鼓類型，其使用之廣泛使得兩個名稱幾乎已成為同義詞。然而，大多數文化，尤其是南亞和中東地區的文化，都擁有各自獨特的鍋鼓類型。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/05h_NFY7fLc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/mEOSy9lysj8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>貝多芬《第九交響曲》（1824年）中使用定音鼓營造莊嚴氛圍；柏遼茲《幻想交響曲》（1830年）運用鍋鼓製造戲劇性效果；馬勒《第六交響曲》（1906年）中鍋鼓敲擊象徵命運；荀白克《五首管弦樂曲》（1909年）展現其現代音樂表現力。</p>
 <h2>歷史背景</h2>
-<p>Kettle 鼓（Kettle drum）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>作為打擊樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。</p>
-<p>打擊樂器通常和節奏、信號、祭儀、舞蹈或群體活動關係密切。它們的歷史不一定只寫在樂譜裡，也常出現在節慶、宗教、軍事或地方生活的脈絡中。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://en.wikipedia.org/wiki/Kettle_drum</p>
+<p>樂鼓形狀的樂器最早出現於公元前六世紀的東南亞地區，現已成為晚期青銅時代的文物。越南的董生鼓即為一例，採用失蠟澆鑄技術製造。然而，這些樂器並非真正意義上的鼓膜鳴樂器，而是打擊樂器，在音色和結構上更類似於大型定音鑼。</p>
+<p>真正的鍋鼓最初是簡單樂器，由動物皮革覆蓋在陶土罐上製成。木材或龜殼等材料在其早期歷史中亦可能被使用。美索不達米亞泥板記載，約於阿契美尼德帝國時期，有製造稱為「利利蘇」的青銅鼓的指示。這種鼓配有牛皮鼓面，主要用於宗教儀式中代表神的心臟。</p>
+<p>鍋鼓長期作為戰鼓使用，特別是在騎兵部隊中。其最早的戰場記載源於帕提亞帝國，用於戰場協調和震懾敵軍。此傳統延續至薩珊帝國，逐漸與號角或喇叭配合使用。此做法在包括拜占庭帝國在內的多個中東文化中發展，產生了各種形式的鼓，稱為納卡雷鼓。</p>
 <h2>音色描述</h2>
-<p>音色多由材質本體振動決定，常呈現清晰、短促或具有明顯泛音的聲響。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖四｜地心與手邊的微光</li>
-<li><strong>章節</strong>：8｜皮膜敲醒的地心脈動</li>
-<li><strong>章節主分類</strong>：膜鳴鼓類、框鼓、杯鼓與鼓組</li>
-<li><strong>原聲音地景</strong>：手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）</li>
-<li><strong>專業發聲大類</strong>：膜鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Membranophone／膜鳴樂器</li>
-<li><strong>家族／支系</strong>：鍋鼓與定音鼓</li>
-<li><strong>演奏方式</strong>：槌擊／調音</li>
-<li><strong>身體／聽覺關聯</strong>：手掌、腳底、低音、舞步</li>
-<li><strong>主要地區／國家</strong>：非洲／中東／亞洲／歐洲／美洲</li>
-<li><strong>地區類型</strong>：地區／文化圈</li>
-<li><strong>資料狀態</strong>：系統初稿推定，需逐篇來源核對</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 Kettle Drum 時，可以先從「鍋鼓與定音鼓」與「槌擊／調音」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「手掌、腳底、低音、舞步」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>鍋鼓音色深沉而富有穿透力，具有明顯的音高定性，音色質感既不失金屬的光澤感，又帶有溫暖的共鳴特質。其音域寬廣，可通過調整膜的張力改變音高，從低沉渾厚的音區到較高清晰的音區均可駕馭。擊打時，聲波沿著半球形碗體向外擴散，形成獨特的共鳴腔效應，使音響具有層次感與餘韻。相比銅鈸的尖銳刺激，鍋鼓音色更為內斂；與低音提琴相較，其瞬間爆發力更強，但音色則更具金屬質感。在管弦樂隊中，鍋鼓常用於烘托戲劇性高潮，其音響既能融入弦樂的溫潤背景，也能凸顯打擊樂的力量感。</p>
+<h2>樂器材質</h2>
+<p>碗體由銅、青銅等金屬製成，傳統亦可採用粘土或木材；膜面使用動物皮革，通常為小牛皮；邊框由木材或金屬構成；調音機制採用銅製或鋼製螺栓與拉桿系統。不同文化的鍋鼓材質有所差異，東南亞版本可能使用龜殼或木質碗體。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>坐或站，將鼓置於身前合適位置。將鼓穩定放置於地面或夾於雙腿之間。用手掌或鼓棒敲擊鼓面中心或邊緣，不同位置產生不同音色。敲擊力度影響音量大小。以敲擊方式發聲，注意敲擊位置和力度控制。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/bongo/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Bongos_Meinl_HB100-NT.jpg/500px-Bongos_Meinl_HB100-NT.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">邦戈鼓</strong>
+        <span class="card-orig">Bongo</span>
+        <span class="card-meta">非洲／美洲／古巴</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/fangxiang/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Imperial_Encyclopaedia_-_Music_-_pic023_-_%E6%96%B9%E9%9F%BF.svg/500px-Imperial_Encyclopaedia_-_Music_-_pic023_-_%E6%96%B9%E9%9F%BF.svg.png" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">方響</strong>
+        <span class="card-orig">Fangxiang</span>
+        <span class="card-meta">中國</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/marimbaphone/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Marimbaphone_advert.jpg/500px-Marimbaphone_advert.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">馬林巴手機琴</strong>
+        <span class="card-orig">Marimbaphone</span>
+        <span class="card-meta">美洲／北美</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/board-lamellophone/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Traunwalchen%2C_Zungenklavier_b_Marienkirche%2C_2.jpeg/500px-Traunwalchen%2C_Zungenklavier_b_Marienkirche%2C_2.jpeg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">木琴</strong>
+        <span class="card-orig">Board Lamellophone</span>
+        <span class="card-meta">非洲</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

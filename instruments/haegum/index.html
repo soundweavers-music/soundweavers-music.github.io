@@ -4,67 +4,133 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
-  <title>Haegum｜世界樂器百科</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <title>奚琴｜世界樂器百科</title>
+  <meta name="description" content="奚琴，又稱胡琴、鄉琴、嵇琴、奚胡，是奚人的一種弓絃樂器，在唐朝末期傳入中國，後外傳至朝鮮半島與日本，為二胡與馬頭琴的前身。由棍狀頸、空心木質音箱和兩條絲弦構成。與二胡演奏類似，演奏時需要演奏者彎腰、把奚琴垂直放在膝上來演奏。 清朝時的宮廷祭祀樂器中使用奚琴。現今仍保存於滿族與朝鮮族民族樂器之中，為韓國與日本的傳統樂器。">
+<meta property="og:title" content="奚琴｜世界樂器百科">
+<meta property="og:description" content="奚琴，又稱胡琴、鄉琴、嵇琴、奚胡，是奚人的一種弓絃樂器，在唐朝末期傳入中國，後外傳至朝鮮半島與日本，為二胡與馬頭琴的前身。由棍狀頸、空心木質音箱和兩條絲弦構成。與二胡演奏類似，演奏時需要演奏者彎腰、把奚琴垂直放在膝上來演奏。 清朝時的宮廷祭祀樂器中使用奚琴。現今仍保存於滿族與朝鮮族民族樂器之中，為韓國與日本的傳統樂器。">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Haegeum.jpg/500px-Haegeum.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>奚琴</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">弦樂器</p>
-              <h1>Haegum</h1>
-              <p class="lead">Haegum</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>弦樂器</dd></div><div><dt>國家/地區</dt><dd>亞洲／歐洲／中東／南亞／中亞</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div><div><dt>旅圖</dt><dd>旅圖三｜天空裡拉長的弦</dd></div><div><dt>章節</dt><dd>7｜弓毛拉出的哭與唱</dd></div><div><dt>發聲分類</dt><dd>弦鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Chordophone／弦鳴樂器</dd></div><div><dt>家族/支系</dt><dd>擦弦延伸與地方提琴</dd></div><div><dt>演奏方式</dt><dd>弓擦</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：待補</p>
+              <h1>奚琴</h1>
+              <p class="original-name">Haegum</p>
+              <p class="soundscape-tag">像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）</p>
+              <p class="badge-row"></p>
             </div>
-            
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Haegeum.jpg/500px-Haegeum.jpg" alt="奚琴" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<p>Haegum 是收錄在《隔壁家的世界聲音旅圖》資料庫中的弦樂器。目前資料庫將它歸在「弦鳴」脈絡下，主要可從擦弦延伸與地方提琴、弓擦與聲音地景來認識。</p>
-<p>初步地區標註為「亞洲／歐洲／中東／南亞／中亞」。這個欄位仍屬企劃初稿，後續可依博物館、百科條目、民族音樂學資料或演奏者資料逐篇核對。</p>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>弦樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>亞洲／歐洲／中東／南亞／中亞</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>弦鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>無固定調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>約3個音區（高、中、低）</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>321.3 擦弦／輪弦／提琴家族</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>擦弦、輪弦與提琴家族</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>弓擦／輪擦</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>胸口、嗓音、拉長的情緒</dd></div><div class="meta-item"><dt>地區類型</dt><dd>地區／文化圈</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>奚琴，又稱胡琴、鄉琴、嵇琴、奚胡，是奚人的一種弓絃樂器，在唐朝末期傳入中國，後外傳至朝鮮半島與日本，為二胡與馬頭琴的前身。由棍狀頸、空心木質音箱和兩條絲弦構成。與二胡演奏類似，演奏時需要演奏者彎腰、把奚琴垂直放在膝上來演奏。 清朝時的宮廷祭祀樂器中使用奚琴。現今仍保存於滿族與朝鮮族民族樂器之中，為韓國與日本的傳統樂器。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/OfsFoUell4Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/cl2pf05P7rQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>奚琴的代表作品主要保存於東亞傳統音樂文獻中。在中國清朝宮廷祭祀樂中，奚琴作為重要樂器參與演奏，具體作品名稱多已失傳。韓國傳統音樂中，奚琴（해금）被廣泛應用於民間樂曲及宮廷雅樂。日本傳統音樂亦有奚琴相關演奏記錄。現存的演奏傳統主要體現在滿族與朝鮮族民族樂器的傳承演奏中。</p>
 <h2>歷史背景</h2>
-<p>Haegum 的歷史背景目前先以資料庫分類建立閱讀入口。它位於「7｜弓毛拉出的哭與唱」的脈絡中，代表這件樂器可以和氣息、材料、身體動作、地方儀式或現代舞台之間的關係一起閱讀。</p>
-<p>如果要補寫成正式百科條目，建議優先查證三個方向：一是它最早出現或被記錄的地區，二是擦弦延伸與地方提琴的形制演變，三是弓擦如何影響音色、用途與傳播。</p>
+<p>奚琴源自奚人，是一種傳統弓絃樂器。唐朝末期，奚琴經由絲綢之路傳入中國，並逐漸融入華夏音樂文化。其結構簡潔，由棍狀琴頸、空心木質音箱及兩條絲弦組成，演奏時需將樂器垂直置於膝上，透過弓弦摩擦產生音響。</p>
+<p>隨著時間推移，奚琴在中國不斷演變發展，清朝時已成為宮廷祭祀樂的重要樂器。同時，奚琴向東方傳播，先後傳入朝鮮半島與日本，成為當地傳統音樂的重要組成部分。其後世衍生出二胡與馬頭琴等知名樂器。時至今日，奚琴雖已不如過去普及，但仍保存於滿族與朝鮮族的民族樂器體系中，代表著東亞傳統音樂文化的深厚淵源。</p>
 <h2>音色描述</h2>
-<p>資料庫把它的身體／聽覺關聯標為「胸口、嗓音、拉長的情緒」。實際音色仍需要搭配可信錄音或現場演奏資料補充。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖三｜天空裡拉長的弦</li>
-<li><strong>章節</strong>：7｜弓毛拉出的哭與唱</li>
-<li><strong>章節主分類</strong>：擦弦、輪弦與提琴家族</li>
-<li><strong>原聲音地景</strong>：像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）</li>
-<li><strong>專業發聲大類</strong>：弦鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Chordophone／弦鳴樂器</li>
-<li><strong>家族／支系</strong>：擦弦延伸與地方提琴</li>
-<li><strong>演奏方式</strong>：弓擦</li>
-<li><strong>身體／聽覺關聯</strong>：胸口、嗓音、拉長的情緒</li>
-<li><strong>主要地區／國家</strong>：亞洲／歐洲／中東／南亞／中亞</li>
-<li><strong>地區類型</strong>：地區／文化圈</li>
-<li><strong>資料狀態</strong>：系統初稿推定，需逐篇來源核對</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 Haegum 時，可以先從「擦弦延伸與地方提琴」與「弓擦」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「胸口、嗓音、拉長的情緒」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>奚琴音色溫潤而富有東方韻味，具有明暗兼具的音質特徵。其音域寬廣，可演奏高、中、低三個音區，高音明亮清晰，中音溫和醇厚，低音沉穩有力。由於採用空心木質音箱設計，共鳴效果飽滿深沉，音色帶有適度的鼻音感，呈現出獨特的滄桑韻致。與二胡相比，奚琴音色稍顯古樸蒼涼，少了些許明亮感；與馬頭琴相較，其音質更為細膩柔和。弓弦摩擦產生的音波在木質音箱內迴盪共鳴，使其音色既能表達婉轉的情感，也能展現蒼涼悠遠的意境，極具民族特色與藝術感染力。</p>
+<h2>樂器材質</h2>
+<p>奚琴由多種木材精心製作而成。琴頸採用堅硬的棍狀木材，音箱為空心木質構造，通常選用共鳴性能良好的木材如紅木或樺木。兩條絲弦由蠶絲製成，具有溫潤的音色特性。弓部分由竹木製作，馬尾毛作為摩擦弦的介質。部分高級奚琴的音箱表面可能採用特殊漆料保護，內部結構設計以增強共鳴效果。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>用弓在弦上擦奏，透過弓毛與弦的摩擦力使弦震動。將樂器穩定持於身前。左手負責按弦或改變有效弦長以控制音高，右手負責使弦震動發聲。弦鳴樂器的發聲原理是弦的振動透過共鳴箱放大。運弓平穩，利用手臂重量而非手腕力量。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/domra/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Domra-topview2.png/500px-Domra-topview2.png" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">多姆拉</strong>
+        <span class="card-orig">Domra</span>
+        <span class="card-meta">中東／歐亞／東亞／美洲／全球</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/saung-gauk/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Burmese_Harp_in_Manihoto.jpg/500px-Burmese_Harp_in_Manihoto.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">緬甸豎琴</strong>
+        <span class="card-orig">Saung Gauk</span>
+        <span class="card-meta">非洲／歐洲／美洲／亞洲</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/laouto/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Laghouto.jpg/500px-Laghouto.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">希臘拉烏託琴</strong>
+        <span class="card-orig">Laouto</span>
+        <span class="card-meta">希臘</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/ruan/">
+      <div class="card-thumb card-thumb--empty" aria-hidden="true">♩</div>
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">阮</strong>
+        <span class="card-orig">Ruan</span>
+        <span class="card-meta">中東／歐亞／東亞／美洲／全球</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

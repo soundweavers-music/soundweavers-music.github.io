@@ -4,67 +4,134 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>拉納特通琴｜世界樂器百科</title>
+  <meta name="description" content="拉納特通琴是泰國、寮國等東南亞國家的傳統打擊樂器，由木製音條與竹製共鳴管組成。琴身呈梯形或矩形，音條以竹槌敲擊發聲。音色明亮清脆，兼具溫暖與穿透力，音域寬廣介於中高音區。在東南亞民族音樂中作為主旋律樂器使用，琴聲具有良好的投射性，能在樂隊中清晰穿透，同時保持柔和的民族韻味，是泰國傳統音樂不可或缺的重要樂器。">
+<meta property="og:title" content="拉納特通琴｜世界樂器百科">
+<meta property="og:description" content="拉納特通琴是泰國、寮國等東南亞國家的傳統打擊樂器，由木製音條與竹製共鳴管組成。琴身呈梯形或矩形，音條以竹槌敲擊發聲。音色明亮清脆，兼具溫暖與穿透力，音域寬廣介於中高音區。在東南亞民族音樂中作為主旋律樂器使用，琴聲具有良好的投射性，能在樂隊中清晰穿透，同時保持柔和的民族韻味，是泰國傳統音樂不可或缺的重要樂器。">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/%E7%90%B4%E6%9B%B8%E5%A4%A7%E5%85%A8%28%E5%85%AD%29.djvu/page1-500px-%E7%90%B4%E6%9B%B8%E5%A4%A7%E5%85%A8%28%E5%85%AD%29.djvu.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>拉納特通琴</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">打擊樂器</p>
               <h1>拉納特通琴</h1>
-              <p class="lead">Ranat Thum</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>打擊樂器</dd></div><div><dt>國家/地區</dt><dd>泰國</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div><div><dt>旅圖</dt><dd>旅圖五｜城市與星塵的節奏</dd></div><div><dt>章節</dt><dd>10｜木石金屬的回聲城市</dd></div><div><dt>發聲分類</dt><dd>體鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Idiophone／體鳴樂器</dd></div><div><dt>家族/支系</dt><dd>低音木琴</dd></div><div><dt>演奏方式</dt><dd>敲擊</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：待補</p>
+              <p class="original-name">Ranat Thum</p>
+              <p class="soundscape-tag">木石金屬的回聲城市（定音體鳴、材料敲擊與鑼鐘木琴系統）</p>
+              <p class="badge-row"></p>
             </div>
-            
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/%E7%90%B4%E6%9B%B8%E5%A4%A7%E5%85%A8%28%E5%85%AD%29.djvu/page1-500px-%E7%90%B4%E6%9B%B8%E5%A4%A7%E5%85%A8%28%E5%85%AD%29.djvu.jpg" alt="拉納特通琴" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<p>拉納特通琴（Ranat Thum） 是收錄在《隔壁家的世界聲音旅圖》資料庫中的打擊樂器。目前資料庫將它歸在「體鳴」脈絡下，主要可從低音木琴、敲擊與聲音地景來認識。</p>
-<p>初步地區標註為「泰國」。這個欄位仍屬企劃初稿，後續可依博物館、百科條目、民族音樂學資料或演奏者資料逐篇核對。</p>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>打擊樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>泰國</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>體鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>多調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>約2至3個8度（中高音區）</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>Idiophone／體鳴樂器</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>低音木琴</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>敲擊</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>低音木鍵、泰國古典合奏、柔厚回聲</dd></div><div class="meta-item"><dt>地區類型</dt><dd>單一地區／文化圈</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>拉納特通琴是泰國、寮國等東南亞國家的傳統打擊樂器，由木製音條與竹製共鳴管組成。琴身呈梯形或矩形，音條以竹槌敲擊發聲。音色明亮清脆，兼具溫暖與穿透力，音域寬廣介於中高音區。在東南亞民族音樂中作為主旋律樂器使用，琴聲具有良好的投射性，能在樂隊中清晰穿透，同時保持柔和的民族韻味，是泰國傳統音樂不可或缺的重要樂器。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/lIdleRSML-o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/xYWKd11RjDo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>泰國傳統音樂中，拉納特通琴廣泛應用於宮廷樂曲與民間音樂。代表性作品包括泰國經典樂曲《Khamen Soi》與《Lao Kham》等傳統宮廷樂曲，以及寮國民間樂曲《Xam》。這些作品充分展現拉納特通琴清脆明亮的音色與靈動的表現力，是東南亞音樂文化的重要代表。</p>
 <h2>歷史背景</h2>
-<p>拉納特通琴（Ranat Thum） 的歷史背景目前先以資料庫分類建立閱讀入口。它位於「10｜木石金屬的回聲城市」的脈絡中，代表這件樂器可以和氣息、材料、身體動作、地方儀式或現代舞台之間的關係一起閱讀。</p>
-<p>如果要補寫成正式百科條目，建議優先查證三個方向：一是它最早出現或被記錄的地區，二是低音木琴的形制演變，三是敲擊如何影響音色、用途與傳播。</p>
+<h1>拉納特通琴的歷史背景</h1>
+<p>拉納特通琴起源於東南亞，特別是泰國、寮國和柬埔寨等地區。這種木製敲擊樂器在中南半島的音樂文化中發展已有數百年歷史，其設計靈感來自於古代的石製或木製打擊樂器。拉納特通琴在高棉帝國時期已被廣泛使用，後來通過貿易路線和文化交流傳入泰國，成為泰國傳統音樂的重要組成部分。</p>
+<p>在泰國，拉納特通琴逐漸演變成具有獨特音色的樂器，音域寬廣，音質溫暖而富有穿透力。隨著東南亞各國音樂文化的相互融合，拉納特通琴的製作工藝和演奏技巧不斷完善。在20世紀，隨著民族音樂的復興運動和文化保護的重視，拉納特通琴從宮廷音樂擴展到民間音樂領域，成為傳統樂隊中不可或缺的樂器，也逐漸為國際世界所認識。</p>
 <h2>音色描述</h2>
-<p>資料庫把它的身體／聽覺關聯標為「低音木鍵、泰國古典合奏、柔厚回聲」。實際音色仍需要搭配可信錄音或現場演奏資料補充。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖五｜城市與星塵的節奏</li>
-<li><strong>章節</strong>：10｜木石金屬的回聲城市</li>
-<li><strong>章節主分類</strong>：定音體鳴、材料敲擊與鑼鐘木琴系統</li>
-<li><strong>原聲音地景</strong>：木石金屬的回聲城市（定音體鳴、材料敲擊與鑼鐘木琴系統）</li>
-<li><strong>專業發聲大類</strong>：體鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Idiophone／體鳴樂器</li>
-<li><strong>家族／支系</strong>：低音木琴</li>
-<li><strong>演奏方式</strong>：敲擊</li>
-<li><strong>身體／聽覺關聯</strong>：低音木鍵、泰國古典合奏、柔厚回聲</li>
-<li><strong>主要地區／國家</strong>：泰國</li>
-<li><strong>地區類型</strong>：單一地區／文化圈</li>
-<li><strong>資料狀態</strong>：本次新增初稿，需逐篇來源核對</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 拉納特通琴 時，可以先從「低音木琴」與「敲擊」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「低音木鍵、泰國古典合奏、柔厚回聲」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「木石金屬的回聲城市（定音體鳴、材料敲擊與鑼鐘木琴系統）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>拉納特通琴音色明亮清脆，具有獨特的金屬質感，音域介於中高音區。其由木製音條與共鳴管組成的結構，使其發音兼具溫暖與穿透力。每根音條下方配有竹製共鳴管，能有效增強低頻共鳴，產生豐富的泛音層次。相比木琴的樸實厚重，拉納特通琴音色更顯靈動；相較於鐵琴的刺耳銳利，其音質更顯溫潤柔和。琴聲具有良好的投射性，在樂隊中能清晰穿透其他樂器，同時保持東南亞民族音樂特有的溫柔韻味，使其成為泰國傳統音樂中不可或缺的旋律樂器。</p>
+<h2>樂器材質</h2>
+<p>拉納特通琴主要由東南亞硬木製成音條，包括柚木、紫檀等優質木材，具有良好的共鳴與耐久性。音條下方配置竹製共鳴管，用以增強低頻共鳴與音量。琴架通常採用木製結構，部分樂器使用繩索固定音條，亦有使用植物纖維或皮革作為綁定材料。槌頭常用硬木或竹製成，確保清脆準確的敲擊音效。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>站於琴前，雙手持棒敲擊琴鍵中央。手持樂器本體，透過敲擊、搖晃、刮奏或撥彈等方式使樂器本身震動發聲。不同部位和不同力道會產生不同音色。練習時先確認正確持琴姿勢，掌握基本發聲方式後再練習節奏型和旋律。手指或鼓棒敲擊表面，利用反彈力自然回彈，手腕放鬆。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/saron/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Traditional_indonesian_instruments.jpg/500px-Traditional_indonesian_instruments.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">薩隆</strong>
+        <span class="card-orig">Saron</span>
+        <span class="card-meta">亞洲／東南亞（印尼）</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/triangle-musical-instrument/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Triangle_001.jpg/500px-Triangle_001.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">三角鐵</strong>
+        <span class="card-orig">Triangle (musical instrument)</span>
+        <span class="card-meta">歐洲</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/rattle-percussion-instrument/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/PNG_Rattle_QM-r.jpg/500px-PNG_Rattle_QM-r.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">搖鈴（打擊樂器）</strong>
+        <span class="card-orig">Rattle (percussion instrument)</span>
+        <span class="card-meta">法國</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/chimes/">
+      <div class="card-thumb card-thumb--empty" aria-hidden="true">♩</div>
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">鐘琴</strong>
+        <span class="card-orig">Chimes</span>
+        <span class="card-meta">拉丁美洲／非洲／歐洲／亞洲／全球</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

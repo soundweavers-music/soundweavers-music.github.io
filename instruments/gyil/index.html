@@ -4,67 +4,132 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
-  <title>Gyil｜世界樂器百科</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <title>吉爾木琴｜世界樂器百科</title>
+  <meta name="description" content="吉爾木琴是一種西非木琴，由十七個鍵盤安裝在葫蘆上而成。它在迦納北部和布基納法索南部的達加拉人和比里福爾人的音樂傳統中佔有重要地位。伯納德·沃瑪（卒於2018年）是來自迦納上西部地區著名的吉爾木琴演奏家，他花費多年時間教授這種樂器，並將其介紹給世界各地的觀眾。">
+<meta property="og:title" content="吉爾木琴｜世界樂器百科">
+<meta property="og:description" content="吉爾木琴是一種西非木琴，由十七個鍵盤安裝在葫蘆上而成。它在迦納北部和布基納法索南部的達加拉人和比里福爾人的音樂傳統中佔有重要地位。伯納德·沃瑪（卒於2018年）是來自迦納上西部地區著名的吉爾木琴演奏家，他花費多年時間教授這種樂器，並將其介紹給世界各地的觀眾。">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Gyil.JPG/500px-Gyil.JPG">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>吉爾木琴</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">打擊樂器</p>
-              <h1>Gyil</h1>
-              <p class="lead">Gyil</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>打擊樂器</dd></div><div><dt>國家/地區</dt><dd>全球</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div><div><dt>旅圖</dt><dd>旅圖五｜城市與星塵的節奏</dd></div><div><dt>章節</dt><dd>10｜木石金屬的回聲城市</dd></div><div><dt>發聲分類</dt><dd>體鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Idiophone／體鳴樂器</dd></div><div><dt>家族/支系</dt><dd>木片與木琴</dd></div><div><dt>演奏方式</dt><dd>槌擊</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：待補</p>
+              <h1>吉爾木琴</h1>
+              <p class="original-name">Gyil</p>
+              <p class="soundscape-tag">木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）</p>
+              <p class="badge-row"></p>
             </div>
-            
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Gyil.JPG/500px-Gyil.JPG" alt="吉爾木琴" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<p>Gyil 是收錄在《隔壁家的世界聲音旅圖》資料庫中的打擊樂器。目前資料庫將它歸在「體鳴」脈絡下，主要可從木片與木琴、槌擊與聲音地景來認識。</p>
-<p>初步地區標註為「全球」。這個欄位仍屬企劃初稿，後續可依博物館、百科條目、民族音樂學資料或演奏者資料逐篇核對。</p>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>打擊樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>非洲／西非</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>體鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>無固定調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>中低音至中高音範圍（約2至3個8度）</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>11/12 定音體鳴／鑼鐘木琴石琴系統</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>定音體鳴、材料敲擊與鑼鐘木琴系統</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>敲擊／搖奏／材料共鳴</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>材料、回聲、群體分工、音列</dd></div><div class="meta-item"><dt>地區類型</dt><dd>跨文化／多地</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>吉爾木琴是一種西非木琴，由十七個鍵盤安裝在葫蘆上而成。它在迦納北部和布基納法索南部的達加拉人和比里福爾人的音樂傳統中佔有重要地位。伯納德·沃瑪（卒於2018年）是來自迦納上西部地區著名的吉爾木琴演奏家，他花費多年時間教授這種樂器，並將其介紹給世界各地的觀眾。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/a71aACAWri4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/O_1JdoK885A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>吉爾木琴作為西非傳統樂器，主要存在於民族音樂傳統中而非古典作品。伯納德·沃瑪（1950年代-2018年）的現場演奏錄音記錄了該樂器的經典演繹，包括傳統達加拉人和比里福爾人的民族樂曲。20世紀末至21世紀初，該樂器逐漸被引入世界音樂錄音及跨文化音樂創作中，成為西非傳統音樂文化的重要代表。</p>
 <h2>歷史背景</h2>
-<p>Gyil 的歷史背景目前先以資料庫分類建立閱讀入口。它位於「10｜木石金屬的回聲城市」的脈絡中，代表這件樂器可以和氣息、材料、身體動作、地方儀式或現代舞台之間的關係一起閱讀。</p>
-<p>如果要補寫成正式百科條目，建議優先查證三個方向：一是它最早出現或被記錄的地區，二是木片與木琴的形制演變，三是槌擊如何影響音色、用途與傳播。</p>
+<p>吉爾木琴是源於西非的傳統木琴樂器，在迦納北部和布基納法索南部的達加拉人和比里福爾人社群中擁有悠久的文化歷史。這種樂器由十七個木製鍵盤組成，巧妙地安裝在共鳴葫蘆上，能夠發出獨特而富有表現力的音色。吉爾木琴在當地音樂傳統中扮演著重要角色，不僅用於娛樂，更承載了深厚的文化內涵。進入現代時期，著名演奏家伯納德·沃瑪對這項傳統的保護與推廣做出了卓越貢獻。沃瑪長期致力於教授吉爾木琴演奏技巧，並透過國際巡演將這一傳統樂器介紹給世界各地的觀眾，有效促進了西非音樂文化的國際交流與認識，直至其於二○一八年逝世，其遺產仍持續影響全球音樂界。</p>
 <h2>音色描述</h2>
-<p>資料庫把它的身體／聽覺關聯標為「材料、回聲、群體分工、音列」。實際音色仍需要搭配可信錄音或現場演奏資料補充。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖五｜城市與星塵的節奏</li>
-<li><strong>章節</strong>：10｜木石金屬的回聲城市</li>
-<li><strong>章節主分類</strong>：定音體鳴、材料敲擊與鑼鐘木琴系統</li>
-<li><strong>原聲音地景</strong>：木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）</li>
-<li><strong>專業發聲大類</strong>：體鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Idiophone／體鳴樂器</li>
-<li><strong>家族／支系</strong>：木片與木琴</li>
-<li><strong>演奏方式</strong>：槌擊</li>
-<li><strong>身體／聽覺關聯</strong>：材料、回聲、群體分工、音列</li>
-<li><strong>主要地區／國家</strong>：全球</li>
-<li><strong>地區類型</strong>：跨文化／多地</li>
-<li><strong>資料狀態</strong>：承接553條目地域欄</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 Gyil 時，可以先從「木片與木琴」與「槌擊」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「材料、回聲、群體分工、音列」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>吉爾木琴音色明亮溫潤，具有獨特的溫暖感和原始質感。其音域跨越中低音至中高音範圍，音色層次豐富。樂器由木製琴鍵與葫蘆共鳴箱組成，葫蘆內部產生充分的共鳴，使音聲具有飽滿的穿透力和自然的迴盪感。相比歐洲木琴的清脆銳利，吉爾木琴音色更顯圓潤醇厚；與馬林巴琴相比，它的音質更具樸實感，帶有溫暖的諧音。敲擊時產生的泛音豐富多變，在共鳴箱的加持下呈現出既古樸又富有表現力的音響特徵。這種質感使其在西非傳統音樂中能夠承擔旋律與節奏的雙重角色，富有感染力。</p>
+<h2>樂器材質</h2>
+<p>吉爾木琴主要由天然材料製成。琴鍵採用堅硬的非洲木材製作，共十七個。共鳴箱以天然葫蘆（葫蘆科植物）挖空製成，內部中空便於音波共鳴。木製琴鍵通過傳統方式安裝在葫蘆上，使用天然纖維或皮繩固定。敲擊時使用木槌，槌頭通常由軟木或其他天然材料包裹，以產生溫潤的音色。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>站於琴前，雙手持棒敲擊琴鍵中央。手持樂器本體，透過敲擊、搖晃、刮奏或撥彈等方式使樂器本身震動發聲。不同部位和不同力道會產生不同音色。練習時先確認正確持琴姿勢，掌握基本發聲方式後再練習節奏型和旋律。手指或鼓棒敲擊表面，利用反彈力自然回彈，手腕放鬆。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/buhai/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/P%C3%A2r%C3%A2ul_%C8%99i_Podul_Buhai.jpg/500px-P%C3%A2r%C3%A2ul_%C8%99i_Podul_Buhai.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">布海鼓</strong>
+        <span class="card-orig">Buhai</span>
+        <span class="card-meta">羅馬尼亞</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/drum/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/%E4%B8%80%E5%80%8B%E5%A4%A7%E9%BC%93.jpg/500px-%E4%B8%80%E5%80%8B%E5%A4%A7%E9%BC%93.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">鼓</strong>
+        <span class="card-orig">Drum</span>
+        <span class="card-meta">全球／多地</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/musical-saw/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Musical_saw_2.jpg/500px-Musical_saw_2.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">鋸琴</strong>
+        <span class="card-orig">Musical saw</span>
+        <span class="card-meta">美洲／北美</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/mridangam/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/1/16/Wiki-mridangam.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">姆裡丹加鼓</strong>
+        <span class="card-orig">Mridangam</span>
+        <span class="card-meta">亞洲／南亞（印度）</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

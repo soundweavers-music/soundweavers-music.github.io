@@ -4,81 +4,140 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
-  <title>钢琴｜世界樂器百科</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <title>鋼琴｜世界樂器百科</title>
+  <meta name="description" content="鋼琴（義大利語：pianoforte；德語：Klavier；英語：piano），是西洋古典音樂中的一種鍵盤樂器，前身為大鍵琴、古鋼琴，普遍用於獨奏、重奏、伴奏等演出，用於作曲和排練音樂十分方便。彈奏者通過按下鍵盤上的琴鍵，牽動鋼琴裏面包著絨氈的小木槌，繼而敲擊鋼絲弦發出聲音。鋼琴音域寬廣，音色宏亮、清脆，富於變化，表現">
+<meta property="og:title" content="鋼琴｜世界樂器百科">
+<meta property="og:description" content="鋼琴（義大利語：pianoforte；德語：Klavier；英語：piano），是西洋古典音樂中的一種鍵盤樂器，前身為大鍵琴、古鋼琴，普遍用於獨奏、重奏、伴奏等演出，用於作曲和排練音樂十分方便。彈奏者通過按下鍵盤上的琴鍵，牽動鋼琴裏面包著絨氈的小木槌，繼而敲擊鋼絲弦發出聲音。鋼琴音域寬廣，音色宏亮、清脆，富於變化，表現">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Two_pianos_-_grand_piano_and_upright_piano.jpg/500px-Two_pianos_-_grand_piano_and_upright_piano.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>鋼琴</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">鍵盤樂器</p>
-              <h1>钢琴</h1>
-              <p class="lead">Piano</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>鍵盤樂器</dd></div><div><dt>國家/地區</dt><dd>全球</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div><div><dt>旅圖</dt><dd>旅圖二｜懷裡與大地的弦</dd></div><div><dt>章節</dt><dd>5｜平放在大地上的弦</dd></div><div><dt>發聲分類</dt><dd>弦鳴／鍵盤</dd></div><div><dt>H-S 近似分類</dt><dd>Chordophone／弦鳴樂器</dd></div><div><dt>家族/支系</dt><dd>鍵盤化收束</dd></div><div><dt>演奏方式</dt><dd>撥弦／擊弦</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://zh.wikipedia.org/wiki/%E9%92%A2%E7%90%B4" target="_blank" rel="noopener noreferrer">https://zh.wikipedia.org/wiki/%E9%92%A2%E7%90%B4</a></p>
+              <h1>鋼琴</h1>
+              <p class="original-name">Piano</p>
+              <p class="soundscape-tag">平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）</p>
+              <p class="badge-row"><span class="badge badge-hot">熱門</span></p>
             </div>
-            <img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Two_pianos_-_grand_piano_and_upright_piano.jpg/960px-Two_pianos_-_grand_piano_and_upright_piano.jpg" alt="钢琴">
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Two_pianos_-_grand_piano_and_upright_piano.jpg/500px-Two_pianos_-_grand_piano_and_upright_piano.jpg" alt="鋼琴" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>钢琴</h1>
-<p>钢琴是一種鍵盤樂器。鋼琴（義大利語：pianoforte；德語：Klavier；英語：piano），是西洋古典音樂中的一種鍵盤樂器，前身為大鍵琴、古鋼琴，普遍用於獨奏、重奏、伴奏等演出，用於作曲和排練音樂十分方便。彈奏者通過按下鍵盤上的琴鍵，牽動鋼琴裏面包着絨氈的小木槌，繼而敲擊鋼絲弦發出聲音。鋼琴音域寬廣，音色宏亮、清脆，富於變化，表現力很強。獨奏時，可演奏各種氣勢磅礡、寬廣、抒情的音樂，亦可演奏歡快、靈巧、技巧性很高的華彩樂段，在樂隊中則可發揮巨大的作用，還經常作為伴奏樂器使用。鋼琴因其豐富的樂理表達能力，被稱作「樂器之王」。</p>
-<p>在地域脈絡上，它和義大利的音樂文化有關。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>中文維基百科：https://zh.wikipedia.org/wiki/%E9%92%A2%E7%90%B4</p>
-</li>
-<li>
-<p>原始來源：https://en.wikipedia.org/wiki/Piano</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>鍵盤樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>歐洲／義大利</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>弦鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>全調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>A0–C8（約7個8度）</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>314/315/316 齊特琴／擊弦／鍵盤化弦鳴</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>齊特琴、箏類、擊弦與鍵盤化弦鳴</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>撥弦／擊弦／按鍵擊弦</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>手掌、弦面、推音、敲擊</dd></div><div class="meta-item"><dt>地區類型</dt><dd>跨文化／多地</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>鋼琴（義大利語：pianoforte；德語：Klavier；英語：piano），是西洋古典音樂中的一種鍵盤樂器，前身為大鍵琴、古鋼琴，普遍用於獨奏、重奏、伴奏等演出，用於作曲和排練音樂十分方便。彈奏者通過按下鍵盤上的琴鍵，牽動鋼琴裏面包著絨氈的小木槌，繼而敲擊鋼絲弦發出聲音。鋼琴音域寬廣，音色宏亮、清脆，富於變化，表現力很強。獨奏時，可演奏各種氣勢磅礡、寬廣、抒情的音樂，亦可演奏歡快、靈巧、技巧性很高的華彩樂段，在樂隊中則可發揮巨大的作用，還經常作為伴奏樂器使用。鋼琴因其豐富的樂理表達能力，被稱作「樂器之王」。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/3NycM9lYdRI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/WJ3-F02-F_Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>貝多芬《月光奏鳴曲》（1801年）以其深邃的情感表現和技巧性著稱；莫札特《土耳其進行曲》（1784年）展現鋼琴的輕快與靈巧；蕭邦《夜曲》系列（1830-1846年間）充分發揮鋼琴的抒情性與表現力；拉赫瑪尼諾夫《第二鋼琴協奏曲》（1901年）則展現其宏大的音樂氣勢和高超的技巧要求。</p>
 <h2>歷史背景</h2>
-<p>钢琴（Piano）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>它可以先放在義大利相關音樂文化中理解，後續可再補代表樂派、演奏場合與製作工藝。</p>
-<p>作為鍵盤樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。 若要深入研究，可優先查找義大利的博物館、民族音樂學資料或地方樂器圖錄。</p>
-<p>鍵盤樂器的歷史多半和機械結構、調律系統與演奏場域有關。從早期的撥弦、擊弦或管風琴機構，到現代舞台與錄音室，鍵盤介面讓複音演奏變得更容易。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://zh.wikipedia.org/wiki/%E9%92%A2%E7%90%B4</p>
+<p>鋼琴基於較早的敲擊弦樂器和鍵盤樂器的技術創新。最早的已知鍵盤樂器是古希臘的水力風琴，於西元前三世紀在古希臘發明。管風琴在中世紀繼續在歐洲使用，這使樂器製造者能夠學習創造鍵盤機制來發出音高。最早的敲擊弦樂器是錘擊揚琴，起源於中東，於中世紀傳入歐洲。中世紀期間，人們多次嘗試創造具有敲擊弦樂的弦鍵盤樂器。到了十七世紀，如羽管鍵琴和大鍵琴等鍵盤樂器的機制已經相當成熟。在羽管鍵琴中，琴弦由切線敲擊，而在大鍵琴中，當演奏者按下琴鍵時，琴弦由機械驅動的羽管撥動。幾個世紀以來，人們對大鍵琴機制的改進，使樂器製造者了解到構造琴箱、音板、琴橋和鍵盤機械裝置最有效的方式。英文單詞「piano」是義大利文的簡稱，源自「pianoforte」（弱-強），意指能夠演奏出不同音量的樂器。</p>
 <h2>音色描述</h2>
-<p>音色由弦長、張力、共鳴箱與演奏法影響，可呈現撥奏、擦奏或擊弦的不同質感。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖二｜懷裡與大地的弦</li>
-<li><strong>章節</strong>：5｜平放在大地上的弦</li>
-<li><strong>章節主分類</strong>：齊特琴、箏類、擊弦與鍵盤化弦鳴</li>
-<li><strong>原聲音地景</strong>：平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）</li>
-<li><strong>專業發聲大類</strong>：弦鳴／鍵盤</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Chordophone／弦鳴樂器</li>
-<li><strong>家族／支系</strong>：鍵盤化收束</li>
-<li><strong>演奏方式</strong>：撥弦／擊弦</li>
-<li><strong>身體／聽覺關聯</strong>：手掌、弦面、推音、敲擊</li>
-<li><strong>主要地區／國家</strong>：全球</li>
-<li><strong>地區類型</strong>：跨文化／多地</li>
-<li><strong>資料狀態</strong>：承接553條目地域欄</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 Piano 時，可以先從「鍵盤化收束」與「撥弦／擊弦」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「手掌、弦面、推音、敲擊」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>鋼琴音色兼具明亮與溫潤的特質，低音區音色渾厚深沉，中音區飽滿富麗，高音區清脆明亮。其音域寬廣，跨越接近十個八度，堪稱樂器之最，可涵蓋人聲及大多數樂器的音域範圍。鋼琴通過共鳴板的振動放大弦樂的聲音，使音響層次豐富而立體。其獨特之處在於能同時演奏多聲部，音色既具有弦樂的溫潤感，又兼備管樂的宏亮穿透力；相較於古鋼琴音色的柔弱，鋼琴音量更強勁；與小提琴相比，鋼琴音色更廣闊厚實，表現力更加多元。踏板的運用更可營造出霧靄般的共鳴效果，使音樂表現力臻於完美。</p>
+<h2>樂器材質</h2>
+<p>鋼琴框架採用鑄鐵，具有高強度；琴身多用雲杉、楓木等優質木材製作；琴鍵由黑檀木、象牙或人工象牙製成；內部裝有數百條鋼絲弦，經過精密調音；木槌包裹羊毛氈；共鳴板採用雲杉薄板；踏板機制由各種金屬和木材組成，確保精準的音響效果和耐久性。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>【鋼琴的歷史】鋼琴起源於1709年，義大利人克里斯多佛利發明了第一台可以控制強弱的鍵盤樂器，命名為「弱強琴」（Pianoforte）。在此之前的大鍵琴只能發出固定音量，無法表現強弱變化。十八世紀後期，維也納風格的鋼琴受到莫札特和海頓喜愛。十九世紀初，貝多芬的鋼琴作品要求更大的動態範圍，推動了鋼琴製造技術革新。1820年代，法國人埃拉爾發明了雙擒縱機構，使琴鍵能快速重複發聲，為浪漫時期華麗技巧奠定基礎。1853年施坦威公司成立，至今仍是頂級鋼琴代名詞。鋼琴從歐洲貴族沙龍走向公眾，成為最受歡迎的樂器。</p>
+<p>【鋼琴結構與類型】平台鋼琴（三角鋼琴）：琴弦水平放置，音量大、反應靈敏，是音樂廳首選。直立式鋼琴：琴弦垂直排列，節省空間，價格較低，適合家庭使用。鋼琴包含約12000個零件：88個琴鍵（52白36黑）、擊弦機構、琴槌（木心包羊毛氈）、220根琴弦（高音每音3弦，中音2弦，低音1弦銅絲纏繞）、響板（將振動轉化為聲音）、鑄鐵框架（承受20噸張力）、三個踏板。</p>
+<p>【基本演奏姿勢】坐於琴椅前半部，背部挺直。距離鍵盤以手肘呈90度為標準。雙腳平放，右腳在右踏板前方。手指彎曲如握球，用指腹觸鍵。手腕與前臂平行，手掌保持拱形，肩膀放鬆。五根手指編號：拇指(1)、食指(2)、中指(3)、無名指(4)、小指(5)。正確姿勢是所有技巧的基礎，直接影響演奏舒適度和技巧發展。</p>
+<p>【基本指法與技巧】C大調音階右手：12312345，左手：54321321。五指位置練習：拇指放中央C，其他手指依序放在DEFG，逐一抬起放下保持其他手指不動。穿指（拇指從其他手指下方穿過）和越指（其他手指從拇指上方越過）是音階琶音的基礎動作。哈農練習曲每天10-15分鐘訓練手指獨立性。練習曲如蕭邦練習曲、李斯特練習曲同時訓練技巧和音樂性。</p>
+<p>【練習方法與建議】每日練習建議分配：哈農10分鐘、音階琶音15分鐘、練習曲15分鐘、樂曲20分鐘。有效練習技巧：(1)慢速練習：速度控制在能完全掌握的範圍；(2)分手練習：左右手分開練熟後再合手；(3)分段練習：將樂曲分成小段落逐一攻克；(4)節拍器：培養穩定的節奏感；(5)背譜：分段背誦理解樂曲結構。常見練習曲教材：拜爾、徹爾尼、哈農、巴哈創意曲、蕭邦練習曲、李斯特練習曲。</p>
+<p>【踏板運用】右踏板（延音踏板）：最常用，踩下後所有音延長，在和聲變換時更換。左踏板（弱音踏板）：擊弦機構左移，音量減小音色變柔。中踏板（選擇性延音）：只延長踩下時正在彈奏的音，用於需要特定音持續發聲的段落。踏板是鋼琴演奏的重要表現手段，需要單獨練習。</p>
+<p>【經典曲目】初級階段：貝多芬《給愛麗絲》、巴哈《小步舞曲》、貝多芬《月光奏鳴曲》第一樂章、蕭邦《降E大調夜曲》。中級階段：蕭邦《革命練習曲》、德布西《月光》、李斯特《愛之夢》第三首、拉赫瑪尼諾夫《前奏曲》。進階階段：李斯特《匈牙利狂想曲》第二號、蕭邦《第一號詼諧曲》、拉赫瑪尼諾夫《第三號鋼琴協奏曲》、普羅高菲夫《第七號奏鳴曲》。</p>
+<p>【保養須知】每年至少調音1-2次。環境溫度20-25度，濕度40-60%。琴鍵用柔軟微濕布擦拭。避免陽光直射和放置雜物在琴上。潮濕地區使用防潮管或除濕機。每2-3年進行一次全面調整包括擊弦機構潤滑和琴槌整形。</p>
+<p>【著名鋼琴家】古典：李斯特、蕭邦、克拉拉·舒曼。二十世紀：霍洛維茲、魯賓斯坦、顧爾德、阿格麗希。當代：郎朗、王羽佳、齊瑪曼、特里福諾夫。每位鋼琴家都有獨特的演奏風格，多聽不同演奏家的錄音能幫助建立自己的音樂品味。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/appalachian-dulcimer/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Dulcimer_%28UP%29.jpg/500px-Dulcimer_%28UP%29.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">阿帕拉契亞揚琴</strong>
+        <span class="card-orig">Appalachian Dulcimer</span>
+        <span class="card-meta">東亞／中亞／歐洲／東南亞／非洲／美洲</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/fortepiano/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/FortepianoByMcNultyAfterWalter1805.jpg/500px-FortepianoByMcNultyAfterWalter1805.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">早期鋼琴</strong>
+        <span class="card-orig">Fortepiano</span>
+        <span class="card-meta">歐洲／義大利</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/siter/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Traditional_indonesian_stringed_instrument.jpg/500px-Traditional_indonesian_stringed_instrument.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">西特爾</strong>
+        <span class="card-orig">Siter</span>
+        <span class="card-meta">亞洲／歐洲／全球</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/continuum-fingerboard/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Continuum-Side-view.jpg/500px-Continuum-Side-view.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">連續指板</strong>
+        <span class="card-orig">Continuum Fingerboard</span>
+        <span class="card-meta">歐洲</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

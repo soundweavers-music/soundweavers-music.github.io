@@ -4,80 +4,133 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
-  <title>三角铁｜世界樂器百科</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <title>三角鐵｜世界樂器百科</title>
+  <meta name="description" content="三角鐵，為體鳴樂器的一種。金屬製，現在通常以鋼造，並彎曲成三角形。演奏方法分為開關兩種。常用於各種樂團製造音效。 演奏時一手持三角鐵上的繫繩，一手持金屬棒敲擊，敲擊之後視情況決定是否需要以手止音。通常有分單擊以及連擊兩種音效。單擊主要用於點綴樂曲，連擊則用於提昇樂曲聲勢。">
+<meta property="og:title" content="三角鐵｜世界樂器百科">
+<meta property="og:description" content="三角鐵，為體鳴樂器的一種。金屬製，現在通常以鋼造，並彎曲成三角形。演奏方法分為開關兩種。常用於各種樂團製造音效。 演奏時一手持三角鐵上的繫繩，一手持金屬棒敲擊，敲擊之後視情況決定是否需要以手止音。通常有分單擊以及連擊兩種音效。單擊主要用於點綴樂曲，連擊則用於提昇樂曲聲勢。">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Triangle_001.jpg/500px-Triangle_001.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>三角鐵</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">打擊樂器</p>
-              <h1>三角铁</h1>
-              <p class="lead">Triangle (musical instrument)</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>打擊樂器</dd></div><div><dt>國家/地區</dt><dd>全球</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div><div><dt>旅圖</dt><dd>旅圖五｜城市與星塵的節奏</dd></div><div><dt>章節</dt><dd>11｜掌心搖落的節奏星塵</dd></div><div><dt>發聲分類</dt><dd>體鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Idiophone／體鳴樂器</dd></div><div><dt>家族/支系</dt><dd>鈴、響片與小金屬</dd></div><div><dt>演奏方式</dt><dd>搖／擊／碰撞</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://zh.wikipedia.org/wiki/%E4%B8%89%E8%A7%92%E9%93%81" target="_blank" rel="noopener noreferrer">https://zh.wikipedia.org/wiki/%E4%B8%89%E8%A7%92%E9%93%81</a></p>
+              <h1>三角鐵</h1>
+              <p class="original-name">Triangle (musical instrument)</p>
+              <p class="soundscape-tag">手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）</p>
+              <p class="badge-row"><span class="badge badge-hot">熱門</span></p>
             </div>
-            <img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Triangle_001.jpg/960px-Triangle_001.jpg" alt="三角铁">
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Triangle_001.jpg/500px-Triangle_001.jpg" alt="三角鐵" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>三角铁</h1>
-<p>三角铁是一種打擊樂器。三角鐵，為體鳴樂器的一種。金屬製，現在通常以鋼造，並彎曲成三角形。演奏方法分為開關兩種。常用於各種樂團製造音效。</p>
-<p>簡單來說，演奏時一手持三角鐵上的繫繩，一手持金屬棒敲擊，敲擊之後視情況決定是否需要以手止音。通常有分單擊以及連擊兩種音效。單擊主要用於點綴樂曲，連擊則用於提昇樂曲聲勢。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>中文維基百科：https://zh.wikipedia.org/wiki/%E4%B8%89%E8%A7%92%E9%93%81</p>
-</li>
-<li>
-<p>原始來源：https://en.wikipedia.org/wiki/Triangle_(musical_instrument)</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>打擊樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>歐洲</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>體鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>無固定調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>高頻區域，約1至2個8度</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>Idiophone／體鳴樂器</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>鈴、響片與小金屬</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>搖／擊／碰撞</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>手腕、腳踝、短音、節奏對齊</dd></div><div class="meta-item"><dt>地區類型</dt><dd>跨文化／多地</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>三角鐵，為體鳴樂器的一種。金屬製，現在通常以鋼造，並彎曲成三角形。演奏方法分為開關兩種。常用於各種樂團製造音效。 演奏時一手持三角鐵上的繫繩，一手持金屬棒敲擊，敲擊之後視情況決定是否需要以手止音。通常有分單擊以及連擊兩種音效。單擊主要用於點綴樂曲，連擊則用於提昇樂曲聲勢。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/GvSS6_eDHiE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/FMqDnWebXag" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>三角鐵在古典音樂中的代表作品包括：莫扎特《土耳其進行曲》（1784年）中的打擊樂部分；貝多芬《第九交響曲》（1824年）第四樂章採用三角鐵製造音響效果；李斯特《匈牙利狂想曲第二號》（1851年）中運用三角鐵營造東歐風情；普契尼歌劇《托斯卡》中三角鐵用於戲劇性渲染。這些作品展現了三角鐵在管弦樂團中的多樣化應用。</p>
 <h2>歷史背景</h2>
-<p>三角铁（Triangle (musical instrument)）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>作為打擊樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。</p>
-<p>打擊樂器通常和節奏、信號、祭儀、舞蹈或群體活動關係密切。它們的歷史不一定只寫在樂譜裡，也常出現在節慶、宗教、軍事或地方生活的脈絡中。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://zh.wikipedia.org/wiki/%E4%B8%89%E8%A7%92%E9%93%81</p>
+<p>三角鐵的歷史主要通過圖像學資料得知，這些資料揭示了該樂器發展的音樂和社會背景。部分學者認為三角鐵是古埃及鈴鼓的直接後代，但其他學者認為三角鐵只是與鈴鼓在歷史上「相關聯」，並非直接後代。如同鈴鼓，三角鐵在圖像中的起源也與宗教場景相關。三角鐵被用作禮拜樂器，用於埃及科普特教會和印度喀拉拉邦敘利亞-馬拉巴教會的禮儀中。</p>
+<p>長期以來，人們認為三角鐵最早的圖像證據來自雷根斯堡埃默倫修道院的9世紀手稿，但近期學術研究對此持不同看法。14世紀時，三角鐵開始出現在西方基督教圖像中。之後，三角鐵在歷史上持續出現在各種圖像中，大小不一，有時在其橫檔上掛有搖晃的金屬環。三角鐵有開放式角設計（兩端不相接），也有完全閉合角的設計；邊有時略呈曲線，形狀也不完全是三角形，有時呈梯形。</p>
 <h2>音色描述</h2>
-<p>音色多由材質本體振動決定，常呈現清晰、短促或具有明顯泛音的聲響。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖五｜城市與星塵的節奏</li>
-<li><strong>章節</strong>：11｜掌心搖落的節奏星塵</li>
-<li><strong>章節主分類</strong>：小型節奏體鳴、沙鈴、刮器與身體打擊</li>
-<li><strong>原聲音地景</strong>：手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）</li>
-<li><strong>專業發聲大類</strong>：體鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Idiophone／體鳴樂器</li>
-<li><strong>家族／支系</strong>：鈴、響片與小金屬</li>
-<li><strong>演奏方式</strong>：搖／擊／碰撞</li>
-<li><strong>身體／聽覺關聯</strong>：手腕、腳踝、短音、節奏對齊</li>
-<li><strong>主要地區／國家</strong>：全球</li>
-<li><strong>地區類型</strong>：跨文化／多地</li>
-<li><strong>資料狀態</strong>：承接553條目地域欄</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 Triangle 時，可以先從「鈴、響片與小金屬」與「搖／擊／碰撞」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「手腕、腳踝、短音、節奏對齊」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>三角鐵的音色清亮透徹，具有穿透力強的特質。其聲音明亮刺激，帶有金屬質感的冷冽光澤，音域位於高頻區域，能有效穿透樂團整體音響。因其空心的三角形結構與金屬材質，敲擊後會產生豐富的泛音，形成獨特的共鳴效應，聲音具有延續性與浮游感。相比鑔鈸的厚重與渾濁，三角鐵顯得更加靈巧精緻；相比鐘的深沉與莊嚴，三角鐵則呈現輕盈與活潑。其單擊聲音清脆短促，適合精準點綴；連擊時則形成連貫閃爍的高頻音響，能有效烘托樂曲的戲劇張力與視覺效果。</p>
+<h2>樂器材質</h2>
+<p>三角鐵主要由鋼製成，現代樂器採用高碳鋼或優質鋼材彎曲成等邊三角形狀。金屬棒通常為鋼或鋁合金製造，提供敲擊音源。樂器頂部附有繫繩或吊環，多用尼龍或皮革製成便於懸掛。為增強共鳴效應，三角鐵保持空心結構，厚度精心設計以產生豐富泛音。部分高級樂器採用特殊合金配方，以獲得更理想的音色與穿透力。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>用繩子懸掛三角鐵，金屬棒敲擊。敲擊不同邊產生不同音色。開握（手指不碰金屬）產生持續共鳴，閉握（手指碰觸）產生短促音。練習節奏型和滾奏。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/jegog/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Gamelan_Jegog.jpg/500px-Gamelan_Jegog.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">傑歌克</strong>
+        <span class="card-orig">Jegog</span>
+        <span class="card-meta">印尼巴厘島</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/teponaztli/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Two_Teponaztli.jpg/500px-Two_Teponaztli.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">特波那茲特鼓</strong>
+        <span class="card-orig">Teponaztli</span>
+        <span class="card-meta">拉丁美洲／非洲／歐洲／亞洲／全球</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/superball/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Glitter_Super_Ball.jpg/500px-Glitter_Super_Ball.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">超級彈力球</strong>
+        <span class="card-orig">Superball</span>
+        <span class="card-meta">美洲／北美</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/chimes/">
+      <div class="card-thumb card-thumb--empty" aria-hidden="true">♩</div>
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">鐘琴</strong>
+        <span class="card-orig">Chimes</span>
+        <span class="card-meta">拉丁美洲／非洲／歐洲／亞洲／全球</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

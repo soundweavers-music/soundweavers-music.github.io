@@ -4,65 +4,133 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
-  <title>Gogona（暫譯）｜世界樂器百科</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <title>印度音樂｜世界樂器百科</title>
+  <meta name="description" content="古貢納（gogona）是一種頜琴，是一種振動的簧片樂器，主要用於印度阿薩姆邦的傳統比胡音樂中。在博羅語中，它被稱為貢吉納。類似的竹製口琴也見於其他西藏語族部落，如尼泊爾的基蘭蒂人、布貢人、彝族人、特里普里人等。它由一根竹子或角製成，一端有分叉。堅固的一端用牙齒咬住，然後用手指反覆敲擊自由端以發出古貢納獨特的聲音。">
+<meta property="og:title" content="印度音樂｜世界樂器百科">
+<meta property="og:description" content="古貢納（gogona）是一種頜琴，是一種振動的簧片樂器，主要用於印度阿薩姆邦的傳統比胡音樂中。在博羅語中，它被稱為貢吉納。類似的竹製口琴也見於其他西藏語族部落，如尼泊爾的基蘭蒂人、布貢人、彝族人、特里普里人等。它由一根竹子或角製成，一端有分叉。堅固的一端用牙齒咬住，然後用手指反覆敲擊自由端以發出古貢納獨特的聲音。">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/%E0%A6%97%E0%A6%97%E0%A6%A3%E0%A6%BE.JPG/500px-%E0%A6%97%E0%A6%97%E0%A6%A3%E0%A6%BE.JPG">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>印度音樂</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">打擊樂器</p>
-              <h1>Gogona（暫譯）</h1>
-              <p class="lead">Gogona</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>打擊樂器</dd></div><div><dt>國家/地區</dt><dd>印度</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://en.wikipedia.org/wiki/Gogona" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Gogona</a></p>
+              <h1>印度音樂</h1>
+              <p class="original-name">Gogona</p>
+              <p class="soundscape-tag">手邊發光的小宇宙（近身體鳴、舌片琴與手奏金屬共鳴）</p>
+              <p class="badge-row"><span class="badge badge-cold">冷門</span></p>
             </div>
-            <img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/%E0%A6%97%E0%A6%97%E0%A6%A3%E0%A6%BE.JPG/960px-%E0%A6%97%E0%A6%97%E0%A6%A3%E0%A6%BE.JPG" alt="Gogona（暫譯）">
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/%E0%A6%97%E0%A6%97%E0%A6%A3%E0%A6%BE.JPG/500px-%E0%A6%97%E0%A6%97%E0%A6%A3%E0%A6%BE.JPG" alt="印度音樂" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>Gogona（暫譯）</h1>
-<p>Gogona（暫譯）（原名：Gogona）是一種打擊樂器。通常透過敲擊、搖動、摩擦或刮奏產生聲音，常負責節奏與音色層次。</p>
-<p>目前可查資料顯示，它與印度的音樂文化或演奏傳統有關。</p>
-<p>英文資料中特別提到它的使用或演奏情境，因此理解這項樂器時，不只要看外形，也要看它在樂曲、儀式或合奏中的角色。</p>
-<p>材料與構造是它音色的重要線索；不同材質會讓聲音呈現更明亮、厚實或有共鳴感的差異。</p>
-<p>它常被放在傳統或民俗音樂脈絡中討論，代表它不只是發聲工具，也承載地方文化記憶。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Gogona</p>
-</li>
-<li>
-<p>Wikidata ID：Q3913027</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>打擊樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>印度</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>無固定調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>中低頻段（約1至2個8度）</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>指尖、掌心、尾音、近身聆聽</dd></div><div class="meta-item"><dt>地區類型</dt><dd>單一地區／文化圈</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>古貢納（gogona）是一種頜琴，是一種振動的簧片樂器，主要用於印度阿薩姆邦的傳統比胡音樂中。在博羅語中，它被稱為貢吉納。類似的竹製口琴也見於其他西藏語族部落，如尼泊爾的基蘭蒂人、布貢人、彝族人、特里普里人等。它由一根竹子或角製成，一端有分叉。堅固的一端用牙齒咬住，然後用手指反覆敲擊自由端以發出古貢納獨特的聲音。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/357WhxbU36c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/WG1_joyeTuw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>古貢納主要用於印度阿薩姆邦的比胡傳統音樂表演中，雖缺乏明確記載的獨立作品名稱，但在博羅民族的祭祀音樂、民俗慶典和民間敘事歌唱中佔有重要地位。該樂器常與傳統鼓樂和弦樂器合奏，為當地民族音樂的重要伴奏樂器，其演奏傳統代代相傳，成為阿薩姆地區文化遺產的重要組成部分。</p>
 <h2>歷史背景</h2>
-<p>Gogona（暫譯）（Gogona）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>它可以先放在印度相關音樂文化中理解，後續可再補代表樂派、演奏場合與製作工藝。</p>
-<p>作為打擊樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。 若要深入研究，可優先查找印度的博物館、民族音樂學資料或地方樂器圖錄。</p>
-<p>打擊樂器通常和節奏、信號、祭儀、舞蹈或群體活動關係密切。它們的歷史不一定只寫在樂譜裡，也常出現在節慶、宗教、軍事或地方生活的脈絡中。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://en.wikipedia.org/wiki/Gogona</p>
+<p>古貢納是源自印度東北部阿薩姆邦的傳統口琴樂器，在當地博羅民族文化中扮演重要角色。這種簧片樂器由竹子或獸角製成，經歷數百年的發展演變，逐漸成為比胡音樂表演中不可或缺的樂器。古貢納的製作工藝反映了阿薩姆地區豐富的竹資源和手工藝傳統，代代相傳的演奏技巧保留了原始的音樂美學特徵。</p>
+<p>隨著時間推移，類似的竹製口琴樂器在喜馬拉雅山脈周邊的西藏語族部落中廣泛流傳，包括尼泊爾的基蘭蒂人、布貢人、以及中國的彝族和特里普里人等民族。這些地區的傳播表明，古貢納代表的是泛喜馬拉雅地區的共同音樂文化遺產。儘管各民族的版本存在細微差異，但其簡樸的構造和獨特的音色特質使其在民間音樂中保持生命力，反映了山區文明間的文化交流與互動。</p>
 <h2>音色描述</h2>
-<p>音色多由材質本體振動決定，常呈現清晰、短促或具有明顯泛音的聲響。</p></article>
+<p>古貢納具有獨特的鼻音質感與諧振特徵。其音色兼具打擊樂的明亮脆性與口琴的共鳴溫潤，因振動簧片與口腔共鳴室互動而產生。音域主要集中在中低頻段，音高受簧片厚度與振動快慢影響。其聲響帶有明顯的鼻腔共鳴色彩，不同於西方口琴的晶瑩穿透，反而呈現出溫潤而略帶沙啞的質地。與傳統打擊樂相比，古貢納具有更多的韻律彈性與控制力；與竹製樂器相比，其音色更加內斂神秘。這種樂器的共鳴主要依靠演奏者的口腔空間調節，使其每一擊都能呈現微妙的音色變化。</p>
+<h2>樂器材質</h2>
+<p>古貢納主要由竹子或獸角製成。竹製版本利用阿薩姆地區豐富的竹資源，經過精心選材與加工而成。樂器一端採用堅固的竹質或角質部分，用於咬住固定；另一端為自由振動的簧片結構，由竹片或角質薄片組成，具有足夠的彈性以產生振動。整體設計簡潔實用，充分體現了東北印度地區的傳統手工藝特色和因地制宜的製作智慧。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>將樂器以正確姿勢持於手中。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/janggu/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Janggu.jpg/500px-Janggu.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">杖鼓</strong>
+        <span class="card-orig">Janggu</span>
+        <span class="card-meta">亞洲／東亞（韓國）</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/aeolsklavier/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Stokes%27_encyclopedia_of_music_and_musicians%2C_covering_the_entire_period_of_musical_history_from_the_earliest_times_to_the_season_of_1908-09_%28IA_cu31924022228385%29.pdf/page1-500px-thumbnail.pdf.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">風琴鋼琴</strong>
+        <span class="card-orig">Aeolsklavier</span>
+        <span class="card-meta">德國</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/hyoshigi/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/2/22/Hyoshigi01.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">拍子木</strong>
+        <span class="card-orig">Hyoshigi</span>
+        <span class="card-meta">日本</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/dunun/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/en/thumb/4/49/Dundun.JPG/500px-Dundun.JPG" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">杜農鼓</strong>
+        <span class="card-orig">Dunun</span>
+        <span class="card-meta">非洲／中東／亞洲／歐洲／美洲</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

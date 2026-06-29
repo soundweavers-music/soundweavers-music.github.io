@@ -4,67 +4,133 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>高麗笛｜世界樂器百科</title>
+  <meta name="description" content="高麗笛是日本雅樂中使用的一種橫吹管樂器，用於高麗樂、國風歌舞和東遊。 竹制，6孔，長36厘米，內徑9厘米，音域為F♯5～E7。">
+<meta property="og:title" content="高麗笛｜世界樂器百科">
+<meta property="og:description" content="高麗笛是日本雅樂中使用的一種橫吹管樂器，用於高麗樂、國風歌舞和東遊。 竹制，6孔，長36厘米，內徑9厘米，音域為F♯5～E7。">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>高麗笛</span>
+          </nav>
           <header class="instrument-header">
-            <div>
+            <div class="header-text">
               <p class="eyebrow">管樂器</p>
               <h1>高麗笛</h1>
-              <p class="lead">Komabue</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>管樂器</dd></div><div><dt>國家/地區</dt><dd>日本</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div><div><dt>旅圖</dt><dd>旅圖一｜氣息離開身體</dd></div><div><dt>章節</dt><dd>1｜一口氣走過山谷</dd></div><div><dt>發聲分類</dt><dd>氣鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Aerophone／氣鳴樂器</dd></div><div><dt>家族/支系</dt><dd>雅樂短笛</dd></div><div><dt>演奏方式</dt><dd>吹奏</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：待補</p>
+              <p class="original-name">Komabue</p>
+              <p class="soundscape-tag">一口氣走過山谷（無簧吹管、長音與氣息樂器）</p>
+              <p class="badge-row"></p>
             </div>
             
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<p>高麗笛（Komabue） 是收錄在《隔壁家的世界聲音旅圖》資料庫中的管樂器。目前資料庫將它歸在「氣鳴」脈絡下，主要可從雅樂短笛、吹奏與聲音地景來認識。</p>
-<p>初步地區標註為「日本」。這個欄位仍屬企劃初稿，後續可依博物館、百科條目、民族音樂學資料或演奏者資料逐篇核對。</p>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>管樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>日本</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>氣鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>F♯大調</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>F♯5–E7（約2個8度）</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>421 邊棱氣鳴／無簧笛類</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>無簧吹管、長音與氣息樂器</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>吹奏／端吹／橫吹／容器共鳴</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>高音線條、宮廷舞樂、清亮穿透</dd></div><div class="meta-item"><dt>地區類型</dt><dd>單一地區／文化圈</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>高麗笛是日本雅樂中使用的一種橫吹管樂器，用於高麗樂、國風歌舞和東遊。 竹制，6孔，長36厘米，內徑9厘米，音域為F♯5～E7。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/4Jo8bO_vc4M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/iZfRKIo9HoA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>高麗笛主要用於日本雅樂中的高麗樂表演。代表性作品包括《蘇芳蘇芳》、《千秋樂》等高麗樂曲目，多成立於平安時代至江戶時代。這些作品充分展現高麗笛明亮透徹的音色特質，在宮廷儀式與貴族宴樂中扮演重要角色。高麗笛與笙、鼓等樂器合奏，共同營造雅樂獨有的典雅莊重氛圍。</p>
 <h2>歷史背景</h2>
-<p>高麗笛（Komabue） 的歷史背景目前先以資料庫分類建立閱讀入口。它位於「1｜一口氣走過山谷」的脈絡中，代表這件樂器可以和氣息、材料、身體動作、地方儀式或現代舞台之間的關係一起閱讀。</p>
-<p>如果要補寫成正式百科條目，建議優先查證三個方向：一是它最早出現或被記錄的地區，二是雅樂短笛的形制演變，三是吹奏如何影響音色、用途與傳播。</p>
+<p>高麗笛起源於朝鮮半島，於飛鳥時代經由高麗傳入日本。其名稱源自「高麗」，反映了其明確的地域血統。在日本雅樂體系中，高麗笛逐漸演變成一種專門用於高麗樂表演的樂器，與日本本土音樂傳統相融合。</p>
+<p>高麗笛的發展與日本宮廷音樂密切相關，特別是在古代日本與東亞各國的文化交流過程中，該樂器得到逐步完善。其竹製結構、六孔設計和標準化的36厘米長度，都是經過多個世紀的改進而成。</p>
+<p>傳播脈絡上，高麗笛從高麗傳入日本後，被納入雅樂體系，用於高麗樂、國風歌舞和東遊等表演形式。它與篳篥、龍笛等樂器共同構成了日本宮廷音樂的重要組成部分，並一直保留至今，成為傳統雅樂的珍貴樂器。</p>
 <h2>音色描述</h2>
-<p>資料庫把它的身體／聽覺關聯標為「高音線條、宮廷舞樂、清亮穿透」。實際音色仍需要搭配可信錄音或現場演奏資料補充。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖一｜氣息離開身體</li>
-<li><strong>章節</strong>：1｜一口氣走過山谷</li>
-<li><strong>章節主分類</strong>：無簧吹管、長音與氣息樂器</li>
-<li><strong>原聲音地景</strong>：一口氣走過山谷（無簧吹管、長音與氣息樂器）</li>
-<li><strong>專業發聲大類</strong>：氣鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Aerophone／氣鳴樂器</li>
-<li><strong>家族／支系</strong>：雅樂短笛</li>
-<li><strong>演奏方式</strong>：吹奏</li>
-<li><strong>身體／聽覺關聯</strong>：高音線條、宮廷舞樂、清亮穿透</li>
-<li><strong>主要地區／國家</strong>：日本</li>
-<li><strong>地區類型</strong>：單一地區／文化圈</li>
-<li><strong>資料狀態</strong>：本次新增初稿，需逐篇來源核對</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 高麗笛 時，可以先從「雅樂短笛」與「吹奏」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「高音線條、宮廷舞樂、清亮穿透」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「一口氣走過山谷（無簧吹管、長音與氣息樂器）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>高麗笛音色明亮透徹，具有穿透力強的特質，帶有獨特的古雅韻味。其音質溫潤而不失銳利，在高音域尤其顯得清晰悅耳。樂器音域較高，從F♯5至E7，使其在雅樂合奏中扮演旋律聲部的角色。竹製的共鳴腔體賦予其自然溫暖的音響，兼具金屬般的光澤感。與笙的厚重雄渾相比，高麗笛更顯輕盈靈動；與龍笛的溫和相較，其音色更具威嚴與正式感。其獨特的音質在古典日本音樂中營造出典雅、莊重的氛圍，是雅樂樂團中不可或缺的音色元素。</p>
+<h2>樂器材質</h2>
+<p>高麗笛採用竹製構造，笛身選用優質竹材製作，具有良好的共鳴特性。笛管內徑約9厘米，經過精細打磨以確保音質純正。六個音孔均勻分布於笛身，便於演奏者精確控制音高。竹材的天然特性賦予樂器溫潤的音響與自然溫暖的音質，同時具備必要的耐久性與穩定性。整體設計經過數世紀改進，達到標準化規格。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>將吹口對準嘴唇，穩定吹氣入管。將吹口對準嘴唇，以穩定的氣流吹入管身。嘴唇的形狀和張力影響音高與音色。手指按壓音孔或活塞改變有效管長以控制音高。以穩定氣流吹入管口，嘴唇控制音色，氣息決定音量。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/aboriginal-trumpet/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Sketches_of_aboriginal_life_%28IA_sketchesofaborig00vide%29.pdf/page1-500px-Sketches_of_aboriginal_life_%28IA_sketchesofaborig00vide%29.pdf.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">管樂器</span>
+        <strong class="card-title">迪吉里杜管</strong>
+        <span class="card-orig">Aboriginal Trumpet</span>
+        <span class="card-meta">全球／亞洲／歐洲／美洲／大洋洲</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/nadaswaram/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/A_Nadaswaram_with_seevali.JPG/500px-A_Nadaswaram_with_seevali.JPG" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">管樂器</span>
+        <strong class="card-title">印度納達斯瓦拉姆管</strong>
+        <span class="card-orig">Nadaswaram</span>
+        <span class="card-meta">印度南部</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/dizi/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Dizi%28F%29.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">管樂器</span>
+        <strong class="card-title">笛子</strong>
+        <span class="card-orig">Dizi</span>
+        <span class="card-meta">亞洲／東亞（中國）</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/jaw-harp/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Jew%27s_harp.jpg/500px-Jew%27s_harp.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">管樂器</span>
+        <strong class="card-title">口琴</strong>
+        <span class="card-orig">Jaw Harp</span>
+        <span class="card-meta">亞洲／歐洲／中東／全球</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

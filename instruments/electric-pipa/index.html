@@ -4,61 +4,133 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
-  <title>Electric 琵琶｜世界樂器百科</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <title>電琵琶｜世界樂器百科</title>
+  <meta name="description" content="電琵琶是在傳統中國四弦琵琶基礎上加裝拾音器與電子擴音系統的現代改良版本。琴身保留梨形木製共鳴腔，品位從傳統的12品增至24至31品，弦距設計也更貼近現代彈奏習慣。演奏者透過電子放大系統可接入效果器、音箱，大幅擴展音色可能性。電琵琶兼容傳統輪指、推拉弦、泛音等古典技法，同時可融入搖滾、爵士、電子音樂等現代風格，是當代跨界">
+<meta property="og:title" content="電琵琶｜世界樂器百科">
+<meta property="og:description" content="電琵琶是在傳統中國四弦琵琶基礎上加裝拾音器與電子擴音系統的現代改良版本。琴身保留梨形木製共鳴腔，品位從傳統的12品增至24至31品，弦距設計也更貼近現代彈奏習慣。演奏者透過電子放大系統可接入效果器、音箱，大幅擴展音色可能性。電琵琶兼容傳統輪指、推拉弦、泛音等古典技法，同時可融入搖滾、爵士、電子音樂等現代風格，是當代跨界">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Pipa_MET_DP216710.jpg/500px-Pipa_MET_DP216710.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>電琵琶</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">弦樂器</p>
-              <h1>Electric 琵琶</h1>
-              <p class="lead">Electric pipa</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>弦樂器</dd></div><div><dt>國家/地區</dt><dd>待考</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://en.wikipedia.org/wiki/Electric_pipa" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Electric_pipa</a></p>
+              <h1>電琵琶</h1>
+              <p class="original-name">Electric pipa</p>
+              <p class="soundscape-tag">旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）</p>
+              <p class="badge-row"><span class="badge badge-hot">熱門</span></p>
             </div>
-            
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Pipa_MET_DP216710.jpg/500px-Pipa_MET_DP216710.jpg" alt="電琵琶" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>Electric 琵琶</h1>
-<p>Electric 琵琶（原名：Electric pipa）是一種弦樂器。主要靠弦的振動發聲，常透過撥、拉、彈、擊等方式演奏。</p>
-<p>目前中文資料較少，因此本條目先依英文維基與 Wikidata 的可查資料整理。後續可再補充 Electric pipa 的製作方式、代表曲目與地方流派。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Electric_pipa</p>
-</li>
-<li>
-<p>Wikidata ID：ENWIKI-eababda2ee</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>弦樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>中國</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>弦鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>全調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>約3個8度</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>3 弦鳴樂器</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>弦樂器類</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>撥弦／擦弦／擊弦</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>懷抱、手指、腳步、敘事</dd></div><div class="meta-item"><dt>地區類型</dt><dd>單一地區／文化圈</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>電琵琶是在傳統中國四弦琵琶基礎上加裝拾音器與電子擴音系統的現代改良版本。琴身保留梨形木製共鳴腔，品位從傳統的12品增至24至31品，弦距設計也更貼近現代彈奏習慣。演奏者透過電子放大系統可接入效果器、音箱，大幅擴展音色可能性。電琵琶兼容傳統輪指、推拉弦、泛音等古典技法，同時可融入搖滾、爵士、電子音樂等現代風格，是當代跨界音樂家探索傳統樂器現代化的重要媒介。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/gf6v59c5yuY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/1GJiliDvXhk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>電琵琶的代表作品包括中國當代作曲家為其創作的融合傳統與現代元素的作品。著名音樂家方錦龍以電琵琶改編演奏了多首傳統琵琶曲目，如《十面埋伏》、《霸王卸甲》等，將古曲賦予現代電聲表現。此外，當代作曲家創作的《琵琶協奏曲》等作品充分發揮電琵琶的音響特性，融合搖滾、爵士等現代音樂元素，展現電琵琶在跨界音樂中的創新應用。</p>
 <h2>歷史背景</h2>
-<p>Electric 琵琶（Electric pipa）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>作為弦樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。</p>
-<p>弦樂器的歷史常和弦材、共鳴箱、調音方式與演奏技法的演變有關。從民間伴奏到獨奏舞台，許多弦樂器都會因音量需求、音域擴張或樂曲風格改變而改良形制。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://en.wikipedia.org/wiki/Electric_pipa</p>
+<p>琵琶的起源存在一些混淆和分歧。這可能是因為從秦到唐代的古籍中，「琵琶」一詞被用來描述多種撥弦樂器，包括長頸尖角琵琶和短頸琵琶，而且古籍記載不一。傳統漢語敘述偏好一個故事：漢代漢族公主劉細君被送去與烏孫王聯姻，琵琶被發明用來讓她在馬上演奏音樂以排遣鄉愁。現代研究者如勞倫斯·皮肯、岸邊成雄和約翰·邁爾斯則提出非中國起源的觀點。</p>
+<p>琵琶在中文文獻中最早的記載出現在漢末約公元2世紀。根據東漢劉熹的《釋名》記載，「琵琶」可能源於擬聲詞。該書指出琵琶起源於胡人，他們在馬上彈奏此樂器。手向外彈叫「琵」，向內彈叫「琶」，名稱即源於演奏時的聲音。</p>
 <h2>音色描述</h2>
-<p>音色由弦長、張力、共鳴箱與演奏法影響，可呈現撥奏、擦奏或擊弦的不同質感。</p></article>
+<p>電琵琶音色明亮穿透，具有獨特的金屬質感與清脆的撥弦音韻。其音域寬廣，從低沉渾厚的低音區到高亮清晰的高音區皆能表現，尤其高音區音色璀璨耀眼。傳統琵琶的共鳴方式經電子放大與效果處理後，音響層次更加豐富立體，能呈現出溫潤與鏗鏘並存的獨特魅力。相比古典吉他的柔和圓潤，電琵琶音色更具攻擊性與穿透力；與電吉他相比，則保留了傳統樂器的東方意韻與指法技巧的細緻表現。其輪指、滑音、揉弦等傳統技法在電聲擴大後，能展現出既古典又現代的音樂表情，適合多種音樂風格的演繹。</p>
+<h2>樂器材質</h2>
+<p>電琵琶主體採用優質木材製作，琴身通常以梧桐木或紅木製成，提供良好的共鳴特性。琴頸多用紅木或檀木製作，具有堅硬耐用的特點。琴柱與品柱採用竹製或木製材料。傳統琴絃多為絲弦，現代電琵琶則採用尼龍絃或鋼絃。拾音器和電路系統使用磁性線圈、電子元器件等現代科技材料，音量控制旋鈕採用金屬材質，使傳統樂器融合現代電子技術。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>將樂器以正確姿勢持於手中。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/nyatiti/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Nyatiti.jpg/500px-Nyatiti.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">尼亞蒂蒂琴</strong>
+        <span class="card-orig">Nyatiti</span>
+        <span class="card-meta">肯亞</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/african-bow-harp/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Mirror_Handle_with_a_Woman_Playing_the_Vina_6th%E2%80%937th_century.jpg/500px-Mirror_Handle_with_a_Woman_Playing_the_Vina_6th%E2%80%937th_century.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">非洲弓豎琴</strong>
+        <span class="card-orig">African Bow Harp</span>
+        <span class="card-meta">非洲／歐洲／亞洲／美洲</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/berimbau/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/History_of_Inventions_USNM_41_Angola_Muscial_Bow.jpg/500px-History_of_Inventions_USNM_41_Angola_Muscial_Bow.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">伯林巴烏琴</strong>
+        <span class="card-orig">Berimbau</span>
+        <span class="card-meta">非洲（安哥拉）／巴西</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/igil/">
+      <div class="card-thumb card-thumb--empty" aria-hidden="true">♩</div>
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">伊吉勒馬頭琴</strong>
+        <span class="card-orig">Igil</span>
+        <span class="card-meta">亞洲／歐洲／中東／全球</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

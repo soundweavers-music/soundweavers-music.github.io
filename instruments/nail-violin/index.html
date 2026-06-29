@@ -4,63 +4,132 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>釘子提琴｜世界樂器百科</title>
+  <meta name="description" content="釘子提琴是一種樂器，由半圓形木製音板組成，上面排列著不同長度的釘子，當用弓拉過這些釘子時，可以發出半音階。它於1740年由德國小提琴家約翰·威爾德發明。">
+<meta property="og:title" content="釘子提琴｜世界樂器百科">
+<meta property="og:description" content="釘子提琴是一種樂器，由半圓形木製音板組成，上面排列著不同長度的釘子，當用弓拉過這些釘子時，可以發出半音階。它於1740年由德國小提琴家約翰·威爾德發明。">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Nail_violin%2CBohemia.jpg/500px-Nail_violin%2CBohemia.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>釘子提琴</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">打擊樂器</p>
               <h1>釘子提琴</h1>
-              <p class="lead">Nail violin</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>打擊樂器</dd></div><div><dt>國家/地區</dt><dd>德國</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://en.wikipedia.org/wiki/Nail_violin" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Nail_violin</a></p>
+              <p class="original-name">Nail violin</p>
+              <p class="soundscape-tag">像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）</p>
+              <p class="badge-row"><span class="badge badge-hot">熱門</span></p>
             </div>
-            <img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Nail_violin%2CBohemia.jpg/960px-Nail_violin%2CBohemia.jpg" alt="釘子提琴">
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Nail_violin%2CBohemia.jpg/500px-Nail_violin%2CBohemia.jpg" alt="釘子提琴" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>釘子提琴</h1>
-<p>釘子提琴（原名：Nail violin）是一種打擊樂器。通常透過敲擊、搖動、摩擦或刮奏產生聲音，常負責節奏與音色層次。</p>
-<p>目前可查資料顯示，它與德國的音樂文化或演奏傳統有關。</p>
-<p>材料與構造是它音色的重要線索；不同材質會讓聲音呈現更明亮、厚實或有共鳴感的差異。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Nail_violin</p>
-</li>
-<li>
-<p>Wikidata ID：Q953846</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>打擊樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>德國</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>弦鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>全調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>中高音區（約2個8度）</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>321.3 擦弦／輪弦／提琴家族</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>擦弦、輪弦與提琴家族</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>弓擦／輪擦</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>胸口、嗓音、拉長的情緒</dd></div><div class="meta-item"><dt>地區類型</dt><dd>單一地區／文化圈</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>釘子提琴是一種樂器，由半圓形木製音板組成，上面排列著不同長度的釘子，當用弓拉過這些釘子時，可以發出半音階。它於1740年由德國小提琴家約翰·威爾德發明。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/LOIHVexAg88" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/k82aY_hT8tU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>釘子提琴的代表作品較為稀少，因其為小眾樂器。最著名的作品為約翰·威爾德於18世紀創作的演奏曲目，主要以即興表演形式呈現。19世紀浪漫主義時期，部分作曲家嘗試將其融入實驗音樂創作中。20世紀現代音樂與先鋒派作曲家亦對其獨特音色產生興趣，但完整的樂譜記錄較為有限。該樂器多用於民間音樂表演與音樂教育展示。</p>
 <h2>歷史背景</h2>
-<p>釘子提琴（Nail violin）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>它可以先放在德國相關音樂文化中理解，後續可再補代表樂派、演奏場合與製作工藝。</p>
-<p>作為打擊樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。 若要深入研究，可優先查找德國的博物館、民族音樂學資料或地方樂器圖錄。</p>
-<p>打擊樂器通常和節奏、信號、祭儀、舞蹈或群體活動關係密切。它們的歷史不一定只寫在樂譜裡，也常出現在節慶、宗教、軍事或地方生活的脈絡中。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://en.wikipedia.org/wiki/Nail_violin</p>
+<p>維爾德在意外用弓劃過金屬釘子並產生樂音後，受到靈感啟發而創造了這種樂器。釘子提琴由半圓形木製音板組成，上面釘有不同長度的鐵釘或銅釘，排列成半音階，通過用弓拉奏產生聲音；釘子釘入越深，露出部分越短，音調越高。所用的弓配有粗黑馬毛，通過摩擦產生聲音。一件改良版本現收藏於柏林音樂學院，由上下兩個不同大小的半月形音箱組成，上方音箱的圓形牆壁上有兩排鐵釘，上排產生全音階，下排產生半音。該樂器音色甜美如鐘聲，但技術應用有限。歷史上僅記錄一位該樂器的演奏大師——波希米亞音樂家塞納爾，約在1780至1790年間周遊德國各地。塞納爾曾改良樂器，增加共鳴弦，並將改良版命名為「和諧提琴」。其後有人嘗試用玻璃或木製棒替代金屬釘。1791年，薩克森州伯恩伯格的特雷格製作了踏板操作的鍵盤版本。</p>
 <h2>音色描述</h2>
-<p>音色多由材質本體振動決定，常呈現清晰、短促或具有明顯泛音的聲響。</p></article>
+<p>釘子提琴具有獨特而詭異的音色特徵。其音質介於弦樂器與打擊樂器之間，帶有刺耳而尖銳的明亮感，卻又混雜著金屬質地的冰冷感。當弓與釘子摩擦時，會產生具有顆粒感的聲響，類似於小提琴但更為粗糲而富有質感。釘子提琴的音域相對有限，主要集中在中高音區。由於半圓形木製音板的共鳴作用，其聲音具有適度的迴響與穿透力。相比小提琴的溫潤與優雅，釘子提琴顯得更為原始而狂野；相較於木琴的清脆，它則多了弦樂器特有的延續性與表現力。這種罕見而富有個性的音色使其成為實驗音樂與當代作品的理想選擇。</p>
+<h2>樂器材質</h2>
+<p>釘子提琴的主體結構由半圓形硬木製成音板，提供共鳴腔體。上面釘有不同長度的鐵釘或銅釘，按半音階排列，釘子的深度可調節以改變音高。演奏用弓採用馬尾毛製成，色澤為黑色，通過與釘子摩擦產生聲音。改良版本採用雙層半月形木製音箱設計，增強共鳴效果。整體材料結合木材的溫暖特性與金屬釘子的冰冷質地，創造出獨特的音響效果。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>用弓在弦上擦奏，透過弓毛與弦的摩擦力使弦震動。將樂器穩定持於身前。左手負責按弦或改變有效弦長以控制音高，右手負責使弦震動發聲。弦鳴樂器的發聲原理是弦的振動透過共鳴箱放大。運弓平穩，利用手臂重量而非手腕力量。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/powwow-drum/">
+      <div class="card-thumb card-thumb--empty" aria-hidden="true">♩</div>
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">國家影片登記表</strong>
+        <span class="card-orig">Powwow Drum</span>
+        <span class="card-meta">美洲／北美</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/n/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Binh_Da_Lithophone.jpg/500px-Binh_Da_Lithophone.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">石琴</strong>
+        <span class="card-orig">Đàn đá</span>
+        <span class="card-meta">東南亞／東亞／非洲／歐洲／全球</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/nagara/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/8/8e/%D0%97%D1%83%D1%80%D0%BD%D0%B0_%D0%B3%D0%BE%D1%88%D0%B0_%D0%BD%D0%B0%D0%B3%D0%B0%D1%80%D0%B0_%D0%BD%D0%B0%D0%B3%D0%B0%D1%80%D0%B0.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">納加拉鼓</strong>
+        <span class="card-orig">Nagara</span>
+        <span class="card-meta">中東</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/reed-aerophone/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Onde_stationnaire_vitesse_anche_faible_trois_modes.svg/500px-Onde_stationnaire_vitesse_anche_faible_trois_modes.svg.png" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">簧振氣鳴樂器</strong>
+        <span class="card-orig">Reed aerophone</span>
+        <span class="card-meta">全球／多地</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

@@ -4,63 +4,132 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
-  <title>Bar zither（暫譯）｜世界樂器百科</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <title>板箏｜世界樂器百科</title>
+  <meta name="description" content="板箏是霍恩博斯特爾-薩克斯樂器分類系統中的一類樂器（箏的子集），屬於弦鳴樂器（弦樂器），其樂器主體呈棒狀。在該分類系統中，板箏由音樂弓和棒箏組成。音樂弓具有柔軟的末端，棒箏則是剛性的或只有一端彎曲。板箏無論是音樂弓還是棒箏，通常都配備某種形式的共鳴器。共鳴器的例子包括演奏者的嘴、附加的葫蘆或充氣的氣球或膀胱。">
+<meta property="og:title" content="板箏｜世界樂器百科">
+<meta property="og:description" content="板箏是霍恩博斯特爾-薩克斯樂器分類系統中的一類樂器（箏的子集），屬於弦鳴樂器（弦樂器），其樂器主體呈棒狀。在該分類系統中，板箏由音樂弓和棒箏組成。音樂弓具有柔軟的末端，棒箏則是剛性的或只有一端彎曲。板箏無論是音樂弓還是棒箏，通常都配備某種形式的共鳴器。共鳴器的例子包括演奏者的嘴、附加的葫蘆或充氣的氣球或膀胱。">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/An_African_Banjo%2C_Zambia%2C_ca.1905-ca.1940_%28imp-cswc-GB-237-CSWC47-LS6-048%29.jpg/500px-An_African_Banjo%2C_Zambia%2C_ca.1905-ca.1940_%28imp-cswc-GB-237-CSWC47-LS6-048%29.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>板箏</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">弦樂器</p>
-              <h1>Bar zither（暫譯）</h1>
-              <p class="lead">Bar zither</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>弦樂器</dd></div><div><dt>國家/地區</dt><dd>非洲</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://en.wikipedia.org/wiki/Bar_zither" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Bar_zither</a></p>
+              <h1>板箏</h1>
+              <p class="original-name">Bar zither</p>
+              <p class="soundscape-tag">平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化弦鳴）</p>
+              <p class="badge-row"><span class="badge badge-hot">熱門</span></p>
             </div>
-            <img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/An_African_Banjo%2C_Zambia%2C_ca.1905-ca.1940_%28imp-cswc-GB-237-CSWC47-LS6-048%29.jpg/960px-An_African_Banjo%2C_Zambia%2C_ca.1905-ca.1940_%28imp-cswc-GB-237-CSWC47-LS6-048%29.jpg" alt="Bar zither（暫譯）">
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/An_African_Banjo%2C_Zambia%2C_ca.1905-ca.1940_%28imp-cswc-GB-237-CSWC47-LS6-048%29.jpg/500px-An_African_Banjo%2C_Zambia%2C_ca.1905-ca.1940_%28imp-cswc-GB-237-CSWC47-LS6-048%29.jpg" alt="板箏" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>Bar zither（暫譯）</h1>
-<p>Bar zither（暫譯）（原名：Bar zither）是一種弦樂器。主要靠弦的振動發聲，常透過撥、拉、彈、擊等方式演奏。</p>
-<p>目前可查資料顯示，它與非洲的音樂文化或演奏傳統有關。</p>
-<p>材料與構造是它音色的重要線索；不同材質會讓聲音呈現更明亮、厚實或有共鳴感的差異。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Bar_zither</p>
-</li>
-<li>
-<p>Wikidata ID：Q30034751</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>弦樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>非洲</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>弦鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>無固定調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>中低音域（約2個8度）</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>3 弦鳴樂器</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>弦樂器類</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>撥弦／擦弦／擊弦</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>手掌、弦面、推音、敲擊</dd></div><div class="meta-item"><dt>地區類型</dt><dd>單一地區／文化圈</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>板箏是霍恩博斯特爾-薩克斯樂器分類系統中的一類樂器（箏的子集），屬於弦鳴樂器（弦樂器），其樂器主體呈棒狀。在該分類系統中，板箏由音樂弓和棒箏組成。音樂弓具有柔軟的末端，棒箏則是剛性的或只有一端彎曲。板箏無論是音樂弓還是棒箏，通常都配備某種形式的共鳴器。共鳴器的例子包括演奏者的嘴、附加的葫蘆或充氣的氣球或膀胱。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/8BJHsgyNeEQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/k5wIWaUNbS4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>板箏作為非洲傳統樂器，其代表性作品多為民間音樂作品，難以確定確切的作曲者和年代。西方音樂學者如埃里希·馮·霍恩博斯特爾在20世紀初對板箏進行了系統的民族音樂學研究與記錄。非洲民間音樂中的板箏演奏傳統代代相傳，成為撒哈拉以南地區民族音樂文化的重要組成部分，具有深厚的歷史文化價值。</p>
 <h2>歷史背景</h2>
-<p>Bar zither（暫譯）（Bar zither）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>它可以先放在非洲相關音樂文化中理解，後續可再補代表樂派、演奏場合與製作工藝。</p>
-<p>作為弦樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。 若要深入研究，可優先查找非洲的博物館、民族音樂學資料或地方樂器圖錄。</p>
-<p>弦樂器的歷史常和弦材、共鳴箱、調音方式與演奏技法的演變有關。從民間伴奏到獨奏舞台，許多弦樂器都會因音量需求、音域擴張或樂曲風格改變而改良形制。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://en.wikipedia.org/wiki/Bar_zither</p>
+<p>板箏起源於非洲大陸，是古代人類弦樂器演進的重要成果。早期的板箏在撒哈拉以南地區被廣泛使用，特別是在西非和中非地區，當地民族將其視為傳統音樂文化的重要組成部分。隨著時間演進，板箏逐漸發展出多種形式，演奏者利用人聲、葫蘆或動物膀胱等天然共鳴器來增強音響效果。在板箏的發展過程中，不同地區根據當地資源和審美需求，創造出具有地方特色的變體。從十九世紀開始，隨著民族音樂學的興盛，西方音樂學者對板箏產生濃厚興趣，促進了該樂器在全球範圍內的認識與研究。霍恩博斯特爾-薩克斯分類系統的建立，為板箏的學術定位提供了科學框架，使其成為比較音樂學研究的重要對象，並在全球民族音樂復興運動中獲得新的生命力。</p>
 <h2>音色描述</h2>
-<p>音色由弦長、張力、共鳴箱與演奏法影響，可呈現撥奏、擦奏或擊弦的不同質感。</p></article>
+<p>板箏的音色具有獨特的原始與親密感。其音質介於明亮與溫潤之間，帶有輕微的沙啞質感，散發出自然、樸素的魅力。音域通常侷限於中低音域，音色較為渾厚而富有穿透力。透過演奏者口腔、葫蘆或氣囊等共鳴器的調節，板箏能產生多變的音響效果，共鳴特性顯著，使音色帶有溫暖的人聲般韻味。相比鋼琴的清晰與現代感，板箏音色更顯古樸原始；與吉他相比，其音質更為幽暗內斂，缺乏金屬質感。這種獨特的音響特徵使板箏在民族音樂與即興表演中具有強烈的表現力與辨識度。</p>
+<h2>樂器材質</h2>
+<p>板箏的主體通常採用天然木材製成，棒狀結構多選用堅硬的木質材料。弦線一般由天然動物腸線或植物纖維製成。共鳴器部分因地區而異，包括演奏者口腔、天然葫蘆、動物膀胱或充氣氣囊等。某些變體可能採用獸皮作為振動膜。整體設計強調使用天然、易取得的本地材料，體現了傳統工藝特色。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>將樂器以正確姿勢持於手中。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/earth-harp/">
+      <div class="card-thumb card-thumb--empty" aria-hidden="true">♩</div>
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">地球豎琴</strong>
+        <span class="card-orig">Earth Harp</span>
+        <span class="card-meta">非洲／歐洲／亞洲／美洲</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/viola/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Bratsche.jpg/500px-Bratsche.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">中提琴</strong>
+        <span class="card-orig">Viola</span>
+        <span class="card-meta">歐洲／義大利</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/gudok/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/3/35/Russ_instr_gudok.gif" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">古多克弓琴</strong>
+        <span class="card-orig">Gudok</span>
+        <span class="card-meta">歐洲／俄羅斯</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/piston-flute/">
+      <div class="card-thumb card-thumb--empty" aria-hidden="true">♩</div>
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">活塞長笛</strong>
+        <span class="card-orig">Piston flute</span>
+        <span class="card-meta">歐洲</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

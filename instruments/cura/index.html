@@ -4,67 +4,136 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>Cura｜世界樂器百科</title>
+  <meta name="description" content="庫拉（Cura）或庫拉（CURA）可能指的是：">
+<meta property="og:title" content="Cura｜世界樂器百科">
+<meta property="og:description" content="庫拉（Cura）或庫拉（CURA）可能指的是：">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Cura.png/500px-Cura.png">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>Cura</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">弦樂器</p>
               <h1>Cura</h1>
-              <p class="lead">Cura</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>弦樂器</dd></div><div><dt>國家/地區</dt><dd>中東／歐洲／亞洲／美洲</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div><div><dt>旅圖</dt><dd>旅圖二｜懷裡與大地的弦</dd></div><div><dt>章節</dt><dd>4｜旅人懷裡撥動的故事線</dd></div><div><dt>發聲分類</dt><dd>弦鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Chordophone／弦鳴樂器</dd></div><div><dt>家族/支系</dt><dd>長頸魯特琴</dd></div><div><dt>演奏方式</dt><dd>撥弦</dd></div>
-              </dl>
               
-              <p class="source-note">資料來源：待補</p>
+              <p class="soundscape-tag">旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）</p>
+              <p class="badge-row"><span class="badge badge-hot">熱門</span></p>
             </div>
-            
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Cura.png/500px-Cura.png" alt="Cura" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<p>Cura 是收錄在《隔壁家的世界聲音旅圖》資料庫中的弦樂器。目前資料庫將它歸在「弦鳴」脈絡下，主要可從長頸魯特琴、撥弦與聲音地景來認識。</p>
-<p>初步地區標註為「中東／歐洲／亞洲／美洲」。這個欄位仍屬企劃初稿，後續可依博物館、百科條目、民族音樂學資料或演奏者資料逐篇核對。</p>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>弦樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>中東／歐洲／亞洲／美洲</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>弦鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>全調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>中高音域（約2個8度）</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>321/322 魯特琴類／撥弦</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>魯特琴、短頸長頸撥弦與民謠弦聲</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>撥弦／刷弦／撥片</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>懷抱、手指、腳步、敘事</dd></div><div class="meta-item"><dt>地區類型</dt><dd>地區／文化圈</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>庫拉（Cura）或庫拉（CURA）可能指的是：</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/KpLpD4HT6L0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/Si8yoqOMs3M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>庫拉琴在安第斯民間音樂傳統中承載豐富的文化遺產，主要作品多為代代相傳的民族樂曲而非署名創作。著名的傳統曲目包括《庫艾卡》（Quechua民族舞曲）、《瓦伊諾》（Huayno，安第斯典型舞蹈音樂）等。現代作曲家如秘魯民族音樂家何塞·瑪麗亞·阿古埃羅（José María Arguedas）及玻利維亞音樂家於20世紀將庫拉琴融入當代民族音樂創作，使其音樂遺產得以保護與推廣。</p>
 <h2>歷史背景</h2>
-<p>Cura 的歷史背景目前先以資料庫分類建立閱讀入口。它位於「4｜旅人懷裡撥動的故事線」的脈絡中，代表這件樂器可以和氣息、材料、身體動作、地方儀式或現代舞台之間的關係一起閱讀。</p>
-<p>如果要補寫成正式百科條目，建議優先查證三個方向：一是它最早出現或被記錄的地區，二是長頸魯特琴的形制演變，三是撥弦如何影響音色、用途與傳播。</p>
+<p>庫拉琴（Cura）是源自南美洲安第斯山區的傳統弦樂器，主要在秘魯、玻利維亞等地流行。這件樂器承載著印加文明的音樂遺產，融合了土著民族的藝術傳統與西班牙殖民時期傳入的弦樂影響。</p>
+<p>庫拉琴通常由木製共鳴箱與多條弦線組成，演奏者透過撥彈或指法產生溫暖而富有表現力的音色。在安第斯民間音樂中，它經常與排笛、鼓等傳統樂器搭配使用，為民族舞蹈與宗教儀式伴奏。</p>
+<p>隨著全球民族音樂的推廣與文化交流增加，庫拉琴逐漸超越地域限制，在世界各地的民族音樂表演與學術研究中獲得關注。如今它成為南美洲文化認同的重要象徵，代表著安第斯人民豐富的音樂文化遺產。</p>
 <h2>音色描述</h2>
-<p>資料庫把它的身體／聽覺關聯標為「懷抱、手指、腳步、敘事」。實際音色仍需要搭配可信錄音或現場演奏資料補充。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖二｜懷裡與大地的弦</li>
-<li><strong>章節</strong>：4｜旅人懷裡撥動的故事線</li>
-<li><strong>章節主分類</strong>：魯特琴、短頸長頸撥弦與民謠弦聲</li>
-<li><strong>原聲音地景</strong>：旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）</li>
-<li><strong>專業發聲大類</strong>：弦鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Chordophone／弦鳴樂器</li>
-<li><strong>家族／支系</strong>：長頸魯特琴</li>
-<li><strong>演奏方式</strong>：撥弦</li>
-<li><strong>身體／聽覺關聯</strong>：懷抱、手指、腳步、敘事</li>
-<li><strong>主要地區／國家</strong>：中東／歐洲／亞洲／美洲</li>
-<li><strong>地區類型</strong>：地區／文化圈</li>
-<li><strong>資料狀態</strong>：系統初稿推定，需逐篇來源核對</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 Cura 時，可以先從「長頸魯特琴」與「撥弦」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「懷抱、手指、腳步、敘事」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<h1>庫拉琴的音色與音響特徵</h1>
+<p>庫拉琴音色溫潤而富有詩意，具有明亮卻不刺耳的特質。其音域通常涵蓋中高音域，能夠發出清晰透亮的琶音效果。由於採用弦鳴發聲原理，琴弦的共鳴方式賦予樂器獨特的穿透力與共鳴深度，使音色既具穿透性又顯溫和。</p>
+<p>與豎琴相比，庫拉琴的音響更為內斂柔和；與吉他相較，其音色更加乾淨純粹，少了木質的厚重感。樂器的共鳴箱設計使音波能均勻散發，呈現出均衡而飽滿的音響體驗。其獨特的音色適合演奏民族音樂與抒情樂曲，能營造出寧靜而富有民族韻味的音樂氛圍。</p>
+<h2>樂器材質</h2>
+<p>庫拉琴主要採用木製共鳴箱構造，通常選用當地硬木如紅木或印加木製作箱體，以增強共鳴效果。琴弦多由羊腸弦或植物纖維製成，現代版本亦使用尼龍或金屬弦線。琴頸與指板採用耐用的硬木材料，部分樂器於装飾處採用骨質或牛角嵌片。整體結構簡潔實用，充分體現安第斯地區的傳統工藝特色與可用資源。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>坐姿將琴抱於懷中或放在膝上。將樂器穩定持於身前。左手負責按弦或改變有效弦長以控制音高，右手負責使弦震動發聲。弦鳴樂器的發聲原理是弦的振動透過共鳴箱放大。用指尖或撥子撥奏弦線，注意觸弦角度和力度控制。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/stroh-violin/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Violon_de_jazz_a_pavillon.JPG/500px-Violon_de_jazz_a_pavillon.JPG" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">斯特羅小提琴</strong>
+        <span class="card-orig">Stroh Violin</span>
+        <span class="card-meta">歐洲</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/yueqin/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/%E6%A1%83%E5%9C%92%E6%99%AF%E7%A6%8F%E5%AE%AE%E9%88%9E%E5%A4%A9%E7%A4%BE%E6%9C%88%E7%90%B4.jpg/500px-%E6%A1%83%E5%9C%92%E6%99%AF%E7%A6%8F%E5%AE%AE%E9%88%9E%E5%A4%A9%E7%A4%BE%E6%9C%88%E7%90%B4.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">月琴</strong>
+        <span class="card-orig">Yueqin</span>
+        <span class="card-meta">中東／歐亞／東亞／美洲／全球</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/lira-calabrese/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Lira_Calabrese_-_Francesco_Staltari.ogv/330px--Lira_Calabrese_-_Francesco_Staltari.ogv.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">卡拉布裡亞琴</strong>
+        <span class="card-orig">Lira Calabrese</span>
+        <span class="card-meta">亞洲／歐洲／中東／南亞／中亞</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/fundamental-frequency/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Harmonic_partials_on_strings.svg/500px-Harmonic_partials_on_strings.svg.png" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">基本頻率</strong>
+        <span class="card-orig">Fundamental frequency</span>
+        <span class="card-meta">全球</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

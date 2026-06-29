@@ -4,67 +4,131 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>阿哥哥鈴｜世界樂器百科</title>
+  <meta name="description" content="阿哥哥鈴是一種源自西非的傳統打擊樂器，由兩個或多個金屬筒組成，透過敲擊產生高音節奏。樂器外型為連接的金屬球體或筒狀結構，音色明亮清脆、富有穿透力。隨著非洲奴隸貿易傳入巴西後，逐漸融入桑巴、森巴朋戈等民間音樂，成為拉丁音樂和現代爵士樂的重要節奏樂器，其高度穿透性使其能在樂隊中有效營造活躍的節奏韻律。">
+<meta property="og:title" content="阿哥哥鈴｜世界樂器百科">
+<meta property="og:description" content="阿哥哥鈴是一種源自西非的傳統打擊樂器，由兩個或多個金屬筒組成，透過敲擊產生高音節奏。樂器外型為連接的金屬球體或筒狀結構，音色明亮清脆、富有穿透力。隨著非洲奴隸貿易傳入巴西後，逐漸融入桑巴、森巴朋戈等民間音樂，成為拉丁音樂和現代爵士樂的重要節奏樂器，其高度穿透性使其能在樂隊中有效營造活躍的節奏韻律。">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>阿哥哥鈴</span>
+          </nav>
           <header class="instrument-header">
-            <div>
+            <div class="header-text">
               <p class="eyebrow">打擊樂器</p>
               <h1>阿哥哥鈴</h1>
-              <p class="lead">Agogô</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>打擊樂器</dd></div><div><dt>國家/地區</dt><dd>巴西／西非</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div><div><dt>旅圖</dt><dd>旅圖四｜地心與手邊的微光</dd></div><div><dt>章節</dt><dd>9｜手邊發光的小宇宙</dd></div><div><dt>發聲分類</dt><dd>體鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Idiophone／體鳴樂器</dd></div><div><dt>家族/支系</dt><dd>雙鐘體鳴</dd></div><div><dt>演奏方式</dt><dd>敲擊</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：待補</p>
+              <p class="original-name">Agogô</p>
+              <p class="soundscape-tag">手邊發光的小宇宙（近身體鳴、舌片琴與手奏金屬共鳴）</p>
+              <p class="badge-row"></p>
             </div>
             
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<p>阿哥哥鈴（Agogô） 是收錄在《隔壁家的世界聲音旅圖》資料庫中的打擊樂器。目前資料庫將它歸在「體鳴」脈絡下，主要可從雙鐘體鳴、敲擊與聲音地景來認識。</p>
-<p>初步地區標註為「巴西／西非」。這個欄位仍屬企劃初稿，後續可依博物館、百科條目、民族音樂學資料或演奏者資料逐篇核對。</p>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>打擊樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>巴西／西非</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>體鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>全調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>約2個8度</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>Idiophone／體鳴樂器</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>雙鐘體鳴</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>敲擊</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>明亮節奏、短音對話、身體對齊</dd></div><div class="meta-item"><dt>地區類型</dt><dd>跨文化／非洲離散</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>阿哥哥鈴是一種源自西非的傳統打擊樂器，由兩個或多個金屬筒組成，透過敲擊產生高音節奏。樂器外型為連接的金屬球體或筒狀結構，音色明亮清脆、富有穿透力。隨著非洲奴隸貿易傳入巴西後，逐漸融入桑巴、森巴朋戈等民間音樂，成為拉丁音樂和現代爵士樂的重要節奏樂器，其高度穿透性使其能在樂隊中有效營造活躍的節奏韻律。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/nvTc4yzxDqM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/CJ78wSm9SUs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>在巴西桑巴音樂中廣泛應用，特別是在里約熱內盧狂歡節的桑巴隊伍中。古巴倫巴和恰恰舞曲編排中為必備樂器。現代爵士樂大師如赫比·漢考克（Herbie Hancock）的作品《Maiden Voyage》等融合音樂中頻繁使用。當代世界音樂製作中應用日趨廣泛。</p>
 <h2>歷史背景</h2>
-<p>阿哥哥鈴（Agogô） 的歷史背景目前先以資料庫分類建立閱讀入口。它位於「9｜手邊發光的小宇宙」的脈絡中，代表這件樂器可以和氣息、材料、身體動作、地方儀式或現代舞台之間的關係一起閱讀。</p>
-<p>如果要補寫成正式百科條目，建議優先查證三個方向：一是它最早出現或被記錄的地區，二是雙鐘體鳴的形制演變，三是敲擊如何影響音色、用途與傳播。</p>
+<p>阿哥哥鈴起源於西非，特別是奈及利亞地區，是傳統非洲打擊樂器。這種由兩個或多個金屬筒組成的樂器，透過敲擊產生獨特的高音節奏。隨著非洲奴隸貿易，阿哥哥鈴傳入巴西，並在非洲裔社群中生根。在巴西，它逐漸融合於桑巴、森巴朋戈等民間音樂中，成為節奏樂隊的重要成員。二十世紀中期，隨著拉丁音樂在國際舞台的興起，阿哥哥鈴傳入古巴，應用於倫巴和恰恰舞曲。之後進一步傳播至北美與歐洲，現已成為現代爵士樂、拉丁音樂和世界音樂的標準樂器。其獨特的音色使其在各類音樂風格中廣泛應用。</p>
 <h2>音色描述</h2>
-<p>資料庫把它的身體／聽覺關聯標為「明亮節奏、短音對話、身體對齊」。實際音色仍需要搭配可信錄音或現場演奏資料補充。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖四｜地心與手邊的微光</li>
-<li><strong>章節</strong>：9｜手邊發光的小宇宙</li>
-<li><strong>章節主分類</strong>：近身體鳴、舌片琴與手奏金屬共鳴</li>
-<li><strong>原聲音地景</strong>：手邊發光的小宇宙（近身體鳴、舌片琴與手奏金屬共鳴）</li>
-<li><strong>專業發聲大類</strong>：體鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Idiophone／體鳴樂器</li>
-<li><strong>家族／支系</strong>：雙鐘體鳴</li>
-<li><strong>演奏方式</strong>：敲擊</li>
-<li><strong>身體／聽覺關聯</strong>：明亮節奏、短音對話、身體對齊</li>
-<li><strong>主要地區／國家</strong>：巴西／西非</li>
-<li><strong>地區類型</strong>：跨文化／非洲離散</li>
-<li><strong>資料狀態</strong>：本次新增初稿，需逐篇來源核對</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 阿哥哥鈴 時，可以先從「雙鐘體鳴」與「敲擊」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「明亮節奏、短音對話、身體對齊」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「手邊發光的小宇宙（近身體鳴、舌片琴與手奏金屬共鳴）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>阿哥哥鈴具有明亮、清脆的音色特徵，音質輕盈而富有穿透力。其高音域表現突出，能發出清晰的金屬敲擊聲，不同尺寸的鈴體可產生不同音高，形成豐富的音色層次。共鳴方式採用直接體鳴，兩個互不相連的金屬球體各自振動發聲，共鳴相對獨立而不混濁。與三角鐵相比，阿哥哥鈴的音色更具節奏感和力度變化；與牛鈴相較，其聲音更為清亮細緻。因其高度穿透性，在樂隊中能有效營造活躍的節奏韻律，特別適合表現拉丁音樂的動感特質，為整體音響增添熱烈的舞蹈感。</p>
+<h2>樂器材質</h2>
+<p>阿哥哥鈴主要由青銅、黃銅或鋼製金屬筒組成，金屬選用具有良好共鳴特性的合金。筒身通常採用鑄造或敲打成形，內部可能填充沙粒或小珠增加音響效果。連接部分使用金屬框架或皮革帶固定，使兩個或多個金屬筒保持適當距離。握把多由木材或橡膠製成，提供舒適的演奏手感。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>手持樂器，以敲擊方式發聲。手持樂器本體，透過敲擊、搖晃、刮奏或撥彈等方式使樂器本身震動發聲。不同部位和不同力道會產生不同音色。練習時先確認正確持琴姿勢，掌握基本發聲方式後再練習節奏型和旋律。手指或鼓棒敲擊表面，利用反彈力自然回彈，手腕放鬆。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/khong-wong-yai/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Khong_wong_yai.jpg/500px-Khong_wong_yai.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">大鑼圈</strong>
+        <span class="card-orig">Khong Wong Yai</span>
+        <span class="card-meta">泰國</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/sansula/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Santi_Cazorla%2C_2012-08-18.jpg/500px-Santi_Cazorla%2C_2012-08-18.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">桑蘇拉</strong>
+        <span class="card-orig">Sansula</span>
+        <span class="card-meta">全球／非洲／亞洲／現代療癒與街頭音樂</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/rainstick/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Cactus_rain_sticks.jpg/500px-Cactus_rain_sticks.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">雨聲器</strong>
+        <span class="card-orig">Rainstick</span>
+        <span class="card-meta">美洲／南美</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/timbales/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Timbalesy_HLTBR-1011_firmy_Hayman.jpg/500px-Timbalesy_HLTBR-1011_firmy_Hayman.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">蒂姆巴雷斯鼓</strong>
+        <span class="card-orig">Timbales</span>
+        <span class="card-meta">美洲／古巴</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

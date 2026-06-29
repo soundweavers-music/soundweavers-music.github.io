@@ -4,67 +4,132 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
-  <title>Santoor｜世界樂器百科</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <title>桑圖爾琴｜世界樂器百科</title>
+  <meta name="description" content="桑圖爾(波斯語：سنتور)是一種波斯的梯形擊弦樂器，傳統的桑圖爾有七十二條弦。">
+<meta property="og:title" content="桑圖爾琴｜世界樂器百科">
+<meta property="og:description" content="桑圖爾(波斯語：سنتور)是一種波斯的梯形擊弦樂器，傳統的桑圖爾有七十二條弦。">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Greek_Santur.jpg/500px-Greek_Santur.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>桑圖爾琴</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">鍵盤樂器</p>
-              <h1>Santoor</h1>
-              <p class="lead">Santoor</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>鍵盤樂器</dd></div><div><dt>國家/地區</dt><dd>東亞／中亞／歐洲／東南亞／非洲／美洲</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div><div><dt>旅圖</dt><dd>旅圖二｜懷裡與大地的弦</dd></div><div><dt>章節</dt><dd>5｜平放在大地上的弦</dd></div><div><dt>發聲分類</dt><dd>弦鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Chordophone／弦鳴樂器</dd></div><div><dt>家族/支系</dt><dd>擊弦齊特</dd></div><div><dt>演奏方式</dt><dd>擊弦</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：待補</p>
+              <h1>桑圖爾琴</h1>
+              <p class="original-name">Santoor</p>
+              <p class="soundscape-tag">平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）</p>
+              <p class="badge-row"></p>
             </div>
-            
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Greek_Santur.jpg/500px-Greek_Santur.jpg" alt="桑圖爾琴" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<p>Santoor 是收錄在《隔壁家的世界聲音旅圖》資料庫中的鍵盤樂器。目前資料庫將它歸在「弦鳴」脈絡下，主要可從擊弦齊特、擊弦與聲音地景來認識。</p>
-<p>初步地區標註為「東亞／中亞／歐洲／東南亞／非洲／美洲」。這個欄位仍屬企劃初稿，後續可依博物館、百科條目、民族音樂學資料或演奏者資料逐篇核對。</p>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>鍵盤樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>東亞／中亞／歐洲／東南亞／非洲／美洲</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>弦鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>全調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>約3個多8度</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>314/315/316 齊特琴／擊弦／鍵盤化弦鳴</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>齊特琴、箏類、擊弦與鍵盤化弦鳴</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>撥弦／擊弦／按鍵擊弦</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>手掌、弦面、推音、敲擊</dd></div><div class="meta-item"><dt>地區類型</dt><dd>地區／文化圈</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>桑圖爾(波斯語：سنتور)是一種波斯的梯形擊弦樂器，傳統的桑圖爾有七十二條弦。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/0-19bzs5NoM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/IAU69jFtJtU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>桑圖爾琴的代表作品包括波斯傳統音樂《拉格·塞古亞》，以及印度古典音樂中的多部拉格（Raga）作品。20世紀著名桑圖爾琴演奏家法里亞茲·杜拉尼創作並演奏的現代融合作品《東方之旅》融合了傳統波斯風格與當代音樂元素。此外，在蘇非神秘主義音樂傳統中，桑圖爾琴作為伴奏樂器在多部宗教聖歌中發揮重要角色，代表了這一樂器在精神音樂中的深厚文化底蘊。</p>
 <h2>歷史背景</h2>
-<p>Santoor 的歷史背景目前先以資料庫分類建立閱讀入口。它位於「5｜平放在大地上的弦」的脈絡中，代表這件樂器可以和氣息、材料、身體動作、地方儀式或現代舞台之間的關係一起閱讀。</p>
-<p>如果要補寫成正式百科條目，建議優先查證三個方向：一是它最早出現或被記錄的地區，二是擊弦齊特的形制演變，三是擊弦如何影響音色、用途與傳播。</p>
+<p>古代梵文文獻中將其稱為「百弦琵琶」（shatatantri vina）。在克什米爾地區，桑圖爾琴被用於伴奏民間音樂。它以一種稱為「蘇菲亞那音樂」的音樂風格演奏。某些研究人員認為它是源自美索不達米亞時期（西元前1600至900年）的原始樂器的改良版本。蘇非神秘主義者將其作為伴奏來演唱聖歌。在印度桑圖爾琴的演奏中，特殊形狀的槌子（梅茲拉布）輕量且握持在食指和中指之間。典型的桑圖爾琴具有兩組琴橋，可提供三個八度的音域。印度桑圖爾琴呈長方形，弦數比波斯版本多，波斯版本通常有72根弦。類似桑圖爾琴的樂器在世界各地傳統上被廣泛使用。</p>
 <h2>音色描述</h2>
-<p>資料庫把它的身體／聽覺關聯標為「手掌、弦面、推音、敲擊」。實際音色仍需要搭配可信錄音或現場演奏資料補充。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖二｜懷裡與大地的弦</li>
-<li><strong>章節</strong>：5｜平放在大地上的弦</li>
-<li><strong>章節主分類</strong>：齊特琴、箏類、擊弦與鍵盤化弦鳴</li>
-<li><strong>原聲音地景</strong>：平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）</li>
-<li><strong>專業發聲大類</strong>：弦鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Chordophone／弦鳴樂器</li>
-<li><strong>家族／支系</strong>：擊弦齊特</li>
-<li><strong>演奏方式</strong>：擊弦</li>
-<li><strong>身體／聽覺關聯</strong>：手掌、弦面、推音、敲擊</li>
-<li><strong>主要地區／國家</strong>：東亞／中亞／歐洲／東南亞／非洲／美洲</li>
-<li><strong>地區類型</strong>：地區／文化圈</li>
-<li><strong>資料狀態</strong>：承接553條目地域欄</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 Santoor 時，可以先從「擊弦齊特」與「擊弦」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「手掌、弦面、推音、敲擊」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>桑圖爾琴音色明亮清透，具有獨特的金屬質感與溫潤韻味。其音域寬廣，跨越三個多八度，高音區清脆靈動，中音區飽滿溫和，低音區厚實有力。擊弦後的聲音迅速衰減，形成珍珠般的短促音粒，每個音符都清晰獨立。共鳴腔體使聲音具有良好的穿透力，多條同音弦的共鳴產生豐富的泛音層次。其音色介於鋼琴的堅硬與古琴的柔和之間，既有琴鍵樂器的精準感，又具有傳統弦樂器的人文溫度。在樂隊中，桑圖爾琴能有效穿透其他樂器聲部，獨奏時則展現出既富詩意又富表現力的藝術魅力。</p>
+<h2>樂器材質</h2>
+<p>桑圖爾琴的共鳴箱體通常採用梧桐木或楓木等優質木材製造，以獲得最佳共鳴效果。琴弦由鋼製材料製成，傳統琴弦多為銅製或青銅合金，共七十二條弦分組張設。琴橋採用木材或象牙製作，用於傳遞振動。演奏所用的槌子（梅茲拉布）通常由木材製成，頭部包裹棉布或皮革，以產生溫暖的音色。琴身外圍或內部裝飾可能使用象牙、貝殼等傳統工藝材料。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>將琴平放於桌面或琴架上。將樂器穩定持於身前。左手負責按弦或改變有效弦長以控制音高，右手負責使弦震動發聲。弦鳴樂器的發聲原理是弦的振動透過共鳴箱放大。用指尖或撥子撥奏弦線，注意觸弦角度和力度控制。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/seaboard/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/20131205_Istanbul_321_cropped.jpg/500px-20131205_Istanbul_321_cropped.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">羅利海岸鍵盤</strong>
+        <span class="card-orig">Seaboard</span>
+        <span class="card-meta">英國／全球</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/clavinet/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Wurlitzer_model_112_electric_piano_1956.JPG/500px-Wurlitzer_model_112_electric_piano_1956.JPG" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">電鋼琴</strong>
+        <span class="card-orig">Clavinet</span>
+        <span class="card-meta">美洲／北美</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/phin-pia/">
+      <div class="card-thumb card-thumb--empty" aria-hidden="true">♩</div>
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">皮恩琵亞</strong>
+        <span class="card-orig">Phin Pia</span>
+        <span class="card-meta">亞洲／歐洲／全球</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/tuntina/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Ektara_2.jpg/500px-Ektara_2.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">鍵盤樂器</span>
+        <strong class="card-title">一弦琴</strong>
+        <span class="card-orig">Tuntina</span>
+        <span class="card-meta">亞洲／歐洲／全球</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

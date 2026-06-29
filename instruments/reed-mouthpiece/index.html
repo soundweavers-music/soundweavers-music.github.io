@@ -4,62 +4,132 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>簧片｜世界樂器百科</title>
+  <meta name="description" content="簧片是一片置於樂器吹口或通氣口中具彈性的片狀物，它的一端被固定在吹口或通氣口上，另一端可上下活動，隨著氣流振動或彈奏而發聲，一些樂器的簧片中會使用尼龍線或綿線為纏繞物。">
+<meta property="og:title" content="簧片｜世界樂器百科">
+<meta property="og:description" content="簧片是一片置於樂器吹口或通氣口中具彈性的片狀物，它的一端被固定在吹口或通氣口上，另一端可上下活動，隨著氣流振動或彈奏而發聲，一些樂器的簧片中會使用尼龍線或綿線為纏繞物。">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/6/65/Saxophone_reeds-alto%2C_tenor.jpeg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>簧片</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">打擊樂器</p>
               <h1>簧片</h1>
-              <p class="lead">Reed (mouthpiece)</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>打擊樂器</dd></div><div><dt>國家/地區</dt><dd>待考</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://zh.wikipedia.org/wiki/%E7%B0%A7%E7%89%87" target="_blank" rel="noopener noreferrer">https://zh.wikipedia.org/wiki/%E7%B0%A7%E7%89%87</a></p>
+              <p class="original-name">Reed (mouthpiece)</p>
+              <p class="soundscape-tag">簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）</p>
+              <p class="badge-row"></p>
             </div>
-            <img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/6/65/Saxophone_reeds-alto%2C_tenor.jpeg" alt="簧片">
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/6/65/Saxophone_reeds-alto%2C_tenor.jpeg" alt="簧片" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>簧片</h1>
-<p>簧片（原名：Reed (mouthpiece)）是一種打擊樂器。通常透過敲擊、搖動、摩擦或刮奏產生聲音，常負責節奏與音色層次。</p>
-<p>英文資料中特別提到它的使用或演奏情境，因此理解這項樂器時，不只要看外形，也要看它在樂曲、儀式或合奏中的角色。</p>
-<p>材料與構造是它音色的重要線索；不同材質會讓聲音呈現更明亮、厚實或有共鳴感的差異。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Reed_(mouthpiece)</p>
-</li>
-<li>
-<p>Wikidata ID：Q42890140</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>打擊樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>全球／多地</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>無固定調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>全音域</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>口腔、舌頭、簧片震動、鼻音</dd></div><div class="meta-item"><dt>地區類型</dt><dd>地區／文化圈</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>簧片是一片置於樂器吹口或通氣口中具彈性的片狀物，它的一端被固定在吹口或通氣口上，另一端可上下活動，隨著氣流振動或彈奏而發聲，一些樂器的簧片中會使用尼龍線或綿線為纏繞物。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/2yMOZbAHp6U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/Jk7J4_bneZo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>簧片樂器在古典音樂中應用廣泛。莫札特的《單簧管協奏曲》（1791年）展現了單簧管的優雅音色；韋伯的《單簧管協奏曲第一號》（1811年）成為浪漫主義時期的經典之作；德沃夏克的《雙簧管協奏曲》（1891年）則充分發揮了雙簧管的表現力。此外，柏遼茲的《幻想交響曲》中對簧片樂器的運用也堪稱典範。</p>
 <h2>歷史背景</h2>
-<p>簧片（Reed (mouthpiece)）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>作為打擊樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。</p>
-<p>打擊樂器通常和節奏、信號、祭儀、舞蹈或群體活動關係密切。它們的歷史不一定只寫在樂譜裡，也常出現在節慶、宗教、軍事或地方生活的脈絡中。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://zh.wikipedia.org/wiki/%E7%B0%A7%E7%89%87</p>
+<p>簧片的起源可追溯至古代中東和亞洲地區。最早的簧片樂器出現在埃及和美索不達米亞，距今已有數千年歷史。雙簧管和單簧管的前身在中世紀阿拉伯世界得到發展與完善。十六至十七世紀，簧片技術傳入歐洲，促進了現代管樂器的革新。十九世紀工業革命時期，製造工藝不斷進步，人們開始使用蘆葦、木材等天然材料製作簧片，並逐漸加入尼龍線或綿線作為纏繞物以增強耐久性。隨著製造技術的標準化，簧片樂器的音質與穩定性得到顯著提升。如今，簧片已廣泛應用於交響樂團、民族樂隊等各類音樂演奏中，成為世界各地音樂文化的重要組成部分。</p>
 <h2>音色描述</h2>
-<p>音色多由材質本體振動決定，常呈現清晰、短促或具有明顯泛音的聲響。</p></article>
+<p>簧片樂器的音色具有獨特的穿透力與辨識度。其音質因材質而異，竹製或蘆葦簧片音色清亮刺激，帶有木質的溫潤感，而金屬簧片則音色明亮銳利，富於穿透力。低音域音色較為渾厚深沉，中高音域則逐漸趨於明亮尖銳。簧片的振動方式決定了其獨特的共鳴特性，音質中常含有豐富的泛音與複雜的諧波結構。相比弦樂器的柔和悠揚，簧片樂器音色更為直接有力；與銅管樂器相比，則顯得較為細膩含蓄。其音響特徵具有高度的表現力與感染力，能產生從細微的呢喃到激烈的吶喊等多種音響效果，是樂隊中重要的音色補充。</p>
+<h2>樂器材質</h2>
+<p>簧片主要採用天然蘆葦或竹材製作，這些材料具有適當的彈性與共鳴特性。早期多使用蘆葦，現代則兼用竹材。簧片的固定部分通常採用木質吹口或金屬套管，以確保穩定性。為增強耐久性，製造者在簧片上纏繞尼龍線或棉線。金屬簧片則使用銅、銀或不鏽鋼等材料，具有更強的耐久性與音質穿透力。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>將樂器以正確姿勢持於手中。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/daf/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Pair_of_dafs.jpg/500px-Pair_of_dafs.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">達夫框鼓</strong>
+        <span class="card-orig">Daf</span>
+        <span class="card-meta">中東</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/reed-aerophone/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Onde_stationnaire_vitesse_anche_faible_trois_modes.svg/500px-Onde_stationnaire_vitesse_anche_faible_trois_modes.svg.png" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">簧振氣鳴樂器</strong>
+        <span class="card-orig">Reed aerophone</span>
+        <span class="card-meta">全球／多地</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/handpan/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Handpans_2020_by_Glenn_Francis.jpg/500px-Handpans_2020_by_Glenn_Francis.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">手鼓</strong>
+        <span class="card-orig">Handpan</span>
+        <span class="card-meta">歐洲／瑞士</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/nyonganyonga/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/AMB_Japanese_Verbs.pdf/page1-500px-AMB_Japanese_Verbs.pdf.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">尼揚加尼揚加</strong>
+        <span class="card-orig">Nyonganyonga</span>
+        <span class="card-meta">全球／非洲／現代</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer-when-downgrade">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <title>管理者頁面｜世界樂器百科</title>
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="../assets/site.css">
+  
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../">🌍 世界樂器百科</a>
+    <nav>
+      <div class="nav-dropdown">
+        <a href="../instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="../categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="../popular/">熱門</a>
+          <a href="../uncommon/">冷門</a>
+          <a href="../countries/">國家</a>
+          <a href="../eras/">年代</a>
+          <a href="../map/">地圖</a>
+        </div>
+      </div>
+      <a href="../vocal/">人聲與歌唱</a>
+      <a href="../theory/">樂理</a>
+      <a href="../about/">關於</a>
+      <a href="../contact/">聯絡我們</a>
+    </nav>
+  </header>
+  <main class="page" style="max-width:720px;">
+  <section class="compact-hero">
+    <p class="eyebrow">Management</p>
+    <h1>管理者頁面</h1>
+  </section>
+
+  <div id="manage-app">
+    <div class="manage-card">
+      <h2>下載 Excel 樂器總資料庫</h2>
+      <p>將所有樂器的 Markdown 檔案匯出為 Excel 格式。包含所有 frontmatter 欄位與介紹、歷史、音色描述等內容。第一列為英文欄位名稱，第二列為中文說明。</p>
+      <a class="btn btn-primary" href="../assets/instruments_database.xlsx" download>下載 Excel</a>
+    </div>
+
+    <div class="manage-card">
+      <h2>上傳 Excel 還原 Markdown</h2>
+      <p>上傳一個 Excel 檔案（格式需與下載版本相同），系統會在瀏覽器中自動處理每一列資料，還原為獨立的 Markdown 檔案，並打包成 ZIP 壓縮檔供下載。</p>
+      <div class="upload-area">
+        <input type="file" id="excel-upload" accept=".xlsx">
+        <button class="btn btn-primary" id="process-excel">上傳並下載 ZIP</button>
+      </div>
+      <div id="upload-status" class="upload-status"></div>
+    </div>
+  </div>
+
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script>
+(function() {
+  if (sessionStorage.getItem('manage_pass') === 'ok') {
+    document.getElementById('manage-locked').style.display = 'none';
+    document.getElementById('manage-app').style.display = 'block';
+  } else {
+    document.getElementById('manage-locked').style.display = 'block';
+    document.getElementById('manage-app').style.display = 'none';
+    setTimeout(function() {
+      var c = prompt('管理者密碼：');
+      if (c && c === atob('NTIwMTMxNA==')) {
+        sessionStorage.setItem('manage_pass', 'ok');
+        document.getElementById('manage-locked').style.display = 'none';
+        document.getElementById('manage-app').style.display = 'block';
+      } else if (c !== null) {
+        document.getElementById('password-error').textContent = '密碼錯誤';
+      }
+    }, 200);
+  }
+
+  function slugify(name) {
+    if (!name) return 'instrument';
+    return name.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '') || 'instrument';
+  }
+
+  document.getElementById('process-excel')?.addEventListener('click', function() {
+    if (typeof XLSX === 'undefined' || typeof JSZip === 'undefined') {
+      document.getElementById('upload-status').textContent = '函式庫載入中，請稍後再試...';
+      document.getElementById('upload-status').className = 'upload-status error';
+      return;
+    }
+    var fileInput = document.getElementById('excel-upload');
+    var status = document.getElementById('upload-status');
+    if (!fileInput || !fileInput.files.length) {
+      status.textContent = '請選擇一個 Excel 檔案';
+      status.className = 'upload-status error';
+      return;
+    }
+    var file = fileInput.files[0];
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      try {
+        var data = new Uint8Array(e.target.result);
+        var workbook = XLSX.read(data, {type: 'array'});
+        var sheet = workbook.Sheets[workbook.SheetNames[0]];
+        var rows = XLSX.utils.sheet_to_json(sheet, {header: 1});
+        if (rows.length < 3) {
+          status.textContent = '檔案格式錯誤：缺少足夠的資料列（需要標題列 + 資料列）';
+          status.className = 'upload-status error';
+          return;
+        }
+        var headers = rows[0] || [];
+        var zip = new JSZip();
+        var count = 0;
+        for (var i = 2; i < rows.length; i++) {
+          var row = rows[i];
+          if (!row || !row[0]) continue;
+          var fmLines = ['---'];
+          var sections = {};
+          var origName = '';
+          for (var j = 0; j < headers.length; j++) {
+            var key = String(headers[j] || '').trim();
+            var val = row[j] !== undefined ? String(row[j]).trim() : '';
+            if (!key || !val) continue;
+            if (key === 'original_name') origName = val;
+            if (key === 'introduction' || key === 'history' || key === 'timbre') {
+              sections[key] = val;
+            } else {
+              fmLines.push(key + ': ' + val);
+            }
+          }
+          fmLines.push('---');
+          var bodyParts = [];
+          if (sections.introduction) bodyParts.push('
+## 介紹
+
+' + sections.introduction);
+          if (sections.history) bodyParts.push('
+## 歷史背景
+
+' + sections.history);
+          if (sections.timbre) bodyParts.push('
+## 音色描述
+
+' + sections.timbre);
+          var fullContent = fmLines.join('
+') + bodyParts.join('
+') + '
+';
+          var filename = slugify(origName || ('instrument_' + (i + 1))) + '.md';
+          zip.file(filename, fullContent);
+          count++;
+        }
+        if (count === 0) {
+          status.textContent = '找不到有效的樂器資料，請確認 Excel 格式是否正確。';
+          status.className = 'upload-status error';
+          return;
+        }
+        zip.generateAsync({type: 'blob'}).then(function(blob) {
+          var url = URL.createObjectURL(blob);
+          var a = document.createElement('a');
+          a.href = url;
+          a.download = 'instruments_markdown.zip';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          setTimeout(function() { URL.revokeObjectURL(url); }, 10000);
+          status.textContent = '成功生成 ' + count + ' 個 .md 檔案，已開始下載。';
+          status.className = 'upload-status success';
+        });
+      } catch(err) {
+        status.textContent = '處理失敗：' + err.message;
+        status.className = 'upload-status error';
+        console.error(err);
+      }
+    };
+    reader.readAsArrayBuffer(file);
+  });
+})();
+</script>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="../">首頁</a>
+        <a href="../vocal/">人聲與歌唱</a>
+        <a href="../categories/">分類</a>
+        <a href="../countries/">國家</a>
+        <a href="../popular/">熱門</a>
+        <a href="../uncommon/">冷門</a>
+        <a href="../theory/">樂理</a>
+        <a href="../contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
+  <script src="../assets/search.js"></script>
+    <script src="../assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</body>
+</html>

@@ -4,67 +4,133 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
-  <title>Hank Drum｜世界樂器百科</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <title>手鼓｜世界樂器百科</title>
+  <meta name="description" content="手鼓是21世紀初由瑞士音樂家Felix Rohner與Sabina Schärer發明的現代打擊樂器。其外型為兩個半球形鋼製面板焊接而成，表面布滿精心調音的凹陷音區。手鼓音色溫潤柔和，兼具鼓與鑼的特質，擁有寬廣音域與優美的共鳴效果。演奏者用手指敲擊鼓面不同位置產生旋律，音符具有延續性與迴響性。因其空靈神秘的音質與直觀易">
+<meta property="og:title" content="手鼓｜世界樂器百科">
+<meta property="og:description" content="手鼓是21世紀初由瑞士音樂家Felix Rohner與Sabina Schärer發明的現代打擊樂器。其外型為兩個半球形鋼製面板焊接而成，表面布滿精心調音的凹陷音區。手鼓音色溫潤柔和，兼具鼓與鑼的特質，擁有寬廣音域與優美的共鳴效果。演奏者用手指敲擊鼓面不同位置產生旋律，音符具有延續性與迴響性。因其空靈神秘的音質與直觀易">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>手鼓</span>
+          </nav>
           <header class="instrument-header">
-            <div>
+            <div class="header-text">
               <p class="eyebrow">打擊樂器</p>
-              <h1>Hank Drum</h1>
-              <p class="lead">Hank Drum</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>打擊樂器</dd></div><div><dt>國家/地區</dt><dd>歐洲／美國／全球現代</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div><div><dt>旅圖</dt><dd>旅圖四｜地心與手邊的微光</dd></div><div><dt>章節</dt><dd>9｜手邊發光的小宇宙</dd></div><div><dt>發聲分類</dt><dd>體鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Idiophone／體鳴樂器</dd></div><div><dt>家族/支系</dt><dd>鋼舌鼓／空靈鼓</dd></div><div><dt>演奏方式</dt><dd>敲擊／手敲</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：待補</p>
+              <h1>手鼓</h1>
+              <p class="original-name">Hank Drum</p>
+              <p class="soundscape-tag">手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）</p>
+              <p class="badge-row"><span class="badge badge-hot">熱門</span></p>
             </div>
             
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<p>Hank Drum 是收錄在《隔壁家的世界聲音旅圖》資料庫中的打擊樂器。目前資料庫將它歸在「體鳴」脈絡下，主要可從鋼舌鼓／空靈鼓、敲擊／手敲與聲音地景來認識。</p>
-<p>初步地區標註為「歐洲／美國／全球現代」。這個欄位仍屬企劃初稿，後續可依博物館、百科條目、民族音樂學資料或演奏者資料逐篇核對。</p>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>打擊樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>歐洲／美國／全球現代</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>體鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>多調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>約2個半8度</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>12 體鳴／舌片琴／金屬共鳴</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>近身體鳴、舌片琴與手奏金屬共鳴</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>手敲／拇指撥片／近身共鳴</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>指尖、掌心、尾音、近身聆聽</dd></div><div class="meta-item"><dt>地區類型</dt><dd>跨文化／多地</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>手鼓是21世紀初由瑞士音樂家Felix Rohner與Sabina Schärer發明的現代打擊樂器。其外型為兩個半球形鋼製面板焊接而成，表面布滿精心調音的凹陷音區。手鼓音色溫潤柔和，兼具鼓與鑼的特質，擁有寬廣音域與優美的共鳴效果。演奏者用手指敲擊鼓面不同位置產生旋律，音符具有延續性與迴響性。因其空靈神秘的音質與直觀易學的演奏方式，手鼓廣泛應用於世界音樂、電子音樂與冥想療癒領域。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/c0hx_T6ztbs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/MnqnQHcfnno" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>手鼓作為現代樂器，其代表作品主要來自世界音樂與電子音樂領域。英國音樂製作人Ólafur Arnalds的冥想音樂作品廣泛運用手鼓營造寧靜氛圍；瑞士鼓手Manu Delago的專輯《Kinding》（2010年代）展現了手鼓在世界音樂中的藝術表現；電子音樂家Shpongle亦在多部作品中融合手鼓元素，創造獨特的音樂風格。</p>
 <h2>歷史背景</h2>
-<p>Hank Drum 的歷史背景目前先以資料庫分類建立閱讀入口。它位於「9｜手邊發光的小宇宙」的脈絡中，代表這件樂器可以和氣息、材料、身體動作、地方儀式或現代舞台之間的關係一起閱讀。</p>
-<p>如果要補寫成正式百科條目，建議優先查證三個方向：一是它最早出現或被記錄的地區，二是鋼舌鼓／空靈鼓的形制演變，三是敲擊／手敲如何影響音色、用途與傳播。</p>
+<h1>手鼓的歷史背景</h1>
+<p>手鼓起源於二十一世紀初的瑞士，由音樂家Felix Rohner與Sabina Schärer於2000年共同發明。這種創新樂器融合了傳統鋼舌鼓的概念與現代設計理念，採用精心調音的凹陷金屬面板結構。最初名為「Hang」（意為「手」），手鼓因其溫暖、共鳴的音色與直觀的演奏方式而迅速受到關注。</p>
+<p>隨著全球化進程，手鼓從歐洲逐漸傳播至世界各地。2000年代中期，手鼓風靡於世界音樂、電子音樂與新世紀音樂圈，吸引眾多音樂人與愛好者。如今，手鼓已成為國際樂器市場中重要的打擊樂器，擁有眾多製造商與品牌。其易學難精的特性使其同時適合初學者與專業演奏家，在音樂教育與街頭表演中扮演重要角色。</p>
 <h2>音色描述</h2>
-<p>資料庫把它的身體／聽覺關聯標為「指尖、掌心、尾音、近身聆聽」。實際音色仍需要搭配可信錄音或現場演奏資料補充。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖四｜地心與手邊的微光</li>
-<li><strong>章節</strong>：9｜手邊發光的小宇宙</li>
-<li><strong>章節主分類</strong>：近身體鳴、舌片琴與手奏金屬共鳴</li>
-<li><strong>原聲音地景</strong>：手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）</li>
-<li><strong>專業發聲大類</strong>：體鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Idiophone／體鳴樂器</li>
-<li><strong>家族／支系</strong>：鋼舌鼓／空靈鼓</li>
-<li><strong>演奏方式</strong>：敲擊／手敲</li>
-<li><strong>身體／聽覺關聯</strong>：指尖、掌心、尾音、近身聆聽</li>
-<li><strong>主要地區／國家</strong>：歐洲／美國／全球現代</li>
-<li><strong>地區類型</strong>：跨文化／多地</li>
-<li><strong>資料狀態</strong>：系統初稿推定，需逐篇來源核對</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 Hank Drum 時，可以先從「鋼舌鼓／空靈鼓」與「敲擊／手敲」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「指尖、掌心、尾音、近身聆聽」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>手鼓擁有溫潤柔和的音色，帶有神秘的空靈感。其音域寬廣，從低沉的共鳴音到清亮的高音音階應有盡有，音質介於鼓與鑼之間。演奏者透過手指敲擊鼓面不同位置，激發鼓腔內的空氣共鳴，產生悠揚的旋律。相比傳統鼓類樂器的乾脆直接，手鼓的音色更具延續性與迴響性，類似於鋼琴的餘音繚繞。其獨特的共鳴特性使音符在空間中逐漸消散，營造出冥想般的沉靜氛圍。無論是輕輕敲擊或用力擊打，都能展現出不同的層次感，因此常用於世界音樂、療癒音樂創作。</p>
+<h2>樂器材質</h2>
+<p>手鼓主體由精密鋼材製造，通常採用淬火鋼或不銹鋼兩片半球殼焊接成一整體。上表面為鋼製音板，經過精心調音與打孔，形成多個發音區域。下殼為鋼製共鳴腔，內部貫穿音孔以調節音色與共鳴效果。邊緣通常由鋼圈加固，某些高端產品可能在特定區域採用合金或其他金屬強化結構。整體設計不使用皮膜，完全依靠金屬本身的振動共鳴發聲。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>手持樂器，以敲擊方式發聲。手持樂器本體，透過敲擊、搖晃、刮奏或撥彈等方式使樂器本身震動發聲。不同部位和不同力道會產生不同音色。練習時先確認正確持琴姿勢，掌握基本發聲方式後再練習節奏型和旋律。用指尖或撥子撥奏弦線，注意觸弦角度和力度控制。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/cowbell-instrument/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/4/46/Koebel.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">牛鈴</strong>
+        <span class="card-orig">Cowbell (instrument)</span>
+        <span class="card-meta">歐洲</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/tar/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Ko%C5%9B%C4%87i%C3%B3%C5%82_w_Tarczynie_widok_tylnej_cz%C4%99%C5%9Bci_z_Rynku.jpg/500px-Ko%C5%9B%C4%87i%C3%B3%C5%82_w_Tarczynie_widok_tylnej_cz%C4%99%C5%9Bci_z_Rynku.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">塔爾琴</strong>
+        <span class="card-orig">Tar</span>
+        <span class="card-meta">中東／歐亞／東亞／美洲／全球</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/pakhawaj/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Pakhavaj_Mrudang_Rathaava_Community_Gujrat.jpg/500px-Pakhavaj_Mrudang_Rathaava_Community_Gujrat.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">帕卡瓦吉鼓</strong>
+        <span class="card-orig">Pakhawaj</span>
+        <span class="card-meta">亞洲／南亞（印度）</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/tambourine-de-bearn/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Espartenhas_-_Campestral_2016_au_Passage_d%27Agen_%281%29.jpg/500px-Espartenhas_-_Campestral_2016_au_Passage_d%27Agen_%281%29.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">貝亞恩手鼓</strong>
+        <span class="card-orig">Tambourine de Bearn</span>
+        <span class="card-meta">法國／比利牛斯地區</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

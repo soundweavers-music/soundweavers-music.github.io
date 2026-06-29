@@ -4,85 +4,134 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>多姆拉｜世界樂器百科</title>
+  <meta name="description" content="多姆拉（俄語：домра）是俄羅斯的一種長頸撥弦樂器，屬於魯特琴系，為圓體，有三或四個金屬弦，用撥片演奏。 此樂器來源於蒙古-韃靼入侵俄羅斯時期，目前僅出現於俄羅斯及獨立國協國家，常用於巴拉萊卡琴樂團的領奏部。">
+<meta property="og:title" content="多姆拉｜世界樂器百科">
+<meta property="og:description" content="多姆拉（俄語：домра）是俄羅斯的一種長頸撥弦樂器，屬於魯特琴系，為圓體，有三或四個金屬弦，用撥片演奏。 此樂器來源於蒙古-韃靼入侵俄羅斯時期，目前僅出現於俄羅斯及獨立國協國家，常用於巴拉萊卡琴樂團的領奏部。">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Domra-topview2.png/500px-Domra-topview2.png">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>多姆拉</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">弦樂器</p>
               <h1>多姆拉</h1>
-              <p class="lead">Domra</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>弦樂器</dd></div><div><dt>國家/地區</dt><dd>中東／歐亞／東亞／美洲／全球</dd></div><div><dt>年代</dt><dd>古代</dd></div><div><dt>旅圖</dt><dd>旅圖二｜懷裡與大地的弦</dd></div><div><dt>章節</dt><dd>4｜旅人懷裡撥動的故事線</dd></div><div><dt>發聲分類</dt><dd>弦鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Chordophone／弦鳴樂器</dd></div><div><dt>家族/支系</dt><dd>歐洲與美洲撥弦</dd></div><div><dt>演奏方式</dt><dd>撥弦</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://zh.wikipedia.org/wiki/%E5%A4%9A%E5%A7%86%E6%8B%89" target="_blank" rel="noopener noreferrer">https://zh.wikipedia.org/wiki/%E5%A4%9A%E5%A7%86%E6%8B%89</a></p>
+              <p class="original-name">Domra</p>
+              <p class="soundscape-tag">旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）</p>
+              <p class="badge-row"><span class="badge badge-hot">熱門</span></p>
             </div>
-            <img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/%D0%94%D0%BE%D0%BC%D1%80%D0%B0_%D1%8D%D0%BA%D1%81%D0%BF._%D1%86%D0%B5%D1%85%D0%B0_%D1%84%D0%B0%D0%B1%D1%80%D0%B8%D0%BA%D0%B8_%D0%9B%D1%83%D0%BD%D0%B0%D1%87%D0%B0%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%2C_1970-%D0%B5.JPG/960px-%D0%94%D0%BE%D0%BC%D1%80%D0%B0_%D1%8D%D0%BA%D1%81%D0%BF._%D1%86%D0%B5%D1%85%D0%B0_%D1%84%D0%B0%D0%B1%D1%80%D0%B8%D0%BA%D0%B8_%D0%9B%D1%83%D0%BD%D0%B0%D1%87%D0%B0%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%2C_1970-%D0%B5.JPG" alt="多姆拉">
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Domra-topview2.png/500px-Domra-topview2.png" alt="多姆拉" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>多姆拉</h1>
-<p>多姆拉（原名：Domra）是一種弦樂器。主要靠弦的振動發聲，常透過撥、拉、彈、擊等方式演奏。</p>
-<p>目前可查資料顯示，它與白俄羅斯的音樂文化或演奏傳統有關。</p>
-<p>若從年代脈絡看，這項樂器可先放在「古代」中理解。</p>
-<p>材料與構造是它音色的重要線索；不同材質會讓聲音呈現更明亮、厚實或有共鳴感的差異。</p>
-<p>它常被放在傳統或民俗音樂脈絡中討論，代表它不只是發聲工具，也承載地方文化記憶。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Domra</p>
-</li>
-<li>
-<p>Wikidata ID：Q941492</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>弦樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>中東／歐亞／東亞／美洲／全球</dd></div><div class="meta-item"><dt>年代</dt><dd>古代</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>弦鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>全調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>中高音區（約2個8度）</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>321/322 魯特琴類／撥弦</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>魯特琴、短頸長頸撥弦與民謠弦聲</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>撥弦／刷弦／撥片</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>懷抱、手指、腳步、敘事</dd></div><div class="meta-item"><dt>地區類型</dt><dd>跨文化／多地</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>多姆拉（俄語：домра）是俄羅斯的一種長頸撥弦樂器，屬於魯特琴系，為圓體，有三或四個金屬弦，用撥片演奏。 此樂器來源於蒙古-韃靼入侵俄羅斯時期，目前僅出現於俄羅斯及獨立國協國家，常用於巴拉萊卡琴樂團的領奏部。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/4ZhRAF9kyOg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/C_cw68yDFb4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>多姆拉作為俄羅斯民族樂器，主要出現在巴拉萊卡琴樂團的合奏作品中。20世紀俄羅斯作曲家創作了多部包含多姆拉獨奏部分的民族管弦樂作品，如《俄羅斯民族舞蹈組曲》等。多姆拉在俄羅斯民族音樂傳統中常作為領奏樂器，演奏俄羅斯民間歌曲改編版本。蘇聯時期的民族樂團編制中，多姆拉被廣泛應用於各類民族音樂演出。</p>
 <h2>歷史背景</h2>
-<p>多姆拉（Domra）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>它可以先放在白俄羅斯相關音樂文化中理解，後續可再補代表樂派、演奏場合與製作工藝。</p>
-<p>年代線索暫時指向「古代」，可作為閱讀時的時間定位。</p>
-<p>作為弦樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。 若要深入研究，可優先查找白俄羅斯的博物館、民族音樂學資料或地方樂器圖錄。 「古代」可作為初步年代標籤，但實際流傳時間仍應以專門資料校正。</p>
-<p>弦樂器的歷史常和弦材、共鳴箱、調音方式與演奏技法的演變有關。從民間伴奏到獨奏舞台，許多弦樂器都會因音量需求、音域擴張或樂曲風格改變而改良形制。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://zh.wikipedia.org/wiki/%E5%A4%9A%E5%A7%86%E6%8B%89</p>
+<p>多姆拉最早的書面記載出現在1530年《都主丹尼爾的訓誡》中。這種樂器在16至17世紀獲得極大歡迎，逐漸取代了古斯利琴。這一時期的歷史文獻中有眾多關於多姆拉的記載。例如，莫斯科主教圖書館收藏的1654年《字母表》提到：「至於何謂音樂：音樂、演奏就是古斯利琴和基涅琴（豎琴）以及多姆拉琴和類似樂器的音響」。</p>
+<p>中世紀俄羅斯《聖詩集》的手繪插圖中也有頸弦撥弦樂器的演奏者形象，其中部分插圖明確標註為「多姆拉描繪」。根據這些圖像，晚期中世紀俄羅斯多姆拉分為兩種類型：琵琶形，擁有五至六根弦、大型琴體和向後傾斜的弦軫；坦布爾形，擁有三至四根弦、小型琴體和直形弦軫。</p>
+<p>1648年，虔誠的沙皇阿列克謝一世頒布法令迫害俄羅斯民間音樂家並銷毀其樂器後，多姆拉逐漸落伍，被製作和演奏都更容易的三角琴所取代。1896年，瓦西里·瓦西里耶維奇·安德列耶夫的學生在俄羅斯鄉村馬廄內發現一件破損樂器，被認為可能是多姆拉的遺物，</p>
 <h2>音色描述</h2>
-<p>音色由弦長、張力、共鳴箱與演奏法影響，可呈現撥奏、擦奏或擊弦的不同質感。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖二｜懷裡與大地的弦</li>
-<li><strong>章節</strong>：4｜旅人懷裡撥動的故事線</li>
-<li><strong>章節主分類</strong>：魯特琴、短頸長頸撥弦與民謠弦聲</li>
-<li><strong>原聲音地景</strong>：旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）</li>
-<li><strong>專業發聲大類</strong>：弦鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Chordophone／弦鳴樂器</li>
-<li><strong>家族／支系</strong>：歐洲與美洲撥弦</li>
-<li><strong>演奏方式</strong>：撥弦</li>
-<li><strong>身體／聽覺關聯</strong>：懷抱、手指、腳步、敘事</li>
-<li><strong>主要地區／國家</strong>：中東／歐亞／東亞／美洲／全球</li>
-<li><strong>地區類型</strong>：跨文化／多地</li>
-<li><strong>資料狀態</strong>：承接553條目地域欄</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 Domra 時，可以先從「歐洲與美洲撥弦」與「撥弦」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「懷抱、手指、腳步、敘事」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>多姆拉具有明亮而富有穿透力的音色，音質清脆銳利，帶有金屬質感。其音域主要集中於中高音區，音色具有較強的定向性和投射力，能夠在樂隊中凸顯出來。作為圓體撥弦樂器，其共鳴箱結構緊湊，使得聲音迅速衰減，音符輪廓清晰分明。與同為俄羅斯民族樂器的巴拉萊卡琴相比，多姆拉的音色更為圓潤厚實，且具有更強的表現力。與西方魯特琴相較，多姆拉的聲音更直接明快，帶有典型的斯拉夫民族風格。其金屬弦的特性使音色既不失俄羅斯民族樂器的粗獷質感，又保持著足夠的光澤度和穿透力，適合作為樂隊的領奏樂器。</p>
+<h2>樂器材質</h2>
+<p>多姆拉的琴身為圓形共鳴箱，主要採用雲杉或椴木製作，背板多用樺木或楓木。琴頸由堅硬的樺木或白楊木製成，具有良好的穩定性。弦軸通常採用木質材料製作。最關鍵的是配備三至四條金屬弦，通常為鋼質或銅質合金，以提供明亮穿透的音色。琴身表面常飾以傳統的俄羅斯民族圖案裝飾。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>坐姿將琴抱於懷中或放在膝上。將樂器穩定持於身前。左手負責按弦或改變有效弦長以控制音高，右手負責使弦震動發聲。弦鳴樂器的發聲原理是弦的振動透過共鳴箱放大。用指尖或撥子撥奏弦線，注意觸弦角度和力度控制。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/kamaycha/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Sakar_Khan-Amarrass-Artist.jpg/500px-Sakar_Khan-Amarrass-Artist.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">卡馬伊恰琴</strong>
+        <span class="card-orig">Kamaycha</span>
+        <span class="card-meta">亞洲／歐洲／中東／南亞／中亞</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/tromba-marina/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/en/thumb/7/72/Marine_trumpet.jpg/500px-Marine_trumpet.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">海號琴</strong>
+        <span class="card-orig">Tromba marina</span>
+        <span class="card-meta">歐洲</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/sanxian/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Chung-ang%2C_Singing_Women_%28near_Sing_Chang%29.jpg/500px-Chung-ang%2C_Singing_Women_%28near_Sing_Chang%29.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">三絃</strong>
+        <span class="card-orig">Sanxian</span>
+        <span class="card-meta">中東／歐亞／東亞／美洲／全球</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/electric-acoustic-guitar/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Gibson_ES-150.png/500px-Gibson_ES-150.png" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">電插原聲吉他</strong>
+        <span class="card-orig">Electric-acoustic guitar</span>
+        <span class="card-meta">美國</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

@@ -4,67 +4,132 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
-  <title>Wheel Fiddle｜世界樂器百科</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <title>手搖琴｜世界樂器百科</title>
+  <meta name="description" content="手搖琴是一種弦樂器，通過手搖的經過松香處理的輪子與琴弦摩擦而產生聲音。該輪子的功能非常類似於小提琴（或鍵盤豎琴）的琴弓，手搖琴上演奏的單音聽起來與小提琴相似。旋律通過一個鍵盤演奏，該鍵盤按動正切楔——通常由木料或金屬製成的小楔形物——來抵住一根或多根琴弦，以改變其音高。與大多數其他原聲弦樂器一樣，它配有音板和空心腔體，">
+<meta property="og:title" content="手搖琴｜世界樂器百科">
+<meta property="og:description" content="手搖琴是一種弦樂器，通過手搖的經過松香處理的輪子與琴弦摩擦而產生聲音。該輪子的功能非常類似於小提琴（或鍵盤豎琴）的琴弓，手搖琴上演奏的單音聽起來與小提琴相似。旋律通過一個鍵盤演奏，該鍵盤按動正切楔——通常由木料或金屬製成的小楔形物——來抵住一根或多根琴弦，以改變其音高。與大多數其他原聲弦樂器一樣，它配有音板和空心腔體，">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Louvet_Drehleier.JPG/500px-Louvet_Drehleier.JPG">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>手搖琴</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">弦樂器</p>
-              <h1>Wheel Fiddle</h1>
-              <p class="lead">Wheel Fiddle</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>弦樂器</dd></div><div><dt>國家/地區</dt><dd>亞洲／歐洲／中東／南亞／中亞</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div><div><dt>旅圖</dt><dd>旅圖三｜天空裡拉長的弦</dd></div><div><dt>章節</dt><dd>7｜弓毛拉出的哭與唱</dd></div><div><dt>發聲分類</dt><dd>弦鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Chordophone／弦鳴樂器</dd></div><div><dt>家族/支系</dt><dd>輪擦與機械擦弦</dd></div><div><dt>演奏方式</dt><dd>輪擦</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：待補</p>
+              <h1>手搖琴</h1>
+              <p class="original-name">Wheel Fiddle</p>
+              <p class="soundscape-tag">像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）</p>
+              <p class="badge-row"></p>
             </div>
-            
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Louvet_Drehleier.JPG/500px-Louvet_Drehleier.JPG" alt="手搖琴" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<p>Wheel Fiddle 是收錄在《隔壁家的世界聲音旅圖》資料庫中的弦樂器。目前資料庫將它歸在「弦鳴」脈絡下，主要可從輪擦與機械擦弦、輪擦與聲音地景來認識。</p>
-<p>初步地區標註為「亞洲／歐洲／中東／南亞／中亞」。這個欄位仍屬企劃初稿，後續可依博物館、百科條目、民族音樂學資料或演奏者資料逐篇核對。</p>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>弦樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>亞洲／歐洲／中東／南亞／中亞</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>弦鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>全調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>約3至4個八度</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>321.3 擦弦／輪弦／提琴家族</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>擦弦、輪弦與提琴家族</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>弓擦／輪擦</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>胸口、嗓音、拉長的情緒</dd></div><div class="meta-item"><dt>地區類型</dt><dd>地區／文化圈</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>手搖琴是一種弦樂器，通過手搖的經過松香處理的輪子與琴弦摩擦而產生聲音。該輪子的功能非常類似於小提琴（或鍵盤豎琴）的琴弓，手搖琴上演奏的單音聽起來與小提琴相似。旋律通過一個鍵盤演奏，該鍵盤按動正切楔——通常由木料或金屬製成的小楔形物——來抵住一根或多根琴弦，以改變其音高。與大多數其他原聲弦樂器一樣，它配有音板和空心腔體，用以使琴弦的振動發出可聽見的聲音。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/bvNZeh6f8vE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/gYJg9cLk1us" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>手搖琴的代表作品包括中世紀宗教音樂中的管風琴風琴作品，以及文藝復興時期的器樂曲。現代作曲家如法國作曲家聖桑創作的《死神之舞》曾借鑑手搖琴的音色特徵。當代作曲家亦為其創作新作品，如德國作曲家針對手搖琴的協奏曲作品等，展現其獨特的藝術表現潛力。</p>
 <h2>歷史背景</h2>
-<p>Wheel Fiddle 的歷史背景目前先以資料庫分類建立閱讀入口。它位於「7｜弓毛拉出的哭與唱」的脈絡中，代表這件樂器可以和氣息、材料、身體動作、地方儀式或現代舞台之間的關係一起閱讀。</p>
-<p>如果要補寫成正式百科條目，建議優先查證三個方向：一是它最早出現或被記錄的地區，二是輪擦與機械擦弦的形制演變，三是輪擦如何影響音色、用途與傳播。</p>
+<p>手搖琴普遍認為源於十一世紀前的歐洲或中東的弦樂器（如阿拉伯弓弦樂器rebab）。最早在歐洲記載弦樂器的文獻來自九世紀波斯地理學家伊本·庫拉達茲比（卒於911年），他描述了在拜占庭帝國流行的琉特琴（lūrā）。手搖琴最早的形式是管風琴風琴（organistrum），一種擁有吉他形琴身和長頸部的大型樂器，頸部設有覆蓋一個全音階八度的琴鍵。管風琴風琴配有一根旋律弦和兩根低音弦，均跨過同一琴橋，搭配相對較小的輪子。由於體積龐大，管風琴風琴需由兩人演奏——一人轉動曲柄，另一人向上拉動琴鍵。由於向上拉動琴鍵操作不便，管風琴風琴只能演奏速度緩慢的曲調。</p>
 <h2>音色描述</h2>
-<p>資料庫把它的身體／聽覺關聯標為「胸口、嗓音、拉長的情緒」。實際音色仍需要搭配可信錄音或現場演奏資料補充。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖三｜天空裡拉長的弦</li>
-<li><strong>章節</strong>：7｜弓毛拉出的哭與唱</li>
-<li><strong>章節主分類</strong>：擦弦、輪弦與提琴家族</li>
-<li><strong>原聲音地景</strong>：像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）</li>
-<li><strong>專業發聲大類</strong>：弦鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Chordophone／弦鳴樂器</li>
-<li><strong>家族／支系</strong>：輪擦與機械擦弦</li>
-<li><strong>演奏方式</strong>：輪擦</li>
-<li><strong>身體／聽覺關聯</strong>：胸口、嗓音、拉長的情緒</li>
-<li><strong>主要地區／國家</strong>：亞洲／歐洲／中東／南亞／中亞</li>
-<li><strong>地區類型</strong>：地區／文化圈</li>
-<li><strong>資料狀態</strong>：系統初稿推定，需逐篇來源核對</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 Wheel Fiddle 時，可以先從「輪擦與機械擦弦」與「輪擦」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「胸口、嗓音、拉長的情緒」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>手搖琴音色溫潤而略帶蒼涼，具有獨特的懷舊韻味。其音質兼具小提琴的清晰與風琴的持續性，音色既不過於尖銳亮麗，亦非沉悶晦暗，而是介於兩者之間的柔和質感。樂器音域寬廣，可涵蓋從低沉到高亢的多個八度，具有良好的表現力。由於採用弦輪摩擦發聲，琴弦能產生連貫不斷的音流，共鳴效果類似於小提琴，經由音板與空心腔體的放大，使琴聲具有溫厚的穿透力。與小提琴相比，手搖琴音色更為醇厚溫暖；與手風琴相比，則更富人聲化的表情張力，具有強烈的民謠與古樸特質。</p>
+<h2>樂器材質</h2>
+<p>手搖琴琴身多採用優質木料製成，通常採用雲杉或松木作為面板，背板與側板則使用楓木或其他硬木。琴頸多為堅硬的木料如紫檀或黃檀。琴弦採用尼龍或羊腸製成。旋轉輪子由木材製成並覆以松香，以增加與琴弦的摩擦力。琴鍵和調音栓通常採用金屬製造。琴橋由木料或象骨製成。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>用弓在弦上擦奏，透過弓毛與弦的摩擦力使弦震動。將樂器穩定持於身前。左手負責按弦或改變有效弦長以控制音高，右手負責使弦震動發聲。弦鳴樂器的發聲原理是弦的振動透過共鳴箱放大。運弓平穩，利用手臂重量而非手腕力量。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/kamale-ngoni/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Kamele_ngoni.jpg/500px-Kamele_ngoni.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">卡瑪萊恩貢尼</strong>
+        <span class="card-orig">Kamale Ngoni</span>
+        <span class="card-meta">西非／馬利</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/zhonghu/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Zhonghuplayer.jpg/500px-Zhonghuplayer.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">中胡</strong>
+        <span class="card-orig">Zhonghu</span>
+        <span class="card-meta">亞洲／歐洲／中東／全球</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/baglamas/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Greek_baglama_in_opened_case.jpg/500px-Greek_baglama_in_opened_case.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">希臘巴格拉馬琴</strong>
+        <span class="card-orig">Baglamas</span>
+        <span class="card-meta">希臘</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/cumbus/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Cumbus.jpg/500px-Cumbus.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">坎布什琴</strong>
+        <span class="card-orig">Cümbüş</span>
+        <span class="card-meta">土耳其</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

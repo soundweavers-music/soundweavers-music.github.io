@@ -4,80 +4,132 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>大提琴｜世界樂器百科</title>
+  <meta name="description" content="大提琴（義大利語：violoncello；英語：cello）是一種弓弦樂器，為提琴家族（包括小提琴、中提琴、大提琴）樂器之一，除可擔當獨奏外，在室內樂、弦樂團和管弦樂團中也負責低音弦樂的部份。 大提琴演奏者在巴洛克時期是坐著且兩腳夾著琴的兩邊演奏，後來改良增加琴腳支撐琴體。但仍有少部分國家的演奏家是夾琴呈幾乎水平的姿態">
+<meta property="og:title" content="大提琴｜世界樂器百科">
+<meta property="og:description" content="大提琴（義大利語：violoncello；英語：cello）是一種弓弦樂器，為提琴家族（包括小提琴、中提琴、大提琴）樂器之一，除可擔當獨奏外，在室內樂、弦樂團和管弦樂團中也負責低音弦樂的部份。 大提琴演奏者在巴洛克時期是坐著且兩腳夾著琴的兩邊演奏，後來改良增加琴腳支撐琴體。但仍有少部分國家的演奏家是夾琴呈幾乎水平的姿態">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/8/8c/Cello_front_side.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>大提琴</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">弦樂器</p>
               <h1>大提琴</h1>
-              <p class="lead">Cello</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>弦樂器</dd></div><div><dt>國家/地區</dt><dd>亞洲／歐洲／中東／全球</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div><div><dt>旅圖</dt><dd>旅圖三｜天空裡拉長的弦</dd></div><div><dt>章節</dt><dd>7｜弓毛拉出的哭與唱</dd></div><div><dt>發聲分類</dt><dd>弦鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Chordophone／弦鳴樂器</dd></div><div><dt>家族/支系</dt><dd>提琴家族收束</dd></div><div><dt>演奏方式</dt><dd>弓擦</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://zh.wikipedia.org/wiki/%E5%A4%A7%E6%8F%90%E7%90%B4" target="_blank" rel="noopener noreferrer">https://zh.wikipedia.org/wiki/%E5%A4%A7%E6%8F%90%E7%90%B4</a></p>
+              <p class="original-name">Cello</p>
+              <p class="soundscape-tag">像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）</p>
+              <p class="badge-row"><span class="badge badge-hot">熱門</span></p>
             </div>
-            
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Cello_front_side.jpg" alt="大提琴" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>大提琴</h1>
-<p>大提琴（原名：Cello）是一種弦樂器。主要靠弦的振動發聲，常透過撥、拉、彈、擊等方式演奏。</p>
-<p>目前中文資料較少，因此本條目先依英文維基與 Wikidata 的可查資料整理。後續可再補充 Cello 的製作方式、代表曲目與地方流派。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Cello</p>
-</li>
-<li>
-<p>Wikidata ID：ENWIKI-705c9442a0</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>弦樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>歐洲／義大利</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>弦鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>全調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>C2–A3（近4個八度）</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>321.3 擦弦／輪弦／提琴家族</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>擦弦、輪弦與提琴家族</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>弓擦／輪擦</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>胸口、嗓音、拉長的情緒</dd></div><div class="meta-item"><dt>地區類型</dt><dd>跨文化／多地</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>大提琴（義大利語：violoncello；英語：cello）是一種弓弦樂器，為提琴家族（包括小提琴、中提琴、大提琴）樂器之一，除可擔當獨奏外，在室內樂、弦樂團和管弦樂團中也負責低音弦樂的部份。 大提琴演奏者在巴洛克時期是坐著且兩腳夾著琴的兩邊演奏，後來改良增加琴腳支撐琴體。但仍有少部分國家的演奏家是夾琴呈幾乎水平的姿態演奏。其最常見的演奏方式是持弓擦過琴上的弦（拉弦），但有時也會撥弦或敲弦。 大提琴每條弦之間的音程相差完全五度。4根琴弦由高音至低音稱為1弦至4弦，音高分別為A3、D3、G2和C2。大提琴譜通常使用低音譜號記譜；而演奏較高音域時會使用次中音譜號或高音譜號。 大提琴有時候會在國樂團作為低音樂器以取代低胡，後有人發明琶琴、拉阮、革胡等低音樂器，但效果未如大提琴。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/qpbX7SbXOtU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/Ry4BzonlVlw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>巴赫《大提琴無伴奏組曲》（1720年代）是大提琴文獻中最重要的作品，包含六首組曲。德沃夏克《大提琴協奏曲》（1894-1895年）是浪漫主義時期的傑作。埃爾加《大提琴協奏曲》（1919年）以其深沉哀婉的旋律聞名。聖-桑《天鵝》（1886年）雖為小品，卻成為大提琴最受歡迎的演奏曲目之一。</p>
 <h2>歷史背景</h2>
-<p>大提琴（Cello）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>作為弦樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。</p>
-<p>弦樂器的歷史常和弦材、共鳴箱、調音方式與演奏技法的演變有關。從民間伴奏到獨奏舞台，許多弦樂器都會因音量需求、音域擴張或樂曲風格改變而改良形制。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://zh.wikipedia.org/wiki/%E5%A4%A7%E6%8F%90%E7%90%B4</p>
+<p>大提琴的名稱源自義大利文「violoncello」的字尾，意為「小提琴」。「Violone」意為「大提琴」，是古提琴（viola da gamba）或小提琴（viola da braccio）家族中的大型樂器。現今「violone」通常指古提琴家族中音域最低的樂器。古提琴在17世紀末在大多數國家逐漸式微，僅在英格蘭及法國等地倖存半個世紀，最終被音量更大的小提琴家族取代。在現代交響樂團中，大提琴是第二大弦樂器，僅次於低音提琴。因此「violoncello」結合了表示「大」的後綴「-one」與表示「小」的「-cello」。到20世紀初，縮短為「'cello」成為慣例，撇號表示省略的字根。現今通常直接使用「cello」作為完整稱呼。「Viol」源自「viola」，其根源則來自中世紀拉丁文，意為弦樂器。</p>
 <h2>音色描述</h2>
-<p>音色由弦長、張力、共鳴箱與演奏法影響，可呈現撥奏、擦奏或擊弦的不同質感。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖三｜天空裡拉長的弦</li>
-<li><strong>章節</strong>：7｜弓毛拉出的哭與唱</li>
-<li><strong>章節主分類</strong>：擦弦、輪弦與提琴家族</li>
-<li><strong>原聲音地景</strong>：像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）</li>
-<li><strong>專業發聲大類</strong>：弦鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Chordophone／弦鳴樂器</li>
-<li><strong>家族／支系</strong>：提琴家族收束</li>
-<li><strong>演奏方式</strong>：弓擦</li>
-<li><strong>身體／聽覺關聯</strong>：胸口、嗓音、拉長的情緒</li>
-<li><strong>主要地區／國家</strong>：亞洲／歐洲／中東／全球</li>
-<li><strong>地區類型</strong>：跨文化／多地</li>
-<li><strong>資料狀態</strong>：承接553條目地域欄</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 Cello 時，可以先從「提琴家族收束」與「弓擦」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「胸口、嗓音、拉長的情緒」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>大提琴音色溫潤深邃，具有男中音般的低沉魅力，兼具木質的溫暖與絲綢般的柔和質感。其音域寬廣，從低音C2至高音A3，跨越近四個八度，能呈現從渾厚沉穩到清亮靈動的多層次音響。琴體內部形成的共鳴腔產生豐厚的泛音，使音質飽滿而富有共鳴感。相較於小提琴的尖銳明亮，大提琴音色更為內斂沉靜；與中提琴相比，則具有更深沉的表現力。拉弦時能發出歌唱般的連貫音質，撥弦則呈現清脆的聲響，這種多樣的發聲方式使大提琴成為既能獨當一面的獨奏樂器，亦能在樂團中扮演有力的低音支撐角色。</p>
+<h2>樂器材質</h2>
+<p>琴身主要由雲杉木製作面板，背板與側板使用楓木或其他硬木；琴頸與指板採用烏木或楓木。弓桿通常以巴西木製成，弓毛來自馬尾。琴橋、琴栓等部件採用楓木或其他硬木。琴弦由鋼絲、尼龍或羊腸製成。後期加裝的琴腳一般為木質或金屬材料，提供支撐。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>坐姿，琴身夾在雙膝之間，琴頸靠左肩。左手按弦，右手橫向運弓。大提琴音域比中提琴低八度。練習拇指把位是進階技巧。運弓需運用手臂重量而非僅手腕力量。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/music-on-a-long-thin-wire/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/AlvinLucier-MusicOnALongThinWire-CoverDetail-1980.jpg/500px-AlvinLucier-MusicOnALongThinWire-CoverDetail-1980.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">Music On A Long Thin Wire（暫譯）</strong>
+        <span class="card-orig">Music On A Long Thin Wire</span>
+        <span class="card-meta">美國</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/diddley-bow/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Moses_Williams_playing_the_diddley_bow-_Waverly%2C_Florida_%283371222056%29.jpg/500px-Moses_Williams_playing_the_diddley_bow-_Waverly%2C_Florida_%283371222056%29.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">迪德里一弦</strong>
+        <span class="card-orig">Diddley bow</span>
+        <span class="card-meta">美國</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/seperewa/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Seperewa.jpg/500px-Seperewa.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">塞佩雷瓦琴</strong>
+        <span class="card-orig">Seperewa</span>
+        <span class="card-meta">非洲／歐洲／亞洲／美洲</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/unitar-instrument/">
+      <div class="card-thumb card-thumb--empty" aria-hidden="true">♩</div>
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">單弦吉他</strong>
+        <span class="card-orig">Unitar (instrument)</span>
+        <span class="card-meta">美國南方（美國南部）</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

@@ -4,80 +4,132 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>烏德琴｜世界樂器百科</title>
+  <meta name="description" content="烏德琴，又稱厄烏德琴（英語：Oud；阿拉伯語：عود；波斯語：بربط；土耳其語：ud, ut；希臘語：ούτι；亞美尼亞語：ուդ），是中東及非洲東部及北部使用的一種傳統弦樂器，有「中東樂器之王」之稱。 烏德琴被認為是歐洲魯特琴。由於現代吉他延自魯特琴之一種類，是以烏德琴也被視為吉他的前身。 中亞國家如阿拉伯、土耳其">
+<meta property="og:title" content="烏德琴｜世界樂器百科">
+<meta property="og:description" content="烏德琴，又稱厄烏德琴（英語：Oud；阿拉伯語：عود；波斯語：بربط；土耳其語：ud, ut；希臘語：ούτι；亞美尼亞語：ուդ），是中東及非洲東部及北部使用的一種傳統弦樂器，有「中東樂器之王」之稱。 烏德琴被認為是歐洲魯特琴。由於現代吉他延自魯特琴之一種類，是以烏德琴也被視為吉他的前身。 中亞國家如阿拉伯、土耳其">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Oud2.jpg/500px-Oud2.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>烏德琴</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">弦樂器</p>
               <h1>烏德琴</h1>
-              <p class="lead">Oud</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>弦樂器</dd></div><div><dt>國家/地區</dt><dd>中東／歐亞／東亞／美洲／全球</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div><div><dt>旅圖</dt><dd>旅圖二｜懷裡與大地的弦</dd></div><div><dt>章節</dt><dd>4｜旅人懷裡撥動的故事線</dd></div><div><dt>發聲分類</dt><dd>弦鳴</dd></div><div><dt>H-S 近似分類</dt><dd>Chordophone／弦鳴樂器</dd></div><div><dt>家族/支系</dt><dd>短頸魯特琴</dd></div><div><dt>演奏方式</dt><dd>撥弦</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://zh.wikipedia.org/wiki/%E7%83%8F%E5%BE%B7%E7%90%B4" target="_blank" rel="noopener noreferrer">https://zh.wikipedia.org/wiki/%E7%83%8F%E5%BE%B7%E7%90%B4</a></p>
+              <p class="original-name">Oud</p>
+              <p class="soundscape-tag">旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）</p>
+              <p class="badge-row"><span class="badge badge-cold">冷門</span></p>
             </div>
-            
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Oud2.jpg/500px-Oud2.jpg" alt="烏德琴" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>烏德琴</h1>
-<p>烏德琴（原名：Oud）是一種弦樂器。主要靠弦的振動發聲，常透過撥、拉、彈、擊等方式演奏。</p>
-<p>目前中文資料較少，因此本條目先依英文維基與 Wikidata 的可查資料整理。後續可再補充 Oud 的製作方式、代表曲目與地方流派。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Oud</p>
-</li>
-<li>
-<p>Wikidata ID：ENWIKI-412bddadf0</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>弦樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>中東</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>發聲原理</dt><dd>弦鳴</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>無固定調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>約3個8度</dd></div><div class="meta-item"><dt>HS 分類</dt><dd>321/322 魯特琴類／撥弦</dd></div><div class="meta-item"><dt>樂器家族</dt><dd>魯特琴、短頸長頸撥弦與民謠弦聲</dd></div><div class="meta-item"><dt>演奏方式</dt><dd>撥弦／刷弦／撥片</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>懷抱、手指、腳步、敘事</dd></div><div class="meta-item"><dt>地區類型</dt><dd>跨文化／多地</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>烏德琴，又稱厄烏德琴（英語：Oud；阿拉伯語：عود；波斯語：بربط；土耳其語：ud, ut；希臘語：ούτι；亞美尼亞語：ուդ），是中東及非洲東部及北部使用的一種傳統弦樂器，有「中東樂器之王」之稱。 烏德琴被認為是歐洲魯特琴。由於現代吉他延自魯特琴之一種類，是以烏德琴也被視為吉他的前身。 中亞國家如阿拉伯、土耳其、伊朗、亞美尼亞、伊拉克、敘利亞、亞塞拜然的傳統音樂里烏德琴占有重要地位。在北非國家如埃及、蘇丹、摩洛哥、突尼斯、阿爾及利亞等也是人們所喜愛的樂器之一。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/jRuyMhUy_n8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/osf1gckzf70" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>烏德琴的代表作品包括《夜鶯》（烏姆·庫勒蘇姆演唱版本，20世紀初），這是阿拉伯音樂史上最著名的經典作品。還有伊拉克音樂家穆尼爾·巴格達迪的《巴格達的憶念》（1970年代），以及當代烏德琴大師馬爾瓦恩·卡基的專輯《柔和的聲音》（2000年代），展現了烏德琴在傳統與現代音樂中的多元表現。</p>
 <h2>歷史背景</h2>
-<p>烏德琴（Oud）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>作為弦樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。</p>
-<p>弦樂器的歷史常和弦材、共鳴箱、調音方式與演奏技法的演變有關。從民間伴奏到獨奏舞台，許多弦樂器都會因音量需求、音域擴張或樂曲風格改變而改良形制。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://zh.wikipedia.org/wiki/%E7%83%8F%E5%BE%B7%E7%90%B4</p>
+<p>烏德琴名稱的詞源有多種理論。阿拉伯語「oud」（عود）意為「木製的」和「木棍」。1940年音樂學家柯特·薩克斯提出，烏德琴名稱源自「靈活的木棍」而非單純的木材。伊斯蘭音樂研究學者埃克哈德·紐鮑爾認為，烏德琴可能源自波斯語「rōd」或「rūd」，意為弦樂器。考古音樂學家理查德·鄧布里爾則建議，該詞可能來自梵文「rudrī」（意為弦樂器），經由閃含語族傳入阿拉伯語。然而，根據閃含語言學者的理論，阿拉伯語「ʿoud」源自敘利亞語「ʿoud-a」，意為「木棍」和「燃燒的木頭」，與聖經希伯來語「ūḏ」相關，指用於撥動火中木柴的棍子。不同語言中對該樂器有不同的稱呼。</p>
 <h2>音色描述</h2>
-<p>音色由弦長、張力、共鳴箱與演奏法影響，可呈現撥奏、擦奏或擊弦的不同質感。</p>
-<h2>旅圖分類與補充說明</h2>
-<ul>
-<li><strong>旅圖段落</strong>：旅圖二｜懷裡與大地的弦</li>
-<li><strong>章節</strong>：4｜旅人懷裡撥動的故事線</li>
-<li><strong>章節主分類</strong>：魯特琴、短頸長頸撥弦與民謠弦聲</li>
-<li><strong>原聲音地景</strong>：旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）</li>
-<li><strong>專業發聲大類</strong>：弦鳴</li>
-<li><strong>Hornbostel–Sachs 近似分類</strong>：Chordophone／弦鳴樂器</li>
-<li><strong>家族／支系</strong>：短頸魯特琴</li>
-<li><strong>演奏方式</strong>：撥弦</li>
-<li><strong>身體／聽覺關聯</strong>：懷抱、手指、腳步、敘事</li>
-<li><strong>主要地區／國家</strong>：中東／歐亞／東亞／美洲／全球</li>
-<li><strong>地區類型</strong>：跨文化／多地</li>
-<li><strong>資料狀態</strong>：承接553條目地域欄</li>
-</ul>
-<h3>讀者導覽</h3>
-<p>閱讀 Oud 時，可以先從「短頸魯特琴」與「撥弦」切入，觀察它如何把材料、手勢與共鳴連在一起。</p>
-<p>聲音感受上，資料庫把它連到「懷抱、手指、腳步、敘事」，適合在聆聽時留意身體哪個部位先被聲音碰到。</p>
-<p>在旅圖敘事裡，它被放進「旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）」這條聲音路線，可作為後續寫文章、選圖與找聆聽範例的方向。</p></article>
+<p>烏德琴音色溫潤深邃，帶有獨特的東方神韻。其音質介於明亮與暗沉之間，具有溫暖而略帶滄桑感的特質。樂器音域寬廣，低音渾厚共鳴，中音飽滿富有表現力，高音纖細靈秀。烏德琴透過梨形共鳴箱產生豐富的泛音，賦予音響層次感與悠長的餘韻。相較於歐洲魯特琴的清晰乾淨，烏德琴音色更顯厚實溫暖；與吉他相比，其聲音更具內斂感，缺少吉他的銳度，卻多了深沉的穿透力。撥弦時音色柔和優雅，適合詮釋細膩的東方音樂旋律。</p>
+<h2>樂器材質</h2>
+<p>烏德琴共鳴箱採用梨形設計，主要由阿拉伯膠木、檀香木或玫瑰木製成。琴頸通常採用核桃木或楓木，具有良好的強度與穩定性。琴弦由尼龍或羊腸製成，部分高級琴弦使用金屬纏繞。琴板採用雲杉或松木製作，確保最佳音質。品位由象牙或骨製成，機械卷弦器則採用木質與金屬材料組合，體現了東方樂器工藝的精湛技術。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>坐姿，烏德琴橫放膝上，琴頭朝左。左手按弦（無品），右手用撥子（Risha）撥弦。音階包含微分音（四分之一音）。練習 Maqam（木卡姆）音階是理解東方音樂的基礎。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/cretan-lyra/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Lyres-creta.jpg/500px-Lyres-creta.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">克里特琴</strong>
+        <span class="card-orig">Cretan Lyra</span>
+        <span class="card-meta">歐洲／希臘（克里特島）</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/tiple/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Tiple.jpg/500px-Tiple.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">蒂普勒</strong>
+        <span class="card-orig">Tiple</span>
+        <span class="card-meta">中東／歐洲／亞洲／美洲</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/wankara-lyre/">
+      <div class="card-thumb card-thumb--empty" aria-hidden="true">♩</div>
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">瓦卡拉豎琴</strong>
+        <span class="card-orig">Wankara Lyre</span>
+        <span class="card-meta">非洲／歐洲／亞洲／美洲</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/unitar-instrument/">
+      <div class="card-thumb card-thumb--empty" aria-hidden="true">♩</div>
+      <div class="card-body">
+        <span class="card-cat">弦樂器</span>
+        <strong class="card-title">單弦吉他</strong>
+        <span class="card-orig">Unitar (instrument)</span>
+        <span class="card-meta">美國南方（美國南部）</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>

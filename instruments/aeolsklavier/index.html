@@ -4,61 +4,132 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
-  <title>Aeolsklavier（暫譯）｜世界樂器百科</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <title>風琴鋼琴｜世界樂器百科</title>
+  <meta name="description" content="風琴鋼琴是19世紀初期的創新混合樂器，由漢堡的讓·托比埃·埃申巴赫於1800年首次製造。它巧妙融合了鋼琴的打擊機制與風琴的氣鳴特性，外形類似傳統鋼琴，內部結構則整合了風箱裝置。該樂器音色獨特，兼具鋼琴的明亮清晰與風琴的溫潤飽滿，具有寬廣音域與持續綿延的共鳴效果。雖然最終被手風琴取代，但在當時曾引起音樂家的興趣與改進。">
+<meta property="og:title" content="風琴鋼琴｜世界樂器百科">
+<meta property="og:description" content="風琴鋼琴是19世紀初期的創新混合樂器，由漢堡的讓·托比埃·埃申巴赫於1800年首次製造。它巧妙融合了鋼琴的打擊機制與風琴的氣鳴特性，外形類似傳統鋼琴，內部結構則整合了風箱裝置。該樂器音色獨特，兼具鋼琴的明亮清晰與風琴的溫潤飽滿，具有寬廣音域與持續綿延的共鳴效果。雖然最終被手風琴取代，但在當時曾引起音樂家的興趣與改進。">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Stokes%27_encyclopedia_of_music_and_musicians%2C_covering_the_entire_period_of_musical_history_from_the_earliest_times_to_the_season_of_1908-09_%28IA_cu31924022228385%29.pdf/page1-500px-thumbnail.pdf.jpg">
+<meta property="og:type" content="article">
   <link rel="stylesheet" href="/assets/site.css">
+  
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/">世界樂器百科</a>
+    <a class="brand" href="/">🌍 世界樂器百科</a>
     <nav>
-      <a href="/instruments/">全部樂器</a>
-      <a href="/categories/">分類</a>
-      <a href="/journeys/">旅圖</a>
-      <a href="/sound-classes/">發聲</a>
-      <a href="/countries/">國家</a>
-      <a href="/eras/">年代</a>
+      <div class="nav-dropdown">
+        <a href="/instruments/" class="dropdown-trigger">全部樂器</a>
+        <div class="dropdown-menu">
+          <a href="/categories/">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選</a>
+          <a href="/popular/">熱門</a>
+          <a href="/uncommon/">冷門</a>
+          <a href="/countries/">國家</a>
+          <a href="/eras/">年代</a>
+          <a href="/map/">地圖</a>
+        </div>
+      </div>
+      <a href="/vocal/">人聲與歌唱</a>
+      <a href="/theory/">樂理</a>
+      <a href="/about/">關於</a>
+      <a href="/contact/">聯絡我們</a>
     </nav>
   </header>
   
         <main class="instrument-page">
-          <div class="breadcrumb"><a href="/">首頁</a><span>/</span><a href="/instruments/">樂器</a></div>
-          <header class="instrument-header">
-            <div>
+          <nav class="breadcrumb">
+            <a href="../../">← 返回篩選</a> <span class="sep">/</span>
+            <span>風琴鋼琴</span>
+          </nav>
+          <header class="instrument-header has-image">
+            <div class="header-text">
               <p class="eyebrow">打擊樂器</p>
-              <h1>Aeolsklavier（暫譯）</h1>
-              <p class="lead">Aeolsklavier</p>
-              <dl class="meta-grid">
-                <div><dt>分類</dt><dd>打擊樂器</dd></div><div><dt>國家/地區</dt><dd>待考</dd></div><div><dt>年代</dt><dd>傳統／年代待考</dd></div>
-              </dl>
-              
-              <p class="source-note">資料來源：<a href="https://en.wikipedia.org/wiki/Aeolsklavier" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Aeolsklavier</a></p>
+              <h1>風琴鋼琴</h1>
+              <p class="original-name">Aeolsklavier</p>
+              <p class="soundscape-tag">按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）</p>
+              <p class="badge-row"><span class="badge badge-cold">冷門</span></p>
             </div>
-            
+            <div class="header-image"><img class="instrument-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Stokes%27_encyclopedia_of_music_and_musicians%2C_covering_the_entire_period_of_musical_history_from_the_earliest_times_to_the_season_of_1908-09_%28IA_cu31924022228385%29.pdf/page1-500px-thumbnail.pdf.jpg" alt="風琴鋼琴" loading="lazy" onerror="this.style.display='none'"><p class="image-credit">圖片來源：Wikimedia Commons</p></div>
           </header>
-          <article class="markdown-body"><h2>介紹</h2>
-<h1>Aeolsklavier（暫譯）</h1>
-<p>Aeolsklavier（暫譯）（原名：Aeolsklavier）是一種打擊樂器。通常透過敲擊、搖動、摩擦或刮奏產生聲音，常負責節奏與音色層次。</p>
-<p>目前中文資料較少，因此本條目先依英文維基與 Wikidata 的可查資料整理。後續可再補充 Aeolsklavier 的製作方式、代表曲目與地方流派。</p>
-<h2>可查證來源</h2>
-<ul>
-<li>
-<p>Wikipedia / Wikidata 來源：https://en.wikipedia.org/wiki/Aeolsklavier</p>
-</li>
-<li>
-<p>Wikidata ID：ENWIKI-b188a06273</p>
-</li>
-</ul>
+          <dl class='meta-grid'><div class="meta-item"><dt>分類</dt><dd>打擊樂器</dd></div><div class="meta-item"><dt>國家／地區</dt><dd>德國</dd></div><div class="meta-item"><dt>年代</dt><dd>傳統／年代待考</dd></div><div class="meta-item"><dt>樂器調性</dt><dd>全調性</dd></div><div class="meta-item"><dt>音域範圍</dt><dd>全音域（具體範圍因製造工藝而異）</dd></div><div class="meta-item"><dt>身體聆聽</dt><dd>手指、機械距離、記憶、電聲</dd></div><div class="meta-item"><dt>地區類型</dt><dd>單一地區／文化圈</dd></div></dl>
+          
+          <div class="tab-bar">
+            <button class="tab-btn is-active" data-tab="intro">介紹</button>
+            <button class="tab-btn" data-tab="tutorial">教學</button>
+          </div>
+          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">
+<p>風琴鋼琴是19世紀初期的創新混合樂器，由漢堡的讓·托比埃·埃申巴赫於1800年首次製造。它巧妙融合了鋼琴的打擊機制與風琴的氣鳴特性，外形類似傳統鋼琴，內部結構則整合了風箱裝置。該樂器音色獨特，兼具鋼琴的明亮清晰與風琴的溫潤飽滿，具有寬廣音域與持續綿延的共鳴效果。雖然最終被手風琴取代，但在當時曾引起音樂家的興趣與改進。</p>
+<h2>聆聽示範</h2><div class="yt-grid"><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/Ncom7FWjLmw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/MHl4A7cYK7U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+<h3>代表性作品</h3>
+<p>由於風琴鋼琴在19世紀初期便逐漸衰落，現存的代表性作品記載極為稀少。大多數作曲家未專門為其創作獨立樂曲，該樂器主要用於沙龍音樂演奏與業餘音樂愛好者的娛樂用途。其歷史文獻與樂譜資料已大多散佚，使得確切的代表性作品難以考證。</p>
 <h2>歷史背景</h2>
-<p>Aeolsklavier（暫譯）（Aeolsklavier）的歷史背景可先從可查來源、樂器分類與流傳地區三個方向理解。</p>
-<p>作為打擊樂器，它的歷史通常會和材料取得、演奏技法、合奏需求以及地方審美一起變化。</p>
-<p>打擊樂器通常和節奏、信號、祭儀、舞蹈或群體活動關係密切。它們的歷史不一定只寫在樂譜裡，也常出現在節慶、宗教、軍事或地方生活的脈絡中。</p>
-<p>閱讀這類樂器的歷史時，可以特別留意三件事：它最早被用在什麼場合、製作材料如何取得，以及它是否隨著遷徙、貿易、宗教或舞台表演而改變。這些線索通常比單一年份更能說明樂器如何被保存與傳播。</p>
-<p>來源：https://en.wikipedia.org/wiki/Aeolsklavier</p>
+<p>關於風琴鋼琴的原始發明者存在一些爭議，但大多數權威人士將其歸功於漢堡的讓·托比埃·埃申巴赫（Jean Tobié Eschenbach），據說他於1800年首次製造了這種樂器。隨後，其他音樂家對其進行了各種改進，其中包括普雷斯堡的施密特、施韋因富特的音樂家、塞巴斯蒂安·米勒（1826年）以及蘇爾的音樂家（1833年）。該樂器最終被手風琴完全取代。</p>
 <h2>音色描述</h2>
-<p>音色多由材質本體振動決定，常呈現清晰、短促或具有明顯泛音的聲響。</p></article>
+<p>風琴鋼琴是一種獨特的混合樂器，結合了鋼琴與風琴的音響特徵。其音色兼具鋼琴的明亮清晰與風琴的溫潤飽滿，音質介於兩者之間，既不失金屬質感，又帶有柔和的共鳴。樂器能覆蓋寬廣的音域，低音沉穩厚實，高音透亮而富有穿透力。由於結合了擊弦與氣鳴機制，其共鳴方式獨特，能產生持續綿延的音響效果，類似風琴的延音特性。與純鋼琴相比，音色更富有溫暖感；與風琴相比，則保留了更多鋼琴的動態表現力和層次感，使其具有獨特的表現潛力。</p>
+<h2>樂器材質</h2>
+<p>風琴鋼琴的琴體主要採用優質木材製造，通常選用雲杉或白松作為共鳴板。鍵盤機制採用象牙或骨質琴鍵，擊弦機構使用木材與金屬彈簧。內部配備風箱系統，由皮革製成的風箱儲存空氣，金屬管道輸送氣流至風琴音管。音弦採用鋼制琴弦，與鋼琴相同。整體結構融合了鋼琴與風琴的工藝特點，是機械與材料工程的精妙結合。</p></article></div>
+          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body"><p>將樂器以正確姿勢持於手中。</p></article></div>
+          
+          <section class="related-section"><h2 class="related-heading">同類樂器</h2><div class="instrument-grid"><a class="instrument-card" href="/instruments/bomba-drum/">
+      <div class="card-thumb card-thumb--empty" aria-hidden="true">♩</div>
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">邦巴鼓</strong>
+        <span class="card-orig">Bomba Drum</span>
+        <span class="card-meta">波多黎各</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/clash-cymbals/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Suworow-Kadetten_in_Bern_024.jpg/500px-Suworow-Kadetten_in_Bern_024.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">對鈸</strong>
+        <span class="card-orig">Clash cymbals</span>
+        <span class="card-meta">中東／地中海地區</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/agung-a-tamlang/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Agung_a_Tamlang.jpg/500px-Agung_a_Tamlang.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">竹製鑼鼓</strong>
+        <span class="card-orig">Agung a tamlang</span>
+        <span class="card-meta">菲律賓</span>
+      </div>
+    </a>
+<a class="instrument-card" href="/instruments/ratchet-instrument/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Ratchet_Drawing.svg/500px-Ratchet_Drawing.svg.png" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat">打擊樂器</span>
+        <strong class="card-title">棘輪（樂器）</strong>
+        <span class="card-orig">Ratchet (instrument)</span>
+        <span class="card-meta">拉丁美洲／非洲／歐洲／亞洲／全球</span>
+      </div>
+    </a></div></section>
         </main>
         
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>隔壁織音人 — 世界樂器百科・人聲歌唱・音樂知識</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="/">首頁</a>
+        <a href="/vocal/">人聲與歌唱</a>
+        <a href="/categories/">分類</a>
+        <a href="/countries/">國家</a>
+        <a href="/popular/">熱門</a>
+        <a href="/uncommon/">冷門</a>
+        <a href="/theory/">樂理</a>
+        <a href="/contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="/assets/search.js"></script>
+    <script src="/assets/random-instrument.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>
