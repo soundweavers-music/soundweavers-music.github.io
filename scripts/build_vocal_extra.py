@@ -555,7 +555,7 @@ def build_theory_pages():
         s_dir = out_dir / s["num"]
         s_dir.mkdir(parents=True, exist_ok=True)
         sn = int(s["num"])
-        prev_l = f'<a class="vocal-nav-link" href="{resolve_url(s_dir / "index.html", f"/theory/{sn-1}/")}">← 上一階段</a>' if sn > 1 else '<span class="vocal-nav-link disabled">← 上一階段</span>'
+        prev_l = f'<a class="vocal-nav-link" href="{resolve_url(s_dir / "index.html", f"/theory/{sn-1}/")}">← 上一階段</a>' if sn > 0 else '<span class="vocal-nav-link disabled">← 上一階段</span>'
         next_l = f'<a class="vocal-nav-link" href="{resolve_url(s_dir / "index.html", f"/theory/{sn+1}/")}">下一階段 →</a>' if sn < len(stages) else '<span class="vocal-nav-link disabled">下一階段 →</span>'
         detail = f"""<main class="page theory-page">
   <nav class="breadcrumb" style="margin-bottom:24px;">
@@ -582,6 +582,7 @@ def build_theory_pages():
     def _card(s):
         sn = s["num"]
         stage_descs = {
+            "0": "認識音樂的 15 個基礎名詞：從聲音三維空間、時間律動到旋律和聲。",
             "1": "先放下樂譜，單純用耳朵去感受聲音的高低，以及學會跟著音樂打穩定的拍子。",
             "2": "認識高低音譜號，把剛剛耳朵聽到的聲音，準確對應到紙上的線條位置。",
             "3": "認識拍號，學會算數學，知道每一個黑色小音符到底要唱多長、停多久。",
@@ -595,11 +596,11 @@ def build_theory_pages():
   <section class="theory-hero">
     <p class="eyebrow">Music Theory</p>
     <h1>樂理基礎</h1>
-    <p class="lead">從聽覺啟蒙到綜合應用，五大階段系統性學習音樂理論基礎知識。</p>
+    <p class="lead">從前言到五大階段，系統性學習音樂理論基礎知識。</p>
   </section>
   <div class="theory-grid">{cards}</div>
 </main>"""
-    write(out_dir / "index.html", page("樂理基礎", body, out_dir / "index.html", extra_head=extra_css, meta_description="從聽覺啟蒙到綜合應用，五大階段系統性學習音樂理論基礎知識。"))
+    write(out_dir / "index.html", page("樂理基礎", body, out_dir / "index.html", extra_head=extra_css, meta_description="從前言到五大階段，系統性學習音樂理論基礎知識。"))
     print(f"  Built theory page with {len(stages)} stages + detail pages")
 
 
