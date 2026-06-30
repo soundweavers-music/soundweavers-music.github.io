@@ -20,7 +20,7 @@ youtube_ids: RcqO0zkyQRo tWzZhZU3sOI
 ---
 ## 介紹
 
-The shamisen or samisen (三味線), also known as sangen (三絃) (all meaning 'three strings'), is a three-stringed traditional Japanese musical instrument derived from the Chinese instrument sanxian. It is played with a plectrum called a bachi. The Japanese pronunciation is usually shamisen but sometimes jamisen when used as a suffix, according to regular sound change (e.g. tsugaru-jamisen). In Western Japanese dialects and several Edo period sources, it is both written and pronounced as samisen. The construction of the shamisen varies in shape, depending on the genre in which it is used.
+The shamisen or samisen (三味線), also known as sangen (三弦) (all meaning 'three strings'), is a three-stringed traditional Japanese musical instrument derived from the Chinese instrument sanxian. It is played with a plectrum called a bachi. The Japanese pronunciation is usually shamisen but sometimes jamisen when used as a suffix, according to regular sound change (e.g. tsugaru-jamisen). In Western Japanese dialects and several Edo period sources, it is both written and pronounced as samisen. The construction of the shamisen varies in shape, depending on the genre in which it is used.
 ## 聆聽示範
 
 ### 代表性作品
