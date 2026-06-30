@@ -1,7 +1,7 @@
 ---
 is_uncommon: true
 site_url: https://soundweavers-music.github.io/instruments/agidigbo/
-title: Agidigbo（暫譯）
+title: 阿吉迪格博
 original_name: Agidigbo
 category: 打擊樂器
 country: 非洲西部
