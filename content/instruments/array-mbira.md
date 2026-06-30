@@ -1,7 +1,7 @@
 ---
 is_popular: true
 site_url: https://soundweavers-music.github.io/instruments/array-mbira/
-title: Array mbira（暫譯）
+title: 陣列姆比拉琴
 original_name: Array mbira
 category: 打擊樂器
 country: 全球／非洲／現代
