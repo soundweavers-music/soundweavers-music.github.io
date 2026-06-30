@@ -581,7 +581,15 @@ def build_theory_pages():
 """
     def _card(s):
         sn = s["num"]
-        return f'<a class="theory-card" href="{resolve_url(out_dir / "index.html", f"/theory/{sn}/")}"><span class="card-label">{escape(s["title"])}</span><span class="card-desc">第 {sn} 階段</span></a>'
+        stage_descs = {
+            "1": "先放下樂譜，單純用耳朵去感受聲音的高低，以及學會跟著音樂打穩定的拍子。",
+            "2": "認識高低音譜號，把剛剛耳朵聽到的聲音，準確對應到紙上的線條位置。",
+            "3": "認識拍號，學會算數學，知道每一個黑色小音符到底要唱多長、停多久。",
+            "4": "認識弦樂、管樂和打擊樂器，了解它們為什麼會發出不一樣的聲音。",
+            "5": "把前面的東西全部加起來，看看交響樂團怎麼運作，並聽聽其他國家的特殊音階。",
+        }
+        desc = stage_descs.get(sn, f"第 {sn} 階段")
+        return f'<a class="theory-card" href="{resolve_url(out_dir / "index.html", f"/theory/{sn}/")}"><span class="card-label">{escape(s["title"])}</span><span class="card-desc">{escape(desc)}</span></a>'
     cards = "".join(_card(s) for s in stages)
     body = f"""<main class="page theory-page">
   <section class="theory-hero">
