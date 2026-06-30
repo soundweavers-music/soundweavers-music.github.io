@@ -105,6 +105,8 @@ def page(title, body, page_path=None, extra_head="", meta_description="", og_ima
   "url": "https://soundweavers-music.github.io/",
   "description": "{escape(desc)}"
 }}'''
+    _dm_head = '<script>!function(){try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);else if(window.matchMedia("(prefers-color-scheme:dark)").matches)document.documentElement.setAttribute("data-theme","dark")}catch(e){}}()</script>'
+    _dm_foot = '<script>(function(){var t=document.getElementById("theme-toggle"),d=document.documentElement;function s(m){d.setAttribute("data-theme",m);if(t)t.textContent=m==="dark"?"\\u2600\\ufe0f":"\\U0001f319";try{localStorage.setItem("theme",m)}catch(e){}}var v=(localStorage.getItem("theme")||(window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"));s(v);if(t)t.addEventListener("click",function(){s(d.getAttribute("data-theme")==="dark"?"light":"dark")});})();</script>'
     return f"""<!doctype html>
 <html lang="zh-Hant">
 <head>
@@ -119,6 +121,7 @@ def page(title, body, page_path=None, extra_head="", meta_description="", og_ima
   <link rel="canonical" href="{canonical}">
   <meta http-equiv="Content-Security-Policy" content="{csp}">
   <title>{escape(title)}｜世界聲音百科</title>
+  {_dm_head}
   <link rel="stylesheet" href="{resolve_url(page_path, '/assets/site.css')}">
   <script type="application/ld+json">{jsonld}</script>
   {extra_head}
@@ -144,6 +147,7 @@ def page(title, body, page_path=None, extra_head="", meta_description="", og_ima
       <a href="{resolve_url(page_path, '/about/')}">關於</a>
       <a href="{resolve_url(page_path, '/contact/')}">聯絡我們</a>
     </nav>
+    <button id="theme-toggle" class="theme-toggle" aria-label="切換深色模式">🌙</button>
   </header>
   {body}
   <footer class="site-footer">
@@ -168,6 +172,7 @@ def page(title, body, page_path=None, extra_head="", meta_description="", og_ima
   <script src="{resolve_url(page_path, '/assets/search.js')}"></script>
   <script src="{resolve_url(page_path, '/assets/random-instrument.js')}"></script>
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  {_dm_foot}
 </body>
 </html>"""
 
@@ -741,6 +746,17 @@ def append_css():
 .btn-line:hover { background:#05a648; transform:translateY(-2px); box-shadow:0 4px 16px rgba(6,199,85,.4); }
 .btn-email { display:inline-flex; align-items:center; gap:8px; padding:14px 28px; background:var(--blue); color:#fff; border-radius:10px; text-decoration:none; font-weight:700; font-size:16px; transition:background .15s,transform .15s; box-shadow:0 2px 8px rgba(29,78,216,.3); }
 .btn-email:hover { background:#1e40af; transform:translateY(-2px); box-shadow:0 4px 16px rgba(29,78,216,.4); }
+
+/* Dark mode */
+[data-theme="dark"] {
+  --ink: #e2e8f0; --ink2: #cbd5e1; --muted: #94a3b8; --line: #334155;
+  --surface: #1e293b; --soft: #0f172a; --accent: #5eead4; --accent2: #14b8a6;
+  --blue: #60a5fa;
+  --shadow: 0 1px 3px rgba(0,0,0,.3), 0 1px 2px rgba(0,0,0,.25);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,.35), 0 2px 4px -2px rgba(0,0,0,.3);
+}
+.theme-toggle { background:none; border:1px solid var(--line); border-radius:6px; cursor:pointer; font-size:16px; line-height:1; padding:5px 8px; color:var(--ink2); transition:border-color .15s; flex-shrink:0; margin-left:4px; }
+.theme-toggle:hover { border-color:var(--accent); }
 """
     css_path.write_text(css_path.read_text(encoding="utf-8") + extra, encoding="utf-8")
     print("  CSS styles appended to site.css.")

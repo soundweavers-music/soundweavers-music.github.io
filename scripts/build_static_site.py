@@ -328,6 +328,9 @@ def page(title, body, page_path=None, meta_extra="", extra_head="", meta_descrip
 <meta property="og:description" content="{escape(desc)}">
 <meta property="og:image" content="{og_image}">
 <meta property="og:type" content="website">'''
+    _dm_head = '<script>!function(){try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);else if(window.matchMedia("(prefers-color-scheme:dark)").matches)document.documentElement.setAttribute("data-theme","dark")}catch(e){}}()</script>'
+    _dm_foot = '<script>(function(){var t=document.getElementById("theme-toggle"),d=document.documentElement;function s(m){d.setAttribute("data-theme",m);if(t)t.textContent=m==="dark"?"\u2600\ufe0f":"\U0001f319";try{localStorage.setItem("theme",m)}catch(e){}}var v=(localStorage.getItem("theme")||(window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"));s(v);if(t)t.addEventListener("click",function(){s(d.getAttribute("data-theme")==="dark"?"light":"dark")});})();</script>'
+
     return f"""<!doctype html>
 <html lang="zh-Hant">
 <head>
@@ -338,6 +341,7 @@ def page(title, body, page_path=None, meta_extra="", extra_head="", meta_descrip
   <title>{escape(title)}｜世界聲音百科</title>
   {seo_tags}
   {meta_extra}
+  {_dm_head}
   <link rel="stylesheet" href="{resolve_url(page_path, '/assets/site.css')}">
   {extra_head}
 </head>
@@ -362,6 +366,7 @@ def page(title, body, page_path=None, meta_extra="", extra_head="", meta_descrip
       <a href="{resolve_url(page_path, '/about/')}">關於</a>
       <a href="{resolve_url(page_path, '/contact/')}">聯絡我們</a>
     </nav>
+    <button id="theme-toggle" class="theme-toggle" aria-label="切換深色模式">🌙</button>
   </header>
   {body}
   <footer class="site-footer">
@@ -386,6 +391,7 @@ def page(title, body, page_path=None, meta_extra="", extra_head="", meta_descrip
   <script src="{resolve_url(page_path, '/assets/search.js')}"></script>
     <script src="{resolve_url(page_path, '/assets/random-instrument.js')}"></script>
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  {_dm_foot}
 </body>
 </html>
 """
@@ -775,6 +781,19 @@ def build_assets(instruments):
   --shadow: 0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.06);
   --shadow-md: 0 4px 6px -1px rgba(0,0,0,.07), 0 2px 4px -2px rgba(0,0,0,.07);
 }
+[data-theme="dark"] {
+  --ink: #e2e8f0;
+  --ink2: #cbd5e1;
+  --muted: #94a3b8;
+  --line: #334155;
+  --surface: #1e293b;
+  --soft: #0f172a;
+  --accent: #5eead4;
+  --accent2: #14b8a6;
+  --blue: #60a5fa;
+  --shadow: 0 1px 3px rgba(0,0,0,.3), 0 1px 2px rgba(0,0,0,.25);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,.35), 0 2px 4px -2px rgba(0,0,0,.3);
+}
 *, *::before, *::after { box-sizing: border-box; }
 body { margin:0; color:var(--ink); background:var(--soft); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif; line-height:1.6; }
 a { color:inherit; }
@@ -784,7 +803,7 @@ img { max-width:100%; }
 .site-header {
   display:flex; justify-content:space-between; gap:20px; align-items:center;
   padding:14px 28px; border-bottom:1px solid var(--line);
-  background:rgba(255,255,255,.97); backdrop-filter:blur(8px);
+  background:var(--surface); backdrop-filter:blur(8px);
   position:sticky; top:0; z-index:100;
   box-shadow: 0 1px 0 var(--line);
 }
@@ -793,12 +812,16 @@ img { max-width:100%; }
 .site-header nav a { text-decoration:none; color:var(--muted); font-size:14px; font-weight:500; padding:6px 10px; border-radius:6px; transition:color .15s,background .15s; }
 .site-header nav a:hover { color:var(--ink); background:var(--soft); }
 
+/* ── Theme toggle ─────────────────────────────────────────────── */
+.theme-toggle { background:none; border:1px solid var(--line); border-radius:6px; cursor:pointer; font-size:16px; line-height:1; padding:5px 8px; color:var(--ink2); transition:border-color .15s; flex-shrink:0; margin-left:4px; }
+.theme-toggle:hover { border-color:var(--accent); }
+
 /* ── Dropdown nav ─────────────────────────────────────────────── */
 .nav-dropdown { position:relative; display:inline-block; }
 .nav-dropdown .dropdown-trigger { cursor:pointer; }
 .dropdown-menu {
   display:none; position:absolute; top:100%; left:0; z-index:200;
-  min-width:140px; background:#fff; border:1px solid var(--line);
+  min-width:140px; background:var(--surface); border:1px solid var(--line);
   border-radius:8px; box-shadow:var(--shadow-md); padding:4px 0;
 }
 .nav-dropdown:hover .dropdown-menu,
