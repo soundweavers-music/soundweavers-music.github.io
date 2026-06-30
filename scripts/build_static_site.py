@@ -329,7 +329,7 @@ def page(title, body, page_path=None, meta_extra="", extra_head="", meta_descrip
 <meta property="og:image" content="{og_image}">
 <meta property="og:type" content="website">'''
     _dm_head = '<script>!function(){try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);else if(window.matchMedia("(prefers-color-scheme:dark)").matches)document.documentElement.setAttribute("data-theme","dark")}catch(e){}}()</script>'
-    _dm_foot = '<script>(function(){var t=document.getElementById("theme-toggle"),d=document.documentElement;function s(m){d.setAttribute("data-theme",m);if(t)t.textContent=m==="dark"?"\u2600\ufe0f":"\U0001f319";try{localStorage.setItem("theme",m)}catch(e){}}var v=(localStorage.getItem("theme")||(window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"));s(v);if(t)t.addEventListener("click",function(){s(d.getAttribute("data-theme")==="dark"?"light":"dark")});})();</script>'
+    _dm_foot = '<script>(function(){var t=document.getElementById("theme-toggle"),d=document.documentElement;function s(m){d.setAttribute("data-theme",m);if(t)t.textContent=m==="dark"?"☀️":"🌙";try{localStorage.setItem("theme",m)}catch(e){}}var v=(localStorage.getItem("theme")||(window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"));s(v);if(t)t.addEventListener("click",function(){s(d.getAttribute("data-theme")==="dark"?"light":"dark")});})();</script>'
 
     return f"""<!doctype html>
 <html lang="zh-Hant">
