@@ -1,7 +1,7 @@
 ---
 is_uncommon: true
 site_url: https://soundweavers-music.github.io/instruments/lesiba/
-title: Lesiba（暫譯）
+title: 樂希巴琴
 original_name: Lesiba
 category: 弦樂器
 country: 非洲／南非
