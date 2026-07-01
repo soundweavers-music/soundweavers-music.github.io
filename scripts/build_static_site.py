@@ -411,8 +411,7 @@ def page(title, body, page_path=None, meta_extra="", extra_head="", meta_descrip
         </div>
       </div>
       <a href="{resolve_url(page_path, '/experience/')}">🎹 體驗</a>
-      <a href="{resolve_url(page_path, '/experience/')}">🎹 體驗</a>
-        <a href="{resolve_url(page_path, '/about/')}">關於</a>
+      <a href="{resolve_url(page_path, '/about/')}">關於</a>
       <a href="{resolve_url(page_path, '/contact/')}">聯絡我們</a>
     </nav>
     <button id="theme-toggle" class="theme-toggle" aria-label="切換色調">🎋</button>
