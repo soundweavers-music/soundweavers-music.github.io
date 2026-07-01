@@ -1,7 +1,7 @@
 ---
 is_uncommon: true
 site_url: https://soundweavers-music.github.io/instruments/huiringua/
-title: Huiringua（暫譯）
+title: 刮葫
 original_name: Huiringua
 category: 打擊樂器
 country: 墨西哥

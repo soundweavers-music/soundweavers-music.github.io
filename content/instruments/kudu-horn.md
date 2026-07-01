@@ -1,6 +1,6 @@
 ---
 site_url: https://soundweavers-music.github.io/instruments/kudu-horn/
-title: 童軍活動
+title: 庫杜號角
 original_name: Kudu Horn
 category: 管樂器
 country: 全球／中東／歐洲／亞洲／高山與宗教文化圈

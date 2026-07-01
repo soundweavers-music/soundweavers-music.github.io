@@ -1,7 +1,7 @@
 ---
 is_uncommon: true
 site_url: https://soundweavers-music.github.io/instruments/kwintangan-kayo/
-title: Kwintangan kayo（暫譯）
+title: 木製庫林鐺
 original_name: Kwintangan kayo
 category: 打擊樂器
 country: 菲律賓／棉蘭老地區

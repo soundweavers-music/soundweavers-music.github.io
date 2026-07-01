@@ -1,7 +1,7 @@
 ---
 is_popular: true
 site_url: https://soundweavers-music.github.io/instruments/harpejji/
-title: 豎琴吉他
+title: 哈撥琴
 original_name: Harpejji
 category: 弦樂器
 playing_method: 撥弦／擦弦／擊弦
