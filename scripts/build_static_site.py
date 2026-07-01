@@ -343,7 +343,7 @@ def page(title, body, page_path=None, meta_extra="", extra_head="", meta_descrip
 <script type="application/ld+json">{jsonld}</script>'''''
     if "og:title" not in meta_extra:
         seo_tags += f'''
-<meta property="og:title" content="{escape(title)}｜世界聲音百科">
+<meta property="og:title" content="{escape(title) if "|" in title or "｜" in title else escape(title) + "｜世界聲音百科"}">
 <meta property="og:description" content="{escape(desc)}">
 <meta property="og:image" content="{og_image}">
 <meta property="og:type" content="website">'''
@@ -358,7 +358,7 @@ def page(title, body, page_path=None, meta_extra="", extra_head="", meta_descrip
   <meta name="referrer" content="no-referrer-when-downgrade">
   <meta http-equiv="Content-Security-Policy" content="{csp}">
   <meta name="google-site-verification" content="AzedQ-PxUmSW7_0jyEHmHCKgN2nIK0Bio5d6LCsJTtE">
-  <title>{escape(title)}｜世界聲音百科</title>
+  <title>{escape(title) if "|" in title or "｜" in title else escape(title) + "｜世界聲音百科"}</title>
   {seo_tags}
   {meta_extra}
   {_dm_head}
@@ -630,7 +630,7 @@ def build_index(instruments):
       </div>
     </main>
     """
-    write(index_path, page("首頁", body, index_path, meta_description="世界聲音百科 by 隔壁織音人 — 收錄世界各國傳統與現代樂器（卡林巴、手碟、鋼琴、吉他、小提琴等）、人聲歌唱教學、錄音後製知識與基礎樂理。探索樂器分類、國家地區、年代與音色，適合音樂創作者、教育工作者與樂器愛好者。"))
+    write(index_path, page("世界聲音百科 | 隔壁織音人", body, index_path, meta_description="世界聲音百科 by 隔壁織音人 — 收錄世界各國傳統與現代樂器（卡林巴、手碟、鋼琴、吉他、小提琴等）、人聲歌唱教學、錄音後製知識與基礎樂理。探索樂器分類、國家地區、年代與音色，適合音樂創作者、教育工作者與樂器愛好者。"))
 
     # Write map data as JSON for the map page
     map_features = build_map_data(instruments)

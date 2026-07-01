@@ -87,7 +87,7 @@ def markdown_to_html(md_text):
 
 
 def page(title, body, page_path=None, extra_head="", meta_description="", og_image=""):
-    desc = meta_description or "世界聲音百科 — 收錄世界樂器、人聲歌唱教學、音樂理論與錄音製作知識的整合平台。循著聲音，走進不同文化的現場。"
+    desc = meta_description or "世界聲音百科 by 隔壁織音人 — 收錄世界各國樂器、人聲歌唱教學、錄音後製知識與基礎樂理。從傳統民族樂器到現代電子樂器，提供樂器介紹、聆賞示範、演奏教學與文化背景。循著聲音，走進不同文化的現場。"
     csp = ("default-src 'self'; img-src 'self' https: data:; "
            "style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; "
            "script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; "
@@ -103,17 +103,34 @@ def page(title, body, page_path=None, extra_head="", meta_description="", og_ima
   "name": "世界聲音百科",
   "alternateName": "World Sound Encyclopedia",
   "url": "https://soundweavers-music.github.io/",
-  "description": "{escape(desc)}"
+  "description": "{escape(desc)}",
+  "author": {{
+    "@type": "Person",
+    "name": "隔壁織音人",
+    "url": "https://www.youtube.com/@NextDoorSoundWeavers/"
+  }},
+  "potentialAction": {{
+    "@type": "SearchAction",
+    "target": {{
+      "@type": "EntryPoint",
+      "urlTemplate": "https://soundweavers-music.github.io/?q={{search_term_string}}"
+    }},
+    "query-input": "required name=search_term_string"
+  }},
+  "sameAs": [
+    "https://www.youtube.com/@NextDoorSoundWeavers/"
+  ]
 }}'''
-    _dm_head = '<script>!function(){try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);else if(window.matchMedia("(prefers-color-scheme:dark)").matches)document.documentElement.setAttribute("data-theme","dark")}catch(e){}}()</script>'
-    _dm_foot = '<script>(function(){var t=document.getElementById("theme-toggle"),d=document.documentElement;function s(m){d.setAttribute("data-theme",m);if(t)t.textContent=m==="dark"?"☀️":"🌙";try{localStorage.setItem("theme",m)}catch(e){}}var v=(localStorage.getItem("theme")||(window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"));s(v);if(t)t.addEventListener("click",function(){s(d.getAttribute("data-theme")==="dark"?"light":"dark")});})();</script>'
+    _dm_head = '<script>!function(){try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);else document.documentElement.setAttribute("data-theme","nextdoor")}catch(e){}}()</script>'
+    _dm_foot = '<script>(function(){var t=document.getElementById("theme-toggle"),d=document.documentElement;var I={nextdoor:"🎋",light:"🌤",dark:"🌙"};function s(m){d.setAttribute("data-theme",m);if(t)t.textContent=I[m]||"🎋";try{localStorage.setItem("theme",m)}catch(e){}}var v=(localStorage.getItem("theme")||"nextdoor");s(v);if(t)t.addEventListener("click",function(){var c=d.getAttribute("data-theme");s(c==="nextdoor"?"light":c==="light"?"dark":"nextdoor")});})();</script>'
     return f"""<!doctype html>
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="{escape(desc)}">
-  <meta property="og:title" content="{escape(title)}｜世界聲音百科">
+  <meta name="keywords" content="隔壁織音人,世界樂器,世界樂器百科,世界聲音百科,樂器教學,歌唱教學,錄音後製,吉他教學,鋼琴教學,基礎樂理,音樂知識">
+  <meta property="og:title" content="{escape(title) if "|" in title or "｜" in title else escape(title) + "｜世界聲音百科"}">
   <meta property="og:description" content="{escape(desc)}">
   <meta property="og:image" content="{og_img}">
   <meta property="og:type" content="website">
@@ -121,7 +138,7 @@ def page(title, body, page_path=None, extra_head="", meta_description="", og_ima
   <link rel="canonical" href="{canonical}">
   <meta http-equiv="Content-Security-Policy" content="{csp}">
   <meta name="google-site-verification" content="AzedQ-PxUmSW7_0jyEHmHCKgN2nIK0Bio5d6LCsJTtE">
-  <title>{escape(title)}｜世界聲音百科</title>
+  <title>{escape(title) if "|" in title or "｜" in title else escape(title) + "｜世界聲音百科"}</title>
   {_dm_head}
   <link rel="stylesheet" href="{resolve_url(page_path, '/assets/site.css')}">
   <script type="application/ld+json">{jsonld}</script>
@@ -148,7 +165,7 @@ def page(title, body, page_path=None, extra_head="", meta_description="", og_ima
       <a href="{resolve_url(page_path, '/about/')}">關於</a>
       <a href="{resolve_url(page_path, '/contact/')}">聯絡我們</a>
     </nav>
-    <button id="theme-toggle" class="theme-toggle" aria-label="切換深色模式">🌙</button>
+    <button id="theme-toggle" class="theme-toggle" aria-label="切換色調">🎋</button>
   </header>
   {body}
   <footer class="site-footer">
@@ -262,7 +279,7 @@ def build_portal_homepage(instruments):
     <div class="instrument-grid">{sample_cards}</div>
   </section>
 </main>"""
-    write(index_path, page("首頁", body, index_path, meta_description="世界聲音百科 — 收錄世界樂器、人聲歌唱教學、音樂理論與錄音製作知識的整合平台。循著聲音，走進不同文化的現場。"))
+    write(index_path, page("世界聲音百科 | 隔壁織音人", body, index_path, meta_description="世界聲音百科 by 隔壁織音人 — 收錄世界各國樂器、人聲歌唱教學、錄音後製知識與基礎樂理。從傳統民族樂器到現代電子樂器，提供樂器介紹、聆賞示範、演奏教學與文化背景。循著聲音，走進不同文化的現場。"))
     print("  Portal homepage written.")
 
 
