@@ -1,6 +1,6 @@
 ---
 site_url: https://soundweavers-music.github.io/instruments/adjalin/
-title: Adjalin（暫譯）
+title: 阿賈林琴
 original_name: Adjalin
 category: 弦樂器
 country: 非洲西部
