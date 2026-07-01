@@ -410,7 +410,9 @@ def page(title, body, page_path=None, meta_extra="", extra_head="", meta_descrip
           <a href="{resolve_url(page_path, '/theory/5/')}">階段五</a>
         </div>
       </div>
-      <a href="{resolve_url(page_path, '/about/')}">關於</a>
+      <a href="{resolve_url(page_path, '/experience/')}">🎹 體驗</a>
+      <a href="{resolve_url(page_path, '/experience/')}">🎹 體驗</a>
+        <a href="{resolve_url(page_path, '/about/')}">關於</a>
       <a href="{resolve_url(page_path, '/contact/')}">聯絡我們</a>
     </nav>
     <button id="theme-toggle" class="theme-toggle" aria-label="切換色調">🎋</button>
@@ -1453,7 +1455,7 @@ def build_sitemap(instruments):
     # Static top-level pages
     for path in ["/", "/instruments/", "/categories/", "/countries/", "/eras/",
                  "/sound-classes/", "/popular/", "/uncommon/", "/map/",
-                 "/about/", "/theory/", "/vocal/", "/digitalmusic/", "/contact/"]:
+                 "/about/", "/theory/", "/vocal/", "/digitalmusic/", "/experience/", "/contact/"]:
         urls.append(u(path))
 
     # Instrument detail pages

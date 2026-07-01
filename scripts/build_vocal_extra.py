@@ -189,6 +189,7 @@ def page(title, body, page_path=None, extra_head="", meta_description="", og_ima
           <a href="{resolve_url(page_path, '/theory/5/')}">階段五</a>
         </div>
       </div>
+      <a href="{resolve_url(page_path, '/experience/')}">🎹 體驗</a>
       <a href="{resolve_url(page_path, '/about/')}">關於</a>
       <a href="{resolve_url(page_path, '/contact/')}">聯絡我們</a>
     </nav>
@@ -798,6 +799,336 @@ def build_theory_pages():
     print(f"  Built theory page with {len(stages)} stages + detail pages")
 
 
+def build_experience_page():
+    """Build the World Instrument Experience page with a virtual keyboard."""
+    print("Building experience page...")
+    out_dir = OUTPUT_DIR / "experience"
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    css = """
+<style>
+.exp-hero { padding:48px 20px 32px; text-align:center; background:linear-gradient(135deg,#f0fdfa 0%,#ecfeff 100%); border-bottom:1px solid var(--line); }
+.exp-hero h1 { font-size:clamp(28px,4vw,40px); margin:0 0 8px; }
+.exp-hero .lead { color:var(--muted); max-width:560px; margin:0 auto 8px; line-height:1.6; }
+.exp-badge { display:inline-block; padding:4px 14px; border-radius:20px; background:rgba(245,158,11,.15); color:#b45309; font-size:12px; font-weight:700; margin-bottom:12px; }
+
+.exp-controls { display:flex; gap:12px; align-items:center; justify-content:center; flex-wrap:wrap; max-width:800px; margin:28px auto 20px; }
+.exp-controls label { font-weight:600; font-size:14px; color:var(--ink2); display:flex; align-items:center; gap:8px; }
+.exp-controls select { height:42px; border:1px solid var(--line); border-radius:8px; padding:0 14px; background:var(--surface); color:var(--ink); font-size:15px; cursor:pointer; min-width:200px; }
+.exp-controls select:focus { outline:none; border-color:var(--accent); }
+
+.exp-info { text-align:center; margin:4px 0 18px; font-size:14px; color:var(--muted); }
+.exp-info strong { color:var(--ink); }
+
+/* ── Keyboard ── */
+.keyboard-wrap { max-width:860px; margin:0 auto; padding:18px 20px 28px; overflow-x:auto; }
+.keyboard { display:flex; position:relative; height:200px; margin:0 auto; user-select:none; }
+.key-white { position:absolute; height:200px; width:48px; border:1px solid #d0d5dd; border-radius:0 0 6px 6px; background:#fff; cursor:pointer; display:flex; align-items:flex-end; justify-content:center; padding-bottom:10px; font-size:10px; color:#999; box-sizing:border-box; z-index:1; transition:background .08s; }
+.key-white:hover { background:#f0f4f8; }
+.key-white.active { background:#d1fae5; }
+.key-black { position:absolute; height:120px; width:30px; border:1px solid #1a2332; border-radius:0 0 4px 4px; background:#1a2332; cursor:pointer; z-index:2; transition:background .08s; }
+.key-black:hover { background:#344054; }
+.key-black.active { background:#0f766e; }
+.key-label { pointer-events:none; }
+
+/* Instrument info panel */
+.exp-panel { max-width:800px; margin:0 auto 42px; padding:20px 24px; border:1px solid var(--line); border-radius:12px; background:var(--surface); }
+.exp-panel h3 { margin:0 0 8px; font-size:16px; }
+.exp-panel .range-info { color:var(--muted); font-size:13px; margin:0; }
+.exp-panel .keys-count { color:var(--muted); font-size:13px; margin:4px 0 0; }
+</style>"""
+
+    # Instrument range mapping (MIDI note numbers: C0=12, C1=24, ..., C8=108)
+    instruments_map = [
+        {"id": "piano", "name": "鋼琴 Piano", "min": 21, "max": 108, "wave": "piano", "desc": "88 鍵標準鋼琴，A0–C8"},
+        {"id": "guitar", "name": "吉他 Guitar", "min": 40, "max": 76, "wave": "guitar", "desc": "E2–E6，約 4 個 8 度"},
+        {"id": "violin", "name": "小提琴 Violin", "min": 55, "max": 88, "wave": "string", "desc": "G3–A7，約 3 個 8 度"},
+        {"id": "cello", "name": "大提琴 Cello", "min": 36, "max": 72, "wave": "string", "desc": "C2–C6，約 4 個 8 度"},
+        {"id": "flute", "name": "長笛 Flute", "min": 60, "max": 84, "wave": "wind", "desc": "C4–C7，約 3 個 8 度"},
+        {"id": "trumpet", "name": "小號 Trumpet", "min": 54, "max": 78, "wave": "wind", "desc": "F#3–C6，約 2.5 個 8 度"},
+        {"id": "clarinet", "name": "單簧管 Clarinet", "min": 52, "max": 79, "wave": "wind", "desc": "E3–G6，約 3.5 個 8 度"},
+        {"id": "saxophone", "name": "薩克斯風 Sax", "min": 46, "max": 77, "wave": "wind", "desc": "Bb3–F6，約 2.5 個 8 度"},
+        {"id": "harp", "name": "豎琴 Harp", "min": 36, "max": 91, "wave": "piano", "desc": "C3–C7，約 4 個 8 度"},
+        {"id": "organ", "name": "管風琴 Organ", "min": 24, "max": 108, "wave": "organ", "desc": "C1–C8，寬廣音域"},
+        {"id": "bass", "name": "低音提琴 Double Bass", "min": 28, "max": 64, "wave": "guitar", "desc": "E1–G4，約 3.5 個 8 度"},
+        {"id": "accordion", "name": "手風琴 Accordion", "min": 48, "max": 90, "wave": "organ", "desc": "C3–F6，約 3.5 個 8 度"},
+        {"id": "marimba", "name": "馬林巴 Marimba", "min": 48, "max": 84, "wave": "piano", "desc": "C3–C7，約 4 個 8 度"},
+        {"id": "xylophone", "name": "木琴 Xylophone", "min": 60, "max": 96, "wave": "piano", "desc": "C4–C8，約 4 個 8 度"},
+        {"id": "harmonica", "name": "口琴 Harmonica", "min": 60, "max": 84, "wave": "wind", "desc": "C4–C7，約 3 個 8 度"},
+        {"id": "erhu", "name": "二胡 Erhu", "min": 55, "max": 79, "wave": "string", "desc": "G3–G6，約 2.5 個 8 度"},
+        {"id": "pipa", "name": "琵琶 Pipa", "min": 48, "max": 84, "wave": "piano", "desc": "C3–C7，約 4 個 8 度"},
+    ]
+
+    ins_json = json.dumps(instruments_map, ensure_ascii=False)
+
+    body = f"""<main>
+  <section class="exp-hero">
+    <div class="exp-badge">🎹 建置中 · 測試版</div>
+    <h1>世界樂器體驗</h1>
+    <p class="lead">透過虛擬鍵盤模擬不同樂器的音色與音域，探索各種樂器的聲音特質。</p>
+  </section>
+
+  <div class="keyboard-wrap">
+    <div class="exp-controls">
+      <label>選擇樂器：
+        <select id="ins-select"></select>
+      </label>
+    </div>
+
+    <div class="exp-info">
+      <span>音域：<strong id="range-label">A0–C8</strong></span>
+      <span style="margin-left:16px;">按鍵數：<strong id="keys-count">88</strong></span>
+      <span style="margin-left:16px;font-size:12px;">💡 點擊琴鍵或用電腦鍵盤彈奏</span>
+    </div>
+
+    <div class="keyboard" id="keyboard"></div>
+  </div>
+
+  <div class="exp-panel">
+    <h3 id="ins-name">鋼琴 Piano</h3>
+    <p class="range-info" id="ins-desc">88 鍵標準鋼琴，A0–C8</p>
+    <p class="keys-count" id="ins-keys"></p>
+  </div>
+</main>
+
+<script>
+(function() {{
+  var insList = {ins_json};
+
+  var NOTES = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
+
+  function noteName(midi) {{
+    var oct = Math.floor(midi / 12) - 1;
+    return NOTES[midi % 12] + oct;
+  }}
+
+  // ── Audio engine ──
+  var audioCtx = null;
+  function getAudio() {{
+    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    return audioCtx;
+  }}
+
+  var activeNotes = {{}};
+
+  function playNote(midi, waveType) {{
+    var ctx = getAudio();
+    if (activeNotes[midi]) return;
+    var freq = 440 * Math.pow(2, (midi - 69) / 12);
+    var osc = ctx.createOscillator();
+    var gain = ctx.createGain();
+    var filter = ctx.createBiquadFilter();
+
+    switch(waveType) {{
+      case 'piano':
+        osc.type = 'triangle';
+        osc.frequency.value = freq;
+        filter.type = 'lowpass';
+        filter.frequency.value = Math.min(2000 + (midi - 21) * 40, 8000);
+        gain.gain.setValueAtTime(0, ctx.currentTime);
+        gain.gain.linearRampToValueAtTime(0.35, ctx.currentTime + 0.005);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 1.8);
+        break;
+      case 'guitar':
+        osc.type = 'sawtooth';
+        osc.frequency.value = freq;
+        filter.type = 'lowpass';
+        filter.frequency.value = Math.min(800 + (midi - 21) * 25, 4000);
+        filter.Q.value = 2;
+        gain.gain.setValueAtTime(0, ctx.currentTime);
+        gain.gain.linearRampToValueAtTime(0.25, ctx.currentTime + 0.003);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.8);
+        break;
+      case 'string':
+        osc.type = 'sawtooth';
+        osc.frequency.value = freq;
+        filter.type = 'lowpass';
+        filter.frequency.value = Math.min(1200 + (midi - 21) * 30, 6000);
+        gain.gain.setValueAtTime(0, ctx.currentTime);
+        gain.gain.linearRampToValueAtTime(0.3, ctx.currentTime + 0.08);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 2.5);
+        break;
+      case 'wind':
+        osc.type = 'sine';
+        osc.frequency.value = freq;
+        filter.type = 'bandpass';
+        filter.frequency.value = freq * 2;
+        filter.Q.value = 3;
+        gain.gain.setValueAtTime(0, ctx.currentTime);
+        gain.gain.linearRampToValueAtTime(0.25, ctx.currentTime + 0.04);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 1.5);
+        break;
+      case 'organ':
+        osc.type = 'sawtooth';
+        osc.frequency.value = freq;
+        filter.type = 'lowpass';
+        filter.frequency.value = Math.min(1500 + (midi - 21) * 30, 6000);
+        gain.gain.setValueAtTime(0.001, ctx.currentTime);
+        gain.gain.linearRampToValueAtTime(0.2, ctx.currentTime + 0.03);
+        gain.gain.setValueAtTime(0.2, ctx.currentTime + 2.0);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 4.0);
+        break;
+    }}
+
+    osc.connect(filter);
+    filter.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start(ctx.currentTime);
+    osc.stop(ctx.currentTime + 4);
+
+    activeNotes[midi] = {{ osc: osc, gain: gain }};
+    osc.onended = function() {{ delete activeNotes[midi]; }};
+  }}
+
+  function stopNote(midi) {{
+    if (activeNotes[midi]) {{
+      try {{
+        var g = activeNotes[midi].gain;
+        g.gain.cancelScheduledValues(audioCtx.currentTime);
+        g.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.08);
+      }} catch(e) {{}}
+      setTimeout(function() {{
+        try {{ activeNotes[midi].osc.stop(); }} catch(e) {{}}
+        delete activeNotes[midi];
+      }}, 100);
+    }}
+  }}
+
+  // ── Keyboard rendering ──
+  var keyboard = document.getElementById('keyboard');
+  var insSelect = document.getElementById('ins-select');
+  var rangeLabel = document.getElementById('range-label');
+  var keysCount = document.getElementById('keys-count');
+  var insName = document.getElementById('ins-name');
+  var insDesc = document.getElementById('ins-desc');
+  var insKeys = document.getElementById('ins-keys');
+  var currentIns = null;
+
+  // Populate instrument selector
+  insList.forEach(function(ins) {{
+    var opt = document.createElement('option');
+    opt.value = ins.id;
+    opt.textContent = ins.name;
+    insSelect.appendChild(opt);
+  }});
+
+  function renderKeyboard(insId) {{
+    var ins = insList.find(function(i) {{ return i.id === insId; }});
+    if (!ins) return;
+    currentIns = ins;
+    rangeLabel.textContent = ins.desc;
+    insName.textContent = ins.name;
+    insDesc.textContent = ins.desc;
+
+    // Build key data
+    var keys = [];
+    for (var m = ins.min; m <= ins.max; m++) {{
+      var isBlack = NOTES[m % 12].indexOf('#') !== -1;
+      keys.push({{ midi: m, black: isBlack, name: noteName(m) }});
+    }}
+    keysCount.textContent = keys.length;
+    insKeys.textContent = '共 ' + keys.length + ' 個音高';
+
+    // Calculate positions
+    var whiteKeys = keys.filter(function(k) {{ return !k.black; }});
+    var whiteW = 48;
+    var blackW = 30;
+    var keyboardWidth = whiteKeys.length * whiteW;
+    keyboard.style.width = keyboardWidth + 'px';
+    keyboard.innerHTML = '';
+
+    var whiteIdx = 0;
+    keys.forEach(function(k) {{
+      var el = document.createElement('div');
+      if (k.black) {{
+        // Find position: between the white keys
+        var pos = whiteIdx * whiteW - blackW / 2;
+        el.className = 'key-black';
+        el.style.left = pos + 'px';
+        el.dataset.midi = k.midi;
+      }} else {{
+        el.className = 'key-white';
+        el.style.left = (whiteIdx * whiteW) + 'px';
+        el.dataset.midi = k.midi;
+        var label = document.createElement('span');
+        label.className = 'key-label';
+        label.textContent = k.name;
+        el.appendChild(label);
+        whiteIdx++;
+      }}
+      // Mouse events
+      el.addEventListener('mousedown', function(e) {{
+        e.preventDefault();
+        var midi = parseInt(this.dataset.midi);
+        this.classList.add('active');
+        playNote(midi, ins.wave);
+      }});
+      el.addEventListener('mouseup', function() {{
+        var midi = parseInt(this.dataset.midi);
+        this.classList.remove('active');
+        stopNote(midi);
+      }});
+      el.addEventListener('mouseleave', function() {{
+        var midi = parseInt(this.dataset.midi);
+        this.classList.remove('active');
+        stopNote(midi);
+      }});
+      // Touch events
+      el.addEventListener('touchstart', function(e) {{
+        e.preventDefault();
+        var midi = parseInt(this.dataset.midi);
+        this.classList.add('active');
+        playNote(midi, ins.wave);
+      }});
+      el.addEventListener('touchend', function(e) {{
+        e.preventDefault();
+        var midi = parseInt(this.dataset.midi);
+        this.classList.remove('active');
+        stopNote(midi);
+      }});
+      keyboard.appendChild(el);
+    }});
+  }}
+
+  insSelect.addEventListener('change', function() {{
+    renderKeyboard(this.value);
+  }});
+
+  // Computer keyboard support
+  var keyMap = 'awsedftgyhujkolp;';
+  var keyMidiOffset = 48;
+  document.addEventListener('keydown', function(e) {{
+    if (!currentIns) return;
+    var idx = keyMap.indexOf(e.key.toLowerCase());
+    if (idx === -1) return;
+    var midi = currentIns.min + idx;
+    if (midi > currentIns.max) return;
+    var keyEl = keyboard.querySelector('[data-midi=\"' + midi + '\"]');
+    if (keyEl) {{
+      keyEl.classList.add('active');
+      playNote(midi, currentIns.wave);
+    }}
+  }});
+  document.addEventListener('keyup', function(e) {{
+    if (!currentIns) return;
+    var idx = keyMap.indexOf(e.key.toLowerCase());
+    if (idx === -1) return;
+    var midi = currentIns.min + idx;
+    var keyEl = keyboard.querySelector('[data-midi=\"' + midi + '\"]');
+    if (keyEl) keyEl.classList.remove('active');
+    stopNote(midi);
+  }});
+
+  // Initial render
+  renderKeyboard('piano');
+}})();
+</script>"""
+
+    write(out_dir / "index.html", page("世界樂器體驗", body, out_dir / "index.html",
+        meta_description="世界樂器體驗 — 透過虛擬鍵盤模擬鋼琴、吉他、小提琴等樂器的音色與音域。世界聲音百科 by 隔壁織音人。"))
+    print("  Experience page written.")
+
+
 def main():
     instruments = read_instruments()
     print(f"Read {len(instruments)} instruments from content/instruments/")
@@ -807,6 +1138,7 @@ def main():
     build_theory_pages()
     build_contact_page()
     build_digitalmusic_pages()
+    build_experience_page()
     build_about_page_extra()
     print("\nPost-build complete.")
 
