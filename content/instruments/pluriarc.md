@@ -1,9 +1,9 @@
 ---
 is_uncommon: true
 site_url: https://soundweavers-music.github.io/instruments/pluriarc/
-title: Pluriarc（暫譯）
+title: 多利亞克琴
 original_name: Pluriarc
-category: 打擊樂器
+category: 弦樂器
 country: 非洲
 era: 傳統／年代待考
 region_type: 單一地區／文化圈
