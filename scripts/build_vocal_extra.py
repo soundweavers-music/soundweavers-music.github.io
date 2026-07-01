@@ -861,7 +861,8 @@ def build_experience_page():
 
     ins_json = json.dumps(instruments_map, ensure_ascii=False)
 
-    body = f"""<main>
+    body = f"""{css}
+<main>
   <section class="exp-hero">
     <div class="exp-badge">🎹 建置中 · 測試版</div>
     <h1>世界樂器體驗</h1>
