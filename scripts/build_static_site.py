@@ -888,8 +888,8 @@ img { max-width:100%; }
 .theme-toggle:hover { border-color:var(--accent); }
 
 /* ── Dropdown nav ─────────────────────────────────────────────── */
-.nav-dropdown { position:relative; display:inline-block; }
-.nav-dropdown .dropdown-trigger { cursor:pointer; }
+.nav-dropdown { position:relative; display:flex; align-items:stretch; }
+.nav-dropdown .dropdown-trigger { cursor:pointer; display:flex; align-items:center; }
 .dropdown-menu {
   display:none; position:absolute; top:100%; left:0; z-index:200;
   min-width:140px; background:var(--surface); border:1px solid var(--line);
