@@ -262,12 +262,6 @@ def build_portal_homepage(instruments):
       <div class="card-desc">認識譜號、節拍、拍號、音調、音域與發聲原理，系統了解音樂理論的基礎知識。</div>
       <span class="card-badge badge-ready">已上線</span>
     </a>
-    <a class="portal-card card-recording" href="#">
-      <div class="card-icon">🎚️</div>
-      <div class="card-label">錄音後製</div>
-      <div class="card-desc">錄音技術、混音觀念、宅錄設備指南，從入門到進階的製作知識即將陸續上線。</div>
-      <span class="card-badge badge-soon">敬請期待</span>
-    </a>
     <a class="portal-card card-about" href="{resolve_url(index_path, '/about/')}">
       <div class="card-icon">ℹ️</div>
       <div class="card-label">關於</div>
