@@ -1,7 +1,7 @@
 ---
 is_popular: true
 site_url: https://soundweavers-music.github.io/instruments/mountain-dulcimer/
-title: 《指環王》系列電影配樂
+title: 高山杜西摩琴
 original_name: Mountain Dulcimer
 category: 鍵盤樂器
 country: 亞洲／歐洲／全球

@@ -1,7 +1,7 @@
 ---
 is_uncommon: true
 site_url: https://soundweavers-music.github.io/instruments/gogona/
-title: 印度音樂
+title: 果果納
 original_name: Gogona
 category: 打擊樂器
 country: 印度

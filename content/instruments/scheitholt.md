@@ -1,7 +1,7 @@
 ---
 is_uncommon: true
 site_url: https://soundweavers-music.github.io/instruments/scheitholt/
-title: 無
+title: 夏侯特
 original_name: Scheitholt
 category: 鍵盤樂器
 country: 東亞／中亞／歐洲／東南亞／非洲／美洲

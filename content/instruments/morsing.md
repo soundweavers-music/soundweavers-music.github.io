@@ -1,7 +1,7 @@
 ---
 is_popular: true
 site_url: https://soundweavers-music.github.io/instruments/morsing/
-title: 聖巴泰勒米行政長官列表
+title: 莫辛琴
 original_name: Morsing
 category: 管樂器
 country: 亞洲／歐洲／中東／全球

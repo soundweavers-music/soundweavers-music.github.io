@@ -1,7 +1,7 @@
 ---
 is_uncommon: true
 site_url: https://soundweavers-music.github.io/instruments/moodswinger/
-title: 噪音搖滾
+title: 十二弦電顫音琴
 original_name: Moodswinger
 category: 弦樂器
 country: 歐洲／荷蘭
