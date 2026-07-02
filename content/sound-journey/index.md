@@ -125,8 +125,6 @@ order: 0
 
 </div>
 
-> 📝 此篇章撰寫中，敬請期待
-
 <div class="journey-images">![image](images/image24.png)![image](images/image25.png)![image](images/image26.png)</div>
 
 ### 旅圖二｜懷裡與大地的弦
@@ -141,7 +139,6 @@ order: 0
 
 </div>
 
-> 📝 此篇章撰寫中，敬請期待
 
 <div class="journey-images">![image](images/image27.png)![image](images/image28.png)![image](images/image2.png)</div>
 
@@ -157,7 +154,6 @@ order: 0
 
 </div>
 
-> 📝 此篇章撰寫中，敬請期待
 
 <div class="journey-images">![image](images/image29.png)![image](images/image30.png)![image](images/image26.png)</div>
 
@@ -173,7 +169,6 @@ order: 0
 
 </div>
 
-> 📝 此篇章撰寫中，敬請期待
 
 <div class="journey-images">![image](images/image31.png)![image](images/image32.png)![image](images/image33.png)![image](images/image34.png)</div>
 
@@ -189,7 +184,6 @@ order: 0
 
 </div>
 
-> 📝 此篇章撰寫中，敬請期待
 
 <div class="journey-images">![image](images/image22.png)![image](images/image10.png)![image](images/image6.png)</div>
 
@@ -207,7 +201,6 @@ order: 0
 
 </div>
 
-> 📝 此篇章撰寫中，敬請期待
 
 ---
 

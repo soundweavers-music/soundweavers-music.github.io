@@ -162,6 +162,19 @@ def page(title, body, page_path=None, extra_head="", meta_description="", og_ima
         </div>
       </div>
       <div class="nav-dropdown">
+        <a href="{resolve_url(page_path, '/sound-journey/')}" class="dropdown-trigger">聲音旅圖</a>
+        <div class="dropdown-menu">
+          <a href="{resolve_url(page_path, '/sound-journey/')}">旅圖門口</a>
+          <a href="{resolve_url(page_path, '/sound-journey/1/')}">旅圖一｜氣息離開身體</a>
+          <a href="{resolve_url(page_path, '/sound-journey/2/')}">旅圖二｜懷裡與大地的弦</a>
+          <a href="{resolve_url(page_path, '/sound-journey/3/')}">旅圖三｜天空裡拉長的弦</a>
+          <a href="{resolve_url(page_path, '/sound-journey/4/')}">旅圖四｜地心與手邊的微光</a>
+          <a href="{resolve_url(page_path, '/sound-journey/5/')}">旅圖五｜城市與星塵的節奏</a>
+          <a href="{resolve_url(page_path, '/sound-journey/6/')}">旅圖六｜按鍵打開房間，眾聲走向廣場</a>
+          <a href="{resolve_url(page_path, '/sound-journey/all/')}">全部文章</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
         <a href="{resolve_url(page_path, '/vocal/')}" class="dropdown-trigger">人聲與歌唱</a>
         <div class="dropdown-menu">
           <a href="{resolve_url(page_path, '/vocal/')}">課程總覽</a>
@@ -202,6 +215,7 @@ def page(title, body, page_path=None, extra_head="", meta_description="", og_ima
       <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
       <nav class="footer-nav">
         <a href="{resolve_url(page_path, '/')}">首頁</a>
+        <a href="{resolve_url(page_path, '/sound-journey/')}">聲音旅圖</a>
         <a href="{resolve_url(page_path, '/vocal/')}">人聲與歌唱</a>
 	      <a href="{resolve_url(page_path, '/digitalmusic/')}">錄音後製</a>
         <a href="{resolve_url(page_path, '/categories/')}">分類</a>
@@ -821,12 +835,13 @@ def build_experience_page():
 .exp-info strong { color:var(--ink); }
 
 /* ── Keyboard ── */
-.keyboard-wrap { max-width:860px; margin:0 auto; padding:18px 20px 28px; overflow-x:auto; }
-.keyboard { display:flex; position:relative; height:200px; margin:0 auto; user-select:none; }
-.key-white { position:absolute; height:200px; width:48px; border:1px solid #d0d5dd; border-radius:0 0 6px 6px; background:#fff; cursor:pointer; display:flex; align-items:flex-end; justify-content:center; padding-bottom:10px; font-size:10px; color:#999; box-sizing:border-box; z-index:1; transition:background .08s; }
+.keyboard-wrap { max-width:100%; margin:0 auto; padding:18px 20px 28px; overflow-x:auto; }
+.keyboard { display:flex; flex-direction:column; gap:6px; margin:0 auto; user-select:none; width:fit-content; }
+.keyboard-row { position:relative; height:150px; }
+.key-white { position:absolute; height:150px; width:36px; border:1px solid #d0d5dd; border-radius:0 0 6px 6px; background:#fff; cursor:pointer; display:flex; align-items:flex-end; justify-content:center; padding-bottom:6px; font-size:9px; color:#999; box-sizing:border-box; z-index:1; transition:background .08s; }
 .key-white:hover { background:#f0f4f8; }
 .key-white.active { background:#d1fae5; }
-.key-black { position:absolute; height:120px; width:30px; border:1px solid #1a2332; border-radius:0 0 4px 4px; background:#1a2332; cursor:pointer; z-index:2; transition:background .08s; }
+.key-black { position:absolute; height:90px; width:22px; border:1px solid #1a2332; border-radius:0 0 4px 4px; background:#1a2332; cursor:pointer; z-index:2; transition:background .08s; }
 .key-black:hover { background:#344054; }
 .key-black.active { background:#0f766e; }
 .key-label { pointer-events:none; }
@@ -1030,39 +1045,42 @@ def build_experience_page():
     keysCount.textContent = keys.length;
     insKeys.textContent = '共 ' + keys.length + ' 個音高';
 
-    // Calculate positions
-    var whiteKeys = keys.filter(function(k) {{ return !k.black; }});
-    var whiteW = 48;
-    var blackW = 30;
-    var keyboardWidth = whiteKeys.length * whiteW;
-    keyboard.style.width = keyboardWidth + 'px';
+    // Key dimensions (smaller keys, ~36px wide)
+    var whiteW = 36;
+    var blackW = 22;
+    var whiteH = 150;
+    var blackH = 90;
+    var MAX_WHITES_PER_ROW = 14; // 2 octaves (7 white keys per octave)
+
+    // Split keys into rows by white-key count
+    var rows = [];
+    var currentRow = [];
+    var whiteCount = 0;
+    keys.forEach(function(k) {{
+      if (!k.black) {{
+        if (whiteCount >= MAX_WHITES_PER_ROW) {{
+          rows.push(currentRow);
+          currentRow = [];
+          whiteCount = 0;
+        }}
+        whiteCount++;
+      }}
+      currentRow.push(k);
+    }});
+    if (currentRow.length > 0) rows.push(currentRow);
+
+    // Calculate row width (based on max possible white keys per row)
+    var rowWidth = MAX_WHITES_PER_ROW * whiteW;
+    keyboard.style.width = rowWidth + 'px';
     keyboard.innerHTML = '';
 
-    var whiteIdx = 0;
-    keys.forEach(function(k) {{
-      var el = document.createElement('div');
-      if (k.black) {{
-        // Find position: between the white keys
-        var pos = whiteIdx * whiteW - blackW / 2;
-        el.className = 'key-black';
-        el.style.left = pos + 'px';
-        el.dataset.midi = k.midi;
-      }} else {{
-        el.className = 'key-white';
-        el.style.left = (whiteIdx * whiteW) + 'px';
-        el.dataset.midi = k.midi;
-        var label = document.createElement('span');
-        label.className = 'key-label';
-        label.textContent = k.name;
-        el.appendChild(label);
-        whiteIdx++;
-      }}
-      // Mouse events
+    // Helper: attach event listeners to a key element
+    function attachKeyEvents(el, waveType) {{
       el.addEventListener('mousedown', function(e) {{
         e.preventDefault();
         var midi = parseInt(this.dataset.midi);
         this.classList.add('active');
-        playNote(midi, ins.wave);
+        playNote(midi, waveType);
       }});
       el.addEventListener('mouseup', function() {{
         var midi = parseInt(this.dataset.midi);
@@ -1074,12 +1092,11 @@ def build_experience_page():
         this.classList.remove('active');
         stopNote(midi);
       }});
-      // Touch events
       el.addEventListener('touchstart', function(e) {{
         e.preventDefault();
         var midi = parseInt(this.dataset.midi);
         this.classList.add('active');
-        playNote(midi, ins.wave);
+        playNote(midi, waveType);
       }});
       el.addEventListener('touchend', function(e) {{
         e.preventDefault();
@@ -1087,7 +1104,37 @@ def build_experience_page():
         this.classList.remove('active');
         stopNote(midi);
       }});
-      keyboard.appendChild(el);
+    }}
+
+    // Render each row
+    rows.forEach(function(row) {{
+      var rowDiv = document.createElement('div');
+      rowDiv.className = 'keyboard-row';
+
+      var whiteIdx = 0;
+      row.forEach(function(k) {{
+        var el = document.createElement('div');
+        if (k.black) {{
+          var pos = whiteIdx * whiteW - blackW / 2;
+          el.className = 'key-black';
+          el.style.left = pos + 'px';
+          el.style.height = blackH + 'px';
+          el.dataset.midi = k.midi;
+        }} else {{
+          el.className = 'key-white';
+          el.style.left = (whiteIdx * whiteW) + 'px';
+          el.style.height = whiteH + 'px';
+          el.dataset.midi = k.midi;
+          var label = document.createElement('span');
+          label.className = 'key-label';
+          label.textContent = k.name;
+          el.appendChild(label);
+          whiteIdx++;
+        }}
+        attachKeyEvents(el, ins.wave);
+        rowDiv.appendChild(el);
+      }});
+      keyboard.appendChild(rowDiv);
     }});
   }}
 
