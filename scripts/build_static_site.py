@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 from __future__ import annotations
 
+import datetime
 import hashlib
 import json
 import os
@@ -19,6 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 CONTENT_DIR = BASE_DIR / "content" / "instruments"
 OUTPUT_DIR = BASE_DIR / "outputs" / "world-instruments-static"
 SITE_BASE_PATH = os.environ.get("SITE_BASE_PATH", "").strip()
+SITE_DOMAIN = "https://soundweavers-music.github.io"
 _TOTAL_INSTRUMENTS = 0  # set in main()
 
 COUNTRY_COORDS = {
@@ -173,7 +175,9 @@ def parse_frontmatter(text):
 
 
 def slugify(value):
-    slug = re.sub(r"[^a-zA-Z0-9一-鿿]+", "-", value).strip("-").lower()
+    # Convert fullwidth parentheses to underscores to differentiate from separators
+    value = value.replace("（", "_").replace("）", "")
+    slug = re.sub(r"[^a-zA-Z0-9一-鿿_]+", "-", value).strip("-_").lower()
     return slug or "unknown"
 
 
@@ -1437,11 +1441,11 @@ def build_404(instruments):
 
 
 def build_sitemap(instruments):
-    base = SITE_BASE_PATH or ""
-    today = "2026-07-01"
+    site_base = f"{SITE_DOMAIN}{SITE_BASE_PATH}"
+    today = datetime.date.today().isoformat()
 
     def u(path):
-        return f"<url><loc>{base}{path}</loc><lastmod>{today}</lastmod></url>"
+        return f"<url><loc>{site_base}{path}</loc><lastmod>{today}</lastmod></url>"
 
     # Collect all unique facet values from instruments
     categories = sorted(set(i["category"] for i in instruments if i.get("category")))
@@ -1912,7 +1916,8 @@ def build_theory_page():
 
 def build_robots(instruments):
     """Generate robots.txt allowing all crawlers and referencing sitemap."""
-    robots_txt = "User-agent: *\nAllow: /\nSitemap: " + site_url("/sitemap.xml") + "\n"
+    sitemap_url = f"{SITE_DOMAIN}{SITE_BASE_PATH}/sitemap.xml"
+    robots_txt = "User-agent: *\nAllow: /\nSitemap: " + sitemap_url + "\n"
     write(OUTPUT_DIR / "robots.txt", robots_txt)
 def main():
     global _TOTAL_INSTRUMENTS
@@ -1939,6 +1944,9 @@ def main():
     build_404(instruments)
     build_sitemap(instruments)
     build_robots(instruments)
+    # Copy sitemap and robots.txt to project root for local development
+    shutil.copy2(OUTPUT_DIR / "sitemap.xml", BASE_DIR / "sitemap.xml")
+    shutil.copy2(OUTPUT_DIR / "robots.txt", BASE_DIR / "robots.txt")
     write(OUTPUT_DIR / ".nojekyll", "")
     # Write ads.txt for Google AdSense
     write(OUTPUT_DIR / "ads.txt", "google.com, pub-6561686484716387, DIRECT, f08c47fec0942fa0\n")
