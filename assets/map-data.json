@@ -163,6 +163,7 @@
     "url": "/countries/中東-歐亞-東亞-美洲-全球/",
     "urls": [
       "/countries/中東-歐亞-東亞-美洲-全球/",
+      "/countries/中東-歐亞-東亞-美洲-全球-日本/",
       "/countries/中東-歐洲-亞洲-美洲/",
       "/countries/亞洲-中東-歐洲/",
       "/countries/亞洲-南亞_印度/",
@@ -170,8 +171,7 @@
       "/countries/亞洲-東亞_中國/",
       "/countries/亞洲-東亞_日本/",
       "/countries/亞洲-東亞_韓國/",
-      "/countries/亞洲-東南亞/",
-      "/countries/亞洲-東南亞_印尼/"
+      "/countries/亞洲-東南亞/"
     ],
     "samples": [
       "原聲吉他",
@@ -189,6 +189,7 @@
     "url": "/countries/中東-歐亞-東亞-美洲-全球/",
     "urls": [
       "/countries/中東-歐亞-東亞-美洲-全球/",
+      "/countries/中東-歐亞-東亞-美洲-全球-日本/",
       "/countries/中東-歐洲-亞洲-美洲/",
       "/countries/加勒比-拉丁美洲/",
       "/countries/南美洲/",
@@ -196,8 +197,7 @@
       "/countries/太平洋島嶼國家-南美洲-南亞地區/",
       "/countries/拉丁美洲-安地斯-加勒比/",
       "/countries/拉丁美洲-非洲-歐洲-亞洲-全球/",
-      "/countries/東亞-中亞-歐洲-東南亞-非洲-美洲/",
-      "/countries/歐洲和美洲/"
+      "/countries/東亞-中亞-歐洲-東南亞-非洲-美洲/"
     ],
     "samples": [
       "第三琴橋",
@@ -230,7 +230,7 @@
       "非洲弓豎琴",
       "彈匏",
       "越南箏",
-      "琵琶"
+      "非洲琵琶"
     ]
   },
   {
@@ -319,6 +319,7 @@
     "url": "/countries/中東-歐亞-東亞-美洲-全球/",
     "urls": [
       "/countries/中東-歐亞-東亞-美洲-全球/",
+      "/countries/中東-歐亞-東亞-美洲-全球-日本/",
       "/countries/中東-歐洲-亞洲-美洲/",
       "/countries/加勒比-拉丁美洲/",
       "/countries/拉丁美洲-安地斯-加勒比/",
@@ -326,8 +327,7 @@
       "/countries/歐洲-德國-美洲-阿根廷/",
       "/countries/歐洲-美洲/",
       "/countries/歐洲-葡萄牙-美洲-巴西/",
-      "/countries/美洲/",
-      "/countries/美洲-加勒比/"
+      "/countries/美洲/"
     ],
     "samples": [
       "第三琴橋",
@@ -345,6 +345,7 @@
     "url": "/countries/中東-歐亞-東亞-美洲-全球/",
     "urls": [
       "/countries/中東-歐亞-東亞-美洲-全球/",
+      "/countries/中東-歐亞-東亞-美洲-全球-日本/",
       "/countries/中東-歐洲-亞洲-美洲/",
       "/countries/東亞-中亞-歐洲-東南亞-非洲-美洲/",
       "/countries/歐洲-德國-美洲-阿根廷/",
@@ -352,8 +353,7 @@
       "/countries/歐洲-葡萄牙-美洲-巴西/",
       "/countries/美洲/",
       "/countries/美洲-加勒比/",
-      "/countries/美洲-加勒比_千里達/",
-      "/countries/美洲-北美/"
+      "/countries/美洲-加勒比_千里達/"
     ],
     "samples": [
       "第三琴橋",
@@ -371,6 +371,7 @@
     "url": "/countries/中東-歐亞-東亞-美洲-全球/",
     "urls": [
       "/countries/中東-歐亞-東亞-美洲-全球/",
+      "/countries/中東-歐亞-東亞-美洲-全球-日本/",
       "/countries/中東-歐洲-亞洲-美洲/",
       "/countries/東亞-中亞-歐洲-東南亞-非洲-美洲/",
       "/countries/歐洲-德國-美洲-阿根廷/",
@@ -378,8 +379,7 @@
       "/countries/歐洲-葡萄牙-美洲-巴西/",
       "/countries/美洲/",
       "/countries/美洲-加勒比/",
-      "/countries/美洲-加勒比_千里達/",
-      "/countries/美洲-北美/"
+      "/countries/美洲-加勒比_千里達/"
     ],
     "samples": [
       "第三琴橋",
@@ -397,6 +397,7 @@
     "url": "/countries/中東-歐亞-東亞-美洲-全球/",
     "urls": [
       "/countries/中東-歐亞-東亞-美洲-全球/",
+      "/countries/中東-歐亞-東亞-美洲-全球-日本/",
       "/countries/中東-歐洲-亞洲-美洲/",
       "/countries/東亞-中亞-歐洲-東南亞-非洲-美洲/",
       "/countries/歐洲-德國-美洲-阿根廷/",
@@ -404,8 +405,7 @@
       "/countries/歐洲-葡萄牙-美洲-巴西/",
       "/countries/美洲/",
       "/countries/美洲-加勒比/",
-      "/countries/美洲-加勒比_千里達/",
-      "/countries/美洲-北美/"
+      "/countries/美洲-加勒比_千里達/"
     ],
     "samples": [
       "第三琴橋",
@@ -444,7 +444,7 @@
   {
     "lat": 28.0,
     "lng": 45.0,
-    "name": "中東／歐亞／東亞／美洲／全球",
+    "name": "中東／歐亞／東亞／美洲／全球／日本",
     "count": 157,
     "url": "/countries/中東/",
     "urls": [
@@ -455,9 +455,9 @@
       "/countries/中東-地中海地區/",
       "/countries/中東-庫爾德地區/",
       "/countries/中東-歐亞-東亞-美洲-全球/",
+      "/countries/中東-歐亞-東亞-美洲-全球-日本/",
       "/countries/中東-歐洲/",
-      "/countries/中東-歐洲-亞洲-美洲/",
-      "/countries/中東-歐洲-巴爾幹/"
+      "/countries/中東-歐洲-亞洲-美洲/"
     ],
     "samples": [
       "原聲吉他",
@@ -651,28 +651,29 @@
   {
     "lat": 36.0,
     "lng": 138.0,
-    "name": "亞洲／東亞（日本）",
+    "name": "中東／歐亞／東亞／美洲／全球／日本",
     "count": 25,
-    "url": "/countries/亞洲-東亞_日本/",
+    "url": "/countries/中東-歐亞-東亞-美洲-全球-日本/",
     "urls": [
+      "/countries/中東-歐亞-東亞-美洲-全球-日本/",
       "/countries/亞洲-東亞_日本/",
       "/countries/日本/",
       "/countries/日本_阿伊努民族/",
       "/countries/日本-全球電子音樂/"
     ],
     "samples": [
-      "琵琶",
       "法竹笛",
       "拍子木",
       "拍子木",
-      "日本胡琴"
+      "日本胡琴",
+      "神樂鈴"
     ]
   },
   {
     "lat": 35.0,
     "lng": 105.0,
     "name": "亞洲／東亞（中國）",
-    "count": 22,
+    "count": 21,
     "url": "/countries/中國/",
     "urls": [
       "/countries/中國/",

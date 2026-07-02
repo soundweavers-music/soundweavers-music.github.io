@@ -1,6 +1,6 @@
 ---
 site_url: https://soundweavers-music.github.io/instruments/an-ty-ba/
-title: 琵琶
+title: 非洲琵琶
 original_name: Đàn tỳ bà
 category: 弦樂器
 country: 中亞／波斯
