@@ -851,6 +851,24 @@ def build_experience_page():
 .exp-panel h3 { margin:0 0 8px; font-size:16px; }
 .exp-panel .range-info { color:var(--muted); font-size:13px; margin:0; }
 .exp-panel .keys-count { color:var(--muted); font-size:13px; margin:4px 0 0; }
+
+/* Nav toggle */
+.nav-toggle-btn {
+  position:fixed; top:58px; right:14px; z-index:200;
+  background:var(--surface); border:1px solid var(--line); border-radius:6px;
+  padding:4px 8px; cursor:pointer; font-size:11px; color:var(--muted);
+  line-height:1.4; transition:all .15s; white-space:nowrap;
+}
+.nav-toggle-btn:hover { border-color:var(--accent); color:var(--accent); }
+body.nav-hidden .site-header { display:none !important; }
+body.nav-hidden .nav-toggle-btn { top:12px; }
+
+/* Responsive keyboard */
+@media (max-width:700px) {
+  .key-white { width:30px; height:110px; font-size:7px; }
+  .key-black { width:18px; height:66px; }
+  .keyboard-row { height:110px; }
+}
 </style>"""
 
     # Instrument range mapping (MIDI note numbers: C0=12, C1=24, ..., C8=108)
@@ -884,6 +902,8 @@ def build_experience_page():
     <p class="lead">透過虛擬鍵盤模擬不同樂器的音色與音域，探索各種樂器的聲音特質。</p>
   </section>
 
+  <button class="nav-toggle-btn" id="nav-toggle" title="隱藏/顯示導覽列">📌 導覽列</button>
+
   <div class="keyboard-wrap">
     <div class="exp-controls">
       <label>選擇樂器：
@@ -910,6 +930,20 @@ def build_experience_page():
 <script>
 (function() {{
   var insList = {ins_json};
+
+  // ── Nav toggle ──
+  (function() {{
+    var body = document.body;
+    var btn = document.getElementById('nav-toggle');
+    var saved = localStorage.getItem('wmi_nav_hidden');
+    if (saved === '1') body.classList.add('nav-hidden');
+    if (btn) {{
+      btn.addEventListener('click', function() {{
+        body.classList.toggle('nav-hidden');
+        localStorage.setItem('wmi_nav_hidden', body.classList.contains('nav-hidden') ? '1' : '0');
+      }});
+    }}
+  }})();
 
   var NOTES = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
 
@@ -1020,6 +1054,15 @@ def build_experience_page():
   var insKeys = document.getElementById('ins-keys');
   var currentIns = null;
 
+  // Device detection: how many white keys fit per row
+  function getMaxWhitesPerRow() {{
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+    if (w >= 1024) return 999;       // Desktop: all keys in one row
+    if (w < h) return 14;            // Mobile portrait: 2 octaves per row
+    return 999;                       // Mobile landscape: all keys in one row
+  }}
+
   // Populate instrument selector
   insList.forEach(function(ins) {{
     var opt = document.createElement('option');
@@ -1050,7 +1093,7 @@ def build_experience_page():
     var blackW = 22;
     var whiteH = 150;
     var blackH = 90;
-    var MAX_WHITES_PER_ROW = 14; // 2 octaves (7 white keys per octave)
+    var MAX_WHITES_PER_ROW = getMaxWhitesPerRow();
 
     // Split keys into rows by white-key count
     var rows = [];
@@ -1069,8 +1112,10 @@ def build_experience_page():
     }});
     if (currentRow.length > 0) rows.push(currentRow);
 
-    // Calculate row width (based on max possible white keys per row)
-    var rowWidth = MAX_WHITES_PER_ROW * whiteW;
+    // Calculate row width based on actual white keys in widest row
+    var whiteKeyCount = 0;
+    keys.forEach(function(k) {{ if (!k.black) whiteKeyCount++; }});
+    var rowWidth = Math.min(MAX_WHITES_PER_ROW, whiteKeyCount) * whiteW;
     keyboard.style.width = rowWidth + 'px';
     keyboard.innerHTML = '';
 
@@ -1169,6 +1214,15 @@ def build_experience_page():
 
   // Initial render
   renderKeyboard('piano');
+
+  // Re-render on resize/orientation change for responsive rows
+  var resizeTimer;
+  window.addEventListener('resize', function() {{
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function() {{
+      if (currentIns) renderKeyboard(currentIns.id);
+    }}, 300);
+  }});
 }})();
 </script>"""
 
