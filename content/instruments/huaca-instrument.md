@@ -5,6 +5,7 @@ original_name: Huaca (instrument)
 category: 管樂器
 country: 義大利
 era: 傳統／年代待考
+sound_class: 氣鳴
 region_type: 單一地區／文化圈
 soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
 body_listening: 氣息、胸腔、長音、空間
