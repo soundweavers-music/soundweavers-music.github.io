@@ -1,7 +1,7 @@
 ---
 is_uncommon: true
 site_url: https://soundweavers-music.github.io/instruments/bombarde/
-title: 布列塔尼轟炸管
+title: 布列塔尼嗩吶
 original_name: Bombarde
 category: 管樂器
 country: 歐洲／中東／南亞／東南亞
