@@ -309,7 +309,7 @@ def page(title, body, page_path=None, meta_extra="", extra_head="", meta_descrip
         "img-src 'self' https: data:; "
         "style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; "
         "script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info https://pagead2.googlesyndication.com; "
-        "connect-src 'self'; "
+        "connect-src 'self' https://busuanzi.ibruce.info; "
         "frame-src https://www.youtube-nocookie.com https://www.youtube.com; "
         "base-uri 'self'; form-action 'none'; object-src 'none'"
     )

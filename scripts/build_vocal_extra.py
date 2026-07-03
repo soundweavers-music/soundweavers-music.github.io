@@ -91,7 +91,7 @@ def page(title, body, page_path=None, extra_head="", meta_description="", og_ima
     csp = ("default-src 'self'; img-src 'self' https: data:; "
            "style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; "
            "script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info https://pagead2.googlesyndication.com; "
-           "connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; "
+           "connect-src 'self' https://busuanzi.ibruce.info; frame-src https://www.youtube-nocookie.com https://www.youtube.com; "
            "base-uri 'self'; form-action 'none'; object-src 'none'")
     raw_canon = resolve_url(page_path, "/") if page_path else "/"
     clean_canon = raw_canon.replace("./", "/").replace("../", "/").rstrip("/") or "/"
