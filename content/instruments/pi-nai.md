@@ -1,6 +1,6 @@
 ---
 site_url: https://soundweavers-music.github.io/instruments/pi-nai/
-title: 鼻笛
+title: 內篳
 original_name: Pi Nai
 category: 管樂器
 country: 歐洲／中東／南亞／東南亞

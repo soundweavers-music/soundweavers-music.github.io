@@ -1,6 +1,6 @@
 ---
 site_url: https://soundweavers-music.github.io/instruments/zambomba/
-title: 摩擦鼓
+title: 西班牙摩擦鼓
 original_name: Zambomba
 category: 打擊樂器
 country: 非洲／中東／亞洲／歐洲／美洲

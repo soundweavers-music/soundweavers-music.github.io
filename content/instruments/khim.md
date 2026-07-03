@@ -1,8 +1,8 @@
 ---
 site_url: https://soundweavers-music.github.io/instruments/khim/
-title: 克因揚琴
+title: 泰國揚琴
 original_name: Khim
-category: 鍵盤樂器
+category: 打擊樂器
 country: 東亞／中亞／歐洲／東南亞／非洲／美洲
 era: 傳統／年代待考
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Kim_Thai_Instrument.jpg/500px-Kim_Thai_Instrument.jpg

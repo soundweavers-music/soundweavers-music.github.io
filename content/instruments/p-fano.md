@@ -1,6 +1,6 @@
 ---
 site_url: https://soundweavers-music.github.io/instruments/p-fano/
-title: 短笛
+title: 巴西橫笛
 original_name: Pífano
 category: 管樂器
 country: 全球／亞洲／歐洲／美洲／大洋洲

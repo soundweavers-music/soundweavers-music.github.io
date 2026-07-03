@@ -1,6 +1,6 @@
 ---
 site_url: https://soundweavers-music.github.io/instruments/tuntina/
-title: 一弦琴
+title: 印度單弦樂器
 original_name: Tuntina
 category: 鍵盤樂器
 country: 亞洲／歐洲／全球

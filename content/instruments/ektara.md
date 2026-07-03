@@ -1,7 +1,7 @@
 ---
 is_uncommon: true
 site_url: https://soundweavers-music.github.io/instruments/ektara/
-title: 一弦琴
+title: 艾克塔拉
 original_name: Ektara
 category: 鍵盤樂器
 country: 伊朗／亞塞拜然／高加索

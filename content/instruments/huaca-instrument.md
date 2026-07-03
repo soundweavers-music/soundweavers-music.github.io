@@ -1,6 +1,6 @@
 ---
 site_url: https://soundweavers-music.github.io/instruments/huaca-instrument/
-title: 陶笛
+title: 瓦卡
 original_name: Huaca (instrument)
 category: 管樂器
 country: 義大利

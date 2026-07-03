@@ -1,7 +1,7 @@
 ---
 is_popular: true
 site_url: https://soundweavers-music.github.io/instruments/jaw-harp/
-title: 口琴
+title: 口簧琴
 original_name: Jaw Harp
 category: 管樂器
 country: 亞洲／歐洲／中東／全球

@@ -1,9 +1,9 @@
 ---
 is_popular: true
 site_url: https://soundweavers-music.github.io/instruments/hammered-dulcimer/
-title: 揚琴
+title: 德西馬琴
 original_name: Hammered dulcimer
-category: 鍵盤樂器
+category: 打擊樂器
 country: 中東
 era: 傳統／年代待考
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Hammered_dulcimer.JPG/500px-Hammered_dulcimer.JPG

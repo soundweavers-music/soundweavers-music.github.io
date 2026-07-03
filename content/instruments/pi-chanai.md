@@ -1,6 +1,6 @@
 ---
 site_url: https://soundweavers-music.github.io/instruments/pi-chanai/
-title: 嗩吶
+title: 嗩吶篳
 original_name: Pi Chanai
 category: 管樂器
 country: 全球／亞洲／中東／歐洲

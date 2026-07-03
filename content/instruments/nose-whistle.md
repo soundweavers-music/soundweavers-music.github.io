@@ -1,6 +1,6 @@
 ---
 site_url: https://soundweavers-music.github.io/instruments/nose-whistle/
-title: 鼻笛
+title: 鼻笛 (口腔驅動型)
 original_name: Nose Whistle
 category: 管樂器
 country: 全球／亞洲／歐洲／美洲／大洋洲

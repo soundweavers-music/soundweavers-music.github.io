@@ -1,6 +1,6 @@
 ---
 site_url: https://soundweavers-music.github.io/instruments/zurna/
-title: 佐爾納嗩吶
+title: 土耳其嗩吶
 original_name: Zurna
 category: 管樂器
 country: 亞洲／歐洲／中東／全球

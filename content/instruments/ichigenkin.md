@@ -1,7 +1,7 @@
 ---
 is_uncommon: true
 site_url: https://soundweavers-music.github.io/instruments/ichigenkin/
-title: 單弦樂器
+title: 日本一弦琴
 original_name: Ichigenkin
 category: 鍵盤樂器
 country: 東亞／中亞／歐洲／東南亞／非洲／美洲
