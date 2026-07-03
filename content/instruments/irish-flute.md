@@ -1,7 +1,7 @@
 ---
 is_popular: true
 site_url: https://soundweavers-music.github.io/instruments/irish-flute/
-title: 笛
+title: 愛爾蘭長笛
 original_name: Irish Flute
 category: 管樂器
 country: 愛爾蘭

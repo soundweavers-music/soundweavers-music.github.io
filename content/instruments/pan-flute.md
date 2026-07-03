@@ -1,7 +1,7 @@
 ---
 is_popular: true
 site_url: https://soundweavers-music.github.io/instruments/pan-flute/
-title: 排簫
+title: 排笛
 original_name: Pan Flute
 category: 管樂器
 country: 美洲／南美

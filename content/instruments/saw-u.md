@@ -1,6 +1,6 @@
 ---
 site_url: https://soundweavers-music.github.io/instruments/saw-u/
-title: 椰胡
+title: 泰式低音二弦琴
 original_name: Saw U
 category: 弦樂器
 country: 亞洲／東南亞（泰國）

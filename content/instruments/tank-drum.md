@@ -1,7 +1,7 @@
 ---
 is_popular: true
 site_url: https://soundweavers-music.github.io/instruments/tank-drum/
-title: 鋼舌鼓
+title: 空靈鼓
 original_name: Tank drum
 category: 打擊樂器
 country: 全球／非洲／現代
