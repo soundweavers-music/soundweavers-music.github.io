@@ -400,18 +400,48 @@ def page(title, body, page_path=None, meta_extra="", extra_head="", meta_descrip
     <a class="brand" href="{resolve_url(page_path, '/')}">🌍 世界聲音百科</a>
     <nav>
       <div class="nav-dropdown">
-        <a href="{resolve_url(page_path, '/instruments/')}" class="dropdown-trigger">全部樂器</a>
-        <div class="dropdown-menu">
-          <a href="{resolve_url(page_path, '/categories/')}">全部</a>
-          <a href="#" id="random-nav-link" class="random-link">隨選</a>
-          <a href="{resolve_url(page_path, '/popular/')}">熱門</a>
-          <a href="{resolve_url(page_path, '/countries/')}">國家</a>
-          <a href="{resolve_url(page_path, '/map/')}">地圖</a>
-          <hr style="margin:4px 0;border:none;border-top:1px solid var(--line);">
-          <a href="{resolve_url(page_path, '/categories/A1/')}" style="font-weight:600;">A1 吹奏與氣息樂器</a>
-          <a href="{resolve_url(page_path, '/categories/A2/')}" style="font-weight:600;">A2 弦樂器</a>
-          <a href="{resolve_url(page_path, '/categories/A3/')}" style="font-weight:600;">A3 鼓與打擊樂器</a>
-          <a href="{resolve_url(page_path, '/categories/A4/')}" style="font-weight:600;">A4 電子與電聲樂器</a>
+        <a href="{resolve_url(page_path, '/instruments/')}" class="dropdown-trigger">樂器百科</a>
+        <div class="dropdown-menu multi-col">
+          <div class="menu-col">
+            <a href="{resolve_url(page_path, '/categories/')}" style="font-weight:700;">全部分類</a>
+            <a href="#" id="random-nav-link" class="random-link">隨選樂器</a>
+            <a href="{resolve_url(page_path, '/countries/')}">國家／地區</a>
+            <a href="{resolve_url(page_path, '/map/')}">地圖</a>
+            <hr style="margin:4px 0;border:none;border-top:1px solid var(--line);">
+            <a href="{resolve_url(page_path, '/categories/吹奏與氣息樂器/')}" style="font-weight:700;color:var(--accent);">A1 吹奏與氣息樂器</a>
+            <a href="{resolve_url(page_path, f'/subcategories/{slugify("無簧吹管")}/')}" class="sub-link">　├ 無簧吹管</a>
+            <a href="{resolve_url(page_path, f'/subcategories/{slugify("簧片樂器")}/')}" class="sub-link">　├ 簧片樂器</a>
+            <a href="{resolve_url(page_path, f'/subcategories/{slugify("號角與唇振")}/')}" class="sub-link">　├ 號角與唇振樂器</a>
+            <a href="{resolve_url(page_path, f'/subcategories/{slugify("風袋樂器")}/')}" class="sub-link">　├ 風袋與風箱樂器</a>
+            <a href="{resolve_url(page_path, f'/subcategories/{slugify("風管與鍵控氣鳴")}/')}" class="sub-link">　└ 風管與鍵控氣鳴</a>
+          </div>
+          <div class="menu-col">
+            <a href="{resolve_url(page_path, '/categories/弦樂器/')}" style="font-weight:700;color:var(--accent);">A2 弦樂器</a>
+            <a href="{resolve_url(page_path, f'/subcategories/{slugify("撥弦與抱持弦樂")}/')}" class="sub-link">　├ 撥弦樂器</a>
+            <a href="{resolve_url(page_path, f'/subcategories/{slugify("平放弦與齊特琴")}/')}" class="sub-link">　├ 平放弦與齊特琴類</a>
+            <a href="{resolve_url(page_path, f'/subcategories/{slugify("擊弦樂器")}/')}" class="sub-link">　├ 擊弦樂器</a>
+            <a href="{resolve_url(page_path, f'/subcategories/{slugify("豎琴-里拉與開放弦")}/')}" class="sub-link">　├ 豎琴、里拉與開放弦</a>
+            <a href="{resolve_url(page_path, f'/subcategories/{slugify("擦弦-鍵控與輪弦")}/')}" class="sub-link">　├ 擦弦樂器</a>
+            <a href="{resolve_url(page_path, f'/subcategories/{slugify("鍵控-輪弦與特殊弦鳴")}/')}" class="sub-link">　└ 鍵控、輪弦與特殊弦鳴</a>
+            <hr style="margin:4px 0;border:none;border-top:1px solid var(--line);">
+            <a href="{resolve_url(page_path, '/categories/待分類-偵錯暫存/')}" style="font-weight:700;color:var(--muted);">A9 待分類／偵錯暫存</a>
+          </div>
+          <div class="menu-col">
+            <a href="{resolve_url(page_path, '/categories/鼓與打擊樂器/')}" style="font-weight:700;color:var(--accent);">A3 鼓與打擊樂器</a>
+            <a href="{resolve_url(page_path, f'/subcategories/{slugify("鼓皮與鼓類")}/')}" class="sub-link">　├ 鼓皮與鼓類</a>
+            <a href="{resolve_url(page_path, f'/subcategories/{slugify("鑼鐘與金屬敲擊")}/')}" class="sub-link">　├ 鑼、鐘與金屬敲擊</a>
+            <a href="{resolve_url(page_path, f'/subcategories/{slugify("木琴石琴竹琴")}/')}" class="sub-link">　├ 木琴、石琴與竹琴</a>
+            <a href="{resolve_url(page_path, f'/subcategories/{slugify("沙鈴-刮器與小打擊")}/')}" class="sub-link">　├ 沙鈴、刮器與小打擊</a>
+            <a href="{resolve_url(page_path, f'/subcategories/{slugify("舌片手碟與手邊共鳴")}/')}" class="sub-link">　└ 舌片、手碟與手邊共鳴</a>
+            <hr style="margin:4px 0;border:none;border-top:1px solid var(--line);">
+            <a href="{resolve_url(page_path, '/categories/電子與電聲樂器/')}" style="font-weight:700;color:var(--accent);">A4 電子與電聲樂器</a>
+            <a href="{resolve_url(page_path, f'/subcategories/{slugify("電子振盪")}/')}" class="sub-link">　├ 電子振盪</a>
+            <a href="{resolve_url(page_path, f'/subcategories/{slugify("合成器")}/')}" class="sub-link">　├ 合成器</a>
+            <a href="{resolve_url(page_path, f'/subcategories/{slugify("取樣與磁帶")}/')}" class="sub-link">　├ 取樣與磁帶</a>
+            <a href="{resolve_url(page_path, f'/subcategories/{slugify("鼓機與節奏機")}/')}" class="sub-link">　├ 鼓機與節奏機</a>
+            <a href="{resolve_url(page_path, f'/subcategories/{slugify("電聲改造樂器")}/')}" class="sub-link">　├ 電聲改造樂器</a>
+            <a href="{resolve_url(page_path, f'/subcategories/{slugify("控制器與數位介面")}/')}" class="sub-link">　└ 控制器與數位介面</a>
+          </div>
         </div>
       </div>
       <div class="nav-dropdown">
@@ -425,6 +455,19 @@ def page(title, body, page_path=None, meta_extra="", extra_head="", meta_descrip
           <a href="{resolve_url(page_path, '/sound-journey/5/')}">旅圖五｜城市與星塵的節奏</a>
           <a href="{resolve_url(page_path, '/sound-journey/6/')}">旅圖六｜按鍵打開房間，眾聲走向廣場</a>
           <a href="{resolve_url(page_path, '/sound-journey/all/')}">全部文章</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="#" class="dropdown-trigger" style="opacity:0.6;">合奏百科</a>
+        <div class="dropdown-menu">
+          <span style="display:block;padding:8px 16px;font-size:12px;color:var(--muted);">建置中⋯</span>
+          <a href="#">B1 地域傳統合奏</a>
+          <a href="#">B2 民間樂隊</a>
+          <a href="#">B3 鼓樂與節慶編制</a>
+          <a href="#">B4 古典與大型編制</a>
+          <a href="#">B5 現代民族樂團</a>
+          <a href="#">B6 爵士與流行編制</a>
+          <a href="#">B7 現代混合與跨界編制</a>
         </div>
       </div>
       <div class="nav-dropdown">
@@ -473,7 +516,7 @@ def page(title, body, page_path=None, meta_extra="", extra_head="", meta_descrip
 	      <a href="{resolve_url(page_path, '/digitalmusic/')}">錄音後製</a>
         <a href="{resolve_url(page_path, '/categories/')}">分類</a>
         <a href="{resolve_url(page_path, '/countries/')}">國家</a>
-        <a href="{resolve_url(page_path, '/popular/')}">熱門</a>
+        <a href="{resolve_url(page_path, '/subcategories/')}">子分類</a>
         <a href="{resolve_url(page_path, '/theory/')}">樂理基礎</a>
         <a href="{resolve_url(page_path, '/contact/')}">聯絡我們</a>
         <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
@@ -619,9 +662,7 @@ def build_index(instruments):
     rng.shuffle(featured)
     sample_cards = "\n".join(card(item, index_path) for item in featured[:12])
 
-    # Popular/uncommon counts
-    pop_count = sum(1 for i in instruments if i.get("is_popular"))
-    un_count = sum(1 for i in instruments if i.get("is_uncommon"))
+
 
     body = f"""
     <main class="page">
@@ -644,15 +685,23 @@ def build_index(instruments):
 
 
       <section class="section">
-        <div class="section-heading"><h2>精選分類</h2></div>
+        <div class="section-heading"><h2>樂器分類</h2></div>
         <div class="featured-links">
-          <a class="featured-card hot" href="{resolve_url(index_path, '/popular/')}">
-            <strong>熱門樂器</strong>
-            <span>{pop_count} 件熱門樂器，探索世界知名樂器</span>
+          <a class="featured-card" href="{resolve_url(index_path, '/categories/吹奏與氣息樂器/')}">
+            <strong>A1 吹奏與氣息樂器</strong>
+            <span>氣流、管身、簧片、號角到風箱的聲音</span>
           </a>
-          <a class="featured-card cold" href="{resolve_url(index_path, '/uncommon/')}">
-            <strong>冷門樂器</strong>
-            <span>{un_count} 件冷門樂器，發掘稀有珍品</span>
+          <a class="featured-card" href="{resolve_url(index_path, '/categories/弦樂器/')}">
+            <strong>A2 弦樂器</strong>
+            <span>撥弦、擦弦、擊弦到鍵控弦鳴的世界</span>
+          </a>
+          <a class="featured-card" href="{resolve_url(index_path, '/categories/鼓與打擊樂器/')}">
+            <strong>A3 鼓與打擊樂器</strong>
+            <span>鼓皮、鑼鐘、木竹到舌片手碟的節奏</span>
+          </a>
+          <a class="featured-card" href="{resolve_url(index_path, '/categories/電子與電聲樂器/')}">
+            <strong>A4 電子與電聲樂器</strong>
+            <span>合成器、取樣、電聲改造到數位控制</span>
           </a>
           <a class="featured-card random" href="#" id="random-link-home">
             <strong>隨選樂器</strong>
@@ -934,8 +983,15 @@ img { max-width:100%; }
   min-width:140px; background:var(--surface); border:1px solid var(--line);
   border-radius:8px; box-shadow:var(--shadow-md); padding:4px 0;
 }
+.dropdown-menu.multi-col { min-width:600px; padding:8px; }
 .nav-dropdown:hover .dropdown-menu,
 .nav-dropdown .dropdown-menu:hover { display:block; }
+.nav-dropdown:hover .dropdown-menu.multi-col,
+.nav-dropdown .dropdown-menu.multi-col:hover { display:flex !important; }
+.menu-col { flex:1; min-width:0; }
+.menu-col hr { margin:6px 8px; }
+.sub-link { padding:2px 16px !important; font-size:12px !important; color:var(--muted) !important; }
+.sub-link:hover { color:var(--accent) !important; background:transparent !important; }
 .dropdown-menu a {
   display:block; padding:8px 16px; font-size:13px; color:var(--ink2);
   text-decoration:none; border-radius:0; white-space:nowrap;
@@ -1310,7 +1366,6 @@ const cardMode = document.getElementById('card-mode');
 const filterControls = {{
   category: document.getElementById('filter-category'),
   country: document.getElementById('filter-country'),
-  era: document.getElementById('filter-era'),
   subcategory: document.getElementById('filter-subcategory'),
   sound_class: document.getElementById('filter-sound-class')
 }};

@@ -69,8 +69,15 @@ img { max-width:100%; }
   min-width:140px; background:var(--surface); border:1px solid var(--line);
   border-radius:8px; box-shadow:var(--shadow-md); padding:4px 0;
 }
+.dropdown-menu.multi-col { min-width:600px; padding:8px; }
 .nav-dropdown:hover .dropdown-menu,
 .nav-dropdown .dropdown-menu:hover { display:block; }
+.nav-dropdown:hover .dropdown-menu.multi-col,
+.nav-dropdown .dropdown-menu.multi-col:hover { display:flex !important; }
+.menu-col { flex:1; min-width:0; }
+.menu-col hr { margin:6px 8px; }
+.sub-link { padding:2px 16px !important; font-size:12px !important; color:var(--muted) !important; }
+.sub-link:hover { color:var(--accent) !important; background:transparent !important; }
 .dropdown-menu a {
   display:block; padding:8px 16px; font-size:13px; color:var(--ink2);
   text-decoration:none; border-radius:0; white-space:nowrap;

@@ -10,7 +10,6 @@ const cardMode = document.getElementById('card-mode');
 const filterControls = {
   category: document.getElementById('filter-category'),
   country: document.getElementById('filter-country'),
-  era: document.getElementById('filter-era'),
   subcategory: document.getElementById('filter-subcategory'),
   sound_class: document.getElementById('filter-sound-class')
 };
