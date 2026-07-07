@@ -458,16 +458,17 @@ def page(title, body, page_path=None, meta_extra="", extra_head="", meta_descrip
         </div>
       </div>
       <div class="nav-dropdown">
-        <a href="#" class="dropdown-trigger" style="opacity:0.6;">合奏百科</a>
+        <a href="{resolve_url(page_path, '/ensembles/')}" class="dropdown-trigger">合奏百科</a>
         <div class="dropdown-menu">
-          <span style="display:block;padding:8px 16px;font-size:12px;color:var(--muted);">建置中⋯</span>
-          <a href="#">B1 地域傳統合奏</a>
-          <a href="#">B2 民間樂隊</a>
-          <a href="#">B3 鼓樂與節慶編制</a>
-          <a href="#">B4 古典與大型編制</a>
-          <a href="#">B5 現代民族樂團</a>
-          <a href="#">B6 爵士與流行編制</a>
-          <a href="#">B7 現代混合與跨界編制</a>
+          <a href="{resolve_url(page_path, '/ensembles/')}" style="font-weight:700;">總覽</a>
+          <hr style="margin:4px 0;border:none;border-top:1px solid var(--line);">
+          <a href="{resolve_url(page_path, '/ensembles/B1/')}">B1 地域傳統合奏</a>
+          <a href="{resolve_url(page_path, '/ensembles/B2/')}">B2 民間樂隊</a>
+          <a href="{resolve_url(page_path, '/ensembles/B3/')}">B3 鼓樂與節慶編制</a>
+          <a href="{resolve_url(page_path, '/ensembles/B4/')}">B4 古典與大型編制</a>
+          <a href="{resolve_url(page_path, '/ensembles/B5/')}">B5 現代民族樂團</a>
+          <a href="{resolve_url(page_path, '/ensembles/B6/')}">B6 爵士與流行編制</a>
+          <a href="{resolve_url(page_path, '/ensembles/B7/')}">B7 現代混合與跨界編制</a>
         </div>
       </div>
       <div class="nav-dropdown">
@@ -517,6 +518,7 @@ def page(title, body, page_path=None, meta_extra="", extra_head="", meta_descrip
         <a href="{resolve_url(page_path, '/categories/')}">分類</a>
         <a href="{resolve_url(page_path, '/countries/')}">國家</a>
         <a href="{resolve_url(page_path, '/subcategories/')}">子分類</a>
+        <a href="{resolve_url(page_path, '/ensembles/')}">合奏百科</a>
         <a href="{resolve_url(page_path, '/theory/')}">樂理基礎</a>
         <a href="{resolve_url(page_path, '/contact/')}">聯絡我們</a>
         <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
@@ -908,6 +910,172 @@ def build_facet_pages(instruments, field, folder, title):
     )
     for name, items in grouped.items():
         write(OUTPUT_DIR / folder / slugify(name) / "index.html", list_page(name, sorted(items, key=lambda item: item["title"])))
+
+
+# ─── 07_整體架構_v1_2 資料 ────────────────────────────────────
+CATEGORY_ARCHITECTURE = {
+    "A1": {
+        "name": "吹奏與氣息樂器",
+        "hs": "底層 H 分類：4 氣鳴樂器 Aerophones",
+        "description": "靠氣流、管身、簧片、唇振、風箱或風管系統發聲。",
+        "subcategories": ["無簧吹管", "簧片樂器", "號角與唇振樂器", "風袋與風箱樂器", "風管與鍵控氣鳴"],
+    },
+    "A2": {
+        "name": "弦樂器",
+        "hs": "底層 H 分類：3 弦鳴樂器 Chordophones",
+        "description": "靠弦震動發聲；鍵盤、輪弦、鍵控只作操作方式，不作主分類。",
+        "subcategories": ["撥弦與抱持弦樂", "平放弦與齊特琴類", "擊弦樂器", "豎琴里拉與開放弦", "擦弦樂器", "鍵控輪弦與特殊弦鳴"],
+    },
+    "A3": {
+        "name": "鼓與打擊樂器",
+        "hs": "底層 H 分類：1 體鳴樂器 Idiophones／2 膜鳴樂器 Membranophones",
+        "description": "膜鳴與體鳴；鼓、鑼鐘、木石竹、沙鈴、舌片與手邊共鳴同區處理。",
+        "subcategories": ["鼓皮與鼓類", "鑼鐘與金屬敲擊", "木琴石琴竹琴", "沙鈴刮器與小打擊", "舌片手碟與手邊共鳴"],
+    },
+    "A4": {
+        "name": "電子與電聲樂器",
+        "hs": "底層 H 分類：5 電鳴／電聲樂器 Electrophones",
+        "description": "電子振盪、合成、取樣、磁帶、擴音、控制器或電聲改造。",
+        "subcategories": ["電子振盪", "合成器", "取樣與磁帶", "鼓機與節奏機", "電聲改造樂器", "控制器與數位介面"],
+    },
+    "A9": {
+        "name": "待分類／偵錯暫存",
+        "hs": "",
+        "description": "只供偵錯、刪除、整併、待查使用；正式公開版目標是清空。",
+        "subcategories": ["待確認"],
+    },
+}
+
+ENSEMBLE_ARCHITECTURE = [
+    ("B1", "地域傳統合奏", "以地域文化、傳統聲音系統為核心的合奏。", "甘美朗合奏、阿拉伯塔赫特、安地斯合奏"),
+    ("B2", "民間樂隊", "街頭、民俗、社群生活或地方傳統中的樂隊編制。", "墨西哥流浪樂隊、藍草樂隊、巴爾幹銅管樂隊"),
+    ("B3", "鼓樂與節慶編制", "以鼓樂、節慶、儀式或隊伍節奏為核心。", "太鼓團、非洲鼓樂隊、桑巴打擊樂隊"),
+    ("B4", "古典與大型編制", "古典或大型制度化編制。", "管弦樂團、管樂團、室內樂"),
+    ("B5", "現代民族樂團", "現代整理後的民族樂器大型編制。", "國樂團、民族管弦樂團、韓國國樂管弦樂團"),
+    ("B6", "爵士與流行編制", "爵士、流行、搖滾與節奏組相關編制。", "爵士小編制、爵士大樂團、搖滾樂團、流行樂隊"),
+    ("B7", "現代混合與跨界編制", "世界音樂、影視配樂、劇場、電子原聲混合。", "世界音樂樂團、影視配樂編制、實驗聲響團體"),
+]
+
+
+def build_category_detail_pages(instruments):
+    """為每個 A1-A9 分類建立含子分類樹狀結構的頁面。"""
+    # Build class_code → list of instruments
+    code_to_instruments = defaultdict(list)
+    code_to_subcats = defaultdict(set)
+    for item in instruments:
+        code = item.get("class_code", "")
+        subcat = item.get("subcategory", "")
+        if code:
+            code_to_instruments[code].append(item)
+            if subcat:
+                code_to_subcats[code].add(subcat)
+
+    for code, arch in CATEGORY_ARCHITECTURE.items():
+        cat_name = arch["name"]
+        slug = slugify(cat_name)
+        items_in_cat = code_to_instruments.get(code, [])
+        actual_subcats = code_to_subcats.get(code, set())
+
+        # Build subcategory listing
+        subcat_sections = []
+        for subcat_name in arch["subcategories"]:
+            # Find matching instruments (try exact match first, then fuzzy)
+            matched = sorted(
+                [i for i in items_in_cat if i.get("subcategory", "") == subcat_name or slugify(i.get("subcategory", "")) == slugify(subcat_name)],
+                key=lambda i: i["title"],
+            )
+            if not matched:
+                # Try fuzzy matching
+                for i in items_in_cat:
+                    s = i.get("subcategory", "")
+                    if s and (slugify(s) == slugify(subcat_name) or s.startswith(subcat_name[:2])):
+                        matched.append(i)
+                matched = sorted(matched, key=lambda i: i["title"], reverse=False)
+            subcat_link = resolve_url(OUTPUT_DIR / "categories" / slug / "index.html", f'/subcategories/{slugify(subcat_name)}/')
+            subcat_items_html = "\n".join(card(item, OUTPUT_DIR / "categories" / slug / "index.html") for item in matched) if matched else '<p class="empty">（此子分類暫無樂器資料）</p>'
+            subcat_sections.append(f"""
+            <section class="section">
+              <div class="section-heading">
+                <h3><a href="{subcat_link}" style="color:var(--accent);text-decoration:none;">{escape(subcat_name)}</a></h3>
+                <span class="section-note">{len(matched)} 件樂器</span>
+              </div>
+              <div class="instrument-grid">{subcat_items_html}</div>
+            </section>""")
+
+        subcat_html = "\n".join(subcat_sections)
+
+        # Build category page
+        hs_html = f'<p class="hs-note">{escape(arch["hs"])}</p>' if arch["hs"] else ""
+        body = f"""
+        <main class="page">
+          <section class="compact-hero">
+            <p class="eyebrow"><span class="badge badge-code">{escape(code)}</span> {escape(arch["description"])}</p>
+            <h1>{escape(cat_name)}</h1>
+            <p class="lead">{len(items_in_cat)} 件樂器</p>
+            {hs_html}
+          </section>
+          <div class="category-tree">
+            {subcat_html}
+          </div>
+        </main>
+        """
+
+        write(
+            OUTPUT_DIR / "categories" / slug / "index.html",
+            page(
+                f"{code} {cat_name}",
+                body,
+                OUTPUT_DIR / "categories" / slug / "index.html",
+                meta_description=f"{cat_name} — {arch['description']} 共 {len(items_in_cat)} 件樂器，含子分類：{'、'.join(arch['subcategories'])}。世界聲音百科 by 隔壁織音人。",
+            ),
+        )
+
+
+def build_ensemble_pages():
+    """建立 B1-B7 合奏與編制百科頁面（目前為占位）。"""
+    ensemble_dir = OUTPUT_DIR / "ensembles"
+    ensemble_dir.mkdir(parents=True, exist_ok=True)
+
+    # Index page
+    cards = "".join(
+        f'<a class="facet-card" href="{site_url(f"/ensembles/{code}/")}"><strong>{escape(code)} {escape(name)}</strong><span>{escape(desc)}</span></a>'
+        for code, name, desc, _ in ENSEMBLE_ARCHITECTURE
+    )
+    body = f"""
+    <main class="page">
+      <section class="compact-hero">
+        <p class="eyebrow">Ensemble Encyclopedia</p>
+        <h1>合奏與編制百科</h1>
+        <p class="lead">探索世界各地的樂器合奏形式與編制傳統。</p>
+      </section>
+      <div class="facet-grid">{cards}</div>
+    </main>
+    """
+    write(
+        ensemble_dir / "index.html",
+        page("合奏與編制百科", body, ensemble_dir / "index.html", meta_description="世界樂器合奏與編制百科 — 從地域傳統合奏、民間樂隊到現代跨界編制，探索樂器如何分工合作形成聲音系統。"),
+    )
+
+    # Individual ensemble pages (placeholder)
+    for code, name, desc, examples in ENSEMBLE_ARCHITECTURE:
+        examples_html = f'<p class="lead">例如：{escape(examples)}</p>' if examples else ""
+        body = f"""
+        <main class="page">
+          <section class="compact-hero">
+            <p class="eyebrow">Ensemble <span class="badge badge-code">{escape(code)}</span></p>
+            <h1>{escape(name)}</h1>
+            <p class="lead">{escape(desc)}</p>
+            {examples_html}
+          </section>
+          <section class="section">
+            <p class="empty">📝 此條目建置中，敬請期待。</p>
+          </section>
+        </main>
+        """
+        write(
+            ensemble_dir / code / "index.html",
+            page(f"{code} {name}", body, ensemble_dir / code / "index.html", meta_description=f"{name} — {desc}。合奏與編制百科建置中。"),
+        )
 
 
 def build_assets(instruments):
@@ -1580,7 +1748,7 @@ def build_sitemap(instruments):
 
     # Static top-level pages
     for path in ["/", "/instruments/", "/categories/", "/countries/",
-                 "/popular/", "/map/",
+                 "/ensembles/", "/subcategories/", "/map/",
                  "/about/", "/theory/", "/vocal/", "/digitalmusic/",
                  "/sound-journey/", "/experience/", "/contact/"]:
         urls.append(u(path))
@@ -1596,6 +1764,10 @@ def build_sitemap(instruments):
     # Country detail pages
     for name in countries:
         urls.append(u(f"/countries/{slugify(name)}/"))
+
+    # Ensemble pages
+    for code, name, _, _ in ENSEMBLE_ARCHITECTURE:
+        urls.append(u(f"/ensembles/{code}/"))
 
     for i in range(6):  # 0–5
         urls.append(u(f"/theory/{i}/"))
@@ -2178,7 +2350,8 @@ def main():
     build_detail_pages(instruments)
     build_special_pages(instruments)
     build_instruments_list_page(instruments)
-    build_facet_pages(instruments, "category", "categories", "分類")
+    build_category_detail_pages(instruments)
+    build_ensemble_pages()
     build_facet_pages(instruments, "subcategory", "subcategories", "子分類")
     build_facet_pages(instruments, "country", "countries", "國家/地區")
     build_404(instruments)
