@@ -2071,6 +2071,45 @@ def build_manager_page(instruments):
   </div>
 
 
+  </div>
+
+  <div class="manage-card">
+    <h2>📖 電子書下載</h2>
+    <p>依 A1~A9 分類輸出為 Word (.docx) 與 PDF 格式，每本包含封面、關於作者、目錄與完整樂器介紹（含 YouTube QR Code）。</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-top:16px;">
+      <div style="border:1px solid var(--line);border-radius:8px;padding:14px;background:var(--surface);">
+        <strong>A1 吹奏與氣息樂器</strong><br>
+        <span style="font-size:12px;color:var(--muted);">225 件樂器</span><br>
+        <a href="../assets/A1-吹奏與氣息樂器.docx" download style="font-size:13px;">📄 DOCX</a>
+        <a href="../assets/A1-吹奏與氣息樂器.pdf" download style="font-size:13px;margin-left:12px;">📕 PDF</a>
+      </div>
+      <div style="border:1px solid var(--line);border-radius:8px;padding:14px;background:var(--surface);">
+        <strong>A2 弦樂器</strong><br>
+        <span style="font-size:12px;color:var(--muted);">373 件樂器</span><br>
+        <a href="../assets/A2-弦樂器.docx" download style="font-size:13px;">📄 DOCX</a>
+        <a href="../assets/A2-弦樂器.pdf" download style="font-size:13px;margin-left:12px;">📕 PDF</a>
+      </div>
+      <div style="border:1px solid var(--line);border-radius:8px;padding:14px;background:var(--surface);">
+        <strong>A3 鼓與打擊樂器</strong><br>
+        <span style="font-size:12px;color:var(--muted);">150 件樂器</span><br>
+        <a href="../assets/A3-鼓與打擊樂器.docx" download style="font-size:13px;">📄 DOCX</a>
+        <a href="../assets/A3-鼓與打擊樂器.pdf" download style="font-size:13px;margin-left:12px;">📕 PDF</a>
+      </div>
+      <div style="border:1px solid var(--line);border-radius:8px;padding:14px;background:var(--surface);">
+        <strong>A4 電子與電聲樂器</strong><br>
+        <span style="font-size:12px;color:var(--muted);">78 件樂器</span><br>
+        <a href="../assets/A4-電子與電聲樂器.docx" download style="font-size:13px;">📄 DOCX</a>
+        <a href="../assets/A4-電子與電聲樂器.pdf" download style="font-size:13px;margin-left:12px;">📕 PDF</a>
+      </div>
+      <div style="border:1px solid var(--line);border-radius:8px;padding:14px;background:var(--surface);">
+        <strong>A9 待分類</strong><br>
+        <span style="font-size:12px;color:var(--muted);">7 件樂器</span><br>
+        <a href="../assets/A9-待分類.docx" download style="font-size:13px;">📄 DOCX</a>
+        <a href="../assets/A9-待分類.pdf" download style="font-size:13px;margin-left:12px;">📕 PDF</a>
+      </div>
+    </div>
+  </div>
+
 </main>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
