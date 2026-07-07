@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/tube-zither/
-title: 管弦琴
-original_name: Tube zither
-category: 弦樂器
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 管弦琴
+title_original: Tube zither
+family_std: 弦樂器類
+sound_hs: 3 弦鳴樂器
 playing_method: 撥弦／擦弦／擊弦
-family: 弦樂器類
-hs_class: 3 弦鳴樂器
-sound_class: 弦鳴
-country: 馬達加斯加／印度／東南亞／台灣
-era: 傳統／年代待考
-region_type: 跨文化／多地
-soundscape: 開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
-body_listening: 循環、河流感、開放弦、吟唱
+interface_tags: 
+region_culture: 馬達加斯加／印度／東南亞／台灣
+listening_sound_tags: 循環、河流感、開放弦、吟唱｜開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/tube-zither/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Kong_ring_%28%E1%9E%82%E1%9E%84%E1%9F%8B%E1%9E%9A%E1%9F%81%E1%9E%84%29.jpg/500px-Kong_ring_%28%E1%9E%82%E1%9E%84%E1%9F%8B%E1%9E%9A%E1%9F%81%E1%9E%84%29.jpg
 youtube_ids: B3Z9XBAw4cU 0dyTyphiYd0
-instrument_key: 無固定調性
-range: 約2個8度
 ---
+
 ## 介紹
 
 管弦琴是一種弦樂器，其中一根管子既作為樂器的琴頸，也作為共鳴箱。作為琴頸，它使琴弦保持張力並允許它們振動。作為共鳴箱，它改變聲音並將其傳遞到空氣中。這些樂器是最古老的弦樂器之一，處於弦樂器發展的「早期階段」，甚至早於一些最古老的弦樂器，例如中國的瑟——由分開的管子製成的古箏。大多數管弦琴由竹子製成，今天在馬達加斯加、印度、東南亞和台灣演奏。

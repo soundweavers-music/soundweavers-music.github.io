@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/ikembe/
-title: 鐵舌琴
-original_name: Ikembe
-category: 打擊樂器
-country: 東非／中非
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Ikembe-sanza-mbira.JPG/500px-Ikembe-sanza-mbira.JPG
-sound_class: 體鳴
-range: 中高音區（約2個8度）
-instrument_key: 全調性
-hs_class: 12 體鳴／舌片琴／金屬共鳴
-family: 近身體鳴、舌片琴與手奏金屬共鳴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 鐵舌琴
+title_original: Ikembe
+family_std: 近身體鳴、舌片琴與手奏金屬共鳴
+sound_hs: 12 體鳴／舌片琴／金屬共鳴
 playing_method: 手敲／拇指撥片／近身共鳴
-body_listening: 小型金屬舌片、循環節奏、掌心聲音
-soundscape: 手邊發光的小宇宙（近身體鳴、舌片琴與手奏金屬共鳴）
-region_type: 區域／多國
+interface_tags: 撥片
+region_culture: 東非／中非｜區域／多國
+listening_sound_tags: 小型金屬舌片、循環節奏、掌心聲音｜手邊發光的小宇宙（近身體鳴、舌片琴與手奏金屬共鳴）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/ikembe/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Ikembe-sanza-mbira.JPG/500px-Ikembe-sanza-mbira.JPG
 youtube_ids: r5fz0J_aiLo ZPyT7ZWN9Eg
 ---
+
 ## 介紹
 
 伊肯貝琴是一種舌簧樂器族群的樂器，在盧旺達、布隆迪和剛果人民中很常見。該樂器由固定在矩形木製共鳴箱上的幾根鐵舌片組成。在斯瓦希里語中，「imba」一詞意為歌曲。「kuimba」意為唱歌，如短語「nitakwenda kuimba」（我去唱歌）。斯瓦希里語與許多語言一樣，使用一種二項式命名法來創造新詞，以描述不熟悉的或新的物體、現象或人物，並基於現有的詞語或概念。

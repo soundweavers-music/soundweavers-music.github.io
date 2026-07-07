@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/ondes-martenot/
-title: 馬特諾電子波琴
-original_name: Ondes Martenot
-category: 鍵盤樂器
-country: 歐洲／法國
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Ondes_martenot.jpg/500px-Ondes_martenot.jpg
-sound_class: 鍵盤／電鳴／機械混合
-range: 約5個8度
-instrument_key: 全調性
-hs_class: 412/31/52 鍵盤、自由簧、電鳴與機械介面
-family: 鍵盤介面、風箱、電子與取樣
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 取樣與磁帶
+title_zh: 馬特諾電子波琴
+title_original: Ondes Martenot
+family_std: 鍵盤介面、風箱、電子與取樣
+sound_hs: 鍵盤／電鳴／機械混合｜412/31/52 鍵盤、自由簧、電鳴與機械介面
 playing_method: 按鍵／風箱／電控／取樣
-body_listening: 手指、機械距離、記憶、電聲
-soundscape: 按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
-region_type: 跨文化／多地
+interface_tags: 鍵盤／按鍵、風箱
+region_culture: 歐洲／法國
+listening_sound_tags: 手指、機械距離、記憶、電聲｜按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/ondes-martenot/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Ondes_martenot.jpg/500px-Ondes_martenot.jpg
 youtube_ids: Yy9UBjrUjwo v0aflcF0-ys
 ---
+
 ## 介紹
 
 馬特諾電子波琴（英文：ondes Martenot，法文：[ɔ̃d maʁtəno]，字面意思為「馬特諾波」）或音樂波琴（字面意思為「音樂波」）是一種早期的電子樂器。早期型號只能通過移動綁在導線上的環來演奏，產生類似於特雷門琴的「波動」聲音，但很快就添加了橫向顫音鍵盤。動態和音色可以使用位於樂器左側抽屜中的控制器進行調整。馬特諾電子波琴的演奏者稱為波琴演奏者。馬特諾電子波琴是由法國發明家莫里斯·馬特諾於1928年發明的。

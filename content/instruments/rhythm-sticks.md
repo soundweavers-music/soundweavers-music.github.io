@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/rhythm-sticks/
-title: 節奏棒
-original_name: Rhythm Sticks
-category: 打擊樂器
-country: 拉丁美洲／非洲／歐洲／亞洲／全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/NLC511-023031103010001-77718_%E7%9B%9B%E4%BA%AC%E6%99%82%E5%A0%B1_%E7%AC%AC416%E5%8D%B7.pdf/page1-500px-NLC511-023031103010001-77718_%E7%9B%9B%E4%BA%AC%E6%99%82%E5%A0%B1_%E7%AC%AC416%E5%8D%B7.pdf.jpg
-sound_class: 體鳴
-range: 約中高頻區域（音程不明確）
-instrument_key: 無固定調性
-hs_class: 11 小型體鳴／搖奏刮奏敲奏
-family: 小型節奏體鳴、沙鈴、刮器與身體打擊
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
+title_zh: 節奏棒
+title_original: Rhythm Sticks
+family_std: 小型節奏體鳴、沙鈴、刮器與身體打擊
+sound_hs: 11 小型體鳴／搖奏刮奏敲奏
 playing_method: 搖奏／刮奏／敲擊／身體打擊
-body_listening: 手腕、腳踝、短音、節奏對齊
-soundscape: 手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 拉丁美洲／非洲／歐洲／亞洲／全球
+listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/rhythm-sticks/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/NLC511-023031103010001-77718_%E7%9B%9B%E4%BA%AC%E6%99%82%E5%A0%B1_%E7%AC%AC416%E5%8D%B7.pdf/page1-500px-NLC511-023031103010001-77718_%E7%9B%9B%E4%BA%AC%E6%99%82%E5%A0%B1_%E7%AC%AC416%E5%8D%B7.pdf.jpg
 youtube_ids: F80LKTinhJE 9lTzTpaM6bw
 ---
+
 ## 介紹
 
 節奏棒是一種古老的打擊樂器，由兩根木棍組成，通過相互敲擊產生聲響。樂器外形簡潔，通常為圓柱形木棍，長度約20-25公分。節奏棒音色清脆明亮，具有強烈的穿透力和節奏感，主要用於強調樂曲的節拍與律動。其聲音乾淨俐落，極具表現力，廣泛應用於民間音樂、爵士樂、布魯斯及現代古典音樂中，是世界各地民族音樂的重要組成部分。

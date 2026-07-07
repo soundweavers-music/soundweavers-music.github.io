@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/kettle-drum/
-title: 鍋鼓
-original_name: Kettle drum
-category: 打擊樂器
-country: 中東／歐洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Nagara%2C_a_percussion_instrument%2C_Rajasthan.jpg/500px-Nagara%2C_a_percussion_instrument%2C_Rajasthan.jpg
-sound_class: 膜鳴
-range: 約2-3個8度（通過調整膜張力改變音高）
-instrument_key: 全調性
-hs_class: 21 膜鳴鼓類
-family: 膜鳴鼓類、框鼓、杯鼓與鼓組
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 鍋鼓
+title_original: Kettle drum
+family_std: 膜鳴鼓類、框鼓、杯鼓與鼓組
+sound_hs: 21 膜鳴鼓類
 playing_method: 手拍／槌擊／皮膜振動
-body_listening: 手掌、腳底、低音、舞步
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-region_type: 地區／文化圈
+interface_tags: 
+region_culture: 中東／歐洲｜地區／文化圈
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/kettle-drum/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Nagara%2C_a_percussion_instrument%2C_Rajasthan.jpg/500px-Nagara%2C_a_percussion_instrument%2C_Rajasthan.jpg
 youtube_ids: 05h_NFY7fLc mEOSy9lysj8
 ---
+
 ## 介紹
 
 鍋鼓（或稱釜鼓）是一種打擊樂器，其特點是在一個大型半球形碗體上繃緊一層膜。傳統上，碗體由銅或青銅等金屬製成，但也可以使用粘土和木材等材料。在西方音樂中，定音鼓是最常見的鍋鼓類型，其使用之廣泛使得兩個名稱幾乎已成為同義詞。然而，大多數文化，尤其是南亞和中東地區的文化，都擁有各自獨特的鍋鼓類型。

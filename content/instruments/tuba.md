@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/tuba/
-title: 大號
-original_name: Tuba
-category: 管樂器
-country: 歐洲／德國
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Yamaha_Bass_tuba_YFB-822.tif/lossy-page1-500px-Yamaha_Bass_tuba_YFB-822.tif.jpg
-sound_class: 氣鳴
-range: E1–F4（約3個8度）
-instrument_key: 降B大調、F大調
-hs_class: 423 唇振氣鳴／號角與銅管
-family: 唇振氣鳴、天然號角與銅管
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 號角與唇振
+title_zh: 大號
+title_original: Tuba
+family_std: 唇振氣鳴、天然號角與銅管
+sound_hs: 423 唇振氣鳴／號角與銅管
 playing_method: 唇振吹奏
-body_listening: 嘴唇、遠方、召喚、空間方向
-soundscape: 吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 歐洲／德國
+listening_sound_tags: 嘴唇、遠方、召喚、空間方向｜吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
+ensemble_links: 管弦樂團
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/tuba/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Yamaha_Bass_tuba_YFB-822.tif/lossy-page1-500px-Yamaha_Bass_tuba_YFB-822.tif.jpg
 youtube_ids: _ZdMxFiUf9Q xZO5KTJTwhE
 ---
+
 ## 介紹
 
 低音號（Tuba），亦稱低音大喇叭或土巴號（在中國多稱之為大號），是一種低音銅管樂器。在管弦樂隊、管樂隊中經常使用，是音域最低，體積最大的銅管樂器之一。

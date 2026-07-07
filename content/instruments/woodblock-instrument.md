@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/woodblock-instrument/
-title: 響木
-original_name: Woodblock (instrument)
-category: 打擊樂器
-country: 亞洲／東亞
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Dos_bloques.JPG/500px-Dos_bloques.JPG
-sound_class: 體鳴
-range: 中高音域（約2個8度）
-instrument_key: 無固定調性
-hs_class: Idiophone／體鳴樂器
-family: 木魚／木塊
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 響木
+title_original: Woodblock (instrument)
+family_std: 木魚／木塊
+sound_hs: Idiophone／體鳴樂器
 playing_method: 敲擊
-body_listening: 手腕、腳踝、短音、節奏對齊
-soundscape: 手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 亞洲／東亞
+listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+ensemble_links: 爵士編制
+verification_status: 待檢查
+issue_note: 名稱待查；Tuntina 譯一弦琴需查；可能不是常見樂器主名。；列待查；與 Ektara/Monochord相鄰。
+source_url: https://soundweavers-music.github.io/instruments/woodblock-instrument/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Dos_bloques.JPG/500px-Dos_bloques.JPG
 youtube_ids: gTwikHRdsuY CsuU2ONO4mU
 ---
+
 ## 介紹
 
 木魚（也可拼寫為兩個單詞，木塊）是由單塊木料製成的小型狹縫鼓。該術語通常指西方管弦樂隊樂器，但也可能指中國木魚。在拉格泰姆音樂和爵士樂中，它也被稱為木屐盒或敲擊盒。在管弦樂樂譜中，木魚可能用法語「bloc de bois」或「tambour de bois」、德語「Holzblock」或「Holzblocktrommel」或意大利語「cassa di legno」表示。西方管弦樂隊的木魚通常由柚木或其他硬木製成。

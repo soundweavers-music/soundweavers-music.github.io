@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/clarinet/
-title: 單簧管
-original_name: Clarinet
-category: 管樂器
-country: 歐洲／德國
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/8/85/Range_clarinet.png
-sound_class: 氣鳴
-range: E3–G6（約3個半8度）
-instrument_key: 降B大調
-hs_class: 412/422 簧鳴與自由簧／單簧雙簧
-family: 口簧、自由簧、單簧雙簧與風袋
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 風箱與自由簧
+title_zh: 單簧管
+title_original: Clarinet
+family_std: 口簧、自由簧、單簧雙簧與風袋
+sound_hs: 氣鳴｜412/422 簧鳴與自由簧／單簧雙簧
 playing_method: 吹奏／簧片振動／風袋或風箱
-body_listening: 口腔、舌頭、簧片震動、鼻音
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-region_type: 地區／文化圈
+interface_tags: 風箱
+region_culture: 歐洲／德國｜地區／文化圈
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/clarinet/
+image: https://upload.wikimedia.org/wikipedia/commons/8/85/Range_clarinet.png
 youtube_ids: YT_63UntRJE nuEMqMc1Fh4
 ---
+
 ## 介紹
 
 單簧管，臺灣又稱豎笛、黑管，是一種木管樂器，從夏盧摩笛（法語：Chalumeau，一種古代的單簧低音樂器）發展而來的，形成於17世紀末，訛傳是由德國的長笛製造家丹納（Johann Denner，1655年—1707年）所發明，但這一說法未有實據支持。最早為人所知的單簧管音樂收在阿姆斯特丹的羅傑（Estienne Roger）出版的曲集內（1716年再版）。從大約1780年起，單簧管被一些最大的管弦樂隊採用。現代單簧管則是在1800—1850年發展而成的。

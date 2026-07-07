@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/alphorn/
-title: 阿爾卑斯長號
-original_name: Alphorn
-category: 管樂器
-country: 歐洲／瑞士
-era: 16 世紀
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Musikinstrumenten-Museum_Berlin_-_Alphorn_in_Fis_-_1108187.jpg/500px-Musikinstrumenten-Museum_Berlin_-_Alphorn_in_Fis_-_1108187.jpg
-sound_class: 氣鳴
-range: 約2至3個八度
-instrument_key: 多調性
-hs_class: 423 唇振氣鳴／號角與銅管
-family: 唇振氣鳴、天然號角與銅管
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 號角與唇振
+title_zh: 阿爾卑斯長號
+title_original: Alphorn
+family_std: 唇振氣鳴、天然號角與銅管
+sound_hs: 423 唇振氣鳴／號角與銅管
 playing_method: 唇振吹奏
-body_listening: 嘴唇、遠方、召喚、空間方向
-soundscape: 吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 歐洲／瑞士
+listening_sound_tags: 嘴唇、遠方、召喚、空間方向｜吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/alphorn/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Musikinstrumenten-Museum_Berlin_-_Alphorn_in_Fis_-_1108187.jpg/500px-Musikinstrumenten-Museum_Berlin_-_Alphorn_in_Fis_-_1108187.jpg
 youtube_ids: K_qp26NHyTg ybighdGqHpk
 ---
+
 ## 介紹
 
 阿爾卑斯長號是一種古老的管樂器，起源於歐洲阿爾卑斯山區。其外型為細長的木製圓錐形管身，長度約1.5至4公尺，通常由當地木材製成。傳統上牧羊人用其在山區進行長距離通信和信號傳遞，後來逐漸發展為音樂表演樂器。其音色溫潤詩意，帶有天然原木的溫暖質感，音域集中在中高音區，具有柔和的泛音與牧歌式的親切感，是瑞士及阿爾卑斯地區民族音樂的重要代表。

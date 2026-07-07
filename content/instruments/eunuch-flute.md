@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/eunuch-flute/
-title: 噶噶笛
-original_name: Eunuch flute
-category: 弦樂器
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 電聲改造樂器
+title_zh: 噶噶笛
+title_original: Eunuch flute
+family_std: 弦樂器類
+sound_hs: 3 弦鳴樂器
 playing_method: 撥弦／擦弦／擊弦
-family: 弦樂器類
-hs_class: 3 弦鳴樂器
-sound_class: 弦鳴
-country: 歐洲
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-body_listening: 手掌、腳底、低音、舞步
+interface_tags: 
+region_culture: 歐洲｜單一地區／文化圈
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 移入第13類
+issue_note: 現代電子／取樣；屬現代電子、取樣、電聲或電氣化鍵盤／設備類，應集中到第13類。；移第13類，並與傳統鍵盤／風箱類分開。
+source_url: https://soundweavers-music.github.io/instruments/eunuch-flute/
 image: https://upload.wikimedia.org/wikipedia/commons/1/10/Enfant_jouant_du_mirliton.jpg
 youtube_ids: hu1SECQu8sw y9IpDENmOAo
-instrument_key: 無固定調性
-range: 中等至較高音域，約1個8度
 ---
+
 ## 介紹
 
 太監笛、洋蔥笛或米利頓（法文：flûte eunuque、flûte à l'oignon或mirliton；德文：Zwiebelflöte）是一種膜鳴樂器，在16和17世紀期間被使用。它發出的聲音類似於梳子和紙張的聲音，至今仍作為玩具製造。太監笛的聲音類似於卡祖笛。與卡祖笛不同的是，它是橫向握持並靠在嘴邊，使用者對著開口發聲。太監笛由一根木製管子組成，逐漸擴寬形成一個喇叭口。

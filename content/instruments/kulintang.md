@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/kulintang/
-title: 索科斯克薩爾根
-original_name: Kulintang
-category: 打擊樂器
-country: 東南亞
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-body_listening: 材料、回聲、群體分工、音列
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 索科斯克薩爾根
+title_original: Kulintang
+family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
+sound_hs: 11/12 定音體鳴／鑼鐘木琴石琴系統
 playing_method: 敲擊／搖奏／材料共鳴
-family: 定音體鳴、材料敲擊與鑼鐘木琴系統
-hs_class: 11/12 定音體鳴／鑼鐘木琴石琴系統
-sound_class: 體鳴
-range: 約2至3個8度
-instrument_key: 全調性
+interface_tags: 
+region_culture: 東南亞｜單一地區／文化圈
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/kulintang/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Mindanao_Bangsamoro_Islamic_Musical_Instruments.jpg/500px-Mindanao_Bangsamoro_Islamic_Musical_Instruments.jpg
 youtube_ids: Czh1oqx0Bpw B_acS1s_cZM
 ---
+
 ## 介紹
 
 庫林當（印尼語：kolintang，馬來語：kulintangan）是一種現代術語，用於指稱一種古老的樂器音樂形式，由一排水平放置的小鑼組成，這些小鑼發揮旋律功能，並由更大的懸掛鑼和鼓伴奏。

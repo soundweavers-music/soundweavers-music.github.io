@@ -1,21 +1,22 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/thunder-tube/
-title: 雷鳴管
-original_name: Thunder Tube
-category: 打擊樂器
-country: 拉丁美洲／非洲／歐洲／亞洲／全球
-era: 傳統／年代待考
-sound_class: 體鳴
-range: 低至中低音域（約2個8度）
-instrument_key: 無固定調性
-hs_class: 11 小型體鳴／搖奏刮奏敲奏
-family: 小型節奏體鳴、沙鈴、刮器與身體打擊
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 雷鳴管
+title_original: Thunder Tube
+family_std: 小型節奏體鳴、沙鈴、刮器與身體打擊
+sound_hs: 11 小型體鳴／搖奏刮奏敲奏
 playing_method: 搖奏／刮奏／敲擊／身體打擊
-body_listening: 手腕、腳踝、短音、節奏對齊
-soundscape: 手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 拉丁美洲／非洲／歐洲／亞洲／全球
+listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/thunder-tube/
 youtube_ids: 2fbjUIATSD4 QyZkmjWAH10
 ---
+
 ## 介紹
 
 雷鳴管是一種現代打擊樂器，由金屬圓筒和內部彈簧組成，外型呈細長的金屬管狀。樂器通過彈撥或搖晃內部彈簧產生深沉的隆隆聲，能逼真模擬雷鳴效果。最初應用於戲劇舞台與電影配樂，後來進入音樂教育領域。操作簡單易上手，音效獨特富有表現力，廣泛用於現代音樂創作、聲學教學與視聽藝術製作。

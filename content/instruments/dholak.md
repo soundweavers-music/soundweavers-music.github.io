@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/dholak/
-title: 卓拉克鼓
-original_name: Dholak
-category: 打擊樂器
-country: 亞洲／南亞（印度）
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Dholak_dhol_drum%2C_one_of_many_percussion_instruments_of_South_Asia.jpg/500px-Dholak_dhol_drum%2C_one_of_many_percussion_instruments_of_South_Asia.jpg
-sound_class: 膜鳴
-range: 約2個8度（高音區E4–G6，低音區C2–E4）
-instrument_key: 無固定調性
-hs_class: 21 膜鳴鼓類
-family: 膜鳴鼓類、框鼓、杯鼓與鼓組
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 卓拉克鼓
+title_original: Dholak
+family_std: 膜鳴鼓類、框鼓、杯鼓與鼓組
+sound_hs: 21 膜鳴鼓類
 playing_method: 手拍／槌擊／皮膜振動
-body_listening: 手掌、腳底、低音、舞步
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-region_type: 地區／文化圈
+interface_tags: 
+region_culture: 亞洲／南亞（印度）｜地區／文化圈
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/dholak/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Dholak_dhol_drum%2C_one_of_many_percussion_instruments_of_South_Asia.jpg/500px-Dholak_dhol_drum%2C_one_of_many_percussion_instruments_of_South_Asia.jpg
 youtube_ids: rOYMi7tzb80 wpVTnEKK1RE
 ---
+
 ## 介紹
 
 卓拉克鼓是源自南亞的雙面手鼓及民族打擊樂器。卓拉克鼓的長度約為16英寸至24英寸。它廣泛應用於卡瓦利音樂、唱讚歌、婆詞歌、旁遮普民俗舞蹈音樂、咖喱歌曲、家庭音樂會歌曲、寶萊塢電影音樂、民謠以及各種古典風格，如印度斯坦古典音樂、卡納提克古典音樂和特立尼達當地古典音樂/蓋亞那讚美詩。這面鼓有兩個大小不同的鼓面。較小的鼓面直徑為5.5至8英寸，用於演奏尖銳高音；而較大的鼓面直徑為7.5至10英寸，用於演奏低音。

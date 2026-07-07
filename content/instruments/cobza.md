@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/cobza/
-title: 科布扎魯特琴
-original_name: Cobza
-category: 弦樂器
-country: 歐洲／羅馬尼亞
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Kobza_001.jpg/500px-Kobza_001.jpg
-sound_class: 弦鳴
-range: 約2個8度
-instrument_key: 全調性
-hs_class: 321/322 魯特琴類／撥弦
-family: 魯特琴、短頸長頸撥弦與民謠弦聲
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 科布扎魯特琴
+title_original: Cobza
+family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
+sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
 playing_method: 撥弦／刷弦／撥片
-body_listening: 懷抱、手指、腳步、敘事
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 跨文化／多地
+interface_tags: 撥片
+region_culture: 歐洲／羅馬尼亞
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/cobza/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Kobza_001.jpg/500px-Kobza_001.jpg
 youtube_ids: Fww-C8QWSPw y77p_FtDPEM
 ---
+
 ## 介紹
 
 科布扎魯特琴（亦稱cobsa、cobuz、koboz）是魯特琴家族中的多弦樂器，源自民間音樂，在羅馬尼亞、摩爾多瓦及當代匈牙利民間音樂中頗受歡迎。科布扎魯特琴是一種梨形弦樂器，具有短頸和木製琴身，傳統上用於在民間音樂中提供節奏和和聲。它可以獨奏或與他人合奏，通常用摺疊的鵝毛撥彈。它被認為是羅馬尼亞和摩爾多瓦地區最古老的伴奏樂器。

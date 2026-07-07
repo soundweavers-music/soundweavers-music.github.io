@@ -1,17 +1,22 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/long-string-instrument/
-title: 長弦樂器
-original_name: Long-string instrument
-category: 弦樂器
-country: 美洲／北美
-era: 傳統／年代待考
-region_type: 跨文化／多地
-soundscape: 平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化弦鳴）
-body_listening: 手掌、弦面、推音、敲擊
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 長弦樂器
+title_original: Long-string instrument
+family_std: 撥弦與抱持弦樂家族
+sound_hs: 待確認
+playing_method: 撥奏／擦奏／擊弦（待細分）
+interface_tags: 
+region_culture: 美洲／北美
+listening_sound_tags: 手掌、弦面、推音、敲擊｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化弦鳴）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/long-string-instrument/
 youtube_ids: 12X-i9YHzmE XfyVyeQcg_A
-instrument_key: 純律調音
-range: 極低音域（基頻低於20赫茲）伴隨豐富泛音，約2個8度以上
 ---
+
 ## 介紹
 
 長弦樂器是一種樂器，其琴弦長度足夠長，使得基本橫波頻率低於人類能聽到的音調（±20赫茲）。如果張力和長度造成的聲音頻率達到這樣的水準，音調便會成為一種拍頻，範圍從短混響（約5–10公尺）到更長的迴聲音（超過10公尺）。除了拍頻外，琴弦還會產生更高音調的自然泛音。由於長度很長，這會對起音產生影響。

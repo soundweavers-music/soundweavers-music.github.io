@@ -1,18 +1,22 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/sanshin/
-title: 三線
-original_name: Sanshin
-category: 弦樂器
-country: 琉球國
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-body_listening: 懷抱、手指、腳步、敘事
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 三線
+title_original: Sanshin
+family_std: 撥弦與抱持弦樂家族
+sound_hs: 待確認
+playing_method: 撥奏／擦奏／擊弦（待細分）
+interface_tags: 
+region_culture: 琉球國｜單一地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/sanshin/
 youtube_ids: PqKCEnEdNr4 D8UxHpqTGYg
-instrument_key: 無固定調性
-range: 約2個8度
 ---
+
 ## 介紹
 
 三線是琉球群島特有的撥弦樂器，由琴頭、琴頸、琴身三部分構成，因琴身兩面蒙有當地常見的蛇皮，也被稱為蛇皮線或蛇味線。

@@ -1,21 +1,22 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/wood-blocks/
-title: 木魚
-original_name: Wood Blocks
-category: 打擊樂器
-country: 東南亞／東亞／非洲／歐洲／全球
-era: 傳統／年代待考
-sound_class: 體鳴
-range: 中高音區（約2個8度）
-instrument_key: 無固定調性
-hs_class: 11/12 定音體鳴／鑼鐘木琴石琴系統
-family: 定音體鳴、材料敲擊與鑼鐘木琴系統
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 木魚
+title_original: Wood Blocks
+family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
+sound_hs: 11/12 定音體鳴／鑼鐘木琴石琴系統
 playing_method: 敲擊／搖奏／材料共鳴
-body_listening: 材料、回聲、群體分工、音列
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 東南亞／東亞／非洲／歐洲／全球
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/wood-blocks/
 youtube_ids: gTwikHRdsuY CsuU2ONO4mU
 ---
+
 ## 介紹
 
 木魚是源自中國的打擊樂器，最初為佛教寺院法器，用於集合僧眾與標記誦經節奏。其名稱源於古代魚形雕刻，象徵警醒與靈性。木魚呈空心魚形，由樟木或檀木製成，敲擊時發出清脆明亮的音響。傳統上廣泛應用於粵劇、京劇等戲曲伴奏，近代更融入西方交響樂團與爵士樂隊，成為兼具東方特色與現代性的打擊樂器。

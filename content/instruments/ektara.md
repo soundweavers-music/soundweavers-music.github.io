@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/ektara/
-title: 艾克塔拉
-original_name: Ektara
-category: 鍵盤樂器
-country: 伊朗／亞塞拜然／高加索
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Ektara_2.jpg/500px-Ektara_2.jpg
-sound_class: 弦鳴
-range: 約2個8度（中低音區）
-instrument_key: 無固定調性
-hs_class: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
-family: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 電聲改造樂器
+title_zh: 艾克塔拉
+title_original: Ektara
+family_std: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+sound_hs: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
 playing_method: 撥弦／擊弦／按鍵擊弦
-body_listening: 手掌、弦面、推音、敲擊
-soundscape: 平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
-region_type: 地區／文化圈
+interface_tags: 鍵盤／按鍵
+region_culture: 伊朗／亞塞拜然／高加索｜地區／文化圈
+listening_sound_tags: 手掌、弦面、推音、敲擊｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
+ensemble_links: 
+verification_status: 移入第13類
+issue_note: 現代電子／取樣；屬現代電子、取樣、電聲或電氣化鍵盤／設備類，應集中到第13類。；移第13類，並與傳統鍵盤／風箱類分開。
+source_url: https://soundweavers-music.github.io/instruments/ektara/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Ektara_2.jpg/500px-Ektara_2.jpg
 youtube_ids: vLA2YPTqOv4 4Em10yVQHos
 ---
+
 ## 介紹
 
 一弦琴（孟加拉語：একতারা，尼泊爾語：एकतारे；字面意思為「一根弦」，也稱為 ektar、golki 尼泊爾語：गोल्）是一種單弦樂器，用於孟加拉的傳統音樂，以及現代孟加拉和印度東部的音樂中。雙弦版本稱為 dotara（兩根弦），這個名稱也適用於另一種同名樂器。一弦琴起源於瑜伽苦行者（Bauls）的常規弦樂器，用一根手指撥奏。一弦琴是一種持續音魯特琴，由一個葫蘆形共鳴器組成，共鳴器覆有皮膜，竹製琴頸穿過其中。

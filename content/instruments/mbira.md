@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/mbira/
-title: 姆比拉
-original_name: Mbira
-category: 打擊樂器
-country: 非洲／辛巴威／剛果／全球現代
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Mbira_dzavadzimu_1.jpg/500px-Mbira_dzavadzimu_1.jpg
-sound_class: 體鳴
-range: 約3個八度
-instrument_key: 全調性
-hs_class: 12 體鳴／舌片琴／金屬共鳴
-family: 近身體鳴、舌片琴與手奏金屬共鳴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 姆比拉
+title_original: Mbira
+family_std: 近身體鳴、舌片琴與手奏金屬共鳴
+sound_hs: 12 體鳴／舌片琴／金屬共鳴
 playing_method: 手敲／拇指撥片／近身共鳴
-body_listening: 指尖、掌心、尾音、近身聆聽
-soundscape: 手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）
-region_type: 跨文化／多地
+interface_tags: 撥片
+region_culture: 非洲／辛巴威／剛果／全球現代
+listening_sound_tags: 指尖、掌心、尾音、近身聆聽｜手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/mbira/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Mbira_dzavadzimu_1.jpg/500px-Mbira_dzavadzimu_1.jpg
 youtube_ids: kd7KC3PaEaA ADD7hqnmO4E
 ---
+
 ## 介紹
 
 拇指琴又稱卡林巴琴，是源自辛巴威紹納人的樂器。拇指琴由裝有金屬彈片的木製琴板組成。人們在用拇指琴演奏時需雙手持琴，用雙手拇指、右手食指及左手食指撥動金屬彈片。2020年，拇指琴的製作與演奏技藝被列入聯合國教科文組織非物質文化遺產名錄和優秀保護實踐名冊。

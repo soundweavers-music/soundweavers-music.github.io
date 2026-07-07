@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/cross-strung-harp/
-title: 交叉弦豎琴
-original_name: Cross-strung harp
-category: 弦樂器
+class_code: A9
+frontend_class: 待分類／偵錯暫存
+subcategory: 待確認
+title_zh: 交叉弦豎琴
+title_original: Cross-strung harp
+family_std: 待確認
+sound_hs: 3 弦鳴樂器
 playing_method: 撥弦／擦弦／擊弦
-family: 弦樂器類
-hs_class: 3 弦鳴樂器
-sound_class: 弦鳴
-country: 歐洲
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
-body_listening: 循環、河流感、開放弦、吟唱
+interface_tags: 踏板
+region_culture: 歐洲｜單一地區／文化圈
+listening_sound_tags: 循環、河流感、開放弦、吟唱｜開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
+ensemble_links: 
+verification_status: 已整併，建議刪除
+issue_note: 完全重複／被整併；Cor anglais 與 English horn 是同一管弦樂雙簧管族樂器的英法稱法；保留 English horn 主項，Cor anglais 作別名。 本列併入第257項。；刪除本列；資料併入第257項。；MERGED-257: 被併入第257項
+source_url: https://soundweavers-music.github.io/instruments/cross-strung-harp/
 image: https://upload.wikimedia.org/wikipedia/commons/9/9a/Chromatic_Harp.jpg
 youtube_ids: azYjQ4SEAaY fucHzk1IS8Q
-instrument_key: 全調性
-range: 約3至4個八度
 ---
+
 ## 介紹
 
 交叉弦豎琴或半音雙豎琴是一種多弦豎琴，具有兩排相交但不接觸的琴弦。雖然踏板豎琴通過踏板演奏變音，杠桿豎琴通過杠桿演奏變音，但交叉弦豎琴具有兩排琴弦的設計，使得半音階的十二個半音各有自己的琴弦。

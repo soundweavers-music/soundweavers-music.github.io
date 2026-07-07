@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/dizi/
-title: 笛子
-original_name: Dizi
-category: 管樂器
-country: 亞洲／東亞（中國）
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/e/e0/Dizi%28F%29.jpg
-sound_class: 氣鳴
-range: 約2個八度以上
-instrument_key: 全調性
-hs_class: 421 邊棱氣鳴／無簧笛類
-family: 無簧吹管、長音與氣息樂器
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 簧片樂器
+title_zh: 笛子
+title_original: Dizi
+family_std: 無簧吹管、長音與氣息樂器
+sound_hs: 421 邊棱氣鳴／無簧笛類
 playing_method: 吹奏／端吹／橫吹／容器共鳴
-body_listening: 氣息、胸腔、長音、空間
-soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 亞洲／東亞（中國）
+listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/dizi/
+image: https://upload.wikimedia.org/wikipedia/commons/e/e0/Dizi%28F%29.jpg
 youtube_ids: GwyXQO0tSW4 XmBji07OtwA
 ---
+
 ## 介紹
 
 笛子，又稱竹笛，吹奏樂器。最早被發現的笛為賈湖文化遺址出土的7孔骨笛，約有7000年歷史。笛子在民間音樂、戲曲、民族樂團、交響樂團和現代音樂中運用，一般分為南方的曲笛和北方的梆笛。笛子多為竹製作，主要為苦竹與紫竹，近來也有使用湘妃竹，也有以木、玉等材料製笛。閩南語稱笛為為品仔或品蕭。

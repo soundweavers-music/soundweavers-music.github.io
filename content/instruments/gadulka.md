@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/gadulka/
-title: 保加利亞弓琴
-original_name: Gadulka
-category: 弦樂器
-country: 歐洲／保加利亞
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Toulouse_musician.jpg/500px-Toulouse_musician.jpg
-sound_class: 弦鳴
-range: 中高音區（約2至3個8度）
-instrument_key: 無固定調性
-hs_class: 321.3 擦弦／輪弦／提琴家族
-family: 擦弦、輪弦與提琴家族
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 電聲改造樂器
+title_zh: 保加利亞弓琴
+title_original: Gadulka
+family_std: 擦弦、輪弦與提琴家族
+sound_hs: 弦鳴｜321.3 擦弦／輪弦／提琴家族
 playing_method: 弓擦／輪擦
-body_listening: 胸口、嗓音、拉長的情緒
-soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
-region_type: 跨文化／多地
+interface_tags: 弓
+region_culture: 歐洲／保加利亞
+listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+ensemble_links: 
+verification_status: 移入第13類
+issue_note: 現代電子／取樣；屬現代電子、取樣、電聲或電氣化鍵盤／設備類，應集中到第13類。；移第13類，並與傳統鍵盤／風箱類分開。
+source_url: https://soundweavers-music.github.io/instruments/gadulka/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Toulouse_musician.jpg/500px-Toulouse_musician.jpg
 youtube_ids: PHCfLAAG4dM FKBxvxdcuMs
 ---
+
 ## 介紹
 
 保加利亞弓琴（保加利亞語：гъдулка）是一種傳統保加利亞弓弦樂器。其他拼寫方式有「gǎdulka」、「gudulka」和「g'dulka」。其名稱來自於意為「製造噪音、嗡嗡聲或嗡鳴」的詞根。保加利亞弓琴是保加利亞傳統器樂合奏的重要組成部分，通常在舞蹈音樂的背景下演奏。保加利亞弓琴通常有三根主弦（偶爾有四根或五根 Mincho Minchev），下方還有由傳奇人物 Mincho Nedyalkov 引入的多達十六根共鳴弦。

@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/kkwaenggwari/
-title: 小鑼（農樂）
-original_name: Kkwaenggwari
-category: 打擊樂器
-country: 東南亞／東亞／非洲／歐洲／全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Korea-Ggaenggwari-01.jpg/500px-Korea-Ggaenggwari-01.jpg
-sound_class: 體鳴
-range: 高音區（約1個8度範圍）
-instrument_key: 無固定調性
-hs_class: 11/12 定音體鳴／鑼鐘木琴石琴系統
-family: 定音體鳴、材料敲擊與鑼鐘木琴系統
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 小鑼（農樂）
+title_original: Kkwaenggwari
+family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
+sound_hs: 11/12 定音體鳴／鑼鐘木琴石琴系統
 playing_method: 敲擊／搖奏／材料共鳴
-body_listening: 材料、回聲、群體分工、音列
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 東南亞／東亞／非洲／歐洲／全球
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/kkwaenggwari/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Korea-Ggaenggwari-01.jpg/500px-Korea-Ggaenggwari-01.jpg
 youtube_ids: iJpyLWwLDjc or2JVVdGyY4
 ---
+
 ## 介紹
 
 꽹과리（韓語：꽹과리；韓語發音：[k͈wɛŋ.gwa.ɾi]）是傳統韓國音樂中使用的小平鑼。它由黃銜製成，用硬木棒敲擊。它產生獨特的高音金屬音調，當用力敲擊時會破裂成鈸鑼般的碰撞音色。它在三物農樂和風物中尤為重要，儘管它也用於其他流派，例如韓國薩滿音樂。這種鑼用木槌敲擊以產生尖銳、引人注目的聲音。

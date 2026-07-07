@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/p-fano/
-title: 巴西橫笛
-original_name: Pífano
-category: 管樂器
-country: 全球／亞洲／歐洲／美洲／大洋洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Korea-Buk-01.jpg/500px-Korea-Buk-01.jpg
-sound_class: 氣鳴
-range: D5–C8（約3個半8度）
-instrument_key: 全調性
-hs_class: 421 邊棱氣鳴／無簧笛類
-family: 無簧吹管、長音與氣息樂器
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 簧片樂器
+title_zh: 巴西橫笛
+title_original: Pífano
+family_std: 無簧吹管、長音與氣息樂器
+sound_hs: 421 邊棱氣鳴／無簧笛類
 playing_method: 吹奏／端吹／橫吹／容器共鳴
-body_listening: 氣息、胸腔、長音、空間
-soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 全球／亞洲／歐洲／美洲／大洋洲
+listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+ensemble_links: 
+verification_status: 重複／合併建議
+issue_note: 重複／拼寫差異；Naqqara 與第527 Naqara 重複。；與第527合併。；DUP-007:Naqara／Naqqara
+source_url: https://soundweavers-music.github.io/instruments/p-fano/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Korea-Buk-01.jpg/500px-Korea-Buk-01.jpg
 youtube_ids: rh2xKgOUoIY tcsX-jZWHyk
 ---
+
 ## 介紹
 
 短笛是一種起源於中東的管樂器，後在歐洲廣泛使用。由木製或竹製材料製成，外形小巧輕便。其音色明亮刺激、穿透力強，能輕易穿越樂團其他聲部。中世紀時在歐洲軍隊中扮演重要角色，常與鼓樂搭配用於行軍和戰爭。文藝復興後進入民間音樂領域，十七至十八世紀傳入南美洲，與當地文化融合發展。短笛常用於軍樂隊和民俗音樂中，以其強有力的音色增添樂隊層次。

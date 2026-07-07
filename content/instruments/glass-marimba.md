@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/glass-marimba/
-title: 玻璃馬林巴琴
-original_name: Glass Marimba
-category: 打擊樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 玻璃馬林巴琴
+title_original: Glass Marimba
+family_std: 體鳴打擊樂器類
+sound_hs: 1 体鳴樂器
 playing_method: 敲擊／搖晃／撥彈
-family: 體鳴打擊樂器類
-hs_class: 1 体鳴樂器
-sound_class: 体鳴
-country: 非洲／全球
-era: 傳統／年代待考
-region_type: 跨文化／多地
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-body_listening: 材料、回聲、群體分工、音列
+interface_tags: 
+region_culture: 非洲／全球
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/glass-marimba/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Glass_Marimba_%28from_Emil_Richards_Collection%29.jpg/500px-Glass_Marimba_%28from_Emil_Richards_Collection%29.jpg
 youtube_ids: v4SxhKNopxA L-eSmt2jR-U
-instrument_key: 全調性
-range: 約3至4個8度
 ---
+
 ## 介紹
 
 玻璃馬林巴琴是一種體鳴樂器，使用玻璃結構元素來代替木材。用玻璃製成的樂器被稱為水晶音樂琴。馬林巴琴這個名字來自非洲語言（可能是班圖語），意思是「類似木琴的樂器」。玻璃琴鍵由硬玻璃（平板玻璃）或軟玻璃（彩色玻璃）製成。琴鍵透過單個開口頂部的箱體或各個琴鍵下的獨立共鳴器進行共鳴。演奏馬林巴琴的琴槌可以用壓縮矽膠球（彈力球）附著在木製或合成木棍的一端來製作。

@@ -1,21 +1,22 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/kokiriko/
-title: 小切子
-original_name: Kokiriko
-category: 打擊樂器
-country: 日本
-era: 傳統／年代待考
-sound_class: 體鳴
-range: 高頻音域（約1個8度）
-instrument_key: 無固定調性
-hs_class: Idiophone／體鳴樂器
-family: 竹片體鳴
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 沙鈴、刮器與小打擊
+title_zh: 小切子
+title_original: Kokiriko
+family_std: 竹片體鳴
+sound_hs: Idiophone／體鳴樂器
 playing_method: 搖擊／拍擊
-body_listening: 民俗舞蹈、竹片連鎖、顆粒節奏
-soundscape: 掌心搖落的節奏星塵（小型節奏體鳴、沙鈴、刮器與身體打擊）
-region_type: 單一地區／文化圈
+interface_tags: 
+region_culture: 日本｜單一地區／文化圈
+listening_sound_tags: 民俗舞蹈、竹片連鎖、顆粒節奏｜掌心搖落的節奏星塵（小型節奏體鳴、沙鈴、刮器與身體打擊）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/kokiriko/
 youtube_ids: wV0vlJwWDGI AOdl6_Cy94k
 ---
+
 ## 介紹
 
 小切子（日語：こきりこ；漢字：小切子）是一種日本樂器，在演唱和跳舞日本民間歌曲時使用，例如「小切子節」（小切子舞）。用漢字表示時寫作「竹筒」。在中世紀，它是一種街頭藝人稱為小切子，經常由主要表演特技的鳳歌者攜帶。

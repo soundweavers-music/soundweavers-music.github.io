@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/midi-controller/
-title: MIDI控制器
-original_name: MIDI Controller
-category: 鍵盤樂器
-country: 歐洲／美國／全球現代錄音室
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Evolution_X-Session_MIDI_controller_%28cropped%29.jpg/500px-Evolution_X-Session_MIDI_controller_%28cropped%29.jpg
-sound_class: 鍵盤／電鳴／機械混合
-range: 全音域
-instrument_key: 全調性
-hs_class: 412/31/52 鍵盤、自由簧、電鳴與機械介面
-family: 鍵盤介面、風箱、電子與取樣
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 取樣與磁帶
+title_zh: MIDI控制器
+title_original: MIDI Controller
+family_std: 鍵盤介面、風箱、電子與取樣
+sound_hs: 鍵盤／電鳴／機械混合｜412/31/52 鍵盤、自由簧、電鳴與機械介面
 playing_method: 按鍵／風箱／電控／取樣
-body_listening: 手指、機械距離、記憶、電聲
-soundscape: 按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
-region_type: 跨文化／多地
+interface_tags: 鍵盤／按鍵、風箱、電子控制
+region_culture: 歐洲／美國／全球現代錄音室
+listening_sound_tags: 手指、機械距離、記憶、電聲｜按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/midi-controller/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Evolution_X-Session_MIDI_controller_%28cropped%29.jpg/500px-Evolution_X-Session_MIDI_controller_%28cropped%29.jpg
 youtube_ids: eJFfnTkyj-g 9zFecOaD4CU
 ---
+
 ## 介紹
 
 MIDI控制器是現代數位音樂製作的核心設備，外型通常為帶有鍵盤、旋鈕、推子和墊子的控制台。它本身不產生聲音，而是通過電子信號與電腦、合成器或音樂軟體連接，控制音色、音量和各種音樂參數。MIDI控制器具有高度靈活性，能即時切換數千種音色，模擬傳統樂器或創造全新的電子音景，是電子音樂製作、現場表演和音樂編製中不可或缺的工具。

@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/tuntina/
-title: 印度單弦樂器
-original_name: Tuntina
-category: 鍵盤樂器
-country: 亞洲／歐洲／全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Ektara_2.jpg/500px-Ektara_2.jpg
-sound_class: 弦鳴
-range: 中音至中高音區域（約2個8度）
-instrument_key: 無固定調性
-hs_class: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
-family: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 印度單弦樂器
+title_original: Tuntina
+family_std: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+sound_hs: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
 playing_method: 撥弦／擊弦／按鍵擊弦
-body_listening: 手掌、弦面、推音、敲擊
-soundscape: 平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
-region_type: 跨文化／多地
+interface_tags: 鍵盤／按鍵
+region_culture: 亞洲／歐洲／全球
+listening_sound_tags: 手掌、弦面、推音、敲擊｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/tuntina/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Ektara_2.jpg/500px-Ektara_2.jpg
 youtube_ids: e0GVixJvt-g etlODMNW4uk
 ---
+
 ## 介紹
 
 一弦琴（孟加拉語：একতারা，尼泊爾語：एकतारे；字面意思為「一根弦」，也稱為ektar或golki尼泊爾語：गोल्）是一種單弦樂器，用於孟加拉傳統音樂中，也用於現代孟加拉國和印度東部的音樂中。雙弦版本稱為dotara（兩根弦），這個名稱也適用於另一種同名樂器。一弦琴起源於Baul民族的常規弦樂器，用一根手指撥動。一弦琴是一種無品琉特琴，由葫蘆共鳴器組成，共鳴器覆蓋著皮膚，竹製琴頸穿過其中。

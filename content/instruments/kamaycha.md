@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/kamaycha/
-title: 卡馬伊恰琴
-original_name: Kamaycha
-category: 弦樂器
-country: 亞洲／歐洲／中東／南亞／中亞
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Sakar_Khan-Amarrass-Artist.jpg/500px-Sakar_Khan-Amarrass-Artist.jpg
-sound_class: 弦鳴
-range: 約2至3個八度（中高音區）
-instrument_key: 全調性
-hs_class: 321.3 擦弦／輪弦／提琴家族
-family: 擦弦、輪弦與提琴家族
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 擦弦、鍵控與輪弦
+title_zh: 卡馬伊恰琴
+title_original: Kamaycha
+family_std: 擦弦、輪弦與提琴家族
+sound_hs: 弦鳴｜321.3 擦弦／輪弦／提琴家族
 playing_method: 弓擦／輪擦
-body_listening: 胸口、嗓音、拉長的情緒
-soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
-region_type: 地區／文化圈
+interface_tags: 弓
+region_culture: 亞洲／歐洲／中東／南亞／中亞｜地區／文化圈
+listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/kamaycha/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Sakar_Khan-Amarrass-Artist.jpg/500px-Sakar_Khan-Amarrass-Artist.jpg
 youtube_ids: _Ter6XLDT80 GHMq1nQU2Tk
 ---
+
 ## 介紹
 
 卡馬伊恰琴是克里米亞韃靼人的傳統弦樂器，起源於中亞克里米亞半島，名稱意指「彎曲」或「弓形」，反映其獨特的弧形琴身設計。樂器採用弓奏技巧發聲，音色明亮刺激，具有金屬質感與強大穿透力，音域集中於中高音區。其共鳴腔設計使音波向外投射有力，能在民族音樂合奏中清晰突出。卡馬伊恰琴兼具傳統民族特色與現代感的音響質感，適合表現熱烈奔放與激情洋溢的音樂風格。

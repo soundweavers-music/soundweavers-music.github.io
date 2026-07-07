@@ -1,18 +1,22 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/dobro/
-title: 多布羅吉他
-original_name: Dobro
-category: 弦樂器
-country: 美洲／北美
-era: 20 世紀
-region_type: 單一地區／文化圈
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-body_listening: 懷抱、手指、腳步、敘事
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 多布羅吉他
+title_original: Dobro
+family_std: 撥弦與抱持弦樂家族
+sound_hs: 待確認
+playing_method: 撥奏／擦奏／擊弦（待細分）
+interface_tags: 
+region_culture: 美洲／北美｜單一地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/dobro/
 youtube_ids: J46sRuj99Cw OEOY06U6JW8
-instrument_key: 全調性
-range: 中高音至高音區域（約2-3個8度）
 ---
+
 ## 介紹
 
 多布羅吉他（Dobro）是一個美國品牌的共鳴吉他，由吉普森公司擁有，由其子公司愛比風製造。「多布羅」一詞也被用作任何木製琴身、單圓錐共鳴吉他的通用術語。多布羅最初是由多皮埃拉兄弟創立的吉他製造公司，名為多布羅製造公司。他們的吉他設計採用單個向外的共鳴錐，目的是與國家弦樂器公司生產的專利向內三圓錐和餅乾設計進行競爭。

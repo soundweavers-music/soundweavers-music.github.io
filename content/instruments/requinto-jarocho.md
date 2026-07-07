@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/requinto-jarocho/
-title: 哈羅基小提琴
-original_name: Requinto Jarocho
-category: 弦樂器
-country: 中東／歐洲／亞洲／美洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Guitarra_de_son_o_requinto_jarocho_de_cuatro_cuerdas_01.jpg/500px-Guitarra_de_son_o_requinto_jarocho_de_cuatro_cuerdas_01.jpg
-sound_class: 弦鳴
-range: 約2個半8度（高把位活動範圍）
-instrument_key: 全調性
-hs_class: 321/322 魯特琴類／撥弦
-family: 魯特琴、短頸長頸撥弦與民謠弦聲
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 擦弦、鍵控與輪弦
+title_zh: 哈羅基小提琴
+title_original: Requinto Jarocho
+family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
+sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
 playing_method: 撥弦／刷弦／撥片
-body_listening: 懷抱、手指、腳步、敘事
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 地區／文化圈
+interface_tags: 撥片
+region_culture: 中東／歐洲／亞洲／美洲｜地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/requinto-jarocho/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Guitarra_de_son_o_requinto_jarocho_de_cuatro_cuerdas_01.jpg/500px-Guitarra_de_son_o_requinto_jarocho_de_cuatro_cuerdas_01.jpg
 youtube_ids: UlLTJJU8b6o Ar1NzAFvVac
 ---
+
 ## 介紹
 
 哈羅基小提琴是源自墨西哥韋拉克魯茲州的傳統弦樂器，外形與古典小提琴相似但體型較小。該樂器融合西班牙殖民時期小提琴傳統與墨西哥原住民文化特色，音色明亮尖銳、穿透力強，適合戶外演奏和民俗慶典。相比古典小提琴的優雅圓潤，哈羅基小提琴更具原始魅力與拉丁美洲特色，常見於傳統民間樂團和民俗音樂表演中。

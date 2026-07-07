@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/swarmandal/
-title: 斯瓦爾曼達爾
-original_name: Swarmandal
-category: 鍵盤樂器
-country: 亞洲／南亞（印度）
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Jasraj_001.jpg/500px-Jasraj_001.jpg
-sound_class: 弦鳴
-range: 約3個八度
-instrument_key: 全調性
-hs_class: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
-family: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 斯瓦爾曼達爾
+title_original: Swarmandal
+family_std: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+sound_hs: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
 playing_method: 撥弦／擊弦／按鍵擊弦
-body_listening: 手掌、弦面、推音、敲擊
-soundscape: 平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
-region_type: 跨文化／多地
+interface_tags: 鍵盤／按鍵
+region_culture: 亞洲／南亞（印度）
+listening_sound_tags: 手掌、弦面、推音、敲擊｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
+ensemble_links: 
+verification_status: 需調整
+issue_note: 譯名需區分；Sleigh bell 是雪橇鈴／馬鈴，與一般 Bell 不同。；相鄰不合併。
+source_url: https://soundweavers-music.github.io/instruments/swarmandal/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Jasraj_001.jpg/500px-Jasraj_001.jpg
 youtube_ids: 8dGy0mQRncQ rzsSxfLKWdA
 ---
+
 ## 介紹
 
 斯瓦曼達爾琴（印地語：स्वरमण्डल [s̪ʋərməɳɖəl̪]），又稱蘇曼達爾琴或印度豎琴，是一種源自印度的撥奏箱形齊特琴，與卡農琴相似，如今最常用作印度古典聲樂的伴奏樂器。它是北印度文化的一部分，在音樂會中用於伴奏聲樂。樂器的名稱結合了梵文詞彙「斯瓦拉」（音符）和「曼達拉」（圓形），代表了它能夠產生多種音符的能力。根據《阿克巴爾治世記》的記載，該樂器被視為與卡農琴相當的樂器。

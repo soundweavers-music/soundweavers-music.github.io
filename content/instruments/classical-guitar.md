@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/classical-guitar/
-title: 古典吉他
-original_name: Classical guitar
-category: 電子樂器
-country: 歐洲／西班牙
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Range_guitar.png/500px-Range_guitar.png
-sound_class: 弦鳴
-range: E2–E5（約3個8度）
-instrument_key: 全調性
-hs_class: 321/322 魯特琴類／撥弦
-family: 魯特琴、短頸長頸撥弦與民謠弦聲
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 電聲改造樂器
+title_zh: 古典吉他
+title_original: Classical guitar
+family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
+sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
 playing_method: 撥弦／刷弦／撥片
-body_listening: 懷抱、手指、腳步、敘事
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 跨文化／多地
+interface_tags: 撥片
+region_culture: 歐洲／西班牙
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/classical-guitar/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Range_guitar.png/500px-Range_guitar.png
 youtube_ids: inBKFMB-yPg HxGT5z6d-GA
 ---
+
 ## 介紹
 
 古典吉他又稱西班牙吉他、西班牙古典吉他。古典吉他為尼龍弦吉他之一，屬於彈撥樂器。古典吉他此名稱並不表示其僅限於演奏古典音樂，相反的，古典吉他可以跨足各個音樂領域，呈現不同的音樂風格，如古典音樂、佛朗明哥、爵士音樂等皆能以古典吉他演奏。

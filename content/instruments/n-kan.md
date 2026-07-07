@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/n-kan/
-title: 能管
-original_name: Nōkan
-category: 管樂器
-country: 日本
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Uta-you_Shinobue_and_Nohkan.jpg/500px-Uta-you_Shinobue_and_Nohkan.jpg
-sound_class: 氣鳴
-range: 約2個8度
-instrument_key: 無固定調性
-hs_class: Aerophone／氣鳴樂器
-family: 日本橫笛／能樂吹管
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 電聲改造樂器
+title_zh: 能管
+title_original: Nōkan
+family_std: 日本橫笛／能樂吹管
+sound_hs: Aerophone／氣鳴樂器
 playing_method: 吹奏
-body_listening: 細窄高音、戲劇張力、幽微間隔
-soundscape: 一口氣走過山谷（無簧吹管、長音與氣息樂器）
-region_type: 單一地區／文化圈
+interface_tags: 
+region_culture: 日本｜單一地區／文化圈
+listening_sound_tags: 細窄高音、戲劇張力、幽微間隔｜一口氣走過山谷（無簧吹管、長音與氣息樂器）
+ensemble_links: 
+verification_status: 移入第13類
+issue_note: 現代電子／取樣；屬現代電子、取樣、電聲或電氣化鍵盤／設備類，應集中到第13類。；移第13類，並與傳統鍵盤／風箱類分開。
+source_url: https://soundweavers-music.github.io/instruments/n-kan/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Uta-you_Shinobue_and_Nohkan.jpg/500px-Uta-you_Shinobue_and_Nohkan.jpg
 youtube_ids: aW4z0xS5cUQ m74nweoCah8
 ---
+
 ## 介紹
 
 能管是日本的一種傳統高音橫吹笛類木管樂器，由竹製成。能管是由觀阿彌與其子世阿彌於15世紀創造，其時二人正致力於改良能劇形式田樂和猿樂。能管不僅被應用在能劇中，還被應用於歌舞伎、寄席囃子和祇園囃子。明顯的特徵是具有「喉」（のど）這一結構。

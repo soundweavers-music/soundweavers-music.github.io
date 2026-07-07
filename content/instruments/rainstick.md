@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/rainstick/
-title: 雨聲器
-original_name: Rainstick
-category: 打擊樂器
-country: 美洲／南美
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Cactus_rain_sticks.jpg/500px-Cactus_rain_sticks.jpg
-sound_class: 體鳴
-range: 全音域（低中高音域均涵蓋，以低頻沙沙聲為主）
-instrument_key: 無固定調性
-hs_class: 11 小型體鳴／搖奏刮奏敲奏
-family: 小型節奏體鳴、沙鈴、刮器與身體打擊
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
+title_zh: 雨聲器
+title_original: Rainstick
+family_std: 小型節奏體鳴、沙鈴、刮器與身體打擊
+sound_hs: 11 小型體鳴／搖奏刮奏敲奏
 playing_method: 搖奏／刮奏／敲擊／身體打擊
-body_listening: 手腕、腳踝、短音、節奏對齊
-soundscape: 手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 美洲／南美
+listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+ensemble_links: 安地斯合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/rainstick/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Cactus_rain_sticks.jpg/500px-Cactus_rain_sticks.jpg
 youtube_ids: ixAWrA0mTG0 sXLP6z8B0i4
 ---
+
 ## 介紹
 
 雨聲器（英語：Rainstick，Rain Machine）是一種簡單的敲擊樂器，在薩克斯分類法中，屬於體鳴樂器，樂器多用於民間音樂中，間中亦會於正統音樂中出現，但次數不多，最傳統的雨棍一般是仙人掌雨棍。

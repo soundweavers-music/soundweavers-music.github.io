@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/ground-zither/
-title: 地弦琴
-original_name: Ground zither
-category: 弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 地弦琴
+title_original: Ground zither
+family_std: 弦樂器類
+sound_hs: 3 弦鳴樂器
 playing_method: 撥弦／擦弦／擊弦
-family: 弦樂器類
-hs_class: 3 弦鳴樂器
-sound_class: 弦鳴
-country: 越南／非洲
-era: 傳統／年代待考
-region_type: 地區／文化圈
-soundscape: 平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化弦鳴）
-body_listening: 手掌、弦面、推音、敲擊
+interface_tags: 
+region_culture: 越南／非洲｜地區／文化圈
+listening_sound_tags: 手掌、弦面、推音、敲擊｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化弦鳴）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/ground-zither/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Knosp%2CTrongQuan.jpg/500px-Knosp%2CTrongQuan.jpg
 youtube_ids: BcElotwrZ8o JkODhmxCTRk
-instrument_key: 無固定調性
-range: 中低頻範圍（約2個8度）
 ---
+
 ## 介紹
 
 地弦琴（又稱法文：cithare en terre）是一種簡單的弦樂器。在越南的一種變體中，可以使用一根長竹竿，其兩端分別搭在插入地面的兩根叉形樹枝的末端上。在竹竿的中部，用一條繩子綁著一塊薄木板，該木板覆蓋著地面上的洞。在非洲的一種變體中，稱為guio môkoun，用水平繩子替代水平竹竿，而豎直繩子不是綁在中部，而是形成一根較長和一根較短的水平木片。演奏者用木棒敲擊水平木片來演奏樂器。

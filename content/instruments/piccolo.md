@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/piccolo/
-title: 短笛
-original_name: Piccolo
-category: 管樂器
-country: 歐洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/1/1e/Range_piccolo.png
-sound_class: 氣鳴
-range: D5–C8（約3個八度）
-instrument_key: C大調
-hs_class: 421 邊棱氣鳴／無簧笛類
-family: 無簧吹管、長音與氣息樂器
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 簧片樂器
+title_zh: 短笛
+title_original: Piccolo
+family_std: 無簧吹管、長音與氣息樂器
+sound_hs: 421 邊棱氣鳴／無簧笛類
 playing_method: 吹奏／端吹／橫吹／容器共鳴
-body_listening: 氣息、胸腔、長音、空間
-soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 歐洲
+listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/piccolo/
+image: https://upload.wikimedia.org/wikipedia/commons/1/1e/Range_piccolo.png
 youtube_ids: ivQpiJos1Sw 3EFLa5dK-nU
 ---
+
 ## 介紹
 
 短笛（piccolo），是長笛家族的一種變種樂器，名稱源自義大利文「flauto piccolo」，長度為普通長笛的一半。音域則比長笛高1個八度，所以部份義大利作曲家亦會以「ottavino」稱呼短笛。

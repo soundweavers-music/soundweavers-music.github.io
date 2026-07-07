@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/pedal-harp/
-title: 踏板豎琴
-original_name: Pedal harp
-category: 弦樂器
-country: 非洲／歐洲／亞洲／美洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Range_harp.svg/500px-Range_harp.svg.png
-sound_class: 弦鳴
-range: 約6個半8度
-instrument_key: 全調性
-hs_class: 322 豎琴與里拉類
-family: 豎琴、里拉與開放弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 豎琴、里拉與開放弦
+title_zh: 踏板豎琴
+title_original: Pedal harp
+family_std: 豎琴、里拉與開放弦樂器
+sound_hs: 弦鳴｜322 豎琴與里拉類
 playing_method: 撥弦／開放弦共鳴
-body_listening: 循環、河流感、開放弦、吟唱
-soundscape: 開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
-region_type: 地區／文化圈
+interface_tags: 踏板
+region_culture: 非洲／歐洲／亞洲／美洲｜地區／文化圈
+listening_sound_tags: 循環、河流感、開放弦、吟唱｜開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/pedal-harp/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Range_harp.svg/500px-Range_harp.svg.png
 youtube_ids: r3xzJbXy1eU F2X1V_UuhNk
 ---
+
 ## 介紹
 
 踏板豎琴（也稱為音樂廳豎琴）是一種大型且技術先進的豎琴，主要設計用於藝術音樂。它可以獨奏、作為室內樂合奏的一部分，或在管弦樂隊中演奏。它通常有47根琴弦，每八度音階七根琴弦，音域範圍達六個半八度。在這種豎琴中，踏板改變琴弦的音高，因此踏板豎琴可以輕鬆演奏以任何調式創作的作品。這在聲響複雜的浪漫主義時期音樂及20世紀後期的古典音樂中尤為重要。

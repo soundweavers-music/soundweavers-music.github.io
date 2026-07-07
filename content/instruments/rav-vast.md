@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/rav-vast/
-title: 懸掛鼓
-original_name: Rav Vast
-category: 打擊樂器
-country: 歐洲／美國／全球現代
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Kama_River._Perm._Art_Gallery_%28former_Transfiguration_Cathedral%29_P6242387_2575.jpg/500px-Kama_River._Perm._Art_Gallery_%28former_Transfiguration_Cathedral%29_P6242387_2575.jpg
-sound_class: 體鳴
-range: 全音域（約3至4個8度）
-instrument_key: 全調性
-hs_class: 12 體鳴／舌片琴／金屬共鳴
-family: 近身體鳴、舌片琴與手奏金屬共鳴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 懸掛鼓
+title_original: Rav Vast
+family_std: 近身體鳴、舌片琴與手奏金屬共鳴
+sound_hs: 12 體鳴／舌片琴／金屬共鳴
 playing_method: 手敲／拇指撥片／近身共鳴
-body_listening: 指尖、掌心、尾音、近身聆聽
-soundscape: 手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）
-region_type: 跨文化／多地
+interface_tags: 撥片
+region_culture: 歐洲／美國／全球現代
+listening_sound_tags: 指尖、掌心、尾音、近身聆聽｜手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/rav-vast/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Kama_River._Perm._Art_Gallery_%28former_Transfiguration_Cathedral%29_P6242387_2575.jpg/500px-Kama_River._Perm._Art_Gallery_%28former_Transfiguration_Cathedral%29_P6242387_2575.jpg
 youtube_ids: RfTaYBMybYA 9wEhfh9Fx_Y
 ---
+
 ## 介紹
 
 懸掛鼓是一種源自德國的現代打擊樂器，由鋼製凹陷音盤組成，透過懸掛方式固定。演奏者使用槌棒或手指敲擊不同位置產生音高變化。其音色深邃神秘，融合了鋼鼓的金屬質感與定音鼓的共鳴特性，低音渾厚飽滿，中高音溫潤柔和。樂器具有豐富的自然泛音和持久共鳴，特別適合新世紀音樂、瑜伽冥想及治療音樂，常用於放鬆療癒與冥想場景中。

@@ -1,19 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/hyoshigi/
-title: 拍子木
-original_name: Hyoshigi
-category: 打擊樂器
-country: 日本
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
-body_listening: 手腕、腳踝、短音、節奏對齊
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 沙鈴、刮器與小打擊
+title_zh: 拍子木
+title_original: Hyoshigi
+family_std: 沙鈴、刮器與小打擊家族
+sound_hs: 待確認
+playing_method: 敲奏／拍奏／搖奏／刮奏（待細分）
+interface_tags: 
+region_culture: 日本｜單一地區／文化圈
+listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/hyoshigi/
 image: https://upload.wikimedia.org/wikipedia/commons/2/22/Hyoshigi01.jpg
 youtube_ids: jNEp84PVYes o36ykVEOYxs
-instrument_key: 無固定調性
-range: 高頻區域（約1個8度以內）
 ---
+
 ## 介紹
 
 The hyōshigi (拍子木) is a simple Japanese musical instrument, a type of clapper, consisting of two pieces of hardwood or bamboo often connected by a thin ornamental rope. The clappers are played together or on the floor to create a cracking sound. Sometimes they are struck slowly at first, then faster and faster.

@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/crwth/
-title: 克魯斯弓琴
-original_name: Crwth
-category: 弦樂器
-country: 亞洲／歐洲／中東／全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Crwth-in-case.jpg/500px-Crwth-in-case.jpg
-sound_class: 弦鳴
-range: 約2個8度
-instrument_key: 全調性
-hs_class: 321.3 擦弦／輪弦／提琴家族
-family: 擦弦、輪弦與提琴家族
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 擦弦、鍵控與輪弦
+title_zh: 克魯斯弓琴
+title_original: Crwth
+family_std: 擦弦、輪弦與提琴家族
+sound_hs: 弦鳴｜321.3 擦弦／輪弦／提琴家族
 playing_method: 弓擦／輪擦
-body_listening: 胸口、嗓音、拉長的情緒
-soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
-region_type: 跨文化／多地
+interface_tags: 弓
+region_culture: 亞洲／歐洲／中東／全球
+listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/crwth/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Crwth-in-case.jpg/500px-Crwth-in-case.jpg
 youtube_ids: 7yYg_7cm0Rs T8G1ZVLP_tc
 ---
+
 ## 介紹
 
 見「Rotte」關於詩篇琴或撥奏豎琴的說明。克魯斯弓琴（KROOTH，威爾斯語：[kruːθ]），也稱為克勞德琴或羅特琴或克羅塔琴，是一種擦弦豎琴，屬於弦樂器的一種，特別與威爾斯音樂相關聯，現已成為古老樂器，但曾在歐洲廣泛演奏。四件歷史遺存的克魯斯弓琴現藏於聖法根斯國家歷史博物館（卡迪夫）、威爾斯國家圖書館（亞伯里斯特威斯）、沃靈頓博物館與美術館，以及波士頓美術館（美國）。

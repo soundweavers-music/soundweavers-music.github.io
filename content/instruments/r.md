@@ -1,21 +1,22 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/r/
-title: 柯古爾
-original_name: Çöğür
-category: 弦樂器
-country: 中東／歐洲／亞洲／美洲
-era: 傳統／年代待考
-sound_class: 弦鳴
-range: 約3個8度
-instrument_key: 多調性
-hs_class: 321/322 魯特琴類／撥弦
-family: 魯特琴、短頸長頸撥弦與民謠弦聲
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 柯古爾
+title_original: Çöğür
+family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
+sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
 playing_method: 撥弦／刷弦／撥片
-body_listening: 懷抱、手指、腳步、敘事
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 地區／文化圈
+interface_tags: 撥片
+region_culture: 中東／歐洲／亞洲／美洲｜地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/r/
 youtube_ids: 9o1Ej-RnabE 8bL2BCiFkTk
 ---
+
 ## 介紹
 
 柯古爾是源於土耳其安納托利亞地區的傳統弦樂器，屬於魯特琴族系。樂器採用梨形或橢圓形琴體設計，配備長頸與品柱，通常有多條尼龍或羊腸弦。其音色溫潤富有穿透力，介於明亮與暗沉之間，帶有琥珀色調。柯古爾主要用於土耳其民族音樂演奏，特別是村莊民謠與安納托利亞傳統音樂。樂器通過指尖或撥片演奏，具有優雅而富表現力的音質，是中東傳統音樂中不可或缺的民族樂器。

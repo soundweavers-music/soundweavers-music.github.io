@@ -1,19 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/verrophone/
-title: 玻璃音管琴
-original_name: Verrophone
-category: 打擊樂器
-country: 歐洲
-era: 傳統／年代待考
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 玻璃音管琴
+title_original: Verrophone
+family_std: 無簧吹管家族
+sound_hs: 待確認
+playing_method: 吹奏
+interface_tags: 
+region_culture: 歐洲｜單一地區／文化圈
+listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/verrophone/
 image: https://commons.wikimedia.org/w/resources/assets/file-type-icons/fileicon-ogg.png
-region_type: 單一地區／文化圈
-soundscape: 手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
-body_listening: 手腕、腳踝、短音、節奏對齊
 youtube_ids: nOQuo_44unA cVqqNigImtU
-instrument_key: 全調性
-range: 全音域（通常涵蓋3-4個八度）
 ---
+
 ## 介紹
 
 玻璃音管琴（「玻璃低音號」）是一種樂器，由薩沙·雷克爾特於1983年發明，其「採用調音玻璃管」，一端開口，並按各種尺寸排列（通常按半音階排列，由大到小排列，如風琴的風管）。聲音通過摩擦一個或多個玻璃管的一端，或用特殊槌棒敲擊或摩擦它們而產生。這些玻璃管緊密排列在一起，因此可以通過同時摩擦多個玻璃管來演奏和弦。

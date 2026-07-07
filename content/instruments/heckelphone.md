@@ -1,19 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/heckelphone/
-title: 海克爾管
-original_name: Heckelphone
-category: 管樂器
-country: 德國
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-body_listening: 口腔、舌頭、簧片震動、鼻音
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 海克爾管
+title_original: Heckelphone
+family_std: 無簧吹管家族
+sound_hs: 待確認
+playing_method: 吹奏
+interface_tags: 
+region_culture: 德國｜單一地區／文化圈
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/heckelphone/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Heckelphone_-_St_Cecilia%27s_Hall.webm/500px--Heckelphone_-_St_Cecilia%27s_Hall.webm.jpg
 youtube_ids: PBhkaL6z82M 8R0n9fLjf-Y
-instrument_key: C大調（音域低於標準雙簧管一個八度）
-range: 約2個8度（具體音域範圍未在原文明確標註）
 ---
+
 ## 介紹
 
 海克爾管（德語：Heckelphon）是由威廉·海克爾及其兒子們發明的樂器。這種樂器的發明理念是由理查德·瓦格納提出的，他在1879年威廉·海克爾訪問之際建議了其概念。海克爾管於1904年推出，外形類似雙簧管，但音高低一個八度，類似於低音雙簧管。除了音高差異外，海克爾管還具有更大的管徑。

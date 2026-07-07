@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/timbal/
-title: 蒂姆巴爾鼓
-original_name: Timbal
-category: 打擊樂器
-country: 非洲／中東／亞洲／歐洲／美洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Timbal.JPG/500px-Timbal.JPG
-sound_class: 膜鳴
-range: 約2個8度
-instrument_key: 無固定調性
-hs_class: 21 膜鳴鼓類
-family: 膜鳴鼓類、框鼓、杯鼓與鼓組
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 蒂姆巴爾鼓
+title_original: Timbal
+family_std: 膜鳴鼓類、框鼓、杯鼓與鼓組
+sound_hs: 21 膜鳴鼓類
 playing_method: 手拍／槌擊／皮膜振動
-body_listening: 手掌、腳底、低音、舞步
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-region_type: 地區／文化圈
+interface_tags: 
+region_culture: 非洲／中東／亞洲／歐洲／美洲｜地區／文化圈
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/timbal/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Timbal.JPG/500px-Timbal.JPG
 youtube_ids: Z5M_41IJE8g 4pRlRU-LLDE
 ---
+
 ## 介紹
 
 蒂姆巴爾鼓或巴西蒂姆巴爾是一種膜鳴樂器，源自卡沙姆布鼓，通常用雙手演奏。它略呈圓錐形，尺寸各異，通常重量輕，由上漆木材或金屬（通常是鋁）製成，配有可調音的尼龍鼓皮。其形狀像一個冰淇淋甜筒，上端和尖端被切掉。這種鼓最常見於巴伊亞州，起源於巴伊亞州的薩爾瓦多，主要用於演奏非洲-巴西節奏，例如阿克塞和森巴-雷鬼。

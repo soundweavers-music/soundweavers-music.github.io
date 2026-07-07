@@ -1,18 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/bombard-music/
-title: 邦巴德管
-original_name: Bombard (music)
-category: 管樂器
-country: 法國／布列塔尼地區
-era: 傳統／年代待考
-region_type: 地區／文化圈
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-body_listening: 口腔、舌頭、簧片震動、鼻音
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 邦巴德管
+title_original: Bombard (music)
+family_std: 無簧吹管家族
+sound_hs: 待確認
+playing_method: 吹奏
+interface_tags: 
+region_culture: 法國／布列塔尼地區｜地區／文化圈
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/bombard-music/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Bombarde_und_Biniou.JPG/500px-Bombarde_und_Biniou.JPG
 youtube_ids: 3HNc_y2-XNc -wwv9MU1yXA
-instrument_key: 無固定調性
-range: 約2至3個8度（中高音區為主）
 ---
+
 ## 介紹
 
 邦巴德管（布列塔尼語：bombard、talabard，法語：bombarde）是當代雙簧管家族的樂器，廣泛用於演奏布列塔尼傳統音樂，在該地區被視為具有象徵意義的樂器。演奏邦巴德管的音樂家被稱為塔拉巴德手（talabarder）。

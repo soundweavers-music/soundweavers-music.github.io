@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/tambourine/
-title: 鈴鼓
-original_name: Tambourine
-category: 打擊樂器
-country: 中東／歐洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Tambourin_D%C3%A9tail.jpg/500px-Tambourin_D%C3%A9tail.jpg
-sound_class: 膜鳴
-range: 約1至2個8度（高頻範圍）
-instrument_key: 無固定調性
-hs_class: 21 膜鳴鼓類
-family: 膜鳴鼓類、框鼓、杯鼓與鼓組
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 鈴鼓
+title_original: Tambourine
+family_std: 膜鳴鼓類、框鼓、杯鼓與鼓組
+sound_hs: 21 膜鳴鼓類
 playing_method: 手拍／槌擊／皮膜振動
-body_listening: 手掌、腳底、低音、舞步
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 中東／歐洲
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/tambourine/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Tambourin_D%C3%A9tail.jpg/500px-Tambourin_D%C3%A9tail.jpg
 youtube_ids: xbhk5yYgUxI nz3vhCspy_I
 ---
+
 ## 介紹
 
 鈴鼓（Tambourine），亦可稱為搖鼓。鼓框為圓形，直徑由8吋至14吋不等，以木或金屬製造，並且鑲有多組金屬片。當敲打樂器時，同時令金屬片互相撞擊而發出近以馬鈴的聲音，因而得名。 鈴鼓的其中一邊鼓面可以模上鼓膜。鼓膜主要由動物皮（羊皮或牛皮）所做成。

@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/theorbo/
-title: 西奧爾博琴
-original_name: Theorbo
-category: 弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 西奧爾博琴
+title_original: Theorbo
+family_std: 弦樂器類
+sound_hs: 3 弦鳴樂器
 playing_method: 撥弦／擦弦／擊弦
-family: 弦樂器類
-hs_class: 3 弦鳴樂器
-sound_class: 弦鳴
-country: 義大利／地中海地區
-era: 傳統／年代待考
-region_type: 地區／文化圈
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-body_listening: 懷抱、手指、腳步、敘事
+interface_tags: 
+region_culture: 義大利／地中海地區｜地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/theorbo/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Theorbo-ref-white.jpg/500px-Theorbo-ref-white.jpg
 youtube_ids: FnpaMm_2QYc eVabz8LneI4
-instrument_key: 全調性
-range: 約3至4個八度
 ---
+
 ## 介紹
 
 西奧爾博琴是琉特琴家族中的一種撥弦樂器，具有延伸的琴頸，用於容納第二個弦軸箱。如同琉特琴，西奧爾博琴有一個弧形的琴身和平坦的琴面，通常配有一個或三個由玫瑰紋飾裝飾的音孔。與琉特琴一樣，演奏者用右手撥動或掃彈琴弦，同時用左手「按弦」（按壓）琴弦。西奧爾博琴與改良琉特琴、法國琴曲用西奧爾博琴、古琴、德國巴洛克琉特琴和天使琴（或安傑麗卡琴）相關。

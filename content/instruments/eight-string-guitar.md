@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/eight-string-guitar/
-title: 八弦吉他
-original_name: Eight-string guitar
-category: 弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 八弦吉他
+title_original: Eight-string guitar
+family_std: 弦樂器類
+sound_hs: 3 弦鳴樂器
 playing_method: 撥弦／擦弦／擊弦
-family: 弦樂器類
-hs_class: 3 弦鳴樂器
-sound_class: 弦鳴
-country: 義大利
-era: 19 世紀
-region_type: 單一地區／文化圈
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-body_listening: 懷抱、手指、腳步、敘事
+interface_tags: 
+region_culture: 義大利｜單一地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 爵士編制
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/eight-string-guitar/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Agile_Intrepid_Dual_Charcoal.jpg/500px-Agile_Intrepid_Dual_Charcoal.jpg
 youtube_ids: 6emElQDVqF4 hD2AbtAvJA0
-instrument_key: 無固定調性
-range: 約3.5個八度（低音E至高音E以上）
 ---
+
 ## 介紹
 
 八弦吉他（英語：eight-string guitar）是一種有這八根弦的吉他，八弦吉不如六弦吉他和七弦吉他常見，但少數古典、爵士和重金屬吉他手會使用它們。八弦吉他允許更寬的音調範圍，或非標準調弦（如大三度調弦）。 19世紀製作了各種非標準吉他，包括義大利人製作的Giulio Regondi和Luigi Legnani的八弦吉他。 八弦電吉在金屬樂隊中很受歡迎，很大程度上受到瑞典前衛金屬樂隊Meshuggah（成立1987年）的啟發。過去十幾年，金屬樂隊之外的當代使用也逐漸興起，這在很大程度上要歸功於Animals as Leaders及其風格上的折衷主義。

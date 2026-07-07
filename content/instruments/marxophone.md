@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/marxophone/
-title: 馬克索風琴
-original_name: Marxophone
-category: 鍵盤樂器
-country: 亞洲／歐洲／全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Marxophone.JPG/500px-Marxophone.JPG
-sound_class: 弦鳴
-range: 中央C至C''（2個八度）
-instrument_key: C大調
-hs_class: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
-family: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 馬克索風琴
+title_original: Marxophone
+family_std: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+sound_hs: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
 playing_method: 撥弦／擊弦／按鍵擊弦
-body_listening: 手掌、弦面、推音、敲擊
-soundscape: 平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
-region_type: 跨文化／多地
+interface_tags: 鍵盤／按鍵
+region_culture: 亞洲／歐洲／全球
+listening_sound_tags: 手掌、弦面、推音、敲擊｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/marxophone/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Marxophone.JPG/500px-Marxophone.JPG
 youtube_ids: dc9kmL_0GLQ 0Dsvj5yoH9c
 ---
+
 ## 介紹
 
 馬克索風琴是一種無品齊特琴，通過一套金屬錘系統演奏。它具有兩個八度的雙旋律弦，音調為C大調（中央C至C''），以及四組和弦弦（C大調、G大調、F大調和D7）。馬克索風琴的音色有點像曼陀林，也讓人想起各種敲擊揚琴。演奏者通常用左手彈奏和弦。右手通過按下彈簧鋼條來演奏旋律弦，這些鋼條上有小鉛錘懸在弦上方。

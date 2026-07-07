@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/tiple/
-title: 蒂普勒
-original_name: Tiple
-category: 弦樂器
-country: 中東／歐洲／亞洲／美洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Tiple.jpg/500px-Tiple.jpg
-sound_class: 弦鳴
-range: 約3個8度
-instrument_key: 全調性
-hs_class: 321/322 魯特琴類／撥弦
-family: 魯特琴、短頸長頸撥弦與民謠弦聲
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 蒂普勒
+title_original: Tiple
+family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
+sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
 playing_method: 撥弦／刷弦／撥片
-body_listening: 懷抱、手指、腳步、敘事
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 地區／文化圈
+interface_tags: 撥片
+region_culture: 中東／歐洲／亞洲／美洲｜地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 重複／合併建議
+issue_note: 重複／鄰近；Tank drum 與 Steel Tongue Drum 高度接近。；與第718合併或同篇。；DUP-008:Steel Tongue Drum／Tank Drum
+source_url: https://soundweavers-music.github.io/instruments/tiple/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Tiple.jpg/500px-Tiple.jpg
 youtube_ids: rCEhENHOvQs pwQ6-E2uSEI
 ---
+
 ## 介紹
 
 蒂普勒（西班牙語發音：[ˈtiple]，字面意思為高音或女高音）是一種特殊類型的吉他，通常有10或12根弦，有時更少，並以多種獨特的地域風格製造。蒂普勒演奏者被稱為蒂普勒斯塔（tiplista）。關於稱為「蒂普勒」的樂器的第一次書面記載來自於1752年的音樂學家帕布羅·明蓋特·伊羅爾。12弦的哥倫比亞蒂普勒被視為該國的民族樂器。波多黎各蒂普勒的特點是弦數少於12根，古巴、馬略卡和北美的蒂普勒也是如此。

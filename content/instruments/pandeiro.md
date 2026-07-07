@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/pandeiro/
-title: 潘德羅框鼓
-original_name: Pandeiro
-category: 打擊樂器
-country: 巴西
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/6/65/Pandeiro.jpg
-sound_class: 膜鳴
-range: 中高頻段，音程短暫
-instrument_key: 無固定調性
-hs_class: 21 膜鳴鼓類
-family: 膜鳴鼓類、框鼓、杯鼓與鼓組
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 潘德羅框鼓
+title_original: Pandeiro
+family_std: 膜鳴鼓類、框鼓、杯鼓與鼓組
+sound_hs: 21 膜鳴鼓類
 playing_method: 手拍／槌擊／皮膜振動
-body_listening: 手掌、腳底、低音、舞步
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-region_type: 單一國家或文化源流
+interface_tags: 
+region_culture: 巴西｜單一國家或文化源流
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 需調整
+issue_note: 譯名需區分；Nose Whistle 若為鼻哨，中文不宜也只寫鼻笛。；改「鼻哨（Nose whistle）」或相鄰。
+source_url: https://soundweavers-music.github.io/instruments/pandeiro/
+image: https://upload.wikimedia.org/wikipedia/commons/6/65/Pandeiro.jpg
 youtube_ids: uEz-o12QX4Y FRNfkVVKe30
 ---
+
 ## 介紹
 
 潘德羅框鼓（葡萄牙語發音：[pɐ̃ˈdejɾu]）是一種在巴西廣受歡迎的手持框鼓。潘德羅框鼓用於多種巴西音樂形式，如森巴、舒洛、可可、卡波耶拉和波薩諾瓦音樂。鼓面可調音，框上裝有金屬搖撼片（platinelas），呈杯形，相比鈴鼓，潘德羅框鼓能發出更清脆、更乾爽且音程更短暫的音色。它由一隻手握持，用另一隻手敲擊鼓面以產生聲音。典型的潘德羅框鼓演奏方式是通過交替使用大拇指、指尖、手掌根部和掌面來完成。

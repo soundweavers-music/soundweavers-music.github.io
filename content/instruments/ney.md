@@ -1,22 +1,22 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/ney/
-title: 奈伊笛
-original_name: Ney / Nai
-category: 管樂器
-country: 中東
-era: 傳統／年代待考
-sound_class: 氣鳴
-range: 約2個8度
-instrument_key: 無固定調性
-hs_class: 421 邊棱氣鳴／無簧笛類
-family: 無簧吹管、長音與氣息樂器
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 電聲改造樂器
+title_zh: 奈伊笛
+title_original: Ney / Nai
+family_std: 無簧吹管、長音與氣息樂器
+sound_hs: 421 邊棱氣鳴／無簧笛類
 playing_method: 吹奏／端吹／橫吹／容器共鳴
-body_listening: 氣息、胸腔、長音、空間
-soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 中東
+listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+ensemble_links: 
+verification_status: 移入第13類
+issue_note: 現代電子／取樣；屬現代電子、取樣、電聲或電氣化鍵盤／設備類，應集中到第13類。；移第13類，並與傳統鍵盤／風箱類分開。
+source_url: https://soundweavers-music.github.io/instruments/ney/
 youtube_ids: MgKR6pfZocc ViZtpquGUM4 uOIHHMnI_Ig 93wGaGFUnTs
 ---
+
 ## 介紹
 
 奈伊笛是在波斯、土耳其、猶太人世界、阿拉伯世界和埃及常見的一種笛。在部分地區，奈伊笛甚至是當地僅有的管樂器。奈伊笛的歷史可追溯至4500年前的古埃及時期。奈伊笛的笛身有五或六個指孔及一個拇指孔。阿拉伯人在吹奈伊笛吹奏時不在笛上加任何吹嘴，與此形成對比的是土耳其式奈伊笛——其頂端常配置黃銅、獸角或塑料製吹嘴，

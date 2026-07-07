@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/mazhar/
-title: 馬扎爾框鼓
-original_name: Mazhar
-category: 打擊樂器
-country: 非洲／中東／亞洲／歐洲／美洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/20251224_Mazhar.jpg/500px-20251224_Mazhar.jpg
-sound_class: 膜鳴
-range: 低頻範圍，約2個8度
-instrument_key: 無固定調性
-hs_class: 21 膜鳴鼓類
-family: 膜鳴鼓類、框鼓、杯鼓與鼓組
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 馬扎爾框鼓
+title_original: Mazhar
+family_std: 膜鳴鼓類、框鼓、杯鼓與鼓組
+sound_hs: 21 膜鳴鼓類
 playing_method: 手拍／槌擊／皮膜振動
-body_listening: 手掌、腳底、低音、舞步
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-region_type: 地區／文化圈
+interface_tags: 
+region_culture: 非洲／中東／亞洲／歐洲／美洲｜地區／文化圈
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/mazhar/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/20251224_Mazhar.jpg/500px-20251224_Mazhar.jpg
 youtube_ids: fr85t_rrsTo LuRnzCsZCec
 ---
+
 ## 介紹
 
 馬扎爾框鼓（阿拉伯語：مزهر；複數形式：mazāhar，مزاهر）是阿拉伯音樂中使用的一種大型、沉重的鈴鼓。馬扎爾框鼓的框架通常由木料製成。它的單個鼓面比其較小的親戚樂器里克鼓（riq）的鼓面厚得多。有些鼓配有直徑約為10-13厘米（4-5英寸）的黃銅鈸片；這些可以用搖晃技巧演奏。埃及打擊樂演奏家侯賽姆·拉姆齊是馬扎爾框鼓的著名演奏者。

@@ -1,19 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/duxianqin/
-title: 獨弦琴
-original_name: Duxianqin
-category: 弦樂器
-country: 中國
-era: 傳統／年代待考
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 獨弦琴
+title_original: Duxianqin
+family_std: 撥弦與抱持弦樂家族
+sound_hs: 待確認
+playing_method: 撥奏／擦奏／擊弦（待細分）
+interface_tags: 
+region_culture: 中國｜單一地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/duxianqin/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/%E7%84%A1%E7%B5%83%E7%90%B4%E8%AD%9C.djvu/page1-500px-%E7%84%A1%E7%B5%83%E7%90%B4%E8%AD%9C.djvu.jpg
-region_type: 單一地區／文化圈
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-body_listening: 懷抱、手指、腳步、敘事
 youtube_ids: -Q4l-DnqdMo v6_Vfwi6lhA
-instrument_key: 純律定音
-range: 從低沉的共鳴音到高亢的泛音
 ---
+
 ## 介紹
 
 獨弦琴又稱一弦琴，使用純律定音。是東亞一類單弦樂器的統稱，見於中國、越南。 日本一弦琴則是在平安時代初期的延曆年間傳入。據《日本後紀》載，當時有一名學會漢語的天竺人把一弦琴帶到日本，到江戶時代又再由中國傳入一弦琴。 而現今被人們使用最為廣泛，且一直應用於世界音樂舞台的獨弦琴，專指越南的獨弦琴。這種樂器最初使用於合奏音樂當中，後來經過改良，與電音音響相連接，成為了一種重要的獨奏樂器。獨弦琴的一根琴弦安置在窄長方形的共鳴箱之上，一端固定與底座，另一端則固定在一根具有彈性的金屬條之上。演奏者演奏時用右手小指觸弦，剩餘三個手指握住撥子進行彈弦發出泛音，同時用左手移動金屬條來伸縮琴弦改變音高，具有極為獨特的音色效果。

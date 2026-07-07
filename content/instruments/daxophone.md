@@ -1,19 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/daxophone/
-title: 達克索風琴
-original_name: Daxophone
-category: 打擊樂器
-country: 德國
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
-body_listening: 胸口、嗓音、拉長的情緒
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 電聲改造樂器
+title_zh: 達克索風琴
+title_original: Daxophone
+family_std: 電聲改造樂器家族
+sound_hs: 待確認
+playing_method: 按鍵／控制器／電子控制（待細分）
+interface_tags: 
+region_culture: 德國｜單一地區／文化圈
+listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+ensemble_links: 
+verification_status: 移入第13類
+issue_note: 現代電子／取樣；屬現代電子、取樣、電聲或電氣化鍵盤／設備類，應集中到第13類。；移第13類，並與傳統鍵盤／風箱類分開。
+source_url: https://soundweavers-music.github.io/instruments/daxophone/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Deutsches_Jazzfestival_2015_-_Hope_-_Kazuhisa_Uchihashi_-_03.jpg/500px-Deutsches_Jazzfestival_2015_-_Hope_-_Kazuhisa_Uchihashi_-_03.jpg
 youtube_ids: 447yaU_4DF8 cLmCJKT5ssw
-instrument_key: 無固定調性
-range: 全音域
 ---
+
 ## 介紹
 
 暹克索風琴是由漢斯·賴歇爾發明的一種電動木製實驗樂器，屬於摩擦體鳴樂器的範疇。

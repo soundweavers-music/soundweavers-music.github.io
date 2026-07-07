@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/piccolo-oboe/
-title: 高音雙簧管
-original_name: Piccolo oboe
-category: 管樂器
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 簧片樂器
+title_zh: 高音雙簧管
+title_original: Piccolo oboe
+family_std: 管樂器類
+sound_hs: 4 气鳴樂器
 playing_method: 吹奏
-family: 管樂器類
-hs_class: 4 气鳴樂器
-sound_class: 气鳴
-country: 歐洲
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-body_listening: 口腔、舌頭、簧片震動、鼻音
+interface_tags: 
+region_culture: 歐洲｜單一地區／文化圈
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 已修正中文名，保留
+issue_note: 中文名重複／譯名修正；原中文名寫成「低音提琴」，與第226項 Double Bass 撞名；Octobass 是巨型低音擦弦樂器，不等同 Double Bass。；不刪除；改中文名為「八度低音提琴」，與第226項低音提琴相鄰。；NEAR-226/547: Double Bass／Octobass，鄰近但不合併
+source_url: https://soundweavers-music.github.io/instruments/piccolo-oboe/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/MUSETTE.jpg/500px-MUSETTE.jpg
 youtube_ids: 8nNilTdpDiE ivQpiJos1Sw
-instrument_key: E♭調、F調
-range: 約3個8度（高於普通雙簧管小三度或完全四度）
 ---
+
 ## 介紹
 
 高音雙簧管，又稱為小雙簧管或高音雙簧管，歷史上被稱為雙簧管風笛（或簡稱風笛），是雙簧管家族中最小且音域最高的成員。高音雙簧管以E♭或F調調音，音域高於普通雙簧管（即記譜時比發聲音低小三度或完全四度），是雙簧管的高音版本，可與E♭單簧管相比較。它最常見於二十世紀早期的行進樂隊音樂中，較少出現在室內樂團或當代作曲中。

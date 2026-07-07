@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/mark-tree/
-title: 馬克樹
-original_name: Mark Tree
-category: 打擊樂器
-country: 拉丁美洲／非洲／歐洲／亞洲／全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Mark-twain-tree-4.jpg/500px-Mark-twain-tree-4.jpg
-sound_class: 體鳴
-range: 高音區（約1至2個8度）
-instrument_key: 無固定調性
-hs_class: 11 小型體鳴／搖奏刮奏敲奏
-family: 小型節奏體鳴、沙鈴、刮器與身體打擊
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 馬克樹
+title_original: Mark Tree
+family_std: 小型節奏體鳴、沙鈴、刮器與身體打擊
+sound_hs: 11 小型體鳴／搖奏刮奏敲奏
 playing_method: 搖奏／刮奏／敲擊／身體打擊
-body_listening: 手腕、腳踝、短音、節奏對齊
-soundscape: 手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 拉丁美洲／非洲／歐洲／亞洲／全球
+listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+ensemble_links: 
+verification_status: 需調整
+issue_note: 名稱可保留／鄰近；Lithophone 可譯石琴；第519 Đàn đá 是越南石琴，應相鄰但不合併。；第10類相鄰。；DUP-016:Lithophone／Đàn đá
+source_url: https://soundweavers-music.github.io/instruments/mark-tree/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Mark-twain-tree-4.jpg/500px-Mark-twain-tree-4.jpg
 youtube_ids: ym9tXVKHdkw WrZixjQjr0M
 ---
+
 ## 介紹
 
 馬克樹是一種現代打擊樂器，由數十根金屬管懸掛於木製框架上組成。其外型獨特，金屬管排列密集，通過木槌敲擊產生聲響。該樂器音色明亮銳利，具有豐富的高頻泛音，音量穿透力強。馬克樹廣泛應用於電影配樂、交響樂隊和當代音樂創作中，用於營造緊張戲劇效果或現代音樂特殊音色。其快速衰減的音響特性使其成為烘托氛圍的理想選擇。

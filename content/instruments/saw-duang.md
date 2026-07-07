@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/saw-duang/
-title: 鋸雙弦琴
-original_name: Saw Duang
-category: 弦樂器
-country: 亞洲／東南亞（泰國）
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Saw_duang_%28back%29.png/500px-Saw_duang_%28back%29.png
-sound_class: 弦鳴
-range: 約3個8度
-instrument_key: 全調性
-hs_class: 321.3 擦弦／輪弦／提琴家族
-family: 擦弦、輪弦與提琴家族
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 擦弦、鍵控與輪弦
+title_zh: 鋸雙弦琴
+title_original: Saw Duang
+family_std: 擦弦、輪弦與提琴家族
+sound_hs: 弦鳴｜321.3 擦弦／輪弦／提琴家族
 playing_method: 弓擦／輪擦
-body_listening: 胸口、嗓音、拉長的情緒
-soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
-region_type: 跨文化／多地
+interface_tags: 弓
+region_culture: 亞洲／東南亞（泰國）
+listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/saw-duang/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Saw_duang_%28back%29.png/500px-Saw_duang_%28back%29.png
 youtube_ids: Pud2huHpkLY XFf27b6yOS0
 ---
+
 ## 介紹
 
 鋸篤（Saw Duang）是泰國傳統弓弦樂器，由中國二胡傳入東南亞後演變而來。樂器由半圓形共鳴體、細長琴桿及雙弦組成，通常採用木製結構。演奏者使用弓毛與琴弦摩擦產生聲音，音色悠揚婉轉，介於二胡與小提琴之間。鋸篤廣泛應用於泰國古典音樂、民謠及宮廷樂曲中，其柔和優雅的音質特別適合表現抒情的東方情感。樂器通過滑音和顫音效果能營造哀婉纏綿的氛圍，是東南亞傳統音樂的重要樂器。

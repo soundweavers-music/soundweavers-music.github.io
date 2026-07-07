@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/lira-calabrese/
-title: 卡拉布裡亞琴
-original_name: Lira Calabrese
-category: 弦樂器
-country: 亞洲／歐洲／中東／南亞／中亞
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Lira_Calabrese_-_Francesco_Staltari.ogv/330px--Lira_Calabrese_-_Francesco_Staltari.ogv.jpg
-sound_class: 弦鳴
-range: 中高音區（約2個8度）
-instrument_key: 無固定調性
-hs_class: Chordophone／弦鳴樂器
-family: 地中海擦弦
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 擦弦、鍵控與輪弦
+title_zh: 卡拉布裡亞琴
+title_original: Lira Calabrese
+family_std: 地中海擦弦
+sound_hs: Chordophone／弦鳴樂器
 playing_method: 弓擦
-body_listening: 胸口、嗓音、拉長的情緒
-soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
-region_type: 地區／文化圈
+interface_tags: 弓
+region_culture: 亞洲／歐洲／中東／南亞／中亞｜地區／文化圈
+listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/lira-calabrese/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Lira_Calabrese_-_Francesco_Staltari.ogv/330px--Lira_Calabrese_-_Francesco_Staltari.ogv.jpg
 youtube_ids: 9x9MxNqdLKI wNoUEE8loDA
 ---
+
 ## 介紹
 
 卡拉布里亞琴（義大利語：lira Calabrese）是一種傳統樂器，其特色是在義大利南部的卡拉布里亞地區的某些地區使用。

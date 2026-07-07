@@ -1,22 +1,22 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/suling-sunda/
-title: 巽他蘇林笛
-original_name: Suling Sunda
-category: 管樂器
-country: 全球／亞洲／歐洲／美洲／大洋洲
-era: 傳統／年代待考
-sound_class: 氣鳴
-range: 約2個8度
-instrument_key: 多調性
-hs_class: 421 邊棱氣鳴／無簧笛類
-family: 無簧吹管、長音與氣息樂器
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 簧片樂器
+title_zh: 巽他蘇林笛
+title_original: Suling Sunda
+family_std: 無簧吹管、長音與氣息樂器
+sound_hs: 421 邊棱氣鳴／無簧笛類
 playing_method: 吹奏／端吹／橫吹／容器共鳴
-body_listening: 氣息、胸腔、長音、空間
-soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
-region_type: 跨文化／多地
+interface_tags: 指孔
+region_culture: 全球／亞洲／歐洲／美洲／大洋洲
+listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/suling-sunda/
 youtube_ids: PeJ-vJNw5JA MxCfggzG0IE
 ---
+
 ## 介紹
 
 巽他蘇林笛是源自印度尼西亞西爪哇的傳統竹製橫笛，屬於巽他民族的重要樂器。其外型為細長的竹管，側面開有音孔，演奏時橫向吹奏。蘇林笛音色溫潤柔和，具有獨特的東方韻味，介於明亮與暗沉之間，帶有溫暖的木質感。主要用於傳統民間音樂、宗教儀式、民俗表演及甘美蘭樂隊中，以其內斂優雅的音質表現細膩情感，是巽他傳統音樂文化的標誌性樂器。

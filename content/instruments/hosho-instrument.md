@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/hosho-instrument/
-title: 荷索鼓
-original_name: Hosho (instrument)
-category: 打擊樂器
-country: 非洲／南非
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Kofi%27s_Hosho_2008.jpg/500px-Kofi%27s_Hosho_2008.jpg
-sound_class: 體鳴
-range: 中高頻（約2個8度）
-instrument_key: 無固定調性
-hs_class: Idiophone／體鳴樂器
-family: 種子與葫蘆沙鈴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 荷索鼓
+title_original: Hosho (instrument)
+family_std: 種子與葫蘆沙鈴
+sound_hs: Idiophone／體鳴樂器
 playing_method: 搖奏
-body_listening: 手腕、腳踝、短音、節奏對齊
-soundscape: 手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 非洲／南非
+listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+ensemble_links: 
+verification_status: 重複／合併建議
+issue_note: 重複／譯名需統一；Hammered dulcimer 可譯槌揚琴／擊弦揚琴；與第749 Tambal、第868 Yangqin 同屬擊弦齊特琴家族但不一定同一樂器。；三者相鄰，不直接合併。；DUP-013:Hammered dulcimer／Tambal／Yangqin
+source_url: https://soundweavers-music.github.io/instruments/hosho-instrument/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Kofi%27s_Hosho_2008.jpg/500px-Kofi%27s_Hosho_2008.jpg
 youtube_ids: Wlbf2w6ZCPg 3Z1TX-N1lAk
 ---
+
 ## 介紹
 
 荷索鼓是津巴布韋的樂器，由一對裝有種子的馬蘭卡（馬普茲）葫蘆組成。它們在許多傳統肖納音樂類型中被用作主要樂器，例如在姆比拉合奏樂隊和姆漢德中使用。它們通常在內部裝有荷塔（美人蕉）種子。在加入荷塔種子之前，荷索鼓要在鹽水中煮沸，內部用玉米穗、報紙塞或編織金屬絲刮掉。清除荷索鼓內部的雜物可以產生更尖銳和打擊感更強的音色。荷索鼓用於伴奏肖納音樂，尤其是姆比拉音樂。

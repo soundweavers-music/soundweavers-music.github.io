@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/classical-kemen-e/
-title: 古典肯曼切琴
-original_name: Classical Kemençe
-category: 弦樂器
-country: 亞洲／歐洲／中東／南亞／中亞
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Kemence_Sezgin_%281%29.jpg/500px-Kemence_Sezgin_%281%29.jpg
-sound_class: 弦鳴
-range: 約2個8度（中高音區）
-instrument_key: 全調性
-hs_class: 321.3 擦弦／輪弦／提琴家族
-family: 擦弦、輪弦與提琴家族
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 擦弦、鍵控與輪弦
+title_zh: 古典肯曼切琴
+title_original: Classical Kemençe
+family_std: 擦弦、輪弦與提琴家族
+sound_hs: 弦鳴｜321.3 擦弦／輪弦／提琴家族
 playing_method: 弓擦／輪擦
-body_listening: 胸口、嗓音、拉長的情緒
-soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
-region_type: 地區／文化圈
+interface_tags: 弓
+region_culture: 亞洲／歐洲／中東／南亞／中亞｜地區／文化圈
+listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+ensemble_links: 
+verification_status: 需調整
+issue_note: 譯名太泛；Chimes 譯成「鐘琴」會與 Carillon/Glockenspiel 混淆。；改為「管鐘／鐘管（Chimes / Tubular bells，依實物）」待查。
+source_url: https://soundweavers-music.github.io/instruments/classical-kemen-e/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Kemence_Sezgin_%281%29.jpg/500px-Kemence_Sezgin_%281%29.jpg
 youtube_ids: t1VoAwhkYvU wzQ__rDdC9w
 ---
+
 ## 介紹
 
 古典肯曼切琴（土耳其語：Klasik kemençe）、梨形肯曼切琴（Armudî kemençe）或君士坦丁堡琴（希臘語：πολίτικη λύρα，意為「君士坦丁堡琴」，類似土耳其語：İstanbul kemençesi，字面意思為「伊斯坦堡的肯曼切琴」）是一種梨形的有弓弦樂器，擁有三根琴弦，源自中世紀希臘拜占庭琴。它主要被來自小亞細亞的希臘移民和古典鄂圖曼音樂所使用。該樂器早期也曾用於流行音樂，如早期的「士麥那風格」雷貝提克音樂，並在當今繼續被演奏。

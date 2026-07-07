@@ -1,19 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/babendil/
-title: 巴班迪爾鑼
-original_name: Babendil
-category: 打擊樂器
-country: 菲律賓
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-body_listening: 材料、回聲、群體分工、音列
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 巴班迪爾鑼
+title_original: Babendil
+family_std: 撥弦與抱持弦樂家族
+sound_hs: 待確認
+playing_method: 撥奏／擦奏／擊弦（待細分）
+interface_tags: 
+region_culture: 菲律賓｜單一地區／文化圈
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 有問題，需修正
+issue_note: 分類錯誤；Autoharp 是和弦齊特琴，分類寫鍵盤樂器不準確。；移第5類齊特琴／鍵盤化弦鳴支線。
+source_url: https://soundweavers-music.github.io/instruments/babendil/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Babendil_01.jpg/500px-Babendil_01.jpg
 youtube_ids: Czh1oqx0Bpw HY9FIjQTarc
-instrument_key: 無固定調性
-range: 中高頻段（具體8度數不詳）
 ---
+
 ## 介紹
 
 巴班迪爾鑼是一種單片、窄邊緣的菲律賓鑼，主要用作馬京達瑙庫林坦樂團的「計時者」。

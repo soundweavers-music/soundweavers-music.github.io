@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/roneat/
-title: 羅乃木琴
-original_name: Roneat
-category: 打擊樂器
-country: 東南亞／東亞／非洲／歐洲／全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Pierre_Dieulefils_postcard_1662_crop-Roneats.jpg/500px-Pierre_Dieulefils_postcard_1662_crop-Roneats.jpg
-sound_class: 體鳴
-range: 中音至高音範圍（約2至3個8度）
-instrument_key: 全調性
-hs_class: 11/12 定音體鳴／鑼鐘木琴石琴系統
-family: 定音體鳴、材料敲擊與鑼鐘木琴系統
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 羅乃木琴
+title_original: Roneat
+family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
+sound_hs: 11/12 定音體鳴／鑼鐘木琴石琴系統
 playing_method: 敲擊／搖奏／材料共鳴
-body_listening: 材料、回聲、群體分工、音列
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 東南亞／東亞／非洲／歐洲／全球
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/roneat/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Pierre_Dieulefils_postcard_1662_crop-Roneats.jpg/500px-Pierre_Dieulefils_postcard_1662_crop-Roneats.jpg
 youtube_ids: lIdleRSML-o -EEKM19fehg
 ---
+
 ## 介紹
 
 羅乃木琴（高棉語：រនាត，rônéat [rɔniət]）是高棉語中用於指稱傳統柬埔寨音樂中多種木琴的通用詞彙，包括平畢樂隊和莫哈歐里樂隊所用的樂器。羅乃木琴可以指稱多種柬埔寨木琴類型，例如羅乃木琴、羅乃艾克、羅乃通、羅乃德克和羅乃塔翁。

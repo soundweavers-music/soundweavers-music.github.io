@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/danso/
-title: 短簫
-original_name: Danso
-category: 管樂器
-country: 韓國
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Danso_fingering_chart.svg/500px-Danso_fingering_chart.svg.png
-sound_class: 氣鳴
-range: 中音至高音區（約2個8度）
-instrument_key: 全調性
-hs_class: 421 邊棱氣鳴／無簧笛類
-family: 無簧吹管、長音與氣息樂器
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 簧片樂器
+title_zh: 短簫
+title_original: Danso
+family_std: 無簧吹管、長音與氣息樂器
+sound_hs: 421 邊棱氣鳴／無簧笛類
 playing_method: 吹奏／端吹／橫吹／容器共鳴
-body_listening: 氣息、胸腔、長音、空間
-soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
-region_type: 單一國家或文化源流
+interface_tags: 
+region_culture: 韓國｜單一國家或文化源流
+listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/danso/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Danso_fingering_chart.svg/500px-Danso_fingering_chart.svg.png
 youtube_ids: 91idAyR_Rg0 twnZR-cZtFg
 ---
+
 ## 介紹
 
 The danso (also spelled tanso) is a Korean notched, end-blown vertical bamboo flute used in Korean folk music. It is traditionally made of bamboo, but since the 20th century it has also been made of plastic. It was imported from China in the 19th century, where it is called duanxiao (simplified Chinese: 短箫; traditional Chinese: 短簫; pinyin: duǎnxiāo; lit. 'short xiao'). The Korean name is the transliteration of the Chinese one, a short variant of the xiao. The flute has four finger holes and one thumb hole at the back. The playing range is two octaves, going from low G to high G.

@@ -1,19 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/bladder-fiddle/
-title: 豬膀胱提琴
-original_name: Bladder fiddle
-category: 弦樂器
-country: 歐洲和美洲
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
-body_listening: 胸口、嗓音、拉長的情緒
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 擦弦、鍵控與輪弦
+title_zh: 豬膀胱提琴
+title_original: Bladder fiddle
+family_std: 擦弦、鍵控與輪弦家族
+sound_hs: 待確認
+playing_method: 撥奏／擦奏／擊弦（待細分）
+interface_tags: 弓
+region_culture: 歐洲和美洲｜單一地區／文化圈
+listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/bladder-fiddle/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Bumbass_or_bladder_fiddle.jpg/500px-Bumbass_or_bladder_fiddle.jpg
 youtube_ids: hMrumB7xMWE ZmxMcabPMPU
-instrument_key: 無固定調性
-range: 中低音區（約2個8度）
 ---
+
 ## 介紹
 
 豬膀胱提琴是一種在整個歐洲和美洲使用的民間樂器。該樂器最初是一種簡單的大型弦樂提琴（一種音樂弓），由一根長桿、一根或多根粗腸弦和豬膀胱共鳴器組成。它由有刻痕的木棍或馬尾弓拉奏。這種民間樂器歷史上由「流浪音樂家」和乞丐演奏，直到19世紀初。雖然它可能用於認真的民間音樂中，但也被用於幽默。樂器的改變產生了兩種不同的現代變體。

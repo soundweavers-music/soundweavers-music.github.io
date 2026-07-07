@@ -1,21 +1,22 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/ruan/
-title: 阮
-original_name: Ruan
-category: 弦樂器
-country: 中東／歐亞／東亞／美洲／全球
-era: 傳統／年代待考
-sound_class: 弦鳴
-range: 約3個8度
-instrument_key: 全調性
-hs_class: 321/322 魯特琴類／撥弦
-family: 魯特琴、短頸長頸撥弦與民謠弦聲
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 阮
+title_original: Ruan
+family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
+sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
 playing_method: 撥弦／刷弦／撥片
-body_listening: 懷抱、手指、腳步、敘事
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 跨文化／多地
+interface_tags: 撥片
+region_culture: 中東／歐亞／東亞／美洲／全球
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/ruan/
 youtube_ids: S9cbs6oSyxU g4sewPWjTn8
 ---
+
 ## 介紹
 
 阮可以指： 阮姓，越南常見的姓氏，也是中文姓氏之一。 阮朝，越南朝代之一。 阮咸 (樂器)，中國民族樂器，通常簡稱阮。 阮國 是商朝時期由皋陶（封地在偃）裔孫阮髡建立的諸侯國，其址在今甘肅省涇川縣境內。 阮，閩南語代名詞，是「我儂」兩字的合音，解作「我們」 阮（Yuon），高棉語和占婆語中對越南人的負面稱呼，從梵語「臾那」轉變而來。

@@ -1,19 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/chitarra-italiana/
-title: 義大利吉他
-original_name: Chitarra Italiana
-category: 弦樂器
-country: 義大利
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-body_listening: 懷抱、手指、腳步、敘事
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 電聲改造樂器
+title_zh: 義大利吉他
+title_original: Chitarra Italiana
+family_std: 電聲改造樂器家族
+sound_hs: 待確認
+playing_method: 按鍵／控制器／電子控制（待細分）
+interface_tags: 
+region_culture: 義大利｜單一地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 移入第13類
+issue_note: 現代電子／取樣；屬現代電子、取樣、電聲或電氣化鍵盤／設備類，應集中到第13類。；移第13類，並與傳統鍵盤／風箱類分開。
+source_url: https://soundweavers-music.github.io/instruments/chitarra-italiana/
 image: https://upload.wikimedia.org/wikipedia/commons/f/f4/Chitarra-italiana.jpg
 youtube_ids: inBKFMB-yPg xpRgR-tZEpk
-instrument_key: 全調性
-range: 約2個8度
 ---
+
 ## 介紹
 
 意大利吉他（意大利語：[kiˈtarra itaˈljaːna]；意為「意大利吉他」）是一種琵琶形撥弦樂器，配有四根或五根單弦（有時為雙弦），調音方式與吉他相似。它在文藝復興時期在意大利很常見。根據雷納托·梅烏奇的說法，「意大利」的名稱是在扁平背部版本的樂器傳入意大利之後才出現的——在這種情況下被稱為「西班牙式吉他」（chitarra alla spagnola）——用以區分這兩個版本。

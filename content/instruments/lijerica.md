@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/lijerica/
-title: 克羅埃西亞弓琴
-original_name: Lijerica
-category: 弦樂器
-country: 歐洲／克羅埃西亞
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Lirica_Dalmacija_EMZ_300109.jpg/500px-Lirica_Dalmacija_EMZ_300109.jpg
-sound_class: 弦鳴
-range: 中高音區（約2個8度）
-instrument_key: 全調性
-hs_class: 321.3 擦弦／輪弦／提琴家族
-family: 擦弦、輪弦與提琴家族
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 擦弦、鍵控與輪弦
+title_zh: 克羅埃西亞弓琴
+title_original: Lijerica
+family_std: 擦弦、輪弦與提琴家族
+sound_hs: 弦鳴｜321.3 擦弦／輪弦／提琴家族
 playing_method: 弓擦／輪擦
-body_listening: 胸口、嗓音、拉長的情緒
-soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
-region_type: 跨文化／多地
+interface_tags: 弓
+region_culture: 歐洲／克羅埃西亞
+listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/lijerica/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Lirica_Dalmacija_EMZ_300109.jpg/500px-Lirica_Dalmacija_EMZ_300109.jpg
 youtube_ids: BJKWPKH_EcM dX0U7LZzTlU
 ---
+
 ## 介紹
 
 克羅埃西亞弓琴（克羅埃西亞語發音：[lîjeritsa]）是一種來自克羅埃西亞的達爾馬提亞地區及克羅埃西亞東赫塞哥維納地區的樂器。它是一種梨形的三弦樂器，用弓演奏。它用於伴奏該地區的傳統林迪舞蹈。克羅埃西亞弓琴的名稱來自於里拉琴（希臘語：λύρα），這是拜占庭帝國的一種弓弦樂器，克羅埃西亞弓琴可能由此演變而來。雖然克羅埃西亞弓琴最常與傳統民間音樂相關聯，但在該地區的現代音樂中仍然可以找到它。

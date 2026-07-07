@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/tres-cubano/
-title: 特雷斯吉他
-original_name: Tres Cubano
-category: 弦樂器
-country: 美洲／古巴
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Tres_cubano.jpg/500px-Tres_cubano.jpg
-sound_class: 弦鳴
-range: 約2至2.5個8度（C3–G5）
-instrument_key: 全調性
-hs_class: 321/322 魯特琴類／撥弦
-family: 魯特琴、短頸長頸撥弦與民謠弦聲
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 特雷斯吉他
+title_original: Tres Cubano
+family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
+sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
 playing_method: 撥弦／刷弦／撥片
-body_listening: 懷抱、手指、腳步、敘事
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 跨文化／多地
+interface_tags: 撥片
+region_culture: 美洲／古巴
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/tres-cubano/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Tres_cubano.jpg/500px-Tres_cubano.jpg
 youtube_ids: rZRrkAWJuTQ pkZ02s-rnac
 ---
+
 ## 介紹
 
 特雷斯吉他是古巴的傳統弦樂器，源於西班牙殖民時期與非洲文化的融合。其名稱「Tres」意為「三」，指其獨特的三對雙弦設計。樂器體型緊湊，共鳴箱較小，音色明亮清脆且穿透力強，在樂隊中極易脫穎而出。特雷斯吉他是古巴民間音樂的核心樂器，廣泛應用於森古多、博萊羅等傳統音樂流派，以及現代古巴爵士樂中，適合演奏快速旋律和複雜節奏。

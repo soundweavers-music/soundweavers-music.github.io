@@ -1,21 +1,22 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/kundi/
-title: 孔迪豎琴
-original_name: Kundi
-category: 弦樂器
-country: 非洲／歐洲／亞洲／美洲
-era: 傳統／年代待考
-sound_class: 弦鳴
-range: 約3個8度
-instrument_key: 無固定調性
-hs_class: 322 豎琴與里拉類
-family: 豎琴、里拉與開放弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 豎琴、里拉與開放弦
+title_zh: 孔迪豎琴
+title_original: Kundi
+family_std: 豎琴、里拉與開放弦樂器
+sound_hs: 弦鳴｜322 豎琴與里拉類
 playing_method: 撥弦／開放弦共鳴
-body_listening: 循環、河流感、開放弦、吟唱
-soundscape: 開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
-region_type: 地區／文化圈
+interface_tags: 
+region_culture: 非洲／歐洲／亞洲／美洲｜地區／文化圈
+listening_sound_tags: 循環、河流感、開放弦、吟唱｜開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/kundi/
 youtube_ids: XNGRZVHjYbQ j7LI_sDdXkI
 ---
+
 ## 介紹
 
 孔迪可能指的是：孔迪（電影），巴基斯坦烏爾都語電影 孔迪（豎琴） 孔迪（普什圖族部落），位於巴基斯坦 孔迪（竊電行為），在巴西、印度、巴基斯坦和土耳其的某些地區竊取電力的行為 孔迪，埃塞俄比亞，古拉達莫萊的一個城鎮 孔迪，哈里普爾，位於巴基斯坦 孔迪，北方邦，印度的一個村莊 一座亞述堡壘，可能與後來的基因達相同

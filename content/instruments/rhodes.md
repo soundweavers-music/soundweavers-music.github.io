@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/rhodes/
-title: 羅茲電鋼琴
-original_name: Rhodes
-category: 鍵盤樂器
-country: 美洲／北美
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Rhodes_sentinel2_%28cropped%29.jpg/500px-Rhodes_sentinel2_%28cropped%29.jpg
-sound_class: 鍵盤／電鳴／機械混合
-range: A0–C8（88鍵，約7個半8度）
-instrument_key: 全調性
-hs_class: 412/31/52 鍵盤、自由簧、電鳴與機械介面
-family: 鍵盤介面、風箱、電子與取樣
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 取樣與磁帶
+title_zh: 羅茲電鋼琴
+title_original: Rhodes
+family_std: 鍵盤介面、風箱、電子與取樣
+sound_hs: 鍵盤／電鳴／機械混合｜412/31/52 鍵盤、自由簧、電鳴與機械介面
 playing_method: 按鍵／風箱／電控／取樣
-body_listening: 手指、機械距離、記憶、電聲
-soundscape: 按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
-region_type: 跨文化／多地
+interface_tags: 鍵盤／按鍵、風箱
+region_culture: 美洲／北美
+listening_sound_tags: 手指、機械距離、記憶、電聲｜按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/rhodes/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Rhodes_sentinel2_%28cropped%29.jpg/500px-Rhodes_sentinel2_%28cropped%29.jpg
 youtube_ids: CimnsB-lHpk k0co0GAbass
 ---
+
 ## 介紹
 
 羅茲（希臘語：Ρόδος，拉丁化：Ródos [ˈroðos]）是希臘十二島群中最大的島嶼，也是其歷史首都；它是地中海第九大島嶼。在行政上，羅茲構成羅茲地區單位內的一個獨立市鎮，該地區是南愛琴海行政區的一部分。島上的主要城鎮和市鎮所在地是羅茲市，根據2011年人口普查，該市有50,636名居民。到2022年，該島人口已增長至125,113人。

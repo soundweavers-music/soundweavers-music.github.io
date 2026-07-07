@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/hi-hat-cymbal/
-title: 踩鈸
-original_name: Hi-hat cymbal
-category: 打擊樂器
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
+title_zh: 踩鈸
+title_original: Hi-hat cymbal
+family_std: 體鳴打擊樂器類
+sound_hs: 1 体鳴樂器
 playing_method: 敲擊／搖晃／撥彈
-family: 體鳴打擊樂器類
-hs_class: 1 体鳴樂器
-sound_class: 体鳴
-country: 美洲／北美
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 手邊發光的小宇宙（近身體鳴、舌片琴與手奏金屬共鳴）
-body_listening: 指尖、掌心、尾音、近身聆聽
+interface_tags: 踏板
+region_culture: 美洲／北美｜單一地區／文化圈
+listening_sound_tags: 指尖、掌心、尾音、近身聆聽｜手邊發光的小宇宙（近身體鳴、舌片琴與手奏金屬共鳴）
+ensemble_links: 爵士編制
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/hi-hat-cymbal/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Drums_schematic.svg/500px-Drums_schematic.svg.png
 youtube_ids: p3ZhikuAI8E MsrwwmJ6Mts
-instrument_key: 無固定調性
-range: 高頻段（約2000Hz以上）
 ---
+
 ## 介紹
 
 踩鈸（hi-hat）是一種由兩片鈸和一個踏板組成的樂器，全部安裝在金屬架上。它是標準鼓組的一部分，被搖滾、流行、爵士和藍調等多種音樂風格的鼓手使用。踩鈸由一對配套的中小型鈸組成，安裝在架子上，兩片鈸相向而立。下方的鈸是固定的，上方的鈸則安裝在一根桿上，當踩下踏板時，上方的鈸會向下方的鈸靠近（處於這種位置的踩鈸被稱為「閉合」或「閉合踩鈸」）。

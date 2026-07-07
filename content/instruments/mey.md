@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/mey/
-title: 梅依管
-original_name: Mey
-category: 管樂器
-country: 全球／亞洲／中東／歐洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/CADAL11100305_%E4%BE%9D%E6%96%90%E6%A0%BC%E7%B4%8D%E4%BA%9E.djvu/page1-500px-CADAL11100305_%E4%BE%9D%E6%96%90%E6%A0%BC%E7%B4%8D%E4%BA%9E.djvu.jpg
-sound_class: 氣鳴
-range: 約3個8度（低音域至高音域）
-instrument_key: 無固定調性
-hs_class: 412/422 簧鳴與自由簧／單簧雙簧
-family: 口簧、自由簧、單簧雙簧與風袋
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 風箱與自由簧
+title_zh: 梅依管
+title_original: Mey
+family_std: 口簧、自由簧、單簧雙簧與風袋
+sound_hs: 氣鳴｜412/422 簧鳴與自由簧／單簧雙簧
 playing_method: 吹奏／簧片振動／風袋或風箱
-body_listening: 口腔、舌頭、簧片震動、鼻音
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-region_type: 跨文化／多地
+interface_tags: 風箱
+region_culture: 全球／亞洲／中東／歐洲
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/mey/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/CADAL11100305_%E4%BE%9D%E6%96%90%E6%A0%BC%E7%B4%8D%E4%BA%9E.djvu/page1-500px-CADAL11100305_%E4%BE%9D%E6%96%90%E6%A0%BC%E7%B4%8D%E4%BA%9E.djvu.jpg
 youtube_ids: wYQ_ol3L9Ag J91emaxq0iY
 ---
+
 ## 介紹
 
 梅依管或梅依可能指：

@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/saz/
-title: 薩茲琴
-original_name: Saz
-category: 弦樂器
-country: 土耳其／安納托利亞
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Tamburasaz-Baglamasaz.jpg/500px-Tamburasaz-Baglamasaz.jpg
-sound_class: 弦鳴
-range: 約2.5個8度
-instrument_key: 無固定調性
-hs_class: 321/322 魯特琴類／撥弦
-family: 魯特琴、短頸長頸撥弦與民謠弦聲
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 薩茲琴
+title_original: Saz
+family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
+sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
 playing_method: 撥弦／刷弦／撥片
-body_listening: 懷抱、手指、腳步、敘事
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 地區／文化圈
+interface_tags: 撥片
+region_culture: 土耳其／安納托利亞｜地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/saz/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Tamburasaz-Baglamasaz.jpg/500px-Tamburasaz-Baglamasaz.jpg
 youtube_ids: FqxAvVWfvPM JLpb_9vWfXY
 ---
+
 ## 介紹
 
 薩茲琴（土耳其語：bağlama或saz）是一類撥弦樂器，屬於長頸魯特琴家族，流行於歐洲、中東和中亞地區。 它常由阿希克（民間遊吟詩人）使用。

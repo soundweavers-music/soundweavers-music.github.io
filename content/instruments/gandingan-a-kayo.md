@@ -1,19 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/gandingan-a-kayo/
-title: 木製甘汀安鼓
-original_name: Gandingan a kayo
-category: 打擊樂器
-country: 菲律賓
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-body_listening: 材料、回聲、群體分工、音列
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 木製甘汀安鼓
+title_original: Gandingan a kayo
+family_std: 鼓皮與鼓類家族
+sound_hs: 待確認
+playing_method: 敲奏／拍奏／搖奏／刮奏（待細分）
+interface_tags: 
+region_culture: 菲律賓｜單一地區／文化圈
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/gandingan-a-kayo/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Gandingan_a_Kayo_01.jpg/500px-Gandingan_a_Kayo_01.jpg
 youtube_ids: Ok83kx17aXg Rfr3MK8MNjI
-instrument_key: 無固定調性
-range: 中高音區（約2個8度）
 ---
+
 ## 介紹
 
 木製甘汀安鼓（翻譯意思為「木製甘汀安鼓」或「木製的甘汀安鼓」）是菲律賓木琴，被認為是真正甘汀安鼓的木製版本。這件樂器是一件相對較新的樂器，由於「木製庫林當樂器合奏團」日益流行而逐漸成熟。與原始甘汀安鼓不同，木製甘汀安鼓無法用於遠距離通訊。

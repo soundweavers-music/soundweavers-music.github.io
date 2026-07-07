@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/timpani/
-title: 定音鼓
-original_name: Timpani
-category: 打擊樂器
-country: 中東／歐洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/0/02/USAFE_Band_timpanist.jpg
-sound_class: 膜鳴
-range: 約2-3個8度（可透過改變鼓皮張力精確調整）
-instrument_key: 全調性
-hs_class: 21 膜鳴鼓類
-family: 膜鳴鼓類、框鼓、杯鼓與鼓組
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 定音鼓
+title_original: Timpani
+family_std: 膜鳴鼓類、框鼓、杯鼓與鼓組
+sound_hs: 21 膜鳴鼓類
 playing_method: 手拍／槌擊／皮膜振動
-body_listening: 手掌、腳底、低音、舞步
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 中東／歐洲
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/timpani/
+image: https://upload.wikimedia.org/wikipedia/commons/0/02/USAFE_Band_timpanist.jpg
 youtube_ids: 1hQ5ptEWw8Y Arqvnp6yUCg
 ---
+
 ## 介紹
 
 定音鼓（義大利語：Timpani，西班牙語：Tímpano，英語：Timpani或Kettledrum，德語：Pauken，法語：Timbales）是一種膜鳴樂器，由古代戰爭時的戰鼓所演變出來的變種樂器。在巴洛克時代後期開始在樂隊中使用，古典時期起已成為了常規化的樂器，亦成為了整個交響樂團中的一個重要樂器。 現時定音鼓較常採用的外語名稱為義大利語的timpani，是源自於義大利語，為timpano的複數形。這個字的起源來自希臘字τύμπανον（tumpanon，複數為tumpana），經過拉丁字母化後，變成tympanum（複數：tympani），意思為「敲打」。不過自定音鼓出現於樂隊起，絕少情況下只使用一隻，因此通常都會使用複數形。另外，18世紀、19世紀的英、美地區亦會寫作timpany、tympani或tympany等。現代英、美作曲家則較常用Kettledrum一字。

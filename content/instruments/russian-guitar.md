@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/russian-guitar/
-title: 俄羅斯吉他
-original_name: Russian guitar
-category: 弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 俄羅斯吉他
+title_original: Russian guitar
+family_std: 弦樂器類
+sound_hs: 3 弦鳴樂器
 playing_method: 撥弦／擦弦／擊弦
-family: 弦樂器類
-hs_class: 3 弦鳴樂器
-sound_class: 弦鳴
-country: 俄羅斯
-era: 古代
-region_type: 單一地區／文化圈
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-body_listening: 懷抱、手指、腳步、敘事
+interface_tags: 
+region_culture: 俄羅斯｜單一地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/russian-guitar/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B0%D1%8F_%D1%81%D0%B5%D0%BC%D0%B8%D1%81%D1%82%D1%80%D1%83%D0%BD%D0%BD%D0%B0%D1%8F_%D0%B3%D0%B8%D1%82%D0%B0%D1%80%D0%B0.JPG/500px-%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B0%D1%8F_%D1%81%D0%B5%D0%BC%D0%B8%D1%81%D1%82%D1%80%D1%83%D0%BD%D0%BD%D0%B0%D1%8F_%D0%B3%D0%B8%D1%82%D0%B0%D1%80%D0%B0.JPG
 youtube_ids: inBKFMB-yPg YzgTMh21zhI
-instrument_key: G大調（開放G和弦調弦）
-range: D2–G5（約3個半8度）
 ---
+
 ## 介紹
 
 俄羅斯吉他（有時被稱為「吉普賽吉他」）是一種七弦民族吉他，於18世紀末在俄羅斯發展而來。雖然有些歷史學家堅持其源於英國吉他，但它在樂器學特徵上與西班牙吉他大體相同。在俄語中，它被稱為「semistrunnaya gitara」（семиструнная гитара），親暱地被稱為「semistrunka」（семиструнка），意為「七弦琴」。這些吉他最常被調成開放G和弦，調弦如下：D2 G2 B2 D3 G3 B3 D4。

@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/almglocken/
-title: 牛鈴組
-original_name: Almglocken
-category: 打擊樂器
-country: 阿爾卑斯地區
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/4/46/Koebel.jpg
-sound_class: 體鳴
-range: 約2至3個8度
-instrument_key: 多調性
-hs_class: Idiophone／體鳴樂器
-family: 定音牛鈴
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
+title_zh: 牛鈴組
+title_original: Almglocken
+family_std: 定音牛鈴
+sound_hs: Idiophone／體鳴樂器
 playing_method: 敲擊
-body_listening: 山地鈴聲、定音打擊、明亮群聲
-soundscape: 木石金屬的回聲城市（定音體鳴、材料敲擊與鑼鐘木琴系統）
-region_type: 單一地區／文化圈
+interface_tags: 
+region_culture: 阿爾卑斯地區｜單一地區／文化圈
+listening_sound_tags: 山地鈴聲、定音打擊、明亮群聲｜木石金屬的回聲城市（定音體鳴、材料敲擊與鑼鐘木琴系統）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/almglocken/
+image: https://upload.wikimedia.org/wikipedia/commons/4/46/Koebel.jpg
 youtube_ids: Sr0qrtTn7B0 boQbA_0o330
 ---
+
 ## 介紹
 
 牛鈴組（Almglocken）是源自阿爾卑斯山區的打擊樂器，由多枚不同音高的鈴鐘組成。其外型為球形或圓筒形的金屬鐘體，內部裝有金屬舌片，通過敲擊產生聲響。牛鈴起初用於畜牧業中標記牲畜位置，後來被引入音樂領域。樂器具有溫潤明亮的音色，富有穿透力與民族特色，常見於奧地利、瑞士等阿爾卑斯地區的民間音樂和交響樂隊中，能營造出風鈴般柔和而富有空間感的音響效果。

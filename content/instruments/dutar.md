@@ -1,19 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/dutar/
-title: 都塔爾
-original_name: Dutar
-category: 弦樂器
-country: 伊朗／中亞
-era: 傳統／年代待考
-region_type: 地區／文化圈
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-body_listening: 懷抱、手指、腳步、敘事
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 都塔爾
+title_original: Dutar
+family_std: 撥弦與抱持弦樂家族
+sound_hs: 待確認
+playing_method: 撥奏／擦奏／擊弦（待細分）
+interface_tags: 
+region_culture: 伊朗／中亞｜地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/dutar/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Joueur_de_dutar_ouzbek.jpg/500px-Joueur_de_dutar_ouzbek.jpg
 youtube_ids: RxhocZurU5Y 9RDvafNkJAs
-instrument_key: 無固定調性
-range: 約3個8度
 ---
+
 ## 介紹
 
 都塔尔（亦作多塔尔；波斯語：دوتار，转写：dutâr；俄語：Дутар；塔吉克語：Дутор；烏茲別克語：Дутор；維吾爾語：دۇتار、Дутар，转写：Dutar；敦幹語：Дутар）是一種傳統伊朗長頸兩弦琵琶，流行於伊朗及中亞地區。其名稱源自波斯語中「兩根弦」的含義——دوتار do tār（源自 دو do「二」，تار tār「弦」），儘管阿富汗的赫拉特都塔尔擁有十四根弦。都塔尔在塔吉克斯坦和伊朗呼羅珊省非常流行。

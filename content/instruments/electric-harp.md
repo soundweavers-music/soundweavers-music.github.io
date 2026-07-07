@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/electric-harp/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Electric_harp.jpg/500px-Electric_harp.jpg
-title: 電豎琴
-original_name: Electric Harp
-category: 弦樂器
-country: 非洲／歐洲／亞洲／美洲
-era: 傳統／年代待考
-sound_class: 弦鳴
-range: 約6至7個八度
-instrument_key: 全調性
-hs_class: 322 豎琴與里拉類
-family: 豎琴、里拉與開放弦樂器
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 電聲改造樂器
+title_zh: 電豎琴
+title_original: Electric Harp
+family_std: 豎琴、里拉與開放弦樂器
+sound_hs: 弦鳴｜322 豎琴與里拉類
 playing_method: 撥弦／開放弦共鳴
-body_listening: 循環、河流感、開放弦、吟唱
-soundscape: 開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
-region_type: 地區／文化圈
+interface_tags: 拾音／擴音
+region_culture: 非洲／歐洲／亞洲／美洲｜地區／文化圈
+listening_sound_tags: 循環、河流感、開放弦、吟唱｜開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/electric-harp/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Electric_harp.jpg/500px-Electric_harp.jpg
 youtube_ids: RigyRr5B_gY dCvEgqePl84
 ---
+
 ## 介紹
 
 電豎琴是將傳統豎琴與電氣擴音系統結合而成的現代弦樂器。其外型與傳統豎琴相似，但內置拾音器和電子放大系統。電豎琴具有清澈透亮、如水晶般的音色質感，兼具溫潤柔和的特質，音域寬廣達六至七個八度。廣泛應用於爵士樂、流行音樂、民謠和搖滾樂中，是實驗音樂和電子音樂的重要樂器。通過電子放大，其音量和表現力相較傳統豎琴大幅增強，在現代音樂編制中具有重要地位。

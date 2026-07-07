@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/clavioline/
-title: 克拉維奧林電子琴
-original_name: Clavioline
-category: 鍵盤樂器
-country: 歐洲／美國／全球現代錄音室
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/US2563477A_Electronic_Musical_Instrument_%281948-05-01_filed%2C_1951-08-07_published%29_by_Constant_Martin_-_Clavioline_Fig.1.jpg/500px-US2563477A_Electronic_Musical_Instrument_%281948-05-01_filed%2C_1951-08-07_published%29_by_Constant_Martin_-_Clavioline_Fig.1.jpg
-sound_class: 鍵盤／電鳴／機械混合
-range: 約3個8度
-instrument_key: 全調性
-hs_class: 412/31/52 鍵盤、自由簧、電鳴與機械介面
-family: 鍵盤介面、風箱、電子與取樣
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 取樣與磁帶
+title_zh: 克拉維奧林電子琴
+title_original: Clavioline
+family_std: 鍵盤介面、風箱、電子與取樣
+sound_hs: 鍵盤／電鳴／機械混合｜412/31/52 鍵盤、自由簧、電鳴與機械介面
 playing_method: 按鍵／風箱／電控／取樣
-body_listening: 手指、機械距離、記憶、電聲
-soundscape: 按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
-region_type: 跨文化／多地
+interface_tags: 鍵盤／按鍵、風箱
+region_culture: 歐洲／美國／全球現代錄音室
+listening_sound_tags: 手指、機械距離、記憶、電聲｜按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/clavioline/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/US2563477A_Electronic_Musical_Instrument_%281948-05-01_filed%2C_1951-08-07_published%29_by_Constant_Martin_-_Clavioline_Fig.1.jpg/500px-US2563477A_Electronic_Musical_Instrument_%281948-05-01_filed%2C_1951-08-07_published%29_by_Constant_Martin_-_Clavioline_Fig.1.jpg
 youtube_ids: ac49JnVFYKM tsZ22OMb9ns
 ---
+
 ## 介紹
 
 克拉維奧林電子琴是一種電子類比合成器。它由法國工程師康斯坦丁·馬丁於1947年在凡爾賽發明。該樂器由一台鍵盤和一個獨立的放大器與揚聲器組成。鍵盤通常涵蓋三個八度音程，並配有多個開關以改變所產生聲音的音色、添加顫音（這是該樂器的一個顯著特點），以及提供其他效果。克拉維奧林電子琴採用真空管振盪器產生嗡嗡聲波形，幾乎是方波，然後可以使用高通和低通濾波以及顫音進行改變。

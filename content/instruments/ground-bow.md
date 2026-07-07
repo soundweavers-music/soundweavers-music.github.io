@@ -1,19 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/ground-bow/
-title: 地弓琴
-original_name: Ground bow
-category: 弦樂器
-country: 非洲
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
-body_listening: 循環、河流感、開放弦、吟唱
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 擦弦、鍵控與輪弦
+title_zh: 地弓琴
+title_original: Ground bow
+family_std: 擦弦、鍵控與輪弦家族
+sound_hs: 待確認
+playing_method: 撥奏／擦奏／擊弦（待細分）
+interface_tags: 弓
+region_culture: 非洲｜單一地區／文化圈
+listening_sound_tags: 循環、河流感、開放弦、吟唱｜開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/ground-bow/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Dyulu-tama_ground_bow.jpg/500px-Dyulu-tama_ground_bow.jpg
 youtube_ids: JkODhmxCTRk jBlmunFVGuc
-instrument_key: 無固定調性
-range: 中低音區（約2個8度）
 ---
+
 ## 介紹
 
 地弓琴，又稱為土地弓或地面豎琴，是一種單弦弓形民族樂器，被歸類為弦鳴樂器。它在赤道非洲和南非的文化中為人所知，以及在具有非洲根源的其他文化中也存在。它由一根插入地面的柔性木棍組成（可能是剝去樹皮的樹苗或樹枝），從其自由端連接一根弦到某種共鳴器，該共鳴器以地面上的一個凹陷為基礎。由於其看起來像獵捕陷阱或兒童玩具，因此其在整個非洲的分佈過去常被人們所忽視。

@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/karadeniz-kemen-e/
-title: 黑海克曼琴
-original_name: Karadeniz Kemençe
-category: 弦樂器
-country: 亞洲／歐洲／中東／南亞／中亞
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Kemenche0.jpg/500px-Kemenche0.jpg
-sound_class: 弦鳴
-range: 中高音區（約2個8度）
-instrument_key: 全調性
-hs_class: Chordophone／弦鳴樂器
-family: 膝上／臂上擦弦
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 擦弦、鍵控與輪弦
+title_zh: 黑海克曼琴
+title_original: Karadeniz Kemençe
+family_std: 膝上／臂上擦弦
+sound_hs: Chordophone／弦鳴樂器
 playing_method: 弓擦
-body_listening: 胸口、嗓音、拉長的情緒
-soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
-region_type: 地區／文化圈
+interface_tags: 弓
+region_culture: 亞洲／歐洲／中東／南亞／中亞｜地區／文化圈
+listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/karadeniz-kemen-e/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Kemenche0.jpg/500px-Kemenche0.jpg
 youtube_ids: 6N-g77SLABA 9eMyrUIudmQ
 ---
+
 ## 介紹
 
 黑海克曼琴是起源於土耳其黑海地區的傳統弦樂器，屬於安納托利亞弦樂器家族。樂器呈梨形或水滴狀，體型緊湊小巧，配備四至六條弦。演奏者使用馬尾弓拉奏琴弦，音色深沉而富有穿透力，帶有獨特的鼻音質感與蒼涼氣韻。主要用於土耳其北部黑海沿岸的民間音樂演奏，能夠表現濃厚的地域民族情感，既可抒情低迴，亦能激昂有力。

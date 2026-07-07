@@ -1,17 +1,22 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/tembur/
-title: 庫爾德坦布林琴
-original_name: Tembûr
-category: 弦樂器
-country: 中東／庫爾德地區
-era: 傳統／年代待考
-region_type: 地區／文化圈
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-body_listening: 懷抱、手指、腳步、敘事
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 電聲改造樂器
+title_zh: 庫爾德坦布林琴
+title_original: Tembûr
+family_std: 電聲改造樂器家族
+sound_hs: 待確認
+playing_method: 按鍵／控制器／電子控制（待細分）
+interface_tags: 
+region_culture: 中東／庫爾德地區｜地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 移入第13類
+issue_note: 現代電子／取樣；屬現代電子、取樣、電聲或電氣化鍵盤／設備類，應集中到第13類。；移第13類，並與傳統鍵盤／風箱類分開。
+source_url: https://soundweavers-music.github.io/instruments/tembur/
 youtube_ids: Dd9x4D1ovhA a64Vdcd0KlU
-instrument_key: 無固定調性
-range: 約3個8度
 ---
+
 ## 介紹
 
 庫爾德坦布爾琴（庫爾德語：ته‌مبوور，拉丁字母轉寫：Tembûr）或坦布爾琴是一種有品柱的弦樂器，是坦布爾琴族樂器的初始和主要形式，由庫爾德人使用。它與庫爾德地區和伊朗洛雷斯坦省的雅爾桑教（埃赫里海格教）密切相關。它是在埃赫里海格儀式中使用的少數幾種樂器之一，信徒們將坦布爾琴尊為聖物。另一種與坦布爾琴一起使用的流行打擊樂器是庫爾德達夫琴，但在雅爾桑靈性和詹姆祈禱儀式中並不被視為聖物。

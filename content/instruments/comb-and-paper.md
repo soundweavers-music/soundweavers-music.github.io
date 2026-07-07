@@ -1,18 +1,22 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/comb-and-paper/
-title: 紙梳
-original_name: Comb and paper
-category: 打擊樂器
-country: 全球／多地
-era: 傳統／年代待考
-region_type: 跨文化／多地
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-body_listening: 口腔、舌頭、簧片震動、鼻音
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 沙鈴、刮器與小打擊
+title_zh: 紙梳
+title_original: Comb and paper
+family_std: 沙鈴、刮器與小打擊家族
+sound_hs: 待確認
+playing_method: 敲奏／拍奏／搖奏／刮奏（待細分）
+interface_tags: 
+region_culture: 全球／多地
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/comb-and-paper/
 youtube_ids: CkGwVO6KuMI 5rgo_4F5dHg
-instrument_key: 無固定調性
-range: 受演奏者音高範圍限制，約1至2個8度
 ---
+
 ## 介紹
 
 紙梳是一種簡陋的樂器，由一把梳子和一張貼在上面的紙張組成。演奏時，演奏者將嘴唇按在貼著梳子的紙張上，然後唱歌或發聲。聲音使紙張振動並改變聲音品質。1911年的《大英百科全書》將其稱為「托兒所的梳子音樂」。「紙梳」屬於「唱鳴膜鳴樂器」的類別，有時也被稱為「米利頓」，這個名稱來自「米利頓」，是太監笛的另一個名稱。

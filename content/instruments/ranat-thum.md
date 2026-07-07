@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/ranat-thum/
-title: 拉納特通琴
-original_name: Ranat Thum
-category: 打擊樂器
-country: 泰國
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/%E7%90%B4%E6%9B%B8%E5%A4%A7%E5%85%A8%28%E5%85%AD%29.djvu/page1-500px-%E7%90%B4%E6%9B%B8%E5%A4%A7%E5%85%A8%28%E5%85%AD%29.djvu.jpg
-sound_class: 體鳴
-range: 約2至3個8度（中高音區）
-instrument_key: 多調性
-hs_class: Idiophone／體鳴樂器
-family: 低音木琴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 拉納特通琴
+title_original: Ranat Thum
+family_std: 低音木琴
+sound_hs: Idiophone／體鳴樂器
 playing_method: 敲擊
-body_listening: 低音木鍵、泰國古典合奏、柔厚回聲
-soundscape: 木石金屬的回聲城市（定音體鳴、材料敲擊與鑼鐘木琴系統）
-region_type: 單一地區／文化圈
+interface_tags: 
+region_culture: 泰國｜單一地區／文化圈
+listening_sound_tags: 低音木鍵、泰國古典合奏、柔厚回聲｜木石金屬的回聲城市（定音體鳴、材料敲擊與鑼鐘木琴系統）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/ranat-thum/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/%E7%90%B4%E6%9B%B8%E5%A4%A7%E5%85%A8%28%E5%85%AD%29.djvu/page1-500px-%E7%90%B4%E6%9B%B8%E5%A4%A7%E5%85%A8%28%E5%85%AD%29.djvu.jpg
 youtube_ids: lIdleRSML-o xYWKd11RjDo
 ---
+
 ## 介紹
 
 拉納特通琴是泰國、寮國等東南亞國家的傳統打擊樂器，由木製音條與竹製共鳴管組成。琴身呈梯形或矩形，音條以竹槌敲擊發聲。音色明亮清脆，兼具溫暖與穿透力，音域寬廣介於中高音區。在東南亞民族音樂中作為主旋律樂器使用，琴聲具有良好的投射性，能在樂隊中清晰穿透，同時保持柔和的民族韻味，是泰國傳統音樂不可或缺的重要樂器。

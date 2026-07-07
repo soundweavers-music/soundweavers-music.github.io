@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/qraqeb/
-title: 卡爾卡巴鐵響板
-original_name: Qraqeb
-category: 打擊樂器
-country: 摩洛哥
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Qaraqib.jpg/500px-Qaraqib.jpg
-sound_class: 體鳴
-range: 高頻區域（約2個8度）
-instrument_key: 無固定調性
-hs_class: Idiophone／體鳴樂器
-family: 大型金屬響板
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 卡爾卡巴鐵響板
+title_original: Qraqeb
+family_std: 大型金屬響板
+sound_hs: Idiophone／體鳴樂器
 playing_method: 手持敲擊
-body_listening: 格納瓦節奏、鐵聲脈動、群體 trance
-soundscape: 掌心搖落的節奏星塵（小型節奏體鳴、沙鈴、刮器與身體打擊）
-region_type: 單一地區／文化圈
+interface_tags: 
+region_culture: 摩洛哥｜單一地區／文化圈
+listening_sound_tags: 格納瓦節奏、鐵聲脈動、群體 trance｜掌心搖落的節奏星塵（小型節奏體鳴、沙鈴、刮器與身體打擊）
+ensemble_links: 
+verification_status: 有問題，需修正
+issue_note: 譯名錯誤；Pi Chanai 是泰國雙簧管，不能譯嗩吶。；改「泰國披猜奈管（Pi chanai，暫譯）」；與 Suona 相鄰。
+source_url: https://soundweavers-music.github.io/instruments/qraqeb/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Qaraqib.jpg/500px-Qaraqib.jpg
 youtube_ids: RJxgREhIrMM XRyPpvDKKNA
 ---
+
 ## 介紹
 
 卡爾卡巴鐵響板（阿拉伯文：قراقب），英文常音譯為krakeb，是一種鐵製響板狀樂器，主要用於格那瓦音樂的節奏部分。如今格那瓦音樂是北非文化的一部分，也是馬格里布音樂風景中固有的元素。「卡爾卡巴」一詞是複數形式（單數為「卡爾卡巴特」），詞源不明確，因為這個詞在標準阿拉伯語中並不具有這一含義。

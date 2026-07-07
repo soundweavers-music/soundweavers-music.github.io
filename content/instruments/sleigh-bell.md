@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/sleigh-bell/
-title: 雪鈴
-original_name: Sleigh bell
-category: 打擊樂器
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
+title_zh: 雪鈴
+title_original: Sleigh bell
+family_std: 體鳴打擊樂器類
+sound_hs: 1 体鳴樂器
 playing_method: 敲擊／搖晃／撥彈
-family: 體鳴打擊樂器類
-hs_class: 1 体鳴樂器
-sound_class: 体鳴
-country: 歐洲
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
-body_listening: 手腕、腳踝、短音、節奏對齊
+interface_tags: 
+region_culture: 歐洲｜單一地區／文化圈
+listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/sleigh-bell/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Sleigh_Bells.jpg/500px-Sleigh_Bells.jpg
 youtube_ids: WCLavUoX7Sc f1IACEDRTss
-instrument_key: 無固定調性
-range: 高音域（約2個8度）
 ---
+
 ## 介紹
 
 銅鈴（或雪橇鈴）是一種能發出獨特「叮噹」聲的鈴鐺，特別是在數量眾多時。它們在許多領域中被用作打擊樂器，包括經典的雪橇鈴聲和莫里斯舞蹈。它們通常被用作小型「古典」鈴鐺的更便宜替代品。最簡單的銅鈴是由單片金屬薄片彎折成大致球形而製成，內部裝有一個小滾珠軸承或短金屬棒。這種製造方法會產生經典的兩片或四片葉瓣形狀。

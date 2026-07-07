@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/amadinda/
-title: 阿馬丁達木琴
-original_name: Amadinda
-category: 打擊樂器
-country: 東南亞／東亞／非洲／歐洲／全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Xylophone_%28PSF%29.svg/500px-Xylophone_%28PSF%29.svg.png
-sound_class: 體鳴
-range: 約3至4個8度
-instrument_key: 全調性
-hs_class: 11/12 定音體鳴／鑼鐘木琴石琴系統
-family: 定音體鳴、材料敲擊與鑼鐘木琴系統
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 阿馬丁達木琴
+title_original: Amadinda
+family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
+sound_hs: 11/12 定音體鳴／鑼鐘木琴石琴系統
 playing_method: 敲擊／搖奏／材料共鳴
-body_listening: 材料、回聲、群體分工、音列
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 東南亞／東亞／非洲／歐洲／全球
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 可保留，待雙來源確認
+issue_note: DUP-018:Sarrusophone family
+source_url: https://soundweavers-music.github.io/instruments/amadinda/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Xylophone_%28PSF%29.svg/500px-Xylophone_%28PSF%29.svg.png
 youtube_ids: 6KrYB9f9fsw oTrdbsyV1gI
 ---
+
 ## 介紹
 
 阿馬丁達木琴是源自烏干達的傳統打擊樂器，由貢達民族創製並使用。樂器由木製框架和多根調音木條組成，下方設有共鳴腔體。演奏者使用槌敲擊木條發聲，音色明亮清脆，具有溫潤的木質韻味。在烏干達文化中長期用於宮廷音樂、儀式慶典和社區娛樂活動。其名稱在當地語言中意為「一起玩」，反映了其在集體音樂活動中的重要角色。

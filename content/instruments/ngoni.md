@@ -1,21 +1,22 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/ngoni/
-title: 恩貢尼
-original_name: Ngoni
-category: 弦樂器
-country: 非洲／歐洲／美洲／亞洲
-era: 傳統／年代待考
-sound_class: 弦鳴
-range: 約3個8度（從低沉渾厚的低音至清晰尖銳的高音）
-instrument_key: 無固定調性
-hs_class: 322 豎琴與里拉類
-family: 豎琴、里拉與開放弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 豎琴、里拉與開放弦
+title_zh: 恩貢尼
+title_original: Ngoni
+family_std: 豎琴、里拉與開放弦樂器
+sound_hs: 弦鳴｜322 豎琴與里拉類
 playing_method: 撥弦／開放弦共鳴
-body_listening: 循環、河流感、開放弦、吟唱
-soundscape: 開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
-region_type: 地區／文化圈
+interface_tags: 
+region_culture: 非洲／歐洲／美洲／亞洲｜地區／文化圈
+listening_sound_tags: 循環、河流感、開放弦、吟唱｜開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
+ensemble_links: 
+verification_status: 已整併主項
+issue_note: 重複已整併；保留本列為主項；已整併第486項。；主項保留；被整併列第486項以紅字刪除線保留供人工審核。；MERGED-503: 併入列 486
+source_url: https://soundweavers-music.github.io/instruments/ngoni/
 youtube_ids: -cLAwAOi-hA ZSPmh-6-bpg
 ---
+
 ## 介紹
 
 恩貢尼是西非薩赫勒地區的傳統弦樂器，起源於馬利、幾內亞等國。樂器由木製音箱和多根弦組成，外型精巧典雅。恩貢尼在西非民間音樂中扮演重要角色，特別是民間說唱與故事講述的伴奏樂器。音色溫潤富有穿透力，介於明亮與暗沉之間，帶有獨特的金屬質感與溫暖木質韻味。20世紀後期，許多西非音樂家將其融入現代音樂製作，使其在國際舞台獲得廣泛認可。

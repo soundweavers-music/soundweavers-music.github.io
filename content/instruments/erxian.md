@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/erxian/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Erxian_19th_century_Chinese%2C_possibly_Chaozhu_sub-culture%2C_from_the_Metropolitan_Museum_of_Art.jpg/500px-Erxian_19th_century_Chinese%2C_possibly_Chaozhu_sub-culture%2C_from_the_Metropolitan_Museum_of_Art.jpg
-title: 二弦琴
-original_name: Erxian
-category: 弦樂器
-country: 亞洲／歐洲／中東／南亞／中亞
-era: 傳統／年代待考
-sound_class: 弦鳴
-range: 約2個8度
-instrument_key: 無固定調性
-hs_class: 321.3 擦弦／輪弦／提琴家族
-family: 擦弦、輪弦與提琴家族
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 擦弦、鍵控與輪弦
+title_zh: 二弦琴
+title_original: Erxian
+family_std: 擦弦、輪弦與提琴家族
+sound_hs: 弦鳴｜321.3 擦弦／輪弦／提琴家族
 playing_method: 弓擦／輪擦
-body_listening: 胸口、嗓音、拉長的情緒
-soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
-region_type: 地區／文化圈
+interface_tags: 弓
+region_culture: 亞洲／歐洲／中東／南亞／中亞｜地區／文化圈
+listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/erxian/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Erxian_19th_century_Chinese%2C_possibly_Chaozhu_sub-culture%2C_from_the_Metropolitan_Museum_of_Art.jpg/500px-Erxian_19th_century_Chinese%2C_possibly_Chaozhu_sub-culture%2C_from_the_Metropolitan_Museum_of_Art.jpg
 youtube_ids: rLovdpQry7E 4ZBSZcqnh40
 ---
+
 ## 介紹
 
 牛腿琴，又稱牛巴腿或二弦琴，按其音色也稱為「給以」，是侗族的一種傳統弓弦樂器，因琴體下端粗大上端纖細，形似牛腿而得名。流行於貴州、廣西和湖南等地區。傳統上用於侗族民歌和侗戲伴奏，也可用來獨奏。

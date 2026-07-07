@@ -1,21 +1,22 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/mpe-controller/
-title: 多維觸控鍵盤
-original_name: MPE Controller
-category: 鍵盤樂器
-country: 美洲／北美
-era: 傳統／年代待考
-sound_class: 鍵盤／電鳴／機械混合
-range: C0–C8（88鍵標準音域，約7個8度）
-instrument_key: 全調性
-hs_class: 412/31/52 鍵盤、自由簧、電鳴與機械介面
-family: 鍵盤介面、風箱、電子與取樣
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 取樣與磁帶
+title_zh: 多維觸控鍵盤
+title_original: MPE Controller
+family_std: 鍵盤介面、風箱、電子與取樣
+sound_hs: 鍵盤／電鳴／機械混合｜412/31/52 鍵盤、自由簧、電鳴與機械介面
 playing_method: 按鍵／風箱／電控／取樣
-body_listening: 手指、機械距離、記憶、電聲
-soundscape: 按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
-region_type: 跨文化／多地
+interface_tags: 鍵盤／按鍵、風箱、觸控
+region_culture: 美洲／北美
+listening_sound_tags: 手指、機械距離、記憶、電聲｜按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
+ensemble_links: 
+verification_status: 有問題，需修正
+issue_note: 譯名奇怪；Marimbaphone 譯成「馬林巴手機琴」明顯不自然，可能應為馬林巴風琴／馬林巴琴變體。；列待查，不採用現譯。
+source_url: https://soundweavers-music.github.io/instruments/mpe-controller/
 youtube_ids: kffzNrm6Jlw OfUarfecdZA
 ---
+
 ## 介紹
 
 多維觸控鍵盤是21世紀革新型電子樂器，融合傳統鍵盤與先進觸控技術。外型似鋼琴鍵盤但表面採用矽膠或特殊觸感材料，具備88鍵標準配置。其獨特之處在於支援多維度表現力控制——除傳統音高外，可透過指尖壓力、橫向滑動、旋轉等動作實時調變音色、音量及音質效果。廣泛應用於電子音樂製作、現場演奏、電影配樂及音樂教育，為演奏家提供類似管弦樂器般的細膩表現空間。

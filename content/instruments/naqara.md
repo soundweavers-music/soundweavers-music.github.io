@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/naqara/
-title: 納卡拉鼓
-original_name: Naqara
-category: 打擊樂器
-country: 非洲／中東／亞洲／歐洲／美洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/1/1f/Iraqi_Naqqarat.jpg
-sound_class: 膜鳴
-range: 約1至2個8度
-instrument_key: 無固定調性
-hs_class: 21 膜鳴鼓類
-family: 膜鳴鼓類、框鼓、杯鼓與鼓組
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 納卡拉鼓
+title_original: Naqara
+family_std: 膜鳴鼓類、框鼓、杯鼓與鼓組
+sound_hs: 21 膜鳴鼓類
 playing_method: 手拍／槌擊／皮膜振動
-body_listening: 手掌、腳底、低音、舞步
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-region_type: 地區／文化圈
+interface_tags: 
+region_culture: 非洲／中東／亞洲／歐洲／美洲｜地區／文化圈
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 需調整
+issue_note: 譯名需區分；Mokugyo 是佛教木魚；第861 Wood Blocks 是木塊／木箱，不完全同一。；相鄰，不合併。
+source_url: https://soundweavers-music.github.io/instruments/naqara/
+image: https://upload.wikimedia.org/wikipedia/commons/1/1f/Iraqi_Naqqarat.jpg
 youtube_ids: YwsTwU-2QJM JPdM9d0k5I4
 ---
+
 ## 介紹
 
 納卡拉鼓（naqareh、naqqāra、nagara 或 nagada）是一種中東鼓樂器，具有圓形的鼓身和獸皮鼓面，通常成對演奏。因此它是一種定音鼓類的膜鳴樂器。術語 naqqāra（نقاره）及其複數形式 naqqarat、naqqarah、naqqåre、nakkare、nagora 源自烏爾都語動詞 naqr-，意思是「敲擊、打擊」。十字軍東征後，這種樂器也被歐洲採納，並被稱為 naccaire 或 naker。

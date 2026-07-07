@@ -1,22 +1,22 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/concert-harp/
-title: 音樂廳豎琴
-original_name: Concert Harp
-category: 弦樂器
-country: 非洲／歐洲／美洲／亞洲
-era: 傳統／年代待考
-sound_class: 弦鳴
-range: C1–G7（約6個半8度）
-instrument_key: 全調性
-hs_class: 322 豎琴與里拉類
-family: 豎琴、里拉與開放弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 豎琴、里拉與開放弦
+title_zh: 音樂廳豎琴
+title_original: Concert Harp
+family_std: 豎琴、里拉與開放弦樂器
+sound_hs: 弦鳴｜322 豎琴與里拉類
 playing_method: 撥弦／開放弦共鳴
-body_listening: 循環、河流感、開放弦、吟唱
-soundscape: 開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
-region_type: 地區／文化圈
+interface_tags: 踏板
+region_culture: 非洲／歐洲／美洲／亞洲｜地區／文化圈
+listening_sound_tags: 循環、河流感、開放弦、吟唱｜開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
+ensemble_links: 管弦樂團
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/concert-harp/
 youtube_ids: S1-LCnGojnw 4oj_2Lmb23A
 ---
+
 ## 介紹
 
 音樂廳豎琴是一種大型弦樂器，外形呈豎立的三角框架，配有數十至數百條琴弦。其主要用途為獨奏、室內樂及管弦樂團伴奏。19世紀埃拉爾發明的踏板機制是其革命性創新，使演奏者能快速改變琴弦張力、轉調自如。音色清澈透亮、晶瑩剔透，具溫潤詩意，低音沉厚溫暖、高音明亮靈動。其獨特的撥奏和滑奏技法能營造如水流般連貫的音樂線條，是交響樂團中不可或缺的樂器。

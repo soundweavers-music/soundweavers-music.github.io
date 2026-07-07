@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/lyre-guitar/
-title: 里拉吉他
-original_name: Lyre Guitar
-category: 弦樂器
-country: 伊朗／亞塞拜然／高加索
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Lyre-guitar-Gaetano_Vinaccia-MAHG_9360-IMG_9272-gradient.jpg/500px-Lyre-guitar-Gaetano_Vinaccia-MAHG_9360-IMG_9272-gradient.jpg
-sound_class: 弦鳴
-range: 約2至3個八度（中高音區清晰，低音區柔和）
-instrument_key: 全調性
-hs_class: 322 豎琴與里拉類
-family: 豎琴、里拉與開放弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 豎琴、里拉與開放弦
+title_zh: 里拉吉他
+title_original: Lyre Guitar
+family_std: 豎琴、里拉與開放弦樂器
+sound_hs: 弦鳴｜322 豎琴與里拉類
 playing_method: 撥弦／開放弦共鳴
-body_listening: 循環、河流感、開放弦、吟唱
-soundscape: 開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
-region_type: 地區／文化圈
+interface_tags: 
+region_culture: 伊朗／亞塞拜然／高加索｜地區／文化圈
+listening_sound_tags: 循環、河流感、開放弦、吟唱｜開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/lyre-guitar/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Lyre-guitar-Gaetano_Vinaccia-MAHG_9360-IMG_9272-gradient.jpg/500px-Lyre-guitar-Gaetano_Vinaccia-MAHG_9360-IMG_9272-gradient.jpg
 youtube_ids: jyUxmqXAFjo g-qnBRZnk5w
 ---
+
 ## 介紹
 
 里拉吉他是19世紀初歐洲發展出的弦樂器，融合了古典里拉琴的半圓形琴體與吉他的弦軸系統。其外型優雅精巧，琴身較小，設計兼具古典美感與實用性。該樂器在維多利亞時代廣受歡迎，成為上流社會沙龍音樂與家庭娛樂的主要樂器。里拉吉他音色溫潤明亮，具有獨特古典韻味，音量輕柔富有親密感，介於曼陀林明快與豎琴柔美之間，適合室內演奏。

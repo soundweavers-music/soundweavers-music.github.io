@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/singing-bowl/
-title: 磬 (法器)
-original_name: Singing bowl
-category: 打擊樂器
-country: 全球／非洲／亞洲／現代療癒與街頭音樂
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Rin_gong_at_Kiyomizu-dera%2C_Kyoto.JPG/500px-Rin_gong_at_Kiyomizu-dera%2C_Kyoto.JPG
-sound_class: 體鳴
-range: 約2至3個8度
-instrument_key: 無固定調性
-hs_class: 12 體鳴／舌片琴／金屬共鳴
-family: 近身體鳴、舌片琴與手奏金屬共鳴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 磬 (法器)
+title_original: Singing bowl
+family_std: 近身體鳴、舌片琴與手奏金屬共鳴
+sound_hs: 12 體鳴／舌片琴／金屬共鳴
 playing_method: 手敲／拇指撥片／近身共鳴
-body_listening: 指尖、掌心、尾音、近身聆聽
-soundscape: 手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）
-region_type: 跨文化／多地
+interface_tags: 撥片
+region_culture: 全球／非洲／亞洲／現代療癒與街頭音樂
+listening_sound_tags: 指尖、掌心、尾音、近身聆聽｜手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/singing-bowl/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Rin_gong_at_Kiyomizu-dera%2C_Kyoto.JPG/500px-Rin_gong_at_Kiyomizu-dera%2C_Kyoto.JPG
 youtube_ids: eNmjWjpxUOM 6Kj-ye-aYBA
 ---
+
 ## 介紹
 
 立鐘或臥鐘是一種倒置的鐘，從下方支撐，鐘口朝上。這類鐘通常呈碗形，尺寸範圍廣泛，從幾厘米到直徑一米不等。它們通常通過敲擊來演奏，但有些被稱為唱鐘的樂器也可以通過用絨面包裹的槌棒繞著外邊緣旋轉來演奏，以產生持續的樂音。敲擊碗形鐘在某些佛教宗教儀式中被用來伴隨冥想和誦經。

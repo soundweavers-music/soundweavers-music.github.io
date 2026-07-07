@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/electric-acoustic-guitar/
-title: 電插原聲吉他
-original_name: Electric-acoustic guitar
-category: 弦樂器
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 電聲改造樂器
+title_zh: 電插原聲吉他
+title_original: Electric-acoustic guitar
+family_std: 弦樂器類
+sound_hs: 3 弦鳴樂器
 playing_method: 撥弦／擦弦／擊弦
-family: 弦樂器類
-hs_class: 3 弦鳴樂器
-sound_class: 弦鳴
-country: 美國
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-body_listening: 懷抱、手指、腳步、敘事
+interface_tags: 拾音／擴音
+region_culture: 美國｜單一地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 中文名重複，需判斷
+issue_note: 中文名碰撞；中文名與第231、811項重複，但英文／原文可能不同。；不可只用中文名判斷；請以英文／原文名與型制決定合併、相鄰或改譯名。
+source_url: https://soundweavers-music.github.io/instruments/electric-acoustic-guitar/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Gibson_ES-150.png/500px-Gibson_ES-150.png
 youtube_ids: 63hdfvqiIV8 NyuRqKgP2T4
-instrument_key: 全調性
-range: E1–E5（約4個8度）
 ---
+
 ## 介紹
 
 半空心電吉他，也稱為空心體電吉他，是一種電吉他，設計用於搭配吉他擴大器演奏，具有完全或部分空心的琴體，以及至少一個電磁拾音器。半空心電吉他最初在1930年代創製，隨後在爵士樂和藍調音樂中流行開來，至今仍被廣泛使用，並在搖滾樂的早期也很受歡迎。不過，在搖滾樂的發展過程中，它們後來在很大程度上被實心體電吉他所取代。

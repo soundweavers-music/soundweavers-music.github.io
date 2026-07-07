@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/metallophone/
-title: 鐵琴
-original_name: Metallophone
-category: 打擊樂器
-country: 亞洲／東南亞
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Traditional_indonesian_instruments.jpg/500px-Traditional_indonesian_instruments.jpg
-sound_class: 體鳴
-range: 中高音區（約2至3個8度，因具體設計而異）
-instrument_key: 無固定調性（因設計而異）
-hs_class: 11/12 定音體鳴／鑼鐘木琴石琴系統
-family: 定音體鳴、材料敲擊與鑼鐘木琴系統
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 鐵琴
+title_original: Metallophone
+family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
+sound_hs: 11/12 定音體鳴／鑼鐘木琴石琴系統
 playing_method: 敲擊／搖奏／材料共鳴
-body_listening: 材料、回聲、群體分工、音列
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 亞洲／東南亞
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/metallophone/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Traditional_indonesian_instruments.jpg/500px-Traditional_indonesian_instruments.jpg
 youtube_ids: lzzMHoi3r2w mPr_SvnJ_z0
 ---
+
 ## 介紹
 
 鐵琴是任何一種樂器，其發聲體是金屬製品（金屬弦除外），例如調音金屬棒、管、桿、碗或板。金屬發聲體通常通過敲擊（通常用槌棒）來產生聲音，但也可以通過摩擦、鍵盤作用或其他方式啟動。鐵琴在亞洲已被用於音樂中數千年。巴厘島和爪哇甘美蘭樂隊中使用的鐵琴有多種不同類型，包括恩德琴、剛薩琴和薩榮琴。

@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/shamisen/
-title: 三味線
-original_name: Shamisen
-category: 弦樂器
-country: 亞洲／東亞（日本）
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Tokyo_Geisha_with_Shamisen_c1870s%2C.jpg/500px-Tokyo_Geisha_with_Shamisen_c1870s%2C.jpg
-sound_class: 弦鳴
-range: 中高音區（約2個8度）
-instrument_key: 無固定調性
-hs_class: 321/322 魯特琴類／撥弦
-family: 魯特琴、短頸長頸撥弦與民謠弦聲
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 三味線
+title_original: Shamisen
+family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
+sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
 playing_method: 撥弦／刷弦／撥片
-body_listening: 懷抱、手指、腳步、敘事
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 跨文化／多地
+interface_tags: 撥片
+region_culture: 亞洲／東亞（日本）
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/shamisen/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Tokyo_Geisha_with_Shamisen_c1870s%2C.jpg/500px-Tokyo_Geisha_with_Shamisen_c1870s%2C.jpg
 youtube_ids: RcqO0zkyQRo tWzZhZU3sOI
 ---
+
 ## 介紹
 
 The shamisen or samisen (三味線), also known as sangen (三弦) (all meaning 'three strings'), is a three-stringed traditional Japanese musical instrument derived from the Chinese instrument sanxian. It is played with a plectrum called a bachi. The Japanese pronunciation is usually shamisen but sometimes jamisen when used as a suffix, according to regular sound change (e.g. tsugaru-jamisen). In Western Japanese dialects and several Edo period sources, it is both written and pronounced as samisen. The construction of the shamisen varies in shape, depending on the genre in which it is used.

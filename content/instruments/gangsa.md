@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/gangsa/
-title: 甘薩琴
-original_name: Gangsa
-category: 打擊樂器
-country: 印尼／菲律賓
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Gamelan_of_Bali_200507-1.jpg/500px-Gamelan_of_Bali_200507-1.jpg
-sound_class: 體鳴
-range: 約2至3個8度（因類型而異）
-instrument_key: 多調性
-hs_class: 11/12 定音體鳴／鑼鐘木琴石琴系統
-family: 定音體鳴、材料敲擊與鑼鐘木琴系統
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 甘薩琴
+title_original: Gangsa
+family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
+sound_hs: 11/12 定音體鳴／鑼鐘木琴石琴系統
 playing_method: 敲擊／搖奏／材料共鳴
-body_listening: 金屬鍵音列、地方合奏分工
-soundscape: 木石金屬的回聲城市（定音體鳴、材料敲擊與鑼鐘木琴系統）
-region_type: 區域／多國
+interface_tags: 
+region_culture: 印尼／菲律賓｜區域／多國
+listening_sound_tags: 金屬鍵音列、地方合奏分工｜木石金屬的回聲城市（定音體鳴、材料敲擊與鑼鐘木琴系統）
+ensemble_links: 甘美朗合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/gangsa/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Gamelan_of_Bali_200507-1.jpg/500px-Gamelan_of_Bali_200507-1.jpg
 youtube_ids: 7EKTS4Tx8fw obKAgNXOAgE
 ---
+
 ## 介紹
 
 甘薩琴是一種金屬琴，主要用於印尼的巴里島和爪哇島甘美蘭音樂中。在巴里島鑼克比亞風格中，通常使用兩種甘薩琴：較小、音調較高的坎蒂蘭琴和較大的佩馬德琴。每件樂器由若干調好音的金屬琴鍵組成（由鐵或青銅製成），每根琴鍵都放在各自的共鳴器上方。用木製的邦古爾敲擊琴鍵，每根琴鍵都能發出不同的音高。聲音強度的持續時間和音質因素通常是通過用另一隻手的手指來阻止琴鍵的振動而實現的。

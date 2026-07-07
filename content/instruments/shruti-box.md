@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/shruti-box/
-title: 施魯蒂箱
-original_name: Shruti Box
-category: 管樂器
-country: 亞洲／南亞（印度）
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/e/e1/Shruti_box_top_quality.jpg
-sound_class: 氣鳴
-range: 中低音區（約2個8度）
-instrument_key: 多調性
-hs_class: 412/422 簧鳴與自由簧／單簧雙簧
-family: 口簧、自由簧、單簧雙簧與風袋
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 風箱與自由簧
+title_zh: 施魯蒂箱
+title_original: Shruti Box
+family_std: 口簧、自由簧、單簧雙簧與風袋
+sound_hs: 氣鳴｜412/422 簧鳴與自由簧／單簧雙簧
 playing_method: 吹奏／簧片振動／風袋或風箱
-body_listening: 口腔、舌頭、簧片震動、鼻音
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-region_type: 跨文化／多地
+interface_tags: 風箱
+region_culture: 亞洲／南亞（印度）
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/shruti-box/
+image: https://upload.wikimedia.org/wikipedia/commons/e/e1/Shruti_box_top_quality.jpg
 youtube_ids: MZf2Q8Y-xpo LvGwSqHYHnc
 ---
+
 ## 介紹
 
 施魯蒂箱是源自印度的傳統管樂器，外形為木製方形箱體，內部配置風箱和簧片系統。樂器通過腳踏風箱提供氣流，使內部簧片振動產生持續穩定的基準音。其主要用途是在印度古典音樂演奏中提供音律參考和伴奏，幫助歌手及樂手維持正確音高。施魯蒂箱音色溫潤悠遠，具有獨特的鼻音質感和催眠般的冥想特質，是北印度卡塔克音樂傳統中不可或缺的伴奏樂器。

@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/psaltery/
-title: 薩泰裡琴
-original_name: Psaltery
-category: 鍵盤樂器
-country: 中東
-era: 古代
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/AlaBohemicaPsaltery.jpg/500px-AlaBohemicaPsaltery.jpg
-sound_class: 弦鳴
-range: 數個八度
-instrument_key: 全調性
-hs_class: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
-family: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 薩泰裡琴
+title_original: Psaltery
+family_std: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+sound_hs: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
 playing_method: 撥弦／擊弦／按鍵擊弦
-body_listening: 手掌、弦面、推音、敲擊
-soundscape: 平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
-region_type: 跨文化／多地
+interface_tags: 鍵盤／按鍵
+region_culture: 中東
+listening_sound_tags: 手掌、弦面、推音、敲擊｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/psaltery/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/AlaBohemicaPsaltery.jpg/500px-AlaBohemicaPsaltery.jpg
 youtube_ids: sotvgwFm-MI kF769M5c0Wo
 ---
+
 ## 介紹
 
 薩泰里琴（英語：psaltery，中國大陸作撥弦揚琴）是齊特琴中的一種撥弦樂器。

@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/kudu-horn/
-title: 庫杜號角
-original_name: Kudu Horn
-category: 管樂器
-country: 全球／中東／歐洲／亞洲／高山與宗教文化圈
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Kudu_%2817418137574%29.jpg/500px-Kudu_%2817418137574%29.jpg
-sound_class: 氣鳴
-range: 約1個8度（中高音區）
-instrument_key: 無固定調性
-hs_class: 423 唇振氣鳴／號角與銅管
-family: 唇振氣鳴、天然號角與銅管
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 號角與唇振
+title_zh: 庫杜號角
+title_original: Kudu Horn
+family_std: 唇振氣鳴、天然號角與銅管
+sound_hs: 423 唇振氣鳴／號角與銅管
 playing_method: 唇振吹奏
-body_listening: 嘴唇、遠方、召喚、空間方向
-soundscape: 吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 全球／中東／歐洲／亞洲／高山與宗教文化圈
+listening_sound_tags: 嘴唇、遠方、召喚、空間方向｜吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/kudu-horn/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Kudu_%2817418137574%29.jpg/500px-Kudu_%2817418137574%29.jpg
 youtube_ids: 9dkEe3ph_bU ejgVnsyEbaQ
 ---
+
 ## 介紹
 
 庫杜號角是源自非洲南部的傳統樂器，由庫杜羚羊的角製成。樂器呈螺旋狀彎曲，長度約60-80公分，外觀保留天然角質紋理。音色明亮穿透，具有原始質感與野性韻味。早期為牧民獵人的狩獵信號工具，後被英國童軍運動創始人貝登堡引入教育體系，成為童軍集合與活動的標配樂器。其獨特的號召力與儀式感使其廣泛應用於戶外集體活動中。

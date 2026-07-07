@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/ankle-bells/
-title: 踝鈴
-original_name: Ankle Bells
-category: 打擊樂器
-country: 拉丁美洲／非洲／歐洲／亞洲／全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Ankle_Bells_MET_DP163317.jpg/500px-Ankle_Bells_MET_DP163317.jpg
-sound_class: 體鳴
-range: 高頻區域（約2–3個8度）
-instrument_key: 無固定調性
-hs_class: 11 小型體鳴／搖奏刮奏敲奏
-family: 小型節奏體鳴、沙鈴、刮器與身體打擊
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
+title_zh: 踝鈴
+title_original: Ankle Bells
+family_std: 小型節奏體鳴、沙鈴、刮器與身體打擊
+sound_hs: 11 小型體鳴／搖奏刮奏敲奏
 playing_method: 搖奏／刮奏／敲擊／身體打擊
-body_listening: 手腕、腳踝、短音、節奏對齊
-soundscape: 手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 拉丁美洲／非洲／歐洲／亞洲／全球
+listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/ankle-bells/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Ankle_Bells_MET_DP163317.jpg/500px-Ankle_Bells_MET_DP163317.jpg
 youtube_ids: hrh7B6mZ97g Isf0TxRsG3c
 ---
+
 ## 介紹
 
 踝鈴是起源於印度的古老舞蹈伴奏樂器，由數十枚小金屬鈴鐺串聯而成，穿戴者在腳踝上繫著它們。通過踩踏、擺動等舞蹈動作產生清脆明亮的鈴聲，音色高亢銳利，具有強穿透力。踝鈴在印度古典舞蹈中扮演重要角色，尤其在巴拉塔那亞坦舞和卡塔克舞中不可或缺，多個踝鈴能形成層疊豐富的音響效果，特別適合營造歡快、熱烈的舞蹈氛圍。

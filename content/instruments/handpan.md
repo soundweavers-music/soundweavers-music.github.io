@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/handpan/
-title: 手碟
-original_name: Handpan / Hang / Hank Drum / Pantam
-category: 打擊樂器
-country: 歐洲／瑞士／全球現代
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Handpans_2020_by_Glenn_Francis.jpg/500px-Handpans_2020_by_Glenn_Francis.jpg
-sound_class: 體鳴
-range: 約2.5個8度（中低音至高音）
-instrument_key: 多調性
-hs_class: 12 體鳴／舌片琴／金屬共鳴
-family: 近身體鳴、舌片琴與手奏金屬共鳴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 手碟
+title_original: Handpan / Hang / Hank Drum / Pantam
+family_std: 近身體鳴、舌片琴與手奏金屬共鳴
+sound_hs: 12 體鳴／舌片琴／金屬共鳴
 playing_method: 手敲／拇指撥片／近身共鳴
-body_listening: 指尖、掌心、尾音、近身聆聽
-soundscape: 手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）
-region_type: 跨文化／多地
+interface_tags: 撥片
+region_culture: 歐洲／瑞士／全球現代
+listening_sound_tags: 指尖、掌心、尾音、近身聆聽｜手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/handpan/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Handpans_2020_by_Glenn_Francis.jpg/500px-Handpans_2020_by_Glenn_Francis.jpg
 youtube_ids: uwEaQk5VeS4 j_3C0z96GE0 xk3BvNLeNgw c0hx_T6ztbs MnqnQHcfnno
 ---
+
 ## 介紹
 
 手碟（Handpan）又稱 Hang、Hank Drum 或 Pantam，是一類金屬打擊樂器的通稱，屬於鋼鼓的分類範疇。2000 年瑞士公司 PANArt 推出 Hang 樂器後引起全球廣泛關注，隨之出現了多家手碟製造商和品牌。手碟的基本結構由兩個金屬半殼膠合而成，上側有一個中心音場周圍環繞著至少七個音場，下側則有一個開口。

@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/autoharp/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Autoharp_today.jpg/500px-Autoharp_today.jpg
-title: 自動豎琴
-original_name: Autoharp
-category: 鍵盤樂器
-country: 東亞／中亞／歐洲／東南亞／非洲／美洲
-era: 傳統／年代待考
-sound_class: 弦鳴
-range: 約3至4個八度
-instrument_key: 全調性
-hs_class: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
-family: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 自動豎琴
+title_original: Autoharp
+family_std: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+sound_hs: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
 playing_method: 撥弦／擊弦／按鍵擊弦
-body_listening: 手掌、弦面、推音、敲擊
-soundscape: 平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
-region_type: 地區／文化圈
+interface_tags: 鍵盤／按鍵
+region_culture: 東亞／中亞／歐洲／東南亞／非洲／美洲｜地區／文化圈
+listening_sound_tags: 手掌、弦面、推音、敲擊｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/autoharp/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Autoharp_today.jpg/500px-Autoharp_today.jpg
 youtube_ids: B3Z9XBAw4cU 468Xn6KwIvw
 ---
+
 ## 介紹
 
 自動豎琴是和弦古箏家族中的一種樂器。它具有一系列與減震器相連的和弦桿，按下後可使除形成所需和弦的弦外的所有弦靜音。儘管autoharp一詞曾經是Oscar Schmidt公司的商標，但無論製造商如何，該術語通俗地用於任何手持式，弦式琴架。

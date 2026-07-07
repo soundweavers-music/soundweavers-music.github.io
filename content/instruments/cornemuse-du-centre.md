@@ -1,18 +1,22 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/cornemuse-du-centre/
-title: 中部法國風笛
-original_name: Cornemuse du Centre
-category: 管樂器
-country: 法國中部（波旁地區、貝里地區、涅韋爾內地區、莫凡地區）
-era: 傳統／年代待考
-region_type: 跨文化／多地
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-body_listening: 口腔、舌頭、簧片震動、鼻音
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 風袋樂器
+title_zh: 中部法國風笛
+title_original: Cornemuse du Centre
+family_std: 風袋樂器家族
+sound_hs: 待確認
+playing_method: 吹奏
+interface_tags: 
+region_culture: 法國中部（波旁地區、貝里地區、涅韋爾內地區、莫凡地區）
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/cornemuse-du-centre/
 youtube_ids: L1hIGA5xBeY xWOQf7td5HM
-instrument_key: 無固定調性
-range: 約3個8度
 ---
+
 ## 介紹
 
 中部法國風笛（法文為cornemuse du Centre France或musette du Centre）是一種源自法國中部的風笛。它們有兩根低音管，一根低於笛管基調一個八度，另一根低於兩個八度。這種風笛可以在法國的波旁地區、貝里地區、涅韋爾內地區和莫凡地區找到，並以不同的音調出現。

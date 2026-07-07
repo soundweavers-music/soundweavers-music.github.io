@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/langeleik/
-title: 朗格萊克琴
-original_name: Langeleik
-category: 鍵盤樂器
-country: 歐洲／挪威
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/4/4a/Langeleik.jpg
-sound_class: 弦鳴
-range: 中低音區（約2個8度）
-instrument_key: 無固定調性（採用畢達哥拉斯調音方式）
-hs_class: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
-family: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 朗格萊克琴
+title_original: Langeleik
+family_std: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+sound_hs: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
 playing_method: 撥弦／擊弦／按鍵擊弦
-body_listening: 手掌、弦面、推音、敲擊
-soundscape: 平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
-region_type: 跨文化／多地
+interface_tags: 鍵盤／按鍵
+region_culture: 歐洲／挪威
+listening_sound_tags: 手掌、弦面、推音、敲擊｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/langeleik/
+image: https://upload.wikimedia.org/wikipedia/commons/4/4a/Langeleik.jpg
 youtube_ids: -i9h28DcTV0 Y3eu92EhhYg
 ---
+
 ## 介紹
 
 朗格萊克琴，也稱為蘭格萊克琴，是一種挪威弦樂民間樂器，屬於持續低音齊特琴。

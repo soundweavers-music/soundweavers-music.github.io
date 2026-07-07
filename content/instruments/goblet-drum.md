@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/goblet-drum/
-title: 高腳鼓
-original_name: Goblet drum
-category: 打擊樂器
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 高腳鼓
+title_original: Goblet drum
+family_std: 鼓類
+sound_hs: 2 膜鳴樂器
 playing_method: 敲擊鼓面
-family: 鼓類
-hs_class: 2 膜鳴樂器
-sound_class: 膜鳴
-country: 中東／非洲／北非
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-body_listening: 手掌、腳底、低音、舞步
+interface_tags: 
+region_culture: 中東／非洲／北非｜單一地區／文化圈
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/goblet-drum/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Goblet_drum_01.jpg/500px-Goblet_drum_01.jpg
 youtube_ids: FYlWrI9C-pI _1N-K__Mgok
-instrument_key: 無固定調性
-range: 約2個8度
 ---
+
 ## 介紹
 
 高脚鼓（亦稱聖杯鼓、tarabuka、tarabaki、darbuka、darabuka、derbake、debuka、doumbek、dumbec、dumbeg、dumbelek、toumperleki、tumbak、tabla或zerbaghali；阿拉伯語：دربوكة / 羅馬化：darbuka）是一種單面鼓，具有高脚杯形的鼓身。它最常用於北非和中東的傳統音樂中。該樂器亦出現在南亞和東歐的傳統音樂中。西非的傑姆貝鼓和布加拉博鼓也是高脚形膜鳴樂器。

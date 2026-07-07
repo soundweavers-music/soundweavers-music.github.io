@@ -1,19 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/aeolsklavier/
-title: 風琴鋼琴
-original_name: Aeolsklavier
-category: 打擊樂器
-country: 德國
-era: 傳統／年代待考
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 風琴鋼琴
+title_original: Aeolsklavier
+family_std: 無簧吹管家族
+sound_hs: 待確認
+playing_method: 吹奏
+interface_tags: 
+region_culture: 德國｜單一地區／文化圈
+listening_sound_tags: 手指、機械距離、記憶、電聲｜按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
+ensemble_links: 
+verification_status: 有問題，需修正
+issue_note: 譯名很奇怪；Aeolsklavier 譯成「風琴鋼琴」不穩，需查德文名與歷史鍵盤資料。；列待查；暫不當正式譯名。
+source_url: https://soundweavers-music.github.io/instruments/aeolsklavier/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Stokes%27_encyclopedia_of_music_and_musicians%2C_covering_the_entire_period_of_musical_history_from_the_earliest_times_to_the_season_of_1908-09_%28IA_cu31924022228385%29.pdf/page1-500px-thumbnail.pdf.jpg
-region_type: 單一地區／文化圈
-soundscape: 按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
-body_listening: 手指、機械距離、記憶、電聲
 youtube_ids: Ncom7FWjLmw MHl4A7cYK7U
-instrument_key: 全調性
-range: 全音域（具體範圍因製造工藝而異）
 ---
+
 ## 介紹
 
 風琴鋼琴是19世紀初期的創新混合樂器，由漢堡的讓·托比埃·埃申巴赫於1800年首次製造。它巧妙融合了鋼琴的打擊機制與風琴的氣鳴特性，外形類似傳統鋼琴，內部結構則整合了風箱裝置。該樂器音色獨特，兼具鋼琴的明亮清晰與風琴的溫潤飽滿，具有寬廣音域與持續綿延的共鳴效果。雖然最終被手風琴取代，但在當時曾引起音樂家的興趣與改進。

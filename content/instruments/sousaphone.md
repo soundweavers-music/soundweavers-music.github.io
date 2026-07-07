@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/sousaphone/
-title: 低音大號
-original_name: Sousaphone
-category: 管樂器
-country: 美洲／北美
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Yamaha_Sousaphone_YSH-411.jpg/500px-Yamaha_Sousaphone_YSH-411.jpg
-sound_class: 氣鳴
-range: A1–F4（約3個8度）
-instrument_key: 降B大調
-hs_class: 423 唇振氣鳴／號角與銅管
-family: 唇振氣鳴、天然號角與銅管
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 號角與唇振
+title_zh: 低音大號
+title_original: Sousaphone
+family_std: 唇振氣鳴、天然號角與銅管
+sound_hs: 423 唇振氣鳴／號角與銅管
 playing_method: 唇振吹奏
-body_listening: 嘴唇、遠方、召喚、空間方向
-soundscape: 吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 美洲／北美
+listening_sound_tags: 嘴唇、遠方、召喚、空間方向｜吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/sousaphone/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Yamaha_Sousaphone_YSH-411.jpg/500px-Yamaha_Sousaphone_YSH-411.jpg
 youtube_ids: jft3BVoxqjo xZO5KTJTwhE
 ---
+
 ## 介紹
 
 低音大號（SOO-zə-fohn）是銅管樂器家族中的一種銅管樂器。它最初在1893年左右由J. W. Pepper根據美國樂隊指揮約翰·菲利普·蘇薩的指示，對螺旋低音號進行改良而創造出來的，樂器也因此以蘇薩的名字命名。蘇薩希望他的螺旋低音號能夠更好地將低音投射到樂隊成員的頭頂上方，並傳入到觀眾席。與低音號相似，聲音是通過將空氣經過嘴唇而產生的，使嘴唇振動或「嗡鳴」進入一個大型杯狀吹口。

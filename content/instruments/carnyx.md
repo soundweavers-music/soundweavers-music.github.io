@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/carnyx/
-title: 卡爾尼克斯號
-original_name: Carnyx
-category: 管樂器
-country: 歐洲（凱爾特）
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/CarnyxDeTintignac2.jpg/500px-CarnyxDeTintignac2.jpg
-sound_class: 氣鳴
-range: 中高音區（約2個8度）
-instrument_key: 無固定調性
-hs_class: 423 唇振氣鳴／號角與銅管
-family: 唇振氣鳴、天然號角與銅管
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 號角與唇振
+title_zh: 卡爾尼克斯號
+title_original: Carnyx
+family_std: 唇振氣鳴、天然號角與銅管
+sound_hs: 423 唇振氣鳴／號角與銅管
 playing_method: 唇振吹奏
-body_listening: 嘴唇、遠方、召喚、空間方向
-soundscape: 吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 歐洲（凱爾特）
+listening_sound_tags: 嘴唇、遠方、召喚、空間方向｜吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/carnyx/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/CarnyxDeTintignac2.jpg/500px-CarnyxDeTintignac2.jpg
 youtube_ids: 1IlZgj2FAHA auR-lJfzTeY
 ---
+
 ## 介紹
 
 卡爾尼克斯號（複數：carnyces）是一種在凱爾特文化中普遍使用的管樂器，時間約在公元前200年至公元200年的鐵器時代。它是一種由青銅製成的號角，呈拉長的S形，演奏時將長而筆直的中央部分保持垂直，而較短的吹口端部和寬得多的喇叭口則水平指向相反的方向。喇叭口的造型為張開嘴巴的野豬或其他動物的頭部形狀。據波利比烏斯所述，凱爾特人在戰爭中使用卡爾尼克斯號，可能是為了激勵軍隊投入戰鬥，並使對手感到恐懼。

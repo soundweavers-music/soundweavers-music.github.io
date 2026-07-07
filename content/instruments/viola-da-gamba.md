@@ -1,22 +1,22 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/viola-da-gamba/
-title: 低音維奧爾琴
-original_name: Viola da Gamba
-category: 弦樂器
-country: 歐洲／西班牙
-era: 傳統／年代待考
-sound_class: 弦鳴
-range: 約3個8度（A0–A3左右）
-instrument_key: 全調性
-hs_class: 321.3 擦弦／輪弦／提琴家族
-family: 擦弦、輪弦與提琴家族
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 擦弦、鍵控與輪弦
+title_zh: 低音維奧爾琴
+title_original: Viola da Gamba
+family_std: 擦弦、輪弦與提琴家族
+sound_hs: 弦鳴｜321.3 擦弦／輪弦／提琴家族
 playing_method: 弓擦／輪擦
-body_listening: 胸口、嗓音、拉長的情緒
-soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
-region_type: 跨文化／多地
+interface_tags: 弓
+region_culture: 歐洲／西班牙
+listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/viola-da-gamba/
 youtube_ids: C4m1KHjp03M BO2JeKiwbvQ
 ---
+
 ## 介紹
 
 低音維奧爾琴是一種古老的弦樂器，源自十五世紀末的西班牙，於十六世紀初傳入義大利後迅速流行於歐洲宮廷。其名稱「Gamba」源自義大利文，意為「腿」，反映了演奏時將琴置於雙腿之間的特點。琴體呈梨形，配備6至7條弦，以馬尾弓演奏。它在巴洛克時期達到藝術高峰，成為室內樂和獨奏音樂的重要樂器，音色溫潤深沉，蒼涼內斂，特別適合表現文藝復興和巴洛克音樂的沉靜氣質。

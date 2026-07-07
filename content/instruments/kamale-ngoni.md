@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/kamale-ngoni/
-title: 卡瑪萊恩貢尼
-original_name: Kamale Ngoni
-category: 弦樂器
-country: 西非／馬利
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Kamele_ngoni.jpg/500px-Kamele_ngoni.jpg
-sound_class: 弦鳴
-range: 約3個8度
-instrument_key: 多調性
-hs_class: 322 豎琴與里拉類
-family: 豎琴、里拉與開放弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 豎琴、里拉與開放弦
+title_zh: 卡瑪萊恩貢尼
+title_original: Kamale Ngoni
+family_std: 豎琴、里拉與開放弦樂器
+sound_hs: 弦鳴｜322 豎琴與里拉類
 playing_method: 撥弦／開放弦共鳴
-body_listening: 循環、河流感、開放弦、吟唱
-soundscape: 開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
-region_type: 地區／文化圈
+interface_tags: 
+region_culture: 西非／馬利｜地區／文化圈
+listening_sound_tags: 循環、河流感、開放弦、吟唱｜開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/kamale-ngoni/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Kamele_ngoni.jpg/500px-Kamele_ngoni.jpg
 youtube_ids: dhdlmcHP7KA W0O_6kmUMws
 ---
+
 ## 介紹
 
 卡瑪萊恩貢尼是源自西非馬里地區的傳統撥弦樂器，屬於曼丁卡文明音樂遺產。樂器由木製琴體與多根琴弦組成，具有溫暖而富有穿透力的音色。傳統上由吟遊詩人使用，用於講述歷史故事、讚頌英雄事蹟。音色兼具明亮與柔和特質，層次豐富，既能營造親密內省的氛圍，亦能在樂隊中提供穩定的音樂基底，展現獨特的非洲音樂風韻。

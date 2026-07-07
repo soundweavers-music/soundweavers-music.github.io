@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/flugelhorn/
-title: 翼號
-original_name: Flugelhorn
-category: 管樂器
-country: 歐洲／德國
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Yamaha_Flugelhorn_YFH-8310Z.jpg/500px-Yamaha_Flugelhorn_YFH-8310Z.jpg
-sound_class: 氣鳴
-range: E3–C6（約2個半8度）
-instrument_key: 降B大調、C大調
-hs_class: 423 唇振氣鳴／號角與銅管
-family: 唇振氣鳴、天然號角與銅管
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 號角與唇振
+title_zh: 翼號
+title_original: Flugelhorn
+family_std: 唇振氣鳴、天然號角與銅管
+sound_hs: 423 唇振氣鳴／號角與銅管
 playing_method: 唇振吹奏
-body_listening: 嘴唇、遠方、召喚、空間方向
-soundscape: 吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 歐洲／德國
+listening_sound_tags: 嘴唇、遠方、召喚、空間方向｜吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/flugelhorn/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Yamaha_Flugelhorn_YFH-8310Z.jpg/500px-Yamaha_Flugelhorn_YFH-8310Z.jpg
 youtube_ids: Q8-3lhTT9WI YoZq8fvbMmo
 ---
+
 ## 介紹
 
 翼號（德語：Flügelhorn）是一種高音銅管樂器，類似於小號和短號，但具有更寬的圓錐形管身，如號角般能夠發出深沉、柔和的音色。與小號和短號一樣，大多數翼號採用4½-foot（4½′）B♭調，但也有一些採用4′ C調。它是一種裝有活塞的號角，在19世紀初由德國開發，目的是為了改進早期的傳統無活塞號角，並取代鍵盤號角。

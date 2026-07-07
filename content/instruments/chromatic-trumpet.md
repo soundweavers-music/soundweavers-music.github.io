@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/chromatic-trumpet/
-title: 半音小號
-original_name: Chromatic trumpet
-category: 管樂器
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 號角與唇振
+title_zh: 半音小號
+title_original: Chromatic trumpet
+family_std: 管樂器類
+sound_hs: 4 气鳴樂器
 playing_method: 吹奏
-family: 管樂器類
-hs_class: 4 气鳴樂器
-sound_class: 气鳴
-country: 中東／地中海地區
-era: 傳統／年代待考
-region_type: 地區／文化圈
-soundscape: 吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
-body_listening: 嘴唇、遠方、召喚、空間方向
+interface_tags: 
+region_culture: 中東／地中海地區｜地區／文化圈
+listening_sound_tags: 嘴唇、遠方、召喚、空間方向｜吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/chromatic-trumpet/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/500px-Yamaha_Trumpet_YTR-8335LA_crop.jpg
 youtube_ids: MQ44-lI__uE ujOcH7PHff8
-instrument_key: 降B大調
-range: E3–B5（約3個半8度）
 ---
+
 ## 介紹
 
 小號是一種銅管樂器。最常見的小號類型是降B調移調樂器，其音高比記譜低整個全音。小號家族包括從高音域最高的短小號到比標準降B調或C調小號低一個八度的低音小號等多種樂器。類似小號的樂器在歷史上曾被用作戰爭或狩獵中的信號裝置，其例子可以追溯到公元前第二個千年。它們直到14世紀晚期或15世紀早期才開始被用作音樂樂器。

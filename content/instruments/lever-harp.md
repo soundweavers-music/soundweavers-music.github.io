@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/lever-harp/
-title: 拉桿豎琴
-original_name: Lever harp
-category: 弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 拉桿豎琴
+title_original: Lever harp
+family_std: 弦樂器類
+sound_hs: 3 弦鳴樂器
 playing_method: 撥弦／擦弦／擊弦
-family: 弦樂器類
-hs_class: 3 弦鳴樂器
-sound_class: 弦鳴
-country: 歐洲西北部（凱爾特地區）／愛爾蘭、蘇格蘭、威爾士、布列塔尼
-era: 古代
-region_type: 跨文化／多地
-soundscape: 開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
-body_listening: 循環、河流感、開放弦、吟唱
+interface_tags: 
+region_culture: 歐洲西北部（凱爾特地區）／愛爾蘭、蘇格蘭、威爾士、布列塔尼
+listening_sound_tags: 循環、河流感、開放弦、吟唱｜開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/lever-harp/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Trinity_College_harp%2C_Dublin%2C_Ireland%2C_2017_%28cropped2%29.jpg/500px-Trinity_College_harp%2C_Dublin%2C_Ireland%2C_2017_%28cropped2%29.jpg
 youtube_ids: r3xzJbXy1eU g-qnBRZnk5w
-instrument_key: 全調性
-range: 約3至4個8度
 ---
+
 ## 介紹
 
 凱爾特豎琴是傳統於歐洲西北部凱爾特民族的三角形框架豎琴。在愛爾蘭語中稱為cláirseach，在蘇格蘭蓋爾語中稱為clàrsach，在布列塔尼語中稱為telenn，在威爾士語中稱為telyn。在愛爾蘭和蘇格蘭，它是一種金屬弦樂器，需要高超的技巧和長期的練習才能演奏，傳統上與愛爾蘭的蓋爾貴族相關聯。它出現在愛爾蘭硬幣、吉尼斯產品以及愛爾蘭共和國、蒙特塞拉特、加拿大和英國的國徽上。

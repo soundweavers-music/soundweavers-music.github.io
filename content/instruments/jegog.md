@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/jegog/
-title: 傑歌克
-original_name: Jegog
-category: 打擊樂器
-country: 印尼巴厘島
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Gamelan_Jegog.jpg/500px-Gamelan_Jegog.jpg
-sound_class: 體鳴
-range: 約3個8度（低沉基音至高亢尖銳音）
-instrument_key: 無固定調性
-hs_class: 11/12 定音體鳴／鑼鐘木琴石琴系統
-family: 定音體鳴、材料敲擊與鑼鐘木琴系統
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 傑歌克
+title_original: Jegog
+family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
+sound_hs: 11/12 定音體鳴／鑼鐘木琴石琴系統
 playing_method: 敲擊／搖奏／材料共鳴
-body_listening: 低頻竹聲、集體律動、巨大共鳴
-soundscape: 木石金屬的回聲城市（定音體鳴、材料敲擊與鑼鐘木琴系統）
-region_type: 單一地區／文化圈
+interface_tags: 
+region_culture: 印尼巴厘島｜單一地區／文化圈
+listening_sound_tags: 低頻竹聲、集體律動、巨大共鳴｜木石金屬的回聲城市（定音體鳴、材料敲擊與鑼鐘木琴系統）
+ensemble_links: 甘美朗合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/jegog/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Gamelan_Jegog.jpg/500px-Gamelan_Jegog.jpg
 youtube_ids: K-pko0vruGo VoDHP_fPOkc
 ---
+
 ## 介紹
 
 傑歌克是印度尼西亞峇里島本土的甘美蘭音樂形式，使用竹製樂器演奏。傑歌克傳統以峇里島西部的詹巴拉納地區為中心。近年來，傑歌克開始在峇里島其他地區變得流行，幾支樂隊在中峇里島成立以招待遊客。國際興趣的傳播是通過到訪峇里島的遊客和錄音作品帶動的。

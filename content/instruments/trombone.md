@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/trombone/
-title: 長號
-original_name: Trombone
-category: 管樂器
-country: 歐洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/6/6d/Posaune.jpg
-sound_class: 氣鳴
-range: E2–G5（約3個八度）
-instrument_key: 降B大調
-hs_class: 423 唇振氣鳴／號角與銅管
-family: 唇振氣鳴、天然號角與銅管
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 號角與唇振
+title_zh: 長號
+title_original: Trombone
+family_std: 唇振氣鳴、天然號角與銅管
+sound_hs: 423 唇振氣鳴／號角與銅管
 playing_method: 唇振吹奏
-body_listening: 嘴唇、遠方、召喚、空間方向
-soundscape: 吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 歐洲
+listening_sound_tags: 嘴唇、遠方、召喚、空間方向｜吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/trombone/
+image: https://upload.wikimedia.org/wikipedia/commons/6/6d/Posaune.jpg
 youtube_ids: z9WAH0ZaKTw 51beOlNC0qo
 ---
+
 ## 介紹
 
 長號（英語：Trombone，德語：Posaune），亦稱伸縮喇叭、伸縮號，是一種銅管樂器。一如所有銅管樂器，長號透過吹奏者以雙唇振動空氣來發聲；而與其他使用按鍵的銅管樂器的不同之處在於，長號透過吹奏者改變滑管（Slide）的長度來改變音高。最為常見的長號種類為次中音長號（tenor trombone）。

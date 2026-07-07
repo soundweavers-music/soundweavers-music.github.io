@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/taqsim-clappers/
-title: 塔克西姆響板
-original_name: Taqsim Clappers
-category: 打擊樂器
-country: 中東／北非
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/2/26/Tahyea05.jpg
-sound_class: 體鳴
-range: 中高頻段（具體音域範圍因製造工藝而異）
-instrument_key: 無固定調性
-hs_class: Idiophone／體鳴樂器
-family: 手持響板
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 沙鈴、刮器與小打擊
+title_zh: 塔克西姆響板
+title_original: Taqsim Clappers
+family_std: 手持響板
+sound_hs: Idiophone／體鳴樂器
 playing_method: 敲擊
-body_listening: 短促節奏、舞蹈提示、手勢聲音
-soundscape: 掌心搖落的節奏星塵（小型節奏體鳴、沙鈴、刮器與身體打擊）
-region_type: 區域／多國
+interface_tags: 
+region_culture: 中東／北非｜區域／多國
+listening_sound_tags: 短促節奏、舞蹈提示、手勢聲音｜掌心搖落的節奏星塵（小型節奏體鳴、沙鈴、刮器與身體打擊）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/taqsim-clappers/
+image: https://upload.wikimedia.org/wikipedia/commons/2/26/Tahyea05.jpg
 youtube_ids: qbkNNTkmJQ4 WWBCa4KSkXQ
 ---
+
 ## 介紹
 
 塔克西姆響板是起源於中東和北非地區的打擊樂器，與阿拉伯傳統音樂中的即興獨奏形式「塔克西姆」密切相關。樂器由一對響板組成，通常以金屬製成，演奏者以手指或手掌敲擊產生聲音。其音色清脆明亮，具有銳利的金屬質感，能穿透樂隊音響。主要用途為在即興表演中保持節奏感，是伊斯蘭宮廷音樂和民間表演的重要組成部分，廣泛應用於中東傳統音樂演奏中。

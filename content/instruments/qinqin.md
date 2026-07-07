@@ -1,21 +1,22 @@
 ---
-is_popular: true
-title: 秦琴
-original_name: Qin Qin
-category: 弦樂器
-country: 亞洲／東亞
-era: 20 世紀
-sound_class: 弦鳴
-range: 中高音域（約2-3個8度）
-instrument_key: 全調性
-hs_class: 321 魯特琴類／撥弦
-family: 魯特琴、短頸長頸撥弦與民謠弦聲
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 秦琴
+title_original: Qin Qin
+family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
+sound_hs: 弦鳴｜321 魯特琴類／撥弦
 playing_method: 撥弦／刷弦／撥片
-body_listening: 懷抱、手指、腳步、敘事
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 單一地區／文化圈
+interface_tags: 撥片
+region_culture: 亞洲／東亞｜單一地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: 
 youtube_ids: 6SHRz8JFc_U 1GqEK-YEK-Y
 ---
+
 ## 介紹
 
 秦琴是中國傳統撥弦樂器，屬於魯特琴家族的一員，流行於中國南方地區，特別是在廣東、福建一帶的民間音樂與戲曲伴奏中廣泛使用。秦琴的音色清脆明亮，具有獨特的穿透力，在合奏中能清晰地演奏旋律線條。

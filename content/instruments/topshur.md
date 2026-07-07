@@ -1,19 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/topshur/
-title: 託布秀爾
-original_name: Topshur
-category: 弦樂器
-country: 蒙古（西蒙古／衛拉特地區）
-era: 傳統／年代待考
-region_type: 地區／文化圈
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-body_listening: 懷抱、手指、腳步、敘事
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 託布秀爾
+title_original: Topshur
+family_std: 撥弦與抱持弦樂家族
+sound_hs: 待確認
+playing_method: 撥奏／擦奏／擊弦（待細分）
+interface_tags: 
+region_culture: 蒙古（西蒙古／衛拉特地區）｜地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/topshur/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Topshuur.jpg/500px-Topshuur.jpg
 youtube_ids: 9GaN76mQmrI jUZOjNqAY-A
-instrument_key: 無固定調性
-range: 約2至3個8度
 ---
+
 ## 介紹
 
 The tovshuur, also known as topshur or topshuur (Mongolian Cyrillic: товшуур; Mongolian: ᠲᠣᠪᠰᠢᠭᠤᠷ, romanized: tobshiğur; Mandarin Chinese: 托布秀尔 Tuō bù xiù ěr) is a two- or three-stringed lute played by the Western Mongolian (Oirats) tribes called the Altai Urianghais, the Altais, Tuvans, and Khalkha peoples. The topshur is closely tied to the folklore of Western Mongolian people and accompanied the performances of storytellers, singing, and dancing. According to descriptions given by Marco Polo, the Mongols also played the instruments before a battle.

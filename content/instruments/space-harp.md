@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/space-harp/
-title: 太空豎琴
-original_name: Space Harp
-category: 弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 太空豎琴
+title_original: Space Harp
+family_std: 弦樂器類
+sound_hs: 3 弦鳴樂器
 playing_method: 撥弦／擦弦／擊弦
-family: 弦樂器類
-hs_class: 3 弦鳴樂器
-sound_class: 弦鳴
-country: 非洲
-era: 傳統／年代待考
+interface_tags: 
+region_culture: 非洲｜單一地區／文化圈
+listening_sound_tags: 手指、機械距離、記憶、電聲｜按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/space-harp/
 image: https://upload.wikimedia.org/wikipedia/commons/4/4e/Harp.png
-region_type: 單一地區／文化圈
-soundscape: 按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
-body_listening: 手指、機械距離、記憶、電聲
 youtube_ids: RiOkbM1fGrM A1t09tkeXgc
-instrument_key: 全調性
-range: 約3個8度
 ---
+
 ## 介紹
 
 太空豎琴，又稱為法蘭基風琴，是由菲爾·科倫發明的電動金屬舌簧樂器，是他探索非洲根源的音樂學實驗的一部分。他以母親弗蘭基的名字為其命名。它首次被錄製是在他與太陽神樂隊合作期間，收錄在專輯《天使與惡魔在遊樂》中。太空豎琴的後期錄製包括他在1960年代與藝術遺產樂團的合作，現已收錄在名為《在海灘上》的專輯中。

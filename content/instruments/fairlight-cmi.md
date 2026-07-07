@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/fairlight-cmi/
-title: 費爾萊特CMI
-original_name: Fairlight CMI
-category: 鍵盤樂器
-country: 澳洲／全球取樣器文化
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Fairlight_green_screen.jpg/500px-Fairlight_green_screen.jpg
-sound_class: 鍵盤／電鳴／機械混合
-range: 全音域
-instrument_key: 全調性
-hs_class: 412/31/52 鍵盤、自由簧、電鳴與機械介面
-family: 鍵盤介面、風箱、電子與取樣
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 取樣與磁帶
+title_zh: 費爾萊特CMI
+title_original: Fairlight CMI
+family_std: 鍵盤介面、風箱、電子與取樣
+sound_hs: 鍵盤／電鳴／機械混合｜412/31/52 鍵盤、自由簧、電鳴與機械介面
 playing_method: 按鍵／風箱／電控／取樣
-body_listening: 手指、機械距離、記憶、電聲
-soundscape: 按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
-region_type: 跨文化／多地
+interface_tags: 鍵盤／按鍵、風箱
+region_culture: 澳洲／全球取樣器文化
+listening_sound_tags: 手指、機械距離、記憶、電聲｜按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
+ensemble_links: 
+verification_status: 移入第13類
+issue_note: 現代電子／取樣；屬現代電子、取樣、電聲或電氣化鍵盤／設備類，應集中到第13類。；移第13類，並與傳統鍵盤／風箱類分開。
+source_url: https://soundweavers-music.github.io/instruments/fairlight-cmi/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Fairlight_green_screen.jpg/500px-Fairlight_green_screen.jpg
 youtube_ids: n6QsusDS_8A jkiYy0i8FtA
 ---
+
 ## 介紹
 
 費爾萊特CMI（簡稱Computer Musical Instrument，電腦音樂儀器）是一款由費爾萊特公司於1979年推出的數位合成器、音樂採樣器和數位音頻工作站（DAW）。它基於澳洲悉尼創意策略公司的托尼·弗斯開發的Qasar M8的商業許可證。它是最早的具有內置採樣器的電子音樂工作站之一，並因在音樂中推廣採樣術語而受到認可。它在1980年代初期聲名鵲起，與新英格蘭數位公司的Synclavier展開競爭。

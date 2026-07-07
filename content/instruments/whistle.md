@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/whistle/
-title: 哨子（樂器）
-original_name: Whistle
-category: 管樂器
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 哨子（樂器）
+title_original: Whistle
+family_std: 管樂器類
+sound_hs: 4 气鳴樂器
 playing_method: 吹奏
-family: 管樂器類
-hs_class: 4 气鳴樂器
-sound_class: 气鳴
-country: 全球／多地
-era: 傳統／年代待考
+interface_tags: 
+region_culture: 全球／多地
+listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/whistle/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Tin_Whistles.jpg/500px-Tin_Whistles.jpg
-region_type: 跨文化／多地
-soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
-body_listening: 氣息、胸腔、長音、空間
 youtube_ids: JO1F6eMTDS4 fTA2nY_5Qio
-instrument_key: 無固定調性
-range: 約2個8度（中高音區為主）
 ---
+
 ## 介紹
 
 哨子可以指： 哨子 (器物)：一種能吹出尖銳聲的器物，可在操練和競技比賽中用來發號令、也可用作樂器； 哨子 (食物)：一種食物，是中國江西省九江市修水縣的特產； 《哨子 (議論文)》：班傑明·富蘭克林所著的一篇議論文。 樂器嗩吶的簧片

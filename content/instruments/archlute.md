@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/archlute/
-title: 拱魯特琴
-original_name: Archlute
-category: 弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 拱魯特琴
+title_original: Archlute
+family_std: 弦樂器類
+sound_hs: 3 弦鳴樂器
 playing_method: 撥弦／擦弦／擊弦
-family: 弦樂器類
-hs_class: 3 弦鳴樂器
-sound_class: 弦鳴
-country: 西班牙
-era: 文藝復興
+interface_tags: 
+region_culture: 西班牙｜單一地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 需調整
+issue_note: 譯名需修；Appalachian Dulcimer 常見為山地揚琴／阿帕拉契亞齊特琴；「阿帕拉契亞揚琴」可但易和 hammered dulcimer 混淆。；建議「阿帕拉契亞山地揚琴（Appalachian dulcimer）」並註明撥弦齊特琴。
+source_url: https://soundweavers-music.github.io/instruments/archlute/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Archlute_MET_DT5914.jpg/500px-Archlute_MET_DT5914.jpg
-region_type: 單一地區／文化圈
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-body_listening: 懷抱、手指、腳步、敘事
 youtube_ids: 1JYjcwW9MmM FnpaMm_2QYc
-instrument_key: 全調性
-range: 約3個半8度
 ---
+
 ## 介紹
 
 拱魯特琴是16世紀中期起源於義大利的弦樂器，屬於魯特琴家族。其最顯著特徵是加長的琴頸與增加的低音弦組，使音域寬廣、音量提升。琴身呈梨形，配備多排弦線，既可獨奏展現精妙旋律，亦適合室內樂伴奏。17世紀在巴洛克時期廣受歡迎，音色溫潤典雅，兼具明亮與柔和特質，層次豐富，特別適合文藝復興與巴洛克時期的音樂表演。

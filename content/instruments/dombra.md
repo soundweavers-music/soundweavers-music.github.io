@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/dombra/
-title: 冬不拉
-original_name: Dombra
-category: 弦樂器
-country: 中東／歐亞／東亞／美洲／全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Dombra1.jpg/500px-Dombra1.jpg
-sound_class: 弦鳴
-range: 約2個8度
-instrument_key: 無固定調性
-hs_class: 321/322 魯特琴類／撥弦
-family: 魯特琴、短頸長頸撥弦與民謠弦聲
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 冬不拉
+title_original: Dombra
+family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
+sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
 playing_method: 撥弦／刷弦／撥片
-body_listening: 懷抱、手指、腳步、敘事
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 跨文化／多地
+interface_tags: 撥片
+region_culture: 中東／歐亞／東亞／美洲／全球
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/dombra/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Dombra1.jpg/500px-Dombra1.jpg
 youtube_ids: BuLCBWOQsBo jOr5RQHXXXk
 ---
+
 ## 介紹
 
 冬不拉（土耳其語：Dombıra；哈薩克語：Домбыра；維吾爾語：دومبىرا，羅馬化：Dombira；東干語：дунбура、二弦琴），又名東不拉、東布拉，是中亞地區的傳統彈撥樂器，在哈薩克斯坦、吉爾吉斯斯坦以及中國新疆的哈薩克族中尤其流行。琴杆細長，音箱有瓢形和扁平的兩種。一般用松木或桑木製作，琴頸即指板，過去多用整木斫成。裝飾紋樣以角行、植物及幾何紋為主。音箱上有發音小孔，張羊腸弦兩根，琴身有羊腸弦品位。 冬不拉音色優美。演奏的基本方法是彈與挑，一般彈用於重拍，挑用於輕拍。運用冬不拉不同的演奏技巧，能夠形象地表現草原上泉水、鳥鳴、羊和馬的蹄聲等。指法有一彈一挑、兩彈兩挑、兩彈一挑、一彈兩挑、連奏、撥奏等，還可演奏泛音、滑音、和音（外弦奏旋律內弦配和音）。彈奏的力度和速度可有多種變化，尤宜於表現快速樂曲。「冬不拉彈唱」是哈薩克族喜愛的表演形式，既可用於自彈自唱，也可用於獨奏或樂器合奏。它輕便，易於攜帶，適合草原上遷徙不定的生活。 哈薩克族的音樂工作者，對冬不拉進行了改革，增加了品位，改用鋼弦，擴大音域，增大音量。製成有高低音不同的冬不拉。如4弦12品的最高音冬不拉、4弦15品的高音冬不拉、4弦13或14品的中音冬不拉、2弦17品的次中音冬不拉和10品的低音冬不拉等。

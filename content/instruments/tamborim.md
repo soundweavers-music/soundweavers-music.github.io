@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/tamborim/
-title: 塔博林鼓
-original_name: Tamborim
-category: 打擊樂器
-country: 美洲／巴西
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tamborim.JPG/500px-Tamborim.JPG
-sound_class: 膜鳴
-range: 高頻域（約2–3個8度）
-instrument_key: 無固定調性
-hs_class: 21 膜鳴鼓類
-family: 膜鳴鼓類、框鼓、杯鼓與鼓組
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 塔博林鼓
+title_original: Tamborim
+family_std: 膜鳴鼓類、框鼓、杯鼓與鼓組
+sound_hs: 21 膜鳴鼓類
 playing_method: 手拍／槌擊／皮膜振動
-body_listening: 手掌、腳底、低音、舞步
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 美洲／巴西
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/tamborim/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tamborim.JPG/500px-Tamborim.JPG
 youtube_ids: idlXh_udWug 89C_KnkcFR4
 ---
+
 ## 介紹
 
 塔博林鼓（葡萄牙語發音：[tɐ̃boˈɾĩ] 或 [tɐ̃buˈɾĩ]）是一種小型圓形巴西框架鼓，由葡萄牙人帶來的其他類似打擊樂器發展而成。鼓框寬度為6英寸，可由金屬、塑料或木材製成。鼓面通常由尼龍製成，通常調得非常緊張，以確保高、尖銳的音色和最少的延音。這種鼓不帶響弦或金屬片。它經常與更常見的鈴鼓混淆。塔博林鼓的大小和重量與奧爾夫音樂教學法中的小型框架鼓相似。

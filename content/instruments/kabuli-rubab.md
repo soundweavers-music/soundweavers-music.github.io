@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/kabuli-rubab/
-title: 卡布裡魯巴卜琴
-original_name: Kabuli Rubab
-category: 弦樂器
-country: 中東／歐洲／亞洲／美洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/f/f7/Rubab.jpg
-sound_class: 弦鳴
-range: 約3個8度以上
-instrument_key: 多調性
-hs_class: Chordophone／弦鳴樂器
-family: 短頸魯特琴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 卡布裡魯巴卜琴
+title_original: Kabuli Rubab
+family_std: 短頸魯特琴
+sound_hs: Chordophone／弦鳴樂器
 playing_method: 撥弦
-body_listening: 懷抱、手指、腳步、敘事
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 地區／文化圈
+interface_tags: 
+region_culture: 中東／歐洲／亞洲／美洲｜地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/kabuli-rubab/
+image: https://upload.wikimedia.org/wikipedia/commons/f/f7/Rubab.jpg
 youtube_ids: VnXi6RMY1YE BT2fx-sSVzM
 ---
+
 ## 介紹
 
 卡布裡魯巴卜琴是起源於阿富汗的傳統弦樂器，屬於撥弦類樂器。其琴體採用木質共鳴箱設計，配備多條共鳴弦和演奏弦。樂器外形優雅，琴頸修長，琴頭通常裝飾精美。音色深沉而富穿透力，具獨特東方韻味，低音渾厚、中音溫暖、高音明亮。主要用於阿富汗民間音樂和古典音樂演奏，沿絲綢之路傳播至巴基斯坦、伊朗等地，是中亞南亞音樂傳統的重要樂器。

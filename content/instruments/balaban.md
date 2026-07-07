@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/balaban/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/%D0%91%D0%B0%D0%BB%D0%B0%D0%B1%D0%B0%D0%BD.jpg/500px-%D0%91%D0%B0%D0%BB%D0%B0%D0%B1%D0%B0%D0%BD.jpg
-title: 巴拉班管
-original_name: Balaban
-category: 管樂器
-country: 全球／亞洲／中東／歐洲
-era: 傳統／年代待考
-sound_class: 氣鳴
-range: 約2個半8度
-instrument_key: 無固定調性
-hs_class: 412/422 簧鳴與自由簧／單簧雙簧
-family: 口簧、自由簧、單簧雙簧與風袋
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 風箱與自由簧
+title_zh: 巴拉班管
+title_original: Balaban
+family_std: 口簧、自由簧、單簧雙簧與風袋
+sound_hs: 氣鳴｜412/422 簧鳴與自由簧／單簧雙簧
 playing_method: 吹奏／簧片振動／風袋或風箱
-body_listening: 口腔、舌頭、簧片震動、鼻音
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-region_type: 跨文化／多地
+interface_tags: 風箱
+region_culture: 全球／亞洲／中東／歐洲
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/balaban/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/%D0%91%D0%B0%D0%BB%D0%B0%D0%B1%D0%B0%D0%BD.jpg/500px-%D0%91%D0%B0%D0%BB%D0%B0%D0%B1%D0%B0%D0%BD.jpg
 youtube_ids: WCciXnVKQpQ aPNJiIRCFjY
 ---
+
 ## 介紹
 
 巴拉班管可能指的是：

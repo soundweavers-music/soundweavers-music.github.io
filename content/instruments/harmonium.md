@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/harmonium/
-title: 簧風琴
-original_name: Harmonium
-category: 鍵盤樂器
-country: 歐洲／法國
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/e/e8/John_Church_and_Co._reed_organ.jpg
-sound_class: 氣鳴
-range: 約4個8度
-instrument_key: 全調性
-hs_class: 412/422 簧鳴與自由簧／單簧雙簧
-family: 口簧、自由簧、單簧雙簧與風袋
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 風箱與自由簧
+title_zh: 簧風琴
+title_original: Harmonium
+family_std: 口簧、自由簧、單簧雙簧與風袋
+sound_hs: 氣鳴｜412/422 簧鳴與自由簧／單簧雙簧
 playing_method: 吹奏／簧片振動／風袋或風箱
-body_listening: 手指、機械距離、記憶、電聲
-soundscape: 按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
-region_type: 跨文化／多地
+interface_tags: 風箱
+region_culture: 歐洲／法國
+listening_sound_tags: 手指、機械距離、記憶、電聲｜按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/harmonium/
+image: https://upload.wikimedia.org/wikipedia/commons/e/e8/John_Church_and_Co._reed_organ.jpg
 youtube_ids: dn6iRIN4BkQ yJg1NNyke2E
 ---
+
 ## 介紹
 
 打泵風琴或簧管風琴是一種使用自由簧片產生聲音的風琴，空氣通過裝在框架中的振動薄金屬片而產生聲響。類型包括基於壓力的手風琴、抽吸簧管風琴（採用真空系統）和印度手風琴。歷史範例包括藝術手風琴和美式簧管風琴，而早期形式包括物理手風琴和血清風琴。

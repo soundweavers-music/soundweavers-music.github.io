@@ -1,19 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/suikinkutsu/
-title: 水琴窟
-original_name: Suikinkutsu
-category: 打擊樂器
-country: 日本
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
-body_listening: 手腕、腳踝、短音、節奏對齊
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 水琴窟
+title_original: Suikinkutsu
+family_std: 撥弦與抱持弦樂家族
+sound_hs: 待確認
+playing_method: 撥奏／擦奏／擊弦（待細分）
+interface_tags: 
+region_culture: 日本｜單一地區／文化圈
+listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/suikinkutsu/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/EnkoujiSuikinkutsu.jpg/500px-EnkoujiSuikinkutsu.jpg
 youtube_ids: IcrxaS0iCv8 R9KEKUMIXDQ
-instrument_key: 無固定調性
-range: 中高音區（約1個8度）
 ---
+
 ## 介紹
 
 水琴窟（日語：水琴窟／すいきんくつ，羅馬化：Suikinkutsu）是指一種日本庭園裝飾和樂器，其結構包括一個倒轉的密封壺，流水通過壺上部的一個洞口流入壺內的小水池，從而在壺內產生悅耳的擊水聲音，其音像鈴聲或日本琴。水琴窟通常設立在手水鉢旁邊，而這些手水鉢往往設立在茶室的入口處，供進行茶道儀式的客人洗手之用。

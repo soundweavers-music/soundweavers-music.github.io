@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/lap-steel/
-title: 夏威夷吉他
-original_name: Lap Steel
-category: 電子樂器
-country: 中東／歐洲／亞洲／美洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Fender_Champion_lap_steel_%40_2010_TSGA_Jamboree.jpg/500px-Fender_Champion_lap_steel_%40_2010_TSGA_Jamboree.jpg
-sound_class: 弦鳴
-range: 約3至4個8度
-instrument_key: 全調性
-hs_class: 321/322 魯特琴類／撥弦
-family: 魯特琴、短頸長頸撥弦與民謠弦聲
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 電聲改造樂器
+title_zh: 夏威夷吉他
+title_original: Lap Steel
+family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
+sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
 playing_method: 撥弦／刷弦／撥片
-body_listening: 懷抱、手指、腳步、敘事
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 地區／文化圈
+interface_tags: 踏板、撥片
+region_culture: 中東／歐洲／亞洲／美洲｜地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/lap-steel/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Fender_Champion_lap_steel_%40_2010_TSGA_Jamboree.jpg/500px-Fender_Champion_lap_steel_%40_2010_TSGA_Jamboree.jpg
 youtube_ids: xGD04s76V98 AMbDvcl_Fl8
 ---
+
 ## 介紹
 
 膝蓋鋼琴，又稱為夏威夷吉他或膝蓋滑音吉他，是一種沒有踏板的鋼琴，通常以水平方式放在演奏者的膝蓋上進行演奏。與傳統原聲吉他的通常演奏方式不同，在傳統原聲吉他中，演奏者的指尖將琴弦按在琴品上，而鋼琴的音高則是通過用拋光的鋼條按壓琴弦，同時用另一隻手撥弦來改變的。鋼琴的名稱正是源於這根鋼條。

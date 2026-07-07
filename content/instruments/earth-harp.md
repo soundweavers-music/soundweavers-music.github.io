@@ -1,22 +1,22 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/earth-harp/
-title: 地球豎琴
-original_name: Earth Harp
-category: 弦樂器
-country: 非洲／歐洲／亞洲／美洲
-era: 傳統／年代待考
-sound_class: 弦鳴
-range: 全音域（依建築物規模而定）
-instrument_key: 全調性
-hs_class: 322 豎琴與里拉類
-family: 豎琴、里拉與開放弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 豎琴、里拉與開放弦
+title_zh: 地球豎琴
+title_original: Earth Harp
+family_std: 豎琴、里拉與開放弦樂器
+sound_hs: 弦鳴｜322 豎琴與里拉類
 playing_method: 撥弦／開放弦共鳴
-body_listening: 循環、河流感、開放弦、吟唱
-soundscape: 開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
-region_type: 地區／文化圈
+interface_tags: 
+region_culture: 非洲／歐洲／亞洲／美洲｜地區／文化圈
+listening_sound_tags: 循環、河流感、開放弦、吟唱｜開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
+ensemble_links: 
+verification_status: 保留，與 Octobass 鄰近
+issue_note: 中文名碰撞已處理；第547項已改為八度低音提琴；本列 Double Bass 仍用「低音提琴」。；保留本列；與第547項相鄰，不合併。；NEAR-226/547: Double Bass／Octobass，鄰近但不合併
+source_url: https://soundweavers-music.github.io/instruments/earth-harp/
 youtube_ids: qrjcOpq_Nw0 XPHZ519a2Hw
 ---
+
 ## 介紹
 
 地球豎琴是美國藝術家威廉·克羅斯於1990年代創造的當代樂器，屬於弦樂器。其獨特之處在於利用建築物或自然地形作為共鳴腔體，以超長琴弦連接建築物的不同位置。樂器音色深沉空靈，介於豎琴與鋼琴之間，具有溫潤蒼涼的質感。低音區渾厚有力，高音區清澈透亮，每根弦獨立發聲，整體效果如同大地本身在歌唱，營造出廣闊的音響空間感與環境融合性。

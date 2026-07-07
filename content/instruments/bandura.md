@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/bandura/
-title: 班杜拉琴
-original_name: Bandura
-category: 弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 班杜拉琴
+title_original: Bandura
+family_std: 弦樂器類
+sound_hs: 3 弦鳴樂器
 playing_method: 撥弦／擦弦／擊弦
-family: 弦樂器類
-hs_class: 3 弦鳴樂器
-sound_class: 弦鳴
-country: 烏克蘭
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-body_listening: 懷抱、手指、腳步、敘事
+interface_tags: 
+region_culture: 烏克蘭｜單一地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 需調整
+issue_note: 譯名需區分；Balkan tambura 譯成「坦伯拉琴」容易與 Tanpura/Tambura 混淆。；建議「巴爾幹坦布拉琴」。
+source_url: https://soundweavers-music.github.io/instruments/bandura/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Bandura_range.tif/lossy-page1-500px-Bandura_range.tif.jpg
 youtube_ids: gewWCildh_o qoP2We1D2Ro
-instrument_key: 全調性
-range: 約3.5個8度
 ---
+
 ## 介紹
 
 班杜拉琴（烏克蘭語：бандура [bɐnˈdurɐ]）是一種烏克蘭撥弦民間樂器。它融合了揚琴和琵琶的元素，直到1940年代，它也經常被稱為科布扎琴。早期樂器（約1700年）有5至12根弦，外形類似琵琶。在20世紀，弦的數量初期增加到31根弦（1926年），隨後增加到56根弦──現代「音樂會」樂器上有68根弦（1954年）。演奏班杜拉琴的音樂家被稱為班杜拉琴演奏家。在19世紀和20世紀初，傳統的班杜拉琴演奏者，通常是盲人，被稱為科布扎樂手。

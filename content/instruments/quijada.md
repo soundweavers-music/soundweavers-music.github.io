@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/quijada/
-title: 頜骨鼓
-original_name: Quijada
-category: 打擊樂器
-country: 美洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Quijada.jpg/500px-Quijada.jpg
-sound_class: 體鳴
-range: 中低頻段（約2個8度）
-instrument_key: 無固定調性
-hs_class: 11 小型體鳴／搖奏刮奏敲奏
-family: 小型節奏體鳴、沙鈴、刮器與身體打擊
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 頜骨鼓
+title_original: Quijada
+family_std: 小型節奏體鳴、沙鈴、刮器與身體打擊
+sound_hs: 11 小型體鳴／搖奏刮奏敲奏
 playing_method: 搖奏／刮奏／敲擊／身體打擊
-body_listening: 手腕、腳踝、短音、節奏對齊
-soundscape: 手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 美洲
+listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/quijada/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Quijada.jpg/500px-Quijada.jpg
 youtube_ids: TSqJdaBYa0I PiDfVLyD1P8
 ---
+
 ## 介紹
 
 頜骨鼓（西班牙文：quijada、charrasca，英文：jawbone）是一種體鳴打擊樂器，由驢、馬、騾子或牛的下顎骨製成，能發出強大的嗡鳴聲。將下顎骨清理乾淨並晾乾，使牙齒變得鬆動並起到撥浪鼓的作用。它在拉丁美洲大部分地區的音樂中使用，包括墨西哥、秘魯、薩爾瓦多、厄瓜多和古巴。在美國早期的民謠表演秀中也曾歷史性地被使用過。

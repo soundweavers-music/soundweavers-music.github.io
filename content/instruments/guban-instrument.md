@@ -1,17 +1,22 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/guban-instrument/
-title: 鼓板
-original_name: Guban (instrument)
-category: 打擊樂器
-country: 中國
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-body_listening: 手掌、腳底、低音、舞步
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 鼓板
+title_original: Guban (instrument)
+family_std: 鼓皮與鼓類家族
+sound_hs: 待確認
+playing_method: 敲奏／拍奏／搖奏／刮奏（待細分）
+interface_tags: 
+region_culture: 中國｜單一地區／文化圈
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/guban-instrument/
 youtube_ids: nNwJgEIecys _HP1_qJXhWs
-instrument_key: 無固定調性
-range: 約2個8度
 ---
+
 ## 介紹
 
 鼓板（板鼓、小鼓、單皮鼓、北鼓、梆子、通鼓、扁鼓）鼓板是由‌單皮鼓‌和‌檀板‌兩種樂器組合而成的，主要用於戲曲樂隊的伴奏和指揮。鼓板常用於崑劇、京劇、越劇等戲曲的伴奏。也用於器樂，如江南絲竹、潮州器樂、蘇南吹打、十番鑼鼓、山西八套等。 。單皮鼓是一種打擊樂器，而檀板則是用來打拍子的拍板。這兩種樂器通常由鼓師一人負責掌握，通過鼓板的節奏來指揮整個樂隊。 鼓板(檀板)由3塊板組成，為主要的節奏樂器之一。板鼓(單皮鼓)，為打擊樂器。板鼓為形體矮小的單面鼓，鼓身用硬質木料製作。

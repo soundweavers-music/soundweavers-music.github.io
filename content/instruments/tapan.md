@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/tapan/
-title: 塔潘鼓
-original_name: Tapan
-category: 打擊樂器
-country: 非洲／中東／亞洲／歐洲／美洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Mehter_davul.jpg/500px-Mehter_davul.jpg
-sound_class: 膜鳴
-range: 約2個8度
-instrument_key: 無固定調性
-hs_class: 21 膜鳴鼓類
-family: 膜鳴鼓類、框鼓、杯鼓與鼓組
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 塔潘鼓
+title_original: Tapan
+family_std: 膜鳴鼓類、框鼓、杯鼓與鼓組
+sound_hs: 21 膜鳴鼓類
 playing_method: 手拍／槌擊／皮膜振動
-body_listening: 手掌、腳底、低音、舞步
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-region_type: 地區／文化圈
+interface_tags: 鼓槌
+region_culture: 非洲／中東／亞洲／歐洲／美洲｜地區／文化圈
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 需調整
+issue_note: 名稱主項；Suling 是東南亞竹笛；第52 Babarak 若為變體需相鄰。；保留主項，和 Babarak 鄰近。
+source_url: https://soundweavers-music.github.io/instruments/tapan/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Mehter_davul.jpg/500px-Mehter_davul.jpg
 youtube_ids: gviGwkafYHs lzzMHoi3r2w
 ---
+
 ## 介紹
 
 塔潘鼓是源自中東和巴爾幹地區的傳統大型打擊樂器，在土耳其、阿拉伯世界及南斯拉夫地區廣泛流傳。樂器由木製鼓身和動物皮革鼓面組成，通常直徑較大，需用鼓槌敲擊演奏。其音色深沉厚重，具有溫暖的低頻特徵和強大的穿透力。塔潘鼓最初在奧斯曼帝國時期被廣泛使用，特別是在軍事和宮廷音樂中扮演重要角色，後來廣泛應用於民間音樂、舞蹈表演和宗教儀式中，是民族樂隊不可或缺的低音基調樂器。

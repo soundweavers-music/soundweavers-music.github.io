@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/steel-drum/
-title: 鋼鼓
-original_name: Steel drum
-category: 打擊樂器
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 鋼鼓
+title_original: Steel drum
+family_std: 鼓類
+sound_hs: 2 膜鳴樂器
 playing_method: 敲擊鼓面
-family: 鼓類
-hs_class: 2 膜鳴樂器
-sound_class: 膜鳴
-country: 美洲／加勒比
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-body_listening: 材料、回聲、群體分工、音列
+interface_tags: 
+region_culture: 美洲／加勒比｜單一地區／文化圈
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/steel-drum/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Steelpan_Instruments_at_Trinidad_and_Tobago_Carnival.jpg/500px-Steelpan_Instruments_at_Trinidad_and_Tobago_Carnival.jpg
 youtube_ids: mw4k1tCnAuE MnqnQHcfnno
-instrument_key: 全調性
-range: 約2至3個八度
 ---
+
 ## 介紹
 
 鋼鼓（也稱為平底鍋或鋼鼓樂器）是源自千里達及托巴哥的樂器。鋼鼓音樂家被稱為鋼鼓手。1992年，時任總理派翠克·曼寧將鋼鼓宣布為千里達及托巴哥的國家樂器。這有助於將鋼鼓轉變為民族自豪感和文化認同的象徵，在當地和國際上都得到了認可。2023年，聯合國大會宣布8月11日為世界鋼鼓日。

@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/conch-shell/
-title: 螺貝號
-original_name: Conch shell
-category: 管樂器
-country: 全球／多地
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Queen_Conch_%28Lobatus_gigas%29.jpg/500px-Queen_Conch_%28Lobatus_gigas%29.jpg
-sound_class: 氣鳴
-range: 中低音區域，約1至2個8度
-instrument_key: 無固定調性
-hs_class: 423 唇振氣鳴／號角與銅管
-family: 唇振氣鳴、天然號角與銅管
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 號角與唇振
+title_zh: 螺貝號
+title_original: Conch shell
+family_std: 唇振氣鳴、天然號角與銅管
+sound_hs: 423 唇振氣鳴／號角與銅管
 playing_method: 唇振吹奏
-body_listening: 嘴唇、遠方、召喚、空間方向
-soundscape: 吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 全球／多地
+listening_sound_tags: 嘴唇、遠方、召喚、空間方向｜吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/conch-shell/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Queen_Conch_%28Lobatus_gigas%29.jpg/500px-Queen_Conch_%28Lobatus_gigas%29.jpg
 youtube_ids: fkuq6prZHoA got_iLKSIBY
 ---
+
 ## 介紹
 
 螺貝號（美式發音：KONK、KONCH，英式發音：KONCH）是指多種中等至大型海螺的統稱。螺貝號殼通常具有高聳的螺塔和明顯的虹吸管狀開口（換句話說，殼的兩端都呈現明顯的尖點）。有時被稱為「真螺貝號」的螺貝號是屬於翅螺科的海洋腹足綱動物，特別是來自翅螺屬和其他密切相關的屬。例如，巨大翅螺（女王螺貝號）就是一種真螺貝號。真螺貝號的特徵是具有細長的螺塔。

@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/tromba-marina/
-title: 海號琴
-original_name: Tromba marina
-category: 弦樂器
-country: 歐洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/en/thumb/7/72/Marine_trumpet.jpg/500px-Marine_trumpet.jpg
-sound_class: 弦鳴
-range: 約3至4個8度（中高音域突出）
-instrument_key: D大調（原始琴弦）
-hs_class: 321.3 擦弦／輪弦／提琴家族
-family: 擦弦、輪弦與提琴家族
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 海號琴
+title_original: Tromba marina
+family_std: 擦弦、輪弦與提琴家族
+sound_hs: 弦鳴｜321.3 擦弦／輪弦／提琴家族
 playing_method: 弓擦／輪擦
-body_listening: 號角般泛音、修院聲響、古樂奇異感
-soundscape: 弓毛拉出的哭與唱（擦弦、輪弦與提琴家族）
-region_type: 歷史文化圈
+interface_tags: 弓
+region_culture: 歐洲｜歷史文化圈
+listening_sound_tags: 號角般泛音、修院聲響、古樂奇異感｜弓毛拉出的哭與唱（擦弦、輪弦與提琴家族）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/tromba-marina/
+image: https://upload.wikimedia.org/wikipedia/en/thumb/7/72/Marine_trumpet.jpg/500px-Marine_trumpet.jpg
 youtube_ids: srWxpRxlTbc YLB92Z7-XB4
 ---
+
 ## 介紹
 
 海號琴（法文：trompette marine；德文：Marientrompete、Trompetengeige、Nonnengeige 或 Trumscheit；波蘭文：tubmaryna），又稱為海洋小號、小號琴或修女提琴，是一種三角形弓弦樂器，在中世紀和文藝復興時期的歐洲使用，在15世紀的英格蘭極為流行，並延續使用至18世紀。海號琴由一個身體和頸部組成，形狀為截頂圓錐體，置於三角形的底座上。它通常長四到七英尺，是一種單弦樂器（儘管某些版本具有同情共鳴的弦）。

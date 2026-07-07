@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/dulcimer/
-title: 德西馬琴
-original_name: Dulcimer
-category: 弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 德西馬琴
+title_original: Dulcimer
+family_std: 弦樂器類
+sound_hs: 3 弦鳴樂器
 playing_method: 撥弦／擦弦／擊弦
-family: 弦樂器類
-hs_class: 3 弦鳴樂器
-sound_class: 弦鳴
-country: 中東
-era: 傳統／年代待考
-region_type: 地區／文化圈
-soundscape: 平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化弦鳴）
-body_listening: 手掌、弦面、推音、敲擊
+interface_tags: 
+region_culture: 中東｜地區／文化圈
+listening_sound_tags: 手掌、弦面、推音、敲擊｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化弦鳴）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/dulcimer/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Dulcimer_%28UP%29.jpg/500px-Dulcimer_%28UP%29.jpg
 youtube_ids: 4MmokTsYWnA QN3KWbpBsvg
-instrument_key: 全調性
-range: 約3至4個8度
 ---
+
 ## 介紹
 
 德西馬琴一詞指的是兩個系列的弦樂器家族。

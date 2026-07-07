@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/tama/
-title: 塔馬變音鼓
-original_name: Tama
-category: 打擊樂器
-country: 非洲／中東／亞洲／歐洲／美洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/TalkingDrum.jpg/500px-TalkingDrum.jpg
-sound_class: 膜鳴
-range: 中高頻範圍（可變音高設計，無固定音域標準）
-instrument_key: 全調性
-hs_class: 21 膜鳴鼓類
-family: 膜鳴鼓類、框鼓、杯鼓與鼓組
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 塔馬變音鼓
+title_original: Tama
+family_std: 膜鳴鼓類、框鼓、杯鼓與鼓組
+sound_hs: 21 膜鳴鼓類
 playing_method: 手拍／槌擊／皮膜振動
-body_listening: 手掌、腳底、低音、舞步
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-region_type: 地區／文化圈
+interface_tags: 
+region_culture: 非洲／中東／亞洲／歐洲／美洲｜地區／文化圈
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/tama/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/TalkingDrum.jpg/500px-TalkingDrum.jpg
 youtube_ids: lJJdHgFgFPU Ue7JGBTCK6I
 ---
+
 ## 介紹
 
 塔馬變音鼓是源自西非薩赫爾地區的打擊樂器，屬膜鳴樂器。其外型為圓筒形鼓體，兩端覆蓋獸皮鼓膜，側面配有可調節的繩索張力系統。演奏者可透過改變繩索緊繃度即時調整鼓皮張力，從而改變音高，產生從悶沉到明亮的多變音色。塔馬變音鼓音色溫潤而富穿透力，既能作為節奏骨幹樂器，亦能表現細膩音色變化，在傳統格裡奧吟唱、現代爵士樂及世界音樂中廣泛應用。

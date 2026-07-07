@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/triangle-musical-instrument/
-title: 三角鐵
-original_name: Triangle (musical instrument)
-category: 打擊樂器
-country: 歐洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Triangle_001.jpg/500px-Triangle_001.jpg
-sound_class: 體鳴
-range: 高頻區域，約1至2個8度
-instrument_key: 無固定調性
-hs_class: Idiophone／體鳴樂器
-family: 鈴、響片與小金屬
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 三角鐵
+title_original: Triangle (musical instrument)
+family_std: 鈴、響片與小金屬
+sound_hs: Idiophone／體鳴樂器
 playing_method: 搖／擊／碰撞
-body_listening: 手腕、腳踝、短音、節奏對齊
-soundscape: 手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 歐洲
+listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/triangle-musical-instrument/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Triangle_001.jpg/500px-Triangle_001.jpg
 youtube_ids: GvSS6_eDHiE FMqDnWebXag
 ---
+
 ## 介紹
 
 三角鐵，為體鳴樂器的一種。金屬製，現在通常以鋼造，並彎曲成三角形。演奏方法分為開關兩種。常用於各種樂團製造音效。 演奏時一手持三角鐵上的繫繩，一手持金屬棒敲擊，敲擊之後視情況決定是否需要以手止音。通常有分單擊以及連擊兩種音效。單擊主要用於點綴樂曲，連擊則用於提昇樂曲聲勢。

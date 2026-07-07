@@ -1,19 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/baritone-sarrusophone/
-title: 中低音薩魯梭風
-original_name: Baritone sarrusophone
-category: 管樂器
-country: 義大利
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-body_listening: 口腔、舌頭、簧片震動、鼻音
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 中低音薩魯梭風
+title_original: Baritone sarrusophone
+family_std: 無簧吹管家族
+sound_hs: 待確認
+playing_method: 吹奏
+interface_tags: 
+region_culture: 義大利｜單一地區／文化圈
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/baritone-sarrusophone/
 image: https://upload.wikimedia.org/wikipedia/commons/a/a8/MET_baritone_sarrusophone.png
 youtube_ids: J4iks3jSNF4 51lcyVGorYQ
-instrument_key: E♭調
-range: 音域與中低音薩克斯風相同（約2.5個8度）
 ---
+
 ## 介紹
 
 中低音薩魯梭風是薩魯梭風樂器家族中的中低音成員，屬於金屬雙簧錐形管孔風樂器。有時俗稱為「戰鬥巴松管」，音調為E♭，音域與中低音薩克斯風相同，高度約與巴松管相當。其樂器主體纏繞一圈，而超低音薩魯梭風則纏繞兩圈。

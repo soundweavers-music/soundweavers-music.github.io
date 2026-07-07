@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/akadinda/
-title: 阿卡丁達木琴
-original_name: Akadinda
-category: 打擊樂器
-country: 東南亞／東亞／非洲／歐洲／全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Xylophone_%28PSF%29.svg/500px-Xylophone_%28PSF%29.svg.png
-sound_class: 體鳴
-range: 約3至4個8度
-instrument_key: 多調性
-hs_class: 11/12 定音體鳴／鑼鐘木琴石琴系統
-family: 定音體鳴、材料敲擊與鑼鐘木琴系統
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 阿卡丁達木琴
+title_original: Akadinda
+family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
+sound_hs: 11/12 定音體鳴／鑼鐘木琴石琴系統
 playing_method: 敲擊／搖奏／材料共鳴
-body_listening: 材料、回聲、群體分工、音列
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 東南亞／東亞／非洲／歐洲／全球
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 有問題，需修正
+issue_note: 屬性錯誤；Ajaeng 可譯「牙箏」，但它是韓國弓擦齊特琴，不是鍵盤樂器。；歸第7類擦弦／弓擦齊特琴，或第5類箏類鄰近並標弓擦。
+source_url: https://soundweavers-music.github.io/instruments/akadinda/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Xylophone_%28PSF%29.svg/500px-Xylophone_%28PSF%29.svg.png
 youtube_ids: x8_Z8upsC-o IMkI52odgoo
 ---
+
 ## 介紹
 
 木琴（源自古希臘語 ξύλον (xúlon)「木頭」和 φωνή (phōnḗ)「聲音、嗓音」；字面意為「木頭的聲音」）是打擊樂器家族中的一種樂器，由用木槌敲擊的木條組成。每根木條都是調至音樂音階音高的自鳴樂器，許多非洲和亞洲樂器採用五聲音階或七聲音階，許多西方兒童樂器採用全音階，而管弦樂隊樂器則採用半音階。木琴一詞可籠統地使用，涵蓋所有此類樂器，如馬林巴琴、巴拉芬琴，甚至聖樂木琴。

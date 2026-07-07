@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/maraca/
-title: 沙槌
-original_name: Maraca
-category: 打擊樂器
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 沙鈴、刮器與小打擊
+title_zh: 沙槌
+title_original: Maraca
+family_std: 體鳴打擊樂器類
+sound_hs: 1 体鳴樂器
 playing_method: 敲擊／搖晃／撥彈
-family: 體鳴打擊樂器類
-hs_class: 1 体鳴樂器
-sound_class: 体鳴
-country: 非洲／美洲
-era: 古代
-region_type: 單一地區／文化圈
-soundscape: 手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
-body_listening: 手腕、腳踝、短音、節奏對齊
+interface_tags: 
+region_culture: 非洲／美洲｜單一地區／文化圈
+listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/maraca/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Colorful_Maracas.JPG/500px-Colorful_Maracas.JPG
 youtube_ids: fUgj-aL6EXg Hrhkn4QqhXs
-instrument_key: 無固定調性
-range: 中高頻段（無明確音高定位）
 ---
+
 ## 介紹
 
 沙槌（圖皮語：maraca），亦稱為沙錘、砂槌、沙鈴或沙球，是一種敲擊樂器，屬於體鳴樂器，沿自南美洲哥倫比亞。大概已有超過1500年的歷史。除哥倫比亞外，在不少的南美國家都可以找到相近的古代沙鈴證據。包括有牙買加、委內瑞拉、古巴和特立尼達島等。 和擊木一樣，沙鈴較常以一對演奏，但單使用一隻亦可以。

@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/koncovka/
-title: 斯洛伐克竹笛
-original_name: Koncovka
-category: 管樂器
-country: 歐洲／斯洛伐克
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Finfajfilo%2C_tuto.jpg/500px-Finfajfilo%2C_tuto.jpg
-sound_class: 氣鳴
-range: 約1.5個8度（中高音域為主）
-instrument_key: 部分呂第亞音階
-hs_class: 421 邊棱氣鳴／無簧笛類
-family: 無簧吹管、長音與氣息樂器
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 簧片樂器
+title_zh: 斯洛伐克竹笛
+title_original: Koncovka
+family_std: 無簧吹管、長音與氣息樂器
+sound_hs: 421 邊棱氣鳴／無簧笛類
 playing_method: 吹奏／端吹／橫吹／容器共鳴
-body_listening: 氣息、胸腔、長音、空間
-soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
-region_type: 跨文化／多地
+interface_tags: 指孔
+region_culture: 歐洲／斯洛伐克
+listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/koncovka/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Finfajfilo%2C_tuto.jpg/500px-Finfajfilo%2C_tuto.jpg
 youtube_ids: KXnAXsMyCFU hJNgQm5F5j4
 ---
+
 ## 介紹
 
 康切夫卡是一種斯洛伐克導吹式泛音竹笛，沒有指孔，傳統上由牧羊人演奏。康切夫卡通過關閉和打開笛子底部的孔洞來演奏。通過增加氣流速度，無論底端是開放還是關閉，都可以演奏兩個不同的諧波音階。傳統的康切夫卡旋律使用這種樂器上可用的部分呂第亞音階。

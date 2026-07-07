@@ -1,19 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/tenor-sarrusophone/
-title: 次中音薩魯梭風
-original_name: Tenor sarrusophone
-category: 管樂器
-country: 法國
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-body_listening: 口腔、舌頭、簧片震動、鼻音
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 次中音薩魯梭風
+title_original: Tenor sarrusophone
+family_std: 無簧吹管家族
+sound_hs: 待確認
+playing_method: 吹奏
+interface_tags: 
+region_culture: 法國｜單一地區／文化圈
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/tenor-sarrusophone/
 image: https://upload.wikimedia.org/wikipedia/commons/c/c6/MET_tenor_sarrusophone.png
 youtube_ids: 0kKK6pcUMTQ QDkqdFNl_Fs
-instrument_key: 降B調
-range: 與次中音薩克斯風相同
 ---
+
 ## 介紹
 
 次中音薩魯梭風是薩魯梭風家族中的次中音成員，屬於金屬雙簧片風樂器，音高為降B調，音域與次中音薩克斯風相同。這些樂器原本在19世紀末至20世紀初由奧西、高特羅及其後繼者庫埃松，以及埃維特與謝弗爾公司（現為布費克朗松公司）製造。目前僅由奧西根據特殊訂單製造。

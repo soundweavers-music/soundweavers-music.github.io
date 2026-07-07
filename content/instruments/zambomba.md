@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/zambomba/
-title: 西班牙摩擦鼓
-original_name: Zambomba
-category: 打擊樂器
-country: 非洲／中東／亞洲／歐洲／美洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Zambomba-Pe%C3%B1aAmigosCa%C3%B1izo-Jerez-P1010344.JPG/500px-Zambomba-Pe%C3%B1aAmigosCa%C3%B1izo-Jerez-P1010344.JPG
-sound_class: 膜鳴
-range: 低至中音區（約1至2個8度）
-instrument_key: 無固定調性
-hs_class: 21 膜鳴鼓類
-family: 膜鳴鼓類、框鼓、杯鼓與鼓組
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 西班牙摩擦鼓
+title_original: Zambomba
+family_std: 膜鳴鼓類、框鼓、杯鼓與鼓組
+sound_hs: 21 膜鳴鼓類
 playing_method: 手拍／槌擊／皮膜振動
-body_listening: 手掌、腳底、低音、舞步
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-region_type: 地區／文化圈
+interface_tags: 
+region_culture: 非洲／中東／亞洲／歐洲／美洲｜地區／文化圈
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 待檢查
+issue_note: 分類概念；Vessel Flute 是容器笛類別，不是單一樂器。；可作陶笛／容器笛導論。
+source_url: https://soundweavers-music.github.io/instruments/zambomba/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Zambomba-Pe%C3%B1aAmigosCa%C3%B1izo-Jerez-P1010344.JPG/500px-Zambomba-Pe%C3%B1aAmigosCa%C3%B1izo-Jerez-P1010344.JPG
 youtube_ids: MK7kRgZpoJU 1yyfUMyijX8
 ---
+
 ## 介紹
 
 摩擦鼓是一種樂器，在非洲、亞洲、歐洲和南美洲都以各種形式存在。在歐洲，它於16世紀出現，並與特定的宗教和儀式場合相關聯。

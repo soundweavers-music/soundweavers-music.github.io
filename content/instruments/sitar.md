@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/sitar/
-title: 錫塔琴
-original_name: Sitar
-category: 弦樂器
-country: 亞洲／南亞（印度）
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Sitar%2C_late_19th_Century.jpg/500px-Sitar%2C_late_19th_Century.jpg
-sound_class: 弦鳴
-range: 約4個8度
-instrument_key: 無固定調性
-hs_class: 321/322 魯特琴類／撥弦
-family: 魯特琴、短頸長頸撥弦與民謠弦聲
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 錫塔琴
+title_original: Sitar
+family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
+sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
 playing_method: 撥弦／刷弦／撥片
-body_listening: 懷抱、手指、腳步、敘事
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 跨文化／多地
+interface_tags: 撥片
+region_culture: 亞洲／南亞（印度）
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/sitar/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Sitar%2C_late_19th_Century.jpg/500px-Sitar%2C_late_19th_Century.jpg
 youtube_ids: KBYSpR8N6pc tTbY_EeC9Wg
 ---
+
 ## 介紹
 
 錫塔琴（英語：sitar；IAST：sitāra）是一種撥弦樂器，源自印度次大陸，用於印度斯坦古典音樂。該樂器在18世紀被發明，並在19世紀印度時期達到其現代形式。18世紀莫臥兒帝國人物庫斯勞·汗被現代學術界認定為錫塔琴的發明者。根據大多數歷史學家的說法，他從瑟塔琴（setar）發展而來錫塔琴，瑟塔琴是一種伊朗樂器，源自阿拔斯王朝或薩非王朝時期。

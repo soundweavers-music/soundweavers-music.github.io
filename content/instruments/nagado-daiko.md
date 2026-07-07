@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/nagado-daiko/
-title: 長胴太鼓
-original_name: Nagado-daiko
-category: 打擊樂器
-country: 非洲／中東／亞洲／歐洲／美洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Miya_Daiko_drum_-_Taiko_drums.jpg/500px-Miya_Daiko_drum_-_Taiko_drums.jpg
-sound_class: 膜鳴
-range: 約2個8度
-instrument_key: 無固定調性
-hs_class: 21 膜鳴鼓類
-family: 膜鳴鼓類、框鼓、杯鼓與鼓組
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 電聲改造樂器
+title_zh: 長胴太鼓
+title_original: Nagado-daiko
+family_std: 膜鳴鼓類、框鼓、杯鼓與鼓組
+sound_hs: 21 膜鳴鼓類
 playing_method: 手拍／槌擊／皮膜振動
-body_listening: 手掌、腳底、低音、舞步
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-region_type: 地區／文化圈
+interface_tags: 鼓槌
+region_culture: 非洲／中東／亞洲／歐洲／美洲｜地區／文化圈
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 太鼓團
+verification_status: 移入第13類
+issue_note: 現代電子／取樣；屬現代電子、取樣、電聲或電氣化鍵盤／設備類，應集中到第13類。；移第13類，並與傳統鍵盤／風箱類分開。
+source_url: https://soundweavers-music.github.io/instruments/nagado-daiko/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Miya_Daiko_drum_-_Taiko_drums.jpg/500px-Miya_Daiko_drum_-_Taiko_drums.jpg
 youtube_ids: C7HL5wYqAbU BHA3LtBW6GA
 ---
+
 ## 介紹
 
 長胴太鼓是日本最具代表性的傳統打擊樂器，以其獨特的長筒形鼓身聞名。樂器由兩面鼓皮張貼於圓筒形木製鼓身，用鼓槌敲擊發聲。其音色雄渾有力、穿透性強，兼具明亮高音與深沉低音的特色。長胴太鼓廣泛應用於神社祭典、能劇、歌舞伎等傳統表演藝術，是日本太鼓表演藝術的核心樂器，已傳播至世界各地。

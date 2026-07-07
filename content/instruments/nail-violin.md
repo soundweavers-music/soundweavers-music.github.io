@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/nail-violin/
-title: 釘子提琴
-original_name: Nail violin
-category: 打擊樂器
-country: 德國
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
-body_listening: 胸口、嗓音、拉長的情緒
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 擦弦、鍵控與輪弦
+title_zh: 釘子提琴
+title_original: Nail violin
+family_std: 擦弦、輪弦與提琴家族
+sound_hs: 弦鳴｜321.3 擦弦／輪弦／提琴家族
 playing_method: 弓擦／輪擦
-family: 擦弦、輪弦與提琴家族
-hs_class: 321.3 擦弦／輪弦／提琴家族
-sound_class: 弦鳴
-range: 中高音區（約2個8度）
-instrument_key: 全調性
+interface_tags: 弓
+region_culture: 德國｜單一地區／文化圈
+listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/nail-violin/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Nail_violin%2CBohemia.jpg/500px-Nail_violin%2CBohemia.jpg
 youtube_ids: LOIHVexAg88 k82aY_hT8tU
 ---
+
 ## 介紹
 
 釘子提琴是一種樂器，由半圓形木製音板組成，上面排列著不同長度的釘子，當用弓拉過這些釘子時，可以發出半音階。它於1740年由德國小提琴家約翰·威爾德發明。

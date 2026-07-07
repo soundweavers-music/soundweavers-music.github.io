@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/roneat-dek/
-title: 柬埔寨鐵琴
-original_name: Roneat Dek
-category: 打擊樂器
-country: 東南亞／東亞／非洲／歐洲／全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Cambodia_xylophone_by_%C3%89mile_Gsell_from_his_book_Voyage_de_l%27%C3%89gypte_%C3%A0_l%27Indochine.jpg/500px-Cambodia_xylophone_by_%C3%89mile_Gsell_from_his_book_Voyage_de_l%27%C3%89gypte_%C3%A0_l%27Indochine.jpg
-sound_class: 體鳴
-range: 中音域（約2個8度）
-instrument_key: 全調性
-hs_class: 11/12 定音體鳴／鑼鐘木琴石琴系統
-family: 定音體鳴、材料敲擊與鑼鐘木琴系統
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 柬埔寨鐵琴
+title_original: Roneat Dek
+family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
+sound_hs: 11/12 定音體鳴／鑼鐘木琴石琴系統
 playing_method: 敲擊／搖奏／材料共鳴
-body_listening: 材料、回聲、群體分工、音列
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 東南亞／東亞／非洲／歐洲／全球
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/roneat-dek/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Cambodia_xylophone_by_%C3%89mile_Gsell_from_his_book_Voyage_de_l%27%C3%89gypte_%C3%A0_l%27Indochine.jpg/500px-Cambodia_xylophone_by_%C3%89mile_Gsell_from_his_book_Voyage_de_l%27%C3%89gypte_%C3%A0_l%27Indochine.jpg
 youtube_ids: RaGs8Nl71aU mc_VjN-54nA
 ---
+
 ## 介紹
 
 柬埔寨木琴（Roneat Dek）是源自高棉文明時期的傳統打擊樂器，由木製共鳴盒和多根木條組成。樂器外形為長方形，下方配置共鳴管以增強音響效果。演奏者持木槌敲擊木條發音，音色明亮清脆而溫潤。在柬埔寨古典音樂中扮演重要角色，廣泛應用於皇家樂團、廟宇儀式及民間祭祀活動，常與其他打擊樂器組合演奏。

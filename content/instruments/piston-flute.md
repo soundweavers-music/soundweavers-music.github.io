@@ -1,22 +1,22 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/piston-flute/
-title: 活塞長笛
-original_name: Piston flute
-category: 弦樂器
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 活塞長笛
+title_original: Piston flute
+family_std: 弦樂器類
+sound_hs: 3 弦鳴樂器
 playing_method: 撥弦／擦弦／擊弦
-family: 弦樂器類
-hs_class: 3 弦鳴樂器
-sound_class: 弦鳴
-country: 歐洲
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
-body_listening: 氣息、胸腔、長音、空間
+interface_tags: 指孔、活塞
+region_culture: 歐洲｜單一地區／文化圈
+listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+ensemble_links: 爵士編制
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/piston-flute/
 youtube_ids: NSFyPKFqbTQ 4xXU0GiavU4
-instrument_key: 全調性
-range: 約2至3個8度
 ---
+
 ## 介紹
 
 活塞長笛（亦稱為斯威尼長笛、蓮花笛、活塞笛或爵士笛）是一種管樂器，由一根內部裝有活塞的管子和一端類似於豎笛的指孔式吹嘴組成。這使演奏者在吹奏時能夠通過活塞改變音高，產生上升或下降的滑音效果。由於氣柱呈圓筒形，一端開放，一端關閉，它會過吹第三泛音。

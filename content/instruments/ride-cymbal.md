@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/ride-cymbal/
-title: 疊音鈸
-original_name: Ride cymbal
-category: 打擊樂器
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
+title_zh: 疊音鈸
+title_original: Ride cymbal
+family_std: 體鳴打擊樂器類
+sound_hs: 1 体鳴樂器
 playing_method: 敲擊／搖晃／撥彈
-family: 體鳴打擊樂器類
-hs_class: 1 体鳴樂器
-sound_class: 体鳴
-country: 歐洲
-era: 傳統／年代待考
-region_type: 地區／文化圈
-soundscape: 手邊發光的小宇宙（近身體鳴、舌片琴與手奏金屬共鳴）
-body_listening: 指尖、掌心、尾音、近身聆聽
+interface_tags: 
+region_culture: 歐洲｜地區／文化圈
+listening_sound_tags: 指尖、掌心、尾音、近身聆聽｜手邊發光的小宇宙（近身體鳴、舌片琴與手奏金屬共鳴）
+ensemble_links: 爵士編制
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/ride-cymbal/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Drum_kit_parts.png/500px-Drum_kit_parts.png
 youtube_ids: qG-PN-Ffxk4 Xk0FoUSlLas
-instrument_key: 無固定調性
-range: 中高頻至高頻範圍（約2至3個8度）
 ---
+
 ## 介紹
 
 疊音鈸（英語：ride cymbal，又稱叮叮鑔）是其中一個在大多數鼓組中的標準部分。在保持一個穩定的鼓點時會使用它， ，而不是使用重音的碎音鈸。它通常放置在落地鼓上方,鼓組的最右側（或慣用手的方向）。 除了打開和關閉時的聲音之外，疊音鈸可以代替腳踏鈸的任何功能或節奏。 疊音鈸是用鼓棍演奏的。

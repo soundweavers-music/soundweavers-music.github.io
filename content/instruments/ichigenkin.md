@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/ichigenkin/
-title: 日本一弦琴
-original_name: Ichigenkin
-category: 鍵盤樂器
-country: 東亞／中亞／歐洲／東南亞／非洲／美洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Yakumo-goto.tif/lossy-page1-500px-Yakumo-goto.tif.jpg
-sound_class: 弦鳴
-range: 約2個8度
-instrument_key: 無固定調性
-hs_class: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
-family: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 日本一弦琴
+title_original: Ichigenkin
+family_std: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+sound_hs: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
 playing_method: 撥弦／擊弦／按鍵擊弦
-body_listening: 手掌、弦面、推音、敲擊
-soundscape: 平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
-region_type: 地區／文化圈
+interface_tags: 鍵盤／按鍵
+region_culture: 東亞／中亞／歐洲／東南亞／非洲／美洲｜地區／文化圈
+listening_sound_tags: 手掌、弦面、推音、敲擊｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
+ensemble_links: 
+verification_status: 需調整
+issue_note: 名稱可保留／需區分；Harmonica 是口琴；與第380 Jaw Harp 中文不可同為口琴。；保留「口琴（Harmonica）」；第380改口簧琴。；DUP-012:Harmonica／Jaw Harp／Kouxian
+source_url: https://soundweavers-music.github.io/instruments/ichigenkin/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Yakumo-goto.tif/lossy-page1-500px-Yakumo-goto.tif.jpg
 youtube_ids: jNEp84PVYes wu1_7EOAgRM
 ---
+
 ## 介紹
 
 The ichigenkin (Japanese: 一弦琴; literally "one-string zither" or "Monochord", also sumagoto / 須磨琴) is a Japanese single-stringed plucked zither. Its body is a slender, slightly curved plank carved from kiri (Paulownia tomentosa) wood. Its raw silk string is plucked with a tubular plectrum placed on the index finger of the right hand while a tubular ivory device similar to a guitar slide placed over the middle finger of the left hand slightly depresses the string—though not so hard that it presses against the hardwood soundboard—to vary the pitch.

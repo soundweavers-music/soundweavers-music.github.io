@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/banjo/
-title: 班卓琴
-original_name: Banjo
-category: 弦樂器
-country: 中東／歐亞／東亞／美洲／全球
-era: 19 世紀
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Bluegrass_banjo.png/500px-Bluegrass_banjo.png
-sound_class: 弦鳴
-range: 約3個8度
-instrument_key: 全調性
-hs_class: 321/322 魯特琴類／撥弦
-family: 魯特琴、短頸長頸撥弦與民謠弦聲
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 班卓琴
+title_original: Banjo
+family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
+sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
 playing_method: 撥弦／刷弦／撥片
-body_listening: 懷抱、手指、腳步、敘事
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 跨文化／多地
+interface_tags: 撥片
+region_culture: 中東／歐亞／東亞／美洲／全球
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 藍草樂隊
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/banjo/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Bluegrass_banjo.png/500px-Bluegrass_banjo.png
 youtube_ids: fnMhUPewk6c lZTRpS3wAzQ
 ---
+
 ## 介紹
 
 斑鳩琴（英語：banjo），又稱班卓琴或五弦琴，是一種撥弦樂器。它由美國的非洲裔奴隸以幾種非洲樂器為基礎發展而成。它在今日往往與提琴一併用來演奏鄉村音樂和藍草音樂，偶爾亦用在搖滾樂、流行音樂與嘻哈音樂中。 斑鳩琴的上部形似吉他，下部形似鈴鼓。傳統的斑鳩琴有5根弦，也是當今最流行的斑鳩琴琴弦數量。而現在的斑鳩琴亦有4弦和6弦等。由於6弦版本的斑鳩琴的調音與奏法都與吉他相同，所以亦有相當的流行程度。斑鳩琴以撥奏發聲，音色乾脆明快，但是其音量不大，琴身的外膜具有獨特的音色。琴身背後有木製共鳴器，可以將聲音向外擴散，大大改善其音質及音量。 斑鳩琴的演奏技法多是彈撥（strumming）或用右手彈出琶音。

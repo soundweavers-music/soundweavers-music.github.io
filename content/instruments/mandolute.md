@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/mandolute/
-title: 曼陀魯特琴
-original_name: Mandolute
-category: 弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 曼陀魯特琴
+title_original: Mandolute
+family_std: 弦樂器類
+sound_hs: 3 弦鳴樂器
 playing_method: 撥弦／擦弦／擊弦
-family: 弦樂器類
-hs_class: 3 弦鳴樂器
-sound_class: 弦鳴
-country: 美國
-era: 傳統／年代待考
+interface_tags: 
+region_culture: 美國｜單一地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/mandolute/
 image: https://upload.wikimedia.org/wikipedia/commons/e/e3/Weymann_mandolute.jpg
-region_type: 單一地區／文化圈
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-body_listening: 懷抱、手指、腳步、敘事
 youtube_ids: 4x7c5KQLz64 OTsRYUKEIog
-instrument_key: 全調性
-range: 約3個8度
 ---
+
 ## 介紹
 
 韋曼曼陀魯特琴是韋曼品牌銷售的產品之一，韋曼及其子公司是一家位於費城的品牌，成立於1864年。這些「曼陀魯特琴」實際上是八弦曼陀林，調音方式完全相同。琴頸長度也在標準曼陀林的範圍內，介於13英寸（330毫米）至13又7/8英寸（350毫米）之間。他們宣傳利用科學原理在同一件樂器中創造振動、功率和音量，以及持久甘美、溫和的音色。

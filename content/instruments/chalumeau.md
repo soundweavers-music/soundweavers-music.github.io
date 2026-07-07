@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/chalumeau/
-title: 夏呂莫單簧管
-original_name: Chalumeau
-category: 管樂器
-country: 全球／亞洲／中東／歐洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/4/44/JAP_3_Klappen_Chalumeau.jpg
-sound_class: 氣鳴
-range: 約2個8度
-instrument_key: 無固定調性
-hs_class: 412/422 簧鳴與自由簧／單簧雙簧
-family: 口簧、自由簧、單簧雙簧與風袋
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 風箱與自由簧
+title_zh: 夏呂莫單簧管
+title_original: Chalumeau
+family_std: 口簧、自由簧、單簧雙簧與風袋
+sound_hs: 氣鳴｜412/422 簧鳴與自由簧／單簧雙簧
 playing_method: 吹奏／簧片振動／風袋或風箱
-body_listening: 口腔、舌頭、簧片震動、鼻音
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-region_type: 跨文化／多地
+interface_tags: 風箱
+region_culture: 全球／亞洲／中東／歐洲
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/chalumeau/
+image: https://upload.wikimedia.org/wikipedia/commons/4/44/JAP_3_Klappen_Chalumeau.jpg
 youtube_ids: 1J1bv959Has riIpboxWv3U
 ---
+
 ## 介紹
 
 夏呂莫單簧管（英文：；法文：[ʃa.ly.mo]；複數形 chalumeaux）是晚巴洛克時期至古典初期的單簧管木管樂器。夏呂莫單簧管是一種民俗樂器，是現代單簧管的前身。它具有圓筒形音孔，有八個音孔（前面七個，背面一個供拇指使用），以及寬闊的吹口配備單一異質簧片（即分開的，不是樂器本體的連續部分），由蘆葦製成。與單簧管類似，夏呂莫單簧管可以超吹十二度音程。

@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/xylophone/
-title: 木琴
-original_name: Xylophone
-category: 打擊樂器
-country: 亞洲／東南亞／非洲
-era: 9 世紀
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Xylophone.jpg/500px-Xylophone.jpg
-sound_class: 體鳴
-range: 約3至4個8度
-instrument_key: 全調性
-hs_class: 11/12 定音體鳴／鑼鐘木琴石琴系統
-family: 定音體鳴、材料敲擊與鑼鐘木琴系統
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 木琴
+title_original: Xylophone
+family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
+sound_hs: 11/12 定音體鳴／鑼鐘木琴石琴系統
 playing_method: 敲擊／搖奏／材料共鳴
-body_listening: 材料、回聲、群體分工、音列
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-region_type: 跨文化／多地
+interface_tags: 鍵盤／按鍵
+region_culture: 亞洲／東南亞／非洲
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/xylophone/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Xylophone.jpg/500px-Xylophone.jpg
 youtube_ids: lzzMHoi3r2w mPr_SvnJ_z0
 ---
+
 ## 介紹
 
 木琴（英語：Xylophone）是鍵盤敲擊樂器的一種。將木製琴鍵置於共鳴管之上，以琴棒敲打以產生旋律。琴鍵排列方式類似於鋼琴鍵盤。一般所指的木琴為高音木琴，常用於古典音樂演奏，琴鍵較窄，音域較高，音色清脆。常見的木琴還有馬林巴，琴鍵從高音窄到低音寬，音域較廣，音色圓潤。 木琴的起源仍未能確定，最早的歷史記載，大約出現於公元9世紀。當時已經發人類懂得以不同大小的木棒排列在架上，然後用棍敲打的樂器存在。例如印尼的甘美蘭，便有以木片製成的琴；而非洲亦有巴拉風木琴，將葫蘆削頂後套在木棒之下製成共鳴器，可以講是現代木琴的雛型。

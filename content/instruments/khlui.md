@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/khlui/
-title: 克魯伊笛
-original_name: Khlui
-category: 管樂器
-country: 全球／亞洲／歐洲／美洲／大洋洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Khluimouthpiece.jpg/500px-Khluimouthpiece.jpg
-sound_class: 氣鳴
-range: 約3個八度
-instrument_key: 全調性
-hs_class: 421 邊棱氣鳴／無簧笛類
-family: 無簧吹管、長音與氣息樂器
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 簧片樂器
+title_zh: 克魯伊笛
+title_original: Khlui
+family_std: 無簧吹管、長音與氣息樂器
+sound_hs: 421 邊棱氣鳴／無簧笛類
 playing_method: 吹奏／端吹／橫吹／容器共鳴
-body_listening: 氣息、胸腔、長音、空間
-soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 全球／亞洲／歐洲／美洲／大洋洲
+listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/khlui/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Khluimouthpiece.jpg/500px-Khluimouthpiece.jpg
 youtube_ids: t7Z3xAwuTm8 Fiy5OWIB5qY
 ---
+
 ## 介紹
 
 克魯伊笛（泰文：ขลุ่ย，泰語發音：[kʰlùj]）是來自泰國的豎吹管竹笛，起源於素可泰時期（1238–1583）之前或期間。它由國王三佛齊（1431–1488）正式確認為泰國樂器，該國王制定了每種傳統泰國樂器的官方模式。它通常由竹子製成，但也可以由其他類型的木材或塑膠製成。

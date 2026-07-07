@@ -1,19 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/aeolodion/
-title: 風力鋼琴
-original_name: Aeolodion
-category: 打擊樂器
-country: 德國
-era: 傳統／年代待考
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 風力鋼琴
+title_original: Aeolodion
+family_std: 無簧吹管家族
+sound_hs: 待確認
+playing_method: 吹奏
+interface_tags: 
+region_culture: 德國｜單一地區／文化圈
+listening_sound_tags: 手指、機械距離、記憶、電聲｜按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
+ensemble_links: 
+verification_status: 有問題，需修正
+issue_note: 譯名很奇怪；Aeolodion 譯成「風力鋼琴」容易誤導；它是風力／自由簧相關的鍵盤樂器名稱，中文需查 Grove/MIMO。；暫用「艾奧洛迪翁（Aeolodion，暫譯）」或列待查。
+source_url: https://soundweavers-music.github.io/instruments/aeolodion/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Rotterdamsche_courant_27-08-1825_%28IA_ddd_010391726_mpeg21%29.pdf/page1-500px-Rotterdamsche_courant_27-08-1825_%28IA_ddd_010391726_mpeg21%29.pdf.jpg
-region_type: 單一地區／文化圈
-soundscape: 按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
-body_listening: 手指、機械距離、記憶、電聲
 youtube_ids: Ncom7FWjLmw 2mGeTtktG80
-instrument_key: 全調性
-range: 約3個半8度
 ---
+
 ## 介紹
 
 風力鋼琴是19世紀初期由漢堡音樂家尚-托比耶·埃申巴赫發明的創新樂器，屬於打擊樂器類別。其獨特之處在於結合了鋼琴的敲擊機制與風琴的氣鳴原理，通過風力驅動產生共鳴。樂器外形類似小型鋼琴，內部配置風箱系統。音色溫潤詩意，介於打擊樂與氣鳴樂之間，具有蒼涼而富有呼吸感的音響特質，適合表現浪漫與神秘的音樂意象。

@@ -1,21 +1,22 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/davul-zurna-pair/
-title: 達夫鼓-祖爾納管組合
-original_name: Davul-Zurna Pair
-category: 打擊樂器
-country: 中東／土耳其／伊朗／巴爾幹
-era: 傳統／年代待考
-sound_class: 膜鳴
-range: 祖爾納管約2個8度；達夫鼓為節奏型樂器無固定音高
-instrument_key: 多調性
-hs_class: 21 膜鳴鼓類
-family: 膜鳴鼓類、框鼓、杯鼓與鼓組
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 簧片樂器
+title_zh: 達夫鼓-祖爾納管組合
+title_original: Davul-Zurna Pair
+family_std: 膜鳴鼓類、框鼓、杯鼓與鼓組
+sound_hs: 21 膜鳴鼓類
 playing_method: 手拍／槌擊／皮膜振動
-body_listening: 手掌、腳底、低音、舞步
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-region_type: 地區／文化圈
+interface_tags: 
+region_culture: 中東／土耳其／伊朗／巴爾幹｜地區／文化圈
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/davul-zurna-pair/
 youtube_ids: 0boGwKj233k biGNOfJ8GIA
 ---
+
 ## 介紹
 
 達夫鼓-祖爾納管組合是源自中東和北非的傳統樂器對，由手鼓達夫鼓與雙簧樂器祖爾納管組成。達夫鼓為圓形膜鳴樂器，通常直徑30-40公分，鼓面覆以動物皮革；祖爾納管為木製雙簧樂器，外形細長，音色尖銳明亮。這組合在鄂圖曼帝國時期達到高度發展，廣泛應用於婚禮、節慶、軍事儀式等重要場合。兩樂器結合時，達夫鼓提供深沉厚重的節奏基礎，祖爾納管則以高亢旋律盤旋其上，形成獨特的民族音響效果。

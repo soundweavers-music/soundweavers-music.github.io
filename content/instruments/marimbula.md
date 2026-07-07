@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/marimbula/
-title: 馬林巴琴
-original_name: Marímbula
-category: 打擊樂器
-country: 全球／非洲／亞洲／現代療癒與街頭音樂
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/6/63/Marimbula.png
-sound_class: 體鳴
-range: 中低音區（約2個8度）
-instrument_key: 無固定調性
-hs_class: 12 體鳴／舌片琴／金屬共鳴
-family: 近身體鳴、舌片琴與手奏金屬共鳴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 馬林巴琴
+title_original: Marímbula
+family_std: 近身體鳴、舌片琴與手奏金屬共鳴
+sound_hs: 12 體鳴／舌片琴／金屬共鳴
 playing_method: 手敲／拇指撥片／近身共鳴
-body_listening: 指尖、掌心、尾音、近身聆聽
-soundscape: 手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）
-region_type: 跨文化／多地
+interface_tags: 撥片
+region_culture: 全球／非洲／亞洲／現代療癒與街頭音樂
+listening_sound_tags: 指尖、掌心、尾音、近身聆聽｜手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/marimbula/
+image: https://upload.wikimedia.org/wikipedia/commons/6/63/Marimbula.png
 youtube_ids: Zhl3rofJ-Rw hDAwWxPG39A
 ---
+
 ## 介紹
 
 馬林巴琴（西班牙語發音：[maˈɾimbula]）是一種加勒比海地區的撥奏木箱樂器。在古巴，它常見於昌古依音樂類型，以及古老的桑巴音樂風格中。在墨西哥，它被稱為馬林博爾琴，用於演奏哈羅科桑巴音樂；在多米尼加共和國，它被稱為馬林巴琴，用於演奏典型梅倫格音樂；在牙買加，它被稱為倫巴箱琴，用於演奏門托音樂。馬林巴琴通常被歸類為簧片琴族樂器的一部分。

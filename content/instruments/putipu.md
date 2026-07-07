@@ -1,18 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/putipu/
-title: 普蒂普鼓
-original_name: Putipù
-category: 打擊樂器
-country: 義大利南部／地中海地區
-era: 傳統／年代待考
-region_type: 地區／文化圈
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-body_listening: 手掌、腳底、低音、舞步
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 普蒂普鼓
+title_original: Putipù
+family_std: 鼓皮與鼓類家族
+sound_hs: 待確認
+playing_method: 敲奏／拍奏／搖奏／刮奏（待細分）
+interface_tags: 
+region_culture: 義大利南部／地中海地區｜地區／文化圈
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/putipu/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Pu-ti-p%C3%BA_-_Vista_de_arriba.jpg/500px-Pu-ti-p%C3%BA_-_Vista_de_arriba.jpg
 youtube_ids: NVOtE1qSymU Z9c3wthzubo
-instrument_key: 無固定調性
-range: 中低頻段（約2個8度）
 ---
+
 ## 介紹
 
 普蒂普鼓是一種傳統樂器，主要用於義大利南部的民間音樂，尤其是在那不勒斯及其周邊地區。它是一種摩擦鼓，由一個圓筒形的音箱組成，頂部由一層拉緊的膜封閉，中心附有一根竹製的桿。演奏者用濕潤的手、布或海綿摩擦桿，使膜產生振動。普蒂普鼓存在多種變體，在材料和尺寸上各不相同。

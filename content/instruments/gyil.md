@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/gyil/
-title: 吉爾木琴
-original_name: Gyil
-category: 打擊樂器
-country: 非洲／西非
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Gyil.JPG/500px-Gyil.JPG
-sound_class: 體鳴
-range: 中低音至中高音範圍（約2至3個8度）
-instrument_key: 無固定調性
-hs_class: 11/12 定音體鳴／鑼鐘木琴石琴系統
-family: 定音體鳴、材料敲擊與鑼鐘木琴系統
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 吉爾木琴
+title_original: Gyil
+family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
+sound_hs: 11/12 定音體鳴／鑼鐘木琴石琴系統
 playing_method: 敲擊／搖奏／材料共鳴
-body_listening: 材料、回聲、群體分工、音列
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-region_type: 跨文化／多地
+interface_tags: 鍵盤／按鍵
+region_culture: 非洲／西非
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/gyil/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Gyil.JPG/500px-Gyil.JPG
 youtube_ids: a71aACAWri4 O_1JdoK885A
 ---
+
 ## 介紹
 
 吉爾木琴是一種西非木琴，由十七個鍵盤安裝在葫蘆上而成。它在迦納北部和布基納法索南部的達加拉人和比里福爾人的音樂傳統中佔有重要地位。伯納德·沃瑪（卒於2018年）是來自迦納上西部地區著名的吉爾木琴演奏家，他花費多年時間教授這種樂器，並將其介紹給世界各地的觀眾。

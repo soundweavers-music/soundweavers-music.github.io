@@ -1,19 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/contrabass-sarrusophone/
-title: 倍低音薩魯梭風
-original_name: Contrabass sarrusophone
-category: 管樂器
-country: 法國／義大利／美國
-era: 傳統／年代待考
-region_type: 跨文化／多地
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-body_listening: 口腔、舌頭、簧片震動、鼻音
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 倍低音薩魯梭風
+title_original: Contrabass sarrusophone
+family_std: 無簧吹管家族
+sound_hs: 待確認
+playing_method: 吹奏
+interface_tags: 
+region_culture: 法國／義大利／美國
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/contrabass-sarrusophone/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Szarruszofon_001_%28crop%29.jpg/500px-Szarruszofon_001_%28crop%29.jpg
 youtube_ids: 51lcyVGorYQ n6Y2uiydezE
-instrument_key: E♭調、C調、B♭調
-range: 約2至3個8度（極低音域）
 ---
+
 ## 介紹
 
 倍低音薩魯梭風是薩魯梭風樂器家族中音域最低的樂器，分為三種規格，分別以E♭、C或B♭調製。它在19世紀和20世紀初製造，主要在法國由其發明者兼巴黎樂器製造商皮埃爾-路易·高特羅及其繼任者康埃斯農公司和艾維特舍費爾公司製作。它也在義大利由米蘭製造商羅密歐·奧西和蘭龐內&卡扎尼公司製造，以及在美國由康公司製造，該公司為美國軍樂隊製作E♭調樂器。

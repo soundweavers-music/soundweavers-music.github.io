@@ -1,22 +1,22 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/sleigh-bells/
-title: 雪橇鈴
-original_name: Sleigh Bells
-category: 打擊樂器
-country: 拉丁美洲／非洲／歐洲／亞洲／全球
-era: 傳統／年代待考
-sound_class: 體鳴
-range: 高頻範圍（約2個8度）
-instrument_key: 無固定調性
-hs_class: 11 小型體鳴／搖奏刮奏敲奏
-family: 小型節奏體鳴、沙鈴、刮器與身體打擊
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
+title_zh: 雪橇鈴
+title_original: Sleigh Bells
+family_std: 小型節奏體鳴、沙鈴、刮器與身體打擊
+sound_hs: 11 小型體鳴／搖奏刮奏敲奏
 playing_method: 搖奏／刮奏／敲擊／身體打擊
-body_listening: 手腕、腳踝、短音、節奏對齊
-soundscape: 手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 拉丁美洲／非洲／歐洲／亞洲／全球
+listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/sleigh-bells/
 youtube_ids: WCLavUoX7Sc DZ98oN9LN98
 ---
+
 ## 介紹
 
 雪橇鈴是一種鈴鐺，能夠發出獨特的「叮噹」聲響，尤其是在數量眾多時更為明顯。雪橇鈴可能指的是：雪橇鈴樂隊，一支來自紐約的樂隊；雪橇鈴，一部1928年的動畫電影。

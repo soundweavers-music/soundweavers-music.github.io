@@ -1,21 +1,22 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/komabue/
-title: 高麗笛
-original_name: Komabue
-category: 管樂器
-country: 日本
-era: 傳統／年代待考
-sound_class: 氣鳴
-range: F♯5–E7（約2個8度）
-instrument_key: F♯大調
-hs_class: 421 邊棱氣鳴／無簧笛類
-family: 無簧吹管、長音與氣息樂器
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 簧片樂器
+title_zh: 高麗笛
+title_original: Komabue
+family_std: 無簧吹管、長音與氣息樂器
+sound_hs: 421 邊棱氣鳴／無簧笛類
 playing_method: 吹奏／端吹／橫吹／容器共鳴
-body_listening: 高音線條、宮廷舞樂、清亮穿透
-soundscape: 一口氣走過山谷（無簧吹管、長音與氣息樂器）
-region_type: 單一地區／文化圈
+interface_tags: 
+region_culture: 日本｜單一地區／文化圈
+listening_sound_tags: 高音線條、宮廷舞樂、清亮穿透｜一口氣走過山谷（無簧吹管、長音與氣息樂器）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/komabue/
 youtube_ids: 4Jo8bO_vc4M iZfRKIo9HoA
 ---
+
 ## 介紹
 
 高麗笛是日本雅樂中使用的一種橫吹管樂器，用於高麗樂、國風歌舞和東遊。 竹制，6孔，長36厘米，內徑9厘米，音域為F♯5～E7。

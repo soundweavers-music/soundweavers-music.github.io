@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/dotar/
-title: 多塔爾琴
-original_name: Dotar
-category: 弦樂器
-country: 伊朗／亞塞拜然／高加索
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Joueur_de_dutar_ouzbek.jpg/500px-Joueur_de_dutar_ouzbek.jpg
-sound_class: 弦鳴
-range: 約2-3個8度
-instrument_key: 無固定調性
-hs_class: 321/322 魯特琴類／撥弦
-family: 魯特琴、短頸長頸撥弦與民謠弦聲
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 多塔爾琴
+title_original: Dotar
+family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
+sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
 playing_method: 撥弦／刷弦／撥片
-body_listening: 懷抱、手指、腳步、敘事
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 地區／文化圈
+interface_tags: 撥片
+region_culture: 伊朗／亞塞拜然／高加索｜地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/dotar/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Joueur_de_dutar_ouzbek.jpg/500px-Joueur_de_dutar_ouzbek.jpg
 youtube_ids: XwOulLctLe4 c_m0jRR0s1E
 ---
+
 ## 介紹
 
 多塔爾琴（也稱為多塔琴；波斯語：دوتار，音譯：dutâr；俄語：Дутар；塔吉克語：Дутор；烏茲別克語：Дутор；維吾爾語：دۇتار、Дутар，音譯：Dutar；敦干語：Дутар）是一種傳統的伊朗長頸兩弦魯特琴，見於伊朗和中亞地區。其名稱來自波斯語中表示「兩根弦」的詞彙دوتار do tār（< دو do「二」，تار tār「弦」），儘管阿富汗的赫拉特多塔爾琴擁有十四根弦。多塔爾琴在塔吉克斯坦和伊朗霍拉桑省非常受歡迎。

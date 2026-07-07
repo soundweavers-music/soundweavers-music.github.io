@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/marimba/
-title: 馬林巴
-original_name: Marimba
-category: 打擊樂器
-country: 非洲／美洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Marimba_One_4000_Series.jpg/500px-Marimba_One_4000_Series.jpg
-sound_class: 體鳴
-range: 約4至5個8度（因鍵數而異，49鍵至69鍵）
-instrument_key: 全調性
-hs_class: 11/12 定音體鳴／鑼鐘木琴石琴系統
-family: 定音體鳴、材料敲擊與鑼鐘木琴系統
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 馬林巴
+title_original: Marimba
+family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
+sound_hs: 11/12 定音體鳴／鑼鐘木琴石琴系統
 playing_method: 敲擊／搖奏／材料共鳴
-body_listening: 材料、回聲、群體分工、音列
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-region_type: 跨文化／多地
+interface_tags: 鍵盤／按鍵、琴槌
+region_culture: 非洲／美洲
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/marimba/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Marimba_One_4000_Series.jpg/500px-Marimba_One_4000_Series.jpg
 youtube_ids: lzzMHoi3r2w 3v7QC6Bl_7E
 ---
+
 ## 介紹
 
 馬林巴（英語：Marimba）是鍵盤敲擊樂的一種。將木製琴鍵置於共鳴管之上，以琴槌敲打以產生旋律。琴鍵排列方式類似鋼琴鍵盤，音域廣，音色圓潤。目前已知的鍵數有49鍵、52鍵、56鍵、61鍵、66鍵、69鍵。

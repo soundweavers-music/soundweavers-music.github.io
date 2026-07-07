@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/egg-shaker/
-title: 蛋形沙鈴
-original_name: Egg Shaker
-category: 打擊樂器
-country: 全球／多地
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Ganza_10cm.JPG/500px-Ganza_10cm.JPG
-sound_class: 體鳴
-range: 中高頻範圍（約2個8度）
-instrument_key: 無固定調性
-hs_class: 11 小型體鳴／搖奏刮奏敲奏
-family: 小型節奏體鳴、沙鈴、刮器與身體打擊
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
+title_zh: 蛋形沙鈴
+title_original: Egg Shaker
+family_std: 小型節奏體鳴、沙鈴、刮器與身體打擊
+sound_hs: 11 小型體鳴／搖奏刮奏敲奏
 playing_method: 搖奏／刮奏／敲擊／身體打擊
-body_listening: 手腕、腳踝、短音、節奏對齊
-soundscape: 手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 全球／多地
+listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/egg-shaker/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Ganza_10cm.JPG/500px-Ganza_10cm.JPG
 youtube_ids: d-al92f9Vig GGfrTQ8IPfc
 ---
+
 ## 介紹
 
 蛋形沙鈴（又稱為甘沙鈴）是一種手持打擊樂器，屬於體鳴樂器類別，搖晃時會發出聲音。功能上與沙錘相似。通常外殼或容器呈卵形或蛋形。內部裝有部分小型鬆散物體，如種子或珠子，當搖晃時，這些物體彼此碰撞以及與容器內部表面碰撞，從而產生打擊樂器的聲音。蛋形沙鈴是一種拉丁美洲樂器，價格便宜，相對容易演奏。

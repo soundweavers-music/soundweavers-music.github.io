@@ -1,19 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/resonator/
-title: 共鳴管
-original_name: Resonator
-category: 電子樂器
-country: 全球／多地
-era: 現代
-region_type: 地區／文化圈
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-body_listening: 材料、回聲、群體分工、音列
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 電聲改造樂器
+title_zh: 共鳴管
+title_original: Resonator
+family_std: 電聲改造樂器家族
+sound_hs: 待確認
+playing_method: 按鍵／控制器／電子控制（待細分）
+interface_tags: 
+region_culture: 全球／多地｜地區／文化圈
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/resonator/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Marimba-Antonko-AMC12.jpg/500px-Marimba-Antonko-AMC12.jpg
 youtube_ids: J46sRuj99Cw tsfTb1fxZ6A
-instrument_key: 全調性
-range: 全音域
 ---
+
 ## 介紹
 
 打擊樂器中，木琴、馬林巴、顫音琴等需要在琴鍵下設置共鳴管以擴大音量和延長餘音，共鳴管的長度會對應到琴鍵的振動頻率，高音對應口徑較小的共鳴管，低音對應口徑較大的共鳴管。

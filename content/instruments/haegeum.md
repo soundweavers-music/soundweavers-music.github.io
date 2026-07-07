@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/haegeum/
-title: 奚琴／韓國奚琴
-original_name: Haegeum
-category: 弦樂器
-country: 韓國
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Traditional_Korean_string_instrument%2C_Haegeum.jpg/500px-Traditional_Korean_string_instrument%2C_Haegeum.jpg
-sound_class: 弦鳴
-range: 約3個8度
-instrument_key: 無固定調性
-hs_class: Chordophone／弦鳴樂器
-family: 韓國擦弦琴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 擦弦、鍵控與輪弦
+title_zh: 奚琴／韓國奚琴
+title_original: Haegeum
+family_std: 韓國擦弦琴
+sound_hs: Chordophone／弦鳴樂器
 playing_method: 拉奏
-body_listening: 細長鼻音、宮廷與民俗情緒
-soundscape: 弓毛拉出的哭與唱（擦弦、輪弦與提琴家族）
-region_type: 單一地區／文化圈
+interface_tags: 
+region_culture: 韓國｜單一地區／文化圈
+listening_sound_tags: 細長鼻音、宮廷與民俗情緒｜弓毛拉出的哭與唱（擦弦、輪弦與提琴家族）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/haegeum/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Traditional_Korean_string_instrument%2C_Haegeum.jpg/500px-Traditional_Korean_string_instrument%2C_Haegeum.jpg
 youtube_ids: OfsFoUell4Y UZqpbzFXidU
 ---
+
 ## 介紹
 
 奚琴（韓文：해금）是一種傳統韓國弦樂器，外形類似直立的小提琴，有兩根弦；源自古代中國的奚琴。它具有杆狀的琴頸、空心的木製共鳴箱和兩根絲弦，演奏者將其豎放在膝蓋上，用弓來演奏。它也通俗地被稱為깡깡이（kkangkkang-i）、깽깽이（kkaengkkaeng-i）或앵금（aeng-geum）。奚琴是韓國音樂中應用最廣泛的樂器之一。奚琴既用於宮廷音樂，也用於마당놀이（普通民眾的音樂）。

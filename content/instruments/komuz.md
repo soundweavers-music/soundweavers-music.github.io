@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/komuz/
-title: 庫姆茲琴
-original_name: Komuz
-category: 弦樂器
-country: 中東／歐亞／東亞／美洲／全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Kopuz.jpg/500px-Kopuz.jpg
-sound_class: 弦鳴
-range: 約2個8度（中高音區為主）
-instrument_key: 無固定調性
-hs_class: 321/322 魯特琴類／撥弦
-family: 魯特琴、短頸長頸撥弦與民謠弦聲
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 庫姆茲琴
+title_original: Komuz
+family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
+sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
 playing_method: 撥弦／刷弦／撥片
-body_listening: 懷抱、手指、腳步、敘事
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 跨文化／多地
+interface_tags: 撥片
+region_culture: 中東／歐亞／東亞／美洲／全球
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/komuz/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Kopuz.jpg/500px-Kopuz.jpg
 youtube_ids: jOr5RQHXXXk AZl0OUEUbHQ
 ---
+
 ## 介紹
 
 庫姆茲琴或庫姆茲琴（吉爾吉斯語：комуз，吉爾吉斯語發音：[qoˈmuz]，土耳其語：Kopuz，阿塞拜疆語：Qopuz）是一種古老的無品弦樂器，用於中亞音樂中，與某些其他突厥弦樂器、蒙古托夫舒爾琴和魯特琴相關。該樂器可在從中國到土耳其的突厥民族中找到。納西人在中國使用的這種樂器的形式被稱為火撥思、河必思和渾不思。它是最著名的民族樂器，也是較為著名的吉爾吉斯民族象徵之一。

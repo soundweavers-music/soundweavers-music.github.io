@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/tanbur/
-title: 彈撥爾
-original_name: Tanbur
-category: 弦樂器
-country: 中東／歐亞／東亞／美洲／全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Ghobad_ghobadi45677.jpg/500px-Ghobad_ghobadi45677.jpg
-sound_class: 弦鳴
-range: 中音域至高音域（約2-3個8度）
-instrument_key: 無固定調性
-hs_class: 321/322 魯特琴類／撥弦
-family: 魯特琴、短頸長頸撥弦與民謠弦聲
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 彈撥爾
+title_original: Tanbur
+family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
+sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
 playing_method: 撥弦／刷弦／撥片
-body_listening: 懷抱、手指、腳步、敘事
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 跨文化／多地
+interface_tags: 撥片
+region_culture: 中東／歐亞／東亞／美洲／全球
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/tanbur/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Ghobad_ghobadi45677.jpg/500px-Ghobad_ghobadi45677.jpg
 youtube_ids: cTo36W8MM2I kERZz5aisJI
 ---
+
 ## 介紹
 
 「坦布爾」一詞可指源自美索不達米亞、南亞或中亞的各種長頸弦樂器。根據《新格羅夫音樂家和音樂辭典》，「術語呈現出複雜的情況。如今，坦布爾（或譚布爾）一詞被應用於藝術和民間傳統中使用的各種不同且相關的長頸魯特琴。

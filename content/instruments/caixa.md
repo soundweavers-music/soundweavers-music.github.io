@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/caixa/
-title: 卡伊沙小鼓
-original_name: Caixa
-category: 打擊樂器
-country: 非洲／中東／亞洲／歐洲／美洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/NLC511-023031103010001-77631_%E7%9B%9B%E4%BA%AC%E6%99%82%E5%A0%B1_%E7%AC%AC382%E5%8D%B7.pdf/page1-500px-NLC511-023031103010001-77631_%E7%9B%9B%E4%BA%AC%E6%99%82%E5%A0%B1_%E7%AC%AC382%E5%8D%B7.pdf.jpg
-sound_class: 膜鳴
-range: 約1個8度
-instrument_key: 無固定調性
-hs_class: 21 膜鳴鼓類
-family: 膜鳴鼓類、框鼓、杯鼓與鼓組
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 卡伊沙小鼓
+title_original: Caixa
+family_std: 膜鳴鼓類、框鼓、杯鼓與鼓組
+sound_hs: 21 膜鳴鼓類
 playing_method: 手拍／槌擊／皮膜振動
-body_listening: 手掌、腳底、低音、舞步
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-region_type: 地區／文化圈
+interface_tags: 
+region_culture: 非洲／中東／亞洲／歐洲／美洲｜地區／文化圈
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/caixa/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/NLC511-023031103010001-77631_%E7%9B%9B%E4%BA%AC%E6%99%82%E5%A0%B1_%E7%AC%AC382%E5%8D%B7.pdf/page1-500px-NLC511-023031103010001-77631_%E7%9B%9B%E4%BA%AC%E6%99%82%E5%A0%B1_%E7%AC%AC382%E5%8D%B7.pdf.jpg
 youtube_ids: qbkNNTkmJQ4 6vaJiSlguBg
 ---
+
 ## 介紹
 
 卡伊沙可能指的是：一種巴西小鼓 電影《盒子》，1994年葡萄牙喜劇電影，由曼努埃爾·德·奧利維拉執導 巴西經濟儲蓄銀行，也稱為卡伊沙，是一家巴西銀行 葡萄牙儲蓄總行，也稱為卡伊沙，是葡萄牙第二大銀行 聖文森特山上的卡伊沙，位於佛得角聖文森特島上的一座山 西班牙儲蓄銀行，一家西班牙銀行機構 拉卡伊沙巴塞隆納，拉卡伊沙銀行的總部和摩天大樓

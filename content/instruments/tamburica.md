@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/tamburica/
-title: 坦布里察琴
-original_name: Tamburica
-category: 弦樂器
-country: 中東／歐洲／亞洲／美洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/NLC416-03jh004376-19754_%E8%8B%B1%E5%9C%8B%E5%8F%B2.pdf/page1-500px-NLC416-03jh004376-19754_%E8%8B%B1%E5%9C%8B%E5%8F%B2.pdf.jpg
-sound_class: 弦鳴
-range: 中高音區（約2個8度）
-instrument_key: 全調性
-hs_class: 321/322 魯特琴類／撥弦
-family: 魯特琴、短頸長頸撥弦與民謠弦聲
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 電聲改造樂器
+title_zh: 坦布里察琴
+title_original: Tamburica
+family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
+sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
 playing_method: 撥弦／刷弦／撥片
-body_listening: 懷抱、手指、腳步、敘事
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 地區／文化圈
+interface_tags: 撥片
+region_culture: 中東／歐洲／亞洲／美洲｜地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 移入第13類
+issue_note: 第13類；Stylophone 是電子筆琴／袖珍電子鍵盤，應入第13類。；移第13類。
+source_url: https://soundweavers-music.github.io/instruments/tamburica/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/NLC416-03jh004376-19754_%E8%8B%B1%E5%9C%8B%E5%8F%B2.pdf/page1-500px-NLC416-03jh004376-19754_%E8%8B%B1%E5%9C%8B%E5%8F%B2.pdf.jpg
 youtube_ids: fCtMNklEQKM GUPHaaVG_zo
 ---
+
 ## 介紹
 
 坦布里察琴（英文發音：tam-BOOR-it-sə 或 TAM-bər-IT-sə；有時拼作 tamburrizza 或 tamburitza；塞爾維亞-克羅地亞語：tamburica / тамбурица，字面意思為「小坦布拉琴」）或坦布拉琴（匈牙利語：tambura；希臘語：ταμπουράς，羅馬化：tampourás）是指一類長頸琵琶樂器，在東南歐及東南中歐地區很受歡迎，特別是在波士尼亞和黑塞哥維那、克羅地亞（是該國的民族弦樂器）、匈牙利、塞爾維亞（是該國的民族弦樂器，與蓋斯勒琴並列，同時也出現在沃伊伏丁那、馬奇瓦及波薩瓦-塔姆納瓦地區）和斯洛文尼亞。

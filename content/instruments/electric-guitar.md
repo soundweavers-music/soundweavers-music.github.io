@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/electric-guitar/
-title: 電吉他
-original_name: Electric guitar
-category: 電子樂器
-country: 美洲／北美
-era: 20 世紀
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Fender_Highway_1_Stratocaster.jpg/500px-Fender_Highway_1_Stratocaster.jpg
-sound_class: 弦鳴
-range: E1–B5（約4個8度）
-instrument_key: 全調性
-hs_class: 321/322 魯特琴類／撥弦
-family: 魯特琴、短頸長頸撥弦與民謠弦聲
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 電聲改造樂器
+title_zh: 電吉他
+title_original: Electric guitar
+family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
+sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
 playing_method: 撥弦／刷弦／撥片
-body_listening: 懷抱、手指、腳步、敘事
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 跨文化／多地
+interface_tags: 撥片、拾音／擴音
+region_culture: 美洲／北美
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/electric-guitar/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Fender_Highway_1_Stratocaster.jpg/500px-Fender_Highway_1_Stratocaster.jpg
 youtube_ids: WSdEuYDztvw UuMn2S-3rwE
 ---
+
 ## 介紹
 
 電吉他（英語：Electric guitar）是一種廣泛運用於多種音樂風格中的電聲撥弦樂器。電吉他透過電磁學原理髮聲，它透過拾音器將琴弦上的機械振動轉化為電訊號。這些電訊號經過放大與處理後，透過音箱轉換成聲音訊號而發聲。由於電吉他產生的電訊號可以經過各種效果器的處理，故電吉他的音色非常豐富。這個特點使它被廣泛運用在多種不同的音樂風格中，例如鄉村、布魯斯、爵士、搖滾與金屬等等。

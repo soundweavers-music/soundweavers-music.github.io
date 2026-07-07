@@ -1,22 +1,22 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/cornett-zink/
-title: 木管號
-original_name: Cornett / Zink
-category: 管樂器
-country: 歐洲／全球
-era: 傳統／年代待考
-sound_class: 氣鳴
-range: 約2個8度
-instrument_key: 全調性
-hs_class: Aerophone／氣鳴樂器
-family: 木製號角／銅管交界
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 號角與唇振
+title_zh: 木管號
+title_original: Cornett / Zink
+family_std: 木製號角／銅管交界
+sound_hs: Aerophone／氣鳴樂器
 playing_method: 唇振＋指孔
-body_listening: 嘴唇、遠方、召喚、空間方向
-soundscape: 吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
-region_type: 跨文化／多地
+interface_tags: 指孔
+region_culture: 歐洲／全球
+listening_sound_tags: 嘴唇、遠方、召喚、空間方向｜吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/cornett-zink/
 youtube_ids: qFVNdp4XiQY 4GKO8MaXxr8
 ---
+
 ## 介紹
 
 短笛是文藝復興時期的重要管樂器，起源於十五世紀的義大利。樂器由木製或象牙製管身構成，配備銅質杯狀吹嘴，管身上設有多個音孔。短笛音色溫暖穿透，兼具木管樂器的親密感與銅管樂器的力度，音域寬廣可跨越兩個八度。十六至十七世紀在歐洲達到鼎盛，廣泛用於宗教音樂、宮廷樂隊和劇院演奏，常與薩克斯風和長號等樂器合奏。

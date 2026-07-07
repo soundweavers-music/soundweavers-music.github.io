@@ -1,22 +1,22 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/inline-chromatic-harp/
-title: 直列半音豎琴
-original_name: Inline chromatic harp
-category: 弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 直列半音豎琴
+title_original: Inline chromatic harp
+family_std: 弦樂器類
+sound_hs: 3 弦鳴樂器
 playing_method: 撥弦／擦弦／擊弦
-family: 弦樂器類
-hs_class: 3 弦鳴樂器
-sound_class: 弦鳴
-country: 德國
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
-body_listening: 循環、河流感、開放弦、吟唱
+interface_tags: 
+region_culture: 德國｜單一地區／文化圈
+listening_sound_tags: 循環、河流感、開放弦、吟唱｜開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/inline-chromatic-harp/
 youtube_ids: UfM6Dvy_Qn8 W1L_WTwzb_4
-instrument_key: 全調性
-range: 多個八度
 ---
+
 ## 介紹
 
 直列半音豎琴是一種豎琴，其中一個八度音階的全部12個半音弦都排列在一列中（方式與標準演奏廳豎琴的弦排列方式相同），而不是排列在兩列或三列（平行或交叉）琴弦組中。至少已有一種配備兩列平行直列半音豎琴琴弦的豎琴被製造出來。單列直列半音豎琴的製造已有至少110年的歷史：1902年，德國漢諾威的卡雷爾·韋格爾（Karel Weigel）獲得了直列半音豎琴設計的專利。

@@ -1,22 +1,22 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/yoke-lutes/
-title: 軛型魯特琴
-original_name: Yoke lutes
-category: 弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 軛型魯特琴
+title_original: Yoke lutes
+family_std: 弦樂器類
+sound_hs: 3 弦鳴樂器
 playing_method: 撥弦／擦弦／擊弦
-family: 弦樂器類
-hs_class: 3 弦鳴樂器
-sound_class: 弦鳴
-country: 中東
-era: 傳統／年代待考
-region_type: 地區／文化圈
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-body_listening: 懷抱、手指、腳步、敘事
+interface_tags: 
+region_culture: 中東｜地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/yoke-lutes/
 youtube_ids: uyezX3VlaPQ YzLv-8ne88k
-instrument_key: 全調性
-range: 約3至4個八度
 ---
+
 ## 介紹
 
 軛型魯特琴（通常稱為豎琴）是一類弦樂器，是魯特琴的分類之一，在霍恩博斯特爾-薩克斯分類法中用代碼321.21和321.22表示。

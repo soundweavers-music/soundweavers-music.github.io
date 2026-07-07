@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/nyonganyonga/
-title: 尼揚加尼揚加
-original_name: Nyonganyonga
-category: 打擊樂器
-country: 全球／非洲／現代
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/AMB_Japanese_Verbs.pdf/page1-500px-AMB_Japanese_Verbs.pdf.jpg
-sound_class: 體鳴
-range: 中高音區
-instrument_key: 無固定調性
-hs_class: 12 體鳴／舌片琴／金屬共鳴
-family: 近身體鳴、舌片琴與手奏金屬共鳴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 尼揚加尼揚加
+title_original: Nyonganyonga
+family_std: 近身體鳴、舌片琴與手奏金屬共鳴
+sound_hs: 12 體鳴／舌片琴／金屬共鳴
 playing_method: 手敲／拇指撥片／近身共鳴
-body_listening: 指尖、掌心、尾音、近身聆聽
-soundscape: 手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）
-region_type: 跨文化／多地
+interface_tags: 撥片
+region_culture: 全球／非洲／現代
+listening_sound_tags: 指尖、掌心、尾音、近身聆聽｜手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/nyonganyonga/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/AMB_Japanese_Verbs.pdf/page1-500px-AMB_Japanese_Verbs.pdf.jpg
 youtube_ids: XNU9iH5wu00 UhdXsujcIHE
 ---
+
 ## 介紹
 
 尼揚加尼揚加是源自非洲東部坦尚尼亞和肯亞的傳統打擊樂器，由兩根竹竿組成。演奏者通過敲擊竹竿產生清脆明亮的節奏音效，具有獨特的金屬質感與穿透力。該樂器音色尖銳富有彈性，在傳統音樂中主要用於標記節奏，常見於慶典、舞蹈表演和宗教儀式中。其體鳴特性使音色簡潔純淨，無需共鳴腔放大，具有突出的音樂表現力。

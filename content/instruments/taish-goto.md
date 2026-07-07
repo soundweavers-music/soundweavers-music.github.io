@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/taish-goto/
-title: 大正琴
-original_name: Taishōgoto
-category: 鍵盤樂器
-country: 日本
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Taishogoto.jpg/500px-Taishogoto.jpg
-sound_class: 弦鳴
-range: 約中高音區、2至3個8度
-instrument_key: 全調性
-hs_class: Chordophone／弦鳴樂器
-family: 鍵盤化齊特琴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與齊特琴
+title_zh: 大正琴
+title_original: Taishōgoto
+family_std: 鍵盤化齊特琴
+sound_hs: Chordophone／弦鳴樂器
 playing_method: 按鍵＋撥奏
-body_listening: 簡易按鍵、民間合奏、懷舊旋律
-soundscape: 平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化弦鳴）
-region_type: 單一地區／文化圈
+interface_tags: 鍵盤／按鍵
+region_culture: 日本｜單一地區／文化圈
+listening_sound_tags: 簡易按鍵、民間合奏、懷舊旋律｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化弦鳴）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/taish-goto/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Taishogoto.jpg/500px-Taishogoto.jpg
 youtube_ids: 1JP2nAoRgl0 i-X6-Kox9_M
 ---
+
 ## 介紹
 
 大正琴，又稱名古屋豎琴（中國又稱「鳳凰琴｣」、「大眾琴」，台灣稱「中山琴」），是日本自行發明的樂器，木製中空，有2～12條金屬弦，預備簡單的鍵盤，左手按鍵盤右手戴義甲撥弦彈奏，屬弦樂器的一種。

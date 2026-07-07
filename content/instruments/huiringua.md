@@ -1,18 +1,22 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/huiringua/
-title: 刮葫
-original_name: Huiringua
-category: 打擊樂器
-country: 墨西哥
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 手邊發光的小宇宙（近身體鳴、舌片琴與手奏金屬共鳴）
-body_listening: 指尖、掌心、尾音、近身聆聽
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 沙鈴、刮器與小打擊
+title_zh: 刮葫
+title_original: Huiringua
+family_std: 沙鈴、刮器與小打擊家族
+sound_hs: 待確認
+playing_method: 敲奏／拍奏／搖奏／刮奏（待細分）
+interface_tags: 
+region_culture: 墨西哥｜單一地區／文化圈
+listening_sound_tags: 指尖、掌心、尾音、近身聆聽｜手邊發光的小宇宙（近身體鳴、舌片琴與手奏金屬共鳴）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/huiringua/
 youtube_ids: OD9SpB1Z5Eo 20d7atZIbDQ
-instrument_key: 無固定調性
-range: 中高頻段（約1至2個8度）
 ---
+
 ## 介紹
 
 慧林瓜（暫譯）、庫林瓜、基林瓜、奎林瓜、崔林瓜是打擊樂器中狹縫鼓這一類樂器。它由兩端密閉、沿著樂器開有狹縫的空心木頭組成。當用一對木槌敲擊狹縫時，外殼作為共鳴室，產生聲音振動。

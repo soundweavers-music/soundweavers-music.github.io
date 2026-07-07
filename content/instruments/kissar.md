@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/kissar/
-title: 基薩爾里拉琴
-original_name: Kissar
-category: 弦樂器
-country: 非洲／歐洲／亞洲／美洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Kissar.JPG/500px-Kissar.JPG
-sound_class: 弦鳴
-range: 約2個8度
-instrument_key: 無固定調性
-hs_class: 322 豎琴與里拉類
-family: 豎琴、里拉與開放弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 豎琴、里拉與開放弦
+title_zh: 基薩爾里拉琴
+title_original: Kissar
+family_std: 豎琴、里拉與開放弦樂器
+sound_hs: 弦鳴｜322 豎琴與里拉類
 playing_method: 撥弦／開放弦共鳴
-body_listening: 循環、河流感、開放弦、吟唱
-soundscape: 開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
-region_type: 地區／文化圈
+interface_tags: 
+region_culture: 非洲／歐洲／亞洲／美洲｜地區／文化圈
+listening_sound_tags: 循環、河流感、開放弦、吟唱｜開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/kissar/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Kissar.JPG/500px-Kissar.JPG
 youtube_ids: WjdWVNRVO1I 5RTFLpmSMVA
 ---
+
 ## 介紹
 
 基薩爾里拉琴（也拼作基西爾琴）、坦布爾琴或吉他拉芭芭瑞耶琴是傳統的努比亞里拉琴，至今仍在埃及、蘇丹、厄立特里亞和衣索比亞使用。它由一個琴身組成，其背部不是傳統的烏龜殼，而是一個淺圓形木碗，上面覆蓋著羊皮音板，音板上有兩個小圓形音孔。琴臂穿過音板，位置距離圓周邊緣約直徑的三分之一處，呈現熟悉的扇形。

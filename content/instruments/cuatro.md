@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/cuatro/
-title: 夸特羅
-original_name: Cuatro
-category: 弦樂器
-country: 中東／歐亞／東亞／美洲／全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/3/3b/Cuatro_Ramon_Blanco.jpg
-sound_class: 弦鳴
-range: 約2個8度（中高音區）
-instrument_key: 全調性
-hs_class: 321/322 魯特琴類／撥弦
-family: 魯特琴、短頸長頸撥弦與民謠弦聲
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 夸特羅
+title_original: Cuatro
+family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
+sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
 playing_method: 撥弦／刷弦／撥片
-body_listening: 懷抱、手指、腳步、敘事
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 跨文化／多地
+interface_tags: 撥片
+region_culture: 中東／歐亞／東亞／美洲／全球
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/cuatro/
+image: https://upload.wikimedia.org/wikipedia/commons/3/3b/Cuatro_Ramon_Blanco.jpg
 youtube_ids: GRxofEmo3HA ZPdk5GaIDjo
 ---
+
 ## 介紹
 
 夸特羅（西班牙語及其他羅曼語族語言中表示數字4），可能指：

@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/erhu/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Erhu_in_the_Mets.jpg/500px-Erhu_in_the_Mets.jpg
-title: 二胡
-original_name: Erhu
-category: 弦樂器
-country: 亞洲／歐洲／中東／全球
-era: 傳統／年代待考
-sound_class: 弦鳴
-range: 約3個8度
-instrument_key: 全調性
-hs_class: 321.3 擦弦／輪弦／提琴家族
-family: 擦弦、輪弦與提琴家族
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 擦弦、鍵控與輪弦
+title_zh: 二胡
+title_original: Erhu
+family_std: 擦弦、輪弦與提琴家族
+sound_hs: 弦鳴｜321.3 擦弦／輪弦／提琴家族
 playing_method: 弓擦／輪擦
-body_listening: 胸口、嗓音、拉長的情緒
-soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
-region_type: 跨文化／多地
+interface_tags: 弓
+region_culture: 亞洲／歐洲／中東／全球
+listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/erhu/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Erhu_in_the_Mets.jpg/500px-Erhu_in_the_Mets.jpg
 youtube_ids: lSCHU3kwrm8 MzgMBrtrFc4
 ---
+
 ## 介紹
 
 二胡，也稱胡琴，於宋朝由奚琴演變而來，於中華民國時期改稱二胡，是種拉弦樂器。有兩條弦，現代以純五度定弦，在胡琴中屬中高音域樂器。現在各地方根據需要，獨立發展出不同弓弦樂器，如高胡、京胡、板胡、二弦、喇叭弦等。為滿足中樂交響化需要，根據二胡制式另外發明中胡，並改革高胡作為樂隊的高音聲部。 二胡常以木材製成，如紅木、小葉紫檀、烏木、雞翅木、血檀、大葉紫檀、非洲紅花梨、非洲紫檀等，亦有些以象牙、玉石、塑膠等製作，因為聲學以外考量。琴筒一端蒙以蟒蛇蛇皮，造就二胡的獨特音色。近年來不論是野生或被圈養的蛇，其成本日益增高，而瀕危野生動植物種國際貿易公約限制對蟒蛇皮的進出口，便有人開發蛇皮的替代材料，以期模仿蛇皮的音色。現代二胡通常使用鋼弦，絲弦已極少使用。總結來說，這導致了用原材料製作的二胡也隨著減少了，取而代之的是替代材料。 中國為二胡的主要生產地，其中上海、北京及蘇州最為頻繁。不同的地方生產的二胡音色各有不同及差異：傳統上，上海生產的二胡，音色較柔美；北京出產的二胡，音色較高亢；蘇州出產的二胡，聲音則較甜美。產生這些音響上的不同，係因製作工藝之影響，如蛇皮之厚度、緊度，琴筒的厚薄及外型，皆會產生不同效果。對於二胡的聲響，目前仍需進一步的科學探討。

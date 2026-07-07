@@ -1,21 +1,22 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/sipsi/
-title: 希普西笛
-original_name: Sipsi
-category: 管樂器
-country: 歐洲／中東／南亞／東南亞
-era: 傳統／年代待考
-sound_class: 氣鳴
-range: 約2個8度（中高音區）
-instrument_key: 無固定調性
-hs_class: 412/422 簧鳴與自由簧／單簧雙簧
-family: 口簧、自由簧、單簧雙簧與風袋
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 風箱與自由簧
+title_zh: 希普西笛
+title_original: Sipsi
+family_std: 口簧、自由簧、單簧雙簧與風袋
+sound_hs: 氣鳴｜412/422 簧鳴與自由簧／單簧雙簧
 playing_method: 吹奏／簧片振動／風袋或風箱
-body_listening: 口腔、舌頭、簧片震動、鼻音
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-region_type: 地區／文化圈
+interface_tags: 風箱
+region_culture: 歐洲／中東／南亞／東南亞｜地區／文化圈
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/sipsi/
 youtube_ids: dU3SG7bK0bE iaQaRV9eHqk
 ---
+
 ## 介紹
 
 希普西笛（發音為 [sipˈsi]）是一種類似單簧管的單簧片樂器，主要用於民間音樂，原產於土耳其愛琴海地區。「希普西笛」這個詞可能是擬聲詞。希普西笛可以由骨頭、木頭或蘆葦製成，但蘆葦製的版本最為常見。其大小因地區而異，但通常在前面有五個指孔，在後面有一個指孔。希普西笛是土耳其眾多簧片樂器之一，用於在器樂民間音樂中演奏主旋律。它通常在土耳其愛琴海地區的西部地帶演奏。

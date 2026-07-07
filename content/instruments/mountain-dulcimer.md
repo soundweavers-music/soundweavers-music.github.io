@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/mountain-dulcimer/
-title: 高山杜西摩琴
-original_name: Mountain Dulcimer
-category: 鍵盤樂器
-country: 亞洲／歐洲／全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Dulcimer_%28UP%29.jpg/500px-Dulcimer_%28UP%29.jpg
-sound_class: 弦鳴
-range: 中音至高音範圍（約2至3個8度）
-instrument_key: 全調性
-hs_class: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
-family: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 高山杜西摩琴
+title_original: Mountain Dulcimer
+family_std: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+sound_hs: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
 playing_method: 撥弦／擊弦／按鍵擊弦
-body_listening: 手掌、弦面、推音、敲擊
-soundscape: 平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
-region_type: 跨文化／多地
+interface_tags: 鍵盤／按鍵
+region_culture: 亞洲／歐洲／全球
+listening_sound_tags: 手掌、弦面、推音、敲擊｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/mountain-dulcimer/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Dulcimer_%28UP%29.jpg/500px-Dulcimer_%28UP%29.jpg
 youtube_ids: UurHbXwVo04 fgJCPx-_pbA
 ---
+
 ## 介紹
 
 阿帕拉契亞山區揚琴（有許多不同的名稱；見下文）是齊特琴族的一種品格弦樂器，通常有三到四根弦，最初在美國阿帕拉契亞地區演奏。琴身沿著指板延伸，其品格通常是全音階式的。

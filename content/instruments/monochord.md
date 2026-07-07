@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/monochord/
-title: 單弦樂器
-original_name: Monochord
-category: 鍵盤樂器
-country: 歐洲／希臘
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Monochord_Jeans.svg/500px-Monochord_Jeans.svg.png
-sound_class: 弦鳴
-range: 連續變化，受弦長限制，約1至3個8度
-instrument_key: 無固定調性
-hs_class: Chordophone／弦鳴樂器
-family: 單弦實驗／古樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 單弦樂器
+title_original: Monochord
+family_std: 單弦實驗／古樂器
+sound_hs: Chordophone／弦鳴樂器
 playing_method: 撥奏／測音
-body_listening: 比例、泛音、聲學實驗
-soundscape: 平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化弦鳴）
-region_type: 歷史文化圈
+interface_tags: 
+region_culture: 歐洲／希臘｜歷史文化圈
+listening_sound_tags: 比例、泛音、聲學實驗｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化弦鳴）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/monochord/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Monochord_Jeans.svg/500px-Monochord_Jeans.svg.png
 youtube_ids: c1aCNMIZ5lM CecEVzXxvQg
 ---
+
 ## 介紹
 
 單弦樂器，又稱音測器（見下文），是一種古老的音樂和科學實驗室樂器，由一條（單）弦組成。單弦樂器這個術語有時被用作任何只有一根弦和棒狀琴身的弦樂器的通稱，也稱為音樂弓。根據霍恩博斯特爾-薩克斯系統，弦弓是棒形揚琴（311.1），而單弦樂器傳統上是板形揚琴（314）。

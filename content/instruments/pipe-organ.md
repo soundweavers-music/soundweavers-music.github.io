@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/pipe-organ/
-title: 管風琴
-original_name: Pipe organ
-category: 鍵盤樂器
-country: 歐洲／希臘
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Organ_Range.svg/500px-Organ_Range.svg.png
-sound_class: 鍵盤／電鳴／機械混合
-range: 約5至7個八度
-instrument_key: 全調性
-hs_class: 412/31/52 鍵盤、自由簧、電鳴與機械介面
-family: 鍵盤介面、風箱、電子與取樣
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 取樣與磁帶
+title_zh: 管風琴
+title_original: Pipe organ
+family_std: 鍵盤介面、風箱、電子與取樣
+sound_hs: 鍵盤／電鳴／機械混合｜412/31/52 鍵盤、自由簧、電鳴與機械介面
 playing_method: 按鍵／風箱／電控／取樣
-body_listening: 手指、機械距離、記憶、電聲
-soundscape: 按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
-region_type: 跨文化／多地
+interface_tags: 鍵盤／按鍵、風箱
+region_culture: 歐洲／希臘
+listening_sound_tags: 手指、機械距離、記憶、電聲｜按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
+ensemble_links: 
+verification_status: 移入第13類
+issue_note: 現代電子／取樣；屬現代電子、取樣、電聲或電氣化鍵盤／設備類，應集中到第13類。；移第13類，並與傳統鍵盤／風箱類分開。
+source_url: https://soundweavers-music.github.io/instruments/pipe-organ/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Organ_Range.svg/500px-Organ_Range.svg.png
 youtube_ids: Ctykf8qh288 xXJtzh2TlhE
 ---
+
 ## 介紹
 
 管風琴（英語：Pipe organ）是一種大型氣鳴式鍵盤樂器，也是世界上體積最大的樂器，至今已有2,200餘年歷史。管風琴通過送風設施送風，吹響音管，並配合雙手鍵盤彈奏來運作。管風琴於公元前三世紀由古希臘的非洲亞歷山卓工程師克特西比烏斯所發明。早期演奏管風琴通常需要兩個人搭檔，一人演奏、一人鼓風，後來管風琴越來越發達，有蒸氣機及電力設備推動鼓風，因而又發展出了更複雜的鍵盤機械結構。現代常見的管風琴有機械式管風琴、機電式管風琴和電動壓氣式管風琴三種。一個中型教堂內安裝的管風琴，大約有1,200根音管及23個音栓控制音色、兩層手鍵盤和一個腳鍵盤。因其結構複雜，製造一台管風琴通常需要花費多年的時間完成。裝配時，還要根據演奏地點的聲學特性來調節音響效果。目前全世界最大的管風琴在美國紐澤西州大西洋城的一個禮堂內，不過其已受到一定程度的損壞。

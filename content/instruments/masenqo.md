@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/masenqo/
-title: 馬辛可琴
-original_name: Masenqo
-category: 弦樂器
-country: 非洲之角（厄立特里亞、衣索比亞）
-
-或簡化為：
-
-東非
-era: 傳統／年代待考
-region_type: 地區／文化圈
-soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
-body_listening: 胸口、嗓音、拉長的情緒
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 馬辛可琴
+title_original: Masenqo
+family_std: 撥弦與抱持弦樂家族
+sound_hs: 待確認
+playing_method: 撥奏／擦奏／擊弦（待細分）
+interface_tags: 
+region_culture: 非洲之角（厄立特里亞、衣索比亞）｜地區／文化圈
+listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/masenqo/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/COLLECTIE_TROPENMUSEUM_Langhalsluit_met_1_snaar_TMnr_2997-19a.jpg/500px-COLLECTIE_TROPENMUSEUM_Langhalsluit_met_1_snaar_TMnr_2997-19a.jpg
 youtube_ids: mvNfO6ii6zM 8uLymHY8vIE
-instrument_key: 無固定調性
-range: 中音域至高音域（約2個8度）
 ---
+
 ## 介紹
 
 馬辛可琴（阿姆哈拉語：ማሲንቆ；提格雷語：ጭራ-ዋጣ（ዋጣ），也稱為馬辛科琴或梅森科琴，是一種單弦拉弦琴，常見於厄立特里亞和衣索比亞的音樂傳統中。與克拉爾琴相同，這種樂器由衣索比亞吟遊詩人阿茲瑪里斯（阿姆哈拉語中意為「歌手」）使用。儘管它在歌曲中純粹起伴奏作用，馬辛可琴卻需要相當高的演奏技巧，因為阿茲瑪里斯在自彈自唱時必須具備高超的技藝。

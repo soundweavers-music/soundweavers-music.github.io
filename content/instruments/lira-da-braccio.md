@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/lira-da-braccio/
-title: 臂琴
-original_name: Lira da Braccio
-category: 弦樂器
-country: 歐洲／義大利
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Lira_da_braccio_%281511%29.jpg/500px-Lira_da_braccio_%281511%29.jpg
-sound_class: 弦鳴
-range: 男中音至高音範圍（約3個8度）
-instrument_key: 全調性
-hs_class: 321.3 擦弦／輪弦／提琴家族
-family: 擦弦、輪弦與提琴家族
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 臂琴
+title_original: Lira da Braccio
+family_std: 擦弦、輪弦與提琴家族
+sound_hs: 弦鳴｜321.3 擦弦／輪弦／提琴家族
 playing_method: 弓擦／輪擦
-body_listening: 胸口、嗓音、拉長的情緒
-soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
-region_type: 跨文化／多地
+interface_tags: 弓
+region_culture: 歐洲／義大利
+listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+ensemble_links: 
+verification_status: 待檢查
+issue_note: 名稱可保留／分類疑點；Kouxian 是中國口弦／口簧琴，分類寫打擊樂器不準確，屬自由簧／體鳴邊界需查。；與 Jaw harp 相鄰。；DUP-012:Harmonica／Jaw Harp／Kouxian
+source_url: https://soundweavers-music.github.io/instruments/lira-da-braccio/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Lira_da_braccio_%281511%29.jpg/500px-Lira_da_braccio_%281511%29.jpg
 youtube_ids: 0Wcir1WCZus 0cwkvYZuMuo
 ---
+
 ## 介紹
 
 臂琴是文藝復興時期義大利發展出的弦樂器，起源於15世紀，融合了中世紀維埃勒琴與古代里拉琴的特點。其外型優雅，具有寬廣的共鳴箱與7至10根弦，演奏時用弓奏法。臂琴因音色溫潤詩意、技巧要求高超，迅速成為義大利貴族與宮廷音樂家的首選樂器，廣泛應用於宮廷音樂與聲樂伴奏，是表現人文主義精神的理想工具。

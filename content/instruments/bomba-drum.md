@@ -1,22 +1,22 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/bomba-drum/
-title: 邦巴鼓
-original_name: Bomba Drum
-category: 打擊樂器
-country: 波多黎各
-era: 傳統／年代待考
-sound_class: 膜鳴
-range: 中低音區（約2個8度）
-instrument_key: 無固定調性
-hs_class: Membranophone／膜鳴樂器
-family: 桶形鼓
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 邦巴鼓
+title_original: Bomba Drum
+family_std: 桶形鼓
+sound_hs: Membranophone／膜鳴樂器
 playing_method: 手鼓與舞者互動
-body_listening: 舞者與鼓手即時對話、身體挑戰
-soundscape: 皮膜敲醒的地心脈動（膜鳴鼓類、框鼓、杯鼓與鼓組）
-region_type: 單一地區／文化圈
+interface_tags: 鼓槌
+region_culture: 波多黎各｜單一地區／文化圈
+listening_sound_tags: 舞者與鼓手即時對話、身體挑戰｜皮膜敲醒的地心脈動（膜鳴鼓類、框鼓、杯鼓與鼓組）
+ensemble_links: 
+verification_status: 有問題，需修正
+issue_note: 譯名錯誤；Board Lamellophone 是板式舌片琴，不是木琴。；改為「板式舌片琴（Board lamellophone）」；歸第9類舌片琴。；DUP-020:舌片琴支線
+source_url: https://soundweavers-music.github.io/instruments/bomba-drum/
 youtube_ids: jExzmw_UFfE P-mscTqdCA4
 ---
+
 ## 介紹
 
 邦巴鼓是源自非洲、後傳入加勒比海地區的傳統打擊樂器，尤其在波多黎各文化中佔有重要地位。其鼓身呈圓筒形，以獸皮繃張於一端或兩端，通常以手掌或鼓槌敲擊發聲。邦巴鼓音色深沉醇厚，兼具溫潤低頻共鳴與明快打擊感，既能在樂隊中提供穩定的低音基礎，亦可作為獨奏樂器。其獨特之處在於融合非洲民族特色與溫暖音質，在拉丁美洲舞蹈與節奏音樂中扮演核心角色。

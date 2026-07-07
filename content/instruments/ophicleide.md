@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/ophicleide/
-title: 奧菲克萊德號
-original_name: Ophicleide
-category: 管樂器
-country: 歐洲／全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Ophicleide_instruments%2C_bass_alto_and_soprano.png/500px-Ophicleide_instruments%2C_bass_alto_and_soprano.png
-sound_class: 氣鳴
-range: 約3個8度
-instrument_key: C大調或降B大調
-hs_class: 423 唇振氣鳴／號角與銅管
-family: 唇振氣鳴、天然號角與銅管
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 號角與唇振
+title_zh: 奧菲克萊德號
+title_original: Ophicleide
+family_std: 唇振氣鳴、天然號角與銅管
+sound_hs: 423 唇振氣鳴／號角與銅管
 playing_method: 唇振吹奏
-body_listening: 嘴唇、遠方、召喚、空間方向
-soundscape: 吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 歐洲／全球
+listening_sound_tags: 嘴唇、遠方、召喚、空間方向｜吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/ophicleide/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Ophicleide_instruments%2C_bass_alto_and_soprano.png/500px-Ophicleide_instruments%2C_bass_alto_and_soprano.png
 youtube_ids: Qt0W1Keaqtk GG5pbPcXnC0
 ---
+
 ## 介紹
 
 奧菲克萊德號（OFF-ih-klyde）是一個圓錐形孔徑有鍵黃銅樂器家族，在19世紀初的法國發明，用以將有鍵號角樂器延伸至更低的音域。其中，八英尺（8′）C調或9英尺降B調的低音奧菲克萊德號在整個19世紀中扎根於軍樂隊，並作為整個西歐交響樂團銅管樂器聲部的低音樂器，取代了蛇形管及其後來的直立衍生樂器。

@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/cymbal/
-title: 銅鈸
-original_name: Cymbal
-category: 打擊樂器
-sound_class: 體鳴
-hs_class: 111.2 擊奏金屬體鳴樂器
-family: 鈸類
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
+title_zh: 銅鈸
+title_original: Cymbal
+family_std: 鈸類
+sound_hs: 111.2 擊奏金屬體鳴樂器
 playing_method: 敲擊／對擊
-country: 亞洲／中東／歐洲
-era: 傳統／年代待考
-region_type: 地區／文化圈
-soundscape: 手邊發光的小宇宙（近身體鳴、舌片琴與手奏金屬共鳴）
-body_listening: 指尖、掌心、尾音、近身聆聽
+interface_tags: 
+region_culture: 亞洲／中東／歐洲｜地區／文化圈
+listening_sound_tags: 指尖、掌心、尾音、近身聆聽｜手邊發光的小宇宙（近身體鳴、舌片琴與手奏金屬共鳴）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/cymbal/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/2006-07-06_Crash_Zildjian_14.jpg/500px-2006-07-06_Crash_Zildjian_14.jpg
 youtube_ids: opiMHTaUEaA DdYULBK8vGQ
-instrument_key: 無固定調性
-range: 約3至4個8度
 ---
+
 ## 介紹
 
 銅鈸是一種常見的打擊樂器。銅鈸一般會是成對的，是由各種合金材質的薄圓盤。大多數銅鈸的音高是可變的。不過有些依西洋早期設計的小型銅鈸音高是固定的（參考鐃鈸）。銅鈸常用在許多不同類型的樂團中，例如交響樂團、鑼鼓隊、爵士樂團，重金屬樂團和儀樂隊。爵士鼓一般會有至少一個碎音鈸、疊音鈸及一對腳踏鈸。

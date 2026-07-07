@@ -1,18 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/tamak/
-title: 塔馬克鼓
-original_name: Tamak'
-category: 打擊樂器
-country: 印度
-era: 古代
-region_type: 單一地區／文化圈
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-body_listening: 手掌、腳底、低音、舞步
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 塔馬克鼓
+title_original: Tamak'
+family_std: 鼓皮與鼓類家族
+sound_hs: 待確認
+playing_method: 敲奏／拍奏／搖奏／刮奏（待細分）
+interface_tags: 鼓槌
+region_culture: 印度｜單一地區／文化圈
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/tamak/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Traditional_Instruments_of_Odisha_-_Tamak_02.jpg/500px-Traditional_Instruments_of_Odisha_-_Tamak_02.jpg
 youtube_ids: DVPKldOnoKw 2SUOONTZcvY
-instrument_key: 無固定調性
-range: 中低音範圍（約1個8度）
 ---
+
 ## 介紹
 
 塔馬克鼓是印度次大陸桑塔爾人使用的木槌敲擊雙面鼓。鼓體由金屬製成，形狀如同一個大碗。鼓面通常由牛皮製成，直徑為14至18英寸。演奏者用一對鼓槌敲擊鼓面。桑塔爾人相信塔馬克鼓具有特殊的宗教力量，經常用於宗教儀式和桑塔爾人的節慶活動。塔馬克鼓的節奏通常為桑塔爾舞蹈奠定基本的度量和節奏模式，是傳統桑塔爾音樂的重要樂器。

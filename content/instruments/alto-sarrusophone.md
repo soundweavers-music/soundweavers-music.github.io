@@ -1,19 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/alto-sarrusophone/
-title: 中音薩魯管
-original_name: Alto sarrusophone
-category: 管樂器
-country: 德國
-era: 傳統／年代待考
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 中音薩魯管
+title_original: Alto sarrusophone
+family_std: 無簧吹管家族
+sound_hs: 待確認
+playing_method: 吹奏
+interface_tags: 
+region_culture: 德國｜單一地區／文化圈
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/alto-sarrusophone/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/%E9%AD%AF%E4%B9%8B%E6%98%A5%E7%A7%8B%28%E5%9B%9B%29.djvu/page1-500px-%E9%AD%AF%E4%B9%8B%E6%98%A5%E7%A7%8B%28%E5%9B%9B%29.djvu.jpg
-region_type: 單一地區／文化圈
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-body_listening: 口腔、舌頭、簧片震動、鼻音
 youtube_ids: n6Y2uiydezE gw7mXpGgf3Q
-instrument_key: 降B大調
-range: A1–F4（約3個8度）
 ---
+
 ## 介紹
 
 中音薩魯梭風是19世紀中葉由法國樂器製造商威廉·薩魯斯發明的管樂器。樂器採用圓錐形管身設計，配備雙簧片，外觀呈現金屬光澤。音色深沉厚重，兼具銅管的力度與木管的溫潤，介於英國管與薩克斯風之間。該樂器廣泛應用於法國軍樂隊、管樂團及現代交響樂團中，能在樂隊中提供豐富的中低音層次，是提升樂團音色質感的重要樂器。

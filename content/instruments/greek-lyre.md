@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/greek-lyre/
-title: 尼刻
-original_name: Greek Lyre
-category: 弦樂器
-country: 非洲／歐洲／亞洲／美洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Mousai_Helikon_Staatliche_Antikensammlungen_Schoen80_n1.jpg/500px-Mousai_Helikon_Staatliche_Antikensammlungen_Schoen80_n1.jpg
-sound_class: 弦鳴
-range: 約2個8度
-instrument_key: 全調性
-hs_class: Chordophone／弦鳴樂器
-family: 里拉
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 豎琴、里拉與開放弦
+title_zh: 尼刻
+title_original: Greek Lyre
+family_std: 里拉
+sound_hs: Chordophone／弦鳴樂器
 playing_method: 撥弦
-body_listening: 循環、河流感、開放弦、吟唱
-soundscape: 開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
-region_type: 地區／文化圈
+interface_tags: 
+region_culture: 非洲／歐洲／亞洲／美洲｜地區／文化圈
+listening_sound_tags: 循環、河流感、開放弦、吟唱｜開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/greek-lyre/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Mousai_Helikon_Staatliche_Antikensammlungen_Schoen80_n1.jpg/500px-Mousai_Helikon_Staatliche_Antikensammlungen_Schoen80_n1.jpg
 youtube_ids: JzKJNzL4eTI Y8Hpyov3Tt8
 ---
+
 ## 介紹
 
 尼刻（古希臘豎琴）是古希臘文明中的重要弦樂器，源於近東地區，約西元前1400年傳入古希臘。樂器由木製共鳴箱與豎立的弦柱組成，通常有7至11條腸弦。外型優雅精緻，蘊含濃厚的古典美學。尼刻不僅用於宗教儀式、節慶慶典和劇場演出，更是詩歌朗誦的伴奏樂器。根據傳說，赫密斯神以烏龜殼創製了豎琴並獻給阿波羅，反映了其在古希臘文化中的崇高地位。隨著時代發展，尼刻逐漸成為高雅音樂的象徵，深深植根於地中海文明中。

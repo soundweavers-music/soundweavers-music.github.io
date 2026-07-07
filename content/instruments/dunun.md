@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/dunun/
-title: 杜農鼓
-original_name: Dunun
-category: 打擊樂器
-country: 非洲／中東／亞洲／歐洲／美洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/en/thumb/4/49/Dundun.JPG/500px-Dundun.JPG
-sound_class: 膜鳴
-range: 低至中音區（約2個8度）
-instrument_key: 無固定調性
-hs_class: 21 膜鳴鼓類
-family: 膜鳴鼓類、框鼓、杯鼓與鼓組
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 杜農鼓
+title_original: Dunun
+family_std: 膜鳴鼓類、框鼓、杯鼓與鼓組
+sound_hs: 21 膜鳴鼓類
 playing_method: 手拍／槌擊／皮膜振動
-body_listening: 手掌、腳底、低音、舞步
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-region_type: 地區／文化圈
+interface_tags: 
+region_culture: 非洲／中東／亞洲／歐洲／美洲｜地區／文化圈
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/dunun/
+image: https://upload.wikimedia.org/wikipedia/en/thumb/4/49/Dundun.JPG/500px-Dundun.JPG
 youtube_ids: 0-zZRz6iiL0 rRAumyyji7w
 ---
+
 ## 介紹
 
 杜農鼓（馬林克語：[ˈdu.nun]；複數形式 dunun）（也拼作 dundun 或 doundoun）是西非鼓類樂器的統稱，它與傑姆貝鼓在曼德鼓樂團中一起發展演變而來。杜農鼓是一種繩調式圓筒形鼓，兩端均覆蓋生皮鼓面，最常見的是牛皮或羊皮。該鼓用鼓槌敲擊。根據不同地區，可能使用普通直木槌、頭部呈平面的彎木槌（類似於塔馬鼓使用的槌）或直木槌配上在靠近一端處以直角連接的圓筒形槌頭來敲擊鼓面。

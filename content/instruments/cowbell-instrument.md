@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/cowbell-instrument/
-title: 牛鈴
-original_name: Cowbell (instrument)
-category: 打擊樂器
-country: 歐洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/4/46/Koebel.jpg
-sound_class: 體鳴
-range: 約1個8度（高音域）
-instrument_key: 無固定調性
-hs_class: Idiophone／體鳴樂器
-family: 材料敲擊延伸
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
+title_zh: 牛鈴
+title_original: Cowbell (instrument)
+family_std: 材料敲擊延伸
+sound_hs: Idiophone／體鳴樂器
 playing_method: 敲擊
-body_listening: 材料、回聲、群體分工、音列
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 歐洲
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/cowbell-instrument/
+image: https://upload.wikimedia.org/wikipedia/commons/4/46/Koebel.jpg
 youtube_ids: -5xJW-jHI24 hOblXebJoMY
 ---
+
 ## 介紹
 
 牛鈴是一種鐵片打擊樂器，用於各種音樂風格，例如拉丁音樂和搖滾樂。它之所以得名，是因為牧民使用類似的鈴鐺來追蹤牛隻的位置。該樂器最初和傳統上是由金屬製成的；然而，在當代，某些變體是由合成材料製造的。

@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/marimbaphone/
-title: 馬林巴手機琴
-original_name: Marimbaphone
-category: 打擊樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 馬林巴手機琴
+title_original: Marimbaphone
+family_std: 體鳴打擊樂器類
+sound_hs: 1 体鳴樂器
 playing_method: 敲擊／搖晃／撥彈
-family: 體鳴打擊樂器類
-hs_class: 1 体鳴樂器
-sound_class: 体鳴
-country: 美洲／北美
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-body_listening: 材料、回聲、群體分工、音列
+interface_tags: 
+region_culture: 美洲／北美｜單一地區／文化圈
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/marimbaphone/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Marimbaphone_advert.jpg/500px-Marimbaphone_advert.jpg
 youtube_ids: lzzMHoi3r2w mPr_SvnJ_z0
-instrument_key: 全調性
-range: 中音至高音（約2個8度）
 ---
+
 ## 介紹
 
 馬林巴手機琴是一種已淘汰的定音打擊樂器，由芝加哥伊利諾州的J. C. Deagan公司在20世紀初開發。

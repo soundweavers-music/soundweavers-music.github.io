@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/bandoneon/
-title: 班東尼琴
-original_name: Bandoneon
-category: 鍵盤樂器
-country: 歐洲／德國／美洲／阿根廷
-era: 19 世紀
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Buenos_Aires_-_Bandoneon_tango_player_-_7435.jpg/500px-Buenos_Aires_-_Bandoneon_tango_player_-_7435.jpg
-sound_class: 氣鳴
-range: 約3個半8度
-instrument_key: 多調性
-hs_class: 412/422 簧鳴與自由簧／單簧雙簧
-family: 口簧、自由簧、單簧雙簧與風袋
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 風箱與自由簧
+title_zh: 班東尼琴
+title_original: Bandoneon
+family_std: 口簧、自由簧、單簧雙簧與風袋
+sound_hs: 氣鳴｜412/422 簧鳴與自由簧／單簧雙簧
 playing_method: 吹奏／簧片振動／風袋或風箱
-body_listening: 口腔、舌頭、簧片震動、鼻音
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-region_type: 跨文化／多地
+interface_tags: 風箱
+region_culture: 歐洲／德國／美洲／阿根廷
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 待檢查
+issue_note: 屬性疑點；Balalaika 來源地區不應寫成中東／全球泛稱，應以俄羅斯／東歐為主。；名稱可保留「巴拉萊卡琴」，國家待修。
+source_url: https://soundweavers-music.github.io/instruments/bandoneon/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Buenos_Aires_-_Bandoneon_tango_player_-_7435.jpg/500px-Buenos_Aires_-_Bandoneon_tango_player_-_7435.jpg
 youtube_ids: ES3sbXY4gPk JUPo5SG5GCg
 ---
+
 ## 介紹
 
 班東尼琴（西班牙語：bandoneón）或班東尼安琴是一種手風琴，在阿根廷和烏拉圭特別受歡迎，用於大多數探戈樂團中。與其他手風琴家族成員一樣，它夾在雙手之間演奏，通過拉動和推動風箱中的空氣，經由按下琴鍵來控制調音金屬簧片組發聲。與大多數手風琴不同的是，班東尼琴始終採用相同的簧片組來產生聲音，通常沒有手風琴上常見的音栓開關。

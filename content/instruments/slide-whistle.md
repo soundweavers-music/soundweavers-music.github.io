@@ -1,22 +1,22 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/slide-whistle/
-title: 滑音哨笛
-original_name: Slide whistle
-category: 管樂器
-sound_class: 氣鳴
-hs_class: 421.2 哨笛類
-family: 活塞笛類
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 滑音哨笛
+title_original: Slide whistle
+family_std: 活塞笛類
+sound_hs: 氣鳴｜421.2 哨笛類
 playing_method: 吹奏／活塞
-country: 美洲／北美
-era: 傳統／年代待考
-region_type: 跨文化／多地
-soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
-body_listening: 氣息、胸腔、長音、空間
+interface_tags: 活塞
+region_culture: 美洲／北美
+listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+ensemble_links: 爵士編制
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/slide-whistle/
 youtube_ids: UyiDr8SrsMQ NvyAqL3H4Js
-instrument_key: 全調性
-range: 約3個8度
 ---
+
 ## 介紹
 
 滑音哨笛（亦稱為天鵝笛、蓮花笛、活塞笛或爵士笛）是一種風樂器，由一根內部裝有活塞的管子和類似於豎笛的吹口組成。這使演奏者在吹奏哨笛時能夠透過滑動來改變音高，產生上升或下降的滑音效果。由於氣柱呈圓筒形，一端開放，一端封閉，因此會過度吹奏第三個泛音。

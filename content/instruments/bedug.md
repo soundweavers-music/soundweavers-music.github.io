@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/bedug/
-title: 貝杜格鼓
-original_name: Bedug
-category: 打擊樂器
-country: 印尼／馬來群島
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Bedug_at_Istiqlal_Mosque.jpg/500px-Bedug_at_Istiqlal_Mosque.jpg
-sound_class: 膜鳴
-range: 低音範圍（約1至2個8度）
-instrument_key: 無固定調性
-hs_class: Membranophone／膜鳴樂器
-family: 大型桶鼓
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 貝杜格鼓
+title_original: Bedug
+family_std: 大型桶鼓
+sound_hs: Membranophone／膜鳴樂器
 playing_method: 槌擊
-body_listening: 清真寺信號、低頻召喚、地方時間感
-soundscape: 皮膜敲醒的地心脈動（膜鳴鼓類、框鼓、杯鼓與鼓組）
-region_type: 區域／多國
+interface_tags: 
+region_culture: 印尼／馬來群島｜區域／多國
+listening_sound_tags: 清真寺信號、低頻召喚、地方時間感｜皮膜敲醒的地心脈動（膜鳴鼓類、框鼓、杯鼓與鼓組）
+ensemble_links: 甘美朗合奏
+verification_status: 中文名重複，需判斷
+issue_note: 中文名碰撞；中文名與第86、228項重複，但英文／原文可能不同。；不可只用中文名判斷；請以英文／原文名與型制決定合併、相鄰或改譯名。
+source_url: https://soundweavers-music.github.io/instruments/bedug/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Bedug_at_Istiqlal_Mosque.jpg/500px-Bedug_at_Istiqlal_Mosque.jpg
 youtube_ids: 77Wy4Lup6Sg fbvzoo_aTes
 ---
+
 ## 介紹
 
 貝杜格鼓是甘美蘭樂隊中使用的鼓之一。它也在印度尼西亞和馬來西亞的清真寺中演奏，用來標記祈禱時間。這種樂器的敲擊方式特別是按照一種以越來越快速（或漸快）的節奏進行。

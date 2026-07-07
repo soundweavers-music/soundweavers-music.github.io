@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/panduri/
-title: 潘杜裡琴
-original_name: Panduri
-category: 弦樂器
-country: 中東／歐洲／亞洲／美洲
-era: 古代
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Georgia_2011_052_%285681237150%29.jpg/500px-Georgia_2011_052_%285681237150%29.jpg
-sound_class: 弦鳴
-range: 中高音區（約2個8度）
-instrument_key: 全調性
-hs_class: 321/322 魯特琴類／撥弦
-family: 魯特琴、短頸長頸撥弦與民謠弦聲
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 潘杜裡琴
+title_original: Panduri
+family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
+sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
 playing_method: 撥弦／刷弦／撥片
-body_listening: 懷抱、手指、腳步、敘事
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 地區／文化圈
+interface_tags: 撥片
+region_culture: 中東／歐洲／亞洲／美洲｜地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/panduri/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Georgia_2011_052_%285681237150%29.jpg/500px-Georgia_2011_052_%285681237150%29.jpg
 youtube_ids: mHAkrp6Wuqg W38eUJTXcYI
 ---
+
 ## 介紹
 
 潘杜里琴（格魯吉亞語：ფანდური）是傳統的格魯吉亞三弦撥弦樂器，在格魯吉亞東部的所有地區都很常見，例如普沙夫-赫夫蘇雷蒂、圖什蒂、卡赫蒂和卡特利。潘杜里琴通常用於伴奏獨唱的英雄歌曲、喜劇歌曲和愛情歌曲，以及舞蹈。

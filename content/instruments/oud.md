@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/oud/
-title: 烏德琴
-original_name: Oud
-category: 弦樂器
-country: 中東
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Oud2.jpg/500px-Oud2.jpg
-sound_class: 弦鳴
-range: 約3個8度
-instrument_key: 無固定調性
-hs_class: 321/322 魯特琴類／撥弦
-family: 魯特琴、短頸長頸撥弦與民謠弦聲
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 烏德琴
+title_original: Oud
+family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
+sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
 playing_method: 撥弦／刷弦／撥片
-body_listening: 懷抱、手指、腳步、敘事
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 跨文化／多地
+interface_tags: 撥片
+region_culture: 中東
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/oud/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Oud2.jpg/500px-Oud2.jpg
 youtube_ids: jRuyMhUy_n8 osf1gckzf70
 ---
+
 ## 介紹
 
 烏德琴，又稱厄烏德琴（英語：Oud；阿拉伯語：عود；波斯語：بربط；土耳其語：ud, ut；希臘語：ούτι；亞美尼亞語：ուդ），是中東及非洲東部及北部使用的一種傳統弦樂器，有「中東樂器之王」之稱。 烏德琴被認為是歐洲魯特琴。由於現代吉他延自魯特琴之一種類，是以烏德琴也被視為吉他的前身。 中亞國家如阿拉伯、土耳其、伊朗、亞美尼亞、伊拉克、敘利亞、亞塞拜然的傳統音樂里烏德琴占有重要地位。在北非國家如埃及、蘇丹、摩洛哥、突尼斯、阿爾及利亞等也是人們所喜愛的樂器之一。

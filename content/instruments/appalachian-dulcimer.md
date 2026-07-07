@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/appalachian-dulcimer/
-title: 阿帕拉契亞揚琴
-original_name: Appalachian Dulcimer
-category: 鍵盤樂器
-country: 東亞／中亞／歐洲／東南亞／非洲／美洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Dulcimer_%28UP%29.jpg/500px-Dulcimer_%28UP%29.jpg
-sound_class: 弦鳴
-range: 約2至3個8度
-instrument_key: 多調性
-hs_class: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
-family: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 阿帕拉契亞揚琴
+title_original: Appalachian Dulcimer
+family_std: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+sound_hs: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
 playing_method: 撥弦／擊弦／按鍵擊弦
-body_listening: 手掌、弦面、推音、敲擊
-soundscape: 平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
-region_type: 地區／文化圈
+interface_tags: 鍵盤／按鍵
+region_culture: 東亞／中亞／歐洲／東南亞／非洲／美洲｜地區／文化圈
+listening_sound_tags: 手掌、弦面、推音、敲擊｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
+ensemble_links: 
+verification_status: 待檢查
+issue_note: 屬性疑點；Antara 通常指安地斯排簫系統；來源地區寫伊朗／高加索疑似錯置。；列待查，優先查英文 Antara panpipe。
+source_url: https://soundweavers-music.github.io/instruments/appalachian-dulcimer/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Dulcimer_%28UP%29.jpg/500px-Dulcimer_%28UP%29.jpg
 youtube_ids: QN3KWbpBsvg UurHbXwVo04
 ---
+
 ## 介紹
 
 阿帕拉契亞揚琴是19世紀早期出現於美國阿帕拉契亞山脈的傳統樂器，由蘇格蘭—愛爾蘭移民帶來。其外型呈狹長梨形，配備琴鍵與多根弦線。樂器音色溫潤柔和，帶有獨特鄉村民謠韻味，既不失金屬般清脆感，又富詩意蒼涼之美。主要用於美式民俗音樂、鄉村音樂演奏，是保留傳統民間文化的重要樂器。其獨特的共鳴設計與樸實音質，使其成為民族音樂不可或缺的角色。

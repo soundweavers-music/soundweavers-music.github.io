@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/tar/
-title: 塔爾琴
-original_name: Tar
-category: 打擊樂器
-country: 中東／歐亞／東亞／美洲／全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Ko%C5%9B%C4%87i%C3%B3%C5%82_w_Tarczynie_widok_tylnej_cz%C4%99%C5%9Bci_z_Rynku.jpg/500px-Ko%C5%9B%C4%87i%C3%B3%C5%82_w_Tarczynie_widok_tylnej_cz%C4%99%C5%9Bci_z_Rynku.jpg
-sound_class: 膜鳴
-range: 約2至3個8度
-instrument_key: 無固定調性
-hs_class: 21 膜鳴鼓類
-family: 膜鳴鼓類、框鼓、杯鼓與鼓組
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 塔爾琴
+title_original: Tar
+family_std: 膜鳴鼓類、框鼓、杯鼓與鼓組
+sound_hs: 21 膜鳴鼓類
 playing_method: 手拍／槌擊／皮膜振動
-body_listening: 手掌、腳底、低音、舞步
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 中東／歐亞／東亞／美洲／全球
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/tar/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Ko%C5%9B%C4%87i%C3%B3%C5%82_w_Tarczynie_widok_tylnej_cz%C4%99%C5%9Bci_z_Rynku.jpg/500px-Ko%C5%9B%C4%87i%C3%B3%C5%82_w_Tarczynie_widok_tylnej_cz%C4%99%C5%9Bci_z_Rynku.jpg
 youtube_ids: 8DcrwHqPcFo ACkm10c7KwU
 ---
+
 ## 介紹
 
 塔爾琴是波蘭的城鎮，位於該國中部，距離首都華沙約30公里，由馬佐夫舍省負責管轄，始建於十三世紀，面積5.24平方公里，海拔高度140米，2006年人口3,886。

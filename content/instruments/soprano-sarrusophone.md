@@ -1,19 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/soprano-sarrusophone/
-title: 高音薩魯梭風
-original_name: Soprano sarrusophone
-category: 管樂器
-country: 法國
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-body_listening: 口腔、舌頭、簧片震動、鼻音
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 高音薩魯梭風
+title_original: Soprano sarrusophone
+family_std: 無簧吹管家族
+sound_hs: 待確認
+playing_method: 吹奏
+interface_tags: 
+region_culture: 法國｜單一地區／文化圈
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/soprano-sarrusophone/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/MIMEd_4057._Soprano_sarrusophone_in_B%E2%99%AD_%28white_background%29.png/500px-MIMEd_4057._Soprano_sarrusophone_in_B%E2%99%AD_%28white_background%29.png
 youtube_ids: J4iks3jSNF4 gw7mXpGgf3Q
-instrument_key: 降B大調
-range: 約與高音薩克斯風相同（約3個8度）
 ---
+
 ## 介紹
 
 高音薩魯梭風是薩魯梭風族樂器中的高音成員，屬於按鍵金屬圓錐形管孔雙簧樂器。它以降B調音，音域範圍大約與高音薩克斯風相同。音色類似於雙簧管，但音量更大、精緻度更低，更像是一種嗩吶。雖然在19世紀末和20世紀初的管樂團中被使用過，但如今已極為罕見，因為現存的原始樂器標本很少。

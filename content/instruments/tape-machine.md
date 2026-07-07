@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/tape-machine/
-title: 磁帶機
-original_name: Tape Machine
-category: 鍵盤樂器
-country: 歐洲／美國／全球現代錄音室
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/1/13/Women_in_Waldorf-Astoria.jpg
-sound_class: 鍵盤／電鳴／機械混合
-range: 寬廣音域（可覆蓋多個八度）
-instrument_key: 全調性
-hs_class: 412/31/52 鍵盤、自由簧、電鳴與機械介面
-family: 鍵盤介面、風箱、電子與取樣
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 取樣與磁帶
+title_zh: 磁帶機
+title_original: Tape Machine
+family_std: 鍵盤介面、風箱、電子與取樣
+sound_hs: 鍵盤／電鳴／機械混合｜412/31/52 鍵盤、自由簧、電鳴與機械介面
 playing_method: 按鍵／風箱／電控／取樣
-body_listening: 手指、機械距離、記憶、電聲
-soundscape: 按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
-region_type: 跨文化／多地
+interface_tags: 鍵盤／按鍵、風箱
+region_culture: 歐洲／美國／全球現代錄音室
+listening_sound_tags: 手指、機械距離、記憶、電聲｜按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
+ensemble_links: 
+verification_status: 需調整
+issue_note: 名稱主項；Suona 是嗩吶；第573 Pi Chanai 不應合併為嗩吶。；保留「嗩吶（Suona）」主項。
+source_url: https://soundweavers-music.github.io/instruments/tape-machine/
+image: https://upload.wikimedia.org/wikipedia/commons/1/13/Women_in_Waldorf-Astoria.jpg
 youtube_ids: vaG5tVnpkwc oI7S5bwxX8w
 ---
+
 ## 介紹
 
 磁帶機是一種電子鍵盤樂器，起源於1930年代德國的錄音技術。其外型為箱型機械裝置，配備播放頭、馬達與磁帶迴圈系統。除作為錄音工具外，60年代起被先鋒派作曲家創意改造為樂器，透過磁帶迴圈、變速播放等技術進行實驗音樂創作。磁帶機音色兼具溫潤與機械質感，低頻飽滿、中頻溫暖、高頻帶柔和磁性光澤，具有典型類比質感與復古魅力，廣泛應用於電子音樂、工業音樂及聲音藝術領域。

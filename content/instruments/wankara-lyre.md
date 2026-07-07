@@ -1,21 +1,22 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/wankara-lyre/
-title: 瓦卡拉豎琴
-original_name: Wankara Lyre
-category: 弦樂器
-country: 非洲／歐洲／亞洲／美洲
-era: 傳統／年代待考
-sound_class: 弦鳴
-range: 約3個八度以上
-instrument_key: 多調性
-hs_class: 322 豎琴與里拉類
-family: 豎琴、里拉與開放弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 豎琴、里拉與開放弦
+title_zh: 瓦卡拉豎琴
+title_original: Wankara Lyre
+family_std: 豎琴、里拉與開放弦樂器
+sound_hs: 弦鳴｜322 豎琴與里拉類
 playing_method: 撥弦／開放弦共鳴
-body_listening: 循環、河流感、開放弦、吟唱
-soundscape: 開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
-region_type: 地區／文化圈
+interface_tags: 
+region_culture: 非洲／歐洲／亞洲／美洲｜地區／文化圈
+listening_sound_tags: 循環、河流感、開放弦、吟唱｜開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
+ensemble_links: 
+verification_status: 有問題，需修正
+issue_note: 譯名錯誤；Tsuzumi 是日本鼓，不宜只叫「鼓」。；改「鼓／小鼓（Tsuzumi，需按型制）」；與日本鼓類相鄰。
+source_url: https://soundweavers-music.github.io/instruments/wankara-lyre/
 youtube_ids: lzk-l8Gm0MY WWBCa4KSkXQ
 ---
+
 ## 介紹
 
 瓦卡拉豎琴是源自東非衣索比亞高地的古老弦樂器，迄今已有數千年歷史。樂器呈豎琴造型，以自然材質製作，外型典雅古樸。其音色溫潤透亮，高音區明亮清晰如水晶，中低音溫暖厚實，音域寬廣跨越多個八度。瓦卡拉豎琴在衣索比亞阿姆哈拉人和蒂格雷人文化中佔據重要地位，廣泛應用於宗教儀式、王室慶典及民間娛樂，是傳統非洲音樂中不可或缺的樂器，具有獨特的非洲風情與文化意蘊。

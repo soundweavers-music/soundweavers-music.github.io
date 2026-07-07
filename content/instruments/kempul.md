@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/kempul/
-title: 克姆普爾鑼
-original_name: Kempul
-category: 打擊樂器
-country: 印尼爪哇島
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Traditional_indonesian_instruments04.jpg/500px-Traditional_indonesian_instruments04.jpg
-sound_class: 體鳴
-range: 中高音範圍（約2個8度）
-instrument_key: 無固定調性
-hs_class: 11/12 定音體鳴／鑼鐘木琴石琴系統
-family: 定音體鳴、材料敲擊與鑼鐘木琴系統
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 克姆普爾鑼
+title_original: Kempul
+family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
+sound_hs: 11/12 定音體鳴／鑼鐘木琴石琴系統
 playing_method: 敲擊／搖奏／材料共鳴
-body_listening: 段落支撐、低音回聲、空間感
-soundscape: 木石金屬的回聲城市（定音體鳴、材料敲擊與鑼鐘木琴系統）
-region_type: 單一地區／文化圈
+interface_tags: 
+region_culture: 印尼爪哇島｜單一地區／文化圈
+listening_sound_tags: 段落支撐、低音回聲、空間感｜木石金屬的回聲城市（定音體鳴、材料敲擊與鑼鐘木琴系統）
+ensemble_links: 甘美朗合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/kempul/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Traditional_indonesian_instruments04.jpg/500px-Traditional_indonesian_instruments04.jpg
 youtube_ids: Cefeb2q4KSE FRIjS714zBk
 ---
+
 ## 介紹
 
 克姆普爾鑼是印度尼西亞甘美蘭樂隊中使用的一種懸掛鑼。克姆普爾鑼是一套音高不同的懸掛式敲擊鑼，通常由青銅、木材和繩索製成。克姆普爾鑼的直徑從19到25.4厘米（7.5到10.0英寸）不等，其表面平坦，中央有一個突起的圓球形突起，通過用木槌的「軟端」敲擊圓球來演奏。所使用的木製木槌的頭部呈球形，在短木柄上裝有厚重的襯墊。

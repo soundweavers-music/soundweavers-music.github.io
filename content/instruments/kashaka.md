@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/kashaka/
-title: 卡沙卡連珠搖響器
-original_name: Kashaka
-category: 打擊樂器
-country: 拉丁美洲／非洲／歐洲／亞洲／全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Asalato_%28Kashaka%29%2C_percussion_instrument_of_West_Africa_%28photozou_29416265%29_by_Ludwig_D._Omen.jpg/500px-Asalato_%28Kashaka%29%2C_percussion_instrument_of_West_Africa_%28photozou_29416265%29_by_Ludwig_D._Omen.jpg
-sound_class: 體鳴
-range: 中高音域（約2個8度）
-instrument_key: 無固定調性
-hs_class: 11 小型體鳴／搖奏刮奏敲奏
-family: 小型節奏體鳴、沙鈴、刮器與身體打擊
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 卡沙卡連珠搖響器
+title_original: Kashaka
+family_std: 小型節奏體鳴、沙鈴、刮器與身體打擊
+sound_hs: 11 小型體鳴／搖奏刮奏敲奏
 playing_method: 搖奏／刮奏／敲擊／身體打擊
-body_listening: 手腕、腳踝、短音、節奏對齊
-soundscape: 手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 拉丁美洲／非洲／歐洲／亞洲／全球
+listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+ensemble_links: 
+verification_status: 已修正中文名，待雙來源補證
+issue_note: 中文名重複／譯名修正；原中文名寫成「口琴」，容易與第345項 Harmonica 混淆；Jaw Harp 應用「口簧琴」。；不刪除；改中文名，與 Harmonica 分開。；DUP-012:Harmonica／Jaw Harp／Kouxian
+source_url: https://soundweavers-music.github.io/instruments/kashaka/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Asalato_%28Kashaka%29%2C_percussion_instrument_of_West_Africa_%28photozou_29416265%29_by_Ludwig_D._Omen.jpg/500px-Asalato_%28Kashaka%29%2C_percussion_instrument_of_West_Africa_%28photozou_29416265%29_by_Ludwig_D._Omen.jpg
 youtube_ids: qbkNNTkmJQ4 zwEDOWZ6w5c
 ---
+
 ## 介紹
 
 卡沙卡是一種簡單的打擊樂器，由兩個裝有豆類的小葫蘆組成（本質上是由繩子連接的兩個小搖響器）。一個葫蘆握在手中，另一個則在手周圍快速左右搖擺，在撞擊時發出「咔噠」聲。它起源於西非，但已在各個國家以不同名稱重現：帕蒂卡（日本）、科西卡（美國）。其他名稱還包括阿薩拉托、克斯克斯、特昌戈特切、科什卡及許多其他名稱。

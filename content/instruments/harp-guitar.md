@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/harp-guitar/
-title: 豎琴吉他
-original_name: Harp guitar
-category: 弦樂器
-country: 歐洲／美國
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/6/6a/Guitare_harpe.jpg
-sound_class: 弦鳴
-range: 約3至4個8度（根據配置而異）
-instrument_key: 全調性
-hs_class: Chordophone／弦鳴樂器
-family: 混合開放弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 豎琴、里拉與開放弦
+title_zh: 豎琴吉他
+title_original: Harp guitar
+family_std: 混合開放弦樂器
+sound_hs: Chordophone／弦鳴樂器
 playing_method: 撥奏
-body_listening: 吉他和低音開放弦的交錯空間
-soundscape: 開放弦的天空與河流（豎琴、里拉與開放弦樂器）
-region_type: 跨文化／現代
+interface_tags: 
+region_culture: 歐洲／美國｜跨文化／現代
+listening_sound_tags: 吉他和低音開放弦的交錯空間｜開放弦的天空與河流（豎琴、里拉與開放弦樂器）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/harp-guitar/
+image: https://upload.wikimedia.org/wikipedia/commons/6/6a/Guitare_harpe.jpg
 youtube_ids: Vlzk9989dzg jHS7w2AuCKY
 ---
+
 ## 介紹
 
 豎琴吉他是一種以吉他為基礎的弦樂器，通常定義為「任何公認形式的吉他，配備任意數量的額外開放弦，能夠進行單獨撥彈」。「豎琴」一詞是指其類似豎琴的開放弦。豎琴吉他必須至少擁有一根位於主指板外的無品弦，通常作為開放弦演奏。這個樂器家族包含許多不同的配置種類。

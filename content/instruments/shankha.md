@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/shankha/
-title: 印度海螺
-original_name: Shankha
-category: 管樂器
-country: 全球／中東／歐洲／亞洲／高山與宗教文化圈
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Carved_Conch.jpg/500px-Carved_Conch.jpg
-sound_class: 氣鳴
-range: 中低音區（約2個8度）
-instrument_key: 無固定調性
-hs_class: 423 唇振氣鳴／號角與銅管
-family: 唇振氣鳴、天然號角與銅管
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 號角與唇振
+title_zh: 印度海螺
+title_original: Shankha
+family_std: 唇振氣鳴、天然號角與銅管
+sound_hs: 423 唇振氣鳴／號角與銅管
 playing_method: 唇振吹奏
-body_listening: 嘴唇、遠方、召喚、空間方向
-soundscape: 吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 全球／中東／歐洲／亞洲／高山與宗教文化圈
+listening_sound_tags: 嘴唇、遠方、召喚、空間方向｜吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
+ensemble_links: 
+verification_status: 待檢查
+issue_note: 名稱待查；Sansi / Sanza / Sansu 類舌片琴名稱容易混用，需以原文與地區查核。；與 Mbira/Kalimba/Likembe 相鄰，待補證。；DUP-020:舌片琴支線
+source_url: https://soundweavers-music.github.io/instruments/shankha/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Carved_Conch.jpg/500px-Carved_Conch.jpg
 youtube_ids: fuZhaHIThnM 3Vv98x4iSCA
 ---
+
 ## 介紹
 
 海螺（梵文：शङ्ख，音譯：śaṅkha，字義為「螺殼」）在印度教中具有宗教儀式的重要意義。在印度教中，稱為「五箭之螺」的海螺是印度教保護神毗濕奴的神聖象徵。它仍被用作印度教儀式中的號角，過去曾被用作戰爭號角。根據阿魯納瓦·博斯的說法，「海螺在印度教經文中被讚美為名聲、長壽和繁榮的賜予者，罪惡的淨化者，以及財富女神拉克什米的住所，拉克什米是繁榮女神也是毗濕奴的妻子」。在印度教藝術中，海螺與毗濕奴一起展現。

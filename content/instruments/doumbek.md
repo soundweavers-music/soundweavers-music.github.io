@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/doumbek/
-title: 多姆貝克鼓
-original_name: Doumbek
-category: 打擊樂器
-country: 非洲／中東／亞洲／歐洲／美洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Goblet_drum_01.jpg/500px-Goblet_drum_01.jpg
-sound_class: 膜鳴
-range: 中高頻段（約2個8度）
-instrument_key: 無固定調性
-hs_class: 21 膜鳴鼓類
-family: 膜鳴鼓類、框鼓、杯鼓與鼓組
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 多姆貝克鼓
+title_original: Doumbek
+family_std: 膜鳴鼓類、框鼓、杯鼓與鼓組
+sound_hs: 21 膜鳴鼓類
 playing_method: 手拍／槌擊／皮膜振動
-body_listening: 手掌、腳底、低音、舞步
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-region_type: 地區／文化圈
+interface_tags: 
+region_culture: 非洲／中東／亞洲／歐洲／美洲｜地區／文化圈
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/doumbek/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Goblet_drum_01.jpg/500px-Goblet_drum_01.jpg
 youtube_ids: FYlWrI9C-pI mVZY66UsVas
 ---
+
 ## 介紹
 
 多姆貝克鼓（亦稱高腳杯鼓、塔拉布卡鼓、達卜卡、多姆貝克、阿拉伯語：دربوكة / 羅馬字轉寫：darbuka）是一種單層鼓皮的高腳杯形膜鳴樂器。它最常用於北非和中東的傳統音樂中。該樂器也出現在南亞和東歐的傳統音樂中。西非的傑姆貝鼓和布加拉布鼓也是高腳杯形膜鳴樂器。

@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/ocean-drum/
-title: 海浪鼓
-original_name: Ocean Drum
-category: 打擊樂器
-country: 拉丁美洲／非洲／歐洲／亞洲／全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Geophonephoto.jpg/500px-Geophonephoto.jpg
-sound_class: 體鳴
-range: 約2個8度（從低沉隆隆聲至高頻沙沙聲）
-instrument_key: 無固定調性
-hs_class: 11 小型體鳴／搖奏刮奏敲奏
-family: 小型節奏體鳴、沙鈴、刮器與身體打擊
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 海浪鼓
+title_original: Ocean Drum
+family_std: 小型節奏體鳴、沙鈴、刮器與身體打擊
+sound_hs: 11 小型體鳴／搖奏刮奏敲奏
 playing_method: 搖奏／刮奏／敲擊／身體打擊
-body_listening: 手腕、腳踝、短音、節奏對齊
-soundscape: 手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 拉丁美洲／非洲／歐洲／亞洲／全球
+listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/ocean-drum/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Geophonephoto.jpg/500px-Geophonephoto.jpg
 youtube_ids: FmTwS4pSl94 Ds_3kyh0Zfg
 ---
+
 ## 介紹
 
 海浪鼓是一種打擊樂器，能夠模擬海洋的聲音，由奧利維埃·梅西安在1972年發明。

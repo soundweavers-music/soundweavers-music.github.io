@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/teponaztli/
-title: 特波那茲特鼓
-original_name: Teponaztli
-category: 打擊樂器
-country: 拉丁美洲／非洲／歐洲／亞洲／全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Two_Teponaztli.jpg/500px-Two_Teponaztli.jpg
-sound_class: 體鳴
-range: 中低頻段（約2個8度）
-instrument_key: 無固定調性
-hs_class: 11 小型體鳴／搖奏刮奏敲奏
-family: 小型節奏體鳴、沙鈴、刮器與身體打擊
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 特波那茲特鼓
+title_original: Teponaztli
+family_std: 小型節奏體鳴、沙鈴、刮器與身體打擊
+sound_hs: 11 小型體鳴／搖奏刮奏敲奏
 playing_method: 搖奏／刮奏／敲擊／身體打擊
-body_listening: 手腕、腳踝、短音、節奏對齊
-soundscape: 手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 拉丁美洲／非洲／歐洲／亞洲／全球
+listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/teponaztli/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Two_Teponaztli.jpg/500px-Two_Teponaztli.jpg
 youtube_ids: I7yahW58tQc EYvjyNGbqn8
 ---
+
 ## 介紹
 
 特波那茲特鼓 [tepoˈnast͡ɬi] 是中墨西哥的阿茲特克人及相關文化所使用的一種狹縫鼓。

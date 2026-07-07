@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/kamancheh/
-title: 卡曼賈
-original_name: Kamancheh
-category: 弦樂器
-country: 亞洲／歐洲／中東／全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/2_Kam%C4%81nches%2C_Persia%2C_ca._1880.jpg/500px-2_Kam%C4%81nches%2C_Persia%2C_ca._1880.jpg
-sound_class: 弦鳴
-range: 約2.5個8度
-instrument_key: 無固定調性
-hs_class: 321.3 擦弦／輪弦／提琴家族
-family: 擦弦、輪弦與提琴家族
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 擦弦、鍵控與輪弦
+title_zh: 卡曼賈
+title_original: Kamancheh
+family_std: 擦弦、輪弦與提琴家族
+sound_hs: 弦鳴｜321.3 擦弦／輪弦／提琴家族
 playing_method: 弓擦／輪擦
-body_listening: 胸口、嗓音、拉長的情緒
-soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
-region_type: 跨文化／多地
+interface_tags: 弓
+region_culture: 亞洲／歐洲／中東／全球
+listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/kamancheh/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/2_Kam%C4%81nches%2C_Persia%2C_ca._1880.jpg/500px-2_Kam%C4%81nches%2C_Persia%2C_ca._1880.jpg
 youtube_ids: 5MbdEcg0Xyg vAYb_GU7Vcs
 ---
+
 ## 介紹
 
 卡曼賈是一種伊朗弓弦樂器，用於波斯、阿塞拜疆、亞美尼亞、庫爾德、喬治亞、土庫曼和烏茲別克音樂中，其樂器結構略有不同。卡曼賈與雷巴布有關，雷巴布是卡曼賈的歷史祖先，也是弓弦拜占庭豎琴的祖先。琴弦由可調張力的弓演奏。2017年，卡曼賈的製作工藝和演奏藝術被列入伊朗和阿塞拜疆的聯合國教科文組織非物質文化遺產名錄。

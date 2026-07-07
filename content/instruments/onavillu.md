@@ -1,19 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/onavillu/
-title: Onavillu（暫譯）
-original_name: Onavillu
-category: 弦樂器
-country: 印度／南亞
-era: 傳統／年代待考
-region_type: 地區／文化圈
-soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
-body_listening: 胸口、嗓音、拉長的情緒
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: Onavillu（暫譯）
+title_original: Onavillu
+family_std: 撥弦與抱持弦樂家族
+sound_hs: 待確認
+playing_method: 撥奏／擦奏／擊弦（待細分）
+interface_tags: 弓
+region_culture: 印度／南亞｜地區／文化圈
+listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/onavillu/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/%E0%B4%93%E0%B4%A3%E0%B4%B5%E0%B4%BF%E0%B4%B2%E0%B5%8D%E0%B4%B2%E0%B5%8D_%E0%B4%89%E0%B4%AA%E0%B4%AF%E0%B5%8B%E0%B4%97%E0%B4%BF%E0%B4%9A%E0%B5%8D%E0%B4%9A%E0%B5%81%E0%B4%B3%E0%B5%8D%E0%B4%B3_%E0%B4%AA%E0%B4%BE%E0%B4%9F%E0%B5%8D%E0%B4%9F%E0%B5%8D%E0%B5%A7.resized.jpg/500px-%E0%B4%93%E0%B4%A3%E0%B4%B5%E0%B4%BF%E0%B4%B2%E0%B5%8D%E0%B4%B2%E0%B5%8D_%E0%B4%89%E0%B4%AA%E0%B4%AF%E0%B5%8B%E0%B4%97%E0%B4%BF%E0%B4%9A%E0%B5%8D%E0%B4%9A%E0%B5%81%E0%B4%B3%E0%B5%8D%E0%B4%B3_%E0%B4%AA%E0%B4%BE%E0%B4%9F%E0%B5%8D%E0%B4%9F%E0%B5%8D%E0%B5%A7.resized.jpg
 youtube_ids: TWtuaJUj4Vc iIMvPU4_9Vk
-instrument_key: 無固定調性
-range: 中高音區（約1至2個8度）
 ---
+
 ## 介紹
 
 奧那維盧（Onavillu）是一種簡單、短小、弓形的樂器。其名稱可能來自於喀拉拉邦的節日奧南（Onam），該樂器在當地舞蹈中使用，以及馬拉雅拉姆語（以及其他南印度語言）中表示「弓」的詞彙維盧（villu）。儘管在鄉村藝術形式中仍被定期使用，奧那維盧的使用正在衰退。奧那維盧也指扁平、逐漸變窄的木製製品，裝飾有流蘇，用於對毗濕奴勳爵的虔誠儀式。

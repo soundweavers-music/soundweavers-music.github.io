@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/surbahar/
-title: 蘇巴哈爾琴
-original_name: Surbahar
-category: 弦樂器
-country: 中東／歐亞／東亞／美洲／全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Sur2.jpg/500px-Sur2.jpg
-sound_class: 弦鳴
-range: 約2至3個8度
-instrument_key: 無固定調性
-hs_class: 321/322 魯特琴類／撥弦
-family: 魯特琴、短頸長頸撥弦與民謠弦聲
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 蘇巴哈爾琴
+title_original: Surbahar
+family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
+sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
 playing_method: 撥弦／刷弦／撥片
-body_listening: 懷抱、手指、腳步、敘事
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 跨文化／多地
+interface_tags: 撥片
+region_culture: 中東／歐亞／東亞／美洲／全球
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/surbahar/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Sur2.jpg/500px-Sur2.jpg
 youtube_ids: kTCQlhPrVuo SK3FmfOeJ4w
 ---
+
 ## 介紹
 
 蘇巴哈爾琴（印地語發音：[s̪urbəhɑːr]；譯為「音符的春天」），有時亦稱為低音西塔琴，是用於印度次大陸印度古典音樂的撥弦樂器。它與西塔琴關係密切，但音調較低。根據樂器的大小，其音調通常比標準西塔琴低兩到五個全音。

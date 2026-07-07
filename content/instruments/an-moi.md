@@ -1,17 +1,22 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/an-moi/
-title: 唇琴
-original_name: Đàn môi
-category: 打擊樂器
-country: 越南
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 手邊發光的小宇宙（近身體鳴、舌片琴與手奏金屬共鳴）
-body_listening: 指尖、掌心、尾音、近身聆聽
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 唇琴
+title_original: Đàn môi
+family_std: 撥弦與抱持弦樂家族
+sound_hs: 待確認
+playing_method: 撥奏／擦奏／擊弦（待細分）
+interface_tags: 
+region_culture: 越南｜單一地區／文化圈
+listening_sound_tags: 指尖、掌心、尾音、近身聆聽｜手邊發光的小宇宙（近身體鳴、舌片琴與手奏金屬共鳴）
+ensemble_links: 
+verification_status: 有問題，需修正
+issue_note: 譯名錯誤／很奇怪；Đàn bầu 常見中文為「獨弦琴」或「越南獨弦琴」；「彈匏」不適合作正式主名。；改為「越南獨弦琴（Đàn bầu）」；歸弦鳴／單弦齊特琴。
+source_url: https://soundweavers-music.github.io/instruments/an-moi/
 youtube_ids: 0q5YmkTLcZo 8W2xV2BW7os
-instrument_key: 無固定調性
-range: 中高音區（約2個8度）
 ---
+
 ## 介紹
 
 唇琴是越南傳統打擊樂器，起源於越南北部山區，為京族、岱依族等少數民族的文化瑰寶。樂器主要由竹片製成，演奏者利用嘴唇控制琴弦振動產生聲音，因而得名。其音色明亮清脆，具有獨特的金屬質感，音域集中在中高音區，穿透力強。唇琴廣泛應用於越南民間音樂、村落慶典和民俗活動中，是表現民謠旋律和民族風情的重要樂器，兼具東南亞民族樂器的溫雅特徵與現代音響效果。

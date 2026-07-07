@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/mandola/
-title: 曼陀
-original_name: Mandola
-category: 弦樂器
-country: 中東／歐亞／東亞／美洲／全球
-era: 18 世紀
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Mandos.jpg/500px-Mandos.jpg
-sound_class: 弦鳴
-range: 中高音域（約2-3個8度）
-instrument_key: 全調性
-hs_class: 321/322 魯特琴類／撥弦
-family: 魯特琴、短頸長頸撥弦與民謠弦聲
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 曼陀
+title_original: Mandola
+family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
+sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
 playing_method: 撥弦／刷弦／撥片
-body_listening: 懷抱、手指、腳步、敘事
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 跨文化／多地
+interface_tags: 撥片
+region_culture: 中東／歐亞／東亞／美洲／全球
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/mandola/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Mandos.jpg/500px-Mandos.jpg
 youtube_ids: zBFvHDdh7oo OGXOhs3IgiM
 ---
+
 ## 介紹
 
 曼陀（美國和加拿大）或男高音曼陀（愛爾蘭和英國）是一種弦樂器。曼陀與曼陀林的關係就像小提琴相對於中提琴。

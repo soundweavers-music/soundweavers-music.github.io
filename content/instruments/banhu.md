@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/banhu/
-title: 板胡
-original_name: Banhu
-category: 弦樂器
-country: 亞洲／歐洲／中東／全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Banhu.jpg/500px-Banhu.jpg
-sound_class: 弦鳴
-range: 約2至3個8度（因音域分類而異）
-instrument_key: 全調性
-hs_class: 321.3 擦弦／輪弦／提琴家族
-family: 擦弦、輪弦與提琴家族
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 板胡
+title_original: Banhu
+family_std: 擦弦、輪弦與提琴家族
+sound_hs: 弦鳴｜321.3 擦弦／輪弦／提琴家族
 playing_method: 弓擦／輪擦
-body_listening: 胸口、嗓音、拉長的情緒
-soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
-region_type: 跨文化／多地
+interface_tags: 弓
+region_culture: 亞洲／歐洲／中東／全球
+listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+ensemble_links: 
+verification_status: 需調整
+issue_note: 譯名建議；Bandoneon 建議採常見「班多鈕手風琴」或「班多鈕琴」；「班東尼琴」可作別名但較不穩。；第12類風箱自由簧，與手風琴、六角手風琴相鄰。；DUP-019:Accordion／Bandoneon／Harmonium
+source_url: https://soundweavers-music.github.io/instruments/banhu/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Banhu.jpg/500px-Banhu.jpg
 youtube_ids: thqUc1bf8IU kwUAEoWBO6k
 ---
+
 ## 介紹
 
 板胡，中國弓弦樂器，琴筒由木或椰子殼製成，蒙面板而得名。音色清脆而響亮，適用於表現熱情奔放的曲子。北方的戲曲如河北梆子、評劇、豫劇、秦腔等的主要伴奏樂器，也作為獨奏樂器。 板胡的別名甚多，不同戲曲所用的板胡有不同的別名，按音域可以分為以下幾類。 高音板胡（梆胡、大弦、瓢）：河北梆子、評劇、豫劇等 次高音板胡 中音板胡（秦胡、胡呼、呼胡、胡胡）：秦腔、蒲劇、隴劇等 次中音板胡：晉劇 低音板胡 雙千斤板胡 三弦板胡 四弦板胡

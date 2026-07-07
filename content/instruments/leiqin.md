@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/leiqin/
-title: 擂琴
-original_name: Leiqin
-category: 弦樂器
-country: 亞洲／歐洲／中東／南亞／中亞
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Blind_street_musician_playing_%E6%93%82%E7%90%B4_%289451424508%29_%28cropped%29.jpg/500px-Blind_street_musician_playing_%E6%93%82%E7%90%B4_%289451424508%29_%28cropped%29.jpg
-sound_class: 弦鳴
-range: 約3個音域（低、中、高音域）
-instrument_key: 全調性
-hs_class: Chordophone／弦鳴樂器
-family: 胡琴支系
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 擦弦、鍵控與輪弦
+title_zh: 擂琴
+title_original: Leiqin
+family_std: 胡琴支系
+sound_hs: Chordophone／弦鳴樂器
 playing_method: 弓擦
-body_listening: 胸口、嗓音、拉長的情緒
-soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
-region_type: 地區／文化圈
+interface_tags: 弓
+region_culture: 亞洲／歐洲／中東／南亞／中亞｜地區／文化圈
+listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/leiqin/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Blind_street_musician_playing_%E6%93%82%E7%90%B4_%289451424508%29_%28cropped%29.jpg/500px-Blind_street_musician_playing_%E6%93%82%E7%90%B4_%289451424508%29_%28cropped%29.jpg
 youtube_ids: Tuzl9-WqiAM hr0om5G4dRw
 ---
+
 ## 介紹
 
 擂琴（「擂」字亦作「雷」），又稱擂胡，是中國的傳統拉弦樂器，由墜胡改造而成。擂琴音色獨特、音量較大，善於模仿人聲，獨奏、合奏均可。有大擂、小擂兩種。

@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/timbales/
-title: 蒂姆巴雷斯鼓
-original_name: Timbales
-category: 打擊樂器
-country: 美洲／古巴
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Timbalesy_HLTBR-1011_firmy_Hayman.jpg/500px-Timbalesy_HLTBR-1011_firmy_Hayman.jpg
-sound_class: 膜鳴
-range: 約2個8度
-instrument_key: 無固定調性
-hs_class: 21 膜鳴鼓類
-family: 膜鳴鼓類、框鼓、杯鼓與鼓組
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 蒂姆巴雷斯鼓
+title_original: Timbales
+family_std: 膜鳴鼓類、框鼓、杯鼓與鼓組
+sound_hs: 21 膜鳴鼓類
 playing_method: 手拍／槌擊／皮膜振動
-body_listening: 手掌、腳底、低音、舞步
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 美洲／古巴
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/timbales/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Timbalesy_HLTBR-1011_firmy_Hayman.jpg/500px-Timbalesy_HLTBR-1011_firmy_Hayman.jpg
 youtube_ids: ths6YHITLTU 4pRlRU-LLDE
 ---
+
 ## 介紹
 
 蒂姆巴雷斯鼓是具有金屬外殼的淺型單面鼓。它們比單面湯姆鼓更淺，通常音調調得更高，特別是相對於其尺寸而言。蒂姆巴雷斯鼓用木棍敲擊鼓面和鼓殼，雖然有時也使用赤手。演奏者（稱為蒂姆巴雷羅）在獨奏和音樂過渡段落中使用各種棍擊技巧、邊緣敲擊和滾音來產生多種打擊樂表現，通常在歌曲的其他部分敲擊鼓殼（或輔助打擊樂器如牛鈴或鈸）來保持節奏。

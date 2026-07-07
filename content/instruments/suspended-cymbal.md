@@ -1,22 +1,22 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/suspended-cymbal/
-title: 懸吊鈸
-original_name: Suspended Cymbal
-category: 打擊樂器
-country: 東南亞／東亞／非洲／歐洲／全球
-era: 傳統／年代待考
-sound_class: 體鳴
-range: 中高音至極高音（約2至3個8度）
-instrument_key: 無固定調性
-hs_class: 11/12 定音體鳴／鑼鐘木琴石琴系統
-family: 定音體鳴、材料敲擊與鑼鐘木琴系統
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 懸吊鈸
+title_original: Suspended Cymbal
+family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
+sound_hs: 11/12 定音體鳴／鑼鐘木琴石琴系統
 playing_method: 敲擊／搖奏／材料共鳴
-body_listening: 材料、回聲、群體分工、音列
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 東南亞／東亞／非洲／歐洲／全球
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/suspended-cymbal/
 youtube_ids: m51seFRRal0 o_mweiAVgYM
 ---
+
 ## 介紹
 
 懸吊鈸是一種古老的打擊樂器，起源於亞洲，特別是中國和土耳其地區，具有數千年歷史。樂器由兩片圓形銅製鈸片組成，通常直徑在30至40公分之間。演奏時將鈸片懸吊於架上，用鼓槌或木棒敲擊，也可將兩片相互碰撞。音色明亮璀璨，具金屬光澤感，可產生清脆至洪亮的多層次音響。廣泛應用於管弦樂隊、現代音樂及各類演奏場景，既能襯托樂隊背景，也可成為音色焦點。

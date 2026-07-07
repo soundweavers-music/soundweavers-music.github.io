@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/jarana-jarocha/
-title: 哈拉納吉他
-original_name: Jarana Jarocha
-category: 弦樂器
-country: 美洲／墨西哥
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Jarana_primera.jpg/500px-Jarana_primera.jpg
-sound_class: 弦鳴
-range: 約2個8度
-instrument_key: 全調性
-hs_class: 321/322 魯特琴類／撥弦
-family: 魯特琴、短頸長頸撥弦與民謠弦聲
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 哈拉納吉他
+title_original: Jarana Jarocha
+family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
+sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
 playing_method: 撥弦／刷弦／撥片
-body_listening: 懷抱、手指、腳步、敘事
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 跨文化／多地
+interface_tags: 撥片
+region_culture: 美洲／墨西哥
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/jarana-jarocha/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Jarana_primera.jpg/500px-Jarana_primera.jpg
 youtube_ids: HobhdL0dFko xvslRi_4b08
 ---
+
 ## 介紹
 
 哈拉納吉他是一種來自墨西哥韋拉克魯茲州南部地區的吉他形撥弦樂器。通常配有8根琴弦分為5個音程，通常排列為兩條外側單弦，中間夾著三組雙弦。琴弦通常使用尼龍製成，儘管過去曾使用羊腸弦。由於其直接源於十六世紀西班牙巴洛克吉他的血統，琴身比吉他略窄。其長度通常約為50-70厘米。

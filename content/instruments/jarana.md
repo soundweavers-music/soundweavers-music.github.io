@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/jarana/
-title: 哈拉納琴
-original_name: Jarana
-category: 弦樂器
-country: 中東／歐洲／亞洲／美洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/1/1a/Jarana_huasteca.jpg
-sound_class: 弦鳴
-range: 約2個8度（中高音區為主）
-instrument_key: 全調性
-hs_class: 321/322 魯特琴類／撥弦
-family: 魯特琴、短頸長頸撥弦與民謠弦聲
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 哈拉納琴
+title_original: Jarana
+family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
+sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
 playing_method: 撥弦／刷弦／撥片
-body_listening: 懷抱、手指、腳步、敘事
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 地區／文化圈
+interface_tags: 撥片
+region_culture: 中東／歐洲／亞洲／美洲｜地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/jarana/
+image: https://upload.wikimedia.org/wikipedia/commons/1/1a/Jarana_huasteca.jpg
 youtube_ids: anHkbWZ-ANw iN9zIAWRw94
 ---
+
 ## 介紹
 
 哈拉納琴是一種來自墨西哥的吉他類弦樂器。哈拉納琴有不同的地區版本，特別是：瓦斯特克哈拉納琴，墨西哥瓦斯特克地區的弦樂器；哈羅查哈拉納琴，墨西哥韋拉克魯茲州的弦樂器；猶卡坦哈拉納琴，墨西哥猶卡坦州的舞蹈和音樂形式。它也可以指：哈拉納（小夜曲），菲律賓農村地區的小夜曲傳統；一種傳統的墨西哥couple舞蹈，典型於猶卡坦州和坎佩切州，伴隨著相應的音樂。西班牙語中的名詞「jarana」翻譯為「狂歡」或「熱鬧的派對」。

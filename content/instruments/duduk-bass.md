@@ -1,22 +1,22 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/duduk-bass/
-title: 杜德克低音管
-original_name: Duduk Bass
-category: 管樂器
-country: 亞美尼亞／高加索
-era: 傳統／年代待考
-sound_class: 氣鳴
-range: 約2至3個8度
-instrument_key: 全調性
-hs_class: 412/422 簧鳴與自由簧／單簧雙簧
-family: 口簧、自由簧、單簧雙簧與風袋
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 風箱與自由簧
+title_zh: 杜德克低音管
+title_original: Duduk Bass
+family_std: 口簧、自由簧、單簧雙簧與風袋
+sound_hs: 氣鳴｜412/422 簧鳴與自由簧／單簧雙簧
 playing_method: 吹奏／簧片振動／風袋或風箱
-body_listening: 口腔、舌頭、簧片震動、鼻音
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-region_type: 地區／文化圈
+interface_tags: 風箱
+region_culture: 亞美尼亞／高加索｜地區／文化圈
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/duduk-bass/
 youtube_ids: iSBd88ZleyM zwgvelZPb10
 ---
+
 ## 介紹
 
 杜德克低音管是傳統杜德克樂器家族的低音延伸版本，源自中東地區，擁有超過三千年的歷史淵源。樂器採用粗短的木製管身設計，通過雙簧片發聲。其音色溫潤深沉，帶著天鵝絨般的柔和質地，兼具厚重感與細膩感，主要活躍於低音域。相比普通雙簧管的銳利與低音薩克斯風的粗粝，杜德克低音管展現更加溫暖優雅的特質。廣泛應用於中東傳統音樂、電影配樂及現代世界音樂創作中。

@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/ratchet-instrument/
-title: 棘輪（樂器）
-original_name: Ratchet (instrument)
-category: 打擊樂器
-country: 拉丁美洲／非洲／歐洲／亞洲／全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Ratchet_Drawing.svg/500px-Ratchet_Drawing.svg.png
-sound_class: 體鳴
-range: 高頻雜訊，音域寬廣但不精確
-instrument_key: 無固定調性
-hs_class: Idiophone／體鳴樂器
-family: 小打擊延伸
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 沙鈴、刮器與小打擊
+title_zh: 棘輪（樂器）
+title_original: Ratchet (instrument)
+family_std: 小打擊延伸
+sound_hs: Idiophone／體鳴樂器
 playing_method: 搖／刮／拍
-body_listening: 手腕、腳踝、短音、節奏對齊
-soundscape: 手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 拉丁美洲／非洲／歐洲／亞洲／全球
+listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/ratchet-instrument/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Ratchet_Drawing.svg/500px-Ratchet_Drawing.svg.png
 youtube_ids: rkYJh5KinOA mfQW4IPKCWc
 ---
+
 ## 介紹
 
 棘輪是一種使得線性往復運動或旋轉運動保持單一方向的機械機構，用以防止傳動機構逆轉。它實際上是將前兩種運動方式轉換為單向步進運動的一種間歇運動機構。工作時伴有噪聲和振動，因此工作頻率也不能過高。

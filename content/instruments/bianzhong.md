@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/bianzhong/
-title: 編鐘
-original_name: Bianzhong
-category: 打擊樂器
-country: 亞洲／東亞（中國）
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Wuhanbells.jpg/500px-Wuhanbells.jpg
-sound_class: 體鳴
-range: 約3個八度
-instrument_key: 全調性
-hs_class: 11/12 定音體鳴／鑼鐘木琴石琴系統
-family: 定音體鳴、材料敲擊與鑼鐘木琴系統
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 編鐘
+title_original: Bianzhong
+family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
+sound_hs: 11/12 定音體鳴／鑼鐘木琴石琴系統
 playing_method: 敲擊／搖奏／材料共鳴
-body_listening: 材料、回聲、群體分工、音列
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 亞洲／東亞（中國）
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 中文名重複，需判斷
+issue_note: 中文名碰撞；中文名與第91、700項重複，但英文／原文可能不同。；不可只用中文名判斷；請以英文／原文名與型制決定合併、相鄰或改譯名。
+source_url: https://soundweavers-music.github.io/instruments/bianzhong/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Wuhanbells.jpg/500px-Wuhanbells.jpg
 youtube_ids: KrLjz7D8jwQ kJaMCKVOFJM
 ---
+
 ## 介紹
 
 編鐘是中國的傳統打擊樂器，始於青銅器時代。編鐘由青銅鑄成，由不同的鐘依照大小排列，並懸掛在一個巨大的鐘架上。編鐘常與編磬組合使用；「金石之聲」中的「金」就是指編鐘，「石」指編磬。

@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/cretan-lyra/
-title: 克里特琴
-original_name: Cretan Lyra
-category: 弦樂器
-country: 歐洲／希臘（克里特島）
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Lyres-creta.jpg/500px-Lyres-creta.jpg
-sound_class: 弦鳴
-range: 約2至3個8度
-instrument_key: 無固定調性
-hs_class: 321.3 擦弦／輪弦／提琴家族
-family: 擦弦、輪弦與提琴家族
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 擦弦、鍵控與輪弦
+title_zh: 克里特琴
+title_original: Cretan Lyra
+family_std: 擦弦、輪弦與提琴家族
+sound_hs: 弦鳴｜321.3 擦弦／輪弦／提琴家族
 playing_method: 弓擦／輪擦
-body_listening: 胸口、嗓音、拉長的情緒
-soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
-region_type: 跨文化／多地
+interface_tags: 弓
+region_culture: 歐洲／希臘（克里特島）
+listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/cretan-lyra/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Lyres-creta.jpg/500px-Lyres-creta.jpg
 youtube_ids: OWFhJJ0V-Yc TRl0MAyacAw
 ---
+
 ## 介紹
 
 克里特琴（希臘語：Κρητική λύρα）是一種梨形三弦希臘琴，是一種傳統樂器，在克里特島及希臘十二島嶼群島和愛琴海群島的傳統音樂中佔有核心地位。克里特琴被認為是中世紀拜占庭琴最受歡迎的現存形式，而拜占庭琴是大多數歐洲弓弦樂器的祖先。

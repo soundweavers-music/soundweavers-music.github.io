@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/xun-instrument/
-title: 塤
-original_name: Xun (instrument)
-category: 管樂器
-country: 亞洲／東亞（中國）
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Xunfront.jpg/500px-Xunfront.jpg
-sound_class: 氣鳴
-range: 約2個8度（中低音區）
-instrument_key: 無固定調性
-hs_class: Aerophone／氣鳴樂器
-family: 陶笛與容器笛
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 塤
+title_original: Xun (instrument)
+family_std: 陶笛與容器笛
+sound_hs: Aerophone／氣鳴樂器
 playing_method: 容器共鳴
-body_listening: 氣息、胸腔、長音、空間
-soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 亞洲／東亞（中國）
+listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/xun-instrument/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Xunfront.jpg/500px-Xunfront.jpg
 youtube_ids: NjFKoCkaQIs H5JK-uWsufg
 ---
+
 ## 介紹
 
 The xun (simplified Chinese: 埙; traditional Chinese: 塤; pinyin: xūn; Jyutping: hyun1) is a globular, vessel flute from China. It is one of the oldest musical instruments in China and has been in use for approximately 7,000 years. The xun was initially made of stone, baked clay, or bone, and later of clay or ceramic; sometimes the instrument is made with bamboo.

@@ -1,22 +1,22 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/igil/
-title: 伊吉勒馬頭琴
-original_name: Igil
-category: 弦樂器
-country: 亞洲／歐洲／中東／全球
-era: 傳統／年代待考
-sound_class: 弦鳴
-range: 中低音區域（約2個8度）
-instrument_key: 無固定調性
-hs_class: 321.3 擦弦／輪弦／提琴家族
-family: 擦弦、輪弦與提琴家族
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 擦弦、鍵控與輪弦
+title_zh: 伊吉勒馬頭琴
+title_original: Igil
+family_std: 擦弦、輪弦與提琴家族
+sound_hs: 弦鳴｜321.3 擦弦／輪弦／提琴家族
 playing_method: 弓擦／輪擦
-body_listening: 胸口、嗓音、拉長的情緒
-soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
-region_type: 跨文化／多地
+interface_tags: 弓
+region_culture: 亞洲／歐洲／中東／全球
+listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/igil/
 youtube_ids: Nj8paTuRA_s N00iYJ6G1wE
 ---
+
 ## 介紹
 
 伊吉勒馬頭琴，又稱為伊克赫（蒙古語：ихэл，圖瓦語：игил），是一種圖瓦兩弦樂器，通過拉弓使琴弦振動發聲。（在蒙古西部被稱為「伊基利」。）琴頸和琴箱通常由整塊松木或落葉松製成。琴箱頂部可能覆蓋有獸皮或薄木板。琴弦和弓弦傳統上由馬尾毛製成（並行排列），但也可以用尼龍製造。

@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/lute/
-title: 魯特琴
-original_name: Lute
-category: 弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 魯特琴
+title_original: Lute
+family_std: 弦樂器類
+sound_hs: 3 弦鳴樂器
 playing_method: 撥弦／擦弦／擊弦
-family: 弦樂器類
-hs_class: 3 弦鳴樂器
-sound_class: 弦鳴
-country: 中東／歐洲
-era: 中世紀
-region_type: 單一地區／文化圈
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-body_listening: 懷抱、手指、腳步、敘事
+interface_tags: 
+region_culture: 中東／歐洲｜單一地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/lute/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Bar-lute8-ref.jpg/500px-Bar-lute8-ref.jpg
 youtube_ids: ZLjprbeWMxQ eJK3VVj4q64
-instrument_key: 全調性
-range: 約3至4個八度
 ---
+
 ## 介紹
 
 魯特琴，也稱琉特琴，是一種曲頸撥弦樂器。一般這個詞主要指中世紀到巴洛克時期在歐洲使用的一類古樂器的總稱，在這個時期深受人們的喜愛。 在廣義的樂器分類中，把類似的樂器統稱為「魯特屬」，此時就不限於年代國別，因此吉他、中國琵琶、日本琵琶等都可以包括在內。 歐洲魯特琴上可以演奏和弦、旋律、跑句、各式各樣的裝飾音，甚至對位樂曲；它是用作伴奏歌唱的獨奏樂器，也可用於重奏中，技藝嫻熟的演奏者可以奏出多姿多采的效果。只不過較難彈奏。

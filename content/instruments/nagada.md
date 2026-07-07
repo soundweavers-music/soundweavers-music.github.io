@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/nagada/
-title: 納加達鼓
-original_name: Nagada
-category: 打擊樂器
-country: 非洲／中東／亞洲／歐洲／美洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/MbgIMG_0411.jpg/500px-MbgIMG_0411.jpg
-sound_class: 膜鳴
-range: 約2個8度（中低音域為主）
-instrument_key: 無固定調性
-hs_class: 21 膜鳴鼓類
-family: 膜鳴鼓類、框鼓、杯鼓與鼓組
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 納加達鼓
+title_original: Nagada
+family_std: 膜鳴鼓類、框鼓、杯鼓與鼓組
+sound_hs: 21 膜鳴鼓類
 playing_method: 手拍／槌擊／皮膜振動
-body_listening: 手掌、腳底、低音、舞步
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-region_type: 地區／文化圈
+interface_tags: 
+region_culture: 非洲／中東／亞洲／歐洲／美洲｜地區／文化圈
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/nagada/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/MbgIMG_0411.jpg/500px-MbgIMG_0411.jpg
 youtube_ids: vAQJEwwkYIA NdKJUXD-U5k
 ---
+
 ## 介紹
 
 納加達（埃及阿拉伯語：نقادة Naqāda；科普特語：ⲛⲉⲕⲁⲧⲏⲣⲓⲟⲛ Nekatērion；古希臘語：Παμπανις Pampanis，古埃及語：Nbyt「黃金之城」）是位於埃及塞納省尼羅河西岸的一個城鎮，距盧克索北部約20公里。它包括圖克、哈塔拉、丹菲克和扎瓦伊達等村莊。根據1960年的人口普查，它是人口最稀少的地區之一，僅有3,000名居民，大多信奉基督教，他們保留了科普特語的一些元素，直到1930年代。古城內有一個墓地，裡面約有2,000座墳墓。

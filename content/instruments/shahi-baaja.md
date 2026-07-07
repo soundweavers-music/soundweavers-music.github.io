@@ -1,18 +1,22 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/shahi-baaja/
-title: 沙希巴傑琴
-original_name: Shahi baaja
-category: 弦樂器
-country: 印度／南亞
-era: 傳統／年代待考
-region_type: 地區／文化圈
-soundscape: 平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化弦鳴）
-body_listening: 手掌、弦面、推音、敲擊
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 沙希巴傑琴
+title_original: Shahi baaja
+family_std: 撥弦與抱持弦樂家族
+sound_hs: 待確認
+playing_method: 撥奏／擦奏／擊弦（待細分）
+interface_tags: 
+region_culture: 印度／南亞｜地區／文化圈
+listening_sound_tags: 手掌、弦面、推音、敲擊｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化弦鳴）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/shahi-baaja/
 youtube_ids: 0rIkyKJiXhg 59Qd3dUVc2w
-instrument_key: 全調性
-range: 中低音至高音（約3個8度）
 ---
+
 ## 介紹
 
 沙希巴傑琴（「皇家樂器」）是印度夜鶯琴的電子化及略微改良版本，夜鶯琴是一種印度箏琴，其上裝有打字機按鍵，可以按下兩根弦以改變其音高。這些改良還包括增加了10條無品格琴弦，作為附加的斯瓦曼達爾琴（伴奏豎琴）。該樂器目前被用於從半古典音樂、流行印度音樂到環境電子音樂和迷幻搖滾等各種音樂風格。現在有一些音樂家正在嘗試改編這件樂器以演奏印度古典音樂。

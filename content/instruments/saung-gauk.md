@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/saung-gauk/
-title: 緬甸豎琴
-original_name: Saung Gauk
-category: 弦樂器
-country: 非洲／歐洲／美洲／亞洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Burmese_Harp_in_Manihoto.jpg/500px-Burmese_Harp_in_Manihoto.jpg
-sound_class: 弦鳴
-range: 跨越3個八度以上
-instrument_key: 多調性
-hs_class: 322 豎琴與里拉類
-family: 豎琴、里拉與開放弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 豎琴、里拉與開放弦
+title_zh: 緬甸豎琴
+title_original: Saung Gauk
+family_std: 豎琴、里拉與開放弦樂器
+sound_hs: 弦鳴｜322 豎琴與里拉類
 playing_method: 撥弦／開放弦共鳴
-body_listening: 循環、河流感、開放弦、吟唱
-soundscape: 開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
-region_type: 地區／文化圈
+interface_tags: 
+region_culture: 非洲／歐洲／美洲／亞洲｜地區／文化圈
+listening_sound_tags: 循環、河流感、開放弦、吟唱｜開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/saung-gauk/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Burmese_Harp_in_Manihoto.jpg/500px-Burmese_Harp_in_Manihoto.jpg
 youtube_ids: NP8GTDEIpmc 6bgmCdigVNU
 ---
+
 ## 介紹
 
 緬甸豎琴（Saung Gauk）是東南亞最古老的弦樂器，距今逾兩千年歷史。樂器採用弧形木製共鳴箱設計，配備十三至十六條絲弦，外型優雅獨特。音色溫潤優雅，具金屬質感與清澈透明的音質，高音明亮清脆，中音溫暖飽滿，低音沉穩深邃。作為緬甸古典音樂的核心樂器，廣泛用於宮廷表演、宗教儀式、傳統舞蹈伴奏及歌唱演出，在緬甸文化中具有重要地位。

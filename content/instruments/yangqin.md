@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/yangqin/
-title: 揚琴
-original_name: Yangqin
-category: 鍵盤樂器
-country: 亞洲／東亞（中國）
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Yangqin1.jpg/500px-Yangqin1.jpg
-sound_class: 弦鳴
-range: 約3至4個八度
-instrument_key: 全調性
-hs_class: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
-family: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 揚琴
+title_original: Yangqin
+family_std: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+sound_hs: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
 playing_method: 撥弦／擊弦／按鍵擊弦
-body_listening: 手掌、弦面、推音、敲擊
-soundscape: 平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
-region_type: 地區／文化圈
+interface_tags: 鍵盤／按鍵
+region_culture: 亞洲／東亞（中國）｜地區／文化圈
+listening_sound_tags: 手掌、弦面、推音、敲擊｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/yangqin/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Yangqin1.jpg/500px-Yangqin1.jpg
 youtube_ids: 5ZmAluuKdRQ nNwJgEIecys
 ---
+
 ## 介紹
 
 The trapezoidal yangqin (simplified Chinese: 扬琴; traditional Chinese: 揚琴; pinyin: yángqín; Jyutping: joeng4 kam4) is a Chinese hammered dulcimer, likely derived from the Iranian santur or the European dulcimer. It used to be written with the characters 洋琴 (lit. "foreign zither"), but the first character was changed in the early 20th century to 揚 (also pronounced yáng), meaning "acclaimed". It is also spelled yang ch'in. Hammered dulcimers of various types are now very popular not only in China, but also Eastern Europe, the Middle East, India, Iran, and Pakistan.

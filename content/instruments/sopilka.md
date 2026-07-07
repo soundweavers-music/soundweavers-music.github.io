@@ -1,21 +1,22 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/sopilka/
-title: 索皮爾卡笛
-original_name: Sopilka
-category: 管樂器
-country: 烏克蘭
-era: 傳統／年代待考
-sound_class: 氣鳴
-range: 約2個8度（中高音區）
-instrument_key: 無固定調性
-hs_class: Aerophone／氣鳴樂器
-family: 縱笛／民俗吹管
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 索皮爾卡笛
+title_original: Sopilka
+family_std: 縱笛／民俗吹管
+sound_hs: Aerophone／氣鳴樂器
 playing_method: 吹奏
-body_listening: 手指孔位、清亮旋律、牧歌感
-soundscape: 一口氣走過山谷（無簧吹管、長音與氣息樂器）
-region_type: 單一地區／文化圈
+interface_tags: 
+region_culture: 烏克蘭｜單一地區／文化圈
+listening_sound_tags: 手指孔位、清亮旋律、牧歌感｜一口氣走過山谷（無簧吹管、長音與氣息樂器）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/sopilka/
 youtube_ids: oVfo0qC-U9w CyXNSAD2xz8
 ---
+
 ## 介紹
 
 索皮爾卡笛（烏克蘭語：Cопiлка）是烏克蘭民間樂器師使用的各種末吹式長笛族木管樂器的總稱。索皮爾卡笛最常指的是用各種材料製成的豎笛（但傳統上由接骨木或歐洲荚蒾木製成），具有六到十個指孔。該術語也用於描述一套相關的民間樂器，類似於直笛，配有吹嘴且末端呈縮小狀。

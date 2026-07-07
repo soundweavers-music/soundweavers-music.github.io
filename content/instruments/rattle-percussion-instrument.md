@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/rattle-percussion-instrument/
-title: 搖鈴（打擊樂器）
-original_name: Rattle (percussion instrument)
-category: 打擊樂器
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
+title_zh: 搖鈴（打擊樂器）
+title_original: Rattle (percussion instrument)
+family_std: 體鳴打擊樂器類
+sound_hs: 1 体鳴樂器
 playing_method: 敲擊／搖晃／撥彈
-family: 體鳴打擊樂器類
-hs_class: 1 体鳴樂器
-sound_class: 体鳴
-country: 法國
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
-body_listening: 手腕、腳踝、短音、節奏對齊
+interface_tags: 
+region_culture: 法國｜單一地區／文化圈
+listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/rattle-percussion-instrument/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/PNG_Rattle_QM-r.jpg/500px-PNG_Rattle_QM-r.jpg
 youtube_ids: qbkNNTkmJQ4 N6xBthcGwnw
-instrument_key: 無固定調性
-range: 中高頻區域（約2-3個8度）
 ---
+
 ## 介紹
 
 搖鈴是一種打擊樂器，搖晃時會發出聲音。搖鈴在霍恩博斯特爾-薩克斯體系中被描述為搖動體鳴樂器或搖鈴（112.1）。根據薩克斯的分類，搖動體鳴樂器是搖鈴（不應與拍打樂器混淆）。材料很重要，但更重要的是發聲部分的排列方式，這些部分在搖晃樂器時會相互碰撞。搖鈴包括：馬拉卡斯，廣泛用於恰恰舞和爵士樂。查克查克，在特立尼達、多米尼加和法屬安的列斯群島中被稱為這個名稱。

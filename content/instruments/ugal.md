@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/ugal/
-title: 烏格
-original_name: Ugal
-category: 打擊樂器
-country: 印度尼西亞
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/12-08_Wacken_Chthonic_06.jpg/500px-12-08_Wacken_Chthonic_06.jpg
-region_type: 單一地區／文化圈
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-body_listening: 材料、回聲、群體分工、音列
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 烏格
+title_original: Ugal
+family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
+sound_hs: 11/12 定音體鳴／鑼鐘木琴石琴系統
 playing_method: 敲擊／搖奏／材料共鳴
-family: 定音體鳴、材料敲擊與鑼鐘木琴系統
-hs_class: 11/12 定音體鳴／鑼鐘木琴石琴系統
-sound_class: 體鳴
-range: 約2個八度
-instrument_key: 無固定調性
+interface_tags: 
+region_culture: 印度尼西亞｜單一地區／文化圈
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/ugal/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/12-08_Wacken_Chthonic_06.jpg/500px-12-08_Wacken_Chthonic_06.jpg
 youtube_ids: pJ6J3slxnRY ahHuvfL8cPQ
 ---
+
 ## 介紹
 
 烏格是印尼甘美蘭樂隊中的樂器。它是一種青銅金屬琴，用單手用小槌敲擊，通常以舞蹈般的方式演奏。通常有十個琴鍵，音域範圍約為兩個八度。與甘薩琴和亨德琴一樣，它們懸掛在調音過的竹製共鳴器上。烏格主要出現在甘美蘭鑼克比亞樂隊中，負責演奏樂曲的中心旋律（波科克）。有時它可能將旋律職責交給朱布拉琴，然後接管科特肯的領導角色。

@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/claves/
-title: 擊木
-original_name: Claves
-category: 打擊樂器
-country: 非洲／美洲／古巴
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/4/44/Claves.jpg
-sound_class: 體鳴
-range: 中高頻（約2個8度）
-instrument_key: 無固定調性
-hs_class: 11 小型體鳴／搖奏刮奏敲奏
-family: 小型節奏體鳴、沙鈴、刮器與身體打擊
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
+title_zh: 擊木
+title_original: Claves
+family_std: 小型節奏體鳴、沙鈴、刮器與身體打擊
+sound_hs: 11 小型體鳴／搖奏刮奏敲奏
 playing_method: 搖奏／刮奏／敲擊／身體打擊
-body_listening: 手腕、腳踝、短音、節奏對齊
-soundscape: 手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 非洲／美洲／古巴
+listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+ensemble_links: 
+verification_status: 中文名重複，需判斷
+issue_note: 中文名碰撞；中文名與第150、273項重複，但英文／原文可能不同。；不可只用中文名判斷；請以英文／原文名與型制決定合併、相鄰或改譯名。
+source_url: https://soundweavers-music.github.io/instruments/claves/
+image: https://upload.wikimedia.org/wikipedia/commons/4/44/Claves.jpg
 youtube_ids: nCv1Zu9Iocw BODYFCnWLC0
 ---
+
 ## 介紹
 
 擊木（西班牙語：claves）是一種敲擊樂器，屬於體鳴樂器，源於非洲，是一種非常古老的樂器。近代則由古巴及其他南美洲國家所發展起來。現時擊木仍然是拉丁音樂和非洲音樂中其中一件相當重要的樂器，用以保持樂曲的拍子和穩定性。

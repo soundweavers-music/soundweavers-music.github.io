@@ -1,18 +1,22 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/tiorbino/
-title: 小西奧爾博琴
-original_name: Tiorbino
-category: 弦樂器
-country: 義大利
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-body_listening: 懷抱、手指、腳步、敘事
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 小西奧爾博琴
+title_original: Tiorbino
+family_std: 撥弦與抱持弦樂家族
+sound_hs: 待確認
+playing_method: 撥奏／擦奏／擊弦（待細分）
+interface_tags: 
+region_culture: 義大利｜單一地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 需調整
+issue_note: 名稱可保留／鄰近；Tanbur (Turkish) 是土耳其坦布爾，與第758 Tanbur 泛稱不同。；相鄰不合併；一篇可設家族總論＋土耳其分支。
+source_url: https://soundweavers-music.github.io/instruments/tiorbino/
 youtube_ids: fMvq0jIKmlI 6ZGlGhFeKUs
-instrument_key: 全調性
-range: 約3個8度（高於西奧爾博琴八度）
 ---
+
 ## 介紹
 
 小西奧爾博琴是一種罕見的弦樂器，是一種長頸琉特琴的變種，形似西奧爾博琴但體積明顯較小，音調高八度音。小西奧爾博琴創製於16世紀末，並在17世紀被演奏，例如貝萊羅豐特·卡斯塔爾迪創作的1622年作品《雙樂器隨想曲，即西奧爾博琴和小西奧爾博琴以及用於演奏各種舞蹈》。小西奧爾博琴隨後被遺棄，直到20世紀末隨著人們對早期音樂的興趣復興才重新出現。

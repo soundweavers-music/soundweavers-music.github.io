@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/piano/
-title: 鋼琴
-original_name: Piano
-category: 鍵盤樂器
-country: 歐洲／義大利
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Two_pianos_-_grand_piano_and_upright_piano.jpg/500px-Two_pianos_-_grand_piano_and_upright_piano.jpg
-sound_class: 弦鳴
-range: A0–C8（約7個8度）
-instrument_key: 全調性
-hs_class: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
-family: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 鋼琴
+title_original: Piano
+family_std: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+sound_hs: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
 playing_method: 撥弦／擊弦／按鍵擊弦
-body_listening: 手掌、弦面、推音、敲擊
-soundscape: 平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
-region_type: 跨文化／多地
+interface_tags: 鍵盤／按鍵
+region_culture: 歐洲／義大利
+listening_sound_tags: 手掌、弦面、推音、敲擊｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/piano/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Two_pianos_-_grand_piano_and_upright_piano.jpg/500px-Two_pianos_-_grand_piano_and_upright_piano.jpg
 youtube_ids: 3NycM9lYdRI WJ3-F02-F_Y
 ---
+
 ## 介紹
 
 鋼琴（義大利語：pianoforte；德語：Klavier；英語：piano），是西洋古典音樂中的一種鍵盤樂器，前身為大鍵琴、古鋼琴，普遍用於獨奏、重奏、伴奏等演出，用於作曲和排練音樂十分方便。彈奏者通過按下鍵盤上的琴鍵，牽動鋼琴裏面包著絨氈的小木槌，繼而敲擊鋼絲弦發出聲音。鋼琴音域寬廣，音色宏亮、清脆，富於變化，表現力很強。獨奏時，可演奏各種氣勢磅礡、寬廣、抒情的音樂，亦可演奏歡快、靈巧、技巧性很高的華彩樂段，在樂隊中則可發揮巨大的作用，還經常作為伴奏樂器使用。鋼琴因其豐富的樂理表達能力，被稱作「樂器之王」。
@@ -58,5 +58,3 @@ youtube_ids: 3NycM9lYdRI WJ3-F02-F_Y
 【保養須知】每年至少調音1-2次。環境溫度20-25度，濕度40-60%。琴鍵用柔軟微濕布擦拭。避免陽光直射和放置雜物在琴上。潮濕地區使用防潮管或除濕機。每2-3年進行一次全面調整包括擊弦機構潤滑和琴槌整形。
 
 【著名鋼琴家】古典：李斯特、蕭邦、克拉拉·舒曼。二十世紀：霍洛維茲、魯賓斯坦、顧爾德、阿格麗希。當代：郎朗、王羽佳、齊瑪曼、特里福諾夫。每位鋼琴家都有獨特的演奏風格，多聽不同演奏家的錄音能幫助建立自己的音樂品味。
-
-

@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/pi-chanai/
-title: 嗩吶篳
-original_name: Pi Chanai
-category: 管樂器
-country: 全球／亞洲／中東／歐洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Taepyeongso.jpg/500px-Taepyeongso.jpg
-sound_class: 氣鳴
-range: 約3個八度以上
-instrument_key: 降B大調
-hs_class: 412/422 簧鳴與自由簧／單簧雙簧
-family: 口簧、自由簧、單簧雙簧與風袋
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 風箱與自由簧
+title_zh: 嗩吶篳
+title_original: Pi Chanai
+family_std: 口簧、自由簧、單簧雙簧與風袋
+sound_hs: 氣鳴｜412/422 簧鳴與自由簧／單簧雙簧
 playing_method: 吹奏／簧片振動／風袋或風箱
-body_listening: 口腔、舌頭、簧片震動、鼻音
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-region_type: 跨文化／多地
+interface_tags: 風箱
+region_culture: 全球／亞洲／中東／歐洲
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 需調整
+issue_note: 名稱可保留／鄰近；Ocarina 可譯陶笛；第836 Vessel flute 是容器笛類別，應相鄰但不一定合併。；保留 Ocarina 主篇。
+source_url: https://soundweavers-music.github.io/instruments/pi-chanai/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Taepyeongso.jpg/500px-Taepyeongso.jpg
 youtube_ids: u3F7kcLrGvA ta-hciM3oFY
 ---
+
 ## 介紹
 
 嗩吶是一種起源於中東、經絲綢之路傳入中國的雙簧管樂器。樂器由圓錐形木質管體和雙簧片組成，外形細長挺立。音色高亢明亮，具強烈穿透力，兼具銅管的金屬光澤與木管的溫暖特徵。嗩吶自唐代傳入中國後，在明清時期成為民間吹打樂隊的核心樂器，廣泛應用於廟會、慶典、戲曲伴奏等場合。其尖銳嘹亮的音質和極強的辨識度，使其在樂隊中常擔當獨奏或領奏角色。

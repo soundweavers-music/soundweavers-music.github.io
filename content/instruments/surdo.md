@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/surdo/
-title: 蘇爾多低音鼓
-original_name: Surdo
-category: 打擊樂器
-country: 美洲／巴西
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Olodum-drummers.jpg/500px-Olodum-drummers.jpg
-sound_class: 膜鳴
-range: 約1至2個8度（低音域）
-instrument_key: 無固定調性
-hs_class: 21 膜鳴鼓類
-family: 膜鳴鼓類、框鼓、杯鼓與鼓組
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 蘇爾多低音鼓
+title_original: Surdo
+family_std: 膜鳴鼓類、框鼓、杯鼓與鼓組
+sound_hs: 21 膜鳴鼓類
 playing_method: 手拍／槌擊／皮膜振動
-body_listening: 手掌、腳底、低音、舞步
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 美洲／巴西
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/surdo/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Olodum-drummers.jpg/500px-Olodum-drummers.jpg
 youtube_ids: mmlK94QvwiA idlXh_udWug
 ---
+
 ## 介紹
 
 蘇爾多低音鼓是一種低音鼓或類似大落地湯姆鼓的鼓樂器，用於許多巴西音樂類型中，例如斧樂/森巴雷鬼樂和森巴，在打擊樂部分中演奏較低的聲部。該樂器由阿爾塞比亞德斯·巴塞洛斯在1920年代和1930年代期間創製，作為他對里約熱內盧第一所森巴學校「放開吧」的貢獻的一部分。它還因其與古代近東庫庫姆比音樂類型的關聯而聞名。蘇爾多低音鼓的尺寸通常在40厘米（16英寸）到65厘米（26英寸）直徑之間，有些則可達73厘米（29英寸）。

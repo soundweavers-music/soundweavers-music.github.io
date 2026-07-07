@@ -1,19 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/lesiba/
-title: 樂希巴琴
-original_name: Lesiba
-category: 弦樂器
-country: 非洲／南非
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
-body_listening: 循環、河流感、開放弦、吟唱
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 樂希巴琴
+title_original: Lesiba
+family_std: 撥弦與抱持弦樂家族
+sound_hs: 待確認
+playing_method: 撥奏／擦奏／擊弦（待細分）
+interface_tags: 弓
+region_culture: 非洲／南非｜單一地區／文化圈
+listening_sound_tags: 循環、河流感、開放弦、吟唱｜開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/lesiba/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Lesiba_quill.JPG/500px-Lesiba_quill.JPG
 youtube_ids: BLbI0OCMKhE 8iu4jIQlk5w
-instrument_key: 無固定調性
-range: 約1個八度以內（受口腔共鳴空間限制）
 ---
+
 ## 介紹
 
 「Lesiba」（茨瓦納語意為「羽毛」）一詞指的是一類「無框口腔共鳴弓」，其特徵是在長弦上附有一根扁平的羽管，該羽管拉伸於堅硬的木棒上，作為主要振動源。演奏者雙手握住羽管，將其置於嘴唇內側但不接觸嘴唇，然後急速吸氣或呼氣，使弦產生振動。這種方式「產生強有力的嗡嗡聲」，通常以短音符的形式在較小、有限的音階範圍內演奏。

@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/chajchas/
-title: 查查斯蹄鈴
-original_name: Chajchas
-category: 打擊樂器
-country: 拉丁美洲／非洲／歐洲／亞洲／全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Chajchas.jpg/500px-Chajchas.jpg
-sound_class: 體鳴
-range: 中高頻範圍（約2個8度）
-instrument_key: 無固定調性
-hs_class: 11 小型體鳴／搖奏刮奏敲奏
-family: 小型節奏體鳴、沙鈴、刮器與身體打擊
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
+title_zh: 查查斯蹄鈴
+title_original: Chajchas
+family_std: 小型節奏體鳴、沙鈴、刮器與身體打擊
+sound_hs: 11 小型體鳴／搖奏刮奏敲奏
 playing_method: 搖奏／刮奏／敲擊／身體打擊
-body_listening: 手腕、腳踝、短音、節奏對齊
-soundscape: 手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 拉丁美洲／非洲／歐洲／亞洲／全球
+listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+ensemble_links: 安地斯合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/chajchas/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Chajchas.jpg/500px-Chajchas.jpg
 youtube_ids: zhGUvZLO0KY N6xBthcGwnw
 ---
+
 ## 介紹
 
 查查斯蹄鈴（也稱為查普查斯；西班牙語：uñas，意為「腳趾甲」）是一種小型打擊樂器，屬於沙鈴樂器家族，通常由山羊或綿羊的蹄子製成，起源於中安地斯山脈地區。該樂器被用於傳統儀式和典禮中，也常見於該地區的民間音樂中，特別是在哥倫比亞、玻利維亞、秘魯、智利和厄瓜多等國家。

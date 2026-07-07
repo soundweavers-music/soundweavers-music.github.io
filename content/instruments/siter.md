@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/siter/
-title: 西特爾
-original_name: Siter
-category: 鍵盤樂器
-country: 亞洲／歐洲／全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Traditional_indonesian_stringed_instrument.jpg/500px-Traditional_indonesian_stringed_instrument.jpg
-sound_class: 弦鳴
-range: 中至中高音域（西特爾琴）、低一個八度（切倫蒲琴）
-instrument_key: 佩洛調式、斯倫德羅調式
-hs_class: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
-family: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 西特爾
+title_original: Siter
+family_std: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+sound_hs: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
 playing_method: 撥弦／擊弦／按鍵擊弦
-body_listening: 手掌、弦面、推音、敲擊
-soundscape: 平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
-region_type: 跨文化／多地
+interface_tags: 鍵盤／按鍵
+region_culture: 亞洲／歐洲／全球
+listening_sound_tags: 手掌、弦面、推音、敲擊｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
+ensemble_links: 甘美朗合奏
+verification_status: 重複／合併建議
+issue_note: 重複／鄰近；Saz 與第54 Bağlama 名稱關係密切。；同篇或相鄰。；DUP-003:Bağlama／Saz
+source_url: https://soundweavers-music.github.io/instruments/siter/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Traditional_indonesian_stringed_instrument.jpg/500px-Traditional_indonesian_stringed_instrument.jpg
 youtube_ids: CY47coVwhek -QgTF8p-284
 ---
+
 ## 介紹
 
 爪哇西特爾琴和切倫蒲琴是用於爪哇甘美蘭樂隊的撥弦樂器。它們與巽他甘美蘭樂隊中使用的卡恰皮琴有關。西特爾琴和切倫蒲琴各有11至13對弦，分別繃在共鳴箱的兩側。通常一側的弦調至佩洛調式，另一側調至斯倫德羅調式。西特爾琴通常約一英尺長，裝在一個木箱中（演奏時放在其上），而切倫蒲琴約三英尺長，配有四條腿，調音比西特爾琴低一個八度。

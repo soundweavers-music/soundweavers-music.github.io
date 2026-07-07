@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/saw-u/
-title: 泰式低音二弦琴
-original_name: Saw U
-category: 弦樂器
-country: 亞洲／東南亞（泰國）
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Saw_u.jpg/500px-Saw_u.jpg
-sound_class: 弦鳴
-range: 約2個8度
-instrument_key: 無固定調性
-hs_class: 321.3 擦弦／輪弦／提琴家族
-family: 擦弦、輪弦與提琴家族
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 擦弦、鍵控與輪弦
+title_zh: 泰式低音二弦琴
+title_original: Saw U
+family_std: 擦弦、輪弦與提琴家族
+sound_hs: 弦鳴｜321.3 擦弦／輪弦／提琴家族
 playing_method: 弓擦／輪擦
-body_listening: 胸口、嗓音、拉長的情緒
-soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
-region_type: 跨文化／多地
+interface_tags: 弓
+region_culture: 亞洲／東南亞（泰國）
+listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+ensemble_links: 
+verification_status: 需調整
+issue_note: 譯名需區分；Roneat Dek 是柬埔寨金屬鍵琴／鐵琴，不是木琴。；改「柬埔寨鐵琴（Roneat dek）」；與 Roneat ek 相鄰。
+source_url: https://soundweavers-music.github.io/instruments/saw-u/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Saw_u.jpg/500px-Saw_u.jpg
 youtube_ids: IvUU8joBb1Q R0JKCYZ8hng
 ---
+
 ## 介紹
 
 椰胡（泰語：ซออู้，RTGS：so u，發音為[sɔː ʔûː]；也拼寫為saw ou）是一種泰國弓弦樂器。它的音高低於锯杜昂琴，是椰胡家族中音調最低的樂器。可靠的證據表明椰胡的設計模式可能源自中國樂器，與一種名為胡胡的中國雙弦樂器非常相似。椰胡的發明時間大約在現代曼谷時期（約1782年）或可能更早，追溯至前一個阿育陀耶時期的末期（約1700-1767年）。

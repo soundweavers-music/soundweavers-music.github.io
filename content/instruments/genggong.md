@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/genggong/
-title: 根貢
-original_name: Genggong
-category: 打擊樂器
-country: 印尼巴厘島
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/COLLECTIE_TROPENMUSEUM_Mondharp_van_bamboe_TMnr_A-979.jpg/500px-COLLECTIE_TROPENMUSEUM_Mondharp_van_bamboe_TMnr_A-979.jpg
-sound_class: 體鳴
-range: 中低音範圍（約1至2個8度）
-instrument_key: 無固定調性
-hs_class: Idiophone／體鳴樂器
-family: 口簧／體鳴近身聲
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 簧片樂器
+title_zh: 根貢
+title_original: Genggong
+family_std: 口簧／體鳴近身聲
+sound_hs: Idiophone／體鳴樂器
 playing_method: 口腔共鳴
-body_listening: 嘴裡的空間、忽明忽暗、身體換形
-soundscape: 手邊發光的小宇宙（近身體鳴、舌片琴與手奏金屬共鳴）
-region_type: 單一地區／文化圈
+interface_tags: 
+region_culture: 印尼巴厘島｜單一地區／文化圈
+listening_sound_tags: 嘴裡的空間、忽明忽暗、身體換形｜手邊發光的小宇宙（近身體鳴、舌片琴與手奏金屬共鳴）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/genggong/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/COLLECTIE_TROPENMUSEUM_Mondharp_van_bamboe_TMnr_A-979.jpg/500px-COLLECTIE_TROPENMUSEUM_Mondharp_van_bamboe_TMnr_A-979.jpg
 youtube_ids: VDDRaEYYukU 8Dj2O9DxYuM
 ---
+
 ## 介紹
 
 根貢是一種在峇里島音樂中使用的口琴。它由一個木製框架和從甘蔗葉莖中切割出來的簧片組成，兩者都來自同一塊材料。左端牢牢貼住臉頰，而綁在右端的繩子被有節奏地拉動以使簧片運動（與其他口琴不同，其他口琴是通過撥動簧片本身來發聲）。通過發出不同的元音，可以產生不同的泛音。

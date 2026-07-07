@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/jews-harp/
-title: 口簧琴
-original_name: Jew's harp
-category: 弦樂器
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 簧片樂器
+title_zh: 口簧琴
+title_original: Jew's harp
+family_std: 弦樂器類
+sound_hs: 3 弦鳴樂器
 playing_method: 撥弦／擦弦／擊弦
-family: 弦樂器類
-hs_class: 3 弦鳴樂器
-sound_class: 弦鳴
-country: 中國
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 手邊發光的小宇宙（近身體鳴、舌片琴與手奏金屬共鳴）
-body_listening: 指尖、掌心、尾音、近身聆聽
+interface_tags: 
+region_culture: 中國｜單一地區／文化圈
+listening_sound_tags: 指尖、掌心、尾音、近身聆聽｜手邊發光的小宇宙（近身體鳴、舌片琴與手奏金屬共鳴）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/jews-harp/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Jew%27s_harp.jpg/500px-Jew%27s_harp.jpg
 youtube_ids: 1myuIH9eAOc 3cAZg_zjH4s
-instrument_key: 無固定調性
-range: 中低至中音區（約2個8度）
 ---
+
 ## 介紹
 
 口簧琴，又稱口簧、口弦、嘴琴等，是一種薄片（英語：Jew's Harp）樂器，由連接在框架上的柔性金屬或竹舌或簧片組成。 口簧琴很可能起源於西伯利亞，特別是在阿爾泰山脈或其周圍。 它們是一種古老的民間樂器，廣泛使用於亞洲（特別是東南亞、南亞以及北亞）、美洲 、大洋洲以及歐洲，非洲的記錄則相對較少。 口簧琴的樂器主體是一個一端固定於框式琴臺上，另一端可自由振動的簧片，樂器演奏者將琴臺置於雙唇之間，以撥動簧片或拉扯一根繫附於琴臺上細繩的方式，使簧片振動發聲，並以演奏者的口腔共鳴產生樂音。 口簧琴可以被歸類為 idioglot 或 heteroglot（無論框架和音叉是否是一體的）； 根據框架的形狀（桿或飾板）； 根據尖齒的數量，以及尖齒是彈撥的、聯合敲擊的還是拉弦的。

@@ -1,22 +1,22 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/hawaiian-nose-flute/
-title: 夏威夷鼻笛
-original_name: Hawaiian Nose Flute
-category: 管樂器
-country: 全球／亞洲／歐洲／美洲／大洋洲
-era: 傳統／年代待考
-sound_class: 氣鳴
-range: 中低音區（約2個8度以內）
-instrument_key: 無固定調性
-hs_class: 421 邊棱氣鳴／無簧笛類
-family: 無簧吹管、長音與氣息樂器
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 簧片樂器
+title_zh: 夏威夷鼻笛
+title_original: Hawaiian Nose Flute
+family_std: 無簧吹管、長音與氣息樂器
+sound_hs: 421 邊棱氣鳴／無簧笛類
 playing_method: 吹奏／端吹／橫吹／容器共鳴
-body_listening: 氣息、胸腔、長音、空間
-soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 全球／亞洲／歐洲／美洲／大洋洲
+listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+ensemble_links: 
+verification_status: 有問題，需修正
+issue_note: 類別錯誤；Guzheng 是箏類齊特琴，不是鍵盤樂器。；歸第5類箏類。
+source_url: https://soundweavers-music.github.io/instruments/hawaiian-nose-flute/
 youtube_ids: 5tSAGZZ8-7U XwqH-HKaGN8
 ---
+
 ## 介紹
 
 夏威夷鼻笛是源自太平洋島嶼的傳統樂器，演奏者以鼻腔而非嘴巴吹奏，是夏威夷文明的獨特創意體現。樂器外形小巧，通常由竹子、骨頭或木材製成，呈管狀結構。其音色溫潤內斂，帶有柔和鼻腔共鳴，介於笛子與口哨之間。在夏威夷王國時期成為儀式、舞蹈和社交場合的重要樂器，常用於精神實踐與文化表達。

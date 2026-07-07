@@ -1,21 +1,22 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/temple-blocks/
-title: 寺廟木魚
-original_name: Temple Blocks
-category: 打擊樂器
-country: 亞洲／東亞
-era: 傳統／年代待考
-sound_class: 體鳴
-range: 中高音域（約2個8度）
-instrument_key: 無固定調性
-hs_class: 11/12 定音體鳴／鑼鐘木琴石琴系統
-family: 定音體鳴、材料敲擊與鑼鐘木琴系統
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 寺廟木魚
+title_original: Temple Blocks
+family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
+sound_hs: 11/12 定音體鳴／鑼鐘木琴石琴系統
 playing_method: 敲擊／搖奏／材料共鳴
-body_listening: 材料、回聲、群體分工、音列
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 亞洲／東亞
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 需調整
+issue_note: 部分構件；Tabla Bayan 是塔布拉組的低音鼓，不宜單獨當完整樂器篇除非作結構小節。；與第737 Tabla Dayan 合併成塔布拉篇。；DUP-010:Tabla Bayan／Tabla Dayan
+source_url: https://soundweavers-music.github.io/instruments/temple-blocks/
 youtube_ids: CsuU2ONO4mU Gfeji8dxPPY
 ---
+
 ## 介紹
 
 寺廟木魚是一種源自中國的打擊樂器，外形呈魚狀，由整塊木材雕刻而成。其名稱源自獨特的魚形設計，蘊含深厚的佛教象徵意義。木魚最初在寺廟中用於誦經念佛時的伴奏，幫助僧侶維持念誦節奏。隨著時間推移，木魚傳入日本、越南等地，並於19世紀末傳入西方，逐漸成為管弦樂隊的重要打擊樂器。其音色明亮清脆、穿透力強，具有溫暖的木質感和禪意氛圍。

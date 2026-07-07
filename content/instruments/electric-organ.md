@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/electric-organ/
-title: 電子琴
-original_name: Electric Organ
-category: 鍵盤樂器
-country: 歐洲／希臘
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Yamaha_GX-1_%28clip%29_%40_Yamaha_Design_Masterworks.png/500px-Yamaha_GX-1_%28clip%29_%40_Yamaha_Design_Masterworks.png
-sound_class: 鍵盤／電鳴／機械混合
-range: 約5至6個八度
-instrument_key: 全調性
-hs_class: 412/31/52 鍵盤、自由簧、電鳴與機械介面
-family: 鍵盤介面、風箱、電子與取樣
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 取樣與磁帶
+title_zh: 電子琴
+title_original: Electric Organ
+family_std: 鍵盤介面、風箱、電子與取樣
+sound_hs: 鍵盤／電鳴／機械混合｜412/31/52 鍵盤、自由簧、電鳴與機械介面
 playing_method: 按鍵／風箱／電控／取樣
-body_listening: 手指、機械距離、記憶、電聲
-soundscape: 按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
-region_type: 跨文化／多地
+interface_tags: 鍵盤／按鍵、風箱
+region_culture: 歐洲／希臘
+listening_sound_tags: 手指、機械距離、記憶、電聲｜按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/electric-organ/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Yamaha_GX-1_%28clip%29_%40_Yamaha_Design_Masterworks.png/500px-Yamaha_GX-1_%28clip%29_%40_Yamaha_Design_Masterworks.png
 youtube_ids: wdkKL-9cTOU ir-PVSRx3_8
 ---
+
 ## 介紹
 
 電子琴，也稱為電子琴，是一種電子鍵盤樂器，源自風琴、管風琴和劇院風琴。它最初設計用於模仿這些樂器或管弦樂隊的聲音，但後來發展成了幾種類型的樂器：漢蒙德式風琴，用於流行音樂、搖滾樂、鄉村音樂、藍調音樂、福音音樂和爵士樂等多種風格；數位教堂風琴，模仿管風琴，主要用於教堂；以及其他類型，包括組合風琴、家庭風琴和軟體風琴。

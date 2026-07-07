@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/pitch-pipe/
-title: 音高笛
-original_name: Pitch pipe
-category: 管樂器
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 音高笛
+title_original: Pitch pipe
+family_std: 管樂器類
+sound_hs: 4 气鳴樂器
 playing_method: 吹奏
-family: 管樂器類
-hs_class: 4 气鳴樂器
-sound_class: 气鳴
-country: 歐洲
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
-body_listening: 氣息、胸腔、長音、空間
+interface_tags: 
+region_culture: 歐洲｜單一地區／文化圈
+listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/pitch-pipe/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/PitchPipes.JPG/500px-PitchPipes.JPG
 youtube_ids: KaDT3z1scIE -JOLb24SQJ8
-instrument_key: 全調性
-range: 約2個八度（中高音區）
 ---
+
 ## 介紹
 
 音高笛是一種小型裝置（一種調音口琴），用於為音樂家提供音高參考。雖然它可能被描述為樂器，但通常不用於演奏音樂本身。

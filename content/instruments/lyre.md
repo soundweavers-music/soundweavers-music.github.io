@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/lyre/
-title: 里拉琴
-original_name: Lyre
-category: 弦樂器
-country: 非洲／歐洲／美洲／亞洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/4/4e/Lyre1913.jpg
-sound_class: 弦鳴
-range: 約2至3個8度，主要音域位於中高音區
-instrument_key: 無固定調性
-hs_class: 322 豎琴與里拉類
-family: 豎琴、里拉與開放弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 豎琴、里拉與開放弦
+title_zh: 里拉琴
+title_original: Lyre
+family_std: 豎琴、里拉與開放弦樂器
+sound_hs: 弦鳴｜322 豎琴與里拉類
 playing_method: 撥弦／開放弦共鳴
-body_listening: 循環、河流感、開放弦、吟唱
-soundscape: 開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
-region_type: 地區／文化圈
+interface_tags: 
+region_culture: 非洲／歐洲／美洲／亞洲｜地區／文化圈
+listening_sound_tags: 循環、河流感、開放弦、吟唱｜開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/lyre/
+image: https://upload.wikimedia.org/wikipedia/commons/4/4e/Lyre1913.jpg
 youtube_ids: nmExqfKa1Uc FvFzQ35ESvM
 ---
+
 ## 介紹
 
 里拉（英語：lyre；希臘語：λύρα），古地中海琴種，經時間流逝多數琴種皆已絕跡，僅剩希臘、埃及、衣索比亞等仍保有傳統，琴亦在流入不同國家後擁有各自別名。 是西方古典文明最常見的撥弦樂器，傳至現代的種類非常繁多，主要特點是共鳴箱特別狹窄，因而便於攜帶。樂器的弦數不一，多數介於5-8根之間，但也有15弦的。里拉琴適合傳統上搭配故事或吟唱使用，古希臘的游吟詩人經常使用這種樂器來烘托氣氛。它在中世紀文獻的諸多引用，起碼在10世紀後僅限於寓意，不過在北歐至少仍被使用至14世紀。

@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/baritone-oboe/
-title: 中低音雙簧管
-original_name: Baritone oboe
-category: 管樂器
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 簧片樂器
+title_zh: 中低音雙簧管
+title_original: Baritone oboe
+family_std: 管樂器類
+sound_hs: 4 气鳴樂器
 playing_method: 吹奏
-family: 管樂器類
-hs_class: 4 气鳴樂器
-sound_class: 气鳴
-country: 歐洲
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-body_listening: 口腔、舌頭、簧片震動、鼻音
+interface_tags: 
+region_culture: 歐洲｜單一地區／文化圈
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/baritone-oboe/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Bass_oboe_-_St_Cecilia%27s_Hall.webm/500px--Bass_oboe_-_St_Cecilia%27s_Hall.webm.jpg
 youtube_ids: _2Y1hCgDvNE VCqlMcUiFSk
-instrument_key: C大調
-range: A1–G4（約3個8度）
 ---
+
 ## 介紹
 
 低音雙簧管或男中音雙簧管是木管樂器家族中的雙簧樂器。它的體積基本上是熟悉的C調高音雙簧管的兩倍，音域低一個八度；它具有深沉、飽滿的音色，在某種程度上類似於其較高音域的表親英國管（英國號角）。低音雙簧管用高音譜號記譜，其音響比譜面低一個八度。

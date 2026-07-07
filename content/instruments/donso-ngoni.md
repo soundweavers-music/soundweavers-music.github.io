@@ -1,22 +1,22 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/donso-ngoni/
-title: 頓索恩戈尼琴
-original_name: Donso Ngoni
-category: 弦樂器
-country: 西非／馬利
-era: 傳統／年代待考
-sound_class: 弦鳴
-range: 約2至3個8度
-instrument_key: 無固定調性
-hs_class: 322 豎琴與里拉類
-family: 豎琴、里拉與開放弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 豎琴、里拉與開放弦
+title_zh: 頓索恩戈尼琴
+title_original: Donso Ngoni
+family_std: 豎琴、里拉與開放弦樂器
+sound_hs: 弦鳴｜322 豎琴與里拉類
 playing_method: 撥弦／開放弦共鳴
-body_listening: 循環、河流感、開放弦、吟唱
-soundscape: 開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
-region_type: 地區／文化圈
+interface_tags: 
+region_culture: 西非／馬利｜地區／文化圈
+listening_sound_tags: 循環、河流感、開放弦、吟唱｜開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/donso-ngoni/
 youtube_ids: dhdlmcHP7KA W0O_6kmUMws
 ---
+
 ## 介紹
 
 頓索恩戈尼琴是源自西非薩赫爾地區的傳統弦樂器，在曼丁卡文化中發展演變。樂器採用木製共鳴箱設計，配備多條弦線供撥彈演奏。其音色明亮富有穿透力，兼具溫暖的木質感，高音清脆靈動，低音渾厚有力。這種樂器與格里奧傳統說唱詩人密切相關，自中世紀馬利帝國時期起便在宮廷和民間廣泛使用，成為敘事音樂和儀式表演的主要工具。

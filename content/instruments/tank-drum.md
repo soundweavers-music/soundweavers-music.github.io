@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/tank-drum/
-title: 空靈鼓
-original_name: Tank drum
-category: 打擊樂器
-country: 全球／非洲／現代
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Whale_drum_%28from_Emil_Richards_Collection%29.jpg/500px-Whale_drum_%28from_Emil_Richards_Collection%29.jpg
-sound_class: 體鳴
-range: 中低音至中音（約8至15個音高）
-instrument_key: 全調性
-hs_class: 12 體鳴／舌片琴／金屬共鳴
-family: 近身體鳴、舌片琴與手奏金屬共鳴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 空靈鼓
+title_original: Tank drum
+family_std: 近身體鳴、舌片琴與手奏金屬共鳴
+sound_hs: 12 體鳴／舌片琴／金屬共鳴
 playing_method: 手敲／拇指撥片／近身共鳴
-body_listening: 指尖、掌心、尾音、近身聆聽
-soundscape: 手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）
-region_type: 跨文化／多地
+interface_tags: 撥片
+region_culture: 全球／非洲／現代
+listening_sound_tags: 指尖、掌心、尾音、近身聆聽｜手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/tank-drum/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Whale_drum_%28from_Emil_Richards_Collection%29.jpg/500px-Whale_drum_%28from_Emil_Richards_Collection%29.jpg
 youtube_ids: K7IbAv6qOlI c0hx_T6ztbs
 ---
+
 ## 介紹
 
 鋼舌鼓、油桶鼓或漢克鼓是一種圓形鋼製狹縫/舌簧鼓，屬於體鳴樂器家族，最初由丙烷氣筒製成。

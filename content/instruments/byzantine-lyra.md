@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/byzantine-lyra/
-title: 拜占庭里拉琴
-original_name: Byzantine Lyra
-category: 弦樂器
-country: 拜占庭／東地中海
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/3/30/Byzantine_Lyra_Museo_Nazionale.jpg
-sound_class: 弦鳴
-range: 中音區（約2個8度）
-instrument_key: 無固定調性
-hs_class: Chordophone／弦鳴樂器
-family: 擦弦里拉族
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 豎琴、里拉與開放弦
+title_zh: 拜占庭里拉琴
+title_original: Byzantine Lyra
+family_std: 擦弦里拉族
+sound_hs: Chordophone／弦鳴樂器
 playing_method: 拉奏
-body_listening: 古典與宗教音樂脈絡、細長歌唱性
-soundscape: 弓毛拉出的哭與唱（擦弦、輪弦與提琴家族）
-region_type: 歷史文化圈
+interface_tags: 弓
+region_culture: 拜占庭／東地中海｜歷史文化圈
+listening_sound_tags: 古典與宗教音樂脈絡、細長歌唱性｜弓毛拉出的哭與唱（擦弦、輪弦與提琴家族）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/byzantine-lyra/
+image: https://upload.wikimedia.org/wikipedia/commons/3/30/Byzantine_Lyra_Museo_Nazionale.jpg
 youtube_ids: muRr8WqrU48 OWFhJJ0V-Yc
 ---
+
 ## 介紹
 
 拜占庭里拉琴（希臘文：λύρα）是中世紀拜占庭（東羅馬）帝國的一種弓弦樂器。在其流行的形式中，里拉琴是一種梨形樂器，有三到五根琴弦，直立演奏，通過用指尖和指甲從側面按住琴弦來彈奏。已知最古老的樂器描繪出現在拜占庭象牙盒上，年代約為公元900-1100年，現保存於佛羅倫薩巴傑羅美術館（佛羅倫薩國家美術館，卡蘭德收藏，編號26）。

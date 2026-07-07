@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/sheng-instrument/
-title: 笙
-original_name: Sheng (instrument)
-category: 管樂器
-country: 亞洲／東亞（中國）
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Sheng_MET_DP216617.jpg/500px-Sheng_MET_DP216617.jpg
-sound_class: 氣鳴
-range: 約2至3個八度
-instrument_key: 全調性
-hs_class: Aerophone／氣鳴樂器
-family: 自由簧吹奏
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 簧片樂器
+title_zh: 笙
+title_original: Sheng (instrument)
+family_std: 自由簧吹奏
+sound_hs: Aerophone／氣鳴樂器
 playing_method: 自由簧
-body_listening: 口腔、舌頭、簧片震動、鼻音
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 亞洲／東亞（中國）
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/sheng-instrument/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Sheng_MET_DP216617.jpg/500px-Sheng_MET_DP216617.jpg
 youtube_ids: lfZcIe4s0C4 _iR-KrbeFs0
 ---
+
 ## 介紹
 
 The sheng (Chinese: 笙) is a Chinese mouth-blown polyphonic free reed instrument consisting of vertical pipes. It is one of the oldest Chinese instruments, with images depicting its kind dating back to 1100 BCE, and there are original instruments from the Han dynasty that are preserved in museums today. Traditionally, the sheng has been used as an accompaniment instrument for solo suona or dizi performances. It is one of the main instruments in kunqu and some other forms of Chinese opera.

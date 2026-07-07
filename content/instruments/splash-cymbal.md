@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/splash-cymbal/
-title: 濺鈸
-original_name: Splash cymbal
-category: 打擊樂器
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
+title_zh: 濺鈸
+title_original: Splash cymbal
+family_std: 體鳴打擊樂器類
+sound_hs: 1 体鳴樂器
 playing_method: 敲擊／搖晃／撥彈
-family: 體鳴打擊樂器類
-hs_class: 1 体鳴樂器
-sound_class: 体鳴
-country: 歐洲
-era: 傳統／年代待考
-region_type: 地區／文化圈
-soundscape: 手邊發光的小宇宙（近身體鳴、舌片琴與手奏金屬共鳴）
-body_listening: 指尖、掌心、尾音、近身聆聽
+interface_tags: 
+region_culture: 歐洲｜地區／文化圈
+listening_sound_tags: 指尖、掌心、尾音、近身聆聽｜手邊發光的小宇宙（近身體鳴、舌片琴與手奏金屬共鳴）
+ensemble_links: 爵士編制
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/splash-cymbal/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Drums_schematic.svg/500px-Drums_schematic.svg.png
 youtube_ids: 0l2xcLCwz04 9BXAlPoSdns
-instrument_key: 無固定調性
-range: 高頻範圍（約2-4kHz以上）
 ---
+
 ## 介紹
 
 在爵士鼓組中，濺鈸是最小的重音鈸，通常是更常見的碰撞鈸的較小衍生物。濺鈸和中國鈸是主要的效果鈸類型。最常見的濺鈸尺寸直徑為8英寸，其次是10英寸。大多數濺鈸的尺寸範圍在6英寸至13英寸之間，但有些濺鈸可以小至4英寸。大於10英寸的濺鈸在音色特性上通常類似於踩鈸。有些製造商生產的濺鈸尺寸可達22英寸，但14英寸或更大的濺鈸通常被稱為碰撞鈸。

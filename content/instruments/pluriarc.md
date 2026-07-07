@@ -1,19 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/pluriarc/
-title: 多利亞克琴
-original_name: Pluriarc
-category: 弦樂器
-country: 非洲
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-body_listening: 懷抱、手指、腳步、敘事
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 電聲改造樂器
+title_zh: 多利亞克琴
+title_original: Pluriarc
+family_std: 電聲改造樂器家族
+sound_hs: 待確認
+playing_method: 按鍵／控制器／電子控制（待細分）
+interface_tags: 弓
+region_culture: 非洲｜單一地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 移入第13類
+issue_note: 現代電子／取樣；屬現代電子、取樣、電聲或電氣化鍵盤／設備類，應集中到第13類。；移第13類，並與傳統鍵盤／風箱類分開。
+source_url: https://soundweavers-music.github.io/instruments/pluriarc/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/COLLECTIE_TROPENMUSEUM_Meervoudige_muziekboog_TMnr_A-10433.jpg/500px-COLLECTIE_TROPENMUSEUM_Meervoudige_muziekboog_TMnr_A-10433.jpg
 youtube_ids: reujrD8iKD4 C-MUwPOrMp4
-instrument_key: 無固定調性
-range: 中高音區（約2個8度）
 ---
+
 ## 介紹
 
 多弦弧琴（也稱為paata、mapu、luku、kissanga和弓琴）是西非的一種弦樂器，被分類為琉特琴的一種。它具有一個空心琴體和多根由蘆葦製成的彎曲、柔韌琴頸。琴弦從琴頸延伸到琴橋，琴橋距琴體約1.5英寸（38毫米）。琴體可以是圓形、矩形或三角形，通常由輕木製成。琴體的上部可以是一塊獨立的木板，通過綁定或釘子固定在下部，或者由與琴體其餘部分相同的木料製成。

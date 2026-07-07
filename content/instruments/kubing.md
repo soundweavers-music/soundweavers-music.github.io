@@ -1,19 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/kubing/
-title: 庫賓琴
-original_name: Kubing
-category: 打擊樂器
-country: 菲律賓及東南亞
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-body_listening: 口腔、舌頭、簧片震動、鼻音
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 庫賓琴
+title_original: Kubing
+family_std: 撥弦與抱持弦樂家族
+sound_hs: 待確認
+playing_method: 撥奏／擦奏／擊弦（待細分）
+interface_tags: 
+region_culture: 菲律賓及東南亞｜單一地區／文化圈
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/kubing/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Kubing.jpg/500px-Kubing.jpg
 youtube_ids: -nN6zmrQYyA iVCd1n2fXm8
-instrument_key: 無固定調性
-range: 中高音區（約1個8度）
 ---
+
 ## 介紹
 
 庫賓琴是一種菲律賓竹製口琴，在菲律賓和印尼的馬京達瑙人及其他穆斯林和非穆斯林部落中使用。它也被稱為科賓琴（馬拉瑙族）、科利包琴（廷古安族）、阿魯丁琴（塔格班瓦族）、庫里巴琴（伊班納格族和伊塔韋斯族）、阿里包琴（伊斯內格族）、阿羅丁琴（巴拉望族）、庫萊英琴（亞干族）、烏利包琴（卡林加族）、卡隆比琴（托拉查族）、約里琴（凱利內斯族）或庫利包琴。用糖棕葉製成的被稱為卡林塔琴（穆南族）、歐蕾歐蕾恩邦都琴或歐蕾恩卡萊琴（布頓族）。

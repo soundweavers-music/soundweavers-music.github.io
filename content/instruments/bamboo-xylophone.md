@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/bamboo-xylophone/
-title: 竹木琴
-original_name: Bamboo Xylophone
-category: 打擊樂器
-country: 東南亞／東亞／非洲／歐洲／全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/%E7%90%B4%E9%9A%B1%E5%9C%92%E8%A9%A9%E9%9B%86%28%E5%8D%81%E4%B8%80%29.djvu/page1-500px-%E7%90%B4%E9%9A%B1%E5%9C%92%E8%A9%A9%E9%9B%86%28%E5%8D%81%E4%B8%80%29.djvu.jpg
-sound_class: 體鳴
-range: 約2至3個八度
-instrument_key: 全調性
-hs_class: 11/12 定音體鳴／鑼鐘木琴石琴系統
-family: 定音體鳴、材料敲擊與鑼鐘木琴系統
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 竹木琴
+title_original: Bamboo Xylophone
+family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
+sound_hs: 11/12 定音體鳴／鑼鐘木琴石琴系統
 playing_method: 敲擊／搖奏／材料共鳴
-body_listening: 材料、回聲、群體分工、音列
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 東南亞／東亞／非洲／歐洲／全球
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/bamboo-xylophone/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/%E7%90%B4%E9%9A%B1%E5%9C%92%E8%A9%A9%E9%9B%86%28%E5%8D%81%E4%B8%80%29.djvu/page1-500px-%E7%90%B4%E9%9A%B1%E5%9C%92%E8%A9%A9%E9%9B%86%28%E5%8D%81%E4%B8%80%29.djvu.jpg
 youtube_ids: lVUpkkrOCNk QdPXnhonLb0
 ---
+
 ## 介紹
 
 竹木琴是起源於東南亞的打擊樂器，由排列整齊的竹片或木片組成，下方配置共鳴體。演奏者使用木槌敲擊琴片發音。其音色清脆明亮，具輕盈靈動的質感，音域跨越2至3個八度。竹木琴廣泛應用於民族音樂表演、宗教儀式和教育領域，以其溫潤親切的音質和優秀的投射性在合奏中表現突出，是展現民族特色的重要樂器。

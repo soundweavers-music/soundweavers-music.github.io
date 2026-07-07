@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/siku/
-title: 西庫排笛
-original_name: Siku
-category: 管樂器
-country: 美洲／南美（安地斯）
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/POL_COA_Trzaska.svg/500px-POL_COA_Trzaska.svg.png
-sound_class: 氣鳴
-range: 中高音區（約2個8度）
-instrument_key: 全調性
-hs_class: 421 邊棱氣鳴／無簧笛類
-family: 無簧吹管、長音與氣息樂器
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 簧片樂器
+title_zh: 西庫排笛
+title_original: Siku
+family_std: 無簧吹管、長音與氣息樂器
+sound_hs: 421 邊棱氣鳴／無簧笛類
 playing_method: 吹奏／端吹／橫吹／容器共鳴
-body_listening: 氣息、胸腔、長音、空間
-soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 美洲／南美（安地斯）
+listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+ensemble_links: 安地斯合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/siku/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/POL_COA_Trzaska.svg/500px-POL_COA_Trzaska.svg.png
 youtube_ids: 1NWtZZbYUeY FcF2HPZzMEA
 ---
+
 ## 介紹
 
 西庫可能指的是：西庫（樂器），一種來自安地斯山脈的排笛 西庫（玻利維亞），玻利維亞安地斯山脈中的一座山 西庫玩具，一個德國玩具車品牌 西庫（漫畫），一位藝術家 西庫（北極熊），一隻成為網路一夜成名的熊寶寶 四庫全書，一部於1782年完成的中文文獻彙編 秒購，一個中文線上零售商 西庫·阿盧盧，一位土著作家 西庫亞比比（淑女之日） 西庫恩傑瑪，一部斯瓦希里語小說

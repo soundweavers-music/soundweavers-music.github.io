@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/zampogna/
-title: 義大利風笛
-original_name: Zampogna
-category: 管樂器
-country: 義大利
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Zampogna.jpg/500px-Zampogna.jpg
-sound_class: 氣鳴
-range: 約2個8度
-instrument_key: 無固定調性
-hs_class: 412/422 簧鳴與自由簧／單簧雙簧
-family: 口簧、自由簧、單簧雙簧與風袋
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 風箱與自由簧
+title_zh: 義大利風笛
+title_original: Zampogna
+family_std: 口簧、自由簧、單簧雙簧與風袋
+sound_hs: 氣鳴｜412/422 簧鳴與自由簧／單簧雙簧
 playing_method: 吹奏／簧片振動／風袋或風箱
-body_listening: 口腔、舌頭、簧片震動、鼻音
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-region_type: 單一國家或文化源流
+interface_tags: 風箱
+region_culture: 義大利｜單一國家或文化源流
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 有問題，需修正
+issue_note: 類別錯誤；Vibraphone 是顫音琴／電動共鳴器金屬鍵體鳴，不是鍵盤樂器。；歸第10類定音體鳴。
+source_url: https://soundweavers-music.github.io/instruments/zampogna/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Zampogna.jpg/500px-Zampogna.jpg
 youtube_ids: RCEyN1pCm3E SXkekf-m1U4
 ---
+
 ## 介紹
 
 詹波紐（英國發音：zam-PON-yə，美國發音：zam-POHN-yə、sahm-，義大利語：[tsamˈpoɲɲa, dzamˈpoɲɲa]）是義大利雙管風笛樂器的總稱，可在拉提烏姆地區各處找到。這項傳統現在主要與聖誕節相關聯，最著名的義大利聖誕歌曲《Tu scendi dalle stelle》便源自傳統詹波紐音樂。然而，該樂器在世俗用途上正經歷持續復興，這反映在每年12月義大利樂團舉辦的民謠音樂節和民謠音樂表演數量的增加。

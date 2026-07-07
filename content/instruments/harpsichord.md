@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/harpsichord/
-title: 大鍵琴
-original_name: Harpsichord
-category: 鍵盤樂器
-country: 歐洲／義大利
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Deless-10.jpg/500px-Deless-10.jpg
-sound_class: 弦鳴
-range: 約四至五個八度
-instrument_key: 全調性
-hs_class: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
-family: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 大鍵琴
+title_original: Harpsichord
+family_std: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+sound_hs: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
 playing_method: 撥弦／擊弦／按鍵擊弦
-body_listening: 手掌、弦面、推音、敲擊
-soundscape: 平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
-region_type: 跨文化／多地
+interface_tags: 鍵盤／按鍵
+region_culture: 歐洲／義大利
+listening_sound_tags: 手掌、弦面、推音、敲擊｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/harpsichord/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Deless-10.jpg/500px-Deless-10.jpg
 youtube_ids: 2unB-S9JXV8 LbrKmwZGynE
 ---
+
 ## 介紹
 
 大鍵琴（義大利語：clavicembalo；德語：Cembalo；法語：clavecin；英語：harpsichord），也稱撥弦鍵琴， 羽管鍵琴或古鍵琴，出現於14世紀左右，是一種從15世紀文藝復興時期到18世紀巴洛克時期盛行於歐洲的樂器。它與小鍵琴同時並存流行約200年，到了18世紀時才居於鍵盤樂器的主導地位。在大鍵琴音樂的發展最高峰時代，亦即巴洛克時期早期一直到古典時期，作曲家約翰·塞巴斯蒂安·巴赫為大鍵琴創作的傑出作品可為其間代表。根據霍恩博斯特爾-薩克斯分類法，由於大鍵琴的發聲源和現代鋼琴不同，是來自收藏在內部的弦線，並利用琴鍵及其內置裝置令弦線撥動而發聲，因此被歸納為弦鳴樂器，一般樂器分類法則歸入鍵盤樂器或撥弦樂器。 大鍵琴在18世紀被古鋼琴逐漸取代。由於大鍵琴基本上是利用撥弦來發出聲音，所以它的音色較為清脆而細弱，更接近古典吉他或者是匈牙利的欽巴龍，而不像鋼琴的聲音那麼堅固、沉實。另外，大鍵琴的音量也比現代鋼琴小得多，而且也沒有製造巨大的聲音變化的能力。20世紀10年代之後，隨著古樂演奏的流行，大鍵琴又重新受到了關注（特別是在法國地區），而世界各地的音樂學院則依然設有大鍵琴的學位和常態課程，而且，現在也出現了許多性能極佳的仿製或翻新過的古董大鍵琴。

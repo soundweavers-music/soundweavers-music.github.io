@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/repinique/
-title: 雷皮尼克鼓
-original_name: Repinique
-category: 打擊樂器
-country: 美洲／巴西
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Repique.JPG/500px-Repique.JPG
-sound_class: 膜鳴
-range: 約1個8度（高音域）
-instrument_key: 無固定調性
-hs_class: 21 膜鳴鼓類
-family: 膜鳴鼓類、框鼓、杯鼓與鼓組
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 雷皮尼克鼓
+title_original: Repinique
+family_std: 膜鳴鼓類、框鼓、杯鼓與鼓組
+sound_hs: 21 膜鳴鼓類
 playing_method: 手拍／槌擊／皮膜振動
-body_listening: 手掌、腳底、低音、舞步
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 美洲／巴西
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/repinique/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Repique.JPG/500px-Repique.JPG
 youtube_ids: 7UnGrB3Ezo0 HJ1zIcXaUfI
 ---
+
 ## 介紹
 
 雷皮尼克鼓是一種雙面鼓，用於森巴打擊樂隊（打擊樂合奏）中。它被用於里約熱內盧和聖保羅嘉年華打擊樂隊，以及巴伊亞的打擊樂隊中，在當地被稱為雷皮克鼓。它相當於非巴西鼓組中的tik-tik鼓，或管樂隊中的次中音鼓。它的音調被調得非常高，以產生能穿透整個打擊樂隊聲音的音色，並被用作主奏和獨奏樂器。通常其鼓身由金屬製成。鼓面由尼龍製成，通過金屬調音桿來緊縮。

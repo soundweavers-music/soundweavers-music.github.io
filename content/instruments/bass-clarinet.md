@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/bass-clarinet/
-title: 低音單簧管
-original_name: Bass clarinet
-category: 管樂器
-sound_class: 氣鳴
-hs_class: 422 單簧管類樂器
-family: 低音單簧管類
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 簧片樂器
+title_zh: 低音單簧管
+title_original: Bass clarinet
+family_std: 低音單簧管類
+sound_hs: 氣鳴｜422 單簧管類樂器
 playing_method: 吹奏／單簧片
-country: 歐洲
-era: 古代
-region_type: 單一地區／文化圈
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-body_listening: 口腔、舌頭、簧片震動、鼻音
+interface_tags: 
+region_culture: 歐洲｜單一地區／文化圈
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/bass-clarinet/
 image: https://upload.wikimedia.org/wikipedia/commons/8/89/BassClarinetRange-Written.png
 youtube_ids: Iu60MwpMiow gKOgKVJ7Lio
-instrument_key: 降B大調
-range: B1–G5（約3個半8度）
 ---
+
 ## 介紹
 
 低音豎笛是豎笛家族樂器中的一員，除了外形較大，結構、指法和演奏技巧和豎笛大致相同。音色低沉，弱奏時展現柔美特性，強奏時具有魄力。最初出現於交響樂團時，通常由1名單簧管手兼任，但現時更多機會是由1名樂手獨立於其他單簧管之外。 作為變種樂器，低音單簧管的普及程度和短笛近乎相同。它不但已成為現代交響樂團的常規樂器，稍有規模的業餘樂團、一般學校樂團等都能夠添置最少一支。在管樂團、軍樂團以至爵士樂是不可或缺的部份。

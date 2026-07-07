@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/tuntuna/
-title: 土土那琴
-original_name: Tuntuna
-category: 鍵盤樂器
-country: 亞洲／歐洲／全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Pulluvan_pattu_in_Ashtamudi_temple1.JPG/500px-Pulluvan_pattu_in_Ashtamudi_temple1.JPG
-sound_class: 弦鳴
-range: 約數個八度
-instrument_key: 多調性
-hs_class: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
-family: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 土土那琴
+title_original: Tuntuna
+family_std: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+sound_hs: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
 playing_method: 撥弦／擊弦／按鍵擊弦
-body_listening: 手掌、弦面、推音、敲擊
-soundscape: 平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
-region_type: 跨文化／多地
+interface_tags: 鍵盤／按鍵
+region_culture: 亞洲／歐洲／全球
+listening_sound_tags: 手掌、弦面、推音、敲擊｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/tuntuna/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Pulluvan_pattu_in_Ashtamudi_temple1.JPG/500px-Pulluvan_pattu_in_Ashtamudi_temple1.JPG
 youtube_ids: QtGSDINpFC4 DYLCFE7xtCg
 ---
+
 ## 介紹
 
 土土那琴是源自非洲撒哈拉以南地區的傳統弦樂器，屬於鍵盤式弦鳴樂器。其外型採用鍵盤設計，配備共鳴箱以放大聲響。琴身通常由木質材料製成，具有優雅的曲線造型。土土那琴廣泛應用於部落儀式、宗教慶典和日常娛樂中，是西非和中非傳統文化的重要載體。其音色溫潤而富有穿透力，具有明亮高頻與深沉低頻共鳴的獨特特色，能表現豐富的音樂層次，深受民族音樂愛好者推崇。

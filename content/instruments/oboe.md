@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/oboe/
-title: 雙簧管
-original_name: Oboe
-category: 管樂器
-country: 歐洲／法國
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/e/e1/Oboj.jpg
-sound_class: 氣鳴
-range: B3–G6（約3個8度）
-instrument_key: C大調
-hs_class: 412/422 簧鳴與自由簧／單簧雙簧
-family: 口簧、自由簧、單簧雙簧與風袋
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 風箱與自由簧
+title_zh: 雙簧管
+title_original: Oboe
+family_std: 口簧、自由簧、單簧雙簧與風袋
+sound_hs: 氣鳴｜412/422 簧鳴與自由簧／單簧雙簧
 playing_method: 吹奏／簧片振動／風袋或風箱
-body_listening: 口腔、舌頭、簧片震動、鼻音
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-region_type: 地區／文化圈
+interface_tags: 風箱
+region_culture: 歐洲／法國｜地區／文化圈
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/oboe/
+image: https://upload.wikimedia.org/wikipedia/commons/e/e1/Oboj.jpg
 youtube_ids: 2WJhax7Jmxs _xOj9bLkYVQ
 ---
+
 ## 介紹
 
 雙簧管屬於木管樂器，雙簧類樂器。所謂「雙簧」即以兩塊簧片縛在一起，透過振動而發聲。雙簧管是由蕭姆管（Shawm）發展而成的樂器，音質獨特，在交響樂團中，經常以獨奏的形式出現。 現今交響樂團演出前，會以雙簧管奏出的A(442Hz或440Hz)音來作為其他樂器調音的基礎。 給雙簧管調音有兩種無法考究的解釋說法，第一種說法是在以往的樂器合奏中，舊式雙簧管是最難調準音的樂器，所花的時間亦較多，所以演奏前會先讓它調準音後才到其他樂器，這習慣後來便成為了樂團的常規；第二種說法，雙簧管在演奏這個音高時，樂器的狀況最穩定，且音色較具穿透力音量也很大聲，故用來作為樂團調音的標準。 目前比較有科學根據的說法，雙簧管在吹奏時，豐富的音色下，產生的泛音是管弦樂團眾多樂器之中最多的，所以在調音時，面對不同特性的樂器（不同頻率的泛音）可以很容易校正在一起。這說法在頻譜儀發明之後有被實驗證實，雙簧管是管弦樂團編制樂器之中，產生的泛音是最多的。 以及調音為A音，是因為早期的管弦樂團為弦樂為主，弦樂器的空弦共同音（弦樂器都用空弦來調音）為A音，故統一用A音來調音。管樂團則是調音為bB音，原因是管樂團的bB調移調樂器居多的關係。

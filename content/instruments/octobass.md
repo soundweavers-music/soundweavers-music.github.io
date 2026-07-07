@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/octobass/
-title: 三弦低音提琴
-original_name: Octobass
-category: 弦樂器
-country: 歐洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Octobass-Paris-2016.png/500px-Octobass-Paris-2016.png
-sound_class: 弦鳴
-range: 超低音區，可達E0–G2（約3個8度）
-instrument_key: 無固定調性
-hs_class: 321.3 擦弦／輪弦／提琴家族
-family: 擦弦、輪弦與提琴家族
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 擦弦、鍵控與輪弦
+title_zh: 三弦低音提琴
+title_original: Octobass
+family_std: 擦弦、輪弦與提琴家族
+sound_hs: 弦鳴｜321.3 擦弦／輪弦／提琴家族
 playing_method: 弓擦／輪擦
-body_listening: 胸口、嗓音、拉長的情緒
-soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
-region_type: 跨文化／多地
+interface_tags: 弓
+region_culture: 歐洲
+listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/octobass/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Octobass-Paris-2016.png/500px-Octobass-Paris-2016.png
 youtube_ids: 12X-i9YHzmE 0esCcp7pOj8
 ---
+
 ## 介紹
 
 低音提琴是一種極其巨大且罕見的擦弦樂器，是低音大提琴的一個更大的三弦版本，首次於1850年左右在巴黎由法國樂器製造家讓-巴蒂斯特·維約姆（1798–1875）製造。巴黎音樂博物館收藏的標本長3.48公尺（11英尺5英寸），而標準尺寸的低音大提琴通常長約2公尺（6英尺7英寸）。

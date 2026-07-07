@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/cajon/
-title: 箱鼓
-original_name: Cajón
-category: 打擊樂器
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 箱鼓
+title_original: Cajón
+family_std: 鼓類
+sound_hs: 2 膜鳴樂器
 playing_method: 敲擊鼓面
-family: 鼓類
-hs_class: 2 膜鳴樂器
-sound_class: 膜鳴
-country: 秘魯
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-body_listening: 手掌、腳底、低音、舞步
+interface_tags: 
+region_culture: 秘魯｜單一地區／文化圈
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/cajon/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Cajon_musician.jpg/500px-Cajon_musician.jpg
 youtube_ids: 6vaJiSlguBg -3kKtIc5ynI
-instrument_key: 無固定調性
-range: 約2個8度（中高頻域）
 ---
+
 ## 介紹
 
 木箱鼓（西班牙語：cajón，發音：[kaˈxon]，本意為木箱或抽屜），或稱鼓箱，音譯為卡宏鼓，是一種箱狀的木質打擊樂器。演奏時用手拍敲木箱前端薄板發聲，聲音類似於爵士鼓。流行於古巴、秘魯等地。木箱鼓在佛朗明哥和倫巴等拉丁系音樂中經常被使用，一些民謠音樂中也選擇用木箱鼓來伴奏。 近年木箱鼓漸漸在世界各地流行起來，尤其是一些街頭音樂表演團體，由於它可以奏出和爵士鼓相近的音色，而且亦比爵士鼓易於擕帶和使用，因而成為近年來不少打擊樂手所學習和使用。

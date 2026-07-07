@@ -1,19 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/dulce-melos/
-title: 甜蜜琴
-original_name: Dulce melos
-category: 鍵盤樂器
-country: 歐洲（中世紀歐洲）
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化弦鳴）
-body_listening: 手掌、弦面、推音、敲擊
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 甜蜜琴
+title_original: Dulce melos
+family_std: 撥弦與抱持弦樂家族
+sound_hs: 待確認
+playing_method: 撥奏／擦奏／擊弦（待細分）
+interface_tags: 鍵盤／按鍵、琴槌
+region_culture: 歐洲（中世紀歐洲）｜單一地區／文化圈
+listening_sound_tags: 手掌、弦面、推音、敲擊｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化弦鳴）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/dulce-melos/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/1440_Dulce_Melos.png/500px-1440_Dulce_Melos.png
 youtube_ids: IfcFQ5dMWuM nTBqVOP92jY
-instrument_key: 全調性
-range: 約3個八度（36個音符）
 ---
+
 ## 介紹
 
 甜蜜琴（或稱杜斯梅勒琴）是一種早期鍵盤樂器，也可能是鋼琴的前身。該樂器被描述為一種揚琴類樂器，類似於敲擊揚琴，但琴弦由鍵上的琴槌敲擊。該樂器有十二對琴弦，每對弦分為三個部分，比例為4:2:1，通過琴橋產生全色度八度音階的36個音符，因為每個音符由琴橋分出兩個更高的八度音。該樂器最早有記載的作品之一是亨利－阿爾諾德·茲沃勒在1440年創作的作品。

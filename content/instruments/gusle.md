@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/gusle/
-title: 古斯拉琴
-original_name: Gusle
-category: 弦樂器
-country: 巴爾幹地區
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/6/6d/Filip_Visnjic_guslar.jpg
-sound_class: 弦鳴
-range: 中低音區（約2個8度）
-instrument_key: 無固定調性
-hs_class: 321.3 擦弦／輪弦／提琴家族
-family: 擦弦、輪弦與提琴家族
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 擦弦、鍵控與輪弦
+title_zh: 古斯拉琴
+title_original: Gusle
+family_std: 擦弦、輪弦與提琴家族
+sound_hs: 弦鳴｜321.3 擦弦／輪弦／提琴家族
 playing_method: 弓擦／輪擦
-body_listening: 史詩吟唱、低沉獨奏、人聲敘事
-soundscape: 弓毛拉出的哭與唱（擦弦、輪弦與提琴家族）
-region_type: 區域／多國
+interface_tags: 弓
+region_culture: 巴爾幹地區｜區域／多國
+listening_sound_tags: 史詩吟唱、低沉獨奏、人聲敘事｜弓毛拉出的哭與唱（擦弦、輪弦與提琴家族）
+ensemble_links: 
+verification_status: 需調整
+issue_note: 譯名需區分；Glockenspiel 宜譯「鐵片琴」或「鐘琴（Glockenspiel）」，不可和 Carillon 混同。；若保留「鐘琴」，需括號標原名；與第134、第149相鄰。
+source_url: https://soundweavers-music.github.io/instruments/gusle/
+image: https://upload.wikimedia.org/wikipedia/commons/6/6d/Filip_Visnjic_guslar.jpg
 youtube_ids: yKBlQqn9aB0 5vQv6hlzozs
 ---
+
 ## 介紹
 
 古斯萊（克羅埃西亞語：Gusle，塞爾維亞語：Гусле，保加利亞語：Гусла），又譯作古斯勒或古斯里，是一種流傳於巴爾幹半島地區的弓弦樂器，它多半搭配演奏者的歌聲來演唱，是東歐地區民間的一種說唱藝術，樂器大多為一根弦，少數地區使用兩根弦，弓弦由馬尾製作，演奏時放在兩腿間演奏。

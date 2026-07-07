@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/litungu/
-title: 利通古琴
-original_name: Litungu
-category: 弦樂器
-country: 肯亞
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/CADAL09009962_%E5%B4%87%E6%96%87%E7%B8%BD%E7%9B%AE%C2%B7%EF%BC%88%E4%B8%80%EF%BC%89.djvu/page1-500px-CADAL09009962_%E5%B4%87%E6%96%87%E7%B8%BD%E7%9B%AE%C2%B7%EF%BC%88%E4%B8%80%EF%BC%89.djvu.jpg
-sound_class: 弦鳴
-range: 約2個8度
-instrument_key: 無固定調性
-hs_class: Chordophone／弦鳴樂器
-family: 東非里拉琴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與齊特琴
+title_zh: 利通古琴
+title_original: Litungu
+family_std: 東非里拉琴
+sound_hs: Chordophone／弦鳴樂器
 playing_method: 撥奏
-body_listening: 民歌敘事、開放弦、手邊循環
-soundscape: 開放弦的天空與河流（豎琴、里拉與開放弦樂器）
-region_type: 單一地區／文化圈
+interface_tags: 
+region_culture: 肯亞｜單一地區／文化圈
+listening_sound_tags: 民歌敘事、開放弦、手邊循環｜開放弦的天空與河流（豎琴、里拉與開放弦樂器）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/litungu/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/CADAL09009962_%E5%B4%87%E6%96%87%E7%B8%BD%E7%9B%AE%C2%B7%EF%BC%88%E4%B8%80%EF%BC%89.djvu/page1-500px-CADAL09009962_%E5%B4%87%E6%96%87%E7%B8%BD%E7%9B%AE%C2%B7%EF%BC%88%E4%B8%80%EF%BC%89.djvu.jpg
 youtube_ids: V97F-LNLmEc I9MvO0ROFcw
 ---
+
 ## 介紹
 
 利通古琴是肯亞盧希亞民族（包括布庫蘇分支）演奏的傳統七弦琴。其他品種的利通古琴由庫里亞民族和基西民族使用。

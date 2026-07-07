@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/gemshorn/
-title: 寶石角笛
-original_name: Gemshorn
-category: 管樂器
-country: 歐洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Gemshorn_Alt.jpg/500px-Gemshorn_Alt.jpg
-sound_class: 氣鳴
-range: 中高音區（約2個8度）
-instrument_key: 無固定調性
-hs_class: 421 邊棱氣鳴／無簧笛類
-family: 無簧吹管、長音與氣息樂器
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 號角與唇振
+title_zh: 寶石角笛
+title_original: Gemshorn
+family_std: 無簧吹管、長音與氣息樂器
+sound_hs: 421 邊棱氣鳴／無簧笛類
 playing_method: 吹奏／端吹／橫吹／容器共鳴
-body_listening: 氣息、胸腔、長音、空間
-soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 歐洲
+listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+ensemble_links: 
+verification_status: 待檢查
+issue_note: 分類概念；Flute 是類別泛稱，不是單一樂器；可作章節導論。；移到第1類導論或刪除單件篇。
+source_url: https://soundweavers-music.github.io/instruments/gemshorn/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Gemshorn_Alt.jpg/500px-Gemshorn_Alt.jpg
 youtube_ids: lhgmQVweo-w 25Y4tG9saIE
 ---
+
 ## 介紹
 
 寶石角笛是陶笛家族的樂器，歷史上由羚羊、山羊或其他合適的動物角製成。寶石角笛的名稱來自德語，其中Gemshorn意為「羚羊角」。

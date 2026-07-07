@@ -1,18 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/adjalin/
-title: 阿賈林琴
-original_name: Adjalin
-category: 弦樂器
-country: 非洲西部
-era: 傳統／年代待考
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 阿賈林琴
+title_original: Adjalin
+family_std: 撥弦與抱持弦樂家族
+sound_hs: 待確認
+playing_method: 撥奏／擦奏／擊弦（待細分）
+interface_tags: 
+region_culture: 非洲西部｜單一地區／文化圈
+listening_sound_tags: 手掌、弦面、推音、敲擊｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化弦鳴）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/adjalin/
 image: https://commons.wikimedia.org/w/resources/assets/file-type-icons/fileicon-ogg.png
-region_type: 單一地區／文化圈
-soundscape: 平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化弦鳴）
-body_listening: 手掌、弦面、推音、敲擊
 youtube_ids: heLgssHPoQs gA09zywGcC0
-instrument_key: 無固定調性
-range: 約2個8度
 ---
+
 ## 介紹
 
 阿扎林琴是一種源自貝南的古箏類樂器。它由竹枝構成的矩形框架組成，用棕櫚纖維繩綁紮在一起。它被用於貝南的傳統音樂中，特別是在公共慶典和儀式中。

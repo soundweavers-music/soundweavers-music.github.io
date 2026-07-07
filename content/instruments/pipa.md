@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/pipa/
-title: 琵琶
-original_name: Pipa / Biwa
-category: 弦樂器
-country: 中東／歐亞／東亞／美洲／全球／日本
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/T%E1%BB%B3_b%C3%A0.jpg/500px-T%E1%BB%B3_b%C3%A0.jpg
-sound_class: 弦鳴
-range: 約3個8度
-instrument_key: 無固定調性
-hs_class: 321/322 魯特琴類／撥弦
-family: 魯特琴、短頸長頸撥弦與民謠弦聲
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 琵琶
+title_original: Pipa / Biwa
+family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
+sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
 playing_method: 撥弦／刷弦／撥片
-body_listening: 懷抱、手指、腳步、敘事
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 跨文化／多地
+interface_tags: 撥片
+region_culture: 中東／歐亞／東亞／美洲／全球／日本
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/pipa/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/T%E1%BB%B3_b%C3%A0.jpg/500px-T%E1%BB%B3_b%C3%A0.jpg
 youtube_ids: nI-6Uv0U028 SUKYeApEots bnt4CSZVJy8 3Apy_qE59H8
 ---
+
 ## 介紹
 
 琵琶，是東亞傳統彈撥樂器，在中國已經有2000多年的歷史，最早被稱為「琵琶」的樂器大約在秦朝時期出現的。在唐朝以前，琵琶也是漢語裡對所有短頸魯特琴族（又稱琉特屬）彈撥樂器的總稱。 在古代，琵琶有四弦琵琶（曲頸琵琶）和五弦琵琶（直頸琵琶）兩種，其中五弦琵琶後來逐漸失傳，不再使用，但在敦煌壁畫上經常可以看到飛天彈奏此種樂器；而四弦琵琶則在中國和日本發展出了多種類型，並且很多至今仍在演奏。四弦琵琶（曲頸）與西亞的烏德琴和歐洲的魯特琴有著共同的起源，其形狀也非常相似。它的共鳴箱呈現為像豎著切開的半個蛋形，並連接著一根琴頸，琴頭（弦軸部分）以近乎直角向後彎曲，形成了這一樂器的典型外觀。五弦琵琶（直頸）則被認為起源於印度，琴頭不彎曲，而是直線延伸。唯一現存的五弦琵琶實物收藏於宮內廳正倉院北院，即「螺鈿紫檀五弦琵琶」。 中國琵琶傳到東亞其他地區，發展成日本琵琶、朝鮮琵琶、越南琵琶和琉球琵琶。

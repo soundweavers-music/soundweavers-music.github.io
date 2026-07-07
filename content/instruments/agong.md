@@ -1,20 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/agong/
-title: A鑼
-original_name: Agong
-category: 打擊樂器
-country: 馬來西亞
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-body_listening: 材料、回聲、群體分工、音列
+class_code: A9
+frontend_class: 待分類／偵錯暫存
+subcategory: 待確認
+title_zh: A鑼
+title_original: Agong
+family_std: 待確認
+sound_hs: 體鳴
+playing_method: 待確認
+interface_tags: 
+region_culture: 馬來西亞｜單一地區／文化圈
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 已整併，建議刪除
+issue_note: 完全重複／被整併；Agogô／Agogo 為同一種無舌金屬鈴的拼寫差異；中文統一為「阿哥哥鈴」。 本列併入第16項。；刪除本列；資料併入第16項。；MERGED-16: 被併入第16項
+source_url: https://soundweavers-music.github.io/instruments/agong/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Arms_of_the_Yang_di-Pertuan_Agong_of_Malaysia.svg/500px-Arms_of_the_Yang_di-Pertuan_Agong_of_Malaysia.svg.png
 youtube_ids: Czh1oqx0Bpw pZK3K6f6obQ
-sound_class: 體鳴
-instrument_key: 無固定調性
-range: 中低音域
 ---
+
 ## 介紹
 
 A鑼是馬來西亞的傳統銅製懸掛大鑼，呈圓盤狀，中央隆起成半球形，邊緣向外翻卷。直徑通常在30至60公分之間，重量可達數公斤。樂器表面經過精心鍛造和拋光，呈金黃色澤。A鑼廣泛應用於砂拉越和沙巴的土著音樂表演中，也是馬來民俗音樂的重要組成部分。演奏時用木槌或布包木槌敲擊，產生深沉而富有共鳴的聲音。常與其他打擊樂器組合使用，為音樂增添層次感和民族特色。

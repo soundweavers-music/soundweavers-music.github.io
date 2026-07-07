@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/bass-drum/
-title: 大鼓
-original_name: Bass drum
-category: 打擊樂器
-country: 義大利
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-body_listening: 手掌、腳底、低音、舞步
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 大鼓
+title_original: Bass drum
+family_std: 膜鳴鼓類、框鼓、杯鼓與鼓組
+sound_hs: 21 膜鳴鼓類
 playing_method: 手拍／槌擊／皮膜振動
-family: 膜鳴鼓類、框鼓、杯鼓與鼓組
-hs_class: 21 膜鳴鼓類
-sound_class: 膜鳴
-range: 極低音區（約2個8度）
-instrument_key: 無固定調性
+interface_tags: 
+region_culture: 義大利｜單一地區／文化圈
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/bass-drum/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Drum_kit_parts.png/500px-Drum_kit_parts.png
 youtube_ids: 7gkMjbwvxeo xCCJyYIBK9s
 ---
+
 ## 介紹
 
 大鼓 (英語：Bass Drum, 義大利語：Gran Cassa, 德語：Große Trommel)，泛指體積較大的雙皮鼓。在西洋打擊樂器中較常使用。兩邊鼓面原來用動物皮革製作，近年已全改用塑膠或纖維鼓面。鼓桶原本用木製作，現在和定音鼓、小鼓一樣，都改用較輕的合成纖維材料製造。 現時所指的大鼓，主要可分為三種： 用於管弦樂團中，英文稱為「Concert Bass Drum」，直徑32英吋至40英吋，以36英吋較常使用；深度約16英吋至20英吋，聲音沉厚，而餘音較持久。通常利用鼓棍敲打演奏，並以坐地式或懸掛式的的鼓架承托鼓身。 多用於爵士樂，並且配以踏板控制和發聲，不使用鼓棍。直徑由14英吋至24英吋，深度12吋至18吋。由於爵士大鼓直徑和深度相約，而直徑又比一般樂隊用大鼓為短，聲音較尖而實，餘音較短；由於鼓面由腳踩踏板的敲打所造成，每一次敲打的位置近乎相同，鼓聲較為統一。 多用於軍樂隊或步操隊，構造和管弦樂團中所用的大鼓相約，但體積較小，直徑16英吋至32英吋，深度12英吋至18英吋。在這類樂隊中，數量可以由只需1個至最多4個不同大小的鼓，由於鼓手需一邊跟著隊伍前進一邊打鼓，大鼓不可能固定在地上或安裝在活動滑輪架上再推動，所以大鼓手會穿上一種特製的鼓架衣，可以把大鼓置於前方的承托架上。

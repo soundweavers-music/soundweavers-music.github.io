@@ -1,19 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/hirtenschalmei/
-title: 牧羊人雙簧管
-original_name: Hirtenschalmei
-category: 管樂器
-country: 中世紀法國／西歐
-era: 傳統／年代待考
-region_type: 地區／文化圈
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-body_listening: 口腔、舌頭、簧片震動、鼻音
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 簧片樂器
+title_zh: 牧羊人雙簧管
+title_original: Hirtenschalmei
+family_std: 簧片樂器家族
+sound_hs: 待確認
+playing_method: 吹奏
+interface_tags: 
+region_culture: 中世紀法國／西歐｜地區／文化圈
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/hirtenschalmei/
 image: https://upload.wikimedia.org/wikipedia/commons/b/b0/Hirtenschalmei.jpg
 youtube_ids: UTtWZcTAJNY JoaiLceiFZA
-instrument_key: 無固定調性
-range: 中低音區（約2個8度）
 ---
+
 ## 介紹
 
 牧羊人雙簧管（Hirtenschalmei）是一種雙簧片木管樂器，具有圓柱形的管身和擴張的喇叭口，在20世紀晚期根據圖像學資料重新構建而成。該樂器被描述為能夠發出「嗡嗡」的聲音。牧羊人雙簧管的音量往往比雙簧管要小。樂器中的雙簧片被蓋住了。該樂器經常在中世紀法國文學和藝術作品中被提及，被描繪成由鄉村人物演奏的樂器。

@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/chitra-veena/
-title: 齊特拉維那琴
-original_name: Chitra Veena
-category: 弦樂器
-country: 中東／歐洲／亞洲／美洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Veena.png/500px-Veena.png
-sound_class: 弦鳴
-range: 低於E2至G5以上（約3個八度）
-instrument_key: 無固定調性
-hs_class: 321/322 魯特琴類／撥弦
-family: 魯特琴、短頸長頸撥弦與民謠弦聲
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與齊特琴
+title_zh: 齊特拉維那琴
+title_original: Chitra Veena
+family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
+sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
 playing_method: 撥弦／刷弦／撥片
-body_listening: 懷抱、手指、腳步、敘事
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 地區／文化圈
+interface_tags: 撥片
+region_culture: 中東／歐洲／亞洲／美洲｜地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/chitra-veena/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Veena.png/500px-Veena.png
 youtube_ids: pbC_vsyRRwA 3Sy9omOERyA
 ---
+
 ## 介紹
 
 齊特拉維那琴是源於南印度的古典弦樂器，名稱意為「多彩弦樂器」。其外型融合了薩羅德琴與維那琴的設計特徵，配備更多琴弦以擴展音樂表現力。樂器透過弦鳴發聲，音色溫潤深邃，兼具明亮與柔和特質。跨越三個八度以上的寬廣音域，既能演奏旋律又可發出和弦，具有印度傳統樂器的神聖氛圍與現代樂器的豐滿音響。廣泛用於室內樂、獨奏表演及印度古典音樂演奏。

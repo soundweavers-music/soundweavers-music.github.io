@@ -1,22 +1,22 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/welsh-triple-harp/
-title: 威爾斯三排弦豎琴
-original_name: Welsh Triple Harp
-category: 弦樂器
-country: 歐洲／英國（威爾斯）
-era: 傳統／年代待考
-sound_class: 弦鳴
-range: 約3個八度
-instrument_key: 全調性
-hs_class: 322 豎琴與里拉類
-family: 豎琴、里拉與開放弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 豎琴、里拉與開放弦
+title_zh: 威爾斯三排弦豎琴
+title_original: Welsh Triple Harp
+family_std: 豎琴、里拉與開放弦樂器
+sound_hs: 弦鳴｜322 豎琴與里拉類
 playing_method: 撥弦／開放弦共鳴
-body_listening: 循環、河流感、開放弦、吟唱
-soundscape: 開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 歐洲／英國（威爾斯）
+listening_sound_tags: 循環、河流感、開放弦、吟唱｜開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/welsh-triple-harp/
 youtube_ids: z_XNN7T2Og8 L-boPkQJKDA
 ---
+
 ## 介紹
 
 威爾士三弦豎琴是源於16世紀威爾士的傳統弦樂器，以其獨特的三排平行琴弦設計而聞名。樂器採用豎立式琴體，中間排弦用於演奏旋律，兩側弦排提供共鳴與和聲效果。音色溫潤柔和且穿透力強，既明亮清晰又不失溫暖厚度。該琴曾是17至18世紀威爾士宮廷與貴族的寵愛樂器，由專業吟遊詩人演奏以傳承威爾士詩歌與民族音樂傳統，是威爾士文化的重要象徵。

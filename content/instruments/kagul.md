@@ -1,19 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/kagul/
-title: 卡古爾鼓
-original_name: Kagul
-category: 打擊樂器
-country: 菲律賓
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-body_listening: 手掌、腳底、低音、舞步
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 卡古爾鼓
+title_original: Kagul
+family_std: 撥弦與抱持弦樂家族
+sound_hs: 待確認
+playing_method: 撥奏／擦奏／擊弦（待細分）
+interface_tags: 鼓槌
+region_culture: 菲律賓｜單一地區／文化圈
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 需調整
+issue_note: 譯名需區分；Ichigenkin 是日本一絃琴，不應與 Monochord 泛稱混同。；改「日本一絃琴（Ichigenkin）」；與第500相鄰不合併。
+source_url: https://soundweavers-music.github.io/instruments/kagul/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kagul.jpg/500px-Kagul.jpg
 youtube_ids: 8IhXdjb3Q-Y bPPvN0Z07v8
-instrument_key: 無固定調性
-range: 約1個8度
 ---
+
 ## 介紹
 
 卡古爾鼓是菲律賓的一種竹製刮擊鑼/狹縫鼓，為馬京達瑙人和維薩亞人所使用，其一側邊緣呈鋸齒狀，用兩根鼓槌演奏，一根刮擊鋸齒邊緣，另一根則敲擊鼓面。馬京達瑙人和巴努瓦恩人在稻田中使用它來防止貪心的鳥類，利用其產生的聲音將鳥類嚇走。馬京達瑙人和布基農的原住民過去也曾在社交場合中使用它來演奏簡單的舞蹈節奏。

@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/trembita/
-title: 特倫比塔長號
-original_name: Trembita
-category: 管樂器
-country: 全球／中東／歐洲／亞洲／高山與宗教文化圈
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Hutsul_-_Ivano-Frankivsk_region.jpg/500px-Hutsul_-_Ivano-Frankivsk_region.jpg
-sound_class: 氣鳴
-range: 約2至3個8度（音域偏高）
-instrument_key: 無固定調性
-hs_class: 423 唇振氣鳴／號角與銅管
-family: 唇振氣鳴、天然號角與銅管
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 號角與唇振
+title_zh: 特倫比塔長號
+title_original: Trembita
+family_std: 唇振氣鳴、天然號角與銅管
+sound_hs: 423 唇振氣鳴／號角與銅管
 playing_method: 唇振吹奏
-body_listening: 嘴唇、遠方、召喚、空間方向
-soundscape: 吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 全球／中東／歐洲／亞洲／高山與宗教文化圈
+listening_sound_tags: 嘴唇、遠方、召喚、空間方向｜吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/trembita/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Hutsul_-_Ivano-Frankivsk_region.jpg/500px-Hutsul_-_Ivano-Frankivsk_region.jpg
 youtube_ids: Pn6YWq0FOPs i-qMeXBBNss
 ---
+
 ## 介紹
 
 特倫比塔長號（源自古日耳曼語 trumba，意為「吹奏喇叭」，烏克蘭語為 трембíта）是一種由木材製成的高山號。它在住於烏克蘭西部（加利西亞）、波蘭東部、斯洛伐克和羅馬尼亞北部的加利西亞高地人胡楚爾人中很常見。在波蘭，它被稱為特隆比塔（南部）、巴祖納（北部）或利加夫卡（波蘭中部）。特倫比塔也是加利西亞民間樂器之一。

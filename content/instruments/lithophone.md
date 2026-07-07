@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/lithophone/
-title: 石琴
-original_name: Lithophone
-category: 打擊樂器
-country: 全球／多地
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/2/23/Organ_and_Chimes_-_Caverns_of_Luray_Va_1906_postcard.png
-sound_class: 體鳴
-range: 低、中、高三個音區，多數集中於中高音域，約2至3個8度
-instrument_key: 全調性
-hs_class: 11/12 定音體鳴／鑼鐘木琴石琴系統
-family: 定音體鳴、材料敲擊與鑼鐘木琴系統
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 石琴
+title_original: Lithophone
+family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
+sound_hs: 11/12 定音體鳴／鑼鐘木琴石琴系統
 playing_method: 敲擊／搖奏／材料共鳴
-body_listening: 材料、回聲、群體分工、音列
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 全球／多地
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/lithophone/
+image: https://upload.wikimedia.org/wikipedia/commons/2/23/Organ_and_Chimes_-_Caverns_of_Luray_Va_1906_postcard.png
 youtube_ids: 4MmokTsYWnA 1hQ5ptEWw8Y
 ---
+
 ## 介紹
 
 石琴是一種樂器，由一塊岩石或數塊岩石組成，通過敲擊產生音符。音符可以同時發出（產生和聲）或依次發出（旋律）。它是一種自鳴樂器，與鐘琴、顫音琴、木琴和馬林巴琴等樂器相類似。在霍恩博斯特爾-薩克斯分類系統中，石琴被列為「111.22」——直接敲擊打擊音板。

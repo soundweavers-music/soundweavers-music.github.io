@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/k-n-b-u/
-title: 越南雙簧管
-original_name: Kèn bầu
-category: 管樂器
-country: 歐洲／中東／南亞／東南亞
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Kenbau.jpg/500px-Kenbau.jpg
-sound_class: 氣鳴
-range: 約3個8度
-instrument_key: 無固定調性
-hs_class: 412/422 簧鳴與自由簧／單簧雙簧
-family: 口簧、自由簧、單簧雙簧與風袋
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 風箱與自由簧
+title_zh: 越南雙簧管
+title_original: Kèn bầu
+family_std: 口簧、自由簧、單簧雙簧與風袋
+sound_hs: 氣鳴｜412/422 簧鳴與自由簧／單簧雙簧
 playing_method: 吹奏／簧片振動／風袋或風箱
-body_listening: 口腔、舌頭、簧片震動、鼻音
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-region_type: 地區／文化圈
+interface_tags: 風箱
+region_culture: 歐洲／中東／南亞／東南亞｜地區／文化圈
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 已整併主項
+issue_note: 重複已整併；保留本列為主項；已整併第367項。；主項保留；被整併列第367項以紅字刪除線保留供人工審核。；MERGED-365: 併入列 367
+source_url: https://soundweavers-music.github.io/instruments/k-n-b-u/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Kenbau.jpg/500px-Kenbau.jpg
 youtube_ids: e-YSnT_7nKw mC0PWpWlFTM
 ---
+
 ## 介紹
 
 越南雙簧管（越南語：[kɛ̂n ɓə̂w]）是多種嗩吶的其中一種，是用於越南傳統音樂的雙簧管樂器。其構造和音色類似於中國的嗩吶和韓國的大平簫。它有多種尺寸，是前順化皇家宮廷音樂的主要樂器。

@@ -1,21 +1,22 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/sanza/
-title: 桑薩
-original_name: Sanza
-category: 打擊樂器
-country: 全球／非洲／現代
-era: 傳統／年代待考
-sound_class: 體鳴
-range: 中音至高音區域（約2個8度）
-instrument_key: 多調性
-hs_class: 12 體鳴／舌片琴／金屬共鳴
-family: 近身體鳴、舌片琴與手奏金屬共鳴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 桑薩
+title_original: Sanza
+family_std: 近身體鳴、舌片琴與手奏金屬共鳴
+sound_hs: 12 體鳴／舌片琴／金屬共鳴
 playing_method: 手敲／拇指撥片／近身共鳴
-body_listening: 指尖、掌心、尾音、近身聆聽
-soundscape: 手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）
-region_type: 跨文化／多地
+interface_tags: 撥片
+region_culture: 全球／非洲／現代
+listening_sound_tags: 指尖、掌心、尾音、近身聆聽｜手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/sanza/
 youtube_ids: kd7KC3PaEaA Z3b1bz_9gEo
 ---
+
 ## 介紹
 
 桑薩是源自非洲中部和東部地區的傳統樂器，特別在剛果盆地一帶盛行。樂器由木製共鳴箱和多根金屬或竹製琴片組成，演奏者以拇指撥動琴片發聲。桑薩音色清脆明亮，帶有溫潤的金屬質感與輕盈的木質共鳴，介於打擊樂與撥弦樂之間。傳統上用於非洲各部落的日常生活、宗教儀式和社交聚會，現已融入爵士樂和世界音樂創作中，成為跨越傳統與現代的文化橋樑。

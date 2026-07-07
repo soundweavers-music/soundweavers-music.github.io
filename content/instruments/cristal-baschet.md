@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/cristal-baschet/
-title: 水晶琴
-original_name: Cristal Baschet
-category: 打擊樂器
-country: 法國／現代
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/The_cristal_baschet.jpg/500px-The_cristal_baschet.jpg
-sound_class: 體鳴
-range: 3.5至6個八度（56根按半音調諧的玻璃棒）
-instrument_key: 全調性
-hs_class: Idiophone／體鳴樂器
-family: 現代玻璃／金屬體鳴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 水晶琴
+title_original: Cristal Baschet
+family_std: 現代玻璃／金屬體鳴
+sound_hs: Idiophone／體鳴樂器
 playing_method: 摩擦／觸奏
-body_listening: 透明音場、現代聲音雕塑、長尾音
-soundscape: 手邊發光的小宇宙（近身體鳴、舌片琴與手奏金屬共鳴）
-region_type: 單一地區／文化圈
+interface_tags: 
+region_culture: 法國／現代｜單一地區／文化圈
+listening_sound_tags: 透明音場、現代聲音雕塑、長尾音｜手邊發光的小宇宙（近身體鳴、舌片琴與手奏金屬共鳴）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: DUP-018:Sarrusophone family
+source_url: https://soundweavers-music.github.io/instruments/cristal-baschet/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/The_cristal_baschet.jpg/500px-The_cristal_baschet.jpg
 youtube_ids: XXec9ggTha0 9RZg-AP3zM8
 ---
+
 ## 介紹
 
 克里斯塔爾·巴榭琴是由兄弟伯納德·巴榭和弗朗索瓦·巴榭在1952年開發的樂器。水晶琴型號的音域範圍從3.5到6個八度，由56根按半音調諧的玻璃棒組成。演奏時，音樂家用濕潤的指尖摩擦這些玻璃棒。

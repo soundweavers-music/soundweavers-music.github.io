@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/sansula/
-title: 桑蘇拉
-original_name: Sansula
-category: 打擊樂器
-country: 全球／非洲／亞洲／現代療癒與街頭音樂
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Santi_Cazorla%2C_2012-08-18.jpg/500px-Santi_Cazorla%2C_2012-08-18.jpg
-sound_class: 體鳴
-range: 約2個8度
-instrument_key: 全調性
-hs_class: 12 體鳴／舌片琴／金屬共鳴
-family: 近身體鳴、舌片琴與手奏金屬共鳴
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 桑蘇拉
+title_original: Sansula
+family_std: 近身體鳴、舌片琴與手奏金屬共鳴
+sound_hs: 12 體鳴／舌片琴／金屬共鳴
 playing_method: 手敲／拇指撥片／近身共鳴
-body_listening: 指尖、掌心、尾音、近身聆聽
-soundscape: 手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）
-region_type: 跨文化／多地
+interface_tags: 撥片
+region_culture: 全球／非洲／亞洲／現代療癒與街頭音樂
+listening_sound_tags: 指尖、掌心、尾音、近身聆聽｜手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）
+ensemble_links: 
+verification_status: 待檢查
+issue_note: 分類概念；Reed aerophone 是分類概念，不是單一樂器。；放章節導論，不列正式樂器篇。
+source_url: https://soundweavers-music.github.io/instruments/sansula/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Santi_Cazorla%2C_2012-08-18.jpg/500px-Santi_Cazorla%2C_2012-08-18.jpg
 youtube_ids: 2ceL4frcxz8 0uEOIS_XojU
 ---
+
 ## 介紹
 
 桑蘇拉是一種起源於非洲的現代打擊樂器，由德國樂器製造商在1990年代改良開發。樂器採用不鏽鋼製造，配備共鳴箱，外型小巧精緻。其音色溫潤柔和，兼具金屬質感與木質溫度，音域位於中高音區，音量適中卻具穿透力。桑蘇拉通過撥動金屬舌片產生聲音，廣泛應用於冥想、療癒音樂、世界音樂表演及音樂治療等領域，特別適合營造禪意寧靜的聽覺氛圍。

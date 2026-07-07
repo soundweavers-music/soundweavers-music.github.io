@@ -1,19 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/cornamuse/
-title: 角笛
-original_name: Cornamuse
-category: 管樂器
-country: 歐洲／文藝復興時期
-era: 傳統／年代待考
-region_type: 地區／文化圈
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-body_listening: 口腔、舌頭、簧片震動、鼻音
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 角笛
+title_original: Cornamuse
+family_std: 無簧吹管家族
+sound_hs: 待確認
+playing_method: 吹奏
+interface_tags: 
+region_culture: 歐洲／文藝復興時期｜地區／文化圈
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/cornamuse/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Cornamuse_text.jpg/500px-Cornamuse_text.jpg
 youtube_ids: rpBw0oCO4C8 VxAvx0DKj5A
-instrument_key: 無固定調性
-range: 約2個8度
 ---
+
 ## 介紹
 
 角笛是一種源自文藝復興時期的雙簧樂器。它與克倫霍恩相似，都在簧片上方有一個風帽，並具有圓筒形的管孔。關於角笛的唯一證據來自米夏埃爾·普萊托里烏斯在1619年出版的《音樂綱要第二卷》中的描述和一些評論。由於普萊托里烏斯的段落是對角笛唯一清晰的描述，且未曾發現任何當代文物或圖片，所以該樂器的所有重建都在一定程度上依賴於推測。

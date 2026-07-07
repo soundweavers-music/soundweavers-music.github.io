@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/tom-tom-drum/
-title: 通通鼓
-original_name: Tom-tom drum
-category: 打擊樂器
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 通通鼓
+title_original: Tom-tom drum
+family_std: 鼓類
+sound_hs: 2 膜鳴樂器
 playing_method: 敲擊鼓面
-family: 鼓類
-hs_class: 2 膜鳴樂器
-sound_class: 膜鳴
-country: 美洲／北美
-era: 傳統／年代待考
-region_type: 地區／文化圈
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-body_listening: 手掌、腳底、低音、舞步
+interface_tags: 
+region_culture: 美洲／北美｜地區／文化圈
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/tom-tom-drum/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/TomTom.JPG/500px-TomTom.JPG
 youtube_ids: otC6v27h0DQ U3qMyc1G3XE
-instrument_key: 無固定調性
-range: 約1至2個8度（因鼓身尺寸而異）
 ---
+
 ## 介紹
 
 筒鼓，又稱高架鼓（英語：tom-tom），是西洋敲擊樂器中的一種鼓。屬於雙皮鼓類。「tom-tom」一詞源自印度英語及僧伽羅語。在亞洲或印第安原住民，長久以來把鼓視為溝通工具之一，筒鼓很大程度便是由這類用作傳話用的鼓所演變而成的。並於20世紀初先引入爵士鼓中。

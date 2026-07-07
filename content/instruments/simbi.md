@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/simbi/
-title: 辛比琴
-original_name: Simbi
-category: 弦樂器
-country: 非洲／歐洲／亞洲／美洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/3/34/Dona_Fish_-_Mamba_Muntu_-_Simbi.jpg
-sound_class: 弦鳴
-range: 全音域
-instrument_key: 無固定調性
-hs_class: 322 豎琴與里拉類
-family: 豎琴、里拉與開放弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 豎琴、里拉與開放弦
+title_zh: 辛比琴
+title_original: Simbi
+family_std: 豎琴、里拉與開放弦樂器
+sound_hs: 弦鳴｜322 豎琴與里拉類
 playing_method: 撥弦／開放弦共鳴
-body_listening: 循環、河流感、開放弦、吟唱
-soundscape: 開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
-region_type: 地區／文化圈
+interface_tags: 
+region_culture: 非洲／歐洲／亞洲／美洲｜地區／文化圈
+listening_sound_tags: 循環、河流感、開放弦、吟唱｜開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/simbi/
+image: https://upload.wikimedia.org/wikipedia/commons/3/34/Dona_Fish_-_Mamba_Muntu_-_Simbi.jpg
 youtube_ids: mh8-CHTt-CU Nqsb55TkrgQ
 ---
+
 ## 介紹
 
 辛比（也拼寫為Cymbee和Sim'bi，複數形式為Bisimbi或Basimbi）是中非傳統巴剛果宗教中的守護水和自然的靈體，也存在於非洲散居精神傳統中，例如美國南方的根源巫術（Hoodoo）和古巴的帕羅教（Palo）。歷史上，辛比被認為是水族人類或美人魚、陶器、蛇、葫蘆和火的化身。由於大西洋奴隸貿易，大量班圖人民被從非洲買賣或掠奪到美洲。

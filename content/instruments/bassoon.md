@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/bassoon/
-title: 低音管
-original_name: Bassoon
-category: 管樂器
-sound_class: 氣鳴
-hs_class: 422 雙簧管類樂器
-family: 低音管類
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 簧片樂器
+title_zh: 低音管
+title_original: Bassoon
+family_std: 低音管類
+sound_hs: 氣鳴｜422 雙簧管類樂器
 playing_method: 吹奏／雙簧片
-country: 歐洲／法國
-era: 19 世紀
-region_type: 單一地區／文化圈
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-body_listening: 口腔、舌頭、簧片震動、鼻音
+interface_tags: 
+region_culture: 歐洲／法國｜單一地區／文化圈
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: DUP-018:Sarrusophone family
+source_url: https://soundweavers-music.github.io/instruments/bassoon/
 image: https://upload.wikimedia.org/wikipedia/commons/c/c5/Range_bassoon.png
 youtube_ids: xidC7TZRxkA -kmy-hm3ai4
-instrument_key: C大調
-range: B1–G5（約3個半8度）
 ---
+
 ## 介紹
 
 低音管（英語：bassoon，義大利語：fagotto，德語：Fagott），或稱巴松管，在中國大陸又稱大管。其義大利文Fagotto來源於樂器的形狀──一捆柴，是木管樂器中雙簧樂器家族的成員，自19世紀，低音管衍變成現在的樣子。它在管弦樂團和室內樂中一直扮演著重要的角色，音色獨特，低音域結實而有力，中音域及高音域如男中音歌聲般的音色。 自巴洛克時代起，低音管已在樂團中占有一席之地，不過常用作與低音弦樂器作齊奏，這情況直至古典樂派前期。

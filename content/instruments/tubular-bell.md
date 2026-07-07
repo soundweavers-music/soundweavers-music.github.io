@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/tubular-bell/
-title: 管鐘
-original_name: Tubular bell
-category: 打擊樂器
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 電聲改造樂器
+title_zh: 管鐘
+title_original: Tubular bell
+family_std: 體鳴打擊樂器類
+sound_hs: 1 体鳴樂器
 playing_method: 敲擊／搖晃／撥彈
-family: 體鳴打擊樂器類
-hs_class: 1 体鳴樂器
-sound_class: 体鳴
-country: 亞洲／東亞
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-body_listening: 材料、回聲、群體分工、音列
+interface_tags: 
+region_culture: 亞洲／東亞｜單一地區／文化圈
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 移入第13類
+issue_note: 現代電子／取樣；屬現代電子、取樣、電聲或電氣化鍵盤／設備類，應集中到第13類。；移第13類，並與傳統鍵盤／風箱類分開。
+source_url: https://soundweavers-music.github.io/instruments/tubular-bell/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Tubular-bells.JPG/500px-Tubular-bells.JPG
 youtube_ids: nbYQYOM66MA mjACsPhDJDE
-instrument_key: 全調性
-range: 約1個八度
 ---
+
 ## 介紹
 
 管鐘（Tubular Bell）是屬於敲擊樂器，由一些長短有別的鋼管或銅管組成。它懸掛在一個較高的架子上，演奏者手持一根或兩根木槌擊奏。管鐘有特別的使用限制，音域一般不要超過一個八度。排鐘可用高音或低音譜表記譜，在僅使用一、兩個排鐘時，也可用一線記譜。

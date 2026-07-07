@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/dvojnice/
-title: 雙管笛
-original_name: Dvojnice
-category: 管樂器
-country: 巴爾幹地區
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Sviranje_dipli.JPG/500px-Sviranje_dipli.JPG
-sound_class: 氣鳴
-range: 中高音域（約2個8度）
-instrument_key: 無固定調性
-hs_class: Aerophone／氣鳴樂器
-family: 雙管吹管
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 雙管笛
+title_original: Dvojnice
+family_std: 雙管吹管
+sound_hs: Aerophone／氣鳴樂器
 playing_method: 吹奏
-body_listening: 一口氣分成兩條旋律或持續音
-soundscape: 一口氣走過山谷（無簧吹管、長音與氣息樂器）
-region_type: 區域／多國
+interface_tags: 
+region_culture: 巴爾幹地區｜區域／多國
+listening_sound_tags: 一口氣分成兩條旋律或持續音｜一口氣走過山谷（無簧吹管、長音與氣息樂器）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/dvojnice/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Sviranje_dipli.JPG/500px-Sviranje_dipli.JPG
 youtube_ids: OXD5qwtv53k l0D_KXgCu2c
 ---
+
 ## 介紹
 
 雙管笛（複數專用詞；發音為[dîple̞]，源自希臘文δῐπλόος，字面意思為「雙重、兩倍」），亦稱為misnjiče、miješnice和mih，是一種源自亞得里亞海沿岸地區的傳統木管樂器。它在波士尼亞和赫塞哥維那、克羅埃西亞、斯洛文尼亞、蒙特內哥羅和塞爾維亞等地被演奏。

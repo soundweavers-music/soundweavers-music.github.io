@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/electronic-drums/
-title: 電子鼓
-original_name: Electronic Drums
-category: 電子樂器
-country: 非洲／中東／亞洲／歐洲／美洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Digital_Drum_%284715894559%29.jpg/500px-Digital_Drum_%284715894559%29.jpg
-sound_class: 膜鳴
-range: 全音域
-instrument_key: 全調性
-hs_class: 21 膜鳴鼓類
-family: 膜鳴鼓類、框鼓、杯鼓與鼓組
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 電聲改造樂器
+title_zh: 電子鼓
+title_original: Electronic Drums
+family_std: 膜鳴鼓類、框鼓、杯鼓與鼓組
+sound_hs: 21 膜鳴鼓類
 playing_method: 手拍／槌擊／皮膜振動
-body_listening: 手掌、腳底、低音、舞步
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-region_type: 地區／文化圈
+interface_tags: 
+region_culture: 非洲／中東／亞洲／歐洲／美洲｜地區／文化圈
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/electronic-drums/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Digital_Drum_%284715894559%29.jpg/500px-Digital_Drum_%284715894559%29.jpg
 youtube_ids: FQWVzHX0Vlc lo1_kChUB3E
 ---
+
 ## 介紹
 
 電子鼓是一種現代電子樂器，由多個觸發墊（通常為橡膠或網面設計）組成，連接至音色模組進行聲音輸出。其外型酷似傳統鼓組，但體積更為緊湊。電子鼓主要用於現場表演和錄音製作，具有高度的音色可塑性與便攜性。相比傳統鼓組，電子鼓具有音量可調、音色豐富、佔地面積小等優勢，廣泛應用於搖滾、流行、電子舞曲等多種音樂風格中。

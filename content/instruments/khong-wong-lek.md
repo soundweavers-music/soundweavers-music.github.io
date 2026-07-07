@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/khong-wong-lek/
-title: 小鑼圈
-original_name: Khong Wong Lek
-category: 打擊樂器
-country: 泰國
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Khong_wong_lek.jpg/500px-Khong_wong_lek.jpg
-sound_class: 體鳴
-range: 中高音區
-instrument_key: 無固定調性
-hs_class: Idiophone／體鳴樂器
-family: 高音鑼圈
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
+title_zh: 小鑼圈
+title_original: Khong Wong Lek
+family_std: 高音鑼圈
+sound_hs: Idiophone／體鳴樂器
 playing_method: 敲擊
-body_listening: 明亮旋律、快速裝飾、回聲城市高處
-soundscape: 木石金屬的回聲城市（定音體鳴、材料敲擊與鑼鐘木琴系統）
-region_type: 單一地區／文化圈
+interface_tags: 
+region_culture: 泰國｜單一地區／文化圈
+listening_sound_tags: 明亮旋律、快速裝飾、回聲城市高處｜木石金屬的回聲城市（定音體鳴、材料敲擊與鑼鐘木琴系統）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/khong-wong-lek/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Khong_wong_lek.jpg/500px-Khong_wong_lek.jpg
 youtube_ids: uhHX-t1CEAU q58u8yEhlzU
 ---
+
 ## 介紹
 
 小鑼圈是東南亞傳統打擊樂器，起源於泰國和柬埔寨，在高棉文明時期已廣泛應用於宮廷音樂和宗教儀式。樂器呈圓形，直徑較小，由金屬製成。音色清亮透徹，具金屬質感的明快特質，位處中高音區。主要用於皮影戲、廟會慶典和民間音樂表演，在樂隊中能清晰突出，是銜接旋律樂器與低音樂器的重要橋樑，成為節奏層次的關鍵補充。

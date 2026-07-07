@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/olifant/
-title: 象牙號
-original_name: Olifant
-category: 管樂器
-country: 全球／中東／歐洲／亞洲／高山與宗教文化圈
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Olifant%2C_Aachener_Domschatz.jpg/500px-Olifant%2C_Aachener_Domschatz.jpg
-sound_class: 氣鳴
-range: 中高音區（約1.5至2個8度）
-instrument_key: 無固定調性
-hs_class: 423 唇振氣鳴／號角與銅管
-family: 唇振氣鳴、天然號角與銅管
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 號角與唇振
+title_zh: 象牙號
+title_original: Olifant
+family_std: 唇振氣鳴、天然號角與銅管
+sound_hs: 423 唇振氣鳴／號角與銅管
 playing_method: 唇振吹奏
-body_listening: 嘴唇、遠方、召喚、空間方向
-soundscape: 吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 全球／中東／歐洲／亞洲／高山與宗教文化圈
+listening_sound_tags: 嘴唇、遠方、召喚、空間方向｜吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
+ensemble_links: 
+verification_status: 需調整
+issue_note: 名稱可保留／鄰近；Đàn đá 是越南石琴，與 Lithophone 泛稱相鄰但不合併。；第10類。；DUP-016:Lithophone／Đàn đá
+source_url: https://soundweavers-music.github.io/instruments/olifant/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Olifant%2C_Aachener_Domschatz.jpg/500px-Olifant%2C_Aachener_Domschatz.jpg
 youtube_ids: yD0lgva_qdE ZJqsH2XhoeE
 ---
+
 ## 介紹
 
 象牙號、象牙號、象牙號及類似變體可能指的是：

@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/cabasa/
-title: 卡巴薩搖響器
-original_name: Cabasa
-category: 打擊樂器
-country: 非洲／美洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/6/62/Cabasa.jpg
-sound_class: 體鳴
-range: 中高頻至高頻（約2個8度）
-instrument_key: 無固定調性
-hs_class: 11/12 定音體鳴／鑼鐘木琴石琴系統
-family: 定音體鳴、材料敲擊與鑼鐘木琴系統
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 卡巴薩搖響器
+title_original: Cabasa
+family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
+sound_hs: 11/12 定音體鳴／鑼鐘木琴石琴系統
 playing_method: 敲擊／搖奏／材料共鳴
-body_listening: 材料、回聲、群體分工、音列
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 非洲／美洲
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/cabasa/
+image: https://upload.wikimedia.org/wikipedia/commons/6/62/Cabasa.jpg
 youtube_ids: weMXR0xtEXA cW_xLgjbnBI
 ---
+
 ## 介紹
 
 卡巴薩搖響器與沙克雷鼓相似，是一種打擊樂器，由纏繞在木製圓筒周圍的鋼珠鏈環構成。圓筒固定在一根長的木製或塑膠把手上。金屬卡巴薩由拉丁打擊樂公司創始人馬丁·科恩創製。該公司製造了一種更耐用的卡巴薩，稱為非洲芬奇-卡巴薩（如圖所示）。搖晃或扭轉時會產生金屬般的嘎嘎聲，類似於響尾蛇的聲音。它經常用於拉丁爵士樂，特別是在巴薩諾瓦樂曲中。

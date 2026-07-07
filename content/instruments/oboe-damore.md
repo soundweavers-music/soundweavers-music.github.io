@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/oboe-damore/
-title: 愛之雙簧管
-original_name: Oboe d'amore
-category: 管樂器
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 簧片樂器
+title_zh: 愛之雙簧管
+title_original: Oboe d'amore
+family_std: 管樂器類
+sound_hs: 4 气鳴樂器
 playing_method: 吹奏
-family: 管樂器類
-hs_class: 4 气鳴樂器
-sound_class: 气鳴
-country: 歐洲/德國-義大利地區
-era: 傳統／年代待考
+interface_tags: 
+region_culture: 歐洲/德國-義大利地區｜地區／文化圈
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/oboe-damore/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Oboe_d%27Amore_in_A_MET_202997.jpg/500px-Oboe_d%27Amore_in_A_MET_202997.jpg
-region_type: 地區／文化圈
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-body_listening: 口腔、舌頭、簧片震動、鼻音
 youtube_ids: 3ULYfFVohOc nm5i6-uZVtI
-instrument_key: A大調
-range: 約2個8度
 ---
+
 ## 介紹
 
 愛之雙簧管（義大利文意為「愛的雙簧管」；英文發音[ˈɔːboe daˈmoːre]），較少見的法文名稱為hautbois d'amour（法文發音[obwɑ damuʁ]），是雙簧管家族中的一種雙簧木管樂器。它的體型略大於普通雙簧管，音色較不尖銳，更為寧靜祥和，有時被認為是雙簧管家族中的中音樂器，介於雙簧管（高音）和英國管（低音，但有時也被認為是中音）之間。它是一種移調樂器，以A調定音，發出的聲音比記譜低小三度。

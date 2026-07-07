@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/bass-guitar/
-title: 貝斯吉他
-original_name: Bass Guitar
-category: 電子樂器
-country: 中東／歐亞／東亞／美洲／全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Fender_Precision_Bass.jpg/500px-Fender_Precision_Bass.jpg
-sound_class: 弦鳴
-range: E1–G4（約3個半8度）
-instrument_key: 無固定調性
-hs_class: 321/322 魯特琴類／撥弦
-family: 魯特琴、短頸長頸撥弦與民謠弦聲
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 電聲改造樂器
+title_zh: 貝斯吉他
+title_original: Bass Guitar
+family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
+sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
 playing_method: 撥弦／刷弦／撥片
-body_listening: 懷抱、手指、腳步、敘事
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 跨文化／多地
+interface_tags: 撥片
+region_culture: 中東／歐亞／東亞／美洲／全球
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/bass-guitar/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Fender_Precision_Bass.jpg/500px-Fender_Precision_Bass.jpg
 youtube_ids: 8KU5keZlQ6k tU7kmQhXr8k
 ---
+
 ## 介紹
 
 貝斯吉他（英語：Bass guitar，/beɪs/），也稱為電貝斯吉他、低音電吉他（electric bass guitar）、電貝斯（electric bass）或簡稱貝斯（bass），是現代搖滾樂團組合的主要樂器之一。一般樂隊中除了電貝斯手以外，通常至少有：一位電吉他手、一位鍵盤手、一位鼓手、及一位主唱。電貝斯是從低音提琴演變出來的，一般四弦電貝斯的空弦音由粗至細為E、A、D、G。 在樂隊中，電貝斯在節奏上扮演相當重要的角色。電貝斯的彈奏方式主要以指彈、Slapping和使用撥片。貝斯形狀和構造都和電吉他相似，但是本體大一點、頸部更長。四弦電貝斯最低音的弦比吉他最低音的弦低完全八度。 自1950年之後，電貝斯在流行曲中很大程度上取代了低音提琴，適用於很多不同的風格，包括搖滾樂、重金屬音樂、藍調、爵士樂中的低音部。也可在爵士樂、融合爵士、拉丁音樂、放克音樂和一些搖滾樂風格的歌曲中進行獨奏。 因應現在樂團的需要，電貝斯已經不僅只有基本的4弦，也有5弦和6弦之別，而5弦的電貝斯，從第一弦到第五弦（由細到粗）的空弦音分別為：G、D、A、E、B，也有的空弦音分別為：C、G、D、A、E，依各大廠商自訂；至於6弦的電貝斯，從第一弦到第六弦的空弦音分別為：C、G、D、A、E、B；因為搖滾樂的發達，更多弦的電貝斯也因應需求而一一誕生。

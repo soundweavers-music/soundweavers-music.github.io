@@ -1,19 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/moodswinger/
-title: 十二弦電顫音琴
-original_name: Moodswinger
-category: 弦樂器
-country: 歐洲／荷蘭
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化弦鳴）
-body_listening: 手掌、弦面、推音、敲擊
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 十二弦電顫音琴
+title_original: Moodswinger
+family_std: 撥弦與抱持弦樂家族
+sound_hs: 待確認
+playing_method: 撥奏／擦奏／擊弦（待細分）
+interface_tags: 
+region_culture: 歐洲／荷蘭｜單一地區／文化圈
+listening_sound_tags: 手掌、弦面、推音、敲擊｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化弦鳴）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/moodswinger/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Moodswinger.jpg/500px-Moodswinger.jpg
 youtube_ids: CN-wj5MKD1E IJ-YNPbM0Fo
-instrument_key: 全調性
-range: 全音域
 ---
+
 ## 介紹
 
 情緒搖擺琴是由尤里·蘭德曼設計的十二弦電子揚琴，配有額外的第三琴橋。作為第三琴橋的桿將琴弦分成兩個部分，以產生泛音複音音效。其中一台樂器副本是亞利桑那州鳳凰城音樂樂器博物館館藏的一部分。

@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/suling/
-title: 蘇林笛
-original_name: Suling
-category: 管樂器
-country: 亞洲／東南亞
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Kacapi-suling.JPG/500px-Kacapi-suling.JPG
-sound_class: 氣鳴
-range: 中高音區（約2個8度）
-instrument_key: 無固定調性
-hs_class: Aerophone／氣鳴樂器
-family: 竹笛／東南亞吹管
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 蘇林笛
+title_original: Suling
+family_std: 竹笛／東南亞吹管
+sound_hs: Aerophone／氣鳴樂器
 playing_method: 吹奏
-body_listening: 柔軟長音、甘美朗與地方歌唱線條
-soundscape: 一口氣走過山谷（無簧吹管、長音與氣息樂器）
-region_type: 區域／多國
+interface_tags: 
+region_culture: 亞洲／東南亞｜區域／多國
+listening_sound_tags: 柔軟長音、甘美朗與地方歌唱線條｜一口氣走過山谷（無簧吹管、長音與氣息樂器）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/suling/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Kacapi-suling.JPG/500px-Kacapi-suling.JPG
 youtube_ids: uOIHHMnI_Ig 93wGaGFUnTs
 ---
+
 ## 介紹
 
 蘇林笛（巽他語：ᮞᮥᮜᮤᮀ）是印度尼西亞巽他人的一種樂器。它被用於德貢樂隊中。竹環笛也可以在東南亞找到，特別是在汶萊、印度尼西亞、馬來西亞、菲律賓和新加坡。

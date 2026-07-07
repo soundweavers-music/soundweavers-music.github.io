@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/tambourine-de-bearn/
-title: 貝亞恩手鼓
-original_name: Tambourine de Bearn
-category: 打擊樂器
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 貝亞恩手鼓
+title_original: Tambourine de Bearn
+family_std: 鼓類
+sound_hs: 2 膜鳴樂器
 playing_method: 敲擊鼓面
-family: 鼓類
-hs_class: 2 膜鳴樂器
-sound_class: 膜鳴
-country: 法國／比利牛斯地區
-era: 傳統／年代待考
-region_type: 地區／文化圈
-soundscape: 平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化弦鳴）
-body_listening: 手掌、弦面、推音、敲擊
+interface_tags: 
+region_culture: 法國／比利牛斯地區｜地區／文化圈
+listening_sound_tags: 手掌、弦面、推音、敲擊｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化弦鳴）
+ensemble_links: 
+verification_status: 重複／合併建議
+issue_note: 重複／鄰近；Steel Tongue Drum 與第759 Tank drum 高度接近，常可同篇介紹。；合併或同篇：鋼舌鼓／Tank drum。；DUP-008:Steel Tongue Drum／Tank Drum
+source_url: https://soundweavers-music.github.io/instruments/tambourine-de-bearn/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Espartenhas_-_Campestral_2016_au_Passage_d%27Agen_%281%29.jpg/500px-Espartenhas_-_Campestral_2016_au_Passage_d%27Agen_%281%29.jpg
 youtube_ids: WmTcE0G1JT8 ZY4mHbqUt3w
-instrument_key: 無固定調性
-range: 約2個8度
 ---
+
 ## 介紹
 
 弦鼓或貝亞恩手鼓（法文：Tambourin de Béarn）是一種長方形的木盒揚琴，用木槌敲擊。它與單手短笛（法文：galoubet）配對使用，該短笛有三個指孔，類似於風笛和鼓的組合。它也被稱為「加斯科尼手鼓」（tambourin de Gascogne）、加泰羅尼亞語的「弦手鼓」（tambourin à cordes）、庇里牛斯弦鼓、巴斯克語的「ttun-ttun」（發音為[cunˈcun]）、西班牙語的「salmo」，以及阿拉貢語的「chicotén」。在中世紀時被稱為「choron」或「chorus」。具體來說，這個名稱指的是一種長形詩篇琴風格的樂器，調音後可在敲擊時提供持續音和弦。

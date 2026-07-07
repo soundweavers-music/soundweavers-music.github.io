@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/alboka/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Alboka._Euskal_Herria.jpg/500px-Alboka._Euskal_Herria.jpg
-title: 阿爾博卡雙管笛
-original_name: Alboka
-category: 管樂器
-country: 歐洲／中東／南亞／東南亞
-era: 傳統／年代待考
-sound_class: 氣鳴
-range: 中高音區（約2個8度）
-instrument_key: 無固定調性
-hs_class: 412/422 簧鳴與自由簧／單簧雙簧
-family: 口簧、自由簧、單簧雙簧與風袋
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 電聲改造樂器
+title_zh: 阿爾博卡雙管笛
+title_original: Alboka
+family_std: 口簧、自由簧、單簧雙簧與風袋
+sound_hs: 氣鳴｜412/422 簧鳴與自由簧／單簧雙簧
 playing_method: 吹奏／簧片振動／風袋或風箱
-body_listening: 口腔、舌頭、簧片震動、鼻音
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-region_type: 地區／文化圈
+interface_tags: 風箱
+region_culture: 歐洲／中東／南亞／東南亞｜地區／文化圈
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 移入第13類
+issue_note: 第13類；Akai MPC 是取樣機／節奏製作器，不是一般鍵盤樂器。；移至第13類現代電子、取樣與電聲系統。
+source_url: https://soundweavers-music.github.io/instruments/alboka/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Alboka._Euskal_Herria.jpg/500px-Alboka._Euskal_Herria.jpg
 youtube_ids: mpzKux6qkYk jJt9MHt0TJo
 ---
+
 ## 介紹
 
 阿爾博卡雙管笛是源自伊比利亞半島巴斯克地區的古老木製雙管樂器，距今已有數百年歷史。樂器由兩根平行的蘆葦管組成，演奏者同時吹奏兩管產生獨特和聲。音色原始粗獷，帶有鼻腔共鳴特徵，音質沙啞厚重，富有民族特色，音域集中於中高音區，音量飽滿穿透力強。傳統上用於巴斯克民間慶典和牧羊人日常生活，已成為巴斯克民族文化象徵，在民俗音樂中保持生命力。

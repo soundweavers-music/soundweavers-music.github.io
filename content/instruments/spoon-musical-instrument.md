@@ -1,18 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/spoon-musical-instrument/
-title: 勺子
-original_name: Spoon (musical instrument)
-category: 打擊樂器
-country: 歐洲
-era: 傳統／年代待考
-region_type: 跨文化／多地
-soundscape: 手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
-body_listening: 手腕、腳踝、短音、節奏對齊
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 沙鈴、刮器與小打擊
+title_zh: 勺子
+title_original: Spoon (musical instrument)
+family_std: 沙鈴、刮器與小打擊家族
+sound_hs: 待確認
+playing_method: 敲奏／拍奏／搖奏／刮奏（待細分）
+interface_tags: 
+region_culture: 歐洲
+listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/spoon-musical-instrument/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Moore_Theatre_100_Years_-_Artis_05B.jpg/500px-Moore_Theatre_100_Years_-_Artis_05B.jpg
 youtube_ids: OOXB7348RPk X5e0TVUC_ko
-instrument_key: 無固定調性
-range: 中高頻段（約2個8度）
 ---
+
 ## 介紹
 
 勺子可以作為一種臨時性打擊樂器來演奏，或更具體地說，是一種與響板相關的自鳴樂器。演奏方法是用一把勺子敲擊另一把勺子。

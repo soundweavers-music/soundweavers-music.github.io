@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/taiko/
-title: 和太鼓
-original_name: Taiko
-category: 打擊樂器
-country: 亞洲／東亞（日本）
-era: 6 世紀
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Taiko_drum.jpg/500px-Taiko_drum.jpg
-sound_class: 膜鳴
-range: 約2個8度（中低頻範圍）
-instrument_key: 無固定調性
-hs_class: 21 膜鳴鼓類
-family: 膜鳴鼓類、框鼓、杯鼓與鼓組
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 和太鼓
+title_original: Taiko
+family_std: 膜鳴鼓類、框鼓、杯鼓與鼓組
+sound_hs: 21 膜鳴鼓類
 playing_method: 手拍／槌擊／皮膜振動
-body_listening: 手掌、腳底、低音、舞步
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 亞洲／東亞（日本）
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 太鼓團
+verification_status: 可保留，待雙來源確認
+issue_note: DUP-018:Sarrusophone family
+source_url: https://soundweavers-music.github.io/instruments/taiko/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Taiko_drum.jpg/500px-Taiko_drum.jpg
 youtube_ids: C7HL5wYqAbU ZagsLrNzg3I
 ---
+
 ## 介紹
 
 和太鼓（日語：和太鼓／わだいこ，羅馬化：Wadaiko），是日本傳統打擊樂器的總稱，其中，樂大鼓和打大鼓用來日本雅樂的演奏。

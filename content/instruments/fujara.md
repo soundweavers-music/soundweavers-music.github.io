@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/fujara/
-title: 富亞拉大笛
-original_name: Fujara
-category: 管樂器
-country: 歐洲／斯洛伐克
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Fujaro_ludado_tuta_bildo.jpg/500px-Fujaro_ludado_tuta_bildo.jpg
-sound_class: 氣鳴
-range: 低音提琴範圍（約2-3個8度）
-instrument_key: A大調、G大調、F大調（可調式）
-hs_class: 421 邊棱氣鳴／無簧笛類
-family: 無簧吹管、長音與氣息樂器
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 簧片樂器
+title_zh: 富亞拉大笛
+title_original: Fujara
+family_std: 無簧吹管、長音與氣息樂器
+sound_hs: 421 邊棱氣鳴／無簧笛類
 playing_method: 吹奏／端吹／橫吹／容器共鳴
-body_listening: 氣息、胸腔、長音、空間
-soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 歐洲／斯洛伐克
+listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/fujara/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Fujaro_ludado_tuta_bildo.jpg/500px-Fujaro_ludado_tuta_bildo.jpg
 youtube_ids: R1_lBpN4AGw Dv6MLK4U06U
 ---
+
 ## 介紹
 
 富亞拉大笛（斯洛伐克語發音：[ˈfujara]）是一種大型風樂器，屬於鼓笛類。它起源於斯洛伐克中部，是一種設計獨特的精緻民間牧羊人泛音管笛，音域為低音提琴範圍。富亞拉大笛長度從160到200厘米（5英尺3英寸至6英尺6英寸），音調可調為A、G或F。它在主體下部有三個音孔（也稱為指孔）。聲音由位於主體上端的吹口產生。

@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/aulos/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Banquet_Euaion_Louvre_G467_n2_cropped.jpg/500px-Banquet_Euaion_Louvre_G467_n2_cropped.jpg
-title: 阿夫洛斯管
-original_name: Aulos
-category: 管樂器
-country: 古希臘／地中海
-era: 傳統／年代待考
-sound_class: 氣鳴
-range: 低音至高音，約2-3個8度
-instrument_key: 無固定調性
-hs_class: Aerophone／氣鳴樂器
-family: 古希臘雙管簧管
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 簧片樂器
+title_zh: 阿夫洛斯管
+title_original: Aulos
+family_std: 古希臘雙管簧管
+sound_hs: Aerophone／氣鳴樂器
 playing_method: 吹奏
-body_listening: 雙管交錯、古代劇場與儀式感
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋）
-region_type: 歷史文化圈
+interface_tags: 
+region_culture: 古希臘／地中海｜歷史文化圈
+listening_sound_tags: 雙管交錯、古代劇場與儀式感｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/aulos/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Banquet_Euaion_Louvre_G467_n2_cropped.jpg/500px-Banquet_Euaion_Louvre_G467_n2_cropped.jpg
 youtube_ids: hpjV962DLWs aI7YwJ1jBhY
 ---
+
 ## 介紹
 
 奧洛斯管（英語：aulos；古希臘語：αὐλός, plural αὐλοί, auloi）是一種遠古時代的管樂器，常用於崇拜酒神的儀式。傳說是雅典娜所發明，後被瑪耳緒阿斯拾獲。

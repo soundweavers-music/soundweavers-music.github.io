@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/drum/
-title: 鼓
-original_name: Drum
-category: 打擊樂器
-sound_class: 膜鳴
-hs_class: 211 筒形鼓
-family: 鼓類
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 鼓
+title_original: Drum
+family_std: 鼓類
+sound_hs: 膜鳴｜211 筒形鼓
 playing_method: 敲擊鼓面
-country: 全球／多地
-era: 古代
-region_type: 單一地區／文化圈
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-body_listening: 手掌、腳底、低音、舞步
+interface_tags: 
+region_culture: 全球／多地｜單一地區／文化圈
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 已整併主項
+issue_note: 重複已整併；保留本列為主項；已整併第4項。；主項保留；被整併列第4項以紅字刪除線保留供人工審核。；MERGED-215: 併入列 4
+source_url: https://soundweavers-music.github.io/instruments/drum/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/%E4%B8%80%E5%80%8B%E5%A4%A7%E9%BC%93.jpg/500px-%E4%B8%80%E5%80%8B%E5%A4%A7%E9%BC%93.jpg
 youtube_ids: MHj9XlV3fFg JTtx42_Bpog
-instrument_key: 無固定調性
-range: 深沉低音至清晰中高音（約2至3個8度，取決於鼓身大小和鼓皮張力）
 ---
+
 ## 介紹
 
 鼓（英語：Drum）是一種打擊樂器，也是一種通訊工具，非洲某些部落用以傳達信息，中國古代軍隊用以發號施令。堅固的鼓身（常為圓桶狀）的一面或雙面蒙上拉緊的膜。鼓可以用手或鼓杵(槌)敲擊出聲。鼓在非洲的傳統音樂以及在現代音樂中是一種比較重要的樂器，有的樂隊完全由以鼓為主的打擊樂器組成。鼓除了作為樂器外，在古代許多文明中還用鼓來傳播信息。 不同類型的鼓，如定音鼓等，均被調校至特定的音調中。更常見的是將不同類型的鼓或打擊樂器互相組合，以構成常於流行音樂出現的爵士鼓。

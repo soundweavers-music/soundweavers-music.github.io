@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/enanga/
-title: 恩南加豎琴
-original_name: Enanga
-category: 弦樂器
-country: 非洲／歐洲／亞洲／美洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Inanga%2Ctraditional_Rwandan_instrument_during_the_introduction_wedding_in_Kigali%2C_Rwanda.jpg/500px-Inanga%2Ctraditional_Rwandan_instrument_during_the_introduction_wedding_in_Kigali%2C_Rwanda.jpg
-sound_class: 弦鳴
-range: 中高音區（約2個8度）
-instrument_key: 無固定調性
-hs_class: 322 豎琴與里拉類
-family: 豎琴、里拉與開放弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 豎琴、里拉與開放弦
+title_zh: 恩南加豎琴
+title_original: Enanga
+family_std: 豎琴、里拉與開放弦樂器
+sound_hs: 弦鳴｜322 豎琴與里拉類
 playing_method: 撥弦／開放弦共鳴
-body_listening: 循環、河流感、開放弦、吟唱
-soundscape: 開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
-region_type: 地區／文化圈
+interface_tags: 
+region_culture: 非洲／歐洲／亞洲／美洲｜地區／文化圈
+listening_sound_tags: 循環、河流感、開放弦、吟唱｜開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/enanga/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Inanga%2Ctraditional_Rwandan_instrument_during_the_introduction_wedding_in_Kigali%2C_Rwanda.jpg/500px-Inanga%2Ctraditional_Rwandan_instrument_during_the_introduction_wedding_in_Kigali%2C_Rwanda.jpg
 youtube_ids: idyyg0THLVc enyh2P66K5U
 ---
+
 ## 介紹
 
 恩南加豎琴（又稱為 enanga、ennanga、ikivuvu 和 indimbagazo）是一種傳統樂器，在布隆迪、盧旺達、烏干達和剛果民主共和國的部分地區演奏。它由一個略呈凹形的音板組成，音板由厚重的刻槽邊框保護，邊框在音板上固定琴弦。恩南加豎琴通常有六至八根琴弦。

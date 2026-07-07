@@ -1,21 +1,23 @@
 ---
-title: 棒鐘
-original_name: Handchime / Hand Chimes
-category: 打擊樂器
-country: 全球
-era: 20 世紀
-sound_class: 體鳴
-range: 依調式音階而定（通常2-3個8度）
-instrument_key: 依調式而定
-hs_class: 11 小型體鳴／搖奏刮奏敲奏
-family: 棒鐘／棒鈴
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
+title_zh: 棒鐘
+title_original: Handchime / Hand Chimes
+family_std: 棒鐘／棒鈴
+sound_hs: 11 小型體鳴／搖奏刮奏敲奏
 playing_method: 搖奏／敲擊
-body_listening: 手腕、手掌、短音、節奏對齊
-soundscape: 手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
-region_type: 跨文化／多地
-youtube_ids: hvi9Kx6s0ls
+interface_tags: 
+region_culture: 全球
+listening_sound_tags: 手腕、手掌、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: 
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Handchime_in_use.jpg/500px-Handchime_in_use.jpg
+youtube_ids: hvi9Kx6s0ls
 ---
+
 ## 介紹
 
 棒鐘（Handchime，又稱手棒鐘或手持鐘片琴）是一種現代打擊樂器，由一根精確調音的矩形金屬棒安裝在共鳴座上構成。演奏時以橡膠或塑膠敲擊棒輕敲金屬棒上端，或將樂器握於手中搖晃使其發聲。每支棒鐘僅發出一個特定音高，因此一套棒鐘通常包含多個不同音高的樂器，由多位演奏者合作演奏完整的旋律與和聲。

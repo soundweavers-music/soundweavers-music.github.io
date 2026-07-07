@@ -1,18 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/an-tinh/
-title: 越南十六弦琴
-original_name: Đàn tính
-category: 弦樂器
-country: 越南
-era: 傳統／年代待考
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 越南十六弦琴
+title_original: Đàn tính
+family_std: 撥弦與抱持弦樂家族
+sound_hs: 待確認
+playing_method: 撥奏／擦奏／擊弦（待細分）
+interface_tags: 
+region_culture: 越南｜單一地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/an-tinh/
 image: https://upload.wikimedia.org/wikipedia/commons/4/45/Thai_tinh_tau.png
-region_type: 單一地區／文化圈
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-body_listening: 懷抱、手指、腳步、敘事
 youtube_ids: ZiBpEJXFm6U YqJnaIKT7IY
-instrument_key: 多調性
-range: 約3個8度
 ---
+
 ## 介紹
 
 越南十六弦琴（Đàn tính）是流傳於壯族畢儂人和泰人中的傳統弦樂器。該琴原為天婆（女巫）在驅災治病儀式中使用，後逐漸演變為大眾娛樂活動。傳統天琴長約120公分，竪形木製琴頸雕有龍紋圖案，琴頭雕成鳳凰、麒麟等瑞獸形狀。琴體由葫蘆或麻竹製成呈半球形，正面飾有麻竹殼或薄桐木板，左右兩側裝有木製調音栓，兼具藝術性與實用性。

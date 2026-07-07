@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/angklung/
-title: 安克隆竹琴
-original_name: Angklung
-category: 打擊樂器
-country: 亞洲／東南亞（印尼）
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Eight-pitch_Angklung%2C_Mitchell_Park%2C_Milwaukee.jpg/500px-Eight-pitch_Angklung%2C_Mitchell_Park%2C_Milwaukee.jpg
-sound_class: 體鳴
-range: 中高音範圍（約2至3個8度）
-instrument_key: 多調性
-hs_class: 11/12 定音體鳴／鑼鐘木琴石琴系統
-family: 定音體鳴、材料敲擊與鑼鐘木琴系統
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 安克隆竹琴
+title_original: Angklung
+family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
+sound_hs: 11/12 定音體鳴／鑼鐘木琴石琴系統
 playing_method: 敲擊／搖奏／材料共鳴
-body_listening: 材料、回聲、群體分工、音列
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 亞洲／東南亞（印尼）
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/angklung/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Eight-pitch_Angklung%2C_Mitchell_Park%2C_Milwaukee.jpg/500px-Eight-pitch_Angklung%2C_Mitchell_Park%2C_Milwaukee.jpg
 youtube_ids: 2hhzmcHC2HY 9yeEBoiQaN4
 ---
+
 ## 介紹
 
 安克隆竹琴是源自印度尼西亞爪哇島的打擊樂器，距今已有超過一千年歷史。樂器由數根不同長度的竹筒組成，每根竹筒發出不同音高。演奏者通過搖晃樂器使竹筒相互碰撞發聲，產生清脆明亮的音色。其音域多為中高音範圍，具有獨特的竹質溫潤感和波浪般的搖晃效果。安克隆竹琴最初用於農業儀式和宗教祭祀，後來演變為民間娛樂樂器，廣泛應用於爪哇民俗音樂中，常用於營造歡樂愉快的氛圍。

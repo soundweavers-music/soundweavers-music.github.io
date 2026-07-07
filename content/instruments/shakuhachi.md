@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/shakuhachi/
-title: 尺八
-original_name: Shakuhachi
-category: 管樂器
-country: 亞洲／東亞（日本）
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/9/93/JapaneseShakuhachiSection.jpg
-sound_class: 氣鳴
-range: 約2個8度
-instrument_key: 無固定調性
-hs_class: 421 邊棱氣鳴／無簧笛類
-family: 無簧吹管、長音與氣息樂器
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 電聲改造樂器
+title_zh: 尺八
+title_original: Shakuhachi
+family_std: 無簧吹管、長音與氣息樂器
+sound_hs: 421 邊棱氣鳴／無簧笛類
 playing_method: 吹奏／端吹／橫吹／容器共鳴
-body_listening: 氣息、胸腔、長音、空間
-soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 亞洲／東亞（日本）
+listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+ensemble_links: 
+verification_status: 移入第13類
+issue_note: 現代電子／取樣；屬現代電子、取樣、電聲或電氣化鍵盤／設備類，應集中到第13類。；移第13類，並與傳統鍵盤／風箱類分開。
+source_url: https://soundweavers-music.github.io/instruments/shakuhachi/
+image: https://upload.wikimedia.org/wikipedia/commons/9/93/JapaneseShakuhachiSection.jpg
 youtube_ids: miUKO5g0ONk hmRPECd9Yig
 ---
+
 ## 介紹
 
 尺八原是吳地的一種木管樂器，原產自中國後傳入日本。竹製，外切口，五孔（前四後一），屬邊棱振動氣鳴吹管樂器，按照日本以前的度量衡其管長一尺八寸（約55公分），因此得名，其音色蒼涼遼闊，又能表現空靈、恬靜的意境。古尺八由中國唐朝（日本奈良時代）時開始傳入日本。尺八是豎吹樂器，用於宮廷雅樂的尺八被稱為雅樂尺八，而現在所說的尺八一般都指代普化尺八。

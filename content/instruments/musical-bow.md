@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/musical-bow/
-title: 樂弓
-original_name: Musical bow
-category: 弦樂器
-country: 非洲／南非
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/2/2e/MusicalBow.gif
-sound_class: 弦鳴
-range: 約2至3個8度
-instrument_key: 無固定調性
-hs_class: 322 豎琴與里拉類
-family: 豎琴、里拉與開放弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 豎琴、里拉與開放弦
+title_zh: 樂弓
+title_original: Musical bow
+family_std: 豎琴、里拉與開放弦樂器
+sound_hs: 弦鳴｜322 豎琴與里拉類
 playing_method: 撥弦／開放弦共鳴
-body_listening: 循環、河流感、開放弦、吟唱
-soundscape: 開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
-region_type: 地區／文化圈
+interface_tags: 弓
+region_culture: 非洲／南非｜地區／文化圈
+listening_sound_tags: 循環、河流感、開放弦、吟唱｜開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/musical-bow/
+image: https://upload.wikimedia.org/wikipedia/commons/2/2e/MusicalBow.gif
 youtube_ids: e4McVxHYg24 Faj6qVhIaxY
 ---
+
 ## 介紹
 
 樂弓（弓弦或弦弓，屬於棒形齊特琴的一個分類）是一種弦樂器，被許多非洲民族以及美洲原住民所使用。它由一根柔軟的木棍組成，通常長度為1.5至10英尺（0.5至3公尺），兩端用緊繃的繩子（通常為金屬弦）連接。可以用手或木棍或樹枝來演奏。樂弓是否由狩獵弓發展而來仍不確定，儘管卡拉哈迪沙漠的桑人或布希曼人確實會將他們的狩獵弓改作音樂用途。

@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/trumpet/
-title: 小號
-original_name: Trumpet
-category: 管樂器
-country: 全球／多地
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/500px-Yamaha_Trumpet_YTR-8335LA_crop.jpg
-sound_class: 氣鳴
-range: E3–C6（約3個八度以上）
-instrument_key: 降B大調
-hs_class: 423 唇振氣鳴／號角與銅管
-family: 唇振氣鳴、天然號角與銅管
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 號角與唇振
+title_zh: 小號
+title_original: Trumpet
+family_std: 唇振氣鳴、天然號角與銅管
+sound_hs: 423 唇振氣鳴／號角與銅管
 playing_method: 唇振吹奏
-body_listening: 嘴唇、遠方、召喚、空間方向
-soundscape: 吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 全球／多地
+listening_sound_tags: 嘴唇、遠方、召喚、空間方向｜吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
+ensemble_links: 爵士編制
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/trumpet/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/500px-Yamaha_Trumpet_YTR-8335LA_crop.jpg
 youtube_ids: xa17zHJhNhA 2nPwkb9ZyPQ
 ---
+
 ## 介紹
 
 小號（英語：Trumpet），又稱小喇叭，是一種銅管樂器。常用於古典音樂及爵士樂，小號中的高音小號是銅管樂器家族中音域最高的樂器之一，而低音小號的音高比常見的降B調小號要低一個八度。 在歷史上已有使用類似小號的樂器，作為在戰爭或是打獵中發出信號的裝置，日期可以追溯到西元前1500年。不過到十四世紀末到十五世紀初時，才開始當作樂器使用。小號會用在許多不同的音樂型式中，例如管弦樂團、管樂團、爵士樂以及流行音樂。演奏小號時，吹奏者經過號嘴，將雙唇幾乎緊閉，振動小號中的空氣，產生駐波來發聲。自從十五世紀起，小號主要是用黃銅管製成，會彎曲二次，形成有圓角的長方形外形。 小號有許多種，最常見的是B♭小號。小號管長約1.48米（4英尺10英寸）。早期的小號無法調整管長，現代的小號一般有3個按鍵（有時會有4個），透過讓吹奏者按下按鍵來調整音高。3個按鍵有八種組合，可以調整出七種不同的管長。按鍵通常為活塞式，而轉閥式按鍵較為少見。轉閥式按鍵較常見於管弦樂團（特別是德國或德式的管弦樂團），不過也會隨國家而不同。每一個按鍵在按下時都會增加管長，因此會降低音高。音色明亮亦為小號的特色之一。

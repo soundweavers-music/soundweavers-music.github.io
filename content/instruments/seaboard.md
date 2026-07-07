@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/seaboard/
-title: 羅利海岸鍵盤
-original_name: Seaboard
-category: 鍵盤樂器
-country: 英國／全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/20131205_Istanbul_321_cropped.jpg/500px-20131205_Istanbul_321_cropped.jpg
-sound_class: 複合／電鳴
-range: 全音域（可自訂）
-instrument_key: 全調性
-hs_class: Electrophone／電鳴與複合鍵盤
-family: MPE 表情鍵盤
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 電聲改造樂器
+title_zh: 羅利海岸鍵盤
+title_original: Seaboard
+family_std: MPE 表情鍵盤
+sound_hs: 複合／電鳴｜Electrophone／電鳴與複合鍵盤
 playing_method: 觸控滑動
-body_listening: 連續音高、壓力、電子聲身體化
-soundscape: 按鍵打開的機械房間（鍵盤介面、風箱、電子與取樣）
-region_type: 現代／電子音樂
+interface_tags: 鍵盤／按鍵、觸控
+region_culture: 英國／全球｜現代／電子音樂
+listening_sound_tags: 連續音高、壓力、電子聲身體化｜按鍵打開的機械房間（鍵盤介面、風箱、電子與取樣）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/seaboard/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/20131205_Istanbul_321_cropped.jpg/500px-20131205_Istanbul_321_cropped.jpg
 youtube_ids: 6SCug5kUsBs x68s48hRs8g
 ---
+
 ## 介紹
 
 海岸線是海岸的同義詞。它也可以指：

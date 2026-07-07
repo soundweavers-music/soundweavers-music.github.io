@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/musette/
-title: 穆塞特小風笛
-original_name: Musette
-category: 管樂器
-country: 法國
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Musette_MIM_5262.jpg/500px-Musette_MIM_5262.jpg
-sound_class: 氣鳴
-range: 約2個8度（中高音區為主）
-instrument_key: 全調性
-hs_class: 412/422 簧鳴與自由簧／單簧雙簧
-family: 口簧、自由簧、單簧雙簧與風袋
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 風箱與自由簧
+title_zh: 穆塞特小風笛
+title_original: Musette
+family_std: 口簧、自由簧、單簧雙簧與風袋
+sound_hs: 氣鳴｜412/422 簧鳴與自由簧／單簧雙簧
 playing_method: 吹奏／簧片振動／風袋或風箱
-body_listening: 口腔、舌頭、簧片震動、鼻音
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-region_type: 單一國家或文化源流
+interface_tags: 風箱
+region_culture: 法國｜單一國家或文化源流
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 待檢查
+issue_note: 類別疑點；Marxophone 是無品齊特琴／自鳴弦琴系統，不是一般鍵盤樂器。；歸第5類齊特琴。
+source_url: https://soundweavers-music.github.io/instruments/musette/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Musette_MIM_5262.jpg/500px-Musette_MIM_5262.jpg
 youtube_ids: AGbGbzHLpz8 HOstLd2p7J4
 ---
+
 ## 介紹
 
 穆塞特小風笛可能指的是：

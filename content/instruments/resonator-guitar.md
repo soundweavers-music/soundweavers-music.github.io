@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/resonator-guitar/
-title: 諧振吉他
-original_name: Resonator guitar
-category: 弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 諧振吉他
+title_original: Resonator guitar
+family_std: 弦樂器類
+sound_hs: 3 弦鳴樂器
 playing_method: 撥弦／擦弦／擊弦
-family: 弦樂器類
-hs_class: 3 弦鳴樂器
-sound_class: 弦鳴
-country: 美洲／北美
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-body_listening: 懷抱、手指、腳步、敘事
+interface_tags: 
+region_culture: 美洲／北美｜單一地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/resonator-guitar/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Resonator_Style0.jpg/500px-Resonator_Style0.jpg
 youtube_ids: J46sRuj99Cw OvqJGBopcwc
-instrument_key: 全調性
-range: 約3-4個8度
 ---
+
 ## 介紹
 
 諧振吉他或共鳴吉他（通常泛稱為「杜布羅琴」）是一種原聲吉他，它通過將弦振動從琴橋傳導到一個或多個旋轉金屬錐體（共鳴器）來產生聲音，而不是傳導到吉他的音板（頂部）。諧振吉他最初的設計目的是比普通原聲吉他更大聲，因為普通吉他在舞蹈樂隊中會被號樂器和打擊樂器淹沒。

@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/nyatiti/
-title: 尼亞蒂蒂琴
-original_name: Nyatiti
-category: 弦樂器
-country: 肯亞
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Nyatiti.jpg/500px-Nyatiti.jpg
-sound_class: 弦鳴
-range: 中高音區（約2個8度）
-instrument_key: 無固定調性
-hs_class: 322 豎琴與里拉類
-family: 豎琴、里拉與開放弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 豎琴、里拉與開放弦
+title_zh: 尼亞蒂蒂琴
+title_original: Nyatiti
+family_std: 豎琴、里拉與開放弦樂器
+sound_hs: 弦鳴｜322 豎琴與里拉類
 playing_method: 撥弦／開放弦共鳴
-body_listening: 吟唱支撐、節奏腳鈴、故事敘事
-soundscape: 開放弦的天空與河流（豎琴、里拉與開放弦樂器）
-region_type: 單一地區／文化圈
+interface_tags: 
+region_culture: 肯亞｜單一地區／文化圈
+listening_sound_tags: 吟唱支撐、節奏腳鈴、故事敘事｜開放弦的天空與河流（豎琴、里拉與開放弦樂器）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/nyatiti/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Nyatiti.jpg/500px-Nyatiti.jpg
 youtube_ids: EEkxel9Z8ak IBVZKxd4I2Y
 ---
+
 ## 介紹
 
 尼亞蒂蒂琴是一種來自肯亞的五至八弦撥奏碗形軛式魯特琴。它是肯亞西部盧奧人的古典樂器，特別是在基蘇木北部的錫亞亞地區演奏。琴長約兩至三英尺，具有碗形的雕刻木共鳴器，外覆牛皮。歷史上，琴弦由牛腱製成，但現代演奏者幾乎完全使用尼龍和各種規格的塑膠釣魚線，這一變化大幅改變了尼亞蒂蒂琴的音質。在肯亞演奏的尼亞蒂蒂琴通常有八根琴弦。

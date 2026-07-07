@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/laser-harp/
-title: 雷射豎琴
-original_name: Laser Harp
-category: 鍵盤樂器
-country: 全球／現代
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Jean_Michel_Jarre_playing_a_laser_harp_1%2C_2009-05-12.JPG/500px-Jean_Michel_Jarre_playing_a_laser_harp_1%2C_2009-05-12.JPG
-sound_class: 複合／電鳴
-range: 約3至4個8度
-instrument_key: 全調性
-hs_class: Electrophone／電鳴與複合鍵盤
-family: 光束控制器
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 控制器與數位介面
+title_zh: 雷射豎琴
+title_original: Laser Harp
+family_std: 光束控制器
+sound_hs: 複合／電鳴｜Electrophone／電鳴與複合鍵盤
 playing_method: 手勢觸發
-body_listening: 舞台視覺、空氣中的弦、電子聲觸發
-soundscape: 按鍵打開的機械房間（鍵盤介面、風箱、電子與取樣）
-region_type: 跨文化／現代
+interface_tags: 電子控制
+region_culture: 全球／現代｜跨文化／現代
+listening_sound_tags: 舞台視覺、空氣中的弦、電子聲觸發｜按鍵打開的機械房間（鍵盤介面、風箱、電子與取樣）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/laser-harp/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Jean_Michel_Jarre_playing_a_laser_harp_1%2C_2009-05-12.JPG/500px-Jean_Michel_Jarre_playing_a_laser_harp_1%2C_2009-05-12.JPG
 youtube_ids: WkkhcwXpYy4 9DlwQJX3qag
 ---
+
 ## 介紹
 
 雷射豎琴（英語：laser harp）是一種電子樂器，同時屬於一種雷射表演。雷射豎琴的外觀上，以數道雷射光束取代傳統豎琴的弦，演奏者以手阻斷這些光線的傳輸，藉此產生聲音。 雷射豎琴從1981年起，就一直是法國知名電子音樂藝術家Jean-Michel Jarre演奏會上備受矚目的特色之一，這種樂器的興起也應歸功於他。英國創作歌手Little Boots的演奏會中也使用過與Jean-Michel Jarre的版本類似的雷射豎琴。在亞洲地區，日本電子音樂作曲家平澤進則是使用雷射豎琴最知名的演奏者。

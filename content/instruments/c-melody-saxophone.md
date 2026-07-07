@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/c-melody-saxophone/
-title: C調薩克斯風
-original_name: C melody saxophone
-category: 管樂器
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: C調薩克斯風
+title_original: C melody saxophone
+family_std: 管樂器類
+sound_hs: 4 气鳴樂器
 playing_method: 吹奏
-family: 管樂器類
-hs_class: 4 气鳴樂器
-sound_class: 气鳴
-country: 中國
-era: 21 世紀
-region_type: 單一地區／文化圈
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-body_listening: 口腔、舌頭、簧片震動、鼻音
+interface_tags: 
+region_culture: 中國｜單一地區／文化圈
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/c-melody-saxophone/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Conn_C_Melody_Saxophone_1921.jpg/500px-Conn_C_Melody_Saxophone_1921.jpg
 youtube_ids: f9f8_3cCGJo CkfZuhDo1Ps
-instrument_key: C大調
-range: 約3個8度
 ---
+
 ## 介紹
 
 C調薩克斯風，又稱C調次中音薩克斯風，是一種以C調音高進行的薩克斯風，比常見的降B調次中音薩克斯風高出一個全音。C調薩克斯風是薩克斯風發明人阿道夫·薩克斯為交響樂團使用而設計的一系列C調和F調薩克斯風的一部分。這種樂器在1900年代初期獲得普及，最著名的使用者包括魯迪·維德夫特和法蘭基·特倫鮑爾，但現在已不常見。C調薩克斯風的體型介於中音薩克斯風和次中音薩克斯風之間。

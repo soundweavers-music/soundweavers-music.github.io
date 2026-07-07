@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/melodica/
-title: 口風琴
-original_name: Melodica
-category: 鍵盤樂器
-country: 歐洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Melodica.jpg/500px-Melodica.jpg
-sound_class: 氣鳴
-range: 約2至3個8度
-instrument_key: 全調性
-hs_class: 412/422 簧鳴與自由簧／單簧雙簧
-family: 口簧、自由簧、單簧雙簧與風袋
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 風箱與自由簧
+title_zh: 口風琴
+title_original: Melodica
+family_std: 口簧、自由簧、單簧雙簧與風袋
+sound_hs: 氣鳴｜412/422 簧鳴與自由簧／單簧雙簧
 playing_method: 吹奏／簧片振動／風袋或風箱
-body_listening: 口腔、舌頭、簧片震動、鼻音
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-region_type: 跨文化／多地
+interface_tags: 鍵盤／按鍵、風箱
+region_culture: 歐洲
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/melodica/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Melodica.jpg/500px-Melodica.jpg
 youtube_ids: FT0RSXGLPpw cKxRFlXYquo
 ---
+
 ## 介紹
 
 口風琴（英語：Melodica）是一種有鍵盤的吹奏樂器，在樂器分類上和口琴同一類，都屬於自由簧的吹奏樂器。口風琴上面有鍵盤，旁邊有吹嘴，可以在彈奏時吹氣，因此也可視為可吹奏的鍵盤樂器。口風琴的鍵盤長度大約是二至三個八度。口風琴由於體積小，而且輕便容易攜帶，在音樂教育中很受歡迎，尤其受到亞洲人的喜愛。 現代的口風琴是由德國的Hohner公司在1950或1960年代所發明。不過19世紀在義大利就已出現類似形式的樂器。

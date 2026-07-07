@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/music-box/
-title: 八音盒
-original_name: Music box
-category: 打擊樂器
-country: 歐洲／瑞士
-era: 18 世紀
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Caja_musica.jpg/500px-Caja_musica.jpg
-sound_class: 體鳴
-range: 中高音域（約2至3個8度）
-instrument_key: 全調性
-hs_class: 12 體鳴／舌片琴／金屬共鳴
-family: 近身體鳴、舌片琴與手奏金屬共鳴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 八音盒
+title_original: Music box
+family_std: 近身體鳴、舌片琴與手奏金屬共鳴
+sound_hs: 12 體鳴／舌片琴／金屬共鳴
 playing_method: 手敲／拇指撥片／近身共鳴
-body_listening: 指尖、掌心、尾音、近身聆聽
-soundscape: 手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）
-region_type: 跨文化／多地
+interface_tags: 撥片
+region_culture: 歐洲／瑞士
+listening_sound_tags: 指尖、掌心、尾音、近身聆聽｜手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/music-box/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Caja_musica.jpg/500px-Caja_musica.jpg
 youtube_ids: IvUU8joBb1Q aLZun0gxXII
 ---
+
 ## 介紹
 
 音樂盒（法語：boîte à musique），是機械發音樂器。概念源自於大型鐘琴（Carillon）。多數利用轉動盒內帶凸點的滾筒，依序撥動調律好的音梳，可自動或手動演奏樂曲。音色接近拇指琴、鋼片琴或鐘琴（Glockenspiel）。

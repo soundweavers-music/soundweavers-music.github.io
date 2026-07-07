@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/n-nh/
-title: 越南二胡
-original_name: Đàn Nhị
-category: 弦樂器
-country: 越南
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Dan_nhi-_ken-_trong.jpg/500px-Dan_nhi-_ken-_trong.jpg
-sound_class: 弦鳴
-range: 約3個8度
-instrument_key: 多調性
-hs_class: Chordophone／弦鳴樂器
-family: 越南擦弦琴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 擦弦、鍵控與輪弦
+title_zh: 越南二胡
+title_original: Đàn Nhị
+family_std: 越南擦弦琴
+sound_hs: Chordophone／弦鳴樂器
 playing_method: 拉奏
-body_listening: 細長旋律、民歌語氣、柔性滑音
-soundscape: 弓毛拉出的哭與唱（擦弦、輪弦與提琴家族）
-region_type: 單一地區／文化圈
+interface_tags: 弓
+region_culture: 越南｜單一地區／文化圈
+listening_sound_tags: 細長旋律、民歌語氣、柔性滑音｜弓毛拉出的哭與唱（擦弦、輪弦與提琴家族）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/n-nh/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Dan_nhi-_ken-_trong.jpg/500px-Dan_nhi-_ken-_trong.jpg
 youtube_ids: camP3rPbC40 Orwp7GbUsbk
 ---
+
 ## 介紹
 
 越南二胡是源自中國二胡的越南本土化弦樂器，於十至十三世紀傳入越南北部。樂器採用木製圓筒共鳴體、馬尾弓與絲弦摩擦發聲。外型與中國二胡相似，但經越南音樂家改良以適應本地審美。音色溫潤深沉，帶有東南亞風韻，兼具高亢悠揚與低迴婉轉的表現力。相比中國二胡更顯沉靜內斂，蘊含詩意與滄桑感。廣泛應用於越南傳統民族樂隊與民謠演奏，是重要的民族弦樂器。

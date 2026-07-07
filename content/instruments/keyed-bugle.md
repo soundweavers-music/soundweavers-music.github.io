@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/keyed-bugle/
-title: 鍵盤軍號
-original_name: Keyed Bugle
-category: 管樂器
-country: 全球／中東／歐洲／亞洲／高山與宗教文化圈
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Bugle_in_C_MET_DP-12679-123.jpg/500px-Bugle_in_C_MET_DP-12679-123.jpg
-sound_class: 氣鳴
-range: 約2個8度（自然泛音限制）
-instrument_key: 降B大調
-hs_class: 423 唇振氣鳴／號角與銅管
-family: 唇振氣鳴、天然號角與銅管
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 號角與唇振
+title_zh: 鍵盤軍號
+title_original: Keyed Bugle
+family_std: 唇振氣鳴、天然號角與銅管
+sound_hs: 423 唇振氣鳴／號角與銅管
 playing_method: 唇振吹奏
-body_listening: 嘴唇、遠方、召喚、空間方向
-soundscape: 吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
-region_type: 跨文化／多地
+interface_tags: 活塞
+region_culture: 全球／中東／歐洲／亞洲／高山與宗教文化圈
+listening_sound_tags: 嘴唇、遠方、召喚、空間方向｜吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/keyed-bugle/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Bugle_in_C_MET_DP-12679-123.jpg/500px-Bugle_in_C_MET_DP-12679-123.jpg
 youtube_ids: A-Mhfq_OwcQ yuVdFgkukj8
 ---
+
 ## 介紹
 
 軍號是一種簡單的信號銅管樂器，具有寬闊的圓錐形管孔。它通常沒有活塞或其他改變音高的裝置，因此僅限於其自然泛音音符，音高完全由改變氣流和唇形來控制。

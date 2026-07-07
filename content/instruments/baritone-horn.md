@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/baritone-horn/
-title: 細管上低音號
-original_name: Baritone horn
-category: 管樂器
-country: 歐洲／全球
-era: 20 世紀
-image: https://upload.wikimedia.org/wikipedia/commons/8/8b/Baritonehorn_range.png
-sound_class: 氣鳴
-range: 約E2–B♭5（與次中音長號相同，約3個半8度）
-instrument_key: 降B大調（BC記譜為實音，TC記譜為移調）
-hs_class: 423 唇振氣鳴／號角與銅管
-family: 唇振氣鳴、天然號角與銅管
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 號角與唇振
+title_zh: 細管上低音號
+title_original: Baritone horn
+family_std: 唇振氣鳴、天然號角與銅管
+sound_hs: 423 唇振氣鳴／號角與銅管
 playing_method: 唇振吹奏
-body_listening: 嘴唇、遠方、召喚、空間方向
-soundscape: 吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 歐洲／全球
+listening_sound_tags: 嘴唇、遠方、召喚、空間方向｜吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/baritone-horn/
+image: https://upload.wikimedia.org/wikipedia/commons/8/8b/Baritonehorn_range.png
 youtube_ids: 3rV2ZwyGdY8 l5aomOpZoaU
 ---
+
 ## 介紹
 
 細管上低音號（英語：baritone horn）與柔音號、中音號為同一系列銅管樂器，舊譯作巴里東。被歸類於上低音號，其管徑是常見的三種上低音號中最窄的。一般有三個按鍵，音域及調性與次中音長號相同。少數有第四個按鍵者音域較廣（同加F鍵長號）。在部分國家（如：中國、德國）被稱作次中音號。記譜方式通常為低音譜號實音記譜（稱作BC），也有部分地區慣用降B調高音譜號移調記譜（TC）。

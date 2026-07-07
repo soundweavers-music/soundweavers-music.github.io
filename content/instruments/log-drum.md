@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/log-drum/
-title: 木槽鼓
-original_name: Log Drum
-category: 打擊樂器
-country: 美洲／大洋洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/TamTam.jpg/500px-TamTam.jpg
-sound_class: 體鳴
-range: 約2個8度（中低音域）
-instrument_key: 無固定調性
-hs_class: 11/12 定音體鳴／鑼鐘木琴石琴系統
-family: 定音體鳴、材料敲擊與鑼鐘木琴系統
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 木槽鼓
+title_original: Log Drum
+family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
+sound_hs: 11/12 定音體鳴／鑼鐘木琴石琴系統
 playing_method: 敲擊／搖奏／材料共鳴
-body_listening: 材料、回聲、群體分工、音列
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 美洲／大洋洲
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/log-drum/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/TamTam.jpg/500px-TamTam.jpg
 youtube_ids: HZIgydFGlkY T6CwjXygM_Q
 ---
+
 ## 介紹
 
 木槽鼓是源自非洲和太平洋地區的古老打擊樂器，由挖空的圓木製成。其外形呈長條形中空木槽，兩端開口或單端開口，表面通常刻有裝飾紋樣。樂器主要用於傳統儀式、通訊和音樂表演，在民族音樂中佔有重要地位。木槽鼓音色深沉溫暖，具有強大穿透力，能敲擊不同位置產生音高變化，是現代世界音樂和民族樂團的常見樂器。

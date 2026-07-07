@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/post-horn/
-title: 郵號
-original_name: Post Horn
-category: 管樂器
-country: 歐洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Berlin._Spandau._Citadel_057.JPG/500px-Berlin._Spandau._Citadel_057.JPG
-sound_class: 氣鳴
-range: 約1個8度（自然泛音系列）
-instrument_key: 無固定調性
-hs_class: 423 唇振氣鳴／號角與銅管
-family: 唇振氣鳴、天然號角與銅管
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 號角與唇振
+title_zh: 郵號
+title_original: Post Horn
+family_std: 唇振氣鳴、天然號角與銅管
+sound_hs: 423 唇振氣鳴／號角與銅管
 playing_method: 唇振吹奏
-body_listening: 訊號、道路、遠方抵達感
-soundscape: 吹向遠方的號角（唇振氣鳴、天然號角與銅管）
-region_type: 歷史文化圈
+interface_tags: 活塞
+region_culture: 歐洲｜歷史文化圈
+listening_sound_tags: 訊號、道路、遠方抵達感｜吹向遠方的號角（唇振氣鳴、天然號角與銅管）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/post-horn/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Berlin._Spandau._Citadel_057.JPG/500px-Berlin._Spandau._Citadel_057.JPG
 youtube_ids: FhVmjdcJo8o C-ubHf8JKBQ
 ---
+
 ## 介紹
 
 郵號是一種無活塞的圓筒形銅製樂器，配有杯形吹口。這種樂器用於發出郵遞騎手或郵車到達或出發的信號。它在十八和十九世紀由郵遞馬車夫使用。

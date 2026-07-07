@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/trautonium/
-title: 特勞託尼琴
-original_name: Trautonium
-category: 鍵盤樂器
-country: 歐洲／美國／全球現代錄音室
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Volkstrautonium_MIM.jpg/500px-Volkstrautonium_MIM.jpg
-sound_class: 鍵盤／電鳴／機械混合
-range: 全音域
-instrument_key: 全調性
-hs_class: 412/31/52 鍵盤、自由簧、電鳴與機械介面
-family: 鍵盤介面、風箱、電子與取樣
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 取樣與磁帶
+title_zh: 特勞託尼琴
+title_original: Trautonium
+family_std: 鍵盤介面、風箱、電子與取樣
+sound_hs: 鍵盤／電鳴／機械混合｜412/31/52 鍵盤、自由簧、電鳴與機械介面
 playing_method: 按鍵／風箱／電控／取樣
-body_listening: 手指、機械距離、記憶、電聲
-soundscape: 按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
-region_type: 跨文化／多地
+interface_tags: 鍵盤／按鍵、風箱
+region_culture: 歐洲／美國／全球現代錄音室
+listening_sound_tags: 手指、機械距離、記憶、電聲｜按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/trautonium/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Volkstrautonium_MIM.jpg/500px-Volkstrautonium_MIM.jpg
 youtube_ids: -QgTF8p-284 -tQQEChMq1A
 ---
+
 ## 介紹
 
 特勞托尼琴是一種電子合成樂器，由弗里德里希·特勞特溫於1930年在柏林音樂高等學校的音樂與廣播實驗室（廣播實驗室，今柏林藝術大學）發明。不久之後，奧斯卡·薩拉加入了他的行列，並支持和繼續開發該樂器，直到薩拉在2002年去世。

@@ -1,18 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/jug-musical-instrument/
-title: 陶罐
-original_name: Jug (musical instrument)
-category: 管樂器
-country: 美洲／北美
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
-body_listening: 嘴唇、遠方、召喚、空間方向
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 陶罐
+title_original: Jug (musical instrument)
+family_std: 無簧吹管家族
+sound_hs: 待確認
+playing_method: 吹奏
+interface_tags: 
+region_culture: 美洲／北美｜單一地區／文化圈
+listening_sound_tags: 嘴唇、遠方、召喚、空間方向｜吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
+ensemble_links: 
+verification_status: 已整併主項
+issue_note: 重複已整併；保留本列為主項；已整併第855項。；主項保留；被整併列第855項以紅字刪除線保留供人工審核。；MERGED-364: 併入列 855
+source_url: https://soundweavers-music.github.io/instruments/jug-musical-instrument/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Jugplayer.jpg/500px-Jugplayer.jpg
 youtube_ids: ip5gXXHxMaE quk12NRfe1c
-instrument_key: 無固定調性
-range: 約1至2個8度（低音區為主）
 ---
+
 ## 介紹
 
 用作樂器的陶罐是一種空的陶罐（通常由玻璃或陶器製成），用嗡鳴的嘴唇演奏以產生類似長號的音調。陶罐的特徵音色低沉沙啞，低於小提琴、口琴和樂隊中其他樂器的較高音調。

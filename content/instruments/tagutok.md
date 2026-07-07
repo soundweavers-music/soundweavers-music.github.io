@@ -1,19 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/tagutok/
-title: Tagutok（暫譯）
-original_name: Tagutok
-category: 打擊樂器
-country: 菲律賓
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
-body_listening: 手腕、腳踝、短音、節奏對齊
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 沙鈴、刮器與小打擊
+title_zh: Tagutok（暫譯）
+title_original: Tagutok
+family_std: 沙鈴、刮器與小打擊家族
+sound_hs: 待確認
+playing_method: 敲奏／拍奏／搖奏／刮奏（待細分）
+interface_tags: 鼓槌
+region_culture: 菲律賓｜單一地區／文化圈
+listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/tagutok/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kagul.jpg/500px-Kagul.jpg
 youtube_ids: 8IhXdjb3Q-Y OD9SpB1Z5Eo
-instrument_key: 無固定調性
-range: 中高頻段（約2個8度）
 ---
+
 ## 介紹
 
 卡古爾是菲律賓竹製刮奏鑼/狹縫鼓，為馬京達瑙人和維薩亞人所用，其一側邊緣參差不齊，用兩根鼓槌演奏，其中一根刮擦鋸齒狀邊緣，另一根則用於敲擊。馬京達瑙人和班烏瓦恩人在稻田裡使用它來防止貪食的鳥類，利用其發出的聲音將鳥類驅趕走。馬京達瑙人和布基農的土著居民過去也曾在社交場合中使用它來伴奏簡單的舞蹈節奏。

@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/rebec/
-title: 雷貝克弓琴
-original_name: Rebec
-category: 弦樂器
-country: 中東／歐洲／東南亞
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Rebac.jpg/500px-Rebac.jpg
-sound_class: 弦鳴
-range: 中高音區，約2個8度
-instrument_key: 無固定調性
-hs_class: 321.3 擦弦／輪弦／提琴家族
-family: 擦弦、輪弦與提琴家族
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 擦弦、鍵控與輪弦
+title_zh: 雷貝克弓琴
+title_original: Rebec
+family_std: 擦弦、輪弦與提琴家族
+sound_hs: 弦鳴｜321.3 擦弦／輪弦／提琴家族
 playing_method: 弓擦／輪擦
-body_listening: 胸口、嗓音、拉長的情緒
-soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
-region_type: 地區／文化圈
+interface_tags: 弓
+region_culture: 中東／歐洲／東南亞｜地區／文化圈
+listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/rebec/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Rebac.jpg/500px-Rebac.jpg
 youtube_ids: XWA6oTr0vnU i7k6zAdiQSs
 ---
+
 ## 介紹
 
 雷貝克弓琴（有時拼寫為rebecha、rebeckha等，發音為）是中世紀和早期文藝復興時期的一種弓弦樂器。在其最常見的形式中，它具有狹窄的船形琴身和一到五根弦。

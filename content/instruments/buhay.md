@@ -1,18 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/buhay/
-title: 烏克蘭摩擦鼓
-original_name: Buhay
-category: 打擊樂器
-country: 烏克蘭
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-body_listening: 手掌、腳底、低音、舞步
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 烏克蘭摩擦鼓
+title_original: Buhay
+family_std: 鼓皮與鼓類家族
+sound_hs: 待確認
+playing_method: 敲奏／拍奏／搖奏／刮奏（待細分）
+interface_tags: 
+region_culture: 烏克蘭｜單一地區／文化圈
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/buhay/
 image: https://upload.wikimedia.org/wikipedia/commons/c/cb/%D0%91%D1%83%D0%B3%D0%B0%D0%B9_%28%D0%BC%D1%83%D0%B7%D0%B8%D1%87%D0%BD%D0%B8%D0%B9_%D1%96%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BC%D0%B5%D0%BD%D1%82%29.jpg
 youtube_ids: MCgJYah3GPQ tPJu0fhBW1E
-instrument_key: 無固定調性
-range: 低頻至中低頻範圍（約1至2個8度）
 ---
+
 ## 介紹
 
 烏克蘭摩擦鼓（烏克蘭語：бугай）（也稱為 bugai、buhai、berebenytsia、bika、buga、bochka）是一種在烏克蘭使用的樂器，屬於摩擦鼓類。烏克蘭語中的「buhay」是大麻鷺（Botaurus stellaris）的意思，該樂器以此命名是因為它所發出的聲音。雄性大麻鷺（Botaurus stellaris）的求偶叫聲或聯絡叫聲是一種低沉、嘆息般的霧笛音或牛叫聲，具有快速上升和略長的下降，在平靜的夜晚可以從 3 英里（4.8 公里）的距離內清晰聽到。

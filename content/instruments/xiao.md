@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/xiao/
-title: 簫
-original_name: Xiao
-category: 管樂器
-country: 亞洲／東亞（中國）
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/%E7%90%B4%E8%95%AD%E8%88%87%E6%B4%9E%E8%95%AD.JPG/500px-%E7%90%B4%E8%95%AD%E8%88%87%E6%B4%9E%E8%95%AD.JPG
-sound_class: 氣鳴
-range: 約2-3個8度
-instrument_key: 無固定調性
-hs_class: 421 邊棱氣鳴／無簧笛類
-family: 無簧吹管、長音與氣息樂器
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 簧片樂器
+title_zh: 簫
+title_original: Xiao
+family_std: 無簧吹管、長音與氣息樂器
+sound_hs: 421 邊棱氣鳴／無簧笛類
 playing_method: 吹奏／端吹／橫吹／容器共鳴
-body_listening: 氣息、胸腔、長音、空間
-soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 亞洲／東亞（中國）
+listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/xiao/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/%E7%90%B4%E8%95%AD%E8%88%87%E6%B4%9E%E8%95%AD.JPG/500px-%E7%90%B4%E8%95%AD%E8%88%87%E6%B4%9E%E8%95%AD.JPG
 youtube_ids: GwyXQO0tSW4 XmBji07OtwA
 ---
+
 ## 介紹
 
 簫又稱洞簫、長簫、簫管，是中國古老的吹管樂器，特徵為單管、豎吹、開管、邊稜音發聲。「簫」字在唐代以前本指排簫，唐宋以來，由於單管豎吹的簫日漸流行，便稱編管簫爲排簫，以示區別。至於「洞簫」之名，則來自於簫管底端之開孔。 其音色圓潤輕柔，幽靜典雅，常用於獨奏、琴簫合奏或絲竹樂演奏。尤其常見於表現抒情曲調。

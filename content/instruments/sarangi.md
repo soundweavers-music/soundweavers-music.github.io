@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/sarangi/
-title: 薩朗吉琴
-original_name: Sarangi
-category: 弦樂器
-country: 亞洲／歐洲／中東／全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/f/f0/The_Childrens_Museum_of_Indianapolis_-_Sarangi.jpg
-sound_class: 弦鳴
-range: 中音至高音區域（約2至3個8度）
-instrument_key: 無固定調性
-hs_class: 321.3 擦弦／輪弦／提琴家族
-family: 擦弦、輪弦與提琴家族
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 擦弦、鍵控與輪弦
+title_zh: 薩朗吉琴
+title_original: Sarangi
+family_std: 擦弦、輪弦與提琴家族
+sound_hs: 弦鳴｜321.3 擦弦／輪弦／提琴家族
 playing_method: 弓擦／輪擦
-body_listening: 胸口、嗓音、拉長的情緒
-soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
-region_type: 跨文化／多地
+interface_tags: 弓
+region_culture: 亞洲／歐洲／中東／全球
+listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/sarangi/
+image: https://upload.wikimedia.org/wikipedia/commons/f/f0/The_Childrens_Museum_of_Indianapolis_-_Sarangi.jpg
 youtube_ids: 4vdFLCBhWHY kITVzkbAJsE
 ---
+
 ## 介紹
 
 薩朗吉琴是一種弓奏、短頸的三弦樂器，用於印度傳統音樂中。據說它能夠模仿人聲，通過其模仿聲樂裝飾音的能力，例如顫音（Gamaks或Gamakam）和滑音（meends，滑動動作）。尼泊爾薩朗吉琴類似，但是一種四弦的簡單民間樂器。

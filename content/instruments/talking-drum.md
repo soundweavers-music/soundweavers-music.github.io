@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/talking-drum/
-title: 會說話的鼓
-original_name: Talking Drum
-category: 打擊樂器
-country: 非洲／西非
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/TalkingDrum.jpg/500px-TalkingDrum.jpg
-sound_class: 膜鳴
-range: 約2至3個8度（深沉低音至清亮高音）
-instrument_key: 無固定調性
-hs_class: 21 膜鳴鼓類
-family: 膜鳴鼓類、框鼓、杯鼓與鼓組
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 會說話的鼓
+title_original: Talking Drum
+family_std: 膜鳴鼓類、框鼓、杯鼓與鼓組
+sound_hs: 21 膜鳴鼓類
 playing_method: 手拍／槌擊／皮膜振動
-body_listening: 手掌、腳底、低音、舞步
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 非洲／西非
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/talking-drum/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/TalkingDrum.jpg/500px-TalkingDrum.jpg
 youtube_ids: B4oQJZ2TEVI sDSPPHGht5s
 ---
+
 ## 介紹
 
 會說話的鼓是一種來自西非的沙漏形鼓，可以通過調節其音高和節奏來模擬人類語音的音調和韻律，作為一種言語替代形式。它有兩個鼓頭，由皮革張力繩連接。通常在夾於腋下時演奏。演奏者可以通過收緊和鬆開手臂和身體之間的繩索來改變鼓的音高。起源於18世紀，會說話的鼓演奏者使用音調在4至5英里（6.4至8.0公里）的距離內傳播信息，例如儀式消息和命令。

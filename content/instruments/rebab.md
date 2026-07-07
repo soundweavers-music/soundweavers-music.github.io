@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/rebab/
-title: 熱巴普
-original_name: Rebab
-category: 弦樂器
-country: 亞洲／歐洲／中東／全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/b/bb/Rebab-Tiga_tali_%28cropped%29.png
-sound_class: 弦鳴
-range: 約2-3個8度
-instrument_key: 無固定調性
-hs_class: 321.3 擦弦／輪弦／提琴家族
-family: 擦弦、輪弦與提琴家族
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 擦弦、鍵控與輪弦
+title_zh: 熱巴普
+title_original: Rebab
+family_std: 擦弦、輪弦與提琴家族
+sound_hs: 弦鳴｜321.3 擦弦／輪弦／提琴家族
 playing_method: 弓擦／輪擦
-body_listening: 胸口、嗓音、拉長的情緒
-soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
-region_type: 跨文化／多地
+interface_tags: 弓
+region_culture: 亞洲／歐洲／中東／全球
+listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/rebab/
+image: https://upload.wikimedia.org/wikipedia/commons/b/bb/Rebab-Tiga_tali_%28cropped%29.png
 youtube_ids: r7_uR-kdJR0 VnXi6RMY1YE
 ---
+
 ## 介紹
 
 熱巴普（阿拉伯語：ربابة，rabāba，拼寫方式眾多，包括rebap、rubob、rebeb、rababa、rabeba、robab、rubab、rebob等）是指多種相關弦樂器的總稱。這些樂器通過伊斯蘭貿易路線獨立傳播，遍及北非、中東、中亞、東南亞以及歐洲的部分地區。該樂器通常是用弓拉奏的，但有時也會被彈撥。它是已知最古老的弓奏樂器之一，命名時間不晚於八世紀，也是許多弓奏及弦樂器的祖先。

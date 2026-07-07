@@ -1,19 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/dhantal/
-title: 丹塔爾鼓
-original_name: Dhantal
-category: 打擊樂器
-country: 加勒比海地區
-era: 傳統／年代待考
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 丹塔爾鼓
+title_original: Dhantal
+family_std: 鼓皮與鼓類家族
+sound_hs: 待確認
+playing_method: 敲奏／拍奏／搖奏／刮奏（待細分）
+interface_tags: 弓
+region_culture: 加勒比海地區｜單一地區／文化圈
+listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/dhantal/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Dhantal.svg/500px-Dhantal.svg.png
-region_type: 單一地區／文化圈
-soundscape: 手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
-body_listening: 手腕、腳踝、短音、節奏對齊
 youtube_ids: IZc911eG1vQ CYFHUZhsHIc
-instrument_key: 無固定調性
-range: 中高頻至高頻範圍
 ---
+
 ## 介紹
 
 丹塔爾鼓（dandtal）是一種長型鋼棒打擊樂器（音色類似三角鐵），改編自鐵製「弓形物」，這些弓形物原本是用來給牛軛牲口拉動蓋亞那、蘇利南、千里達及托巴哥、加勒比海其他地區和斐濟莊園的車輛。原始的敲棒（稱為kartaal/taali）是實際的馬蹄鐵，而這種形狀在現代丹塔爾鼓的敲棒上仍然保留著。

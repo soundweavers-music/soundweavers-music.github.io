@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/tzouras/
-title: 齊塔拉琴
-original_name: Tzouras
-category: 弦樂器
-country: 歐洲／希臘
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Tzouras.jpg/500px-Tzouras.jpg
-sound_class: 弦鳴
-range: 約2個8度
-instrument_key: D大調
-hs_class: 321/322 魯特琴類／撥弦
-family: 魯特琴、短頸長頸撥弦與民謠弦聲
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 齊塔拉琴
+title_original: Tzouras
+family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
+sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
 playing_method: 撥弦／刷弦／撥片
-body_listening: 懷抱、手指、腳步、敘事
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 跨文化／多地
+interface_tags: 撥片
+region_culture: 歐洲／希臘
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/tzouras/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Tzouras.jpg/500px-Tzouras.jpg
 youtube_ids: VH8Pg5_sq3U B0e4lhsCKNw
 ---
+
 ## 介紹
 
 齊塔拉琴（希臘語：τζουράς）是一種與布祖基琴相關的希臘弦樂器。其名稱源自土耳其的庫拉琴。它有六弦和八弦兩種規格。土耳其文化中類似的樂器通常被稱為巴格拉瑪琴。六弦型號的弦列排列和音高與六弦（三音組）布祖基琴相同。共有三對弦，調音為D3D4–A3A3–D4D4或D4D3–A3A3–D4D4。琴弦由鋼製成。

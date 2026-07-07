@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/simsimiyya/
-title: 西姆西米亞琴
-original_name: Simsimiyya
-category: 弦樂器
-country: 埃及／紅海沿岸
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Joueur_de_Simsimiyya_%28Institut_du_Monde_Arabe%2C_Paris%29_%288237760204%29.jpg/500px-Joueur_de_Simsimiyya_%28Institut_du_Monde_Arabe%2C_Paris%29_%288237760204%29.jpg
-sound_class: 弦鳴
-range: 中音至中高音區（約2個8度）
-instrument_key: 無固定調性
-hs_class: Chordophone／弦鳴樂器
-family: 里拉琴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 豎琴、里拉與開放弦
+title_zh: 西姆西米亞琴
+title_original: Simsimiyya
+family_std: 里拉琴
+sound_hs: Chordophone／弦鳴樂器
 playing_method: 撥奏
-body_listening: 港口歌唱、開放弦、群體合唱
-soundscape: 開放弦的天空與河流（豎琴、里拉與開放弦樂器）
-region_type: 區域／港口文化
+interface_tags: 
+region_culture: 埃及／紅海沿岸｜區域／港口文化
+listening_sound_tags: 港口歌唱、開放弦、群體合唱｜開放弦的天空與河流（豎琴、里拉與開放弦樂器）
+ensemble_links: 
+verification_status: 已整併主項
+issue_note: 重複已整併；保留本列為主項；已整併第125項。；主項保留；被整併列第125項以紅字刪除線保留供人工審核。；MERGED-663: 併入列 125
+source_url: https://soundweavers-music.github.io/instruments/simsimiyya/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Joueur_de_Simsimiyya_%28Institut_du_Monde_Arabe%2C_Paris%29_%288237760204%29.jpg/500px-Joueur_de_Simsimiyya_%28Institut_du_Monde_Arabe%2C_Paris%29_%288237760204%29.jpg
 youtube_ids: 5RTFLpmSMVA OSavg0aDscE
 ---
+
 ## 介紹
 
 西姆西米亞琴（阿拉伯語：سمسمية或سنسمية simsimyya/sinsimiyya；複數形式：simsimiyyāt/sinsimiyyāt，سمسميات）是埃及使用的一種箱形或碗形豎琴。該樂器存在圓形音箱和矩形音箱兩種型號。過去，埃及型號有5根琴弦。琴弦由琴栓固定，而不是用調音環。如今，埃及的樂器圖像可能顯示有12根琴弦。該樂器自古代以來就被演奏。在埃及，它被用於某些埃及音樂風格中，包括薩瓦赫利音樂（海岸音樂），這是一種來自該國北海岸的流行埃及音樂類型。

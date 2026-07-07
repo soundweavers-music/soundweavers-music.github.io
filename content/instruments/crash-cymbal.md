@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/crash-cymbal/
-title: 碎音鈸
-original_name: Crash cymbal
-category: 打擊樂器
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
+title_zh: 碎音鈸
+title_original: Crash cymbal
+family_std: 體鳴打擊樂器類
+sound_hs: 1 体鳴樂器
 playing_method: 敲擊／搖晃／撥彈
-family: 體鳴打擊樂器類
-hs_class: 1 体鳴樂器
-sound_class: 体鳴
-country: 歐洲
-era: 傳統／年代待考
-region_type: 地區／文化圈
-soundscape: 手邊發光的小宇宙（近身體鳴、舌片琴與手奏金屬共鳴）
-body_listening: 指尖、掌心、尾音、近身聆聽
+interface_tags: 
+region_culture: 歐洲｜地區／文化圈
+listening_sound_tags: 指尖、掌心、尾音、近身聆聽｜手邊發光的小宇宙（近身體鳴、舌片琴與手奏金屬共鳴）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/crash-cymbal/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Drum_kit_parts.png/500px-Drum_kit_parts.png
 youtube_ids: 45ymesKyG5w CHwJ3kJLC-E
-instrument_key: 無固定調性
-range: 高頻區間（約2-4kHz以上）
 ---
+
 ## 介紹
 
 碎音鈸（英語：crash cymbal）是一種可以產生大聲的，尖銳的「碎音」的鈸。主要用作產生偶爾的重音，而不是用作固定音型。它們可以安裝在支架上，並用鼓棍，或通過雙手敲打發聲。鼓組的標準部分包括一個或兩個碎音鈸。懸掛的碎音鈸也用於樂隊和管弦樂隊，可以用一根鼓棍演奏或用一對鼓棍急速重覆地敲打以產生更慢，更鬆弛的聲音。有時鼓手可能同時擊打兩個不同的碎音鈸，以產生非常響亮的重音，通常搖滾音樂在碎音鈸中會利用這個演奏方法。 雖然碎音鈸的厚度範圍從紙薄到非常重，但所有碎音鈸都有相當薄的邊緣。它們的直徑通常為14至18英寸（36至46厘米），但亦有特別製造的尺寸可達8英寸（20厘米），最大可達24英寸（61厘米）。大型樂隊會使用直徑達28英寸（71厘米）的定製碎音鈸。不同種類的音樂使用不同的厚度的碎音鈸，每個製造商的碎音鈸的形成合金各不相同。金屬或搖滾樂隊可能使用厚鈸，而較輕的鈸通常用於較輕的搖滾音樂。較暗的碎音鈸最適合用於爵士樂。 撞擊的聲音因其光澤而改變。一個光滑的鈸形成一種清脆的聲音，而一個顯示氧化跡象的鈸（稱為「原始」鈸）會產生較暗的聲音。 通常情況下，兩個碎音鈸最適合鼓組; 一個16英寸和一個更大的。

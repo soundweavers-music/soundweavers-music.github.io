@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/wurlitzer/
-title: 武利澤電鋼琴
-original_name: Wurlitzer
-category: 鍵盤樂器
-country: 美洲／北美
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Rudolph_Wurlitzer_label.jpg/500px-Rudolph_Wurlitzer_label.jpg
-sound_class: 鍵盤／電鳴／機械混合
-range: 約3個8度
-instrument_key: 全調性
-hs_class: 412/31/52 鍵盤、自由簧、電鳴與機械介面
-family: 鍵盤介面、風箱、電子與取樣
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 取樣與磁帶
+title_zh: 武利澤電鋼琴
+title_original: Wurlitzer
+family_std: 鍵盤介面、風箱、電子與取樣
+sound_hs: 鍵盤／電鳴／機械混合｜412/31/52 鍵盤、自由簧、電鳴與機械介面
 playing_method: 按鍵／風箱／電控／取樣
-body_listening: 手指、機械距離、記憶、電聲
-soundscape: 按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
-region_type: 跨文化／多地
+interface_tags: 鍵盤／按鍵、風箱
+region_culture: 美洲／北美
+listening_sound_tags: 手指、機械距離、記憶、電聲｜按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/wurlitzer/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Rudolph_Wurlitzer_label.jpg/500px-Rudolph_Wurlitzer_label.jpg
 youtube_ids: I2S72eajLzw hBrKJydx3Dw
 ---
+
 ## 介紹
 
 魯道夫·武利澤公司（通常簡稱為武利澤公司）是一家美國公司，由德國移民（弗朗茲）魯道夫·武利澤於1853年在辛辛那提創辦。該公司最初從德國進口弦樂器、木管樂器和銅管樂器，用於在美國轉售。武利澤公司初期取得了成功，主要得益於向美國軍方提供樂器的國防合同。1880年，該公司開始製造鋼琴，並最終遷至紐約州北托納瓦達。

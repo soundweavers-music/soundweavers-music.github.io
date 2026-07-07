@@ -1,19 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/agung/
-title: 阿貢鑼
-original_name: Agung
-category: 打擊樂器
-country: 菲律賓
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-body_listening: 材料、回聲、群體分工、音列
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
+title_zh: 阿貢鑼
+title_original: Agung
+family_std: 鑼鐘與金屬敲擊家族
+sound_hs: 待確認
+playing_method: 敲奏／拍奏／搖奏／刮奏（待細分）
+interface_tags: 
+region_culture: 菲律賓｜單一地區／文化圈
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/agung/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Agung_08.jpg/500px-Agung_08.jpg
 youtube_ids: pZK3K6f6obQ 7b7iDVjvxPs
-instrument_key: 無固定調性
-range: 中高音域（約2個8度）
 ---
+
 ## 介紹
 
 阿貢鑼又稱為阿貢，為盛行於亞洲菲律賓地區的傳統民俗樂器，樣式類似打擊樂器的鑼，特徵是兩邊框很高。阿貢鑼使用棒子敲打，也常與班底爾大鑼、甘頂甘鑼和園柱形的達馬甘鼓搭配演出，形成了強烈的音色對比。

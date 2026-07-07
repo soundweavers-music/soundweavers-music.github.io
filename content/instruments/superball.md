@@ -1,18 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/superball/
-title: 超級彈力球
-original_name: Superball
-category: 打擊樂器
-country: 美洲／北美
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
-body_listening: 手腕、腳踝、短音、節奏對齊
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 沙鈴、刮器與小打擊
+title_zh: 超級彈力球
+title_original: Superball
+family_std: 沙鈴、刮器與小打擊家族
+sound_hs: 待確認
+playing_method: 敲奏／拍奏／搖奏／刮奏（待細分）
+interface_tags: 
+region_culture: 美洲／北美｜單一地區／文化圈
+listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/superball/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Glitter_Super_Ball.jpg/500px-Glitter_Super_Ball.jpg
 youtube_ids: HjBo--1n8lI c9cUytejf1k
-instrument_key: 無固定調性
-range: 高頻域（約2個8度）
 ---
+
 ## 介紹
 
 超級彈力球（Super Ball或Superball）是一種玩具彈跳球，基於1964年由化學家諾曼·斯汀利（Norman Stingley）發明的一種合成橡膠。它是由名為Zectron的材料製成的極具彈性的球，該材料含有合成聚合物聚丁二烯以及水合二氧化矽、氧化鋅、硬脂酸和其他成分。這種化合物在165°C（329°F）的溫度下用硫進行硫化，並在3,500 psi（24 MPa）的壓力下成型。

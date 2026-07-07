@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/extended-range-classical-guitar/
-title: 擴充套件音域古典吉他
-original_name: Extended-range classical guitar
-category: 弦樂器
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 電聲改造樂器
+title_zh: 擴充套件音域古典吉他
+title_original: Extended-range classical guitar
+family_std: 弦樂器類
+sound_hs: 3 弦鳴樂器
 playing_method: 撥弦／擦弦／擊弦
-family: 弦樂器類
-hs_class: 3 弦鳴樂器
-sound_class: 弦鳴
-country: 歐洲／西班牙
-era: 傳統／年代待考
-region_type: 跨文化／多地
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-body_listening: 懷抱、手指、腳步、敘事
+interface_tags: 
+region_culture: 歐洲／西班牙
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 移入第13類
+issue_note: 現代電子／取樣；屬現代電子、取樣、電聲或電氣化鍵盤／設備類，應集中到第13類。；移第13類，並與傳統鍵盤／風箱類分開。
+source_url: https://soundweavers-music.github.io/instruments/extended-range-classical-gui...
 image: https://upload.wikimedia.org/wikipedia/commons/0/0b/JME_ten_string_guitar.jpg
 youtube_ids: CaGmtFJLRxk sX6dztgef4s
-instrument_key: 全調性
-range: C0–E6（約6個8度）
 ---
+
 ## 介紹
 
 擴展音域古典吉他是指具有超過六條弦的尼龍弦或腸弦古典吉他，其中額外增加的弦跨過指板，使其可以用手指"按弦"或在品格上彈奏。這類吉他也被稱為擴展音域吉他，不應與豎琴吉他混淆（豎琴吉他的增加弦不跨過指板）。

@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/nose-flute/
-title: 鼻笛
-original_name: Nose Flute
-category: 管樂器
-country: 大洋洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/b/b3/NoseFlute.jpg
-sound_class: 氣鳴
-range: 約1至2個八度
-instrument_key: 無固定調性
-hs_class: 421 邊棱氣鳴／無簧笛類
-family: 無簧吹管、長音與氣息樂器
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 簧片樂器
+title_zh: 鼻笛
+title_original: Nose Flute
+family_std: 無簧吹管、長音與氣息樂器
+sound_hs: 421 邊棱氣鳴／無簧笛類
 playing_method: 吹奏／端吹／橫吹／容器共鳴
-body_listening: 氣息、胸腔、長音、空間
-soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 大洋洲
+listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/nose-flute/
+image: https://upload.wikimedia.org/wikipedia/commons/b/b3/NoseFlute.jpg
 youtube_ids: nOQuo_44unA 3kC3oy6utss
 ---
+
 ## 介紹
 
 鼻笛是一種起源於太平洋島嶼地區的管樂器，通過鼻腔吹奏產生聲音。樂器呈細長管狀，通常長15至20公分，一端有吹口，另一端開放。其最獨特之處在於利用鼻腔共鳴發聲，音色溫潤柔和、帶有輕微鼻音色彩。鼻笛在波里尼西亞和美拉尼西亞文明中用於宗教祭祀、社交聚會和娛樂，十九世紀傳入歐洲後成為維多利亞時代的流行家庭樂器，適合親密而內斂的音樂表現。

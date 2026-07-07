@@ -1,19 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/dabakan/
-title: 達巴幹鼓
-original_name: Dabakan
-category: 打擊樂器
-country: 菲律賓
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-body_listening: 手掌、腳底、低音、舞步
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 達巴幹鼓
+title_original: Dabakan
+family_std: 鼓皮與鼓類家族
+sound_hs: 待確認
+playing_method: 敲奏／拍奏／搖奏／刮奏（待細分）
+interface_tags: 
+region_culture: 菲律賓｜單一地區／文化圈
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/dabakan/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Dabakan_2.jpg/500px-Dabakan_2.jpg
 youtube_ids: Czh1oqx0Bpw 7b7iDVjvxPs
-instrument_key: 無固定調性
-range: 約1個8度（低頻區域）
 ---
+
 ## 介紹
 
 達巴干鼓是一種單面鼓，來自菲律賓，主要用作庫林當樂器合奏中的輔助樂器。在五種主要的庫林當樂器中，它是馬京達瑙樂隊中唯一的非鑼樂器。

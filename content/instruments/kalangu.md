@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/kalangu/
-title: 卡朗古鼓
-original_name: Kalangu
-category: 打擊樂器
-country: 非洲／中東／亞洲／歐洲／美洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/TalkingDrum.jpg/500px-TalkingDrum.jpg
-sound_class: 膜鳴
-range: 約2個8度（可模仿人類語音音域）
-instrument_key: 無固定調性
-hs_class: 21 膜鳴鼓類
-family: 膜鳴鼓類、框鼓、杯鼓與鼓組
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 卡朗古鼓
+title_original: Kalangu
+family_std: 膜鳴鼓類、框鼓、杯鼓與鼓組
+sound_hs: 21 膜鳴鼓類
 playing_method: 手拍／槌擊／皮膜振動
-body_listening: 手掌、腳底、低音、舞步
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-region_type: 地區／文化圈
+interface_tags: 
+region_culture: 非洲／中東／亞洲／歐洲／美洲｜地區／文化圈
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/kalangu/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/TalkingDrum.jpg/500px-TalkingDrum.jpg
 youtube_ids: J7GlZ6TmMXE 0qqFfECpoK0
 ---
+
 ## 介紹
 
 卡朗古鼓是一種沙漏形的西非鼓，可以通過調節其音高和節奏來模仿人類語音的音調和韻律，從而用作言語替代形式。它有兩個鼓面，由皮革張力繩連接。通常在夾於腋下時演奏。演奏者可以通過拉緊和放鬆臂部和身體之間的繩索來改變鼓的音高。卡朗古鼓起源於18世紀，演奏者使用音調來傳播消息，如儀式新聞和命令，距離可達4至5英里（6.4至8.0公里）。

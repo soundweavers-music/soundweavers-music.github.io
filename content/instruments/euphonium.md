@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/euphonium/
-title: 上低音號
-original_name: Euphonium
-category: 管樂器
-country: 歐洲／德國
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Euphonium_Boosey_and_hawkes.jpg/500px-Euphonium_Boosey_and_hawkes.jpg
-sound_class: 氣鳴
-range: B1–F5（約3個半8度）
-instrument_key: 降B大調
-hs_class: 423 唇振氣鳴／號角與銅管
-family: 唇振氣鳴、天然號角與銅管
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 電聲改造樂器
+title_zh: 上低音號
+title_original: Euphonium
+family_std: 唇振氣鳴、天然號角與銅管
+sound_hs: 423 唇振氣鳴／號角與銅管
 playing_method: 唇振吹奏
-body_listening: 嘴唇、遠方、召喚、空間方向
-soundscape: 吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 歐洲／德國
+listening_sound_tags: 嘴唇、遠方、召喚、空間方向｜吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
+ensemble_links: 管弦樂團
+verification_status: 移入第13類
+issue_note: 現代電子／取樣；屬現代電子、取樣、電聲或電氣化鍵盤／設備類，應集中到第13類。；移第13類，並與傳統鍵盤／風箱類分開。
+source_url: https://soundweavers-music.github.io/instruments/euphonium/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Euphonium_Boosey_and_hawkes.jpg/500px-Euphonium_Boosey_and_hawkes.jpg
 youtube_ids: CCTeSjpDsIs lMl0kxzf4YU
 ---
+
 ## 介紹
 
 上低音號泛指為一群音域與長號相同，但具有三個以上按鍵的銅管樂器，一般由黃銅、磷銅等製成，常見於管樂團編制中，初學者大多都用低音譜，只有少數才用高音譜。 上低音號形狀比低音號小一些，音域和次中音長號相同，比低音號高八度，比小號低八度。上低音號一般是指粗管上低音號（Euphonium）、華格納低音號（Wagner tuba）、和細管上低音號（Baritone），廣義上亦包括按鍵長號、蛇號、低音小號和低音薩克號。 在台灣常習慣稱為「巴里東」（Baritone），但實際上樂團編制通常只有粗管上低音號（Euphonium）。中國大陸一般所稱「小低音號」是指粗管上低音號，細管上低音號則另外稱為次中音號。

@@ -1,19 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/kouxian/
-title: 口弦
-original_name: Kouxian
-category: 打擊樂器
-country: 中國
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 手邊發光的小宇宙（近身體鳴、舌片琴與手奏金屬共鳴）
-body_listening: 指尖、掌心、尾音、近身聆聽
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 口弦
+title_original: Kouxian
+family_std: 撥弦與抱持弦樂家族
+sound_hs: 待確認
+playing_method: 撥奏／擦奏／擊弦（待細分）
+interface_tags: 
+region_culture: 中國｜單一地區／文化圈
+listening_sound_tags: 指尖、掌心、尾音、近身聆聽｜手邊發光的小宇宙（近身體鳴、舌片琴與手奏金屬共鳴）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/kouxian/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/5_Leaf_Kouxian.jpg/500px-5_Leaf_Kouxian.jpg
 youtube_ids: Br-0gYtT-s0 M9PltC5awOM
-instrument_key: 無固定調性
-range: 中高音區（約2個8度）
 ---
+
 ## 介紹
 
 Kouxian (Chinese: 口弦; pinyin: kǒuxián; lit. 'mouth string') is a general Chinese term for any variety of jaw harp. The jaw harp is a plucked idiophone in which the lamella is mounted in a small frame, and the player's open mouth serves as a resonance chamber. Chinese jaw harps may comprise multiple idiophones that are lashed together at one end and spread in a fan formation. They may be made from bamboo or a metal alloy, such as brass. Modern kouxian with three or more idiophones might be tuned to the first few tones of the minor pentatonic scale. The jaw harp likely originated in Asia.

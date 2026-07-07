@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/buhai/
-title: 布海鼓
-original_name: Buhai
-category: 打擊樂器
-country: 羅馬尼亞
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/P%C3%A2r%C3%A2ul_%C8%99i_Podul_Buhai.jpg/500px-P%C3%A2r%C3%A2ul_%C8%99i_Podul_Buhai.jpg
-sound_class: 膜鳴
-range: 約1至2個8度（低音域）
-instrument_key: 無固定調性
-hs_class: Membranophone／膜鳴樂器
-family: 摩擦鼓
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 布海鼓
+title_original: Buhai
+family_std: 摩擦鼓
+sound_hs: Membranophone／膜鳴樂器
 playing_method: 摩擦發聲
-body_listening: 低鳴、冬季儀式、動物般的吼聲
-soundscape: 皮膜敲醒的地心脈動（膜鳴鼓類、框鼓、杯鼓與鼓組）
-region_type: 單一地區／文化圈
+interface_tags: 
+region_culture: 羅馬尼亞｜單一地區／文化圈
+listening_sound_tags: 低鳴、冬季儀式、動物般的吼聲｜皮膜敲醒的地心脈動（膜鳴鼓類、框鼓、杯鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/buhai/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/P%C3%A2r%C3%A2ul_%C8%99i_Podul_Buhai.jpg/500px-P%C3%A2r%C3%A2ul_%C8%99i_Podul_Buhai.jpg
 youtube_ids: NVOtE1qSymU 7OTqIPpJlss
 ---
+
 ## 介紹
 
 布海河是羅馬尼亞吉吉亞河的右支流。它在多羅霍伊市附近注入吉吉亞河。其長度為18公里（11英里），流域面積為134平方公里（52平方英里）。

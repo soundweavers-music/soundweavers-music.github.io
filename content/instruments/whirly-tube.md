@@ -1,19 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/whirly-tube/
-title: 旋轉管
-original_name: Whirly tube
-category: 管樂器
-country: 美洲／北美
-era: 傳統／年代待考
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 旋轉管
+title_original: Whirly tube
+family_std: 無簧吹管家族
+sound_hs: 待確認
+playing_method: 吹奏
+interface_tags: 
+region_culture: 美洲／北美
+listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/whirly-tube/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Whirlytube.png/500px-Whirlytube.png
-region_type: 跨文化／多地
-soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
-body_listening: 氣息、胸腔、長音、空間
 youtube_ids: eCOZxzO3FvE EAaMXj2Q4ls
-instrument_key: 無固定調性
-range: 低沉嗡鳴音至高尖銳聲（約2-3個8度）
 ---
+
 ## 介紹
 
 旋轉管（whirly tube）、波紋管樂器（corrugaphone）或布格諾共鳴器（bloogle resonator），在1960年代至1970年代也曾以Free-Ka之名販售，是一種實驗性樂器。它由波紋狀（有肋紋）的塑膠管或軟管（中空柔性圓筒）組成，兩端開放，可能一端較寬呈喇叭狀。演奏時需將較細的一端在空中旋轉成圓形。樂器長度通常為數英尺，寬度約為數英寸。

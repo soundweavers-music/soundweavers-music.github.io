@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/tremoloa/
-title: 特莫洛亞琴
-original_name: Tremoloa
-category: 鍵盤樂器
-country: 亞洲／歐洲／全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/TremoloaEscanabaMichigan.jpg/500px-TremoloaEscanabaMichigan.jpg
-sound_class: 弦鳴
-range: 約3個8度
-instrument_key: 全調性
-hs_class: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
-family: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+class_code: A9
+frontend_class: 待分類／偵錯暫存
+subcategory: 待確認
+title_zh: 特莫洛亞琴
+title_original: Tremoloa
+family_std: 待確認
+sound_hs: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
 playing_method: 撥弦／擊弦／按鍵擊弦
-body_listening: 手掌、弦面、推音、敲擊
-soundscape: 平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
-region_type: 跨文化／多地
+interface_tags: 鍵盤／按鍵
+region_culture: 亞洲／歐洲／全球
+listening_sound_tags: 手掌、弦面、推音、敲擊｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
+ensemble_links: 
+verification_status: 已整併，建議刪除
+issue_note: 完全重複／被整併；Tárogató／Tarogato 是同一樂器的重音符號差異；保留帶重音符號的主名。 本列併入第735項。；刪除本列；資料併入第735項。；MERGED-735: 被併入第735項
+source_url: https://soundweavers-music.github.io/instruments/tremoloa/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/TremoloaEscanabaMichigan.jpg/500px-TremoloaEscanabaMichigan.jpg
 youtube_ids: GT49qjTkxGc Ufrz_IVR3Ac
 ---
+
 ## 介紹
 
 特莫洛亞琴（複數形為特莫洛亞琴）是一種弦樂器，屬於無品齊特琴家族。它是在1920年代夏威夷音樂迅速流行的背景下，在美國製造的，並一直生產到1950年代。音樂團體破碎社交場景（Broken Social Scene）在歌曲《特莫洛亞琴首秀》中採用了這種樂器。該樂器也零星出現在磁場樂隊（The Magnetic Fields）的專輯《69首情歌》中。

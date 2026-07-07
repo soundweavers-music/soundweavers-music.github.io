@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/harp/
-title: 豎琴
-original_name: Harp
-category: 弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 豎琴
+title_original: Harp
+family_std: 弦樂器類
+sound_hs: 3 弦鳴樂器
 playing_method: 撥弦／擦弦／擊弦
-family: 弦樂器類
-hs_class: 3 弦鳴樂器
-sound_class: 弦鳴
-country: 全球／多地
-era: 古代
-region_type: 單一地區／文化圈
-soundscape: 開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
-body_listening: 循環、河流感、開放弦、吟唱
+interface_tags: 
+region_culture: 全球／多地｜單一地區／文化圈
+listening_sound_tags: 循環、河流感、開放弦、吟唱｜開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
+ensemble_links: 管弦樂團
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/harp/
 image: https://upload.wikimedia.org/wikipedia/commons/4/4e/Harp.png
 youtube_ids: dCvEgqePl84 iCbQuajzShs
-instrument_key: 全調性
-range: 約五個八度以上
 ---
+
 ## 介紹
 
 豎琴，是一種大型撥弦樂器，是現代管弦樂團的重要樂器之一。豎琴可作獨奏、重奏和合奏，屬多功能的複音樂器。其流傳地區甚廣，在歐洲、美洲和亞洲等地區亦有出現豎琴類的樂器。豎琴在古埃及稱為貝尼琴，古希臘和古羅馬稱為里拉琴，中國又有一種稱之為箜篌的豎琴。

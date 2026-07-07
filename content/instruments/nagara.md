@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/nagara/
-title: 納加拉鼓
-original_name: Nagara
-category: 打擊樂器
-country: 中東
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/8/8e/%D0%97%D1%83%D1%80%D0%BD%D0%B0_%D0%B3%D0%BE%D1%88%D0%B0_%D0%BD%D0%B0%D0%B3%D0%B0%D1%80%D0%B0_%D0%BD%D0%B0%D0%B3%D0%B0%D1%80%D0%B0.jpg
-sound_class: 膜鳴
-range: 約2個8度（音域偏高）
-instrument_key: 無固定調性
-hs_class: 21 膜鳴鼓類
-family: 膜鳴鼓類、框鼓、杯鼓與鼓組
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 納加拉鼓
+title_original: Nagara
+family_std: 膜鳴鼓類、框鼓、杯鼓與鼓組
+sound_hs: 21 膜鳴鼓類
 playing_method: 手拍／槌擊／皮膜振動
-body_listening: 手掌、腳底、低音、舞步
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 中東
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/nagara/
+image: https://upload.wikimedia.org/wikipedia/commons/8/8e/%D0%97%D1%83%D1%80%D0%BD%D0%B0_%D0%B3%D0%BE%D1%88%D0%B0_%D0%BD%D0%B0%D0%B3%D0%B0%D1%80%D0%B0_%D0%BD%D0%B0%D0%B3%D0%B0%D1%80%D0%B0.jpg
 youtube_ids: zX2PJ25i1kc T_Iil2ntHZA
 ---
+
 ## 介紹
 
 納加拉鼓是一種起源於中東和南亞的古老雙面打擊樂器，由銅或木製的半球形共鳴體與膜面組成。其名稱源自阿拉伯語「Naqqāra」，意為用槌敲打的鼓。這種樂器在中世紀伊斯蘭帝國時期廣泛使用，特別是在奧斯曼帝國軍樂隊中扮演重要角色。納加拉鼓音色明亮清脆，具有穿透力強的特點，高頻泛音豐富，敲擊時能發出鏗鏘有力的聲響，在樂隊中常作為節奏骨幹與音色點綴的雙重角色。

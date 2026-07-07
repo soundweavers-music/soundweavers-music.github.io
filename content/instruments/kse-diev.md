@@ -1,19 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/kse-diev/
-title: 克塞迪耶夫
-original_name: Kse diev
-category: 打擊樂器
-country: 柬埔寨／東南亞
-era: 傳統／年代待考
-region_type: 地區／文化圈
-soundscape: 平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化弦鳴）
-body_listening: 手掌、弦面、推音、敲擊
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 沙鈴、刮器與小打擊
+title_zh: 克塞迪耶夫
+title_original: Kse diev
+family_std: 沙鈴、刮器與小打擊家族
+sound_hs: 待確認
+playing_method: 敲奏／拍奏／搖奏／刮奏（待細分）
+interface_tags: 
+region_culture: 柬埔寨／東南亞｜地區／文化圈
+listening_sound_tags: 手掌、弦面、推音、敲擊｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化弦鳴）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/kse-diev/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Yoeun_Mek_tries_kse_diev_2001.jpg/500px-Yoeun_Mek_tries_kse_diev_2001.jpg
 youtube_ids: sGrNEeLLCk4 3lTfcBvwIkI
-instrument_key: 無固定調性
-range: 中高音區（約1個8度）
 ---
+
 ## 介紹
 
 克塞迪耶夫（高棉語：ខ្សែដៀវ）或克塞姆歡（高棉語：ខ្សែមួយ）是一種柬埔寨擊弦樂器，配有單根銅製或黃銅弦和葫蘆形共鳴箱。共鳴箱用尼龍繩與木棒相連，另一端開放。尼龍繩固定共鳴箱，並環繞銅弦形成一個迴路，將弦連接到木棒上。尼龍繩環的作用相當於吉他的琴枕，是弦振動發聲的起點。

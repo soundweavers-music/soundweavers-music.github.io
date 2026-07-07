@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/stroh-violin/
-title: 斯特羅小提琴
-original_name: Stroh Violin
-category: 弦樂器
-country: 歐洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Violon_de_jazz_a_pavillon.JPG/500px-Violon_de_jazz_a_pavillon.JPG
-sound_class: 弦鳴
-range: G3–E7（與普通小提琴相同，約3個半8度）
-instrument_key: 全調性
-hs_class: 321.3 擦弦／輪弦／提琴家族
-family: 擦弦、輪弦與提琴家族
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 擦弦、鍵控與輪弦
+title_zh: 斯特羅小提琴
+title_original: Stroh Violin
+family_std: 擦弦、輪弦與提琴家族
+sound_hs: 弦鳴｜321.3 擦弦／輪弦／提琴家族
 playing_method: 弓擦／輪擦
-body_listening: 胸口、嗓音、拉長的情緒
-soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
-region_type: 跨文化／多地
+interface_tags: 弓
+region_culture: 歐洲
+listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/stroh-violin/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Violon_de_jazz_a_pavillon.JPG/500px-Violon_de_jazz_a_pavillon.JPG
 youtube_ids: o8qFkYQJ0Sw _ibIpex2tKY
 ---
+
 ## 介紹
 
 斯特羅小提琴是一種特殊的弦樂器，由奧地利發明家約翰·馬蒂亞斯·斯特羅於1899年創製。其最顯著的特徵是在共鳴箱上安裝金屬喇叭，用以放大音量並改變音色。這款樂器專為適應早期留聲機錄音技術而設計，音色明亮刺激、富有金屬感，具有強大的穿透力。相比傳統小提琴，斯特羅小提琴的聲音更加尖銳有力，能在戶外或嘈雜環境中保持清晰度，廣泛應用於爵士樂、流行音樂的演奏。

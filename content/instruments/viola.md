@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/viola/
-title: 中提琴
-original_name: Viola
-category: 弦樂器
-country: 歐洲／義大利
-era: 18 世紀
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Bratsche.jpg/500px-Bratsche.jpg
-sound_class: 弦鳴
-range: C3–A5（約3個半8度）
-instrument_key: 全調性
-hs_class: 321.3 擦弦／輪弦／提琴家族
-family: 擦弦、輪弦與提琴家族
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 擦弦、鍵控與輪弦
+title_zh: 中提琴
+title_original: Viola
+family_std: 擦弦、輪弦與提琴家族
+sound_hs: 弦鳴｜321.3 擦弦／輪弦／提琴家族
 playing_method: 弓擦／輪擦
-body_listening: 胸口、嗓音、拉長的情緒
-soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
-region_type: 跨文化／多地
+interface_tags: 弓
+region_culture: 歐洲／義大利
+listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+ensemble_links: 管弦樂團
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/viola/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Bratsche.jpg/500px-Bratsche.jpg
 youtube_ids: -ICh9zhr87Y ZKxpRfybe1U
 ---
+
 ## 介紹
 
 中提琴（英語：Viola）是一種弓弦樂器，其音域比小提琴低完全五度。其空弦從低到高依序是c3-g3-d4-a4。音色相較於小提琴、大提琴顯得相對隱晦。平時使用中音譜記號（alto clef）記譜，高音域則使用高音譜記號。 在18世紀中葉之前，中提琴只在管弦樂團中使用。之後隨著弦樂四重奏的興盛，成為室內樂中不可或缺的樂器。但當作獨奏樂器使用則要一直到18世紀後半才開始普及。著名的中提琴獨奏曲有史塔密茲的D大調中提琴協奏曲，白遼士的《哈羅德在義大利》等。

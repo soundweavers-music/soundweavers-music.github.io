@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/flutes-with-duct/
-title: 有導管長笛
-original_name: Flutes with duct
-category: 弦樂器
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 有導管長笛
+title_original: Flutes with duct
+family_std: 弦樂器類
+sound_hs: 3 弦鳴樂器
 playing_method: 撥弦／擦弦／擊弦
-family: 弦樂器類
-hs_class: 3 弦鳴樂器
-sound_class: 弦鳴
-country: 全球／多地
-era: 傳統／年代待考
-region_type: 跨文化／多地
-soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
-body_listening: 氣息、胸腔、長音、空間
+interface_tags: 
+region_culture: 全球／多地
+listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/flutes-with-duct/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Embouchure_fipple_flute.jpg/500px-Embouchure_fipple_flute.jpg
 youtube_ids: 4SyQSRMe5Ho u-getBrwvVo
-instrument_key: 全調性
-range: 中高音域（約2個8度）
 ---
+
 ## 介紹
 
 「導管」一詞指稱一類包括小號笛、直笛和錫哨在內的吹口笛。霍恩博斯特爾-薩克斯樂器分類系統將這一組樂器歸類在「有導管長笛」的標題下。「導管笛」的標籤經常被應用於該亞群的成員，但對於構成導管本身的發聲機制的結構細節，目前還沒有普遍共識。

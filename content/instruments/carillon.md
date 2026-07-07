@@ -1,19 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/carillon/
-title: 鐘琴 (銅鐘)
-original_name: Carillon
-category: 鍵盤樂器
-country: 中國
-era: 16 世紀
-region_type: 單一地區／文化圈
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-body_listening: 材料、回聲、群體分工、音列
+class_code: A9
+frontend_class: 待分類／偵錯暫存
+subcategory: 待確認
+title_zh: 鐘琴 (銅鐘)
+title_original: Carillon
+family_std: 待確認
+sound_hs: 待確認
+playing_method: 待確認
+interface_tags: 鍵盤／按鍵
+region_culture: 中國｜單一地區／文化圈
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 已整併，建議刪除
+issue_note: 完全重複／被整併；Burmese Saung 與 Saung Gauk 指同一緬甸豎琴；保留較具體原名 Saung Gauk。 本列併入第663項。；刪除本列；資料併入第663項。；MERGED-663: 被併入第663項
+source_url: https://soundweavers-music.github.io/instruments/carillon/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Carillon_of_PeterAndPaulCathedral_1.JPG/500px-Carillon_of_PeterAndPaulCathedral_1.JPG
 youtube_ids: IvUU8joBb1Q VkRIMgTU7cA
-instrument_key: 全調性
-range: 約3至4個八度
 ---
+
 ## 介紹
 
 鐘琴（法語：carillon ，英語：carillon），是由不同音高的銅鐘構成的打擊樂器。在中國大陸，其中文名稱和一般在樂團中常見的鍵盤形排列的鐘琴（Glockenspiel）同名，但由於其普及性遠不及後者，因此不常被提及。 一套可供演奏用的鐘琴至少設有23個銅鐘。而鐘琴的銅鐘愈多，音域就愈廣。鐘琴通常安置於教堂和市政樓的鐘塔，或置於獨立的鐘塔內。鐘琴的琴鍵排列方法和一般的鍵盤樂器或有音高的敲擊樂器相同，但琴鍵是呈棍狀，並且是豎直呈垂直擺放，下層琴鍵為基本音；上層則為變化音，琴鍵通過連接著的配置，帶動末端的琴槌敲打銅鐘而發聲。演奏者可以運用握拳方式拍打鍵盤桿，或用腳踏控制低音大鐘的鍵盤。鐘琴是現存最重的樂器，大型鐘琴單計銅鐘的總重量已有一百噸。鐘琴最集中的地方是在歐洲的低地國家：荷蘭、比利時、法國北部。 有的鐘琴不安置在鐘塔內，而是可以搬動，甚至能作室內演奏，比如Frank Steijns的流動鐘琴。另外亦有利用機械裝置，令鐘琴可以在不使用演奏者的情況下自行演奏作品。例如以電腦控制、或是放入經過打孔的硬身卡紙，去控制每個銅鐘的開合。

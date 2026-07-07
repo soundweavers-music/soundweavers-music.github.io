@@ -1,18 +1,22 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/oopoochawa/
-title: Oopoochawa（暫譯）
-original_name: Oopoochawa
-category: 打擊樂器
-country: 非洲
-era: 古代
-region_type: 單一地區／文化圈
-soundscape: 手邊發光的小宇宙（近身體鳴、舌片琴與手奏金屬共鳴）
-body_listening: 指尖、掌心、尾音、近身聆聽
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 沙鈴、刮器與小打擊
+title_zh: Oopoochawa（暫譯）
+title_original: Oopoochawa
+family_std: 沙鈴、刮器與小打擊家族
+sound_hs: 待確認
+playing_method: 敲奏／拍奏／搖奏／刮奏（待細分）
+interface_tags: 
+region_culture: 非洲｜單一地區／文化圈
+listening_sound_tags: 指尖、掌心、尾音、近身聆聽｜手邊發光的小宇宙（近身體鳴、舌片琴與手奏金屬共鳴）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/oopoochawa/
 image: https://upload.wikimedia.org/wikipedia/commons/5/5e/TrebleKalimba.jpg
-instrument_key: 無固定調性
-range: 中高音區（約2個8度）
 ---
+
 ## 介紹
 
 簧片琴（也稱為層板琴或舌形琴）是樂器家族中的一員，其聲音是由一塊薄的振動板（稱為簧片或舌片）發出的。這塊板的一端被固定，另一端自由活動。當音樂家用手指或指甲按下自由端，然後讓手指滑開時，被釋放的簧片便會振動。樂器可能只有一根舌片（如猶太豎琴），也可能有多根舌片（如姆比拉拇指琴）。

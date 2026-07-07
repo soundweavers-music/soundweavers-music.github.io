@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/handbells/
-title: 手搖鈴
-original_name: Handbells
-category: 打擊樂器
-country: 歐洲／英國
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Lewis_Carroll_-_Henry_Holiday_-_Hunting_of_the_Snark_-_Plate_1.jpg/500px-Lewis_Carroll_-_Henry_Holiday_-_Hunting_of_the_Snark_-_Plate_1.jpg
-sound_class: 體鳴
-range: 中高音區（約2至3個8度）
-instrument_key: 全調性
-hs_class: 11/12 定音體鳴／鑼鐘木琴石琴系統
-family: 定音體鳴、材料敲擊與鑼鐘木琴系統
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 手搖鈴
+title_original: Handbells
+family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
+sound_hs: 11/12 定音體鳴／鑼鐘木琴石琴系統
 playing_method: 敲擊／搖奏／材料共鳴
-body_listening: 材料、回聲、群體分工、音列
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 歐洲／英國
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/handbells/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Lewis_Carroll_-_Henry_Holiday_-_Hunting_of_the_Snark_-_Plate_1.jpg/500px-Lewis_Carroll_-_Henry_Holiday_-_Hunting_of_the_Snark_-_Plate_1.jpg
 youtube_ids: b9fLRr9fi4A djOA-G-5MrY
 ---
+
 ## 介紹
 
 手搖鈴是一種設計用來以手搖動的鈴。要搖動手搖鈴，搖鈴者用手握住鈴的略微柔軟的手柄——傳統上由皮革製成，但現在經常由塑料製成——並移動手臂使鉸鏈式的舌頭撞擊鈴的內部。單個手搖鈴可以簡單地用作吸引人們注意或召喚他們聚集的信號，但手搖鈴也經常被聽到與調音組合一起使用。

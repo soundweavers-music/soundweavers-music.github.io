@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/party-horn/
-title: 派對號角
-original_name: Party horn
-category: 管樂器
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 號角與唇振
+title_zh: 派對號角
+title_original: Party horn
+family_std: 管樂器類
+sound_hs: 4 气鳴樂器
 playing_method: 吹奏
-family: 管樂器類
-hs_class: 4 气鳴樂器
-sound_class: 气鳴
-country: 歐洲
-era: 傳統／年代待考
-region_type: 跨文化／多地
-soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
-body_listening: 氣息、胸腔、長音、空間
+interface_tags: 
+region_culture: 歐洲
+listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/party-horn/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Party_Horn.jpg/500px-Party_Horn.jpg
 youtube_ids: VUYN96aKsbg OQi2RXX1ZTA
-instrument_key: 無固定調性
-range: 高頻噪音，約2000Hz以上
 ---
+
 ## 介紹
 
 派對號角（也稱為派對吹筒）是一種紙質噪音製造工具，當人們吹入時會展開並發出類似號角的聲音。派對號角通常在生日派對、跨年夜和其他慶祝活動中分發，以製造喜慶的噪音。英語中沒有單一一致的術語來稱呼它，不同地區採用了不同的新詞和變體，包含吹氣的同義詞（吹脹、吹出等）和擬聲詞（哨聲、尖叫聲等）。在其他幾種語言中，派對號角的術語翻譯為「婆婆的舌頭」（例如葡萄牙語的 língua de sogra）。

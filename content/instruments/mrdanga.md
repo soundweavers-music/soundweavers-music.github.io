@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/mrdanga/
-title: 姆爾丹加鼓
-original_name: Mrdanga
-category: 打擊樂器
-country: 非洲／中東／亞洲／歐洲／美洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Mridanga_1.jpg/500px-Mridanga_1.jpg
-sound_class: 膜鳴
-range: 約2個8度
-instrument_key: 無固定調性
-hs_class: 21 膜鳴鼓類
-family: 膜鳴鼓類、框鼓、杯鼓與鼓組
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 姆爾丹加鼓
+title_original: Mrdanga
+family_std: 膜鳴鼓類、框鼓、杯鼓與鼓組
+sound_hs: 21 膜鳴鼓類
 playing_method: 手拍／槌擊／皮膜振動
-body_listening: 手掌、腳底、低音、舞步
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-region_type: 地區／文化圈
+interface_tags: 
+region_culture: 非洲／中東／亞洲／歐洲／美洲｜地區／文化圈
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/mrdanga/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Mridanga_1.jpg/500px-Mridanga_1.jpg
 youtube_ids: DYEh5uXrL4w ehufN_Kyq_8
 ---
+
 ## 介紹
 
 庫爾鼓是一種用陶土製成的雙面鼓，在印度北部和東部地區用於伴奏虔誠音樂（巴克提音樂）。它也被稱為姆爾丹加鼓（源自梵文 mṛd + aṅga，字面意思為「黏土肢體」），不應與姆爾丹加姆混淆。它起源於印度的奧里薩邦、西孟加拉邦、阿薩姆邦和曼尼普爾邦。這種鼓用雙手的手掌和手指演奏。

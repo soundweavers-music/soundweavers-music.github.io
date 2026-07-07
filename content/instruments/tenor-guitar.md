@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/tenor-guitar/
-title: 次中音吉他
-original_name: Tenor guitar
-category: 弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 次中音吉他
+title_original: Tenor guitar
+family_std: 弦樂器類
+sound_hs: 3 弦鳴樂器
 playing_method: 撥弦／擦弦／擊弦
-family: 弦樂器類
-hs_class: 3 弦鳴樂器
-sound_class: 弦鳴
-country: 美國
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-body_listening: 懷抱、手指、腳步、敘事
+interface_tags: 
+region_culture: 美國｜單一地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/tenor-guitar/
 image: https://upload.wikimedia.org/wikipedia/commons/d/df/Item-tenor-guitar-503_lg.jpg
 youtube_ids: s9rOtdmtzJ4 XElNHYfiqiw
-instrument_key: 全調性
-range: 約2個8度
 ---
+
 ## 介紹
 
 次中音吉他或四弦吉他是鋼弦民謠吉他或電吉他的一種略小的四弦親戚樂器。這種樂器最初由吉普森和C.F. 馬丁公司以原聲形式開發，目的是讓四弦次中音班卓琴的演奏者可以兼彈吉他。

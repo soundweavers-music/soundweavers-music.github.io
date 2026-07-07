@@ -1,18 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/sound-board-music/
-title: 音板
-original_name: Sound board (music)
-category: 弦樂器
-country: 歐洲
-era: 傳統／年代待考
-region_type: 跨文化／多地
-soundscape: 平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化弦鳴）
-body_listening: 手掌、弦面、推音、敲擊
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 音板
+title_original: Sound board (music)
+family_std: 撥弦與抱持弦樂家族
+sound_hs: 待確認
+playing_method: 撥奏／擦奏／擊弦（待細分）
+interface_tags: 
+region_culture: 歐洲
+listening_sound_tags: 手掌、弦面、推音、敲擊｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化弦鳴）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/sound-board-music/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Resonance_Chladni_Soundboard_Harpsichord_Clavecin.jpg/500px-Resonance_Chladni_Soundboard_Harpsichord_Clavecin.jpg
 youtube_ids: xa17zHJhNhA 2awbKQ2DLRE
-instrument_key: 無固定調性
-range: 因樂器類型而異，吉他約3個半8度、鋼琴約7個半8度、小提琴約4個8度
 ---
+
 ## 介紹
 
 音板（或音響板）是弦樂器的表面，弦通過某種形式的琴橋在其上振動。根據樂器的不同，它也被稱為頂板、面板、共鳴器、琴台、音台或琴腹。它通常由軟木製成，常見的是雲杉。鋼琴、吉他、班卓琴和許多其他弦樂器都配有音板。音板和樂器內部的共鳴特性大大增加了振動弦的音量。

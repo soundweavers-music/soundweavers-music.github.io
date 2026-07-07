@@ -1,18 +1,22 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/daguangxian/
-title: 大廣弦
-original_name: Daguangxian
-category: 弦樂器
-country: 中國
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
-body_listening: 胸口、嗓音、拉長的情緒
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 大廣弦
+title_original: Daguangxian
+family_std: 撥弦與抱持弦樂家族
+sound_hs: 待確認
+playing_method: 撥奏／擦奏／擊弦（待細分）
+interface_tags: 
+region_culture: 中國｜單一地區／文化圈
+listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/daguangxian/
 youtube_ids: thqUc1bf8IU ddZILSJfRuk
-instrument_key: 全調性
-range: 約2個半8度
 ---
+
 ## 介紹
 
 大廣弦，在台灣、中國閩南（漳州、泉州、廈門）、潮汕（潮州、汕頭、揭陽、汕尾海陸豐，特別是陸豐）流行的中音胡琴類民族樂器，又寫做大管弦或大筒弦，琴筒的材質又讓它被叫做蘭投弦、藍投弦或林投弦。 簡稱廣弦、管弦或筒弦；蘭投、藍投或林投。

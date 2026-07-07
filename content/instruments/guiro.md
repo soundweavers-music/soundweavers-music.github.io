@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/guiro/
-title: 刮瓜
-original_name: Güiro
-category: 打擊樂器
-country: 非洲／美洲
-era: 古代
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/180_Museu_de_la_M%C3%BAsica%2C_el_Bosc.jpg/500px-180_Museu_de_la_M%C3%BAsica%2C_el_Bosc.jpg
-sound_class: 體鳴
-range: 中高頻範圍（約1個8度）
-instrument_key: 無固定調性
-hs_class: Idiophone／體鳴樂器
-family: 刮器與摩擦體鳴
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 沙鈴、刮器與小打擊
+title_zh: 刮瓜
+title_original: Güiro
+family_std: 刮器與摩擦體鳴
+sound_hs: Idiophone／體鳴樂器
 playing_method: 刮奏
-body_listening: 手腕、腳踝、短音、節奏對齊
-soundscape: 手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 非洲／美洲
+listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/guiro/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/180_Museu_de_la_M%C3%BAsica%2C_el_Bosc.jpg/500px-180_Museu_de_la_M%C3%BAsica%2C_el_Bosc.jpg
 youtube_ids: LTiwSVmR8ow bSItOIS0k5w
 ---
+
 ## 介紹
 
 刮瓜（西班牙語：güiro，台灣稱為「刮葫」或「刮壺」），屬於體鳴樂器（Idiophone）。源自波多黎各。巴西稱該樂器為「reco-reco」。

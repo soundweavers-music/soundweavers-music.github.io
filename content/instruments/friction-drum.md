@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/friction-drum/
-title: 摩擦鼓
-original_name: Friction drum
-category: 打擊樂器
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 摩擦鼓
+title_original: Friction drum
+family_std: 鼓類
+sound_hs: 2 膜鳴樂器
 playing_method: 敲擊鼓面
-family: 鼓類
-hs_class: 2 膜鳴樂器
-sound_class: 膜鳴
-country: 全球／多地
-era: 傳統／年代待考
-region_type: 跨文化／多地
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-body_listening: 手掌、腳底、低音、舞步
+interface_tags: 
+region_culture: 全球／多地
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/friction-drum/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Zambomba-Pe%C3%B1aAmigosCa%C3%B1izo-Jerez-P1010344.JPG/500px-Zambomba-Pe%C3%B1aAmigosCa%C3%B1izo-Jerez-P1010344.JPG
 youtube_ids: NVOtE1qSymU EMvh59EVfI0
-instrument_key: 無固定調性
-range: 低至中低頻段（約1-2個8度）
 ---
+
 ## 介紹
 
 摩擦鼓是一種在非洲、亞洲、歐洲和南美洲以各種形式出現的樂器。在歐洲，它出現於16世紀，並與特定的宗教和儀式場合相關聯。

@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/saxhorn/
-title: 薩克斯號
-original_name: Saxhorn
-category: 管樂器
-country: 全球／中東／歐洲／亞洲／高山與宗教文化圈
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Saxhornbasse.jpg/500px-Saxhornbasse.jpg
-sound_class: 氣鳴
-range: 約2.5至3個8度（因型號而異）
-instrument_key: 多調性（薩克斯號家族包含降B調、E調、降E調等多種調性樂器）
-hs_class: 423 唇振氣鳴／號角與銅管
-family: 唇振氣鳴、天然號角與銅管
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 號角與唇振
+title_zh: 薩克斯號
+title_original: Saxhorn
+family_std: 唇振氣鳴、天然號角與銅管
+sound_hs: 423 唇振氣鳴／號角與銅管
 playing_method: 唇振吹奏
-body_listening: 嘴唇、遠方、召喚、空間方向
-soundscape: 吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
-region_type: 跨文化／多地
+interface_tags: 活塞
+region_culture: 全球／中東／歐洲／亞洲／高山與宗教文化圈
+listening_sound_tags: 嘴唇、遠方、召喚、空間方向｜吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
+ensemble_links: 
+verification_status: 需調整
+issue_note: 名稱可保留／需區分；Roneat Ek 是柬埔寨木琴；與第636材質不同。；相鄰不合併。
+source_url: https://soundweavers-music.github.io/instruments/saxhorn/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Saxhornbasse.jpg/500px-Saxhornbasse.jpg
 youtube_ids: v62YjjV-Roo y6QpdhM5tAM
 ---
+
 ## 介紹
 
 薩克斯號是一個有活塞的銅管樂器家族，具有圓錐形的管身和深杯形的吹嘴。薩克斯號家族由阿道夫·薩克斯開發，他同時也以創造薩克斯風家族而聞名。薩克斯號的音色具有特有的柔和音質特徵，與其他銅管樂器的配合效果良好。

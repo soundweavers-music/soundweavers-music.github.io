@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/coconut-lamellophone/
-title: 椰子木琴
-original_name: Coconut Lamellophone
-category: 打擊樂器
-country: 全球／非洲／亞洲／現代療癒與街頭音樂
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/NLC511-023031103010001-77628_%E7%9B%9B%E4%BA%AC%E6%99%82%E5%A0%B1_%E7%AC%AC379%E5%8D%B7.pdf/page1-500px-NLC511-023031103010001-77628_%E7%9B%9B%E4%BA%AC%E6%99%82%E5%A0%B1_%E7%AC%AC379%E5%8D%B7.pdf.jpg
-sound_class: 體鳴
-range: 中高音區（約2至2.5個8度）
-instrument_key: 全調性
-hs_class: Idiophone／體鳴樂器
-family: 舌片琴／拇指琴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 椰子木琴
+title_original: Coconut Lamellophone
+family_std: 舌片琴／拇指琴
+sound_hs: Idiophone／體鳴樂器
 playing_method: 拇指撥片
-body_listening: 指尖、掌心、尾音、近身聆聽
-soundscape: 手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）
-region_type: 跨文化／多地
+interface_tags: 撥片
+region_culture: 全球／非洲／亞洲／現代療癒與街頭音樂
+listening_sound_tags: 指尖、掌心、尾音、近身聆聽｜手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/coconut-lamellophone/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/NLC511-023031103010001-77628_%E7%9B%9B%E4%BA%AC%E6%99%82%E5%A0%B1_%E7%AC%AC379%E5%8D%B7.pdf/page1-500px-NLC511-023031103010001-77628_%E7%9B%9B%E4%BA%AC%E6%99%82%E5%A0%B1_%E7%AC%AC379%E5%8D%B7.pdf.jpg
 youtube_ids: kd7KC3PaEaA ftSGCbTZ2PY
 ---
+
 ## 介紹
 
 椰子木琴是一種源自非洲東部和南部的古老打擊樂器，以椰子殼作為共鳴箱體，搭配彈性木片或金屬片作為發音體。演奏者使用手指或木槌撥彈產生聲音。樂器音色溫潤而富有穿透力，兼具明亮的高頻特性與溫暖的中低頻。早期在非洲部落用於儀式和文化表達，後經殖民時期傳入南美洲和亞洲，演變出多種風格。因音色獨特、易於製作的特點，在民族音樂和世界音樂中廣泛應用。

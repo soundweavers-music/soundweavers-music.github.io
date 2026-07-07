@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/wagner-tuba/
-title: 瓦格納低音號
-original_name: Wagner Tuba
-category: 管樂器
-country: 歐洲／全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/MIMEd_5973._Wagner_Tuba_in_Bb-F_Alexander.jpg/500px-MIMEd_5973._Wagner_Tuba_in_Bb-F_Alexander.jpg
-sound_class: 氣鳴
-range: 約2個半8度
-instrument_key: F調（低音Tuben）、B調（高音Tuben）
-hs_class: 423 唇振氣鳴／號角與銅管
-family: 唇振氣鳴、天然號角與銅管
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 號角與唇振
+title_zh: 瓦格納低音號
+title_original: Wagner Tuba
+family_std: 唇振氣鳴、天然號角與銅管
+sound_hs: 423 唇振氣鳴／號角與銅管
 playing_method: 唇振吹奏
-body_listening: 嘴唇、遠方、召喚、空間方向
-soundscape: 吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
-region_type: 跨文化／多地
+interface_tags: 活塞
+region_culture: 歐洲／全球
+listening_sound_tags: 嘴唇、遠方、召喚、空間方向｜吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/wagner-tuba/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/MIMEd_5973._Wagner_Tuba_in_Bb-F_Alexander.jpg/500px-MIMEd_5973._Wagner_Tuba_in_Bb-F_Alexander.jpg
 youtube_ids: BNcajRV4sfc SlU7PMlSOkU
 ---
+
 ## 介紹
 
 瓦格納低音號是一種四活塞銅管樂器，由理查德·瓦格納委託製作並以其名字命名。它結合了標準低音號和法國號的技術特徵，儘管名稱中有「低音號」，但瓦格納低音號實際上更接近法國號，通常由法國號演奏家演奏。瓦格納為其四部歌劇組曲《尼伯龍根的指環》委託製作了這種樂器，其目的是彌合法國號和長號之間的音響和音色差距。這種樂器所產生的聲音被形容為「煙霧般的」、「金屬般的」、「超凡脫俗的」和「雄偉的」。

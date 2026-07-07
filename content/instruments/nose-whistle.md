@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/nose-whistle/
-title: 鼻笛 (口腔驅動型)
-original_name: Nose Whistle
-category: 管樂器
-country: 全球／亞洲／歐洲／美洲／大洋洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Nose_whistle.jpg/500px-Nose_whistle.jpg
-sound_class: 氣鳴
-range: 中高音區（約2個8度）
-instrument_key: 全調性
-hs_class: 421 邊棱氣鳴／無簧笛類
-family: 無簧吹管、長音與氣息樂器
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 簧片樂器
+title_zh: 鼻笛 (口腔驅動型)
+title_original: Nose Whistle
+family_std: 無簧吹管、長音與氣息樂器
+sound_hs: 421 邊棱氣鳴／無簧笛類
 playing_method: 吹奏／端吹／橫吹／容器共鳴
-body_listening: 氣息、胸腔、長音、空間
-soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 全球／亞洲／歐洲／美洲／大洋洲
+listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/nose-whistle/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Nose_whistle.jpg/500px-Nose_whistle.jpg
 youtube_ids: nOQuo_44unA 3kC3oy6utss
 ---
+
 ## 介紹
 
 鼻笛是一種古老的管樂器，起源於太平洋島嶼地區，特別是波利尼西亞和密克羅尼西亞文明。樂器外型小巧簡潔，通常為直筒狀，長度約10至15公分。演奏者通過鼻孔吹奏，利用鼻腔作為共鳴器發出聲音。音色輕盈纖細，具有溫潤而略帶鼻音的質感，音量較小但具有療癒性。鼻笛常用於民族音樂、宗教儀式和冥想音樂中，是人類創意運用身體共鳴的獨特樂器。

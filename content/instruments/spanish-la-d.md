@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/spanish-la-d/
-title: 西班牙琵琶
-original_name: Spanish Laúd
-category: 弦樂器
-country: 中東／歐洲／亞洲／美洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/b/b4/La%C3%BAd_espa%C3%B1ol.jpg
-sound_class: 弦鳴
-range: 約3個8度
-instrument_key: 全調性
-hs_class: Chordophone／弦鳴樂器
-family: 短頸魯特琴
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 西班牙琵琶
+title_original: Spanish Laúd
+family_std: 短頸魯特琴
+sound_hs: Chordophone／弦鳴樂器
 playing_method: 撥弦
-body_listening: 懷抱、手指、腳步、敘事
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 地區／文化圈
+interface_tags: 
+region_culture: 中東／歐洲／亞洲／美洲｜地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 需調整
+issue_note: 名稱可保留／鄰近；Shawm 與 Oboe 同雙簧系但歷史脈絡不同。；相鄰不合併。
+source_url: https://soundweavers-music.github.io/instruments/spanish-la-d/
+image: https://upload.wikimedia.org/wikipedia/commons/b/b4/La%C3%BAd_espa%C3%B1ol.jpg
 youtube_ids: ovgfMxs6cdI _n7LW0CuZAI
 ---
+
 ## 介紹
 
 西班牙琵琶是源自中東、經摩爾人傳入伊比利亞半島的弦樂器。其外型呈梨形或洋蔥形，具有圓润的木製共鳴箱和長頸設計。樂器配備多條絲弦，通過手指撥奏發聲。西班牙琵琶音色溫潤富有光澤，兼具明亮與深邃特質，特別適合演奏西班牙民間音樂與文藝復興古典作品。作為文藝復興時期貴族階級的流行樂器，它在宮廷音樂和民間藝術中扮演重要角色，是西班牙音樂傳統的重要代表。

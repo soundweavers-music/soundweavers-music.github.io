@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/lavta/
-title: 拉夫塔琴
-original_name: Lavta
-category: 弦樂器
-country: 土耳其／希臘
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Lavta_front.jpg/500px-Lavta_front.jpg
-sound_class: 弦鳴
-range: 約2個8度
-instrument_key: 無固定調性
-hs_class: Chordophone／弦鳴樂器
-family: 短頸魯特琴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 拉夫塔琴
+title_original: Lavta
+family_std: 短頸魯特琴
+sound_hs: Chordophone／弦鳴樂器
 playing_method: 撥奏
-body_listening: 鄂圖曼城市音樂、柔和撥弦
-soundscape: 旅人懷裡撥動的故事線（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 區域／多國
+interface_tags: 
+region_culture: 土耳其／希臘｜區域／多國
+listening_sound_tags: 鄂圖曼城市音樂、柔和撥弦｜旅人懷裡撥動的故事線（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/lavta/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Lavta_front.jpg/500px-Lavta_front.jpg
 youtube_ids: AMPuJqFB6FE Q6JCk04IhuA
 ---
+
 ## 介紹
 
 拉夫塔琴是一種來自伊斯坦堡的撥弦樂器。

@@ -1,18 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/tumdak/
-title: 坦姆達克鼓
-original_name: Tumdak'
-category: 打擊樂器
-country: 印度東部／孟加拉國
-era: 傳統／年代待考
-region_type: 地區／文化圈
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-body_listening: 手掌、腳底、低音、舞步
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 坦姆達克鼓
+title_original: Tumdak'
+family_std: 鼓皮與鼓類家族
+sound_hs: 待確認
+playing_method: 敲奏／拍奏／搖奏／刮奏（待細分）
+interface_tags: 
+region_culture: 印度東部／孟加拉國｜地區／文化圈
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/tumdak/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/A_Santal_drummer_playing_Tumda.jpg/500px-A_Santal_drummer_playing_Tumda.jpg
 youtube_ids: iAxrIVf7kmo d-DW6f7f9HY
-instrument_key: 無固定調性
-range: 約2個8度
 ---
+
 ## 介紹
 
 坦姆達克鼓是印度次大陸桑塔爾人的手敲雙面鼓，分布在印度東部和孟加拉國。坦姆達克鼓是桑塔爾人的著名樂器。坦姆達克鼓用於桑塔爾人的傳統節慶。桑塔爾人通常在宗教儀式和桑塔爾節慶中將坦姆達克鼓與塔瑪克鼓配合使用。這兩種鼓幾乎普遍由男性而非女性演奏。鼓的鼓身呈圓柱形，由黏土製成。鼓的兩個鼓面通常由牛皮製成，右邊的鼓面略小於左邊的鼓面。

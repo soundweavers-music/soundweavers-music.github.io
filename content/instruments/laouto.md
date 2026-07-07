@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/laouto/
-title: 希臘拉烏託琴
-original_name: Laouto
-category: 弦樂器
-country: 希臘
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Laghouto.jpg/500px-Laghouto.jpg
-sound_class: 弦鳴
-range: 約3個8度
-instrument_key: 全調性
-hs_class: Chordophone／弦鳴樂器
-family: 魯特琴／長頸撥弦
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 希臘拉烏託琴
+title_original: Laouto
+family_std: 魯特琴／長頸撥弦
+sound_hs: Chordophone／弦鳴樂器
 playing_method: 撥奏／刷奏
-body_listening: 舞曲推進、和聲支撐、島嶼民俗
-soundscape: 旅人懷裡撥動的故事線（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 單一地區／文化圈
+interface_tags: 
+region_culture: 希臘｜單一地區／文化圈
+listening_sound_tags: 舞曲推進、和聲支撐、島嶼民俗｜旅人懷裡撥動的故事線（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/laouto/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Laghouto.jpg/500px-Laghouto.jpg
 youtube_ids: 4BQ3O14T-gM ks_iFiP-2tM
 ---
+
 ## 介紹
 
 希臘拉烏托琴（希臘文：λαούτο，複數形式 λαούτα）是琉特琴族中的一種長頸撥弦樂器，見於希臘和塞浦路斯，外觀與烏德琴相似。它有四組雙弦。在大多數方面，它的演奏方式與烏德琴相似（用長撥片撥弦）；在塞浦路斯，拉烏托琴則是用羽毛撥弦。這種樂器在阿爾巴尼亞被稱為「llautë」（不定形式）或「llauta」（定形式），在羅馬尼亞則被稱為「lăuta」。

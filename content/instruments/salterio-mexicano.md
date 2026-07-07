@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/salterio-mexicano/
-title: 墨西哥揚琴
-original_name: Salterio Mexicano
-category: 鍵盤樂器
-country: 美洲／墨西哥
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/8/89/MexSalterio.jpg
-sound_class: 弦鳴
-range: 低音區至高音區（約3至4個8度）
-instrument_key: 全調性
-hs_class: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
-family: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 墨西哥揚琴
+title_original: Salterio Mexicano
+family_std: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+sound_hs: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
 playing_method: 撥弦／擊弦／按鍵擊弦
-body_listening: 手掌、弦面、推音、敲擊
-soundscape: 平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
-region_type: 跨文化／多地
+interface_tags: 鍵盤／按鍵、琴槌
+region_culture: 美洲／墨西哥
+listening_sound_tags: 手掌、弦面、推音、敲擊｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/salterio-mexicano/
+image: https://upload.wikimedia.org/wikipedia/commons/8/89/MexSalterio.jpg
 youtube_ids: aqyydvMsPeA VlFLj-X6C1s
 ---
+
 ## 介紹
 
 墨西哥揚琴是源於西班牙的鍵盤弦樂器，於殖民時期傳入墨西哥並逐漸本地化。樂器採用木製共鳴箱設計，配備多條弦線排列在鍵盤上方。演奏者使用竹製或木製琴槌敲擊弦線發聲。其音色明亮清脆，具有獨特的金屬質感與溫暖共鳴，音域寬廣層次豐富。這種樂器在墨西哥傳統民間音樂中扮演重要角色，能有效營造生動活潑的民族特色氛圍。

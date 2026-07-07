@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/agogo/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Modern-Agogo.jpg/500px-Modern-Agogo.jpg
-title: 阿果果雙鈴
-original_name: Agogo
-category: 打擊樂器
-country: 非洲／西非（奈及利亞）／巴西
-era: 傳統／年代待考
-sound_class: 體鳴
-range: 約小三度至大三度音程
-instrument_key: 無固定調性
-hs_class: 11/12 定音體鳴／鑼鐘木琴石琴系統
-family: 定音體鳴、材料敲擊與鑼鐘木琴系統
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 阿果果雙鈴
+title_original: Agogo
+family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
+sound_hs: 11/12 定音體鳴／鑼鐘木琴石琴系統
 playing_method: 敲擊／搖奏／材料共鳴
-body_listening: 材料、回聲、群體分工、音列
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 非洲／西非（奈及利亞）／巴西
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 已整併主項
+issue_note: 重複已整併；保留本列為主項；已整併第17項。；主項保留；被整併列第17項以紅字刪除線保留供人工審核。；MERGED-16: 併入列 17
+source_url: https://soundweavers-music.github.io/instruments/agogo/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Modern-Agogo.jpg/500px-Modern-Agogo.jpg
 youtube_ids: CJ78wSm9SUs DhOLGoBCDjw
 ---
+
 ## 介紹
 
 阿果果雙鈴是源自西非約魯巴文化的打擊樂器，由兩個不同尺寸的金屬球體組成，通常以木柄連接。樂器音色明亮清脆，具有強大的穿透力，能在樂隊中清晰突出。兩個金屬球分別發出高、低兩種音高，音色相比三角鐵更溫暖厚實，比鈴鼓更純淨透亮。透過敲擊金屬球體產生節奏，廣泛應用於森巴、卡波埃拉等拉丁美洲傳統音樂中，是現代打擊樂團的重要節奏樂器。

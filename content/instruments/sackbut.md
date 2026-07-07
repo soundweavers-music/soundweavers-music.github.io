@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/sackbut/
-title: 薩克布特長號
-original_name: Sackbut
-category: 管樂器
-country: 歐洲／全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Sacabutxs%2C_conjunt_al_Museu_de_la_M%C3%BAsica.jpg/500px-Sacabutxs%2C_conjunt_al_Museu_de_la_M%C3%BAsica.jpg
-sound_class: 氣鳴
-range: 約B♭1–B♭5（約4個8度）
-instrument_key: 全調性
-hs_class: 423 唇振氣鳴／號角與銅管
-family: 唇振氣鳴、天然號角與銅管
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 號角與唇振
+title_zh: 薩克布特長號
+title_original: Sackbut
+family_std: 唇振氣鳴、天然號角與銅管
+sound_hs: 423 唇振氣鳴／號角與銅管
 playing_method: 唇振吹奏
-body_listening: 嘴唇、遠方、召喚、空間方向
-soundscape: 吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 歐洲／全球
+listening_sound_tags: 嘴唇、遠方、召喚、空間方向｜吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/sackbut/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Sacabutxs%2C_conjunt_al_Museu_de_la_M%C3%BAsica.jpg/500px-Sacabutxs%2C_conjunt_al_Museu_de_la_M%C3%BAsica.jpg
 youtube_ids: jpQaGJTh2mU jPJNJr6iBrs
 ---
+
 ## 介紹
 
 薩克布特長號是文藝復興時期和巴洛克時代使用的早期長號形式。薩克布特長號具有長號特有的伸縮滑管，用於改變管身長度以改變音高，但它與後來的長號的區別在於其較小的、更具圓柱形比例的音孔，以及喇叭口較少張開。與其演變而來的早期滑管小號不同，薩克布特長號擁有U形滑管，具有兩根平行的滑動管，而不是只有一根。長號這個術語的記錄比薩克布特這個術語早出現二十年，而德文術語「Posaune」的證據甚至更早。

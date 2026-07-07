@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/violino-piccolo/
-title: 短提琴
-original_name: Violino Piccolo
-category: 弦樂器
-country: 亞洲／歐洲／中東／南亞／中亞
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Piccolo-violin-met.jpg/500px-Piccolo-violin-met.jpg
-sound_class: 弦鳴
-range: G3–E6（約3個8度半）
-instrument_key: 全調性
-hs_class: 321.3 擦弦／輪弦／提琴家族
-family: 擦弦、輪弦與提琴家族
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 擦弦、鍵控與輪弦
+title_zh: 短提琴
+title_original: Violino Piccolo
+family_std: 擦弦、輪弦與提琴家族
+sound_hs: 弦鳴｜321.3 擦弦／輪弦／提琴家族
 playing_method: 弓擦／輪擦
-body_listening: 胸口、嗓音、拉長的情緒
-soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
-region_type: 地區／文化圈
+interface_tags: 弓
+region_culture: 亞洲／歐洲／中東／南亞／中亞｜地區／文化圈
+listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/violino-piccolo/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Piccolo-violin-met.jpg/500px-Piccolo-violin-met.jpg
 youtube_ids: ivQpiJos1Sw v_EXhaiNGdg
 ---
+
 ## 介紹
 
 小提琴是一種起源於十六世紀義大利的弦樂器，體型比標準小提琴更為小巧精緻。其特色在於音色明亮、尖銳且穿透力強，高音域寬闊清脆透明，音量雖略遜於普通小提琴，但高音區的穿透性更加出眾。小提琴主要用於獨奏和合奏，特別在巴洛克時期常作為伴奏樂器，用於裝飾樂段。其音色兼具高音長笛的輕盈感與弦樂特有的歌唱性和溫暖感，能在樂隊中創造出獨特的高音效果。

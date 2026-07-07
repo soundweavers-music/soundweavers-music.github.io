@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/kora-instrument/
-title: 科拉琴
-original_name: Kora (instrument)
-category: 弦樂器
-country: 非洲／西非
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Kora_DSC_0355.JPG/500px-Kora_DSC_0355.JPG
-sound_class: 弦鳴
-range: 約3個8度
-instrument_key: 全調性
-hs_class: Chordophone／弦鳴樂器
-family: 非洲豎琴與橋弦
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 豎琴、里拉與開放弦
+title_zh: 科拉琴
+title_original: Kora (instrument)
+family_std: 非洲豎琴與橋弦
+sound_hs: Chordophone／弦鳴樂器
 playing_method: 撥弦
-body_listening: 循環、河流感、開放弦、吟唱
-soundscape: 開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
-region_type: 地區／文化圈
+interface_tags: 
+region_culture: 非洲／西非｜地區／文化圈
+listening_sound_tags: 循環、河流感、開放弦、吟唱｜開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/kora-instrument/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Kora_DSC_0355.JPG/500px-Kora_DSC_0355.JPG
 youtube_ids: -cLAwAOi-hA PTWpoZITraE
 ---
+
 ## 介紹
 
 科拉琴（曼德語：ߞߐߙߊ kɔra）是一種在西非地區廣泛使用的弦樂器。科拉琴通常有21根琴弦，由演奏者用手指撥弦演奏。它具有魯特琴和豎琴的特點。

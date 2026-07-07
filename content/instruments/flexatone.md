@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/flexatone/
-title: 彈音器
-original_name: Flexatone
-category: 打擊樂器
-country: 歐洲／法國
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flexatone_2005.jpg/500px-Flexatone_2005.jpg
-sound_class: 體鳴
-range: 中高音域（約2個8度）
-instrument_key: 無固定調性
-hs_class: 11/12 定音體鳴／鑼鐘木琴石琴系統
-family: 定音體鳴、材料敲擊與鑼鐘木琴系統
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 彈音器
+title_original: Flexatone
+family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
+sound_hs: 11/12 定音體鳴／鑼鐘木琴石琴系統
 playing_method: 敲擊／搖奏／材料共鳴
-body_listening: 材料、回聲、群體分工、音列
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 歐洲／法國
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 已整併主項
+issue_note: 重複已整併；保留本列為主項；已整併第178項。；主項保留；被整併列第178項以紅字刪除線保留供人工審核。；MERGED-257: 併入列 178
+source_url: https://soundweavers-music.github.io/instruments/flexatone/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flexatone_2005.jpg/500px-Flexatone_2005.jpg
 youtube_ids: 91ooFzlKlto YKVzfaRrsDc
 ---
+
 ## 介紹
 
 彈音器（flexatone）或彈性金屬器（fleximetal）是一種現代打擊樂器（間接敲擊的自鳴樂器），由懸掛在帶有把手的鐵絲框架中的小型柔性金屬片組成。由於其滑音效果在經典卡通中被使用，其聲音可與音樂鋸相提並論。

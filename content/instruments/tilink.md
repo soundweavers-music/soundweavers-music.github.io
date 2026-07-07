@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/tilink/
-title: 蒂林科
-original_name: Tilinkó
-category: 管樂器
-country: 全球／亞洲／歐洲／美洲／大洋洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Paulista_Sub-20-_S%C3%A3o_Caetano_1_x_0_Corinthians_-_Guilherme_Biro%2C_com_a_camisa_10_do_Corinthians.jpg/500px-Paulista_Sub-20-_S%C3%A3o_Caetano_1_x_0_Corinthians_-_Guilherme_Biro%2C_com_a_camisa_10_do_Corinthians.jpg
-sound_class: 氣鳴
-range: 中高音域（約2個8度）
-instrument_key: 無固定調性
-hs_class: 421 邊棱氣鳴／無簧笛類
-family: 無簧吹管、長音與氣息樂器
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 簧片樂器
+title_zh: 蒂林科
+title_original: Tilinkó
+family_std: 無簧吹管、長音與氣息樂器
+sound_hs: 421 邊棱氣鳴／無簧笛類
 playing_method: 吹奏／端吹／橫吹／容器共鳴
-body_listening: 氣息、胸腔、長音、空間
-soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 全球／亞洲／歐洲／美洲／大洋洲
+listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+ensemble_links: 
+verification_status: 待檢查
+issue_note: 名稱待查／鄰近；Tambal 為擊弦齊特琴地方名稱，與 Hammered dulcimer/Yangqin相鄰。；相鄰，需查地區與譯名。；DUP-013:Hammered dulcimer／Tambal／Yangqin
+source_url: https://soundweavers-music.github.io/instruments/tilink/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Paulista_Sub-20-_S%C3%A3o_Caetano_1_x_0_Corinthians_-_Guilherme_Biro%2C_com_a_camisa_10_do_Corinthians.jpg/500px-Paulista_Sub-20-_S%C3%A3o_Caetano_1_x_0_Corinthians_-_Guilherme_Biro%2C_com_a_camisa_10_do_Corinthians.jpg
 youtube_ids: KnjPJIVnKsA FK2LClvGbKY
 ---
+
 ## 介紹
 
 蒂林科是源自匈牙利和羅馬尼亞的傳統民間樂器，屬於氣鳴管樂器。樂器由木製手柄和懸掛的金屬片組成，通過搖晃產生清脆悅耳的聲音。其音色明亮穿透力強，音質溫潤富有民族特色，在高音域表現尤為突出。蒂林科採用直筒形設計，音域主要集中於中高音區，音色爽朗帶有民謠風味。自中世紀起廣泛應用於東歐民俗慶典、宗教儀式和民間舞蹈伴奏中，是東歐民間樂團的重要樂器。

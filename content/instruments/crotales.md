@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/crotales/
-title: 古鈸
-original_name: Crotales
-category: 打擊樂器
-country: 歐洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Crotales_-_Paiste_brand.jpg/500px-Crotales_-_Paiste_brand.jpg
-sound_class: 體鳴
-range: 約2至3個8度
-instrument_key: 全調性
-hs_class: 11 小型體鳴／搖奏刮奏敲奏
-family: 小型節奏體鳴、沙鈴、刮器與身體打擊
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
+title_zh: 古鈸
+title_original: Crotales
+family_std: 小型節奏體鳴、沙鈴、刮器與身體打擊
+sound_hs: 11 小型體鳴／搖奏刮奏敲奏
 playing_method: 搖奏／刮奏／敲擊／身體打擊
-body_listening: 高亮泛音、星點音色、樂團空間
-soundscape: 木石金屬的回聲城市（定音體鳴、材料敲擊與鑼鐘木琴系統）
-region_type: 跨文化／古典與現代
+interface_tags: 
+region_culture: 歐洲｜跨文化／古典與現代
+listening_sound_tags: 高亮泛音、星點音色、樂團空間｜木石金屬的回聲城市（定音體鳴、材料敲擊與鑼鐘木琴系統）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/crotales/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Crotales_-_Paiste_brand.jpg/500px-Crotales_-_Paiste_brand.jpg
 youtube_ids: LGrAwQnZ6Bs t8pzlONvxNU
 ---
+
 ## 介紹
 
 古鈸（又稱古代鈸）是由小型調音銅盤或黃銅盤組成的打擊樂器。每個古鈸直徑約10公分（4英寸），頂部平坦，底部有一個乳頭狀突起。它們通常用硬槌敲擊演奏。不過，也可以像指鈸一樣用兩個盤片相互敲擊，或用弓擦奏。其音色類似小型調音鐘，但音質更明亮，共鳴時間更長。

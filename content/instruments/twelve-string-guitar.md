@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/twelve-string-guitar/
-title: 十二弦吉他
-original_name: Twelve-string guitar
-category: 弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 十二弦吉他
+title_original: Twelve-string guitar
+family_std: 弦樂器類
+sound_hs: 3 弦鳴樂器
 playing_method: 撥弦／擦弦／擊弦
-family: 弦樂器類
-hs_class: 3 弦鳴樂器
-sound_class: 弦鳴
-country: 美國
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-body_listening: 懷抱、手指、腳步、敘事
+interface_tags: 
+region_culture: 美國｜單一地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/twelve-string-guitar/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Yamaha_FG720S-12.jpg/500px-Yamaha_FG720S-12.jpg
 youtube_ids: SXkC92TqxAw IuEEEwgdAZs
-instrument_key: 全調性
-range: E2–E5（約3個8度）
 ---
+
 ## 介紹
 
 十二弦吉他（英語：Twelve-string guitar）是以十二條鋼弦，六個共振裝置組成的吉他。其音質醇厚，比標準六弦吉他響亮。由於十二弦琴的每根主弦都有一根副弦，所以，彈出來的效果很好聽，比六弦要有深度。每個共振裝置的對弦，因其微妙差異，而產生自然的合唱效果。 每對弦中，於下撥時先擊撥的弦通常比另一條弦高八度音。 但Rickenbacker公司在他們的電吉他Rickenbacker 360/12逆轉了此安排。

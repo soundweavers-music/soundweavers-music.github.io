@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/acoustic-guitar/
-title: 原聲吉他
-original_name: Acoustic guitar
-category: 電子樂器
-country: 中東／歐亞／東亞／美洲／全球
-era: 現代
-image: https://upload.wikimedia.org/wikipedia/commons/5/5d/AcousticGuitar.jpg
-sound_class: 弦鳴
-range: E2–E4（約3個8度）
-instrument_key: 全調性
-hs_class: 321/322 魯特琴類／撥弦
-family: 魯特琴、短頸長頸撥弦與民謠弦聲
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 電聲改造樂器
+title_zh: 原聲吉他
+title_original: Acoustic guitar
+family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
+sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
 playing_method: 撥弦／刷弦／撥片
-body_listening: 懷抱、手指、腳步、敘事
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 跨文化／多地
+interface_tags: 撥片
+region_culture: 中東／歐亞／東亞／美洲／全球
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 有問題，需修正
+issue_note: 屬性錯誤；Acoustic guitar 中文名可用「原聲吉他」，但分類寫成電子樂器不合理。；改為弦樂器／撥弦。
+source_url: https://soundweavers-music.github.io/instruments/acoustic-guitar/
+image: https://upload.wikimedia.org/wikipedia/commons/5/5d/AcousticGuitar.jpg
 youtube_ids: T-U3c1nU3eM xpRgR-tZEpk
 ---
+
 ## 介紹
 
 原聲吉他（英語：Acoustic guitar），亦稱 「木吉他」，是吉他的一種類型。

@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/drum-kit/
-title: 爵士鼓
-original_name: Drum Kit
-category: 打擊樂器
-country: 美洲／北美
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Drum_kit_parts.png/500px-Drum_kit_parts.png
-sound_class: 膜鳴
-range: 約2至3個8度（C1–C4）
-instrument_key: 無固定調性
-hs_class: 21 膜鳴鼓類
-family: 膜鳴鼓類、框鼓、杯鼓與鼓組
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 爵士鼓
+title_original: Drum Kit
+family_std: 膜鳴鼓類、框鼓、杯鼓與鼓組
+sound_hs: 21 膜鳴鼓類
 playing_method: 手拍／槌擊／皮膜振動
-body_listening: 手掌、腳底、低音、舞步
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 美洲／北美
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 爵士編制
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/drum-kit/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Drum_kit_parts.png/500px-Drum_kit_parts.png
 youtube_ids: MHj9XlV3fFg qK8g6jbn4sY
 ---
+
 ## 介紹
 
 爵士鼓、木製爵士鼓或鼓組（在流行音樂和爵士樂中也稱為陷阱鼓或簡稱為鼓）是一種音樂樂器，由一系列打擊樂器組成，排列成供單個樂手演奏。它通常包括鼓、銅鈸，有時還包括其他輔助打擊樂器，例如鈴鼓或牛鈴。

@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/bansuri/
-title: 班蘇裡笛
-original_name: Bansuri
-category: 管樂器
-country: 亞洲／南亞（印度）
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Bansuri_bamboo_flute_23inch.jpg/500px-Bansuri_bamboo_flute_23inch.jpg
-sound_class: 氣鳴
-range: 約2個半八度
-instrument_key: 無固定調性
-hs_class: 421 邊棱氣鳴／無簧笛類
-family: 無簧吹管、長音與氣息樂器
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 簧片樂器
+title_zh: 班蘇裡笛
+title_original: Bansuri
+family_std: 無簧吹管、長音與氣息樂器
+sound_hs: 421 邊棱氣鳴／無簧笛類
 playing_method: 吹奏／端吹／橫吹／容器共鳴
-body_listening: 氣息、胸腔、長音、空間
-soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 亞洲／南亞（印度）
+listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/bansuri/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Bansuri_bamboo_flute_23inch.jpg/500px-Bansuri_bamboo_flute_23inch.jpg
 youtube_ids: J65GxJ2v9Wg tF4z5kntXAA
 ---
+
 ## 介紹
 
 班蘇里笛是一種古老的橫吹竹笛，起源於印度次大陸。它是一種由竹子和金屬類材料製成的氣鳴樂器，被廣泛用於許多印度、斯里蘭卡和尼泊爾的民間歌曲中。班蘇里笛傳統上由一根中空的竹子製成，上面有七個指孔。一些現代設計採用象牙、玻璃纖維和各種金屬製造。六孔樂器可涵蓋兩個半八度音的音樂。班蘇里笛的長度通常在30至75公分（12至30英寸）之間，厚度相當於人類大拇指的寬度。

@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/guitar-battente/
-title: 巴坦特吉他
-original_name: Guitar battente
-category: 弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 巴坦特吉他
+title_original: Guitar battente
+family_std: 弦樂器類
+sound_hs: 3 弦鳴樂器
 playing_method: 撥弦／擦弦／擊弦
-family: 弦樂器類
-hs_class: 3 弦鳴樂器
-sound_class: 弦鳴
-country: 義大利
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-body_listening: 懷抱、手指、腳步、敘事
+interface_tags: 
+region_culture: 義大利｜單一地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/guitar-battente/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Chitarra_battente_%282%29.jpg/500px-Chitarra_battente_%282%29.jpg
 youtube_ids: XT7GLzoNrew K89ePwz_5RQ
-instrument_key: 全調性
-range: 中高音區（約2至2.5個8度）
 ---
+
 ## 介紹
 
 巴坦特吉他（義大利文「掃弦吉他」，但「battente」字面上意指「敲打」，與這種吉他敲打音樂節奏的特點有關）是一種弦樂器，屬於吉他家族。它類似於五弦巴洛克吉他，但體型更大，通常配有五組雙弦，傳統上由黃銅製成，但現在通常為鋼製。

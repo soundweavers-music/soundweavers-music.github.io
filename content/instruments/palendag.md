@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/palendag/
-title: 帕倫達格笛
-original_name: Palendag
-category: 管樂器
-country: 全球／亞洲／歐洲／美洲／大洋洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Palendag.jpg/500px-Palendag.jpg
-sound_class: 氣鳴
-range: 中低至中高音域（約2至2.5個8度）
-instrument_key: 無固定調性
-hs_class: 421 邊棱氣鳴／無簧笛類
-family: 無簧吹管、長音與氣息樂器
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 簧片樂器
+title_zh: 帕倫達格笛
+title_original: Palendag
+family_std: 無簧吹管、長音與氣息樂器
+sound_hs: 421 邊棱氣鳴／無簧笛類
 playing_method: 吹奏／端吹／橫吹／容器共鳴
-body_listening: 氣息、胸腔、長音、空間
-soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 全球／亞洲／歐洲／美洲／大洋洲
+listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/palendag/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Palendag.jpg/500px-Palendag.jpg
 youtube_ids: poo0LuJeYUI 2BSktj9zR7o
 ---
+
 ## 介紹
 
 帕倫達格笛，也稱為普拉盧（馬諾博人和曼薩卡人的稱呼）、帕蘭達格（巴戈博人）、普拉拉（布基農人）和盧蒙德格（巴努瓦恩人），是一種菲律賓竹笛，是馬京達瑙人使用的最大型竹笛。這種樂器的較小型版本稱為胡拉克特布（布基農人的稱呼）。作為一種唇谷笛，它因為必須將嘴唇貼著笛尖特殊塑形才能發出聲音，被認為是三種竹笛（另外兩種為通邦笛和蘇林笛）中最難使用的。

@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/shehnai/
-title: 謝海笛
-original_name: Shehnai
-category: 管樂器
-country: 歐洲／中東／南亞／東南亞
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Shehnai.jpg/500px-Shehnai.jpg
-sound_class: 氣鳴
-range: 約3個8度（低沉基音至高亢尖銳音域）
-instrument_key: 無固定調性
-hs_class: 412/422 簧鳴與自由簧／單簧雙簧
-family: 口簧、自由簧、單簧雙簧與風袋
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 風箱與自由簧
+title_zh: 謝海笛
+title_original: Shehnai
+family_std: 口簧、自由簧、單簧雙簧與風袋
+sound_hs: 氣鳴｜412/422 簧鳴與自由簧／單簧雙簧
 playing_method: 吹奏／簧片振動／風袋或風箱
-body_listening: 口腔、舌頭、簧片震動、鼻音
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-region_type: 地區／文化圈
+interface_tags: 風箱
+region_culture: 歐洲／中東／南亞／東南亞｜地區／文化圈
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/shehnai/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Shehnai.jpg/500px-Shehnai.jpg
 youtube_ids: KUwci-cJ_Uk yoH36u7zEK8
 ---
+
 ## 介紹
 
 謝海笛（也拼作 shenai）是一種來自南亞的樂器。它由木材製成，一端有雙簧片，另一端有金屬或木製的喇叭形喇叭口。它曾是皇室宮廷中發現的九種樂器之一。謝海笛與南印度的那達斯瓦蘭琴相似。

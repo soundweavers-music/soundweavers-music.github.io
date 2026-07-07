@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/bow-harp/
-title: 弓形豎琴
-original_name: Bow Harp
-category: 弦樂器
-country: 非洲／亞洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/B%C3%A5gharpa_-_SMV_-_F573_02.tif/lossy-page1-500px-B%C3%A5gharpa_-_SMV_-_F573_02.tif.jpg
-sound_class: 弦鳴
-range: 約2.5至3個8度
-instrument_key: 全調性
-hs_class: Chordophone／弦鳴樂器
-family: 豎琴支系
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 豎琴、里拉與開放弦
+title_zh: 弓形豎琴
+title_original: Bow Harp
+family_std: 豎琴支系
+sound_hs: Chordophone／弦鳴樂器
 playing_method: 撥奏
-body_listening: 開放弦、身體旁的長線條
-soundscape: 開放弦的天空與河流（豎琴、里拉與開放弦樂器）
-region_type: 跨文化／多地
+interface_tags: 弓
+region_culture: 非洲／亞洲
+listening_sound_tags: 開放弦、身體旁的長線條｜開放弦的天空與河流（豎琴、里拉與開放弦樂器）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/bow-harp/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/B%C3%A5gharpa_-_SMV_-_F573_02.tif/lossy-page1-500px-B%C3%A5gharpa_-_SMV_-_F573_02.tif.jpg
 youtube_ids: ZvxiJZcml6g jBlmunFVGuc
 ---
+
 ## 介紹
 
 弓形豎琴是一種古老的弦樂器，起源於約四千年前的美索不達米亞和埃及地區。其最大特色是獨特的弧形琴身，琴弦張於弓狀的木製框架上。樂器音色溫潤詩意，兼具明亮穿透力與柔和親密感，音域寬廣，低音厚重深沉，中音最具表現力，高音清透動人。琴身設計緊湊使音量內斂卻溫暖，聲響介於豎琴華麗與竪琴親密之間，古樸而細膩。

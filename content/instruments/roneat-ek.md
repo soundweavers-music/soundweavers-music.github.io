@@ -1,21 +1,22 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/roneat-ek/
-title: 柬埔寨木琴
-original_name: Roneat Ek
-category: 打擊樂器
-country: 東南亞／東亞／非洲／歐洲／全球
-era: 傳統／年代待考
-sound_class: 體鳴
-range: 約2個8度以上
-instrument_key: 全調性
-hs_class: 11/12 定音體鳴／鑼鐘木琴石琴系統
-family: 定音體鳴、材料敲擊與鑼鐘木琴系統
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 柬埔寨木琴
+title_original: Roneat Ek
+family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
+sound_hs: 11/12 定音體鳴／鑼鐘木琴石琴系統
 playing_method: 敲擊／搖奏／材料共鳴
-body_listening: 材料、回聲、群體分工、音列
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 東南亞／東亞／非洲／歐洲／全球
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/roneat-ek/
 youtube_ids: r-2b-QFxlsg -EEKM19fehg
 ---
+
 ## 介紹
 
 柬埔寨木琴（Roneat Ek）是高棉傳統音樂的重要打擊樂器，起源於吳哥王朝時期。樂器由排列整齊的硬木琴鍵組成，下方配置共鳴管以增強音響效果。外形典雅，琴鍵由高級硬木製成，音色明亮清脆且溫暖。主要用於柬埔寨宮廷音樂、民間音樂與古典舞蹈伴奏，亦在宗教儀式中發揮重要角色。其獨特的音色與精妙的工藝，使其成為東南亞文化交流中的重要樂器代表。

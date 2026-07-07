@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/uilleann-pipes/
-title: 愛爾蘭風笛
-original_name: Uilleann pipes
-category: 管樂器
-country: 愛爾蘭
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/8/85/UilleannPipes.jpg
-sound_class: 氣鳴
-range: 約2個八度以上
-instrument_key: 多調性（D大調、G大調常用）
-hs_class: 412/422 簧鳴與自由簧／單簧雙簧
-family: 口簧、自由簧、單簧雙簧與風袋
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 風箱與自由簧
+title_zh: 愛爾蘭風笛
+title_original: Uilleann pipes
+family_std: 口簧、自由簧、單簧雙簧與風袋
+sound_hs: 氣鳴｜412/422 簧鳴與自由簧／單簧雙簧
 playing_method: 吹奏／簧片振動／風袋或風箱
-body_listening: 口腔、舌頭、簧片震動、鼻音
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-region_type: 單一國家或文化源流
+interface_tags: 風箱
+region_culture: 愛爾蘭｜單一國家或文化源流
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/uilleann-pipes/
+image: https://upload.wikimedia.org/wikipedia/commons/8/85/UilleannPipes.jpg
 youtube_ids: 5uqcoeLR7TA P40YOU8ggJk
 ---
+
 ## 介紹
 
 愛爾蘭風笛（uilleann pipes，發音為 IL-ən 或 IL-yən，愛爾蘭語：[ˈɪl̠ʲən̪ˠ]），也被稱為聯合風笛，有時被稱為愛爾蘭風笛，是愛爾蘭的典型民族風笛。其現今名稱是愛爾蘭語術語「píobaí uilleann」（字面意思為「手肘風笛」）的部分翻譯，源自其充氣方法的名稱。在20世紀之前，沒有關於愛爾蘭風笛這個名稱或術語使用的歷史記載。這個名稱是格拉頓·弗洛德的發明，並沿用至今。

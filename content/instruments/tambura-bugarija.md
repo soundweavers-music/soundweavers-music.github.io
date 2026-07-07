@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/tambura-bugarija/
-title: 布加利亞坦布拉琴
-original_name: Tambura Bugarija
-category: 弦樂器
-country: 中東／歐洲／亞洲／美洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Dangubica.jpg/500px-Dangubica.jpg
-sound_class: 弦鳴
-range: 中高音區（約2個8度）
-instrument_key: 全調性
-hs_class: 321/322 魯特琴類／撥弦
-family: 魯特琴、短頸長頸撥弦與民謠弦聲
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 布加利亞坦布拉琴
+title_original: Tambura Bugarija
+family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
+sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
 playing_method: 撥弦／刷弦／撥片
-body_listening: 懷抱、手指、腳步、敘事
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 地區／文化圈
+interface_tags: 撥片
+region_culture: 中東／歐洲／亞洲／美洲｜地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/tambura-bugarija/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Dangubica.jpg/500px-Dangubica.jpg
 youtube_ids: _RvIfpsul10 5tjzmMYzPm8
 ---
+
 ## 介紹
 
 布加利亞坦布拉琴是源自巴爾幹半島的民族弦樂器，屬於坦布拉琴家族。樂器採用梨形或圓形琴身，配備多根金屬弦，通常以撥片或手指撥奏。音色溫暖而富穿透力，兼具金屬光澤與深沉共鳴，主要用於演奏保加利亞民族音樂及民間傳統曲目。該樂器融合了中東撥弦樂器特徵與巴爾幹音樂傳統，是保加利亞傳統音樂文化的重要象徵。

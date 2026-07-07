@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/kulintang-a-tiniok/
-title: 庫林鐺排鑼
-original_name: Kulintang a tiniok
-category: 打擊樂器
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
+title_zh: 庫林鐺排鑼
+title_original: Kulintang a tiniok
+family_std: 體鳴打擊樂器類
+sound_hs: 1 体鳴樂器
 playing_method: 敲擊／搖晃／撥彈
-family: 體鳴打擊樂器類
-hs_class: 1 体鳴樂器
-sound_class: 体鳴
-country: 菲律賓
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-body_listening: 材料、回聲、群體分工、音列
+interface_tags: 
+region_culture: 菲律賓｜單一地區／文化圈
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/kulintang-a-tiniok/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Sarunay.jpg/500px-Sarunay.jpg
 youtube_ids: Rfr3MK8MNjI v3NQDhv6gXc
-instrument_key: 多調性
-range: 約2個8度
 ---
+
 ## 介紹
 
 庫林坦鼓提尼奧克是一種菲律賓金屬琴，由八塊調音的球形金屬板組成，通過繩子串聯在一起，放置於木製的安坦根（架子）上方。庫林坦鼓提尼奧克是馬京達瑙人的術語，意為「帶繩的庫林坦鼓」，但他們也可能稱之為庫林坦鼓普塔奧，意為「金屬庫林坦鼓」。馬拉瑙人稱這種樂器為薩魯奈（或薩魯奈、薩龍奈、薩羅奈、薩羅奈或薩魯奈），這個術語在北美已變得相當流行。這被認為是一種相對較新的樂器，令人驚訝的是，其中許多只是由鐵皮罐製成的。

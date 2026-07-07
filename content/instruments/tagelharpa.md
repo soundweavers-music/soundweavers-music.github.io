@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/tagelharpa/
-title: 塔格爾哈帕弓琴
-original_name: Tagelharpa
-category: 弦樂器
-country: 非洲／歐洲／美洲／亞洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Talharpa%2C_by_Charlie_Bynum%2C_Silver_Spoon_Music%2C_NL_2014.jpg/500px-Talharpa%2C_by_Charlie_Bynum%2C_Silver_Spoon_Music%2C_NL_2014.jpg
-sound_class: 弦鳴
-range: 中高音區（約2個8度）
-instrument_key: 無固定調性
-hs_class: 322 豎琴與里拉類
-family: 豎琴、里拉與開放弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 豎琴、里拉與開放弦
+title_zh: 塔格爾哈帕弓琴
+title_original: Tagelharpa
+family_std: 豎琴、里拉與開放弦樂器
+sound_hs: 弦鳴｜322 豎琴與里拉類
 playing_method: 撥弦／開放弦共鳴
-body_listening: 循環、河流感、開放弦、吟唱
-soundscape: 開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
-region_type: 地區／文化圈
+interface_tags: 弓
+region_culture: 非洲／歐洲／美洲／亞洲｜地區／文化圈
+listening_sound_tags: 循環、河流感、開放弦、吟唱｜開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/tagelharpa/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Talharpa%2C_by_Charlie_Bynum%2C_Silver_Spoon_Music%2C_NL_2014.jpg/500px-Talharpa%2C_by_Charlie_Bynum%2C_Silver_Spoon_Music%2C_NL_2014.jpg
 youtube_ids: muRr8WqrU48 BR18eEPT_Nk
 ---
+
 ## 介紹
 
 塔格爾哈帕（Talharpa）、塔格爾哈帕（tagelharpa，意為「尾毛琴」）或瑞典語中的斯特羅克哈帕（stråkharpa，意為「弓琴」），以及愛沙尼亞語中的希烏康內爾（hiiu kannel）或希烏魯茨基康內爾（hiiurootsi kannel），是來自北歐的二至四弦弓形豎琴。它過去是否在斯堪的納維亞地區普遍流行尚有疑問。

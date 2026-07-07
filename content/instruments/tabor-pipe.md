@@ -1,21 +1,22 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/tabor-pipe/
-title: 塔波管笛
-original_name: Tabor Pipe
-category: 管樂器
-country: 歐洲
-era: 傳統／年代待考
-sound_class: 氣鳴
-range: 約2個8度（中高音區為主）
-instrument_key: 全調性
-hs_class: 421 邊棱氣鳴／無簧笛類
-family: 無簧吹管、長音與氣息樂器
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 簧片樂器
+title_zh: 塔波管笛
+title_original: Tabor Pipe
+family_std: 無簧吹管、長音與氣息樂器
+sound_hs: 421 邊棱氣鳴／無簧笛類
 playing_method: 吹奏／端吹／橫吹／容器共鳴
-body_listening: 氣息、胸腔、長音、空間
-soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 歐洲
+listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/tabor-pipe/
 youtube_ids: yTuJSZ6_DLg RZX3ApbBgCg
 ---
+
 ## 介紹
 
 塔波管笛是起源於中東和地中海地區的古老管樂器，距今已有數千年歷史。樂器由竹管或木製管身構成，外型簡樸輕便。塔波管笛音色明亮尖銳，具有穿透力強的特質，能在戶外環境中清晰發聲。中世紀時期傳入歐洲後，特別在英國和法國得到廣泛應用，常與鼓類樂器搭配使用，成為軍隊行進和民間節慶的重要樂器。其音域集中在中高音區，音色質樸原始，能有效凸顯節奏感。

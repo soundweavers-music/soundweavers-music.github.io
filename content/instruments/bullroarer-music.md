@@ -1,19 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/bullroarer-music/
-title: 牛吼器
-original_name: Bullroarer (music)
-category: 管樂器
-country: 大洋洲／澳洲
-era: 傳統／年代待考
-region_type: 跨文化／多地
-soundscape: 手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
-body_listening: 手腕、腳踝、短音、節奏對齊
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 電聲改造樂器
+title_zh: 牛吼器
+title_original: Bullroarer (music)
+family_std: 電聲改造樂器家族
+sound_hs: 待確認
+playing_method: 按鍵／控制器／電子控制（待細分）
+interface_tags: 
+region_culture: 大洋洲／澳洲
+listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+ensemble_links: 
+verification_status: 移入第13類
+issue_note: 現代電子／取樣；屬現代電子、取樣、電聲或電氣化鍵盤／設備類，應集中到第13類。；移第13類，並與傳統鍵盤／風箱類分開。
+source_url: https://soundweavers-music.github.io/instruments/bullroarer-music/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Bull_roarers.jpg/500px-Bull_roarers.jpg
 youtube_ids: ZgveIjgBnYk PIKEfSKk-JY
-instrument_key: 無固定調性
-range: 約1至2個8度（低頻段）
 ---
+
 ## 介紹
 
 牛吼器（也稱為菱形器或轉鼓）是一種古老的儀式樂器，歷史上曾被用來進行遠距離通訊。它由一根繩子連接一塊木片組成，當在大圓圈中揮舞時會產生低沉的振動聲音。它可以追溯到舊石器時代，在烏克蘭發現的例子可以追溯到公元前18,000年。人類學家邁克爾·博伊德是牛吼器專家，他記錄了在歐洲、亞洲、非洲、美洲和澳大利亞發現的牛吼器。

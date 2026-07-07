@@ -1,22 +1,22 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/chang/
-title: 箏
-original_name: Chang
-category: 弦樂器
-country: 歐洲／瑞士
-era: 傳統／年代待考
-sound_class: 弦鳴
-range: 約3個八度以上
-instrument_key: 全調性
-hs_class: 322 豎琴與里拉類
-family: 豎琴、里拉與開放弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與齊特琴
+title_zh: 箏
+title_original: Chang
+family_std: 豎琴、里拉與開放弦樂器
+sound_hs: 弦鳴｜322 豎琴與里拉類
 playing_method: 撥弦／開放弦共鳴
-body_listening: 循環、河流感、開放弦、吟唱
-soundscape: 開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
-region_type: 跨文化／多地
+interface_tags: 撥片
+region_culture: 歐洲／瑞士
+listening_sound_tags: 循環、河流感、開放弦、吟唱｜開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/chang/
 youtube_ids: 1myuIH9eAOc HMS0nipwkC4
 ---
+
 ## 介紹
 
 箏是中國古老的弦樂器，起源於戰國時期，由秦國人發明。樂器呈長方形，木製共鳴箱上張有多根琴弦，演奏者用指甲或撥片彈撥琴弦發聲。箏音色清亮透徹，高音明亮清脆，中音溫潤飽滿，低音沉厚有力。唐宋時期已成為宮廷重要樂器，後傳入日本、朝鮮等東亞國家。箏具有豐富的表現力，可獨立演奏，亦能與其他樂器融合，是雅俗共賞的民族樂器。

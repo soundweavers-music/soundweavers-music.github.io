@@ -1,21 +1,22 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/pochette/
-title: 袋形小提琴
-original_name: Pochette
-category: 弦樂器
-country: 歐洲／法國
-era: 傳統／年代待考
-sound_class: 弦鳴
-range: 約2個8度（G3–E6）
-instrument_key: 全調性
-hs_class: 321.3 擦弦／輪弦／提琴家族
-family: 擦弦、輪弦與提琴家族
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 電聲改造樂器
+title_zh: 袋形小提琴
+title_original: Pochette
+family_std: 擦弦、輪弦與提琴家族
+sound_hs: 弦鳴｜321.3 擦弦／輪弦／提琴家族
 playing_method: 弓擦／輪擦
-body_listening: 胸口、嗓音、拉長的情緒
-soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
-region_type: 跨文化／多地
+interface_tags: 弓
+region_culture: 歐洲／法國
+listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+ensemble_links: 
+verification_status: 移入第13類
+issue_note: 現代電子／取樣；屬現代電子、取樣、電聲或電氣化鍵盤／設備類，應集中到第13類。；移第13類，並與傳統鍵盤／風箱類分開。
+source_url: https://soundweavers-music.github.io/instruments/pochette/
 youtube_ids: Q_-voNY5_gs Fu5rsEnkjJw
 ---
+
 ## 介紹
 
 袋形小提琴是一個法語詞彙，意思是「小口袋」，它可能指的是：

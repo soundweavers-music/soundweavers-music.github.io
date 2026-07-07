@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/hourglass-drum/
-title: 沙漏鼓
-original_name: Hourglass drum
-category: 打擊樂器
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 沙漏鼓
+title_original: Hourglass drum
+family_std: 鼓類
+sound_hs: 2 膜鳴樂器
 playing_method: 敲擊鼓面
-family: 鼓類
-hs_class: 2 膜鳴樂器
-sound_class: 膜鳴
-country: 非洲／西非
-era: 傳統／年代待考
-region_type: 跨文化／多地
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-body_listening: 手掌、腳底、低音、舞步
+interface_tags: 
+region_culture: 非洲／西非
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/hourglass-drum/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Janggu.jpg/500px-Janggu.jpg
 youtube_ids: KXxbD1VhlLY gMEjkCsbCLU
-instrument_key: 無固定調性
-range: 約2至3個8度（可通過擠壓繩索連續變化）
 ---
+
 ## 介紹
 
 沙漏鼓是膜鳴樂器或鼓的一個子類別，其特徵是沙漏形的外形。它們也被稱為收腰鼓。鼓面由繩索固定，在演奏時可以擠壓繩索來改變音高。該類別還包括丸鼓，如達瑪如鼓，雖然並非所有丸鼓都是沙漏形（例如韓國的鼓、嗩吶鼓、嗯鼓和靈鼓，它們是桶形的）。沙漏鼓存在於世界上大多數地區，但其製造方法、尺寸、用途和演奏方法差異很大。

@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/an-ty-ba/
-title: 非洲琵琶
-original_name: Đàn tỳ bà
-category: 弦樂器
-country: 中亞／波斯
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/C%C3%A2y_%C4%90%C3%A0n_T%E1%BB%B3_B%C3%A0.jpg/500px-C%C3%A2y_%C4%90%C3%A0n_T%E1%BB%B3_B%C3%A0.jpg
-region_type: 地區／文化圈
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-body_listening: 懷抱、手指、腳步、敘事
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 非洲琵琶
+title_original: Đàn tỳ bà
+family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
+sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
 playing_method: 撥弦／刷弦／撥片
-family: 魯特琴、短頸長頸撥弦與民謠弦聲
-hs_class: 321/322 魯特琴類／撥弦
-sound_class: 弦鳴
-range: 約3個八度以上（低音沉厚到高音清脆）
-instrument_key: 全調性
+interface_tags: 撥片
+region_culture: 中亞／波斯｜地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 有問題，需修正
+issue_note: 屬性錯誤；Đàn tranh 中文「越南箏」可用，但分類寫鍵盤樂器不合理。；歸第5類箏類／齊特琴。
+source_url: https://soundweavers-music.github.io/instruments/an-ty-ba/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/C%C3%A2y_%C4%90%C3%A0n_T%E1%BB%B3_B%C3%A0.jpg/500px-C%C3%A2y_%C4%90%C3%A0n_T%E1%BB%B3_B%C3%A0.jpg
 youtube_ids: kc672b2A97Q camP3rPbC40
 ---
+
 ## 介紹
 
 琵琶是一種來自中亞的古老弦樂器，於公元四世紀傳入中國，名稱源自其彈奏方式。樂器呈梨形，擁有四根弦，通過撥弦發聲。琵琶音色明亮穿透，兼具金屬光澤與溫潤質感，音域寬廣達三個八度以上。隋唐時期在中國宮廷和民間音樂中蓬勃發展，並沿絲綢之路傳至日本、越南、朝鮮等地。輪指技法營造連綿音流，快速撥弦呈現清脆感，是中國傳統音樂中重要的表現樂器。

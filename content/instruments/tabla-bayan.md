@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/tabla-bayan/
-title: 塔布拉鼓(低音鼓)
-original_name: Tabla Bayan（低音鼓）
-category: 打擊樂器
-country: 印度／南亞
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Instrument_perkusyjny_TABLA_firmy_Meinl.jpg/500px-Instrument_perkusyjny_TABLA_firmy_Meinl.jpg
-sound_class: 膜鳴
-range: 中高音至低音（約3個8度）
-instrument_key: 無固定調性
-hs_class: 21 膜鳴鼓類
-family: 膜鳴鼓類、框鼓、杯鼓與鼓組
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 塔布拉鼓(低音鼓)
+title_original: Tabla Bayan（低音鼓）
+family_std: 膜鳴鼓類、框鼓、杯鼓與鼓組
+sound_hs: 21 膜鳴鼓類
 playing_method: 手拍／槌擊／皮膜振動
-body_listening: 手掌、腳底、低音、舞步
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-region_type: 地區／文化圈
+interface_tags: 
+region_culture: 印度／南亞｜地區／文化圈
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/tabla-bayan/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Instrument_perkusyjny_TABLA_firmy_Meinl.jpg/500px-Instrument_perkusyjny_TABLA_firmy_Meinl.jpg
 youtube_ids: sUn5UOsmGSM fwyhuRwaRwM
 ---
+
 ## 介紹
 
 塔布拉鼓是印度古典音樂中最重要的打擊樂器，由兩個鼓組成：右鼓「塔布拉」(Dayan)發出高亮音色，左鼓「巴揚」(Bayan)發出低沉音色。外型呈杯狀，鼓面覆以動物皮膜。樂手透過改變敲擊位置、力度和手指技巧在同一面鼓上產生豐富音色變化。音色溫潤富有層次感，具有明亮穿透力與深沉共鳴特質。主要用於北印度古典音樂和卡塔克舞蹈伴奏，現已成為印度音樂表演的標配樂器。

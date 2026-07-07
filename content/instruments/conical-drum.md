@@ -1,22 +1,22 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/conical-drum/
-title: 錐形鼓
-original_name: Conical drum
-category: 打擊樂器
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 電聲改造樂器
+title_zh: 錐形鼓
+title_original: Conical drum
+family_std: 鼓類
+sound_hs: 2 膜鳴樂器
 playing_method: 敲擊鼓面
-family: 鼓類
-hs_class: 2 膜鳴樂器
-sound_class: 膜鳴
-country: 歐洲
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-body_listening: 手掌、腳底、低音、舞步
+interface_tags: 
+region_culture: 歐洲｜單一地區／文化圈
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 移入第13類
+issue_note: 現代電子／取樣；屬現代電子、取樣、電聲或電氣化鍵盤／設備類，應集中到第13類。；移第13類，並與傳統鍵盤／風箱類分開。
+source_url: https://soundweavers-music.github.io/instruments/conical-drum/
 youtube_ids: VXCxKMT2ZUo S_SDhpIvpZ4
-instrument_key: 無固定調性
-range: 約2-3個8度（可通過改變敲擊位置和力度調整）
 ---
+
 ## 介紹
 
 錐形鼓是一類膜鳴樂器或鼓，其特點是鼓身邊緣呈斜坡狀。通常只有一個鼓面。定音鼓就是一個例子。錐形鼓的側面還有琴弦來保持樂器的結構完整。

@@ -1,19 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/gogona/
-title: 果果納
-original_name: Gogona
-category: 打擊樂器
-country: 印度
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 手邊發光的小宇宙（近身體鳴、舌片琴與手奏金屬共鳴）
-body_listening: 指尖、掌心、尾音、近身聆聽
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 沙鈴、刮器與小打擊
+title_zh: 果果納
+title_original: Gogona
+family_std: 沙鈴、刮器與小打擊家族
+sound_hs: 待確認
+playing_method: 敲奏／拍奏／搖奏／刮奏（待細分）
+interface_tags: 
+region_culture: 印度｜單一地區／文化圈
+listening_sound_tags: 指尖、掌心、尾音、近身聆聽｜手邊發光的小宇宙（近身體鳴、舌片琴與手奏金屬共鳴）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/gogona/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/%E0%A6%97%E0%A6%97%E0%A6%A3%E0%A6%BE.JPG/500px-%E0%A6%97%E0%A6%97%E0%A6%A3%E0%A6%BE.JPG
 youtube_ids: 357WhxbU36c WG1_joyeTuw
-instrument_key: 無固定調性
-range: 中低頻段（約1至2個8度）
 ---
+
 ## 介紹
 
 古貢納（gogona）是一種頜琴，是一種振動的簧片樂器，主要用於印度阿薩姆邦的傳統比胡音樂中。在博羅語中，它被稱為貢吉納。類似的竹製口琴也見於其他西藏語族部落，如尼泊爾的基蘭蒂人、布貢人、彝族人、特里普里人等。它由一根竹子或角製成，一端有分叉。堅固的一端用牙齒咬住，然後用手指反覆敲擊自由端以發出古貢納獨特的聲音。

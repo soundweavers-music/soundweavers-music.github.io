@@ -1,19 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/xylorimba/
-title: 木琴馬林巴
-original_name: Xylorimba
-category: 打擊樂器
-country: 非洲
-era: 傳統／年代待考
-region_type: 地區／文化圈
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-body_listening: 材料、回聲、群體分工、音列
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 木琴馬林巴
+title_original: Xylorimba
+family_std: 撥弦與抱持弦樂家族
+sound_hs: 待確認
+playing_method: 撥奏／擦奏／擊弦（待細分）
+interface_tags: 
+region_culture: 非洲｜地區／文化圈
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/xylorimba/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Xylorimba_%28from_Emil_Richards_Collection%29.jpg/500px-Xylorimba_%28from_Emil_Richards_Collection%29.jpg
 youtube_ids: 3v7QC6Bl_7E SWi5EGygvEc
-instrument_key: 全調性
-range: 約4至5個八度
 ---
+
 ## 介紹
 
 木琴馬林巴（有時稱為木琴-馬林巴或馬林巴-木琴）是一種音高打擊樂器，類似於音域擴展的木琴，其音域與某些五八度鐵琴或五八度馬林巴相同，但通常比後者高一個八度。儘管名稱如此，它並不是木琴和馬林巴的組合；其名稱一直是混亂的根源，因為許多作曲家（包括阿爾班·貝爾格、皮埃爾·布列茲和奧利維埃·梅西安）都曾要求使用「木琴馬林巴」，但實際上只需要四八度的木琴。

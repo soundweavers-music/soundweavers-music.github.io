@@ -1,22 +1,22 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/vihuela-mexicana/
-title: 墨西哥維瑞拉琴
-original_name: Vihuela Mexicana
-category: 弦樂器
-country: 中東／歐洲／亞洲／美洲
-era: 傳統／年代待考
-sound_class: 弦鳴
-range: 約2個8度
-instrument_key: 多調性
-hs_class: 321/322 魯特琴類／撥弦
-family: 魯特琴、短頸長頸撥弦與民謠弦聲
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 墨西哥維瑞拉琴
+title_original: Vihuela Mexicana
+family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
+sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
 playing_method: 撥弦／刷弦／撥片
-body_listening: 懷抱、手指、腳步、敘事
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 地區／文化圈
+interface_tags: 撥片
+region_culture: 中東／歐洲／亞洲／美洲｜地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/vihuela-mexicana/
 youtube_ids: oZlU3xGAjXA diGCoGG3-W8
 ---
+
 ## 介紹
 
 墨西哥維瑞拉琴是源自西班牙的五弦撥弦樂器，於十六世紀傳入墨西哥後，融合印第安音樂文化特色而演變成獨特的民族樂器。琴身為木製共鳴箱設計，主要流行於墨西哥西部地區，特別是哈利斯科州和納亞里特州。其音色明亮溫暖，具有獨特的穿透力，既保有溫潤的民族特色，又比古典吉他更顯粗獷有力。廣泛應用於民間樂隊與傳統音樂演奏，是墨西哥民俗文化的重要代表。

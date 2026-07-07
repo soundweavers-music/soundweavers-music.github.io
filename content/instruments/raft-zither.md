@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/raft-zither/
-title: 筏狀箏
-original_name: Raft zither
-category: 鍵盤樂器
-country: 亞洲／歐洲／全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/COLLECTIE_TROPENMUSEUM_Vlotciter_van_bamboe_TMnr_3911-61.jpg/500px-COLLECTIE_TROPENMUSEUM_Vlotciter_van_bamboe_TMnr_3911-61.jpg
-sound_class: 弦鳴
-range: 約3至4個八度
-instrument_key: 多調性
-hs_class: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
-family: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 筏狀箏
+title_original: Raft zither
+family_std: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+sound_hs: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
 playing_method: 撥弦／擊弦／按鍵擊弦
-body_listening: 手掌、弦面、推音、敲擊
-soundscape: 平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
-region_type: 跨文化／多地
+interface_tags: 鍵盤／按鍵
+region_culture: 亞洲／歐洲／全球
+listening_sound_tags: 手掌、弦面、推音、敲擊｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
+ensemble_links: 
+verification_status: 需調整
+issue_note: 名稱可保留；Piccolo 是短笛；但需與第182 Cornett、第558 Pífano 區分。；保留「短笛（Piccolo）」。
+source_url: https://soundweavers-music.github.io/instruments/raft-zither/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/COLLECTIE_TROPENMUSEUM_Vlotciter_van_bamboe_TMnr_3911-61.jpg/500px-COLLECTIE_TROPENMUSEUM_Vlotciter_van_bamboe_TMnr_3911-61.jpg
 youtube_ids: 7Yp22F53snc CtzGBpFiwVs
 ---
+
 ## 介紹
 
 筏狀箏是一組單弦管狀箏，連接在一起形成一個「筏」。管狀箏使用一根管子作為平台來固定弦（弦要麼被綁在管子上，要麼從管子本身切割而出），並用琴橋抬起。筏狀箏的平坦表面是弦的基座，多個樂器組合形成單一樂器，具有多個音符。筏狀箏中的每根管狀箏都發出不同的音符，同弦樂器變成了異弦樂器。筏狀箏也與板狀箏有關，後者使用木板作為其多條弦的基座。

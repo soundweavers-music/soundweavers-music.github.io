@@ -1,18 +1,22 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/idiochord/
-title: 自鳴弦琴
-original_name: Idiochord
-category: 弦樂器
-country: 印度洋地區／非洲／歐洲和北美
-era: 傳統／年代待考
-region_type: 跨文化／多地
-soundscape: 平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化弦鳴）
-body_listening: 手掌、弦面、推音、敲擊
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 自鳴弦琴
+title_original: Idiochord
+family_std: 無簧吹管家族
+sound_hs: 待確認
+playing_method: 吹奏
+interface_tags: 
+region_culture: 印度洋地區／非洲／歐洲和北美
+listening_sound_tags: 手掌、弦面、推音、敲擊｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化弦鳴）
+ensemble_links: 
+verification_status: 已修正中文名，待雙來源補證
+issue_note: 中文名重複／譯名修正；原中文名寫成「手風琴」，容易與第5項 Accordion 混淆；Harmonium 應作簧風琴／風琴類。；不刪除；改中文名，與手風琴相鄰。；DUP-019:Accordion／Bandoneon／Harmonium
+source_url: https://soundweavers-music.github.io/instruments/idiochord/
 youtube_ids: 0dyTyphiYd0 bqi9B4vtZNo
-instrument_key: 無固定調性
-range: 中高音區（約2個8度）
 ---
+
 ## 介紹
 
 自鳴弦琴（拉丁文：idio──「自身」，chord──「弦」，亦稱鼓琴）是一種樂器，其弦由與共鳴箱相同的材料製成。這類樂器可在印度洋地區、非洲各地及其僑民區、以及歐洲和北美的部分地區找到。竹子經常是製作自鳴弦琴的受歡迎材料：竹管可以在中間切割以鬆動外殼的部分，在兩端保持相連，這些「弦」可以通過插入木棍作為琴橋而抬起。

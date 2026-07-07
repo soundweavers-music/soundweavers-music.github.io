@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/naqareh/
-title: 納卡雷鼓
-original_name: Naqareh
-category: 打擊樂器
-country: 中東
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/1/1f/Iraqi_Naqqarat.jpg
-sound_class: 膜鳴
-range: 約1至1.5個8度（低音域）
-instrument_key: 無固定調性
-hs_class: 21 膜鳴鼓類
-family: 膜鳴鼓類、框鼓、杯鼓與鼓組
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 納卡雷鼓
+title_original: Naqareh
+family_std: 膜鳴鼓類、框鼓、杯鼓與鼓組
+sound_hs: 21 膜鳴鼓類
 playing_method: 手拍／槌擊／皮膜振動
-body_listening: 手掌、腳底、低音、舞步
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 中東
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 需調整
+issue_note: 名稱可保留／鄰近；Monochord 是單弦器／單弦琴泛稱，與第368 Ichigenkin 不同。；相鄰不合併。
+source_url: https://soundweavers-music.github.io/instruments/naqareh/
+image: https://upload.wikimedia.org/wikipedia/commons/1/1f/Iraqi_Naqqarat.jpg
 youtube_ids: YwsTwU-2QJM JPdM9d0k5I4
 ---
+
 ## 介紹
 
 納卡雷鼓（naqareh、naqqāra、nagara 或 nagada）是一種中東鼓樂器，具有圓形的背部和獸皮鼓面，通常成對演奏。因此它屬於鍋形鼓類的膜鳴樂器。術語 naqqāra（نقاره）、naqqarat、naqqarah、naqqåre、nakkare、nagora 等源自烏爾都語動詞 naqr-，意為「敲擊、敲打」。這件樂器在十字軍東征之後也被歐洲採用，並被稱為 naccaire 或 naker。

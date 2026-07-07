@@ -1,19 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/pantalon/
-title: 潘塔隆琴
-original_name: Pantalon
-category: 弦樂器
-country: 歐洲（法國／德國）
-era: 傳統／年代待考
-region_type: 地區／文化圈
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-body_listening: 材料、回聲、群體分工、音列
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 潘塔隆琴
+title_original: Pantalon
+family_std: 撥弦與抱持弦樂家族
+sound_hs: 待確認
+playing_method: 撥奏／擦奏／擊弦（待細分）
+interface_tags: 
+region_culture: 歐洲（法國／德國）｜地區／文化圈
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/pantalon/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Pantaleon-Clavier_%28Nachbau%29.jpg/500px-Pantaleon-Clavier_%28Nachbau%29.jpg
 youtube_ids: j7sKRPv2gDI fqksK15Bv20
-instrument_key: 全調性
-range: 男中音至高音區域（約3個8度）
 ---
+
 ## 介紹
 
 潘塔隆琴（或潘塔隆）是一種非常大型的敲擊揚琴，由潘塔隆·赫本施特賴特在18世紀初發明，曾在法國和德國短暫流行。

@@ -1,22 +1,22 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/bass-likembe/
-title: 低音利肯貝
-original_name: Bass Likembe
-category: 打擊樂器
-country: 非洲／辛巴威／剛果／全球現代
-era: 傳統／年代待考
-sound_class: 體鳴
-range: 約2至3個8度
-instrument_key: 全調性
-hs_class: Idiophone／體鳴樂器
-family: 大型低音舌片琴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 低音利肯貝
+title_original: Bass Likembe
+family_std: 大型低音舌片琴
+sound_hs: Idiophone／體鳴樂器
 playing_method: 手指撥片
-body_listening: 指尖、掌心、尾音、近身聆聽
-soundscape: 手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）
-region_type: 跨文化／多地
+interface_tags: 撥片
+region_culture: 非洲／辛巴威／剛果／全球現代
+listening_sound_tags: 指尖、掌心、尾音、近身聆聽｜手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/bass-likembe/
 youtube_ids: vRNoVlQn0mE lQf7dFcNiM4
 ---
+
 ## 介紹
 
 低音利肯貝是源自非洲東部和中部的傳統打擊樂器，屬於拇指琴家族。樂器由木製琴身與金屬琴片組成，演奏者使用雙拇指撥動琴片發音。其外型呈扁平矩形，便於手持演奏。低音利肯貝音域寬廣深沉，音色溫潤而富有磁性，具有長時間的共鳴效果。主要用於世界音樂、冥想音樂、電影配樂及現代實驗音樂創作，能營造出神秘冥想的氛圍，是豐富樂隊低音層次的重要樂器。

@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/violin-family/
-title: 提琴族
-original_name: Violin family
-category: 弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 提琴族
+title_original: Violin family
+family_std: 弦樂器類
+sound_hs: 3 弦鳴樂器
 playing_method: 撥弦／擦弦／擊弦
-family: 弦樂器類
-hs_class: 3 弦鳴樂器
-sound_class: 弦鳴
-country: 歐洲／義大利
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
-body_listening: 胸口、嗓音、拉長的情緒
+interface_tags: 
+region_culture: 歐洲／義大利｜單一地區／文化圈
+listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/violin-family/
 image: https://upload.wikimedia.org/wikipedia/commons/8/8c/Cello_front_side.jpg
 youtube_ids: PCFTayaWVG4 q98A5ev9MYY
-instrument_key: 全調性
-range: 小提琴G3–E7（約4個8度）；中提琴C3–G6（約3.5個8度）；大提琴C2–G5（約3.5個8度）；低音提琴E1–G4（約3個8度）
 ---
+
 ## 介紹
 
 提琴族樂器是在16世紀於義大利發展而來。當時這類樂器的名稱為「臂上提琴」（viole da braccio），用來區別於維奧爾琴族（viole da gamba）。現代標準的提琴族包括小提琴、中提琴、大提琴，以及（可能的）低音提琴。提琴族樂器的名稱均衍生自「viola」這個詞根，而該詞是來自中世紀拉丁文的「vitula」（意為「弦樂器」）。

@@ -1,19 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/tenoroon/
-title: 次中音巴松
-original_name: Tenoroon
-category: 管樂器
-country: 歐洲
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-body_listening: 口腔、舌頭、簧片震動、鼻音
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 次中音巴松
+title_original: Tenoroon
+family_std: 無簧吹管家族
+sound_hs: 待確認
+playing_method: 吹奏
+interface_tags: 
+region_culture: 歐洲｜單一地區／文化圈
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/tenoroon/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Tenoroon_%28Tenor_Bassoon%29_in_F_MET_DP221405.jpg/500px-Tenoroon_%28Tenor_Bassoon%29_in_F_MET_DP221405.jpg
 youtube_ids: v_PtfAUzG1c FpJ9wmiCpeo
-instrument_key: 無固定調性
-range: 約2個8度
 ---
+
 ## 介紹
 
 次中音巴松（或稱為tenoroon）是巴松樂器家族的一員，屬於雙簧木管樂器。與中音巴松（又稱八度巴松）相似，它相對罕見。

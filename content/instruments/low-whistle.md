@@ -1,22 +1,22 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/low-whistle/
-title: 低音哨笛
-original_name: Low Whistle
-category: 管樂器
-country: 愛爾蘭／英國
-era: 傳統／年代待考
-sound_class: 氣鳴
-range: 約2.5個8度
-instrument_key: G調、C調
-hs_class: Aerophone／氣鳴樂器
-family: 低音哨笛
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 低音哨笛
+title_original: Low Whistle
+family_std: 低音哨笛
+sound_hs: Aerophone／氣鳴樂器
 playing_method: 吹奏
-body_listening: 柔暗長音、民謠敘事、近身呼吸
-soundscape: 一口氣走過山谷（無簧吹管、長音與氣息樂器）
-region_type: 區域／多國
+interface_tags: 
+region_culture: 愛爾蘭／英國｜區域／多國
+listening_sound_tags: 柔暗長音、民謠敘事、近身呼吸｜一口氣走過山谷（無簧吹管、長音與氣息樂器）
+ensemble_links: 
+verification_status: 待檢查
+issue_note: 名稱待查；Kulintang a tiniok 與第439項同族，中文不應寫鼓。；相鄰而非直接合併，需查具體型制。
+source_url: https://soundweavers-music.github.io/instruments/low-whistle/
 youtube_ids: 2H1P_Lam76E 3V80-Fm_5Gs
 ---
+
 ## 介紹
 
 低音哨笛是源於愛爾蘭的傳統管樂器，屬於凱爾特音樂文化的重要組成部分。樂器外型細長，多為木製，通常採用G調或C調。其音色溫潤深沉，帶有獨特的木質感與滄桑韻味，特別擅長詮釋凱爾特民謠與世界音樂。相比高音哨笛的明亮清脆，低音哨笛音域更寬廣，低音區渾厚有力，中音區溫暖柔和，既能溫柔低迴，也能激情高昂，在民族樂隊中扮演重要角色。

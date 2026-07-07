@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/liuqin/
-title: 柳琴
-original_name: Liuqin
-category: 弦樂器
-country: 中東／歐亞／東亞／美洲／全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/f/f8/Liuqin.jpg
-sound_class: 弦鳴
-range: 約1個半8度（高音區域）
-instrument_key: 全調性
-hs_class: 321/322 魯特琴類／撥弦
-family: 魯特琴、短頸長頸撥弦與民謠弦聲
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 柳琴
+title_original: Liuqin
+family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
+sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
 playing_method: 撥弦／刷弦／撥片
-body_listening: 懷抱、手指、腳步、敘事
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 跨文化／多地
+interface_tags: 撥片
+region_culture: 中東／歐亞／東亞／美洲／全球
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/liuqin/
+image: https://upload.wikimedia.org/wikipedia/commons/f/f8/Liuqin.jpg
 youtube_ids: _pO7BRNdJdc rugRfbgCkl4
 ---
+
 ## 介紹
 
 柳琴又名柳葉琴、小琵琶、金剛腿、聞子靈，是中國的一種高音撥弦樂器，音色洪亮清脆，多出現於江蘇省、山東省和安徽省。 柳琴外形與琵琶非常相似，但是在外觀上更加「小、短、圓潤」，彈奏柳琴戲的柳琴為2弦7品，音域1個半八度，右手中指戴一竹筒或牛角筒「柳琴套」。

@@ -1,21 +1,22 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/galoubet/
-title: 加羅笛
-original_name: Galoubet
-category: 管樂器
-country: 歐洲／法國
-era: 傳統／年代待考
-sound_class: 氣鳴
-range: 約2至3個8度
-instrument_key: 無固定調性
-hs_class: Aerophone／氣鳴樂器
-family: 端吹笛
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 加羅笛
+title_original: Galoubet
+family_std: 端吹笛
+sound_hs: Aerophone／氣鳴樂器
 playing_method: 端吹
-body_listening: 氣息、胸腔、長音、空間
-soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 歐洲／法國
+listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/galoubet/
 youtube_ids: EB0AnOCq77A -3BEHucd740
 ---
+
 ## 介紹
 
 加羅笛可能指的是：加羅笛A（1972–2005），一匹障礙馬術賽馬，加羅笛，一種管樂器。

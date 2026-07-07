@@ -1,19 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/huaca-instrument/
-title: 瓦卡
-original_name: Huaca (instrument)
-category: 管樂器
-country: 義大利
-era: 傳統／年代待考
-sound_class: 氣鳴
-region_type: 單一地區／文化圈
-soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
-body_listening: 氣息、胸腔、長音、空間
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 瓦卡
+title_original: Huaca (instrument)
+family_std: 無簧吹管家族
+sound_hs: 氣鳴
+playing_method: 吹奏
+interface_tags: 指孔
+region_culture: 義大利｜單一地區／文化圈
+listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/huaca-instrument/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/2016-01_Ocarina_front.jpg/500px-2016-01_Ocarina_front.jpg
 youtube_ids: XDjZ3BCVlXA j2c_J3YvE7s
-instrument_key: 全調性
-range: 約1至2個八度
 ---
+
 ## 介紹
 
 陶笛（又名馬鈴薯笛）是一種風樂器，屬於容器笛的一種。雖然存在各種變化，但典型的陶笛是一個封閉的空間，有四至十二個指孔和一個從笛身突出的吹嘴。陶笛傳統上由黏土或陶瓷製成，但也使用其他材料，如塑膠、木頭、玻璃、金屬或骨頭。義大利陶笛由17歲的朱塞佩·多納蒂（Giuseppe Donati）於1853年發明，他也是陶笛名稱的創造者。多納蒂用黏土手工製作每一個陶笛，配有7至10個指孔和一個吹嘴。

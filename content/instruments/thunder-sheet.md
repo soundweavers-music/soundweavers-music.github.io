@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/thunder-sheet/
-title: 雷鳴板
-original_name: Thunder sheet
-category: 打擊樂器
-country: 全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Macchina_del_tuono.jpg/500px-Macchina_del_tuono.jpg
-sound_class: 體鳴
-range: 寬廣音域，高頻刺耳聲至低沉隆隆聲
-instrument_key: 無固定調性
-hs_class: 11/12 定音體鳴／鑼鐘木琴石琴系統
-family: 定音體鳴、材料敲擊與鑼鐘木琴系統
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 雷鳴板
+title_original: Thunder sheet
+family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
+sound_hs: 11/12 定音體鳴／鑼鐘木琴石琴系統
 playing_method: 敲擊／搖奏／材料共鳴
-body_listening: 材料、回聲、群體分工、音列
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 全球
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/thunder-sheet/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Macchina_del_tuono.jpg/500px-Macchina_del_tuono.jpg
 youtube_ids: YKVzfaRrsDc SDUK-kIDlEc
 ---
+
 ## 介紹
 
 雷鳴板是一種薄金屬板，用於製造音樂或戲劇表演的音效。這種裝置可以被搖動使其振動，或用槌敲擊。它也被稱為雷鳴機，但這個名稱也可能指用於製造類似音效的大鼓。雷鳴板可從某些鈸製造商（包括Paiste和Sabian）購買，或可用任何廢舊金屬板輕鬆製作。金屬板越薄越大，聲音越響亮。雷鳴板在發聲前需要「預熱」。

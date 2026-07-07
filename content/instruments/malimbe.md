@@ -1,18 +1,22 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/malimbe/
-title: 馬林貝琴
-original_name: Malimbe
-category: 打擊樂器
-country: 非洲中部（剛果）/ 非洲東部（坦尚尼亞）
-era: 傳統／年代待考
-region_type: 地區／文化圈
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-body_listening: 材料、回聲、群體分工、音列
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 馬林貝琴
+title_original: Malimbe
+family_std: 撥弦與抱持弦樂家族
+sound_hs: 待確認
+playing_method: 撥奏／擦奏／擊弦（待細分）
+interface_tags: 
+region_culture: 非洲中部（剛果）/ 非洲東部（坦尚尼亞）｜地區／文化圈
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/malimbe/
 youtube_ids: -cLAwAOi-hA skv2FDnh91E
-instrument_key: 無固定調性
-range: 約2個8度
 ---
+
 ## 介紹
 
 馬林貝琴是來自剛果的一種木琴，據說有男性和女性兩種類型；男性型有15根木條，女性型有9根。「馬林貝琴」也指坦尚尼亞尼亞姆韋茲人中的一種板鳴樂器或姆比拉型樂器。

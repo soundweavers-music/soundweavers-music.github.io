@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/frame-zither/
-title: 框式箏
-original_name: Frame zither
-category: 弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 框式箏
+title_original: Frame zither
+family_std: 弦樂器類
+sound_hs: 3 弦鳴樂器
 playing_method: 撥弦／擦弦／擊弦
-family: 弦樂器類
-hs_class: 3 弦鳴樂器
-sound_class: 弦鳴
-country: 全球／多地
-era: 傳統／年代待考
-region_type: 地區／文化圈
-soundscape: 開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
-body_listening: 循環、河流感、開放弦、吟唱
+interface_tags: 
+region_culture: 全球／多地｜地區／文化圈
+listening_sound_tags: 循環、河流感、開放弦、吟唱｜開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/frame-zither/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/COLLECTIE_TROPENMUSEUM_Harp_van_kalebas_TMnr_2436-5.jpg/500px-COLLECTIE_TROPENMUSEUM_Harp_van_kalebas_TMnr_2436-5.jpg
 youtube_ids: 1ox3M9fqpZU w9mxS6DBZIg
-instrument_key: 全調性
-range: 高、中、低三個音域（約3個8度）
 ---
+
 ## 介紹
 
 框式箏是音樂樂器分類系統霍恩博斯特爾-薩克斯分類法中的一類樂器（箏的子集），屬於簡單弦樂器的範疇。這種樂器的共鳴體由框架構成。框式箏是指琴弦跨越開放式框架而張設的樂器。它們可能與豎琴和揚琴相似，這些樂器的琴弦也可以張設於框架上。不過，在豎琴中，琴弦是從框架跨越到嵌入框架另一端的共鳴板上。

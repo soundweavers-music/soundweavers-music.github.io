@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/pellet-drum/
-title: 圓珠鼓
-original_name: Pellet drum
-category: 打擊樂器
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 圓珠鼓
+title_original: Pellet drum
+family_std: 鼓類
+sound_hs: 2 膜鳴樂器
 playing_method: 敲擊鼓面
-family: 鼓類
-hs_class: 2 膜鳴樂器
-sound_class: 膜鳴
-country: 亞洲／東亞
-era: 傳統／年代待考
-region_type: 跨文化／多地
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-body_listening: 手掌、腳底、低音、舞步
+interface_tags: 
+region_culture: 亞洲／東亞
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 需調整
+issue_note: 名稱可保留／鄰近；Oboe 與第681 Shawm 同屬雙簧系，但歷史與型制不同。；相鄰不合併。
+source_url: https://soundweavers-music.github.io/instruments/pellet-drum/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Damaru.jpg/500px-Damaru.jpg
 youtube_ids: 0GPEKuBQqqY Sj6bpSejPvo
-instrument_key: 無固定調性
-range: 中高頻範圍（約2個8度）
 ---
+
 ## 介紹
 
 圓珠鼓，或稱為搖鼓，是一類膜鳴樂器或鼓類樂器，以其結構和演奏方式為特徵。它們有兩個鼓頭（要麼是單個雙面鼓，要麼是兩個半球形單面鼓頭朝外連接在一起），以及兩個圓珠，每個圓珠都通過繩索連接到鼓上。

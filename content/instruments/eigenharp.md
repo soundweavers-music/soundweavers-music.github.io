@@ -1,22 +1,22 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/eigenharp/
-title: 艾根豎琴
-original_name: Eigenharp
-category: 鍵盤樂器
-country: 英國／全球
-era: 傳統／年代待考
-sound_class: 鍵盤／電鳴／機械混合
-range: 全音域
-instrument_key: 全調性
-hs_class: 412/31/52 鍵盤、自由簧、電鳴與機械介面
-family: 鍵盤介面、風箱、電子與取樣
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 取樣與磁帶
+title_zh: 艾根豎琴
+title_original: Eigenharp
+family_std: 鍵盤介面、風箱、電子與取樣
+sound_hs: 鍵盤／電鳴／機械混合｜412/31/52 鍵盤、自由簧、電鳴與機械介面
 playing_method: 按鍵／風箱／電控／取樣
-body_listening: 多維控制、現場電子表情
-soundscape: 按鍵打開的機械房間（鍵盤介面、風箱、電子與取樣）
-region_type: 現代／電子音樂
+interface_tags: 鍵盤／按鍵、風箱、電子控制
+region_culture: 英國／全球｜現代／電子音樂
+listening_sound_tags: 多維控制、現場電子表情｜按鍵打開的機械房間（鍵盤介面、風箱、電子與取樣）
+ensemble_links: 
+verification_status: 已修正中文名，待雙來源補證
+issue_note: 中文名重複／譯名修正；原中文名寫成「低音管」，易與第86項 Bassoon 混淆；Drone pipe 是持續音管／風袋類術語，中文需再查。；不刪除；改暫譯並列待查。
+source_url: https://soundweavers-music.github.io/instruments/eigenharp/
 youtube_ids: hFbKMfLGiUo qJhiY3oQRIk
 ---
+
 ## 介紹
 
 艾根豎琴是由英國德文郡公司Eigenlabs製造的電子樂器品牌。這個「樂器」本質上是一個高度靈活且便攜的控制器，其聲音實際上由它所驅動的軟體生成。

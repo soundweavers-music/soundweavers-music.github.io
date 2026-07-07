@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/bucium/
-title: 布奇烏姆號
-original_name: Bucium
-category: 管樂器
-country: 全球／中東／歐洲／亞洲／高山與宗教文化圈
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Bucium-Vorone%C5%A3.JPG/500px-Bucium-Vorone%C5%A3.JPG
-sound_class: 氣鳴
-range: 中高音區（約2個8度）
-instrument_key: 無固定調性
-hs_class: 423 唇振氣鳴／號角與銅管
-family: 唇振氣鳴、天然號角與銅管
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 號角與唇振
+title_zh: 布奇烏姆號
+title_original: Bucium
+family_std: 唇振氣鳴、天然號角與銅管
+sound_hs: 423 唇振氣鳴／號角與銅管
 playing_method: 唇振吹奏
-body_listening: 嘴唇、遠方、召喚、空間方向
-soundscape: 吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 全球／中東／歐洲／亞洲／高山與宗教文化圈
+listening_sound_tags: 嘴唇、遠方、召喚、空間方向｜吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/bucium/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Bucium-Vorone%C5%A3.JPG/500px-Bucium-Vorone%C5%A3.JPG
 youtube_ids: vEfPHrBxtWA 0ssiZo5B1Kc
 ---
+
 ## 介紹
 
 布奇烏姆號（羅馬尼亞語發音：[ˈbutʃjum]，也稱為trâmbiță或tulnic）是源自羅馬尼亞和摩爾多瓦的一種阿爾卑斯號。該詞源自拉丁文bucinum，原意為「彎曲的號角」，是羅馬人使用的樂器。這個詞與英文「bugle」（軍號）同源。布奇烏姆號的管身可以是直的或彎曲的，且可以沿其整個長度呈圓錐形，也可以僅在喇叭口部分呈圓錐形。其管身長度為1.5米至3米以上，可由冷杉、白蠟樹、椴樹或榛樹木製成，並用樺樹皮、櫻桃樹皮或椴樹皮綁紮。

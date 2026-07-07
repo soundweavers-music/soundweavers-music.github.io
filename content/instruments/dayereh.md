@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/dayereh/
-title: 達葉雷框鼓
-original_name: Dayereh
-category: 打擊樂器
-country: 非洲／中東／亞洲／歐洲／美洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Pair_of_dafs.jpg/500px-Pair_of_dafs.jpg
-sound_class: 膜鳴
-range: 中高頻範圍（約2個8度）
-instrument_key: 無固定調性
-hs_class: 21 膜鳴鼓類
-family: 膜鳴鼓類、框鼓、杯鼓與鼓組
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 達葉雷框鼓
+title_original: Dayereh
+family_std: 膜鳴鼓類、框鼓、杯鼓與鼓組
+sound_hs: 21 膜鳴鼓類
 playing_method: 手拍／槌擊／皮膜振動
-body_listening: 手掌、腳底、低音、舞步
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-region_type: 地區／文化圈
+interface_tags: 
+region_culture: 非洲／中東／亞洲／歐洲／美洲｜地區／文化圈
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/dayereh/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Pair_of_dafs.jpg/500px-Pair_of_dafs.jpg
 youtube_ids: mb59wYSv7dk SDFjwB8MPwI
 ---
+
 ## 介紹
 
 達夫（波斯語：دف），也稱為達普（دپ）、達葉雷或瑞克，是一種伊朗框鼓樂器，也用於波斯文化影響的南亞和中亞的流行音樂和古典音樂中，例如在阿富汗、阿塞拜疆、塔吉克斯坦、伊朗、烏茲別克斯坦、土耳其、喬治亞的許多地區、亞美尼亞、巴基斯坦以及印度的部分地區和俄羅斯北極地區。它在巴爾幹人、高加索人、布哈拉猶太人、庫爾德人和馬其頓人中也很受歡迎。

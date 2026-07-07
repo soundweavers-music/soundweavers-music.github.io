@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/harpejji/
-title: 哈撥琴
-original_name: Harpejji
-category: 弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 哈撥琴
+title_original: Harpejji
+family_std: 弦樂器類
+sound_hs: 3 弦鳴樂器
 playing_method: 撥弦／擦弦／擊弦
-family: 弦樂器類
-hs_class: 3 弦鳴樂器
-sound_class: 弦鳴
-country: 美國
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
-body_listening: 手指、機械距離、記憶、電聲
+interface_tags: 
+region_culture: 美國｜單一地區／文化圈
+listening_sound_tags: 手指、機械距離、記憶、電聲｜按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/harpejji/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Harpejji.jpg/500px-Harpejji.jpg
 youtube_ids: V5T-9RPW4pg NFzW9rnaR7w
-instrument_key: 全調性
-range: A0–A5（5個八度）
 ---
+
 ## 介紹
 
 豎琴吉他（har-PEJ-ee）是由美國音頻工程師蒂姆·米克斯（Tim Meeks）於2007年開發的電子12至24弦樂器。其製造商將其描述為鋼琴和吉他的結合體，而音樂家雅各布·科利爾（Jacob Collier）則將其描述為手風琴和踏板鋼琴吉他的結合體。演奏表面的佈局設計使得弦與弦之間呈全音階遞增排列，而隨著弦遠離演奏者呈半音階遞增排列。24弦型號的音域範圍達五個八度，從A0到A5；而22弦的M5型號也提供五個八度的音域範圍，從C1到C6。

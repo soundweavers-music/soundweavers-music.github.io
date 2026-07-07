@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/calliope-music/
-title: 汽笛琴
-original_name: Calliope (music)
-category: 管樂器
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 汽笛琴
+title_original: Calliope (music)
+family_std: 管樂器類
+sound_hs: 4 气鳴樂器
 playing_method: 吹奏
-family: 管樂器類
-hs_class: 4 气鳴樂器
-sound_class: 气鳴
-country: 美國
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
-body_listening: 氣息、胸腔、長音、空間
+interface_tags: 
+region_culture: 美國｜單一地區／文化圈
+listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/calliope-music/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Calliope%2C_the_wonderful_operonicon_or_steam_car_of_the_muses%2C_advertising_poster%2C_1874.jpg/500px-Calliope%2C_the_wonderful_operonicon_or_steam_car_of_the_muses%2C_advertising_poster%2C_1874.jpg
 youtube_ids: Olnm66Uxy8U SFgqDSBba1g
-instrument_key: 全調性
-range: 全音域
 ---
+
 ## 介紹
 
 汽笛琴（不要與機械風琴混淆）（發音請參見下文）是一種美式樂器，它通過將氣體（最初是蒸氣，最近則是壓縮空氣）送入大型汽笛（最初是機車汽笛）來產生聲音。汽笛琴通常聲音很大。即使是一些小型汽笛琴的聲音也能傳播數英里遠。沒有辦法改變音色或音量。在音樂上，唯一可能的表現方式只有音調、節奏和音符的時長。蒸汽汽笛琴也被稱為蒸汽風琴（魁北克法語為 orgue à vapeur）或蒸汽鋼琴（魁北克法語為 piano à vapeur）。

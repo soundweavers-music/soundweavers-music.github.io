@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/adungu/
-title: 阿杜古弓形豎琴
-original_name: Adungu
-category: 弦樂器
-country: 烏干達／東非
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Three_Adungu_Harps.jpg/500px-Three_Adungu_Harps.jpg
-sound_class: 弦鳴
-range: 中音至高音區（約2至3個8度）
-instrument_key: 無固定調性
-hs_class: 322 豎琴與里拉類
-family: 豎琴、里拉與開放弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 豎琴、里拉與開放弦
+title_zh: 阿杜古弓形豎琴
+title_original: Adungu
+family_std: 豎琴、里拉與開放弦樂器
+sound_hs: 弦鳴｜322 豎琴與里拉類
 playing_method: 撥弦／開放弦共鳴
-body_listening: 循環、河流感、開放弦、吟唱
-soundscape: 開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
-region_type: 地區／文化圈
+interface_tags: 弓
+region_culture: 烏干達／東非｜地區／文化圈
+listening_sound_tags: 循環、河流感、開放弦、吟唱｜開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/adungu/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Three_Adungu_Harps.jpg/500px-Three_Adungu_Harps.jpg
 youtube_ids: ZvxiJZcml6g 4vdxnqMAeqI
 ---
+
 ## 介紹
 
 阿杜古弓形豎琴（也稱為恩東戈琴、恩南加琴，英文為弓形豎琴）是烏干達北部阿喬利人和烏干達西北部阿盧爾人的傳統弦樂器。它是一種拱形豎琴，尺寸多樣，琴弦數量從六根到十根或更多。

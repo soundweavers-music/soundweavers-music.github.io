@@ -1,22 +1,22 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/synthesizer/
-title: 合成器
-original_name: Synthesizer
-category: 電子樂器
-country: 美洲／北美
-era: 傳統／年代待考
-sound_class: 鍵盤／電鳴／機械混合
-range: 極低低音至尖銳高音（約5-8個八度）
-instrument_key: 全調性
-hs_class: 412/31/52 鍵盤、自由簧、電鳴與機械介面
-family: 鍵盤介面、風箱、電子與取樣
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 合成器
+title_zh: 合成器
+title_original: Synthesizer
+family_std: 鍵盤介面、風箱、電子與取樣
+sound_hs: 鍵盤／電鳴／機械混合｜412/31/52 鍵盤、自由簧、電鳴與機械介面
 playing_method: 按鍵／風箱／電控／取樣
-body_listening: 手指、機械距離、記憶、電聲
-soundscape: 按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
-region_type: 跨文化／多地
+interface_tags: 鍵盤／按鍵、風箱
+region_culture: 美洲／北美
+listening_sound_tags: 手指、機械距離、記憶、電聲｜按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/synthesizer/
 youtube_ids: IvUU8joBb1Q mFfe4ZRQOH8 GpCdodqTYtE Rfs78hU11oo MN3J74ghRP0 dZ-XOe9ctYY g_Gue_MZ-Dk 8_0kZkfOiek 1RWOoEj3mwU NUwBZPimKNM olrA0TJJ6sM TVPzAmeMaC0 6JeZR13dLLI kYxheEGl2oM 4SBDH5uhs4Q 9uEp4GFDdII j7SNzgggyJo yzgvJlsEyvQ BlaY8kSTO28
 ---
+
 ## 介紹
 
 合成器（英語：Synthesizer或Synth）是一種電子樂器，它利用電的產生震盪，通過電信號儀表放大器，最終由揚聲器或耳機表現出來。合成器通常含有振盪器、濾波器、效果器等單元，通過改變它們的參數可以自由改造聲音。 合成器既可以模仿自然存在的聲音（樂器，如鋼琴、電子琴、長笛、人聲、自然的聲音如海浪等），也可以生成新的電子音色。它們通常以音樂鍵盤（Musical keyboard）控制。符合一定設計範式、不含電源且需要組合使用的合成器單元通常被稱為模塊合成器（Modular Synthesizer）。 合成器有三種基本架構： 在模擬電路中產生電壓的震盪（如類比合成器） 在電腦中作數學運算（如軟體合成器） 綜合以上二種，最後會產生電壓訊號會使揚聲器或耳機之薄膜振動。 合成器所發之聲音和錄音設備拾取的自然聲音不同，錄音是將聲波的機械能轉換為訊號，並且可以通過回放把訊息轉回機械能（雖然取樣技術會導致失真）。 許多合成器因為使用鍵盤作為操控介面，常常被當作一種鍵盤樂器。但是其實合成器之操控介面並不一定是鍵盤，還包括如指板控制器、風控制器、帶控制器等，甚至不必為人所控制。(詳見音源器） 合成器首先在20世紀60年代應用於流行音樂上。在20世紀70年代，尤其是在70年代末，迪斯科音樂大量使用合成器。在20世紀80年代，價格相對較為便宜的山葉DX7使數位合成器更容易獲得。

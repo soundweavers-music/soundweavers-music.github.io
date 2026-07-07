@@ -1,19 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/psalmodicon/
-title: 詩篇琴
-original_name: Psalmodicon
-category: 弦樂器
-country: 斯堪地那維亞
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
-body_listening: 循環、河流感、開放弦、吟唱
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 詩篇琴
+title_original: Psalmodicon
+family_std: 撥弦與抱持弦樂家族
+sound_hs: 待確認
+playing_method: 撥奏／擦奏／擊弦（待細分）
+interface_tags: 
+region_culture: 斯堪地那維亞｜單一地區／文化圈
+listening_sound_tags: 循環、河流感、開放弦、吟唱｜開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/psalmodicon/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Salmodikon_og_boge.JPG/500px-Salmodikon_og_boge.JPG
 youtube_ids: go0p9avBaKU Z0mbv9_4M4o
-instrument_key: 全調性
-range: 約2個8度
 ---
+
 ## 介紹
 
 詩篇琴（psalmodicon、psalmodikon或salmodikon）是一種弦樂器，屬於單弦琴類型；最常見的變種具有單根弦。它在斯堪地那維亞開發，用於簡化教堂和學校的音樂，以及作為聖樂小提琴的替代品。該樂器可以撥奏或弓奏。從19世紀初開始，它被斯堪地那維亞許多鄉村教堂採用；後來，移民將該樂器帶到了美國。當時，許多教眾無法負擔風琴的費用。

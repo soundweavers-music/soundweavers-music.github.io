@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/baroque-guitar/
-title: 巴洛克吉他
-original_name: Baroque guitar
-category: 弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 巴洛克吉他
+title_original: Baroque guitar
+family_std: 弦樂器類
+sound_hs: 3 弦鳴樂器
 playing_method: 撥弦／擦弦／擊弦
-family: 弦樂器類
-hs_class: 3 弦鳴樂器
-sound_class: 弦鳴
-country: 西班牙／伊比利亞半島
-era: 巴洛克
-region_type: 地區／文化圈
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-body_listening: 懷抱、手指、腳步、敘事
+interface_tags: 
+region_culture: 西班牙／伊比利亞半島｜地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/baroque-guitar/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Guitar_MET_DP232758.jpg/500px-Guitar_MET_DP232758.jpg
 youtube_ids: inBKFMB-yPg e26zZ83Oh6Y
-instrument_key: 全調性
-range: 約2個八度
 ---
+
 ## 介紹
 
 巴洛克吉他（約1600-1750年）是一種弦樂器，配有五組腸弦和可移動的腸製指板。第一組（音調最高）有時只使用單根琴弦。

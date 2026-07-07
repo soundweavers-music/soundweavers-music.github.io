@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/stylophone/
-title: 電子筆琴
-original_name: Stylophone
-category: 鍵盤樂器
-country: 歐洲／美國／全球現代錄音室
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Stylophone3d.jpg/500px-Stylophone3d.jpg
-sound_class: 鍵盤／電鳴／機械混合
-range: 約2個8度（標準型），高音型高8度，低音型低8度
-instrument_key: 全調性
-hs_class: 412/31/52 鍵盤、自由簧、電鳴與機械介面
-family: 鍵盤介面、風箱、電子與取樣
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 取樣與磁帶
+title_zh: 電子筆琴
+title_original: Stylophone
+family_std: 鍵盤介面、風箱、電子與取樣
+sound_hs: 鍵盤／電鳴／機械混合｜412/31/52 鍵盤、自由簧、電鳴與機械介面
 playing_method: 按鍵／風箱／電控／取樣
-body_listening: 手指、機械距離、記憶、電聲
-soundscape: 按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
-region_type: 跨文化／多地
+interface_tags: 鍵盤／按鍵、風箱、觸控
+region_culture: 歐洲／美國／全球現代錄音室
+listening_sound_tags: 手指、機械距離、記憶、電聲｜按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/stylophone/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Stylophone3d.jpg/500px-Stylophone3d.jpg
 youtube_ids: yTOSXc4su8c Jmmzl52EphU
 ---
+
 ## 介紹
 
 電子筆琴是一種用觸控筆演奏的微型類比合成器。由布萊恩·賈維斯於1967年發明，於1968年由倫敦的杜布雷克公司開始生產。在其原始生產期間售出約三百萬台，主要作為兒童玩具，但也被約翰·藍儂、克拉夫特威克和大衛·鮑伊等專業音樂家使用過。電子筆琴於2007年由玩具公司Re:與重組後的杜布雷克公司合作推出，此後已推出多個新型號。

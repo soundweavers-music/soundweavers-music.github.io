@@ -1,18 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/fipple/
-title: 豎笛
-original_name: Fipple
-category: 打擊樂器
-country: 歐洲
-era: 傳統／年代待考
-region_type: 地區／文化圈
-soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
-body_listening: 氣息、胸腔、長音、空間
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 電聲改造樂器
+title_zh: 豎笛
+title_original: Fipple
+family_std: 電聲改造樂器家族
+sound_hs: 待確認
+playing_method: 按鍵／控制器／電子控制（待細分）
+interface_tags: 
+region_culture: 歐洲｜地區／文化圈
+listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+ensemble_links: 
+verification_status: 移入第13類
+issue_note: 現代電子／取樣；屬現代電子、取樣、電聲或電氣化鍵盤／設備類，應集中到第13類。；移第13類，並與傳統鍵盤／風箱類分開。
+source_url: https://soundweavers-music.github.io/instruments/fipple/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Embouchure_fipple_flute.jpg/500px-Embouchure_fipple_flute.jpg
 youtube_ids: hLYc9YSldXk qyanSeUhxvw
-instrument_key: 多調性
-range: 約2-3個8度
 ---
+
 ## 介紹
 
 「竖笛」一詞特指包括雙音笛、直笛和锡哨在內的一類末端吹奏笛。霍恩博斯特爾－薩克斯樂器分類系統將這一類樂器列在「帶導管或導管笛」的標題下。「竖笛」的標籤經常被應用於該子群體的成員，但對於構成竖笛本身的發聲機制的結構細節並沒有普遍的共識。

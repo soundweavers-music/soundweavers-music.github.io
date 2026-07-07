@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/khong-wong-yai/
-title: 大鑼圈
-original_name: Khong Wong Yai
-category: 打擊樂器
-country: 泰國
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Khong_wong_yai.jpg/500px-Khong_wong_yai.jpg
-sound_class: 體鳴
-range: 低至中音區（約2個8度）
-instrument_key: 無固定調性
-hs_class: Idiophone／體鳴樂器
-family: 鑼圈旋律樂器
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
+title_zh: 大鑼圈
+title_original: Khong Wong Yai
+family_std: 鑼圈旋律樂器
+sound_hs: Idiophone／體鳴樂器
 playing_method: 敲擊
-body_listening: 環形音列、宮廷合奏、旋律骨架
-soundscape: 木石金屬的回聲城市（定音體鳴、材料敲擊與鑼鐘木琴系統）
-region_type: 單一地區／文化圈
+interface_tags: 
+region_culture: 泰國｜單一地區／文化圈
+listening_sound_tags: 環形音列、宮廷合奏、旋律骨架｜木石金屬的回聲城市（定音體鳴、材料敲擊與鑼鐘木琴系統）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/khong-wong-yai/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Khong_wong_yai.jpg/500px-Khong_wong_yai.jpg
 youtube_ids: aWMc8PGVoNk VOSbMjtRkd8
 ---
+
 ## 介紹
 
 大鑼圈（Khong Wong Yai）是東南亞傳統打擊樂器，起源於泰國和柬埔寨。樂器由十六至十八面大小不同的銅鑼組成，排列成圓形，形成獨特的圓形結構。演奏者坐於圓心，用木槌敲擊不同位置的銅鑼產生變化豐富的音色。在泰國古典音樂、皇家樂隊與寺廟儀式中佔據核心地位，是東南亞樂隊的靈魂樂器，具有強大的穿透力與共鳴性。

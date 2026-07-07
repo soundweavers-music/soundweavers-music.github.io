@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/acoustic-bass-guitar/
-title: 原聲低音吉他
-original_name: Acoustic bass guitar
-category: 弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 原聲低音吉他
+title_original: Acoustic bass guitar
+family_std: 弦樂器類
+sound_hs: 3 弦鳴樂器
 playing_method: 撥弦／擦弦／擊弦
-family: 弦樂器類
-hs_class: 3 弦鳴樂器
-sound_class: 弦鳴
-country: 美洲／北美
-era: 傳統／年代待考
-region_type: 跨文化／多地
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-body_listening: 懷抱、手指、腳步、敘事
+interface_tags: 
+region_culture: 美洲／北美
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/acoustic-bass-guitar/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Vea.guitarra.baixa.png/500px-Vea.guitarra.baixa.png
 youtube_ids: 9iseV6yyHlE MiidbkgDiBc
-instrument_key: E大調（標準調音E-A-D-G）
-range: E1–G4（約3個半8度）
 ---
+
 ## 介紹
 
 原聲低音吉他（有時簡稱為原聲低音或縮寫為 ABG）是一種低音樂器，具有空心木製琴身，與鋼弦民謠吉他相似，但通常更大。像傳統電貝司吉他和低音提琴一樣，原聲低音吉他通常有四條弦，通常調音為 E-A-D-G，比六弦吉他最低的四條弦低一個八度。

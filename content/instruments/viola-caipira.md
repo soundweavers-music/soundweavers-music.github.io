@@ -1,22 +1,22 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/viola-caipira/
-title: 卡伊皮拉維奧拉
-original_name: Viola Caipira
-category: 弦樂器
-country: 巴西
-era: 傳統／年代待考
-sound_class: 弦鳴
-range: 中高音區（約2個8度）
-instrument_key: 全調性
-hs_class: Chordophone／弦鳴樂器
-family: 十弦吉他族
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 卡伊皮拉維奧拉
+title_original: Viola Caipira
+family_std: 十弦吉他族
+sound_hs: Chordophone／弦鳴樂器
 playing_method: 撥奏
-body_listening: 鄉村敘事、雙弦共鳴、民歌生活感
-soundscape: 旅人懷裡撥動的故事線（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 單一地區／文化圈
+interface_tags: 
+region_culture: 巴西｜單一地區／文化圈
+listening_sound_tags: 鄉村敘事、雙弦共鳴、民歌生活感｜旅人懷裡撥動的故事線（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/viola-caipira/
 youtube_ids: EA5fCUx7qgE 1vbO_foZgLQ
 ---
+
 ## 介紹
 
 卡伊皮拉維奧拉是源自巴西聖保羅州內陸的傳統弦樂器，融合了葡萄牙維奧拉與巴西民俗文化特色。其外型類似古典吉他，但琴身稍小，配備特殊設計的琴頸。這種樂器音色明亮溫暖，具有獨特的鼻音共鳴質感，兼具古典吉他的柔和與民謠吉他的明亮。主要用於演奏巴西卡伊皮拉民間音樂、敘事歌謠與傳統民謠，是農村社區文化傳承的重要樂器，在吟唱故事與傳統歌曲時具有強烈的表現力與辨識度。

@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/cuatro-venezolano/
-title: 委內瑞拉四弦琴
-original_name: Cuatro Venezolano
-category: 弦樂器
-country: 中東／歐洲／亞洲／美洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hombre_cantando_por_dinero_en_las_cercan%C3%ADas_del_Hotel_Humbodlt.jpg/500px-Hombre_cantando_por_dinero_en_las_cercan%C3%ADas_del_Hotel_Humbodlt.jpg
-sound_class: 弦鳴
-range: 中高音區（約2個8度）
-instrument_key: 全調性
-hs_class: 321/322 魯特琴類／撥弦
-family: 魯特琴、短頸長頸撥弦與民謠弦聲
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 委內瑞拉四弦琴
+title_original: Cuatro Venezolano
+family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
+sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
 playing_method: 撥弦／刷弦／撥片
-body_listening: 懷抱、手指、腳步、敘事
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 地區／文化圈
+interface_tags: 撥片
+region_culture: 中東／歐洲／亞洲／美洲｜地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 安地斯合奏
+verification_status: 有問題，需修正
+issue_note: 譯名錯誤；Cornett / Zink 不是短笛，而是文藝復興時期唇振木管／角笛類。；改為「科爾內特／辛克號（Cornett / Zink）」；歸第3類唇振。
+source_url: https://soundweavers-music.github.io/instruments/cuatro-venezolano/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hombre_cantando_por_dinero_en_las_cercan%C3%ADas_del_Hotel_Humbodlt.jpg/500px-Hombre_cantando_por_dinero_en_las_cercan%C3%ADas_del_Hotel_Humbodlt.jpg
 youtube_ids: OxQ3cRGBmO0 3SA5unJ_Yrs
 ---
+
 ## 介紹
 
 委內瑞拉四弦琴是源自西班牙殖民時期的傳統弦樂器，由古他琴演變而來。樂器採用木製琴身，配備四根尼龍琴弦，外型小巧精緻。音色明亮清脆，兼具溫暖與穿透力，特別適合快速彈奏。自十八世紀起，成為委內瑞拉民間音樂的重要伴奏樂器，廣泛用於傳統民謠、舞蹈與節慶音樂中，能營造歡快跳躍的氛圍，是民族音樂文化的靈魂樂器。

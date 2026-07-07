@@ -1,22 +1,22 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/gaita/
-title: 蓋塔笛/風笛
-original_name: Gaita
-category: 管樂器
-country: 西班牙／葡萄牙／拉丁美洲
-era: 傳統／年代待考
-sound_class: 氣鳴
-range: 中低音至高音區（約2至3個8度）
-instrument_key: 多調性
-hs_class: 412/422 簧鳴與自由簧／單簧雙簧
-family: 口簧、自由簧、單簧雙簧與風袋
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 風箱與自由簧
+title_zh: 蓋塔笛/風笛
+title_original: Gaita
+family_std: 口簧、自由簧、單簧雙簧與風袋
+sound_hs: 氣鳴｜412/422 簧鳴與自由簧／單簧雙簧
 playing_method: 吹奏／簧片振動／風袋或風箱
-body_listening: 口腔、舌頭、簧片震動、鼻音
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-region_type: 地區／文化圈
+interface_tags: 風箱
+region_culture: 西班牙／葡萄牙／拉丁美洲｜地區／文化圈
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/gaita/
 youtube_ids: OJi-uKOlLV4 fwWmcMz0ZVk
 ---
+
 ## 介紹
 
 蓋塔笛是源自伊比利亞半島的傳統風笛樂器，主要流行於西班牙加利西亞和葡萄牙北部。樂器由風囊、主管和低音管組成，通過按壓風囊產生連續氣流發聲。其音色粗獷溫暖，帶有獨特的鼻音特質，既不失明亮卻又不刺耳，兼具厚實感。蓋塔笛與當地民間舞蹈和節慶活動密切相連，是區域文化認同的重要象徵，融合凱爾特與伊斯蘭音樂文化影響。

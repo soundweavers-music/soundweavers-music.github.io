@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/electric-violin/
-title: 電小提琴
-original_name: Electric Violin
-category: 弦樂器
-country: 美洲／北美
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Electric_Violin_and_Electromagnetic_Pick_by_Leo_Fender_%281957%29.jpg/500px-Electric_Violin_and_Electromagnetic_Pick_by_Leo_Fender_%281957%29.jpg
-sound_class: 弦鳴
-range: 全音域（約3個半8度，G3–E7）
-instrument_key: 全調性
-hs_class: 321.3 擦弦／輪弦／提琴家族
-family: 擦弦、輪弦與提琴家族
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 電聲改造樂器
+title_zh: 電小提琴
+title_original: Electric Violin
+family_std: 擦弦、輪弦與提琴家族
+sound_hs: 弦鳴｜321.3 擦弦／輪弦／提琴家族
 playing_method: 弓擦／輪擦
-body_listening: 胸口、嗓音、拉長的情緒
-soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
-region_type: 跨文化／多地
+interface_tags: 弓、拾音／擴音
+region_culture: 美洲／北美
+listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+ensemble_links: 爵士編制
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/electric-violin/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Electric_Violin_and_Electromagnetic_Pick_by_Leo_Fender_%281957%29.jpg/500px-Electric_Violin_and_Electromagnetic_Pick_by_Leo_Fender_%281957%29.jpg
 youtube_ids: jvipPYFebWc XSs2cR2Tvuk
 ---
+
 ## 介紹
 
 電小提琴是一種配備電子聲音輸出的小提琴。該術語最準確地指的是專為電氣化而設計的樂器，具有內置拾音器，通常採用實心琴體。它也可以指配備某種電子拾音器的小提琴，儘管「放大小提琴」或「電聲混合小提琴」在這種情況下更為準確。

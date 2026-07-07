@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/aeolian-harp/
-title: 風鳴琴
-original_name: Aeolian Harp
-category: 弦樂器
-country: 歐洲／希臘
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/BloomfieldAeolianHarp.JPG/500px-BloomfieldAeolianHarp.JPG
-sound_class: 弦鳴
-range: 中高音區（約2個8度）
-instrument_key: 無固定調性
-hs_class: 322 豎琴與里拉類
-family: 豎琴、里拉與開放弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 豎琴、里拉與開放弦
+title_zh: 風鳴琴
+title_original: Aeolian Harp
+family_std: 豎琴、里拉與開放弦樂器
+sound_hs: 弦鳴｜322 豎琴與里拉類
 playing_method: 撥弦／開放弦共鳴
-body_listening: 循環、河流感、開放弦、吟唱
-soundscape: 開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 歐洲／希臘
+listening_sound_tags: 循環、河流感、開放弦、吟唱｜開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/aeolian-harp/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/BloomfieldAeolianHarp.JPG/500px-BloomfieldAeolianHarp.JPG
 youtube_ids: 7MxFWmr8Wck lWShKUPpaAw
 ---
+
 ## 介紹
 
 風鳴琴（又稱風琴）是一種由風吹動而發聲的樂器。以古希臘風神埃俄羅斯命名，傳統風鳴琴本質上是一個木製箱體，包括音板，弦張在兩個琴馬之間。它通常被放在微微開啟的窗戶處，風能夠吹過琴弦而發出聲音。琴弦可由不同材料（或不同厚度）製成，並全部調至相同音高，或相同的琴弦可調至不同音高。

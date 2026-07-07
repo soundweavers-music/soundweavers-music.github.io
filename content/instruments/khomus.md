@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/khomus/
-title: 克和木斯口弦琴
-original_name: Khomus
-category: 管樂器
-country: 亞洲／歐洲／中東／全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Kyrgyz_7_tuned_temir_komuz.jpg/500px-Kyrgyz_7_tuned_temir_komuz.jpg
-sound_class: 氣鳴
-range: 約1至1.5個8度
-instrument_key: 無固定調性
-hs_class: 412/422 簧鳴與自由簧／單簧雙簧
-family: 口簧、自由簧、單簧雙簧與風袋
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 風箱與自由簧
+title_zh: 克和木斯口弦琴
+title_original: Khomus
+family_std: 口簧、自由簧、單簧雙簧與風袋
+sound_hs: 氣鳴｜412/422 簧鳴與自由簧／單簧雙簧
 playing_method: 吹奏／簧片振動／風袋或風箱
-body_listening: 指尖、掌心、尾音、近身聆聽
-soundscape: 手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）
-region_type: 跨文化／多地
+interface_tags: 風箱
+region_culture: 亞洲／歐洲／中東／全球
+listening_sound_tags: 指尖、掌心、尾音、近身聆聽｜手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/khomus/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Kyrgyz_7_tuned_temir_komuz.jpg/500px-Kyrgyz_7_tuned_temir_komuz.jpg
 youtube_ids: 3cAZg_zjH4s 5mdvajc9cHU
 ---
+
 ## 介紹
 
 特米爾克和木斯口弦琴（有時稱為「鐵克和木斯」、「口弦琴克和木斯」或「古布茲」）是一種吉爾吉斯口弦琴，而克和木斯是一種三弦無品魯特琴。作為樂器，特米爾克和木斯在風格和結構上與克和木斯無關；然而，它的名稱來自於另一種流行的突厥樂器。弦樂克和木斯被生活在中亞的突厥民族使用，例如吉爾吉斯人、烏茲別克人、哈薩克人、土庫曼人和維吾爾人，以及阿塞拜疆人、土耳其人和雅庫特人。

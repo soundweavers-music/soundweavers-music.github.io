@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/bulbul-tarang/
-title: 夜鶯琴
-original_name: Bulbul tarang
-category: 鍵盤樂器
-country: 亞洲／南亞（印度）
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/THE_KAMLESH_Bulbul_Tarang_TKB-29.jpg/500px-THE_KAMLESH_Bulbul_Tarang_TKB-29.jpg
-sound_class: 弦鳴
-range: 約3個8度
-instrument_key: 全調性
-hs_class: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
-family: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 夜鶯琴
+title_original: Bulbul tarang
+family_std: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+sound_hs: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
 playing_method: 撥弦／擊弦／按鍵擊弦
-body_listening: 手掌、弦面、推音、敲擊
-soundscape: 平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
-region_type: 跨文化／多地
+interface_tags: 鍵盤／按鍵
+region_culture: 亞洲／南亞（印度）
+listening_sound_tags: 手掌、弦面、推音、敲擊｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/bulbul-tarang/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/THE_KAMLESH_Bulbul_Tarang_TKB-29.jpg/500px-THE_KAMLESH_Bulbul_Tarang_TKB-29.jpg
 youtube_ids: A8as1Fshyus Qwvsf31C7q8
 ---
+
 ## 介紹
 
 夜鶯琴（बुलबुल तरंग，字面意思為「夜鶯的波浪」，又稱印度班卓琴）是一種源自印度的弦樂器，由日本的大正琴演變而來，很可能在1930年代傳入南亞。夜鶯琴經歷了時間的演變而不斷發展。目前夜鶯琴共有14根弦，分為3個部分：2根主弦（旋律弦和低音弦）、4根Jhala弦和8根Swarmandal弦。

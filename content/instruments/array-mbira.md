@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/array-mbira/
-title: 陣列姆比拉琴
-original_name: Array mbira
-category: 打擊樂器
-country: 全球／非洲／現代
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Arraymbiraplayed.jpg/500px-Arraymbiraplayed.jpg
-sound_class: 體鳴
-range: 約3個八度
-instrument_key: 全調性
-hs_class: 12 體鳴／舌片琴／金屬共鳴
-family: 近身體鳴、舌片琴與手奏金屬共鳴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 陣列姆比拉琴
+title_original: Array mbira
+family_std: 近身體鳴、舌片琴與手奏金屬共鳴
+sound_hs: 12 體鳴／舌片琴／金屬共鳴
 playing_method: 手敲／拇指撥片／近身共鳴
-body_listening: 指尖、掌心、尾音、近身聆聽
-soundscape: 手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）
-region_type: 跨文化／多地
+interface_tags: 撥片
+region_culture: 全球／非洲／現代
+listening_sound_tags: 指尖、掌心、尾音、近身聆聽｜手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/array-mbira/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Arraymbiraplayed.jpg/500px-Arraymbiraplayed.jpg
 youtube_ids: Z3b1bz_9gEo ADD7hqnmO4E
 ---
+
 ## 介紹
 
 Array mbira是一種手工製作的現代樂器，具有獨特的豎琴或鐘聲般的音質。它由其發明者比爾·韋斯利在美國製造，並由韋斯利與帕特里克·哈德利在美國加州聖地亞哥合作生產。它的開發始於1960年代。它是對來自津巴布韋肖納人非洲mbira樂器的徹底重新設計，是金屬舌簧樂器家族的一部分。金屬舌片被分組排列成多個八度音階。

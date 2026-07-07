@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/aboriginal-trumpet/
-title: 迪吉里杜管
-original_name: Aboriginal Trumpet
-category: 管樂器
-country: 全球／亞洲／歐洲／美洲／大洋洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Sketches_of_aboriginal_life_%28IA_sketchesofaborig00vide%29.pdf/page1-500px-Sketches_of_aboriginal_life_%28IA_sketchesofaborig00vide%29.pdf.jpg
-sound_class: 氣鳴
-range: 低頻至中低頻（約1至2個8度）
-instrument_key: 無固定調性
-hs_class: 421 邊棱氣鳴／無簧笛類
-family: 無簧吹管、長音與氣息樂器
+class_code: A9
+frontend_class: 待分類／偵錯暫存
+subcategory: 待確認
+title_zh: 迪吉里杜管
+title_original: Aboriginal Trumpet
+family_std: 待確認
+sound_hs: 421 邊棱氣鳴／無簧笛類
 playing_method: 吹奏／端吹／橫吹／容器共鳴
-body_listening: 氣息、胸腔、長音、空間
-soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 全球／亞洲／歐洲／美洲／大洋洲
+listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+ensemble_links: 
+verification_status: 已整併，建議刪除
+issue_note: 完全重複／被整併；Aboriginal Trumpet 是描述性舊稱／泛稱，來源列與 Didgeridoo 重複；以 Didgeridoo 作主鍵。 本列併入第215項。；刪除本列；資料併入第215項。；MERGED-215: 被併入第215項
+source_url: https://soundweavers-music.github.io/instruments/aboriginal-trumpet/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Sketches_of_aboriginal_life_%28IA_sketchesofaborig00vide%29.pdf/page1-500px-Sketches_of_aboriginal_life_%28IA_sketchesofaborig00vide%29.pdf.jpg
 youtube_ids: cLu9GmV2vF0 yG9ZX1FS20A
 ---
+
 ## 介紹
 
 迪吉里杜管是澳洲原住民的古老樂器，距今至少1500年歷史。樂器由蟻蛀空心的樹幹製成，外形呈長圓筒狀。演奏者通過循環呼吸技巧使氣流持續振動，產生深沉神秘的音色。傳統上用於部落儀式、狩獵和社交聚會，被視為與祖先溝通的神聖媒介。其音色暗沉溫厚，具濃郁的空洞感和共鳴特性，帶有原始蒼涼的氣質，音域集中在低頻至中低頻範圍，振動能量強大，在開放空間中傳播遠距。

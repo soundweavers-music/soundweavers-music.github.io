@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/steelpan/
-title: 鋼鐵鼓
-original_name: Steelpan
-category: 打擊樂器
-country: 美洲／加勒比（千里達）
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Steelpan_Instruments_at_Trinidad_and_Tobago_Carnival.jpg/500px-Steelpan_Instruments_at_Trinidad_and_Tobago_Carnival.jpg
-sound_class: 體鳴
-range: 約3個8度
-instrument_key: 全調性
-hs_class: 11/12 定音體鳴／鑼鐘木琴石琴系統
-family: 定音體鳴、材料敲擊與鑼鐘木琴系統
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 鋼鐵鼓
+title_original: Steelpan
+family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
+sound_hs: 11/12 定音體鳴／鑼鐘木琴石琴系統
 playing_method: 敲擊／搖奏／材料共鳴
-body_listening: 材料、回聲、群體分工、音列
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 美洲／加勒比（千里達）
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 需調整
+issue_note: 譯名需精準；Shō 是日本笙，不能只寫笙。；改「日本笙（Shō）」；與 Sheng、Khaen 相鄰。；DUP-015:Khaen／Sheng／Shō
+source_url: https://soundweavers-music.github.io/instruments/steelpan/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Steelpan_Instruments_at_Trinidad_and_Tobago_Carnival.jpg/500px-Steelpan_Instruments_at_Trinidad_and_Tobago_Carnival.jpg
 youtube_ids: uwEaQk5VeS4 mw4k1tCnAuE
 ---
+
 ## 介紹
 
 鋼鐵鼓（又稱為鍋鼓或鋼鼓）是起源於千里達及托巴哥的樂器。演奏鋼鐵鼓的音樂家稱為鍋鼓手。1992年，總理派翠克·曼寧宣布鋼鐵鼓為千里達及托巴哥的國家樂器。這有助於將鋼鐵鼓轉變為國家驕傲和文化認同的象徵，在本地和國際上都獲得認可。2023年，聯合國大會宣布8月11日為世界鋼鐵鼓日。

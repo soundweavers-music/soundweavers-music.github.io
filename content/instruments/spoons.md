@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/spoons/
-title: 湯匙樂器
-original_name: Spoons
-category: 打擊樂器
-country: 歐洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Moore_Theatre_100_Years_-_Artis_05B.jpg/500px-Moore_Theatre_100_Years_-_Artis_05B.jpg
-sound_class: 體鳴
-range: 約1個8度
-instrument_key: 無固定調性
-hs_class: 11 小型體鳴／搖奏刮奏敲奏
-family: 小型節奏體鳴、沙鈴、刮器與身體打擊
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
+title_zh: 湯匙樂器
+title_original: Spoons
+family_std: 小型節奏體鳴、沙鈴、刮器與身體打擊
+sound_hs: 11 小型體鳴／搖奏刮奏敲奏
 playing_method: 搖奏／刮奏／敲擊／身體打擊
-body_listening: 手腕、腳踝、短音、節奏對齊
-soundscape: 手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 歐洲
+listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+ensemble_links: 
+verification_status: 需調整
+issue_note: 譯名需精準；Sheng 可譯笙；需與 Khaen、Shō 區分。；中文「中國笙（Sheng）」較清楚。；DUP-015:Khaen／Sheng／Shō
+source_url: https://soundweavers-music.github.io/instruments/spoons/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Moore_Theatre_100_Years_-_Artis_05B.jpg/500px-Moore_Theatre_100_Years_-_Artis_05B.jpg
 youtube_ids: _nLmM9kcBKs OOXB7348RPk
 ---
+
 ## 介紹
 
 湯匙樂器是一種簡單而古老的打擊樂器，由普通金屬湯匙組成。演奏者持握兩支湯匙，通過互相敲擊或敲打身體部位發聲。其音色清脆明亮、節奏感強烈，具有輕盈透亮的金屬質感。湯匙樂器起源於歐洲民間，特別在愛爾蘭和蘇格蘭傳統音樂中廣為使用，後傳入美洲融入民謠和爵士樂。因其製作簡單、易於携帶，成為民間音樂和鄉村音樂中常見的節奏樂器。

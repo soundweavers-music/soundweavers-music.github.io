@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/halo/
-title: 光環鼓
-original_name: Halo
-category: 打擊樂器
-country: 歐洲／美國／全球現代
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Halo_HUD.svg/500px-Halo_HUD.svg.png
-sound_class: 體鳴
-range: 約2個8度（中高音域）
-instrument_key: 無固定調性
-hs_class: 12 體鳴／舌片琴／金屬共鳴
-family: 近身體鳴、舌片琴與手奏金屬共鳴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 光環鼓
+title_original: Halo
+family_std: 近身體鳴、舌片琴與手奏金屬共鳴
+sound_hs: 12 體鳴／舌片琴／金屬共鳴
 playing_method: 手敲／拇指撥片／近身共鳴
-body_listening: 指尖、掌心、尾音、近身聆聽
-soundscape: 手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）
-region_type: 跨文化／多地
+interface_tags: 撥片
+region_culture: 歐洲／美國／全球現代
+listening_sound_tags: 指尖、掌心、尾音、近身聆聽｜手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/halo/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Halo_HUD.svg/500px-Halo_HUD.svg.png
 youtube_ids: EPEmEMp8zp4 nMLkrTJ9BZI
 ---
+
 ## 介紹
 
 光環、光環、光環或光暈可能指的是：

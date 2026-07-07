@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/harmonica/
-title: 口琴
-original_name: Harmonica
-category: 管樂器
-sound_class: 氣鳴
-hs_class: 412.1 自由簧樂器
-family: 口琴類
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 簧片樂器
+title_zh: 口琴
+title_original: Harmonica
+family_std: 口琴類
+sound_hs: 氣鳴｜412.1 自由簧樂器
 playing_method: 吹奏／口含
-country: 歐洲／德國
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-body_listening: 口腔、舌頭、簧片震動、鼻音
+interface_tags: 
+region_culture: 歐洲／德國｜單一地區／文化圈
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 需調整
+issue_note: 名稱可保留／需音譯統一；Güiro 常見譯名「刮瓜／刮胡」，需統一。；建議「刮瓜（Güiro）」並列刮器支線。
+source_url: https://soundweavers-music.github.io/instruments/harmonica/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/16-hole_chrom_10-hole_diatonic.jpg/500px-16-hole_chrom_10-hole_diatonic.jpg
 youtube_ids: uIss2Qmmc5k 4VWgT7VSl-I
-instrument_key: 多調性（依種類和調性而異）
-range: 中央C下1個八度至中央C上3個八度（約3至4個八度）
 ---
+
 ## 介紹
 
 口琴（英語：Harmonica），用嘴吹氣或吸氣，使金屬簧片振動發聲的多簧片樂器；在樂器分類上屬於自由簧的吹奏樂器。由於發聲源是長度介於1.5－3.5公分的簧片而非空氣柱（如長笛），獨奏用口琴體積多在20×6×4公分（長；寬；高）內，其音域依種類、調性不同而略有差異，大致可歸納成由中央C下1個八度至中央C上3個八度，涵蓋約3至4個八度。 多簧片的結構，使口琴具有演奏和聲的基礎。對一般成年人而言，只要排列方向相同（同為吹氣發聲或吸氣發聲）且琴格間距在6公分以內的簧片均能同時發聲；由於演奏中途無法調整同一把口琴上簧片的相對位置，單一把口琴演奏合聲的能力是受限制的。一般而言，由樂器公司量產的口琴僅在八度和聲方面較不受限制。

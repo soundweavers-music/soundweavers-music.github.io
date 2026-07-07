@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/temir-komuz/
-title: 鐵口琴
-original_name: Temir komuz
-category: 管樂器
-country: 全球／非洲／亞洲／現代療癒與街頭音樂
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Kyrgyz_7_tuned_temir_komuz.jpg/500px-Kyrgyz_7_tuned_temir_komuz.jpg
-sound_class: 氣鳴
-range: 中高音區（約1個半8度）
-instrument_key: 無固定調性
-hs_class: 412/422 簧鳴與自由簧／單簧雙簧
-family: 口簧、自由簧、單簧雙簧與風袋
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 風箱與自由簧
+title_zh: 鐵口琴
+title_original: Temir komuz
+family_std: 口簧、自由簧、單簧雙簧與風袋
+sound_hs: 氣鳴｜412/422 簧鳴與自由簧／單簧雙簧
 playing_method: 吹奏／簧片振動／風袋或風箱
-body_listening: 指尖、掌心、尾音、近身聆聽
-soundscape: 手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）
-region_type: 跨文化／多地
+interface_tags: 風箱
+region_culture: 全球／非洲／亞洲／現代療癒與街頭音樂
+listening_sound_tags: 指尖、掌心、尾音、近身聆聽｜手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）
+ensemble_links: 
+verification_status: 已整併主項
+issue_note: 重複已整併；保留本列為主項；已整併第767項。；主項保留；被整併列第767項以紅字刪除線保留供人工審核。；MERGED-735: 併入列 767
+source_url: https://soundweavers-music.github.io/instruments/temir-komuz/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Kyrgyz_7_tuned_temir_komuz.jpg/500px-Kyrgyz_7_tuned_temir_komuz.jpg
 youtube_ids: OPTWQnEMEjg X_wq1wKqS-w
 ---
+
 ## 介紹
 
 鐵口琴（有時稱為「鐵科木茲」意為「鐵質科木茲」、「口科木茲」意為「口腔科木茲」，或「古布茲」）是吉爾吉斯族的口琴，而科木茲則是一種三弦無品魯特琴。作為樂器，鐵口琴在風格和結構上與科木茲無關；然而，它的名稱源自另一種流行的突厥樂器。弦樂科木茲被中亞地區的突厥民族使用，例如吉爾吉斯人、烏茲別克人、哈薩克人、土庫曼人和維吾爾人，以及阿塞拜疆人、土耳其人和雅庫特人。

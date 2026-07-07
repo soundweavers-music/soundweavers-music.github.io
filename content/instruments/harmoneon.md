@@ -1,19 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/harmoneon/
-title: 和聲手風琴
-original_name: Harmoneon
-category: 管樂器
-country: 法國
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
-body_listening: 手指、機械距離、記憶、電聲
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 風箱與自由簧
+title_zh: 和聲手風琴
+title_original: Harmoneon
+family_std: 風箱與自由簧家族
+sound_hs: 待確認
+playing_method: 吹奏
+interface_tags: 
+region_culture: 法國｜單一地區／文化圈
+listening_sound_tags: 手指、機械距離、記憶、電聲｜按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/harmoneon/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Harmoneon_cavagnolo.jpg/500px-Harmoneon_cavagnolo.jpg
 youtube_ids: BCtL5cy-92s Z1gPANj-CCU
-instrument_key: 全調性
-range: 約4個8度
 ---
+
 ## 介紹
 
 和聲手風琴或演奏會手風琴（法語：Harmonéon、accordeon de concert）是一種法國自由簧氣鳴樂器，由皮埃爾·蒙尼雄於1948年發明，但他直到四年後的1952年才為該樂器申請專利。自1974年以來，它已在音樂保守音樂學院中教授。該樂器與二重奏手風琴和按鈕手風琴都有很大的相似性。

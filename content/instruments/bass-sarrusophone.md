@@ -1,19 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/bass-sarrusophone/
-title: 低音薩魯梭風
-original_name: Bass sarrusophone
-category: 管樂器
-country: 法國
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-body_listening: 口腔、舌頭、簧片震動、鼻音
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 電聲改造樂器
+title_zh: 低音薩魯梭風
+title_original: Bass sarrusophone
+family_std: 電聲改造樂器家族
+sound_hs: 待確認
+playing_method: 按鍵／控制器／電子控制（待細分）
+interface_tags: 
+region_culture: 法國｜單一地區／文化圈
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 需調整
+issue_note: 類別位置待調整；Bass Guitar 若指電貝斯，放電子／現代樂器可接受；若為聲學低音吉他需改弦樂器。；確認原文指 electric bass 或 bass guitar 後再定。
+source_url: https://soundweavers-music.github.io/instruments/bass-sarrusophone/
 image: https://upload.wikimedia.org/wikipedia/commons/4/4b/MET_bass_sarrusophone.png
 youtube_ids: 51lcyVGorYQ n6Y2uiydezE
-instrument_key: 降B大調
-range: B♭1–F4（約3個8度）
 ---
+
 ## 介紹
 
 低音薩魯梭風是薩魯梭風樂器家族中的低音成員，屬於金屬雙簧錐形管孔木管樂器。音調為B♭調，其音域幾乎與低音薩克斯風相同，可涵蓋巴松管音域至F4音。歷史上，它主要由其發明者皮埃爾-路易·高特羅在19世紀末和20世紀初製造，其繼承者庫埃斯農公司、埃韋特與謝費爾公司以及米蘭的奧西公司也有製造。目前只能從奧西公司定制購買。

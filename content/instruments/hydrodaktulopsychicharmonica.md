@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/hydrodaktulopsychicharmonica/
-title: 水鍵口琴
-original_name: Hydrodaktulopsychicharmonica
-category: 管樂器
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 水鍵口琴
+title_original: Hydrodaktulopsychicharmonica
+family_std: 管樂器類
+sound_hs: 4 气鳴樂器
 playing_method: 吹奏
-family: 管樂器類
-hs_class: 4 气鳴樂器
-sound_class: 气鳴
-country: 美國
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
-body_listening: 手腕、腳踝、短音、節奏對齊
+interface_tags: 
+region_culture: 美國｜單一地區／文化圈
+listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/hydrodaktulopsychicharmonica/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Page_674_%28A_Dictionary_of_Music_and_Musicians-Volume_1%29.jpg/500px-Page_674_%28A_Dictionary_of_Music_and_Musicians-Volume_1%29.jpg
 youtube_ids: B7Tqj9sCQQY 80gxGnm1vMU
-instrument_key: 全調性
-range: 約3個8度
 ---
+
 ## 介紹
 
 玻璃琴，又稱玻璃樂器、玻璃風琴、碗風琴、水晶琴，或簡稱樂器或口琴，是一種利用一系列大小遞增的玻璃碗或高腳杯，通過摩擦產生音樂音調的樂器（這類樂器被稱為摩擦打擊樂器）。它由班傑明·富蘭克林於1761年發明，產生的聲音類似於鐘琴。

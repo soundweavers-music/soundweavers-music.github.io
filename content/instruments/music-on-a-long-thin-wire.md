@@ -1,18 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/music-on-a-long-thin-wire/
-title: Music On A Long Thin Wire（暫譯）
-original_name: Music On A Long Thin Wire
-category: 弦樂器
-country: 美國
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
-body_listening: 手指、機械距離、記憶、電聲
+class_code: A9
+frontend_class: 待分類／偵錯暫存
+subcategory: 待確認
+title_zh: Music On A Long Thin Wire（暫譯）
+title_original: Music On A Long Thin Wire
+family_std: 待確認
+sound_hs: 待確認
+playing_method: 待確認
+interface_tags: 
+region_culture: 美國｜單一地區／文化圈
+listening_sound_tags: 手指、機械距離、記憶、電聲｜按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
+ensemble_links: 
+verification_status: 已整併，建議刪除
+issue_note: 完全重複／被整併；Matouqin Variants 是變體／分類描述，不適合作單件主項；併入 Morin khuur／馬頭琴主項作變體說明。 本列併入第503項。；刪除本列；資料併入第503項。；MERGED-503: 被併入第503項
+source_url: https://soundweavers-music.github.io/instruments/music-on-a-long-thin-wire/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/AlvinLucier-MusicOnALongThinWire-CoverDetail-1980.jpg/500px-AlvinLucier-MusicOnALongThinWire-CoverDetail-1980.jpg
 youtube_ids: dwE4Jwk_zeI SAaXSsoKVQg
-instrument_key: 無固定調性
-range: 全音域
 ---
+
 ## 介紹
 
 《長細線上的音樂》是阿爾文·盧西耶於1977年創作的音樂作品。根據他本人的描述（1992年）："《長細線上的音樂》的構成如下：將金屬線拉伸穿過一個大房間，兩端用夾子固定在桌子上。金屬線的兩端連接到放在其中一張桌子下方的功率放大器的揚聲器端子。正弦波振盪器連接到該放大器。一塊磁鐵跨越金屬線的一端。在金屬線下方的兩端各插入一個木製琴橋，其上嵌入接觸式麥克風，並接入立體聲音響系統。

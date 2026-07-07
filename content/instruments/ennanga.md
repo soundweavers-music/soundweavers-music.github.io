@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/ennanga/
-title: 恩南加弓豎琴
-original_name: Ennanga
-category: 弦樂器
-country: 非洲／歐洲／亞洲／美洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/AX8A4551.jpg/500px-AX8A4551.jpg
-sound_class: 弦鳴
-range: 中高音區（約2個8度）
-instrument_key: 無固定調性
-hs_class: 322 豎琴與里拉類
-family: 豎琴、里拉與開放弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 豎琴、里拉與開放弦
+title_zh: 恩南加弓豎琴
+title_original: Ennanga
+family_std: 豎琴、里拉與開放弦樂器
+sound_hs: 弦鳴｜322 豎琴與里拉類
 playing_method: 撥弦／開放弦共鳴
-body_listening: 循環、河流感、開放弦、吟唱
-soundscape: 開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
-region_type: 地區／文化圈
+interface_tags: 弓
+region_culture: 非洲／歐洲／亞洲／美洲｜地區／文化圈
+listening_sound_tags: 循環、河流感、開放弦、吟唱｜開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/ennanga/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/AX8A4551.jpg/500px-AX8A4551.jpg
 youtube_ids: 9tLXef8WEeA 5HlQiD5Y0VI
 ---
+
 ## 介紹
 
 非洲豎琴，尤其是拱形或「弓形」豎琴，在撒哈拉以南非洲的多個音樂傳統中出現，特別是在東北部。這種樂器在非洲自古就被使用，其形狀類似於古埃及豎琴，具有木製的拱形琴體、羊皮鼓面，以及一個垂直於共鳴面的琴頸，琴弦繞在琴頸上。

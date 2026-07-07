@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/clash-cymbals/
-title: 對鈸
-original_name: Clash cymbals
-category: 打擊樂器
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
+title_zh: 對鈸
+title_original: Clash cymbals
+family_std: 體鳴打擊樂器類
+sound_hs: 1 体鳴樂器
 playing_method: 敲擊／搖晃／撥彈
-family: 體鳴打擊樂器類
-hs_class: 1 体鳴樂器
-sound_class: 体鳴
-country: 中東／地中海地區
-era: 傳統／年代待考
-region_type: 地區／文化圈
-soundscape: 手邊發光的小宇宙（近身體鳴、舌片琴與手奏金屬共鳴）
-body_listening: 指尖、掌心、尾音、近身聆聽
+interface_tags: 
+region_culture: 中東／地中海地區｜地區／文化圈
+listening_sound_tags: 指尖、掌心、尾音、近身聆聽｜手邊發光的小宇宙（近身體鳴、舌片琴與手奏金屬共鳴）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/clash-cymbals/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Suworow-Kadetten_in_Bern_024.jpg/500px-Suworow-Kadetten_in_Bern_024.jpg
 youtube_ids: CHwJ3kJLC-E 11rzoHgB6_k
-instrument_key: 無固定調性
-range: 全音域
 ---
+
 ## 介紹
 
 對鈸（也稱為音樂會鈸、管弦樂鈸或碰撞鈸）是指一對配對的鈸，演奏者手中各持一面鈸，將兩面鈸互相敲擊而發聲。為了區別於吊鈸這種類型的鈸，對鈸也被稱為手鈸。

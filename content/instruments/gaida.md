@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/gaida/
-title: 蓋達風笛
-original_name: Gaida
-category: 管樂器
-country: 巴爾幹／保加利亞
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Scotland_Independence_March%2C_28_March_2026_%2832%29.jpg/500px-Scotland_Independence_March%2C_28_March_2026_%2832%29.jpg
-sound_class: 氣鳴
-range: 中高音區（約2個8度）
-instrument_key: 無固定調性
-hs_class: 412/422 簧鳴與自由簧／單簧雙簧
-family: 口簧、自由簧、單簧雙簧與風袋
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 風箱與自由簧
+title_zh: 蓋達風笛
+title_original: Gaida
+family_std: 口簧、自由簧、單簧雙簧與風袋
+sound_hs: 氣鳴｜412/422 簧鳴與自由簧／單簧雙簧
 playing_method: 吹奏／簧片振動／風袋或風箱
-body_listening: 口腔、舌頭、簧片震動、鼻音
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-region_type: 地區／文化圈
+interface_tags: 風箱
+region_culture: 巴爾幹／保加利亞｜地區／文化圈
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/gaida/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Scotland_Independence_March%2C_28_March_2026_%2832%29.jpg/500px-Scotland_Independence_March%2C_28_March_2026_%2832%29.jpg
 youtube_ids: ImtjPPBSr8I KaB2ugJJYCo
 ---
+
 ## 介紹
 
 風笛是一種木管樂器，使用密閉的簧片，由儲存在袋子中的恆定氣流供應。蘇格蘭大高地風笛聞名於世，但人們已在歐洲大部分地區、北非、西亞、波斯灣周圍以及南亞北部等地區演奏風笛數個世紀之久。風笛一詞也被使用，雖然風笛手通常稱風笛為「風管」、「一套風管」或「一架風管」。風笛屬於氣鳴樂器類，因為要演奏這種樂器，必須吹入空氣才能產生聲音。

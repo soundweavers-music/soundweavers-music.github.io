@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/accordion/
-title: 手風琴
-original_name: Accordion
-category: 鍵盤樂器
-country: 歐洲／德國／奧地利
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/MeguRee%2C_The_Duo_of_Piano_Accordion_%26_Chromatic_Button_Accordion_at_Musical_Instruments_Fair_Japan_2018-10-20_%E3%83%94%E3%82%A2%E3%83%8E%E3%83%BB%E3%82%A2%E3%82%B3%E3%83%BC%E3%83%87%E3%82%A3%E3%82%AA%E3%83%B3_%E3%82%AF%E3%83%AD%E3%83%9E%E3%83%86%E3%82%A3%E3%83%83%E3%82%AF%E3%83%BB%E3%82%A2%E3%82%B3%E3%83%BC%E3%83%87%E3%82%A3%E3%82%AA%E3%83%B3.jpg/500px-thumbnail.jpg
-sound_class: 氣鳴
-range: 約3個半8度（低音C至高音F）
-instrument_key: 全調性
-hs_class: 412/422 簧鳴與自由簧／單簧雙簧
-family: 口簧、自由簧、單簧雙簧與風袋
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 風箱與自由簧
+title_zh: 手風琴
+title_original: Accordion
+family_std: 口簧、自由簧、單簧雙簧與風袋
+sound_hs: 氣鳴｜412/422 簧鳴與自由簧／單簧雙簧
 playing_method: 吹奏／簧片振動／風袋或風箱
-body_listening: 口腔、舌頭、簧片震動、鼻音
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-region_type: 跨文化／多地
+interface_tags: 鍵盤／按鍵、風箱
+region_culture: 歐洲／德國／奧地利
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 需調整
+issue_note: 類別位置待調整；Accordion 是自由簧風箱樂器，不宜只歸為一般鍵盤；名稱可用「手風琴」。；移到第12類風箱／自由簧機械房間，鄰近 Bandoneon、Concertina、Harmonium。；DUP-019:Accordion／Bandoneon／Harmonium
+source_url: https://soundweavers-music.github.io/instruments/accordion/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/MeguRee%2C_The_Duo_of_Piano_Accordion_%26_Chromatic_Button_Accordion_at_Musical_Instruments_Fair_Japan_2018-10-20_%E3%83%94%E3%82%A2%E3%83%8E%E3%83%BB%E3%82%A2%E3%82%B3%E3%83%BC%E3%83%87%E3%82%A3%E3%82%AA%E3%83%B3_%E3%82%AF%E3%83%AD%E3%83%9E%E3%83%86%E3%82%A3%E3%83%83%E3%82%AF%E3%83%BB%E3%82%A2%E3%82%B3%E3%83%BC%E3%83%87%E3%82%A3%E3%82%AA%E3%83%B3.jpg/500px-thumbnail.jpg
 youtube_ids: f5UGmlSWQYs uhPhK57_Hbo
 ---
+
 ## 介紹
 
 手風琴是一件附有鍵盤的自由簧樂器。其主要特點為在同一件樂器中集成可演奏主旋律的鍵盤以及可演奏通奏低音的鍵鈕，前者通常設置在右手位置，後者則設在左手邊。 演奏時通過中央部份的左右伸縮，以引入氣流顫動琴內的簧片發聲。其在1822年由德國人布希曼（Friedrich Ludwig Buschmann）創製，並在1829年經奧地利人岱密安（Cyrill Demian）等改良而漸趨完善。 手風琴歸屬於自由簧氣鳴樂器。同一類別下的樂器包括六角手風琴、口琴和班多紐手風琴。六角手風琴和班多紐手風琴沒有同時演奏旋律和伴奏的能力。法國手風琴也與之有關，雖然也有演奏伴奏和旋律的能力，但不那麼常用。共鳴琴和美國簧片琴也在同一類別，但是通常比手風琴大並且放置在地面上。 手風琴通過在壓縮和擴張風箱的同時按下鍵鈕或者鍵盤來演奏，這會使氣道打開，讓空氣流過小片的黃銅或者鋼（簧片）並振動發聲。閥門可以使樂器在不漏氣的情況下聽著更響亮。 手風琴因歐洲向美洲及其他地區的移民浪潮而廣泛傳播於世界各地。

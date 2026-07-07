@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/qobyz/
-title: 海琴／庫布茲
-original_name: Qobyz
-category: 弦樂器
-country: 哈薩克
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/5/55/Musical_instruments_on_display_at_the_MIM_%2814351816715%29.jpg
-sound_class: 弦鳴
-range: 中低音區（約2個8度）
-instrument_key: 無固定調性
-hs_class: Chordophone／弦鳴樂器
-family: 中亞擦弦琴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 擦弦、鍵控與輪弦
+title_zh: 海琴／庫布茲
+title_original: Qobyz
+family_std: 中亞擦弦琴
+sound_hs: Chordophone／弦鳴樂器
 playing_method: 拉奏
-body_listening: 薩滿傳統、低啞共鳴、身體儀式感
-soundscape: 弓毛拉出的哭與唱（擦弦、輪弦與提琴家族）
-region_type: 單一地區／文化圈
+interface_tags: 弓
+region_culture: 哈薩克｜單一地區／文化圈
+listening_sound_tags: 薩滿傳統、低啞共鳴、身體儀式感｜弓毛拉出的哭與唱（擦弦、輪弦與提琴家族）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/qobyz/
+image: https://upload.wikimedia.org/wikipedia/commons/5/55/Musical_instruments_on_display_at_the_MIM_%2814351816715%29.jpg
 youtube_ids: Icge48M9aT0 SckivMOKGQg
 ---
+
 ## 介紹
 
 海琴（kobyz或qobyz），又稱為kylkobyz，是一種古老的突厥弓弦樂器，在哈薩克人、卡拉卡爾帕克人、巴什基爾人和韃靼人中廣泛流傳。吉爾吉斯人的變體稱為kyl-kyiak。海琴有兩根由馬尾製成的琴弦。共鳴腔體通常用山羊皮覆蓋。傳統上，海琴是神聖的樂器，由薩滿教巫師和巴克西（傳統精神治療者）擁有。根據傳說，海琴及其音樂可以驅趕邪靈、疾病和死亡。

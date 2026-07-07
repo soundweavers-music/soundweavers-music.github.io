@@ -1,19 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/berimbau/
-title: 伯林巴烏琴
-original_name: Berimbau
-category: 弦樂器
-country: 非洲（安哥拉）／巴西
-era: 傳統／年代待考
-region_type: 地區／文化圈
-soundscape: 開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
-body_listening: 循環、河流感、開放弦、吟唱
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 伯林巴烏琴
+title_original: Berimbau
+family_std: 撥弦與抱持弦樂家族
+sound_hs: 待確認
+playing_method: 撥奏／擦奏／擊弦（待細分）
+interface_tags: 弓
+region_culture: 非洲（安哥拉）／巴西｜地區／文化圈
+listening_sound_tags: 循環、河流感、開放弦、吟唱｜開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/berimbau/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/History_of_Inventions_USNM_41_Angola_Muscial_Bow.jpg/500px-History_of_Inventions_USNM_41_Angola_Muscial_Bow.jpg
 youtube_ids: xjtYd3hTvBc GI6_eQy-OuI
-instrument_key: 無固定調性
-range: 中低音區（約2個8度）
 ---
+
 ## 介紹
 
 伯林巴烏琴（葡萄牙語發音：[beɾĩˈbaw]，源自金邦杜語的mbirimbau）是一種傳統的安哥拉樂弓，在巴西普遍使用。在巴干達人和布索加人中也被稱為sekitulege。它由一根單弦弓附著在葫蘆共鳴器上組成，用木棍以及硬幣或石頭演奏，以產生不同的音調和節奏。伯林巴烏琴在19世紀被非洲和巴西的許多地區用來伴奏聖歌和講故事。它是坎東布雷傳統的一部分，後來被納入非裔巴西藝術卡波耶拉中。

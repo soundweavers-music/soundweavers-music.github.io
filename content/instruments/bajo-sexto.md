@@ -1,18 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/bajo-sexto/
-title: 低音六弦琴
-original_name: Bajo sexto
-category: 弦樂器
-country: 墨西哥
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-body_listening: 懷抱、手指、腳步、敘事
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 低音六弦琴
+title_original: Bajo sexto
+family_std: 撥弦與抱持弦樂家族
+sound_hs: 待確認
+playing_method: 撥奏／擦奏／擊弦（待細分）
+interface_tags: 
+region_culture: 墨西哥｜單一地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 重複／合併建議
+issue_note: 重複／鄰近；Bağlama 與第668項 Saz 常被交互使用，但 Saz 也可作泛稱。；建議同篇或主篇＋別名，標明 Bağlama/Saz 關係。；DUP-003:Bağlama／Saz
+source_url: https://soundweavers-music.github.io/instruments/bajo-sexto/
 image: https://upload.wikimedia.org/wikipedia/commons/8/81/Bajo_sexto.jpg
 youtube_ids: fZdOItR4d-I 6NwmjvMxFSo
-instrument_key: 全調性
-range: 約3個8度
 ---
+
 ## 介紹
 
 低音六弦琴（西班牙文：「第六低音」）是墨西哥吉他家族的弦樂器，具有6組雙弦，共12根琴弦。其演奏方式與吉他類似，左手在指板上使用琴格改變音高，右手用手指或撥片撥弦或刷弦。其原始設計旨在伴奏手風琴演奏者（及小提琴手），因此只需兩位樂手就能提供豐富的音樂可能性。這種動態組合是區域墨西哥音樂風格的主要特色，即使在由多種樂器組成的樂隊中也是如此。

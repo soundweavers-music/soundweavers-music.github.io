@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/yazh/
-title: 亞茲琴
-original_name: Yazh
-category: 弦樂器
-country: 亞洲／南亞（印度）
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/2024-03-22_Burmis_Swam%2C_Villadi_Yaaz%2C_Villadi_Naadmandal_in_Raja_Dinkar_Kelkar_Museum%2C_Pune.jpg/500px-2024-03-22_Burmis_Swam%2C_Villadi_Yaaz%2C_Villadi_Naadmandal_in_Raja_Dinkar_Kelkar_Museum%2C_Pune.jpg
-sound_class: 弦鳴
-range: 低沉渾厚的低音區至清亮透徹的高音區（約3個8度）
-instrument_key: 無固定調性
-hs_class: 322 豎琴與里拉類
-family: 豎琴、里拉與開放弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 豎琴、里拉與開放弦
+title_zh: 亞茲琴
+title_original: Yazh
+family_std: 豎琴、里拉與開放弦樂器
+sound_hs: 弦鳴｜322 豎琴與里拉類
 playing_method: 撥弦／開放弦共鳴
-body_listening: 循環、河流感、開放弦、吟唱
-soundscape: 開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 亞洲／南亞（印度）
+listening_sound_tags: 循環、河流感、開放弦、吟唱｜開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/yazh/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/2024-03-22_Burmis_Swam%2C_Villadi_Yaaz%2C_Villadi_Naadmandal_in_Raja_Dinkar_Kelkar_Museum%2C_Pune.jpg/500px-2024-03-22_Burmis_Swam%2C_Villadi_Yaaz%2C_Villadi_Naadmandal_in_Raja_Dinkar_Kelkar_Museum%2C_Pune.jpg
 youtube_ids: dCvEgqePl84 31ZksEch0OE
 ---
+
 ## 介紹
 
 亞茲琴（泰米爾語：யாழ்，也音譯為 yāḻ，發音為 [jaːɻ]）是古代泰米爾音樂中使用的豎琴。它用腸弦製作琴弦，琴弦從彎曲的烏木琴頸延伸到船形或槽形的音箱，音箱的開口處用皮膜覆蓋作為音板。在音箱處，琴弦連接到琴弦棒或調音棒，該調音棒上有琴弦的孔洞，位於音板下方並穿過音板突出。琴頸也可能被獸皮覆蓋。

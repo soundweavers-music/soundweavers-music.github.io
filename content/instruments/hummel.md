@@ -1,21 +1,22 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/hummel/
-title: 胡梅爾琴
-original_name: Hummel
-category: 鍵盤樂器
-country: 瑞典／北歐
-era: 傳統／年代待考
-sound_class: 弦鳴
-range: 約2至3個8度
-instrument_key: 全調性
-hs_class: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
-family: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 胡梅爾琴
+title_original: Hummel
+family_std: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+sound_hs: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
 playing_method: 撥弦／擊弦／按鍵擊弦
-body_listening: 持續音、鄉村舞曲、木質簡樸感
-soundscape: 平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化弦鳴）
-region_type: 區域／多國
+interface_tags: 鍵盤／按鍵、撥片
+region_culture: 瑞典／北歐｜區域／多國
+listening_sound_tags: 持續音、鄉村舞曲、木質簡樸感｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化弦鳴）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/hummel/
 youtube_ids: UdGily3s9kA rOCX_zA1Ies
 ---
+
 ## 介紹
 
 胡梅爾琴是一種起源於中歐的傳統撥弦樂器，名稱源自德文「Hummel」意為「大黃蜂」。樂器採用梨形或蝴蝶形共鳴箱設計，配備多條琴弦。演奏者以撥片或手指彈奏，通過機械裝置撥動琴弦產生聲音。音色明亮清脆，具有金屬質感，高音區璀璨透亮似豎琴，中低音溫暖圓潤。該樂器在十八至十九世紀於維也納古典時期達到發展高峰，成為民間音樂與古典音樂的重要樂器。

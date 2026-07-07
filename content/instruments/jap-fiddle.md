@@ -1,19 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/jap-fiddle/
-title: 日本胡琴
-original_name: Jap fiddle
-category: 弦樂器
-country: 日本
-era: 20 世紀
-region_type: 單一地區／文化圈
-soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
-body_listening: 胸口、嗓音、拉長的情緒
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 擦弦、鍵控與輪弦
+title_zh: 日本胡琴
+title_original: Jap fiddle
+family_std: 擦弦、鍵控與輪弦家族
+sound_hs: 待確認
+playing_method: 撥奏／擦奏／擊弦（待細分）
+interface_tags: 
+region_culture: 日本｜單一地區／文化圈
+listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/jap-fiddle/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Japfiddle.jpg/500px-Japfiddle.jpg
 youtube_ids: lSCHU3kwrm8 MzgMBrtrFc4
-instrument_key: 無固定調性
-range: 中高音區（約2個8度）
 ---
+
 ## 介紹
 
 日本胡琴是一種單弦擦奏樂器，在20世紀初期被街頭表演者、音樂廳表演者和雜耍藝人所使用，特別是在英國和美國。該樂器特別與考克尼黑臉表演者G. H. Chirgwin相關聯。後來出現了一種變體，配備有振動膜和喇叭以增強音量，被稱為單弦留聲機胡琴。

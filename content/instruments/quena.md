@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/quena/
-title: 克納笛
-original_name: Quena
-category: 管樂器
-country: 美洲／南美（安地斯）
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Quena01.jpg/500px-Quena01.jpg
-sound_class: 氣鳴
-range: G4起，約2個八度
-instrument_key: G大調
-hs_class: 421 邊棱氣鳴／無簧笛類
-family: 無簧吹管、長音與氣息樂器
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 簧片樂器
+title_zh: 克納笛
+title_original: Quena
+family_std: 無簧吹管、長音與氣息樂器
+sound_hs: 421 邊棱氣鳴／無簧笛類
 playing_method: 吹奏／端吹／橫吹／容器共鳴
-body_listening: 氣息、胸腔、長音、空間
-soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
-region_type: 跨文化／多地
+interface_tags: 指孔
+region_culture: 美洲／南美（安地斯）
+listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+ensemble_links: 安地斯合奏
+verification_status: 有問題，需修正
+issue_note: 譯名錯誤；Pi Nai 是泰國雙簧管／嗩吶類，不是鼻笛。；改「披奈管（Pi nai，暫譯）」；第2類雙簧。
+source_url: https://soundweavers-music.github.io/instruments/quena/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Quena01.jpg/500px-Quena01.jpg
 youtube_ids: 93wGaGFUnTs ndUCNnhH03Q
 ---
+
 ## 介紹
 
 克納笛（西班牙化拼寫法為Quechua語的qina，英文有時也寫作kena）是安地斯山脈的傳統笛子。傳統上由蘆葦或木材製成，有6個手指孔和1個拇指孔，兩端開放或底部半封閉（悶音）。為了發出聲音，演奏者用下巴與下唇之間的肌肉閉合管子的頂端，並將氣流向下吹出，沿著管子的軸線，吹過頂端切割的橢圓形凹口上方。它通常以G調為標準，最低音為G4。

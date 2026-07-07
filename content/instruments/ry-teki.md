@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/ry-teki/
-title: 龍笛
-original_name: Ryūteki
-category: 管樂器
-country: 日本
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Ryuteki_-_SMV_-_M1014_02.tif/lossy-page1-250px-Ryuteki_-_SMV_-_M1014_02.tif.jpg
-sound_class: 氣鳴
-range: 約2個8度
-instrument_key: 無固定調性
-hs_class: Aerophone／氣鳴樂器
-family: 雅樂橫笛
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 龍笛
+title_original: Ryūteki
+family_std: 雅樂橫笛
+sound_hs: Aerophone／氣鳴樂器
 playing_method: 吹奏
-body_listening: 宮廷空間、長線條、雅樂呼吸
-soundscape: 一口氣走過山谷（無簧吹管、長音與氣息樂器）
-region_type: 單一地區／文化圈
+interface_tags: 
+region_culture: 日本｜單一地區／文化圈
+listening_sound_tags: 宮廷空間、長線條、雅樂呼吸｜一口氣走過山谷（無簧吹管、長音與氣息樂器）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/ry-teki/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Ryuteki_-_SMV_-_M1014_02.tif/lossy-page1-250px-Ryuteki_-_SMV_-_M1014_02.tif.jpg
 youtube_ids: 1BanqxzdpFc 4aRsbO2V8Cg
 ---
+
 ## 介紹
 
 龍笛是一種可能成型於唐代的傳統橫吹木管樂器，今日僅見於日本。由唐竹製成，常用於演奏日本雅樂。龍笛通過遣唐使傳入日本，可能是由中亞的橫吹演變而來龍笛通過遣唐使傳入日本，可能是由中亞的橫吹演變而來，並與能管、篠笛一起被認為是其他和樂器中所有橫笛的原型和祖先。

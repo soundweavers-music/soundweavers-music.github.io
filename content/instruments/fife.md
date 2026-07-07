@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/fife/
-title: 六孔橫笛
-original_name: Fife
-category: 管樂器
-country: 歐洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Crail%2C_Fife%2C_Scotland.jpg/500px-Crail%2C_Fife%2C_Scotland.jpg
-sound_class: 氣鳴
-range: 約2個8度（D5–D7）
-instrument_key: 全調性
-hs_class: 421 邊棱氣鳴／無簧笛類
-family: 無簧吹管、長音與氣息樂器
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 電聲改造樂器
+title_zh: 六孔橫笛
+title_original: Fife
+family_std: 無簧吹管、長音與氣息樂器
+sound_hs: 421 邊棱氣鳴／無簧笛類
 playing_method: 吹奏／端吹／橫吹／容器共鳴
-body_listening: 氣息、胸腔、長音、空間
-soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 歐洲
+listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+ensemble_links: 
+verification_status: 移入第13類
+issue_note: 現代電子／取樣；屬現代電子、取樣、電聲或電氣化鍵盤／設備類，應集中到第13類。；移第13類，並與傳統鍵盤／風箱類分開。
+source_url: https://soundweavers-music.github.io/instruments/fife/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Crail%2C_Fife%2C_Scotland.jpg/500px-Crail%2C_Fife%2C_Scotland.jpg
 youtube_ids: m5ZwSAXmqmw 0sJ9WHSDSbA
 ---
+
 ## 介紹
 
 法夫郡（英文：FYFE，蘇格蘭英語：[fɐi̯f]；蘇格蘭蓋爾語：Fìobha [ˈfiːvə]；蘇格蘭語：Fife）是蘇格蘭的一個議會區和郡尉轄區。作為一個半島，它向北以泰河河口為界，向東以北海為界，向南以福思河河口為界，向西南與克拉克曼南郡相鄰，向西與珀斯和金羅斯相鄰。最大的聚居地是鄧弗姆林市，行政中心是格倫羅西斯。法夫郡面積為512平方英里（1,330平方公里），2024年常住人口為374,760人，是蘇格蘭按人口計第3大地方當局轄區。

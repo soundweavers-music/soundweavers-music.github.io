@@ -1,21 +1,22 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/kokyu/
-title: 胡弓
-original_name: Kokyu
-category: 弦樂器
-country: 亞洲／東亞（日本）
-era: 傳統／年代待考
-sound_class: 弦鳴
-range: 中低音區（約2個8度）
-instrument_key: 無固定調性
-hs_class: 321.3 擦弦／輪弦／提琴家族
-family: 擦弦、輪弦與提琴家族
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 擦弦、鍵控與輪弦
+title_zh: 胡弓
+title_original: Kokyu
+family_std: 擦弦、輪弦與提琴家族
+sound_hs: 弦鳴｜321.3 擦弦／輪弦／提琴家族
 playing_method: 弓擦／輪擦
-body_listening: 胸口、嗓音、拉長的情緒
-soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
-region_type: 跨文化／多地
+interface_tags: 弓
+region_culture: 亞洲／東亞（日本）
+listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/kokyu/
 youtube_ids: dx76YPgZviE jNEp84PVYes
 ---
+
 ## 介紹
 
 胡弓（こきゅう）是日本的一種弓弦樂器。

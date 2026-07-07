@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/frame-drum/
-title: 框架鼓
-original_name: Frame drum
-category: 打擊樂器
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 框架鼓
+title_original: Frame drum
+family_std: 鼓類
+sound_hs: 2 膜鳴樂器
 playing_method: 敲擊鼓面
-family: 鼓類
-hs_class: 2 膜鳴樂器
-sound_class: 膜鳴
-country: 全球／多地
-era: 傳統／年代待考
-region_type: 地區／文化圈
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-body_listening: 手掌、腳底、低音、舞步
+interface_tags: 
+region_culture: 全球／多地｜地區／文化圈
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/frame-drum/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Bebny_szama%C5%84skie.jpg/500px-Bebny_szama%C5%84skie.jpg
 youtube_ids: 1M6QvpxbB7E oQ1UI6F1zGA
-instrument_key: 無固定調性
-range: 約2個8度
 ---
+
 ## 介紹
 
 框架鼓是一種鼓面寬度大於深度的鼓。它是最古老的樂器之一，也許是最早被發明的鼓。它具有單個鼓面，通常由生皮製成，但也可能使用人造材料。有些框架鼓具有機械調音裝置，而許多其他框架鼓的鼓面則是釘牢固定的。鼓面被拉伸在一個稱為鼓殼的圓形木製框架上。鼓殼傳統上由玫瑰木、橡木、梣木等材料製成。

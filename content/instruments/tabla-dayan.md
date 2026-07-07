@@ -1,22 +1,22 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/tabla-dayan/
-title: 塔布拉鼓(高音鼓)
-original_name: Tabla Dayan（高音鼓）
-category: 打擊樂器
-country: 亞洲／南亞（印度）
-era: 傳統／年代待考
-sound_class: 膜鳴
-range: 低頻隆隆聲至高頻清脆聲響，跨越數個八度
-instrument_key: 無固定調性
-hs_class: 211 筒形鼓
-family: 塔布拉鼓類
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 塔布拉鼓(高音鼓)
+title_original: Tabla Dayan（高音鼓）
+family_std: 塔布拉鼓類
+sound_hs: 膜鳴｜211 筒形鼓
 playing_method: 敲擊鼓面／手指
-body_listening: 手掌、腳底、低音、舞步
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-region_type: 地區／文化圈
+interface_tags: 
+region_culture: 亞洲／南亞（印度）｜地區／文化圈
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/tabla-dayan/
 youtube_ids: 7R2ASSe1o3M 0V6OCVWwow4 O2K0ptoYpuc LAwgD_YxRgM
 ---
+
 ## 介紹
 
 塔布拉鼓（旁遮普語：ਤਬਲਾ, 印地語：तबला, 孟加拉語：তবলা, 坦米爾語：தபலா,）是一件膜鳴樂器和敲擊樂器，常用於印度古典音樂 以及印度、巴基斯坦、阿富汗、尼泊爾、孟加拉、斯里蘭卡以至印度尼西亞的傳統音樂。塔布拉為一對鼓，右手打較高音的鼓，稱為達顏（Dayan），或稱為塔布拉。左手打較低音的鼓，稱為巴顏（Bayan）。以手掌或手指擊奏，擊奏鼓心和鼓邊，不同的擊法會有不同音高。例如以左手掌的根部按壓鼓面，並向前滑動，可以改變鼓膜的壓力和音高。 塔布拉常常在北印度古典音樂中伴奏，演奏者以鼓點（bol）組成節奏型（theka），並在一個不斷循環的阿凡坦（avartan）的基礎上即興演出各種複奏的節奏。

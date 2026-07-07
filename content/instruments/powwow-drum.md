@@ -1,22 +1,22 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/powwow-drum/
-title: 雷鼓
-original_name: Powwow Drum
-category: 打擊樂器
-country: 美洲／北美
-era: 傳統／年代待考
-sound_class: 膜鳴
-range: 中低音區（約2個8度範圍）
-instrument_key: 無固定調性
-hs_class: 21 膜鳴鼓類
-family: 膜鳴鼓類、框鼓、杯鼓與鼓組
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 雷鼓
+title_original: Powwow Drum
+family_std: 膜鳴鼓類、框鼓、杯鼓與鼓組
+sound_hs: 21 膜鳴鼓類
 playing_method: 手拍／槌擊／皮膜振動
-body_listening: 手掌、腳底、低音、舞步
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 美洲／北美
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 需調整
+issue_note: 譯名需區分；Paixiao 是中國排簫，與第563 Pan Flute 泛稱／安地斯排簫不同。；相鄰不合併。；DUP-014:Paixiao／Pan Flute
+source_url: https://soundweavers-music.github.io/instruments/powwow-drum/
 youtube_ids: cj3U0z64_m4 D3aP2lf1dt8
 ---
+
 ## 介紹
 
 Powwow Drum是北美印第安民族的傳統大鼓，起源於19世紀後期的大平原地區。鼓身為木製圓筒形，直徑通常在60-90公分之間，鼓面覆蓋動物皮革。其音色雄渾有力、厚重深沉，具有原始神聖的質感，低頻共鳴突出，能產生震撼人心的低音。主要用於Powwow聚會等泛印第安文化活動中，象徵部落團結與文化認同。敲擊方式靈活多變，能產生豐富的音色層次，在戶外環境中傳播距離遠。

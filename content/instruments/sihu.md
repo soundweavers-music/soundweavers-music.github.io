@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/sihu/
-title: 四胡
-original_name: Sihu
-category: 弦樂器
-country: 亞洲／歐洲／中東／南亞／中亞
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/OFB-Qin2DiSihu.JPG/500px-OFB-Qin2DiSihu.JPG
-sound_class: 弦鳴
-range: 約3至4個8度
-instrument_key: 全調性
-hs_class: Chordophone／弦鳴樂器
-family: 胡琴支系
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 四胡
+title_original: Sihu
+family_std: 胡琴支系
+sound_hs: Chordophone／弦鳴樂器
 playing_method: 弓擦
-body_listening: 胸口、嗓音、拉長的情緒
-soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
-region_type: 地區／文化圈
+interface_tags: 弓
+region_culture: 亞洲／歐洲／中東／南亞／中亞｜地區／文化圈
+listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+ensemble_links: 
+verification_status: 需調整
+issue_note: 名稱錯置可能；Sarrusophone 是薩魯梭風家族總稱，不應只譯薩克斯管。；改「薩魯梭風管（Sarrusophone）」；與各音域款相鄰。；DUP-018:Sarrusophone family
+source_url: https://soundweavers-music.github.io/instruments/sihu/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/OFB-Qin2DiSihu.JPG/500px-OFB-Qin2DiSihu.JPG
 youtube_ids: O40MNBwEjeo -Q4l-DnqdMo
 ---
+
 ## 介紹
 
 四胡，曾稱為「提琴」，蒙古語稱為「侯勒」、「胡兀爾」（蒙古語：ᠬᠤᠭᠤᠷ），是胡琴中的一種，因有四根琴弦而得名，為蒙古族極具代表性的獨奏樂器。中國國家級非物質文化遺產之一。

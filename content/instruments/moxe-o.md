@@ -1,21 +1,22 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/moxe-o/
-title: 莫克塞尼管
-original_name: Moxeño
-category: 管樂器
-country: 美洲／北美
-era: 傳統／年代待考
-sound_class: 氣鳴
-range: 中高音區（約2個8度）
-instrument_key: 無固定調性
-hs_class: Aerophone／氣鳴樂器
-family: 安地斯長笛
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 莫克塞尼管
+title_original: Moxeño
+family_std: 安地斯長笛
+sound_hs: Aerophone／氣鳴樂器
 playing_method: 端吹
-body_listening: 氣息、胸腔、長音、空間
-soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 美洲／北美
+listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/moxe-o/
 youtube_ids: AykVbcOFI30 XpPHpB4jmWY
 ---
+
 ## 介紹
 
 莫克塞尼管是源自南美洲亞馬遜盆地玻利維亞東部的傳統管樂器，由莫克塞尼土著民族創製，距今已有數百年歷史。樂器採竹管製成，外型簡潔素雅。其音色溫暖略帶鼻音，介於笛子清亮與簧管厚實之間，音域位於中高音區，音色明亮而沉穩，具有良好穿透力。樂器能產生自然和諧的泛音，使音響具有層次感。莫克塞尼管融合西班牙與非洲音樂元素，形成獨特的拉丁美洲風格，特別適合表現民族風情與樸質感。

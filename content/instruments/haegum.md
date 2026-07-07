@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/haegum/
-title: 奚琴
-original_name: Haegum
-category: 弦樂器
-country: 亞洲／歐洲／中東／南亞／中亞
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Haegeum.jpg/500px-Haegeum.jpg
-sound_class: 弦鳴
-range: 約3個音區（高、中、低）
-instrument_key: 無固定調性
-hs_class: 321.3 擦弦／輪弦／提琴家族
-family: 擦弦、輪弦與提琴家族
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 電聲改造樂器
+title_zh: 奚琴
+title_original: Haegum
+family_std: 擦弦、輪弦與提琴家族
+sound_hs: 弦鳴｜321.3 擦弦／輪弦／提琴家族
 playing_method: 弓擦／輪擦
-body_listening: 胸口、嗓音、拉長的情緒
-soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
-region_type: 地區／文化圈
+interface_tags: 弓
+region_culture: 亞洲／歐洲／中東／南亞／中亞｜地區／文化圈
+listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+ensemble_links: 
+verification_status: 移入第13類
+issue_note: 現代電子／取樣；屬現代電子、取樣、電聲或電氣化鍵盤／設備類，應集中到第13類。；移第13類，並與傳統鍵盤／風箱類分開。
+source_url: https://soundweavers-music.github.io/instruments/haegum/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Haegeum.jpg/500px-Haegeum.jpg
 youtube_ids: OfsFoUell4Y cl2pf05P7rQ
 ---
+
 ## 介紹
 
 奚琴，又稱胡琴、鄉琴、嵇琴、奚胡，是奚人的一種弓弦樂器，在唐朝末期傳入中國，後外傳至朝鮮半島與日本，為二胡與馬頭琴的前身。由棍狀頸、空心木質音箱和兩條絲弦構成。與二胡演奏類似，演奏時需要演奏者彎腰、把奚琴垂直放在膝上來演奏。 清朝時的宮廷祭祀樂器中使用奚琴。現今仍保存於滿族與朝鮮族民族樂器之中，為韓國與日本的傳統樂器。

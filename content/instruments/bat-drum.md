@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/bat-drum/
-title: 非洲鼓
-original_name: Batá Drum
-category: 打擊樂器
-country: 非洲／中東／亞洲／歐洲／美洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/1/14/Bata_drums.jpg
-sound_class: 膜鳴
-range: 低中音域（約1至2個8度）
-instrument_key: 無固定調性
-hs_class: Membranophone／膜鳴樂器
-family: 雙面沙漏鼓
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 非洲鼓
+title_original: Batá Drum
+family_std: 雙面沙漏鼓
+sound_hs: Membranophone／膜鳴樂器
 playing_method: 手擊
-body_listening: 手掌、腳底、低音、舞步
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-region_type: 地區／文化圈
+interface_tags: 
+region_culture: 非洲／中東／亞洲／歐洲／美洲｜地區／文化圈
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/bat-drum/
+image: https://upload.wikimedia.org/wikipedia/commons/1/14/Bata_drums.jpg
 youtube_ids: lvC9bwByq1M mVSExx-5r6k
 ---
+
 ## 介紹
 
 非洲鼓（Batá Drum）是源自西非約魯巴民族的雙頭打擊樂器，呈沙漏形，兩端各有一層鼓皮。樂器主要用於宗教祭儀、傳統音樂演奏和節奏樂隊中，特別是在古巴聖塔利亞宗教儀式裡扮演核心角色。非洲鼓音色深沉富有穿透力，具溫暖而神秘的質感，能產生從低沉共鳴到高亢敲擊聲的多層次效果。其獨特的雙層鼓皮設計和木質鼓身賦予樂器厚重內斂的特色，敲擊不同位置可獲得豐富的音色變化，在節奏樂隊中常扮演基礎節奏角色。

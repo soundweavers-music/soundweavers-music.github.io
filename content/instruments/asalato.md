@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/asalato/
-title: 阿薩拉託
-original_name: Asalato
-category: 打擊樂器
-country: 拉丁美洲／非洲／歐洲／亞洲／全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Asalato_%28Kashaka%29%2C_percussion_instrument_of_West_Africa_%28photozou_29416265%29_by_Ludwig_D._Omen.jpg/500px-Asalato_%28Kashaka%29%2C_percussion_instrument_of_West_Africa_%28photozou_29416265%29_by_Ludwig_D._Omen.jpg
-sound_class: 體鳴
-range: 高音區（約1個8度）
-instrument_key: 無固定調性
-hs_class: 11 小型體鳴／搖奏刮奏敲奏
-family: 小型節奏體鳴、沙鈴、刮器與身體打擊
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 阿薩拉託
+title_original: Asalato
+family_std: 小型節奏體鳴、沙鈴、刮器與身體打擊
+sound_hs: 11 小型體鳴／搖奏刮奏敲奏
 playing_method: 搖奏／刮奏／敲擊／身體打擊
-body_listening: 手腕、腳踝、短音、節奏對齊
-soundscape: 手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 拉丁美洲／非洲／歐洲／亞洲／全球
+listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+ensemble_links: 
+verification_status: 需調整
+issue_note: 鄰近建議；Array mbira 與 Mbira/Kalimba 同屬舌片琴家族，但結構與現代化程度差異大。；保留獨立篇，鄰近第9類姆比拉、卡林巴。；DUP-020:舌片琴支線
+source_url: https://soundweavers-music.github.io/instruments/asalato/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Asalato_%28Kashaka%29%2C_percussion_instrument_of_West_Africa_%28photozou_29416265%29_by_Ludwig_D._Omen.jpg/500px-Asalato_%28Kashaka%29%2C_percussion_instrument_of_West_Africa_%28photozou_29416265%29_by_Ludwig_D._Omen.jpg
 youtube_ids: og06ebBKe6k YhkbI77BnlU
 ---
+
 ## 介紹
 
 卡莎卡是一種簡單的打擊樂器，由兩個裝滿豆子的小葫蘆組成（本質上是兩個通過繩子連接的小搖鈴）。一個葫蘆握在手中，另一個則在手周圍快速左右擺動，撞擊時發出「咔嗒」聲。它起源於西非，但已在各個國家以不同名稱重現：帕蒂卡（日本）、科西卡（美國）。其他名稱還包括阿薩拉托、凱斯凱斯、特昌戈特切、科什卡，以及許多其他名稱。

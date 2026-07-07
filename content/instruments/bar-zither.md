@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/bar-zither/
-title: 板箏
-original_name: Bar zither
-category: 弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 板箏
+title_original: Bar zither
+family_std: 弦樂器類
+sound_hs: 3 弦鳴樂器
 playing_method: 撥弦／擦弦／擊弦
-family: 弦樂器類
-hs_class: 3 弦鳴樂器
-sound_class: 弦鳴
-country: 非洲
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化弦鳴）
-body_listening: 手掌、弦面、推音、敲擊
+interface_tags: 弓
+region_culture: 非洲｜單一地區／文化圈
+listening_sound_tags: 手掌、弦面、推音、敲擊｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化弦鳴）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/bar-zither/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/An_African_Banjo%2C_Zambia%2C_ca.1905-ca.1940_%28imp-cswc-GB-237-CSWC47-LS6-048%29.jpg/500px-An_African_Banjo%2C_Zambia%2C_ca.1905-ca.1940_%28imp-cswc-GB-237-CSWC47-LS6-048%29.jpg
 youtube_ids: 8BJHsgyNeEQ k5wIWaUNbS4
-instrument_key: 無固定調性
-range: 中低音域（約2個8度）
 ---
+
 ## 介紹
 
 板箏是霍恩博斯特爾-薩克斯樂器分類系統中的一類樂器（箏的子集），屬於弦鳴樂器（弦樂器），其樂器主體呈棒狀。在該分類系統中，板箏由音樂弓和棒箏組成。音樂弓具有柔軟的末端，棒箏則是剛性的或只有一端彎曲。板箏無論是音樂弓還是棒箏，通常都配備某種形式的共鳴器。共鳴器的例子包括演奏者的嘴、附加的葫蘆或充氣的氣球或膀胱。

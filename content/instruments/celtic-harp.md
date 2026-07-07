@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/celtic-harp/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Trinity_College_harp%2C_Dublin%2C_Ireland%2C_2017_%28cropped2%29.jpg/500px-Trinity_College_harp%2C_Dublin%2C_Ireland%2C_2017_%28cropped2%29.jpg
-title: 凱爾特豎琴
-original_name: Celtic Harp
-category: 弦樂器
-country: 非洲／歐洲／美洲／亞洲
-era: 傳統／年代待考
-sound_class: 弦鳴
-range: 約4至5個8度
-instrument_key: 全調性
-hs_class: 322 豎琴與里拉類
-family: 豎琴、里拉與開放弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 豎琴、里拉與開放弦
+title_zh: 凱爾特豎琴
+title_original: Celtic Harp
+family_std: 豎琴、里拉與開放弦樂器
+sound_hs: 弦鳴｜322 豎琴與里拉類
 playing_method: 撥弦／開放弦共鳴
-body_listening: 循環、河流感、開放弦、吟唱
-soundscape: 開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
-region_type: 地區／文化圈
+interface_tags: 
+region_culture: 非洲／歐洲／美洲／亞洲｜地區／文化圈
+listening_sound_tags: 循環、河流感、開放弦、吟唱｜開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/celtic-harp/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Trinity_College_harp%2C_Dublin%2C_Ireland%2C_2017_%28cropped2%29.jpg/500px-Trinity_College_harp%2C_Dublin%2C_Ireland%2C_2017_%28cropped2%29.jpg
 youtube_ids: 9Xd8xq06FCw 2-M9-6OSYMY
 ---
+
 ## 介紹
 
 凱爾特豎琴是起源於愛爾蘭和蘇格蘭的傳統弦樂器，外形小巧精緻，通常由木材製成，具有典雅的三角形框架。琴弦數量根據型號有所不同，從數十根至百根以上。它主要用於演奏凱爾特民族音樂，兼具娛樂和文化傳承功能。凱爾特豎琴音色溫潤優雅，具有獨特的穿透力與詩意感，特別適合表現民族風情與靜謐冥想的意境，是凱爾特文化的重要象徵。

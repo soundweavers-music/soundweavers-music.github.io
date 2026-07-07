@@ -1,21 +1,22 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/loop-station/
-title: 迴圈站
-original_name: Loop Station
-category: 鍵盤樂器
-country: 美洲／北美
-era: 傳統／年代待考
-sound_class: 鍵盤／電鳴／機械混合
-range: 全音域
-instrument_key: 全調性
-hs_class: 412/31/52 鍵盤、自由簧、電鳴與機械介面
-family: 鍵盤介面、風箱、電子與取樣
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 取樣與磁帶
+title_zh: 迴圈站
+title_original: Loop Station
+family_std: 鍵盤介面、風箱、電子與取樣
+sound_hs: 鍵盤／電鳴／機械混合｜412/31/52 鍵盤、自由簧、電鳴與機械介面
 playing_method: 按鍵／風箱／電控／取樣
-body_listening: 手指、機械距離、記憶、電聲
-soundscape: 按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
-region_type: 跨文化／多地
+interface_tags: 鍵盤／按鍵、風箱、踏板
+region_culture: 美洲／北美
+listening_sound_tags: 手指、機械距離、記憶、電聲｜按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
+ensemble_links: 
+verification_status: 待檢查
+issue_note: 名稱待查；Kulintang a putao 與第440 Kulintang a tiniok 均譯「庫林坦鼓」不精確；Kulintang 是鑼群，不是鼓。；改為庫林唐鑼群變體，兩項相鄰。
+source_url: https://soundweavers-music.github.io/instruments/loop-station/
 youtube_ids: IvUU8joBb1Q dck6m5guuIE
 ---
+
 ## 介紹
 
 迴圈站是一種電子音樂製作設備，外型為便携式控制台或腳踏板，集錄音、迴放與即時音效處理於一身。主要用途是在現場演奏中即時錄製多軌音樂層次，使表演者能夠單獨創造豐富的樂隊效果。其特色在於具備直觀的觸發界面、高品質的音訊處理與多樣化的效果器，適合民謠、電子音樂與街頭表演。迴圈站音色清晰現代，音域寬廣，通過數位疊層營造飽滿聲場，已成為當代音樂表演的重要工具。

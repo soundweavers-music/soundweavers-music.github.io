@@ -1,21 +1,22 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/ceramic-percussion/
-title: 陶土打擊樂器
-original_name: Ceramic Percussion
-category: 打擊樂器
-country: 東南亞／東亞／非洲／歐洲／全球
-era: 傳統／年代待考
-sound_class: 體鳴
-range: 中高頻音域（約2個8度）
-instrument_key: 無固定調性
-hs_class: 11/12 定音體鳴／鑼鐘木琴石琴系統
-family: 定音體鳴、材料敲擊與鑼鐘木琴系統
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 陶土打擊樂器
+title_original: Ceramic Percussion
+family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
+sound_hs: 11/12 定音體鳴／鑼鐘木琴石琴系統
 playing_method: 敲擊／搖奏／材料共鳴
-body_listening: 材料、回聲、群體分工、音列
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 東南亞／東亞／非洲／歐洲／全球
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 有問題，需修正
+issue_note: 譯名錯誤；Carillon 是鐘琴／鐘樓鐘琴，但來源地區寫中國疑似錯置；不可與 Glockenspiel 混同。；中文改「鐘樓鐘琴（Carillon）」或「鐘琴（Carillon）」並與第307項區分。
+source_url: https://soundweavers-music.github.io/instruments/ceramic-percussion/
 youtube_ids: 0A_5Xoe45hw 3yBNZ2_nBlI
 ---
+
 ## 介紹
 
 陶土打擊樂器是以陶瓷材料製成的體鳴打擊樂器，起源於新石器時代，距今已有八千多年歷史。其外型多樣，包括陶埙、陶鼓、陶土鐘等形式。樂器通過敲擊陶土製品產生聲音，音色溫潤而富有原始質感，既明亮又不刺耳。陶土打擊樂器廣泛應用於宗教儀式、民間慶典和民族音樂中，其多孔質地使聲音具有自然衰減特性，既適合節奏表現，也能營造古樸民族氛圍，是重要的民族音樂文化載體。

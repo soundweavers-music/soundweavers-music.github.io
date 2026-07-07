@@ -1,21 +1,22 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/surma-horn/
-title: 蘇爾瑪號
-original_name: Surma-horn
-category: 管樂器
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 號角與唇振
+title_zh: 蘇爾瑪號
+title_original: Surma-horn
+family_std: 管樂器類
+sound_hs: 4 气鳴樂器
 playing_method: 吹奏
-family: 管樂器類
-hs_class: 4 气鳴樂器
-sound_class: 气鳴
-country: 烏克蘭/高加索地區/土耳其
-era: 傳統／年代待考
-region_type: 跨文化／多地
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-body_listening: 口腔、舌頭、簧片震動、鼻音
+interface_tags: 
+region_culture: 烏克蘭/高加索地區/土耳其
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/surma-horn/
 youtube_ids: 7OTqIPpJlss pYg72ZdCBHM
-instrument_key: 無固定調性
-range: 約2至3個八度
 ---
+
 ## 介紹
 
 烏克蘭蘇爾瑪號（烏克蘭語：Сурма）是一種雙簧管樂器，在哥薩克軍隊中曾廣泛使用。據認為該樂器是從高加索地區或土耳其傳入烏克蘭的，這兩個地區存在類似的樂器，名稱相近，如祖爾納和蘇爾奈。該術語也經常被用來描述一種木製喇叭。蘇爾瑪號由木材製成，具有圓錐形音孔，一端有喇叭口，另一端配有類似於雙簧管的雙簧。它通常有九到十個指孔，能夠通過不同的動態強度發出半音階音。

@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/mokugyo/
-title: 木魚（日本）
-original_name: Mokugyo
-category: 打擊樂器
-country: 東南亞／東亞／非洲／歐洲／全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/1/11/Mokugyo.jpg
-sound_class: 體鳴
-range: 約2個8度
-instrument_key: 無固定調性
-hs_class: 11/12 定音體鳴／鑼鐘木琴石琴系統
-family: 定音體鳴、材料敲擊與鑼鐘木琴系統
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 木魚（日本）
+title_original: Mokugyo
+family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
+sound_hs: 11/12 定音體鳴／鑼鐘木琴石琴系統
 playing_method: 敲擊／搖奏／材料共鳴
-body_listening: 材料、回聲、群體分工、音列
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-region_type: 跨文化／多地
+interface_tags: 指孔
+region_culture: 東南亞／東亞／非洲／歐洲／全球
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/mokugyo/
+image: https://upload.wikimedia.org/wikipedia/commons/1/11/Mokugyo.jpg
 youtube_ids: tC8Ifi6abP8 fr5ErON2494
 ---
+
 ## 介紹
 
 木魚是一種木製的敲擊樂器，常見的團魚形木魚形狀為類近拳頭狀的圓球體，中間部份為空心，以作為聲音共振和擴音之用。圓球體一邊留有音孔，作用和小提琴的F型孔相同，都是讓經擴音後的聲音可以傳開；另一邊則另加上長而扁的外邊，以方便用手或固定在支撐架上。演奏方法以利用鼓棍或小木鎚，敲打樂器外側的共鳴區以發出聲響。木魚的尺寸可有不同大小，體積越大音高越低。 木魚起源於佛教的犍槌，犍槌傳到中國後與中國魚文化融合，形成現今所見的木魚。佛教中「木魚」一詞最早見於唐代和尚王懷海的《禪門規式》當中。另外，學者馬承玉曾提出木魚起源於道教論，但此論漏洞百出，遭到眾多學者批評。

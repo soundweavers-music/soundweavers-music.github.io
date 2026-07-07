@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/archtop-guitar/
-title: 拱頂吉他
-original_name: Archtop guitar
-category: 弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 拱頂吉他
+title_original: Archtop guitar
+family_std: 弦樂器類
+sound_hs: 3 弦鳴樂器
 playing_method: 撥弦／擦弦／擊弦
-family: 弦樂器類
-hs_class: 3 弦鳴樂器
-sound_class: 弦鳴
-country: 歐洲／意大利
-era: 傳統／年代待考
+interface_tags: 
+region_culture: 歐洲／意大利｜地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/archtop-guitar/
 image: https://upload.wikimedia.org/wikipedia/commons/c/c8/Super400ces.png
-region_type: 地區／文化圈
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-body_listening: 懷抱、手指、腳步、敘事
 youtube_ids: Yg4WJ09PtI4 T-3BbsDuTnA
-instrument_key: 全調性
-range: E1–E5（約4個8度）
 ---
+
 ## 介紹
 
 拱頂吉他是由歐維爾·吉布森於1902年創立的吉布森公司所開發的弦樂器。其最大特色是採用小提琴風格的拱形琴頸與琴身，由單一木料雕刻而成，中間厚度大於邊緣。琴體側板同樣由單一木塊雕刻，內部缺少支架與接合處，以最大化樂器的音量與音質。拱頂吉他以溫潤醇厚的音色著稱，廣泛應用於爵士樂、布魯斯與鄉村音樂演奏，音色介於民謠吉他的清亮與爵士吉他的溫暖之間。

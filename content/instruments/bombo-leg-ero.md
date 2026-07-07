@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/bombo-leg-ero/
-title: 邦博鼓
-original_name: Bombo Legüero
-category: 打擊樂器
-country: 非洲／中東／亞洲／歐洲／美洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Bombo_leg%C3%BCero.jpg/500px-Bombo_leg%C3%BCero.jpg
-sound_class: 膜鳴
-range: 約2至3個8度（低音至中低音域）
-instrument_key: 無固定調性
-hs_class: 21 膜鳴鼓類
-family: 膜鳴鼓類、框鼓、杯鼓與鼓組
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 邦博鼓
+title_original: Bombo Legüero
+family_std: 膜鳴鼓類、框鼓、杯鼓與鼓組
+sound_hs: 21 膜鳴鼓類
 playing_method: 手拍／槌擊／皮膜振動
-body_listening: 手掌、腳底、低音、舞步
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-region_type: 地區／文化圈
+interface_tags: 
+region_culture: 非洲／中東／亞洲／歐洲／美洲｜地區／文化圈
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/bombo-leg-ero/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Bombo_leg%C3%BCero.jpg/500px-Bombo_leg%C3%BCero.jpg
 youtube_ids: jo6E56_eBbE gL_pKBw-co8
 ---
+
 ## 介紹
 
 邦博鼓是源自阿根廷安第斯山區的大型打擊樂器，音色深沉厚重而溫暖，具有穿透力。鼓身為空心設計，鼓面張緊獸皮，敲擊時產生豐富諧音和持久尾音。相比西方大鼓更具民族特色，音色內斂深邃。邦博鼓主要用於阿根廷民間音樂、民族節慶和宗教儀式，是傳統民族樂隊的核心樂器。通過敲擊不同位置和力度能變化音色效果，從悶沉到明亮層次分明。

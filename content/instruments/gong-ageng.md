@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/gong-ageng/
-title: 鑼王
-original_name: Gong Ageng
-category: 打擊樂器
-country: 印尼爪哇島
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Gong_Ageng.jpg/500px-Gong_Ageng.jpg
-sound_class: 體鳴
-range: 約1至2個8度（具體音高因製作工藝而異）
-instrument_key: 無固定調性
-hs_class: Idiophone／體鳴樂器
-family: 大型懸鑼
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
+title_zh: 鑼王
+title_original: Gong Ageng
+family_std: 大型懸鑼
+sound_hs: Idiophone／體鳴樂器
 playing_method: 敲擊
-body_listening: 段落終點、低頻回聲、儀式重量
-soundscape: 木石金屬的回聲城市（定音體鳴、材料敲擊與鑼鐘木琴系統）
-region_type: 單一地區／文化圈
+interface_tags: 
+region_culture: 印尼爪哇島｜單一地區／文化圈
+listening_sound_tags: 段落終點、低頻回聲、儀式重量｜木石金屬的回聲城市（定音體鳴、材料敲擊與鑼鐘木琴系統）
+ensemble_links: 甘美朗合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/gong-ageng/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Gong_Ageng.jpg/500px-Gong_Ageng.jpg
 youtube_ids: FRIjS714zBk ji5b4fmdNek
 ---
+
 ## 介紹
 
 鑼王（Gong Ageng）是印度尼西亞甘美蘭樂隊中最重要的低音打擊樂器，起源於爪哇島。其外型為大型圓形銅製鑼盤，直徑可達60至100公分，表面呈現棕銅色澤。鑼王音色深沉厚重，具神聖莊嚴的氣質，擊打後產生層次豐富的泛音，共鳴悠遠蒼涼。在爪哇宮廷音樂中象徵皇權，常用於皇家儀式、宗教活動及甘美蘭樂隊的節奏基礎。其獨特的低頻成分與強大穿透力使其成為東方打擊樂的典範樂器。

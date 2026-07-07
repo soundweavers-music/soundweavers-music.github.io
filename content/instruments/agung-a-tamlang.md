@@ -1,19 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/agung-a-tamlang/
-title: 竹製鑼鼓
-original_name: Agung a tamlang
-category: 打擊樂器
-country: 菲律賓
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 手邊發光的小宇宙（近身體鳴、舌片琴與手奏金屬共鳴）
-body_listening: 指尖、掌心、尾音、近身聆聽
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 竹製鑼鼓
+title_original: Agung a tamlang
+family_std: 鼓皮與鼓類家族
+sound_hs: 待確認
+playing_method: 敲奏／拍奏／搖奏／刮奏（待細分）
+interface_tags: 
+region_culture: 菲律賓｜單一地區／文化圈
+listening_sound_tags: 指尖、掌心、尾音、近身聆聽｜手邊發光的小宇宙（近身體鳴、舌片琴與手奏金屬共鳴）
+ensemble_links: 
+verification_status: 有問題，需修正
+issue_note: 譯名奇怪；Agong 譯成「A鑼」不自然；應為「阿貢鑼」或原文音譯。；與第20項 Agung 鄰近；先列相鄰，不直接刪。
+source_url: https://soundweavers-music.github.io/instruments/agung-a-tamlang/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Agung_a_Tamlang.jpg/500px-Agung_a_Tamlang.jpg
 youtube_ids: 8PQlwXZQhoI ZYqACdZebJg
-instrument_key: 無固定調性
-range: 約2個8度
 ---
+
 ## 介紹
 
 竹製鑼鼓（agung a tamlang）是一種菲律賓的竹製狹縫鼓，由挖空的竹子製成，用以模仿真正的鑼鼓。音高由狹縫的長度和深度決定。它被用作真正鑼鼓的練習工具：演奏者可以使用一個竹製鑼鼓（用一隻手持握，另一隻手用槌棒敲擊），或使用兩個竹製鑼鼓，其中另一個鑼鼓用腳來持握。

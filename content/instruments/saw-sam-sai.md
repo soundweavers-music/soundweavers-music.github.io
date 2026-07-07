@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/saw-sam-sai/
-title: 噶哈巫語文法
-original_name: Saw Sam Sai
-category: 弦樂器
-country: 亞洲／歐洲／中東／南亞／中亞
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/S%C5%8D_S%C4%81m_S%C4%81i%2C_Thailand%2C_19th_century.jpg/500px-S%C5%8D_S%C4%81m_S%C4%81i%2C_Thailand%2C_19th_century.jpg
-sound_class: 弦鳴
-range: 約2個8度
-instrument_key: 全調性
-hs_class: 321.3 擦弦／輪弦／提琴家族
-family: 擦弦、輪弦與提琴家族
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 擦弦、鍵控與輪弦
+title_zh: 噶哈巫語文法
+title_original: Saw Sam Sai
+family_std: 擦弦、輪弦與提琴家族
+sound_hs: 弦鳴｜321.3 擦弦／輪弦／提琴家族
 playing_method: 弓擦／輪擦
-body_listening: 胸口、嗓音、拉長的情緒
-soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
-region_type: 地區／文化圈
+interface_tags: 弓
+region_culture: 亞洲／歐洲／中東／南亞／中亞｜地區／文化圈
+listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+ensemble_links: 
+verification_status: 需調整
+issue_note: 名稱可保留／鄰近；Rommelpot 是摩擦鼓變體，與第284 Friction drum、第875 Zambomba 相鄰。；相鄰；可合併為摩擦鼓家族篇。；DUP-011:Friction drum／Rommelpot／Zambomba
+source_url: https://soundweavers-music.github.io/instruments/saw-sam-sai/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/S%C5%8D_S%C4%81m_S%C4%81i%2C_Thailand%2C_19th_century.jpg/500px-S%C5%8D_S%C4%81m_S%C4%81i%2C_Thailand%2C_19th_century.jpg
 youtube_ids: wGp5ps4sZ5A B4XIa-e5Wrs
 ---
+
 ## 介紹
 
 三弦琴（Saw Sam Sai）是起源於泰國東北部伊森地區的傳統弦樂器，名稱意為「三條弦」。樂器採用弓弦摩擦發聲，具有溫潤而富穿透力的音色，帶有獨特的鼻音質感與東方蒼涼韻味。音域中等偏高，低音溫厚高音清晰，音色層次豐富。常用於民間音樂表演與傳統戲劇伴奏，是高棉文化圈重要的弦樂代表，廣泛流行於東南亞農村社群。

@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/rain-drum/
-title: 雨鼓
-original_name: Rain Drum
-category: 打擊樂器
-country: 全球／非洲／亞洲／現代療癒與街頭音樂
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/1990_Thailand_art_Rattonokosin_Style_rain_drums_bronce_statue_%281%29.jpg/500px-1990_Thailand_art_Rattonokosin_Style_rain_drums_bronce_statue_%281%29.jpg
-sound_class: 體鳴
-range: 中高音域，約2個8度
-instrument_key: 無固定調性
-hs_class: 12 體鳴／舌片琴／金屬共鳴
-family: 近身體鳴、舌片琴與手奏金屬共鳴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 雨鼓
+title_original: Rain Drum
+family_std: 近身體鳴、舌片琴與手奏金屬共鳴
+sound_hs: 12 體鳴／舌片琴／金屬共鳴
 playing_method: 手敲／拇指撥片／近身共鳴
-body_listening: 指尖、掌心、尾音、近身聆聽
-soundscape: 手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）
-region_type: 跨文化／多地
+interface_tags: 撥片
+region_culture: 全球／非洲／亞洲／現代療癒與街頭音樂
+listening_sound_tags: 指尖、掌心、尾音、近身聆聽｜手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/rain-drum/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/1990_Thailand_art_Rattonokosin_Style_rain_drums_bronce_statue_%281%29.jpg/500px-1990_Thailand_art_Rattonokosin_Style_rain_drums_bronce_statue_%281%29.jpg
 youtube_ids: uwEaQk5VeS4 ujyu7tkyxtw
 ---
+
 ## 介紹
 
 雨鼓（阿爾巴尼亞語：Kështjella，直譯：「堡壘」），是阿爾巴尼亞作家伊斯梅爾·卡達萊的小說，1970在地拉那首次出版。該書講述了斯坎德培時期阿爾巴尼亞與鄂圖曼帝國之間的戰爭。1971年，該書由優素福·弗里奧尼翻譯成法文，使用「雨鼓」（Les Tambours de la pluie）名稱出版；之後又由大衛·貝洛斯翻譯成英文，使用使用「圍城」（The Siege）名稱出版。 貝洛斯在他的後記中暗示，此書是模仿馬林·巴列提的《斯庫台之圍》寫成。

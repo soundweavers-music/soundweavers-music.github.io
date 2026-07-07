@@ -1,19 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/3rd-bridge/
-title: 第三琴橋
-original_name: 3rd bridge
-category: 弦樂器
-country: 美洲／北美
-era: 傳統／年代待考
-region_type: 跨文化／多地
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-body_listening: 懷抱、手指、腳步、敘事
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 第三琴橋
+title_original: 3rd bridge
+family_std: 撥弦與抱持弦樂家族
+sound_hs: 待確認
+playing_method: 撥奏／擦奏／擊弦（待細分）
+interface_tags: 
+region_culture: 美洲／北美
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 甘美朗合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/3rd-bridge/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Home_swinger.jpg/500px-Home_swinger.jpg
 youtube_ids: 48kBP85T0eM QytsbQVVuTM
-instrument_key: 全調性
-range: 中高音範圍（約2個8度）
 ---
+
 ## 介紹
 
 第三琴橋是一種在電吉他和其他弦樂器上使用的延伸演奏技巧，允許音樂家產生在傳統的兩個琴橋（琴頭和琴橋）弦樂器上無法獲得的獨特音色和泛音。使用這項技巧所產生的音色接近甘美蘭樂器的音質，例如邦邦鑼和類似的印尼音高鑼。

@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/rattle-drum/
-title: 搖鼓
-original_name: Rattle drum
-category: 打擊樂器
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 搖鼓
+title_original: Rattle drum
+family_std: 鼓類
+sound_hs: 2 膜鳴樂器
 playing_method: 敲擊鼓面
-family: 鼓類
-hs_class: 2 膜鳴樂器
-sound_class: 膜鳴
-country: 中國
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-body_listening: 手掌、腳底、低音、舞步
+interface_tags: 
+region_culture: 中國｜單一地區／文化圈
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/rattle-drum/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Damaru.jpg/500px-Damaru.jpg
 youtube_ids: SVCx_mMKo_k Sj6bpSejPvo
-instrument_key: 無固定調性
-range: 中高音區（約1至1.5個8度）
 ---
+
 ## 介紹
 
 搖鼓是一類膜鳴樂器，以其結構和演奏方式為特徵。它們有兩個鼓面（要麼是單個雙面鼓，要麼是兩個半球形單面鼓背對背連接，鼓面向外），以及兩個搖槌，每個搖槌都通過繩子連接到鼓上。

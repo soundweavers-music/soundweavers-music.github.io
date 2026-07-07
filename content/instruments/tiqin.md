@@ -1,19 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/tiqin/
-title: 提琴
-original_name: Tiqin
-category: 弦樂器
-country: 中國
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
-body_listening: 胸口、嗓音、拉長的情緒
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 擦弦、鍵控與輪弦
+title_zh: 提琴
+title_original: Tiqin
+family_std: 擦弦、鍵控與輪弦家族
+sound_hs: 待確認
+playing_method: 撥奏／擦奏／擊弦（待細分）
+interface_tags: 
+region_culture: 中國｜單一地區／文化圈
+listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+ensemble_links: 
+verification_status: 需調整
+issue_note: 譯名需區分；Tanpura 是印度坦布拉／坦普拉，與 Tambura/Tanbur不同。；改「坦普拉琴（Tanpura）」；與第755相鄰。
+source_url: https://soundweavers-music.github.io/instruments/tiqin/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Tiqin_in_the_Mets_01.jpg/500px-Tiqin_in_the_Mets_01.jpg
 youtube_ids: ARQZO5odmdk UpZJh8VgZCE
-instrument_key: 全調性
-range: 約3個8度
 ---
+
 ## 介紹
 
 The tiqin (Chinese: 提琴; pinyin: tíqín) is a name applied to several two-stringed Chinese bowed string musical instruments in the huqin family of instruments.

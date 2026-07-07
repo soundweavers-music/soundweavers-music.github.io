@@ -1,22 +1,22 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/citera/
-title: 奇特拉琴
-original_name: Citera
-category: 鍵盤樂器
-country: 亞洲／歐洲／全球
-era: 傳統／年代待考
-sound_class: 弦鳴
-range: 約3至4個八度
-instrument_key: 全調性
-hs_class: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
-family: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 奇特拉琴
+title_original: Citera
+family_std: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+sound_hs: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
 playing_method: 撥弦／擊弦／按鍵擊弦
-body_listening: 手掌、弦面、推音、敲擊
-soundscape: 平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
-region_type: 跨文化／多地
+interface_tags: 鍵盤／按鍵、撥片
+region_culture: 亞洲／歐洲／全球
+listening_sound_tags: 手掌、弦面、推音、敲擊｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/citera/
 youtube_ids: B3Z9XBAw4cU Md9hJrkYMhs
 ---
+
 ## 介紹
 
 奇特拉琴是源自中歐的傳統撥弦樂器，具有梯形或翼形的共鳴箱設計，配備眾多琴弦。演奏者使用撥片或指尖彈撥發聲，音色明亮清澈而富有金屬質感。這種樂器在十九世紀於阿爾卑斯山區廣泛流行，特別在奧地利和巴伐利亞成為民間音樂的重要樂器，常伴隨傳統舞蹈和民族歌曲演出。其音域寬廣、共鳴效果顯著，既具古典優雅又具現代魅力，在室內樂和民族音樂中獨樹一格。

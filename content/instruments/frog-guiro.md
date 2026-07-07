@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/frog-guiro/
-title: 青蛙刮鼓
-original_name: Frog Guiro
-category: 打擊樂器
-country: 加勒比／拉丁美洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Duo_Carillon_II.png/500px-Duo_Carillon_II.png
-sound_class: 體鳴
-range: 中高頻段（約2個8度）
-instrument_key: 無固定調性
-hs_class: 11 小型體鳴／搖奏刮奏敲奏
-family: 小型節奏體鳴、沙鈴、刮器與身體打擊
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 青蛙刮鼓
+title_original: Frog Guiro
+family_std: 小型節奏體鳴、沙鈴、刮器與身體打擊
+sound_hs: 11 小型體鳴／搖奏刮奏敲奏
 playing_method: 搖奏／刮奏／敲擊／身體打擊
-body_listening: 手腕、腳踝、短音、節奏對齊
-soundscape: 手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
-region_type: 地區／文化圈
+interface_tags: 
+region_culture: 加勒比／拉丁美洲｜地區／文化圈
+listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/frog-guiro/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Duo_Carillon_II.png/500px-Duo_Carillon_II.png
 youtube_ids: zIqmslzk8OM X32OXzj6pPo
 ---
+
 ## 介紹
 
 青蛙刮鼓是一種源自拉丁美洲的打擊樂器，外形仿效青蛙身體，由木製共鳴腔體組成。演奏者使用木製刮棒在樂器表面來回摩擦，產生明亮、尖銳且具穿透力的刮擦聲，模擬青蛙的鳴叫。其音色富有幽默感，集中於中高頻段，兼具溫暖共鳴與粗糙顆粒感。廣泛應用於民族音樂、兒童音樂教育及打擊樂重奏中，常用於營造環境氛圍與增強節奏感受。

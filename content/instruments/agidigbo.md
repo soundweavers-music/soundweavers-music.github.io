@@ -1,18 +1,22 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/agidigbo/
-title: 阿吉迪格博
-original_name: Agidigbo
-category: 打擊樂器
-country: 非洲西部
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 手邊發光的小宇宙（近身體鳴、舌片琴與手奏金屬共鳴）
-body_listening: 指尖、掌心、尾音、近身聆聽
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 阿吉迪格博
+title_original: Agidigbo
+family_std: 撥弦與抱持弦樂家族
+sound_hs: 待確認
+playing_method: 撥奏／擦奏／擊弦（待細分）
+interface_tags: 
+region_culture: 非洲西部｜單一地區／文化圈
+listening_sound_tags: 指尖、掌心、尾音、近身聆聽｜手邊發光的小宇宙（近身體鳴、舌片琴與手奏金屬共鳴）
+ensemble_links: 
+verification_status: 待檢查
+issue_note: 分類疑點；Agidigbo 通常視為尼日利亞／約魯巴拇指鋼琴或舌片琴類，分類寫打擊樂器可接受但需更精確為舌片琴／體鳴。；放第9類姆比拉／舌片琴支線，補專業來源。
+source_url: https://soundweavers-music.github.io/instruments/agidigbo/
 youtube_ids: eNxJdeC94jw gGrmVe6bsUo
-instrument_key: 無固定調性
-range: 約2個8度
 ---
+
 ## 介紹
 
 Agidigbo是源自奈及利亞約魯巴民族的傳統豎琴樂器，屬於打擊樂器。樂器由木製共鳴箱與金屬弦組成，外形精巧便於攜帶。音色明亮清脆，具有獨特的金屬質感，音域寬廣。在約魯巴文化中既可作為伴奏樂器，亦可進行獨奏表演。廣泛應用於傳統儀式、民間音樂與舞蹈伴奏，其清晰嘹亮的聲音能在露天場合有效傳遠，是西非音樂文化的重要代表。

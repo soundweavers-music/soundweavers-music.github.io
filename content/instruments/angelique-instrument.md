@@ -1,18 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/angelique-instrument/
-title: 天使琴
-original_name: Angélique (instrument)
-category: 弦樂器
-country: 法國
-era: 巴洛克
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 天使琴
+title_original: Angélique (instrument)
+family_std: 撥弦與抱持弦樂家族
+sound_hs: 待確認
+playing_method: 撥奏／擦奏／擊弦（待細分）
+interface_tags: 
+region_culture: 法國｜單一地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 有問題，需修正
+issue_note: 譯名錯誤；Đàn tỳ bà 是越南琵琶，譯成「非洲琵琶」明顯錯誤。；改為「越南琵琶（Đàn tỳ bà）」；歸第4類撥弦。
+source_url: https://soundweavers-music.github.io/instruments/angelique-instrument/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Ang%C3%A9lique_Bonnard-Robert_.jpeg/500px-Ang%C3%A9lique_Bonnard-Robert_.jpeg
-region_type: 單一地區／文化圈
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-body_listening: 懷抱、手指、腳步、敘事
 youtube_ids: EdI_pvpMSJY RfMta1kMGj8
-instrument_key: 多調性
-range: 約2.5個8度
 ---
+
 ## 介紹
 
 天使琴是16世紀源於義大利的文藝復興時期弦樂器，結合了魯特琴與豎琴的特色。其外型優雅精緻，通常呈梨形或心形琴身。天使琴主要用於室內音樂演奏和宮廷社交場合，既能獨奏展現細膩情感，亦可與弦樂器組合伴奏。音色清亮透徹，高音區明亮璀璨，中低音區溫潤飽滿，具天籟般的詩意韻味，被視為歐洲上層社會的時尚樂器。

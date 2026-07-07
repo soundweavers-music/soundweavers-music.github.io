@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/bagpipe/
-title: 風笛
-original_name: Bagpipe
-category: 管樂器
-sound_class: 氣鳴
-hs_class: 422 單簧管類樂器
-family: 風笛類
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 風袋樂器
+title_zh: 風笛
+title_original: Bagpipe
+family_std: 風笛類
+sound_hs: 氣鳴｜422 單簧管類樂器
 playing_method: 吹奏／袋管
-country: 凱爾特地區／蘇格蘭／愛爾蘭
-era: 傳統／年代待考
-region_type: 跨文化／多地
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-body_listening: 口腔、舌頭、簧片震動、鼻音
+interface_tags: 
+region_culture: 凱爾特地區／蘇格蘭／愛爾蘭
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/bagpipe/
 image: https://upload.wikimedia.org/wikipedia/commons/7/7b/Bagpipe_performer.jpg
 youtube_ids: OJi-uKOlLV4 rpBw0oCO4C8
-instrument_key: 無固定調性
-range: 約2至3個8度
 ---
+
 ## 介紹
 
 風笛（Bagpipes）是樂器的一種，屬使用簧片的氣鳴樂器。風笛在凱爾特地區非常流行，是凱爾特傳統文化的一部分。另外，北非、中歐、巴爾幹地區、高加索山脈、甚至愛沙尼亞都有風笛。

@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/prepared-piano/
-title: 準備鋼琴
-original_name: Prepared Piano
-category: 鍵盤樂器
-country: 美洲／北美
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Prepared_piano_board_Neumann.jpg/500px-Prepared_piano_board_Neumann.jpg
-sound_class: 弦鳴
-range: 全音域
-instrument_key: 全調性
-hs_class: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
-family: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 準備鋼琴
+title_original: Prepared Piano
+family_std: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+sound_hs: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
 playing_method: 撥弦／擊弦／按鍵擊弦
-body_listening: 手掌、弦面、推音、敲擊
-soundscape: 平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
-region_type: 跨文化／多地
+interface_tags: 鍵盤／按鍵
+region_culture: 美洲／北美
+listening_sound_tags: 手掌、弦面、推音、敲擊｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/prepared-piano/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Prepared_piano_board_Neumann.jpg/500px-Prepared_piano_board_Neumann.jpg
 youtube_ids: jRHoKZRYBlY Yi_iefmmuu4
 ---
+
 ## 介紹
 
 準備鋼琴是一種通過在琴弦上或琴弦之間放置螺栓、螺釘、靜音器、橡皮擦和/或其他物體，暫時改變其聲音的鋼琴。它的發明通常被追溯到約翰·凱奇，他在為1940年的《酒神頌》創作舞蹈音樂時使用了這種技術，該作品是為一個沒有足夠空間容納打擊樂團的西雅圖場地而創作的。凱奇引用亨利·考威爾作為開發鋼琴擴展技巧的靈感來源，該技巧涉及操縱鋼琴內的琴弦而非鍵盤。

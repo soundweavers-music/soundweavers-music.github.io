@@ -1,21 +1,22 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/matouqin-variants/
-title: 馬頭琴
-original_name: Matouqin Variants
-category: 弦樂器
-country: 亞洲／歐洲／中東／南亞／中亞
-era: 傳統／年代待考
-sound_class: 弦鳴
-range: 約3個八度
-instrument_key: 全調性
-hs_class: Chordophone／弦鳴樂器
-family: 擦弦延伸與地方提琴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 擦弦、鍵控與輪弦
+title_zh: 馬頭琴
+title_original: Matouqin Variants
+family_std: 擦弦延伸與地方提琴
+sound_hs: Chordophone／弦鳴樂器
 playing_method: 弓擦
-body_listening: 胸口、嗓音、拉長的情緒
-soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
-region_type: 地區／文化圈
+interface_tags: 弓
+region_culture: 亞洲／歐洲／中東／南亞／中亞｜地區／文化圈
+listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/matouqin-variants/
 youtube_ids: T1rcP2_HCIU pPDTLTMcFM0
 ---
+
 ## 介紹
 
 馬頭琴是蒙古民族的代表弦樂器，起源於蒙古草原，距今已有千年以上歷史。其最distinctive的特徵是琴頭雕刻成馬頭形狀。樂器採用弦鳴發聲原理，以馬尾弓摩擦琴弦產生聲音。馬頭琴音色深沉蒼涼，具有濃厚的草原特色，低音區渾厚有力，中音區溫暖飽滿，高音區明亮不刺耳。琴聲能夠模仿人聲和自然音響，富有高度的表現力，是蒙古文化傳承的重要載體。

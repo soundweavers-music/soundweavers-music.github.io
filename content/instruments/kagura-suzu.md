@@ -1,21 +1,22 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/kagura-suzu/
-title: 神樂鈴
-original_name: Kagura Suzu
-category: 打擊樂器
-country: 日本
-era: 傳統／年代待考
-sound_class: 體鳴
-range: 高頻區域（約2個8度以內）
-instrument_key: 無固定調性
-hs_class: Idiophone／體鳴樂器
-family: 鈴束
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
+title_zh: 神樂鈴
+title_original: Kagura Suzu
+family_std: 鈴束
+sound_hs: Idiophone／體鳴樂器
 playing_method: 搖奏
-body_listening: 祭儀、手勢、明亮顆粒
-soundscape: 掌心搖落的節奏星塵（小型節奏體鳴、沙鈴、刮器與身體打擊）
-region_type: 單一地區／文化圈
+interface_tags: 
+region_culture: 日本｜單一地區／文化圈
+listening_sound_tags: 祭儀、手勢、明亮顆粒｜掌心搖落的節奏星塵（小型節奏體鳴、沙鈴、刮器與身體打擊）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/kagura-suzu/
 youtube_ids: IpgB-e8iIlE GQDDCWby5Ys
 ---
+
 ## 介紹
 
 神樂鈴是日本傳統打擊樂器，源於古代神道教祭祀活動。樂器採用球形金屬外殼設計，內部含有小球，通過晃動或敲擊產生清脆明亮的聲音。音色具高度穿透力，帶有金屬光澤感，音域集中在高頻區域。神樂鈴自中世紀起融入民間表演藝術，與神樂舞蹈和民俗祭典相結合，被視為溝通神靈、驅邪辟惡的聖神樂器，是日本傳統宗教儀式和祭祀活動的重要標配。

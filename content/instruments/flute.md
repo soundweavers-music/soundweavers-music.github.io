@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/flute/
-title: 笛
-original_name: Flute
-category: 管樂器
-sound_class: 氣鳴
-hs_class: 421.1 邊稜音樂器
-family: 邊稜音樂器、長笛類
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 長笛
+title_original: Flute
+family_std: 邊稜音樂器、長笛類
+sound_hs: 氣鳴｜421.1 邊稜音樂器
 playing_method: 吹奏／橫吹
-country: 全球／多地
-era: 傳統／年代待考
-region_type: 跨文化／多地
-soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
-body_listening: 氣息、胸腔、長音、空間
+interface_tags: 
+region_culture: 全球／多地
+listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/flute/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Shinobue_and_other_flutes.jpg/500px-Shinobue_and_other_flutes.jpg
 youtube_ids: ndUCNnhH03Q J65GxJ2v9Wg
-instrument_key: 全調性
-range: 約3個8度（C4–C7）
 ---
+
 ## 介紹
 
 笛是一種管樂器，是屬於無簧片的木管樂器，由通過樂器開口的空氣來發聲。依照霍恩博斯特爾-薩克斯分類法，笛屬於邊棱音氣鳴樂器（edge-blown aerophones） 常見的笛為直身長管，除了吹奏用的吹口外，還有幾個調整音高的開口，各開口的打開或閉合會產生不同的音高。各地方有不同的笛，有些笛（如直笛）是豎笛，吹口在笛的末端，吹奏時笛和嘴唇垂直。有些笛（如長笛）是橫笛，吹口在笛的側面，吹奏時笛和嘴唇平行。 笛是除了人聲之外最古老的樂器，在考古研究中，發現最早的笛是43,000年前在斯洛維尼亞發現，用幼年洞熊的股骨鋸去兩端關節鑽孔而成的迪維雅巴布笛，但此發現仍然有爭議。在德國施瓦本阿爾比發現許多舊石器時代笛，距今約43000年至35000年前，由這些笛子可以看出當時歐洲的人類已有演奏樂器的傳統。而中國也有發現距今約9000年至7700年的賈湖骨笛。

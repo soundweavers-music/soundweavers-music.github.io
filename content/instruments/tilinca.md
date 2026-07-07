@@ -1,21 +1,22 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/tilinca/
-title: 羅馬尼亞笛
-original_name: Tilinca
-category: 管樂器
-country: 羅馬尼亞
-era: 傳統／年代待考
-sound_class: 氣鳴
-range: 約2至3個8度
-instrument_key: 無固定調性
-hs_class: 421 邊棱氣鳴／無簧笛類
-family: 無簧吹管、長音與氣息樂器
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 簧片樂器
+title_zh: 羅馬尼亞笛
+title_original: Tilinca
+family_std: 無簧吹管、長音與氣息樂器
+sound_hs: 421 邊棱氣鳴／無簧笛類
 playing_method: 吹奏／端吹／橫吹／容器共鳴
-body_listening: 氣息、胸腔、長音、空間
-soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
-region_type: 單一國家或文化源流
+interface_tags: 指孔
+region_culture: 羅馬尼亞｜單一國家或文化源流
+listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/tilinca/
 youtube_ids: vzuxElYNc8M iEj_h6rnYtU
 ---
+
 ## 介紹
 
 泰倫卡（烏克蘭語：Теленка）（telynka、tylynka）是一種泛音笛，是沒有指孔的原始齒音笛。通過將手指放入管子的開口處，用手指覆蓋開口的一半或三分之一等，以及根據演奏者的呼吸強度來改變樂器產生的音高。它由菩提木、接骨木、槭樹或柳樹製成。其長度約為35至40釐米（14至16英寸），儘管有些樂器長度可達60釐米（24英寸）。

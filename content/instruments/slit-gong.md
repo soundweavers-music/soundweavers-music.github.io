@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/slit-gong/
-title: 裂縫鑼
-original_name: Slit gong
-category: 打擊樂器
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 電聲改造樂器
+title_zh: 裂縫鑼
+title_original: Slit gong
+family_std: 體鳴打擊樂器類
+sound_hs: 1 体鳴樂器
 playing_method: 敲擊／搖晃／撥彈
-family: 體鳴打擊樂器類
-hs_class: 1 体鳴樂器
-sound_class: 体鳴
-country: 非洲／大洋洲
-era: 傳統／年代待考
-region_type: 地區／文化圈
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-body_listening: 材料、回聲、群體分工、音列
+interface_tags: 
+region_culture: 非洲／大洋洲｜地區／文化圈
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 移入第13類
+issue_note: 現代電子／取樣；屬現代電子、取樣、電聲或電氣化鍵盤／設備類，應集中到第13類。；移第13類，並與傳統鍵盤／風箱類分開。
+source_url: https://soundweavers-music.github.io/instruments/slit-gong/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/TamTam.jpg/500px-TamTam.jpg
 youtube_ids: yt0J8sLgXmA Mp2HL6pC_PU
-instrument_key: 無固定調性
-range: 中低至高音域（約2至3個8度）
 ---
+
 ## 介紹
 
 裂縫鑼（或裂縫鑼鼓）是一種中空的打擊樂器，通常由木頭或竹子製成。儘管它經常被稱為鼓，但它並不是真正的鼓，因為它缺少鼓皮——在真正的鼓頂部拉伸的薄膜（由動物皮革或塑膠製成）。相反，它被歸類為自鳴樂器，整個樂器都會振動。

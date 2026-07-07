@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/irish-bouzouki/
-title: 愛爾蘭布祖基琴
-original_name: Irish bouzouki
-category: 弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 愛爾蘭布祖基琴
+title_original: Irish bouzouki
+family_std: 弦樂器類
+sound_hs: 3 弦鳴樂器
 playing_method: 撥弦／擦弦／擊弦
-family: 弦樂器類
-hs_class: 3 弦鳴樂器
-sound_class: 弦鳴
-country: 愛爾蘭
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-body_listening: 懷抱、手指、腳步、敘事
+interface_tags: 
+region_culture: 愛爾蘭｜單一地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/irish-bouzouki/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Ashbury_Irish_Bouzouki_Front.jpg/500px-Ashbury_Irish_Bouzouki_Front.jpg
 youtube_ids: yvQpNoQ6lxI 2aOQ2P8hR1c
-instrument_key: G大調
-range: G2–D5（約3個8度）
 ---
+
 ## 介紹
 
 愛爾蘭布祖基琴（愛爾蘭語：búsúcaí）是對希臘布祖基琴（希臘語：μπουζούκι）的改編。較新的希臘四弦布祖基琴（4組弦）在1960年代中期由民間樂隊斯威尼之人的成員約翰尼·莫伊尼漢引入愛爾蘭傳統音樂。他將其從傳統希臘調音C³F³A³D⁴重新調音為G²D³A³D⁴，這是他之前在曼陀林上率先開創的調音方式。艾力克·芬首先在卡納樂隊，隨後在德丹南樂隊中，將第一把希臘三弦布祖基琴引入愛爾蘭音樂。

@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/jingle-bell/
-title: 馬鈴
-original_name: Jingle bell
-category: 打擊樂器
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
+title_zh: 馬鈴
+title_original: Jingle bell
+family_std: 體鳴打擊樂器類
+sound_hs: 1 体鳴樂器
 playing_method: 敲擊／搖晃／撥彈
-family: 體鳴打擊樂器類
-hs_class: 1 体鳴樂器
-sound_class: 体鳴
-country: 歐洲
-era: 傳統／年代待考
+interface_tags: 
+region_culture: 歐洲｜單一地區／文化圈
+listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/jingle-bell/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Sleigh_Bells.jpg/500px-Sleigh_Bells.jpg
-region_type: 單一地區／文化圈
-soundscape: 手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
-body_listening: 手腕、腳踝、短音、節奏對齊
 youtube_ids: R1gskElaLNo Z8-jYQhqK3s
-instrument_key: 無固定調性
-range: 高音區（約1個8度）
 ---
+
 ## 介紹
 
 馬鈴（英語：Sleigh Bell／Jingle Bell），或稱叢鈴，亦有人稱雪鈴，是一種敲擊樂器，屬於體鳴樂器，它是一種簡單而具悠久歷史的敲擊樂器，現今更多常作幼兒教育或音樂訓練之用。 本來是牧人繫於牲口的小金屬鈴，免於走失。後來，馬鈴被用於民間舞蹈作伴奏之用，繼以再帶入世俗音樂、合奏音樂以及管弦樂中。多為球體，內有金屬球或金屬片，彼此撞擊而發聲，表面有一開口，令聲音可以從球體內出來。

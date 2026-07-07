@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/waldzither/
-title: 森林齊特琴
-original_name: Waldzither
-category: 弦樂器
-country: 中東／歐洲／亞洲／美洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Hamburger_waldzither.jpg/500px-Hamburger_waldzither.jpg
-sound_class: 弦鳴
-range: C3–高音區（約3個八度）
-instrument_key: C大調
-hs_class: 321/322 魯特琴類／撥弦
-family: 魯特琴、短頸長頸撥弦與民謠弦聲
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與齊特琴
+title_zh: 森林齊特琴
+title_original: Waldzither
+family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
+sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
 playing_method: 撥弦／刷弦／撥片
-body_listening: 懷抱、手指、腳步、敘事
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 地區／文化圈
+interface_tags: 撥片
+region_culture: 中東／歐洲／亞洲／美洲｜地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/waldzither/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Hamburger_waldzither.jpg/500px-Hamburger_waldzither.jpg
 youtube_ids: C9t0gNZAcAc i0zP08VZ2OQ
 ---
+
 ## 介紹
 
 森林齊特琴（德語：「森林齊特琴」）是一種來自德國的撥弦樂器。它是一種十三弦琴，具有九根（有時十根）鋼弦分為五組。不同類型的森林齊特琴採用不同的調弦方式，這些調弦方式通常是齊特琴常見的開放調弦。森林齊特琴最常見的調弦方式是C大調開放調弦（C3、G3、C4、E4、G4），與班卓琴琴或五弦班卓琴第五品夾鐵的調弦方式相同，只不過第五根弦的音高比班卓琴琴低兩個八度。

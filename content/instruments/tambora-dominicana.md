@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/tambora-dominicana/
-title: 坦博拉鼓
-original_name: Tambora Dominicana
-category: 打擊樂器
-country: 非洲／中東／亞洲／歐洲／美洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Tambora_dominicana.jpg/500px-Tambora_dominicana.jpg
-sound_class: 膜鳴
-range: 約2個8度（中低音區域）
-instrument_key: 全調性
-hs_class: Membranophone／膜鳴樂器
-family: 雙面鼓
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 坦博拉鼓
+title_original: Tambora Dominicana
+family_std: 雙面鼓
+sound_hs: Membranophone／膜鳴樂器
 playing_method: 槌＋手
-body_listening: 手掌、腳底、低音、舞步
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-region_type: 地區／文化圈
+interface_tags: 
+region_culture: 非洲／中東／亞洲／歐洲／美洲｜地區／文化圈
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/tambora-dominicana/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Tambora_dominicana.jpg/500px-Tambora_dominicana.jpg
 youtube_ids: kBkS5gHO7uI 91AsKGGEHHc
 ---
+
 ## 介紹
 
 坦博拉鼓是源自多米尼加共和國的傳統打擊樂器，屬於膜鳴樂器。其外型為圓筒形鼓身，兩端各覆蓋一層鼓膜。樂器音色深沉富有穿透力，具溫暖厚重的質感，低頻特徵明顯。坦博拉鼓主要用於梅倫格舞等加勒比海地區民間音樂中，提供強有力的節奏基礎。樂手可通過不同敲擊位置和手法產生多層次音色變化，從低沉悶音到清晰音均能表現，是多米尼加音樂文化的核心樂器。

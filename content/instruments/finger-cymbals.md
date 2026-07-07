@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/finger-cymbals/
-title: 指鈸
-original_name: Finger Cymbals
-category: 打擊樂器
-country: 中東
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Finger_cymbals.jpg/500px-Finger_cymbals.jpg
-sound_class: 體鳴
-range: 高頻區域（具體音域範圍因製造工藝而異）
-instrument_key: 無固定調性
-hs_class: 11/12 定音體鳴／鑼鐘木琴石琴系統
-family: 定音體鳴、材料敲擊與鑼鐘木琴系統
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 指鈸
+title_original: Finger Cymbals
+family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
+sound_hs: 11/12 定音體鳴／鑼鐘木琴石琴系統
 playing_method: 敲擊／搖奏／材料共鳴
-body_listening: 材料、回聲、群體分工、音列
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 中東
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 移入第13類
+issue_note: 分類概念／第13類；Electrophone 是發聲分類，不是單件樂器。；改作第13類導論，不列單篇樂器。
+source_url: https://soundweavers-music.github.io/instruments/finger-cymbals/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Finger_cymbals.jpg/500px-Finger_cymbals.jpg
 youtube_ids: Dt6nyCLf45s lLwGE1X6Mes
 ---
+
 ## 介紹
 
 指鈸（Zills、zillia、zils 或 sagat），也稱為手指鈸或 fanglesnaps，是用於肚皮舞和類似表演的小型金屬鈸。它們類似於藏族的頸鈸。在西方音樂中，可以將多對指鈸裝在框架中製成鈴鼓。其他名稱包括阿拉伯語中的 nuqaisāt（取自 naqus）和 ṣunnūj ṣaghīra、波斯語中的 sanj angshati 和土耳其語中的 zil。

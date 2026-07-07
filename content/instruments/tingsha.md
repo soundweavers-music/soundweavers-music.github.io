@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/tingsha/
-title: 銅鈴
-original_name: Tingsha
-category: 打擊樂器
-country: 亞洲／西藏
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/a/a3/Tingsha1.jpg
-sound_class: 體鳴
-range: 高音區（約2個8度）
-instrument_key: 無固定調性
-hs_class: 12 體鳴／舌片琴／金屬共鳴
-family: 近身體鳴、舌片琴與手奏金屬共鳴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 銅鈴
+title_original: Tingsha
+family_std: 近身體鳴、舌片琴與手奏金屬共鳴
+sound_hs: 12 體鳴／舌片琴／金屬共鳴
 playing_method: 手敲／拇指撥片／近身共鳴
-body_listening: 指尖、掌心、尾音、近身聆聽
-soundscape: 手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）
-region_type: 跨文化／多地
+interface_tags: 撥片
+region_culture: 亞洲／西藏
+listening_sound_tags: 指尖、掌心、尾音、近身聆聽｜手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/tingsha/
+image: https://upload.wikimedia.org/wikipedia/commons/a/a3/Tingsha1.jpg
 youtube_ids: zhGUvZLO0KY Ze9Ws0SgE7A
 ---
+
 ## 介紹
 
 銅鈴，或稱丁沙（藏文：ཏིང་ཤགས་，威利轉寫法：ting-shags），是藏傳佛教修行者在祈禱和儀式中使用的小鈸。兩片鈸通過皮帶或鍊條連接在一起。鈸片相互敲擊會產生清晰而高亢的音調。典型的尺寸範圍從2.5到4英寸直徑。銅鈴非常厚重，能產生獨特的長鳴音。古董銅鈴由特殊青銅合金製成，能夠產生諧波泛音。

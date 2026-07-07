@@ -1,19 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/pulalu/
-title: 帕倫達格竹笛
-original_name: Pulalu
-category: 管樂器
-country: 菲律賓／東南亞
-era: 傳統／年代待考
-region_type: 地區／文化圈
-soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
-body_listening: 氣息、胸腔、長音、空間
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 帕倫達格竹笛
+title_original: Pulalu
+family_std: 無簧吹管家族
+sound_hs: 待確認
+playing_method: 吹奏
+interface_tags: 
+region_culture: 菲律賓／東南亞｜地區／文化圈
+listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/pulalu/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Palendag.jpg/500px-Palendag.jpg
 youtube_ids: URLT-wQVy1U SQkjte4v4bM
-instrument_key: 無固定調性
-range: 約2個8度
 ---
+
 ## 介紹
 
 帕倫達格竹笛，又稱普拉盧（馬諾博人和曼薩卡人）、帕蘭達格（巴戈博人）、普拉拉（布基農人）和盧蒙德格（巴努瓦恩人），是菲律賓竹笛的一種，是摩洛人使用的最大竹笛，這種樂器的較小型別稱為胡拉克特布（布基農人）。作為一種唇谷笛，它被認為是三種竹笛中最難使用的（另外兩種是通邦笛和蘇林笛），因為需要用特定的方式塑造嘴唇緊貼笛尖才能發出聲音。

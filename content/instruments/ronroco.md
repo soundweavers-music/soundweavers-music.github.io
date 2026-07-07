@@ -1,21 +1,22 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/ronroco/
-title: 朗羅科琴
-original_name: Ronroco
-category: 弦樂器
-country: 中東／歐洲／亞洲／美洲
-era: 傳統／年代待考
-sound_class: 弦鳴
-range: 約2個8度
-instrument_key: 全調性
-hs_class: 321/322 魯特琴類／撥弦
-family: 魯特琴、短頸長頸撥弦與民謠弦聲
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 朗羅科琴
+title_original: Ronroco
+family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
+sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
 playing_method: 撥弦／刷弦／撥片
-body_listening: 懷抱、手指、腳步、敘事
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 地區／文化圈
+interface_tags: 撥片
+region_culture: 中東／歐洲／亞洲／美洲｜地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/ronroco/
 youtube_ids: IypC-ow50uc 1CoOxR6Cj88
 ---
+
 ## 介紹
 
 朗羅科琴（也拼寫為ronrroco）是查蘭哥琴家族中的低音或中音成員，琴弦長度為44至50公分。它由玻利維亞科恰班巴的樂隊洛斯卡爾卡斯樂隊的兄弟岡薩洛和威爾遜·埃爾莫薩在1968年發明，並在1980年代普及。在1990年代和2000年代，阿根廷音樂家兼作曲家古斯塔沃·桑塔歐拉進一步推廣了這種樂器。朗羅科琴有10根弦，分為5組。它們由雕刻木材或彎曲的琴側製成（如現代查蘭哥琴），而不是用犰狳殼製成（如同較舊的查蘭哥琴）。

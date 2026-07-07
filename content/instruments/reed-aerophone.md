@@ -1,18 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/reed-aerophone/
-title: 簧振氣鳴樂器
-original_name: Reed aerophone
-category: 打擊樂器
-country: 全球／多地
-era: 古代
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 簧片樂器
+title_zh: 簧振氣鳴樂器
+title_original: Reed aerophone
+family_std: 簧片樂器家族
+sound_hs: 待確認
+playing_method: 吹奏
+interface_tags: 
+region_culture: 全球／多地｜單一地區／文化圈
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/reed-aerophone/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Onde_stationnaire_vitesse_anche_faible_trois_modes.svg/500px-Onde_stationnaire_vitesse_anche_faible_trois_modes.svg.png
-region_type: 單一地區／文化圈
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-body_listening: 口腔、舌頭、簧片震動、鼻音
 youtube_ids: djUseuUisvM DjRv4hKZTvA
-instrument_key: C大調
-range: B3–G6（約3個8度）
 ---
+
 ## 介紹
 
 簧振氣鳴樂器是在霍恩博斯特爾-薩克斯樂器分類系統中發現的樂器類別之一。為了用這些氣鳴樂器產生聲音，演奏者的呼吸被導向一個薄片或一對薄片，這些薄片會周期性地中斷氣流，導致空氣運動。

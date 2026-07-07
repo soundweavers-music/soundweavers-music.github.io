@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/lur/
-title: 盧爾號
-original_name: Lur
-category: 管樂器
-country: 歐洲／斯堪地那維亞
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/-1300_Lure_Brudevaelte_anagoria.JPG/500px--1300_Lure_Brudevaelte_anagoria.JPG
-sound_class: 氣鳴
-range: 低中音域（約2個8度）
-instrument_key: 無固定調性
-hs_class: 423 唇振氣鳴／號角與銅管
-family: 唇振氣鳴、天然號角與銅管
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 號角與唇振
+title_zh: 盧爾號
+title_original: Lur
+family_std: 唇振氣鳴、天然號角與銅管
+sound_hs: 423 唇振氣鳴／號角與銅管
 playing_method: 唇振吹奏
-body_listening: 嘴唇、遠方、召喚、空間方向
-soundscape: 吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 歐洲／斯堪地那維亞
+listening_sound_tags: 嘴唇、遠方、召喚、空間方向｜吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/lur/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/-1300_Lure_Brudevaelte_anagoria.JPG/500px--1300_Lure_Brudevaelte_anagoria.JPG
 youtube_ids: nLjGH_Ml3O0 PjLtNo3FKFM
 ---
+
 ## 介紹
 
 盧爾號（也稱為 lure 或 lurr）是一種長形天然號角，沒有按孔，以銅管類的吹嘴演奏。盧爾號可以是直形或各種彎曲的形狀。彎曲的目的是使長樂器更容易攜帶（例如行進時，如同現代的低音號），以及避免將大聲的音量指向附近的人。盧爾號這個名稱用於兩種不同類型的古代管樂器。較新近的類型由木材製成，在中世紀時於斯堪地那維亞地區使用。

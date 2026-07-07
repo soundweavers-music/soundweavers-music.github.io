@@ -1,22 +1,22 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/western-flute/
-title: 西洋長笛
-original_name: Western Flute
-category: 管樂器
-country: 歐洲／西方古典與民俗
-era: 傳統／年代待考
-sound_class: 氣鳴
-range: E2–G5（約3個八度）
-instrument_key: 全調性
-hs_class: 421 邊棱氣鳴／無簧笛類
-family: 無簧吹管、長音與氣息樂器
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 簧片樂器
+title_zh: 西洋長笛
+title_original: Western Flute
+family_std: 無簧吹管、長音與氣息樂器
+sound_hs: 421 邊棱氣鳴／無簧笛類
 playing_method: 吹奏／端吹／橫吹／容器共鳴
-body_listening: 氣息、胸腔、長音、空間
-soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
-region_type: 地區／文化圈
+interface_tags: 鍵盤／按鍵、指孔
+region_culture: 歐洲／西方古典與民俗｜地區／文化圈
+listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/western-flute/
 youtube_ids: ndUCNnhH03Q xsg48QPwSA8
 ---
+
 ## 介紹
 
 西洋長笛是一種管樂器，外型為細長的金屬管狀，通常採用銀白色金屬製造。樂器由笛頭、主管和尾管三部分組成，笛頭設有吹孔，主管上布有多排音孔和鍵盤機制。西洋長笛音色清亮透徹，具晶瑩剔透的質感，在高音域展現輝煌耀眼的音彩，中低音域則溫潤柔和。其有效音域約三個八度，因穿透力強，常在樂隊中擔當旋律聲部。廣泛應用於交響樂團、室內樂及獨奏演出。

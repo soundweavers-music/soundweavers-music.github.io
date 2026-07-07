@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/glockenspiel/
-title: 鐘琴
-original_name: Glockenspiel
-category: 鍵盤樂器
-country: 歐洲／德國
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Glockenspiel-malletech.jpg/500px-Glockenspiel-malletech.jpg
-sound_class: 體鳴
-range: 約2.5至3個8度（通常G4–C8）
-instrument_key: 全調性
-hs_class: 11/12 定音體鳴／鑼鐘木琴石琴系統
-family: 定音體鳴、材料敲擊與鑼鐘木琴系統
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 鐘琴
+title_original: Glockenspiel
+family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
+sound_hs: 11/12 定音體鳴／鑼鐘木琴石琴系統
 playing_method: 敲擊／搖奏／材料共鳴
-body_listening: 材料、回聲、群體分工、音列
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-region_type: 跨文化／多地
+interface_tags: 鍵盤／按鍵
+region_culture: 歐洲／德國
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/glockenspiel/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Glockenspiel-malletech.jpg/500px-Glockenspiel-malletech.jpg
 youtube_ids: IvUU8joBb1Q lzzMHoi3r2w
 ---
+
 ## 介紹
 
 鐘琴（德語：Glockenspiel，香港稱為鐵片琴，但容易跟另一種敲擊樂器鋼片琴混淆。）是一種有固定音高的敲擊樂器。將不同音高的金屬片按鍵盤樂器的琴鍵排列好，然後鑲於支撐架上，並以琴棒敲打琴鍵發聲。由於能產生不同的音高，鐘琴能如一般的樂器般奏出旋律。

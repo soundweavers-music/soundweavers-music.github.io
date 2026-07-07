@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/timple-canario/
-title: 坦普雷小吉他
-original_name: Timple Canario
-category: 弦樂器
-country: 中東／歐洲／亞洲／美洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Tiple.jpg/500px-Tiple.jpg
-sound_class: 弦鳴
-range: 約2至2.5個8度
-instrument_key: 全調性
-hs_class: 321/322 魯特琴類／撥弦
-family: 魯特琴、短頸長頸撥弦與民謠弦聲
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 坦普雷小吉他
+title_original: Timple Canario
+family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
+sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
 playing_method: 撥弦／刷弦／撥片
-body_listening: 懷抱、手指、腳步、敘事
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 地區／文化圈
+interface_tags: 撥片
+region_culture: 中東／歐洲／亞洲／美洲｜地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/timple-canario/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Tiple.jpg/500px-Tiple.jpg
 youtube_ids: MlrzxCY62jk JdJCLrI7pDs
 ---
+
 ## 介紹
 
 坦普雷小吉他是源於西班牙加那利群島的傳統弦樂器，體型小巧精緻。樂器採用五對複弦設計，音色明亮清脆，具有獨特的金屬質感和溫暖共鳴。相比古典吉他更加靈動活潑，音域集中於中高音區，特別適合演奏快速樂段。在加那利群島傳統音樂中扮演重要角色，廣泛應用於民間舞蹈與民俗慶典，是當地文化的重要象徵。

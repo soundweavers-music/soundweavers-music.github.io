@@ -1,19 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/comb/
-title: 梳子琴
-original_name: Comb
-category: 打擊樂器
-country: 中東／地中海地區
-era: 傳統／年代待考
-region_type: 地區／文化圈
-soundscape: 手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
-body_listening: 手腕、腳踝、短音、節奏對齊
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 梳子琴
+title_original: Comb
+family_std: 撥弦與抱持弦樂家族
+sound_hs: 待確認
+playing_method: 撥奏／擦奏／擊弦（待細分）
+interface_tags: 
+region_culture: 中東／地中海地區｜地區／文化圈
+listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/comb/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Plastic_comb%2C_2015-06-07.jpg/500px-Plastic_comb%2C_2015-06-07.jpg
 youtube_ids: CkGwVO6KuMI K0Yq8DOGgF4
-instrument_key: 無固定調性
-range: 中高音域（約2個8度）
 ---
+
 ## 介紹
 
 梳子是一種工具，由一根軸桿組成，軸桿上附著一排齒齒，用於梳理頭髮以清潔、解開纏結或整理髮型。梳子自史前時代起就已被使用，在波斯已發現距今5000年前的定居點出土的精製梳子。在奧克尼和薩默塞特進行的考古挖掘中，發現了中鐵器時代中期至晚期用鯨骨製作的織布梳。

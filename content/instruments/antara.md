@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/antara/
-title: 安塔拉排笛
-original_name: Antara
-category: 管樂器
-country: 伊朗／亞塞拜然／高加索
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Zampo%C3%B1a.jpg/500px-Zampo%C3%B1a.jpg
-sound_class: 氣鳴
-range: 約3個8度
-instrument_key: 多調性
-hs_class: 421 邊棱氣鳴／無簧笛類
-family: 無簧吹管、長音與氣息樂器
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 簧片樂器
+title_zh: 安塔拉排笛
+title_original: Antara
+family_std: 無簧吹管、長音與氣息樂器
+sound_hs: 421 邊棱氣鳴／無簧笛類
 playing_method: 吹奏／端吹／橫吹／容器共鳴
-body_listening: 氣息、胸腔、長音、空間
-soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
-region_type: 地區／文化圈
+interface_tags: 
+region_culture: 伊朗／亞塞拜然／高加索｜地區／文化圈
+listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/antara/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Zampo%C3%B1a.jpg/500px-Zampo%C3%B1a.jpg
 youtube_ids: rUPjsHD5cTw AQ5g-Q9gaP8
 ---
+
 ## 介紹
 
 安塔拉排笛是源自南美洲安第斯山脈的古老管樂器，由多根竹管並排組成，通常分為左右兩組。樂器外型獨特，各管按音高遞進排列。作為印加文明的重要樂器，安塔拉廣泛應用於宗教儀式、農業祭典及社交活動。其音色溫暖詩意，具有明亮而不刺耳的特質，既保留木質樂器的自然感，又因排列組合產生和諧混響，散發濃厚的安第斯民族風情。

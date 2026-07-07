@@ -1,19 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/siren-noisemaker/
-title: 警報器
-original_name: Siren (noisemaker)
-category: 管樂器
-country: 歐洲
-era: 傳統／年代待考
-region_type: 跨文化／多地
-soundscape: 手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
-body_listening: 手腕、腳踝、短音、節奏對齊
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 警報器
+title_original: Siren (noisemaker)
+family_std: 無簧吹管家族
+sound_hs: 待確認
+playing_method: 吹奏
+interface_tags: 
+region_culture: 歐洲
+listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+ensemble_links: 
+verification_status: 有問題，需修正
+issue_note: 譯名錯誤；Saw U 是泰國低音椰殼胡琴，不是中國椰胡 Yehu。；改「泰國索烏琴（Saw u，暫譯）」；與第871相鄰。
+source_url: https://soundweavers-music.github.io/instruments/siren-noisemaker/
 image: https://upload.wikimedia.org/wikipedia/commons/8/8e/Electronic_Sirens_Pavian_by_Telegrafia.jpg
 youtube_ids: QfWJbtmXOfQ 2oxlyUrO9es
-instrument_key: 無固定調性
-range: 高頻區域（約2-4kHz）
 ---
+
 ## 介紹
 
 警報器是一種製造噪音的警告裝置。有兩種主要類型：機械警報器和電子警報器。民防警報器安裝在固定位置，用於警告自然災害或攻擊。警報器用於救護車、警車和消防車等緊急服務車輛上。許多火警警報器（用於召集志願消防員）具有雙重功能，既可作為龍捲風或民防警報器使用，向整個社區發出迫在眉睫的危險警告。大多數火警警報器要麼安裝在消防站的屋頂上，要麼安裝在消防站旁邊的桿子上。

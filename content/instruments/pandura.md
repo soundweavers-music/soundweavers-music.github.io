@@ -1,23 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/pandura/
-title: 潘杜拉琴
-original_name: Pandura
-category: 弦樂器
-country: 拉丁美洲／安地斯／加勒比
-era: 傳統／年代待考
-region_type: 跨文化／多地
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-body_listening: 懷抱、手指、腳步、敘事
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 潘杜拉琴
+title_original: Pandura
+family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
+sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
 playing_method: 撥弦／刷弦／撥片
-family: 魯特琴、短頸長頸撥弦與民謠弦聲
-hs_class: 321/322 魯特琴類／撥弦
-sound_class: 弦鳴
-range: 中高音區域，約2個8度
-instrument_key: 無固定調性
+interface_tags: 撥片
+region_culture: 拉丁美洲／安地斯／加勒比
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 安地斯合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/pandura/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Muse_with_%CE%A0%CE%B1%CE%BD%CE%B4%CE%BF%CF%8D%CF%81%CE%B1_Pandura_Pandora_Panduris_ancient_Greece_old_guitar_Athens_IV_BCE_siglo_IV_AEC.jpg/500px-Muse_with_%CE%A0%CE%B1%CE%BD%CE%B4%CE%BF%CF%8D%CF%81%CE%B1_Pandura_Pandora_Panduris_ancient_Greece_old_guitar_Athens_IV_BCE_siglo_IV_AEC.jpg
 youtube_ids: ZlayI0WKX40 f605gDO91Gs
 ---
+
 ## 介紹
 
 潘杜拉琴（古希臘語：πανδοῦρα，pandoura）或潘多雷琴是一種古希臘弦樂器，屬於魯特琴和吉他樂器的廣泛類別。阿卡德人早在西元前3千年就已經演奏類似的樂器。古代希臘藝術作品中描繪的此類魯特琴可追溯至西元前3世紀或4世紀起。

@@ -1,19 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/umuduri/
-title: 烏姆杜裡琴
-original_name: Umuduri
-category: 弦樂器
-country: 東非（布隆迪／盧旺達）
-era: 傳統／年代待考
-region_type: 地區／文化圈
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-body_listening: 懷抱、手指、腳步、敘事
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 烏姆杜裡琴
+title_original: Umuduri
+family_std: 撥弦與抱持弦樂家族
+sound_hs: 待確認
+playing_method: 撥奏／擦奏／擊弦（待細分）
+interface_tags: 弓
+region_culture: 東非（布隆迪／盧旺達）｜地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/umuduri/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Instrument_musical_traditionnel_Burundais.jpg/500px-Instrument_musical_traditionnel_Burundais.jpg
 youtube_ids: uQxTHeofQXU yBhDJqXiKto
-instrument_key: 無固定調性
-range: 中低至中高音區（約2個8度）
 ---
+
 ## 介紹
 
 烏姆杜里琴是一種布隆迪和盧旺達的弦樂器。它是一種音樂弓，由一根弦和一個柔軟的木製弦承體或弓組成，長度為125–135厘米。琴弦傳統上由植物纖維和動物腸製成。然而，金屬弦正日益普及。

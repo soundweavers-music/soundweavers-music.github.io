@@ -1,19 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/ghatam/
-title: 陶罐鼓
-original_name: Ghatam
-category: 打擊樂器
-country: 印度／南亞
-era: 傳統／年代待考
-region_type: 地區／文化圈
-soundscape: 手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
-body_listening: 手腕、腳踝、短音、節奏對齊
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 陶罐鼓
+title_original: Ghatam
+family_std: 鼓皮與鼓類家族
+sound_hs: 待確認
+playing_method: 敲奏／拍奏／搖奏／刮奏（待細分）
+interface_tags: 
+region_culture: 印度／南亞｜地區／文化圈
+listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/ghatam/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Ghatam.jpg/500px-Ghatam.jpg
 youtube_ids: DYEh5uXrL4w vssRXO8j5YQ
-instrument_key: 無固定調性
-range: 約2個8度
 ---
+
 ## 介紹
 
 手碟（梵文：घट ghaṭ；坎納達語：ಘಟ ghaṭa；泰米爾語：கடம் ghatam；特萊古語：ఘటం ghataṃ；馬拉雅拉姆語：ഘടം ghataṃ）是一種打擊樂器，廣泛用於印度次大陸的各種音樂風格中，尤其是在南印度。它在旁遮普邦有一個變種，被稱為gharha，因為它是旁遮普民間傳統的一部分。在拉賈斯坦邦，它的類似樂器被稱為madga和pani mataqa（「水罐」）。手碟是巴基斯坦和印度最古老的打擊樂器之一。它是一個口部狹窄的陶土罐。從罐口向外傾斜形成一個凸緣。

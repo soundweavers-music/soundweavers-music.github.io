@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/trough-zither/
-title: 槽形齊特琴
-original_name: Trough zither
-category: 弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 槽形齊特琴
+title_original: Trough zither
+family_std: 弦樂器類
+sound_hs: 3 弦鳴樂器
 playing_method: 撥弦／擦弦／擊弦
-family: 弦樂器類
-hs_class: 3 弦鳴樂器
-sound_class: 弦鳴
-country: 東非和中非（盧旺達和布隆迪）
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化弦鳴）
-body_listening: 手掌、弦面、推音、敲擊
+interface_tags: 
+region_culture: 東非和中非（盧旺達和布隆迪）｜單一地區／文化圈
+listening_sound_tags: 手掌、弦面、推音、敲擊｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化弦鳴）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/trough-zither/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Inanga_Torobeka.jpg/500px-Inanga_Torobeka.jpg
 youtube_ids: bqi9B4vtZNo RWzHkps8iSM
-instrument_key: 無固定調性
-range: 中高頻段，約2個8度
 ---
+
 ## 介紹
 
 槽形齊特琴是一組非洲弦樂器或鳴弦樂器，其成員形似木製的碗、盤子、盤狀物或淺槽，弦張在開口處。作為一種齊特琴，這些樂器可能聲音較小，具體取決於碗或弦架的形狀。通常通過添加葫蘆共鳴器來放大聲音。根據形狀，該樂器已被分為五種不同類型。共鳴器最常見的是葫蘆，但也使用過錫罐。這是一種流行於東非和中非、主要在盧旺達和布隆迪的樂器。

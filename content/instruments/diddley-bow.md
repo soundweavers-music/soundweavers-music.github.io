@@ -1,19 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/diddley-bow/
-title: 迪德里一弦
-original_name: Diddley bow
-category: 弦樂器
-country: 美國
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-body_listening: 懷抱、手指、腳步、敘事
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 迪德里一弦
+title_original: Diddley bow
+family_std: 撥弦與抱持弦樂家族
+sound_hs: 待確認
+playing_method: 撥奏／擦奏／擊弦（待細分）
+interface_tags: 
+region_culture: 美國｜單一地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/diddley-bow/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Moses_Williams_playing_the_diddley_bow-_Waverly%2C_Florida_%283371222056%29.jpg/500px-Moses_Williams_playing_the_diddley_bow-_Waverly%2C_Florida_%283371222056%29.jpg
 youtube_ids: JPOMYHKWGTE AhiDAx63_Ds
-instrument_key: 無固定調性
-range: 約1至2個8度（取決於弦張力與演奏技巧）
 ---
+
 ## 介紹
 
 迪德里一弦琴是一種單弦美國樂器，對藍調音樂的發展產生了影響。它由一根鐵絲繃在木板上的兩根釘子之間組成，木板上方放著一個玻璃瓶，玻璃瓶既用作琴橋，也用於放大樂器的音量。在美國南方深處，特別是在非洲裔美國人社區中，它傳統上被視為初學者或兒童樂器，在鄉村南方以外很少能聽到。它可能在某種程度上受到了西非樂器的影響。

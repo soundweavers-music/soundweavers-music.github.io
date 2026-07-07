@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/dhol/
-title: 卓爾鼓
-original_name: Dhol
-category: 打擊樂器
-country: 亞洲／南亞（印度）
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Bhangra_at_Vasakhi.jpg/500px-Bhangra_at_Vasakhi.jpg
-sound_class: 膜鳴
-range: 約2個8度
-instrument_key: 無固定調性
-hs_class: 21 膜鳴鼓類
-family: 膜鳴鼓類、框鼓、杯鼓與鼓組
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 卓爾鼓
+title_original: Dhol
+family_std: 膜鳴鼓類、框鼓、杯鼓與鼓組
+sound_hs: 21 膜鳴鼓類
 playing_method: 手拍／槌擊／皮膜振動
-body_listening: 手掌、腳底、低音、舞步
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-region_type: 地區／文化圈
+interface_tags: 
+region_culture: 亞洲／南亞（印度）｜地區／文化圈
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/dhol/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Bhangra_at_Vasakhi.jpg/500px-Bhangra_at_Vasakhi.jpg
 youtube_ids: Ng1rwl1EwiI 8OK8jq-1oUE
 ---
+
 ## 介紹
 
 卓爾鼓（印地語發音：[ɖʰoːl]）可指在印度次大陸各地廣泛使用的多種類似雙面鼓中的任何一種，各地區有不同的變化。它在印度次大陸的分布範圍主要包括北部地區，如查謨、喜馬偕爾邦、旁遮普邦、哈里亞納邦、德里、克什米爾、信德、阿薩姆谷地、北阿坎德邦、西孟加拉邦、奧里薩邦、古吉拉特邦、馬哈拉施特拉邦、康坎地區、果阿邦、卡納塔克邦、拉賈斯坦邦、比哈爾邦、賈坎德邦和北方邦。相關樂器包括卓拉克鼓或卓爾基鼓。

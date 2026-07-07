@@ -254,28 +254,53 @@ def read_instruments():
         body_html = strip_wiki_links(body_html)
         body_html = remove_empty_headings(body_html)
         body_html = strip_intro_heading(body_html)
+
+        # Parse listening_sound_tags into body_listening + soundscape components
+        listening_raw = meta.get("listening_sound_tags", "")
+        if "｜" in listening_raw:
+            body_listening_val, soundscape_val = listening_raw.split("｜", 1)
+        else:
+            body_listening_val = listening_raw
+            soundscape_val = ""
+
         instruments.append(
             {
                 "slug": path.stem,
-                "title": meta.get("title", path.stem),
-                "original_name": meta.get("original_name", ""),
-                "category": meta.get("category", "其他"),
-                "country": meta.get("country", "待考"),
-                "era": meta.get("era", "傳統／年代待考"),
-                "sound_class": meta.get("sound_class", ""),
-                "hs_class": meta.get("hs_class", ""),
-                "family": meta.get("family", ""),
+                # New v1.2 field names
+                "class_code": meta.get("class_code", ""),
+                "frontend_class": meta.get("frontend_class", ""),
+                "subcategory": meta.get("subcategory", ""),
+                "title_zh": meta.get("title_zh", path.stem),
+                "title_original": meta.get("title_original", ""),
+                "family_std": meta.get("family_std", ""),
+                "sound_hs": meta.get("sound_hs", ""),
                 "playing_method": meta.get("playing_method", ""),
-                "body_listening": meta.get("body_listening", ""),
-                "soundscape": meta.get("soundscape", ""),
-                "region_type": meta.get("region_type", ""),
+                "interface_tags": meta.get("interface_tags", ""),
+                "region_culture": meta.get("region_culture", ""),
+                "listening_sound_tags": listening_raw,
+                "ensemble_links": meta.get("ensemble_links", ""),
+                "verification_status": meta.get("verification_status", ""),
+                "issue_note": meta.get("issue_note", ""),
+                "source_url": meta.get("source_url", ""),
+                # Backward-compat aliases for un-updated functions
+                "title": meta.get("title_zh", meta.get("title", path.stem)),
+                "original_name": meta.get("title_original", meta.get("original_name", "")),
+                "category": meta.get("frontend_class", meta.get("class_code", "")),
+                "country": meta.get("region_culture", meta.get("country", "")),
+                "era": "",
+                "sound_class": meta.get("sound_hs", ""),
+                "hs_class": "",
+                "family": meta.get("family_std", ""),
+                "body_listening": body_listening_val,
+                "soundscape": soundscape_val,
+                "region_type": "",
                 "image": meta.get("image", ""),
                 "youtube_ids": parse_youtube_ids(meta.get("youtube_ids", "")),
-                "instrument_key": meta.get("instrument_key", ""),
-                "range": meta.get("range", ""),
-                "is_popular": meta.get("is_popular", "").lower() == "true",
-                "is_uncommon": meta.get("is_uncommon", "").lower() == "true",
-                "site_url": meta.get("site_url", ""),
+                "instrument_key": "",
+                "range": "",
+                "is_popular": False,
+                "is_uncommon": False,
+                "site_url": meta.get("source_url", ""),
                 "html": body_html,
                 "tutorial": "",
             }
@@ -377,13 +402,16 @@ def page(title, body, page_path=None, meta_extra="", extra_head="", meta_descrip
       <div class="nav-dropdown">
         <a href="{resolve_url(page_path, '/instruments/')}" class="dropdown-trigger">全部樂器</a>
         <div class="dropdown-menu">
-          <a href="{resolve_url(page_path, '/categories/')}">分類</a>
+          <a href="{resolve_url(page_path, '/categories/')}">全部</a>
           <a href="#" id="random-nav-link" class="random-link">隨選</a>
           <a href="{resolve_url(page_path, '/popular/')}">熱門</a>
-          <a href="{resolve_url(page_path, '/uncommon/')}">冷門</a>
           <a href="{resolve_url(page_path, '/countries/')}">國家</a>
-          <a href="{resolve_url(page_path, '/eras/')}">年代</a>
           <a href="{resolve_url(page_path, '/map/')}">地圖</a>
+          <hr style="margin:4px 0;border:none;border-top:1px solid var(--line);">
+          <a href="{resolve_url(page_path, '/categories/A1/')}" style="font-weight:600;">A1 吹奏與氣息樂器</a>
+          <a href="{resolve_url(page_path, '/categories/A2/')}" style="font-weight:600;">A2 弦樂器</a>
+          <a href="{resolve_url(page_path, '/categories/A3/')}" style="font-weight:600;">A3 鼓與打擊樂器</a>
+          <a href="{resolve_url(page_path, '/categories/A4/')}" style="font-weight:600;">A4 電子與電聲樂器</a>
         </div>
       </div>
       <div class="nav-dropdown">
@@ -446,7 +474,6 @@ def page(title, body, page_path=None, meta_extra="", extra_head="", meta_descrip
         <a href="{resolve_url(page_path, '/categories/')}">分類</a>
         <a href="{resolve_url(page_path, '/countries/')}">國家</a>
         <a href="{resolve_url(page_path, '/popular/')}">熱門</a>
-        <a href="{resolve_url(page_path, '/uncommon/')}">冷門</a>
         <a href="{resolve_url(page_path, '/theory/')}">樂理基礎</a>
         <a href="{resolve_url(page_path, '/contact/')}">聯絡我們</a>
         <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
@@ -465,12 +492,13 @@ def page(title, body, page_path=None, meta_extra="", extra_head="", meta_descrip
 
 
 def card(instrument, page_path=None):
+    code_tag = f'<span class="card-code">{escape(instrument["class_code"])}</span>' if instrument.get("class_code") else ""
     img = safe_external_url(instrument.get("image", ""))
     img_html = f'<img class="card-thumb" src="{img}" alt="" loading="lazy" onerror="this.style.display=\'none\'">' if img else '<div class="card-thumb card-thumb--empty" aria-hidden="true">♩</div>'
     return f"""<a class="instrument-card" href="{resolve_url(page_path, '/instruments/' + instrument['slug'] + '/')}">
       {img_html}
       <div class="card-body">
-        <span class="card-cat">{escape(instrument['category'])}</span>
+        <span class="card-cat">{code_tag}{escape(instrument['category'])}</span>
         <strong class="card-title">{escape(instrument['title'])}</strong>
         {f'<span class="card-orig">{escape(instrument["original_name"])}</span>' if instrument.get("original_name") and instrument["original_name"] != instrument["title"] else ""}
         <span class="card-meta">{escape(instrument['country'])}</span>
@@ -539,8 +567,8 @@ def build_instruments_list_page(instruments):
               <select id="filter-country"><option value="">全部國家/地區</option></select>
             </label>
             <label>
-              <span>年代</span>
-              <select id="filter-era"><option value="">全部年代</option></select>
+              <span>子分類</span>
+              <select id="filter-subcategory"><option value="">全部分類</option></select>
             </label>
             <label>
               <span>發聲方式</span>
@@ -571,7 +599,7 @@ def build_index(instruments):
     index_path = OUTPUT_DIR / "index.html"
     categories = Counter(item["category"] for item in instruments)
     countries = Counter(item["country"] for item in instruments)
-    eras = Counter(item["era"] for item in instruments)
+    subcategories = Counter(item.get("subcategory", "") for item in instruments if item.get("subcategory"))
     category_links = "".join(
         f'<a class="facet-card" href="{resolve_url(index_path, f"/categories/{slugify(name)}/")}"><strong>{escape(name)}</strong><span>{count} 筆</span></a>'
         for name, count in categories.most_common()
@@ -611,7 +639,7 @@ def build_index(instruments):
         <div class="stat-item"><strong>{len(instruments)}</strong><span>樂器條目</span></div>
         <div class="stat-item"><strong>{len(categories)}</strong><span>分類</span></div>
         <div class="stat-item"><strong>{len(countries)}</strong><span>國家/地區</span></div>
-        <div class="stat-item"><strong>{len(eras)}</strong><span>年代</span></div>
+        <div class="stat-item"><strong>{len(subcategories)}</strong><span>子分類</span></div>
       </section>
 
 
@@ -651,8 +679,8 @@ def build_index(instruments):
               <select id="filter-country"><option value="">全部國家/地區</option></select>
             </label>
             <label>
-              <span>年代</span>
-              <select id="filter-era"><option value="">全部年代</option></select>
+              <span>子分類</span>
+              <select id="filter-subcategory"><option value="">全部分類</option></select>
             </label>
             <label>
               <span>發聲方式</span>
@@ -738,41 +766,35 @@ def build_detail_pages(instruments):
 
     for item in instruments:
         meta_fields = [
-            ("分類", item["category"]),
-            ("國家／地區", item["country"]),
-            ("年代", item["era"]),
+            ("主分類", item["category"]),
+            ("子分類", item.get("subcategory", "")),
+            ("地域／文化", item["country"]),
             ("發聲原理", item["sound_class"]),
-            ("樂器調性", item.get("instrument_key", "")),
-            ("音域範圍", item.get("range", "")),
-            ("HS 分類", item["hs_class"]),
             ("樂器家族", item["family"]),
             ("演奏方式", item["playing_method"]),
-            ("身體聆聽", item["body_listening"]),
-            ("地區類型", item["region_type"]),
+            ("操作介面", item.get("interface_tags", "")),
+            ("聆聽標籤", item.get("listening_sound_tags", "")),
+            ("查證狀態", item.get("verification_status", "")),
         ]
         meta_grid = "".join(meta_row(label, val) for label, val in meta_fields if val)
+        code_badge = f'<span class="badge badge-code">{escape(item["class_code"])}</span>' if item.get("class_code") else ""
         orig = f'<p class="original-name">{escape(item["original_name"])}</p>' if item["original_name"] and item["original_name"] != item["title"] else ""
         soundscape_val = item.get("soundscape", "")
         soundscape_html = f'<p class="soundscape-tag">{escape(soundscape_val)}</p>' if soundscape_val else ""
-        img_url = safe_external_url(item.get("image", ""))
-        img_html = f'<img class="instrument-image" src="{img_url}" alt="{escape(item["title"])}" loading="lazy" onerror="this.style.display=\'none\'">' if img_url else ""
-        img_credit_html = '<p class="image-credit">圖片來源：Wikimedia Commons</p>' if img_url else ""
-        header_class = "instrument-header has-image" if img_url else "instrument-header"
-        # Popularity badges
-        badges = ""
-        if item.get("is_popular"):
-            badges += '<span class="badge badge-hot">熱門</span>'
-        if item.get("is_uncommon"):
-            badges += '<span class="badge badge-cold">冷門</span>'
         # Inject YouTube iframes into the 聆聽示範 section in the article body
         body_html = inject_youtube_into_body(item['html'], item.get("youtube_ids", []))
         # Extract plain-text description from first paragraph of HTML body
         desc_match = re.search(r'<p>(.*?)</p>', body_html, re.DOTALL)
         desc_text = re.sub(r'<[^>]+>', '', desc_match.group(1))[:160] if desc_match else ""
+        # Image HTML
+        img_url = safe_external_url(item.get("image", ""))
+        img_html = f'<img class="instrument-image" src="{img_url}" alt="{escape(item["title"])}" loading="lazy" onerror="this.style.display=\'none\'">' if img_url else ""
+        img_credit_html = '<p class="image-credit">圖片來源：Wikimedia Commons</p>' if img_url else ""
+        header_class = "instrument-header has-image" if img_url else "instrument-header"
         keywords = f"{item['title']},{item['original_name']},{item['category']},{item['country']},樂器教學,世界樂器,樂器介紹"
         article_tags = "\n".join(
             f'<meta property="article:tag" content="{escape(tag)}">'
-            for tag in [item['category'], item['country'], item.get('era', ''), item.get('sound_class', '')]
+            for tag in [item['category'], item['country'], item.get('family', ''), item.get('sound_class', '')]
             if tag
         )
         og_tags = "\n".join(filter(None, [
@@ -798,14 +820,12 @@ def build_detail_pages(instruments):
           </nav>
           <header class="{header_class}">
             <div class="header-text">
-              <p class="eyebrow">{escape(item['category'])}</p>
+              <p class="eyebrow">{escape(item['category'])} {code_badge}</p>
               <h1>{escape(item['title'])}</h1>
               {orig}
               {soundscape_html}
-              <p class="badge-row">{badges}</p>
             </div>
             {f'<div class="header-image">{img_html}{img_credit_html}</div>' if img_url else ""}
-          </header>
           {"<dl class='meta-grid'>" + meta_grid + "</dl>" if meta_grid else ""}
           {f'''
           <div class="tab-bar">
@@ -831,7 +851,7 @@ def build_facet_pages(instruments, field, folder, title):
         f'<a class="facet-card" href="{site_url(f"/{folder}/{slugify(name)}/")}"><strong>{escape(name)}</strong><span>{len(items)} 筆</span></a>'
         for name, items in sorted(grouped.items())
     )
-    desc_map = {"category": "世界樂器分類一覽", "country": "世界樂器國家地區一覽", "era": "世界樂器年代一覽", "sound_class": "世界樂器發聲方式一覽"}
+    desc_map = {"category": "世界樂器主分類一覽", "subcategory": "世界樂器子分類一覽", "country": "世界樂器國家地區一覽"}
     browse_desc = desc_map.get(field, f"{title}一覽")
     write(
         OUTPUT_DIR / folder / "index.html",
@@ -1033,7 +1053,6 @@ h2 { margin:0; font-weight:700; }
 .card-thumb { display:block; width:100%; height:140px; object-fit:cover; flex-shrink:0; }
 .card-thumb--empty { height:80px; background:linear-gradient(135deg,#f0f4f8,#e2e8f0); display:flex; align-items:center; justify-content:center; font-size:28px; color:#c5ced8; }
 .card-body { padding:14px; display:flex; flex-direction:column; gap:4px; flex:1; }
-.card-cat { color:var(--accent); font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; }
 .card-title { font-size:16px; font-weight:700; line-height:1.3; }
 .card-orig { color:var(--muted); font-size:12px; }
 .card-meta { color:var(--muted); font-size:12px; margin-top:auto; }
@@ -1158,6 +1177,13 @@ h2 { margin:0; font-weight:700; }
 }
 .badge-hot { background:#fef2f0; color:#c2410c; border:1px solid #fed7c5; }
 .badge-cold { background:#f0f5ff; color:#1e40af; border:1px solid #c5ddfd; }
+.badge-code { background:#f0fdf4; color:#15803d; border:1px solid #bbf7d0; }
+.card-code {
+  display:inline-block; padding:1px 5px; border-radius:3px;
+  background:#f0fdf4; color:#15803d; border:1px solid #bbf7d0;
+  font-size:10px; font-weight:700; margin-right:4px; vertical-align:middle;
+}
+.card-cat { color:var(--accent); font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; display:flex; align-items:center; gap:4px; }
 
 /* ── Featured links ──────────────────────────────────────────── */
 .featured-links { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin:0 0 40px; }
@@ -1264,10 +1290,10 @@ h2 { margin:0; font-weight:700; }
             "original_name": item.get("original_name", ""),
             "category": item["category"],
             "country": item["country"],
-            "era": item["era"],
+            "subcategory": item.get("subcategory", ""),
             "sound_class": item.get("sound_class", ""),
             "url": site_url(f"/instruments/{item['slug']}/"),
-            "image": safe_external_url(item.get("image", "")),
+            "image": "",
         }
         for item in instruments
     ]
@@ -1285,6 +1311,7 @@ const filterControls = {{
   category: document.getElementById('filter-category'),
   country: document.getElementById('filter-country'),
   era: document.getElementById('filter-era'),
+  subcategory: document.getElementById('filter-subcategory'),
   sound_class: document.getElementById('filter-sound-class')
 }};
 const resetFilters = document.getElementById('filter-reset');
@@ -1415,7 +1442,7 @@ function renderDropdownResults() {{
 if (dropdownResults) {{
   fillSelect(filterControls.category, 'category');
   fillSelect(filterControls.country, 'country');
-  fillSelect(filterControls.era, 'era');
+  fillSelect(filterControls.subcategory, 'subcategory');
   fillSelect(filterControls.sound_class, 'sound_class');
 
   // Restore saved filters
@@ -1493,14 +1520,12 @@ def build_sitemap(instruments):
     # Collect all unique facet values from instruments
     categories = sorted(set(i["category"] for i in instruments if i.get("category")))
     countries = sorted(set(i["country"] for i in instruments if i.get("country")))
-    eras = sorted(set(i["era"] for i in instruments if i.get("era")))
-    sound_classes = sorted(set(i["sound_class"] for i in instruments if i.get("sound_class")))
 
     urls = []
 
     # Static top-level pages
-    for path in ["/", "/instruments/", "/categories/", "/countries/", "/eras/",
-                 "/sound-classes/", "/popular/", "/uncommon/", "/map/",
+    for path in ["/", "/instruments/", "/categories/", "/countries/",
+                 "/popular/", "/map/",
                  "/about/", "/theory/", "/vocal/", "/digitalmusic/",
                  "/sound-journey/", "/experience/", "/contact/"]:
         urls.append(u(path))
@@ -1517,15 +1542,6 @@ def build_sitemap(instruments):
     for name in countries:
         urls.append(u(f"/countries/{slugify(name)}/"))
 
-    # Era detail pages
-    for name in eras:
-        urls.append(u(f"/eras/{slugify(name)}/"))
-
-    # Sound class detail pages
-    for name in sound_classes:
-        urls.append(u(f"/sound-classes/{slugify(name)}/"))
-
-    # Theory detail pages (generated by build_vocal_extra.py)
     for i in range(6):  # 0–5
         urls.append(u(f"/theory/{i}/"))
 
@@ -1616,22 +1632,22 @@ def build_manager_page(instruments):
     page_dir_.mkdir(parents=True, exist_ok=True)
 
     fm_fields = [
-        ("title", "樂器名稱（繁體中文）"),
-        ("original_name", "原文名稱（英文）"),
-        ("category", "分類"),
-        ("country", "來源地區"),
-        ("era", "年代"),
-        ("image", "圖片網址"),
-        ("site_url", "網站連結"),
-        ("sound_class", "發聲大類"),
-        ("range", "音域"),
-        ("instrument_key", "調性"),
-        ("hs_class", "H-S 分類"),
-        ("family", "家族"),
+        ("class_code", "主分類代碼"),
+        ("frontend_class", "前台主分類"),
+        ("subcategory", "子分類"),
+        ("title_zh", "中文名"),
+        ("title_original", "英文／原文名"),
+        ("family_std", "樂器家族"),
+        ("sound_hs", "發聲原理／H-S"),
         ("playing_method", "演奏方式"),
-        ("body_listening", "身體聆聽"),
-        ("soundscape", "聲音景觀"),
-        ("region_type", "區域類型"),
+        ("interface_tags", "操作介面"),
+        ("region_culture", "地域／文化"),
+        ("listening_sound_tags", "聆聽與聲音標籤"),
+        ("ensemble_links", "常見合奏／編制"),
+        ("verification_status", "查證狀態"),
+        ("issue_note", "核實／修正備註"),
+        ("source_url", "來源網址"),
+        ("image", "圖片網址"),
         ("youtube_ids", "YouTube ID"),
         ("introduction", "介紹內容"),
         ("history", "歷史背景"),
@@ -1694,9 +1710,12 @@ def build_manager_page(instruments):
             # For body keys, get from parsed markdown
             if key in ("introduction", "history", "timbre", "material", "tutorial"):
                 val = body_sections.get(key, "")
+            # Convert youtube_ids list back to space-separated string
+            if key == "youtube_ids" and isinstance(val, list):
+                val = " ".join(val)
             if val:
                 cell = ws.cell(row=row_idx, column=col_idx, value=str(val))
-                if key in ("site_url", "image") and str(val).startswith("http"):
+                if key in ("source_url", "image") and str(val).startswith("http"):
                     cell.font = link_font
                     cell.hyperlink = str(val)
 
@@ -1829,8 +1848,8 @@ def build_manager_page(instruments):
             var key = String(headers[j] || '').trim();
             var val = row[j] !== undefined ? String(row[j]).trim() : '';
             if (!key || !val) continue;
-            if (key === 'original_name') origName = val;
-            if (key === 'introduction' || key === 'history' || key === 'timbre') {
+            if (key === 'title_original') origName = val;
+            if (key === 'introduction' || key === 'history' || key === 'timbre' || key === 'material' || key === 'tutorial') {
               sections[key] = val;
             } else {
               fmLines.push(key + ': ' + val);
@@ -1841,6 +1860,8 @@ def build_manager_page(instruments):
           if (sections.introduction) bodyParts.push('\n## 介紹\n\n' + sections.introduction);
           if (sections.history) bodyParts.push('\n## 歷史背景\n\n' + sections.history);
           if (sections.timbre) bodyParts.push('\n## 音色描述\n\n' + sections.timbre);
+          if (sections.material) bodyParts.push('\n## 樂器材質\n\n' + sections.material);
+          if (sections.tutorial) bodyParts.push('\n## 教學\n\n' + sections.tutorial);
           var fullContent = fmLines.join('\n') + bodyParts.join('\n') + '\n';
           var filename = slugify(origName || ('instrument_' + (i + 1))) + '.md';
           zip.file(filename, fullContent);
@@ -2103,9 +2124,8 @@ def main():
     build_special_pages(instruments)
     build_instruments_list_page(instruments)
     build_facet_pages(instruments, "category", "categories", "分類")
-    build_facet_pages(instruments, "sound_class", "sound-classes", "發聲分類")
+    build_facet_pages(instruments, "subcategory", "subcategories", "子分類")
     build_facet_pages(instruments, "country", "countries", "國家/地區")
-    build_facet_pages(instruments, "era", "eras", "年代")
     build_404(instruments)
     build_sitemap(instruments)
     build_robots(instruments)

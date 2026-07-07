@@ -1,18 +1,22 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/ahardin/
-title: 阿哈迪恩琴
-original_name: Ahardin
-category: 弦樂器
-country: 非洲西部
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
-body_listening: 胸口、嗓音、拉長的情緒
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 阿哈迪恩琴
+title_original: Ahardin
+family_std: 撥弦與抱持弦樂家族
+sound_hs: 待確認
+playing_method: 撥奏／擦奏／擊弦（待細分）
+interface_tags: 弓
+region_culture: 非洲西部｜單一地區／文化圈
+listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/ahardin/
 youtube_ids: -bW6VZi0ICs d2RnZT10fWc
-instrument_key: 無固定調性
-range: 約2個8度（中低音域）
 ---
+
 ## 介紹
 
 阿哈迪恩琴是由南部圖瓦雷格人演奏的樂弓，由一根彎曲的樹枝組成，用扭絞的生皮革或金合歡樹皮繩固定。作為共鳴箱，一個倒置的葫蘆被放在弓的彎曲部分下方。為了固定整個樂器，演奏者用膝蓋按壓容器。演奏者用左手的手指像演奏伊姆扎德琴一樣定義旋律，同時用右手的大拇指和食指以規律的姿態夾持琴弦並使其振動。

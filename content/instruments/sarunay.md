@@ -1,19 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/sarunay/
-title: 庫林當鐵琴
-original_name: Sarunay
-category: 打擊樂器
-country: 菲律賓／東南亞
-era: 傳統／年代待考
-region_type: 地區／文化圈
-soundscape: 手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
-body_listening: 手腕、腳踝、短音、節奏對齊
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 庫林當鐵琴
+title_original: Sarunay
+family_std: 撥弦與抱持弦樂家族
+sound_hs: 待確認
+playing_method: 撥奏／擦奏／擊弦（待細分）
+interface_tags: 
+region_culture: 菲律賓／東南亞｜地區／文化圈
+listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/sarunay/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Sarunay.jpg/500px-Sarunay.jpg
 youtube_ids: 8PQlwXZQhoI be0nHnSxlME
-instrument_key: 無固定調性
-range: 約2個8度
 ---
+
 ## 介紹
 
 庫林當鐵琴（庫林當·提尼奧克）是菲律賓的一種打擊樂器，由八塊音調各異的凸頭金屬板組成，通過繩子串聯在一起，固定在木製的安唐甘架子上。庫林當鐵琴是馬京達瑙人的術語，意為「有弦的庫林當」，但他們也可能稱之為庫林當·普塔奧，意思是「金屬庫林當」。馬拉瑙人將這種樂器稱為薩魯奈（或薩盧奈、薩隆奈、薩隆奈、薩隆奈或薩魯奈），這一術語在北美已變得流行。這被認為是一種相對較新的樂器，令人驚訝的是，許多樂器竟然只是由罐頭製成的。

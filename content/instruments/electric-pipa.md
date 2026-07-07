@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/electric-pipa/
-title: 電琵琶
-original_name: Electric pipa
-category: 弦樂器
+class_code: A4
+frontend_class: 電子與電聲樂器
+subcategory: 電聲改造樂器
+title_zh: 電琵琶
+title_original: Electric pipa
+family_std: 弦樂器類
+sound_hs: 3 弦鳴樂器
 playing_method: 撥弦／擦弦／擊弦
-family: 弦樂器類
-hs_class: 3 弦鳴樂器
-sound_class: 弦鳴
-country: 中國
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-body_listening: 懷抱、手指、腳步、敘事
+interface_tags: 拾音／擴音
+region_culture: 中國｜單一地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/electric-pipa/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Pipa_MET_DP216710.jpg/500px-Pipa_MET_DP216710.jpg
 youtube_ids: gf6v59c5yuY 1GJiliDvXhk
-instrument_key: 全調性
-range: 約3個8度
 ---
+
 ## 介紹
 
 電琵琶是在傳統中國四弦琵琶基礎上加裝拾音器與電子擴音系統的現代改良版本。琴身保留梨形木製共鳴腔，品位從傳統的12品增至24至31品，弦距設計也更貼近現代彈奏習慣。演奏者透過電子放大系統可接入效果器、音箱，大幅擴展音色可能性。電琵琶兼容傳統輪指、推拉弦、泛音等古典技法，同時可融入搖滾、爵士、電子音樂等現代風格，是當代跨界音樂家探索傳統樂器現代化的重要媒介。

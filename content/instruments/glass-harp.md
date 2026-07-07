@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/glass-harp/
-title: 玻璃豎琴
-original_name: Glass harp
-category: 打擊樂器
-country: 東南亞／東亞／非洲／歐洲／全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Robert_tiso_glass_harp.jpg/500px-Robert_tiso_glass_harp.jpg
-sound_class: 體鳴
-range: 女高音至男低音範圍（約3-4個8度）
-instrument_key: 全調性
-hs_class: 11/12 定音體鳴／鑼鐘木琴石琴系統
-family: 定音體鳴、材料敲擊與鑼鐘木琴系統
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 豎琴、里拉與開放弦
+title_zh: 玻璃豎琴
+title_original: Glass harp
+family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
+sound_hs: 11/12 定音體鳴／鑼鐘木琴石琴系統
 playing_method: 敲擊／搖奏／材料共鳴
-body_listening: 材料、回聲、群體分工、音列
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 東南亞／東亞／非洲／歐洲／全球
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/glass-harp/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Robert_tiso_glass_harp.jpg/500px-Robert_tiso_glass_harp.jpg
 youtube_ids: cVqqNigImtU lAEXH9DAH98
 ---
+
 ## 介紹
 
 玻璃豎琴（也稱為音樂玻璃杯、唱歌玻璃杯、天使風琴、玻璃琴或幽靈提琴）是一種用直立的葡萄酒杯製成的樂器。演奏時用潮濕或粉筆塗過的手指在杯緣周圍滑動。每個玻璃杯都被調至不同的音高，可以通過研磨每個高腳杯至特定音高來實現，這樣調音是不變的；也可以在玻璃杯中加水直到達到所需音高。加水會導致音高下降。每個玻璃杯型號的音高可能降低四度或更大的音程。

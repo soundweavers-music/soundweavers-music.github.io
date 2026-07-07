@@ -1,22 +1,22 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/contrabassoon/
-title: 低音巴松管
-original_name: Contrabassoon
-category: 管樂器
-sound_class: 氣鳴
-hs_class: 422 雙簧管類樂器
-family: 倍低音管類
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 簧片樂器
+title_zh: 低音巴松管
+title_original: Contrabassoon
+family_std: 倍低音管類
+sound_hs: 氣鳴｜422 雙簧管類樂器
 playing_method: 吹奏／雙簧片
-country: 歐洲（德國／奧地利）
-era: 傳統／年代待考
-region_type: 地區／文化圈
-soundscape: 簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
-body_listening: 口腔、舌頭、簧片震動、鼻音
+interface_tags: 
+region_culture: 歐洲（德國／奧地利）｜地區／文化圈
+listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
+ensemble_links: 
+verification_status: 有問題，需修正
+issue_note: 譯名錯誤；Coconut Lamellophone 是椰殼／椰子舌片琴，不是木琴。；改為「椰殼舌片琴（Coconut lamellophone）」；歸第9類。；DUP-020:舌片琴支線
+source_url: https://soundweavers-music.github.io/instruments/contrabassoon/
 youtube_ids: JVAe7YBUc6c QgNoTOgVxSg
-instrument_key: C大調（移調樂器，音響比記譜低1個八度）
-range: 約3個半8度（比低音管低1個八度）
 ---
+
 ## 介紹
 
 倍低音管（Contrabassoon，或double bassoon）是低音管的變形樂器，屬於雙簧樂器，音域較低音管低1個八度，是交響樂隊木管樂器組常置樂器當中音域最低的一種。演奏技巧除了少部份的指法外，大致和低音管相近。雖然是頗有知名度的樂器，但由於實際演奏的應用不多，在現代的交響樂團中，一般仍以至少一位低音管演奏員兼任，除非演奏現代作品，或者需運用較大樂隊規模的樂曲（如馬勒、理察·史特勞斯、蕭斯塔科維奇等）時，才需要一位獨立的倍低音管樂手支持全場。

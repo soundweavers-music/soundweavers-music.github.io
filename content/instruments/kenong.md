@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/kenong/
-title: 克農鑼
-original_name: Kenong
-category: 打擊樂器
-country: 印尼爪哇島
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Gamelan_Jawa_-_Set_Kenong.jpg/500px-Gamelan_Jawa_-_Set_Kenong.jpg
-sound_class: 體鳴
-range: 高音區（約1個8度）
-instrument_key: 無固定調性
-hs_class: 11/12 定音體鳴／鑼鐘木琴石琴系統
-family: 定音體鳴、材料敲擊與鑼鐘木琴系統
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 克農鑼
+title_original: Kenong
+family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
+sound_hs: 11/12 定音體鳴／鑼鐘木琴石琴系統
 playing_method: 敲擊／搖奏／材料共鳴
-body_listening: 句點、段落標記、金屬尾音
-soundscape: 木石金屬的回聲城市（定音體鳴、材料敲擊與鑼鐘木琴系統）
-region_type: 單一地區／文化圈
+interface_tags: 
+region_culture: 印尼爪哇島｜單一地區／文化圈
+listening_sound_tags: 句點、段落標記、金屬尾音｜木石金屬的回聲城市（定音體鳴、材料敲擊與鑼鐘木琴系統）
+ensemble_links: 甘美朗合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/kenong/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Gamelan_Jawa_-_Set_Kenong.jpg/500px-Gamelan_Jawa_-_Set_Kenong.jpg
 youtube_ids: vgJpRf4uZX0 VXXyiGoAtrA
 ---
+
 ## 介紹
 
 克農鑼是印尼的一種樂器，用於甘美蘭音樂中。它是一種鑼，橫放使用。它的長度和寬度相同。因此，它類似於邦鑼、肯皮央鑼和克圖克鑼，這些樂器也都是搖籃式鑼。克農鑼通常比上述樂器大得多。然而，克農鑼的音高相當較高。由於其獨特的音色，它的聲音突出明顯。克農鑼槌比邦鑼槌更高。克農鑼有時由與肯皮央鑼和克圖克鑼相同的演奏者演奏。

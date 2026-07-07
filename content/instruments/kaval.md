@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/kaval/
-title: 卡瓦爾笛
-original_name: Kaval
-category: 管樂器
-country: 歐洲／巴爾幹
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Bulgarian_kaval_in_key_of_D%2C_African_blackwood.jpg/500px-Bulgarian_kaval_in_key_of_D%2C_African_blackwood.jpg
-sound_class: 氣鳴
-range: 約2個八度以上
-instrument_key: 無固定調性
-hs_class: 421 邊棱氣鳴／無簧笛類
-family: 無簧吹管、長音與氣息樂器
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 簧片樂器
+title_zh: 卡瓦爾笛
+title_original: Kaval
+family_std: 無簧吹管、長音與氣息樂器
+sound_hs: 421 邊棱氣鳴／無簧笛類
 playing_method: 吹奏／端吹／橫吹／容器共鳴
-body_listening: 氣息、胸腔、長音、空間
-soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 歐洲／巴爾幹
+listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/kaval/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Bulgarian_kaval_in_key_of_D%2C_African_blackwood.jpg/500px-Bulgarian_kaval_in_key_of_D%2C_African_blackwood.jpg
 youtube_ids: HE4pItxKYSU pfneqMZNNPA
 ---
+
 ## 介紹
 
 卡瓦爾笛是一種半音階末端吹奏的斜吹笛，傳統上在巴爾幹地區（包括阿爾巴尼亞、羅馬尼亞、保加利亞、南塞爾維亞、科索沃、北馬其頓、北希臘及其他地區）和安納托利亞地區（包括土耳其和亞美尼亞）演奏。卡瓦爾笛主要與山區牧羊人相關聯。與橫笛不同，卡瓦爾笛在兩端完全開放，通過吹奏一端的銳利邊緣來演奏。卡瓦爾笛有八個音孔（前面七個，背面一個用於大拇指），通常在笛子底部還有四個未按指的音準調節孔。

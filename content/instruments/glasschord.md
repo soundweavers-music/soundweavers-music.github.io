@@ -1,19 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/glasschord/
-title: 玻璃弦琴
-original_name: Glasschord
-category: 打擊樂器
-country: 歐洲
-era: 古代
-region_type: 單一地區／文化圈
-soundscape: 手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
-body_listening: 手腕、腳踝、短音、節奏對齊
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 玻璃弦琴
+title_original: Glasschord
+family_std: 撥弦與抱持弦樂家族
+sound_hs: 待確認
+playing_method: 撥奏／擦奏／擊弦（待細分）
+interface_tags: 
+region_culture: 歐洲｜單一地區／文化圈
+listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/glasschord/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/1786_Beyer_Glasschord_with_key_hammers_striking_glass_bars.jpg/500px-1786_Beyer_Glasschord_with_key_hammers_striking_glass_bars.jpg
 youtube_ids: lAEXH9DAH98 eEKlRUvk9zc
-instrument_key: 全調性
-range: c'至c、f'至f、g'至g（約3個八度）
 ---
+
 ## 介紹
 
 玻璃弦琴（法文：fortepiano à cordes de verre）是一種敲擊式玻璃琴，外形類似鋼片琴。

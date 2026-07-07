@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/kalimba/
-title: 卡林巴
-original_name: Kalimba
-category: 打擊樂器
-country: 全球／非洲／現代
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/c/c0/Ene_mbira.jpg
-sound_class: 體鳴
-range: 約2至3個8度
-instrument_key: 全調性
-hs_class: 12 體鳴／舌片琴／金屬共鳴
-family: 近身體鳴、舌片琴與手奏金屬共鳴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 卡林巴
+title_original: Kalimba
+family_std: 近身體鳴、舌片琴與手奏金屬共鳴
+sound_hs: 12 體鳴／舌片琴／金屬共鳴
 playing_method: 手敲／拇指撥片／近身共鳴
-body_listening: 指尖、掌心、尾音、近身聆聽
-soundscape: 手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）
-region_type: 跨文化／多地
+interface_tags: 撥片
+region_culture: 全球／非洲／現代
+listening_sound_tags: 指尖、掌心、尾音、近身聆聽｜手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/kalimba/
+image: https://upload.wikimedia.org/wikipedia/commons/c/c0/Ene_mbira.jpg
 youtube_ids: kd7KC3PaEaA ILmlT1ea3dU
 ---
+
 ## 介紹
 
 姆比拉（發音：əm-BEER-ə；紹納語發音：[ᵐbira]），又稱為卡林巴（Kalimba）、贊紮（Sanza）、克里克里（Cricri）、基桑吉（Kisanji）或南非鐵片琴（Kaffir piano）等諸多名稱，是一族傳統樂器，源自津巴布韋的紹納人民。該樂器由一塊木板（通常配有共鳴器）組成，上面附著錯落排列的金屬片，演奏者將樂器拿在手中，用大拇指和/或手指撥奏這些金屬片。音樂學家將其分類為簧片琴，屬於撥弦打擊樂器系列的一部分。

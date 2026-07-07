@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/stone-chimes/
-title: 石磬
-original_name: Stone Chimes
-category: 打擊樂器
-country: 東南亞／東亞／非洲／歐洲／全球
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/%E9%AD%9A%E5%BD%A2%E7%9F%B3%E7%A3%AC%EF%BC%88%E7%B7%A8%E7%A3%AC%EF%BC%89.jpg/500px-%E9%AD%9A%E5%BD%A2%E7%9F%B3%E7%A3%AC%EF%BC%88%E7%B7%A8%E7%A3%AC%EF%BC%89.jpg
-sound_class: 體鳴
-range: 約2至3個8度
-instrument_key: 無固定調性
-hs_class: 11/12 定音體鳴／鑼鐘木琴石琴系統
-family: 定音體鳴、材料敲擊與鑼鐘木琴系統
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 石磬
+title_original: Stone Chimes
+family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
+sound_hs: 11/12 定音體鳴／鑼鐘木琴石琴系統
 playing_method: 敲擊／搖奏／材料共鳴
-body_listening: 材料、回聲、群體分工、音列
-soundscape: 木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 東南亞／東亞／非洲／歐洲／全球
+listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
+ensemble_links: 甘美朗合奏
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/stone-chimes/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/%E9%AD%9A%E5%BD%A2%E7%9F%B3%E7%A3%AC%EF%BC%88%E7%B7%A8%E7%A3%AC%EF%BC%89.jpg/500px-%E9%AD%9A%E5%BD%A2%E7%9F%B3%E7%A3%AC%EF%BC%88%E7%B7%A8%E7%A3%AC%EF%BC%89.jpg
 youtube_ids: 6gKxXnUeHCc wKWqZLQDuKo
 ---
+
 ## 介紹
 
 石磬是中國古代重要的打擊樂器，起源於新石器時代，距今已有八千年歷史。樂器由天然石材或玉石製成，呈磬形，通常懸掛於木架上。石磬具有清脆明亮的音色，帶有玉石般的溫潤質感，敲擊時聲波通過石體振動直接傳播，產生純淨而富有穿透力的音響效果。在商周時期成為宮廷祭祀和禮樂活動的重要樂器，後來在民間音樂和寺廟音樂中廣泛應用，常與編鐘配套使用。

@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/ten-string-guitar/
-title: 十弦吉他
-original_name: Ten-string guitar
-category: 弦樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 十弦吉他
+title_original: Ten-string guitar
+family_std: 弦樂器類
+sound_hs: 3 弦鳴樂器
 playing_method: 撥弦／擦弦／擊弦
-family: 弦樂器類
-hs_class: 3 弦鳴樂器
-sound_class: 弦鳴
-country: 西班牙／歐洲
-era: 傳統／年代待考
-region_type: 地區／文化圈
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-body_listening: 懷抱、手指、腳步、敘事
+interface_tags: 
+region_culture: 西班牙／歐洲｜地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 需調整
+issue_note: 部分構件；Tabla Dayan 是塔布拉組的高音鼓。；與第736合併。；DUP-010:Tabla Bayan／Tabla Dayan
+source_url: https://soundweavers-music.github.io/instruments/ten-string-guitar/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Guitar_Decacorde.webm/500px--Guitar_Decacorde.webm.jpg
 youtube_ids: tH_dfASP0UI YedRfQoAyf0
-instrument_key: 全調性
-range: E1–E5（約4個8度）
 ---
+
 ## 介紹
 
 十弦吉他有許多種類，包括：電吉他和原聲吉他。主要用於古典音樂、民俗音樂和流行音樂的樂器。既有複弦琴也有單弦琴。

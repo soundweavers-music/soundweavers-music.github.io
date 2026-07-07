@@ -1,21 +1,23 @@
 ---
-title: 手鐘
-original_name: Handbell
-category: 打擊樂器
-country: 全球
-era: 20 世紀
-sound_class: 體鳴
-range: 依調式音階而定
-instrument_key: 依調式而定
-hs_class: 11 小型體鳴／搖奏刮奏敲奏
-family: 手鐘／手鈴
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
+title_zh: 手鐘
+title_original: Handbell
+family_std: 手鐘／手鈴
+sound_hs: 11 小型體鳴／搖奏刮奏敲奏
 playing_method: 敲擊／搖奏
-body_listening: 手腕、手掌、短音、節奏對齊
+interface_tags: 
+region_culture: 全球
+listening_sound_tags: 手腕、手掌、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: 
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Handchime.jpg/500px-Handchime.jpg
 youtube_ids: hvi9Kx6s0ls
-soundscape: 手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
-region_type: 跨文化／多地
 ---
+
 ## 介紹
 
 手鐘（Handchime）是一種現代打擊樂器，由一根精確調音的矩形或圓形金屬棒構成，安裝在共鳴箱座上。演奏者透過以橡膠或塑膠製成的敲擊棒輕敲金屬棒的上端，或將樂器握在手中搖動使其發聲。手鐘的音高經過精準調校，每個樂器僅發出一個特定的音高，因此一套手鐘通常包含多個不同音高的樂器，由多位演奏者合作演奏完整的旋律。

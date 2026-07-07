@@ -1,19 +1,23 @@
 ---
-is_uncommon: true
-site_url: https://soundweavers-music.github.io/instruments/paiban/
-title: 拍板
-original_name: Paiban
-category: 打擊樂器
-country: 中國
-era: 傳統／年代待考
-region_type: 單一地區／文化圈
-soundscape: 手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
-body_listening: 手腕、腳踝、短音、節奏對齊
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 沙鈴、刮器與小打擊
+title_zh: 拍板
+title_original: Paiban
+family_std: 沙鈴、刮器與小打擊家族
+sound_hs: 待確認
+playing_method: 敲奏／拍奏／搖奏／刮奏（待細分）
+interface_tags: 
+region_culture: 中國｜單一地區／文化圈
+listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/paiban/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/A_palace_concert.jpg/500px-A_palace_concert.jpg
 youtube_ids: lfZcIe4s0C4 -Q4l-DnqdMo
-instrument_key: 無固定調性
-range: 高音域，音域相對集中，約1個8度左右
 ---
+
 ## 介紹
 
 拍板又名檀板，是一種中國傳統打擊樂器，以木板相互敲擊以發出聲響，通常由三片木片或兩片竹片構成，各種音樂與戲劇的板差異極大。 拍板的歷史最早可推到唐代，可能由西北傳入。當時民間樂散樂中使用，五代的壁畫中，可確認在宮庭樂中使用。 拍板後來廣泛在民間的說唱音樂、器樂、戲曲伴奏中使用。包括說唱的「板樂」、元代雜劇，與南管中都有使用。 山東快書使用的拍板為金屬板，打擊聲音清脆。北方快板書及蓮花落使用的快板除兩片板外，還常配一副五張的小板，共同配合打擊，通稱七件子。

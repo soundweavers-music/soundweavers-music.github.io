@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/gottuvadyam/
-title: 葛圖瓦賈姆琴
-original_name: Gottuvadyam
-category: 弦樂器
-country: 中東／歐洲／亞洲／美洲
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Chitravina_N_Ravikiran-1300972.jpg/500px-Chitravina_N_Ravikiran-1300972.jpg
-sound_class: 弦鳴
-range: 約3個8度（高、中、低三個音域）
-instrument_key: 全調性
-hs_class: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
-family: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 葛圖瓦賈姆琴
+title_original: Gottuvadyam
+family_std: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+sound_hs: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
 playing_method: 撥弦／擊弦／按鍵擊弦
-body_listening: 懷抱、手指、腳步、敘事
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 地區／文化圈
+interface_tags: 鍵盤／按鍵
+region_culture: 中東／歐洲／亞洲／美洲｜地區／文化圈
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/gottuvadyam/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Chitravina_N_Ravikiran-1300972.jpg/500px-Chitravina_N_Ravikiran-1300972.jpg
 youtube_ids: L45XwfOEbus mxWkvAUfzGs
 ---
+
 ## 介紹
 
 葛圖瓦賈姆琴是卡納塔克音樂中的一種20或21弦無品琵琶式維那琴，大約出現於19世紀末至20世紀初，由來自蒂魯維代馬魯杜爾的薩卡·拉瑪·饒命名，他曾將其重新帶回音樂會舞台。它也被稱為吉特拉維那（梵文：चित्रवीणा）、吉特拉維那琴、奇特拉維那琴、吉特拉維那、哈努曼維那琴和摩訶納塔卡維那琴。今天它主要在南印度演奏，但其起源可以追溯到《婆羅多戲論》（公元前200年至公元200年），其中提到它是一種七弦無品樂器。

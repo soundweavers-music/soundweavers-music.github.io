@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/bowed-psaltery/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Streichpsalter-spielerin.jpg/500px-Streichpsalter-spielerin.jpg
-title: 弓形詩篇琴
-original_name: Bowed Psaltery
-category: 鍵盤樂器
-country: 亞洲／歐洲／全球
-era: 傳統／年代待考
-sound_class: 弦鳴
-range: 約3個八度以上
-instrument_key: 全調性
-hs_class: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
-family: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 平放弦與擊弦
+title_zh: 弓形詩篇琴
+title_original: Bowed Psaltery
+family_std: 齊特琴、箏類、擊弦與鍵盤化弦鳴
+sound_hs: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
 playing_method: 撥弦／擊弦／按鍵擊弦
-body_listening: 手掌、弦面、推音、敲擊
-soundscape: 平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
-region_type: 跨文化／多地
+interface_tags: 鍵盤／按鍵、弓
+region_culture: 亞洲／歐洲／全球
+listening_sound_tags: 手掌、弦面、推音、敲擊｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/bowed-psaltery/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Streichpsalter-spielerin.jpg/500px-Streichpsalter-spielerin.jpg
 youtube_ids: sotvgwFm-MI aD_dsfp1Uyk
 ---
+
 ## 介紹
 
 弓形詩篇琴是一種源自中世紀歐洲的弦樂器，結合了豎琴的弦列排列與小提琴的弓奏技巧。樂器呈梯形或三角形，琴身由木製共鳴腔組成，琴弦張設於上方。演奏者使用弓與琴弦摩擦發聲，能產生連貫悠長的音符。其溫潤柔和的音色兼具提琴的絲滑感與豎琴的共鳴特質，特別適合宗教音樂與冥想性音樂表現。

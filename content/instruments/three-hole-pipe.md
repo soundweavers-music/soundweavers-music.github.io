@@ -1,21 +1,22 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/three-hole-pipe/
-title: 三孔笛
-original_name: Three-hole Pipe
-category: 管樂器
-country: 全球／亞洲／歐洲／美洲／大洋洲
-era: 傳統／年代待考
-sound_class: 氣鳴
-range: 約1至2個八度
-instrument_key: 無固定調性
-hs_class: Aerophone／氣鳴樂器
-family: 端吹笛
+class_code: A1
+frontend_class: 吹奏與氣息樂器
+subcategory: 無簧吹管
+title_zh: 三孔笛
+title_original: Three-hole Pipe
+family_std: 端吹笛
+sound_hs: Aerophone／氣鳴樂器
 playing_method: 端吹／單手吹奏
-body_listening: 氣息、胸腔、長音、空間
-soundscape: 一口氣走過山谷（竹管、陶管、長音與世界笛聲）
-region_type: 跨文化／多地
+interface_tags: 指孔
+region_culture: 全球／亞洲／歐洲／美洲／大洋洲
+listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/three-hole-pipe/
 youtube_ids: IC5uQufh3n0 KeegxK1o5v0
 ---
+
 ## 介紹
 
 三孔笛是一種古老的吹奏樂器，結構簡約，由空心管身和三個音孔組成。樂器外型細長圓潤，便於手持演奏。其用途廣泛，既用於民間音樂演奏，也見於儀式活動和教育場景。三孔笛的特色在於音色清亮明淨，具有原始純樸的氣質，通過改變指法和氣流強度可產生豐富音色變化。因其簡易設計和易於上手的特點，成為世界各地傳統音樂的重要樂器，特別適合表現民謠與田園風情。

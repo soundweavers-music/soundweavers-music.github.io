@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/gankogui/
-title: 岡科圭雙鐘
-original_name: Gankogui
-category: 打擊樂器
-country: 迦納／埃維文化圈
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Modern-Agogo.jpg/500px-Modern-Agogo.jpg
-sound_class: 體鳴
-range: 約1個8度
-instrument_key: 無固定調性
-hs_class: Idiophone／體鳴樂器
-family: 雙鐵鐘
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
+title_zh: 岡科圭雙鐘
+title_original: Gankogui
+family_std: 雙鐵鐘
+sound_hs: Idiophone／體鳴樂器
 playing_method: 敲擊
-body_listening: 節奏骨架、清楚時間感、群體對齊
-soundscape: 手邊發光的小宇宙（近身體鳴、舌片琴與手奏金屬共鳴）
-region_type: 單一地區／文化圈
+interface_tags: 
+region_culture: 迦納／埃維文化圈｜單一地區／文化圈
+listening_sound_tags: 節奏骨架、清楚時間感、群體對齊｜手邊發光的小宇宙（近身體鳴、舌片琴與手奏金屬共鳴）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/gankogui/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Modern-Agogo.jpg/500px-Modern-Agogo.jpg
 youtube_ids: EEU_NjM4n2k RWMbPl7cJ4I
 ---
+
 ## 介紹
 
 岡科圭雙鐘（約魯巴語：['aɡoɡo]）是一種體鳴樂器。起源於西非音樂，現已普遍用於巴西傳統和流行音樂中。岡科圭雙鐘通常由兩個錐形金屬片組成，具有不同的音高。

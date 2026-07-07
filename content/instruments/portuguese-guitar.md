@@ -1,23 +1,23 @@
 ---
-is_popular: true
-site_url: https://soundweavers-music.github.io/instruments/portuguese-guitar/
-title: 葡萄牙吉他
-original_name: Portuguese guitar
-category: 弦樂器
-country: 歐洲／葡萄牙
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/2_Portuguese_guitars.jpg/500px-2_Portuguese_guitars.jpg
-sound_class: 弦鳴
-range: 約3個八度
-instrument_key: 全調性
-hs_class: 321/322 魯特琴類／撥弦
-family: 魯特琴、短頸長頸撥弦與民謠弦聲
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
+title_zh: 葡萄牙吉他
+title_original: Portuguese guitar
+family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
+sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
 playing_method: 撥弦／刷弦／撥片
-body_listening: 懷抱、手指、腳步、敘事
-soundscape: 旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
-region_type: 跨文化／多地
+interface_tags: 撥片
+region_culture: 歐洲／葡萄牙
+listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
+ensemble_links: 
+verification_status: 中文名重複，需判斷
+issue_note: 中文名碰撞；中文名與第182、558、577項重複，但英文／原文可能不同。；不可只用中文名判斷；請以英文／原文名與型制決定合併、相鄰或改譯名。
+source_url: https://soundweavers-music.github.io/instruments/portuguese-guitar/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/2_Portuguese_guitars.jpg/500px-2_Portuguese_guitars.jpg
 youtube_ids: wzlZ68ts-IU 5rBm9lZ7-ko
 ---
+
 ## 介紹
 
 葡萄牙吉他（葡萄牙語：guitarra portuguesa，發音為 [ɡiˈtaʁɐ puɾtuˈɣezɐ]）是一種撥弦樂器，有十二根鋼弦，分為六組雙弦排列。它是少數仍使用手錶鑰匙式或普雷斯頓調音器的樂器之一。它在標誌性上與法多音樂流派密切相關。

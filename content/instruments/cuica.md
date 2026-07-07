@@ -1,22 +1,23 @@
 ---
-site_url: https://soundweavers-music.github.io/instruments/cuica/
-title: 奎卡鼓
-original_name: Cuíca
-category: 打擊樂器
-country: 美洲／巴西
-era: 傳統／年代待考
-image: https://upload.wikimedia.org/wikipedia/commons/7/79/Cuica.jpg
-sound_class: 膜鳴
-range: F♯5–G5（約半音以內）
-instrument_key: 無固定調性
-hs_class: 21 膜鳴鼓類
-family: 膜鳴鼓類、框鼓、杯鼓與鼓組
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
+title_zh: 奎卡鼓
+title_original: Cuíca
+family_std: 膜鳴鼓類、框鼓、杯鼓與鼓組
+sound_hs: 21 膜鳴鼓類
 playing_method: 手拍／槌擊／皮膜振動
-body_listening: 手掌、腳底、低音、舞步
-soundscape: 手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
-region_type: 跨文化／多地
+interface_tags: 
+region_culture: 美洲／巴西
+listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
+ensemble_links: 
+verification_status: 可保留，待雙來源確認
+issue_note: 
+source_url: https://soundweavers-music.github.io/instruments/cuica/
+image: https://upload.wikimedia.org/wikipedia/commons/7/79/Cuica.jpg
 youtube_ids: mmlK94QvwiA NVOtE1qSymU
 ---
+
 ## 介紹
 
 奎卡鼓（葡萄牙語發音：[kuˈikɐ]）是一種巴西摩擦鼓，音域寬廣，通過改變鼓面的張力來改變音高。奎卡是葡萄牙語中灰色四眼負鼠（學名：Philander opossum）的名稱，這種動物以其高音調的叫聲而聞名。奎卡鼓經常用於狂歡節，也常見於桑巴音樂中。它發出的音色具有高音調的尖銳音質。由於這種聲音，它被稱為「笑聲葫蘆」。通用MIDI鼓組在F♯5和G5音符處提供奎卡鼓的聲音。
