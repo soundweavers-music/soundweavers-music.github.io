@@ -970,6 +970,70 @@ def build_category_detail_pages(instruments):
             if subcat:
                 code_to_subcats[code].add(subcat)
 
+    # ─── /categories/index.html — 全部分類：A.單一樂器百科 + B.合奏與編制百科 ───
+    cat_index_body = f"""
+    <main class="page">
+      <section class="compact-hero">
+        <p class="eyebrow">World Musical Instruments Encyclopedia</p>
+        <h1>全部分類</h1>
+        <p class="lead">探索世界樂器的分類體系，從單一樂器到合奏編制。</p>
+      </section>
+      <section class="section">
+        <div class="section-heading"><h2>樂器百科</h2></div>
+        <div class="featured-links">
+          <a class="featured-card" href="{site_url('/categories/single-instrument/')}" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:1px solid #bbf7d0;">
+            <strong>A. 單一樂器百科</strong>
+            <span>依發聲原理分為 A1 吹奏與氣息樂器、A2 弦樂器、A3 鼓與打擊樂器、A4 電子與電聲樂器及 A9 待分類，共 5 大類。</span>
+          </a>
+          <a class="featured-card" href="{site_url('/ensembles/')}" style="background:linear-gradient(135deg,#f0f5ff,#e0efff);border:1px solid #c5ddfd;">
+            <strong>B. 合奏與編制百科</strong>
+            <span>從地域傳統合奏、民間樂隊到現代跨界編制，探索樂器如何分工合作形成聲音系統。</span>
+          </a>
+        </div>
+      </section>
+    </main>
+    """
+    write(
+        OUTPUT_DIR / "categories" / "index.html",
+        page("全部分類", cat_index_body, OUTPUT_DIR / "categories" / "index.html",
+             meta_description="世界樂器全部分類 — A. 單一樂器百科（A1-A9）與 B. 合奏與編制百科（B1-B7）。"),
+    )
+
+    # ─── /categories/single-instrument/index.html — A. 單一樂器百科（A1-A9 列表） ───
+    a_cards_list = []
+    for code, arch in CATEGORY_ARCHITECTURE.items():
+        cat_slug = slugify(arch['name'])
+        cat_url = site_url(f'/categories/{cat_slug}/')
+        a_cards_list.append(
+            f'<a class="facet-card" href="{cat_url}">'
+            f'<strong>{escape(code)} {escape(arch["name"])}</strong>'
+            f'<span>{len(code_to_instruments.get(code, []))} 件樂器</span>'
+            f'<span style="font-size:12px;color:var(--muted);">{escape(arch["description"])}</span>'
+            f'</a>'
+        )
+    a_cards = "".join(a_cards_list)
+    single_instrument_dir = OUTPUT_DIR / "categories" / "single-instrument"
+    single_instrument_dir.mkdir(parents=True, exist_ok=True)
+    write(
+        single_instrument_dir / "index.html",
+        page(
+            "A. 單一樂器百科",
+            f"""
+            <main class="page">
+              <section class="compact-hero">
+                <p class="eyebrow">Single Instrument Encyclopedia</p>
+                <h1>A. 單一樂器百科</h1>
+                <p class="lead">依發聲原理分類，涵蓋世界各地的傳統與現代樂器。</p>
+              </section>
+              <div class="facet-grid">{a_cards}</div>
+            </main>
+            """,
+            single_instrument_dir / "index.html",
+            meta_description="單一樂器百科 A1-A9 分類總覽 — 從吹奏樂器到電子樂器，探索世界各地的樂器分類。",
+        ),
+    )
+
+    # ─── 各 A1-A9 分類頁面（含子分類） ───
     for code, arch in CATEGORY_ARCHITECTURE.items():
         cat_name = arch["name"]
         slug = slugify(cat_name)
@@ -1747,8 +1811,8 @@ def build_sitemap(instruments):
     urls = []
 
     # Static top-level pages
-    for path in ["/", "/instruments/", "/categories/", "/countries/",
-                 "/ensembles/", "/subcategories/", "/map/",
+    for path in ["/", "/instruments/", "/categories/", "/categories/single-instrument/",
+                 "/countries/", "/ensembles/", "/subcategories/", "/map/",
                  "/about/", "/theory/", "/vocal/", "/digitalmusic/",
                  "/sound-journey/", "/experience/", "/contact/"]:
         urls.append(u(path))
