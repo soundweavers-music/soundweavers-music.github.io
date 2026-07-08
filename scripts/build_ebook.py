@@ -322,19 +322,16 @@ def build_docx(instruments, code, arch):
     # ═══════════════════════════════════════════════
     entry_num = 1
     current_sc = None
-    first = True
     for inst in instruments_sorted:
         sc = inst.get("subcategory") or ""
 
-        # 子分類標題
+        # 每個樂器前都分頁（含第一個，確保目錄後獨立）
+        add_page_break(doc)
+
+        # 子分類標題（每分類第一次出現時）
         if sc and sc != current_sc:
             current_sc = sc
-            if not first:
-                add_page_break(doc)
             doc.add_heading(sc, level=2)
-        elif not first:
-            add_page_break(doc)
-        first = False
 
         # ─── 樂器名稱（Heading 3，供 TOC 與導覽） ───
         heading_text = f"{entry_num}. {inst['title_zh']}"
