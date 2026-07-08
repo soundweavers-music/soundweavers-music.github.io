@@ -27,15 +27,15 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install system fonts
+      - name: Install system fonts & LibreOffice
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y -qq fonts-noto-cjk 2>/dev/null || true
+          sudo apt-get install -y -qq fonts-noto-cjk libreoffice-writer 2>/dev/null || true
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install Markdown openpyxl bleach python-docx fpdf2 qrcode pillow
+          pip install Markdown openpyxl bleach python-docx qrcode pillow
 
       - name: Build static site
         run: |

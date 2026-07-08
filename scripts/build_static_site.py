@@ -2080,32 +2080,32 @@ def build_manager_page(instruments):
       <div style="border:1px solid var(--line);border-radius:8px;padding:14px;background:var(--surface);">
         <strong>A1 吹奏與氣息樂器</strong><br>
         <span style="font-size:12px;color:var(--muted);">225 件樂器</span><br>
-        <a href="../assets/A1-吹奏與氣息樂器.docx" download style="font-size:13px;">📄 DOCX</a>
-        <a href="../assets/A1-吹奏與氣息樂器.pdf" download style="font-size:13px;margin-left:12px;">📕 PDF</a>
+        <a href="../assets/世界樂器百科Ⅰ_A1-吹奏與氣息樂器.docx" download style="font-size:13px;">DOCX</a>
+        <a href="../assets/世界樂器百科Ⅰ_A1-吹奏與氣息樂器.pdf" download style="font-size:13px;margin-left:12px;">PDF</a>
       </div>
       <div style="border:1px solid var(--line);border-radius:8px;padding:14px;background:var(--surface);">
         <strong>A2 弦樂器</strong><br>
         <span style="font-size:12px;color:var(--muted);">373 件樂器</span><br>
-        <a href="../assets/A2-弦樂器.docx" download style="font-size:13px;">📄 DOCX</a>
-        <a href="../assets/A2-弦樂器.pdf" download style="font-size:13px;margin-left:12px;">📕 PDF</a>
+        <a href="../assets/世界樂器百科Ⅱ_A2-弦樂器.docx" download style="font-size:13px;">DOCX</a>
+        <a href="../assets/世界樂器百科Ⅱ_A2-弦樂器.pdf" download style="font-size:13px;margin-left:12px;">PDF</a>
       </div>
       <div style="border:1px solid var(--line);border-radius:8px;padding:14px;background:var(--surface);">
         <strong>A3 鼓與打擊樂器</strong><br>
         <span style="font-size:12px;color:var(--muted);">150 件樂器</span><br>
-        <a href="../assets/A3-鼓與打擊樂器.docx" download style="font-size:13px;">📄 DOCX</a>
-        <a href="../assets/A3-鼓與打擊樂器.pdf" download style="font-size:13px;margin-left:12px;">📕 PDF</a>
+        <a href="../assets/世界樂器百科Ⅲ_A3-鼓與打擊樂器.docx" download style="font-size:13px;">DOCX</a>
+        <a href="../assets/世界樂器百科Ⅲ_A3-鼓與打擊樂器.pdf" download style="font-size:13px;margin-left:12px;">PDF</a>
       </div>
       <div style="border:1px solid var(--line);border-radius:8px;padding:14px;background:var(--surface);">
         <strong>A4 電子與電聲樂器</strong><br>
         <span style="font-size:12px;color:var(--muted);">78 件樂器</span><br>
-        <a href="../assets/A4-電子與電聲樂器.docx" download style="font-size:13px;">📄 DOCX</a>
-        <a href="../assets/A4-電子與電聲樂器.pdf" download style="font-size:13px;margin-left:12px;">📕 PDF</a>
+        <a href="../assets/世界樂器百科Ⅳ_A4-電子與電聲樂器.docx" download style="font-size:13px;">DOCX</a>
+        <a href="../assets/世界樂器百科Ⅳ_A4-電子與電聲樂器.pdf" download style="font-size:13px;margin-left:12px;">PDF</a>
       </div>
       <div style="border:1px solid var(--line);border-radius:8px;padding:14px;background:var(--surface);">
         <strong>A9 待分類</strong><br>
         <span style="font-size:12px;color:var(--muted);">7 件樂器</span><br>
-        <a href="../assets/A9-待分類.docx" download style="font-size:13px;">📄 DOCX</a>
-        <a href="../assets/A9-待分類.pdf" download style="font-size:13px;margin-left:12px;">📕 PDF</a>
+        <a href="../assets/世界樂器百科Ⅴ_A9-待分類.docx" download style="font-size:13px;">DOCX</a>
+        <a href="../assets/世界樂器百科Ⅴ_A9-待分類.pdf" download style="font-size:13px;margin-left:12px;">PDF</a>
       </div>
     </div>
   </div>
