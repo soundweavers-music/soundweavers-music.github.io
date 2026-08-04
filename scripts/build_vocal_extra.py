@@ -375,7 +375,7 @@ def build_portal_homepage(instruments):
     <a class="portal-card card-tools" href="{resolve_url(index_path, '/tools/fretboard/')}" style="border-color:var(--accent);">
       <div class="card-icon">🎸</div>
       <div class="card-label">指版與和弦圖工具</div>
-      <div class="card-desc">瀏覽常見彈撥樂器的調弦法、常用和弦圖表、各調性順階和弦與指版音位圖。支援吉他、烏克麗麗、班卓琴、琵琶等 17 種樂器。</div>
+      <div class="card-desc">瀏覽常見彈撥樂器的調弦法、常用和弦圖表與指法建議、各調性順階和弦與指版音位圖。支援吉他、烏克麗麗、班卓琴、琵琶、中阮等 19 種樂器。</div>
       <span class="card-badge badge-info">新工具</span>
     </a>
     <a class="portal-card card-tools" href="{resolve_url(index_path, '/tools/experience/')}" style="border-color:var(--accent);">
