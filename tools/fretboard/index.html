@@ -72,6 +72,20 @@
 .common-chord-card .cc-auto {font-size:10px;color:#b45309;}
 .common-chord-card .cc-notes {font-size:11px;color:var(--muted);font-family:monospace;}
 .common-chord-card .cc-intervals {font-size:10px;color:var(--muted);opacity:0.7;}
+.common-chord-card {position:relative;}
+.cc-remove {position:absolute;top:4px;right:6px;width:18px;height:18px;line-height:16px;text-align:center;border:none;border-radius:50%;background:transparent;color:var(--muted);font-size:14px;cursor:pointer;padding:0;opacity:0;transition:opacity .12s;}
+.common-chord-card:hover .cc-remove {opacity:1;}
+.cc-remove:hover {background:#c0392b;color:#fff;}
+.cc-tabs {display:flex;border-bottom:1px solid var(--line);background:var(--soft);}
+.cc-tab {flex:0 0 auto;padding:14px 20px;background:transparent;border:none;border-bottom:3px solid transparent;font-size:15px;font-weight:700;color:var(--muted);cursor:pointer;transition:all .12s;}
+.cc-tab:hover {color:var(--ink);}
+.cc-tab.is-active {color:var(--accent);border-bottom-color:var(--accent);}
+.cc-builder {display:flex;flex-wrap:wrap;align-items:flex-end;gap:10px;margin-bottom:16px;padding:12px 14px;border:1px dashed var(--line);border-radius:8px;background:var(--soft);}
+.cc-builder label {display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--muted);font-weight:600;}
+.cc-builder select {padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:var(--surface);font-size:13px;}
+.cc-builder button {padding:8px 16px;border:1px solid var(--accent);border-radius:6px;background:var(--accent);color:#fff;font-size:13px;font-weight:700;cursor:pointer;}
+.cc-builder button.ghost {background:transparent;color:var(--accent);}
+.cc-builder button:hover {opacity:.88;}
 .chord-fingering-label {font-size:12px;color:var(--muted);margin-top:4px;}
 .chord-diagram-box {display:flex;flex-direction:column;align-items:center;gap:8px;}
 .chord-name-label {font-size:20px;font-weight:800;}
@@ -147,6 +161,57 @@ var INTERVAL_SYMBOLS = ['1','♭2','2','♭3','3','4','♯4/♭5','5','♯5/♭6
 // 各和弦類型的音程（供常用和弦圖表使用）
 var CI = {'maj':[0,4,7],'m':[0,3,7],'dim':[0,3,6],'aug':[0,4,8],'sus2':[0,2,7],'sus4':[0,5,7],'maj7':[0,4,7,11],'m7':[0,3,7,10],'7':[0,4,7,10],'dim7':[0,3,6,9],'m7b5':[0,3,6,10],'aug7':[0,4,8,10],'9':[0,4,7,10,2],'maj9':[0,4,7,11,2],'m9':[0,3,7,10,2],'7sus4':[0,5,7,10]};
 
+// 各和弦類型：f=完整組成音程、e=必要音程（三音、七音必留，五音可省）。供指型推算使用。
+var QDEF = {
+  'maj':  {f:[0,4,7],       e:[0,4,7]},
+  'm':    {f:[0,3,7],       e:[0,3,7]},
+  '7':    {f:[0,4,7,10],    e:[0,4,10]},
+  'maj7': {f:[0,4,7,11],    e:[0,4,11]},
+  'm7':   {f:[0,3,7,10],    e:[0,3,10]},
+  'dim':  {f:[0,3,6],       e:[0,3,6]},
+  'dim7': {f:[0,3,6,9],     e:[0,3,6,9]},
+  'm7b5': {f:[0,3,6,10],    e:[0,3,10]},
+  'aug':  {f:[0,4,8],       e:[0,4,8]},
+  'aug7': {f:[0,4,8,10],    e:[0,4,8,10]},
+  'sus2': {f:[0,2,7],       e:[0,2,7]},
+  'sus4': {f:[0,5,7],       e:[0,5,7]},
+  '7sus4':{f:[0,5,7,10],    e:[0,5,10]},
+  '9':    {f:[0,4,7,10,2],  e:[0,4,10,2]},
+  'maj9': {f:[0,4,7,11,2],  e:[0,4,11,2]},
+  'm9':   {f:[0,3,7,10,2],  e:[0,3,10,2]},
+  'add9': {f:[0,4,7,2],     e:[0,4,2]},
+  'madd9':{f:[0,3,7,2],     e:[0,3,2]},
+  '6':    {f:[0,4,7,9],     e:[0,4,9]},
+  'm6':   {f:[0,3,7,9],     e:[0,3,9]}
+};
+// 類型顯示名（後綴 s、中文說明 d），供選單與卡片使用。
+var QLABEL = {
+  'maj':{s:'',d:'大三和弦'},'m':{s:'m',d:'小三和弦'},'7':{s:'7',d:'屬七和弦'},
+  'maj7':{s:'maj7',d:'大七和弦'},'m7':{s:'m7',d:'小七和弦'},'dim':{s:'dim',d:'減三和弦'},
+  'dim7':{s:'dim7',d:'減七和弦'},'m7b5':{s:'m7b5',d:'半減七'},'aug':{s:'aug',d:'增三和弦'},
+  'aug7':{s:'aug7',d:'增七和弦'},'sus2':{s:'sus2',d:'掛留二'},'sus4':{s:'sus4',d:'掛留四'},
+  '7sus4':{s:'7sus4',d:'屬七掛留四'},'9':{s:'9',d:'屬九和弦'},'maj9':{s:'maj9',d:'大九和弦'},
+  'm9':{s:'m9',d:'小九和弦'},'add9':{s:'add9',d:'加九和弦'},'madd9':{s:'madd9',d:'小加九'},
+  '6':{s:'6',d:'大六和弦'},'m6':{s:'m6',d:'小六和弦'}
+};
+// 預設「常用和弦」清單（依使用者指定順序），bass 為斜線和弦的低音音級。
+var PRESET_COMMON = [
+  {root:0,q:'maj'},{root:2,q:'m7'},{root:4,q:'m7'},{root:5,q:'maj'},{root:7,q:'maj'},
+  {root:9,q:'m7'},{root:9,q:'m'},{root:11,q:'m'},{root:11,q:'m7'},{root:2,q:'maj'},
+  {root:2,q:'7'},{root:4,q:'m'},{root:0,q:'add9'},{root:0,q:'maj7'},{root:5,q:'maj7'},
+  {root:7,q:'maj7'},{root:7,q:'add9'},{root:2,q:'maj7'},{root:7,q:'sus4'},{root:2,q:'sus4'},
+  {root:0,q:'maj',bass:4},{root:2,q:'maj',bass:6},{root:7,q:'maj',bass:11},{root:9,q:'m',bass:7},
+  {root:5,q:'maj',bass:7},{root:4,q:'7'},{root:9,q:'7'},{root:11,q:'7'},{root:5,q:'m'},{root:0,q:'m'}
+];
+// 依 root/quality/bass 組成和弦名稱（斜線和弦附低音）。
+function chordSpecName(spec) {
+  var s = (QLABEL[spec.q] ? QLABEL[spec.q].s : spec.q);
+  var nm = NOTE_NAMES[spec.root] + s;
+  if (spec.bass != null) nm += '/' + NOTE_NAMES[((spec.bass % 12) + 12) % 12];
+  return nm;
+}
+function specKey(spec) { return spec.root + ':' + spec.q + ':' + (spec.bass == null ? '' : spec.bass); }
+
 // 從已驗證的和弦資料庫取出此樂器 / 調弦 / 根音 / 類型的標準指型（無則回傳 null）。
 function getChordShape(instIdx, tuning, rootPC, quality) {
   var byInst = CHORD_LIBRARY[instIdx]; if (!byInst) return null;
@@ -154,7 +219,16 @@ function getChordShape(instIdx, tuning, rootPC, quality) {
   return byTune[rootPC + ':' + quality] || null;
 }
 
-var state = {instrument:0,tuning:null,key:0,mode:'major',selectedChord:null,selectedCommonChord:null,fretCount:15};
+function loadPresetChords() {
+  try {
+    var raw = localStorage.getItem('fretboard_common_chords');
+    if (raw) { var arr = JSON.parse(raw); if (arr && arr.length) return arr; }
+  } catch (e) {}
+  return PRESET_COMMON.map(function(s){ return {root:s.root, q:s.q, bass:(s.bass==null?null:s.bass)}; });
+}
+function savePresetChords() { try { localStorage.setItem('fretboard_common_chords', JSON.stringify(state.presetChords)); } catch (e) {} }
+
+var state = {instrument:0,tuning:null,key:0,mode:'major',selectedChord:null,selectedCommonChord:null,selectedPreset:null,presetChords:loadPresetChords(),fretCount:15};
 
 function parseTuning(arr) { return arr.map(function(s){var m=s.match(/^([A-G][♯♭]?)(\d)$/);if(!m)return 60;var no=noteToMidi(m[1]);var o=(parseInt(m[2])+1)*12;return no+o;});}
 function midiToDisplay(m) {return NOTE_NAMES[m%12]+Math.floor(m/12-1);}
@@ -169,7 +243,7 @@ function updateFromState() {
   ts.value=state.tuning;
   ts.onchange=function(){state.tuning=this.value;state.selectedChord=null;state.selectedCommonChord=null;updateFromState();};
   document.querySelectorAll('#key-selector .note-btn').forEach(function(b){b.classList.toggle('is-active',parseInt(b.dataset.note)===state.key);});
-  renderFretboard(); renderTuningsList(); renderChords(); renderScaleTable(); renderCommonChords();
+  renderFretboard(); renderTuningsList(); renderChords(); renderScaleTable(); renderCommonChords(); renderPresetChords();
 }
 
 function renderFretboard() {
@@ -320,11 +394,124 @@ function getChordFingeringHint(root, intervals) {
   return '構成：' + names.join(' + ');
 }
 
+// ---- 指法指派：考慮手指物理限制 ----
+// 同一格若跨多弦且中間沒有空弦/悶音，視為封閉指（barre，食指橫按）。
+// 否則：不同格用不同手指（低格用小號手指）；同一格非鄰接的弦必須用不同手指。
+function assignByFretGroups(strings, frets, fingers, startFinger) {
+  var byFret = {};
+  strings.forEach(function(s){ (byFret[frets[s]] = byFret[frets[s]] || []).push(s); });
+  var fretsAsc = Object.keys(byFret).map(Number).sort(function(a,b){return a-b;});
+  var nf = startFinger;
+  fretsAsc.forEach(function(fr){
+    var ss = byFret[fr].sort(function(a,b){return a-b;});
+    var runStart = 0;
+    for (var i = 1; i <= ss.length; i++) {
+      if (i === ss.length || ss[i] !== ss[i-1] + 1) {   // 相鄰的一段可用同一指（小封閉），非相鄰則換指
+        for (var j = runStart; j < i; j++) fingers[ss[j]] = Math.min(4, nf);
+        nf++;
+        runStart = i;
+      }
+    }
+  });
+  return nf;   // 下一個可用手指編號（用掉的手指數 = nf - 1）
+}
+
+function assignFingers(frets) {
+  var n = frets.length, fingers = [];
+  for (var i = 0; i < n; i++) fingers.push(0);
+  var pressed = [];
+  for (var s = 0; s < n; s++) if (frets[s] > 0) pressed.push(s);
+  if (!pressed.length) return {fingers: fingers, barre: null, count: 0};
+  var f0 = Math.min.apply(null, pressed.map(function(s){return frets[s];}));
+  var at0 = pressed.filter(function(s){return frets[s] === f0;});
+  var barre = null, endFinger;
+  var isBarre = false;
+  if (at0.length >= 2) {
+    var lo = Math.min.apply(null, at0), hi = Math.max.apply(null, at0), ok = true;
+    for (var s = lo; s <= hi; s++) { if (frets[s] < f0) { ok = false; break; } }  // 中間有空弦/悶音則非真封閉
+    if (ok) { isBarre = true; barre = {fret: f0, from: lo, to: hi}; }
+  }
+  if (isBarre) {
+    at0.forEach(function(s){ fingers[s] = 1; });
+    var rem = pressed.filter(function(s){return frets[s] > f0;});
+    endFinger = assignByFretGroups(rem, frets, fingers, 2);
+  } else {
+    endFinger = assignByFretGroups(pressed, frets, fingers, 1);
+  }
+  return {fingers: fingers, barre: barre, count: endFinger - 1};
+}
+
+// ---- 受限暴力搜尋：找出可實際彈奏的指型（根音在低音、低把位、<=4指、跨度<=3格）----
+function cmpScore(a, b) { for (var i = 0; i < a.length; i++) { if (a[i] !== b[i]) return a[i] < b[i] ? -1 : 1; } return 0; }
+
+function solve(tm, allowed, essArr, bassPC, rootPC, maxMute) {
+  var n = tm.length, cand = [];
+  for (var s = 0; s < n; s++) {
+    var opts = [-1];
+    for (var f = 0; f <= 12; f++) { if (allowed.has((tm[s] + f) % 12)) opts.push(f); }
+    cand.push(opts);
+  }
+  var best = null, combo = new Array(n);
+  function dfs(s, muted, lo, hi) {
+    if (muted > maxMute) return;
+    if (s === n) {
+      var sounding = [];
+      for (var i = 0; i < n; i++) { if (combo[i] >= 0) sounding.push(tm[i] + combo[i]); }
+      if (sounding.length < 3) return;
+      var pcs = {};
+      sounding.forEach(function(m){ pcs[((m % 12) + 12) % 12] = 1; });
+      for (var e = 0; e < essArr.length; e++) { if (!pcs[essArr[e]]) return; }   // 必要音須齊全
+      var bassMidi = Math.min.apply(null, sounding), bassPc = ((bassMidi % 12) + 12) % 12;
+      if (bassPC != null && bassPc !== bassPC) return;                            // 斜線和弦：強制低音
+      var af = assignFingers(combo.slice());
+      if (af.count > 4) return;                                                   // 超過四指不可行
+      var fretted = [];
+      for (var i = 0; i < n; i++) if (combo[i] > 0) fretted.push(combo[i]);
+      var maxfret = fretted.length ? Math.max.apply(null, fretted) : 0;
+      var span = fretted.length ? (Math.max.apply(null, fretted) - Math.min.apply(null, fretted)) : 0;
+      var mutedC = 0, openC = 0;
+      for (var i = 0; i < n; i++) { if (combo[i] === -1) mutedC++; else if (combo[i] === 0) openC++; }
+      var target = (bassPC != null ? bassPC : rootPC);
+      var score = [(bassPc === target ? 0 : 1), maxfret, mutedC, span, -openC];
+      if (best === null || cmpScore(score, best.score) < 0)
+        best = {score: score, frets: combo.slice(), fingers: af.fingers, barre: af.barre};
+      return;
+    }
+    var opts = cand[s];
+    for (var k = 0; k < opts.length; k++) {
+      var f = opts[k], nlo = lo, nhi = hi, nm = muted;
+      if (f === -1) { nm = muted + 1; }
+      else if (f > 0) {
+        nlo = (lo < 0 ? f : Math.min(lo, f));
+        nhi = (hi < 0 ? f : Math.max(hi, f));
+        if (nhi - nlo > 3) continue;                                             // 跨度過大（手指距離太遠）
+      }
+      combo[s] = f;
+      dfs(s + 1, nm, nlo, nhi);
+    }
+  }
+  dfs(0, 0, -1, -1);
+  return best ? {frets: best.frets, fingers: best.fingers, barre: best.barre} : null;
+}
+
+// 依 root/quality(/bass) 求解指型；quality 不在 QDEF 內回傳 null。
+function solveChord(tm, rootPC, quality, bassPC) {
+  var qd = QDEF[quality]; if (!qd) return null;
+  var allowed = new Set();
+  qd.f.forEach(function(iv){ allowed.add((rootPC + iv) % 12); });
+  var bpc = (bassPC == null) ? null : (((bassPC % 12) + 12) % 12);
+  if (bpc != null) allowed.add(bpc);
+  var essArr = qd.e.map(function(iv){ return (rootPC + iv) % 12; });
+  var maxMute = (tm.length >= 5) ? 2 : 1;
+  return solve(tm, allowed, essArr, bpc, rootPC, maxMute);
+}
+
 // 依指型（每弦 frets / fingers / barre）繪製和弦圖。
 // frets[s]：-1 不按 · 0 空弦 · >=1 按第幾格；fingers[s]：0 或指法 1-4；barre：{fret,from,to} 或 null。
 // s=0 為第一弦（最高音），與 tm/調弦陣列同序。食指=1 中指=2 無名指=3 小指=4，○=空弦，✕=不按。
 function svgFromShape(frets, fingers, barre, rootPC, tm, W) {
   var n = frets.length;
+  if (!fingers) { var af = assignFingers(frets); fingers = af.fingers; if (!barre) barre = af.barre; }
   var fretted = frets.filter(function(f){return f > 0;});
   var startFret = 1, FRET_COLS = 4;
   if (fretted.length) {
@@ -382,8 +569,28 @@ function chordDiagram(rootPC, quality, intervals, W) {
   var tm = parseTuning(ts);
   var shape = getChordShape(state.instrument, state.tuning, rootPC, quality);
   if (shape) return {svg: svgFromShape(shape.frets, shape.fingers, shape.barre, rootPC, tm, W), auto:false};
+  var solved = solveChord(tm, rootPC, quality, null);
+  if (solved) return {svg: svgFromShape(solved.frets, solved.fingers, solved.barre, rootPC, tm, W), auto:true};
   var pcs = intervals.map(function(iv){return (rootPC+iv)%12;});
   return {svg: svgFromShape(autoShape(pcs, tm), null, null, rootPC, tm, W), auto:true};
+}
+
+// 依和弦規格（{root,q,bass}）產生指型圖。回傳 {svg, auto}。
+function diagramForSpec(spec, W) {
+  var inst = INSTRUMENTS_DATA[state.instrument];
+  var ts = inst.tunings[state.tuning]; if (!ts) return {svg:'', auto:false};
+  var tm = parseTuning(ts);
+  var bass = (spec.bass == null) ? null : spec.bass;
+  if (bass == null) {
+    var shape = getChordShape(state.instrument, state.tuning, spec.root, spec.q);
+    if (shape) return {svg: svgFromShape(shape.frets, shape.fingers, shape.barre, spec.root, tm, W), auto:false};
+  }
+  var solved = solveChord(tm, spec.root, spec.q, bass);
+  if (solved) return {svg: svgFromShape(solved.frets, solved.fingers, solved.barre, spec.root, tm, W), auto:true};
+  var qd = QDEF[spec.q];
+  var pcs = (qd ? qd.f : [0,4,7]).map(function(iv){return (spec.root+iv)%12;});
+  if (bass != null) pcs.push(((bass%12)+12)%12);
+  return {svg: svgFromShape(autoShape(pcs, tm), null, null, spec.root, tm, W), auto:true};
 }
 
 // 供順階和弦區塊使用（以組成音自動推算）。
@@ -400,6 +607,115 @@ function renderCommonChordDiagram(root, cctKey, intervals) {
   document.getElementById('common-chord-diagram-svg').innerHTML = r.svg + badge;
 }
 
+function qualityColor(key) {
+  if (key.indexOf('dim') >= 0 || key === 'm7b5') return '#b45309';
+  if (key.indexOf('aug') >= 0) return '#c2410c';
+  if (key.indexOf('sus') >= 0) return '#1d4ed8';
+  if (key === '7' || key === '9') return '#7c3aed';
+  if (key === 'm' || key === 'm7' || key === 'm9' || key === 'm6' || key === 'madd9') return '#0f766e';
+  if (key === 'maj' || key === 'maj7' || key === 'maj9' || key === '6' || key === 'add9') return '#C4956A';
+  return 'var(--ink)';
+}
+
+function specNotes(spec) {
+  var qd = QDEF[spec.q] || QDEF.maj;
+  var pcs = qd.f.map(function(iv){return (spec.root + iv) % 12;});
+  if (spec.bass != null) { var b = ((spec.bass % 12) + 12) % 12; if (pcs.indexOf(b) < 0) pcs.push(b); }
+  var seen = {}, uniq = [];
+  pcs.forEach(function(n){ if (!seen[n]) { seen[n] = 1; uniq.push(n); } });
+  return uniq;
+}
+
+function renderPresetChords() {
+  var grid = document.getElementById('preset-chord-grid');
+  if (!grid) return;
+  var html = '';
+  state.presetChords.forEach(function(spec, idx) {
+    var chName = chordSpecName(spec);
+    var noteNames = specNotes(spec).map(function(n){return NOTE_NAMES[n];}).join(' ');
+    var isActive = state.selectedPreset === idx;
+    var typeColor = qualityColor(spec.q);
+    var dia = diagramForSpec(spec, 128);
+    html += '<div class="common-chord-card' + (isActive ? ' is-active' : '') + '" data-preset="' + idx + '" style="border-top:3px solid ' + typeColor + ';">';
+    html += '<button class="cc-remove" data-remove="' + idx + '" title="移除">✕</button>';
+    html += '<span class="cc-name" style="color:' + typeColor + ';">' + chName + '</span>';
+    html += '<span class="cc-quality">' + (QLABEL[spec.q] ? QLABEL[spec.q].d : '') + '</span>';
+    html += '<div class="cc-diagram">' + dia.svg + '</div>';
+    if (dia.auto) html += '<span class="cc-auto">＊自動推算</span>';
+    html += '<span class="cc-notes">' + noteNames + '</span>';
+    html += '</div>';
+  });
+  grid.innerHTML = html;
+  grid.querySelectorAll('.cc-remove').forEach(function(btn) {
+    btn.addEventListener('click', function(ev) {
+      ev.stopPropagation();
+      var i = parseInt(this.dataset.remove);
+      state.presetChords.splice(i, 1);
+      if (state.selectedPreset === i) state.selectedPreset = null;
+      else if (state.selectedPreset !== null && state.selectedPreset > i) state.selectedPreset--;
+      savePresetChords();
+      renderPresetChords();
+    });
+  });
+  grid.querySelectorAll('.common-chord-card').forEach(function(card) {
+    card.addEventListener('click', function() {
+      state.selectedPreset = parseInt(this.dataset.preset);
+      renderPresetChords();
+      showPresetDetail(state.selectedPreset);
+    });
+  });
+  if (state.selectedPreset !== null && state.presetChords[state.selectedPreset]) showPresetDetail(state.selectedPreset);
+  else { var d = document.getElementById('preset-chord-detail'); if (d) d.style.display = 'none'; }
+}
+
+function showPresetDetail(idx) {
+  var spec = state.presetChords[idx]; if (!spec) return;
+  var qd = QDEF[spec.q] || QDEF.maj;
+  var uniq = specNotes(spec);
+  document.getElementById('preset-chord-name').textContent = chordSpecName(spec) + '  ' + (QLABEL[spec.q] ? QLABEL[spec.q].d : '');
+  var notesTxt = '組成音：' + uniq.map(function(n){return NOTE_NAMES[n];}).join(' — ');
+  if (spec.bass != null) notesTxt += '（低音 ' + NOTE_NAMES[((spec.bass % 12) + 12) % 12] + '）';
+  document.getElementById('preset-chord-notes').textContent = notesTxt;
+  document.getElementById('preset-chord-intervals').textContent = '音程：' + qd.f.map(function(iv){return INTERVAL_SYMBOLS[iv % 12];}).join(' — ');
+  var r = diagramForSpec(spec, 210);
+  var badge = r.auto ? '<div style="font-size:11px;color:#b45309;margin-top:4px;">＊自動推算指型（依手指可及範圍推算，僅供參考）</div>' : '';
+  document.getElementById('preset-chord-diagram-svg').innerHTML = r.svg + badge;
+  document.getElementById('preset-chord-fingering').textContent = getChordFingeringHint(spec.root, qd.f);
+  document.getElementById('preset-chord-detail').style.display = 'flex';
+}
+
+function setupCommonChordTabs() {
+  var tabs = document.querySelectorAll('.cc-tab');
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      var t = this.dataset.tab;
+      tabs.forEach(function(x){ x.classList.toggle('is-active', x.dataset.tab === t); });
+      document.getElementById('cc-tab-preset').style.display = (t === 'preset') ? 'block' : 'none';
+      document.getElementById('cc-tab-derived').style.display = (t === 'derived') ? 'block' : 'none';
+    });
+  });
+  var rootSel = document.getElementById('cc-add-root');
+  NOTE_NAMES.forEach(function(nm, i){ var o = document.createElement('option'); o.value = i; o.textContent = nm; rootSel.appendChild(o); });
+  var qualSel = document.getElementById('cc-add-qual');
+  Object.keys(QLABEL).forEach(function(q){ var o = document.createElement('option'); o.value = q; o.textContent = (QLABEL[q].s || '（大三）') + ' ' + QLABEL[q].d; qualSel.appendChild(o); });
+  var bassSel = document.getElementById('cc-add-bass');
+  var none = document.createElement('option'); none.value = ''; none.textContent = '無'; bassSel.appendChild(none);
+  NOTE_NAMES.forEach(function(nm, i){ var o = document.createElement('option'); o.value = i; o.textContent = nm; bassSel.appendChild(o); });
+  document.getElementById('cc-add-btn').addEventListener('click', function() {
+    var bassV = bassSel.value;
+    var spec = {root: parseInt(rootSel.value), q: qualSel.value, bass: (bassV === '' ? null : parseInt(bassV))};
+    var k = specKey(spec);
+    if (!state.presetChords.some(function(s){ return specKey(s) === k; })) { state.presetChords.push(spec); savePresetChords(); }
+    renderPresetChords();
+  });
+  document.getElementById('cc-reset-btn').addEventListener('click', function() {
+    state.presetChords = PRESET_COMMON.map(function(s){ return {root: s.root, q: s.q, bass: (s.bass == null ? null : s.bass)}; });
+    state.selectedPreset = null;
+    savePresetChords();
+    renderPresetChords();
+  });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   var instSel = document.getElementById('instrument-select');
   INSTRUMENTS_DATA.forEach(function(inst,i){var o=document.createElement('option');o.value=i;o.textContent=inst.icon+' '+inst.name;instSel.appendChild(o);});
@@ -407,6 +723,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var keySel = document.getElementById('key-selector');
   NOTE_NAMES.forEach(function(name,i){var b=document.createElement('button');b.className='note-btn';b.dataset.note=i;b.textContent=name;b.addEventListener('click',function(){state.key=parseInt(this.dataset.note);state.selectedChord=null;state.selectedCommonChord=null;updateFromState();});keySel.appendChild(b);});
   document.getElementById('mode-select').addEventListener('change',function(){state.mode=this.value;state.selectedChord=null;updateFromState();});
+  setupCommonChordTabs();
   updateFromState();
 });
 </script>
@@ -574,18 +891,43 @@ document.addEventListener('DOMContentLoaded', function() {
   </div>
 
   <div class="info-card" style="margin-bottom:20px;">
-    <div class="info-card-header">🎸 常用和弦圖表以及指法建議 — <span id="common-chord-title">C</span></div>
+    <div class="cc-tabs">
+      <button class="cc-tab is-active" data-tab="preset">🎵 常用和弦圖表</button>
+      <button class="cc-tab" data-tab="derived">🎸 和弦圖表及指法建議</button>
+    </div>
     <div class="info-card-body">
       <div style="font-size:12px;color:var(--muted);margin-bottom:14px;line-height:1.7;">
-        指法標示：<b>1</b> 食指 · <b>2</b> 中指 · <b>3</b> 無名指 · <b>4</b> 小指 ｜ <b style="color:#0f766e;">○</b> 空弦 · <b style="color:#c0392b;">✕</b> 不按 ｜ 封閉和弦（barre）以一整條 <b style="color:#0f766e;">▮</b> 表示同一指橫按多弦 ｜ 起始琴格若非第一格，會在圖左標示「起始格數 fr」。<br>吉他、烏克麗麗、班卓琴、曼陀林於標準調弦下顯示常用標準指型；其他樂器／調弦或較罕見和弦類型則以「＊自動推算」方式呈現，僅供參考。
+        指法標示：<b>1</b> 食指 · <b>2</b> 中指 · <b>3</b> 無名指 · <b>4</b> 小指 ｜ <b style="color:#0f766e;">○</b> 空弦 · <b style="color:#c0392b;">✕</b> 不按 ｜ 封閉和弦（barre）以一整條 <b style="color:#0f766e;">▮</b> 表示同一指橫按多弦 ｜ 起始琴格若非第一格，會在圖左標示「起始格數 fr」。<br>吉他、烏克麗麗、班卓琴、曼陀林於標準調弦下顯示常用標準指型；其他樂器／調弦或較罕見和弦類型則以「＊自動推算」方式呈現（已考量手指可及範圍與跨度），僅供參考。
       </div>
-      <div id="common-chord-grid" class="common-chord-grid"></div>
-      <div id="common-chord-detail" class="chord-diagram-box" style="margin-top:20px;display:none;padding-top:16px;border-top:1px solid var(--line);">
-        <div class="chord-name-label" id="common-chord-name"></div>
-        <div id="common-chord-diagram-svg"></div>
-        <div class="chord-notes-label" id="common-chord-notes"></div>
-        <div class="chord-intervals-label" id="common-chord-intervals"></div>
-        <div class="chord-fingering-label" id="common-chord-fingering"></div>
+
+      <div id="cc-tab-preset">
+        <div class="cc-builder">
+          <label>根音<select id="cc-add-root"></select></label>
+          <label>類型<select id="cc-add-qual"></select></label>
+          <label>低音 / Bass<select id="cc-add-bass"></select></label>
+          <button id="cc-add-btn">＋ 加入常用</button>
+          <button id="cc-reset-btn" class="ghost">↺ 還原預設</button>
+        </div>
+        <div id="preset-chord-grid" class="common-chord-grid"></div>
+        <div id="preset-chord-detail" class="chord-diagram-box" style="margin-top:20px;display:none;padding-top:16px;border-top:1px solid var(--line);">
+          <div class="chord-name-label" id="preset-chord-name"></div>
+          <div id="preset-chord-diagram-svg"></div>
+          <div class="chord-notes-label" id="preset-chord-notes"></div>
+          <div class="chord-intervals-label" id="preset-chord-intervals"></div>
+          <div class="chord-fingering-label" id="preset-chord-fingering"></div>
+        </div>
+      </div>
+
+      <div id="cc-tab-derived" style="display:none;">
+        <div style="font-size:12px;color:var(--muted);margin-bottom:12px;">依目前調性 <b><span id="common-chord-title">C</span></b> 自動列出各和弦類型的指型與指法建議。</div>
+        <div id="common-chord-grid" class="common-chord-grid"></div>
+        <div id="common-chord-detail" class="chord-diagram-box" style="margin-top:20px;display:none;padding-top:16px;border-top:1px solid var(--line);">
+          <div class="chord-name-label" id="common-chord-name"></div>
+          <div id="common-chord-diagram-svg"></div>
+          <div class="chord-notes-label" id="common-chord-notes"></div>
+          <div class="chord-intervals-label" id="common-chord-intervals"></div>
+          <div class="chord-fingering-label" id="common-chord-fingering"></div>
+        </div>
       </div>
     </div>
   </div>
