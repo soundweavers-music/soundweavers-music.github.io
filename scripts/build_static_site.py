@@ -3050,6 +3050,20 @@ def main():
     # Copy sitemap and robots.txt to project root for local development
     shutil.copy2(OUTPUT_DIR / "sitemap.xml", BASE_DIR / "sitemap.xml")
     shutil.copy2(OUTPUT_DIR / "robots.txt", BASE_DIR / "robots.txt")
+    # Copy root-level pages (index, 404, search-index) to project root
+    for root_fname in ["index.html", "404.html", "search-index.json"]:
+        src_root = OUTPUT_DIR / root_fname
+        if src_root.exists():
+            shutil.copy2(str(src_root), str(BASE_DIR / root_fname))
+    # Sync generated subdirectories (tools, experience, etc.) to project root
+    # so GitHub Pages user site serves the correct content from main branch root
+    for sync_dir in ["tools", "experience"]:
+        src_dir = OUTPUT_DIR / sync_dir
+        dst_dir = BASE_DIR / sync_dir
+        if src_dir.exists():
+            if dst_dir.exists():
+                shutil.rmtree(str(dst_dir))
+            shutil.copytree(str(src_dir), str(dst_dir), dirs_exist_ok=True)
     # Sync assets to project root (tracked by git for direct access)
     root_assets = BASE_DIR / "assets"
     root_assets.mkdir(parents=True, exist_ok=True)
