@@ -252,7 +252,13 @@ def page(title, body, page_path=None, extra_head="", meta_description="", og_ima
           <a href="{resolve_url(page_path, '/theory/5/')}">階段五</a>
         </div>
       </div>
-      <a href="{resolve_url(page_path, '/experience/')}">🎹 體驗</a>
+      <div class="nav-dropdown">
+        <a href="{resolve_url(page_path, '/tools/fretboard/')}" class="dropdown-trigger">工具</a>
+        <div class="dropdown-menu">
+          <a href="{resolve_url(page_path, '/tools/fretboard/')}">🎸 世界樂器指版和弦圖</a>
+          <a href="{resolve_url(page_path, '/experience/')}">🎧 體驗</a>
+        </div>
+      </div>
       <a href="{resolve_url(page_path, '/about/')}">關於</a>
       <a href="{resolve_url(page_path, '/contact/')}">聯絡我們</a>
     </nav>
@@ -365,6 +371,18 @@ def build_portal_homepage(instruments):
       <div class="card-label">聯絡我們</div>
       <div class="card-desc">有任何建議、發現資料錯誤、或想推薦更多內容？歡迎通過 LINE 或 Email 告訴我們。</div>
       <span class="card-badge badge-info">與我們聯絡</span>
+    </a>
+    <a class="portal-card card-tools" href="{resolve_url(index_path, '/tools/fretboard/')}" style="border-color:var(--accent);">
+      <div class="card-icon">🎸</div>
+      <div class="card-label">指版與和弦圖工具</div>
+      <div class="card-desc">瀏覽常見彈撥樂器的調弦法、常用和弦圖表、各調性順階和弦與指版音位圖。支援吉他、烏克麗麗、班卓琴、琵琶等 17 種樂器。</div>
+      <span class="card-badge badge-info">新工具</span>
+    </a>
+    <a class="portal-card card-tools" href="{resolve_url(index_path, '/tools/experience/')}" style="border-color:var(--accent);">
+      <div class="card-icon">🎧</div>
+      <div class="card-label">體驗聲音</div>
+      <div class="card-desc">不只是看介紹，更要親耳聆聽。蒐集了世界各地樂器的實際演奏錄音與示範影片。</div>
+      <span class="card-badge badge-info">聆聽</span>
     </a>
   </div>
 
@@ -1374,6 +1392,14 @@ def append_css():
 .card-contact::after { background:linear-gradient(135deg,rgba(220,38,38,.06) 0%,transparent 60%); }
 .card-contact:hover { box-shadow:0 12px 32px rgba(220,38,38,.15); }
 .card-contact .card-label { color:#dc2626; }
+
+/* ── Tools cards (#0d766b teal) ── */
+.card-tools { background:linear-gradient(135deg,#f0fdf4 0%,#f8fffa 100%); }
+.card-tools::before { background:linear-gradient(90deg,#0d766b,#5eead4); }
+.card-tools::after { background:linear-gradient(135deg,rgba(13,118,107,.06) 0%,transparent 60%); }
+.card-tools:hover { box-shadow:0 12px 32px rgba(13,118,107,.15); }
+.card-tools .card-label { color:#0d766b; }
+
 .portal-content { max-width:1100px; margin:56px auto 0; padding:0 20px 64px; }
 @media (max-width:800px) { .portal-grid { grid-template-columns:repeat(2,1fr); } }
 @media (max-width:520px) { .portal-grid { grid-template-columns:1fr; } }
