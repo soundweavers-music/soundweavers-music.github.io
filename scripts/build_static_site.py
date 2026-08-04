@@ -499,7 +499,13 @@ def page(title, body, page_path=None, meta_extra="", extra_head="", meta_descrip
           <a href="{resolve_url(page_path, '/theory/5/')}">階段五</a>
         </div>
       </div>
-      <a href="{resolve_url(page_path, '/experience/')}">🎹 體驗</a>
+      <div class="nav-dropdown">
+        <a href="{resolve_url(page_path, '/tools/fretboard/')}" class="dropdown-trigger">工具</a>
+        <div class="dropdown-menu">
+          <a href="{resolve_url(page_path, '/tools/fretboard/')}">🎸 世界樂器指版和弦圖</a>
+          <a href="{resolve_url(page_path, '/experience/')}">🎧 體驗</a>
+        </div>
+      </div>
       <a href="{resolve_url(page_path, '/about/')}">關於</a>
       <a href="{resolve_url(page_path, '/contact/')}">聯絡我們</a>
     </nav>
@@ -1186,7 +1192,7 @@ def build_assets(instruments):
   --shadow-md: 0 4px 6px -1px rgba(0,0,0,.04), 0 2px 4px -2px rgba(0,0,0,.04);
 }
 *, *::before, *::after { box-sizing: border-box; }
-body { margin:0; color:var(--ink); background:var(--soft); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif; line-height:1.6; }
+body { margin:0; color:var(--ink); background:var(--soft); font-family:"Noto Serif TC","Source Han Serif TW VF",Georgia,"Times New Roman",serif; line-height:1.6; }
 a { color:inherit; }
 img { max-width:100%; }
 
@@ -1814,7 +1820,8 @@ def build_sitemap(instruments):
     for path in ["/", "/instruments/", "/categories/", "/categories/single-instrument/",
                  "/countries/", "/ensembles/", "/subcategories/", "/map/",
                  "/about/", "/theory/", "/vocal/", "/digitalmusic/",
-                 "/sound-journey/", "/experience/", "/contact/"]:
+                 "/sound-journey/", "/experience/", "/contact/",
+                 "/tools/fretboard/"]:
         urls.append(u(path))
 
     # Instrument detail pages
@@ -2434,6 +2441,417 @@ def build_sound_journey_pages():
             meta_description="隔壁家的世界聲音旅圖全部篇章一覽 — 從氣息、弦、鼓到電子聲音，六段旅圖六種靠近世界的方式。",
         ),
     )
+def build_fretboard_tool():
+    """Build the interactive fretboard / chord visualizer tool at /tools/fretboard/."""
+    page_dir = OUTPUT_DIR / "tools" / "fretboard"
+    page_dir.mkdir(parents=True, exist_ok=True)
+
+    NOTE_NAMES = ['C','C♯','D','D♯','E','F','F♯','G','G♯','A','A♯','B']
+
+    # Instrument data as a JSON string
+    instruments_json = json.dumps([
+  {"name":"吉他 Guitar","icon":"🎸","tunings":{"標準調弦 Standard":["E4","B3","G3","D3","A2","E2"],"Drop D":["E4","B3","G3","D3","A2","D2"],"Drop C":["E4","B3","G3","C3","A2","C2"],"Open D":["D4","A3","F♯3","D3","A2","D2"],"Open G":["D4","B3","G3","D3","G2","D2"],"Open C":["E4","C4","C4","G3","E3","C3"],"DADGAD":["D4","A3","G3","D3","A2","D2"],"Half-step Down":["E♭4","B♭3","G♭3","D♭3","A♭2","E♭2"],"Full-step Down":["D4","A3","F♯3","C3","G2","D2"],"Nashville Tuning":["E5","B4","G4","D4","A3","E3"]}},
+  {"name":"電貝斯 Bass","icon":"🎸","tunings":{"標準 4弦":["G3","D3","A2","E2"],"Standard 5-String":["G3","D3","A2","E2","B1"],"Standard 6-String":["C3","G2","D2","A1","E1","B1"],"Drop D (4弦)":["G3","D3","A2","D2"],"Half-step Down":["G♭3","D♭3","A♭2","E♭2"]}},
+  {"name":"烏克麗麗 Ukulele","icon":"🪕","tunings":{"標準 (高音 GCEA)":["A4","E4","C4","G4"],"Low G":["A4","E4","C4","G3"],"D 調 (ADF♯B)":["B4","F♯4","D4","A4"],"Baritone (DGBE)":["E4","B3","G3","D3"]}},
+  {"name":"班卓琴 Banjo","icon":"🪕","tunings":{"標準 Open G (5弦)":["D4","B3","G3","D3","G4"],"Open C":["D4","C4","G3","C3","G4"],"Double C":["D4","C4","G3","C3","G4"],"Double D":["D4","A3","F♯3","D3","D4"],"Sawmill":["D4","B3","G3","D3","D4"],"Irish (4弦)":["D4","B3","G3","D3"]}},
+  {"name":"曼陀林 Mandolin","icon":"🎻","tunings":{"標準":["E5","A4","D4","G3"],"跨弦標準 (CGDA)":["A4","D4","G3","C3"],"Open G":["D5","B4","G4","D4"]}},
+  {"name":"巴拉萊卡 Balalaika","icon":"🎻","tunings":{"標準 Prima":["E5","A4","E4"],"標準 Secunda":["A4","E4","A3"],"標準 Alto":["E4","A3","E3"],"標準 Bass":["A3","E3","A2"]}},
+  {"name":"夏威夷四弦琴 Cavaquinho","icon":"🪕","tunings":{"標準 (DGBD)":["D5","B4","G4","D4"],"巴西標準":["B4","G4","D4","G4"],"葡萄牙標準":["D5","B4","G4","D4"]}},
+  {"name":"查蘭戈 Charango","icon":"🪕","tunings":{"標準":["E5","A4","E4","C4","G4"],"F 調":["F5","A♯4","F4","C4","G♯4"]}},
+  {"name":"布祖基琴 Bouzouki","icon":"🎻","tunings":{"希臘 3弦":["D4","A3","D3"],"希臘 4弦":["D4","A3","F♯3","C3"],"愛爾蘭 (GDAD)":["D4","A3","D3","G2"]}},
+  {"name":"西塔琴 Sitar","icon":"🎻","tunings":{"標準 (Kharaj)":["C4","G3","C3","G2"]}},
+  {"name":"琵琶 Pipa","icon":"🎻","tunings":{"標準 (A d e a)":["A4","E4","D4","A3"],"傳統 D 調":["D5","A4","D4","A3"]}},
+  {"name":"古箏 Guzheng","icon":"🎹","tunings":{"標準 D 宮五聲":["D4","B3","A3","E3","D3"]}},
+  {"name":"日本箏 Koto","icon":"🎹","tunings":{"Hirajōshi":["D4","B3","A3","E3","D3"]}},
+  {"name":"三味線 Shamisen","icon":"🎻","tunings":{"本調子 (Honchoshi)":["C4","F3","C3"],"二上がり (Niagari)":["D4","F3","C3"],"三下がり (Sansagari)":["C4","F3","B♭2"]}},
+  {"name":"吉他隆 Guitarron","icon":"🎸","tunings":{"標準":["A3","E3","C3","G2","D2","A1"]}},
+  {"name":"維胡埃拉 Vihuela","icon":"🎸","tunings":{"標準":["A4","D4","G3","B3","E4"]}},
+  {"name":"Dobro (Resonator)","icon":"🎸","tunings":{"Open G":["D4","B3","G3","D3","G2","D2"],"Open D":["D4","A3","F♯3","D3","A2","D2"]}},
+  {"name":"Appalachian Dulcimer","icon":"🎻","tunings":{"標準 (DAA)":["D4","A3","A3"],"DGD":["D4","G3","D3"],"DAD":["D4","A3","D3"]}},
+], ensure_ascii=False)
+
+    body = f'''<main class="page">
+  <section class="compact-hero">
+    <p class="eyebrow">Fretboard &amp; Chord Visualizer</p>
+    <h1>世界樂器指版與和弦圖</h1>
+    <p class="lead">選擇樂器與調弦法，瀏覽各調性的順階和弦組成音與指版音位圖。</p>
+  </section>
+
+  <div class="controls-bar" id="controls">
+    <div class="control-group">
+      <label>樂器</label>
+      <select id="instrument-select"></select>
+    </div>
+    <div class="control-group">
+      <label>調弦法</label>
+      <select id="tuning-select"></select>
+    </div>
+    <div class="control-group">
+      <label>調性（主音）</label>
+      <div class="note-selector" id="key-selector"></div>
+    </div>
+    <div class="control-group">
+      <label>調式</label>
+      <select id="mode-select">
+        <option value="major">大調（Ionian）</option>
+        <option value="natural">小調（Aeolian）</option>
+        <option value="harmonic">和聲小調</option>
+        <option value="melodic">旋律小調</option>
+        <option value="dorian">Dorian</option>
+        <option value="phrygian">Phrygian</option>
+        <option value="lydian">Lydian</option>
+        <option value="mixolydian">Mixolydian</option>
+        <option value="locrian">Locrian</option>
+        <option value="pent-major">五聲音階（大）</option>
+        <option value="pent-minor">五聲音階（小）</option>
+        <option value="blues">Blues</option>
+        <option value="chromatic">半音階</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="fretboard-container">
+    <div class="fretboard-wrapper" id="fretboard-wrapper">
+      <svg class="fretboard-svg" id="fretboard-svg" viewBox="0 0 800 320"></svg>
+    </div>
+  </div>
+
+  <div class="panels-grid">
+    <div class="info-card">
+      <div class="info-card-header">🎸 順階和弦（Diatonic Chords）</div>
+      <div class="info-card-body">
+        <div id="chord-list" class="chord-list"></div>
+        <div id="chord-detail" class="chord-diagram-box" style="margin-top:16px;display:none;">
+          <div class="chord-name-label" id="chord-name"></div>
+          <div id="chord-diagram-svg"></div>
+          <div class="chord-notes-label" id="chord-notes"></div>
+          <div class="chord-intervals-label" id="chord-intervals"></div>
+        </div>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-header">🎹 音階組成音（Scale Notes）</div>
+      <div class="info-card-body">
+        <table class="scale-table" id="scale-table">
+          <thead><tr id="scale-header"></tr></thead>
+          <tbody><tr id="scale-notes"></tr></tbody>
+        </table>
+        <div style="margin-top:12px;font-size:13px;color:var(--muted);" id="scale-description"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-card" style="margin-bottom:24px;">
+    <div class="info-card-header">🎵 常見調弦法一覽</div>
+    <div class="info-card-body">
+      <div id="tunings-panel"></div>
+    </div>
+  </div>
+</main>'''
+
+    extra_head = f'''<style>
+.controls-bar {{display:flex;flex-wrap:wrap;gap:12px;align-items:end;padding:20px;background:var(--surface);border:1px solid var(--line);border-radius:10px;margin-bottom:24px;}}
+.control-group {{display:flex;flex-direction:column;gap:4px;}}
+.control-group label {{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;}}
+.control-group select,.control-group input {{padding:8px 12px;border:1px solid var(--line);border-radius:6px;font-size:14px;background:var(--surface);color:var(--ink);min-width:100px;}}
+.note-selector {{display:flex;gap:4px;flex-wrap:wrap;}}
+.note-btn {{width:36px;height:36px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink);font-weight:700;font-size:13px;cursor:pointer;transition:all .12s;display:flex;align-items:center;justify-content:center;}}
+.note-btn:hover {{border-color:var(--accent);color:var(--accent);}}
+.note-btn.is-active {{background:var(--accent);color:#fff;border-color:var(--accent);}}
+.fretboard-container {{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface);padding:16px;margin-bottom:24px;}}
+.fretboard-wrapper {{position:relative;min-width:600px;}}
+.fretboard-svg {{display:block;width:100%;height:auto;}}
+.panels-grid {{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px;}}
+.info-card {{border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden;}}
+.info-card-header {{padding:14px 18px;background:var(--soft);border-bottom:1px solid var(--line);font-weight:700;font-size:15px;display:flex;align-items:center;gap:8px;}}
+.info-card-body {{padding:16px 18px;}}
+.chord-list {{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}}
+.chord-chip {{padding:6px 14px;border:1px solid var(--line);border-radius:6px;background:var(--surface);font-size:13px;font-weight:600;cursor:pointer;transition:all .12s;}}
+.chord-chip:hover {{border-color:var(--accent);color:var(--accent);}}
+.chord-chip.is-active {{background:var(--accent);color:#fff;border-color:var(--accent);}}
+.chord-diagram-box {{display:flex;flex-direction:column;align-items:center;gap:8px;}}
+.chord-name-label {{font-size:20px;font-weight:800;}}
+.chord-notes-label {{font-size:13px;color:var(--muted);}}
+.chord-intervals-label {{font-size:12px;color:var(--muted);}}
+.scale-table {{width:100%;border-collapse:collapse;margin-top:8px;}}
+.scale-table th,.scale-table td {{border:1px solid var(--line);padding:6px 10px;text-align:center;font-size:13px;}}
+.scale-table th {{background:var(--soft);font-weight:700;}}
+.scale-table .root {{background:rgba(196,149,106,0.15);font-weight:700;}}
+.tunings-list {{margin-top:8px;}}
+.tuning-item {{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border:1px solid var(--line);border-radius:6px;margin-bottom:6px;cursor:pointer;transition:all .12s;}}
+.tuning-item:hover {{border-color:var(--accent);}}
+.tuning-item.is-active {{background:var(--soft);border-color:var(--accent);}}
+.tuning-name {{font-weight:600;font-size:14px;}}
+.tuning-notes {{color:var(--muted);font-size:13px;font-family:monospace;}}
+@media (max-width:760px) {{.panels-grid {{grid-template-columns:1fr;}}.controls-bar {{flex-direction:column;}}.control-group {{width:100%;}}.control-group select {{width:100%;}}}}
+</style>'''
+
+    # Embed the entire JS application
+    extra_js = f'''<script>
+const INSTRUMENTS_DATA = {instruments_json};
+const NOTE_NAMES = ['C','C♯','D','D♯','E','F','F♯','G','G♯','A','A♯','B'];
+const NOTE_INTERVALS = ['1','♭2','2','♭3','3','4','♯4/♭5','5','♯5/♭6','6','♭7','7'];
+
+function noteToMidi(n) {{ return 'C C♯ D D♯ E F F♯ G G♯ A A♯ B'.split(' ').indexOf(n); }}
+function getScaleIntervals(mode) {{
+  var map = {{'major':[0,2,4,5,7,9,11],'natural':[0,2,3,5,7,8,10],'harmonic':[0,2,3,5,7,8,11],'melodic':[0,2,3,5,7,9,11],'dorian':[0,2,3,5,7,9,10],'phrygian':[0,1,3,5,7,8,10],'lydian':[0,2,4,6,7,9,11],'mixolydian':[0,2,4,5,7,9,10],'locrian':[0,1,3,5,6,8,10],'pent-major':[0,2,4,7,9],'pent-minor':[0,3,5,7,10],'blues':[0,3,5,6,7,10],'chromatic':[0,1,2,3,4,5,6,7,8,9,10,11]}};
+  return map[mode] || map.major;
+}}
+function getModeName(mode) {{ var n={{'major':'大調','natural':'自然小調','harmonic':'和聲小調','melodic':'旋律小調','dorian':'Dorian','phrygian':'Phrygian','lydian':'Lydian','mixolydian':'Mixolydian','locrian':'Locrian','pent-major':'大調五聲音階','pent-minor':'小調五聲音階','blues':'Blues 音階','chromatic':'半音階'}}; return n[mode]||mode; }}
+function getScaleNotes(rootMidi, mode) {{ return getScaleIntervals(mode).map(function(i){{return (rootMidi+i)%12;}}); }}
+function getRoman(i,q) {{ var r=['Ⅰ','Ⅱ','Ⅲ','Ⅳ','Ⅴ','Ⅵ','Ⅶ','Ⅷ','Ⅸ','Ⅹ','Ⅺ','Ⅻ'][i];if(q==='m'||q==='dim')r=r.toLowerCase();if(q==='dim')r+='°';if(q==='aug')r+='+';return r; }}
+function getDiatonicChords(rootMidi, mode) {{
+  var si = getScaleIntervals(mode), sn = si.map(function(i){{return (rootMidi+i)%12;}});
+  var q = ['maj','m','m','maj','maj','m','dim'];
+  if(mode==='natural') q=['m','dim','maj','m','m','maj','maj'];
+  if(mode==='harmonic') q=['m','dim','aug','m','maj','maj','dim'];
+  if(mode==='melodic') q=['m','m','aug','maj','maj','dim','dim'];
+  var ci = {{'maj':[0,4,7],'m':[0,3,7],'dim':[0,3,6],'aug':[0,4,8]}};
+  var chords = [];
+  for(var i=0;i<Math.min(sn.length,7);i++) {{
+    var qual = q[i%7];
+    if(['blues','pent-major','pent-minor','chromatic'].indexOf(mode)>=0) {{
+      var t = (sn[(i+1)%sn.length]-sn[i]+12)%12;
+      var f = (sn[(i+2)%sn.length]-sn[i]+12)%12;
+      qual = t===4?'maj':t===3?'m':'maj';
+      if(f===6) qual='dim'; if(f===8) qual='aug';
+    }}
+    var ints = ci[qual]||ci.maj;
+    var notes = ints.map(function(iv){{return (sn[i%sn.length]+iv)%12;}});
+    chords.push({{roman:getRoman(i,qual),quality:qual,notes:notes,root:sn[i%sn.length]}});
+  }}
+  return chords;
+}}
+
+var state = {{instrument:0,tuning:null,key:0,mode:'major',selectedChord:null,fretCount:15}};
+
+function parseTuning(arr) {{ return arr.map(function(s){{var m=s.match(/^([A-G][♯♭]?)(\d)$/);if(!m)return 60;var no=noteToMidi(m[1]);var o=(parseInt(m[2])+1)*12;return no+o;}});}}
+function midiToDisplay(m) {{return NOTE_NAMES[m%12]+Math.floor(m/12-1);}}
+
+function updateFromState() {{
+  var inst = INSTRUMENTS_DATA[state.instrument];
+  var ts = document.getElementById('tuning-select');
+  ts.innerHTML = '';
+  var tk = Object.keys(inst.tunings);
+  tk.forEach(function(n){{var o=document.createElement('option');o.value=n;o.textContent=n;ts.appendChild(o);}});
+  if(!state.tuning||!inst.tunings[state.tuning]) state.tuning=tk[0];
+  ts.value=state.tuning;
+  ts.onchange=function(){{state.tuning=this.value;state.selectedChord=null;updateFromState();}};
+  document.querySelectorAll('#key-selector .note-btn').forEach(function(b){{b.classList.toggle('is-active',parseInt(b.dataset.note)===state.key);}});
+  renderFretboard(); renderTuningsList(); renderChords(); renderScaleTable();
+}}
+
+function renderFretboard() {{
+  var inst = INSTRUMENTS_DATA[state.instrument];
+  var tuningStr = inst.tunings[state.tuning]; if(!tuningStr) return;
+  var tm = parseTuning(tuningStr), fc = state.fretCount, n = tm.length;
+  var sn = getScaleNotes(state.key, state.mode), ss = new Set(sn);
+  var svg = document.getElementById('fretboard-svg'), W=800, H=320;
+  var mL=80, mR=30, mT=40, mB=40;
+  var fW = (W-mL-mR)/fc, sS = Math.min((H-mT-mB)/(n-1||1), n>6?28:(H-mT-mB)/(n-1||1));
+  var adjT = (H - sS*(n-1))/2;
+  var h = '';
+  h += '<rect x="0" y="0" width="'+W+'" height="'+H+'" fill="var(--surface,#fff)"/>';
+  h += '<rect x="'+mL+'" y="0" width="'+(W-mL-mR)+'" height="'+H+'" fill="#f5f0eb" rx="4"/>';
+  for(var f=1;f<=fc;f++){{var fx=mL+f*fW;h+='<line x1="'+fx+'" y1="'+adjT+'" x2="'+fx+'" y2="'+(H-mB)+'" stroke="#8B7355" stroke-width="'+(f<=3?3:2)+'" opacity="0.6"/>';}}
+  for(var f=1;f<=fc;f++){{var fx=mL+(f-0.5)*fW;if(f===1||f===3||f===5||f===7||f===9||f===12||f===15)h+='<text x="'+fx+'" y="'+(H-6)+'" text-anchor="middle" font-size="11" fill="#9C8F87" font-weight="600">'+f+'</text>';if(f===12){{h+='<circle cx="'+fx+'" cy="'+(H/2-10)+'" r="3" fill="#9C8F87" opacity="0.5"/><circle cx="'+fx+'" cy="'+(H/2+10)+'" r="3" fill="#9C8F87" opacity="0.5"/>';}}}}
+  for(var s=0;s<n;s++){{var sy=adjT+s*sS;var sw=1+(n-s)*0.4;h+='<line x1="'+mL+'" y1="'+sy+'" x2="'+(W-mR)+'" y2="'+sy+'" stroke="#555" stroke-width="'+sw+'" opacity="0.5"/>';var on=tm[s];var is=ss.has(on%12);var nm=midiToDisplay(on);h+='<text x="'+(mL-12)+'" y="'+(sy+4)+'" text-anchor="end" font-size="12" font-weight="'+(is?'700':'400')+'" fill="'+(is?'var(--accent,#C4956A)':'var(--muted,#9C8F87)')+'">'+nm+'</text>';if(is){{var ir=(on%12)===state.key;h+='<circle cx="'+(mL+8)+'" cy="'+sy+'" r="'+(ir?8:5)+'" fill="#C4956A" opacity="0.3"/>';}}}}
+  for(var s=0;s<n;s++){{for(var f=1;f<=fc;f++){{var midi=tm[s]+f;var nc=midi%12;if(!ss.has(nc))continue;var ir=nc===state.key;var fx=mL+(f-0.5)*fW;var sy=adjT+s*sS;var r=ir?11:8;var c=ir?'#C4956A':'#0f766e';h+='<circle cx="'+fx+'" cy="'+sy+'" r="'+r+'" fill="'+c+'" opacity="'+(ir?1:0.7)+'"/>';h+='<text x="'+fx+'" y="'+(sy+1)+'" text-anchor="middle" font-size="'+(ir?10:8)+'" font-weight="700" fill="#fff">'+NOTE_NAMES[nc]+'</text>';}}}}
+  h+='<rect x="'+(mL-4)+'" y="'+adjT+'" width="6" height="'+(H-adjT-mB)+'" fill="#6B5B45" rx="2"/>';
+  svg.innerHTML = h;
+}}
+
+function renderTuningsList() {{
+  var inst = INSTRUMENTS_DATA[state.instrument];
+  var div = document.getElementById('tunings-panel');
+  var tk = Object.keys(inst.tunings);
+  var h = '';
+  tk.forEach(function(n){{var na=inst.tunings[n];var a=n===state.tuning;h+='<div class="tuning-item'+(a?' is-active':'')+'" data-tuning="'+n+'"><span class="tuning-name">'+(a?'▸ ':'')+n+'</span><span class="tuning-notes">'+na.join(' · ')+'</span></div>';}});
+  div.innerHTML = h;
+  div.querySelectorAll('.tuning-item').forEach(function(item){{item.addEventListener('click',function(){{state.tuning=this.dataset.tuning;state.selectedChord=null;updateFromState();}});}});
+}}
+
+function renderChords() {{
+  var chords = getDiatonicChords(state.key, state.mode);
+  var div = document.getElementById('chord-list');
+  var h = '';
+  chords.forEach(function(ch,i){{var nm=ch.notes.map(function(n){{return NOTE_NAMES[n];}}).join(', ');var a=state.selectedChord===i;var l=ch.roman+' ('+NOTE_NAMES[ch.root]+(ch.quality==='dim'?'dim':ch.quality==='aug'?'aug':ch.quality)+')';h+='<div class="chord-chip'+(a?' is-active':'')+'" data-chord-index="'+i+'" title="'+nm+'">'+l+'</div>';}});
+  div.innerHTML = h;
+  div.querySelectorAll('.chord-chip').forEach(function(chip){{chip.addEventListener('click',function(){{state.selectedChord=parseInt(this.dataset.chordIndex);updateFromState();}});}});
+  var dd = document.getElementById('chord-detail');
+  if(state.selectedChord!==null&&chords[state.selectedChord]) {{
+    var ch = chords[state.selectedChord];
+    dd.style.display='flex';
+    document.getElementById('chord-name').textContent = NOTE_NAMES[ch.root]+'  '+ch.roman;
+    document.getElementById('chord-notes').textContent = '組成音：'+ch.notes.map(function(n){{return NOTE_NAMES[n];}}).join(' — ');
+    document.getElementById('chord-intervals').textContent = '音程：'+ch.notes.map(function(n){{return NOTE_INTERVALS[(n-ch.root+12)%12]||'?';}}).join(' — ');
+    // Mini diagram
+    var inst = INSTRUMENTS_DATA[state.instrument];
+    var ts = inst.tunings[state.tuning]; if(!ts) return;
+    var tm = parseTuning(ts), n = tm.length;
+    var chSet = new Set(ch.notes);
+    var sw = Math.min(22, 220/n), W2=160, H2=30+n*sw;
+    var sh = '<svg width="'+W2+'" height="'+H2+'" viewBox="0 0 '+W2+' '+H2+'" xmlns="http://www.w3.org/2000/svg">';
+    var gW2 = W2-30-10, fW2 = gW2/5;
+    for(var f=0;f<=5;f++){{var fx=30+f*fW2;sh+='<line x1="'+fx+'" y1="24" x2="'+fx+'" y2="'+(24+(n-1)*sw)+'" stroke="#8B7355" stroke-width="'+(f===0?3:1.5)+'" opacity="0.4"/>';}}
+    for(var s=0;s<n;s++){{var sy=24+s*sw;sh+='<line x1="30" y1="'+sy+'" x2="'+(W2-10)+'" y2="'+sy+'" stroke="#555" stroke-width="1" opacity="0.3"/>';}}
+    for(var s=0;s<n;s++){{
+      var found=null;
+      for(var f=1;f<=5;f++){{var mid=tm[s]+f;if(chSet.has(mid%12)){{found=f;break;}}}}
+      var sy=24+s*sw;
+      if(found){{var fx2=30+found*fW2-fW2/2;var ir2=(tm[s]+found)%12===ch.root;sh+='<circle cx="'+fx2+'" cy="'+sy+'" r="'+(ir2?8:6)+'" fill="'+(ir2?'#C4956A':'#0f766e')+'" opacity="0.85"/><text x="'+fx2+'" y="'+(sy+1)+'" text-anchor="middle" font-size="7" font-weight="700" fill="#fff">'+NOTE_NAMES[(tm[s]+found)%12]+'</text>';}}
+      else {{sh+='<text x="20" y="'+(sy+4)+'" text-anchor="middle" font-size="12" fill="#c00" opacity="0.6">✕</text>';}}
+    }}
+    sh+='</svg>';
+    document.getElementById('chord-diagram-svg').innerHTML = sh;
+  }} else {{ dd.style.display='none'; }}
+}}
+
+function renderScaleTable() {{
+  var sn = getScaleNotes(state.key, state.mode);
+  var hh='<th>級數</th>', nr='<td><strong>組成音</strong></td>';
+  var names=['Ⅰ','Ⅱ','Ⅲ','Ⅳ','Ⅴ','Ⅵ','Ⅶ','Ⅷ','Ⅸ','Ⅹ','Ⅺ','Ⅻ'];
+  sn.forEach(function(n,i){{hh+='<th>'+(names[i]||(i+1))+'</th>';nr+='<td class="'+(n===state.key?'root':'')+'">'+NOTE_NAMES[n]+'</td>';}});
+  document.getElementById('scale-header').innerHTML=hh;
+  document.getElementById('scale-notes').innerHTML=nr;
+  document.getElementById('scale-description').textContent=NOTE_NAMES[state.key]+' '+getModeName(state.mode)+' · 共 '+sn.length+' 個音';
+}}
+
+document.addEventListener('DOMContentLoaded', function() {{
+  var instSel = document.getElementById('instrument-select');
+  INSTRUMENTS_DATA.forEach(function(inst,i){{var o=document.createElement('option');o.value=i;o.textContent=inst.icon+' '+inst.name;instSel.appendChild(o);}});
+  instSel.addEventListener('change',function(){{state.instrument=parseInt(this.value);state.tuning=null;state.selectedChord=null;updateFromState();}});
+  var keySel = document.getElementById('key-selector');
+  NOTE_NAMES.forEach(function(name,i){{var b=document.createElement('button');b.className='note-btn';b.dataset.note=i;b.textContent=name;b.addEventListener('click',function(){{state.key=parseInt(this.dataset.note);state.selectedChord=null;updateFromState();}});keySel.appendChild(b);}});
+  document.getElementById('mode-select').addEventListener('change',function(){{state.mode=this.value;state.selectedChord=null;updateFromState();}});
+  updateFromState();
+}});
+</script>'''
+
+    write(page_dir / "index.html", page(
+        "世界樂器指版與和弦圖",
+        body,
+        page_dir / "index.html",
+        extra_head=extra_head + extra_js,
+        meta_description="世界樂器指版與和弦圖 — 瀏覽常見彈撥樂器的調弦法、各調性和弦級數、指版音位圖。支援吉他、烏克麗麗、班卓琴、琵琶、古箏等 18 種樂器。",
+    ))
+
+
+def build_experience_page():
+    """Build the Experience page at /tools/experience/ (redirect from /experience/)."""
+    # Build primary page at /tools/experience/
+    tools_dir = OUTPUT_DIR / "tools" / "experience"
+    tools_dir.mkdir(parents=True, exist_ok=True)
+    body = '''<main>
+  <section class="about-hero" style="background:linear-gradient(135deg,rgba(0,0,0,0.7),rgba(0,0,0,0.4)),url(https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=1200) center/cover no-repeat;margin:0 0 32px;">
+    <div class="about-hero-content">
+      <p class="about-eyebrow">Sound Experience</p>
+      <h1 style="color:#fff;">體驗聲音</h1>
+      <p class="about-subtitle" style="color:rgba(255,255,255,0.9);">不只是看介紹，更要親耳聆聽</p>
+    </div>
+  </section>
+  <div class="about-body">
+    <div class="about-text" style="text-align:center;margin-bottom:40px;">
+      <p>音樂是需要被聽見的。這裡蒐集了世界各地樂器的實際演奏錄音、示範影片與聲音對比，讓你一邊閱讀文字介紹，一邊用耳朵感受每件樂器獨特的音色與生命力。</p>
+    </div>
+
+    <section class="about-section">
+      <h2>如何開始聆聽</h2>
+      <ol class="exp-steps">
+        <li>從下方選擇你有興趣的樂器類別或地區</li>
+        <li>點擊樂器名稱進入詳細介紹頁面</li>
+        <li>在樂器頁面中找到「聆聽示範」按鈕，點擊即可播放</li>
+        <li>也可以直接瀏覽下方的精選播放清單</li>
+      </ol>
+    </section>
+
+    <section class="about-section">
+      <h2>精選聲音之旅</h2>
+      <div class="about-grid">
+        <div class="exp-card">
+          <img class="exp-card-image" src="https://i.ytimg.com/vi/hqF9hbx7po4/maxresdefault.jpg" alt="世界樂器" loading="lazy">
+          <div class="exp-card-content">
+            <h3>世界樂器合輯 — 聲音展示</h3>
+            <p>一次聆聽來自世界各地的代表性樂器。</p>
+            <a class="btn-line" href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener" style="display:inline-flex;">▶ 前往頻道聆聽</a>
+          </div>
+        </div>
+        <div class="exp-card">
+          <img class="exp-card-image" src="https://i.ytimg.com/vi/OaZ0PJwsYhk/maxresdefault.jpg" alt="彈撥樂器" loading="lazy">
+          <div class="exp-card-content">
+            <h3>彈撥樂器系列</h3>
+            <p>從吉他、琵琶到西塔琴，探索世界各地的彈撥樂器演奏。</p>
+            <a class="btn-line" href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener" style="display:inline-flex;">▶ 前往頻道聆聽</a>
+          </div>
+        </div>
+        <div class="exp-card">
+          <img class="exp-card-image" src="https://i.ytimg.com/vi/OmP2iFFdp0I/maxresdefault.jpg" alt="弓弦樂器" loading="lazy">
+          <div class="exp-card-content">
+            <h3>弓弦樂器系列</h3>
+            <p>小提琴、二胡、胡琴——感受弓弦樂器從東西方的細膩情感。</p>
+            <a class="btn-line" href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener" style="display:inline-flex;">▶ 前往頻道聆聽</a>
+          </div>
+        </div>
+        <div class="exp-card">
+          <img class="exp-card-image" src="https://i.ytimg.com/vi/TvAiD8Ll3XU/maxresdefault.jpg" alt="打擊樂器" loading="lazy">
+          <div class="exp-card-content">
+            <h3>打擊樂器系列</h3>
+            <p>鼓、鑼、木琴——從節奏中感受音樂最原始的力量。</p>
+            <a class="btn-line" href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener" style="display:inline-flex;">▶ 前往頻道聆聽</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section">
+      <h2>聆聽小技巧</h2>
+      <div class="exp-quote">
+        試著閉上眼睛，專注於單一樂器的聲音——注意它的音色質感（是明亮還是溫暖？）、共鳴方式（聲音如何消散？）、以及演奏技法（是撥奏、弓奏還是敲擊？）。
+        <cite>—— 聆聽世界樂器的最佳方式</cite>
+      </div>
+    </section>
+
+    <section class="about-section" style="text-align:center;padding:32px;border:1px solid var(--line);border-radius:12px;background:var(--surface);">
+      <h2 style="border-bottom:none;display:block;">準備好開始探索了嗎？</h2>
+      <p style="color:var(--muted);margin:0 0 20px;font-size:16px;">瀏覽完整樂器列表，發掘更多聲音</p>
+      <a class="btn-line" href="''' + site_url("/instruments/") + '''" style="font-size:16px;padding:12px 28px;display:inline-flex;">🔍 瀏覽全部樂器</a>
+    </section>
+  </div>
+</main>'''
+
+    extra_head = '''<style>
+.exp-steps { counter-reset:step; list-style:none; padding:0; margin:0; }
+.exp-steps li { counter-increment:step; padding:14px 14px 14px 48px; border:1px solid var(--line); border-radius:8px; margin-bottom:10px; position:relative; line-height:1.5; font-size:15px; background:var(--surface); }
+.exp-steps li::before { content:counter(step); position:absolute; left:12px; top:12px; width:28px; height:28px; border-radius:50%; background:var(--accent); color:#fff; font-weight:800; font-size:14px; display:flex; align-items:center; justify-content:center; }
+.exp-card { border:1px solid var(--line); border-radius:12px; overflow:hidden; background:var(--surface); transition:transform .15s,box-shadow .15s; }
+.exp-card:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(0,0,0,.08); }
+.exp-card-image { width:100%; height:180px; object-fit:cover; background:var(--soft); }
+.exp-card-content { padding:18px; }
+.exp-card-content h3 { font-size:18px; margin:0 0 8px; }
+.exp-card-content p { color:var(--muted); font-size:14px; line-height:1.6; margin:0 0 12px; }
+.exp-quote { padding:24px; border-left:4px solid var(--accent); border-radius:8px; background:var(--soft); margin:20px 0; font-style:italic; color:var(--muted); line-height:1.7; font-size:16px; }
+.exp-quote cite { display:block; margin-top:8px; font-style:normal; font-weight:700; color:var(--ink); }
+</style>'''
+
+    write(tools_dir / "index.html", page(
+        "體驗聲音",
+        body,
+        tools_dir / "index.html",
+        extra_head=extra_head,
+        meta_description="體驗世界樂器的聲音 — 聆聽各類樂器的實際演奏錄音與示範，從彈撥、弓弦到打擊樂器。",
+    ))
+
+    # Also create a redirect at /experience/ to keep existing links working
+    exp_dir = OUTPUT_DIR / "experience"
+    exp_dir.mkdir(parents=True, exist_ok=True)
+    redirect_html = '''<!doctype html>
+<html lang="zh-Hant">
+<head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=../tools/experience/"><title>重新導向</title></head>
+<body><a href="../tools/experience/">前往體驗頁面</a></body>
+</html>'''
+    write(exp_dir / "index.html", redirect_html)
+
+
 def main():
     global _TOTAL_INSTRUMENTS
     instruments = read_instruments()
@@ -2460,6 +2878,8 @@ def main():
     build_404(instruments)
     build_sitemap(instruments)
     build_robots(instruments)
+    build_fretboard_tool()
+    build_experience_page()
     # Copy sitemap and robots.txt to project root for local development
     shutil.copy2(OUTPUT_DIR / "sitemap.xml", BASE_DIR / "sitemap.xml")
     shutil.copy2(OUTPUT_DIR / "robots.txt", BASE_DIR / "robots.txt")

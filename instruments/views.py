@@ -420,3 +420,11 @@ def about(request):
 
 def theory(request):
     return render(request, "instruments/theory.html")
+
+
+def fretboard_tool(request):
+    return render(request, "instruments/fretboard_tool.html")
+
+
+def experience_page(request):
+    return render(request, "instruments/experience.html")

@@ -13,4 +13,7 @@ urlpatterns = [
     path("random/", views.random_instrument, name="random_instrument"),
     path("about/", views.about, name="about"),
     path("theory/", views.theory, name="theory"),
+    # Tools
+    path("tools/fretboard/", views.fretboard_tool, name="fretboard_tool"),
+    path("tools/experience/", views.experience_page, name="experience_page"),
 ]

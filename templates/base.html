@@ -16,13 +16,18 @@
       <div class="nav-dropdown">
         <a href="{% url 'instrument_list' %}" class="dropdown-trigger">全部樂器</a>
         <div class="dropdown-menu">
-          <a href="{% url 'category_list' %}">分類</a>
+          <a href="{% url 'instrument_list' %}">分類</a>
           <a href="{% url 'random_instrument' %}">隨選</a>
           <a href="{% url 'popular_instruments' %}">熱門</a>
           <a href="{% url 'uncommon_instruments' %}">冷門</a>
-          <a href="{% url 'country_list' %}">國家</a>
-          <a href="{% url 'era_list' %}">年代</a>
-          <a href="{% url 'map_view' %}">地圖</a>
+          <a href="{% url 'about' %}">關於本站</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="{% url 'fretboard_tool' %}" class="dropdown-trigger">工具</a>
+        <div class="dropdown-menu">
+          <a href="{% url 'fretboard_tool' %}">世界樂器指版和弦圖</a>
+          <a href="{% url 'experience_page' %}">體驗</a>
         </div>
       </div>
       <a href="{% url 'theory' %}">樂理</a>

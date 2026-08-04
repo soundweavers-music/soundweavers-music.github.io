@@ -1,0 +1,208 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}體驗｜世界樂器百科{% endblock %}
+
+{% block extra_head %}
+<style>
+.experience-hero {
+  padding:48px 24px; text-align:center;
+  margin:0 0 32px; min-height:220px; display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg,rgba(0,0,0,0.7),rgba(0,0,0,0.4)),url(https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=1200) center/cover no-repeat;
+  border-radius:0 0 20px 20px;
+}
+.experience-content { max-width:860px; margin:0 auto; padding:0 20px 64px; }
+.experience-hero-content { max-width:640px; }
+.experience-hero h1 { font-size:clamp(28px,4vw,42px); margin:0 0 12px; color:#fff; text-shadow:0 2px 8px rgba(0,0,0,0.3); }
+.experience-hero .eyebrow { color:rgba(255,255,255,0.7); font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; margin:0 0 12px; }
+.experience-subtitle { font-size:18px; opacity:0.9; color:rgba(255,255,255,0.9); margin:0; }
+
+.exp-intro { text-align:center; margin-bottom:40px; }
+.exp-intro p { color:var(--muted); font-size:16px; line-height:1.7; max-width:640px; margin:0 auto; }
+
+.exp-section { margin-bottom:48px; }
+.exp-section h2 { font-size:24px; margin:0 0 20px; padding-bottom:8px; border-bottom:2px solid var(--accent); display:inline-block; }
+
+.exp-grid {
+  display:grid; grid-template-columns:1fr 1fr; gap:20px;
+}
+
+.exp-card {
+  border:1px solid var(--line); border-radius:12px; overflow:hidden;
+  background:var(--surface); transition:transform .15s,box-shadow .15s;
+}
+.exp-card:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(0,0,0,0.08); }
+.exp-card-image { width:100%; height:180px; object-fit:cover; background:var(--soft); }
+.exp-card-content { padding:18px; }
+.exp-card-content h3 { font-size:18px; margin:0 0 8px; }
+.exp-card-content p { color:var(--muted); font-size:14px; line-height:1.6; margin:0 0 12px; }
+.exp-tag {
+  display:inline-block; padding:3px 8px; border-radius:4px; font-size:11px; font-weight:700;
+  background:var(--soft); color:var(--accent-strong); margin-right:4px;
+}
+.exp-tag.instrument { background:#e6f4f1; color:#0f766e; }
+.exp-tag.culture { background:#f0ebf8; color:#7c3aed; }
+.exp-tag.era { background:#fef3c7; color:#b45309; }
+.exp-tag.geo { background:#dbeafe; color:#1d4ed8; }
+.exp-listen-btn {
+  display:inline-flex; align-items:center; gap:6px; padding:8px 16px;
+  background:var(--accent); color:#fff; border-radius:6px; text-decoration:none;
+  font-size:13px; font-weight:700; transition:background .15s;
+}
+.exp-listen-btn:hover { background:var(--accent-strong); }
+
+.exp-video-wrapper {
+  position:relative; padding-bottom:56.25%; height:0; overflow:hidden;
+  border-radius:10px; margin-bottom:16px;
+}
+.exp-video-wrapper iframe {
+  position:absolute; top:0; left:0; width:100%; height:100%;
+}
+
+.exp-quote {
+  padding:24px; border-left:4px solid var(--accent); border-radius:8px;
+  background:var(--soft); margin:20px 0; font-style:italic;
+  color:var(--muted); line-height:1.7; font-size:16px;
+}
+.exp-quote cite { display:block; margin-top:8px; font-style:normal; font-weight:700; color:var(--ink); }
+
+.exp-steps {
+  counter-reset:step; list-style:none; padding:0; margin:0;
+}
+.exp-steps li {
+  counter-increment:step; padding:14px 14px 14px 48px;
+  border:1px solid var(--line); border-radius:8px; margin-bottom:10px;
+  position:relative; line-height:1.5; font-size:15px;
+  background:var(--surface);
+}
+.exp-steps li::before {
+  content:counter(step); position:absolute; left:12px; top:12px;
+  width:28px; height:28px; border-radius:50%;
+  background:var(--accent); color:#fff; font-weight:800; font-size:14px;
+  display:flex; align-items:center; justify-content:center;
+}
+
+@media (max-width:700px) {
+  .exp-grid { grid-template-columns:1fr; }
+  .exp-card-image { height:140px; }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<main>
+  <section class="experience-hero">
+    <div class="experience-hero-content">
+      <p class="eyebrow">Sound Experience</p>
+      <h1>體驗聲音</h1>
+      <p class="experience-subtitle">不只是看介紹，更要親耳聆聽</p>
+    </div>
+  </section>
+
+  <div class="experience-content">
+    <div class="exp-intro">
+      <p>音樂是需要被聽見的。這裡蒐集了世界各地樂器的實際演奏錄音、示範影片與聲音對比，讓你一邊閱讀文字介紹，一邊用耳朵感受每件樂器獨特的音色與生命力。</p>
+    </div>
+
+    <!-- Step guide -->
+    <section class="exp-section">
+      <h2>如何開始聆聽</h2>
+      <ol class="exp-steps">
+        <li>從下方選擇你有興趣的樂器類別或地區</li>
+        <li>點擊樂器名稱進入詳細介紹頁面</li>
+        <li>在樂器頁面中找到「聆聽示範」按鈕，點擊即可播放</li>
+        <li>也可以直接瀏覽下方的精選播放清單</li>
+      </ol>
+    </section>
+
+    <!-- Featured content -->
+    <section class="exp-section">
+      <h2>精選聲音之旅</h2>
+      <div class="exp-grid">
+        <div class="exp-card">
+          <img class="exp-card-image" src="https://i.ytimg.com/vi/hqF9hbx7po4/maxresdefault.jpg" alt="世界樂器介紹" loading="lazy">
+          <div class="exp-card-content">
+            <h3>世界樂器合輯 — 聲音展示</h3>
+            <div>
+              <span class="exp-tag instrument">樂器</span>
+              <span class="exp-tag culture">跨文化</span>
+            </div>
+            <p>一次聆聽來自世界各地的代表性樂器，從亞洲到非洲，從歐洲到美洲。</p>
+            <a class="exp-listen-btn" href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">▶ 前往頻道聆聽</a>
+          </div>
+        </div>
+
+        <div class="exp-card">
+          <img class="exp-card-image" src="https://i.ytimg.com/vi/OaZ0PJwsYhk/maxresdefault.jpg" alt="民族樂器" loading="lazy">
+          <div class="exp-card-content">
+            <h3>彈撥樂器系列</h3>
+            <div>
+              <span class="exp-tag instrument">彈撥樂器</span>
+              <span class="exp-tag era">傳統</span>
+            </div>
+            <p>從吉他、琵琶到西塔琴，探索世界各地的彈撥樂器演奏。</p>
+            <a class="exp-listen-btn" href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">▶ 前往頻道聆聽</a>
+          </div>
+        </div>
+
+        <div class="exp-card">
+          <img class="exp-card-image" src="https://i.ytimg.com/vi/OmP2iFFdp0I/maxresdefault.jpg" alt="弓弦樂器" loading="lazy">
+          <div class="exp-card-content">
+            <h3>弓弦樂器系列</h3>
+            <div>
+              <span class="exp-tag instrument">弓弦樂器</span>
+              <span class="exp-tag geo">東西方</span>
+            </div>
+            <p>小提琴、二胡、胡琴……感受弓弦樂器從東西方的細膩情感。</p>
+            <a class="exp-listen-btn" href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">▶ 前往頻道聆聽</a>
+          </div>
+        </div>
+
+        <div class="exp-card">
+          <img class="exp-card-image" src="https://i.ytimg.com/vi/TvAiD8Ll3XU/maxresdefault.jpg" alt="打擊樂器" loading="lazy">
+          <div class="exp-card-content">
+            <h3>打擊樂器系列</h3>
+            <div>
+              <span class="exp-tag instrument">打擊樂器</span>
+              <span class="exp-tag culture">非洲／拉丁</span>
+            </div>
+            <p>鼓、鑼、木琴——從節奏中感受音樂最原始的力量。</p>
+            <a class="exp-listen-btn" href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">▶ 前往頻道聆聽</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- YouTube channel -->
+    <section class="exp-section">
+      <h2>YouTube 頻道 — 隔壁織音人</h2>
+      <div class="exp-video-wrapper">
+        <iframe src="https://www.youtube.com/embed?listType=playlist&list=UUPlaceholder" loading="lazy" allowfullscreen></iframe>
+      </div>
+      <p style="color:var(--muted);font-size:14px;line-height:1.6;">
+        前往我們的 YouTube 頻道聆聽更多樂器示範、比較與原創音樂作品。
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener" style="color:var(--blue);font-weight:700;">訂閱頻道 →</a>
+      </p>
+    </section>
+
+    <!-- Listening tips -->
+    <section class="exp-section">
+      <h2>聆聽小技巧</h2>
+      <div class="exp-quote">
+        試著閉上眼睛，專注於單一樂器的聲音——注意它的音色質感（是明亮還是溫暖？）、共鳴方式（聲音如何消散？）、以及演奏技法（是撥奏、弓奏還是敲擊？）。
+        <cite>—— 聆聽世界樂器的最佳方式</cite>
+      </div>
+      <p style="color:var(--muted);font-size:15px;line-height:1.7;">
+        強烈建議使用耳機或高品質喇叭聆聽，以捕捉樂器細微的音色變化。不同的播放設備可能會影響你對樂器音色的感受，特別是低頻樂器和泛音豐富的樂器（如鑼、豎琴）。
+      </p>
+    </section>
+
+    <!-- Browse instruments CTA -->
+    <section class="exp-section" style="text-align:center;padding:32px;border:1px solid var(--line);border-radius:12px;background:var(--surface);">
+      <h2 style="border-bottom:none;display:block;">準備好開始探索了嗎？</h2>
+      <p style="color:var(--muted);margin:0 0 20px;font-size:16px;">瀏覽完整樂器列表，發掘更多聲音</p>
+      <a class="exp-listen-btn" href="{% url 'instrument_list' %}" style="font-size:16px;padding:12px 28px;">🔍 瀏覽全部樂器</a>
+    </section>
+  </div>
+</main>
+{% endblock %}
