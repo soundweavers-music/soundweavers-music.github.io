@@ -141,6 +141,9 @@ def page(title, body, page_path=None, extra_head="", meta_description="", og_ima
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6561686484716387" crossorigin="anonymous"></script>
   <title>{escape(title) if "|" in title or "｜" in title else escape(title) + "｜世界聲音百科"}</title>
   {_dm_head}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&display=swap">
   <link rel="stylesheet" href="{resolve_url(page_path, '/assets/site.css')}">
   <script type="application/ld+json">{jsonld}</script>
   {extra_head}
@@ -1471,6 +1474,9 @@ def append_css():
 }
 .theme-toggle { background:none; border:1px solid var(--line); border-radius:6px; cursor:pointer; font-size:16px; line-height:1; padding:5px 8px; color:var(--ink2); transition:border-color .15s; flex-shrink:0; margin-left:4px; }
 .theme-toggle:hover { border-color:var(--accent); }
+/* ── Body font override (思源宋體/Noto Serif TC) ── */
+body { font-family: "Noto Serif TC", "Source Han Serif TW VF", Georgia, "Times New Roman", serif !important; }
+
 """
     css_path.write_text(css_path.read_text(encoding="utf-8") + extra, encoding="utf-8")
     print("  CSS styles appended to site.css.")

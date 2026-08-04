@@ -106,6 +106,23 @@
 .instr-card.is-active { background:var(--accent); color:#fff; border-color:var(--accent); }
 .instr-card .instr-icon { font-size:24px; display:block; margin-bottom:4px; }
 
+/* ─── Common Chord Chart ─── */
+.common-chord-grid {
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:10px;
+}
+.common-chord-card {
+  border:1px solid var(--line); border-radius:8px; padding:12px;
+  cursor:pointer; transition:all .12s; background:var(--surface);
+  display:flex; flex-direction:column; align-items:center; gap:4px;
+}
+.common-chord-card:hover { border-color:var(--accent); box-shadow:0 2px 8px rgba(0,0,0,.06); }
+.common-chord-card.is-active { border-color:var(--accent); background:var(--soft); }
+.common-chord-card .cc-name { font-weight:700; font-size:16px; }
+.common-chord-card .cc-quality { font-size:11px; color:var(--muted); }
+.common-chord-card .cc-notes { font-size:11px; color:var(--muted); font-family:monospace; }
+.common-chord-card .cc-intervals { font-size:10px; color:var(--muted); opacity:0.7; }
+.chord-fingering-label { font-size:12px; color:var(--muted); margin-top:4px; }
+
 /* ─── Responsive ─── */
 @media (max-width:760px) {
   .panels-grid { grid-template-columns:1fr; }
@@ -121,7 +138,7 @@
   <section class="fret-hero">
     <p class="eyebrow">Fretboard &amp; Chord Visualizer</p>
     <h1>世界樂器指版與和弦圖</h1>
-    <p class="lead">選擇樂器與調弦法，瀏覽各調性的順階和弦組成音與指版音位圖。</p>
+    <p class="lead">選擇樂器與調弦法，瀏覽常見和弦圖表、各調性順階和弦與指版音位圖。</p>
   </section>
 
   <!-- ─── Controls ─── -->
@@ -135,11 +152,11 @@
       <select id="tuning-select"></select>
     </div>
     <div class="control-group">
-      <label>調性（主音）</label>
+      <label>根音（Root）</label>
       <div class="note-selector" id="key-selector"></div>
     </div>
     <div class="control-group">
-      <label>調式</label>
+      <label>調式 / 音階</label>
       <select id="mode-select">
         <option value="major">大調（Ionian）</option>
         <option value="natural">小調（Aeolian）</option>
@@ -165,11 +182,26 @@
     </div>
   </div>
 
+  <!-- ─── Common Chord Chart ─── -->
+  <div class="info-card" style="margin-bottom:20px;">
+    <div class="info-card-header">🎸 常用和弦圖表 — <span id="common-chord-title">C</span></div>
+    <div class="info-card-body">
+      <div id="common-chord-grid" class="common-chord-grid"></div>
+      <div id="common-chord-detail" class="chord-diagram-box" style="margin-top:20px;display:none;padding-top:16px;border-top:1px solid var(--line);">
+        <div class="chord-name-label" id="common-chord-name"></div>
+        <div id="common-chord-diagram-svg"></div>
+        <div class="chord-notes-label" id="common-chord-notes"></div>
+        <div class="chord-intervals-label" id="common-chord-intervals"></div>
+        <div class="chord-fingering-label" id="common-chord-fingering"></div>
+      </div>
+    </div>
+  </div>
+
   <!-- ─── Panels ─── -->
   <div class="panels-grid">
-    <!-- Chord info -->
+    <!-- Diatonic chords -->
     <div class="info-card">
-      <div class="info-card-header">🎸 順階和弦（Diatonic Chords）</div>
+      <div class="info-card-header">🎼 順階和弦（Diatonic Chords）</div>
       <div class="info-card-body">
         <div id="chord-list" class="chord-list"></div>
         <div id="chord-detail" class="chord-diagram-box" style="margin-top:16px;display:none;">
@@ -465,7 +497,33 @@ var CHORD_INTERVALS = {
   'dim7':[0,3,6,9],
   'm7b5':[0,3,6,10],
   'aug7':[0,4,8,10],
+  '9':   [0,4,7,10,2],
+  'maj9':[0,4,7,11,2],
+  'm9':  [0,3,7,10,2],
+  '7sus4':[0,5,7,10],
 };
+
+// Common chord types to show in the chord chart
+var COMMON_CHORD_TYPES = [
+  {key:'maj', label:'', suffix:'', desc:'大三和弦'},
+  {key:'m', label:'m', suffix:'m', desc:'小三和弦'},
+  {key:'7', label:'7', suffix:'7', desc:'屬七和弦'},
+  {key:'maj7', label:'maj7', suffix:'△7', desc:'大七和弦'},
+  {key:'m7', label:'m7', suffix:'m7', desc:'小七和弦'},
+  {key:'dim', label:'dim', suffix:'°', desc:'減三和弦'},
+  {key:'dim7', label:'dim7', suffix:'°7', desc:'減七和弦'},
+  {key:'m7b5', label:'m7b5', suffix:'ø', desc:'半減七和弦'},
+  {key:'aug', label:'aug', suffix:'+', desc:'增三和弦'},
+  {key:'aug7', label:'aug7', suffix:'+7', desc:'增七和弦'},
+  {key:'sus2', label:'sus2', suffix:'sus2', desc:'掛留二和弦'},
+  {key:'sus4', label:'sus4', suffix:'sus4', desc:'掛留四和弦'},
+  {key:'7sus4', label:'7sus4', suffix:'7sus4', desc:'屬七掛留四'},
+  {key:'9', label:'9', suffix:'9', desc:'屬九和弦'},
+  {key:'maj9', label:'maj9', suffix:'△9', desc:'大九和弦'},
+  {key:'m9', label:'m9', suffix:'m9', desc:'小九和弦'},
+];
+
+var INTERVAL_SYMBOLS = ['1','♭2','2','♭3','3','4','♯4/♭5','5','♯5/♭6','6','♭7','7'];
 
 var ROMAN_NUM = ['Ⅰ','Ⅱ','Ⅲ','Ⅳ','Ⅴ','Ⅵ','Ⅶ'];
 var ROMAN_NUM_MINOR = ['i','ii','iii','iv','v','vi','vii'];
@@ -534,6 +592,7 @@ var state = {
   key: 0,        // midi note
   mode: 'major',
   selectedChord: null,
+  selectedCommonChord: null,
   fretCount: 15,
 };
 
@@ -589,6 +648,7 @@ function initControls() {
     state.instrument = parseInt(this.value);
     state.tuning = null;
     state.selectedChord = null;
+    state.selectedCommonChord = null;
     updateFromState();
   });
 
@@ -603,6 +663,7 @@ function initControls() {
     btn.addEventListener('click', function() {
       state.key = parseInt(this.dataset.note);
       state.selectedChord = null;
+      state.selectedCommonChord = null;
       updateFromState();
     });
     keySel.appendChild(btn);
@@ -651,6 +712,7 @@ function updateFromState() {
   renderTuningsList();
   renderChords();
   renderScaleTable();
+  renderCommonChords();
 }
 
 // ─── Render Fretboard ───
@@ -918,6 +980,179 @@ function renderScaleTable() {
   var scaleName = getModeName(state.mode);
   var rootName = NOTE_NAMES[state.key];
   desc.textContent = rootName + ' ' + scaleName + ' · 共 ' + scaleNotes.length + ' 個音';
+}
+
+// ─── Render Common Chord Chart ───
+function renderCommonChords() {
+  var root = state.key;
+  document.getElementById('common-chord-title').textContent = NOTE_NAMES[root];
+
+  var grid = document.getElementById('common-chord-grid');
+  var html = '';
+  COMMON_CHORD_TYPES.forEach(function(cct, idx) {
+    var intervals = CHORD_INTERVALS[cct.key];
+    if (!intervals) return;
+    var notes = intervals.map(function(iv) { return (root + iv) % 12; });
+    // Deduplicate for chord types with octave (e.g., 9th chords)
+    var uniqueNotes = [];
+    var seen = {};
+    notes.forEach(function(n) {
+      if (!seen[n]) { seen[n] = true; uniqueNotes.push(n); }
+    });
+    var noteNames = uniqueNotes.map(function(n) { return NOTE_NAMES[n]; }).join(' ');
+    var noteNamesComma = uniqueNotes.map(function(n) { return NOTE_NAMES[n]; }).join(' - ');
+    var intervalStr = intervals.map(function(iv) { return INTERVAL_SYMBOLS[iv]; }).join(' ');
+    var chName = NOTE_NAMES[root] + cct.suffix;
+    var isActive = state.selectedCommonChord === idx;
+    // Chord type color
+    var typeColor = 'var(--ink)';
+    if (cct.key === 'maj' || cct.key === 'maj7' || cct.key === 'maj9') typeColor = '#C4956A';
+    else if (cct.key === 'm' || cct.key === 'm7' || cct.key === 'm9') typeColor = '#0f766e';
+    else if (cct.key === '7' || cct.key === '9' || cct.key === '7sus4') typeColor = '#7c3aed';
+    else if (cct.key.indexOf('dim') >= 0) typeColor = '#b45309';
+    else if (cct.key.indexOf('aug') >= 0) typeColor = '#c2410c';
+    else if (cct.key.indexOf('sus') >= 0) typeColor = '#1d4ed8';
+
+    html += '<div class="common-chord-card' + (isActive ? ' is-active' : '') + '" data-cchord="' + idx + '" style="border-top:3px solid ' + typeColor + ';">';
+    html += '<span class="cc-name" style="color:' + typeColor + ';">' + chName + '</span>';
+    html += '<span class="cc-quality">' + cct.desc + '</span>';
+    html += '<span class="cc-notes">' + noteNames + '</span>';
+    html += '<span class="cc-intervals">' + intervalStr + '</span>';
+    html += '</div>';
+  });
+  grid.innerHTML = html;
+
+  // Attach click handlers
+  grid.querySelectorAll('.common-chord-card').forEach(function(card) {
+    card.addEventListener('click', function() {
+      state.selectedCommonChord = parseInt(this.dataset.cchord);
+      renderCommonChords();
+      showCommonChordDetail(state.selectedCommonChord);
+    });
+  });
+
+  // Show detail if one is selected
+  if (state.selectedCommonChord !== null) {
+    showCommonChordDetail(state.selectedCommonChord);
+  } else {
+    document.getElementById('common-chord-detail').style.display = 'none';
+  }
+}
+
+function showCommonChordDetail(idx) {
+  var cct = COMMON_CHORD_TYPES[idx];
+  if (!cct) return;
+  var root = state.key;
+  var intervals = CHORD_INTERVALS[cct.key];
+  if (!intervals) return;
+  var notes = intervals.map(function(iv) { return (root + iv) % 12; });
+  var uniqueNotes = [];
+  var seen = {};
+  notes.forEach(function(n) {
+    if (!seen[n]) { seen[n] = true; uniqueNotes.push(n); }
+  });
+
+  var chName = NOTE_NAMES[root] + cct.suffix;
+  var noteNames = uniqueNotes.map(function(n) { return NOTE_NAMES[n]; }).join(' — ');
+  var intervalStr = intervals.map(function(iv) { return INTERVAL_SYMBOLS[iv]; }).join(' — ');
+
+  document.getElementById('common-chord-name').textContent = chName + '  ' + cct.desc;
+  document.getElementById('common-chord-notes').textContent = '組成音：' + noteNames;
+  document.getElementById('common-chord-intervals').textContent = '音程：' + intervalStr;
+
+  // Fingering hint
+  var fingering = getChordFingeringHint(root, intervals);
+  document.getElementById('common-chord-fingering').textContent = fingering;
+
+  // Mini diagram
+  renderCommonChordDiagram(root, intervals);
+
+  document.getElementById('common-chord-detail').style.display = 'flex';
+}
+
+function getChordFingeringHint(root, intervals) {
+  var names = [];
+  intervals.forEach(function(iv) {
+    var d = iv;
+    if (d === 0) names.push('根音');
+    else if (d === 1) names.push('小二度');
+    else if (d === 2) names.push('大二度');
+    else if (d === 3) names.push('小三度');
+    else if (d === 4) names.push('大三度');
+    else if (d === 5) names.push('完全四度');
+    else if (d === 6) names.push('增四度/減五度');
+    else if (d === 7) names.push('完全五度');
+    else if (d === 8) names.push('增五度/小六度');
+    else if (d === 9) names.push('大六度');
+    else if (d === 10) names.push('小七度');
+    else if (d === 11) names.push('大七度');
+  });
+  return '構成：' + names.join(' + ');
+}
+
+function renderCommonChordDiagram(root, intervals) {
+  var inst = INSTRUMENTS[state.instrument];
+  var tuningStr = inst.tunings[state.tuning];
+  if (!tuningStr) return;
+  var tuningMidi = parseTuning(tuningStr);
+  var maxStrings = tuningMidi.length;
+  var chordNoteSet = new Set(intervals.map(function(iv) { return (root + iv) % 12; }));
+
+  var W = 200, H = 30 + maxStrings * 22;
+  var mL = 24, mR = 10, mT = 26;
+  var stringSpacing = Math.min(22, (H - mT - 20) / maxStrings);
+  H = mT + maxStrings * stringSpacing + 18;
+
+  var sh = '<svg width="' + W + '" height="' + H + '" viewBox="0 0 ' + W + ' ' + H + '" xmlns="http://www.w3.org/2000/svg">';
+  var gW = W - mL - mR, fW = gW / 5;
+
+  // Grid
+  for (var f = 0; f <= 5; f++) {
+    var fx = mL + f * fW;
+    sh += '<line x1="' + fx + '" y1="' + mT + '" x2="' + fx + '" y2="' + (mT + (maxStrings - 1) * stringSpacing) + '" stroke="#8B7355" stroke-width="' + (f === 0 ? 3 : 1.5) + '" opacity="0.4"/>';
+  }
+  for (var s = 0; s < maxStrings; s++) {
+    var sy = mT + s * stringSpacing;
+    sh += '<line x1="' + mL + '" y1="' + sy + '" x2="' + (W - mR) + '" y2="' + sy + '" stroke="#555" stroke-width="1" opacity="0.3"/>';
+  }
+
+  // Fret markers
+  for (var f = 1; f <= 5; f++) {
+    var fx = mL + f * fW - fW / 2;
+    sh += '<text x="' + fx + '" y="' + (H - 4) + '" text-anchor="middle" font-size="10" fill="#9C8F87">' + f + '</text>';
+  }
+
+  // Positions
+  for (var s = 0; s < maxStrings; s++) {
+    var found = -1;
+    for (var f = 1; f <= 5; f++) {
+      var mid = tuningMidi[s] + f;
+      if (chordNoteSet.has(mid % 12)) { found = f; break; }
+    }
+    var sy = mT + s * stringSpacing;
+    if (found >= 0) {
+      var fx2 = mL + found * fW - fW / 2;
+      var midiClass = (tuningMidi[s] + found) % 12;
+      var isRoot = midiClass === root;
+      var r = isRoot ? 9 : 7;
+      var color = isRoot ? '#C4956A' : '#0f766e';
+      sh += '<circle cx="' + fx2 + '" cy="' + sy + '" r="' + r + '" fill="' + color + '" opacity="0.85"/>';
+      if (fW > 28 || maxStrings <= 6) {
+        sh += '<text x="' + fx2 + '" y="' + (sy + 1) + '" text-anchor="middle" font-size="7" font-weight="700" fill="#fff">' + NOTE_NAMES[midiClass] + '</text>';
+      }
+    } else {
+      // Check open string
+      if (chordNoteSet.has(tuningMidi[s] % 12)) {
+        var isRoot = (tuningMidi[s] % 12) === root;
+        sh += '<circle cx="' + (mL - 6) + '" cy="' + sy + '" r="' + (isRoot ? 8 : 6) + '" fill="' + (isRoot ? '#C4956A' : '#0f766e') + '" opacity="0.85"/>';
+      } else {
+        sh += '<text x="' + (mL - 8) + '" y="' + (sy + 4) + '" text-anchor="middle" font-size="12" fill="#c00" opacity="0.6">✕</text>';
+      }
+    }
+  }
+
+  sh += '</svg>';
+  document.getElementById('common-chord-diagram-svg').innerHTML = sh;
 }
 
 // ══════════════════════════════════════════════════════════════════

@@ -22,7 +22,7 @@ from io import BytesIO
 import qrcode
 from docx import Document
 from docx.shared import Inches, Pt, Cm, RGBColor
-from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_TAB_ALIGNMENT, WD_TAB_LEADER
 from docx.oxml.ns import qn, nsdecls
 from docx.oxml import parse_xml
 
@@ -117,8 +117,31 @@ def read_all_instruments():
     return instruments
 
 
+# 字型檔名 → 字型家族名稱對照表（DOCX 需用家族名稱而非路徑）
+FONT_NAME_LOOKUP = {
+    "simsun": "SimSun",
+    "songti": "SimSun",
+    "sourcehanseriftw-vf": "Noto Serif TC",
+    "sourcehanserif": "Noto Serif TC",
+    "source han serif": "Noto Serif TC",
+    "notoserifcjk": "Noto Serif CJK TC",
+    "noto serif cjk": "Noto Serif CJK TC",
+    "notoseriftc": "Noto Serif TC",
+    "noto serif tc": "Noto Serif TC",
+    "droid serif": "Droid Serif",
+    "msjh": "Microsoft JhengHei",
+    "jhenghei": "Microsoft JhengHei",
+    "notosanscjk": "Noto Sans CJK TC",
+    "noto sans cjk": "Noto Sans CJK TC",
+    "notosanstc": "Noto Sans TC VF",
+    "noto sans tc": "Noto Sans TC VF",
+    "wqy": "WenQuanYi Micro Hei",
+}
+
+
 def find_font(name_substrings):
-    search_dirs = ["C:/Windows/Fonts", "/usr/share/fonts", "/usr/local/share/fonts"]
+    """搜尋字型，回傳 (檔案路徑, 字型家族名稱) — 路徑供 LibreOffice 使用，名稱供 DOCX 使用"""
+    search_dirs = [str(BASE_DIR / "fonts"), "C:/Windows/Fonts", "/usr/share/fonts", "/usr/local/share/fonts"]
     exts = (".ttc", ".ttf", ".otf")
     for sd in search_dirs:
         if not os.path.isdir(sd):
@@ -126,15 +149,27 @@ def find_font(name_substrings):
         for root, _, files in os.walk(sd):
             for fn in files:
                 if any(kw.lower() in fn.lower() for kw in name_substrings) and fn.lower().endswith(exts):
-                    return os.path.join(root, fn)
-    return None
+                    fp = os.path.join(root, fn)
+                    fn_lower = fn.lower()
+                    family = None
+                    for pat, name in FONT_NAME_LOOKUP.items():
+                        if pat in fn_lower:
+                            family = name
+                            break
+                    return fp, family or fn
+    return None, None
 
 
-FONT_SERIF = find_font(["simsun", "songti", "noto serif cjk", "notoserifcjk", "droid serif"])
-FONT_SANS = find_font(["msjh", "jhenghei", "noto sans cjk", "notosanscjk", "wqy"])
+SERIF_PATH, FONT_SERIF = find_font(
+    ["sourcehanserif", "source han serif", "notoseriftc", "noto serif tc",
+     "simsun", "songti", "noto serif cjk", "notoserifcjk", "droid serif"]
+)
+SANS_PATH, FONT_SANS = find_font(
+    ["msjh", "jhenghei", "noto sans cjk", "notosanscjk", "wqy"]
+)
 
-print(f"  [字型] 襯線: {FONT_SERIF or '未找到'}")
-print(f"  [字型] 無襯線: {FONT_SANS or '未找到'}")
+print(f"  [字型] 襯線: {FONT_SERIF or '未找到'} ({SERIF_PATH or '無路徑'})")
+print(f"  [字型] 無襯線: {FONT_SANS or '未找到'} ({SANS_PATH or '無路徑'})")
 
 
 def set_run_font(run, name_serif=None, name_sans=None, size=None, bold=None, color=None, italic=None):
@@ -157,10 +192,18 @@ def set_run_font(run, name_serif=None, name_sans=None, size=None, bold=None, col
 
 
 def add_page_break(doc):
+    """新增強制分頁（段落層級：下個內容從新頁開始）"""
+    from docx.enum.text import WD_BREAK
     p = doc.add_paragraph()
     run = p.add_run()
-    run._r.append(parse_xml(f'<w:br {nsdecls("w")} type="page"/>'))
+    run.add_break(WD_BREAK.PAGE)
     return p
+
+
+def set_page_break_before(paragraph):
+    """設定段落本身為『分頁前強制分頁』，確保即使前面分頁失敗也不影響"""
+    pPr = paragraph._p.get_or_add_pPr()
+    pPr.append(parse_xml(f'<w:pageBreakBefore {nsdecls("w")}/>'))
 
 
 def set_spacing(p, before=0, after=0, line=1.5):
@@ -187,8 +230,9 @@ def setup_multilevel_heading(doc):
     pass
 
 
-def build_docx(instruments, code, arch):
-    """建立 DOCX 主函數"""
+def build_docx(instruments, code, arch, page_map=None):
+    """建立 DOCX 主函數。
+    page_map={slug: page_number} 時使用真實頁碼，否則僅列出目錄條目（不加頁碼）。"""
     doc = Document()
     s = doc.sections[0]
     s.page_width = Cm(21)
@@ -253,12 +297,11 @@ def build_docx(instruments, code, arch):
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
     set_run_font(p.add_run("隔壁織音人 · 世界聲音百科"), name_sans=FONT_SANS, size=11, color=(0x66, 0x70, 0x85))
 
-    add_page_break(doc)
-
     # ═══════════════════════════════════════════════
-    #  關於作者
+    #  關於作者（強制獨立頁面）
     # ═══════════════════════════════════════════════
-    doc.add_heading("關於作者", level=1)
+    h = doc.add_heading("關於作者", level=1)
+    set_page_break_before(h)  # 強制從新頁開始，不受前面內容長度影響
     for line in ABOUT_TEXT.split("\n"):
         line = line.strip()
         if not line:
@@ -267,12 +310,11 @@ def build_docx(instruments, code, arch):
         set_run_font(p.runs[0], name_serif=FONT_SERIF, size=11)
         set_spacing(p, before=2, after=2)
 
-    add_page_break(doc)
-
     # ═══════════════════════════════════════════════
-    #  目錄（使用 Word TOC 欄位）
+    #  目錄（強制獨立頁面）
     # ═══════════════════════════════════════════════
-    doc.add_heading("目錄", level=1)
+    h = doc.add_heading("目錄", level=1)
+    set_page_break_before(h)  # 強制從新頁開始
 
     # 子分類列表（手寫，方便快速瀏覽）
     p = doc.add_paragraph()
@@ -282,6 +324,8 @@ def build_docx(instruments, code, arch):
     entry_num = 1
     instruments_sorted = sorted(instruments, key=lambda x: (x.get("subcategory") or "", x.get("title_zh") or ""))
     current_sc = None
+
+    # ── 目錄條目（page_map 有值時使用真實頁碼，否則不標頁碼） ──
     for inst in instruments_sorted:
         sc = inst.get("subcategory") or ""
         if sc and sc != current_sc:
@@ -291,15 +335,21 @@ def build_docx(instruments, code, arch):
             set_spacing(p, before=4, after=1)
 
         title = inst["title_zh"] or inst["slug"]
+
         p = doc.add_paragraph()
         set_run_font(p.add_run(f"    {entry_num}. {title}"), name_serif=FONT_SERIF, size=10)
+        if page_map:
+            # 真實頁碼：右對齊 tab 停駐點 + 點線（......），後面接頁碼
+            pn = page_map.get(inst["slug"], "?")
+            p.paragraph_format.tab_stops.add_tab_stop(Cm(15), WD_TAB_ALIGNMENT.RIGHT, WD_TAB_LEADER.DOTS)
+            run_page = p.add_run(f"\tp{pn}")
+            set_run_font(run_page, name_serif=FONT_SERIF, size=10)
         set_spacing(p, before=1, after=1)
         entry_num += 1
 
-    # 插入 TOC 欄位（Word 會自動抓 Heading 1~3 的標題填入頁碼）
+    # 保留 Word TOC 欄位（Word 中按 F9 更新後可得精確頁碼）
     p = doc.add_paragraph()
     set_spacing(p, before=10, after=4)
-    # 說明文字
     note = p.add_run("（在 Word 中按 Ctrl+A → F9 更新頁碼，或右鍵點此區域選「更新功能變數」）")
     set_run_font(note, size=9, color=(0x99, 0x99, 0x99))
 
@@ -325,17 +375,31 @@ def build_docx(instruments, code, arch):
     for inst in instruments_sorted:
         sc = inst.get("subcategory") or ""
 
-        # 每個樂器前都分頁（含第一個，確保目錄後獨立）
-        add_page_break(doc)
+        # 每個樂器都是獨立頁面（用 pageBreakBefore 強制分頁，比 add_page_break 可靠）
+        page_break_on_instrument = True
 
         # 子分類標題（每分類第一次出現時）
         if sc and sc != current_sc:
             current_sc = sc
-            doc.add_heading(sc, level=2)
+            h = doc.add_heading(sc, level=2)
+            set_page_break_before(h)  # 子分類標題佔用這個分頁起點
+            page_break_on_instrument = False  # 第一件同分類樂器留在同一頁
 
         # ─── 樂器名稱（Heading 3，供 TOC 與導覽） ───
         heading_text = f"{entry_num}. {inst['title_zh']}"
-        doc.add_heading(heading_text, level=3)
+        h = doc.add_heading(heading_text, level=3)
+        if page_break_on_instrument:
+            set_page_break_before(h)  # 不同子分類的樂器分頁由自己的 heading 負責
+
+        # ─── 隱藏頁碼標記（第一階段用，給 PDF 解析真實頁碼） ───
+        if page_map is None:
+            mp = doc.add_paragraph()
+            mrun = mp.add_run(f"##PM:{inst['slug']}##")
+            mrun.font.size = Pt(1)
+            mrun.font.color.rgb = RGBColor(0xFF, 0xFF, 0xFF)
+            mp.paragraph_format.space_before = Pt(0)
+            mp.paragraph_format.space_after = Pt(0)
+            mp.paragraph_format.line_spacing = 0.01
 
         if inst.get("title_original"):
             p = doc.add_paragraph()
@@ -439,11 +503,11 @@ def convert_docx_to_pdf(docx_path, pdf_path):
     if not lo_bin:
         return False
 
-    # 第一步：LibreOffice 轉 PDF（先用 CompressionMode=2 壓縮）
+    # 第一步：LibreOffice 轉 PDF（高品質，嵌入字型）
     try:
         result = subprocess.run(
             [lo_bin, "--headless", "--convert-to",
-             "pdf:writer_pdf_Export:{SelectPdfVersion:=1;UseLosslessCompression:=false;Quality:=30;ReduceImageResolution:=true;MaxImageResolution:=120}",
+             "pdf:writer_pdf_Export:{SelectPdfVersion:=0;UseLosslessCompression:=true;EmbedFonts:=true;ExportEmbeddedFonts:=true;ReduceImageResolution:=true;MaxImageResolution:=300}",
              "--outdir", str(pdf_path.parent), str(docx_path)],
             capture_output=True, text=True, timeout=180,
         )
@@ -471,8 +535,31 @@ def convert_docx_to_pdf(docx_path, pdf_path):
         return result.returncode == 0
 
 
+def extract_page_numbers_from_pdf(pdf_path, instruments):
+    """從 PDF 中讀取各樂器的隱藏標記，回傳 {slug: page_number} (真實頁碼)"""
+    from pypdf import PdfReader
+    reader = PdfReader(pdf_path)
+    slug_to_page = {}
+    for i, page in enumerate(reader.pages):
+        text = page.extract_text()
+        page_num = i + 1  # 1-based page number
+        for m in re.finditer(r'##PM:([a-z0-9_-]+)##', text):
+            slug = m.group(1)
+            if slug not in slug_to_page:
+                slug_to_page[slug] = page_num
+
+    found = len(slug_to_page)
+    expected = len(instruments)
+    if found < expected:
+        missing = [inst["slug"] for inst in instruments if inst["slug"] not in slug_to_page]
+        print(f"    [WARN] PDF 頁碼標記：找到 {found}/{expected}，遺漏: {missing[:5]}…")
+    else:
+        print(f"    [OK] PDF 頁碼標記：全部 {found} 件已定位")
+    return slug_to_page
+
+
 # ===================================================================
-#  主流程
+#  主流程（兩階段：先建立標記檔 → 取得真實頁碼 → 重建正式檔）
 # ===================================================================
 def main():
     print("讀取樂器資料...")
@@ -505,34 +592,64 @@ def main():
         instruments.sort(key=lambda x: (x["subcategory"] or "", x["title_zh"] or ""))
         print(f"\n{code} {arch['name']} (世界樂器百科{arch['roman']}): {len(instruments)} 件樂器")
 
-        docx_path = OUTPUT_DIR / f"世界樂器百科{arch['roman']}_{arch['filename']}.docx"
-        pdf_path = OUTPUT_DIR / f"世界樂器百科{arch['roman']}_{arch['filename']}.pdf"
+        final_docx = OUTPUT_DIR / f"世界樂器百科{arch['roman']}_{arch['filename']}.docx"
+        final_pdf = OUTPUT_DIR / f"世界樂器百科{arch['roman']}_{arch['filename']}.pdf"
 
-        # DOCX
-        try:
-            doc = build_docx(instruments, code, arch)
-            doc.save(str(docx_path))
-            size_kb = os.path.getsize(docx_path) / 1024
-            print(f"  [OK] DOCX: {docx_path.name} ({size_kb:.0f} KB)")
-        except Exception as e:
-            print(f"  [FAIL] DOCX: {e}")
-            import traceback; traceback.print_exc()
-            continue
-
-        # DOCX → PDF
         if lo_available:
+            # ── 第一階段：含標記的暫存 DOCX → PDF（用來計算真實頁碼） ──
+            temp_docx = OUTPUT_DIR / f"_pagecalc_{code}.docx"
+            temp_pdf = OUTPUT_DIR / f"_pagecalc_{code}.pdf"
+
             try:
-                ok = convert_docx_to_pdf(docx_path, pdf_path)
-                if ok and pdf_path.exists():
-                    sz = os.path.getsize(pdf_path) / 1024
-                    print(f"  [OK] PDF:  {pdf_path.name} ({sz:.0f} KB)")
+                doc1 = build_docx(instruments, code, arch, page_map=None)
+                doc1.save(str(temp_docx))
+                ok = convert_docx_to_pdf(temp_docx, temp_pdf)
+                if ok and temp_pdf.exists():
+                    page_map = extract_page_numbers_from_pdf(temp_pdf, instruments)
                 else:
-                    print(f"  [WARN] PDF 轉換可能失敗，請檢查 {pdf_path}")
+                    print(f"    [WARN] PDF 轉換失敗，無法取得頁碼")
+                    page_map = {}
+            except Exception as e:
+                print(f"    [WARN] 第一階段失敗: {e}")
+                page_map = {}
+            finally:
+                temp_docx.unlink(missing_ok=True)
+                temp_pdf.unlink(missing_ok=True)
+
+            # ── 第二階段：用真實頁碼建立正式 DOCX ──
+            try:
+                doc2 = build_docx(instruments, code, arch, page_map=page_map or None)
+                doc2.save(str(final_docx))
+                size_kb = os.path.getsize(final_docx) / 1024
+                num_info = f"，{len(page_map)} 件已定位" if page_map else ""
+                print(f"  [OK] DOCX: {final_docx.name} ({size_kb:.0f} KB{num_info})")
+            except Exception as e:
+                print(f"  [FAIL] DOCX: {e}")
+                import traceback; traceback.print_exc()
+                continue
+
+            # DOCX → PDF
+            try:
+                ok = convert_docx_to_pdf(final_docx, final_pdf)
+                if ok and final_pdf.exists():
+                    sz = os.path.getsize(final_pdf) / 1024
+                    print(f"  [OK] PDF:  {final_pdf.name} ({sz:.0f} KB)")
+                else:
+                    print(f"  [WARN] PDF 轉換可能失敗，請檢查 {final_pdf}")
             except Exception as e:
                 print(f"  [FAIL] PDF: {e}")
         else:
-            print(f"  [SKIP] PDF: 未安裝 LibreOffice，略過 PDF 轉換")
-            print(f"         請自行將 DOCX 用 Word 或 LibreOffice 另存為 PDF")
+            # 無 LibreOffice：只產 DOCX（目錄無頁碼）
+            print(f"    [INFO] 未偵測到 LibreOffice，略過 PDF 轉換，目錄無頁碼")
+            try:
+                doc = build_docx(instruments, code, arch, page_map=None)
+                doc.save(str(final_docx))
+                size_kb = os.path.getsize(final_docx) / 1024
+                print(f"  [OK] DOCX: {final_docx.name} ({size_kb:.0f} KB)")
+            except Exception as e:
+                print(f"  [FAIL] DOCX: {e}")
+                import traceback; traceback.print_exc()
+                continue
 
     print(f"\n[OK] 全部完成!")
     print(f"   輸出資料夾: {OUTPUT_DIR}")
