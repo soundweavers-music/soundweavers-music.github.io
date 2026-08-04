@@ -22,22 +22,45 @@ INSTRUMENTS = {
 }
 MAX_MUTE = {0: 2, 2: 1, 3: 2, 4: 1}
 
+# full chord tones (allowed pitch classes — no note outside this set may sound)
 QUAL = {
     'maj':  {0, 4, 7},
     'm':    {0, 3, 7},
     '7':    {0, 4, 7, 10},
     'maj7': {0, 4, 7, 11},
     'm7':   {0, 3, 7, 10},
+    'aug':  {0, 4, 8},
+    'dim':  {0, 3, 6},
+    'dim7': {0, 3, 6, 9},
+    'm7b5': {0, 3, 6, 10},
+    '6':    {0, 4, 7, 9},
+    'm6':   {0, 3, 7, 9},
+    '9':    {0, 4, 7, 10, 2},
+    'sus2': {0, 2, 7},
+    'sus4': {0, 5, 7},
+    'add9': {0, 4, 7, 2},
 }
-# tones that MUST appear (5th may be dropped on dominant/minor sevenths)
+# tones that MUST appear (5th may be dropped on 7ths/9ths; matches QDEF in the tool)
 ESSENTIAL = {
     'maj':  {0, 4, 7},
     'm':    {0, 3, 7},
     '7':    {0, 4, 10},
     'maj7': {0, 4, 11},
     'm7':   {0, 3, 10},
+    'aug':  {0, 4, 8},
+    'dim':  {0, 3, 6},
+    'dim7': {0, 3, 6, 9},
+    'm7b5': {0, 3, 10},
+    '6':    {0, 4, 9},
+    'm6':   {0, 3, 9},
+    '9':    {0, 4, 10, 2},
+    'sus2': {0, 2, 7},
+    'sus4': {0, 5, 7},
+    'add9': {0, 4, 2},
 }
-QUALITIES = ['maj', 'm', '7', 'maj7', 'm7']
+# core = curated open shapes / guitar barres; the rest are solved (low position).
+CORE = ['maj', 'm', '7', 'maj7', 'm7']
+QUALITIES = CORE + ['aug', 'dim', 'dim7', 'm7b5', '6', 'm6', '9', 'sus2', 'sus4', 'add9']
 
 # ---- curated, recognizable open shapes (absolute frets, -1 = mute) ----
 # guitar index order: 1st,2nd,3rd,4th,5th,6th
@@ -55,6 +78,16 @@ GUITAR_OPEN = {
     (5, 'maj7'): [0, 1, 2, 3, -1, -1], (7, 'maj7'): [2, 0, 0, 0, 2, 3],
     (9, 'm7'): [0, 1, 0, 2, 0, -1], (4, 'm7'): [0, 0, 0, 0, 2, 0],
     (2, 'm7'): [1, 1, 2, 0, -1, -1],
+    # 標準開放把位 6 / m6 / sus4（參考 GUIRAR1.webp 和弦表）
+    (0, '6'): [0, 1, 2, 2, 3, -1], (0, 'sus4'): [1, 1, 0, 3, 3, -1],
+    (2, '6'): [2, 0, 2, 0, -1, -1], (2, 'm6'): [1, 0, 2, 0, -1, -1],
+    (2, 'sus4'): [3, 3, 2, 0, -1, -1],
+    (4, '6'): [0, 2, 1, 2, 2, 0], (4, 'm6'): [0, 2, 0, 2, 2, 0],
+    (4, 'sus4'): [0, 0, 2, 2, 2, 0],
+    (7, '6'): [0, 0, 0, 0, 2, 3], (7, 'm6'): [0, 3, 0, 0, 1, 3],
+    (7, 'sus4'): [3, 3, 0, 0, 3, 3],
+    (9, '6'): [2, 2, 2, 2, 0, -1], (9, 'm6'): [2, 1, 2, 2, 0, -1],
+    (9, 'sus4'): [0, 3, 2, 2, 0, -1],
 }
 # ukulele index order: 1st(A),2nd(E),3rd(C),4th(g)
 UKE_OPEN = {
@@ -175,7 +208,8 @@ def solve(base, root, quality, max_mute):
         bass_penalty = 0 if bass % 12 == root else 1
         maxfret = max(fretted) if fretted else 0
         open_cnt = sum(1 for f in combo if f == 0)
-        score = (bass_penalty, maxfret, muted, span, -open_cnt)
+        # 優先：最低把位 → 最小跨度 → 最少悶音 → 根音在低音 → 越多空弦越好
+        score = (maxfret, span, muted, bass_penalty, -open_cnt)
         if best is None or score < best[0]:
             best = (score, list(combo))
     return best[1] if best else None
@@ -194,8 +228,8 @@ def build():
                 if frets is not None:
                     assert valid_shape(frets, base, root, q), \
                         f"BAD OVERRIDE inst{idx} {NOTE[root]}{q}: {frets}"
-                elif idx == 0:
-                    # guitar: no open shape -> use textbook movable barre
+                elif idx == 0 and q in E_SHAPE:
+                    # guitar core qualities: textbook movable E-/A-shape barre
                     frets = guitar_barre(root, q)
                     assert valid_shape(frets, base, root, q), \
                         f"BAD BARRE inst{idx} {NOTE[root]}{q}: {frets}"
@@ -218,8 +252,9 @@ def build():
 
 if __name__ == "__main__":
     lib, stats = build()
+    total = 12 * len(QUALITIES)
     for idx, (ok, solved) in stats.items():
-        print(f"// inst {idx}: {ok}/60 shapes ({solved} solved, {ok - solved} curated)")
+        print(f"// inst {idx}: {ok}/{total} shapes ({solved} barre/curated core, {ok - solved} solved/ext)")
     js = "var CHORD_LIBRARY = " + json.dumps(lib, ensure_ascii=False, separators=(',', ':')) + ";"
     with open("scripts/_chord_library.js", "w", encoding="utf-8") as fh:
         fh.write(js)
