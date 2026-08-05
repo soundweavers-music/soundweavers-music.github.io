@@ -76,6 +76,11 @@
 .cc-remove {position:absolute;top:4px;right:6px;width:18px;height:18px;line-height:16px;text-align:center;border:none;border-radius:50%;background:transparent;color:var(--muted);font-size:14px;cursor:pointer;padding:0;opacity:0;transition:opacity .12s;}
 .common-chord-card:hover .cc-remove {opacity:1;}
 .cc-remove:hover {background:#c0392b;color:#fff;}
+.cc-move {position:absolute;left:4px;width:18px;height:14px;line-height:12px;text-align:center;border:none;border-radius:3px;background:transparent;color:var(--muted);font-size:11px;cursor:pointer;padding:0;opacity:0;transition:opacity .12s;}
+.common-chord-card:hover .cc-move {opacity:1;}
+.cc-move:hover {background:var(--soft);color:var(--ink);}
+.cc-move-up {top:4px;}
+.cc-move-down {top:22px;}
 .cc-tabs {display:flex;border-bottom:1px solid var(--line);background:var(--soft);}
 .cc-tab {flex:0 0 auto;padding:14px 20px;background:transparent;border:none;border-bottom:3px solid transparent;font-size:15px;font-weight:700;color:var(--muted);cursor:pointer;transition:all .12s;}
 .cc-tab:hover {color:var(--ink);}
@@ -86,6 +91,8 @@
 .cc-builder button {padding:8px 16px;border:1px solid var(--accent);border-radius:6px;background:var(--accent);color:#fff;font-size:13px;font-weight:700;cursor:pointer;}
 .cc-builder button.ghost {background:transparent;color:var(--accent);}
 .cc-builder button:hover {opacity:.88;}
+button.ghost {padding:8px 16px;border:1px solid var(--line);border-radius:6px;background:transparent;color:var(--muted);font-size:13px;font-weight:600;cursor:pointer;transition:all .12s;}
+button.ghost:hover {border-color:var(--accent);color:var(--accent);}
 .chord-fingering-label {font-size:12px;color:var(--muted);margin-top:4px;}
 .chord-diagram-box {display:flex;flex-direction:column;align-items:center;gap:8px;}
 .chord-name-label {font-size:20px;font-weight:800;}
@@ -679,6 +686,7 @@ function specNotes(spec) {
 function renderPresetChords() {
   var grid = document.getElementById('preset-chord-grid');
   if (!grid) return;
+  var n = state.presetChords.length;
   var html = '';
   state.presetChords.forEach(function(spec, idx) {
     var chName = chordSpecName(spec);
@@ -688,6 +696,10 @@ function renderPresetChords() {
     var dia = diagramForSpec(spec, 128);
     html += '<div class="common-chord-card' + (isActive ? ' is-active' : '') + '" data-preset="' + idx + '" style="border-top:3px solid ' + typeColor + ';">';
     html += '<button class="cc-remove" data-remove="' + idx + '" title="移除">✕</button>';
+    if (n > 1) {
+      if (idx > 0) html += '<button class="cc-move cc-move-up" data-move="' + idx + '" data-dir="-1" title="上移">&#9650;</button>';
+      if (idx < n - 1) html += '<button class="cc-move cc-move-down" data-move="' + idx + '" data-dir="1" title="下移">&#9660;</button>';
+    }
     html += '<span class="cc-name" style="color:' + typeColor + ';">' + chName + '</span>';
     html += '<span class="cc-quality">' + (QLABEL[spec.q] ? QLABEL[spec.q].d : '') + '</span>';
     html += '<div class="cc-diagram">' + dia.svg + '</div>';
@@ -707,6 +719,12 @@ function renderPresetChords() {
       renderPresetChords();
     });
   });
+  grid.querySelectorAll('.cc-move').forEach(function(btn) {
+    btn.addEventListener('click', function(ev) {
+      ev.stopPropagation();
+      movePresetChord(parseInt(this.dataset.move), parseInt(this.dataset.dir));
+    });
+  });
   grid.querySelectorAll('.common-chord-card').forEach(function(card) {
     card.addEventListener('click', function() {
       state.selectedPreset = parseInt(this.dataset.preset);
@@ -716,6 +734,132 @@ function renderPresetChords() {
   });
   if (state.selectedPreset !== null && state.presetChords[state.selectedPreset]) showPresetDetail(state.selectedPreset);
   else { var d = document.getElementById('preset-chord-detail'); if (d) d.style.display = 'none'; }
+}
+
+function movePresetChord(idx, dir) {
+  var arr = state.presetChords;
+  var newIdx = idx + dir;
+  if (newIdx < 0 || newIdx >= arr.length) return;
+  var item = arr.splice(idx, 1)[0];
+  arr.splice(newIdx, 0, item);
+  if (state.selectedPreset === idx) state.selectedPreset = newIdx;
+  else if (state.selectedPreset === newIdx) state.selectedPreset = idx;
+  savePresetChords();
+  renderPresetChords();
+}
+
+function escapeXml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function exportPresetSVG() {
+  var specs = state.presetChords;
+  if (!specs.length) { alert('請先加入和弦至常用和弦圖表'); return; }
+  var svgStr = exportCommonSpecs(specs, '常用和弦圖表');
+  if (!svgStr) return;
+  var blob = new Blob([svgStr], {type:'image/svg+xml'});
+  var dl = document.createElement('a');
+  dl.download = 'chords_' + state.instrument + '.svg';
+  dl.href = URL.createObjectURL(blob); dl.click();
+}
+
+function exportPresetPNG() {
+  var specs = state.presetChords;
+  if (!specs.length) { alert('請先加入和弦至常用和弦圖表'); return; }
+  var svgStr = exportCommonSpecs(specs, '常用和弦圖表');
+  if (!svgStr) return;
+  var svgBlob = new Blob([svgStr], {type:'image/svg+xml;charset=utf-8'});
+  var url = URL.createObjectURL(svgBlob);
+  var img = new Image();
+  img.onload = function() {
+    var ca = document.createElement('canvas');
+    ca.width = img.naturalWidth * 2; ca.height = img.naturalHeight * 2;
+    var cx = ca.getContext('2d');
+    cx.scale(2, 2); cx.drawImage(img, 0, 0);
+    URL.revokeObjectURL(url);
+    ca.toBlob(function(b) { if (!b) return;
+      var dl = document.createElement('a');
+      dl.download = 'chords_' + state.instrument + '.png';
+      dl.href = URL.createObjectURL(b); dl.click();
+    }, 'image/png');
+  };
+  img.src = url;
+}
+
+function exportCommonSpecs(specs, title) {
+  if (!specs || !specs.length) return null;
+  var cols = Math.min(4, specs.length);
+  var cellW = 180, cellH = 200, pad = 30, titleH = 65;
+  var rows = Math.ceil(specs.length / cols);
+  var W = cols * cellW + pad * 2, H = rows * cellH + titleH + pad;
+  var parts = ['<svg xmlns="http://www.w3.org/2000/svg" width="' + W + '" height="' + H + '">'];
+  parts.push('<rect width="100%" height="100%" fill="#fff"/>');
+  parts.push('<text x="' + pad + '" y="30" font-family="sans-serif" font-size="18" font-weight="bold" fill="#333">' + escapeXml(title) + '</text>');
+  parts.push('<text x="' + pad + '" y="48" font-family="sans-serif" font-size="12" fill="#999">' + escapeXml(INSTRUMENTS_DATA[state.instrument].name + ' · ' + state.tuning) + '</text>');
+  specs.forEach(function(spec, idx) {
+    var col = idx % cols, row = Math.floor(idx / cols);
+    var x = pad + col * cellW, y = titleH + row * cellH;
+    var chName = chordSpecName(spec);
+    parts.push('<text x="' + (x + 5) + '" y="' + (y + 15) + '" font-family="sans-serif" font-size="14" font-weight="bold" fill="#333">' + escapeXml(chName) + '</text>');
+    parts.push('<rect x="' + (x + 5) + '" y="' + (y + 20) + '" width="' + (cellW - 10) + '" height="' + (cellH - 30) + '" rx="6" fill="#f9f9f9" stroke="#eee" stroke-width="1"/>');
+    var tm = parseTuning(INSTRUMENTS_DATA[state.instrument].tunings[state.tuning]);
+    var shape, diaSvg, q = effQ(spec.q);
+    shape = getChordShape(state.instrument, state.tuning, spec.root, q, spec.bass);
+    if (shape) diaSvg = svgFromShape(shape.frets, shape.fingers, shape.barre, spec.root, tm, cellW - 40);
+    else diaSvg = diagramForSpec(spec, cellW - 40).svg;
+    if (diaSvg) {
+      var inner = diaSvg.match(/<svg[^>]*>([\s\S]*)<\/svg>/);
+      if (inner) parts.push('<g transform="translate(' + (x + 10) + ',' + (y + 25) + ')">' + inner[1] + '</g>');
+    }
+  });
+  parts.push('</svg>');
+  return parts.join('\n');
+}
+
+function exportDerivedSVG() {
+  var root = state.key;
+  var specs = [];
+  COMMON_CHORD_TYPES.forEach(function(cct) {
+    var intervals = CI[effQ(cct.key)];
+    if (!intervals) return;
+    specs.push({root: root, q: cct.key, bass: null});
+  });
+  if (!specs.length) return;
+  var svgStr = exportCommonSpecs(specs, NOTE_NAMES[root] + ' 常用和弦圖表');
+  if (!svgStr) return;
+  var blob = new Blob([svgStr], {type:'image/svg+xml'});
+  var dl = document.createElement('a');
+  dl.download = 'derived_chords_' + NOTE_NAMES[root] + '.svg';
+  dl.href = URL.createObjectURL(blob); dl.click();
+}
+
+function exportDerivedPNG() {
+  var root = state.key;
+  var specs = [];
+  COMMON_CHORD_TYPES.forEach(function(cct) {
+    var intervals = CI[effQ(cct.key)];
+    if (!intervals) return;
+    specs.push({root: root, q: cct.key, bass: null});
+  });
+  if (!specs.length) return;
+  var svgStr = exportCommonSpecs(specs, NOTE_NAMES[root] + ' 常用和弦圖表');
+  if (!svgStr) return;
+  var svgBlob = new Blob([svgStr], {type:'image/svg+xml;charset=utf-8'});
+  var url = URL.createObjectURL(svgBlob);
+  var img = new Image();
+  img.onload = function() {
+    var ca = document.createElement('canvas');
+    ca.width = img.naturalWidth * 2; ca.height = img.naturalHeight * 2;
+    var cx = ca.getContext('2d');
+    cx.scale(2, 2); cx.drawImage(img, 0, 0);
+    URL.revokeObjectURL(url);
+    ca.toBlob(function(b) { if (!b) return;
+      var dl = document.createElement('a');
+      dl.download = 'derived_chords_' + NOTE_NAMES[root] + '.png';
+      dl.href = URL.createObjectURL(b); dl.click();
+    }, 'image/png');
+  };
+  img.src = url;
 }
 
 function showPresetDetail(idx) {
@@ -764,6 +908,12 @@ function setupCommonChordTabs() {
     savePresetChords();
     renderPresetChords();
   });
+  document.getElementById('cc-export-svg').addEventListener('click', function(){ exportPresetSVG(); });
+  document.getElementById('cc-export-png').addEventListener('click', function(){ exportPresetPNG(); });
+  var derivedSvgBtn = document.getElementById('cc-export-derived-svg');
+  var derivedPngBtn = document.getElementById('cc-export-derived-png');
+  if (derivedSvgBtn) derivedSvgBtn.addEventListener('click', function(){ exportDerivedSVG(); });
+  if (derivedPngBtn) derivedPngBtn.addEventListener('click', function(){ exportDerivedPNG(); });
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -981,6 +1131,8 @@ document.addEventListener('DOMContentLoaded', function() {
           <label>低音 / Bass<select id="cc-add-bass"></select></label>
           <button id="cc-add-btn">＋ 加入常用</button>
           <button id="cc-reset-btn" class="ghost">↺ 還原預設</button>
+          <button id="cc-export-svg" class="ghost" title="下載為 SVG（向量圖，可無限放大）">📥 SVG</button>
+          <button id="cc-export-png" class="ghost" title="下載為 PNG 圖片">📥 PNG</button>
         </div>
         <div id="preset-chord-grid" class="common-chord-grid"></div>
         <div id="preset-chord-detail" class="chord-diagram-box" style="margin-top:20px;display:none;padding-top:16px;border-top:1px solid var(--line);">
@@ -993,7 +1145,11 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
 
       <div id="cc-tab-derived" style="display:none;">
-        <div style="font-size:12px;color:var(--muted);margin-bottom:12px;">依目前調性 <b><span id="common-chord-title">C</span></b> 自動列出各和弦類型的指型與指法建議。</div>
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:12px;">
+          <span style="font-size:12px;color:var(--muted);">依目前調性 <b><span id="common-chord-title">C</span></b> 自動列出各和弦類型的指型與指法建議。</span>
+          <button id="cc-export-derived-svg" class="ghost" style="margin-left:auto;padding:4px 10px;font-size:11px;" title="下載為 SVG">📥 SVG</button>
+          <button id="cc-export-derived-png" class="ghost" style="padding:4px 10px;font-size:11px;" title="下載為 PNG">📥 PNG</button>
+        </div>
         <div id="common-chord-grid" class="common-chord-grid"></div>
         <div id="common-chord-detail" class="chord-diagram-box" style="margin-top:20px;display:none;padding-top:16px;border-top:1px solid var(--line);">
           <div class="chord-name-label" id="common-chord-name"></div>
