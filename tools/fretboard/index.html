@@ -42,6 +42,7 @@
   
   <script>!function(){try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);else document.documentElement.setAttribute("data-theme","nextdoor")}catch(e){}}()</script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <link rel="stylesheet" href="../../assets/site.css">
   <style>
 .controls-bar {display:flex;flex-wrap:wrap;gap:12px;align-items:end;padding:20px;background:var(--surface);border:1px solid var(--line);border-radius:10px;margin-bottom:24px;}
@@ -126,6 +127,15 @@ button.ghost:hover {border-color:var(--accent);color:var(--accent);}
 .cc-filter-chip.is-off {opacity:0.4;background:transparent;text-decoration:line-through;}
 .cc-filter-action {padding:2px 8px;border:none;border-radius:12px;font-size:10px;cursor:pointer;background:transparent;color:var(--accent);font-weight:600;}
 .cc-filter-action:hover {background:var(--soft);}
+.modal-overlay {position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:1000;display:none;justify-content:center;align-items:center;}
+.modal-box {background:var(--surface);border-radius:12px;padding:24px;max-width:500px;width:90%;max-height:80vh;overflow-y:auto;box-shadow:0 8px 32px rgba(0,0,0,.15);}
+.modal-box h3 {margin:0 0 16px 0;font-size:18px;}
+.modal-section {margin:8px 0;padding:8px 10px;border:1px solid var(--line);border-radius:6px;display:flex;align-items:center;gap:10px;}
+.modal-section label {cursor:pointer;flex:1;font-size:14px;}
+.modal-section label small {display:block;font-size:11px;color:var(--muted);font-weight:400;}
+.modal-format {display:flex;gap:12px;margin:16px 0;padding:12px;background:var(--soft);border-radius:8px;}
+.modal-format label {display:flex;align-items:center;gap:6px;cursor:pointer;font-size:14px;font-weight:600;}
+.modal-actions {display:flex;gap:10px;justify-content:flex-end;margin-top:16px;}
 @media (max-width:760px) {.panels-grid {grid-template-columns:1fr;}.controls-bar {flex-direction:column;}.control-group {width:100%;}.control-group select {width:100%;}}
 </style><script>
 const INSTRUMENTS_DATA = [{"name": "吉他 Guitar", "icon": "🎸", "tunings": {"標準調弦 Standard": ["E4", "B3", "G3", "D3", "A2", "E2"], "Drop D": ["E4", "B3", "G3", "D3", "A2", "D2"], "Drop C": ["E4", "B3", "G3", "C3", "A2", "C2"], "Open D": ["D4", "A3", "F♯3", "D3", "A2", "D2"], "Open G": ["D4", "B3", "G3", "D3", "G2", "D2"], "Open C": ["E4", "C4", "C4", "G3", "E3", "C3"], "DADGAD": ["D4", "A3", "G3", "D3", "A2", "D2"], "Half-step Down": ["E♭4", "B♭3", "G♭3", "D♭3", "A♭2", "E♭2"], "Full-step Down": ["D4", "A3", "F♯3", "C3", "G2", "D2"], "Nashville Tuning": ["E5", "B4", "G4", "D4", "A3", "E3"]}}, {"name": "電貝斯 Bass", "icon": "🎸", "tunings": {"標準 4弦": ["G3", "D3", "A2", "E2"], "Standard 5-String": ["G3", "D3", "A2", "E2", "B1"], "Standard 6-String": ["C3", "G2", "D2", "A1", "E1", "B1"], "Drop D (4弦)": ["G3", "D3", "A2", "D2"], "Half-step Down": ["G♭3", "D♭3", "A♭2", "E♭2"]}}, {"name": "烏克麗麗 Ukulele", "icon": "🪕", "tunings": {"標準 (高音 GCEA)": ["A4", "E4", "C4", "G4"], "Low G": ["A4", "E4", "C4", "G3"], "D 調 (ADF♯B)": ["B4", "F♯4", "D4", "A4"], "Baritone (DGBE)": ["E4", "B3", "G3", "D3"]}}, {"name": "班卓琴 Banjo", "icon": "🪕", "tunings": {"標準 Open G (5弦)": ["D4", "B3", "G3", "D3", "G4"], "Open C": ["D4", "C4", "G3", "C3", "G4"], "Double C": ["D4", "C4", "G3", "C3", "G4"], "Double D": ["D4", "A3", "F♯3", "D3", "D4"], "Sawmill": ["D4", "B3", "G3", "D3", "D4"], "Irish (4弦)": ["D4", "B3", "G3", "D3"]}}, {"name": "曼陀林 Mandolin", "icon": "🎻", "tunings": {"標準": ["E5", "A4", "D4", "G3"], "跨弦標準 (CGDA)": ["A4", "D4", "G3", "C3"], "Open G": ["D5", "B4", "G4", "D4"]}}, {"name": "巴拉萊卡 Balalaika", "icon": "🎻", "tunings": {"標準 Prima": ["E5", "A4", "E4"], "標準 Secunda": ["A4", "E4", "A3"], "標準 Alto": ["E4", "A3", "E3"], "標準 Bass": ["A3", "E3", "A2"]}}, {"name": "夏威夷四弦琴 Cavaquinho", "icon": "🪕", "tunings": {"標準 (DGBD)": ["D5", "B4", "G4", "D4"], "巴西標準": ["B4", "G4", "D4", "G4"], "葡萄牙標準": ["D5", "B4", "G4", "D4"]}}, {"name": "查蘭戈 Charango", "icon": "🪕", "tunings": {"標準": ["E5", "A4", "E4", "C4", "G4"], "F 調": ["F5", "A♯4", "F4", "C4", "G♯4"]}}, {"name": "布祖基琴 Bouzouki", "icon": "🎻", "tunings": {"希臘 3弦": ["D4", "A3", "D3"], "希臘 4弦": ["D4", "A3", "F♯3", "C3"], "愛爾蘭 (GDAD)": ["D4", "A3", "D3", "G2"]}}, {"name": "西塔琴 Sitar", "icon": "🎻", "tunings": {"標準 (Kharaj)": ["C4", "G3", "C3", "G2"]}}, {"name": "琵琶 Pipa", "icon": "🎻", "tunings": {"標準 (A d e a)": ["A4", "E4", "D4", "A3"], "傳統 D 調": ["D5", "A4", "D4", "A3"]}}, {"name": "中阮 Zhongruan", "icon": "🎻", "tunings": {"標準 (五度 G D A E)": ["E4", "A3", "D3", "G2"], "傳統 (G D G D)": ["D4", "G3", "D3", "G2"]}}, {"name": "柳琴 Liuqin", "icon": "🎻", "tunings": {"標準 (五度 G D A E)": ["E5", "A4", "D4", "G3"], "傳統 (G D G D)": ["D5", "G4", "D4", "G3"]}}, {"name": "班都利亞琴 Bandurria", "icon": "🎻", "tunings": {"標準 (四度 G♯ C♯ F♯ B E A)": ["A4", "E4", "B3", "F♯3", "C♯3", "G♯2"]}}, {"name": "三味線 Shamisen", "icon": "🎻", "tunings": {"本調子 (Honchoshi)": ["C4", "F3", "C3"], "二上がり (Niagari)": ["D4", "F3", "C3"], "三下がり (Sansagari)": ["C4", "F3", "B♭2"]}}, {"name": "吉他隆 Guitarron", "icon": "🎸", "tunings": {"標準": ["A3", "E3", "C3", "G2", "D2", "A1"]}}, {"name": "維胡埃拉 Vihuela", "icon": "🎸", "tunings": {"標準": ["A4", "D4", "G3", "B3", "E4"]}}, {"name": "Dobro (Resonator)", "icon": "🎸", "tunings": {"Open G": ["D4", "B3", "G3", "D3", "G2", "D2"], "Open D": ["D4", "A3", "F♯3", "D3", "A2", "D2"]}}, {"name": "Appalachian Dulcimer", "icon": "🎻", "tunings": {"標準 (DAA)": ["D4", "A3", "A3"], "DGD": ["D4", "G3", "D3"], "DAD": ["D4", "A3", "D3"]}}];
@@ -1313,6 +1323,146 @@ function setupCommonChordTabs() {
   if (mdBtn) mdBtn.addEventListener('click', exportChordMD);
 }
 
+// ---- 全頁匯出系統 ----
+// 可選區域名稱與對應的 DOM 查詢器
+var EXPORT_SECTIONS = [
+  {id:'sec-controls', label:'控制面板（樂器/調弦/根音/調式）', query:'#controls'},
+  {id:'sec-fretboard', label:'指版音位圖', query:'.fretboard-container'},
+  {id:'sec-chords', label:'和弦圖表（目前分頁）', query:'.info-card > .cc-tabs'},
+  {id:'sec-diatonic', label:'順階和弦', query:'.panels-grid .info-card:first-child'},
+  {id:'sec-scales', label:'音階組成音', query:'.panels-grid .info-card:last-child'},
+  {id:'sec-tunings', label:'常見調弦法一覽', query:'#tunings-panel'},
+];
+
+function showExportModal() {
+  var overlay = document.getElementById('export-modal');
+  if (!overlay) return;
+  overlay.style.display = 'flex';
+}
+
+function closeExportModal() {
+  document.getElementById('export-modal').style.display = 'none';
+}
+
+function doExport() {
+  var format = document.querySelector('input[name="export-format"]:checked');
+  if (!format) { alert('請選擇匯出格式'); return; }
+  var fmt = format.value;
+  var sections = [];
+  EXPORT_SECTIONS.forEach(function(sec) {
+    var cb = document.getElementById(sec.id);
+    if (cb && cb.checked) sections.push(sec);
+  });
+  if (!sections.length) { alert('請選擇至少一個區塊'); return; }
+
+  closeExportModal();
+
+  // 建立暫存容器
+  var wrap = document.createElement('div');
+  wrap.style.cssText = 'background:#fff;padding:24px;font-family:sans-serif;max-width:900px;';
+  // Add title
+  var title = document.createElement('div');
+  title.style.cssText = 'font-size:20px;font-weight:bold;color:#333;margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid #eee;';
+  title.textContent = '世界樂器指版與和弦圖';
+  wrap.appendChild(title);
+
+  sections.forEach(function(sec) {
+    var el;
+    if (sec.id === 'sec-chords') {
+      // 獲取整個和弦區塊容器（含分頁標籤）
+      el = document.querySelector('.cc-tabs') ? document.querySelector('.cc-tabs').closest('.info-card') : null;
+    } else if (sec.id === 'sec-diatonic' || sec.id === 'sec-scales') {
+      el = document.querySelector(sec.query);
+    } else {
+      el = document.querySelector(sec.query) || document.getElementById(sec.query);
+    }
+    if (!el) return;
+
+    // Add section title
+    var st = document.createElement('div');
+    st.style.cssText = 'font-size:14px;font-weight:bold;color:#666;margin-top:16px;margin-bottom:8px;';
+    st.textContent = sec.label;
+    wrap.appendChild(st);
+
+    var clone = el.cloneNode(true);
+    // Remove interactive elements from clones
+    var btns = clone.querySelectorAll('.cc-remove, .cc-move, .cc-edit-btn, .cc-edit-save, .cc-edit-cancel, .cc-export-md, .cc-builder button, #cc-edit-area, .cc-filter-bar, [id^=cc-export], [id^=cc-toggle]');
+    btns.forEach(function(b){ if (b) b.remove(); });
+    // Remove edit area from preset detail
+    var editArea = clone.querySelector('#cc-edit-area');
+    if (editArea) editArea.remove();
+    // Unhide all tab content for export
+    var presetCont = clone.querySelector('#cc-tab-preset');
+    var derivedCont = clone.querySelector('#cc-tab-derived');
+    if (presetCont) presetCont.style.display = 'block';
+    if (derivedCont) derivedCont.style.display = 'block';
+    // Remove is-active from tab buttons
+    clone.querySelectorAll('.cc-tab').forEach(function(t){ t.classList.remove('is-active'); });
+    clone.querySelectorAll('.common-chord-card.is-active').forEach(function(c){ c.classList.remove('is-active'); });
+    // Remove cc-auto and cc-intervals if showNotes is off
+    if (!state.showNotes) {
+      clone.querySelectorAll('.cc-notes, .cc-intervals').forEach(function(n){n.remove();});
+    }
+
+    wrap.appendChild(clone);
+  });
+
+  document.body.appendChild(wrap);
+
+  // Wait for rendering then export
+  setTimeout(function() {
+    if (fmt === 'svg') {
+      exportWrapAsSVG(wrap);
+    } else if (fmt === 'png') {
+      exportWrapAsPNG(wrap);
+    } else if (fmt === 'pdf') {
+      exportWrapAsPDF(wrap);
+    }
+    document.body.removeChild(wrap);
+  }, 500);
+}
+
+function exportWrapAsSVG(wrap) {
+  var serializer = new XMLSerializer();
+  var htmlStr = serializer.serializeToString(wrap);
+  var svg = '<svg xmlns="http://www.w3.org/2000/svg" width="900" height="' + Math.max(600, wrap.scrollHeight) + '">';
+  svg += '<foreignObject width="900" height="' + Math.max(600, wrap.scrollHeight) + '">';
+  svg += '<div xmlns="http://www.w3.org/1999/xhtml">' + htmlStr + '</div>';
+  svg += '</foreignObject></svg>';
+  var blob = new Blob([svg], {type:'image/svg+xml'});
+  var dl = document.createElement('a');
+  dl.download = 'fretboard_export.svg';
+  dl.href = URL.createObjectURL(blob); dl.click();
+}
+
+function exportWrapAsPNG(wrap) {
+  if (typeof html2canvas === 'undefined') { alert('html2canvas 尚未載入'); return; }
+  html2canvas(wrap, {scale:2, backgroundColor:'#ffffff', logging:false,
+    width:wrap.scrollWidth, height:wrap.scrollHeight
+  }).then(function(canvas) {
+    canvas.toBlob(function(b) {
+      if (!b) { alert('PNG 匯出失敗'); return; }
+      var dl = document.createElement('a');
+      dl.download = 'fretboard_export.png';
+      dl.href = URL.createObjectURL(b); dl.click();
+    }, 'image/png');
+  }).catch(function(){ alert('PNG 匯出失敗'); });
+}
+
+function exportWrapAsPDF(wrap) {
+  if (typeof html2canvas === 'undefined' || typeof jspdf === 'undefined') { alert('請稍候，相關程式庫載入中…'); return; }
+  html2canvas(wrap, {scale:2, backgroundColor:'#ffffff', logging:false,
+    width:wrap.scrollWidth, height:wrap.scrollHeight
+  }).then(function(canvas) {
+    var imgData = canvas.toDataURL('image/png');
+    var pdf = new jspdf.jsPDF('p','mm','a4');
+    var pdfW = 210, pdfH = (canvas.height / canvas.width) * pdfW;
+    if (pdfH > 297) pdfH = 297;
+    pdf.addImage(imgData, 'PNG', 0, 0, pdfW, pdfH);
+    pdf.save('fretboard_export.pdf');
+  }).catch(function(){ alert('PDF 匯出失敗'); });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   var instSel = document.getElementById('instrument-select');
   INSTRUMENTS_DATA.forEach(function(inst,i){var o=document.createElement('option');o.value=i;o.textContent=inst.icon+' '+inst.name;instSel.appendChild(o);});
@@ -1367,6 +1517,8 @@ document.addEventListener('DOMContentLoaded', function() {
   var filterNone = document.getElementById('cc-filter-none');
   if (filterAll) filterAll.addEventListener('click', setQualityFilterAll);
   if (filterNone) filterNone.addEventListener('click', setQualityFilterNone);
+  var exportBtn = document.getElementById('btn-export-page');
+  if (exportBtn) exportBtn.addEventListener('click', showExportModal);
   updateFromState();
 });
 </script>
@@ -1525,6 +1677,9 @@ document.addEventListener('DOMContentLoaded', function() {
         <option value="chromatic">半音階</option>
       </select>
     </div>
+    <div class="control-group" style="justify-content:flex-end;">
+      <button id="btn-export-page" style="padding:8px 16px;border:1px solid var(--accent);border-radius:6px;background:var(--accent);color:#fff;font-size:13px;font-weight:700;cursor:pointer;">📥 匯出</button>
+    </div>
   </div>
 
   <div class="fretboard-container">
@@ -1648,6 +1803,31 @@ document.addEventListener('DOMContentLoaded', function() {
       <div id="tunings-panel"></div>
     </div>
   </div>
+
+<!-- 全頁匯出 Modal -->
+<div class="modal-overlay" id="export-modal" onclick="if(event.target===this)closeExportModal()">
+  <div class="modal-box">
+    <h3>📥 匯出</h3>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:12px;">選擇要匯出的區塊與格式</p>
+    <div><strong style="font-size:13px;">區塊：</strong></div>
+    <div class="modal-section"><input type="checkbox" id="sec-controls" checked><label for="sec-controls">控制面板<small>樂器／調弦法／根音／調式</small></label></div>
+    <div class="modal-section"><input type="checkbox" id="sec-fretboard" checked><label for="sec-fretboard">指版音位圖<small>當前樂器調弦的指版音階圖</small></label></div>
+    <div class="modal-section"><input type="checkbox" id="sec-chords" checked><label for="sec-chords">和弦圖表<small>常用和弦圖表 ＋ 和弦圖表及指法建議（合併）</small></label></div>
+    <div class="modal-section"><input type="checkbox" id="sec-diatonic" checked><label for="sec-diatonic">順階和弦<small>目前調性的順階和弦級數</small></label></div>
+    <div class="modal-section"><input type="checkbox" id="sec-scales"><label for="sec-scales">音階組成音<small>目前調性的音階音名</small></label></div>
+    <div class="modal-section"><input type="checkbox" id="sec-tunings"><label for="sec-tunings">常見調弦法一覽<small>該樂器所有調弦法</small></label></div>
+
+    <div class="modal-format">
+      <label><input type="radio" name="export-format" value="svg" checked> SVG</label>
+      <label><input type="radio" name="export-format" value="png"> PNG</label>
+      <label><input type="radio" name="export-format" value="pdf"> PDF</label>
+    </div>
+    <div class="modal-actions">
+      <button class="ghost" onclick="closeExportModal()" style="padding:8px 16px;">取消</button>
+      <button onclick="doExport()" style="padding:8px 20px;border:1px solid var(--accent);border-radius:6px;background:var(--accent);color:#fff;font-size:14px;font-weight:700;cursor:pointer;">📥 匯出</button>
+    </div>
+  </div>
+</div>
 </main>
   <footer class="site-footer">
     <div class="footer-inner">
