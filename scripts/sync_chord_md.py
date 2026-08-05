@@ -45,6 +45,7 @@ INSTRUMENTS = {
 
 NOTE_MAP = {n:i for i,n in enumerate(['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'])}
 NOTE_UNICODE = ['C', 'C♯', 'D', 'D♯', 'E', 'F', 'F♯', 'G', 'G♯', 'A', 'A♯', 'B']
+NOTE_ASCII  = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
 
 QUAL_PATTERNS = [
     (r'(.+?)（大三和弦', 'maj'),
@@ -253,9 +254,9 @@ def validate(fingerings, inst):
             foreign = pcs - allowed
             missing = essential - pcs
             if foreign:
-                print(f"  !! FOREIGN notes {[NOTE_UNICODE[p] for p in foreign]} in {key} — included anyway")
+                print(f"  !! FOREIGN notes {[NOTE_ASCII[p] for p in foreign]} in {key} - included anyway")
             if missing:
-                print(f"  !! MISSING essential {[NOTE_UNICODE[p] for p in missing]} in {key} — included anyway")
+                print(f"  !! MISSING essential {[NOTE_ASCII[p] for p in missing]} in {key} - included anyway")
 
         result[key] = {
             "frets": frets,
