@@ -325,19 +325,20 @@ def write(path, content):
     path.write_text(content, encoding="utf-8")
 
 
-def page(title, body, page_path=None, meta_extra="", extra_head="", meta_description="", meta_keywords=""):
+def page(title, body, page_path=None, meta_extra="", extra_head="", meta_description="", meta_keywords="", csp=None):
+    if csp is None:
+        csp = (
+            "default-src 'self'; "
+            "img-src 'self' https: data:; "
+            "style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; "
+            "script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info https://pagead2.googlesyndication.com; "
+            "connect-src 'self' https://busuanzi.ibruce.info; "
+            "frame-src https://www.youtube-nocookie.com https://www.youtube.com; "
+            "base-uri 'self'; form-action 'none'; object-src 'none'"
+        )
     keywords_default = "隔壁織音人,世界樂器,世界樂器百科,世界聲音百科,樂器教學,歌唱教學,錄音後製,吉他教學,鋼琴教學,基礎樂理,音樂知識,民族樂器,傳統樂器,電子樂器,打擊樂器,管樂器,弦樂器,鍵盤樂器"
     kw = meta_keywords or keywords_default
     desc = meta_description or "世界聲音百科 by 隔壁織音人 — 收錄世界各國樂器、人聲歌唱教學、錄音後製知識與基礎樂理。從傳統民族樂器到現代電子樂器，提供樂器介紹、聆賞示範、演奏教學與文化背景。循著聲音，走進不同文化的現場。"
-    csp = (
-        "default-src 'self'; "
-        "img-src 'self' https: data:; "
-        "style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; "
-        "script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info https://pagead2.googlesyndication.com; "
-        "connect-src 'self' https://busuanzi.ibruce.info; "
-        "frame-src https://www.youtube-nocookie.com https://www.youtube.com; "
-        "base-uri 'self'; form-action 'none'; object-src 'none'"
-    )
     raw_canon = resolve_url(page_path, "/") if page_path else "/"
     clean_canon = raw_canon.replace("./", "/").replace("../", "/").rstrip("/") or "/"
     canonical_url = f"https://soundweavers-music.github.io{clean_canon}".rstrip(".")
@@ -503,7 +504,7 @@ def page(title, body, page_path=None, meta_extra="", extra_head="", meta_descrip
         <a href="{resolve_url(page_path, '/tools/fretboard/')}" class="dropdown-trigger">工具</a>
         <div class="dropdown-menu">
           <a href="{resolve_url(page_path, '/tools/fretboard/')}">🎸 世界樂器指版和弦圖</a>
-          <a href="{resolve_url(page_path, '/tools/chord-detection/')}">🎹 自動抓和弦 (beta)</a>
+          <a href="{resolve_url(page_path, '/chord-detection/')}">🎹 自動抓和弦 (beta)</a>
           <a href="{resolve_url(page_path, '/experience/')}">🎧 體驗</a>
         </div>
       </div>
@@ -700,7 +701,7 @@ def build_index(instruments):
             <strong>🎸 世界樂器指版與和弦圖</strong>
             <span>瀏覽常見彈撥樂器的調弦法、各調性和弦、指版音位圖與順階和弦</span>
           </a>
-          <a class="featured-card" href="{resolve_url(index_path, '/tools/chord-detection/')}" style="background:linear-gradient(135deg,#fef3c7,#fde68a);border:1px solid #f59e0b;">
+          <a class="featured-card" href="{resolve_url(index_path, '/chord-detection/')}" style="background:linear-gradient(135deg,#fef3c7,#fde68a);border:1px solid #f59e0b;">
             <strong>🎹 自動抓和弦 (beta)</strong>
             <span>上傳音檔自動分析節拍與和弦進行，支援指版圖顯示與和弦編輯</span>
           </a>
@@ -1840,7 +1841,7 @@ def build_sitemap(instruments):
                  "/countries/", "/ensembles/", "/subcategories/", "/map/",
                  "/about/", "/theory/", "/vocal/", "/digitalmusic/",
                  "/sound-journey/", "/experience/", "/contact/",
-                 "/tools/fretboard/"]:
+                 "/chord-detection/", "/tools/fretboard/"]:
         urls.append(u(path))
 
     # Instrument detail pages
@@ -2475,25 +2476,85 @@ def build_fretboard_tool():
 
 
 def build_chord_detection_tool():
-    """Build the chord detection tool at /tools/chord-detection/.
+    """Build the chord detection tool at /chord-detection/.
 
-    Self-contained page at ``tools/chord-detection/index.html`` with its
-    local-agent/ subdirectory. Both are copied verbatim into the build output.
-    Also ensures the chord library (``scripts/_chord_library.js``) is available
-    under ``OUTPUT_DIR / scripts/`` for runtime loading.
+    The source is ``chord-detection/index.html`` (a self-contained page with
+    inline JS). The build script wraps it with the site template (``page()``)
+    so it inherits the full header, nav, footer, SEO, and theme infrastructure.
+    Also copies ``local-agent/`` and ensures ``scripts/_chord_library.js`` is
+    available in the output for runtime loading via a regular ``<script>`` tag.
     """
-    src_page = BASE_DIR / "tools" / "chord-detection" / "index.html"
-    page_dir = OUTPUT_DIR / "tools" / "chord-detection"
+    src_path = BASE_DIR / "chord-detection" / "index.html"
+    page_dir = OUTPUT_DIR / "chord-detection"
     page_dir.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(str(src_page), str(page_dir / "index.html"))
+
+    raw = src_path.read_text(encoding="utf-8")
+
+    # Extract inline CSS
+    style_m = re.search(r'<style[^>]*>(.*?)</style>', raw, re.DOTALL)
+    inline_css = style_m.group(1).strip() if style_m else ""
+
+    # Extract main content (everything between <main> and </main>)
+    main_m = re.search(r'<main[^>]*>(.*?)</main>', raw, re.DOTALL)
+    main_content = main_m.group(1).strip() if main_m else ""
+
+    # Extract inline JS (the last <script> block with analysis code, ignoring src-only scripts)
+    all_scripts = re.findall(r'<script>(.*?)</script>', raw, re.DOTALL)
+    inline_js = all_scripts[-1].strip() if all_scripts else ""
+
+    # Custom CSP for chord-detection (needs blob: images, localhost connects, meyda CDN)
+    chord_csp = (
+        "default-src 'self'; "
+        "img-src 'self' https: data: blob:; "
+        "style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; "
+        "script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; "
+        "connect-src 'self' https://busuanzi.ibruce.info http://127.0.0.1:* http://localhost:*; "
+        "frame-src https://www.youtube-nocookie.com https://www.youtube.com; "
+        "base-uri 'self'; form-action 'none'; object-src 'none'"
+    )
+
+    chord_extra_head = (
+        f'<style>{inline_css}</style>\n'
+        '<script src="https://cdnjs.cloudflare.com/ajax/libs/meyda/5.6.0/meyda.min.js"></script>\n'
+        f'<script src="{site_url("/scripts/_chord_library.js")}"></script>'
+    )
+
+    body = f'<main class="page">\n{main_content}\n</main>\n' + f'\n<script>{inline_js}</script>\n'
+    # Add related-tools section
+    body += (
+        '<section class="section">\n'
+        '  <div class="section-heading"><h2>相關工具</h2></div>\n'
+        '  <div class="featured-links">\n'
+        f'    <a class="featured-card" href="{site_url("/tools/fretboard/")}" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:1px solid #bbf7d0;">\n'
+        '      <strong>🎸 世界樂器指版與和弦圖</strong>\n'
+        '      <span>瀏覽常見彈撥樂器的調弦法、各調性和弦、指版音位圖與順階和弦</span>\n'
+        '    </a>\n'
+        f'    <a class="featured-card" href="{site_url("/experience/")}" style="background:linear-gradient(135deg,#f5f0ff,#ebe0ff);border:1px solid #d5c5fd;">\n'
+        '      <strong>🎧 體驗聲音</strong>\n'
+        '      <span>聆聽世界樂器的實際演奏錄音與聲音示範</span>\n'
+        '    </a>\n'
+        '  </div>\n'
+        '</section>'
+    )
+
+    write(page_dir / "index.html", page(
+        "自動抓和弦 (beta)",
+        body,
+        page_dir / "index.html",
+        extra_head=chord_extra_head,
+        csp=chord_csp,
+        meta_description="上傳音檔，自動分析節拍與和弦進行，支援指版圖顯示與和弦編輯。可選用瀏覽器分析或本地 Python 代理。",
+    ))
+
     # Copy local-agent subdirectory
-    agent_src = BASE_DIR / "tools" / "chord-detection" / "local-agent"
+    agent_src = BASE_DIR / "chord-detection" / "local-agent"
     agent_dst = page_dir / "local-agent"
     if agent_src.exists():
         if agent_dst.exists():
             shutil.rmtree(str(agent_dst))
         shutil.copytree(str(agent_src), str(agent_dst), dirs_exist_ok=True)
-    # Copy chord library so ../../scripts/_chord_library.js resolves at runtime
+
+    # Ensure chord library is in output scripts/ directory
     lib_src = BASE_DIR / "scripts" / "_chord_library.js"
     lib_dst = OUTPUT_DIR / "scripts" / "_chord_library.js"
     if lib_src.exists():
