@@ -65,6 +65,32 @@ QUAL_PATTERNS = [
     (r'(.+?)（半減七和弦', 'm7b5'),
 ]
 
+# Slash chord quality extraction from h3 text like "C 大三和弦／E 低音"
+# The text between （ and ／ contains the chord root + quality description
+SLASH_QUAL_DETECT = [
+    (r'大三', 'maj'), (r'小三', 'm'), (r'屬七', '7'),
+    (r'大七', 'maj7'), (r'小七', 'm7'),
+    (r'大六', '6'), (r'小六', 'm6'), (r'屬九', '9'),
+    (r'掛留二', 'sus2'), (r'掛留四', 'sus4'), (r'加九', 'add9'),
+    (r'增三', 'aug'), (r'減三', 'dim'), (r'減七', 'dim7'), (r'半減七', 'm7b5'),
+]
+
+def detect_quality_from_chord_part(chord_part):
+    """Detect quality from chord prefix like 'C', 'Am', 'C7', 'Cmaj7', etc."""
+    s = chord_part.strip()
+    # Check known suffixes (longest first to avoid partial matches)
+    suffixes = [
+        ('maj7', 'maj7'), ('m7b5', 'm7b5'), ('dim7', 'dim7'),
+        ('sus4', 'sus4'), ('sus2', 'sus2'), ('add9', 'add9'),
+        ('maj', 'maj'), ('m7', 'm7'), ('m6', 'm6'),
+        ('aug', 'aug'), ('dim', 'dim'), ('m', 'm'),
+        ('7', '7'), ('9', '9'), ('6', '6'),
+    ]
+    for suffix, q in suffixes:
+        if s.endswith(suffix) and len(s) > len(suffix):
+            return q
+    return 'maj'  # default for bare root like "C", "D"
+
 QUAL_TONES = {
     'maj': {0, 4, 7}, 'm': {0, 3, 7}, '7': {0, 4, 7, 10},
     'maj7': {0, 4, 7, 11}, 'm7': {0, 3, 7, 10},
@@ -167,19 +193,65 @@ def parse_md(filepath, inst_name):
         h3_text = lines[0].strip()
         is_complex = '複雜' in h3_text
 
-        matched = False
-        for pattern, quality in QUAL_PATTERNS:
-            m = re.match(pattern, h3_text)
-            if m:
-                chord_name = m.group(1).strip()
-                matched = True
-                break
-        if not matched:
-            continue
+        chord_name = None
+        quality = None
+        bass_pc = None
+        is_slash = False
+        root_pc = None
 
-        root_pc = note_to_root(chord_name)
-        if root_pc is None:
-            continue
+        # --- Try slash chord patterns first ---
+        # Guitar format: "C/E（C 大三和弦／E 低音）"
+        m_slash = re.match(r'(.+?)\s*（.+?／(.+?)低音）', h3_text)
+        if m_slash:
+            chord_name = m_slash.group(1).strip()
+            inner = h3_text[h3_text.index('（') + 1:h3_text.index('／')]
+            for pat, q in SLASH_QUAL_DETECT:
+                if re.search(pat, inner):
+                    quality = q
+                    break
+            if quality is None:
+                quality = 'maj'
+            is_slash = True
+
+        # Ukulele format: "C/E（斜線和弦）"
+        if not is_slash:
+            m_uke = re.match(r'(.+?)\s*（斜線和弦）', h3_text)
+            if m_uke:
+                chord_name = m_uke.group(1).strip()
+                quality = 'maj'
+                is_slash = True
+
+        if is_slash:
+            if '/' in chord_name:
+                chord_part, bass_part = chord_name.split('/', 1)
+                chord_part = chord_part.strip()
+                bass_part = bass_part.strip()
+            else:
+                continue
+            root_pc = note_to_root(chord_part)
+            bass_pc = note_to_root(bass_part)
+            if root_pc is None or bass_pc is None:
+                continue
+            # For ukulele-style, detect quality from chord_part
+            if not any(pat in h3_text for pat in
+                       ['大三', '小三', '屬七', '大七', '小七',
+                        '大六', '小六', '屬九', '掛留', '加九',
+                        '增三', '減三', '減七', '半減七']):
+                quality = detect_quality_from_chord_part(chord_part)
+        else:
+            matched = False
+            for pattern, q in QUAL_PATTERNS:
+                m = re.match(pattern, h3_text)
+                if m:
+                    chord_name = m.group(1).strip()
+                    quality = q
+                    matched = True
+                    break
+            if not matched:
+                continue
+            root_pc = note_to_root(chord_name)
+            if root_pc is None:
+                continue
 
         # Find the table in the section
         table_lines = []
@@ -210,11 +282,14 @@ def parse_md(filepath, inst_name):
         if len(frets) == 0:
             continue
 
-        key = f"{root_pc}:{quality}"
-        if is_complex:
+        if is_slash:
+            key = f"{root_pc}:{quality}/{bass_pc}"
+        elif is_complex:
             key = f"{root_pc}:{quality}:alt"
+        else:
+            key = f"{root_pc}:{quality}"
 
-        chords[key] = {'frets': frets, 'fingers': fingers}
+        chords[key] = {'frets': frets, 'fingers': fingers, 'bass_pc': bass_pc}
 
     # Prefer simple over alt
     final = {}
@@ -237,18 +312,29 @@ def validate(fingerings, inst):
     for key, entry in fingerings.items():
         frets = entry['frets']
         fingers = entry.get('fingers', [])
+        bass_pc = entry.get('bass_pc')
         if not fingers or all(f == 0 for f in fingers):
             fingers, barre = assign_fingers(frets)
         else:
             _, barre = assign_fingers(frets)
 
-        parts = key.split(':')
-        root_pc = int(parts[0])
-        quality = parts[1]
+        # Parse key: "root:quality" or "root:quality/bass"
+        if '/' in key:
+            key_root_q, key_bass = key.split('/', 1)
+            parts = key_root_q.split(':')
+            root_pc = int(parts[0])
+            quality = parts[1]
+            bass_validate = int(key_bass)
+        else:
+            parts = key.split(':')
+            root_pc = int(parts[0])
+            quality = parts[1]
 
         if quality in QUAL_TONES:
             pcs = {(base[s] + f) % 12 for s, f in enumerate(frets) if f >= 0}
             allowed = {(root_pc + i) % 12 for i in QUAL_TONES[quality]}
+            if bass_pc is not None:
+                allowed.add(bass_pc % 12)
             essential = {(root_pc + i) % 12 for i in ESSENTIAL[quality]}
 
             foreign = pcs - allowed
@@ -258,11 +344,14 @@ def validate(fingerings, inst):
             if missing:
                 print(f"  !! MISSING essential {[NOTE_ASCII[p] for p in missing]} in {key} - included anyway")
 
-        result[key] = {
+        entry_data = {
             "frets": frets,
             "fingers": fingers,
             "barre": barre,
         }
+        if bass_pc is not None:
+            entry_data["bass"] = bass_pc
+        result[key] = entry_data
     return result
 
 # ---- database update ----
