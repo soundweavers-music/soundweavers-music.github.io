@@ -781,16 +781,25 @@ function roundRect(ctx, x, y, w, h, r) {
   ctx.closePath();
 }
 
-// PNG 匯出：使用 html2canvas 直接渲染 DOM，支援 SVG 指版圖
-function exportPNGFromSpecs(specs, title, includeDia, fileName) {
+// PNG 匯出：複製網頁 DOM 節點，用 html2canvas 直接渲染
+function exportPNGFromSpecs(specs, title, includeDia, fileName, gridId) {
   if (!specs.length) return;
   if (typeof html2canvas === 'undefined') {
     alert('請稍候，html2canvas 載入中…'); return;
   }
-  // 建立暫存容器
+
+  // 決定從哪個 grid 複製卡片
+  if (!gridId) gridId = 'preset-chord-grid';
+  var grid = document.getElementById(gridId);
+  if (!grid || !grid.children.length) { alert('無和弦資料'); return; }
+
+  // 建立暫存容器，使用與網頁相同的樣式系統
   var wrap = document.createElement('div');
-  wrap.style.cssText = 'position:fixed;left:-9999px;top:0;width:' + state.diagramSize + 'px;background:#fff;padding:20px;font-family:sans-serif;z-index:-1;';
-  // 標題區域
+  wrap.style.cssText = 'position:fixed;left:-9999px;top:0;background:#fff;padding:20px;font-family:sans-serif;z-index:-1;';
+  // 設定 --cell-size 變數保持與畫面一致
+  wrap.style.setProperty('--cell-size', state.diagramSize + 'px');
+
+  // 標題列
   var hd = document.createElement('div');
   hd.style.cssText = 'margin-bottom:16px;';
   var h1 = document.createElement('div');
@@ -803,41 +812,34 @@ function exportPNGFromSpecs(specs, title, includeDia, fileName) {
   hd.appendChild(h2);
   wrap.appendChild(hd);
 
-  // 每個和弦卡片
-  var cellSize = includeDia ? state.diagramSize : 220;
-  specs.forEach(function(spec, idx) {
-    var card = document.createElement('div');
-    card.style.cssText = 'display:inline-flex;flex-direction:column;align-items:center;width:' + cellSize + 'px;padding:8px;border:1px solid #eee;border-radius:8px;margin:4px;background:#f9f9f9;vertical-align:top;box-sizing:border-box;';
-    if (idx % 4 === 0 && idx > 0) wrap.appendChild(document.createElement('br'));
+  // 複製 grid 容器並用一樣的 grid 排版
+  var gridClone = document.createElement('div');
+  gridClone.style.cssText = 'display:grid;grid-template-columns:repeat(auto-fill,minmax(var(--cell-size,150px),1fr));gap:10px;';
+  wrap.appendChild(gridClone);
 
-    var nm = document.createElement('div');
-    nm.style.cssText = 'font-weight:bold;font-size:14px;color:#333;margin-bottom:4px;';
-    nm.textContent = chordSpecName(spec);
-    card.appendChild(nm);
-
-    if (includeDia) {
-      var tm = parseTuning(INSTRUMENTS_DATA[state.instrument].tunings[state.tuning]);
-      var shape = getChordShape(state.instrument, state.tuning, spec.root, effQ(spec.q), spec.bass);
-      var svgStr;
-      if (shape) svgStr = svgFromShape(shape.frets, shape.fingers, shape.barre, spec.root, tm, cellSize - 20);
-      else svgStr = diagramForSpec(spec, cellSize - 20).svg;
-      if (svgStr) {
-        var dv = document.createElement('div');
-        dv.innerHTML = svgStr;
-        card.appendChild(dv);
-      }
-    } else {
-      var nt = document.createElement('div');
-      nt.style.cssText = 'font-size:12px;color:#666;';
-      nt.textContent = specNotes(spec).map(function(n){return NOTE_NAMES[n];}).join(' ');
-      card.appendChild(nt);
+  // Clone 每個卡片
+  for (var i = 0; i < grid.children.length; i++) {
+    var card = grid.children[i];
+    if (!card.classList.contains('common-chord-card')) continue;
+    var clone = card.cloneNode(true);
+    // 移除互動按鈕 (remove, move)
+    var btns = clone.querySelectorAll('.cc-remove, .cc-move');
+    btns.forEach(function(b){ b.remove(); });
+    // 移除 is-active 樣式
+    clone.classList.remove('is-active');
+    if (!includeDia) {
+      // 移除指版圖，保留名稱/品質/組成音
+      var diaDiv = clone.querySelector('.cc-diagram');
+      if (diaDiv) diaDiv.remove();
+      var autoSpan = clone.querySelector('.cc-auto');
+      if (autoSpan) autoSpan.remove();
     }
-    wrap.appendChild(card);
-  });
+    gridClone.appendChild(clone);
+  }
 
   document.body.appendChild(wrap);
 
-  // 讓所有 SVG 渲染完成後再截圖
+  // 等一陣子讓 SVG 渲染
   setTimeout(function() {
     html2canvas(wrap, {
       scale: 2,
@@ -857,7 +859,7 @@ function exportPNGFromSpecs(specs, title, includeDia, fileName) {
       document.body.removeChild(wrap);
       alert('PNG 匯出失敗，請嘗試使用 SVG 下載');
     });
-  }, 300);
+  }, 500);
 }
 
 function exportPresetSVG() {
@@ -876,16 +878,16 @@ function exportPresetPNG() {
   var specs = state.presetChords;
   if (!specs.length) { alert('請先加入和弦至常用和弦圖表'); return; }
   var includeDia = document.getElementById('cc-export-diagram').checked;
-  exportPNGFromSpecs(specs, '常用和弦圖表', includeDia, 'chords_' + state.instrument);
+  exportPNGFromSpecs(specs, '常用和弦圖表', includeDia, 'chords_' + state.instrument, 'preset-chord-grid');
 }
 
 function exportCommonSpecs(specs, title, includeDiagrams) {
   if (!specs || !specs.length) return null;
   if (includeDiagrams === undefined) includeDiagrams = true;
-  var cols = Math.min(4, specs.length);
-  var cellW = includeDiagrams ? 180 : 220;
-  var cellH = includeDiagrams ? 200 : 36;
+  var cellW = includeDiagrams ? state.diagramSize : state.diagramSize;
+  var cellH = includeDiagrams ? Math.round(state.diagramSize * 1.15) : Math.round(state.diagramSize * 0.35);
   var pad = 30, titleH = 65;
+  var cols = Math.min(4, specs.length);
   var rows = Math.ceil(specs.length / cols);
   var W = cols * cellW + pad * 2, H = rows * cellH + titleH + pad;
   var parts = ['<svg xmlns="http://www.w3.org/2000/svg" width="' + W + '" height="' + H + '">'];
@@ -902,11 +904,19 @@ function exportCommonSpecs(specs, title, includeDiagrams) {
     var seen = {}, uniq = [];
     pcs.forEach(function(n){ if (!seen[n]) { seen[n]=1; uniq.push(n); } });
     var noteStr = uniq.map(function(n){return NOTE_NAMES[n];}).join(' ');
-    var intStr = (qd ? qd.f.map(function(iv){return INTERVAL_SYMBOLS[iv%12];}).join(' ') : '');
+
+    // Card background
+    parts.push('<rect x="' + (x + 5) + '" y="' + (y + 2) + '" width="' + (cellW - 10) + '" height="' + (cellH - 8) + '" rx="6" fill="#f9f9f9" stroke="#eee" stroke-width="1"/>');
+    // Chord name
+    var typeColor = qualityColor(spec.q);
+    parts.push('<text x="' + (x + 10) + '" y="' + (y + 20) + '" font-family="sans-serif" font-size="14" font-weight="bold" fill="' + typeColor + '">' + escapeXml(chName) + '</text>');
+    // Quality desc
+    var qdText = QLABEL[spec.q] ? QLABEL[spec.q].d : '';
+    parts.push('<text x="' + (x + 10) + '" y="' + (y + 34) + '" font-family="sans-serif" font-size="11" fill="#999">' + escapeXml(qdText) + '</text>');
+    // Notes
+    parts.push('<text x="' + (x + 10) + '" y="' + (y + (includeDiagrams ? 160 : 28)) + '" font-family="sans-serif" font-size="10" fill="#666">' + escapeXml(noteStr) + '</text>');
 
     if (includeDiagrams) {
-      parts.push('<text x="' + (x + 5) + '" y="' + (y + 15) + '" font-family="sans-serif" font-size="14" font-weight="bold" fill="#333">' + escapeXml(chName) + '</text>');
-      parts.push('<rect x="' + (x + 5) + '" y="' + (y + 20) + '" width="' + (cellW - 10) + '" height="' + (cellH - 30) + '" rx="6" fill="#f9f9f9" stroke="#eee" stroke-width="1"/>');
       var tm = parseTuning(INSTRUMENTS_DATA[state.instrument].tunings[state.tuning]);
       var shape, diaSvg, q = effQ(spec.q);
       shape = getChordShape(state.instrument, state.tuning, spec.root, q, spec.bass);
@@ -914,14 +924,8 @@ function exportCommonSpecs(specs, title, includeDiagrams) {
       else diaSvg = diagramForSpec(spec, cellW - 40).svg;
       if (diaSvg) {
         var inner = diaSvg.match(/<svg[^>]*>([\s\S]*)<\/svg>/);
-        if (inner) parts.push('<g transform="translate(' + (x + 10) + ',' + (y + 25) + ')">' + inner[1] + '</g>');
+        if (inner) parts.push('<g transform="translate(' + (x + 10) + ',' + (y + 38) + ')">' + inner[1] + '</g>');
       }
-    } else {
-      // Text-only row: chord name | notes | intervals
-      parts.push('<rect x="' + (x + 5) + '" y="' + (y + 2) + '" width="' + (cellW - 10) + '" height="' + (cellH - 8) + '" rx="4" fill="#f9f9f9" stroke="#eee" stroke-width="1"/>');
-      parts.push('<text x="' + (x + 10) + '" y="' + (y + 20) + '" font-family="sans-serif" font-size="14" font-weight="bold" fill="#333">' + escapeXml(chName) + '</text>');
-      parts.push('<text x="' + (x + 80) + '" y="' + (y + 20) + '" font-family="sans-serif" font-size="12" fill="#666">' + escapeXml(noteStr) + '</text>');
-      parts.push('<text x="' + (x + 80 + 140) + '" y="' + (y + 20) + '" font-family="sans-serif" font-size="11" fill="#999">' + escapeXml(intStr) + '</text>');
     }
   });
   parts.push('</svg>');
@@ -956,7 +960,7 @@ function exportDerivedPNG() {
   });
   if (!specs.length) return;
   var includeDia = document.getElementById('cc-export-derived-diagram').checked;
-  exportPNGFromSpecs(specs, NOTE_NAMES[root] + ' 常用和弦圖表', includeDia, 'derived_chords_' + NOTE_NAMES[root]);
+  exportPNGFromSpecs(specs, NOTE_NAMES[root] + ' 常用和弦圖表', includeDia, 'derived_chords_' + NOTE_NAMES[root], 'common-chord-grid');
 }
 
 function showPresetDetail(idx) {
