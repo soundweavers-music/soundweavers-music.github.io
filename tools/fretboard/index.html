@@ -41,6 +41,7 @@
 <meta property="og:type" content="website">
   
   <script>!function(){try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);else document.documentElement.setAttribute("data-theme","nextdoor")}catch(e){}}()</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <link rel="stylesheet" href="../../assets/site.css">
   <style>
 .controls-bar {display:flex;flex-wrap:wrap;gap:12px;align-items:end;padding:20px;background:var(--surface);border:1px solid var(--line);border-radius:10px;margin-bottom:24px;}
@@ -62,7 +63,7 @@
 .chord-chip {padding:6px 14px;border:1px solid var(--line);border-radius:6px;background:var(--surface);font-size:13px;font-weight:600;cursor:pointer;transition:all .12s;}
 .chord-chip:hover {border-color:var(--accent);color:var(--accent);}
 .chord-chip.is-active {background:var(--accent);color:#fff;border-color:var(--accent);}
-.common-chord-grid {display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;}
+.common-chord-grid {display:grid;grid-template-columns:repeat(auto-fill,minmax(var(--cell-size,150px),1fr));gap:10px;}
 .common-chord-card {border:1px solid var(--line);border-radius:8px;padding:12px;cursor:pointer;transition:all .12s;background:var(--surface);display:flex;flex-direction:column;align-items:center;gap:4px;}
 .common-chord-card:hover {border-color:var(--accent);box-shadow:0 2px 8px rgba(0,0,0,.06);}
 .common-chord-card.is-active {border-color:var(--accent);background:var(--soft);}
@@ -108,6 +109,17 @@ button.ghost:hover {border-color:var(--accent);color:var(--accent);}
 .tuning-item.is-active {background:var(--soft);border-color:var(--accent);}
 .tuning-name {font-weight:600;font-size:14px;}
 .tuning-notes {color:var(--muted);font-size:13px;font-family:monospace;}
+.cc-size-slider {display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);}
+.cc-size-slider input[type=range] {width:100px;height:4px;-webkit-appearance:none;background:var(--line);border-radius:2px;outline:none;cursor:pointer;}
+.cc-size-slider input[type=range]::-webkit-slider-thumb {-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--accent);cursor:pointer;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.2);}
+.cc-edit-row {display:flex;align-items:center;gap:6px;padding:4px 6px;border-bottom:1px solid var(--line);font-size:13px;}
+.cc-edit-row:last-child {border-bottom:none;}
+.cc-edit-row label {min-width:90px;font-weight:600;color:var(--muted);}
+.cc-edit-row select {padding:2px 4px;border:1px solid var(--line);border-radius:4px;font-size:12px;background:var(--surface);}
+.cc-edit-table {width:100%;border-collapse:collapse;margin:8px 0;}
+.cc-edit-table td,.cc-edit-table th {padding:4px 8px;border:1px solid var(--line);text-align:center;font-size:13px;}
+.cc-edit-table th {background:var(--soft);font-weight:600;font-size:12px;}
+.cc-edit-table select {padding:2px 4px;border:1px solid var(--line);border-radius:4px;font-size:12px;background:var(--surface);width:100%;}
 @media (max-width:760px) {.panels-grid {grid-template-columns:1fr;}.controls-bar {flex-direction:column;}.control-group {width:100%;}.control-group select {width:100%;}}
 </style><script>
 const INSTRUMENTS_DATA = [{"name": "吉他 Guitar", "icon": "🎸", "tunings": {"標準調弦 Standard": ["E4", "B3", "G3", "D3", "A2", "E2"], "Drop D": ["E4", "B3", "G3", "D3", "A2", "D2"], "Drop C": ["E4", "B3", "G3", "C3", "A2", "C2"], "Open D": ["D4", "A3", "F♯3", "D3", "A2", "D2"], "Open G": ["D4", "B3", "G3", "D3", "G2", "D2"], "Open C": ["E4", "C4", "C4", "G3", "E3", "C3"], "DADGAD": ["D4", "A3", "G3", "D3", "A2", "D2"], "Half-step Down": ["E♭4", "B♭3", "G♭3", "D♭3", "A♭2", "E♭2"], "Full-step Down": ["D4", "A3", "F♯3", "C3", "G2", "D2"], "Nashville Tuning": ["E5", "B4", "G4", "D4", "A3", "E3"]}}, {"name": "電貝斯 Bass", "icon": "🎸", "tunings": {"標準 4弦": ["G3", "D3", "A2", "E2"], "Standard 5-String": ["G3", "D3", "A2", "E2", "B1"], "Standard 6-String": ["C3", "G2", "D2", "A1", "E1", "B1"], "Drop D (4弦)": ["G3", "D3", "A2", "D2"], "Half-step Down": ["G♭3", "D♭3", "A♭2", "E♭2"]}}, {"name": "烏克麗麗 Ukulele", "icon": "🪕", "tunings": {"標準 (高音 GCEA)": ["A4", "E4", "C4", "G4"], "Low G": ["A4", "E4", "C4", "G3"], "D 調 (ADF♯B)": ["B4", "F♯4", "D4", "A4"], "Baritone (DGBE)": ["E4", "B3", "G3", "D3"]}}, {"name": "班卓琴 Banjo", "icon": "🪕", "tunings": {"標準 Open G (5弦)": ["D4", "B3", "G3", "D3", "G4"], "Open C": ["D4", "C4", "G3", "C3", "G4"], "Double C": ["D4", "C4", "G3", "C3", "G4"], "Double D": ["D4", "A3", "F♯3", "D3", "D4"], "Sawmill": ["D4", "B3", "G3", "D3", "D4"], "Irish (4弦)": ["D4", "B3", "G3", "D3"]}}, {"name": "曼陀林 Mandolin", "icon": "🎻", "tunings": {"標準": ["E5", "A4", "D4", "G3"], "跨弦標準 (CGDA)": ["A4", "D4", "G3", "C3"], "Open G": ["D5", "B4", "G4", "D4"]}}, {"name": "巴拉萊卡 Balalaika", "icon": "🎻", "tunings": {"標準 Prima": ["E5", "A4", "E4"], "標準 Secunda": ["A4", "E4", "A3"], "標準 Alto": ["E4", "A3", "E3"], "標準 Bass": ["A3", "E3", "A2"]}}, {"name": "夏威夷四弦琴 Cavaquinho", "icon": "🪕", "tunings": {"標準 (DGBD)": ["D5", "B4", "G4", "D4"], "巴西標準": ["B4", "G4", "D4", "G4"], "葡萄牙標準": ["D5", "B4", "G4", "D4"]}}, {"name": "查蘭戈 Charango", "icon": "🪕", "tunings": {"標準": ["E5", "A4", "E4", "C4", "G4"], "F 調": ["F5", "A♯4", "F4", "C4", "G♯4"]}}, {"name": "布祖基琴 Bouzouki", "icon": "🎻", "tunings": {"希臘 3弦": ["D4", "A3", "D3"], "希臘 4弦": ["D4", "A3", "F♯3", "C3"], "愛爾蘭 (GDAD)": ["D4", "A3", "D3", "G2"]}}, {"name": "西塔琴 Sitar", "icon": "🎻", "tunings": {"標準 (Kharaj)": ["C4", "G3", "C3", "G2"]}}, {"name": "琵琶 Pipa", "icon": "🎻", "tunings": {"標準 (A d e a)": ["A4", "E4", "D4", "A3"], "傳統 D 調": ["D5", "A4", "D4", "A3"]}}, {"name": "中阮 Zhongruan", "icon": "🎻", "tunings": {"標準 (五度 G D A E)": ["E4", "A3", "D3", "G2"], "傳統 (G D G D)": ["D4", "G3", "D3", "G2"]}}, {"name": "柳琴 Liuqin", "icon": "🎻", "tunings": {"標準 (五度 G D A E)": ["E5", "A4", "D4", "G3"], "傳統 (G D G D)": ["D5", "G4", "D4", "G3"]}}, {"name": "班都利亞琴 Bandurria", "icon": "🎻", "tunings": {"標準 (四度 G♯ C♯ F♯ B E A)": ["A4", "E4", "B3", "F♯3", "C♯3", "G♯2"]}}, {"name": "三味線 Shamisen", "icon": "🎻", "tunings": {"本調子 (Honchoshi)": ["C4", "F3", "C3"], "二上がり (Niagari)": ["D4", "F3", "C3"], "三下がり (Sansagari)": ["C4", "F3", "B♭2"]}}, {"name": "吉他隆 Guitarron", "icon": "🎸", "tunings": {"標準": ["A3", "E3", "C3", "G2", "D2", "A1"]}}, {"name": "維胡埃拉 Vihuela", "icon": "🎸", "tunings": {"標準": ["A4", "D4", "G3", "B3", "E4"]}}, {"name": "Dobro (Resonator)", "icon": "🎸", "tunings": {"Open G": ["D4", "B3", "G3", "D3", "G2", "D2"], "Open D": ["D4", "A3", "F♯3", "D3", "A2", "D2"]}}, {"name": "Appalachian Dulcimer", "icon": "🎻", "tunings": {"標準 (DAA)": ["D4", "A3", "A3"], "DGD": ["D4", "G3", "D3"], "DAD": ["D4", "A3", "D3"]}}];
@@ -240,12 +252,13 @@ function loadPresetChords() {
 }
 function savePresetChords() { try { localStorage.setItem('fretboard_common_chords', JSON.stringify(state.presetChords)); } catch (e) {} }
 
-var state = {instrument:0,tuning:null,key:0,mode:'major',selectedChord:null,selectedCommonChord:null,selectedPreset:null,presetChords:loadPresetChords(),fretCount:15,horizontal:(localStorage.getItem('fretboard_chord_horizontal')==='1'),lefty:(localStorage.getItem('fretboard_chord_lefty')==='1')};
+var state = {instrument:0,tuning:null,key:0,mode:'major',selectedChord:null,selectedCommonChord:null,selectedPreset:null,presetChords:loadPresetChords(),fretCount:15,horizontal:(localStorage.getItem('fretboard_chord_horizontal')==='1'),lefty:(localStorage.getItem('fretboard_chord_lefty')==='1'),diagramSize:parseInt(localStorage.getItem('fretboard_diagram_size'))||150};
 
 function parseTuning(arr) { return arr.map(function(s){var m=s.match(/^([A-G][♯♭]?)(\d)$/);if(!m)return 60;var no=noteToMidi(m[1]);var o=(parseInt(m[2])+1)*12;return no+o;});}
 function midiToDisplay(m) {return NOTE_NAMES[m%12]+Math.floor(m/12-1);}
 
 function updateFromState() {
+  document.documentElement.style.setProperty('--cell-size', state.diagramSize + 'px');
   var inst = INSTRUMENTS_DATA[state.instrument];
   var ts = document.getElementById('tuning-select');
   ts.innerHTML = '';
@@ -341,7 +354,7 @@ function renderCommonChords() {
     else if (cct.key.indexOf('dim') >= 0) typeColor = '#b45309';
     else if (cct.key.indexOf('aug') >= 0) typeColor = '#c2410c';
     else if (cct.key.indexOf('sus') >= 0) typeColor = '#1d4ed8';
-    var dia = chordDiagram(root, cct.key, intervals, 128);
+    var dia = chordDiagram(root, cct.key, intervals, state.diagramSize - 16);
     html += '<div class="common-chord-card' + (isActive ? ' is-active' : '') + '" data-cchord="' + idx + '" style="border-top:3px solid ' + typeColor + ';">';
     html += '<span class="cc-name" style="color:' + typeColor + ';">' + chName + '</span>';
     html += '<span class="cc-quality">' + cct.desc + '</span>';
@@ -694,7 +707,7 @@ function renderPresetChords() {
     var noteNames = specNotes(spec).map(function(n){return NOTE_NAMES[n];}).join(' ');
     var isActive = state.selectedPreset === idx;
     var typeColor = qualityColor(spec.q);
-    var dia = diagramForSpec(spec, 128);
+    var dia = diagramForSpec(spec, state.diagramSize - 16);
     html += '<div class="common-chord-card' + (isActive ? ' is-active' : '') + '" data-preset="' + idx + '" style="border-top:3px solid ' + typeColor + ';">';
     html += '<button class="cc-remove" data-remove="' + idx + '" title="移除">✕</button>';
     if (n > 1) {
@@ -768,92 +781,83 @@ function roundRect(ctx, x, y, w, h, r) {
   ctx.closePath();
 }
 
-// PNG 匯出：逐個載入獨立 SVG 並繪製到 Canvas，避免巢狀 SVG 渲染問題
+// PNG 匯出：使用 html2canvas 直接渲染 DOM，支援 SVG 指版圖
 function exportPNGFromSpecs(specs, title, includeDia, fileName) {
-  var cols = Math.min(4, specs.length);
-  var cellW = includeDia ? 180 : 220;
-  var cellH = includeDia ? 200 : 40;
-  var pad = 30, titleH = 65;
-  var rows = Math.ceil(specs.length / cols);
-  var W = cols * cellW + pad * 2, H = rows * cellH + titleH + pad;
+  if (!specs.length) return;
+  if (typeof html2canvas === 'undefined') {
+    alert('請稍候，html2canvas 載入中…'); return;
+  }
+  // 建立暫存容器
+  var wrap = document.createElement('div');
+  wrap.style.cssText = 'position:fixed;left:-9999px;top:0;width:' + state.diagramSize + 'px;background:#fff;padding:20px;font-family:sans-serif;z-index:-1;';
+  // 標題區域
+  var hd = document.createElement('div');
+  hd.style.cssText = 'margin-bottom:16px;';
+  var h1 = document.createElement('div');
+  h1.style.cssText = 'font-size:18px;font-weight:bold;color:#333;';
+  h1.textContent = title;
+  hd.appendChild(h1);
+  var h2 = document.createElement('div');
+  h2.style.cssText = 'font-size:12px;color:#999;margin-top:4px;';
+  h2.textContent = INSTRUMENTS_DATA[state.instrument].name + ' · ' + state.tuning;
+  hd.appendChild(h2);
+  wrap.appendChild(hd);
 
-  var canvas = document.createElement('canvas');
-  canvas.width = W * 2; canvas.height = H * 2;
-  var ctx = canvas.getContext('2d');
-  ctx.scale(2, 2);
-
-  ctx.fillStyle = '#fff';
-  ctx.fillRect(0, 0, W, H);
-  ctx.fillStyle = '#333';
-  ctx.font = 'bold 18px sans-serif';
-  ctx.fillText(title, pad, 30);
-  ctx.font = '12px sans-serif';
-  ctx.fillStyle = '#999';
-  ctx.fillText(INSTRUMENTS_DATA[state.instrument].name + ' · ' + state.tuning, pad, 48);
-
-  var tasks = [];
+  // 每個和弦卡片
+  var cellSize = includeDia ? state.diagramSize : 220;
   specs.forEach(function(spec, idx) {
-    var col = idx % cols, row = Math.floor(idx / cols);
-    var x = pad + col * cellW, y = titleH + row * cellH;
-    var chName = chordSpecName(spec);
+    var card = document.createElement('div');
+    card.style.cssText = 'display:inline-flex;flex-direction:column;align-items:center;width:' + cellSize + 'px;padding:8px;border:1px solid #eee;border-radius:8px;margin:4px;background:#f9f9f9;vertical-align:top;box-sizing:border-box;';
+    if (idx % 4 === 0 && idx > 0) wrap.appendChild(document.createElement('br'));
 
-    ctx.fillStyle = '#333';
-    ctx.font = 'bold 14px sans-serif';
-    ctx.fillText(chName, x + 5, y + 15);
+    var nm = document.createElement('div');
+    nm.style.cssText = 'font-weight:bold;font-size:14px;color:#333;margin-bottom:4px;';
+    nm.textContent = chordSpecName(spec);
+    card.appendChild(nm);
 
     if (includeDia) {
-      // 繪製背景框
-      ctx.fillStyle = '#f9f9f9';
-      roundRect(ctx, x + 5, y + 20, cellW - 10, cellH - 30, 6);
-      ctx.strokeStyle = '#eee';
-      ctx.lineWidth = 1;
-      ctx.stroke();
-
       var tm = parseTuning(INSTRUMENTS_DATA[state.instrument].tunings[state.tuning]);
       var shape = getChordShape(state.instrument, state.tuning, spec.root, effQ(spec.q), spec.bass);
       var svgStr;
-      if (shape) svgStr = svgFromShape(shape.frets, shape.fingers, shape.barre, spec.root, tm, cellW - 30);
-      else svgStr = diagramForSpec(spec, cellW - 30).svg;
-      if (!svgStr) return;
-
-      // 將 SVG 獨立載入成 Image
-      var blob = new Blob([svgStr], {type:'image/svg+xml;charset=utf-8'});
-      var url = URL.createObjectURL(blob);
-      tasks.push(new Promise(function(resolve) {
-        var img = new Image();
-        img.onload = function() {
-          var aspect = img.naturalWidth / img.naturalHeight;
-          var iw = cellW - 30, ih = iw / aspect;
-          if (ih > cellH - 40) { ih = cellH - 40; iw = ih * aspect; }
-          ctx.drawImage(img, x + 10, y + 25, iw, ih);
-          URL.revokeObjectURL(url);
-          resolve();
-        };
-        img.onerror = function() { URL.revokeObjectURL(url); resolve(); };
-        img.src = url;
-      }));
+      if (shape) svgStr = svgFromShape(shape.frets, shape.fingers, shape.barre, spec.root, tm, cellSize - 20);
+      else svgStr = diagramForSpec(spec, cellSize - 20).svg;
+      if (svgStr) {
+        var dv = document.createElement('div');
+        dv.innerHTML = svgStr;
+        card.appendChild(dv);
+      }
     } else {
-      // 純文字模式
-      var qd = QDEF[effQ(spec.q)] || QDEF.maj;
-      var pcs = (qd ? qd.f : [0,4,7]).map(function(iv){return (spec.root+iv)%12;});
-      if (spec.bass != null) { var b = ((spec.bass%12)+12)%12; if (pcs.indexOf(b) < 0) pcs.push(b); }
-      var seen = {}, uniq = [];
-      pcs.forEach(function(n){ if (!seen[n]) { seen[n]=1; uniq.push(n); } });
-      var noteStr = uniq.map(function(n){return NOTE_NAMES[n];}).join(' ');
-      ctx.fillStyle = '#666';
-      ctx.font = '12px sans-serif';
-      ctx.fillText(noteStr, x + 80, y + 20);
+      var nt = document.createElement('div');
+      nt.style.cssText = 'font-size:12px;color:#666;';
+      nt.textContent = specNotes(spec).map(function(n){return NOTE_NAMES[n];}).join(' ');
+      card.appendChild(nt);
     }
+    wrap.appendChild(card);
   });
 
-  Promise.all(tasks).then(function() {
-    canvas.toBlob(function(b) {
-      if (!b) { alert('PNG 匯出失敗，請嘗試使用 SVG 下載'); return; }
-      var dl = document.createElement('a');
-      dl.download = fileName + '.png';
-      dl.href = URL.createObjectURL(b); dl.click();
-    }, 'image/png');
-  });
+  document.body.appendChild(wrap);
+
+  // 讓所有 SVG 渲染完成後再截圖
+  setTimeout(function() {
+    html2canvas(wrap, {
+      scale: 2,
+      backgroundColor: '#ffffff',
+      logging: false,
+      width: wrap.scrollWidth,
+      height: wrap.scrollHeight,
+    }).then(function(canvas) {
+      canvas.toBlob(function(b) {
+        document.body.removeChild(wrap);
+        if (!b) { alert('PNG 匯出失敗'); return; }
+        var dl = document.createElement('a');
+        dl.download = fileName + '.png';
+        dl.href = URL.createObjectURL(b); dl.click();
+      }, 'image/png');
+    }).catch(function() {
+      document.body.removeChild(wrap);
+      alert('PNG 匯出失敗，請嘗試使用 SVG 下載');
+    });
+  }, 300);
 }
 
 function exportPresetSVG() {
@@ -969,6 +973,238 @@ function showPresetDetail(idx) {
   document.getElementById('preset-chord-diagram-svg').innerHTML = r.svg + badge;
   document.getElementById('preset-chord-fingering').textContent = getChordFingeringHint(spec.root, qd.f);
   document.getElementById('preset-chord-detail').style.display = 'flex';
+  // Reset edit mode
+  document.getElementById('cc-edit-area').style.display = 'none';
+  document.getElementById('cc-edit-btn').style.display = '';
+  document.getElementById('cc-edit-save').style.display = 'none';
+  document.getElementById('cc-edit-cancel').style.display = 'none';
+  window._editingIdx = idx;
+}
+
+// ---- 編輯和弦 ----
+function startEditPreset() {
+  var idx = window._editingIdx;
+  if (idx == null) return;
+  var spec = state.presetChords[idx];
+  if (!spec) return;
+  var tm = parseTuning(INSTRUMENTS_DATA[state.instrument].tunings[state.tuning]);
+  var n = tm.length;
+  var shape = getChordShape(state.instrument, state.tuning, spec.root, effQ(spec.q), spec.bass);
+  var frets, fingers;
+  if (shape) { frets = shape.frets.slice(); fingers = shape.fingers.slice(); }
+  else { frets = []; fingers = []; for (var s = 0; s < n; s++) { frets.push(0); fingers.push(0); } }
+
+  document.getElementById('cc-edit-area').style.display = 'block';
+  document.getElementById('cc-edit-btn').style.display = 'none';
+  document.getElementById('cc-edit-save').style.display = '';
+  document.getElementById('cc-edit-cancel').style.display = '';
+
+  // Build fret/finger dropdowns for each string
+  var tbody = document.getElementById('cc-edit-rows');
+  tbody.innerHTML = '';
+  var stringLabels = [];
+  for (var s = 0; s < n; s++) {
+    var midi = tm[s];
+    var noteName = NOTE_NAMES[midi % 12];
+    // string label
+    var sl = '第' + (s + 1) + '弦 (' + midiToDisplay(tm[s]) + ')';
+    stringLabels.push(sl);
+
+    var tr = document.createElement('tr');
+    tr.innerHTML = '<td>' + sl + '</td><td>' + noteName + '</td>';
+
+    // Fret select
+    var fretSel = document.createElement('select');
+    fretSel.id = 'cc-edit-fret-' + s;
+    for (var f = -1; f <= 12; f++) {
+      var opt = document.createElement('option');
+      opt.value = f;
+      opt.textContent = (f === -1 ? '✕ 悶音' : (f === 0 ? '○ 空弦' : '第' + f + '格'));
+      if (f === frets[s]) opt.selected = true;
+      fretSel.appendChild(opt);
+    }
+    var td2 = document.createElement('td');
+    td2.appendChild(fretSel);
+    tr.appendChild(td2);
+
+    // Finger select
+    var fngSel = document.createElement('select');
+    fngSel.id = 'cc-edit-finger-' + s;
+    var fngLabels = ['—', '食指①', '中指②', '無名指③', '小指④'];
+    for (var f2 = 0; f2 <= 4; f2++) {
+      var opt2 = document.createElement('option');
+      opt2.value = f2;
+      opt2.textContent = fngLabels[f2];
+      if (f2 === fingers[s]) opt2.selected = true;
+      fngSel.appendChild(opt2);
+    }
+    var td3 = document.createElement('td');
+    td3.appendChild(fngSel);
+    tr.appendChild(td3);
+    tbody.appendChild(tr);
+  }
+
+  // Barre selects
+  var barreFrom = document.getElementById('cc-edit-barre-from');
+  var barreTo = document.getElementById('cc-edit-barre-to');
+  var barreFret = document.getElementById('cc-edit-barre-fret');
+  barreFrom.innerHTML = '<option value="-1">無</option>';
+  barreTo.innerHTML = '';
+  barreFret.innerHTML = '';
+  for (var s2 = 0; s2 < n; s2++) {
+    var of = document.createElement('option'); of.value = s2; of.textContent = stringLabels[s2];
+    barreFrom.appendChild(of.cloneNode(true));
+    barreTo.appendChild(of.cloneNode(true));
+  }
+  for (var f3 = 1; f3 <= 12; f3++) {
+    var of2 = document.createElement('option'); of2.value = f3; of2.textContent = '第' + f3 + '格';
+    barreFret.appendChild(of2);
+  }
+  if (shape && shape.barre) {
+    barreFrom.value = shape.barre.from;
+    barreTo.value = shape.barre.to;
+    barreFret.value = shape.barre.fret;
+  } else {
+    barreFrom.value = '-1';
+  }
+}
+
+function saveEditPreset() {
+  var idx = window._editingIdx;
+  if (idx == null) return;
+  var spec = state.presetChords[idx];
+  if (!spec) return;
+  var n = parseTuning(INSTRUMENTS_DATA[state.instrument].tunings[state.tuning]).length;
+  var frets = [], fingers = [];
+  for (var s = 0; s < n; s++) {
+    frets.push(parseInt(document.getElementById('cc-edit-fret-' + s).value));
+    fingers.push(parseInt(document.getElementById('cc-edit-finger-' + s).value));
+  }
+  var barreF = document.getElementById('cc-edit-barre-from');
+  var barre = null;
+  if (parseInt(barreF.value) >= 0) {
+    barre = {
+      from: parseInt(barreF.value),
+      to: parseInt(document.getElementById('cc-edit-barre-to').value),
+      fret: parseInt(document.getElementById('cc-edit-barre-fret').value)
+    };
+  }
+  // Update the library entry for this spec
+  var q = effQ(spec.q);
+  var key = spec.root + ':' + q;
+  if (spec.bass != null) key += '/' + spec.bass;
+  var byInst = CHORD_LIBRARY[state.instrument];
+  if (byInst) {
+    var byTune = byInst[state.tuning];
+    if (byTune) {
+      byTune[key] = { frets: frets, fingers: fingers, barre: barre };
+      if (spec.bass != null) byTune[key].bass = spec.bass;
+    }
+  }
+  // Also update in-memory
+  renderPresetChords();
+  showPresetDetail(idx);
+  document.getElementById('cc-edit-area').style.display = 'none';
+  document.getElementById('cc-edit-btn').style.display = '';
+  document.getElementById('cc-edit-save').style.display = 'none';
+  document.getElementById('cc-edit-cancel').style.display = 'none';
+  // Note: changes are in-memory only, not persisted to localStorage.
+  // User can export markdown from here.
+}
+
+function cancelEditPreset() {
+  document.getElementById('cc-edit-area').style.display = 'none';
+  document.getElementById('cc-edit-btn').style.display = '';
+  document.getElementById('cc-edit-save').style.display = 'none';
+  document.getElementById('cc-edit-cancel').style.display = 'none';
+  if (window._editingIdx != null) showPresetDetail(window._editingIdx);
+}
+
+// ---- 輸出 Markdown ----
+function exportChordMD() {
+  var idx = window._editingIdx;
+  if (idx == null) { alert('請先點選一個和弦'); return; }
+  var spec = state.presetChords[idx];
+  if (!spec) return;
+  var tm = parseTuning(INSTRUMENTS_DATA[state.instrument].tunings[state.tuning]);
+  var n = tm.length;
+  var q = effQ(spec.q);
+  var shape = getChordShape(state.instrument, state.tuning, spec.root, q, spec.bass);
+  if (!shape) { alert('此和弦無指型資料'); return; }
+  var frets = shape.frets, fingers = shape.fingers, barre = shape.barre;
+
+  // Chord name
+  var suffix = QLABEL[q] ? QLABEL[q].s : q;
+  var chName = NOTE_NAMES[spec.root] + suffix;
+  var qualDesc = QLABEL[q] ? QLABEL[q].d : q;
+  var bassNote = (spec.bass != null) ? NOTE_NAMES[((spec.bass % 12) + 12) % 12] : null;
+
+  var lines = [];
+  if (bassNote) {
+    lines.push('### ' + chName + '/' + bassNote + '（' + chName + ' ／' + bassNote + ' 低音）');
+  } else {
+    lines.push('### ' + chName + '（' + qualDesc + '）');
+  }
+  lines.push('');
+
+  // Notes
+  var chordNotes = [];
+  for (var s = 0; s < n; s++) {
+    if (frets[s] >= 0) chordNotes.push(NOTE_NAMES[(tm[s] + frets[s]) % 12]);
+  }
+  var uniqueNotes = [];
+  var seen = {};
+  chordNotes.forEach(function(nn) { if (!seen[nn]) { seen[nn] = 1; uniqueNotes.push(nn); } });
+  var notesStr = uniqueNotes.join(' · ');
+  if (bassNote) {
+    lines.push('**組成音：** ' + notesStr + '　｜　**低音：** ' + bassNote);
+  } else {
+    lines.push('**組成音：** ' + notesStr);
+  }
+  lines.push('');
+
+  // Table
+  lines.push('| 弦 | 按格 | 手指 | 發音 |');
+  lines.push('|---|------|------|------|');
+  var fngLabels = ['—', '食指①', '中指②', '無名指③', '小指④'];
+  for (var s = 0; s < n; s++) {
+    var sl = (INSTRUMENTS_DATA[state.instrument].tunings[state.tuning]) ? '' : '';
+    // Get string label
+    var label = '第' + (s + 1) + '弦 (' + midiToDisplay(tm[s]) + ')';
+    var fretTxt = (frets[s] === -1 ? '✕ 悶音' : (frets[s] === 0 ? '○ 空弦' : '第' + frets[s] + '格'));
+    var fngTxt = fngLabels[fingers[s]] || '—';
+    var noteTxt = (frets[s] >= 0) ? NOTE_NAMES[(tm[s] + frets[s]) % 12] : '—';
+    if (s === n - 1 && bassNote) noteTxt += '（低音）';
+    lines.push('| ' + label + ' | ' + fretTxt + ' | ' + fngTxt + ' | ' + noteTxt + ' |');
+  }
+  lines.push('');
+
+  // Barre info
+  if (barre) {
+    lines.push('📌 封閉：第' + (barre.from + 1) + '～' + (barre.to + 1) + '弦 第' + barre.fret + '格' + (fngLabels[1] || ''));
+    lines.push('');
+  }
+
+  // Copy to clipboard or download
+  var mdText = lines.join('\n');
+  // Try clipboard API
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(mdText).then(function() {
+      alert('Markdown 已複製到剪貼簿！');
+    }).catch(function() {
+      fallbackCopyMD(mdText);
+    });
+  } else {
+    fallbackCopyMD(mdText);
+  }
+}
+
+function fallbackCopyMD(text) {
+  // Download as .md file
+  var blob = new Blob([text], {type:'text/markdown;charset=utf-8'});
+  var dl = document.createElement('a');
+  dl.download = 'chord.md';
+  dl.href = URL.createObjectURL(blob); dl.click();
 }
 
 function setupCommonChordTabs() {
@@ -1007,6 +1243,15 @@ function setupCommonChordTabs() {
   var derivedPngBtn = document.getElementById('cc-export-derived-png');
   if (derivedSvgBtn) derivedSvgBtn.addEventListener('click', function(){ exportDerivedSVG(); });
   if (derivedPngBtn) derivedPngBtn.addEventListener('click', function(){ exportDerivedPNG(); });
+  // Edit / Markdown event listeners
+  var editBtn = document.getElementById('cc-edit-btn');
+  var saveBtn = document.getElementById('cc-edit-save');
+  var cancelBtn = document.getElementById('cc-edit-cancel');
+  var mdBtn = document.getElementById('cc-export-md');
+  if (editBtn) editBtn.addEventListener('click', startEditPreset);
+  if (saveBtn) saveBtn.addEventListener('click', saveEditPreset);
+  if (cancelBtn) cancelBtn.addEventListener('click', cancelEditPreset);
+  if (mdBtn) mdBtn.addEventListener('click', exportChordMD);
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -1033,6 +1278,19 @@ document.addEventListener('DOMContentLoaded', function() {
       state.lefty = this.checked;
       localStorage.setItem('fretboard_chord_lefty', this.checked ? '1' : '0');
       updateFromState();
+    });
+  }
+  var sizeSlider = document.getElementById('chord-size-slider');
+  if (sizeSlider) {
+    sizeSlider.value = state.diagramSize;
+    document.getElementById('chord-size-label').textContent = state.diagramSize;
+    sizeSlider.addEventListener('input', function() {
+      state.diagramSize = parseInt(this.value);
+      document.getElementById('chord-size-label').textContent = this.value;
+      localStorage.setItem('fretboard_diagram_size', this.value);
+      document.documentElement.style.setProperty('--cell-size', this.value + 'px');
+      renderPresetChords();
+      renderCommonChords();
     });
   }
   updateFromState();
@@ -1216,6 +1474,10 @@ document.addEventListener('DOMContentLoaded', function() {
       <label style="display:inline-flex;align-items:center;gap:6px;font-size:13px;margin-bottom:14px;margin-left:16px;cursor:pointer;">
         <input type="checkbox" id="chord-lefty"> 左撇子模式（預設為右撇子）
       </label>
+      <label class="cc-size-slider" style="margin-left:16px;">
+        大小 <input type="range" id="chord-size-slider" min="100" max="280" value="150" step="10">
+        <span id="chord-size-label">150</span>
+      </label>
 
       <div id="cc-tab-preset">
         <div class="cc-builder">
@@ -1235,6 +1497,23 @@ document.addEventListener('DOMContentLoaded', function() {
           <div class="chord-notes-label" id="preset-chord-notes"></div>
           <div class="chord-intervals-label" id="preset-chord-intervals"></div>
           <div class="chord-fingering-label" id="preset-chord-fingering"></div>
+          <div style="margin-top:12px;display:flex;gap:8px;">
+            <button id="cc-edit-btn" class="ghost" style="padding:4px 12px;font-size:12px;">✏️ 編輯</button>
+            <button id="cc-edit-save" class="ghost" style="padding:4px 12px;font-size:12px;display:none;">💾 儲存</button>
+            <button id="cc-edit-cancel" class="ghost" style="padding:4px 12px;font-size:12px;display:none;">↩ 取消</button>
+            <button id="cc-export-md" class="ghost" style="padding:4px 12px;font-size:12px;">📝 輸出 Markdown</button>
+          </div>
+          <div id="cc-edit-area" style="display:none;margin-top:12px;border:1px solid var(--line);border-radius:6px;padding:10px;background:var(--soft);">
+            <table class="cc-edit-table">
+              <thead><tr><th>弦</th><th>音名</th><th>按格</th><th>手指</th></tr></thead>
+              <tbody id="cc-edit-rows"></tbody>
+            </table>
+            <div style="margin-top:8px;display:flex;align-items:center;gap:8px;font-size:12px;">
+              <label>封閉起弦 <select id="cc-edit-barre-from"><option value="-1">無</option></select></label>
+              <label>終弦 <select id="cc-edit-barre-to"></select></label>
+              <label>格數 <select id="cc-edit-barre-fret"></select></label>
+            </div>
+          </div>
         </div>
       </div>
 
