@@ -120,6 +120,12 @@ button.ghost:hover {border-color:var(--accent);color:var(--accent);}
 .cc-edit-table td,.cc-edit-table th {padding:4px 8px;border:1px solid var(--line);text-align:center;font-size:13px;}
 .cc-edit-table th {background:var(--soft);font-weight:600;font-size:12px;}
 .cc-edit-table select {padding:2px 4px;border:1px solid var(--line);border-radius:4px;font-size:12px;background:var(--surface);width:100%;}
+.cc-filter-bar {display:flex;flex-wrap:wrap;align-items:center;gap:4px;margin-bottom:10px;padding:6px 8px;background:var(--soft);border:1px solid var(--line);border-radius:6px;}
+.cc-filter-chip {padding:2px 8px;border:1px solid var(--line);border-radius:12px;font-size:11px;cursor:pointer;transition:all .12s;background:var(--surface);user-select:none;}
+.cc-filter-chip:hover {border-color:var(--accent);}
+.cc-filter-chip.is-off {opacity:0.4;background:transparent;text-decoration:line-through;}
+.cc-filter-action {padding:2px 8px;border:none;border-radius:12px;font-size:10px;cursor:pointer;background:transparent;color:var(--accent);font-weight:600;}
+.cc-filter-action:hover {background:var(--soft);}
 @media (max-width:760px) {.panels-grid {grid-template-columns:1fr;}.controls-bar {flex-direction:column;}.control-group {width:100%;}.control-group select {width:100%;}}
 </style><script>
 const INSTRUMENTS_DATA = [{"name": "吉他 Guitar", "icon": "🎸", "tunings": {"標準調弦 Standard": ["E4", "B3", "G3", "D3", "A2", "E2"], "Drop D": ["E4", "B3", "G3", "D3", "A2", "D2"], "Drop C": ["E4", "B3", "G3", "C3", "A2", "C2"], "Open D": ["D4", "A3", "F♯3", "D3", "A2", "D2"], "Open G": ["D4", "B3", "G3", "D3", "G2", "D2"], "Open C": ["E4", "C4", "C4", "G3", "E3", "C3"], "DADGAD": ["D4", "A3", "G3", "D3", "A2", "D2"], "Half-step Down": ["E♭4", "B♭3", "G♭3", "D♭3", "A♭2", "E♭2"], "Full-step Down": ["D4", "A3", "F♯3", "C3", "G2", "D2"], "Nashville Tuning": ["E5", "B4", "G4", "D4", "A3", "E3"]}}, {"name": "電貝斯 Bass", "icon": "🎸", "tunings": {"標準 4弦": ["G3", "D3", "A2", "E2"], "Standard 5-String": ["G3", "D3", "A2", "E2", "B1"], "Standard 6-String": ["C3", "G2", "D2", "A1", "E1", "B1"], "Drop D (4弦)": ["G3", "D3", "A2", "D2"], "Half-step Down": ["G♭3", "D♭3", "A♭2", "E♭2"]}}, {"name": "烏克麗麗 Ukulele", "icon": "🪕", "tunings": {"標準 (高音 GCEA)": ["A4", "E4", "C4", "G4"], "Low G": ["A4", "E4", "C4", "G3"], "D 調 (ADF♯B)": ["B4", "F♯4", "D4", "A4"], "Baritone (DGBE)": ["E4", "B3", "G3", "D3"]}}, {"name": "班卓琴 Banjo", "icon": "🪕", "tunings": {"標準 Open G (5弦)": ["D4", "B3", "G3", "D3", "G4"], "Open C": ["D4", "C4", "G3", "C3", "G4"], "Double C": ["D4", "C4", "G3", "C3", "G4"], "Double D": ["D4", "A3", "F♯3", "D3", "D4"], "Sawmill": ["D4", "B3", "G3", "D3", "D4"], "Irish (4弦)": ["D4", "B3", "G3", "D3"]}}, {"name": "曼陀林 Mandolin", "icon": "🎻", "tunings": {"標準": ["E5", "A4", "D4", "G3"], "跨弦標準 (CGDA)": ["A4", "D4", "G3", "C3"], "Open G": ["D5", "B4", "G4", "D4"]}}, {"name": "巴拉萊卡 Balalaika", "icon": "🎻", "tunings": {"標準 Prima": ["E5", "A4", "E4"], "標準 Secunda": ["A4", "E4", "A3"], "標準 Alto": ["E4", "A3", "E3"], "標準 Bass": ["A3", "E3", "A2"]}}, {"name": "夏威夷四弦琴 Cavaquinho", "icon": "🪕", "tunings": {"標準 (DGBD)": ["D5", "B4", "G4", "D4"], "巴西標準": ["B4", "G4", "D4", "G4"], "葡萄牙標準": ["D5", "B4", "G4", "D4"]}}, {"name": "查蘭戈 Charango", "icon": "🪕", "tunings": {"標準": ["E5", "A4", "E4", "C4", "G4"], "F 調": ["F5", "A♯4", "F4", "C4", "G♯4"]}}, {"name": "布祖基琴 Bouzouki", "icon": "🎻", "tunings": {"希臘 3弦": ["D4", "A3", "D3"], "希臘 4弦": ["D4", "A3", "F♯3", "C3"], "愛爾蘭 (GDAD)": ["D4", "A3", "D3", "G2"]}}, {"name": "西塔琴 Sitar", "icon": "🎻", "tunings": {"標準 (Kharaj)": ["C4", "G3", "C3", "G2"]}}, {"name": "琵琶 Pipa", "icon": "🎻", "tunings": {"標準 (A d e a)": ["A4", "E4", "D4", "A3"], "傳統 D 調": ["D5", "A4", "D4", "A3"]}}, {"name": "中阮 Zhongruan", "icon": "🎻", "tunings": {"標準 (五度 G D A E)": ["E4", "A3", "D3", "G2"], "傳統 (G D G D)": ["D4", "G3", "D3", "G2"]}}, {"name": "柳琴 Liuqin", "icon": "🎻", "tunings": {"標準 (五度 G D A E)": ["E5", "A4", "D4", "G3"], "傳統 (G D G D)": ["D5", "G4", "D4", "G3"]}}, {"name": "班都利亞琴 Bandurria", "icon": "🎻", "tunings": {"標準 (四度 G♯ C♯ F♯ B E A)": ["A4", "E4", "B3", "F♯3", "C♯3", "G♯2"]}}, {"name": "三味線 Shamisen", "icon": "🎻", "tunings": {"本調子 (Honchoshi)": ["C4", "F3", "C3"], "二上がり (Niagari)": ["D4", "F3", "C3"], "三下がり (Sansagari)": ["C4", "F3", "B♭2"]}}, {"name": "吉他隆 Guitarron", "icon": "🎸", "tunings": {"標準": ["A3", "E3", "C3", "G2", "D2", "A1"]}}, {"name": "維胡埃拉 Vihuela", "icon": "🎸", "tunings": {"標準": ["A4", "D4", "G3", "B3", "E4"]}}, {"name": "Dobro (Resonator)", "icon": "🎸", "tunings": {"Open G": ["D4", "B3", "G3", "D3", "G2", "D2"], "Open D": ["D4", "A3", "F♯3", "D3", "A2", "D2"]}}, {"name": "Appalachian Dulcimer", "icon": "🎻", "tunings": {"標準 (DAA)": ["D4", "A3", "A3"], "DGD": ["D4", "G3", "D3"], "DAD": ["D4", "A3", "D3"]}}];
@@ -252,7 +258,7 @@ function loadPresetChords() {
 }
 function savePresetChords() { try { localStorage.setItem('fretboard_common_chords', JSON.stringify(state.presetChords)); } catch (e) {} }
 
-var state = {instrument:0,tuning:null,key:0,mode:'major',selectedChord:null,selectedCommonChord:null,selectedPreset:null,presetChords:loadPresetChords(),fretCount:15,horizontal:(localStorage.getItem('fretboard_chord_horizontal')==='1'),lefty:(localStorage.getItem('fretboard_chord_lefty')==='1'),diagramSize:parseInt(localStorage.getItem('fretboard_diagram_size'))||150};
+var state = {instrument:0,tuning:null,key:0,mode:'major',selectedChord:null,selectedCommonChord:null,selectedPreset:null,presetChords:loadPresetChords(),fretCount:15,horizontal:(localStorage.getItem('fretboard_chord_horizontal')==='1'),lefty:(localStorage.getItem('fretboard_chord_lefty')==='1'),diagramSize:parseInt(localStorage.getItem('fretboard_diagram_size'))||150,showNotes:localStorage.getItem('fretboard_show_notes')!=='0',qualityFilter:null};
 
 function parseTuning(arr) { return arr.map(function(s){var m=s.match(/^([A-G][♯♭]?)(\d)$/);if(!m)return 60;var no=noteToMidi(m[1]);var o=(parseInt(m[2])+1)*12;return no+o;});}
 function midiToDisplay(m) {return NOTE_NAMES[m%12]+Math.floor(m/12-1);}
@@ -331,14 +337,61 @@ function renderScaleTable() {
   document.getElementById('scale-description').textContent=NOTE_NAMES[state.key]+' '+getModeName(state.mode)+' · 共 '+sn.length+' 個音';
 }
 
+function toggleQualityFilter(q) {
+  if (!state.qualityFilter) state.qualityFilter = COMMON_CHORD_TYPES.map(function(c){return c.key;});
+  var idx = state.qualityFilter.indexOf(q);
+  if (idx >= 0) state.qualityFilter.splice(idx, 1);
+  else state.qualityFilter.push(q);
+  if (state.qualityFilter.length === COMMON_CHORD_TYPES.length) state.qualityFilter = null;
+  renderCommonChords();
+}
+
+function setQualityFilterAll() {
+  state.qualityFilter = null;
+  renderCommonChords();
+}
+
+function setQualityFilterNone() {
+  state.qualityFilter = [];
+  renderCommonChords();
+}
+
+function renderQualityFilterChips() {
+  var container = document.getElementById('cc-filter-chips');
+  if (!container) return;
+  var html = '';
+  COMMON_CHORD_TYPES.forEach(function(cct) {
+    var isOn = !state.qualityFilter || state.qualityFilter.indexOf(cct.key) >= 0;
+    var color = '#666';
+    if (cct.key === 'maj' || cct.key === 'maj7' || cct.key === 'maj9') color = '#C4956A';
+    else if (cct.key === 'm' || cct.key === 'm7' || cct.key === 'm9') color = '#0f766e';
+    else if (cct.key === '7' || cct.key === '9' || cct.key === '7sus4') color = '#7c3aed';
+    else if (cct.key.indexOf('dim') >= 0) color = '#b45309';
+    else if (cct.key.indexOf('aug') >= 0) color = '#c2410c';
+    else if (cct.key.indexOf('sus') >= 0) color = '#1d4ed8';
+    html += '<span class="cc-filter-chip' + (isOn ? '' : ' is-off') + '" data-quality="' + cct.key + '" style="border-color:' + color + ';color:' + color + ';">' + cct.suffix + '</span>';
+  });
+  container.innerHTML = html;
+  container.querySelectorAll('.cc-filter-chip').forEach(function(chip) {
+    chip.addEventListener('click', function() {
+      toggleQualityFilter(this.dataset.quality);
+    });
+  });
+}
+
 function renderCommonChords() {
   var root = state.key;
   document.getElementById('common-chord-title').textContent = NOTE_NAMES[root];
   var grid = document.getElementById('common-chord-grid');
   var html = '';
+  var showNotes = state.showNotes;
+  // Build quality filter chips on first render
+  renderQualityFilterChips();
   COMMON_CHORD_TYPES.forEach(function(cct, idx) {
     var intervals = CI[effQ(cct.key)];
     if (!intervals) return;
+    // Quality filter
+    if (state.qualityFilter && state.qualityFilter.indexOf(cct.key) < 0) return;
     var notes = intervals.map(function(iv){return (root + iv) % 12;});
     var uniqueNotes = [];
     var seen = {};
@@ -360,8 +413,8 @@ function renderCommonChords() {
     html += '<span class="cc-quality">' + cct.desc + '</span>';
     html += '<div class="cc-diagram">' + dia.svg + '</div>';
     if (dia.auto) html += '<span class="cc-auto">＊自動推算</span>';
-    html += '<span class="cc-notes">' + noteNames + '</span>';
-    html += '<span class="cc-intervals">' + intervalStr + '</span>';
+    if (showNotes) html += '<span class="cc-notes">' + noteNames + '</span>';
+    if (showNotes) html += '<span class="cc-intervals">' + intervalStr + '</span>';
     html += '</div>';
   });
   grid.innerHTML = html;
@@ -938,6 +991,7 @@ function exportDerivedSVG() {
   COMMON_CHORD_TYPES.forEach(function(cct) {
     var intervals = CI[effQ(cct.key)];
     if (!intervals) return;
+    if (state.qualityFilter && state.qualityFilter.indexOf(cct.key) < 0) return;
     specs.push({root: root, q: cct.key, bass: null});
   });
   if (!specs.length) return;
@@ -956,6 +1010,7 @@ function exportDerivedPNG() {
   COMMON_CHORD_TYPES.forEach(function(cct) {
     var intervals = CI[effQ(cct.key)];
     if (!intervals) return;
+    if (state.qualityFilter && state.qualityFilter.indexOf(cct.key) < 0) return;
     specs.push({root: root, q: cct.key, bass: null});
   });
   if (!specs.length) return;
@@ -1297,6 +1352,21 @@ document.addEventListener('DOMContentLoaded', function() {
       renderCommonChords();
     });
   }
+  // Notes toggle
+  var notesCb = document.getElementById('cc-toggle-notes');
+  if (notesCb) {
+    notesCb.checked = state.showNotes;
+    notesCb.addEventListener('change', function() {
+      state.showNotes = this.checked;
+      localStorage.setItem('fretboard_show_notes', this.checked ? '1' : '0');
+      renderCommonChords();
+    });
+  }
+  // Quality filter buttons
+  var filterAll = document.getElementById('cc-filter-all');
+  var filterNone = document.getElementById('cc-filter-none');
+  if (filterAll) filterAll.addEventListener('click', setQualityFilterAll);
+  if (filterNone) filterNone.addEventListener('click', setQualityFilterNone);
   updateFromState();
 });
 </script>
@@ -1528,6 +1598,13 @@ document.addEventListener('DOMContentLoaded', function() {
           <button id="cc-export-derived-png" class="ghost" style="padding:4px 10px;font-size:11px;" title="下載為 PNG">📥 PNG</button>
           <label style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--muted);font-weight:400;cursor:pointer;"><input type="checkbox" id="cc-export-derived-diagram" checked> 含指版圖</label>
         </div>
+        <div class="cc-filter-bar">
+          <span style="font-size:11px;color:var(--muted);margin-right:4px;">篩選：</span>
+          <button class="cc-filter-action" id="cc-filter-all">全選</button>
+          <button class="cc-filter-action" id="cc-filter-none">清除</button>
+          <span id="cc-filter-chips"></span>
+        </div>
+        <label style="display:inline-flex;align-items:center;gap:4px;font-size:11px;color:var(--muted);margin-bottom:8px;cursor:pointer;"><input type="checkbox" id="cc-toggle-notes" checked> 顯示組成音</label>
         <div id="common-chord-grid" class="common-chord-grid"></div>
         <div id="common-chord-detail" class="chord-diagram-box" style="margin-top:20px;display:none;padding-top:16px;border-top:1px solid var(--line);">
           <div class="chord-name-label" id="common-chord-name"></div>
