@@ -4,9 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info https://pagead2.googlesyndication.com; connect-src 'self' https://busuanzi.ibruce.info; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
-  <meta name="google-site-verification" content="AzedQ-PxUmSW7_0jyEHmHCKgN2nIK0Bio5d6LCsJTtE">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6561686484716387" crossorigin="anonymous"></script>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self' https://busuanzi.ibruce.info; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>世界樂器指版與和弦圖｜世界聲音百科</title>
   <meta name="description" content="世界樂器指版與和弦圖 — 瀏覽常見彈撥樂器的調弦法、各調性和弦級數、指版音位圖。支援吉他、烏克麗麗、班卓琴、琵琶、中阮等 19 種樂器。">
 <meta name="keywords" content="隔壁織音人,世界樂器,世界樂器百科,世界聲音百科,樂器教學,歌唱教學,錄音後製,吉他教學,鋼琴教學,基礎樂理,音樂知識,民族樂器,傳統樂器,電子樂器,打擊樂器,管樂器,弦樂器,鍵盤樂器">
@@ -268,7 +266,7 @@ function loadPresetChords() {
 }
 function savePresetChords() { try { localStorage.setItem('fretboard_common_chords', JSON.stringify(state.presetChords)); } catch (e) {} }
 
-var state = {instrument:0,tuning:null,key:0,mode:'major',selectedChord:null,selectedCommonChord:null,selectedPreset:null,presetChords:loadPresetChords(),fretCount:15,horizontal:(localStorage.getItem('fretboard_chord_horizontal')==='1'),lefty:(localStorage.getItem('fretboard_chord_lefty')==='1'),diagramSize:parseInt(localStorage.getItem('fretboard_diagram_size'))||150,showNotes:localStorage.getItem('fretboard_show_notes')!=='0',qualityFilter:null};
+var state = {instrument:0,tuning:null,key:0,mode:'major',selectedChord:null,selectedCommonChord:null,selectedPreset:null,presetChords:loadPresetChords(),fretCount:15,horizontal:(localStorage.getItem('fretboard_chord_horizontal')==='1'),lefty:(localStorage.getItem('fretboard_chord_lefty')==='1'),diagramSize:parseInt(localStorage.getItem('fretboard_diagram_size'))||150,showNotes:localStorage.getItem('fretboard_show_notes')==='1',showQuality:localStorage.getItem('fretboard_show_quality')==='1',qualityFilter:null};
 
 function parseTuning(arr) { return arr.map(function(s){var m=s.match(/^([A-G][♯♭]?)(\d)$/);if(!m)return 60;var no=noteToMidi(m[1]);var o=(parseInt(m[2])+1)*12;return no+o;});}
 function midiToDisplay(m) {return NOTE_NAMES[m%12]+Math.floor(m/12-1);}
@@ -420,7 +418,7 @@ function renderCommonChords() {
     var dia = chordDiagram(root, cct.key, intervals, state.diagramSize - 16);
     html += '<div class="common-chord-card' + (isActive ? ' is-active' : '') + '" data-cchord="' + idx + '" style="border-top:3px solid ' + typeColor + ';">';
     html += '<span class="cc-name" style="color:' + typeColor + ';">' + chName + '</span>';
-    html += '<span class="cc-quality">' + cct.desc + '</span>';
+    if (state.showQuality) html += '<span class="cc-quality">' + cct.desc + '</span>';
     html += '<div class="cc-diagram">' + dia.svg + '</div>';
     if (dia.auto) html += '<span class="cc-auto">＊自動推算</span>';
     if (showNotes) html += '<span class="cc-notes">' + noteNames + '</span>';
@@ -778,10 +776,10 @@ function renderPresetChords() {
       if (idx < n - 1) html += '<button class="cc-move cc-move-down" data-move="' + idx + '" data-dir="1" title="下移">&#9660;</button>';
     }
     html += '<span class="cc-name" style="color:' + typeColor + ';">' + chName + '</span>';
-    html += '<span class="cc-quality">' + (QLABEL[spec.q] ? QLABEL[spec.q].d : '') + '</span>';
+    if (state.showQuality) html += '<span class="cc-quality">' + (QLABEL[spec.q] ? QLABEL[spec.q].d : '') + '</span>';
     html += '<div class="cc-diagram">' + dia.svg + '</div>';
     if (dia.auto) html += '<span class="cc-auto">＊自動推算</span>';
-    html += '<span class="cc-notes">' + noteNames + '</span>';
+    if (state.showNotes) html += '<span class="cc-notes">' + noteNames + '</span>';
     html += '</div>';
   });
   grid.innerHTML = html;
@@ -1403,6 +1401,9 @@ function doExport() {
     if (!state.showNotes) {
       clone.querySelectorAll('.cc-notes, .cc-intervals').forEach(function(n){n.remove();});
     }
+    if (!state.showQuality) {
+      clone.querySelectorAll('.cc-quality').forEach(function(n){n.remove();});
+    }
 
     wrap.appendChild(clone);
   });
@@ -1502,13 +1503,24 @@ document.addEventListener('DOMContentLoaded', function() {
       renderCommonChords();
     });
   }
-  // Notes toggle
+  // 顯示組成音 / 顯示和弦結構 切換（影響兩個和弦分頁）
   var notesCb = document.getElementById('cc-toggle-notes');
+  var qualCb = document.getElementById('cc-toggle-quality');
   if (notesCb) {
     notesCb.checked = state.showNotes;
     notesCb.addEventListener('change', function() {
       state.showNotes = this.checked;
       localStorage.setItem('fretboard_show_notes', this.checked ? '1' : '0');
+      renderPresetChords();
+      renderCommonChords();
+    });
+  }
+  if (qualCb) {
+    qualCb.checked = state.showQuality;
+    qualCb.addEventListener('change', function() {
+      state.showQuality = this.checked;
+      localStorage.setItem('fretboard_show_quality', this.checked ? '1' : '0');
+      renderPresetChords();
       renderCommonChords();
     });
   }
@@ -1707,6 +1719,12 @@ document.addEventListener('DOMContentLoaded', function() {
         大小 <input type="range" id="chord-size-slider" min="100" max="280" value="150" step="10">
         <span id="chord-size-label">150</span>
       </label>
+      <label style="display:inline-flex;align-items:center;gap:6px;font-size:13px;margin-bottom:14px;margin-left:16px;cursor:pointer;">
+        <input type="checkbox" id="cc-toggle-notes"> 顯示組成音
+      </label>
+      <label style="display:inline-flex;align-items:center;gap:6px;font-size:13px;margin-bottom:14px;margin-left:16px;cursor:pointer;">
+        <input type="checkbox" id="cc-toggle-quality"> 顯示和弦結構
+      </label>
 
       <div id="cc-tab-preset">
         <div class="cc-builder">
@@ -1759,7 +1777,6 @@ document.addEventListener('DOMContentLoaded', function() {
           <button class="cc-filter-action" id="cc-filter-none">清除</button>
           <span id="cc-filter-chips"></span>
         </div>
-        <label style="display:inline-flex;align-items:center;gap:4px;font-size:11px;color:var(--muted);margin-bottom:8px;cursor:pointer;"><input type="checkbox" id="cc-toggle-notes" checked> 顯示組成音</label>
         <div id="common-chord-grid" class="common-chord-grid"></div>
         <div id="common-chord-detail" class="chord-diagram-box" style="margin-top:20px;display:none;padding-top:16px;border-top:1px solid var(--line);">
           <div class="chord-name-label" id="common-chord-name"></div>
