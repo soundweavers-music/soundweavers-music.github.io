@@ -503,6 +503,7 @@ def page(title, body, page_path=None, meta_extra="", extra_head="", meta_descrip
         <a href="{resolve_url(page_path, '/tools/fretboard/')}" class="dropdown-trigger">工具</a>
         <div class="dropdown-menu">
           <a href="{resolve_url(page_path, '/tools/fretboard/')}">🎸 世界樂器指版和弦圖</a>
+          <a href="{resolve_url(page_path, '/tools/chord-detection/')}">🎹 自動抓和弦 (beta)</a>
           <a href="{resolve_url(page_path, '/experience/')}">🎧 體驗</a>
         </div>
       </div>
@@ -698,6 +699,10 @@ def build_index(instruments):
           <a class="featured-card" href="{resolve_url(index_path, '/tools/fretboard/')}" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:1px solid #bbf7d0;">
             <strong>🎸 世界樂器指版與和弦圖</strong>
             <span>瀏覽常見彈撥樂器的調弦法、各調性和弦、指版音位圖與順階和弦</span>
+          </a>
+          <a class="featured-card" href="{resolve_url(index_path, '/tools/chord-detection/')}" style="background:linear-gradient(135deg,#fef3c7,#fde68a);border:1px solid #f59e0b;">
+            <strong>🎹 自動抓和弦 (beta)</strong>
+            <span>上傳音檔自動分析節拍與和弦進行，支援指版圖顯示與和弦編輯</span>
           </a>
           <a class="featured-card" href="{resolve_url(index_path, '/tools/experience/')}" style="background:linear-gradient(135deg,#f5f0ff,#ebe0ff);border:1px solid #d5c5fd;">
             <strong>🎧 體驗聲音</strong>
@@ -2469,6 +2474,33 @@ def build_fretboard_tool():
     shutil.copy2(str(src), str(page_dir / "index.html"))
 
 
+def build_chord_detection_tool():
+    """Build the chord detection tool at /tools/chord-detection/.
+
+    Self-contained page at ``tools/chord-detection/index.html`` with its
+    local-agent/ subdirectory. Both are copied verbatim into the build output.
+    Also ensures the chord library (``scripts/_chord_library.js``) is available
+    under ``OUTPUT_DIR / scripts/`` for runtime loading.
+    """
+    src_page = BASE_DIR / "tools" / "chord-detection" / "index.html"
+    page_dir = OUTPUT_DIR / "tools" / "chord-detection"
+    page_dir.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(str(src_page), str(page_dir / "index.html"))
+    # Copy local-agent subdirectory
+    agent_src = BASE_DIR / "tools" / "chord-detection" / "local-agent"
+    agent_dst = page_dir / "local-agent"
+    if agent_src.exists():
+        if agent_dst.exists():
+            shutil.rmtree(str(agent_dst))
+        shutil.copytree(str(agent_src), str(agent_dst), dirs_exist_ok=True)
+    # Copy chord library so ../../scripts/_chord_library.js resolves at runtime
+    lib_src = BASE_DIR / "scripts" / "_chord_library.js"
+    lib_dst = OUTPUT_DIR / "scripts" / "_chord_library.js"
+    if lib_src.exists():
+        lib_dst.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(str(lib_src), str(lib_dst))
+
+
 def build_experience_page():
     """Build the Experience page at /tools/experience/ (redirect from /experience/)."""
     # Build primary page at /tools/experience/
@@ -2611,6 +2643,7 @@ def main():
     build_sitemap(instruments)
     build_robots(instruments)
     build_fretboard_tool()
+    build_chord_detection_tool()
     build_experience_page()
     # Copy sitemap and robots.txt to project root for local development
     shutil.copy2(OUTPUT_DIR / "sitemap.xml", BASE_DIR / "sitemap.xml")
