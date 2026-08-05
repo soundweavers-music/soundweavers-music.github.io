@@ -525,7 +525,8 @@ function svgFromShape(frets, fingers, barre, rootPC, tm, W) {
   var startFret = 1, FRET_COLS = 4;
   if (fretted.length) {
     var lo = Math.min.apply(null, fretted), hi = Math.max.apply(null, fretted);
-    if (lo > 1) startFret = lo;
+    // 若最低按格在 3 格以內則從第 1 格開始畫，保留琴枕與前面格子方便辨識位置
+    if (lo > 3) startFret = lo;
     FRET_COLS = Math.max(4, hi - startFret + 1);
   }
   var showNut = (startFret === 1);
@@ -755,7 +756,8 @@ function escapeXml(s) {
 function exportPresetSVG() {
   var specs = state.presetChords;
   if (!specs.length) { alert('請先加入和弦至常用和弦圖表'); return; }
-  var svgStr = exportCommonSpecs(specs, '常用和弦圖表');
+  var includeDia = document.getElementById('cc-export-diagram').checked;
+  var svgStr = exportCommonSpecs(specs, '常用和弦圖表', includeDia);
   if (!svgStr) return;
   var blob = new Blob([svgStr], {type:'image/svg+xml'});
   var dl = document.createElement('a');
@@ -766,7 +768,8 @@ function exportPresetSVG() {
 function exportPresetPNG() {
   var specs = state.presetChords;
   if (!specs.length) { alert('請先加入和弦至常用和弦圖表'); return; }
-  var svgStr = exportCommonSpecs(specs, '常用和弦圖表');
+  var includeDia = document.getElementById('cc-export-diagram').checked;
+  var svgStr = exportCommonSpecs(specs, '常用和弦圖表', includeDia);
   if (!svgStr) return;
   var svgBlob = new Blob([svgStr], {type:'image/svg+xml;charset=utf-8'});
   var url = URL.createObjectURL(svgBlob);
@@ -786,10 +789,13 @@ function exportPresetPNG() {
   img.src = url;
 }
 
-function exportCommonSpecs(specs, title) {
+function exportCommonSpecs(specs, title, includeDiagrams) {
   if (!specs || !specs.length) return null;
+  if (includeDiagrams === undefined) includeDiagrams = true;
   var cols = Math.min(4, specs.length);
-  var cellW = 180, cellH = 200, pad = 30, titleH = 65;
+  var cellW = includeDiagrams ? 180 : 220;
+  var cellH = includeDiagrams ? 200 : 36;
+  var pad = 30, titleH = 65;
   var rows = Math.ceil(specs.length / cols);
   var W = cols * cellW + pad * 2, H = rows * cellH + titleH + pad;
   var parts = ['<svg xmlns="http://www.w3.org/2000/svg" width="' + W + '" height="' + H + '">'];
@@ -800,16 +806,32 @@ function exportCommonSpecs(specs, title) {
     var col = idx % cols, row = Math.floor(idx / cols);
     var x = pad + col * cellW, y = titleH + row * cellH;
     var chName = chordSpecName(spec);
-    parts.push('<text x="' + (x + 5) + '" y="' + (y + 15) + '" font-family="sans-serif" font-size="14" font-weight="bold" fill="#333">' + escapeXml(chName) + '</text>');
-    parts.push('<rect x="' + (x + 5) + '" y="' + (y + 20) + '" width="' + (cellW - 10) + '" height="' + (cellH - 30) + '" rx="6" fill="#f9f9f9" stroke="#eee" stroke-width="1"/>');
-    var tm = parseTuning(INSTRUMENTS_DATA[state.instrument].tunings[state.tuning]);
-    var shape, diaSvg, q = effQ(spec.q);
-    shape = getChordShape(state.instrument, state.tuning, spec.root, q, spec.bass);
-    if (shape) diaSvg = svgFromShape(shape.frets, shape.fingers, shape.barre, spec.root, tm, cellW - 40);
-    else diaSvg = diagramForSpec(spec, cellW - 40).svg;
-    if (diaSvg) {
-      var inner = diaSvg.match(/<svg[^>]*>([\s\S]*)<\/svg>/);
-      if (inner) parts.push('<g transform="translate(' + (x + 10) + ',' + (y + 25) + ')">' + inner[1] + '</g>');
+    var qd = QDEF[effQ(spec.q)] || QDEF.maj;
+    var pcs = (qd ? qd.f : [0,4,7]).map(function(iv){return (spec.root+iv)%12;});
+    if (spec.bass != null) { var b = ((spec.bass%12)+12)%12; if (pcs.indexOf(b) < 0) pcs.push(b); }
+    var seen = {}, uniq = [];
+    pcs.forEach(function(n){ if (!seen[n]) { seen[n]=1; uniq.push(n); } });
+    var noteStr = uniq.map(function(n){return NOTE_NAMES[n];}).join(' ');
+    var intStr = (qd ? qd.f.map(function(iv){return INTERVAL_SYMBOLS[iv%12];}).join(' ') : '');
+
+    if (includeDiagrams) {
+      parts.push('<text x="' + (x + 5) + '" y="' + (y + 15) + '" font-family="sans-serif" font-size="14" font-weight="bold" fill="#333">' + escapeXml(chName) + '</text>');
+      parts.push('<rect x="' + (x + 5) + '" y="' + (y + 20) + '" width="' + (cellW - 10) + '" height="' + (cellH - 30) + '" rx="6" fill="#f9f9f9" stroke="#eee" stroke-width="1"/>');
+      var tm = parseTuning(INSTRUMENTS_DATA[state.instrument].tunings[state.tuning]);
+      var shape, diaSvg, q = effQ(spec.q);
+      shape = getChordShape(state.instrument, state.tuning, spec.root, q, spec.bass);
+      if (shape) diaSvg = svgFromShape(shape.frets, shape.fingers, shape.barre, spec.root, tm, cellW - 40);
+      else diaSvg = diagramForSpec(spec, cellW - 40).svg;
+      if (diaSvg) {
+        var inner = diaSvg.match(/<svg[^>]*>([\s\S]*)<\/svg>/);
+        if (inner) parts.push('<g transform="translate(' + (x + 10) + ',' + (y + 25) + ')">' + inner[1] + '</g>');
+      }
+    } else {
+      // Text-only row: chord name | notes | intervals
+      parts.push('<rect x="' + (x + 5) + '" y="' + (y + 2) + '" width="' + (cellW - 10) + '" height="' + (cellH - 8) + '" rx="4" fill="#f9f9f9" stroke="#eee" stroke-width="1"/>');
+      parts.push('<text x="' + (x + 10) + '" y="' + (y + 20) + '" font-family="sans-serif" font-size="14" font-weight="bold" fill="#333">' + escapeXml(chName) + '</text>');
+      parts.push('<text x="' + (x + 80) + '" y="' + (y + 20) + '" font-family="sans-serif" font-size="12" fill="#666">' + escapeXml(noteStr) + '</text>');
+      parts.push('<text x="' + (x + 80 + 140) + '" y="' + (y + 20) + '" font-family="sans-serif" font-size="11" fill="#999">' + escapeXml(intStr) + '</text>');
     }
   });
   parts.push('</svg>');
@@ -825,7 +847,8 @@ function exportDerivedSVG() {
     specs.push({root: root, q: cct.key, bass: null});
   });
   if (!specs.length) return;
-  var svgStr = exportCommonSpecs(specs, NOTE_NAMES[root] + ' 常用和弦圖表');
+  var includeDia = document.getElementById('cc-export-derived-diagram').checked;
+  var svgStr = exportCommonSpecs(specs, NOTE_NAMES[root] + ' 常用和弦圖表', includeDia);
   if (!svgStr) return;
   var blob = new Blob([svgStr], {type:'image/svg+xml'});
   var dl = document.createElement('a');
@@ -842,7 +865,8 @@ function exportDerivedPNG() {
     specs.push({root: root, q: cct.key, bass: null});
   });
   if (!specs.length) return;
-  var svgStr = exportCommonSpecs(specs, NOTE_NAMES[root] + ' 常用和弦圖表');
+  var includeDia = document.getElementById('cc-export-derived-diagram').checked;
+  var svgStr = exportCommonSpecs(specs, NOTE_NAMES[root] + ' 常用和弦圖表', includeDia);
   if (!svgStr) return;
   var svgBlob = new Blob([svgStr], {type:'image/svg+xml;charset=utf-8'});
   var url = URL.createObjectURL(svgBlob);
@@ -1133,6 +1157,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <button id="cc-reset-btn" class="ghost">↺ 還原預設</button>
           <button id="cc-export-svg" class="ghost" title="下載為 SVG（向量圖，可無限放大）">📥 SVG</button>
           <button id="cc-export-png" class="ghost" title="下載為 PNG 圖片">📥 PNG</button>
+          <label style="display:flex;align-items:center;gap:4px;font-size:12px;color:var(--muted);font-weight:400;cursor:pointer;"><input type="checkbox" id="cc-export-diagram" checked> 含指版圖</label>
         </div>
         <div id="preset-chord-grid" class="common-chord-grid"></div>
         <div id="preset-chord-detail" class="chord-diagram-box" style="margin-top:20px;display:none;padding-top:16px;border-top:1px solid var(--line);">
@@ -1149,6 +1174,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <span style="font-size:12px;color:var(--muted);">依目前調性 <b><span id="common-chord-title">C</span></b> 自動列出各和弦類型的指型與指法建議。</span>
           <button id="cc-export-derived-svg" class="ghost" style="margin-left:auto;padding:4px 10px;font-size:11px;" title="下載為 SVG">📥 SVG</button>
           <button id="cc-export-derived-png" class="ghost" style="padding:4px 10px;font-size:11px;" title="下載為 PNG">📥 PNG</button>
+          <label style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--muted);font-weight:400;cursor:pointer;"><input type="checkbox" id="cc-export-derived-diagram" checked> 含指版圖</label>
         </div>
         <div id="common-chord-grid" class="common-chord-grid"></div>
         <div id="common-chord-detail" class="chord-diagram-box" style="margin-top:20px;display:none;padding-top:16px;border-top:1px solid var(--line);">
