@@ -125,6 +125,9 @@ button.ghost:hover {border-color:var(--accent);color:var(--accent);}
 .cc-filter-chip.is-off {opacity:0.4;background:transparent;text-decoration:line-through;}
 .cc-filter-action {padding:2px 8px;border:none;border-radius:12px;font-size:10px;cursor:pointer;background:transparent;color:var(--accent);font-weight:600;}
 .cc-filter-action:hover {background:var(--soft);}
+.cc-play-btn {background:none;border:1px solid var(--line);border-radius:50%;width:24px;height:24px;font-size:10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;color:var(--accent);padding:0;line-height:1;transition:all .12s;margin-top:2px;}
+.cc-play-btn:hover {background:var(--accent);border-color:var(--accent);color:#fff;}
+.cc-play-btn.playing {background:#0f766e;border-color:#0f766e;color:#fff;}
 .modal-overlay {position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:1000;display:none;justify-content:center;align-items:center;}
 .modal-box {background:var(--surface);border-radius:12px;padding:24px;max-width:500px;width:90%;max-height:80vh;overflow-y:auto;box-shadow:0 8px 32px rgba(0,0,0,.15);}
 .modal-box h3 {margin:0 0 16px 0;font-size:18px;}
@@ -266,7 +269,7 @@ function loadPresetChords() {
 }
 function savePresetChords() { try { localStorage.setItem('fretboard_common_chords', JSON.stringify(state.presetChords)); } catch (e) {} }
 
-var state = {instrument:0,tuning:null,key:0,mode:'major',selectedChord:null,selectedCommonChord:null,selectedPreset:null,presetChords:loadPresetChords(),fretCount:15,horizontal:(localStorage.getItem('fretboard_chord_horizontal')==='1'),lefty:(localStorage.getItem('fretboard_chord_lefty')==='1'),diagramSize:parseInt(localStorage.getItem('fretboard_diagram_size'))||150,showNotes:localStorage.getItem('fretboard_show_notes')==='1',showQuality:localStorage.getItem('fretboard_show_quality')==='1',qualityFilter:null};
+var state = {instrument:0,tuning:null,key:0,mode:'major',selectedChord:null,selectedCommonChord:null,selectedPreset:null,presetChords:loadPresetChords(),fretCount:15,horizontal:(localStorage.getItem('fretboard_chord_horizontal')==='1'),lefty:(localStorage.getItem('fretboard_chord_lefty')==='1'),diagramSize:parseInt(localStorage.getItem('fretboard_diagram_size'))||150,showNotes:localStorage.getItem('fretboard_show_notes')==='1',showQuality:localStorage.getItem('fretboard_show_quality')==='1',showPlayBtn:localStorage.getItem('fretboard_show_play')==='1',qualityFilter:null};
 
 function parseTuning(arr) { return arr.map(function(s){var m=s.match(/^([A-G][♯♭]?)(\d)$/);if(!m)return 60;var no=noteToMidi(m[1]);var o=(parseInt(m[2])+1)*12;return no+o;});}
 function midiToDisplay(m) {return NOTE_NAMES[m%12]+Math.floor(m/12-1);}
@@ -419,6 +422,7 @@ function renderCommonChords() {
     html += '<div class="common-chord-card' + (isActive ? ' is-active' : '') + '" data-cchord="' + idx + '" style="border-top:3px solid ' + typeColor + ';">';
     html += '<span class="cc-name" style="color:' + typeColor + ';">' + chName + '</span>';
     if (state.showQuality) html += '<span class="cc-quality">' + cct.desc + '</span>';
+    if (state.showPlayBtn) html += '<button class="cc-play-btn" data-play-cct="' + idx + '" title="播放和弦音高">&#9654;</button>';
     html += '<div class="cc-diagram">' + dia.svg + '</div>';
     if (dia.auto) html += '<span class="cc-auto">＊自動推算</span>';
     if (showNotes) html += '<span class="cc-notes">' + noteNames + '</span>';
@@ -438,6 +442,18 @@ function renderCommonChords() {
   } else {
     document.getElementById('common-chord-detail').style.display = 'none';
   }
+  // Play button handlers
+  grid.querySelectorAll('.cc-play-btn').forEach(function(btn) {
+    btn.addEventListener('click', function(ev) {
+      ev.stopPropagation();
+      var idx = parseInt(this.dataset.playCct);
+      if (!isNaN(idx) && COMMON_CHORD_TYPES[idx]) {
+        var cct = COMMON_CHORD_TYPES[idx];
+        var intervals = CI[effQ(cct.key)];
+        if (intervals) playChordFromSpec({root: state.key, q: cct.key, bass: null});
+      }
+    });
+  });
 }
 
 function showCommonChordDetail(idx) {
@@ -777,6 +793,7 @@ function renderPresetChords() {
     }
     html += '<span class="cc-name" style="color:' + typeColor + ';">' + chName + '</span>';
     if (state.showQuality) html += '<span class="cc-quality">' + (QLABEL[spec.q] ? QLABEL[spec.q].d : '') + '</span>';
+    if (state.showPlayBtn) html += '<button class="cc-play-btn" data-play="' + idx + '" title="播放和弦音高">&#9654;</button>';
     html += '<div class="cc-diagram">' + dia.svg + '</div>';
     if (dia.auto) html += '<span class="cc-auto">＊自動推算</span>';
     if (state.showNotes) html += '<span class="cc-notes">' + noteNames + '</span>';
@@ -809,6 +826,14 @@ function renderPresetChords() {
   });
   if (state.selectedPreset !== null && state.presetChords[state.selectedPreset]) showPresetDetail(state.selectedPreset);
   else { var d = document.getElementById('preset-chord-detail'); if (d) d.style.display = 'none'; }
+  // Play button handlers
+  grid.querySelectorAll('.cc-play-btn').forEach(function(btn) {
+    btn.addEventListener('click', function(ev) {
+      ev.stopPropagation();
+      var idx = parseInt(this.dataset.play);
+      if (!isNaN(idx) && state.presetChords[idx]) playChordFromSpec(state.presetChords[idx]);
+    });
+  });
 }
 
 function movePresetChord(idx, dir) {
@@ -926,8 +951,7 @@ function exportPNGFromSpecs(specs, title, includeDia, fileName, gridId) {
 function exportPresetSVG() {
   var specs = state.presetChords;
   if (!specs.length) { alert('請先加入和弦至常用和弦圖表'); return; }
-  var includeDia = document.getElementById('cc-export-diagram').checked;
-  var svgStr = exportCommonSpecs(specs, '常用和弦圖表', includeDia);
+  var svgStr = exportCommonSpecs(specs, '常用和弦圖表', true);
   if (!svgStr) return;
   var blob = new Blob([svgStr], {type:'image/svg+xml'});
   var dl = document.createElement('a');
@@ -938,8 +962,7 @@ function exportPresetSVG() {
 function exportPresetPNG() {
   var specs = state.presetChords;
   if (!specs.length) { alert('請先加入和弦至常用和弦圖表'); return; }
-  var includeDia = document.getElementById('cc-export-diagram').checked;
-  exportPNGFromSpecs(specs, '常用和弦圖表', includeDia, 'chords_' + state.instrument, 'preset-chord-grid');
+  exportPNGFromSpecs(specs, '常用和弦圖表', true, 'chords_' + state.instrument, 'preset-chord-grid');
 }
 
 function exportCommonSpecs(specs, title, includeDiagrams) {
@@ -1003,8 +1026,7 @@ function exportDerivedSVG() {
     specs.push({root: root, q: cct.key, bass: null});
   });
   if (!specs.length) return;
-  var includeDia = document.getElementById('cc-export-derived-diagram').checked;
-  var svgStr = exportCommonSpecs(specs, NOTE_NAMES[root] + ' 常用和弦圖表', includeDia);
+  var svgStr = exportCommonSpecs(specs, NOTE_NAMES[root] + ' 常用和弦圖表', true);
   if (!svgStr) return;
   var blob = new Blob([svgStr], {type:'image/svg+xml'});
   var dl = document.createElement('a');
@@ -1013,16 +1035,6 @@ function exportDerivedSVG() {
 }
 
 function exportDerivedPNG() {
-  var root = state.key;
-  var specs = [];
-  COMMON_CHORD_TYPES.forEach(function(cct) {
-    var intervals = CI[effQ(cct.key)];
-    if (!intervals) return;
-    if (state.qualityFilter && state.qualityFilter.indexOf(cct.key) < 0) return;
-    specs.push({root: root, q: cct.key, bass: null});
-  });
-  if (!specs.length) return;
-  var includeDia = document.getElementById('cc-export-derived-diagram').checked;
   exportPNGFromSpecs(specs, NOTE_NAMES[root] + ' 常用和弦圖表', includeDia, 'derived_chords_' + NOTE_NAMES[root], 'common-chord-grid');
 }
 
@@ -1304,12 +1316,6 @@ function setupCommonChordTabs() {
     savePresetChords();
     renderPresetChords();
   });
-  document.getElementById('cc-export-svg').addEventListener('click', function(){ exportPresetSVG(); });
-  document.getElementById('cc-export-png').addEventListener('click', function(){ exportPresetPNG(); });
-  var derivedSvgBtn = document.getElementById('cc-export-derived-svg');
-  var derivedPngBtn = document.getElementById('cc-export-derived-png');
-  if (derivedSvgBtn) derivedSvgBtn.addEventListener('click', function(){ exportDerivedSVG(); });
-  if (derivedPngBtn) derivedPngBtn.addEventListener('click', function(){ exportDerivedPNG(); });
   // Edit / Markdown event listeners
   var editBtn = document.getElementById('cc-edit-btn');
   var saveBtn = document.getElementById('cc-edit-save');
@@ -1321,12 +1327,48 @@ function setupCommonChordTabs() {
   if (mdBtn) mdBtn.addEventListener('click', exportChordMD);
 }
 
+// ---- 播放和弦音高（Web Audio API）----
+function playChordFromSpec(spec) {
+  if (!spec) return;
+  var tm = parseTuning(INSTRUMENTS_DATA[state.instrument].tunings[state.tuning]);
+  if (!tm) return;
+  var q = effQ(spec.q);
+  var shape = getChordShape(state.instrument, state.tuning, spec.root, q, spec.bass);
+  var midiNotes = [];
+  if (shape) {
+    for (var s = 0; s < tm.length; s++) {
+      if (shape.frets[s] >= 0) midiNotes.push(tm[s] + shape.frets[s]);
+    }
+  } else {
+    var qd = QDEF[q] || QDEF.maj;
+    var baseMidi = 60 + spec.root;
+    qd.f.forEach(function(iv) { midiNotes.push(baseMidi + iv); });
+  }
+  if (!midiNotes.length) return;
+  try {
+    var ctx = new (window.AudioContext || window.webkitAudioContext)();
+    var masterGain = ctx.createGain();
+    masterGain.gain.setValueAtTime(0, ctx.currentTime);
+    masterGain.gain.linearRampToValueAtTime(0.12, ctx.currentTime + 0.04);
+    masterGain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 1.8);
+    masterGain.connect(ctx.destination);
+    midiNotes.forEach(function(midi) {
+      var freq = 440 * Math.pow(2, (midi - 69) / 12);
+      var osc = ctx.createOscillator();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(freq, ctx.currentTime);
+      osc.connect(masterGain);
+      osc.start(ctx.currentTime);
+      osc.stop(ctx.currentTime + 1.8);
+    });
+  } catch(e) { /* Web Audio not supported */ }
+}
+
 // ---- 全頁匯出系統 ----
 // 可選區域名稱與對應的 DOM 查詢器
 var EXPORT_SECTIONS = [
-  {id:'sec-controls', label:'控制面板（樂器/調弦/根音/調式）', query:'#controls'},
   {id:'sec-fretboard', label:'指版音位圖', query:'.fretboard-container'},
-  {id:'sec-chords', label:'和弦圖表（目前分頁）', query:'.info-card > .cc-tabs'},
+  {id:'sec-chords', label:'和弦圖表（兩分頁合併）', query:'.cc-tabs'},
   {id:'sec-diatonic', label:'順階和弦', query:'.panels-grid .info-card:first-child'},
   {id:'sec-scales', label:'音階組成音', query:'.panels-grid .info-card:last-child'},
   {id:'sec-tunings', label:'常見調弦法一覽', query:'#tunings-panel'},
@@ -1361,7 +1403,7 @@ function doExport() {
   // Add title
   var title = document.createElement('div');
   title.style.cssText = 'font-size:20px;font-weight:bold;color:#333;margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid #eee;';
-  title.textContent = '世界樂器指版與和弦圖';
+  title.textContent = INSTRUMENTS_DATA[state.instrument].name + ' : ' + state.tuning + ' 指版與和弦圖';
   wrap.appendChild(title);
 
   sections.forEach(function(sec) {
@@ -1457,9 +1499,28 @@ function exportWrapAsPDF(wrap) {
   }).then(function(canvas) {
     var imgData = canvas.toDataURL('image/png');
     var pdf = new jspdf.jsPDF('p','mm','a4');
-    var pdfW = 210, pdfH = (canvas.height / canvas.width) * pdfW;
-    if (pdfH > 297) pdfH = 297;
-    pdf.addImage(imgData, 'PNG', 0, 0, pdfW, pdfH);
+    var pdfW = 210, pdfH = 297;
+    var ratio = canvas.width / canvas.height;
+    var imgW = pdfW, imgH = pdfW / ratio;
+    if (imgH <= pdfH) {
+      pdf.addImage(imgData, 'PNG', 0, 0, imgW, imgH);
+    } else {
+      // 多頁 PDF：將畫布分割成多頁
+      var pageH = (canvas.height * pdfW) / canvas.width;
+      var totalPages = Math.ceil(pageH / pdfH);
+      for (var p = 0; p < totalPages; p++) {
+        if (p > 0) pdf.addPage();
+        var srcY = (canvas.height / totalPages) * p;
+        var srcH = canvas.height / totalPages;
+        var tmpCanvas = document.createElement('canvas');
+        tmpCanvas.width = canvas.width;
+        tmpCanvas.height = srcH;
+        var tmpCtx = tmpCanvas.getContext('2d');
+        tmpCtx.drawImage(canvas, 0, srcY, canvas.width, srcH, 0, 0, canvas.width, srcH);
+        var pageImg = tmpCanvas.toDataURL('image/png');
+        pdf.addImage(pageImg, 'PNG', 0, 0, pdfW, pdfH);
+      }
+    }
     pdf.save('fretboard_export.pdf');
   }).catch(function(){ alert('PDF 匯出失敗'); });
 }
@@ -1531,6 +1592,17 @@ document.addEventListener('DOMContentLoaded', function() {
   if (filterNone) filterNone.addEventListener('click', setQualityFilterNone);
   var exportBtn = document.getElementById('btn-export-page');
   if (exportBtn) exportBtn.addEventListener('click', showExportModal);
+  // 播放音高按鈕切換
+  var playCb = document.getElementById('cc-toggle-play');
+  if (playCb) {
+    playCb.checked = state.showPlayBtn;
+    playCb.addEventListener('change', function() {
+      state.showPlayBtn = this.checked;
+      localStorage.setItem('fretboard_show_play', this.checked ? '1' : '0');
+      renderPresetChords();
+      renderCommonChords();
+    });
+  }
   updateFromState();
 });
 </script>
@@ -1725,6 +1797,9 @@ document.addEventListener('DOMContentLoaded', function() {
       <label style="display:inline-flex;align-items:center;gap:6px;font-size:13px;margin-bottom:14px;margin-left:16px;cursor:pointer;">
         <input type="checkbox" id="cc-toggle-quality"> 顯示和弦結構
       </label>
+      <label style="display:inline-flex;align-items:center;gap:6px;font-size:13px;margin-bottom:14px;margin-left:16px;cursor:pointer;">
+        <input type="checkbox" id="cc-toggle-play"> 顯示播放音高按鈕
+      </label>
 
       <div id="cc-tab-preset">
         <div class="cc-builder">
@@ -1733,9 +1808,6 @@ document.addEventListener('DOMContentLoaded', function() {
           <label>低音 / Bass<select id="cc-add-bass"></select></label>
           <button id="cc-add-btn">＋ 加入常用</button>
           <button id="cc-reset-btn" class="ghost">↺ 還原預設</button>
-          <button id="cc-export-svg" class="ghost" title="下載為 SVG（向量圖，可無限放大）">📥 SVG</button>
-          <button id="cc-export-png" class="ghost" title="下載為 PNG 圖片">📥 PNG</button>
-          <label style="display:flex;align-items:center;gap:4px;font-size:12px;color:var(--muted);font-weight:400;cursor:pointer;"><input type="checkbox" id="cc-export-diagram" checked> 含指版圖</label>
         </div>
         <div id="preset-chord-grid" class="common-chord-grid"></div>
         <div id="preset-chord-detail" class="chord-diagram-box" style="margin-top:20px;display:none;padding-top:16px;border-top:1px solid var(--line);">
@@ -1767,9 +1839,6 @@ document.addEventListener('DOMContentLoaded', function() {
       <div id="cc-tab-derived" style="display:none;">
         <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:12px;">
           <span style="font-size:12px;color:var(--muted);">依目前調性 <b><span id="common-chord-title">C</span></b> 自動列出各和弦類型的指型與指法建議。</span>
-          <button id="cc-export-derived-svg" class="ghost" style="margin-left:auto;padding:4px 10px;font-size:11px;" title="下載為 SVG">📥 SVG</button>
-          <button id="cc-export-derived-png" class="ghost" style="padding:4px 10px;font-size:11px;" title="下載為 PNG">📥 PNG</button>
-          <label style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--muted);font-weight:400;cursor:pointer;"><input type="checkbox" id="cc-export-derived-diagram" checked> 含指版圖</label>
         </div>
         <div class="cc-filter-bar">
           <span style="font-size:11px;color:var(--muted);margin-right:4px;">篩選：</span>
@@ -1827,7 +1896,6 @@ document.addEventListener('DOMContentLoaded', function() {
     <h3>📥 匯出</h3>
     <p style="font-size:13px;color:var(--muted);margin-bottom:12px;">選擇要匯出的區塊與格式</p>
     <div><strong style="font-size:13px;">區塊：</strong></div>
-    <div class="modal-section"><input type="checkbox" id="sec-controls" checked><label for="sec-controls">控制面板<small>樂器／調弦法／根音／調式</small></label></div>
     <div class="modal-section"><input type="checkbox" id="sec-fretboard" checked><label for="sec-fretboard">指版音位圖<small>當前樂器調弦的指版音階圖</small></label></div>
     <div class="modal-section"><input type="checkbox" id="sec-chords" checked><label for="sec-chords">和弦圖表<small>常用和弦圖表 ＋ 和弦圖表及指法建議（合併）</small></label></div>
     <div class="modal-section"><input type="checkbox" id="sec-diatonic" checked><label for="sec-diatonic">順階和弦<small>目前調性的順階和弦級數</small></label></div>
