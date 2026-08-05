@@ -753,6 +753,109 @@ function escapeXml(s) {
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
+// Canvas 圓角矩形助手
+function roundRect(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y);
+  ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+  ctx.lineTo(x + w, y + h - r);
+  ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+  ctx.lineTo(x + r, y + h);
+  ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+  ctx.lineTo(x, y + r);
+  ctx.quadraticCurveTo(x, y, x + r, y);
+  ctx.closePath();
+}
+
+// PNG 匯出：逐個載入獨立 SVG 並繪製到 Canvas，避免巢狀 SVG 渲染問題
+function exportPNGFromSpecs(specs, title, includeDia, fileName) {
+  var cols = Math.min(4, specs.length);
+  var cellW = includeDia ? 180 : 220;
+  var cellH = includeDia ? 200 : 40;
+  var pad = 30, titleH = 65;
+  var rows = Math.ceil(specs.length / cols);
+  var W = cols * cellW + pad * 2, H = rows * cellH + titleH + pad;
+
+  var canvas = document.createElement('canvas');
+  canvas.width = W * 2; canvas.height = H * 2;
+  var ctx = canvas.getContext('2d');
+  ctx.scale(2, 2);
+
+  ctx.fillStyle = '#fff';
+  ctx.fillRect(0, 0, W, H);
+  ctx.fillStyle = '#333';
+  ctx.font = 'bold 18px sans-serif';
+  ctx.fillText(title, pad, 30);
+  ctx.font = '12px sans-serif';
+  ctx.fillStyle = '#999';
+  ctx.fillText(INSTRUMENTS_DATA[state.instrument].name + ' · ' + state.tuning, pad, 48);
+
+  var tasks = [];
+  specs.forEach(function(spec, idx) {
+    var col = idx % cols, row = Math.floor(idx / cols);
+    var x = pad + col * cellW, y = titleH + row * cellH;
+    var chName = chordSpecName(spec);
+
+    ctx.fillStyle = '#333';
+    ctx.font = 'bold 14px sans-serif';
+    ctx.fillText(chName, x + 5, y + 15);
+
+    if (includeDia) {
+      // 繪製背景框
+      ctx.fillStyle = '#f9f9f9';
+      roundRect(ctx, x + 5, y + 20, cellW - 10, cellH - 30, 6);
+      ctx.strokeStyle = '#eee';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+
+      var tm = parseTuning(INSTRUMENTS_DATA[state.instrument].tunings[state.tuning]);
+      var shape = getChordShape(state.instrument, state.tuning, spec.root, effQ(spec.q), spec.bass);
+      var svgStr;
+      if (shape) svgStr = svgFromShape(shape.frets, shape.fingers, shape.barre, spec.root, tm, cellW - 30);
+      else svgStr = diagramForSpec(spec, cellW - 30).svg;
+      if (!svgStr) return;
+
+      // 將 SVG 獨立載入成 Image
+      var blob = new Blob([svgStr], {type:'image/svg+xml;charset=utf-8'});
+      var url = URL.createObjectURL(blob);
+      tasks.push(new Promise(function(resolve) {
+        var img = new Image();
+        img.onload = function() {
+          var aspect = img.naturalWidth / img.naturalHeight;
+          var iw = cellW - 30, ih = iw / aspect;
+          if (ih > cellH - 40) { ih = cellH - 40; iw = ih * aspect; }
+          ctx.drawImage(img, x + 10, y + 25, iw, ih);
+          URL.revokeObjectURL(url);
+          resolve();
+        };
+        img.onerror = function() { URL.revokeObjectURL(url); resolve(); };
+        img.src = url;
+      }));
+    } else {
+      // 純文字模式
+      var qd = QDEF[effQ(spec.q)] || QDEF.maj;
+      var pcs = (qd ? qd.f : [0,4,7]).map(function(iv){return (spec.root+iv)%12;});
+      if (spec.bass != null) { var b = ((spec.bass%12)+12)%12; if (pcs.indexOf(b) < 0) pcs.push(b); }
+      var seen = {}, uniq = [];
+      pcs.forEach(function(n){ if (!seen[n]) { seen[n]=1; uniq.push(n); } });
+      var noteStr = uniq.map(function(n){return NOTE_NAMES[n];}).join(' ');
+      ctx.fillStyle = '#666';
+      ctx.font = '12px sans-serif';
+      ctx.fillText(noteStr, x + 80, y + 20);
+    }
+  });
+
+  Promise.all(tasks).then(function() {
+    canvas.toBlob(function(b) {
+      if (!b) { alert('PNG 匯出失敗，請嘗試使用 SVG 下載'); return; }
+      var dl = document.createElement('a');
+      dl.download = fileName + '.png';
+      dl.href = URL.createObjectURL(b); dl.click();
+    }, 'image/png');
+  });
+}
+
 function exportPresetSVG() {
   var specs = state.presetChords;
   if (!specs.length) { alert('請先加入和弦至常用和弦圖表'); return; }
@@ -769,24 +872,7 @@ function exportPresetPNG() {
   var specs = state.presetChords;
   if (!specs.length) { alert('請先加入和弦至常用和弦圖表'); return; }
   var includeDia = document.getElementById('cc-export-diagram').checked;
-  var svgStr = exportCommonSpecs(specs, '常用和弦圖表', includeDia);
-  if (!svgStr) return;
-  var svgBlob = new Blob([svgStr], {type:'image/svg+xml;charset=utf-8'});
-  var url = URL.createObjectURL(svgBlob);
-  var img = new Image();
-  img.onload = function() {
-    var ca = document.createElement('canvas');
-    ca.width = img.naturalWidth * 2; ca.height = img.naturalHeight * 2;
-    var cx = ca.getContext('2d');
-    cx.scale(2, 2); cx.drawImage(img, 0, 0);
-    URL.revokeObjectURL(url);
-    ca.toBlob(function(b) { if (!b) return;
-      var dl = document.createElement('a');
-      dl.download = 'chords_' + state.instrument + '.png';
-      dl.href = URL.createObjectURL(b); dl.click();
-    }, 'image/png');
-  };
-  img.src = url;
+  exportPNGFromSpecs(specs, '常用和弦圖表', includeDia, 'chords_' + state.instrument);
 }
 
 function exportCommonSpecs(specs, title, includeDiagrams) {
@@ -866,24 +952,7 @@ function exportDerivedPNG() {
   });
   if (!specs.length) return;
   var includeDia = document.getElementById('cc-export-derived-diagram').checked;
-  var svgStr = exportCommonSpecs(specs, NOTE_NAMES[root] + ' 常用和弦圖表', includeDia);
-  if (!svgStr) return;
-  var svgBlob = new Blob([svgStr], {type:'image/svg+xml;charset=utf-8'});
-  var url = URL.createObjectURL(svgBlob);
-  var img = new Image();
-  img.onload = function() {
-    var ca = document.createElement('canvas');
-    ca.width = img.naturalWidth * 2; ca.height = img.naturalHeight * 2;
-    var cx = ca.getContext('2d');
-    cx.scale(2, 2); cx.drawImage(img, 0, 0);
-    URL.revokeObjectURL(url);
-    ca.toBlob(function(b) { if (!b) return;
-      var dl = document.createElement('a');
-      dl.download = 'derived_chords_' + NOTE_NAMES[root] + '.png';
-      dl.href = URL.createObjectURL(b); dl.click();
-    }, 'image/png');
-  };
-  img.src = url;
+  exportPNGFromSpecs(specs, NOTE_NAMES[root] + ' 常用和弦圖表', includeDia, 'derived_chords_' + NOTE_NAMES[root]);
 }
 
 function showPresetDetail(idx) {
