@@ -4,63 +4,117 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data: blob:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self' https://busuanzi.ibruce.info; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data: blob:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self' https://busuanzi.ibruce.info http://127.0.0.1:* http://localhost:*; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>自動抓和弦 (beta)｜世界聲音百科</title>
-  <meta name="description" content="自動抓和弦工具 — 上傳音檔，自動分析節拍與和弦進行，支援指版圖顯示與和弦編輯。">
+  <meta name="description" content="自動抓和弦工具 — 上傳音檔，自動分析節拍與和弦進行，支援指版圖顯示與和弦編輯。可選用本地 Python 代理進行專業級分析。">
   <link rel="canonical" href="https://soundweavers-music.github.io/tools/chord-detection/">
   <script>!function(){try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);else document.documentElement.setAttribute("data-theme","nextdoor")}catch(e){}}()</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/meyda/5.6.0/meyda.min.js"></script>
   <link rel="stylesheet" href="../../assets/site.css">
   <style>
-    :root { --accent: #C4956A; --surface: #fff; --soft: #f8f6f4; --line: #e8e4e0; --ink: #2c2c2c; --muted: #9C8F87; }
-    [data-theme="dark"] { --surface: #1e1e1e; --soft: #2a2a2a; --line: #3a3a3a; --ink: #e0e0e0; }
+    :root { --accent: #C4956A; --accent2: #A67C52; --surface: #fff; --soft: #f8f6f4; --line: #e8e4e0; --ink: #2c2c2c; --muted: #9C8F87; }
+    [data-theme="dark"] { --surface: #1e1e1e; --soft: #2a2a2a; --line: #3a3a3a; --ink: #e0e0e0; --accent: #C4956A; }
     body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background: var(--surface); color: var(--ink); }
     .page { max-width: 1100px; margin: 0 auto; padding: 20px; }
     .compact-hero { text-align: center; padding: 20px 0; }
     .compact-hero h1 { font-size: 28px; margin: 0 0 8px; }
     .compact-hero .lead { font-size: 14px; color: var(--muted); margin: 0; }
+
+    /* Upload zone */
     .upload-zone { border: 2px dashed var(--line); border-radius: 12px; padding: 40px; text-align: center; cursor: pointer; transition: all .2s; margin: 20px 0; background: var(--soft); }
     .upload-zone:hover, .upload-zone.dragover { border-color: var(--accent); background: rgba(196,149,106,0.08); }
     .upload-zone.has-file { border-style: solid; border-color: var(--accent); padding: 20px; }
     .upload-zone .icon { font-size: 48px; }
     .upload-zone .text { font-size: 16px; color: var(--muted); margin-top: 8px; }
     .upload-zone .sub { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+    /* Controls */
     .controls-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 16px 0; padding: 12px 16px; background: var(--soft); border: 1px solid var(--line); border-radius: 8px; }
     .controls-row label { font-size: 12px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
     .controls-row select, .controls-row input { padding: 6px 10px; border: 1px solid var(--line); border-radius: 6px; font-size: 13px; background: var(--surface); color: var(--ink); }
+
+    /* Waveform */
     .waveform-container { border: 1px solid var(--line); border-radius: 8px; background: var(--surface); padding: 12px; margin: 16px 0; overflow-x: auto; position: relative; }
     .waveform-container canvas { display: block; width: 100%; height: 120px; }
     .playback-cursor { position: absolute; top: 0; bottom: 0; width: 2px; background: #c0392b; pointer-events: none; z-index: 2; display: none; }
+
+    /* Chord track — chordify-like timeline */
     .chord-track { position: relative; margin: 16px 0; overflow-x: auto; }
     .chord-bar-row { display: flex; gap: 4px; padding: 8px 0; min-width: 100%; }
-    .chord-bar { flex: 1; min-width: 80px; border: 1px solid var(--line); border-radius: 6px; padding: 8px; text-align: center; cursor: pointer; transition: all .12s; background: var(--surface); position: relative; }
-    .chord-bar:hover { border-color: var(--accent); }
+    .chord-bar { flex: 1; min-width: 90px; border: 1px solid var(--line); border-radius: 8px; padding: 8px; text-align: center; cursor: pointer; transition: all .12s; background: var(--surface); position: relative; }
+    .chord-bar:hover { border-color: var(--accent); transform: translateY(-1px); box-shadow: var(--shadow); }
     .chord-bar.is-active { border-color: var(--accent); background: rgba(196,149,106,0.1); box-shadow: 0 0 0 2px rgba(196,149,106,0.3); }
     .chord-bar .chord-name { font-size: 18px; font-weight: 800; }
     .chord-bar .chord-quality { font-size: 10px; color: var(--muted); }
     .chord-bar .chord-diagram { margin: 4px 0; line-height: 0; }
     .chord-bar .chord-diagram svg { max-width: 100%; }
-    .chord-bar-edit { position: absolute; top: 2px; right: 4px; font-size: 10px; cursor: pointer; opacity: 0.3; background: none; border: none; color: var(--ink); padding: 2px; }
+    .chord-bar-edit { position: absolute; top: 2px; right: 4px; font-size: 10px; cursor: pointer; opacity: 0.3; background: none; border: none; color: var(--ink); padding: 2px; border-radius: 3px; }
     .chord-bar:hover .chord-bar-edit { opacity: 1; }
+    .chord-bar-edit:hover { background: var(--soft); }
     .chord-bar .bar-num { font-size: 10px; color: var(--muted); position: absolute; bottom: 2px; right: 6px; }
+    .chord-bar .confidence-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; position: absolute; top: 4px; left: 4px; }
+
+    /* Confidence colors */
+    .conf-high { background: #22c55e; }
+    .conf-med { background: #eab308; }
+    .conf-low { background: #ef4444; }
+    .chord-bar.is-non-diatonic { border-left: 3px solid #f59e0b; }
+
+    /* Key / Capo info */
     .key-info { background: var(--soft); border: 1px solid var(--line); border-radius: 8px; padding: 12px 16px; margin: 16px 0; display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
     .key-info .badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 14px; font-weight: 700; background: var(--accent); color: #fff; }
+    .key-info .badge.capo { background: #f59e0b; }
+
+    /* Status */
     .status-msg { padding: 8px 12px; border-radius: 6px; font-size: 13px; margin: 8px 0; background: var(--soft); color: var(--muted); }
     .status-msg.analyzing { background: #fef3c7; color: #92400e; }
     .status-msg.done { background: #d1fae5; color: #065f46; }
     .status-msg.error { background: #fee2e2; color: #991b1b; }
-    .btn { padding: 8px 16px; border: 1px solid var(--accent); border-radius: 6px; background: var(--accent); color: #fff; font-size: 13px; font-weight: 700; cursor: pointer; transition: opacity .12s; }
+
+    /* Buttons */
+    .btn { padding: 8px 16px; border: 1px solid var(--accent); border-radius: 6px; background: var(--accent); color: #fff; font-size: 13px; font-weight: 700; cursor: pointer; transition: opacity .12s, background .12s; }
     .btn:hover { opacity: .88; }
     .btn.ghost { background: transparent; color: var(--accent); }
-    .btn-primary { padding: 10px 24px; font-size: 15px; }
+    .btn.ghost:hover { background: var(--soft); }
+
+    /* Agent connection panel */
+    .agent-panel { border: 1px solid var(--line); border-radius: 8px; padding: 12px 16px; margin: 12px 0; background: var(--soft); display: none; }
+    .agent-panel .agent-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .agent-panel .agent-status { font-size: 13px; display: flex; align-items: center; gap: 6px; }
+    .agent-panel .status-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+    .agent-panel .status-dot.offline { background: var(--muted); }
+    .agent-panel .status-dot.online { background: #22c55e; }
+    .agent-panel .status-dot.analyzing { background: #eab308; animation: pulse 1s infinite; }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+    /* Analysis mode selector */
+    .mode-selector { display: flex; gap: 4px; padding: 2px; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; }
+    .mode-btn { padding: 6px 14px; border: none; background: transparent; border-radius: 4px; font-size: 12px; font-weight: 600; cursor: pointer; color: var(--muted); transition: all .12s; }
+    .mode-btn.is-active { background: var(--accent); color: #fff; }
+    .mode-btn:hover:not(.is-active) { color: var(--ink); }
+
+    /* Beat slider (tempo adjust) */
     .beat-slider { width: 100%; margin: 8px 0; }
+
+    /* Edit modal */
     .edit-modal-bg { position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 1000; display: none; justify-content: center; align-items: center; }
-    .edit-modal { background: var(--surface); border-radius: 12px; padding: 24px; max-width: 400px; width: 90%; }
+    .edit-modal { background: var(--surface); border-radius: 12px; padding: 24px; max-width: 400px; width: 90%; box-shadow: 0 8px 32px rgba(0,0,0,.15); }
     .edit-modal h3 { margin: 0 0 12px; }
     .edit-modal label { display: block; margin: 8px 0; font-size: 13px; }
     .edit-modal select { width: 100%; padding: 6px 8px; border: 1px solid var(--line); border-radius: 6px; font-size: 13px; }
     .edit-modal-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 16px; }
+
+    /* Capo badge on chord bar */
     .chord-bar .capo-badge { font-size: 9px; background: #f59e0b; color: #fff; border-radius: 10px; padding: 1px 6px; position: absolute; top: -6px; left: 50%; transform: translateX(-50%); white-space: nowrap; }
-    @media (max-width: 760px) { .chord-bar { min-width: 60px; } .chord-bar .chord-name { font-size: 14px; } }
+
+    /* BPM selector */
+    .bpm-edit { display: flex; align-items: center; gap: 6px; font-size: 13px; }
+    .bpm-edit input { width: 60px; padding: 4px 6px; border: 1px solid var(--line); border-radius: 4px; font-size: 13px; text-align: center; background: var(--surface); color: var(--ink); }
+
+    /* Time-axis labels on waveform */
+    .time-axis { position: relative; height: 16px; margin: 4px 0 0; font-size: 10px; color: var(--muted); font-family: monospace; }
+
+    @media (max-width: 760px) { .chord-bar { min-width: 70px; } .chord-bar .chord-name { font-size: 15px; } .controls-row { flex-direction: column; align-items: stretch; } }
   </style>
 </head>
 <body>
@@ -88,29 +142,52 @@
   </nav>
   <button id="theme-toggle" class="theme-toggle" aria-label="切換色調">🎋</button>
 </header>
+
 <main class="page">
 <section class="compact-hero">
   <p class="eyebrow">Chord Detection (beta)</p>
   <h1>🎹 自動抓和弦</h1>
-  <p class="lead">上傳音檔，自動分析節拍與和弦進行。點擊和弦可編輯調整，或切換不同樂器檢視指版圖。</p>
+  <p class="lead">上傳音檔，自動分析節拍與和弦進行。可選用瀏覽器分析（快速）或 Python 本地代理（精準）。</p>
 </section>
 
 <!-- Upload Zone -->
 <div class="upload-zone" id="upload-zone">
   <div class="icon">🎵</div>
   <div class="text">點擊或拖放音檔到此處</div>
-  <div class="sub">支援 MP3, WAV, OGG, M4A / 分析在瀏覽器端進行，檔案不上傳伺服器</div>
+  <div class="sub">支援 MP3, WAV, OGG, M4A / 瀏覽器分析不傳送檔案．可選用本地 Python 代理進行更精準分析</div>
   <input type="file" id="file-input" accept="audio/*" style="display:none;">
 </div>
 
 <!-- Controls -->
 <div class="controls-row" id="controls-row" style="display:none;">
-  <button id="btn-play" class="btn" style="font-size:18px;">▶</button>
-  <span id="time-display" style="font-size:13px;font-family:monospace;">0:00 / 0:00</span>
+  <button id="btn-play" class="btn" style="font-size:18px;line-height:1;">▶</button>
+  <span id="time-display" style="font-size:13px;font-family:monospace;white-space:nowrap;">0:00 / 0:00</span>
+
   <label>樂器 <select id="instrument-select"></select></label>
   <label>調弦 <select id="tuning-select"></select></label>
+
+  <div class="mode-selector">
+    <button class="mode-btn is-active" data-mode="browser" title="使用瀏覽器 Meyda 分析（快速，不需額外安裝）">🌐 瀏覽器</button>
+    <button class="mode-btn" data-mode="agent" title="使用本地 Python 代理分析（精準，需先啟動代理）">🖥️ 本地代理</button>
+  </div>
+
   <span style="flex:1;"></span>
-  <button id="btn-analyze" class="btn">重新分析</button>
+  <button id="btn-analyze" class="btn" style="display:none;">↻ 重新分析</button>
+</div>
+
+<!-- Agent Connection Panel -->
+<div class="agent-panel" id="agent-panel">
+  <div class="agent-row">
+    <div class="agent-status">
+      <span class="status-dot offline" id="agent-dot"></span>
+      <span id="agent-status-text">未連線</span>
+    </div>
+    <label style="display:flex;align-items:center;gap:4px;font-size:12px;">
+      主機 <input type="text" id="agent-host" value="127.0.0.1:8765" style="width:130px;padding:4px 8px;border:1px solid var(--line);border-radius:4px;font-size:12px;background:var(--surface);color:var(--ink);">
+    </label>
+    <button id="btn-agent-connect" class="btn ghost" style="font-size:12px;">🔗 連線</button>
+    <button id="btn-agent-analyze" class="btn" style="font-size:12px;display:none;">📊 使用代理分析</button>
+  </div>
 </div>
 
 <!-- Status -->
@@ -119,8 +196,12 @@
 <!-- Key / Capo Info -->
 <div id="key-info" class="key-info" style="display:none;">
   <div>偵測調性：<span class="badge" id="detected-key">C</span></div>
-  <div>建議使用移調夾：<span class="badge" id="capo-suggestion" style="background:#f59e0b;">0 格</span></div>
-  <div style="font-size:12px;color:var(--muted);">以 <span id="display-key">C</span> 大調順階和弦（C·Dm·Em·F·G·Am·Bdim）為主要對應</div>
+  <div>建議移調夾：<span class="badge capo" id="capo-suggestion">0 格</span></div>
+  <div id="capo-description" style="font-size:12px;color:var(--muted);"></div>
+  <div style="font-size:12px;color:var(--muted);">以 <span id="display-key">C</span> 大調順階和弦對應 · 橘色左框 = 非順階替代和弦</div>
+  <div style="font-size:11px;color:var(--muted);margin-left:auto;">
+    信賴度：<span style="color:#22c55e;">●</span> 高 <span style="color:#eab308;">●</span> 中 <span style="color:#ef4444;">●</span> 低
+  </div>
 </div>
 
 <!-- Waveform -->
@@ -131,13 +212,21 @@
 
 <!-- Chord Track -->
 <div id="chord-track-container" style="display:none;">
-  <div style="display:flex;align-items:center;gap:8px;margin:12px 0;">
+  <div style="display:flex;align-items:center;gap:8px;margin:12px 0;flex-wrap:wrap;">
     <h3 style="margin:0;font-size:16px;">和弦進行</h3>
-    <span style="font-size:11px;color:var(--muted);">點擊和弦名稱可編輯</span>
+    <span style="font-size:11px;color:var(--muted);">點擊和弦可編輯 · 播放時自動跳轉</span>
     <span style="flex:1;"></span>
     <label style="font-size:12px;display:flex;align-items:center;gap:4px;cursor:pointer;">
       <input type="checkbox" id="show-diagrams" checked> 顯示指版圖
     </label>
+    <label style="font-size:12px;display:flex;align-items:center;gap:4px;cursor:pointer;">
+      <input type="checkbox" id="show-confidence" checked> 信賴度
+    </label>
+    <div class="bpm-edit">
+      <label>BPM</label>
+      <input type="number" id="bpm-input" value="120" min="20" max="300">
+      <button class="btn ghost" id="btn-recalc-bpm" style="font-size:11px;" title="以新 BPM 重新計算小節">重新計算</button>
+    </div>
   </div>
   <div class="chord-track" id="chord-track">
     <div class="chord-bar-row" id="chord-bar-row"></div>
@@ -152,6 +241,7 @@
     <label>根音 <select id="edit-root"></select></label>
     <label>類型 <select id="edit-quality"></select></label>
     <label>低音 Bass <select id="edit-bass"><option value="">無</option></select></label>
+    <div style="font-size:11px;color:var(--muted);margin-top:6px;">💡 和弦將自動對應所選樂器的指版圖</div>
     <div class="edit-modal-actions">
       <button class="btn ghost" onclick="closeEditModal()">取消</button>
       <button class="btn" onclick="saveEditChord()">儲存</button>
@@ -161,6 +251,7 @@
 
 <div style="height:60px;"></div>
 </main>
+
 <footer class="site-footer">
   <div class="footer-inner">
     <span>世界聲音百科 — 世界樂器、人聲與音樂文化的旅圖</span>
@@ -169,7 +260,9 @@
 </footer>
 
 <script>
-// ====== 音高常數 ======
+// =========================================================================
+// 常數與全域設定
+// =========================================================================
 const NOTE_NAMES = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
 const CHORD_QUAL = [
   {key:'maj', label:''}, {key:'m', label:'m'}, {key:'7', label:'7'},
@@ -178,45 +271,68 @@ const CHORD_QUAL = [
   {key:'6', label:'6'}, {key:'m6', label:'m6'}, {key:'9', label:'9'},
   {key:'sus2', label:'sus2'}, {key:'sus4', label:'sus4'}, {key:'add9', label:'add9'}
 ];
-// C 大調、G 大調順階和弦優先權重
-const PREFERRED_KEYS = {
-  'C': {root:0, chords:[0,2,4,5,7,9,11]},   // C Dm Em F G Am Bdim
-  'G': {root:7, chords:[7,9,11,0,2,4,5]}    // G Am Bm C D Em F#dim
-};
 
-// 和弦音程模板
+// 和弦模板（12 半音向量）
 const CHORD_TEMPLATES = {
-  'maj': [1,0,0,0,1,0,0,1,0,0,0,0], 'm': [1,0,0,1,0,0,0,1,0,0,0,0],
-  '7': [1,0,0,0,1,0,0,1,0,0,1,0], 'maj7': [1,0,0,0,1,0,0,1,0,0,0,1],
-  'm7': [1,0,0,1,0,0,0,1,0,0,1,0], 'dim': [1,0,0,1,0,0,1,0,0,0,0,0],
-  'dim7': [1,0,0,1,0,0,1,0,0,1,0,0], 'm7b5': [1,0,0,1,0,0,1,0,0,0,1,0],
-  'aug': [1,0,0,0,1,0,0,0,1,0,0,0], 'sus2': [1,0,1,0,0,0,0,1,0,0,0,0],
-  'sus4': [1,0,0,0,0,1,0,1,0,0,0,0], '6': [1,0,0,0,1,0,0,1,0,1,0,0],
-  'm6': [1,0,0,1,0,0,0,1,0,1,0,0], '9': [1,0,1,0,1,0,0,1,0,0,1,0],
+  'maj':   [1,0,0,0,1,0,0,1,0,0,0,0], 'm':     [1,0,0,1,0,0,0,1,0,0,0,0],
+  '7':     [1,0,0,0,1,0,0,1,0,0,1,0], 'maj7':  [1,0,0,0,1,0,0,1,0,0,0,1],
+  'm7':    [1,0,0,1,0,0,0,1,0,0,1,0], 'dim':   [1,0,0,1,0,0,1,0,0,0,0,0],
+  'dim7':  [1,0,0,1,0,0,1,0,0,1,0,0], 'm7b5':  [1,0,0,1,0,0,1,0,0,0,1,0],
+  'aug':   [1,0,0,0,1,0,0,0,1,0,0,0], 'sus2':  [1,0,1,0,0,0,0,1,0,0,0,0],
+  'sus4':  [1,0,0,0,0,1,0,1,0,0,0,0], '6':     [1,0,0,0,1,0,0,1,0,1,0,0],
+  'm6':    [1,0,0,1,0,0,0,1,0,1,0,0], '9':     [1,0,1,0,1,0,0,1,0,0,1,0],
 };
 
-// ====== 狀態 ======
-let state = {
-  audioBuffer: null, sampleRate: 44100, duration: 0,
-  beats: [], bars: [], chords: [], detectedKey: 0,
-  isPlaying: false, currentTime: 0, startTime: 0,
-  currentBar: -1, instrument: 0, tuning: '標準調弦 Standard',
-  sourceNode: null, analyserNode: null, animFrame: null,
-  showDiagrams: true,
-};
+// C 大調 / G 大調順階和弦
+const C_DIATONIC = [[0,'maj'],[2,'m'],[4,'m'],[5,'maj'],[7,'maj'],[9,'m'],[11,'dim']];
+const G_DIATONIC = [[7,'maj'],[9,'m'],[11,'m'],[0,'maj'],[2,'maj'],[4,'m'],[5,'dim']];
 
-// ====== 樂器資料（部分，從 fretboard 工具引用）=====
+// 樂器資料（完整 19 種，從 fretboard 工具引用）
 const INSTRUMENTS_DATA = [
-  {"name":"吉他 Guitar","tunings":{"標準調弦 Standard":["E4","B3","G3","D3","A2","E2"]}},
-  {"name":"電貝斯 Bass","tunings":{"標準 4弦":["G3","D3","A2","E2"]}},
-  {"name":"烏克麗麗 Ukulele","tunings":{"標準 (高音 GCEA)":["A4","E4","C4","G4"]}},
-  {"name":"班卓琴 Banjo","tunings":{"標準 Open G (5弦)":["D4","B3","G3","D3","G4"]}},
-  {"name":"曼陀林 Mandolin","tunings":{"標準":["E5","A4","D4","G3"]}},
+  {"name":"吉他 Guitar","icon":"🎸","tunings":{"標準調弦 Standard":["E4","B3","G3","D3","A2","E2"],"Drop D":["E4","B3","G3","D3","A2","D2"],"Drop C":["E4","B3","G3","C3","A2","C2"],"Open D":["D4","A3","F♯3","D3","A2","D2"],"Open G":["D4","B3","G3","D3","G2","D2"],"Open C":["E4","C4","C4","G3","E3","C3"],"DADGAD":["D4","A3","G3","D3","A2","D2"],"Half-step Down":["E♭4","B♭3","G♭3","D♭3","A♭2","E♭2"],"Full-step Down":["D4","A3","F♯3","C3","G2","D2"],"Nashville Tuning":["E5","B4","G4","D4","A3","E3"]}},
+  {"name":"電貝斯 Bass","icon":"🎸","tunings":{"標準 4弦":["G3","D3","A2","E2"],"Standard 5-String":["G3","D3","A2","E2","B1"],"Standard 6-String":["C3","G2","D2","A1","E1","B1"],"Drop D (4弦)":["G3","D3","A2","D2"],"Half-step Down":["G♭3","D♭3","A♭2","E♭2"]}},
+  {"name":"烏克麗麗 Ukulele","icon":"🪕","tunings":{"標準 (高音 GCEA)":["A4","E4","C4","G4"],"Low G":["A4","E4","C4","G3"],"D 調 (ADF♯B)":["B4","F♯4","D4","A4"],"Baritone (DGBE)":["E4","B3","G3","D3"]}},
+  {"name":"班卓琴 Banjo","icon":"🪕","tunings":{"標準 Open G (5弦)":["D4","B3","G3","D3","G4"],"Open C":["D4","C4","G3","C3","G4"],"Double C":["D4","C4","G3","C3","G4"],"Double D":["D4","A3","F♯3","D3","D4"],"Sawmill":["D4","B3","G3","D3","D4"],"Irish (4弦)":["D4","B3","G3","D3"]}},
+  {"name":"曼陀林 Mandolin","icon":"🎻","tunings":{"標準":["E5","A4","D4","G3"],"跨弦標準 (CGDA)":["A4","D4","G3","C3"],"Open G":["D5","B4","G4","D4"]}},
+  {"name":"巴拉萊卡 Balalaika","icon":"🎻","tunings":{"標準 Prima":["E5","A4","E4"],"標準 Secunda":["A4","E4","A3"],"標準 Alto":["E4","A3","E3"],"標準 Bass":["A3","E3","A2"]}},
+  {"name":"夏威夷四弦琴 Cavaquinho","icon":"🪕","tunings":{"標準 (DGBD)":["D5","B4","G4","D4"],"巴西標準":["B4","G4","D4","G4"],"葡萄牙標準":["D5","B4","G4","D4"]}},
+  {"name":"查蘭戈 Charango","icon":"🪕","tunings":{"標準":["E5","A4","E4","C4","G4"],"F 調":["F5","A♯4","F4","C4","G♯4"]}},
+  {"name":"布祖基琴 Bouzouki","icon":"🎻","tunings":{"希臘 3弦":["D4","A3","D3"],"希臘 4弦":["D4","A3","F♯3","C3"],"愛爾蘭 (GDAD)":["D4","A3","D3","G2"]}},
+  {"name":"西塔琴 Sitar","icon":"🎻","tunings":{"標準 (Kharaj)":["C4","G3","C3","G2"]}},
+  {"name":"琵琶 Pipa","icon":"🎻","tunings":{"標準 (A d e a)":["A4","E4","D4","A3"],"傳統 D 調":["D5","A4","D4","A3"]}},
+  {"name":"中阮 Zhongruan","icon":"🎻","tunings":{"標準 (五度 G D A E)":["E4","A3","D3","G2"],"傳統 (G D G D)":["D4","G3","D3","G2"]}},
+  {"name":"柳琴 Liuqin","icon":"🎻","tunings":{"標準 (五度 G D A E)":["E5","A4","D4","G3"],"傳統 (G D G D)":["D5","G4","D4","G3"]}},
+  {"name":"班都利亞琴 Bandurria","icon":"🎻","tunings":{"標準 (四度 G♯ C♯ F♯ B E A)":["A4","E4","B3","F♯3","C♯3","G♯2"]}},
+  {"name":"三味線 Shamisen","icon":"🎻","tunings":{"本調子 (Honchoshi)":["C4","F3","C3"],"二上がり (Niagari)":["D4","F3","C3"],"三下がり (Sansagari)":["C4","F3","B♭2"]}},
+  {"name":"吉他隆 Guitarron","icon":"🎸","tunings":{"標準":["A3","E3","C3","G2","D2","A1"]}},
+  {"name":"維胡埃拉 Vihuela","icon":"🎸","tunings":{"標準":["A4","D4","G3","B3","E4"]}},
+  {"name":"Dobro (Resonator)","icon":"🎸","tunings":{"Open G":["D4","B3","G3","D3","G2","D2"],"Open D":["D4","A3","F♯3","D3","A2","D2"]}},
+  {"name":"Appalachian Dulcimer","icon":"🎻","tunings":{"標準 (DAA)":["D4","A3","A3"],"DGD":["D4","G3","D3"],"DAD":["D4","A3","D3"]}}
 ];
 
-function midiToDisplay(m) { return NOTE_NAMES[m%12] + Math.floor(m/12-1); }
+// =========================================================================
+// 狀態
+// =========================================================================
+let state = {
+  audioBuffer: null, sampleRate: 44100, duration: 0,
+  beats: [], bars: [], chords: [], rawChords: [],
+  detectedKey: 0, capo: {capo:0, targetKey:'C', description:''},
+  isPlaying: false, currentTime: 0, startTime: 0,
+  currentBar: -1, instrument: 0, tuning: null,
+  sourceNode: null, analyserNode: null, animFrame: null,
+  showDiagrams: true, showConfidence: true,
+  bpm: 120,
+  // Agent
+  agentConnected: false, agentHost: '127.0.0.1:8765',
+  // Analysis mode
+  analysisMode: 'browser', // 'browser' | 'agent'
+  // Original chords before diatonic mapping
+  originalChords: null,
+};
 
-// ====== 工具函式 ======
+// =========================================================================
+// 工具函式
+// =========================================================================
 function noteToMidi(n) {
   const map = {'C':0,'C#':1,'Db':1,'D':2,'D#':3,'Eb':3,'E':4,'F':5,'F#':6,'Gb':6,'G':7,'G#':8,'Ab':8,'A':9,'A#':10,'Bb':10,'B':11};
   const m = n.match(/^([A-G][#♯b♭]?)(\d)$/);
@@ -226,12 +342,18 @@ function noteToMidi(n) {
 }
 function parseTuning(arr) { return arr.map(s=>noteToMidi(s)); }
 
-function getChordShape(inst, tuning, root, quality) {
-  // 從 CHORD_LIBRARY 查找，若無則回傳 null（由呼叫方處理自動推算）
-  return null; // 簡化版：透過 fetch 載入
+function getChordQualityLabel(q) {
+  const found = CHORD_QUAL.find(x => x.key === q);
+  return found ? found.label : q;
 }
 
-// ====== 檔案上傳與解碼 ======
+function chordName(root, quality) {
+  return NOTE_NAMES[root] + getChordQualityLabel(quality);
+}
+
+// =========================================================================
+// 檔案上傳與解碼
+// =========================================================================
 const uploadZone = document.getElementById('upload-zone');
 const fileInput = document.getElementById('file-input');
 
@@ -244,7 +366,10 @@ uploadZone.addEventListener('drop', e => {
 });
 fileInput.addEventListener('change', () => { if (fileInput.files.length) handleFile(fileInput.files[0]); });
 
+let currentFile = null;
+
 function handleFile(file) {
+  currentFile = file;
   const reader = new FileReader();
   reader.onload = async function(e) {
     setStatus('解碼音檔中…', 'analyzing');
@@ -259,9 +384,17 @@ function handleFile(file) {
       document.getElementById('controls-row').style.display = 'flex';
       document.getElementById('waveform-container').style.display = 'block';
       drawWaveform();
-      setStatus('音檔已載入，正在分析節拍與和弦…', 'analyzing');
-      // 使用 setTimeout 讓 UI 先更新再分析
-      setTimeout(() => analyzeAudio(), 100);
+
+      // Show agent panel if not connected
+      if (!state.agentConnected) {
+        document.getElementById('agent-panel').style.display = 'block';
+      }
+
+      setStatus('音檔已載入，選擇分析模式後開始分析…', '');
+      document.getElementById('btn-analyze').style.display = '';
+
+      // Auto-analyze based on mode
+      setTimeout(() => startAnalysis(), 100);
     } catch(err) {
       setStatus('音檔解碼失敗：' + err.message, 'error');
     }
@@ -269,19 +402,38 @@ function handleFile(file) {
   reader.readAsArrayBuffer(file);
 }
 
-// ====== 波型繪製 ======
+// =========================================================================
+// 波型繪製（含節拍線與時間軸）
+// =========================================================================
 function drawWaveform() {
   const canvas = document.getElementById('waveform-canvas');
   const rect = canvas.parentElement.getBoundingClientRect();
   canvas.width = Math.max(rect.width - 24, 600);
   canvas.height = 120;
   const ctx = canvas.getContext('2d');
+  if (!state.audioBuffer) return;
   const data = state.audioBuffer.getChannelData(0);
   const step = Math.ceil(data.length / canvas.width);
-  ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--surface').trim() || '#fff';
+  const bg = getComputedStyle(document.documentElement).getPropertyValue('--surface').trim() || '#fff';
+  ctx.fillStyle = bg;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
+  // Waveform fill
   ctx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#C4956A';
   ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  const midY = canvas.height / 2;
+  for (let x = 0; x < canvas.width; x++) {
+    let peak = 0;
+    for (let j = 0; j < step; j++) {
+      const v = Math.abs(data[x * step + j] || 0);
+      if (v > peak) peak = v;
+    }
+    const y = midY - peak * midY;
+    if (x === 0) ctx.moveTo(x, y);
+    else ctx.lineTo(x, y);
+  }
+  ctx.stroke();
+  // Mirror bottom
   ctx.beginPath();
   for (let x = 0; x < canvas.width; x++) {
     let peak = 0;
@@ -289,14 +441,15 @@ function drawWaveform() {
       const v = Math.abs(data[x * step + j] || 0);
       if (v > peak) peak = v;
     }
-    const y = (1 - peak) * canvas.height / 2;
+    const y = midY + peak * midY;
     if (x === 0) ctx.moveTo(x, y);
     else ctx.lineTo(x, y);
   }
   ctx.stroke();
-  // 畫節拍線
+
+  // Beat lines
   if (state.beats.length) {
-    ctx.strokeStyle = 'rgba(192,57,43,0.3)';
+    ctx.strokeStyle = 'rgba(192,57,43,0.25)';
     ctx.lineWidth = 1;
     state.beats.forEach(t => {
       const x = (t / state.duration) * canvas.width;
@@ -304,26 +457,57 @@ function drawWaveform() {
       ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height);
       ctx.stroke();
     });
+    // Bar lines (stronger, every 4 beats)
+    for (let i = 0; i < state.bars.length; i++) {
+      const x = (state.bars[i].start / state.duration) * canvas.width;
+      ctx.strokeStyle = 'rgba(192,57,43,0.45)';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height);
+      ctx.stroke();
+    }
   }
 }
 
-// ====== 音訊分析 ======
-function analyzeAudio() {
+// =========================================================================
+// 分析引擎
+// =========================================================================
+async function startAnalysis() {
+  if (state.analysisMode === 'agent' && state.agentConnected && currentFile) {
+    await analyzeWithAgent(currentFile);
+  } else if (state.analysisMode === 'browser') {
+    analyzeWithBrowser();
+  } else {
+    // Default to browser
+    analyzeWithBrowser();
+  }
+}
+
+// ── 瀏覽器端分析（Meyda-based）─────────────────────────────────────────
+function analyzeWithBrowser() {
   const buffer = state.audioBuffer;
   if (!buffer) return;
   try {
-    // Step 1: 節拍偵測（能量基礎 onset detection）
     setStatus('步驟 1/3：偵測節拍…', 'analyzing');
     const onsets = detectOnsets(buffer);
     state.beats = quantizeBeats(onsets, buffer.duration);
-    // Step 2: 分組為小節（假設 4/4 拍）
-    state.bars = groupIntoBars(state.beats);
-    setStatus('步驟 2/3：分析和弦…', 'analyzing');
-    // Step 3: 和弦偵測（chromagram + 模板匹配）
-    const chords = detectChords(buffer, state.bars);
-    state.chords = chords;
-    // Step 4: 偵測調性
-    state.detectedKey = detectKey(chords);
+    state.bpm = Math.round(state.beats.length > 1 ? 60 / (state.beats[1] - state.beats[0]) : 120);
+    document.getElementById('bpm-input').value = state.bpm;
+    state.bars = groupIntoBars(state.beats, buffer.duration);
+
+    setStatus('步驟 2/3：分析和弦 (Meyda chroma)…', 'analyzing');
+    const chords = detectChordsMeyda(buffer, state.bars);
+    state.originalChords = chords;
+
+    setStatus('步驟 3/3：HMM 平滑 + 調性分析…', 'analyzing');
+    const smoothed = hmmSmooth(chords);
+    state.detectedKey = detectKey(smoothed);
+    const capo = suggestCapo(state.detectedKey);
+    state.capo = capo;
+
+    // 映射到順階和弦
+    state.chords = transposeToDiatonic(smoothed, capo.targetRoot);
+
     setStatus('分析完成！', 'done');
     renderResults();
   } catch(err) {
@@ -342,12 +526,13 @@ function detectOnsets(buffer) {
     for (let j = 0; j < frameSize; j++) sum += samples[i+j] * samples[i+j];
     energies.push(Math.sqrt(sum / frameSize));
   }
-  // 找能量峰值
+  // Meyda-style onset detection (spectral flux like)
   const onsets = [];
-  const threshold = 0.02;
-  for (let i = 2; i < energies.length - 2; i++) {
-    const avg = (energies[i-2]+energies[i-1]+energies[i]+energies[i+1]+energies[i+2])/5;
-    if (energies[i] > threshold && energies[i] > energies[i-1] && energies[i] > energies[i+1] && energies[i] > avg * 1.5) {
+  const threshold = 0.025;
+  for (let i = 3; i < energies.length - 3; i++) {
+    const avg = (energies[i-1]+energies[i]+energies[i+1])/3;
+    const localAvg = (energies[i-3]+energies[i-2]+energies[i-1]+energies[i+1]+energies[i+2]+energies[i+3])/6;
+    if (energies[i] > threshold && energies[i] > localAvg * 1.8 && energies[i] > avg * 1.3) {
       onsets.push(i * hopSize / buffer.sampleRate);
     }
   }
@@ -356,45 +541,83 @@ function detectOnsets(buffer) {
 
 function quantizeBeats(onsets, duration) {
   if (onsets.length < 4) {
-    // 太少拍子，用等間隔代替
     const bpm = 120;
     const interval = 60 / bpm;
     const beats = [];
     for (let t = 0; t < duration; t += interval) beats.push(t);
     return beats;
   }
-  // 估算 BPM
   const intervals = [];
   for (let i = 1; i < onsets.length; i++) intervals.push(onsets[i] - onsets[i-1]);
   intervals.sort((a,b) => a-b);
   const medianInterval = intervals[Math.floor(intervals.length / 2)];
   const bpm = Math.round(60 / medianInterval);
-  // 量化
   const beatInterval = 60 / bpm;
   const beats = [];
   for (let t = 0; t < duration; t += beatInterval) beats.push(t);
   return beats;
 }
 
-function groupIntoBars(beats) {
+function groupIntoBars(beats, duration, beatsPerBar=4) {
   if (!beats.length) return [{start:0, end:4, beats:[0,1,2,3]}];
   const bars = [];
-  // 4拍為一小節
-  for (let i = 0; i < beats.length; i += 4) {
-    const b = beats.slice(i, i + 4);
-    if (b.length) bars.push({start: b[0], end: b[b.length-1] + (beats[1]-beats[0]||1), beats: b});
+  for (let i = 0; i < beats.length; i += beatsPerBar) {
+    const b = beats.slice(i, i + beatsPerBar);
+    if (!b.length) continue;
+    const interval = beats[1]-beats[0] || 1;
+    let end = b[b.length-1] + interval;
+    if (i + beatsPerBar < beats.length) end = Math.min(end, beats[i + beatsPerBar]);
+    else end = Math.min(end, duration);
+    bars.push({start: b[0], end, beats: b});
   }
   return bars;
 }
 
-function computeChroma(segment, sampleRate) {
+// ── Meyda Chroma ────────────────────────────────────────────────────────
+function computeChromaMeyda(segment, sampleRate) {
+  // Use Meyda for chroma extraction if available, fallback to naive FFT
+  const fftSize = 2048;
+  const hopSize = 1024;
+  const chromaSum = new Float32Array(12);
+  let frames = 0;
+
+  try {
+    if (typeof Meyda !== 'undefined') {
+      for (let start = 0; start + fftSize < segment.length; start += hopSize) {
+        const frame = segment.slice(start, start + fftSize);
+        // Meyda.extract('chroma', frame) returns an object with 'chroma' property or array
+        const result = Meyda.extract('chroma', frame);
+        if (result && result.chroma) {
+          const c = result.chroma;
+          for (let i = 0; i < 12; i++) chromaSum[i] += c[i];
+          frames++;
+        } else if (Array.isArray(result) && result.length === 12) {
+          for (let i = 0; i < 12; i++) chromaSum[i] += result[i];
+          frames++;
+        } else {
+          // Fallback
+          throw new Error('Meyda chroma format unknown');
+        }
+      }
+    } else {
+      throw new Error('Meyda not loaded');
+    }
+  } catch(e) {
+    // Fallback to naive FFT chroma
+    return computeChromaNaive(segment, sampleRate);
+  }
+
+  if (frames > 0) for (let i = 0; i < 12; i++) chromaSum[i] /= frames;
+  return chromaSum;
+}
+
+function computeChromaNaive(segment, sampleRate) {
   const fftSize = 4096;
   const hopSize = 2048;
   const chroma = new Float32Array(12);
   let frames = 0;
   for (let start = 0; start + fftSize < segment.length; start += hopSize) {
     const frame = segment.slice(start, start + fftSize);
-    // 簡單的 FFT-like 頻譜分析：使用自相關
     const spectrum = new Float32Array(fftSize/2);
     for (let i = 0; i < fftSize/2; i++) {
       let real = 0, imag = 0;
@@ -405,7 +628,6 @@ function computeChroma(segment, sampleRate) {
       }
       spectrum[i] = Math.sqrt(real*real + imag*imag) / fftSize;
     }
-    // 映射到音高類別
     for (let i = 0; i < fftSize/2; i++) {
       const freq = i * sampleRate / fftSize;
       if (freq < 60 || freq > 2000) continue;
@@ -420,94 +642,303 @@ function computeChroma(segment, sampleRate) {
 }
 
 function matchChord(chroma) {
-  let bestScore = -1;
+  let bestScore = -Infinity;
   let bestRoot = 0, bestQual = 'maj';
+  const scores = [];
+  const cSum = chroma.reduce((a,b)=>a+b, 0);
+  const normalized = cSum > 0 ? chroma.map(v => v/cSum) : chroma;
+
   for (let root = 0; root < 12; root++) {
     for (const [qual, template] of Object.entries(CHORD_TEMPLATES)) {
       let score = 0;
+      const tSum = template.reduce((a,b)=>a+b, 0);
+      const tNorm = tSum > 0 ? template.map(v => v/tSum) : template;
       for (let i = 0; i < 12; i++) {
         const pc = (root + i) % 12;
-        if (template[i]) score += chroma[pc];
-        else score -= chroma[pc] * 0.3;
+        score += normalized[pc] * tNorm[i];
       }
-      // 偏好 C/G 大調順階和弦
-      const inC = PREFERRED_KEYS.C.chords.indexOf(root) >= 0;
-      const inG = PREFERRED_KEYS.G.chords.indexOf(root) >= 0;
-      if (inC || inG) score += 0.15;
-      if (score > bestScore) {
-        bestScore = score;
-        bestRoot = root;
-        bestQual = qual;
-      }
+      // Bonus for C/G diatonic chords
+      const inC = C_DIATONIC.some(([r,q]) => r === root && q === qual);
+      const inG = G_DIATONIC.some(([r,q]) => r === root && q === qual);
+      if (inC || inG) score += 0.05;
+
+      scores.push({score, root, quality: qual});
+      if (score > bestScore) { bestScore = score; bestRoot = root; bestQual = qual; }
     }
   }
-  return {root: bestRoot, quality: bestQual};
+
+  // Confidence based on gap between best and 2nd best
+  scores.sort((a,b) => b.score - a.score);
+  const gap = scores.length > 1 ? scores[0].score - scores[1].score : 0.5;
+  const confidence = Math.min(1, Math.max(0.1, 0.5 + gap * 2));
+
+  return {root: bestRoot, quality: bestQual, confidence: Math.round(confidence * 1000) / 1000};
 }
 
-function detectChords(buffer, bars) {
+function detectChordsMeyda(buffer, bars) {
   const samples = buffer.getChannelData(0);
   const chords = [];
-  bars.forEach((bar, idx) => {
+  bars.forEach(bar => {
     const startSample = Math.floor(bar.start * buffer.sampleRate);
     const endSample = Math.min(Math.floor(bar.end * buffer.sampleRate), samples.length);
     const segment = samples.slice(startSample, endSample);
-    const chroma = computeChroma(segment, buffer.sampleRate);
+    if (segment.length < 512) {
+      chords.push({root: 0, quality: 'maj', confidence: 0.1});
+      return;
+    }
+    const chroma = computeChromaMeyda(segment, buffer.sampleRate);
     const chord = matchChord(chroma);
     chords.push(chord);
   });
   return chords;
 }
 
+// ── HMM 平滑 ────────────────────────────────────────────────────────────
+function hmmSmooth(chords) {
+  if (!chords.length) return chords;
+  const result = chords.map(c => ({...c}));
+  for (let i = 1; i < result.length; i++) {
+    const prev = result[i-1];
+    const curr = result[i];
+    if (curr.confidence < 0.35) {
+      if (prev.confidence > 0.3) {
+        result[i] = {...prev, confidence: Math.round(prev.confidence * 0.8 * 1000) / 1000};
+      }
+    } else if (curr.confidence < 0.55) {
+      if ((curr.root !== prev.root || curr.quality !== prev.quality) && prev.confidence > curr.confidence + 0.1) {
+        result[i] = {...prev, confidence: Math.round(prev.confidence * 0.9 * 1000) / 1000};
+      }
+    }
+  }
+  return result;
+}
+
+// ── 調性偵測 ────────────────────────────────────────────────────────────
 function detectKey(chords) {
   if (!chords.length) return 0;
-  const chromaSum = new Float32Array(12);
+  const chromaProfile = new Float32Array(12);
   chords.forEach(c => {
     const template = CHORD_TEMPLATES[c.quality] || CHORD_TEMPLATES.maj;
     for (let i = 0; i < 12; i++) {
-      if (template[i]) chromaSum[(c.root + i) % 12] += 1;
+      if (template[i]) chromaProfile[(c.root + i) % 12] += 1;
     }
   });
-  // 找最多的音高
-  let maxIdx = 0, maxVal = 0;
-  for (let i = 0; i < 12; i++) {
-    if (chromaSum[i] > maxVal) { maxVal = chromaSum[i]; maxIdx = i; }
+  // Krumhansl major profile
+  const majorProfile = [6.35,2.23,3.48,2.33,4.38,4.09,2.52,5.19,2.39,3.66,2.29,2.88];
+  let bestKey = 0, bestCorr = -Infinity;
+  for (let root = 0; root < 12; root++) {
+    let sumX = 0, sumY = 0, sumXY = 0, sumX2 = 0, sumY2 = 0;
+    for (let i = 0; i < 12; i++) {
+      const xi = chromaProfile[(root + i) % 12];
+      const yi = majorProfile[i];
+      sumX += xi; sumY += yi; sumXY += xi*yi;
+      sumX2 += xi*xi; sumY2 += yi*yi;
+    }
+    const n = 12;
+    const corr = (n*sumXY - sumX*sumY) / Math.sqrt((n*sumX2 - sumX*sumX) * (n*sumY2 - sumY*sumY) || 1);
+    if (corr > bestCorr) { bestCorr = corr; bestKey = root; }
   }
-  return maxIdx;
+  return bestKey;
 }
 
-function suggestCapo(detectedKey, preferredKey='C') {
-  const pref = PREFERRED_KEYS[preferredKey];
-  let capo = (detectedKey - pref.root + 12) % 12;
-  return {capo, displayKey: NOTE_NAMES[pref.root]};
+// ── 移調夾建議 ──────────────────────────────────────────────────────────
+function suggestCapo(detectedKey) {
+  // Try both C and G targets, pick lower capo
+  const capoC = (detectedKey - 0 + 12) % 12;
+  const capoG = (detectedKey - 7 + 12) % 12;
+  if (capoC <= capoG) {
+    return {capo: capoC, targetRoot: 0, targetKey: 'C',
+      description: `移調夾夾第 ${capoC} 格，以 C 大調順階和弦彈奏`};
+  } else {
+    return {capo: capoG, targetRoot: 7, targetKey: 'G',
+      description: `移調夾夾第 ${capoG} 格，以 G 大調順階和弦彈奏`};
+  }
 }
 
-// ====== 渲染結果 ======
+// ── 映射到順階和弦 ──────────────────────────────────────────────────────
+function transposeToDiatonic(chords, targetRoot) {
+  const diatonic = targetRoot === 0 ? C_DIATONIC : G_DIATONIC;
+  const result = [];
+  chords.forEach(c => {
+    const transposedRoot = (c.root - targetRoot + 12) % 12;
+    // Check if this chord is already diatonic
+    const diatonicMatch = diatonic.find(([r, q]) => r === transposedRoot && q === c.quality);
+    if (diatonicMatch) {
+      result.push({
+        display: NOTE_NAMES[c.root] + getChordQualityLabel(c.quality),
+        root: c.root, quality: c.quality,
+        confidence: c.confidence, isDiatonic: true,
+        originalRoot: null,
+      });
+      return;
+    }
+    // Find nearest diatonic chord
+    let bestDist = 999, bestMatch = null;
+    for (const [dr, dq] of diatonic) {
+      const actualRoot = (dr + targetRoot) % 12;
+      const dist = Math.min((c.root - actualRoot + 12) % 12, (actualRoot - c.root + 12) % 12);
+      const qualBonus = c.quality === dq ? 0.5 : 0;
+      const effectiveDist = dist - qualBonus;
+      if (effectiveDist < bestDist) {
+        bestDist = effectiveDist;
+        bestMatch = [actualRoot, dq];
+      }
+    }
+    if (bestMatch) {
+      const [newRoot, newQual] = bestMatch;
+      const origName = NOTE_NAMES[c.root] + getChordQualityLabel(c.quality);
+      result.push({
+        display: NOTE_NAMES[newRoot] + getChordQualityLabel(newQual),
+        root: newRoot, quality: newQual,
+        confidence: Math.max(0.1, c.confidence - 0.15 * bestDist),
+        isDiatonic: false,
+        originalChord: origName,
+        originalRoot: c.root,
+      });
+    } else {
+      result.push({
+        display: NOTE_NAMES[c.root] + getChordQualityLabel(c.quality),
+        root: c.root, quality: c.quality,
+        confidence: c.confidence, isDiatonic: true,
+        originalRoot: null,
+      });
+    }
+  });
+  return result;
+}
+
+// ── BPM 重新計算 ────────────────────────────────────────────────────────
+function recalcWithBPM(newBpm) {
+  if (!state.audioBuffer) return;
+  const interval = 60 / newBpm;
+  const duration = state.audioBuffer.duration;
+  const beats = [];
+  for (let t = 0; t < duration; t += interval) beats.push(t);
+  state.beats = beats;
+  state.bpm = newBpm;
+  state.bars = groupIntoBars(beats, duration);
+
+  // Re-analyze chords with new bar divisions
+  if (state.originalChords) {
+    // Re-match chords to new bars
+    const samples = state.audioBuffer.getChannelData(0);
+    const newChords = state.bars.map(bar => {
+      const startSample = Math.floor(bar.start * state.audioBuffer.sampleRate);
+      const endSample = Math.min(Math.floor(bar.end * state.audioBuffer.sampleRate), samples.length);
+      const segment = samples.slice(startSample, endSample);
+      if (segment.length < 512) return {root: 0, quality: 'maj', confidence: 0.1};
+      const chroma = computeChromaMeyda(segment, state.audioBuffer.sampleRate);
+      return matchChord(chroma);
+    });
+    const smoothed = hmmSmooth(newChords);
+    state.detectedKey = detectKey(smoothed);
+    state.capo = suggestCapo(state.detectedKey);
+    state.chords = transposeToDiatonic(smoothed, state.capo.targetRoot);
+    state.originalChords = smoothed;
+  }
+
+  drawWaveform();
+  renderResults();
+  setStatus(`已重新計算（BPM: ${newBpm}）`, 'done');
+}
+
+// =========================================================================
+// 本地代理通訊
+// =========================================================================
+async function checkAgentHealth(host) {
+  try {
+    const resp = await fetch(`http://${host}/health`);
+    if (resp.ok) {
+      const data = await resp.json();
+      return data.status === 'ok';
+    }
+    return false;
+  } catch(e) {
+    return false;
+  }
+}
+
+async function analyzeWithAgent(file) {
+  setStatus('正在傳送音檔至本地代理分析…', 'analyzing');
+  try {
+    const formData = new FormData();
+    formData.append('file', file);
+
+    const resp = await fetch(`http://${state.agentHost}/analyze`, {
+      method: 'POST',
+      body: formData,
+    });
+    if (!resp.ok) {
+      const err = await resp.json().catch(() => ({error: 'HTTP ' + resp.status}));
+      throw new Error(err.error || '代理分析失敗');
+    }
+    const result = await resp.json();
+    // Map agent results to state
+    state.duration = result.duration;
+    state.sampleRate = result.sampleRate;
+    state.beats = result.beats;
+    state.bpm = result.bpm;
+    state.bars = result.bars;
+    state.detectedKey = result.detectedKey;
+    state.capo = result.capo;
+    state.chords = result.chords.map(c => ({
+      display: c.display,
+      root: c.root,
+      quality: c.quality,
+      confidence: c.confidence || 0.7,
+      isDiatonic: c.isDiatonic !== false,
+      originalChord: c.originalChord || null,
+      originalRoot: c.originalRoot || null,
+    }));
+
+    document.getElementById('bpm-input').value = result.bpm;
+    drawWaveform();
+    renderResults();
+    setStatus(`本地代理分析完成！（BPM: ${result.bpm}，調性: ${result.detectedKeyName}）`, 'done');
+  } catch(err) {
+    setStatus('本地代理分析失敗：' + err.message + '。可切換至瀏覽器模式分析。', 'error');
+  }
+}
+
+// =========================================================================
+// 渲染結果
+// =========================================================================
 function renderResults() {
   const bars = state.bars;
   const chords = state.chords;
   if (!bars.length || !chords.length) return;
-  const keyInfo = suggestCapo(state.detectedKey, 'C');
+
   document.getElementById('key-info').style.display = 'flex';
   document.getElementById('detected-key').textContent = NOTE_NAMES[state.detectedKey];
-  document.getElementById('capo-suggestion').textContent = keyInfo.capo + ' 格';
-  document.getElementById('display-key').textContent = NOTE_NAMES[keyInfo.displayKey];
+  document.getElementById('capo-suggestion').textContent = state.capo.capo + ' 格';
+  document.getElementById('display-key').textContent = state.capo.targetKey;
+  document.getElementById('capo-description').textContent = state.capo.description || '';
   document.getElementById('chord-track-container').style.display = 'block';
   renderChordBars();
-  drawWaveform(); // 重繪波型含節拍線
+  drawWaveform();
 }
 
 function renderChordBars() {
   const container = document.getElementById('chord-bar-row');
   const showDia = document.getElementById('show-diagrams').checked;
+  const showConf = document.getElementById('show-confidence').checked;
   state.showDiagrams = showDia;
+  state.showConfidence = showConf;
   let html = '';
   state.chords.forEach((ch, idx) => {
-    const chName = NOTE_NAMES[ch.root] + (CHORD_QUAL.find(q=>q.key===ch.quality)?.label||'');
-    const qualLabel = ch.quality;
-    html += '<div class="chord-bar" data-bar="' + idx + '" onclick="seekToBar(' + idx + ')">';
-    html += '<button class="chord-bar-edit" onclick="event.stopPropagation();openEditModal(' + idx + ')" title="編輯">✏️</button>';
-    html += '<div class="chord-name">' + chName + '</div>';
-    html += '<div class="chord-quality">' + qualLabel + '</div>';
+    const confClass = ch.confidence >= 0.7 ? 'conf-high' : ch.confidence >= 0.4 ? 'conf-med' : 'conf-low';
+    const nonDiaClass = ch.isDiatonic ? '' : ' is-non-diatonic';
+    html += '<div class="chord-bar' + nonDiaClass + '" data-bar="' + idx + '" onclick="seekToBar(' + idx + ')">';
+    html += '<button class="chord-bar-edit" onclick="event.stopPropagation();openEditModal(' + idx + ')" title="編輯和弦">✏️</button>';
+    if (showConf) html += '<span class="confidence-dot ' + confClass + '" title="信賴度: ' + Math.round(ch.confidence*100) + '%"></span>';
+    if (!ch.isDiatonic) {
+      html += '<div style="font-size:9px;color:#f59e0b;font-weight:600;margin-top:2px;">替代</div>';
+    }
+    html += '<div class="chord-name">' + ch.display + '</div>';
+    if (!ch.isDiatonic && ch.originalChord) {
+      html += '<div style="font-size:9px;color:var(--muted);text-decoration:line-through;">' + ch.originalChord + '</div>';
+    }
+    html += '<div class="chord-quality">' + ch.quality + '</div>';
     if (showDia) {
       html += '<div class="chord-diagram" id="dia-bar-' + idx + '"></div>';
     }
@@ -515,12 +946,10 @@ function renderChordBars() {
     html += '</div>';
   });
   container.innerHTML = html;
-  // 渲染指版圖（非同步載入）
   renderChordDiagrams();
 }
 
 function renderChordDiagrams() {
-  // 簡化版：若無 CHORD_LIBRARY 則略過指版圖
   if (typeof CHORD_LIBRARY === 'undefined') {
     loadChordLibrary().then(() => renderChordDiagrams());
     return;
@@ -530,13 +959,20 @@ function renderChordDiagrams() {
     if (!container) return;
     const instIdx = state.instrument;
     const byInst = CHORD_LIBRARY[instIdx];
-    if (!byInst) return;
+    if (!byInst) {
+      container.innerHTML = '<span style="font-size:10px;color:var(--muted);">無指型庫</span>';
+      return;
+    }
     const byTune = byInst[state.tuning];
-    if (!byTune) return;
+    if (!byTune) {
+      container.innerHTML = '<span style="font-size:10px;color:var(--muted);">無此調弦</span>';
+      return;
+    }
     const key = ch.root + ':' + ch.quality;
     const shape = byTune[key];
     if (shape) {
-      const tm = parseTuning(INSTRUMENTS_DATA[instIdx].tunings[state.tuning]);
+      const instData = INSTRUMENTS_DATA[instIdx];
+      const tm = parseTuning(instData.tunings[state.tuning]);
       container.innerHTML = svgFromShape(shape.frets, shape.fingers, shape.barre, ch.root, tm, 100);
     } else {
       container.innerHTML = '<span style="font-size:10px;color:var(--muted);">無指型</span>';
@@ -553,57 +989,59 @@ async function loadChordLibrary() {
     console.warn('無法載入和弦資料庫', e);
   }
 }
-// 預先載入
 loadChordLibrary();
 
-// ====== SVG 指版圖（簡化版，從 fretboard 工具擷取核心邏輯）=====
+// =========================================================================
+// SVG 指版圖（從 fretboard 工具擷取）
+// =========================================================================
 function svgFromShape(frets, fingers, barre, rootPC, tm, W) {
   if (!frets || !frets.length) return '';
-  var n = frets.length;
-  if (!fingers) { var af = assignFingers(frets); fingers = af.fingers; if (!barre) barre = af.barre; }
-  var fretted = frets.filter(function(f){return f > 0;});
-  var startFret = 1, FRET_COLS = 4;
+  const n = frets.length;
+  if (!fingers) { const af = assignFingers(frets); fingers = af.fingers; if (!barre) barre = af.barre; }
+  const fretted = frets.filter(f => f > 0);
+  let startFret = 1, FRET_COLS = 4;
   if (fretted.length) {
-    var lo = Math.min.apply(null, fretted), hi = Math.max.apply(null, fretted);
+    const lo = Math.min(...fretted), hi = Math.max(...fretted);
     if (lo > 3) startFret = lo;
     FRET_COLS = Math.max(4, hi - startFret + 1);
   }
-  var showNut = (startFret === 1);
-  return svgVertical(frets, fingers, barre, rootPC, tm, W, n, fretted, startFret, FRET_COLS, showNut);
+  return svgVertical(frets, fingers, barre, rootPC, tm, W, n, startFret, FRET_COLS, startFret === 1);
 }
 
-function svgVertical(frets, fingers, barre, rootPC, tm, W, n, fretted, startFret, FRET_COLS, showNut) {
-  var mL=18,mR=10,mT=22,mB=12;
-  var colW=Math.min(22,Math.max(10,(W-mL-mR)/(n-1||1)));
-  var gridW=(n-1)*colW,rowH=18,gridH=FRET_COLS*rowH,H=mT+gridH+mB,Wv=mL+gridW+mR;
+function svgVertical(frets, fingers, barre, rootPC, tm, W, n, startFret, FRET_COLS, showNut) {
+  const mL=18,mR=10,mT=22,mB=12;
+  const colW=Math.min(22,Math.max(10,(W-mL-mR)/(n-1||1)));
+  const gridW=(n-1)*colW,rowH=18,gridH=FRET_COLS*rowH,H=mT+gridH+mB,Wv=mL+gridW+mR;
   function colOf(s){ return (n-1-s); }
-  var sh='<svg width="'+Wv+'" height="'+H+'" viewBox="0 0 '+Wv+' '+H+'" xmlns="http://www.w3.org/2000/svg">';
-  for(var f=0;f<=FRET_COLS;f++){var fy=mT+f*rowH;var lw=(f===0&&showNut)?3:1;sh+='<line x1="'+mL+'" y1="'+fy+'" x2="'+(mL+gridW)+'" y2="'+fy+'" stroke="#8B7355" stroke-width="'+lw+'" opacity="0.5"/>';}
-  for(var s=0;s<n;s++){var sx=mL+colOf(s)*colW;sh+='<line x1="'+sx+'" y1="'+mT+'" x2="'+sx+'" y2="'+(mT+gridH)+'" stroke="#555" stroke-width="1" opacity="0.3"/>';}
-  for(var f=1;f<=FRET_COLS;f++){var fy=mT+(f-0.5)*rowH;sh+='<text x="'+(mL-6)+'" y="'+(fy+3)+'" text-anchor="middle" font-size="8" fill="#999">'+(startFret+f-1)+'</text>';}
-  if(!showNut){sh+='<text x="'+(mL-6)+'" y="'+(mT-4)+'" text-anchor="middle" font-size="9" font-weight="700" fill="#C4956A">'+startFret+'fr</text>';}
-  if(barre){var brow=barre.fret-startFret,by=mT+(brow+0.5)*rowH;var bcx1=mL+colOf(barre.from)*colW,bcx2=mL+colOf(barre.to)*colW;var bx1=Math.min(bcx1,bcx2),bx2=Math.max(bcx1,bcx2);sh+='<rect x="'+(bx1-6)+'" y="'+(by-6)+'" width="'+(bx2-bx1+12)+'" height="12" rx="6" fill="#0f766e" opacity="0.8"/>';}
-  for(var s=0;s<n;s++){var sx=mL+colOf(s)*colW,c=frets[s];if(c===-1){sh+='<text x="'+sx+'" y="'+(mT-6)+'" text-anchor="middle" font-size="10" font-weight="700" fill="#c0392b">✕</text>';}else if(c===0){sh+='<circle cx="'+sx+'" cy="'+(mT-8)+'" r="4" fill="none" stroke="#0f766e" stroke-width="1.5"/>';}else{var row=c-startFret,fy=mT+(row+0.5)*rowH;var nc=(tm[s]+c)%12,ir=nc===rootPC;var finger=(fingers&&fingers[s])?fingers[s]:Math.min(4,c-startFret+1);sh+='<circle cx="'+sx+'" cy="'+fy+'" r="6" fill="'+(ir?'#C4956A':'#0f766e')+'"/>';sh+='<text x="'+sx+'" y="'+(fy+2)+'" text-anchor="middle" font-size="8" font-weight="700" fill="#fff">'+finger+'</text>';}}
+  let sh='<svg width="'+Wv+'" height="'+H+'" viewBox="0 0 '+Wv+' '+H+'" xmlns="http://www.w3.org/2000/svg">';
+  for(let f=0;f<=FRET_COLS;f++){const fy=mT+f*rowH;const lw=(f===0&&showNut)?3:1;sh+='<line x1="'+mL+'" y1="'+fy+'" x2="'+(mL+gridW)+'" y2="'+fy+'" stroke="#8B7355" stroke-width="'+lw+'" opacity="0.5"/>';}
+  for(let s=0;s<n;s++){const sx=mL+colOf(s)*colW;sh+='<line x1="'+sx+'" y1="'+mT+'" x2="'+sx+'" y2="'+(mT+gridH)+'" stroke="#555" stroke-width="1" opacity="0.3"/>';}
+  for(let f=1;f<=FRET_COLS;f++){const fy=mT+(f-0.5)*rowH;sh+='<text x="'+(mL-6)+'" y="'+(fy+3)+'" text-anchor="middle" font-size="8" fill="#999">'+(startFret+f-1)+'</text>';}
+  if(!showNut)sh+='<text x="'+(mL-6)+'" y="'+(mT-4)+'" text-anchor="middle" font-size="9" font-weight="700" fill="#C4956A">'+startFret+'fr</text>';
+  if(barre){const brow=barre.fret-startFret,by=mT+(brow+0.5)*rowH;const bcx1=mL+colOf(barre.from)*colW,bcx2=mL+colOf(barre.to)*colW;const bx1=Math.min(bcx1,bcx2),bx2=Math.max(bcx1,bcx2);sh+='<rect x="'+(bx1-6)+'" y="'+(by-6)+'" width="'+(bx2-bx1+12)+'" height="12" rx="6" fill="#0f766e" opacity="0.8"/>';}
+  for(let s=0;s<n;s++){const sx=mL+colOf(s)*colW,c=frets[s];if(c===-1){sh+='<text x="'+sx+'" y="'+(mT-6)+'" text-anchor="middle" font-size="10" font-weight="700" fill="#c0392b">✕</text>';}else if(c===0){sh+='<circle cx="'+sx+'" cy="'+(mT-8)+'" r="4" fill="none" stroke="#0f766e" stroke-width="1.5"/>';}else{const row=c-startFret,fy=mT+(row+0.5)*rowH;const nc=(tm[s]+c)%12,ir=nc===rootPC;const finger=(fingers&&fingers[s])?fingers[s]:Math.min(4,c-startFret+1);sh+='<circle cx="'+sx+'" cy="'+fy+'" r="6" fill="'+(ir?'#C4956A':'#0f766e')+'"/>';sh+='<text x="'+sx+'" y="'+(fy+2)+'" text-anchor="middle" font-size="8" font-weight="700" fill="#fff">'+finger+'</text>';}}
   sh+='</svg>';return sh;
 }
 
 function assignFingers(frets) {
-  var n=frets.length,fingers=[],pressed=[];
-  for(var i=0;i<n;i++)fingers.push(0);
-  for(var s=0;s<n;s++)if(frets[s]>0)pressed.push(s);
-  if(!pressed.length)return{fingers:fingers,barre:null,count:0};
-  var f0=Math.min.apply(null,pressed.map(function(s){return frets[s];}));
-  var at0=pressed.filter(function(s){return frets[s]===f0;});
-  var barre=null;
-  if(at0.length>=2){var lo=Math.min.apply(null,at0),hi=Math.max.apply(null,at0),ok=true;for(var s=lo;s<=hi;s++){if(frets[s]>=0&&frets[s]!==f0){ok=false;break;}}if(ok){barre={fret:f0,from:lo,to:hi};at0.forEach(function(s){fingers[s]=1;});var rem=pressed.filter(function(s){return frets[s]>f0;}),nf=2;rem.sort(function(a,b){return frets[a]-frets[b]||a-b;});rem.forEach(function(s){fingers[s]=Math.min(4,nf);nf++;});return{fingers:fingers,barre:barre,count:nf-1};}}
-  var order=[],seen={};pressed.forEach(function(s){if(!seen[frets[s]]){seen[frets[s]]=1;order.push(frets[s]);}});order.sort(function(a,b){return a-b;});var fmap={};order.forEach(function(fr,i){fmap[fr]=i+1;});pressed.forEach(function(s){fingers[s]=Math.min(4,fmap[frets[s]]);});return{fingers:fingers,barre:null,count:order.length};}
+  const n=frets.length,fingers=[]; for(let i=0;i<n;i++)fingers.push(0);
+  const pressed=[]; for(let s=0;s<n;s++)if(frets[s]>0)pressed.push(s);
+  if(!pressed.length) return {fingers, barre:null, count:0};
+  const f0=Math.min(...pressed.map(s=>frets[s]));
+  const at0=pressed.filter(s=>frets[s]===f0);
+  let barre=null;
+  if(at0.length>=2){const lo=Math.min(...at0),hi=Math.max(...at0);let ok=true;for(let s=lo;s<=hi;s++){if(frets[s]>=0&&frets[s]!==f0){ok=false;break;}}if(ok){barre={fret:f0,from:lo,to:hi};at0.forEach(s=>fingers[s]=1);const rem=pressed.filter(s=>frets[s]>f0);let nf=2;rem.sort((a,b)=>frets[a]-frets[b]||a-b);rem.forEach(s=>{fingers[s]=Math.min(4,nf);nf++;});return {fingers, barre, count:nf-1};}}
+  const order=[],seen={};pressed.forEach(s=>{if(!seen[frets[s]]){seen[frets[s]]=1;order.push(frets[s]);}});order.sort((a,b)=>a-b);const fmap={};order.forEach((fr,i)=>fmap[fr]=i+1);pressed.forEach(s=>fingers[s]=Math.min(4,fmap[frets[s]]));return {fingers, barre:null, count:order.length};
+}
 
-// ====== 播放控制 ======
+// =========================================================================
+// 播放控制
+// =========================================================================
 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
 document.getElementById('btn-play').addEventListener('click', togglePlay);
 document.getElementById('btn-analyze').addEventListener('click', () => {
-  if (state.audioBuffer) analyzeAudio();
+  if (state.audioBuffer) startAnalysis();
 });
 
 function togglePlay() {
@@ -631,10 +1069,7 @@ function startPlayback() {
 }
 
 function stopPlayback() {
-  if (state.sourceNode) {
-    try { state.sourceNode.stop(); } catch(e) {}
-    state.sourceNode = null;
-  }
+  if (state.sourceNode) { try { state.sourceNode.stop(); } catch(e) {} state.sourceNode = null; }
   state.isPlaying = false;
   if (state.animFrame) { cancelAnimationFrame(state.animFrame); state.animFrame = null; }
 }
@@ -660,10 +1095,10 @@ function updatePositionDisplay() {
   const x = (state.currentTime / state.duration) * canvas.width;
   cursor.style.left = (x + 12) + 'px';
   cursor.style.display = 'block';
+  const t = Math.floor(state.currentTime);
   document.getElementById('time-display').textContent =
-    Math.floor(state.currentTime/60) + ':' + String(Math.floor(state.currentTime%60)).padStart(2,'0') + ' / ' +
-    Math.floor(state.duration/60) + ':' + String(Math.floor(state.duration%60)).padStart(2,'0');
-  // 高亮目前小節
+    Math.floor(t/60) + ':' + String(t%60).padStart(2,'0') + ' / ' +
+    Math.floor(state.duration/60) + ':' + String(Math.floor(state.duration)%60).padStart(2,'0');
   updateCurrentBar();
 }
 
@@ -679,7 +1114,6 @@ function updateCurrentBar() {
     document.querySelectorAll('.chord-bar').forEach((el, idx) => {
       el.classList.toggle('is-active', idx === currentIdx);
     });
-    // 滾動到目前小節
     if (currentIdx >= 0) {
       const el = document.querySelector('.chord-bar[data-bar="' + currentIdx + '"]');
       if (el) el.scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'});
@@ -698,7 +1132,9 @@ function seekToBar(idx) {
   updatePositionDisplay();
 }
 
-// ====== 和弦編輯 ======
+// =========================================================================
+// 和弦編輯
+// =========================================================================
 let editingBarIdx = -1;
 
 function openEditModal(idx) {
@@ -739,12 +1175,83 @@ function saveEditChord() {
   const root = parseInt(document.getElementById('edit-root').value);
   const quality = document.getElementById('edit-quality').value;
   const bass = document.getElementById('edit-bass').value;
-  state.chords[editingBarIdx] = {root, quality, bass: bass ? parseInt(bass) : null};
+  state.chords[editingBarIdx] = {
+    display: NOTE_NAMES[root] + getChordQualityLabel(quality),
+    root, quality,
+    bass: bass ? parseInt(bass) : null,
+    confidence: 1.0,
+    isDiatonic: true,
+  };
   closeEditModal();
   renderChordBars();
 }
 
-// ====== 設定 UI ======
+// =========================================================================
+// 分析模式切換
+// =========================================================================
+document.querySelectorAll('.mode-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('is-active'));
+    this.classList.add('is-active');
+    state.analysisMode = this.dataset.mode;
+    if (this.dataset.mode === 'agent' && !state.agentConnected) {
+      document.getElementById('agent-panel').style.display = 'block';
+      setStatus('請先連線本地 Python 代理（需先啟動 analyzer.py）', '');
+    } else if (this.dataset.mode === 'agent' && state.agentConnected && state.audioBuffer) {
+      startAnalysis();
+    } else if (this.dataset.mode === 'browser' && state.audioBuffer) {
+      startAnalysis();
+    }
+  });
+});
+
+// =========================================================================
+// 本地代理連線
+// =========================================================================
+document.getElementById('btn-agent-connect').addEventListener('click', async function() {
+  const host = document.getElementById('agent-host').value.trim();
+  if (!host) { setStatus('請輸入代理主機位址', 'error'); return; }
+  state.agentHost = host;
+  setStatus('正在連線本地代理 ' + host + '…', 'analyzing');
+  const ok = await checkAgentHealth(host);
+  if (ok) {
+    state.agentConnected = true;
+    document.getElementById('agent-dot').className = 'status-dot online';
+    document.getElementById('agent-status-text').textContent = '已連線';
+    document.getElementById('btn-agent-connect').textContent = '✅ 已連線';
+    document.getElementById('btn-agent-connect').disabled = true;
+    document.getElementById('btn-agent-analyze').style.display = '';
+    document.getElementById('agent-panel').style.display = 'block';
+    setStatus('本地代理已連線！可使用「本地代理」模式分析', 'done');
+  } else {
+    state.agentConnected = false;
+    document.getElementById('agent-dot').className = 'status-dot offline';
+    document.getElementById('agent-status-text').textContent = '連線失敗';
+    setStatus('無法連線至 ' + host + '，請確認已啟動 analyzer.py', 'error');
+  }
+});
+
+document.getElementById('btn-agent-analyze').addEventListener('click', function() {
+  if (state.audioBuffer && currentFile) {
+    analyzeWithAgent(currentFile);
+  }
+});
+
+// =========================================================================
+// BPM 編輯
+// =========================================================================
+document.getElementById('btn-recalc-bpm').addEventListener('click', function() {
+  const newBpm = parseInt(document.getElementById('bpm-input').value);
+  if (newBpm >= 20 && newBpm <= 300) {
+    recalcWithBPM(newBpm);
+  } else {
+    setStatus('BPM 範圍需在 20–300 之間', 'error');
+  }
+});
+
+// =========================================================================
+// UI 設定
+// =========================================================================
 function initUI() {
   const instSel = document.getElementById('instrument-select');
   INSTRUMENTS_DATA.forEach((inst, i) => {
@@ -756,18 +1263,21 @@ function initUI() {
     const tuningSel = document.getElementById('tuning-select');
     tuningSel.innerHTML = '';
     const inst = INSTRUMENTS_DATA[state.instrument];
-    Object.keys(inst.tunings).forEach(n => {
+    const tk = Object.keys(inst.tunings);
+    tk.forEach(n => {
       const o = document.createElement('option'); o.value = n; o.textContent = n;
       tuningSel.appendChild(o);
     });
-    state.tuning = Object.keys(inst.tunings)[0];
+    state.tuning = tk[0];
     tuningSel.value = state.tuning;
     if (state.chords.length) renderChordDiagrams();
   });
-  // 觸發初始
   instSel.dispatchEvent(new Event('change'));
-  // 顯示指版圖切換
+
   document.getElementById('show-diagrams').addEventListener('change', function() {
+    renderChordBars();
+  });
+  document.getElementById('show-confidence').addEventListener('change', function() {
     renderChordBars();
   });
 }
