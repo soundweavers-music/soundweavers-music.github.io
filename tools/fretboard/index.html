@@ -228,7 +228,7 @@ function loadPresetChords() {
 }
 function savePresetChords() { try { localStorage.setItem('fretboard_common_chords', JSON.stringify(state.presetChords)); } catch (e) {} }
 
-var state = {instrument:0,tuning:null,key:0,mode:'major',selectedChord:null,selectedCommonChord:null,selectedPreset:null,presetChords:loadPresetChords(),fretCount:15,horizontal:(localStorage.getItem('fretboard_chord_horizontal')==='1')};
+var state = {instrument:0,tuning:null,key:0,mode:'major',selectedChord:null,selectedCommonChord:null,selectedPreset:null,presetChords:loadPresetChords(),fretCount:15,horizontal:(localStorage.getItem('fretboard_chord_horizontal')==='1'),lefty:(localStorage.getItem('fretboard_chord_lefty')==='1')};
 
 function parseTuning(arr) { return arr.map(function(s){var m=s.match(/^([A-G][♯♭]?)(\d)$/);if(!m)return 60;var no=noteToMidi(m[1]);var o=(parseInt(m[2])+1)*12;return no+o;});}
 function midiToDisplay(m) {return NOTE_NAMES[m%12]+Math.floor(m/12-1);}
@@ -255,13 +255,14 @@ function renderFretboard() {
   var mL=80, mR=30, mT=40, mB=40;
   var fW = (W-mL-mR)/fc, sS = Math.min((H-mT-mB)/(n-1||1), n>6?28:(H-mT-mB)/(n-1||1));
   var adjT = (H - sS*(n-1))/2;
+  function fretRow(s){return state.lefty?s:n-1-s;}
   var h = '';
   h += '<rect x="0" y="0" width="'+W+'" height="'+H+'" fill="var(--surface,#fff)"/>';
   h += '<rect x="'+mL+'" y="0" width="'+(W-mL-mR)+'" height="'+H+'" fill="#f5f0eb" rx="4"/>';
   for(var f=1;f<=fc;f++){var fx=mL+f*fW;h+='<line x1="'+fx+'" y1="'+adjT+'" x2="'+fx+'" y2="'+(H-mB)+'" stroke="#8B7355" stroke-width="'+(f<=3?3:2)+'" opacity="0.6"/>';}
   for(var f=1;f<=fc;f++){var fx=mL+(f-0.5)*fW;if(f===1||f===3||f===5||f===7||f===9||f===12||f===15)h+='<text x="'+fx+'" y="'+(H-6)+'" text-anchor="middle" font-size="11" fill="#9C8F87" font-weight="600">'+f+'</text>';if(f===12){h+='<circle cx="'+fx+'" cy="'+(H/2-10)+'" r="3" fill="#9C8F87" opacity="0.5"/><circle cx="'+fx+'" cy="'+(H/2+10)+'" r="3" fill="#9C8F87" opacity="0.5"/>';}}
-  for(var s=0;s<n;s++){var sy=adjT+s*sS;var sw=1+(n-s)*0.4;h+='<line x1="'+mL+'" y1="'+sy+'" x2="'+(W-mR)+'" y2="'+sy+'" stroke="#555" stroke-width="'+sw+'" opacity="0.5"/>';var on=tm[s];var is=ss.has(on%12);var nm=midiToDisplay(on);h+='<text x="'+(mL-12)+'" y="'+(sy+4)+'" text-anchor="end" font-size="12" font-weight="'+(is?'700':'400')+'" fill="'+(is?'var(--accent,#C4956A)':'var(--muted,#9C8F87)')+'">'+nm+'</text>';if(is){var ir=(on%12)===state.key;h+='<circle cx="'+(mL+8)+'" cy="'+sy+'" r="'+(ir?8:5)+'" fill="#C4956A" opacity="0.3"/>';}}
-  for(var s=0;s<n;s++){for(var f=1;f<=fc;f++){var midi=tm[s]+f;var nc=midi%12;if(!ss.has(nc))continue;var ir=nc===state.key;var fx=mL+(f-0.5)*fW;var sy=adjT+s*sS;var r=ir?11:8;var c=ir?'#C4956A':'#0f766e';h+='<circle cx="'+fx+'" cy="'+sy+'" r="'+r+'" fill="'+c+'" opacity="'+(ir?1:0.7)+'"/>';h+='<text x="'+fx+'" y="'+(sy+1)+'" text-anchor="middle" font-size="'+(ir?10:8)+'" font-weight="700" fill="#fff">'+NOTE_NAMES[nc]+'</text>';}}
+  for(var s=0;s<n;s++){var sy=adjT+fretRow(s)*sS;var sw=1+s*0.4;h+='<line x1="'+mL+'" y1="'+sy+'" x2="'+(W-mR)+'" y2="'+sy+'" stroke="#555" stroke-width="'+sw+'" opacity="0.5"/>';var on=tm[s];var is=ss.has(on%12);var nm=midiToDisplay(on);h+='<text x="'+(mL-12)+'" y="'+(sy+4)+'" text-anchor="end" font-size="12" font-weight="'+(is?'700':'400')+'" fill="'+(is?'var(--accent,#C4956A)':'var(--muted,#9C8F87)')+'">'+nm+'</text>';if(is){var ir=(on%12)===state.key;h+='<circle cx="'+(mL+8)+'" cy="'+sy+'" r="'+(ir?8:5)+'" fill="#C4956A" opacity="0.3"/>';}}
+  for(var s=0;s<n;s++){for(var f=1;f<=fc;f++){var midi=tm[s]+f;var nc=midi%12;if(!ss.has(nc))continue;var ir=nc===state.key;var fx=mL+(f-0.5)*fW;var sy=adjT+fretRow(s)*sS;var r=ir?11:8;var c=ir?'#C4956A':'#0f766e';h+='<circle cx="'+fx+'" cy="'+sy+'" r="'+r+'" fill="'+c+'" opacity="'+(ir?1:0.7)+'"/>';h+='<text x="'+fx+'" y="'+(sy+1)+'" text-anchor="middle" font-size="'+(ir?10:8)+'" font-weight="700" fill="#fff">'+NOTE_NAMES[nc]+'</text>';}}
   h+='<rect x="'+(mL-4)+'" y="'+adjT+'" width="6" height="'+(H-adjT-mB)+'" fill="#6B5B45" rx="2"/>';
   svg.innerHTML = h;
 }
@@ -395,8 +396,7 @@ function getChordFingeringHint(root, intervals) {
 }
 
 // ---- 指法指派：考慮手指物理限制 ----
-// 同一格若跨多弦且中間沒有空弦/悶音，視為封閉指（barre，食指橫按）。
-// 否則：不同格用不同手指（低格用小號手指）；同一格非鄰接的弦必須用不同手指。
+// 每一弦分配一個獨立手指（低格用小號手指），不再把同格相鄰弦視為小封閉。
 function assignByFretGroups(strings, frets, fingers, startFinger) {
   var byFret = {};
   strings.forEach(function(s){ (byFret[frets[s]] = byFret[frets[s]] || []).push(s); });
@@ -404,13 +404,9 @@ function assignByFretGroups(strings, frets, fingers, startFinger) {
   var nf = startFinger;
   fretsAsc.forEach(function(fr){
     var ss = byFret[fr].sort(function(a,b){return a-b;});
-    var runStart = 0;
-    for (var i = 1; i <= ss.length; i++) {
-      if (i === ss.length || ss[i] !== ss[i-1] + 1) {   // 相鄰的一段可用同一指（小封閉），非相鄰則換指
-        for (var j = runStart; j < i; j++) fingers[ss[j]] = Math.min(4, nf);
-        nf++;
-        runStart = i;
-      }
+    for (var j = 0; j < ss.length; j++) {
+      fingers[ss[j]] = Math.min(4, nf);
+      nf++;
     }
   });
   return nf;   // 下一個可用手指編號（用掉的手指數 = nf - 1）
@@ -526,19 +522,22 @@ function svgFromShape(frets, fingers, barre, rootPC, tm, W) {
   var mL = 32, mR = 12, mT = 16, rowH = Math.min(20, Math.max(11, 130/n));
   var gridH = (n-1)*rowH, H = mT + gridH + 22;
   var gW = W - mL - mR, colW = gW / FRET_COLS;
+  // 橫式：右撇子（預設）第1弦在上；左撇子模式上下鏡射。
+  function rowOf(s){ return state.lefty ? (n-1-s) : s; }
   var sh = '<svg width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg">';
   for (var f=0; f<=FRET_COLS; f++) { var fx=mL+f*colW; var lw=(f===0&&showNut)?4:1.5; sh+='<line x1="'+fx+'" y1="'+mT+'" x2="'+fx+'" y2="'+(mT+gridH)+'" stroke="#8B7355" stroke-width="'+lw+'" opacity="0.55"/>'; }
-  for (var s=0; s<n; s++) { var sy=mT+s*rowH; sh+='<line x1="'+mL+'" y1="'+sy+'" x2="'+(W-mR)+'" y2="'+sy+'" stroke="#555" stroke-width="1" opacity="0.35"/>'; }
+  for (var s=0; s<n; s++) { var sy=mT+rowOf(s)*rowH; sh+='<line x1="'+mL+'" y1="'+sy+'" x2="'+(W-mR)+'" y2="'+sy+'" stroke="#555" stroke-width="1" opacity="0.35"/>'; }
   for (var f=1; f<=FRET_COLS; f++) { var fx=mL+(f-0.5)*colW; sh+='<text x="'+fx+'" y="'+(mT+gridH+14)+'" text-anchor="middle" font-size="9" fill="#9C8F87">'+(startFret+f-1)+'</text>'; }
   if (!showNut) { sh+='<text x="'+(mL-4)+'" y="'+(mT+8)+'" text-anchor="end" font-size="10" font-weight="700" fill="#C4956A">'+startFret+'fr</text>'; }
   // 封閉指（barre）畫成一整條
   if (barre) {
     var bcol = barre.fret - startFret, bx = mL + (bcol+0.5)*colW;
-    var by1 = mT + barre.from*rowH, by2 = mT + barre.to*rowH;
+    var bcy1 = mT + rowOf(barre.from)*rowH, bcy2 = mT + rowOf(barre.to)*rowH;
+    var by1 = Math.min(bcy1, bcy2), by2 = Math.max(bcy1, bcy2);
     sh += '<rect x="'+(bx-8)+'" y="'+(by1-8)+'" width="16" height="'+(by2-by1+16)+'" rx="8" fill="#0f766e" opacity="0.9"/>';
   }
   for (var s=0; s<n; s++) {
-    var sy = mT+s*rowH, c = frets[s];
+    var sy = mT+rowOf(s)*rowH, c = frets[s];
     if (c === -1) { sh+='<text x="'+(mL-10)+'" y="'+(sy+4)+'" text-anchor="middle" font-size="12" font-weight="700" fill="#c0392b">✕</text>'; }
     else if (c === 0) { sh+='<circle cx="'+(mL-10)+'" cy="'+sy+'" r="5" fill="none" stroke="#0f766e" stroke-width="2"/>'; }
     else {
@@ -559,22 +558,25 @@ function svgVertical(frets, fingers, barre, rootPC, tm, W, n, fretted, startFret
   var gridW = (n-1)*colW, rowH = 22;
   var gridH = FRET_COLS*rowH, H = mT + gridH + mB;
   var Wv = mL + gridW + mR;
+  // 直式標準（右撇子）：第1弦（高音）在右側；左撇子模式左右鏡射。tm 索引 0 = 第1弦。
+  function colOf(s){ return state.lefty ? s : (n-1-s); }
   var sh = '<svg width="'+Wv+'" height="'+H+'" viewBox="0 0 '+Wv+' '+H+'" xmlns="http://www.w3.org/2000/svg">';
   // 品格線（橫線）
   for (var f=0; f<=FRET_COLS; f++) { var fy=mT+f*rowH; var lw=(f===0&&showNut)?4:1.5; sh+='<line x1="'+mL+'" y1="'+fy+'" x2="'+(mL+gridW)+'" y2="'+fy+'" stroke="#8B7355" stroke-width="'+lw+'" opacity="0.55"/>'; }
   // 弦線（直線）
-  for (var s=0; s<n; s++) { var sx=mL+s*colW; sh+='<line x1="'+sx+'" y1="'+mT+'" x2="'+sx+'" y2="'+(mT+gridH)+'" stroke="#555" stroke-width="1" opacity="0.35"/>'; }
+  for (var s=0; s<n; s++) { var sx=mL+colOf(s)*colW; sh+='<line x1="'+sx+'" y1="'+mT+'" x2="'+sx+'" y2="'+(mT+gridH)+'" stroke="#555" stroke-width="1" opacity="0.35"/>'; }
   // 品格編號（左側）
   for (var f=1; f<=FRET_COLS; f++) { var fy=mT+(f-0.5)*rowH; sh+='<text x="'+(mL-8)+'" y="'+(fy+3)+'" text-anchor="middle" font-size="9" fill="#9C8F87">'+(startFret+f-1)+'</text>'; }
   if (!showNut) { sh+='<text x="'+(mL-8)+'" y="'+(mT-6)+'" text-anchor="middle" font-size="10" font-weight="700" fill="#C4956A">'+startFret+'fr</text>'; }
   // 封閉指（barre）畫成一整條
   if (barre) {
     var brow = barre.fret - startFret, by = mT + (brow+0.5)*rowH;
-    var bx1 = mL + barre.from*colW, bx2 = mL + barre.to*colW;
+    var bcx1 = mL + colOf(barre.from)*colW, bcx2 = mL + colOf(barre.to)*colW;
+    var bx1 = Math.min(bcx1, bcx2), bx2 = Math.max(bcx1, bcx2);
     sh += '<rect x="'+(bx1-8)+'" y="'+(by-8)+'" width="'+(bx2-bx1+16)+'" height="16" rx="8" fill="#0f766e" opacity="0.9"/>';
   }
   for (var s=0; s<n; s++) {
-    var sx = mL+s*colW, c = frets[s];
+    var sx = mL+colOf(s)*colW, c = frets[s];
     if (c === -1) { sh+='<text x="'+sx+'" y="'+(mT-8)+'" text-anchor="middle" font-size="12" font-weight="700" fill="#c0392b">✕</text>'; }
     else if (c === 0) { sh+='<circle cx="'+sx+'" cy="'+(mT-11)+'" r="5" fill="none" stroke="#0f766e" stroke-width="2"/>'; }
     else {
@@ -777,6 +779,15 @@ document.addEventListener('DOMContentLoaded', function() {
       updateFromState();
     });
   }
+  var leftyCb = document.getElementById('chord-lefty');
+  if (leftyCb) {
+    leftyCb.checked = state.lefty;
+    leftyCb.addEventListener('change', function(){
+      state.lefty = this.checked;
+      localStorage.setItem('fretboard_chord_lefty', this.checked ? '1' : '0');
+      updateFromState();
+    });
+  }
   updateFromState();
 });
 </script>
@@ -954,6 +965,9 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
       <label style="display:inline-flex;align-items:center;gap:6px;font-size:13px;margin-bottom:14px;cursor:pointer;">
         <input type="checkbox" id="chord-orient"> 橫向顯示和弦圖（預設為直向）
+      </label>
+      <label style="display:inline-flex;align-items:center;gap:6px;font-size:13px;margin-bottom:14px;margin-left:16px;cursor:pointer;">
+        <input type="checkbox" id="chord-lefty"> 左撇子模式（預設為右撇子）
       </label>
 
       <div id="cc-tab-preset">
