@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="通用 DAW 架構：取樣率、位元深度與 Buffer 設定">
+  <meta name="keywords" content="隔壁織音人,世界樂器,世界樂器百科,世界聲音百科,樂器教學,歌唱教學,錄音後製,吉他教學,鋼琴教學,基礎樂理,音樂知識">
+  <meta property="og:title" content="通用 DAW 架構：取樣率、位元深度與 Buffer 設定｜世界聲音百科">
+  <meta property="og:description" content="通用 DAW 架構：取樣率、位元深度與 Buffer 設定">
+  <meta property="og:image" content="https://yt3.googleusercontent.com/6nBZ7RVoXGMH2fuMPWiju_tpAET9D-qVkOhg1HjGqh8m9EaO-u9wO_oHVA12Sy0DzoKn7mGVmA=w1707-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://soundweavers-music.github.ioD:\nextdoor\python-python-django-world-musical-instrument\outputs\world-instruments-static\digitalmusic\3/">
+  <link rel="canonical" href="https://soundweavers-music.github.io./">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline'; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta name="google-site-verification" content="AzedQ-PxUmSW7_0jyEHmHCKgN2nIK0Bio5d6LCsJTtE">
+  <title>通用 DAW 架構：取樣率、位元深度與 Buffer 設定｜世界聲音百科</title>
+  <script>!function(){try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);else document.documentElement.setAttribute("data-theme","nextdoor")}catch(e){}}()</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="../../assets/site.css">
+  <link rel="stylesheet" href="../../assets/site-refresh.css">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "世界聲音百科",
+  "alternateName": "World Sound Encyclopedia",
+  "url": "https://soundweavers-music.github.io/",
+  "description": "通用 DAW 架構：取樣率、位元深度與 Buffer 設定",
+  "author": {
+    "@type": "Person",
+    "name": "隔壁織音人",
+    "url": "https://www.youtube.com/@NextDoorSoundWeavers/"
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://soundweavers-music.github.io/?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  },
+  "sameAs": [
+    "https://www.youtube.com/@NextDoorSoundWeavers/"
+  ]
+}</script>
+  
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../../">🌍 世界聲音百科</a>
+    <nav>
+      <div class="nav-dropdown">
+        <a href="../../instruments/" class="dropdown-trigger">樂器百科</a>
+        <div class="dropdown-menu multi-col">
+          <div class="menu-col">
+            <a href="../../categories/" style="font-weight:700;">全部分類</a>
+            <a href="#" id="random-nav-link" class="random-link">隨選樂器</a>
+            <a href="../../countries/">國家／地區</a>
+            <a href="../../map/">地圖</a>
+            <hr style="margin:4px 0;border:none;border-top:1px solid var(--line);">
+            <a href="../../categories/吹奏與氣息樂器/" style="font-weight:700;color:var(--accent);">A1 吹奏與氣息樂器</a>
+            <a href="../../subcategories/簧片樂器/" class="sub-link" title="簧片樂器（60 件）">　├ 簧片樂器<span class="sub-count">60</span></a>
+            <a href="../../subcategories/風箱與自由簧/" class="sub-link" title="風箱與自由簧（52 件）">　├ 風箱與自由簧<span class="sub-count">52</span></a>
+            <a href="../../subcategories/無簧吹管/" class="sub-link" title="無簧吹管（47 件）">　├ 無簧吹管<span class="sub-count">47</span></a>
+            <a href="../../subcategories/號角與唇振/" class="sub-link" title="號角與唇振（46 件）">　├ 號角與唇振<span class="sub-count">46</span></a>
+            <a href="../../subcategories/風袋樂器/" class="sub-link" title="風袋樂器（2 件）">　└ 風袋樂器<span class="sub-count">2</span></a>
+          </div>
+          <div class="menu-col">
+            <a href="../../categories/弦樂器/" style="font-weight:700;color:var(--accent);">A2 弦樂器</a>
+            <a href="../../subcategories/撥弦與抱持弦樂/" class="sub-link" title="撥弦與抱持弦樂（137 件）">　├ 撥弦與抱持弦樂<span class="sub-count">137</span></a>
+            <a href="../../subcategories/平放弦與擊弦/" class="sub-link" title="平放弦與擊弦（79 件）">　├ 平放弦與擊弦<span class="sub-count">79</span></a>
+            <a href="../../subcategories/擦弦-鍵控與輪弦/" class="sub-link" title="擦弦、鍵控與輪弦（50 件）">　├ 擦弦、鍵控與輪弦<span class="sub-count">50</span></a>
+            <a href="../../subcategories/豎琴-里拉與開放弦/" class="sub-link" title="豎琴、里拉與開放弦（42 件）">　├ 豎琴、里拉與開放弦<span class="sub-count">42</span></a>
+            <a href="../../subcategories/平放弦與齊特琴/" class="sub-link" title="平放弦與齊特琴（8 件）">　└ 平放弦與齊特琴<span class="sub-count">8</span></a>
+            <hr style="margin:4px 0;border:none;border-top:1px solid var(--line);">
+            <a href="../../categories/待分類-偵錯暫存/" style="font-weight:700;color:var(--muted);">A9 待分類／偵錯暫存</a>
+          </div>
+          <div class="menu-col">
+            <a href="../../categories/鼓與打擊樂器/" style="font-weight:700;color:var(--accent);">A3 鼓與打擊樂器</a>
+            <a href="../../subcategories/鑼鐘與金屬敲擊/" class="sub-link" title="鑼鐘與金屬敲擊（148 件）">　├ 鑼鐘與金屬敲擊<span class="sub-count">148</span></a>
+            <a href="../../subcategories/鼓皮與鼓類/" class="sub-link" title="鼓皮與鼓類（100 件）">　├ 鼓皮與鼓類<span class="sub-count">100</span></a>
+            <a href="../../subcategories/沙鈴-刮器與小打擊/" class="sub-link" title="沙鈴、刮器與小打擊（22 件）">　└ 沙鈴、刮器與小打擊<span class="sub-count">22</span></a>
+            <hr style="margin:4px 0;border:none;border-top:1px solid var(--line);">
+            <a href="../../categories/電子與電聲樂器/" style="font-weight:700;color:var(--accent);">A4 電子與電聲樂器</a>
+            <a href="../../subcategories/取樣與磁帶/" class="sub-link" title="取樣與磁帶（23 件）">　├ 取樣與磁帶<span class="sub-count">23</span></a>
+            <a href="../../subcategories/電聲改造樂器/" class="sub-link" title="電聲改造樂器（11 件）">　├ 電聲改造樂器<span class="sub-count">11</span></a>
+            <a href="../../subcategories/合成器/" class="sub-link" title="合成器（2 件）">　├ 合成器<span class="sub-count">2</span></a>
+            <a href="../../subcategories/控制器與數位介面/" class="sub-link" title="控制器與數位介面（2 件）">　├ 控制器與數位介面<span class="sub-count">2</span></a>
+            <a href="../../subcategories/鼓機與節奏機/" class="sub-link" title="鼓機與節奏機（1 件）">　└ 鼓機與節奏機<span class="sub-count">1</span></a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="../../sound-journey/" class="dropdown-trigger">聲音旅圖</a>
+        <div class="dropdown-menu">
+          <a href="../../sound-journey/">旅圖門口</a>
+          <a href="../../sound-journey/1/">旅圖一｜氣息離開身體</a>
+          <a href="../../sound-journey/2/">旅圖二｜懷裡與大地的弦</a>
+          <a href="../../sound-journey/3/">旅圖三｜天空裡拉長的弦</a>
+          <a href="../../sound-journey/4/">旅圖四｜地心與手邊的微光</a>
+          <a href="../../sound-journey/5/">旅圖五｜城市與星塵的節奏</a>
+          <a href="../../sound-journey/6/">旅圖六｜按鍵打開房間，眾聲走向廣場</a>
+          <a href="../../sound-journey/all/">全部文章</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="../../ensembles/" class="dropdown-trigger">合奏百科</a>
+        <div class="dropdown-menu">
+          <a href="../../ensembles/" style="font-weight:700;">總覽</a>
+          <hr style="margin:4px 0;border:none;border-top:1px solid var(--line);">
+          <a href="../../ensembles/B1/">B1 地域傳統合奏</a>
+          <a href="../../ensembles/B2/">B2 民間樂隊</a>
+          <a href="../../ensembles/B3/">B3 鼓樂與節慶編制</a>
+          <a href="../../ensembles/B4/">B4 古典與大型編制</a>
+          <a href="../../ensembles/B5/">B5 現代民族樂團</a>
+          <a href="../../ensembles/B6/">B6 爵士與流行編制</a>
+          <a href="../../ensembles/B7/">B7 現代混合與跨界編制</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="../../vocal/" class="dropdown-trigger">人聲與歌唱</a>
+        <div class="dropdown-menu">
+          <a href="../../vocal/">課程總覽</a>
+          <a href="../../vocal/1/">初階篇</a>
+          <a href="../../vocal/16/">進階篇</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="../" class="dropdown-trigger">錄音後製</a>
+        <div class="dropdown-menu">
+          <a href="../">課程總覽</a>
+          <a href="../1/">基礎篇</a>
+          <a href="../16/">進階篇</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="../../theory/" class="dropdown-trigger">樂理基礎</a>
+        <div class="dropdown-menu">
+          <a href="../../theory/">課程總覽</a>
+          <a href="../../theory/0/">前言</a>
+          <a href="../../theory/1/">階段一</a>
+          <a href="../../theory/2/">階段二</a>
+          <a href="../../theory/3/">階段三</a>
+          <a href="../../theory/4/">階段四</a>
+          <a href="../../theory/5/">階段五</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="../../tools/fretboard/" class="dropdown-trigger">工具</a>
+        <div class="dropdown-menu">
+          <a href="../../tools/fretboard/">🎸 世界樂器指版和弦圖</a>
+          <a href="../../experience/">🎧 體驗</a>
+        </div>
+      </div>
+      <a href="../../about/">關於</a>
+      <a href="../../contact/">聯絡我們</a>
+    </nav>
+    <button id="theme-toggle" class="theme-toggle" aria-label="切換色調">🎋</button>
+  </header>
+  <main class="vocal-detail-page">
+  <div class="vocal-detail-header">
+    <div class="breadcrumb">
+      <a href="../">← 錄音後製</a>
+      <span>/</span>
+      <span>第 3 堂</span>
+    </div>
+    <span class="level-tag level-tag-beginner">🎛️ 基礎篇</span>
+    <h1>通用 DAW 架構：取樣率、位元深度與 Buffer 設定</h1>
+    <p class="level-name">基礎篇：宅錄建置與錄音混音基礎</p>
+  </div>
+  <div class="vocal-content markdown-body"><p>歡迎來到第三堂課！在前面兩堂課中，我們像是在打造一間實體的廚房：買了高級的鍋碗瓢盆（錄音介面與麥克風），也處理了廚房的通風與動線（房間的聲學處理與吸音）。現在，我們終於要正式踏入「數位」的世界，打開那套將陪伴你無數個熬夜創作夜晚的軟體——<strong>DAW（數位音樂工作站，Digital Audio Workstation）</strong>。</p>
+<p>無論你是使用 Logic Pro、Pro Tools、Cubase、Studio One，還是免費強大的 Reaper，當你第一次興奮地打開軟體，點擊「新建專案（New Project）」時，通常不會馬上看到漂亮的混音台或音軌，而是會先跳出一個枯燥的設定視窗，上面寫著一些令人眼花撩亂的英文與數字：<strong>Sample Rate (取樣率)、Bit Depth (位元深度)、Buffer Size (緩衝區大小)</strong>。</p>
+<p>很多初學者在這個階段會感到恐懼，隨便按個「OK」就開始錄音，直到專案變得龐大、電腦開始發出宛如直升機起飛的風扇狂轉聲，或是錄出來的聲音充滿了可怕的「波波波」雜音時，才發現地基從一開始就打歪了。</p>
+<p>這堂課，我們不背艱澀的工程學定義。我們將用最生活化的比喻，帶你一次搞懂這三個 DAW 世界中最核心的「三大基石」。只要搞懂它們，你就能在任何一套軟體中游刃有餘，讓你的電腦發揮最大的效能，同時保持最完美的音質。</p>
+<h2><strong>一、聲音是如何被「塞」進電腦裡的？（類比轉數位）</strong></h2>
+<p>在介紹那三個神秘參數之前，我們必須先弄懂一個非常基礎，但超級重要的概念：<strong>電腦其實是個「聾子」</strong>。</p>
+<p>電腦聽不懂你對著麥克風唱的優美旋律，也聽不懂吉他琴弦震動的浪漫。在現實世界中，聲音是一種連續不斷的空氣震動，我們稱為「類比訊號（Analog Signal）」，它就像是一條平滑、連續且沒有斷點的優雅曲線。</p>
+<p>但是，電腦的世界裡只有「0」和「1」。為了讓電腦理解聲音，錄音介面裡面有一個非常勤勞的員工，叫做 <strong>A/D 轉換器（Analog to Digital Converter）</strong>。這個員工的工作，就是拿著一台超級高速的相機，對著你唱出來的連續聲波「瘋狂拍照」。</p>
+<p>他會記錄下每一個瞬間聲波的高度（音量），然後把這些無數張的照片轉換成 0 和 1 的數據，儲存在電腦的硬碟裡。當你按下播放鍵時，另一個員工 <strong>D/A 轉換器</strong> 就會把這些照片像放電影一樣快速翻閱，還原成連續的聲音播給你的耳機聽。</p>
+<p>了解這個「瘋狂拍照」的過程後，我們就可以無縫接軌地理解接下來的兩個最重要設定：<strong>取樣率（拍照的速度）</strong> 與 <strong>位元深度（照片的畫素/色彩豐富度）</strong>。</p>
+<h2><strong>二、取樣率 (Sample Rate)：聲音的「影格率」</strong></h2>
+<p>當你打開 DAW，第一個要設定的就是 Sample Rate（取樣率）。常見的選項有：44.1kHz, 48kHz, 96kHz, 甚至是 192kHz。</p>
+<h3><strong>1. 什麼是取樣率？</strong></h3>
+<p>用最白話的方式來說，取樣率就是<strong>錄音介面一秒鐘對你的聲音拍幾張照片</strong>。 「Hz（赫茲）」是頻率的單位，代表「每秒幾次」。而「k」是千的意思。所以，當你設定為 44.1kHz 時，代表錄音介面在一秒鐘之內，對著你唱的聲音拍了 <strong>44,100 張照片</strong>！</p>
+<p>想像一下小時候玩的「手翻書（Flipbook）」。如果你一秒鐘只翻 5 頁，動畫看起來就會卡卡的、很不連貫；如果你一秒鐘翻 60 頁，動畫就會變得超級流暢，這就是影片世界裡的「影格率（FPS）」。在聲音的世界裡，取樣率就是聲音的影格率。一秒鐘拍 44,100 張照片，聽起來已經是一個天文數字了吧？為什麼需要拍這麼快呢？</p>
+<h3><strong>2. 為什麼是 44.1kHz？（奈奎斯特理論的白話文）</strong></h3>
+<p>人類的耳朵非常敏銳，我們能聽到的聲音頻率範圍，大約是 <strong>20Hz（極低的低音）到 20,000Hz（極高的高音）</strong>。 在數位音訊科學裡，有一條非常有名的鐵則叫做「奈奎斯特定理（Nyquist Theorem）」。這條定理告訴我們：<strong>為了要完美記錄並還原某個頻率的聲音，你的取樣率必須要是那個頻率的「兩倍以上」。</strong></p>
+<p>既然人類最高能聽到 20,000Hz，那麼我們只需要一秒鐘拍 40,000 張照片（40kHz），就能完美捕捉人類能聽到的所有聲音了。為了預留一點緩衝空間（給防雷射濾波器運作的空間），工程師們把標準定在了 <strong>44,100Hz（44.1kHz）</strong>。這就是為什麼幾十年來，CD 唱片的標準音質一直都是 44.1kHz 的原因。</p>
+<h3><strong>3. 我該選哪一個？48kHz 還是 192kHz？</strong></h3>
+<p>很多新手會有「數字越大、音質越好」的迷思，於是一買到錄音介面，就把 DAW 的取樣率狂拉到 192kHz。這其實是一場災難！</p>
+<ul>
+<li><strong>為什麼不建議用 192kHz？</strong> 如果 44.1kHz 已經能完美涵蓋人類聽覺極限，那麼 192kHz 捕捉到的就是蝙蝠和海豚在聊天的聲音了（人類根本聽不到的高頻）。設定成 192kHz 不僅對聽感沒有明顯的幫助，還會帶來兩個致命的缺點： 第一，檔案變得超級無敵大，你的硬碟很快就會被塞爆。 第二，你的電腦 CPU 負載會直接暴增四倍。當你在混音時多掛幾個效果器，電腦可能就會直接當機崩潰。  </li>
+<li><strong>現代錄音的黃金標準：48kHz</strong> 在現今的音樂與影音產業中，<strong>48kHz 已經成為最通用的標準</strong>。為什麼呢？因為 48kHz 是所有影片（YouTube, Netflix, 電影）的標準聲音格式。如果你未來做的音樂有可能會搭配影像發布在 YouTube 上，或是幫短影音配樂，直接使用 48kHz 可以避免影片剪輯軟體在轉換格式時產生音質損耗或影音不同步的問題。</li>
+</ul>
+<p><strong>💡 宅錄生存法則一：</strong> 打開 DAW 的第一步，無腦將專案 Sample Rate 設定為 <strong>48kHz</strong>。這是在「極佳音質」與「電腦效能」之間最完美的平衡點。</p>
+<h2><strong>三、位元深度 (Bit Depth)：聲音的「色彩豐富度與動態範圍」</strong></h2>
+<p>設定好拍照速度後，下一個選項是 Bit Depth（位元深度），常見的選項有 16-bit, 24-bit, 甚至最新的 32-bit float。</p>
+<h3><strong>1. 什麼是位元深度？</strong></h3>
+<p>如果取樣率是一秒鐘拍幾張照片，那麼位元深度就是「每一張照片的畫素與色彩豐富度」<strong>。 在聲音的世界裡，我們不看色彩，我們看的是</strong>「音量（振幅）」的細膩度，專業術語叫做「動態範圍（Dynamic Range）」。</p>
+<p>想像你手上有一把用來測量音量大小的尺。</p>
+<ul>
+<li>如果你選 <strong>16-bit</strong>，這把尺上刻有 <strong>65,536</strong> 個刻度。這已經非常細膩了，這就是傳統 CD 唱片的標準。  </li>
+<li>如果你選 <strong>24-bit</strong>，這把尺上會暴增到擁有 <strong>16,777,216</strong> 個刻度！</li>
+</ul>
+<h3><strong>2. 為什麼我們需要這麼多刻度？</strong></h3>
+<p>刻度越多，代表我們越能精準地捕捉到聲音從「極小聲的呼吸」到「極大聲的嘶吼」之間的細微變化，而且不會產生奇怪的數位階梯狀雜音。</p>
+<p>更重要的是，位元深度決定了你的「底噪（Noise Floor）」有多低。 在 16-bit 的時代，如果你錄音的時候麥克風音量開得太小，事後在 DAW 裡面把音量拉大，你會同時把深藏在底部的「沙沙沙」數位底噪一起拉得超級大聲，整首歌會變得很髒。 但在 <strong>24-bit</strong> 的世界裡，因為刻度高達一千六百萬個，底噪被推到了極限深遠的深淵裡（理論上高達 144 分貝的動態範圍）。這意味著什麼呢？</p>
+<p>這意味著「容錯率」！ 在 24-bit 的設定下，你錄音時「寧可錄小聲一點，也絕對不要錄到破音（Clipping）」。就算你錄進來的聲音波形看起來很小，事後在混音階段用壓縮器或推桿把它拉大，聲音依然會保持晶瑩剔透，完全不會有底噪暴增的問題。這給了我們極大的 Headroom（動態預留空間）。</p>
+<h3><strong>3. 32-bit Float（32 位元浮點）又是什麼魔法？</strong></h3>
+<p>近年來，很多高階錄音介面或外拍錄音機開始主打 32-bit float 功能。這是一個堪稱「物理外掛」的規格。 在傳統 24-bit 下，如果你的聲音太大聲，超出了 DAW 的 0 dBFS 極限，聲音頂端就會被「削平」，產生極度難聽的數位破音，這段錄音就毀了，只能重錄。 但在 32-bit float 的環境下，因為它使用了「浮點運算」的數學魔法，它的動態範圍大到超越了地球上任何能發出聲音的物體（高達 1500多分貝）。也就是說，<strong>使用 32-bit float 錄音，聲音「絕對不會破音」</strong>。就算波形在螢幕上看起來已經紅爆成一塊實心磚，你只要把音量拉下來，優美的聲音竟然奇蹟般地完好無缺！</p>
+<p>不過，對於絕大多數的宅錄使用者，因為我們的麥克風和環境通常不會有像爆炸一樣無法預測的極端音量變化。</p>
+<p><strong>💡 宅錄生存法則二：</strong> 在建立專案時，將 Bit Depth 設定為 <strong>24-bit</strong>。這是業界錄音的絕對標準。如果你用的是 16-bit，你會綁手綁腳；如果你用 32-bit float，雖然不會破音，但檔案大小會增加約 50%。24-bit 給了你足夠的乾淨度與容錯空間，這點無庸置疑。</p>
+<h2><strong>四、緩衝區大小 (Buffer Size)：延遲與效能的蹺蹺板</strong></h2>
+<p>接下來這個設定，是所有初學者最容易卡關，也是每天在錄音與混音切換時，必須不斷手動調整的參數：<strong>Buffer Size（緩衝區大小）</strong>。</p>
+<p>通常這個設定不會出現在「新建專案」的畫面上，而是藏在 DAW 的「偏好設定 (Preferences) -&gt; 音訊 (Audio)」裡面。你會看到一排數字可以選：32, 64, 128, 256, 512, 1024, 2048 (單位是 Samples)。</p>
+<h3><strong>1. 什麼是 Buffer？（咖啡廳服務生的比喻）</strong></h3>
+<p>想像你的電腦 CPU 是一間咖啡廳的廚師，錄音介面是客人，而 Buffer 就是負責端盤子的「服務生手上的托盤」。</p>
+<p>當你對著麥克風唱歌，聲音資料會先放到服務生的托盤（Buffer）上，等托盤裝滿了，服務生才會端進廚房給 CPU 處理，處理完再端出來給你聽到。</p>
+<ul>
+<li><strong>如果托盤很小（例如 64 或 128 Samples）：</strong> 服務生只要拿到一點點聲音資料，就會立刻衝進廚房再衝出來。 <strong>優點：</strong> 速度超快！你對著麥克風唱歌，耳機裡幾乎「同步」聽到自己的聲音，這叫做「低延遲（Low Latency）」。 <strong>缺點：</strong> 服務生（CPU）會跑到快氣喘發作！如果這時你的專案裡掛了很多耗資源的混音效果器，CPU 處理不及，聲音就會開始出現可怕的「啵啵啵、啪啪啪」破音，甚至 DAW 會直接停止播放並跳出「CPU Overload」的警告。  </li>
+<li><strong>如果托盤很大（例如 1024 或 2048 Samples）：</strong> 服務生可以慢條斯理地等托盤裝了滿滿的聲音資料後，再走進廚房。 <strong>優點：</strong> 廚師與服務生（CPU）非常輕鬆愜意。你的電腦可以同時掛載上百個效果器、幾十軌龐大的虛擬管弦樂器，都不會卡頓。 <strong>缺點：</strong> 速度超級慢！等你唱完一句歌詞，可能過了半秒鐘，耳機裡才傳出你的聲音。這種「高延遲（High Latency）」會讓你大腦嚴重錯亂，完全無法對準節拍錄製任何樂器或人聲。</li>
+</ul>
+<h3><strong>2. 黃金切換法則：錄音與混音是兩種不同的狀態</strong></h3>
+<p>了解了這個蹺蹺板原理，你就會明白，世界上沒有一個「永遠完美」的 Buffer Size 設定，你必須根據你當下在做什麼事情，隨時切換它。</p>
+<p><strong>【情境 A：我要開始錄音了！】</strong> 當歌手站在麥克風前，或是你準備彈奏 MIDI 鍵盤時，你最需要的是「即時反饋」。 👉 <strong>請把 Buffer Size 調小（設定在 64 或 128 Samples）。</strong> 此時，因為要減輕 CPU 負擔，你應該把專案裡那些不必要、會吃資源的華麗效果器（特別是掛在 Master 總軌上的母帶效果器、或是極耗運算的 Reverb）暫時關閉。讓電腦專心處理錄音的低延遲傳輸。</p>
+<p><strong>【情境 B：錄完了，我要開始混音了！】</strong> 所有的音軌都錄好了，你不再需要對著麥克風發出聲音。你現在要做的是把這幾十條音軌加上 EQ、壓縮器、殘響，開始精雕細琢。 👉 <strong>請把 Buffer Size 調大（設定在 1024 或 2048 Samples）。</strong> 在混音階段，按下空白鍵播放後晚個零點幾秒才發出聲音，對你來說一點影響都沒有。但把托盤變大，你的電腦就能釋放出極大的運算能力，讓你隨心所欲地掛載各種夢幻的 Plug-ins（外掛效果器），而不會聽到煩人的爆音。</p>
+<p><strong>💡 宅錄生存法則三：</strong> <strong>錄音時調小（128），混音時調大（1024）。</strong> 把這句口訣印在腦海裡，甚至貼在你的螢幕旁邊。未來只要遇到錄音時耳機聲音慢半拍，或是混音時電腦一直爆音卡頓，第一件事就是去檢查你的 Buffer Size！</p>
+<h2><strong>總結：你的第一個完美專案地基</strong></h2>
+<p>讓我們來複習一下這堂課的核心重點，當你下一次打開你的數位音樂工作站（DAW）時，請帶著自信，進行以下的三個神聖儀式：</p>
+<ol>
+<li><strong>專案設定 Sample Rate（取樣率）：</strong> 選擇 <strong>48kHz</strong>。確保你的音頻有著不妥協的高解析度，並與未來的影像世界無縫接軌。  </li>
+<li><strong>專案設定 Bit Depth（位元深度）：</strong> 選擇 <strong>24-bit</strong>。享受那深不見底的低底噪，並在錄音時給自己留足寬裕的 Headroom（動態空間），永遠不要錄到紅燈破音。  </li>
+<li><strong>系統設定 Buffer Size（緩衝區大小）：</strong> 要錄音就選 <strong>128</strong>，要混音就選 <strong>1024</strong>。靈活調配你電腦 CPU 的體力，成為掌控效能與延遲的大師。</li>
+</ol>
+<p>這三個參數就像是數位音樂世界的地基。地基打穩了，不管你未來在專案裡蓋出多麼雄偉的音樂高樓，都不會輕易崩塌。你再也不會被電腦裡那些神秘的數字嚇到，而是能真正讓電腦成為你創作音樂的最佳助手。</p>
+<p>準備好要發出聲音了嗎？在下一堂課中，我們將離開螢幕，回到現實世界。我將教你如何像個專業錄音師一樣，為你的麥克風找到最完美的位置。我們「第 04 堂：麥克風擺位與人聲錄製」見！</p></div>
+  <div class="vocal-nav-links"><a class="vocal-nav-link" href="../2/">← 上一堂</a><a class="vocal-nav-link" href="../4/">下一堂 →</a></div>
+  <a class="back-link" href="../">← 返回課程總覽</a>
+</main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>世界聲音百科 — 世界樂器、人聲與音樂文化的旅圖</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="../../">首頁</a>
+        <a href="../../sound-journey/">聲音旅圖</a>
+        <a href="../../vocal/">人聲與歌唱</a>
+	      <a href="../">錄音後製</a>
+        <a href="../../categories/">分類</a>
+        <a href="../../countries/">國家</a>
+        <a href="../../subcategories/">子分類</a>
+        <a href="../../ensembles/">合奏百科</a>
+        <a href="../../theory/">樂理基礎</a>
+        <a href="../../contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
+  <script src="../../assets/search.js"></script>
+  <script src="../../assets/random-instrument.js"></script>
+  <script>(function(){var t=document.getElementById("theme-toggle"),d=document.documentElement;var I={nextdoor:"🎋",light:"🌤",dark:"🌙"};function s(m){d.setAttribute("data-theme",m);if(t)t.textContent=I[m]||"🎋";try{localStorage.setItem("theme",m)}catch(e){}}var v=(localStorage.getItem("theme")||"nextdoor");s(v);if(t)t.addEventListener("click",function(){var c=d.getAttribute("data-theme");s(c==="nextdoor"?"light":c==="light"?"dark":"nextdoor")});})();</script>
+</body>
+</html>

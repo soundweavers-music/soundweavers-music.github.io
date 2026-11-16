@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="進階壓縮：平行壓縮與串聯壓縮技巧">
+  <meta name="keywords" content="隔壁織音人,世界樂器,世界樂器百科,世界聲音百科,樂器教學,歌唱教學,錄音後製,吉他教學,鋼琴教學,基礎樂理,音樂知識">
+  <meta property="og:title" content="進階壓縮：平行壓縮與串聯壓縮技巧｜世界聲音百科">
+  <meta property="og:description" content="進階壓縮：平行壓縮與串聯壓縮技巧">
+  <meta property="og:image" content="https://yt3.googleusercontent.com/6nBZ7RVoXGMH2fuMPWiju_tpAET9D-qVkOhg1HjGqh8m9EaO-u9wO_oHVA12Sy0DzoKn7mGVmA=w1707-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://soundweavers-music.github.ioD:\nextdoor\python-python-django-world-musical-instrument\outputs\world-instruments-static\digitalmusic\17/">
+  <link rel="canonical" href="https://soundweavers-music.github.io./">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline'; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta name="google-site-verification" content="AzedQ-PxUmSW7_0jyEHmHCKgN2nIK0Bio5d6LCsJTtE">
+  <title>進階壓縮：平行壓縮與串聯壓縮技巧｜世界聲音百科</title>
+  <script>!function(){try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);else document.documentElement.setAttribute("data-theme","nextdoor")}catch(e){}}()</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="../../assets/site.css">
+  <link rel="stylesheet" href="../../assets/site-refresh.css">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "世界聲音百科",
+  "alternateName": "World Sound Encyclopedia",
+  "url": "https://soundweavers-music.github.io/",
+  "description": "進階壓縮：平行壓縮與串聯壓縮技巧",
+  "author": {
+    "@type": "Person",
+    "name": "隔壁織音人",
+    "url": "https://www.youtube.com/@NextDoorSoundWeavers/"
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://soundweavers-music.github.io/?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  },
+  "sameAs": [
+    "https://www.youtube.com/@NextDoorSoundWeavers/"
+  ]
+}</script>
+  
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../../">🌍 世界聲音百科</a>
+    <nav>
+      <div class="nav-dropdown">
+        <a href="../../instruments/" class="dropdown-trigger">樂器百科</a>
+        <div class="dropdown-menu multi-col">
+          <div class="menu-col">
+            <a href="../../categories/" style="font-weight:700;">全部分類</a>
+            <a href="#" id="random-nav-link" class="random-link">隨選樂器</a>
+            <a href="../../countries/">國家／地區</a>
+            <a href="../../map/">地圖</a>
+            <hr style="margin:4px 0;border:none;border-top:1px solid var(--line);">
+            <a href="../../categories/吹奏與氣息樂器/" style="font-weight:700;color:var(--accent);">A1 吹奏與氣息樂器</a>
+            <a href="../../subcategories/簧片樂器/" class="sub-link" title="簧片樂器（60 件）">　├ 簧片樂器<span class="sub-count">60</span></a>
+            <a href="../../subcategories/風箱與自由簧/" class="sub-link" title="風箱與自由簧（52 件）">　├ 風箱與自由簧<span class="sub-count">52</span></a>
+            <a href="../../subcategories/無簧吹管/" class="sub-link" title="無簧吹管（47 件）">　├ 無簧吹管<span class="sub-count">47</span></a>
+            <a href="../../subcategories/號角與唇振/" class="sub-link" title="號角與唇振（46 件）">　├ 號角與唇振<span class="sub-count">46</span></a>
+            <a href="../../subcategories/風袋樂器/" class="sub-link" title="風袋樂器（2 件）">　└ 風袋樂器<span class="sub-count">2</span></a>
+          </div>
+          <div class="menu-col">
+            <a href="../../categories/弦樂器/" style="font-weight:700;color:var(--accent);">A2 弦樂器</a>
+            <a href="../../subcategories/撥弦與抱持弦樂/" class="sub-link" title="撥弦與抱持弦樂（137 件）">　├ 撥弦與抱持弦樂<span class="sub-count">137</span></a>
+            <a href="../../subcategories/平放弦與擊弦/" class="sub-link" title="平放弦與擊弦（79 件）">　├ 平放弦與擊弦<span class="sub-count">79</span></a>
+            <a href="../../subcategories/擦弦-鍵控與輪弦/" class="sub-link" title="擦弦、鍵控與輪弦（50 件）">　├ 擦弦、鍵控與輪弦<span class="sub-count">50</span></a>
+            <a href="../../subcategories/豎琴-里拉與開放弦/" class="sub-link" title="豎琴、里拉與開放弦（42 件）">　├ 豎琴、里拉與開放弦<span class="sub-count">42</span></a>
+            <a href="../../subcategories/平放弦與齊特琴/" class="sub-link" title="平放弦與齊特琴（8 件）">　└ 平放弦與齊特琴<span class="sub-count">8</span></a>
+            <hr style="margin:4px 0;border:none;border-top:1px solid var(--line);">
+            <a href="../../categories/待分類-偵錯暫存/" style="font-weight:700;color:var(--muted);">A9 待分類／偵錯暫存</a>
+          </div>
+          <div class="menu-col">
+            <a href="../../categories/鼓與打擊樂器/" style="font-weight:700;color:var(--accent);">A3 鼓與打擊樂器</a>
+            <a href="../../subcategories/鑼鐘與金屬敲擊/" class="sub-link" title="鑼鐘與金屬敲擊（148 件）">　├ 鑼鐘與金屬敲擊<span class="sub-count">148</span></a>
+            <a href="../../subcategories/鼓皮與鼓類/" class="sub-link" title="鼓皮與鼓類（100 件）">　├ 鼓皮與鼓類<span class="sub-count">100</span></a>
+            <a href="../../subcategories/沙鈴-刮器與小打擊/" class="sub-link" title="沙鈴、刮器與小打擊（22 件）">　└ 沙鈴、刮器與小打擊<span class="sub-count">22</span></a>
+            <hr style="margin:4px 0;border:none;border-top:1px solid var(--line);">
+            <a href="../../categories/電子與電聲樂器/" style="font-weight:700;color:var(--accent);">A4 電子與電聲樂器</a>
+            <a href="../../subcategories/取樣與磁帶/" class="sub-link" title="取樣與磁帶（23 件）">　├ 取樣與磁帶<span class="sub-count">23</span></a>
+            <a href="../../subcategories/電聲改造樂器/" class="sub-link" title="電聲改造樂器（11 件）">　├ 電聲改造樂器<span class="sub-count">11</span></a>
+            <a href="../../subcategories/合成器/" class="sub-link" title="合成器（2 件）">　├ 合成器<span class="sub-count">2</span></a>
+            <a href="../../subcategories/控制器與數位介面/" class="sub-link" title="控制器與數位介面（2 件）">　├ 控制器與數位介面<span class="sub-count">2</span></a>
+            <a href="../../subcategories/鼓機與節奏機/" class="sub-link" title="鼓機與節奏機（1 件）">　└ 鼓機與節奏機<span class="sub-count">1</span></a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="../../sound-journey/" class="dropdown-trigger">聲音旅圖</a>
+        <div class="dropdown-menu">
+          <a href="../../sound-journey/">旅圖門口</a>
+          <a href="../../sound-journey/1/">旅圖一｜氣息離開身體</a>
+          <a href="../../sound-journey/2/">旅圖二｜懷裡與大地的弦</a>
+          <a href="../../sound-journey/3/">旅圖三｜天空裡拉長的弦</a>
+          <a href="../../sound-journey/4/">旅圖四｜地心與手邊的微光</a>
+          <a href="../../sound-journey/5/">旅圖五｜城市與星塵的節奏</a>
+          <a href="../../sound-journey/6/">旅圖六｜按鍵打開房間，眾聲走向廣場</a>
+          <a href="../../sound-journey/all/">全部文章</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="../../ensembles/" class="dropdown-trigger">合奏百科</a>
+        <div class="dropdown-menu">
+          <a href="../../ensembles/" style="font-weight:700;">總覽</a>
+          <hr style="margin:4px 0;border:none;border-top:1px solid var(--line);">
+          <a href="../../ensembles/B1/">B1 地域傳統合奏</a>
+          <a href="../../ensembles/B2/">B2 民間樂隊</a>
+          <a href="../../ensembles/B3/">B3 鼓樂與節慶編制</a>
+          <a href="../../ensembles/B4/">B4 古典與大型編制</a>
+          <a href="../../ensembles/B5/">B5 現代民族樂團</a>
+          <a href="../../ensembles/B6/">B6 爵士與流行編制</a>
+          <a href="../../ensembles/B7/">B7 現代混合與跨界編制</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="../../vocal/" class="dropdown-trigger">人聲與歌唱</a>
+        <div class="dropdown-menu">
+          <a href="../../vocal/">課程總覽</a>
+          <a href="../../vocal/1/">初階篇</a>
+          <a href="../../vocal/16/">進階篇</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="../" class="dropdown-trigger">錄音後製</a>
+        <div class="dropdown-menu">
+          <a href="../">課程總覽</a>
+          <a href="../1/">基礎篇</a>
+          <a href="../16/">進階篇</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="../../theory/" class="dropdown-trigger">樂理基礎</a>
+        <div class="dropdown-menu">
+          <a href="../../theory/">課程總覽</a>
+          <a href="../../theory/0/">前言</a>
+          <a href="../../theory/1/">階段一</a>
+          <a href="../../theory/2/">階段二</a>
+          <a href="../../theory/3/">階段三</a>
+          <a href="../../theory/4/">階段四</a>
+          <a href="../../theory/5/">階段五</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="../../tools/fretboard/" class="dropdown-trigger">工具</a>
+        <div class="dropdown-menu">
+          <a href="../../tools/fretboard/">🎸 世界樂器指版和弦圖</a>
+          <a href="../../experience/">🎧 體驗</a>
+        </div>
+      </div>
+      <a href="../../about/">關於</a>
+      <a href="../../contact/">聯絡我們</a>
+    </nav>
+    <button id="theme-toggle" class="theme-toggle" aria-label="切換色調">🎋</button>
+  </header>
+  <main class="vocal-detail-page">
+  <div class="vocal-detail-header">
+    <div class="breadcrumb">
+      <a href="../">← 錄音後製</a>
+      <span>/</span>
+      <span>第 17 堂</span>
+    </div>
+    <span class="level-tag level-tag-advanced">🎚️ 進階篇</span>
+    <h1>進階壓縮：平行壓縮與串聯壓縮技巧</h1>
+    <p class="level-name">進階篇：音色雕塑、曲風實戰與母帶後期</p>
+  </div>
+  <div class="vocal-content markdown-body"><p>在基礎壓縮課程中，我們學會了如何使用單一壓縮器來控制動態範圍。然而，專業混音工程師很少只靠一臺壓縮器解決所有問題。他們會運用 <strong>平行壓縮（Parallel Compression）</strong> 與 <strong>串聯壓縮（Serial Compression）</strong> 這兩種進階技術，創造出既飽滿又有力、同時保留自然動態的聲音。本堂課將深入剖析這兩種技巧的原理、設定方法與實戰應用。</p>
+<h2>什麼是平行壓縮？</h2>
+<p>平行壓縮，又稱為 <strong>紐約壓縮（New York Compression）</strong>，原理極其簡單卻極其強大：<strong>將原始未壓縮的乾訊號，與經過重度壓縮的濕訊號混合在一起</strong>。聽起來像是矛盾對吧？一邊要保持動態，一邊又要壓扁訊號——但正是這種組合創造出神奇的效果。</p>
+<p>為什麼要這麼做？因為單靠傳統的串列壓縮（compressors inserted directly on a track），一旦你調高壓縮比或降低 Threshold，就必然會損失瞬態（transient）和動態細節。鼓的攻擊感變鈍、人聲的尾音被吞沒——這些都是過度壓縮的典型症狀。</p>
+<p>平行壓縮完美解決了這個困境：<strong>重壓版本提供飽滿的 sustain 和厚度，原始版本保留瞬態和動態</strong>。兩者相加，等於「既有衝擊力又有延續力」的聲音。</p>
+<h3>平行壓縮的聽覺效果</h3>
+<ul>
+<li><strong>鼓組</strong>：小鼓變得更飽滿厚實，大鼓的尾音延長，但攻擊點依然清脆</li>
+<li><strong>人聲</strong>：氣音和尾音細節被放大，聽起來更貼耳、更有情感</li>
+<li><strong>貝斯</strong>：指板噪音和延音同時存在，音符之間的過渡更平滑</li>
+<li><strong>整體混音</strong>：音量感知更大、更飽滿，但不會犧牲清晰度</li>
+</ul>
+<h2>平行壓縮的設定方式</h2>
+<p>實作平行壓縮有兩種主流方法，各有優缺點。</p>
+<h3>方法一：Send/Return 架構（推薦）</h3>
+<p>這是專業錄音室最常見的做法：</p>
+<ol>
+<li><strong>建立 Aux Send（輔助軌）</strong>：從原始音軌 Send 到一個空的 Aux 軌道</li>
+<li><strong>在 Aux 軌上掛載壓縮器</strong>：進行重度壓縮設定</li>
+<li><strong>混合乾溼比例</strong>：用 Aux 軌的推桿來控制壓縮訊號的加入量</li>
+</ol>
+<p><strong>優點</strong>：<br>
+- 原始音軌完全不受影響，可以隨時調整混合比例<br>
+- 可以讓多個音軌共用同一個平行壓縮 Aux（例如：整套鼓送同一個平行壓縮軌）<br>
+- 在壓縮器前可以串接 EQ，壓縮前先塑形</p>
+<h3>方法二：Duplicate Track（複製音軌）</h3>
+<ol>
+<li><strong>複製原音軌</strong>：得到兩個完全一樣的音軌</li>
+<li><strong>原始軌不做處理</strong>或僅做輕微壓縮</li>
+<li><strong>複製軌進行重度壓縮</strong></li>
+<li><strong>調整兩軌音量平衡</strong></li>
+</ol>
+<p><strong>優點</strong>：<br>
+- 不需要建立 Aux，DAW 設定更快<br>
+- 可以在複製軌上加效果器 Plugin，自由度更高（例如加 distortion）<br>
+- 適合單一樂器處理</p>
+<p><strong>缺點</strong>：<br>
+- 原始軌和複製軌之間可能出現相位問題（尤其是使用線性相位以外 EQ 時）<br>
+- 耗費更多 CPU 資源<br>
+- 混音檔案較亂</p>
+<h3>實戰設定參數</h3>
+<p>平行壓縮的核心精神是「壓很重」。以下是經過業界驗證的起點參數：</p>
+<table>
+<thead>
+<tr>
+<th>參數</th>
+<th>建議值</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ratio</td>
+<td>8:1 ~ 20:1</td>
+<td>極高壓縮比，甚至接近 limiting</td>
+</tr>
+<tr>
+<td>Threshold</td>
+<td>-30dB ~ -20dB</td>
+<td>讓壓縮器幾乎持續作用</td>
+</tr>
+<tr>
+<td>Attack</td>
+<td>1ms ~ 5ms</td>
+<td>允許部分瞬態通過後再壓縮</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>50ms ~ 100ms</td>
+<td>中快 release，保持節奏感</td>
+</tr>
+<tr>
+<td>乾溼混合比</td>
+<td>20% ~ 50% 濕訊號</td>
+<td>從少開始加，直到感覺明顯但不突兀</td>
+</tr>
+</tbody>
+</table>
+<p><strong>黃金法則</strong>：先將濕訊號推桿拉到最低（Mute），慢慢往上推，直到你「感覺到」聲音變厚了，再稍微退回來一點。這個點就是最佳平衡。</p>
+<h2>平行壓縮的應用場景</h2>
+<h3>鼓組平行壓縮（鼓 Bus）</h3>
+<p>這是平行壓縮最經典的應用。幾乎所有現代流行、搖滾、嘻哈的鼓聲都使用了這項技術。</p>
+<p><strong>設定步驟</strong>：<br>
+1. 將所有鼓音軌（Kick、Snare、OH、Room）送至一個鼓 Bus<br>
+2. 從鼓 Bus Send 到平行壓縮 Aux<br>
+3. 在 Aux 上掛載一臺壓縮器，例如 <strong>CLA-76（1176 模擬）</strong> 或 <strong>API 2500</strong><br>
+4. 設定 Ratio 12:1、Attack 3ms、Release 80ms、Threshold 壓到 Gain Reduction 達 10~15dB<br>
+5. 慢慢推 Aux 推桿到與原始鼓聲混合</p>
+<p><strong>聽感目標</strong>：鼓的尾音（room sound 和 sustain）變得明顯，但攻擊點依然是乾淨的。整體鼓組聽起來更「大」、更「有力」。</p>
+<h3>人聲平行壓縮</h3>
+<p>人聲平行壓縮可以讓主唱的聲音更有「存在感」和「親密感」。</p>
+<p><strong>設定步驟</strong>：<br>
+1. 主唱音軌 Send 到人聲平行 Aux<br>
+2. 使用 <strong>LA-2A（光學壓縮器模擬）</strong>，Ratio 固定（LA-2A 的壓縮曲線大約是 3:1 到 6:1），Peak Reduction 調到 7~10dB<br>
+3. 或者使用 1176，Ratio 8:1、Attack 2ms、Release 200ms<br>
+4. Aux 推桿設定在 -10dB 到 -5dB（相對於原始人聲）</p>
+<p><strong>技巧</strong>：在平行壓縮 Aux 前加一個 High-Pass Filter（約 200Hz），可以避免壓縮器被低頻隆隆聲觸發，讓壓縮更乾淨。</p>
+<h3>貝斯平行壓縮</h3>
+<p>貝斯在現代音樂中需要同時擁有「指板攻擊」（fingernail attack）和「低頻延續」（low-end sustain）。這兩者本質上是矛盾的，但平行壓縮可以兼得。</p>
+<ul>
+<li>原始軌：保持自然的動態，突出 attack</li>
+<li>平行軌：Ratio 10:1、Slow Attack（10~20ms）、Fast Release（40ms），讓壓縮器在 attack 之後才開始作用，抓住延音</li>
+<li>混合比例大約 60% 原始 + 40% 壓縮</li>
+</ul>
+<h3>混音 Bus 平行壓縮</h3>
+<p>將整首混音 Send 到一組平行壓縮，可以賦予歌曲「黏合感」（glue），讓所有樂器聽起來更融為一體。</p>
+<p><strong>建議</strong>：<br>
+- 使用 VCA 風格的 Bus 壓縮器（如 SSL G-Bus Compressor）<br>
+- Ratio 2:1 ~ 4:1，非常溫和的壓縮<br>
+- Mix 旋鈕設定在 10% ~ 30%（如果 Plugin 有乾溼混合功能）<br>
+- 或用 Aux 推桿控制在 -12dB ~ -6dB</p>
+<h2>什麼是串聯壓縮？</h2>
+<p>串聯壓縮（Serial Compression）指的是 <strong>將多臺壓縮器一臺接一臺串接在同一條訊號鏈上</strong>。每一臺壓縮器只負責「壓一點點」，但疊加起來達到理想的總壓縮量。</p>
+<p>這與平行壓縮完全相反：平行是「乾 + 重壓」並聯；串聯是「輕壓 + 輕壓 + ...」串接。</p>
+<h3>為什麼兩臺輕壓縮勝過一臺重壓縮？</h3>
+<p>這是最常被提到的混音智慧之一，背後有扎實的聲學原理：</p>
+<ol>
+<li>
+<p><strong>壓縮曲線更平滑</strong>：單一壓縮器做 12dB 的 Gain Reduction，壓縮曲線非常陡峭，容易產生 pumping 和 breathing 效應。兩臺壓縮器各做 6dB，總和也是 12dB，但曲線更平滑自然。</p>
+</li>
+<li>
+<p><strong>不同 Attack/Release 可互補</strong>：第一臺用快 attack 捕捉瞬態，第二臺用慢 attack 控制整體動態。單一壓縮器無法同時做到這兩件事。</p>
+</li>
+<li>
+<p><strong>不同壓縮風格疊加</strong>：光學壓縮的溫暖 + FET 的 punch + VCA 的 glue，三種特色可以同時擁有。</p>
+</li>
+<li>
+<p><strong>失真更低</strong>：單一壓縮器做大量 Gain Reduction 時，失真和諧波失真會累積。分散到多臺壓縮器，每臺的工作量小，失真更低。</p>
+</li>
+</ol>
+<h2>串聯壓縮的設定原則</h2>
+<h3>原則一：Fast → Slow</h3>
+<p>通常第一臺用快壓縮器捕捉瞬態，第二臺用慢壓縮器控制整體動態。</p>
+<p><strong>快壓縮器</strong>（FET 或 VCA）：<br>
+- Attack: 0.1ms ~ 2ms<br>
+- Release: 50ms ~ 200ms<br>
+- Ratio: 4:1 ~ 8:1<br>
+- 目標：捕捉和馴服瞬態峰值</p>
+<p><strong>慢壓縮器</strong>（光學或 Vari-Mu）：<br>
+- Attack: 10ms ~ 30ms<br>
+- Release: Auto 或 500ms+<br>
+- Ratio: 2:1 ~ 4:1<br>
+- 目標：平滑整體音量，增加 sustain</p>
+<h3>原則二：輕壓再輕壓</h3>
+<p>每一臺壓縮器只做 2~6dB 的 Gain Reduction。串聯兩臺就是 4~12dB 的總壓縮量，但聽感上遠比單一壓縮器做 12dB 來得自然。</p>
+<h3>原則三：壓縮量遞減</h3>
+<p>第一臺可以做較多的壓縮（3~5dB GR），第二臺做更少（1~3dB GR）。因為第一臺已經處理了大部分動態，第二臺只需要微調。</p>
+<h2>串聯壓縮的實戰鏈</h2>
+<h3>人聲串聯鏈：1176 → LA-2A</h3>
+<p>這是錄音史上最經典的人聲壓縮組合，被稱為「1176 into LA-2A」。</p>
+<p><strong>第一步：1176（FET 壓縮器）</strong><br>
+- Ratio: 4:1<br>
+- Attack: 3ms ~ 5ms<br>
+- Release: 50ms ~ 100ms<br>
+- Input: 調到 Gain Reduction 約 3~5dB<br>
+- 作用：捕捉人聲的瞬態爆音、唇齒音和爆裂字頭</p>
+<p><strong>第二步：LA-2A（光學壓縮器）</strong><br>
+- Peak Reduction: 30% ~ 50%（約 2~4dB GR）<br>
+- Gain: 補償輸出電平<br>
+- Attack/Release: 自動（Opto 壓縮器的特性是 attack 和 release 由輸入訊號決定）<br>
+- 作用：平滑整體動態，賦予溫暖的類比質感</p>
+<p><strong>總結果</strong>：人聲既有清晰的字頭（來自 1176 的快 attack），又有流暢的整體音量曲線（來自 LA-2A 的光學平滑）。這就是為什麼這個組合出現在無數經典唱片中的原因。</p>
+<h3>人聲串聯鏈（反向）：LA-2A → 1176</h3>
+<p>如果你想要更激進、更有侵略感的人聲，試試反過來：</p>
+<ul>
+<li>LA-2A 先做 4~6dB 的平滑壓縮</li>
+<li>1176 再做 3~5dB 的壓縮，Ratio 8:1 或 12:1</li>
+<li>最終人聲會更「前面」、更「貼耳」，適合搖滾或流行主歌</li>
+</ul>
+<h3>鼓 Bus 串聯鏈：API 2500 → SSL G-Bus</h3>
+<ul>
+<li><strong>API 2500（VCA 壓縮器）</strong>：Ratio 4:1、Attack 1ms、Release 100ms，做 3~4dB GR</li>
+<li><strong>SSL G-Bus Compressor（VCA 壓縮器）</strong>：Ratio 2:1、Attack 10ms、Release Auto，做 1~2dB GR</li>
+<li>結果：鼓組聽起來緊湊、有力、凝聚</li>
+</ul>
+<h3>貝斯串聯鏈：Dbx 160 → LA-2A</h3>
+<ul>
+<li><strong>Dbx 160（VCA 壓縮器）</strong>：Ratio 8:1、Attack 10ms、Release 50ms，做 4~6dB GR</li>
+<li><strong>LA-2A</strong>：Peak Reduction 20~30%，做 2~3dB GR</li>
+<li>結果：attack 清晰、sustain 紮實、低頻穩定</li>
+</ul>
+<h2>平行與串聯的結合應用</h2>
+<p>專業混音師往往同時使用平行和串聯壓縮，以達到最精細的控制。以下是一個完整的壓縮策略範例：</p>
+<h3>範例：主唱完整壓縮鏈</h3>
+<pre><code>音源 → EQ（高切低切）→ 串聯壓縮（1176 → LA-2A）→ 輔助 Send → 平行 Aux（1176 重壓 12:1）
+</code></pre>
+<p><strong>串聯部分</strong>：控制動態，塑造聲音本體<br>
+<strong>平行部分</strong>：增加厚度和存在感</p>
+<p><strong>混合步驟</strong>：<br>
+1. 先調整串聯壓縮，讓人聲的基本動態穩定<br>
+2. 加入平行 Aux 從 -15dB 慢慢往上推<br>
+3. 直到人聲的尾音和氣音變得明顯<br>
+4. 用 Automation 控制平行 Aux 推桿：主歌少一點（-10dB），副歌多一點（-5dB）</p>
+<h3>範例：鼓組完整壓縮鏈</h3>
+<pre><code>鼓 Bus → 串聯 API 2500 → 平行 Aux（1176 或 Distressor 重壓 15:1）
+          └→ Room Mic 重壓 Aux（極端壓縮，創造空間感）
+</code></pre>
+<h2>三大壓縮風格：Optical、FET、VCA</h2>
+<p>在選擇壓縮器時，了解三大類型對串聯和平行壓縮的應用至關重要。</p>
+<h3>光學壓縮（Optical Compressor）</h3>
+<p><strong>代表作</strong>：Teletronix LA-2A、LA-3A<br>
+<strong>特性</strong>：Attack 和 Release 由輸入訊號自動決定，壓縮曲線平滑自然<br>
+<strong>最佳用途</strong>：<br>
+- 串聯壓縮的最後一臺（慢壓縮）<br>
+- 人聲、貝斯的平滑壓縮<br>
+- 平行壓縮的「厚度來源」</p>
+<h3>FET 壓縮（Field Effect Transistor）</h3>
+<p><strong>代表作</strong>：UREI 1176、Distressor<br>
+<strong>特性</strong>：極快的 attack（最快可達 20μs）、飽滿的諧波失真<br>
+<strong>最佳用途</strong>：<br>
+- 串聯壓縮的第一臺（快壓縮）<br>
+- 鼓組的瞬態捕捉<br>
+- 平行壓縮的重壓選擇</p>
+<h3>VCA 壓縮（Voltage Controlled Amplifier）</h3>
+<p><strong>代表作</strong>：SSL G-Series Bus Compressor、API 2500、Dbx 160<br>
+<strong>特性</strong>：精確、透明、黏合感強<br>
+<strong>最佳用途</strong>：<br>
+- 混音 Bus 的 glue 壓縮<br>
+- 串聯壓縮的中間環節<br>
+- 鼓組和貝斯的動態控制</p>
+<h3>實戰搭配矩陣</h3>
+<table>
+<thead>
+<tr>
+<th>目標</th>
+<th>串聯組合</th>
+<th>平行壓縮器</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>溫暖人聲</td>
+<td>1176 → LA-2A</td>
+<td>LA-2A（8:1 等效）</td>
+</tr>
+<tr>
+<td>激烈人聲</td>
+<td>LA-2A → 1176（高 Ratio）</td>
+<td>1176（20:1）</td>
+</tr>
+<tr>
+<td>緊湊鼓組</td>
+<td>API 2500 → SSL Bus</td>
+<td>Distressor（10:1）</td>
+</tr>
+<tr>
+<td>厚重鼓組</td>
+<td>Distressor → LA-2A</td>
+<td>1176（12:1）</td>
+</tr>
+<tr>
+<td>平滑貝斯</td>
+<td>Dbx 160 → LA-2A</td>
+<td>LA-2A</td>
+</tr>
+<tr>
+<td>混音 Bus</td>
+<td>SSL Bus（2:1）→ Vari-Mu</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h2>常見錯誤與解決方案</h2>
+<h3>錯誤一：平行壓縮推太多</h3>
+<p><strong>症狀</strong>：聲音變髒、模糊、瞬態消失<br>
+<strong>解決方案</strong>：從極少量開始（-15dB 以下的 Aux 推桿），每次只加 1~2dB。最好的平行壓縮往往是你不刻意注意就聽不出來的那種。</p>
+<h3>錯誤二：串聯壓縮太多</h3>
+<p><strong>症狀</strong>：聲音死氣沉沉、動態窒息<br>
+<strong>解決方案</strong>：總 Gain Reduction 不要超過 10~12dB。記住，壓縮的目的是控制動態，而不是消滅動態。</p>
+<h3>錯誤三：所有音軌都用同樣的壓縮鏈</h3>
+<p><strong>症狀</strong>：混音聽起來單調、缺乏層次<br>
+<strong>解決方案</strong>：不同樂器使用不同的壓縮策略。例如，主唱用 1176→LA-2A，合音只用一臺 LA-2A，鋼琴不用串聯壓縮只需要輕微的 VCA 壓縮。</p>
+<h3>錯誤四：忽略相位問題</h3>
+<p><strong>症狀</strong>：平行壓縮打開後聲音反而變薄或變空洞<br>
+<strong>解決方案</strong>：檢查原始軌和平行軌之間是否有相位抵消。如果有，在平行 Aux 上使用 Linear Phase EQ，或稍微調整平行壓縮 Plugin 的延遲設定。</p>
+<h3>錯誤五：Attack 和 Release 設定不協調</h3>
+<p><strong>錯誤串聯</strong>：兩臺都是快 Attack + 快 Release → 產生「撕裂感」<br>
+<strong>錯誤串聯</strong>：兩臺都是慢 Attack + 慢 Release → 瞬態完全失控<br>
+<strong>解決方案</strong>：一快一慢，互補為佳</p>
+<h2>結論：從理論到耳朵</h2>
+<p>壓縮是一門藝術，更是一門聽覺訓練。平行壓縮和串聯壓縮是專業混音工程師必須掌握的兩種核心技術，它們能讓你的混音從「好」變成「出色」。</p>
+<p><strong>最後的建議</strong>：<br>
+1. <strong>先學串聯</strong>：用兩臺輕壓縮取代一臺重壓縮，你會立刻感受到聲音的自然度提升<br>
+2. <strong>再玩平行</strong>：在串聯壓縮的基礎上加入平行壓縮，增加厚度和凝聚力<br>
+3. <strong>大量練習</strong>：每一首歌都需要不同的壓縮策略。同樣的設定在搖滾中很好聽，在爵士中可能完全不合適<br>
+4. <strong>信任耳朵而非眼睛</strong>：不要只看 Gain Reduction 錶頭，閉上眼睛聽聲音如何變化</p>
+<p>下一堂課，我們將進入更進階的動態處理領域——<strong>多頻段壓縮</strong>和<strong>側鏈壓縮調變</strong>，敬請期待！</p></div>
+  <div class="vocal-nav-links"><a class="vocal-nav-link" href="../16/">← 上一堂</a><a class="vocal-nav-link" href="../18/">下一堂 →</a></div>
+  <a class="back-link" href="../">← 返回課程總覽</a>
+</main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>世界聲音百科 — 世界樂器、人聲與音樂文化的旅圖</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="../../">首頁</a>
+        <a href="../../sound-journey/">聲音旅圖</a>
+        <a href="../../vocal/">人聲與歌唱</a>
+	      <a href="../">錄音後製</a>
+        <a href="../../categories/">分類</a>
+        <a href="../../countries/">國家</a>
+        <a href="../../subcategories/">子分類</a>
+        <a href="../../ensembles/">合奏百科</a>
+        <a href="../../theory/">樂理基礎</a>
+        <a href="../../contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
+  <script src="../../assets/search.js"></script>
+  <script src="../../assets/random-instrument.js"></script>
+  <script>(function(){var t=document.getElementById("theme-toggle"),d=document.documentElement;var I={nextdoor:"🎋",light:"🌤",dark:"🌙"};function s(m){d.setAttribute("data-theme",m);if(t)t.textContent=I[m]||"🎋";try{localStorage.setItem("theme",m)}catch(e){}}var v=(localStorage.getItem("theme")||"nextdoor");s(v);if(t)t.addEventListener("click",function(){var c=d.getAttribute("data-theme");s(c==="nextdoor"?"light":c==="light"?"dark":"nextdoor")});})();</script>
+</body>
+</html>

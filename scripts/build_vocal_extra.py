@@ -86,7 +86,15 @@ def read_instruments():
     return instruments
 
 
-def markdown_to_html(md_text):
+def markdown_to_html(md_text, strip_first_h1=True):
+    """Convert lesson Markdown to HTML.
+
+    Every lesson file starts with '# <course> 第 N 堂：<title>'. The page
+    template renders that title in its own header, so keeping the H1 prints
+    the title twice. Drop a leading H1 when the caller already shows it.
+    """
+    if strip_first_h1:
+        md_text = re.sub(r"\A\s*#\s+.*\n+", "", md_text, count=1)
     raw = markdown.markdown(md_text, extensions=["extra", "toc", "tables", "fenced_code", "nl2br"], output_format="html5")
     # Remove wiki links
     raw = re.sub(r'<a\b[^>]*href=["\'](?:https?://)?(?:[^/]+\.)?(?:wikipedia|wikidata|wikimedia)\.org[^"\']*["\'][^>]*>(.*?)</a>', r'\1', raw, flags=re.IGNORECASE | re.DOTALL)
@@ -753,22 +761,28 @@ document.addEventListener('DOMContentLoaded', function() {{
         prev_link = f'<a class="vocal-nav-link" href="{resolve_url(ch_dir / "index.html", f"/digitalmusic/{prev_num}/")}">← 上一堂</a>' if prev_num in lookup else '<span class="vocal-nav-link disabled">← 上一堂</span>'
         next_link = f'<a class="vocal-nav-link" href="{resolve_url(ch_dir / "index.html", f"/digitalmusic/{next_num}/")}">下一堂 →</a>' if next_num in lookup else '<span class="vocal-nav-link disabled">下一堂 →</span>'
 
-        detail_body = f"""<main>
-  <div class="vocal-article">
-    <div class="vocal-article-header">
-      <div class="breadcrumb">
-        <a href="{resolve_url(ch_dir / "index.html", "/digitalmusic/")}">← 錄音後製課程</a>
-        <span class="sep">/</span>
-        <span>{escape(c["title"])}</span>
-      </div>
+        # Same structure as the vocal chapter pages so both courses share one
+        # layout: detail header (breadcrumb + level tag + title + group line),
+        # article body, prev/next row, back link.
+        level_tag = "level-tag-beginner" if c["level"] == "基礎篇" else "level-tag-advanced"
+        level_icon = "🎛️" if c["level"] == "基礎篇" else "🎚️"
+        level_group = ("基礎篇：宅錄建置與錄音混音基礎" if c["level"] == "基礎篇"
+                       else "進階篇：音色雕塑、曲風實戰與母帶後期")
+
+        detail_body = f"""<main class="vocal-detail-page">
+  <div class="vocal-detail-header">
+    <div class="breadcrumb">
+      <a href="{resolve_url(ch_dir / "index.html", "/digitalmusic/")}">← 錄音後製</a>
+      <span>/</span>
+      <span>第 {c["num"]} 堂</span>
     </div>
-    <article class="markdown-body vocal-content">{html_body}</article>
-    <div class="vocal-nav">
-      {prev_link}
-      <a class="vocal-nav-link" href="{resolve_url(ch_dir / "index.html", "/digitalmusic/")}">回課程列表</a>
-      {next_link}
-    </div>
+    <span class="level-tag {level_tag}">{level_icon} {c["level"]}</span>
+    <h1>{escape(c["title"])}</h1>
+    <p class="level-name">{level_group}</p>
   </div>
+  <div class="vocal-content markdown-body">{html_body}</div>
+  <div class="vocal-nav-links">{prev_link}{next_link}</div>
+  <a class="back-link" href="{resolve_url(ch_dir / "index.html", "/digitalmusic/")}">← 返回課程總覽</a>
 </main>"""
         write(ch_dir / "index.html", page(escape(c["title"]), detail_body, ch_dir / "index.html", meta_description=escape(c["title"])))
 

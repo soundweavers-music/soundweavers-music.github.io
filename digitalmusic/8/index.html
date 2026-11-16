@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="錄音實戰：底噪排查與相位檢查">
+  <meta name="keywords" content="隔壁織音人,世界樂器,世界樂器百科,世界聲音百科,樂器教學,歌唱教學,錄音後製,吉他教學,鋼琴教學,基礎樂理,音樂知識">
+  <meta property="og:title" content="錄音實戰：底噪排查與相位檢查｜世界聲音百科">
+  <meta property="og:description" content="錄音實戰：底噪排查與相位檢查">
+  <meta property="og:image" content="https://yt3.googleusercontent.com/6nBZ7RVoXGMH2fuMPWiju_tpAET9D-qVkOhg1HjGqh8m9EaO-u9wO_oHVA12Sy0DzoKn7mGVmA=w1707-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://soundweavers-music.github.ioD:\nextdoor\python-python-django-world-musical-instrument\outputs\world-instruments-static\digitalmusic\8/">
+  <link rel="canonical" href="https://soundweavers-music.github.io./">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline'; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta name="google-site-verification" content="AzedQ-PxUmSW7_0jyEHmHCKgN2nIK0Bio5d6LCsJTtE">
+  <title>錄音實戰：底噪排查與相位檢查｜世界聲音百科</title>
+  <script>!function(){try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);else document.documentElement.setAttribute("data-theme","nextdoor")}catch(e){}}()</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="../../assets/site.css">
+  <link rel="stylesheet" href="../../assets/site-refresh.css">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "世界聲音百科",
+  "alternateName": "World Sound Encyclopedia",
+  "url": "https://soundweavers-music.github.io/",
+  "description": "錄音實戰：底噪排查與相位檢查",
+  "author": {
+    "@type": "Person",
+    "name": "隔壁織音人",
+    "url": "https://www.youtube.com/@NextDoorSoundWeavers/"
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://soundweavers-music.github.io/?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  },
+  "sameAs": [
+    "https://www.youtube.com/@NextDoorSoundWeavers/"
+  ]
+}</script>
+  
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../../">🌍 世界聲音百科</a>
+    <nav>
+      <div class="nav-dropdown">
+        <a href="../../instruments/" class="dropdown-trigger">樂器百科</a>
+        <div class="dropdown-menu multi-col">
+          <div class="menu-col">
+            <a href="../../categories/" style="font-weight:700;">全部分類</a>
+            <a href="#" id="random-nav-link" class="random-link">隨選樂器</a>
+            <a href="../../countries/">國家／地區</a>
+            <a href="../../map/">地圖</a>
+            <hr style="margin:4px 0;border:none;border-top:1px solid var(--line);">
+            <a href="../../categories/吹奏與氣息樂器/" style="font-weight:700;color:var(--accent);">A1 吹奏與氣息樂器</a>
+            <a href="../../subcategories/簧片樂器/" class="sub-link" title="簧片樂器（60 件）">　├ 簧片樂器<span class="sub-count">60</span></a>
+            <a href="../../subcategories/風箱與自由簧/" class="sub-link" title="風箱與自由簧（52 件）">　├ 風箱與自由簧<span class="sub-count">52</span></a>
+            <a href="../../subcategories/無簧吹管/" class="sub-link" title="無簧吹管（47 件）">　├ 無簧吹管<span class="sub-count">47</span></a>
+            <a href="../../subcategories/號角與唇振/" class="sub-link" title="號角與唇振（46 件）">　├ 號角與唇振<span class="sub-count">46</span></a>
+            <a href="../../subcategories/風袋樂器/" class="sub-link" title="風袋樂器（2 件）">　└ 風袋樂器<span class="sub-count">2</span></a>
+          </div>
+          <div class="menu-col">
+            <a href="../../categories/弦樂器/" style="font-weight:700;color:var(--accent);">A2 弦樂器</a>
+            <a href="../../subcategories/撥弦與抱持弦樂/" class="sub-link" title="撥弦與抱持弦樂（137 件）">　├ 撥弦與抱持弦樂<span class="sub-count">137</span></a>
+            <a href="../../subcategories/平放弦與擊弦/" class="sub-link" title="平放弦與擊弦（79 件）">　├ 平放弦與擊弦<span class="sub-count">79</span></a>
+            <a href="../../subcategories/擦弦-鍵控與輪弦/" class="sub-link" title="擦弦、鍵控與輪弦（50 件）">　├ 擦弦、鍵控與輪弦<span class="sub-count">50</span></a>
+            <a href="../../subcategories/豎琴-里拉與開放弦/" class="sub-link" title="豎琴、里拉與開放弦（42 件）">　├ 豎琴、里拉與開放弦<span class="sub-count">42</span></a>
+            <a href="../../subcategories/平放弦與齊特琴/" class="sub-link" title="平放弦與齊特琴（8 件）">　└ 平放弦與齊特琴<span class="sub-count">8</span></a>
+            <hr style="margin:4px 0;border:none;border-top:1px solid var(--line);">
+            <a href="../../categories/待分類-偵錯暫存/" style="font-weight:700;color:var(--muted);">A9 待分類／偵錯暫存</a>
+          </div>
+          <div class="menu-col">
+            <a href="../../categories/鼓與打擊樂器/" style="font-weight:700;color:var(--accent);">A3 鼓與打擊樂器</a>
+            <a href="../../subcategories/鑼鐘與金屬敲擊/" class="sub-link" title="鑼鐘與金屬敲擊（148 件）">　├ 鑼鐘與金屬敲擊<span class="sub-count">148</span></a>
+            <a href="../../subcategories/鼓皮與鼓類/" class="sub-link" title="鼓皮與鼓類（100 件）">　├ 鼓皮與鼓類<span class="sub-count">100</span></a>
+            <a href="../../subcategories/沙鈴-刮器與小打擊/" class="sub-link" title="沙鈴、刮器與小打擊（22 件）">　└ 沙鈴、刮器與小打擊<span class="sub-count">22</span></a>
+            <hr style="margin:4px 0;border:none;border-top:1px solid var(--line);">
+            <a href="../../categories/電子與電聲樂器/" style="font-weight:700;color:var(--accent);">A4 電子與電聲樂器</a>
+            <a href="../../subcategories/取樣與磁帶/" class="sub-link" title="取樣與磁帶（23 件）">　├ 取樣與磁帶<span class="sub-count">23</span></a>
+            <a href="../../subcategories/電聲改造樂器/" class="sub-link" title="電聲改造樂器（11 件）">　├ 電聲改造樂器<span class="sub-count">11</span></a>
+            <a href="../../subcategories/合成器/" class="sub-link" title="合成器（2 件）">　├ 合成器<span class="sub-count">2</span></a>
+            <a href="../../subcategories/控制器與數位介面/" class="sub-link" title="控制器與數位介面（2 件）">　├ 控制器與數位介面<span class="sub-count">2</span></a>
+            <a href="../../subcategories/鼓機與節奏機/" class="sub-link" title="鼓機與節奏機（1 件）">　└ 鼓機與節奏機<span class="sub-count">1</span></a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="../../sound-journey/" class="dropdown-trigger">聲音旅圖</a>
+        <div class="dropdown-menu">
+          <a href="../../sound-journey/">旅圖門口</a>
+          <a href="../../sound-journey/1/">旅圖一｜氣息離開身體</a>
+          <a href="../../sound-journey/2/">旅圖二｜懷裡與大地的弦</a>
+          <a href="../../sound-journey/3/">旅圖三｜天空裡拉長的弦</a>
+          <a href="../../sound-journey/4/">旅圖四｜地心與手邊的微光</a>
+          <a href="../../sound-journey/5/">旅圖五｜城市與星塵的節奏</a>
+          <a href="../../sound-journey/6/">旅圖六｜按鍵打開房間，眾聲走向廣場</a>
+          <a href="../../sound-journey/all/">全部文章</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="../../ensembles/" class="dropdown-trigger">合奏百科</a>
+        <div class="dropdown-menu">
+          <a href="../../ensembles/" style="font-weight:700;">總覽</a>
+          <hr style="margin:4px 0;border:none;border-top:1px solid var(--line);">
+          <a href="../../ensembles/B1/">B1 地域傳統合奏</a>
+          <a href="../../ensembles/B2/">B2 民間樂隊</a>
+          <a href="../../ensembles/B3/">B3 鼓樂與節慶編制</a>
+          <a href="../../ensembles/B4/">B4 古典與大型編制</a>
+          <a href="../../ensembles/B5/">B5 現代民族樂團</a>
+          <a href="../../ensembles/B6/">B6 爵士與流行編制</a>
+          <a href="../../ensembles/B7/">B7 現代混合與跨界編制</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="../../vocal/" class="dropdown-trigger">人聲與歌唱</a>
+        <div class="dropdown-menu">
+          <a href="../../vocal/">課程總覽</a>
+          <a href="../../vocal/1/">初階篇</a>
+          <a href="../../vocal/16/">進階篇</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="../" class="dropdown-trigger">錄音後製</a>
+        <div class="dropdown-menu">
+          <a href="../">課程總覽</a>
+          <a href="../1/">基礎篇</a>
+          <a href="../16/">進階篇</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="../../theory/" class="dropdown-trigger">樂理基礎</a>
+        <div class="dropdown-menu">
+          <a href="../../theory/">課程總覽</a>
+          <a href="../../theory/0/">前言</a>
+          <a href="../../theory/1/">階段一</a>
+          <a href="../../theory/2/">階段二</a>
+          <a href="../../theory/3/">階段三</a>
+          <a href="../../theory/4/">階段四</a>
+          <a href="../../theory/5/">階段五</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="../../tools/fretboard/" class="dropdown-trigger">工具</a>
+        <div class="dropdown-menu">
+          <a href="../../tools/fretboard/">🎸 世界樂器指版和弦圖</a>
+          <a href="../../experience/">🎧 體驗</a>
+        </div>
+      </div>
+      <a href="../../about/">關於</a>
+      <a href="../../contact/">聯絡我們</a>
+    </nav>
+    <button id="theme-toggle" class="theme-toggle" aria-label="切換色調">🎋</button>
+  </header>
+  <main class="vocal-detail-page">
+  <div class="vocal-detail-header">
+    <div class="breadcrumb">
+      <a href="../">← 錄音後製</a>
+      <span>/</span>
+      <span>第 8 堂</span>
+    </div>
+    <span class="level-tag level-tag-beginner">🎛️ 基礎篇</span>
+    <h1>錄音實戰：底噪排查與相位檢查</h1>
+    <p class="level-name">基礎篇：宅錄建置與錄音混音基礎</p>
+  </div>
+  <div class="vocal-content markdown-body"><p>錄音品質的好壞，除了取決於麥克風與前級的好壞之外，兩個經常被忽略的關鍵環節是<strong>底噪（Noise Floor）</strong> 與<strong>相位（Phase）</strong>。再昂貴的器材，若底噪過高或相位錯誤，錄出來的聲音依然無法使用。本堂將詳細說明如何辨識、量測與解決這兩大實戰問題。</p>
+<h2>什麼是底噪？為什麼它至關重要？</h2>
+<p><strong>底噪</strong>指的是錄音設備在沒有訊號輸入時，系統本身產生的殘餘雜訊。想像你在完全安靜的房間裡錄音，波形圖上仍然有一條細微的「毛邊」——那就是底噪。</p>
+<p>底噪的單位是 dB（分貝），通常用 <strong>dBu</strong> 或 <strong>dBFS</strong> 來標示。一般錄音介面的底噪規格約在 -100 dBu 至 -120 dBu 之間。底噪越低，動態範圍越大，錄出來的聲音就越乾淨。</p>
+<p>底噪之所以重要，原因在於：</p>
+<ol>
+<li><strong>壓縮時會被放大</strong>——當你對人聲或樂器施加壓縮器時，底噪會在空隙中被明顯推高。</li>
+<li><strong>限制後製空間</strong>——高底噪的錄音無法大幅調高音量或進行激進的 EQ 處理。</li>
+<li><strong>影響聽感清晰度</strong>——累積的底噪會讓混音聽起來模糊、不聚焦。</li>
+</ol>
+<p>一個實用的經驗法則：錄音時的底噪應該低於訊號峰值至少 50 dB，這樣在後製時才不會捉襟見肘。</p>
+<h2>常見底噪來源與對策</h2>
+<h3>1. 電腦風扇與硬碟運轉聲</h3>
+<p>這是家庭工作室最常見的底噪來源。電腦風扇轉動產生的低頻嗡鳴（約 200–500 Hz 範圍）會透過空氣傳入麥克風。</p>
+<p><strong>對策：</strong><br>
+- 錄音時將主機箱放在距離麥克風至少 2 公尺處，或放在另一個房間。<br>
+- 使用長麥克風線（XLR 線可達 10–15 公尺不損失訊號）。<br>
+- 考慮更換靜音風扇或使用被動散熱方案。<br>
+- 錄製人聲時，關閉不必要的背景應用程式以降低 CPU 負載，減少風扇加速。</p>
+<h3>2. 空調與 HVAC 系統</h3>
+<p>空調出風口的低頻轟鳴與氣流聲，經常被麥克風忠實收錄。</p>
+<p><strong>對策：</strong><br>
+- 錄音前 15 分鐘關閉空調，讓房間安靜下來再開始錄製。<br>
+- 若無法關閉，調整出風口方向，避免直接吹向麥克風。<br>
+- 使用反射濾波器（Reflection Filter）同時阻隔來自後方的噪音。</p>
+<h3>3. 電源哼聲（50 Hz / 60 Hz Hum）</h3>
+<p>電源哼聲是錄音室最惱人的問題之一。不同地區的交流電頻率不同：台灣、日本使用 60 Hz，歐洲、亞洲多數地區使用 50 Hz。這個頻率及其諧波（120 Hz、180 Hz、240 Hz...）會滲入音訊路徑。</p>
+<p><strong>對策：</strong><br>
+- 使用<strong>高通濾波器（High-Pass Filter）</strong> 切除 80–100 Hz 以下的頻率。多數錄音介面與麥克風前級都內建此功能。<br>
+- 確認所有設備使用同一電源迴路，避免跨迴路接地。<br>
+- 使用<strong>電源濾波器（Power Conditioner）</strong> 或 <strong>電源隔離變壓器</strong>。</p>
+<h3>4. 接地迴路（Ground Loop）</h3>
+<p>當多台設備以不同路徑接地時，會形成接地迴路，產生 50/60 Hz 的低頻哼聲與高頻雜訊。</p>
+<p><strong>如何辨識接地迴路：</strong><br>
+- 哼聲會隨著設備連接數量增加而變大。<br>
+- 拔掉某條訊號線時，哼聲立即消失。<br>
+- 哼聲中包含明顯的 60 Hz 與 120 Hz 成分。</p>
+<p><strong>如何解決：</strong><br>
+- 使用<strong>接地迴路隔離器（Ground Loop Isolator）</strong>，安裝在音訊路徑中（如 DI Box 或專用隔離變壓器）。<br>
+- 所有設備插在同一個排插上，減少接地電位差。<br>
+- 若使用筆電錄音，<strong>拔掉筆電的電源供應器</strong>，改用電池供電——這是快速確認是否為接地迴路最簡單的方法。</p>
+<h3>5. 電磁干擾（EMI）</h3>
+<p>手機、Wi-Fi 路由器、螢光燈、調光器都會產生電磁干擾，被麥克風或導線拾取。</p>
+<p><strong>對策：</strong><br>
+- 錄音時所有手機切換為飛航模式。<br>
+- XLR 線使用平衡式接線（Balanced），且避開與電源線平行走線。<br>
+- 避免將麥克風靠近電腦螢幕或電源變壓器。</p>
+<h2>雜訊閘（Noise Gate）與擴展器（Expander）</h2>
+<h3>雜訊閘的基本運作</h3>
+<p>雜訊閘是一種自動靜音的處理器：當輸入音量低於設定的<strong>閾值（Threshold）</strong> 時，它會將訊號靜音或大幅衰減。這在錄音後期清理軌道非常有用。</p>
+<p><strong>四個關鍵參數：</strong></p>
+<table>
+<thead>
+<tr>
+<th>參數</th>
+<th>功能</th>
+<th>典型設定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Threshold</td>
+<td>觸發閘門的音量門檻</td>
+<td>低於訊號峰值 15–20 dB</td>
+</tr>
+<tr>
+<td>Attack</td>
+<td>閘門開啟的速度</td>
+<td>0.1–1 ms（快速開啟）</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>閘門關閉的速度</td>
+<td>50–200 ms（依素材調整）</td>
+</tr>
+<tr>
+<td>Range</td>
+<td>關閉時的衰減量</td>
+<td>20–40 dB（完全靜音或部分衰減）</td>
+</tr>
+</tbody>
+</table>
+<h3>延伸到 Expander 的應用</h3>
+<p><strong>擴展器（Expander）</strong> 與雜訊閘原理相似，但更溫和。它不是完全靜音，而是對低於閾值的訊號施加比例衰減（如 2:1 或 3:1）。擴展器適合處理：</p>
+<ul>
+<li>延音尾音太長的樂器</li>
+<li>背景環境噪音較低但持續存在的錄音</li>
+<li>鼓組的串音（Bleed）控制，在保留自然感的同時減少不必要的聲音</li>
+</ul>
+<p>在 DAW 中，ReaGate（Reaper 內建）、FabFilter Pro-G、Waves NS1 都是優秀的工具。</p>
+<h2>高通濾波器（High-Pass Filter）的運用</h2>
+<p>高通濾波器是錄音中最被低估的工具。它允許高頻通過，並衰減低於截止頻率的訊號。</p>
+<p><strong>實戰應用建議：</strong></p>
+<table>
+<thead>
+<tr>
+<th>音源類型</th>
+<th>建議截止頻率</th>
+<th>備註</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>人聲（男）</td>
+<td>80–100 Hz</td>
+<td>避免切掉胸腔共鳴</td>
+</tr>
+<tr>
+<td>人聲（女）</td>
+<td>100–120 Hz</td>
+<td>女性聲音基礎頻率較高</td>
+</tr>
+<tr>
+<td>木吉他</td>
+<td>80–110 Hz</td>
+<td>去除低頻機箱共鳴</td>
+</tr>
+<tr>
+<td>電吉他</td>
+<td>100–120 Hz</td>
+<td>混音中與大鼓分工</td>
+</tr>
+<tr>
+<td>大鼓（Kick）</td>
+<td>30–50 Hz</td>
+<td>保留衝擊感</td>
+</tr>
+<tr>
+<td>小鼓（Snare）</td>
+<td>80–100 Hz</td>
+<td>去除低頻串音</td>
+</tr>
+<tr>
+<td>Overhead 麥克風</td>
+<td>80–120 Hz</td>
+<td>去除鈸下的低頻嗡嗡聲</td>
+</tr>
+</tbody>
+</table>
+<p><strong>重要觀念</strong>：高通濾波器應優先用在<strong>錄音階段</strong>，而非混音階段。在錄音時就將不必要的低頻切除，可以避免低頻資訊佔用寶貴的動態範圍，也能減少後製時才發現的問題。</p>
+<h2>相位問題：什麼是相位抵消？</h2>
+<p>相位（Phase）描述的是聲波的時間位置。當兩個相同的聲波疊加時：</p>
+<ul>
+<li><strong>同相（0°）</strong>：波峰對波峰，波谷對波谷，振幅相加——音量變大。</li>
+<li><strong>反相（180°）</strong>：波峰對波谷，互相抵消——音量變小或完全消失。</li>
+<li><strong>部分偏移（45°、90° 等）</strong>：部分抵消，頻率響應出現梳狀濾波效應（Comb Filtering）。</li>
+</ul>
+<h3>相位抵消的聽感特徵</h3>
+<ul>
+<li>聲音聽起來「變薄」或「空洞」</li>
+<li>低頻明顯消失</li>
+<li>移動頭部位置時聲音變化很大</li>
+<li>將兩軌 Monaural 設為 Mono 時，音量明顯下降</li>
+</ul>
+<h3>最容易出現相位問題的情境</h3>
+<ol>
+<li><strong>多麥克風錄製同一音源</strong>——例如用兩支麥克風錄木吉他、用三支錄大鼓</li>
+<li><strong>多支 Overhead 麥克風</strong>——鼓組錄音中，左右 Overhead 距離不一致</li>
+<li><strong>同時使用 DI 與麥克風</strong>——例如 Bass 同時錄 DI 與音箱麥克風</li>
+<li><strong>房間反射聲</strong>——直接音與反射音抵達麥克風的時間不同</li>
+</ol>
+<h2>如何檢查與解決相位問題</h2>
+<h3>1. 使用相位反轉按鈕（Phase Invert / Polarity Flip）</h3>
+<p>多數錄音介面與 DAW 的每個通道都有一個「⌀」按鈕。這並非真正的相位調整，而是<strong>極性反轉</strong>（將波形上下顛倒 180°）。</p>
+<p><strong>實戰步驟：</strong></p>
+<ol>
+<li>播放同時錄製的兩軌聲音。</li>
+<li>點擊其中一軌的相位反轉按鈕。</li>
+<li>聽聽看：若反轉後低頻變得更飽滿、更紮實，表示原本兩軌是反相的。</li>
+<li>選擇聽起來更好、低頻更紮實的那個設定。</li>
+</ol>
+<h3>2. 時間微調（Nudging / Slide）</h3>
+<p>極性反轉只能處理 180° 的完全反相，無法處理因距離差異造成的時間延遲。這時需要<strong>時間微調</strong>。</p>
+<p><strong>實戰步驟：</strong></p>
+<ol>
+<li>將兩軌波形對齊，放大到樣本層級（Sample Level）。</li>
+<li>找到同一音頭的起始點，微調其中一軌的時間位置（先後移動數毫秒）。</li>
+<li>一邊聽一邊調整，直到低頻聽起來最飽滿、最集中為止。</li>
+</ol>
+<p>在 DAW 中，Reaper 的 <code>Alt+左右鍵</code>、Pro Tools 的 <code>nudge</code> 功能、Logic Pro 的 <code>Sample Editor &gt; Time Alignment</code> 都可完成此操作。</p>
+<h3>3. 自動相位對齊工具</h3>
+<p>現代 DAW 與外掛提供了自動化方案：</p>
+<ul>
+<li><strong>Auto-Align（Sound Radix）</strong>：業界標準，自動計算延遲時間並補償。</li>
+<li><strong>Vocalign Project 5</strong>：不僅對齊節奏，也可對齊相位。</li>
+<li><strong>Reaper 內建 ReaDelay</strong>：手動設定延遲時間來模擬距離補償。</li>
+</ul>
+<h3>4. 三比一法則（3:1 Rule）</h3>
+<p>這是一條經典的經驗法則，幫助減少多麥克風錄音的相位問題：</p>
+<blockquote>
+<p>當使用兩支麥克風錄製同一音源時，第二支麥克風與第一支的距離，應至少是第一支麥克風與音源距離的三倍。</p>
+</blockquote>
+<p>例如：第一支麥克風距離音源 10 公分，第二支至少應在 30 公分以外。這樣做能確保兩支麥克風收到的音量差異夠大，使相位抵消的影響降到最低。</p>
+<h2>相位關聯表（Phase Correlation Meter）</h2>
+<p>相位關聯表是混音必備的視覺工具。它顯示立體聲訊號的左右聲道之間的相位關係，數值範圍從 -1 到 +1：</p>
+<table>
+<thead>
+<tr>
+<th>數值</th>
+<th>狀態</th>
+<th>意義</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+1</td>
+<td>完全同相</td>
+<td>左右聲道完全相同（純 Mono）</td>
+</tr>
+<tr>
+<td>0 到 +1</td>
+<td>良好立體聲</td>
+<td>自然、適合廣播</td>
+</tr>
+<tr>
+<td>0</td>
+<td>不相關</td>
+<td>左右聲道無關聯（如雙聲道獨立噪音）</td>
+</tr>
+<tr>
+<td>0 到 -1</td>
+<td>反相</td>
+<td>部分或完全反相——危險！</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>完全反相</td>
+<td>左右聲道互相抵消</td>
+</tr>
+</tbody>
+</table>
+<p><strong>使用建議：</strong></p>
+<ul>
+<li>在 Master Bus 上掛一個相位關聯表（DAW 通常內建）。</li>
+<li>混音過程中隨時觀察，確保關聯數值不低於 0。</li>
+<li>若數值低於 0，檢查是哪個樂器造成的，逐一 Solo 各軌道來找出問題來源。</li>
+<li>特別注意 Bass、Kick 等低頻樂器——它們最容易受到相位問題影響。</li>
+</ul>
+<p>主要 DAW 的內建工具：Logic Pro 的 MultiMeter、Pro Tools 的 Correlation Meter、Reaper 的 JS: Stereo Field 或 JS: Goniometer。</p>
+<h2>多麥克風錄音實戰工作流程</h2>
+<p>以錄製一把<strong>木吉他</strong>使用兩支麥克風為例，完整相位檢查與底噪排查步驟：</p>
+<h3>第一步：環境準備</h3>
+<ol>
+<li>關閉空調、拔掉手機充電器。</li>
+<li>確認所有設備插在同一個排插。</li>
+<li>試錄 10 秒環境音，檢查底噪是否可接受（應低於 -50 dBFS）。</li>
+<li>若聽到 60 Hz 哼聲，嘗試拔掉筆電電源轉為電池供電。</li>
+</ol>
+<h3>第二步：麥克風架設</h3>
+<ol>
+<li>第一支麥克風指向第 12 琴格，距離 15 公分。</li>
+<li>第二支麥克風指向琴橋，距離 20–25 公分（遵守三比一法則）。</li>
+<li>確認兩支麥克風的音量平衡。</li>
+</ol>
+<h3>第三步：設定高通濾波器</h3>
+<ol>
+<li>兩軌都掛上 80 Hz 高通濾波器（錄音介面上或 DAW 中）。</li>
+<li>錄一段簡單的開放弦刷奏。</li>
+</ol>
+<h3>第四步：相位檢查</h3>
+<ol>
+<li>切換到 Mono 監聽模式。</li>
+<li>點擊第二軌的相位反轉按鈕（⌀）。</li>
+<li>比較兩種設定：正常與反轉。低頻更飽滿、刷奏更集中的那個設定就是正確的。</li>
+<li>若在 Mono 下聲音聽起來不對，嘗試微調第二軌的時間位置（往後移動 0.1–0.5 ms 區間嘗試）。</li>
+</ol>
+<h3>第五步：正式錄音與記錄</h3>
+<ol>
+<li>記錄下最終的相位設定與麥克風距離。</li>
+<li>正式錄製時監聽底噪，確認沒有新的噪音源出現（如手機通知聲）。</li>
+<li>錄製完畢後，檢查波形：若有明顯的非對稱切割或異常低頻，重新檢查相位。</li>
+</ol>
+<h3>第六步：後製清理</h3>
+<ol>
+<li>對人聲或獨奏樂器軌道施加溫和的雜訊閘（Threshold 設在底噪之上 5 dB，Range 約 20 dB）。</li>
+<li>背景噪音較嚴重的軌道可使用擴展器（Ratio 2:1，Attack 慢一些以保留音頭）。</li>
+<li>最後在 Master Bus 上掛相位關聯表，確保整體混音的相位健康。</li>
+</ol>
+<h2>結語</h2>
+<p>底噪排查與相位檢查，是區分野蠻錄音與專業錄音的分水嶺。許多看似「聲音不對」的問題，追根究柢都來自這兩個環節。養成錄音前先檢查環境噪音、錄音後立即核對相位的習慣，能讓你的作品在混音階段省下大量修補時間。下一堂課，我們將進入混音的核心——EQ 與頻率平衡，學習如何讓每個樂器在頻譜中找到自己的位置。</p></div>
+  <div class="vocal-nav-links"><a class="vocal-nav-link" href="../7/">← 上一堂</a><a class="vocal-nav-link" href="../9/">下一堂 →</a></div>
+  <a class="back-link" href="../">← 返回課程總覽</a>
+</main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>世界聲音百科 — 世界樂器、人聲與音樂文化的旅圖</span>
+      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
+      <nav class="footer-nav">
+        <a href="../../">首頁</a>
+        <a href="../../sound-journey/">聲音旅圖</a>
+        <a href="../../vocal/">人聲與歌唱</a>
+	      <a href="../">錄音後製</a>
+        <a href="../../categories/">分類</a>
+        <a href="../../countries/">國家</a>
+        <a href="../../subcategories/">子分類</a>
+        <a href="../../ensembles/">合奏百科</a>
+        <a href="../../theory/">樂理基礎</a>
+        <a href="../../contact/">聯絡我們</a>
+        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
+      </nav>
+    </div>
+  </footer>
+  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
+  <script src="../../assets/search.js"></script>
+  <script src="../../assets/random-instrument.js"></script>
+  <script>(function(){var t=document.getElementById("theme-toggle"),d=document.documentElement;var I={nextdoor:"🎋",light:"🌤",dark:"🌙"};function s(m){d.setAttribute("data-theme",m);if(t)t.textContent=I[m]||"🎋";try{localStorage.setItem("theme",m)}catch(e){}}var v=(localStorage.getItem("theme")||"nextdoor");s(v);if(t)t.addEventListener("click",function(){var c=d.getAttribute("data-theme");s(c==="nextdoor"?"light":c==="light"?"dark":"nextdoor")});})();</script>
+</body>
+</html>
