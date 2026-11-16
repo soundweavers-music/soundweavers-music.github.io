@@ -90,11 +90,29 @@ a { text-underline-offset: 3px; }
   height: 60px;
 }
 .brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
   font-family: var(--font-serif);
   font-weight: 700;
   font-size: 17px;
   color: var(--ink);
   letter-spacing: .04em;
+}
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  /* the artwork is a light watercolour on cream; a hairline keeps it from
+     floating when the header is white */
+  box-shadow: 0 0 0 1px var(--line);
+  background: #fff;
+}
+.brand-text { white-space: nowrap; }
+@media (max-width: 600px) {
+  .brand-text { display: none; }
+  .brand-mark { width: 30px; height: 30px; }
 }
 .site-header nav a {
   font-size: 13.5px;
@@ -141,6 +159,60 @@ a { text-underline-offset: 3px; }
   padding: 72px 24px 56px;
   text-align: center;
   position: relative;
+}
+/* Banner hero: the supplied illustration as a soft backdrop, with a paper
+   veil so the headline keeps its contrast. Falls back to plain paper when
+   the image is missing. */
+.hero-banner {
+  padding: 0;
+  overflow: hidden;
+  background: var(--paper);
+  /* .portal-hero::after (the veil) and .hero-scene are absolutely positioned;
+     without this they anchor to the nearest positioned ancestor, which was
+     not the section, so the backdrop collapsed to the text column. */
+  position: relative;
+  min-height: 460px;
+}
+.hero-scene {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: url("brand/banner.webp") center 40%/cover no-repeat;
+  opacity: .85;
+  filter: saturate(.95);
+}
+/* Veil only behind the text block, so the illustration stays visible at the
+   edges instead of being washed out across the whole hero. */
+.hero-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  /* The artwork has its own busy centre (two figures, a table, a wordmark).
+     A wide paper wash keeps the headline legible while the room stays
+     visible around the edges. */
+  background:
+    radial-gradient(ellipse 58% 78% at 50% 50%,
+      color-mix(in srgb, var(--paper) 95%, transparent) 0%,
+      color-mix(in srgb, var(--paper) 88%, transparent) 52%,
+      color-mix(in srgb, var(--paper) 62%, transparent) 76%,
+      transparent 100%),
+    linear-gradient(180deg,
+      color-mix(in srgb, var(--paper) 40%, transparent) 0%,
+      color-mix(in srgb, var(--paper) 20%, transparent) 40%,
+      color-mix(in srgb, var(--paper) 62%, transparent) 100%);
+}
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 96px 24px 72px;
+}
+@media (max-width: 760px) {
+  .hero-scene { background-image: url("brand/banner-narrow.webp"); }
+  .hero-inner { padding: 64px 20px 52px; }
 }
 .hero-eyebrow {
   font-size: 11.5px;
@@ -405,6 +477,52 @@ a { text-underline-offset: 3px; }
   border-bottom: 1px solid var(--line);
 }
 .article-body h3, .instrument-body h3 { font-size: 17px; margin: 1.6em 0 .6em; }
+
+/* Course landing heroes (vocal / recording / mandolin) — the legacy layer
+   painted a yellow-cream gradient that clashes with the wood palette. */
+.vocal-hero {
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  padding: 60px 20px 44px;
+}
+.vocal-hero h1 { font-family: var(--font-serif); letter-spacing: .04em; }
+.vocal-hero .eyebrow { margin-bottom: 14px; }
+.vocal-level-header h2 { font-family: var(--font-serif); }
+
+/* ── Course chapter lists (vocal / recording / mandolin) ─────── */
+/* The legacy layer used rounded pills with mint-green status chips, which
+   read as a different design language from the rest of the site. */
+.chapter-list { gap: 0; border-top: 1px solid var(--line); }
+.chapter-item {
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  padding: 15px 6px;
+  background: transparent;
+  transition: background .18s ease;
+}
+.chapter-item.has-link:hover { background: var(--soft); box-shadow: none; border-color: var(--line); }
+.chapter-item .ch-num {
+  width: 26px;
+  height: 26px;
+  border-radius: 2px;
+  font-family: var(--font-serif);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+.chapter-item .ch-num.done { background: var(--accent-soft); color: var(--accent2); }
+.chapter-item .ch-title { font-weight: 600; font-size: 14.5px; letter-spacing: .02em; }
+.chapter-item .ch-status {
+  border-radius: 2px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .04em;
+  padding: 2px 8px;
+  font-variant-numeric: tabular-nums;
+}
+.ch-status-done { background: transparent; color: var(--muted); }
+.ch-status-writing { background: transparent; color: var(--wood); }
 
 /* ── Tabs ───────────────────────────────────────────────────── */
 .tab-btn { border-radius: 3px 3px 0 0; font-size: 13px; letter-spacing: .03em; }

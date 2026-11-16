@@ -18,4 +18,8 @@ work/stale_sections.json
 work/design/
 # local agent tooling / downloaded skills (not part of the published site)
 .claude/skills/
+# the raw mandolin book (115MB docx + 104MB source images) stays out of git;
+# web-ready copies live in content/mandolin and assets/mandolin
+content/曼陀林知識全書/
+content/image/
 .DS_Store

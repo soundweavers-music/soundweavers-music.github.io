@@ -158,6 +158,8 @@ def page(title, body, page_path=None, extra_head="", meta_description="", og_ima
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&display=swap">
+  <link rel="icon" href="{resolve_url(page_path, '/assets/brand/favicon.png')}" type="image/png">
+  <link rel="apple-touch-icon" href="{resolve_url(page_path, '/assets/brand/logo.png')}">
   <link rel="stylesheet" href="{resolve_url(page_path, '/assets/site.css')}">
   <link rel="stylesheet" href="{resolve_url(page_path, '/assets/site-refresh.css')}">
   <script type="application/ld+json">{jsonld}</script>
@@ -165,7 +167,7 @@ def page(title, body, page_path=None, extra_head="", meta_description="", og_ima
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="{resolve_url(page_path, '/')}">🌍 世界聲音百科</a>
+    <a class="brand" href="{resolve_url(page_path, '/')}"><img class="brand-mark" src="{resolve_url(page_path, '/assets/brand/logo.png')}" alt="" width="34" height="34"><span class="brand-text">世界聲音百科</span></a>
     <nav>
       <div class="nav-dropdown">
         <a href="{resolve_url(page_path, '/instruments/')}" class="dropdown-trigger">樂器百科</a>
@@ -217,31 +219,12 @@ def page(title, body, page_path=None, extra_head="", meta_description="", og_ima
         </div>
       </div>
       <div class="nav-dropdown">
-        <a href="{resolve_url(page_path, '/vocal/')}" class="dropdown-trigger">人聲與歌唱</a>
+        <a href="{resolve_url(page_path, '/vocal/')}" class="dropdown-trigger">學習</a>
         <div class="dropdown-menu">
-          <a href="{resolve_url(page_path, '/vocal/')}">課程總覽</a>
-          <a href="{resolve_url(page_path, '/vocal/1/')}">初階篇</a>
-          <a href="{resolve_url(page_path, '/vocal/16/')}">進階篇</a>
-        </div>
-      </div>
-      <div class="nav-dropdown">
-        <a href="{resolve_url(page_path, '/digitalmusic/')}" class="dropdown-trigger">錄音後製</a>
-        <div class="dropdown-menu">
-          <a href="{resolve_url(page_path, '/digitalmusic/')}">課程總覽</a>
-          <a href="{resolve_url(page_path, '/digitalmusic/1/')}">基礎篇</a>
-          <a href="{resolve_url(page_path, '/digitalmusic/16/')}">進階篇</a>
-        </div>
-      </div>
-      <div class="nav-dropdown">
-        <a href="{resolve_url(page_path, '/theory/')}" class="dropdown-trigger">樂理基礎</a>
-        <div class="dropdown-menu">
-          <a href="{resolve_url(page_path, '/theory/')}">課程總覽</a>
-          <a href="{resolve_url(page_path, '/theory/0/')}">前言</a>
-          <a href="{resolve_url(page_path, '/theory/1/')}">階段一</a>
-          <a href="{resolve_url(page_path, '/theory/2/')}">階段二</a>
-          <a href="{resolve_url(page_path, '/theory/3/')}">階段三</a>
-          <a href="{resolve_url(page_path, '/theory/4/')}">階段四</a>
-          <a href="{resolve_url(page_path, '/theory/5/')}">階段五</a>
+          <a href="{resolve_url(page_path, '/vocal/')}"><strong>人聲與歌唱</strong>　初階 15 堂・進階 35 堂</a>
+          <a href="{resolve_url(page_path, '/digitalmusic/')}"><strong>錄音後製</strong>　基礎 15 堂・進階 15 堂</a>
+          <a href="{resolve_url(page_path, '/theory/')}"><strong>樂理基礎</strong>　五階段</a>
+          <a href="{resolve_url(page_path, '/mandolin/')}"><strong>曼陀林專區</strong>　22 章知識庫</a>
         </div>
       </div>
       <div class="nav-dropdown">
@@ -356,7 +339,9 @@ def build_portal_homepage(instruments):
     sample_cards = "\n".join(card(item, index_path) for item in featured[:8])
 
     body = f"""<main>
-  <section class="portal-hero">
+  <section class="portal-hero hero-banner">
+    <div class="hero-scene" role="img" aria-label="木質房間裡，一把吉他、一把曼陀林、一台鋼琴與麥克風"></div>
+    <div class="hero-inner">
     <p class="hero-eyebrow">世界樂器・人聲・樂理・錄音</p>
     <h1>世界聲音百科</h1>
     <p class="hero-sub">循著聲音，走進不同文化的現場</p>
@@ -364,7 +349,8 @@ def build_portal_homepage(instruments):
       <input type="search" name="q" placeholder="搜尋樂器、國家、分類…　例：尺八、甘美朗、非洲" aria-label="搜尋樂器">
       <button type="submit" aria-label="搜尋">搜尋</button>
     </form>
-    <p class="hero-stats"><span><strong>833</strong> 件樂器</span><span><strong>4</strong> 大發聲分類</span><span><strong>50</strong> 堂歌唱課</span><span><strong>30</strong> 堂錄音課</span></p>
+    <p class="hero-stats"><span><strong>833</strong> 件樂器</span><span><strong>22</strong> 章曼陀林</span><span><strong>50</strong> 堂歌唱課</span><span><strong>30</strong> 堂錄音課</span></p>
+    </div>
   </section>
 
   <p class="portal-intro">從數千年的古老樂器到當代的人聲技法，從基礎樂理到錄音後製——這是一幅連結聲音、文化與創作靈感的知識地圖。</p>
@@ -394,6 +380,12 @@ def build_portal_homepage(instruments):
       <div class="card-label">樂理基礎</div>
       <div class="card-desc">認識譜號、節拍、拍號、音調、音域與發聲原理，系統了解音樂理論的基礎知識。</div>
       <span class="card-badge badge-ready">已上線</span>
+    </a>
+    <a class="portal-card card-mandolin" href="{resolve_url(index_path, '/mandolin/')}">
+      <div class="card-icon">🪕</div>
+      <div class="card-label">曼陀林專區</div>
+      <div class="card-desc">22 章完整知識庫：從八根弦與五度調弦，到製琴、顫音技法、各地琴型與專輯導聆。全書經多來源查證並改寫為易讀版本。</div>
+      <span class="card-badge badge-new">新登場</span>
     </a>
     <a class="portal-card card-about" href="{resolve_url(index_path, '/about/')}">
       <div class="card-icon">ℹ️</div>

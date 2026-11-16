@@ -436,13 +436,15 @@ def page(title, body, page_path=None, meta_extra="", extra_head="", meta_descrip
   {seo_tags}
   {meta_extra}
   {_dm_head}
+  <link rel="icon" href="{resolve_url(page_path, '/assets/brand/favicon.png')}" type="image/png">
+  <link rel="apple-touch-icon" href="{resolve_url(page_path, '/assets/brand/logo.png')}">
   <link rel="stylesheet" href="{resolve_url(page_path, '/assets/site.css')}">
   <link rel="stylesheet" href="{resolve_url(page_path, '/assets/site-refresh.css')}">
   {extra_head}
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="{resolve_url(page_path, '/')}">🌍 世界聲音百科</a>
+    <a class="brand" href="{resolve_url(page_path, '/')}"><img class="brand-mark" src="{resolve_url(page_path, '/assets/brand/logo.png')}" alt="" width="34" height="34"><span class="brand-text">世界聲音百科</span></a>
     <nav>
       <div class="nav-dropdown">
         <a href="{resolve_url(page_path, '/instruments/')}" class="dropdown-trigger">樂器百科</a>
@@ -495,31 +497,12 @@ def page(title, body, page_path=None, meta_extra="", extra_head="", meta_descrip
         </div>
       </div>
       <div class="nav-dropdown">
-        <a href="{resolve_url(page_path, '/vocal/')}" class="dropdown-trigger">人聲與歌唱</a>
+        <a href="{resolve_url(page_path, '/vocal/')}" class="dropdown-trigger">學習</a>
         <div class="dropdown-menu">
-          <a href="{resolve_url(page_path, '/vocal/')}">課程總覽</a>
-          <a href="{resolve_url(page_path, '/vocal/1/')}">初階篇</a>
-          <a href="{resolve_url(page_path, '/vocal/16/')}">進階篇</a>
-        </div>
-      </div>
-      <div class="nav-dropdown">
-        <a href="{resolve_url(page_path, '/digitalmusic/')}" class="dropdown-trigger">錄音後製</a>
-        <div class="dropdown-menu">
-          <a href="{resolve_url(page_path, '/digitalmusic/')}">課程總覽</a>
-          <a href="{resolve_url(page_path, '/digitalmusic/1/')}">基礎篇</a>
-          <a href="{resolve_url(page_path, '/digitalmusic/16/')}">進階篇</a>
-        </div>
-      </div>
-      <div class="nav-dropdown">
-        <a href="{resolve_url(page_path, '/theory/')}" class="dropdown-trigger">樂理基礎</a>
-        <div class="dropdown-menu">
-          <a href="{resolve_url(page_path, '/theory/')}">課程總覽</a>
-          <a href="{resolve_url(page_path, '/theory/0/')}">前言</a>
-          <a href="{resolve_url(page_path, '/theory/1/')}">階段一</a>
-          <a href="{resolve_url(page_path, '/theory/2/')}">階段二</a>
-          <a href="{resolve_url(page_path, '/theory/3/')}">階段三</a>
-          <a href="{resolve_url(page_path, '/theory/4/')}">階段四</a>
-          <a href="{resolve_url(page_path, '/theory/5/')}">階段五</a>
+          <a href="{resolve_url(page_path, '/vocal/')}"><strong>人聲與歌唱</strong>　初階 15 堂・進階 35 堂</a>
+          <a href="{resolve_url(page_path, '/digitalmusic/')}"><strong>錄音後製</strong>　基礎 15 堂・進階 15 堂</a>
+          <a href="{resolve_url(page_path, '/theory/')}"><strong>樂理基礎</strong>　五階段</a>
+          <a href="{resolve_url(page_path, '/mandolin/')}"><strong>曼陀林專區</strong>　22 章知識庫</a>
         </div>
       </div>
       <div class="nav-dropdown">
@@ -550,6 +533,7 @@ def page(title, body, page_path=None, meta_extra="", extra_head="", meta_descrip
         <a href="{resolve_url(page_path, '/subcategories/')}">子分類</a>
         <a href="{resolve_url(page_path, '/ensembles/')}">合奏百科</a>
         <a href="{resolve_url(page_path, '/theory/')}">樂理基礎</a>
+        <a href="{resolve_url(page_path, '/mandolin/')}">曼陀林專區</a>
         <a href="{resolve_url(page_path, '/contact/')}">聯絡我們</a>
         <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
       </nav>
@@ -2780,10 +2764,24 @@ def main():
             src = out_assets / fname
             if src.exists():
                 shutil.copy2(str(src), str(root_assets / fname))
+        # brand + mandolin asset trees live in assets/ already; only mirror
+        # them under outputs so the deployed site serves them
+        for sub in ("brand", os.path.join("mandolin", "img")):
+            src = out_assets / sub
+            if src.exists():
+                shutil.copytree(str(src), str(root_assets / sub), dirs_exist_ok=True)
     # Copy the bundled CJK serif so @font-face in site-refresh.css resolves
     font_src = BASE_DIR / "fonts"
     if font_src.exists():
         shutil.copytree(str(font_src), str(OUTPUT_DIR / "fonts"), dirs_exist_ok=True)
+    # Brand artwork (logo mark, favicon, banner)
+    brand_src = BASE_DIR / "assets" / "brand"
+    if brand_src.exists():
+        shutil.copytree(str(brand_src), str(OUTPUT_DIR / "assets" / "brand"), dirs_exist_ok=True)
+    # Mandolin book images
+    mand_img = BASE_DIR / "assets" / "mandolin" / "img"
+    if mand_img.exists():
+        shutil.copytree(str(mand_img), str(OUTPUT_DIR / "assets" / "mandolin" / "img"), dirs_exist_ok=True)
     write(OUTPUT_DIR / ".nojekyll", "")
     # Copy Google Search Console verification file to output root
     gsc_file = BASE_DIR / "googled81b331c3a5b66a0.html"
