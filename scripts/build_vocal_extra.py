@@ -357,10 +357,17 @@ def build_portal_homepage(instruments):
 
     body = f"""<main>
   <section class="portal-hero">
+    <p class="hero-eyebrow">世界樂器・人聲・樂理・錄音</p>
     <h1>世界聲音百科</h1>
-    <p class="hero-sub">世界樂器・人聲歌唱・音樂文化 — 循著聲音，走進不同文化的現場</p>
-    <p class="hero-desc">從數千年的古老樂器到當代的人聲技法，從基礎樂理到錄音後製，這是一幅連結聲音、文化與創作靈感的知識地圖。無論你是音樂創作者、教育工作者、學生，或只是對聲音感到好奇的人，這裡都有值得你慢慢探索的內容。</p>
+    <p class="hero-sub">循著聲音，走進不同文化的現場</p>
+    <form class="hero-search" action="{resolve_url(index_path, '/instruments/')}" method="get" role="search">
+      <input type="search" name="q" placeholder="搜尋樂器、國家、分類…　例：尺八、甘美朗、非洲" aria-label="搜尋樂器">
+      <button type="submit" aria-label="搜尋">搜尋</button>
+    </form>
+    <p class="hero-stats"><span><strong>833</strong> 件樂器</span><span><strong>4</strong> 大發聲分類</span><span><strong>50</strong> 堂歌唱課</span><span><strong>30</strong> 堂錄音課</span></p>
   </section>
+
+  <p class="portal-intro">從數千年的古老樂器到當代的人聲技法，從基礎樂理到錄音後製——這是一幅連結聲音、文化與創作靈感的知識地圖。</p>
 
   <div class="portal-grid">
     <a class="portal-card card-instruments" href="{resolve_url(index_path, '/instruments/')}">

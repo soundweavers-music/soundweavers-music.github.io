@@ -138,40 +138,97 @@ a { text-underline-offset: 3px; }
 .portal-hero {
   background: var(--paper);
   border-bottom: 1px solid var(--line);
-  padding: 88px 24px 64px;
-  text-align: left;
+  padding: 72px 24px 56px;
+  text-align: center;
   position: relative;
 }
+.hero-eyebrow {
+  font-size: 11.5px;
+  letter-spacing: .22em;
+  color: var(--accent);
+  margin: 0 0 20px;
+}
 .portal-hero h1 {
-  font-size: clamp(36px, 6vw, 64px);
+  font-size: clamp(38px, 6.2vw, 68px);
   font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: .02em;
+  line-height: 1.08;
+  letter-spacing: .04em;
   max-width: 900px;
-  margin: 0 auto 18px;
+  margin: 0 auto 16px;
 }
 .portal-hero .hero-sub {
   font-family: var(--font-serif);
   font-size: clamp(15px, 1.8vw, 18px);
   color: var(--ink2);
-  max-width: 660px;
-  margin: 0 auto 20px;
+  max-width: 640px;
+  margin: 0 auto 34px;
   line-height: 1.75;
+  letter-spacing: .04em;
 }
-.portal-hero .hero-desc {
+/* Search-first: an 833-entry reference needs the box in the hero, not two
+   clicks away on the listing page. */
+.hero-search {
+  display: flex;
+  max-width: 560px;
+  margin: 0 auto 26px;
+  border: 1px solid var(--line-strong);
+  border-radius: 3px;
+  background: var(--surface);
+  overflow: hidden;
+  transition: border-color .18s ease, box-shadow .18s ease;
+}
+.hero-search:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+.hero-search input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  padding: 14px 16px;
+  font: inherit;
   font-size: 14.5px;
+  color: var(--ink);
+}
+.hero-search input::placeholder { color: var(--muted); }
+.hero-search input:focus { outline: none; }
+.hero-search button {
+  border: 0;
+  background: var(--accent);
+  color: #fff;
+  padding: 0 24px;
+  font: inherit;
+  font-size: 13.5px;
+  letter-spacing: .08em;
+  cursor: pointer;
+  transition: background .18s ease;
+}
+.hero-search button:hover { background: var(--accent2); }
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 28px;
+  font-size: 12.5px;
   color: var(--muted);
+  margin: 0;
+}
+.hero-stats strong {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  color: var(--ink);
+  font-weight: 700;
+  margin-right: 4px;
+}
+.portal-intro {
   max-width: 660px;
   margin: 0 auto;
+  padding: 30px 24px 0;
+  text-align: center;
+  font-size: 14px;
   line-height: 1.85;
-}
-.portal-hero::before {
-  content: "";
-  position: absolute;
-  left: 50%; top: 34px;
-  width: 40px; height: 2px;
-  transform: translateX(-50%);
-  background: var(--wood);
+  color: var(--muted);
 }
 
 /* ── Portal cards: quiet grid, one hairline each ────────────── */
@@ -180,15 +237,28 @@ a { text-underline-offset: 3px; }
   background: var(--surface);
   border: 0;
   border-radius: 0;
-  padding: 26px 24px;
+  padding: 30px 26px 26px;
   min-height: 0;
+  position: relative;
   transition: background .2s ease;
 }
+/* a hairline that slides in on hover — motion without a colour splash */
+.portal-card::after {
+  content: "" !important;
+  display: block !important;
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 2px;
+  background: var(--wood);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .28s cubic-bezier(.4, 0, .2, 1);
+}
 .portal-card:hover { transform: none; background: var(--soft); }
+.portal-card:hover::after { transform: scaleX(1); }
 /* the legacy layer painted a 5px colour bar and a tinted gradient per card;
    in a hairline grid that reads as a stripe of noise, so remove it */
-.portal-card::before,
-.portal-card::after { content: none !important; display: none !important; }
+.portal-card::before { content: none !important; display: none !important; }
 .portal-card,
 .portal-card.card-instruments,
 .portal-card.card-vocal,
@@ -239,8 +309,18 @@ a { text-underline-offset: 3px; }
 .section-heading a { font-size: 13px; color: var(--accent); }
 
 /* ── Instrument cards ───────────────────────────────────────── */
-.instrument-grid { gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
+.instrument-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
 .instrument-card {
+  display: flex;
+  flex-direction: column;
   background: var(--surface);
   border: 0;
   border-radius: 0;
@@ -248,26 +328,59 @@ a { text-underline-offset: 3px; }
   transition: background .18s ease;
 }
 .instrument-card:hover { transform: none; background: var(--soft); box-shadow: none; }
-.card-thumb { height: 168px; filter: saturate(.92); }
-.card-body { padding: 13px 14px 15px; gap: 3px; }
-.card-title { font-family: var(--font-serif); font-size: 15.5px; font-weight: 700; letter-spacing: .02em; }
-.card-orig { font-size: 11.5px; letter-spacing: .03em; }
-.card-meta { font-size: 11.5px; line-height: 1.5; }
-.card-cat {
-  display: flex; align-items: center; gap: 6px;
-  font-size: 10.5px; letter-spacing: .07em; color: var(--muted);
-  text-transform: none;
-}
-.card-code {
-  background: var(--accent-soft); color: var(--accent);
-  padding: 1px 5px; border-radius: 3px; font-size: 10px; letter-spacing: .06em;
+/* Fixed media box so every row lines up. Cards used to mixed 168px photo
+   thumbs with 100px placeholder blocks, which made the grid ragged. */
+.card-thumb,
+.card-thumb--empty {
+  width: 100%;
+  height: 150px;
+  flex-shrink: 0;
+  object-fit: cover;
+  display: block;
+  filter: saturate(.92);
 }
 .card-thumb--empty {
-  height: 100px;
   background: var(--soft);
   color: var(--line-strong);
   font-family: var(--font-serif);
-  font-size: 26px;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card-body {
+  padding: 13px 15px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+}
+.card-title {
+  font-family: var(--font-serif);
+  font-size: 15.5px;
+  font-weight: 700;
+  letter-spacing: .03em;
+  line-height: 1.35;
+  margin-top: 2px;
+}
+.card-orig { font-size: 11.5px; letter-spacing: .03em; }
+.card-meta {
+  font-size: 11px;
+  line-height: 1.55;
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+}
+.card-cat {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 10.5px; letter-spacing: .06em; color: var(--muted);
+  text-transform: none;
+}
+.card-code {
+  background: var(--accent-soft); color: var(--accent2);
+  padding: 1px 5px; border-radius: 2px; font-size: 9.5px; letter-spacing: .08em;
+  font-weight: 600;
 }
 
 /* ── Detail page ────────────────────────────────────────────── */

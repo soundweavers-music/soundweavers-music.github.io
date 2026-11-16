@@ -1628,7 +1628,8 @@ h2 { margin:0; font-weight:700; }
             "subcategory": item.get("subcategory", ""),
             "sound_class": item.get("sound_class", ""),
             "url": site_url(f"/instruments/{item['slug']}/"),
-            "image": "",
+            # was hard-coded to "", which left every search result thumbnailless
+            "image": item.get("image", ""),
         }
         for item in instruments
     ]
@@ -1696,6 +1697,7 @@ try {{
 // Search box
 if (input && results) {{
   input.addEventListener('input', () => {{
+    if (typeof renderDropdownResults === 'function') renderDropdownResults();
     const q = input.value.trim().toLowerCase();
     results.replaceChildren();
     if (!q) return;
@@ -1711,6 +1713,15 @@ if (input && results) {{
     const hits = scored.slice(0, 20).map(x => x.item);
     for (const item of hits) appendResult(results, item);
   }});
+
+  // The homepage hero links here as /instruments/?q=<term>. Run it after the
+  // listener exists, and switch to the view that actually shows results.
+  const initialQ = new URLSearchParams(location.search).get('q');
+  if (initialQ) {{
+    input.value = initialQ;
+    setBrowseMode('dropdown');
+    input.dispatchEvent(new Event('input'));
+  }}
 }}
 
 // Populate selects
@@ -1764,8 +1775,14 @@ function renderDropdownResults() {{
   if (!dropdownResults) return;
   dropdownResults.replaceChildren();
   const filters = selectedFilters();
+  // The keyword box feeds this list too — without it, typing "尺八" showed
+  // one hit above and 833 rows below.
+  const kw = (input && input.value.trim().toLowerCase()) || '';
   currentHits = SEARCH_INDEX.filter(item =>
     Object.entries(filters).every(([field, value]) => !value || item[field] === value)
+    && (!kw || [item.title, item.original_name, item.category, item.country,
+                item.subcategory, item.sound_class]
+          .join(' ').toLowerCase().includes(kw))
   );
   shownCount = 0;
   if (dropdownCount) dropdownCount.textContent = `${{currentHits.length}} 筆`;
