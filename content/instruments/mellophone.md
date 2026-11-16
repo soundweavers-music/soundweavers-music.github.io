@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴（423.232）；依據：Wikidata P1762 為 423.232；英文維基全文稱 mellophone 為 brass instrume
 source_url: https://soundweavers-music.github.io/instruments/mellophone/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Yamaha_Mellophone_YMP-204MS.tiff/lossy-page1-500px-Yamaha_Mellophone_YMP-204MS.tiff.jpg
+image: 
 youtube_ids: zm9rhlpGJWM 5oivpDSVNm0
 ---
 

@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴；依據：英文維基簡述「Ukrainian stringed musical instrument」、分類「String inst
 source_url: https://soundweavers-music.github.io/instruments/bandura/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Bandura_range.tif/lossy-page1-500px-Bandura_range.tif.jpg
+image: 
 youtube_ids: gewWCildh_o qoP2We1D2Ro
 ---
 

@@ -438,6 +438,7 @@ def page(title, body, page_path=None, meta_extra="", extra_head="", meta_descrip
   {meta_extra}
   {_dm_head}
   <link rel="stylesheet" href="{resolve_url(page_path, '/assets/site.css')}">
+  <link rel="stylesheet" href="{resolve_url(page_path, '/assets/site-refresh.css')}">
   {extra_head}
 </head>
 <body>
@@ -625,8 +626,8 @@ def build_instruments_list_page(instruments):
       </section>
 
       <section class="view-switch" aria-label="瀏覽模式">
-        <button id="mode-dropdown" class="is-active" type="button">🔍 篩選瀏覽</button>
-        <button id="mode-cards" type="button">📂 分類卡片</button>
+        <button id="mode-cards" class="is-active" type="button">📂 分類卡片</button>
+        <button id="mode-dropdown" type="button">🔍 篩選瀏覽</button>
       </section>
 
       <div id="dropdown-mode" class="browse-mode">
@@ -655,7 +656,7 @@ def build_instruments_list_page(instruments):
         </section>
       </div>
 
-      <div id="card-mode" class="browse-mode" hidden>
+      <div id="card-mode" class="browse-mode">
         <section class="section">
           <div class="section-heading"><h2>分類瀏覽</h2></div>
           <div class="facet-grid">{category_links}</div>
@@ -761,8 +762,8 @@ def build_index(instruments):
       </section>
 
       <section class="view-switch" aria-label="瀏覽模式">
-        <button id="mode-dropdown" class="is-active" type="button">🔍 篩選瀏覽</button>
-        <button id="mode-cards" type="button">📂 分類卡片</button>
+        <button id="mode-cards" class="is-active" type="button">📂 分類卡片</button>
+        <button id="mode-dropdown" type="button">🔍 篩選瀏覽</button>
       </section>
 
       <div id="dropdown-mode" class="browse-mode">
@@ -791,7 +792,7 @@ def build_index(instruments):
         </section>
       </div>
 
-      <div id="card-mode" class="browse-mode" hidden>
+      <div id="card-mode" class="browse-mode">
         <section class="section">
           <div class="section-heading"><h2>分類瀏覽</h2><a href="{resolve_url(index_path, '/categories/')}">全部分類 →</a></div>
           <div class="facet-grid">{category_links}</div>
@@ -1688,11 +1689,12 @@ function setBrowseMode(mode) {{
 modeDropdown?.addEventListener('click', () => setBrowseMode('dropdown'));
 modeCards?.addEventListener('click', () => setBrowseMode('cards'));
 
-// Restore saved mode
+// Restore saved mode; cards is the default — a grid of instruments with
+// images is a better first impression than a wall of text rows.
 try {{
   const saved = localStorage.getItem('wmi_browse_mode');
-  if (saved) setBrowseMode(saved); else setBrowseMode('dropdown');
-}} catch(e) {{ setBrowseMode('dropdown'); }}
+  setBrowseMode(saved || 'cards');
+}} catch(e) {{ setBrowseMode('cards'); }}
 
 // Search box
 if (input && results) {{
@@ -1823,6 +1825,12 @@ document.querySelectorAll('.tab-btn').forEach(btn => {{
 }});
 """
     write(OUTPUT_DIR / "assets" / "site.css", css.strip() + "\n")
+    # Visual refresh layer (Swiss/editorial). Kept as a separate hand-maintained
+    # file rather than appended here, so it stays reviewable on its own.
+    refresh_src = BASE_DIR / "assets" / "site-refresh.css"
+    if refresh_src.exists():
+        write(OUTPUT_DIR / "assets" / "site-refresh.css",
+              refresh_src.read_text(encoding="utf-8"))
     write(OUTPUT_DIR / "assets" / "search.js", js.strip() + "\n")
     write(OUTPUT_DIR / "search-index.json", json.dumps(search_index, ensure_ascii=False, indent=2))
 
@@ -2753,11 +2761,15 @@ def main():
     root_assets.mkdir(parents=True, exist_ok=True)
     out_assets = OUTPUT_DIR / "assets"
     if out_assets.exists():
-        for fname in ["instruments_database.xlsx", "site.css", "search.js",
+        for fname in ["instruments_database.xlsx", "site.css", "site-refresh.css", "search.js",
                        "random-instrument.js", "map-data.json", "author-logo.jpg"]:
             src = out_assets / fname
             if src.exists():
                 shutil.copy2(str(src), str(root_assets / fname))
+    # Copy the bundled CJK serif so @font-face in site-refresh.css resolves
+    font_src = BASE_DIR / "fonts"
+    if font_src.exists():
+        shutil.copytree(str(font_src), str(OUTPUT_DIR / "fonts"), dirs_exist_ok=True)
     write(OUTPUT_DIR / ".nojekyll", "")
     # Write ads.txt for Google AdSense
     write(OUTPUT_DIR / "ads.txt", "google.com, pub-6561686484716387, DIRECT, f08c47fec0942fa0\n")

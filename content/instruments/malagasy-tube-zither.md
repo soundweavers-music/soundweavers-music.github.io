@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴（312.11）；依據：來源一與來源五稱 valiha 為 stringed musical instrument、tube zither，且以；與「Valiha」互為別名／變體
 source_url: https://soundweavers-music.github.io/instruments/malagasy-tube-zither/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Instrumentos_musicales_%28sequence%3D1%29.pdf/page1-500px-Instrumentos_musicales_%28sequence%3D1%29.pdf.jpg
+image: https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Valiha_player_in_Ambohimahasoa.jpg/500px-Valiha_player_in_Ambohimahasoa.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail
 youtube_ids: 4iNkNs_wnm8 UnaoYvqx0Kg
 ---
 

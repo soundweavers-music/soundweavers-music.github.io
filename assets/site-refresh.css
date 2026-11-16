@@ -1,0 +1,314 @@
+/* ───────────────────────────────────────────────────────────────
+   世界聲音百科 — visual refresh (Swiss / editorial)
+   Loaded after site.css; overrides tokens and a few components only.
+   Design basis: ui-ux-pro-max 「Wiki / Encyclopedia」 → Minimalism &
+   Swiss Style. Type: Noto Serif TC headings + Noto Sans TC body.
+   ─────────────────────────────────────────────────────────────── */
+
+/* ── Tokens ─────────────────────────────────────────────────── */
+:root {
+  --ink: #16181d;
+  --ink2: #3c4048;
+  --muted: #6b7280;
+  --line: #e3e0d9;
+  --line-strong: #c9c4ba;
+  --surface: #ffffff;
+  --soft: #f7f5f0;
+  --paper: #fbfaf7;
+  --accent: #1f4e46;
+  --accent2: #163b35;
+  --accent-soft: #e8efec;
+  --blue: #1d4ed8;
+  --radius: 4px;
+  --radius-lg: 8px;
+  --shadow: none;
+  --shadow-md: 0 1px 2px rgba(22, 24, 29, .06), 0 8px 24px -12px rgba(22, 24, 29, .18);
+  /* system CJK serifs first — the bundled variable TTF is 16MB and should
+     only load on machines that have neither Noto Serif TC nor a fallback */
+  --font-serif: "Noto Serif TC", "Songti TC", "PMingLiU", "Source Han Serif TW VF", Georgia, serif;
+  --font-sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  --measure: 68ch;
+}
+
+[data-theme="dark"] {
+  --ink: #eceef1;
+  --ink2: #c4c8cf;
+  --muted: #9aa1ac;
+  --line: #2e333c;
+  --line-strong: #454c57;
+  --surface: #161a20;
+  --soft: #1c212a;
+  --paper: #12161b;
+  --accent: #7cc4b4;
+  --accent2: #a4d8cb;
+  --accent-soft: #1e2f2c;
+  --shadow: none;
+  --shadow-md: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px -12px rgba(0, 0, 0, .6);
+}
+
+/* ── Webfont ────────────────────────────────────────────────── */
+/* The repo ships a variable Source Han Serif TW build; it is the only
+   CJK serif we can rely on without a network fetch. Sans falls back to
+   the system stack (PingFang/JhengHei) which is already good. */
+@font-face {
+  font-family: "Source Han Serif TW VF";
+  src: url("../fonts/Variable/TTF/Subset/SourceHanSerifTW-VF.ttf") format("truetype");
+  font-weight: 200 900;
+  font-display: swap;
+  /* the fallback stack above resolves first on Windows/macOS, so this file
+     is normally never requested */
+}
+
+/* ── Base ───────────────────────────────────────────────────── */
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, .card-title, .portal-hero h1 {
+  font-family: var(--font-serif);
+  letter-spacing: .01em;
+}
+
+a { text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+
+/* ── Header ─────────────────────────────────────────────────── */
+.site-header {
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  border-bottom: 1px solid var(--line);
+  box-shadow: none;
+  padding: 0 28px;
+  height: 60px;
+}
+.brand {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--ink);
+  letter-spacing: .04em;
+}
+.site-header nav a {
+  font-size: 13.5px;
+  letter-spacing: .02em;
+  border-radius: 3px;
+  padding: 7px 11px;
+}
+.site-header nav a:hover { background: var(--accent-soft); color: var(--accent); }
+.dropdown-menu { border-radius: var(--radius-lg); border-color: var(--line); box-shadow: var(--shadow-md); }
+.sub-count { font-variant-numeric: tabular-nums; }
+
+/* ── Homepage hero ──────────────────────────────────────────── */
+.portal-hero {
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  padding: 88px 24px 64px;
+  text-align: left;
+  position: relative;
+}
+.portal-hero h1 {
+  font-size: clamp(36px, 6vw, 64px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: .02em;
+  max-width: 900px;
+  margin: 0 auto 18px;
+}
+.portal-hero .hero-sub {
+  font-family: var(--font-serif);
+  font-size: clamp(15px, 1.8vw, 18px);
+  color: var(--ink2);
+  max-width: 660px;
+  margin: 0 auto 20px;
+  line-height: 1.75;
+}
+.portal-hero .hero-desc {
+  font-size: 14.5px;
+  color: var(--muted);
+  max-width: 660px;
+  margin: 0 auto;
+  line-height: 1.85;
+}
+.portal-hero::before {
+  content: "";
+  position: absolute;
+  left: 50%; top: 34px;
+  width: 40px; height: 2px;
+  transform: translateX(-50%);
+  background: var(--accent);
+}
+
+/* ── Portal cards: quiet grid, one hairline each ────────────── */
+.portal-grid { gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
+.portal-card {
+  background: var(--surface);
+  border: 0;
+  border-radius: 0;
+  padding: 26px 24px;
+  min-height: 0;
+  transition: background .2s ease;
+}
+.portal-card:hover { transform: none; background: var(--soft); }
+/* the legacy layer painted a 5px colour bar and a tinted gradient per card;
+   in a hairline grid that reads as a stripe of noise, so remove it */
+.portal-card::before,
+.portal-card::after { content: none !important; display: none !important; }
+.portal-card,
+.portal-card.card-instruments,
+.portal-card.card-vocal,
+.portal-card.card-theory,
+.portal-card.card-about,
+.portal-card.card-contact,
+.portal-card.card-tools { background: var(--surface) !important; }
+.portal-card .card-icon { font-size: 20px; margin-bottom: 14px; opacity: .75; }
+.portal-card .card-label,
+.portal-card.card-instruments .card-label,
+.portal-card.card-digitalmusic .card-label,
+.portal-card.card-vocal .card-label,
+.portal-card.card-theory .card-label,
+.portal-card.card-about .card-label,
+.portal-card.card-contact .card-label,
+.portal-card.card-tools .card-label { font-size: 19px; font-weight: 700; margin-bottom: 8px; color: var(--ink) !important; }
+
+/* Eight cards in a 3-column grid leave one cell showing the grid's hairline
+   background as a grey block. Instead of faking a filler, drop the gap colour
+   entirely and use per-card borders — an empty cell then reads as paper. */
+.portal-grid {
+  gap: 0;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+}
+.portal-grid > .portal-card {
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.portal-grid > .portal-card:nth-child(3n) { border-right: 0; }
+.portal-grid > .portal-card:nth-last-child(-n+2) { border-bottom: 0; }
+.portal-card .card-desc { font-size: 13.5px; line-height: 1.7; color: var(--muted); }
+.card-badge {
+  align-self: flex-start;
+  margin-top: 16px;
+  font-size: 11px;
+  letter-spacing: .06em;
+  padding: 3px 8px;
+  border-radius: 3px;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+/* ── Section headings ───────────────────────────────────────── */
+.section-heading { border-bottom: 1px solid var(--line); padding-bottom: 12px; margin-bottom: 24px; }
+.section-heading h2 { font-size: 21px; font-weight: 700; }
+.section-heading a { font-size: 13px; color: var(--accent); }
+
+/* ── Instrument cards ───────────────────────────────────────── */
+.instrument-grid { gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
+.instrument-card {
+  background: var(--surface);
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  transition: background .18s ease;
+}
+.instrument-card:hover { transform: none; background: var(--soft); box-shadow: none; }
+.card-thumb { height: 168px; filter: saturate(.92); }
+.card-body { padding: 13px 14px 15px; gap: 3px; }
+.card-title { font-family: var(--font-serif); font-size: 15.5px; font-weight: 700; letter-spacing: .02em; }
+.card-orig { font-size: 11.5px; letter-spacing: .03em; }
+.card-meta { font-size: 11.5px; line-height: 1.5; }
+.card-cat {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 10.5px; letter-spacing: .07em; color: var(--muted);
+  text-transform: none;
+}
+.card-code {
+  background: var(--accent-soft); color: var(--accent);
+  padding: 1px 5px; border-radius: 3px; font-size: 10px; letter-spacing: .06em;
+}
+.card-thumb--empty {
+  height: 100px;
+  background: var(--soft);
+  color: var(--line-strong);
+  font-family: var(--font-serif);
+  font-size: 26px;
+}
+
+/* ── Detail page ────────────────────────────────────────────── */
+.instrument-page { max-width: 900px; }
+.breadcrumb { font-size: 12.5px; letter-spacing: .02em; }
+.instrument-header h1 { font-size: clamp(30px, 4.4vw, 44px); font-weight: 700; line-height: 1.16; }
+.instrument-image { border-radius: var(--radius); box-shadow: none; border: 1px solid var(--line); }
+.soundscape-tag { color: var(--accent); font-style: normal; font-family: var(--font-serif); }
+
+.meta-grid { gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.meta-item { background: var(--surface); border: 0; border-radius: 0; padding: 12px 14px; box-shadow: none; }
+.meta-item dt { font-size: 10.5px; letter-spacing: .09em; color: var(--muted); }
+.meta-item dd { font-size: 13.5px; line-height: 1.55; margin-top: 3px; }
+
+/* Article body: readable measure, editorial rhythm */
+.article-body, .instrument-body { font-size: 16px; line-height: 1.85; color: var(--ink2); }
+.article-body p, .instrument-body p { max-width: var(--measure); }
+.article-body h2, .instrument-body h2 {
+  font-size: 22px;
+  margin: 2.2em 0 .8em;
+  padding-bottom: .35em;
+  border-bottom: 1px solid var(--line);
+}
+.article-body h3, .instrument-body h3 { font-size: 17px; margin: 1.6em 0 .6em; }
+
+/* ── Tabs ───────────────────────────────────────────────────── */
+.tab-btn { border-radius: 3px 3px 0 0; font-size: 13px; letter-spacing: .03em; }
+.tab-btn.is-active { border-bottom-color: var(--accent); color: var(--accent); }
+
+/* ── Facet / filter pages ───────────────────────────────────── */
+.facet-grid { gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
+.facet-card { background: var(--surface); border: 0; border-radius: 0; box-shadow: none; }
+.facet-card:hover { background: var(--soft); }
+.facet-card strong { font-family: var(--font-serif); }
+.facet-card span { font-variant-numeric: tabular-nums; }
+
+.list-toolbar h1, .compact-hero h1 {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 700;
+}
+.eyebrow { font-size: 11px; letter-spacing: .16em; color: var(--accent); }
+
+/* Search + selects */
+.search-input, .dropdown-filters select, select, input[type="text"], input[type="search"] {
+  border-radius: 3px;
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
+}
+.view-switch button, .filter-reset, .load-more-btn { border-radius: 3px; }
+
+/* ── Footer ─────────────────────────────────────────────────── */
+.site-footer {
+  border-top: 1px solid var(--line);
+  background: var(--paper);
+  font-size: 12.5px;
+  color: var(--muted);
+}
+.site-footer a { color: var(--ink2); }
+
+/* ── Mobile ─────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .portal-grid { grid-template-columns: 1fr 1fr; }
+  .portal-hero { padding: 56px 20px 44px; text-align: center; }
+  .portal-hero .hero-sub, .portal-hero .hero-desc { margin-inline: auto; }
+}
+@media (max-width: 600px) {
+  .portal-grid { grid-template-columns: 1fr; }
+  .instrument-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+  .card-thumb { height: 130px; }
+  .site-header { padding: 0 16px; }
+  .portal-hero h1 { font-size: 30px; }
+}
+
+/* ── Motion & print ─────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+}

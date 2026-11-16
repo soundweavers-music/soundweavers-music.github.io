@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴（321.321）；依據：來源五：Tamburica 為 long-necked lutes，strings are plucked；來源三：Wi
 source_url: https://soundweavers-music.github.io/instruments/tamburica/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/NLC416-03jh004376-19754_%E8%8B%B1%E5%9C%8B%E5%8F%B2.pdf/page1-500px-NLC416-03jh004376-19754_%E8%8B%B1%E5%9C%8B%E5%8F%B2.pdf.jpg
+image: 
 youtube_ids: fCtMNklEQKM GUPHaaVG_zo
 ---
 

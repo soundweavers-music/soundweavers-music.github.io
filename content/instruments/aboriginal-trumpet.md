@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴（423.121.11）；依據：英文維基 infobox 與 Wikidata 均標為 Hornbostel–Sachs 423.121.11 end-；與「Didgeridoo」互為別名／變體
 source_url: https://soundweavers-music.github.io/instruments/aboriginal-trumpet/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Sketches_of_aboriginal_life_%28IA_sketchesofaborig00vide%29.pdf/page1-500px-Sketches_of_aboriginal_life_%28IA_sketchesofaborig00vide%29.pdf.jpg
+image: https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Australia_Aboriginal_Culture_009.jpg/500px-Australia_Aboriginal_Culture_009.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail
 youtube_ids: cLu9GmV2vF0 yG9ZX1FS20A
 ---
 

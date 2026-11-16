@@ -5,7 +5,7 @@ subcategory: 鑼鐘與金屬敲擊
 title_zh: 釘子提琴
 title_original: Nail violin
 family_std: 擦弦、輪弦與提琴家族
-sound_hs: 弦鳴｜131.21
+sound_hs: 體鳴｜131.21
 playing_method: 弓擦／輪擦
 interface_tags: 弓
 region_culture: 德國｜單一地區／文化圈

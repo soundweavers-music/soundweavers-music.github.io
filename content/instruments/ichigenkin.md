@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴；依據：來源五：ichigenkin is a Japanese single-stringed plucked zither
 source_url: https://soundweavers-music.github.io/instruments/ichigenkin/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Yakumo-goto.tif/lossy-page1-500px-Yakumo-goto.tif.jpg
+image: 
 youtube_ids: jNEp84PVYes wu1_7EOAgRM
 ---
 

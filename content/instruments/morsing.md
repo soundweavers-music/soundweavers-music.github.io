@@ -5,7 +5,7 @@ subcategory: 鑼鐘與金屬敲擊
 title_zh: 莫辛琴
 title_original: Morsing
 family_std: 口簧、自由簧、單簧雙簧與風袋
-sound_hs: 氣鳴｜121.2
+sound_hs: 體鳴｜121.2
 playing_method: 吹奏／簧片振動／風袋或風箱
 interface_tags: 風箱
 region_culture: 亞洲／歐洲／中東／全球

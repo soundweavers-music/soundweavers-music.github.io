@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴；依據：來源一與來源五均記載「The mey is a double-reed aerophone」
 source_url: https://soundweavers-music.github.io/instruments/mey/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/CADAL11100305_%E4%BE%9D%E6%96%90%E6%A0%BC%E7%B4%8D%E4%BA%9E.djvu/page1-500px-CADAL11100305_%E4%BE%9D%E6%96%90%E6%A0%BC%E7%B4%8D%E4%BA%9E.djvu.jpg
+image: https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Duduk-view.jpg/500px-Duduk-view.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail
 youtube_ids: wYQ_ol3L9Ag J91emaxq0iY
 ---
 

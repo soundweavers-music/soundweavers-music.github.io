@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴（421.121.12）；依據：英文全文摘錄稱其為 Japanese transverse fue；Wikidata P1762 給出 H-S 421.
 source_url: https://soundweavers-music.github.io/instruments/ry-teki/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Ryuteki_-_SMV_-_M1014_02.tif/lossy-page1-250px-Ryuteki_-_SMV_-_M1014_02.tif.jpg
+image: https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/Ryuteki_player_by_Ken%40Okinawa_in_Kamakura%2C_Kanagawa.jpg/500px-Ryuteki_player_by_Ken%40Okinawa_in_Kamakura%2C_Kanagawa.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail
 youtube_ids: 1BanqxzdpFc 4aRsbO2V8Cg
 ---
 

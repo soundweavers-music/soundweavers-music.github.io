@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：體鳴；依據：來源一／五：Idiophone、metallophone、plaque percussion idiophones
 source_url: https://soundweavers-music.github.io/instruments/ranat-thum/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/%E7%90%B4%E6%9B%B8%E5%A4%A7%E5%85%A8%28%E5%85%AD%29.djvu/page1-500px-%E7%90%B4%E6%9B%B8%E5%A4%A7%E5%85%A8%28%E5%85%AD%29.djvu.jpg
+image: https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Ranat_thum_lek.jpg/500px-Ranat_thum_lek.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail
 youtube_ids: lIdleRSML-o xYWKd11RjDo
 ---
 

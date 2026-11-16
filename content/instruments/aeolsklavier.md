@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴；依據：來源五：aeolsklavier 為 aeolodion 的 modification，具鍵盤與風箱，且 aeolodi；與「aeolodion」互為別名／變體
 source_url: https://soundweavers-music.github.io/instruments/aeolsklavier/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Stokes%27_encyclopedia_of_music_and_musicians%2C_covering_the_entire_period_of_musical_history_from_the_earliest_times_to_the_season_of_1908-09_%28IA_cu31924022228385%29.pdf/page1-500px-thumbnail.pdf.jpg
+image: 
 youtube_ids: Ncom7FWjLmw MHl4A7cYK7U
 ---
 

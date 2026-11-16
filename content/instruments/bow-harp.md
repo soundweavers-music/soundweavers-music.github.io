@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴（322.11）；依據：來源一與來源五：Adungu also called Bow harp, traditional stringed mu；與「Adungu」互為別名／變體
 source_url: https://soundweavers-music.github.io/instruments/bow-harp/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/B%C3%A5gharpa_-_SMV_-_F573_02.tif/lossy-page1-500px-B%C3%A5gharpa_-_SMV_-_F573_02.tif.jpg
+image: https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Three_Adungu_Harps.jpg/500px-Three_Adungu_Harps.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail
 youtube_ids: ZvxiJZcml6g jBlmunFVGuc
 ---
 

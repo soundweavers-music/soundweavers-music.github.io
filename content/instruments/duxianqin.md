@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴；依據：來源一簡述「Chinese plucked string instrument」及來源五「plucked string 
 source_url: https://soundweavers-music.github.io/instruments/duxianqin/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/%E7%84%A1%E7%B5%83%E7%90%B4%E8%AD%9C.djvu/page1-500px-%E7%84%A1%E7%B5%83%E7%90%B4%E8%AD%9C.djvu.jpg
+image: https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Cmglee_London_Covent_Garden_duxianqin_left.jpg/500px-Cmglee_London_Covent_Garden_duxianqin_left.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail
 youtube_ids: -Q4l-DnqdMo v6_Vfwi6lhA
 ---
 

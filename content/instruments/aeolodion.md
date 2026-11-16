@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴；依據：來源一：Wind instrument；來源五：keyed wind instrument resembling the
 source_url: https://soundweavers-music.github.io/instruments/aeolodion/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Rotterdamsche_courant_27-08-1825_%28IA_ddd_010391726_mpeg21%29.pdf/page1-500px-Rotterdamsche_courant_27-08-1825_%28IA_ddd_010391726_mpeg21%29.pdf.jpg
+image: 
 youtube_ids: Ncom7FWjLmw 2mGeTtktG80
 ---
 

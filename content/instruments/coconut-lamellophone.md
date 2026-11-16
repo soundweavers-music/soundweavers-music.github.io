@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：體鳴（12）；依據：來源五：lamellophones constitute category 12 in the Hornbostel–S
 source_url: https://soundweavers-music.github.io/instruments/coconut-lamellophone/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/NLC511-023031103010001-77628_%E7%9B%9B%E4%BA%AC%E6%99%82%E5%A0%B1_%E7%AC%AC379%E5%8D%B7.pdf/page1-500px-NLC511-023031103010001-77628_%E7%9B%9B%E4%BA%AC%E6%99%82%E5%A0%B1_%E7%AC%AC379%E5%8D%B7.pdf.jpg
+image: 
 youtube_ids: kd7KC3PaEaA ftSGCbTZ2PY
 ---
 

@@ -65,12 +65,19 @@ def read_instruments():
                     if ":" in line:
                         k, v = line.split(":", 1)
                         meta[k.strip()] = v.strip().strip('"')
+        # v1.2 frontmatter renamed these fields (title→title_zh,
+        # original_name→title_original, category→frontend_class,
+        # country→region_culture). Reading only the old names left every
+        # homepage card showing the raw slug and the category "其他".
         instruments.append({
             "slug": path.stem,
-            "title": meta.get("title", path.stem),
-            "original_name": meta.get("original_name", ""),
-            "category": meta.get("category", "其他"),
-            "country": meta.get("country", ""),
+            "title": meta.get("title_zh") or meta.get("title") or path.stem,
+            "original_name": meta.get("title_original") or meta.get("original_name") or "",
+            "category": meta.get("frontend_class") or meta.get("category") or "其他",
+            "subcategory": meta.get("subcategory", ""),
+            "sound_class": meta.get("sound_hs", ""),
+            "class_code": meta.get("class_code", ""),
+            "country": meta.get("region_culture") or meta.get("country") or "",
             "era": meta.get("era", ""),
             "image": meta.get("image", ""),
             "is_popular": meta.get("is_popular", "").lower() == "true",
@@ -145,6 +152,7 @@ def page(title, body, page_path=None, extra_head="", meta_description="", og_ima
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&display=swap">
   <link rel="stylesheet" href="{resolve_url(page_path, '/assets/site.css')}">
+  <link rel="stylesheet" href="{resolve_url(page_path, '/assets/site-refresh.css')}">
   <script type="application/ld+json">{jsonld}</script>
   {extra_head}
 </head>
@@ -317,15 +325,25 @@ def build_portal_homepage(instruments):
     print("Building portal homepage...")
     index_path = OUTPUT_DIR / "index.html"
 
-    # Featured instruments
+    # Featured instruments. Exclude entries that are not a single instrument
+    # (a composition, a material category, a traditional-music umbrella) and
+    # the A9 holding pen — they read badly as "latest instruments".
+    NOT_AN_INSTRUMENT = {"A9", "待確認", "待分類／偵錯暫存"}
+
+    def showcaseable(item):
+        return (item.get("class_code") not in NOT_AN_INSTRUMENT
+                and item.get("category") not in NOT_AN_INSTRUMENT
+                and item.get("subcategory") not in NOT_AN_INSTRUMENT)
+
     by_cat = defaultdict(list)
     for item in instruments:
-        by_cat[item["category"]].append(item)
+        if showcaseable(item):
+            by_cat[item["category"]].append(item)
     featured = []
     rng = random.Random(42)
-    for cat_items in by_cat.values():
-        with_img = [i for i in cat_items if i.get("image")]
-        pool = with_img if with_img else cat_items
+    for cat_items in sorted(by_cat.items()):
+        with_img = [i for i in cat_items[1] if i.get("image")]
+        pool = with_img if with_img else cat_items[1]
         shuffled = list(pool)
         rng.shuffle(shuffled)
         featured.extend(shuffled[:2])

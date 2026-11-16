@@ -14,7 +14,7 @@ ensemble_links: 甘美朗合奏
 verification_status: 已查證
 issue_note: 分類查證：體鳴；依據：來源一：traditional bamboo xylophone；分類標籤：Idiophone instrument s
 source_url: https://soundweavers-music.github.io/instruments/bamboo-xylophone/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/%E7%90%B4%E9%9A%B1%E5%9C%92%E8%A9%A9%E9%9B%86%28%E5%8D%81%E4%B8%80%29.djvu/page1-500px-%E7%90%B4%E9%9A%B1%E5%9C%92%E8%A9%A9%E9%9B%86%28%E5%8D%81%E4%B8%80%29.djvu.jpg
+image: 
 youtube_ids: lVUpkkrOCNk QdPXnhonLb0
 ---
 

@@ -15,4 +15,7 @@ work/backup*/
 work/*.log
 work/*.txt
 work/stale_sections.json
+work/design/
+# local agent tooling / downloaded skills (not part of the published site)
+.claude/skills/
 .DS_Store

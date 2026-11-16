@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：體鳴（112.13+133.1）；依據：來源二與來源三均給出 Hornbostel–Sachs 112.13+133.1，並描述為 vessel rattle 
 source_url: https://soundweavers-music.github.io/instruments/rain-drum/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/1990_Thailand_art_Rattonokosin_Style_rain_drums_bronce_statue_%281%29.jpg/500px-1990_Thailand_art_Rattonokosin_Style_rain_drums_bronce_statue_%281%29.jpg
+image: https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Cactus_rain_sticks.jpg/500px-Cactus_rain_sticks.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail
 youtube_ids: uwEaQk5VeS4 ujyu7tkyxtw
 ---
 
