@@ -5,14 +5,14 @@ subcategory: 鑼鐘與金屬敲擊
 title_zh: 卡西西搖響器
 title_original: Caxixi
 family_std: 小型節奏體鳴、沙鈴、刮器與身體打擊
-sound_hs: 11 小型體鳴／搖奏刮奏敲奏
+sound_hs: 112.13
 playing_method: 搖奏／刮奏／敲擊／身體打擊
 interface_tags: 
 region_culture: 非洲／美洲／巴西
 listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：體鳴（112.13）；依據：Wikidata P1762=112.13；英文維基分類 Idiophones
 source_url: https://soundweavers-music.github.io/instruments/caxixi/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Caxixi.jpg/500px-Caxixi.jpg
 youtube_ids: 4MYMO5KQyDo qgLxc6OkCBU
@@ -20,12 +20,11 @@ youtube_ids: 4MYMO5KQyDo qgLxc6OkCBU
 
 ## 介紹
 
-卡西西搖響器（發音為 [kaˈʃiʃi]）是一種打擊樂器，由一個閉合的籃子組成，籃子底部平坦，內部填充有種子或其他細小顆粒。圓形底部傳統上由乾燥的葫蘆切割而成。卡西西搖響器是一種間接敲擊的自鳴樂器。與響葫蘆類似，它是通過搖晃來發聲的。通過改變卡西西搖響器的搖晃角度可以產生音色的變化，決定內部物質是撞擊蘆葦籃子（柔和的聲音）還是堅硬的底部（更響亮、更尖銳的聲音）。
+卡西西搖響器是間接敲擊體鳴樂器，Hornbostel–Sachs編號112.13。構造為封閉籃狀器身、平底，內裝種子或小顆粒，圓底傳統以乾葫蘆切製。演奏時搖動，依角度讓內容物撞擊藤籃或硬底，產生較柔或較亮音色。見於非洲與南美洲，主要用於巴西、古巴儀式；巴西小型者常與貝林鮑同奏，西非則由歌手與鼓手搭配使用。
+
 ## 聆聽示範
 
-### 代表性作品
-
-卡西西搖響器在巴西卡波耶拉音樂中被廣泛使用，是傳統非洲打擊樂隊的重要組成部分。20世紀巴西桑巴音樂的發展過程中，許多民族音樂作曲家將其融入作品創作。該樂器亦常見於當代世界音樂融合作品中，與其他非洲打擊樂器組合演奏，成為展現非洲音樂遺產的重要載體。
+卡西西搖響器（Caxixi）的聆聽場合主要見於非洲與南美，尤其巴西與古巴的儀式演出；在巴西，較小尺寸常與貝林鮑（berimbau）一起演奏，西非則由歌手使用並常與鼓手搭配。較大尺寸曾出現在 Airto Moreira的錄音，Naná Vasconcelos 亦將其用於節奏伴奏與音色變化。其發聲為搖動使種子撞擊籐籃或硬底，產生柔或尖的節奏效果。
 
 ## 歷史背景
 

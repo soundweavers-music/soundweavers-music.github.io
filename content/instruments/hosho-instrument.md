@@ -1,18 +1,18 @@
 ---
-class_code: A2
-frontend_class: 弦樂器
-subcategory: 撥弦與抱持弦樂
-title_zh: 荷索鼓
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
+title_zh: 荷索沙鈴
 title_original: Hosho (instrument)
 family_std: 種子與葫蘆沙鈴
-sound_hs: Idiophone／體鳴樂器
+sound_hs: 112.13
 playing_method: 搖奏
 interface_tags: 
 region_culture: 非洲／南非
 listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
 ensemble_links: 
-verification_status: 重複／合併建議
-issue_note: 重複／譯名需統一；Hammered dulcimer 可譯槌揚琴／擊弦揚琴；與第749 Tambal、第868 Yangqin 同屬擊弦齊特琴家族但不一定同一樂器。；三者相鄰，不直接合併。；DUP-013:Hammered dulcimer／Tambal／Yangqin
+verification_status: 已查證
+issue_note: 分類查證：體鳴（112.13）；依據：來源一標示 Vessel rattles；Wikidata P1762 為 112.13
 source_url: https://soundweavers-music.github.io/instruments/hosho-instrument/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Kofi%27s_Hosho_2008.jpg/500px-Kofi%27s_Hosho_2008.jpg
 youtube_ids: Wlbf2w6ZCPg 3Z1TX-N1lAk
@@ -20,12 +20,11 @@ youtube_ids: Wlbf2w6ZCPg 3Z1TX-N1lAk
 
 ## 介紹
 
-荷索鼓是津巴布韋的樂器，由一對裝有種子的馬蘭卡（馬普茲）葫蘆組成。它們在許多傳統肖納音樂類型中被用作主要樂器，例如在姆比拉合奏樂隊和姆漢德中使用。它們通常在內部裝有荷塔（美人蕉）種子。在加入荷塔種子之前，荷索鼓要在鹽水中煮沸，內部用玉米穗、報紙塞或編織金屬絲刮掉。清除荷索鼓內部的雜物可以產生更尖銳和打擊感更強的音色。荷索鼓用於伴奏肖納音樂，尤其是姆比拉音樂。
+津巴布韋傳統體鳴樂器霍紹鼓，Hornbostel–Sachs編號112.13，由一對maranka（mapudzi）葫蘆製成，內裝hota（美人蕉）種子。葫蘆經鹽水煮沸並刮除內壁後，音色較尖銳、打擊感較強。演奏時發出搖響聲，常用於紹納音樂的姆比拉合奏與姆漢德等場合，也作為女性參與姆比拉演奏的途徑。
+
 ## 聆聽示範
 
-### 代表性作品
-
-荷索鼓主要應用於肖納傳統音樂實踐中，而非特定作曲作品。在姆比拉大師馬里姆巴（Dumisani Maraire）的演奏中，荷索鼓作為伴奏樂器展現其節奏功能。當代世界音樂大師托馬斯·馬普方巴（Thomas Mapfumo）的現代肖納音樂融合中，荷索鼓承載傳統元素。這些演出記錄反映了荷索鼓在非洲傳統與當代音樂中的持續生命力。
+霍紹鼓 主要出現在辛巴威紹納音樂的合奏場合，尤其常見於 mbira（姆比拉）合奏與 mhande（姆漢德）等傳統類型。它也用於伴奏紹納音樂，並在 marimba（馬林巴）音樂中擔任重要節奏層。Makwa（馬克瓦）拍手與哨音常與霍紹鼓 一起出現，並見於 Ngoma（恩戈馬）及 mbira 合奏。machachara（由貝殼或瓶蓋製成的迷你 hosho）也常附於 mbira，作為附加響器。在 mbira 演奏者眼中，霍紹鼓 常居主導地位，而非單純伴奏；Oliver Mtukudzi 也認為它能讓音樂家保持同步，Tendai Kazuru 則被列為受尊敬的 霍紹鼓 演奏者。
 
 ## 歷史背景
 
@@ -36,7 +35,7 @@ youtube_ids: Wlbf2w6ZCPg 3Z1TX-N1lAk
 荷索鼓音色明亮清脆，具有乾爽的打擊感，帶著獨特的沙沙律動。其音域位於中高頻，聲音穿透力強，能清晰穿透其他樂器的音線。由於內部裝填美人蕉種子，共鳴方式採用種子與葫蘆體的相互碰撞振動，產生層次豐富的顆粒感音響。與姆比拉的音色相比，荷索鼓更顯輕盈靈活；與非洲鼓類相較，其聲音更為纖細而富有節奏感。經過內部清理處理後，音色更加銳利有力，提升了作為伴奏樂器的表現力，在肖納傳統音樂中扮演穩定節奏、襯托旋律的重要角色。
 ## 樂器材質
 
-荷索鼓由馬蘭卡（馬普茲）葫蘆製成，葫蘆經過鹽水煮沸處理以增強耐久性。內部填充美人蕉（荷塔）種子作為發聲體，種子與葫蘆壁碰撞產生聲響。製作工藝中使用玉米穗、報紙等材料進行內部清理，部分製作者採用編織金屬絲進行刮削處理。整體結構簡樸，利用天然有機材料創造出獨特的打擊音效。
+霍紹鼓 為辛巴威體鳴樂器，Hornbostel–Sachs 編號 112.13。常見形制以一對 maranka（mapudzi）葫蘆為主體，內置 hota（美人蕉）種子發聲；製作時先以鹽水煮過，再以玉米芯、報紙塞或編織金屬線刮除內部殘渣。較小版本以野生橙 damba 製成，以棍子綁合，填充 hota 種子或卵石。來源另提 machachara 為小型 霍紹鼓，以貝殼或瓶蓋製成。其他部件材質未載明。
 
 ## 教學
 

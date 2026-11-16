@@ -5,14 +5,14 @@ subcategory: 平放弦與擊弦
 title_zh: 斯瓦爾曼達爾
 title_original: Swarmandal
 family_std: 齊特琴、箏類、擊弦與鍵盤化弦鳴
-sound_hs: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
+sound_hs: 314.122-5,6
 playing_method: 撥弦／擊弦／按鍵擊弦
 interface_tags: 鍵盤／按鍵
 region_culture: 亞洲／南亞（印度）
 listening_sound_tags: 手掌、弦面、推音、敲擊｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
 ensemble_links: 
-verification_status: 需調整
-issue_note: 譯名需區分；Sleigh bell 是雪橇鈴／馬鈴，與一般 Bell 不同。；相鄰不合併。
+verification_status: 已查證
+issue_note: 分類查證：弦鳴（314.122-5,6）；依據：來源二：Hornbostel–Sachs 314.122-5,6 / Resonated box zither, plu
 source_url: https://soundweavers-music.github.io/instruments/swarmandal/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Jasraj_001.jpg/500px-Jasraj_001.jpg
 youtube_ids: 8dGy0mQRncQ rzsSxfLKWdA
@@ -20,16 +20,15 @@ youtube_ids: 8dGy0mQRncQ rzsSxfLKWdA
 
 ## 介紹
 
-斯瓦曼達爾琴（印地語：स्वरमण्डल [s̪ʋərməɳɖəl̪]），又稱蘇曼達爾琴或印度豎琴，是一種源自印度的撥奏箱形齊特琴，與卡農琴相似，如今最常用作印度古典聲樂的伴奏樂器。它是北印度文化的一部分，在音樂會中用於伴奏聲樂。樂器的名稱結合了梵文詞彙「斯瓦拉」（音符）和「曼達拉」（圓形），代表了它能夠產生多種音符的能力。根據《阿克巴爾治世記》的記載，該樂器被視為與卡農琴相當的樂器。
+斯瓦爾曼達爾是源自印度的撥弦箱式齊特琴，又稱印度豎琴，與卡農琴相似，屬於弦鳴樂器。現代形制近似歐洲詩琴，呈梯形，長51公分、寬28公分，弦數可達40條；右側弦端鉤於釘上，左側繞於調音軸，以特殊鑰匙擰緊，兩側半吋高脊作為橋。演奏時以撥弦發聲，今日印度也以移除和弦按鈕的自動豎琴作為近似樂器。它主要用於北印度古典聲樂伴奏，並在音樂會中為歌唱伴奏。名稱來自梵語svara（音）與maṇḍala（圓），表示能發多音。
+
 ## 聆聽示範
 
-### 代表性作品
-
-斯瓦曼達爾琴主要用於印度古典聲樂伴奏，因此較少有專門創作的獨奏作品。其代表性應用包括在北印度古典音樂中為卡亞爾（Khyal）和達魯普德（Dhrupad）聲樂演唱提供伴奏。20世紀印度音樂家哈里普拉薩德·喬烏格等人的聲樂表演中常使用此樂器。現代則在各類印度古典音樂會中作為聲樂伴奏的標準樂器，為傳統印度室內音樂演出的重要組成部分。
+斯瓦爾曼達爾主要作為印度古典聲樂的伴奏樂器，屬於北印度音樂文化，常見於音樂會中為歌手伴奏。多位現代演唱者曾大量使用。George Harrison在1966年底赴印度後，將其引入披頭四1967年單曲〈Strawberry Fields Forever〉，並在印度古典風格作品〈Within You Without You〉中演奏。
 
 ## 歷史背景
 
-斯瓦曼達樂器可能與13世紀名為馬塔科基拉（醉鳥）的樂器相同。在莫臥兒帝國時期，根據《阿克巴爾法典》的記載，斯瓦曼達被視為與卡農樂器相當。到了19世紀，有作家評論指出，該樂器的優秀演奏者很少見，原因在於它難度高且當時購買費用昂貴。這些因素限制了演奏者的數量，使得傑出的演奏表演難以獲得。
+斯瓦爾曼達爾可能與十三世紀稱為mattakokilā的樂器相同；莫臥兒時期《Ā'īn-i-akbarī》視其與卡農琴（qanun）相當。中世紀使用木栓而非金屬栓。十九世紀有作者指出演奏佳者罕見，因難彈且當時昂貴；舊器曾記錄二十一弦。現代形制近似歐洲詩琴（psaltery），印度亦以自動豎琴（autoharp）作等效樂器，常移除和弦按鈕機制，弦數可達四十。
 
 ## 音色描述
 

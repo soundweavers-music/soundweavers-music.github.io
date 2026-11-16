@@ -1,7 +1,7 @@
 ---
-class_code: A2
-frontend_class: 弦樂器
-subcategory: 平放弦與擊弦
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
 title_zh: 太空豎琴
 title_original: Space Harp
 family_std: 弦樂器類
@@ -11,8 +11,8 @@ interface_tags:
 region_culture: 非洲｜單一地區／文化圈
 listening_sound_tags: 手指、機械距離、記憶、電聲｜按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：體鳴；依據：來源一分類標籤：Comb lamellophones, Idiophone instrument stubs
 source_url: https://soundweavers-music.github.io/instruments/space-harp/
 image: https://upload.wikimedia.org/wikipedia/commons/4/4e/Harp.png
 youtube_ids: RiOkbM1fGrM A1t09tkeXgc
@@ -23,13 +23,11 @@ youtube_ids: RiOkbM1fGrM A1t09tkeXgc
 太空豎琴，又稱為法蘭基風琴，是由菲爾·科倫發明的電動金屬舌簧樂器，是他探索非洲根源的音樂學實驗的一部分。他以母親弗蘭基的名字為其命名。它首次被錄製是在他與太陽神樂隊合作期間，收錄在專輯《天使與惡魔在遊樂》中。太空豎琴的後期錄製包括他在1960年代與藝術遺產樂團的合作，現已收錄在名為《在海灘上》的專輯中。
 ## 聆聽示範
 
-### 代表性作品
-
-太空豎琴的代表作品主要來自菲爾·科倫的音樂實驗。首次錄製作品收錄於與太陽神樂隊合作的專輯《天使與惡魔在遊樂》中，展現了該樂器在融合音樂中的開創性應用。1960年代與藝術遺產樂團的合作成果則收錄於專輯《在海灘上》，進一步展示了太空豎琴在世界音樂與電子音樂融合中的藝術潛力，標誌著樂器應用的重要發展階段。
+太空豎琴亦稱法蘭克琴，屬電氣化體鳴樂器。聆聽示範可從菲爾·科蘭在太陽拉時期錄製的《天使與惡魔的遊戲》聽見；其後則見於他1960年代與藝術遺產合奏團的錄音，收錄於2007年發行的《在海灘上》。該專輯以太空豎琴的節奏與和聲風格為核心，並有號手唐·米里克、吉他手皮特·科西與錄音室打擊樂手亨利·吉布森參與。
 
 ## 歷史背景
 
-太空豎琴由菲爾·科倫於非洲根源音樂研究中發明，是其音樂學實驗的重要成果。這件電動金屬舌簧樂器以科倫的母親弗蘭基命名，融合了非洲音樂元素與現代電子技術。該樂器首次錄製於科倫與太陽神樂隊的合作期間，收錄在專輯《天使與惡魔在遊樂》中。隨著時間推進，太空豎琴的應用不斷擴展，於1960年代與藝術遺產樂團的合作中得到進一步發展，相關錄音作品後來被收錄於專輯《在海灘上》。這件樂器代表了世界音樂與電子音樂融合的先驅嘗試，展現了跨越地域與文化的音樂創新精神。
+太空豎琴為非洲體鳴舌簧琴，由 Phil Cohran 發明，作為探索其非洲根源的音樂學實驗，別名 frankiphone，命名取自其母 Frankie。它首次錄音於 Sun Ra的 Angels and Demons at Play，可能為電化拇指琴的首度錄音；1960年代又隨 The Artistic Heritage Ensemble 錄音，2007年由 Katalyst 發行的 On the Beach 以它的節奏與和聲風格為核心。
 
 ## 音色描述
 

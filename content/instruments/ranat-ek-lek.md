@@ -1,18 +1,18 @@
 ---
-class_code: A2
-frontend_class: 弦樂器
-subcategory: 撥弦與抱持弦樂
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
 title_zh: 泰國金屬琴
 title_original: Ranat ek lek
 family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
 sound_hs: 11/12 定音體鳴／鑼鐘木琴石琴系統
 playing_method: 敲擊／搖奏／材料共鳴
 interface_tags: 
-region_culture: 東南亞／東亞／非洲／歐洲／全球
+region_culture: 東南亞／泰國
 listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
 ensemble_links: 甘美朗合奏
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：體鳴；依據：來源一稱其為 metallophone，且分類標籤含 Idiophone、Plaque percussion idiop
 source_url: https://soundweavers-music.github.io/instruments/ranat-ek-lek/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Ranat_ek_lek.jpg/500px-Ranat_ek_lek.jpg
 youtube_ids: lIdleRSML-o xYWKd11RjDo
@@ -20,13 +20,9 @@ youtube_ids: lIdleRSML-o xYWKd11RjDo
 
 ## 介紹
 
-泰國小金屬琴（泰語：ระนาดเอกเหล็ก，發音為 [ranâːt ʔèːk lèk]）是一種用於泰國古典音樂中的金屬琴。它是泰國兩種金屬琴中較小的一種；較大的一種稱為泰國大金屬琴。這種樂器起源於拉瑪四世國王統治時期（1854-1868年）。泰國小金屬琴由放置在矩形木製共鳴箱上的扁平金屬板組成。演奏時使用兩根末端帶有軟墊的竹棒。泰國小金屬琴與柬埔寨的羅念德克琴非常相似。
+泰國金屬琴 Ranat ek lek 是泰國古典音樂使用的金屬琴，發聲分類為體鳴，也是泰國兩種尺寸金屬琴中較小者，較大者為 Ranat thum lek。其構造為扁平金屬音條排列於長方形木製共鳴箱上，演奏時以兩支竹製軟頭琴槌敲擊發聲。此樂器起源於拉瑪四世時期，形制與高棉 roneat dek 相近，主要見於泰國傳統音樂演奏場合。
+
 ## 聆聽示範
-
-### 代表性作品
-
-泰國小金屬琴在泰國古典音樂中扮演重要角色，常見於宮廷樂曲和傳統管弦樂隊。代表性作品包括泰國傳統宮廷樂曲《Homrong》系列，以及拉瑪四世時期編創的多首古典樂章。該樂器亦常出現在泰國傳統舞劇配樂中，與其他打擊樂器協奏，營造典雅的音樂氛圍。其清亮音色在泰國傳統管弦樂團中與拉瑙德竹琴相互呼應。
-
 ## 歷史背景
 
 泰國金屬琴起源於東南亞的泰國，是泰國古典音樂中不可或缺的打擊樂器。此樂器於拉瑪四世國王統治時期（1854-1868年）應運而生，反映了當時泰國音樂藝術的發展需求。金屬琴由扁平金屬板組成，置於矩形木製共鳴箱上，使用末端帶軟墊的竹棒演奏，產生清亮悅耳的音色。

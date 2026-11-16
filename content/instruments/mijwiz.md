@@ -8,23 +8,22 @@ family_std: 口簧、自由簧、單簧雙簧與風袋
 sound_hs: 氣鳴｜412/422 簧鳴與自由簧／單簧雙簧
 playing_method: 吹奏／簧片振動／風袋或風箱
 interface_tags: 風箱
-region_culture: 歐洲／中東／南亞／東南亞｜地區／文化圈
+region_culture: 中東／阿拉伯
 listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：氣鳴；依據：來源一：Traditional Middle Eastern single-reed musical instrumen
 source_url: https://soundweavers-music.github.io/instruments/mijwiz/
 youtube_ids: i2zx1KUZP6c tZtjIaDVct8
 ---
 
 ## 介紹
 
-米日維茲雙管（阿拉伯語：مجوز‎，DIN：miǧwiz）是一種源自黎凡特地區（巴勒斯坦、敘利亞、黎巴嫩和約旦）的傳統西亞樂器。它在阿拉伯語中的名字意為「雙重」，因為它由兩根短竹管組成，竹管頂端裝有蘆葦片，使得米日維茲成為一種雙管、單簧片的木管樂器。
+米日維茲雙管是源自黎凡特（巴勒斯坦、敘利亞、黎巴嫩、約旦）的傳統西亞／中東氣鳴樂器，阿拉伯語名意為「雙」，由兩根等長短竹管與簧片端併合而成，屬雙管單簧木管樂器，Hornbostel–Sachs 編號 422.221.2。每管約有五或六個指孔，演奏需以循環換氣維持連續音。它在黎凡特用於肚皮舞或達布凱（民俗排舞）伴奏，也常見於民間歌曲錄音與歌詞，例如黎巴嫩歌手薩巴的達布凱歌曲《Jeeb el Mijwiz ya Abboud》。
+
 ## 聆聽示範
 
-### 代表性作品
-
-米日維茲雙管在黎凡特民俗音樂中廣泛應用。著名代表作為黎巴嫩歌手莎芭演唱的達布卡舞曲《傑布埃爾米日維茲亞阿布德》，該曲將米日維茲的尖銳音色與傳統舞蹈緊密結合。此外，許多黎凡特民俗歌曲的錄音中都特別錄製了米日維茲的伴奏部分，這些作品多為集體創作的傳統曲目，代代相傳於巴勒斯坦、敘利亞、黎巴嫩等地區的民間文化中。
+米日維茲雙管在黎凡特（巴勒斯坦、敘利亞、黎巴嫩、約旦）的民俗場合中出現，主要作為肚皮舞與達布凱（dabke，黎凡特民俗線舞）的伴奏。它也以雙管單簧木管的連續音響進入流行民歌錄音，或在歌詞中被提及；例如黎巴嫩歌手莎芭演唱的達布凱歌曲《Jeeb el Mijwiz ya Abboud》。其循環呼吸使兩根短竹管持續發聲，適合舞蹈伴奏與民歌錄音。
 
 ## 歷史背景
 

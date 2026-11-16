@@ -5,14 +5,14 @@ subcategory: 擦弦、鍵控與輪弦
 title_zh: 短提琴
 title_original: Violino Piccolo
 family_std: 擦弦、輪弦與提琴家族
-sound_hs: 弦鳴｜321.3 擦弦／輪弦／提琴家族
+sound_hs: 弦鳴｜321.322-71
 playing_method: 弓擦／輪擦
 interface_tags: 弓
 region_culture: 亞洲／歐洲／中東／南亞／中亞｜地區／文化圈
 listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：弦鳴（321.322-71）；依據：英文維基開頭：stringed instrument；Wikidata P1762 Hornbostel–Sachs：3
 source_url: https://soundweavers-music.github.io/instruments/violino-piccolo/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Piccolo-violin-met.jpg/500px-Piccolo-violin-met.jpg
 youtube_ids: ivQpiJos1Sw v_EXhaiNGdg
@@ -20,21 +20,12 @@ youtube_ids: ivQpiJos1Sw v_EXhaiNGdg
 
 ## 介紹
 
-小提琴是一種起源於十六世紀義大利的弦樂器，體型比標準小提琴更為小巧精緻。其特色在於音色明亮、尖銳且穿透力強，高音域寬闊清脆透明，音量雖略遜於普通小提琴，但高音區的穿透性更加出眾。小提琴主要用於獨奏和合奏，特別在巴洛克時期常作為伴奏樂器，用於裝飾樂段。其音色兼具高音長笛的輕盈感與弦樂特有的歌唱性和溫暖感，能在樂隊中創造出獨特的高音效果。
+短提琴（Violino piccolo）是欧洲巴洛克时期的弦鸣乐器，Hornbostel–Sachs 编号 321.322-71。它形制接近小提琴，但尺寸较小，常见定弦比标准小提琴高小三度或纯四度。著名阿马蒂兄弟实例显示，其琴身、琴颈与指板尺寸与标准小提琴有明确概念对应关系。该乐器曾用于巴赫第一号《勃兰登堡协奏曲》；洛可可时期开始后，标准小提琴可演奏较高音域，短提琴不再被视为必要。
 
 ## 聆聽示範
-
-### 代表性作品
-
-維瓦爾第為小提琴創作過多首協奏曲（十七至十八世紀），展現其高音特性。巴赫在《馬太受難曲》中使用小提琴營造神聖的音樂氛圍（1727年）。海頓的交響曲中亦採用小提琴作為獨特的樂隊色彩（十八世紀）。莫札特的室內樂作品中也運用小提琴的穿透性增強音樂的表現力。
-
 ## 歷史背景
 
-# 歷史背景
-
-小提琴起源於十六世紀的義大利，是由維奧爾琴和中世紀弦樂器逐步演變而來。這種比標準小提琴更小巧的樂器，主要在十七至十八世紀的巴洛克時期達到發展高峰。小提琴因其音域寬廣、音色清亮而備受作曲家青睞，特別是在義大利、德國和奧地利等地。
-
-維瓦爾第、巴赫等巴洛克大師曾為其創作專門樂曲。隨著時間推進，小提琴逐漸傳入法國和英國的皇家樂團。十九世紀後，隨著交響樂團編制的標準化，小提琴的使用逐漸式微，但在室內樂和獨奏曲目中仍保有重要地位。其聲音特性使其成為文藝復興與巴洛克音樂不可或缺的樂器，深刻影響了早期弦樂器音樂的發展脈絡。
+Violino piccolo 為巴洛克時期提琴家族的小型高音弦樂器。1613年克雷莫納的 Girolamo Amati 製有作品，1650至1750年間萊比錫周邊有使用脈絡；Amati 兄弟例藏於南達科他州弗米利恩國家音樂博物館，Johann Sebastian Bach 第一號勃蘭登堡協奏曲亦使用。洛可可時期小提琴構造改變後，標準小提琴可演奏許多高音部，此器不再必要。現代新小提琴家族的女高音小提琴有相似調音，但未成標準。
 
 ## 音色描述
 

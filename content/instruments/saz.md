@@ -5,14 +5,14 @@ subcategory: 撥弦與抱持弦樂
 title_zh: 薩茲琴
 title_original: Saz
 family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
-sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
+sound_hs: 弦鳴｜321.321-6
 playing_method: 撥弦／刷弦／撥片
 interface_tags: 撥片
 region_culture: 土耳其／安納托利亞｜地區／文化圈
 listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：弦鳴（321.321-6）；依據：來源一：long-necked fretted lute；來源二：H-S 321.321-6 necked bowl l；與「Bağlama」互為別名／變體
 source_url: https://soundweavers-music.github.io/instruments/saz/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Tamburasaz-Baglamasaz.jpg/500px-Tamburasaz-Baglamasaz.jpg
 youtube_ids: FqxAvVWfvPM JLpb_9vWfXY
@@ -20,20 +20,12 @@ youtube_ids: FqxAvVWfvPM JLpb_9vWfXY
 
 ## 介紹
 
-薩茲琴（土耳其語：bağlama或saz）是一類撥弦樂器，屬於長頸魯特琴家族，流行於歐洲、中東和中亞地區。 它常由阿希克（民間遊吟詩人）使用。
+薩茲琴（bağlama或saz）是一類長頸、有品的撥弦魯特琴，發聲分類為弦鳴，Hornbostel–Sachs編號為321.321-6／321.321。它屬於坦布爾（Tanburs）長頸魯特琴家族，流行於土耳其、亞塞拜然、亞美尼亞及巴爾幹鄰近地區與西亞的民間音樂。現代薩茲琴在安納托利亞發展為土耳其民間音樂的主要魯特琴，常由阿希克（âşıks，民間遊吟詩人）使用。
+
 ## 聆聽示範
-
-### 代表性作品
-
-薩茲琴在土耳其民間音樂中有豐富的傳統曲目。著名的阿希克民謠如《烏茲別克的故事》(14世紀)由遊吟詩人代代相傳。現代作曲家如蒙蒂（Münir Nurettin Selçuk）創作的《黑海之歌》(20世紀中葉)成為經典演奏曲目。土耳其民間樂隊常演奏的《Kara Toprak》等傳統民謠，展現了薩茲琴在中東音樂文化中的重要地位。
-
 ## 歷史背景
 
-薩茲琴起源於中亞和中東地區，是長頸魯特琴家族的重要成員。這種樂器在鄂圖曼帝國時期逐漸發展成熟，並在土耳其文化中扎根。薩茲琴通常由三至四組弦組成，音色溫暖而富有表現力。
-
-自中世紀以來，薩茲琴在民間音樂中扮演關鍵角色，特別是由遊吟詩人阿希克使用。這些民間藝人以薩茲琴伴奏，四處遊歷講述故事、吟唱詩歌，將文化傳統口頭傳承。隨著時間演進，薩茲琴逐漸傳播至整個中東、巴爾幹半島及中亞地區。
-
-在現代，薩茲琴已成為土耳其、庫爾德、亞美尼亞和其他民族傳統音樂的象徵，代表著豐富的民俗文化遺產，並在世界各地民族音樂復興運動中重新獲得關注。
+薩茲琴屬長頸有品魯特琴，音樂學上歸入坦布爾家族；該家族歷史上自伊朗、美索不達米亞分布至中亞與安納托利亞。現代薩茲琴在安納托利亞發展為土耳其民間音樂的主要撥弦樂器，並與阿希克民間遊吟詩人的曲目密切相關。名稱上，bağlama 原多指較小尺寸樂器，今常與 üçtelli cura等相連；某些阿列維傳統中又發展出較大的 dede sazı。較大樂器曾稱 bozuk、tambura 或 çöğür，後者見於奧圖曼繪畫，與古典坦布爾形制相近而弦制不同。現代製造商常以二十四平均律計算器與調音器設置琴品，使十二平均律曲目也能演奏。
 
 ## 音色描述
 

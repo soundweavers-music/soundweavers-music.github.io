@@ -5,14 +5,14 @@ subcategory: 撥弦與抱持弦樂
 title_zh: 坦普雷小吉他
 title_original: Timple Canario
 family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
-sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
+sound_hs: 弦鳴｜321.321-5
 playing_method: 撥弦／刷弦／撥片
 interface_tags: 撥片
 region_culture: 中東／歐洲／亞洲／美洲｜地區／文化圈
 listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：弦鳴（321.321-5）；依據：來源一開頭：traditional five-string plucked string instrument；來源三 
 source_url: https://soundweavers-music.github.io/instruments/timple-canario/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Tiple.jpg/500px-Tiple.jpg
 youtube_ids: MlrzxCY62jk JdJCLrI7pDs
@@ -20,21 +20,12 @@ youtube_ids: MlrzxCY62jk JdJCLrI7pDs
 
 ## 介紹
 
-坦普雷小吉他是源於西班牙加那利群島的傳統弦樂器，體型小巧精緻。樂器採用五對複弦設計，音色明亮清脆，具有獨特的金屬質感和溫暖共鳴。相比古典吉他更加靈動活潑，音域集中於中高音區，特別適合演奏快速樂段。在加那利群島傳統音樂中扮演重要角色，廣泛應用於民間舞蹈與民俗慶典，是當地文化的重要象徵。
+坦普雷小吉他（Timple Canario）是加那利群島的傳統撥弦樂器，發聲分類屬弦鳴，Hornbostel–Sachs 編號為 321.321-5。其常見構造為五弦，常用調音為 GCEAD；在拉帕爾馬島與特內里費島北部，許多演奏者會省略第一弦 D，改以四弦烏克麗麗方式演奏。此四弦做法被五弦版本支持者視為較不傳統，但四弦風格演奏者認為這是第五弦於十九世紀末或二十世紀初加入之前的舊式奏法。使用者可稱坦普雷演奏者（timplistas）。
 
 ## 聆聽示範
-
-### 代表性作品
-
-坦普雷小吉他主要用於加那利群島的民間音樂傳統，代表性作品多為民族樂曲的改編版本。著名曲目包括《Timple Canario》等傳統加那利民謠，以及各類傳統舞蹈伴奏音樂如《Folías Canarias》。現代作曲家也創作了多部利用其獨特音色特性的當代作品，強調其明亮穿透的音質特徵。
-
 ## 歷史背景
 
-# 坦普雷小吉他的歷史背景
-
-坦普雷小吉他源於西班牙加那利群島，是當地傳統音樂文化的重要樂器。該樂器在16世紀至17世紀期間逐漸發展成形，受到西班牙吉他與葡萄牙魯特琴的影響。坦普雷小吉他體型小巧，音色明亮溫暖，特別適合加那利群島的民間音樂演奏。
-
-隨著西班牙殖民活動的擴展，坦普雷小吉他的影響力逐漸傳播至拉丁美洲和其他西班牙語地區。在加那利群島本地，該樂器成為民族音樂的象徵，廣泛應用於傳統舞蹈和民俗慶典。20世紀以來，坦普雷小吉他得到更多關注與保護，許多音樂家致力於保留其傳統演奏技巧，使其成為西班牙民族音樂遺產的重要組成部分。
+坦普雷小吉他為加那利群島傳統撥弦樂器，屬弦鳴樂器，Hornbostel–Sachs編號321.321-5。其製造可追溯至十九世紀。發展中出現五弦與四弦兩種演奏方式：在拉帕爾馬島與特內里費島北部，部分演奏者省略第一弦D，以四弦烏克麗麗方式演奏；五弦支持者視之為較不傳統，四弦演奏者則認為這是十九世紀末或二十世紀初加入第五弦之前的舊式奏法。常見調音為GCEAD。重要演奏者包括Benito Cabrera、Germán López等。
 
 ## 音色描述
 

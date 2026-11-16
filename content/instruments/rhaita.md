@@ -5,14 +5,14 @@ subcategory: 簧片樂器
 title_zh: 萊塔管
 title_original: Rhaita
 family_std: 雙簧民俗管
-sound_hs: Aerophone／氣鳴樂器
+sound_hs: 422.112
 playing_method: 吹奏
 interface_tags: 
-region_culture: 摩洛哥／北非｜單一地區／文化圈
+region_culture: 北非／馬格里布（摩洛哥、阿爾及利亞、利比亞、茅利塔尼亞，偶見突尼西亞）
 listening_sound_tags: 粗獷鼻音、婚禮與儀式行進｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：氣鳴（422.112）；依據：來源五：double reed instrument；來源三：Wikidata P1762 Hornbostel–Sac
 source_url: https://soundweavers-music.github.io/instruments/rhaita/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Rhaita_or_ghaita.jpg/500px-Rhaita_or_ghaita.jpg
 youtube_ids: r6ZAu4guJj4 LYCqEXZNASM
@@ -23,9 +23,7 @@ youtube_ids: r6ZAu4guJj4 LYCqEXZNASM
 萊塔管或蓋塔管（阿拉伯語：غيطة，音譯：ghayṭa）是一種來自西北非洲的雙簧管樂器，具體分布在摩洛哥、阿爾及利亞、利比亞、茅利塔尼亞，偶爾也在突尼西亞出現。其構造幾乎與阿拉伯米茲瑪爾管和土耳其祖爾納管完全相同。其獨特的名稱源於中世紀哥德-伊比利亞的影響。在南伊比利亞，各種風管樂器，包括相關的雙簧管樂器，都被稱為蓋塔斯，但在北伊比利亞，蓋塔僅指風笛。
 ## 聆聽示範
 
-### 代表性作品
-
-萊塔管主要應用於北非民俗音樂，特別是摩洛哥與阿爾及利亞的傳統音樂。其代表性應用包括摩洛哥婚禮音樂《Rhaita Wedding Celebration》、柏柏爾民俗慶典音樂、以及阿爾及利亞民間樂隊的《Gnawa Fusion》等作品。這些作品多為口頭傳承的民間音樂，未有明確的現代作曲者記載，反映了萊塔管在傳統民俗儀式中的重要角色。
+萊塔管為雙簧氣鳴樂器，分布於摩洛哥、阿爾及利亞、利比亞、茅利塔尼亞，偶見突尼西亞。來源提到的聆聽場合主要為現代創作與電影音樂：霍華德·蕭在《魔戒》原聲帶的「魔多主題」使用其音色；約翰·柯里利亞諾在1975年《雙簧管與管弦樂協奏曲》的「萊塔舞曲」中，要求雙簧管演奏者將簧片推入口中模仿萊塔管；1981年《變態狀態》原聲帶「三種幻覺」亦要求雙簧管模仿其聲音。
 
 ## 歷史背景
 

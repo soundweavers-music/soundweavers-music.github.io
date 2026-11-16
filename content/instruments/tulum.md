@@ -2,7 +2,7 @@
 class_code: A1
 frontend_class: 吹奏與氣息樂器
 subcategory: 風箱與自由簧
-title_zh: 圖盧姆風笛
+title_zh: 圖隆
 title_original: Tulum
 family_std: 口簧、自由簧、單簧雙簧與風袋
 sound_hs: 氣鳴｜412/422 簧鳴與自由簧／單簧雙簧
@@ -11,8 +11,8 @@ interface_tags: 風箱
 region_culture: 全球／亞洲／中東／歐洲
 listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：非樂器／非單一樂器；依據：來源一與來源三顯示 Tulum 為墨西哥尤卡坦半島的馬雅考古遺址／archaeological site，非樂器
 source_url: https://soundweavers-music.github.io/instruments/tulum/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Tulum_2.jpg/500px-Tulum_2.jpg
 youtube_ids: RCVAkCrJDdw RlYndwvlz3g
@@ -22,11 +22,6 @@ youtube_ids: RCVAkCrJDdw RlYndwvlz3g
 
 圖盧姆（西班牙語發音：[tuˈlun]；猶卡坦瑪雅語：Tulu'um）是前哥倫布時期瑪雅文明的城牆城市遺址，曾作為科巴的主要港口，位於墨西哥金塔納羅奧州。這些遺跡坐落在猶卡坦半島東海岸加勒比海沿岸12米高（39英尺）的懸崖上。圖盧姆是瑪雅人建造並居住的最後幾座城市之一，其最為繁盛的時期是在13至15世紀之間。
 ## 聆聽示範
-
-### 代表性作品
-
-由於圖盧姆風笛是前哥倫布時期瑪雅文明的古老樂器，現存的代表性作品資料極為稀少。該樂器主要用於瑪雅宗教儀式和祭祀活動中，特別是在潛水神或下降神的崇拜儀式中使用。現代音樂家對其音色特性的研究主要基於考古遺跡的復原和實驗性演奏，相關的當代創作作品數量有限。
-
 ## 歷史背景
 
 圖盧姆遺址可能原名為薩瑪（Zama），意為「黎明之城」，因其面向日出方向。遺址位於面向加勒比海的懸崖上。「圖盧姆」是猶卡坦瑪雅語中「圍牆」或「溝渠」的意思。環繞遺址的城牆使圖盧姆堡壘能夠抵禦入侵。由於可同時利用陸路與海路貿易路線，圖盧姆成為重要貿易樞紐，特別是黑曜石的交易中心。從遺址周圍的壁畫和其他作品可看出，圖盧姆是潛水神或下降神崇拜的重要場所。

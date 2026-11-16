@@ -1,7 +1,7 @@
 ---
-class_code: A4
-frontend_class: 電子與電聲樂器
-subcategory: 電聲改造樂器
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
 title_zh: 納克爾鼓
 title_original: Naker
 family_std: 膜鳴鼓類、框鼓、杯鼓與鼓組
@@ -11,8 +11,8 @@ interface_tags:
 region_culture: 非洲／中東／亞洲／歐洲／美洲｜地區／文化圈
 listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
 ensemble_links: 
-verification_status: 移入第13類
-issue_note: 現代電子／取樣；屬現代電子、取樣、電聲或電氣化鍵盤／設備類，應集中到第13類。；移第13類，並與傳統鍵盤／風箱類分開。
+verification_status: 已查證
+issue_note: 分類查證：膜鳴；依據：來源五：naker 指 naqareh 的歐洲變體，small Arabic kettle-drum；與「naqareh」互為別名／變體
 source_url: https://soundweavers-music.github.io/instruments/naker/
 youtube_ids: IvUU8joBb1Q z4PKzz81m5c
 ---

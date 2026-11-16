@@ -1,18 +1,18 @@
 ---
-class_code: A2
-frontend_class: 弦樂器
-subcategory: 撥弦與抱持弦樂
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
 title_zh: 雷翁鑼
 title_original: Reyong
 family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
-sound_hs: 11/12 定音體鳴／鑼鐘木琴石琴系統
+sound_hs: 111.241.2
 playing_method: 敲擊／搖奏／材料共鳴
 interface_tags: 鼓槌
 region_culture: 印尼巴厘島｜單一地區／文化圈
 listening_sound_tags: 交錯節奏、金屬閃光、群體分工｜木石金屬的回聲城市（定音體鳴、材料敲擊與鑼鐘木琴系統）
 ensemble_links: 甘美朗合奏
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：體鳴（111.241.2）；依據：Wikidata P1762 Hornbostel–Sachs 111.241.2；英文維基全文摘錄稱其為 metal 
 source_url: https://soundweavers-music.github.io/instruments/reyong/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Gamelan_of_Bali_200507-4.jpg/500px-Gamelan_of_Bali_200507-4.jpg
 youtube_ids: bm59-MZsawU W-jBhFL3WMU
@@ -20,12 +20,11 @@ youtube_ids: bm59-MZsawU W-jBhFL3WMU
 
 ## 介紹
 
-雷翁鑼（也拼作reong）是峇里島甘美蘭音樂中使用的樂器。它由一排懸掛在框架上的金屬鑼組成。在甘美蘭鑼克比亞樂隊中，由四名演奏者同時演奏，每人持兩支鼓槌。通常各個鑼罐可以從框架上移除，作為波浪鑼在貝樂甘朱樂隊中單獨演奏。
+雷翁鑼（Reyong，亦拼 Reong）是印尼巴厘島甘美蘭中的體鳴樂器，Hornbostel–Sachs編號111.241.2。其構造為一排金屬鑼懸掛於框架上。在甘美蘭貢克比亞中，由四位演奏者同時演奏，每人持兩支琴槌；個別鑼也可自框架取下，在貝蘭朱爾中作為波囊使用。它主要用於巴厘島甘美蘭合奏，屬於甘美蘭樂器中的鑼類樂器。
+
 ## 聆聽示範
 
-### 代表性作品
-
-雷翁鑼在峇里島甘美蘭音樂中廣泛應用，代表性作品包括《克比亞樂隊組曲》等傳統甘美蘭樂曲。20世紀，西方作曲家如約翰·凱奇（John Cage）在其實驗音樂作品中融入甘美蘭樂器元素。峇里島傳統舞蹈音樂《巴龍舞》（Barong Dance）中亦大量使用雷翁鑼。此外，印尼作曲家創作的當代甘美蘭作品中，雷翁鑼作為節奏層的重要樂器，承擔複雜的多聲部織體。
+雷翁鑼用於巴厘島甘美蘭合奏。在甘美蘭貢克比亞（gamelan gong kebyar）編制中，它由四位演奏者同時演奏，每人持兩支琴槌，敲擊懸掛於框架上的一排金屬鑼。個別鑼也可從框架取下，在貝蘭朱爾（beleganjur）中作為 bonang 演奏。
 
 ## 歷史背景
 

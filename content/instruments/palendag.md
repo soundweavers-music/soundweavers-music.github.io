@@ -5,14 +5,14 @@ subcategory: 簧片樂器
 title_zh: 帕倫達格笛
 title_original: Palendag
 family_std: 無簧吹管、長音與氣息樂器
-sound_hs: 421 邊棱氣鳴／無簧笛類
+sound_hs: 421.141.12
 playing_method: 吹奏／端吹／橫吹／容器共鳴
 interface_tags: 
 region_culture: 全球／亞洲／歐洲／美洲／大洋洲
 listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：氣鳴（421.141.12）；依據：英文維基：Philippine bamboo flute；Wikidata P1762：421.141.12；全文：li
 source_url: https://soundweavers-music.github.io/instruments/palendag/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Palendag.jpg/500px-Palendag.jpg
 youtube_ids: poo0LuJeYUI 2BSktj9zR7o
@@ -20,12 +20,11 @@ youtube_ids: poo0LuJeYUI 2BSktj9zR7o
 
 ## 介紹
 
-帕倫達格笛，也稱為普拉盧（馬諾博人和曼薩卡人的稱呼）、帕蘭達格（巴戈博人）、普拉拉（布基農人）和盧蒙德格（巴努瓦恩人），是一種菲律賓竹笛，是馬京達瑙人使用的最大型竹笛。這種樂器的較小型版本稱為胡拉克特布（布基農人的稱呼）。作為一種唇谷笛，它因為必須將嘴唇貼著笛尖特殊塑形才能發出聲音，被認為是三種竹笛（另外兩種為通邦笛和蘇林笛）中最難使用的。
+帕倫達格笛是菲律賓竹製氣鳴笛，H-S編號421.141.12。它是馬京達瑙人使用的大型竹笛，布基農人另有約四分之三長度的hulakteb。吹口下端斜切以容下唇，再作第二道斜切形成吹緣，屬唇谷式笛；因需以唇形貼近笛端發聲，被視為與tumpong、suling三種竹笛中最難演奏者。馬京達瑙人用於傍晚家庭聚會。
+
 ## 聆聽示範
 
-### 代表性作品
-
-帕倫達格笛主要用於菲律賓民答那峨島南部的馬京達瑙族及周邊民族的傳統音樂表演中。代表性應用包括馬京達瑙族的傳統祭祀音樂、民族歌舞伴奏，以及現代民族音樂藝術家對其進行的創意改編。由於其歷史悠久且多為口頭傳承，具體作品名稱與作曲者記載有限，但其深沉音色廣泛應用於表現民族敘事和宗教儀式音樂。
+來源未提供具體作曲家或曲目，僅能依記載說明其出現場合。帕倫達格笛為菲律賓竹笛，屬氣鳴樂器中的唇谷笛，以下唇抵住斜切口、再對吹口邊緣發音。在馬京達瑙人中，它用於傍晚家庭親密聚會。布基農人另有構造相同但較短的胡拉特布笛。
 
 ## 歷史背景
 

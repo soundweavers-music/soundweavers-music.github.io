@@ -1,18 +1,18 @@
 ---
-class_code: A4
-frontend_class: 電子與電聲樂器
-subcategory: 電聲改造樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
 title_zh: 多利亞克琴
 title_original: Pluriarc
 family_std: 電聲改造樂器家族
-sound_hs: 待確認
+sound_hs: 321.1
 playing_method: 按鍵／控制器／電子控制（待細分）
 interface_tags: 弓
 region_culture: 非洲｜單一地區／文化圈
 listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
 ensemble_links: 
-verification_status: 移入第13類
-issue_note: 現代電子／取樣；屬現代電子、取樣、電聲或電氣化鍵盤／設備類，應集中到第13類。；移第13類，並與傳統鍵盤／風箱類分開。
+verification_status: 已查證
+issue_note: 分類查證：弦鳴（321.1）；依據：來源一、二、三、五：West African string instrument / lute / Hornbostel
 source_url: https://soundweavers-music.github.io/instruments/pluriarc/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/COLLECTIE_TROPENMUSEUM_Meervoudige_muziekboog_TMnr_A-10433.jpg/500px-COLLECTIE_TROPENMUSEUM_Meervoudige_muziekboog_TMnr_A-10433.jpg
 youtube_ids: reujrD8iKD4 C-MUwPOrMp4

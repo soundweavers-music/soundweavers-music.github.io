@@ -5,14 +5,14 @@ subcategory: 撥弦與抱持弦樂
 title_zh: 潘塔隆琴
 title_original: Pantalon
 family_std: 撥弦與抱持弦樂家族
-sound_hs: 待確認
+sound_hs: 314.122
 playing_method: 撥奏／擦奏／擊弦（待細分）
 interface_tags: 
 region_culture: 歐洲（法國／德國）｜地區／文化圈
 listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
 ensemble_links: 甘美朗合奏
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：弦鳴（314.122）；依據：來源五：pantalon was a very large type of hammered dulcimer, wit
 source_url: https://soundweavers-music.github.io/instruments/pantalon/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Pantaleon-Clavier_%28Nachbau%29.jpg/500px-Pantaleon-Clavier_%28Nachbau%29.jpg
 youtube_ids: j7sKRPv2gDI fqksK15Bv20
@@ -20,16 +20,15 @@ youtube_ids: j7sKRPv2gDI fqksK15Bv20
 
 ## 介紹
 
-潘塔隆琴（或潘塔隆）是一種非常大型的敲擊揚琴，由潘塔隆·赫本施特賴特在18世紀初發明，曾在法國和德國短暫流行。
+潘塔隆琴是一種非常大型的擊弦揚琴，發聲分類屬弦鳴，Hornbostel–Sachs編號314.122。其構造有雙共鳴板，約2公尺長，裝有約200條腸弦與金屬弦，部分弦為雙弦或三弦；因無制音器，弦可產生共鳴。它由Pantaleon Hebenstreit在18世紀初發明並以其名命名，曾在法國與德國音樂圈中使用，Hebenstreit與其學生Maximilian Hellmann、Johann Baptist Gumpenhuber為幾乎唯一的演奏名家。
+
 ## 聆聽示範
 
-### 代表性作品
-
-潘塔隆琴的代表作品主要集中於18世紀。德國作曲家喬治·菲利普·泰勒曼為其創作了多首奏鳴曲，展現樂器的技巧性。法國作曲家讓-克洛德·傑利維為潘塔隆琴譜寫了協奏曲。義大利作曲家帕蒂蒂也創作過相關作品。這些作品充分利用了潘塔隆琴寬廣的音域和豐富的音色表現力，成為該樂器音樂文獻的重要組成部分。
+潘塔隆琴的聆聽線索主要來自十八世紀法國與德國音樂圈，以及為演奏家 Maximilian Hellmann 創作的曲目。來源提到 Caldara 三首、Johann Georg Reutter 八首，以及 Johann Joseph Fux 在《Giunone placata》（劇場慶典）中的一首詠嘆調，顯示它曾進入當時的聲樂與劇場編制。實際演奏場合則以 Pantaleon Hebenstreit 及其學生的演出為主。
 
 ## 歷史背景
 
-潘塔隆琴起源於18世紀初的德國，由音樂家潘塔隆·赫本施特賴特創製。這種樂器是一件龐大的敲擊揚琴，擁有眾多琴弦，能夠產生豐富多變的音色。赫本施特賴特將其命名後，隨即在歐洲音樂界引起關注。潘塔隆琴在18世紀中期的法國和德國宮廷中短暫流行，特別受到貴族音樂愛好者的青睞。許多作曲家為其譜寫專門作品，展現其獨特的音樂表現力。然而，由於其體積龐大、攜帶困難且維護成本高昂，加上性能逐漸被其他鍵盤樂器所超越，潘塔隆琴在18世紀末逐漸式微。儘管如此，它在音樂史上仍代表了一個時代的創新精神，對揚琴類樂器的發展產生了深遠影響。
+潘塔隆琴由Pantaleon Hebenstreit於十八世紀初發明，屬大型擊弦揚琴，Hornbostel–Sachs編號314.122。它曾在法國與德國音樂圈短暫流行，Hebenstreit以己名命名並靠演奏致富。製作者少，僅Hebenstreit與學生Maximilian Hellmann、Johann Baptist Gumpenhuber為主要名家。其無制音器而產生共鳴的做法，後來轉為早期鍵盤樂器上的潘塔隆制音裝置。
 
 ## 音色描述
 

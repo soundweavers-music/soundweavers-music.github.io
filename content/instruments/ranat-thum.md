@@ -1,7 +1,7 @@
 ---
-class_code: A2
-frontend_class: 弦樂器
-subcategory: 撥弦與抱持弦樂
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
 title_zh: 拉納特通琴
 title_original: Ranat Thum
 family_std: 低音木琴
@@ -11,8 +11,8 @@ interface_tags:
 region_culture: 泰國｜單一地區／文化圈
 listening_sound_tags: 低音木鍵、泰國古典合奏、柔厚回聲｜木石金屬的回聲城市（定音體鳴、材料敲擊與鑼鐘木琴系統）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：體鳴；依據：來源一／五：Idiophone、metallophone、plaque percussion idiophones
 source_url: https://soundweavers-music.github.io/instruments/ranat-thum/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/%E7%90%B4%E6%9B%B8%E5%A4%A7%E5%85%A8%28%E5%85%AD%29.djvu/page1-500px-%E7%90%B4%E6%9B%B8%E5%A4%A7%E5%85%A8%28%E5%85%AD%29.djvu.jpg
 youtube_ids: lIdleRSML-o xYWKd11RjDo
@@ -20,21 +20,12 @@ youtube_ids: lIdleRSML-o xYWKd11RjDo
 
 ## 介紹
 
-拉納特通琴是泰國、寮國等東南亞國家的傳統打擊樂器，由木製音條與竹製共鳴管組成。琴身呈梯形或矩形，音條以竹槌敲擊發聲。音色明亮清脆，兼具溫暖與穿透力，音域寬廣介於中高音區。在東南亞民族音樂中作為主旋律樂器使用，琴聲具有良好的投射性，能在樂隊中清晰穿透，同時保持柔和的民族韻味，是泰國傳統音樂不可或缺的重要樂器。
+拉納特通琴（Ranat Thum lek）是泰國古典音樂使用的金屬體鳴琴，為泰國兩種尺寸金屬體鳴琴中較大者，較小者稱 ranat ek lek。琴身由多片平置金屬板排列於長方形木製共鳴箱上，演奏時以兩支竹製軟頭琴槌敲擊發聲。它在泰國古典音樂中使用，與高棉的 roneat thong 相似。
 
 ## 聆聽示範
-
-### 代表性作品
-
-泰國傳統音樂中，拉納特通琴廣泛應用於宮廷樂曲與民間音樂。代表性作品包括泰國經典樂曲《Khamen Soi》與《Lao Kham》等傳統宮廷樂曲，以及寮國民間樂曲《Xam》。這些作品充分展現拉納特通琴清脆明亮的音色與靈動的表現力，是東南亞音樂文化的重要代表。
-
 ## 歷史背景
 
-# 拉納特通琴的歷史背景
-
-拉納特通琴起源於東南亞，特別是泰國、寮國和柬埔寨等地區。這種木製敲擊樂器在中南半島的音樂文化中發展已有數百年歷史，其設計靈感來自於古代的石製或木製打擊樂器。拉納特通琴在高棉帝國時期已被廣泛使用，後來通過貿易路線和文化交流傳入泰國，成為泰國傳統音樂的重要組成部分。
-
-在泰國，拉納特通琴逐漸演變成具有獨特音色的樂器，音域寬廣，音質溫暖而富有穿透力。隨著東南亞各國音樂文化的相互融合，拉納特通琴的製作工藝和演奏技巧不斷完善。在20世紀，隨著民族音樂的復興運動和文化保護的重視，拉納特通琴從宮廷音樂擴展到民間音樂領域，成為傳統樂隊中不可或缺的樂器，也逐漸為國際世界所認識。
+拉納特通琴是泰國古典音樂中的體鳴樂器，為泰國金屬琴兩種尺寸中較大者，較小者為拉納特艾克萊克（Ranat Ek Lek）。其起源歸因於拉瑪四世（1854–1868）之兄，並與拉納特艾克萊克的創制同時。樂器由平置金屬板置於長方形木製共鳴箱上構成，以兩支包頭竹槌演奏。其形制與高棉的 roneat thong 非常相似。
 
 ## 音色描述
 

@@ -1,7 +1,7 @@
 ---
-class_code: A4
-frontend_class: 電子與電聲樂器
-subcategory: 電聲改造樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
 title_zh: 義大利吉他
 title_original: Chitarra Italiana
 family_std: 電聲改造樂器家族
@@ -11,8 +11,8 @@ interface_tags:
 region_culture: 義大利｜單一地區／文化圈
 listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
 ensemble_links: 
-verification_status: 移入第13類
-issue_note: 現代電子／取樣；屬現代電子、取樣、電聲或電氣化鍵盤／設備類，應集中到第13類。；移第13類，並與傳統鍵盤／風箱類分開。
+verification_status: 已查證
+issue_note: 分類查證：弦鳴；依據：來源一分類標籤：Composite chordophones、Necked bowl lutes
 source_url: https://soundweavers-music.github.io/instruments/chitarra-italiana/
 image: https://upload.wikimedia.org/wikipedia/commons/f/f4/Chitarra-italiana.jpg
 youtube_ids: inBKFMB-yPg xpRgR-tZEpk
@@ -20,16 +20,12 @@ youtube_ids: inBKFMB-yPg xpRgR-tZEpk
 
 ## 介紹
 
-意大利吉他（意大利語：[kiˈtarra itaˈljaːna]；意為「意大利吉他」）是一種琵琶形撥弦樂器，配有四根或五根單弦（有時為雙弦），調音方式與吉他相似。它在文藝復興時期在意大利很常見。根據雷納托·梅烏奇的說法，「意大利」的名稱是在扁平背部版本的樂器傳入意大利之後才出現的——在這種情況下被稱為「西班牙式吉他」（chitarra alla spagnola）——用以區分這兩個版本。
+Chitarra Italiana 是義大利的撥弦樂器，發聲分類屬弦鳴。其外形近似魯特琴，通常有四條或五條單弦，有時為雙弦，調音方式與吉他相近。文藝復興時期的義大利常見此類樂器；其低音樂器稱為 chitarrone，被描述為「大型吉他」，圓背，後期偶爾與曼多拉混淆。另有與南義大利民間音樂相關、也被稱為義大利吉他的 Chitarra battente。來源未提供明確 Hornbostel–Sachs 編號。
+
 ## 聆聽示範
-
-### 代表性作品
-
-義大利吉他的代表作品主要來自文藝復興時期。馬可·達爾皮亞諾（Marco Dall'Aquila）於16世紀創作的《義大利吉他曲集》是現存最重要的樂譜記錄。此外，米開朗基羅·甘巴雷利（Michelangelo Galilei）的吉他作品集亦廣為流傳。這些作品多為舞曲、小步舞曲與變奏曲，展現文藝復興音樂的優雅氣質，是研究當時室內樂傳統的珍貴文獻。
-
 ## 歷史背景
 
-義大利吉他源自中世紀地中海地區的撥弦樂器傳統，於文藝復興時期在意大利境內蓬勃發展。這種琵琶形樂器配有四至五根單弦或雙弦，音調調校方式與現代吉他相近。根據音樂學家雷納托·梅烏奇的研究，「義大利」此名稱乃因扁平背部設計的吉他傳入意大利後而生。為區分兩個版本，傳統弧形背部設計被稱為義大利吉他，而扁平背部版本則被冠以「西班牙式吉他」之名。文藝復興時期，義大利吉他在貴族階層與音樂家間廣泛流行，成為室內音樂表演的重要樂器。隨著時代演進，其影響力逐漸向歐洲其他地區傳播，對西方弦樂器的發展產生深遠影響。
+義大利吉他為魯特形撥弦樂器，調音近似吉他，文藝復興時期在義大利常見。Renato Meucci 指出，「italiana」稱呼出現在平背的 chitarra alla spagnola 傳入義大利後，用以區分兩種版本。來源指出，它可能源自古代地中海的 panduras，並與北非 kwitra 有關。其低音變體 chitarrone 從13世紀至18世紀存在，後期較少；Laurence Wright 在1976年提到，chitarrone 意為「大吉他」，圓背，易被視為較小魯特，且在曼陀拉流行時偶爾與曼陀拉混淆。
 
 ## 音色描述
 

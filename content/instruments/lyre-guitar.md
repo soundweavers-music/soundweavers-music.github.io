@@ -5,14 +5,14 @@ subcategory: 豎琴、里拉與開放弦
 title_zh: 里拉吉他
 title_original: Lyre Guitar
 family_std: 豎琴、里拉與開放弦樂器
-sound_hs: 弦鳴｜322 豎琴與里拉類
+sound_hs: 弦鳴｜321.322-5
 playing_method: 撥弦／開放弦共鳴
 interface_tags: 
 region_culture: 伊朗／亞塞拜然／高加索｜地區／文化圈
 listening_sound_tags: 循環、河流感、開放弦、吟唱｜開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：弦鳴（321.322-5）；依據：來源一：chordophone family；來源三：H-S 321.322-5
 source_url: https://soundweavers-music.github.io/instruments/lyre-guitar/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Lyre-guitar-Gaetano_Vinaccia-MAHG_9360-IMG_9272-gradient.jpg/500px-Lyre-guitar-Gaetano_Vinaccia-MAHG_9360-IMG_9272-gradient.jpg
 youtube_ids: jyUxmqXAFjo g-qnBRZnk5w
@@ -20,17 +20,15 @@ youtube_ids: jyUxmqXAFjo g-qnBRZnk5w
 
 ## 介紹
 
-里拉吉他是19世紀初歐洲發展出的弦樂器，融合了古典里拉琴的半圓形琴體與吉他的弦軸系統。其外型優雅精巧，琴身較小，設計兼具古典美感與實用性。該樂器在維多利亞時代廣受歡迎，成為上流社會沙龍音樂與家庭娛樂的主要樂器。里拉吉他音色溫潤明亮，具有獨特古典韻味，音量輕柔富有親密感，介於曼陀林明快與豎琴柔美之間，適合室內演奏。
+里拉吉他（Lyre Guitar）是形似里拉琴的吉他，屬弦鳴樂器，Hornbostel–Sachs 編號 321.322-5。它有六組單弦，指板位於兩側彎臂之間，外形近似古希臘基塔拉；調音與演奏方式與傳統吉他相同，並常設內建底座以便不用時直立。18世紀末至19世紀初，它作為沙龍樂器流行於巴黎上流社會，瑪麗安東尼特曾演奏，時髦女性也以它擺出彈奏古希臘基塔拉的姿態。
 
 ## 聆聽示範
 
-### 代表性作品
-
-19世紀英國與歐洲作曲家為里拉吉他創作大量專門曲目，其中包括各類沙龍音樂與家庭娛樂作品。雖然具體作品名稱因年代久遠較少記載，但該樂器在維多利亞時代與浪漫主義時期的音樂文獻中留下重要足跡，許多作品融合了古典與民族音樂元素，旨在展現樂器獨特的溫和音質與優雅氣質。
+里拉吉他曾作為沙龍樂器，調音與演奏方式同傳統吉他，流行於十八世紀末至十九世紀初巴黎上流社會。Carulli、Sor、Carcassi、Giuliani、Porro曾為其寫曲或教材，Carcassi有《Fantaisie pour la guitare ou lyre》。今仍有訂製樂器與博物館藏品，實際錄音稀少。
 
 ## 歷史背景
 
-里拉吉他起源於19世紀初的歐洲，是一種融合古典里拉琴與吉他特徵的獨特樂器。該樂器在英國和歐洲大陸廣泛流行，尤其受到維多利亞時代上流社會的青睞。里拉吉他的設計結合了里拉琴的半圓形琴體和吉他的弦軸系統，旨在創造出更易於演奏且音色優雅的樂器。19世紀中期，里拉吉他成為沙龍音樂和家庭娛樂的主要樂器，許多作曲家為其創作專門曲目。隨著鋼琴的興起和音樂審美的轉變，里拉吉他的受歡迎程度逐漸下降。雖然在20世紀後期已成為相對罕見的古董樂器，但它在樂器發展史上仍代表了一個重要的創新時期，展現了維多利亞時代對古典美學的重新詮釋。
+里拉吉他屬弦鳴樂器，外形仿古希臘基塔拉。1780年，法國製琴師馬雷沙爾聲稱發明「Lira Anacreòntica」，並指控音樂家普萊耶爾竊取設計。1780至1820年間，它在巴黎成為流行客廳音樂會樂器，瑪麗安東尼曾演奏，卡魯利、蘇爾、卡卡西、朱利亞尼與波羅亦為其創作樂曲與教材。其後因鋼琴鍵盤機構改良、吉他客廳地位下降而式微，轉為古典主義象徵，見於寓意畫與攝影道具；今仍有訂製與博物館收藏。
 
 ## 音色描述
 

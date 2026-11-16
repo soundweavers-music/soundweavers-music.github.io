@@ -11,8 +11,8 @@ interface_tags:
 region_culture: 亞洲／西藏
 listening_sound_tags: 嘴唇、遠方、召喚、空間方向｜吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：氣鳴；依據：來源一分類 Aerophone instrument stubs；來源五描述為 long trumpet or horn；與「Tibetan horn」互為別名／變體
 source_url: https://soundweavers-music.github.io/instruments/dungchen/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Tibetian_Wheel.svg/500px-Tibetian_Wheel.svg.png
 youtube_ids: Z1_C3TLXRlI 7aWtCJiyiZ8
@@ -20,26 +20,24 @@ youtube_ids: Z1_C3TLXRlI 7aWtCJiyiZ8
 
 ## 介紹
 
-The Tibetan horn or dungchen (Tibetan: དུང་ཆེན།, Wylie: dung chen, ZWPY: tungqên, literally "big conch," also called rag dung (རག་དུང་, literally "brass horn"; Mongolian: hiidiin buree (хийдийн бүрээ, literally "monastery horn"); Chinese: 筒欽; pinyin: tǒng qīn) is a long trumpet or horn used in Tibetan Buddhist and Mongolian buddhist ceremonies. It is the most widely used instrument in Tibetan Buddhist culture. It is often played in pairs or multiples, and the sound is compared to the singing of elephants.
+藏傳長號（Dungchen）是西藏與蒙古佛教儀式使用的長號角，亦稱「筒欽」或「rag dung」，字面意含「大號角」與「銅號角」。它屬唇振氣鳴樂器中的號角與銅管類，以吹奏者唇部振動發聲，常成對或多支同時演奏。其聲音被比作大象鳴叫，是藏傳佛教文化中最廣泛使用的樂器之一。
+
 ## 聆聽示範
 
-### 代表性作品
-
-藏傳長號主要用於宗教儀式音樂而非獨立創作作品。其在電影《七年在藏》、《功夫熊貓》等好萊塢製作中作為背景音樂出現，營造藏區神秘氛圍。當代作曲家如喜多郎在專輯《Silk Road》中運用藏傳長號音色，與現代音樂結合。此外，藏傳佛教寺院每日誦經儀式中的長號樂章被視為最具代表性的傳統運用，代代相傳至今。
+藏傳長號主要用於藏傳佛教與蒙古佛教儀式，是藏傳佛教文化中廣泛使用的樂器。實際場合以宗教儀式為主，演奏常成對或多支同時進行，產生低沉、持續的號角聲響；來源將其聲音比作大象鳴叫，並有Tsultrim Allione形容其長而深沉、迴旋縈繞。未見明確作曲家或曲目資料。
 
 ## 歷史背景
 
-藏傳長號起源於西藏及蒙古地區的寺院文化，是喜馬拉雅高原宗教音樂傳統中的重要樂器。其名稱「dungchen」在藏語中意為「大法螺」，反映了該樂器與宗教儀式的深刻淵源。這種長號通常採用黃銅製造，長度可達一至三公尺，具有低沉而宏亮的音質。
-
-藏傳長號主要用於喇嘛寺院的宗教儀式、誦經和冥想活動中，被視為召喚神聖力量的神聖樂器。隨著藏傳佛教在蒙古、不丹及尼泊爾等地的傳播，長號的使用也相應擴展。蒙古稱其為「hiidiin buree」（寺院號），充分體現其宗教身份。現今，藏傳長號不僅保留在傳統寺院儀式中，更成為表現藏族文化特色的重要音樂符號，在國際舞台上代表著喜馬拉雅地區獨特的精神文明。
+藏傳長號用於藏傳佛教與蒙古佛教儀式，是藏傳佛教文化中最廣泛使用的樂器，常成對或多支合奏。其名稱有「大法螺」與「銅號」等含義，蒙古語又稱寺院號角，漢語稱筒欽。來源未提供起源年代、發展過程、傳播路線或重要變化，因此無法進一步說明。
 
 ## 音色描述
 
-藏傳長號音色厚重而蒼涼，具有深沉的暗沉質感，帶著蒼古悲壯的意境。其低音域寬廣而渾厚，音量極為強大，常在高寺廟建築中產生獨特的共鳴迴響，形成層次豐富的音響效果。樂器發聲時帶有明顯的金屬顫動感，彷彿喇嘛誦經般莊嚴肅穆。相比西方長號的清晰銳利，藏傳長號更顯蒼勁有力；與中國傳統銅管樂器相比，其音色更為粗粝古樸。演奏時常採用低迴環繞的音型，營造深邃的宗教氛圍，音波具有強大的穿透力，能充滿整個寺院空間。
+Dungchen 屬唇振氣鳴長號，音色被描述為長、深、迴旋而哀婉，常以成對或多支合奏，聲音可比擬大象鳴叫。其發聲依靠吹奏者嘴唇振動，透過長管共鳴產生低沉持續的號角聲。來源未提及音域、音量控制方式，以及與同族樂器的具體差異。
+
 ## 樂器材質
 
-藏傳長號主體採用黃銅或青銅製造，經手工錘打而成，形成厚重的金屬管體。樂器頂端配有銅製或銀質的喇叭口，經精細雕刻裝飾。吹口處通常使用皮革或布料纏繞加固，便於演奏者握持。部分高級樂器的喇叭口邊緣鑲嵌銀飾或珍珠母貝，增添華麗感。內部管道光滑拋光，確保氣流通暢，整體重量可達數公斤，需要特殊的支撐架或演奏技巧方能持握。
+來源未提供藏傳長號的具體材質資料。文中僅指出其別名 rag dung的字面意義為「銅號」，但未明確記載琴身、吹嘴、喇叭口或其他部件使用何種金屬、木材或複合材料。因此，關於樂器本體與發聲體的實際用料，來源不足，無法進一步說明。
 
 ## 教學
 
-將吹口對準嘴唇，穩定吹氣入管。將吹口對準嘴唇，以穩定的氣流吹入管身。嘴唇的形狀和張力影響音高與音色。手指按壓音孔或活塞改變有效管長以控制音高。以穩定氣流吹入管口，嘴唇控制音色，氣息決定音量。
+來源未提供持琴姿勢、口型或初學練習步驟。可確認的是，藏傳長號屬唇振氣鳴樂器，演奏時以嘴唇振動發聲，常用於藏傳佛教與蒙古佛教儀式，並可成對或多支同時使用。

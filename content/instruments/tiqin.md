@@ -11,8 +11,8 @@ interface_tags:
 region_culture: 中國｜單一地區／文化圈
 listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
 ensemble_links: 
-verification_status: 需調整
-issue_note: 譯名需區分；Tanpura 是印度坦布拉／坦普拉，與 Tambura/Tanbur不同。；改「坦普拉琴（Tanpura）」；與第755相鄰。
+verification_status: 已查證
+issue_note: 分類查證：弦鳴；依據：來源五：tiqin 是 Chinese bowed string musical instruments in the 
 source_url: https://soundweavers-music.github.io/instruments/tiqin/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Tiqin_in_the_Mets_01.jpg/500px-Tiqin_in_the_Mets_01.jpg
 youtube_ids: ARQZO5odmdk UpZJh8VgZCE
@@ -20,12 +20,11 @@ youtube_ids: ARQZO5odmdk UpZJh8VgZCE
 
 ## 介紹
 
-The tiqin (Chinese: 提琴; pinyin: tíqín) is a name applied to several two-stringed Chinese bowed string musical instruments in the huqin family of instruments.
+提琴（Tiqin）是中國弓弦樂器的名稱，指胡琴家族中數種二弦樂器，以弓拉奏。常見用法包括崑曲、廣東音樂、福建與台灣所使用者，也曾作四胡舊稱。廣東音樂中的竹提琴屬廣東戲硬弓編制，琴頸多用硬木，音箱取大段竹材，面板以桐木或棕櫚木製成，背板保留竹節並開音孔。此名稱亦偶爾泛稱提琴家族的小提琴、中提琴、大提琴與低音提琴。
+
 ## 聆聽示範
 
-### 代表性作品
-
-提琴的代表作品包括京劇伴奏音樂《紅娘》、《霸王別姬》等傳統劇目配樂，以及民間音樂《高山流水》、《十面埋伏》的改編版本。現代作曲家創作的提琴協奏曲如《江南春曉》等，充分展現了提琴高亢明亮的音色特點。此外，昆曲伴奏中的提琴音樂也是重要代表，體現了該樂器在傳統表演藝術中的重要地位。
+提琴（tiqin）是中國胡琴家族兩弦拉弦樂器的名稱，屬弦鳴樂器。來源提到它可用於崑曲、廣東音樂，以及廣東戲曲中的硬弓編制；另有福建與台灣使用的類型。因來源未列作曲家或曲目，示範僅能指出這些音樂場合與編制。
 
 ## 歷史背景
 
@@ -36,7 +35,7 @@ The tiqin (Chinese: 提琴; pinyin: tíqín) is a name applied to several two-st
 提琴音色高亢明亮，具有穿透力強的特點，能在樂隊中清晰突出。其音域寬廣，從低音區的溫潤沉厚到高音區的尖銳刺激，跨度大且表現力豐富。提琴的共鳴主要依靠共鳴箱內部的空氣振動，琴弦與琴弓的摩擦產生的振動通過琴橋傳導至共鳴箱，形成獨特的諧波。與二胡相比，提琴音色更為開放明亮；與小提琴相比，則帶有更多東方民族特色的溫潤感。提琴擅長表現激情澎湃的旋律，其音色既能溫柔婉轉，亦能激昂高亢，是中國民族樂隊中重要的旋律樂器。
 ## 樂器材質
 
-提琴的共鳴箱主要採用紫檀木、紅木或松木製作，具有良好的共鳴效果。琴頸和琴頭通常由硬度較高的紅木或烏木雕刻而成。琴弦採用蠶絲或尼龍材質，部分高級琴弦使用鋼芯絲弦。琴弓由竹子或木材製作，弓毛選用馬尾毛。琴橋和弦軫一般採用烏木或象牙等硬質材料，確保結構穩定性和音質傳導效果。
+提琴為中國弦鳴樂器，來源僅載粵樂竹提琴之材質：琴頸以硬木製成，常用酸枝或紫檀；共鳴箱取一段大型竹材，背板為竹節自然接合處並開音孔；面板不用蛇皮，而以桐木或棕櫚木製成。此名亦偶指四胡，但來源未述其材質；其餘琴弦、弓桿與弓毛等部件亦未載明。
 
 ## 教學
 

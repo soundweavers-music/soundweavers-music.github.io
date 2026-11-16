@@ -5,14 +5,14 @@ subcategory: 平放弦與擊弦
 title_zh: 薩泰裡琴
 title_original: Psaltery
 family_std: 齊特琴、箏類、擊弦與鍵盤化弦鳴
-sound_hs: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
+sound_hs: 314.122
 playing_method: 撥弦／擊弦／按鍵擊弦
 interface_tags: 鍵盤／按鍵
 region_culture: 中東
 listening_sound_tags: 手掌、弦面、推音、敲擊｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：弦鳴（314.122）；依據：Wikidata P1762 Hornbostel–Sachs 314.122；英文維基簡述 Stringed inst
 source_url: https://soundweavers-music.github.io/instruments/psaltery/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/AlaBohemicaPsaltery.jpg/500px-AlaBohemicaPsaltery.jpg
 youtube_ids: sotvgwFm-MI kF769M5c0Wo
@@ -20,16 +20,12 @@ youtube_ids: sotvgwFm-MI kF769M5c0Wo
 
 ## 介紹
 
-薩泰里琴（英語：psaltery，中國大陸作撥弦揚琴）是齊特琴中的一種撥弦樂器。
+薩泰裡琴是無指板的箱式齊特琴，屬弦鳴樂器，Hornbostel–Sachs 編號 314.122。其共鳴箱多為梯形、長方形或「豬頭」形，弦橫跨箱面，以手指或撥子彈奏；中世紀常見金屬弦，古希臘早期則以木製並靠自然聲學發聲。它被視為齊特琴與揚琴的原型，現代墨西哥的地方音樂風格仍使用薩爾泰里奧（salterio），另有三角形式可拉奏的拉弦薩泰裡琴。
+
 ## 聆聽示範
-
-### 代表性作品
-
-薩泰裡琴在中世紀教堂音樂中佔有重要地位，許多宗教聖樂作品都採用其音色。雖然專門的獨奏作品記載較少，但在文藝復興時期的器樂合奏中經常出現。現代作曲家如保羅·西蒙斯(Paul Simmons)等人創作了當代薩泰裡琴作品，將這件古老樂器融入現代音樂語境，展現其多元的藝術表現力。
-
 ## 歷史背景
 
-薩泰裡琴是古希臘的一種豎琴狀弦樂器。「薩泰裡琴」一詞源自古希臘語，意為「弦樂器」，該詞根據動詞「撥彈」衍生而來，指用手指而非撥片演奏弦樂器。該琴原本由木料製成，依靠天然音響原理產生聲音。三角形的薩泰裡琴曾被與豎琴混淆。這類琴使用上方水平邊來固定調音栓，被稱為「羅特琴」或其變體。三邊形樂器在教堂音樂中頗受歡迎，因其三邊象徵基督教的三位一體。西元前320至310年左右，古希臘的紅彩陶器上曾繪有薩泰裡琴的圖像。
+薩泰里琴（314.122）的早期形態見於古希臘，原為近似豎琴的弦鳴樂器，名稱出自古希臘語「用手指彈弦」之意。中世紀至文藝復興時期，它轉為橫跨木製共鳴箱的齊特琴，可能源自腓尼基；十二至十五世紀在歐洲手稿、繪畫與雕刻中常見，並見於九世紀加洛林帝國、十三世紀西班牙、十四世紀波希米亞與義大利、十五世紀德國等例。十九世紀後歐洲式微，但墨西哥的薩爾特里奧琴延續至二十世紀；與擊弦揚琴不同，它以撥弦發聲，後又出現弓奏薩泰里琴等變化。
 
 ## 音色描述
 

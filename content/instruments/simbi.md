@@ -2,7 +2,7 @@
 class_code: A2
 frontend_class: 弦樂器
 subcategory: 豎琴、里拉與開放弦
-title_zh: 辛比琴
+title_zh: 辛比（水靈）
 title_original: Simbi
 family_std: 豎琴、里拉與開放弦樂器
 sound_hs: 弦鳴｜322 豎琴與里拉類
@@ -11,8 +11,8 @@ interface_tags:
 region_culture: 非洲／歐洲／亞洲／美洲｜地區／文化圈
 listening_sound_tags: 循環、河流感、開放弦、吟唱｜開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：非樂器／非單一樂器；依據：來源一、三、五均顯示 Simbi 為中非水靈／守護靈，非樂器
 source_url: https://soundweavers-music.github.io/instruments/simbi/
 image: https://upload.wikimedia.org/wikipedia/commons/3/34/Dona_Fish_-_Mamba_Muntu_-_Simbi.jpg
 youtube_ids: mh8-CHTt-CU Nqsb55TkrgQ
@@ -22,16 +22,9 @@ youtube_ids: mh8-CHTt-CU Nqsb55TkrgQ
 
 辛比（也拼寫為Cymbee和Sim'bi，複數形式為Bisimbi或Basimbi）是中非傳統巴剛果宗教中的守護水和自然的靈體，也存在於非洲散居精神傳統中，例如美國南方的根源巫術（Hoodoo）和古巴的帕羅教（Palo）。歷史上，辛比被認為是水族人類或美人魚、陶器、蛇、葫蘆和火的化身。由於大西洋奴隸貿易，大量班圖人民被從非洲買賣或掠奪到美洲。
 ## 聆聽示範
-
-### 代表性作品
-
-由於辛比琴是源自中非班圖傳統的古老靈性樂器，其歷史記載有限，無法確切列舉具體作曲者的代表作品。然而，在現代世界音樂領域，許多民族音樂學家與作曲家開始採用辛比琴進行創作與研究，將其融入當代音樂作品中，探索其神秘的音色特質。該樂器主要出現於傳統宗教儀式與民間音樂實踐中，而非古典樂曲譜系。
-
 ## 歷史背景
 
-雖然關於「辛比」一詞的書面歷史記載很少，但學界普遍認為它源自班圖語系和剛果語系社群，幾乎可以肯定最初是這些社群用來理解周圍世界精神本質的手段。
-
-有人認為「辛比」一詞源自基剛果語中的「simba」，意為「持有、保留、保存」。類似的短語「isimba ia nsi」翻譯為「社群中的傑出人物」，在十七世紀早期的基剛果語字典中有記載。這個短語以及「kisímbi kinsí」等其他表述，翻譯為「永不衰老的長者」，是「bisimbi」與活人世界和亡靈世界精神連結的最早證據。「basimbi」也翻譯為「守護者」，短語「isimba ia nsi」後來演變為「土地的守護者」。
+Simbi 源於班圖語與剛果語社群，詞源可能出自基剛果語「持有、保存」；十七世紀的早期剛果語詞典已記錄「社區中受尊敬的人」與「不死的高齡者」等語，顯示其連結生者與祖先世界。大西洋奴隸貿易使超過一千二百五十萬人被迫遷移，崇拜隨之傳入美國、巴西、古巴與海地。十九世紀愛德蒙·拉芬在南卡羅來納記錄水靈見聞；胡毒傳統視其守護溪流與生育，海地伏都與古巴帕洛亦保留剛果自然靈信仰。
 
 ## 音色描述
 

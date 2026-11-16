@@ -5,14 +5,14 @@ subcategory: 風箱與自由簧
 title_zh: 和聲手風琴
 title_original: Harmoneon
 family_std: 風箱與自由簧家族
-sound_hs: 待確認
+sound_hs: 412.132
 playing_method: 吹奏
 interface_tags: 
 region_culture: 法國｜單一地區／文化圈
 listening_sound_tags: 手指、機械距離、記憶、電聲｜按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：氣鳴（412.132）；依據：來源二與來源三均給出 Hornbostel–Sachs 412.132，且來源一描述為 free-reed musica
 source_url: https://soundweavers-music.github.io/instruments/harmoneon/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Harmoneon_cavagnolo.jpg/500px-Harmoneon_cavagnolo.jpg
 youtube_ids: BCtL5cy-92s Z1gPANj-CCU
@@ -20,16 +20,15 @@ youtube_ids: BCtL5cy-92s Z1gPANj-CCU
 
 ## 介紹
 
-和聲手風琴或演奏會手風琴（法語：Harmonéon、accordeon de concert）是一種法國自由簧氣鳴樂器，由皮埃爾·蒙尼雄於1948年發明，但他直到四年後的1952年才為該樂器申請專利。自1974年以來，它已在音樂保守音樂學院中教授。該樂器與二重奏手風琴和按鈕手風琴都有很大的相似性。
+和聲手風琴（Harmoneon）是法國自由簧氣鳴樂器，Hornbostel–Sachs 編號 412.132，由 Pierre Monichon 於 1948 年創製。其構造與二重奏六角手風琴及按鈕手風琴相近，採用左右手相同指法的鍵盤系統，取消預設和弦，使左手較輕、兩側音色較一致。此樂器原為音樂會用途設計，可與交響樂團合奏，後在法國、荷蘭與德國演奏，並進入音樂學院課程。
+
 ## 聆聽示範
 
-### 代表性作品
-
-和聲手風琴作為現代樂器，相關代表作品記載較少。皮埃爾·莫尼雄本人為該樂器創作過多部作品，展示其音樂會潛力。由於樂器在1974年才正式納入音樂保守學院教學，許多當代作曲家開始為其譜寫新作品。該樂器常被用於演奏改編自古典音樂作品的曲目，以及現代室內樂創作，強調其與交響樂團合奏的能力。
+和聲手風琴為法國自由簧氣鳴樂器，Hornbostel–Sachs 編號 412.132。來源提到它設計為與交響樂團合奏，也曾以二重奏演出，主要在法國、荷蘭與德國使用。首次音樂會由 Monique Lecoq-Taupin 演奏 Mozart的 The Marriage of Figaro；Alain Abbot等法國作曲家曾為其寫作。
 
 ## 歷史背景
 
-年輕時身為手風琴教師的皮埃爾·莫尼雄（Pierre Monichon）最初的動力是創造自己的音樂會樂器，使其能夠與鋼琴、小提琴等所謂「高雅樂器」相提並論。莫尼雄並未意識到這個想法並非原創。當地工廠早已在製造具有對稱式鍵盤的手風琴，這是創造和聲手風琴的第一步。和聲手風琴的設計目的是能夠與交響樂團合奏。通過對稱式鍵盤的創新設計，莫尼雄成功地將傳統手風琴提升至音樂廳級別的樂器，使其能夠適應古典音樂表演的需求。
+1948年，皮耶爾·莫尼雄在法國創製和聲手風琴，1952年取得專利。原型由喬瓦尼·塞加拉在巴黎製成，後由波爾托洛·布薩托等製琴師製作，並進入多家手風琴廠目錄。其鍵盤取消預設和弦，左右手指法相同，旨在與管弦樂團合作。1949年莫尼克·勒科克-托潘首演莫札特《費加洛的婚禮》；1956年與夏爾·托潘組成首個二重奏。1968年巴黎音樂學院開設課程，1974年起進入音樂學院教學，主要在法國、荷蘭、德國演奏，近年興趣回升。
 
 ## 音色描述
 

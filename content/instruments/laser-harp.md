@@ -8,11 +8,11 @@ family_std: 光束控制器
 sound_hs: 複合／電鳴｜Electrophone／電鳴與複合鍵盤
 playing_method: 手勢觸發
 interface_tags: 電子控制
-region_culture: 全球／現代｜跨文化／現代
+region_culture: 法國
 listening_sound_tags: 舞台視覺、空氣中的弦、電子聲觸發｜按鍵打開的機械房間（鍵盤介面、風箱、電子與取樣）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：電鳴；依據：來源一開頭稱其為 electronic musical user interface，且分類標籤含 Electronic
 source_url: https://soundweavers-music.github.io/instruments/laser-harp/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Jean_Michel_Jarre_playing_a_laser_harp_1%2C_2009-05-12.JPG/500px-Jean_Michel_Jarre_playing_a_laser_harp_1%2C_2009-05-12.JPG
 youtube_ids: WkkhcwXpYy4 9DlwQJX3qag
@@ -20,18 +20,15 @@ youtube_ids: WkkhcwXpYy4 9DlwQJX3qag
 
 ## 介紹
 
-雷射豎琴（英語：laser harp）是一種電子樂器，同時屬於一種雷射表演。雷射豎琴的外觀上，以數道雷射光束取代傳統豎琴的弦，演奏者以手阻斷這些光線的傳輸，藉此產生聲音。 雷射豎琴從1981年起，就一直是法國知名電子音樂藝術家Jean-Michel Jarre演奏會上備受矚目的特色之一，這種樂器的興起也應歸功於他。英國創作歌手Little Boots的演奏會中也使用過與Jean-Michel Jarre的版本類似的雷射豎琴。在亞洲地區，日本電子音樂作曲家平澤進則是使用雷射豎琴最知名的演奏者。
+雷射豎琴是電鳴類電子樂器，同時也是雷射燈光顯示。它以數道雷射光束取代傳統豎琴的弦，演奏者以手阻斷光束傳輸來產生聲音，外觀視覺上類似豎琴。其流行歸功於法國電子音樂藝術家 Jean-Michel Jarre；自1981年起，他幾乎在所有音樂會中使用此樂器。英國創作歌手 Little Boots的演奏會也使用過類似版本，日本電子音樂作曲家平澤進則被視為亞洲地區使用此樂器最知名的演奏者。
+
 ## 聆聽示範
 
-### 代表性作品
-
-雷射豎琴最著名的代表作品為法國電子音樂大師Jean-Michel Jarre於1981年在演唱會中首次使用該樂器演奏的作品，其中包括《Oxygène》系列。此外，英國創作歌手Little Boots也在其現代流行音樂演唱會中使用雷射豎琴進行演奏，將這一前衛樂器融入當代音樂表演中，開創了電子音樂與視覺藝術結合的新型態音樂會形式。
+雷射豎琴主要出現在電子音樂現場演出與公共藝術裝置中。自1981年起，Jean-Michel Jarre 幾乎在所有音樂會使用它，曲目包括 Second Rendez-Vous 第三段、Third Rendez-Vous、Chronologie 3、Calypso 2、Oxygene 7 與 Time Machine；其聲音來自合成器的原廠預設。Little Boots 與日本電子音樂作曲家平澤進也曾在演奏會使用。
 
 ## 歷史背景
 
-雷射豎琴起源於1980年代的法國，是電子音樂與視覺藝術結合的創新產物。1981年，法國電子音樂大師Jean-Michel Jarre首次在演奏會上使用雷射豎琴，以其獨特的科技感和視覺震撼力，迅速成為其演唱會的標誌性特色。這項創新將傳統樂器與現代雷射技術融合，演奏者通過阻斷雷射光束來產生聲音，開創了前衛的表演藝術形式。
-
-隨著時間推進，雷射豎琴的使用逐漸向世界各地傳播。英國創作歌手Little Boots在其演唱會中採用了類似的雷射豎琴技術，證明了這項創新在西方樂壇的影響力。亞洲地區方面，日本電子音樂作曲家平澤進成為使用雷射豎琴最著名的演奏者，進一步推動了這種樂器在東亞地區的認知與發展，使其成為當代電子音樂表演的重要工具。
+雷射豎琴的起源與專利申請有關：法國作曲家Bernard Szajner於1981年申請專利，1982年獲准；澳洲發明家Geoffrey Rose稱1975至1976年在英國申請臨時專利，其裝置可能早在1976年展示使用。其後由Jean-Michel Jarre自1981年起在演奏會推廣，成為高知名度特色。2005年免費多色雷射豎琴專案在雷射討論板分享，並於德國聚會亮相。
 
 ## 音色描述
 

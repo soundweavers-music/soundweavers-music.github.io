@@ -5,14 +5,14 @@ subcategory: 簧片樂器
 title_zh: 克納笛
 title_original: Quena
 family_std: 無簧吹管、長音與氣息樂器
-sound_hs: 421 邊棱氣鳴／無簧笛類
+sound_hs: 421.111.12
 playing_method: 吹奏／端吹／橫吹／容器共鳴
 interface_tags: 指孔
 region_culture: 美洲／南美（安地斯）
 listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
 ensemble_links: 安地斯合奏
-verification_status: 有問題，需修正
-issue_note: 譯名錯誤；Pi Nai 是泰國雙簧管／嗩吶類，不是鼻笛。；改「披奈管（Pi nai，暫譯）」；第2類雙簧。
+verification_status: 已查證
+issue_note: 分類查證：氣鳴（421.111.12）；依據：來源二與來源三均給出 Hornbostel–Sachs 421.111.12，來源五描述為 end-blown flut
 source_url: https://soundweavers-music.github.io/instruments/quena/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Quena01.jpg/500px-Quena01.jpg
 youtube_ids: 93wGaGFUnTs ndUCNnhH03Q
@@ -20,12 +20,11 @@ youtube_ids: 93wGaGFUnTs ndUCNnhH03Q
 
 ## 介紹
 
-克納笛（西班牙化拼寫法為Quechua語的qina，英文有時也寫作kena）是安地斯山脈的傳統笛子。傳統上由蘆葦或木材製成，有6個手指孔和1個拇指孔，兩端開放或底部半封閉（悶音）。為了發出聲音，演奏者用下巴與下唇之間的肌肉閉合管子的頂端，並將氣流向下吹出，沿著管子的軸線，吹過頂端切割的橢圓形凹口上方。它通常以G調為標準，最低音為G4。
+克納笛（Quena）是安地斯傳統氣鳴樂器，Hornbostel–Sachs 編號421.111.12。傳統以竹或木製成，有六個指孔與一個拇指孔，兩端開放或底部半閉。演奏時以下巴與下唇間肉閉合管頂，沿管軸向下吹氣，經過末端橢圓形缺口發聲。通常為G調，最低音G4。主要用於安地斯傳統音樂，也見於新歌曲（nueva canción）、後新歌曲搖滾與世界音樂；較低音版本quenacho為D調。
+
 ## 聆聽示範
 
-### 代表性作品
-
-克納笛在安地斯民俗音樂中廣泛應用，著名作品包括傳統民謠《孔多爾之歌》(El Cóndor Pasa)，此曲由秘魯作曲家丹尼埃爾·阿洛米亞·羅布斯(Daniel Alomía Robles)於1913年編訂，成為克納笛的標誌性曲目。另有《安地斯的鄉愁》等傳統樂曲，在20世紀世界音樂運動中廣為流傳，使克納笛成為代表南美洲文化的重要樂器。
+克納笛主要用於傳統安地斯音樂，也常見於世界音樂。六〇至七〇年代，若干新歌曲音樂人使用它，多為特定歌曲而非標準樂器；某些新歌曲團體與演奏者 Facio Santillan 則常態使用。八〇至九〇年代，後新歌曲搖滾作品也曾納入克納笛，例如《Cuando Pase el Temblor》與《Lamento Boliviano》。聆聽時可留意其暗色、粗糙音色，以及高音區較難控制的質感。
 
 ## 歷史背景
 

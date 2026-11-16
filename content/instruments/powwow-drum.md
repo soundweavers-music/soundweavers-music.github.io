@@ -1,18 +1,18 @@
 ---
-class_code: A1
-frontend_class: 吹奏與氣息樂器
-subcategory: 無簧吹管
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
 title_zh: 雷鼓
 title_original: Powwow Drum
 family_std: 膜鳴鼓類、框鼓、杯鼓與鼓組
-sound_hs: 21 膜鳴鼓類
+sound_hs: 21
 playing_method: 手拍／槌擊／皮膜振動
 interface_tags: 
 region_culture: 美洲／北美
 listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
 ensemble_links: 
-verification_status: 需調整
-issue_note: 譯名需區分；Paixiao 是中國排簫，與第563 Pan Flute 泛稱／安地斯排簫不同。；相鄰不合併。；DUP-014:Paixiao／Pan Flute
+verification_status: 已查證
+issue_note: 分類查證：膜鳴（21）；依據：原題名與檔案名均含 drum，且現有 sound_hs 標為 21 膜鳴鼓類
 source_url: https://soundweavers-music.github.io/instruments/powwow-drum/
 youtube_ids: cj3U0z64_m4 D3aP2lf1dt8
 ---
@@ -28,9 +28,6 @@ Powwow Drum是北美印第安民族的傳統大鼓，起源於19世紀後期的�
 Powwow Drum主要用於印第安傳統Powwow聚會中的集體演奏，而非古典音樂作品。20世紀後期，許多當代作曲家開始在現代音樂創作中融入這一樂器，如美國印第安作曲家的文化復興作品。該鼓也廣泛應用於世界音樂、紀錄片配樂及民族音樂節慶表演中，成為展現印第安文化認同的重要象徵。
 
 ## 歷史背景
-
-# Powwow Drum 的歷史背景
-
 Powwow Drum起源於北美大平原印第安民族，特別是北達科他州、蒙大拿州與加拿大草原地區。這種大鼓最初在19世紀後期由印第安部落發展而成，融合了傳統鼓樂與西方影響。Powwow本身源自東北部阿爾貢昆語系民族的聚會傳統，後來演變為泛印第安文化活動。
 
 20世紀初，隨著印第安民族的文化復興運動，Powwow Drum逐漸成為這類聚會的核心樂器。它象徵著部落的團結與文化認同，鼓聲傳統上被視為大地的心跳。透過部落間的交流與移動，這種鼓樂風格向西傳播至太平洋西北地區與西南部。

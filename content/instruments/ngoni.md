@@ -5,14 +5,14 @@ subcategory: 豎琴、里拉與開放弦
 title_zh: 恩貢尼
 title_original: Ngoni
 family_std: 豎琴、里拉與開放弦樂器
-sound_hs: 弦鳴｜322 豎琴與里拉類
+sound_hs: 弦鳴｜323.1
 playing_method: 撥弦／開放弦共鳴
 interface_tags: 
 region_culture: 非洲／歐洲／美洲／亞洲｜地區／文化圈
 listening_sound_tags: 循環、河流感、開放弦、吟唱｜開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
 ensemble_links: 
-verification_status: 已整併主項
-issue_note: 重複已整併；保留本列為主項；已整併第486項。；主項保留；被整併列第486項以紅字刪除線保留供人工審核。；MERGED-503: 併入列 486
+verification_status: 已查證
+issue_note: 分類查證：弦鳴（323.1）；依據：來源一開頭「traditional West African string instrument」；來源三 Wikida
 source_url: https://soundweavers-music.github.io/instruments/ngoni/
 youtube_ids: -cLAwAOi-hA ZSPmh-6-bpg
 ---

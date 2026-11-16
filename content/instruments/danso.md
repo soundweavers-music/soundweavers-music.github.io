@@ -5,14 +5,14 @@ subcategory: 簧片樂器
 title_zh: 短簫
 title_original: Danso
 family_std: 無簧吹管、長音與氣息樂器
-sound_hs: 421 邊棱氣鳴／無簧笛類
+sound_hs: 421.141.12
 playing_method: 吹奏／端吹／橫吹／容器共鳴
 interface_tags: 
 region_culture: 韓國｜單一國家或文化源流
 listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：氣鳴（421.141.12）；依據：Wikidata P1762 給出 Hornbostel–Sachs 421.141.12，且英文全文描述為 end-b
 source_url: https://soundweavers-music.github.io/instruments/danso/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Danso_fingering_chart.svg/500px-Danso_fingering_chart.svg.png
 youtube_ids: 91idAyR_Rg0 twnZR-cZtFg
@@ -20,26 +20,24 @@ youtube_ids: 91idAyR_Rg0 twnZR-cZtFg
 
 ## 介紹
 
-The danso (also spelled tanso) is a Korean notched, end-blown vertical bamboo flute used in Korean folk music. It is traditionally made of bamboo, but since the 20th century it has also been made of plastic. It was imported from China in the 19th century, where it is called duanxiao (simplified Chinese: 短箫; traditional Chinese: 短簫; pinyin: duǎnxiāo; lit. 'short xiao'). The Korean name is the transliteration of the Chinese one, a short variant of the xiao. The flute has four finger holes and one thumb hole at the back. The playing range is two octaves, going from low G to high G.
+短簫（Danso）是韓國傳統竹製邊棱氣鳴笛，屬無簧笛類，分類編號 421.141.12。其形制為垂直吹奏、管端有缺口，正面四指孔、背面一拇指孔，音域約兩個八度，由低 G 至高 G；低音以平吹發聲，高音則靠吹氣強弱變化。它自中國短簫傳入，名稱即其音譯，常用於韓國民間音樂，可獨奏，亦多與其他樂器合奏於室內樂編制。
+
 ## 聆聽示範
 
-### 代表性作品
-
-短簫在韓國民間音樂中廣泛應用，常見於傳統農樂（Nongak）與宮廷音樂伴奏。代表性作品包括《靈山會上歌》，展現短簫在宗教音樂中的應用；《農樂打令》系列，突顯其在民間節慶中的生動表現力；以及現代創作《短簫隨想曲》，融合傳統音色與當代音樂語言，充分發揮樂器的表現潛能。
+短簫的聆聽示範可從韓國民間音樂與室內樂編制入手：它既能獨奏，也主要與其他樂器合奏，呈現其在民間音樂及室內樂中的實際使用場合；來源未提及特定作曲家或曲目，因此示範聚焦於合奏與獨奏場合。
 
 ## 歷史背景
 
-短簫是韓國傳統豎笛樂器，起源於中國，19世紀時傳入朝鮮半島。在中國，短簫稱為「短簫」（duanxiao），是古代雅樂的重要成員。韓國將其融入民間音樂傳統，命名為「短簫」（Danso或Tanso），逐漸發展出獨特的演奏風格與音樂美學。
-
-傳統短簫以竹子製作，透過頂端的凹口吹奏，音色溫潤深邃，適合表現韓國民間音樂的情感內涵。20世紀後，隨著現代化進程，短簫開始採用塑膠材料製造，使其更易於保存與推廣。短簫在韓國民間音樂中扮演重要角色，是傳統樂隊的常見樂器，其獨特的音色與表現力使其成為韓國音樂文化的重要象徵，至今仍被廣泛應用於民間演奏與音樂教育。
+短簫（Danso）為韓國邊棱氣鳴／無簧笛類，傳統用於韓國民間音樂。其形制於十九世紀自中國傳入，中國稱短簫，為簫的短型；韓國名稱即由此音譯。樂器傳統以竹製成，二十世紀起亦出現塑膠製品。名稱中的「短」指其為最短的直吹管樂器，較另一種韓國直吹竹簫 tungso 短。
 
 ## 音色描述
 
-短簫是一種帶有溫潤質感的竹製樂器，音色兼具明亮與柔和的特性。其音域跨越中音至高音區，具有相當的表現力。吹奏時，空氣通過缺口吹孔產生振動，在竹管內共鳴形成深厚的底蘊音色。低音區呈現沉穩厚重的特質，中音區最為醇美飽滿，高音區則帶有清亮透徹的光采。相較於笛子的尖銳明亮，短簫的音色更顯溫雅內斂；比之簫的蒼涼悠遠，短簫則更富生動活力。其音響具有穿透力，易於在民樂合奏中脫穎而出，同時又能與其他樂器和諧融合。竹材的天然特性使其音色帶有樸實的韻味，具有強烈的民族特色。
+短簫音色清澈，音域為兩個八度，自低G至高G。其發聲以邊棱氣鳴方式產生，低音以平吹即可發出，高音則依靠吹氣強度差異來取得。與同族樂器相比，短簫名稱中的「短」指其為最短的垂直吹奏管樂器；另一種韓國端吹竹簫較長。
+
 ## 樂器材質
 
-短簫傳統以竹子製作，竹管呈中空圓筒狀，內壁光滑便於氣流流通。頂端開有凹口（notched mouthpiece），用於引導氣流產生振動。管身開有多個按孔，通常為5至8個，便於演奏者調整音高。現代短簫亦採用塑膠（ABS樹脂）或其他合成材料製造，提升耐久性與穩定性，同時保持傳統音色特質。
+短簫琴身傳統以竹製成，二十世紀以來亦見塑膠製品。發聲體即笛身本身，未另見簧片或膜片等部件記載。來源資料未載明吹口缺口、指孔邊緣或其他部件之材質，故僅能確認琴身主要材料為竹與塑膠。
 
 ## 教學
 
-將吹口對準嘴唇，穩定吹氣入管。將吹口對準嘴唇，以穩定的氣流吹入管身。嘴唇的形狀和張力影響音高與音色。手指按壓音孔或活塞改變有效管長以控制音高。以穩定氣流吹入管口，嘴唇控制音色，氣息決定音量。
+演奏時將短簫垂直持握，吹口端靠近唇部，以刻口發聲。正面四個指孔由手指按閉，背面一個拇指孔由拇指控制。低音區以平穩吹氣即可發出，高音區則需增加吹氣強度。初學可先練習穩定氣流與按孔，再逐步掌握高低音轉換。

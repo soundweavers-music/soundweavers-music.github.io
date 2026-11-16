@@ -1,7 +1,7 @@
 ---
-class_code: A1
-frontend_class: 吹奏與氣息樂器
-subcategory: 無簧吹管
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
 title_zh: 京鑼
 title_original: Jing
 family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
@@ -11,8 +11,8 @@ interface_tags:
 region_culture: 東南亞／東亞／非洲／歐洲／全球
 listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
 ensemble_links: 甘美朗合奏
-verification_status: 待檢查
-issue_note: 名稱待查；Huaca (instrument) 不是一般陶笛，可能是前哥倫布陶製容器笛／哨笛類。；與第544 Ocarina、第836 Vessel flute 相鄰，待查後決定。
+verification_status: 已查證
+issue_note: 分類查證：體鳴；依據：來源一：Jing (instrument) 為 Korean traditional gong instrument，開
 source_url: https://soundweavers-music.github.io/instruments/jing/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Jing.jpg/500px-Jing.jpg
 youtube_ids: IvUU8joBb1Q RIz3klPET3o
@@ -20,12 +20,11 @@ youtube_ids: IvUU8joBb1Q RIz3klPET3o
 
 ## 介紹
 
-Jing can refer to: Jing (software), formerly Jing Project Jing (name), a Chinese surname and given name Jing River, in China Jing (instrument) (징), a large gong used in Korean traditional music 井 (jǐng), a Chinese word for well and various other things named after the well
+京鑼（Jing，韓文징）是韓國傳統音樂中的大型鑼，屬體鳴樂器。通常以高品質黃銅製成，用一端包覆布層的槌敲擊，以柔化音色。它常用於農事、巫儀、佛教與軍事音樂的儀式和特殊場合，也見於四物遊戲、風物戲與大吹打等打擊樂編制，主要負責節拍。依音高可分為低音與高音兩類；雖為打擊樂器，卻有固定音高，能產生柔和綿長或宏大咆哮般的聲音。
+
 ## 聆聽示範
 
-### 代表性作品
-
-京鑼在韓國傳統音樂中廣泛應用於多部代表性作品。在農樂表演中，京鑼作為節奏領導樂器，被運用於各類民俗慶典音樂。在宮廷雅樂中，京鑼與其他打擊樂器配合，呈現於朝鮮王朝時期的宮廷儀式音樂。在巫樂祭祀中，京鑼強有力的音色被用於烘托神聖氛圍。其在傳統樂隊中的角色歷久彌新，是韓國傳統音樂體系中不可或缺的打擊樂器。
+京鑼見於傳統韓國音樂，尤其四物遊戲、農樂、大吹打，用以維持節拍；亦用於農民、巫教、佛教與軍事音樂的儀式和特殊場合。在四物遊戲中，它為四種打擊樂器之一，參與構成節奏。
 
 ## 歷史背景
 
@@ -37,7 +36,8 @@ Jing can refer to: Jing (software), formerly Jing Project Jing (name), a Chinese
 
 ## 音色描述
 
-京鑼是韓國傳統音樂中的大型銅鑼，音色明亮而富有穿透力，具有強烈的金屬質感。其音域偏高，敲擊時能發出清脆、嘹亮的聲響，常作為樂隊中的領導樂器。京鑼的共鳴方式獨特，敲擊後聲音能在空間中持續迴盪，產生豐富的泛音。相比於中國的大鑼音色較為沉厚，京鑼更顯輕快靈動；與琵琶等弦樂相比，其音色更具爆發力和穿透感。通過改變敲擊力度和部位，可以呈現從清亮到深沉的多樣音色變化。
+京鑼屬體鳴樂器，以包布鼓槌敲擊黃銅鑼面發聲。其音色可因敲擊力度改變：輕擊時聲音較柔、餘音較長，重擊時音量較大並帶有咆哮感。京鑼雖為打擊樂器，卻有固定音高，單獨敲擊即產生和諧音響。依音高分為 Amjing 與 Sujing，前者音高較低，後者音高較高。來源未提其他同族樂器差異，僅能確認其固定音高與低、高兩類音域。
+
 ## 樂器材質
 
 京鑼主要由銅合金鑄造而成，通常採用銅與錫的混合比例製作鑼面，以獲得最佳的音色效果。鑼面經過精密的鑄造與鍛打工藝，確保其厚度均勻與音質純正。鑼邊緣則經特殊處理以增強結構強度。傳統京鑼多配備以木製敲槌，槌頭覆以布料或皮革，使演奏者可根據需求調整敲擊音色。木製的敲槌把手便於操控，整體設計兼具藝術性與功能性。

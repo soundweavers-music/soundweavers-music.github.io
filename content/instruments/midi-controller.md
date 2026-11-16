@@ -5,14 +5,14 @@ subcategory: 取樣與磁帶
 title_zh: MIDI控制器
 title_original: MIDI Controller
 family_std: 鍵盤介面、風箱、電子與取樣
-sound_hs: 鍵盤／電鳴／機械混合｜412/31/52 鍵盤、自由簧、電鳴與機械介面
+sound_hs: 鍵盤／電鳴／機械混合｜542
 playing_method: 按鍵／風箱／電控／取樣
 interface_tags: 鍵盤／按鍵、風箱、電子控制
 region_culture: 歐洲／美國／全球現代錄音室
 listening_sound_tags: 手指、機械距離、記憶、電聲｜按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：電鳴（542）；依據：來源一稱 MIDI controller 為 electronic musical instrument；來源三 H-S
 source_url: https://soundweavers-music.github.io/instruments/midi-controller/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Evolution_X-Session_MIDI_controller_%28cropped%29.jpg/500px-Evolution_X-Session_MIDI_controller_%28cropped%29.jpg
 youtube_ids: eJFfnTkyj-g 9zFecOaD4CU
@@ -20,18 +20,10 @@ youtube_ids: eJFfnTkyj-g 9zFecOaD4CU
 
 ## 介紹
 
-MIDI控制器是現代數位音樂製作的核心設備，外型通常為帶有鍵盤、旋鈕、推子和墊子的控制台。它本身不產生聲音，而是通過電子信號與電腦、合成器或音樂軟體連接，控制音色、音量和各種音樂參數。MIDI控制器具有高度靈活性，能即時切換數千種音色，模擬傳統樂器或創造全新的電子音景，是電子音樂製作、現場表演和音樂編製中不可或缺的工具。
+MIDI控制器是將按鍵、觸碰、敲擊或吹氣等物理動作轉成音樂儀器數位介面（MIDI）資料的輸入裝置與電子樂器，本身多不直接發聲，需連接音源模組、合成器、取樣器或數位音訊工作站播放。常見構造包括鍵盤、鼓控制器、風控器與弦樂控制器，並配有按鈕、旋鈕、推桿、踏板與感應器，用以傳送音高、時值、力度與音高彎曲等參數。它屬於數位音樂科技中的控制器，主要用於現代錄音室、電子音樂製作、舞台表演與劇場同步控制。發聲分類為電鳴，Hornbostel–Sachs編號542。
 
 ## 聆聽示範
-
-### 代表性作品
-
-隨著電子音樂發展，許多著名製作人和作曲家利用MIDI控制器創作。法國電子音樂先驅Jean-Michel Jarre在1980年代使用MIDI控制器創作《Oxygène》系列。美國製作人Timbaland於2000年代利用MIDI控制器製作流行音樂。當代電子音樂製作人如Deadmau5等廣泛應用於現場演奏。
-
 ## 歷史背景
-
-# MIDI控制器的歷史背景
-
 MIDI控制器起源於1980年代的美國和日本。隨著MIDI（樂器數位介面）標準於1983年確立，音樂製作邁入數位化時代。早期的MIDI控制器主要由鍵盤製造商如雅馬哈、Roland等開發，用以連接合成器與電腦。
 
 1980年代中期，MIDI控制器逐漸演變為獨立設備，包括鍵盤、鼓機墊和推子控制台。1990年代，隨著電子音樂和電子舞曲的興起，MIDI控制器需求激增。進入21世紀，數位音樂工作站普及，各類型控制器如DJ控制器、製作控制器應運而生。今日，MIDI控制器已成為全球音樂製作、現場演出和教育的必備工具，從專業音樂人到業餘愛好者都廣泛使用，推動了現代音樂創作的民主化。

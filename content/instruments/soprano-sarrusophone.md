@@ -5,14 +5,14 @@ subcategory: 無簧吹管
 title_zh: 高音薩魯梭風
 title_original: Soprano sarrusophone
 family_std: 無簧吹管家族
-sound_hs: 待確認
+sound_hs: 422.112
 playing_method: 吹奏
 interface_tags: 
 region_culture: 法國｜單一地區／文化圈
 listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：氣鳴（422.112）；依據：來源二 infobox：Hornbostel–Sachs 422.112 / Double-reed aerophone
 source_url: https://soundweavers-music.github.io/instruments/soprano-sarrusophone/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/MIMEd_4057._Soprano_sarrusophone_in_B%E2%99%AD_%28white_background%29.png/500px-MIMEd_4057._Soprano_sarrusophone_in_B%E2%99%AD_%28white_background%29.png
 youtube_ids: J4iks3jSNF4 gw7mXpGgf3Q
@@ -20,16 +20,12 @@ youtube_ids: J4iks3jSNF4 gw7mXpGgf3Q
 
 ## 介紹
 
-高音薩魯梭風是薩魯梭風族樂器中的高音成員，屬於按鍵金屬圓錐形管孔雙簧樂器。它以降B調音，音域範圍大約與高音薩克斯風相同。音色類似於雙簧管，但音量更大、精緻度更低，更像是一種嗩吶。雖然在19世紀末和20世紀初的管樂團中被使用過，但如今已極為罕見，因為現存的原始樂器標本很少。
+高音薩魯梭風是薩魯梭風家族中的高音成員，屬氣鳴樂器，以雙簧片發聲，構造為金屬鍵控圓錐管，調性為降B，音域約與高音薩克斯風相當。其音色接近雙簧管，但音量較大、較不精緻，更接近蕭姆管。19世紀末至20世紀初，它曾被用於風樂團；其發明者為巴黎樂器製造商皮埃爾-路易·戈特羅，後由庫埃斯農公司繼承，亦見於倫敦、米蘭等地製造。
+
 ## 聆聽示範
-
-### 代表性作品
-
-高音薩魯梭風的代表作品較為稀少，因其已極為罕見。19世紀末至20世紀初，法國軍樂隊與音樂廳演出中曾使用此樂器，但具體作品記載有限。該樂器主要見於法國管樂團的編制中，作為填補木管樂與銅管樂之間音響空隙的樂器。由於薩克斯風的普及，高音薩魯梭風的專門創作作品極其稀少，現存文獻中難以確認具體的代表性樂曲。
-
 ## 歷史背景
 
-高音薩魯梭風起源於19世紀中期的法國，由樂器製造商威廉·薩魯梭（Adolphe Sax的競爭者）所開發。這款樂器屬於薩魯梭風族系，旨在填補木管樂與銅管樂之間的音響空隙。高音薩魯梭風在19世紀末至20世紀初的歐洲管樂團中獲得短暫應用，特別是在法國軍樂隊及音樂廳演出中。其獨特的金屬圓錐形設計與雙簧設計，使其音色介於雙簧管與嗩吶之間。然而，隨著薩克斯風的日益普及與標準化，高音薩魯梭風逐漸式微。由於原始樂器存世稀少，加上演奏難度與樂器維護成本高，現今已鮮少被使用，主要僅存於音樂博物館及收藏家手中。
+高音薩魯梭風起源於法國，為薩魯梭風家族的高音成員，屬有鍵金屬圓錐管雙簧氣鳴樂器。19世紀末至20世紀初，主要由發明者巴黎樂器製作師 Pierre-Louis Gautrot 及其繼承者製作，倫敦與米蘭的廠牌亦有製品。它曾在管樂團中使用，後因原器存世稀少而極為罕見；米蘭廠牌仍可個別訂製新器。
 
 ## 音色描述
 

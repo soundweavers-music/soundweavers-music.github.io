@@ -2,17 +2,17 @@
 class_code: A2
 frontend_class: 弦樂器
 subcategory: 撥弦與抱持弦樂
-title_zh: 託布秀爾
+title_zh: 托布秀尔
 title_original: Topshur
 family_std: 撥弦與抱持弦樂家族
-sound_hs: 待確認
+sound_hs: 321.321
 playing_method: 撥奏／擦奏／擊弦（待細分）
 interface_tags: 
 region_culture: 蒙古（西蒙古／衛拉特地區）｜地區／文化圈
 listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：弦鳴（321.321）；依據：來源一稱 Western Mongolian traditional string instrument；來源二與來源三；與「Tovshuur」互為別名／變體
 source_url: https://soundweavers-music.github.io/instruments/topshur/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Topshuur.jpg/500px-Topshuur.jpg
 youtube_ids: 9GaN76mQmrI jUZOjNqAY-A
@@ -20,16 +20,15 @@ youtube_ids: 9GaN76mQmrI jUZOjNqAY-A
 
 ## 介紹
 
-The tovshuur, also known as topshur or topshuur (Mongolian Cyrillic: товшуур; Mongolian: ᠲᠣᠪᠰᠢᠭᠤᠷ, romanized: tobshiğur; Mandarin Chinese: 托布秀尔 Tuō bù xiù ěr) is a two- or three-stringed lute played by the Western Mongolian (Oirats) tribes called the Altai Urianghais, the Altais, Tuvans, and Khalkha peoples. The topshur is closely tied to the folklore of Western Mongolian people and accompanied the performances of storytellers, singing, and dancing. According to descriptions given by Marco Polo, the Mongols also played the instruments before a battle.
+託布秀爾（Topshur，亦作 tovshuur）是西蒙古衛拉特地區傳統兩或三弦撥弦魯特琴，屬弦鳴樂器，Hornbostel–Sachs 編號 321.321。琴身多為碗形、卵形或勺形等，以木製琴頭、琴桿支撐，面板常蒙緊獸皮或魚皮；琴弦可用馬尾、馬鬃或羊腸製作，傳統無品，現亦有有品者。它由阿爾泰烏梁海、阿爾泰人、圖瓦人與喀爾喀蒙古等使用，常為說唱、歌唱與舞蹈伴奏，馬可波羅亦記述蒙古人戰前演奏。
+
 ## 聆聽示範
 
-### 代表性作品
-
-託布秀爾的代表作品主要以民間傳統曲目形式流傳，包括蒙古西部地區的敘事歌謠《英雄史詩》系列，常由民間藝人即興演奏以伴奏說唱表演。現代作曲家根據傳統旋律創作的改編作品如《阿爾泰之歌》等，融合了傳統演奏技法與現代音樂表達。這些作品多為20世紀後期至21世紀初創作，旨在保護和傳承西蒙古民族音樂文化遺產。
+託布秀爾的實際聆聽場合，主要見於西部蒙古衛拉特部族的傳統音樂活動。它常為說書人、歌唱與舞蹈伴奏，尤其用於阿爾泰烏梁海、扎哈沁、土爾扈特等部族的舞蹈伴奏，也出現在傳統說唱中。來源未提及特定作曲家或曲目，因此示範應以這些口頭表演與舞蹈編制為主；馬可波羅亦記述蒙古人曾在戰鬥之前演奏此類樂器。
 
 ## 歷史背景
 
-託布秀爾是蒙古西部地區的傳統撥弦樂器，主要流行於阿爾泰烏梁海、阿爾泰人、圖瓦人及哈薩克人等民族中。這件二弦或三弦的魯特琴源於中亞遊牧民族的音樂傳統，反映了絲綢之路上不同文明的樂器交融。託布秀爾在蒙古高原地區經歷了數百年的演變發展，逐漸形成具有鮮明地方特色的演奏風格。該樂器主要用於伴奏民間說唱和敘事歌謠，是西蒙古民族音樂文化的重要載體。隨著民族音樂的傳承與保護，託布秀爾逐漸被認可為寶貴的非物質文化遺產，在當代蒙古族社群中持續得到演奏與推廣，維繫著古老的遊牧文化傳統。
+託布秀爾為西部蒙古傳統撥弦樂器，主要流傳於阿爾泰烏梁海等衛拉特部、阿爾泰人、圖瓦人、喀爾喀，以及內蒙古阿拉善衛拉特地區與新疆。馬可波羅曾記述蒙古人在戰鬥之前演奏此器。其製作多為手工，因而無標準樣式，琴身形狀與琴弦材質隨部族、地區而異；傳統上無品，後世亦出現有品形式。卡爾梅克型制較接近哈薩克冬不拉。起源年份與創始者未見來源記載。
 
 ## 音色描述
 
@@ -38,7 +37,7 @@ The tovshuur, also known as topshur or topshuur (Mongolian Cyrillic: товшу�
 與中國古琴相比，託布秀爾音色更加開放明亮；與西方魯特琴相較，它保留更多民族特色的樸實與蒼涼感。彈奏時琴弦的振動透過木製琴身的共鳴腔放大，產生既不失細膩又富有力度的音響。其特有的鼻音質感和延續性強的餘韻，使其在蒙古民間音樂中具有標誌性的辨識度，能夠完美詮釋遊牧民族的豪放與深沉。
 ## 樂器材質
 
-託布秀爾的琴身多採用松木、雲杉等共鳴效果良好的軟木材製作。琴頸通常選用堅硬的檀木或楓木以增強結構穩定性。琴弦傳統上使用羊腸弦或馬尾弦，部分現代樂器採用尼龍弦。琴面覆蓋動物皮革（常為羊皮或牛皮）作為共鳴膜。琴柱、琴軫等細部件採用硬木或骨材製成，部分樂器在裝飾處使用銅片或銅釘。
+託布秀爾為弦鳴樂器，發聲體為弦，編號321.321，流傳西蒙古衛拉特地區。材質因手工製作而異。琴身、琴頭與琴桿為木製；琴身可呈卵形、勺形、鏟形、杯碗形或方形、梯形，並以繃緊獸皮或魚皮蒙覆，為求薄皮，會用初生駱駝皮或牲畜胯部皮。琴弦依部族不同，可用馬尾、馬鬃或羊腸。傳統無品，現亦有有品者。其餘部件材質來源未載明。
 
 ## 教學
 

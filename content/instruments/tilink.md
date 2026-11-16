@@ -5,14 +5,14 @@ subcategory: 簧片樂器
 title_zh: 蒂林科
 title_original: Tilinkó
 family_std: 無簧吹管、長音與氣息樂器
-sound_hs: 421 邊棱氣鳴／無簧笛類
+sound_hs: 421.111-1
 playing_method: 吹奏／端吹／橫吹／容器共鳴
 interface_tags: 
 region_culture: 全球／亞洲／歐洲／美洲／大洋洲
 listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
 ensemble_links: 
-verification_status: 待檢查
-issue_note: 名稱待查／鄰近；Tambal 為擊弦齊特琴地方名稱，與 Hammered dulcimer/Yangqin相鄰。；相鄰，需查地區與譯名。；DUP-013:Hammered dulcimer／Tambal／Yangqin
+verification_status: 已查證
+issue_note: 分類查證：氣鳴（421.111-1）；依據：來源一／五稱 telenka／tilinca／tilinko 為 overtone flute、end-blown fl
 source_url: https://soundweavers-music.github.io/instruments/tilink/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Paulista_Sub-20-_S%C3%A3o_Caetano_1_x_0_Corinthians_-_Guilherme_Biro%2C_com_a_camisa_10_do_Corinthians.jpg/500px-Paulista_Sub-20-_S%C3%A3o_Caetano_1_x_0_Corinthians_-_Guilherme_Biro%2C_com_a_camisa_10_do_Corinthians.jpg
 youtube_ids: KnjPJIVnKsA FK2LClvGbKY
@@ -20,18 +20,13 @@ youtube_ids: KnjPJIVnKsA FK2LClvGbKY
 
 ## 介紹
 
-蒂林科是源自匈牙利和羅馬尼亞的傳統民間樂器，屬於氣鳴管樂器。樂器由木製手柄和懸掛的金屬片組成，通過搖晃產生清脆悅耳的聲音。其音色明亮穿透力強，音質溫潤富有民族特色，在高音域表現尤為突出。蒂林科採用直筒形設計，音域主要集中於中高音區，音色爽朗帶有民謠風味。自中世紀起廣泛應用於東歐民俗慶典、宗教儀式和民間舞蹈伴奏中，是東歐民間樂團的重要樂器。
+蒂林科是東歐民間氣鳴笛類樂器，Hornbostel–Sachs 編號 421.111-1。其構造為無指孔的泛音笛，可視為原始型 dentsivka；演奏者以手指遮蓋管端開口，並配合吹氣強度改變音高。管身常以椴木、接骨木、懸鈴木或柳木製成，長度約35至40公分，可達60公分。它在烏克蘭、羅馬尼亞與匈牙利等民間音樂中可見，亦見於 Kalush Orchestra 2022 年歌曲「Stefania」，與 sopilka 一同使用。
 
 ## 聆聽示範
 
-### 代表性作品
-
-蒂林科主要在匈牙利和羅馬尼亞民間音樂中使用，常見於傳統舞蹈伴奏曲目。19世紀民族音樂收集家巴託克（Béla Bartók）在採集東歐民間音樂時記錄了多首運用蒂林科的民謠作品。此樂器亦出現於羅馬尼亞民族舞蹈《霍拉舞曲》系列及匈牙利鄉村婚禮儀式音樂中，是東歐民族音樂文化的重要組成。
+蒂林科屬東歐民間長笛，在羅馬尼亞與烏克蘭布科維納接壤地區常見，亦見於匈牙利初學者使用的有頂端版本。聆聽上可注意其無指孔泛音吹奏，靠手指遮蓋管口與吹氣強弱改變音高。在烏克蘭樂團 Kalush Orchestra的歌曲「Stefania」中，此樂器與 sopilka並列，並出現在歐洲歌唱大賽表演編制。
 
 ## 歷史背景
-
-# 蒂林科的歷史背景
-
 蒂林科起源於東歐，特別是匈牙利和羅馬尼亞地區，是一種傳統的民間打擊樂器。這種樂器由木製手柄和懸掛的金屬片組成，通過搖晃產生清脆悅耳的聲音。蒂林科在中世紀歐洲民間音樂中逐漸發展成熟，主要被牧民和農民在日常生活中使用。
 
 隨著時間推移，蒂林科從純粹的實用工具演變為正式的樂器，廣泛應用於民俗慶典、宗教儀式和民間舞蹈伴奏中。其獨特的音色使其在東歐民間樂團中佔據重要地位。19世紀至20世紀，隨著民族音樂的復興運動，蒂林科逐漸傳入學術音樂領域，被民族音樂學家記錄和研究。如今，蒂林科已成為歐洲民間文化的重要象徵，在各類民俗表演和音樂節中持續發揮重要作用。
@@ -41,7 +36,7 @@ youtube_ids: KnjPJIVnKsA FK2LClvGbKY
 蒂林科是一種源自匈牙利的傳統木管樂器，音色明亮清脆，具有穿透力強的特徵。其音質溫潤而富有民族特色，在高音域表現尤為突出，能發出清晰而富有表現力的音調。樂器採用直筒形設計，共鳴腔體相對較小，使其聲音集中而緊湊，不像長笛那樣寬闊開放。蒂林科的音域主要集中於中高音區，低音域相對有限。其音色既不如薩克斯風渾厚溫暖，也不同於豎笛的柔和內斂，而是帶有民謠風味的爽朗特質。在傳統民族音樂中，蒂林科常用於旋律樂聲部，其獨特的音響能有效融入民族樂團的整體音響色彩中。
 ## 樂器材質
 
-蒂林科由多種材質組成。木製手柄通常採用堅硬的山毛櫸木或橡木製作，提供良好的耐久性和手感。懸掛的金屬片多為青銅或黃銅材質，經過精心敲打成形，以產生清脆的共鳴音色。金屬片與木製手柄之間通常以皮革帶或麻繩連接固定，確保樂器的穩定性與音質控制。
+蒂林科的發聲體為無指孔管身，屬氣鳴笛類，Hornbostel–Sachs 編號 421.111-1。來源僅載明管身以椴木、接骨木、懸鈴木或柳木製成；吹口、簧片或其他部件未見說明。其音高改變靠手指遮蓋管端開口與吹氣強弱，因此材質資訊目前限於主體管身。
 
 ## 教學
 

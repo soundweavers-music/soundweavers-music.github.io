@@ -5,14 +5,14 @@ subcategory: 沙鈴、刮器與小打擊
 title_zh: 勺子
 title_original: Spoon (musical instrument)
 family_std: 沙鈴、刮器與小打擊家族
-sound_hs: 待確認
+sound_hs: 111.141
 playing_method: 敲奏／拍奏／搖奏／刮奏（待細分）
 interface_tags: 
 region_culture: 歐洲
 listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：體鳴（111.141）；依據：Wikidata P1762 給出 Hornbostel–Sachs 111.141；英文維基全文稱其為 idiopho
 source_url: https://soundweavers-music.github.io/instruments/spoon-musical-instrument/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Moore_Theatre_100_Years_-_Artis_05B.jpg/500px-Moore_Theatre_100_Years_-_Artis_05B.jpg
 youtube_ids: OOXB7348RPk X5e0TVUC_ko
@@ -20,12 +20,11 @@ youtube_ids: OOXB7348RPk X5e0TVUC_ko
 
 ## 介紹
 
-勺子可以作為一種臨時性打擊樂器來演奏，或更具體地說，是一種與響板相關的自鳴樂器。演奏方法是用一把勺子敲擊另一把勺子。
+勺子可作簡易打擊樂器，屬體鳴樂器，與響板相近，以兩把勺子互擊發聲。演奏者常以手指夾持勺柄，讓勺面相互撞擊，或以膝、手掌等處敲擊；不同持法可產生節奏與視覺效果。它在歐洲及北美民間音樂、舞蹈伴奏、家庭聚會與街頭表演中使用，Hornbostel–Sachs 編號 111.141。
+
 ## 聆聽示範
 
-### 代表性作品
-
-勺子作為民間樂器，多見於傳統民謠伴奏而非正式作曲。愛爾蘭民謠《Riverdance》中勺子提供節奏支撐；美國藍調與鄉村音樂傳統中，勺子作為標誌性打擊樂器廣泛應用；現代爵士樂與世界音樂融合作品中，勺子常被融入以增添民俗特色與節奏層次。
+勺子作為體鳴樂器，可在美國民間音樂、吟遊藝人表演、水罐樂團與痙攣樂團中聆聽，也出現在歌曲〈Spoonman〉。英國民間音樂裡，它常伴奏民間小提琴與其他民間曲目；加拿大魁北克、阿卡迪亞、紐芬蘭與大西洋省份的家庭聚會，以及西部加拿大梅蒂文化亦使用。希臘舞蹈節奏、俄羅斯民族音樂與偶爾的俄羅斯管弦樂編制，以及土耳其、烏茲別克舞蹈伴奏，都是其出現場合。
 
 ## 歷史背景
 
@@ -40,4 +39,4 @@ youtube_ids: OOXB7348RPk X5e0TVUC_ko
 
 ## 教學
 
-將樂器以正確姿勢持於手中。
+勺子屬體鳴樂器，Hornbostel–Sachs 編號 111.141，發聲靠兩匙互擊。初學可先用火鉗式：一手握兩匙，凹面朝外，食指置於匙柄間，再以膝蓋或手掌敲擊；也可用手指與身體其他部位產生不同節奏。另一沙拉夾式以無名指為軸，讓兩匙凸面互擊。響板式每手兩匙，一匙凹面貼掌由拇指壓住，另一匙置中指與無名指間，再以凸面相擊。鼓棒式則以一匙凹面貼掌、柄夾在錶帶下，另兩匙分持左右手互擊。

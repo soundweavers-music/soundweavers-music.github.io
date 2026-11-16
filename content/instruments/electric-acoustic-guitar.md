@@ -1,7 +1,7 @@
 ---
-class_code: A4
-frontend_class: 電子與電聲樂器
-subcategory: 電聲改造樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
 title_zh: 電插原聲吉他
 title_original: Electric-acoustic guitar
 family_std: 弦樂器類
@@ -11,8 +11,8 @@ interface_tags: 拾音／擴音
 region_culture: 美國｜單一地區／文化圈
 listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
 ensemble_links: 
-verification_status: 中文名重複，需判斷
-issue_note: 中文名碰撞；中文名與第231、811項重複，但英文／原文可能不同。；不可只用中文名判斷；請以英文／原文名與型制決定合併、相鄰或改譯名。
+verification_status: 已查證
+issue_note: 分類查證：弦鳴；依據：Wikidata P31 plucked string instrument；Wikipedia 分類 Guitars,
 source_url: https://soundweavers-music.github.io/instruments/electric-acoustic-guitar/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Gibson_ES-150.png/500px-Gibson_ES-150.png
 youtube_ids: 63hdfvqiIV8 NyuRqKgP2T4
@@ -22,18 +22,9 @@ youtube_ids: 63hdfvqiIV8 NyuRqKgP2T4
 
 半空心電吉他，也稱為空心體電吉他，是一種電吉他，設計用於搭配吉他擴大器演奏，具有完全或部分空心的琴體，以及至少一個電磁拾音器。半空心電吉他最初在1930年代創製，隨後在爵士樂和藍調音樂中流行開來，至今仍被廣泛使用，並在搖滾樂的早期也很受歡迎。不過，在搖滾樂的發展過程中，它們後來在很大程度上被實心體電吉他所取代。
 ## 聆聽示範
-
-### 代表性作品
-
-電插原聲吉他在爵士樂中最具代表性的作品包括查理·克里斯蒂演奏的《Flying Home》（1942年），展現其溫潤音色的爵士風格。B.B.金的藍調名曲《The Thrill Is Gone》（1969年）充分展現其穿透力與表現力。此外，披頭四在《Ticket to Ride》（1965年）中使用半空心電吉他，開創搖滾樂的新音景，影響深遠。
-
 ## 歷史背景
 
-1930年代，吉他製造商致力於提高樂器的音量，以與鼓等較大聲的樂器競爭。吉普森、瑞克鮑克和葛雷奇等公司專注於透過擴音器放大吉他聲音。1936年，吉普森推出首款半空心電吉他ES-150s（電西班牙系列）。
-
-ES-150s以標準生產的拱頂吉他為基礎，在音箱面板上設有F孔，外形類似當時流行的傳統爵士吉他。空心琴身允許有限的聲音從吉他中發出。ES-150s可透過查理·克里斯蒂拾音器進行電氣放大，這種單線圈磁性拾音器能將振動琴弦的能量轉換為電信號。拾音器清晰的音質使ES系列在爵士樂手中廣受歡迎。
-
-ES-150在瑞克鮑克製造第一把實心電吉他數年後推出，是吉普森測試電吉他商業潛力的實驗。由於商業成功，ES系列通常被稱為第一把成功的電吉他。隨後一年推出ES-250，開啟了吉普森公司漫長的半空心電吉他產品線。
+半原聲吉他（亦稱空心體電吉他）於1930年代出現，目的在提高音量以與鼓等樂器競爭。1936年吉普森推出首款生產型號，以拱頂琴身、音孔與單線圈拾音器構成，因清晰聲音受爵士樂手歡迎。1949年吉普森推出內建拾音器型號；1958年該廠發展半空心體，以實木中心塊控制回授，利肯貝克同年推出寬體型號，格雷奇型號亦在洛卡比里場合流行。
 
 ## 音色描述
 

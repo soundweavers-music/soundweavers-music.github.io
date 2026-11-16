@@ -11,8 +11,8 @@ interface_tags: 鍵盤／按鍵、風箱、電子控制
 region_culture: 歐洲／美國／全球現代錄音室
 listening_sound_tags: 手指、機械距離、記憶、電聲｜按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：電鳴；依據：來源一：Akai MPC 為 music workstation，具 sampling and sequencing f
 source_url: https://soundweavers-music.github.io/instruments/akai-mpc/
 image: https://upload.wikimedia.org/wikipedia/commons/2/2d/Akai_MPC60.jpg
 youtube_ids: ZJWe9nQJkK8 Bkj6NoiXld8
@@ -20,23 +20,17 @@ youtube_ids: ZJWe9nQJkK8 Bkj6NoiXld8
 
 ## 介紹
 
-Akai MPC（原名MIDI製作中心，現為音樂製作中心）是Akai公司自1988年起推出的音樂工作站系列。MPC結合了取樣和音序功能，允許使用者錄製聲音片段、修改它們，並將其作為音序播放。MPC由美國工程師羅傑·林恩（Roger Linn）創造，他在1980年代設計了成功的LM-1和LinnDrum鼓機。林恩的目標是創造一種直觀的樂器，配備可以像傳統樂器（如鍵盤或鼓組）一樣演奏的墊板網格。
+Akai MPC取樣機是日本Akai自1988年起推出的音樂工作站，屬電鳴類，主要用於電子音樂、嘻哈製作與現代錄音室。其核心構造為4x4壓力感應橡膠墊，結合取樣與排序功能；使用者可錄入聲音片段、修改後指派到各墊，再以類似鍵盤或鼓組的方式觸發，建立節奏。介面較早期設備簡化，可連接一般音響系統。知名使用者包括DJ Shadow、J Dilla與Kanye West，其墊式介面也成為DJ科技常見標準。
+
 ## 聆聽示範
 
-### 代表性作品
-
-MPC系列在嘻哈音樂史上留下深刻烙印。DJ Premier使用MPC3000製作了Nas的《Illmatic》（1994）中的多首經典beat；Timbaland以MPC2000創作了Aaliyah《One in a Million》（2001）的前衛節奏；Madlib則透過MPC1000創作了MF DOOM合作專輯《MF DOOM & Madlib: Money Folder》（2004）中的精緻採樣beat。這些作品展現了MPC在現代音樂製作中的核心地位。
+Akai MPC 出現在電子音樂與嘻哈音樂的製作和表演場合，以取樣編制取代傳統樂器或錄音室。其四乘四壓力感應墊成為唱片騎師（DJ）科技常見介面。DJ Shadow 以 MPC60 MKII 創作全由取樣組成的作品；J Dilla 關閉量化功能，形成偏離拍點的取樣風格；Kanye West 以 MPC 編寫多首知名曲目，並在 MTV 音樂錄影帶大獎以 MPC2000XL 表演曲目 Runaway。
 
 ## 歷史背景
 
-到了1980年代末期，鼓機已成為製作節拍和迴圈的熱門工具，嘻哈音樂人開始使用取樣器從現有錄音中截取片段創作新曲。E-mu Systems等公司推出的音樂工作站將這些功能結合，但需要音樂製作知識且價格高達10,000美元。
-
-原始型號MPC-60是日本公司Akai與美國工程師Roger Linn的合作成果。Linn曾設計成功的LM-1和LinnDrum，都是最早使用取樣聲音的鼓機。他的公司Linn Electronics因鼓機與取樣器Linn 9000失敗而關閉。根據Linn表示，與Akai的合作「很契合，因為Akai需要有創意的設計師，而我不想處理銷售、行銷、財務或製造，這些正好都是Akai的專長」。
-
-Linn將MPC視為「適當重新設計」Linn 9000的嘗試。他討厭閱讀說明書，希望創造直觀介面以簡化音樂製作。他設計了功能、面板配置和硬體規格，並與團隊開發軟體。英國工程師David Cockerell領導的團隊負責電路設計，Akai則負責生產工程。
+Akai MPC由Akai與Roger Linn合作，1988年推出MPC60，後有MPC60 MkII、MPC3000。其觸壓墊簡化取樣與序列編排，影響電子與嘻哈音樂，成為唱片騎師技術標準。2006年Akai倒閉，資產由Numark收購，Akai仍續產新型號。DJ Shadow、J Dilla、Kanye West等使用者以它創作，J Dilla的MPC入藏美國非裔美國人歷史與文化國家博物館。
 
 ## 音色描述
-
 
 Akai MPC的音色特徵取決於所載入的取樣音源，具有高度的可塑性與多樣性。其音響質感通常呈現清晰、直接的數位特質，帶有採樣原有的音色紋理。音域範圍極廣，從低頻鼓聲到高頻人聲皆可駕馭。MPC透過層疊多個取樣、調整音高與濾波等方式進行共鳴塑造，營造出豐富的聲場質感。相較於傳統樂器的有機溫潤感，MPC音色更具現代感與電子特性；與合成器相比，因直接使用真實錄音素材，音色更具親切感與辨識度。其音響特點介於真實樂器與電子合成之間，既保留原始聲音的溫度，又具備數位處理的精準性與創意潛力。
 ## 樂器材質

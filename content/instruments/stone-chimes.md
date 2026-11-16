@@ -1,7 +1,7 @@
 ---
-class_code: A2
-frontend_class: 弦樂器
-subcategory: 撥弦與抱持弦樂
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
 title_zh: 石磬
 title_original: Stone Chimes
 family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
@@ -11,8 +11,8 @@ interface_tags:
 region_culture: 東南亞／東亞／非洲／歐洲／全球
 listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
 ensemble_links: 甘美朗合奏
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：體鳴；依據：名稱「Stone Chimes」中 Chimes 指敲擊發音的編鐘/編磬類體鳴樂器，Stone 指石製材料
 source_url: https://soundweavers-music.github.io/instruments/stone-chimes/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/%E9%AD%9A%E5%BD%A2%E7%9F%B3%E7%A3%AC%EF%BC%88%E7%B7%A8%E7%A3%AC%EF%BC%89.jpg/500px-%E9%AD%9A%E5%BD%A2%E7%9F%B3%E7%A3%AC%EF%BC%88%E7%B7%A8%E7%A3%AC%EF%BC%89.jpg
 youtube_ids: 6gKxXnUeHCc wKWqZLQDuKo
@@ -29,9 +29,6 @@ youtube_ids: 6gKxXnUeHCc wKWqZLQDuKo
 石磬在中國傳統雅樂中廣泛應用，特別是在儒家禮樂文化推動下的宮廷音樂中。唐宋時期，石磬成為寺廟音樂和民間音樂的重要組成部分。現代作曲家亦將其運用於當代音樂創作中，如在新編製禮樂表演及傳統文化展示活動中使用石磬，營造寧靜致遠的音樂意境。
 
 ## 歷史背景
-
-# 石磬的歷史背景
-
 石磬起源於中國新石器時代，最早的石製打擊樂器遺跡可追溯至距今八千年前。它在商周時期得到廣泛使用，成為宮廷祭祀和禮樂活動的重要樂器。石磬多由天然石材或玉石製成，敲擊時能發出清脆悅耳的聲音。
 
 到了秦漢時期，石磬的製作工藝趨於完善，不同地區開始使用不同質地的石頭製作。在儒家禮樂文化的推動下，石磬逐漸演變為具有規範化標準的樂器，常與編鐘配套使用。唐宋時期，石磬在民間音樂和寺廟音樂中得到廣泛應用。

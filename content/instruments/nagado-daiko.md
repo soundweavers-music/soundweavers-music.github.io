@@ -1,18 +1,18 @@
 ---
-class_code: A4
-frontend_class: 電子與電聲樂器
-subcategory: 電聲改造樂器
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
 title_zh: 長胴太鼓
 title_original: Nagado-daiko
 family_std: 膜鳴鼓類、框鼓、杯鼓與鼓組
-sound_hs: 21 膜鳴鼓類
+sound_hs: 21
 playing_method: 手拍／槌擊／皮膜振動
 interface_tags: 鼓槌
-region_culture: 非洲／中東／亞洲／歐洲／美洲｜地區／文化圈
+region_culture: 日本
 listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
 ensemble_links: 太鼓團
-verification_status: 移入第13類
-issue_note: 現代電子／取樣；屬現代電子、取樣、電聲或電氣化鍵盤／設備類，應集中到第13類。；移第13類，並與傳統鍵盤／風箱類分開。
+verification_status: 已查證
+issue_note: 分類查證：膜鳴（21）；依據：來源一分類標籤含 Directly struck membranophones；來源三 Wikidata P1762 H
 source_url: https://soundweavers-music.github.io/instruments/nagado-daiko/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Miya_Daiko_drum_-_Taiko_drums.jpg/500px-Miya_Daiko_drum_-_Taiko_drums.jpg
 youtube_ids: C7HL5wYqAbU BHA3LtBW6GA
@@ -20,13 +20,11 @@ youtube_ids: C7HL5wYqAbU BHA3LtBW6GA
 
 ## 介紹
 
-長胴太鼓是日本最具代表性的傳統打擊樂器，以其獨特的長筒形鼓身聞名。樂器由兩面鼓皮張貼於圓筒形木製鼓身，用鼓槌敲擊發聲。其音色雄渾有力、穿透性強，兼具明亮高音與深沉低音的特色。長胴太鼓廣泛應用於神社祭典、能劇、歌舞伎等傳統表演藝術，是日本太鼓表演藝術的核心樂器，已傳播至世界各地。
+長胴太鼓（Nagado-daiko）是日本和太鼓家族中的桶形膜鳴樂器，Hornbostel–Sachs 編號 21。它以鼓身與鼓皮構成，演奏者以鼓棒擊打鼓面發聲。來源顯示，此類太鼓常見於日本祭典、宗教儀式、劇場與雅樂等傳統場合，也用於組太鼓合奏，與小鼓等樂器搭配。其演奏可追溯至古代日本，並在現代由合奏團體延續。
 
 ## 聆聽示範
 
-### 代表性作品
-
-長胴太鼓的代表應用包括傳統能劇與歌舞伎伴奏、日本神社祭典音樂，以及現代太鼓藝術表演如鼓童樂團的作品。其中最著名的是傳統歌舞伎劇目中的太鼓部分、能劇的舞台配樂，以及當代太鼓藝術家創作的融合作品，這些都充分展現了長胴太鼓的表現力與文化價值。
+長胴太鼓屬於日本膜鳴樂器，在組太鼓（kumi-daiko）合奏中常以桶形鼓出現，與較小的締太鼓（shime-daiko）等鼓共同演奏。太鼓可用於祭典、宗教儀式、劇場伴奏與音樂會演出；在傳統場合中，也出現在歌舞伎、能樂、雅樂、神樂與佛教盂蘭盆儀式。合奏時，鼓聲有時搭配人聲、弦樂或管樂。
 
 ## 歷史背景
 
@@ -43,4 +41,4 @@ youtube_ids: C7HL5wYqAbU BHA3LtBW6GA
 
 ## 教學
 
-坐或站，將鼓置於身前合適位置。將鼓穩定放置於地面或夾於雙腿之間。用手掌或鼓棒敲擊鼓面中心或邊緣，不同位置產生不同音色。敲擊力度影響音量大小。以敲擊方式發聲，注意敲擊位置和力度控制。
+長胴太鼓屬膜鳴樂器，以鼓棒敲擊鼓面發聲。來源所見早期形象顯示桶形鼓可懸於肩，在腰高處持棒擊打；現代合奏亦重視節奏、姿勢、握棒、服裝與樂器配置。初學可先掌握基本節奏型與持棒方式，再練習不同尺寸鼓的分工；劇場傳統中節奏型依速度、重音、力度、音高與功能分類，並串接成進行。

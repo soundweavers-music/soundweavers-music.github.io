@@ -2,7 +2,7 @@
 class_code: A2
 frontend_class: 弦樂器
 subcategory: 平放弦與齊特琴
-title_zh: 利通古琴
+title_zh: 利通古里拉琴
 title_original: Litungu
 family_std: 東非里拉琴
 sound_hs: Chordophone／弦鳴樂器
@@ -11,8 +11,8 @@ interface_tags:
 region_culture: 肯亞｜單一地區／文化圈
 listening_sound_tags: 民歌敘事、開放弦、手邊循環｜開放弦的天空與河流（豎琴、里拉與開放弦樂器）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：弦鳴；依據：來源一開頭稱 litungu 為 traditional lyre，並提到 seven strings；分類標籤含 Ly
 source_url: https://soundweavers-music.github.io/instruments/litungu/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/CADAL09009962_%E5%B4%87%E6%96%87%E7%B8%BD%E7%9B%AE%C2%B7%EF%BC%88%E4%B8%80%EF%BC%89.djvu/page1-500px-CADAL09009962_%E5%B4%87%E6%96%87%E7%B8%BD%E7%9B%AE%C2%B7%EF%BC%88%E4%B8%80%EF%BC%89.djvu.jpg
 youtube_ids: V97F-LNLmEc I9MvO0ROFcw
@@ -22,11 +22,6 @@ youtube_ids: V97F-LNLmEc I9MvO0ROFcw
 
 利通古琴是肯亞盧希亞民族（包括布庫蘇分支）演奏的傳統七弦琴。其他品種的利通古琴由庫里亞民族和基西民族使用。
 ## 聆聽示範
-
-### 代表性作品
-
-利通古琴的代表性作品多為盧希亞民族的傳統民謠與儀式音樂，代代相傳卻未有明確的作曲者記載。其中包括婚禮慶典中演奏的《布庫蘇婚禮進行曲》、祭祀儀式中使用的《豐收祭祀頌》，以及流傳於肯亞西部地區的民間敘事歌曲《英雄史詩》。這些作品融合了盧希亞文化的精神內涵，通過代際口頭傳承保存至今。
-
 ## 歷史背景
 
 利通古琴是東非肯亞傳統弦樂器，主要流傳於盧希亞民族，特別是布庫蘇分支之中。這種七弦琴源於肯亞西部地區，經過數百年的演變與發展，已成為盧希亞文化的重要象徵。利通古琴的設計精巧，採用木製共鳴箱與弦線構成，能發出溫暖而富表現力的音色。

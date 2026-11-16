@@ -1,18 +1,18 @@
 ---
-class_code: A9
-frontend_class: 待分類／偵錯暫存
-subcategory: 待確認
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
 title_zh: 特莫洛亞琴
 title_original: Tremoloa
 family_std: 待確認
-sound_hs: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
+sound_hs: 314.122-6
 playing_method: 撥弦／擊弦／按鍵擊弦
 interface_tags: 鍵盤／按鍵
-region_culture: 亞洲／歐洲／全球
+region_culture: 美國
 listening_sound_tags: 手掌、弦面、推音、敲擊｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
 ensemble_links: 
-verification_status: 已整併，建議刪除
-issue_note: 完全重複／被整併；Tárogató／Tarogato 是同一樂器的重音符號差異；保留帶重音符號的主名。 本列併入第735項。；刪除本列；資料併入第735項。；MERGED-735: 被併入第735項
+verification_status: 已查證
+issue_note: 分類查證：弦鳴（314.122-6）；依據：來源二/三：Hornbostel–Sachs 314.122-6 Board zither sounded by a p
 source_url: https://soundweavers-music.github.io/instruments/tremoloa/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/TremoloaEscanabaMichigan.jpg/500px-TremoloaEscanabaMichigan.jpg
 youtube_ids: GT49qjTkxGc Ufrz_IVR3Ac
@@ -20,16 +20,15 @@ youtube_ids: GT49qjTkxGc Ufrz_IVR3Ac
 
 ## 介紹
 
-特莫洛亞琴（複數形為特莫洛亞琴）是一種弦樂器，屬於無品齊特琴家族。它是在1920年代夏威夷音樂迅速流行的背景下，在美國製造的，並一直生產到1950年代。音樂團體破碎社交場景（Broken Social Scene）在歌曲《特莫洛亞琴首秀》中採用了這種樂器。該樂器也零星出現在磁場樂隊（The Magnetic Fields）的專輯《69首情歌》中。
+特莫洛亞琴是美國生產的無品齊特琴家族弦鳴樂器，霍恩博斯特尔–薩克斯編號314.122-6，1920年代因夏威夷音樂流行而量產，持續到1950年代。它以帶重滾輪沿旋律弦移動，滾輪由擺動槓桿穩定；撥弦後移動滾輪產生顫音，模擬夏威夷鋼棒吉他音色。另有C、G、F、D大調四組和弦，可撥奏和聲。Broken Social Scene 在歌曲「Tremoloa Debut」使用，The Magnetic Fields 在專輯《69 Love Songs》偶爾使用。
+
 ## 聆聽示範
 
-### 代表性作品
-
-特莫洛亞琴最著名的代表作包括加拿大樂團破碎社交場景創作的《特莫洛亞琴首秀》，展現了樂器的現代應用潛力。磁場樂隊在2000年代初期發行的專輯《69首情歌》中零星使用該樂器，為實驗電子音樂增添獨特質感。這些作品見證了特莫洛亞琴從傳統夏威夷音樂樂器轉變為當代實驗音樂創作工具的演變過程。
+聆聽示範方面，來源提到這件美國無品齊特琴家族樂器，因1920年代夏威夷音樂流行而出現。在來源提到的錄音中，音樂團體 Broken Social Scene的曲目「Tremoloa Debut」使用它；The Magnetic Fields的專輯「69 Love Songs」也零星出現。其名稱來自顫音效果：以擺臂穩定加重量滾輪沿旋律弦移動，撥弦後再移動滾輪產生顫音，另有C、G、F、D大調四和弦可掃出和聲。
 
 ## 歷史背景
 
-特莫洛亞琴是一種無品齊特琴家族的弦樂器，起源於美國，與1920年代夏威夷音樂在西方的流行密切相關。當時夏威夷音樂風靡美國各地，激發了樂器製造商的創新靈感，特莫洛亞琴應運而生。這種獨特的樂器在美國本土製造並生產，從1920年代持續至1950年代，見證了該時期美國流行音樂的多元發展。隨著時間推移，特莫洛亞琴逐漸淡出主流音樂舞台，但其獨特的音色並未被完全遺忘。進入當代音樂領域，加拿大樂團破碎社交場景在專輯中創作了《特莫洛亞琴首秀》一曲，而美國實驗樂隊磁場樂隊也在其著名專輯《69首情歌》中零星運用此樂器，使這件歷史樂器在現代音樂創作中獲得了新的藝術生命。
+特莫洛亞琴屬無品齊特琴家族，發聲分類為弦鳴，Hornbostel–Sachs編號314.122-6。它於1920年代因夏威夷音樂在美國快速流行而產製，持續到1950年代。1932年由Harold Finney與John H. Large取得專利。其設計用以模擬夏威夷鋼棒吉他音色效果，以擺臂穩定加重量滾輪沿旋律弦移動，撥弦後移動產生顫音，並有四和弦C、G、F、D大調供撥奏和聲。在Broken Social Scene（破碎社會場景）作品「Tremoloa Debut」與The Magnetic Fields（磁場）專輯《69 Love Songs》中零星出現。
 
 ## 音色描述
 

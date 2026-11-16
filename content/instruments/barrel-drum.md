@@ -11,8 +11,8 @@ interface_tags:
 region_culture: 非洲／中東／亞洲／歐洲／美洲｜地區／文化圈
 listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: DUP-018:Sarrusophone family
+verification_status: 已查證
+issue_note: 分類查證：膜鳴；依據：來源一分類標籤含 Membranophone instrument stubs、Drums
 source_url: https://soundweavers-music.github.io/instruments/barrel-drum/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Thai_taphon.jpg/500px-Thai_taphon.jpg
 youtube_ids: i0kZgt6tTE0 RPsIMu4yPN4
@@ -20,19 +20,14 @@ youtube_ids: i0kZgt6tTE0 RPsIMu4yPN4
 
 ## 介紹
 
-桶鼓是一類膜鳴樂器或鼓，其特徵是呈桶狀，中間有凸起。它可以是單面鼓且底部開放，或在相對兩端各有鼓面。例子包括越南的桶鼓（trong chau）和布吉納法索莫西人的本德雷鼓（bendre）。
+桶鼓是一類膜鳴樂器，來源引用 H-S 編號 534m；構造為桶形鼓身、中段鼓起，可單面開口或兩端蒙皮。分布涵蓋非洲、中東、亞洲、歐洲與美洲，例子包括越南 trong chau、布吉納法索莫西族 bendre，以及韓國 buk、古巴 conga、印度 dholak、泰國 taphon、印尼 kendhang、中國 tanggu。來源未載具體演奏方式與使用場合。
+
 ## 聆聽示範
-
-### 代表性作品
-
-桶鼓在民族音樂中應用廣泛。越南傳統音樂中，桶鼓（trong chau）常見於民間樂隊伴奏，為傳統戲曲與節慶提供節奏基礎。布吉納法索莫西人的本德雷鼓（bendre）則在宗教儀式與社交聚會中扮演核心角色，其演奏傳統已延續數百年。現代作曲家亦借鑑桶鼓音色，將其融入當代世界音樂與實驗音樂創作中，展現其跨越傳統與現代的藝術價值。
-
 ## 歷史背景
 
 桶鼓源於非洲和亞洲的古老鼓樂傳統，是人類最早的打擊樂器之一。在非洲，莫西人的本德雷鼓在布吉納法索地區已有數百年歷史，用於宗教儀式和社交聚會。亞洲方面，越南的桶鼓（trong chau）則在民間音樂中扮演重要角色，其獨特的桶狀設計能產生深沉共鳴。隨著貿易路線拓展，桶鼓逐漸傳播至東南亞各地，並演變出多種地方變體。現代樂器學家認為，其中間凸起的設計源於實用需求，便於懸掛和演奏。在全球化進程中，桶鼓不僅保留了傳統文化特色，更在當代世界音樂和民族樂隊中獲得廣泛應用，成為連結東西方音樂文化的重要橋樑。
 
 ## 音色描述
-
 
 桶鼓音色渾厚深沉，具有溫潤的共鳴特質。其獨特的桶狀結構使音波能在腔體內充分迴盪，產生具有穿透力的低中音域。敲擊鼓面時，音色從溫暖明朗轉為沉穩厚重，富有層次感。相較於淺鼓的清脆，桶鼓音響更為飽滿；相比深鼓的沉悶，則更具靈活性。其共鳴方式獨特——中間凸起的結構形成自然的音腔分區，使聲波產生複雜的干涉效應，賦予樂器獨有的溫厚質感。無論單面或雙面設計，桶鼓的共鳴都能營造出溫潤而不失力度的音響氛圍，在民族音樂中展現出深邃的文化韻味。
 ## 樂器材質

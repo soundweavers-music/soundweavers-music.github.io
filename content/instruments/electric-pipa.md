@@ -1,7 +1,7 @@
 ---
-class_code: A4
-frontend_class: 電子與電聲樂器
-subcategory: 電聲改造樂器
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
 title_zh: 電琵琶
 title_original: Electric pipa
 family_std: 弦樂器類
@@ -11,8 +11,8 @@ interface_tags: 拾音／擴音
 region_culture: 中國｜單一地區／文化圈
 listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：弦鳴；依據：Wikidata P1762 321.321-5 與英文維基 'Chinese plucked lute' 支持琵琶為弦
 source_url: https://soundweavers-music.github.io/instruments/electric-pipa/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Pipa_MET_DP216710.jpg/500px-Pipa_MET_DP216710.jpg
 youtube_ids: gf6v59c5yuY 1GJiliDvXhk
@@ -22,11 +22,6 @@ youtube_ids: gf6v59c5yuY 1GJiliDvXhk
 
 電琵琶是在傳統中國四弦琵琶基礎上加裝拾音器與電子擴音系統的現代改良版本。琴身保留梨形木製共鳴腔，品位從傳統的12品增至24至31品，弦距設計也更貼近現代彈奏習慣。演奏者透過電子放大系統可接入效果器、音箱，大幅擴展音色可能性。電琵琶兼容傳統輪指、推拉弦、泛音等古典技法，同時可融入搖滾、爵士、電子音樂等現代風格，是當代跨界音樂家探索傳統樂器現代化的重要媒介。
 ## 聆聽示範
-
-### 代表性作品
-
-電琵琶的代表作品包括中國當代作曲家為其創作的融合傳統與現代元素的作品。著名音樂家方錦龍以電琵琶改編演奏了多首傳統琵琶曲目，如《十面埋伏》、《霸王卸甲》等，將古曲賦予現代電聲表現。此外，當代作曲家創作的《琵琶協奏曲》等作品充分發揮電琵琶的音響特性，融合搖滾、爵士等現代音樂元素，展現電琵琶在跨界音樂中的創新應用。
-
 ## 歷史背景
 
 琵琶的起源存在一些混淆和分歧。這可能是因為從秦到唐代的古籍中，「琵琶」一詞被用來描述多種撥弦樂器，包括長頸尖角琵琶和短頸琵琶，而且古籍記載不一。傳統漢語敘述偏好一個故事：漢代漢族公主劉細君被送去與烏孫王聯姻，琵琶被發明用來讓她在馬上演奏音樂以排遣鄉愁。現代研究者如勞倫斯·皮肯、岸邊成雄和約翰·邁爾斯則提出非中國起源的觀點。
@@ -42,4 +37,4 @@ youtube_ids: gf6v59c5yuY 1GJiliDvXhk
 
 ## 教學
 
-將樂器以正確姿勢持於手中。
+演奏時將琴身置於身前，琴頸向上或近垂直，左手按相品，右手以指甲或假指甲彈挑；早期橫抱撥彈，部分南管保留。現代演奏使用右手全部手指，左手有揉、吟、推、挽等技巧。初學先掌握常用定弦、基本指法與按音位置，再練習和弦與旋律。

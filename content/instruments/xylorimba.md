@@ -1,18 +1,18 @@
 ---
-class_code: A2
-frontend_class: 弦樂器
-subcategory: 撥弦與抱持弦樂
-title_zh: 木琴馬林巴
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
+title_zh: 木林巴琴
 title_original: Xylorimba
 family_std: 撥弦與抱持弦樂家族
-sound_hs: 待確認
+sound_hs: 111.21
 playing_method: 撥奏／擦奏／擊弦（待細分）
 interface_tags: 
 region_culture: 非洲｜地區／文化圈
 listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
 ensemble_links: 甘美朗合奏
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：體鳴（111.21）；依據：來源一分類為 Stick percussion idiophones；來源三 H-S 為 111.21；來源五描述為 w
 source_url: https://soundweavers-music.github.io/instruments/xylorimba/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Xylorimba_%28from_Emil_Richards_Collection%29.jpg/500px-Xylorimba_%28from_Emil_Richards_Collection%29.jpg
 youtube_ids: 3v7QC6Bl_7E SWi5EGygvEc
@@ -20,12 +20,11 @@ youtube_ids: 3v7QC6Bl_7E SWi5EGygvEc
 
 ## 介紹
 
-木琴馬林巴（有時稱為木琴-馬林巴或馬林巴-木琴）是一種音高打擊樂器，類似於音域擴展的木琴，其音域與某些五八度鐵琴或五八度馬林巴相同，但通常比後者高一個八度。儘管名稱如此，它並不是木琴和馬林巴的組合；其名稱一直是混亂的根源，因為許多作曲家（包括阿爾班·貝爾格、皮埃爾·布列茲和奧利維埃·梅西安）都曾要求使用「木琴馬林巴」，但實際上只需要四八度的木琴。
+木琴馬林巴為體鳴樂器，霍恩博斯特尔–薩克斯編號111.21，屬有音高打擊樂。其構造為一排木條，依鋼琴鍵盤方式排列，音域可涵蓋馬林巴的低音與木琴的最高音，並配有共鳴器。它並非木琴與馬林巴的合體，名稱易生混淆。二十至三十年代曾流行於歌舞雜耍劇場；貝爾格、布列茲、梅湘等作曲家曾在作品中使用，布列茲更在《Pli selon pli》寫給兩台五個八度的木琴馬林巴。
+
 ## 聆聽示範
 
-### 代表性作品
-
-阿爾班·貝爾格、皮埃爾·布列茲和奧利維埃·梅西安等二十世紀現代作曲家在其作品中頻繁使用木琴馬林巴。雖然許多作曲家在樂譜上標註「木琴馬林巴」，但實際演奏中常以四八度木琴替代。這些作曲家利用木琴馬林巴寬廣的音域與明亮銳利的音色，創造出現代古典音樂中獨特的音響效果，推動了打擊樂器在當代音樂中的應用與發展。
+木琴馬林巴見於二十世紀管弦樂、室內樂、歌劇與打擊樂合奏，也曾用於雜耍歌舞劇場。皮埃爾·布列茲在《Pli selon pli》為女高音與管弦樂團寫兩件五八度木琴馬林巴；奧利維葉·梅湘在《Des Canyons aux étoiles...》將它與鋼琴、圓號、鐘琴及管弦樂團並用。另有女高音、男中音、混聲合唱與英國管、長笛、豎琴、打擊樂合奏等編制。
 
 ## 歷史背景
 

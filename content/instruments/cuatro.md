@@ -8,11 +8,11 @@ family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
 sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
 playing_method: 撥弦／刷弦／撥片
 interface_tags: 撥片
-region_culture: 中東／歐亞／東亞／美洲／全球
+region_culture: 美洲
 listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：弦鳴；依據：來源五：Cuatro (instruments) 為拉丁美洲弦樂器家族
 source_url: https://soundweavers-music.github.io/instruments/cuatro/
 image: https://upload.wikimedia.org/wikipedia/commons/3/3b/Cuatro_Ramon_Blanco.jpg
 youtube_ids: GRxofEmo3HA ZPdk5GaIDjo
@@ -34,11 +34,6 @@ TV4（瓜納華托），或稱TV夸特羅，一個為墨西哥瓜納華托州服
 
 《夸特羅》，2024年卡米洛推出的專輯
 ## 聆聽示範
-
-### 代表性作品
-
-夸特羅在拉丁美洲民俗音樂中佔據重要地位。委內瑞拉傳統音樂作品如《玻利瓦爾之歌》(Canción de Bolívar)常以夸特羅作為主奏樂器。波多黎各的聲樂與器樂結合作品《山歌》(Décimas)亦廣泛運用此樂器。現代則有綠日樂隊2013年紀錄片《¡夸特羅！》和卡米洛2024年專輯《夸特羅》等作品，將傳統樂器融入當代音樂語境，推動夸特羅的國際認知與發展。
-
 ## 歷史背景
 
 夸特羅是源自拉丁美洲的傳統弦樂器，名稱在西班牙語中意為「四」，通常指其擁有四條弦的特徵。該樂器主要流行於委內瑞拉和波多黎各等加勒比海地區。夸特羅的起源可追溯至西班牙殖民時期，融合了西班牙吉他傳統與當地土著及非洲音樂文化。委內瑞拉的夸特羅在民間音樂中扮演重要角色，成為當地傳統音樂的象徵樂器。波多黎各版本則在島嶼的音樂傳統中獨立發展，展現出不同的音色特質。二十世紀以來，夸特羅透過民俗音樂表演和文化交流，逐漸在拉丁美洲及世界音樂舞台上獲得認可。如今，夸特羅已成為委內瑞拉和波多黎各文化認同的重要象徵，在傳統民謠、民族音樂演奏中持續發揮重要作用。

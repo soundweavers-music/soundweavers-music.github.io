@@ -1,18 +1,18 @@
 ---
-class_code: A1
-frontend_class: 吹奏與氣息樂器
-subcategory: 無簧吹管
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
 title_zh: 圓珠鼓
 title_original: Pellet drum
 family_std: 鼓類
-sound_hs: 2 膜鳴樂器
+sound_hs: 212
 playing_method: 敲擊鼓面
 interface_tags: 
 region_culture: 亞洲／東亞
 listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
 ensemble_links: 
-verification_status: 需調整
-issue_note: 名稱可保留／鄰近；Oboe 與第681 Shawm 同屬雙簧系，但歷史與型制不同。；相鄰不合併。
+verification_status: 已查證
+issue_note: 分類查證：膜鳴（212）；依據：來源五：Pellet drums are a class of membranophone, or drum；來源三：W
 source_url: https://soundweavers-music.github.io/instruments/pellet-drum/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Damaru.jpg/500px-Damaru.jpg
 youtube_ids: 0GPEKuBQqqY Sj6bpSejPvo
@@ -20,18 +20,12 @@ youtube_ids: 0GPEKuBQqqY Sj6bpSejPvo
 
 ## 介紹
 
-圓珠鼓，或稱為搖鼓，是一類膜鳴樂器或鼓類樂器，以其結構和演奏方式為特徵。它們有兩個鼓頭（要麼是單個雙面鼓，要麼是兩個半球形單面鼓頭朝外連接在一起），以及兩個圓珠，每個圓珠都通過繩索連接到鼓上。
+圓珠鼓（Pellet drum）屬膜鳴樂器，Hornbostel–Sachs 編號 212。其構造為一面雙面鼓，或兩個半球形單面鼓以鼓面朝外相連，並以繩各連一顆彈丸。演奏時搖動或轉動鼓柄，使彈丸左右擊打鼓面發聲。此類樂器見於西藏、蒙古、印度、中國、韓國、日本、泰國與台灣等地，常用於宗教儀式；小型者亦作兒童玩具或街頭小販響器。
+
 ## 聆聽示範
-
-### 代表性作品
-
-圓珠鼓作為傳統民間樂器，主要應用於民俗音樂和兒童教育領域。在中國民間音樂中，它常見於傳統戲曲伴奏和廟會表演；日本傳統藝能中也有應用記載。近現代作曲家如周龍、譚盾等在創作中融入亞洲打擊樂元素時，曾參考圓珠鼓的音響特性。該樂器因其民間性質，缺乏正式的古典音樂代表作，多作為節慶和民族音樂的配器選擇。
-
 ## 歷史背景
 
-圓珠鼓起源於亞洲，特別是在中國和東亞地區有悠久的使用歷史。這種樂器在古代中國被稱為「撥浪鼓」，最初作為民間娛樂和兒童玩具而出現。其獨特的雙鼓頭設計搭配懸掛的圓珠，使得演奏者只需搖晃或轉動鼓身，圓珠便會自動敲擊鼓面，產生節奏感十足的聲響。
-
-隨著時間推移，圓珠鼓逐漸從民間傳播至更廣泛的亞洲地區，包括日本、韓國等國家，各地根據本土特色進行改良與創新。到了近現代，這種樂器經由文化交流傳入歐洲和美洲，逐漸被世界各地的音樂家和教育工作者所認識。圓珠鼓因其易於上手、聲音獨特的特點，成為兒童音樂教育和民族音樂表演中的重要工具，至今仍在全球各種文化背景下廣泛使用。
+圓珠鼓屬膜鳴樂器，以繩連珠擊打鼓面發聲；中文文獻稱鞀、鼗，歷史可追溯至戰國時期，見於東亞、南亞與南美洲等地區。其發展呈現雙軌：在西藏、蒙古、印度、泰國與中國禮樂中用於宗教或儀式，在東亞則有小型版本作兒童玩具或攤販響器，並出現單鼓、雙鼓及多鼓組合。
 
 ## 音色描述
 
@@ -42,4 +36,4 @@ youtube_ids: 0GPEKuBQqqY Sj6bpSejPvo
 
 ## 教學
 
-將樂器以正確姿勢持於手中。
+圓珠鼓為膜鳴樂器，霍恩博斯特尔–薩克斯（Hornbostel–Sachs）編號212。沙漏形者如 damaru，以手握鼓腰，前後扭動，使兩顆以繩連鼓的小珠擊打兩面。東亞桿式者則握木柄或垂直桿，依大小以一手、兩手或掌心沿軸前後旋轉，或左右搖擺，讓鼓錘擊面。初學先確認鼓面、小珠與繩的位置，再以小幅度、均勻節奏搖轉，使鼓錘按節奏擊面。

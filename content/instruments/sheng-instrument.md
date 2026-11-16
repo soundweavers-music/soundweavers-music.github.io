@@ -5,14 +5,14 @@ subcategory: 簧片樂器
 title_zh: 笙
 title_original: Sheng (instrument)
 family_std: 自由簧吹奏
-sound_hs: Aerophone／氣鳴樂器
+sound_hs: 412.132
 playing_method: 自由簧
 interface_tags: 
 region_culture: 亞洲／東亞（中國）
 listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：氣鳴（412.132）；依據：英文維基全文摘錄稱 sheng 為 Chinese mouth-blown polyphonic free reed i
 source_url: https://soundweavers-music.github.io/instruments/sheng-instrument/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Sheng_MET_DP216617.jpg/500px-Sheng_MET_DP216617.jpg
 youtube_ids: lfZcIe4s0C4 _iR-KrbeFs0
@@ -20,28 +20,23 @@ youtube_ids: lfZcIe4s0C4 _iR-KrbeFs0
 
 ## 介紹
 
-The sheng (Chinese: 笙) is a Chinese mouth-blown polyphonic free reed instrument consisting of vertical pipes. It is one of the oldest Chinese instruments, with images depicting its kind dating back to 1100 BCE, and there are original instruments from the Han dynasty that are preserved in museums today. Traditionally, the sheng has been used as an accompaniment instrument for solo suona or dizi performances. It is one of the main instruments in kunqu and some other forms of Chinese opera.
+笙是中國傳統氣鳴樂器，屬自由簧多音吹奏樂器，由吹嘴與多支垂直管構成，Hornbostel–Sachs 編號 412.132。演奏者以吹氣或吸氣發聲，可快速切換以維持連續音響；傳統奏法常在主旋律外同時加入五度或八度音。它長期用於伴奏嗩吶、笛子獨奏，也見於崑曲等戲曲、北方吹打樂與江南絲竹，並在現代大型中國樂團中擔任旋律與伴奏。
+
 ## 聆聽示範
 
-### 代表性作品
-
-笙的代表作品包括《鳳凰展翅》，展現笙的高超和聲能力；傳統曲目《蕭聲咿呀》融合笙與蕭的對話；現代作曲家譚盾創作的《笙》（1989年）探索笙在當代音樂中的表現可能；以及日本作曲家武滿徹與笙藝術家合作的作品，將東方笙音融入西方現代音樂語言。
+笙常見於中國傳統與現代合奏：在獨奏嗩吶或笛子時作伴奏，也是崑曲及其他戲曲的主要樂器之一。北方吹打樂、江南絲竹等小型合奏亦使用；現代大型中國樂團中則兼負旋律與伴奏。傳統笙多用於獨奏，鍵笙因全半音化較適合樂團。非中國作曲家如 Unsuk Chin、Jukka Tiensuu、Lou Harrison、Tim Risher、Daníel Bjarnason、Guus Janssen、Christopher Adler的作品亦曾使用笙。
 
 ## 歷史背景
 
-中國的自由簧氣鳴樂器「竽」和「笙」最早在距今14至12世紀的甲骨文中被提及，後來文獻將其識別為笙的類型。「笙」一詞首次出現在《詩經》的詩篇中，可追溯至西周時期。考古發現於現今湖北省的曾侯乙墓和湖南省馬王堆漢墓中出土的古代樂器，均採用葫蘆形風室、數量不等的管子，配備竹製或金屬簧片。
-
-8世紀時，三件笙和三件竽被送往日本宮廷，現保存於奈良的正倉院。這些樂器均有17根管子、長彎形吹口，與當代傳統笙極為相似。然而，歷經數世紀，出現了不同管數和半音樂器的變體。
-
-現代笙乃20世紀初期改進的產物。鄭錦文（1872-1935）率先改革，將管子增至32根，擴展音域並可演奏和聲。氣室和管子也隨之擴大，改變樂器的音色。其後繼續有多項改進。
+笙為中國氣鳴樂器，甲骨卜辭已見「笙」「竽」之名，約公元前7世紀《詩經》始見「笙」字。曾侯乙墓與馬王堆漢墓出土帶匏風斗的古樂器。8世紀三件竽與三件笙傳入日本宮廷，現存奈良正倉院。20世紀初起，鄭覲文增管至32，翁鎮發、胡天泉等改進音域與音量；1950年代後發展出鍵笙，形成高音、中音、次中音、低音等族。
 
 ## 音色描述
 
 笙的音色溫潤飽滿，具有獨特的蘆葦簧片音質，既不如簫那般飄然若思，亦不如竹笛般銳利明亮，而是帶著柔和的琥珀色光澤。其音域寬廣，可跨越兩至三個八度，低音沉厚蒼涼，中音溫暖醇厚，高音清亮而不刺耳。笙通過共鳴管形成自然的共鳴效應，多根簧片同時發聲時形成豐富的泛音層次，使其具有近似鋼琴的和聲功能。相比西方樂器，笙的音色更具東方特質，溫和內斂；與古琴相比，笙更富於表現力和穿透力，是中樂隊中重要的和聲與旋律樂器。
 ## 樂器材質
 
-笙的風室採用葫�orridor形設計，傳統多以葫蘆或木質材料製成；管子通常由竹製或木製成，現代亦有使用金屬合金；簧片採用竹片或金屬（銅、鐵）製作，是發聲的關鍵部件；吹口多為竹製或木製的長彎形設計；整體結構融合天然材料與工藝加工，使其具有獨特的共鳴特性與音質特徵。
+笙的發聲體為自由簧，古代笙有竹或金屬簧片，風箱為葫蘆，管體為竹。近現代改良笙在竹管上加裝金屬管以增強音量，並擴大氣箱與管徑。傳統笙以手指按孔發音，鍵笙以鍵或桿開閉音孔，但鍵、桿及其他部件材質未載明。
 
 ## 教學
 
-將吹口對準嘴唇，穩定吹氣入管。將吹口對準嘴唇，以穩定的氣流吹入管身。嘴唇的形狀和張力影響音高與音色。手指按壓音孔或活塞改變有效管長以控制音高。
+演奏時，傳統笙多以手持握，鍵笙因管數與體積較大，常置於腿上或支架上。發聲時由吹嘴吹氣或吸氣，使簧片振動；快速交替吹吸可維持連續音。初學先掌握按孔或按鍵開閉：傳統笙以手指覆蓋管孔發音，鍵笙以鍵或桿控制孔。傳統奏法常同時吹出兩三個音，以五度或八度疊加主音，必要時改吹下方四度音。

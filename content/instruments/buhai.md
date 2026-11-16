@@ -2,7 +2,7 @@
 class_code: A3
 frontend_class: 鼓與打擊樂器
 subcategory: 鼓皮與鼓類
-title_zh: 布海鼓
+title_zh: 布海河
 title_original: Buhai
 family_std: 摩擦鼓
 sound_hs: Membranophone／膜鳴樂器
@@ -11,8 +11,8 @@ interface_tags:
 region_culture: 羅馬尼亞｜單一地區／文化圈
 listening_sound_tags: 低鳴、冬季儀式、動物般的吼聲｜皮膜敲醒的地心脈動（膜鳴鼓類、框鼓、杯鼓與鼓組）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：非樂器／非單一樂器；依據：來源一、三、五均顯示 Buhai 為羅馬尼亞河流，非樂器
 source_url: https://soundweavers-music.github.io/instruments/buhai/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/P%C3%A2r%C3%A2ul_%C8%99i_Podul_Buhai.jpg/500px-P%C3%A2r%C3%A2ul_%C8%99i_Podul_Buhai.jpg
 youtube_ids: NVOtE1qSymU 7OTqIPpJlss
@@ -22,21 +22,12 @@ youtube_ids: NVOtE1qSymU 7OTqIPpJlss
 
 布海河是羅馬尼亞吉吉亞河的右支流。它在多羅霍伊市附近注入吉吉亞河。其長度為18公里（11英里），流域面積為134平方公里（52平方英里）。
 ## 聆聽示範
-
-### 代表性作品
-
-布海鼓作為羅馬尼亞民族樂器，主要出現在民間音樂傳統中而非古典創作。它廣泛應用於羅馬尼亞民俗舞蹈伴奏，如霍拉舞（Hora）和卡盧什舞（Căluș）的配樂演出。該樂器在20世紀民族音樂採集與錄音中被記錄，成為東歐民間音樂檔案的重要文獻。現代民族音樂團體仍保留布海鼓的傳統演奏方式，維繫摩爾達維亞地區的音樂遺產。
-
 ## 歷史背景
-
-# 布海鼓（Buhai）的歷史背景
-
 布海鼓起源於羅馬尼亞的摩爾達維亞地區，是東歐民間音樂傳統中的重要樂器。這件樂器的發展與羅馬尼亞豐富的牧羊文化密切相關，牧民在山區放牧時創製了各式簡易樂器來打發時光。布海鼓由木製圓筒共鳴箱與繃緊的獸皮膜組成，通過木槌或手指敲擊發聲。
 
 隨著時間推移，布海鼓逐漸融入羅馬尼亞民俗音樂表演中，成為民族樂隊的配樂樂器。其獨特的低沉、渾厚音色為傳統舞蹈伴奏增添韻律感。在民族音樂文化的傳承過程中，布海鼓被帶入城鎮與村落慶典，並在20世紀得到民俗音樂學家的重視與記錄，成為研究東歐民間樂器文化的重要對象。
 
 ## 音色描述
-
 
 布海鼓是羅馬尼亞傳統打擊樂器，音色深沉而富有共鳴感。其音質帶有溫潤的暗沉特性，音域偏低，產生的聲音具有厚重、渾厚的特徵。膜鳴發聲原理使其能產生較長的音符延續，共鳴方式通過鼓膜與內部空腔的相互作用形成充滿穿透力的聲響。與西方定音鼓相比，布海鼓的音色更具民族風情，缺乏金屬的亮澤感；與非洲鼓相較，其聲響更為沉著穩重。這種樂器在民族音樂中擁有獨特的表現力，能夠營造莊嚴肅穆或神秘蒼涼的氛圍，是民族打擊樂隊中不可或缺的色彩層次。
 ## 樂器材質

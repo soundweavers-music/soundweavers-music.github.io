@@ -5,14 +5,14 @@ subcategory: 簧片樂器
 title_zh: 牧羊人雙簧管
 title_original: Hirtenschalmei
 family_std: 簧片樂器家族
-sound_hs: 待確認
+sound_hs: 422.111
 playing_method: 吹奏
 interface_tags: 
 region_culture: 中世紀法國／西歐｜地區／文化圈
 listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：氣鳴（422.111）；依據：來源二與來源三均給出 Hornbostel–Sachs 422.111；來源一稱其為 double reeded woo
 source_url: https://soundweavers-music.github.io/instruments/hirtenschalmei/
 image: https://upload.wikimedia.org/wikipedia/commons/b/b0/Hirtenschalmei.jpg
 youtube_ids: UTtWZcTAJNY JoaiLceiFZA
@@ -20,13 +20,9 @@ youtube_ids: UTtWZcTAJNY JoaiLceiFZA
 
 ## 介紹
 
-牧羊人雙簧管（Hirtenschalmei）是一種雙簧片木管樂器，具有圓柱形的管身和擴張的喇叭口，在20世紀晚期根據圖像學資料重新構建而成。該樂器被描述為能夠發出「嗡嗡」的聲音。牧羊人雙簧管的音量往往比雙簧管要小。樂器中的雙簧片被蓋住了。該樂器經常在中世紀法國文學和藝術作品中被提及，被描繪成由鄉村人物演奏的樂器。
+Hirtenschalmei（牧羊人雙簧管）是中世紀法國與西歐的氣鳴樂器，Hornbostel–Sachs編號422.111。其構造為圓柱形管身、喇叭口，並使用帶帽的雙簧片發聲，音色被描述為帶有嗡嗡感，音量通常低於蕭姆管。現代所見皆依圖像資料與1980年代瑪麗玫瑰號沉船打撈出的樂器重建，該樂器也可能屬於杜爾扎因那；重建品分高音、中音、次中音。文獻與藝術中多描寫鄉野人物演奏。
+
 ## 聆聽示範
-
-### 代表性作品
-
-牧羊人雙簧管主要出現在中世紀文獻記載和藝術作品中，而非現代樂譜作品。其最重要的文獻記載包括中世紀法國文學作品《牧歌》系列和宮廷藝術繪畫中的描繪。20世紀晚期，音樂學家根據中世紀圖像學資料進行復原後，現代作曲家開始在民族音樂學研究和古樂復興演奏中應用此樂器，但缺乏具體標題作品記載。
-
 ## 歷史背景
 
 牧羊人雙簧管起源於中世紀的歐洲，尤其在法國地區廣泛流傳。這種樂器主要由鄉村牧民和農民使用，用於在放牧時娛樂和傳遞信號。在中世紀法國文學和藝術作品中，牧羊人雙簧管頻繁出現，被描繪為具有濃厚的田園風情的民間樂器。隨著時間推移，這種樂器逐漸淡出日常使用，相關知識也隨之遺失。直到20世紀晚期，音樂學家和樂器研究者根據中世紀繪畫、雕塑和文獻中的圖像學資料，才得以重新構建和復原這一古老樂器。通過這些歷史記錄，研究者成功還原了其圓柱形管身和擴張喇叭口的特徵，使這件失落的樂器重新進入現代音樂研究的視野。

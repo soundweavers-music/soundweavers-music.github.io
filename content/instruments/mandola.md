@@ -5,14 +5,14 @@ subcategory: 撥弦與抱持弦樂
 title_zh: 曼陀
 title_original: Mandola
 family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
-sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
+sound_hs: 弦鳴｜321.321-6
 playing_method: 撥弦／刷弦／撥片
 interface_tags: 撥片
 region_culture: 中東／歐亞／東亞／美洲／全球
 listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：弦鳴（321.321-6）；依據：來源三 Wikidata P1762 給 321.321-6；來源一分類為 Necked bowl lutes / Ma
 source_url: https://soundweavers-music.github.io/instruments/mandola/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Mandos.jpg/500px-Mandos.jpg
 youtube_ids: zBFvHDdh7oo OGXOhs3IgiM
@@ -20,20 +20,15 @@ youtube_ids: zBFvHDdh7oo OGXOhs3IgiM
 
 ## 介紹
 
-曼陀（美國和加拿大）或男高音曼陀（愛爾蘭和英國）是一種弦樂器。曼陀與曼陀林的關係就像小提琴相對於中提琴。
+曼陀（美國與加拿大稱 mandola，愛爾蘭與英國稱 tenor mandola）是有品弦鳴樂器，Hornbostel–Sachs 編號 321.321-6。它屬曼陀林家族，是曼陀林的祖先，與 mandocello、mandobass 同族。構造為四組金屬雙弦，通常以撥片彈奏，雙弦便於快速交替的顫音技巧；標準調音同中提琴 C3-G3-D4-A4，比曼陀林低五度。常見於民間音樂，尤其義大利民間音樂，也偶見於愛爾蘭傳統音樂與曼陀林樂團。
+
 ## 聆聽示範
 
-### 代表性作品
-
-曼陀在民俗音樂傳統中被廣泛應用，特別是在凱爾特音樂和美國民謠中。愛爾蘭作曲家在傳統凱爾特樂曲中採用男高音曼陀，如《Planxty》系列作品（20世紀），展現其在民族音樂中的重要地位。美國民謠樂隊亦常將曼陀用於鄉村與藍草音樂編制中，豐富樂隊的音色層次與和聲深度。
+曼陀常見於民間音樂，尤其義大利民間音樂；有時也用於愛爾蘭傳統音樂，但該地較常用八度曼陀林、愛爾蘭布祖基琴與現代西特恩琴。它可在曼陀林樂團中與曼陀林、曼陀大提琴、曼陀低音提琴合奏，有時加入八度曼陀林。另有電聲版本，在樂團或個人作品中作為主要樂器或特色音色。
 
 ## 歷史背景
 
-曼陀起源於義大利，是曼陀林家族中的中音樂器。十八世紀時，義大利工匠在曼陀林的基礎上，透過擴大共鳴箱和加長琴頸，創造出音域更低、音色更厚重的曼陀。其音高介於曼陀林與大曼陀之間，如同中提琴之於小提琴的角色定位。
-
-十九世紀，曼陀隨著義大利移民傳入美國和加拿大，並在當地的民俗音樂傳統中扎根。同時期，曼陀也傳入愛爾蘭和英國，在凱爾特音樂文化中得到發展，當地稱其為「男高音曼陀」。
-
-二十世紀以降，曼陀在民謠樂團和世界音樂領域中應用廣泛，成為豐富樂隊音色的重要樂器。今日，曼陀在古典音樂、民俗音樂和當代音樂製作中皆有應用。
+曼陀屬弦鳴樂器，Hornbostel–Sachs 編號 321.321-6；美國與加拿大稱曼陀，愛爾蘭與英國稱男高音曼陀。名稱可能源自古代 pandura，亦作 mandora，或與義大利語「杏仁」近似。它早期由魯特琴發展，形制更緊湊、造價較低，但各地命名與發展順序難考。歷史相關樂器包括 mandore、vandola（Joan Carles Amat，1596）等；不同樂器曾共用名稱，曼陀也有多種弦制。曼陀林意為小曼陀，顯示曼陀為其祖先。
 
 ## 音色描述
 

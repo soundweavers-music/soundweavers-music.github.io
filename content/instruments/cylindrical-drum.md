@@ -5,14 +5,14 @@ subcategory: 鼓皮與鼓類
 title_zh: 圓柱鼓
 title_original: Cylindrical drum
 family_std: 鼓類
-sound_hs: 2 膜鳴樂器
+sound_hs: 211.21
 playing_method: 敲擊鼓面
 interface_tags: 
 region_culture: 非洲｜單一地區／文化圈
 listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：膜鳴（211.21）；依據：Wikidata P1762=211.21；英文維基分類含 Membranophone instrument stubs
 source_url: https://soundweavers-music.github.io/instruments/cylindrical-drum/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Mounted_concert_bass_drum.jpg/500px-Mounted_concert_bass_drum.jpg
 youtube_ids: -D19UdHMYTs nhZtYfvmf7s

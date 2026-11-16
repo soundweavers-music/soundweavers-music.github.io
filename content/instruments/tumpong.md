@@ -5,14 +5,14 @@ subcategory: 無簧吹管
 title_zh: Tumpong（暫譯）
 title_original: Tumpong
 family_std: 無簧吹管家族
-sound_hs: 待確認
+sound_hs: 421.111.12
 playing_method: 吹奏
 interface_tags: 
 region_culture: 菲律賓／東南亞｜地區／文化圈
 listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：氣鳴（421.111.12）；依據：英文維基百科簡述為 Philippine bamboo flute，且 Wikidata P1762 給出 Hornbo
 source_url: https://soundweavers-music.github.io/instruments/tumpong/
 image: https://upload.wikimedia.org/wikipedia/en/thumb/d/d5/Tumpong.jpg/500px-Tumpong.jpg
 youtube_ids: CAzUcw2KdFk 1mTWd3MGVcE
@@ -20,13 +20,9 @@ youtube_ids: CAzUcw2KdFk 1mTWd3MGVcE
 
 ## 介紹
 
-暫通翁（在馬蘭瑙人中也稱為因奇）是菲律賓的一種竹製長笛，為摩根達瑙人所使用，其大小為最大竹製長笛帕倫達格的一半。暫通翁與帕倫達格一樣都是唇谷長笛，演奏者透過吹動放置在樂器頂部的竹簧片發出聲音，產生的氣流經過樂器頂部的音孔。這種陽剛的樂器通常在傍晚的家庭聚會中演奏，是摩根達瑙人最常見的長笛。
+Tumpong（馬拉瑙人稱 inci）是菲律賓竹笛，屬氣鳴樂器，Hornbostel–Sachs 編號 421.111.12。其體積約為最大竹笛 palendag的一半，構造與 palendag 同屬唇谷笛（lip-valley flute）：演奏者吹過置於頂端的竹簧，使氣流掠過頂端氣孔發聲。此樂器多由馬京達瑙族使用，也是該族最常見的笛子，通常在晚間家庭聚會演奏，並被視為具男性氣質的樂器。
+
 ## 聆聽示範
-
-### 代表性作品
-
-暫通翁作為摩根達瑙人的傳統民族樂器，主要用於民間音樂傳承而非學術創作。其代表性應用包括傳統家庭聚會的即興演奏、摩根達瑙民族音樂節慶中的樂隊合奏，以及現代菲律賓民族音樂收集者對其傳統曲目的記錄與保存。這些演奏多為口頭傳承的民間旋律，代表了穆斯林民達那峨文化的音樂遺產。
-
 ## 歷史背景
 
 暫通翁是菲律賓南部摩根達瑙人的傳統竹製長笛，起源於民達那峨島的穆斯林文化區域。這種樂器在摩根達瑙社群中代代相傳，成為其音樂文化的重要組成部分。暫通翁採用唇谷長笛設計，演奏者透過吹動樂器頂部的竹簧片發聲，氣流經過音孔產生獨特音色。相較於其姐妹樂器帕倫達格，暫通翁體型較小，更便於攜帶與演奏。在摩根達瑙人的日常生活中，暫通翁主要於傍晚的家庭聚會演奏，其雄渾有力的音質使其成為該民族最常見的長笛樂器。隨著時間發展，暫通翁的製作技藝與演奏傳統在摩根達瑙社群內得以保留與傳承，反映了菲律賓穆斯林民族豐富的音樂遺產與文化認同。

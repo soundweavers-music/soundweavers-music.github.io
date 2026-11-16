@@ -1,18 +1,18 @@
 ---
-class_code: A2
-frontend_class: 弦樂器
-subcategory: 撥弦與抱持弦樂
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
 title_zh: 柬埔寨鐵琴
 title_original: Roneat Dek
 family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
 sound_hs: 11/12 定音體鳴／鑼鐘木琴石琴系統
 playing_method: 敲擊／搖奏／材料共鳴
 interface_tags: 
-region_culture: 東南亞／東亞／非洲／歐洲／全球
+region_culture: 東南亞／柬埔寨
 listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
 ensemble_links: 甘美朗合奏
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：體鳴；依據：英文維基：Cambodian metallophone, 21 blackened-iron bars, played 
 source_url: https://soundweavers-music.github.io/instruments/roneat-dek/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Cambodia_xylophone_by_%C3%89mile_Gsell_from_his_book_Voyage_de_l%27%C3%89gypte_%C3%A0_l%27Indochine.jpg/500px-Cambodia_xylophone_by_%C3%89mile_Gsell_from_his_book_Voyage_de_l%27%C3%89gypte_%C3%A0_l%27Indochine.jpg
 youtube_ids: RaGs8Nl71aU mc_VjN-54nA
@@ -20,28 +20,19 @@ youtube_ids: RaGs8Nl71aU mc_VjN-54nA
 
 ## 介紹
 
-柬埔寨木琴（Roneat Dek）是源自高棉文明時期的傳統打擊樂器，由木製共鳴盒和多根木條組成。樂器外形為長方形，下方配置共鳴管以增強音響效果。演奏者持木槌敲擊木條發音，音色明亮清脆而溫潤。在柬埔寨古典音樂中扮演重要角色，廣泛應用於皇家樂團、廟宇儀式及民間祭祀活動，常與其他打擊樂器組合演奏。
+柬埔寨鐵琴（Roneat dek）為東南亞柬埔寨的金屬體鳴樂器，與柬埔寨木琴 Roneat ek 相近。其構造為21根黑鐵或青銅音條，因重量不能懸掛，依音階排列於長方形共鳴槽上的墊片，並以刮削或燒除部分金屬調音。演奏者使用一對硬質琴槌敲擊。此樂器常用於皮帕特合奏與摩荷里管弦樂團，亦見於皇宮外或寺院場合。
 
 ## 聆聽示範
-
-### 代表性作品
-
-柬埔寨傳統宮廷音樂中，木琴常見於古典樂曲《王室進行曲》(年代不詳)、寺廟祭祀音樂《佛誕祝禱》(傳統民俗樂曲)。20世紀，音樂家Chhlong於1960年代錄製的傳統高棉音樂專輯中，木琴擔任主奏樂器，展現其在現代保存中的重要地位。
-
 ## 歷史背景
 
-柬埔寨木琴（Roneat Dek）源自東南亞，是柬埔寨傳統音樂文化的重要組成部分。該樂器起源於高棉文明時期，與印度尼西亞的木琴樂器有相似之處，反映了東南亞地區音樂交流的悠久歷史。Roneat Dek採用木製共鳴盒和木條製作，通過手持木槌敲擊發音。
-
-在柬埔寨古典音樂發展中，木琴逐漸成為皇家樂團和廟宇儀式的重要樂器。傳統上，它常與其他打擊樂器組合演奏，在各類宗教慶典、王室活動及民間祭祀中發揮重要角色。隨著柬埔寨文化的傳播，這一樂器的影響力擴展至整個東南亞地區。
-
-雖然在現代社會中使用頻率有所下降，但Roneat Dek仍被視為柬埔寨文化遺產的象徵，在保護傳統音樂的努力中持續受到重視。
+柬埔寨鐵琴為體鳴金屬琴，起源可能早於安哥拉時期，或與早期安哥拉時期相關。另有柬埔寨皇家樂團首長 Ouknha Moha Thipadei Meas Ni 指出，此類 roneat 自爪哇甘美蘭樂器 gendér 演變，與 Jayavarman II 九世紀末流亡爪哇、回國建立高棉帝國有關；其後形制已顯著偏離原 gendér。重要變化包括 roneat thong 與 roneat dek 可能等同，前者金銅色琴條用於皇宮，後者鐵條用於皇宮外樂團、野餐或寺廟。
 
 ## 音色描述
 
 柬埔寨木琴音色明亮清脆，具有溫潤的木質感。其音域為中音域，音高清晰而富有穿透力。樂器由木製音板組成，下方配置共鳴管，能產生溫暖而飽滿的共鳴效果，使得聲音具有深度與共鳴感。相比馬林巴琴的低沉厚重，柬埔寨木琴的音色更為輕盈敏捷；相較非洲木琴的乾澀特質，其音響則更顯溫和圓潤。快速敲擊時音粒清晰分明，具有良好的樂句表現力；緩慢演奏時則呈現出寧靜優雅的意境。樂器整體音響透明度高，特別適合用來承載傳統高棉音樂的複雜節奏紋理。
 ## 樂器材質
 
-樂器主要採用硬質木材製作，共鳴盒通常選用紫檀或柚木等優質木料。音板由經過精心選擇與乾燥的木條組成，通常為竹子或特殊硬木。下方共鳴管多採用竹筒或木質圓管製作。演奏用木槌的頭部為硬木或包裹皮革，柄部採用輕質木材如竹或藤條，確保演奏時的靈活性與音色表現。
+柬埔寨鐵琴的發聲體為二十一條黑色鐵條；變體 Roneat Thong 則使用紅褐色黃銅或青銅製條，色近金。琴條因重量不能懸掛，而是依音階排列於長方形共鳴槽上的墊片。琴槌以硬質材料製成，來源提及水牛皮或象皮。共鳴槽與墊片等其他部件的材質未載明。
 
 ## 教學
 

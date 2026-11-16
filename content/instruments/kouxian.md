@@ -1,18 +1,18 @@
 ---
-class_code: A2
-frontend_class: 弦樂器
-subcategory: 撥弦與抱持弦樂
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
 title_zh: 口弦
 title_original: Kouxian
 family_std: 撥弦與抱持弦樂家族
-sound_hs: 待確認
+sound_hs: 121.2
 playing_method: 撥奏／擦奏／擊弦（待細分）
 interface_tags: 
 region_culture: 中國｜單一地區／文化圈
 listening_sound_tags: 指尖、掌心、尾音、近身聆聽｜手邊發光的小宇宙（近身體鳴、舌片琴與手奏金屬共鳴）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：體鳴（121.2）；依據：來源二：plucked idiophone；來源三：H-S 121.2；與「jaw harp」互為別名／變體
 source_url: https://soundweavers-music.github.io/instruments/kouxian/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/5_Leaf_Kouxian.jpg/500px-5_Leaf_Kouxian.jpg
 youtube_ids: Br-0gYtT-s0 M9PltC5awOM
@@ -20,30 +20,20 @@ youtube_ids: Br-0gYtT-s0 M9PltC5awOM
 
 ## 介紹
 
-Kouxian (Chinese: 口弦; pinyin: kǒuxián; lit. 'mouth string') is a general Chinese term for any variety of jaw harp. The jaw harp is a plucked idiophone in which the lamella is mounted in a small frame, and the player's open mouth serves as a resonance chamber. Chinese jaw harps may comprise multiple idiophones that are lashed together at one end and spread in a fan formation. They may be made from bamboo or a metal alloy, such as brass. Modern kouxian with three or more idiophones might be tuned to the first few tones of the minor pentatonic scale. The jaw harp likely originated in Asia.
+口弦是中文對口簧琴的泛稱，屬體鳴樂器中的彈撥體鳴樂器，霍恩博斯特爾-薩克斯分類編號121.2。構造為一端固定於框架的竹或金屬簧片，演奏者將框架置於唇間，以手指撥動簧片或拉動附於框架的細繩使其振動，再以口腔改變形狀作共鳴。中國西南非漢族群如雲南、廣西、貴州常用，亦見於台灣原住民；可用於自娛、男女訴情、歌舞伴奏或與其他樂器合奏。多片可綁成扇形，現代三片以上可調成小五聲音階前幾個音。
+
 ## 聆聽示範
-
-### 代表性作品
-
-口弦作為民族樂器，主要用於民間音樂和少數民族傳統音樂中，而非西方古典音樂作品。在中國民族音樂領域，口弦常見於苗族、侗族等民族的傳統民謠和舞蹈伴奏中。20世紀以來，許多民族音樂採集和改編作品將口弦納入器樂編制，如各類民族音樂專輯和舞蹈音樂中多有運用。口弦也常出現於中國民族管弦樂隊的打擊樂部分。
-
 ## 歷史背景
 
-# 口弦的歷史背景
-
-口弦是中國古老的傳統樂器，起源於中國西南地區，特別是在少數民族聚居地如雲南、貴州等地廣泛流傳。這種樂器由小型框架和振動簧片組成，演奏時將其置於口腔中，利用口腔作為共鳴室，通過撥動簧片發出聲音。
-
-口弦的歷史可追溯至數千年前，最初在民間廣泛使用。隨著時間推移，它逐漸成為許多少數民族的重要文化象徵，特別是苗族、侗族等民族的傳統樂器。口弦不僅具有獨特的音色，更承載著深厚的民族文化內涵。
-
-從中國傳播至東亞和東南亞地區，口弦在不同文化背景下演變出多種形式。儘管現代音樂中使用頻率下降，但口弦作為非物質文化遺產的重要組成部分，仍在民族地區被精心保護與傳承。
+口簧琴的起源有亞洲與西伯利亞阿爾泰山脈兩說；已知最古老實物可追溯至公元前4000年的新石器時代遺址。中國境內自先秦稱「簧」，唐宋有竹簧、鐵簧等名，明清多稱口琴，今通稱口弦，並廣泛流傳於雲南、廣西、貴州等非漢族群。台灣原住民族幾乎各族皆用，達悟族除外，泰雅、太魯閣、賽德克尤著。1943年黑澤隆朝依演奏法分為彈口簧、繩口簧；2015年太魯閣族人拉罕羅幸引入三維列印與鐳射切割，降低製作門檻。
 
 ## 音色描述
 
 口弦的音色清脆而獨特，帶有明亮的金屬質感，卻又不失溫潤的民族風韻。其音域較窄，主要集中在中高音區，音量相對較小但穿透力強。口弦的共鳴方式極具特色，演奏者需將樂器貼近嘴唇，利用口腔作為共鳴腔體，通過改變口形和舌位來改變音色和音高。這種獨特的共鳴機制使其音色呈現出微妙的變化和豐富的泛音。與琵琶相比，口弦音色更為乾淨纖細；與笛子相比，則更具金屬的冷峻感。其音響效果介於樂器與人聲之間，具有極強的表現力和親密感，常帶有輕微的鼻腔共鳴。
 ## 樂器材質
 
-口弦由多種材料組成。框架通常採用竹子或木材製作，具有輕巧耐用的特性。振動簧片多由竹片、金屬（如銅、鐵或鋼）製成，其中竹製簧片音色溫潤，金屬簧片音色明亮清脆。某些地區的口弦框架亦採用骨頭或牛角材料。整體結構簡潔，通常不超過10厘米，便於攜帶和演奏。
+中國口弦（Kouxian）的發聲體與框架主要見於竹與金屬：竹製簧片、竹台，以及金屬合金如黃銅、銅片；框架有竹製長薄形與金屬製馬蹄形。多片組合可將數個簧片一端綁紮成扇形，並配有刻花小竹筒。簧舌可切削股部或粘蠟珠調音。細繩等其他部件的材質，來源未載明。
 
 ## 教學
 
-將樂器以正確姿勢持於手中。
+演奏時以左手執持首部，將簧框橫置於口前，以雙唇輕含琴臺；右手可撥動股部或舌尖，或拉拽繫於股部的細繩，使簧舌振動。發聲後以口腔作共鳴器，透過改變口腔大小，奏出自然泛音。初學可依持框、含口、撥簧、調整口腔四步練習，再嘗試多片口弦的音高組合。

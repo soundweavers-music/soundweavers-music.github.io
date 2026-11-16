@@ -1,7 +1,7 @@
 ---
-class_code: A2
-frontend_class: 弦樂器
-subcategory: 撥弦與抱持弦樂
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
 title_zh: 馬林貝琴
 title_original: Malimbe
 family_std: 撥弦與抱持弦樂家族
@@ -11,8 +11,8 @@ interface_tags:
 region_culture: 非洲中部（剛果）/ 非洲東部（坦尚尼亞）｜地區／文化圈
 listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
 ensemble_links: 甘美朗合奏
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：體鳴；依據：來源一：Malimbe 為 xylophone，且分類標籤含 Idiophone instrument stubs
 source_url: https://soundweavers-music.github.io/instruments/malimbe/
 youtube_ids: -cLAwAOi-hA skv2FDnh91E
 ---

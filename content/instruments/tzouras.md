@@ -5,14 +5,14 @@ subcategory: 撥弦與抱持弦樂
 title_zh: 齊塔拉琴
 title_original: Tzouras
 family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
-sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
+sound_hs: 弦鳴｜321.321
 playing_method: 撥弦／刷弦／撥片
 interface_tags: 撥片
 region_culture: 歐洲／希臘
 listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：弦鳴（321.321）；依據：來源二：Hornbostel–Sachs 321.321；來源一：Greek stringed musical inst
 source_url: https://soundweavers-music.github.io/instruments/tzouras/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Tzouras.jpg/500px-Tzouras.jpg
 youtube_ids: VH8Pg5_sq3U B0e4lhsCKNw

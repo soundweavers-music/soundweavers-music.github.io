@@ -5,14 +5,14 @@ subcategory: 撥弦與抱持弦樂
 title_zh: 加那利小吉他
 title_original: Timple
 family_std: 小型吉他族
-sound_hs: Chordophone／弦鳴樂器
+sound_hs: 321.321-5
 playing_method: 撥奏／刷奏
 interface_tags: 
 region_culture: 西班牙加那利群島｜單一地區／文化圈
 listening_sound_tags: 明亮和弦、島嶼舞曲、輕快節奏｜旅人懷裡撥動的故事線（魯特琴、短頸長頸撥弦與民謠弦聲）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：弦鳴（321.321-5）；依據：英文維基全文：traditional five-string plucked string instrument；Wik
 source_url: https://soundweavers-music.github.io/instruments/timple/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Timple.jpg/500px-Timple.jpg
 youtube_ids: HlnM5beJ94A BE42Kovuvto
@@ -20,13 +20,9 @@ youtube_ids: HlnM5beJ94A BE42Kovuvto
 
 ## 介紹
 
-加那利小吉他是加那利群島的一種傳統五弦撥弦樂器。它從19世紀開始製造。在拉帕爾馬島和特內里費島北部，許多加那利小吉他演奏者會省略第一根（D）弦，以便將其作為四弦烏克麗麗來演奏，但這被五弦版本的演奏者和倡導者認為傳統性較低。
+加那利小吉他（Timple）是西班牙加那利群島的傳統五弦撥弦樂器，屬弦鳴樂器，Hornbostel–Sachs編號321.321-5，自十九世紀開始製造。常見調音為G、C、E、A、D。拉帕爾馬島與特內里費島北部部分演奏者省略第一弦D，以四弦烏克麗麗方式演奏；五弦版本支持者認為此較不傳統，四弦演奏者則稱其為十九世紀末或二十世紀初加入第五弦前的舊式奏法。由當地演奏者使用。
+
 ## 聆聽示範
-
-### 代表性作品
-
-加那利小吉他的代表作品主要源於加那利群島的民俗音樂傳統。其中包括傳統民謠《聖克魯茲舞曲》（Danza de Santa Cruz），這是19世紀流行的民間舞蹈音樂；以及《加那利群島幻想曲》等地方性樂曲。此外，許多民間音樂家創作的傳統小調與舞蹈曲目也廣泛使用該樂器演奏，成為加那利文化傳承的重要載體。
-
 ## 歷史背景
 
 加那利小吉他是加那利群島的傳統五弦撥弦樂器，起源於西班牙領土的島嶼地區。這種樂器從19世紀開始被製造和演奏，逐漸成為當地民俗文化的重要組成部分。在樂器的發展過程中，不同島嶼地區形成了各自的演奏傳統。特別是在拉帕爾馬島和特內里費島北部，許多演奏者開始省略第一根D弦，以便將其作為四弦烏克麗麗來演奏。然而，這一做法引發了傳統性的爭議——堅持五弦版本的演奏者和樂器倡導者認為，四弦改良版本偏離了加那利小吉他的原始傳統，傳統性較低。這反映出民族樂器在現代傳播中，傳統保留與創新改良之間的持續對話。

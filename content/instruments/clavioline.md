@@ -5,14 +5,14 @@ subcategory: 取樣與磁帶
 title_zh: 克拉維奧林電子琴
 title_original: Clavioline
 family_std: 鍵盤介面、風箱、電子與取樣
-sound_hs: 鍵盤／電鳴／機械混合｜412/31/52 鍵盤、自由簧、電鳴與機械介面
+sound_hs: 鍵盤／電鳴／機械混合｜531.1
 playing_method: 按鍵／風箱／電控／取樣
 interface_tags: 鍵盤／按鍵、風箱
 region_culture: 歐洲／美國／全球現代錄音室
 listening_sound_tags: 手指、機械距離、記憶、電聲｜按鍵、機械與現代耳朵（風箱鍵盤、鋼琴、合成器與取樣）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：電鳴（531.1）；依據：來源一簡述「Electronic musical keyboard instrument」；來源三 Wikidata P
 source_url: https://soundweavers-music.github.io/instruments/clavioline/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/US2563477A_Electronic_Musical_Instrument_%281948-05-01_filed%2C_1951-08-07_published%29_by_Constant_Martin_-_Clavioline_Fig.1.jpg/500px-US2563477A_Electronic_Musical_Instrument_%281948-05-01_filed%2C_1951-08-07_published%29_by_Constant_Martin_-_Clavioline_Fig.1.jpg
 youtube_ids: ac49JnVFYKM tsZ22OMb9ns
@@ -20,16 +20,15 @@ youtube_ids: ac49JnVFYKM tsZ22OMb9ns
 
 ## 介紹
 
-克拉維奧林電子琴是一種電子類比合成器。它由法國工程師康斯坦丁·馬丁於1947年在凡爾賽發明。該樂器由一台鍵盤和一個獨立的放大器與揚聲器組成。鍵盤通常涵蓋三個八度音程，並配有多個開關以改變所產生聲音的音色、添加顫音（這是該樂器的一個顯著特點），以及提供其他效果。克拉維奧林電子琴採用真空管振盪器產生嗡嗡聲波形，幾乎是方波，然後可以使用高通和低通濾波以及顫音進行改變。
+克拉維奧林電子琴（Clavioline）是1947年由法國工程師康斯坦丁·馬丁在凡爾賽發明的電鳴鍵盤樂器，霍恩博斯特尔—薩克斯編號531.1。構造包括鍵盤與分離的擴大機、喇叭，通常約三八度，以開關改變音色、加入顫音及其他效果；發聲採真空管振盪器產生近似方波的蜂鳴波形，再經高、低通濾波與擴大機失真塑形。1960年代搖滾與流行音樂家常用於錄音與電影，法、美、德、英、日等地亦曾生產或衍生相關電子鍵盤。
+
 ## 聆聽示範
 
-### 代表性作品
-
-克拉維奧林電子琴在20世紀中葉的電子音樂創作中扮演重要角色。法國作曲家皮埃爾·舍費爾（Pierre Schaeffer）在1950年代的具體音樂實驗中多次運用該樂器。美國作曲家米頓·巴比特（Milton Babbitt）亦在其電子音樂作品中採用克拉維奧林。英國作曲家彼得·齊諾維耶夫（Peter Zinovieff）在1960年代的電子作品創作裡，將克拉維奧林獨特的顫音效果與其他電子樂器結合，探索前衛音樂的可能性。
+克拉維奧林電子琴出現在流行音樂、電影、廣播劇與爵士專輯中，1960年代曾受搖滾與流行鍵盤手喜愛。可聽到的錄音包括法蘭克·查克斯菲爾德樂團的〈Little Red Monkey〉、寶萊塢印地語電影《Nagin》的〈Man dole mera, tan dole mere〉、戴爾·夏農〈Runaway〉、披頭四〈Baby, You're a Rich Man〉與麥克·歐菲爾德2017年專輯。
 
 ## 歷史背景
 
-克拉維奧林電子琴發源於1947年的法國凡爾賽，由工程師康斯坦丁·馬丁創造發明。作為早期電子類比合成器之一，它標誌著電子音樂樂器發展的重要里程碑。該樂器採用真空管振盪器技術，能產生接近方波的嗡嗡聲波形，並通過高通、低通濾波與獨特的顫音效果進行聲音變調。克拉維奧林電子琴由鍵盤、獨立放大器與揚聲器組成，通常覆蓋三個八度音程，配備多個開關控制音色與效果。隨著戰後電子音樂的蓬勃發展，克拉維奧林逐漸從歐洲傳播至全球，成為許多先鋒樂手與作曲家探索電子聲響的重要工具，對現代合成器的發展產生深遠影響。
+克拉維奧林電子琴為電鳴類比合成器，1947年由法國工程師康斯坦·馬丁在凡爾賽創製。1950年代法國塞爾默與美國吉普森推出標準、混響、音樂會等型號；哈洛德·博德開發六音域八度移調型，由德國約爾根森電子授權製造。英國詹寧斯管風琴公司的尤尼沃克斯受其啟發，1962年日本亦出現基於克拉維奧林的原型。1960年代與梅洛特龍同受搖滾、流行音樂鍵盤手喜愛，至穆格合成器出現前為重要鍵盤樂器。
 
 ## 音色描述
 

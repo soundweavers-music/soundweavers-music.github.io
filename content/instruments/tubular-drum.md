@@ -1,18 +1,18 @@
 ---
-class_code: A1
-frontend_class: 吹奏與氣息樂器
-subcategory: 無簧吹管
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鼓皮與鼓類
 title_zh: 管狀鼓
 title_original: Tubular drum
 family_std: 鼓類
-sound_hs: 2 膜鳴樂器
+sound_hs: 2
 playing_method: 敲擊鼓面
 interface_tags: 
 region_culture: 大洋洲
 listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：膜鳴（2）；依據：來源五：Tubular drums 被列於 Membranophone 條目下，並稱其為依長寬劃分的鼓類，且 H-S 定
 source_url: https://soundweavers-music.github.io/instruments/tubular-drum/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Civic_Orchestra_of_Chicago_Timpani.jpg/500px-Civic_Orchestra_of_Chicago_Timpani.jpg
 youtube_ids: IvUU8joBb1Q EDQgU1CPpis
@@ -28,9 +28,6 @@ youtube_ids: IvUU8joBb1Q EDQgU1CPpis
 管狀鼓在現代管弦樂中應用廣泛。柏遼茲《幻想交響曲》(1830年代)首次在交響樂團中運用打擊樂器組，為管狀鼓的使用奠定基礎。德弗札克《新世界交響曲》(1893年)融入美洲風格打擊樂，包含管狀鼓元素。二十世紀現代主義作曲家如斯特拉汶斯基在《春之祭》(1913年)中運用多種打擊樂器，進一步拓展了管狀鼓的表現可能性。
 
 ## 歷史背景
-
-# 管狀鼓歷史背景
-
 管狀鼓起源於非洲大陸，是膜鳴樂器中最古老的形式之一。早期非洲部落利用樹幹或竹子製成圓筒體，上面蒙以動物皮革，作為通訊、祭祀和娛樂之用。這種樂器後來傳入中東和亞洲地區，各地根據當地文化進行改良與創新。
 
 十九世紀末，管狀鼓傳入歐洲，西方作曲家開始將其融入交響樂團。十九世紀末至二十世紀初，隨著定音鼓技術進步，管狀鼓逐漸標準化與精進。維也納、倫敦等音樂中心推動了其發展，使其成為管弦樂隊的重要打擊樂器。二十世紀中期，管狀鼓設計達到成熟，並廣泛應用於古典音樂、爵士樂與流行音樂。今日，管狀鼓已成為國際認可的標準樂器，各音樂流派普遍採用。

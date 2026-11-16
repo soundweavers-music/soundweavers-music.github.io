@@ -5,14 +5,14 @@ subcategory: 簧片樂器
 title_zh: 高音雙簧管
 title_original: Piccolo oboe
 family_std: 管樂器類
-sound_hs: 4 气鳴樂器
+sound_hs: 422.112-71
 playing_method: 吹奏
 interface_tags: 
 region_culture: 歐洲｜單一地區／文化圈
 listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
 ensemble_links: 
-verification_status: 已修正中文名，保留
-issue_note: 中文名重複／譯名修正；原中文名寫成「低音提琴」，與第226項 Double Bass 撞名；Octobass 是巨型低音擦弦樂器，不等同 Double Bass。；不刪除；改中文名為「八度低音提琴」，與第226項低音提琴相鄰。；NEAR-226/547: Double Bass／Octobass，鄰近但不合併
+verification_status: 已查證
+issue_note: 分類查證：氣鳴（422.112-71）；依據：來源二與來源三均給出 Hornbostel–Sachs 422.112-71，並描述為 double-reeded ae
 source_url: https://soundweavers-music.github.io/instruments/piccolo-oboe/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/MUSETTE.jpg/500px-MUSETTE.jpg
 youtube_ids: 8nNilTdpDiE ivQpiJos1Sw
@@ -20,12 +20,11 @@ youtube_ids: 8nNilTdpDiE ivQpiJos1Sw
 
 ## 介紹
 
-高音雙簧管，又稱為小雙簧管或高音雙簧管，歷史上被稱為雙簧管風笛（或簡稱風笛），是雙簧管家族中最小且音域最高的成員。高音雙簧管以E♭或F調調音，音域高於普通雙簧管（即記譜時比發聲音低小三度或完全四度），是雙簧管的高音版本，可與E♭單簧管相比較。它最常見於二十世紀早期的行進樂隊音樂中，較少出現在室內樂團或當代作曲中。
+高音雙簧管又稱 piccoloboe 或最高音雙簧管（sopranino oboe），舊稱 oboe musette，是雙簧管家族中體積最小、音域最高的成員，屬氣鳴樂器，Hornbostel–Sachs 編號 422.112-71。其音高較一般雙簧管高降E或F，記譜則較實際音高低小三度或純四度，可視為雙簧管的最高音版本。它最常見於二十世紀初期軍樂隊音樂，較少用於室內樂合奏或當代作品，也見於雙簧樂器合奏與電影配樂。
+
 ## 聆聽示範
 
-### 代表性作品
-
-高音雙簧管的代表作品主要出現在二十世紀早期的行進樂隊與軍樂隊音樂中。著名的美國軍樂指揮家約翰·菲利普·蘇薩（John Philip Sousa）的多部進行曲中均編有高音雙簧管聲部，如《星條旗永不落》（The Stars and Stripes Forever，1897年）等作品。此外，歐洲管樂隊傳統音樂中也廣泛採用此樂器。雖然現代室內樂與當代古典音樂中較少使用，但其在行進樂隊音樂編制中仍保有重要地位。
+高音雙簧管常見於二十世紀初軍樂隊音樂，也較少見於室內樂合奏與當代作品。它因特殊音色可用於雙簧樂器合奏與電影配樂；來源提到馬德納《雙簧管樂器獨奏》、《雙簧管與管弦樂協奏曲第二號》等。
 
 ## 歷史背景
 

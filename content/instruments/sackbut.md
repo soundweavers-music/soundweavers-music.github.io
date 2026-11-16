@@ -5,14 +5,14 @@ subcategory: 號角與唇振
 title_zh: 薩克布特長號
 title_original: Sackbut
 family_std: 唇振氣鳴、天然號角與銅管
-sound_hs: 423 唇振氣鳴／號角與銅管
+sound_hs: 423.22
 playing_method: 唇振吹奏
 interface_tags: 
 region_culture: 歐洲／全球
 listening_sound_tags: 嘴唇、遠方、召喚、空間方向｜吹向遠方的號角（天然號、宗教號角、山谷長號與銅管）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：氣鳴（423.22）；依據：來源二與來源三：Hornbostel–Sachs 423.22，sliding aerophone sounded by；與「trombone」互為別名／變體
 source_url: https://soundweavers-music.github.io/instruments/sackbut/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Sacabutxs%2C_conjunt_al_Museu_de_la_M%C3%BAsica.jpg/500px-Sacabutxs%2C_conjunt_al_Museu_de_la_M%C3%BAsica.jpg
 youtube_ids: jpQaGJTh2mU jPJNJr6iBrs
@@ -20,20 +20,15 @@ youtube_ids: jpQaGJTh2mU jPJNJr6iBrs
 
 ## 介紹
 
-薩克布特長號是文藝復興時期和巴洛克時代使用的早期長號形式。薩克布特長號具有長號特有的伸縮滑管，用於改變管身長度以改變音高，但它與後來的長號的區別在於其較小的、更具圓柱形比例的音孔，以及喇叭口較少張開。與其演變而來的早期滑管小號不同，薩克布特長號擁有U形滑管，具有兩根平行的滑動管，而不是只有一根。長號這個術語的記錄比薩克布特這個術語早出現二十年，而德文術語「Posaune」的證據甚至更早。
+薩克布特長號（Sackbut）是長號在文藝復興與巴洛克時期的早期形式，屬氣鳴樂器，霍恩博斯特尔–薩克斯分類為423.22，以嘴唇振動發聲。其構造有U形滑管與兩條平行滑管，演奏者拉動滑管改變管長以變換音高；管徑較小、喇叭口較不收放。它曾用於阿爾塔卡佩拉樂隊，也與管風琴等一同出現在巴洛克多聲部作品中。
+
 ## 聆聽示範
 
-### 代表性作品
-
-薩克布特長號在文藝復興及巴洛克時期被廣泛使用於宮廷音樂。喬萬尼·加布里埃利（Giovanni Gabrieli）在16世紀後期創作的《Sonata Pian e Forte》為重要代表作，運用薩克布特長號與其他銅管樂器的組合。同時期的德國作曲家亨利希·施茨（Heinrich Schütz）也在其宗教音樂作品中頻繁採用薩克布特長號，如《Symphoniae Sacrae》等合唱作品，展現其溫和柔美的音色特質。
+薩克布特長號為文藝復興與巴洛克時期的滑管氣鳴樂器，以唇振發聲，霍恩博斯特尔—薩克斯編號423.22，地區為歐洲／全球。來源提到它曾與歌聲、辛克管與克魯姆霍恩配合，見於阿爾塔卡佩拉編制；也用於巴洛克多聲合唱作品，與科內特管及風琴並列。來源亦提到它在舞蹈樂隊中演奏對位聲部。來源未提供具體作曲家或曲目，故不列作品名。
 
 ## 歷史背景
 
-薩克布特長號的歷史可追溯至15世紀初期。最早的滑管樂器記載可能是1420年代在勃艮第發現的「ménestrels長號」（trompette des ménestrels），後來在歐洲其他地區也出現了。這個名稱用以區別固定長度的戰爭長號（trompettes de guerre）。
-
-「薩克布特」（sackbutt）一詞在15世紀出現，暗示了滑管設計。其名稱來源有兩種理論：一是源自中古法語的sacquer（拉）和bouter（推），二是來自西班牙語的sacar（拉）和bucha（管子）。英文中出現了多種拼寫變體，包括sacbutt、sackbutte、sagbut等。
-
-相關術語在各地有所不同：法國稱為sacqueboute，西班牙稱為sacabuche，這些術語在英法兩國沿用至18世紀。1538年蘇格蘭記載此樂器為「draucht trumpet」（拉動長號），與固定長度的weir trumpet相區別。德國約1450年起使用Posaune一詞，源自拉丁文busine（直形長號），至今仍沿用。
+薩克布特是文藝復興與巴洛克時期長號的早期形式，由滑管號演變而來，以雙管滑管改變音高。滑管樂器最早記載可能見於一四二〇年代勃艮第；長號一詞比薩克布特早約二十年，德語稱呼更舊。薩克布特原為法語詞，在英國沿用至十八世紀沒落，十八世紀末復興後改以長號為主。十五至十九世紀形制變化不大，古典時期號口略寬；十八世紀中葉後號口加大、接管廢用、支撐改管狀，音色較強，適合十九世紀行進樂隊。最早雙管滑管證據見於一四八八至一四九三年羅馬濕壁畫。
 
 ## 音色描述
 

@@ -5,14 +5,14 @@ subcategory: 簧片樂器
 title_zh: 簧振氣鳴樂器
 title_original: Reed aerophone
 family_std: 簧片樂器家族
-sound_hs: 待確認
+sound_hs: 422
 playing_method: 吹奏
 interface_tags: 
 region_culture: 全球／多地｜單一地區／文化圈
 listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：氣鳴（422）；依據：Wikidata P1762 Hornbostel–Sachs 422；英文維基全文摘錄「422 Reed aeroph
 source_url: https://soundweavers-music.github.io/instruments/reed-aerophone/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Onde_stationnaire_vitesse_anche_faible_trois_modes.svg/500px-Onde_stationnaire_vitesse_anche_faible_trois_modes.svg.png
 youtube_ids: djUseuUisvM DjRv4hKZTvA
@@ -42,17 +42,11 @@ youtube_ids: djUseuUisvM DjRv4hKZTvA
 莫札特《雙簧管協奏曲 K.314》（1777年）是雙簧管協奏曲文獻的重要作品，展現樂器的優雅音色。貝多芬《田園交響曲》第二樂章中的雙簧管獨奏段落具有田園詩意。德布西《牧神的午後前奏曲》雖為長笛獨奏，但後來編版中雙簧管詮釋同樣迷人。馬勒交響曲中多次運用雙簧管製造深邃的音樂意境。
 
 ## 歷史背景
-
-# 簧振氣鳴樂器的歷史背景
-
 簧振氣鳴樂器的起源可追溯至古代中東和地中海地區。最早的雙簧樂器出現在古埃及和古希臘，當地音樂家利用蘆葦片製作簧片，創造出獨特音色。中世紀時期，這類樂器經由阿拉伯世界傳入歐洲，並逐漸演變成現代的雙簧管。
 
 隨著十六世紀樂器製造技術的進步，歐洲工匠開始標準化雙簧樂器的設計，使其音質更為穩定。十九世紀，隨著音樂廳文化的興盛，雙簧管成為交響樂團的重要成員。霍恩博斯特爾-薩克斯分類系統的建立，進一步確立了簧振氣鳴樂器的科學地位。如今，這類樂器遍布全球各文化，從古老的杜德克管到現代管弦樂團的雙簧管，展現了跨越千年的音樂文明傳承。
 
 ## 音色描述
-
-# 雙簧管音色與音響特徵
-
 雙簧管音色具有獨特的蘆葦質感，帶有溫潤而略帶鼻音的特性。高音域時音色明亮穿透，具有優雅的歌唱性；中音域最為醇厚溫暖，是樂器最具表現力的區間；低音域則顯得沉穩厚重。雙簧片的振動方式使其共鳴具有複雜的泛音結構，賦予樂器獨特的音色辨識度。
 
 相比單簧管的溫和柔順，雙簧管音色更具穿透力與個性；與長笛的清脆明亮相比，雙簧管多了人聲般的溫暖內涵。其音色既不失木管樂器的溫柔，又能在樂隊中清晰突出，常被用於表現抒情、優雅或帶有些許滄桑感的音樂意象。

@@ -5,14 +5,14 @@ subcategory: 鼓皮與鼓類
 title_zh: 小鼓／鼓胴
 title_original: Kotsuzumi
 family_std: 沙漏鼓
-sound_hs: Membranophone／膜鳴樂器
+sound_hs: 211.24
 playing_method: 手拍／肩上擊奏
 interface_tags: 
 region_culture: 日本｜單一地區／文化圈
 listening_sound_tags: 戲曲呼吸、短促回應、聲音與姿態｜皮膜敲醒的地心脈動（膜鳴鼓類、框鼓、杯鼓與鼓組）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：膜鳴（211.24）；依據：Wikidata P1762 Hornbostel–Sachs 211.24；英文維基分類 Drums
 source_url: https://soundweavers-music.github.io/instruments/kotsuzumi/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Japanese_Drum.jpg/500px-Japanese_Drum.jpg
 youtube_ids: z47Xt6M7m50 AEdfX0OVn68
@@ -20,23 +20,23 @@ youtube_ids: z47Xt6M7m50 AEdfX0OVn68
 
 ## 介紹
 
-The tsudzumi (鼓) or tsuzumi is a hand drum of Japanese origin. It consists of a wooden body shaped like an hourglass, and it is taut, with two drum heads with cords that can be squeezed or released to increase or decrease the tension of the heads respectively. This mechanism allows the player to raise or lower the pitch of the drum while playing, not unlike the African talking drum and the Indian dhadd.
+小鼓（Kotsuzumi，亦稱鼓胴）是日本膜鳴樂器，Hornbostel–Sachs編號211.24。鼓身以整塊櫻木製成，呈沙漏形，兩面駒皮以麻繩張緊，演奏者壓緊或放鬆繩索可改變音高。早期由白拍子使用，後成能樂、歌舞伎與日本民謠中常見樂器，常與大鼓合奏。
+
 ## 聆聽示範
 
-### 代表性作品
-
-小鼓在能樂中扮演重要角色，代表作品包括《羽衣》、《松風》等古典能劇，由世阿彌等大師創作於15世紀，其中小鼓與大鼓、笛子配合形成囃子方的基礎。現代作曲家武滿徹在《靈感》等現代音樂作品中也融入小鼓，展現其在當代音樂中的應用潛力。小鼓音色在傳統日本音樂中具有標誌性地位。
+小鼓可見於能劇與歌舞伎的囃子伴奏，也用於日本民謠。劇場演出中，它常與較大的大鼓合奏，並與締太鼓一同出現。演奏者以手擊打鼓面，並透過擠壓或放鬆繩索改變鼓皮張力，使音高在柔和的低音與較尖的高音之間變化。此樂器屬膜鳴樂器，發聲分類為211.24，來自日本。
 
 ## 歷史背景
 
-小鼓的前身為腰鼓，七世紀時從中國南方傳入日本，作為伎樂樂隊的一部分。腰鼓有四種類型，其中僅有小腰鼓和大腰鼓保存至今。與現代小鼓相同，腰鼓的鼓膜以麻繩固定，稱為「締め緒」。不過腰鼓是懸掛於演奏者頸部，由右手持槌敲擊鼓面，左手掌輔助。十二世紀時，最小型腰鼓——一鼓的演奏方式改變，演奏者改為用右手敲擊一面鼓面，左手則操控音高。約在此時期，一鼓被改名為小鼓。小鼓最初由白拍子舞者使用，後來成為能樂囃子方的主要樂器，再進一步應用於歌舞伎表演中。
+小鼓（kotsuzumi）的前身腰鼓（yōko）於七世紀自中國南方傳入日本，作為伎樂（gigaku）合奏的一部分；其膜以麻繩「調べ緒」（shirabeo）固定，並懸於演奏者頸部，以右手持槌、左手掌擊打。十二世紀時，最小型的壱鼓（ikko）演奏方式轉變為右手擊面、左手調音，名稱也改為小鼓（kotsuzumi，亦稱 shōko）。此後它先由白拍子（Shirabyōshi）使用，再成為能樂伴奏段落（hayashi）的主要樂器，並進入歌舞伎與民謠（min'yō），常與大鼓（ōtsuzumi）合奏。
 
 ## 音色描述
 
-小鼓音色清脆尖銳，具有明亮而富有穿透力的特徵。其音域集中在中高頻區域，音量雖不龐大但極具存在感。通過擠壓或放鬆連接鼓皮的繩索可即時改變音高，使其音色具備獨特的彈性與表現力。鼓胴的沙漏型木質共鳴腔產生溫暖的諧音底蘊，使得尖銳的打擊音不致過於生硬。相比西方軍鼓的乾脆有力，小鼓音色更富東方韻味與細膩感；比之大鼓的深沉低鳴，小鼓則顯得輕盈靈動。其獨特的張力控制機制賦予樂器高度的表現空間，能夠呈現從低沉到高亢的多元音響效果。
+小鼓為日本膜鳴樂器，Hornbostel–Sachs 211.24。其沙漏形木胴兩面鼓皮以繩索連結，演奏者擠壓或放鬆繩索可改變鼓皮張力，使音高上下變化；擊打鼓面中心並保持繩索鬆弛時，發出較柔和的「波恩」與「普」音，擊打靠近鼓面與木胴相接處並擠壓繩索時，發出較高的「塔」與「奇」音。來源未提供明確音量控制方式，但濕度與鼓皮狀態會影響音質。與大鼓相比，小鼓鼓皮較薄且有裝飾，常與大鼓同奏；與締太鼓相比，小鼓較精緻，需依溫濕度現場微調。
+
 ## 樂器材質
 
-鼓胴採用櫻木或楓木等硬質木材製成沙漏型共鳴腔。鼓皮使用馬皮或牛皮製成，具有良好的彈性與音響特性。連接鼓皮的繩索稱為「締め緒」，傳統採用麻繩或絹繩製成，可通過擠壓或放鬆調整音高。鼓框邊緣通常飾以皮革或布料包裹，既美觀又能保護木質部件。整體結構精緻，兼顧音響效果與操控性能。
+小鼓的鼓胴由單塊櫻木雕刻而成，外表施以漆與金箔蒔繪。兩片發聲鼓皮以鐵環為框，皮面採用小馬皮，背面加厚層補強，再以漆和金箔收邊，縫合處亦以漆覆蓋。連接鼓皮的繩索為麻製，傳統染朱紅，現代因毒性改用其他染料。鼓皮內側另貼小型皮革補片以調整音色，保養時使用沾濕的和紙。來源未載明其他部件材質。
 
 ## 教學
 

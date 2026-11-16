@@ -11,8 +11,8 @@ interface_tags:
 region_culture: 日本｜單一地區／文化圈
 listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：非樂器／非單一樂器；依據：來源五：sōzu 為日本庭園水泉裝置，以水積累使竹管旋轉撞石發聲；來源一：Japanese devices made t；與「sōzu」互為別名／變體
 source_url: https://soundweavers-music.github.io/instruments/shishi-odoshi/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Higashiyama_Botanical_Garden_Shishiodoshi_20170617.gif/500px-Higashiyama_Botanical_Garden_Shishiodoshi_20170617.gif
 youtube_ids: jfBf-ksVwPQ 40sHfUrDezE
@@ -20,18 +20,12 @@ youtube_ids: jfBf-ksVwPQ 40sHfUrDezE
 
 ## 介紹
 
-Shishi-odoshi (鹿威し) (literally, "deer-frightening" or "boar-frightening"), in a wide sense, refers to Japanese devices made to frighten away animals that pose a threat to agriculture, including kakashi (scarecrows), naruko (clappers) and sōzu. In a narrower sense, it is synonymous with sōzu. A sōzu is a type of water fountain used in Japanese gardens. It consists of a segmented tube, usually of bamboo, pivoted to one side of its balance point. At rest, its heavier end is down and resting against a rock.
+鹿威（Shishi-odoshi）在日本語中廣義指嚇走危害農業動物的裝置，狹義則與sōzu同義，屬非樂器或非單一樂器的庭園水景裝置。其構造為一段竹管，支點偏離平衡點，較重一端靜置時靠於石上；水流入管端後累積，使重心越過支點，竹管旋轉倒水，重端回落敲石發出清脆聲，循環不已。原用於驚走鹿、野猪等食草動物，現多作為日本庭園視覺與聽覺設計的一部分。
+
 ## 聆聽示範
-
-### 代表性作品
-
-鹿威作為傳統農業裝置，未有正式音樂作品記載。然而在現代日本庭園音樂與環境音樂領域，多位作曲家將其音響融入創作。著名音樂製作人在記錄日本傳統庭園聲景的專輯中，捕捉鹿威的自然節奏。此外，日本當代實驗音樂家亦運用鹿威的機械性音響進行音樂創作，將傳統農具轉化為現代音樂元素。
-
 ## 歷史背景
 
-鹿威（Shishi-odoshi）源自日本，是傳統農業社會中用來驅趕野生動物的裝置。在廣義上，鹿威泛指包括稻草人、鳴子（木製拍打器）和竹筒水車等多種驅獸工具。狹義上則專指竹筒水車（sōzu），這種裝置利用流水原理，使竹筒反覆傾倒並敲擊木頭，藉由聲響驅趕野豬與鹿隻。
-
-此裝置在中世紀日本農村地區廣泛應用，反映了當時農民與野生動物之間的對抗關係。隨著日本造園藝術的發展，鹿威逐漸從實用工具演變為庭園裝飾元素，尤其在禪宗庭園中成為重要的景觀組成部分。其獨特的機械運作原理和悅耳的聲響，使其在日本傳統文化中佔據特殊地位，並於近代傳入西方，成為東方園林文化的象徵。
+鹿威（Shishi-odoshi）在日本最初指嚇走危害農業動物的裝置，廣義包括稻草人、拍子木與 sōzu；狹義則與 sōzu 同義。sōzu 作為庭園水泉，以竹管傾倒擊石發出聲響，原用於驚嚇鹿、野猪等食草動物。其後功能由農業防獸轉為庭園視覺與聽覺設計的一部分，主要供審美使用。
 
 ## 音色描述
 

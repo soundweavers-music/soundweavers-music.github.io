@@ -2,17 +2,17 @@
 class_code: A2
 frontend_class: 弦樂器
 subcategory: 擦弦、鍵控與輪弦
-title_zh: 哈丁格小提琴
+title_zh: 哈当厄小提琴
 title_original: Hardanger Fiddle
 family_std: 擦弦、輪弦與提琴家族
-sound_hs: 弦鳴｜321.3 擦弦／輪弦／提琴家族
+sound_hs: 弦鳴｜321.322-71
 playing_method: 弓擦／輪擦
 interface_tags: 弓
-region_culture: 亞洲／歐洲／中東／全球
+region_culture: 歐洲
 listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：弦鳴（321.322-71）；依據：來源一：Traditional Norwegian stringed instrument；來源二／三：Hornbost
 source_url: https://soundweavers-music.github.io/instruments/hardanger-fiddle/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Hardanger_Fiddle_-_St_Cecilia%27s_Hall.webm/500px--Hardanger_Fiddle_-_St_Cecilia%27s_Hall.webm.jpg
 youtube_ids: 5rQdSRdH-EA AYSVDG8ZFNw
@@ -20,16 +20,15 @@ youtube_ids: 5rQdSRdH-EA AYSVDG8ZFNw
 
 ## 介紹
 
-哈丁格小提琴（挪威語：hardingfele）是一種傳統弦樂器，被視為挪威的民族樂器。在現代設計中，這種小提琴與小提琴非常相似，但具有八或九根琴弦（而標準小提琴只有四根），木材也更薄。已知最早的哈丁格小提琴例子來自1651年，由挪威哈丁格地區的奧勒·約翰森·雅斯塔德製造。最初，該樂器的琴身更圓、更窄。到了1850年左右，具有與小提琴非常相似的琴身的現代設計成為規範。
+哈當厄小提琴又稱挪威小提琴，是挪威傳統弦鳴樂器，分類編號321.322-71。它外形近似小提琴，琴板較薄，通常有八或九根弦；四根主弦如小提琴般拉奏，其餘下弦或共鳴弦在主弦奏響時共振。演奏時弓法較輕而彈跳，常同時拉兩條上弦以產生雙音。挪威西南部常用於舞蹈，也與教堂場合有關，傳統上領新娘行列至教堂門口。
+
 ## 聆聽示範
 
-### 代表性作品
-
-哈丁格小提琴的代表作品主要來自挪威民俗音樂傳統。《哈丁格舞曲》（Harding Dance）是最著名的民俗曲目，由無名民間音樂家創作，代表了挪威鄉村舞蹈文化。19世紀作曲家埃德瓦爾德·格里格（Edvard Grieg）的《挪威民俗舞蹈變奏曲》亦曾改編用哈丁格小提琴演奏。此外，傳統的《春來了》（Våren）等季節性民謠也是重要代表作，廣為流傳於斯堪的納維亞地區。
+哈丁格小提琴主要見於挪威西南部，用於舞蹈伴奏，常伴隨節奏強烈的跺腳聲；也曾在婚禮行列中領奏至教堂入口。愛德華·葛利格曾改編哈丁格民謠，並為易卜生《培爾·金特》第一號組曲寫作哈丁格小提琴段落，其中「晨曲」開頭樂句源自其共鳴弦調音。錄音中可聽見它與古老教堂管風琴合奏，如《Rosa i Botnen》；亦見於獨奏、弦樂四重奏等編制。
 
 ## 歷史背景
 
-哈丁格小提琴是挪威的民族瑰寶，起源於挪威南部的哈丁格地區。已知最早的文獻記載可追溯至1651年，由當地製琴師奧勒·約翰森·雅斯塔德所製造。早期的哈丁格小提琴琴身設計較為圓潤狹窄，與現代小提琴差異明顯。隨著時間推移，特別是到了十九世紀中葉的1850年左右，該樂器逐漸演變為更接近標準小提琴的現代設計，使其更便於演奏與改進。哈丁格小提琴的獨特之處在於配置有八至九根琴弦，遠多於傳統小提琴的四根，琴身木材亦更為纖薄。作為挪威傳統音樂文化的重要載體，這件樂器不僅在當地廣泛流傳，更成為挪威民俗音樂的代表性象徵，承載著深厚的地域文化特色。
+哈丁格小提琴最早實例為1651年Ole Jonsen Jaastad在挪威哈丁格所製，原琴身較圓窄；約1850年後轉為近似小提琴的現代形制。它主要流行於挪威西南部，與基督教會關係複雜：19世紀宗教復興期間曾遭焚毀或藏匿，直至20世紀才由Johannes Dahle、Gjermund Haugen等人在教堂演出。Edvard Grieg曾將其民間曲調納入《培爾·金特第一號組曲》，近年亦受日本音樂家與國際作曲家採用。
 
 ## 音色描述
 

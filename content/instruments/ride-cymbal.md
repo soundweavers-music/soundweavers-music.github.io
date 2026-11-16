@@ -5,14 +5,14 @@ subcategory: 鑼鐘與金屬敲擊
 title_zh: 疊音鈸
 title_original: Ride cymbal
 family_std: 體鳴打擊樂器類
-sound_hs: 1 体鳴樂器
+sound_hs: 111.24
 playing_method: 敲擊／搖晃／撥彈
 interface_tags: 
 region_culture: 歐洲｜地區／文化圈
 listening_sound_tags: 指尖、掌心、尾音、近身聆聽｜手邊發光的小宇宙（近身體鳴、舌片琴與手奏金屬共鳴）
 ensemble_links: 爵士編制
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：體鳴（111.24）；依據：來源三 Wikidata P1762 給出 Hornbostel–Sachs 111.24；來源一與來源五均稱 ride
 source_url: https://soundweavers-music.github.io/instruments/ride-cymbal/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Drum_kit_parts.png/500px-Drum_kit_parts.png
 youtube_ids: qG-PN-Ffxk4 Xk0FoUSlLas
@@ -20,12 +20,11 @@ youtube_ids: qG-PN-Ffxk4 Xk0FoUSlLas
 
 ## 介紹
 
-疊音鈸（英語：ride cymbal，又稱叮叮鑔）是其中一個在大多數鼓組中的標準部分。在保持一個穩定的鼓點時會使用它， ，而不是使用重音的碎音鈸。它通常放置在落地鼓上方,鼓組的最右側（或慣用手的方向）。 除了打開和關閉時的聲音之外，疊音鈸可以代替腳踏鈸的任何功能或節奏。 疊音鈸是用鼓棍演奏的。
+疊音鈸（Ride cymbal）是鼓組中常見的體鳴樂器，Hornbostel–Sachs 編號 111.24，主要用來維持穩定節奏，而非像碎音鈸那樣提供重音。演奏者以鼓棍擊打鈸面或鈸心，通常置於落地鼓上方、鼓組最右側或慣用手方向；除了開合聲音外，也能代替腳踏鈸的節奏功能。搖滾與爵士場合中，鼓手常以規律節奏敲擊作為伴奏，現代用法亦受 Baby Dodds的節奏啟發。
+
 ## 聆聽示範
 
-### 代表性作品
-
-疊音鈸在爵士樂中被廣泛使用，著名鼓手Chick Webb和Gene Krupa在1930至1940年代的爵士標準曲目中大量採用，如Count Basie樂團的作品中展現了其穩定的節奏支撐功能。在現代搖滾和流行音樂中，疊音鈸成為鼓組的核心節奏樂器，被運用於無數經典錄音製作中，維持著穩定而清晰的鼓點。
+疊音鈸是體鳴樂器，常見於鼓組中，通常置於落地鼓上方、鼓組最右側或慣用手方向。在搖滾樂、爵士樂與金屬音樂裡，鼓手多以鼓棍定期敲擊，維持穩定節奏並作為歌曲伴奏；同一固定音型也可能在主歌改用腳踏鈸、在樂奏或副曲改用疊音鈸。使用鼓掃或錄音時，薄型碎音鈸可替代疊音鈸；早期搖滾某些風格則以嘶嘶鈸作第二疊音鈸，伴隨吉他獨奏。平疊音鈸因聲音較安靜，也常用於爵士鼓。
 
 ## 歷史背景
 
@@ -44,4 +43,4 @@ youtube_ids: qG-PN-Ffxk4 Xk0FoUSlLas
 
 ## 教學
 
-將樂器以正確姿勢持於手中。
+疊音鈸屬體鳴，Hornbostel–Sachs 111.24，常見於歐洲鼓組。演奏時通常固定於鼓組最右側、落地鼓上方，以鼓棍敲擊維持穩定節奏，而非作碎音鈸重音。初學可分別練習鈸面與鈸心：敲鈸面得持續閃爍聲，敲鈸心得較明亮、清晰的單音。木頭鼓棒音色較平滑安靜，尼龍頭鼓棒較突出；使用鼓掃或錄音時，輕柔擊打薄碎音鈸亦可作疊音用途。除開合聲外，疊音鈸可代替腳踏鈸節奏。

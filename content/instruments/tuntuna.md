@@ -11,7 +11,7 @@ interface_tags: 鍵盤／按鍵
 region_culture: 亞洲／歐洲／全球
 listening_sound_tags: 手掌、弦面、推音、敲擊｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
+verification_status: 已查證
 issue_note: 
 source_url: https://soundweavers-music.github.io/instruments/tuntuna/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Pulluvan_pattu_in_Ashtamudi_temple1.JPG/500px-Pulluvan_pattu_in_Ashtamudi_temple1.JPG
@@ -20,14 +20,9 @@ youtube_ids: QtGSDINpFC4 DYLCFE7xtCg
 
 ## 介紹
 
-土土那琴是源自非洲撒哈拉以南地區的傳統弦樂器，屬於鍵盤式弦鳴樂器。其外型採用鍵盤設計，配備共鳴箱以放大聲響。琴身通常由木質材料製成，具有優雅的曲線造型。土土那琴廣泛應用於部落儀式、宗教慶典和日常娛樂中，是西非和中非傳統文化的重要載體。其音色溫潤而富有穿透力，具有明亮高頻與深沉低頻共鳴的獨特特色，能表現豐富的音樂層次，深受民族音樂愛好者推崇。
+Tarka（克丘亞語、艾馬拉語：tharqa）是安地斯原住民的木製直笛，H-S 編號 421.221.12。通常木製，有六個指孔，吹口端有哨口，遠端有自由孔；較直笛短、外形有稜角，需較多氣息，音色暗而穿透。分大、中、小三種，中、小分別比大高五度、八度，常在大型合奏中同奏旋律，以 tinya、wankar等打擊樂伴奏，傳統樂種稱 tarqueada（塔爾奎亞達）。
 
 ## 聆聽示範
-
-### 代表性作品
-
-土土那琴的代表作品主要源於非洲傳統音樂文化，包括西非部落儀式音樂、中非宗教慶典樂曲等。二十世紀後，隨著非洲音樂國際化，民族音樂學家與當代音樂家開始創作融合土土那琴的現代作品，將其傳統音色與當代音樂語言相結合，推動了這一古老樂器在世界音樂舞台上的展現與發展。
-
 ## 歷史背景
 
 土土那琴起源於非洲撒哈拉以南地區，特別是西非和中非的傳統文化中。這種古老的弦樂器以其獨特的共鳴方式和深厚的文化底蘊，在當地社群中佔據重要地位。土土那琴的發展歷史與非洲傳統音樂密切相連，在部落儀式、宗教慶典和日常娛樂中扮演不可或缺的角色。

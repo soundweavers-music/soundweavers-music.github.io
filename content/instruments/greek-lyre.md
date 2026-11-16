@@ -2,17 +2,17 @@
 class_code: A2
 frontend_class: 弦樂器
 subcategory: 豎琴、里拉與開放弦
-title_zh: 尼刻
+title_zh: 希臘里拉琴
 title_original: Greek Lyre
 family_std: 里拉
 sound_hs: Chordophone／弦鳴樂器
 playing_method: 撥弦
 interface_tags: 
-region_culture: 非洲／歐洲／亞洲／美洲｜地區／文化圈
+region_culture: 歐洲（古希臘）
 listening_sound_tags: 循環、河流感、開放弦、吟唱｜開放弦的天空與河流（豎琴、里拉、科拉與跨文化開放弦）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：弦鳴；依據：來源一簡述為 Ancient Greek string instrument；來源二 infobox 標為 Compos
 source_url: https://soundweavers-music.github.io/instruments/greek-lyre/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Mousai_Helikon_Staatliche_Antikensammlungen_Schoen80_n1.jpg/500px-Mousai_Helikon_Staatliche_Antikensammlungen_Schoen80_n1.jpg
 youtube_ids: JzKJNzL4eTI Y8Hpyov3Tt8
@@ -20,23 +20,12 @@ youtube_ids: JzKJNzL4eTI Y8Hpyov3Tt8
 
 ## 介紹
 
-尼刻（古希臘豎琴）是古希臘文明中的重要弦樂器，源於近東地區，約西元前1400年傳入古希臘。樂器由木製共鳴箱與豎立的弦柱組成，通常有7至11條腸弦。外型優雅精緻，蘊含濃厚的古典美學。尼刻不僅用於宗教儀式、節慶慶典和劇場演出，更是詩歌朗誦的伴奏樂器。根據傳說，赫密斯神以烏龜殼創製了豎琴並獻給阿波羅，反映了其在古希臘文化中的崇高地位。隨著時代發展，尼刻逐漸成為高雅音樂的象徵，深深植根於地中海文明中。
+里拉琴（lyre）是古希臘與地中海世界的弦鳴樂器，Hornbostel–Sachs 編號作 321.21-5，屬魯特琴家族中的軛式魯特。其構造以共鳴箱、兩側琴臂與橫木組成，弦附於與面板同平面的軛上。來源所見，它為撥弦樂器，可搭配故事或吟唱使用，古希臘游吟詩人曾以之烘托氣氛；部分古代里拉也以撥片彈奏。中文來源稱其共鳴箱較狹窄，便於攜帶，弦數多為五至八根，亦有十五弦者。
 
 ## 聆聽示範
-
-### 代表性作品
-
-古希臘豎琴的代表性作品主要體現在文獻記載與神話傳統中。《奧德賽》和《伊利亞德》中描述的豎琴伴唱是重要的文化遺產。柏拉圖與亞里斯多德的著作記錄了豎琴的音樂理論與教育價值。古希臘戲劇中，如埃斯庫羅斯和索福克勒斯的悲劇作品，經常以豎琴作為舞台伴奏樂器，雖未留存樂譜，但其文化影響深遠。
-
 ## 歷史背景
 
-# 古希臘豎琴（Greek Lyre）的歷史背景
-
-古希臘豎琴源於古代近東地區，約在西元前1400年左右傳入古希臘。早期的豎琴演奏者經常是奴隸或工人，但隨著時間推移，它逐漸成為高雅音樂的象徵。到了古典時期，豎琴已成為古希臘文化的核心樂器，與詩歌和戲劇密切相關。
-
-傳說中，赫密斯神以烏龜殼發明了豎琴，將其獻給阿波羅神。這段神話故事反映了豎琴在古希臘文化中的重要地位。豎琴不僅用於宗教儀式和節慶活動，更是貴族教育的必修科目。音樂家們利用豎琴伴奏詩歌朗誦，形成獨特的表演藝術。
-
-古希臘豎琴的影響力遠及羅馬帝國及整個地中海文明，對西方音樂傳統產生深遠影響，其設計理念更是現代弦樂器的重要源頭。
+里拉琴起源於古代地中海與近東地區，已知最早實例可追溯至約西元前2700年的美索不達米亞。早期東方里拉多具平底共鳴箱，分布於埃及、敘利亞、安那托利亞與黎凡特。圓底西方里拉同樣源自敘利亞與安那托利亞，約西元前1750年在東方消失，後於古希臘約西元前1700至1400年間再現，並在古希臘成為西元前1400至700年間唯一里拉形式，隨後傳入羅馬帝國，影響日耳曼里拉與中世紀西北歐使用。多數古地中海琴種已絕跡，僅希臘、埃及、衣索比亞等地保有傳統。
 
 ## 音色描述
 

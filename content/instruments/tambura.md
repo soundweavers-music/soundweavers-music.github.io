@@ -5,14 +5,14 @@ subcategory: 撥弦與抱持弦樂
 title_zh: 坦布拉琴
 title_original: Tambura
 family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
-sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
+sound_hs: 弦鳴｜321.322
 playing_method: 撥弦／刷弦／撥片
 interface_tags: 撥片
-region_culture: 中東／歐洲／亞洲／美洲｜地區／文化圈
+region_culture: 巴爾幹／土耳其
 listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：弦鳴（321.322）；依據：來源一/五：stringed instrument、Necked lutes；來源二/三：H-S 321.322；與「Balkan tambura」互為別名／變體
 source_url: https://soundweavers-music.github.io/instruments/tambura/
 image: https://upload.wikimedia.org/wikipedia/commons/e/eb/%E8%94%A1%E4%BE%9D%E6%9E%97%E5%87%BA%E5%B8%AD%E7%8E%8B%E5%9B%BD%E5%A4%A7%E5%B8%9D%E5%85%A8%E7%90%83%E5%B7%A1%E5%9B%9E%E8%B5%9B%E7%8E%B0%E5%9C%BA_cropped_%28cropped%29.jpg
 youtube_ids: fCtMNklEQKM F7tlqXix_eo
@@ -20,12 +20,11 @@ youtube_ids: fCtMNklEQKM F7tlqXix_eo
 
 ## 介紹
 
-坦布拉琴可能指的是：
+坦布拉琴（Tambura）是巴爾幹地區的弦鳴樂器，Hornbostel–Sachs 編號 321.322。它作為民間樂器，常見於波士尼亞與赫塞哥維納、保加利亞、克羅埃西亞、匈牙利、蒙特內哥羅、北馬其頓、塞爾維亞（尤其伏伊伏丁那）與斯洛維尼亞。它有長而窄的琴頸，通常有十八至二十四個品位，鋼弦成雙配置，以撥片彈奏，方式與曼陀林、巴格拉瑪琴相近。
+
 ## 聆聽示範
 
-### 代表性作品
-
-坦布拉琴主要用於伴奏，代表性應用包括：印度古典音樂中的《拉格音樂》系列演奏，由眾多印度音樂家在20世紀詮釋；《瑜伽冥想音樂》，廣泛應用於靈修領域；西方音樂家John McLaughlin的融合爵士作品中融入坦布拉琴元素，展現東西方音樂交融的探索。
+坦布拉琴主要作為巴爾幹民間樂器出現，可獨奏或為歌手伴奏；傳統奏法以最高弦奏旋律，其餘弦作持續音。較現代的方式則用於管弦樂團或其他合奏，以全部弦奏單線旋律。其發聲屬弦鳴，以撥片彈奏，與曼陀林、巴格拉馬琴相近；亦與坦布里卡管弦樂團編制相關。
 
 ## 歷史背景
 
@@ -42,7 +41,7 @@ youtube_ids: fCtMNklEQKM F7tlqXix_eo
 相較於古典吉他的清晰透亮，坦布拉琴音色更顯厚實溫暖；相比琵琶的剛烈有力，其音質則柔和內斂。琴體的共鳴腔能夠自然延伸音符的衰減過程，使得音響具有持續波動的特性。這種特點使其成為理想的伴奏樂器，在南亞古典音樂傳統中提供穩定的音樂基礎與氛圍烘托。
 ## 樂器材質
 
-坦布拉琴琴身採用葫蘆或木質共鳴箱，通常選用紫檀木、柚木等硬木製作。琴頸為長木製桿，多用紫檀或柚木雕刻。琴弦採用尼龍或鋼製弦線，共四至六條。琴橋由骨頭或象牙替代品製成，琴碼由木材或金屬製作。共鳴箱內貼有皮革或紙張材料以增強音響效果。
+坦布拉琴的發聲體為鋼弦，通常成雙配置；保加利亞式常見八條鋼弦、四組雙弦，馬其頓式常見四條鋼弦、兩組雙弦。琴身多為木製，保加利亞式琴身常由整塊木料雕刻而成，馬其頓式則較常以木條拼合，形似魯特琴。兩者皆有浮動琴橋與金屬尾柱，琴頸細長並設西方十二音階品位。其餘部件材質來源未載明。
 
 ## 教學
 

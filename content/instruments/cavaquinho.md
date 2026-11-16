@@ -5,14 +5,14 @@ subcategory: 撥弦與抱持弦樂
 title_zh: 卡瓦基紐琴
 title_original: Cavaquinho
 family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
-sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
+sound_hs: 弦鳴｜321.322-5
 playing_method: 撥弦／刷弦／撥片
 interface_tags: 撥片
 region_culture: 歐洲／葡萄牙／美洲／巴西
 listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：弦鳴（321.322-5）；依據：Wikidata P1762 Hornbostel–Sachs：321.322-5；英文維基簡述：plucked str
 source_url: https://soundweavers-music.github.io/instruments/cavaquinho/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Vea.cavaquinho.png/500px-Vea.cavaquinho.png
 youtube_ids: cILU9TpQwxA xK06kCdyXfg
@@ -20,16 +20,15 @@ youtube_ids: cILU9TpQwxA xK06kCdyXfg
 
 ## 介紹
 
-卡瓦基紐琴（歐洲葡萄牙語發音：[kɐvɐˈkiɲu]）是一種小型葡萄牙弦樂器，屬於歐洲吉他家族，配有四根金屬弦或羊腸弦。演奏卡瓦基紐琴的樂手被稱為卡瓦基紐琴演奏家。
+卡瓦基紐琴（Cavaquinho）是小型葡萄牙撥弦樂器，屬歐洲吉他家族，分類編號 321.322-5。琴身通常有四條金屬弦或腸弦，不同地區形制與調音各異：葡萄牙常見 C G A D，巴西標準為 D G B D。巴西琴略大，琴頸高於音箱，音孔多圓，演奏者以撥片奏出節奏與和聲，常用於森巴與肖羅。烏克麗麗與奎特羅皆由其演變，維德角音樂中也多作節奏樂器。
+
 ## 聆聽示範
 
-### 代表性作品
-
-卡瓦基紐琴在葡萄牙民樂傳統中佔有重要地位。代表作品包括傳統葡萄牙民謠《Fado》系列，這類作品通常由民間藝人代代相傳，展現卡瓦基紐琴在抒情民謠中的應用。20世紀葡萄牙作曲家若昂·德·德烏斯創作的多首民族風格樂曲，充分發揮了該樂器明亮清脆的音色特點。此外，巴西音樂大師維尼修斯·德·莫賴什與卡洛斯·林貝魯在1960年代融合葡萄牙傳統與森巴節奏的作品，使卡瓦基紐琴音樂獲得國際認可。
+卡瓦基紐琴為弦鳴樂器，發聲分類編號321.322-5，主要見於葡萄牙、巴西、維德角與馬德拉等地區。在巴西，它常用於桑巴與蕭羅音樂，以撥片演奏節奏性撥弦，連接節奏與和聲；重要演奏者與作曲家包括Waldir Azevedo、Paulinho da Viola、Mauro Diniz。在維德角，它多用於莫爾納、科拉黛拉、馬祖卡等音樂類型，主要作節奏伴奏，偶爾也奏旋律。
 
 ## 歷史背景
 
-這種葡萄牙樂器的起源不甚明確。作家貢薩洛·桑帕約認為，卡瓦基紐琴和吉他可能是由比斯開人帶到布拉加的。桑帕約以古代加拉西人可能保留的希臘文化影響，解釋了米尼奧地區古老的和希臘化特色，並強調了這種樂器與歷史上希臘化四音音階之間的聯繫。這一理論表明卡瓦基紐琴的發展受到多種文化的交融影響。該樂器在葡萄牙北部地區的演變反映了不同時期文明在伊比利亞半島的相互作用。這些考古和文化線索提示了樂器設計與當地音樂傳統之間的深層聯繫。
+卡瓦基紐琴屬弦鳴樂器，起源不明。葡萄牙作者Gonçalo Sampaio認為它與吉他可能由比斯開人帶到布拉加。其形式在葡萄牙、馬德拉、巴西與維德角分化；braguinha與rajão經19世紀末葡萄牙移民傳入夏威夷，machete亦於1879年引入，促成ukulele。巴西型稍大，琴頸高於音箱，圓音孔，用於森巴與舒羅；1930年代傳入維德角，用於莫爾納、科拉黛拉、馬祖卡。加勒比cuatro亦源自本琴。
 
 ## 音色描述
 

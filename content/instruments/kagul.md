@@ -1,18 +1,18 @@
 ---
-class_code: A2
-frontend_class: 弦樂器
-subcategory: 撥弦與抱持弦樂
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
 title_zh: 卡古爾鼓
 title_original: Kagul
 family_std: 撥弦與抱持弦樂家族
-sound_hs: 待確認
+sound_hs: 112.2
 playing_method: 撥奏／擦奏／擊弦（待細分）
 interface_tags: 鼓槌
 region_culture: 菲律賓｜單一地區／文化圈
 listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
 ensemble_links: 
-verification_status: 需調整
-issue_note: 譯名需區分；Ichigenkin 是日本一絃琴，不應與 Monochord 泛稱混同。；改「日本一絃琴（Ichigenkin）」；與第500相鄰不合併。
+verification_status: 已查證
+issue_note: 分類查證：體鳴（112.2）；依據：來源一分類標籤含 Scraped idiophones、Slit drums；來源三 Wikidata P1762 為 
 source_url: https://soundweavers-music.github.io/instruments/kagul/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kagul.jpg/500px-Kagul.jpg
 youtube_ids: 8IhXdjb3Q-Y bPPvN0Z07v8
@@ -20,16 +20,12 @@ youtube_ids: 8IhXdjb3Q-Y bPPvN0Z07v8
 
 ## 介紹
 
-卡古爾鼓是菲律賓的一種竹製刮擊鑼/狹縫鼓，為馬京達瑙人和維薩亞人所使用，其一側邊緣呈鋸齒狀，用兩根鼓槌演奏，一根刮擊鋸齒邊緣，另一根則敲擊鼓面。馬京達瑙人和巴努瓦恩人在稻田中使用它來防止貪心的鳥類，利用其產生的聲音將鳥類嚇走。馬京達瑙人和布基農的原住民過去也曾在社交場合中使用它來演奏簡單的舞蹈節奏。
+卡古爾鼓（Kagul）是菲律賓的竹製刮奏裂鼓，屬體鳴樂器，Hornbostel–Sachs 編號 112.2。其構造為一側帶鋸齒邊的竹製發聲體，演奏時使用兩根鼓棒，一根刮鋸齒邊，另一根敲擊節奏。馬京達瑙人與維薩亞人使用此鼓；馬京達瑙人與巴努瓦人曾把它置於稻田，以聲音驅趕鳥類，此用法已不再實踐。馬京達瑙人與布基農原住民也在社交場合以它伴奏簡單舞蹈節奏，通常由一個節奏型偶爾搭配另一個節奏型構成。
+
 ## 聆聽示範
-
-### 代表性作品
-
-卡古爾鼓作為菲律賓傳統樂器，主要用於民間音樂與儀式場合，未有明確的古典作曲家創作記錄。其代表應用包括：馬京達瑙人的傳統稻田驅鳥儀式音樂、布基農原住民的社交慶典舞蹈伴奏、維薩亞人的民間節慶演奏，以及菲律賓南部棉蘭老島地區的各類傳統民俗音樂活動。這些應用代表了卡古爾鼓從實用工具向文化樂器的演進過程。
-
 ## 歷史背景
 
-卡古爾鼓起源於菲律賓南部棉蘭老島地區，為馬京達瑙人和維薩亞人的傳統樂器。這種獨特的竹製狹縫鼓在農業社會中發展出實用價值，馬京達瑙人與巴努瓦恩人利用其刺耳聲響在稻田中驅趕貪食的鳥類，成為古代農民的重要工具。隨著時間演進，卡古爾鼓逐漸超越實用功能，進入社交與文化領域。馬京達瑙人和布基農原住民開始在傳統慶典與社交場合中使用它，以演奏簡單的舞蹈節奏，豐富社群的音樂文化。其獨特的演奏方式——一根鼓槌刮擊鋸齒邊緣，另一根敲擊鼓面——體現了菲律賓原住民對樂器設計的創意。如今，卡古爾鼓仍保留在這些民族的文化傳統中，代表著菲律賓豐富的民族音樂遺產。
+卡古爾鼓的起源年代未見於來源資料，但其作為菲律賓竹製刮奏鑼／裂鼓，已見於 Maguindanaon 與 Visayans等族群，並在 Maranao、Bukidnon、Banuwaen等族群中另有 tagutok、bantula、tagungtung、kuratung等名稱。其用途曾隨生活場合改變：Maguindanaon 與 Banuwaen 過去在稻田使用它，以聲音驅趕鳥類，此項用法已不再實踐；Maguindanaon 與 Bukidnon 原住民亦曾於社交場合用它奏出簡單舞蹈節奏，節奏多為單一模式，有時與另一模式結合。
 
 ## 音色描述
 

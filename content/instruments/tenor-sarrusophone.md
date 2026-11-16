@@ -5,14 +5,14 @@ subcategory: 無簧吹管
 title_zh: 次中音薩魯梭風
 title_original: Tenor sarrusophone
 family_std: 無簧吹管家族
-sound_hs: 待確認
+sound_hs: 422.112
 playing_method: 吹奏
 interface_tags: 
 region_culture: 法國｜單一地區／文化圈
 listening_sound_tags: 口腔、舌頭、簧片震動、鼻音｜簧片裡的鼻音與歌聲（口簧、自由簧、單簧雙簧與風袋聲音）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：氣鳴（422.112）；依據：來源二：Hornbostel–Sachs 422.112 Double reed aerophone with keys
 source_url: https://soundweavers-music.github.io/instruments/tenor-sarrusophone/
 image: https://upload.wikimedia.org/wikipedia/commons/c/c6/MET_tenor_sarrusophone.png
 youtube_ids: 0kKK6pcUMTQ QDkqdFNl_Fs

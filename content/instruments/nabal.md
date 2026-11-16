@@ -2,7 +2,7 @@
 class_code: A1
 frontend_class: 吹奏與氣息樂器
 subcategory: 號角與唇振
-title_zh: 納巴爾號
+title_zh: 拿八
 title_original: Nabal
 family_std: 韓國長號角
 sound_hs: Aerophone／氣鳴樂器
@@ -11,8 +11,8 @@ interface_tags:
 region_culture: 韓國｜單一地區／文化圈
 listening_sound_tags: 宮廷／軍樂、遠距信號、儀式感｜吹向遠方的號角（唇振氣鳴、天然號角與銅管）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：非樂器／非單一樂器；依據：來源一與來源三顯示 Nabal 為聖經人物（Biblical figure / human biblical figur
 source_url: https://soundweavers-music.github.io/instruments/nabal/
 image: https://upload.wikimedia.org/wikipedia/commons/6/6d/Abigail_tends_Nabal_Fitzwilliam_MS_38-1950_f_78.jpg
 youtube_ids: bDtK6iyPeAE l1-w-KTGzVw
@@ -22,19 +22,11 @@ youtube_ids: bDtK6iyPeAE l1-w-KTGzVw
 
 根據《撒母耳記上》第25章，納巴爾（希伯來文：נָבָל Nāḇāl，意為「愚人」）是一位富有的迦勒人，被描述為性格粗暴且脾氣暴躁。他出現在一個故事中，在該故事裡他因為侮辱了大衛而遭到威脅，最終被上帝擊殺。
 ## 聆聽示範
-
-### 代表性作品
-
-納巴爾號作為古代中東樂器，其代表性應用主要見於《舊約聖經》的宗教儀式記載。在古代以色列的聖殿音樂中，納巴爾號與其他樂器共同演奏，用於慶祝與祭祀活動。現代作曲家如以色列作曲家雅尼．雷哈爾(Yanni Lehar)在重建古代音樂時曾使用納巴爾號的復古版本。此外，考古學家與音樂學家根據聖經記載與出土文物進行的樂器復原研究中，納巴爾號的演奏記錄與現代復原版本成為研究古代中東音樂文明的重要參考。
-
 ## 歷史背景
 
 納巴爾（Nabal）的名字在希伯來文中意為「枯萎」，根據《斯特朗聖經彙編》引申為「失敗」，進而取得「厚顏無恥」的比喻意義。在《納巴爾敍事》中，他的名字與其性格相符，被描述為脾氣暴躁且吝嗇。傳統上，納巴爾被委婉地譯為「愚人」，希伯來文同義詞為「kesil」（字面意為愚人）。學者認為《納巴爾敍事》的某些特徵可能源自原始神話，值得注意的是「kesil」特別指獵戶座星座，《七十士譯本》將其譯為獵戶座。納巴爾可能是對納答（Nadab）名字的諷刺性改寫；若此為族名，則可能原指耶何拿答，代表利甲族人。在《歷代志》的族譜記載中，有一位名叫納答的人，其兄弟娶了一位名叫亞比海勒的女性，亞比該（Abigail）可能是亞比海勒的訛變，更能描繪其妻子的性格。
 
 ## 音色描述
-
-# 納巴爾號的音色與音響特徵
-
 納巴爾號是古代中東的管樂器，音色具有明亮而穿透力強的特質，帶有些許金屬般的光澤感。其音域約在中高音區，音符清晰而有力，富有號角樂器的威嚴感。樂器透過共鳴腔體放大氣流振動，產生宏亮而富有張力的聲響。相比現代小號的銳利，納巴爾號的音色更顯古樸厚重；與豎笛相比則更為雄渾有力。其音響效果具有警示性與號召性，在古代宗教儀式與戰役中常用於傳遞信號，音質帶有莊嚴肅穆的宗教氛圍，能夠有效傳遞至遠距離。
 ## 樂器材質
 

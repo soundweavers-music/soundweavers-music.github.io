@@ -1,18 +1,18 @@
 ---
-class_code: A2
-frontend_class: 弦樂器
-subcategory: 撥弦與抱持弦樂
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
 title_zh: 石琴
 title_original: Lithophone
 family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
-sound_hs: 11/12 定音體鳴／鑼鐘木琴石琴系統
+sound_hs: 111.222
 playing_method: 敲擊／搖奏／材料共鳴
 interface_tags: 
 region_culture: 全球／多地
 listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
 ensemble_links: 甘美朗合奏
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：體鳴（111.222）；依據：來源一分類標籤含 Idiophones；來源四稱其為體鳴樂器；來源三 Hornbostel–Sachs 為 111.22
 source_url: https://soundweavers-music.github.io/instruments/lithophone/
 image: https://upload.wikimedia.org/wikipedia/commons/2/23/Organ_and_Chimes_-_Caverns_of_Luray_Va_1906_postcard.png
 youtube_ids: 4MmokTsYWnA 1hQ5ptEWw8Y
@@ -20,16 +20,15 @@ youtube_ids: 4MmokTsYWnA 1hQ5ptEWw8Y
 
 ## 介紹
 
-石琴是一種樂器，由一塊岩石或數塊岩石組成，通過敲擊產生音符。音符可以同時發出（產生和聲）或依次發出（旋律）。它是一種自鳴樂器，與鐘琴、顫音琴、木琴和馬林巴琴等樂器相類似。在霍恩博斯特爾-薩克斯分類系統中，石琴被列為「111.22」——直接敲擊打擊音板。
+石琴（Lithophone）是以岩石或石板經敲擊發聲的體鳴樂器，可單獨或連續敲出旋律，亦可合奏和聲。構造多為天然或修整的石板，依長度與厚度決定音高，常懸掛或排列成音階。Hornbostel–Sachs分類作111.222，屬直接敲擊打擊板。使用範圍遍及多地，從史前遺存、韓國儀式音樂中的石磬（pyeongyeong），到現代作曲家與裝置音樂中亦見使用。
+
 ## 聆聽示範
 
-### 代表性作品
-
-石琴作為史前樂器，現代作品文獻記載較少。彼得·克羅思韋特於1785年重新發現並改良石琴，製作了包含16塊石頭的樂器版本。20世紀以來，石琴逐漸被現代作曲家在民族音樂和實驗音樂中應用，但具體代表作品的詳細文獻資料有限。石琴主要保存在民族音樂收藏中，作為打擊樂器在世界音樂文化中佔有重要地位。
+石琴的聆聽示範可見於敲擊岩石板產生旋律或和聲的體鳴演奏，亦見於韓國儀式音樂中的石磬、可用石材製作的巴斯克傳統樂器查拉帕塔、美國維吉尼亞州魯雷洞穴大鐘乳石風琴以鐘乳石奏出西方音階，以及威爾·門特的聲響雕塑與當代音樂。卡爾·奧爾夫後期作品使用石琴Steinspiel；沃夫岡·拉卡施密特的gramorimba與顫音琴、馬林巴三重奏；冰島後搖滾樂團席格若斯在影像作品《Heima》中演奏板岩馬林巴。
 
 ## 歷史背景
 
-石琴的使用可以追溯到史前時代。首份有文獻記載的描述來自彼得·克羅思韋特（Peter Crosthwaite），他在1785年6月11日的備忘錄中將其稱為「音樂石」，並重新發現了石琴的製作方法。克羅思韋特最初組裝了6塊不同的石頭，每塊石頭音高各異，以完成大調音階，後來又在6個月內增加了10塊。石頭的長度和厚度決定了其音高——較長較厚的石頭發出較低的音調，反之亦然。克羅思韋特將石頭用繩子固定，使其能夠發出聲響，從左（最低音）排列到右（最高音），共16塊石頭。這個石琴至今仍保存在凱西克博物館和美術館（Keswick Museum and Art Gallery）。
+石琴為體鳴樂器，霍恩博斯特尔—薩克斯分類系統編號111.222。研究發現史前證據，印度奧里薩邦桑卡爾姜有較早石板琴；北美與歐洲史前石器研究也顯示可能便攜石琴。1785年Peter Crosthwaite描述「音樂石」，以16石繩索排列，長厚決定音高。越南古代石琴đàn đá於20世紀復興；1949年恩杜特連克拉格發現11片岩板，調為五聲音階，現藏人類博物館，可能為已知最古老樂器。韓國平磬源自中國編磬，印度寺廟亦見音樂柱。
 
 ## 音色描述
 

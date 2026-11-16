@@ -1,7 +1,7 @@
 ---
-class_code: A2
-frontend_class: 弦樂器
-subcategory: 撥弦與抱持弦樂
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
 title_zh: 泰國低音金屬琴
 title_original: Ranat thum lek
 family_std: 撥弦與抱持弦樂家族
@@ -11,8 +11,8 @@ interface_tags:
 region_culture: 泰國｜單一地區／文化圈
 listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
 ensemble_links: 甘美朗合奏
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：體鳴；依據：來源五：metallophone、flat metal slabs；來源一分類：Plaque percussion id
 source_url: https://soundweavers-music.github.io/instruments/ranat-thum-lek/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Ranat_thum_lek.jpg/500px-Ranat_thum_lek.jpg
 youtube_ids: lIdleRSML-o xYWKd11RjDo
@@ -22,11 +22,6 @@ youtube_ids: lIdleRSML-o xYWKd11RjDo
 
 泰國低音金屬琴（泰文：ระนาดทุ้มเหล็ก，發音為 [ranâːt tʰúm lèk]）是用於泰國古典音樂的金屬琴。它是泰國兩種金屬琴中較大的一種；較小的一種稱為高音金屬琴。泰國低音金屬琴由放置在矩形木質共鳴器上的扁平金屬片組成。用兩根頂端有墊子的竹棒演奏。這種樂器的起源歸功於拉瑪四世國王（1854–1868）的兄弟，與高音金屬琴的創作時間相同。泰國低音金屬琴與柬埔寨的銅質羅尼特琴非常相似。
 ## 聆聽示範
-
-### 代表性作品
-
-泰國低音金屬琴在宮廷音樂中常見於傳統樂曲的伴奏。著名應用包括《皇家進行曲》（Royal March）等正式場合的古典樂章，以及各類傳統舞蹈配樂。該樂器特別在拉瑪五世時期的宮廷音樂改革中被廣泛採用，成為泰國傳統樂隊的標配樂器。其代表性演奏常見於國家慶典及傳統音樂會中。
-
 ## 歷史背景
 
 泰國低音金屬琴起源於十九世紀中葉的泰國，由拉瑪四世國王的兄弟創製。這件樂器是在泰國傳統音樂改革時期應運而生，旨在豐富泰國古典音樂的音色層次。低音金屬琴由扁平金屬片與木質共鳴器組成，透過竹製擊棒演奏，其設計精妙，能發出深沉共鳴的音色。
@@ -38,7 +33,7 @@ youtube_ids: lIdleRSML-o xYWKd11RjDo
 泰國低音金屬琴音色深沉而富有磁性，具有獨特的金屬光澤感，兼具暖調的共鳴特質。其低音域寬闊，音域範圍較高音金屬琴更深邃，能夠表現出沉穩莊嚴的音響效果。扁平金屬片在竹棒敲擊下，振動頻率產生溫潤飽滿的音色，經由矩形木質共鳴器的共鳴放大，音波富有層次感與穿透力。相比馬林巴琴的乾脆明亮，低音金屬琴更具東南亞特有的幽雅含蓄；與高音金屬琴相比，其音色更顯厚重典雅，低頻成分豐富，能與其他民族樂器形成和諧的音樂織體。
 ## 樂器材質
 
-泰國低音金屬琴由扁平金屬片與矩形木質共鳴器組成。金屬片採用特殊合金或黃銅材質，經精密鍛造而成，以確保音質純正。木質共鳴器採用優質硬木製作，提供音波放大與共鳴效應。演奏工具為竹製擊棒，頂端附有柔軟墊片，通常以毛氈或橡膠製成，以產生溫潤的音色效果。
+泰國低音金屬琴的發聲體為平直金屬板，置於長方形木製共鳴箱上；演奏時使用兩支竹製琴槌，槌端有墊頭。來源未載明金屬板具體合金、木箱樹種、墊頭材質及其他部件材料，故不推測。
 
 ## 教學
 

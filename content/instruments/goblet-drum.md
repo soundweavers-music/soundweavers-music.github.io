@@ -5,14 +5,14 @@ subcategory: 鼓皮與鼓類
 title_zh: 高腳鼓
 title_original: Goblet drum
 family_std: 鼓類
-sound_hs: 2 膜鳴樂器
+sound_hs: 211.26
 playing_method: 敲擊鼓面
 interface_tags: 
 region_culture: 中東／非洲／北非｜單一地區／文化圈
 listening_sound_tags: 手掌、腳底、低音、舞步｜手掌、皮膜與舞步（手鼓、框鼓、杯鼓、語言鼓與鼓組）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：膜鳴（211.26）；依據：來源二與來源三均給出 Hornbostel–Sachs 211.26；來源一分類含 Drums
 source_url: https://soundweavers-music.github.io/instruments/goblet-drum/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Goblet_drum_01.jpg/500px-Goblet_drum_01.jpg
 youtube_ids: FYlWrI9C-pI _1N-K__Mgok
@@ -20,16 +20,15 @@ youtube_ids: FYlWrI9C-pI _1N-K__Mgok
 
 ## 介紹
 
-高脚鼓（亦稱聖杯鼓、tarabuka、tarabaki、darbuka、darabuka、derbake、debuka、doumbek、dumbec、dumbeg、dumbelek、toumperleki、tumbak、tabla或zerbaghali；阿拉伯語：دربوكة / 羅馬化：darbuka）是一種單面鼓，具有高脚杯形的鼓身。它最常用於北非和中東的傳統音樂中。該樂器亦出現在南亞和東歐的傳統音樂中。西非的傑姆貝鼓和布加拉博鼓也是高脚形膜鳴樂器。
+高腳鼓（Goblet drum）是單面膜鳴樂器，鼓身高腳杯形，霍恩博斯特尔–薩克斯編號211.26。演奏者多夾在腋下或置於腿上，以指尖與手掌輕擊，可產生低延音的共鳴聲；也可移動拳頭改變音色。它常見於北非、中東、巴爾幹、南亞與東歐傳統音樂，蘇拉威西大型高腳鼓則作寺廟樂器。
+
 ## 聆聽示範
 
-### 代表性作品
-
-高腳鼓在中東和北非音樂中廣泛使用，常見於埃及民族樂隊和肚皮舞伴奏。在現代世界音樂中，許多藝術家如Natacha Atlas的《Diaspora》系列作品中運用高腳鼓創造出融合傳統與當代的音樂風格。此外，它也常出現在土耳其、黎巴嫩等地的傳統節慶音樂中，成為中東民俗音樂的重要象徵樂器。
+高腳鼓用於北非、中東與巴爾幹傳統音樂，亦見於南亞與東歐傳統音樂；蘇拉威西的大型高腳鼓作為寺廟樂器，演奏時置於地面。西方古典編制中，柏遼茲（Hector Berlioz）歌劇《Les Troyens》第四幕「努比亞奴隸之舞」使用 tarbuka；哈利姆·達布（Halim El-Dabh）的《Fantasia-Tahmeel》則為高腳鼓與弦樂團而作。
 
 ## 歷史背景
 
-高腳鼓已有數千年的歷史，曾在美索不達米亞和古埃及文明中使用。早在西元前1100年，巴比倫和蘇美爾就已出現高腳鼓的蹤跡。在蘇拉威西島，大型高腳鼓被用作寺廟樂器，演奏時置於地面，這可能反映了該樂器的古老使用方式。「Darbuka」一詞的起源來自埃及鄉村阿拉伯方言俚語，源自「darb」一詞，意為「敲擊」，後衍變成「darbuka」。
+高腳鼓為單面膜鳴樂器，Hornbostel–Sachs 編號 211.26，常見於北非、中東與巴爾幹傳統音樂，亦見於南亞與東歐。西非高腳鼓已有數千年歷史，曾用於美索不達米亞與古埃及文化，巴比倫與蘇美最早可追溯至公元前1100年。蘇拉威西大型高腳鼓作寺廟樂器，演奏時置於地面，可能反映古代用法。名稱「Darbuka」源自埃及鄉村阿拉伯語俚語，由「darb」（擊打）演變而來。19世紀後進入西方古典音樂，Hector Berlioz 歌劇《Les Troyens》使用 tarbuka；20世紀中葉 Halim El-Dabh 創作高腳鼓與管弦樂作品。
 
 ## 音色描述
 
@@ -40,4 +39,4 @@ youtube_ids: FYlWrI9C-pI _1N-K__Mgok
 
 ## 教學
 
-將樂器以正確姿勢持於手中。
+演奏高腳鼓可夾於腋下，或坐姿時橫放腿上，鼓面朝向膝部；部分鼓有背帶，可掛肩站立或舞蹈。發聲以指尖與手掌輕擊：擊鼓面中央得低音，擊邊緣得高音，次手擊邊緣可作短促高音；手短暫按面則成閉音。初學先練低、高、閉三音，再加入滾奏、彈指、拍掌與敲鼓側。埃及式鼓邊圓潤，利於快速滾奏；土耳其式露邊，便於彈指但較不利快速滾奏。亦可將拳頭伸縮於鼓口改變音色。

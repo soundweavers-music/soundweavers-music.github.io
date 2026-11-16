@@ -4,4 +4,15 @@ __pycache__/
 db.sqlite3
 work/cache/
 outputs/world-instruments-static/
+# evidence & rewrite artifacts (large, resumable, not needed to serve the site)
+work/verify/
+work/adjudicate/
+work/rewrite/
+work/factcheck/
+work/audit/
+work/wikidata_resolve/
+work/backup*/
+work/*.log
+work/*.txt
+work/stale_sections.json
 .DS_Store

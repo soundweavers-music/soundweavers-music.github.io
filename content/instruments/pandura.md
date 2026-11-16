@@ -8,11 +8,11 @@ family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
 sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
 playing_method: 撥弦／刷弦／撥片
 interface_tags: 撥片
-region_culture: 拉丁美洲／安地斯／加勒比
+region_culture: 古希臘
 listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
 ensemble_links: 安地斯合奏
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：弦鳴；依據：來源一：簡述 Ancient string instrument；分類標籤 Ancient Greek musical 
 source_url: https://soundweavers-music.github.io/instruments/pandura/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Muse_with_%CE%A0%CE%B1%CE%BD%CE%B4%CE%BF%CF%8D%CF%81%CE%B1_Pandura_Pandora_Panduris_ancient_Greece_old_guitar_Athens_IV_BCE_siglo_IV_AEC.jpg/500px-Muse_with_%CE%A0%CE%B1%CE%BD%CE%B4%CE%BF%CF%8D%CF%81%CE%B1_Pandura_Pandora_Panduris_ancient_Greece_old_guitar_Athens_IV_BCE_siglo_IV_AEC.jpg
 youtube_ids: ZlayI0WKX40 f605gDO91Gs
@@ -20,16 +20,12 @@ youtube_ids: ZlayI0WKX40 f605gDO91Gs
 
 ## 介紹
 
-潘杜拉琴（古希臘語：πανδοῦρα，pandoura）或潘多雷琴是一種古希臘弦樂器，屬於魯特琴和吉他樂器的廣泛類別。阿卡德人早在西元前3千年就已經演奏類似的樂器。古代希臘藝術作品中描繪的此類魯特琴可追溯至西元前3世紀或4世紀起。
+潘杜拉琴是古希臘的弦鳴樂器，屬於廣義魯特琴與吉他樂器家族。其形制為中長頸魯特琴，配有小型音箱，通常裝有三條弦，因此也被稱為三弦琴。古代希臘人使用此類樂器；在羅馬時期，長頸被保留但加寬以容納四條弦，琴身呈橢圓或底部略寬。美索不達米亞的阿卡德人亦演奏類似樂器，其後衍生出高加索、希臘、北非與巴爾幹等地的相關樂器。
+
 ## 聆聽示範
-
-### 代表性作品
-
-潘杜拉琴作為古希臘樂器，其代表作品主要見於古代藝術作品描繪而非樂譜記載。古希臘陶瓶繪畫中常見潘杜拉琴伴奏的抒情詩演唱，特別是在西元前4至3世紀的雅典陶瓶上。此樂器也出現在古羅馬馬賽克藝術中，作為宴飲與娛樂場景的音樂伴奏。現代音樂學家根據古代文獻記載重建其演奏傳統，用於再現古希臘音樂文化。
-
 ## 歷史背景
 
-潘杜拉琴的名稱源於弦樂器的起源。最初，弓箭被加上共鳴器而成為樂弓，後來被拉直演變成琉特琴。在蘇美語中，「弓」或拱形豎琴稱為「giš.ban」。當加上表示「小」的形容詞「tur」時，便成為「gišban.tur」，意指「比狩獵弓更小的樂器」，以此區別於更大型的樂器。Ban.tur演變為「小弓」，當弓被拉直轉變成琉特琴時，所製成的樂器「可能保留了ban.tur的名稱」，最終導致潘杜拉琴的出現。同樣地，雖然不一定是最早的琉特琴，但ban.tur這個術語也可能是其他琉特琴名稱的起源，如坦布爾琴或坦布爾琴等。
+潘杜拉琴屬弦鳴，為古希臘中長頸魯特，小音箱，常三弦，也稱三弦琴。名稱可追溯至蘇美爾語「小弓」，弓加共鳴器後拉直成魯特。美索不達米亞自阿卡德時代或公元前3千年已有魯特類；古希臘藝術自公元前3或4世紀起描繪此類樂器。羅馬時期琴頸加寬以容四弦，琴身多橢圓或底部略寬。其後傳入近東、東歐、北非與巴爾幹，衍生喬治亞潘杜里、希臘坦布拉與布祖基、北非奎特拉、東地中海薩茲、巴爾幹坦布里察等。Renato Meucci（1996）認為部分義大利文藝復興後裔稱義大利吉他、曼多雷或曼多拉。
 
 ## 音色描述
 

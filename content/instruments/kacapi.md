@@ -1,18 +1,18 @@
 ---
-class_code: A9
-frontend_class: 待分類／偵錯暫存
-subcategory: 待確認
+class_code: A2
+frontend_class: 弦樂器
+subcategory: 撥弦與抱持弦樂
 title_zh: 卡恰皮琴
 title_original: Kacapi
 family_std: 待確認
-sound_hs: 弦鳴｜321/322 魯特琴類／撥弦
+sound_hs: 弦鳴｜314.122
 playing_method: 撥弦／刷弦／撥片
 interface_tags: 撥片
-region_culture: 亞洲／歐洲／全球
+region_culture: 亞洲／印尼／西爪哇
 listening_sound_tags: 手掌、弦面、推音、敲擊｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
 ensemble_links: 
-verification_status: 已整併，建議刪除
-issue_note: 完全重複／被整併；Hyōshigi／Hyoshigi 是同一日語樂器名稱的長音標記差異；保留帶長音符號的主名。 本列併入第365項。；刪除本列；資料併入第365項。；MERGED-365: 被併入第365項
+verification_status: 已查證
+issue_note: 分類查證：弦鳴（314.122）；依據：Wikidata P1762 Hornbostel–Sachs 314.122；英文維基百科分類 Box zithers
 source_url: https://soundweavers-music.github.io/instruments/kacapi/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Kacapi-suling-full.jpg/500px-Kacapi-suling-full.jpg
 youtube_ids: gf6v59c5yuY rekY0dcB0nw
@@ -20,12 +20,11 @@ youtube_ids: gf6v59c5yuY rekY0dcB0nw
 
 ## 介紹
 
-卡恰皮琴是印尼巽他人的傳統古箏。這件樂器類似於中國古箏、日本箏、蒙古揚琴、韓國伽倻琴、越南十六弦琴和哈薩克杰地琴。卡恰皮琴在巽他歌唱或馬莫斯詩句朗誦中充當主要伴奏樂器，卡恰皮笛（巽他歌唱的無聲樂伴奏類型，印尼語稱為克恰皮色魯林）、班頓故事朗誦，或在德貢甘美蘭表演中充當輔助樂器。
+卡恰皮琴是印尼西爪哇巽他人的傳統齊特琴，霍恩博斯特尔—薩克斯編號314.122，屬弦鳴樂器。琴體有船形與平面共鳴箱兩式，底部開孔，弦固定在右上弦軸；現代共鳴箱多以木板黏合。演奏者傳統坐地，琴弦約離地二十五公分，也可置於木架上。它用於巽他歌謠、馬毛斯·錢朱蘭、卡恰皮蘇林、潘頓故事吟誦，以及甘美蘭德貢中的附加樂器。
+
 ## 聆聽示範
 
-### 代表性作品
-
-卡恰皮琴的代表作品主要出現於巽他傳統音樂中。《巽他古歌》是經典的聲樂伴奏作品，由巽他民間藝人代代相傳；《馬莫斯詩篇》以卡恰皮琴為主奏樂器，展現詩歌朗誦的韻律美感；德貢甘美蘭樂隊編制中的卡恰皮琴作品融合了多種傳統樂器的協奏，體現了巽他音樂的豐富層次。這些作品共同反映了卡恰皮琴在印尼傳統音樂文化中的重要地位。
+卡恰皮琴主要出現在西爪哇巽他音樂場合：作為巽他歌曲（tembang Sunda）或恰朱蘭歌謠（Mamaos Cianjuran）的主要伴奏樂器；在卡恰皮與笛（kacapi suling，印尼語稱 kecapi seruling）編制中，與笛合奏而無聲樂；也用於班頓故事吟誦（pantun），以及德貢甘美蘭（gamelan degung）表演中的附加樂器。萬丹省巴杜伊巽他人仍僅以卡恰皮琴伴奏班頓故事。依伴奏功能，可分領奏的卡恰皮母琴（kacapi indung）與填充高音的卡恰皮子琴（kacapi rincik）。
 
 ## 歷史背景
 

@@ -5,14 +5,14 @@ subcategory: 擦弦、鍵控與輪弦
 title_zh: 中胡
 title_original: Zhonghu
 family_std: 擦弦、輪弦與提琴家族
-sound_hs: 弦鳴｜321.3 擦弦／輪弦／提琴家族
+sound_hs: 弦鳴｜321.313
 playing_method: 弓擦／輪擦
 interface_tags: 弓
-region_culture: 亞洲／歐洲／中東／全球
+region_culture: 亞洲／中國
 listening_sound_tags: 胸口、嗓音、拉長的情緒｜像人聲一樣哭與唱（擦弦、輪弦、鍵弓琴與提琴家族）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：弦鳴（321.313）；依據：英文維基全文：Chinese bowed string instrument, two strings, huqin f
 source_url: https://soundweavers-music.github.io/instruments/zhonghu/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Zhonghuplayer.jpg/500px-Zhonghuplayer.jpg
 youtube_ids: -vpT6wgUO2c algwi6TzUdU
@@ -20,12 +20,11 @@ youtube_ids: -vpT6wgUO2c algwi6TzUdU
 
 ## 介紹
 
-The zhonghu (Chinese: 中胡; pinyin: zhōnghú), short for zhongyin erhu (Chinese: 中音二胡; pinyin: zhōngyīn èrhú; lit. 'alto erhu', 'middle-voice two-string') is a low-pitched Chinese bowed string instrument. Together with the erhu and gaohu, it is a member of the huqin family. It was developed in the 1940s as the alto member of the huqin family (similar in range to the European viola) to increase the pitch range of the instruments used in a Chinese orchestra. The zhonghu is analogous with the erhu, but is slightly larger and lower pitched. Its body is covered on the playing end with snakeskin.
+中胡（zhonghu，H-S 321.313）是中國低音樂域弓弦樂器，又稱中音二胡，與二胡、高胡同屬胡琴家族。其構造近似二胡但琴身略大，演奏端蒙蛇皮，張兩根弦，通常調成五度，可為 A 與 E 或 G 與 D，以弓拉奏。它於二十世紀四十年代發展為胡琴家族的中音聲部，用以擴展中國管弦樂團音域；作曲家 Jeremy Zuckerman 在《Avatar: The Last Airbender》與《The Legend of Korra》配樂中使用，並在《The Legend of Korra》最終集配樂中與二胡並用。
+
 ## 聆聽示範
 
-### 代表性作品
-
-中胡的代表作品包括《江南春色》、《病中吟》等傳統民樂曲目，以及現代民族交響樂中的應用作品。在專業樂團編制中，中胡常見於《梁祝》等經典民樂改編版本中扮演重要角色。此外，當代作曲家為中胡創作的協奏曲與室內樂作品也逐漸增多，進一步拓展了中胡的藝術表現空間。
+中胡為中國弓弦樂器，屬弦鳴，發聲原理與二胡相近。來源指出它與二胡、高胡同屬胡琴家族，曾為中國樂團增加中低音域；在聆聽場合上，可確認見於中國樂團編制。另有作曲家 Jeremy Zuckerman 在獲好評節目的音樂中使用中胡，並與二胡一同用於某節目最終集音樂。來源未提供具體曲目名稱，故不列曲名。
 
 ## 歷史背景
 

@@ -5,14 +5,14 @@ subcategory: 平放弦與擊弦
 title_zh: 十弦吉他
 title_original: Ten-string guitar
 family_std: 弦樂器類
-sound_hs: 3 弦鳴樂器
+sound_hs: 321.322-5
 playing_method: 撥弦／擦弦／擊弦
 interface_tags: 
 region_culture: 西班牙／歐洲｜地區／文化圈
 listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦故事（魯特琴、短頸長頸撥弦與民謠弦聲）
 ensemble_links: 
-verification_status: 需調整
-issue_note: 部分構件；Tabla Dayan 是塔布拉組的高音鼓。；與第736合併。；DUP-010:Tabla Bayan／Tabla Dayan
+verification_status: 已查證
+issue_note: 分類查證：弦鳴（321.322-5）；依據：Wikidata P1762 Hornbostel–Sachs 321.322-5；英文維基百科分類標籤含 Guitar
 source_url: https://soundweavers-music.github.io/instruments/ten-string-guitar/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Guitar_Decacorde.webm/500px--Guitar_Decacorde.webm.jpg
 youtube_ids: tH_dfASP0UI YedRfQoAyf0
@@ -20,18 +20,15 @@ youtube_ids: tH_dfASP0UI YedRfQoAyf0
 
 ## 介紹
 
-十弦吉他有許多種類，包括：電吉他和原聲吉他。主要用於古典音樂、民俗音樂和流行音樂的樂器。既有複弦琴也有單弦琴。
+十弦吉他為弦鳴樂器，H-S 編號 321.322-5，泛指具十條弦的吉他類樂器，包含木吉他與電吉他、複弦與非複弦等變體，主要見於古典、民謠與流行音樂。構造上可為單琴頸並增加低音弦，或採五、六複弦配置；演奏方式包括手指撥奏與使用撥片。例如 Narciso Yepes 與 José Ramírez III 合作的十弦古典吉他，讓六弦曲目保留原有指法並增加共鳴；巴西民謠中的 viola caipira（鄉村吉他）則以十弦五複弦彈奏。
+
 ## 聆聽示範
 
-### 代表性作品
-
-阿根廷吉他大師普羅瑪克斯·圖里納創作了多部十弦吉他經典曲目，為樂器發展奠定基礎。二十世紀中期，作曲家Leo Brouwer創作《十弦吉他協奏曲》，充分展現樂器的音色魅力。英國作曲家Andrew York為十弦吉他譜寫多首當代作品，融合古典與現代音樂風格。這些作品成為十弦吉他古典音樂的重要代表。
+十弦吉他可見於古典吉他獨奏與管弦樂協奏等場合，納爾西索·耶佩斯曾以十弦吉他演奏《阿蘭胡埃斯協奏曲》（Concierto de Aranjuez），並與柏林愛樂管弦樂團合作。其前六弦可演奏一般六弦古典吉他曲目，另加共鳴；亦可用於轉錄巴哈及同時代魯特琴作品，或新創作的十弦吉他曲目。其他變體出現在民間音樂、爵士吉他展示與流行音樂，例如英式吉他、巴西民間吉他與十弦電吉他。
 
 ## 歷史背景
 
-十弦吉他源於西班牙和義大利文藝復興時期的魯特琴傳統。十六世紀時，西班牙吉他逐漸演變，音樂家們開始在標準六弦吉他的基礎上增加弦數，以擴展音域和音樂表現力。十九世紀末至二十世紀初，阿根廷吉他大師普羅瑪克斯·圖里納等人進一步完善了十弦吉他的設計與演奏技巧，使其成為古典音樂的重要樂器。
-
-二十世紀中期，十弦吉他在歐美古典音樂圈廣泛流行，許多作曲家為其創作專門曲目。隨著時間推移，十弦吉他逐漸融入民俗音樂和流行音樂領域，既有傳統的單弦琴，也發展出複弦變體。今日，十弦吉他已成為全球性樂器，廣泛應用於各種音樂風格，吸引世界各地的音樂家持續開發其藝術潛能。
+十弦吉他並非單一起源，早期巴洛克吉他已有五複弦十弦，1750至1850年間流行於歐洲的英式吉他則為六複弦十弦；葡萄牙與巴西民謠亦見十弦複弦吉他。1964年，Narciso Yepes 與 José Ramírez III 合作的十弦古典吉他，因他在柏林愛樂管弦樂團前演奏《阿蘭胡埃斯協奏曲》而受矚目；1963年後他錄音與演出皆用此琴，高品質十弦吉他出現後也促使其他演奏者投入。2008年 Mike Shishkov 示範十弦爵士吉他，2009年實心尼龍弦十弦電吉他推出。
 
 ## 音色描述
 

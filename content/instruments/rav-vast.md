@@ -1,18 +1,18 @@
 ---
-class_code: A2
-frontend_class: 弦樂器
-subcategory: 撥弦與抱持弦樂
+class_code: A3
+frontend_class: 鼓與打擊樂器
+subcategory: 鑼鐘與金屬敲擊
 title_zh: 懸掛鼓
 title_original: Rav Vast
 family_std: 近身體鳴、舌片琴與手奏金屬共鳴
-sound_hs: 12 體鳴／舌片琴／金屬共鳴
+sound_hs: 111.2
 playing_method: 手敲／拇指撥片／近身共鳴
 interface_tags: 撥片
 region_culture: 歐洲／美國／全球現代
 listening_sound_tags: 指尖、掌心、尾音、近身聆聽｜手邊發光的小宇宙（近身共鳴、舌片琴與療癒金屬聲響）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：體鳴（111.2）；依據：Wikidata P1762 為 111.2；英文維基 Handpan 描述其為 steelpan 子集、金屬半殼與音域
 source_url: https://soundweavers-music.github.io/instruments/rav-vast/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Kama_River._Perm._Art_Gallery_%28former_Transfiguration_Cathedral%29_P6242387_2575.jpg/500px-Kama_River._Perm._Art_Gallery_%28former_Transfiguration_Cathedral%29_P6242387_2575.jpg
 youtube_ids: RfTaYBMybYA 9wEhfh9Fx_Y
@@ -23,20 +23,9 @@ youtube_ids: RfTaYBMybYA 9wEhfh9Fx_Y
 懸掛鼓是一種源自德國的現代打擊樂器，由鋼製凹陷音盤組成，透過懸掛方式固定。演奏者使用槌棒或手指敲擊不同位置產生音高變化。其音色深邃神秘，融合了鋼鼓的金屬質感與定音鼓的共鳴特性，低音渾厚飽滿，中高音溫潤柔和。樂器具有豐富的自然泛音和持久共鳴，特別適合新世紀音樂、瑜伽冥想及治療音樂，常用於放鬆療癒與冥想場景中。
 
 ## 聆聽示範
-
-### 代表性作品
-
-懸掛鼓作為當代打擊樂器，廣泛應用於新世紀音樂創作中。許多作曲家在冥想與療癒類作品中採用此樂器，如瑜伽冥想音樂集合與環境音樂製作。著名音樂治療師與新世紀音樂家亦將其納入專輯創作，透過其溫暖共鳴音質營造寧靜致遠的音響氛圍，特別在放鬆療癒與精神探索的主題作品中展現優勢。
-
 ## 歷史背景
 
-# 懸掛鼓（Rav Vast）的歷史背景
-
-懸掛鼓起源於德國，由製造商帕特里克·施普勒於2000年代初期發明。這種樂器結合了傳統打擊樂與現代設計理念，由鋼製凹陷音盤組成，透過懸掛方式固定，使用槌棒或手指敲擊產生音色。
-
-懸掛鼓的問世填補了當代打擊樂器的空白，提供獨特的旋律打擊功能。它迅速在世界各地傳播，特別是透過新世紀音樂、瑜伽冥想及治療音樂等文化運動的推動。音樂家們發現其溫暖、共鳴的音質適合多種音樂風格，從民族音樂到電子音樂均可融合。
-
-如今，懸掛鼓已成為全球音樂教育與表演的重要樂器，吸引了專業音樂家與業餘愛好者的廣泛關注。
+懸掛鼓一詞於2007年出現於美國鋼鼓製造商網站，原指其推出、作為2000年問世之Hang替代品的樂器；Hang名稱已獲專利。2009年後續論壇成立後，該詞成為同類樂器通稱，全球製作者增加，樂器在材質、製程、音區形狀與調音上各異。2025年瑞士聯邦最高法院維持伯恩州商事法院初判，認定Hang屬應用藝術作品而受版權保護；2026年該法院認定送審260型中210型侵權，僅頂部穹頂改為凹面音區或三角形音區等顯著差異者不侵權。
 
 ## 音色描述
 

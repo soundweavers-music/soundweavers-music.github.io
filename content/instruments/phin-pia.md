@@ -5,14 +5,14 @@ subcategory: 平放弦與擊弦
 title_zh: 皮恩琵亞
 title_original: Phin Pia
 family_std: 齊特琴、箏類、擊弦與鍵盤化弦鳴
-sound_hs: 314/315/316 齊特琴／擊弦／鍵盤化弦鳴
+sound_hs: 311.221
 playing_method: 撥弦／擊弦／按鍵擊弦
 interface_tags: 鍵盤／按鍵
-region_culture: 亞洲／歐洲／全球
+region_culture: 亞洲／泰國北部
 listening_sound_tags: 手掌、弦面、推音、敲擊｜平放在大地上的弦（齊特琴、箏類、擊弦與鍵盤化收束）
 ensemble_links: 
-verification_status: 可保留，待雙來源確認
-issue_note: 
+verification_status: 已查證
+issue_note: 分類查證：弦鳴（311.221）；依據：來源一：chest-resonated stick zither；來源三：H-S 311.221
 source_url: https://soundweavers-music.github.io/instruments/phin-pia/
 youtube_ids: glTNjofFeGA LKf56LtyjCk
 ---
@@ -22,15 +22,7 @@ youtube_ids: glTNjofFeGA LKf56LtyjCk
 皮恩琵亞（Phin Pia）是源自泰國與寮國的傳統撥弦樂器，屬於鍵盤弦鳴樂器。樂器外型呈梯形或船形，配有多條金屬弦線，通過撥動或敲擊弦線發聲。音色清亮透徹，具獨特的金屬質感，帶有輕微鼻音特徵。相比古箏柔和，Phin Pia更顯輕盈靈動，音域寬廣，既保持東南亞民族特色，又具出色的穿透力。廣泛應用於宮廷音樂、寺廟儀式與民間慶典，是東南亞傳統民樂的重要樂器。
 
 ## 聆聽示範
-
-### 代表性作品
-
-作為東南亞傳統民間樂器，皮恩琵亞主要用於演奏民間傳統樂曲，如泰國宮廷樂《Piphat》組曲、寮國民謠《Khap Lam》系列樂曲等，多為代代相傳的口頭傳統作品。其具體作曲者與年代因民間傳承特性而難以考據，通常作為集體民間文化遺產而存在。
-
 ## 歷史背景
-
-# Phin Pia樂器歷史背景
-
 皮恩琵亞（Phin Pia）源自東南亞地區，特別是泰國與寮國一帶的傳統音樂文化。這種撥弦樂器在該地區擁有悠久的歷史淵源，可追溯至東南亞古代的民間音樂傳統。其獨特的構造設計反映了當地工匠的智慧與對音樂的深入理解。
 
 隨著時間推移，皮恩琵亞逐漸成為東南亞民間音樂表演中的重要樂器，在宮廷音樂、寺廟儀式與民間慶典中廣泛應用。樂器的演奏技巧代代相傳，在民間音樂家與教師的努力下得以保存與發展。
