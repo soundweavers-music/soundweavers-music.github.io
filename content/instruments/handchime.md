@@ -2,7 +2,7 @@
 class_code: A3
 frontend_class: 鼓與打擊樂器
 subcategory: 鑼鐘與金屬敲擊
-title_zh: 手鐘
+title_zh: 棒鐘
 title_original: Handchime / Hand Chimes
 family_std: 棒鐘／棒鈴
 sound_hs: 111.231
@@ -13,7 +13,7 @@ listening_sound_tags: 手腕、手掌、短音、節奏對齊｜手裡搖動的�
 ensemble_links: 
 verification_status: 已查證
 issue_note: 分類查證：體鳴（111.231）；依據：來源二/三 H-S 111.231 Individual percussion tubes；來源一分類 Idiophon
-source_url: 
+source_url: https://soundweavers-music.github.io/instruments/handchime/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Handchime_in_use.jpg/500px-Handchime_in_use.jpg
 youtube_ids: hvi9Kx6s0ls
 ---

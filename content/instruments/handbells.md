@@ -2,7 +2,7 @@
 class_code: A3
 frontend_class: 鼓與打擊樂器
 subcategory: 鑼鐘與金屬敲擊
-title_zh: 手搖鈴
+title_zh: 手鈴（複數形，與 Handbell 同器）
 title_original: Handbells
 family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
 sound_hs: 111.242.222

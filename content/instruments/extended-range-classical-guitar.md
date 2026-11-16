@@ -13,7 +13,7 @@ listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦�
 ensemble_links: 
 verification_status: 已查證
 issue_note: 分類查證：弦鳴；依據：來源五：A classical guitar with additional strings is a nylon-st；與「Classical guitar with additional strings」互為別名／變體
-source_url: https://soundweavers-music.github.io/instruments/extended-range-classical-gui...
+source_url: https://soundweavers-music.github.io/instruments/extended-range-classical-guitar/
 image: https://upload.wikimedia.org/wikipedia/commons/0/0b/JME_ten_string_guitar.jpg
 youtube_ids: CaGmtFJLRxk sX6dztgef4s
 ---

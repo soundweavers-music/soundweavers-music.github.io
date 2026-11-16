@@ -2,7 +2,7 @@
 class_code: A1
 frontend_class: 吹奏與氣息樂器
 subcategory: 簧片樂器
-title_zh: 排簫
+title_zh: 排簫（Pan flute）
 title_original: Pan Flute
 family_std: 無簧吹管、長音與氣息樂器
 sound_hs: 421.112
@@ -12,7 +12,7 @@ region_culture: 美洲／南美
 listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
 ensemble_links: 安地斯合奏
 verification_status: 已查證
-issue_note: 分類查證：氣鳴（421.112）；依據：Wikidata P1762 為 421.112；英文全文稱 pan flute 為 end-blown flute，氣
+issue_note: 分類查證：氣鳴（421.112）；依據：Wikidata P1762 為 421.112；英文全文稱 pan flute 為 end-blown flute，氣；泛稱；具體形制見 Paixiao（中國排簫）等條目。
 source_url: https://soundweavers-music.github.io/instruments/pan-flute/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Flute_de_pan_MHNT_ETH_AC_NH_31_Sav%C3%A8s.jpg/500px-Flute_de_pan_MHNT_ETH_AC_NH_31_Sav%C3%A8s.jpg
 youtube_ids: uOIHHMnI_Ig -kpWllK3VgI

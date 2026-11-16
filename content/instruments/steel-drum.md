@@ -2,7 +2,7 @@
 class_code: A3
 frontend_class: 鼓與打擊樂器
 subcategory: 鼓皮與鼓類
-title_zh: 鋼鼓
+title_zh: 鋼鼓（Steel drum）
 title_original: Steel drum
 family_std: 鼓類
 sound_hs: 2 膜鳴樂器
@@ -12,7 +12,7 @@ region_culture: 美洲／加勒比｜單一地區／文化圈
 listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
 ensemble_links: 甘美朗合奏
 verification_status: 已查證
-issue_note: 分類查證：體鳴；依據：來源五：falls into the idiophone family of instruments, and so i；與「Steelpan」互為別名／變體
+issue_note: 分類查證：體鳴；依據：來源五：falls into the idiophone family of instruments, and so i；與「Steelpan」互為別名／變體；與 Steelpan 指同一樂器；兩列並存，此列保留英文俗名。
 source_url: https://soundweavers-music.github.io/instruments/steel-drum/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Steelpan_Instruments_at_Trinidad_and_Tobago_Carnival.jpg/500px-Steelpan_Instruments_at_Trinidad_and_Tobago_Carnival.jpg
 youtube_ids: mw4k1tCnAuE MnqnQHcfnno

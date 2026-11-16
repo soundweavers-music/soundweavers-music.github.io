@@ -13,7 +13,7 @@ listening_sound_tags: 懷抱、手指、腳步、敘事｜旅人手中的撥弦�
 ensemble_links: 
 verification_status: 已查證
 issue_note: 分類查證：弦鳴；依據：來源一：qinqin is a plucked Chinese lute；分類標籤含 Necked lutes；描述有 
-source_url: 
+source_url: https://soundweavers-music.github.io/instruments/qinqin/
 youtube_ids: 6SHRz8JFc_U 1GqEK-YEK-Y
 ---
 

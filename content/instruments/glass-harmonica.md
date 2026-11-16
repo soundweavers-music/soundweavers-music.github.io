@@ -2,7 +2,7 @@
 class_code: A3
 frontend_class: 鼓與打擊樂器
 subcategory: 鑼鐘與金屬敲擊
-title_zh: 玻璃琴
+title_zh: 玻璃琴（Glass harmonica）
 title_original: Glass harmonica
 family_std: 定音體鳴、材料敲擊與鑼鐘木琴系統
 sound_hs: 133.2
@@ -12,7 +12,7 @@ region_culture: 美國
 listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
 ensemble_links: 甘美朗合奏
 verification_status: 已查證
-issue_note: 分類查證：體鳴（133.2）；依據：來源三 Wikidata P1762 為 133.2；來源五稱其以摩擦發聲，屬 friction idiophones
+issue_note: 分類查證：體鳴（133.2）；依據：來源三 Wikidata P1762 為 133.2；來源五稱其以摩擦發聲，屬 friction idiophones；Hydrodaktulopsychicharmonica 為同一樂器的冗長別名；兩列並存。
 source_url: https://soundweavers-music.github.io/instruments/glass-harmonica/
 image: https://upload.wikimedia.org/wikipedia/commons/b/b5/Glassharmonica.png
 youtube_ids: cVqqNigImtU gDm4IphrlYg

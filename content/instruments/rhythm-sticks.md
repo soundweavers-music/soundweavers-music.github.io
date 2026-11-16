@@ -2,7 +2,7 @@
 class_code: A3
 frontend_class: 鼓與打擊樂器
 subcategory: 鑼鐘與金屬敲擊
-title_zh: 擊木
+title_zh: 節奏棒
 title_original: Rhythm Sticks
 family_std: 小型節奏體鳴、沙鈴、刮器與身體打擊
 sound_hs: 111.11
@@ -12,7 +12,7 @@ region_culture: 拉丁美洲／非洲／歐洲／亞洲／全球
 listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
 ensemble_links: 
 verification_status: 已查證
-issue_note: 分類查證：體鳴（111.11）；依據：來源二與來源三均標為 Hornbostel–Sachs 111.11 concussion idiophone；來源一描
+issue_note: 分類查證：體鳴（111.11）；依據：來源二與來源三均標為 Hornbostel–Sachs 111.11 concussion idiophone；來源一描；英文 Rhythm Sticks 在部分教材中與 Claves（響木）混用；兩列並存，此列保留泛稱。
 source_url: https://soundweavers-music.github.io/instruments/rhythm-sticks/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/NLC511-023031103010001-77718_%E7%9B%9B%E4%BA%AC%E6%99%82%E5%A0%B1_%E7%AC%AC416%E5%8D%B7.pdf/page1-500px-NLC511-023031103010001-77718_%E7%9B%9B%E4%BA%AC%E6%99%82%E5%A0%B1_%E7%AC%AC416%E5%8D%B7.pdf.jpg
 youtube_ids: F80LKTinhJE 9lTzTpaM6bw

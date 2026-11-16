@@ -2,7 +2,7 @@
 class_code: A3
 frontend_class: 鼓與打擊樂器
 subcategory: 鑼鐘與金屬敲擊
-title_zh: 玻璃琴
+title_zh: 水鍵琴（玻璃琴別名）
 title_original: Hydrodaktulopsychicharmonica
 family_std: 管樂器類
 sound_hs: 133.2
@@ -12,7 +12,7 @@ region_culture: 美國｜單一地區／文化圈
 listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
 ensemble_links: 
 verification_status: 已查證
-issue_note: 分類查證：體鳴（133.2）；依據：Wikidata P1762 133.2；英文維基分類 Crystallophones、Sets of friction
+issue_note: 分類查證：體鳴（133.2）；依據：Wikidata P1762 133.2；英文維基分類 Crystallophones、Sets of friction；本名實為 Glass harmonica 的別名；兩列並存，此列保留別名。
 source_url: https://soundweavers-music.github.io/instruments/hydrodaktulopsychicharmonica/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Page_674_%28A_Dictionary_of_Music_and_Musicians-Volume_1%29.jpg/500px-Page_674_%28A_Dictionary_of_Music_and_Musicians-Volume_1%29.jpg
 youtube_ids: B7Tqj9sCQQY 80gxGnm1vMU

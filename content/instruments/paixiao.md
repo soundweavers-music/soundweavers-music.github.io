@@ -2,7 +2,7 @@
 class_code: A1
 frontend_class: 吹奏與氣息樂器
 subcategory: 簧片樂器
-title_zh: 排簫
+title_zh: 排簫（Paixiao）
 title_original: Paixiao
 family_std: 無簧吹管、長音與氣息樂器
 sound_hs: 421 邊棱氣鳴／無簧笛類
@@ -12,7 +12,7 @@ region_culture: 中國｜單一國家或文化源流
 listening_sound_tags: 氣息、胸腔、長音、空間｜一口氣走過山谷（竹管、陶管、長音與世界笛聲）
 ensemble_links: 
 verification_status: 已查證
-issue_note: 分類查證：氣鳴；依據：來源四稱排簫為吹奏樂器，來源一分類標籤含 Panpipes
+issue_note: 分類查證：氣鳴；依據：來源四稱排簫為吹奏樂器，來源一分類標籤含 Panpipes；中國古代排簫；與泛稱 Pan Flute 同屬排簫家族但形制有別，兩列並存。
 source_url: https://soundweavers-music.github.io/instruments/paixiao/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Shakuhachi_and_Paixiao_of_theTang_Dynasty_2011-07.JPG/500px-Shakuhachi_and_Paixiao_of_theTang_Dynasty_2011-07.JPG
 youtube_ids: iMdtOGNGgFo A9kZKQeZTIo

@@ -2,7 +2,7 @@
 class_code: A3
 frontend_class: 鼓與打擊樂器
 subcategory: 鑼鐘與金屬敲擊
-title_zh: 阿貢鑼
+title_zh: 阿貢鑼（馬來西亞拼法）
 title_original: Agong
 family_std: 待確認
 sound_hs: 111.241.2
@@ -12,7 +12,7 @@ region_culture: 馬來西亞｜單一地區／文化圈
 listening_sound_tags: 材料、回聲、群體分工、音列｜木石金屬的回聲城市（木琴、石琴、編鐘、鑼群與甘美朗）
 ensemble_links: 甘美朗合奏
 verification_status: 已查證
-issue_note: 分類查證：體鳴（111.241.2）；依據：來源二與來源三均給出 Hornbostel–Sachs 111.241.2 / Sets of gongs；來源一與來源；與「Agung」互為別名／變體
+issue_note: 分類查證：體鳴（111.241.2）；依據：來源二與來源三均給出 Hornbostel–Sachs 111.241.2 / Sets of gongs；來源一與來源；與「Agung」互為別名／變體；與 Agung 為同一類樂器的不同拼法；此列保留馬來西亞用名。
 source_url: https://soundweavers-music.github.io/instruments/agong/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Arms_of_the_Yang_di-Pertuan_Agong_of_Malaysia.svg/500px-Arms_of_the_Yang_di-Pertuan_Agong_of_Malaysia.svg.png
 youtube_ids: Czh1oqx0Bpw pZK3K6f6obQ

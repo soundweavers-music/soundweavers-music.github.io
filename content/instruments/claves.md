@@ -2,7 +2,7 @@
 class_code: A3
 frontend_class: 鼓與打擊樂器
 subcategory: 鑼鐘與金屬敲擊
-title_zh: 擊木
+title_zh: 響木（Claves）
 title_original: Claves
 family_std: 小型節奏體鳴、沙鈴、刮器與身體打擊
 sound_hs: 111.11
@@ -12,7 +12,7 @@ region_culture: 非洲／美洲／古巴
 listening_sound_tags: 手腕、腳踝、短音、節奏對齊｜手裡搖動的節奏星塵（沙鈴、刮器、鈴串與身體小打擊）
 ensemble_links: 
 verification_status: 已查證
-issue_note: 分類查證：體鳴（111.11）；依據：英文維基 infobox 與 Wikidata 均標為 111.11 Concussion idiophone；全文描述
+issue_note: 分類查證：體鳴（111.11）；依據：英文維基 infobox 與 Wikidata 均標為 111.11 Concussion idiophone；全文描述；與 Rhythm Sticks 同指成對短木棒；此列保留古巴傳統用名。
 source_url: https://soundweavers-music.github.io/instruments/claves/
 image: https://upload.wikimedia.org/wikipedia/commons/4/44/Claves.jpg
 youtube_ids: nCv1Zu9Iocw BODYFCnWLC0
