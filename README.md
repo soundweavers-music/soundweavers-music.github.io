@@ -8,7 +8,7 @@
 
 世界聲音百科是一個整合型音樂知識平台，涵蓋四大面向：
 
-- **🌍 世界樂器** — 912 件樂器的詳細資料，包含分類、國家／地區、年代、發聲原理、圖片、YouTube 示範影片
+- **🌍 世界樂器** — 833 件樂器的詳細資料，包含 Hornbostel–Sachs 分類、國家／地區、發聲原理、圖片、YouTube 示範影片。每一筆都經英文維基、中文維基、Wikidata 交叉查證（805 已查證、20 部分欄位待補、8 標記為來源不足）
 - **🎤 人聲與歌唱** — 系統化的流行歌唱教學，初階 15 堂 + 進階 35 堂 + 研究專欄 5 篇
 - **🎼 樂理基礎** — 譜號、節拍、拍號、音調、音域、發聲原理
 - **🎚️ 錄音後製** — 錄音技術、混音觀念、宅錄設備指南（即將上線）
@@ -60,16 +60,38 @@
 
 ```markdown
 ---
-title: "手風琴"
-original_name: "Accordion"
-category: "管樂器"
-country: "待考"
-era: "傳統／年代待考"
-sound_class: "氣鳴樂器"
+class_code: A1                       # A1 氣鳴／A2 弦鳴／A3 體鳴·膜鳴／A4 電鳴
+frontend_class: 吹奏與氣息樂器
+subcategory: 風箱與自由簧
+title_zh: 手風琴
+title_original: Accordion
+sound_hs: 氣鳴｜412.132              # Hornbostel–Sachs
+region_culture: 歐洲／德國／奧地利
+verification_status: 已查證
+issue_note: 分類查證：氣鳴（412.132）；依據：…  # 來源與修正理由
 image: "https://upload.wikimedia.org/..."
-youtube_ids: "abc123def45"
+youtube_ids: abc123def45
 ---
 ```
+
+`verification_status` 的三種值是 `已查證`、`已查證（部分欄位待補）`、`待考（來源不足）`；
+最後一類的內文段落會以「※本段來源不足」標示，不會以臆測內容充數。
+
+### 資料查證流程
+
+`scripts/` 底下有一組可重跑的證據管線（詳見各檔開頭說明）：
+
+```text
+verify_instruments.py      # 四來源證據（enwiki/zhwiki/Wikidata/infobox）
+resolve_missing_pages.py   # 補標題變體與搜尋
+fetch_source_text.py       # 全文快取，供內文重寫引用
+adjudicate_instruments.py  # 三個視角獨立裁決，Python 多數決
+rewrite_instruments.py     # 依來源逐段重寫，無來源則標記待補
+apply_rewrites.py          # 唯一寫入 content/ 的腳本（會備份）
+factcheck_rewrites.py      # 對已發布內文做獨立事實查核
+```
+
+中間產物在 `work/`（已 gitignore），可中斷續跑。
 
 ### 人聲與歌唱
 
@@ -162,9 +184,16 @@ git push origin HEAD:main
 
 ## 授權
 
-- 網站程式碼：MIT License
-- 樂器資料與說明文字：CC BY-SA（部分內容引用自 Wikipedia，依其授權條款使用）
+- 網站程式碼：MIT License（見 `LICENSE`）
+- 樂器資料與說明文字：CC BY-SA 4.0 — 內文改寫自 Wikipedia／Wikidata，依其授權條款使用
 - 圖片：各圖片來源不一，請參照各頁面標示之來源
+
+## 視覺設計
+
+樣式分兩層：`scripts/build_static_site.py` 內產生的 `site.css`（既有規則），
+以及 `assets/site-refresh.css`（設計層，可直接修改）。方向為
+Minimalism & Swiss Style：襯線標題、紙色底、單一重點色、細線網格卡片。
+兩支建置腳本都會讀取它，改樣式只需動 `site-refresh.css`。
 
 ## 回饋
 
