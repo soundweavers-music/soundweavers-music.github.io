@@ -325,6 +325,50 @@ def write(path, content):
     path.write_text(content, encoding="utf-8")
 
 
+# ─── Navigation subcategory menu (generated from real data) ──────────
+# The nav used to hard-code seven subcategory names that no instrument uses
+# (擊弦樂器, 木琴石琴竹琴, 電子振盪 …), so every one of those links 404'd.
+# These are built from the instruments actually in the build.
+NAV_CLASSES = [("A1", "吹奏與氣息樂器"), ("A2", "弦樂器"),
+               ("A3", "鼓與打擊樂器"), ("A4", "電子與電聲樂器")]
+_NAV_SUBCATS: dict[str, list[tuple[str, int]]] = {}
+
+
+def set_nav_subcategories(instruments):
+    """Record each class's real subcategories, most populous first."""
+    counts: dict[str, dict[str, int]] = defaultdict(lambda: defaultdict(int))
+    for item in instruments:
+        code, sub = item.get("class_code", ""), item.get("subcategory", "")
+        if code and sub and sub != "待確認":
+            counts[code][sub] += 1
+    _NAV_SUBCATS.clear()
+    _NAV_SUBCATS.update(
+        {code: sorted(v.items(), key=lambda kv: (-kv[1], kv[0]))
+         for code, v in counts.items()}
+    )
+
+
+def nav_class_links(page_path, code):
+    """'A3 鼓與打擊樂器' plus its subcategory links, or '' if absent."""
+    name = dict(NAV_CLASSES).get(code)
+    if not name:
+        return ""
+    subs = _NAV_SUBCATS.get(code) or []
+    if not subs:
+        return ""
+    rows = [f'<a href="{resolve_url(page_path, f"/categories/{name}/")}" '
+            f'style="font-weight:700;color:var(--accent);">{code} {escape(name)}</a>']
+    last = len(subs) - 1
+    for i, (sub, n) in enumerate(subs):
+        branch = "└" if i == last else "├"
+        rows.append(
+            f'<a href="{resolve_url(page_path, f"/subcategories/{slugify(sub)}/")}" '
+            f'class="sub-link" title="{escape(sub)}（{n} 件）">　{branch} {escape(sub)}'
+            f'<span class="sub-count">{n}</span></a>'
+        )
+    return "\n            ".join(rows)
+
+
 def page(title, body, page_path=None, meta_extra="", extra_head="", meta_description="", meta_keywords="", csp=None):
     if csp is None:
         csp = (
@@ -409,39 +453,17 @@ def page(title, body, page_path=None, meta_extra="", extra_head="", meta_descrip
             <a href="{resolve_url(page_path, '/countries/')}">國家／地區</a>
             <a href="{resolve_url(page_path, '/map/')}">地圖</a>
             <hr style="margin:4px 0;border:none;border-top:1px solid var(--line);">
-            <a href="{resolve_url(page_path, '/categories/吹奏與氣息樂器/')}" style="font-weight:700;color:var(--accent);">A1 吹奏與氣息樂器</a>
-            <a href="{resolve_url(page_path, f'/subcategories/{slugify("無簧吹管")}/')}" class="sub-link">　├ 無簧吹管</a>
-            <a href="{resolve_url(page_path, f'/subcategories/{slugify("簧片樂器")}/')}" class="sub-link">　├ 簧片樂器</a>
-            <a href="{resolve_url(page_path, f'/subcategories/{slugify("號角與唇振")}/')}" class="sub-link">　├ 號角與唇振樂器</a>
-            <a href="{resolve_url(page_path, f'/subcategories/{slugify("風袋樂器")}/')}" class="sub-link">　├ 風袋與風箱樂器</a>
-            <a href="{resolve_url(page_path, f'/subcategories/{slugify("風管與鍵控氣鳴")}/')}" class="sub-link">　└ 風管與鍵控氣鳴</a>
+            {nav_class_links(page_path, "A1")}
           </div>
           <div class="menu-col">
-            <a href="{resolve_url(page_path, '/categories/弦樂器/')}" style="font-weight:700;color:var(--accent);">A2 弦樂器</a>
-            <a href="{resolve_url(page_path, f'/subcategories/{slugify("撥弦與抱持弦樂")}/')}" class="sub-link">　├ 撥弦樂器</a>
-            <a href="{resolve_url(page_path, f'/subcategories/{slugify("平放弦與齊特琴")}/')}" class="sub-link">　├ 平放弦與齊特琴類</a>
-            <a href="{resolve_url(page_path, f'/subcategories/{slugify("擊弦樂器")}/')}" class="sub-link">　├ 擊弦樂器</a>
-            <a href="{resolve_url(page_path, f'/subcategories/{slugify("豎琴-里拉與開放弦")}/')}" class="sub-link">　├ 豎琴、里拉與開放弦</a>
-            <a href="{resolve_url(page_path, f'/subcategories/{slugify("擦弦-鍵控與輪弦")}/')}" class="sub-link">　├ 擦弦樂器</a>
-            <a href="{resolve_url(page_path, f'/subcategories/{slugify("鍵控-輪弦與特殊弦鳴")}/')}" class="sub-link">　└ 鍵控、輪弦與特殊弦鳴</a>
+            {nav_class_links(page_path, "A2")}
             <hr style="margin:4px 0;border:none;border-top:1px solid var(--line);">
             <a href="{resolve_url(page_path, '/categories/待分類-偵錯暫存/')}" style="font-weight:700;color:var(--muted);">A9 待分類／偵錯暫存</a>
           </div>
           <div class="menu-col">
-            <a href="{resolve_url(page_path, '/categories/鼓與打擊樂器/')}" style="font-weight:700;color:var(--accent);">A3 鼓與打擊樂器</a>
-            <a href="{resolve_url(page_path, f'/subcategories/{slugify("鼓皮與鼓類")}/')}" class="sub-link">　├ 鼓皮與鼓類</a>
-            <a href="{resolve_url(page_path, f'/subcategories/{slugify("鑼鐘與金屬敲擊")}/')}" class="sub-link">　├ 鑼、鐘與金屬敲擊</a>
-            <a href="{resolve_url(page_path, f'/subcategories/{slugify("木琴石琴竹琴")}/')}" class="sub-link">　├ 木琴、石琴與竹琴</a>
-            <a href="{resolve_url(page_path, f'/subcategories/{slugify("沙鈴-刮器與小打擊")}/')}" class="sub-link">　├ 沙鈴、刮器與小打擊</a>
-            <a href="{resolve_url(page_path, f'/subcategories/{slugify("舌片手碟與手邊共鳴")}/')}" class="sub-link">　└ 舌片、手碟與手邊共鳴</a>
+            {nav_class_links(page_path, "A3")}
             <hr style="margin:4px 0;border:none;border-top:1px solid var(--line);">
-            <a href="{resolve_url(page_path, '/categories/電子與電聲樂器/')}" style="font-weight:700;color:var(--accent);">A4 電子與電聲樂器</a>
-            <a href="{resolve_url(page_path, f'/subcategories/{slugify("電子振盪")}/')}" class="sub-link">　├ 電子振盪</a>
-            <a href="{resolve_url(page_path, f'/subcategories/{slugify("合成器")}/')}" class="sub-link">　├ 合成器</a>
-            <a href="{resolve_url(page_path, f'/subcategories/{slugify("取樣與磁帶")}/')}" class="sub-link">　├ 取樣與磁帶</a>
-            <a href="{resolve_url(page_path, f'/subcategories/{slugify("鼓機與節奏機")}/')}" class="sub-link">　├ 鼓機與節奏機</a>
-            <a href="{resolve_url(page_path, f'/subcategories/{slugify("電聲改造樂器")}/')}" class="sub-link">　├ 電聲改造樂器</a>
-            <a href="{resolve_url(page_path, f'/subcategories/{slugify("控制器與數位介面")}/')}" class="sub-link">　└ 控制器與數位介面</a>
+            {nav_class_links(page_path, "A4")}
           </div>
         </div>
       </div>
@@ -1248,8 +1270,9 @@ img { max-width:100%; }
 .nav-dropdown .dropdown-menu.multi-col:hover { display:flex !important; }
 .menu-col { flex:1; min-width:0; }
 .menu-col hr { margin:6px 8px; }
-.sub-link { padding:2px 16px !important; font-size:12px !important; color:var(--muted) !important; }
+.sub-link { padding:2px 16px !important; font-size:12px !important; color:var(--muted) !important; display:flex !important; justify-content:space-between; gap:8px; }
 .sub-link:hover { color:var(--accent) !important; background:transparent !important; }
+.sub-count { font-size:10px; color:var(--muted); opacity:.65; }
 .dropdown-menu a {
   display:block; padding:8px 16px; font-size:13px; color:var(--ink2);
   text-decoration:none; border-radius:0; white-space:nowrap;
@@ -2681,6 +2704,8 @@ def main():
     global _TOTAL_INSTRUMENTS
     instruments = read_instruments()
     _TOTAL_INSTRUMENTS = len(instruments)
+    # nav subcategory links must come from real data, not a hard-coded list
+    set_nav_subcategories(instruments)
     if OUTPUT_DIR.exists():
         def on_rm_error(func, path, exc_info):
             pass

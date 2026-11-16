@@ -181,6 +181,15 @@ def apply_one(slug: str, dry_run: bool) -> dict:
             if remap[2] != cur_sub:
                 lines = set_key(lines, "subcategory", remap[2])
             changes.append(f"class {cur_code}→{remap[0]}")
+        else:
+            # class stays, but the subcategory may still belong to another
+            # family (e.g. an acoustic guitar filed under 電聲改造樂器)
+            valid = SUBCATEGORY_FAMILY.get(cur_sub)
+            if valid and valid != cur_code:
+                target_sub = FAMILY_TO_CLASS.get(adj.get("family", ""), ("", "", ""))[2]
+                if target_sub and SUBCATEGORY_FAMILY.get(target_sub) == cur_code:
+                    lines = set_key(lines, "subcategory", target_sub)
+                    changes.append(f"subcategory {cur_sub}→{target_sub}")
 
         hs = adj.get("hs", "")
         if hs and hs != "不確定":

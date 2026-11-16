@@ -1,7 +1,7 @@
 ---
 class_code: A2
 frontend_class: 弦樂器
-subcategory: 電聲改造樂器
+subcategory: 撥弦與抱持弦樂
 title_zh: 原聲吉他
 title_original: Acoustic guitar
 family_std: 魯特琴、短頸長頸撥弦與民謠弦聲
@@ -17,6 +17,7 @@ source_url: https://soundweavers-music.github.io/instruments/acoustic-guitar/
 image: https://upload.wikimedia.org/wikipedia/commons/5/5d/AcousticGuitar.jpg
 youtube_ids: T-U3c1nU3eM xpRgR-tZEpk
 ---
+
 
 ## 介紹
 
