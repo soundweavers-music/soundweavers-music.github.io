@@ -375,8 +375,8 @@ def page(title, body, page_path=None, meta_extra="", extra_head="", meta_descrip
             "default-src 'self'; "
             "img-src 'self' https: data:; "
             "style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; "
-            "script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info https://pagead2.googlesyndication.com; "
-            "connect-src 'self' https://busuanzi.ibruce.info; "
+            "script-src 'self' 'unsafe-inline'; "
+            "connect-src 'self'; "
             "frame-src https://www.youtube-nocookie.com https://www.youtube.com; "
             "base-uri 'self'; form-action 'none'; object-src 'none'"
         )
@@ -432,7 +432,6 @@ def page(title, body, page_path=None, meta_extra="", extra_head="", meta_descrip
   <meta name="referrer" content="no-referrer-when-downgrade">
   <meta http-equiv="Content-Security-Policy" content="{csp}">
   <meta name="google-site-verification" content="AzedQ-PxUmSW7_0jyEHmHCKgN2nIK0Bio5d6LCsJTtE">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6561686484716387" crossorigin="anonymous"></script>
   <title>{escape(title) if "|" in title or "｜" in title else escape(title) + "｜世界聲音百科"}</title>
   {seo_tags}
   {meta_extra}
@@ -553,14 +552,12 @@ def page(title, body, page_path=None, meta_extra="", extra_head="", meta_descrip
         <a href="{resolve_url(page_path, '/theory/')}">樂理基礎</a>
         <a href="{resolve_url(page_path, '/contact/')}">聯絡我們</a>
         <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
-      <span class="visit-counter">總瀏覽次數：<span id="busuanzi_value_site_pv"></span> ｜今日訪客：<span id="busuanzi_value_site_uv"></span></span>
       </nav>
     </div>
   </footer>
   <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="{resolve_url(page_path, '/assets/search.js')}"></script>
     <script src="{resolve_url(page_path, '/assets/random-instrument.js')}"></script>
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   {_dm_foot}
 </body>
 </html>
@@ -2538,8 +2535,8 @@ def build_chord_detection_tool():
         "default-src 'self'; "
         "img-src 'self' https: data: blob:; "
         "style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; "
-        "script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; "
-        "connect-src 'self' https://busuanzi.ibruce.info http://127.0.0.1:* http://localhost:*; "
+        "script-src 'self' 'unsafe-inline'; "
+        "connect-src 'self' http://127.0.0.1:* http://localhost:*; "
         "frame-src https://www.youtube-nocookie.com https://www.youtube.com; "
         "base-uri 'self'; form-action 'none'; object-src 'none'"
     )
@@ -2771,8 +2768,6 @@ def main():
     if font_src.exists():
         shutil.copytree(str(font_src), str(OUTPUT_DIR / "fonts"), dirs_exist_ok=True)
     write(OUTPUT_DIR / ".nojekyll", "")
-    # Write ads.txt for Google AdSense
-    write(OUTPUT_DIR / "ads.txt", "google.com, pub-6561686484716387, DIRECT, f08c47fec0942fa0\n")
     # Copy Google Search Console verification file to output root
     gsc_file = BASE_DIR / "googled81b331c3a5b66a0.html"
     if gsc_file.exists():
