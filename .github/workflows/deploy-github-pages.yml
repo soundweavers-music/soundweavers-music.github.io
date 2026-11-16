@@ -57,6 +57,9 @@ jobs:
           fi
           python scripts/build_vocal_extra.py
 
+      - name: Build mandolin section
+        run: python scripts/build_mandolin.py
+
       - name: Build ebooks
         run: python scripts/build_ebook.py
 
