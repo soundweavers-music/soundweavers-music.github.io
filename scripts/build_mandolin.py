@@ -34,6 +34,32 @@ PART_TITLES = {
 }
 
 
+# Suggested study time per chapter. Careful reading of dense Chinese prose
+# runs about 300 characters a minute; the multiplier adds the time a part
+# asks for beyond reading — practising techniques (Part D), listening to the
+# recordings discussed (Part E/G), trying the setup steps (Part C).
+READ_CHARS_PER_MIN = 300
+STUDY_FACTOR = {
+    "入門": 1.5,
+    "Part B": 1.0,
+    "Part C": 1.3,
+    "Part D": 2.5,
+    "Part E": 1.5,
+    "Part G": 2.0,
+}
+
+
+def study_hours(ch: dict) -> float:
+    """Suggested hours, rounded up to the half hour (min 0.5)."""
+    minutes = ch["chars"] / READ_CHARS_PER_MIN * STUDY_FACTOR.get(ch["part_key"], 1.0)
+    halves = max(1, -(-int(minutes) // 30))
+    return halves / 2
+
+
+def fmt_hours(h: float) -> str:
+    return f"{h:g} 小時"
+
+
 def part_key(part: str) -> str:
     return part.split("　")[0].strip()
 
@@ -64,24 +90,26 @@ def build_index(chapters: list[dict]) -> None:
             continue
         rows = []
         for ch in items:
-            slug, num, title, chars = ch["slug"], ch["num"], ch["title"], ch["chars"]
+            slug, num, title = ch["slug"], ch["num"], ch["title"]
             href = bve.resolve_url(OUT_DIR / "index.html", f"/mandolin/{slug}/")
             rows.append(
                 f'<li class="chapter-item has-link">'
                 f'<a href="{href}">'
                 f'<span class="ch-num done">{num}</span>'
                 f'<span class="ch-title">{bve.escape(title)}</span>'
-                f'<span class="ch-status ch-status-done">{chars:,} 字</span>'
+                f'<span class="ch-status ch-status-done">建議 {fmt_hours(study_hours(ch))}</span>'
                 f'</a></li>'
             )
         title = PART_TITLES.get(key, key)
+        part_hours = sum(study_hours(c) for c in items)
         sections.append(
             f'<section class="vocal-level">'
-            f'<div class="vocal-level-header"><h2>{bve.escape(title)}</h2></div>'
+            f'<div class="vocal-level-header"><h2>{bve.escape(title)}</h2>'
+            f'<span class="level-meta">{len(items)} 章・約 {fmt_hours(part_hours)}</span></div>'
             f'<ol class="chapter-list">{"".join(rows)}</ol></section>'
         )
 
-    total_chars = sum(c["chars"] for c in chapters)
+    total_hours = sum(study_hours(c) for c in chapters)
     body = f"""<main>
   <section class="vocal-hero">
     <p class="eyebrow">Mandolin Handbook</p>
@@ -89,9 +117,10 @@ def build_index(chapters: list[dict]) -> None:
     <p class="lead">從八根弦、五度調弦到顫音與跨弦，再到選琴、製琴與專輯導聆——22 章完整的中文曼陀林知識庫，全書內容均經多來源查證並改寫為易讀版本。</p>
     <p class="hero-stats" style="text-align:left;margin-top:20px">
       <span><strong>{len(chapters)}</strong> 章</span>
-      <span><strong>{total_chars // 10000}</strong> 萬字</span>
       <span><strong>5</strong> 大部分</span>
+      <span>建議學習 <strong>{total_hours:g}</strong> 小時</span>
     </p>
+    <p class="mandolin-note">學習建議時數＝細讀內文，加上該章需要的練習或聆聽時間（技法章節以練琴為主，曲風與專輯章節含聆聽）。可依自己的節奏調整。</p>
   </section>
   <div class="vocal-page">
     <div class="mandolin-sections">{"".join(sections)}</div>
@@ -130,7 +159,7 @@ def build_chapters(chapters: list[dict]) -> None:
     </div>
     <span class="level-tag level-tag-beginner">{bve.escape(PART_TITLES.get(ch["part_key"], ch["part_key"]))}</span>
     <h1>{bve.escape(ch["title"])}</h1>
-    <p class="level-name">第 {ch["num"]} 章・{ch["chars"]:,} 字</p>
+    <p class="level-name">第 {ch["num"]} 章・建議學習 {fmt_hours(study_hours(ch))}</p>
   </div>
   <div class="vocal-content markdown-body">{html_body}</div>
   <div class="vocal-nav-links">{prev_link}{next_link}</div>

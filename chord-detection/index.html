@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="referrer" content="no-referrer-when-downgrade">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data: blob:; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://busuanzi.ibruce.info; connect-src 'self' https://busuanzi.ibruce.info http://127.0.0.1:* http://localhost:*; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self' http://127.0.0.1:8765 http://localhost:8765; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'self'; object-src 'none'">
 <title>自動抓和弦 (beta)｜世界聲音百科</title>
 <meta name="description" content="上傳音檔，自動分析節拍與和弦進行，支援指版圖顯示與和弦編輯。可選用瀏覽器分析或本地 Python 代理。">
 <link rel="canonical" href="https://soundweavers-music.github.io/chord-detection/">
 <script>!function(){try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);else document.documentElement.setAttribute("data-theme","nextdoor")}catch(e){}}()</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/meyda/5.6.0/meyda.min.js"></script>
+<script src="../assets/vendor/meyda.min.js"></script>
 <script src="../scripts/_chord_library.js"></script>
 <link rel="stylesheet" href="../assets/site.css">
 <style>
@@ -237,6 +237,7 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
     <button id="btn-agent-connect" class="btn ghost" style="font-size:12px;">🔗 連線</button>
     <button id="btn-agent-analyze" class="btn" style="font-size:12px;display:none;">📊 使用代理分析</button>
   </div>
+  <p style="font-size:12px;color:var(--muted);margin:8px 0 0;line-height:1.6;">本地代理為選用功能，需自行在電腦上安裝 Python 並執行。原始碼與說明請見 <a href="https://github.com/soundweavers-music/soundweavers-music.github.io/tree/main/chord-detection/local-agent" target="_blank" rel="noopener">GitHub</a>；本站不提供任何可執行檔下載。</p>
 </div>
 
 <!-- Status -->
@@ -903,7 +904,15 @@ async function recalcWithBPM(newBpm) {
 // =========================================================================
 // 本地代理通訊
 // =========================================================================
+// 只允許連到本機的代理，避免頁面被拿來對其他主機發請求
+const AGENT_HOST_RE = /^(127\.0\.0\.1|localhost):\d{2,5}$/;
+
+function escapeHtml(s) {
+  return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
 async function checkAgentHealth(host) {
+  if (!AGENT_HOST_RE.test(host)) return false;
   try {
     const resp = await fetch(`http://${host}/health`);
     if (resp.ok) {
@@ -991,11 +1000,11 @@ function renderChordBars() {
     if (!ch.isDiatonic) {
       html += '<div style="font-size:9px;color:#f59e0b;font-weight:600;margin-top:2px;">替代</div>';
     }
-    html += '<div class="chord-name">' + ch.display + '</div>';
+    html += '<div class="chord-name">' + escapeHtml(ch.display) + '</div>';
     if (!ch.isDiatonic && ch.originalChord) {
-      html += '<div style="font-size:9px;color:var(--muted);text-decoration:line-through;">' + ch.originalChord + '</div>';
+      html += '<div style="font-size:9px;color:var(--muted);text-decoration:line-through;">' + escapeHtml(ch.originalChord) + '</div>';
     }
-    html += '<div class="chord-quality">' + ch.quality + '</div>';
+    html += '<div class="chord-quality">' + escapeHtml(ch.quality) + '</div>';
     if (showDia) {
       html += '<div class="chord-diagram" id="dia-bar-' + idx + '"></div>';
     }
@@ -1258,6 +1267,7 @@ document.querySelectorAll('.mode-btn').forEach(btn => {
 document.getElementById('btn-agent-connect').addEventListener('click', async function() {
   const host = document.getElementById('agent-host').value.trim();
   if (!host) { setStatus('請輸入代理主機位址', 'error'); return; }
+  if (!AGENT_HOST_RE.test(host)) { setStatus('代理位址只能是本機，例如 127.0.0.1:8765', 'error'); return; }
   state.agentHost = host;
   setStatus('正在連線本地代理 ' + host + '…', 'analyzing');
   const ok = await checkAgentHealth(host);

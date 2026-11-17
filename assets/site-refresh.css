@@ -576,3 +576,211 @@ a { text-underline-offset: 3px; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
 }
+
+/* ── Site banner ────────────────────────────────────────────── */
+/* A slim strip of the brand illustration under the header on every page.
+   Pages that already open on the full banner (homepage, .banner-hero
+   landing pages) hide it so the artwork is not shown twice. */
+.site-banner {
+  height: 92px;
+  background: url("brand/banner.webp") center 42%/cover no-repeat;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+.site-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    color-mix(in srgb, var(--paper) 10%, transparent) 0%,
+    color-mix(in srgb, var(--paper) 45%, transparent) 100%);
+}
+[data-theme="dark"] .site-banner { filter: brightness(.7) saturate(.85); }
+body:has(.hero-banner) .site-banner,
+body:has(.banner-hero) .site-banner { display: none; }
+@media (max-width: 760px) {
+  .site-banner { height: 64px; background-image: url("brand/banner-narrow.webp"); background-position: center 38%; }
+}
+
+/* Landing-page hero on the banner: same veil recipe as the homepage, shorter. */
+.banner-hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--paper) url("brand/banner.webp") center 40%/cover no-repeat;
+  border-bottom: 1px solid var(--line);
+  text-align: center;
+  padding: 0;
+}
+.banner-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 62% 85% at 50% 50%,
+      color-mix(in srgb, var(--paper) 94%, transparent) 0%,
+      color-mix(in srgb, var(--paper) 84%, transparent) 55%,
+      color-mix(in srgb, var(--paper) 55%, transparent) 80%,
+      color-mix(in srgb, var(--paper) 25%, transparent) 100%);
+}
+.banner-hero > .banner-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 72px 24px 60px;
+}
+.banner-hero h1 { font-family: var(--font-serif); font-size: clamp(30px, 4.6vw, 46px); letter-spacing: .04em; margin: 0 0 14px; color: var(--ink); }
+.banner-hero .lead { font-family: var(--font-serif); color: var(--ink2); font-size: clamp(15px, 1.7vw, 17px); line-height: 1.8; max-width: 600px; margin: 0 auto; }
+.banner-hero .eyebrow { margin-bottom: 16px; }
+[data-theme="dark"] .banner-hero { background-blend-mode: multiply; }
+@media (max-width: 760px) {
+  .banner-hero { background-image: url("brand/banner-narrow.webp"); }
+  .banner-hero > .banner-hero-inner { padding: 52px 20px 44px; }
+}
+
+/* ── About: two tabs (site / author) ────────────────────────── */
+.page-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  border-bottom: 1px solid var(--line);
+  margin: 0 auto 36px;
+  max-width: 800px;
+  padding: 0 20px;
+}
+.page-tabs a {
+  padding: 14px 18px 12px;
+  font-size: 14.5px;
+  letter-spacing: .04em;
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+.page-tabs a:hover { color: var(--accent); }
+.page-tabs a[aria-current="page"] { color: var(--ink); font-weight: 700; border-bottom-color: var(--accent); }
+.about-hero.banner-hero { color: var(--ink); border-radius: 0; margin: 0; min-height: 0; display: block; }
+.about-page .about-body { padding: 0 20px; }
+.about-section h2 { border-bottom-color: var(--wood); }
+.about-cta {
+  margin-top: 28px;
+  padding: 22px 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+.about-cta p { margin: 0; color: var(--ink2); line-height: 1.7; }
+.about-cta-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.about-author .author-avatar { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+.recruit-how { max-width: 760px; margin: 44px auto 0; }
+.recruit-how .hub-note { text-align: left; margin: 20px 0 0; max-width: none; }
+.btn-wood {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 22px;
+  background: var(--accent);
+  color: #fff !important;
+  border-radius: 3px;
+  text-decoration: none;
+  font-size: 14.5px;
+  letter-spacing: .04em;
+  transition: background .18s ease;
+}
+.btn-wood:hover { background: var(--accent2); }
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: 1px solid var(--line-strong);
+  color: var(--ink) !important;
+  border-radius: 3px;
+  text-decoration: none;
+  font-size: 14.5px;
+}
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent) !important; }
+
+/* ── 學習 hub + 招募 cards ──────────────────────────────────── */
+.hub-page { max-width: 1040px; margin: 0 auto; padding: 40px 24px 80px; }
+.hub-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--surface);
+}
+.hub-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 30px 28px 26px;
+  color: var(--ink);
+  text-decoration: none;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  transition: background .2s ease;
+}
+.hub-card:nth-child(2n) { border-right: 0; }
+.hub-card:nth-last-child(-n+2) { border-bottom: 0; }
+a.hub-card:hover { background: var(--soft); }
+a.hub-card::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 2px;
+  background: var(--wood);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .28s cubic-bezier(.4, 0, .2, 1);
+}
+a.hub-card:hover::after { transform: scaleX(1); }
+.hub-card .hub-icon { font-size: 22px; opacity: .8; }
+.hub-card h2, .hub-card h3 { font-family: var(--font-serif); font-size: 20px; margin: 4px 0 0; letter-spacing: .03em; }
+.hub-card p { margin: 0; color: var(--ink2); font-size: 14px; line-height: 1.75; }
+.hub-card ul { margin: 4px 0 0; padding-left: 1.2em; color: var(--ink2); font-size: 14px; line-height: 1.8; }
+.hub-meta { margin-top: auto; padding-top: 12px; font-size: 12px; letter-spacing: .05em; color: var(--accent); }
+.hub-note { margin: 28px auto 0; max-width: 680px; text-align: center; color: var(--muted); font-size: 13.5px; line-height: 1.85; }
+.recruit-steps { counter-reset: step; list-style: none; padding: 0; margin: 0; }
+.recruit-steps li {
+  counter-increment: step;
+  position: relative;
+  padding: 12px 0 12px 44px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink2);
+  line-height: 1.75;
+}
+.recruit-steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0; top: 12px;
+  width: 28px; height: 28px;
+  border-radius: 2px;
+  background: var(--accent-soft);
+  color: var(--accent2);
+  font-family: var(--font-serif);
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+.level-meta { font-size: 12.5px; color: var(--muted); letter-spacing: .04em; font-variant-numeric: tabular-nums; }
+.mandolin-note { font-size: 12.5px; color: var(--muted); margin: 10px 0 0; line-height: 1.7; }
+@media (max-width: 700px) {
+  .hub-grid { grid-template-columns: 1fr; }
+  .hub-card { border-right: 0; }
+  .hub-card:nth-last-child(2) { border-bottom: 1px solid var(--line); }
+}
+
+/* ── 聯絡頁：Email 按鈕與圖示改木質色（取代舊版藍色） ───────────── */
+.contact-page .btn-email { background: var(--accent); border-radius: 3px; box-shadow: none; font-weight: 600; }
+.contact-page .btn-email:hover { background: var(--accent2); transform: none; box-shadow: none; }
+.contact-page .contact-value { color: var(--accent2); }
+.contact-page .contact-icon { background: var(--accent-soft) !important; }

@@ -95,6 +95,10 @@ def markdown_to_html(md_text, strip_first_h1=True):
     """
     if strip_first_h1:
         md_text = re.sub(r"\A\s*#\s+.*\n+", "", md_text, count=1)
+    # Drafts still carry image placeholders such as
+    # ![alt](你的圖片連結_例如：https://example.com/x.jpg) — they render as
+    # broken images pointing at example.com, so drop them until real art lands.
+    md_text = re.sub(r"!\[[^\]]*\]\((?:你的圖片連結[^)]*|https?://(?:www\.)?example\.com/[^)]*)\)\s*\n?", "", md_text)
     raw = markdown.markdown(md_text, extensions=["extra", "toc", "tables", "fenced_code", "nl2br"], output_format="html5")
     # Remove wiki links
     raw = re.sub(r'<a\b[^>]*href=["\'](?:https?://)?(?:[^/]+\.)?(?:wikipedia|wikidata|wikimedia)\.org[^"\']*["\'][^>]*>(.*?)</a>', r'\1', raw, flags=re.IGNORECASE | re.DOTALL)
@@ -104,14 +108,12 @@ def markdown_to_html(md_text, strip_first_h1=True):
 def page(title, body, page_path=None, extra_head="", meta_description="", og_image=""):
     desc = meta_description or "世界聲音百科 by 隔壁織音人 — 收錄世界各國樂器、人聲歌唱教學、錄音後製知識與基礎樂理。從傳統民族樂器到現代電子樂器，提供樂器介紹、聆賞示範、演奏教學與文化背景。循著聲音，走進不同文化的現場。"
     csp = ("default-src 'self'; img-src 'self' https: data:; "
-           "style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; "
+           "style-src 'self' 'unsafe-inline'; "
            "script-src 'self' 'unsafe-inline'; "
            "connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; "
-           "base-uri 'self'; form-action 'none'; object-src 'none'")
-    raw_canon = resolve_url(page_path, "/") if page_path else "/"
-    clean_canon = raw_canon.replace("./", "/").replace("../", "/").rstrip("/") or "/"
-    canonical = f"https://soundweavers-music.github.io{clean_canon}".rstrip(".")
-    og_img = og_image or "https://yt3.googleusercontent.com/6nBZ7RVoXGMH2fuMPWiju_tpAET9D-qVkOhg1HjGqh8m9EaO-u9wO_oHVA12Sy0DzoKn7mGVmA=w1707-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj"
+           "base-uri 'self'; form-action 'self'; object-src 'none'")
+    canonical = _bss().canonical_for(page_path)
+    og_img = og_image or "https://soundweavers-music.github.io/assets/brand/banner.webp"
     jsonld = f'''{{
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -149,15 +151,12 @@ def page(title, body, page_path=None, extra_head="", meta_description="", og_ima
   <meta property="og:description" content="{escape(desc)}">
   <meta property="og:image" content="{og_img}">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://soundweavers-music.github.io{escape(str(page_path.parent if page_path else '/'))}/">
+  <meta property="og:url" content="{canonical}">
   <link rel="canonical" href="{canonical}">
   <meta http-equiv="Content-Security-Policy" content="{csp}">
   <meta name="google-site-verification" content="AzedQ-PxUmSW7_0jyEHmHCKgN2nIK0Bio5d6LCsJTtE">
   <title>{escape(title) if "|" in title or "｜" in title else escape(title) + "｜世界聲音百科"}</title>
   {_dm_head}
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&display=swap">
   <link rel="icon" href="{resolve_url(page_path, '/assets/brand/favicon.png')}" type="image/png">
   <link rel="apple-touch-icon" href="{resolve_url(page_path, '/assets/brand/logo.png')}">
   <link rel="stylesheet" href="{resolve_url(page_path, '/assets/site.css')}">
@@ -166,99 +165,9 @@ def page(title, body, page_path=None, extra_head="", meta_description="", og_ima
   {extra_head}
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="{resolve_url(page_path, '/')}"><img class="brand-mark" src="{resolve_url(page_path, '/assets/brand/logo.png')}" alt="" width="34" height="34"><span class="brand-text">世界聲音百科</span></a>
-    <nav>
-      <div class="nav-dropdown">
-        <a href="{resolve_url(page_path, '/instruments/')}" class="dropdown-trigger">樂器百科</a>
-        <div class="dropdown-menu multi-col">
-          <div class="menu-col">
-            <a href="{resolve_url(page_path, '/categories/')}" style="font-weight:700;">全部分類</a>
-            <a href="#" id="random-nav-link" class="random-link">隨選樂器</a>
-            <a href="{resolve_url(page_path, '/countries/')}">國家／地區</a>
-            <a href="{resolve_url(page_path, '/map/')}">地圖</a>
-            <hr style="margin:4px 0;border:none;border-top:1px solid var(--line);">
-            {nav_links(page_path, "A1")}
-          </div>
-          <div class="menu-col">
-            {nav_links(page_path, "A2")}
-            <hr style="margin:4px 0;border:none;border-top:1px solid var(--line);">
-            <a href="{resolve_url(page_path, '/categories/待分類-偵錯暫存/')}" style="font-weight:700;color:var(--muted);">A9 待分類／偵錯暫存</a>
-          </div>
-          <div class="menu-col">
-            {nav_links(page_path, "A3")}
-            <hr style="margin:4px 0;border:none;border-top:1px solid var(--line);">
-            {nav_links(page_path, "A4")}
-        </div>
-      </div>
-      <div class="nav-dropdown">
-        <a href="{resolve_url(page_path, '/sound-journey/')}" class="dropdown-trigger">聲音旅圖</a>
-        <div class="dropdown-menu">
-          <a href="{resolve_url(page_path, '/sound-journey/')}">旅圖門口</a>
-          <a href="{resolve_url(page_path, '/sound-journey/1/')}">旅圖一｜氣息離開身體</a>
-          <a href="{resolve_url(page_path, '/sound-journey/2/')}">旅圖二｜懷裡與大地的弦</a>
-          <a href="{resolve_url(page_path, '/sound-journey/3/')}">旅圖三｜天空裡拉長的弦</a>
-          <a href="{resolve_url(page_path, '/sound-journey/4/')}">旅圖四｜地心與手邊的微光</a>
-          <a href="{resolve_url(page_path, '/sound-journey/5/')}">旅圖五｜城市與星塵的節奏</a>
-          <a href="{resolve_url(page_path, '/sound-journey/6/')}">旅圖六｜按鍵打開房間，眾聲走向廣場</a>
-          <a href="{resolve_url(page_path, '/sound-journey/all/')}">全部文章</a>
-        </div>
-      </div>
-      <div class="nav-dropdown">
-        <a href="{resolve_url(page_path, '/ensembles/')}" class="dropdown-trigger">合奏百科</a>
-        <div class="dropdown-menu">
-          <a href="{resolve_url(page_path, '/ensembles/')}" style="font-weight:700;">總覽</a>
-          <hr style="margin:4px 0;border:none;border-top:1px solid var(--line);">
-          <a href="{resolve_url(page_path, '/ensembles/B1/')}">B1 地域傳統合奏</a>
-          <a href="{resolve_url(page_path, '/ensembles/B2/')}">B2 民間樂隊</a>
-          <a href="{resolve_url(page_path, '/ensembles/B3/')}">B3 鼓樂與節慶編制</a>
-          <a href="{resolve_url(page_path, '/ensembles/B4/')}">B4 古典與大型編制</a>
-          <a href="{resolve_url(page_path, '/ensembles/B5/')}">B5 現代民族樂團</a>
-          <a href="{resolve_url(page_path, '/ensembles/B6/')}">B6 爵士與流行編制</a>
-          <a href="{resolve_url(page_path, '/ensembles/B7/')}">B7 現代混合與跨界編制</a>
-        </div>
-      </div>
-      <div class="nav-dropdown">
-        <a href="{resolve_url(page_path, '/vocal/')}" class="dropdown-trigger">學習</a>
-        <div class="dropdown-menu">
-          <a href="{resolve_url(page_path, '/vocal/')}"><strong>人聲與歌唱</strong>　初階 15 堂・進階 35 堂</a>
-          <a href="{resolve_url(page_path, '/digitalmusic/')}"><strong>錄音後製</strong>　基礎 15 堂・進階 15 堂</a>
-          <a href="{resolve_url(page_path, '/theory/')}"><strong>樂理基礎</strong>　五階段</a>
-          <a href="{resolve_url(page_path, '/mandolin/')}"><strong>曼陀林專區</strong>　22 章知識庫</a>
-        </div>
-      </div>
-      <div class="nav-dropdown">
-        <a href="{resolve_url(page_path, '/tools/fretboard/')}" class="dropdown-trigger">工具</a>
-        <div class="dropdown-menu">
-          <a href="{resolve_url(page_path, '/tools/fretboard/')}">🎸 世界樂器指版和弦圖</a>
-          <a href="{resolve_url(page_path, '/experience/')}">🎧 體驗</a>
-        </div>
-      </div>
-      <a href="{resolve_url(page_path, '/about/')}">關於</a>
-      <a href="{resolve_url(page_path, '/contact/')}">聯絡我們</a>
-    </nav>
-    <button id="theme-toggle" class="theme-toggle" aria-label="切換色調">🎋</button>
-  </header>
+{_bss().site_header(page_path)}
   {body}
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <span>世界聲音百科 — 世界樂器、人聲與音樂文化的旅圖</span>
-      <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
-      <nav class="footer-nav">
-        <a href="{resolve_url(page_path, '/')}">首頁</a>
-        <a href="{resolve_url(page_path, '/sound-journey/')}">聲音旅圖</a>
-        <a href="{resolve_url(page_path, '/vocal/')}">人聲與歌唱</a>
-	      <a href="{resolve_url(page_path, '/digitalmusic/')}">錄音後製</a>
-        <a href="{resolve_url(page_path, '/categories/')}">分類</a>
-        <a href="{resolve_url(page_path, '/countries/')}">國家</a>
-        <a href="{resolve_url(page_path, '/subcategories/')}">子分類</a>
-        <a href="{resolve_url(page_path, '/ensembles/')}">合奏百科</a>
-        <a href="{resolve_url(page_path, '/theory/')}">樂理基礎</a>
-        <a href="{resolve_url(page_path, '/contact/')}">聯絡我們</a>
-        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
-      </nav>
-    </div>
-  </footer>
+{_bss().site_footer(page_path)}
   <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="{resolve_url(page_path, '/assets/search.js')}"></script>
   <script src="{resolve_url(page_path, '/assets/random-instrument.js')}"></script>
@@ -279,6 +188,15 @@ def card(instrument, page_path=None):
         <span class="card-meta">{escape(instrument['country'])}</span>
       </div>
     </a>"""
+
+
+def _bss():
+    """build_static_site owns the one header/nav/footer template."""
+    here = str(Path(__file__).resolve().parent)
+    if here not in sys.path:
+        sys.path.insert(0, here)
+    import importlib
+    return importlib.import_module("build_static_site")
 
 
 def _sync_nav(instruments):
@@ -393,10 +311,16 @@ def build_portal_homepage(instruments):
       <div class="card-desc">了解這個網站的創建理念、作者與服務項目，以及我們正在進行的計畫。</div>
       <span class="card-badge badge-info">了解更多</span>
     </a>
+    <a class="portal-card card-recruit" href="{resolve_url(index_path, '/recruit/')}">
+      <div class="card-icon">🤝</div>
+      <div class="card-label">招募夥伴</div>
+      <div class="card-desc">我們正在尋找音樂詞曲創作與人聲配唱夥伴，一起完成原創作品與合作企劃。</div>
+      <span class="card-badge badge-new">招募中</span>
+    </a>
     <a class="portal-card card-contact" href="{resolve_url(index_path, '/contact/')}">
       <div class="card-icon">✉️</div>
       <div class="card-label">聯絡我們</div>
-      <div class="card-desc">有任何建議、發現資料錯誤、或想推薦更多內容？歡迎通過 LINE 或 Email 告訴我們。</div>
+      <div class="card-desc">有任何建議、發現資料錯誤、或想推薦更多內容？歡迎透過 Email 告訴我們。</div>
       <span class="card-badge badge-info">與我們聯絡</span>
     </a>
     <a class="portal-card card-tools" href="{resolve_url(index_path, '/tools/fretboard/')}" style="border-color:var(--accent);">
@@ -801,9 +725,8 @@ def build_contact_page():
   </section>
   <div class="contact-card">
     <h2>💬 回饋建議</h2>
-    <p class="card-desc">對網站內容有任何想法或建議嗎？歡迎通過 LINE 官方帳號或 Email 告訴我們！</p>
+    <p class="card-desc">對網站內容有任何想法或建議嗎？歡迎透過 Email 告訴我們！</p>
     <div class="contact-actions">
-      <a class="btn-line" href="https://line.me/R/ti/p/@971xnxql" target="_blank" rel="noopener">💬 LINE 官方帳號</a>
       <a class="btn-email" href="mailto:nextdoor20250726@gmail.com">✉️ 寄送 Email</a>
     </div>
   </div>
@@ -811,15 +734,14 @@ def build_contact_page():
     <h2>📬 聯絡方式</h2>
     <p class="card-desc">選擇最適合你的方式與我們保持聯繫。</p>
     <div class="contact-row"><div class="contact-icon email">✉️</div><span class="contact-label">Email</span><a class="contact-value" href="mailto:nextdoor20250726@gmail.com">nextdoor20250726@gmail.com</a></div>
-    <div class="contact-row"><div class="contact-icon line">💬</div><span class="contact-label">LINE 官方帳號</span><a class="contact-value" href="https://line.me/R/ti/p/@971xnxql" target="_blank" rel="noopener">@971xnxql</a></div>
     <div class="contact-row"><div class="contact-icon youtube">▶️</div><span class="contact-label">YouTube 頻道</span><a class="contact-value" href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></div>
   </div>
   <div class="contact-card">
     <h2>⏱️ 回應時間</h2>
-    <p class="card-desc">我們會在 2-3 個工作日內回覆您的訊息。若您有商業合作、音樂製作相關需求，也歡迎來信洽談。</p>
+    <p class="card-desc">我們會在 2-3 個工作日內回覆您的訊息。若您有商業合作、音樂製作相關需求，也歡迎來信洽談；想加入創作或配唱，請見<a href="../recruit/">招募夥伴</a>。</p>
   </div>
 </main>"""
-    write(page_dir / "index.html", page("聯絡我們", body, page_dir / "index.html", meta_description="對世界聲音百科有任何建議、發現資料錯誤或想推薦內容？歡迎透過 LINE 官方帳號或 Email 與我們聯繫。"))
+    write(page_dir / "index.html", page("聯絡我們", body, page_dir / "index.html", meta_description="對世界聲音百科有任何建議、發現資料錯誤或想推薦內容？歡迎透過 Email 與我們聯繫。"))
     print("  Contact page written.")
 
 

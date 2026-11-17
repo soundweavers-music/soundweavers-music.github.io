@@ -70,6 +70,29 @@ G_DIATONIC: list[tuple[int, str]] = [
 
 # ── 應用程式 ──────────────────────────────────────────────────────────────
 app = Flask(__name__)
+# 音檔上限 50 MB，避免意外塞爆記憶體
+app.config['MAX_CONTENT_LENGTH'] = 50 * 1024 * 1024
+
+# 只接受來自世界聲音百科與本機開發伺服器的請求；其他網站即使知道
+# 這個埠號，瀏覽器也會因為沒有 CORS 授權而拿不到結果。
+ALLOWED_ORIGINS = {
+    'https://soundweavers-music.github.io',
+    'http://127.0.0.1:8899',
+    'http://localhost:8899',
+}
+
+
+@app.after_request
+def add_cors_headers(resp):
+    origin = request.headers.get('Origin', '')
+    if origin in ALLOWED_ORIGINS:
+        resp.headers['Access-Control-Allow-Origin'] = origin
+        resp.headers['Vary'] = 'Origin'
+        resp.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
+        resp.headers['Access-Control-Allow-Headers'] = 'Content-Type'
+        # Chrome Private Network Access：公開網站連到本機需明確同意
+        resp.headers['Access-Control-Allow-Private-Network'] = 'true'
+    return resp
 
 # =========================================================================
 # 核心分析函式
@@ -349,14 +372,18 @@ def _transpose_to_diatonic(chords: list[dict], target_root: int = 0) -> list[dic
 # Flask Routes
 # =========================================================================
 
-@app.route('/health', methods=['GET'])
+@app.route('/health', methods=['GET', 'OPTIONS'])
 def health():
+    if request.method == 'OPTIONS':
+        return ('', 204)
     return jsonify({'status': 'ok', 'version': '1.0.0'})
 
 
-@app.route('/analyze', methods=['POST'])
+@app.route('/analyze', methods=['POST', 'OPTIONS'])
 def analyze():
     """接收音檔，回傳分析結果 JSON。"""
+    if request.method == 'OPTIONS':
+        return ('', 204)
     if 'file' not in request.files:
         return jsonify({'error': '缺少 file 欄位'}), 400
 

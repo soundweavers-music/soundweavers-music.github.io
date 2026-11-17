@@ -199,5 +199,4 @@ Minimalism & Swiss Style：襯線標題、紙色底、單一重點色、細線�
 
 有任何建議或發現資料錯誤，歡迎透過以下方式告訴我們：
 
-- 💬 [LINE 官方帳號](https://line.me/R/ti/p/@971xnxql)
 - ✉️ <a href="mailto:nextdoor20250726@gmail.com">nextdoor20250726@gmail.com</a>

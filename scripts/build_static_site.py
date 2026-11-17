@@ -369,81 +369,30 @@ def nav_class_links(page_path, code):
     return "\n            ".join(rows)
 
 
-def page(title, body, page_path=None, meta_extra="", extra_head="", meta_description="", meta_keywords="", csp=None):
-    if csp is None:
-        csp = (
-            "default-src 'self'; "
-            "img-src 'self' https: data:; "
-            "style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; "
-            "script-src 'self' 'unsafe-inline'; "
-            "connect-src 'self'; "
-            "frame-src https://www.youtube-nocookie.com https://www.youtube.com; "
-            "base-uri 'self'; form-action 'none'; object-src 'none'"
-        )
-    keywords_default = "隔壁織音人,世界樂器,世界樂器百科,世界聲音百科,樂器教學,歌唱教學,錄音後製,吉他教學,鋼琴教學,基礎樂理,音樂知識,民族樂器,傳統樂器,電子樂器,打擊樂器,管樂器,弦樂器,鍵盤樂器"
-    kw = meta_keywords or keywords_default
-    desc = meta_description or "世界聲音百科 by 隔壁織音人 — 收錄世界各國樂器、人聲歌唱教學、錄音後製知識與基礎樂理。從傳統民族樂器到現代電子樂器，提供樂器介紹、聆賞示範、演奏教學與文化背景。循著聲音，走進不同文化的現場。"
-    raw_canon = resolve_url(page_path, "/") if page_path else "/"
-    clean_canon = raw_canon.replace("./", "/").replace("../", "/").rstrip("/") or "/"
-    canonical_url = f"https://soundweavers-music.github.io{clean_canon}".rstrip(".")
-    og_image = "https://yt3.googleusercontent.com/6nBZ7RVoXGMH2fuMPWiju_tpAET9D-qVkOhg1HjGqh8m9EaO-u9wO_oHVA12Sy0DzoKn7mGVmA=w1707-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj"
-    jsonld = f'''{{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "世界聲音百科",
-  "alternateName": "World Sound Encyclopedia",
-  "url": "https://soundweavers-music.github.io/",
-  "description": "{escape(desc)}",
-  "author": {{
-    "@type": "Person",
-    "name": "隔壁織音人",
-    "url": "https://www.youtube.com/@NextDoorSoundWeavers/"
-  }},
-  "potentialAction": {{
-    "@type": "SearchAction",
-    "target": {{
-      "@type": "EntryPoint",
-      "urlTemplate": "https://soundweavers-music.github.io/?q={{search_term_string}}"
-    }},
-    "query-input": "required name=search_term_string"
-  }},
-  "sameAs": [
-    "https://www.youtube.com/@NextDoorSoundWeavers/"
-  ]
-}}'''
-    seo_tags = f'''<meta name="description" content="{escape(desc)}">
-<meta name="keywords" content="{escape(kw)}">
-<link rel="canonical" href="{canonical_url}">
-<script type="application/ld+json">{jsonld}</script>'''''
-    if "og:title" not in meta_extra:
-        seo_tags += f'''
-<meta property="og:title" content="{escape(title) if "|" in title or "｜" in title else escape(title) + "｜世界聲音百科"}">
-<meta property="og:description" content="{escape(desc)}">
-<meta property="og:image" content="{og_image}">
-<meta property="og:type" content="website">'''
-    _dm_head = '<script>!function(){try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);else document.documentElement.setAttribute("data-theme","nextdoor")}catch(e){}}()</script>'
-    _dm_foot = '<script>(function(){var t=document.getElementById("theme-toggle"),d=document.documentElement;var I={nextdoor:"🎋",light:"🌤",dark:"🌙"};function s(m){d.setAttribute("data-theme",m);if(t)t.textContent=I[m]||"🎋";try{localStorage.setItem("theme",m)}catch(e){}}var v=(localStorage.getItem("theme")||"nextdoor");s(v);if(t)t.addEventListener("click",function(){var c=d.getAttribute("data-theme");s(c==="nextdoor"?"light":c==="light"?"dark":"nextdoor")});})();</script>'
+def canonical_for(page_path):
+    """Absolute public URL of an output page (…/vocal/1/index.html → /vocal/1/).
 
-    return f"""<!doctype html>
-<html lang="zh-Hant">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="Content-Security-Policy" content="{csp}">
-  <meta name="google-site-verification" content="AzedQ-PxUmSW7_0jyEHmHCKgN2nIK0Bio5d6LCsJTtE">
-  <title>{escape(title) if "|" in title or "｜" in title else escape(title) + "｜世界聲音百科"}</title>
-  {seo_tags}
-  {meta_extra}
-  {_dm_head}
-  <link rel="icon" href="{resolve_url(page_path, '/assets/brand/favicon.png')}" type="image/png">
-  <link rel="apple-touch-icon" href="{resolve_url(page_path, '/assets/brand/logo.png')}">
-  <link rel="stylesheet" href="{resolve_url(page_path, '/assets/site.css')}">
-  <link rel="stylesheet" href="{resolve_url(page_path, '/assets/site-refresh.css')}">
-  {extra_head}
-</head>
-<body>
-  <header class="site-header">
+    Built from the path inside OUTPUT_DIR — resolve_url() returns relative
+    links, which used to collapse every canonical to "github.io./".
+    """
+    if page_path is None:
+        return f"{SITE_DOMAIN}{SITE_BASE_PATH}/"
+    try:
+        rel = Path(page_path).relative_to(OUTPUT_DIR).as_posix()
+    except ValueError:
+        return f"{SITE_DOMAIN}{SITE_BASE_PATH}/"
+    if rel.endswith("index.html"):
+        rel = rel[: -len("index.html")]
+    path = "/" + rel if rel else "/"
+    return f"{SITE_DOMAIN}{SITE_BASE_PATH}{path}"
+
+
+def site_header(page_path):
+    """The one site header + nav. page() here and in build_vocal_extra, plus
+    the hand-maintained tool pages, all use this so the nav cannot drift."""
+    if not _NAV_SUBCATS:
+        set_nav_subcategories(read_instruments())
+    return f"""  <header class="site-header">
     <a class="brand" href="{resolve_url(page_path, '/')}"><img class="brand-mark" src="{resolve_url(page_path, '/assets/brand/logo.png')}" alt="" width="34" height="34"><span class="brand-text">世界聲音百科</span></a>
     <nav>
       <div class="nav-dropdown">
@@ -497,8 +446,10 @@ def page(title, body, page_path=None, meta_extra="", extra_head="", meta_descrip
         </div>
       </div>
       <div class="nav-dropdown">
-        <a href="{resolve_url(page_path, '/vocal/')}" class="dropdown-trigger">學習</a>
+        <a href="{resolve_url(page_path, '/learn/')}" class="dropdown-trigger">學習</a>
         <div class="dropdown-menu">
+          <a href="{resolve_url(page_path, '/learn/')}" style="font-weight:700;">學習總覽</a>
+          <hr style="margin:4px 0;border:none;border-top:1px solid var(--line);">
           <a href="{resolve_url(page_path, '/vocal/')}"><strong>人聲與歌唱</strong>　初階 15 堂・進階 35 堂</a>
           <a href="{resolve_url(page_path, '/digitalmusic/')}"><strong>錄音後製</strong>　基礎 15 堂・進階 15 堂</a>
           <a href="{resolve_url(page_path, '/theory/')}"><strong>樂理基礎</strong>　五階段</a>
@@ -513,32 +464,123 @@ def page(title, body, page_path=None, meta_extra="", extra_head="", meta_descrip
           <a href="{resolve_url(page_path, '/experience/')}">🎧 體驗</a>
         </div>
       </div>
-      <a href="{resolve_url(page_path, '/about/')}">關於</a>
+      <div class="nav-dropdown">
+        <a href="{resolve_url(page_path, '/about/')}" class="dropdown-trigger">關於</a>
+        <div class="dropdown-menu">
+          <a href="{resolve_url(page_path, '/about/')}">關於世界聲音百科</a>
+          <a href="{resolve_url(page_path, '/about/author/')}">作者</a>
+          <a href="{resolve_url(page_path, '/recruit/')}">招募夥伴</a>
+        </div>
+      </div>
       <a href="{resolve_url(page_path, '/contact/')}">聯絡我們</a>
     </nav>
     <button id="theme-toggle" class="theme-toggle" aria-label="切換色調">🎋</button>
   </header>
-  {body}
-  <footer class="site-footer">
+  <div class="site-banner" role="img" aria-label="世界聲音百科 — 木質工作室裡的吉他、曼陀林、鋼琴與麥克風"></div>"""
+
+
+def site_footer(page_path):
+    return f"""  <footer class="site-footer">
     <div class="footer-inner">
       <span>世界聲音百科 — 世界樂器、人聲與音樂文化的旅圖</span>
       <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
       <nav class="footer-nav">
         <a href="{resolve_url(page_path, '/')}">首頁</a>
         <a href="{resolve_url(page_path, '/sound-journey/')}">聲音旅圖</a>
+        <a href="{resolve_url(page_path, '/learn/')}">學習</a>
         <a href="{resolve_url(page_path, '/vocal/')}">人聲與歌唱</a>
-	      <a href="{resolve_url(page_path, '/digitalmusic/')}">錄音後製</a>
+        <a href="{resolve_url(page_path, '/digitalmusic/')}">錄音後製</a>
         <a href="{resolve_url(page_path, '/categories/')}">分類</a>
         <a href="{resolve_url(page_path, '/countries/')}">國家</a>
         <a href="{resolve_url(page_path, '/subcategories/')}">子分類</a>
         <a href="{resolve_url(page_path, '/ensembles/')}">合奏百科</a>
         <a href="{resolve_url(page_path, '/theory/')}">樂理基礎</a>
         <a href="{resolve_url(page_path, '/mandolin/')}">曼陀林專區</a>
+        <a href="{resolve_url(page_path, '/about/')}">關於</a>
+        <a href="{resolve_url(page_path, '/recruit/')}">招募夥伴</a>
         <a href="{resolve_url(page_path, '/contact/')}">聯絡我們</a>
         <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
       </nav>
     </div>
-  </footer>
+  </footer>"""
+
+
+def page(title, body, page_path=None, meta_extra="", extra_head="", meta_description="", meta_keywords="", csp=None):
+    if csp is None:
+        csp = (
+            "default-src 'self'; "
+            "img-src 'self' https: data:; "
+            "style-src 'self' 'unsafe-inline'; "
+            "script-src 'self' 'unsafe-inline'; "
+            "connect-src 'self'; "
+            "frame-src https://www.youtube-nocookie.com https://www.youtube.com; "
+            "base-uri 'self'; form-action 'self'; object-src 'none'"
+        )
+    keywords_default = "隔壁織音人,世界樂器,世界樂器百科,世界聲音百科,樂器教學,歌唱教學,錄音後製,吉他教學,鋼琴教學,基礎樂理,音樂知識,民族樂器,傳統樂器,電子樂器,打擊樂器,管樂器,弦樂器,鍵盤樂器"
+    kw = meta_keywords or keywords_default
+    desc = meta_description or "世界聲音百科 by 隔壁織音人 — 收錄世界各國樂器、人聲歌唱教學、錄音後製知識與基礎樂理。從傳統民族樂器到現代電子樂器，提供樂器介紹、聆賞示範、演奏教學與文化背景。循著聲音，走進不同文化的現場。"
+    canonical_url = canonical_for(page_path)
+    og_image = f"{SITE_DOMAIN}{SITE_BASE_PATH}/assets/brand/banner.webp"
+    jsonld = f'''{{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "世界聲音百科",
+  "alternateName": "World Sound Encyclopedia",
+  "url": "https://soundweavers-music.github.io/",
+  "description": "{escape(desc)}",
+  "author": {{
+    "@type": "Person",
+    "name": "隔壁織音人",
+    "url": "https://www.youtube.com/@NextDoorSoundWeavers/"
+  }},
+  "potentialAction": {{
+    "@type": "SearchAction",
+    "target": {{
+      "@type": "EntryPoint",
+      "urlTemplate": "https://soundweavers-music.github.io/?q={{search_term_string}}"
+    }},
+    "query-input": "required name=search_term_string"
+  }},
+  "sameAs": [
+    "https://www.youtube.com/@NextDoorSoundWeavers/"
+  ]
+}}'''
+    seo_tags = f'''<meta name="description" content="{escape(desc)}">
+<meta name="keywords" content="{escape(kw)}">
+<link rel="canonical" href="{canonical_url}">
+<script type="application/ld+json">{jsonld}</script>'''''
+    if "og:title" not in meta_extra:
+        seo_tags += f'''
+<meta property="og:title" content="{escape(title) if "|" in title or "｜" in title else escape(title) + "｜世界聲音百科"}">
+<meta property="og:description" content="{escape(desc)}">
+<meta property="og:image" content="{og_image}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{canonical_url}">'''
+    _dm_head = '<script>!function(){try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);else document.documentElement.setAttribute("data-theme","nextdoor")}catch(e){}}()</script>'
+    _dm_foot = '<script>(function(){var t=document.getElementById("theme-toggle"),d=document.documentElement;var I={nextdoor:"🎋",light:"🌤",dark:"🌙"};function s(m){d.setAttribute("data-theme",m);if(t)t.textContent=I[m]||"🎋";try{localStorage.setItem("theme",m)}catch(e){}}var v=(localStorage.getItem("theme")||"nextdoor");s(v);if(t)t.addEventListener("click",function(){var c=d.getAttribute("data-theme");s(c==="nextdoor"?"light":c==="light"?"dark":"nextdoor")});})();</script>'
+
+    return f"""<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer-when-downgrade">
+  <meta http-equiv="Content-Security-Policy" content="{csp}">
+  <meta name="google-site-verification" content="AzedQ-PxUmSW7_0jyEHmHCKgN2nIK0Bio5d6LCsJTtE">
+  <title>{escape(title) if "|" in title or "｜" in title else escape(title) + "｜世界聲音百科"}</title>
+  {seo_tags}
+  {meta_extra}
+  {_dm_head}
+  <link rel="icon" href="{resolve_url(page_path, '/assets/brand/favicon.png')}" type="image/png">
+  <link rel="apple-touch-icon" href="{resolve_url(page_path, '/assets/brand/logo.png')}">
+  <link rel="stylesheet" href="{resolve_url(page_path, '/assets/site.css')}">
+  <link rel="stylesheet" href="{resolve_url(page_path, '/assets/site-refresh.css')}">
+  {extra_head}
+</head>
+<body>
+  {site_header(page_path)}
+  {body}
+  {site_footer(page_path)}
   <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="{resolve_url(page_path, '/assets/search.js')}"></script>
     <script src="{resolve_url(page_path, '/assets/random-instrument.js')}"></script>
@@ -1870,7 +1912,8 @@ def build_sitemap(instruments):
                  "/countries/", "/ensembles/", "/subcategories/", "/map/",
                  "/about/", "/theory/", "/vocal/", "/digitalmusic/",
                  "/sound-journey/", "/experience/", "/contact/",
-                 "/chord-detection/", "/tools/fretboard/"]:
+                 "/chord-detection/", "/tools/fretboard/", "/tools/experience/",
+                 "/learn/", "/about/author/", "/recruit/", "/mandolin/"]:
         urls.append(u(path))
 
     # Instrument detail pages
@@ -1899,6 +1942,12 @@ def build_sitemap(instruments):
     # Digital music lesson pages (generated by build_vocal_extra.py)
     for i in range(1, 31):  # 1–30
         urls.append(u(f"/digitalmusic/{i}/"))
+
+    # Mandolin chapters (generated by build_mandolin.py)
+    mand_index = BASE_DIR / "content" / "mandolin" / "_index.json"
+    if mand_index.exists():
+        for ch in json.loads(mand_index.read_text(encoding="utf-8")):
+            urls.append(u(f"/mandolin/{ch['slug']}/"))
 
     # Sound journey pages
     urls.append(u("/sound-journey/all/"))
@@ -1935,7 +1984,7 @@ def build_map_page(instruments):
 
     slugs_json = json.dumps([i["slug"] for i in instruments], ensure_ascii=False)
 
-    extra = '<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">'
+    extra = f'<link rel="stylesheet" href="{resolve_url(page_dir_ / "index.html", "/assets/vendor/leaflet/leaflet.css")}">'
     body = f"""<main class="page">
   <section class="compact-hero">
     <p class="eyebrow">Geography</p>
@@ -1945,7 +1994,7 @@ def build_map_page(instruments):
   <div id="world-map" class="world-map"></div>
   <p class="map-hint">每個圓點代表一個地區的樂器數量，點擊可查看該地區樂器列表。</p>
 </main>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script src="{resolve_url(page_dir_ / "index.html", "/assets/vendor/leaflet/leaflet.js")}"></script>
 <script>
 (function() {{
   var mapData = {map_json};
@@ -2104,8 +2153,8 @@ def build_manager_page(instruments):
 
     body = """<main class="page" style="max-width:720px;">
   <section class="compact-hero">
-    <p class="eyebrow">Management</p>
-    <h1>管理者頁面</h1>
+    <p class="eyebrow">Data &amp; Downloads</p>
+    <h1>資料下載與轉檔</h1>
   </section>
 
   <div id="manage-app">
@@ -2168,27 +2217,12 @@ def build_manager_page(instruments):
 
 </main>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="../assets/vendor/xlsx.full.min.js"></script>
+<script src="../assets/vendor/jszip.min.js"></script>
 <script>
 (function() {
-  if (sessionStorage.getItem('manage_pass') === 'ok') {
-    document.getElementById('manage-locked').style.display = 'none';
-    document.getElementById('manage-app').style.display = 'block';
-  } else {
-    document.getElementById('manage-locked').style.display = 'block';
-    document.getElementById('manage-app').style.display = 'none';
-    setTimeout(function() {
-      var c = prompt('管理者密碼：');
-      if (c && c === atob('NTIwMTMxNA==')) {
-        sessionStorage.setItem('manage_pass', 'ok');
-        document.getElementById('manage-locked').style.display = 'none';
-        document.getElementById('manage-app').style.display = 'block';
-      } else if (c !== null) {
-        document.getElementById('password-error').textContent = '密碼錯誤';
-      }
-    }, 200);
-  }
+  // No password gate: everything this page offers is public anyway, and a
+  // client-side password check is a pattern phishing scanners flag.
 
   function slugify(name) {
     if (!name) return 'instrument';
@@ -2280,32 +2314,38 @@ def build_manager_page(instruments):
   });
 })();
 </script>"""
-    write(page_dir_ / "index.html", page("管理者頁面", body, page_dir_ / "index.html", meta_extra='<meta name="robots" content="noindex">'))
+    write(page_dir_ / "index.html", page("資料下載與轉檔", body, page_dir_ / "index.html", meta_extra='<meta name="robots" content="noindex">'))
 
+
+
+ABOUT_TABS = [("/about/", "關於世界聲音百科"), ("/about/author/", "作者"), ("/recruit/", "招募夥伴")]
+
+
+def about_tabs(page_path, current):
+    links = []
+    for target, label in ABOUT_TABS:
+        cur = ' aria-current="page"' if target == current else ""
+        links.append(f'<a href="{resolve_url(page_path, target)}"{cur}>{label}</a>')
+    return f'<nav class="page-tabs" aria-label="關於">{"".join(links)}</nav>'
+
+
+def banner_hero(eyebrow, title, lead):
+    """The brand banner as a landing-page hero (see .banner-hero in site-refresh.css)."""
+    return f"""<section class="banner-hero">
+    <div class="banner-hero-inner">
+      <p class="eyebrow">{eyebrow}</p>
+      <h1>{title}</h1>
+      <p class="lead">{lead}</p>
+    </div>
+  </section>"""
 
 
 def build_about_page():
-    """Build the About page with website info and author details."""
-    page_dir_ = OUTPUT_DIR / "about"
-    page_dir_.mkdir(parents=True, exist_ok=True)
-    bg_url = "https://yt3.googleusercontent.com/6nBZ7RVoXGMH2fuMPWiju_tpAET9D-qVkOhg1HjGqh8m9EaO-u9wO_oHVA12Sy0DzoKn7mGVmA=w1707-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj"
-    # Copy author logo into output assets
-    src_logo = BASE_DIR / "static" / "author-logo.jpg"
-    dst_logo = OUTPUT_DIR / "assets" / "author-logo.jpg"
-    dst_logo.parent.mkdir(parents=True, exist_ok=True)
-    if src_logo.exists():
-        import shutil as _shutil
-        _shutil.copy2(str(src_logo), str(dst_logo))
-    logo_url = resolve_url(page_dir_ / "index.html", "/assets/author-logo.jpg")
+    """/about/ (the site) and /about/author/ (隔壁織音人) as two tabs."""
+    about_path = OUTPUT_DIR / "about" / "index.html"
     body = f"""<main class="about-page">
-  <section class="about-hero" style="background:linear-gradient(135deg,rgba(0,0,0,0.7),rgba(0,0,0,0.4)),url({bg_url}) center/cover no-repeat;">
-    <div class="about-hero-content">
-      <p class="about-eyebrow">World Musical Instruments Encyclopedia</p>
-      <h1>關於世界聲音百科</h1>
-      <p class="about-subtitle">循著聲音，走進不同文化的現場</p>
-    </div>
-  </section>
-
+  {banner_hero("About World Sound Encyclopedia", "關於世界聲音百科", "循著聲音，走進不同文化的現場")}
+  {about_tabs(about_path, "/about/")}
   <div class="about-body">
     <section class="about-section">
       <h2>創建網站理念</h2>
@@ -2318,7 +2358,7 @@ def build_about_page():
 
         <h3 style="font-size:18px;margin:1.5em 0 .5em;color:var(--ink);">AI 輔助與知識查證</h3>
         <p>我們深知知識的準確性是百科的核心。網站內容由我們的核心團隊整理，並結合人工智慧（AI）技術進行交叉比對與查證，確保資料的深度與脈絡的一致性。</p>
-        <p>儘管我們竭力追求精確，但在龐大的知識建置過程中，難免會有遺漏或錯誤。若您在閱讀過程中發現任何資訊有誤，或有更精準的見解，非常歡迎透過網站的回饋機制告訴我們。您的參與，是讓這份知識地圖更完整的關鍵。</p>
+        <p>儘管我們竭力追求精確，但在龐大的知識建置過程中，難免會有遺漏或錯誤。若您在閱讀過程中發現任何資訊有誤，或有更精準的見解，非常歡迎透過<a href="{resolve_url(about_path, '/contact/')}">聯絡頁面</a>告訴我們。您的參與，是讓這份知識地圖更完整的關鍵。</p>
 
         <h3 style="font-size:18px;margin:1.5em 0 .5em;color:var(--ink);">三位一體的聲音知識地圖</h3>
         <p>隨著發展，我們意識到音樂的本質是由三個面向構成的：</p>
@@ -2328,38 +2368,143 @@ def build_about_page():
           <li><strong>錄音後製（聲音的塑造）</strong>：無論是宅錄 DEMO、Podcast 收音，還是進階的混音與母帶處理，我們規劃了從器材指南到製作觀念的實戰指南，幫助您將作品打磨得更臻完美。</li>
         </ul>
         <p>從樂器、人聲到後製，我們將這三個面向整合在同一個平台上，讓音樂的學習不再是碎片化的，而是一幅互相連結的完整知識圖譜。無論您是音樂創作者、教育工作者、學生，還是對聲音感到好奇的探索者，這裡都有適合您的章節。</p>
-        <p style="margin-top:20px;padding:14px 18px;background:var(--accent);color:#fff;border-radius:8px;display:inline-block;font-weight:700;">創站日期：2026 年 6 月 25 日</p>
+        <p style="margin-top:20px;padding:12px 18px;background:var(--accent-soft);color:var(--accent2);border-radius:3px;display:inline-block;font-weight:700;letter-spacing:.04em;">創站日期：2026 年 6 月 25 日</p>
       </div>
     </section>
+    <div class="about-cta">
+      <p>想認識網站背後的人？</p>
+      <a class="btn-ghost" href="{resolve_url(about_path, '/about/author/')}">認識作者 →</a>
+    </div>
+  </div>
+</main>"""
+    write(about_path, page("關於世界聲音百科", body, about_path,
+          meta_description="世界聲音百科的創建理念：整理世界樂器、人聲歌唱與錄音後製知識，結合 AI 交叉查證，建立互相連結的聲音知識地圖。"))
 
+    author_path = OUTPUT_DIR / "about" / "author" / "index.html"
+    avatar = resolve_url(author_path, "/assets/brand/author.webp")
+    body = f"""<main class="about-page">
+  {banner_hero("About the Author", "作者・隔壁織音人", "隔壁音樂工作室 Next Door Music 的音樂團體")}
+  {about_tabs(author_path, "/about/author/")}
+  <div class="about-body">
     <section class="about-section">
-      <h2>作者</h2>
+      <h2>隔壁織音人</h2>
       <div class="about-author">
-        <img class="author-avatar" src="{logo_url}" alt="隔壁織音人" loading="lazy">
+        <img class="author-avatar" src="{avatar}" alt="隔壁織音人" width="400" height="400" loading="lazy">
         <div class="author-info">
-          <h3>隔壁織音人</h3>
-          <p>為隔壁音樂工作室 Next Door Music 的音樂團體</p>
+          <p>為隔壁音樂工作室 Next Door Music 的音樂團體。</p>
           <p>隔壁音樂匯聚熱愛音樂夥伴的創意單位。我們將每位合作夥伴視為珍貴的「音樂鄰居」，在此紀錄彼此的創作火花。</p>
           <p>我們致力探索音符的無限可能，打造高品質聽覺體驗，並提供專業音樂製作服務。</p>
+          <p><a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">YouTube 頻道：隔壁織音人 ↗</a></p>
         </div>
       </div>
     </section>
 
-    <div class="about-grid">
-      <section class="about-section">
-        <h2>服務項目 Service</h2>
-        <ul class="service-list">
-          <li><span class="service-icon">🎵</span>編曲製作｜翻唱改編．風格重塑</li>
-          <li><span class="service-icon">🎼</span>詞曲訂製｜原創詞曲</li>
-          <li><span class="service-icon">🎚️</span>後期處理｜人聲修音．混音</li>
-          <li><span class="service-icon">🎤</span>人聲錄製｜DEMO 代唱．導唱</li>
-        </ul>
-      </section>
-
+    <section class="about-section">
+      <h2>服務項目 Service</h2>
+      <ul class="service-list">
+        <li><span class="service-icon">🎵</span>編曲製作｜翻唱改編．風格重塑</li>
+        <li><span class="service-icon">🎼</span>詞曲訂製｜原創詞曲</li>
+        <li><span class="service-icon">🎚️</span>後期處理｜人聲修音．混音</li>
+        <li><span class="service-icon">🎤</span>人聲錄製｜DEMO 代唱．導唱</li>
+      </ul>
+    </section>
+    <div class="about-cta">
+      <p>有音樂製作需求，或想成為我們的音樂鄰居？</p>
+      <span class="about-cta-actions">
+        <a class="btn-wood" href="{resolve_url(author_path, '/recruit/')}">招募夥伴</a>
+        <a class="btn-ghost" href="{resolve_url(author_path, '/contact/')}">聯絡我們</a>
+      </span>
     </div>
   </div>
 </main>"""
-    write(page_dir_ / "index.html", page("關於", body, page_dir_ / "index.html", meta_description="世界聲音百科的創建理念、作者介紹與服務項目。收錄世界樂器、人聲歌唱教學、音樂理論與錄音製作知識。"))
+    write(author_path, page("作者・隔壁織音人", body, author_path,
+          meta_description="隔壁織音人 — 隔壁音樂工作室 Next Door Music 的音樂團體，提供編曲製作、詞曲訂製、人聲修音混音與 DEMO 代唱服務。"))
+
+
+def build_recruit_page():
+    """/recruit/: open calls for songwriters and session vocalists."""
+    path = OUTPUT_DIR / "recruit" / "index.html"
+    mail = "nextdoor20250726@gmail.com"
+    mailto = f"mailto:{mail}?subject=%E6%8B%9B%E5%8B%9F%E5%A0%B1%E5%90%8D"  # 招募報名
+    body = f"""<main class="about-page">
+  {banner_hero("Join Us", "招募夥伴", "成為隔壁的音樂鄰居——我們正在尋找詞曲創作與人聲配唱夥伴，一起把作品做出來。")}
+  {about_tabs(path, "/recruit/")}
+  <div class="hub-page">
+    <div class="hub-grid">
+      <section class="hub-card">
+        <span class="hub-icon">🎼</span>
+        <h2>音樂詞曲創作</h2>
+        <p>為原創歌曲、翻唱改編與合作企劃撰寫詞曲。</p>
+        <ul>
+          <li>能獨立完成作詞、作曲，或其中之一</li>
+          <li>有完成的作品 DEMO（手機錄音、簡譜、歌詞稿皆可）</li>
+          <li>不限曲風：流行、民謠、搖滾、世界音樂都歡迎</li>
+          <li>樂於溝通修改，能配合專案時程</li>
+        </ul>
+        <span class="hub-meta">遠端合作・依專案計酬或分潤</span>
+      </section>
+      <section class="hub-card">
+        <span class="hub-icon">🎤</span>
+        <h2>人聲配唱夥伴</h2>
+        <p>為 DEMO、導唱、原創作品與影片配樂演唱。</p>
+        <ul>
+          <li>音準、節奏穩定，能依指示調整情緒與咬字</li>
+          <li>具備基本自錄能力尤佳（麥克風＋錄音介面）</li>
+          <li>男聲、女聲、各音域與聲線皆歡迎</li>
+          <li>可接受錄音室或遠端錄音</li>
+        </ul>
+        <span class="hub-meta">遠端或錄音室・依專案計酬</span>
+      </section>
+    </div>
+
+    <section class="about-section recruit-how">
+      <h2>如何報名</h2>
+      <ol class="recruit-steps">
+        <li>寄信至 <a href="{mailto}">{mail}</a>，主旨註明「招募報名｜詞曲創作」或「招募報名｜人聲配唱」。</li>
+        <li>信中簡單介紹自己（稱呼、所在地、擅長曲風、可合作的時段）。</li>
+        <li>附上 1–3 首作品連結（YouTube、SoundCloud、雲端硬碟皆可），請勿直接附加大型檔案。</li>
+        <li>我們會在 7 個工作日內回覆，合適的夥伴會進一步安排線上討論。</li>
+      </ol>
+      <p class="hub-note">我們只會透過上述 Email 聯繫，不會向報名者收取任何費用，也不會索取身分證件或銀行帳戶資料。若有人以本站名義要求付費，請勿理會並來信告知。</p>
+      <div class="about-cta">
+        <p>準備好了嗎？寄出你的作品，一起合作吧。</p>
+        <a class="btn-wood" href="{mailto}">✉️ Email 報名</a>
+      </div>
+    </section>
+  </div>
+</main>"""
+    write(path, page("招募夥伴｜詞曲創作・人聲配唱", body, path,
+          meta_description="隔壁織音人招募音樂詞曲創作與人聲配唱夥伴，遠端或錄音室合作，依專案計酬。透過 Email 寄送作品即可報名。"))
+
+
+def build_learn_page():
+    """/learn/: hub for the four course areas the 學習 menu points to."""
+    path = OUTPUT_DIR / "learn" / "index.html"
+    courses = [
+        ("/vocal/", "🎤", "人聲與歌唱", "從發聲啟蒙、身體覺察到混聲技術，系統化的流行歌唱教學，搭配研究專欄深入聲學與製作觀點。", "初階 15 堂・進階 35 堂"),
+        ("/digitalmusic/", "🎛", "錄音後製", "從宅錄建置、錄音與混音基礎，到音色雕塑、曲風實戰與母帶後期的完整課程。", "基礎 15 堂・進階 15 堂"),
+        ("/theory/", "🎼", "樂理基礎", "譜號、節拍、拍號、音調、音域與發聲原理，分五個階段建立紮實的音樂理論基礎。", "前言＋五階段"),
+        ("/mandolin/", "🪕", "曼陀林專區", "22 章中文曼陀林知識庫：琴型歷史、構造製琴、演奏技法、曲風合奏與專輯導聆，附學習建議時數。", "22 章・建議約 28.5 小時"),
+    ]
+    cards = "\n".join(
+        f"""      <a class="hub-card" href="{resolve_url(path, href)}">
+        <span class="hub-icon">{icon}</span>
+        <h2>{name}</h2>
+        <p>{desc}</p>
+        <span class="hub-meta">{meta} →</span>
+      </a>""" for href, icon, name, desc, meta in courses)
+    body = f"""<main>
+  {banner_hero("Learn", "學習", "人聲、錄音、樂理與曼陀林——挑一條路開始，按自己的節奏前進。")}
+  <div class="hub-page">
+    <div class="hub-grid">
+{cards}
+    </div>
+    <p class="hub-note">每個課程都可以單獨閱讀；第一次來的話，建議從「樂理基礎」的前言開始，再依興趣進入人聲或錄音課程。</p>
+  </div>
+</main>"""
+    write(path, page("學習", body, path,
+          meta_description="世界聲音百科學習專區：人聲與歌唱、錄音後製、樂理基礎、曼陀林專區四大課程總覽。"))
+
 
 def get_theory_data():
     """Stub - theory data now read from content/musictheory/*.md by build_vocal_extra.py"""
@@ -2501,7 +2646,30 @@ def build_fretboard_tool():
     src = BASE_DIR / "tools" / "fretboard" / "index.html"
     page_dir = OUTPUT_DIR / "tools" / "fretboard"
     page_dir.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(str(src), str(page_dir / "index.html"))
+    out = page_dir / "index.html"
+    write(out, with_site_chrome(src.read_text(encoding="utf-8"), out))
+
+
+def with_site_chrome(html, page_path):
+    """Swap a hand-maintained page's header/footer for the current ones.
+
+    Pages kept as standalone HTML (the fretboard tool) carry a frozen copy of
+    the nav from whenever they were last edited; replacing it at build time
+    keeps every page on the same menu.
+    """
+    html = re.sub(r'[ 	]*<header class="site-header">.*?</header>',
+                  lambda _: site_header(page_path), html, count=1, flags=re.S)
+    html = re.sub(r'[ 	]*<footer class="site-footer">.*?</footer>',
+                  lambda _: site_footer(page_path), html, count=1, flags=re.S)
+    refresh = resolve_url(page_path, "/assets/site-refresh.css")
+    if "site-refresh.css" not in html:
+        site_css = resolve_url(page_path, "/assets/site.css")
+        html = html.replace(
+            f'<link rel="stylesheet" href="{site_css}">',
+            f'<link rel="icon" href="{resolve_url(page_path, "/assets/brand/favicon.png")}" type="image/png">\n'
+            f'  <link rel="stylesheet" href="{site_css}">\n'
+            f'  <link rel="stylesheet" href="{refresh}">', 1)
+    return html
 
 
 def build_chord_detection_tool():
@@ -2535,17 +2703,17 @@ def build_chord_detection_tool():
     chord_csp = (
         "default-src 'self'; "
         "img-src 'self' https: data: blob:; "
-        "style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; "
+        "style-src 'self' 'unsafe-inline'; "
         "script-src 'self' 'unsafe-inline'; "
-        "connect-src 'self' http://127.0.0.1:* http://localhost:*; "
+        "connect-src 'self' http://127.0.0.1:8765 http://localhost:8765; "
         "frame-src https://www.youtube-nocookie.com https://www.youtube.com; "
-        "base-uri 'self'; form-action 'none'; object-src 'none'"
+        "base-uri 'self'; form-action 'self'; object-src 'none'"
     )
 
     chord_extra_head = (
         f'<style>{inline_css}</style>\n'
-        '<script src="https://cdnjs.cloudflare.com/ajax/libs/meyda/5.6.0/meyda.min.js"></script>\n'
-        f'<script src="{site_url("/scripts/_chord_library.js")}"></script>'
+        f'<script src="{resolve_url(page_dir / "index.html", "/assets/vendor/meyda.min.js")}"></script>\n'
+        f'<script src="{resolve_url(page_dir / "index.html", "/scripts/_chord_library.js")}"></script>'
     )
 
     body = f'<main class="page">\n{main_content}\n</main>\n' + f'\n<script>{inline_js}</script>\n'
@@ -2575,13 +2743,9 @@ def build_chord_detection_tool():
         meta_description="上傳音檔，自動分析節拍與和弦進行，支援指版圖顯示與和弦編輯。可選用瀏覽器分析或本地 Python 代理。",
     ))
 
-    # Copy local-agent subdirectory
-    agent_src = BASE_DIR / "chord-detection" / "local-agent"
-    agent_dst = page_dir / "local-agent"
-    if agent_src.exists():
-        if agent_dst.exists():
-            shutil.rmtree(str(agent_dst))
-        shutil.copytree(str(agent_src), str(agent_dst), dirs_exist_ok=True)
+    # chord-detection/local-agent/ (a Python program) is deliberately NOT
+    # copied into the site: serving a script and asking visitors to run it is
+    # a pattern Safe Browsing flags. The page links to its GitHub source.
 
     # Ensure chord library is in output scripts/ directory
     lib_src = BASE_DIR / "scripts" / "_chord_library.js"
@@ -2597,11 +2761,11 @@ def build_experience_page():
     tools_dir = OUTPUT_DIR / "tools" / "experience"
     tools_dir.mkdir(parents=True, exist_ok=True)
     body = '''<main>
-  <section class="about-hero" style="background:linear-gradient(135deg,rgba(0,0,0,0.7),rgba(0,0,0,0.4)),url(https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=1200) center/cover no-repeat;margin:0 0 32px;">
-    <div class="about-hero-content">
-      <p class="about-eyebrow">Sound Experience</p>
-      <h1 style="color:#fff;">體驗聲音</h1>
-      <p class="about-subtitle" style="color:rgba(255,255,255,0.9);">不只是看介紹，更要親耳聆聽</p>
+  <section class="banner-hero">
+    <div class="banner-hero-inner">
+      <p class="eyebrow">Sound Experience</p>
+      <h1>體驗聲音</h1>
+      <p class="lead">不只是看介紹，更要親耳聆聽</p>
     </div>
   </section>
   <div class="about-body">
@@ -2627,7 +2791,7 @@ def build_experience_page():
           <div class="exp-card-content">
             <h3>世界樂器合輯 — 聲音展示</h3>
             <p>一次聆聽來自世界各地的代表性樂器。</p>
-            <a class="btn-line" href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener" style="display:inline-flex;">▶ 前往頻道聆聽</a>
+            <a class="btn-wood" href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">▶ 前往頻道聆聽</a>
           </div>
         </div>
         <div class="exp-card">
@@ -2635,7 +2799,7 @@ def build_experience_page():
           <div class="exp-card-content">
             <h3>彈撥樂器系列</h3>
             <p>從吉他、琵琶到西塔琴，探索世界各地的彈撥樂器演奏。</p>
-            <a class="btn-line" href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener" style="display:inline-flex;">▶ 前往頻道聆聽</a>
+            <a class="btn-wood" href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">▶ 前往頻道聆聽</a>
           </div>
         </div>
         <div class="exp-card">
@@ -2643,7 +2807,7 @@ def build_experience_page():
           <div class="exp-card-content">
             <h3>弓弦樂器系列</h3>
             <p>小提琴、二胡、胡琴——感受弓弦樂器從東西方的細膩情感。</p>
-            <a class="btn-line" href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener" style="display:inline-flex;">▶ 前往頻道聆聽</a>
+            <a class="btn-wood" href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">▶ 前往頻道聆聽</a>
           </div>
         </div>
         <div class="exp-card">
@@ -2651,7 +2815,7 @@ def build_experience_page():
           <div class="exp-card-content">
             <h3>打擊樂器系列</h3>
             <p>鼓、鑼、木琴——從節奏中感受音樂最原始的力量。</p>
-            <a class="btn-line" href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener" style="display:inline-flex;">▶ 前往頻道聆聽</a>
+            <a class="btn-wood" href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">▶ 前往頻道聆聽</a>
           </div>
         </div>
       </div>
@@ -2668,7 +2832,7 @@ def build_experience_page():
     <section class="about-section" style="text-align:center;padding:32px;border:1px solid var(--line);border-radius:12px;background:var(--surface);">
       <h2 style="border-bottom:none;display:block;">準備好開始探索了嗎？</h2>
       <p style="color:var(--muted);margin:0 0 20px;font-size:16px;">瀏覽完整樂器列表，發掘更多聲音</p>
-      <a class="btn-line" href="''' + site_url("/instruments/") + '''" style="font-size:16px;padding:12px 28px;display:inline-flex;">🔍 瀏覽全部樂器</a>
+      <a class="btn-wood" href="''' + site_url("/instruments/") + '''">🔍 瀏覽全部樂器</a>
     </section>
   </div>
 </main>'''
@@ -2721,6 +2885,8 @@ def main():
     build_index(instruments)
     build_map_page(instruments)
     build_about_page()
+    build_recruit_page()
+    build_learn_page()
     build_sound_journey_pages()
     build_theory_page()
     build_manager_page(instruments)
@@ -2760,7 +2926,7 @@ def main():
     out_assets = OUTPUT_DIR / "assets"
     if out_assets.exists():
         for fname in ["instruments_database.xlsx", "site.css", "site-refresh.css", "search.js",
-                       "random-instrument.js", "map-data.json", "author-logo.jpg"]:
+                       "random-instrument.js", "map-data.json"]:
             src = out_assets / fname
             if src.exists():
                 shutil.copy2(str(src), str(root_assets / fname))
