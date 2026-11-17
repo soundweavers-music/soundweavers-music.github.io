@@ -64,6 +64,7 @@ python -m http.server 8899 --directory outputs/world-instruments-static
 | canonical / og:url | `canonical_for()` | 由輸出路徑算出絕對網址。 |
 | 曼陀林建議時數 | `build_mandolin.py` → `study_hours()` | 字數 ÷ 300 字/分 × 各 Part 係數（技法 2.5、專輯 2.0…），以 0.5 小時為單位進位。 |
 | 合奏與編制百科 | `content/ensembles/*.md` → `build_ensembles.py` | 七類 40 篇，frontmatter（class/num/title/en/region/summary/keywords）+ 固定七節。B1–B7 分類定義在 `build_static_site.ENSEMBLE_ARCHITECTURE`，改分類只要改那裡。寫作規格見 `content/ensembles/_STYLE.md`。 |
+| 合奏條目的影片 | `scripts/fetch_ensemble_videos.py --per-entry 2` | 搜尋並篩選「真的在演這個合奏」的 YouTube 影片（排除教學、改編、器材測試、紀錄片、不可嵌入），寫入 `youtube:` frontmatter。`--set file.md=ID\ ID` 可手動指定。快取在 `work/ensemble_videos.json`。 |
 | 和弦偵測 | `chord-detection/index.html`（**原始檔**，非產出物） | `build_chord_detection_tool()` 包上站台模板。分析全部在瀏覽器內完成。`local-agent/`（Python 分析器）只留在 repo，**不部署，頁面上也不得再提到它**（見第 4 節 Safe Browsing）。 |
 | 歷年作品 | `content/discography.json` → `discography_section()` | `/about/works/` 分頁的專輯牆。資料來自 `content/歷年作品.md`；`apple` 是 Apple Music collectionId，`ytm` 是 YouTube Music 播放清單 id。新增作品後執行 `python scripts/fetch_album_covers.py` 下載封面到 `assets/brand/albums/{apple}.webp`（480px webp，本站託管）。 |
 | 世界樂器體驗 | `build_vocal_extra.py` → `/experience/` | 首頁、選單、樂器列表的「世界樂器體驗」都連到這裡。舊網址 `/tools/experience/` 只剩轉址頁。 |

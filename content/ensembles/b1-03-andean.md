@@ -6,6 +6,7 @@ en: Conjunto Andino
 region: 安地斯高原・秘魯與玻利維亞
 summary: 以排簫與恰朗哥為核心、高原社群與節慶支撐的安地斯合奏。
 keywords: 安地斯, andes, 排簫, zampoña, siku, 恰朗哥, charango, 玻利維亞, 秘魯, 瓦伊諾, huayno
+youtube: fXnq-NfOBx4
 ---
 
 ## 一句話定位

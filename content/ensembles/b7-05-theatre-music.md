@@ -6,6 +6,7 @@ en: Theatre Music Ensemble
 region: 歐洲・實驗劇場
 summary: 為舞台動作現場演奏的小型樂團，以提示點與場次而非歌曲結構組織音樂。
 keywords: 劇場音樂, 實驗劇場, 現場演奏, 提示點, 巡演編制, 場次, 戲劇配樂
+youtube: dwhgkwMNLc8 gIPy8HE5Dl4
 ---
 
 ## 一句話定位

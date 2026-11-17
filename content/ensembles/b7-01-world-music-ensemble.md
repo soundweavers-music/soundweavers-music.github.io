@@ -6,6 +6,7 @@ en: World Music Ensemble
 region: 歐洲・北美與全球化
 summary: 把不同傳統的樂器放上同一個舞台，靠改編與調音折衷運作的跨界編制。
 keywords: 世界音樂, 跨界, 改編, 調音, 音律, 科拉, 烏德, 塔布拉
+youtube: DzSJt-IcavI
 ---
 
 ## 一句話定位

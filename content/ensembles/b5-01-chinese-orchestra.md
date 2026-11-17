@@ -6,6 +6,7 @@ en: Chinese Orchestra
 region: 台灣・中國與東南亞華人圈
 summary: 把傳統樂器按交響樂團方式分組、擴充音域後組成的大型合奏。
 keywords: 國樂團, 民族管弦樂, 中樂, 華樂, 吹管, 彈撥, 拉弦, 革胡, 二胡, 琵琶, 嗩吶
+youtube: mdUev3ZLW00 yWaKNA_m-hM
 ---
 
 ## 一句話定位

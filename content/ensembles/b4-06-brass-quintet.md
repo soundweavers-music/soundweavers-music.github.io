@@ -6,6 +6,7 @@ en: Brass Quintet
 region: 歐美・現代
 summary: 兩把小號、法國號、長號、低音號，五件銅管用音域與管形撐起的室內樂編制。
 keywords: 銅管五重奏, brass quintet, 小號, 法國號, 長號, 低音號, 室內樂
+youtube: sJt4b8eeeIU AT62eZKexkc
 ---
 
 ## 一句話定位

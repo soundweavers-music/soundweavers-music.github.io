@@ -6,6 +6,7 @@ en: Pit Orchestra
 region: 歐美・音樂劇產業
 summary: 藏在舞台下方、用固定小編制與兼奏樂器撐起整齣音樂劇的職業合奏。
 keywords: 樂池, pit orchestra, 音樂劇, 兼奏, click track, 指揮螢幕, 百老匯
+youtube: gIPy8HE5Dl4 0uE4MmcBncg
 ---
 
 ## 一句話定位

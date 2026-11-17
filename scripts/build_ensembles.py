@@ -52,6 +52,25 @@ def parse(text: str) -> tuple[dict, str]:
     return meta, body.strip()
 
 
+def youtube_block(video_ids: list[str]) -> str:
+    """Embedded performances, injected under 聆聽入口.
+
+    The videos are vetted by scripts/fetch_ensemble_videos.py — this function
+    only renders. If an entry has none, return "" so the page is unchanged.
+    """
+    if not video_ids:
+        return ""
+    embeds = "".join(
+        f'<div class="yt-embed"><iframe src="https://www.youtube-nocookie.com/embed/{vid}" '
+        f'title="YouTube 演出影片" frameborder="0" '
+        f'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" '
+        f'allowfullscreen loading="lazy"></iframe></div>'
+        for vid in video_ids[:2]
+    )
+    return (f'<div class="ensemble-videos"><h3>演出影片</h3>'
+            f'<div class="yt-grid">{embeds}</div></div>')
+
+
 def load_entries() -> list[dict]:
     entries = []
     for path in sorted(CONTENT_DIR.glob("b*-*.md")):
@@ -117,6 +136,14 @@ def build_entries(entries: list[dict]) -> None:
         slug = e["slug"]
         out = OUT_DIR / slug / "index.html"
         html_body = bve.markdown_to_html(e["body"], strip_first_h1=True)
+        ids = (e.get("youtube") or "").split()
+        if ids:
+            # Put the performances at the end of the listening guide, where the
+            # reader has just been told what to listen for.
+            block = youtube_block(ids)
+            m = re.search(r'<h2[^>]*>\s*常見誤解', html_body)
+            html_body = (html_body[:m.start()] + block + html_body[m.start():]
+                         if m else html_body + block)
 
         # Prev/next inside the same class, then across the whole set.
         siblings = [x["slug"] for x in classes[e["class"]][1]]

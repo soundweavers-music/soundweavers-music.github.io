@@ -872,3 +872,13 @@ a.hub-card:hover::after { transform: scaleX(1); }
 .ensemble-en { margin: 2px 0 8px; font-size: 12px; color: var(--muted); letter-spacing: .02em; }
 .ensemble-summary { margin: 0; font-size: 13.5px; line-height: 1.7; color: var(--ink2); }
 @media (max-width: 620px) { .ensemble-grid { grid-template-columns: 1fr; } }
+
+/* ── 合奏與編制百科：演出影片 ─────────────────────────────────── */
+.ensemble-videos { margin: 8px 0 28px; }
+.ensemble-videos h3 {
+  margin: 0 0 10px; font-size: 15px; font-family: var(--font-serif);
+  color: var(--ink); letter-spacing: .04em;
+}
+.ensemble-videos .yt-grid { margin: 0; gap: 12px; }
+.ensemble-videos .yt-embed { border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,.12); }
+@media (max-width: 620px) { .ensemble-videos .yt-grid { grid-template-columns: 1fr; } }

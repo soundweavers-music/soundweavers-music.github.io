@@ -6,6 +6,7 @@ en: Concert Band
 region: 歐美・現代
 summary: 沒有弦樂、以單簧管與薩克斯風重建聲部層次的大型管樂編制。
 keywords: 管樂團, concert band, 單簧管, 薩克斯風, 低音號, 行進樂隊, 學校樂團
+youtube: -r7vLpkvIdM 38rw2g3enC0
 ---
 
 ## 一句話定位

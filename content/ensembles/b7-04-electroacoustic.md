@@ -6,6 +6,7 @@ en: Electroacoustic Ensemble
 region: 歐洲・當代音樂
 summary: 把原聲樂器即時擴音與處理、並與預錄音軌對時的混合編制，音響師是團員之一。
 keywords: 電子原聲, 混合編制, 即時處理, 延遲, 固定音軌, 音響師, 當代音樂
+youtube: LjiY5eTkq8g h42jf8GZ5sY
 ---
 
 ## 一句話定位

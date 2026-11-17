@@ -6,6 +6,7 @@ en: Hogaku Ensemble
 region: 日本
 summary: 以箏、三味線、尺八為核心、在合奏與獨奏之間擺盪的日本傳統合奏。
 keywords: 邦樂, 三曲合奏, 箏, 三味線, 尺八, 地歌, 箏曲, 邦樂管弦樂團, 日本傳統音樂
+youtube: YBPuPOQDoT0 _f-xRGHsRkc
 ---
 
 ## 一句話定位

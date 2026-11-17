@@ -6,6 +6,7 @@ en: Film Scoring Session Orchestra
 region: 好萊塢・全球
 summary: 為影像錄音的臨時管弦樂團，靠讀譜速度、節拍器與隔離錄音在錄音棚裡完成配樂。
 keywords: 影視配樂, 錄音室樂團, 讀譜, 節拍器, 對片同步, 隔離錄音, 配樂棚
+youtube: LMKRE8NIk3E pdmOdy9kwCc
 ---
 
 ## 一句話定位

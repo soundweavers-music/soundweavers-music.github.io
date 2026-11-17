@@ -6,6 +6,7 @@ en: Balkan Brass Band
 region: 巴爾幹半島・塞爾維亞與北馬其頓
 summary: 以擴充編制的銅管加上大鼓與小鼓，在婚禮與慶典中演奏不對稱節奏的樂隊。
 keywords: 巴爾幹, 銅管樂隊, brass band, 塞爾維亞, 北馬其頓, 小號, 大鼓, 不對稱節奏, 婚禮
+youtube: HXTFo3ydQt8 QuDxRXGZzJk
 ---
 
 ## 一句話定位

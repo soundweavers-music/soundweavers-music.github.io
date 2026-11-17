@@ -6,6 +6,7 @@ en: String Quartet
 region: 歐洲・維也納古典傳統
 summary: 兩把小提琴、中提琴、大提琴，四個平等聲部、沒有指揮的室內樂編制。
 keywords: 弦樂四重奏, string quartet, 第一小提琴, 第二小提琴, 中提琴, 大提琴, 室內樂
+youtube: mBmCcSz6HWw
 ---
 
 ## 一句話定位
