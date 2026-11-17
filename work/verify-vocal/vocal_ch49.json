@@ -1,0 +1,36 @@
+{
+ "file": "vocal_ch49.md",
+ "title": "[歌唱教學] 進階 第 49 章：突破瓶頸期：當練習失去方向時的自我檢視與重置清單",
+ "by_angle": {
+  "voice-science": [
+   {
+    "quote": "",
+    "kind": "error",
+    "why": "voice-science 審查失敗：Expecting ',' delimiter: line 1 column 579 (char 578)",
+    "correct": ""
+   }
+  ],
+  "acoustics": [],
+  "skeptic": [
+   {
+    "quote": "唱歌靠的是肌肉記憶",
+    "kind": "overstated",
+    "why": "發聲涉及運動學習、本體感覺、聽覺回饋與認知控制，「肌肉記憶」是過度簡化的通俗說法",
+    "correct": "唱歌靠的是運動學習（motor learning），包含肌肉協調、聽覺回饋與本體感覺的整合"
+   },
+   {
+    "quote": "第二天會覺得喉嚨有點癢，那是正常的恢復感",
+    "kind": "unsupported",
+    "why": "無法證實「停唱後第二天喉嚨癢」是普遍且可預測的生理反應，屬編造的具體時間點",
+    "correct": "刪除該句，或改為「休息期間喉嚨可能有輕微異感，屬正常」"
+   },
+   {
+    "quote": "力量在肚子還是脖子",
+    "kind": "uncertain",
+    "why": "「力量在肚子」易強化「用腹部推氣」的誤解；正確說法是腹部與肋間肌群提供受控的抗力（appoggio），而非「力量放在肚子」",
+    "correct": "改為「支撐感在身體（腹部與肋間）還是全卡在喉嚨」"
+   }
+  ]
+ },
+ "issue_count": 4
+}

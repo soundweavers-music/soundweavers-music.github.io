@@ -2915,6 +2915,10 @@ def main():
     brand_src = BASE_DIR / "assets" / "brand"
     if brand_src.exists():
         shutil.copytree(str(brand_src), str(OUTPUT_DIR / "assets" / "brand"), dirs_exist_ok=True)
+    # Vocal course diagrams
+    vocal_img = BASE_DIR / "assets" / "vocal"
+    if vocal_img.exists():
+        shutil.copytree(str(vocal_img), str(OUTPUT_DIR / "assets" / "vocal"), dirs_exist_ok=True)
     # Mandolin book images
     mand_img = BASE_DIR / "assets" / "mandolin" / "img"
     if mand_img.exists():

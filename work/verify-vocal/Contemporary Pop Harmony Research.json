@@ -1,0 +1,193 @@
+{
+ "file": "Contemporary Pop Harmony Research.md",
+ "title": "**當代流行音樂的和聲編排邏輯：從主旋律到多聲部交織**",
+ "by_angle": {
+  "voice-science": [
+   {
+    "quote": "Drew Nobile 進一步深化了此理論，將 MHD 歸納為三種語法型態",
+    "kind": "uncertain",
+    "why": "Nobile 2015 論文討論了 MHD 的對位面向，但「Hierarchy / Loop / Syntax Divorce」這三分法是否為 Nobile 原創術語，無法從其已發表文獻中確認，疑為作者自行歸納後冠以 Nobile 之名。",
+    "correct": "改為「學界將 MHD 的表現歸納為三種型態」，或明確標註此分類出自何篇文獻；若確為 Nobile 所提，應補上具體頁碼或章節。"
+   },
+   {
+    "quote": "這種手法被稱為「反向延伸」（Reverse Extensions）",
+    "kind": "uncertain",
+    "why": "de Clercq 2019 的 Harmonic-Bass Divorce 論文討論貝斯脫離上層和聲的現象，但「Reverse Extensions」作為專有名詞未見於該文，疑為編造術語。",
+    "correct": "刪除「Reverse Extensions」此專有名詞，改以一般描述（如「貝斯移至和弦根音下方」）呈現，或補上確切出處。"
+   },
+   {
+    "quote": "「三重調性複合體」（Triple-tonic complex）",
+    "kind": "uncertain",
+    "why": "此術語歸給 de Clercq（ref 9），但其 Harmonic-Bass Divorce 論文未使用「Triple-tonic complex」一詞，疑為作者自創後掛名。",
+    "correct": "改為一般說法如「大調、平行小調、關係小調三套系統並存」，不冠以特定術語與歸屬。"
+   },
+   {
+    "quote": "國內學者陳源平（2025）的研究探討了固定音與首調唱名",
+    "kind": "uncertain",
+    "why": "無法在公開學術資料庫中查證「陳源平」2025 年發表此主題論文；引用僅附一個 NTNU 論文庫集合頁連結，無具體篇名或 DOI。",
+    "correct": "補上完整論文標題、期刊／學位論文名稱與 DOI；若查無此文，應刪除該段或改為一般教學共識表述。"
+   },
+   {
+    "quote": "黃永華（2025）對於亞洲特色風格 R&B 音樂製作的研究",
+    "kind": "uncertain",
+    "why": "同樣無法查證此作者與此 2025 年研究；引用僅指向同一個 NTNU 論文庫集合頁，無具體篇名。",
+    "correct": "補上完整出處，或將內容改為不歸屬特定作者的業界共識描述。"
+   },
+   {
+    "quote": "「階梯慣性」（Step Inertia）…維持聽覺串流連續性的關鍵",
+    "kind": "misattributed",
+    "why": "「Step Inertia」是 Temperley（ref 27, Chiu & Temperley 2024）的術語，此處卻在 Huron 的 ASA 段落中出現並引 ref 15（Nobile 論文），歸屬錯亂。",
+    "correct": "將 Step Inertia 的引用改為 ref 27（Temperley），或將此概念從 Huron 段落移至 Temperley 段落。"
+   },
+   {
+    "quote": "認知心理學提出了「最小掩蔽原則」",
+    "kind": "uncertain",
+    "why": "ref 28 是 McGill 關於 Ligeti《Continuum》ASA 感知的論文，並非提出「Minimum Masking Principle」作為正式術語的文獻；此名稱疑為作者自創。",
+    "correct": "改為「心理聲學的頻率掩蔽原理」等一般說法，不冠以「最小掩蔽原則」此偽術語。"
+   },
+   {
+    "quote": "超過 6dB 的過度增益縮減會觸發「前向掩蔽」",
+    "kind": "unsupported",
+    "why": "前向掩蔽（forward masking）是心理聲學現象，但「6dB」這個閾值與壓縮器 release time 的關聯無明確文獻支持，疑為將一般混音經驗包裝成研究發現。",
+    "correct": "刪除具體數字，改為「過度壓縮可能影響聲音清晰度」等一般表述，或補上確切實驗來源。"
+   },
+   {
+    "quote": "利用代理和弦（如超過 50% 共同音的轉換）",
+    "kind": "unsupported",
+    "why": "「超過 50% 共同音」作為代理和弦的定義門檻無標準文獻出處，且大三和弦與小三和弦共享兩個音（67%）即為 P 變換，此數字表述模糊且無來源。",
+    "correct": "刪除括號內的百分比，或改為「共享兩個以上共同音的轉換」等精確音樂學描述。"
+   },
+   {
+    "quote": "和聲編排的邏輯已遠遠超越了古典時期…典範轉移",
+    "kind": "uncertain",
+    "why": "「典範轉移」一詞暗示 Kuhn 式科學革命，用於描述流行和聲演變屬修辭誇張，非可查證的學術斷言；且此處無具體文獻支撐。",
+    "correct": "改為「和聲編排邏輯已大幅偏離功能性傳統」等中性表述，避免借用庫恩術語製造虛假權威感。"
+   }
+  ],
+  "acoustics": [
+   {
+    "quote": "超過 6dB 的過度增益縮減會觸發「前向掩蔽」",
+    "kind": "unsupported",
+    "why": "前向掩蔽（forward masking）是真實心理聲學現象，但「6dB 增益縮減」作為觸發閾值無任何文獻支持；前向掩蔽取決於掩蔽聲的強度與時間間隔，而非壓縮器的 gain reduction 量。",
+    "correct": "刪除「超過 6dB」的具體數字，改為一般性描述：「過度壓縮使瞬態衰減後快速回升，可能干擾聽覺系統對後續音的解析」。"
+   },
+   {
+    "quote": "釋放時間必須設定在 100-400 毫秒…掩蔽效應中恢復",
+    "kind": "unsupported",
+    "why": "前向掩蔽的恢復時間在心理聲學文獻中通常為 50–200 ms，而非 100–400 ms；且壓縮器 release 時間的設定是工程經驗法則，並非由「聽覺掩蔽恢復窗口」直接決定。",
+    "correct": "改為「常見混音實務建議 release 設於 100–400 ms 以維持自然感」，刪除與掩蔽恢復時間的因果歸因。"
+   },
+   {
+    "quote": "「階梯慣性」（Step Inertia）…維持聽覺串流連續性",
+    "kind": "misattributed",
+    "why": "Step Inertia 是 David Temperley（2024, 見 ref 27）提出的旋律建模概念，非 Huron 的研究發現；Huron 討論的是 pitch proximity 等 ASA 原則。",
+    "correct": "將「階梯慣性」的歸屬改為 Temperley，或刪除該術語的具體人名歸屬，改為「旋律認知研究指出」。"
+   },
+   {
+    "quote": "認知心理學提出了「最小掩蔽原則」",
+    "kind": "uncertain",
+    "why": "「Minimum Masking Principle」並非認知心理學或心理聲學文獻中的正式命名原則；低頻寬音程配置是管弦樂配器與混音的實務經驗，無單一學術來源以此名稱提出。",
+    "correct": "改為「配器與混音實務中的低頻寬音程原則」，或引用 Huron (2016) 中關於 spectral spacing 的討論，避免虛構正式術語名稱。"
+   },
+   {
+    "quote": "Drew Nobile…歸納為三種具體的語法型態",
+    "kind": "uncertain",
+    "why": "Nobile (2015) 明確討論 hierarchy divorce 與 loop divorce；「syntax divorce」一詞是否為 Nobile 原文用語存疑，可能混入其他作者（如 Reed 2022 的 sub-circle motion）的分類。",
+    "correct": "確認 Nobile 原文是否使用「syntax divorce」一詞；若非，改為「Nobile 提出階層離婚與迴圈離婚，另有學者補充語法離婚類型」。"
+   },
+   {
+    "quote": "哈斯效應…時間差在約 40 毫秒以內…極度寬廣的立體聲源",
+    "kind": "uncertain",
+    "why": "Haas 效應的融合閾值文獻多引用 30–50 ms，40 ms 在範圍內；但將 Haas 效應直接等同於「panning + delay 產生寬度」是工程圈常見簡化，嚴格來說 Haas 效應描述的是定位主導（localization dominance），非寬度感知機制。",
+    "correct": "改為「優先效應（precedence effect）：時間差在約 30–50 ms 內，聽眾感知為單一加寬聲源而非兩個回音」，並註明這是工程實務的近似應用。"
+   },
+   {
+    "quote": "「三重調性複合體」（Triple-tonic complex）",
+    "kind": "uncertain",
+    "why": "此術語在主流音樂理論文獻中並非公認的正式名稱；可能源自某篇特定論文（ref 2 的 six-based minor 討論），但作為「學界與業界發展出的解析工具」呈現，缺乏廣泛認可。",
+    "correct": "改為「部分學者提出大調、平行小調、關係小調三層並存的調性分析框架」，避免使用未經廣泛採納的專有名詞。"
+   },
+   {
+    "quote": "陳源平（2025）的研究…固定音與首調唱名",
+    "kind": "uncertain",
+    "why": "無法在公開學術資料庫中確認此作者與此具體研究；ref 54 僅指向台大論文庫首頁，非具體論文連結，且結論（固定音在多調性中較穩定）與主流唱名法研究文獻不完全一致。",
+    "correct": "補上完整論文出處（期刊、卷期、頁碼），或改為「有學者指出…」的一般性表述，避免無法查證的具體歸屬。"
+   },
+   {
+    "quote": "黃永華（2025）對於亞洲特色風格 R&B 音樂製作",
+    "kind": "uncertain",
+    "why": "無法確認此研究者與此論文；ref 12 指向 Ethan Hein 部落格，與「亞洲 R&B 製作研究」無對應關係，引用來源與內容明顯不匹配。",
+    "correct": "刪除或替換為可查證的來源；若確有此文，需補上正確期刊/學位論文資訊。"
+   },
+   {
+    "quote": "「反向延伸」（Reverse Extensions）…貝斯移動至和弦根音下方",
+    "kind": "uncertain",
+    "why": "de Clercq (2019) 確實討論 harmonic-bass divorce，但「Reverse Extensions」是否為其原文術語存疑；且「貝斯移動至根音下方」的描述過於簡化，原文討論的是 bass 與 upper harmony 各自獨立而非單純「下方」。",
+    "correct": "核對 de Clercq 原文術語；若「Reverse Extensions」非原文用詞，改為「bass 脫離上層和弦根音、自行建構獨立進行」。"
+   }
+  ],
+  "skeptic": [
+   {
+    "quote": "C大三和弦 ↔ Ab大三和弦 (PL) 或 E大三和弦 (LP)",
+    "kind": "misattributed",
+    "why": "PL與LP的實例對調了。PL(C)=E大、LP(C)=Ab大，文中寫反。",
+    "correct": "改為「C大三和弦 ↔ E大三和弦 (PL) 或 Ab大三和弦 (LP)」"
+   },
+   {
+    "quote": "Drew Nobile…歸納為三種具體的語法型態",
+    "kind": "uncertain",
+    "why": "Nobile的論文討論MHD但「Hierarchy/Loop/Syntax」三分法是否為其原創術語無法確認；且該處標註的註腳4實為Huron著作，非Nobile。",
+    "correct": "確認三分法出處並修正註腳；若無法確認則改為「學界將MHD歸納為…」"
+   },
+   {
+    "quote": "「階梯慣性」（Step Inertia）是維持聽覺串流連續性的關鍵",
+    "kind": "misattributed",
+    "why": "Step Inertia是Temperley（及Chiu & Temperley 2024）的術語，非Huron的研究發現，此處卻置於Huron段落中。",
+    "correct": "標明Step Inertia出自Temperley，或將該句移出Huron段落"
+   },
+   {
+    "quote": "國內學者陳源平（2025）的研究探討了…固定音與首調唱名",
+    "kind": "uncertain",
+    "why": "無法查證「陳源平」此人及其2025年論文；註腳54僅連結到臺師大論文庫首頁，無具體篇名。",
+    "correct": "補上完整論文標題與出處，或改為「有研究指出…」"
+   },
+   {
+    "quote": "黃永華（2025）對於亞洲特色風格R&B音樂製作的研究",
+    "kind": "uncertain",
+    "why": "無法查證「黃永華」此人及其2025年R&B製作研究；文中未給出可核實的期刊或學位論文資訊。",
+    "correct": "補上完整出處，或刪除具體人名改為一般性論述"
+   },
+   {
+    "quote": "認知心理學提出了「最小掩蔽原則」",
+    "kind": "unsupported",
+    "why": "「Minimum Masking Principle」並非心理聲學或認知心理學的標準術語；低頻寬音程配置是音樂理論與混音實務的常見經驗法則。",
+    "correct": "改為「音樂理論與混音實務中的常見原則」，不冠以認知心理學專有名詞"
+   },
+   {
+    "quote": "超過 6dB 的過度增益縮減會觸發「前向掩蔽」",
+    "kind": "unsupported",
+    "why": "前向掩蔽是真實心理聲學現象，但「6dB」這個閾值與壓縮器情境的對應無可查證的文獻來源。",
+    "correct": "刪除具體數字，改為「過度壓縮可能加劇前向掩蔽效應」"
+   },
+   {
+    "quote": "這種手法被稱為「反向延伸」（Reverse Extensions）",
+    "kind": "uncertain",
+    "why": "De Clercq的Harmonic-Bass Divorce論文討論貝斯脫離和弦根音，但「Reverse Extensions」是否為其原文術語無法確認。",
+    "correct": "查證de Clercq原文用詞；若無此術語則改為描述性說法"
+   },
+   {
+    "quote": "「三重調性複合體」（Triple-tonic complex）",
+    "kind": "unsupported",
+    "why": "此術語非音樂理論文獻中的標準用語，無法對應到任何已發表的研究或教科書定義。",
+    "correct": "刪除該專有名詞，改為「大調、平行小調與關係小調三者交織的調性空間」"
+   },
+   {
+    "quote": "會產生一種「感知的悖論（Perceptual Paradox）」",
+    "kind": "unsupported",
+    "why": "「Perceptual Paradox」並非心理聲學或音樂認知領域的標準術語，疑為作者自創卻以引號呈現為既有概念。",
+    "correct": "改為「一種聽覺上的矛盾感」，或若引用Forrest(2017)則標明其原文用詞"
+   }
+  ]
+ },
+ "issue_count": 30
+}

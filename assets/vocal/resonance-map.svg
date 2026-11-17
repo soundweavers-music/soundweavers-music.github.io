@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 560" role="img" aria-label="人體三大共鳴腔示意圖：胸腔、咽喉腔、鼻腔與頭腔">
+  <title>人體三大共鳴腔示意圖：胸腔、咽喉腔、鼻腔與頭腔</title>
+  <rect width="560" height="560" fill="#fbf8f2"/>
+  <style>
+    .ink { fill: none; stroke: #2b2a26; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { fill: none; stroke: #8a8578; stroke-width: 1.4; stroke-dasharray: 5 5; }
+    .fill { fill: #b5734a; opacity: .18; stroke: #b5734a; stroke-width: 1.8; }
+    .fill2 { fill: #7d9b76; opacity: .18; stroke: #7d9b76; stroke-width: 1.8; }
+    .lbl { font-family='Noto Serif TC, serif'; font-size: 15px; fill: #2b2a26; }
+    .lbl-s { font-family='Noto Serif TC, serif'; font-size: 12.5px; fill: #8a8578; }
+  </style>
+
+  <!-- head: cranium, face, neck -->
+  <path class="ink" d="M120 300 C112 250 116 200 140 162 C164 124 212 100 262 102
+                        C316 104 356 140 362 190 C366 222 352 236 346 250
+                        C364 262 386 274 404 296 C414 309 410 322 398 326
+                        C384 331 366 330 350 323 C342 337 336 351 340 366
+                        C344 384 352 400 350 418"/>
+  <path class="ink" d="M120 300 C110 340 106 400 112 452 C116 482 128 502 150 512"/>
+  <path class="ink" d="M350 418 C338 452 332 492 340 528"/>
+
+  <!-- ear hint -->
+  <path class="ink" d="M300 214 C322 206 340 218 342 238 C344 258 328 270 310 266"/>
+
+  <!-- 1 chest -->
+  <ellipse class="fill" cx="186" cy="474" rx="62" ry="34" transform="rotate(-8 186 474)"/>
+  <text class="lbl" x="196" y="540">胸腔</text>
+  <text class="lbl-s" x="196" y="558">低頻、厚實</text>
+
+  <!-- 2 pharynx -->
+  <ellipse class="fill2" cx="352" cy="330" rx="26" ry="40" transform="rotate(14 352 330)"/>
+  <text class="lbl" x="408" y="326">咽喉腔</text>
+  <text class="lbl-s" x="408" y="344">中頻、穿透</text>
+
+  <!-- 3 nasal / head -->
+  <ellipse class="fill" cx="318" cy="236" rx="38" ry="20" transform="rotate(-18 318 236)"/>
+  <text class="lbl" x="404" y="240">鼻腔／頭腔</text>
+  <text class="lbl-s" x="404" y="258">高頻、明亮</text>
+
+  <!-- airflow -->
+  <path class="thin" d="M192 460 C230 420 288 392 336 366 C352 332 340 300 330 274"/>
+  <path class="ink" d="M334 282 l-10 6 l12 8z" fill="#2b2a26"/>
+  <text class="lbl-s" x="150" y="404">氣流與聲波往上走</text>
+
+</svg>

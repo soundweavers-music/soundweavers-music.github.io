@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 330" role="img" aria-label="線性聲源－濾波器示意圖：諧波經過聲道濾波形成共振峰">
+  <title>線性聲源－濾波器示意圖：諧波經過聲道濾波形成共振峰</title>
+  <rect width="600" height="330" fill="#fbf8f2"/>
+  <style>
+    .ink { fill: none; stroke: #2b2a26; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { fill: none; stroke: #8a8578; stroke-width: 1.4; stroke-dasharray: 5 5; }
+    .fill { fill: #b5734a; opacity: .18; stroke: #b5734a; stroke-width: 1.8; }
+    .fill2 { fill: #7d9b76; opacity: .18; stroke: #7d9b76; stroke-width: 1.8; }
+    .lbl { font-family='Noto Serif TC, serif'; font-size: 15px; fill: #2b2a26; }
+    .lbl-s { font-family='Noto Serif TC, serif'; font-size: 12.5px; fill: #8a8578; }
+  </style>
+
+  <text class="lbl" x="40" y="40">聲帶產生：一組整數倍頻率</text>
+  <text class="lbl" x="300" y="40">聲道像濾網，放大某些頻率</text>
+<rect class="fill2" x="76" y="66" width="12" height="84" rx="2"/>
+<rect class="fill2" x="102" y="72" width="12" height="78" rx="2"/>
+<rect class="fill2" x="128" y="78" width="12" height="72" rx="2"/>
+<rect class="fill2" x="154" y="84" width="12" height="66" rx="2"/>
+<rect class="fill2" x="180" y="90" width="12" height="60" rx="2"/>
+<rect class="fill2" x="206" y="96" width="12" height="54" rx="2"/>
+<rect class="fill2" x="232" y="102" width="12" height="48" rx="2"/>
+<rect class="fill2" x="258" y="108" width="12" height="42" rx="2"/>
+<path class="ink" d="M300 150 C330 150 345 70 372 52 C400 36 420 96 450 140 C480 168 510 168 540 168"/>
+<rect class="fill" x="333" y="175" width="12" height="85" rx="2"/>
+<rect class="fill" x="361" y="140" width="12" height="120" rx="2"/>
+<rect class="fill" x="389" y="185" width="12" height="75" rx="2"/>
+<rect class="fill" x="417" y="150" width="12" height="110" rx="2"/>
+<rect class="fill" x="445" y="195" width="12" height="65" rx="2"/>
+<rect class="fill" x="473" y="200" width="12" height="60" rx="2"/>
+<rect class="fill" x="501" y="205" width="12" height="55" rx="2"/>
+<text class="lbl-s" x="300" y="300">峰的位置就是共振峰（F1、F2…）</text>
+<text class="lbl-s" x="40" y="200">頻率 →</text>
+
+</svg>

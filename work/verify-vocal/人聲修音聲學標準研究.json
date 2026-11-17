@@ -1,0 +1,133 @@
+{
+ "file": "人聲修音聲學標準研究.md",
+ "title": "**錄音室人聲後製與修音的聲學標準：從演算法解析到歌手配合策略**",
+ "by_angle": {
+  "voice-science": [
+   {
+    "quote": "音高可控的神經聲碼器（如 WORLD 或 LPCNet）",
+    "kind": "misattributed",
+    "why": "WORLD（Morise et al., 2016）是傳統訊號處理聲碼器，並非神經聲碼器；LPCNet 才是神經聲碼器。",
+    "correct": "改為「音高可控的聲碼器（如 WORLD 或 LPCNet）」，或僅列 LPCNet 作為神經聲碼器例子。"
+   },
+   {
+    "quote": "次諧波的頻率通常位於歌手實際演唱基頻的下方（例如低五度或低一個八度）",
+    "kind": "unsupported",
+    "why": "次諧波定義為 f0/n（n 為整數），即低八度（f0/2）、低十二度（f0/3）等；「低五度」對應 f0×2/3，並非次諧波。",
+    "correct": "改為「例如低八度（f0/2）或低十二度（f0/3）」。"
+   },
+   {
+    "quote": "聲帶邊緣震動（Vocal Fry）",
+    "kind": "uncertain",
+    "why": "Vocal fry 的生理機制主要是聲帶後段不完全閉合下的慢速、不規則振動，而非單純「邊緣震動」；「邊緣震動」更接近描述輕聲或氣音發聲。",
+    "correct": "改為「聲帶後段不完全閉合的慢速不規則振動（Vocal Fry）」或「聲帶弛緩振動」。"
+   },
+   {
+    "quote": "聲源的第二諧波（H2）與聲道的第一共振峰（F1）的交會",
+    "kind": "uncertain",
+    "why": "古典聲樂教學中，primo passaggio 更常描述為 F1 上升與基頻 f0 的交會（而非 H2 與 F1）；此處歸因略偏，但並非完全錯誤。",
+    "correct": "建議改為「聲道第一共振峰（F1）與基頻（f0）或第二諧波的交會」，或引用 Sundberg 等文獻明確說明。"
+   }
+  ],
+  "acoustics": [
+   {
+    "quote": "音高可控的神經聲碼器（如 WORLD 或 LPCNet）",
+    "kind": "misattributed",
+    "why": "WORLD 是 Morise 等人提出的參數化聲碼器（parametric vocoder），基於諧波/噪聲分解，並非神經網路架構；只有 LPCNet 是神經聲碼器。",
+    "correct": "改為「音高可控的聲碼器（如參數化的 WORLD 或神經聲碼器 LPCNet）」，或刪除 WORLD 僅保留 LPCNet。"
+   },
+   {
+    "quote": "次諧波…例如低五度或低一個八度",
+    "kind": "unsupported",
+    "why": "次諧波定義為 f0/n（n 為整數），即低八度（f0/2）、低八度加五度（f0/3）等；單純「低五度」對應 f0×2/3，並非任何整數分頻，不是次諧波。",
+    "correct": "改為「例如低一個八度（f0/2）或低八度加五度（f0/3）」。"
+   },
+   {
+    "quote": "當移調幅度超過一至兩個半音時…迅速失去自然度",
+    "kind": "uncertain",
+    "why": "一般文獻認為共振峰偏移在 3–4 個半音以上才明顯可辨；一至兩個半音的偏移對多數聽眾幾乎不可察覺，「迅速失去自然度」的閾值偏低且無明確來源支持。",
+    "correct": "改為「當移調幅度超過三至四個半音時」，或刪除具體數字改為「移調幅度越大」。"
+   },
+   {
+    "quote": "該技術最早由貝爾實驗室的 J. L. Flanagan 與 R. M. Golden 於 1966 年提出",
+    "kind": "uncertain",
+    "why": "Flanagan & Golden 1966 論文確為相位聲碼器經典文獻，但此處引用來源標為 Grokipedia（AI 生成百科），非原始期刊或權威教科書，學術查核上來源不可靠。",
+    "correct": "改引原始文獻：Flanagan, J.L. & Golden, R.M. (1966). \"Phase Vocoder,\" Bell System Technical Journal, 45(8), 1493–1532。"
+   },
+   {
+    "quote": "聲帶邊緣震動（Vocal Fry）",
+    "kind": "uncertain",
+    "why": "Vocal fry 的標準描述為聲帶極慢、不規則的「嘎裂聲」（creaky voice），並非特指「邊緣震動」；「聲帶邊緣震動」更接近 breathy voice 或某些 distortion 技術的描述，術語對應不精確。",
+    "correct": "改為「聲帶不規則低頻震動（Vocal Fry / Creaky Voice）」。"
+   },
+   {
+    "quote": "多數交響樂團…能量峰值集中在 500 Hz 左右",
+    "kind": "uncertain",
+    "why": "此為聲樂教學常見說法，但交響樂團頻譜能量分佈因編制與曲目而異，500 Hz 僅為粗略近似值，無單一權威來源可對應此精確數字。",
+    "correct": "改為「多數樂器的能量主要集中在中低頻區（約 200–1000 Hz）」，避免給出單一精確數字。"
+   }
+  ],
+  "skeptic": [
+   {
+    "quote": "音高可控的神經聲碼器（如 WORLD 或 LPCNet）",
+    "kind": "misattributed",
+    "why": "WORLD（Morise 2012）是參數化諧波聲碼器，並非神經聲碼器；只有 LPCNet 屬於神經聲碼器。",
+    "correct": "改為「音高可控的聲碼器（如參數化的 WORLD 或神經聲碼器 LPCNet）」"
+   },
+   {
+    "quote": "次諧波…例如低五度或低一個八度",
+    "kind": "unsupported",
+    "why": "次諧波定義為 f0/n（n 為整數），即低八度、低十二度等；「低五度」(2/3 f0) 不是標準次諧波頻率。",
+    "correct": "刪除「低五度」，改為「低一個八度或更低（如 f0/2、f0/3）」"
+   },
+   {
+    "quote": "聲帶邊緣震動（Vocal Fry）",
+    "kind": "misattributed",
+    "why": "Vocal Fry 是聲帶極慢、不規則振動的「嘎裂聲」，並非「邊緣震動」；邊緣震動（edge-of-fold）是另一種發聲機制。",
+    "correct": "改為「嘎裂聲（Vocal Fry）或聲帶邊緣震動（Edge-of-fold Phonation）」"
+   },
+   {
+    "quote": "arXiv 2601.10345",
+    "kind": "uncertain",
+    "why": "編號 2601 代表 2026 年 1 月，無法確認該論文已正式發表或內容與文中多項主張完全對應。",
+    "correct": "確認論文已上線且主張確實出自该文，否則改為一般性描述"
+   },
+   {
+    "quote": "神經科學指出，大腦會對穩定的音高與節奏產生獎勵機制",
+    "kind": "unsupported",
+    "why": "未標註具體研究或作者，僅以「神經科學指出」帶過，無法查核。",
+    "correct": "補上具體文獻（如 Salimpoor et al. 2011, PNAS），或改為「音樂認知研究普遍認為…」"
+   },
+   {
+    "quote": "正如學者指出，修音技術…演變為…「樂器」",
+    "kind": "unsupported",
+    "why": "「學者」未具名，且此論點在文獻中有多種表述，無法對應單一來源。",
+    "correct": "改為「音樂科技研究者（如 Zagorski-Thomas, 2014）指出…」或刪除歸因"
+   },
+   {
+    "quote": "流行/EDM 回調速度 10–30 ms；嘻哈 0–15 ms",
+    "kind": "unsupported",
+    "why": "這些數值常見於教學部落格，並非來自任何經同行審查的標準文件或研究。",
+    "correct": "改為「實務上常設定在…範圍」，避免暗示為業界標準"
+   },
+   {
+    "quote": "所有修音音高追蹤演算法，皆需要一個穩定、週期性強…的波形",
+    "kind": "unsupported",
+    "why": "過度概括；部分基於深度學習的音高追蹤器（如 CREPE）對非週期性訊號有較強魯棒性。",
+    "correct": "改為「傳統自相關／YIN 類音高追蹤器高度依賴…」"
+   },
+   {
+    "quote": "基於快速傅立葉變換（FFT）的相位聲碼器",
+    "kind": "uncertain",
+    "why": "相位聲碼器核心是 STFT 而非單純 FFT；引言用「FFT」略不精確，後文才正確寫 STFT。",
+    "correct": "改為「基於短時距傅立葉變換（STFT）的相位聲碼器」"
+   },
+   {
+    "quote": "Pitch shifting - Grokipedia",
+    "kind": "uncertain",
+    "why": "Grokipedia 為 xAI 生成的百科，非同行審查來源，用作技術斷言的引文在學術上不可靠。",
+    "correct": "改引 Flanagan & Golden (1966) 原始論文或標準 DSP 教科書（如 Puckette, 2007）"
+   }
+  ]
+ },
+ "issue_count": 20
+}

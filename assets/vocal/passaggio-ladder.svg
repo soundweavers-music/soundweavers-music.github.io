@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 400" role="img" aria-label="音域三段與換聲區示意圖">
+  <title>音域三段與換聲區示意圖</title>
+  <rect width="700" height="400" fill="#fbf8f2"/>
+  <style>
+    .ink { fill: none; stroke: #2b2a26; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { fill: none; stroke: #8a8578; stroke-width: 1.4; stroke-dasharray: 5 5; }
+    .fill { fill: #b5734a; opacity: .18; stroke: #b5734a; stroke-width: 1.8; }
+    .fill2 { fill: #7d9b76; opacity: .18; stroke: #7d9b76; stroke-width: 1.8; }
+    .lbl { font-family='Noto Serif TC, serif'; font-size: 15px; fill: #2b2a26; }
+    .lbl-s { font-family='Noto Serif TC, serif'; font-size: 12.5px; fill: #8a8578; }
+  </style>
+<rect class="fill2" x="70" y="90" width="420" height="72" rx="10"/>
+  <text class="lbl" x="92" y="120">低音區</text>
+  <text class="lbl-s" x="92" y="142">胸聲為主</text>
+  <text class="lbl-s" x="470" y="130">甲杓肌（TA）主導</text>
+  <rect class="fill" x="70" y="186" width="420" height="72" rx="10"/>
+  <text class="lbl" x="92" y="216">換聲區</text>
+  <text class="lbl-s" x="92" y="238">混聲：兩種肌肉一起出力</text>
+  <text class="lbl-s" x="470" y="226">交接區，最容易破音</text>
+  <rect class="fill2" x="70" y="282" width="420" height="72" rx="10"/>
+  <text class="lbl" x="92" y="312">高音區</text>
+  <text class="lbl-s" x="92" y="334">頭聲為主</text>
+  <text class="lbl-s" x="470" y="322">環甲肌（CT）主導</text>
+  <path class="ink" d="M40 340 L40 74"/>
+  <path class="ink" d="M40 74 l-8 16 l16 0 z" fill="#2b2a26"/>
+  <text class="lbl-s" x="18" y="210" transform="rotate(-90 18 210)">音高往上</text>
+
+</svg>

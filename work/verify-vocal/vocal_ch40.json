@@ -1,0 +1,24 @@
+{
+ "file": "vocal_ch40.md",
+ "title": "[歌唱教學] 進階 第 40 章：樂句的呼吸點設計：將換氣化為情感張力的一部分",
+ "by_angle": {
+  "voice-science": [
+   {
+    "quote": "",
+    "kind": "error",
+    "why": "voice-science 審查失敗：Expecting ',' delimiter: line 1 column 331 (char 330)",
+    "correct": ""
+   }
+  ],
+  "acoustics": [],
+  "skeptic": [
+   {
+    "quote": "",
+    "kind": "error",
+    "why": "skeptic 審查失敗：Expecting ',' delimiter: line 1 column 524 (char 523)",
+    "correct": ""
+   }
+  ]
+ },
+ "issue_count": 2
+}

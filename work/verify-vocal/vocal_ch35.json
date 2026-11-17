@@ -1,0 +1,23 @@
+{
+ "file": "vocal_ch35.md",
+ "title": "[歌唱教學] 進階 第 35 章：流行音樂的律動 (Groove)：跳脫節拍器，感受微小的時間差",
+ "by_angle": {
+  "voice-science": [],
+  "acoustics": [],
+  "skeptic": [
+   {
+    "quote": "這些偏差就是律動感的來源",
+    "kind": "overstated",
+    "why": "微時間偏差是律動感的來源之一，但非唯一來源；力度、斷句、切分、音色同樣構成 groove。",
+    "correct": "改為「這些偏差是律動感的重要來源之一」或「這些偏差讓律動感有了基礎」。"
+   },
+   {
+    "quote": "這不是錯拍，是 placement",
+    "kind": "uncertain",
+    "why": "在聲樂教學語境中 placement 通常指共鳴位置（mask、chest、head），此處借用為「時間落點」易與嗓音術語混淆；音樂製作中雖有 rhythmic placement 一詞，但對歌唱學生可能造成誤解。",
+    "correct": "改為「這不是錯拍，是時間上的刻意偏移」或明確寫「rhythmic placement」以免與共鳴 placement 混淆。"
+   }
+  ]
+ },
+ "issue_count": 2
+}
