@@ -24,3 +24,7 @@ content/曼陀林知識全書/
 content/image/
 .DS_Store
 work/shots/
+
+# scratch scripts left by subagents
+work/_*.py
+work/factcheck-ensembles/
