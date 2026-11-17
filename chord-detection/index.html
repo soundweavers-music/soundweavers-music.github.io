@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="referrer" content="no-referrer-when-downgrade">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self' http://127.0.0.1:8765 http://localhost:8765; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'self'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'self'; object-src 'none'">
 <title>自動抓和弦 (beta)｜世界聲音百科</title>
-<meta name="description" content="上傳音檔，自動分析節拍與和弦進行，支援指版圖顯示與和弦編輯。可選用瀏覽器分析或本地 Python 代理。">
+<meta name="description" content="上傳音檔，自動分析節拍與和弦進行，支援指版圖顯示與和弦編輯。所有分析都在瀏覽器內完成，不上傳檔案。">
 <link rel="canonical" href="https://soundweavers-music.github.io/chord-detection/">
 <script>!function(){try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);else document.documentElement.setAttribute("data-theme","nextdoor")}catch(e){}}()</script>
 <script src="../assets/vendor/meyda.min.js"></script>
@@ -78,21 +78,9 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
 .btn.ghost { background: transparent; color: var(--accent); }
 .btn.ghost:hover { background: var(--soft); }
 
-/* Agent connection panel */
-.agent-panel { border: 1px solid var(--line); border-radius: 8px; padding: 12px 16px; margin: 12px 0; background: var(--soft); display: none; }
-.agent-panel .agent-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-.agent-panel .agent-status { font-size: 13px; display: flex; align-items: center; gap: 6px; }
-.agent-panel .status-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
-.agent-panel .status-dot.offline { background: var(--muted); }
-.agent-panel .status-dot.online { background: #22c55e; }
-.agent-panel .status-dot.analyzing { background: #eab308; animation: pulse 1s infinite; }
 @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
 
 /* Analysis mode selector */
-.mode-selector { display: flex; gap: 4px; padding: 2px; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; }
-.mode-btn { padding: 6px 14px; border: none; background: transparent; border-radius: 4px; font-size: 12px; font-weight: 600; cursor: pointer; color: var(--muted); transition: all .12s; }
-.mode-btn.is-active { background: var(--accent); color: #fff; }
-.mode-btn:hover:not(.is-active) { color: var(--ink); }
 
 /* Beat slider (tempo adjust) */
 .beat-slider { width: 100%; margin: 8px 0; }
@@ -193,14 +181,14 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
 <section class="compact-hero">
   <p class="eyebrow">Chord Detection (beta)</p>
   <h1>🎹 自動抓和弦</h1>
-  <p class="lead">上傳音檔，自動分析節拍與和弦進行。可選用瀏覽器分析（快速）或 Python 本地代理（精準）。</p>
+  <p class="lead">上傳音檔，自動分析節拍與和弦進行。所有分析都在你的瀏覽器內完成，音檔不會上傳。</p>
 </section>
 
 <!-- Upload Zone -->
 <div class="upload-zone" id="upload-zone">
   <div class="icon">🎵</div>
   <div class="text">點擊或拖放音檔到此處</div>
-  <div class="sub">支援 MP3, WAV, OGG, M4A / 瀏覽器分析不傳送檔案．可選用本地 Python 代理進行更精準分析</div>
+  <div class="sub">支援 MP3, WAV, OGG, M4A / 音檔只在瀏覽器內分析，不會上傳</div>
   <input type="file" id="file-input" accept="audio/*" style="display:none;">
 </div>
 
@@ -215,29 +203,8 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
   <label>樂器 <select id="instrument-select"></select></label>
   <label>調弦 <select id="tuning-select"></select></label>
 
-  <div class="mode-selector">
-    <button class="mode-btn is-active" data-mode="browser" title="使用瀏覽器 Meyda 分析（快速，不需額外安裝）">🌐 瀏覽器</button>
-    <button class="mode-btn" data-mode="agent" title="使用本地 Python 代理分析（精準，需先啟動代理）">🖥️ 本地代理</button>
-  </div>
-
   <span style="flex:1;"></span>
   <button id="btn-analyze" class="btn" style="display:none;">↻ 重新分析</button>
-</div>
-
-<!-- Agent Connection Panel -->
-<div class="agent-panel" id="agent-panel">
-  <div class="agent-row">
-    <div class="agent-status">
-      <span class="status-dot offline" id="agent-dot"></span>
-      <span id="agent-status-text">未連線</span>
-    </div>
-    <label style="display:flex;align-items:center;gap:4px;font-size:12px;">
-      主機 <input type="text" id="agent-host" value="127.0.0.1:8765" style="width:130px;padding:4px 8px;border:1px solid var(--line);border-radius:4px;font-size:12px;background:var(--surface);color:var(--ink);">
-    </label>
-    <button id="btn-agent-connect" class="btn ghost" style="font-size:12px;">🔗 連線</button>
-    <button id="btn-agent-analyze" class="btn" style="font-size:12px;display:none;">📊 使用代理分析</button>
-  </div>
-  <p style="font-size:12px;color:var(--muted);margin:8px 0 0;line-height:1.6;">本地代理為選用功能，需自行在電腦上安裝 Python 並執行。原始碼與說明請見 <a href="https://github.com/soundweavers-music/soundweavers-music.github.io/tree/main/chord-detection/local-agent" target="_blank" rel="noopener">GitHub</a>；本站不提供任何可執行檔下載。</p>
 </div>
 
 <!-- Status -->
@@ -378,8 +345,7 @@ let state = {
   sourceNode: null, analyserNode: null, animFrame: null,
   showDiagrams: true, showConfidence: true,
   bpm: 120,
-  agentConnected: false, agentHost: '127.0.0.1:8765',
-  analysisMode: 'browser',
+  
   originalChords: null,
   // Async yield control
   yieldEveryMs: 8, // ~120fps max yields
@@ -458,11 +424,7 @@ async function handleFile(file) {
       document.getElementById('waveform-container').style.display = 'block';
       drawWaveform();
 
-      if (!state.agentConnected) {
-        document.getElementById('agent-panel').style.display = 'block';
-      }
-
-      setStatus('音檔已載入，選擇分析模式後開始分析…', '');
+      setStatus('音檔已載入，開始分析…', '');
       document.getElementById('btn-analyze').style.display = '';
 
       // Auto-analyze after a tick (UI has time to render waveform)
@@ -533,11 +495,7 @@ function drawWaveform() {
 // 分析引擎（非同步，每 N 幀 yield 防止卡頓）
 // =========================================================================
 async function startAnalysis() {
-  if (state.analysisMode === 'agent' && state.agentConnected && currentFile) {
-    await analyzeWithAgent(currentFile);
-  } else {
-    await analyzeWithBrowser();
-  }
+  await analyzeWithBrowser();
 }
 
 // ── 瀏覽器端分析（Meyda-based，async with yielding）─────────────
@@ -901,69 +859,8 @@ async function recalcWithBPM(newBpm) {
   setStatus(`已重新計算（BPM: ${newBpm}）`, 'done');
 }
 
-// =========================================================================
-// 本地代理通訊
-// =========================================================================
-// 只允許連到本機的代理，避免頁面被拿來對其他主機發請求
-const AGENT_HOST_RE = /^(127\.0\.0\.1|localhost):\d{2,5}$/;
-
 function escapeHtml(s) {
   return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-}
-
-async function checkAgentHealth(host) {
-  if (!AGENT_HOST_RE.test(host)) return false;
-  try {
-    const resp = await fetch(`http://${host}/health`);
-    if (resp.ok) {
-      const data = await resp.json();
-      return data.status === 'ok';
-    }
-    return false;
-  } catch(e) {
-    return false;
-  }
-}
-
-async function analyzeWithAgent(file) {
-  setStatus('正在傳送音檔至本地代理分析…', 'analyzing');
-  try {
-    const formData = new FormData();
-    formData.append('file', file);
-
-    const resp = await fetch(`http://${state.agentHost}/analyze`, {
-      method: 'POST',
-      body: formData,
-    });
-    if (!resp.ok) {
-      const err = await resp.json().catch(() => ({error: 'HTTP ' + resp.status}));
-      throw new Error(err.error || '代理分析失敗');
-    }
-    const result = await resp.json();
-    state.duration = result.duration;
-    state.sampleRate = result.sampleRate;
-    state.beats = result.beats;
-    state.bpm = result.bpm;
-    state.bars = result.bars;
-    state.detectedKey = result.detectedKey;
-    state.capo = result.capo;
-    state.chords = result.chords.map(c => ({
-      display: c.display,
-      root: c.root,
-      quality: c.quality,
-      confidence: c.confidence || 0.7,
-      isDiatonic: c.isDiatonic !== false,
-      originalChord: c.originalChord || null,
-      originalRoot: c.originalRoot || null,
-    }));
-
-    document.getElementById('bpm-input').value = result.bpm;
-    drawWaveform();
-    renderResults();
-    setStatus(`本地代理分析完成！（BPM: ${result.bpm}，調性: ${result.detectedKeyName}）`, 'done');
-  } catch(err) {
-    setStatus('本地代理分析失敗：' + err.message + '。可切換至瀏覽器模式分析。', 'error');
-  }
 }
 
 // =========================================================================
@@ -1241,58 +1138,6 @@ function saveEditChord() {
   closeEditModal();
   renderChordBars();
 }
-
-// =========================================================================
-// 分析模式切換
-// =========================================================================
-document.querySelectorAll('.mode-btn').forEach(btn => {
-  btn.addEventListener('click', function() {
-    document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('is-active'));
-    this.classList.add('is-active');
-    state.analysisMode = this.dataset.mode;
-    if (this.dataset.mode === 'agent' && !state.agentConnected) {
-      document.getElementById('agent-panel').style.display = 'block';
-      setStatus('請先連線本地 Python 代理（需先啟動 analyzer.py）', '');
-    } else if (this.dataset.mode === 'agent' && state.agentConnected && state.audioBuffer) {
-      startAnalysis();
-    } else if (this.dataset.mode === 'browser' && state.audioBuffer) {
-      startAnalysis();
-    }
-  });
-});
-
-// =========================================================================
-// 本地代理連線
-// =========================================================================
-document.getElementById('btn-agent-connect').addEventListener('click', async function() {
-  const host = document.getElementById('agent-host').value.trim();
-  if (!host) { setStatus('請輸入代理主機位址', 'error'); return; }
-  if (!AGENT_HOST_RE.test(host)) { setStatus('代理位址只能是本機，例如 127.0.0.1:8765', 'error'); return; }
-  state.agentHost = host;
-  setStatus('正在連線本地代理 ' + host + '…', 'analyzing');
-  const ok = await checkAgentHealth(host);
-  if (ok) {
-    state.agentConnected = true;
-    document.getElementById('agent-dot').className = 'status-dot online';
-    document.getElementById('agent-status-text').textContent = '已連線';
-    document.getElementById('btn-agent-connect').textContent = '✅ 已連線';
-    document.getElementById('btn-agent-connect').disabled = true;
-    document.getElementById('btn-agent-analyze').style.display = '';
-    document.getElementById('agent-panel').style.display = 'block';
-    setStatus('本地代理已連線！可使用「本地代理」模式分析', 'done');
-  } else {
-    state.agentConnected = false;
-    document.getElementById('agent-dot').className = 'status-dot offline';
-    document.getElementById('agent-status-text').textContent = '連線失敗';
-    setStatus('無法連線至 ' + host + '，請確認已啟動 analyzer.py', 'error');
-  }
-});
-
-document.getElementById('btn-agent-analyze').addEventListener('click', function() {
-  if (state.audioBuffer && currentFile) {
-    analyzeWithAgent(currentFile);
-  }
-});
 
 // =========================================================================
 // BPM 編輯

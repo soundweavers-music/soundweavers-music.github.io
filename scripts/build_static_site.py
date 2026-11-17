@@ -461,7 +461,7 @@ def site_header(page_path):
         <div class="dropdown-menu">
           <a href="{resolve_url(page_path, '/tools/fretboard/')}">🎸 世界樂器指版和弦圖</a>
           <a href="{resolve_url(page_path, '/chord-detection/')}">🎹 自動抓和弦 (beta)</a>
-          <a href="{resolve_url(page_path, '/experience/')}">🎧 體驗</a>
+          <a href="{resolve_url(page_path, '/experience/')}">🎹 世界樂器體驗</a>
         </div>
       </div>
       <div class="nav-dropdown">
@@ -751,9 +751,9 @@ def build_index(instruments):
             <strong>🎹 自動抓和弦 (beta)</strong>
             <span>上傳音檔自動分析節拍與和弦進行，支援指版圖顯示與和弦編輯</span>
           </a>
-          <a class="featured-card" href="{resolve_url(index_path, '/tools/experience/')}" style="background:linear-gradient(135deg,#f5f0ff,#ebe0ff);border:1px solid #d5c5fd;">
-            <strong>🎧 體驗聲音</strong>
-            <span>聆聽世界樂器的實際演奏錄音與聲音示範</span>
+          <a class="featured-card" href="{resolve_url(index_path, '/experience/')}" style="background:linear-gradient(135deg,#f5f0ff,#ebe0ff);border:1px solid #d5c5fd;">
+            <strong>🎹 世界樂器體驗</strong>
+            <span>用虛擬鍵盤試聽鋼琴、吉他、小提琴、琵琶等樂器的音色與音域</span>
           </a>
         </div>
       </section>
@@ -1916,7 +1916,7 @@ def build_sitemap(instruments):
                  "/countries/", "/ensembles/", "/subcategories/", "/map/",
                  "/about/", "/theory/", "/vocal/", "/digitalmusic/",
                  "/sound-journey/", "/experience/", "/contact/",
-                 "/chord-detection/", "/tools/fretboard/", "/tools/experience/",
+                 "/chord-detection/", "/tools/fretboard/", "/experience/",
                  "/learn/", "/about/author/", "/recruit/", "/mandolin/"]:
         urls.append(u(path))
 
@@ -2344,6 +2344,53 @@ def banner_hero(eyebrow, title, lead):
   </section>"""
 
 
+def discography_section(page_path: Path) -> str:
+    """歷年作品 album grid from content/discography.json (covers in assets/brand/albums/)."""
+    data = json.loads((BASE_DIR / "content" / "discography.json").read_text(encoding="utf-8"))
+    released = data["released"]
+    cards = []
+    for a in released:
+        apple = f"https://music.apple.com/tw/album/{a['apple']}"
+        ytm = f"https://music.youtube.com/playlist?list={a['ytm']}"
+        cover = resolve_url(page_path, f"/assets/brand/albums/{a['apple']}.webp")
+        title = escape(a["title"])
+        sub = f'<span class="album-en">{escape(a["en"])}</span>' if a.get("en") else ""
+        cards.append(f"""      <li class="album-card">
+        <a class="album-cover" href="{ytm}" target="_blank" rel="noopener" aria-label="在 YouTube Music 播放《{title}》">
+          <img src="{cover}" alt="《{title}》專輯封面" width="480" height="480" loading="lazy">
+          <span class="album-tag">{escape(a["cat"])}</span>
+        </a>
+        <div class="album-body">
+          <h3>{title}</h3>{sub}
+          <p class="album-meta">{a["date"].replace("-", ".")}・{escape(a["type"])}・{a["tracks"]} 首</p>
+          <p class="album-links">
+            <a class="album-link is-apple" href="{apple}" target="_blank" rel="noopener">Apple Music</a>
+            <a class="album-link is-ytm" href="{ytm}" target="_blank" rel="noopener">YouTube Music</a>
+          </p>
+        </div>
+      </li>""")
+    upcoming = "".join(
+        f'<li><span>{a["date"].replace("-", ".")}</span>{escape(a["title"])}<em>{escape(a["type"])}・{a["tracks"]} 首</em></li>'
+        for a in data.get("upcoming", []))
+    upcoming_html = f"""
+    <div class="album-upcoming">
+      <h3>即將發行</h3>
+      <ul>{upcoming}</ul>
+    </div>""" if upcoming else ""
+    n_album = sum(a["type"] == "專輯" for a in released)
+    return f"""    <section class="about-section discography">
+      <h2>歷年作品 Discography</h2>
+      <p class="discography-lead">自 2024 年起已發行 {len(released)} 張作品（專輯 {n_album} 張、單曲 {len(released) - n_album} 張），橫跨療癒純音樂、兒童音樂與華語、日語流行歌曲。點封面即可在 YouTube Music 播放。</p>
+      <p class="discography-artist">
+        <a class="btn-ghost" href="{data["apple_artist"]}" target="_blank" rel="noopener">Apple Music 歌手頁 ↗</a>
+        <a class="btn-ghost" href="{data["ytm_artist"]}" target="_blank" rel="noopener">YouTube Music 歌手頁 ↗</a>
+      </p>
+      <ul class="album-grid">
+{chr(10).join(cards)}
+      </ul>{upcoming_html}
+    </section>"""
+
+
 def build_about_page():
     """/about/ (the site) and /about/author/ (隔壁織音人) as two tabs."""
     about_path = OUTPUT_DIR / "about" / "index.html"
@@ -2385,7 +2432,7 @@ def build_about_page():
           meta_description="世界聲音百科的創建理念：整理世界樂器、人聲歌唱與錄音後製知識，結合 AI 交叉查證，建立互相連結的聲音知識地圖。"))
 
     author_path = OUTPUT_DIR / "about" / "author" / "index.html"
-    avatar = resolve_url(author_path, "/assets/brand/author.webp")
+    logo = resolve_url(author_path, "/assets/brand/logo.png")
     body = f"""<main class="about-page">
   {banner_hero("About the Author", "作者・隔壁織音人", "隔壁音樂工作室 Next Door Music 的音樂團體")}
   {about_tabs(author_path, "/about/author/")}
@@ -2393,7 +2440,7 @@ def build_about_page():
     <section class="about-section">
       <h2>隔壁織音人</h2>
       <div class="about-author">
-        <img class="author-avatar" src="{avatar}" alt="隔壁織音人" width="400" height="400" loading="lazy">
+        <img class="author-logo" src="{logo}" alt="隔壁織音人 LOGO" width="256" height="180">
         <div class="author-info">
           <p>為隔壁音樂工作室 Next Door Music 的音樂團體。</p>
           <p>隔壁音樂匯聚熱愛音樂夥伴的創意單位。我們將每位合作夥伴視為珍貴的「音樂鄰居」，在此紀錄彼此的創作火花。</p>
@@ -2412,6 +2459,7 @@ def build_about_page():
         <li><span class="service-icon">🎤</span>人聲錄製｜DEMO 代唱．導唱</li>
       </ul>
     </section>
+{discography_section(author_path)}
     <div class="about-cta">
       <p>有音樂製作需求，或想成為我們的音樂鄰居？</p>
       <span class="about-cta-actions">
@@ -2461,20 +2509,10 @@ def build_recruit_page():
       </section>
     </div>
 
-    <section class="about-section recruit-how">
-      <h2>如何報名</h2>
-      <ol class="recruit-steps">
-        <li>寄信至 <a href="{mailto}">{mail}</a>，主旨註明「招募報名｜詞曲創作」或「招募報名｜人聲配唱」。</li>
-        <li>信中簡單介紹自己（稱呼、所在地、擅長曲風、可合作的時段）。</li>
-        <li>附上 1–3 首作品連結（YouTube、SoundCloud、雲端硬碟皆可），請勿直接附加大型檔案。</li>
-        <li>我們會在 7 個工作日內回覆，合適的夥伴會進一步安排線上討論。</li>
-      </ol>
-      <p class="hub-note">我們只會透過上述 Email 聯繫，不會向報名者收取任何費用，也不會索取身分證件或銀行帳戶資料。若有人以本站名義要求付費，請勿理會並來信告知。</p>
-      <div class="about-cta">
-        <p>準備好了嗎？寄出你的作品，一起合作吧。</p>
-        <a class="btn-wood" href="{mailto}">✉️ Email 報名</a>
-      </div>
-    </section>
+    <div class="about-cta recruit-how">
+      <p>讀完這些資訊，有意願歡迎來信溝通。</p>
+      <a class="btn-wood" href="{mailto}">✉️ {mail}</a>
+    </div>
   </div>
 </main>"""
     write(path, page("招募夥伴｜詞曲創作・人聲配唱", body, path,
@@ -2661,7 +2699,9 @@ def with_site_chrome(html, page_path):
     the nav from whenever they were last edited; replacing it at build time
     keeps every page on the same menu.
     """
-    html = re.sub(r'[ 	]*<header class="site-header">.*?</header>',
+    # site_header() also emits the .site-banner div, so swallow any banners
+    # left by earlier builds or they stack up one per rebuild.
+    html = re.sub(r'[ 	]*<header class="site-header">.*?</header>(?:\s*<div class="site-banner"[^>]*></div>)*',
                   lambda _: site_header(page_path), html, count=1, flags=re.S)
     html = re.sub(r'[ 	]*<footer class="site-footer">.*?</footer>',
                   lambda _: site_footer(page_path), html, count=1, flags=re.S)
@@ -2682,8 +2722,7 @@ def build_chord_detection_tool():
     The source is ``chord-detection/index.html`` (a self-contained page with
     inline JS). The build script wraps it with the site template (``page()``)
     so it inherits the full header, nav, footer, SEO, and theme infrastructure.
-    Also copies ``local-agent/`` and ensures ``scripts/_chord_library.js`` is
-    available in the output for runtime loading via a regular ``<script>`` tag.
+    Also ensures ``scripts/_chord_library.js`` is available in the output for runtime loading via a regular ``<script>`` tag.
     """
     src_path = BASE_DIR / "chord-detection" / "index.html"
     page_dir = OUTPUT_DIR / "chord-detection"
@@ -2703,13 +2742,13 @@ def build_chord_detection_tool():
     all_scripts = re.findall(r'<script>(.*?)</script>', raw, re.DOTALL)
     inline_js = all_scripts[-1].strip() if all_scripts else ""
 
-    # Custom CSP for chord-detection (needs blob: images, localhost connects, meyda CDN)
+    # Custom CSP for chord-detection (needs blob: images for the waveform/diagrams)
     chord_csp = (
         "default-src 'self'; "
         "img-src 'self' https: data: blob:; "
         "style-src 'self' 'unsafe-inline'; "
         "script-src 'self' 'unsafe-inline'; "
-        "connect-src 'self' http://127.0.0.1:8765 http://localhost:8765; "
+        "connect-src 'self'; "
         "frame-src https://www.youtube-nocookie.com https://www.youtube.com; "
         "base-uri 'self'; form-action 'self'; object-src 'none'"
     )
@@ -2731,8 +2770,8 @@ def build_chord_detection_tool():
         '      <span>瀏覽常見彈撥樂器的調弦法、各調性和弦、指版音位圖與順階和弦</span>\n'
         '    </a>\n'
         f'    <a class="featured-card" href="{site_url("/experience/")}" style="background:linear-gradient(135deg,#f5f0ff,#ebe0ff);border:1px solid #d5c5fd;">\n'
-        '      <strong>🎧 體驗聲音</strong>\n'
-        '      <span>聆聽世界樂器的實際演奏錄音與聲音示範</span>\n'
+        '      <strong>🎹 世界樂器體驗</strong>\n'
+        '      <span>用虛擬鍵盤試聽鋼琴、吉他、小提琴、琵琶等樂器的音色與音域</span>\n'
         '    </a>\n'
         '  </div>\n'
         '</section>'
@@ -2744,12 +2783,12 @@ def build_chord_detection_tool():
         page_dir / "index.html",
         extra_head=chord_extra_head,
         csp=chord_csp,
-        meta_description="上傳音檔，自動分析節拍與和弦進行，支援指版圖顯示與和弦編輯。可選用瀏覽器分析或本地 Python 代理。",
+        meta_description="上傳音檔，自動分析節拍與和弦進行，支援指版圖顯示與和弦編輯，所有分析都在瀏覽器內完成。",
     ))
 
-    # chord-detection/local-agent/ (a Python program) is deliberately NOT
-    # copied into the site: serving a script and asking visitors to run it is
-    # a pattern Safe Browsing flags. The page links to its GitHub source.
+    # chord-detection/local-agent/ (a Python program) stays in the repo only.
+    # The public page must not ask visitors to install or run anything, or
+    # connect to localhost: Safe Browsing flagged the site for that pattern.
 
     # Ensure chord library is in output scripts/ directory
     lib_src = BASE_DIR / "scripts" / "_chord_library.js"
@@ -2760,118 +2799,17 @@ def build_chord_detection_tool():
 
 
 def build_experience_page():
-    """Build the Experience page at /tools/experience/ (redirect from /experience/)."""
-    # Build primary page at /tools/experience/
-    tools_dir = OUTPUT_DIR / "tools" / "experience"
-    tools_dir.mkdir(parents=True, exist_ok=True)
-    body = '''<main>
-  <section class="banner-hero">
-    <div class="banner-hero-inner">
-      <p class="eyebrow">Sound Experience</p>
-      <h1>體驗聲音</h1>
-      <p class="lead">不只是看介紹，更要親耳聆聽</p>
-    </div>
-  </section>
-  <div class="about-body">
-    <div class="about-text" style="text-align:center;margin-bottom:40px;">
-      <p>音樂是需要被聽見的。這裡蒐集了世界各地樂器的實際演奏錄音、示範影片與聲音對比，讓你一邊閱讀文字介紹，一邊用耳朵感受每件樂器獨特的音色與生命力。</p>
-    </div>
+    """/tools/experience/ is the old address of 世界樂器體驗; redirect it to /experience/.
 
-    <section class="about-section">
-      <h2>如何開始聆聽</h2>
-      <ol class="exp-steps">
-        <li>從下方選擇你有興趣的樂器類別或地區</li>
-        <li>點擊樂器名稱進入詳細介紹頁面</li>
-        <li>在樂器頁面中找到「聆聽示範」按鈕，點擊即可播放</li>
-        <li>也可以直接瀏覽下方的精選播放清單</li>
-      </ol>
-    </section>
-
-    <section class="about-section">
-      <h2>精選聲音之旅</h2>
-      <div class="about-grid">
-        <div class="exp-card">
-          <img class="exp-card-image" src="https://i.ytimg.com/vi/hqF9hbx7po4/maxresdefault.jpg" alt="世界樂器" loading="lazy">
-          <div class="exp-card-content">
-            <h3>世界樂器合輯 — 聲音展示</h3>
-            <p>一次聆聽來自世界各地的代表性樂器。</p>
-            <a class="btn-wood" href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">▶ 前往頻道聆聽</a>
-          </div>
-        </div>
-        <div class="exp-card">
-          <img class="exp-card-image" src="https://i.ytimg.com/vi/OaZ0PJwsYhk/maxresdefault.jpg" alt="彈撥樂器" loading="lazy">
-          <div class="exp-card-content">
-            <h3>彈撥樂器系列</h3>
-            <p>從吉他、琵琶到西塔琴，探索世界各地的彈撥樂器演奏。</p>
-            <a class="btn-wood" href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">▶ 前往頻道聆聽</a>
-          </div>
-        </div>
-        <div class="exp-card">
-          <img class="exp-card-image" src="https://i.ytimg.com/vi/OmP2iFFdp0I/maxresdefault.jpg" alt="弓弦樂器" loading="lazy">
-          <div class="exp-card-content">
-            <h3>弓弦樂器系列</h3>
-            <p>小提琴、二胡、胡琴——感受弓弦樂器從東西方的細膩情感。</p>
-            <a class="btn-wood" href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">▶ 前往頻道聆聽</a>
-          </div>
-        </div>
-        <div class="exp-card">
-          <img class="exp-card-image" src="https://i.ytimg.com/vi/TvAiD8Ll3XU/maxresdefault.jpg" alt="打擊樂器" loading="lazy">
-          <div class="exp-card-content">
-            <h3>打擊樂器系列</h3>
-            <p>鼓、鑼、木琴——從節奏中感受音樂最原始的力量。</p>
-            <a class="btn-wood" href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">▶ 前往頻道聆聽</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="about-section">
-      <h2>聆聽小技巧</h2>
-      <div class="exp-quote">
-        試著閉上眼睛，專注於單一樂器的聲音——注意它的音色質感（是明亮還是溫暖？）、共鳴方式（聲音如何消散？）、以及演奏技法（是撥奏、弓奏還是敲擊？）。
-        <cite>—— 聆聽世界樂器的最佳方式</cite>
-      </div>
-    </section>
-
-    <section class="about-section" style="text-align:center;padding:32px;border:1px solid var(--line);border-radius:12px;background:var(--surface);">
-      <h2 style="border-bottom:none;display:block;">準備好開始探索了嗎？</h2>
-      <p style="color:var(--muted);margin:0 0 20px;font-size:16px;">瀏覽完整樂器列表，發掘更多聲音</p>
-      <a class="btn-wood" href="''' + site_url("/instruments/") + '''">🔍 瀏覽全部樂器</a>
-    </section>
-  </div>
-</main>'''
-
-    extra_head = '''<style>
-.exp-steps { counter-reset:step; list-style:none; padding:0; margin:0; }
-.exp-steps li { counter-increment:step; padding:14px 14px 14px 48px; border:1px solid var(--line); border-radius:8px; margin-bottom:10px; position:relative; line-height:1.5; font-size:15px; background:var(--surface); }
-.exp-steps li::before { content:counter(step); position:absolute; left:12px; top:12px; width:28px; height:28px; border-radius:50%; background:var(--accent); color:#fff; font-weight:800; font-size:14px; display:flex; align-items:center; justify-content:center; }
-.exp-card { border:1px solid var(--line); border-radius:12px; overflow:hidden; background:var(--surface); transition:transform .15s,box-shadow .15s; }
-.exp-card:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(0,0,0,.08); }
-.exp-card-image { width:100%; height:180px; object-fit:cover; background:var(--soft); }
-.exp-card-content { padding:18px; }
-.exp-card-content h3 { font-size:18px; margin:0 0 8px; }
-.exp-card-content p { color:var(--muted); font-size:14px; line-height:1.6; margin:0 0 12px; }
-.exp-quote { padding:24px; border-left:4px solid var(--accent); border-radius:8px; background:var(--soft); margin:20px 0; font-style:italic; color:var(--muted); line-height:1.7; font-size:16px; }
-.exp-quote cite { display:block; margin-top:8px; font-style:normal; font-weight:700; color:var(--ink); }
-</style>'''
-
-    write(tools_dir / "index.html", page(
-        "體驗聲音",
-        body,
-        tools_dir / "index.html",
-        extra_head=extra_head,
-        meta_description="體驗世界樂器的聲音 — 聆聽各類樂器的實際演奏錄音與示範，從彈撥、弓弦到打擊樂器。",
-    ))
-
-    # Also create a redirect at /experience/ to keep existing links working
-    exp_dir = OUTPUT_DIR / "experience"
-    exp_dir.mkdir(parents=True, exist_ok=True)
-    redirect_html = '''<!doctype html>
+    The page itself (virtual keyboard) is written by build_vocal_extra.py at /experience/.
+    """
+    out = OUTPUT_DIR / "tools" / "experience" / "index.html"
+    target = resolve_url(out, "/experience/")
+    write(out, f'''<!doctype html>
 <html lang="zh-Hant">
-<head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=../tools/experience/"><title>重新導向</title></head>
-<body><a href="../tools/experience/">前往體驗頁面</a></body>
-</html>'''
-    write(exp_dir / "index.html", redirect_html)
+<head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url={target}"><link rel="canonical" href="{canonical_for(OUTPUT_DIR / "experience" / "index.html")}"><meta name="robots" content="noindex"><title>世界樂器體驗</title></head>
+<body><a href="{target}">前往世界樂器體驗</a></body>
+</html>''')
 
 
 def main():
@@ -2915,15 +2853,12 @@ def main():
         src_root = OUTPUT_DIR / root_fname
         if src_root.exists():
             shutil.copy2(str(src_root), str(BASE_DIR / root_fname))
-    # Sync generated subdirectories (tools, experience, etc.) to project root
-    # so GitHub Pages user site serves the correct content from main branch root
-    for sync_dir in ["tools", "experience"]:
+    # Mirror generated tool pages to the project root. Never rmtree root tools/:
+    # tools/fretboard/index.html there is the hand-maintained source.
+    for sync_dir in ["tools/experience", "experience"]:
         src_dir = OUTPUT_DIR / sync_dir
-        dst_dir = BASE_DIR / sync_dir
         if src_dir.exists():
-            if dst_dir.exists():
-                shutil.rmtree(str(dst_dir))
-            shutil.copytree(str(src_dir), str(dst_dir), dirs_exist_ok=True)
+            shutil.copytree(str(src_dir), str(BASE_DIR / sync_dir), dirs_exist_ok=True)
     # Sync assets to project root (tracked by git for direct access)
     root_assets = BASE_DIR / "assets"
     root_assets.mkdir(parents=True, exist_ok=True)

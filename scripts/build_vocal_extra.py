@@ -329,10 +329,10 @@ def build_portal_homepage(instruments):
       <div class="card-desc">瀏覽常見彈撥樂器的調弦法、常用和弦圖表與指法建議、各調性順階和弦與指版音位圖。支援吉他、烏克麗麗、班卓琴、琵琶、中阮等 19 種樂器。</div>
       <span class="card-badge badge-info">新工具</span>
     </a>
-    <a class="portal-card card-tools" href="{resolve_url(index_path, '/tools/experience/')}" style="border-color:var(--accent);">
-      <div class="card-icon">🎧</div>
-      <div class="card-label">體驗聲音</div>
-      <div class="card-desc">不只是看介紹，更要親耳聆聽。蒐集了世界各地樂器的實際演奏錄音與示範影片。</div>
+    <a class="portal-card card-tools" href="{resolve_url(index_path, '/experience/')}" style="border-color:var(--accent);">
+      <div class="card-icon">🎹</div>
+      <div class="card-label">世界樂器體驗</div>
+      <div class="card-desc">透過虛擬鍵盤模擬鋼琴、吉他、小提琴、琵琶等樂器的音色與音域，親耳感受各種樂器的聲音特質。</div>
       <span class="card-badge badge-info">聆聽</span>
     </a>
   </div>
