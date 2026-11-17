@@ -1,0 +1,48 @@
+[
+  {"file": "b1-01-gamelan", "class": "B1", "num": 1, "title": "甘美朗合奏", "en": "Gamelan", "region": "印尼・爪哇與峇里"},
+  {"file": "b1-02-takht", "class": "B1", "num": 2, "title": "阿拉伯塔赫特", "en": "Takht", "region": "埃及・黎凡特"},
+  {"file": "b1-03-andean", "class": "B1", "num": 3, "title": "安地斯合奏", "en": "Conjunto Andino", "region": "安地斯高原・秘魯與玻利維亞"},
+  {"file": "b1-04-piphat", "class": "B1", "num": 4, "title": "泰國皮帕特", "en": "Piphat", "region": "泰國"},
+  {"file": "b1-05-hsaing-waing", "class": "B1", "num": 5, "title": "緬甸外圍樂團", "en": "Hsaing Waing", "region": "緬甸"},
+  {"file": "b1-06-gagaku", "class": "B1", "num": 6, "title": "日本雅樂合奏", "en": "Gagaku", "region": "日本・京都與東京"},
+
+  {"file": "b2-01-mariachi", "class": "B2", "num": 1, "title": "墨西哥流浪樂隊", "en": "Mariachi", "region": "墨西哥"},
+  {"file": "b2-02-bluegrass", "class": "B2", "num": 2, "title": "藍草樂隊", "en": "Bluegrass Band", "region": "美國・阿帕拉契"},
+  {"file": "b2-03-balkan-brass", "class": "B2", "num": 3, "title": "巴爾幹銅管樂隊", "en": "Balkan Brass Band", "region": "巴爾幹半島・塞爾維亞與北馬其頓"},
+  {"file": "b2-04-taraf", "class": "B2", "num": 4, "title": "羅姆塔拉夫", "en": "Taraf", "region": "羅馬尼亞・蒙特尼亞與奧爾特尼亞"},
+  {"file": "b2-05-irish-session", "class": "B2", "num": 5, "title": "愛爾蘭傳統樂隊", "en": "Irish Session and Céilí Band", "region": "愛爾蘭"},
+  {"file": "b2-06-beiguan", "class": "B2", "num": 6, "title": "台灣北管", "en": "Beiguan", "region": "台灣・西部平原"},
+
+  {"file": "b3-01-taiko", "class": "B3", "num": 1, "title": "太鼓團", "en": "Taiko Ensemble", "region": "日本"},
+  {"file": "b3-02-djembe", "class": "B3", "num": 2, "title": "西非鼓樂隊", "en": "Djembe and Dunun Ensemble", "region": "西非・馬利與幾內亞"},
+  {"file": "b3-03-samba-bateria", "class": "B3", "num": 3, "title": "森巴打擊樂隊", "en": "Bateria", "region": "巴西・里約熱內盧"},
+  {"file": "b3-04-samul-nori", "class": "B3", "num": 4, "title": "韓國四物農樂", "en": "Samul Nori and Pungmul", "region": "韓國"},
+  {"file": "b3-05-luogu", "class": "B3", "num": 5, "title": "中國鑼鼓", "en": "Luogu", "region": "中國・華北與江南"},
+  {"file": "b3-06-maracatu", "class": "B3", "num": 6, "title": "馬拉卡圖", "en": "Maracatu", "region": "巴西・伯南布哥"},
+
+  {"file": "b4-01-orchestra", "class": "B4", "num": 1, "title": "管弦樂團", "en": "Symphony Orchestra", "region": "歐洲・現代全球化"},
+  {"file": "b4-02-wind-band", "class": "B4", "num": 2, "title": "管樂團", "en": "Concert Band", "region": "歐美・現代"},
+  {"file": "b4-03-string-quartet", "class": "B4", "num": 3, "title": "弦樂四重奏", "en": "String Quartet", "region": "歐洲・維也納古典傳統"},
+  {"file": "b4-04-period-ensemble", "class": "B4", "num": 4, "title": "古樂合奏團", "en": "Period-Instrument Ensemble", "region": "歐洲・二十世紀復興運動"},
+  {"file": "b4-05-pit-orchestra", "class": "B4", "num": 5, "title": "劇場樂池編制", "en": "Pit Orchestra", "region": "歐美・音樂劇產業"},
+  {"file": "b4-06-brass-quintet", "class": "B4", "num": 6, "title": "銅管五重奏", "en": "Brass Quintet", "region": "歐美・現代"},
+
+  {"file": "b5-01-chinese-orchestra", "class": "B5", "num": 1, "title": "國樂團", "en": "Chinese Orchestra", "region": "台灣・中國與東南亞華人圈"},
+  {"file": "b5-02-korean-orchestra", "class": "B5", "num": 2, "title": "韓國國樂管弦樂團", "en": "Gugak Orchestra", "region": "韓國"},
+  {"file": "b5-03-russian-folk", "class": "B5", "num": 3, "title": "俄羅斯民族樂團", "en": "Russian Folk Orchestra", "region": "俄羅斯"},
+  {"file": "b5-04-mandolin-orchestra", "class": "B5", "num": 4, "title": "曼陀林樂團", "en": "Mandolin Orchestra", "region": "歐洲・日本與北美"},
+  {"file": "b5-05-hogaku", "class": "B5", "num": 5, "title": "日本邦樂合奏", "en": "Hogaku Ensemble", "region": "日本"},
+
+  {"file": "b6-01-jazz-combo", "class": "B6", "num": 1, "title": "爵士小編制", "en": "Jazz Combo", "region": "美國・爵士傳統"},
+  {"file": "b6-02-big-band", "class": "B6", "num": 2, "title": "爵士大樂團", "en": "Big Band", "region": "美國・搖擺時代"},
+  {"file": "b6-03-rock-band", "class": "B6", "num": 3, "title": "搖滾樂團", "en": "Rock Band", "region": "英美・流行音樂工業"},
+  {"file": "b6-04-horn-section", "class": "B6", "num": 4, "title": "流行與靈魂樂銅管組", "en": "Horn Section", "region": "美國・節奏藍調與靈魂樂"},
+  {"file": "b6-05-choro", "class": "B6", "num": 5, "title": "巴西紹羅", "en": "Choro", "region": "巴西・里約熱內盧"},
+  {"file": "b6-06-salsa-conjunto", "class": "B6", "num": 6, "title": "薩爾薩康渾托", "en": "Conjunto and Salsa Band", "region": "加勒比・紐約與波多黎各"},
+
+  {"file": "b7-01-world-music-ensemble", "class": "B7", "num": 1, "title": "世界音樂樂團", "en": "World Music Ensemble", "region": "歐洲・北美與全球化"},
+  {"file": "b7-02-film-scoring", "class": "B7", "num": 2, "title": "影視配樂編制", "en": "Film Scoring Session Orchestra", "region": "好萊塢・全球"},
+  {"file": "b7-03-experimental", "class": "B7", "num": 3, "title": "實驗聲響團體", "en": "Experimental Sound Collective", "region": "歐美・當代藝術"},
+  {"file": "b7-04-electroacoustic", "class": "B7", "num": 4, "title": "電子原聲混合編制", "en": "Electroacoustic Ensemble", "region": "歐洲・當代音樂"},
+  {"file": "b7-05-theatre-music", "class": "B7", "num": 5, "title": "劇場音樂編制", "en": "Theatre Music Ensemble", "region": "歐洲・實驗劇場"}
+]

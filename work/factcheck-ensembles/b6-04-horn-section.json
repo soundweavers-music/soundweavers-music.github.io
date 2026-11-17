@@ -1,0 +1,75 @@
+{
+ "file": "b6-04-horn-section.md",
+ "title": "流行與靈魂樂銅管組",
+ "by_angle": {
+  "area": [
+   {
+    "quote": "",
+    "section": "",
+    "kind": "error",
+    "why": "area 審查失敗：模型沒有回傳文字區塊（stop_reason=max_tokens，通常是思考階段吃掉 token 預算）",
+    "fix": ""
+   }
+  ],
+  "ensemble": [],
+  "skeptic": [
+   {
+    "quote": "不是正拍，而是正拍之間",
+    "section": "聲音如何運作",
+    "kind": "overstated",
+    "why": "將 stab 的切分位置寫成定義，但打點同樣可以落在正拍上（如 Stax 許多銅管 riff 就在正拍），此處把常見情況寫成唯一情況。",
+    "fix": "改為「常出現在切分位置，但也可落在正拍上」"
+   },
+   {
+    "quote": "銅管組的段落常常以 lead sheet",
+    "section": "聲音如何運作",
+    "kind": "overstated",
+    "why": "前一段已說明 Motown、Philadelphia International 用完整分譜，此處又說「常常」用 lead sheet，兩者矛盾且未區分場合。",
+    "fix": "加上限定，如「在即興色彩較重的放克與部分靈魂樂錄音中，段落常以 lead sheet 流傳」"
+   },
+   {
+    "quote": "婚禮樂團的錄音與演出中",
+    "section": "場合與曲目",
+    "kind": "unsupported",
+    "why": "婚禮樂團通常以鍵盤、吉他、人聲為主，將「婚禮樂團」列為銅管組的典型場合缺乏依據，疑似模型自行添加。",
+    "fix": "刪除「婚禮樂團」，或改為「活動與派對現場」"
+   },
+   {
+    "quote": "中音薩克斯風、法國號",
+    "section": "編制與分工",
+    "kind": "unsupported",
+    "why": "法國號在流行／靈魂樂銅管組中極為罕見，列為「可選」標準選項缺乏來源，可能是模型編造的細節。",
+    "fix": "刪除「法國號」，保留第二支次中音薩克斯風與中音薩克斯風即可"
+   },
+   {
+    "quote": "銅管組不負責整首曲子的旋律",
+    "section": "一句話定位",
+    "kind": "overstated",
+    "why": "Tower of Power 等銅管組有完整的旋律性段落（如 What Is Hip? 的 intro），寫成絕對否定不準確。",
+    "fix": "改為「銅管組通常不承擔整首歌的主旋律」"
+   },
+   {
+    "quote": "它的精準來自樂手之間的默契",
+    "section": "聲音如何運作",
+    "kind": "overstated",
+    "why": "與前文 Motown／Philadelphia 依譜演奏的段落直接矛盾；對寫譜傳統而言，精準恰恰來自譜面。",
+    "fix": "改為「在即興與頭部編排的傳統中，精準來自默契；在寫譜傳統中則來自分譜」"
+   },
+   {
+    "quote": "現場的銅管組會吹得更短、更用力",
+    "section": "聲音如何運作",
+    "kind": "overstated",
+    "why": "把錄音室與現場的演奏差異寫成必然規律，實際上許多現場銅管組仍保持細膩控制，此為過度概括。",
+    "fix": "加「往往」或「傾向於」，如「現場的銅管組往往吹得更短、更用力」"
+   },
+   {
+    "quote": "銅管組常見的工作模式是「被雇用」",
+    "section": "編制與分工",
+    "kind": "overstated",
+    "why": "後文自己舉了 Tower of Power 銅管組為固定成員的例子，卻把「被雇用」寫成常見模式，與固定編制同樣普遍。",
+    "fix": "改為「銅管組的工作模式有兩種：被雇用與固定成員」"
+   }
+  ]
+ },
+ "issue_count": 9
+}

@@ -1,0 +1,12 @@
+!! b4-01-orchestra.md                 issues=18 fatal=3
+XX b4-02-wind-band.md                 issues=15 fatal=4
+!! b4-03-string-quartet.md            issues=22 fatal=5
+!! b4-04-period-ensemble.md           issues=14 fatal=3
+!! b5-01-chinese-orchestra.md         issues=19 fatal=4
+XX b5-02-korean-orchestra.md          issues=11 fatal=0
+XX b5-03-russian-folk.md              issues=16 fatal=3
+!! b5-04-mandolin-orchestra.md        issues=15 fatal=4
+XX b5-05-hogaku.md                    issues=14 fatal=1
+
+9 篇；27 個可能是事實錯誤的項目。詳細內容：work\factcheck-ensembles
+⚠ 5 個審查角度失敗（見 issue kind=error），這些條目未經完整審查。

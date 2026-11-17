@@ -1,0 +1,83 @@
+{
+ "file": "b2-02-bluegrass.md",
+ "title": "藍草樂隊",
+ "by_angle": {
+  "area": [
+   {
+    "quote": "",
+    "section": "",
+    "kind": "error",
+    "why": "area 審查失敗：模型沒有回傳文字區塊（stop_reason=max_tokens，通常是思考階段吃掉 token 預算）",
+    "fix": ""
+   }
+  ],
+  "ensemble": [
+   {
+    "quote": "",
+    "section": "",
+    "kind": "error",
+    "why": "ensemble 審查失敗：模型沒有回傳文字區塊（stop_reason=max_tokens，通常是思考階段吃掉 token 預算）",
+    "fix": ""
+   }
+  ],
+  "skeptic": [
+   {
+    "quote": "其他人聽最後兩個音進來",
+    "section": "聲音如何運作",
+    "kind": "fabricated",
+    "why": "kickoff 後其他人依樂句結束進場，「最後兩個音」是憑空加上的精確數字，無來源支撐。",
+    "fix": "改為「其他人聽完 kickoff 的樂句後進來」"
+   },
+   {
+    "quote": "吉他夾在第二或第三格",
+    "section": "聲音如何運作",
+    "kind": "overstated",
+    "why": "吉他移調夾位置依曲目調性而定，並非固定在第二或第三格；此處寫得像通則。",
+    "fix": "改為「吉他視需要夾在不同把位」或直接刪去格數"
+   },
+   {
+    "quote": "它幾乎一直在響",
+    "section": "聆聽入口",
+    "kind": "overstated",
+    "why": "第五弦是 drone 弦，在滾奏中頻繁出現但並非持續不間斷地響。",
+    "fix": "改為「它在滾奏中反覆出現」"
+   },
+   {
+    "quote": "手鼓跟着樂句走",
+    "section": "與相鄰編制的差別",
+    "kind": "wrong",
+    "why": "愛爾蘭 session 中使用的打擊樂器是 bodhrán（框鼓），不是「手鼓」（通常指 djembe、conga 等）。",
+    "fix": "改為「框鼓（bodhrán）跟着樂句走」"
+   },
+   {
+    "quote": "三指滾奏把八分音符連續填滿",
+    "section": "聲音如何運作",
+    "kind": "overstated",
+    "why": "Scruggs-style 滾奏以八分音符為基礎，但包含切分、休止與附點，並非「連續填滿」。",
+    "fix": "改為「三指滾奏以八分音符為基礎連續推進」"
+   },
+   {
+    "quote": "它的第五弦是一條高音持續音",
+    "section": "聲音如何運作",
+    "kind": "overstated",
+    "why": "第五弦是短 drone 弦，每次被撥響後迅速衰減，並非「持續音」（sustained tone）。",
+    "fix": "改為「它的第五弦是一條高音 drone 弦」"
+   },
+   {
+    "quote": "教會地下室臨時組起來",
+    "section": "一句話定位",
+    "kind": "unsupported",
+    "why": "音樂節與停車場 jam 是常見描述，「教會地下室」作為代表性場合缺乏來源，疑似編造細節。",
+    "fix": "刪去「教會地下室」，保留「音樂節與停車場」"
+   },
+   {
+    "quote": "在二十世紀中葉定型",
+    "section": "一句話定位",
+    "kind": "vague",
+    "why": "藍草通常被認為在 1940 年代（Monroe 樂隊 1938 成軍、1945 年錄音）定型，「中葉」偏晚且模糊。",
+    "fix": "改為「在 1940 年代定型」"
+   }
+  ]
+ },
+ "issue_count": 10
+}

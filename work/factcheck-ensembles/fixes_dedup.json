@@ -1,0 +1,524 @@
+[
+ {
+  "file": "b1-01-gamelan.md",
+  "quote": "例如薩龍的兩排",
+  "correct": "例如 saron panerus 與 saron barung 成對調音",
+  "n": 1
+ },
+ {
+  "file": "b1-01-gamelan.md",
+  "quote": "克比亞爾就是二十世紀初在南部村落形成的",
+  "correct": "峇里的克比亞爾就是二十世紀初在北部村落形成的競賽性、展演性風格，節奏與動態被推到極致。",
+  "n": 2
+ },
+ {
+  "file": "b1-01-gamelan.md",
+  "quote": "根德爾（gong ageng 家族）",
+  "correct": "剛阿貢（gong ageng）與各種低音鑼（kempul 等）",
+  "n": 1
+ },
+ {
+  "file": "b1-01-gamelan.md",
+  "quote": "根德爾（gong ageng 家族）與各種低音鑼",
+  "correct": "低音 | gong ageng（大鑼）、kempul 等鑼群 | 提供重量，也提供「這一輪多大」的聽覺刻度",
+  "n": 2
+ },
+ {
+  "file": "b1-01-gamelan.md",
+  "quote": "皮帕特通常只有兩三件旋律樂器",
+  "correct": "皮帕特通常只有五件左右旋律樂器，音律由宮廷體系統一",
+  "n": 3
+ },
+ {
+  "file": "b1-01-gamelan.md",
+  "quote": "薩龍（saron）、甘邦（gambang）、佳樂（gender）",
+  "correct": "薩龍（saron）、甘邦（gambang）、斯倫騰（slenthem）",
+  "n": 1
+ },
+ {
+  "file": "b1-02-takht.md",
+  "quote": "不定編制內，出現時負責另一條對位旋律",
+  "correct": "標準五件核心成員之一，負責長線條的氣聲旋律線",
+  "n": 1
+ },
+ {
+  "file": "b1-02-takht.md",
+  "quote": "出現時負責另一條對位旋律",
+  "correct": "出現時以自身音色與裝飾法演奏同一條調式旋律",
+  "n": 1
+ },
+ {
+  "file": "b1-02-takht.md",
+  "quote": "卡曼切（kamancheh）",
+  "correct": "卡曼賈（kamanja，كمجة，阿拉伯弓弦）或小提琴",
+  "n": 1
+ },
+ {
+  "file": "b1-02-takht.md",
+  "quote": "同時是唯一能一次奏出完整和音的樂器",
+  "correct": "同時是塔赫特中能一次奏出最多音的樂器",
+  "n": 1
+ },
+ {
+  "file": "b1-02-takht.md",
+  "quote": "唯一能一次奏出完整和音的樂器",
+  "correct": "能一次奏出完整和音的樂器之一",
+  "n": 1
+ },
+ {
+  "file": "b1-02-takht.md",
+  "quote": "沒有人被寫定要彈什麼",
+  "correct": "主旋律有既定骨架，但裝飾、過渡與 taksim 段落靠即興，所以整個合奏的技術難點在於：每個人必須在既定框架內同時做出同一個決定。",
+  "n": 1
+ },
+ {
+  "file": "b1-02-takht.md",
+  "quote": "速度變化不是漸進的，是鼓換一個節奏型就整段換掉",
+  "correct": "塔赫特的段落轉換常以鼓換節奏型為信號，但段內速度仍可漸變，例如 taksim 結尾的 rallentando。",
+  "n": 1
+ },
+ {
+  "file": "b1-04-piphat.md",
+  "quote": "加入更多吹管與弦樂",
+  "correct": "換成軟槌、加入弦樂（saw duang、saw u、jakhe 等），聲音柔和",
+  "n": 1
+ },
+ {
+  "file": "b1-04-piphat.md",
+  "quote": "庫伊（khlui，笛）",
+  "correct": "皮（pi，雙簧管類）",
+  "n": 1
+ },
+ {
+  "file": "b1-04-piphat.md",
+  "quote": "整個合奏的帶頭者",
+  "correct": "主奏旋律，合奏中最突出的旋律聲部",
+  "n": 1
+ },
+ {
+  "file": "b1-04-piphat.md",
+  "quote": "旋律完全交給木琴",
+  "correct": "泰國的鼓只負責時間，旋律交給木琴與吹管（pi），鼓本身不參與旋律。",
+  "n": 2
+ },
+ {
+  "file": "b1-04-piphat.md",
+  "quote": "空蒙（khong mon）等其他鑼組",
+  "correct": "khong wong lek（小圍鑼）等其他鑼組",
+  "n": 2
+ },
+ {
+  "file": "b1-04-piphat.md",
+  "quote": "與木琴對位",
+  "correct": "與木琴演奏同一旋律的不同裝飾版本，或替代木琴成為主旋律",
+  "n": 1
+ },
+ {
+  "file": "b1-04-piphat.md",
+  "quote": "雙面鼓（klong）",
+  "correct": "雙面鼓（taphon）",
+  "n": 1
+ },
+ {
+  "file": "b1-05-hsaing-waing.md",
+  "quote": "任何戲」（ayn）",
+  "correct": "安因（anyeint）",
+  "n": 1
+ },
+ {
+  "file": "b1-05-hsaing-waing.md",
+  "quote": "圍鑼（kyi waing）的鑼是固定音高的，不能調整",
+  "correct": "圍鑼（kyi waing）的鑼以調音膏定音，一旦調好便不再變動，因此整個樂團必須繞著這組固定音高來演奏。",
+  "n": 1
+ },
+ {
+  "file": "b1-05-hsaing-waing.md",
+  "quote": "帕特瑪（pat ma，大鼓組）",
+  "correct": "莽外（maung hsaing，大鼓）",
+  "n": 2
+ },
+ {
+  "file": "b1-05-hsaing-waing.md",
+  "quote": "瓦（wa，木魚類）",
+  "correct": "西（si，鐃鈸）與瓦（wa，小鑼）",
+  "n": 1
+ },
+ {
+  "file": "b1-05-hsaing-waing.md",
+  "quote": "用漆與皮革固定",
+  "correct": "鼓面以皮革蒙上，調音靠米漿（rice paste）",
+  "n": 2
+ },
+ {
+  "file": "b1-05-hsaing-waing.md",
+  "quote": "笛、豎琴（saung gauk）、吉他等",
+  "correct": "笛（pale）、小鑼（bachi）等",
+  "n": 1
+ },
+ {
+  "file": "b1-05-hsaing-waing.md",
+  "quote": "鼓手繞著圈演奏",
+  "correct": "鼓手坐在鼓圈中央，面向鼓面演奏",
+  "n": 1
+ },
+ {
+  "file": "b1-06-gagaku.md",
+  "quote": "以伽倻琴、玄琴、笛、大笒為核心",
+  "correct": "以玄琴、大笒、觱篥、牙箏為核心",
+  "n": 1
+ },
+ {
+  "file": "b1-06-gagaku.md",
+  "quote": "太鼓與鞨鼓打出的拍子從頭到尾一致",
+  "correct": "鉦鼓與鞨鼓打出的拍子從頭到尾一致",
+  "n": 1
+ },
+ {
+  "file": "b1-06-gagaku.md",
+  "quote": "由鞨鼓或太鼓給出訊號，三管一起進入",
+  "correct": "由鉦鼓給出進入訊號（合圖），三管一起進入。",
+  "n": 1
+ },
+ {
+  "file": "b2-01-mariachi.md",
+  "quote": "四拍的骨架也很清楚",
+  "correct": "拍子的骨架也很清楚",
+  "n": 1
+ },
+ {
+  "file": "b2-01-mariachi.md",
+  "quote": "因為那會讓原本就有限的音量互相抵消",
+  "correct": "因為兩者的音色與音域重疊時會模糊各自的線條，傳統編曲讓它們輪流領奏以保持層次。",
+  "n": 2
+ },
+ {
+  "file": "b2-02-bluegrass.md",
+  "quote": "high lonesome 的來源：不是唱得大聲，而是和聲的位置高",
+  "correct": "這種和聲排列是 bluegrass 音響的一部分，與 Monroe 高亢孤獨的唱腔共同構成了所謂 high lonesome sound。",
+  "n": 1
+ },
+ {
+  "file": "b2-04-taraf.md",
+  "quote": "快速不對稱節奏的舞曲",
+  "correct": "快速二拍子的舞曲",
+  "n": 1
+ },
+ {
+  "file": "b2-04-taraf.md",
+  "quote": "瑟爾巴（sârbă，快速不對稱節奏的舞曲）",
+  "correct": "瑟爾巴（sârbă，快速二拍子舞曲）",
+  "n": 1
+ },
+ {
+  "file": "b2-05-irish-session.md",
+  "quote": "持續音 | 愛爾蘭風笛（uilleann pipes）",
+  "correct": "旋律（附持續音） | 愛爾蘭風笛（uilleann pipes） | 主要演奏旋律，同時以 drone 管提供持續低音、以 regulators 打出和弦音，是 session 裡少數能同時給旋律與和聲的樂器",
+  "n": 1
+ },
+ {
+  "file": "b2-06-beiguan.md",
+  "quote": "大椰胡、低音弦樂",
+  "correct": "大廣弦、低音弦樂",
+  "n": 2
+ },
+ {
+  "file": "b2-06-beiguan.md",
+  "quote": "提弦（殼仔弦）",
+  "correct": "提弦、二弦、大廣弦、椰胡",
+  "n": 1
+ },
+ {
+  "file": "b2-06-beiguan.md",
+  "quote": "鼓（通鼓、板鼓）",
+  "correct": "鼓（通鼓、小鼓）",
+  "n": 1
+ },
+ {
+  "file": "b3-01-taiko.md",
+  "quote": "兩者用的是同一批樂器",
+  "correct": "祭典囃子與組太鼓用的是同一批鼓；劇場囃子（能樂、歌舞伎）則另有小鼓、大鼓、笛等樂器，不出現在組太鼓編制中。",
+  "n": 1
+ },
+ {
+  "file": "b3-02-djembe.md",
+  "quote": "每顆敦敦鼓都掛一枚鈴",
+  "correct": "肯肯尼（及部分地区桑班）掛一枚鐵鈴，由持鼓棒的另一隻手敲。鈴聲比鼓皮更清楚、更不容易被蓋掉",
+  "n": 1
+ },
+ {
+  "file": "b3-02-djembe.md",
+  "quote": "金貝鼓的低音很厚，但傳不遠",
+  "correct": "金貝鼓的低音很厚，但在多面鼓同時響時容易被其他低頻遮蔽、難以辨識；鐵鈴的聲音細卻尖，能穿過鼓聲與人聲。",
+  "n": 1
+ },
+ {
+  "file": "b3-02-djembe.md",
+  "quote": "馬拉卡圖由歌手用阿洛法啟動",
+  "correct": "馬拉卡圖由領唱者（chamador）以歌聲啟動段落",
+  "n": 2
+ },
+ {
+  "file": "b3-03-samba-bateria.md",
+  "quote": "巴特利亞通常位於隊伍的前段或中段",
+  "correct": "巴特利亞位於該校隊伍的最前段，緊接在開場委員會（comissão de frente）之後",
+  "n": 1
+ },
+ {
+  "file": "b3-03-samba-bateria.md",
+  "quote": "由歌手用阿洛法啟動段落",
+  "correct": "由專職的 alafeiro 用阿洛法啟動段落，歌手負責領唱與呼應",
+  "n": 2
+ },
+ {
+  "file": "b3-03-samba-bateria.md",
+  "quote": "鼓群接在歌聲之後",
+  "correct": "鼓群維持自己的循環型，歌聲疊在鼓型之上啟動段落轉換",
+  "n": 1
+ },
+ {
+  "file": "b3-04-samul-nori.md",
+  "quote": "鼓手在風物裡通常只用一根棒",
+  "correct": "鼓手在風物裡通常使用兩根粗細不同的鼓棒（북채），分別擊打鼓的兩面",
+  "n": 1
+ },
+ {
+  "file": "b3-05-luogu.md",
+  "quote": "即使在北京劇中",
+  "correct": "即使在京劇中",
+  "n": 2
+ },
+ {
+  "file": "b3-06-maracatu.md",
+  "quote": "一手持棒擊鼓面、一手擊鼓身或鼓邊",
+  "correct": "雙手各持一根木棒（baqueta）擊打鼓面，偶爾以棒擊鼓邊產生不同音色",
+  "n": 1
+ },
+ {
+  "file": "b3-06-maracatu.md",
+  "quote": "岡加（gonguê，金屬雙鈴）",
+  "correct": "岡加（gonguê，單片金屬鈴）",
+  "n": 2
+ },
+ {
+  "file": "b3-06-maracatu.md",
+  "quote": "曼加札（mangazá）",
+  "correct": "卡伊沙（caixa）、塔羅爾（tarol）等小鼓",
+  "n": 1
+ },
+ {
+  "file": "b3-06-maracatu.md",
+  "quote": "曼加札（mangazá）等小鼓",
+  "correct": "卡伊沙（caixa）、塔羅爾（tarol）等小鼓",
+  "n": 1
+ },
+ {
+  "file": "b4-01-orchestra.md",
+  "quote": "同一種樂器不是一個人，而是一整組人演奏同一條分譜",
+  "correct": "管弦樂團的組織原則是「聲部制」：弦樂聲部中，同一種樂器不是一個人，而是一整組人演奏同一條分譜；木管與銅管則每人一條獨立分譜，以音色而非人數構成聲部。",
+  "n": 1
+ },
+ {
+  "file": "b4-01-orchestra.md",
+  "quote": "大提琴在右前",
+  "correct": "大提琴在右側或右後方",
+  "n": 1
+ },
+ {
+  "file": "b4-01-orchestra.md",
+  "quote": "弦樂器採純五度調弦",
+  "correct": "小提琴、中提琴、大提琴採純五度調弦，低音提琴則採純四度（E-A-D-G）",
+  "n": 1
+ },
+ {
+  "file": "b4-02-wind-band.md",
+  "quote": "弦樂團不可能讓十幾把大提琴拉同一條分譜",
+  "correct": "弦樂團雖然也有十幾把同族樂器拉同一分譜，但要維持同樣的音準一致性，門檻遠高於十幾支單簧管。",
+  "n": 1
+ },
+ {
+  "file": "b4-03-string-quartet.md",
+  "quote": "四個人站在彼此幾步之內",
+  "correct": "四個人坐在彼此幾步之內",
+  "n": 1
+ },
+ {
+  "file": "b4-03-string-quartet.md",
+  "quote": "標準排法是大提琴在右、第一小提琴在左、第二小提琴在右後或中、中提琴在左後",
+  "correct": "常見排法是第一小提琴在左前、第二小提琴在右前、中提琴與大提琴在後排（左右位置各團不同），四個人圍成一個小弧形，讓每個人都能看見其他人的弓。",
+  "n": 1
+ },
+ {
+  "file": "b4-04-period-ensemble.md",
+  "quote": "「Do 在哪裡」取決於你現在彈什麼調",
+  "correct": "這些系統意味著不同調性的音程品質不同——同樣的三度在 C 大調裡純淨，在 F♯ 大調裡卻窄得刺耳——所以某些調聽起來明亮、某些調聽起來壓抑。",
+  "n": 1
+ },
+ {
+  "file": "b5-01-chinese-orchestra.md",
+  "quote": "吹管與彈撥都是「一擊之後就衰減」",
+  "correct": "彈撥是「一擊之後就衰減」的發聲方式，吹管能持續但受氣息限制，拉弦能持續但音量小。",
+  "n": 1
+ },
+ {
+  "file": "b5-01-chinese-orchestra.md",
+  "quote": "吹管與彈撥都是「一擊之後就衰減」的發聲方式",
+  "correct": "彈撥是「一撥即衰」的發聲方式，吹管與拉弦都能持續發聲，但拉弦音量偏小。",
+  "n": 1
+ },
+ {
+  "file": "b5-02-korean-orchestra.md",
+  "quote": "笛（피리）",
+  "correct": "篳篥（피리，piri）",
+  "n": 1
+ },
+ {
+  "file": "b5-03-russian-folk.md",
+  "quote": "用一種樂器的不同尺寸，覆蓋整個音域",
+  "correct": "用撥弦樂器的不同尺寸，覆蓋整個音域",
+  "n": 1
+ },
+ {
+  "file": "b5-04-mandolin-orchestra.md",
+  "quote": "小提琴到曼陀大提琴的音域",
+  "correct": "第一曼陀林到曼陀大提琴對應小提琴到大提琴的音域",
+  "n": 1
+ },
+ {
+  "file": "b5-04-mandolin-orchestra.md",
+  "quote": "真正的倍低音常借用低音提琴或吉他",
+  "correct": "真正的倍低音常借用低音提琴",
+  "n": 1
+ },
+ {
+  "file": "b5-04-mandolin-orchestra.md",
+  "quote": "第一曼陀林到曼陀大提琴對應小提琴到曼陀大提琴的音域",
+  "correct": "第一曼陀林到曼陀大提琴對應小提琴到低音提琴的音域",
+  "n": 2
+ },
+ {
+  "file": "b5-05-hogaku.md",
+  "quote": "胡弓是拉弦，音色接近三味線但能持續",
+  "correct": "胡弓是拉弦，音色柔和、帶鼻音，能持續發聲，與撥弦樂器的顆粒感形成對比",
+  "n": 1
+ },
+ {
+  "file": "b5-05-hogaku.md",
+  "quote": "長音與滑音填滿撥弦之間的縫隙",
+  "correct": "從上方加入，演奏與三味線同步或變體的旋律線，以長音、滑音與氣聲呈現撥弦無法持續的音頭",
+  "n": 1
+ },
+ {
+  "file": "b6-01-jazz-combo.md",
+  "quote": "薩克斯風、小號、吉他等（front line）",
+  "correct": "薩克斯風、小號、長號等（front line）",
+  "n": 1
+ },
+ {
+  "file": "b6-02-big-band.md",
+  "quote": "常含一支高音小號",
+  "correct": "四支，第四支為 lead trumpet，以標準降B小號演奏最高音域",
+  "n": 2
+ },
+ {
+  "file": "b6-02-big-band.md",
+  "quote": "每一拍的根音清楚",
+  "correct": "低音提琴要讓每一拍的音清楚，因為舞者與管樂手都靠低音線條定位和聲",
+  "n": 1
+ },
+ {
+  "file": "b6-02-big-band.md",
+  "quote": "用 bass drum 與 hi-hat 標出重拍",
+  "correct": "用 hi-hat 標出二、四拍，bass drum 以 feathering 維持四拍脈衝",
+  "n": 1
+ },
+ {
+  "file": "b6-03-rock-band.md",
+  "quote": "共同點是「一首歌」的形式：有主唱、有副歌",
+  "correct": "多數搖滾歌曲的共同點是「一首歌」的形式：有主唱、有副歌、有可以辨認的段落；器樂搖滾則以 riff 或音景取代人聲結構。",
+  "n": 1
+ },
+ {
+  "file": "b6-03-rock-band.md",
+  "quote": "同一個東西在不同頻率上出現",
+  "correct": "雙重不是為了讓聲音變大，而是讓同一個聲部以微小的時間與音高偏移重複出現，靠相位差產生更飽滿的聽感。",
+  "n": 1
+ },
+ {
+  "file": "b6-03-rock-band.md",
+  "quote": "搖滾樂團只有四件樂器",
+  "correct": "搖滾樂團以四件為基準編制",
+  "n": 1
+ },
+ {
+  "file": "b6-04-horn-section.md",
+  "quote": "五重奏每種樂器只有一個人",
+  "correct": "五重奏共五個聲部、每個聲部只有一人演奏（小號雖有兩人，但各負責不同聲部），五個聲部地位平等",
+  "n": 2
+ },
+ {
+  "file": "b6-04-horn-section.md",
+  "quote": "以簡譜或和弦代號流傳",
+  "correct": "銅管組的段落常常以 lead sheet（旋律線加和弦代號）或單純的和弦代號流傳，而不是完整的五線譜",
+  "n": 1
+ },
+ {
+  "file": "b6-04-horn-section.md",
+  "quote": "編制特色是「被雇用」而不是「固定成員」",
+  "correct": "銅管組常見的工作模式是「被雇用」——同一組樂手在不同樂團、不同唱片、不同巡演裡出現；但也有長期固定於某樂團或製作人的例子，如 Memphis Horns、Phenix Horns、Tower of Power 的銅管組等。",
+  "n": 1
+ },
+ {
+  "file": "b6-05-choro.md",
+  "quote": "曼陀林在同一個時間點上吹另一個樂句",
+  "correct": "曼陀林在同一個時間點上彈另一個樂句",
+  "n": 2
+ },
+ {
+  "file": "b6-05-choro.md",
+  "quote": "最常被拿來對比的是薩爾薩樂團",
+  "correct": "最常被拿來對比的是早期爵士（Dixieland）與森巴。",
+  "n": 1
+ },
+ {
+  "file": "b6-05-choro.md",
+  "quote": "華爾滋（choro-canção）",
+  "correct": "華爾滋（valsa）、抒情歌曲（choro-canção）、馬克西謝（maxixe）等不同類型",
+  "n": 3
+ },
+ {
+  "file": "b6-06-salsa-conjunto.md",
+  "quote": "低音提琴提供和聲的基礎",
+  "correct": "cavaquinho 與六弦吉他提供和聲的基礎，七弦吉他負責低音線",
+  "n": 1
+ },
+ {
+  "file": "b6-06-salsa-conjunto.md",
+  "quote": "低音的蒙圖諾型（常稱 tumbao）",
+  "correct": "演奏低音的 tumbao 型：根音、五度與經過音，刻意避開正拍",
+  "n": 1
+ },
+ {
+  "file": "b6-06-salsa-conjunto.md",
+  "quote": "沙鈴（maracas）、刮器（güiro）",
+  "correct": "沙鈴（maracas）",
+  "n": 1
+ },
+ {
+  "file": "b6-06-salsa-conjunto.md",
+  "quote": "特雷斯吉他常用兩條弦同時奏出和聲",
+  "correct": "特雷斯吉他以複弦奏出同度或八度，加厚單音線條",
+  "n": 1
+ },
+ {
+  "file": "b7-02-film-scoring.md",
+  "quote": "同時控制節拍器與畫面時間",
+  "correct": "對片指揮，跟隨預編節拍器並配合固定畫面時間",
+  "n": 1
+ },
+ {
+  "file": "b7-03-experimental.md",
+  "quote": "在歐美當代藝術圈形成的演奏組合",
+  "correct": "二十世紀中期以後在歐美與日本等地當代藝術圈形成的演奏組合",
+  "n": 1
+ }
+]

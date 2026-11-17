@@ -1,0 +1,11 @@
+!! b4-01-orchestra.md                 confirmed= 4/18
+ok b4-02-wind-band.md                 confirmed= 0/21
+!! b4-03-string-quartet.md            confirmed= 2/21
+!! b4-04-period-ensemble.md           confirmed= 2/16
+ok b5-01-chinese-orchestra.md         confirmed= 0/14
+!! b5-02-korean-orchestra.md          confirmed= 1/12
+!! b5-03-russian-folk.md              confirmed= 3/17
+ok b5-04-mandolin-orchestra.md        confirmed= 0/19
+ok b5-05-hogaku.md                    confirmed= 0/17
+
+12 個確認為錯誤；0 個裁決失敗。待修正清單：work\factcheck-ensembles\fixes.json

@@ -60,6 +60,9 @@ jobs:
       - name: Build mandolin section
         run: python scripts/build_mandolin.py
 
+      - name: Build ensembles
+        run: python scripts/build_ensembles.py
+
       - name: Build ebooks
         run: python scripts/build_ebook.py
 

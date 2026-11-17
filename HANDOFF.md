@@ -26,8 +26,9 @@ Repo：soundweavers-music/soundweavers-music.github.io（`main` 推上去就會�
         招募（/recruit/）、學習總覽（/learn/）、工具（指版、和弦偵測）、/tools/experience/ 轉址頁、
         sitemap.xml、robots.txt、404
  ② scripts/build_vocal_extra.py   覆寫首頁、聯絡、人聲、錄音後製、樂理、/experience/（世界樂器體驗）
- ③ scripts/build_mandolin.py      曼陀林專區 /mandolin/ + 22 章
- ④ scripts/build_ebook.py         電子書（CI 有裝 LibreOffice）
+③ scripts/build_ensembles.py     合奏與編制百科 /ensembles/：七類 40 篇（內容在 content/ensembles/）
+ ④ scripts/build_mandolin.py      曼陀林專區 /mandolin/ + 22 章
+ ⑤ scripts/build_ebook.py         電子書（CI 有裝 LibreOffice）
         ▼
  outputs/world-instruments-static/   ← 真正部署的內容（gitignore）
         ▼
@@ -35,13 +36,13 @@ Repo：soundweavers-music/soundweavers-music.github.io（`main` 推上去就會�
    依序跑 ①→④ → upload-pages-artifact → deploy-pages
 ```
 
-**順序很重要**：① 會 `rmtree` 整個輸出資料夾，② ③ 必須在它之後跑。
+**順序很重要**：① 會 `rmtree` 整個輸出資料夾，② ③ ④ 必須在它之後跑。
 
 本機預覽：
 
 ```bash
 export PYTHONIOENCODING=utf-8
-python scripts/build_static_site.py && python scripts/build_vocal_extra.py && python scripts/build_mandolin.py
+python scripts/build_static_site.py && python scripts/build_vocal_extra.py && python scripts/build_ensembles.py && python scripts/build_mandolin.py
 python -m http.server 8899 --directory outputs/world-instruments-static
 # 開 http://127.0.0.1:8899/
 ```
@@ -62,6 +63,7 @@ python -m http.server 8899 --directory outputs/world-instruments-static
 | 第三方 JS | `assets/vendor/` | Leaflet、SheetJS、JSZip、html2canvas、jsPDF、Meyda 都已改為本站託管，CSP 不再允許任何 CDN。 |
 | canonical / og:url | `canonical_for()` | 由輸出路徑算出絕對網址。 |
 | 曼陀林建議時數 | `build_mandolin.py` → `study_hours()` | 字數 ÷ 300 字/分 × 各 Part 係數（技法 2.5、專輯 2.0…），以 0.5 小時為單位進位。 |
+| 合奏與編制百科 | `content/ensembles/*.md` → `build_ensembles.py` | 七類 40 篇，frontmatter（class/num/title/en/region/summary/keywords）+ 固定七節。B1–B7 分類定義在 `build_static_site.ENSEMBLE_ARCHITECTURE`，改分類只要改那裡。寫作規格見 `content/ensembles/_STYLE.md`。 |
 | 和弦偵測 | `chord-detection/index.html`（**原始檔**，非產出物） | `build_chord_detection_tool()` 包上站台模板。分析全部在瀏覽器內完成。`local-agent/`（Python 分析器）只留在 repo，**不部署，頁面上也不得再提到它**（見第 4 節 Safe Browsing）。 |
 | 歷年作品 | `content/discography.json` → `discography_section()` | `/about/works/` 分頁的專輯牆。資料來自 `content/歷年作品.md`；`apple` 是 Apple Music collectionId，`ytm` 是 YouTube Music 播放清單 id。新增作品後執行 `python scripts/fetch_album_covers.py` 下載封面到 `assets/brand/albums/{apple}.webp`（480px webp，本站託管）。 |
 | 世界樂器體驗 | `build_vocal_extra.py` → `/experience/` | 首頁、選單、樂器列表的「世界樂器體驗」都連到這裡。舊網址 `/tools/experience/` 只剩轉址頁。 |
