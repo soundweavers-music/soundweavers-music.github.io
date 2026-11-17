@@ -56,14 +56,14 @@ python -m http.server 8899 --directory outputs/world-instruments-static
 | 手寫頁面套用導覽 | `with_site_chrome()` | `tools/fretboard/index.html` 是手寫原始檔，建置時把 header/footer 換成最新版。 |
 | Banner 細條 | `site_header()` 末尾的 `.site-banner` | 每頁都有；頁面已有 `.hero-banner`（首頁）或 `.banner-hero`（大 banner 標題）時會自動隱藏。 |
 | 大 banner 標題 | `banner_hero()`（build_static_site.py） | 關於、作者、招募、學習頁使用。 |
-| 關於分頁 | `about_tabs()` + `ABOUT_TABS` | 關於世界聲音百科／作者／招募夥伴三個分頁。 |
+| 關於分頁 | `about_tabs()` + `ABOUT_TABS` | 關於世界聲音百科／作者／歷年作品（/about/works/）／招募夥伴四個分頁。 |
 | 設計樣式 | `assets/site-refresh.css` | 木質色系 tokens（--ink、--paper、--accent、--wood…）。`site.css` 是舊底層，由建置程式產生。 |
 | 品牌圖 | `assets/brand/`（logo.png、favicon.png、banner.webp、banner-narrow.webp、author.webp、albums/） | CSS 內的 url 相對於 `/assets/`，例如 `url("brand/banner.webp")`。 |
 | 第三方 JS | `assets/vendor/` | Leaflet、SheetJS、JSZip、html2canvas、jsPDF、Meyda 都已改為本站託管，CSP 不再允許任何 CDN。 |
 | canonical / og:url | `canonical_for()` | 由輸出路徑算出絕對網址。 |
 | 曼陀林建議時數 | `build_mandolin.py` → `study_hours()` | 字數 ÷ 300 字/分 × 各 Part 係數（技法 2.5、專輯 2.0…），以 0.5 小時為單位進位。 |
 | 和弦偵測 | `chord-detection/index.html`（**原始檔**，非產出物） | `build_chord_detection_tool()` 包上站台模板。分析全部在瀏覽器內完成。`local-agent/`（Python 分析器）只留在 repo，**不部署，頁面上也不得再提到它**（見第 4 節 Safe Browsing）。 |
-| 歷年作品 | `content/discography.json` → `discography_section()` | 作者頁的專輯牆。資料來自 `content/歷年作品.md`；`apple` 是 Apple Music collectionId，`ytm` 是 YouTube Music 播放清單 id。新增作品後執行 `python scripts/fetch_album_covers.py` 下載封面到 `assets/brand/albums/{apple}.webp`（480px webp，本站託管）。 |
+| 歷年作品 | `content/discography.json` → `discography_section()` | `/about/works/` 分頁的專輯牆。資料來自 `content/歷年作品.md`；`apple` 是 Apple Music collectionId，`ytm` 是 YouTube Music 播放清單 id。新增作品後執行 `python scripts/fetch_album_covers.py` 下載封面到 `assets/brand/albums/{apple}.webp`（480px webp，本站託管）。 |
 | 世界樂器體驗 | `build_vocal_extra.py` → `/experience/` | 首頁、選單、樂器列表的「世界樂器體驗」都連到這裡。舊網址 `/tools/experience/` 只剩轉址頁。 |
 
 ---
@@ -119,11 +119,12 @@ Chrome 開站顯示「危險網站／可能誘騙你安裝軟體」。查詢 `ht
 ### 2026-11-17
 
 - 作者頁頭像改為 LOGO（`assets/brand/logo.png`）。
-- 作者頁新增「歷年作品 Discography」：23 張已發行作品的封面牆，附 Apple Music／YouTube Music 連結，另列 4 張即將發行的作品。
+- 新增「歷年作品」分頁（/about/works/，關於選單與分頁列都有）：23 張已發行作品的封面牆，附 Apple Music／YouTube Music 連結，另列 4 張即將發行的作品。
 - 招募頁「如何報名」簡化為一句「讀完這些資訊，有意願歡迎來信溝通。」加上 Email 按鈕。
 - 修正指版和弦圖頁 banner 重複堆疊（原因見第 3 節第 2 點）。
 - 首頁、選單、樂器列表的「體驗聲音」改為「世界樂器體驗」（/experience/），舊 `/tools/experience/` 改為轉址。
 - 和弦偵測移除本地代理模式（見第 4 節 Safe Browsing）。
+- 工具選單圖示區分：🎸 指版和弦圖、🎼 自動抓和弦、🎹 世界樂器體驗。
 
 ## 6. 待辦／建議
 

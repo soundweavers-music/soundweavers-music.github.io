@@ -460,7 +460,7 @@ def site_header(page_path):
         <a href="{resolve_url(page_path, '/tools/fretboard/')}" class="dropdown-trigger">工具</a>
         <div class="dropdown-menu">
           <a href="{resolve_url(page_path, '/tools/fretboard/')}">🎸 世界樂器指版和弦圖</a>
-          <a href="{resolve_url(page_path, '/chord-detection/')}">🎹 自動抓和弦 (beta)</a>
+          <a href="{resolve_url(page_path, '/chord-detection/')}">🎼 自動抓和弦 (beta)</a>
           <a href="{resolve_url(page_path, '/experience/')}">🎹 世界樂器體驗</a>
         </div>
       </div>
@@ -469,6 +469,7 @@ def site_header(page_path):
         <div class="dropdown-menu">
           <a href="{resolve_url(page_path, '/about/')}">關於世界聲音百科</a>
           <a href="{resolve_url(page_path, '/about/author/')}">作者</a>
+          <a href="{resolve_url(page_path, '/about/works/')}">歷年作品</a>
           <a href="{resolve_url(page_path, '/recruit/')}">招募夥伴</a>
         </div>
       </div>
@@ -748,7 +749,7 @@ def build_index(instruments):
             <span>瀏覽常見彈撥樂器的調弦法、各調性和弦、指版音位圖與順階和弦</span>
           </a>
           <a class="featured-card" href="{resolve_url(index_path, '/chord-detection/')}" style="background:linear-gradient(135deg,#fef3c7,#fde68a);border:1px solid #f59e0b;">
-            <strong>🎹 自動抓和弦 (beta)</strong>
+            <strong>🎼 自動抓和弦 (beta)</strong>
             <span>上傳音檔自動分析節拍與和弦進行，支援指版圖顯示與和弦編輯</span>
           </a>
           <a class="featured-card" href="{resolve_url(index_path, '/experience/')}" style="background:linear-gradient(135deg,#f5f0ff,#ebe0ff);border:1px solid #d5c5fd;">
@@ -1917,7 +1918,7 @@ def build_sitemap(instruments):
                  "/about/", "/theory/", "/vocal/", "/digitalmusic/",
                  "/sound-journey/", "/experience/", "/contact/",
                  "/chord-detection/", "/tools/fretboard/", "/experience/",
-                 "/learn/", "/about/author/", "/recruit/", "/mandolin/"]:
+                 "/learn/", "/about/author/", "/about/works/", "/recruit/", "/mandolin/"]:
         urls.append(u(path))
 
     # Instrument detail pages
@@ -2322,7 +2323,8 @@ def build_manager_page(instruments):
 
 
 
-ABOUT_TABS = [("/about/", "關於世界聲音百科"), ("/about/author/", "作者"), ("/recruit/", "招募夥伴")]
+ABOUT_TABS = [("/about/", "關於世界聲音百科"), ("/about/author/", "作者"),
+              ("/about/works/", "歷年作品"), ("/recruit/", "招募夥伴")]
 
 
 def about_tabs(page_path, current):
@@ -2392,7 +2394,7 @@ def discography_section(page_path: Path) -> str:
 
 
 def build_about_page():
-    """/about/ (the site) and /about/author/ (隔壁織音人) as two tabs."""
+    """/about/ (the site), /about/author/ (隔壁織音人) and /about/works/ (歷年作品) as tabs."""
     about_path = OUTPUT_DIR / "about" / "index.html"
     body = f"""<main class="about-page">
   {banner_hero("About World Sound Encyclopedia", "關於世界聲音百科", "循著聲音，走進不同文化的現場")}
@@ -2459,10 +2461,10 @@ def build_about_page():
         <li><span class="service-icon">🎤</span>人聲錄製｜DEMO 代唱．導唱</li>
       </ul>
     </section>
-{discography_section(author_path)}
     <div class="about-cta">
       <p>有音樂製作需求，或想成為我們的音樂鄰居？</p>
       <span class="about-cta-actions">
+        <a class="btn-ghost" href="{resolve_url(author_path, '/about/works/')}">聽聽歷年作品</a>
         <a class="btn-wood" href="{resolve_url(author_path, '/recruit/')}">招募夥伴</a>
         <a class="btn-ghost" href="{resolve_url(author_path, '/contact/')}">聯絡我們</a>
       </span>
@@ -2471,6 +2473,24 @@ def build_about_page():
 </main>"""
     write(author_path, page("作者・隔壁織音人", body, author_path,
           meta_description="隔壁織音人 — 隔壁音樂工作室 Next Door Music 的音樂團體，提供編曲製作、詞曲訂製、人聲修音混音與 DEMO 代唱服務。"))
+
+    works_path = OUTPUT_DIR / "about" / "works" / "index.html"
+    body = f"""<main class="about-page">
+  {banner_hero("Discography", "歷年作品", "隔壁織音人自 2024 年起發行的專輯與單曲")}
+  {about_tabs(works_path, "/about/works/")}
+  <div class="about-body">
+{discography_section(works_path)}
+    <div class="about-cta">
+      <p>喜歡我們的音樂，或有合作想法？</p>
+      <span class="about-cta-actions">
+        <a class="btn-wood" href="{resolve_url(works_path, '/recruit/')}">招募夥伴</a>
+        <a class="btn-ghost" href="{resolve_url(works_path, '/contact/')}">聯絡我們</a>
+      </span>
+    </div>
+  </div>
+</main>"""
+    write(works_path, page("歷年作品・隔壁織音人", body, works_path,
+          meta_description="隔壁織音人歷年作品：療癒純音樂、兒童音樂與華語、日語流行歌曲專輯與單曲，附 Apple Music 與 YouTube Music 收聽連結。"))
 
 
 def build_recruit_page():
