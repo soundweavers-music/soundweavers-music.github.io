@@ -632,7 +632,7 @@ def build_instruments_list_page(instruments):
     for item in instruments:
         by_cat[item["category"]].append(item)
     category_links = "".join(
-        f'<a class="facet-card" href="../../categories/{slugify(name)}/"><strong>{escape(name)}</strong><span>{len(items)} 筆</span></a>'
+        f'<a class="facet-card" href="{resolve_url(page_path, f"/categories/{slugify(name)}/")}"><strong>{escape(name)}</strong><span>{len(items)} 筆</span></a>'
         for name, items in sorted(by_cat.items())
     )
     cards = "\n".join(card(item, page_path) for item in instruments) or '<p class="empty">目前沒有資料。</p>'
@@ -1127,12 +1127,16 @@ def build_category_detail_pages(instruments):
                     if s and (slugify(s) == slugify(subcat_name) or s.startswith(subcat_name[:2])):
                         matched.append(i)
                 matched = sorted(matched, key=lambda i: i["title"], reverse=False)
-            subcat_link = resolve_url(OUTPUT_DIR / "categories" / slug / "index.html", f'/subcategories/{slugify(subcat_name)}/')
+            # The architecture names (07_整體架構) differ slightly from the
+            # subcategory values in the data; link to the facet page that the
+            # matched instruments actually live under.
+            real_sub = matched[0].get("subcategory", "") if matched else ""
+            subcat_link = resolve_url(OUTPUT_DIR / "categories" / slug / "index.html", f'/subcategories/{slugify(real_sub)}/') if real_sub else ""
             subcat_items_html = "\n".join(card(item, OUTPUT_DIR / "categories" / slug / "index.html") for item in matched) if matched else '<p class="empty">（此子分類暫無樂器資料）</p>'
             subcat_sections.append(f"""
             <section class="section">
               <div class="section-heading">
-                <h3><a href="{subcat_link}" style="color:var(--accent);text-decoration:none;">{escape(subcat_name)}</a></h3>
+                <h3>{f'<a href="{subcat_link}" style="color:var(--accent);text-decoration:none;">{escape(subcat_name)}</a>' if subcat_link else escape(subcat_name)}</h3>
                 <span class="section-note">{len(matched)} 件樂器</span>
               </div>
               <div class="instrument-grid">{subcat_items_html}</div>
@@ -2948,6 +2952,11 @@ def main():
     mand_img = BASE_DIR / "assets" / "mandolin" / "img"
     if mand_img.exists():
         shutil.copytree(str(mand_img), str(OUTPUT_DIR / "assets" / "mandolin" / "img"), dirs_exist_ok=True)
+    # Self-hosted third-party JS (Leaflet, SheetJS, JSZip, html2canvas, jsPDF, Meyda);
+    # the CSP allows no CDN origins, so these must ship with the site
+    vendor_src = BASE_DIR / "assets" / "vendor"
+    if vendor_src.exists():
+        shutil.copytree(str(vendor_src), str(OUTPUT_DIR / "assets" / "vendor"), dirs_exist_ok=True)
     write(OUTPUT_DIR / ".nojekyll", "")
     # Copy Google Search Console verification file to output root
     gsc_file = BASE_DIR / "googled81b331c3a5b66a0.html"

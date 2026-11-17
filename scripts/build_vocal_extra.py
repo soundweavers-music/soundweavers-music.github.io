@@ -505,7 +505,7 @@ document.addEventListener('DOMContentLoaded', function() {{
         prev_num = c["num"] - 1
         next_num = c["num"] + 1
         prev_link = f'<a class="vocal-nav-link" href="{resolve_url(ch_dir / "index.html", f"/vocal/{prev_num}/")}">← 上一章</a>' if c["num"] > 1 else '<span class="vocal-nav-link disabled">← 上一章</span>'
-        next_link = f'<a class="vocal-nav-link" href="{resolve_url(ch_dir / "index.html", f"/vocal/{next_num}/")}">下一章 →</a>'
+        next_link = f'<a class="vocal-nav-link" href="{resolve_url(ch_dir / "index.html", f"/vocal/{next_num}/")}">下一章 →</a>' if next_num <= max(ch["num"] for ch in chapters) else '<span class="vocal-nav-link disabled">下一章 →</span>'
 
         detail_body = f"""<main class="vocal-detail-page">
   <div class="vocal-detail-header">
@@ -788,7 +788,7 @@ def build_theory_pages():
         s_dir.mkdir(parents=True, exist_ok=True)
         sn = int(s["num"])
         prev_l = f'<a class="vocal-nav-link" href="{resolve_url(s_dir / "index.html", f"/theory/{sn-1}/")}">← 上一階段</a>' if sn > 0 else '<span class="vocal-nav-link disabled">← 上一階段</span>'
-        next_l = f'<a class="vocal-nav-link" href="{resolve_url(s_dir / "index.html", f"/theory/{sn+1}/")}">下一階段 →</a>' if sn < len(stages) else '<span class="vocal-nav-link disabled">下一階段 →</span>'
+        next_l = f'<a class="vocal-nav-link" href="{resolve_url(s_dir / "index.html", f"/theory/{sn+1}/")}">下一階段 →</a>' if sn < max(int(st["num"]) for st in stages) else '<span class="vocal-nav-link disabled">下一階段 →</span>'
         detail = f"""<main class="page theory-page">
   <nav class="breadcrumb" style="margin-bottom:24px;">
     <a href="{resolve_url(s_dir / "index.html", "/theory/")}">← 樂理基礎</a> <span>/</span> <span>{escape(s["title"])}</span>
