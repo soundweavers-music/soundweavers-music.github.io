@@ -56,10 +56,18 @@ def track_title(video_id):
         return ""
 
 
+SKIP = re.compile(r"伴奏|卡拉|Karaoke|Instrumental|Off Vocal|カラオケ", re.I)
+
+
 def clean(title):
     """'出發！聖誕小市集 | 隔壁織音人 - Topic' -> '出發！聖誕小市集'"""
     title = re.split(r"\s*[|｜]\s*", title)[0].strip()
     return title.replace(" - Topic", "").strip()
+
+
+def wanted(title):
+    """Backing-track versions are left out of the random pool."""
+    return bool(title) and not SKIP.search(title)
 
 
 def main():
@@ -76,7 +84,7 @@ def main():
                 continue
             title = clean(track_title(vid))
             time.sleep(0.35)
-            if not title:
+            if not wanted(title):
                 continue
             seen.add(vid)
             tracks.append({"id": vid, "title": title, "album": album["title"]})
