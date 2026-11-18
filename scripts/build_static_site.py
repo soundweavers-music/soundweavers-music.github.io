@@ -135,6 +135,34 @@ def safe_external_url(value):
     return ""
 
 
+_IMAGE_CREDITS: dict | None = None
+
+
+def image_credit_html(slug):
+    """Author + licence line under an instrument photo.
+
+    Data comes from content/image_credits.json (scripts/fetch_image_credits.py
+    reads it off each Commons file page). Instruments without an entry fall back
+    to the old generic line."""
+    global _IMAGE_CREDITS
+    if _IMAGE_CREDITS is None:
+        try:
+            _IMAGE_CREDITS = json.loads((BASE_DIR / "content" / "image_credits.json").read_text(encoding="utf-8"))
+        except Exception:
+            _IMAGE_CREDITS = {}
+    info = _IMAGE_CREDITS.get(slug) or {}
+    author = (info.get("author") or "").strip()
+    licence = (info.get("license") or "").strip()
+    page = (info.get("page") or "").strip()
+    if not author and not licence:
+        return '<p class="image-credit">圖片來源：Wikimedia Commons</p>'
+    label = "／".join(x for x in (escape(author), escape(licence)) if x)
+    if page:
+        return (f'<p class="image-credit"><a href="{escape(page)}" target="_blank" rel="noopener"'
+                f' title="Wikimedia Commons 上的檔案頁">圖片：{label}</a></p>')
+    return f'<p class="image-credit">圖片：{label}（Wikimedia Commons）</p>'
+
+
 def is_wiki_url(value):
     return bool(value and re.search(r"//(?:[^/]+\.)?(?:wikipedia|wikidata|wikimedia)\.org\b", value, flags=re.IGNORECASE))
 
@@ -939,7 +967,7 @@ def build_detail_pages(instruments):
         # Image HTML
         img_url = safe_external_url(item.get("image", ""))
         img_html = f'<img class="instrument-image" src="{img_url}" alt="{escape(item["title"])}" loading="lazy" onerror="this.style.display=\'none\'">' if img_url else ""
-        img_credit_html = '<p class="image-credit">圖片來源：Wikimedia Commons</p>' if img_url else ""
+        img_credit_html = image_credit_html(item["slug"]) if img_url else ""
         header_class = "instrument-header has-image" if img_url else "instrument-header"
         keywords = f"{item['title']},{item['original_name']},{item['category']},{item['country']},樂器教學,世界樂器,樂器介紹"
         article_tags = "\n".join(
@@ -1560,6 +1588,8 @@ h2 { margin:0; font-weight:700; }
 
 /* ── Image credit ───────────────────────────────────────────── */
 .image-credit { font-size:12px; color:var(--muted); text-align:center; margin-top:6px; }
+.image-credit a { color:inherit; text-decoration:none; border-bottom:1px dotted currentColor; }
+.image-credit a:hover { color:var(--accent); border-bottom-color:var(--accent); }
 
 /* ── Badges ──────────────────────────────────────────────────── */
 .badge-row { margin:8px 0 0; display:flex; gap:6px; }
