@@ -434,6 +434,30 @@ def course_chapters(slug):
     return _COURSE_CHAPTERS[slug]
 
 
+def content_count(folder, pattern="*.md", exclude=()):
+    """How many files a content folder holds — so 關於 can quote real numbers."""
+    path = BASE_DIR / "content" / folder
+    if not path.exists():
+        return 0
+    return sum(1 for p in path.glob(pattern) if p.name not in exclude)
+
+
+def verification_breakdown():
+    """Count instruments by verification_status, for the 關於 page."""
+    counts = {"已查證": 0, "partial": 0, "pending": 0}
+    for path in CONTENT_DIR.glob("*.md"):
+        head = path.read_text(encoding="utf-8")[:1200]
+        m = re.search(r"^verification_status:\s*(.*)$", head, re.M)
+        status = (m.group(1).strip() if m else "")
+        if status.startswith("已查證") and "待" not in status:
+            counts["已查證"] += 1
+        elif status.startswith("已查證"):
+            counts["partial"] += 1
+        else:
+            counts["pending"] += 1
+    return counts
+
+
 def site_header(page_path):
     """The one site header + nav. page() here and in build_vocal_extra, plus
     the hand-maintained tool pages, all use this so the nav cannot drift."""
@@ -1566,6 +1590,13 @@ h2 { margin:0; font-weight:700; }
 .about-section { margin-bottom:40px; }
 .about-section h2 { font-size:22px; margin:0 0 16px; padding-bottom:8px; border-bottom:2px solid var(--accent); display:inline-block; }
 .about-text p { color:var(--ink2); line-height:1.9; font-size:16px; margin:0 0 16px; }
+.about-text ul { margin:0 0 18px; padding-left:1.2em; }
+.about-text li { color:var(--ink2); line-height:1.85; font-size:15.5px; margin-bottom:10px; }
+.about-text li strong { color:var(--ink); }
+.about-index { list-style:none; padding-left:0; }
+.about-index li { padding-left:14px; border-left:2px solid var(--line); }
+.about-index li strong a { color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line); }
+.about-index li strong a:hover { color:var(--accent); border-bottom-color:var(--accent); }
 .about-author { display:flex; gap:24px; align-items:start; flex-wrap:wrap; }
 .author-avatar { width:80px; height:80px; border-radius:50%; background:var(--accent); color:#fff; display:flex; align-items:center; justify-content:center; font-size:28px; font-weight:800; flex-shrink:0; }
 .author-avatar img,img.author-avatar { width:80px; height:80px; border-radius:50%; object-fit:cover; display:block; }
@@ -2466,31 +2497,86 @@ def discography_section(page_path: Path) -> str:
 def build_about_page():
     """/about/ (the site), /about/author/ (隔壁織音人) and /about/works/ (歷年作品) as tabs."""
     about_path = OUTPUT_DIR / "about" / "index.html"
+    n_inst = content_count("instruments")
+    v = verification_breakdown()
+    n_ens = content_count("ensembles", exclude=("_STYLE.md",))
+    n_vocal = content_count("vocal", "vocal_ch*.md")
+    n_digital = content_count("digitalmusic")
+    n_theory = content_count("musictheory") - 1  # 前言不算階段
+    n_mandolin = course_chapters("mandolin")
+    n_guitar = course_chapters("guitar")
+    n_ukulele = course_chapters("ukulele")
+
+    def link(href, label):
+        return f'<a href="{resolve_url(about_path, href)}">{label}</a>'
+
     body = f"""<main class="about-page">
   {banner_hero("About World Sound Encyclopedia", "關於世界聲音百科", "循著聲音，走進不同文化的現場")}
   {about_tabs(about_path, "/about/")}
   <div class="about-body">
     <section class="about-section">
-      <h2>創建網站理念</h2>
+      <h2>這個網站是什麼</h2>
       <div class="about-text">
-        <p>這個網站的初衷，源於我們對世界樂器長期的熱愛與好奇。每一件樂器，不只是發聲的工具，更是地方文化、工藝技術、生活信仰與情感記憶的載體。當我們聽見陌生的音色，有時感到遙遠，有時卻產生莫名的共鳴。這正是世界樂器最迷人的地方。</p>
+        <p>世界聲音百科從一個很簡單的念頭開始：世界上有這麼多種樂器，卻很少有人能把它們連在一起看。我們想做的，就是那張可以連起來的地圖。</p>
+        <p>每一件樂器都不只是發聲的工具。它是當地的材料與工藝——竹子、葫蘆、羊皮、銅與絲線；也是信仰、勞動與生活的痕跡。當你聽見陌生的音色，有時覺得遙遠，有時又莫名熟悉，那就是這個網站想帶你反覆經過的時刻。</p>
 
-        <h3 style="font-size:18px;margin:1.5em 0 .5em;color:var(--ink);">為什麼我們需要這個平台？</h3>
-        <p>在現今的資訊環境下，關於樂器的知識多半分散在學術論文、零散文章或影音平台中。對於探索者而言，很難從樂器分類、地域分佈、構造、演奏方式到文化脈絡之間建立完整的理解。</p>
-        <p>因此，我們致力於建立一個兼具知識性、可讀性與探索感的百科平台。我們將世界各地的樂器整理為系統化的知識體系，讓讀者能像翻閱地圖般，循著聲音的軌跡，走進不同文化的現場。</p>
+        <h3 style="font-size:18px;margin:1.5em 0 .5em;color:var(--ink);">為什麼需要這個平台？</h3>
+        <p>關於樂器的知識，長期散落在學術論文、零散文章與影音平台之間。想看一件樂器的分類、地理分布、構造、演奏方式，再一路走到它的文化脈絡，往往要在好幾個網站之間跳來跳去。</p>
+        <p>所以我們把它整理成一套可以循著走的系統：先分聲學家族，再分地區與文化圈，然後才是單件樂器。你可以從「氣鳴」開始，也可以從「非洲」開始，或直接搜一件樂器的名字。</p>
+      </div>
+    </section>
 
-        <h3 style="font-size:18px;margin:1.5em 0 .5em;color:var(--ink);">AI 輔助與知識查證</h3>
-        <p>我們深知知識的準確性是百科的核心。網站內容由我們的核心團隊整理，並結合人工智慧（AI）技術進行交叉比對與查證，確保資料的深度與脈絡的一致性。</p>
-        <p>儘管我們竭力追求精確，但在龐大的知識建置過程中，難免會有遺漏或錯誤。若您在閱讀過程中發現任何資訊有誤，或有更精準的見解，非常歡迎透過<a href="{resolve_url(about_path, '/contact/')}">聯絡頁面</a>告訴我們。您的參與，是讓這份知識地圖更完整的關鍵。</p>
-
-        <h3 style="font-size:18px;margin:1.5em 0 .5em;color:var(--ink);">三位一體的聲音知識地圖</h3>
-        <p>隨著發展，我們意識到音樂的本質是由三個面向構成的：</p>
-        <ul>
-          <li><strong>世界樂器（聲音的載體）</strong>：從構造特色、演奏方式到文化背景，讓樂器不再是冷冰冰的條目，而是激發創作靈感的門戶。</li>
-          <li><strong>人聲與歌唱（聲音的源頭）</strong>：每個人都擁有一副與生俱來的樂器。我們開設了從發聲啟蒙、身體覺察到混聲技術與聲學研究的教學體系，助您找回自在歌唱的自信。</li>
-          <li><strong>錄音後製（聲音的塑造）</strong>：無論是宅錄 DEMO、Podcast 收音，還是進階的混音與母帶處理，我們規劃了從器材指南到製作觀念的實戰指南，幫助您將作品打磨得更臻完美。</li>
+    <section class="about-section">
+      <h2>現在這裡有什麼</h2>
+      <div class="about-text">
+        <ul class="about-index">
+          <li><strong>{link('/instruments/', '世界樂器')}</strong>　{n_inst} 件。每頁包含介紹、歷史背景、音色描述、材質構造、教學建議與聆聽示範，並標註 Hornbostel–Sachs 編號。</li>
+          <li><strong>{link('/ensembles/', '合奏與編制百科')}</strong>　{n_ens} 篇，分七大類編制，談的是樂器怎麼湊在一起、以及那樣的組合出現在什麼場合。</li>
+          <li><strong>{link('/sound-journey/', '聲音旅圖')}</strong>　以 Word 原稿轉成 PDF 呈現，版面與圖片位置原樣保留，可在站內以書本式翻頁閱讀。</li>
+          <li><strong>{link('/vocal/', '人聲與歌唱')}</strong>　{n_vocal} 章。從發聲啟蒙、身體覺察到混聲技術與聲學研究。</li>
+          <li><strong>{link('/digitalmusic/', '錄音後製')}</strong>　{n_digital} 堂。宅錄建置、麥克風、EQ 與壓縮、曲風實戰到母帶。</li>
+          <li><strong>{link('/theory/', '樂理基礎')}</strong>　前言＋{n_theory} 個階段，從譜號與節拍到音調與發聲原理。</li>
+          <li><strong>{link('/mandolin/', '曼陀林專區')}</strong>　{n_mandolin} 章知識庫，附各章建議學習時數。</li>
+          <li><strong>{link('/guitar/', '流行吉他彈唱指南')}</strong>　{n_guitar} 章，{link('/ukulele/', '烏克麗麗')}　{n_ukulele} 章，都從挑琴調音寫到能自彈自唱。</li>
         </ul>
-        <p>從樂器、人聲到後製，我們將這三個面向整合在同一個平台上，讓音樂的學習不再是碎片化的，而是一幅互相連結的完整知識圖譜。無論您是音樂創作者、教育工作者、學生，還是對聲音感到好奇的探索者，這裡都有適合您的章節。</p>
+
+        <h3 style="font-size:18px;margin:1.5em 0 .5em;color:var(--ink);">可以動手的工具</h3>
+        <ul class="about-index">
+          <li><strong>{link('/tools/fretboard/', '世界樂器指版與和弦圖')}</strong>　19 種彈撥樂器的調弦、和弦與指版音位。</li>
+          <li><strong>{link('/chord-detection/', '自動抓和弦')}</strong>　上傳音檔，在瀏覽器裡分析和弦與調性，檔案不會離開你的電腦。</li>
+          <li><strong>{link('/experience/', '世界樂器體驗')}</strong>　用虛擬鍵盤試聽各種樂器的音色與音域。</li>
+          <li><strong>{link('/tools/lrc/', 'LRC 動態歌詞工作室')}</strong>　邊聽邊打時間碼，輸出 .lrc 或 .srt。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="about-section">
+      <h2>內容怎麼把關</h2>
+      <div class="about-text">
+        <p>百科的價值在於能不能被信任，所以每一件樂器都帶著它的「履歷」：</p>
+        <ul>
+          <li><strong>聲學分類</strong>：以 Hornbostel–Sachs 編號標示發聲方式，不憑印象歸類。</li>
+          <li><strong>查證狀態</strong>：{n_inst} 件樂器中，{v['已查證']} 件已完成查證，{v['partial']} 件部分欄位待補，{v['pending']} 件仍標為待考。標記就寫在頁面上，不把不確定的東西講得像確定的。</li>
+          <li><strong>圖片授權</strong>：照片取自 Wikimedia Commons，每張圖下方標示作者與授權（CC0、CC BY、CC BY-SA 或公有領域），可點回原始檔案頁；找不到合適照片的條目寧可留白，也不放示意圖。</li>
+          <li><strong>聲音示範</strong>：以真正在演奏該樂器的影片為主，教學影片與器材測試會排除。</li>
+        </ul>
+
+        <h3 style="font-size:18px;margin:1.5em 0 .5em;color:var(--ink);">AI 參與到什麼程度</h3>
+        <p>我們用人工智慧協助蒐集來源、交叉比對、把生硬的資料改寫成可讀的段落，也用它來抓前後矛盾與錯字。但判斷留給人：分類對不對、這段話有沒有過度推論、這張照片是不是真的那件樂器，都還是逐條核對，查不到的就標成待考。</p>
+        <p>這樣做的好處是規模，代價是錯誤一定還會有。若您在閱讀時發現任何不對勁的地方，歡迎透過{link('/contact/', '聯絡頁面')}告訴我們。</p>
+      </div>
+    </section>
+
+    <section class="about-section">
+      <h2>一起讓它更好</h2>
+      <div class="about-text">
+        <p>這個網站還在長。需要有人指正錯誤、推薦還沒收錄的樂器、提供更好的照片或演奏影片；也需要會寫、會彈、會唱的人一起把內容做深。如果您手上有一件樂器的知識，或一段真正動人的聲音，都歡迎來信。</p>
+        <p>{link('/recruit/', '招募夥伴')}　·　{link('/contact/', '聯絡我們')}</p>
+      </div>
+    </section>
+
+    <section class="about-section">
+      <div class="about-text">
         <p style="margin-top:20px;padding:12px 18px;background:var(--accent-soft);color:var(--accent2);border-radius:3px;display:inline-block;font-weight:700;letter-spacing:.04em;">創站日期：2026 年 6 月 25 日</p>
       </div>
     </section>
@@ -2501,7 +2587,7 @@ def build_about_page():
   </div>
 </main>"""
     write(about_path, page("關於世界聲音百科", body, about_path,
-          meta_description="世界聲音百科的創建理念：整理世界樂器、人聲歌唱與錄音後製知識，結合 AI 交叉查證，建立互相連結的聲音知識地圖。"))
+          meta_description="世界聲音百科是什麼：世界樂器、合奏編制、人聲、錄音、樂理與樂器教材的內容總覽，以及我們如何查證分類、標示圖片授權與說明 AI 的參與程度。"))
 
     author_path = OUTPUT_DIR / "about" / "author" / "index.html"
     logo = resolve_url(author_path, "/assets/brand/logo.png")
