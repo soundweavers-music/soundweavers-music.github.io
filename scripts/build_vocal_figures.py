@@ -613,14 +613,14 @@ def fig_diaphragm():
     body = []
     # 左：用肩膀吸
     body.append(human_figure(70, 96, height=280))
-    lcx = 70 + 233 / 2
+    lcx = 70 + _FIGURE_W / 2
     body.append(t(lcx, 86, "用肩膀吸", size=13, anchor="middle", weight=600, color=RED))
     body.append(arrow(lcx - 26, 156, lcx - 44, 124, "red", size=6))
     body.append(arrow(lcx + 26, 156, lcx + 44, 124, "red", size=6))
     body.append(ts(lcx, 408, "胸口抬起、脖子變短", size=11, anchor="middle"))
     # 右：用下腹
     body.append(human_figure(370, 96, height=280))
-    rcx = 370 + 220 / 2
+    rcx = 370 + _FIGURE_W / 2
     body.append(t(rcx, 86, "用下腹（橫膈膜）", size=13, anchor="middle", weight=600, color=GREEN))
     body.append(f'  <ellipse cx="{rcx}" cy="236" rx="32" ry="22" fill="{GREEN}" opacity=".2"/>')
     body.append(arrow(rcx + 16, 236, rcx + 46, 236, "green", size=6))
@@ -707,7 +707,7 @@ def fig_hand_chest():
     w, h = 640, 420
     body = []
     body.append(human_figure(120, 70, height=300))
-    cx, cy = 120 + 233 / 2, 70 + 300 * 0.30        # 胸口位置
+    cx, cy = 120 + _FIGURE_W / 2, 70 + 300 * 0.30        # 胸口位置
     # 手掌
     body.append(f'  <g transform="rotate(-12 {cx} {cy})">')
     body.append(rect(cx - 26, cy - 14, 52, 30, fill="#EFD9C6", stroke=INK, rx=8, sw=1.4))
@@ -1013,17 +1013,31 @@ def fig_diaphragm_support():
     return w, h, "丹田支撐：吸氣外擴，發聲保持", "氣不是被「推」出來，是被穩定地放出來", "\n".join(body), None
 
 
+_FIGURE_W = 220.0
+
+
 def human_figure(x, y, height=300, fill="#E9DACA", stroke=INK):
-    """把 CC0 人形輪廓（assets/vocal/_anatomy/src/human-standing.svg）縮放後放進圖裡。"""
-    import re as _re
-    src = (BASE_DIR / "assets" / "vocal" / "_anatomy" / "src" / "human-standing.svg").read_text(encoding="utf-8")
-    d = _re.search(r'<path[^>]*\sd="([^"]+)"', src, _re.S).group(1)
-    s = height / 297.0
-    return (
-        f'  <g transform="translate({x},{y}) scale({s:.4f})">'
-        f'<path d="{d}" fill="{fill}" stroke="{stroke}" stroke-width="{1.3 / s:.2f}" stroke-linejoin="round"/>'
-        f"</g>"
-    )
+    """站姿人形：用 traced/standing-figure.json（我們自己描的座標）畫成路徑。
+
+    點資料由 scripts/trace_figure.py 從 CC0 參考圖描出，輸出只有座標，
+    線條與填色都在這裡決定。
+    """
+    import json as _json
+    data = _json.loads((BASE_DIR / "assets" / "vocal" / "_anatomy" / "traced"
+                        / "standing-figure.json").read_text(encoding="utf-8"))
+    pts = data["points"]
+    minx = min(px for px, _ in pts)
+    maxx = max(px for px, _ in pts)
+    miny = min(py for _, py in pts)
+    maxy = max(py for _, py in pts)
+    h = maxy - miny or 1
+    k = height / h
+    d = "M" + " L".join(
+        f"{x + (px - minx) * k:.1f} {y + (py - miny) * k:.1f}" for px, py in pts
+    ) + " Z"
+    global _FIGURE_W
+    _FIGURE_W = (maxx - minx) * k
+    return f'  <path d="{d}" fill="{fill}" stroke="{stroke}" stroke-width="1.4" stroke-linejoin="round"/>'
 
 
 def fig_posture_side():
@@ -1031,13 +1045,13 @@ def fig_posture_side():
     body = []
     body.append(human_figure(150, 84, height=330))
     # 中軸與四個定位點（正面觀）
-    cx = 150 + 233 / 2
+    cx = 150 + _FIGURE_W / 2
     body.append(f'  <path d="M{cx} 96 L{cx} 404" fill="none" stroke="{MUTED}" stroke-width="1" stroke-dasharray="5 5"/>')
     marks = [(cx, 118, "耳"), (cx, 150, "肩"), (cx, 290, "骨盆"), (cx, 402, "腳踝")]
     for mx, my, label in marks:
         body.append(circle(mx, my, 5, fill=ACCENT, stroke="#fff", sw=1.5))
-        body.append(callout(mx - 5, my, 196, my))
-        body.append(ts(190, my + 4, label, size=11.5, anchor="end"))
+        body.append(callout(mx - 34, my, 150, my))
+        body.append(ts(144, my + 4, label, size=11.5, anchor="end"))
     body.append(ts(410, 112, "站好時，耳朵、肩膀、骨盆、", size=12))
     body.append(ts(410, 134, "腳踝要落在同一條鉛垂線上。", size=12))
     body.append(ts(410, 188, "肩膀一高一低、骨盆歪一邊，", size=12))
