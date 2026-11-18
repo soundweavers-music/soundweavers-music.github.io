@@ -63,14 +63,16 @@ def fetch_bytes(file_name, url, attempts=4):
                 time.sleep(min(float(r.headers.get("Retry-After") or 20), 20))
                 continue
             break
-    for i in range(attempts):
+    # CDN fallback: fail fast. A 429 here can come with Retry-After: 120, and
+    # waiting that out per file makes the whole run take hours.
+    for i in range(2):
         time.sleep(1.2 + i)
         try:
             r = requests.get(url, headers=HEADERS, timeout=(5, 25))
         except Exception:
             continue
         if r.status_code == 429:
-            time.sleep(min(float(r.headers.get("Retry-After") or 30), 90))
+            time.sleep(10)
             continue
         if r.status_code != 200 or not r.headers.get("content-type", "").startswith("image"):
             return None
@@ -176,6 +178,10 @@ def main():
     if only:
         records = [r for r in records if r["slug"] in only]
     records = [r for r in records if r["candidates"]]
+    if mode == "rows":
+        # rows are for the Commons hits that still need a human; the ones taken
+        # straight from an article's own lead image are already trustworthy
+        records = [r for r in records if r["needs_visual_check"]]
 
     CAND_DIR.mkdir(parents=True, exist_ok=True)
     SHEET_DIR.mkdir(parents=True, exist_ok=True)

@@ -128,7 +128,7 @@
           <a href="digitalmusic/"><strong>錄音後製</strong>　基礎 15 堂・進階 15 堂</a>
           <a href="theory/"><strong>樂理基礎</strong>　五階段</a>
           <a href="mandolin/"><strong>曼陀林專區</strong>　22 章知識庫</a>
-          <a href="guitar/"><strong>流行吉他彈唱指南</strong>　16 章</a>
+          <a href="guitar/"><strong>流行吉他彈唱指南</strong>　25 章</a>
           <a href="ukulele/"><strong>烏克麗麗流行彈唱與演奏</strong>　25 章</a>
         </div>
       </div>
@@ -137,6 +137,7 @@
         <div class="dropdown-menu">
           <a href="tools/fretboard/">🎸 世界樂器指版和弦圖</a>
           <a href="chord-detection/">🎼 自動抓和弦 (beta)</a>
+          <a href="tools/lrc/">📝 LRC 動態歌詞工作室</a>
           <a href="experience/">🎹 世界樂器體驗</a>
         </div>
       </div>
@@ -147,9 +148,9 @@
           <a href="about/author/">作者</a>
           <a href="about/works/">歷年作品</a>
           <a href="recruit/">招募夥伴</a>
+          <a href="contact/">聯絡我們</a>
         </div>
       </div>
-      <a href="contact/">聯絡我們</a>
     </nav>
     <button id="theme-toggle" class="theme-toggle" aria-label="切換色調">🎋</button>
   </header>
@@ -167,16 +168,16 @@
       </section>
 
       <section class="stats">
-        <div class="stat-item"><strong>832</strong><span>樂器條目</span></div>
-        <div class="stat-item"><strong>5</strong><span>分類</span></div>
+        <div class="stat-item"><strong>831</strong><span>樂器條目</span></div>
+        <div class="stat-item"><strong>4</strong><span>分類</span></div>
         <div class="stat-item"><strong>358</strong><span>國家/地區</span></div>
-        <div class="stat-item"><strong>19</strong><span>子分類</span></div>
+        <div class="stat-item"><strong>18</strong><span>子分類</span></div>
       </section>
 
 
       <section class="section">
         <div class="section-heading"><h2>工具</h2></div>
-        <div class="featured-links">
+        <div class="featured-links" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));">
           <a class="featured-card" href="tools/fretboard/" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:1px solid #bbf7d0;">
             <strong>🎸 世界樂器指版與和弦圖</strong>
             <span>瀏覽常見彈撥樂器的調弦法、各調性和弦、指版音位圖與順階和弦</span>
@@ -184,6 +185,10 @@
           <a class="featured-card" href="chord-detection/" style="background:linear-gradient(135deg,#fef3c7,#fde68a);border:1px solid #f59e0b;">
             <strong>🎼 自動抓和弦 (beta)</strong>
             <span>上傳音檔自動分析節拍與和弦進行，支援指版圖顯示與和弦編輯</span>
+          </a>
+          <a class="featured-card" href="tools/lrc/" style="background:linear-gradient(135deg,#eef6ff,#dbeafe);border:1px solid #bfdbfe;">
+            <strong>📝 LRC 動態歌詞工作室</strong>
+            <span>邊聽邊打時間碼，自動偵測句與句的停頓先排好初稿，輸出 .lrc 或 .srt</span>
           </a>
           <a class="featured-card" href="experience/" style="background:linear-gradient(135deg,#f5f0ff,#ebe0ff);border:1px solid #d5c5fd;">
             <strong>🎹 世界樂器體驗</strong>
@@ -252,12 +257,66 @@
       <div id="card-mode" class="browse-mode">
         <section class="section">
           <div class="section-heading"><h2>分類瀏覽</h2><a href="categories/">全部分類 →</a></div>
-          <div class="facet-grid"><a class="facet-card" href="categories/弦樂器/"><strong>弦樂器</strong><span>315 筆</span></a><a class="facet-card" href="categories/鼓與打擊樂器/"><strong>鼓與打擊樂器</strong><span>270 筆</span></a><a class="facet-card" href="categories/吹奏與氣息樂器/"><strong>吹奏與氣息樂器</strong><span>207 筆</span></a><a class="facet-card" href="categories/電子與電聲樂器/"><strong>電子與電聲樂器</strong><span>39 筆</span></a><a class="facet-card" href="categories/待分類-偵錯暫存/"><strong>待分類／偵錯暫存</strong><span>1 筆</span></a></div>
+          <div class="facet-grid"><a class="facet-card" href="categories/弦樂器/"><strong>弦樂器</strong><span>315 筆</span></a><a class="facet-card" href="categories/鼓與打擊樂器/"><strong>鼓與打擊樂器</strong><span>270 筆</span></a><a class="facet-card" href="categories/吹奏與氣息樂器/"><strong>吹奏與氣息樂器</strong><span>207 筆</span></a><a class="facet-card" href="categories/電子與電聲樂器/"><strong>電子與電聲樂器</strong><span>39 筆</span></a></div>
         </section>
 
         <section class="section">
           <div class="section-heading"><h2>精選樂器</h2><a href="instruments/">查看全部 →</a></div>
-          <div class="instrument-grid"><a class="instrument-card" href="instruments/rhodes/">
+          <div class="instrument-grid"><a class="instrument-card" href="instruments/janggu/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Janggu.jpg/500px-Janggu.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat"><span class="card-code">A3</span>鼓與打擊樂器</span>
+        <strong class="card-title">杖鼓</strong>
+        <span class="card-orig">Janggu</span>
+        <span class="card-meta">亞洲／東亞（韓國）</span>
+      </div>
+    </a>
+<a class="instrument-card" href="instruments/hammond-organ/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/2/27/Hammond_c3_Emilio_Mu%C3%B1oz.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat"><span class="card-code">A4</span>電子與電聲樂器</span>
+        <strong class="card-title">哈蒙德電風琴</strong>
+        <span class="card-orig">Hammond Organ</span>
+        <span class="card-meta">美國</span>
+      </div>
+    </a>
+<a class="instrument-card" href="instruments/baroque-guitar/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Guitar_MET_DP232758.jpg/500px-Guitar_MET_DP232758.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat"><span class="card-code">A2</span>弦樂器</span>
+        <strong class="card-title">巴洛克吉他</strong>
+        <span class="card-orig">Baroque guitar</span>
+        <span class="card-meta">西班牙／伊比利亞半島｜地區／文化圈</span>
+      </div>
+    </a>
+<a class="instrument-card" href="instruments/lyre/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Lyre1913.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat"><span class="card-code">A2</span>弦樂器</span>
+        <strong class="card-title">里拉琴</strong>
+        <span class="card-orig">Lyre</span>
+        <span class="card-meta">非洲／歐洲／美洲／亞洲｜地區／文化圈</span>
+      </div>
+    </a>
+<a class="instrument-card" href="instruments/alboka/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Alboka._Euskal_Herria.jpg/500px-Alboka._Euskal_Herria.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat"><span class="card-code">A1</span>吹奏與氣息樂器</span>
+        <strong class="card-title">阿爾博卡雙管笛</strong>
+        <span class="card-orig">Alboka</span>
+        <span class="card-meta">歐洲／西班牙／巴斯克</span>
+      </div>
+    </a>
+<a class="instrument-card" href="instruments/crash-cymbal/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Drum_kit_parts.png/500px-Drum_kit_parts.png" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-body">
+        <span class="card-cat"><span class="card-code">A3</span>鼓與打擊樂器</span>
+        <strong class="card-title">碎音鈸</strong>
+        <span class="card-orig">Crash cymbal</span>
+        <span class="card-meta">歐洲｜地區／文化圈</span>
+      </div>
+    </a>
+<a class="instrument-card" href="instruments/rhodes/">
       <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Rhodes_sentinel2_%28cropped%29.jpg/500px-Rhodes_sentinel2_%28cropped%29.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <div class="card-body">
         <span class="card-cat"><span class="card-code">A4</span>電子與電聲樂器</span>
@@ -266,76 +325,13 @@
         <span class="card-meta">美洲／北美</span>
       </div>
     </a>
-<a class="instrument-card" href="instruments/bongo-drum/">
-      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Bongo.jpg/500px-Bongo.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-      <div class="card-body">
-        <span class="card-cat"><span class="card-code">A3</span>鼓與打擊樂器</span>
-        <strong class="card-title">邦哥鼓</strong>
-        <span class="card-orig">Bongo drum</span>
-        <span class="card-meta">古巴｜單一地區／文化圈</span>
-      </div>
-    </a>
-<a class="instrument-card" href="instruments/pitch-pipe/">
-      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/PitchPipes.JPG/500px-PitchPipes.JPG" alt="" loading="lazy" onerror="this.style.display='none'">
+<a class="instrument-card" href="instruments/gaida/">
+      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Scotland_Independence_March%2C_28_March_2026_%2832%29.jpg/500px-Scotland_Independence_March%2C_28_March_2026_%2832%29.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <div class="card-body">
         <span class="card-cat"><span class="card-code">A1</span>吹奏與氣息樂器</span>
-        <strong class="card-title">音高笛</strong>
-        <span class="card-orig">Pitch pipe</span>
-        <span class="card-meta">歐洲｜單一地區／文化圈</span>
-      </div>
-    </a>
-<a class="instrument-card" href="instruments/bass-flute/">
-      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Paas_floote.jpg/500px-Paas_floote.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-      <div class="card-body">
-        <span class="card-cat"><span class="card-code">A1</span>吹奏與氣息樂器</span>
-        <strong class="card-title">低音長笛</strong>
-        <span class="card-orig">Bass Flute</span>
-        <span class="card-meta">歐洲</span>
-      </div>
-    </a>
-<a class="instrument-card" href="instruments/prepared-piano/">
-      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Prepared_piano_board_Neumann.jpg/500px-Prepared_piano_board_Neumann.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-      <div class="card-body">
-        <span class="card-cat"><span class="card-code">A2</span>弦樂器</span>
-        <strong class="card-title">準備鋼琴</strong>
-        <span class="card-orig">Prepared Piano</span>
-        <span class="card-meta">美洲／北美</span>
-      </div>
-    </a>
-<a class="instrument-card" href="instruments/mandolute/">
-      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Weymann_mandolute.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-      <div class="card-body">
-        <span class="card-cat"><span class="card-code">A2</span>弦樂器</span>
-        <strong class="card-title">曼陀魯特琴</strong>
-        <span class="card-orig">Mandolute</span>
-        <span class="card-meta">美國｜單一地區／文化圈</span>
-      </div>
-    </a>
-<a class="instrument-card" href="instruments/music-on-a-long-thin-wire/">
-      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/AlvinLucier-MusicOnALongThinWire-CoverDetail-1980.jpg/500px-AlvinLucier-MusicOnALongThinWire-CoverDetail-1980.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-      <div class="card-body">
-        <span class="card-cat"><span class="card-code">A9</span>待分類／偵錯暫存</span>
-        <strong class="card-title">Music On A Long Thin Wire（暫譯）</strong>
-        <span class="card-orig">Music On A Long Thin Wire</span>
-        <span class="card-meta">美國｜單一地區／文化圈</span>
-      </div>
-    </a>
-<a class="instrument-card" href="instruments/shekere/">
-      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Shekere.jpg/500px-Shekere.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-      <div class="card-body">
-        <span class="card-cat"><span class="card-code">A3</span>鼓與打擊樂器</span>
-        <strong class="card-title">謝科雷葫蘆鈴</strong>
-        <span class="card-orig">Shekere</span>
-        <span class="card-meta">非洲</span>
-      </div>
-    </a>
-<a class="instrument-card" href="instruments/theremin/">
-      <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Etherwave_Theremin_Kit.jpg/500px-Etherwave_Theremin_Kit.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-      <div class="card-body">
-        <span class="card-cat"><span class="card-code">A4</span>電子與電聲樂器</span>
-        <strong class="card-title">特雷門</strong>
-        <span class="card-orig">Theremin</span>
-        <span class="card-meta">歐洲／俄羅斯</span>
+        <strong class="card-title">蓋達風笛</strong>
+        <span class="card-orig">Gaida</span>
+        <span class="card-meta">巴爾幹／保加利亞｜地區／文化圈</span>
       </div>
     </a></div>
         </section>

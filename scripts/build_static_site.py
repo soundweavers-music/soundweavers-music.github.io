@@ -482,6 +482,7 @@ def site_header(page_path):
         <div class="dropdown-menu">
           <a href="{resolve_url(page_path, '/tools/fretboard/')}">🎸 世界樂器指版和弦圖</a>
           <a href="{resolve_url(page_path, '/chord-detection/')}">🎼 自動抓和弦 (beta)</a>
+          <a href="{resolve_url(page_path, '/tools/lrc/')}">📝 LRC 動態歌詞工作室</a>
           <a href="{resolve_url(page_path, '/experience/')}">🎹 世界樂器體驗</a>
         </div>
       </div>
@@ -764,7 +765,7 @@ def build_index(instruments):
 
       <section class="section">
         <div class="section-heading"><h2>工具</h2></div>
-        <div class="featured-links">
+        <div class="featured-links" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));">
           <a class="featured-card" href="{resolve_url(index_path, '/tools/fretboard/')}" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:1px solid #bbf7d0;">
             <strong>🎸 世界樂器指版與和弦圖</strong>
             <span>瀏覽常見彈撥樂器的調弦法、各調性和弦、指版音位圖與順階和弦</span>
@@ -772,6 +773,10 @@ def build_index(instruments):
           <a class="featured-card" href="{resolve_url(index_path, '/chord-detection/')}" style="background:linear-gradient(135deg,#fef3c7,#fde68a);border:1px solid #f59e0b;">
             <strong>🎼 自動抓和弦 (beta)</strong>
             <span>上傳音檔自動分析節拍與和弦進行，支援指版圖顯示與和弦編輯</span>
+          </a>
+          <a class="featured-card" href="{resolve_url(index_path, '/tools/lrc/')}" style="background:linear-gradient(135deg,#eef6ff,#dbeafe);border:1px solid #bfdbfe;">
+            <strong>📝 LRC 動態歌詞工作室</strong>
+            <span>邊聽邊打時間碼，自動偵測句與句的停頓先排好初稿，輸出 .lrc 或 .srt</span>
           </a>
           <a class="featured-card" href="{resolve_url(index_path, '/experience/')}" style="background:linear-gradient(135deg,#f5f0ff,#ebe0ff);border:1px solid #d5c5fd;">
             <strong>🎹 世界樂器體驗</strong>
@@ -1939,7 +1944,7 @@ def build_sitemap(instruments):
                  "/countries/", "/ensembles/", "/subcategories/", "/map/",
                  "/about/", "/theory/", "/vocal/", "/digitalmusic/",
                  "/sound-journey/", "/experience/", "/contact/",
-                 "/chord-detection/", "/tools/fretboard/",
+                 "/chord-detection/", "/tools/fretboard/", "/tools/lrc/",
                  "/learn/", "/about/author/", "/about/works/", "/recruit/", "/mandolin/",
                  "/guitar/", "/ukulele/"]:
         urls.append(u(path))
@@ -2830,6 +2835,10 @@ def build_chord_detection_tool():
         '      <strong>🎹 世界樂器體驗</strong>\n'
         '      <span>用虛擬鍵盤試聽鋼琴、吉他、小提琴、琵琶等樂器的音色與音域</span>\n'
         '    </a>\n'
+        f'    <a class="featured-card" href="{site_url("/tools/lrc/")}" style="background:linear-gradient(135deg,#eef6ff,#dbeafe);border:1px solid #bfdbfe;">\n'
+        '      <strong>📝 LRC 動態歌詞工作室</strong>\n'
+        '      <span>邊聽邊打時間碼，自動偵測樂句停頓，輸出 .lrc 或 .srt</span>\n'
+        '    </a>\n'
         '  </div>\n'
         '</section>'
     )
@@ -2853,6 +2862,69 @@ def build_chord_detection_tool():
     if lib_src.exists():
         lib_dst.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(str(lib_src), str(lib_dst))
+
+
+def build_lrc_tool():
+    """Build the LRC 動態歌詞工作室 at /tools/lrc/.
+
+    Source is ``lrc-studio/index.html`` — a self-contained page with inline CSS
+    and JS. Like the chord-detection tool, only the ``<style>``, the ``<main>``
+    contents and the inline ``<script>`` are lifted out of it; header, nav,
+    footer, SEO and the theme switcher all come from ``page()``, so the nav can
+    never drift away from the rest of the site.
+    """
+    src_path = BASE_DIR / "lrc-studio" / "index.html"
+    page_dir = OUTPUT_DIR / "tools" / "lrc"
+    page_dir.mkdir(parents=True, exist_ok=True)
+
+    raw = src_path.read_text(encoding="utf-8")
+
+    style_m = re.search(r'<style[^>]*>(.*?)</style>', raw, re.DOTALL)
+    inline_css = style_m.group(1).strip() if style_m else ""
+
+    # 抓「最後一個」<main>：CSS 或文字裡若出現 <main> 字樣，非貪婪的 search
+    # 會從那裡開始吞，整份文件就被塞進頁面裡了。
+    opening = list(re.finditer(r'<main[^>]*>', raw))
+    main_content = ""
+    if opening:
+        start = opening[-1].end()
+        end = raw.find('</main>', start)
+        if end > start:
+            main_content = raw[start:end].strip()
+
+    # 來源檔放在 /lrc-studio/，但成品在 /tools/lrc/，所以「相關工具」的相對連結要重算
+    for target in ("/tools/fretboard/", "/chord-detection/", "/experience/"):
+        main_content = main_content.replace(
+            f'href="..{target}"',
+            f'href="{resolve_url(page_dir / "index.html", target)}"',
+        )
+
+    scripts = re.findall(r'<script>(.*?)</script>', raw, re.DOTALL)
+    inline_js = scripts[-1].strip() if scripts else ""
+
+    # <audio> plays a local file through an object URL, so media-src needs blob:
+    lrc_csp = (
+        "default-src 'self'; "
+        "img-src 'self' https: data: blob:; "
+        "media-src 'self' blob:; "
+        "style-src 'self' 'unsafe-inline'; "
+        "script-src 'self' 'unsafe-inline'; "
+        "connect-src 'self'; "
+        "worker-src 'self' blob:; "
+        "frame-src 'self' https://www.youtube-nocookie.com https://www.youtube.com; "
+        "base-uri 'self'; form-action 'self'; object-src 'none'"
+    )
+
+    body = f'<main class="page">\n{main_content}\n</main>\n<script>\n{inline_js}\n</script>\n'
+    write(page_dir / "index.html", page(
+        "LRC 動態歌詞工作室",
+        body,
+        page_dir / "index.html",
+        extra_head=f"<style>{inline_css}</style>",
+        csp=lrc_csp,
+        meta_description="貼上歌詞、載入音檔，一邊播放一邊按下時間碼，輸出 .lrc 或 .srt。內建音量斷點偵測，會先找出句與句之間的停頓自動排好初稿；音檔只在瀏覽器本機解碼，不會上傳。",
+        meta_keywords="LRC,動態歌詞,歌詞製作,時間碼,歌詞同步,字幕製作,SRT,歌詞工具",
+    ))
 
 
 def build_experience_page():
@@ -2901,6 +2973,7 @@ def main():
     build_robots(instruments)
     build_fretboard_tool()
     build_chord_detection_tool()
+    build_lrc_tool()
     build_experience_page()
     # Copy sitemap and robots.txt to project root for local development
     shutil.copy2(OUTPUT_DIR / "sitemap.xml", BASE_DIR / "sitemap.xml")

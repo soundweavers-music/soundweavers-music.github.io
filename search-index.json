@@ -237,7 +237,7 @@
     "subcategory": "簧片樂器",
     "sound_class": "422.211.2",
     "url": "/instruments/alto-clarinet/",
-    "image": ""
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Altklarinetten_BC%2BDietz.jpg/500px-Altklarinetten_BC%2BDietz.jpg"
   },
   {
     "title": "中音薩魯管",
@@ -277,7 +277,7 @@
     "subcategory": "鑼鐘與金屬敲擊",
     "sound_class": "121.2",
     "url": "/instruments/an-moi/",
-    "image": ""
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Bass_Dan_Moi.jpg/500px-Bass_Dan_Moi.jpg"
   },
   {
     "title": "越南十六弦琴",
@@ -557,7 +557,7 @@
     "subcategory": "鑼鐘與金屬敲擊",
     "sound_class": "11/12 定音體鳴／鑼鐘木琴石琴系統",
     "url": "/instruments/bamboo-xylophone/",
-    "image": ""
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/T_Rung.png/500px-T_Rung.png"
   },
   {
     "title": "班東尼琴",
@@ -577,7 +577,7 @@
     "subcategory": "平放弦與擊弦",
     "sound_class": "3 弦鳴樂器",
     "url": "/instruments/bandura/",
-    "image": ""
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Chernihiv-style_bandura.jpg/500px-Chernihiv-style_bandura.jpg"
   },
   {
     "title": "班杜裡亞琴",
@@ -1117,7 +1117,7 @@
     "subcategory": "號角與唇振",
     "sound_class": "423.1",
     "url": "/instruments/bukkehorn/",
-    "image": ""
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Bockhorn_-_SMV_-_X22_01.tif?width=500"
   },
   {
     "title": "夜鶯琴",
@@ -1337,7 +1337,7 @@
     "subcategory": "平放弦與齊特琴",
     "sound_class": "弦鳴｜322.12",
     "url": "/instruments/chang/",
-    "image": ""
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Bishapur_zan%2C_AO_26169.jpg/500px-Bishapur_zan%2C_AO_26169.jpg"
   },
   {
     "title": "查普曼觸弦琴",
@@ -1547,7 +1547,7 @@
     "subcategory": "豎琴、里拉與開放弦",
     "sound_class": "弦鳴｜322.222",
     "url": "/instruments/concert-harp/",
-    "image": ""
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Harfe-Museum_f%C3%BCr_Kunst_und_Gewerbe_Hamburg-1995.245.png/500px-Harfe-Museum_f%C3%BCr_Kunst_und_Gewerbe_Hamburg-1995.245.png"
   },
   {
     "title": "六角手風琴",
@@ -1627,7 +1627,7 @@
     "subcategory": "簧片樂器",
     "sound_class": "氣鳴｜422.112-71",
     "url": "/instruments/contrabassoon/",
-    "image": ""
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Contrabassoon2.jpg/500px-Contrabassoon2.jpg"
   },
   {
     "title": "直管",
@@ -1667,7 +1667,7 @@
     "subcategory": "號角與唇振",
     "sound_class": "423.212",
     "url": "/instruments/cornett-zink/",
-    "image": ""
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Three_cornetts.jpg/500px-Three_cornetts.jpg"
   },
   {
     "title": "辛克號／木號",
@@ -2037,7 +2037,7 @@
     "subcategory": "撥弦與抱持弦樂",
     "sound_class": "待確認",
     "url": "/instruments/dobro/",
-    "image": ""
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Dobro_style37_tenor_guitar.jpg/500px-Dobro_style37_tenor_guitar.jpg"
   },
   {
     "title": "冬不拉",
@@ -2677,7 +2677,7 @@
     "subcategory": "無簧吹管",
     "sound_class": "Aerophone／氣鳴樂器",
     "url": "/instruments/galoubet/",
-    "image": ""
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Galoubet_-_SMV_-_F162_07.tif?width=500"
   },
   {
     "title": "木製甘汀安木琴",
@@ -3367,7 +3367,7 @@
     "subcategory": "平放弦與擊弦",
     "sound_class": "314/315/316 齊特琴／擊弦／鍵盤化弦鳴",
     "url": "/instruments/hummel/",
-    "image": ""
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/AAM.05332b_%281%29_Hummel.jpg/500px-AAM.05332b_%281%29_Hummel.jpg"
   },
   {
     "title": "手搖琴",
@@ -3407,7 +3407,7 @@
     "subcategory": "平放弦與擊弦",
     "sound_class": "314/315/316 齊特琴／擊弦／鍵盤化弦鳴",
     "url": "/instruments/ichigenkin/",
-    "image": ""
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Yakumo-goto.tif?width=500"
   },
   {
     "title": "自鳴弦琴",
@@ -3427,7 +3427,7 @@
     "subcategory": "擦弦、鍵控與輪弦",
     "sound_class": "弦鳴｜321.322-71",
     "url": "/instruments/igil/",
-    "image": ""
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Igil_oktober_saya_front_view.gif/500px-Igil_oktober_saya_front_view.gif"
   },
   {
     "title": "鐵舌琴",
@@ -3637,7 +3637,7 @@
     "subcategory": "鑼鐘與金屬敲擊",
     "sound_class": "Idiophone／體鳴樂器",
     "url": "/instruments/kagura-suzu/",
-    "image": ""
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Suzu_MET_DP353272.jpg/500px-Suzu_MET_DP353272.jpg"
   },
   {
     "title": "卡朗古鼓",
@@ -3967,7 +3967,7 @@
     "subcategory": "簧片樂器",
     "sound_class": "421",
     "url": "/instruments/komabue/",
-    "image": ""
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Komabue_fue.jpg/500px-Komabue_fue.jpg"
   },
   {
     "title": "庫姆茲琴",
@@ -4327,7 +4327,7 @@
     "subcategory": "取樣與磁帶",
     "sound_class": "鍵盤／電鳴／機械混合｜412/31/52 鍵盤、自由簧、電鳴與機械介面",
     "url": "/instruments/loop-station/",
-    "image": ""
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Boss_RC-50_Loop_Station.jpg/500px-Boss_RC-50_Loop_Station.jpg"
   },
   {
     "title": "低音哨笛",
@@ -4337,7 +4337,7 @@
     "subcategory": "無簧吹管",
     "sound_class": "421.221.1",
     "url": "/instruments/low-whistle/",
-    "image": ""
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Low_whistle.jpg/500px-Low_whistle.jpg"
   },
   {
     "title": "Luntang（暫譯）",
@@ -4557,7 +4557,7 @@
     "subcategory": "擦弦、鍵控與輪弦",
     "sound_class": "Chordophone／弦鳴樂器",
     "url": "/instruments/matouqin-variants/",
-    "image": ""
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Mongolian_Musician.jpg/500px-Mongolian_Musician.jpg"
   },
   {
     "title": "馬扎爾框鼓",
@@ -4587,7 +4587,7 @@
     "subcategory": "號角與唇振",
     "sound_class": "423.232",
     "url": "/instruments/mellophone/",
-    "image": ""
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Yamaha_Mellophone_YMP-204MS.tiff?width=500"
   },
   {
     "title": "美樂特朗",
@@ -4657,7 +4657,7 @@
     "subcategory": "風箱與自由簧",
     "sound_class": "氣鳴｜412/422 簧鳴與自由簧／單簧雙簧",
     "url": "/instruments/mijwiz/",
-    "image": ""
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Mijwiz.jpg/500px-Mijwiz.jpg"
   },
   {
     "title": "米茲瑪爾",
@@ -4947,7 +4947,7 @@
     "subcategory": "簧片樂器",
     "sound_class": "421.111.1",
     "url": "/instruments/ney/",
-    "image": ""
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Persian_ney_with_6_holes.jpg/500px-Persian_ney_with_6_holes.jpg"
   },
   {
     "title": "恩貢尼",
@@ -4957,7 +4957,7 @@
     "subcategory": "豎琴、里拉與開放弦",
     "sound_class": "弦鳴｜323.1",
     "url": "/instruments/ngoni/",
-    "image": ""
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Bassekou_Kouyate_photo.jpg/500px-Bassekou_Kouyate_photo.jpg"
   },
   {
     "title": "諾桑伯蘭小風笛",
@@ -5357,7 +5357,7 @@
     "subcategory": "平放弦與擊弦",
     "sound_class": "311.221",
     "url": "/instruments/phin-pia/",
-    "image": ""
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Phin_phia%2C_Thailand%2C_19th_century.jpg/500px-Phin_phia%2C_Thailand%2C_19th_century.jpg"
   },
   {
     "title": "嗩吶篳",
@@ -5637,7 +5637,7 @@
     "subcategory": "撥弦與抱持弦樂",
     "sound_class": "弦鳴｜321 魯特琴類／撥弦",
     "url": "/instruments/qinqin/",
-    "image": ""
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Qinqinplayer.jpg/500px-Qinqinplayer.jpg"
   },
   {
     "title": "海琴／庫布茲",
@@ -5987,7 +5987,7 @@
     "subcategory": "鑼鐘與金屬敲擊",
     "sound_class": "11/12 定音體鳴／鑼鐘木琴石琴系統",
     "url": "/instruments/roneat-ek/",
-    "image": ""
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Roneat_Ek.jpg/500px-Roneat_Ek.jpg"
   },
   {
     "title": "羅乃木琴",
@@ -6017,7 +6017,7 @@
     "subcategory": "撥弦與抱持弦樂",
     "sound_class": "弦鳴｜321/322 魯特琴類／撥弦",
     "url": "/instruments/ruan/",
-    "image": ""
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Picture_of_Ruanjian.jpg/500px-Picture_of_Ruanjian.jpg"
   },
   {
     "title": "熱瓦甫",
@@ -6107,7 +6107,7 @@
     "subcategory": "撥弦與抱持弦樂",
     "sound_class": "321.312-6",
     "url": "/instruments/sanshin/",
-    "image": ""
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Sanshin.jpg/500px-Sanshin.jpg"
   },
   {
     "title": "桑西琴",
@@ -6367,7 +6367,7 @@
     "subcategory": "號角與唇振",
     "sound_class": "423.213",
     "url": "/instruments/serpent/",
-    "image": ""
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Manifattura_italiana%2C_Serpentone%2C_fine_sec._XVIII._Museo_Civico_di_Modena%2C_foto_P._Terzi.jpg/500px-Manifattura_italiana%2C_Serpentone%2C_fine_sec._XVIII._Museo_Civico_di_Modena%2C_foto_P._Terzi.jpg"
   },
   {
     "title": "塞特琴",
@@ -6387,7 +6387,7 @@
     "subcategory": "撥弦與抱持弦樂",
     "sound_class": "待確認",
     "url": "/instruments/shahi-baaja/",
-    "image": ""
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Shahi_Baaja.jpg/500px-Shahi_Baaja.jpg"
   },
   {
     "title": "尺八",
@@ -6487,7 +6487,7 @@
     "subcategory": "風箱與自由簧",
     "sound_class": "氣鳴｜412/422 簧鳴與自由簧／單簧雙簧",
     "url": "/instruments/sho/",
-    "image": ""
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Musicienne_de_Gagaku%2C_ensemble_%22Owari_Miyabie%22_%28Maison_du_Japon%2C_Paris%29.jpg/500px-Musicienne_de_Gagaku%2C_ensemble_%22Owari_Miyabie%22_%28Maison_du_Japon%2C_Paris%29.jpg"
   },
   {
     "title": "羊角號",
@@ -6567,7 +6567,7 @@
     "subcategory": "風箱與自由簧",
     "sound_class": "氣鳴｜422.211.2",
     "url": "/instruments/sipsi/",
-    "image": ""
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Sipsi.jpg/500px-Sipsi.jpg"
   },
   {
     "title": "警報器",
@@ -6637,7 +6637,7 @@
     "subcategory": "無簧吹管",
     "sound_class": "氣鳴｜421.221.312",
     "url": "/instruments/slide-whistle/",
-    "image": ""
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Flauta_d%27%C3%A8mbol_-_edit.jpg/500px-Flauta_d%27%C3%A8mbol_-_edit.jpg"
   },
   {
     "title": "裂縫鼓",
@@ -6677,7 +6677,7 @@
     "subcategory": "無簧吹管",
     "sound_class": "421.111-12",
     "url": "/instruments/sopilka/",
-    "image": ""
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Sopilka-Prima-2023-Shaul.jpg/500px-Sopilka-Prima-2023-Shaul.jpg"
   },
   {
     "title": "高音薩魯梭風",
@@ -6927,7 +6927,7 @@
     "subcategory": "合成器",
     "sound_class": "鍵盤／電鳴／機械混合｜53",
     "url": "/instruments/synthesizer/",
-    "image": ""
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg"
   },
   {
     "title": "塔布拉鼓(低音鼓)",
@@ -6947,7 +6947,7 @@
     "subcategory": "鼓皮與鼓類",
     "sound_class": "膜鳴｜211 筒形鼓",
     "url": "/instruments/tabla-dayan/",
-    "image": ""
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Prop._Tabla.jpg/500px-Prop._Tabla.jpg"
   },
   {
     "title": "塔波管笛",
@@ -6957,7 +6957,7 @@
     "subcategory": "簧片樂器",
     "sound_class": "421 邊棱氣鳴／無簧笛類",
     "url": "/instruments/tabor-pipe/",
-    "image": ""
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Pipeandbelldavid.png/500px-Pipeandbelldavid.png"
   },
   {
     "title": "塔格爾哈帕弓琴",
@@ -7127,7 +7127,7 @@
     "subcategory": "撥弦與抱持弦樂",
     "sound_class": "弦鳴｜321.321",
     "url": "/instruments/tamburica/",
-    "image": ""
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Prim_tambura.png/500px-Prim_tambura.png"
   },
   {
     "title": "彈撥爾",
@@ -7247,7 +7247,7 @@
     "subcategory": "撥弦與抱持弦樂",
     "sound_class": "待確認",
     "url": "/instruments/tembur/",
-    "image": ""
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Tambur.jpg/500px-Tambur.jpg"
   },
   {
     "title": "鐵口琴",
@@ -7267,7 +7267,7 @@
     "subcategory": "鑼鐘與金屬敲擊",
     "sound_class": "11/12 定音體鳴／鑼鐘木琴石琴系統",
     "url": "/instruments/temple-blocks/",
-    "image": ""
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Modern_Templeblocks.jpg/500px-Modern_Templeblocks.jpg"
   },
   {
     "title": "十弦吉他",
@@ -7477,7 +7477,7 @@
     "subcategory": "撥弦與抱持弦樂",
     "sound_class": "待確認",
     "url": "/instruments/tiorbino/",
-    "image": ""
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Italy%2C_probably_made_in_the_mid-17th_century%2C_but_modified_by_later_repair_-_Lute_or_Tiorbino_-_1918.368_-_Cleveland_Museum_of_Art.tif?width=500"
   },
   {
     "title": "哥倫比亞三弦琴",
@@ -7677,7 +7677,7 @@
     "subcategory": "號角與唇振",
     "sound_class": "423 唇振氣鳴／號角與銅管",
     "url": "/instruments/tuba/",
-    "image": ""
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Yamaha_Bass_tuba_YFB-822.tif?width=500"
   },
   {
     "title": "管弦琴",
@@ -7927,7 +7927,7 @@
     "subcategory": "撥弦與抱持弦樂",
     "sound_class": "弦鳴｜321/322 魯特琴類／撥弦",
     "url": "/instruments/vihuela-mexicana/",
-    "image": ""
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Vihuela_Mexicana_001.JPG/500px-Vihuela_Mexicana_001.JPG"
   },
   {
     "title": "卡伊皮拉維奧拉",
@@ -7937,7 +7937,7 @@
     "subcategory": "撥弦與抱持弦樂",
     "sound_class": "Chordophone／弦鳴樂器",
     "url": "/instruments/viola-caipira/",
-    "image": ""
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Brazdaviola.jpg/500px-Brazdaviola.jpg"
   },
   {
     "title": "低音維奧爾琴",
@@ -7947,7 +7947,7 @@
     "subcategory": "擦弦、鍵控與輪弦",
     "sound_class": "弦鳴｜321.322-71",
     "url": "/instruments/viola-da-gamba/",
-    "image": ""
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Viola_Da_Gamba_Front_and_Side.png/500px-Viola_Da_Gamba_Front_and_Side.png"
   },
   {
     "title": "中提琴",
@@ -8067,7 +8067,7 @@
     "subcategory": "簧片樂器",
     "sound_class": "421.121.12",
     "url": "/instruments/western-flute/",
-    "image": ""
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Fl%C3%BBte_traversi%C3%A8re.png/500px-Fl%C3%BBte_traversi%C3%A8re.png"
   },
   {
     "title": "旋轉管",

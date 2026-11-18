@@ -17,6 +17,7 @@
 <url><loc>https://soundweavers-music.github.io/contact/</loc><lastmod>2026-11-18</lastmod></url>
 <url><loc>https://soundweavers-music.github.io/chord-detection/</loc><lastmod>2026-11-18</lastmod></url>
 <url><loc>https://soundweavers-music.github.io/tools/fretboard/</loc><lastmod>2026-11-18</lastmod></url>
+<url><loc>https://soundweavers-music.github.io/tools/lrc/</loc><lastmod>2026-11-18</lastmod></url>
 <url><loc>https://soundweavers-music.github.io/learn/</loc><lastmod>2026-11-18</lastmod></url>
 <url><loc>https://soundweavers-music.github.io/about/author/</loc><lastmod>2026-11-18</lastmod></url>
 <url><loc>https://soundweavers-music.github.io/about/works/</loc><lastmod>2026-11-18</lastmod></url>
@@ -503,7 +504,6 @@
 <url><loc>https://soundweavers-music.github.io/instruments/mukkuri/</loc><lastmod>2026-11-18</lastmod></url>
 <url><loc>https://soundweavers-music.github.io/instruments/musette/</loc><lastmod>2026-11-18</lastmod></url>
 <url><loc>https://soundweavers-music.github.io/instruments/music-box/</loc><lastmod>2026-11-18</lastmod></url>
-<url><loc>https://soundweavers-music.github.io/instruments/music-on-a-long-thin-wire/</loc><lastmod>2026-11-18</lastmod></url>
 <url><loc>https://soundweavers-music.github.io/instruments/musical-bow/</loc><lastmod>2026-11-18</lastmod></url>
 <url><loc>https://soundweavers-music.github.io/instruments/musical-saw/</loc><lastmod>2026-11-18</lastmod></url>
 <url><loc>https://soundweavers-music.github.io/instruments/mvet/</loc><lastmod>2026-11-18</lastmod></url>
@@ -858,7 +858,6 @@
 <url><loc>https://soundweavers-music.github.io/instruments/zurna/</loc><lastmod>2026-11-18</lastmod></url>
 <url><loc>https://soundweavers-music.github.io/categories/吹奏與氣息樂器/</loc><lastmod>2026-11-18</lastmod></url>
 <url><loc>https://soundweavers-music.github.io/categories/弦樂器/</loc><lastmod>2026-11-18</lastmod></url>
-<url><loc>https://soundweavers-music.github.io/categories/待分類-偵錯暫存/</loc><lastmod>2026-11-18</lastmod></url>
 <url><loc>https://soundweavers-music.github.io/categories/電子與電聲樂器/</loc><lastmod>2026-11-18</lastmod></url>
 <url><loc>https://soundweavers-music.github.io/categories/鼓與打擊樂器/</loc><lastmod>2026-11-18</lastmod></url>
 <url><loc>https://soundweavers-music.github.io/countries/中世紀法國-西歐-地區-文化圈/</loc><lastmod>2026-11-18</lastmod></url>
@@ -1222,7 +1221,6 @@
 <url><loc>https://soundweavers-music.github.io/subcategories/合成器/</loc><lastmod>2026-11-18</lastmod></url>
 <url><loc>https://soundweavers-music.github.io/subcategories/平放弦與擊弦/</loc><lastmod>2026-11-18</lastmod></url>
 <url><loc>https://soundweavers-music.github.io/subcategories/平放弦與齊特琴/</loc><lastmod>2026-11-18</lastmod></url>
-<url><loc>https://soundweavers-music.github.io/subcategories/待確認/</loc><lastmod>2026-11-18</lastmod></url>
 <url><loc>https://soundweavers-music.github.io/subcategories/控制器與數位介面/</loc><lastmod>2026-11-18</lastmod></url>
 <url><loc>https://soundweavers-music.github.io/subcategories/撥弦與抱持弦樂/</loc><lastmod>2026-11-18</lastmod></url>
 <url><loc>https://soundweavers-music.github.io/subcategories/擦弦-鍵控與輪弦/</loc><lastmod>2026-11-18</lastmod></url>

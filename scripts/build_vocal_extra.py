@@ -329,6 +329,12 @@ def build_portal_homepage(instruments):
       <div class="card-desc">瀏覽常見彈撥樂器的調弦法、常用和弦圖表與指法建議、各調性順階和弦與指版音位圖。支援吉他、烏克麗麗、班卓琴、琵琶、中阮等 19 種樂器。</div>
       <span class="card-badge badge-info">新工具</span>
     </a>
+    <a class="portal-card card-tools" href="{resolve_url(index_path, '/tools/lrc/')}" style="border-color:var(--accent);">
+      <div class="card-icon">📝</div>
+      <div class="card-label">LRC 動態歌詞工作室</div>
+      <div class="card-desc">貼上歌詞、載入音檔，邊聽邊按時間碼；自動偵測句與句之間的停頓，先排好一版初稿，再微調輸出 .lrc 或 .srt。</div>
+      <span class="card-badge badge-new">新工具</span>
+    </a>
     <a class="portal-card card-tools" href="{resolve_url(index_path, '/experience/')}" style="border-color:var(--accent);">
       <div class="card-icon">🎹</div>
       <div class="card-label">世界樂器體驗</div>

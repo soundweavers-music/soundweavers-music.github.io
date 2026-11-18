@@ -1,0 +1,1325 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer-when-downgrade">
+<title>LRC 動態歌詞工作室｜世界聲音百科</title>
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/site-refresh.css">
+<style>
+/* ── LRC 工作室 ────────────────────────────────────────────────
+   類名一律以 lrc- 起頭，避免與 site.css / site-refresh.css 衝突；
+   顏色全部走既有 token，深色模式自動跟著變。
+   注意：建置時只會抽出主內容區，外層 class 會被換掉，別把樣式掛在外層。 */
+
+.lrc-hint { color: var(--muted); font-size: 13px; margin: 0; }
+
+.lrc-app {
+  display: grid;
+  grid-template-columns: 372px minmax(0, 1fr);
+  gap: 22px;
+  align-items: start;
+  margin: 8px 0 28px;
+}
+@media (max-width: 920px) { .lrc-app { grid-template-columns: 1fr; } }
+
+.lrc-panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 18px 20px 20px;
+}
+.lrc-player { position: sticky; top: 76px; }
+@media (max-width: 920px) { .lrc-player { position: static; } }
+
+.lrc-panel-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 12px; margin: 0 0 14px;
+}
+.lrc-panel-head h2 {
+  font-family: var(--font-serif);
+  font-size: 17px; font-weight: 700; margin: 0;
+}
+.lrc-count, .lrc-file-name {
+  color: var(--muted); font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 62%;
+}
+
+/* 音檔拖放 */
+.lrc-drop {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  border: 1px dashed var(--line-strong); border-radius: var(--radius);
+  background: var(--soft); color: var(--ink2);
+  padding: 18px 12px; text-align: center; cursor: pointer;
+  transition: border-color .15s, background .15s;
+}
+.lrc-drop:hover, .lrc-drop:focus-visible, .lrc-drop.is-over {
+  border-color: var(--accent); background: var(--accent-soft);
+}
+.lrc-drop-icon { font-size: 22px; color: var(--accent); line-height: 1; }
+.lrc-drop strong { font-size: 13.5px; font-weight: 600; }
+.lrc-drop-sub { font-size: 11.5px; color: var(--muted); }
+
+/* 波形 */
+.lrc-wave-wrap {
+  position: relative; margin: 14px 0 10px;
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--soft); overflow: hidden;
+}
+.lrc-wave { display: block; width: 100%; height: 96px; cursor: crosshair; touch-action: none; }
+.lrc-playhead {
+  position: absolute; top: 0; bottom: 0; width: 2px; margin-left: -1px;
+  background: var(--accent2); pointer-events: none; display: none;
+}
+.lrc-wave-empty {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  color: var(--muted); font-size: 12px; pointer-events: none;
+}
+.lrc-wave-empty[hidden] { display: none; }
+
+/* 播放控制 */
+.lrc-transport { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+.lrc-clock {
+  margin-left: auto; color: var(--muted); font-size: 12px;
+  font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+.lrc-clock b { color: var(--ink); font-size: 14px; font-weight: 700; }
+
+.lrc-btn {
+  font: inherit; font-size: 13px; line-height: 1;
+  color: var(--ink); background: var(--surface);
+  border: 1px solid var(--line-strong); border-radius: var(--radius);
+  padding: 8px 12px; cursor: pointer;
+  transition: background .15s, border-color .15s, color .15s;
+}
+.lrc-btn:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+.lrc-btn:disabled { opacity: .45; cursor: not-allowed; }
+.lrc-btn--primary { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
+.lrc-btn--primary:hover:not(:disabled) { background: var(--accent2); border-color: var(--accent2); color: #fff; }
+.lrc-btn--ghost { border-color: transparent; background: transparent; color: var(--muted); }
+.lrc-btn--danger { color: #a4432f; border-color: #e2c4bb; }
+.lrc-btn--danger:hover:not(:disabled) { color: #8c3220; border-color: #c98c7c; }
+[data-theme="dark"] .lrc-btn--danger { color: #e0927f; border-color: #5a3a32; }
+
+.lrc-select {
+  font: inherit; font-size: 12.5px; color: var(--ink);
+  background: var(--surface); border: 1px solid var(--line-strong);
+  border-radius: var(--radius); padding: 7px 6px;
+}
+
+.lrc-stamp-row { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+.lrc-btn--stamp { flex: 1; padding: 11px 14px; font-size: 14px; }
+.lrc-btn--stamp kbd {
+  font-family: var(--font-sans); font-size: 11px; font-weight: 600;
+  border: 1px solid currentColor; border-radius: 3px; padding: 1px 5px;
+  margin-left: 6px; opacity: .8;
+}
+.lrc-stamp-hint { color: var(--muted); font-size: 11.5px; white-space: nowrap; }
+
+/* 自動斷點偵測 */
+.lrc-detect { border-top: 1px solid var(--line); padding-top: 12px; }
+.lrc-detect summary {
+  cursor: pointer; font-size: 13px; font-weight: 700; color: var(--ink2);
+  list-style: none; margin-bottom: 10px;
+}
+.lrc-detect summary::-webkit-details-marker { display: none; }
+.lrc-detect summary::before { content: "▸ "; color: var(--accent); }
+.lrc-detect[open] summary::before { content: "▾ "; }
+.lrc-detect-body { display: grid; gap: 10px; }
+.lrc-field { display: grid; gap: 4px; font-size: 12px; color: var(--muted); }
+.lrc-field span { display: flex; justify-content: space-between; gap: 8px; }
+.lrc-field output { color: var(--ink2); font-variant-numeric: tabular-nums; }
+.lrc-field input[type="range"] { width: 100%; accent-color: var(--accent); }
+
+.lrc-status { color: var(--muted); font-size: 12px; line-height: 1.5; margin: 0; }
+.lrc-status.is-warn { color: #a4432f; }
+[data-theme="dark"] .lrc-status.is-warn { color: #e0927f; }
+.lrc-status.is-ok { color: var(--accent2); }
+
+/* 歌詞 */
+.lrc-tools { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.lrc-tools .lrc-btn { padding: 5px 9px; font-size: 12px; }
+
+.lrc-paste { margin-bottom: 14px; }
+.lrc-paste textarea {
+  width: 100%; box-sizing: border-box; resize: vertical;
+  font-family: var(--font-sans); font-size: 14px; line-height: 1.7;
+  color: var(--ink); background: var(--soft);
+  border: 1px solid var(--line-strong); border-radius: var(--radius);
+  padding: 10px 12px;
+}
+.lrc-paste textarea:focus { outline: none; border-color: var(--accent); background: var(--surface); }
+.lrc-paste-actions { display: flex; gap: 8px; margin-top: 8px; }
+
+.lrc-lines {
+  list-style: none; margin: 0; padding: 0;
+  max-height: 58vh; overflow-y: auto;
+  border-top: 1px solid var(--line);
+}
+.lrc-lines:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.lrc-line {
+  display: grid; grid-template-columns: 32px 82px minmax(0, 1fr);
+  align-items: baseline; gap: 10px;
+  padding: 7px 8px 7px 6px;
+  border-bottom: 1px solid var(--line);
+  cursor: pointer; scroll-margin: 80px;
+  font-size: 15px;
+}
+.lrc-line:hover { background: var(--soft); }
+.lrc-line.is-selected { background: var(--accent-soft); box-shadow: inset 3px 0 0 var(--accent); }
+.lrc-line.is-playing .lrc-text { color: var(--ink); font-weight: 600; }
+.lrc-line.is-playing .lrc-num { color: var(--accent); }
+
+.lrc-num {
+  color: var(--muted); font-size: 11px; line-height: 1.6;
+  font-variant-numeric: tabular-nums; text-align: right;
+}
+.lrc-time {
+  font: inherit; font-size: 12px; font-variant-numeric: tabular-nums; line-height: 1.5;
+  text-align: left; padding: 2px 6px;
+  color: var(--muted); background: transparent;
+  border: 1px solid transparent; border-radius: 3px;
+  cursor: pointer; white-space: nowrap;
+}
+.lrc-time.is-set { color: var(--accent2); border-color: var(--line); background: var(--surface); }
+.lrc-time:hover { border-color: var(--accent); color: var(--accent); }
+.lrc-text {
+  font-size: 1em; line-height: 1.55; color: var(--ink2);
+  overflow-wrap: anywhere; white-space: pre-wrap;
+}
+.lrc-line.is-untimed .lrc-text { color: var(--muted); }
+
+.lrc-empty { color: var(--muted); font-size: 13px; padding: 22px 4px; margin: 0; }
+
+.lrc-list-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+
+/* 輸出 */
+.lrc-export { margin-bottom: 32px; }
+.lrc-meta-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 10px; margin-bottom: 14px;
+}
+.lrc-meta-grid label { display: grid; gap: 4px; font-size: 12px; color: var(--muted); }
+.lrc-meta-grid input {
+  font: inherit; font-size: 13px; color: var(--ink);
+  background: var(--surface); border: 1px solid var(--line-strong);
+  border-radius: var(--radius); padding: 7px 9px;
+}
+.lrc-meta-grid input:focus { outline: none; border-color: var(--accent); }
+
+.lrc-preview {
+  margin: 0 0 14px; padding: 12px 14px;
+  max-height: 240px; overflow: auto;
+  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  font-size: 12.5px; line-height: 1.6;
+  color: var(--ink2); background: var(--soft);
+  border: 1px solid var(--line); border-radius: var(--radius);
+  white-space: pre-wrap; word-break: break-all;
+}
+.lrc-export-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.lrc-bom { color: var(--muted); font-size: 12px; display: flex; align-items: center; gap: 5px; }
+
+/* 提示條 */
+.lrc-toast {
+  position: fixed; left: 50%; bottom: 28px; transform: translateX(-50%) translateY(8px);
+  background: var(--ink); color: var(--paper);
+  padding: 9px 16px; border-radius: 999px; font-size: 13px;
+  opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s;
+  z-index: 80;
+}
+.lrc-toast.is-on { opacity: 1; transform: translateX(-50%) translateY(0); }
+</style>
+</head>
+<body>
+<main class="page">
+  <section class="compact-hero">
+    <p class="eyebrow">Tool</p>
+    <h1>LRC 動態歌詞工作室</h1>
+    <p class="lead">貼上歌詞、載入音檔，一邊聽一邊按下時間碼。自動斷點偵測會先抓一個初稿，細部再靠耳朵微調。</p>
+    <p class="lrc-hint">音檔只在你的瀏覽器裡解碼，不會上傳到任何地方。鍵盤：Enter 標記、空白鍵播放、↑↓ 換行、←→ 快轉 3 秒、Delete 清掉本行時間。</p>
+  </section>
+
+  <div class="lrc-app">
+    <!-- ── 左：播放與偵測 ─────────────────────────────────── -->
+    <section class="lrc-panel lrc-player">
+      <div class="lrc-panel-head">
+        <h2>音檔</h2>
+        <span id="lrc-file-name" class="lrc-file-name">尚未選擇</span>
+      </div>
+
+      <div id="lrc-drop" class="lrc-drop" tabindex="0" role="button" aria-label="選擇音檔">
+        <span class="lrc-drop-icon">♪</span>
+        <strong>拖曳音檔，或點此選擇</strong>
+        <span class="lrc-drop-sub">MP3／WAV／M4A／OGG</span>
+        <input id="lrc-file" type="file" accept="audio/*,.mp3,.wav,.m4a,.ogg,.flac" hidden>
+      </div>
+
+      <div class="lrc-wave-wrap">
+        <canvas id="lrc-wave" class="lrc-wave" aria-label="波形圖，點擊或拖曳可跳轉"></canvas>
+        <div id="lrc-wave-empty" class="lrc-wave-empty">載入音檔後顯示波形</div>
+        <div id="lrc-playhead" class="lrc-playhead"></div>
+      </div>
+      <audio id="lrc-audio" preload="metadata"></audio>
+
+      <div class="lrc-transport">
+        <button type="button" id="lrc-back" class="lrc-btn" title="倒退 3 秒（←）">−3s</button>
+        <button type="button" id="lrc-play" class="lrc-btn lrc-btn--primary" title="播放／暫停（空白鍵）">▶ 播放</button>
+        <button type="button" id="lrc-fwd" class="lrc-btn" title="快進 3 秒（→）">+3s</button>
+        <select id="lrc-rate" class="lrc-select" title="播放速度" aria-label="播放速度">
+          <option value="0.5">0.5×</option>
+          <option value="0.75">0.75×</option>
+          <option value="1" selected>1×</option>
+          <option value="1.25">1.25×</option>
+          <option value="1.5">1.5×</option>
+        </select>
+        <span class="lrc-clock"><b id="lrc-time">00:00.00</b> / <span id="lrc-dur">00:00.00</span></span>
+      </div>
+
+      <div class="lrc-stamp-row">
+        <button type="button" id="lrc-stamp" class="lrc-btn lrc-btn--primary lrc-btn--stamp">⏱ 標記本行<kbd>Enter</kbd></button>
+        <span class="lrc-stamp-hint">空白鍵播放</span>
+      </div>
+
+      <details class="lrc-detect" id="lrc-detect" open>
+        <summary>自動斷點偵測</summary>
+        <div class="lrc-detect-body">
+          <label class="lrc-field">
+            <span>靈敏度（越高越容易切成一句）<output id="lrc-sens-out">50</output></span>
+            <input id="lrc-sens" type="range" min="5" max="95" step="1" value="50">
+          </label>
+          <label class="lrc-field">
+            <span>最短停頓<output id="lrc-gap-out">0.30 秒</output></span>
+            <input id="lrc-gap" type="range" min="15" max="120" step="5" value="30">
+          </label>
+          <button type="button" id="lrc-analyze" class="lrc-btn" disabled>偵測並填入時間</button>
+          <p id="lrc-detect-status" class="lrc-status">先載入音檔。偵測是用音量起伏找句與句之間的停頓，全部在本機計算。</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- ── 右：歌詞與時間碼 ───────────────────────────────── -->
+    <section class="lrc-panel lrc-editor">
+      <div class="lrc-panel-head">
+        <h2>歌詞 <span id="lrc-count" class="lrc-count">0 行</span></h2>
+        <div class="lrc-tools">
+          <button type="button" id="lrc-edit" class="lrc-btn">編輯歌詞</button>
+          <button type="button" id="lrc-font-down" class="lrc-btn" title="縮小字級">A−</button>
+          <button type="button" id="lrc-font-up" class="lrc-btn" title="放大字級">A＋</button>
+        </div>
+      </div>
+
+      <div class="lrc-paste" id="lrc-paste-wrap">
+        <textarea id="lrc-paste" rows="7" spellcheck="false"
+          placeholder="把歌詞貼在這裡，一行一句。若貼上的是已標好時間的 LRC，時間碼會一併讀進來。（Ctrl+Enter 直接載入）"></textarea>
+        <div class="lrc-paste-actions">
+          <button type="button" id="lrc-load" class="lrc-btn lrc-btn--primary">載入歌詞</button>
+          <button type="button" id="lrc-tidy" class="lrc-btn" title="去掉空白行與前後空白">整理</button>
+          <button type="button" id="lrc-close-paste" class="lrc-btn lrc-btn--ghost">收起</button>
+        </div>
+      </div>
+
+      <ol id="lrc-lines" class="lrc-lines" tabindex="0" aria-label="歌詞行與時間碼"></ol>
+      <p id="lrc-empty" class="lrc-empty">還沒有歌詞。貼上歌詞、按「載入歌詞」後，這裡會出現可以打時間碼的行。</p>
+
+      <div class="lrc-list-actions">
+        <button type="button" id="lrc-undo" class="lrc-btn" title="復原（Ctrl+Z）">復原</button>
+        <button type="button" id="lrc-shift-back" class="lrc-btn" title="所有時間碼往前 0.1 秒">全體 −0.1s</button>
+        <button type="button" id="lrc-shift-fwd" class="lrc-btn" title="所有時間碼往後 0.1 秒">全體 +0.1s</button>
+        <button type="button" id="lrc-clear-times" class="lrc-btn lrc-btn--danger">清除所有時間碼</button>
+      </div>
+    </section>
+  </div>
+
+  <!-- ── 輸出 ─────────────────────────────────────────────── -->
+  <section class="lrc-panel lrc-export">
+    <div class="lrc-panel-head">
+      <h2>輸出</h2>
+      <span id="lrc-export-status" class="lrc-status"></span>
+    </div>
+    <div class="lrc-meta-grid">
+      <label>標題 [ti]<input id="meta-ti" type="text" placeholder="曲名"></label>
+      <label>演出者 [ar]<input id="meta-ar" type="text" placeholder="歌手／樂團"></label>
+      <label>專輯 [al]<input id="meta-al" type="text" placeholder="專輯（可留空）"></label>
+      <label>製作者 [by]<input id="meta-by" type="text" value="世界聲音百科"></label>
+    </div>
+    <pre id="lrc-preview" class="lrc-preview">（還沒有時間碼）</pre>
+    <div class="lrc-export-actions">
+      <button type="button" id="lrc-download-lrc" class="lrc-btn lrc-btn--primary">下載 .lrc</button>
+      <button type="button" id="lrc-copy" class="lrc-btn">複製 LRC</button>
+      <button type="button" id="lrc-download-srt" class="lrc-btn">下載 .srt</button>
+      <label class="lrc-bom"><input type="checkbox" id="lrc-bom"> 加上 BOM（舊播放器）</label>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-heading"><h2>相關工具</h2></div>
+    <div class="featured-links">
+      <a class="featured-card" href="../tools/fretboard/" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:1px solid #bbf7d0;">
+        <strong>🎸 世界樂器指版與和弦圖</strong>
+        <span>瀏覽常見彈撥樂器的調弦法、各調性和弦、指版音位圖與順階和弦</span>
+      </a>
+      <a class="featured-card" href="../chord-detection/" style="background:linear-gradient(135deg,#fef3c7,#fde68a);border:1px solid #f59e0b;">
+        <strong>🎼 自動抓和弦 (beta)</strong>
+        <span>上傳音檔自動分析節拍與和弦進行，支援指版圖顯示與和弦編輯</span>
+      </a>
+      <a class="featured-card" href="../experience/" style="background:linear-gradient(135deg,#f5f0ff,#ebe0ff);border:1px solid #d5c5fd;">
+        <strong>🎹 世界樂器體驗</strong>
+        <span>用虛擬鍵盤試聽鋼琴、吉他、小提琴、琵琶等樂器的音色與音域</span>
+      </a>
+    </div>
+  </section>
+
+  <div id="lrc-toast" class="lrc-toast" role="status" aria-live="polite"></div>
+</main>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ── 小工具 ─────────────────────────────────────────────── */
+  var $ = function (sel, root) { return (root || document).querySelector(sel); };
+  var pad2 = function (n) { return String(n).padStart(2, "0"); };
+  var clamp = function (v, lo, hi) { return v < lo ? lo : v > hi ? hi : v; };
+  var round2 = function (t) { return Math.round(t * 100) / 100; };
+
+  // 秒數 → LRC 的 mm:ss.xx（先換成百分秒再拆，避免 59.999 變成 60.00）
+  function lrcTime(t) {
+    if (t == null || !isFinite(t)) return "";
+    var cs = Math.max(0, Math.round(t * 100));
+    var m = Math.floor(cs / 6000);
+    var rem = cs % 6000;
+    return pad2(m) + ":" + pad2(Math.floor(rem / 100)) + "." + pad2(rem % 100);
+  }
+  // 秒數 → SRT 的 hh:mm:ss,mmm
+  function srtTime(t) {
+    var ms = Math.max(0, Math.round(t * 1000));
+    var h = Math.floor(ms / 3600000); ms -= h * 3600000;
+    var m = Math.floor(ms / 60000); ms -= m * 60000;
+    var s = Math.floor(ms / 1000); ms -= s * 1000;
+    return pad2(h) + ":" + pad2(m) + ":" + pad2(s) + "," + String(ms).padStart(3, "0");
+  }
+
+  /* ── 狀態 ───────────────────────────────────────────────── */
+  var LS_KEY = "lrcstudio.v1";
+  var state = {
+    lines: [],        // [{ text, time }]　time 為秒，null 表示尚未標記
+    selected: -1,
+    fontSize: 15,
+    buffer: null,
+    env: null,        // 每 10ms 一個 RMS
+    segments: [],     // 偵測到的樂句
+    meta: { ti: "", ar: "", al: "", by: "世界聲音百科" }
+  };
+
+  var audio = $("#lrc-audio");
+  var wave = $("#lrc-wave");
+  var playhead = $("#lrc-playhead");
+
+  var audioUrl = null;
+  var audioCtx = null;
+  var undoStack = [];
+  var rafId = 0;
+  var saveTimer = 0;
+  var lastActive = -1;
+
+  var el = {
+    file: $("#lrc-file"), drop: $("#lrc-drop"), fileName: $("#lrc-file-name"),
+    play: $("#lrc-play"), back: $("#lrc-back"), fwd: $("#lrc-fwd"), rate: $("#lrc-rate"),
+    time: $("#lrc-time"), dur: $("#lrc-dur"), stamp: $("#lrc-stamp"),
+    sens: $("#lrc-sens"), sensOut: $("#lrc-sens-out"),
+    gap: $("#lrc-gap"), gapOut: $("#lrc-gap-out"),
+    analyze: $("#lrc-analyze"), detectStatus: $("#lrc-detect-status"),
+    pasteWrap: $("#lrc-paste-wrap"), paste: $("#lrc-paste"),
+    load: $("#lrc-load"), tidy: $("#lrc-tidy"),
+    closePaste: $("#lrc-close-paste"), edit: $("#lrc-edit"),
+    list: $("#lrc-lines"), empty: $("#lrc-empty"), count: $("#lrc-count"),
+    fontUp: $("#lrc-font-up"), fontDown: $("#lrc-font-down"),
+    undo: $("#lrc-undo"), shiftBack: $("#lrc-shift-back"), shiftFwd: $("#lrc-shift-fwd"),
+    clearTimes: $("#lrc-clear-times"),
+    preview: $("#lrc-preview"), exportStatus: $("#lrc-export-status"),
+    dlLrc: $("#lrc-download-lrc"), copy: $("#lrc-copy"), dlSrt: $("#lrc-download-srt"),
+    bom: $("#lrc-bom"), toast: $("#lrc-toast"), waveEmpty: $("#lrc-wave-empty")
+  };
+
+  /* ── 提示 ───────────────────────────────────────────────── */
+  var toastTimer = 0;
+  function toast(msg) {
+    el.toast.textContent = msg;
+    el.toast.classList.add("is-on");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { el.toast.classList.remove("is-on"); }, 2000);
+  }
+
+  function setDetectStatus(msg, kind) {
+    el.detectStatus.textContent = msg;
+    el.detectStatus.className = "lrc-status" + (kind ? " is-" + kind : "");
+  }
+
+  /* ── 復原 ───────────────────────────────────────────────── */
+  function snapshot() {
+    return JSON.stringify(state.lines.map(function (l) { return [l.text, l.time]; }));
+  }
+  function pushUndo() {
+    undoStack.push(snapshot());
+    if (undoStack.length > 60) undoStack.shift();
+    el.undo.disabled = false;
+  }
+  function undo() {
+    var prev = undoStack.pop();
+    if (!prev) { toast("沒有可以復原的步驟"); return; }
+    state.lines = JSON.parse(prev).map(function (d) { return { text: d[0], time: d[1] }; });
+    state.selected = clamp(state.selected, -1, state.lines.length - 1);
+    renderAll();
+    toast("已復原");
+  }
+
+  /* ── 歌詞解析 ───────────────────────────────────────────── */
+  var LRC_LINE = /^\s*\[(\d{1,3}):(\d{1,2})(?:[.:](\d{1,3}))?\]\s*(.*)$/;
+  var LRC_META = /^\s*\[(ti|ar|al|by|au|re|ve|offset):(.*)\]\s*$/i;
+
+  function parseLyrics(text) {
+    var out = [];
+    var meta = {};
+    text.split(/\r?\n/).forEach(function (raw) {
+      var line = raw.replace(/\s+$/, "");
+      var m = line.match(LRC_LINE);
+      if (m) {
+        var frac = m[3] ? parseInt((m[3] + "00").slice(0, 2), 10) / 100 : 0;
+        out.push({
+          text: m[4].replace(/\s+$/, ""),
+          time: round2(parseInt(m[1], 10) * 60 + parseInt(m[2], 10) + frac)
+        });
+        return;
+      }
+      var mm = line.match(LRC_META);
+      if (mm) { meta[mm[1].toLowerCase()] = mm[2].trim(); return; }
+      if (!line.trim()) return;
+      out.push({ text: line.trim(), time: null });
+    });
+    return { lines: out, meta: meta };
+  }
+
+  function loadLyrics() {
+    var text = el.paste.value;
+    if (!text.trim()) { toast("先貼上歌詞"); return; }
+    var parsed = parseLyrics(text);
+    if (!parsed.lines.length) { toast("沒有讀到任何歌詞行"); return; }
+
+    pushUndo();
+    state.lines = parsed.lines;
+    state.selected = 0;
+
+    // LRC 檔頭若帶了曲名／演出者，順手填進輸出欄位
+    if (parsed.meta.ti) $("#meta-ti").value = parsed.meta.ti;
+    if (parsed.meta.ar) $("#meta-ar").value = parsed.meta.ar;
+    if (parsed.meta.al) $("#meta-al").value = parsed.meta.al;
+    if (parsed.meta.by) $("#meta-by").value = parsed.meta.by;
+    syncMetaFromInputs();
+
+    el.pasteWrap.hidden = true;
+    syncPasteUI();
+    renderAll();
+    selectLine(0);
+    el.list.focus();
+
+    var hadTime = state.lines.some(function (l) { return l.time != null; });
+    toast("載入 " + state.lines.length + " 行" + (hadTime ? "（含原有時間碼）" : ""));
+  }
+
+  function tidyText() {
+    el.paste.value = el.paste.value.split(/\r?\n/).map(function (line) {
+      return line.replace(/^[\s　]+|[\s　]+$/g, "");
+    }).filter(function (line) { return line.length; }).join("\n");
+    toast("已整理：去掉空白行與前後空白");
+  }
+
+  // 歌詞面板開著時不需要「編輯歌詞」，反之亦然
+  function syncPasteUI() {
+    el.edit.hidden = !el.pasteWrap.hidden;
+  }
+
+  function openPasteEditor() {
+    el.paste.value = state.lines.map(function (l) { return l.text; }).join("\n");
+    el.pasteWrap.hidden = false;
+    syncPasteUI();
+    el.paste.focus();
+    el.paste.select();
+  }
+
+  /* ── 列表 ───────────────────────────────────────────────── */
+  function renderLines() {
+    var frag = document.createDocumentFragment();
+    state.lines.forEach(function (line, i) {
+      var li = document.createElement("li");
+      li.className = "lrc-line" +
+        (i === state.selected ? " is-selected" : "") +
+        (line.time == null ? " is-untimed" : "");
+      li.dataset.i = String(i);
+      li.style.fontSize = state.fontSize + "px";
+
+      var num = document.createElement("span");
+      num.className = "lrc-num";
+      num.textContent = pad2(i + 1);
+
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "lrc-time" + (line.time == null ? "" : " is-set");
+      btn.textContent = line.time == null ? "–:––.––" : lrcTime(line.time);
+      btn.title = line.time == null ? "尚未標記時間" : "點擊跳到 " + lrcTime(line.time);
+
+      var txt = document.createElement("span");
+      txt.className = "lrc-text";
+      txt.textContent = line.text;
+
+      li.appendChild(num);
+      li.appendChild(btn);
+      li.appendChild(txt);
+      frag.appendChild(li);
+    });
+
+    el.list.innerHTML = "";
+    el.list.appendChild(frag);
+
+    el.count.textContent = state.lines.length + " 行";
+    el.empty.hidden = state.lines.length > 0;
+    el.list.hidden = state.lines.length === 0;
+    lastActive = -1;
+    updateExport();
+    saveDraft();
+  }
+
+  function renderAll() {
+    renderLines();
+    drawWave();
+    updatePlayhead();
+  }
+
+  function selectLine(i, scroll) {
+    if (!state.lines.length) return;
+    state.selected = clamp(i, 0, state.lines.length - 1);
+    Array.prototype.forEach.call(el.list.children, function (li, idx) {
+      li.classList.toggle("is-selected", idx === state.selected);
+    });
+    if (scroll !== false) scrollToLine(state.selected);
+  }
+
+  function scrollToLine(i) {
+    var li = el.list.children[i];
+    if (!li) return;
+    var box = el.list.getBoundingClientRect();
+    var row = li.getBoundingClientRect();
+    if (row.top < box.top + 4 || row.bottom > box.bottom - 4) {
+      li.scrollIntoView({ block: "center", behavior: "smooth" });
+    }
+  }
+
+  /* ── 音檔 ───────────────────────────────────────────────── */
+  function setFile(file) {
+    if (!file) return;
+    if (!/^audio\//.test(file.type) && !/\.(mp3|wav|m4a|ogg|flac|aac|opus)$/i.test(file.name)) {
+      setDetectStatus("這個檔案看起來不是音檔。", "warn");
+      return;
+    }
+
+    if (audioUrl) URL.revokeObjectURL(audioUrl);
+    audioUrl = URL.createObjectURL(file);
+    audio.src = audioUrl;
+    audio.playbackRate = parseFloat(el.rate.value);
+
+    el.fileName.textContent = file.name;
+    el.drop.querySelector("strong").textContent = "換一個音檔";
+    state.buffer = null;
+    state.env = null;
+    state.segments = [];
+    el.analyze.disabled = true;
+    el.waveEmpty.hidden = false;
+    setDetectStatus("解碼音檔中…");
+    drawWave();
+
+    decodeFile(file).then(function (buffer) {
+      state.buffer = buffer;
+      state.env = envelopeFromBuffer(buffer);
+      el.analyze.disabled = false;
+      el.waveEmpty.hidden = true;
+      el.dur.textContent = lrcTime(buffer.duration);
+      setDetectStatus("音檔就緒，長 " + lrcTime(buffer.duration) + "。" +
+        (state.lines.length ? "可以按「偵測並填入時間」。" : "貼上歌詞後再偵測，結果才有地方放。"));
+      drawWave();
+    }).catch(function (err) {
+      console.error(err);
+      setDetectStatus("這個檔案瀏覽器解不開，波型與偵測不能用；手動播放與標記仍可運作。", "warn");
+    });
+  }
+
+  function decodeFile(file) {
+    var Ctx = window.AudioContext || window.webkitAudioContext;
+    if (!audioCtx) audioCtx = new Ctx();
+    return file.arrayBuffer().then(function (buf) {
+      // 同時給 callback 與 promise：新舊瀏覽器都吃得到
+      return new Promise(function (resolve, reject) {
+        var p = audioCtx.decodeAudioData(buf, resolve, reject);
+        if (p && p.then) p.then(resolve, reject);
+      });
+    });
+  }
+
+  // 每 10ms 一個 RMS（左右聲道平均），波形與斷點偵測共用
+  function envelopeFromBuffer(buf) {
+    var HOP_SEC = 0.01;
+    var hop = Math.max(1, Math.round(buf.sampleRate * HOP_SEC));
+    var n = Math.floor(buf.length / hop);
+    var left = buf.getChannelData(0);
+    var right = buf.numberOfChannels > 1 ? buf.getChannelData(1) : null;
+    var out = new Float32Array(n);
+    for (var i = 0; i < n; i++) {
+      var start = i * hop;
+      var end = Math.min(start + hop, buf.length);
+      var sum = 0;
+      for (var j = start; j < end; j++) {
+        var v = right ? (left[j] + right[j]) * 0.5 : left[j];
+        sum += v * v;
+      }
+      out[i] = Math.sqrt(sum / Math.max(1, end - start));
+    }
+    return out;
+  }
+
+  function togglePlay() {
+    if (!audio.src) { toast("先選擇音檔"); return; }
+    if (audio.paused) {
+      audio.play().catch(function () { toast("瀏覽器擋下了播放，再按一次試試"); });
+    } else {
+      audio.pause();
+    }
+  }
+
+  function seekTo(t) {
+    if (!audio.src) return;
+    var dur = isFinite(audio.duration) ? audio.duration : 0;
+    audio.currentTime = clamp(t, 0, dur);
+    updatePlayhead();
+  }
+  function seekBy(delta) { seekTo((audio.currentTime || 0) + delta); }
+
+  function updateClock() {
+    el.time.textContent = lrcTime(audio.currentTime || 0) || "00:00.00";
+  }
+
+  function updatePlayhead() {
+    var dur = audio.duration;
+    if (!dur || !isFinite(dur)) { playhead.style.display = "none"; return; }
+    playhead.style.display = "block";
+    playhead.style.left = ((audio.currentTime / dur) * 100).toFixed(3) + "%";
+
+    // 播放中標亮「當前那一行」
+    var active = -1;
+    for (var i = 0; i < state.lines.length; i++) {
+      if (state.lines[i].time != null && state.lines[i].time <= audio.currentTime + 0.02) active = i;
+    }
+    if (active !== lastActive) {
+      var prev = el.list.children[lastActive];
+      var next = el.list.children[active];
+      if (prev) prev.classList.remove("is-playing");
+      if (next) next.classList.add("is-playing");
+      lastActive = active;
+    }
+  }
+
+  function tick() {
+    updateClock();
+    updatePlayhead();
+    if (!audio.paused) rafId = requestAnimationFrame(tick);
+  }
+
+  /* ── 波形 ───────────────────────────────────────────────── */
+  function drawWave() {
+    var ctx = wave.getContext("2d");
+    var dpr = window.devicePixelRatio || 1;
+    var w = wave.clientWidth || 1;
+    var h = wave.clientHeight || 96;
+    if (wave.width !== Math.round(w * dpr) || wave.height !== Math.round(h * dpr)) {
+      wave.width = Math.round(w * dpr);
+      wave.height = Math.round(h * dpr);
+    }
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, w, h);
+
+    var styles = getComputedStyle(document.documentElement);
+    var soft = (styles.getPropertyValue("--soft") || "").trim() || "#f7f3ee";
+    var accent = (styles.getPropertyValue("--accent") || "").trim() || "#A67C52";
+    var blue = (styles.getPropertyValue("--blue") || "").trim() || "#6B8FBF";
+
+    ctx.fillStyle = soft;
+    ctx.fillRect(0, 0, w, h);
+
+    if (!state.buffer || !state.env) return;
+
+    var env = state.env;
+    var n = env.length;
+    var mid = h / 2;
+
+    ctx.fillStyle = accent;
+    ctx.globalAlpha = 0.5;
+    for (var x = 0; x < w; x++) {
+      var a = Math.floor((x / w) * n);
+      var b = Math.max(a + 1, Math.floor(((x + 1) / w) * n));
+      var peak = 0;
+      for (var i = a; i < b; i++) if (env[i] > peak) peak = env[i];
+      var mag = Math.min(1, Math.sqrt(peak) * 1.7);
+      var hh = Math.max(0.6, mag * mid * 0.94);
+      ctx.fillRect(x, mid - hh, 1, hh * 2);
+    }
+    ctx.globalAlpha = 1;
+
+    var dur = state.buffer.duration || 1;
+
+    // 偵測到的句首（藍）
+    ctx.strokeStyle = blue;
+    ctx.globalAlpha = 0.7;
+    ctx.lineWidth = 1;
+    state.segments.forEach(function (s) {
+      var px = Math.round((s.start / dur) * w) + 0.5;
+      ctx.beginPath();
+      ctx.moveTo(px, 0);
+      ctx.lineTo(px, h);
+      ctx.stroke();
+    });
+
+    // 已標記的時間碼（棕，畫在底部）
+    ctx.fillStyle = accent;
+    ctx.globalAlpha = 1;
+    state.lines.forEach(function (line) {
+      if (line.time == null) return;
+      var px = (line.time / dur) * w;
+      ctx.fillRect(px - 0.5, h - 5, 2, 5);
+    });
+  }
+
+  function waveTimeAt(clientX) {
+    var rect = wave.getBoundingClientRect();
+    var ratio = clamp((clientX - rect.left) / rect.width, 0, 1);
+    var dur = isFinite(audio.duration) ? audio.duration : (state.buffer ? state.buffer.duration : 0);
+    return ratio * dur;
+  }
+
+  /* ── 自動斷點偵測 ───────────────────────────────────────── */
+  // 音量低於門檻且維持夠久的區間＝停頓；停頓之間就是一句
+  function detectSegments(env, opts) {
+    var HOP_SEC = 0.01;
+    var n = env.length;
+    if (!n) return [];
+
+    var db = new Float32Array(n);
+    for (var i = 0; i < n; i++) db[i] = 20 * Math.log10(env[i] + 1e-7);
+
+    var sorted = Float32Array.from(db).sort();
+    var floor = sorted[Math.floor(n * 0.2)];
+    var loud = sorted[Math.floor(n * 0.85)];
+
+    // 整首都同一個音量（沒有對比）：切不出停頓，就當作一段交給對齊去分
+    if (loud - floor < 2) return [{ start: 0, end: n * HOP_SEC }];
+
+    var span = Math.max(6, loud - floor);        // 至少 6dB，整首很安靜時也不會亂切
+    var frac = 0.55 - 0.42 * opts.sensitivity;   // 0.13（寬鬆）… 0.55（嚴格）
+    var thr = floor + span * frac;
+
+    var minSilent = Math.max(5, Math.round(opts.minGap / HOP_SEC));
+
+    var gaps = [];
+    var i2 = 0;
+    while (i2 < n) {
+      if (db[i2] >= thr) { i2++; continue; }
+      var j = i2;
+      while (j < n && db[j] < thr) j++;
+      if (j - i2 >= minSilent) gaps.push([i2 * HOP_SEC, j * HOP_SEC]);
+      i2 = j;
+    }
+
+    var duration = n * HOP_SEC;
+    var segments = [];
+    var cursor = 0;
+    gaps.forEach(function (g) {
+      if (g[0] - cursor >= 0.08) segments.push({ start: cursor, end: g[0] });
+      cursor = g[1];
+    });
+    if (duration - cursor >= 0.08) segments.push({ start: cursor, end: duration });
+
+    // 太短的碎段併進前一段
+    var merged = [];
+    segments.forEach(function (s) {
+      if (merged.length && s.end - s.start < 0.25) merged[merged.length - 1].end = s.end;
+      else merged.push({ start: s.start, end: s.end });
+    });
+    return merged;
+  }
+
+  // 一行「應該有多長」的權重：中文 1、英數 0.55、標點 0.3
+  function charWeight(text) {
+    var w = 0;
+    for (var i = 0; i < text.length; i++) {
+      var ch = text[i];
+      if (/\s/.test(ch)) continue;
+      if (/[㐀-䶿一-鿿豈-﫿]/.test(ch)) w += 1;
+      else if (/[A-Za-z0-9]/.test(ch)) w += 0.55;
+      else w += 0.3;
+    }
+    return Math.max(1, w);
+  }
+
+  // 段數不足時，把最長的一段對半切，直到夠用
+  function splitTo(segs, target) {
+    var guard = 0;
+    while (segs.length < target && guard++ < 3000) {
+      var idx = 0, best = -1;
+      for (var i = 0; i < segs.length; i++) {
+        var d = segs[i].end - segs[i].start;
+        if (d > best) { best = d; idx = i; }
+      }
+      if (best < 0.12) break;
+      var s = segs[idx], mid = (s.start + s.end) / 2;
+      segs.splice(idx, 1, { start: s.start, end: mid }, { start: mid, end: s.end });
+    }
+    return segs;
+  }
+
+  // 每行起點 = 分組後第一段的起點；分組用 DP 讓「組長度」盡量貼近「字數比例」
+  function alignTimes(lines, segmentsIn) {
+    var L = lines.length;
+    if (!L || !segmentsIn.length) return null;
+
+    var segs = splitTo(segmentsIn.map(function (s) { return { start: s.start, end: s.end }; }), L);
+    var S = segs.length;
+    if (S < L) return null;
+
+    var weights = lines.map(function (l) { return charWeight(l.text); });
+    var totalW = weights.reduce(function (a, b) { return a + b; }, 0) || 1;
+    var dur = segs.map(function (s) { return s.end - s.start; });
+    var totalD = dur.reduce(function (a, b) { return a + b; }, 0) || 1;
+    var expected = weights.map(function (w) { return (w / totalW) * totalD; });
+
+    // 規模太大就退回等比例估算，避免 DP 卡住畫面
+    if (L * S * S > 4e7) return proportionalTimes(expected, totalD, segs);
+
+    var pre = new Float64Array(S + 1);
+    for (var k = 0; k < S; k++) pre[k + 1] = pre[k] + dur[k];
+
+    var INF = Number.POSITIVE_INFINITY;
+    var dp = [], from = [];
+    for (var a = 0; a <= L; a++) {
+      dp.push(new Float64Array(S + 1).fill(INF));
+      from.push(new Int32Array(S + 1).fill(-1));
+    }
+    dp[0][0] = 0;
+
+    for (var l = 1; l <= L; l++) {
+      var minI = l, maxI = S - (L - l);
+      for (var ii = minI; ii <= maxI; ii++) {
+        for (var kk = l - 1; kk < ii; kk++) {
+          var base = dp[l - 1][kk];
+          if (base === INF) continue;
+          var cost = base + Math.abs((pre[ii] - pre[kk]) - expected[l - 1]);
+          if (cost < dp[l][ii]) { dp[l][ii] = cost; from[l][ii] = kk; }
+        }
+      }
+    }
+    if (dp[L][S] === INF) return null;
+
+    var times = new Array(L);
+    var cur = S;
+    for (var ll = L; ll >= 1; ll--) {
+      var startIdx = from[ll][cur];
+      if (startIdx < 0) return null;
+      times[ll - 1] = segs[startIdx].start;
+      cur = startIdx;
+    }
+    return times;
+  }
+
+  // 備援：完全按字數比例把整首歌的時間軸分給每一行
+  function proportionalTimes(expected, totalD, segs) {
+    var span = segs[segs.length - 1].end - segs[0].start;
+    var t0 = segs[0].start;
+    var cum = 0;
+    return expected.map(function (e) {
+      var t = t0 + (cum / totalD) * span;
+      cum += e;
+      return t;
+    });
+  }
+
+  function analyzeAndFill() {
+    if (!state.env) { setDetectStatus("音檔還沒解碼完成。", "warn"); return; }
+    if (!state.lines.length) { setDetectStatus("先把歌詞載入，偵測結果才有地方放。", "warn"); return; }
+
+    var sens = parseInt(el.sens.value, 10) / 100;
+    var minGap = parseInt(el.gap.value, 10) / 100;
+
+    var segments = detectSegments(state.env, { sensitivity: sens, minGap: minGap });
+    state.segments = segments;
+    drawWave();
+
+    var summary = "偵測到 " + segments.length + " 段／歌詞 " + state.lines.length + " 行。";
+    var times = alignTimes(state.lines, segments);
+    if (!times) {
+      setDetectStatus(summary + "段數對不上，先調整靈敏度或最短停頓再試一次。", "warn");
+      return;
+    }
+
+    pushUndo();
+    state.lines.forEach(function (line, i) { line.time = round2(times[i]); });
+    renderAll();
+    selectLine(0);
+    el.pasteWrap.hidden = true;
+    syncPasteUI();
+    setDetectStatus(summary + "已依字數比例填入，邊聽邊微調。", "ok");
+    toast("已填入 " + state.lines.length + " 行時間");
+  }
+
+  /* ── 標記與調整 ─────────────────────────────────────────── */
+  function stampLine() {
+    if (!state.lines.length) { toast("先載入歌詞"); return; }
+    if (!audio.src) { toast("先選擇音檔"); return; }
+    if (state.selected < 0) state.selected = 0;
+
+    pushUndo();
+    state.lines[state.selected].time = round2(audio.currentTime);
+    var next = Math.min(state.selected + 1, state.lines.length - 1);
+    state.selected = next;
+    renderLines();
+    selectLine(next, true);
+  }
+
+  function clearLineTime(i) {
+    if (i < 0 || !state.lines[i] || state.lines[i].time == null) return;
+    pushUndo();
+    state.lines[i].time = null;
+    renderLines();
+  }
+
+  function shiftAll(delta) {
+    if (!state.lines.some(function (l) { return l.time != null; })) { toast("還沒有任何時間碼"); return; }
+    pushUndo();
+    state.lines.forEach(function (l) {
+      if (l.time != null) l.time = round2(Math.max(0, l.time + delta));
+    });
+    renderAll();
+    toast("全部時間碼 " + (delta > 0 ? "+" : "") + delta.toFixed(1) + " 秒");
+  }
+
+  function clearAllTimes() {
+    if (!state.lines.some(function (l) { return l.time != null; })) { toast("本來就沒有時間碼"); return; }
+    if (!window.confirm("確定清除所有時間碼？歌詞文字會保留。")) return;
+    pushUndo();
+    state.lines.forEach(function (l) { l.time = null; });
+    renderAll();
+  }
+
+  /* ── 輸出 ───────────────────────────────────────────────── */
+  function timedLines() {
+    return state.lines
+      .filter(function (l) { return l.time != null; })
+      .slice()
+      .sort(function (a, b) { return a.time - b.time; });
+  }
+
+  function buildLRC() {
+    var timed = timedLines();
+    var head = [];
+    if (state.meta.ti) head.push("[ti:" + state.meta.ti + "]");
+    if (state.meta.ar) head.push("[ar:" + state.meta.ar + "]");
+    if (state.meta.al) head.push("[al:" + state.meta.al + "]");
+    if (state.meta.by) head.push("[by:" + state.meta.by + "]");
+    head.push("[re:世界聲音百科 LRC 工作室]");
+
+    var body = timed.map(function (l) { return "[" + lrcTime(l.time) + "]" + l.text; });
+    return head.join("\n") + (body.length ? "\n\n" + body.join("\n") : "") + "\n";
+  }
+
+  function buildSRT() {
+    var timed = timedLines();
+    return timed.map(function (l, i) {
+      var end = i + 1 < timed.length ? timed[i + 1].time : l.time + 4;
+      end = Math.max(l.time + 0.6, end - 0.08);
+      return (i + 1) + "\n" + srtTime(l.time) + " --> " + srtTime(end) + "\n" + l.text + "\n";
+    }).join("\n");
+  }
+
+  function updateExport() {
+    var timed = timedLines().length;
+    var untimed = state.lines.length - timed;
+
+    if (!state.lines.length) {
+      el.preview.textContent = "（還沒有歌詞）";
+      el.exportStatus.textContent = "";
+      return;
+    }
+    if (!timed) {
+      el.preview.textContent = "（還沒有任何時間碼）";
+      el.exportStatus.textContent = "已標記 0 / " + state.lines.length + " 行";
+      return;
+    }
+    el.preview.textContent = buildLRC().trim();
+    el.exportStatus.textContent = "已標記 " + timed + " / " + state.lines.length + " 行" +
+      (untimed ? "（" + untimed + " 行沒時間碼，不會輸出）" : "");
+  }
+
+  function fileNameFor(ext) {
+    var base = [state.meta.ti, state.meta.ar].filter(Boolean).join(" - ") || "lyrics";
+    return base.replace(/[\\/:*?"<>|]/g, "_").slice(0, 80) + "." + ext;
+  }
+
+  function download(text, filename, mime) {
+    var data = (el.bom.checked && mime === "text/plain") ? "\uFEFF" + text : text;
+    var blob = new Blob([data], { type: mime + ";charset=utf-8" });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function () { URL.revokeObjectURL(url); }, 1500);
+  }
+
+  function guardEmpty() {
+    if (!timedLines().length) { toast("還沒有任何時間碼可以輸出"); return false; }
+    return true;
+  }
+
+  function copyLRC() {
+    if (!guardEmpty()) return;
+    var text = buildLRC();
+    var done = function () { toast("已複製 LRC"); };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, function () { fallbackCopy(text, done); });
+    } else {
+      fallbackCopy(text, done);
+    }
+  }
+
+  function fallbackCopy(text, done) {
+    var ta = document.createElement("textarea");
+    ta.value = text;
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); done(); }
+    catch (e) { toast("複製失敗，請直接從預覽框選取"); }
+    document.body.removeChild(ta);
+  }
+
+  /* ── 草稿（只存在這台電腦的 localStorage）──────────────── */
+  function saveDraft() {
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(function () {
+      try {
+        localStorage.setItem(LS_KEY, JSON.stringify({
+          lines: state.lines.map(function (l) { return [l.text, l.time]; }),
+          meta: state.meta,
+          fontSize: state.fontSize
+        }));
+      } catch (e) { /* 無痕模式之類的情況就放棄 */ }
+    }, 600);
+  }
+
+  function restoreDraft() {
+    var raw = null;
+    try { raw = localStorage.getItem(LS_KEY); } catch (e) { return false; }
+    if (!raw) return false;
+    try {
+      var data = JSON.parse(raw);
+      if (!data || !Array.isArray(data.lines) || !data.lines.length) return false;
+      state.lines = data.lines.map(function (d) { return { text: d[0], time: d[1] }; });
+      state.meta = Object.assign(state.meta, data.meta || {});
+      state.fontSize = data.fontSize || 15;
+      $("#meta-ti").value = state.meta.ti || "";
+      $("#meta-ar").value = state.meta.ar || "";
+      $("#meta-al").value = state.meta.al || "";
+      $("#meta-by").value = state.meta.by || "";
+      el.pasteWrap.hidden = true;
+      return true;
+    } catch (e) { return false; }
+  }
+
+  function syncMetaFromInputs() {
+    state.meta.ti = $("#meta-ti").value.trim();
+    state.meta.ar = $("#meta-ar").value.trim();
+    state.meta.al = $("#meta-al").value.trim();
+    state.meta.by = $("#meta-by").value.trim();
+    updateExport();
+    saveDraft();
+  }
+
+  function setFont(size) {
+    state.fontSize = clamp(size, 12, 26);
+    Array.prototype.forEach.call(el.list.children, function (li) {
+      li.style.fontSize = state.fontSize + "px";
+    });
+    saveDraft();
+  }
+
+  /* ── 事件 ───────────────────────────────────────────────── */
+  function bind() {
+    // 音檔
+    el.drop.addEventListener("click", function () { el.file.click(); });
+    el.drop.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); el.file.click(); }
+    });
+    el.file.addEventListener("change", function () { setFile(el.file.files[0]); el.file.value = ""; });
+    ["dragenter", "dragover"].forEach(function (ev) {
+      el.drop.addEventListener(ev, function (e) { e.preventDefault(); el.drop.classList.add("is-over"); });
+    });
+    ["dragleave", "drop"].forEach(function (ev) {
+      el.drop.addEventListener(ev, function (e) { e.preventDefault(); el.drop.classList.remove("is-over"); });
+    });
+    el.drop.addEventListener("drop", function (e) {
+      var f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+      if (f) setFile(f);
+    });
+
+    audio.addEventListener("loadedmetadata", function () {
+      updateClock();
+      if (isFinite(audio.duration)) el.dur.textContent = lrcTime(audio.duration);
+      drawWave();
+    });
+    audio.addEventListener("timeupdate", updatePlayhead);
+    audio.addEventListener("play", function () {
+      el.play.textContent = "❚❚ 暫停";
+      cancelAnimationFrame(rafId);
+      tick();
+    });
+    audio.addEventListener("pause", function () {
+      el.play.textContent = "▶ 播放";
+      updatePlayhead();
+    });
+    audio.addEventListener("ended", function () { el.play.textContent = "▶ 播放"; });
+    audio.addEventListener("error", function () {
+      if (audio.src) setDetectStatus("瀏覽器播不了這個音檔（格式或編碼問題）。", "warn");
+    });
+
+    el.play.addEventListener("click", togglePlay);
+    el.back.addEventListener("click", function () { seekBy(-3); });
+    el.fwd.addEventListener("click", function () { seekBy(3); });
+    el.rate.addEventListener("change", function () { audio.playbackRate = parseFloat(el.rate.value); });
+    el.stamp.addEventListener("click", stampLine);
+
+    // 波形：點擊或拖曳定位
+    var dragging = false;
+    wave.addEventListener("pointerdown", function (e) {
+      if (!audio.src) return;
+      dragging = true;
+      if (wave.setPointerCapture) wave.setPointerCapture(e.pointerId);
+      seekTo(waveTimeAt(e.clientX));
+    });
+    wave.addEventListener("pointermove", function (e) {
+      if (dragging) seekTo(waveTimeAt(e.clientX));
+    });
+    ["pointerup", "pointercancel"].forEach(function (ev) {
+      wave.addEventListener(ev, function () { dragging = false; });
+    });
+
+    // 偵測
+    el.sens.addEventListener("input", function () { el.sensOut.textContent = el.sens.value; });
+    el.gap.addEventListener("input", function () {
+      el.gapOut.textContent = (parseInt(el.gap.value, 10) / 100).toFixed(2) + " 秒";
+    });
+    el.analyze.addEventListener("click", analyzeAndFill);
+
+    // 歌詞
+    el.load.addEventListener("click", loadLyrics);
+    el.tidy.addEventListener("click", tidyText);
+    el.edit.addEventListener("click", openPasteEditor);
+    el.closePaste.addEventListener("click", function () { el.pasteWrap.hidden = true; syncPasteUI(); });
+    el.paste.addEventListener("keydown", function (e) {
+      if ((e.ctrlKey || e.metaKey) && e.key === "Enter") { e.preventDefault(); loadLyrics(); }
+    });
+
+    el.list.addEventListener("click", function (e) {
+      var li = e.target.closest(".lrc-line");
+      if (!li) return;
+      var i = parseInt(li.dataset.i, 10);
+      selectLine(i);
+      if (e.target.classList.contains("lrc-time") && state.lines[i] && state.lines[i].time != null) {
+        seekTo(state.lines[i].time);
+      }
+    });
+
+    el.fontUp.addEventListener("click", function () { setFont(state.fontSize + 1); });
+    el.fontDown.addEventListener("click", function () { setFont(state.fontSize - 1); });
+
+    el.undo.addEventListener("click", undo);
+    el.shiftBack.addEventListener("click", function () { shiftAll(-0.1); });
+    el.shiftFwd.addEventListener("click", function () { shiftAll(0.1); });
+    el.clearTimes.addEventListener("click", clearAllTimes);
+
+    ["meta-ti", "meta-ar", "meta-al", "meta-by"].forEach(function (id) {
+      $("#" + id).addEventListener("input", syncMetaFromInputs);
+    });
+
+    el.dlLrc.addEventListener("click", function () {
+      if (!guardEmpty()) return;
+      download(buildLRC(), fileNameFor("lrc"), "text/plain");
+      toast("已下載 .lrc");
+    });
+    el.dlSrt.addEventListener("click", function () {
+      if (!guardEmpty()) return;
+      download(buildSRT(), fileNameFor("srt"), "application/x-subrip");
+      toast("已下載 .srt");
+    });
+    el.copy.addEventListener("click", copyLRC);
+
+    // 按完按鈕把焦點還給頁面，空白鍵／Enter 才會回到全域快捷鍵
+    Array.prototype.forEach.call(document.querySelectorAll("button.lrc-btn"), function (b) {
+      b.addEventListener("click", function () { if (b.blur) b.blur(); });
+    });
+
+    var NON_GLOBAL = { INPUT: 1, TEXTAREA: 1, SELECT: 1, SUMMARY: 1 };
+    document.addEventListener("keydown", function (e) {
+      var t = e.target;
+      var tag = t && t.tagName;
+      var inField = NON_GLOBAL[tag] || (t && t.isContentEditable);
+      if (e.key === "Escape" && inField) { t.blur(); return; }
+      if (inField) return;
+      if (tag === "BUTTON" && (e.key === "Enter" || e.key === " ")) return;
+
+      switch (e.key) {
+        case " ": e.preventDefault(); togglePlay(); break;
+        case "Enter": e.preventDefault(); stampLine(); break;
+        case "ArrowUp": e.preventDefault(); selectLine(state.selected - 1); break;
+        case "ArrowDown": e.preventDefault(); selectLine(state.selected + 1); break;
+        case "ArrowLeft": e.preventDefault(); seekBy(-3); break;
+        case "ArrowRight": e.preventDefault(); seekBy(3); break;
+        case "Delete": e.preventDefault(); clearLineTime(state.selected); break;
+        case "z": case "Z":
+          if (e.ctrlKey || e.metaKey) { e.preventDefault(); undo(); }
+          break;
+      }
+    });
+
+    window.addEventListener("resize", drawWave);
+  }
+
+  /* ── 啟動 ───────────────────────────────────────────────── */
+  function init() {
+    el.undo.disabled = true;
+
+    var restored = restoreDraft();
+    renderAll();
+    syncPasteUI();
+    if (restored) toast("已還原上次的草稿；重新貼歌詞或按「清除所有時間碼」可以重來");
+
+    bind();
+    el.sensOut.textContent = el.sens.value;
+    el.gapOut.textContent = (parseInt(el.gap.value, 10) / 100).toFixed(2) + " 秒";
+    updateClock();
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
+})();
+</script>
+</body>
+</html>
