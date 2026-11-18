@@ -411,3 +411,23 @@ a.tbtn { text-decoration: none; }
 .fx-row select { width: 100%; background: var(--bg0); border: 1px solid var(--line2); border-radius: 4px; padding: 3px 5px; color: var(--tx0); }
 .fx-viz { height: 110px; }
 .bank-row.rec a.rec-dl, .bank-row.rec a.rec-dl:visited { color: #fff; font-weight: 600; }
+.pianoroll { grid-template-rows: auto 1fr auto auto; height: 370px; }
+.pr-ped { display: flex; border-top: 1px solid var(--line); height: 22px; }
+.pr-ped .pr-vel-lbl { font-size: 10px; }
+.pr-ped canvas { cursor: copy; }
+.midi-tr { display: inline-flex; align-items: center; height: 30px; border: 1px solid #111; border-radius: 5px; background: linear-gradient(#45484f, #34363c); overflow: hidden; flex: 0 0 auto; }
+.midi-tr button { width: 22px; height: 100%; background: none; border: 0; color: var(--tx1); font-size: 13px; padding: 0; }
+.midi-tr button:hover { background: rgba(255,255,255,.08); color: var(--tx0); }
+.midi-tr span { min-width: 40px; text-align: center; font-family: var(--mono); font-size: 11px; color: var(--tx1); border-left: 1px solid #111; border-right: 1px solid #111; line-height: 28px; }
+.midi-tr.on span { color: #1b0f33; background: #b58bff; font-weight: 700; }
+.midi-ped { font-size: 10px; font-weight: 700; color: var(--tx2); border: 1px solid var(--line2); border-radius: 3px; padding: 1px 4px; flex: 0 0 auto; opacity: .45; }
+.midi-ped.on { color: #06220f; background: var(--play); border-color: var(--play); opacity: 1; }
+@media (max-width: 1500px) { .midi-ped { display: none; } .midi-tr span { min-width: 32px; } }
+.pitch-quick { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+.pitch-quick button { height: 32px; border-radius: 5px; border: 1px solid var(--line2); background: var(--bg0); color: var(--tx1); font-family: var(--mono); }
+.pitch-quick button:hover { border-color: var(--accent); color: var(--tx0); }
+.pitch-quick button.sel { background: var(--accent); border-color: var(--accent); color: #fff; }
+.pitch-quick button.dn { color: #9cc3ff; }
+.pitch-quick button.up { color: #ffb38a; }
+.pitch-quick button small { font-size: 9px; opacity: .7; }
+.pitch-quick button.sel { color: #fff; }

@@ -57,6 +57,15 @@ export const FX_TYPES = {
       listen: { label: '只聽齒音', min: 0, max: 1, step: 1, def: 0, toggle: true },
     },
   },
+  pitch: {
+    name: 'Pitch 即時移調（和聲／效果用）', short: 'Pitch',
+    params: {
+      semitones: { label: '半音', min: -24, max: 24, step: 1, def: 0, unit: '半音' },
+      cents: { label: '微調', min: -100, max: 100, step: 1, def: 0, unit: 'cent' },
+      window: { label: '顆粒大小', min: 20, max: 200, step: 1, def: 60, unit: 'ms' },
+      mix: { label: '濕度', min: 0, max: 100, step: 1, def: 100, unit: '%' },
+    },
+  },
   sat: {
     name: 'Saturation 飽和度', short: 'Sat',
     params: {
@@ -122,7 +131,7 @@ export const FX_TYPES = {
     },
   },
 };
-export const FX_ORDER = ['eq', 'comp', 'deess', 'sat', 'reverb', 'delay', 'chorus', 'drive', 'gate'];
+export const FX_ORDER = ['eq', 'comp', 'deess', 'sat', 'pitch', 'reverb', 'delay', 'chorus', 'drive', 'gate'];
 export const MAX_INSERTS = 6;
 
 export function newFx(type) {
@@ -324,6 +333,33 @@ export function buildFx(ctx, desc, bpm = 120) {
       };
       break;
     }
+    case 'pitch': {
+      const wd = wetDry(ctx);
+      let node = null;
+      try {
+        node = new AudioWorkletNode(ctx, 'zy-pitch', { numberOfInputs: 1, numberOfOutputs: 1, outputChannelCount: [2] });
+        wd.input.connect(node).connect(wd.wet);
+      } catch (_) {
+        // worklet 還沒載入（理論上 engine 會先載好）：先直通，不讓整條鏈壞掉
+        wd.input.connect(wd.wet);
+      }
+      // 乾聲也要延遲同樣的時間，否則濕度不是 100% 時會有梳狀濾波
+      const dryDelay = ctx.createDelay(0.5);
+      wd.input.disconnect(wd.dry); wd.input.connect(dryDelay).connect(wd.dry);
+      fx = {
+        input: wd.input, output: wd.output, worklet: node,
+        set(p) {
+          if (node) {
+            node.parameters.get('semitones').value = p.semitones;
+            node.parameters.get('cents').value = p.cents;
+            node.parameters.get('window').value = p.window / 1000;
+          }
+          dryDelay.delayTime.value = p.window / 2000;
+          wd.setMix(p.mix);
+        },
+      };
+      break;
+    }
     case 'sat': {
       const wd = wetDry(ctx);
       const pre = ctx.createGain(), sh = ctx.createWaveShaper(), post = ctx.createGain();
@@ -505,6 +541,13 @@ export function buildFx(ctx, desc, bpm = 120) {
     try { fx.input.disconnect(); fx.output.disconnect(); } catch (_) { /* noop */ }
   };
   return fx;
+}
+
+// 需要 AudioWorklet 的效果器：建鏈前先載入模組（每個 context 一次）
+const fxWorklets = new WeakMap();
+export function ensureFxWorklets(ctx) {
+  if (!fxWorklets.has(ctx)) fxWorklets.set(ctx, ctx.audioWorklet.addModule(new URL('./pitch-worklet.js', import.meta.url)));
+  return fxWorklets.get(ctx);
 }
 
 // 把一串效果器描述接成一條鏈：input → [fx...] → output；關閉的效果器直接跳過

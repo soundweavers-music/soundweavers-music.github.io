@@ -55,6 +55,12 @@
       <button class="tbtn snap" id="btnSnap" title="對齊格線 (G)">對齊</button>
       <button class="tbtn typing" id="btnTyping" title="用電腦鍵盤彈奏選取的 MIDI 軌 (Caps Lock 或 Ctrl+K)：A–; 白鍵、W E T Y U O P 黑鍵、Z/X 換八度、C/V 力度"><svg viewBox="0 0 16 16"><path d="M1 4h14v8H1zm1.5 1.5v5h1.6V8.2h.8v2.3h1.6V8.2h.8v2.3h1.6V8.2h.8v2.3h1.6V8.2h.8v2.3h1.4v-5z"/></svg></button>
       <span class="midi-led" id="midiLed" title="MIDI 輸入"></span>
+      <div class="midi-tr" id="midiTr" title="MIDI 輸入移調：鍵盤彈的音整體升降（[ ] 半音、Shift+[ ] 八度）。錄進去的就是移調後的音。">
+        <button type="button" id="trDown" aria-label="降半音">−</button>
+        <span id="trVal">0</span>
+        <button type="button" id="trUp" aria-label="升半音">＋</button>
+      </div>
+      <span class="midi-ped" id="midiPed" title="延音踏板">Ped</span>
     </div>
     <div class="spacer"></div>
     <span class="privacy" title="這個頁面的安全政策禁止對外連線（connect-src 'none'）。音檔、錄音與專案只存在你的電腦與瀏覽器裡。">🔒<span class="pv-text"> 不上傳雲端</span></span>
@@ -162,6 +168,26 @@
       </div>
     </div>
     <footer><button class="tbtn primary" value="close">完成</button></footer>
+  </form>
+</dialog>
+
+<dialog id="dlgPitch">
+  <form method="dialog">
+    <header>升降音（片段）<span style="color:var(--tx2);font-weight:400">長度不變、只改音高</span></header>
+    <div class="dbody">
+      <div class="pitch-quick" id="pitchQuick"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <label class="f">半音
+          <input type="number" name="semis" min="-24" max="24" step="1" value="0">
+        </label>
+        <label class="f">微調（cent，100 = 1 個半音）
+          <input type="number" name="cents" min="-100" max="100" step="1" value="0">
+        </label>
+      </div>
+      <p class="note" id="pitchNote"></p>
+      <p class="note">用高品質演算法（WSOLA）重新計算整段音訊，長度不變、音高準確；算好之後播放不額外耗電腦資源。原本的音訊會保留，可以用 Ctrl+Z 復原。<br>移調超過 ±5 個半音時，人聲的音色會開始變化（變尖或變悶），屬於正常現象。</p>
+    </div>
+    <footer><button class="tbtn ghost" value="cancel">取消</button><button class="tbtn primary" value="ok">開始</button></footer>
   </form>
 </dialog>
 

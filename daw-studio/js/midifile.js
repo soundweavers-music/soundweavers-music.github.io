@@ -21,12 +21,13 @@ export function parseMidi(arrayBuffer) {
   const tempos = [];   // { tick, uspq }
   let sig = null;
   const tracks = [];
+  const pedalOnly = [];
   for (let ti = 0; ti < ntrk && o < d.byteLength; ti++) {
     const id = str(4), len = u32(), end = o + len;
     if (id !== 'MTrk') { o = end; continue; }
     let tick = 0, status = 0;
     const open = new Map();    // (ch<<8|pitch) -> [{tick, vel}]
-    const tr = { name: '', notes: [], channel: null, program: null };
+    const tr = { name: '', notes: [], channel: null, program: null, pedal: [] };
     const dec = new TextDecoder();
     while (o < end) {
       tick += vlq();
@@ -55,13 +56,24 @@ export function parseMidi(arrayBuffer) {
           if (on) tr.notes.push({ p, on: on.tick, off: tick, v: on.vel, ch });
         }
       } else if (type === 0xc0) { const prg = u8(); if (tr.program === null) tr.program = prg; }
+      else if (type === 0xb0) {
+        const cc = u8(), val = u8();
+        // CC64 延音踏板：>= 64 視為踩下；連續相同狀態只留第一個
+        if (cc === 64) { const on = val >= 64; const last = tr.pedal[tr.pedal.length - 1]; if (!last || last.on !== on) tr.pedal.push({ tick, on }); }
+      }
       else if (type === 0xd0) o += 1;
-      else o += 2;   // 0xA0 0xB0 0xE0
+      else o += 2;   // 0xA0 0xE0
     }
     // 沒收到 note-off 的音符，以軌道結尾收掉
     for (const [key, st] of open) for (const on of st) tr.notes.push({ p: key & 0xff, on: on.tick, off: tick, v: on.vel, ch: key >> 8 });
     o = end;
     if (tr.notes.length) tracks.push(tr);
+    else if (tr.pedal.length) pedalOnly.push(tr);
+  }
+  // 有些檔案把踏板放在沒有音符的獨立軌：併到同一個 MIDI 通道（找不到就併到第一軌）的音符軌
+  for (const pt of pedalOnly) {
+    const target = tracks.find(t => t.channel === pt.channel) || (pt.channel === null ? tracks[0] : null) || tracks[0];
+    if (target) target.pedal = [...target.pedal, ...pt.pedal].sort((a, z) => a.tick - z.tick);
   }
   tempos.sort((a, b) => a.tick - b.tick);
   // 拍 = tick / ppq（以四分音符為一拍，跟本程式一致）
@@ -73,6 +85,7 @@ export function parseMidi(arrayBuffer) {
     drums: tr.channel === 9,
     notes: tr.notes.map(n => ({ p: n.p, t: toBeat(n.on), d: Math.max(1 / 64, toBeat(n.off - n.on)), v: n.v }))
       .sort((a, b) => a.t - b.t),
+    pedal: tr.pedal.map(e => ({ t: toBeat(e.tick), on: e.on })),
   }));
   return {
     format, ppq,
@@ -140,6 +153,7 @@ export function writeMidi({ bpm, sigNum = 4, sigDen = 4, tracks, ppq = 480 }) {
       ev.push({ tick: on, b: [0x90 | ch, n.p, Math.max(1, Math.min(127, Math.round(n.v)))], o: 1 });
       ev.push({ tick: off, b: [0x80 | ch, n.p, 0], o: 0 });
     }
+    for (const e of tr.pedal || []) ev.push({ tick: Math.max(0, Math.round(e.t * ppq)), b: [0xb0 | ch, 64, e.on ? 127 : 0], o: e.on ? 2 : 0 });
     // 同一 tick：先 note-off 再 note-on，避免同音連續時被提早關掉
     ev.sort((a, b) => a.tick - b.tick || a.o - b.o);
     const body = [];

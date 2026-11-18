@@ -49,6 +49,14 @@ export function initArrange() {
   setupDrop();
 
   store.on('change', ({ kind }) => { if (kind === 'structure') render(); else renderHeaders(); });
+  // 錄 MIDI 中：只重畫正在錄的那個片段（寬度與音符預覽），不重建整個編排視窗
+  store.on('midi-rec', ({ clipId }) => {
+    const f = clipId && store.findClip(clipId);
+    const old = f && lanesInner.querySelector(`.clip[data-id="${clipId}"]`);
+    if (!old) return;
+    old.replaceWith(clipEl(f.track, f.clip));
+    drawWaveforms();
+  });
   store.on('zoom', () => render());
   // 混音台推桿在動：只同步標頭滑桿的數值
   store.on('mixlive', ({ from }) => {
@@ -417,6 +425,20 @@ function drawMidiPreview(g, c, x0, cw, h) {
   g.globalAlpha = 1;
 }
 
+// 踏板事件往前移 delta 拍：移到 0 以前的事件合併成「在 0 拍時的狀態」
+function shiftPedal(pedal, delta) {
+  const ev = pedal.slice().sort((a, z) => a.t - z.t);
+  let state = false;
+  const out = [];
+  for (const e of ev) {
+    const t = e.t - delta;
+    if (t <= 0) { state = e.on; continue; }
+    out.push({ t, on: e.on });
+  }
+  if (state) out.unshift({ t: 0, on: true });
+  return out;
+}
+
 export function addMidiClipAt(track, sec) {
   if (track.kind !== 'midi') return null;
   const bar = store.project.sigNum;
@@ -592,6 +614,7 @@ function startMidiTrim(e, clip, handle) {
       clip.startBeat = ns; clip.lengthBeats = o.lengthBeats - delta;
       clip.notes = o.notes.map(n => ({ ...n, t: n.t - delta })).filter(n => n.t + n.d > 0)
         .map(n => (n.t < 0 ? { ...n, d: n.d + n.t, t: 0 } : n));
+      if (o.pedal) clip.pedal = shiftPedal(o.pedal, delta);
     }
     const old = lanesInner.querySelector(`.clip[data-id="${clip.id}"]`);
     old.replaceWith(clipEl(store.findClip(clip.id).track, clip));
@@ -704,6 +727,7 @@ function onLanesContext(e) {
       { label: '在這裡切開', action: () => splitSelected(snap(at)) },
       { label: '複製一份接在後面', key: 'Ctrl+D', action: duplicateSelected },
       ...(midi ? [] : [
+        { label: n > 1 ? `升降音（${n} 個片段）…` : '升降音…', action: () => store.emit('open-pitch', { clipIds: [...store.selection.clipIds] }) },
         { label: '分離人聲／伴奏（簡易版）', disabled: n > 1, action: () => separateClip(id) },
         '-',
         { label: '片段音量 +1 dB', action: () => nudgeGain(1) },
@@ -756,6 +780,13 @@ export function splitSelected(at) {
       const cut = at / spb() - clip.startBeat;
       const right = { ...newMidiClip(clip.startBeat + cut, clip.lengthBeats - cut), name: clip.name,
         notes: clip.notes.filter(n => n.t >= cut).map(n => ({ ...n, t: n.t - cut })) };
+      if (clip.pedal) {
+        right.pedal = shiftPedal(clip.pedal, cut);
+        // 左半：切點後的事件丟掉；切點時還踩著就在切點放開
+        const keep = clip.pedal.filter(e => e.t < cut);
+        if (keep.length && keep[keep.length - 1].on) keep.push({ t: cut, on: false });
+        clip.pedal = keep;
+      }
       clip.notes = clip.notes.filter(n => n.t < cut).map(n => ({ ...n, d: Math.min(n.d, cut - n.t) }));
       clip.lengthBeats = cut;
       track.clips.push(right); newSel.add(right.id);

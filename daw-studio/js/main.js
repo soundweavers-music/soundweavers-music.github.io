@@ -13,13 +13,14 @@ import { fmtTime, fmtBars, toast } from './util.js';
 import { isMidiClip, clipStart, clipDur } from './state.js';
 import { initPianoRoll, open as openPianoRoll, close as closePianoRoll, isOpen as pianoOpen, handleKey as pianoKey, tick as pianoTick } from './pianoroll.js';
 import { initMidiUi, instrumentSection, midiStatusSection, exportMidi } from './midi-ui.js';
-import { handleTypingKey, setTyping, midiState, allOff as midiAllOff } from './midi-input.js';
+import { handleTypingKey, setTyping, midiState, allOff as midiAllOff, setTranspose } from './midi-input.js';
 import { addMidiClipAt } from './arrange.js';
 import { initBankUi, sfSection } from './bank-ui.js';
 import { insertsSection, sendSection, closeFxPanel } from './fx-ui.js';
 import { initMasterUi, toggleMaster, masterOpen } from './master-ui.js';
 import { initAutomationUi, tickAutomation } from './automation-ui.js';
 import { showMenu } from './menu.js';
+import { pitchShiftClips } from './pitch-render.js';
 
 const $ = id => document.getElementById(id);
 
@@ -321,6 +322,12 @@ function bindKeys() {
     if (mod && k === 'k') return run(() => setTyping(!midiState.typing));
     if (handleTypingKey(e, true)) { e.preventDefault(); return; }
     if (pianoKey(e)) { e.preventDefault(); return; }
+    // [ ]：MIDI 輸入移調（Shift = 八度）。e.code 不受 Shift 影響（Shift+[ 會變成 {）
+    if (!mod && (e.code === 'BracketLeft' || e.code === 'BracketRight')) {
+      e.preventDefault();
+      setTranspose(midiState.transpose + (e.code === 'BracketRight' ? 1 : -1) * (e.shiftKey ? 12 : 1));
+      return;
+    }
     if (mod) {
       if (k === 's') return run(() => saveProject(e.shiftKey).catch(err => toast(err.message, 'error')));
       if (k === 'o') return run(() => $('btnOpen').click());
@@ -477,6 +484,34 @@ async function boot() {
     requestAnimationFrame(() => renderArrange());
   });
   $('btnMaster').onclick = () => toggleMaster();
+  // 片段升降音對話框
+  store.on('open-pitch', ({ clipIds }) => {
+    const d = $('dlgPitch');
+    const semis = d.querySelector('[name=semis]'), cents = d.querySelector('[name=cents]');
+    semis.value = 0; cents.value = 0;
+    const q = $('pitchQuick');
+    // 上排降、下排升，由小到大；常用的 ±1～±3 放中間
+    const rows = [[-12, -7, -5, -4, -3, -2, -1], [1, 2, 3, 4, 5, 7, 12]];
+    q.innerHTML = rows.map(r => r.map(v => `<button type="button" data-v="${v}" class="${v < 0 ? 'dn' : 'up'}">${v > 0 ? '+' : '−'}${Math.abs(v)}${Math.abs(v) === 12 ? '<small> 八度</small>' : ''}</button>`).join('')).join('');
+    const NAMES = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+    const note = () => {
+      const v = Number(semis.value) + Number(cents.value) / 100;
+      q.querySelectorAll('button').forEach(b => b.classList.toggle('sel', Number(b.dataset.v) === Number(semis.value) && !Number(cents.value)));
+      $('pitchNote').textContent = !v ? '選一個要升或降的量' : `${v > 0 ? '升' : '降'} ${Math.abs(v)} 個半音${Number.isInteger(v) && Math.abs(v) <= 11 ? `：例如原本 C 調 → ${NAMES[((0 + v) % 12 + 12) % 12]} 調` : ''}${Math.abs(v) === 12 ? '（一個八度）' : ''}`;
+    };
+    q.onclick = e => { const b = e.target.closest('button'); if (b) { semis.value = b.dataset.v; cents.value = 0; note(); } };
+    semis.oninput = cents.oninput = note;
+    [semis, cents].forEach(i => i.addEventListener('keydown', e => e.stopPropagation()));
+    note();
+    d.showModal();
+    semis.focus(); semis.select();
+    d.onclose = () => {
+      if (d.returnValue !== 'ok') return;
+      const s2 = Math.max(-24, Math.min(24, Math.round(Number(semis.value) || 0)));
+      const c2 = Math.max(-100, Math.min(100, Math.round(Number(cents.value) || 0)));
+      if (s2 || c2) pitchShiftClips(clipIds, s2, c2);
+    };
+  });
   // 窄螢幕收起來的按鈕
   $('btnMore').onclick = e => {
     const r = e.currentTarget.getBoundingClientRect();

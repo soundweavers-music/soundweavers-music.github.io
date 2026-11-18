@@ -1,24 +1,59 @@
 // 音訊引擎：每軌一條 channel strip（gain → pan → meter → master），
 // 播放時依片段排程 AudioBufferSourceNode。離線輸出用同一套 buildStrip。
-import { store, isMidiClip, spb } from './state.js';
+import { store, isMidiClip, spb, recordingClips } from './state.js';
 import { dbToGain } from './util.js';
 import { startVoice, scheduleNote, releaseTail } from './synth.js';
-import { buildChain, chainShape } from './effects.js';
+import { buildChain, chainShape, ensureFxWorklets } from './effects.js';
 import { ensureWorklet, buildMastering, defaultMastering } from './mastering.js';
 import { isActive, schedule as autoSchedule, AUTO_PARAMS, valueAt as valueAtBeat } from './automation.js';
 
 const LOOKAHEAD = 0.12;   // 節拍器排程預看秒數
 const MIDI_AHEAD = 0.25;  // MIDI 音符排程預看秒數（不一次排完，長曲子也不會建出上萬個節點）
 
-// 把 MIDI 片段攤平成「專案秒數」的音符：{ s, e, p, v }，已裁掉片段結尾之後的部分
+// 踏板事件 [{t,on}] → 踩下的區段 [[開始拍, 結束拍], …]（片段內相對拍數）
+export function pedalSpans(clip) {
+  const ev = (clip.pedal || []).slice().sort((a, z) => a.t - z.t);
+  const spans = [];
+  let down = null;
+  for (const e of ev) {
+    if (e.on && down === null) down = e.t;
+    else if (!e.on && down !== null) { spans.push([down, e.t]); down = null; }
+  }
+  if (down !== null) spans.push([down, clip.lengthBeats]);
+  return spans;
+}
+
+// 套用踏板：音符在踏板踩著時放開 → 一直響到踏板放開；同一個音在延音中重彈 → 前一個在重彈時結束
+export function sustainedEnd(clip, notes, spans) {
+  if (!spans.length) return notes.map(n => n.t + n.d);
+  const end = notes.map(n => {
+    const off = n.t + n.d;
+    const sp = spans.find(([a, z]) => off >= a && off < z);
+    return sp ? sp[1] : off;
+  });
+  // 同音重彈：不能讓兩個一樣的音重疊（鋼琴的同一根弦會被重新擊打）
+  const byPitch = new Map();
+  notes.forEach((n, i) => { if (!byPitch.has(n.p)) byPitch.set(n.p, []); byPitch.get(n.p).push(i); });
+  for (const idx of byPitch.values()) {
+    idx.sort((a, z) => notes[a].t - notes[z].t);
+    for (let k = 0; k + 1 < idx.length; k++) {
+      const i = idx[k], j = idx[k + 1];
+      if (end[i] > notes[j].t) end[i] = Math.max(notes[i].t + notes[i].d, notes[j].t);
+    }
+  }
+  return end;
+}
+
+// 把 MIDI 片段攤平成「專案秒數」的音符：{ s, e, p, v }，已裁掉片段結尾之後的部分；踏板延音已套用
 function midiEvents(clip) {
   const b = spb(), c0 = clip.startBeat, len = clip.lengthBeats;
+  const notes = clip.notes.filter(n => n.t < len && n.t >= 0);
+  const ends = sustainedEnd(clip, notes, pedalSpans(clip));
   const out = [];
-  for (const n of clip.notes) {
-    if (n.t >= len || n.t < 0) continue;
-    const d = Math.min(n.d, len - n.t);
-    out.push({ s: (c0 + n.t) * b, e: (c0 + n.t + d) * b, p: n.p, v: n.v });
-  }
+  notes.forEach((n, i) => {
+    const e = Math.min(ends[i], len);
+    out.push({ s: (c0 + n.t) * b, e: (c0 + e) * b, p: n.p, v: n.v });
+  });
   return out.sort((a, z) => a.s - z.s);
 }
 
@@ -181,6 +216,9 @@ class Engine {
       this.metroBus.gain.value = 0.6;
       this.metroBus.connect(c.destination);   // 節拍器不進 master，不會被輸出
       this.syncStrips();
+      // 升降音等需要 AudioWorklet 的效果器：載入完成後，把用到它們的鏈重建一次（載入前先直通）
+      ensureFxWorklets(c).then(() => { this.fxReady = true; this.rebuildWorkletChains(); })
+        .catch(e => console.warn('fx worklet failed', e));
       store.on('change', ({ kind }) => {
         if (kind === 'structure') this.syncStrips();
         else if (kind === 'mix') this.applyMix();
@@ -281,6 +319,15 @@ class Engine {
     return valueAtBeat(track.auto[param].points, this.currentTime() / spb());
   }
 
+  rebuildWorkletChains() {
+    const p = store.project;
+    const uses = list => (list || []).some(d => d.on && d.type === 'pitch');
+    for (const t of p.tracks) { const s = this.strips.get(t.id); if (s && uses(t.inserts)) rebuildChain(this.ctx, s, t.inserts, p.bpm); }
+    (p.buses || []).forEach((bd, i) => { if (uses(bd.inserts)) this.buses[i].shape = ''; });
+    if (uses(p.masterInserts)) this.masterShape = '';
+    this.syncFx();
+  }
+
   // 給介面讀取：某個效果器的即時狀態（壓縮量、EQ 曲線）
   fxInstance(owner, fxId) {
     let chain = null;
@@ -333,6 +380,8 @@ class Engine {
       scheduleAutomation(strip, t, when, from, until);
       for (const clip of t.clips) {
         if (isMidiClip(clip)) {
+          // 正在錄的片段不播放：彈的聲音已經即時發出來了，再播一次會變成兩個音
+          if (recordingClips.has(clip.id)) continue;
           // 只收從 from 之後才開始的音符（不從音符中間起音）
           for (const ev of midiEvents(clip)) if (ev.s >= from - 1e-6 && ev.s < until) events.push({ ...ev, track: t, strip });
           continue;
@@ -564,6 +613,7 @@ class Engine {
     // limiter 有 5ms look-ahead：多算這段，最後從開頭裁掉，總長度不變
     const latComp = opts.masterFx !== false && M0 && M0.on && M0.limiter?.on ? Math.max(1, Math.round(sr * 0.005)) : 0;
     const oc = new OfflineAudioContext(2, len0 + latComp, sr);
+    await ensureFxWorklets(oc);
     // 與即時播放相同的訊號路徑：tracks → (buses) → master 插入效果器 → master fader
     const master = oc.createGain();
     master.gain.value = dbToGain(opts.masterGainDb ?? p.masterDb);

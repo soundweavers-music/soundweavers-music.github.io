@@ -109,6 +109,7 @@ export function openFxPanel(owner, fxId) {
     <div class="fx-params"></div>
     ${d.type === 'gate' ? '<p class="fx-note">噪音閘只在即時播放與錄音監聽時作用；輸出檔案時會略過（瀏覽器的離線算圖沒有辦法做門檻開關）。</p>' : ''}
     ${d.type === 'eq' ? '<p class="fx-note">拖曳圓點：左右改頻率、上下改增益；滾輪改 Q；雙擊歸零或開關。按住 Shift 微調。播放時背景顯示即時頻譜（灰 = 處理前、彩色 = 處理後）。</p>' : ''}
+    ${d.type === 'pitch' ? '<p class="fx-note">即時移調適合做和聲、雙重人聲、八度疊加等效果，音準會有輕微顫動。<b>要把整段伴奏或人聲轉調</b>，請在片段上按右鍵選「升降音…」，用高品質演算法重新計算，音準準確。</p>' : ''}
     ${d.type === 'deess' ? '<p class="fx-note">打開「只聽齒音」，邊播放邊調「齒音頻率」，找到最刺耳的位置後再關掉。衰減量通常 3–8 dB 就夠，壓太多會像大舌頭。</p>' : ''}`;
   panel.querySelector('.fx-owner').textContent = ownerName(owner) || '';
   document.body.appendChild(panel);
