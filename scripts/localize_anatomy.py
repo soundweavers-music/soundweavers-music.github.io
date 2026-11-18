@@ -160,6 +160,21 @@ def main(argv) -> int:
 # 這些是 thumb.php 產生的高解析 PNG，透明背景；輸出成「PNG＋SVG 標籤」的混合圖。
 PNG_FIGURES = [
     {
+        "src": "diaphragm-movement.png",
+        "out": "breathing-apparatus.svg",
+        "title": "呼吸用到的構造",
+        "sub": "肋骨圍住肺，橫膈膜在肺的下面，吸氣時它往下降",
+        "crop": (60, 40, 1500, 1180),
+        "width": 640,
+        "credit": "底圖：Cdang（CC0，Wikimedia Commons），本站裁切並加中文標籤",
+        "labels": [
+            ("肺", 620, 330, 150, 250),
+            ("肋骨", 1120, 560, 1180, 470),
+            ("橫膈膜", 700, 760, 300, 700),
+            ("肝臟", 640, 980, 300, 900),
+        ],
+    },
+    {
         "src": "vocal-fold-scheme.png",
         "out": "vocal-fold-layers.svg",
         "title": "一片聲帶的剖面：三層結構",

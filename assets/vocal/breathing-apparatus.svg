@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 640 653" role="img" aria-label="呼吸用到的構造">
+  <title>呼吸用到的構造：肋骨圍住肺，橫膈膜在肺的下面，吸氣時它往下降</title>
+  <rect width="640" height="653" fill="#FBF8F4"/>
+  <text x="26" y="34" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="16" font-weight="700" fill="#3D3229">呼吸用到的構造</text>
+  <text x="26" y="55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#8C8078">肋骨圍住肺，橫膈膜在肺的下面，吸氣時它往下降</text>
+  <g transform="translate(0,100) scale(0.42667) translate(-60,-40)">
+    <image x="0" y="0" width="1600" height="1240" xlink:href="_anatomy/src/diaphragm-movement.png"/>
+  </g>
+  <path d="M238.9 223.7 L38.4 193.6" stroke="#8C8078" stroke-width="1" fill="none"/><circle cx="238.9" cy="223.7" r="2.8" fill="#8C8078"/><text x="38.4" y="189.6" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="end">肺</text>
+  <path d="M452.3 321.9 L477.9 287.5" stroke="#8C8078" stroke-width="1" fill="none"/><circle cx="452.3" cy="321.9" r="2.8" fill="#8C8078"/><text x="477.9" y="283.5" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="start">肋骨</text>
+  <path d="M273.1 407.2 L102.4 385.6" stroke="#8C8078" stroke-width="1" fill="none"/><circle cx="273.1" cy="407.2" r="2.8" fill="#8C8078"/><text x="102.4" y="381.6" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="end">橫膈膜</text>
+  <path d="M247.5 501.1 L102.4 470.9" stroke="#8C8078" stroke-width="1" fill="none"/><circle cx="247.5" cy="501.1" r="2.8" fill="#8C8078"/><text x="102.4" y="466.9" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="end">肝臟</text>
+  <text x="26" y="641" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078">底圖：Cdang（CC0，Wikimedia Commons），本站裁切並加中文標籤</text>
+</svg>
