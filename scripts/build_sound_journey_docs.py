@@ -90,7 +90,8 @@ def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     # the Markdown-era article pages are gone; drop their build output so
     # nothing links to a retired layout
-    for stale in OUT.glob("journey-*"):
+    for stale in list(OUT.glob("journey-*")) + list(OUT.glob("all")) + [
+            d for d in OUT.iterdir() if d.is_dir() and d.name.isdigit()]:
         if stale.is_dir():
             shutil.rmtree(stale, ignore_errors=True)
         else:
@@ -117,15 +118,27 @@ def main() -> None:
             rdir = OUT / "read" / slug
             rdir.mkdir(parents=True, exist_ok=True)
             pdf_url = bve.resolve_url(rdir / "index.html", f"/sound-journey/doc/{pdf.name}")
+            js = bve.resolve_url(rdir / "index.html", "/assets/vendor/pdfjs/pdf.min.js")
+            worker = bve.resolve_url(rdir / "index.html", "/assets/vendor/pdfjs/pdf.worker.min.js")
+            reader = bve.resolve_url(rdir / "index.html", "/assets/vendor/pdfjs/reader.js")
             body = f"""<main>
   <div class="doc-reader">
     <div class="doc-reader-bar">
       <a href="{bve.resolve_url(rdir / "index.html", "/sound-journey/")}">← 聲音旅圖</a>
       <span>{bve.escape(title)}</span>
-      <span class="doc-reader-hint">可直接捲動閱讀，或用檢視器上的放大與頁碼</span>
     </div>
-    <iframe src="{pdf_url}#view=FitH" class="doc-frame" title="{bve.escape(title)}"></iframe>
+    <div class="doc-book" data-pdf-reader data-src="{pdf_url}"
+         data-worker="{worker}">
+      <canvas class="doc-book-canvas"></canvas>
+      <div class="doc-book-controls">
+        <button type="button" class="doc-book-btn" data-pdf-prev aria-label="上一頁">←</button>
+        <span class="doc-book-label" data-pdf-label>載入中…</span>
+        <button type="button" class="doc-book-btn" data-pdf-next aria-label="下一頁">→</button>
+      </div>
+    </div>
   </div>
+  <script src="{js}"></script>
+  <script src="{reader}"></script>
 </main>"""
             bve.write(rdir / "index.html", bve.page(
                 title, body, rdir / "index.html",
