@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 
 source_url: https://soundweavers-music.github.io/instruments/thunder-tube/
+image: /assets/instruments/thunder-tube.webp
 youtube_ids: 2fbjUIATSD4 QyZkmjWAH10
 ---
 

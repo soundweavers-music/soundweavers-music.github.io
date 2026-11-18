@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴；依據：來源一：classified as a chordophone
 source_url: https://soundweavers-music.github.io/instruments/earth-harp/
+image: /assets/instruments/earth-harp.webp
 youtube_ids: qrjcOpq_Nw0 XPHZ519a2Hw
 ---
 

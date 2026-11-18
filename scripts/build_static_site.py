@@ -530,8 +530,9 @@ def site_header(page_path):
         </div>
       </div>
       <div class="nav-dropdown">
-        <a href="{resolve_url(page_path, '/tools/fretboard/')}" class="dropdown-trigger">工具</a>
+        <a href="{resolve_url(page_path, '/tools/')}" class="dropdown-trigger">工具</a>
         <div class="dropdown-menu">
+          <a href="{resolve_url(page_path, '/tools/')}"><strong>全部工具</strong></a>
           <a href="{resolve_url(page_path, '/tools/fretboard/')}">🎸 世界樂器指版和弦圖</a>
           <a href="{resolve_url(page_path, '/chord-detection/')}">🎼 自動抓和弦 (beta)</a>
           <a href="{resolve_url(page_path, '/tools/lrc/')}">📝 LRC 動態歌詞工作室</a>
@@ -666,9 +667,22 @@ def page(title, body, page_path=None, meta_extra="", extra_head="", meta_descrip
 """
 
 
+def image_src(value, page_path=None):
+    """Image URL for a page: remote https, or a file shipped with the site.
+
+    Instruments whose photo cannot come from Commons use `/assets/instruments/*`
+    (downloaded, resized and credited locally); those resolve relative to the
+    page like every other asset.
+    """
+    value = (value or "").strip()
+    if value.startswith("/"):
+        return resolve_url(page_path, value)
+    return safe_external_url(value)
+
+
 def card(instrument, page_path=None):
     code_tag = f'<span class="card-code">{escape(instrument["class_code"])}</span>' if instrument.get("class_code") else ""
-    img = safe_external_url(instrument.get("image", ""))
+    img = image_src(instrument.get("image", ""), page_path)
     img_html = f'<img class="card-thumb" src="{img}" alt="" loading="lazy" onerror="this.style.display=\'none\'">' if img else '<div class="card-thumb card-thumb--empty" aria-hidden="true">♩</div>'
     return f"""<a class="instrument-card" href="{resolve_url(page_path, '/instruments/' + instrument['slug'] + '/')}">
       {img_html}
@@ -994,7 +1008,7 @@ def build_detail_pages(instruments):
         desc_match = re.search(r'<p>(.*?)</p>', body_html, re.DOTALL)
         desc_text = re.sub(r'<[^>]+>', '', desc_match.group(1))[:160] if desc_match else ""
         # Image HTML
-        img_url = safe_external_url(item.get("image", ""))
+        img_url = image_src(item.get("image", ""), OUTPUT_DIR / "instruments" / item["slug"] / "index.html")
         img_html = f'<img class="instrument-image" src="{img_url}" alt="{escape(item["title"])}" loading="lazy" onerror="this.style.display=\'none\'">' if img_url else ""
         img_credit_html = image_credit_html(item["slug"]) if img_url else ""
         header_class = "instrument-header has-image" if img_url else "instrument-header"
@@ -3137,6 +3151,11 @@ def main():
     mand_img = BASE_DIR / "assets" / "mandolin" / "img"
     if mand_img.exists():
         shutil.copytree(str(mand_img), str(OUTPUT_DIR / "assets" / "mandolin" / "img"), dirs_exist_ok=True)
+    # Instrument photos that could not come from Commons (CC-licensed, resized
+    # to WebP here so the page never hot-links a third-party host)
+    inst_img = BASE_DIR / "assets" / "instruments"
+    if inst_img.exists():
+        shutil.copytree(str(inst_img), str(OUTPUT_DIR / "assets" / "instruments"), dirs_exist_ok=True)
     # Self-hosted third-party JS (Leaflet, SheetJS, JSZip, html2canvas, jsPDF, Meyda);
     # the CSP allows no CDN origins, so these must ship with the site
     vendor_src = BASE_DIR / "assets" / "vendor"
