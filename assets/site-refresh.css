@@ -895,3 +895,16 @@ a.hub-card:hover::after { transform: scaleX(1); }
 .ensemble-videos .yt-grid { margin: 0; gap: 12px; }
 .ensemble-videos .yt-embed { border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,.12); }
 @media (max-width: 620px) { .ensemble-videos .yt-grid { grid-template-columns: 1fr; } }
+
+/* ── 聲音旅圖：Word 原稿以 PDF 內嵌閱讀 ───────────────────── */
+.doc-reader { max-width: 1100px; margin: 0 auto; padding: 0 16px 48px; }
+.doc-reader-bar {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 14px 0; font-size: 14px; color: var(--muted);
+  border-bottom: 1px solid var(--line); margin-bottom: 16px;
+}
+.doc-reader-bar a { color: var(--accent); text-decoration: none; }
+.doc-frame {
+  width: 100%; height: calc(100vh - 200px); min-height: 520px;
+  border: 1px solid var(--line); border-radius: 10px; background: #fff;
+}

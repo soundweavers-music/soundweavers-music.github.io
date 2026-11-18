@@ -454,6 +454,8 @@ def site_header(page_path):
           <a href="{resolve_url(page_path, '/digitalmusic/')}"><strong>錄音後製</strong>　基礎 15 堂・進階 15 堂</a>
           <a href="{resolve_url(page_path, '/theory/')}"><strong>樂理基礎</strong>　五階段</a>
           <a href="{resolve_url(page_path, '/mandolin/')}"><strong>曼陀林專區</strong>　22 章知識庫</a>
+          <a href="{resolve_url(page_path, '/guitar/')}"><strong>流行吉他彈唱指南</strong>　16 章</a>
+          <a href="{resolve_url(page_path, '/ukulele/')}"><strong>烏克麗麗流行彈唱與演奏</strong>　25 章</a>
         </div>
       </div>
       <div class="nav-dropdown">
@@ -1919,7 +1921,8 @@ def build_sitemap(instruments):
                  "/about/", "/theory/", "/vocal/", "/digitalmusic/",
                  "/sound-journey/", "/experience/", "/contact/",
                  "/chord-detection/", "/tools/fretboard/",
-                 "/learn/", "/about/author/", "/about/works/", "/recruit/", "/mandolin/"]:
+                 "/learn/", "/about/author/", "/about/works/", "/recruit/", "/mandolin/",
+                 "/guitar/", "/ukulele/"]:
         urls.append(u(path))
 
     # Instrument detail pages
@@ -2559,6 +2562,8 @@ def build_learn_page():
         ("/digitalmusic/", "🎛", "錄音後製", "從宅錄建置、錄音與混音基礎，到音色雕塑、曲風實戰與母帶後期的完整課程。", "基礎 15 堂・進階 15 堂"),
         ("/theory/", "🎼", "樂理基礎", "譜號、節拍、拍號、音調、音域與發聲原理，分五個階段建立紮實的音樂理論基礎。", "前言＋五階段"),
         ("/mandolin/", "🪕", "曼陀林專區", "22 章中文曼陀林知識庫：琴型歷史、構造製琴、演奏技法、曲風合奏與專輯導聆，附學習建議時數。", "22 章・建議約 28.5 小時"),
+        ("/guitar/", "🎸", "流行吉他彈唱指南", "從挑琴、調音、看懂六線譜，到刷奏、和弦與彈唱協調，寫給零基礎成人的流行吉他彈唱教材。", "16 章・持續增補"),
+        ("/ukulele/", "🎵", "烏克麗麗流行彈唱與演奏指南", "四條弦的大小事：選琴、調音、和弦家族、刷奏節奏型到指彈與打板，以華語流行歌為練習材料。", "25 章・持續增補"),
     ]
     cards = "\n".join(
         f"""      <a class="hub-card" href="{resolve_url(path, href)}">
@@ -2568,7 +2573,7 @@ def build_learn_page():
         <span class="hub-meta">{meta} →</span>
       </a>""" for href, icon, name, desc, meta in courses)
     body = f"""<main>
-  {banner_hero("Learn", "學習", "人聲、錄音、樂理與曼陀林——挑一條路開始，按自己的節奏前進。")}
+  {banner_hero("Learn", "學習", "人聲、錄音、樂理、曼陀林、吉他與烏克麗麗——挑一條路開始，按自己的節奏前進。")}
   <div class="hub-page">
     <div class="hub-grid">
 {cards}
@@ -2577,7 +2582,7 @@ def build_learn_page():
   </div>
 </main>"""
     write(path, page("學習", body, path,
-          meta_description="世界聲音百科學習專區：人聲與歌唱、錄音後製、樂理基礎、曼陀林專區四大課程總覽。"))
+          meta_description="世界聲音百科學習專區：人聲與歌唱、錄音後製、樂理基礎、曼陀林專區、流行吉他彈唱指南、烏克麗麗教學。"))
 
 
 def get_theory_data():

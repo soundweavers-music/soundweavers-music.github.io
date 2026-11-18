@@ -60,6 +60,12 @@ jobs:
       - name: Build mandolin section
         run: python scripts/build_mandolin.py
 
+      - name: Build guitar & ukulele courses
+        run: python scripts/build_courses.py
+
+      - name: Build sound-journey reader
+        run: python scripts/build_sound_journey_docs.py
+
       - name: Build ensembles
         run: python scripts/build_ensembles.py
 
