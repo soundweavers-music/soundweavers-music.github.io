@@ -190,6 +190,13 @@
   overflow-wrap: anywhere; white-space: pre-wrap;
 }
 .lrc-line.is-untimed .lrc-text { color: var(--muted); }
+/* 中括號段落標記（[間奏]、[副歌]…）：不是要唱的字，灰掉並縮排 */
+.lrc-line.is-marker .lrc-text {
+  color: var(--muted);
+  font-style: italic;
+  font-size: 0.86em;
+  letter-spacing: 0.04em;
+}
 
 .lrc-empty { color: var(--muted); font-size: 13px; padding: 22px 4px; margin: 0; }
 
@@ -286,15 +293,15 @@
         <summary>自動斷點偵測</summary>
         <div class="lrc-detect-body">
           <label class="lrc-field">
-            <span>靈敏度（越高越容易切成一句）<output id="lrc-sens-out">50</output></span>
-            <input id="lrc-sens" type="range" min="5" max="95" step="1" value="50">
+            <span>靈敏度（越高越容易切成一句）<output id="lrc-sens-out">30</output></span>
+            <input id="lrc-sens" type="range" min="5" max="95" step="1" value="30">
           </label>
           <label class="lrc-field">
             <span>最短停頓<output id="lrc-gap-out">0.30 秒</output></span>
             <input id="lrc-gap" type="range" min="15" max="120" step="5" value="30">
           </label>
           <button type="button" id="lrc-analyze" class="lrc-btn" disabled>偵測並填入時間</button>
-          <p id="lrc-detect-status" class="lrc-status">先載入音檔。偵測是用音量起伏找句與句之間的停頓，全部在本機計算。</p>
+          <p id="lrc-detect-status" class="lrc-status">先載入音檔。偵測會先用音量起伏切出樂句，再按每行的發音字數分配時間；中括號的 [前奏]、[間奏] 這類標記會跳過不排歌詞。全部在本機計算。</p>
         </div>
       </details>
     </section>
@@ -409,9 +416,13 @@
     fontSize: 15,
     buffer: null,
     env: null,        // 每 10ms 一個 RMS
-    segments: [],     // 偵測到的樂句
+    segments: [],     // 偵測到的樂句（會排歌詞的）
+    instrSegments: [],// 判定為間奏、不排歌詞的段落
     meta: { ti: "", ar: "", al: "", by: "世界聲音百科" }
   };
+
+  // 能量包絡的時間解析度：一格 10ms
+  var HOP_SEC = 0.01;
 
   var audio = $("#lrc-audio");
   var wave = $("#lrc-wave");
@@ -555,7 +566,8 @@
       var li = document.createElement("li");
       li.className = "lrc-line" +
         (i === state.selected ? " is-selected" : "") +
-        (line.time == null ? " is-untimed" : "");
+        (line.time == null ? " is-untimed" : "") +
+        (isMarkerLine(line.text) ? " is-marker" : "");
       li.dataset.i = String(i);
       li.style.fontSize = state.fontSize + "px";
 
@@ -775,6 +787,16 @@
 
     var dur = state.buffer.duration || 1;
 
+    // 判定為間奏、不排歌詞的段落（淡藍底）
+    (state.instrSegments || []).forEach(function (s) {
+      var x0 = (s.start / dur) * w;
+      var x1 = (s.end / dur) * w;
+      ctx.fillStyle = blue;
+      ctx.globalAlpha = 0.16;
+      ctx.fillRect(x0, 0, Math.max(1, x1 - x0), h);
+    });
+    ctx.globalAlpha = 1;
+
     // 偵測到的句首（藍）
     ctx.strokeStyle = blue;
     ctx.globalAlpha = 0.7;
@@ -807,7 +829,6 @@
   /* ── 自動斷點偵測 ───────────────────────────────────────── */
   // 音量低於門檻且維持夠久的區間＝停頓；停頓之間就是一句
   function detectSegments(env, opts) {
-    var HOP_SEC = 0.01;
     var n = env.length;
     if (!n) return [];
 
@@ -823,16 +844,25 @@
 
     var span = Math.max(6, loud - floor);        // 至少 6dB，整首很安靜時也不會亂切
     var frac = 0.55 - 0.42 * opts.sensitivity;   // 0.13（寬鬆）… 0.55（嚴格）
-    var thr = floor + span * frac;
+    var globalThr = floor + span * frac;
+
+    // 門檻跟著段落音量走。只用一个全曲門檻的話，小聲的主歌會整段被當成停頓，
+    // 大聲的副歌又會黏成一整段切不開。
+    var smooth = movingAverage(db, Math.round(4 / HOP_SEC));
+    var lowLimit = floor + span * 0.06;
+    var thr = new Float32Array(n);
+    for (var t1 = 0; t1 < n; t1++) {
+      thr[t1] = Math.max(lowLimit, Math.min(globalThr, smooth[t1] - 8));
+    }
 
     var minSilent = Math.max(5, Math.round(opts.minGap / HOP_SEC));
 
     var gaps = [];
     var i2 = 0;
     while (i2 < n) {
-      if (db[i2] >= thr) { i2++; continue; }
+      if (db[i2] >= thr[i2]) { i2++; continue; }
       var j = i2;
-      while (j < n && db[j] < thr) j++;
+      while (j < n && db[j] < thr[j]) j++;
       if (j - i2 >= minSilent) gaps.push([i2 * HOP_SEC, j * HOP_SEC]);
       i2 = j;
     }
@@ -855,98 +885,336 @@
     return merged;
   }
 
-  // 一行「應該有多長」的權重：中文 1、英數 0.55、標點 0.3
-  function charWeight(text) {
-    var w = 0;
-    for (var i = 0; i < text.length; i++) {
-      var ch = text[i];
-      if (/\s/.test(ch)) continue;
-      if (/[㐀-䶿一-鿿豈-﫿]/.test(ch)) w += 1;
-      else if (/[A-Za-z0-9]/.test(ch)) w += 0.55;
-      else w += 0.3;
-    }
-    return Math.max(1, w);
+  /* ── 歌詞結構：段落標記與發音字數 ───────────────────────── */
+
+  // 整行只有中括號／【】／（）的，是段落標記，不是要唱的歌詞
+  var MARKER_LINE = /^\s*[\[［【(（][^\]］】)）]*[\]］】)）]\s*$/;
+  // 這些字代表「這裡沒人唱」——前奏、間奏、尾奏之類
+  var INSTR_MARKER = /間奏|前奏|尾奏|序奏|過門|空拍|演奏|純音樂|無人聲|interlude|instrumental|\bintro\b|\boutro\b|\bsolo\b|\bmusic\b/i;
+
+  function isMarkerLine(text) { return MARKER_LINE.test(text); }
+  function isInstrumentalMarker(text) {
+    return isMarkerLine(text) && INSTR_MARKER.test(text);
   }
 
-  // 段數不足時，把最長的一段對半切，直到夠用
-  function splitTo(segs, target) {
-    var guard = 0;
-    while (segs.length < target && guard++ < 3000) {
-      var idx = 0, best = -1;
-      for (var i = 0; i < segs.length; i++) {
-        var d = segs[i].end - segs[i].start;
-        if (d > best) { best = d; idx = i; }
+  // 英文單字的音節數（粗估）。比「字母數」更接近實際唱掉多少時間。
+  function latinSyllables(word) {
+    var w = word.toLowerCase();
+    var groups = w.match(/[aeiouy]+/g);
+    var n = groups ? groups.length : 1;
+    if (n > 1 && /[^aeiouy]e$/.test(w)) n -= 1;        // make → 1
+    if (n > 1 && /[^aeiouy]le$/.test(w)) n += 1;       // little → 2
+    return Math.max(1, n);
+  }
+
+  // 一行的「發音字數」：中文字與數字各算一個音節，英文按音節估，標點空白不算
+  function syllableCount(text) {
+    var total = 0;
+    var rest = text.replace(/[A-Za-z]+/g, function (word) {
+      total += latinSyllables(word);
+      return " ";
+    });
+    for (var i = 0; i < rest.length; i++) {
+      var ch = rest[i];
+      if (/[㐀-䶿一-鿿豈-﫿]/.test(ch)) total += 1;
+      else if (/[0-9]/.test(ch)) total += 1;
+    }
+    return total;
+  }
+
+  function movingAverage(arr, win) {
+    var n = arr.length;
+    var out = new Float32Array(n);
+    if (!n) return out;
+    var half = Math.max(1, Math.round(win / 2));
+    var pre = new Float64Array(n + 1);
+    for (var i = 0; i < n; i++) pre[i + 1] = pre[i] + arr[i];
+    for (var j = 0; j < n; j++) {
+      var a = Math.max(0, j - half);
+      var b = Math.min(n, j + half + 1);
+      out[j] = (pre[b] - pre[a]) / (b - a);
+    }
+    return out;
+  }
+
+  // 逐格的「音節起伏」曲線：音量偏離 0.5 秒移動平均的幅度再平滑。
+  // 有人在唱的時候，每個字都是一次起落（音節率 2–6 Hz）；持續的長音、
+  // 前奏的鋪底、間奏的刷弦都會平坦得多。這是粗略的人聲代理指標，
+  // 不是真的語音辨識，但足夠把「還沒開始唱」跟「正在唱」分開。
+  function modCurve(db, from, to) {
+    var a = Math.max(0, Math.floor(from / HOP_SEC));
+    var b = Math.min(db.length, Math.ceil(to / HOP_SEC));
+    var out = new Float32Array(Math.max(0, b - a));
+    if (b - a < 2) return out;
+    var slice = db.subarray(a, b);
+    var base = movingAverage(slice, Math.round(0.5 / HOP_SEC));
+    for (var i = 0; i < out.length; i++) out[i] = Math.abs(slice[i] - base[i]);
+    return movingAverage(out, Math.round(0.25 / HOP_SEC));
+  }
+
+  function medianOfArray(arr) {
+    var n = arr.length;
+    if (!n) return 0;
+    var a = Array.prototype.slice.call(arr).sort(function (x, y) { return x - y; });
+    return a[n >> 1];
+  }
+
+  // 把「有聲音」的粗區塊切成「有人在唱」與「沒人唱」兩種。
+  // 前奏、間奏會落在後者，歌詞只排在前者，所以第一句不會再被放到前奏裡。
+  function refineVocal(segments, db) {
+    var vocals = [], holes = [];
+    if (!segments.length) return { vocals: vocals, holes: holes };
+
+    var FLOOR_RATIO = 0.55;   // 起伏低於全曲中位數的 55% 就當作沒人唱
+    var MIN_HOLE = 2.5;       // 挖掉的區間至少這麼長才算前奏／間奏
+    var MIN_VOCAL = 0.6;      // 剩下的人聲片段至少這麼長才留著
+
+    var mods = segments.map(function (s) {
+      return medianOfArray(modCurve(db, s.start, s.end));
+    });
+    var typical = medianOfArray(mods);
+
+    segments.forEach(function (s, k) {
+      // 整段都平：直接當成沒人唱
+      if (typical > 1 && mods[k] < typical * FLOOR_RATIO && (s.end - s.start) >= MIN_HOLE) {
+        holes.push({ start: s.start, end: s.end });
+        return;
       }
-      if (best < 0.12) break;
-      var s = segs[idx], mid = (s.start + s.end) / 2;
-      segs.splice(idx, 1, { start: s.start, end: mid }, { start: mid, end: s.end });
-    }
-    return segs;
-  }
 
-  // 每行起點 = 分組後第一段的起點；分組用 DP 讓「組長度」盡量貼近「字數比例」
-  function alignTimes(lines, segmentsIn) {
-    var L = lines.length;
-    if (!L || !segmentsIn.length) return null;
+      // 段內再切：起伏明顯偏低又持續夠久的部分挖掉
+      var curve = modCurve(db, s.start, s.end);
+      var cut = Math.max(0.8, medianOfArray(curve) * 0.5);
+      var cursor = s.start;
+      var runStart = -1;
+      var pieces = [];
 
-    var segs = splitTo(segmentsIn.map(function (s) { return { start: s.start, end: s.end }; }), L);
-    var S = segs.length;
-    if (S < L) return null;
+      function closeRun(endSec) {
+        if (runStart < 0) return;
+        if (endSec - runStart >= MIN_HOLE) {
+          if (runStart - cursor >= MIN_VOCAL) pieces.push({ start: cursor, end: runStart });
+          holes.push({ start: runStart, end: endSec });
+          cursor = endSec;
+        }
+        runStart = -1;
+      }
 
-    var weights = lines.map(function (l) { return charWeight(l.text); });
-    var totalW = weights.reduce(function (a, b) { return a + b; }, 0) || 1;
-    var dur = segs.map(function (s) { return s.end - s.start; });
-    var totalD = dur.reduce(function (a, b) { return a + b; }, 0) || 1;
-    var expected = weights.map(function (w) { return (w / totalW) * totalD; });
-
-    // 規模太大就退回等比例估算，避免 DP 卡住畫面
-    if (L * S * S > 4e7) return proportionalTimes(expected, totalD, segs);
-
-    var pre = new Float64Array(S + 1);
-    for (var k = 0; k < S; k++) pre[k + 1] = pre[k] + dur[k];
-
-    var INF = Number.POSITIVE_INFINITY;
-    var dp = [], from = [];
-    for (var a = 0; a <= L; a++) {
-      dp.push(new Float64Array(S + 1).fill(INF));
-      from.push(new Int32Array(S + 1).fill(-1));
-    }
-    dp[0][0] = 0;
-
-    for (var l = 1; l <= L; l++) {
-      var minI = l, maxI = S - (L - l);
-      for (var ii = minI; ii <= maxI; ii++) {
-        for (var kk = l - 1; kk < ii; kk++) {
-          var base = dp[l - 1][kk];
-          if (base === INF) continue;
-          var cost = base + Math.abs((pre[ii] - pre[kk]) - expected[l - 1]);
-          if (cost < dp[l][ii]) { dp[l][ii] = cost; from[l][ii] = kk; }
+      for (var i = 0; i < curve.length; i++) {
+        var t = s.start + i * HOP_SEC;
+        if (curve[i] < cut) {
+          if (runStart < 0) runStart = t;
+        } else {
+          closeRun(t);
         }
       }
-    }
-    if (dp[L][S] === INF) return null;
+      closeRun(s.end);
+      if (s.end - cursor >= MIN_VOCAL) pieces.push({ start: cursor, end: s.end });
+      for (var p = 0; p < pieces.length; p++) vocals.push(pieces[p]);
+    });
 
-    var times = new Array(L);
-    var cur = S;
-    for (var ll = L; ll >= 1; ll--) {
-      var startIdx = from[ll][cur];
-      if (startIdx < 0) return null;
-      times[ll - 1] = segs[startIdx].start;
-      cur = startIdx;
+    // 挖得太兇就退回原樣：寧可少切，也不要把真的歌詞吃掉
+    var holeTime = 0;
+    for (var h1 = 0; h1 < holes.length; h1++) holeTime += holes[h1].end - holes[h1].start;
+    var totalTime = 0;
+    for (var s1 = 0; s1 < segments.length; s1++) totalTime += segments[s1].end - segments[s1].start;
+
+    if (!vocals.length || holeTime > totalTime * 0.55) {
+      return {
+        vocals: segments.map(function (s) { return { start: s.start, end: s.end }; }),
+        holes: []
+      };
     }
-    return times;
+
+    vocals.sort(function (a, b) { return a.start - b.start; });
+    holes.sort(function (a, b) { return a.start - b.start; });
+    return { vocals: vocals, holes: holes };
   }
 
-  // 備援：完全按字數比例把整首歌的時間軸分給每一行
-  function proportionalTimes(expected, totalD, segs) {
-    var span = segs[segs.length - 1].end - segs[0].start;
-    var t0 = segs[0].start;
-    var cum = 0;
-    return expected.map(function (e) {
-      var t = t0 + (cum / totalD) * span;
-      cum += e;
-      return t;
+  // 起音強度：音量上升的速度，用來把時間點吸到字頭
+  function onsetRise(db) {
+    var n = db.length;
+    var raw = new Float32Array(n);
+    for (var i = 3; i < n; i++) {
+      var d = db[i] - db[i - 3];
+      raw[i] = d > 0 ? d : 0;
+    }
+    return movingAverage(raw, 4);
+  }
+
+  // 把「唱歌時間軸」上的位置映射回實際時間（跳過停頓與間奏）
+  function singToWall(list, x) {
+    var acc = 0;
+    for (var i = 0; i < list.length; i++) {
+      var d = list[i].dur;
+      if (x <= acc + d || i === list.length - 1) {
+        return { t: list[i].start + Math.max(0, Math.min(d, x - acc)), seg: list[i] };
+      }
+      acc += d;
+    }
+    return { t: list[list.length - 1].end, seg: list[list.length - 1] };
+  }
+
+  // 把時間點吸到最近的起音，避免切在字中間
+  function snapToOnset(rise, t, seg) {
+    var a = Math.max(Math.floor(seg.start / HOP_SEC), Math.floor((t - 0.45) / HOP_SEC));
+    var b = Math.min(Math.ceil(seg.end / HOP_SEC), Math.ceil((t + 0.45) / HOP_SEC));
+    var best = -1, bestVal = 0;
+    for (var i = a; i < b && i < rise.length; i++) {
+      if (rise[i] > bestVal) { bestVal = rise[i]; best = i; }
+    }
+    if (best < 0 || bestVal < 0.8) return t;
+    return Math.max(seg.start, best * HOP_SEC);
+  }
+
+  // 把每一行放到時間軸上：
+  //   歌詞行只鋪在 vocals 上；間奏標記對應 holes，並把前後的歌詞切成兩組，
+  //   各組只在自己的時間窗裡按發音字數分配。
+  function assignTimes(lines, vocals, holes, rise, duration) {
+    var n = lines.length;
+    var times = new Array(n);
+    var isLyric = new Array(n);
+    for (var z = 0; z < n; z++) { times[z] = null; isLyric[z] = false; }
+
+    var lyricIdx = [], instrIdx = [], labelIdx = [];
+    for (var i = 0; i < n; i++) {
+      if (!isMarkerLine(lines[i].text)) { lyricIdx.push(i); isLyric[i] = true; }
+      else if (isInstrumentalMarker(lines[i].text)) instrIdx.push(i);
+      else labelIdx.push(i);
+    }
+    if (!lyricIdx.length) {
+      return { times: times, error: "整份歌詞都是中括號標記，沒有可以唱的字。" };
+    }
+
+    var pools = vocals.map(function (s, k) {
+      return { start: s.start, end: s.end, k: k, dur: s.end - s.start };
     });
+    if (!pools.length) {
+      return { times: times, error: "沒有偵測到任何人聲段落，把靈敏度調高或最短停頓調小再試。" };
+    }
+
+    var weights = {};
+    for (var w0 = 0; w0 < lyricIdx.length; w0++) {
+      weights[lyricIdx[w0]] = Math.max(1, syllableCount(lines[lyricIdx[w0]].text));
+    }
+
+    // 間奏標記依文件順序對應「沒人唱」的區間。
+    // 每一段只能被一個標記用掉，否則連續兩個 [間奏] 會拿到同一格。
+    var holesAsc = holes.slice().sort(function (a, b) { return a.start - b.start; });
+    var chosenFor = {}, usedHole = {}, cursor = 0;
+    for (var m0 = 0; m0 < instrIdx.length; m0++) {
+      var mi = instrIdx[m0];
+      var text = lines[mi].text;
+      var early = /前奏|序奏|\bintro\b/i.test(text);
+      var late = /尾奏|\boutro\b/i.test(text);
+
+      var pick = null;
+      if (late) {
+        for (var q = holesAsc.length - 1; q >= 0; q--) {
+          if (!usedHole[q]) { pick = holesAsc[q]; break; }
+        }
+      } else {
+        for (var r = 0; r < holesAsc.length; r++) {
+          if (usedHole[r]) continue;
+          if (early || holesAsc[r].start >= cursor - 0.3) { pick = holesAsc[r]; break; }
+        }
+      }
+
+      if (pick) {
+        chosenFor[mi] = pick;
+        for (var u = 0; u < holesAsc.length; u++) if (holesAsc[u] === pick) usedHole[u] = true;
+        cursor = pick.end;
+      }
+    }
+
+    // 用間奏把歌詞行切成幾組
+    var groups = [];
+    var group = { from: 0, to: duration || 0, lines: [] };
+    for (var g1 = 0; g1 < n; g1++) {
+      if (isLyric[g1]) { group.lines.push(g1); continue; }
+      if (!chosenFor[g1]) continue;
+      group.to = chosenFor[g1].start;
+      groups.push(group);
+      group = { from: chosenFor[g1].end, to: duration || 0, lines: [] };
+    }
+    groups.push(group);
+
+    // 各組按發音字數分配
+    for (var g2 = 0; g2 < groups.length; g2++) {
+      var grp = groups[g2];
+      if (!grp.lines.length) continue;
+
+      var active = pools.filter(function (p) {
+        return p.start >= grp.from - 0.3 && p.end <= grp.to + 0.3;
+      });
+      if (!active.length) {
+        // 這一組的時間窗裡沒有完整段落：退回最靠近的段落
+        var near = null;
+        for (var n1 = 0; n1 < pools.length; n1++) {
+          if (!near || Math.abs(pools[n1].start - grp.from) < Math.abs(near.start - grp.from)) {
+            near = pools[n1];
+          }
+        }
+        active = [near];
+      }
+
+      var totalW = 0;
+      for (var w2 = 0; w2 < grp.lines.length; w2++) totalW += weights[grp.lines[w2]];
+      if (!totalW) totalW = 1;
+
+      var activeDur = 0;
+      for (var d2 = 0; d2 < active.length; d2++) activeDur += active[d2].dur;
+      if (!activeDur) activeDur = 1;
+
+      var cum = 0;
+      for (var k2 = 0; k2 < grp.lines.length; k2++) {
+        var hit = singToWall(active, (cum / totalW) * activeDur);
+        cum += weights[grp.lines[k2]];
+        times[grp.lines[k2]] = snapToOnset(rise, hit.t, hit.seg);
+      }
+
+      // 組內保證單調遞增，也不超出這一組的時間窗
+      var lastT = -1;
+      for (var k3 = 0; k3 < grp.lines.length; k3++) {
+        var idx3 = grp.lines[k3];
+        var t3 = times[idx3];
+        if (lastT >= 0 && t3 < lastT + 0.2) t3 = lastT + 0.2;
+        if (duration && t3 > duration - 0.1) t3 = Math.max(lastT + 0.05, duration - 0.1);
+        if (grp.to && t3 > grp.to - 0.1) t3 = Math.max(lastT + 0.05, grp.to - 0.1);
+        times[idx3] = t3;
+        lastT = t3;
+      }
+    }
+
+    // 間奏標記放在對應區間的開頭
+    for (var m2 = 0; m2 < instrIdx.length; m2++) {
+      var mi2 = instrIdx[m2];
+      if (chosenFor[mi2]) {
+        times[mi2] = chosenFor[mi2].start;
+      } else {
+        var before = 0;
+        for (var b2 = mi2 - 1; b2 >= 0; b2--) {
+          if (times[b2] != null) { before = times[b2] + 1; break; }
+        }
+        times[mi2] = before;
+      }
+    }
+
+    // 其他標記（[副歌]、[Chorus]…）跟下一句同時開始
+    for (var m3 = 0; m3 < labelIdx.length; m3++) {
+      var li = labelIdx[m3];
+      var next = null;
+      for (var nx = li + 1; nx < n; nx++) {
+        if (times[nx] != null) { next = times[nx]; break; }
+      }
+      times[li] = next != null ? next : Math.max(0, (duration || 0) - 0.5);
+    }
+
+    return {
+      times: times,
+      sung: pools,
+      instr: holesAsc,
+      lyricCount: lyricIdx.length,
+      markerCount: instrIdx.length + labelIdx.length
+    };
   }
 
   function analyzeAndFill() {
@@ -956,24 +1224,35 @@
     var sens = parseInt(el.sens.value, 10) / 100;
     var minGap = parseInt(el.gap.value, 10) / 100;
 
-    var segments = detectSegments(state.env, { sensitivity: sens, minGap: minGap });
-    state.segments = segments;
+    var db = new Float32Array(state.env.length);
+    for (var i = 0; i < state.env.length; i++) db[i] = 20 * Math.log10(state.env[i] + 1e-7);
+    var rise = onsetRise(db);
+    var duration = state.buffer ? state.buffer.duration : state.env.length * HOP_SEC;
+
+    // 先切粗區塊，再從中挑出「有字在唱」的部分
+    var blocks = detectSegments(state.env, { sensitivity: sens, minGap: minGap });
+    var split = refineVocal(blocks, db);
+    var result = assignTimes(state.lines, split.vocals, split.holes, rise, duration);
+    if (result.error) { setDetectStatus(result.error, "warn"); return; }
+
+    state.segments = result.sung;
+    state.instrSegments = result.instr;
     drawWave();
 
-    var summary = "偵測到 " + segments.length + " 段／歌詞 " + state.lines.length + " 行。";
-    var times = alignTimes(state.lines, segments);
-    if (!times) {
-      setDetectStatus(summary + "段數對不上，先調整靈敏度或最短停頓再試一次。", "warn");
-      return;
-    }
-
     pushUndo();
-    state.lines.forEach(function (line, i) { line.time = round2(times[i]); });
+    state.lines.forEach(function (line, i) {
+      line.time = result.times[i] == null ? null : round2(result.times[i]);
+    });
     renderAll();
     selectLine(0);
     el.pasteWrap.hidden = true;
     syncPasteUI();
-    setDetectStatus(summary + "已依字數比例填入，邊聽邊微調。", "ok");
+
+    var msg = "切出 " + blocks.length + " 段，其中 " + result.sung.length + " 段判定有人聲";
+    if (result.instr.length) msg += "、" + result.instr.length + " 段沒人唱";
+    msg += "。";
+    if (result.sung.length) msg += "人聲從 " + lrcTime(result.sung[0].start) + " 開始，";
+    setDetectStatus(msg + "歌詞按發音字數分配，邊聽邊微調。", "ok");
     toast("已填入 " + state.lines.length + " 行時間");
   }
 
