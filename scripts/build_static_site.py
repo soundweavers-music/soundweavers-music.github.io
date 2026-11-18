@@ -474,7 +474,7 @@ def site_header(page_path):
     if not _NAV_SUBCATS:
         set_nav_subcategories(read_instruments())
     return f"""  <header class="site-header">
-    <a class="brand" href="{resolve_url(page_path, '/')}"><img class="brand-mark" src="{resolve_url(page_path, '/assets/brand/logo.png')}" alt="" width="34" height="34"><span class="brand-text">世界聲音百科</span></a>
+    <a class="brand" href="{resolve_url(page_path, '/')}"><img class="brand-mark" src="{resolve_url(page_path, '/assets/brand/logo.png')}" alt="" width="34" height="34"><span class="brand-text">世界聲音</span></a>
     <nav>
       <div class="nav-dropdown">
         <a href="{resolve_url(page_path, '/instruments/')}" class="dropdown-trigger">樂器百科</a>
@@ -521,7 +521,6 @@ def site_header(page_path):
           <a href="{resolve_url(page_path, '/tools/fretboard/')}">🎸 世界樂器指版和弦圖</a>
           <a href="{resolve_url(page_path, '/chord-detection/')}">🎼 自動抓和弦</a>
           <a href="{resolve_url(page_path, '/tools/lrc/')}">📝 LRC 動態歌詞工作室</a>
-          <a href="{resolve_url(page_path, '/tools/')}"><strong>全部工具</strong></a>
         </div>
       </div>
       <div class="nav-dropdown">
@@ -556,7 +555,7 @@ def site_footer(page_path):
     player_js = resolve_url(page_path, "/assets/music-player.js")
     return f"""  <footer class="site-footer">
     <div class="footer-inner">
-      <span>世界聲音百科 — 世界樂器、人聲與音樂文化的旅圖</span>
+      <span>世界聲音 — 世界樂器、音樂教學、線上編曲軟體</span>
       <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
     </div>
   </footer>
@@ -663,7 +662,53 @@ def build_music_player():
     print(f"  music player: {len(tracks)} tracks")
 
 
-def page(title, body, page_path=None, meta_extra="", extra_head="", meta_description="", meta_keywords="", csp=None):
+SITE_NAME = "世界聲音"
+SITE_DESC = ("世界聲音 by 隔壁織音人：世界樂器百科、人聲與歌唱教學、錄音後製與樂理課程，"
+             "以及在瀏覽器直接使用的音樂工具——指版和弦圖、自動抓和弦、LRC 歌詞工作室與線上編曲軟體。")
+
+
+def website_jsonld(desc):
+    return f'''{{
+  "@type": "WebSite",
+  "@id": "{SITE_DOMAIN}/#website",
+  "name": "{SITE_NAME}",
+  "alternateName": ["世界聲音百科", "World Sound Encyclopedia"],
+  "url": "{SITE_DOMAIN}/",
+  "description": "{escape(desc)}",
+  "inLanguage": "zh-Hant",
+  "publisher": {{
+    "@type": "Organization",
+    "name": "隔壁織音人",
+    "url": "{SITE_DOMAIN}/about/author/",
+    "sameAs": ["https://www.youtube.com/@NextDoorSoundWeavers/"]
+  }},
+  "potentialAction": {{
+    "@type": "SearchAction",
+    "target": {{"@type": "EntryPoint", "urlTemplate": "{SITE_DOMAIN}/?q={{search_term_string}}"}},
+    "query-input": "required name=search_term_string"
+  }}
+}}'''
+
+
+def breadcrumb_jsonld(trail):
+    """trail: [(name, absolute_url), …] starting with 首頁."""
+    parts = []
+    for i, (name, url) in enumerate(trail, 1):
+        parts.append('{"@type":"ListItem","position":%d,"name":"%s","item":"%s"}'
+                     % (i, escape(name), url))
+    return '{"@type":"BreadcrumbList","itemListElement":[' + ",".join(parts) + "]}"
+
+
+def page_jsonld(type_, name, desc, url, extra=""):
+    body = ('"@type":"%s","name":"%s","description":"%s","url":"%s","inLanguage":"zh-Hant"'
+            % (type_, escape(name), escape(desc), url))
+    if extra:
+        body += "," + extra
+    return "{" + body + "}"
+
+
+def page(title, body, page_path=None, meta_extra="", extra_head="", meta_description="",
+         meta_keywords="", csp=None, jsonld_extra="", og_type="website"):
     if csp is None:
         csp = (
             "default-src 'self'; "
@@ -674,45 +719,38 @@ def page(title, body, page_path=None, meta_extra="", extra_head="", meta_descrip
             "worker-src 'self' blob:; frame-src 'self' https://www.youtube-nocookie.com https://www.youtube.com; "
             "base-uri 'self'; form-action 'self'; object-src 'none'"
         )
-    keywords_default = "隔壁織音人,世界樂器,世界樂器百科,世界聲音百科,樂器教學,歌唱教學,錄音後製,吉他教學,鋼琴教學,基礎樂理,音樂知識,民族樂器,傳統樂器,電子樂器,打擊樂器,管樂器,弦樂器,鍵盤樂器"
+    keywords_default = ("隔壁織音人,世界聲音,世界樂器,樂器百科,音樂教學,線上編曲,編曲軟體,"
+                        "自動抓和弦,和弦圖,歌唱教學,錄音後製,吉他教學,基礎樂理,民族樂器,傳統樂器,打擊樂器,管樂器,弦樂器")
     kw = meta_keywords or keywords_default
-    desc = meta_description or "世界聲音百科 by 隔壁織音人 — 收錄世界各國樂器、人聲歌唱教學、錄音後製知識與基礎樂理。從傳統民族樂器到現代電子樂器，提供樂器介紹、聆賞示範、演奏教學與文化背景。循著聲音，走進不同文化的現場。"
+    desc = re.sub(r"\s+", " ", meta_description or SITE_DESC).strip()
     canonical_url = canonical_for(page_path)
     og_image = f"{SITE_DOMAIN}{SITE_BASE_PATH}/assets/brand/banner.webp"
-    jsonld = f'''{{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "世界聲音百科",
-  "alternateName": "World Sound Encyclopedia",
-  "url": "https://soundweavers-music.github.io/",
-  "description": "{escape(desc)}",
-  "author": {{
-    "@type": "Person",
-    "name": "隔壁織音人",
-    "url": "https://www.youtube.com/@NextDoorSoundWeavers/"
-  }},
-  "potentialAction": {{
-    "@type": "SearchAction",
-    "target": {{
-      "@type": "EntryPoint",
-      "urlTemplate": "https://soundweavers-music.github.io/?q={{search_term_string}}"
-    }},
-    "query-input": "required name=search_term_string"
-  }},
-  "sameAs": [
-    "https://www.youtube.com/@NextDoorSoundWeavers/"
-  ]
-}}'''
+    full_title = escape(title) if ("|" in title or "｜" in title) else escape(title) + "｜世界聲音"
+    graph = [website_jsonld(desc)]
+    if jsonld_extra:
+        graph.append(jsonld_extra)
+    jsonld = '{"@context":"https://schema.org","@graph":[' + ",".join(graph) + "]}"
+    robots_tag = "" if 'name="robots"' in meta_extra else '<meta name="robots" content="index,follow,max-image-preview:large">'
     seo_tags = f'''<meta name="description" content="{escape(desc)}">
 <meta name="keywords" content="{escape(kw)}">
+<meta name="author" content="隔壁織音人">
+{robots_tag}
 <link rel="canonical" href="{canonical_url}">
-<script type="application/ld+json">{jsonld}</script>'''''
+<script type="application/ld+json">{jsonld}</script>'''
+    seo_tags += f'''
+<meta property="og:site_name" content="世界聲音">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{full_title}">
+<meta name="twitter:description" content="{escape(desc)}">
+<meta name="twitter:image" content="{og_image}">'''
     if "og:title" not in meta_extra:
         seo_tags += f'''
-<meta property="og:title" content="{escape(title) if "|" in title or "｜" in title else escape(title) + "｜世界聲音百科"}">
+<meta property="og:title" content="{full_title}">
 <meta property="og:description" content="{escape(desc)}">
 <meta property="og:image" content="{og_image}">
-<meta property="og:type" content="website">
+<meta property="og:image:alt" content="世界聲音 — 世界樂器、音樂教學、線上編曲軟體">
+<meta property="og:type" content="{og_type}">
 <meta property="og:url" content="{canonical_url}">'''
     _dm_head = '<script>!function(){try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);else document.documentElement.setAttribute("data-theme","nextdoor")}catch(e){}}()</script>'
     _dm_foot = '<script>(function(){var t=document.getElementById("theme-toggle"),d=document.documentElement;var I={nextdoor:"🎋",light:"🌤",dark:"🌙"};function s(m){d.setAttribute("data-theme",m);if(t)t.textContent=I[m]||"🎋";try{localStorage.setItem("theme",m)}catch(e){}}var v=(localStorage.getItem("theme")||"nextdoor");s(v);if(t)t.addEventListener("click",function(){var c=d.getAttribute("data-theme");s(c==="nextdoor"?"light":c==="light"?"dark":"nextdoor")});})();</script>'
@@ -725,7 +763,7 @@ def page(title, body, page_path=None, meta_extra="", extra_head="", meta_descrip
   <meta name="referrer" content="no-referrer-when-downgrade">
   <meta http-equiv="Content-Security-Policy" content="{csp}">
   <meta name="google-site-verification" content="AzedQ-PxUmSW7_0jyEHmHCKgN2nIK0Bio5d6LCsJTtE">
-  <title>{escape(title) if "|" in title or "｜" in title else escape(title) + "｜世界聲音百科"}</title>
+  <title>{full_title}</title>
   {seo_tags}
   {meta_extra}
   {_dm_head}
@@ -776,16 +814,18 @@ def card(instrument, page_path=None):
     </a>"""
 
 
-def list_page(title, instruments, page_path=None, meta_description=""):
-    desc = meta_description or f"{title} — {len(instruments)} 件樂器的完整列表，包含樂器介紹、聆賞示範、演奏教學與文化背景。世界聲音百科 by 隔壁織音人。"
+def list_page(title, instruments, page_path=None, meta_description="", label=None):
+    """label 只在標題與 H1 加上「（子分類）」這類說明，避免與樂器頁同名。"""
+    label = label or title
+    desc = meta_description or f"{title} — {len(instruments)} 件樂器的完整列表，包含樂器介紹、聆賞示範、演奏教學與文化背景。世界聲音 by 隔壁織音人。"
     cards = "\n".join(card(item, page_path) for item in instruments) or '<p class="empty">目前沒有資料。</p>'
     return page(
-        title,
+        label,
         f"""
         <main class="page">
           <section class="compact-hero">
             <p class="eyebrow">Browse</p>
-            <h1>{escape(title)}</h1>
+            <h1>{escape(label)}</h1>
             <p class="lead">{len(instruments)} 件樂器</p>
           </section>
           <div class="instrument-grid">{cards}</div>
@@ -1088,6 +1128,13 @@ def build_detail_pages(instruments):
         # Extract plain-text description from first paragraph of HTML body
         desc_match = re.search(r'<p>(.*?)</p>', body_html, re.DOTALL)
         desc_text = re.sub(r'<[^>]+>', '', desc_match.group(1))[:160] if desc_match else ""
+        if not desc_text.strip():
+            # a few entries start with a list instead of a paragraph
+            plain = re.sub(r'<[^>]+>', ' ', body_html)
+            plain = re.sub(r'\s+', ' ', plain).strip()
+            desc_text = (f"{item['title']}（{item['original_name']}）— "
+                         f"{item['category']}・{item['country']}。{plain}")[:160] if plain else \
+                        f"{item['title']}（{item['original_name']}）— {item['category']}・{item['country']} 的世界樂器介紹。"
         # Image HTML
         img_url = image_src(item.get("image", ""), OUTPUT_DIR / "instruments" / item["slug"] / "index.html")
         img_html = f'<img class="instrument-image" src="{img_url}" alt="{escape(item["title"])}" loading="lazy" onerror="this.style.display=\'none\'">' if img_url else ""
@@ -1140,7 +1187,16 @@ def build_detail_pages(instruments):
           {related_html}
         </main>
         """
-        write(OUTPUT_DIR / "instruments" / item["slug"] / "index.html", page(item["title"], body, meta_extra=og_tags, meta_description=desc_text, meta_keywords=keywords))
+        inst_url = canonical_for(OUTPUT_DIR / "instruments" / item["slug"] / "index.html")
+        crumb = breadcrumb_jsonld([
+            ("首頁", SITE_DOMAIN + "/"),
+            ("樂器百科", SITE_DOMAIN + site_url("/instruments/")),
+            (item["category"], SITE_DOMAIN + site_url(f'/categories/{item["category"]}/')),
+            (item["title"], inst_url),
+        ])
+        write(OUTPUT_DIR / "instruments" / item["slug"] / "index.html", page(
+            item["title"], body, meta_extra=og_tags, meta_description=desc_text,
+            meta_keywords=keywords, jsonld_extra=crumb, og_type="article"))
 
 
 def build_facet_pages(instruments, field, folder, title):
@@ -1159,8 +1215,11 @@ def build_facet_pages(instruments, field, folder, title):
         OUTPUT_DIR / folder / "index.html",
         page(title, f'<main class="page"><section class="compact-hero"><h1>{escape(title)}</h1></section><div class="facet-grid">{facet_cards}</div></main>', meta_description=f"{browse_desc} — 探索來自各{field}的樂器，包含樂器介紹、聆賞示範與文化背景。世界聲音百科 by 隔壁織音人。"),
     )
+    facet_label = {"category": "主分類", "subcategory": "子分類", "country": "國家／地區"}.get(field, "")
     for name, items in grouped.items():
-        write(OUTPUT_DIR / folder / slugify(name) / "index.html", list_page(name, sorted(items, key=lambda item: item["title"])))
+        write(OUTPUT_DIR / folder / slugify(name) / "index.html", list_page(
+            name, sorted(items, key=lambda item: item["title"]),
+            label=f"{name}（{facet_label}）" if facet_label else None))
 
 
 # ─── 07_整體架構_v1_2 資料 ────────────────────────────────────
@@ -2121,7 +2180,10 @@ def build_404(instruments):
         <div class="instrument-grid">{cards}</div>
       </section>
     </main>"""
-    write(OUTPUT_DIR / "404.html", page("頁面找不到", body))
+    write(OUTPUT_DIR / "404.html", page(
+        "頁面找不到", body,
+        meta_description="找不到這個頁面。可以回首頁，或從樂器百科、聲音旅圖與工具重新找起。",
+        meta_extra='<meta name="robots" content="noindex">'))
 
 
 def build_sitemap(instruments):
@@ -2143,7 +2205,8 @@ def build_sitemap(instruments):
                  "/countries/", "/ensembles/", "/subcategories/", "/map/",
                  "/about/", "/theory/", "/vocal/", "/digitalmusic/",
                  "/sound-journey/", "/experience/", "/contact/",
-                 "/chord-detection/", "/tools/", "/tools/fretboard/", "/tools/lrc/", "/tools/daw/", "/tools/daw/guide/",
+                 "/chord-detection/", "/tools/", "/tools/fretboard/", "/tools/fretboard/guide/",
+                 "/chord-detection/guide/", "/tools/lrc/", "/tools/lrc/guide/", "/tools/daw/", "/tools/daw/guide/",
                  "/learn/", "/about/author/", "/about/works/", "/recruit/", "/mandolin/",
                  "/guitar/", "/ukulele/"]:
         urls.append(u(path))
@@ -3310,6 +3373,7 @@ def main():
     build_facet_pages(instruments, "subcategory", "subcategories", "子分類")
     build_facet_pages(instruments, "country", "countries", "國家/地區")
     build_404(instruments)
+    build_tool_guides()
     build_music_player()
     build_sitemap(instruments)
     build_robots(instruments)
