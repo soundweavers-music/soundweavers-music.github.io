@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 300" role="img" aria-label="同一個音，換五個母音">
+  <title>同一個音，換五個母音</title>
+  <rect width="540" height="300" fill="#fbf8f2"/>
+  <style>
+    .out   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
+    .lead  { fill: none; stroke: #2a2724; stroke-width: .9; }
+    .dot   { fill: #2a2724; }
+    .skin  { fill: #f1e0d6; stroke: #2a2724; stroke-width: 1.8; }
+    .muc   { fill: #e2a99b; stroke: #cb8f82; stroke-width: 1.2; }
+    .muc2  { fill: #cb8f82; stroke: #2a2724; stroke-width: 1.4; }
+    .cart  { fill: #d5d5c2; stroke: #2a2724; stroke-width: 1.5; }
+    .bone  { fill: #ece6d8; stroke: #2a2724; stroke-width: 1.4; }
+    .air   { fill: #d5e5e7; stroke: #2a2724; stroke-width: 1.3; }
+    .fold  { fill: #f6f3ea; stroke: #c9c1ac; stroke-width: 1.6; }
+    .musc  { fill: #cf8f88; stroke: #2a2724; stroke-width: 1.1; }
+    .hl    { fill: #b5734a; fill-opacity: .22; stroke: #b5734a; stroke-width: 1.7; }
+    .hl2   { fill: #7d9b76; fill-opacity: .22; stroke: #7d9b76; stroke-width: 1.7; }
+    .ink   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
+    .ave   { fill: none; stroke: #b5734a; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
+    .ave2  { fill: none; stroke: #7d9b76; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
+    .thin  { fill: none; stroke: #d8d0c2; stroke-width: 1.3; stroke-dasharray: 5 5; }
+    .lbl   { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; }
+    .lbl-s { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 12px; fill: #6f6a60; }
+    .lbl-b { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; font-weight: 700; }
+  </style>
+<text class="lbl-b" x="26" y="30">同一個音，換五個母音</text>
+  <circle class="hl" cx="60" cy="150" r="24"/>
+  <text class="lbl" x="60" y="156" text-anchor="middle">阿</text>
+  <text class="lbl-s" x="60" y="190" text-anchor="middle">最開</text>
+  <circle class="hl" cx="134" cy="150" r="24"/>
+  <text class="lbl" x="134" y="156" text-anchor="middle">欸</text>
+  <text class="lbl-s" x="134" y="190" text-anchor="middle">扁平</text>
+  <circle class="hl" cx="208" cy="150" r="24"/>
+  <text class="lbl" x="208" y="156" text-anchor="middle">衣</text>
+  <text class="lbl-s" x="208" y="190" text-anchor="middle">最扁</text>
+  <circle class="hl" cx="282" cy="150" r="24"/>
+  <text class="lbl" x="282" y="156" text-anchor="middle">喔</text>
+  <text class="lbl-s" x="282" y="190" text-anchor="middle">圓</text>
+  <circle class="hl" cx="356" cy="150" r="24"/>
+  <text class="lbl" x="356" y="156" text-anchor="middle">嗚</text>
+  <text class="lbl-s" x="356" y="190" text-anchor="middle">最圓</text>
+  <text class="lbl-s" x="60" y="236">先在同一個音上換，再換到旋律裡</text>
+  <text class="lbl-s" x="26" y="284">同一個音高，只換母音；感覺位置跟著跑就是對的</text>
+</svg>

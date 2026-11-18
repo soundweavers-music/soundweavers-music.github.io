@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 300" role="img" aria-label="先標強度，再開口">
+  <title>先標強度，再開口</title>
+  <rect width="540" height="300" fill="#fbf8f2"/>
+  <style>
+    .out   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
+    .lead  { fill: none; stroke: #2a2724; stroke-width: .9; }
+    .dot   { fill: #2a2724; }
+    .skin  { fill: #f1e0d6; stroke: #2a2724; stroke-width: 1.8; }
+    .muc   { fill: #e2a99b; stroke: #cb8f82; stroke-width: 1.2; }
+    .muc2  { fill: #cb8f82; stroke: #2a2724; stroke-width: 1.4; }
+    .cart  { fill: #d5d5c2; stroke: #2a2724; stroke-width: 1.5; }
+    .bone  { fill: #ece6d8; stroke: #2a2724; stroke-width: 1.4; }
+    .air   { fill: #d5e5e7; stroke: #2a2724; stroke-width: 1.3; }
+    .fold  { fill: #f6f3ea; stroke: #c9c1ac; stroke-width: 1.6; }
+    .musc  { fill: #cf8f88; stroke: #2a2724; stroke-width: 1.1; }
+    .hl    { fill: #b5734a; fill-opacity: .22; stroke: #b5734a; stroke-width: 1.7; }
+    .hl2   { fill: #7d9b76; fill-opacity: .22; stroke: #7d9b76; stroke-width: 1.7; }
+    .ink   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
+    .ave   { fill: none; stroke: #b5734a; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
+    .ave2  { fill: none; stroke: #7d9b76; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
+    .thin  { fill: none; stroke: #d8d0c2; stroke-width: 1.3; stroke-dasharray: 5 5; }
+    .lbl   { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; }
+    .lbl-s { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 12px; fill: #6f6a60; }
+    .lbl-b { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; font-weight: 700; }
+  </style>
+<text class="lbl-b" x="26" y="30">先標強度，再開口</text>
+  <rect class="grid" x="50" y="70" width="360" height="130" rx="8"/>
+  <rect class="hl" x="80" y="151" width="52" height="45" rx="6"/>
+  <text class="lbl-s" x="106" y="214" text-anchor="middle">主歌</text>
+  <text class="lbl" x="106" y="143" text-anchor="middle">3</text>
+  <rect class="hl" x="170" y="121" width="52" height="75" rx="6"/>
+  <text class="lbl-s" x="196" y="214" text-anchor="middle">預副歌</text>
+  <text class="lbl" x="196" y="113" text-anchor="middle">5</text>
+  <rect class="hl" x="260" y="76" width="52" height="120" rx="6"/>
+  <text class="lbl-s" x="286" y="214" text-anchor="middle">副歌</text>
+  <text class="lbl" x="286" y="68" text-anchor="middle">8</text>
+  <rect class="hl" x="350" y="136" width="52" height="60" rx="6"/>
+  <text class="lbl-s" x="376" y="214" text-anchor="middle">橋段</text>
+  <text class="lbl" x="376" y="128" text-anchor="middle">4</text>
+  <text class="lbl-s" x="50" y="250">全程 8 分等於沒有曲線；後面一定要比前面高</text>
+  <text class="lbl-s" x="26" y="284">先標強度再唱：0–8 分，每段一個數字</text>
+</svg>

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 300" role="img" aria-label="換氣點畫在句子之間">
+  <title>換氣點畫在句子之間</title>
+  <rect width="540" height="300" fill="#fbf8f2"/>
+  <style>
+    .out   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
+    .lead  { fill: none; stroke: #2a2724; stroke-width: .9; }
+    .dot   { fill: #2a2724; }
+    .skin  { fill: #f1e0d6; stroke: #2a2724; stroke-width: 1.8; }
+    .muc   { fill: #e2a99b; stroke: #cb8f82; stroke-width: 1.2; }
+    .muc2  { fill: #cb8f82; stroke: #2a2724; stroke-width: 1.4; }
+    .cart  { fill: #d5d5c2; stroke: #2a2724; stroke-width: 1.5; }
+    .bone  { fill: #ece6d8; stroke: #2a2724; stroke-width: 1.4; }
+    .air   { fill: #d5e5e7; stroke: #2a2724; stroke-width: 1.3; }
+    .fold  { fill: #f6f3ea; stroke: #c9c1ac; stroke-width: 1.6; }
+    .musc  { fill: #cf8f88; stroke: #2a2724; stroke-width: 1.1; }
+    .hl    { fill: #b5734a; fill-opacity: .22; stroke: #b5734a; stroke-width: 1.7; }
+    .hl2   { fill: #7d9b76; fill-opacity: .22; stroke: #7d9b76; stroke-width: 1.7; }
+    .ink   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
+    .ave   { fill: none; stroke: #b5734a; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
+    .ave2  { fill: none; stroke: #7d9b76; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
+    .thin  { fill: none; stroke: #d8d0c2; stroke-width: 1.3; stroke-dasharray: 5 5; }
+    .lbl   { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; }
+    .lbl-s { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 12px; fill: #6f6a60; }
+    .lbl-b { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; font-weight: 700; }
+  </style>
+<text class="lbl-b" x="26" y="30">換氣點畫在句子之間</text>
+  <rect class="grid" x="50" y="70" width="360" height="32" rx="8"/>
+  <text class="lbl-s" x="64" y="92">第一句到這裡</text>
+  <path class="ink" d="M208 64 L208 110"/>
+  <path class="ave" d="M214 60 L248 60"/><path d="M248 60 L238.9 64.1 L238.9 55.9 Z" fill="#b5734a" stroke="none"/>
+  <rect class="grid" x="50" y="124" width="360" height="32" rx="8"/>
+  <text class="lbl-s" x="64" y="146">第二句再長一點</text>
+  <path class="ink" d="M223 118 L223 164"/>
+  <path class="ave" d="M229 114 L263 114"/><path d="M263 114 L253.9 118.1 L253.9 109.9 Z" fill="#b5734a" stroke="none"/>
+  <rect class="grid" x="50" y="178" width="360" height="32" rx="8"/>
+  <text class="lbl-s" x="64" y="200">第三句</text>
+  <path class="ink" d="M163 172 L163 218"/>
+  <path class="ave" d="M169 168 L203 168"/><path d="M203 168 L193.9 172.1 L193.9 163.9 Z" fill="#b5734a" stroke="none"/>
+  <text class="lbl-s" x="50" y="250">每句之間留一個換氣點，情緒反而更滿</text>
+  <text class="lbl-s" x="26" y="284">換氣點畫在句子之間，而不是氣不夠才換</text>
+</svg>

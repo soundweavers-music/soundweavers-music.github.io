@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 300" role="img" aria-label="先量音域，再選歌">
+  <title>先量音域，再選歌</title>
+  <rect width="540" height="300" fill="#fbf8f2"/>
+  <style>
+    .out   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
+    .lead  { fill: none; stroke: #2a2724; stroke-width: .9; }
+    .dot   { fill: #2a2724; }
+    .skin  { fill: #f1e0d6; stroke: #2a2724; stroke-width: 1.8; }
+    .muc   { fill: #e2a99b; stroke: #cb8f82; stroke-width: 1.2; }
+    .muc2  { fill: #cb8f82; stroke: #2a2724; stroke-width: 1.4; }
+    .cart  { fill: #d5d5c2; stroke: #2a2724; stroke-width: 1.5; }
+    .bone  { fill: #ece6d8; stroke: #2a2724; stroke-width: 1.4; }
+    .air   { fill: #d5e5e7; stroke: #2a2724; stroke-width: 1.3; }
+    .fold  { fill: #f6f3ea; stroke: #c9c1ac; stroke-width: 1.6; }
+    .musc  { fill: #cf8f88; stroke: #2a2724; stroke-width: 1.1; }
+    .hl    { fill: #b5734a; fill-opacity: .22; stroke: #b5734a; stroke-width: 1.7; }
+    .hl2   { fill: #7d9b76; fill-opacity: .22; stroke: #7d9b76; stroke-width: 1.7; }
+    .ink   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
+    .ave   { fill: none; stroke: #b5734a; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
+    .ave2  { fill: none; stroke: #7d9b76; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
+    .thin  { fill: none; stroke: #d8d0c2; stroke-width: 1.3; stroke-dasharray: 5 5; }
+    .lbl   { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; }
+    .lbl-s { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 12px; fill: #6f6a60; }
+    .lbl-b { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; font-weight: 700; }
+  </style>
+<text class="lbl-b" x="26" y="30">先量音域，再選歌</text>
+  <path class="grid" d="M50 200 L420 200"/>
+  <path class="ink" d="M70 200 L70 178"/>
+  <path class="ink" d="M100 200 L100 178"/>
+  <path class="ink" d="M130 200 L130 178"/>
+  <path class="ink" d="M160 200 L160 178"/>
+  <path class="ink" d="M190 200 L190 178"/>
+  <path class="ink" d="M220 200 L220 178"/>
+  <path class="ink" d="M250 200 L250 178"/>
+  <path class="ink" d="M280 200 L280 178"/>
+  <path class="ink" d="M310 200 L310 178"/>
+  <path class="ink" d="M340 200 L340 178"/>
+  <path class="ink" d="M370 200 L370 178"/>
+  <path class="ink" d="M400 200 L400 178"/>
+  <rect class="hl2" x="130" y="150" width="150" height="26" rx="8"/>
+  <rect class="hl" x="290" y="150" width="80" height="26" rx="8"/>
+  <text class="lbl" x="205" y="168" text-anchor="middle">舒適區</text>
+  <text class="lbl" x="330" y="168" text-anchor="middle">極限區</text>
+  <text class="lbl-s" x="70" y="240">把最低與最高舒服唱出的音記下來</text>
+  <text class="lbl-s" x="26" y="284">先量再練：知道自己的舒適區在哪，選歌才不會硬拚</text>
+</svg>

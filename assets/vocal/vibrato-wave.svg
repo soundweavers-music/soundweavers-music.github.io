@@ -2,16 +2,33 @@
   <title>直音、顫音與滑音的波形</title>
   <rect width="600" height="350" fill="#fbf8f2"/>
   <style>
-    .ink { fill: none; stroke: #2b2a26; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
-    .thin { fill: none; stroke: #8a8578; stroke-width: 1.4; stroke-dasharray: 5 5; }
+    .out   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
+    .lead  { fill: none; stroke: #2a2724; stroke-width: .9; }
+    .dot   { fill: #2a2724; }
+    .skin  { fill: #f1e0d6; stroke: #2a2724; stroke-width: 1.8; }
+    .muc   { fill: #e2a99b; stroke: #cb8f82; stroke-width: 1.2; }
+    .muc2  { fill: #cb8f82; stroke: #2a2724; stroke-width: 1.4; }
+    .cart  { fill: #d5d5c2; stroke: #2a2724; stroke-width: 1.5; }
+    .bone  { fill: #ece6d8; stroke: #2a2724; stroke-width: 1.4; }
+    .air   { fill: #d5e5e7; stroke: #2a2724; stroke-width: 1.3; }
+    .fold  { fill: #f6f3ea; stroke: #c9c1ac; stroke-width: 1.6; }
+    .musc  { fill: #cf8f88; stroke: #2a2724; stroke-width: 1.1; }
+    .hl    { fill: #b5734a; fill-opacity: .22; stroke: #b5734a; stroke-width: 1.7; }
+    .hl2   { fill: #7d9b76; fill-opacity: .22; stroke: #7d9b76; stroke-width: 1.7; }
+    .ink   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
+    .ave   { fill: none; stroke: #b5734a; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
+    .ave2  { fill: none; stroke: #7d9b76; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
+    .thin  { fill: none; stroke: #d8d0c2; stroke-width: 1.3; stroke-dasharray: 5 5; }
+    .lbl   { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; }
+    .lbl-s { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 12px; fill: #6f6a60; }
+    .lbl-b { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; font-weight: 700; }
+
     .grid { fill: none; stroke: #d8d0c2; stroke-width: 1.2; }
     .fill { fill: #b5734a; opacity: .18; stroke: #b5734a; stroke-width: 1.8; }
     .fill2 { fill: #7d9b76; opacity: .18; stroke: #7d9b76; stroke-width: 1.8; }
     .solid { fill: #b5734a; opacity: .85; }
     .solid2 { fill: #7d9b76; opacity: .85; }
-    .lbl { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 15px; fill: #2b2a26; }
-    .lbl-s { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 12.5px; fill: #8a8578; }
-    .lbl-b { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 15px; fill: #2b2a26; font-weight: 700; }
+    .lbl-s { font-size: 12.5px; }
   </style>
 <text class="lbl-b" x="40" y="40">三種裝飾音，三種波形</text>
   <text class="lbl-b" x="50" y="76">直音</text>

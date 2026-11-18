@@ -22,33 +22,29 @@ import vocal_anatomy as VOC  # noqa: E402  (reusable anatomical bases)
 BASE_DIR = Path(__file__).resolve().parent.parent
 OUT = BASE_DIR / "assets" / "vocal"
 
-INK = "#2b2a26"
-MUTED = "#8a8578"
-ACCENT = "#b5734a"
-ACCENT2 = "#7d9b76"
-PAPER = "#fbf8f2"
-LINE = "#d8d0c2"
+INK = VOC.INK
+MUTED = "#6f6a60"
+ACCENT = VOC.ACCENT
+ACCENT2 = VOC.ACCENT2
+PAPER = VOC.PAPER
+LINE = VOC.RULE
 
 # SVGs are served through <img>, so the page's @font-face does not reach them.
 # Fall back through what Windows/macOS ship for Traditional Chinese.
-FONT = "font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif"
+FONT = "font-family: 'Noto Sans TC', 'PingFang TC', system-ui, sans-serif"
 
 
 def svg(w: int, h: int, body: str, title: str) -> str:
     return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" role="img" aria-label="{title}">
   <title>{title}</title>
   <rect width="{w}" height="{h}" fill="{PAPER}"/>
-  <style>
-    .ink {{ fill: none; stroke: {INK}; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }}
-    .thin {{ fill: none; stroke: {MUTED}; stroke-width: 1.4; stroke-dasharray: 5 5; }}
+  <style>{VOC.STYLE}
     .grid {{ fill: none; stroke: {LINE}; stroke-width: 1.2; }}
     .fill {{ fill: {ACCENT}; opacity: .18; stroke: {ACCENT}; stroke-width: 1.8; }}
     .fill2 {{ fill: {ACCENT2}; opacity: .18; stroke: {ACCENT2}; stroke-width: 1.8; }}
     .solid {{ fill: {ACCENT}; opacity: .85; }}
     .solid2 {{ fill: {ACCENT2}; opacity: .85; }}
-    .lbl {{ {FONT}; font-size: 15px; fill: {INK}; }}
-    .lbl-s {{ {FONT}; font-size: 12.5px; fill: {MUTED}; }}
-    .lbl-b {{ {FONT}; font-size: 15px; fill: {INK}; font-weight: 700; }}
+    .lbl-s {{ font-size: 12.5px; }}
   </style>
 {body}
 </svg>
@@ -139,35 +135,31 @@ def posture_side() -> str:
 
 def diaphragm_support() -> str:
     """Support = the abdominal wall stays out while the air leaves."""
-    b = [T(40, 40, "支撐不是用力縮肚子，是「不讓它塌回去」", "lbl-b")]
-    for x, head, bar, note, bulge in [
-        (40, "吸氣", "外擴", "腹壁往四個方向撐開", 1),
-        (230, "發聲中", "撐住", "氣出去了，腹壁仍然頂著", 1),
-        (420, "洩氣", "塌陷", "肚子一縮，氣就整口噴完", -1),
+    b = [T(30, 34, "支撐不是用力縮肚子，是「不讓它塌回去」", "lbl-b")]
+    for x, head, bar, note, bulge, mode in [
+        (30, "吸氣", "外擴", "腹壁往四個方向撐開", 10, "out"),
+        (240, "發聲中", "撐住", "氣出去了，腹壁仍然頂著", 10, "hold"),
+        (450, "洩氣", "塌陷", "肚子一縮，氣就整口噴完", -16, "collapse"),
     ]:
-        b.append(panel_head(x + 60, 84, head))
-        cx = x + 82
-        waist = 34 + (10 if bulge > 0 else -12)
-        # front-view torso: shoulders → waist → hips
-        b.append(f'<path class="ink" d="M{cx - 46} 100 C{cx - 54} 140 {cx - waist - 8} 190 '
-                 f'{cx - waist} 246 C{cx - 34} 280 {cx + 34} 280 {cx + waist} 246 '
-                 f'C{cx + waist + 8} 190 {cx + 54} 140 {cx + 46} 100 Z"/>')
-        b.append(E(cx, 238, waist - 4, 20, "fill"))
-        if bar == "外擴":
-            b.append(A(cx, 238, cx - 62, 238))
-            b.append(A(cx, 238, cx + 62, 238))
-            b.append(A(cx, 238, cx, 292))
-        elif bar == "撐住":
-            b.append(A(cx - 62, 238, cx - 18, 238))
-            b.append(A(cx + 62, 238, cx + 18, 238))
-            b.append(T(cx, 292, "頂著", "lbl-s", "middle"))
+        b.append(VOC.T(x + 70, 78, head, "lbl-b", "middle"))
+        b.append(f'<g transform="translate({x},86) scale(0.6)">{VOC.torso(bulge=bulge)}</g>')
+        cx, cy = x + 108, 300
+        if mode == "out":
+            b.append(VOC.arrow(cx, cy, cx - 44, cy))
+            b.append(VOC.arrow(cx, cy, cx + 44, cy))
+            b.append(VOC.arrow(cx, cy + 6, cx, cy + 42))
+        elif mode == "hold":
+            b.append(VOC.arrow(cx - 46, cy, cx - 14, cy))
+            b.append(VOC.arrow(cx + 46, cy, cx + 14, cy))
+            b.append(VOC.T(cx, cy + 42, "頂著", "lbl-s", "middle"))
         else:
-            b.append(A(cx - 62, 238, cx - 6, 238))
-            b.append(A(cx + 62, 238, cx + 6, 238))
-            b.append(A(cx, 296, cx, 262))
-        b.append(T(cx, 314, bar, "lbl-b", "middle"))
-        b.append(T(cx, 334, note, "lbl-s", "middle"))
-    return svg(600, 360, "\n  ".join(b), "丹田支撐：吸氣時腹壁外撐，發聲時保持撐住")
+            b.append(VOC.arrow(cx - 46, cy, cx - 8, cy))
+            b.append(VOC.arrow(cx + 46, cy, cx + 8, cy))
+            b.append(VOC.arrow(cx, cy + 46, cx, cy + 14))
+        b.append(VOC.T(cx, 366, bar, "lbl-b", "middle"))
+        b.append(VOC.T(cx, 388, note, "lbl-s", "middle"))
+    b.append(T(30, 424, "橫膈膜下降時腹壁自然外擴；發聲時只要不讓它塌回去，氣就會穩", "lbl-s"))
+    return svg(640, 444, "\n  ".join(b), "丹田支撐：吸氣時腹壁外擴，發聲時保持撐住")
 
 
 def breath_budget() -> str:
