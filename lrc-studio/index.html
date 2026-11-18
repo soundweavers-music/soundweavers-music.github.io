@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="referrer" content="no-referrer-when-downgrade">
-<title>LRC 動態歌詞工作室｜世界聲音百科</title>
+<title>LRC 動態歌詞工作室｜世界聲音</title>
 <link rel="stylesheet" href="../assets/site.css">
 <link rel="stylesheet" href="../assets/site-refresh.css">
 <style>
@@ -364,7 +364,7 @@
       <label>標題 [ti]<input id="meta-ti" type="text" placeholder="曲名"></label>
       <label>演出者 [ar]<input id="meta-ar" type="text" placeholder="歌手／樂團"></label>
       <label>專輯 [al]<input id="meta-al" type="text" placeholder="專輯（可留空）"></label>
-      <label>製作者 [by]<input id="meta-by" type="text" value="世界聲音百科"></label>
+      <label>製作者 [by]<input id="meta-by" type="text" value="世界聲音"></label>
     </div>
     <pre id="lrc-preview" class="lrc-preview">（還沒有時間碼）</pre>
     <div class="lrc-export-actions">
@@ -440,7 +440,7 @@
     vocalStart: null, // 手動指定的人聲起點（秒）；null = 交給偵測判斷
     vadVocals: null,  // 模型判定的人聲區間；null = 還沒跑或沒勾選
     asrTimes: null,   // 語音辨識推出的每行時間；null = 沒跑
-    meta: { ti: "", ar: "", al: "", by: "世界聲音百科" }
+    meta: { ti: "", ar: "", al: "", by: "世界聲音" }
   };
 
   // 能量包絡的時間解析度：一格 10ms
@@ -1896,7 +1896,7 @@
     if (state.meta.ar) head.push("[ar:" + state.meta.ar + "]");
     if (state.meta.al) head.push("[al:" + state.meta.al + "]");
     if (state.meta.by) head.push("[by:" + state.meta.by + "]");
-    head.push("[re:世界聲音百科 LRC 工作室]");
+    head.push("[re:世界聲音 LRC 工作室]");
 
     var body = timed.map(function (l) { return "[" + lrcTime(l.time) + "]" + l.text; });
     return head.join("\n") + (body.length ? "\n\n" + body.join("\n") : "") + "\n";

@@ -14,7 +14,7 @@ ensemble_links: 管弦樂團
 verification_status: 已查證
 issue_note: 分類查證：弦鳴（322-5）；依據：來源一：Plucked string instrument；來源二：322–5 Composite chordophon
 source_url: https://soundweavers-music.github.io/instruments/harp/
-image: https://upload.wikimedia.org/wikipedia/commons/4/4e/Harp.png
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Salvi_harp_Diana.jpg/500px-Salvi_harp_Diana.jpg
 youtube_ids: dCvEgqePl84 iCbQuajzShs
 ---
 

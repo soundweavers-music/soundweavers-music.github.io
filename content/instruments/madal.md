@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：膜鳴（211.232）；依據：來源一分類標籤 Membranophones；來源五描述為 animal skin heads 的鼓
 source_url: https://soundweavers-music.github.io/instruments/madal/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Madal.png/500px-Madal.png
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Madal_nepal_krish.jpg/500px-Madal_nepal_krish.jpg
 youtube_ids: _bvXI4T964w dW7TKfe-6t0
 ---
 

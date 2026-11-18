@@ -14,7 +14,6 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：體鳴；依據：來源一分類標籤：Comb lamellophones, Idiophone instrument stubs
 source_url: https://soundweavers-music.github.io/instruments/space-harp/
-image: https://upload.wikimedia.org/wikipedia/commons/4/4e/Harp.png
 youtube_ids: RiOkbM1fGrM A1t09tkeXgc
 ---
 
