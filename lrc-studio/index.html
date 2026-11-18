@@ -132,6 +132,10 @@
 .lrc-field span { display: flex; justify-content: space-between; gap: 8px; }
 .lrc-field output { color: var(--ink2); font-variant-numeric: tabular-nums; }
 .lrc-field input[type="range"] { width: 100%; accent-color: var(--accent); }
+/* 模型人聲偵測：勾選框與說明排在同一行 */
+.lrc-field--check { display: flex; align-items: flex-start; gap: 8px; cursor: pointer; }
+.lrc-field--check input { margin-top: 2px; accent-color: var(--accent); }
+.lrc-field--check span { display: block; justify-content: flex-start; line-height: 1.4; }
 
 .lrc-status { color: var(--muted); font-size: 12px; line-height: 1.5; margin: 0; }
 .lrc-status.is-warn { color: #a4432f; }
@@ -301,7 +305,14 @@
             <input id="lrc-gap" type="range" min="15" max="120" step="5" value="30">
           </label>
           <button type="button" id="lrc-analyze" class="lrc-btn" disabled>偵測並填入時間</button>
-          <p id="lrc-detect-status" class="lrc-status">先載入音檔。偵測會先用音量起伏切出樂句，再按每行的發音字數分配時間；中括號的 [前奏]、[間奏] 這類標記會跳過不排歌詞。全部在本機計算。</p>
+          <button type="button" id="lrc-vocal-start" class="lrc-btn lrc-btn--ghost" title="播到歌手開口的地方按下去，前面的前奏就不會排到歌詞">
+            設人聲起點（用目前播放位置）
+          </button>
+          <label class="lrc-field lrc-field--check">
+            <input type="checkbox" id="lrc-vad">
+            <span>用模型判斷人聲（比較準，第一次勾選要下載約 13 MB；不勾就只用音量起伏推測）</span>
+          </label>
+          <p id="lrc-detect-status" class="lrc-status">先載入音檔。偵測會先用音量起伏切出樂句，再按每行的發音字數分配時間；中括號的 [前奏]、[間奏] 這類標記會跳過不排歌詞。前奏沒抓準的話，播到開口處按「設人聲起點」再偵測一次。全部在本機計算。</p>
         </div>
       </details>
     </section>
@@ -418,6 +429,8 @@
     env: null,        // 每 10ms 一個 RMS
     segments: [],     // 偵測到的樂句（會排歌詞的）
     instrSegments: [],// 判定為間奏、不排歌詞的段落
+    vocalStart: null, // 手動指定的人聲起點（秒）；null = 交給偵測判斷
+    vadVocals: null,  // 模型判定的人聲區間；null = 還沒跑或沒勾選
     meta: { ti: "", ar: "", al: "", by: "世界聲音百科" }
   };
 
@@ -442,6 +455,7 @@
     sens: $("#lrc-sens"), sensOut: $("#lrc-sens-out"),
     gap: $("#lrc-gap"), gapOut: $("#lrc-gap-out"),
     analyze: $("#lrc-analyze"), detectStatus: $("#lrc-detect-status"),
+    setVocalStart: $("#lrc-vocal-start"), vad: $("#lrc-vad"),
     pasteWrap: $("#lrc-paste-wrap"), paste: $("#lrc-paste"),
     load: $("#lrc-load"), tidy: $("#lrc-tidy"),
     closePaste: $("#lrc-close-paste"), edit: $("#lrc-edit"),
@@ -645,6 +659,11 @@
     state.buffer = null;
     state.env = null;
     state.segments = [];
+    state.instrSegments = [];
+    state.vocalStart = null;   // 換歌就忘記上一首手動標的起點
+    state.vadVocals = null;    // 模型判斷的結果也不能沿用
+    el.vad.checked = false;
+    el.setVocalStart.textContent = "設人聲起點（用目前播放位置）";
     el.analyze.disabled = true;
     el.waveEmpty.hidden = false;
     setDetectStatus("解碼音檔中…");
@@ -817,6 +836,21 @@
       var px = (line.time / dur) * w;
       ctx.fillRect(px - 0.5, h - 5, 2, 5);
     });
+
+    // 手動設定的人聲起點（綠虛線）
+    if (state.vocalStart != null) {
+      var vx = Math.round((state.vocalStart / dur) * w) + 0.5;
+      ctx.strokeStyle = "#2f7d32";
+      ctx.globalAlpha = 0.9;
+      ctx.lineWidth = 2;
+      ctx.setLineDash([4, 3]);
+      ctx.beginPath();
+      ctx.moveTo(vx, 0);
+      ctx.lineTo(vx, h);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.globalAlpha = 1;
+    }
   }
 
   function waveTimeAt(clientX) {
@@ -1217,6 +1251,135 @@
     };
   }
 
+  /* ── 模型人聲偵測（ONNX Runtime Web + Silero VAD，選用）───────
+     只有使用者勾選時才會下載：onnxruntime-web 的 wasm（約 10.6 MB）
+     與 Silero VAD 模型（約 2.1 MB）。沒勾選就完全不連外。
+     用的是語音活動偵測（VAD）模型，對「有人在唱」比音量起伏可靠，
+     但它不是專門為唱歌訓練的，混音很滿的段落仍可能判斷不準。      */
+
+  var VAD_DIR = new URL("../../assets/vendor/vad/", document.baseURI).href;
+  var VAD_MODEL = "silero-vad.onnx";
+  var VAD_RATE = 16000;
+  var VAD_CHUNK = 512;                      // Silero VAD 固定的 32ms 音框
+  var vadLoading = null;
+
+  function nextTick() {
+    return new Promise(function (resolve) { setTimeout(resolve, 0); });
+  }
+
+  function loadScriptOnce(src) {
+    return new Promise(function (resolve, reject) {
+      var s = document.createElement("script");
+      s.src = src;
+      s.onload = function () { resolve(); };
+      s.onerror = function () { reject(new Error("載入 " + src + " 失敗")); };
+      document.head.appendChild(s);
+    });
+  }
+
+  function ensureOrt() {
+    if (window.ort) return Promise.resolve(window.ort);
+    if (vadLoading) return vadLoading;
+    vadLoading = loadScriptOnce(VAD_DIR + "ort.wasm.min.js").then(function () {
+      if (!window.ort) throw new Error("onnxruntime-web 沒有正確載入");
+      window.ort.env.wasm.wasmPaths = VAD_DIR;
+      window.ort.env.wasm.numThreads = 1;   // GitHub Pages 沒有 COOP/COEP，只能單執行緒
+      window.ort.env.wasm.proxy = false;
+      return window.ort;
+    });
+    return vadLoading;
+  }
+
+  // 降混成單聲道並線性內插到 16 kHz（VAD 只需要這個取樣率）
+  function resampleMono(buffer, targetRate) {
+    var left = buffer.getChannelData(0);
+    var right = buffer.numberOfChannels > 1 ? buffer.getChannelData(1) : null;
+    var ratio = buffer.sampleRate / targetRate;
+    var n = Math.floor(buffer.length / ratio);
+    var out = new Float32Array(n);
+    for (var i = 0; i < n; i++) {
+      var pos = i * ratio;
+      var i0 = Math.floor(pos);
+      var i1 = Math.min(buffer.length - 1, i0 + 1);
+      var f = pos - i0;
+      var a = left[i0] * (1 - f) + left[i1] * f;
+      var b = right ? (right[i0] * (1 - f) + right[i1] * f) : a;
+      out[i] = (a + b) * 0.5;
+    }
+    return out;
+  }
+
+  async function runVad(pcm, onProgress) {
+    var ort = await ensureOrt();
+    var session = await ort.InferenceSession.create(VAD_DIR + VAD_MODEL, {
+      executionProviders: ["wasm"]
+    });
+
+    var total = Math.floor(pcm.length / VAD_CHUNK);
+    var probs = new Float32Array(total);
+    var state = new ort.Tensor("float32", new Float32Array(2 * 128), [2, 1, 128]);
+    var sr = new ort.Tensor("int64", BigInt64Array.from([BigInt(VAD_RATE)]), []);
+
+    var inName = session.inputNames[0];
+    var stateName = session.inputNames[1];
+    var srName = session.inputNames[2];
+    var outName = session.outputNames[0];
+    var nextName = session.outputNames[1];
+
+    for (var i = 0; i < total; i++) {
+      var chunk = new Float32Array(VAD_CHUNK);
+      chunk.set(pcm.subarray(i * VAD_CHUNK, (i + 1) * VAD_CHUNK));
+      var feeds = {};
+      feeds[inName] = new ort.Tensor("float32", chunk, [1, VAD_CHUNK]);
+      feeds[stateName] = state;
+      feeds[srName] = sr;
+
+      var res = await session.run(feeds);
+      probs[i] = res[outName].data[0];
+      state = res[nextName];
+
+      if (i % 200 === 0) {
+        if (onProgress) onProgress(i / Math.max(1, total));
+        await nextTick();
+      }
+    }
+    if (onProgress) onProgress(1);
+    return probs;
+  }
+
+  // 機率曲線 → 有人聲的區間。進入用高門檻、離開用低門檻，避免抖動。
+  function regionsFromProbs(probs, hopSec) {
+    var HI = 0.5, LO = 0.35;
+    var regions = [];
+    var on = false, start = 0, lastAbove = 0;
+
+    for (var i = 0; i < probs.length; i++) {
+      var t = i * hopSec;
+      if (!on) {
+        if (probs[i] >= HI) { on = true; start = t; lastAbove = t; }
+      } else if (probs[i] >= LO) {
+        lastAbove = t;
+      } else if (t - lastAbove >= 0.35) {
+        regions.push({ start: start, end: t });
+        on = false;
+      }
+    }
+    if (on) regions.push({ start: start, end: probs.length * hopSec });
+
+    return regions.filter(function (r) { return r.end - r.start >= 0.4; });
+  }
+
+  function prepareVad() {
+    return Promise.resolve().then(function () {
+      var pcm = resampleMono(state.buffer, VAD_RATE);
+      return runVad(pcm, function (p) {
+        setDetectStatus("模型判斷人聲中… " + Math.round(p * 100) + "%", "analyzing");
+      }).then(function (probs) {
+        return regionsFromProbs(probs, VAD_CHUNK / VAD_RATE);
+      });
+    });
+  }
+
   function analyzeAndFill() {
     if (!state.env) { setDetectStatus("音檔還沒解碼完成。", "warn"); return; }
     if (!state.lines.length) { setDetectStatus("先把歌詞載入，偵測結果才有地方放。", "warn"); return; }
@@ -1229,10 +1392,39 @@
     var rise = onsetRise(db);
     var duration = state.buffer ? state.buffer.duration : state.env.length * HOP_SEC;
 
-    // 先切粗區塊，再從中挑出「有字在唱」的部分
+    // 有人聲的段落：勾了模型就用模型的判斷，否則用音量起伏推測
     var blocks = detectSegments(state.env, { sensitivity: sens, minGap: minGap });
-    var split = refineVocal(blocks, db);
-    var result = assignTimes(state.lines, split.vocals, split.holes, rise, duration);
+    var vocals, holes;
+
+    if (state.vadVocals && state.vadVocals.length) {
+      vocals = state.vadVocals.map(function (r) { return { start: r.start, end: r.end }; });
+      holes = [];
+      var gapCursor = 0;
+      for (var vi = 0; vi < vocals.length; vi++) {
+        if (vocals[vi].start - gapCursor > 0.6) {
+          holes.push({ start: gapCursor, end: vocals[vi].start });
+        }
+        gapCursor = vocals[vi].end;
+      }
+      if ((duration || 0) - gapCursor > 0.6) holes.push({ start: gapCursor, end: duration });
+    } else {
+      var split = refineVocal(blocks, db);
+      vocals = split.vocals;
+      holes = split.holes;
+    }
+
+    // 手動指定的人聲起點優先：前面的段落一律不排歌詞
+    if (state.vocalStart != null) {
+      var floorT = state.vocalStart;
+      var kept = [];
+      for (var v1 = 0; v1 < vocals.length; v1++) {
+        if (vocals[v1].end <= floorT + 0.15) continue;
+        kept.push({ start: Math.max(vocals[v1].start, floorT), end: vocals[v1].end });
+      }
+      if (kept.length) vocals = kept;
+    }
+
+    var result = assignTimes(state.lines, vocals, holes, rise, duration);
     if (result.error) { setDetectStatus(result.error, "warn"); return; }
 
     state.segments = result.sung;
@@ -1251,7 +1443,10 @@
     var msg = "切出 " + blocks.length + " 段，其中 " + result.sung.length + " 段判定有人聲";
     if (result.instr.length) msg += "、" + result.instr.length + " 段沒人唱";
     msg += "。";
-    if (result.sung.length) msg += "人聲從 " + lrcTime(result.sung[0].start) + " 開始，";
+    if (result.sung.length) {
+      msg += (state.vocalStart != null ? "人聲起點（手動）" : "人聲起點（自動）") +
+        " " + lrcTime(result.sung[0].start) + "，";
+    }
     setDetectStatus(msg + "歌詞按發音字數分配，邊聽邊微調。", "ok");
     toast("已填入 " + state.lines.length + " 行時間");
   }
@@ -1506,6 +1701,57 @@
       el.gapOut.textContent = (parseInt(el.gap.value, 10) / 100).toFixed(2) + " 秒";
     });
     el.analyze.addEventListener("click", analyzeAndFill);
+
+    // 模型人聲偵測（選用）：勾了才下載 wasm 與模型
+    el.vad.addEventListener("change", function () {
+      if (!el.vad.checked) {
+        state.vadVocals = null;
+        setDetectStatus("已改回用音量起伏推測。", "");
+        drawWave();
+        return;
+      }
+      if (!state.buffer) {
+        el.vad.checked = false;
+        toast("先選擇音檔");
+        return;
+      }
+      setDetectStatus("準備模型（第一次要下載約 13 MB，之後會快取）…", "analyzing");
+      prepareVad().then(function (regions) {
+        state.vadVocals = regions;
+        if (!regions.length) {
+          setDetectStatus("模型沒有找到清楚的人聲段落，可以改用下面的「設人聲起點」。", "warn");
+          return;
+        }
+        var cover = 0;
+        for (var r = 0; r < regions.length; r++) cover += regions[r].end - regions[r].start;
+        var pct = Math.round((cover / (state.buffer.duration || 1)) * 100);
+        setDetectStatus("模型判定有人聲 " + regions.length + " 段，佔全曲 " + pct +
+          "%，從 " + lrcTime(regions[0].start) + " 開始。", "ok");
+        if (state.lines.length) analyzeAndFill();
+        else drawWave();
+      }).catch(function (err) {
+        console.error(err);
+        el.vad.checked = false;
+        state.vadVocals = null;
+        setDetectStatus("模型載入失敗：" + (err && err.message ? err.message : err), "warn");
+      });
+    });
+
+    // 手動人聲起點：播到歌手開口的地方按一下，前奏就不會被排到歌詞
+    el.setVocalStart.addEventListener("click", function () {
+      if (!audio.src) { toast("先選擇音檔"); return; }
+      if (state.vocalStart != null) {
+        state.vocalStart = null;
+        el.setVocalStart.textContent = "設人聲起點（用目前播放位置）";
+        toast("已改回自動判斷");
+      } else {
+        state.vocalStart = round2(audio.currentTime || 0);
+        el.setVocalStart.textContent = "重設人聲起點（目前 " + lrcTime(state.vocalStart) + "）";
+        toast("人聲起點 " + lrcTime(state.vocalStart));
+      }
+      if (state.env && state.lines.length) analyzeAndFill();
+      else drawWave();
+    });
 
     // 歌詞
     el.load.addEventListener("click", loadLyrics);

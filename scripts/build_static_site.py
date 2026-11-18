@@ -2932,13 +2932,15 @@ def build_lrc_tool():
     scripts = re.findall(r'<script>(.*?)</script>', raw, re.DOTALL)
     inline_js = scripts[-1].strip() if scripts else ""
 
-    # <audio> plays a local file through an object URL, so media-src needs blob:
+    # <audio> plays a local file through an object URL, so media-src needs blob:.
+    # 'wasm-unsafe-eval' 是編譯 WebAssembly 必需的（選用的人聲模型），
+    # 它只允許編譯 wasm，不會像 'unsafe-eval' 那樣開放 JS eval。
     lrc_csp = (
         "default-src 'self'; "
         "img-src 'self' https: data: blob:; "
         "media-src 'self' blob:; "
         "style-src 'self' 'unsafe-inline'; "
-        "script-src 'self' 'unsafe-inline'; "
+        "script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'; "
         "connect-src 'self'; "
         "worker-src 'self' blob:; "
         "frame-src 'self' https://www.youtube-nocookie.com https://www.youtube.com; "
