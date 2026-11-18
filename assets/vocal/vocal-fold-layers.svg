@@ -1,13 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 640 840" role="img" aria-label="一片聲帶的剖面：三層結構">
-  <title>一片聲帶的剖面：三層結構：外層黏膜、中間韌帶、內層肌肉；厚度與張力就由這三層決定</title>
-  <rect width="640" height="840" fill="#FBF8F4"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 857" role="img" aria-label="一片聲帶的剖面：三層結構">
+  <title>一片聲帶的剖面：三層結構：外層黏膜、中間韌帶、內層肌肉；厚度與張力由這三層決定</title>
+  <rect width="640" height="857" fill="#FBF8F4"/>
   <text x="26" y="34" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="16" font-weight="700" fill="#3D3229">一片聲帶的剖面：三層結構</text>
-  <text x="26" y="55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#8C8078">外層黏膜、中間韌帶、內層肌肉；厚度與張力就由這三層決定</text>
-  <g transform="translate(0,150) scale(0.72727) translate(-20,-50)">
-    <image x="0" y="0" width="1600" height="994" xlink:href="_anatomy/src/vocal-fold-scheme.png"/>
+  <text x="26" y="55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#8C8078">外層黏膜、中間韌帶、內層肌肉；厚度與張力由這三層決定</text>
+  <g transform="translate(0,100) scale(0.71111)">
+    <path d="M412 244 L496 246 L522 250 L570 264 L616 290 L642 318 L656 346 L662 374 L662 410 L646 476 L592 592 L550 658 L414 660 L422 646 L418 644 L374 664 L378 670 L420 686 L422 682 L416 670 L540 670 L502 704 L480 714 L446 722 L436 728 L318 818 L276 844 L212 896 L152 932 L116 942 L94 938 L80 926 L68 900 L60 832 L62 698 L74 530 L90 396 L96 292 L244 274 L378 248 L410 246 Z" fill="#C08063" stroke="#C9BCAA" stroke-width="1.2"/>
+    <path d="M584 162 L644 164 L676 174 L708 192 L728 210 L740 226 L752 250 L760 282 L758 340 L746 336 L754 328 L750 322 L704 326 L702 330 L708 330 L702 334 L700 332 L740 366 L744 362 L742 360 L746 360 L744 350 L756 354 L754 364 L740 408 L720 450 L690 494 L654 536 L612 578 L656 484 L668 448 L674 416 L672 358 L666 338 L648 306 L608 270 L578 254 L550 244 L488 232 L460 232 L436 228 L432 232 L424 232 L492 204 L556 170 L582 164 Z" fill="#EFE3B0" stroke="#C9BCAA" stroke-width="1.2"/>
+    <path d="M660 92 L704 96 L744 110 L764 122 L774 132 L744 132 L750 120 L742 118 L704 134 L704 140 L744 156 L750 154 L744 142 L786 142 L810 172 L828 212 L838 264 L838 314 L828 360 L824 362 L770 344 L774 316 L770 268 L756 230 L736 202 L714 182 L688 166 L662 156 L620 148 L582 150 L558 156 L458 206 L364 242 L242 264 L136 278 L100 280 L100 276 L108 268 L136 258 L172 254 L216 254 L288 236 L382 204 L468 170 L526 144 L600 104 L638 94 L658 94 Z" fill="#E4BC96" stroke="#C9BCAA" stroke-width="1.2"/>
+    <path d="M768 356 L824 372 L798 428 L766 478 L734 520 L686 574 L612 644 L594 658 L562 656 L588 616 L662 544 L712 484 L748 420 L768 358 Z" fill="#E4BC96" stroke="#C9BCAA" stroke-width="1.2"/>
+    <path d="M556 668 L584 668 L510 724 L420 780 L348 812 L344 810 L448 732 L474 726 L504 714 L526 698 L554 670 Z" fill="#E4BC96" stroke="#C9BCAA" stroke-width="1.2"/>
   </g>
-  <path d="M494.5 331.8 L560.0 292.2" stroke="#8C8078" stroke-width="1" fill="none"/><circle cx="494.5" cy="331.8" r="2.8" fill="#8C8078"/><text x="560.0" y="288.2" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="start">黏膜</text>
-  <path d="M458.2 455.5 L560.0 444.9" stroke="#8C8078" stroke-width="1" fill="none"/><circle cx="458.2" cy="455.5" r="2.8" fill="#8C8078"/><text x="560.0" y="440.9" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="start">韌帶</text>
-  <path d="M363.6 637.3 L560.0 626.7" stroke="#8C8078" stroke-width="1" fill="none"/><circle cx="363.6" cy="637.3" r="2.8" fill="#8C8078"/><text x="560.0" y="622.7" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="start">聲帶肌</text>
-  <text x="26" y="828" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078">底圖：Fred the Oyster（CC BY-SA 4.0，Wikimedia Commons），本站裁切並加中文標籤</text>
+  <path d="M419.6 242.2 L490.7 210.7" stroke="#8C8078" stroke-width="1" fill="none"/>
+  <circle cx="419.6" cy="242.2" r="2.8" fill="#8C8078"/>
+  <text x="490.7" y="206.7" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="start">黏膜</text>
+  <path d="M384.0 334.7 L490.7 338.7" stroke="#8C8078" stroke-width="1" fill="none"/>
+  <circle cx="384.0" cy="334.7" r="2.8" fill="#8C8078"/>
+  <text x="490.7" y="334.7" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="start">韌帶</text>
+  <path d="M270.2 469.8 L490.7 409.8" stroke="#8C8078" stroke-width="1" fill="none"/>
+  <circle cx="270.2" cy="469.8" r="2.8" fill="#8C8078"/>
+  <text x="490.7" y="405.8" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="start">聲帶肌</text>
+  <text x="26" y="845" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078">幾何參考 Fred the Oyster（CC BY-SA 4.0，Wikimedia Commons），本站描線重繪</text>
 </svg>
