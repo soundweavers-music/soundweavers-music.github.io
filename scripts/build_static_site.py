@@ -376,6 +376,22 @@ def set_nav_subcategories(instruments):
     )
 
 
+SOUND_JOURNEY_SOON = ("氣息離開身體", "懷裡與大地的弦", "天空裡拉長的弦",
+                      "地心與手邊的微光", "城市與星塵的節奏", "按鍵打開房間，眾聲走向廣場")
+
+
+def sound_journey_soon():
+    """The numbered 聲音旅圖 articles are not built any more — the section now
+    serves the Word originals as PDF. List them as 建置中 instead of dead links."""
+    rows = []
+    for i, title in enumerate(SOUND_JOURNEY_SOON, 1):
+        rows.append(
+            f'<span class="nav-soon">旅圖{"一二三四五六"[i - 1]}｜{escape(title)}'
+            f'<span class="nav-soon-tag">建置中</span></span>'
+        )
+    return "\n          ".join(rows)
+
+
 def nav_class_links(page_path):
     """A1–A4 as a flat vertical list, one line each.
 
@@ -501,25 +517,18 @@ def site_header(page_path):
       <div class="nav-dropdown">
         <a href="{resolve_url(page_path, '/tools/')}" class="dropdown-trigger">工具</a>
         <div class="dropdown-menu">
-          <a href="{resolve_url(page_path, '/tools/')}"><strong>全部工具</strong></a>
+          <a href="{resolve_url(page_path, '/tools/daw/')}">🎚️ 織音線上編曲製作</a>
           <a href="{resolve_url(page_path, '/tools/fretboard/')}">🎸 世界樂器指版和弦圖</a>
-          <a href="{resolve_url(page_path, '/chord-detection/')}">🎼 自動抓和弦 (beta)</a>
+          <a href="{resolve_url(page_path, '/chord-detection/')}">🎼 自動抓和弦</a>
           <a href="{resolve_url(page_path, '/tools/lrc/')}">📝 LRC 動態歌詞工作室</a>
-          <a href="{resolve_url(page_path, '/tools/daw/')}">🎚️ 織音線上編曲製作 (beta)</a>
-          <a href="{resolve_url(page_path, '/experience/')}">🎹 世界樂器體驗</a>
+          <a href="{resolve_url(page_path, '/tools/')}"><strong>全部工具</strong></a>
         </div>
       </div>
       <div class="nav-dropdown">
         <a href="{resolve_url(page_path, '/sound-journey/')}" class="dropdown-trigger">聲音旅圖</a>
         <div class="dropdown-menu">
           <a href="{resolve_url(page_path, '/sound-journey/')}">旅圖門口</a>
-          <a href="{resolve_url(page_path, '/sound-journey/1/')}">旅圖一｜氣息離開身體</a>
-          <a href="{resolve_url(page_path, '/sound-journey/2/')}">旅圖二｜懷裡與大地的弦</a>
-          <a href="{resolve_url(page_path, '/sound-journey/3/')}">旅圖三｜天空裡拉長的弦</a>
-          <a href="{resolve_url(page_path, '/sound-journey/4/')}">旅圖四｜地心與手邊的微光</a>
-          <a href="{resolve_url(page_path, '/sound-journey/5/')}">旅圖五｜城市與星塵的節奏</a>
-          <a href="{resolve_url(page_path, '/sound-journey/6/')}">旅圖六｜按鍵打開房間，眾聲走向廣場</a>
-          <a href="{resolve_url(page_path, '/sound-journey/all/')}">全部文章</a>
+          {sound_journey_soon()}
         </div>
       </div>
       <div class="nav-dropdown">
@@ -910,7 +919,7 @@ def build_index(instruments):
             <span>瀏覽常見彈撥樂器的調弦法、各調性和弦、指版音位圖與順階和弦</span>
           </a>
           <a class="featured-card" href="{resolve_url(index_path, '/chord-detection/')}" style="background:linear-gradient(135deg,#fef3c7,#fde68a);border:1px solid #f59e0b;">
-            <strong>🎼 自動抓和弦 (beta)</strong>
+            <strong>🎼 自動抓和弦</strong>
             <span>上傳音檔自動分析節拍與和弦，簡譜式小節表可移調、標示 Capo、匯入 .lrc 歌詞</span>
           </a>
           <a class="featured-card" href="{resolve_url(index_path, '/tools/lrc/')}" style="background:linear-gradient(135deg,#eef6ff,#dbeafe);border:1px solid #bfdbfe;">
@@ -918,7 +927,7 @@ def build_index(instruments):
             <span>邊聽邊打時間碼，自動偵測句與句的停頓先排好初稿，輸出 .lrc 或 .srt</span>
           </a>
           <a class="featured-card" href="{resolve_url(index_path, '/tools/daw/')}" style="background:linear-gradient(135deg,#1f2937,#111827);border:1px solid #374151;color:#e5e7eb;">
-            <strong>🎚️ 織音線上編曲製作 (beta)</strong>
+            <strong>🎚️ 織音線上編曲製作</strong>
             <span>瀏覽器裡的多軌錄音與混音，16 軌起跳、可存專案與輸出 WAV；音檔不會上傳雲端</span>
           </a>
           <a class="featured-card" href="{resolve_url(index_path, '/experience/')}" style="background:linear-gradient(135deg,#f5f0ff,#ebe0ff);border:1px solid #d5c5fd;">
@@ -1657,6 +1666,15 @@ h2 { margin:0; font-weight:700; }
   flex-wrap:wrap; gap:12px; color:var(--muted); font-size:13px;
 }
 .footer-inner a { color:var(--blue); text-decoration:none; }
+/* nav entries that are not clickable yet */
+.nav-soon {
+  display:flex; align-items:center; justify-content:space-between; gap:10px;
+  padding:7px 11px; color:var(--muted); font-size:13px; cursor:default;
+}
+.nav-soon-tag {
+  font-size:10.5px; letter-spacing:.04em; padding:1px 6px; border-radius:999px;
+  background:var(--soft); color:var(--muted); flex:none;
+}
 /* floating random-song player (bottom-right) */
 .mini-player {
   position:fixed; right:16px; bottom:16px; z-index:60;
@@ -3039,33 +3057,9 @@ def build_chord_detection_tool():
     )
 
     body = f'<main class="page">\n{main_content}\n</main>\n' + f'\n<script>{inline_js}</script>\n'
-    # Add related-tools section
-    body += (
-        '<section class="section">\n'
-        '  <div class="section-heading"><h2>相關工具</h2></div>\n'
-        '  <div class="featured-links">\n'
-        f'    <a class="featured-card" href="{site_url("/tools/fretboard/")}" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:1px solid #bbf7d0;">\n'
-        '      <strong>🎸 世界樂器指版與和弦圖</strong>\n'
-        '      <span>瀏覽常見彈撥樂器的調弦法、各調性和弦、指版音位圖與順階和弦</span>\n'
-        '    </a>\n'
-        f'    <a class="featured-card" href="{site_url("/experience/")}" style="background:linear-gradient(135deg,#f5f0ff,#ebe0ff);border:1px solid #d5c5fd;">\n'
-        '      <strong>🎹 世界樂器體驗</strong>\n'
-        '      <span>用虛擬鍵盤試聽鋼琴、吉他、小提琴、琵琶等樂器的音色與音域</span>\n'
-        '    </a>\n'
-        f'    <a class="featured-card" href="{site_url("/tools/lrc/")}" style="background:linear-gradient(135deg,#eef6ff,#dbeafe);border:1px solid #bfdbfe;">\n'
-        '      <strong>📝 LRC 動態歌詞工作室</strong>\n'
-        '      <span>邊聽邊打時間碼，自動偵測樂句停頓，輸出 .lrc 或 .srt</span>\n'
-        '    </a>\n'
-        f'    <a class="featured-card" href="{site_url("/tools/daw/")}" style="background:linear-gradient(135deg,#1f2937,#111827);border:1px solid #374151;color:#e5e7eb;">\n'
-        '      <strong>🎚️ 織音線上編曲製作</strong>\n'
-        '      <span>抓好和弦之後，直接在瀏覽器裡編曲、錄音、混音並輸出</span>\n'
-        '    </a>\n'
-        '  </div>\n'
-        '</section>'
-    )
 
     write(page_dir / "index.html", page(
-        "自動抓和弦 (beta)",
+        "自動抓和弦",
         body,
         page_dir / "index.html",
         extra_head=chord_extra_head,
@@ -3229,11 +3223,10 @@ def build_daw_tool():
 
 # 全站工具清單：/tools/ 總覽頁與各工具頁的「相關工具」都用這一份，新增工具只要改這裡
 TOOLS = [
-    ("/tools/daw/", "🎚️", "織音線上編曲製作", "beta", "免安裝的瀏覽器編曲軟體：16 軌起跳的多軌錄音、MIDI 編曲與音色庫、效果器、混音、母帶與輸出 WAV／FLAC／MP3。檔案不會上傳。", "/tools/daw/guide/"),
-    ("/chord-detection/", "🎼", "自動抓和弦", "beta", "上傳音檔自動分析節拍與和弦，簡譜式小節表可移調、標示 Capo、匯入 .lrc 歌詞。", None),
+    ("/tools/daw/", "🎚️", "織音線上編曲製作", "", "免安裝的瀏覽器編曲軟體：16 軌起跳的多軌錄音、MIDI 編曲與音色庫、效果器、混音、母帶與輸出 WAV／FLAC／MP3。檔案不會上傳。", "/tools/daw/guide/"),
+    ("/chord-detection/", "🎼", "自動抓和弦", "", "上傳音檔自動分析節拍與和弦，簡譜式小節表可移調、標示 Capo、匯入 .lrc 歌詞。", None),
     ("/tools/lrc/", "📝", "LRC 動態歌詞工作室", "", "邊聽邊打時間碼，自動偵測句與句的停頓先排好初稿，輸出 .lrc 或 .srt。", None),
     ("/tools/fretboard/", "🎸", "世界樂器指版與和弦圖", "", "19 種彈撥樂器的調弦法、各調性和弦、指版音位圖與順階和弦。", None),
-    ("/experience/", "🎹", "世界樂器體驗", "", "用虛擬鍵盤試聽鋼琴、吉他、小提琴、琵琶等樂器的音色與音域。", None),
 ]
 
 
