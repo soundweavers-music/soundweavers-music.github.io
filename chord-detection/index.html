@@ -1912,7 +1912,9 @@ function barCellHtml(idx) {
     const bar = state.bars[idx];
     const barDur = Math.max(1e-6, bar.end - bar.start);
     for (const nt of state.melodyNotes) {
-      if (nt.start < bar.start - 1e-6 || nt.start >= bar.end - 1e-6) continue;
+      // 用和歌詞一樣的歸屬規則（含「接近小節線就算下一小節」），
+      // 兩邊才會落在同一個 x 位置
+      if (lyricBarForTime(nt.start) !== idx) continue;
       const sym = melodySymbol(nt);
       const left = ((nt.start - bar.start) / barDur) * 100;
       const dots = Math.abs(sym.oct) > 0 ? '·'.repeat(Math.min(3, Math.abs(sym.oct))) : '';
@@ -1925,8 +1927,10 @@ function barCellHtml(idx) {
     }
   }
   const lyricSegs = state.showLyrics ? (state.lyricSegs[idx] || []) : [];
+  const barStart = state.bars[idx].start;
+  const barDur = Math.max(1e-6, state.bars[idx].end - state.bars[idx].start);
   const lyricHtml = lyricSegs.map(sg =>
-    '<span class="lyric-seg" style="left:' + ((sg.beat / total) * 100).toFixed(2) + '%">'
+    '<span class="lyric-seg" style="left:' + Math.max(0, Math.min(98, ((sg.t - barStart) / barDur) * 100)).toFixed(2) + '%">'
     + escapeHtml(sg.text) + '</span>').join('');
   return '<div class="sys-bar' + (ch.isDiatonic ? '' : ' non-dia') + '" data-bar="' + idx + '"'
        + ' onclick="auditionBar(' + idx + ',0)">'
@@ -2099,7 +2103,7 @@ async function loadLRCFile(file) {
   }
   el.textContent = `已載入 ${state.lyrics.length} 行歌詞（${file.name}）`;
   el.className = 'status-msg done';
-  if (state.showMelody && state.melodySmooth) rebuildMelodyNotes();
+  if (state.melodySmooth) rebuildMelodyNotes();
   renderChart();
 }
 
@@ -2507,12 +2511,12 @@ function melodyNotes(frames) {
 }
 
 // 對到 1/4 拍網格：附點、長音、下劃線都靠這個判斷
-function quantizeMelodyNotes(notes) {
+function quantizeMelodyNotes(notes, keepStart) {
   const beat = 60 / Math.max(30, state.bpm);
   const grid = beat / 4;
   const out = [];
   for (const n of notes) {
-    const start = Math.round(n.start / grid) * grid;
+    const start = keepStart ? n.start : Math.round(n.start / grid) * grid;
     const beats = Math.max(0.25, Math.round((n.end - n.start) / grid) / 4);
     out.push({ start, beats, pc: mod12(n.midi), midi: n.midi });
   }
@@ -2522,8 +2526,11 @@ function quantizeMelodyNotes(notes) {
 // 歌詞載入或編輯後，用同一份旋律資料重切音符（不用重跑音檔分析）
 function rebuildMelodyNotes() {
   if (!state.melodySmooth) return;
-  state.melodyNotes = quantizeMelodyNotes(
-    state.lyrics.length ? melodyNotesFromLyrics(state.melodySmooth) : melodyNotes(state.melodySmooth));
+  if (state.lyrics.length) {
+    state.melodyNotes = quantizeMelodyNotes(melodyNotesFromLyrics(state.melodySmooth), true);
+  } else {
+    state.melodyNotes = quantizeMelodyNotes(melodyNotes(state.melodySmooth));
+  }
 }
 
 async function ensureMelody() {
@@ -2547,10 +2554,9 @@ async function ensureMelody() {
     setStatus('分析旋律（人聲分離）…', 'analyzing');
     state.melodyFrames = computeMelodyFrames(state.audioBuffer, state.vocalSegs);
     state.melodySmooth = smoothMelody(state.melodyFrames);
-    state.melodyNotes = quantizeMelodyNotes(
-      state.lyrics.length ? melodyNotesFromLyrics(state.melodySmooth) : melodyNotes(state.melodySmooth));
     setProgressDone();
   }
+  rebuildMelodyNotes();
   setStatus('旋律分析完成（首調數字僅供參考）', 'done');
   renderChart();
 }
@@ -2581,13 +2587,14 @@ function melodySymbol(note) {
   return { num, acc, base, cls, suffix, oct: oct };
 }
 
-function addLyricSeg(barIdx, beat, text) {
+function addLyricSeg(barIdx, t, text) {
   if (!text) return;
   if (!state.lyricSegs[barIdx]) state.lyricSegs[barIdx] = [];
   const arr = state.lyricSegs[barIdx];
   const last = arr[arr.length - 1];
-  if (last && last.beat === beat) last.text += text;
-  else arr.push({ beat, text });
+  // 同一個字串裡相鄰的字直接接在一起（保留時間，畫面上才對得準）
+  if (last && Math.abs(last.t - t) < 1e-6) last.text += text;
+  else arr.push({ t, text });
 }
 
 // 歌詞：逐字對到拍點。每個字先找到自己的時間（人聲起音），
@@ -2608,10 +2615,7 @@ function computeLyricSegments() {
       const t = times[k];
       const barIdx = lyricBarForTime(t);
       if (barIdx < 0) continue;
-      const bar = bars[barIdx];
-      const frac = Math.max(0, Math.min(0.999, (t - bar.start) / Math.max(1e-6, bar.end - bar.start)));
-      const beat = Math.min(bpb - 1, Math.floor(frac * bpb));
-      addLyricSeg(barIdx, beat, chars[k]);
+      addLyricSeg(barIdx, t, chars[k]);
     }
   }
   // 手動編輯過的歌詞優先
@@ -2619,7 +2623,7 @@ function computeLyricSegments() {
     if (!Object.prototype.hasOwnProperty.call(state.lyricOverrides, key)) continue;
     const idx = parseInt(key, 10);
     const text = state.lyricOverrides[key];
-    if (text) state.lyricSegs[idx] = [{ beat: 0, text: text }];
+    if (text) state.lyricSegs[idx] = [{ t: (state.bars[idx] ? state.bars[idx].start : 0), text: text }];
     else delete state.lyricSegs[idx];
   }
 }
