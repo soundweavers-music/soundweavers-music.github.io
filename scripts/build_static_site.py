@@ -2909,7 +2909,7 @@ def build_chord_detection_tool():
         "default-src 'self'; "
         "img-src 'self' https: data: blob:; "
         "style-src 'self' 'unsafe-inline'; "
-        "script-src 'self' 'unsafe-inline'; "
+        "script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'; "
         "connect-src 'self'; "
         "worker-src 'self' blob:; frame-src 'self' https://www.youtube-nocookie.com https://www.youtube.com; "
         "base-uri 'self'; form-action 'self'; object-src 'none'"
