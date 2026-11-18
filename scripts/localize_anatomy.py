@@ -142,13 +142,13 @@ def main(argv) -> int:
     check = "--check" in argv
     names = [a for a in argv if not a.startswith("-")]
     for cfg in FIGURES:
-        if names and cfg["out"].replace(".svg", "") not in names:
+        if names and cfg["out"].split("/")[-1].replace(".svg", "") not in names:
             continue
         target = localize(cfg, check_only=check)
         if target:
             print("wrote", target.relative_to(BASE))
     for cfg in PNG_FIGURES:
-        if names and cfg["out"].replace(".svg", "") not in names:
+        if names and cfg["out"].split("/")[-1].replace(".svg", "") not in names:
             continue
         target = build_png(cfg, check_only=check)
         if target:
@@ -163,6 +163,26 @@ def main(argv) -> int:
 # ── PNG 底圖（Wikimedia 只放行縮圖，原檔 SVG 被 CDN 擋住）──────────────
 # 這些是 thumb.php 產生的高解析 PNG，透明背景；輸出成「PNG＋SVG 標籤」的混合圖。
 PNG_FIGURES = [
+    {
+        "src": "glottis-positions.png",
+        "out": "ex/glottis-closed.svg",
+        "title": "完全閉合（圖例 A）",
+        "sub": "兩片靠在一起，氣被擋住；這是發聲的起點，不是用力夾",
+        "crop": (34, 0, 116, 226),
+        "width": 420,
+        "credit": "底圖：Wikimedia Commons「Glottis positions」（公有領域），本站裁切",
+        "labels": [],
+    },
+    {
+        "src": "glottis-positions.png",
+        "out": "ex/glottis-breathy.svg",
+        "title": "氣聲（圖例 D）",
+        "sub": "兩片分開，氣一直漏；音色沙，唱不久",
+        "crop": (634, 0, 116, 226),
+        "width": 420,
+        "credit": "底圖：Wikimedia Commons「Glottis positions」（公有領域），本站裁切",
+        "labels": [],
+    },
     {
         "src": "diaphragm-movement.png",
         "out": "breathing-apparatus.svg",
@@ -222,7 +242,8 @@ def build_png(cfg: dict, check_only=False) -> Path | None:
     width = cfg["width"]
     scale = width / cw
     out_h = round(ch * scale) + 150
-    href = f"_anatomy/src/{cfg['src']}"
+    depth = "../" if "/" in cfg["out"] else ""
+    href = f"{depth}_anatomy/src/{cfg['src']}"
     import struct
     with open(SRC / cfg["src"], "rb") as fh:
         im_w, im_h = struct.unpack(">II", fh.read(33)[16:24])

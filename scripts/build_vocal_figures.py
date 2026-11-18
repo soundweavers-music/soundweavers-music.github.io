@@ -1636,8 +1636,6 @@ FIGURES = {
     "ex/diaphragm": fig_diaphragm,
     "ex/emotion-map": fig_emotion_map,
     "ex/false-folds": fig_false_folds,
-    "ex/glottis-breathy": fig_glottis_breathy,
-    "ex/glottis-closed": fig_glottis_closed,
     "ex/hand-chest": fig_hand_chest,
     "ex/hydrate": fig_hydrate,
     "ex/jaw": fig_jaw,

@@ -1,34 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" role="img" aria-label="讓聲門輕輕靠攏">
-  <title>讓聲門輕輕靠攏</title>
-  <rect width="640" height="300" fill="#FBF8F4"/>
-  <style>
-    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
-    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
-    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
-    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
-    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
-    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
-    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
-    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
-    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
-    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
-    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
-    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
-    .dot { fill: #3D3229; }
-  </style>
-  <text x="26" y="34" class="tb" font-size="16">讓聲門輕輕靠攏</text>
-  <text x="26" y="55" class="ts" font-size="12.5">氣音與假音不同：一個沒有音高，一個有</text>
-  <rect x="70" y="120" width="200" height="46" rx="10" fill="#A67C52" opacity="0.18"/>
-  <rect x="70" y="120" width="200" height="46" rx="10" fill="none" stroke="#A67C52" stroke-width="1.5"/>
-  <rect x="70" y="184" width="200" height="46" rx="10" fill="#A67C52" opacity="0.18"/>
-  <rect x="70" y="184" width="200" height="46" rx="10" fill="none" stroke="#A67C52" stroke-width="1.5"/>
-  <text x="170" y="110" class="ts" font-size="11.5" text-anchor="middle">聲帶（俯視）</text>
-  <text x="170" y="250" class="ts" font-size="11.5" text-anchor="middle">兩片分開，氣從縫裡漏掉</text>
-  <path d="M120.0 196.0 L120.0 226.6" fill="none" stroke="#6B8FBF" stroke-width="1.7" stroke-linecap="round"/><path d="M120.0 232.0 L117.6 226.5 L122.4 226.5 Z" fill="#6B8FBF"/>
-  <path d="M170.0 196.0 L170.0 226.6" fill="none" stroke="#6B8FBF" stroke-width="1.7" stroke-linecap="round"/><path d="M170.0 232.0 L167.6 226.5 L172.4 226.5 Z" fill="#6B8FBF"/>
-  <path d="M220.0 196.0 L220.0 226.6" fill="none" stroke="#6B8FBF" stroke-width="1.7" stroke-linecap="round"/><path d="M220.0 232.0 L217.6 226.5 L222.4 226.5 Z" fill="#6B8FBF"/>
-  <text x="330" y="120" class="ts" font-size="12">氣音是「有氣、沒有清楚音高」；</text>
-  <text x="330" y="142" class="ts" font-size="12">假音是「有音高、也漏一點氣」。</text>
-  <text x="330" y="186" class="ts" font-size="12">先把閉合調回來，再談真假音。</text>
-  <text x="26" y="282" class="ts" font-size="11">漏氣不是個性，是閉合不足；長期這樣唱，喉嚨會累。</text>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 420 968" role="img" aria-label="氣聲（圖例 D）">
+  <title>氣聲（圖例 D）：兩片分開，氣一直漏；音色沙，唱不久</title>
+  <rect width="420" height="968" fill="#FBF8F4"/>
+  <text x="26" y="34" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="16" font-weight="700" fill="#3D3229">氣聲（圖例 D）</text>
+  <text x="26" y="55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#8C8078">兩片分開，氣一直漏；音色沙，唱不久</text>
+  <g transform="translate(0,100) scale(3.62069) translate(-634,0)">
+    <image x="0" y="0" width="1200" height="226" xlink:href="../_anatomy/src/glottis-positions.png"/>
+  </g>
+  <text x="26" y="956" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078">底圖：Wikimedia Commons「Glottis positions」（公有領域），本站裁切</text>
 </svg>
