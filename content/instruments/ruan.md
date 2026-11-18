@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴；依據：英文維基：Chinese plucked string instrument；全文：plucked string (弹拨
 source_url: https://soundweavers-music.github.io/instruments/ruan/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Picture_of_Ruanjian.jpg/500px-Picture_of_Ruanjian.jpg
 youtube_ids: S9cbs6oSyxU g4sewPWjTn8
 ---
 

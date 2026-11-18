@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴；依據：來源一分類標籤含「Typewriter zithers」，zither 屬弦鳴類
 source_url: https://soundweavers-music.github.io/instruments/shahi-baaja/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Shahi_Baaja.jpg/500px-Shahi_Baaja.jpg
 youtube_ids: 0rIkyKJiXhg 59Qd3dUVc2w
 ---
 

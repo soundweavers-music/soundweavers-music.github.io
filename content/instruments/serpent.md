@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴（423.213）；依據：來源一：lip-reed wind instrument；來源二/三：Hornbostel–Sachs 423.213
 source_url: https://soundweavers-music.github.io/instruments/serpent/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Manifattura_italiana%2C_Serpentone%2C_fine_sec._XVIII._Museo_Civico_di_Modena%2C_foto_P._Terzi.jpg/500px-Manifattura_italiana%2C_Serpentone%2C_fine_sec._XVIII._Museo_Civico_di_Modena%2C_foto_P._Terzi.jpg
 youtube_ids: t9mB72TC8Kw xdIBgGmuodM
 ---
 

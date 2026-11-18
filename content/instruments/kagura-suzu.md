@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：體鳴；依據：英文維基分類標籤：Percussion idiophones
 source_url: https://soundweavers-music.github.io/instruments/kagura-suzu/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Suzu_MET_DP353272.jpg/500px-Suzu_MET_DP353272.jpg
 youtube_ids: IpgB-e8iIlE GQDDCWby5Ys
 ---
 

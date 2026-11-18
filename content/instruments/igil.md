@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴（321.322-71）；依據：Wikidata P1762 321.322-71；英文維基全文：two-stringed Mongolian and 
 source_url: https://soundweavers-music.github.io/instruments/igil/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Igil_oktober_saya_front_view.gif/500px-Igil_oktober_saya_front_view.gif
 youtube_ids: Nj8paTuRA_s N00iYJ6G1wE
 ---
 

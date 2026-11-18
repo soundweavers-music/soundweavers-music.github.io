@@ -14,6 +14,7 @@ ensemble_links: 爵士編制
 verification_status: 已查證
 issue_note: 分類查證：氣鳴（421.221.312）；依據：來源一：Wind instrument with piston；來源三：Wikidata P1762 Hornboste
 source_url: https://soundweavers-music.github.io/instruments/slide-whistle/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Flauta_d%27%C3%A8mbol_-_edit.jpg/500px-Flauta_d%27%C3%A8mbol_-_edit.jpg
 youtube_ids: UyiDr8SrsMQ NvyAqL3H4Js
 ---
 

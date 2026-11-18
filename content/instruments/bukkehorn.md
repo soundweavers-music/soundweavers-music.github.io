@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴（423.1）；依據：英文維基開頭：played with a brass-type embouchure, buzzing the lips
 source_url: https://soundweavers-music.github.io/instruments/bukkehorn/
-image: 
+image: https://commons.wikimedia.org/wiki/Special:FilePath/Bockhorn_-_SMV_-_X22_01.tif?width=500
 youtube_ids: RKWmUNLAxZY foXiayQdsXU
 ---
 

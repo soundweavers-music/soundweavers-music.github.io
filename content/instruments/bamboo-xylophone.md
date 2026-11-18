@@ -14,7 +14,7 @@ ensemble_links: 甘美朗合奏
 verification_status: 已查證
 issue_note: 分類查證：體鳴；依據：來源一：traditional bamboo xylophone；分類標籤：Idiophone instrument s
 source_url: https://soundweavers-music.github.io/instruments/bamboo-xylophone/
-image: 
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/T_Rung.png/500px-T_Rung.png
 youtube_ids: lVUpkkrOCNk QdPXnhonLb0
 ---
 

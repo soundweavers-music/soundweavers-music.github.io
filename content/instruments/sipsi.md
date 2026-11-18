@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴（422.211.2）；依據：英文維基 infobox 與 Wikidata 均標為 Hornbostel–Sachs 422.211.2，且全文稱其
 source_url: https://soundweavers-music.github.io/instruments/sipsi/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Sipsi.jpg/500px-Sipsi.jpg
 youtube_ids: dU3SG7bK0bE iaQaRV9eHqk
 ---
 

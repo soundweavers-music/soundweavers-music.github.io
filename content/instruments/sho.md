@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴；依據：英文維基開頭：The shō (笙) is a Japanese free reed musical instrumen
 source_url: https://soundweavers-music.github.io/instruments/sho/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Musicienne_de_Gagaku%2C_ensemble_%22Owari_Miyabie%22_%28Maison_du_Japon%2C_Paris%29.jpg/500px-Musicienne_de_Gagaku%2C_ensemble_%22Owari_Miyabie%22_%28Maison_du_Japon%2C_Paris%29.jpg
 youtube_ids: -QgTF8p-284 yUpr1F1dZt0
 ---
 

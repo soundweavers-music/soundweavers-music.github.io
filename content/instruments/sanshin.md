@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴（321.312-6）；依據：Wikidata P1762 Hornbostel–Sachs 321.312-6；英文維基分類 Spike lutes
 source_url: https://soundweavers-music.github.io/instruments/sanshin/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Sanshin.jpg/500px-Sanshin.jpg
 youtube_ids: PqKCEnEdNr4 D8UxHpqTGYg
 ---
 

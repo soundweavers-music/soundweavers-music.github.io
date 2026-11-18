@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴（421.221.1）；依據：英文維基全文稱其為 end-blown fipple flutes；Wikidata P1762 為 421.221.1；與「Tin whistle」互為別名／變體
 source_url: https://soundweavers-music.github.io/instruments/low-whistle/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Low_whistle.jpg/500px-Low_whistle.jpg
 youtube_ids: 2H1P_Lam76E 3V80-Fm_5Gs
 ---
 

@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 
 source_url: https://soundweavers-music.github.io/instruments/loop-station/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Boss_RC-50_Loop_Station.jpg/500px-Boss_RC-50_Loop_Station.jpg
 youtube_ids: IvUU8joBb1Q dck6m5guuIE
 ---
 

@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴；依據：來源一：Traditional Middle Eastern single-reed musical instrumen
 source_url: https://soundweavers-music.github.io/instruments/mijwiz/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Mijwiz.jpg/500px-Mijwiz.jpg
 youtube_ids: i2zx1KUZP6c tZtjIaDVct8
 ---
 

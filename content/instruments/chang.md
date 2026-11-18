@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴（322.12）；依據：英文維基開頭與 infobox 均稱 chang 為 angular harp（角形豎琴），有弦且以撥弦發聲
 source_url: https://soundweavers-music.github.io/instruments/chang/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Bishapur_zan%2C_AO_26169.jpg/500px-Bishapur_zan%2C_AO_26169.jpg
 youtube_ids: 1myuIH9eAOc HMS0nipwkC4
 ---
 

@@ -14,6 +14,7 @@ ensemble_links: 甘美朗合奏
 verification_status: 已查證
 issue_note: 分類查證：體鳴；依據：英文維基開頭明確稱 Roneat Ek 為 xylophone（木琴），屬體鳴樂器
 source_url: https://soundweavers-music.github.io/instruments/roneat-ek/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Roneat_Ek.jpg/500px-Roneat_Ek.jpg
 youtube_ids: r-2b-QFxlsg -EEKM19fehg
 ---
 

@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 
 source_url: https://soundweavers-music.github.io/instruments/vihuela-mexicana/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Vihuela_Mexicana_001.JPG/500px-Vihuela_Mexicana_001.JPG
 youtube_ids: oZlU3xGAjXA diGCoGG3-W8
 ---
 

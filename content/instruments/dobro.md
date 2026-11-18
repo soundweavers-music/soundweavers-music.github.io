@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴；依據：來源五：Dobro is an American brand of resonator guitars；來源一分類標籤：；與「resonator guitar」互為別名／變體
 source_url: https://soundweavers-music.github.io/instruments/dobro/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Dobro_style37_tenor_guitar.jpg/500px-Dobro_style37_tenor_guitar.jpg
 youtube_ids: J46sRuj99Cw OEOY06U6JW8
 ---
 

@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴（311.221）；依據：來源一：chest-resonated stick zither；來源三：H-S 311.221
 source_url: https://soundweavers-music.github.io/instruments/phin-pia/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Phin_phia%2C_Thailand%2C_19th_century.jpg/500px-Phin_phia%2C_Thailand%2C_19th_century.jpg
 youtube_ids: glTNjofFeGA LKf56LtyjCk
 ---
 

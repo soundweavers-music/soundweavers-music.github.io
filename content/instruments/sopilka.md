@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴（421.111-12）；依據：來源一：Ukrainian woodwind instrument of the flute family；來源五：en
 source_url: https://soundweavers-music.github.io/instruments/sopilka/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Sopilka-Prima-2023-Shaul.jpg/500px-Sopilka-Prima-2023-Shaul.jpg
 youtube_ids: oVfo0qC-U9w CyXNSAD2xz8
 ---
 

@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴；依據：來源一／五：Piri 為 Korean double reed instrument，竹管、指孔、圓柱形管身
 source_url: https://soundweavers-music.github.io/instruments/piri/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Piri_in_London%2C_2024_%28cropped%29.png/500px-Piri_in_London%2C_2024_%28cropped%29.png
 youtube_ids: FDHwdnCausQ Tonh64KzN-I
 ---
 

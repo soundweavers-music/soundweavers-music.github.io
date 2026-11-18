@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴（421.111.1）；依據：來源一/五：Ney 為 end-blown flute；來源三：Wikidata P1762 Hornbostel–Sa
 source_url: https://soundweavers-music.github.io/instruments/ney/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Persian_ney_with_6_holes.jpg/500px-Persian_ney_with_6_holes.jpg
 youtube_ids: MgKR6pfZocc ViZtpquGUM4 uOIHHMnI_Ig 93wGaGFUnTs
 ---
 

@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴（423.212）；依據：來源二：Hornbostel–Sachs 423.212 lip-reed aerophone；來源一：lip-reed
 source_url: https://soundweavers-music.github.io/instruments/cornett-zink/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Three_cornetts.jpg/500px-Three_cornetts.jpg
 youtube_ids: qFVNdp4XiQY 4GKO8MaXxr8
 ---
 

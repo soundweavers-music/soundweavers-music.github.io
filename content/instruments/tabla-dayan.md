@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：膜鳴；依據：中文維基：塔布拉鼓是一件膜鳴樂器；英文維基分類含 Directly struck membranophones、Hand
 source_url: https://soundweavers-music.github.io/instruments/tabla-dayan/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Prop._Tabla.jpg/500px-Prop._Tabla.jpg
 youtube_ids: 7R2ASSe1o3M 0V6OCVWwow4 O2K0ptoYpuc LAwgD_YxRgM
 ---
 

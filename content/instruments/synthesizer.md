@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：電鳴（53）；依據：來源一簡述為 Electronic musical instrument；來源三 Wikidata P1762 Horn
 source_url: https://soundweavers-music.github.io/instruments/synthesizer/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg
 youtube_ids: IvUU8joBb1Q mFfe4ZRQOH8 GpCdodqTYtE Rfs78hU11oo MN3J74ghRP0 dZ-XOe9ctYY g_Gue_MZ-Dk 8_0kZkfOiek 1RWOoEj3mwU NUwBZPimKNM olrA0TJJ6sM TVPzAmeMaC0 6JeZR13dLLI kYxheEGl2oM 4SBDH5uhs4Q 9uEp4GFDdII j7SNzgggyJo yzgvJlsEyvQ BlaY8kSTO28
 ---
 

@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴；依據：來源一：Brazilian string musical instrument／ten-string guitar；來源
 source_url: https://soundweavers-music.github.io/instruments/viola-caipira/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Brazdaviola.jpg/500px-Brazdaviola.jpg
 youtube_ids: EA5fCUx7qgE 1vbO_foZgLQ
 ---
 

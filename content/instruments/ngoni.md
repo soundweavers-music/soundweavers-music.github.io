@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴（323.1）；依據：來源一開頭「traditional West African string instrument」；來源三 Wikida
 source_url: https://soundweavers-music.github.io/instruments/ngoni/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Bassekou_Kouyate_photo.jpg/500px-Bassekou_Kouyate_photo.jpg
 youtube_ids: -cLAwAOi-hA ZSPmh-6-bpg
 ---
 

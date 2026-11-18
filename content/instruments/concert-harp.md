@@ -14,6 +14,7 @@ ensemble_links: 管弦樂團
 verification_status: 已查證
 issue_note: 分類查證：弦鳴（322.222）；依據：來源一：String instrument with pedals；來源二：Hornbostel–Sachs 322.2；與「Pedal harp」互為別名／變體
 source_url: https://soundweavers-music.github.io/instruments/concert-harp/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Harfe-Museum_f%C3%BCr_Kunst_und_Gewerbe_Hamburg-1995.245.png/500px-Harfe-Museum_f%C3%BCr_Kunst_und_Gewerbe_Hamburg-1995.245.png
 youtube_ids: S1-LCnGojnw 4oj_2Lmb23A
 ---
 

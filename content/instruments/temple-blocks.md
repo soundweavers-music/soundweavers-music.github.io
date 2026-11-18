@@ -14,6 +14,7 @@ ensemble_links: 甘美朗合奏
 verification_status: 已查證
 issue_note: 分類查證：體鳴；依據：來源一分類標籤含 Idiophones；來源二與來源三 H-S 均為 111 開頭
 source_url: https://soundweavers-music.github.io/instruments/temple-blocks/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Modern_Templeblocks.jpg/500px-Modern_Templeblocks.jpg
 youtube_ids: CsuU2ONO4mU Gfeji8dxPPY
 ---
 

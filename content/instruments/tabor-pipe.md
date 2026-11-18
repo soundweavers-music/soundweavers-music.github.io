@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴；依據：英文維基：wind instrument；分類標籤：Internal fipple flutes；與「Three-hole pipe」互為別名／變體
 source_url: https://soundweavers-music.github.io/instruments/tabor-pipe/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Pipeandbelldavid.png/500px-Pipeandbelldavid.png
 youtube_ids: yTuJSZ6_DLg RZX3ApbBgCg
 ---
 

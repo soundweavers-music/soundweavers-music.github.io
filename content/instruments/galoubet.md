@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴；依據：來源一與來源五均稱其為 wind instrument；來源一分類標籤含 Internal fipple flutes；與「Three-hole pipe」互為別名／變體
 source_url: https://soundweavers-music.github.io/instruments/galoubet/
+image: https://commons.wikimedia.org/wiki/Special:FilePath/Galoubet_-_SMV_-_F162_07.tif?width=500
 youtube_ids: EB0AnOCq77A -3BEHucd740
 ---
 

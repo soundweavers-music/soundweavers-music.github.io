@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴（421）；依據：英文維基全文摘錄稱其為 transverse bamboo flute，且分類標籤含 Side-blown flutes
 source_url: https://soundweavers-music.github.io/instruments/komabue/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Komabue_fue.jpg/500px-Komabue_fue.jpg
 youtube_ids: 4Jo8bO_vc4M iZfRKIo9HoA
 ---
 

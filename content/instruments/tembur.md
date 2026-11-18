@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴；依據：來源一：Fretted string instrument；分類標籤：Necked bowl lutes；與「Kurdish tanbur」互為別名／變體
 source_url: https://soundweavers-music.github.io/instruments/tembur/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Tambur.jpg/500px-Tambur.jpg
 youtube_ids: Dd9x4D1ovhA a64Vdcd0KlU
 ---
 

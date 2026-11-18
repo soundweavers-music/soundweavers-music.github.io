@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴（422.112-71）；依據：英文維基 infobox 與 Wikidata 標記 Hornbostel–Sachs 422.112–71（雙簧管類）
 source_url: https://soundweavers-music.github.io/instruments/contrabassoon/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Contrabassoon2.jpg/500px-Contrabassoon2.jpg
 youtube_ids: JVAe7YBUc6c QgNoTOgVxSg
 ---
 

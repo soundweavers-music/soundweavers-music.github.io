@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴；依據：來源一：Traditional Mongolian bowed string instrument；來源五：two st；與「Morin khuur」互為別名／變體
 source_url: https://soundweavers-music.github.io/instruments/matouqin-variants/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Mongolian_Musician.jpg/500px-Mongolian_Musician.jpg
 youtube_ids: T1rcP2_HCIU pPDTLTMcFM0
 ---
 

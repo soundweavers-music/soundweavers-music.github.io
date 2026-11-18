@@ -24,6 +24,12 @@ content/曼陀林知識全書/
 content/image/
 .DS_Store
 work/shots/
+# image-candidate scratch: downloaded thumbnails, contact sheets, chunk caches
+work/candidates/
+work/sheets/
+work/chunks/
+work/cache_chunk*.json
+work/image_candidates_cache.json
 
 # scratch scripts left by subagents
 work/_*.py

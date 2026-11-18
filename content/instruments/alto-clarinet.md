@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴（422.211.2）；依據：Wikidata P1762 Hornbostel–Sachs 422.211.2；英文全文稱其為 woodwind i
 source_url: https://soundweavers-music.github.io/instruments/alto-clarinet/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Altklarinetten_BC%2BDietz.jpg/500px-Altklarinetten_BC%2BDietz.jpg
 youtube_ids: 7urqO3QL6M0 q2OJ8eTCPZ4
 ---
 

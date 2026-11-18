@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴；依據：來源五：tiorbino is a rare stringed instrument, a type of long-n
 source_url: https://soundweavers-music.github.io/instruments/tiorbino/
+image: https://commons.wikimedia.org/wiki/Special:FilePath/Italy%2C_probably_made_in_the_mid-17th_century%2C_but_modified_by_later_repair_-_Lute_or_Tiorbino_-_1918.368_-_Cleveland_Museum_of_Art.tif?width=500
 youtube_ids: fMvq0jIKmlI 6ZGlGhFeKUs
 ---
 

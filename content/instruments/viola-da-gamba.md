@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴（321.322-71）；依據：英文維基簡述：Bowed, fretted and stringed instrument；infobox：Hornbo；與「Viol」互為別名／變體
 source_url: https://soundweavers-music.github.io/instruments/viola-da-gamba/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Viola_Da_Gamba_Front_and_Side.png/500px-Viola_Da_Gamba_Front_and_Side.png
 youtube_ids: C4m1KHjp03M BO2JeKiwbvQ
 ---
 

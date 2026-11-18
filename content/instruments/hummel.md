@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴；依據：來源一稱其為 Northern European stringed instrument；來源五描述其有琴弦，旋律弦以手
 source_url: https://soundweavers-music.github.io/instruments/hummel/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/AAM.05332b_%281%29_Hummel.jpg/500px-AAM.05332b_%281%29_Hummel.jpg
 youtube_ids: UdGily3s9kA rOCX_zA1Ies
 ---
 

@@ -14,7 +14,7 @@ ensemble_links: 管弦樂團
 verification_status: 已查證
 issue_note: 分類查證：氣鳴；依據：來源二與來源三均給出 H-S 423 開頭，來源一與來源五亦稱其為 brass instrument
 source_url: https://soundweavers-music.github.io/instruments/tuba/
-image: 
+image: https://commons.wikimedia.org/wiki/Special:FilePath/Yamaha_Bass_tuba_YFB-822.tif?width=500
 youtube_ids: _ZdMxFiUf9Q xZO5KTJTwhE
 ---
 

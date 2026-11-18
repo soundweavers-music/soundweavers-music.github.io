@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴（421.121.12）；依據：英文維基 infobox 與 Wikidata 均列 Hornbostel–Sachs 421.121.12 open 
 source_url: https://soundweavers-music.github.io/instruments/western-flute/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Fl%C3%BBte_traversi%C3%A8re.png/500px-Fl%C3%BBte_traversi%C3%A8re.png
 youtube_ids: ndUCNnhH03Q xsg48QPwSA8
 ---
 
