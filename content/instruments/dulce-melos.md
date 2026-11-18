@@ -14,7 +14,6 @@ ensemble_links:
 verification_status: 已查證（部分欄位待補）
 issue_note: 分類查證：弦鳴；依據：英文維基全文摘錄：type of zither, similar to a hammered dulcimer, but；內文段落來源不足未改寫：聆聽示範、樂器材質
 source_url: https://soundweavers-music.github.io/instruments/dulce-melos/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/1440_Dulce_Melos.png/500px-1440_Dulce_Melos.png
 youtube_ids: IfcFQ5dMWuM nTBqVOP92jY
 ---
 

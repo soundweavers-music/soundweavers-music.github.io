@@ -14,7 +14,6 @@ ensemble_links: 安地斯合奏
 verification_status: 已查證
 issue_note: 分類查證：氣鳴；依據：來源一分類標籤：Natural horns and trumpets
 source_url: https://soundweavers-music.github.io/instruments/erke/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Erke_-_Noroeste_Argentino.jpg/500px-Erke_-_Noroeste_Argentino.jpg
 youtube_ids: 8GNar2UQFmQ WjLzmb02yAE
 ---
 

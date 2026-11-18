@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴（421.121.12）；依據：來源一稱 fife 為 transverse aerophone；來源二與來源三均給出 H-S 421.121.12 o
 source_url: https://soundweavers-music.github.io/instruments/fife/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Crail%2C_Fife%2C_Scotland.jpg/500px-Crail%2C_Fife%2C_Scotland.jpg
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Fife_%28AM_1998.60.350-4%29.jpg/500px-Fife_%28AM_1998.60.350-4%29.jpg
 youtube_ids: m5ZwSAXmqmw 0sJ9WHSDSbA
 ---
 

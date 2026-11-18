@@ -14,7 +14,6 @@ ensemble_links:
 verification_status: 已查證（部分欄位待補）
 issue_note: 分類查證：弦鳴；依據：英文維基全文：ground zither is a simple string instrument；內文段落來源不足未改寫：聆聽示範
 source_url: https://soundweavers-music.github.io/instruments/ground-zither/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Knosp%2CTrongQuan.jpg/500px-Knosp%2CTrongQuan.jpg
 youtube_ids: BcElotwrZ8o JkODhmxCTRk
 ---
 

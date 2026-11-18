@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴（423.1）；依據：Wikidata P1762 為 423.1；英文維基全文稱其為 brass instrument，以 cup-shap
 source_url: https://soundweavers-music.github.io/instruments/buccina/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Buccina_1.png/500px-Buccina_1.png
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Grande_Ludovisi_Altemps_Inv8574_n4.jpg/500px-Grande_Ludovisi_Altemps_Inv8574_n4.jpg
 youtube_ids: 1IlZgj2FAHA pvIVFp3pe0Y
 ---
 

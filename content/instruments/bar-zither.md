@@ -14,7 +14,6 @@ ensemble_links:
 verification_status: 已查證（部分欄位待補）
 issue_note: 分類查證：弦鳴（311）；依據：來源五：Bar zither is class of musical instruments ... for a typ；內文段落來源不足未改寫：聆聽示範、歷史背景
 source_url: https://soundweavers-music.github.io/instruments/bar-zither/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/An_African_Banjo%2C_Zambia%2C_ca.1905-ca.1940_%28imp-cswc-GB-237-CSWC47-LS6-048%29.jpg/500px-An_African_Banjo%2C_Zambia%2C_ca.1905-ca.1940_%28imp-cswc-GB-237-CSWC47-LS6-048%29.jpg
 youtube_ids: 8BJHsgyNeEQ k5wIWaUNbS4
 ---
 

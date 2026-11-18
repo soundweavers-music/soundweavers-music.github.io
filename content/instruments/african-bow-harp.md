@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴（311.1）；依據：來源一：musical bow is a string instrument；來源三：Wikidata P1762 Ho
 source_url: https://soundweavers-music.github.io/instruments/african-bow-harp/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Mirror_Handle_with_a_Woman_Playing_the_Vina_6th%E2%80%937th_century.jpg/500px-Mirror_Handle_with_a_Woman_Playing_the_Vina_6th%E2%80%937th_century.jpg
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Bow_Lyre_-_musical_instrument.jpg/500px-Bow_Lyre_-_musical_instrument.jpg
 youtube_ids: ZvxiJZcml6g jBlmunFVGuc
 ---
 

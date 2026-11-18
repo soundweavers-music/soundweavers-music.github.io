@@ -14,7 +14,6 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：電鳴（531.1）；依據：來源一簡述「Electronic musical keyboard instrument」；來源三 Wikidata P
 source_url: https://soundweavers-music.github.io/instruments/clavioline/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/US2563477A_Electronic_Musical_Instrument_%281948-05-01_filed%2C_1951-08-07_published%29_by_Constant_Martin_-_Clavioline_Fig.1.jpg/500px-US2563477A_Electronic_Musical_Instrument_%281948-05-01_filed%2C_1951-08-07_published%29_by_Constant_Martin_-_Clavioline_Fig.1.jpg
 youtube_ids: ac49JnVFYKM tsZ22OMb9ns
 ---
 

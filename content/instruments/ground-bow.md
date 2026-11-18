@@ -14,7 +14,6 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴（311）；依據：英文維基百科開頭：「classified as a chordophone」
 source_url: https://soundweavers-music.github.io/instruments/ground-bow/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Dyulu-tama_ground_bow.jpg/500px-Dyulu-tama_ground_bow.jpg
 youtube_ids: JkODhmxCTRk jBlmunFVGuc
 ---
 
