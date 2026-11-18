@@ -539,58 +539,80 @@ def site_header(page_path):
 
 
 def site_footer(page_path):
-    """Footer: one credit line plus the random-song player.
+    """Footer plus the floating music player.
 
     The long link list that used to sit here duplicated the header nav; it is
-    replaced by 隔壁織音人's own music, one song picked at random per page."""
+    replaced by 隔壁織音人's own music, one song picked at random per page and
+    played from a small player pinned to the bottom-right corner."""
     player_js = resolve_url(page_path, "/assets/music-player.js")
     return f"""  <footer class="site-footer">
     <div class="footer-inner">
       <span>世界聲音百科 — 世界樂器、人聲與音樂文化的旅圖</span>
-      <div class="footer-music" data-music>
-        <button type="button" class="footer-music-btn" data-music-play
-                aria-label="隨機播放隔壁織音人的音樂">▶</button>
-        <span class="footer-music-text">
-          <span class="footer-music-name" data-music-title>隨機播放・隔壁織音人</span>
-          <span class="footer-music-sub" data-music-album>按 ▶ 聽一首</span>
-        </span>
-        <button type="button" class="footer-music-btn" data-music-next
-                aria-label="換一首" title="換一首">↻</button>
-        <a class="footer-music-link" href="https://music.youtube.com/channel/UCeon05ADqOnC8kSHgZC_5lw"
-           target="_blank" rel="noopener">YouTube Music</a>
-      </div>
-      <div class="footer-music-frame" data-music-frame hidden></div>
       <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
     </div>
-    <script src="{player_js}" defer></script>
-  </footer>"""
+  </footer>
+  <div class="mini-player" data-music hidden>
+    <div class="mini-player-frame" data-music-frame hidden></div>
+    <div class="mini-player-bar">
+      <button type="button" class="mini-player-btn" data-music-play
+              aria-label="播放隔壁織音人的音樂">▶</button>
+      <span class="mini-player-text">
+        <span class="mini-player-name" data-music-title>隔壁織音人</span>
+        <span class="mini-player-sub" data-music-album>按 ▶ 隨機聽一首</span>
+      </span>
+      <button type="button" class="mini-player-btn" data-music-next
+              aria-label="換一首" title="換一首">↻</button>
+      <button type="button" class="mini-player-close" data-music-close
+              aria-label="收起播放器" title="收起">×</button>
+    </div>
+  </div>
+  <script src="{player_js}" defer></script>"""
 
 
-MUSIC_PLAYER_JS = """/* Footer player: one of 隔壁織音人's songs at random.
+MUSIC_PLAYER_JS = """/* Floating player: one of 隔壁織音人's songs at random.
  *
  * The track list is written into this file at build time from
  * content/music_tracks.json, so the page makes no network request until the
  * listener presses ▶ — and the iframe only appears after that click.
+ * Backing-track ("伴奏版") entries are filtered out of the list at build time.
  */
 (function () {
   'use strict';
   var TRACKS = __TRACKS__;
   var root = document.querySelector('[data-music]');
   if (!root || !TRACKS.length) { return; }
+  try {
+    if (sessionStorage.getItem('mini-player-dismissed') === '1') { return; }
+  } catch (e) { /* private mode */ }
 
   var nameEl = root.querySelector('[data-music-title]');
   var albumEl = root.querySelector('[data-music-album]');
   var playBtn = root.querySelector('[data-music-play]');
   var nextBtn = root.querySelector('[data-music-next]');
+  var closeBtn = root.querySelector('[data-music-close]');
   var frame = document.querySelector('[data-music-frame]');
   var current = null;
   var started = false;
+
+  root.hidden = false;
 
   function pick() {
     var next;
     do { next = TRACKS[Math.floor(Math.random() * TRACKS.length)]; }
     while (TRACKS.length > 1 && current && next.id === current.id);
     return next;
+  }
+
+  function embed(autoplay) {
+    frame.hidden = false;
+    frame.innerHTML = '';
+    var iframe = document.createElement('iframe');
+    iframe.className = 'mini-player-iframe';
+    iframe.title = current.title;
+    iframe.allow = 'autoplay; encrypted-media';
+    iframe.src = 'https://www.youtube-nocookie.com/embed/' + current.id +
+                 '?rel=0&modestbranding=1' + (autoplay ? '&autoplay=1' : '');
+    frame.appendChild(iframe);
   }
 
   function show(track) {
@@ -600,23 +622,15 @@ MUSIC_PLAYER_JS = """/* Footer player: one of 隔壁織音人's songs at random.
     if (started) { embed(true); }
   }
 
-  function embed(autoplay) {
-    frame.hidden = false;
-    frame.innerHTML = '';
-    var iframe = document.createElement('iframe');
-    iframe.className = 'footer-music-iframe';
-    iframe.title = current.title;
-    iframe.allow = 'autoplay; encrypted-media';
-    iframe.src = 'https://www.youtube-nocookie.com/embed/' + current.id +
-                 '?rel=0&modestbranding=1' + (autoplay ? '&autoplay=1' : '');
-    frame.appendChild(iframe);
-  }
-
   playBtn.addEventListener('click', function () {
     started = true;
     embed(true);
   });
   nextBtn.addEventListener('click', function () { show(pick()); });
+  closeBtn.addEventListener('click', function () {
+    root.hidden = true;
+    try { sessionStorage.setItem('mini-player-dismissed', '1'); } catch (e) {}
+  });
 
   show(pick());
 })();
@@ -624,11 +638,16 @@ MUSIC_PLAYER_JS = """/* Footer player: one of 隔壁織音人's songs at random.
 
 
 def build_music_player():
-    """Write assets/music-player.js with the track list baked in."""
+    """Write assets/music-player.js with the track list baked in.
+
+    Backing tracks ("伴奏版" and friends) are left out — the player is meant to
+    play the songs, not their karaoke versions."""
     try:
         tracks = json.loads((BASE_DIR / "content" / "music_tracks.json").read_text(encoding="utf-8"))
     except Exception:
         tracks = []
+    skip = re.compile(r"伴奏|卡拉|Karaoke|Instrumental|Off Vocal|カラオケ", re.I)
+    tracks = [t for t in tracks if not skip.search(t.get("title", ""))]
     payload = json.dumps([{"id": t["id"], "title": t["title"], "album": t.get("album", "")}
                           for t in tracks], ensure_ascii=False)
     write(OUTPUT_DIR / "assets" / "music-player.js", MUSIC_PLAYER_JS.replace("__TRACKS__", payload))
@@ -1638,20 +1657,41 @@ h2 { margin:0; font-weight:700; }
   flex-wrap:wrap; gap:12px; color:var(--muted); font-size:13px;
 }
 .footer-inner a { color:var(--blue); text-decoration:none; }
-/* random song player */
-.footer-music { display:flex; align-items:center; gap:10px; margin:0 auto; }
-.footer-music-btn {
-  width:30px; height:30px; border-radius:50%; border:1px solid var(--line);
-  background:#fff; color:var(--accent); font-size:13px; cursor:pointer; flex:none;
+/* floating random-song player (bottom-right) */
+.mini-player {
+  position:fixed; right:16px; bottom:16px; z-index:60;
+  display:flex; flex-direction:column; align-items:flex-end; gap:8px;
+  max-width:min(320px, calc(100vw - 32px));
+}
+.mini-player[hidden] { display:none; }
+.mini-player-frame iframe, .mini-player-iframe {
+  display:block; width:min(320px, calc(100vw - 32px)); height:180px;
+  border:0; border-radius:10px; background:#000; box-shadow:0 10px 28px rgba(0,0,0,.22);
+}
+.mini-player-bar {
+  display:flex; align-items:center; gap:8px; padding:7px 10px;
+  border:1px solid var(--line); border-radius:999px; background:var(--paper);
+  box-shadow:0 6px 20px rgba(0,0,0,.14);
+}
+.mini-player-btn {
+  width:28px; height:28px; border-radius:50%; border:1px solid var(--line);
+  background:#fff; color:var(--accent); font-size:12px; cursor:pointer; flex:none;
   transition:background .2s ease, transform .2s ease;
 }
-.footer-music-btn:hover { background:var(--accent-soft); transform:translateY(-1px); }
-.footer-music-text { display:flex; flex-direction:column; line-height:1.35; min-width:0; }
-.footer-music-name { color:var(--ink); font-weight:700; font-size:13px; }
-.footer-music-sub { color:var(--muted); font-size:11.5px; }
-.footer-music-link { font-size:11.5px; color:var(--muted) !important; }
-.footer-music-frame { flex-basis:100%; }
-.footer-music-iframe { display:block; width:min(420px,100%); height:236px; border:0; border-radius:8px; }
+.mini-player-btn:hover { background:var(--accent-soft); transform:translateY(-1px); }
+.mini-player-text { display:flex; flex-direction:column; line-height:1.25; min-width:0; }
+.mini-player-name,
+.mini-player-sub { max-width:170px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.mini-player-name { color:var(--ink); font-weight:700; font-size:12.5px; }
+.mini-player-sub { color:var(--muted); font-size:11px; }
+.mini-player-close {
+  border:0; background:transparent; color:var(--muted); cursor:pointer;
+  font-size:15px; line-height:1; padding:0 2px;
+}
+.mini-player-close:hover { color:var(--ink); }
+@media (max-width: 520px) {
+  .mini-player-name, .mini-player-sub { max-width:110px; }
+}
 .visit-counter { font-size:12px; color:var(--muted); white-space:nowrap; }
 .footer-nav { display:flex; gap:16px; }
 .footer-nav a { color:var(--muted); text-decoration:none; }
