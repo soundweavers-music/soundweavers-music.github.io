@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴（421.111.12）；依據：英文維基百科簡述為 Philippine bamboo flute，且 Wikidata P1762 給出 Hornbo
 source_url: https://soundweavers-music.github.io/instruments/tumpong/
-image: https://upload.wikimedia.org/wikipedia/en/thumb/d/d5/Tumpong.jpg/500px-Tumpong.jpg
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/TumpongPhilippines.jpg/500px-TumpongPhilippines.jpg
 youtube_ids: CAzUcw2KdFk 1mTWd3MGVcE
 ---
 

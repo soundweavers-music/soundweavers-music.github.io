@@ -14,7 +14,6 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：體鳴；依據：來源一分類標籤含 Lamellophones（體鳴類）
 source_url: https://soundweavers-music.github.io/instruments/wobble-board/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/1892_wobble_board_precursor_by_William_Madsen.png/500px-1892_wobble_board_precursor_by_William_Madsen.png
 youtube_ids: lofgud4wLLo 9M_Zh_Azz-4
 ---
 

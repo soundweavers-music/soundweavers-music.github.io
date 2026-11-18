@@ -14,7 +14,6 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴（421.111-1）；依據：來源一／五稱 telenka／tilinca／tilinko 為 overtone flute、end-blown fl
 source_url: https://soundweavers-music.github.io/instruments/tilink/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Paulista_Sub-20-_S%C3%A3o_Caetano_1_x_0_Corinthians_-_Guilherme_Biro%2C_com_a_camisa_10_do_Corinthians.jpg/500px-Paulista_Sub-20-_S%C3%A3o_Caetano_1_x_0_Corinthians_-_Guilherme_Biro%2C_com_a_camisa_10_do_Corinthians.jpg
 youtube_ids: KnjPJIVnKsA FK2LClvGbKY
 ---
 

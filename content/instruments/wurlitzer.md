@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：非樂器／非單一樂器；依據：來源一簡述與 Wikidata P31 顯示 Wurlitzer 為美國樂器與點唱機製造公司，非單一樂器
 source_url: https://soundweavers-music.github.io/instruments/wurlitzer/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Rudolph_Wurlitzer_label.jpg/500px-Rudolph_Wurlitzer_label.jpg
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Wurlitzer_125_band_organ_%281924%29_trimmed%2C_Pullen_Park_Carousel.jpg/500px-Wurlitzer_125_band_organ_%281924%29_trimmed%2C_Pullen_Park_Carousel.jpg
 youtube_ids: I2S72eajLzw hBrKJydx3Dw
 ---
 

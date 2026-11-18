@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：膜鳴（211.212.1）；依據：來源二與來源三均給出 Hornbostel–Sachs 211.212.1，且來源一分類標籤含 Directly str
 source_url: https://soundweavers-music.github.io/instruments/dunun/
-image: https://upload.wikimedia.org/wikipedia/en/thumb/4/49/Dundun.JPG/500px-Dundun.JPG
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/A_colorful_Dunun.jpg/500px-A_colorful_Dunun.jpg
 youtube_ids: 0-zZRz6iiL0 rRAumyyji7w
 ---
 

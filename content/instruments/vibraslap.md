@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：體鳴（112.1）；依據：英文維基分類 Idiophones；Wikidata P1762 112.1
 source_url: https://soundweavers-music.github.io/instruments/vibraslap/
-image: https://upload.wikimedia.org/wikipedia/en/3/37/Vibraslap.JPG
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Vibraslap_-_front.jpg/500px-Vibraslap_-_front.jpg
 youtube_ids: MhbwGHuYR-Y n1ArXCdRxfg
 ---
 

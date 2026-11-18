@@ -14,7 +14,7 @@ ensemble_links: 甘美朗合奏
 verification_status: 已查證
 issue_note: 分類查證：體鳴（111.222）；依據：來源一分類標籤含 Idiophones；來源四稱其為體鳴樂器；來源三 Hornbostel–Sachs 為 111.22
 source_url: https://soundweavers-music.github.io/instruments/lithophone/
-image: https://upload.wikimedia.org/wikipedia/commons/2/23/Organ_and_Chimes_-_Caverns_of_Luray_Va_1906_postcard.png
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Limestone_lithophone%2C_Horton-in-Ribblesdale_station%2C_Yorkshire.jpg/500px-Limestone_lithophone%2C_Horton-in-Ribblesdale_station%2C_Yorkshire.jpg
 youtube_ids: 4MmokTsYWnA 1hQ5ptEWw8Y
 ---
 

@@ -14,7 +14,6 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴；依據：來源五：tuhu is a Chinese bowed string instrument in the huqin f
 source_url: https://soundweavers-music.github.io/instruments/tuhu/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Talpa_europaea_MHNT.jpg/500px-Talpa_europaea_MHNT.jpg
 youtube_ids: UCcvaAYlcbI vdsI4LBusPA
 ---
 

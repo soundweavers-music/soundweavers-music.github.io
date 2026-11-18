@@ -14,7 +14,7 @@ ensemble_links: 甘美朗合奏
 verification_status: 已查證
 issue_note: 分類查證：體鳴；依據：英文維基：marimbaphone 為 obsolete tuned percussion instrument，以 s
 source_url: https://soundweavers-music.github.io/instruments/marimbaphone/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Marimbaphone_advert.jpg/500px-Marimbaphone_advert.jpg
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Berlin_Wurlitzer_Marimbaphone.jpg/500px-Berlin_Wurlitzer_Marimbaphone.jpg
 youtube_ids: lzzMHoi3r2w mPr_SvnJ_z0
 ---
 

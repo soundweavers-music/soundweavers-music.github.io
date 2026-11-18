@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 
 source_url: https://soundweavers-music.github.io/instruments/sansula/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Santi_Cazorla%2C_2012-08-18.jpg/500px-Santi_Cazorla%2C_2012-08-18.jpg
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Sansula_delux.JPG/500px-Sansula_delux.JPG
 youtube_ids: 2ceL4frcxz8 0uEOIS_XojU
 ---
 

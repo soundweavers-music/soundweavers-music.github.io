@@ -42,10 +42,10 @@
   "page": "https://commons.wikimedia.org/wiki/File:Abe_agbe_afoxe.jpg"
  },
  "african-bow-harp": {
-  "author": "Unknown, Metropolitan Museum of Art placed on their site as public domain.",
-  "file": "Mirror_Handle_with_a_Woman_Playing_the_Vina_6th–7th_century.jpg",
+  "author": "Met Museum",
+  "file": "Bow_Lyre_-_musical_instrument.jpg",
   "license": "CC0",
-  "page": "https://commons.wikimedia.org/wiki/File:Mirror_Handle_with_a_Woman_Playing_the_Vina_6th%E2%80%937th_century.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Bow_Lyre_-_musical_instrument.jpg"
  },
  "agidigbo": {
   "author": "Francesco Bini",
@@ -318,10 +318,10 @@
   "page": "https://commons.wikimedia.org/wiki/File:Chernihiv-style_bandura.jpg"
  },
  "bandurria": {
-  "author": "Arent",
-  "file": "Bandurria-tuning.png",
+  "author": "Soinuenea",
+  "file": "Bandurria_arrunta.jpg",
   "license": "CC BY-SA 4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Bandurria-tuning.png"
+  "page": "https://commons.wikimedia.org/wiki/File:Bandurria_arrunta.jpg"
  },
  "banhu": {
   "author": "Claireislovely",
@@ -340,12 +340,6 @@
   "file": "Bansuri_bamboo_flute_23inch.jpg",
   "license": "CC BY-SA 3.0",
   "page": "https://commons.wikimedia.org/wiki/File:Bansuri_bamboo_flute_23inch.jpg"
- },
- "bar-zither": {
-  "author": "Unknown author Unknown author",
-  "file": "An_African_Banjo,_Zambia,_ca.1905-ca.1940_(imp-cswc-GB-237-CSWC47-LS6-048).jpg",
-  "license": "Public domain",
-  "page": "https://commons.wikimedia.org/wiki/File:An_African_Banjo%2C_Zambia%2C_ca.1905-ca.1940_%28imp-cswc-GB-237-CSWC47-LS6-048%29.jpg"
  },
  "barbat-lute": {
   "author": "Galassi at English Wikipedia",
@@ -595,9 +589,9 @@
  },
  "buccina": {
   "author": "",
-  "file": "Buccina_1.png",
-  "license": "CC0",
-  "page": "https://commons.wikimedia.org/wiki/File:Buccina_1.png"
+  "file": "Grande_Ludovisi_Altemps_Inv8574_n4.jpg",
+  "license": "CC BY 2.5",
+  "page": "https://commons.wikimedia.org/wiki/File:Grande_Ludovisi_Altemps_Inv8574_n4.jpg"
  },
  "bucium": {
   "author": "",
@@ -612,10 +606,10 @@
   "page": "https://commons.wikimedia.org/wiki/File:Bugle_in_C_MET_DP-12679-123.jpg"
  },
  "buhai": {
-  "author": "Apostol dorohoi",
-  "file": "Pârâul_și_Podul_Buhai.jpg",
+  "author": "Unknown author Unknown author",
+  "file": "Buhai_(Romania).jpg",
   "license": "CC BY-SA 4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:P%C3%A2r%C3%A2ul_%C8%99i_Podul_Buhai.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Buhai_%28Romania%29.jpg"
  },
  "buhay": {
   "author": "A1",
@@ -844,12 +838,6 @@
   "file": "Wurlitzer_model_112_electric_piano_1956.JPG",
   "license": "CC0",
   "page": "https://commons.wikimedia.org/wiki/File:Wurlitzer_model_112_electric_piano_1956.JPG"
- },
- "clavioline": {
-  "author": ".mw-parser-output .commons-creator-table{background-color:#f0f0ff;box-sizing:border-box;font-size:95%;text-align:start;c",
-  "file": "US2563477A_Electronic_Musical_Instrument_(1948-05-01_filed,_1951-08-07_published)_by_Constant_Martin_-_Clavioline_Fig.1.jpg",
-  "license": "CC0",
-  "page": "https://commons.wikimedia.org/wiki/File:US2563477A_Electronic_Musical_Instrument_%281948-05-01_filed%2C_1951-08-07_published%29_by_Constant_Martin_-_Clavioline_Fig.1.jpg"
  },
  "cobza": {
   "author": "COBZA2.JPG : Andersjallen derivative work: Villanueva ( talk )",
@@ -1217,12 +1205,6 @@
   "license": "CC0",
   "page": "https://www.metmuseum.org/art/collection/search/501056"
  },
- "dulce-melos": {
-  "author": "Stewart Pollens",
-  "file": "1440_Dulce_Melos.png",
-  "license": "Public domain",
-  "page": "https://commons.wikimedia.org/wiki/File:1440_Dulce_Melos.png"
- },
  "dulcimer": {
   "author": "UpperPalatine",
   "file": "Dulcimer_(UP).jpg",
@@ -1240,6 +1222,12 @@
   "file": "Horn_(dungchen),_Tamang_people,_Nepal,_mid-20th_century.jpg",
   "license": "CC0",
   "page": "https://commons.wikimedia.org/wiki/File:Horn_%28dungchen%29%2C_Tamang_people%2C_Nepal%2C_mid-20th_century.jpg"
+ },
+ "dunun": {
+  "author": "MKwadyo",
+  "file": "A_colorful_Dunun.jpg",
+  "license": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:A_colorful_Dunun.jpg"
  },
  "dutar": {
   "author": "Paul Munhoven",
@@ -1368,12 +1356,6 @@
   "license": "CC0",
   "page": "https://commons.wikimedia.org/wiki/File:Erhu_in_the_Mets.jpg"
  },
- "erke": {
-  "author": "N J.O. Zavalía",
-  "file": "Erke_-_Noroeste_Argentino.jpg",
-  "license": "CC BY 2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Erke_-_Noroeste_Argentino.jpg"
- },
  "erxian": {
   "author": "Unknown photographer, Image placed into public domain by the Metropolitan Museum of Art on their webpage for the image",
   "file": "Erxian_19th_century_Chinese,_possibly_Chaozhu_sub-culture,_from_the_Metropolitan_Museum_of_Art.jpg",
@@ -1411,10 +1393,10 @@
   "page": "https://commons.wikimedia.org/wiki/File:Fairlight_green_screen.jpg"
  },
  "fangxiang": {
-  "author": "Chen Menglei",
-  "file": "Imperial_Encyclopaedia_-_Music_-_pic023_-_方響.svg",
-  "license": "Public domain",
-  "page": "https://commons.wikimedia.org/wiki/File:Imperial_Encyclopaedia_-_Music_-_pic023_-_%E6%96%B9%E9%9F%BF.svg"
+  "author": "Unknown author Unknown author",
+  "file": "방향(국립고궁박물관).jpg",
+  "license": "CC0",
+  "page": "https://commons.wikimedia.org/wiki/File:%EB%B0%A9%ED%96%A5%28%EA%B5%AD%EB%A6%BD%EA%B3%A0%EA%B6%81%EB%B0%95%EB%AC%BC%EA%B4%80%29.jpg"
  },
  "fiddle": {
   "author": "Newtown grafitti from Sydney, Australia",
@@ -1423,10 +1405,10 @@
   "page": "https://commons.wikimedia.org/wiki/File:Morris_fiddler_-_Festivals_of_Winds%2C_2012.jpg"
  },
  "fife": {
-  "author": "Kim Traynor",
-  "file": "Crail,_Fife,_Scotland.jpg",
-  "license": "CC BY-SA 3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Crail%2C_Fife%2C_Scotland.jpg"
+  "author": "",
+  "file": "Fife_(AM_1998.60.350-4).jpg",
+  "license": "CC BY 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Fife_%28AM_1998.60.350-4%29.jpg"
  },
  "finger-cymbals": {
   "author": "Gudzwabofer",
@@ -1663,10 +1645,10 @@
   "page": "https://commons.wikimedia.org/wiki/File:Gong_Ageng.jpg"
  },
  "gottuvadyam": {
-  "author": "Harald Krichel",
-  "file": "Chitravina_N_Ravikiran-1300972.jpg",
-  "license": "CC BY-SA 4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Chitravina_N_Ravikiran-1300972.jpg"
+  "author": "Kerker",
+  "file": "Ch2.JPG",
+  "license": "CC BY-SA 3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Ch2.JPG"
  },
  "great-highland-bagpipe": {
   "author": "Chris 73 at en.wikipedia",
@@ -1679,18 +1661,6 @@
   "file": "Mousai_Helikon_Staatliche_Antikensammlungen_Schoen80_n1.jpg",
   "license": "CC0",
   "page": "https://commons.wikimedia.org/wiki/File:Mousai_Helikon_Staatliche_Antikensammlungen_Schoen80_n1.jpg"
- },
- "ground-bow": {
-  "author": "Unknown author Unknown author",
-  "file": "Dyulu-tama_ground_bow.jpg",
-  "license": "Public domain",
-  "page": "https://commons.wikimedia.org/wiki/File:Dyulu-tama_ground_bow.jpg"
- },
- "ground-zither": {
-  "author": "Gaston Knosp",
-  "file": "Knosp,TrongQuan.jpg",
-  "license": "Public domain",
-  "page": "https://commons.wikimedia.org/wiki/File:Knosp%2CTrongQuan.jpg"
  },
  "guanzi": {
   "author": "",
@@ -1794,11 +1764,17 @@
   "license": "CC0",
   "page": "https://commons.wikimedia.org/wiki/File:Hammond_c3_Emilio_Mu%C3%B1oz.jpg"
  },
- "handbells": {
-  "author": "Henry Holiday (1839-1927) after Lewis Carroll [Real name: Charles Lutwidge Dodgson] (1832-1896)",
-  "file": "Lewis_Carroll_-_Henry_Holiday_-_Hunting_of_the_Snark_-_Plate_1.jpg",
-  "license": "CC0",
-  "page": "https://commons.wikimedia.org/wiki/File:Lewis_Carroll_-_Henry_Holiday_-_Hunting_of_the_Snark_-_Plate_1.jpg"
+ "handbell": {
+  "author": "Miya",
+  "file": "Handbell_choir01.jpg",
+  "license": "CC BY-SA 3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Handbell_choir01.jpg"
+ },
+ "handchime": {
+  "author": "Godofbiscuits",
+  "file": "Hand_Chimes.jpg",
+  "license": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Hand_Chimes.jpg"
  },
  "handpan": {
   "author": "Toglenn",
@@ -1831,10 +1807,10 @@
   "page": "https://commons.wikimedia.org/wiki/File:John_Church_and_Co._reed_organ.jpg"
  },
  "harp": {
-  "author": "",
-  "file": "Harp.png",
-  "license": "CC0",
-  "page": "https://commons.wikimedia.org/wiki/File:Harp.png"
+  "author": "N.S.M. s.p.a.",
+  "file": "Salvi_harp_Diana.jpg",
+  "license": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Salvi_harp_Diana.jpg"
  },
  "harp-guitar": {
   "author": "Von-zoid",
@@ -1844,9 +1820,9 @@
  },
  "harp-lute": {
   "author": "",
-  "file": "Kitty_Stephens,_later_Countess_of_Essex_(1794-1882)_by_George_Henry_Harlow.jpg",
-  "license": "Public domain",
-  "page": "https://commons.wikimedia.org/wiki/File:Kitty_Stephens%2C_later_Countess_of_Essex_%281794-1882%29_by_George_Henry_Harlow.jpg"
+  "file": "Harp_Lute_MET_DP109502.jpg",
+  "license": "CC0",
+  "page": "https://commons.wikimedia.org/wiki/File:Harp_Lute_MET_DP109502.jpg"
  },
  "harpejji": {
   "author": "Potushaft",
@@ -2035,10 +2011,10 @@
   "page": "https://commons.wikimedia.org/wiki/File:Jing.jpg"
  },
  "jinghu": {
-  "author": "ウィキ太郎(Wiki Taro)",
-  "file": "胡琴_明清楽_楽器_1894_KOKIN_or_HUQIN_musical_instrument_used_in_MINSHINGAKU.jpg",
+  "author": "",
+  "file": "Jinghu_(京胡)_MET_DP-13678-007.jpg",
   "license": "CC0",
-  "page": "https://commons.wikimedia.org/wiki/File:%E8%83%A1%E7%90%B4_%E6%98%8E%E6%B8%85%E6%A5%BD_%E6%A5%BD%E5%99%A8_1894_KOKIN_or_HUQIN_musical_instrument_used_in_MINSHINGAKU.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Jinghu_%28%E4%BA%AC%E8%83%A1%29_MET_DP-13678-007.jpg"
  },
  "jingle-bell": {
   "author": "Richard Wheeler at en.wikipedia",
@@ -2347,10 +2323,10 @@
   "page": "https://commons.wikimedia.org/wiki/File:Kubing.jpg"
  },
  "kudu-horn": {
-  "author": "StormSignal from Magaliesburg, South Africa",
-  "file": "Kudu_(17418137574).jpg",
-  "license": "CC BY-SA 2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Kudu_%2817418137574%29.jpg"
+  "author": "Shyamal",
+  "file": "Kudu_horn.jpg",
+  "license": "CC BY-SA 3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Kudu_horn.jpg"
  },
  "kulintang": {
   "author": "Gary Todd",
@@ -2467,10 +2443,10 @@
   "page": "https://commons.wikimedia.org/wiki/File:Lira_da_braccio_%281511%29.jpg"
  },
  "lithophone": {
-  "author": "http://en.wikipedia.org/wiki/User:Markkidd",
-  "file": "Organ_and_Chimes_-_Caverns_of_Luray_Va_1906_postcard.png",
-  "license": "CC0",
-  "page": "https://commons.wikimedia.org/wiki/File:Organ_and_Chimes_-_Caverns_of_Luray_Va_1906_postcard.png"
+  "author": "Rosser1954",
+  "file": "Limestone_lithophone,_Horton-in-Ribblesdale_station,_Yorkshire.jpg",
+  "license": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Limestone_lithophone%2C_Horton-in-Ribblesdale_station%2C_Yorkshire.jpg"
  },
  "litungu": {
   "author": "Dorothy6161",
@@ -2528,10 +2504,10 @@
   "page": "https://commons.wikimedia.org/wiki/File:Bar-lute8-ref.jpg"
  },
  "lyre": {
-  "author": "",
-  "file": "Lyre1913.jpg",
-  "license": "CC0",
-  "page": "https://commons.wikimedia.org/wiki/File:Lyre1913.jpg"
+  "author": "Denexeitelos",
+  "file": "A_reconstruction_of_an_ancient_lyre,_Kotsanas_Museum_of_Ancient_Greek_Technology.jpg",
+  "license": "CC BY 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:A_reconstruction_of_an_ancient_lyre%2C_Kotsanas_Museum_of_Ancient_Greek_Technology.jpg"
  },
  "lyre-guitar": {
   "author": "Rama",
@@ -2540,10 +2516,10 @@
   "page": "https://commons.wikimedia.org/wiki/File:Lyre-guitar-Gaetano_Vinaccia-MAHG_9360-IMG_9272-gradient.jpg"
  },
  "madal": {
-  "author": "Mithileshbaraily",
-  "file": "Madal.png",
-  "license": "CC BY-SA 4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Madal.png"
+  "author": "Krish Dulal",
+  "file": "Madal_nepal_krish.jpg",
+  "license": "CC BY-SA 3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Madal_nepal_krish.jpg"
  },
  "malagasy-tube-zither": {
   "author": "Rob Hooft",
@@ -2600,10 +2576,10 @@
   "page": "https://commons.wikimedia.org/wiki/File:Marimba_One_4000_Series.jpg"
  },
  "marimbaphone": {
-  "author": "J. C. Deagon company of Chicago, Illinois",
-  "file": "Marimbaphone_advert.jpg",
+  "author": "Photo: Andreas Praefcke",
+  "file": "Berlin_Wurlitzer_Marimbaphone.jpg",
   "license": "CC0",
-  "page": "https://commons.wikimedia.org/wiki/File:Marimbaphone_advert.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Berlin_Wurlitzer_Marimbaphone.jpg"
  },
  "marimbula": {
   "author": "",
@@ -2612,10 +2588,10 @@
   "page": "https://commons.wikimedia.org/wiki/File:Marimbula.png"
  },
  "mark-tree": {
-  "author": "C. C. Curtis (1862–1956)",
-  "file": "Mark-twain-tree-4.jpg",
-  "license": "Public domain",
-  "page": "https://commons.wikimedia.org/wiki/File:Mark-twain-tree-4.jpg"
+  "author": "http://muzyczny.pl",
+  "file": "Meinl_CH-12_Chimes.jpg",
+  "license": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Meinl_CH-12_Chimes.jpg"
  },
  "martinshorn": {
   "author": "Jean-François Gornet from Paris, France",
@@ -2762,10 +2738,10 @@
   "page": "https://commons.wikimedia.org/wiki/File:Wiki-mridangam.jpg"
  },
  "mukkuri": {
-  "author": "maultrommel ( https://www.flickr.com/people/21618091@N08/ )",
-  "file": "Mukkuri-Leo-Tadagawa.jpg",
-  "license": "CC0",
-  "page": "https://commons.wikimedia.org/wiki/File:Mukkuri-Leo-Tadagawa.jpg"
+  "author": "photozou : Ludwig D. Omen",
+  "file": "Mukkuri_(Ainu's_Jaw_Harp)_made_with_brass_(photozou_29416375)_by_Ludwig_D._Omen.jpg",
+  "license": "CC BY 2.1",
+  "page": "https://commons.wikimedia.org/wiki/File:Mukkuri_%28Ainu%27s_Jaw_Harp%29_made_with_brass_%28photozou_29416375%29_by_Ludwig_D._Omen.jpg"
  },
  "musette": {
   "author": "Museumsinsulaner",
@@ -2822,10 +2798,10 @@
   "page": "https://commons.wikimedia.org/wiki/File:A_Nadaswaram_with_seevali.JPG"
  },
  "nagada": {
-  "author": "Dr-Vivoo",
-  "file": "MbgIMG_0411.jpg",
+  "author": "ali",
+  "file": "نقاره_سیرجان.jpg",
   "license": "CC BY-SA 4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:MbgIMG_0411.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:%D9%86%D9%82%D8%A7%D8%B1%D9%87_%D8%B3%DB%8C%D8%B1%D8%AC%D8%A7%D9%86.jpg"
  },
  "nagado-daiko": {
   "author": "Taiko-Kaiser-Drums",
@@ -3032,10 +3008,10 @@
   "page": "https://commons.wikimedia.org/wiki/File:Oud2.jpg"
  },
  "p-fano": {
-  "author": "by nagyman",
-  "file": "Korea-Buk-01.jpg",
-  "license": "CC BY-SA 2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Korea-Buk-01.jpg"
+  "author": "",
+  "file": "Banda_de_Pífanos_–_6458_001.jpg",
+  "license": "CC BY 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Banda_de_P%C3%ADfanos_%E2%80%93_6458_001.jpg"
  },
  "paiban": {
   "author": "",
@@ -3380,10 +3356,10 @@
   "page": "https://commons.wikimedia.org/wiki/File:Musicista_di_Rauschpfeife.jpg"
  },
  "rav-vast": {
-  "author": "Alexxx1979",
-  "file": "Kama_River._Perm._Art_Gallery_(former_Transfiguration_Cathedral)_P6242387_2575.jpg",
+  "author": "Ravvast",
+  "file": "Rav_Vast.jpg",
   "license": "CC BY-SA 4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Kama_River._Perm._Art_Gallery_%28former_Transfiguration_Cathedral%29_P6242387_2575.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Rav_Vast.jpg"
  },
  "rebab": {
   "author": "Rebab tiga tali",
@@ -3458,10 +3434,10 @@
   "page": "https://commons.wikimedia.org/wiki/File:Rhaita_or_ghaita.jpg"
  },
  "rhodes": {
-  "author": "European Union, Sentinel-2 Imagery",
-  "file": "Rhodes_sentinel2_(cropped).jpg",
+  "author": "",
+  "file": "Rhodes_Mk_II_73_cropped.jpg",
   "license": "CC0",
-  "page": "https://commons.wikimedia.org/wiki/File:Rhodes_sentinel2_%28cropped%29.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Rhodes_Mk_II_73_cropped.jpg"
  },
  "rhythm-sticks": {
   "author": "Andrewa",
@@ -3578,10 +3554,10 @@
   "page": "https://commons.wikimedia.org/wiki/File:Small_Mbira.jpg"
  },
  "sansula": {
-  "author": "Ronnie Macdonald",
-  "file": "Santi_Cazorla,_2012-08-18.jpg",
-  "license": "CC BY 2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Santi_Cazorla%2C_2012-08-18.jpg"
+  "author": "Joel Olivé",
+  "file": "Sansula_delux.JPG",
+  "license": "CC BY 3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Sansula_delux.JPG"
  },
  "santoor": {
   "author": "Strange Traveler",
@@ -3620,10 +3596,10 @@
   "page": "https://commons.wikimedia.org/wiki/File:Saraswati_veena_%28Indian_long-necked_lute%29.png"
  },
  "sarod": {
-  "author": "Notnarayan",
-  "file": "Sarod_plectrum.jpg",
-  "license": "CC BY-SA 3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Sarod_plectrum.jpg"
+  "author": "",
+  "file": "Sarod_MET_DP-14177-002.jpg",
+  "license": "CC0",
+  "page": "https://commons.wikimedia.org/wiki/File:Sarod_MET_DP-14177-002.jpg"
  },
  "saron": {
   "author": "fir0002 flagstaffotos [at] gmail.com Canon 20D + Tamron 28-75mm f/2.8",
@@ -3698,10 +3674,10 @@
   "page": "https://commons.wikimedia.org/wiki/File:20131205_Istanbul_321_cropped.jpg"
  },
  "seljefl-yte": {
-  "author": "Photo taken by Muu-karhu",
-  "file": "Willow_whistle.jpg",
-  "license": "CC0",
-  "page": "https://commons.wikimedia.org/wiki/File:Willow_whistle.jpg"
+  "author": "Øyvind Holmstad",
+  "file": "Seljefløyte.jpg",
+  "license": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Seljefl%C3%B8yte.jpg"
  },
  "semi-acoustic-guitar": {
   "author": "Thomas Despoix",
@@ -3759,15 +3735,15 @@
  },
  "shawm": {
   "author": "",
-  "file": "Herderstafereel_met_een_schalmeispeler_Rijksmuseum_SK-A-1494.jpeg",
-  "license": "CC0",
-  "page": "https://commons.wikimedia.org/wiki/File:Herderstafereel_met_een_schalmeispeler_Rijksmuseum_SK-A-1494.jpeg"
+  "file": "Shawm_(AM_1998.60.330-5).jpg",
+  "license": "CC BY 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Shawm_%28AM_1998.60.330-5%29.jpg"
  },
  "shehnai": {
-  "author": "Badagnani",
-  "file": "Shehnai.jpg",
-  "license": "CC BY 3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Shehnai.jpg"
+  "author": "Charubrahmma",
+  "file": "Lokesh_Anand_Shehnai_Player.jpg",
+  "license": "CC BY-SA 3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Lokesh_Anand_Shehnai_Player.jpg"
  },
  "shekere": {
   "author": "en:User:Freddythehat",
@@ -3822,12 +3798,6 @@
   "file": "Siku_(10).jpg",
   "license": "CC BY-SA 4.0",
   "page": "https://commons.wikimedia.org/wiki/File:Siku_%2810%29.jpg"
- },
- "simbi": {
-  "author": "Photo by Don Cole",
-  "file": "Dona_Fish_-_Mamba_Muntu_-_Simbi.jpg",
-  "license": "CC BY-SA 4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Dona_Fish_-_Mamba_Muntu_-_Simbi.jpg"
  },
  "simsimiyya": {
   "author": "Jean-Pierre Dalbéra from Paris, France",
@@ -3884,10 +3854,10 @@
   "page": "https://commons.wikimedia.org/wiki/File:Tuned_Chromatic_Sleigh_Bells_%28from_Emil_Richards_Collection%29.jpg"
  },
  "slide-whistle": {
-  "author": "Ferbr1",
-  "file": "Flauta_d'èmbol_-_edit.jpg",
+  "author": "Flopinot2012",
+  "file": "Flûte_à_coulisse.PNG",
   "license": "CC BY-SA 3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Flauta_d%27%C3%A8mbol_-_edit.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Fl%C3%BBte_%C3%A0_coulisse.PNG"
  },
  "slit-drum": {
   "author": "Tatoute",
@@ -3930,12 +3900,6 @@
   "file": "Yamaha_Sousaphone_YSH-411.jpg",
   "license": "CC BY-SA 4.0",
   "page": "https://commons.wikimedia.org/wiki/File:Yamaha_Sousaphone_YSH-411.jpg"
- },
- "space-harp": {
-  "author": "",
-  "file": "Harp.png",
-  "license": "CC0",
-  "page": "https://commons.wikimedia.org/wiki/File:Harp.png"
  },
  "spanish-la-d": {
   "author": "Medievalista",
@@ -4020,12 +3984,6 @@
   "file": "B-Suonas.JPG",
   "license": "CC BY-SA 3.0",
   "page": "https://commons.wikimedia.org/wiki/File:B-Suonas.JPG"
- },
- "superball": {
-  "author": "Lenore Edman",
-  "file": "Glitter_Super_Ball.jpg",
-  "license": "CC0",
-  "page": "https://commons.wikimedia.org/wiki/File:Glitter_Super_Ball.jpg"
  },
  "surbahar": {
   "author": "Sathyadeep",
@@ -4154,10 +4112,10 @@
   "page": "https://commons.wikimedia.org/wiki/File:Espartenhas_-_Campestral_2016_au_Passage_d%27Agen_%281%29.jpg"
  },
  "tambura": {
-  "author": "Алый Король",
-  "file": "蔡依林出席王国大帝全球巡回赛现场_cropped_(cropped).jpg",
+  "author": "Arent",
+  "file": "Bulgarian_Tambura.png",
   "license": "CC BY-SA 4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:%E8%94%A1%E4%BE%9D%E6%9E%97%E5%87%BA%E5%B8%AD%E7%8E%8B%E5%9B%BD%E5%A4%A7%E5%B8%9D%E5%85%A8%E7%90%83%E5%B7%A1%E5%9B%9E%E8%B5%9B%E7%8E%B0%E5%9C%BA_cropped_%28cropped%29.jpg"
+  "page": "https://commons.wikimedia.org/wiki/File:Bulgarian_Tambura.png"
  },
  "tambura-bugarija": {
   "author": "Jo Dusepo",
@@ -4208,10 +4166,10 @@
   "page": "https://commons.wikimedia.org/wiki/File:Tahyea05.jpg"
  },
  "tar": {
-  "author": "Kamyl16",
-  "file": "Kośćiół_w_Tarczynie_widok_tylnej_części_z_Rynku.jpg",
-  "license": "CC BY 3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Ko%C5%9B%C4%87i%C3%B3%C5%82_w_Tarczynie_widok_tylnej_cz%C4%99%C5%9Bci_z_Rynku.jpg"
+  "author": "Mariam Bejanyan",
+  "file": "Tar_(string_instrument)_02.jpg",
+  "license": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Tar_%28string_instrument%29_02.jpg"
  },
  "tarka": {
   "author": "Mark Ahsmann",
@@ -4327,12 +4285,6 @@
   "file": "Europeana.eu-951-Culturalia_d4efc901_e453_455f_b888_0b43a9b6db66-d1d1ccb6482347c33272399aa7986af9.jpg",
   "license": "CC BY-SA 4.0",
   "page": "https://commons.wikimedia.org/wiki/File:Europeana.eu-951-Culturalia_d4efc901_e453_455f_b888_0b43a9b6db66-d1d1ccb6482347c33272399aa7986af9.jpg"
- },
- "tilink": {
-  "author": "SOCCER DIGITAL",
-  "file": "Paulista_Sub-20-_São_Caetano_1_x_0_Corinthians_-_Guilherme_Biro,_com_a_camisa_10_do_Corinthians.jpg",
-  "license": "Public domain",
-  "page": "https://commons.wikimedia.org/wiki/File:Paulista_Sub-20-_S%C3%A3o_Caetano_1_x_0_Corinthians_-_Guilherme_Biro%2C_com_a_camisa_10_do_Corinthians.jpg"
  },
  "timbal": {
   "author": "Alno",
@@ -4460,6 +4412,12 @@
   "license": "CC BY-SA 4.0",
   "page": "https://commons.wikimedia.org/wiki/File:Triangle_001.jpg"
  },
+ "tromba-marina": {
+  "author": "",
+  "file": "Tromba_Marina_MET_MUS1148B.jpg",
+  "license": "CC0",
+  "page": "https://commons.wikimedia.org/wiki/File:Tromba_Marina_MET_MUS1148B.jpg"
+ },
  "trombone": {
   "author": "w:user:Esolomon",
   "file": "Posaune.jpg",
@@ -4514,17 +4472,11 @@
   "license": "CC BY-SA 2.0",
   "page": "https://commons.wikimedia.org/wiki/File:Civic_Orchestra_of_Chicago_Timpani.jpg"
  },
- "tuhu": {
-  "author": "",
-  "file": "Talpa_europaea_MHNT.jpg",
-  "license": "CC0",
-  "page": "https://commons.wikimedia.org/wiki/File:Talpa_europaea_MHNT.jpg"
- },
  "tulum": {
-  "author": "Popo le Chien",
-  "file": "Tulum_2.jpg",
-  "license": "CC BY-SA 3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Tulum_2.jpg"
+  "author": "Macukali",
+  "file": "Birol-topaloglu-tulum.jpg",
+  "license": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Birol-topaloglu-tulum.jpg"
  },
  "tumbi": {
   "author": "Ravideep1971",
@@ -4537,6 +4489,12 @@
   "file": "A_Santal_drummer_playing_Tumda.jpg",
   "license": "CC BY-SA 3.0",
   "page": "https://commons.wikimedia.org/wiki/File:A_Santal_drummer_playing_Tumda.jpg"
+ },
+ "tumpong": {
+  "author": "IlshatS Ilshat Saitgalin bashkir from Bashkortostan of Russian Federation",
+  "file": "TumpongPhilippines.jpg",
+  "license": "CC BY-SA 3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:TumpongPhilippines.jpg"
  },
  "tuntina": {
   "author": "Salim_Khandoker",
@@ -4609,6 +4567,12 @@
   "file": "Vibes_joelocke_koeln2007.jpg",
   "license": "CC BY-SA 4.0",
   "page": "https://commons.wikimedia.org/wiki/File:Vibes_joelocke_koeln2007.jpg"
+ },
+ "vibraslap": {
+  "author": "Vonvon",
+  "file": "Vibraslap_-_front.jpg",
+  "license": "CC BY-SA 3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Vibraslap_-_front.jpg"
  },
  "vielle": {
   "author": "",
@@ -4718,12 +4682,6 @@
   "license": "CC0",
   "page": "https://commons.wikimedia.org/wiki/File:Willow_whistle.jpg"
  },
- "wobble-board": {
-  "author": "William Madsen",
-  "file": "1892_wobble_board_precursor_by_William_Madsen.png",
-  "license": "CC0",
-  "page": "https://commons.wikimedia.org/wiki/File:1892_wobble_board_precursor_by_William_Madsen.png"
- },
  "wood-blocks": {
   "author": "っ",
   "file": "WoodBlock.jpg",
@@ -4737,10 +4695,10 @@
   "page": "https://commons.wikimedia.org/wiki/File:Dos_bloques.JPG"
  },
  "wurlitzer": {
-  "author": "CowboyWisdom at English Wikipedia",
-  "file": "Rudolph_Wurlitzer_label.jpg",
-  "license": "CC0",
-  "page": "https://commons.wikimedia.org/wiki/File:Rudolph_Wurlitzer_label.jpg"
+  "author": "Wurlitzer 125 band organ (1924), Pullen Park Carousel.jpg : Aefox derivative work: Clusternote",
+  "file": "Wurlitzer_125_band_organ_(1924)_trimmed,_Pullen_Park_Carousel.jpg",
+  "license": "CC BY 3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Wurlitzer_125_band_organ_%281924%29_trimmed%2C_Pullen_Park_Carousel.jpg"
  },
  "xiao": {
   "author": "Victortsang",

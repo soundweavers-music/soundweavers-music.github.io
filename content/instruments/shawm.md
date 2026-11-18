@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴（422.112）；依據：來源一：Double-reed woodwind instrument；來源三：H-S 422.112
 source_url: https://soundweavers-music.github.io/instruments/shawm/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Herderstafereel_met_een_schalmeispeler_Rijksmuseum_SK-A-1494.jpeg/500px-Herderstafereel_met_een_schalmeispeler_Rijksmuseum_SK-A-1494.jpeg
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Shawm_%28AM_1998.60.330-5%29.jpg/500px-Shawm_%28AM_1998.60.330-5%29.jpg
 youtube_ids: 7KZwzFMefU8 JoaiLceiFZA
 ---
 

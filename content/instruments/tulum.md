@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：非樂器／非單一樂器；依據：來源一與來源三顯示 Tulum 為墨西哥尤卡坦半島的馬雅考古遺址／archaeological site，非樂器
 source_url: https://soundweavers-music.github.io/instruments/tulum/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Tulum_2.jpg/500px-Tulum_2.jpg
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Birol-topaloglu-tulum.jpg/500px-Birol-topaloglu-tulum.jpg
 youtube_ids: RCVAkCrJDdw RlYndwvlz3g
 ---
 

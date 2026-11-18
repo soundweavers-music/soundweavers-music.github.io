@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴（422.112）；依據：英文維基：Indian reed musical instrument；Wikidata P1762：422.112
 source_url: https://soundweavers-music.github.io/instruments/shehnai/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Shehnai.jpg/500px-Shehnai.jpg
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Lokesh_Anand_Shehnai_Player.jpg/500px-Lokesh_Anand_Shehnai_Player.jpg
 youtube_ids: KUwci-cJ_Uk yoH36u7zEK8
 ---
 
