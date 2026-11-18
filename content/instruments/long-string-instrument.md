@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴；依據：英文維基開頭與全文均描述其以弦振動發聲，並提及 monochord、strings、string vibration。
 source_url: https://soundweavers-music.github.io/instruments/long-string-instrument/
+image: /assets/instruments/long-string-instrument.webp
 youtube_ids: 12X-i9YHzmE XfyVyeQcg_A
 ---
 

@@ -1271,6 +1271,13 @@
   "license": "CC BY-SA 3.0",
   "page": "https://commons.wikimedia.org/wiki/File:Sviranje_dipli.JPG"
  },
+ "earth-harp": {
+  "author": "simsenghuat",
+  "file": "earth-harp.webp",
+  "license": "CC BY-NC-SA",
+  "page": "https://www.flickr.com/photos/63077571@N00/14868227680",
+  "source": "Openverse / Flickr"
+ },
  "egg-shaker": {
   "author": "Alno",
   "file": "Ganza_10cm.JPG",
@@ -2500,6 +2507,13 @@
   "file": "TamTam.jpg",
   "license": "CC BY-SA 3.0",
   "page": "https://commons.wikimedia.org/wiki/File:TamTam.jpg"
+ },
+ "long-string-instrument": {
+  "author": "Rosa Menkman",
+  "file": "long-string-instrument.webp",
+  "license": "CC BY",
+  "page": "https://www.flickr.com/photos/68716054@N00/6938994363",
+  "source": "Openverse / Flickr"
  },
  "loop-station": {
   "author": "Massygo",
@@ -4306,6 +4320,13 @@
   "file": "Macchina_del_tuono.jpg",
   "license": "CC BY-SA 4.0",
   "page": "https://commons.wikimedia.org/wiki/File:Macchina_del_tuono.jpg"
+ },
+ "thunder-tube": {
+  "author": "Villainette",
+  "file": "thunder-tube.webp",
+  "license": "CC BY-NC-SA",
+  "page": "https://www.flickr.com/photos/28515246@N02/4524683321",
+  "source": "Openverse / Flickr"
  },
  "tilinca": {
   "author": "Lăcătuș Mihail - ASTRA National Museum Complex, Romania - CC BY-SA.",
