@@ -1,35 +1,37 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 300" role="img" aria-label="捏住鼻子，檢查有沒有漏氣">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" role="img" aria-label="捏住鼻子，檢查有沒有漏氣">
   <title>捏住鼻子，檢查有沒有漏氣</title>
-  <rect width="540" height="300" fill="#fbf8f2"/>
+  <rect width="640" height="300" fill="#FBF8F4"/>
   <style>
-    .out   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .lead  { fill: none; stroke: #2a2724; stroke-width: .9; }
-    .dot   { fill: #2a2724; }
-    .skin  { fill: #f1e0d6; stroke: #2a2724; stroke-width: 1.8; }
-    .muc   { fill: #e2a99b; stroke: #cb8f82; stroke-width: 1.2; }
-    .muc2  { fill: #cb8f82; stroke: #2a2724; stroke-width: 1.4; }
-    .cart  { fill: #d5d5c2; stroke: #2a2724; stroke-width: 1.5; }
-    .bone  { fill: #ece6d8; stroke: #2a2724; stroke-width: 1.4; }
-    .air   { fill: #d5e5e7; stroke: #2a2724; stroke-width: 1.3; }
-    .fold  { fill: #f6f3ea; stroke: #c9c1ac; stroke-width: 1.6; }
-    .musc  { fill: #cf8f88; stroke: #2a2724; stroke-width: 1.1; }
-    .hl    { fill: #b5734a; fill-opacity: .22; stroke: #b5734a; stroke-width: 1.7; }
-    .hl2   { fill: #7d9b76; fill-opacity: .22; stroke: #7d9b76; stroke-width: 1.7; }
-    .ink   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .ave   { fill: none; stroke: #b5734a; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .ave2  { fill: none; stroke: #7d9b76; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .thin  { fill: none; stroke: #d8d0c2; stroke-width: 1.3; stroke-dasharray: 5 5; }
-    .lbl   { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; }
-    .lbl-s { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 12px; fill: #6f6a60; }
-    .lbl-b { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; font-weight: 700; }
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
   </style>
-<text class="lbl-b" x="26" y="30">捏住鼻子，檢查有沒有漏氣</text>
-  <circle class="skin" cx="110" cy="120" r="34"/><path class="ink" d="M98 150 C100 180 116 194 114 214"/><path class="ink" d="M124 152 C128 184 120 200 118 214"/>
-  <path class="muc" d="M96 96 C110 90 122 96 122 108 C110 112 98 110 96 96 Z"/>
-  <text class="lbl-s" x="146" y="100">捏住鼻子再唱一句</text>
-  <circle cx="330" cy="180" r="13" fill="#b5734a" fill-opacity=".9"/><text class="lbl" x="330" y="185" text-anchor="middle">1</text>
-  <text class="lbl-s" x="350" y="184">聲音變小 → 好</text>
-  <circle cx="330" cy="224" r="13" fill="#b5734a" fill-opacity=".9"/><text class="lbl" x="330" y="229" text-anchor="middle">2</text>
-  <text class="lbl-s" x="350" y="228">幾乎沒差 → 鼻音漏太多</text>
-  <text class="lbl-s" x="26" y="284">捏住鼻子：聲音明顯變小，代表共鳴沒漏到鼻腔</text>
+  <text x="26" y="34" class="tb" font-size="16">捏住鼻子，檢查有沒有漏氣</text>
+  <text x="26" y="55" class="ts" font-size="12.5">正常唱歌時，氣應該幾乎全部走口腔</text>
+  <path d="M140 120 C140 96 152 84 168 84 C182 84 190 96 190 112 C190 128 178 136 168 136" class="ink" fill="#F2E7DC" stroke="#3D3229" stroke-width="1.5"/>
+  <circle cx="150" cy="150" r="16" fill="none" stroke="#3D3229" stroke-width="1.3"/>
+  <circle cx="186" cy="150" r="16" fill="none" stroke="#3D3229" stroke-width="1.3"/>
+  <path d="M120.0 150.0 L134.6 150.0" fill="none" stroke="#B0563F" stroke-width="1.7" stroke-linecap="round"/><path d="M140.0 150.0 L134.5 152.4 L134.5 147.6 Z" fill="#B0563F"/>
+  <path d="M216.0 150.0 L201.4 150.0" fill="none" stroke="#B0563F" stroke-width="1.7" stroke-linecap="round"/><path d="M196.0 150.0 L201.5 147.6 L201.5 152.4 Z" fill="#B0563F"/>
+  <text x="168" y="200" class="ts" font-size="11.5" text-anchor="middle">捏住鼻子再唱一句</text>
+  <rect x="262" y="92" width="170" height="74" rx="6" fill="#E4EBDC" stroke="#6F8F6A" stroke-width="1.2"/>
+  <text x="276" y="118" class="t" font-size="12.5" font-weight="600" fill="#6F8F6A">聲音沒變</text>
+  <text x="276" y="140" class="ts" font-size="11">共鳴在口腔，正常</text>
+  <rect x="262" y="180" width="170" height="74" rx="6" fill="#F4DFD7" stroke="#B0563F" stroke-width="1.2"/>
+  <text x="276" y="206" class="t" font-size="12.5" font-weight="600" fill="#B0563F">聲音消失</text>
+  <text x="276" y="228" class="ts" font-size="11">太多氣走鼻腔</text>
+  <text x="452" y="108" class="ts" font-size="11.5">鼻音不是「唱到鼻子」，</text>
+  <text x="452" y="130" class="ts" font-size="11.5">是軟顎沒關好、氣漏進鼻腔。</text>
+  <text x="452" y="176" class="ts" font-size="11.5">捏住鼻子是 10 秒就能做完的檢查。</text>
+  <text x="26" y="282" class="ts" font-size="11">正常唱歌時，氣應該幾乎全部走口腔。</text>
 </svg>

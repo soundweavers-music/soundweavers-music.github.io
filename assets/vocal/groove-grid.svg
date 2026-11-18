@@ -1,62 +1,43 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 350" role="img" aria-label="拍點前後的微小時差：搶拍、正拍、拖拍">
-  <title>拍點前後的微小時差：搶拍、正拍、拖拍</title>
-  <rect width="620" height="350" fill="#fbf8f2"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" role="img" aria-label="拍點前後的微小時差">
+  <title>拍點前後的微小時差</title>
+  <rect width="640" height="320" fill="#FBF8F4"/>
   <style>
-    .out   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .lead  { fill: none; stroke: #2a2724; stroke-width: .9; }
-    .dot   { fill: #2a2724; }
-    .skin  { fill: #f1e0d6; stroke: #2a2724; stroke-width: 1.8; }
-    .muc   { fill: #e2a99b; stroke: #cb8f82; stroke-width: 1.2; }
-    .muc2  { fill: #cb8f82; stroke: #2a2724; stroke-width: 1.4; }
-    .cart  { fill: #d5d5c2; stroke: #2a2724; stroke-width: 1.5; }
-    .bone  { fill: #ece6d8; stroke: #2a2724; stroke-width: 1.4; }
-    .air   { fill: #d5e5e7; stroke: #2a2724; stroke-width: 1.3; }
-    .fold  { fill: #f6f3ea; stroke: #c9c1ac; stroke-width: 1.6; }
-    .musc  { fill: #cf8f88; stroke: #2a2724; stroke-width: 1.1; }
-    .hl    { fill: #b5734a; fill-opacity: .22; stroke: #b5734a; stroke-width: 1.7; }
-    .hl2   { fill: #7d9b76; fill-opacity: .22; stroke: #7d9b76; stroke-width: 1.7; }
-    .ink   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .ave   { fill: none; stroke: #b5734a; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .ave2  { fill: none; stroke: #7d9b76; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .thin  { fill: none; stroke: #d8d0c2; stroke-width: 1.3; stroke-dasharray: 5 5; }
-    .lbl   { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; }
-    .lbl-s { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 12px; fill: #6f6a60; }
-    .lbl-b { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; font-weight: 700; }
-
-    .grid { fill: none; stroke: #d8d0c2; stroke-width: 1.2; }
-    .fill { fill: #b5734a; opacity: .18; stroke: #b5734a; stroke-width: 1.8; }
-    .fill2 { fill: #7d9b76; opacity: .18; stroke: #7d9b76; stroke-width: 1.8; }
-    .solid { fill: #b5734a; opacity: .85; }
-    .solid2 { fill: #7d9b76; opacity: .85; }
-    .lbl-s { font-size: 12.5px; }
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
   </style>
-<text class="lbl-b" x="40" y="40">律動就是「不剛好在線上」，但每一拍都一樣偏</text>
-  <path class="grid" d="M80 90 L80 250"/>
-  <text class="lbl-s" x="80" y="274" text-anchor="middle">1</text>
-  <path class="grid" d="M132 90 L132 250"/>
-  <text class="lbl-s" x="132" y="274" text-anchor="middle">·</text>
-  <path class="grid" d="M184 90 L184 250"/>
-  <text class="lbl-s" x="184" y="274" text-anchor="middle">2</text>
-  <path class="grid" d="M236 90 L236 250"/>
-  <text class="lbl-s" x="236" y="274" text-anchor="middle">·</text>
-  <path class="grid" d="M288 90 L288 250"/>
-  <text class="lbl-s" x="288" y="274" text-anchor="middle">3</text>
-  <path class="grid" d="M340 90 L340 250"/>
-  <text class="lbl-s" x="340" y="274" text-anchor="middle">·</text>
-  <path class="grid" d="M392 90 L392 250"/>
-  <text class="lbl-s" x="392" y="274" text-anchor="middle">4</text>
-  <path class="grid" d="M444 90 L444 250"/>
-  <text class="lbl-s" x="444" y="274" text-anchor="middle">·</text>
-  <path class="grid" d="M496 90 L496 250"/>
-  <text class="lbl-s" x="496" y="274" text-anchor="middle">5</text>
-  <ellipse class="solid" cx="272" cy="120" rx="16" ry="10"/>
-  <text class="lbl-s" x="70" y="125" text-anchor="end">搶拍</text>
-  <text class="lbl-s" x="230" y="125" text-anchor="end">早一點進去，推力強</text>
-  <ellipse class="solid" cx="288" cy="170" rx="16" ry="10"/>
-  <text class="lbl-s" x="70" y="175" text-anchor="end">正拍</text>
-  <text class="lbl-s" x="246" y="175" text-anchor="end">穩、但容易死板</text>
-  <ellipse class="solid" cx="306" cy="220" rx="16" ry="10"/>
-  <text class="lbl-s" x="70" y="225" text-anchor="end">拖拍</text>
-  <text class="lbl-s" x="264" y="225" text-anchor="end">晚一點出來，鬆、有味道</text>
-  <text class="lbl-s" x="40" y="320">重點是同一個偏移量從頭到尾——忽快忽慢叫不穩，穩定偏一點才叫律動</text>
+  <text x="26" y="34" class="tb" font-size="16">拍點前後的微小時差</text>
+  <text x="26" y="55" class="ts" font-size="12.5">搶拍、正拍、拖拍差的是幾十毫秒</text>
+  <path d="M100.0 140 L100.0 220" class="thin"/>
+  <path d="M157.5 140 L157.5 220" class="thin"/>
+  <path d="M215.0 140 L215.0 220" class="thin"/>
+  <path d="M272.5 140 L272.5 220" class="thin"/>
+  <path d="M330.0 140 L330.0 220" class="thin"/>
+  <path d="M387.5 140 L387.5 220" class="thin"/>
+  <path d="M445.0 140 L445.0 220" class="thin"/>
+  <path d="M502.5 140 L502.5 220" class="thin"/>
+  <path d="M560.0 140 L560.0 220" class="thin"/>
+  <path d="M100.0 126 L100.0 234" class="ink" opacity="0.45"/>
+  <path d="M215.0 126 L215.0 234" class="ink" opacity="0.45"/>
+  <path d="M330.0 126 L330.0 234" class="ink" opacity="0.45"/>
+  <path d="M445.0 126 L445.0 234" class="ink" opacity="0.45"/>
+  <path d="M560.0 126 L560.0 234" class="ink" opacity="0.45"/>
+  <circle cx="152.9" cy="180" r="7" fill="#B0563F"/>
+  <text x="152.9" y="254" class="ts" font-size="11.5" text-anchor="middle" fill="#B0563F">搶拍</text>
+  <circle cx="215.0" cy="180" r="7" fill="#6F8F6A"/>
+  <text x="215.0" y="254" class="ts" font-size="11.5" text-anchor="middle" fill="#6F8F6A">正拍</text>
+  <circle cx="279.4" cy="180" r="7" fill="#6B8FBF"/>
+  <text x="279.4" y="254" class="ts" font-size="11.5" text-anchor="middle" fill="#6B8FBF">拖拍</text>
+  <text x="100" y="104" class="ts" font-size="12">同一個拍點，唱早一點或晚一點，感覺就不同。</text>
+  <text x="26" y="302" class="ts" font-size="11">律動是「故意」的偏移；先能穩定落在正拍，偏移才有意義。</text>
 </svg>

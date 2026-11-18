@@ -1,50 +1,55 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 370" role="img" aria-label="主唱與和聲的堆疊關係">
-  <title>主唱與和聲的堆疊關係</title>
-  <rect width="620" height="370" fill="#fbf8f2"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" role="img" aria-label="主唱與和聲的堆疊">
+  <title>主唱與和聲的堆疊</title>
+  <rect width="640" height="320" fill="#FBF8F4"/>
   <style>
-    .out   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .lead  { fill: none; stroke: #2a2724; stroke-width: .9; }
-    .dot   { fill: #2a2724; }
-    .skin  { fill: #f1e0d6; stroke: #2a2724; stroke-width: 1.8; }
-    .muc   { fill: #e2a99b; stroke: #cb8f82; stroke-width: 1.2; }
-    .muc2  { fill: #cb8f82; stroke: #2a2724; stroke-width: 1.4; }
-    .cart  { fill: #d5d5c2; stroke: #2a2724; stroke-width: 1.5; }
-    .bone  { fill: #ece6d8; stroke: #2a2724; stroke-width: 1.4; }
-    .air   { fill: #d5e5e7; stroke: #2a2724; stroke-width: 1.3; }
-    .fold  { fill: #f6f3ea; stroke: #c9c1ac; stroke-width: 1.6; }
-    .musc  { fill: #cf8f88; stroke: #2a2724; stroke-width: 1.1; }
-    .hl    { fill: #b5734a; fill-opacity: .22; stroke: #b5734a; stroke-width: 1.7; }
-    .hl2   { fill: #7d9b76; fill-opacity: .22; stroke: #7d9b76; stroke-width: 1.7; }
-    .ink   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .ave   { fill: none; stroke: #b5734a; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .ave2  { fill: none; stroke: #7d9b76; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .thin  { fill: none; stroke: #d8d0c2; stroke-width: 1.3; stroke-dasharray: 5 5; }
-    .lbl   { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; }
-    .lbl-s { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 12px; fill: #6f6a60; }
-    .lbl-b { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; font-weight: 700; }
-
-    .grid { fill: none; stroke: #d8d0c2; stroke-width: 1.2; }
-    .fill { fill: #b5734a; opacity: .18; stroke: #b5734a; stroke-width: 1.8; }
-    .fill2 { fill: #7d9b76; opacity: .18; stroke: #7d9b76; stroke-width: 1.8; }
-    .solid { fill: #b5734a; opacity: .85; }
-    .solid2 { fill: #7d9b76; opacity: .85; }
-    .lbl-s { font-size: 12.5px; }
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
   </style>
-<text class="lbl-b" x="40" y="40">和聲不是愈多愈好，是三度最安全</text>
-  <text class="lbl-s" x="50" y="108">高八度</text>
-  <rect class="fill2" x="200" y="90" width="300" height="30" rx="6"/>
-  <text class="lbl-s" x="510" y="110">+8 半音</text>
-  <text class="lbl-s" x="50" y="154">高五度</text>
-  <rect class="fill2" x="200" y="136" width="300" height="30" rx="6"/>
-  <text class="lbl-s" x="510" y="156">+5 半音</text>
-  <text class="lbl-s" x="50" y="200">高三度</text>
-  <rect class="fill" x="200" y="182" width="300" height="30" rx="6"/>
-  <text class="lbl-s" x="510" y="202">+3 半音</text>
-  <text class="lbl-s" x="50" y="246">主唱</text>
-  <rect class="fill2" x="200" y="228" width="300" height="30" rx="6"/>
-  <text class="lbl-s" x="510" y="248">基準</text>
-  <text class="lbl-s" x="50" y="292">低三度</text>
-  <rect class="fill" x="200" y="274" width="300" height="30" rx="6"/>
-  <text class="lbl-s" x="510" y="294">-3 半音</text>
-  <text class="lbl-s" x="40" y="340">先錄好主唱，再一條一條疊；兩條和聲已經夠厚，四條開始糊</text>
+  <text x="26" y="34" class="tb" font-size="16">主唱與和聲的堆疊</text>
+  <text x="26" y="55" class="ts" font-size="12.5">每一條都要能單獨聽，合起來才不糊</text>
+  <text x="90" y="106" class="t" font-size="11.5" font-weight="600" fill="#6B8FBF">高和聲（+3 度）</text>
+  <rect x="90" y="114" width="460" height="28" rx="6" fill="#6B8FBF" opacity="0.12"/>
+  <rect x="90" y="114" width="460" height="28" rx="6" fill="none" stroke="#6B8FBF" stroke-width="1.2"/>
+  <circle cx="119.0" cy="128" r="5" fill="#6B8FBF" opacity="0.85"/>
+  <circle cx="173.0" cy="128" r="5" fill="#6B8FBF" opacity="0.85"/>
+  <circle cx="227.0" cy="128" r="5" fill="#6B8FBF" opacity="0.85"/>
+  <circle cx="281.0" cy="128" r="5" fill="#6B8FBF" opacity="0.85"/>
+  <circle cx="335.0" cy="128" r="5" fill="#6B8FBF" opacity="0.85"/>
+  <circle cx="389.0" cy="128" r="5" fill="#6B8FBF" opacity="0.85"/>
+  <circle cx="443.0" cy="128" r="5" fill="#6B8FBF" opacity="0.85"/>
+  <circle cx="497.0" cy="128" r="5" fill="#6B8FBF" opacity="0.85"/>
+  <text x="90" y="168" class="t" font-size="11.5" font-weight="600" fill="#A67C52">主唱</text>
+  <rect x="90" y="176" width="460" height="28" rx="6" fill="#A67C52" opacity="0.12"/>
+  <rect x="90" y="176" width="460" height="28" rx="6" fill="none" stroke="#A67C52" stroke-width="1.2"/>
+  <circle cx="130.0" cy="190" r="5" fill="#A67C52" opacity="0.85"/>
+  <circle cx="184.0" cy="190" r="5" fill="#A67C52" opacity="0.85"/>
+  <circle cx="238.0" cy="190" r="5" fill="#A67C52" opacity="0.85"/>
+  <circle cx="292.0" cy="190" r="5" fill="#A67C52" opacity="0.85"/>
+  <circle cx="346.0" cy="190" r="5" fill="#A67C52" opacity="0.85"/>
+  <circle cx="400.0" cy="190" r="5" fill="#A67C52" opacity="0.85"/>
+  <circle cx="454.0" cy="190" r="5" fill="#A67C52" opacity="0.85"/>
+  <circle cx="508.0" cy="190" r="5" fill="#A67C52" opacity="0.85"/>
+  <text x="90" y="230" class="t" font-size="11.5" font-weight="600" fill="#6F8F6A">低和聲（−3 度）</text>
+  <rect x="90" y="238" width="460" height="28" rx="6" fill="#6F8F6A" opacity="0.12"/>
+  <rect x="90" y="238" width="460" height="28" rx="6" fill="none" stroke="#6F8F6A" stroke-width="1.2"/>
+  <circle cx="141.0" cy="252" r="5" fill="#6F8F6A" opacity="0.85"/>
+  <circle cx="195.0" cy="252" r="5" fill="#6F8F6A" opacity="0.85"/>
+  <circle cx="249.0" cy="252" r="5" fill="#6F8F6A" opacity="0.85"/>
+  <circle cx="303.0" cy="252" r="5" fill="#6F8F6A" opacity="0.85"/>
+  <circle cx="357.0" cy="252" r="5" fill="#6F8F6A" opacity="0.85"/>
+  <circle cx="411.0" cy="252" r="5" fill="#6F8F6A" opacity="0.85"/>
+  <circle cx="465.0" cy="252" r="5" fill="#6F8F6A" opacity="0.85"/>
+  <circle cx="519.0" cy="252" r="5" fill="#6F8F6A" opacity="0.85"/>
+  <text x="90" y="290" class="ts" font-size="12">和聲不是把同一個音唱大聲，是在上面或下面加一條獨立旋律。</text>
 </svg>

@@ -1,56 +1,32 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 490" role="img" aria-label="聲帶厚薄與音高：甲狀軟骨的傾斜改變張力">
-  <title>聲帶厚薄與音高：甲狀軟骨的傾斜改變張力</title>
-  <rect width="720" height="490" fill="#fbf8f2"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 340" role="img" aria-label="聲帶厚薄與音高">
+  <title>聲帶厚薄與音高</title>
+  <rect width="640" height="340" fill="#FBF8F4"/>
   <style>
-    .out   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .lead  { fill: none; stroke: #2a2724; stroke-width: .9; }
-    .dot   { fill: #2a2724; }
-    .skin  { fill: #f1e0d6; stroke: #2a2724; stroke-width: 1.8; }
-    .muc   { fill: #e2a99b; stroke: #cb8f82; stroke-width: 1.2; }
-    .muc2  { fill: #cb8f82; stroke: #2a2724; stroke-width: 1.4; }
-    .cart  { fill: #d5d5c2; stroke: #2a2724; stroke-width: 1.5; }
-    .bone  { fill: #ece6d8; stroke: #2a2724; stroke-width: 1.4; }
-    .air   { fill: #d5e5e7; stroke: #2a2724; stroke-width: 1.3; }
-    .fold  { fill: #f6f3ea; stroke: #c9c1ac; stroke-width: 1.6; }
-    .musc  { fill: #cf8f88; stroke: #2a2724; stroke-width: 1.1; }
-    .hl    { fill: #b5734a; fill-opacity: .22; stroke: #b5734a; stroke-width: 1.7; }
-    .hl2   { fill: #7d9b76; fill-opacity: .22; stroke: #7d9b76; stroke-width: 1.7; }
-    .ink   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .ave   { fill: none; stroke: #b5734a; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .ave2  { fill: none; stroke: #7d9b76; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .thin  { fill: none; stroke: #d8d0c2; stroke-width: 1.3; stroke-dasharray: 5 5; }
-    .lbl   { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; }
-    .lbl-s { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 12px; fill: #6f6a60; }
-    .lbl-b { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; font-weight: 700; }
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
   </style>
-<text class="lbl-b" x="24" y="30">同一條聲帶，厚薄改變就是音高改變</text>
-  <g transform="translate(50,60)"><path class="cart" d="M96 60 C130 44 210 44 244 60 C252 110 250 176 240 216 C210 232 130 232 100 216 C90 176 90 110 96 60 Z"/>
-  <path class="air" d="M124 76 C160 66 190 66 216 76 C222 130 220 186 212 216 C182 226 156 226 128 216 C120 186 118 130 124 76 Z"/>
-  <path class="musc" d="M124 118 C144 104 166 102 186 110 C192 118 190 126 182 128 C162 122 142 124 126 132 Z"/>
-  <path class="musc" d="M216 118 C196 104 174 102 154 110 C148 118 150 126 158 128 C178 122 198 124 214 132 Z"/>
-  <path class="hl2" d="M126 156 C152 146 178 146 198 158 C202 170 196 180 186 182 C162 172 144 174 128 180 Z"/>
-  <path class="hl2" d="M214 156 C188 146 162 146 142 158 C138 170 144 180 154 182 C178 172 196 174 212 180 Z"/>
-  <path class="ink" d="M170 140 L192 140"/>
-  <path class="air" d="M128 218 L212 218 L216 292 L132 292 Z"/>
-  <path class="ink" d="M130 232 L214 232"/>
-  <path class="ink" d="M130 248 L214 248"/>
-  <path class="ink" d="M130 264 L214 264"/>
-  <path class="ink" d="M130 280 L214 280"/></g>
-  <g transform="translate(360,60)"><path class="cart" d="M96 60 C130 44 210 44 244 60 C252 110 250 176 240 216 C210 232 130 232 100 216 C90 176 90 110 96 60 Z"/>
-  <path class="air" d="M124 76 C160 66 190 66 216 76 C222 130 220 186 212 216 C182 226 156 226 128 216 C120 186 118 130 124 76 Z"/>
-  <path class="musc" d="M124 118 C144 104 166 102 186 110 C192 118 190 126 182 128 C162 122 142 124 126 132 Z"/>
-  <path class="musc" d="M216 118 C196 104 174 102 154 110 C148 118 150 126 158 128 C178 122 198 124 214 132 Z"/>
-  <path class="hl2" d="M126 168 C150 160 176 160 196 166 C200 172 196 178 188 178 C166 174 146 176 128 180 Z"/>
-  <path class="hl2" d="M214 168 C190 160 164 160 144 166 C140 172 144 178 152 178 C174 174 194 176 212 180 Z"/>
-  <path class="ink" d="M170 140 L192 140"/>
-  <path class="air" d="M128 218 L212 218 L216 292 L132 292 Z"/>
-  <path class="ink" d="M130 232 L214 232"/>
-  <path class="ink" d="M130 248 L214 248"/>
-  <path class="ink" d="M130 264 L214 264"/>
-  <path class="ink" d="M130 280 L214 280"/></g>
-  <text class="lbl-b" x="220" y="92" text-anchor="middle">厚、短 → 低音</text>
-  <text class="lbl-b" x="530" y="92" text-anchor="middle">薄、長 → 高音</text>
-  <text class="lbl-s" x="220" y="404" text-anchor="middle">甲杓肌（TA）收縮</text>
-  <text class="lbl-s" x="530" y="404" text-anchor="middle">環甲肌（CT）收縮</text>
-  <text class="lbl-s" x="24" y="452">厚的時候面積大、振動慢；拉薄之後張力高、振動快</text>
+  <text x="26" y="34" class="tb" font-size="16">聲帶厚薄與音高</text>
+  <text x="26" y="55" class="ts" font-size="12.5">同一條聲帶，拉長就變薄、變高</text>
+  <rect x="90" y="120" width="120" height="60" rx="30" fill="#6F8F6A" opacity="0.2"/>
+  <rect x="90" y="120" width="120" height="60" rx="30" fill="none" stroke="#6F8F6A" stroke-width="1.5"/>
+  <text x="150" y="220" class="t" font-size="13" text-anchor="middle" font-weight="600" fill="#6F8F6A">厚、短</text>
+  <text x="150" y="240" class="ts" font-size="11" text-anchor="middle">振動慢 → 音低</text>
+  <rect x="330" y="132" width="190" height="32" rx="16" fill="#6B8FBF" opacity="0.2"/>
+  <rect x="330" y="132" width="190" height="32" rx="16" fill="none" stroke="#6B8FBF" stroke-width="1.5"/>
+  <text x="425" y="220" class="t" font-size="13" text-anchor="middle" font-weight="600" fill="#6B8FBF">薄、長</text>
+  <text x="425" y="240" class="ts" font-size="11" text-anchor="middle">振動快 → 音高</text>
+  <path d="M240.0 150.0 L309.7 150.0" fill="none" stroke="#3D3229" stroke-width="1.7" stroke-linecap="round"/><path d="M316.0 150.0 L309.6 152.9 L309.6 147.1 Z" fill="#3D3229"/>
+  <text x="278" y="136" class="ts" font-size="11" text-anchor="middle">拉長</text>
+  <text x="90" y="296" class="ts" font-size="12">改變音高的是形狀（長度與厚度），不是氣的大小。</text>
 </svg>

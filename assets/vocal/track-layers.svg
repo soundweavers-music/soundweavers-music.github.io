@@ -1,70 +1,40 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 390" role="img" aria-label="分段錄音堆疊成一首歌的分軌">
-  <title>分段錄音堆疊成一首歌的分軌</title>
-  <rect width="620" height="390" fill="#fbf8f2"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 340" role="img" aria-label="分段錄音堆疊成一首歌">
+  <title>分段錄音堆疊成一首歌</title>
+  <rect width="640" height="340" fill="#FBF8F4"/>
   <style>
-    .out   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .lead  { fill: none; stroke: #2a2724; stroke-width: .9; }
-    .dot   { fill: #2a2724; }
-    .skin  { fill: #f1e0d6; stroke: #2a2724; stroke-width: 1.8; }
-    .muc   { fill: #e2a99b; stroke: #cb8f82; stroke-width: 1.2; }
-    .muc2  { fill: #cb8f82; stroke: #2a2724; stroke-width: 1.4; }
-    .cart  { fill: #d5d5c2; stroke: #2a2724; stroke-width: 1.5; }
-    .bone  { fill: #ece6d8; stroke: #2a2724; stroke-width: 1.4; }
-    .air   { fill: #d5e5e7; stroke: #2a2724; stroke-width: 1.3; }
-    .fold  { fill: #f6f3ea; stroke: #c9c1ac; stroke-width: 1.6; }
-    .musc  { fill: #cf8f88; stroke: #2a2724; stroke-width: 1.1; }
-    .hl    { fill: #b5734a; fill-opacity: .22; stroke: #b5734a; stroke-width: 1.7; }
-    .hl2   { fill: #7d9b76; fill-opacity: .22; stroke: #7d9b76; stroke-width: 1.7; }
-    .ink   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .ave   { fill: none; stroke: #b5734a; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .ave2  { fill: none; stroke: #7d9b76; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .thin  { fill: none; stroke: #d8d0c2; stroke-width: 1.3; stroke-dasharray: 5 5; }
-    .lbl   { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; }
-    .lbl-s { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 12px; fill: #6f6a60; }
-    .lbl-b { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; font-weight: 700; }
-
-    .grid { fill: none; stroke: #d8d0c2; stroke-width: 1.2; }
-    .fill { fill: #b5734a; opacity: .18; stroke: #b5734a; stroke-width: 1.8; }
-    .fill2 { fill: #7d9b76; opacity: .18; stroke: #7d9b76; stroke-width: 1.8; }
-    .solid { fill: #b5734a; opacity: .85; }
-    .solid2 { fill: #7d9b76; opacity: .85; }
-    .lbl-s { font-size: 12.5px; }
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
   </style>
-<text class="lbl-b" x="40" y="40">分軌錄音就是「一次只做一件事」</text>
-  <text class="lbl-s" x="50" y="108">主唱</text>
-  <rect class="fill" x="200" y="90" width="52" height="30" rx="6"/>
-  <rect class="fill" x="258" y="90" width="52" height="30" rx="6"/>
-  <rect class="fill" x="316" y="90" width="52" height="30" rx="6"/>
-  <rect class="fill" x="374" y="90" width="52" height="30" rx="6"/>
-  <rect class="fill" x="432" y="90" width="52" height="30" rx="6"/>
-  <rect class="fill" x="490" y="90" width="52" height="30" rx="6"/>
-  <text class="lbl-s" x="50" y="158">主唱（第二次）</text>
-  <rect class="fill2" x="200" y="140" width="52" height="30" rx="6"/>
-  <rect class="fill2" x="258" y="140" width="52" height="30" rx="6"/>
-  <rect class="fill2" x="316" y="140" width="52" height="30" rx="6"/>
-  <rect class="fill2" x="374" y="140" width="52" height="30" rx="6"/>
-  <rect class="fill2" x="432" y="140" width="52" height="30" rx="6"/>
-  <rect class="fill2" x="490" y="140" width="52" height="30" rx="6"/>
-  <text class="lbl-s" x="50" y="208">低三度和聲</text>
-  <rect class="fill" x="200" y="190" width="52" height="30" rx="6"/>
-  <rect class="fill" x="258" y="190" width="52" height="30" rx="6"/>
-  <rect class="fill" x="316" y="190" width="52" height="30" rx="6"/>
-  <rect class="fill" x="374" y="190" width="52" height="30" rx="6"/>
-  <rect class="fill" x="432" y="190" width="52" height="30" rx="6"/>
-  <rect class="fill" x="490" y="190" width="52" height="30" rx="6"/>
-  <text class="lbl-s" x="50" y="258">高八度和聲</text>
-  <rect class="fill2" x="200" y="240" width="52" height="30" rx="6"/>
-  <rect class="fill2" x="258" y="240" width="52" height="30" rx="6"/>
-  <rect class="fill2" x="316" y="240" width="52" height="30" rx="6"/>
-  <rect class="fill2" x="374" y="240" width="52" height="30" rx="6"/>
-  <rect class="fill2" x="432" y="240" width="52" height="30" rx="6"/>
-  <rect class="fill2" x="490" y="240" width="52" height="30" rx="6"/>
-  <text class="lbl-s" x="50" y="308">氣音層</text>
-  <rect class="grid" x="200" y="290" width="52" height="30" rx="6"/>
-  <rect class="grid" x="258" y="290" width="52" height="30" rx="6"/>
-  <rect class="grid" x="316" y="290" width="52" height="30" rx="6"/>
-  <rect class="grid" x="374" y="290" width="52" height="30" rx="6"/>
-  <rect class="grid" x="432" y="290" width="52" height="30" rx="6"/>
-  <rect class="grid" x="490" y="290" width="52" height="30" rx="6"/>
-  <text class="lbl-s" x="40" y="360">每一軌只修一個問題：這軌收音準、那軌咬字、另一軌情緒——合起來才會像一個人</text>
+  <text x="26" y="34" class="tb" font-size="16">分段錄音堆疊成一首歌</text>
+  <text x="26" y="55" class="ts" font-size="12.5">主唱、Double、和聲、Ad-lib 各佔一條</text>
+  <text x="116" y="114" class="t" font-size="11.5" text-anchor="end" font-weight="600" fill="#A67C52">主唱</text>
+  <rect x="130" y="100" width="450" height="26" rx="4" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="0.8"/>
+  <rect x="152.5" y="103" width="382.5" height="20" rx="3" fill="#A67C52" opacity="0.3"/>
+  <text x="116" y="158" class="t" font-size="11.5" text-anchor="end" font-weight="600" fill="#C4956A">Double</text>
+  <rect x="130" y="144" width="450" height="26" rx="4" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="0.8"/>
+  <rect x="152.5" y="147" width="382.5" height="20" rx="3" fill="#C4956A" opacity="0.3"/>
+  <text x="116" y="202" class="t" font-size="11.5" text-anchor="end" font-weight="600" fill="#6B8FBF">高和聲</text>
+  <rect x="130" y="188" width="450" height="26" rx="4" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="0.8"/>
+  <rect x="220.0" y="191" width="157.50000000000003" height="20" rx="3" fill="#6B8FBF" opacity="0.3"/>
+  <rect x="409.0" y="191" width="126.00000000000001" height="20" rx="3" fill="#6B8FBF" opacity="0.3"/>
+  <text x="116" y="246" class="t" font-size="11.5" text-anchor="end" font-weight="600" fill="#6F8F6A">低和聲</text>
+  <rect x="130" y="232" width="450" height="26" rx="4" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="0.8"/>
+  <rect x="220.0" y="235" width="157.50000000000003" height="20" rx="3" fill="#6F8F6A" opacity="0.3"/>
+  <rect x="409.0" y="235" width="126.00000000000001" height="20" rx="3" fill="#6F8F6A" opacity="0.3"/>
+  <text x="116" y="290" class="t" font-size="11.5" text-anchor="end" font-weight="600" fill="#B0563F">Ad-lib</text>
+  <rect x="130" y="276" width="450" height="26" rx="4" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="0.8"/>
+  <rect x="319.0" y="279" width="36.00000000000001" height="20" rx="3" fill="#B0563F" opacity="0.3"/>
+  <rect x="517.0" y="279" width="40.499999999999986" height="20" rx="3" fill="#B0563F" opacity="0.3"/>
+  <text x="26" y="322" class="ts" font-size="11">分軌錄音是為了「可以重來」：每一條都獨立，最後才疊在一起。</text>
 </svg>

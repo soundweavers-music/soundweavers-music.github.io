@@ -1,59 +1,34 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 390" role="img" aria-label="三種起音：氣聲起音、平衡起音、硬起音">
-  <title>三種起音：氣聲起音、平衡起音、硬起音</title>
-  <rect width="600" height="390" fill="#fbf8f2"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 340" role="img" aria-label="三種起音：氣聲、平衡、硬">
+  <title>三種起音：氣聲、平衡、硬</title>
+  <rect width="640" height="340" fill="#FBF8F4"/>
   <style>
-    .out   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .lead  { fill: none; stroke: #2a2724; stroke-width: .9; }
-    .dot   { fill: #2a2724; }
-    .skin  { fill: #f1e0d6; stroke: #2a2724; stroke-width: 1.8; }
-    .muc   { fill: #e2a99b; stroke: #cb8f82; stroke-width: 1.2; }
-    .muc2  { fill: #cb8f82; stroke: #2a2724; stroke-width: 1.4; }
-    .cart  { fill: #d5d5c2; stroke: #2a2724; stroke-width: 1.5; }
-    .bone  { fill: #ece6d8; stroke: #2a2724; stroke-width: 1.4; }
-    .air   { fill: #d5e5e7; stroke: #2a2724; stroke-width: 1.3; }
-    .fold  { fill: #f6f3ea; stroke: #c9c1ac; stroke-width: 1.6; }
-    .musc  { fill: #cf8f88; stroke: #2a2724; stroke-width: 1.1; }
-    .hl    { fill: #b5734a; fill-opacity: .22; stroke: #b5734a; stroke-width: 1.7; }
-    .hl2   { fill: #7d9b76; fill-opacity: .22; stroke: #7d9b76; stroke-width: 1.7; }
-    .ink   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .ave   { fill: none; stroke: #b5734a; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .ave2  { fill: none; stroke: #7d9b76; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .thin  { fill: none; stroke: #d8d0c2; stroke-width: 1.3; stroke-dasharray: 5 5; }
-    .lbl   { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; }
-    .lbl-s { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 12px; fill: #6f6a60; }
-    .lbl-b { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; font-weight: 700; }
-
-    .grid { fill: none; stroke: #d8d0c2; stroke-width: 1.2; }
-    .fill { fill: #b5734a; opacity: .18; stroke: #b5734a; stroke-width: 1.8; }
-    .fill2 { fill: #7d9b76; opacity: .18; stroke: #7d9b76; stroke-width: 1.8; }
-    .solid { fill: #b5734a; opacity: .85; }
-    .solid2 { fill: #7d9b76; opacity: .85; }
-    .lbl-s { font-size: 12.5px; }
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
   </style>
-<text class="lbl-b" x="40" y="40">起音決定前半秒的音色，也決定會不會破</text>
-  <text class="lbl-b" x="40" y="84">氣聲起音</text>
-  <path class="grid" d="M40 196 L190 196"/>
-  <path class="grid" d="M40 104 L40 212"/>
-  <path class="ink" d="M40 160 C70 160 102 118 140 118 C178 118 178 134 190 146"/>
-  <path class="fill" d="M86 196 C94 170 102 222 110 196 C118 170 126 222 134 196 C142 170 150 222 158 196 C166 172 182 192 186 198"/>
-  <text class="lbl-s" x="40" y="236">上：氣流</text>
-  <text class="lbl-s" x="40" y="254">下：聲帶振動</text>
-  <text class="lbl-s" x="40" y="292">先漏一點氣，聲音才接上；柔和但容易虛</text>
-  <text class="lbl-b" x="230" y="84">平衡起音</text>
-  <path class="grid" d="M230 196 L380 196"/>
-  <path class="grid" d="M230 104 L230 212"/>
-  <path class="ink" d="M230 160 C260 160 270 118 308 118 C346 118 368 134 380 146"/>
-  <path class="fill" d="M236 196 C244 170 252 222 260 196 C268 170 276 222 284 196 C292 170 300 222 308 196 C316 172 332 192 376 198"/>
-  <text class="lbl-s" x="230" y="236">上：氣流</text>
-  <text class="lbl-s" x="230" y="254">下：聲帶振動</text>
-  <text class="lbl-s" x="230" y="292">氣與聲同時到位，最耐用</text>
-  <text class="lbl-b" x="420" y="84">硬起音</text>
-  <path class="grid" d="M420 196 L570 196"/>
-  <path class="grid" d="M420 104 L420 212"/>
-  <path class="ink" d="M420 160 C450 160 434 118 472 118 C510 118 558 134 570 146"/>
-  <path class="fill" d="M424 196 C432 170 440 222 448 196 C456 170 464 222 472 196 C480 170 488 222 496 196 C504 172 520 192 566 198"/>
-  <text class="lbl-s" x="420" y="236">上：氣流</text>
-  <text class="lbl-s" x="420" y="254">下：聲帶振動</text>
-  <text class="lbl-s" x="420" y="292">先卡住再爆出來；有力但傷聲帶</text>
-  <text class="lbl-s" x="40" y="360">日常練唱請以「平衡起音」為主，氣聲起音留給需要的句子</text>
+  <text x="26" y="34" class="tb" font-size="16">三種起音：氣聲、平衡、硬</text>
+  <text x="26" y="55" class="ts" font-size="12.5">同一句話，起音方式決定第一個字的表情</text>
+  <path d="M80 230 L230 230" class="thin"/>
+  <path d="M80 230 C110 210 140 154 176 150 L226 150" class="blue"/>
+  <text x="155" y="256" class="t" font-size="12.5" text-anchor="middle" font-weight="600" fill="#6B8FBF">氣聲起音</text>
+  <text x="155" y="276" class="ts" font-size="10.5" text-anchor="middle">氣先出來，聲帶才閉合</text>
+  <path d="M268 230 L418 230" class="thin"/>
+  <path d="M268 230 C294 190 312 146 348 146 L414 146" class="green"/>
+  <text x="343" y="256" class="t" font-size="12.5" text-anchor="middle" font-weight="600" fill="#6F8F6A">平衡起音</text>
+  <text x="343" y="276" class="ts" font-size="10.5" text-anchor="middle">氣與閉合一起到</text>
+  <path d="M456 230 L606 230" class="thin"/>
+  <path d="M456 230 L466 122 L602 152" class="red"/>
+  <text x="531" y="256" class="t" font-size="12.5" text-anchor="middle" font-weight="600" fill="#B0563F">硬起音</text>
+  <text x="531" y="276" class="ts" font-size="10.5" text-anchor="middle">先夾住再放氣</text>
+  <text x="26" y="322" class="ts" font-size="11">起音是「氣」與「閉合」誰先到的問題；兩個一起到，聲音最乾淨。</text>
 </svg>

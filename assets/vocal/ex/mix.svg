@@ -1,40 +1,33 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 300" role="img" aria-label="在比例尺上找到你的位置">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" role="img" aria-label="在比例尺上找到你的位置">
   <title>在比例尺上找到你的位置</title>
-  <rect width="540" height="300" fill="#fbf8f2"/>
+  <rect width="640" height="300" fill="#FBF8F4"/>
   <style>
-    .out   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .lead  { fill: none; stroke: #2a2724; stroke-width: .9; }
-    .dot   { fill: #2a2724; }
-    .skin  { fill: #f1e0d6; stroke: #2a2724; stroke-width: 1.8; }
-    .muc   { fill: #e2a99b; stroke: #cb8f82; stroke-width: 1.2; }
-    .muc2  { fill: #cb8f82; stroke: #2a2724; stroke-width: 1.4; }
-    .cart  { fill: #d5d5c2; stroke: #2a2724; stroke-width: 1.5; }
-    .bone  { fill: #ece6d8; stroke: #2a2724; stroke-width: 1.4; }
-    .air   { fill: #d5e5e7; stroke: #2a2724; stroke-width: 1.3; }
-    .fold  { fill: #f6f3ea; stroke: #c9c1ac; stroke-width: 1.6; }
-    .musc  { fill: #cf8f88; stroke: #2a2724; stroke-width: 1.1; }
-    .hl    { fill: #b5734a; fill-opacity: .22; stroke: #b5734a; stroke-width: 1.7; }
-    .hl2   { fill: #7d9b76; fill-opacity: .22; stroke: #7d9b76; stroke-width: 1.7; }
-    .ink   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .ave   { fill: none; stroke: #b5734a; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .ave2  { fill: none; stroke: #7d9b76; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .thin  { fill: none; stroke: #d8d0c2; stroke-width: 1.3; stroke-dasharray: 5 5; }
-    .lbl   { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; }
-    .lbl-s { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 12px; fill: #6f6a60; }
-    .lbl-b { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; font-weight: 700; }
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
   </style>
-<text class="lbl-b" x="26" y="30">在比例尺上找到你的位置</text>
-  <rect class="grid" x="60" y="130" width="340" height="34" rx="17"/>
-  <rect class="hl2" x="60" y="130" width="180" height="34" rx="17"/>
-  <rect class="hl" x="240" y="130" width="160" height="34" rx="17"/>
-  <text class="lbl-s" x="110" y="118">胸聲</text>
-  <text class="lbl-s" x="390" y="118" text-anchor="end">頭聲</text>
-  <circle cx="150" cy="147" r="9" fill="#b5734a"/>
-  <text class="lbl-s" x="150" y="194" text-anchor="middle">強混</text>
-  <circle cx="230" cy="147" r="9" fill="#b5734a"/>
-  <text class="lbl-s" x="230" y="194" text-anchor="middle">平衡</text>
-  <circle cx="310" cy="147" r="9" fill="#b5734a"/>
-  <text class="lbl-s" x="310" y="194" text-anchor="middle">弱混</text>
-  <text class="lbl-s" x="60" y="236">練到能在這條線上自由移動，而不是只會站一邊</text>
-  <text class="lbl-s" x="26" y="284">混聲是比例：胸聲與頭聲各出一點，接縫就不見</text>
+  <text x="26" y="34" class="tb" font-size="16">在比例尺上找到你的位置</text>
+  <text x="26" y="55" class="ts" font-size="12.5">同一句歌詞，可以在這條線上自由移動</text>
+  <rect x="70" y="150" width="500" height="34" rx="17" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.2"/>
+  <defs><linearGradient id="mixg" x1="0" x2="1"><stop offset="0" stop-color="#6F8F6A" stop-opacity=".45"/><stop offset=".5" stop-color="#A67C52" stop-opacity=".4"/><stop offset="1" stop-color="#6B8FBF" stop-opacity=".45"/></linearGradient></defs>
+  <rect x="72" y="152" width="496" height="30" rx="15" fill="url(#mixg)"/>
+  <text x="70" y="138" class="ts" font-size="12">胸聲（厚）</text>
+  <text x="570" y="138" class="ts" font-size="12" text-anchor="end">頭聲（薄）</text>
+  <circle cx="180.0" cy="167" r="9" fill="#6F8F6A"/>
+  <text x="180.0" y="214" class="t" font-size="13" text-anchor="middle" font-weight="600">強混</text>
+  <circle cx="320.0" cy="167" r="9" fill="#A67C52"/>
+  <text x="320.0" y="214" class="t" font-size="13" text-anchor="middle" font-weight="600">平衡</text>
+  <circle cx="460.0" cy="167" r="9" fill="#6B8FBF"/>
+  <text x="460.0" y="214" class="t" font-size="13" text-anchor="middle" font-weight="600">弱混</text>
+  <text x="26" y="282" class="ts" font-size="11">混聲是比例，不是開關：兩邊各出一點，接縫就不見。</text>
 </svg>

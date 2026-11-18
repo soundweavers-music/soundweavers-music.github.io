@@ -1,40 +1,43 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 300" role="img" aria-label="先跟節拍，再談律動">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" role="img" aria-label="先跟節拍，再談律動">
   <title>先跟節拍，再談律動</title>
-  <rect width="540" height="300" fill="#fbf8f2"/>
+  <rect width="640" height="300" fill="#FBF8F4"/>
   <style>
-    .out   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .lead  { fill: none; stroke: #2a2724; stroke-width: .9; }
-    .dot   { fill: #2a2724; }
-    .skin  { fill: #f1e0d6; stroke: #2a2724; stroke-width: 1.8; }
-    .muc   { fill: #e2a99b; stroke: #cb8f82; stroke-width: 1.2; }
-    .muc2  { fill: #cb8f82; stroke: #2a2724; stroke-width: 1.4; }
-    .cart  { fill: #d5d5c2; stroke: #2a2724; stroke-width: 1.5; }
-    .bone  { fill: #ece6d8; stroke: #2a2724; stroke-width: 1.4; }
-    .air   { fill: #d5e5e7; stroke: #2a2724; stroke-width: 1.3; }
-    .fold  { fill: #f6f3ea; stroke: #c9c1ac; stroke-width: 1.6; }
-    .musc  { fill: #cf8f88; stroke: #2a2724; stroke-width: 1.1; }
-    .hl    { fill: #b5734a; fill-opacity: .22; stroke: #b5734a; stroke-width: 1.7; }
-    .hl2   { fill: #7d9b76; fill-opacity: .22; stroke: #7d9b76; stroke-width: 1.7; }
-    .ink   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .ave   { fill: none; stroke: #b5734a; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .ave2  { fill: none; stroke: #7d9b76; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .thin  { fill: none; stroke: #d8d0c2; stroke-width: 1.3; stroke-dasharray: 5 5; }
-    .lbl   { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; }
-    .lbl-s { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 12px; fill: #6f6a60; }
-    .lbl-b { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; font-weight: 700; }
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
   </style>
-<text class="lbl-b" x="26" y="30">先跟節拍，再談律動</text>
-  <path class="grid" d="M60 150 L410 150"/>
-  <path class="grid" d="M70 120 L70 180"/>
-  <path class="grid" d="M110 120 L110 180"/>
-  <path class="grid" d="M150 120 L150 180"/>
-  <path class="grid" d="M190 120 L190 180"/>
-  <path class="grid" d="M230 120 L230 180"/>
-  <path class="grid" d="M270 120 L270 180"/>
-  <path class="grid" d="M310 120 L310 180"/>
-  <path class="grid" d="M350 120 L350 180"/>
-  <path class="grid" d="M390 120 L390 180"/>
-  <circle cx="230" cy="150" r="9" fill="#b5734a"/>
-  <text class="lbl-s" x="60" y="216">先跟節拍器 60 BPM，穩了再放慢或加快</text>
-  <text class="lbl-s" x="26" y="284">節拍是律動的底，先穩再談彈性</text>
+  <text x="26" y="34" class="tb" font-size="16">先跟節拍，再談律動</text>
+  <text x="26" y="55" class="ts" font-size="12.5">律動是相對於正拍的偏移，不是隨機</text>
+  <path d="M90.0 140 L90.0 220" class="thin"/>
+  <path d="M148.75 140 L148.75 220" class="thin"/>
+  <path d="M207.5 140 L207.5 220" class="thin"/>
+  <path d="M266.25 140 L266.25 220" class="thin"/>
+  <path d="M325.0 140 L325.0 220" class="thin"/>
+  <path d="M383.75 140 L383.75 220" class="thin"/>
+  <path d="M442.5 140 L442.5 220" class="thin"/>
+  <path d="M501.25 140 L501.25 220" class="thin"/>
+  <path d="M560.0 140 L560.0 220" class="thin"/>
+  <path d="M90.0 126 L90.0 234" class="ink" opacity="0.5"/>
+  <path d="M207.5 126 L207.5 234" class="ink" opacity="0.5"/>
+  <path d="M325.0 126 L325.0 234" class="ink" opacity="0.5"/>
+  <path d="M442.5 126 L442.5 234" class="ink" opacity="0.5"/>
+  <path d="M560.0 126 L560.0 234" class="ink" opacity="0.5"/>
+  <circle cx="148.75" cy="180" r="7" fill="#B0563F"/>
+  <text x="148.75" y="254" class="ts" font-size="11.5" text-anchor="middle" fill="#B0563F">搶拍</text>
+  <circle cx="207.5" cy="180" r="7" fill="#6F8F6A"/>
+  <text x="207.5" y="254" class="ts" font-size="11.5" text-anchor="middle" fill="#6F8F6A">正拍</text>
+  <circle cx="266.25" cy="180" r="7" fill="#6B8FBF"/>
+  <text x="266.25" y="254" class="ts" font-size="11.5" text-anchor="middle" fill="#6B8FBF">拖拍</text>
+  <text x="90" y="100" class="ts" font-size="12">先跟得準，再談「微小的時間差」。</text>
+  <text x="26" y="282" class="ts" font-size="11">搶拍與拖拍是裝飾，不是走音；前提是你先有能力落在正拍上。</text>
 </svg>

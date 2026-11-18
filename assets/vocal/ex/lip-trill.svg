@@ -1,34 +1,39 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 300" role="img" aria-label="讓嘴唇自己震動">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="讓嘴唇自己震動">
   <title>讓嘴唇自己震動</title>
-  <rect width="540" height="300" fill="#fbf8f2"/>
+  <rect width="640" height="360" fill="#FBF8F4"/>
   <style>
-    .out   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .lead  { fill: none; stroke: #2a2724; stroke-width: .9; }
-    .dot   { fill: #2a2724; }
-    .skin  { fill: #f1e0d6; stroke: #2a2724; stroke-width: 1.8; }
-    .muc   { fill: #e2a99b; stroke: #cb8f82; stroke-width: 1.2; }
-    .muc2  { fill: #cb8f82; stroke: #2a2724; stroke-width: 1.4; }
-    .cart  { fill: #d5d5c2; stroke: #2a2724; stroke-width: 1.5; }
-    .bone  { fill: #ece6d8; stroke: #2a2724; stroke-width: 1.4; }
-    .air   { fill: #d5e5e7; stroke: #2a2724; stroke-width: 1.3; }
-    .fold  { fill: #f6f3ea; stroke: #c9c1ac; stroke-width: 1.6; }
-    .musc  { fill: #cf8f88; stroke: #2a2724; stroke-width: 1.1; }
-    .hl    { fill: #b5734a; fill-opacity: .22; stroke: #b5734a; stroke-width: 1.7; }
-    .hl2   { fill: #7d9b76; fill-opacity: .22; stroke: #7d9b76; stroke-width: 1.7; }
-    .ink   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .ave   { fill: none; stroke: #b5734a; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .ave2  { fill: none; stroke: #7d9b76; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .thin  { fill: none; stroke: #d8d0c2; stroke-width: 1.3; stroke-dasharray: 5 5; }
-    .lbl   { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; }
-    .lbl-s { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 12px; fill: #6f6a60; }
-    .lbl-b { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; font-weight: 700; }
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
   </style>
-<text class="lbl-b" x="26" y="30">讓嘴唇自己震動</text>
-  <circle class="skin" cx="110" cy="120" r="34"/><path class="ink" d="M98 150 C100 180 116 194 114 214"/><path class="ink" d="M124 152 C128 184 120 200 118 214"/>
-  <path class="muc" d="M76 132 C92 122 108 122 122 132 C108 142 92 142 76 132 Z"/>
-  <path class="ave" d="M130 132 L180 132"/><path d="M180 132 L170.9 136.1 L170.9 127.9 Z" fill="#b5734a" stroke="none"/>
-  <path class="ave" d="M200 132 C212 118 224 146 236 132 C248 118 260 146 272 132 C284 118 296 146 308 132"/>
-  <text class="lbl-s" x="200" y="108">嘴唇在震</text>
-  <text class="lbl-s" x="200" y="168">手摸喉嚨：不該有擠壓感</text>
-  <text class="lbl-s" x="26" y="284">嘴唇放鬆，用氣把它吹到震動——不是用喉嚨擠</text>
+  <text x="26" y="34" class="tb" font-size="16">讓嘴唇自己震動</text>
+  <text x="26" y="55" class="ts" font-size="12.5">嘴唇放鬆、氣穩定，震動是氣做出來的，不是喉嚨擠的</text>
+  <rect x="132" y="108" width="112" height="22" rx="11" fill="#F2E7DC" stroke="#3D3229" stroke-width="1.5"/>
+  <rect x="132" y="150" width="112" height="22" rx="11" fill="#F2E7DC" stroke="#3D3229" stroke-width="1.5"/>
+  <path d="M132 140 L244 140" fill="none" stroke="#A67C52" stroke-width="1.4" stroke-dasharray="4 3"/>
+  <text x="188" y="202" class="ts" font-size="11.5" text-anchor="middle">雙唇放鬆、閉攏</text>
+  <text x="188" y="222" class="ts" font-size="10.5" text-anchor="middle">不用刻意抿</text>
+  <path d="M44.0 140.0 L109.7 140.0" fill="none" stroke="#6B8FBF" stroke-width="1.7" stroke-linecap="round"/><path d="M116.0 140.0 L109.6 142.9 L109.6 137.1 Z" fill="#6B8FBF"/>
+  <text x="42" y="124" class="ts" font-size="11" text-anchor="end">穩定氣流</text>
+  <polyline points="262.0,126.0 263.3,122.3 264.6,119.3 265.9,117.4 267.2,117.0 268.5,118.2 269.8,120.7 271.1,124.1 272.4,127.9 273.7,131.3 275.0,133.8 276.3,135.0 277.6,134.6 278.9,132.7 280.2,129.7 281.5,126.0 282.8,122.3 284.1,119.3 285.4,117.4 286.7,117.0 288.0,118.2 289.3,120.7 290.6,124.1 291.9,127.9 293.2,131.3 294.5,133.8 295.8,135.0 297.1,134.6 298.4,132.7 299.7,129.7 301.0,126.0 302.3,122.3 303.6,119.3 304.9,117.4 306.2,117.0 307.5,118.2 308.8,120.7 310.1,124.1 311.4,127.9 312.7,131.3 314.0,133.8 315.3,135.0 316.6,134.6 317.9,132.7 319.2,129.7 320.5,126.0 321.8,122.3 323.1,119.3 324.4,117.4 325.7,117.0 327.0,118.2 328.3,120.7 329.6,124.1 330.9,127.9 332.2,131.3 333.5,133.8 334.8,135.0 336.1,134.6 337.4,132.7 338.7,129.7 340.0,126.0" class="acc" fill="none"/>
+  <polyline points="262.0,154.0 263.3,150.3 264.6,147.3 265.9,145.4 267.2,145.0 268.5,146.2 269.8,148.7 271.1,152.1 272.4,155.9 273.7,159.3 275.0,161.8 276.3,163.0 277.6,162.6 278.9,160.7 280.2,157.7 281.5,154.0 282.8,150.3 284.1,147.3 285.4,145.4 286.7,145.0 288.0,146.2 289.3,148.7 290.6,152.1 291.9,155.9 293.2,159.3 294.5,161.8 295.8,163.0 297.1,162.6 298.4,160.7 299.7,157.7 301.0,154.0 302.3,150.3 303.6,147.3 304.9,145.4 306.2,145.0 307.5,146.2 308.8,148.7 310.1,152.1 311.4,155.9 312.7,159.3 314.0,161.8 315.3,163.0 316.6,162.6 317.9,160.7 319.2,157.7 320.5,154.0 321.8,150.3 323.1,147.3 324.4,145.4 325.7,145.0 327.0,146.2 328.3,148.7 329.6,152.1 330.9,155.9 332.2,159.3 333.5,161.8 334.8,163.0 336.1,162.6 337.4,160.7 338.7,157.7 340.0,154.0" class="acc" fill="none"/>
+  <text x="262" y="202" class="ts" font-size="11.5">吹成「噗嚕噗嚕」</text>
+  <text x="262" y="222" class="ts" font-size="10.5">手摸脖子：鬆的</text>
+  <rect x="382" y="92" width="232" height="68" rx="6" fill="#E4EBDC" stroke="#6F8F6A" stroke-width="1.2"/>
+  <text x="396" y="118" class="t" font-size="12.5" font-weight="600" fill="#6F8F6A">對：喉嚨沒有感覺</text>
+  <text x="396" y="140" class="ts" font-size="11">只有嘴唇在動</text>
+  <rect x="382" y="176" width="232" height="68" rx="6" fill="#F4DFD7" stroke="#B0563F" stroke-width="1.2"/>
+  <text x="396" y="202" class="t" font-size="12.5" font-weight="600" fill="#B0563F">錯：喉嚨在出力</text>
+  <text x="396" y="224" class="ts" font-size="11">嘴唇反而抖不起來</text>
+  <text x="26" y="342" class="ts" font-size="11">彈唇是「半閉口」練習：氣有阻力、聲帶壓力變小，換聲區最容易鬆開。</text>
 </svg>

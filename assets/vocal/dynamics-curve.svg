@@ -1,69 +1,37 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" role="img" aria-label="主歌到副歌的動態曲線：段落與情緒強度">
-  <title>主歌到副歌的動態曲線：段落與情緒強度</title>
-  <rect width="600" height="400" fill="#fbf8f2"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="主歌到副歌的動態曲線">
+  <title>主歌到副歌的動態曲線</title>
+  <rect width="640" height="360" fill="#FBF8F4"/>
   <style>
-    .out   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .lead  { fill: none; stroke: #2a2724; stroke-width: .9; }
-    .dot   { fill: #2a2724; }
-    .skin  { fill: #f1e0d6; stroke: #2a2724; stroke-width: 1.8; }
-    .muc   { fill: #e2a99b; stroke: #cb8f82; stroke-width: 1.2; }
-    .muc2  { fill: #cb8f82; stroke: #2a2724; stroke-width: 1.4; }
-    .cart  { fill: #d5d5c2; stroke: #2a2724; stroke-width: 1.5; }
-    .bone  { fill: #ece6d8; stroke: #2a2724; stroke-width: 1.4; }
-    .air   { fill: #d5e5e7; stroke: #2a2724; stroke-width: 1.3; }
-    .fold  { fill: #f6f3ea; stroke: #c9c1ac; stroke-width: 1.6; }
-    .musc  { fill: #cf8f88; stroke: #2a2724; stroke-width: 1.1; }
-    .hl    { fill: #b5734a; fill-opacity: .22; stroke: #b5734a; stroke-width: 1.7; }
-    .hl2   { fill: #7d9b76; fill-opacity: .22; stroke: #7d9b76; stroke-width: 1.7; }
-    .ink   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .ave   { fill: none; stroke: #b5734a; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .ave2  { fill: none; stroke: #7d9b76; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .thin  { fill: none; stroke: #d8d0c2; stroke-width: 1.3; stroke-dasharray: 5 5; }
-    .lbl   { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; }
-    .lbl-s { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 12px; fill: #6f6a60; }
-    .lbl-b { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; font-weight: 700; }
-
-    .grid { fill: none; stroke: #d8d0c2; stroke-width: 1.2; }
-    .fill { fill: #b5734a; opacity: .18; stroke: #b5734a; stroke-width: 1.8; }
-    .fill2 { fill: #7d9b76; opacity: .18; stroke: #7d9b76; stroke-width: 1.8; }
-    .solid { fill: #b5734a; opacity: .85; }
-    .solid2 { fill: #7d9b76; opacity: .85; }
-    .lbl-s { font-size: 12.5px; }
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
   </style>
-<text class="lbl-b" x="40" y="40">把每段的強度先標好，唱的時候照著走</text>
-  <path class="grid" d="M70 292 L560 292"/>
-  <text class="lbl-s" x="52" y="296" text-anchor="end">1</text>
-  <path class="grid" d="M70 264 L560 264"/>
-  <text class="lbl-s" x="52" y="268" text-anchor="end">2</text>
-  <path class="grid" d="M70 236 L560 236"/>
-  <text class="lbl-s" x="52" y="240" text-anchor="end">3</text>
-  <path class="grid" d="M70 208 L560 208"/>
-  <text class="lbl-s" x="52" y="212" text-anchor="end">4</text>
-  <path class="grid" d="M70 180 L560 180"/>
-  <text class="lbl-s" x="52" y="184" text-anchor="end">5</text>
-  <path class="grid" d="M70 152 L560 152"/>
-  <text class="lbl-s" x="52" y="156" text-anchor="end">6</text>
-  <path class="grid" d="M70 124 L560 124"/>
-  <text class="lbl-s" x="52" y="128" text-anchor="end">7</text>
-  <path class="grid" d="M70 96 L560 96"/>
-  <text class="lbl-s" x="52" y="100" text-anchor="end">8</text>
-  <path class="ink" d="M90 320 L170 236"/>
-  <circle class="solid" cx="90" cy="236" r="5"/>
-  <text class="lbl-s" x="130" y="342" text-anchor="middle">主歌</text>
-  <path class="ink" d="M170 320 L250 180"/>
-  <circle class="solid" cx="170" cy="180" r="5"/>
-  <text class="lbl-s" x="210" y="342" text-anchor="middle">預副歌</text>
-  <path class="ink" d="M250 320 L350 96"/>
-  <circle class="solid" cx="250" cy="96" r="5"/>
-  <text class="lbl-s" x="300" y="342" text-anchor="middle">副歌</text>
-  <path class="ink" d="M350 320 L420 208"/>
-  <circle class="solid" cx="350" cy="208" r="5"/>
-  <text class="lbl-s" x="385" y="342" text-anchor="middle">橋段</text>
-  <path class="ink" d="M420 320 L545 96"/>
-  <circle class="solid" cx="420" cy="96" r="5"/>
-  <text class="lbl-s" x="482" y="342" text-anchor="middle">最後副歌</text>
-  <circle class="solid2" cx="545" cy="96" r="5"/>
-  <path class="thin" d="M545 96 L552 86"/><path class="thin" d="M552 86 L549.9 96.8 L542.6 91.7 Z" fill="#2a2724"/>
-  <text class="lbl-s" x="556" y="78" text-anchor="end">留一點</text>
-  <text class="lbl-s" x="70" y="372">數字是相對的，重點是「後面一定比前面高」；全程 8 分等於沒有曲線</text>
+  <text x="26" y="34" class="tb" font-size="16">主歌到副歌的動態曲線</text>
+  <text x="26" y="55" class="ts" font-size="12.5">先收，才有東西可以放</text>
+  <rect x="82.0" y="290" width="182.2" height="16" rx="4" fill="#A67C52" opacity="0.16"/>
+  <text x="173.1" y="326" class="ts" font-size="11" text-anchor="middle">主歌</text>
+  <rect x="82.0" y="242.5" width="182.2" height="37.5" rx="4" fill="#A67C52" opacity="0.1"/>
+  <rect x="268.2" y="290" width="94.0" height="16" rx="4" fill="#A67C52" opacity="0.16"/>
+  <text x="315.2" y="326" class="ts" font-size="11" text-anchor="middle">預副歌</text>
+  <rect x="268.2" y="212.5" width="94.0" height="67.5" rx="4" fill="#A67C52" opacity="0.1"/>
+  <rect x="366.2" y="290" width="152.8" height="16" rx="4" fill="#A67C52" opacity="0.16"/>
+  <text x="442.6" y="326" class="ts" font-size="11" text-anchor="middle">副歌</text>
+  <rect x="366.2" y="145.0" width="152.8" height="135.0" rx="4" fill="#A67C52" opacity="0.1"/>
+  <rect x="523.0" y="290" width="45.0" height="16" rx="4" fill="#A67C52" opacity="0.16"/>
+  <text x="545.5" y="326" class="ts" font-size="11" text-anchor="middle">尾聲</text>
+  <rect x="523.0" y="250.0" width="45.0" height="30.0" rx="4" fill="#A67C52" opacity="0.1"/>
+  <path d="M80 280 L570 280" class="thin"/>
+  <path d="M80 246 C160 220 210 214 260 196 C320 172 380 152 440 134 C480 124 520 122 570 236" class="acc"/>
+  <text x="80" y="96" class="ts" font-size="12">縱軸是想給觀眾的感受強度，不是音量。</text>
+  <text x="80" y="356" class="ts" font-size="11.5">副歌要大，靠的是前面願意小；尾聲收得乾淨，靠的是副歌沒有喊到沒氣。</text>
 </svg>

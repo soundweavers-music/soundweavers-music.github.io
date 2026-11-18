@@ -1,50 +1,32 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 350" role="img" aria-label="樂句與換氣點的安排">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" role="img" aria-label="樂句與換氣點的安排">
   <title>樂句與換氣點的安排</title>
-  <rect width="600" height="350" fill="#fbf8f2"/>
+  <rect width="640" height="320" fill="#FBF8F4"/>
   <style>
-    .out   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .lead  { fill: none; stroke: #2a2724; stroke-width: .9; }
-    .dot   { fill: #2a2724; }
-    .skin  { fill: #f1e0d6; stroke: #2a2724; stroke-width: 1.8; }
-    .muc   { fill: #e2a99b; stroke: #cb8f82; stroke-width: 1.2; }
-    .muc2  { fill: #cb8f82; stroke: #2a2724; stroke-width: 1.4; }
-    .cart  { fill: #d5d5c2; stroke: #2a2724; stroke-width: 1.5; }
-    .bone  { fill: #ece6d8; stroke: #2a2724; stroke-width: 1.4; }
-    .air   { fill: #d5e5e7; stroke: #2a2724; stroke-width: 1.3; }
-    .fold  { fill: #f6f3ea; stroke: #c9c1ac; stroke-width: 1.6; }
-    .musc  { fill: #cf8f88; stroke: #2a2724; stroke-width: 1.1; }
-    .hl    { fill: #b5734a; fill-opacity: .22; stroke: #b5734a; stroke-width: 1.7; }
-    .hl2   { fill: #7d9b76; fill-opacity: .22; stroke: #7d9b76; stroke-width: 1.7; }
-    .ink   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .ave   { fill: none; stroke: #b5734a; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .ave2  { fill: none; stroke: #7d9b76; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .thin  { fill: none; stroke: #d8d0c2; stroke-width: 1.3; stroke-dasharray: 5 5; }
-    .lbl   { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; }
-    .lbl-s { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 12px; fill: #6f6a60; }
-    .lbl-b { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; font-weight: 700; }
-
-    .grid { fill: none; stroke: #d8d0c2; stroke-width: 1.2; }
-    .fill { fill: #b5734a; opacity: .18; stroke: #b5734a; stroke-width: 1.8; }
-    .fill2 { fill: #7d9b76; opacity: .18; stroke: #7d9b76; stroke-width: 1.8; }
-    .solid { fill: #b5734a; opacity: .85; }
-    .solid2 { fill: #7d9b76; opacity: .85; }
-    .lbl-s { font-size: 12.5px; }
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
   </style>
-<text class="lbl-b" x="40" y="40">換氣點要跟著句子走，不是跟著肺走</text>
-  <rect class="grid" x="70" y="78" width="470" height="34" rx="8"/>
-  <text class="lbl" x="84" y="102">第一句歌詞到這裡</text>
-  <path class="ink" d="M230 70 L230 130"/>
-  <text class="lbl-s" x="238" y="66">換氣</text>
-  <path class="ink" d="M264 60 L304 60"/><path class="ink" d="M304 60 L294.0 64.5 L294.0 55.5 Z" fill="#2a2724"/>
-  <rect class="grid" x="70" y="154" width="470" height="34" rx="8"/>
-  <text class="lbl" x="84" y="178">第二句歌詞再長一點點</text>
-  <path class="ink" d="M260 146 L260 206"/>
-  <text class="lbl-s" x="268" y="142">換氣</text>
-  <path class="ink" d="M294 136 L334 136"/><path class="ink" d="M334 136 L324.0 140.5 L324.0 131.5 Z" fill="#2a2724"/>
-  <rect class="grid" x="70" y="230" width="470" height="34" rx="8"/>
-  <text class="lbl" x="84" y="254">第三句</text>
-  <path class="ink" d="M155 222 L155 282"/>
-  <text class="lbl-s" x="163" y="218">換氣</text>
-  <path class="ink" d="M189 212 L229 212"/><path class="ink" d="M229 212 L219.0 216.5 L219.0 207.5 Z" fill="#2a2724"/>
-  <text class="lbl-s" x="40" y="320">同一口氣裡塞兩個句子，聽起來會趕；多換一次氣，情緒反而更滿</text>
+  <text x="26" y="34" class="tb" font-size="16">樂句與換氣點的安排</text>
+  <text x="26" y="55" class="ts" font-size="12.5">先畫句子，再決定在哪裡呼吸</text>
+  <path d="M90 170 L560 170" class="thin"/>
+  <rect x="113.5" y="160" width="108.10000000000002" height="20" rx="10" fill="#A67C52" opacity="0.22"/>
+  <rect x="113.5" y="160" width="108.10000000000002" height="20" rx="10" fill="none" stroke="#A67C52" stroke-width="1.2"/>
+  <rect x="249.8" y="160" width="112.79999999999995" height="20" rx="10" fill="#A67C52" opacity="0.22"/>
+  <rect x="249.8" y="160" width="112.79999999999995" height="20" rx="10" fill="none" stroke="#A67C52" stroke-width="1.2"/>
+  <rect x="390.8" y="160" width="131.60000000000008" height="20" rx="10" fill="#A67C52" opacity="0.22"/>
+  <rect x="390.8" y="160" width="131.60000000000008" height="20" rx="10" fill="none" stroke="#A67C52" stroke-width="1.2"/>
+  <path d="M227.60000000000002 150 L235.70000000000002 136 L243.8 150" class="ink" stroke="#6B8FBF" stroke-width="1.5"/>
+  <path d="M368.59999999999997 150 L376.7 136 L384.8 150" class="ink" stroke="#6B8FBF" stroke-width="1.5"/>
+  <text x="90" y="110" class="ts" font-size="12">三個樂句，兩個換氣點：换氣點是設計出來的，不是撐不住才出現。</text>
+  <text x="26" y="302" class="ts" font-size="11">換氣點要落在句子的縫，不在字的中间。</text>
 </svg>

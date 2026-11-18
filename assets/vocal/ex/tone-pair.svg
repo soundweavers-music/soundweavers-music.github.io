@@ -1,34 +1,43 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 300" role="img" aria-label="同一條聲帶的兩端">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="同一條聲帶的兩端">
   <title>同一條聲帶的兩端</title>
-  <rect width="540" height="300" fill="#fbf8f2"/>
+  <rect width="640" height="360" fill="#FBF8F4"/>
   <style>
-    .out   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .lead  { fill: none; stroke: #2a2724; stroke-width: .9; }
-    .dot   { fill: #2a2724; }
-    .skin  { fill: #f1e0d6; stroke: #2a2724; stroke-width: 1.8; }
-    .muc   { fill: #e2a99b; stroke: #cb8f82; stroke-width: 1.2; }
-    .muc2  { fill: #cb8f82; stroke: #2a2724; stroke-width: 1.4; }
-    .cart  { fill: #d5d5c2; stroke: #2a2724; stroke-width: 1.5; }
-    .bone  { fill: #ece6d8; stroke: #2a2724; stroke-width: 1.4; }
-    .air   { fill: #d5e5e7; stroke: #2a2724; stroke-width: 1.3; }
-    .fold  { fill: #f6f3ea; stroke: #c9c1ac; stroke-width: 1.6; }
-    .musc  { fill: #cf8f88; stroke: #2a2724; stroke-width: 1.1; }
-    .hl    { fill: #b5734a; fill-opacity: .22; stroke: #b5734a; stroke-width: 1.7; }
-    .hl2   { fill: #7d9b76; fill-opacity: .22; stroke: #7d9b76; stroke-width: 1.7; }
-    .ink   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .ave   { fill: none; stroke: #b5734a; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .ave2  { fill: none; stroke: #7d9b76; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .thin  { fill: none; stroke: #d8d0c2; stroke-width: 1.3; stroke-dasharray: 5 5; }
-    .lbl   { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; }
-    .lbl-s { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 12px; fill: #6f6a60; }
-    .lbl-b { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; font-weight: 700; }
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
   </style>
-<text class="lbl-b" x="26" y="30">同一條聲帶的兩端</text>
-  <text class="lbl" x="160" y="76" text-anchor="middle">厚、短</text>
-  <text class="lbl" x="340" y="76" text-anchor="middle">薄、長</text>
-  <path class="ave" d="M60 190 C100 150 130 150 160 150 C190 150 220 178 250 190"/>
-  <path class="ave2" d="M240 190 C270 160 300 110 340 96 C380 86 400 96 420 104"/>
-  <text class="lbl-s" x="60" y="230">厚、鬆、低</text>
-  <text class="lbl-s" x="330" y="230">薄、集中、高</text>
-  <text class="lbl-s" x="26" y="284">厚薄不是力度，是形狀</text>
+  <text x="26" y="34" class="tb" font-size="16">同一條聲帶的兩端</text>
+  <text x="26" y="55" class="ts" font-size="12.5">真音與假音差在振動面積，不在音量</text>
+  <text x="178" y="78" class="t" font-size="14" text-anchor="middle" font-weight="700">真音／胸聲</text>
+  <text x="178" y="100" class="ts" font-size="11.5" text-anchor="middle">厚、短、整片振動</text>
+  <rect x="100" y="118" width="156" height="38.0" rx="6" fill="#6F8F6A" opacity="0.22"/>
+  <rect x="100" y="118" width="156" height="38.0" rx="6" fill="none" stroke="#6F8F6A" stroke-width="1.6"/>
+  <rect x="100" y="190.0" width="156" height="32.0" rx="6" fill="#6F8F6A" opacity="0.22"/>
+  <rect x="100" y="190.0" width="156" height="32.0" rx="6" fill="none" stroke="#6F8F6A" stroke-width="1.6"/>
+  <text x="178" y="174.0" class="ts" font-size="10.5" text-anchor="middle">完全閉合</text>
+  <text x="178" y="268" class="t" font-size="13" text-anchor="middle">聲帶把氣擋住</text>
+  <text x="178" y="288" class="t" font-size="13" text-anchor="middle">聲音有核心、有重量</text>
+  <text x="462" y="78" class="t" font-size="14" text-anchor="middle" font-weight="700">假音／頭聲</text>
+  <text x="462" y="100" class="ts" font-size="11.5" text-anchor="middle">薄、長、只有邊緣</text>
+  <rect x="384" y="118" width="156" height="27.8" rx="6" fill="#6B8FBF" opacity="0.22"/>
+  <rect x="384" y="118" width="156" height="27.8" rx="6" fill="none" stroke="#6B8FBF" stroke-width="1.6"/>
+  <rect x="384" y="195.1" width="156" height="26.9" rx="6" fill="#6B8FBF" opacity="0.22"/>
+  <rect x="384" y="195.1" width="156" height="26.9" rx="6" fill="none" stroke="#6B8FBF" stroke-width="1.6"/>
+  <text x="462" y="179.1" class="ts" font-size="10.5" text-anchor="middle">聲門</text>
+  <text x="462" y="268" class="t" font-size="13" text-anchor="middle">中間留小縫，會漏氣</text>
+  <text x="462" y="288" class="t" font-size="13" text-anchor="middle">輕、飄，但仍有音高</text>
+  <path d="M300 190 L340 190" class="thin"/>
+  <text x="320" y="182" class="ts" font-size="11" text-anchor="middle">同一條</text>
+  <text x="320" y="210" class="ts" font-size="11" text-anchor="middle">聲帶</text>
+  <text x="26" y="342" class="ts" font-size="11">厚薄不是力氣，是形狀：拉長就變薄，放鬆就變厚。</text>
 </svg>

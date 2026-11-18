@@ -1,43 +1,36 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 300" role="img" aria-label="認出假聲帶夾住的那個感覺">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" role="img" aria-label="認出假聲帶夾住的那個感覺">
   <title>認出假聲帶夾住的那個感覺</title>
-  <rect width="540" height="300" fill="#fbf8f2"/>
+  <rect width="640" height="320" fill="#FBF8F4"/>
   <style>
-    .out   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .lead  { fill: none; stroke: #2a2724; stroke-width: .9; }
-    .dot   { fill: #2a2724; }
-    .skin  { fill: #f1e0d6; stroke: #2a2724; stroke-width: 1.8; }
-    .muc   { fill: #e2a99b; stroke: #cb8f82; stroke-width: 1.2; }
-    .muc2  { fill: #cb8f82; stroke: #2a2724; stroke-width: 1.4; }
-    .cart  { fill: #d5d5c2; stroke: #2a2724; stroke-width: 1.5; }
-    .bone  { fill: #ece6d8; stroke: #2a2724; stroke-width: 1.4; }
-    .air   { fill: #d5e5e7; stroke: #2a2724; stroke-width: 1.3; }
-    .fold  { fill: #f6f3ea; stroke: #c9c1ac; stroke-width: 1.6; }
-    .musc  { fill: #cf8f88; stroke: #2a2724; stroke-width: 1.1; }
-    .hl    { fill: #b5734a; fill-opacity: .22; stroke: #b5734a; stroke-width: 1.7; }
-    .hl2   { fill: #7d9b76; fill-opacity: .22; stroke: #7d9b76; stroke-width: 1.7; }
-    .ink   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .ave   { fill: none; stroke: #b5734a; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .ave2  { fill: none; stroke: #7d9b76; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .thin  { fill: none; stroke: #d8d0c2; stroke-width: 1.3; stroke-dasharray: 5 5; }
-    .lbl   { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; }
-    .lbl-s { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 12px; fill: #6f6a60; }
-    .lbl-b { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; font-weight: 700; }
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
   </style>
-<text class="lbl-b" x="26" y="30">認出假聲帶夾住的那個感覺</text>
-  <g transform="translate(20,40) scale(0.62)"><path class="cart" d="M96 60 C130 44 210 44 244 60 C252 110 250 176 240 216 C210 232 130 232 100 216 C90 176 90 110 96 60 Z"/>
-  <path class="air" d="M124 76 C160 66 190 66 216 76 C222 130 220 186 212 216 C182 226 156 226 128 216 C120 186 118 130 124 76 Z"/>
-  <path class="hl" d="M124 118 C144 104 166 102 186 110 C192 118 190 126 182 128 C162 122 142 124 126 132 Z"/>
-  <path class="hl" d="M216 118 C196 104 174 102 154 110 C148 118 150 126 158 128 C178 122 198 124 214 132 Z"/>
-  <path class="fold" d="M126 156 C152 146 178 146 198 158 C202 170 196 180 186 182 C162 172 144 174 128 180 Z"/>
-  <path class="fold" d="M214 156 C188 146 162 146 142 158 C138 170 144 180 154 182 C178 172 196 174 212 180 Z"/>
-  <path class="ink" d="M170 140 L192 140"/>
-  <path class="air" d="M128 218 L212 218 L216 292 L132 292 Z"/>
-  <path class="ink" d="M130 232 L214 232"/>
-  <path class="ink" d="M130 248 L214 248"/>
-  <path class="ink" d="M130 264 L214 264"/>
-  <path class="ink" d="M130 280 L214 280"/></g>
-  <path class="lead" d="M180 146 L250 110"/><circle class="dot" cx="180" cy="146" r="2.6"/><text class="lbl" x="256" y="114">假聲帶關起來</text>
-  <path class="lead" d="M180 200 L250 214"/><circle class="dot" cx="180" cy="200" r="2.6"/><text class="lbl" x="256" y="218">真聲帶在下面</text>
-  <text class="lbl-s" x="30" y="280">先認識它，再學會不要叫它出來</text>
-  <text class="lbl-s" x="26" y="284">那個「夾住」的感覺，是假聲帶在關門</text>
+  <text x="26" y="34" class="tb" font-size="16">認出假聲帶夾住的那個感覺</text>
+  <text x="26" y="55" class="ts" font-size="12.5">喉嚨裡有兩組皺褶：上面那組一擠，聲音就悶</text>
+  <rect x="90" y="130" width="180" height="16" rx="8" fill="#6F8F6A" opacity="0.3"/>
+  <rect x="90" y="130" width="180" height="16" rx="8" fill="none" stroke="#6F8F6A" stroke-width="1.5"/>
+  <rect x="90" y="168" width="180" height="10" rx="5" fill="#B0563F" opacity="0.22"/>
+  <rect x="90" y="168" width="180" height="10" rx="5" fill="none" stroke="#B0563F" stroke-width="1.4"/>
+  <text x="282" y="140" class="ts" font-size="11.5" fill="#6F8F6A">真聲帶（聲襞）</text>
+  <text x="282" y="176" class="ts" font-size="11.5" fill="#B0563F">假聲帶（室襞）</text>
+  <path d="M90.0 210.0 L90.0 195.4" fill="none" stroke="#B0563F" stroke-width="1.7" stroke-linecap="round"/><path d="M90.0 190.0 L92.4 195.5 L87.6 195.5 Z" fill="#B0563F"/>
+  <text x="100" y="214" class="ts" font-size="11" fill="#B0563F">夾住時，聲音被悶住</text>
+  <rect x="370" y="96" width="240" height="78" rx="6" fill="#E4EBDC" stroke="#6F8F6A" stroke-width="1.2"/>
+  <text x="384" y="122" class="t" font-size="12.5" font-weight="600" fill="#6F8F6A">放鬆：只有真聲帶振動</text>
+  <text x="384" y="144" class="ts" font-size="11">聲音乾淨、不費力</text>
+  <rect x="370" y="188" width="240" height="78" rx="6" fill="#F4DFD7" stroke="#B0563F" stroke-width="1.2"/>
+  <text x="384" y="214" class="t" font-size="12.5" font-weight="600" fill="#B0563F">夾住：假聲帶也擠上來</text>
+  <text x="384" y="236" class="ts" font-size="11">聲音悶、喉嚨有感</text>
+  <text x="26" y="302" class="ts" font-size="11">假聲帶不會「幫助」你唱高音；它一夾，真聲帶就動不了。</text>
 </svg>

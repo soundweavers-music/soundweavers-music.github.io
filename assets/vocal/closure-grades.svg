@@ -1,52 +1,43 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 500" role="img" aria-label="聲帶閉合三級：漏氣、平衡、壓迫">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="聲帶閉合三級：漏氣、平衡、壓迫">
   <title>聲帶閉合三級：漏氣、平衡、壓迫</title>
-  <rect width="780" height="500" fill="#fbf8f2"/>
+  <rect width="640" height="360" fill="#FBF8F4"/>
   <style>
-    .out   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .lead  { fill: none; stroke: #2a2724; stroke-width: .9; }
-    .dot   { fill: #2a2724; }
-    .skin  { fill: #f1e0d6; stroke: #2a2724; stroke-width: 1.8; }
-    .muc   { fill: #e2a99b; stroke: #cb8f82; stroke-width: 1.2; }
-    .muc2  { fill: #cb8f82; stroke: #2a2724; stroke-width: 1.4; }
-    .cart  { fill: #d5d5c2; stroke: #2a2724; stroke-width: 1.5; }
-    .bone  { fill: #ece6d8; stroke: #2a2724; stroke-width: 1.4; }
-    .air   { fill: #d5e5e7; stroke: #2a2724; stroke-width: 1.3; }
-    .fold  { fill: #f6f3ea; stroke: #c9c1ac; stroke-width: 1.6; }
-    .musc  { fill: #cf8f88; stroke: #2a2724; stroke-width: 1.1; }
-    .hl    { fill: #b5734a; fill-opacity: .22; stroke: #b5734a; stroke-width: 1.7; }
-    .hl2   { fill: #7d9b76; fill-opacity: .22; stroke: #7d9b76; stroke-width: 1.7; }
-    .ink   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .ave   { fill: none; stroke: #b5734a; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .ave2  { fill: none; stroke: #7d9b76; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .thin  { fill: none; stroke: #d8d0c2; stroke-width: 1.3; stroke-dasharray: 5 5; }
-    .lbl   { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; }
-    .lbl-s { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 12px; fill: #6f6a60; }
-    .lbl-b { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; font-weight: 700; }
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
   </style>
-<text class="lbl-b" x="24" y="30">閉合度不是愈緊愈好，是「剛好不漏」</text>
-  <g transform="translate(30,60)"><ellipse class="muc" cx="180" cy="176" rx="110" ry="136"/>
-  <ellipse class="muc2" cx="146" cy="288" rx="17" ry="14"/>
-  <ellipse class="muc2" cx="214" cy="288" rx="17" ry="14"/>
-  <path class="fold" d="M180 56 C146.0 112 150.0 198 160.0 264 C134.0 278 106.0 272 102.0 246 C96.0 164 130.0 90 180 56 Z"/>
-  <path class="fold" d="M180 56 C214.0 112 210.0 198 200.0 264 C226.0 278 254.0 272 258.0 246 C264.0 164 230.0 90 180 56 Z"/>
-  <path d="M180 60 L160.0 262 L200.0 262 Z" fill="#d5e5e7" stroke="#2a2724" stroke-width="1.2"/></g>
-  <text class="lbl-b" x="210" y="92" text-anchor="middle">漏氣</text>
-  <text class="lbl-s" x="210" y="420" text-anchor="middle">中間有縫：氣音多、撐不久</text>
-  <g transform="translate(280,60)"><ellipse class="muc" cx="180" cy="176" rx="110" ry="136"/>
-  <ellipse class="muc2" cx="146" cy="288" rx="17" ry="14"/>
-  <ellipse class="muc2" cx="214" cy="288" rx="17" ry="14"/>
-  <path class="fold" d="M180 56 C161.0 112 165.0 198 175.0 264 C149.0 278 121.0 272 117.0 246 C111.0 164 145.0 90 180 56 Z"/>
-  <path class="fold" d="M180 56 C199.0 112 195.0 198 185.0 264 C211.0 278 239.0 272 243.0 246 C249.0 164 215.0 90 180 56 Z"/>
-  <path d="M180 60 L175.0 262 L185.0 262 Z" fill="#d5e5e7" stroke="#2a2724" stroke-width="1.2"/></g>
-  <text class="lbl-b" x="460" y="92" text-anchor="middle">平衡</text>
-  <text class="lbl-s" x="460" y="420" text-anchor="middle">剛好靠攏：聲音穩、最省力</text>
-  <g transform="translate(530,60)"><ellipse class="muc" cx="180" cy="176" rx="110" ry="136"/>
-  <ellipse class="muc2" cx="146" cy="288" rx="17" ry="14"/>
-  <ellipse class="muc2" cx="214" cy="288" rx="17" ry="14"/>
-  <path class="fold" d="M180 56 C170.0 112 174.0 198 184.0 264 C158.0 278 130.0 272 126.0 246 C120.0 164 154.0 90 180 56 Z"/>
-  <path class="fold" d="M180 56 C190.0 112 186.0 198 176.0 264 C202.0 278 230.0 272 234.0 246 C240.0 164 206.0 90 180 56 Z"/>
-  <path d="M180 60 L184.0 262 L176.0 262 Z" fill="#d5e5e7" stroke="#2a2724" stroke-width="1.2"/></g>
-  <text class="lbl-b" x="710" y="92" text-anchor="middle">壓迫</text>
-  <text class="lbl-s" x="710" y="420" text-anchor="middle">擠過頭：亮但緊、容易累</text>
-  <text class="lbl-s" x="24" y="468">從上往下看：兩片聲帶在中線相遇。理想是靠攏但不夾死</text>
+  <text x="26" y="34" class="tb" font-size="16">聲帶閉合三級：漏氣、平衡、壓迫</text>
+  <text x="26" y="55" class="ts" font-size="12.5">中間那一級不是「用力」，是「剛好」</text>
+  <rect x="80" y="120" width="150" height="30" rx="8" fill="#6B8FBF" opacity="0.2"/>
+  <rect x="80" y="120" width="150" height="30" rx="8" fill="none" stroke="#6B8FBF" stroke-width="1.4"/>
+  <rect x="80" y="176" width="150" height="30" rx="8" fill="#6B8FBF" opacity="0.2"/>
+  <rect x="80" y="176" width="150" height="30" rx="8" fill="none" stroke="#6B8FBF" stroke-width="1.4"/>
+  <text x="155" y="230" class="t" font-size="13" text-anchor="middle" font-weight="600" fill="#6B8FBF">漏氣</text>
+  <text x="155" y="250" class="ts" font-size="11" text-anchor="middle">兩片分開</text>
+  <text x="155" y="272" class="ts" font-size="11" text-anchor="middle">氣音多、容易累</text>
+  <rect x="270" y="120" width="150" height="30" rx="8" fill="#6F8F6A" opacity="0.2"/>
+  <rect x="270" y="120" width="150" height="30" rx="8" fill="none" stroke="#6F8F6A" stroke-width="1.4"/>
+  <rect x="270" y="162" width="150" height="30" rx="8" fill="#6F8F6A" opacity="0.2"/>
+  <rect x="270" y="162" width="150" height="30" rx="8" fill="none" stroke="#6F8F6A" stroke-width="1.4"/>
+  <text x="345" y="230" class="t" font-size="13" text-anchor="middle" font-weight="600" fill="#6F8F6A">平衡</text>
+  <text x="345" y="250" class="ts" font-size="11" text-anchor="middle">輕輕靠攏</text>
+  <text x="345" y="272" class="ts" font-size="11" text-anchor="middle">乾淨、省力</text>
+  <rect x="460" y="120" width="150" height="30" rx="8" fill="#B0563F" opacity="0.2"/>
+  <rect x="460" y="120" width="150" height="30" rx="8" fill="none" stroke="#B0563F" stroke-width="1.4"/>
+  <rect x="460" y="156" width="150" height="30" rx="8" fill="#B0563F" opacity="0.2"/>
+  <rect x="460" y="156" width="150" height="30" rx="8" fill="none" stroke="#B0563F" stroke-width="1.4"/>
+  <text x="535" y="230" class="t" font-size="13" text-anchor="middle" font-weight="600" fill="#B0563F">壓迫</text>
+  <text x="535" y="250" class="ts" font-size="11" text-anchor="middle">夾得太緊</text>
+  <text x="535" y="272" class="ts" font-size="11" text-anchor="middle">刮、喉嚨痛</text>
+  <text x="26" y="342" class="ts" font-size="11">閉合是一個連續的光譜：太少會漏氣，太多會擠，中間才是可以唱很久的位置。</text>
 </svg>

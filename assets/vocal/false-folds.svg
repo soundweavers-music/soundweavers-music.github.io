@@ -1,44 +1,35 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 470" role="img" aria-label="喉部側剖面：假聲帶（室襞）在真聲帶（聲襞）上方">
-  <title>喉部側剖面：假聲帶（室襞）在真聲帶（聲襞）上方</title>
-  <rect width="560" height="470" fill="#fbf8f2"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 340" role="img" aria-label="喉部側剖面：假聲帶在上、真聲帶在下">
+  <title>喉部側剖面：假聲帶在上、真聲帶在下</title>
+  <rect width="640" height="340" fill="#FBF8F4"/>
   <style>
-    .out   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .lead  { fill: none; stroke: #2a2724; stroke-width: .9; }
-    .dot   { fill: #2a2724; }
-    .skin  { fill: #f1e0d6; stroke: #2a2724; stroke-width: 1.8; }
-    .muc   { fill: #e2a99b; stroke: #cb8f82; stroke-width: 1.2; }
-    .muc2  { fill: #cb8f82; stroke: #2a2724; stroke-width: 1.4; }
-    .cart  { fill: #d5d5c2; stroke: #2a2724; stroke-width: 1.5; }
-    .bone  { fill: #ece6d8; stroke: #2a2724; stroke-width: 1.4; }
-    .air   { fill: #d5e5e7; stroke: #2a2724; stroke-width: 1.3; }
-    .fold  { fill: #f6f3ea; stroke: #c9c1ac; stroke-width: 1.6; }
-    .musc  { fill: #cf8f88; stroke: #2a2724; stroke-width: 1.1; }
-    .hl    { fill: #b5734a; fill-opacity: .22; stroke: #b5734a; stroke-width: 1.7; }
-    .hl2   { fill: #7d9b76; fill-opacity: .22; stroke: #7d9b76; stroke-width: 1.7; }
-    .ink   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .ave   { fill: none; stroke: #b5734a; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .ave2  { fill: none; stroke: #7d9b76; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .thin  { fill: none; stroke: #d8d0c2; stroke-width: 1.3; stroke-dasharray: 5 5; }
-    .lbl   { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; }
-    .lbl-s { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 12px; fill: #6f6a60; }
-    .lbl-b { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; font-weight: 700; }
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
   </style>
-<text class="lbl-b" x="24" y="30">假聲帶在真聲帶上面，負責關門與保護</text>
-  <g transform="translate(60,50)"><path class="cart" d="M96 60 C130 44 210 44 244 60 C252 110 250 176 240 216 C210 232 130 232 100 216 C90 176 90 110 96 60 Z"/>
-  <path class="air" d="M124 76 C160 66 190 66 216 76 C222 130 220 186 212 216 C182 226 156 226 128 216 C120 186 118 130 124 76 Z"/>
-  <path class="hl" d="M124 118 C144 104 166 102 186 110 C192 118 190 126 182 128 C162 122 142 124 126 132 Z"/>
-  <path class="hl" d="M216 118 C196 104 174 102 154 110 C148 118 150 126 158 128 C178 122 198 124 214 132 Z"/>
-  <path class="fold" d="M126 156 C152 146 178 146 198 158 C202 170 196 180 186 182 C162 172 144 174 128 180 Z"/>
-  <path class="fold" d="M214 156 C188 146 162 146 142 158 C138 170 144 180 154 182 C178 172 196 174 212 180 Z"/>
-  <path class="ink" d="M170 140 L192 140"/>
-  <path class="air" d="M128 218 L212 218 L216 292 L132 292 Z"/>
-  <path class="ink" d="M130 232 L214 232"/>
-  <path class="ink" d="M130 248 L214 248"/>
-  <path class="ink" d="M130 264 L214 264"/>
-  <path class="ink" d="M130 280 L214 280"/></g>
-  <path class="lead" d="M255 170 L340 120"/><circle class="dot" cx="255" cy="170" r="2.6"/><text class="lbl" x="346" y="124">假聲帶（室襞）</text>
-  <path class="lead" d="M255 235 L340 250"/><circle class="dot" cx="255" cy="235" r="2.6"/><text class="lbl" x="346" y="254">真聲帶（聲襞）</text>
-  <path class="lead" d="M230 330 L340 330"/><circle class="dot" cx="230" cy="330" r="2.6"/><text class="lbl" x="346" y="334">氣管</text>
-  <text class="lbl-s" x="24" y="420">咳嗽、清喉嚨、硬擠高音，都是叫上面的假聲帶出來代班</text>
-  <text class="lbl-s" x="24" y="444">聲音會啞就是這樣來的</text>
+  <text x="26" y="34" class="tb" font-size="16">喉部側剖面：假聲帶在上、真聲帶在下</text>
+  <text x="26" y="55" class="ts" font-size="12.5">兩個皺褶，一組發聲、一組保護</text>
+  <path d="M120 90 C200 80 260 100 280 140 C296 176 280 214 240 226 L120 226" class="ink" fill="#F2E7DC" stroke="#3D3229" stroke-width="1.5"/>
+  <rect x="150" y="120" width="110" height="12" rx="6" fill="#B0563F" opacity="0.3"/>
+  <rect x="150" y="120" width="110" height="12" rx="6" fill="none" stroke="#B0563F" stroke-width="1.3"/>
+  <rect x="150" y="152" width="110" height="14" rx="7" fill="#A67C52" opacity="0.35"/>
+  <rect x="150" y="152" width="110" height="14" rx="7" fill="none" stroke="#A67C52" stroke-width="1.4"/>
+  <text x="200" y="110" class="ts" font-size="11" text-anchor="middle" fill="#B0563F">假聲帶</text>
+  <text x="200" y="188" class="ts" font-size="11" text-anchor="middle" fill="#A67C52">真聲帶</text>
+  <path d="M120.0 250.0 L120.0 219.4" fill="none" stroke="#6B8FBF" stroke-width="1.7" stroke-linecap="round"/><path d="M120.0 214.0 L122.4 219.5 L117.6 219.5 Z" fill="#6B8FBF"/>
+  <text x="110" y="268" class="ts" font-size="11" text-anchor="end" fill="#6B8FBF">氣流</text>
+  <text x="320" y="130" class="ts" font-size="12">假聲帶在上、真聲帶在下。</text>
+  <text x="320" y="152" class="ts" font-size="12">假聲帶一夾，聲音會被悶住；</text>
+  <text x="320" y="174" class="ts" font-size="12">它的工作是閉氣與保護，不是發聲。</text>
+  <text x="320" y="214" class="ts" font-size="11.5" fill="#B0563F">感覺「喉嚨上方有東西擠住」，通常就是它。</text>
+  <text x="26" y="322" class="ts" font-size="11">咳、用力、憋氣時，假聲帶會自動關起來——這是身體的防禦，不是唱歌的動作。</text>
 </svg>

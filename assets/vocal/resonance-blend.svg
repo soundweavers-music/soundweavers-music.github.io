@@ -1,57 +1,32 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" role="img" aria-label="三種共鳴腔的比例尺：胸腔、口咽腔、鼻腔頭腔">
-  <title>三種共鳴腔的比例尺：胸腔、口咽腔、鼻腔頭腔</title>
-  <rect width="600" height="340" fill="#fbf8f2"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" role="img" aria-label="三種共鳴腔的比例">
+  <title>三種共鳴腔的比例</title>
+  <rect width="640" height="320" fill="#FBF8F4"/>
   <style>
-    .out   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .lead  { fill: none; stroke: #2a2724; stroke-width: .9; }
-    .dot   { fill: #2a2724; }
-    .skin  { fill: #f1e0d6; stroke: #2a2724; stroke-width: 1.8; }
-    .muc   { fill: #e2a99b; stroke: #cb8f82; stroke-width: 1.2; }
-    .muc2  { fill: #cb8f82; stroke: #2a2724; stroke-width: 1.4; }
-    .cart  { fill: #d5d5c2; stroke: #2a2724; stroke-width: 1.5; }
-    .bone  { fill: #ece6d8; stroke: #2a2724; stroke-width: 1.4; }
-    .air   { fill: #d5e5e7; stroke: #2a2724; stroke-width: 1.3; }
-    .fold  { fill: #f6f3ea; stroke: #c9c1ac; stroke-width: 1.6; }
-    .musc  { fill: #cf8f88; stroke: #2a2724; stroke-width: 1.1; }
-    .hl    { fill: #b5734a; fill-opacity: .22; stroke: #b5734a; stroke-width: 1.7; }
-    .hl2   { fill: #7d9b76; fill-opacity: .22; stroke: #7d9b76; stroke-width: 1.7; }
-    .ink   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .ave   { fill: none; stroke: #b5734a; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .ave2  { fill: none; stroke: #7d9b76; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .thin  { fill: none; stroke: #d8d0c2; stroke-width: 1.3; stroke-dasharray: 5 5; }
-    .lbl   { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; }
-    .lbl-s { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 12px; fill: #6f6a60; }
-    .lbl-b { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; font-weight: 700; }
-
-    .grid { fill: none; stroke: #d8d0c2; stroke-width: 1.2; }
-    .fill { fill: #b5734a; opacity: .18; stroke: #b5734a; stroke-width: 1.8; }
-    .fill2 { fill: #7d9b76; opacity: .18; stroke: #7d9b76; stroke-width: 1.8; }
-    .solid { fill: #b5734a; opacity: .85; }
-    .solid2 { fill: #7d9b76; opacity: .85; }
-    .lbl-s { font-size: 12.5px; }
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
   </style>
-<text class="lbl-b" x="40" y="40">共鳴不是開關，是三條比例尺</text>
-  <circle class="solid" cx="180" cy="66" r="8"/>
-  <text class="lbl-s" x="196" y="71">抒情中低音</text>
-  <circle class="solid2" cx="296" cy="66" r="8"/>
-  <text class="lbl-s" x="312" y="71">高音副歌</text>
-  <text class="lbl-b" x="40" y="102">胸腔</text>
-  <text class="lbl-s" x="40" y="122">低頻、厚</text>
-  <rect class="grid" x="180" y="96" width="300" height="26" rx="13"/>
-  <circle class="solid" cx="396" cy="109" r="9"/>
-  <circle class="solid2" cx="258" cy="109" r="9"/>
-  <text class="lbl-s" x="494" y="114">少 ←→ 多</text>
-  <text class="lbl-b" x="40" y="164">口咽腔</text>
-  <text class="lbl-s" x="40" y="184">中頻、主體</text>
-  <rect class="grid" x="180" y="158" width="300" height="26" rx="13"/>
-  <circle class="solid" cx="354" cy="171" r="9"/>
-  <circle class="solid2" cx="366" cy="171" r="9"/>
-  <text class="lbl-s" x="494" y="176">少 ←→ 多</text>
-  <text class="lbl-b" x="40" y="226">鼻腔／頭腔</text>
-  <text class="lbl-s" x="40" y="246">高頻、亮</text>
-  <rect class="grid" x="180" y="220" width="300" height="26" rx="13"/>
-  <circle class="solid" cx="252" cy="233" r="9"/>
-  <circle class="solid2" cx="402" cy="233" r="9"/>
-  <text class="lbl-s" x="494" y="238">少 ←→ 多</text>
-  <text class="lbl-s" x="40" y="310">換曲風＝換比例，不是換力氣：想厚一點就讓胸腔參與多一點，想亮就往頭腔移</text>
+  <text x="26" y="34" class="tb" font-size="16">三種共鳴腔的比例</text>
+  <text x="26" y="55" class="ts" font-size="12.5">胸腔、口咽腔、鼻腔／頭腔各佔多少</text>
+  <rect x="80" y="150" width="480" height="30" rx="15" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.1"/>
+  <rect x="82" y="152" width="140.0" height="26" rx="13" fill="#6F8F6A" opacity="0.3"/>
+  <text x="152.0" y="172" class="t" font-size="11.5" text-anchor="middle" font-weight="600">胸腔</text>
+  <rect x="226.0" y="152" width="212.0" height="26" rx="13" fill="#A67C52" opacity="0.3"/>
+  <text x="332.0" y="172" class="t" font-size="11.5" text-anchor="middle" font-weight="600">口咽腔</text>
+  <rect x="442.0" y="152" width="116.0" height="26" rx="13" fill="#6B8FBF" opacity="0.3"/>
+  <text x="500.0" y="172" class="t" font-size="11.5" text-anchor="middle" font-weight="600">鼻腔／頭腔</text>
+  <text x="80" y="136" class="ts" font-size="12">三種共鳴腔的比例</text>
+  <text x="80" y="216" class="ts" font-size="12">比例可以調：同一句歌詞，往胸腔一點會厚，往頭腔一點會亮。</text>
+  <text x="80" y="240" class="ts" font-size="12">但比例不是「全開」最好——三個都滿，聲音會糊。</text>
+  <text x="26" y="302" class="ts" font-size="11">共鳴不是把聲音「送到」某個腔，是調整聲道形狀讓某些頻率留下來。</text>
 </svg>

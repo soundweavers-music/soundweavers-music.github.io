@@ -1,40 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 300" role="img" aria-label="嘶——把氣吹得又細又長">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" role="img" aria-label="嘶——把氣吹得又細又長">
   <title>嘶——把氣吹得又細又長</title>
-  <rect width="540" height="300" fill="#fbf8f2"/>
+  <rect width="640" height="300" fill="#FBF8F4"/>
   <style>
-    .out   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .lead  { fill: none; stroke: #2a2724; stroke-width: .9; }
-    .dot   { fill: #2a2724; }
-    .skin  { fill: #f1e0d6; stroke: #2a2724; stroke-width: 1.8; }
-    .muc   { fill: #e2a99b; stroke: #cb8f82; stroke-width: 1.2; }
-    .muc2  { fill: #cb8f82; stroke: #2a2724; stroke-width: 1.4; }
-    .cart  { fill: #d5d5c2; stroke: #2a2724; stroke-width: 1.5; }
-    .bone  { fill: #ece6d8; stroke: #2a2724; stroke-width: 1.4; }
-    .air   { fill: #d5e5e7; stroke: #2a2724; stroke-width: 1.3; }
-    .fold  { fill: #f6f3ea; stroke: #c9c1ac; stroke-width: 1.6; }
-    .musc  { fill: #cf8f88; stroke: #2a2724; stroke-width: 1.1; }
-    .hl    { fill: #b5734a; fill-opacity: .22; stroke: #b5734a; stroke-width: 1.7; }
-    .hl2   { fill: #7d9b76; fill-opacity: .22; stroke: #7d9b76; stroke-width: 1.7; }
-    .ink   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .ave   { fill: none; stroke: #b5734a; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .ave2  { fill: none; stroke: #7d9b76; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .thin  { fill: none; stroke: #d8d0c2; stroke-width: 1.3; stroke-dasharray: 5 5; }
-    .lbl   { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; }
-    .lbl-s { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 12px; fill: #6f6a60; }
-    .lbl-b { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; font-weight: 700; }
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
   </style>
-<text class="lbl-b" x="26" y="30">嘶——把氣吹得又細又長</text>
-  <circle class="skin" cx="110" cy="120" r="34"/><path class="ink" d="M98 150 C100 180 116 194 114 214"/><path class="ink" d="M124 152 C128 184 120 200 118 214"/>
-  <path class="ave" d="M150 130 L200 122 L250 132 L300 122 L350 132"/>
-  <text class="lbl-s" x="200" y="104">嘶——（持續、均勻）</text>
-  <path class="ink" d="M160 220 L160 202"/>
-  <path class="ink" d="M186 220 L186 202"/>
-  <path class="ink" d="M212 220 L212 202"/>
-  <path class="ink" d="M238 220 L238 202"/>
-  <path class="ink" d="M264 220 L264 202"/>
-  <path class="ink" d="M290 220 L290 202"/>
-  <path class="ink" d="M316 220 L316 202"/>
-  <path class="ink" d="M342 220 L342 202"/>
-  <text class="lbl-s" x="160" y="246">一次撐 15–20 秒</text>
-  <text class="lbl-s" x="26" y="284">氣要細、要長、要穩；喉嚨全程不出力</text>
+  <text x="26" y="34" class="tb" font-size="16">嘶——把氣吹得又細又長</text>
+  <text x="26" y="55" class="ts" font-size="12.5">沒有聲音，才聽得出來氣穩不穩</text>
+  <rect x="90" y="138" width="480" height="24" rx="12" fill="#DEE8F3" opacity="0.6"/>
+  <path d="M100 144 C330.0 141 510 143 560 144" class="blue" opacity="0.8"/>
+  <path d="M100 150 C330.0 147 510 149 560 150" class="blue" opacity="0.8"/>
+  <path d="M100 156 C330.0 153 510 155 560 156" class="blue" opacity="0.8"/>
+  <text x="90" y="120" class="ts" font-size="12">「嘶——」：氣要細、要長、不要忽大忽小</text>
+  <text x="90" y="194" class="ts" font-size="12">可以拿一張面紙放在嘴前：它只該微微飄，不該被吹得亂飛。</text>
+  <text x="26" y="282" class="ts" font-size="11">這個練習不發聲，只練「把氣平均送出去」。</text>
 </svg>

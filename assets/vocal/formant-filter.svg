@@ -1,55 +1,38 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 330" role="img" aria-label="線性聲源－濾波器示意圖：諧波經過聲道濾波形成共振峰">
-  <title>線性聲源－濾波器示意圖：諧波經過聲道濾波形成共振峰</title>
-  <rect width="600" height="330" fill="#fbf8f2"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 340" role="img" aria-label="聲源－濾波器：諧波怎麼變成母音">
+  <title>聲源－濾波器：諧波怎麼變成母音</title>
+  <rect width="640" height="340" fill="#FBF8F4"/>
   <style>
-    .out   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .lead  { fill: none; stroke: #2a2724; stroke-width: .9; }
-    .dot   { fill: #2a2724; }
-    .skin  { fill: #f1e0d6; stroke: #2a2724; stroke-width: 1.8; }
-    .muc   { fill: #e2a99b; stroke: #cb8f82; stroke-width: 1.2; }
-    .muc2  { fill: #cb8f82; stroke: #2a2724; stroke-width: 1.4; }
-    .cart  { fill: #d5d5c2; stroke: #2a2724; stroke-width: 1.5; }
-    .bone  { fill: #ece6d8; stroke: #2a2724; stroke-width: 1.4; }
-    .air   { fill: #d5e5e7; stroke: #2a2724; stroke-width: 1.3; }
-    .fold  { fill: #f6f3ea; stroke: #c9c1ac; stroke-width: 1.6; }
-    .musc  { fill: #cf8f88; stroke: #2a2724; stroke-width: 1.1; }
-    .hl    { fill: #b5734a; fill-opacity: .22; stroke: #b5734a; stroke-width: 1.7; }
-    .hl2   { fill: #7d9b76; fill-opacity: .22; stroke: #7d9b76; stroke-width: 1.7; }
-    .ink   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .ave   { fill: none; stroke: #b5734a; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .ave2  { fill: none; stroke: #7d9b76; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .thin  { fill: none; stroke: #d8d0c2; stroke-width: 1.3; stroke-dasharray: 5 5; }
-    .lbl   { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; }
-    .lbl-s { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 12px; fill: #6f6a60; }
-    .lbl-b { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; font-weight: 700; }
-
-    .grid { fill: none; stroke: #d8d0c2; stroke-width: 1.2; }
-    .fill { fill: #b5734a; opacity: .18; stroke: #b5734a; stroke-width: 1.8; }
-    .fill2 { fill: #7d9b76; opacity: .18; stroke: #7d9b76; stroke-width: 1.8; }
-    .solid { fill: #b5734a; opacity: .85; }
-    .solid2 { fill: #7d9b76; opacity: .85; }
-    .lbl-s { font-size: 12.5px; }
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
   </style>
-
-  <text class="lbl" x="40" y="40">聲帶產生：一組整數倍頻率</text>
-  <text class="lbl" x="300" y="40">聲道像濾網，放大某些頻率</text>
-<rect class="fill2" x="76" y="66" width="12" height="84" rx="2"/>
-<rect class="fill2" x="102" y="72" width="12" height="78" rx="2"/>
-<rect class="fill2" x="128" y="78" width="12" height="72" rx="2"/>
-<rect class="fill2" x="154" y="84" width="12" height="66" rx="2"/>
-<rect class="fill2" x="180" y="90" width="12" height="60" rx="2"/>
-<rect class="fill2" x="206" y="96" width="12" height="54" rx="2"/>
-<rect class="fill2" x="232" y="102" width="12" height="48" rx="2"/>
-<rect class="fill2" x="258" y="108" width="12" height="42" rx="2"/>
-<path class="ink" d="M300 150 C330 150 345 70 372 52 C400 36 420 96 450 140 C480 168 510 168 540 168"/>
-<rect class="fill" x="333" y="175" width="12" height="85" rx="2"/>
-<rect class="fill" x="361" y="140" width="12" height="120" rx="2"/>
-<rect class="fill" x="389" y="185" width="12" height="75" rx="2"/>
-<rect class="fill" x="417" y="150" width="12" height="110" rx="2"/>
-<rect class="fill" x="445" y="195" width="12" height="65" rx="2"/>
-<rect class="fill" x="473" y="200" width="12" height="60" rx="2"/>
-<rect class="fill" x="501" y="205" width="12" height="55" rx="2"/>
-<text class="lbl-s" x="300" y="300">峰的位置就是共振峰（F1、F2…）</text>
-<text class="lbl-s" x="40" y="200">頻率 →</text>
-
+  <text x="26" y="34" class="tb" font-size="16">聲源－濾波器：諧波怎麼變成母音</text>
+  <text x="26" y="55" class="ts" font-size="12.5">聲帶提供原料，聲道決定最後的形狀</text>
+  <text x="60" y="90" class="ts" font-size="12">聲源：一串諧波</text>
+  <rect x="60" y="150" width="8" height="70" rx="2" fill="#A67C52" opacity="0.55"/>
+  <rect x="86" y="154" width="8" height="66" rx="2" fill="#A67C52" opacity="0.55"/>
+  <rect x="112" y="158" width="8" height="62" rx="2" fill="#A67C52" opacity="0.55"/>
+  <rect x="138" y="162" width="8" height="58" rx="2" fill="#A67C52" opacity="0.55"/>
+  <rect x="164" y="166" width="8" height="54" rx="2" fill="#A67C52" opacity="0.55"/>
+  <rect x="190" y="170" width="8" height="50" rx="2" fill="#A67C52" opacity="0.55"/>
+  <rect x="216" y="174" width="8" height="46" rx="2" fill="#A67C52" opacity="0.55"/>
+  <rect x="242" y="178" width="8" height="42" rx="2" fill="#A67C52" opacity="0.55"/>
+  <rect x="268" y="182" width="8" height="38" rx="2" fill="#A67C52" opacity="0.55"/>
+  <rect x="294" y="186" width="8" height="34" rx="2" fill="#A67C52" opacity="0.55"/>
+  <text x="60" y="250" class="ts" font-size="10.5">頻率 →</text>
+  <text x="340" y="90" class="ts" font-size="12">聲道：濾波器</text>
+  <path d="M340 210 C370 210 380 130 420 130 C460 130 470 190 520 190" class="blue"/>
+  <text x="340" y="250" class="ts" font-size="11" fill="#6B8FBF">共振峰把某些頻率放大</text>
+  <text x="340" y="296" class="ts" font-size="11.5">結果：輸出頻譜</text>
+  <text x="60" y="300" class="ts" font-size="12">同樣的聲帶振動，換聲道形狀，就換了母音。</text>
 </svg>

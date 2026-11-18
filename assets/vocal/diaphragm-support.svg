@@ -1,71 +1,43 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 444" role="img" aria-label="丹田支撐：吸氣時腹壁外擴，發聲時保持撐住">
-  <title>丹田支撐：吸氣時腹壁外擴，發聲時保持撐住</title>
-  <rect width="640" height="444" fill="#fbf8f2"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="丹田支撐：吸氣外擴，發聲保持">
+  <title>丹田支撐：吸氣外擴，發聲保持</title>
+  <rect width="640" height="360" fill="#FBF8F4"/>
   <style>
-    .out   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .lead  { fill: none; stroke: #2a2724; stroke-width: .9; }
-    .dot   { fill: #2a2724; }
-    .skin  { fill: #f1e0d6; stroke: #2a2724; stroke-width: 1.8; }
-    .muc   { fill: #e2a99b; stroke: #cb8f82; stroke-width: 1.2; }
-    .muc2  { fill: #cb8f82; stroke: #2a2724; stroke-width: 1.4; }
-    .cart  { fill: #d5d5c2; stroke: #2a2724; stroke-width: 1.5; }
-    .bone  { fill: #ece6d8; stroke: #2a2724; stroke-width: 1.4; }
-    .air   { fill: #d5e5e7; stroke: #2a2724; stroke-width: 1.3; }
-    .fold  { fill: #f6f3ea; stroke: #c9c1ac; stroke-width: 1.6; }
-    .musc  { fill: #cf8f88; stroke: #2a2724; stroke-width: 1.1; }
-    .hl    { fill: #b5734a; fill-opacity: .22; stroke: #b5734a; stroke-width: 1.7; }
-    .hl2   { fill: #7d9b76; fill-opacity: .22; stroke: #7d9b76; stroke-width: 1.7; }
-    .ink   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .ave   { fill: none; stroke: #b5734a; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .ave2  { fill: none; stroke: #7d9b76; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .thin  { fill: none; stroke: #d8d0c2; stroke-width: 1.3; stroke-dasharray: 5 5; }
-    .lbl   { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; }
-    .lbl-s { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 12px; fill: #6f6a60; }
-    .lbl-b { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; font-weight: 700; }
-
-    .grid { fill: none; stroke: #d8d0c2; stroke-width: 1.2; }
-    .fill { fill: #b5734a; opacity: .18; stroke: #b5734a; stroke-width: 1.8; }
-    .fill2 { fill: #7d9b76; opacity: .18; stroke: #7d9b76; stroke-width: 1.8; }
-    .solid { fill: #b5734a; opacity: .85; }
-    .solid2 { fill: #7d9b76; opacity: .85; }
-    .lbl-s { font-size: 12.5px; }
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
   </style>
-<text class="lbl-b" x="30" y="34">支撐不是用力縮肚子，是「不讓它塌回去」</text>
-  <text class="lbl-b" x="100" y="78" text-anchor="middle">吸氣</text>
-  <g transform="translate(30,86) scale(0.6)"><path class="skin" d="M180 44 C142 44 120 70 118 106 C116 150 92 206 92 264 C96 336 132 372 128 406 C152 430 208 430 232 406 C228 372 264 336 268 264 C268 206 244 150 242 106 C240 70 218 44 180 44 Z"/>
-  <path class="ink" d="M140 138 C170 129 190 129 220 138"/>
-  <path class="ink" d="M140 182 C170 173 190 173 220 182"/>
-  <path class="ink" d="M140 226 C170 217 190 217 220 226"/>
-  <path class="hl" d="M122 296 C152 250 208 250 238 296 C210 314 150 314 122 296 Z"/>
-  <ellipse class="muc" cx="180" cy="356" rx="72" ry="32"/></g>
-  <path class="ave" d="M138 300 L94 300"/><path d="M94 300 L103.1 295.9 L103.1 304.1 Z" fill="#b5734a" stroke="none"/>
-  <path class="ave" d="M138 300 L182 300"/><path d="M182 300 L172.9 304.1 L172.9 295.9 Z" fill="#b5734a" stroke="none"/>
-  <path class="ave" d="M138 306 L138 342"/><path d="M138 342 L133.9 332.9 L142.1 332.9 Z" fill="#b5734a" stroke="none"/>
-  <text class="lbl-b" x="138" y="366" text-anchor="middle">外擴</text>
-  <text class="lbl-s" x="138" y="388" text-anchor="middle">腹壁往四個方向撐開</text>
-  <text class="lbl-b" x="310" y="78" text-anchor="middle">發聲中</text>
-  <g transform="translate(240,86) scale(0.6)"><path class="skin" d="M180 44 C142 44 120 70 118 106 C116 150 92 206 92 264 C96 336 132 372 128 406 C152 430 208 430 232 406 C228 372 264 336 268 264 C268 206 244 150 242 106 C240 70 218 44 180 44 Z"/>
-  <path class="ink" d="M140 138 C170 129 190 129 220 138"/>
-  <path class="ink" d="M140 182 C170 173 190 173 220 182"/>
-  <path class="ink" d="M140 226 C170 217 190 217 220 226"/>
-  <path class="hl" d="M122 296 C152 250 208 250 238 296 C210 314 150 314 122 296 Z"/>
-  <ellipse class="muc" cx="180" cy="356" rx="72" ry="32"/></g>
-  <path class="ave" d="M302 300 L334 300"/><path d="M334 300 L324.9 304.1 L324.9 295.9 Z" fill="#b5734a" stroke="none"/>
-  <path class="ave" d="M394 300 L362 300"/><path d="M362 300 L371.1 295.9 L371.1 304.1 Z" fill="#b5734a" stroke="none"/>
-  <text class="lbl-s" x="348" y="342" text-anchor="middle">頂著</text>
-  <text class="lbl-b" x="348" y="366" text-anchor="middle">撐住</text>
-  <text class="lbl-s" x="348" y="388" text-anchor="middle">氣出去了，腹壁仍然頂著</text>
-  <text class="lbl-b" x="520" y="78" text-anchor="middle">洩氣</text>
-  <g transform="translate(450,86) scale(0.6)"><path class="skin" d="M180 44 C142 44 120 70 118 106 C116 150 118 206 118 264 C122 336 132 372 128 406 C152 430 208 430 232 406 C228 372 238 336 242 264 C242 206 244 150 242 106 C240 70 218 44 180 44 Z"/>
-  <path class="ink" d="M140 138 C170 129 190 129 220 138"/>
-  <path class="ink" d="M140 182 C170 173 190 173 220 182"/>
-  <path class="ink" d="M140 226 C170 217 190 217 220 226"/>
-  <path class="hl" d="M122 296 C152 250 208 250 238 296 C210 314 150 314 122 296 Z"/>
-  <ellipse class="muc" cx="180" cy="356" rx="46" ry="32"/></g>
-  <path class="ave" d="M512 300 L550 300"/><path d="M550 300 L540.9 304.1 L540.9 295.9 Z" fill="#b5734a" stroke="none"/>
-  <path class="ave" d="M604 300 L566 300"/><path d="M566 300 L575.1 295.9 L575.1 304.1 Z" fill="#b5734a" stroke="none"/>
-  <path class="ave" d="M558 346 L558 314"/><path d="M558 314 L562.1 323.1 L553.9 323.1 Z" fill="#b5734a" stroke="none"/>
-  <text class="lbl-b" x="558" y="366" text-anchor="middle">塌陷</text>
-  <text class="lbl-s" x="558" y="388" text-anchor="middle">肚子一縮，氣就整口噴完</text>
-  <text class="lbl-s" x="30" y="424">橫膈膜下降時腹壁自然外擴；發聲時只要不讓它塌回去，氣就會穩</text>
+  <text x="26" y="34" class="tb" font-size="16">丹田支撐：吸氣外擴，發聲保持</text>
+  <text x="26" y="55" class="ts" font-size="12.5">氣不是被「推」出來，是被穩定地放出來</text>
+  <rect x="70" y="86" width="170" height="210" rx="18" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.2"/>
+  <ellipse cx="126" cy="178" rx="30" ry="48" fill="#DEE8F3" stroke="#6B8FBF" stroke-width="1.3" opacity=".85"/>
+  <ellipse cx="184" cy="178" rx="30" ry="48" fill="#DEE8F3" stroke="#6B8FBF" stroke-width="1.3" opacity=".85"/>
+  <path d="M88 148 C130 132 180 132 222 148" class="thin"/>
+  <path d="M88 182 C130 166 180 166 222 182" class="thin"/>
+  <path d="M88 216 C130 200 180 200 222 216" class="thin"/>
+  <path d="M86 282 C122 218 188 218 224 282" class="ink" fill="#A67C52" stroke="#A67C52" stroke-width="2" opacity="0.3"/>
+  <text x="155" y="68" class="t" font-size="13" text-anchor="middle" font-weight="600" fill="#6B8FBF">吸氣：下腹外擴</text>
+  <text x="155" y="84" class="ts" font-size="10.5" text-anchor="middle">肋骨往側後方打開</text>
+  <text x="155" y="320" class="ts" font-size="10.5" text-anchor="middle">肩膀不動</text>
+  <rect x="370" y="86" width="170" height="210" rx="18" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.2"/>
+  <ellipse cx="426" cy="178" rx="30" ry="48" fill="#DEE8F3" stroke="#6B8FBF" stroke-width="1.3" opacity=".85"/>
+  <ellipse cx="484" cy="178" rx="30" ry="48" fill="#DEE8F3" stroke="#6B8FBF" stroke-width="1.3" opacity=".85"/>
+  <path d="M388 148 C430 132 480 132 522 148" class="thin"/>
+  <path d="M388 182 C430 166 480 166 522 182" class="thin"/>
+  <path d="M388 216 C430 200 480 200 522 216" class="thin"/>
+  <path d="M386 282 C422 226 488 226 524 282" class="ink" fill="#A67C52" stroke="#A67C52" stroke-width="2" opacity="0.3"/>
+  <text x="455" y="68" class="t" font-size="13" text-anchor="middle" font-weight="600" fill="#6F8F6A">發聲：保持撐住</text>
+  <text x="455" y="84" class="ts" font-size="10.5" text-anchor="middle">不要立刻塌回去</text>
+  <text x="455" y="320" class="ts" font-size="10.5" text-anchor="middle">腹壁有抗力</text>
+  <path d="M292.0 210.0 L292.0 244.6" fill="none" stroke="#A67C52" stroke-width="1.7" stroke-linecap="round"/><path d="M292.0 250.0 L289.6 244.5 L294.4 244.5 Z" fill="#A67C52"/>
+  <text x="70" y="340" class="ts" font-size="11.5">支撐不是把肚子用力頂出去，是「不要讓它一下子縮回來」。</text>
 </svg>

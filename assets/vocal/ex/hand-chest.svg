@@ -1,33 +1,31 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 300" role="img" aria-label="手掌貼胸口，找低頻的震動">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" role="img" aria-label="手掌貼胸口，找低頻的震動">
   <title>手掌貼胸口，找低頻的震動</title>
-  <rect width="540" height="300" fill="#fbf8f2"/>
+  <rect width="640" height="300" fill="#FBF8F4"/>
   <style>
-    .out   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .lead  { fill: none; stroke: #2a2724; stroke-width: .9; }
-    .dot   { fill: #2a2724; }
-    .skin  { fill: #f1e0d6; stroke: #2a2724; stroke-width: 1.8; }
-    .muc   { fill: #e2a99b; stroke: #cb8f82; stroke-width: 1.2; }
-    .muc2  { fill: #cb8f82; stroke: #2a2724; stroke-width: 1.4; }
-    .cart  { fill: #d5d5c2; stroke: #2a2724; stroke-width: 1.5; }
-    .bone  { fill: #ece6d8; stroke: #2a2724; stroke-width: 1.4; }
-    .air   { fill: #d5e5e7; stroke: #2a2724; stroke-width: 1.3; }
-    .fold  { fill: #f6f3ea; stroke: #c9c1ac; stroke-width: 1.6; }
-    .musc  { fill: #cf8f88; stroke: #2a2724; stroke-width: 1.1; }
-    .hl    { fill: #b5734a; fill-opacity: .22; stroke: #b5734a; stroke-width: 1.7; }
-    .hl2   { fill: #7d9b76; fill-opacity: .22; stroke: #7d9b76; stroke-width: 1.7; }
-    .ink   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .ave   { fill: none; stroke: #b5734a; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .ave2  { fill: none; stroke: #7d9b76; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .thin  { fill: none; stroke: #d8d0c2; stroke-width: 1.3; stroke-dasharray: 5 5; }
-    .lbl   { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; }
-    .lbl-s { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 12px; fill: #6f6a60; }
-    .lbl-b { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; font-weight: 700; }
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
   </style>
-<text class="lbl-b" x="26" y="30">手掌貼胸口，找低頻的震動</text>
-  <path class="skin" d="M110 125.0 C50 135.0 44 190 50 255.0 L170 255.0 C176 190 170 135.0 110 125.0 Z"/>
-  <path class="hl2" d="M74 168 C94 154 126 154 146 168 C126 182 94 182 74 168 Z"/>
-  <text class="lbl-s" x="170" y="172">手掌貼這裡</text>
-  <path class="lead" d="M146 168 L170 168"/><circle class="dot" cx="146" cy="168" r="2.6"/>
-  <text class="lbl-s" x="60" y="262">震動＝低頻共鳴在作用；感覺不到就把音壓低</text>
-  <text class="lbl-s" x="26" y="284">手掌貼胸口，低音時會感覺到震動</text>
+  <text x="26" y="34" class="tb" font-size="16">手掌貼胸口，找低頻的震動</text>
+  <text x="26" y="55" class="ts" font-size="12.5">摸得到震動，代表低頻共鳴有出來</text>
+  <rect x="120" y="90" width="150" height="150" rx="14" fill="#F2E7DC" stroke="#3D3229" stroke-width="1.5"/>
+  <circle cx="196" cy="140" r="26" fill="#FFFFFF" stroke="#3D3229" stroke-width="1.4"/>
+  <circle cx="196" cy="140" r="34" fill="none" stroke="#A67C52" stroke-width="1"/>
+  <circle cx="196" cy="140" r="43" fill="none" stroke="#A67C52" stroke-width="1"/>
+  <circle cx="196" cy="140" r="52" fill="none" stroke="#A67C52" stroke-width="1"/>
+  <text x="196" y="264" class="ts" font-size="11.5" text-anchor="middle">手掌貼胸口</text>
+  <text x="320" y="120" class="ts" font-size="12">唱低音時，手掌會感覺到間歇的震動。</text>
+  <text x="320" y="142" class="ts" font-size="12">感覺不到，不代表你唱錯——</text>
+  <text x="320" y="164" class="ts" font-size="12">可能是音量太小，或共鳴位置偏高。</text>
+  <text x="26" y="282" class="ts" font-size="11">手掌只是感測器：用來確認低頻有沒有出來，不是用來壓。</text>
 </svg>

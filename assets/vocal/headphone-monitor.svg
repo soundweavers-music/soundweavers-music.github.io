@@ -1,47 +1,34 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 360" role="img" aria-label="耳機監聽與骨傳導兩條路徑">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" role="img" aria-label="耳機監聽與骨傳導兩條路徑">
   <title>耳機監聽與骨傳導兩條路徑</title>
-  <rect width="620" height="360" fill="#fbf8f2"/>
+  <rect width="640" height="320" fill="#FBF8F4"/>
   <style>
-    .out   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .lead  { fill: none; stroke: #2a2724; stroke-width: .9; }
-    .dot   { fill: #2a2724; }
-    .skin  { fill: #f1e0d6; stroke: #2a2724; stroke-width: 1.8; }
-    .muc   { fill: #e2a99b; stroke: #cb8f82; stroke-width: 1.2; }
-    .muc2  { fill: #cb8f82; stroke: #2a2724; stroke-width: 1.4; }
-    .cart  { fill: #d5d5c2; stroke: #2a2724; stroke-width: 1.5; }
-    .bone  { fill: #ece6d8; stroke: #2a2724; stroke-width: 1.4; }
-    .air   { fill: #d5e5e7; stroke: #2a2724; stroke-width: 1.3; }
-    .fold  { fill: #f6f3ea; stroke: #c9c1ac; stroke-width: 1.6; }
-    .musc  { fill: #cf8f88; stroke: #2a2724; stroke-width: 1.1; }
-    .hl    { fill: #b5734a; fill-opacity: .22; stroke: #b5734a; stroke-width: 1.7; }
-    .hl2   { fill: #7d9b76; fill-opacity: .22; stroke: #7d9b76; stroke-width: 1.7; }
-    .ink   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .ave   { fill: none; stroke: #b5734a; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .ave2  { fill: none; stroke: #7d9b76; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .thin  { fill: none; stroke: #d8d0c2; stroke-width: 1.3; stroke-dasharray: 5 5; }
-    .lbl   { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; }
-    .lbl-s { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 12px; fill: #6f6a60; }
-    .lbl-b { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; font-weight: 700; }
-
-    .grid { fill: none; stroke: #d8d0c2; stroke-width: 1.2; }
-    .fill { fill: #b5734a; opacity: .18; stroke: #b5734a; stroke-width: 1.8; }
-    .fill2 { fill: #7d9b76; opacity: .18; stroke: #7d9b76; stroke-width: 1.8; }
-    .solid { fill: #b5734a; opacity: .85; }
-    .solid2 { fill: #7d9b76; opacity: .85; }
-    .lbl-s { font-size: 12.5px; }
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
   </style>
-<text class="lbl-b" x="40" y="40">戴耳機時，你聽到的是兩個版本的自己</text>
-  <circle class="fill2" cx="300" cy="170" r="66"/>
-  <path class="ink" d="M234 150 C210 130 206 190 232 200"/>
-  <path class="ink" d="M366 150 C390 130 394 190 368 200"/>
-  <text class="lbl" x="300" y="176" text-anchor="middle">你</text>
-  <path class="fill" d="M226 150 C206 132 196 168 212 186 Z"/>
-  <path class="fill" d="M374 150 C394 132 404 168 388 186 Z"/>
-  <path class="ink" d="M214 138 L262 106"/><path class="ink" d="M262 106 L256.1 115.3 L251.2 107.8 Z" fill="#2a2724"/>
-  <text class="lbl" x="118" y="90">耳機送來的聲音</text>
-  <text class="lbl-s" x="118" y="110">別人聽到的版本（含殘響）</text>
-  <path class="ink" d="M386 200 L470 240"/><path class="ink" d="M470 240 L459.0 239.7 L462.9 231.6 Z" fill="#2a2724"/>
-  <text class="lbl" x="430" y="262">骨傳導</text>
-  <text class="lbl-s" x="400" y="282">自己聽到的版本（低頻多）</text>
-  <text class="lbl-s" x="40" y="330">錄音時以麥克風收到的為準；覺得自己聲音「很薄」是正常的，那是少了骨傳導</text>
+  <text x="26" y="34" class="tb" font-size="16">耳機監聽與骨傳導兩條路徑</text>
+  <text x="26" y="55" class="ts" font-size="12.5">錄音聽到的自己，才是別人聽到的你</text>
+  <path d="M110 90 C150 70 210 70 250 90" class="ink"/>
+  <rect x="96" y="88" width="26" height="60" rx="8" fill="#A67C52" stroke="#A67C52" stroke-width="1.2" opacity="0.3"/>
+  <rect x="238" y="88" width="26" height="60" rx="8" fill="#A67C52" stroke="#A67C52" stroke-width="1.2" opacity="0.3"/>
+  <circle cx="180" cy="180" r="34" fill="#F2E7DC" stroke="#3D3229" stroke-width="1.4"/>
+  <text x="180" y="240" class="ts" font-size="11.5" text-anchor="middle">耳朵</text>
+  <path d="M150.0 120.0 L165.8 155.1" fill="none" stroke="#6B8FBF" stroke-width="1.7" stroke-linecap="round"/><path d="M168.0 160.0 L163.5 156.0 L168.0 154.0 Z" fill="#6B8FBF"/>
+  <text x="120" y="108" class="ts" font-size="11" fill="#6B8FBF">空氣傳導</text>
+  <path d="M196.0 130.0 L196.0 152.6" fill="none" stroke="#6F8F6A" stroke-width="1.7" stroke-linecap="round"/><path d="M196.0 158.0 L193.6 152.5 L198.4 152.5 Z" fill="#6F8F6A"/>
+  <text x="208" y="140" class="ts" font-size="11" fill="#6F8F6A">骨傳導</text>
+  <text x="320" y="120" class="ts" font-size="12">耳機裡的聲音走空氣傳導，</text>
+  <text x="320" y="142" class="ts" font-size="12">自己聽自己的聲音還多一條骨傳導。</text>
+  <text x="320" y="186" class="ts" font-size="12">所以錄音裡的你，會跟平時聽到的不同。</text>
+  <text x="26" y="302" class="ts" font-size="11">這不是耳朵壞了，是路徑不同；先接受這件事，再談混音。</text>
 </svg>

@@ -1,42 +1,36 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 440" role="img" aria-label="軟顎抬起與放下，聲音分別往口腔或鼻腔走">
-  <title>軟顎抬起與放下，聲音分別往口腔或鼻腔走</title>
-  <rect width="500" height="440" fill="#fbf8f2"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="軟顎抬起與放下">
+  <title>軟顎抬起與放下</title>
+  <rect width="640" height="360" fill="#FBF8F4"/>
   <style>
-    .out   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .lead  { fill: none; stroke: #2a2724; stroke-width: .9; }
-    .dot   { fill: #2a2724; }
-    .skin  { fill: #f1e0d6; stroke: #2a2724; stroke-width: 1.8; }
-    .muc   { fill: #e2a99b; stroke: #cb8f82; stroke-width: 1.2; }
-    .muc2  { fill: #cb8f82; stroke: #2a2724; stroke-width: 1.4; }
-    .cart  { fill: #d5d5c2; stroke: #2a2724; stroke-width: 1.5; }
-    .bone  { fill: #ece6d8; stroke: #2a2724; stroke-width: 1.4; }
-    .air   { fill: #d5e5e7; stroke: #2a2724; stroke-width: 1.3; }
-    .fold  { fill: #f6f3ea; stroke: #c9c1ac; stroke-width: 1.6; }
-    .musc  { fill: #cf8f88; stroke: #2a2724; stroke-width: 1.1; }
-    .hl    { fill: #b5734a; fill-opacity: .22; stroke: #b5734a; stroke-width: 1.7; }
-    .hl2   { fill: #7d9b76; fill-opacity: .22; stroke: #7d9b76; stroke-width: 1.7; }
-    .ink   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .ave   { fill: none; stroke: #b5734a; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .ave2  { fill: none; stroke: #7d9b76; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .thin  { fill: none; stroke: #d8d0c2; stroke-width: 1.3; stroke-dasharray: 5 5; }
-    .lbl   { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; }
-    .lbl-s { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 12px; fill: #6f6a60; }
-    .lbl-b { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; font-weight: 700; }
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
   </style>
-<text class="lbl-b" x="18" y="28">軟顎是一扇門：開哪邊，聲音就往哪邊去</text>
-  <g transform="translate(26,18)"><path d="m 147.26228,389.65588 12.84444,0.26484 c -1.19323,-4.98895 -3.68135,-13.13901 -0.92692,-17.0818 2.6213,-2.30244 7.46462,-9.25665 1e-5,-12.57961 -4.07532,-5.40056 2.69102,-8.70783 3.31042,-11.91753 1.42555,-4.63697 -1.09298,-7.08279 -2.64834,-10.06369 -1.07399,-10.43985 0.65073,-21.6098 7.68018,-34.16359 16.69267,-23.04996 13.79644,-24.85404 8.8028,-19.93474 -3.28893,3.23997 -6.36305,10.22119 -9.33246,13.04906 -3.31625,2.02458 -5.00811,-1.14162 -1.90544,-3.33959 2.97693,-2.10889 7.62624,-6.89664 12.23396,-20.62789 -1.62609,-0.28872 10.28437,-22.03549 -5.57644,-48.19928 -3.46626,-8.99575 -13.0295,-14.90526 -23.7905,-17.72507 -21.36021,-1.14641 -34.96117,5.03172 -53.437025,12.64408 -4.62661,3.59983 -6.41362,5.76966 -10.5666,5.75383 -12.74101,-0.0486 -2.45221,9.80504 -0.64551,10.97935 16.57617,5.71961 -0.44322,13.10381 -4.50218,12.71203 -1.42782,-5.40227 -5.94813,-12.95022 -8.20985,-12.71203 l -1.589,17.08179 -3.97252,-11.38786 c -0.9159,-1.36001 -0.57739,-2.19891 -1.69614,-3.02188 -9.80432,-7.21213 -22.32644,2.21274 -13.79664,7.92131 8.77219,5.81558 6.70637,9.03801 9.4016,15.49279 2.67879,13.38248 -20.12383,29.97696 0.52967,44.09485 33.3852,4.27462 92.200025,-17.5744 92.294655,13.24171 0.56289,9.433 -7.91031,20.07872 -8.26804,28.07215 -0.69969,15.63448 5.70108,27.10891 3.76587,41.44677 z" fill="#f1e0d6" stroke="#2a2724" stroke-width="1.6" stroke-linejoin="round"/>
-  <path d="m 201.156,389.65588 88.18972,0.52967 c -3.29716,-30.56292 -6.87583,-60.96779 1.32416,-92.16224 3.33606,-6.56868 7.79069,-15.61306 11.91893,-19.28792 6.6607,-5.92918 13.04684,-12.94983 16.94798,-23.35035 9.95114,-22.97169 14.87108,-60.49067 14.31187,-97.25848 C 333.35344,125.56565 328.2679,88.803108 305.50058,55.965041 286.86873,29.198997 238.47076,1.071489 159.04738,11.472929 68.665705,38.549692 58.723005,73.867742 55.762125,82.713275 c -1.94826,18.851775 7.09204,28.901185 4.23734,43.962445 -10.18999,20.85874 -26.63714,40.70757 -42.37344,58.79315 0.31402,3.82532 -4.35262,9.7852 9.79886,7.68018 l 16.68454,-23.83506 c 7.32148,-10.16916 23.36733,-28.76328 68.062345,-23.04056 23.79483,-3.40314 33.54434,3.36184 43.16794,16.68455 3.91222,9.024 8.46744,14.70463 18.00872,18.80321 16.58965,28.87745 18.43849,58.7454 22.77572,88.98423 z" fill="none" stroke="#2a2724" stroke-width="1.6" stroke-linejoin="round"/>
-  <path d="m 168.04754,185.71978 c -5.39446,-0.13192 -8.41795,-3.65904 -35.21875,4 0,0 -77.917865,-2.33846 -78.977205,-2.86813 -11.21623,-1.15035 -20.87119,7.49049 -9.99155,11.33688 2.76331,4.28279 6.36158,7.08833 4.74051,19.12811 -10.66321,12.97821 -0.16155,17.68548 9.68641,12.37347 1.14943,-19.05437 7.41651,-21.26831 6.73941,-0.59369 5.75366,-2.2366 5.72705,-16.02728 7.67742,-17.93914 7.20391,-2.30892 13.21681,-4.3496 19.2145,-12.17267 19.736005,-3.13549 43.692425,-1.77648 65.753715,-1.25796 9.05235,0.82907 10.49582,7.15509 13.8868,11.44462 15.39837,17.14263 0.59342,-24.08352 -3.51126,-23.45149 z" fill="none" stroke="#2a2724" stroke-width="1.6" stroke-linejoin="round"/>
-  <path d="m 186.85495,390.18554 8.95068,0.22718 c 1.77883,0.0451 0.64787,-30.14998 0.48979,-38.14223 -0.37067,-18.74026 -3.03432,-40.6681 -1.49545,-50.5395 -2.68413,-9.72428 -6.95103,-13.21021 -12.4472,0.26483 -2.38859,4.4 -2.48581,12.0975 -0.13159,15.66566 8.40022,12.7318 5.98185,17.88133 6.48761,25.91328 0.38442,15.86743 0.58078,30.95967 -1.85384,46.61078 z" fill="none" stroke="#2a2724" stroke-width="1.6" stroke-linejoin="round"/>
-  <path d="m -689.09806,367.42542 c 0,3.1177 -9.84133,5.6451 -21.98122,5.6451 -12.1399,0 -21.98123,-2.5274 -21.98123,-5.6451 0,-3.11771 9.84133,-5.64511 21.98123,-5.64511 12.13989,0 21.98122,2.5274 21.98122,5.64511 z" fill="none" stroke="#2a2724" stroke-width="1.6" stroke-linejoin="round" transform="matrix(0.48762832,-0.17791161,0.14577365,0.59513323,466.13262,-20.330253)"/>
-  <path d="m 184.07419,341.72092 4.76702,0 c 0.5086,-11.22034 -2.18501,-17.10366 -4.76702,-23.17297 z" fill="none" stroke="#2a2724" stroke-width="1.6" stroke-linejoin="round"/>
-  <path d="m 162.62264,342.78026 3.84009,1.05933 c -0.7933,-8.52536 -6.47956,-17.75817 -0.66208,-27.54273 l -1.98626,-3.17801 -4.36976,14.56587 c -0.46294,9.59869 1.81527,10.97391 3.17801,15.09554 z" fill="none" stroke="#2a2724" stroke-width="1.6" stroke-linejoin="round"/>
-  <ellipse cx="122" cy="246" rx="52" ry="28" fill="#7d9b76" fill-opacity=".20" stroke="#7d9b76" stroke-width="1.8"/></g>
-  <path class="ave" d="M224 236 L268 190"/><path d="M268 190 L264.6 199.4 L258.7 193.8 Z" fill="#b5734a" stroke="none"/>
-  <text class="lbl-s" x="292" y="196">抬起 → 走口腔，字清楚</text>
-  <path class="ave2" d="M222 244 L262 300"/><path d="M262 300 L253.4 294.9 L260.0 290.2 Z" fill="#7d9b76" stroke="none"/>
-  <text class="lbl-s" x="292" y="324">放下 → 漏進鼻腔，變鼻音</text>
-  <path class="lead" d="M150 195 L96 148"/><circle class="dot" cx="150" cy="195" r="2.6"/><text class="lbl" x="90" y="152" text-anchor="end">鼻腔</text>
-  <text class="lbl-s" x="18" y="424">想加鼻音色彩就把軟顎放一點；想要乾淨通透就抬起來</text>
-  <text class="lbl-s" x="18" y="452">解剖底圖：Wikimedia Commons「VocalTract」CC BY 3.0，本站重新上色標註</text>
+  <text x="26" y="34" class="tb" font-size="16">軟顎抬起與放下</text>
+  <text x="26" y="55" class="ts" font-size="12.5">聲音往口腔還是往鼻腔，由這塊肌肉決定</text>
+  <text x="170" y="80" class="t" font-size="12" text-anchor="middle" font-weight="600" fill="#B0563F">軟顎放下：聲音走鼻腔</text>
+  <path d="M60 120 C120 100 190 100 240 118" class="ink"/>
+  <path d="M240 118 C256 134 266 156 264 176" class="ink"/>
+  <path d="M250.0 130.0 L270.3 108.0" fill="none" stroke="#B0563F" stroke-width="1.7" stroke-linecap="round"/><path d="M274.0 104.0 L272.1 109.7 L268.5 106.4 Z" fill="#B0563F"/>
+  <text x="276" y="104" class="ts" font-size="11" fill="#B0563F">漏進鼻腔</text>
+  <rect x="90" y="156" width="150" height="26" rx="6" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1"/>
+  <text x="165" y="200" class="ts" font-size="11" text-anchor="middle">口腔</text>
+  <text x="460" y="80" class="t" font-size="12" text-anchor="middle" font-weight="600" fill="#6F8F6A">軟顎抬起：聲音走口腔</text>
+  <path d="M350 120 C410 100 480 100 530 118" class="ink"/>
+  <path d="M530 118 C546 104 558 96 564 86" class="ink"/>
+  <path d="M460.0 150.0 L460.0 194.6" fill="none" stroke="#6F8F6A" stroke-width="1.7" stroke-linecap="round"/><path d="M460.0 200.0 L457.6 194.5 L462.4 194.5 Z" fill="#6F8F6A"/>
+  <text x="460" y="222" class="ts" font-size="11" text-anchor="middle" fill="#6F8F6A">氣流走口腔</text>
+  <rect x="380" y="156" width="150" height="26" rx="6" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1"/>
+  <text x="455" y="200" class="ts" font-size="11" text-anchor="middle">口腔</text>
+  <text x="26" y="342" class="ts" font-size="11">軟顎是鼻音與非鼻音的開關；它抬不起來，聲音就會「悶」。</text>
 </svg>

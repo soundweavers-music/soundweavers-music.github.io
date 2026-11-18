@@ -1,53 +1,36 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 300" role="img" aria-label="一個音，撐滿 20 秒">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" role="img" aria-label="一個音，撐滿 20 秒">
   <title>一個音，撐滿 20 秒</title>
-  <rect width="540" height="300" fill="#fbf8f2"/>
+  <rect width="640" height="300" fill="#FBF8F4"/>
   <style>
-    .out   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .lead  { fill: none; stroke: #2a2724; stroke-width: .9; }
-    .dot   { fill: #2a2724; }
-    .skin  { fill: #f1e0d6; stroke: #2a2724; stroke-width: 1.8; }
-    .muc   { fill: #e2a99b; stroke: #cb8f82; stroke-width: 1.2; }
-    .muc2  { fill: #cb8f82; stroke: #2a2724; stroke-width: 1.4; }
-    .cart  { fill: #d5d5c2; stroke: #2a2724; stroke-width: 1.5; }
-    .bone  { fill: #ece6d8; stroke: #2a2724; stroke-width: 1.4; }
-    .air   { fill: #d5e5e7; stroke: #2a2724; stroke-width: 1.3; }
-    .fold  { fill: #f6f3ea; stroke: #c9c1ac; stroke-width: 1.6; }
-    .musc  { fill: #cf8f88; stroke: #2a2724; stroke-width: 1.1; }
-    .hl    { fill: #b5734a; fill-opacity: .22; stroke: #b5734a; stroke-width: 1.7; }
-    .hl2   { fill: #7d9b76; fill-opacity: .22; stroke: #7d9b76; stroke-width: 1.7; }
-    .ink   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .ave   { fill: none; stroke: #b5734a; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .ave2  { fill: none; stroke: #7d9b76; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .thin  { fill: none; stroke: #d8d0c2; stroke-width: 1.3; stroke-dasharray: 5 5; }
-    .lbl   { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; }
-    .lbl-s { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 12px; fill: #6f6a60; }
-    .lbl-b { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; font-weight: 700; }
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
   </style>
-<text class="lbl-b" x="26" y="30">一個音，撐滿 20 秒</text>
-  <path class="ink" d="M40 150 L420 150"/>
-  <path class="ave" d="M60 150 L60 150"/>
-  <circle cx="80" cy="150" r="4.5" fill="#b5734a"/>
-  <circle cx="114" cy="150" r="4.5" fill="#b5734a"/>
-  <circle cx="148" cy="150" r="4.5" fill="#b5734a"/>
-  <circle cx="182" cy="150" r="4.5" fill="#b5734a"/>
-  <circle cx="216" cy="150" r="4.5" fill="#b5734a"/>
-  <circle cx="250" cy="150" r="4.5" fill="#b5734a"/>
-  <circle cx="284" cy="150" r="4.5" fill="#b5734a"/>
-  <circle cx="318" cy="150" r="4.5" fill="#b5734a"/>
-  <circle cx="352" cy="150" r="4.5" fill="#b5734a"/>
-  <circle cx="386" cy="150" r="4.5" fill="#b5734a"/>
-  <text class="lbl-s" x="60" y="120">同一個音，20 秒</text>
-  <path class="thin" d="M60 176 L400 176"/>
-  <path class="ink" d="M60 176 L60 186"/>
-  <text class="lbl-s" x="60" y="204" text-anchor="middle">0</text>
-  <path class="ink" d="M145 176 L145 186"/>
-  <text class="lbl-s" x="145" y="204" text-anchor="middle">5</text>
-  <path class="ink" d="M230 176 L230 186"/>
-  <text class="lbl-s" x="230" y="204" text-anchor="middle">10</text>
-  <path class="ink" d="M315 176 L315 186"/>
-  <text class="lbl-s" x="315" y="204" text-anchor="middle">15</text>
-  <path class="ink" d="M400 176 L400 186"/>
-  <text class="lbl-s" x="400" y="204" text-anchor="middle">20 秒</text>
-  <text class="lbl-s" x="60" y="246">第 15 秒還覺得「還有氣」，就代表分配對了</text>
-  <text class="lbl-s" x="26" y="284">同一個音撐住，聽的是「穩」不是「大」</text>
+  <text x="26" y="34" class="tb" font-size="16">一個音，撐滿 20 秒</text>
+  <text x="26" y="55" class="ts" font-size="12.5">長音測的是「氣有沒有均勻出來」</text>
+  <rect x="90" y="150" width="480" height="18" rx="9" fill="#DEE8F3" stroke="#6B8FBF" stroke-width="1.1"/>
+  <path d="M90.0 176 L90.0 184" class="thin"/>
+  <text x="90.0" y="200" class="ts" font-size="10.5" text-anchor="middle">0s</text>
+  <path d="M210.0 176 L210.0 184" class="thin"/>
+  <text x="210.0" y="200" class="ts" font-size="10.5" text-anchor="middle">5s</text>
+  <path d="M330.0 176 L330.0 184" class="thin"/>
+  <text x="330.0" y="200" class="ts" font-size="10.5" text-anchor="middle">10s</text>
+  <path d="M450.0 176 L450.0 184" class="thin"/>
+  <text x="450.0" y="200" class="ts" font-size="10.5" text-anchor="middle">15s</text>
+  <path d="M570.0 176 L570.0 184" class="thin"/>
+  <text x="570.0" y="200" class="ts" font-size="10.5" text-anchor="middle">20s</text>
+  <text x="90" y="136" class="ts" font-size="11.5">一口氣</text>
+  <text x="90" y="116" class="t" font-size="13.5" font-weight="600">一個音，撐滿 20 秒</text>
+  <text x="90" y="232" class="ts" font-size="12">音量從頭到尾一樣大，就代表支撐是穩的；越到後面越小，是氣不夠。</text>
+  <text x="26" y="282" class="ts" font-size="11">先求穩，再求長：20 秒是練習的門檻，不是表演的要求。</text>
 </svg>

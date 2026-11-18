@@ -1,49 +1,34 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 390" role="img" aria-label="一口氣在長音上的分配：起音、維持、收尾">
-  <title>一口氣在長音上的分配：起音、維持、收尾</title>
-  <rect width="600" height="390" fill="#fbf8f2"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" role="img" aria-label="一口氣在長音上的分配">
+  <title>一口氣在長音上的分配</title>
+  <rect width="640" height="320" fill="#FBF8F4"/>
   <style>
-    .out   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .lead  { fill: none; stroke: #2a2724; stroke-width: .9; }
-    .dot   { fill: #2a2724; }
-    .skin  { fill: #f1e0d6; stroke: #2a2724; stroke-width: 1.8; }
-    .muc   { fill: #e2a99b; stroke: #cb8f82; stroke-width: 1.2; }
-    .muc2  { fill: #cb8f82; stroke: #2a2724; stroke-width: 1.4; }
-    .cart  { fill: #d5d5c2; stroke: #2a2724; stroke-width: 1.5; }
-    .bone  { fill: #ece6d8; stroke: #2a2724; stroke-width: 1.4; }
-    .air   { fill: #d5e5e7; stroke: #2a2724; stroke-width: 1.3; }
-    .fold  { fill: #f6f3ea; stroke: #c9c1ac; stroke-width: 1.6; }
-    .musc  { fill: #cf8f88; stroke: #2a2724; stroke-width: 1.1; }
-    .hl    { fill: #b5734a; fill-opacity: .22; stroke: #b5734a; stroke-width: 1.7; }
-    .hl2   { fill: #7d9b76; fill-opacity: .22; stroke: #7d9b76; stroke-width: 1.7; }
-    .ink   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .ave   { fill: none; stroke: #b5734a; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .ave2  { fill: none; stroke: #7d9b76; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .thin  { fill: none; stroke: #d8d0c2; stroke-width: 1.3; stroke-dasharray: 5 5; }
-    .lbl   { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; }
-    .lbl-s { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 12px; fill: #6f6a60; }
-    .lbl-b { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; font-weight: 700; }
-
-    .grid { fill: none; stroke: #d8d0c2; stroke-width: 1.2; }
-    .fill { fill: #b5734a; opacity: .18; stroke: #b5734a; stroke-width: 1.8; }
-    .fill2 { fill: #7d9b76; opacity: .18; stroke: #7d9b76; stroke-width: 1.8; }
-    .solid { fill: #b5734a; opacity: .85; }
-    .solid2 { fill: #7d9b76; opacity: .85; }
-    .lbl-s { font-size: 12.5px; }
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
   </style>
-<text class="lbl-b" x="40" y="40">一口氣分三段用，不要一次噴完</text>
-  <rect class="grid" x="50" y="90" width="520" height="54" rx="27"/>
-  <rect class="fill" x="60" y="90" width="150" height="54" rx="27"/>
-  <text class="lbl" x="135" y="122" text-anchor="middle">起音</text>
-  <text class="lbl-s" x="135" y="164" text-anchor="middle">20%</text>
-  <rect class="fill2" x="210" y="90" width="260" height="54" rx="27"/>
-  <text class="lbl" x="340" y="122" text-anchor="middle">維持</text>
-  <text class="lbl-s" x="340" y="164" text-anchor="middle">55%</text>
-  <rect class="fill" x="470" y="90" width="90" height="54" rx="27"/>
-  <text class="lbl" x="515" y="122" text-anchor="middle">收尾</text>
-  <text class="lbl-s" x="515" y="164" text-anchor="middle">25%</text>
-  <path class="ink" d="M60 250 C120 218 150 210 200 210 C300 210 380 216 460 224 C500 228 520 244 540 268"/>
-  <text class="lbl-s" x="60" y="300">音量</text>
-  <text class="lbl-s" x="120" y="320">起音別爆：先出氣再讓聲音接上</text>
-  <text class="lbl-s" x="300" y="320">維持段只要「不塌」，不要一路加壓</text>
-  <text class="lbl-s" x="60" y="356">練習：同一個音唱 20 秒，第 15 秒還覺得「還有氣」，就代表分配對了</text>
+  <text x="26" y="34" class="tb" font-size="16">一口氣在長音上的分配</text>
+  <text x="26" y="55" class="ts" font-size="12.5">起音只該用掉一小部分，留下來給維持</text>
+  <rect x="80" y="150" width="46.0" height="26" rx="4" fill="#A67C52" opacity="0.3"/>
+  <rect x="80" y="150" width="46.0" height="26" rx="4" fill="none" stroke="#A67C52" stroke-width="1.2"/>
+  <text x="104.5" y="168" class="t" font-size="12" text-anchor="middle" font-weight="600">起音</text>
+  <rect x="129.0" y="150" width="340.0" height="26" rx="4" fill="#6F8F6A" opacity="0.3"/>
+  <rect x="129.0" y="150" width="340.0" height="26" rx="4" fill="none" stroke="#6F8F6A" stroke-width="1.2"/>
+  <text x="300.5" y="168" class="t" font-size="12" text-anchor="middle" font-weight="600">維持</text>
+  <rect x="472.0" y="150" width="95.0" height="26" rx="4" fill="#6B8FBF" opacity="0.3"/>
+  <rect x="472.0" y="150" width="95.0" height="26" rx="4" fill="none" stroke="#6B8FBF" stroke-width="1.2"/>
+  <text x="521.0" y="168" class="t" font-size="12" text-anchor="middle" font-weight="600">收尾</text>
+  <path d="M80 220 C140 210 200 210 260 206 L430 206 C500 206 530 216 570 236" class="acc"/>
+  <text x="80" y="134" class="ts" font-size="12">一口氣在長音上的分配</text>
+  <text x="80" y="280" class="ts" font-size="12">大部分人把 80% 的氣花在前 3 秒；正確的分配剛好相反。</text>
+  <text x="26" y="302" class="ts" font-size="11">收尾不是「氣用完」，是「氣還有一點，但決定停」。</text>
 </svg>

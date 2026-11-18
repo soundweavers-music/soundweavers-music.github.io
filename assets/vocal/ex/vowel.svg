@@ -1,44 +1,43 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 300" role="img" aria-label="同一個音，換五個母音">
-  <title>同一個音，換五個母音</title>
-  <rect width="540" height="300" fill="#fbf8f2"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-label="五個母音在聲音頻譜上的位置">
+  <title>五個母音在聲音頻譜上的位置</title>
+  <rect width="640" height="400" fill="#FBF8F4"/>
   <style>
-    .out   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .lead  { fill: none; stroke: #2a2724; stroke-width: .9; }
-    .dot   { fill: #2a2724; }
-    .skin  { fill: #f1e0d6; stroke: #2a2724; stroke-width: 1.8; }
-    .muc   { fill: #e2a99b; stroke: #cb8f82; stroke-width: 1.2; }
-    .muc2  { fill: #cb8f82; stroke: #2a2724; stroke-width: 1.4; }
-    .cart  { fill: #d5d5c2; stroke: #2a2724; stroke-width: 1.5; }
-    .bone  { fill: #ece6d8; stroke: #2a2724; stroke-width: 1.4; }
-    .air   { fill: #d5e5e7; stroke: #2a2724; stroke-width: 1.3; }
-    .fold  { fill: #f6f3ea; stroke: #c9c1ac; stroke-width: 1.6; }
-    .musc  { fill: #cf8f88; stroke: #2a2724; stroke-width: 1.1; }
-    .hl    { fill: #b5734a; fill-opacity: .22; stroke: #b5734a; stroke-width: 1.7; }
-    .hl2   { fill: #7d9b76; fill-opacity: .22; stroke: #7d9b76; stroke-width: 1.7; }
-    .ink   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-    .ave   { fill: none; stroke: #b5734a; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .ave2  { fill: none; stroke: #7d9b76; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-    .thin  { fill: none; stroke: #d8d0c2; stroke-width: 1.3; stroke-dasharray: 5 5; }
-    .lbl   { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; }
-    .lbl-s { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 12px; fill: #6f6a60; }
-    .lbl-b { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; font-weight: 700; }
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
   </style>
-<text class="lbl-b" x="26" y="30">同一個音，換五個母音</text>
-  <circle class="hl" cx="60" cy="150" r="24"/>
-  <text class="lbl" x="60" y="156" text-anchor="middle">阿</text>
-  <text class="lbl-s" x="60" y="190" text-anchor="middle">最開</text>
-  <circle class="hl" cx="134" cy="150" r="24"/>
-  <text class="lbl" x="134" y="156" text-anchor="middle">欸</text>
-  <text class="lbl-s" x="134" y="190" text-anchor="middle">扁平</text>
-  <circle class="hl" cx="208" cy="150" r="24"/>
-  <text class="lbl" x="208" y="156" text-anchor="middle">衣</text>
-  <text class="lbl-s" x="208" y="190" text-anchor="middle">最扁</text>
-  <circle class="hl" cx="282" cy="150" r="24"/>
-  <text class="lbl" x="282" y="156" text-anchor="middle">喔</text>
-  <text class="lbl-s" x="282" y="190" text-anchor="middle">圓</text>
-  <circle class="hl" cx="356" cy="150" r="24"/>
-  <text class="lbl" x="356" y="156" text-anchor="middle">嗚</text>
-  <text class="lbl-s" x="356" y="190" text-anchor="middle">最圓</text>
-  <text class="lbl-s" x="60" y="236">先在同一個音上換，再換到旋律裡</text>
-  <text class="lbl-s" x="26" y="284">同一個音高，只換母音；感覺位置跟著跑就是對的</text>
+  <text x="26" y="34" class="tb" font-size="16">五個母音在聲音頻譜上的位置</text>
+  <text x="26" y="55" class="ts" font-size="12.5">F1（張口度）與 F2（舌位前後）決定你聽到的是哪個母音</text>
+  <rect x="110" y="90" width="450" height="240" rx="4" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.2"/>
+  <path d="M92.0 90.0 L92.0 323.7" fill="none" stroke="#3D3229" stroke-width="1.7" stroke-linecap="round"/><path d="M92.0 330.0 L89.1 323.6 L94.9 323.6 Z" fill="#3D3229"/>
+  <text x="84" y="82" class="ts" font-size="10.5" text-anchor="end">F1 低</text>
+  <text x="84" y="334" class="ts" font-size="10.5" text-anchor="end">F1 高</text>
+  <path d="M110.0 352.0 L553.7 352.0" fill="none" stroke="#3D3229" stroke-width="1.7" stroke-linecap="round"/><path d="M560.0 352.0 L553.6 354.9 L553.6 349.1 Z" fill="#3D3229"/>
+  <text x="560" y="372" class="ts" font-size="10.5" text-anchor="end">F2 低 → 高</text>
+  <circle cx="191.0" cy="118.8" r="15" fill="#A67C52" opacity="0.16"/>
+  <circle cx="191.0" cy="118.8" r="5" fill="#A67C52"/>
+  <text x="211.0" y="123.8" class="t" font-size="15" font-weight="700">i</text>
+  <circle cx="245.0" cy="152.4" r="15" fill="#A67C52" opacity="0.16"/>
+  <circle cx="245.0" cy="152.4" r="5" fill="#A67C52"/>
+  <text x="265.0" y="157.4" class="t" font-size="15" font-weight="700">e</text>
+  <circle cx="357.5" cy="306.0" r="15" fill="#A67C52" opacity="0.16"/>
+  <circle cx="357.5" cy="306.0" r="5" fill="#A67C52"/>
+  <text x="377.5" y="311.0" class="t" font-size="15" font-weight="700">a</text>
+  <circle cx="290.0" cy="262.79999999999995" r="15" fill="#A67C52" opacity="0.16"/>
+  <circle cx="290.0" cy="262.79999999999995" r="5" fill="#A67C52"/>
+  <text x="310.0" y="267.79999999999995" class="t" font-size="15" font-weight="700">o</text>
+  <circle cx="236.0" cy="222.0" r="15" fill="#A67C52" opacity="0.16"/>
+  <circle cx="236.0" cy="222.0" r="5" fill="#A67C52"/>
+  <text x="256.0" y="227.0" class="t" font-size="15" font-weight="700">u</text>
+  <text x="26" y="382" class="ts" font-size="11">同一句話換五個母音，舌頭與嘴唇的位置就換了五次；這是咬字的工作。</text>
 </svg>
