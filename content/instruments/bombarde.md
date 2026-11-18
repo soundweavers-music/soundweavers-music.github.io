@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證（部分欄位待補）
 issue_note: 分類查證：氣鳴；依據：來源五：Bombard (music), a double reed instrument used to play t；內文段落來源不足未改寫：歷史背景、樂器材質
 source_url: https://soundweavers-music.github.io/instruments/bombarde/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Mus%C3%A9e_d%27histoire_de_Nantes_-_056_-_Bombarde.jpg/500px-Mus%C3%A9e_d%27histoire_de_Nantes_-_056_-_Bombarde.jpg
 youtube_ids: dXinY_WxTq8 dz8NXcYnVNw
 ---
 

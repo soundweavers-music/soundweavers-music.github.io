@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：非樂器／非單一樂器；依據：來源五稱 zurna 為 other instruments，且待查名稱為 Davul-Zurna Pair，表示兩樂器
 source_url: https://soundweavers-music.github.io/instruments/davul-zurna-pair/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Davul_zurna_izmir.jpg/500px-Davul_zurna_izmir.jpg
 youtube_ids: 0boGwKj233k biGNOfJ8GIA
 ---
 

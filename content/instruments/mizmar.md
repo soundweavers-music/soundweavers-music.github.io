@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴（422.112.2）；依據：來源一開頭：mizmār 是 single or double reed wind instrument，且為 coni
 source_url: https://soundweavers-music.github.io/instruments/mizmar/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/La_f%C3%AAte_de_la_musique_au_centre_culturel_dEgypte_%28Paris%29_%287416610718%29.jpg/500px-La_f%C3%AAte_de_la_musique_au_centre_culturel_dEgypte_%28Paris%29_%287416610718%29.jpg
 youtube_ids: -fLmv4Ph_BA 5RTFLpmSMVA
 ---
 

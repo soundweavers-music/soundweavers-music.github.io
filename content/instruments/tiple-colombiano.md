@@ -14,6 +14,7 @@ ensemble_links: 安地斯合奏
 verification_status: 已查證
 issue_note: 分類查證：弦鳴（321.322）；依據：來源一與來源五稱其為 plucked string instrument；來源二 H-S 為 321.322 / Com
 source_url: https://soundweavers-music.github.io/instruments/tiple-colombiano/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Nicetiple.jpg/500px-Nicetiple.jpg
 youtube_ids: tHv7ZwF5rrU a3L8neJ-r8I
 ---
 

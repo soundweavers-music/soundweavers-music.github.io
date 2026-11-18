@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴（322.212.3）；依據：來源二 infobox：Hornbostel–Sachs 3.2.2 / harps；來源三 Wikidata P176；與「Triple harp」互為別名／變體
 source_url: https://soundweavers-music.github.io/instruments/welsh-triple-harp/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Welsh_triple_harp.jpg/500px-Welsh_triple_harp.jpg
 youtube_ids: z_XNN7T2Og8 L-boPkQJKDA
 ---
 

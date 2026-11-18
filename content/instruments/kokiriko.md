@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：體鳴；依據：來源一分類標籤含 Idiophones，且描述以竹片敲擊發聲
 source_url: https://soundweavers-music.github.io/instruments/kokiriko/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Binzasara_1.jpg/500px-Binzasara_1.jpg
 youtube_ids: wV0vlJwWDGI AOdl6_Cy94k
 ---
 

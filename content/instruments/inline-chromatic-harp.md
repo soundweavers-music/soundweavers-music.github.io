@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證（部分欄位待補）
 issue_note: 分類查證：弦鳴（322.212.1）；依據：Wikidata P1762 H-S 322.212.1（3開頭）及條目稱其為harp；內文段落來源不足未改寫：聆聽示範、樂器材質
 source_url: https://soundweavers-music.github.io/instruments/inline-chromatic-harp/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Chromatic_Harp.jpg/500px-Chromatic_Harp.jpg
 youtube_ids: UfM6Dvy_Qn8 W1L_WTwzb_4
 ---
 

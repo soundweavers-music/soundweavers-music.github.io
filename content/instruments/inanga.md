@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴；依據：來源一：String instruments, Trough zithers；來源二：Trough zithers
 source_url: https://soundweavers-music.github.io/instruments/inanga/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Inanga_Torobeka.jpg/500px-Inanga_Torobeka.jpg
 youtube_ids: JXuDGNCpUJ0 idyyg0THLVc
 ---
 

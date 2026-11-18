@@ -14,6 +14,7 @@ ensemble_links: 爵士編制
 verification_status: 已查證
 issue_note: 分類查證：氣鳴（421.221.312）；依據：來源五：slide whistle 為 wind instrument，具 fipple mouthpiece；Wiki；與「Slide whistle」互為別名／變體
 source_url: https://soundweavers-music.github.io/instruments/piston-flute/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Flauta_d%27%C3%A8mbol.jpg/500px-Flauta_d%27%C3%A8mbol.jpg
 youtube_ids: NSFyPKFqbTQ 4xXU0GiavU4
 ---
 

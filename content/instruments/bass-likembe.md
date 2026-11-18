@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：體鳴（122.1）；依據：來源一：plucked idiophone family；來源二：Hornbostel–Sachs 122.1 / Pl
 source_url: https://soundweavers-music.github.io/instruments/bass-likembe/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Holding_an_mbira_dzavadzimu.jpg/500px-Holding_an_mbira_dzavadzimu.jpg
 youtube_ids: vRNoVlQn0mE lQf7dFcNiM4
 ---
 

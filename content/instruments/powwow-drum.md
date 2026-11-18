@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：膜鳴（21）；依據：原題名與檔案名均含 drum，且現有 sound_hs 標為 21 膜鳴鼓類
 source_url: https://soundweavers-music.github.io/instruments/powwow-drum/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/2007_Powwow_%282549252642%29.jpg/500px-2007_Powwow_%282549252642%29.jpg
 youtube_ids: cj3U0z64_m4 D3aP2lf1dt8
 ---
 

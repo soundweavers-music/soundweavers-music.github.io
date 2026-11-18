@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：電鳴；依據：來源一與來源五均稱 sampler 為 electronic musical instrument
 source_url: https://soundweavers-music.github.io/instruments/sampler/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Akai_CD3000XL_9248.jpg/500px-Akai_CD3000XL_9248.jpg
 youtube_ids: xsSitLdrgWo qgyAASXtZj8
 ---
 

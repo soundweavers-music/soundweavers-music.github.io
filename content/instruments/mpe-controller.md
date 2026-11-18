@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：電鳴（542）；依據：來源一稱 MIDI controller 為 electronic musical instrument；來源三 Wik
 source_url: https://soundweavers-music.github.io/instruments/mpe-controller/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/LinnStrument_prototype_-_CNMAT%2C_Berkeley%2C_CA%2C_2011-05-06.jpg/500px-LinnStrument_prototype_-_CNMAT%2C_Berkeley%2C_CA%2C_2011-05-06.jpg
 youtube_ids: kffzNrm6Jlw OfUarfecdZA
 ---
 

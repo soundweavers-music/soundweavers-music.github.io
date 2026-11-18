@@ -14,7 +14,7 @@ ensemble_links: 甘美朗合奏
 verification_status: 已查證
 issue_note: 分類查證：體鳴（111.241.2）；依據：來源二與來源三均給出 Hornbostel–Sachs 111.241.2 / Sets of gongs；來源一與來源；與「Agung」互為別名／變體；與 Agung 為同一類樂器的不同拼法；此列保留馬來西亞用名。
 source_url: https://soundweavers-music.github.io/instruments/agong/
-image: 
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Gong_of_Don_An.jpg/500px-Gong_of_Don_An.jpg
 youtube_ids: Czh1oqx0Bpw pZK3K6f6obQ
 ---
 

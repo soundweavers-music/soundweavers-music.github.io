@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴（322.11）；依據：英文維基簡述為 Plucked string instrument；Wikidata P1762 為 322.11
 source_url: https://soundweavers-music.github.io/instruments/kundi/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Brooklyn_Museum_22.1303_Harp_with_Human_Head_Kundi_%282%29.jpg/500px-Brooklyn_Museum_22.1303_Harp_with_Human_Head_Kundi_%282%29.jpg
 youtube_ids: XNGRZVHjYbQ j7LI_sDdXkI
 ---
 

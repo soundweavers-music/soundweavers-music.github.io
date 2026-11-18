@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：膜鳴（211.25）；依據：Wikidata P1762 Hornbostel–Sachs 211.25；英文維基分類 Membranophone 
 source_url: https://soundweavers-music.github.io/instruments/conical-drum/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Thavil-DSC_3864.jpg/500px-Thavil-DSC_3864.jpg
 youtube_ids: VXCxKMT2ZUo S_SDhpIvpZ4
 ---
 

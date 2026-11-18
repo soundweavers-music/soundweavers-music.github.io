@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴；依據：來源一：wind instrument；分類標籤 Internal fipple flutes
 source_url: https://soundweavers-music.github.io/instruments/three-hole-pipe/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Pipe_%28AM_1998.60.34-1%29.jpg/500px-Pipe_%28AM_1998.60.34-1%29.jpg
 youtube_ids: IC5uQufh3n0 KeegxK1o5v0
 ---
 

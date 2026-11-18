@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴（323.1）；依據：英文維基：ngoni 為 West African string instrument，分類 Drumhead lute；與「Ngoni」互為別名／變體
 source_url: https://soundweavers-music.github.io/instruments/donso-ngoni/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Ngoni_2011.JPG/500px-Ngoni_2011.JPG
 youtube_ids: dhdlmcHP7KA W0O_6kmUMws
 ---
 
