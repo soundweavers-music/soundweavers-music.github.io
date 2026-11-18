@@ -130,6 +130,32 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
   .controls-row { flex-direction: column; align-items: stretch; }
   .chart { min-width: 620px; }
 }
+
+/* 列印：只留譜面，排版比照歌本 */
+.print-only { display: none; }
+@media print {
+  .site-header, .site-footer, .upload-zone, .controls-row, #status-msg, .progress-bar,
+  .waveform-container, .compact-hero, .key-info, .chart-toolbar, #lyric-status,
+  .playback-cursor, .bar-edit, #grid-row { display: none !important; }
+  body { background: #fff !important; color: #000 !important; }
+  .page { max-width: none !important; padding: 0 !important; margin: 0 !important; }
+  .print-only { display: block !important; }
+  .print-head { text-align: center; margin: 0 0 10mm; }
+  .print-head h1 { font-size: 20pt; margin: 0 0 3mm; }
+  .print-head .meta { font-size: 10pt; color: #333; }
+  .chart-wrap { border: 0 !important; margin: 0 !important; overflow: visible !important; }
+  .chart { min-width: 0 !important; }
+  .chart-row, .lyric-row { border-color: #000 !important; break-inside: avoid; page-break-inside: avoid; }
+  .bar { border-color: #000 !important; min-height: 18mm; }
+  .bar-body { height: auto !important; min-height: 12mm; }
+  .seg .cname { color: #000 !important; font-size: 13pt !important; }
+  .seg .cdeg { color: #333 !important; }
+  .seg.is-active { background: none !important; }
+  .lyric-cell { font-size: 9pt !important; }
+  .bar-no { font-size: 8pt !important; color: #000 !important; }
+  a { color: #000 !important; text-decoration: none !important; }
+}
+@page { size: A4; margin: 15mm 12mm; }
 </style>
 </head>
 <body>
@@ -279,6 +305,10 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
   <div class="chart-toolbar">
     <strong style="font-size:14px;">和弦譜</strong>
     <span style="font-size:11px;color:var(--muted);">點小節試聽 · ✏ 編輯</span>
+    <label>記法 <select id="notation-select" style="padding:3px 6px;border:1px solid var(--line);border-radius:6px;font-size:12px;background:var(--surface);color:var(--ink);">
+      <option value="name">和弦名（C G Am）</option>
+      <option value="degree">級數（1 5 6m）</option>
+    </select></label>
     <label><input type="checkbox" id="show-degrees" checked> 級數</label>
     <label><input type="checkbox" id="show-lyrics" checked> 歌詞</label>
     <label><input type="checkbox" id="show-diagrams"> 指版圖</label>
@@ -286,10 +316,12 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
     <span class="spacer"></span>
     <button class="btn ghost small" id="btn-import-lrc">📄 匯入 .lrc</button>
     <input type="file" id="lrc-input" accept=".lrc,.txt,text/plain" style="display:none;">
+    <button class="btn ghost small" id="btn-print">🖨 列印／PDF</button>
     <button class="btn ghost small" id="btn-export-txt">⬇ 純文字</button>
     <button class="btn ghost small" id="btn-export-doc">⬇ Word</button>
   </div>
   <div id="lyric-status" class="status-msg" style="display:none;"></div>
+  <div id="print-header" class="print-only"></div>
   <div class="chart-wrap">
     <div class="chart" id="chart"></div>
   </div>
@@ -454,7 +486,7 @@ let state = {
   bpm: 120, beatsPerBar: 4,
   autoDownbeat: 0, downbeatShift: 0, gridShiftSec: 0,
   lyrics: [], lyricBuckets: new Map(), showLyrics: true, showDegrees: true,
-  showDiagrams: false, continuous: false,
+  showDiagrams: false, continuous: false, notation: 'name',
   instrument: 0, tuning: null,
   isPlaying: false, currentTime: 0, startTime: 0, playEnd: 0,
   sourceNode: null, animFrame: null,
@@ -885,11 +917,9 @@ function estimateDownbeatOffset(beats, store, beatsPerBar) {
   const bpb = beatsPerBar || 4;
   if (!beats || beats.length < bpb * 2 || !store) return 0;
   // 每個 offset 的分數 = 平均「跨過這條小節線時和弦變化多大」。
-  // 和弦每兩拍換一次的歌（| F  G | F  G |）會讓 offset 0 和 2 都很高分，
-  // 但選 2 會讓第一小節變成六拍、之後全部錯位，所以取「分數接近最高
-  // （≥70%）裡最小的 offset」——真的從第二拍起才有小節線的歌，offset 0
-  // 的分數會遠低於最高分，不會被誤選。
-  const scores = new Array(bpb).fill(null);
+  // 取最高分；只有分數差不到 3% 時才留下比較小的 offset（避免雜訊決定
+  // 整首的小節線，那會讓整份譜看起來全部偏掉）。
+  let bestOff = 0, bestScore = -Infinity;
   for (let off = 0; off < bpb; off++) {
     let s = 0, n = 0;
     for (let i = off; i < beats.length; i += bpb) {
@@ -897,15 +927,13 @@ function estimateDownbeatOffset(beats, store, beatsPerBar) {
       const after = averageChromaInRange(store, beats[i] + 0.05, beats[i] + 0.25);
       if (before && after) { s += chromaDistance(before, after); n++; }
     }
-    scores[off] = n ? s / n : null;
+    if (!n) continue;
+    const score = s / n;
+    if (bestScore === -Infinity || score > bestScore + Math.abs(bestScore) * 0.03 + 1e-6) {
+      bestScore = score; bestOff = off;
+    }
   }
-  let maxScore = 0;
-  for (const v of scores) if (v != null && v > maxScore) maxScore = v;
-  if (!(maxScore > 0)) return 0;
-  for (let off = 0; off < bpb; off++) {
-    if (scores[off] != null && scores[off] >= maxScore * 0.7) return off;
-  }
-  return 0;
+  return bestScore > 0 ? bestOff : 0;
 }
 
 function groupIntoBars(beats, duration, beatsPerBar = 4, offset = 0) {
@@ -1302,6 +1330,7 @@ function decodeChordsForBeats(beats, store, duration, prior) {
   if (!beats.length || !store) return [];
   const chromas = [];
   const basses = [];
+  let lastChroma = null, lastBass = null;
   for (let i = 0; i < beats.length; i++) {
     const t0 = beats[i];
     const t1 = (i + 1 < beats.length) ? beats[i + 1] : Math.min(duration, t0 + 0.5);
@@ -1311,6 +1340,17 @@ function decodeChordsForBeats(beats, store, duration, prior) {
     if (t1 - t0 > 0.12) { chroma = medianChromaInRange(store, lo, hi); bass = medianBassInRange(store, lo, hi); }
     if (!chroma) chroma = averageChromaInRange(store, t0, t1);
     if (!bass) bass = medianBassInRange(store, t0, t1);
+
+    // 幾乎沒有和聲的拍（前奏只有鼓、間奏、延音尾）不要硬猜：
+    // 沿用上一個有內容的拍，否則會冒出一個沒人彈過的和弦。
+    let energy = 0;
+    if (chroma) for (let k = 0; k < 12; k++) energy += chroma[k] * chroma[k];
+    if (energy < 0.25) {
+      if (lastChroma) { chroma = lastChroma; bass = lastBass; }
+    } else {
+      lastChroma = chroma; lastBass = bass;
+    }
+
     chromas.push(chroma);
     basses.push(bass);
   }
@@ -1735,6 +1775,14 @@ function renderChart() {
     }
   }
   document.getElementById('chart').innerHTML = html;
+
+  // 列印用的標頭（畫面上隱藏，只出現在列印／存 PDF）
+  const ph = document.getElementById('print-header');
+  if (ph) {
+    ph.innerHTML = '<div class="print-head"><h1>' + escapeHtml(chartTitle()) + '</h1>'
+      + '<div class="meta">' + escapeHtml(chartMeta()) + '</div></div>';
+  }
+
   if (state.showDiagrams) renderChordDiagrams();
 }
 
@@ -1758,11 +1806,14 @@ function barCellHtml(idx) {
   parts.forEach((p, k) => {
     const left = (acc / total) * 100;
     const width = ((p.beats || 1) / total) * 100;
+    const useDegree = state.notation === 'degree';
+    const primary = useDegree ? p.degree : p.name;
+    const secondary = useDegree ? p.name : (state.showDegrees ? p.degree : '');
     segs += '<span class="seg" data-beat="' + acc + '"'
           + ' style="left:' + left.toFixed(3) + '%;width:' + width.toFixed(3) + '%"'
           + ' onclick="event.stopPropagation();auditionBar(' + idx + ',' + acc + ')">'
-          + '<span class="cname">' + escapeHtml(p.name) + '</span>'
-          + (state.showDegrees ? '<span class="cdeg">' + escapeHtml(p.degree) + '</span>' : '')
+          + '<span class="cname">' + escapeHtml(primary) + '</span>'
+          + (secondary ? '<span class="cdeg">' + escapeHtml(secondary) + '</span>' : '')
           + (state.showDiagrams ? '<span class="cdia" data-dia="' + idx + '-' + k + '"></span>' : '')
           + '</span>';
     acc += (p.beats || 1);
@@ -2217,7 +2268,15 @@ function chartMeta() {
     + '　Capo ' + state.capo + ' 格'
     + '　BPM ' + state.bpm
     + '　拍號 ' + state.beatsPerBar + '/4'
-    + (state.transpose !== 0 ? '　（已移調 ' + (state.transpose > 0 ? '+' : '') + state.transpose + ' 半音）' : '');
+    + (state.transpose !== 0 ? '　（已移調 ' + (state.transpose > 0 ? '+' : '') + state.transpose + ' 半音）' : '')
+    + '　記法 ' + (state.notation === 'degree' ? '級數' : '和弦名');
+}
+
+// 這個小節在畫面上／匯出時要顯示的標籤（跟著記法切換）
+function barLabel(idx) {
+  const ch = state.chords[idx];
+  if (!ch || !ch.parts || !ch.parts.length) return '';
+  return ch.parts.map(p => (state.notation === 'degree' ? p.degree : p.name)).join(' / ');
 }
 
 function dispWidth(s) {
@@ -2254,7 +2313,7 @@ function buildTextChart() {
     for (let c = 0; c < 4; c++) {
       const idx = r + c;
       const has = idx < state.chords.length;
-      chordLine += padDisplay(has ? state.chords[idx].display : '', W);
+      chordLine += padDisplay(has ? barLabel(idx) : '', W);
       lyricLine += padDisplay(has && state.showLyrics ? barLyric(idx) : '', W);
     }
     lines.push(String(r + 1).padStart(3, ' ') + ' | ' + chordLine.replace(/\s+$/, ''));
@@ -2272,7 +2331,7 @@ function buildWordHtml() {
     for (let c = 0; c < 4; c++) {
       const idx = r + c;
       const has = idx < state.chords.length;
-      const chord = has ? state.chords[idx].display : '';
+      const chord = has ? barLabel(idx) : '';
       const lyric = has ? barLyric(idx) : '';
       tds += '<td><div class="ch">' + escapeHtml(chord) + '</div>'
            + '<div class="ly">' + (lyric ? escapeHtml(lyric) : '&nbsp;') + '</div>'
@@ -2287,14 +2346,14 @@ function buildWordHtml() {
     + '<meta http-equiv="Content-Type" content="text/html; charset=utf-8">'
     + '<title>' + title + '</title><style>'
     + '@page{size:A4;margin:1.8cm}'
-    + 'body{font-family:"Microsoft JhengHei","PingFang TC",sans-serif;font-size:11pt;color:#222}'
-    + 'h1{font-size:15pt;margin:0 0 4pt}'
-    + '.meta{color:#555;font-size:10pt;margin-bottom:10pt}'
-    + 'table{border-collapse:collapse;width:100%}'
-    + 'td{border:0.5pt solid #999;padding:4pt 6pt;vertical-align:top;width:25%}'
-    + '.ch{font-size:13pt;font-weight:bold}'
-    + '.ly{font-size:9pt;color:#333;min-height:12pt}'
-    + '.bn{font-size:8pt;color:#888;text-align:right}'
+    + 'body{font-family:"Microsoft JhengHei","PingFang TC",sans-serif;font-size:11pt;color:#111}'
+    + 'h1{font-size:18pt;text-align:center;margin:0 0 4pt}'
+    + '.meta{text-align:center;color:#555;font-size:10pt;margin:0 0 14pt}'
+    + 'table{border-collapse:collapse;width:100%;table-layout:fixed}'
+    + 'td{border:0.5pt solid #bbb;padding:6pt 8pt 3pt;vertical-align:top;width:25%;height:34pt}'
+    + '.ch{font-size:14pt;font-weight:bold;line-height:1.1}'
+    + '.ly{font-size:9pt;color:#333;line-height:1.35;margin-top:2pt}'
+    + '.bn{font-size:8pt;color:#888;text-align:right;margin-top:2pt}'
     + '</style></head><body><h1>' + title + '</h1>'
     + '<div class="meta">' + escapeHtml(chartMeta()) + '</div>'
     + '<table>' + rows.join('') + '</table></body></html>';
@@ -2415,6 +2474,11 @@ function initUI() {
   });
   document.getElementById('btn-export-txt').addEventListener('click', exportText);
   document.getElementById('btn-export-doc').addEventListener('click', exportWord);
+  document.getElementById('btn-print').addEventListener('click', function () { window.print(); });
+  document.getElementById('notation-select').addEventListener('change', function () {
+    state.notation = this.value;
+    if (state.chords.length) renderChart();
+  });
 
   document.getElementById('transpose-select').addEventListener('change', function() {
     if (!state.chromaStore) return;
