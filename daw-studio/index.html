@@ -17,7 +17,7 @@
 <div class="app" id="app">
   <header class="topbar">
     <div class="brand">
-      <a class="home" href="../" title="回到世界聲音百科">‹</a>
+      <a class="home" href="../" title="回到世界聲音百科首頁（專案會自動暫存）"><img src="../assets/brand/favicon.png" alt="" width="22" height="22"><span>首頁</span></a>
       <div class="title">
         <strong>織音線上編曲製作</strong>
         <input id="projName" type="text" value="未命名專案" maxlength="60" aria-label="專案名稱">
@@ -31,6 +31,7 @@
       <button class="tbtn ghost" id="btnImportMidi" title="匯入 .mid（每一軌會變成一條 MIDI 軌）">匯入 MIDI</button>
       <button class="tbtn ghost" id="btnBanks" title="管理 SoundFont 音色庫">音色庫<span class="bank-badge" id="bankBadge"></span></button>
       <button class="tbtn ghost" id="btnMore" title="更多">⋯</button>
+      <a class="tbtn ghost" id="btnHelp" href="guide/" target="_blank" rel="noopener" title="使用說明（新分頁開啟）">說明</a>
     </div>
     <div class="spacer"></div>
     <div class="group transport">
@@ -144,19 +145,20 @@
   <form method="dialog">
     <header>音色庫（SoundFont）<span style="color:var(--tx2);font-weight:400">檔案由你自己下載，網頁只在這台電腦讀取</span></header>
     <div class="dbody">
+      <div>
+        <h4 class="bank-h">① 下載免費音色庫</h4>
+        <div id="bankRec" class="bank-rec"></div>
+      </div>
+      <div class="bank-watch" id="bankWatch"></div>
       <div class="bank-drop" id="bankDrop">
-        <strong>把 .sf2 檔拖到這裡，或</strong> <button type="button" class="tbtn primary" id="bankPick">從電腦選擇 .sf2…</button>
-        <p class="note">讀取後會存在這個瀏覽器（IndexedDB），下次打開不用重選。不會上傳到任何地方。</p>
+        <strong>或把 .sf2 檔拖到這裡</strong>　<button type="button" class="tbtn" id="bankPick">從電腦選擇 .sf2…</button>
+        <p class="note">讀取後存在這個瀏覽器（IndexedDB），下次打開不用重選。不支援 .sf3 壓縮格式。</p>
       </div>
       <div>
         <h4 class="bank-h">已載入</h4>
         <div id="bankList" class="bank-list"></div>
         <p class="note" id="bankStorage"></p>
-      </div>
-      <div>
-        <h4 class="bank-h">推薦的免費音色庫</h4>
-        <div id="bankRec" class="bank-rec"></div>
-        <p class="note">請到各自的官方網站下載 <b>.sf2</b>（不支援 .sf3 壓縮格式）。下載後用上面的按鈕選取即可。<br>載入後到 MIDI 軌的檢閱器「音色」選單裡，就能選到音色庫裡的樂器。</p>
+        <p class="note">載入後到 MIDI 軌的檢閱器「SoundFont 音色」選單，就能選到音色庫裡的樂器。</p>
       </div>
     </div>
     <footer><button class="tbtn primary" value="close">完成</button></footer>

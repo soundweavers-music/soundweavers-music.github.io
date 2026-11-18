@@ -367,3 +367,47 @@ dialog label.f[hidden] { display: none; }
   .tbtn.vb i { display: inline; }
   .tbtn.vb { min-width: 30px; }
 }
+
+/* 音色庫：下載與自動載入 */
+.bank-row.rec { display: flex; align-items: center; gap: 12px; }
+.bank-row.rec .rec-info { flex: 1; min-width: 0; }
+.bank-row.rec.done { border-color: rgba(63,216,138,.35); }
+.bank-row.rec a { color: var(--accent); }
+.bank-row.rec .rec-dl { text-decoration: none; min-width: 72px; }
+.bank-row.rec .rec-state { white-space: nowrap; color: #7fe3ad; }
+.bank-watch .watch-row { display: flex; gap: 12px; align-items: center; background: rgba(79,157,255,.08); border: 1px solid rgba(79,157,255,.35); border-radius: 8px; padding: 10px 12px; }
+.bank-watch .watch-row.on { background: rgba(63,216,138,.08); border-color: rgba(63,216,138,.35); }
+.bank-watch .watch-row > div:first-child { flex: 1; }
+.bank-watch .watch-btns { display: flex; gap: 6px; }
+.brand a.home { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; padding: 3px 8px 3px 4px; border: 1px solid var(--line2); border-radius: 6px; background: var(--bg2); color: var(--tx1); }
+.brand a.home img { border-radius: 4px; display: block; }
+.brand a.home:hover { border-color: var(--accent); color: var(--tx0); }
+a.tbtn { text-decoration: none; }
+@media (max-width: 1500px) { .brand a.home span { display: none; } }
+
+/* ---------- 8 段 EQ 編輯器、預設值 ---------- */
+.fx-panel.wide { width: 640px; }
+.fx-presets { display: flex; align-items: center; gap: 8px; padding: 8px 12px; border-bottom: 1px solid var(--line); background: #22242a; }
+.fx-presets select { background: var(--bg0); border: 1px solid var(--line2); border-radius: 5px; padding: 4px 6px; min-width: 190px; color: var(--tx0); }
+.fx-presets .fx-tip { color: var(--tx2); font-size: 11px; line-height: 1.5; flex: 1; }
+.eqx { display: grid; gap: 0; }
+.eqx-cv { display: block; width: 100%; height: 240px; cursor: crosshair; touch-action: none; }
+.eqx-bands { display: grid; grid-template-columns: repeat(8, 1fr); gap: 3px; padding: 6px 8px; background: #1b1d22; border-top: 1px solid var(--line); }
+.eqx-band { display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto auto auto; column-gap: 4px; align-items: center; text-align: left;
+  background: var(--bg0); border: 1px solid var(--line2); border-radius: 5px; padding: 4px 5px; color: var(--tx1); font-size: 10px; line-height: 1.25; cursor: pointer; }
+.eqx-band i { grid-row: 1 / span 3; width: 4px; align-self: stretch; border-radius: 2px; background: var(--c); }
+.eqx-band b { color: var(--c); font-size: 11px; }
+.eqx-band span { color: var(--tx0); }
+.eqx-band em { font-style: normal; font-family: var(--mono); color: var(--tx2); }
+.eqx-band.sel { border-color: var(--c); box-shadow: 0 0 0 1px var(--c) inset; }
+.eqx-band.off { opacity: .45; }
+.eqx-band.off i { background: transparent; border: 1px dashed var(--c); }
+.eqx-detail { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; padding: 8px 12px 4px; color: var(--tx1); font-size: 12px; }
+.eqx-detail label { display: flex; gap: 5px; align-items: center; }
+.eqx-detail label.dim { opacity: .4; }
+.eqx-detail input[type=number] { width: 66px; background: var(--bg0); border: 1px solid var(--line2); border-radius: 4px; padding: 3px 5px; color: var(--tx0); font-family: var(--mono); }
+.eqx-detail select { background: var(--bg0); border: 1px solid var(--line2); border-radius: 4px; padding: 3px 4px; color: var(--tx0); }
+.eqx-detail .eqx-out { margin-left: auto; }
+.fx-row select { width: 100%; background: var(--bg0); border: 1px solid var(--line2); border-radius: 4px; padding: 3px 5px; color: var(--tx0); }
+.fx-viz { height: 110px; }
+.bank-row.rec a.rec-dl, .bank-row.rec a.rec-dl:visited { color: #fff; font-weight: 600; }

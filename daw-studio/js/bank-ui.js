@@ -3,6 +3,7 @@ import { store } from './state.js';
 import { engine } from './engine.js';
 import { addBankFile, removeBank, listBanks, getBank, restoreBanks, storageEstimate, RECOMMENDED, sfInstrumentId, parseInstrument, sfLabel } from './soundbank.js';
 import { toast } from './util.js';
+import { canWatch, pickFolder, forgetFolder, restoreWatch, scan, expect, watchState, startWatching } from './bank-watch.js';
 
 const $ = id => document.getElementById(id);
 const esc = s => String(s).replace(/[<>&"]/g, c => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;' }[c]));
@@ -47,13 +48,66 @@ function renderList() {
 }
 
 export function openBanks() {
-  renderList();
+  renderList(); renderRec(); renderWatch();
   $('dlgBanks').showModal();
+  // 打開對話框是使用者動作：順便掃一次（有權限時不會跳視窗）
+  scan(false);
+}
+
+function renderRec() {
+  const have = new Set(listBanks().filter(b => b.status === 'ready').map(b => b.name.toLowerCase()));
+  const waiting = new Set(watchState().waiting.map(w => w.toLowerCase()));
+  $('bankRec').innerHTML = RECOMMENDED.map(r => {
+    const loaded = have.has(r.file.replace(/\.sf2$/i, '').toLowerCase());
+    const wait = waiting.has(r.file.toLowerCase());
+    return `<div class="bank-row rec${loaded ? ' done' : ''}">
+      <div class="rec-info"><strong>${esc(r.name)}</strong> <span class="note">${esc(r.size)}・${esc(r.license)}</span>
+        <div class="note">${esc(r.note)}</div>
+        <div class="note"><a href="${esc(r.home)}" target="_blank" rel="noopener noreferrer">官方頁面 ↗</a></div></div>
+      ${loaded ? '<span class="ok rec-state">✓ 已載入</span>'
+        : `<a class="tbtn primary rec-dl" href="${esc(r.url)}" download="${esc(r.file)}" target="_blank" rel="noopener noreferrer" data-file="${esc(r.file)}">${wait ? '下載中…' : '下載'}</a>`}
+    </div>`;
+  }).join('');
+  $('bankRec').querySelectorAll('.rec-dl').forEach(a => a.addEventListener('click', () => {
+    expect(a.dataset.file);
+    if (!watchState().dir && canWatch()) toast('下載完成後，按下方「設定下載資料夾」就能自動載入', 'info');
+    else if (watchState().dir) toast('下載完成後切回這個分頁，會自動載入');
+    renderRec();
+  }));
+}
+
+function renderWatch(needPermission = false) {
+  const box = $('bankWatch');
+  if (!box) return;
+  const w = watchState();
+  if (!canWatch()) {
+    box.innerHTML = '<p class="note">② 下載完成後，把檔案拖進下方的框框（或按「從電腦選擇」）。<br>想要下載完自動載入，請改用桌機版 Chrome 或 Edge。</p>';
+    return;
+  }
+  if (!w.dir) {
+    box.innerHTML = `<div class="watch-row"><div><strong>② 下載完自動載入</strong>
+      <div class="note">選一次你的「下載」資料夾，之後在這裡下載的音色庫，切回分頁就會自動載入。網頁只會讀取資料夾裡的 .sf2，不會上傳或修改任何檔案。</div></div>
+      <button type="button" class="tbtn primary" id="watchPick">設定下載資料夾…</button></div>`;
+    box.querySelector('#watchPick').onclick = () => pickFolder().catch(e => toast(e.message, 'error'));
+    return;
+  }
+  box.innerHTML = `<div class="watch-row on"><div><strong>② 自動載入：監看「${esc(w.dir)}」資料夾</strong>
+    <div class="note">${needPermission ? '瀏覽器需要你再確認一次讀取權限。' : w.waiting.length ? `等待下載完成：${w.waiting.map(esc).join('、')}` : '下載完成後切回這個分頁就會自動載入。'}</div></div>
+    <div class="watch-btns">${needPermission ? '<button type="button" class="tbtn primary" id="watchGrant">允許讀取並掃描</button>' : '<button type="button" class="tbtn" id="watchScan">立即掃描</button>'}
+    <button type="button" class="tbtn ghost" id="watchForget" title="不再監看這個資料夾">停止</button></div></div>`;
+  const grant = box.querySelector('#watchGrant') || box.querySelector('#watchScan');
+  grant.onclick = async () => { const n = await scan(true); if (!n) toast('資料夾裡還沒有新的音色庫'); renderWatch(); };
+  box.querySelector('#watchForget').onclick = () => forgetFolder();
 }
 
 export function initBankUi() {
-  $('bankRec').innerHTML = RECOMMENDED.map(r => `<div class="bank-row rec"><div><strong>${esc(r.name)}</strong> <span class="note">${esc(r.size)}</span>
-    <div class="note">${esc(r.note)}</div><div class="note">下載：${esc(r.site)}</div></div></div>`).join('');
+  renderRec();
+  renderWatch();
+  restoreWatch().then(() => renderWatch());
+  startWatching();
+  store.on('bank-watch', () => { renderWatch(); renderRec(); });
+  store.on('bank-watch-need-permission', () => renderWatch(true));
+  store.on('banks', renderRec);
   $('btnBanks').onclick = openBanks;
   $('bankPick').onclick = () => $('fileSf2').click();
   $('fileSf2').addEventListener('change', e => { const f = [...e.target.files]; e.target.value = ''; loadFiles(f); });
