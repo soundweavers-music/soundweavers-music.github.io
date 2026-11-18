@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- connect-src 'none'：這個頁面不能對任何伺服器發出連線，你的音檔與專案不可能被上傳 -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; font-src 'self'; connect-src 'none'; worker-src 'self' blob:; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>織音線上編曲製作 — 免安裝、不上傳的瀏覽器 DAW</title>
+<meta name="description" content="在瀏覽器裡多軌錄音、編曲、混音與輸出。16 軌起跳、可錄音、讀取本機音檔、儲存專案；所有音訊只在你的電腦上處理，不會上傳到雲端。">
+<!--CANONICAL-->
+<link rel="icon" href="../assets/brand/favicon.png" type="image/png">
+<link rel="stylesheet" href="daw.css">
+<script src="../assets/vendor/jszip.min.js" defer></script>
+<script type="module" src="js/main.js"></script>
+</head>
+<body>
+<div class="app" id="app">
+  <header class="topbar">
+    <div class="brand">
+      <a class="home" href="../" title="回到世界聲音百科">‹</a>
+      <div class="title">
+        <strong>織音線上編曲製作</strong>
+        <input id="projName" type="text" value="未命名專案" maxlength="60" aria-label="專案名稱">
+      </div>
+    </div>
+    <div class="group">
+      <button class="tbtn ghost" id="btnNew" title="新專案">新增</button>
+      <button class="tbtn ghost" id="btnOpen" title="開啟專案 (Ctrl+O)">開啟</button>
+      <button class="tbtn ghost" id="btnSave" title="儲存專案 (Ctrl+S)">儲存</button>
+      <button class="tbtn ghost" id="btnImport" title="匯入音檔 (Ctrl+I)">匯入音檔</button>
+      <button class="tbtn ghost" id="btnImportMidi" title="匯入 .mid（每一軌會變成一條 MIDI 軌）">匯入 MIDI</button>
+      <button class="tbtn ghost" id="btnBanks" title="管理 SoundFont 音色庫">音色庫<span class="bank-badge" id="bankBadge"></span></button>
+      <button class="tbtn ghost" id="btnMore" title="更多">⋯</button>
+    </div>
+    <div class="spacer"></div>
+    <div class="group transport">
+      <button class="tbtn" id="btnHome" title="回到開頭 (Enter)"><svg viewBox="0 0 16 16"><path d="M3 3h2v10H3zM13 3v10L6 8z"/></svg></button>
+      <button class="tbtn" id="btnRew" title="倒退一小節 (,)"><svg viewBox="0 0 16 16"><path d="M8 3v10L2 8zM15 3v10L9 8z"/></svg></button>
+      <button class="tbtn" id="btnFwd" title="前進一小節 (.)"><svg viewBox="0 0 16 16"><path d="M8 3v10l6-5zM1 3v10l6-5z"/></svg></button>
+      <button class="tbtn" id="btnStop" title="停止"><svg viewBox="0 0 16 16"><path d="M3 3h10v10H3z"/></svg></button>
+      <button class="tbtn play" id="btnPlay" title="播放／停止 (空白鍵)"><svg viewBox="0 0 16 16"><path d="M4 2l10 6-10 6z"/></svg></button>
+      <button class="tbtn rec" id="btnRec" title="錄音 (R)"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.5"/></svg></button>
+      <button class="tbtn cycle" id="btnCycle" title="循環 (C)"><svg viewBox="0 0 16 16"><path d="M4 5h7V3l3 3-3 3V7H4a1 1 0 00-1 1v1H1V8a3 3 0 013-3zm8 6H5v2l-3-3 3-3v2h7a1 1 0 001-1V7h2v1a3 3 0 01-3 3z"/></svg></button>
+    </div>
+    <div class="lcd" id="lcd">
+      <div class="cell"><span class="lbl">小節　拍</span><span class="big" id="lcdBars">  1 1 1   1</span></div>
+      <div class="cell"><span class="lbl">時間</span><span class="big" id="lcdTime">00:00.000</span></div>
+      <div class="cell"><span class="lbl">速度</span><input id="bpm" type="number" min="30" max="300" step="1" value="120" aria-label="BPM"></div>
+      <div class="cell"><span class="lbl">拍號</span><select id="sig" aria-label="拍號"><option>2/4</option><option>3/4</option><option selected>4/4</option><option>5/4</option><option>6/4</option><option>7/4</option></select></div>
+    </div>
+    <div class="group">
+      <button class="tbtn metro" id="btnMetro" title="節拍器 (K)"><svg viewBox="0 0 16 16"><path d="M6 1h4l3 14H3zm1.6 2L5.5 13h5L8.4 3zM8 6l4-3 .6.8L8.6 7z"/></svg></button>
+      <button class="tbtn countin" id="btnCountIn" title="錄音前預備一小節">1234</button>
+      <button class="tbtn snap" id="btnSnap" title="對齊格線 (G)">對齊</button>
+      <button class="tbtn typing" id="btnTyping" title="用電腦鍵盤彈奏選取的 MIDI 軌 (Caps Lock 或 Ctrl+K)：A–; 白鍵、W E T Y U O P 黑鍵、Z/X 換八度、C/V 力度"><svg viewBox="0 0 16 16"><path d="M1 4h14v8H1zm1.5 1.5v5h1.6V8.2h.8v2.3h1.6V8.2h.8v2.3h1.6V8.2h.8v2.3h1.6V8.2h.8v2.3h1.4v-5z"/></svg></button>
+      <span class="midi-led" id="midiLed" title="MIDI 輸入"></span>
+    </div>
+    <div class="spacer"></div>
+    <span class="privacy" title="這個頁面的安全政策禁止對外連線（connect-src 'none'）。音檔、錄音與專案只存在你的電腦與瀏覽器裡。">🔒<span class="pv-text"> 不上傳雲端</span></span>
+    <span class="saveinfo" id="saveInfo"></span>
+    <div class="group">
+      <button class="tbtn ghost vb" id="btnInspector" title="檢閱器 (I)"><i>☰</i><span>檢閱器</span></button>
+      <button class="tbtn ghost vb" id="btnMixer" title="混音台 (X)"><i>⫼</i><span>混音台</span></button>
+      <button class="tbtn ghost vb" id="btnPiano" title="鋼琴捲簾 (P)：編輯選取的 MIDI 片段"><i>♪</i><span>鋼琴捲簾</span></button>
+      <button class="tbtn ghost vb" id="btnMaster" title="母帶處理與響度表 (Shift+M)"><i>◎</i><span>母帶</span></button>
+      <button class="tbtn primary" id="btnExport" title="輸出 (Ctrl+E)">輸出</button>
+    </div>
+  </header>
+
+  <div class="main" id="main">
+    <aside class="inspector" id="inspector"></aside>
+    <section class="arrange" id="arrange">
+      <div class="corner">
+        <button class="tbtn" id="btnAddTrack" title="新增音訊軌">＋ 音訊</button>
+        <button class="tbtn" id="btnAddMidi" title="新增 MIDI 軌">＋ MIDI</button>
+        <button class="tbtn auto" id="btnAuto" title="顯示／編輯自動化曲線 (A)">自動化</button>
+        <div class="spacer"></div>
+        <button class="tbtn ghost" id="btnZoomOut" title="縮小 (-)">−</button>
+        <button class="tbtn ghost" id="btnZoomIn" title="放大 (=)">＋</button>
+      </div>
+      <div class="ruler-wrap" id="rulerWrap"><canvas id="ruler"></canvas><div class="loopbar" id="loopbar"></div><div class="playhead-cap" id="phCap"></div></div>
+      <div class="headers" id="headers"><div class="headers-inner" id="headersInner"></div></div>
+      <div class="lanes" id="lanes">
+        <div class="lanes-inner" id="lanesInner">
+          <div class="playhead" id="playhead"></div>
+        </div>
+        <div class="empty-hint" id="emptyHint">把音檔<b>拖進音訊軌</b>，或按某一軌的 <b>R</b> 再按 <b>錄音</b><br>在 <b>MIDI 軌</b>（♪）上<b>雙擊</b>新增片段，用鋼琴捲簾或 MIDI 鍵盤編曲<br>空白鍵播放・Ctrl+S 存到你自己的電腦</div>
+      </div>
+    </section>
+  </div>
+
+  <section class="mixer hidden" id="mixer"></section>
+  <section class="pianoroll hidden" id="pianoroll"></section>
+  <section class="master-panel hidden" id="masterPanel"></section>
+
+  <footer class="statusbar">
+    <span id="stEngine">音訊引擎：尚未啟動（按任何播放或錄音鍵啟動）</span>
+    <span>輸入 <span class="imeter"><i id="inMeter"></i></span> <select id="inputSel" class="tbtn ghost" style="height:20px;padding:0 4px;max-width:200px"><option value="">預設麥克風</option></select></span>
+    <span id="stLatency"></span>
+    <div class="spacer"></div>
+    <span><kbd>空白</kbd> 播放 <kbd>R</kbd> 錄音 <kbd>Ctrl+T</kbd> 切開 <kbd>Del</kbd> 刪除 <kbd>Ctrl+Z</kbd> 復原</span>
+  </footer>
+</div>
+
+<dialog id="dlgExport">
+  <form method="dialog">
+    <header>輸出音訊 <span style="color:var(--tx2);font-weight:400">在你的電腦上算圖，不經過伺服器</span></header>
+    <div class="dbody">
+      <div class="seg">
+        <label><input type="radio" name="mode" value="mix" checked>整首混音</label>
+        <label><input type="radio" name="mode" value="stems">分軌 Stems（.zip）</label>
+      </div>
+      <label class="f">格式
+        <select name="format">
+          <option value="wav">WAV（無損，最通用）</option>
+          <option value="flac">FLAC（無損，約小 30–50%）</option>
+          <option value="mp3">MP3（有損，檔案最小）</option>
+          <option value="mid">MIDI（.mid，只含 MIDI 軌的音符）</option>
+        </select>
+      </label>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <label class="f" id="fBitDepth">位元深度
+          <select name="bitDepth"><option value="16">16-bit（CD）</option><option value="24" selected>24-bit</option><option value="32">32-bit float（只有 WAV）</option></select>
+        </label>
+        <label class="f" id="fBitrate" hidden>位元率
+          <select name="kbps"><option value="128">128 kbps</option><option value="192">192 kbps</option><option value="256">256 kbps</option><option value="320" selected>320 kbps</option></select>
+        </label>
+        <label class="f">取樣率
+          <select name="sampleRate"><option value="44100">44.1 kHz</option><option value="48000" selected>48 kHz</option><option value="96000">96 kHz</option></select>
+        </label>
+      </div>
+      <label class="f">範圍
+        <select name="range"><option value="all">整個專案（到最後一個片段）</option><option value="loop">循環區間</option></select>
+      </label>
+      <label style="display:flex;gap:8px;align-items:center;color:var(--tx1)"><input type="checkbox" name="normalize"> 峰值正規化到 −1 dBFS（只用於整首混音；母帶開啟時不需要）</label>
+      <label style="display:flex;gap:8px;align-items:center;color:var(--tx1)"><input type="checkbox" name="stemMaster"> 分軌也套用母帶處理（一般不建議：分軌要交給別人混音時應該保持原樣）</label>
+      <p class="note" id="exportNote"></p>
+    </div>
+    <footer><button class="tbtn ghost" value="cancel">取消</button><button class="tbtn primary" value="ok" id="exportGo">開始輸出</button></footer>
+  </form>
+</dialog>
+
+<dialog id="dlgBanks" class="wide">
+  <form method="dialog">
+    <header>音色庫（SoundFont）<span style="color:var(--tx2);font-weight:400">檔案由你自己下載，網頁只在這台電腦讀取</span></header>
+    <div class="dbody">
+      <div class="bank-drop" id="bankDrop">
+        <strong>把 .sf2 檔拖到這裡，或</strong> <button type="button" class="tbtn primary" id="bankPick">從電腦選擇 .sf2…</button>
+        <p class="note">讀取後會存在這個瀏覽器（IndexedDB），下次打開不用重選。不會上傳到任何地方。</p>
+      </div>
+      <div>
+        <h4 class="bank-h">已載入</h4>
+        <div id="bankList" class="bank-list"></div>
+        <p class="note" id="bankStorage"></p>
+      </div>
+      <div>
+        <h4 class="bank-h">推薦的免費音色庫</h4>
+        <div id="bankRec" class="bank-rec"></div>
+        <p class="note">請到各自的官方網站下載 <b>.sf2</b>（不支援 .sf3 壓縮格式）。下載後用上面的按鈕選取即可。<br>載入後到 MIDI 軌的檢閱器「音色」選單裡，就能選到音色庫裡的樂器。</p>
+      </div>
+    </div>
+    <footer><button class="tbtn primary" value="close">完成</button></footer>
+  </form>
+</dialog>
+
+<dialog id="dlgRestore">
+  <form method="dialog">
+    <header>找到上次的工作進度</header>
+    <div class="dbody"><p class="note" id="restoreNote"></p></div>
+    <footer><button class="tbtn ghost" value="discard">捨棄，開新專案</button><button class="tbtn primary" value="restore">還原</button></footer>
+  </form>
+</dialog>
+
+<dialog id="dlgSettings">
+  <form method="dialog">
+    <header>錄音延遲校正</header>
+    <div class="dbody">
+      <p class="note">錄好的聲音如果總是比節拍<b>晚一點</b>，把數值調大；比節拍<b>早</b>就調小。瀏覽器回報的延遲已自動扣除，這裡只是額外微調。藍牙耳機的延遲通常有 150 ms 以上，錄音時請改用有線耳機。</p>
+      <label class="f">額外延遲補償（毫秒）<input type="number" name="latency" min="-200" max="500" step="1"></label>
+    </div>
+    <footer><button class="tbtn ghost" value="cancel">取消</button><button class="tbtn primary" value="ok">套用</button></footer>
+  </form>
+</dialog>
+
+<input type="file" id="fileAudio" accept="audio/*,.wav,.mp3,.flac,.ogg,.m4a,.aac" multiple hidden>
+<input type="file" id="fileMidi" accept=".mid,.midi,audio/midi" hidden>
+<input type="file" id="fileSf2" accept=".sf2" multiple hidden>
+<div id="toast" role="status" aria-live="polite"></div>
+<div class="busy" id="busy"><div id="busyText">處理中…</div></div>
+<div class="unsupported" id="unsupported">這個瀏覽器不支援 Web Audio 所需的功能。<br>請改用桌機版 Chrome 或 Edge 開啟。</div>
+</body>
+</html>

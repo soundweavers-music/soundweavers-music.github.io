@@ -535,6 +535,7 @@ def site_header(page_path):
           <a href="{resolve_url(page_path, '/tools/fretboard/')}">🎸 世界樂器指版和弦圖</a>
           <a href="{resolve_url(page_path, '/chord-detection/')}">🎼 自動抓和弦 (beta)</a>
           <a href="{resolve_url(page_path, '/tools/lrc/')}">📝 LRC 動態歌詞工作室</a>
+          <a href="{resolve_url(page_path, '/tools/daw/')}">🎚️ 織音線上編曲製作 (beta)</a>
           <a href="{resolve_url(page_path, '/experience/')}">🎹 世界樂器體驗</a>
         </div>
       </div>
@@ -829,6 +830,10 @@ def build_index(instruments):
           <a class="featured-card" href="{resolve_url(index_path, '/tools/lrc/')}" style="background:linear-gradient(135deg,#eef6ff,#dbeafe);border:1px solid #bfdbfe;">
             <strong>📝 LRC 動態歌詞工作室</strong>
             <span>邊聽邊打時間碼，自動偵測句與句的停頓先排好初稿，輸出 .lrc 或 .srt</span>
+          </a>
+          <a class="featured-card" href="{resolve_url(index_path, '/tools/daw/')}" style="background:linear-gradient(135deg,#1f2937,#111827);border:1px solid #374151;color:#e5e7eb;">
+            <strong>🎚️ 織音線上編曲製作 (beta)</strong>
+            <span>瀏覽器裡的多軌錄音與混音，16 軌起跳、可存專案與輸出 WAV；音檔不會上傳雲端</span>
           </a>
           <a class="featured-card" href="{resolve_url(index_path, '/experience/')}" style="background:linear-gradient(135deg,#f5f0ff,#ebe0ff);border:1px solid #d5c5fd;">
             <strong>🎹 世界樂器體驗</strong>
@@ -2005,7 +2010,7 @@ def build_sitemap(instruments):
                  "/countries/", "/ensembles/", "/subcategories/", "/map/",
                  "/about/", "/theory/", "/vocal/", "/digitalmusic/",
                  "/sound-journey/", "/experience/", "/contact/",
-                 "/chord-detection/", "/tools/fretboard/", "/tools/lrc/",
+                 "/chord-detection/", "/tools/fretboard/", "/tools/lrc/", "/tools/daw/",
                  "/learn/", "/about/author/", "/about/works/", "/recruit/", "/mandolin/",
                  "/guitar/", "/ukulele/"]:
         urls.append(u(path))
@@ -3008,6 +3013,35 @@ def build_lrc_tool():
     ))
 
 
+def build_daw_tool():
+    """Build 織音線上編曲製作 (browser DAW) at /tools/daw/.
+
+    Unlike the other tools this page is NOT wrapped with ``page()``: a DAW
+    needs the whole viewport, so it ships as a full-screen app with its own
+    ``<head>``. The source dir ``daw-studio/`` (index.html + daw.css + js/
+    ES modules) is copied as-is; only the ``../`` links, which are relative
+    to the source dir, are rewritten for the deeper /tools/daw/ location.
+
+    Its CSP is ``connect-src 'none'`` — the page cannot reach any server,
+    which is what backs the "不上傳雲端" promise on the page.
+    """
+    src_dir = BASE_DIR / "daw-studio"
+    if not src_dir.exists():
+        return
+    page_dir = OUTPUT_DIR / "tools" / "daw"
+    if page_dir.exists():
+        shutil.rmtree(page_dir)
+    # 底線開頭的是本機測試頁（_selftest*.html 等），不發佈
+    shutil.copytree(str(src_dir), str(page_dir), ignore=shutil.ignore_patterns("_*"))
+    out = page_dir / "index.html"
+    html = (src_dir / "index.html").read_text(encoding="utf-8")
+    for attr in ("href", "src"):
+        html = html.replace(f'{attr}="../assets/', f'{attr}="{resolve_url(out, "/assets/").rstrip("/")}/')
+    html = html.replace('href="../"', f'href="{resolve_url(out, "/")}"')
+    html = html.replace("<!--CANONICAL-->", f'<link rel="canonical" href="{canonical_for(out)}">')
+    write(out, html)
+
+
 def build_experience_page():
     """/tools/experience/ is the old address of 世界樂器體驗; redirect it to /experience/.
 
@@ -3055,6 +3089,7 @@ def main():
     build_fretboard_tool()
     build_chord_detection_tool()
     build_lrc_tool()
+    build_daw_tool()
     build_experience_page()
     # Copy sitemap and robots.txt to project root for local development
     shutil.copy2(OUTPUT_DIR / "sitemap.xml", BASE_DIR / "sitemap.xml")
