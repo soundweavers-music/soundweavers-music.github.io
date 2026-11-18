@@ -2,7 +2,9 @@
 // owner：軌道 id、'bus0' / 'bus1'、'master'
 import { store } from './state.js';
 import { engine } from './engine.js';
-import { FX_TYPES, FX_ORDER, MAX_INSERTS, newFx, fmtParam, buildFx } from './effects.js';
+import { FX_TYPES, FX_ORDER, MAX_INSERTS, newFx, fmtParam } from './effects.js';
+import { presetsFor } from './fx-presets.js';
+import { eqEditor } from './eq-editor.js';
 import { showMenu } from './menu.js';
 import { toast, fmtDb } from './util.js';
 
@@ -79,6 +81,7 @@ let panel = null, panelOwner = null, panelFx = null, raf = 0;
 
 function closeFxPanelIf(id) { if (panelFx === id) closeFxPanel(); }
 export function closeFxPanel() {
+  if (panel?._eq?._dispose) panel._eq._dispose();
   if (panel) panel.remove();
   panel = null; panelOwner = null; panelFx = null;
   cancelAnimationFrame(raf);
@@ -92,18 +95,29 @@ export function openFxPanel(owner, fxId) {
   closeFxPanel();
   panelOwner = owner; panelFx = fxId;
   const T = FX_TYPES[d.type];
+  const presets = presetsFor(d.type);
   panel = document.createElement('div');
-  panel.className = 'fx-panel';
+  panel.className = 'fx-panel' + (d.type === 'eq' ? ' wide' : '');
   panel.innerHTML = `
     <div class="fx-head"><span class="fx-title">${T.name}</span><span class="fx-owner"></span>
-      <button class="tbtn ghost fx-onoff">${d.on ? '啟用中' : '已停用'}</button><button class="tbtn ghost fx-x" title="關閉">✕</button></div>
+      <button class="tbtn ghost fx-onoff">${d.on ? '啟用中' : '已停用'}</button><button class="tbtn ghost fx-x" title="關閉 (Esc)">✕</button></div>
+    ${presets.length ? `<div class="fx-presets"><select class="fx-pre"><option value="">預設值…</option>${
+      [...new Set(presets.map(x => x.group))].map(g => `<optgroup label="${g}">${presets.map((x, i) => x.group === g ? `<option value="${i}">${x.name}</option>` : '').join('')}</optgroup>`).join('')
+    }</select><span class="fx-tip"></span></div>` : ''}
+    <div class="fx-custom"></div>
     <canvas class="fx-viz" height="90"></canvas>
     <div class="fx-params"></div>
-    ${d.type === 'gate' ? '<p class="fx-note">噪音閘只在即時播放與錄音監聽時作用；輸出檔案時會略過（瀏覽器的離線算圖沒有辦法做門檻開關）。</p>' : ''}`;
+    ${d.type === 'gate' ? '<p class="fx-note">噪音閘只在即時播放與錄音監聽時作用；輸出檔案時會略過（瀏覽器的離線算圖沒有辦法做門檻開關）。</p>' : ''}
+    ${d.type === 'eq' ? '<p class="fx-note">拖曳圓點：左右改頻率、上下改增益；滾輪改 Q；雙擊歸零或開關。按住 Shift 微調。播放時背景顯示即時頻譜（灰 = 處理前、彩色 = 處理後）。</p>' : ''}
+    ${d.type === 'deess' ? '<p class="fx-note">打開「只聽齒音」，邊播放邊調「齒音頻率」，找到最刺耳的位置後再關掉。衰減量通常 3–8 dB 就夠，壓太多會像大舌頭。</p>' : ''}`;
   panel.querySelector('.fx-owner').textContent = ownerName(owner) || '';
   document.body.appendChild(panel);
   if (keepPos) Object.assign(panel.style, keepPos);
-  else { panel.style.left = Math.max(10, innerWidth / 2 - 210) + 'px'; panel.style.top = Math.max(70, innerHeight / 2 - 220) + 'px'; }
+  else {
+    const w = d.type === 'eq' ? 640 : 420;
+    panel.style.left = Math.max(10, innerWidth / 2 - w / 2) + 'px';
+    panel.style.top = Math.max(60, innerHeight / 2 - (d.type === 'eq' ? 280 : 220)) + 'px';
+  }
   panel.querySelector('.fx-x').onclick = closeFxPanel;
   panel.querySelector('.fx-onoff').onclick = () => { store.checkpoint(); d.on = !d.on; store.changed('fx'); openFxPanel(owner, fxId); };
   // 拖曳標題列移動視窗
@@ -116,11 +130,42 @@ export function openFxPanel(owner, fxId) {
     const up = () => { head.removeEventListener('pointermove', mv); head.removeEventListener('pointerup', up); };
     head.addEventListener('pointermove', mv); head.addEventListener('pointerup', up);
   });
+  // 預設值
+  const pre = panel.querySelector('.fx-pre');
+  if (pre) {
+    pre.addEventListener('keydown', e => e.stopPropagation());
+    pre.onchange = () => {
+      const x = presets[Number(pre.value)];
+      if (!x) return;
+      store.checkpoint();
+      d.params = structuredClone(x.params);
+      d.on = true;
+      store.changed('fx');
+      openFxPanel(owner, fxId);
+      const p2 = panel.querySelector('.fx-pre'); if (p2) p2.value = pre.value;
+      const tip = panel.querySelector('.fx-tip'); if (tip) tip.textContent = x.tip || '';
+    };
+  }
 
   const box = panel.querySelector('.fx-params');
+  if (T.custom === 'eq') {
+    const ed = eqEditor(owner, d, live => { store.dirty = true; if (live) store.emit('fx-live', {}); else store.changed('fx'); });
+    panel.querySelector('.fx-custom').appendChild(ed);
+    panel._eq = ed;
+    panel._params = d.params; panel._on = d.on;
+  }
   for (const [k, def] of Object.entries(T.params)) {
+    if (T.custom === 'eq') break;   // EQ 的輸出增益在編輯器裡
     const row = document.createElement('label');
     row.className = 'fx-row';
+    if (def.choices) {
+      row.innerHTML = `<span class="fx-lbl">${def.label}</span><select>${def.choices.map((c, i) => `<option value="${i}"${i === d.params[k] ? ' selected' : ''}>${c}</option>`).join('')}</select><span class="fx-val"></span>`;
+      const sel = row.querySelector('select');
+      sel.addEventListener('keydown', e => e.stopPropagation());
+      sel.onchange = () => { store.checkpoint(); d.params[k] = Number(sel.value); store.changed('fx'); };
+      box.appendChild(row);
+      continue;
+    }
     const toPos = v => (def.log ? Math.log(v / def.min) / Math.log(def.max / def.min) : (v - def.min) / (def.max - def.min));
     const fromPos = t => {
       let v = def.log ? def.min * Math.pow(def.max / def.min, t) : def.min + t * (def.max - def.min);
@@ -146,74 +191,75 @@ export function openFxPanel(owner, fxId) {
     box.appendChild(row);
   }
   const cv = panel.querySelector('.fx-viz');
-  if (d.type === 'eq' || d.type === 'comp') drawLoop(cv, owner, d);
+  if (d.type === 'comp' || d.type === 'deess') drawLoop(cv, owner, d);
   else cv.style.display = 'none';
 }
 
-// EQ 曲線／壓縮器 GR 表
+// 壓縮器／去齒音：左邊轉移曲線（輸入 → 輸出），右邊增益衰減的歷史波形
 function drawLoop(cv, owner, d) {
   const dpr = devicePixelRatio || 1;
-  const W = cv.clientWidth || 400, H = 90;
+  const W = cv.clientWidth || 400, H = 110;
+  cv.style.height = H + 'px';
   cv.width = W * dpr; cv.height = H * dpr;
   const g = cv.getContext('2d'); g.setTransform(dpr, 0, 0, dpr, 0, 0);
-  const freqs = new Float32Array(200);
-  for (let i = 0; i < 200; i++) freqs[i] = 20 * Math.pow(1000, i / 199);
-  let grHold = 0;
-  let previewCtx = null, previewEq = null;
+  const hist = new Float32Array(Math.max(60, Math.floor(W - 130)));
+  let hi = 0, grHold = 0;
   const frame = () => {
     if (!panel || panelFx !== d.id) return;
-    g.clearRect(0, 0, W, H);
-    g.fillStyle = '#0d0e10'; g.fillRect(0, 0, W, H);
-    let inst = engine.ctx && engine.fxInstance(owner, d.id);
-    // 引擎還沒啟動（或效果器停用中）：用一個離線 context 建一份同參數的 EQ 來算頻率響應
-    if (d.type === 'eq' && !inst) {
-      if (!previewCtx) previewCtx = new OfflineAudioContext(1, 128, 48000);
-      if (!previewEq) previewEq = buildFx(previewCtx, d);
-      previewEq.set(d.params);
-      inst = previewEq;
-    }
-    if (d.type === 'eq') {
-      g.strokeStyle = '#2a2c31';
-      for (const f of [50, 100, 200, 500, 1000, 2000, 5000, 10000]) { const x = Math.log(f / 20) / Math.log(1000) * W; g.beginPath(); g.moveTo(x, 0); g.lineTo(x, H); g.stroke(); }
-      for (const db of [-12, 0, 12]) { const y = H / 2 - db / 36 * H; g.beginPath(); g.moveTo(0, y); g.lineTo(W, y); g.stroke(); }
-      g.fillStyle = '#7d818b'; g.font = '9px sans-serif';
-      for (const [f, s] of [[100, '100'], [1000, '1k'], [10000, '10k']]) g.fillText(s, Math.log(f / 20) / Math.log(1000) * W + 2, H - 3);
-      if (inst?.response) {
-        const mag = inst.response(freqs);
-        g.beginPath();
-        for (let i = 0; i < 200; i++) {
-          const db = 20 * Math.log10(Math.max(1e-6, mag[i]));
-          const x = i / 199 * W, y = H / 2 - Math.max(-18, Math.min(18, db)) / 36 * H;
-          i ? g.lineTo(x, y) : g.moveTo(x, y);
-        }
-        g.strokeStyle = d.on ? '#4f9dff' : '#555'; g.lineWidth = 2; g.stroke(); g.lineWidth = 1;
-        g.lineTo(W, H / 2); g.lineTo(0, H / 2); g.closePath(); g.fillStyle = d.on ? 'rgba(79,157,255,.15)' : 'rgba(90,90,90,.1)'; g.fill();
-      } else { g.fillStyle = '#7d818b'; g.fillText('按播放後顯示頻率響應', 10, 20); }
-    } else {
-      // 壓縮量：上方的紅條（0 ~ -24 dB）＋ 轉移曲線
-      const gr = inst?.reduction ? -inst.reduction() : 0;
-      grHold = Math.max(gr, grHold * 0.9);
-      const x0 = W - 120;
-      g.strokeStyle = '#2a2c31'; g.strokeRect(10.5, 10.5, 80, 70);
-      const P = d.params;
+    const bg = g.createLinearGradient(0, 0, 0, H); bg.addColorStop(0, '#12141a'); bg.addColorStop(1, '#0a0b0e');
+    g.fillStyle = bg; g.fillRect(0, 0, W, H);
+    const inst = engine.ctx && engine.fxInstance(owner, d.id);
+    const P = d.params;
+    const gr = inst?.reduction ? -inst.reduction() : 0;
+    grHold = Math.max(gr, grHold * 0.88);
+    hist[hi = (hi + 1) % hist.length] = gr;
+    // 轉移曲線（只對壓縮器）
+    const S = H - 16, X0 = 10, Y0 = 8;
+    g.strokeStyle = 'rgba(255,255,255,.08)'; g.strokeRect(X0 + .5, Y0 + .5, S, S);
+    g.beginPath(); g.moveTo(X0, Y0 + S); g.lineTo(X0 + S, Y0); g.strokeStyle = 'rgba(255,255,255,.08)'; g.stroke();
+    if (d.type === 'comp') {
       g.beginPath();
-      for (let i = 0; i <= 80; i++) {
-        const inDb = -60 + i / 80 * 60;
+      for (let i = 0; i <= S; i++) {
+        const inDb = -60 + i / S * 60;
+        const k = P.knee / 2;
         let outDb = inDb;
-        if (inDb > P.threshold) outDb = P.threshold + (inDb - P.threshold) / P.ratio;
+        if (inDb > P.threshold + k) outDb = P.threshold + (inDb - P.threshold) / P.ratio;
+        else if (inDb > P.threshold - k && k > 0) { const x = inDb - P.threshold + k; outDb = inDb + (1 / P.ratio - 1) * x * x / (4 * k); }
         outDb += P.makeup;
-        const y = 80 - (outDb + 60) / 60 * 70;
-        i ? g.lineTo(10 + i, Math.max(10, y)) : g.moveTo(10, y);
+        const y = Y0 + S - (outDb + 60) / 60 * S;
+        i ? g.lineTo(X0 + i, Math.max(Y0, y)) : g.moveTo(X0, y);
       }
-      g.strokeStyle = '#f5b83d'; g.stroke();
-      g.fillStyle = '#7d818b'; g.font = '10px sans-serif';
-      g.fillText('增益衰減', x0 - 60, 24);
-      g.fillStyle = '#16171a'; g.fillRect(x0, 14, 110, 12);
-      g.fillStyle = '#ff6b6b'; g.fillRect(x0, 14, Math.min(110, grHold / 24 * 110), 12);
-      g.fillStyle = '#e9eaee'; g.font = '12px ui-monospace, Consolas';
-      g.fillText(`-${grHold.toFixed(1)} dB`, x0, 50);
-      if (!inst) { g.fillStyle = '#7d818b'; g.font = '10px sans-serif'; g.fillText('播放時顯示即時壓縮量', x0 - 60, 74); }
+      const cg = g.createLinearGradient(X0, 0, X0 + S, 0); cg.addColorStop(0, '#35c9a5'); cg.addColorStop(1, '#f5b83d');
+      g.strokeStyle = cg; g.lineWidth = 2; g.stroke(); g.lineWidth = 1;
+      const tx = X0 + (P.threshold + 60) / 60 * S;
+      g.setLineDash([3, 3]); g.strokeStyle = 'rgba(245,184,61,.5)'; g.beginPath(); g.moveTo(tx, Y0); g.lineTo(tx, Y0 + S); g.stroke(); g.setLineDash([]);
+    } else {
+      // 去齒音：左邊畫偵測頻段的位置（對數頻率軸 1k–16k）
+      g.fillStyle = '#7d818b'; g.font = '10px sans-serif'; g.fillText('偵測頻段', X0 + 6, Y0 + 14);
+      const fx2 = f => X0 + Math.log(f / 1000) / Math.log(16) * S;
+      const lo = P.freq / Math.pow(2, P.range / 2), hi2 = P.freq * Math.pow(2, P.range / 2);
+      const bandG = g.createLinearGradient(fx2(lo), 0, fx2(hi2), 0); bandG.addColorStop(0, 'rgba(245,184,61,0)'); bandG.addColorStop(0.5, 'rgba(245,184,61,.55)'); bandG.addColorStop(1, 'rgba(245,184,61,0)');
+      g.fillStyle = bandG; g.fillRect(fx2(lo), Y0 + 20, fx2(hi2) - fx2(lo), S - 34);
+      g.fillStyle = '#f5b83d'; g.font = '11px ui-monospace'; g.fillText(`${(P.freq / 1000).toFixed(1)}k`, Math.max(X0 + 2, fx2(P.freq) - 12), Y0 + S - 4);
+      g.fillStyle = 'rgba(255,255,255,.3)'; g.font = '9px ui-monospace';
+      for (const [f, l] of [[2000, '2k'], [4000, '4k'], [8000, '8k']]) g.fillText(l, fx2(f) - 6, Y0 + S - 16);
     }
+    // 衰減量歷史（紅色由上往下）
+    const hx = X0 + S + 16, hw = W - hx - 10;
+    g.fillStyle = 'rgba(255,255,255,.03)'; g.fillRect(hx, Y0, hw, S);
+    const grad = g.createLinearGradient(0, Y0, 0, Y0 + S); grad.addColorStop(0, 'rgba(255,107,107,.85)'); grad.addColorStop(1, 'rgba(255,107,107,.2)');
+    g.fillStyle = grad;
+    const n = hist.length;
+    for (let i = 0; i < n; i++) {
+      const v = hist[(hi + 1 + i) % n];
+      if (v <= 0.05) continue;
+      const x = hx + i / n * hw;
+      g.fillRect(x, Y0, Math.max(1, hw / n), Math.min(S, v / 18 * S));
+    }
+    for (const db of [3, 6, 12]) { const y = Y0 + db / 18 * S; g.strokeStyle = 'rgba(255,255,255,.06)'; g.beginPath(); g.moveTo(hx, y); g.lineTo(hx + hw, y); g.stroke(); g.fillStyle = 'rgba(255,255,255,.3)'; g.font = '9px ui-monospace'; g.fillText(`-${db}`, hx + hw - 18, y - 2); }
+    g.fillStyle = '#e9eaee'; g.font = '13px ui-monospace, Consolas';
+    g.fillText(grHold < 0.05 ? '0.0 dB' : `−${grHold.toFixed(1)} dB`, hx + 6, Y0 + 16);
+    if (!engine.playing) { g.fillStyle = '#7d818b'; g.font = '10px sans-serif'; g.fillText('播放時顯示即時衰減量', hx + 6, Y0 + S - 6); }
     raf = requestAnimationFrame(frame);
   };
   frame();
@@ -260,7 +306,10 @@ store.on('change', ({ kind }) => {
   const list = ownerList(panelOwner);
   if (!list || !list.find(x => x.id === panelFx)) { closeFxPanel(); return; }
   if (kind === 'structure' || kind === 'fx') {
-    // 只在形狀/啟用狀態改變時重開；拖曳中的 change 事件不要把 slider 換掉
+    const d = list.find(x => x.id === panelFx);
+    // 參數物件被換掉了（undo、套用預設值）：要重開；否則 EQ 只刷新數值，不重建畫布
+    if (panel._eq && panel._params === d.params && panel._on === d.on) { panel._eq._refresh(); return; }
+    // 拖曳中的 change 事件不要把 slider 換掉
     if (!panel.matches(':active')) openFxPanel(panelOwner, panelFx);
   }
 });

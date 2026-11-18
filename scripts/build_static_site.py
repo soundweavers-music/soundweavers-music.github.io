@@ -2007,7 +2007,7 @@ def build_sitemap(instruments):
                  "/countries/", "/ensembles/", "/subcategories/", "/map/",
                  "/about/", "/theory/", "/vocal/", "/digitalmusic/",
                  "/sound-journey/", "/experience/", "/contact/",
-                 "/chord-detection/", "/tools/fretboard/", "/tools/lrc/", "/tools/daw/",
+                 "/chord-detection/", "/tools/", "/tools/fretboard/", "/tools/lrc/", "/tools/daw/", "/tools/daw/guide/",
                  "/learn/", "/about/author/", "/about/works/", "/recruit/", "/mandolin/",
                  "/guitar/", "/ukulele/"]:
         urls.append(u(path))
@@ -2512,7 +2512,25 @@ def build_about_page():
           <li><strong>{link('/chord-detection/', '自動抓和弦')}</strong>　上傳音檔，在瀏覽器裡分析和弦與調性，檔案不會離開你的電腦。</li>
           <li><strong>{link('/experience/', '世界樂器體驗')}</strong>　用虛擬鍵盤試聽各種樂器的音色與音域。</li>
           <li><strong>{link('/tools/lrc/', 'LRC 動態歌詞工作室')}</strong>　邊聽邊打時間碼，輸出 .lrc 或 .srt。</li>
+          <li><strong>{link('/tools/daw/', '織音線上編曲製作')}</strong>　免安裝的瀏覽器編曲軟體：多軌錄音、MIDI 編曲、效果器、混音、母帶與輸出。（{link('/tools/daw/guide/', '使用說明')}）</li>
         </ul>
+      </div>
+    </section>
+
+    <section class="about-section">
+      <h2>織音線上編曲製作</h2>
+      <div class="about-text">
+        <p>這是一套直接在瀏覽器裡執行的數位音訊工作站（DAW），介面參考專業編曲軟體的工作流程：上方是播放控制與小節時間顯示，中間是多軌時間軸，下方可以切換混音台、鋼琴捲簾與母帶面板。不需要安裝、不需要註冊。</p>
+        <p><strong>檔案不會上傳。</strong>這個頁面的安全政策直接禁止對外連線（Content-Security-Policy 的 <code>connect-src 'none'</code>），所以你的錄音、匯入的音檔與專案，在技術上就不可能離開你的電腦。專案存成 <code>.zyproj</code> 檔放在你自己的硬碟，瀏覽器另外會自動暫存一份，避免關掉分頁時遺失。</p>
+        <ul class="about-index">
+          <li><strong>多軌錄音與編輯</strong>　預設 16 軌，最多 32 軌；可錄麥克風、拖入本機音檔，切割、修剪、淡入淡出。</li>
+          <li><strong>MIDI 編曲</strong>　鋼琴捲簾、12 種內建合成音色與鼓組；可接 MIDI 鍵盤，也能載入你自己下載的 SoundFont（.sf2）音色庫。</li>
+          <li><strong>效果器</strong>　多段 EQ、壓縮、殘響、延遲、合唱、飽和度、去齒音、噪音閘，附常用預設值。</li>
+          <li><strong>混音與母帶</strong>　混音台、Send 匯流排、自動化曲線；母帶處理鏈附 LUFS 響度表與一鍵最佳化。</li>
+          <li><strong>人聲／伴奏分離</strong>　簡易版：利用人聲通常在正中央的特性分出人聲與伴奏，適合練唱或做卡拉 OK 伴奏。</li>
+          <li><strong>輸出</strong>　WAV、FLAC、MP3、分軌 zip 與 MIDI 檔。</li>
+        </ul>
+        <p>建議使用桌機版 Chrome 或 Edge。瀏覽器的錄音延遲比原生軟體高，錄音時請使用有線耳機。詳細操作請看{link('/tools/daw/guide/', '使用說明')}。</p>
       </div>
     </section>
 
@@ -2920,6 +2938,10 @@ def build_chord_detection_tool():
         '      <strong>📝 LRC 動態歌詞工作室</strong>\n'
         '      <span>邊聽邊打時間碼，自動偵測樂句停頓，輸出 .lrc 或 .srt</span>\n'
         '    </a>\n'
+        f'    <a class="featured-card" href="{site_url("/tools/daw/")}" style="background:linear-gradient(135deg,#1f2937,#111827);border:1px solid #374151;color:#e5e7eb;">\n'
+        '      <strong>🎚️ 織音線上編曲製作</strong>\n'
+        '      <span>抓好和弦之後，直接在瀏覽器裡編曲、錄音、混音並輸出</span>\n'
+        '    </a>\n'
         '  </div>\n'
         '</section>'
     )
@@ -2974,7 +2996,7 @@ def build_lrc_tool():
             main_content = raw[start:end].strip()
 
     # 來源檔放在 /lrc-studio/，但成品在 /tools/lrc/，所以「相關工具」的相對連結要重算
-    for target in ("/tools/fretboard/", "/chord-detection/", "/experience/"):
+    for target in ("/tools/fretboard/", "/chord-detection/", "/experience/", "/tools/daw/"):
         main_content = main_content.replace(
             f'href="..{target}"',
             f'href="{resolve_url(page_dir / "index.html", target)}"',
@@ -3028,8 +3050,8 @@ def build_daw_tool():
     page_dir = OUTPUT_DIR / "tools" / "daw"
     if page_dir.exists():
         shutil.rmtree(page_dir)
-    # 底線開頭的是本機測試頁（_selftest*.html 等），不發佈
-    shutil.copytree(str(src_dir), str(page_dir), ignore=shutil.ignore_patterns("_*"))
+    # 底線開頭的是本機測試頁（_selftest*.html 等），GUIDE.md 會另外轉成說明頁，都不原樣發佈
+    shutil.copytree(str(src_dir), str(page_dir), ignore=shutil.ignore_patterns("_*", "*.md"))
     out = page_dir / "index.html"
     html = (src_dir / "index.html").read_text(encoding="utf-8")
     for attr in ("href", "src"):
@@ -3037,6 +3059,102 @@ def build_daw_tool():
     html = html.replace('href="../"', f'href="{resolve_url(out, "/")}"')
     html = html.replace("<!--CANONICAL-->", f'<link rel="canonical" href="{canonical_for(out)}">')
     write(out, html)
+
+    # 使用說明：一般網站頁面（有導覽列，能回首頁）
+    guide_md = src_dir / "GUIDE.md"
+    if guide_md.exists():
+        gout = page_dir / "guide" / "index.html"
+        md = guide_md.read_text(encoding="utf-8")
+        # 第一行標題交給頁首 hero，內文從第二段開始
+        md = re.sub(r"^# .*\n", "", md, count=1)
+        md_html = markdown.markdown(md, extensions=["extra", "tables", "toc"], output_format="html5")
+        # 「開啟工具」那個連結在 Markdown 裡寫成 ../，指向 /tools/daw/
+        md_html = md_html.replace('href="../"', f'href="{resolve_url(gout, "/tools/daw/")}"')
+        toc = "".join(
+            f'<a href="#{m.group(1)}">{m.group(2)}</a>'
+            for m in re.finditer(r'<h2 id="([^"]+)">(.*?)</h2>', md_html)
+        )
+        body = f"""<main class="page daw-guide">
+  <section class="hero" style="padding-bottom:12px">
+    <p class="eyebrow">Tools · Browser DAW</p>
+    <h1>織音線上編曲製作　使用說明</h1>
+    <p class="lead">免安裝的瀏覽器編曲軟體：多軌錄音、MIDI 編曲、效果器、混音、母帶與輸出。所有音訊只在你的電腦上處理。</p>
+    <p><a class="btn btn-primary" href="{resolve_url(gout, '/tools/daw/')}">開啟織音線上編曲製作 →</a>
+       <a class="btn" href="{resolve_url(gout, '/tools/')}">全部工具</a></p>
+  </section>
+  <div class="daw-guide-wrap">
+    <nav class="daw-guide-toc" aria-label="目錄">{toc}</nav>
+    <article class="daw-guide-body">{md_html}</article>
+  </div>
+</main>"""
+        css = """<style>
+.daw-guide-wrap{display:grid;grid-template-columns:220px minmax(0,1fr);gap:32px;align-items:start;margin:8px 0 48px}
+.daw-guide-toc{position:sticky;top:84px;display:flex;flex-direction:column;gap:2px;font-size:14px;border-left:2px solid var(--line,#e5e0d8);padding-left:12px}
+.daw-guide-toc a{color:var(--muted,#6b6257);text-decoration:none;padding:3px 0}
+.daw-guide-toc a:hover{color:var(--accent,#a0522d)}
+.daw-guide-body{max-width:820px;line-height:1.85}
+.daw-guide-body h2{margin-top:2.2em;padding-top:.4em;border-top:1px solid var(--line,#e5e0d8)}
+.daw-guide-body h2:first-child{border-top:0;margin-top:0}
+.daw-guide-body table{width:100%;border-collapse:collapse;margin:1em 0;font-size:15px}
+.daw-guide-body th,.daw-guide-body td{border:1px solid var(--line,#e5e0d8);padding:7px 10px;text-align:left;vertical-align:top}
+.daw-guide-body th{background:var(--paper-2,#f6f2ec)}
+.daw-guide-body code{background:var(--paper-2,#f3efe8);padding:1px 5px;border-radius:4px;font-size:.92em}
+.daw-guide-body blockquote{margin:1em 0;padding:8px 14px;border-left:3px solid var(--accent,#a0522d);background:var(--paper-2,#f8f4ee)}
+@media (max-width:900px){.daw-guide-wrap{grid-template-columns:1fr}.daw-guide-toc{position:static;flex-direction:row;flex-wrap:wrap;gap:4px 12px;border-left:0;padding-left:0}}
+</style>"""
+        write(gout, page(
+            "織音線上編曲製作　使用說明", body, gout, extra_head=css,
+            meta_description="織音線上編曲製作的完整使用說明：錄音、MIDI 編曲、SoundFont 音色庫、效果器（EQ、壓縮、去齒音、飽和度）、混音、自動化、人聲伴奏分離、母帶與輸出。",
+            meta_keywords="DAW,線上編曲,瀏覽器編曲,錄音軟體,混音,母帶,LUFS,MIDI,SoundFont,人聲分離",
+        ))
+
+
+# 全站工具清單：/tools/ 總覽頁與各工具頁的「相關工具」都用這一份，新增工具只要改這裡
+TOOLS = [
+    ("/tools/daw/", "🎚️", "織音線上編曲製作", "beta", "免安裝的瀏覽器編曲軟體：16 軌起跳的多軌錄音、MIDI 編曲與音色庫、效果器、混音、母帶與輸出 WAV／FLAC／MP3。檔案不會上傳。", "/tools/daw/guide/"),
+    ("/chord-detection/", "🎼", "自動抓和弦", "beta", "上傳音檔自動分析節拍與和弦，簡譜式小節表可移調、標示 Capo、匯入 .lrc 歌詞。", None),
+    ("/tools/lrc/", "📝", "LRC 動態歌詞工作室", "", "邊聽邊打時間碼，自動偵測句與句的停頓先排好初稿，輸出 .lrc 或 .srt。", None),
+    ("/tools/fretboard/", "🎸", "世界樂器指版與和弦圖", "", "19 種彈撥樂器的調弦法、各調性和弦、指版音位圖與順階和弦。", None),
+    ("/experience/", "🎹", "世界樂器體驗", "", "用虛擬鍵盤試聽鋼琴、吉他、小提琴、琵琶等樂器的音色與音域。", None),
+]
+
+
+def build_tools_index():
+    """/tools/ — 全部工具的總覽頁（導覽列「工具」連到這裡）。"""
+    out = OUTPUT_DIR / "tools" / "index.html"
+    cards = []
+    for href, icon, name, badge, desc, guide in TOOLS:
+        extra = f'<a class="tool-guide" href="{resolve_url(out, guide)}">使用說明</a>' if guide else ""
+        cards.append(f"""<div class="tool-card">
+      <a class="tool-main" href="{resolve_url(out, href)}">
+        <span class="tool-icon">{icon}</span>
+        <strong>{name}{f' <span class="tool-badge">{badge}</span>' if badge else ''}</strong>
+        <span class="tool-desc">{desc}</span>
+      </a>{extra}
+    </div>""")
+    body = f"""<main class="page">
+  <section class="hero" style="padding-bottom:8px">
+    <p class="eyebrow">Tools</p>
+    <h1>工具</h1>
+    <p class="lead">可以直接在瀏覽器裡動手的音樂工具。全部在你的電腦上執行，音檔不會上傳。</p>
+  </section>
+  <section class="tool-grid">
+    {''.join(cards)}
+  </section>
+</main>"""
+    css = """<style>
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin:12px 0 56px}
+.tool-card{border:1px solid var(--line,#e5e0d8);border-radius:12px;background:var(--paper,#fff);display:flex;flex-direction:column;overflow:hidden;transition:box-shadow .15s,transform .15s}
+.tool-card:hover{box-shadow:0 8px 24px rgba(60,40,20,.10);transform:translateY(-2px)}
+.tool-main{display:flex;flex-direction:column;gap:8px;padding:20px;color:inherit;text-decoration:none;flex:1}
+.tool-icon{font-size:30px;line-height:1}
+.tool-main strong{font-size:18px}
+.tool-badge{font-size:11px;font-weight:600;border:1px solid currentColor;border-radius:999px;padding:0 7px;margin-left:4px;opacity:.7;vertical-align:2px}
+.tool-desc{color:var(--muted,#6b6257);line-height:1.7;font-size:14.5px}
+.tool-guide{border-top:1px solid var(--line,#e5e0d8);padding:10px 20px;font-size:14px;text-decoration:none}
+</style>"""
+    write(out, page("工具", body, out, extra_head=css,
+                    meta_description="世界聲音百科的線上音樂工具：瀏覽器編曲軟體、自動抓和弦、LRC 歌詞工作室、指版和弦圖、樂器體驗。全部在瀏覽器裡執行，檔案不上傳。"))
 
 
 def build_experience_page():
@@ -3087,6 +3205,7 @@ def main():
     build_chord_detection_tool()
     build_lrc_tool()
     build_daw_tool()
+    build_tools_index()
     build_experience_page()
     # Copy sitemap and robots.txt to project root for local development
     shutil.copy2(OUTPUT_DIR / "sitemap.xml", BASE_DIR / "sitemap.xml")

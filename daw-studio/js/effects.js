@@ -4,18 +4,67 @@
 import { uid } from './util.js';
 
 // 參數描述：給檢閱器自動產生旋鈕/滑桿
+// ---------- 8 段參數 EQ ----------
+// params = { bands: [{ on, type, freq, gain, q } × 8], output }
+export const EQ_BAND_TYPES = {
+  highpass: { label: '低切', gain: false, slope: true },
+  lowshelf: { label: '低架', gain: true },
+  peaking: { label: '峰值', gain: true },
+  notch: { label: '陷波', gain: false },
+  highshelf: { label: '高架', gain: true },
+  lowpass: { label: '高切', gain: false, slope: true },
+};
+// 每段的預設：頻段分佈接近一般硬體 EQ，預設全部 0 dB（只有低切/高切預設關閉）
+export const EQ_DEFAULT_BANDS = [
+  { on: false, type: 'highpass', freq: 40, gain: 0, q: 0.71 },
+  { on: true, type: 'lowshelf', freq: 100, gain: 0, q: 0.71 },
+  { on: true, type: 'peaking', freq: 250, gain: 0, q: 1 },
+  { on: true, type: 'peaking', freq: 700, gain: 0, q: 1 },
+  { on: true, type: 'peaking', freq: 2000, gain: 0, q: 1 },
+  { on: true, type: 'peaking', freq: 5000, gain: 0, q: 1 },
+  { on: true, type: 'highshelf', freq: 10000, gain: 0, q: 0.71 },
+  { on: false, type: 'lowpass', freq: 18000, gain: 0, q: 0.71 },
+];
+export const EQ_BAND_COLORS = ['#ff6b6b', '#ff9f5a', '#f5d33d', '#9bd35a', '#35c9a5', '#4f9dff', '#a78bfa', '#f78fc3'];
+
+// 舊版 3 段 EQ（lowGain/midGain/...）轉成 8 段
+export function migrateEqParams(p) {
+  if (p && Array.isArray(p.bands)) return p;
+  const b = EQ_DEFAULT_BANDS.map(x => ({ ...x }));
+  if (p) {
+    if (p.hpf > 21) { b[0].on = true; b[0].freq = p.hpf; }
+    b[1].freq = p.lowFreq ?? 100; b[1].gain = p.lowGain ?? 0;
+    b[3].freq = p.midFreq ?? 1000; b[3].gain = p.midGain ?? 0; b[3].q = p.midQ ?? 1;
+    b[6].freq = p.highFreq ?? 8000; b[6].gain = p.highGain ?? 0;
+  }
+  return { bands: b, output: 0 };
+}
+
 export const FX_TYPES = {
   eq: {
-    name: 'EQ 等化器', short: 'EQ',
+    name: 'EQ 等化器（8 段）', short: 'EQ', custom: 'eq',
     params: {
-      lowGain: { label: '低頻', min: -18, max: 18, step: 0.5, def: 0, unit: 'dB' },
-      lowFreq: { label: '低頻點', min: 40, max: 400, step: 1, def: 100, unit: 'Hz', log: true },
-      midGain: { label: '中頻', min: -18, max: 18, step: 0.5, def: 0, unit: 'dB' },
-      midFreq: { label: '中頻點', min: 200, max: 6000, step: 1, def: 1000, unit: 'Hz', log: true },
-      midQ: { label: '中頻 Q', min: 0.3, max: 8, step: 0.05, def: 1 },
-      highGain: { label: '高頻', min: -18, max: 18, step: 0.5, def: 0, unit: 'dB' },
-      highFreq: { label: '高頻點', min: 2000, max: 16000, step: 10, def: 8000, unit: 'Hz', log: true },
-      hpf: { label: '低切', min: 20, max: 500, step: 1, def: 20, unit: 'Hz', log: true },
+      output: { label: '輸出', min: -18, max: 18, step: 0.1, def: 0, unit: 'dB' },
+    },
+  },
+  deess: {
+    name: 'De-esser 去齒音', short: 'DeEss',
+    params: {
+      freq: { label: '齒音頻率', min: 3000, max: 12000, step: 50, def: 6500, unit: 'Hz', log: true },
+      range: { label: '頻寬', min: 0.5, max: 2.5, step: 0.1, def: 1.2, unit: '八度' },
+      threshold: { label: '門檻', min: -50, max: 0, step: 0.5, def: -28, unit: 'dB' },
+      amount: { label: '最多壓', min: 0, max: 18, step: 0.5, def: 8, unit: 'dB' },
+      listen: { label: '只聽齒音', min: 0, max: 1, step: 1, def: 0, toggle: true },
+    },
+  },
+  sat: {
+    name: 'Saturation 飽和度', short: 'Sat',
+    params: {
+      mode: { label: '特性', min: 0, max: 3, step: 1, def: 0, choices: ['磁帶', '真空管', '電晶體', '硬削波'] },
+      drive: { label: '驅動', min: 0, max: 30, step: 0.5, def: 6, unit: 'dB' },
+      tone: { label: '高頻', min: -12, max: 12, step: 0.5, def: 0, unit: 'dB' },
+      output: { label: '輸出', min: -24, max: 6, step: 0.5, def: 0, unit: 'dB' },
+      mix: { label: '濕度', min: 0, max: 100, step: 1, def: 100, unit: '%' },
     },
   },
   comp: {
@@ -73,14 +122,36 @@ export const FX_TYPES = {
     },
   },
 };
-export const FX_ORDER = ['eq', 'comp', 'reverb', 'delay', 'chorus', 'drive', 'gate'];
-export const MAX_INSERTS = 4;
+export const FX_ORDER = ['eq', 'comp', 'deess', 'sat', 'reverb', 'delay', 'chorus', 'drive', 'gate'];
+export const MAX_INSERTS = 6;
 
 export function newFx(type) {
   const T = FX_TYPES[type];
   const params = {};
   for (const [k, d] of Object.entries(T.params)) params[k] = d.def;
+  if (type === 'eq') params.bands = EQ_DEFAULT_BANDS.map(b => ({ ...b }));
   return { id: uid('fx'), type, on: true, params };
+}
+
+// 把飽和度曲線依特性產生（輸入 -1..1）
+function satCurve(mode, drive) {
+  const n = 4096, c = new Float32Array(n);
+  const k = Math.pow(10, drive / 20);
+  for (let i = 0; i < n; i++) {
+    const x = (i * 2 / (n - 1) - 1) * k;
+    let y;
+    switch (mode) {
+      case 0: { const b = 0.35; y = Math.tanh(x + b) - Math.tanh(b); break; }                           // 磁帶：柔和，偏壓帶來輕微偶次諧波（直流由後面的高通移除）
+      case 1: y = x >= 0 ? 1 - Math.exp(-x) : -(1 - Math.exp(x * 1.4)) / 1.4 * 1.2; break;             // 真空管：正負半波不對稱
+      case 2: y = x / Math.pow(1 + Math.pow(Math.abs(x), 2.5), 1 / 2.5); break;                          // 電晶體：比較硬的膝部
+      default: y = Math.max(-1, Math.min(1, x));                                                         // 硬削波
+    }
+    c[i] = y;
+  }
+  // 正規化：讓 0 dBFS 輸入的輸出峰值接近 1，增益補償交給 output
+  let pk = 0; for (const v of c) pk = Math.max(pk, Math.abs(v));
+  if (pk > 0) for (let i = 0; i < n; i++) c[i] /= pk;
+  return c;
 }
 
 const dbg = db => Math.pow(10, db / 20);
@@ -141,25 +212,136 @@ export function buildFx(ctx, desc, bpm = 120) {
   let fx;
   switch (desc.type) {
     case 'eq': {
-      const input = ctx.createGain();
-      const hp = ctx.createBiquadFilter(); hp.type = 'highpass'; hp.Q.value = 0.707;
-      const lo = ctx.createBiquadFilter(); lo.type = 'lowshelf';
-      const mid = ctx.createBiquadFilter(); mid.type = 'peaking';
-      const hi = ctx.createBiquadFilter(); hi.type = 'highshelf';
-      input.connect(hp).connect(lo).connect(mid).connect(hi);
+      // 8 段串接；每段都建好，關閉的段用「直通」參數（peaking 0 dB），切換時不必重接線
+      if (!Array.isArray(P.bands)) Object.assign(P, migrateEqParams(P));
+      const input = ctx.createGain(), out = ctx.createGain();
+      const filters = P.bands.map(() => ctx.createBiquadFilter());
+      // 低切／高切可以 24 dB/oct：每段多串一個同參數的濾波器
+      const second = P.bands.map(() => ctx.createBiquadFilter());
+      let prev = input;
+      filters.forEach((f, i) => { prev.connect(f); f.connect(second[i]); prev = second[i]; });
+      prev.connect(out);
+      const analyser = ctx.createAnalyser(); analyser.fftSize = 4096; analyser.smoothingTimeConstant = 0.75;
+      out.connect(analyser);
+      const pre = ctx.createAnalyser(); pre.fftSize = 4096; pre.smoothingTimeConstant = 0.75;
+      input.connect(pre);
+      const applyBand = (f, f2, b) => {
+        const nyq = ctx.sampleRate / 2 * 0.98;
+        const freq = Math.min(nyq, Math.max(10, b.freq));
+        if (!b.on) { f.type = 'peaking'; f.gain.value = 0; f2.type = 'peaking'; f2.gain.value = 0; f.frequency.value = 1000; f2.frequency.value = 1000; return; }
+        f.type = b.type; f.frequency.value = freq; f.Q.value = Math.max(0.1, b.q || 0.71); f.gain.value = b.gain || 0;
+        // 低切／高切的「陡度」：slope 24 就多串一個；其他類型第二個濾波器維持直通
+        if ((b.type === 'highpass' || b.type === 'lowpass') && (b.slope || 12) >= 24) {
+          f2.type = b.type; f2.frequency.value = freq; f2.Q.value = f.Q.value;
+        } else { f2.type = 'peaking'; f2.gain.value = 0; f2.frequency.value = 1000; }
+      };
       fx = {
-        input, output: hi, nodes: [hp, lo, mid, hi],
+        input, output: out, analyser, preAnalyser: pre, filters,
         set(p) {
-          hp.frequency.value = p.hpf; lo.frequency.value = p.lowFreq; lo.gain.value = p.lowGain;
-          mid.frequency.value = p.midFreq; mid.gain.value = p.midGain; mid.Q.value = p.midQ;
-          hi.frequency.value = p.highFreq; hi.gain.value = p.highGain;
+          if (!Array.isArray(p.bands)) Object.assign(p, migrateEqParams(p));
+          p.bands.forEach((b, i) => applyBand(filters[i], second[i], b));
+          out.gain.value = dbg(p.output || 0);
         },
-        // 給檢閱器畫頻率響應
+        // 整體頻率響應（含輸出增益）
         response(freqs) {
-          const mag = new Float32Array(freqs.length), tmp = new Float32Array(freqs.length), ph = new Float32Array(freqs.length);
-          mag.fill(1);
-          for (const f of [hp, lo, mid, hi]) { f.getFrequencyResponse(freqs, tmp, ph); for (let i = 0; i < mag.length; i++) mag[i] *= tmp[i]; }
+          const mag = new Float32Array(freqs.length).fill(dbg(P.output || 0));
+          const tmp = new Float32Array(freqs.length), ph = new Float32Array(freqs.length);
+          for (const f of [...filters, ...second]) { f.getFrequencyResponse(freqs, tmp, ph); for (let i = 0; i < mag.length; i++) mag[i] *= tmp[i]; }
           return mag;
+        },
+        // 單一段的響應（畫每段的彩色小曲線）
+        bandResponse(i, freqs) {
+          const mag = new Float32Array(freqs.length).fill(1);
+          const tmp = new Float32Array(freqs.length), ph = new Float32Array(freqs.length);
+          for (const f of [filters[i], second[i]]) { f.getFrequencyResponse(freqs, tmp, ph); for (let k = 0; k < mag.length; k++) mag[k] *= tmp[k]; }
+          return mag;
+        },
+      };
+      break;
+    }
+    case 'deess': {
+      // 動態 EQ 式去齒音（相位乾淨，不會像「分頻相減」那樣在其他頻段留下梳狀失真）：
+      //   主訊號 → peaking 濾波器（中心 = 齒音頻率）→ out
+      //   偵測鏈：帶通 → 整流 |x| → 低通平滑（≈ 包絡）→ 對照曲線轉成「要壓幾 dB」→ 接到 peaking.gain
+      // 全部是音訊節點，即時播放與離線輸出結果一樣。
+      const input = ctx.createGain(), out = ctx.createGain();
+      const cut = ctx.createBiquadFilter(); cut.type = 'peaking'; cut.gain.value = 0;
+      input.connect(cut).connect(out);
+      const det1 = ctx.createBiquadFilter(), det2 = ctx.createBiquadFilter();
+      det1.type = 'highpass'; det2.type = 'lowpass';
+      const rect = ctx.createWaveShaper();
+      { const n = 2049, c = new Float32Array(n); for (let i = 0; i < n; i++) c[i] = Math.abs(i * 2 / (n - 1) - 1); rect.curve = c; }
+      // 包絡平滑：兩級一階低通 ≈ attack/release 約 2 ms / 40 ms 的折衷
+      const env1 = ctx.createBiquadFilter(), env2 = ctx.createBiquadFilter();
+      env1.type = env2.type = 'lowpass'; env1.frequency.value = 60; env2.frequency.value = 60; env1.Q.value = env2.Q.value = 0.5;
+      // 包絡（線性振幅 0..1）→ 衰減 dB（0 .. -amount）
+      const map = ctx.createWaveShaper();
+      const toGain = ctx.createGain(); toGain.gain.value = 1;
+      input.connect(det1).connect(det2).connect(rect).connect(env1).connect(env2).connect(map).connect(toGain).connect(cut.gain);
+      // 監聽：只輸出偵測頻段（讓使用者聽到齒音在哪）
+      const listenBp = ctx.createBiquadFilter(); listenBp.type = 'bandpass';
+      const listenG = ctx.createGain(); listenG.gain.value = 0;
+      const mainG = ctx.createGain();
+      cut.disconnect(); input.connect(cut); cut.connect(mainG).connect(out);
+      input.connect(listenBp).connect(listenG).connect(out);
+      let lastKey = '', grProbe = null;
+      // 讀取目前衰減量（給介面顯示）：在包絡後面掛一個 analyser
+      if (typeof ctx.startRendering !== 'function') { grProbe = ctx.createAnalyser(); grProbe.fftSize = 256; toGain.connect(grProbe); }
+      const probeBuf = new Float32Array(256);
+      fx = {
+        input, output: out,
+        set(p) {
+          const lo = p.freq / Math.pow(2, p.range / 2), hi = p.freq * Math.pow(2, p.range / 2);
+          det1.frequency.value = lo; det2.frequency.value = hi;
+          cut.frequency.value = p.freq;
+          // peaking 的 Q 依頻寬（八度）換算
+          const bw = Math.pow(2, p.range);
+          cut.Q.value = Math.sqrt(bw) / (bw - 1);
+          listenBp.frequency.value = p.freq; listenBp.Q.value = cut.Q.value;
+          const key = p.threshold + '|' + p.amount;
+          if (key !== lastKey) {
+            // 包絡經整流 + 低通後約為峰值的 0.64 倍（正弦平均值）；門檻用 dBFS 峰值表示
+            const n = 1025, c = new Float32Array(n);
+            const th = Math.pow(10, p.threshold / 20) * 0.64;
+            for (let i = 0; i < n; i++) {
+              const e = Math.abs(i * 2 / (n - 1) - 1);       // WaveShaper 輸入域 -1..1，包絡只會是正的
+              if (e <= th) { c[i] = 0; continue; }
+              // 超過門檻幾 dB → 以 3:1 的比例換成衰減，上限 amount
+              const over = 20 * Math.log10(e / th);
+              c[i] = -Math.min(p.amount, over * (2 / 3));
+            }
+            map.curve = c; lastKey = key;
+          }
+          mainG.gain.value = p.listen ? 0 : 1;
+          listenG.gain.value = p.listen ? 1 : 0;
+        },
+        reduction() {
+          if (!grProbe) return 0;
+          grProbe.getFloatTimeDomainData(probeBuf);
+          let m = 0; for (const v of probeBuf) if (v < m) m = v;
+          return m;     // 負值 dB
+        },
+      };
+      break;
+    }
+    case 'sat': {
+      const wd = wetDry(ctx);
+      const pre = ctx.createGain(), sh = ctx.createWaveShaper(), post = ctx.createGain();
+      const hs = ctx.createBiquadFilter(); hs.type = 'highshelf'; hs.frequency.value = 4500;
+      // 去直流：真空管模式的不對稱曲線會產生直流偏移
+      const dc = ctx.createBiquadFilter(); dc.type = 'highpass'; dc.frequency.value = 12;
+      sh.oversample = '4x';
+      wd.input.connect(pre).connect(sh).connect(dc).connect(hs).connect(post).connect(wd.wet);
+      let last = '';
+      fx = {
+        input: wd.input, output: wd.output,
+        set(p) {
+          const key = p.mode + '|' + p.drive;
+          if (key !== last) { sh.curve = satCurve(p.mode | 0, p.drive); last = key; }
+          // 驅動越大，輸出自動往下補，讓切換時音量接近（再由 output 微調）
+          post.gain.value = dbg(p.output - p.drive * 0.35);
+          hs.gain.value = p.tone;
+          wd.setMix(p.mix);
         },
       };
       break;

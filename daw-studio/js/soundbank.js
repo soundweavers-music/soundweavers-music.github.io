@@ -9,10 +9,22 @@ import { setSoundFontHook } from './synth.js';
 const DB = 'zhiyin-daw-banks', VER = 1;
 const banks = new Map();   // id -> { id, name, size, presets, sf(解析後), status }
 
+// 推薦音色庫：下載連結於 2026-11-18 逐一確認可直接下載（HTTP 200、大小相符）。
+// 點連結是一般的頁面跳轉／下載，不受本頁 connect-src 'none' 限制；網頁本身仍然不連網。
+// file：下載後的檔名，用來在「下載」資料夾裡自動找到它。
 export const RECOMMENDED = [
-  { name: 'GeneralUser GS', size: '約 30 MB', note: '完整 GM 128 音色＋鼓組，體積小、音質平衡，授權可自由使用。最推薦先用這個。', site: 'schristiancollins.com/generaluser.php' },
-  { name: 'FluidR3_GM', size: '約 140 MB', note: '常見的開源 GM 音色庫（MIT 授權），鋼琴與弦樂較飽滿。', site: '搜尋「FluidR3_GM.sf2」' },
-  { name: 'MuseScore_General', size: '約 200 MB（.sf2 版）', note: 'MuseScore 內建的音色庫；請下載 .sf2 版本（.sf3 不支援）。', site: 'musescore.org 的 SoundFonts 說明頁' },
+  { id: 'generaluser', name: 'GeneralUser GS', file: 'GeneralUser-GS.sf2', bytes: 32319396, size: '31 MB',
+    note: '完整 GM 128 種樂器＋鼓組，體積小、音質平衡，可自由使用。最推薦先用這個。',
+    url: 'https://raw.githubusercontent.com/mrbumpy409/GeneralUser-GS/main/GeneralUser-GS.sf2',
+    home: 'https://github.com/mrbumpy409/GeneralUser-GS', license: 'GeneralUser GS License（可自由使用、可商用）' },
+  { id: 'fluidr3', name: 'FluidR3_GM', file: 'FluidR3_GM.sf2', bytes: 148398306, size: '142 MB',
+    note: '經典的開源 GM 音色庫，鋼琴與弦樂比較飽滿。',
+    url: 'https://github.com/pianobooster/fluid-soundfont/releases/download/v3.1/FluidR3_GM.sf2',
+    home: 'https://github.com/pianobooster/fluid-soundfont', license: 'MIT' },
+  { id: 'musescore', name: 'MuseScore_General', file: 'MuseScore_General.sf2', bytes: 215614036, size: '206 MB',
+    note: 'MuseScore 內建的音色庫，樂器種類最齊全，檔案也最大。',
+    url: 'https://ftp.osuosl.org/pub/musescore/soundfont/MuseScore_General/MuseScore_General.sf2',
+    home: 'https://musescore.org/en/handbook/3/soundfonts-and-sfz-files', license: 'MIT' },
 ];
 
 function idb() {

@@ -2,6 +2,7 @@
 import { store, isMidiClip, clipStart, clipDur, setClipStart, newMidiClip, spb } from './state.js';
 import { PRESETS } from './synth.js';
 import { sfLabel } from './soundbank.js';
+import { separateClip } from './separate.js';
 import { engine } from './engine.js';
 import { recorder } from './recorder.js';
 import { importAudioFiles } from './project-io.js';
@@ -703,6 +704,8 @@ function onLanesContext(e) {
       { label: '在這裡切開', action: () => splitSelected(snap(at)) },
       { label: '複製一份接在後面', key: 'Ctrl+D', action: duplicateSelected },
       ...(midi ? [] : [
+        { label: '分離人聲／伴奏（簡易版）', disabled: n > 1, action: () => separateClip(id) },
+        '-',
         { label: '片段音量 +1 dB', action: () => nudgeGain(1) },
         { label: '片段音量 −1 dB', action: () => nudgeGain(-1) },
         { label: '移除淡入淡出', action: () => { store.checkpoint(); eachSel(c => { c.fadeIn = 0; c.fadeOut = 0; }); store.changed('structure'); } },
