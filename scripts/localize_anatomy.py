@@ -154,6 +154,28 @@ TRACE_PALETTE = {
 
 TRACED_FIGURES = [
     {
+        "json": "torso-regions.json",
+        "out": "breathing-apparatus.svg",
+        "title": "呼吸用到的構造",
+        "sub": "肋骨圍住肺，橫膈膜在肺的下面；吸氣時它往下降",
+        "width": 640,
+        "palette": {
+            (254, 254, 254): "#F7F1E8",
+            (192, 192, 254): "#DCE7F2",
+            (254, 192, 192): "#F0D6CC",
+            (134, 134, 134): "#C9BBA9",
+            (0, 0, 0): "#3D3229",
+        },
+        "credit": "幾何參考 Cdang（CC0，Wikimedia Commons），本站描線重繪",
+        "labels": [
+            ("肺", 800, 430, 560, 330),
+            ("心臟", 870, 505, 560, 500),
+            ("肋骨", 1120, 560, 1200, 460),
+            ("橫膈膜", 760, 780, 560, 760),
+            ("肝臟", 700, 980, 560, 960),
+        ],
+    },
+    {
         "json": "sagittal-regions.json",
         "out": "sagittal-head.svg",
         "title": "頭頸側剖：聲音走過的路",
@@ -303,21 +325,7 @@ PNG_FIGURES = [
         "credit": "底圖：Wikimedia Commons「Glottis positions」（公有領域），本站裁切",
         "labels": [],
     },
-    {
-        "src": "diaphragm-movement.png",
-        "out": "breathing-apparatus.svg",
-        "title": "呼吸用到的構造",
-        "sub": "肋骨圍住肺，橫膈膜在肺的下面，吸氣時它往下降",
-        "crop": (60, 40, 1500, 1180),
-        "width": 640,
-        "credit": "底圖：Cdang（CC0，Wikimedia Commons），本站裁切並加中文標籤",
-        "labels": [
-            ("肺", 620, 330, 150, 250),
-            ("肋骨", 1120, 560, 1180, 470),
-            ("橫膈膜", 700, 760, 300, 700),
-            ("肝臟", 640, 980, 300, 900),
-        ],
-    },
+
     {
         "src": "vocal-fold-scheme.png",
         "out": "vocal-fold-layers.svg",
