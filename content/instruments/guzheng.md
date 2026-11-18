@@ -15,7 +15,7 @@ verification_status: 已查證
 issue_note: 分類查證：弦鳴（312.22-5）；依據：Wikidata P1762 給出 Hornbostel–Sachs 312.22-5；英文全文稱其為 Chinese 
 source_url: https://soundweavers-music.github.io/instruments/guzheng/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Guzheng_2020_by_Glenn_Francis.jpg/500px-Guzheng_2020_by_Glenn_Francis.jpg
-youtube_ids: gf6v59c5yuY GwyXQO0tSW4
+youtube_ids: [gf6v59c5yuY]
 ---
 
 ## 介紹

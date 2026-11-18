@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：體鳴（121.2）；依據：Wikidata P1762=121.2；英文條目稱 lamellophone/mouth harp，且分類含 Idio
 source_url: https://soundweavers-music.github.io/instruments/an-moi/
-youtube_ids: 0q5YmkTLcZo 8W2xV2BW7os
+youtube_ids: [8W2xV2BW7os]
 ---
 
 ## 介紹

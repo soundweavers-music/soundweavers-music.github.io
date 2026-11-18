@@ -15,7 +15,7 @@ verification_status: 已查證
 issue_note: 分類查證：膜鳴（211.23）；依據：來源五稱 khol 為 two-sided drum 且有 drumheads；Wikidata P1762 為 211；與「Khol」互為別名／變體
 source_url: https://soundweavers-music.github.io/instruments/mrdanga/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Mridanga_1.jpg/500px-Mridanga_1.jpg
-youtube_ids: DYEh5uXrL4w ehufN_Kyq_8
+youtube_ids: [DYEh5uXrL4w]
 ---
 
 ## 介紹

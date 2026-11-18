@@ -15,7 +15,7 @@ verification_status: 已查證
 issue_note: 分類查證：氣鳴（421.221.12）；依據：Wikidata P1762 給出 Hornbostel–Sachs 421.221.12；英文維基描述為 Chines
 source_url: https://soundweavers-music.github.io/instruments/xiao/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/%E7%90%B4%E8%95%AD%E8%88%87%E6%B4%9E%E8%95%AD.JPG/500px-%E7%90%B4%E8%95%AD%E8%88%87%E6%B4%9E%E8%95%AD.JPG
-youtube_ids: GwyXQO0tSW4 XmBji07OtwA
+youtube_ids: [XmBji07OtwA]
 ---
 
 ## 介紹

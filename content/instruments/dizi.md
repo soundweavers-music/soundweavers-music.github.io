@@ -15,7 +15,7 @@ verification_status: 已查證
 issue_note: 分類查證：氣鳴（421.121.12）；依據：英文維基簡述「Chinese transverse flute」與 infobox/Wikidata Hornboste
 source_url: https://soundweavers-music.github.io/instruments/dizi/
 image: https://upload.wikimedia.org/wikipedia/commons/e/e0/Dizi%28F%29.jpg
-youtube_ids: GwyXQO0tSW4 XmBji07OtwA
+youtube_ids: [XmBji07OtwA]
 ---
 
 ## 介紹

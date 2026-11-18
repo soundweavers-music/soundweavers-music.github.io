@@ -15,7 +15,7 @@ verification_status: 已查證
 issue_note: 分類查證：氣鳴；依據：英文維基簡述 Brass instrument；全文 lip vibration；infobox 423.231.2 v
 source_url: https://soundweavers-music.github.io/instruments/euphonium/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Euphonium_Boosey_and_hawkes.jpg/500px-Euphonium_Boosey_and_hawkes.jpg
-youtube_ids: CCTeSjpDsIs lMl0kxzf4YU
+youtube_ids: [lMl0kxzf4YU]
 ---
 
 ## 介紹

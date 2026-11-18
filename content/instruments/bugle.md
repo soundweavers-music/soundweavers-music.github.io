@@ -15,7 +15,7 @@ verification_status: 已查證
 issue_note: 分類查證：氣鳴（423.121.22）；依據：英文維基 infobox 與 Wikidata P1762 均列 Hornbostel–Sachs 423.121.22
 source_url: https://soundweavers-music.github.io/instruments/bugle/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Bugle_in_C_MET_DP-12679-123.jpg/500px-Bugle_in_C_MET_DP-12679-123.jpg
-youtube_ids: McCDWYgVyps 8r5Ieh0OuQY
+youtube_ids: [McCDWYgVyps]
 ---
 
 ## 介紹

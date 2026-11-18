@@ -15,7 +15,7 @@ verification_status: 已查證
 issue_note: 分類查證：弦鳴（321.321-5）；依據：來源一稱 Pipa 為 Chinese plucked lute；來源三 Wikidata P1762 為 321.32
 source_url: https://soundweavers-music.github.io/instruments/pipa/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/T%E1%BB%B3_b%C3%A0.jpg/500px-T%E1%BB%B3_b%C3%A0.jpg
-youtube_ids: nI-6Uv0U028 SUKYeApEots bnt4CSZVJy8 3Apy_qE59H8
+youtube_ids: [SUKYeApEots, bnt4CSZVJy8, 3Apy_qE59H8]
 ---
 
 ## 介紹

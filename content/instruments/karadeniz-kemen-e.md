@@ -15,7 +15,7 @@ verification_status: 已查證
 issue_note: 分類查證：弦鳴（321.322）；依據：來源一：Bowed string instrument；來源二：H-S 321.322；來源三：321.322-71
 source_url: https://soundweavers-music.github.io/instruments/karadeniz-kemen-e/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Kemenche0.jpg/500px-Kemenche0.jpg
-youtube_ids: 6N-g77SLABA 9eMyrUIudmQ
+youtube_ids: [6N-g77SLABA]
 ---
 
 ## 介紹

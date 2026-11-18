@@ -15,7 +15,7 @@ verification_status: 已查證
 issue_note: 分類查證：體鳴（111.231）；依據：來源二/三 H-S 111.231 Individual percussion tubes；來源一分類 Idiophon
 source_url: https://soundweavers-music.github.io/instruments/handchime/
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Handchime_in_use.jpg/500px-Handchime_in_use.jpg
-youtube_ids: hvi9Kx6s0ls
+youtube_ids: []
 ---
 
 ## 介紹
