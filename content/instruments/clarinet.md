@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴（422.211.2–71）；依據：英文維基 infobox 與 Wikidata 標為 422.211.2–71 單簧樂器；全文稱 single-reed
 source_url: https://soundweavers-music.github.io/instruments/clarinet/
-image: https://upload.wikimedia.org/wikipedia/commons/8/85/Range_clarinet.png
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Stadler-Klarinette_mit_Replica.jpg/500px-Stadler-Klarinette_mit_Replica.jpg
 youtube_ids: YT_63UntRJE nuEMqMc1Fh4
 ---
 

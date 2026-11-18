@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴（321.321）；依據：來源一稱其為 Persian plucked musical instrument with three strings
 source_url: https://soundweavers-music.github.io/instruments/setar/
-image: https://upload.wikimedia.org/wikipedia/commons/a/ac/Tar_Range.png
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Setar_Body.jpg/500px-Setar_Body.jpg
 youtube_ids: lIQrUZLyATo n91Vhdrrkss
 ---
 

@@ -14,7 +14,7 @@ ensemble_links: 管弦樂團
 verification_status: 已查證
 issue_note: 分類查證：弦鳴（321.322-71）；依據：來源二與來源三均給出 Hornbostel–Sachs 321.322-71，且來源一、來源五描述為 bowed str
 source_url: https://soundweavers-music.github.io/instruments/violin/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Range_violin.png/500px-Range_violin.png
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Violin_VL100.png/500px-Violin_VL100.png
 youtube_ids: EKkzbbLYPuI WSSIIC58Fsc
 ---
 

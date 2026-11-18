@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴（422.112-71）；依據：英文維基簡述為 Double-reed woodwind instrument，且 Wikidata/infobox 的
 source_url: https://soundweavers-music.github.io/instruments/bassoon/
-image: https://upload.wikimedia.org/wikipedia/commons/c/c5/Range_bassoon.png
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Bassoon_1870.jpg/500px-Bassoon_1870.jpg
 youtube_ids: xidC7TZRxkA -kmy-hm3ai4
 ---
 

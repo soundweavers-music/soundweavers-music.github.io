@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴（422.112）；依據：來源二：Hornbostel–Sachs 422.112 / Double reed aerophone with ke
 source_url: https://soundweavers-music.github.io/instruments/alto-sarrusophone/
-image: https://upload.wikimedia.org/wikipedia/commons/a/a3/MET_alto_sarrusophone.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Sarrusophones02_wikivm.JPG/500px-Sarrusophones02_wikivm.JPG
 youtube_ids: n6Y2uiydezE gw7mXpGgf3Q
 ---
 

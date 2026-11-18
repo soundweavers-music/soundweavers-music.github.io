@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴（422）；依據：Wikidata P1762 Hornbostel–Sachs 422；英文維基全文摘錄「422 Reed aeroph
 source_url: https://soundweavers-music.github.io/instruments/reed-aerophone/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Onde_stationnaire_vitesse_anche_faible_trois_modes.svg/500px-Onde_stationnaire_vitesse_anche_faible_trois_modes.svg.png
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Sets_of_free_reed_aerophone_%28free%29_-_Soinuenea.jpg/500px-Sets_of_free_reed_aerophone_%28free%29_-_Soinuenea.jpg
 youtube_ids: djUseuUisvM DjRv4hKZTvA
 ---
 

@@ -14,7 +14,6 @@ ensemble_links: 甘美朗合奏
 verification_status: 已查證
 issue_note: 分類查證：體鳴（111.242.221）；依據：來源二/三 H-S 111.242.221（sets of hanging bells without internal
 source_url: https://soundweavers-music.github.io/instruments/bell-tree/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Belltree.svg/500px-Belltree.svg.png
 youtube_ids: tdLtlwUsjHA WrZixjQjr0M
 ---
 

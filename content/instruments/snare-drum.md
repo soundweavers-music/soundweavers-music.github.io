@@ -14,7 +14,7 @@ ensemble_links: 管弦樂團
 verification_status: 已查證
 issue_note: 分類查證：膜鳴（211.212.11）；依據：來源二與來源三均給出 Hornbostel–Sachs 211.212.11，屬膜鳴鼓類
 source_url: https://soundweavers-music.github.io/instruments/snare-drum/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Drum_set.svg/500px-Drum_set.svg.png
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Snaresondrum.jpg/500px-Snaresondrum.jpg
 youtube_ids: PC-ZdPrFzdk ylm4QZZOZoc
 ---
 

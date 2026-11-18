@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴（422.112-71）；依據：來源二與來源三均給出 Hornbostel–Sachs 422.112-71，並描述為 double reed aero；與「Cor anglais」互為別名／變體
 source_url: https://soundweavers-music.github.io/instruments/english-horn/
-image: https://upload.wikimedia.org/wikipedia/commons/4/40/Range_english_horn.png
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Cor_anglais_%28AM_1998.60.224-5%29.jpg/500px-Cor_anglais_%28AM_1998.60.224-5%29.jpg
 youtube_ids: 3PKrFkGiGoU YL2Ed2TABVA
 ---
 

@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴；依據：來源一開頭稱 litungu 為 traditional lyre，並提到 seven strings；分類標籤含 Ly
 source_url: https://soundweavers-music.github.io/instruments/litungu/
-image: https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/Lyre_%28PSF%29.png/500px-Lyre_%28PSF%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Bowl_lyre%28endongo%29.jpg/500px-Bowl_lyre%28endongo%29.jpg
 youtube_ids: V97F-LNLmEc I9MvO0ROFcw
 ---
 

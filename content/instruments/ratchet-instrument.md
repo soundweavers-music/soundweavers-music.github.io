@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：體鳴（112.24）；依據：英文維基簡述為 Idiophone，分類含 Scraped idiophones，且 infobox 與 Wikidat
 source_url: https://soundweavers-music.github.io/instruments/ratchet-instrument/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Ratchet_Drawing.svg/500px-Ratchet_Drawing.svg.png
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Ratchet_from_Bolivvia.jpg/500px-Ratchet_from_Bolivvia.jpg
 youtube_ids: rkYJh5KinOA mfQW4IPKCWc
 ---
 

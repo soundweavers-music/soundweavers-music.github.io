@@ -14,7 +14,7 @@ ensemble_links: 甘美朗合奏
 verification_status: 已查證
 issue_note: 分類查證：體鳴（13）；依據：來源五稱 waterphone 為 inharmonic acoustic tuned idiophone，來源一分類標
 source_url: https://soundweavers-music.github.io/instruments/waterphone/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Thomas_Bloch_-_F%C3%A9n%C3%A9trange_-_19-09-2009_-_Waterphone.jpg/500px-Thomas_Bloch_-_F%C3%A9n%C3%A9trange_-_19-09-2009_-_Waterphone.jpg
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Hangklang_Waterphone.jpg/500px-Hangklang_Waterphone.jpg
 youtube_ids: lzzMHoi3r2w 4MmokTsYWnA
 ---
 
