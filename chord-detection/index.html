@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="referrer" content="no-referrer-when-downgrade">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'self'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'self'; object-src 'none'">
 <title>自動抓和弦 (beta)｜世界聲音百科</title>
 <meta name="description" content="上傳音檔，自動分析節拍與和弦進行，支援指版圖顯示與和弦編輯。所有分析都在瀏覽器內完成，不上傳檔案。">
 <link rel="canonical" href="https://soundweavers-music.github.io/chord-detection/">
@@ -334,6 +334,7 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
     <label><input type="checkbox" id="show-lyrics" checked> 歌詞</label>
     <label><input type="checkbox" id="lyric-snap" checked> 歌詞對齊音訊</label>
     <label><input type="checkbox" id="show-melody"> 簡譜旋律</label>
+    <label title="用和 LRC 工作室同一顆 Silero VAD 模型判斷哪裡有人在唱（第一次會下載約 12 MB）"><input type="checkbox" id="use-vad" checked> 人聲模型</label>
     <label><input type="checkbox" id="show-diagrams"> 指版圖</label>
     <label><input type="checkbox" id="continuous"> 連續播放</label>
     <label class="size-ctl" title="和弦字級">和弦 <input type="range" id="chord-size" min="10" max="24" value="15"></label>
@@ -518,6 +519,7 @@ let state = {
   showDiagrams: false, continuous: false, notation: 'name',
   pickupOverride: null, lyricSnap: true, chordSize: 15, lyricSize: 14, melodySize: 13, rowGap: 2,
   showMelody: false, melodyFrames: null, melodySmooth: null, melodyNotes: null,
+  useVad: true, vocalSegs: null,
   onsetEnv: null, onsetHopSec: 0,
   instrument: 0, tuning: null,
   isPlaying: false, currentTime: 0, startTime: 0, playEnd: 0,
@@ -2217,7 +2219,116 @@ const SOLFEGE_PARTS = [
   ['♯', '4'], ['', '5'], ['♭', '6'], ['', '6'], ['♭', '7'], ['', '7']
 ];
 
-function computeMelodyFrames(buffer) {
+// ---- 人聲模型（Silero VAD，選用）----------------------------------
+// 和 LRC 工作室同一顆模型（assets/vendor/vad/silero-vad.onnx）：它做的是
+// 「哪裡有人在唱」的語音活動偵測，不是真正的分軌，但可以讓我們只在
+// 有人聲的區段抓旋律，避免間奏、前奏被樂器帶走。
+const VAD_DIR = new URL('../assets/vendor/vad/', document.baseURI).href;
+const VAD_RATE = 16000;
+const VAD_CHUNK = 512;
+let vadLoading = null;
+
+function loadScriptOnce(src) {
+  return new Promise((resolve, reject) => {
+    const el = document.createElement('script');
+    el.src = src;
+    el.onload = () => resolve();
+    el.onerror = () => reject(new Error('載入 ' + src + ' 失敗'));
+    document.head.appendChild(el);
+  });
+}
+
+function ensureOrt() {
+  if (window.ort) return Promise.resolve(window.ort);
+  if (vadLoading) return vadLoading;
+  vadLoading = loadScriptOnce(VAD_DIR + 'ort.wasm.min.js').then(() => {
+    if (!window.ort) throw new Error('onnxruntime-web 沒有正確載入');
+    window.ort.env.wasm.wasmPaths = VAD_DIR;
+    window.ort.env.wasm.numThreads = 1;
+    window.ort.env.wasm.proxy = false;
+    return window.ort;
+  });
+  return vadLoading;
+}
+
+function resampleMono(buffer, targetRate) {
+  const left = buffer.getChannelData(0);
+  const right = buffer.numberOfChannels > 1 ? buffer.getChannelData(1) : null;
+  const ratio = buffer.sampleRate / targetRate;
+  const n = Math.floor(buffer.length / ratio);
+  const out = new Float32Array(n);
+  for (let i = 0; i < n; i++) {
+    const pos = i * ratio;
+    const i0 = Math.floor(pos);
+    const i1 = Math.min(buffer.length - 1, i0 + 1);
+    const f = pos - i0;
+    const a = left[i0] * (1 - f) + left[i1] * f;
+    const b = right ? (right[i0] * (1 - f) + right[i1] * f) : a;
+    out[i] = (a + b) * 0.5;
+  }
+  return out;
+}
+
+async function runVad(buffer, onProgress) {
+  const ort = await ensureOrt();
+  const session = await ort.InferenceSession.create(VAD_DIR + 'silero-vad.onnx', {
+    executionProviders: ['wasm'],
+  });
+  const pcm = resampleMono(buffer, VAD_RATE);
+  const total = Math.floor(pcm.length / VAD_CHUNK);
+  const probs = new Float32Array(total);
+  let state = new ort.Tensor('float32', new Float32Array(2 * 128), [2, 1, 128]);
+  const sr = new ort.Tensor('int64', BigInt64Array.from([BigInt(VAD_RATE)]), []);
+  const inName = session.inputNames[0];
+  const stateName = session.inputNames[1];
+  const srName = session.inputNames[2];
+  const outName = session.outputNames[0];
+  const nextName = session.outputNames[1];
+  for (let i = 0; i < total; i++) {
+    const chunk = new Float32Array(VAD_CHUNK);
+    chunk.set(pcm.subarray(i * VAD_CHUNK, (i + 1) * VAD_CHUNK));
+    const feeds = {};
+    feeds[inName] = new ort.Tensor('float32', chunk, [1, VAD_CHUNK]);
+    feeds[stateName] = state;
+    feeds[srName] = sr;
+    const res = await session.run(feeds);
+    probs[i] = res[outName].data[0];
+    state = res[nextName];
+    if (i % 200 === 0) {
+      if (onProgress) onProgress(i / Math.max(1, total));
+      await new Promise(r => setTimeout(r, 0));
+    }
+  }
+  if (onProgress) onProgress(1);
+  return probs;
+}
+
+// 機率 → 人聲區段（門檻 0.5、最短 0.2 秒、空隙 0.25 秒內視為同一段）
+function vocalSegmentsFromProbs(probs, hopSec) {
+  const segs = [];
+  let open = -1;
+  for (let i = 0; i < probs.length; i++) {
+    const on = probs[i] > 0.5;
+    if (on && open < 0) open = i;
+    if (!on && open >= 0) { segs.push([open * hopSec, i * hopSec]); open = -1; }
+  }
+  if (open >= 0) segs.push([open * hopSec, probs.length * hopSec]);
+  const merged = [];
+  for (const s of segs) {
+    const prev = merged[merged.length - 1];
+    if (prev && s[0] - prev[1] < 0.25) prev[1] = s[1];
+    else merged.push([s[0], s[1]]);
+  }
+  return merged.filter(s => s[1] - s[0] >= 0.2);
+}
+
+function inVocalSeg(t, segs) {
+  if (!segs || !segs.length) return true;
+  for (const s of segs) if (t >= s[0] && t <= s[1]) return true;
+  return false;
+}
+
+function computeMelodyFrames(buffer, segs) {
   const chs = buffer.numberOfChannels;
   const L = buffer.getChannelData(0);
   const R = chs > 1 ? buffer.getChannelData(1) : L;
@@ -2276,6 +2387,8 @@ function computeMelodyFrames(buffer) {
     }
     raw[f] = bestS > 0.02 ? bestM : -1;
     times[f] = (off + N / 2) / sr;
+    // 有人聲模型的話，只保留「有人在唱」的格子
+    if (raw[f] >= 0 && segs && segs.length && !inVocalSeg(times[f], segs)) raw[f] = -1;
     if ((f & 255) === 0) setProgress(20 + (f / Math.max(1, nFrames)) * 60, '分析旋律…');
   }
 
@@ -2416,8 +2529,23 @@ function rebuildMelodyNotes() {
 async function ensureMelody() {
   if (!state.audioBuffer) return;
   if (!state.melodyFrames) {
+    state.vocalSegs = null;
+    if (state.useVad) {
+      try {
+        setStatus('載入人聲模型…（第一次約 12 MB）', 'analyzing');
+        const probs = await runVad(state.audioBuffer, p => {
+          setProgress(5 + p * 35, '人聲模型分析… ' + Math.round(p * 100) + '%');
+        });
+        state.vocalSegs = vocalSegmentsFromProbs(probs, VAD_CHUNK / VAD_RATE);
+        setProgress(40, '分析旋律…');
+      } catch (e) {
+        state.vocalSegs = null;
+        state.vadError = e && e.message ? e.message : String(e);
+        console.warn('人聲模型不可用，改用中央聲道分離：', e);
+      }
+    }
     setStatus('分析旋律（人聲分離）…', 'analyzing');
-    state.melodyFrames = computeMelodyFrames(state.audioBuffer);
+    state.melodyFrames = computeMelodyFrames(state.audioBuffer, state.vocalSegs);
     state.melodySmooth = smoothMelody(state.melodyFrames);
     state.melodyNotes = quantizeMelodyNotes(
       state.lyrics.length ? melodyNotesFromLyrics(state.melodySmooth) : melodyNotes(state.melodySmooth));
@@ -3048,6 +3176,15 @@ function initUI() {
   });
 
   // 歌詞要不要吸到音訊的起音
+  document.getElementById('use-vad').addEventListener('change', function () {
+    state.useVad = this.checked;
+    state.melodyFrames = null;
+    state.melodySmooth = null;
+    state.melodyNotes = null;
+    state.vocalSegs = null;
+    if (state.showMelody && state.chords.length) ensureMelody();
+  });
+
   document.getElementById('show-melody').addEventListener('change', function () {
     state.showMelody = this.checked;
     if (state.showMelody) ensureMelody();
