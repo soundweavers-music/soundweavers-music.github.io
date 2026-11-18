@@ -61,6 +61,25 @@ def title_of(docx: Path) -> str:
     return docx.stem
 
 
+def render_pages(pdf: Path) -> list[str]:
+    """PDF → one PNG per page (poppler-utils). Empty list if unavailable."""
+    import shutil as _sh
+    tool = _sh.which("pdftoppm")
+    if not tool:
+        return []
+    out = pdf.parent / pdf.stem
+    if out.exists():
+        _sh.rmtree(out, ignore_errors=True)
+    out.mkdir(parents=True, exist_ok=True)
+    try:
+        subprocess.run([tool, "-png", "-r", "110", str(pdf), str(out / "p")],
+                       check=True, capture_output=True, timeout=300)
+    except Exception:
+        return []
+    files = sorted(out.glob("p*.png"))
+    return [f"/sound-journey/doc/{pdf.stem}/{f.name}" for f in files]
+
+
 def convert(docx: Path, office: str) -> Path | None:
     DOC_OUT.mkdir(parents=True, exist_ok=True)
     target = DOC_OUT / (docx.stem + ".pdf")
@@ -118,8 +137,8 @@ def main() -> None:
             rdir = OUT / "read" / slug
             rdir.mkdir(parents=True, exist_ok=True)
             pdf_url = bve.resolve_url(rdir / "index.html", f"/sound-journey/doc/{pdf.name}")
-            js = bve.resolve_url(rdir / "index.html", "/assets/vendor/pdfjs/pdf.min.js")
-            worker = bve.resolve_url(rdir / "index.html", "/assets/vendor/pdfjs/pdf.worker.min.js")
+            import json as _json
+            page_urls = render_pages(pdf)
             reader = bve.resolve_url(rdir / "index.html", "/assets/vendor/pdfjs/reader.js")
             body = f"""<main>
   <div class="doc-reader">
@@ -128,8 +147,11 @@ def main() -> None:
       <span>{bve.escape(title)}</span>
     </div>
     <div class="doc-book" data-pdf-reader data-src="{pdf_url}"
-         data-worker="{worker}">
-      <canvas class="doc-book-canvas"></canvas>
+         data-pages='{_json.dumps(page_urls)}'>
+      <div class="doc-book-spread">
+        <img data-pdf-left class="doc-book-page" alt="">
+        <img data-pdf-right class="doc-book-page" alt="">
+      </div>
       <div class="doc-book-controls">
         <button type="button" class="doc-book-btn" data-pdf-prev aria-label="上一頁">←</button>
         <span class="doc-book-label" data-pdf-label>載入中…</span>
@@ -137,7 +159,6 @@ def main() -> None:
       </div>
     </div>
   </div>
-  <script src="{js}"></script>
   <script src="{reader}"></script>
 </main>"""
             bve.write(rdir / "index.html", bve.page(

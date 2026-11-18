@@ -30,7 +30,7 @@ jobs:
       - name: Install system fonts & LibreOffice
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y -qq fonts-noto-cjk libreoffice-writer 2>/dev/null || true
+          sudo apt-get install -y -qq fonts-noto-cjk libreoffice-writer poppler-utils 2>/dev/null || true
 
       - name: Install dependencies
         run: |

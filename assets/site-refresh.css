@@ -909,7 +909,9 @@ a.hub-card:hover::after { transform: scaleX(1); }
   border: 1px solid var(--line); border-radius: 10px; background: #fff;
 }
 .doc-book { background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 10px; }
-.doc-book-canvas { display: block; width: 100%; height: auto; margin: 0 auto; box-shadow: 0 2px 14px rgba(0,0,0,.08); }
+.doc-book-spread { display: flex; gap: 8px; justify-content: center; align-items: flex-start; }
+.doc-book-page { display: block; max-width: 50%; height: auto; box-shadow: 0 2px 14px rgba(0,0,0,.10); border-radius: 4px; background: #fff; }
+.doc-book-page[hidden] { display: none; }
 .doc-book-controls { display: flex; align-items: center; justify-content: center; gap: 18px; padding: 14px 0 4px; }
 .doc-book-btn {
   width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--line);
