@@ -41,6 +41,7 @@ COURSES = {
     },
 }
 CHAPTER_RE = re.compile(r"^(\d+)\.md$")
+EXTRA = [("前言.md", "preface", "前言"), ("目錄.md", "toc", "目錄")]
 
 
 def load_chapters(slug: str) -> list[dict]:
@@ -69,6 +70,12 @@ def load_chapters(slug: str) -> list[dict]:
 
 def build_index(slug: str, conf: dict, chapters: list[dict]) -> None:
     out_dir = bve.OUTPUT_DIR / slug
+    extra_links = ""
+    if (BASE_DIR / "content" / slug / "前言.md").exists():
+        extra_links = ('<p class="course-extras">'
+                       f'<a href="{bve.resolve_url(out_dir / "index.html", "/%s/preface/" % slug)}">前言</a>'
+                       f'<a href="{bve.resolve_url(out_dir / "index.html", "/%s/toc/" % slug)}">目錄</a>'
+                       '</p>')
     rows = []
     for ch in chapters:
         href = bve.resolve_url(out_dir / "index.html", f"/{slug}/{ch['slug']}/")
@@ -90,6 +97,7 @@ def build_index(slug: str, conf: dict, chapters: list[dict]) -> None:
     </p>
   </section>
   <div class="vocal-page">
+    {extra_links}
     <ol class="chapter-list">{"".join(rows)}</ol>
   </div>
 </main>"""
@@ -137,6 +145,34 @@ def build_chapters(slug: str, conf: dict, chapters: list[dict]) -> None:
             meta_description=f"{conf['name']} 第 {ch['num']} 章：{ch['title']}"))
 
 
+def build_extras(slug: str, conf: dict) -> list[tuple[str, str]]:
+    """前言 / 目錄 are part of the book but are not numbered chapters."""
+    folder = BASE_DIR / "content" / slug
+    out_dir = bve.OUTPUT_DIR / slug
+    made = []
+    for fname, page_slug, label in EXTRA:
+        path = folder / fname
+        if not path.exists():
+            continue
+        d = out_dir / page_slug
+        d.mkdir(parents=True, exist_ok=True)
+        html_body = bve.markdown_to_html(path.read_text(encoding="utf-8"))
+        body = f"""<main class="vocal-detail-page">
+  <div class="vocal-detail-header">
+    <div class="breadcrumb">
+      <a href="{bve.resolve_url(d / "index.html", "/" + slug + "/")}">← {bve.escape(conf["name"])}</a>
+    </div>
+    <h1>{label}</h1>
+  </div>
+  <div class="vocal-content markdown-body">{html_body}</div>
+  <a class="back-link" href="{bve.resolve_url(d / "index.html", "/" + slug + "/")}">← 返回章節列表</a>
+</main>"""
+        bve.write(d / "index.html", bve.page(label, body, d / "index.html",
+                                             meta_description=f"{conf['name']} {label}"))
+        made.append((page_slug, label))
+    return made
+
+
 def main() -> None:
     for slug, conf in COURSES.items():
         chapters = load_chapters(slug)
@@ -144,6 +180,7 @@ def main() -> None:
             print(f"  {slug}: no chapters found, skipped")
             continue
         build_index(slug, conf, chapters)
+        build_extras(slug, conf)
         build_chapters(slug, conf, chapters)
         print(f"  {conf['name']}: index + {len(chapters)} chapter pages written.")
 
