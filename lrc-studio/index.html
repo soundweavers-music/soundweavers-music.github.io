@@ -310,7 +310,7 @@
           </button>
           <label class="lrc-field lrc-field--check">
             <input type="checkbox" id="lrc-asr">
-            <span>用語音辨識對齊歌詞（最準，第一次勾選要下載約 75 MB；分析一首歌 1–2 分鐘）</span>
+            <span>用語音辨識對齊歌詞（中文專用，第一次勾選要下載 230 MB）</span>
           </label>
           <label class="lrc-field lrc-field--check">
             <input type="checkbox" id="lrc-vad">
@@ -1394,13 +1394,21 @@
 /* Whisper 前端核心（純計算，不含 ONNX）。
    這段會被 QuickJS 載入做數值驗證，驗證通過後原樣內嵌到 lrc-studio。 */
 
-var WH = (function () {
-  "use strict";
 
-  var SR = 16000, N_FFT = 400, HOP = 160, N_MELS = 80, N_FRAMES = 3000;
+  /* ── 語音辨識對齊（SenseVoice-small + ONNX，選用）───────────
+     中文專用的非自回歸辨識模型：一次前向就出 CTC 機率，不會像 whisper
+     那樣在音樂上反覆編造。取每一格的 CTC 輸出去抓字的時間，再跟使用者
+     真正的歌詞做序列比對取錨點。
+     只有勾選時才下載（encoder 229 MB + 詞表 0.25 MB）。          */
 
-  /* ── 任意長度 FFT（Bluestein）──────────────────────────── */
-  function whFftRadix2(re, im, n, inverse) {
+  var SV_DIR = new URL("../../assets/vendor/sensevoice/", document.baseURI).href;
+  var SV_RATE = 16000, SV_WIN = 30 * 16000;
+  var SV_N_MELS = 80, SV_FRAME_LEN = 400, SV_SHIFT = 160, SV_FFT = 512;
+  var SV_LFR_M = 7, SV_LFR_N = 6;
+  var SV_HOP_SEC = (SV_SHIFT / SV_RATE) * SV_LFR_N;    // LFR 之後一格 60 ms
+  var svCache = null, svLoading = null;
+
+  function svFft(re, im, n) {
     var i, j, k, len, ang, wr, wi, ur, ui, vr, vi, tr, ti;
     for (i = 1, j = 0; i < n; i++) {
       var bit = n >> 1;
@@ -1412,7 +1420,7 @@ var WH = (function () {
       }
     }
     for (len = 2; len <= n; len <<= 1) {
-      ang = 2 * Math.PI / len * (inverse ? 1 : -1);
+      ang = -2 * Math.PI / len;
       wr = Math.cos(ang); wi = Math.sin(ang);
       for (i = 0; i < n; i += len) {
         var cr = 1, ci = 0;
@@ -1430,217 +1438,224 @@ var WH = (function () {
     }
   }
 
-  var whBsCache = null;
+  function svMelScale(f) { return 1127.0 * Math.log(1.0 + f / 700.0); }
+  function svInvMel(m) { return 700.0 * (Math.exp(m / 1127.0) - 1.0); }
 
-  function whBluesteinSetup(n) {
-    var M = 1;
-    while (M < 2 * n - 1) M <<= 1;
-    var cosT = new Float64Array(n), sinT = new Float64Array(n);
-    for (var k = 0; k < n; k++) {
-      var ang = Math.PI * ((k * k) % (2 * n)) / n;   // e^{-iπk²/n}
-      cosT[k] = Math.cos(ang);
-      sinT[k] = -Math.sin(ang);
+  var svBanks = null;
+  function svBuildMel() {
+    if (svBanks) return svBanks;
+    var binWidth = SV_RATE / SV_FFT;
+    var fftBins = SV_FFT / 2;
+    var melLow = svMelScale(20), melHigh = svMelScale(SV_RATE / 2);
+    var delta = (melHigh - melLow) / (SV_N_MELS + 1);
+    var banks = [];
+    for (var b = 0; b < SV_N_MELS; b++) {
+      var left = melLow + b * delta, center = melLow + (b + 1) * delta, right = melLow + (b + 2) * delta;
+      var loBin = Math.max(0, Math.floor(svInvMel(left) / binWidth));
+      var hiBin = Math.min(fftBins, Math.ceil(svInvMel(right) / binWidth));
+      var arr = [];
+      for (var k = loBin; k <= hiBin; k++) {
+        var m = svMelScale(k * binWidth);
+        // Kaldi 的三角濾波器是在 mel 域上內插
+        var w = m >= center ? (right - m) / (right - center) : (m - left) / (center - left);
+        if (w > 0) arr.push(k, w);
+      }
+      banks.push(arr);
     }
-    var bre = new Float64Array(M), bim = new Float64Array(M);
-    bre[0] = 1;
-    for (var k2 = 1; k2 < n; k2++) {
-      bre[k2] = cosT[k2]; bim[k2] = -sinT[k2];
-      bre[M - k2] = cosT[k2]; bim[M - k2] = -sinT[k2];
-    }
-    whFftRadix2(bre, bim, M, false);
-    return { M: M, n: n, cosT: cosT, sinT: sinT, Bre: bre, Bim: bim };
+    svBanks = banks;
+    return banks;
   }
 
-  // 回傳 { re, im }，長度 n
-  function whFftAny(xre, xim, n) {
-    if (!whBsCache || whBsCache.n !== n) whBsCache = whBluesteinSetup(n);
-    var M = whBsCache.M, k, r, i2;
-    var are = new Float64Array(M), aim = new Float64Array(M);
-    for (k = 0; k < n; k++) {
-      var cr = whBsCache.cosT[k], ci = whBsCache.sinT[k];
-      are[k] = xre[k] * cr - xim[k] * ci;
-      aim[k] = xre[k] * ci + xim[k] * cr;
-    }
-    whFftRadix2(are, aim, M, false);
-    for (k = 0; k < M; k++) {
-      r = are[k] * whBsCache.Bre[k] - aim[k] * whBsCache.Bim[k];
-      i2 = are[k] * whBsCache.Bim[k] + aim[k] * whBsCache.Bre[k];
-      are[k] = r; aim[k] = i2;
-    }
-    whFftRadix2(are, aim, M, true);
-    var ore = new Float64Array(n), oim = new Float64Array(n);
-    for (k = 0; k < n; k++) {
-      var c2 = whBsCache.cosT[k], s2 = whBsCache.sinT[k];
-      ore[k] = (are[k] * c2 - aim[k] * s2) / M;
-      oim[k] = (are[k] * s2 + aim[k] * c2) / M;
-    }
-    return { re: ore, im: oim };
-  }
+  // Kaldi fbank：hamming 窗、預加重 0.97、512 點 FFT、80 個 mel、取自然對數
+  function svFbank(samples) {
+    var banks = svBuildMel();
+    var win = new Float64Array(SV_FRAME_LEN);
+    for (var i = 0; i < SV_FRAME_LEN; i++) win[i] = 0.54 - 0.46 * Math.cos(2 * Math.PI * i / (SV_FRAME_LEN - 1));
+    var nFrames = Math.floor((samples.length - SV_FRAME_LEN) / SV_SHIFT) + 1;
+    if (nFrames < 1) return { data: new Float32Array(0), frames: 0 };
+    var out = new Float32Array(nFrames * SV_N_MELS);
+    var re = new Float64Array(SV_FFT), im = new Float64Array(SV_FFT);
+    var power = new Float64Array(SV_FFT / 2 + 1);
+    var x = new Float64Array(SV_FRAME_LEN);
 
-  /* ── mel ───────────────────────────────────────────────── */
-  function whHzToMel(f) {
-    return f >= 1000 ? 15 + Math.log(f / 1000) / (Math.log(6.4) / 27) : f / (200 / 3);
-  }
-  function whMelToHz(m) {
-    return m >= 15 ? 1000 * Math.exp((Math.log(6.4) / 27) * (m - 15)) : (200 / 3) * m;
-  }
-
-  var whFbCache = null;
-  function whMelFilterbank() {
-    if (whFbCache) return whFbCache;
-    var nFreqs = N_FFT / 2 + 1;
-    var hz = new Float64Array(N_MELS + 2);
-    var lo = whHzToMel(0), hi = whHzToMel(SR / 2);
-    for (var i = 0; i < N_MELS + 2; i++) hz[i] = whMelToHz(lo + (hi - lo) * i / (N_MELS + 1));
-    var fb = new Float64Array(nFreqs * N_MELS);
-    for (var m = 0; m < N_MELS; m++) {
-      var a = hz[m], b = hz[m + 1], c = hz[m + 2];
-      var w = c - a;
-      for (var f = 0; f < nFreqs; f++) {
-        var freq = (SR / 2) * f / (nFreqs - 1);
-        var v = Math.min((freq - a) / (b - a), (c - freq) / (c - b));
-        fb[f * N_MELS + m] = (v > 0 ? v : 0) / w;
+    for (var f = 0; f < nFrames; f++) {
+      var off = f * SV_SHIFT;
+      for (var q = 0; q < SV_FRAME_LEN; q++) x[q] = samples[off + q] * 32768;
+      for (var p = SV_FRAME_LEN - 1; p > 0; p--) x[p] -= 0.97 * x[p - 1];
+      x[0] -= 0.97 * x[0];
+      for (var z = 0; z < SV_FFT; z++) { re[z] = z < SV_FRAME_LEN ? x[z] * win[z] : 0; im[z] = 0; }
+      svFft(re, im, SV_FFT);
+      for (var k = 0; k <= SV_FFT / 2; k++) power[k] = re[k] * re[k] + im[k] * im[k];
+      for (var b = 0; b < SV_N_MELS; b++) {
+        var arr = banks[b], s = 0;
+        for (var j = 0; j < arr.length; j += 2) s += power[arr[j]] * arr[j + 1];
+        out[f * SV_N_MELS + b] = Math.log(s > 1.1920929e-7 ? s : 1.1920929e-7);
       }
     }
-    whFbCache = fb;
-    return fb;
+    return { data: out, frames: nFrames };
   }
 
-  var whWinCache = null;
-  function whHann() {
-    if (whWinCache) return whWinCache;
-    var w = new Float64Array(N_FFT);
-    for (var i = 0; i < N_FFT; i++) w[i] = 0.5 - 0.5 * Math.cos(2 * Math.PI * i / N_FFT);
-    whWinCache = w;
-    return w;
+  function svLfr(feat, frames) {
+    var tLfr = Math.ceil(frames / SV_LFR_N);
+    var pad = (SV_LFR_M - 1) >> 1;
+    var out = new Float32Array(tLfr * SV_LFR_M * SV_N_MELS);
+    for (var t = 0; t < tLfr; t++) {
+      for (var j = 0; j < SV_LFR_M; j++) {
+        var src = t * SV_LFR_N + j - pad;
+        if (src < 0) src = 0;
+        if (src >= frames) src = frames - 1;
+        for (var k = 0; k < SV_N_MELS; k++) {
+          out[t * SV_LFR_M * SV_N_MELS + j * SV_N_MELS + k] = feat[src * SV_N_MELS + k];
+        }
+      }
+    }
+    return { data: out, frames: tLfr, dim: SV_LFR_M * SV_N_MELS };
   }
 
-  // 回傳 Float32Array，長度 N_MELS * N_FRAMES，配置成 [mel][frame]（encoder 要的形狀）
-  function whLogMel(samples) {
-    var pad = N_FFT / 2;
-    var CHUNK = N_FRAMES * HOP;                       // 480000
-    var total = CHUNK + N_FFT;                        // 480400
-    var padded = new Float64Array(total);
-    var n = samples.length < CHUNK ? samples.length : CHUNK;
-    // 先補零到 30 秒，再對補零後的訊號做 reflect（跟 torch/numpy 的順序一致）
-    for (var i = 0; i < total; i++) {
-      var src = i - pad;
-      if (src < 0) src = -src;
-      else if (src >= CHUNK) src = 2 * (CHUNK - 1) - src;
-      if (src < 0 || src >= CHUNK) src = 0;
-      padded[i] = src < n ? samples[src] : 0;
+  function svParseCmvn(text) {
+    var lines = text.split(/\r?\n/);
+    var means = null, vars = null;
+    for (var i = 0; i < lines.length; i++) {
+      var tag = lines[i].trim().split(/\s+/)[0];
+      if (tag !== "<AddShift>" && tag !== "<Rescale>") continue;
+      var next = (lines[i + 1] || "").trim();
+      if (next.indexOf("<LearnRateCoef>") !== 0) continue;
+      var a = next.indexOf("[");
+      var b = next.lastIndexOf("]");
+      if (a < 0 || b < 0) continue;
+      var vals = next.slice(a + 1, b).trim().split(/\s+/).map(Number);
+      if (tag === "<AddShift>") means = vals; else vars = vals;
     }
-    var w = whHann(), fb = whMelFilterbank();
-    // 每個 mel 濾波器只有一小段非零，先算好範圍省掉 90% 的乘法
-    var melLo = new Int32Array(N_MELS), melHi = new Int32Array(N_MELS);
-    for (var mr = 0; mr < N_MELS; mr++) {
-      var l0 = 0, h0 = N_FFT / 2;
-      while (l0 < h0 && fb[l0 * N_MELS + mr] === 0) l0++;
-      while (h0 > l0 && fb[h0 * N_MELS + mr] === 0) h0--;
-      melLo[mr] = l0; melHi[mr] = h0;
-    }
-    var out = new Float32Array(N_MELS * N_FRAMES);
-    var re = new Float64Array(N_FFT), im = new Float64Array(N_FFT);
-    var mag = new Float64Array(N_FFT / 2 + 1);
-
-    var maxLog = -1e30;
-    var melBuf = new Float64Array(N_MELS * N_FRAMES);
-
-    for (var f = 0; f < N_FRAMES; f++) {
-      var off = f * HOP;
-      for (var t = 0; t < N_FFT; t++) {
-        re[t] = padded[off + t] * w[t];
-        im[t] = 0;
-      }
-      var spec = whFftAny(re, im, N_FFT);
-      for (var b2 = 0; b2 <= N_FFT / 2; b2++) {
-        mag[b2] = spec.re[b2] * spec.re[b2] + spec.im[b2] * spec.im[b2];
-      }
-      for (var m = 0; m < N_MELS; m++) {
-        var s = 0;
-        for (var k = melLo[m]; k <= melHi[m]; k++) s += mag[k] * fb[k * N_MELS + m];
-        var lg = Math.log10(s > 1e-10 ? s : 1e-10);
-        melBuf[m * N_FRAMES + f] = lg;
-        if (lg > maxLog) maxLog = lg;
-      }
-    }
-
-    var floorLog = maxLog - 8;
-    for (var q = 0; q < melBuf.length; q++) {
-      var v2 = melBuf[q] > floorLog ? melBuf[q] : floorLog;
-      out[q] = (v2 + 4) / 4;
-    }
-    return out;
+    return { means: means, vars: vars };
   }
 
+  // 模型 229 MB，超過 GitHub 單檔 100 MB 上限，切成四塊依序下載再接回來
+  var SV_PARTS = ["model.part1", "model.part2", "model.part3", "model.part4"];
 
-  /* ── cross-attention DTW ──────────────────────────────── */
-  // attn: Float64Array，長度 T*F（每個 token 對 1500 個音框的注意力）
-  // 回傳每個 token 落在哪個音框
-  function whDtw(attn, T, F) {
-    var i, j;
-    var M = new Float64Array(T * F);
-    for (i = 0; i < T; i++) {
-      var mean = 0, sq = 0;
-      for (j = 0; j < F; j++) mean += attn[i * F + j];
-      mean /= F;
-      for (j = 0; j < F; j++) {
-        var d = attn[i * F + j] - mean;
-        M[i * F + j] = d;
-        sq += d * d;
-      }
-      var sd = Math.sqrt(sq / F) + 1e-9;
-      for (j = 0; j < F; j++) M[i * F + j] /= sd;
+  async function svFetchModel() {
+    var chunks = [], total = 0, i;
+    for (i = 0; i < SV_PARTS.length; i++) {
+      setDetectStatus("下載語音模型… " + (i + 1) + "/" + SV_PARTS.length, "analyzing");
+      var r = await fetch(SV_DIR + SV_PARTS[i]);
+      if (!r.ok) throw new Error(SV_PARTS[i] + " HTTP " + r.status);
+      var buf = await r.arrayBuffer();
+      chunks.push(new Uint8Array(buf));
+      total += buf.byteLength;
+      await nextTick();
     }
-
-    var dp = new Float64Array(T * F);
-    var back = new Int8Array(T * F);
-    dp[0] = M[0];
-    for (j = 1; j < F; j++) { dp[j] = dp[j - 1] + M[j]; back[j] = 2; }
-    for (i = 1; i < T; i++) {
-      dp[i * F] = dp[(i - 1) * F] + M[i * F];
-      back[i * F] = 1;
+    var all = new Uint8Array(total), off = 0;
+    for (i = 0; i < chunks.length; i++) {
+      all.set(chunks[i], off);
+      off += chunks[i].length;
     }
-    for (i = 1; i < T; i++) {
-      for (j = 1; j < F; j++) {
-        var diag = dp[(i - 1) * F + j - 1];
-        var up = dp[(i - 1) * F + j];
-        var left = dp[i * F + j - 1];
-        var best = diag, b = 0;
-        if (up > best) { best = up; b = 1; }
-        if (left > best) { best = left; b = 2; }
-        dp[i * F + j] = best + M[i * F + j];
-        back[i * F + j] = b;
-      }
-    }
-    var pi = T - 1, pj = F - 1;
-    var first = new Int32Array(T).fill(-1);
-    while (pi >= 0 && pj >= 0) {
-      if (first[pi] < 0 || pj < first[pi]) first[pi] = pj;   // 取最小音框＝字頭
-      if (pi === 0 && pj === 0) break;
-      var bb = back[pi * F + pj];
-      if (bb === 0) { pi--; pj--; }
-      else if (bb === 1) pi--;
-      else pj--;
-    }
-    for (var q = 0; q < T; q++) if (first[q] < 0) first[q] = 0;
-    return first;
+    return all.buffer;
   }
 
-  /* ── 歌詞比對：把辨識結果對回真正的歌詞 ───────────────── */
-  // 回傳 lyricTimes[i] = 第 i 個歌詞字的時間（null 表示對不上，交給內插）
-  function whAlignLyrics(lyricChars, asrChars, asrTimes) {
+  function svEnsure() {
+    if (svCache) return Promise.resolve(svCache);
+    if (svLoading) return svLoading;
+    svLoading = ensureOrt().then(function (ort) {
+      setDetectStatus("載入 SenseVoice（encoder 229 MB，第一次會慢一點）…", "analyzing");
+      function stage(label, p) {
+        return p.catch(function (e) {
+          throw new Error(label + "：" + (e && e.message ? e.message : String(e)));
+        });
+      }
+      return Promise.all([
+        stage("下載詞表", fetch(SV_DIR + "tokens.json").then(function (r) {
+          if (!r.ok) throw new Error("HTTP " + r.status);
+          return r.json();
+        })),
+        stage("下載 CMVN", fetch(SV_DIR + "am.mvn").then(function (r) {
+          if (!r.ok) throw new Error("HTTP " + r.status);
+          return r.text();
+        })),
+        stage("下載模型", svFetchModel()).then(function (bytes) {
+          return stage("建立 encoder", ort.InferenceSession.create(bytes, { executionProviders: ["wasm"] }));
+        })
+      ]).then(function (res) {
+        var cmvn = svParseCmvn(res[1]);
+        if (!cmvn.means || !cmvn.vars) throw new Error("am.mvn 解析失敗");
+        svCache = {
+          ort: ort, pieces: res[0], means: cmvn.means, vars: cmvn.vars,
+          session: res[2],
+          inSpeech: (res[2].inputNames && res[2].inputNames[0]) || "speech",
+          inLen: (res[2].inputNames && res[2].inputNames[1]) || "speech_lengths",
+          outName: (res[2].outputNames && res[2].outputNames[0]) || "encoder_out"
+        };
+        return svCache;
+      });
+    });
+    return svLoading;
+  }
+
+  // 一個 30 秒視窗 → 字與時間
+  async function svDecodeWindow(cache, pcm, offsetSec) {
+    var fb = svFbank(pcm);
+    if (!fb.frames) return { chars: [], times: [], info: "音框 0 格" };
+    var lfr = svLfr(fb.data, fb.frames);
+
+    var feat = new Float32Array(lfr.data.length);
+    for (var t = 0; t < lfr.frames; t++) {
+      for (var k = 0; k < lfr.dim; k++) {
+        feat[t * lfr.dim + k] = (lfr.data[t * lfr.dim + k] + cache.means[k]) * cache.vars[k];
+      }
+    }
+
+    var feeds = {};
+    feeds[cache.inSpeech] = new cache.ort.Tensor("float32", feat, [1, lfr.frames, lfr.dim]);
+    feeds[cache.inLen] = new cache.ort.Tensor("int64", BigInt64Array.from([BigInt(lfr.frames)]), [1]);
+    var res;
+    try {
+      res = await cache.session.run(feeds);
+    } catch (e) {
+      throw new Error("encoder 推論失敗：" + (e && e.message ? e.message : e));
+    }
+    var logits = res[cache.outName].data;
+    var V = 25055, T = lfr.frames;
+
+    // CTC：每格取 argmax，合併重複、去掉 blank(0)
+    var chars = [], times = [];
+    var prev = -1;
+    for (var i = 0; i < T; i++) {
+      var best = 0, bestV = -Infinity;
+      for (var v = 0; v < V; v++) {
+        var val = logits[i * V + v];
+        if (val > bestV) { bestV = val; best = v; }
+      }
+      if (best !== prev && best !== 0) {
+        var piece = cache.pieces[best] || "";
+        var when = offsetSec + i * SV_HOP_SEC;
+        for (var c = 0; c < piece.length; c++) {
+          chars.push(piece[c]);
+          times.push(when);
+        }
+      }
+      prev = best;
+    }
+    return { chars: chars, times: times, info: "音框 " + T + " 格，字 " + chars.length + " 個" };
+  }
+
+  // SentencePiece 的 ▁ 代表空白
+  function svCleanChars(chars, times) {
+    var outC = [], outT = [];
+    for (var i = 0; i < chars.length; i++) {
+      var ch = chars[i];
+      if (ch === "▁") { ch = " "; }
+      if (/^<\|.*\|>$/.test(ch)) continue;
+      outC.push(ch);
+      outT.push(times[i]);
+    }
+    return { chars: outC, times: outT };
+  }
+
+  function svAlign(lyricChars, asrChars, asrTimes) {
     var L = lyricChars.length, A = asrChars.length;
     var out = new Array(L).fill(null);
     if (!L || !A) return out;
-
-    var NEG = -1e9;
-    var dp = new Float64Array((L + 1) * (A + 1));
-    var back = new Int8Array((L + 1) * (A + 1));
     var W = A + 1;
-    for (var i = 0; i <= L; i++) dp[i * W] = 0;
-    for (var j = 0; j <= A; j++) dp[j] = 0;
-
+    var dp = new Float64Array((L + 1) * W);
+    var back = new Int8Array((L + 1) * W);
     for (var a = 1; a <= L; a++) {
       for (var b = 1; b <= A; b++) {
         var same = lyricChars[a - 1] === asrChars[b - 1];
@@ -1654,269 +1669,19 @@ var WH = (function () {
         back[a * W + b] = dir;
       }
     }
-
     var ia = L, ib = A;
     while (ia > 0 && ib > 0) {
-      var d2 = back[ia * W + ib];
-      if (d2 === 0) {
+      var d = back[ia * W + ib];
+      if (d === 0) {
         if (lyricChars[ia - 1] === asrChars[ib - 1]) out[ia - 1] = asrTimes[ib - 1];
         ia--; ib--;
-      } else if (d2 === 1) ia--;
+      } else if (d === 1) ia--;
       else ib--;
     }
     return out;
   }
 
-  return { SR: SR, N_FFT: N_FFT, HOP: HOP, N_MELS: N_MELS, N_FRAMES: N_FRAMES,
-           fftAny: whFftAny, melFilterbank: whMelFilterbank, logMel: whLogMel,
-           dtw: whDtw, alignLyrics: whAlignLyrics };
-})();
-
-  /* ── 語音辨識對齊（Whisper-base + ONNX，選用）───────────────
-     只有勾選時才下載：encoder 22 MB + decoder 51 MB + vocab 1 MB。
-     用 ONNX Runtime 跑 whisper-base，取 cross-attention 做 DTW 得到
-     逐字時間，再跟使用者真正的歌詞做序列比對取錨點。
-     這不是把歌詞「聽寫出來」，是拿辨識結果當時間座標。          */
-
-  var WHISPER_DIR = new URL("../../assets/vendor/whisper/", document.baseURI).href;
-  var WH_WIN = 30 * 16000;
-  var WH_START = 50258, WH_TRANSCRIBE = 50359, WH_TS_BEGIN = 50364, WH_EOT = 50257;
-  var WH_NO_REPEAT = 4;
-  var whCache = null, whLoading = null;
-
-  // GPT-2 byte-level BPE 的位元組還原表
-  function whByteTable() {
-    var visible = [], map = {}, i;
-    for (i = 33; i < 127; i++) visible.push(i);
-    for (i = 161; i < 173; i++) visible.push(i);
-    for (i = 174; i < 256; i++) visible.push(i);
-    for (i = 0; i < visible.length; i++) map[String.fromCharCode(visible[i])] = visible[i];
-    var n = 0;
-    for (i = 0; i < 256; i++) {
-      if (visible.indexOf(i) < 0) { map[String.fromCharCode(256 + n)] = i; n++; }
-    }
-    return map;
-  }
-
-  function whUtf8(bytes) {
-    var out = "", i = 0, c, c2, c3, c4;
-    while (i < bytes.length) {
-      c = bytes[i++];
-      if (c < 0x80) { out += String.fromCharCode(c); continue; }
-      if (c < 0xE0) { c2 = bytes[i++] & 63; out += String.fromCharCode(((c & 31) << 6) | c2); continue; }
-      if (c < 0xF0) {
-        c2 = bytes[i++] & 63; c3 = bytes[i++] & 63;
-        out += String.fromCharCode(((c & 15) << 12) | (c2 << 6) | c3);
-        continue;
-      }
-      c2 = bytes[i++] & 63; c3 = bytes[i++] & 63; c4 = bytes[i++] & 63;
-      var cp = ((c & 7) << 18) | (c2 << 12) | (c3 << 6) | c4;
-      cp -= 0x10000;
-      out += String.fromCharCode(0xD800 + (cp >> 10), 0xDC00 + (cp & 1023));
-    }
-    return out;
-  }
-
-  function whTokenText(cache, id) {
-    var s = cache.id2tok[id];
-    if (!s) return "";
-    var bytes = [];
-    for (var i = 0; i < s.length; i++) {
-      var b = cache.bytes[s[i]];
-      if (b !== undefined) bytes.push(b);
-    }
-    return whUtf8(bytes);
-  }
-
-  function whEnsure() {
-    if (whCache) return Promise.resolve(whCache);
-    if (whLoading) return whLoading;
-    whLoading = ensureOrt().then(function (ort) {
-      setDetectStatus("載入語音模型（encoder 22 MB + decoder 51 MB，第一次會慢一點）…", "analyzing");
-      function stage(label, p) {
-        return p.catch(function (e) {
-          throw new Error(label + "：" + (e && e.message ? e.message : String(e)));
-        });
-      }
-      return Promise.all([
-        stage("下載 vocab.json", fetch(WHISPER_DIR + "vocab.json").then(function (r) {
-          if (!r.ok) throw new Error("HTTP " + r.status);
-          return r.json();
-        })),
-        stage("建立 encoder", ort.InferenceSession.create(
-          WHISPER_DIR + "encoder_model_quantized.onnx", { executionProviders: ["wasm"] })),
-        stage("建立 decoder", ort.InferenceSession.create(
-          WHISPER_DIR + "decoder_model_merged_quantized.onnx", { executionProviders: ["wasm"] }))
-      ]).then(function (res) {
-        var dec = res[2], past = [], table = whByteTable(), i;
-        // 不同 ORT 版本可能沒有 inputNames，退回 metadata 的鍵
-        var inNames = dec.inputNames || Object.keys(dec.inputMetadata || {});
-        var outNames = dec.outputNames || Object.keys(dec.outputMetadata || {});
-        for (i = 0; i < inNames.length; i++) {
-          if (inNames[i].indexOf("past_key_values.") === 0) past.push(inNames[i]);
-        }
-        var layers = {};
-        for (i = 0; i < past.length; i++) layers[parseInt(past[i].split(".")[1], 10)] = true;
-        var nLayers = Object.keys(layers).length;
-        // vocab.json 是「token → id」，這裡反轉成「id → token」
-        var id2tok = {};
-        for (var tk in res[0]) id2tok[res[0][tk]] = tk;
-        whCache = {
-          ort: ort, enc: res[1], dec: dec, vocab: res[0], id2tok: id2tok, bytes: table,
-          outNames: outNames,
-          pastNames: past, nLayers: nLayers, nHeads: 8, headDim: 64, nFrames: 1500,
-          attnLayers: [Math.floor(nLayers / 2), Math.min(nLayers - 1, Math.floor(nLayers / 2) + 1)]
-        };
-        return whCache;
-      });
-    });
-    return whLoading;
-  }
-
-  function whZeros(cache, ort) {
-    var feeds = {};
-    for (var i = 0; i < cache.pastNames.length; i++) {
-      // 長度用 1 而不是 0：0 維張量在部分 ORT Web 版本會被拒收
-      feeds[cache.pastNames[i]] = new ort.Tensor("float32",
-        new Float32Array(cache.nHeads * cache.headDim), [1, cache.nHeads, 1, cache.headDim]);
-    }
-    return feeds;
-  }
-
-  function whArgmax(logits, offset, len, hist) {
-    var best = -1, bestV = -Infinity, i;
-    var banned = {};
-    if (hist.length >= WH_NO_REPEAT - 1) {
-      var tail = hist.slice(-(WH_NO_REPEAT - 1)).join(",");
-      for (i = 0; i + WH_NO_REPEAT <= hist.length; i++) {
-        if (hist.slice(i, i + WH_NO_REPEAT - 1).join(",") === tail) {
-          banned[hist[i + WH_NO_REPEAT - 1]] = true;
-        }
-      }
-    }
-    for (i = 0; i < len; i++) {
-      if (i === 50362 || i === 50363) continue;
-      if (banned[i]) continue;
-      var v = logits[offset + i];
-      if (v > bestV) { bestV = v; best = i; }
-    }
-    return best;
-  }
-
-  // 一個 30 秒視窗：mel → encoder → 逐 token 解碼（收 cross-attention）→ DTW
-  async function whDecodeWindow(cache, pcm, offsetSec) {
-    var ort = cache.ort;
-    var mel = WH.logMel(pcm);
-    var encOut;
-    try {
-      encOut = await cache.enc.run({ input_features: new ort.Tensor("float32", mel, [1, 80, 3000]) });
-    } catch (e) {
-      throw new Error("encoder 推論失敗：" + (e && e.message ? e.message : e));
-    }
-    // 一定要拿 last_hidden_state：輸出順序在不同 ORT 版本不一定一樣，
-    // 抓錯索引會把 attention 權重餵進 decoder，模型就會說「這裡沒東西」
-    var hidden = encOut["last_hidden_state"];
-    if (!hidden) {
-      var encNames = cache.enc.outputNames || Object.keys(cache.enc.outputMetadata || {});
-      hidden = encOut[encNames[0]];
-    }
-    if (!hidden || !hidden.data || !hidden.data.length) {
-      throw new Error("encoder 沒有輸出 last_hidden_state");
-    }
-
-    var past = whZeros(cache, ort);
-    var feeds = {};
-    for (var k in past) feeds[k] = past[k];
-    feeds.input_ids = new ort.Tensor("int64", BigInt64Array.from(
-      [BigInt(WH_START), BigInt(50260), BigInt(WH_TRANSCRIBE)]), [1, 3]);
-    feeds.encoder_hidden_states = hidden;
-    feeds.use_cache_branch = new ort.Tensor("bool", Uint8Array.from([0]), [1]);
-
-    var res;
-    try {
-      res = await cache.dec.run(feeds);
-    } catch (e) {
-      throw new Error("decoder 第一次推論失敗：" + (e && e.message ? e.message : e));
-    }
-    var names = cache.outNames;
-    var logits = res.logits.data;
-
-    var hist = [], tokens = [], attn = [], frames = [];
-    var nxt = whArgmax(logits, (logits.length / 51865 - 1) * 51865, 51865, hist);
-    var i, n, key;
-
-    for (var step = 0; step < 160; step++) {
-      tokens.push(nxt);
-      if (nxt === WH_EOT) break;
-
-      var f2 = {};
-      for (i = 0; i < cache.pastNames.length; i++) f2[cache.pastNames[i]] = past[cache.pastNames[i]];
-      f2.input_ids = new ort.Tensor("int64", BigInt64Array.from([BigInt(nxt)]), [1, 1]);
-      f2.encoder_hidden_states = hidden;
-      f2.use_cache_branch = new ort.Tensor("bool", Uint8Array.from([1]), [1]);
-
-      try {
-        res = await cache.dec.run(f2);
-      } catch (e) {
-        throw new Error("decoder 第 " + step + " 步失敗：" + (e && e.message ? e.message : e));
-      }
-
-      // cache 分支的 encoder K/V 是空張量，必須沿用第一次算好的
-      for (i = 0; i < names.length; i++) {
-        var nm = names[i];
-        if (nm.indexOf("present.") === 0 && nm.indexOf(".decoder.") > 0) {
-          past["past_key_values." + nm.slice(8)] = res[nm];
-        }
-      }
-
-      var row = new Float64Array(cache.nFrames);
-      for (var L = 0; L < cache.attnLayers.length; L++) {
-        var att = res["cross_attentions." + cache.attnLayers[L]];
-        if (!att) continue;
-        var d = att.data, stride = cache.nFrames * cache.nHeads;
-        var base = d.length - stride;
-        for (n = 0; n < cache.nFrames; n++) {
-          var s = 0;
-          for (var h = 0; h < cache.nHeads; h++) s += d[base + h * cache.nFrames + n];
-          row[n] += s / cache.nHeads;
-        }
-      }
-      for (n = 0; n < cache.nFrames; n++) row[n] /= cache.attnLayers.length;
-      attn.push(row);
-
-      hist.push(nxt);
-      logits = res.logits.data;
-      nxt = whArgmax(logits, 0, 51865, hist);
-      if (step % 8 === 0) await nextTick();
-    }
-
-    var flat = new Float64Array(attn.length * cache.nFrames);
-    for (i = 0; i < attn.length; i++) flat.set(attn[i], i * cache.nFrames);
-    var firstFrames = attn.length ? WH.dtw(flat, attn.length, cache.nFrames) : [];
-
-    // token → (文字, 時間)
-    var chars = [], times = [];
-    for (i = 0; i < tokens.length; i++) {
-      var t = tokens[i];
-      if (t === WH_EOT) break;
-      var when = offsetSec + (i < firstFrames.length ? firstFrames[i] : 0) * (30 / cache.nFrames);
-      if (t >= WH_TS_BEGIN) continue;
-      var txt = whTokenText(cache, t);
-      for (var c = 0; c < txt.length; c++) {
-        chars.push(txt[c]);
-        times.push(when);
-      }
-    }
-    var nTs = 0;
-    for (i = 0; i < tokens.length; i++) if (tokens[i] >= WH_TS_BEGIN) nTs++;
-    return {
-      chars: chars, times: times,
-      info: "token " + tokens.length + " 個（時間戳 " + nTs + " 個），文字 " + chars.length + " 字"
-    };
-  }
-
-  // 歌詞攤成「一個字一個位置」，比對用的字只留中文與英數
-  function whLyricChars(lines) {
+  function svLyricChars(lines) {
     var chars = [], where = [];
     for (var i = 0; i < lines.length; i++) {
       var s = lines[i].text;
@@ -1931,27 +1696,20 @@ var WH = (function () {
     return { chars: chars, lineOf: where };
   }
 
-  // 錨點 → 每行時間。歌詞行用比對到的字；段落標記另外處理。
-  function whTimesForLines(lines, asrChars, asrTimes) {
-    var packed = whLyricChars(lines);
-    var hits = WH.alignLyrics(packed.chars, asrChars, asrTimes);
+  function svTimesForLines(lines, asrChars, asrTimes) {
+    var packed = svLyricChars(lines);
+    var hits = svAlign(packed.chars, asrChars, asrTimes);
     var per = new Array(lines.length).fill(null);
     var isMarker = new Array(lines.length).fill(false);
-    for (var m = 0; m < lines.length; m++) {
-      if (isMarkerLine(lines[m].text)) isMarker[m] = true;
-    }
-
+    for (var m = 0; m < lines.length; m++) if (isMarkerLine(lines[m].text)) isMarker[m] = true;
     for (var i = 0; i < hits.length; i++) {
       if (hits[i] == null) continue;
       var ln = packed.lineOf[i];
       if (per[ln] == null || hits[i] < per[ln]) per[ln] = hits[i];
     }
-
-    // 只針對「有歌詞的行」內插
     var known = [];
     for (var j = 0; j < per.length; j++) if (!isMarker[j] && per[j] != null) known.push(j);
     if (!known.length) return null;
-    var firstKnown = known[0], lastKnown = known[known.length - 1];
     for (var k = 0; k < per.length; k++) {
       if (isMarker[k] || per[k] != null) continue;
       var prev = null, next = null;
@@ -1959,21 +1717,15 @@ var WH = (function () {
         if (known[a] < k) prev = known[a];
         if (known[a] > k && next == null) next = known[a];
       }
-      if (prev != null && next != null) {
-        per[k] = per[prev] + (per[next] - per[prev]) * (k - prev) / (next - prev);
-      } else if (prev != null) {
-        per[k] = per[prev] + 2 * (k - prev);
-      } else {
-        per[k] = Math.max(0.5, per[next] - 2 * (next - k));
-      }
+      if (prev != null && next != null) per[k] = per[prev] + (per[next] - per[prev]) * (k - prev) / (next - prev);
+      else if (prev != null) per[k] = per[prev] + 2 * (k - prev);
+      else per[k] = Math.max(0.5, per[next] - 2 * (next - k));
     }
-
-    // 段落標記：一般標籤跟下一句同時開始；前奏／間奏／尾奏放在前後兩句之間
     for (var q = 0; q < per.length; q++) {
       if (!isMarker[q]) continue;
       var nx = null, pv = null;
-      for (var b = q + 1; b < per.length; b++) if (per[b] != null) { nx = per[b]; break; }
-      for (var c = q - 1; c >= 0; c--) if (per[c] != null) { pv = per[c]; break; }
+      for (var b2 = q + 1; b2 < per.length; b2++) if (per[b2] != null) { nx = per[b2]; break; }
+      for (var c2 = q - 1; c2 >= 0; c2--) if (per[c2] != null) { pv = per[c2]; break; }
       if (isInstrumentalMarker(lines[q].text)) {
         if (pv != null && nx != null) per[q] = pv + (nx - pv) * 0.5;
         else if (nx != null) per[q] = Math.max(0, nx - 3);
@@ -1985,23 +1737,24 @@ var WH = (function () {
     return per;
   }
 
-  async function runWhisper() {
-    var cache = await whEnsure();
-    var pcm = resampleMono(state.buffer, WH.SR);
+  async function runAsr() {
+    var cache = await svEnsure();
+    var pcm = resampleMono(state.buffer, SV_RATE);
     var chars = [], times = [];
-    var windows = Math.max(1, Math.ceil(pcm.length / WH_WIN));
+    var windows = Math.max(1, Math.ceil(pcm.length / SV_WIN));
     for (var w = 0; w < windows; w++) {
       setDetectStatus("語音辨識中… 第 " + (w + 1) + "/" + windows + " 段", "analyzing");
       await nextTick();
-      var seg = pcm.subarray(w * WH_WIN, Math.min(pcm.length, (w + 1) * WH_WIN));
-      if (seg.length < WH.SR) break;
-      var out = await whDecodeWindow(cache, seg, (w * WH_WIN) / WH.SR);
+      var seg = pcm.subarray(w * SV_WIN, Math.min(pcm.length, (w + 1) * SV_WIN));
+      if (seg.length < SV_RATE) break;
+      var out = await svDecodeWindow(cache, seg, (w * SV_WIN) / SV_RATE);
       for (var i = 0; i < out.chars.length; i++) {
         chars.push(out.chars[i]);
         times.push(out.times[i]);
       }
     }
-    return { chars: chars, times: times };
+    var clean = svCleanChars(chars, times);
+    return { chars: clean.chars, times: clean.times, info: "共 " + clean.chars.length + " 字" };
   }
 
   function analyzeAndFill() {
@@ -2340,7 +2093,7 @@ var WH = (function () {
     });
     el.analyze.addEventListener("click", analyzeAndFill);
 
-    // 語音辨識對齊（選用）：勾了才下載 whisper 模型
+    // 語音辨識對齊（選用）：勾了才下載 SenseVoice 模型
     el.asr.addEventListener("change", function () {
       if (!el.asr.checked) {
         state.asrTimes = null;
@@ -2350,14 +2103,14 @@ var WH = (function () {
       if (!state.buffer) { el.asr.checked = false; toast("先選擇音檔"); return; }
       if (!state.lines.length) { el.asr.checked = false; toast("先載入歌詞"); return; }
 
-      setDetectStatus("準備語音模型…", "analyzing");
-      runWhisper().then(function (out) {
+      setDetectStatus("準備語音模型（第一次下載約 230 MB）…", "analyzing");
+      runAsr().then(function (out) {
         if (!out.chars.length) {
           setDetectStatus("語音辨識沒有抓到任何字（" + (out.info || "") + "）。" +
             "若是 0 個 token，代表模型判斷這段沒有語音。", "warn");
           return;
         }
-        var times = whTimesForLines(state.lines, out.chars, out.times);
+        var times = svTimesForLines(state.lines, out.chars, out.times);
         if (!times) {
           setDetectStatus("辨識結果跟歌詞對不上（可能不是同一首歌或語言不同）。", "warn");
           return;
