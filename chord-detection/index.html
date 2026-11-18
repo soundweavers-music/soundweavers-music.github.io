@@ -67,6 +67,7 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
 .lyric-seg { position: absolute; top: 0; white-space: nowrap; }
 .melody-line { position: relative; height: calc(var(--melody-size, 13px) * 3.0); margin-bottom: var(--row-gap, 2px); font-size: var(--melody-size, 13px); color: #6b6259; font-weight: 600; }
 .melody-seg { position: absolute; top: 50%; transform: translateY(-50%); white-space: nowrap; padding: 0 1px; }
+.melody-seg .acc { font-size: 0.66em; margin-right: -0.06em; vertical-align: 0.15em; font-weight: 600; }
 .melody-seg .oct { position: absolute; left: 50%; transform: translateX(-50%); font-size: 0.9em; line-height: 1; letter-spacing: 0; font-weight: 700; }
 .melody-seg .oct.up { top: -1.0em; }
 .melody-seg .oct.down { bottom: -1.0em; }
@@ -516,7 +517,7 @@ let state = {
   lyrics: [], lyricSegs: {}, lyricOverrides: {}, showLyrics: true, showDegrees: true,
   showDiagrams: false, continuous: false, notation: 'name',
   pickupOverride: null, lyricSnap: true, chordSize: 15, lyricSize: 14, melodySize: 13, rowGap: 2,
-  showMelody: false, melodyFrames: null, melodyNotes: null,
+  showMelody: false, melodyFrames: null, melodySmooth: null, melodyNotes: null,
   onsetEnv: null, onsetHopSec: 0,
   instrument: 0, tuning: null,
   isPlaying: false, currentTime: 0, startTime: 0, playEnd: 0,
@@ -1915,7 +1916,8 @@ function barCellHtml(idx) {
       const dots = Math.abs(sym.oct) > 0 ? '·'.repeat(Math.min(3, Math.abs(sym.oct))) : '';
       melHtml += '<span class="melody-seg ' + sym.cls + '" style="left:' + Math.max(0, left).toFixed(2) + '%">'
         + (sym.oct > 0 ? '<span class="oct up">' + dots + '</span>' : '')
-        + escapeHtml(sym.num + sym.suffix)
+        + (sym.acc ? '<span class="acc">' + sym.acc + '</span>' : '')
+        + escapeHtml(sym.base + sym.suffix)
         + (sym.oct < 0 ? '<span class="oct down">' + dots + '</span>' : '')
         + '</span>';
     }
@@ -2095,6 +2097,7 @@ async function loadLRCFile(file) {
   }
   el.textContent = `已載入 ${state.lyrics.length} 行歌詞（${file.name}）`;
   el.className = 'status-msg done';
+  if (state.showMelody && state.melodySmooth) rebuildMelodyNotes();
   renderChart();
 }
 
@@ -2208,6 +2211,11 @@ function syllableTimes(n, t0, t1) {
 // 主唱在正中央、伴奏分左右），對分離後的頻譜做諧波加總找音高，再用
 // Viterbi 平滑（偏好停在同一音、換音要付代價）壓低抖動。
 const SOLFEGE = ['1','♭2','2','♭3','3','4','♯4','5','♭6','6','♭7','7'];
+// 拆成「記號 + 數字」，記號要畫小一點並貼近數字
+const SOLFEGE_PARTS = [
+  ['', '1'], ['♭', '2'], ['', '2'], ['♭', '3'], ['', '3'], ['', '4'],
+  ['♯', '4'], ['', '5'], ['♭', '6'], ['', '6'], ['♭', '7'], ['', '7']
+];
 
 function computeMelodyFrames(buffer) {
   const chs = buffer.numberOfChannels;
@@ -2256,8 +2264,14 @@ function computeMelodyFrames(buffer) {
         if (fz > 3000) break;
         const k = Math.round(fz / binHz);
         if (k < 1 || k >= bins) continue;
-        sum += mag[k] / h;
+        // 顫音會讓頻譜峰值左右晃，取 ±1 bin 的最大值比較穩
+        let v = mag[k];
+        if (k > 1 && mag[k - 1] > v) v = mag[k - 1];
+        if (k + 1 < bins && mag[k + 1] > v) v = mag[k + 1];
+        sum += v / h;
       }
+      // 低音容易「吃掉」很多諧波而勝出，給一點頻率權重壓下去
+      sum *= Math.pow(f0 / 220, 0.35);
       if (sum > bestS) { bestS = sum; bestM = m; }
     }
     raw[f] = bestS > 0.02 ? bestM : -1;
@@ -2294,6 +2308,64 @@ function computeMelodyFrames(buffer) {
   return { times, midi, nFrames };
 }
 
+// 人聲會有顫音、滑音，先做時間方向的中位數平滑（±3 格）再切音符，
+// 否則同一個字會被切成好幾個音。
+function smoothMelody(frames) {
+  const n = frames.nFrames;
+  const midi = new Int16Array(n).fill(-1);
+  for (let f = 0; f < n; f++) {
+    const vals = [];
+    for (let k = Math.max(0, f - 3); k <= Math.min(n - 1, f + 3); k++) {
+      if (frames.midi[k] >= 0) vals.push(frames.midi[k]);
+    }
+    if (!vals.length) continue;
+    vals.sort((a, b) => a - b);
+    midi[f] = vals[vals.length >> 1];
+  }
+  return { times: frames.times, midi, nFrames: n };
+}
+
+// 時間範圍內最常出現的音（先平滑過，所以 ±1 的抖動已經收斂）
+function dominantMidiInRange(frames, t0, t1) {
+  const lo = Math.max(0, frameStartIndex(frames, t0));
+  const hi = Math.min(frames.nFrames, frameStartIndex(frames, t1));
+  const counts = new Map();
+  let best = -1, bestC = 0, any = 0;
+  for (let f = lo; f < hi; f++) {
+    const m = frames.midi[f];
+    if (m < 0) continue;
+    any++;
+    const c = (counts.get(m) || 0) + 1;
+    counts.set(m, c);
+    if (c > bestC) { bestC = c; best = m; }
+  }
+  return any >= 2 ? best : -1;
+}
+
+// 有歌詞時：一個字一個音。直接用歌詞的字數與字頭時間切旋律，
+// 這比自由切音穩定得多，也讓簡譜和歌詞自然對齊。
+function melodyNotesFromLyrics(frames) {
+  const notes = [];
+  const lines = state.lyrics;
+  if (!lines.length) return notes;
+  for (let i = 0; i < lines.length; i++) {
+    const t0 = snapLyricTime(lines[i].time);
+    const nextT = (i + 1 < lines.length) ? snapLyricTime(lines[i + 1].time) : state.duration;
+    const chars = Array.from(lines[i].text).filter(ch => !/\s/.test(ch));
+    if (!chars.length) continue;
+    const t1 = Math.min(Math.max(t0 + 0.3, nextT), state.duration);
+    const times = syllableTimes(chars.length, t0, t1);
+    for (let k = 0; k < chars.length; k++) {
+      const s = times[k];
+      const e = (k + 1 < chars.length) ? times[k + 1] : Math.min(t1, s + 1.0);
+      const m = dominantMidiInRange(frames, s, Math.max(s + 0.08, e));
+      if (m < 0) continue;
+      notes.push({ midi: m, start: s, end: Math.max(s + 0.08, e) });
+    }
+  }
+  return notes;
+}
+
 // 逐格音高 → 音符事件（同音合併、太短的碎片併進前一個音）
 function melodyNotes(frames) {
   const notes = [];
@@ -2309,8 +2381,14 @@ function melodyNotes(frames) {
   if (cur) { cur.end = cur.start + 0.05; notes.push(cur); }
   const out = [];
   for (const n of notes) {
-    if (n.end - n.start < 0.07 && out.length) { out[out.length - 1].end = n.end; continue; }
-    out.push(n);
+    const dur = n.end - n.start;
+    const prev = out[out.length - 1];
+    // 太短的碎片、或滑音（與前一個音差一個半音且很短）都併進前一個音
+    if (prev && (dur < 0.07 || (dur < 0.18 && Math.abs(prev.midi - n.midi) <= 1) || prev.midi === n.midi)) {
+      prev.end = Math.max(prev.end, n.end);
+      continue;
+    }
+    out.push({ midi: n.midi, start: n.start, end: n.end });
   }
   return out;
 }
@@ -2328,12 +2406,21 @@ function quantizeMelodyNotes(notes) {
   return out;
 }
 
+// 歌詞載入或編輯後，用同一份旋律資料重切音符（不用重跑音檔分析）
+function rebuildMelodyNotes() {
+  if (!state.melodySmooth) return;
+  state.melodyNotes = quantizeMelodyNotes(
+    state.lyrics.length ? melodyNotesFromLyrics(state.melodySmooth) : melodyNotes(state.melodySmooth));
+}
+
 async function ensureMelody() {
   if (!state.audioBuffer) return;
   if (!state.melodyFrames) {
     setStatus('分析旋律（人聲分離）…', 'analyzing');
     state.melodyFrames = computeMelodyFrames(state.audioBuffer);
-    state.melodyNotes = quantizeMelodyNotes(melodyNotes(state.melodyFrames));
+    state.melodySmooth = smoothMelody(state.melodyFrames);
+    state.melodyNotes = quantizeMelodyNotes(
+      state.lyrics.length ? melodyNotesFromLyrics(state.melodySmooth) : melodyNotes(state.melodySmooth));
     setProgressDone();
   }
   setStatus('旋律分析完成（首調數字僅供參考）', 'done');
@@ -2345,10 +2432,14 @@ function melodySymbol(note) {
   // 簡譜的首調以「實際調」（含移調）為基準，不是吉他指型的把位：
   // 這樣把「轉成 D」之後數字會跟著換，換把位／Capo 時數字不會亂跳。
   const keyMajor = mod12(songMajorRoot() + state.transpose);
-  const num = SOLFEGE[mod12(note.pc - keyMajor)];
-  // 八度點：以中央 C 所在的那個八度當基準（1 在中間），
-  // 高八度點在上面、低八度點在下面。
-  const oct = Math.round((note.midi - (60 + keyMajor)) / 12);
+  const deg = mod12(note.pc - keyMajor);
+  const acc = SOLFEGE_PARTS[deg][0];
+  const base = SOLFEGE_PARTS[deg][1];
+  const num = SOLFEGE[deg];
+  // 八度點：以中央 C 下面一個八度當基準，一般唱歌的音域會落在「無點」或
+  // 「上面一點」；往下最多一點（低音很少用到兩點），往上最多兩點。
+  let oct = Math.floor((note.midi - (48 + keyMajor)) / 12);
+  oct = Math.max(-1, Math.min(2, oct));
   let cls = '', suffix = '';
   if (note.beats >= 2) {
     suffix = ' ' + '– '.repeat(Math.max(1, Math.round(note.beats) - 1)).trim();
@@ -2359,7 +2450,7 @@ function melodySymbol(note) {
   } else if (note.beats <= 0.5) {
     cls = 'u1';
   }
-  return { num, cls, suffix, oct: oct };
+  return { num, acc, base, cls, suffix, oct: oct };
 }
 
 function addLyricSeg(barIdx, beat, text) {
@@ -2646,6 +2737,7 @@ function saveEditChord() {
     if (typed && typed !== autoLyric) state.lyricOverrides[idx] = typed;
     else delete state.lyricOverrides[idx];
     computeLyricSegments();
+    if (state.showMelody && state.melodySmooth) rebuildMelodyNotes();
     renderChart();
   }
 }
