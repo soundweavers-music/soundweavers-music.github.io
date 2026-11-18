@@ -28,6 +28,7 @@ work/shots/
 work/candidates/
 work/sheets/
 work/chunks/
+work/verify_imgs/
 work/cache_chunk*.json
 work/image_candidates_cache.json
 
