@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 350" role="img" aria-label="音域測試：說話區、舒適區、極限區">
+  <title>音域測試：說話區、舒適區、極限區</title>
+  <rect width="620" height="350" fill="#fbf8f2"/>
+  <style>
+    .ink { fill: none; stroke: #2b2a26; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { fill: none; stroke: #8a8578; stroke-width: 1.4; stroke-dasharray: 5 5; }
+    .grid { fill: none; stroke: #d8d0c2; stroke-width: 1.2; }
+    .fill { fill: #b5734a; opacity: .18; stroke: #b5734a; stroke-width: 1.8; }
+    .fill2 { fill: #7d9b76; opacity: .18; stroke: #7d9b76; stroke-width: 1.8; }
+    .solid { fill: #b5734a; opacity: .85; }
+    .solid2 { fill: #7d9b76; opacity: .85; }
+    .lbl { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 15px; fill: #2b2a26; }
+    .lbl-s { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 12.5px; fill: #8a8578; }
+    .lbl-b { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 15px; fill: #2b2a26; font-weight: 700; }
+  </style>
+<text class="lbl-b" x="40" y="40">先找出三個區，再決定這首歌能不能唱</text>
+  <rect class="fill2" x="70" y="110" width="190" height="70" rx="14"/>
+  <text class="lbl-b" x="165" y="144" text-anchor="middle">說話區</text>
+  <text class="lbl-s" x="165" y="166" text-anchor="middle">平常講話的高度</text>
+  <rect class="fill" x="260" y="110" width="240" height="70" rx="14"/>
+  <text class="lbl-b" x="380" y="144" text-anchor="middle">舒適區</text>
+  <text class="lbl-s" x="380" y="166" text-anchor="middle">能控制、能撐長音</text>
+  <rect class="grid" x="500" y="110" width="120" height="70" rx="14"/>
+  <text class="lbl-b" x="560" y="144" text-anchor="middle">極限區</text>
+  <text class="lbl-s" x="560" y="166" text-anchor="middle">碰得到但不穩</text>
+  <path class="ink" d="M70 210 L70 244"/>
+  <path class="ink" d="M120 210 L120 244"/>
+  <path class="ink" d="M170 210 L170 244"/>
+  <path class="ink" d="M220 210 L220 244"/>
+  <path class="ink" d="M270 210 L270 244"/>
+  <path class="ink" d="M320 210 L320 244"/>
+  <path class="ink" d="M370 210 L370 244"/>
+  <path class="ink" d="M420 210 L420 244"/>
+  <path class="ink" d="M470 210 L470 244"/>
+  <path class="ink" d="M520 210 L520 244"/>
+  <path class="ink" d="M570 210 L570 244"/>
+  <text class="lbl-s" x="70" y="268">低</text>
+  <text class="lbl-s" x="570" y="268" text-anchor="end">高</text>
+  <path class="thin" d="M70 290 L560 290"/><path class="thin" d="M560 290 L550.0 294.5 L550.0 285.5 Z" fill="#2b2a26"/>
+  <text class="lbl-s" x="40" y="322">定 KEY 就是挑一首歌，讓它的最高音落在舒適區上緣——不是剛好踩到極限</text>
+</svg>

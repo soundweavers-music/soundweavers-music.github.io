@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" role="img" aria-label="主歌到副歌的動態曲線：段落與情緒強度">
+  <title>主歌到副歌的動態曲線：段落與情緒強度</title>
+  <rect width="600" height="400" fill="#fbf8f2"/>
+  <style>
+    .ink { fill: none; stroke: #2b2a26; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { fill: none; stroke: #8a8578; stroke-width: 1.4; stroke-dasharray: 5 5; }
+    .grid { fill: none; stroke: #d8d0c2; stroke-width: 1.2; }
+    .fill { fill: #b5734a; opacity: .18; stroke: #b5734a; stroke-width: 1.8; }
+    .fill2 { fill: #7d9b76; opacity: .18; stroke: #7d9b76; stroke-width: 1.8; }
+    .solid { fill: #b5734a; opacity: .85; }
+    .solid2 { fill: #7d9b76; opacity: .85; }
+    .lbl { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 15px; fill: #2b2a26; }
+    .lbl-s { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 12.5px; fill: #8a8578; }
+    .lbl-b { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 15px; fill: #2b2a26; font-weight: 700; }
+  </style>
+<text class="lbl-b" x="40" y="40">把每段的強度先標好，唱的時候照著走</text>
+  <path class="grid" d="M70 292 L560 292"/>
+  <text class="lbl-s" x="52" y="296" text-anchor="end">1</text>
+  <path class="grid" d="M70 264 L560 264"/>
+  <text class="lbl-s" x="52" y="268" text-anchor="end">2</text>
+  <path class="grid" d="M70 236 L560 236"/>
+  <text class="lbl-s" x="52" y="240" text-anchor="end">3</text>
+  <path class="grid" d="M70 208 L560 208"/>
+  <text class="lbl-s" x="52" y="212" text-anchor="end">4</text>
+  <path class="grid" d="M70 180 L560 180"/>
+  <text class="lbl-s" x="52" y="184" text-anchor="end">5</text>
+  <path class="grid" d="M70 152 L560 152"/>
+  <text class="lbl-s" x="52" y="156" text-anchor="end">6</text>
+  <path class="grid" d="M70 124 L560 124"/>
+  <text class="lbl-s" x="52" y="128" text-anchor="end">7</text>
+  <path class="grid" d="M70 96 L560 96"/>
+  <text class="lbl-s" x="52" y="100" text-anchor="end">8</text>
+  <path class="ink" d="M90 320 L170 236"/>
+  <circle class="solid" cx="90" cy="236" r="5"/>
+  <text class="lbl-s" x="130" y="342" text-anchor="middle">主歌</text>
+  <path class="ink" d="M170 320 L250 180"/>
+  <circle class="solid" cx="170" cy="180" r="5"/>
+  <text class="lbl-s" x="210" y="342" text-anchor="middle">預副歌</text>
+  <path class="ink" d="M250 320 L350 96"/>
+  <circle class="solid" cx="250" cy="96" r="5"/>
+  <text class="lbl-s" x="300" y="342" text-anchor="middle">副歌</text>
+  <path class="ink" d="M350 320 L420 208"/>
+  <circle class="solid" cx="350" cy="208" r="5"/>
+  <text class="lbl-s" x="385" y="342" text-anchor="middle">橋段</text>
+  <path class="ink" d="M420 320 L545 96"/>
+  <circle class="solid" cx="420" cy="96" r="5"/>
+  <text class="lbl-s" x="482" y="342" text-anchor="middle">最後副歌</text>
+  <circle class="solid2" cx="545" cy="96" r="5"/>
+  <path class="thin" d="M545 96 L552 86"/><path class="thin" d="M552 86 L549.9 96.8 L542.6 91.7 Z" fill="#2b2a26"/>
+  <text class="lbl-s" x="556" y="78" text-anchor="end">留一點</text>
+  <text class="lbl-s" x="70" y="372">數字是相對的，重點是「後面一定比前面高」；全程 8 分等於沒有曲線</text>
+</svg>

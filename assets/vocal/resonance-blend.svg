@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" role="img" aria-label="三種共鳴腔的比例尺：胸腔、口咽腔、鼻腔頭腔">
+  <title>三種共鳴腔的比例尺：胸腔、口咽腔、鼻腔頭腔</title>
+  <rect width="600" height="340" fill="#fbf8f2"/>
+  <style>
+    .ink { fill: none; stroke: #2b2a26; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { fill: none; stroke: #8a8578; stroke-width: 1.4; stroke-dasharray: 5 5; }
+    .grid { fill: none; stroke: #d8d0c2; stroke-width: 1.2; }
+    .fill { fill: #b5734a; opacity: .18; stroke: #b5734a; stroke-width: 1.8; }
+    .fill2 { fill: #7d9b76; opacity: .18; stroke: #7d9b76; stroke-width: 1.8; }
+    .solid { fill: #b5734a; opacity: .85; }
+    .solid2 { fill: #7d9b76; opacity: .85; }
+    .lbl { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 15px; fill: #2b2a26; }
+    .lbl-s { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 12.5px; fill: #8a8578; }
+    .lbl-b { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 15px; fill: #2b2a26; font-weight: 700; }
+  </style>
+<text class="lbl-b" x="40" y="40">共鳴不是開關，是三條比例尺</text>
+  <circle class="solid" cx="180" cy="66" r="8"/>
+  <text class="lbl-s" x="196" y="71">抒情中低音</text>
+  <circle class="solid2" cx="296" cy="66" r="8"/>
+  <text class="lbl-s" x="312" y="71">高音副歌</text>
+  <text class="lbl-b" x="40" y="102">胸腔</text>
+  <text class="lbl-s" x="40" y="122">低頻、厚</text>
+  <rect class="grid" x="180" y="96" width="300" height="26" rx="13"/>
+  <circle class="solid" cx="396" cy="109" r="9"/>
+  <circle class="solid2" cx="258" cy="109" r="9"/>
+  <text class="lbl-s" x="494" y="114">少 ←→ 多</text>
+  <text class="lbl-b" x="40" y="164">口咽腔</text>
+  <text class="lbl-s" x="40" y="184">中頻、主體</text>
+  <rect class="grid" x="180" y="158" width="300" height="26" rx="13"/>
+  <circle class="solid" cx="354" cy="171" r="9"/>
+  <circle class="solid2" cx="366" cy="171" r="9"/>
+  <text class="lbl-s" x="494" y="176">少 ←→ 多</text>
+  <text class="lbl-b" x="40" y="226">鼻腔／頭腔</text>
+  <text class="lbl-s" x="40" y="246">高頻、亮</text>
+  <rect class="grid" x="180" y="220" width="300" height="26" rx="13"/>
+  <circle class="solid" cx="252" cy="233" r="9"/>
+  <circle class="solid2" cx="402" cy="233" r="9"/>
+  <text class="lbl-s" x="494" y="238">少 ←→ 多</text>
+  <text class="lbl-s" x="40" y="310">換曲風＝換比例，不是換力氣：想厚一點就讓胸腔參與多一點，想亮就往頭腔移</text>
+</svg>

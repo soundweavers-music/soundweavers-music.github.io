@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 380" role="img" aria-label="假聲帶（室襞）與真聲帶（聲襞）的上下位置">
+  <title>假聲帶（室襞）與真聲帶（聲襞）的上下位置</title>
+  <rect width="700" height="380" fill="#fbf8f2"/>
+  <style>
+    .ink { fill: none; stroke: #2b2a26; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { fill: none; stroke: #8a8578; stroke-width: 1.4; stroke-dasharray: 5 5; }
+    .grid { fill: none; stroke: #d8d0c2; stroke-width: 1.2; }
+    .fill { fill: #b5734a; opacity: .18; stroke: #b5734a; stroke-width: 1.8; }
+    .fill2 { fill: #7d9b76; opacity: .18; stroke: #7d9b76; stroke-width: 1.8; }
+    .solid { fill: #b5734a; opacity: .85; }
+    .solid2 { fill: #7d9b76; opacity: .85; }
+    .lbl { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 15px; fill: #2b2a26; }
+    .lbl-s { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 12.5px; fill: #8a8578; }
+    .lbl-b { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 15px; fill: #2b2a26; font-weight: 700; }
+  </style>
+<text class="lbl-b" x="40" y="40">假聲帶在真的上面，負責關門與保護</text>
+  <path class="ink" d="M90 90 C90 70 400 70 400 90 L400 300 C400 320 90 320 90 300 Z"/>
+  <path class="fill" d="M108 132 C180 112 320 112 382 132 C392 156 392 166 382 178 C320 158 180 158 108 178 Z"/>
+  <path class="fill2" d="M106 210 C180 192 320 192 384 210 C394 234 394 244 384 258 C320 240 180 240 106 258 Z"/>
+  <path class="thin" d="M130 296 L130 260"/><path class="thin" d="M130 260 L134.5 270.0 L125.5 270.0 Z" fill="#2b2a26"/>
+  <text class="lbl-s" x="140" y="292">氣流由下往上</text>
+  <path class="thin" d="M392 155 L424 155"/>
+  <text class="lbl" x="432" y="138">假聲帶（室襞）</text>
+  <text class="lbl-s" x="432" y="158">關門保護，</text>
+  <text class="lbl-s" x="432" y="176">也能做特殊音色</text>
+  <path class="thin" d="M392 234 L424 234"/>
+  <text class="lbl" x="432" y="218">真聲帶（聲襞）</text>
+  <text class="lbl-s" x="432" y="238">真正振動發聲的</text>
+  <text class="lbl-s" x="432" y="256">地方</text>
+  <text class="lbl-s" x="40" y="350">咳嗽、清喉嚨、硬擠高音，都是叫上面的假聲帶出來代班——聲音會啞就是這樣來的</text>
+</svg>

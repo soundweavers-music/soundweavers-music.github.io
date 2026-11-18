@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 350" role="img" aria-label="拍點前後的微小時差：搶拍、正拍、拖拍">
+  <title>拍點前後的微小時差：搶拍、正拍、拖拍</title>
+  <rect width="620" height="350" fill="#fbf8f2"/>
+  <style>
+    .ink { fill: none; stroke: #2b2a26; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { fill: none; stroke: #8a8578; stroke-width: 1.4; stroke-dasharray: 5 5; }
+    .grid { fill: none; stroke: #d8d0c2; stroke-width: 1.2; }
+    .fill { fill: #b5734a; opacity: .18; stroke: #b5734a; stroke-width: 1.8; }
+    .fill2 { fill: #7d9b76; opacity: .18; stroke: #7d9b76; stroke-width: 1.8; }
+    .solid { fill: #b5734a; opacity: .85; }
+    .solid2 { fill: #7d9b76; opacity: .85; }
+    .lbl { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 15px; fill: #2b2a26; }
+    .lbl-s { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 12.5px; fill: #8a8578; }
+    .lbl-b { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 15px; fill: #2b2a26; font-weight: 700; }
+  </style>
+<text class="lbl-b" x="40" y="40">律動就是「不剛好在線上」，但每一拍都一樣偏</text>
+  <path class="grid" d="M80 90 L80 250"/>
+  <text class="lbl-s" x="80" y="274" text-anchor="middle">1</text>
+  <path class="grid" d="M132 90 L132 250"/>
+  <text class="lbl-s" x="132" y="274" text-anchor="middle">·</text>
+  <path class="grid" d="M184 90 L184 250"/>
+  <text class="lbl-s" x="184" y="274" text-anchor="middle">2</text>
+  <path class="grid" d="M236 90 L236 250"/>
+  <text class="lbl-s" x="236" y="274" text-anchor="middle">·</text>
+  <path class="grid" d="M288 90 L288 250"/>
+  <text class="lbl-s" x="288" y="274" text-anchor="middle">3</text>
+  <path class="grid" d="M340 90 L340 250"/>
+  <text class="lbl-s" x="340" y="274" text-anchor="middle">·</text>
+  <path class="grid" d="M392 90 L392 250"/>
+  <text class="lbl-s" x="392" y="274" text-anchor="middle">4</text>
+  <path class="grid" d="M444 90 L444 250"/>
+  <text class="lbl-s" x="444" y="274" text-anchor="middle">·</text>
+  <path class="grid" d="M496 90 L496 250"/>
+  <text class="lbl-s" x="496" y="274" text-anchor="middle">5</text>
+  <ellipse class="solid" cx="272" cy="120" rx="16" ry="10"/>
+  <text class="lbl-s" x="70" y="125" text-anchor="end">搶拍</text>
+  <text class="lbl-s" x="230" y="125" text-anchor="end">早一點進去，推力強</text>
+  <ellipse class="solid" cx="288" cy="170" rx="16" ry="10"/>
+  <text class="lbl-s" x="70" y="175" text-anchor="end">正拍</text>
+  <text class="lbl-s" x="246" y="175" text-anchor="end">穩、但容易死板</text>
+  <ellipse class="solid" cx="306" cy="220" rx="16" ry="10"/>
+  <text class="lbl-s" x="70" y="225" text-anchor="end">拖拍</text>
+  <text class="lbl-s" x="264" y="225" text-anchor="end">晚一點出來，鬆、有味道</text>
+  <text class="lbl-s" x="40" y="320">重點是同一個偏移量從頭到尾——忽快忽慢叫不穩，穩定偏一點才叫律動</text>
+</svg>

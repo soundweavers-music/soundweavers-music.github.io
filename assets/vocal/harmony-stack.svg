@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 370" role="img" aria-label="主唱與和聲的堆疊關係">
+  <title>主唱與和聲的堆疊關係</title>
+  <rect width="620" height="370" fill="#fbf8f2"/>
+  <style>
+    .ink { fill: none; stroke: #2b2a26; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { fill: none; stroke: #8a8578; stroke-width: 1.4; stroke-dasharray: 5 5; }
+    .grid { fill: none; stroke: #d8d0c2; stroke-width: 1.2; }
+    .fill { fill: #b5734a; opacity: .18; stroke: #b5734a; stroke-width: 1.8; }
+    .fill2 { fill: #7d9b76; opacity: .18; stroke: #7d9b76; stroke-width: 1.8; }
+    .solid { fill: #b5734a; opacity: .85; }
+    .solid2 { fill: #7d9b76; opacity: .85; }
+    .lbl { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 15px; fill: #2b2a26; }
+    .lbl-s { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 12.5px; fill: #8a8578; }
+    .lbl-b { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 15px; fill: #2b2a26; font-weight: 700; }
+  </style>
+<text class="lbl-b" x="40" y="40">和聲不是愈多愈好，是三度最安全</text>
+  <text class="lbl-s" x="50" y="108">高八度</text>
+  <rect class="fill2" x="200" y="90" width="300" height="30" rx="6"/>
+  <text class="lbl-s" x="510" y="110">+8 半音</text>
+  <text class="lbl-s" x="50" y="154">高五度</text>
+  <rect class="fill2" x="200" y="136" width="300" height="30" rx="6"/>
+  <text class="lbl-s" x="510" y="156">+5 半音</text>
+  <text class="lbl-s" x="50" y="200">高三度</text>
+  <rect class="fill" x="200" y="182" width="300" height="30" rx="6"/>
+  <text class="lbl-s" x="510" y="202">+3 半音</text>
+  <text class="lbl-s" x="50" y="246">主唱</text>
+  <rect class="fill2" x="200" y="228" width="300" height="30" rx="6"/>
+  <text class="lbl-s" x="510" y="248">基準</text>
+  <text class="lbl-s" x="50" y="292">低三度</text>
+  <rect class="fill" x="200" y="274" width="300" height="30" rx="6"/>
+  <text class="lbl-s" x="510" y="294">-3 半音</text>
+  <text class="lbl-s" x="40" y="340">先錄好主唱，再一條一條疊；兩條和聲已經夠厚，四條開始糊</text>
+</svg>

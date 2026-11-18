@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 370" role="img" aria-label="氣泡音與正常振動的波形差異">
+  <title>氣泡音與正常振動的波形差異</title>
+  <rect width="600" height="370" fill="#fbf8f2"/>
+  <style>
+    .ink { fill: none; stroke: #2b2a26; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { fill: none; stroke: #8a8578; stroke-width: 1.4; stroke-dasharray: 5 5; }
+    .grid { fill: none; stroke: #d8d0c2; stroke-width: 1.2; }
+    .fill { fill: #b5734a; opacity: .18; stroke: #b5734a; stroke-width: 1.8; }
+    .fill2 { fill: #7d9b76; opacity: .18; stroke: #7d9b76; stroke-width: 1.8; }
+    .solid { fill: #b5734a; opacity: .85; }
+    .solid2 { fill: #7d9b76; opacity: .85; }
+    .lbl { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 15px; fill: #2b2a26; }
+    .lbl-s { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 12.5px; fill: #8a8578; }
+    .lbl-b { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 15px; fill: #2b2a26; font-weight: 700; }
+  </style>
+<text class="lbl-b" x="40" y="40">氣泡音是「慢慢漏、一下一下」，不是用力壓</text>
+  <text class="lbl-b" x="60" y="90">正常振動</text>
+  <path class="ink" d="M70 150 C82 100 100 100 112 150 C118 172 122 172 125 150"/>
+  <path class="ink" d="M125 150 C137 100 155 100 167 150 C173 172 177 172 180 150"/>
+  <path class="ink" d="M180 150 C192 100 210 100 222 150 C228 172 232 172 235 150"/>
+  <path class="ink" d="M235 150 C247 100 265 100 277 150 C283 172 287 172 290 150"/>
+  <path class="ink" d="M290 150 C302 100 320 100 332 150 C338 172 342 172 345 150"/>
+  <path class="ink" d="M345 150 C357 100 375 100 387 150 C393 172 397 172 400 150"/>
+  <path class="ink" d="M400 150 C412 100 430 100 442 150 C448 172 452 172 455 150"/>
+  <path class="ink" d="M455 150 C467 100 485 100 497 150 C503 172 507 172 510 150"/>
+  <path class="ink" d="M510 150 C522 100 540 100 552 150 C558 172 562 172 565 150"/>
+  <text class="lbl-b" x="60" y="230">氣泡音</text>
+  <path class="ink" d="M70 290 C84 276 96 304 108 290 C120 278 130 300 140 292"/>
+  <circle class="solid" cx="140" cy="292" r="3"/>
+  <path class="ink" d="M170 290 C184 276 196 304 208 290 C220 278 230 300 240 292"/>
+  <circle class="solid" cx="240" cy="292" r="3"/>
+  <path class="ink" d="M270 290 C284 276 296 304 308 290 C320 278 330 300 340 292"/>
+  <circle class="solid" cx="340" cy="292" r="3"/>
+  <path class="ink" d="M370 290 C384 276 396 304 408 290 C420 278 430 300 440 292"/>
+  <circle class="solid" cx="440" cy="292" r="3"/>
+  <path class="ink" d="M470 290 C484 276 496 304 508 290 C520 278 530 300 540 292"/>
+  <circle class="solid" cx="540" cy="292" r="3"/>
+  <text class="lbl-s" x="70" y="340">一秒大約 30–70 次，明顯比正常唱歌慢；喉嚨要鬆，不是擠出來的</text>
+</svg>

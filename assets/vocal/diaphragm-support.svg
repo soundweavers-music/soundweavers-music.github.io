@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" role="img" aria-label="丹田支撐：吸氣時腹壁外撐，發聲時保持撐住">
+  <title>丹田支撐：吸氣時腹壁外撐，發聲時保持撐住</title>
+  <rect width="600" height="360" fill="#fbf8f2"/>
+  <style>
+    .ink { fill: none; stroke: #2b2a26; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { fill: none; stroke: #8a8578; stroke-width: 1.4; stroke-dasharray: 5 5; }
+    .grid { fill: none; stroke: #d8d0c2; stroke-width: 1.2; }
+    .fill { fill: #b5734a; opacity: .18; stroke: #b5734a; stroke-width: 1.8; }
+    .fill2 { fill: #7d9b76; opacity: .18; stroke: #7d9b76; stroke-width: 1.8; }
+    .solid { fill: #b5734a; opacity: .85; }
+    .solid2 { fill: #7d9b76; opacity: .85; }
+    .lbl { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 15px; fill: #2b2a26; }
+    .lbl-s { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 12.5px; fill: #8a8578; }
+    .lbl-b { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 15px; fill: #2b2a26; font-weight: 700; }
+  </style>
+<text class="lbl-b" x="40" y="40">支撐不是用力縮肚子，是「不讓它塌回去」</text>
+  <text class="lbl-b" x="100" y="84">吸氣</text>
+  <path class="ink" d="M76 100 C68 140 70 190 78 246 C88 280 156 280 166 246 C174 190 176 140 168 100 Z"/>
+  <ellipse class="fill" cx="122" cy="238" rx="40" ry="20"/>
+  <path class="ink" d="M122 238 L60 238"/><path class="ink" d="M60 238 L70.0 233.5 L70.0 242.5 Z" fill="#2b2a26"/>
+  <path class="ink" d="M122 238 L184 238"/><path class="ink" d="M184 238 L174.0 242.5 L174.0 233.5 Z" fill="#2b2a26"/>
+  <path class="ink" d="M122 238 L122 292"/><path class="ink" d="M122 292 L117.5 282.0 L126.5 282.0 Z" fill="#2b2a26"/>
+  <text class="lbl-b" x="122" y="314" text-anchor="middle">外擴</text>
+  <text class="lbl-s" x="122" y="334" text-anchor="middle">腹壁往四個方向撐開</text>
+  <text class="lbl-b" x="290" y="84">發聲中</text>
+  <path class="ink" d="M266 100 C258 140 260 190 268 246 C278 280 346 280 356 246 C364 190 366 140 358 100 Z"/>
+  <ellipse class="fill" cx="312" cy="238" rx="40" ry="20"/>
+  <path class="ink" d="M250 238 L294 238"/><path class="ink" d="M294 238 L284.0 242.5 L284.0 233.5 Z" fill="#2b2a26"/>
+  <path class="ink" d="M374 238 L330 238"/><path class="ink" d="M330 238 L340.0 233.5 L340.0 242.5 Z" fill="#2b2a26"/>
+  <text class="lbl-s" x="312" y="292" text-anchor="middle">頂著</text>
+  <text class="lbl-b" x="312" y="314" text-anchor="middle">撐住</text>
+  <text class="lbl-s" x="312" y="334" text-anchor="middle">氣出去了，腹壁仍然頂著</text>
+  <text class="lbl-b" x="480" y="84">洩氣</text>
+  <path class="ink" d="M456 100 C448 140 472 190 480 246 C468 280 536 280 524 246 C532 190 556 140 548 100 Z"/>
+  <ellipse class="fill" cx="502" cy="238" rx="18" ry="20"/>
+  <path class="ink" d="M440 238 L496 238"/><path class="ink" d="M496 238 L486.0 242.5 L486.0 233.5 Z" fill="#2b2a26"/>
+  <path class="ink" d="M564 238 L508 238"/><path class="ink" d="M508 238 L518.0 233.5 L518.0 242.5 Z" fill="#2b2a26"/>
+  <path class="ink" d="M502 296 L502 262"/><path class="ink" d="M502 262 L506.5 272.0 L497.5 272.0 Z" fill="#2b2a26"/>
+  <text class="lbl-b" x="502" y="314" text-anchor="middle">塌陷</text>
+  <text class="lbl-s" x="502" y="334" text-anchor="middle">肚子一縮，氣就整口噴完</text>
+</svg>

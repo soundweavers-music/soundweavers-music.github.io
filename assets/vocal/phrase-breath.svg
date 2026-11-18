@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 350" role="img" aria-label="樂句與換氣點的安排">
+  <title>樂句與換氣點的安排</title>
+  <rect width="600" height="350" fill="#fbf8f2"/>
+  <style>
+    .ink { fill: none; stroke: #2b2a26; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { fill: none; stroke: #8a8578; stroke-width: 1.4; stroke-dasharray: 5 5; }
+    .grid { fill: none; stroke: #d8d0c2; stroke-width: 1.2; }
+    .fill { fill: #b5734a; opacity: .18; stroke: #b5734a; stroke-width: 1.8; }
+    .fill2 { fill: #7d9b76; opacity: .18; stroke: #7d9b76; stroke-width: 1.8; }
+    .solid { fill: #b5734a; opacity: .85; }
+    .solid2 { fill: #7d9b76; opacity: .85; }
+    .lbl { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 15px; fill: #2b2a26; }
+    .lbl-s { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 12.5px; fill: #8a8578; }
+    .lbl-b { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 15px; fill: #2b2a26; font-weight: 700; }
+  </style>
+<text class="lbl-b" x="40" y="40">換氣點要跟著句子走，不是跟著肺走</text>
+  <rect class="grid" x="70" y="78" width="470" height="34" rx="8"/>
+  <text class="lbl" x="84" y="102">第一句歌詞到這裡</text>
+  <path class="ink" d="M230 70 L230 130"/>
+  <text class="lbl-s" x="238" y="66">換氣</text>
+  <path class="ink" d="M264 60 L304 60"/><path class="ink" d="M304 60 L294.0 64.5 L294.0 55.5 Z" fill="#2b2a26"/>
+  <rect class="grid" x="70" y="154" width="470" height="34" rx="8"/>
+  <text class="lbl" x="84" y="178">第二句歌詞再長一點點</text>
+  <path class="ink" d="M260 146 L260 206"/>
+  <text class="lbl-s" x="268" y="142">換氣</text>
+  <path class="ink" d="M294 136 L334 136"/><path class="ink" d="M334 136 L324.0 140.5 L324.0 131.5 Z" fill="#2b2a26"/>
+  <rect class="grid" x="70" y="230" width="470" height="34" rx="8"/>
+  <text class="lbl" x="84" y="254">第三句</text>
+  <path class="ink" d="M155 222 L155 282"/>
+  <text class="lbl-s" x="163" y="218">換氣</text>
+  <path class="ink" d="M189 212 L229 212"/><path class="ink" d="M229 212 L219.0 216.5 L219.0 207.5 Z" fill="#2b2a26"/>
+  <text class="lbl-s" x="40" y="320">同一口氣裡塞兩個句子，聽起來會趕；多換一次氣，情緒反而更滿</text>
+</svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" role="img" aria-label="聲帶閉合三級：漏氣、平衡、壓迫">
+  <title>聲帶閉合三級：漏氣、平衡、壓迫</title>
+  <rect width="600" height="340" fill="#fbf8f2"/>
+  <style>
+    .ink { fill: none; stroke: #2b2a26; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { fill: none; stroke: #8a8578; stroke-width: 1.4; stroke-dasharray: 5 5; }
+    .grid { fill: none; stroke: #d8d0c2; stroke-width: 1.2; }
+    .fill { fill: #b5734a; opacity: .18; stroke: #b5734a; stroke-width: 1.8; }
+    .fill2 { fill: #7d9b76; opacity: .18; stroke: #7d9b76; stroke-width: 1.8; }
+    .solid { fill: #b5734a; opacity: .85; }
+    .solid2 { fill: #7d9b76; opacity: .85; }
+    .lbl { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 15px; fill: #2b2a26; }
+    .lbl-s { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 12.5px; fill: #8a8578; }
+    .lbl-b { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 15px; fill: #2b2a26; font-weight: 700; }
+  </style>
+<text class="lbl-b" x="40" y="40">閉合度不是愈緊愈好，是「剛好不漏」</text>
+  <text class="lbl-b" x="70" y="94">漏氣</text>
+  <path class="fill" d="M54 110 C70 142 111 172 121 208 C106 196 70 176 48 130 Z"/>
+  <path class="fill" d="M210 110 C194 142 153 172 143 208 C158 196 194 176 216 130 Z"/>
+  <path class="ink" d="M121 208 C132 194 143 208"/>
+  <text class="lbl-s" x="132" y="232" text-anchor="middle">聲門</text>
+  <text class="lbl-s" x="132" y="262" text-anchor="middle">中間有縫：氣音多、撐不久</text>
+  <text class="lbl-b" x="255" y="94">平衡</text>
+  <path class="fill2" d="M239 110 C255 142 306 172 316 208 C291 196 255 176 233 130 Z"/>
+  <path class="fill2" d="M395 110 C379 142 328 172 318 208 C343 196 379 176 401 130 Z"/>
+  <path class="ink" d="M316 208 C317 194 318 208"/>
+  <text class="lbl-s" x="317" y="232" text-anchor="middle">聲門</text>
+  <text class="lbl-s" x="317" y="262" text-anchor="middle">剛好靠攏：聲音穩、最省力</text>
+  <text class="lbl-b" x="440" y="94">壓迫</text>
+  <path class="fill" d="M424 110 C440 142 499 172 509 208 C476 196 440 176 418 130 Z"/>
+  <path class="fill" d="M580 110 C564 142 505 172 495 208 C528 196 564 176 586 130 Z"/>
+  <path class="ink" d="M509 208 C502 194 495 208"/>
+  <text class="lbl-s" x="502" y="232" text-anchor="middle">聲門</text>
+  <text class="lbl-s" x="502" y="262" text-anchor="middle">擠過頭：亮但緊、容易累</text>
+  <text class="lbl-s" x="40" y="312">從上往下看：兩片膜在中線相遇。理想是「靠攏但不夾死」，不是愈用力愈好</text>
+</svg>

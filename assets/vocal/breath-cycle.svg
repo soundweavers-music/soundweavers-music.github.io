@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 410" role="img" aria-label="平常呼吸與唱歌吸氣時，橫膈膜下降幅度的差別">
+  <title>平常呼吸與唱歌吸氣時，橫膈膜下降幅度的差別</title>
+  <rect width="600" height="410" fill="#fbf8f2"/>
+  <style>
+    .ink { fill: none; stroke: #2b2a26; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { fill: none; stroke: #8a8578; stroke-width: 1.4; stroke-dasharray: 5 5; }
+    .grid { fill: none; stroke: #d8d0c2; stroke-width: 1.2; }
+    .fill { fill: #b5734a; opacity: .18; stroke: #b5734a; stroke-width: 1.8; }
+    .fill2 { fill: #7d9b76; opacity: .18; stroke: #7d9b76; stroke-width: 1.8; }
+    .solid { fill: #b5734a; opacity: .85; }
+    .solid2 { fill: #7d9b76; opacity: .85; }
+    .lbl { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 15px; fill: #2b2a26; }
+    .lbl-s { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 12.5px; fill: #8a8578; }
+    .lbl-b { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 15px; fill: #2b2a26; font-weight: 700; }
+  </style>
+<text class="lbl-b" x="60" y="40">橫膈膜下降的幅度，決定你吸進多少氣</text>
+  <text class="lbl-b" x="60" y="84">平常呼吸</text>
+  <rect class="ink" x="60" y="100" width="190" height="220" rx="16"/>
+  <path class="ink" d="M78 138 C136 126 192 126 232 144"/>
+  <path class="ink" d="M78 172 C136 160 192 160 232 178"/>
+  <path class="ink" d="M78 206 C136 194 192 194 232 212"/>
+  <path class="fill" d="M76 268 C126 224 186 224 236 268 Z"/>
+  <text class="lbl-s" x="156" y="288" text-anchor="middle">橫膈膜</text>
+  <path class="ink" d="M210 196 L210 232"/><path class="ink" d="M210 232 L205.5 222.0 L214.5 222.0 Z" fill="#2b2a26"/>
+  <text class="lbl-s" x="60" y="348">只下降一點，夠活著用</text>
+  <text class="lbl-b" x="330" y="84">唱歌吸氣</text>
+  <rect class="ink" x="330" y="100" width="190" height="220" rx="16"/>
+  <path class="ink" d="M348 138 C406 126 462 126 502 144"/>
+  <path class="ink" d="M348 172 C406 160 462 160 502 178"/>
+  <path class="ink" d="M348 206 C406 194 462 194 502 212"/>
+  <path class="fill" d="M346 310 C396 266 456 266 506 310 Z"/>
+  <text class="lbl-s" x="426" y="330" text-anchor="middle">橫膈膜</text>
+  <path class="ink" d="M480 196 L480 253"/><path class="ink" d="M480 253 L475.5 243.0 L484.5 243.0 Z" fill="#2b2a26"/>
+  <text class="lbl-s" x="330" y="348">下降更多，肋骨同時外擴</text>
+  <text class="lbl-s" x="60" y="384">唱歌時要的是「低、寬、不僵」：吸氣像聞花香，不是把肩膀抬起來</text>
+</svg>

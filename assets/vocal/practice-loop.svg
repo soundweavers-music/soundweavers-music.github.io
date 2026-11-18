@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 490" role="img" aria-label="練習循環：錄、聽、找出一個問題、再錄">
+  <title>練習循環：錄、聽、找出一個問題、再錄</title>
+  <rect width="620" height="490" fill="#fbf8f2"/>
+  <style>
+    .ink { fill: none; stroke: #2b2a26; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { fill: none; stroke: #8a8578; stroke-width: 1.4; stroke-dasharray: 5 5; }
+    .grid { fill: none; stroke: #d8d0c2; stroke-width: 1.2; }
+    .fill { fill: #b5734a; opacity: .18; stroke: #b5734a; stroke-width: 1.8; }
+    .fill2 { fill: #7d9b76; opacity: .18; stroke: #7d9b76; stroke-width: 1.8; }
+    .solid { fill: #b5734a; opacity: .85; }
+    .solid2 { fill: #7d9b76; opacity: .85; }
+    .lbl { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 15px; fill: #2b2a26; }
+    .lbl-s { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 12.5px; fill: #8a8578; }
+    .lbl-b { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 15px; fill: #2b2a26; font-weight: 700; }
+  </style>
+<text class="lbl-b" x="40" y="40">卡住的時候，不要練更多，先練得更小</text>
+  <circle class="fill2" cx="300" cy="92" r="46"/>
+  <text class="lbl" x="300" y="97" text-anchor="middle">錄一段</text>
+  <circle class="fill" cx="470" cy="190" r="46"/>
+  <text class="lbl" x="470" y="195" text-anchor="middle">聽出來</text>
+  <circle class="fill2" cx="470" cy="300" r="46"/>
+  <text class="lbl" x="470" y="305" text-anchor="middle">只挑一個問題</text>
+  <circle class="fill" cx="300" cy="398" r="46"/>
+  <text class="lbl" x="300" y="403" text-anchor="middle">改一個動作</text>
+  <circle class="fill2" cx="130" cy="300" r="46"/>
+  <text class="lbl" x="130" y="305" text-anchor="middle">再錄</text>
+  <circle class="fill" cx="130" cy="190" r="46"/>
+  <text class="lbl" x="130" y="195" text-anchor="middle">比對</text>
+  <circle class="solid" cx="346" cy="118" r="3"/>
+  <circle class="solid" cx="420" cy="158" r="3"/>
+  <circle class="solid" cx="474" cy="244" r="3"/>
+  <circle class="solid" cx="474" cy="344" r="3"/>
+  <circle class="solid" cx="420" cy="388" r="3"/>
+  <circle class="solid" cx="346" cy="400" r="3"/>
+  <circle class="solid" cx="140" cy="350" r="3"/>
+  <circle class="solid" cx="96" cy="300" r="3"/>
+  <circle class="solid" cx="96" cy="220" r="3"/>
+  <circle class="solid" cx="150" cy="140" r="3"/>
+  <text class="lbl-s" x="40" y="460">一次只改一個動作，改完立刻再錄一次比對——這才是「有效練習」</text>
+</svg>

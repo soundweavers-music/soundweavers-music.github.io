@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 480" role="img" aria-label="自己的聲音能力分佈">
+  <title>自己的聲音能力分佈</title>
+  <rect width="620" height="480" fill="#fbf8f2"/>
+  <style>
+    .ink { fill: none; stroke: #2b2a26; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { fill: none; stroke: #8a8578; stroke-width: 1.4; stroke-dasharray: 5 5; }
+    .grid { fill: none; stroke: #d8d0c2; stroke-width: 1.2; }
+    .fill { fill: #b5734a; opacity: .18; stroke: #b5734a; stroke-width: 1.8; }
+    .fill2 { fill: #7d9b76; opacity: .18; stroke: #7d9b76; stroke-width: 1.8; }
+    .solid { fill: #b5734a; opacity: .85; }
+    .solid2 { fill: #7d9b76; opacity: .85; }
+    .lbl { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 15px; fill: #2b2a26; }
+    .lbl-s { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 12.5px; fill: #8a8578; }
+    .lbl-b { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 15px; fill: #2b2a26; font-weight: 700; }
+  </style>
+<text class="lbl-b" x="40" y="40">聲音品牌＝你在這六件事上的比例</text>
+  <path class="grid" d="M300.0,200.0 L343.3,225.0 L343.3,275.0 L300.0,300.0 L256.7,275.0 L256.7,225.0 Z"/>
+  <path class="grid" d="M300.0,150.0 L386.6,200.0 L386.6,300.0 L300.0,350.0 L213.4,300.0 L213.4,200.0 Z"/>
+  <path class="grid" d="M300.0,100.0 L429.9,175.0 L429.9,325.0 L300.0,400.0 L170.1,325.0 L170.1,175.0 Z"/>
+  <path class="ink" d="M300 100 L300 400"/>
+  <path class="ink" d="M169.5 175.0 L430.5 325.0"/>
+  <path class="ink" d="M169.5 325.0 L430.5 175.0"/>
+  <text class="lbl" x="300.0" y="71.0" text-anchor="middle">音域</text>
+  <text class="lbl" x="459.34867429633675" y="163.0" text-anchor="middle">氣息</text>
+  <text class="lbl" x="459.34867429633675" y="347.0" text-anchor="middle">共鳴</text>
+  <text class="lbl" x="300.0" y="439.0" text-anchor="middle">咬字</text>
+  <text class="lbl" x="140.65132570366328" y="347.0" text-anchor="middle">律動</text>
+  <text class="lbl" x="140.6513257036633" y="163.0" text-anchor="middle">情感</text>
+  <path class="fill" d="M300.0,133.0 L380.5,203.5 L416.9,317.5 L300.0,332.5 L209.1,302.5 L189.6,186.2 Z"/>
+  <text class="lbl-s" x="40" y="450">長處留著、短處補到及格就好；全部拉滿就變成別人，不是你的聲音</text>
+</svg>

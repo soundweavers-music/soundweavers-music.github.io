@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" role="img" aria-label="正常聲帶與水腫聲帶的比較">
+  <title>正常聲帶與水腫聲帶的比較</title>
+  <rect width="600" height="360" fill="#fbf8f2"/>
+  <style>
+    .ink { fill: none; stroke: #2b2a26; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { fill: none; stroke: #8a8578; stroke-width: 1.4; stroke-dasharray: 5 5; }
+    .grid { fill: none; stroke: #d8d0c2; stroke-width: 1.2; }
+    .fill { fill: #b5734a; opacity: .18; stroke: #b5734a; stroke-width: 1.8; }
+    .fill2 { fill: #7d9b76; opacity: .18; stroke: #7d9b76; stroke-width: 1.8; }
+    .solid { fill: #b5734a; opacity: .85; }
+    .solid2 { fill: #7d9b76; opacity: .85; }
+    .lbl { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 15px; fill: #2b2a26; }
+    .lbl-s { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 12.5px; fill: #8a8578; }
+    .lbl-b { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 15px; fill: #2b2a26; font-weight: 700; }
+  </style>
+<text class="lbl-b" x="40" y="40">沙啞常常不是唱壞，是聲帶腫了、關不緊</text>
+  <text class="lbl-b" x="90" y="92">正常</text>
+  <path class="fill2" d="M90 164 C150 142 220 142 266 170 C220 202 150 202 90 180 Z"/>
+  <text class="lbl-s" x="90" y="250">邊緣清楚、有稜角，能靠攏</text>
+  <text class="lbl-b" x="360" y="92">水腫</text>
+  <path class="fill2" d="M360 146 C416 118 492 122 536 160 C510 176 500 178 492 174 C482 206 414 210 360 184 Z"/>
+  <text class="lbl-s" x="546" y="132">鼓起來</text>
+  <text class="lbl-s" x="360" y="250">變圓變厚，中間合不起來</text>
+  <text class="lbl-s" x="40" y="300">水腫時硬唱，大腦會叫假聲帶代班補縫隙——那才是真正傷聲帶的一步</text>
+  <text class="lbl-s" x="40" y="328">處理方式只有休息、補水、少說話；隔天再唱，不要當天硬練</text>
+</svg>

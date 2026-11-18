@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 350" role="img" aria-label="直音、顫音與滑音的波形">
+  <title>直音、顫音與滑音的波形</title>
+  <rect width="600" height="350" fill="#fbf8f2"/>
+  <style>
+    .ink { fill: none; stroke: #2b2a26; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { fill: none; stroke: #8a8578; stroke-width: 1.4; stroke-dasharray: 5 5; }
+    .grid { fill: none; stroke: #d8d0c2; stroke-width: 1.2; }
+    .fill { fill: #b5734a; opacity: .18; stroke: #b5734a; stroke-width: 1.8; }
+    .fill2 { fill: #7d9b76; opacity: .18; stroke: #7d9b76; stroke-width: 1.8; }
+    .solid { fill: #b5734a; opacity: .85; }
+    .solid2 { fill: #7d9b76; opacity: .85; }
+    .lbl { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 15px; fill: #2b2a26; }
+    .lbl-s { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 12.5px; fill: #8a8578; }
+    .lbl-b { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 15px; fill: #2b2a26; font-weight: 700; }
+  </style>
+<text class="lbl-b" x="40" y="40">三種裝飾音，三種波形</text>
+  <text class="lbl-b" x="50" y="76">直音</text>
+  <text class="lbl-s" x="50" y="88">中心音高不動，只有音色變化</text>
+  <path class="ink" d="M100 100 L520 100"/>
+  <path class="thin" d="M100 100 L520 100" stroke-dasharray="3 6"/>
+  <text class="lbl-b" x="50" y="156">顫音</text>
+  <text class="lbl-s" x="50" y="168">在中心音高上下規律來回</text>
+  <path class="ink" d="M100 180 Q115 166 130 180 Q145 194 160 180 Q175 166 190 180 Q205 194 220 180 Q235 166 250 180 Q265 194 280 180 Q295 166 310 180 Q325 194 340 180 Q355 166 370 180 Q385 194 400 180 Q415 166 430 180 Q445 194 460 180 Q475 166 490 180 Q505 194 520 180"/>
+  <path class="thin" d="M100 180 L520 180" stroke-dasharray="3 6"/>
+  <text class="lbl-b" x="50" y="236">滑音</text>
+  <text class="lbl-s" x="50" y="248">單方向移動，不是來回</text>
+  <path class="ink" d="M100 286 C180 286 260 234 340 234 C420 234 470 254 520 260"/>
+  <path class="thin" d="M100 260 L520 260" stroke-dasharray="3 6"/>
+  <text class="lbl-s" x="40" y="322">顫音先求「規律」再求「深」；不規律的抖動聽起來是緊張，不是感情</text>
+</svg>

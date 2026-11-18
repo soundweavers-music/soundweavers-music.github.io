@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 390" role="img" aria-label="三種起音：氣聲起音、平衡起音、硬起音">
+  <title>三種起音：氣聲起音、平衡起音、硬起音</title>
+  <rect width="600" height="390" fill="#fbf8f2"/>
+  <style>
+    .ink { fill: none; stroke: #2b2a26; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { fill: none; stroke: #8a8578; stroke-width: 1.4; stroke-dasharray: 5 5; }
+    .grid { fill: none; stroke: #d8d0c2; stroke-width: 1.2; }
+    .fill { fill: #b5734a; opacity: .18; stroke: #b5734a; stroke-width: 1.8; }
+    .fill2 { fill: #7d9b76; opacity: .18; stroke: #7d9b76; stroke-width: 1.8; }
+    .solid { fill: #b5734a; opacity: .85; }
+    .solid2 { fill: #7d9b76; opacity: .85; }
+    .lbl { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 15px; fill: #2b2a26; }
+    .lbl-s { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 12.5px; fill: #8a8578; }
+    .lbl-b { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 15px; fill: #2b2a26; font-weight: 700; }
+  </style>
+<text class="lbl-b" x="40" y="40">起音決定前半秒的音色，也決定會不會破</text>
+  <text class="lbl-b" x="40" y="84">氣聲起音</text>
+  <path class="grid" d="M40 196 L190 196"/>
+  <path class="grid" d="M40 104 L40 212"/>
+  <path class="ink" d="M40 160 C70 160 102 118 140 118 C178 118 178 134 190 146"/>
+  <path class="fill" d="M86 196 C94 170 102 222 110 196 C118 170 126 222 134 196 C142 170 150 222 158 196 C166 172 182 192 186 198"/>
+  <text class="lbl-s" x="40" y="236">上：氣流</text>
+  <text class="lbl-s" x="40" y="254">下：聲帶振動</text>
+  <text class="lbl-s" x="40" y="292">先漏一點氣，聲音才接上；柔和但容易虛</text>
+  <text class="lbl-b" x="230" y="84">平衡起音</text>
+  <path class="grid" d="M230 196 L380 196"/>
+  <path class="grid" d="M230 104 L230 212"/>
+  <path class="ink" d="M230 160 C260 160 270 118 308 118 C346 118 368 134 380 146"/>
+  <path class="fill" d="M236 196 C244 170 252 222 260 196 C268 170 276 222 284 196 C292 170 300 222 308 196 C316 172 332 192 376 198"/>
+  <text class="lbl-s" x="230" y="236">上：氣流</text>
+  <text class="lbl-s" x="230" y="254">下：聲帶振動</text>
+  <text class="lbl-s" x="230" y="292">氣與聲同時到位，最耐用</text>
+  <text class="lbl-b" x="420" y="84">硬起音</text>
+  <path class="grid" d="M420 196 L570 196"/>
+  <path class="grid" d="M420 104 L420 212"/>
+  <path class="ink" d="M420 160 C450 160 434 118 472 118 C510 118 558 134 570 146"/>
+  <path class="fill" d="M424 196 C432 170 440 222 448 196 C456 170 464 222 472 196 C480 170 488 222 496 196 C504 172 520 192 566 198"/>
+  <text class="lbl-s" x="420" y="236">上：氣流</text>
+  <text class="lbl-s" x="420" y="254">下：聲帶振動</text>
+  <text class="lbl-s" x="420" y="292">先卡住再爆出來；有力但傷聲帶</text>
+  <text class="lbl-s" x="40" y="360">日常練唱請以「平衡起音」為主，氣聲起音留給需要的句子</text>
+</svg>

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 360" role="img" aria-label="口腔側面圖：唇、齒、齒齦、硬顎、軟顎與舌頭各部位">
+  <title>口腔側面圖：唇、齒、齒齦、硬顎、軟顎與舌頭各部位</title>
+  <rect width="560" height="360" fill="#fbf8f2"/>
+  <style>
+    .ink { fill: none; stroke: #2b2a26; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { fill: none; stroke: #8a8578; stroke-width: 1.4; stroke-dasharray: 5 5; }
+    .grid { fill: none; stroke: #d8d0c2; stroke-width: 1.2; }
+    .fill { fill: #b5734a; opacity: .18; stroke: #b5734a; stroke-width: 1.8; }
+    .fill2 { fill: #7d9b76; opacity: .18; stroke: #7d9b76; stroke-width: 1.8; }
+    .solid { fill: #b5734a; opacity: .85; }
+    .solid2 { fill: #7d9b76; opacity: .85; }
+    .lbl { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 15px; fill: #2b2a26; }
+    .lbl-s { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 12.5px; fill: #8a8578; }
+    .lbl-b { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 15px; fill: #2b2a26; font-weight: 700; }
+  </style>
+<text class="lbl-b" x="40" y="40">咬字的位置只有那幾個，分別管不同的事</text>
+  <path class="ink" d="M96 196 C92 176 100 166 116 166 L150 166 C170 166 186 160 210 152 C250 138 306 132 348 138 C378 142 398 152 412 162"/>
+  <path class="ink" d="M96 196 C96 214 108 224 126 224 L260 232 C330 234 392 226 420 210"/>
+  <path class="fill" d="M96 196 C86 186 86 206 96 196 Z"/>
+  <path class="ink" d="M150 166 L150 180"/>
+  <path class="ink" d="M161 166 L161 180"/>
+  <path class="ink" d="M172 166 L172 180"/>
+  <path class="ink" d="M183 166 L183 180"/>
+  <path class="ink" d="M150 222 L150 210"/>
+  <path class="ink" d="M161 222 L161 210"/>
+  <path class="ink" d="M172 222 L172 210"/>
+  <path class="ink" d="M183 222 L183 210"/>
+  <path class="fill2" d="M132 220 C168 206 210 182 262 178 C312 174 352 186 366 206 C372 216 366 224 352 226 C290 234 196 232 132 224 Z"/>
+  <path class="thin" d="M100 184 L100 146"/>
+  <text class="lbl" x="100" y="138" text-anchor="middle">唇</text>
+  <text class="lbl-s" x="100" y="120" text-anchor="middle">p b m</text>
+  <path class="thin" d="M162 166 L162 128"/>
+  <text class="lbl" x="162" y="120" text-anchor="middle">齒</text>
+  <text class="lbl-s" x="162" y="102" text-anchor="middle">f</text>
+  <path class="thin" d="M200 152 L200 114"/>
+  <text class="lbl" x="200" y="106" text-anchor="middle">齒齦</text>
+  <text class="lbl-s" x="200" y="88" text-anchor="middle">t d n l</text>
+  <path class="thin" d="M280 130 L280 92"/>
+  <text class="lbl" x="280" y="84" text-anchor="middle">硬顎</text>
+  <text class="lbl-s" x="280" y="66" text-anchor="middle">j q x</text>
+  <path class="thin" d="M390 140 L390 102"/>
+  <text class="lbl" x="390" y="94" text-anchor="middle">軟顎</text>
+  <text class="lbl-s" x="390" y="76" text-anchor="middle">k g ng</text>
+  <path class="thin" d="M190 236 L190 270"/>
+  <text class="lbl" x="190" y="288" text-anchor="middle">舌尖</text>
+  <text class="lbl-s" x="190" y="306" text-anchor="middle">ㄗ ㄘ ㄙ</text>
+  <path class="thin" d="M300 196 L300 230"/>
+  <text class="lbl" x="300" y="248" text-anchor="middle">舌面</text>
+  <text class="lbl-s" x="300" y="266" text-anchor="middle">ㄧ 類母音</text>
+  <text class="lbl-s" x="40" y="336">字咬死，是因為整張嘴都在用力；只有碰到的那一點該動</text>
+</svg>

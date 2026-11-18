@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" role="img" aria-label="混聲比例尺：從胸聲到頭聲">
+  <title>混聲比例尺：從胸聲到頭聲</title>
+  <rect width="600" height="320" fill="#fbf8f2"/>
+  <style>
+    .ink { fill: none; stroke: #2b2a26; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { fill: none; stroke: #8a8578; stroke-width: 1.4; stroke-dasharray: 5 5; }
+    .grid { fill: none; stroke: #d8d0c2; stroke-width: 1.2; }
+    .fill { fill: #b5734a; opacity: .18; stroke: #b5734a; stroke-width: 1.8; }
+    .fill2 { fill: #7d9b76; opacity: .18; stroke: #7d9b76; stroke-width: 1.8; }
+    .solid { fill: #b5734a; opacity: .85; }
+    .solid2 { fill: #7d9b76; opacity: .85; }
+    .lbl { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 15px; fill: #2b2a26; }
+    .lbl-s { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 12.5px; fill: #8a8578; }
+    .lbl-b { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 15px; fill: #2b2a26; font-weight: 700; }
+  </style>
+<text class="lbl-b" x="40" y="40">混聲是比例問題：兩邊各出一點，接縫就不見了</text>
+  <rect class="grid" x="60" y="130" width="480" height="40" rx="20"/>
+  <path class="fill2" d="M60 130 L300 130 L300 170 L60 170 Z" rx="20"/>
+  <path class="fill" d="M300 130 L540 130 L540 170 L300 170 Z" rx="20"/>
+  <text class="lbl-s" x="110" y="118">胸聲：厚、實</text>
+  <text class="lbl-s" x="430" y="118" text-anchor="middle">頭聲：輕、亮</text>
+  <path class="ink" d="M190 150 L190 196"/>
+  <circle class="solid" cx="190" cy="150" r="7"/>
+  <text class="lbl" x="190" y="214" text-anchor="middle">強混聲</text>
+  <text class="lbl-s" x="190" y="234" text-anchor="middle">胸多一點，有力</text>
+  <path class="ink" d="M300 150 L300 196"/>
+  <circle class="solid" cx="300" cy="150" r="7"/>
+  <text class="lbl" x="300" y="214" text-anchor="middle">平衡混聲</text>
+  <text class="lbl-s" x="300" y="234" text-anchor="middle">兩邊各半，最耐用</text>
+  <path class="ink" d="M410 150 L410 196"/>
+  <circle class="solid" cx="410" cy="150" r="7"/>
+  <text class="lbl" x="410" y="214" text-anchor="middle">弱混聲</text>
+  <text class="lbl-s" x="410" y="234" text-anchor="middle">頭多一點，輕柔</text>
+  <text class="lbl-s" x="40" y="292">練的時候不是「選一邊」，是練到能在這條線上自由移動</text>
+</svg>

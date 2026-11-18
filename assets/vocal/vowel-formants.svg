@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 380" role="img" aria-label="五個母音在 F1－F2 平面上的大致位置">
+  <title>五個母音在 F1－F2 平面上的大致位置</title>
+  <rect width="560" height="380" fill="#fbf8f2"/>
+  <style>
+    .ink { fill: none; stroke: #2b2a26; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { fill: none; stroke: #8a8578; stroke-width: 1.4; stroke-dasharray: 5 5; }
+    .grid { fill: none; stroke: #d8d0c2; stroke-width: 1.2; }
+    .fill { fill: #b5734a; opacity: .18; stroke: #b5734a; stroke-width: 1.8; }
+    .fill2 { fill: #7d9b76; opacity: .18; stroke: #7d9b76; stroke-width: 1.8; }
+    .solid { fill: #b5734a; opacity: .85; }
+    .solid2 { fill: #7d9b76; opacity: .85; }
+    .lbl { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 15px; fill: #2b2a26; }
+    .lbl-s { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 12.5px; fill: #8a8578; }
+    .lbl-b { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 15px; fill: #2b2a26; font-weight: 700; }
+  </style>
+<text class="lbl-b" x="40" y="40">同一條聲帶，換母音就是換共振峰的位置</text>
+  <path class="ink" d="M90 300 L520 300"/>
+  <path class="ink" d="M90 300 L90 90"/>
+  <text class="lbl-s" x="520" y="324" text-anchor="end">第一共振峰 F1（Hz）→</text>
+  <text class="lbl-s" x="78" y="96" text-anchor="end">← F2</text>
+  <circle class="fill" cx="230" cy="120" r="20"/>
+  <text class="lbl" x="230" y="126" text-anchor="middle">i</text>
+  <text class="lbl-s" x="260" y="126">嘴扁、舌前高</text>
+  <circle class="fill" cx="170" cy="170" r="20"/>
+  <text class="lbl" x="170" y="176" text-anchor="middle">e</text>
+  <circle class="fill" cx="330" cy="200" r="20"/>
+  <text class="lbl" x="330" y="206" text-anchor="middle">a</text>
+  <text class="lbl-s" x="360" y="206">嘴最開</text>
+  <circle class="fill" cx="250" cy="240" r="20"/>
+  <text class="lbl" x="250" y="246" text-anchor="middle">o</text>
+  <circle class="fill" cx="200" cy="272" r="20"/>
+  <text class="lbl" x="200" y="278" text-anchor="middle">u</text>
+  <text class="lbl-s" x="230" y="278">嘴圓</text>
+  <text class="lbl-s" x="40" y="348">往左上＝舌位高、嘴扁（i）；往右下＝嘴開（a）；往左下＝嘴圓（u）</text>
+</svg>
