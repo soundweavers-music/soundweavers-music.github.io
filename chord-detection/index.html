@@ -63,7 +63,11 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
 .chord .cdia { display: block; line-height: 0; margin-top: 2px; }
 .chord.is-active { background: rgba(196,149,106,0.28); }
 .tick { position: absolute; top: 2px; height: 24px; width: 1px; background: var(--line); opacity: .45; }
-.lyric-line { min-height: 20px; font-size: var(--lyric-size, 12px); line-height: 1.5; color: var(--ink); word-break: break-all; }
+.lyric-line { position: relative; min-height: 20px; height: calc(var(--lyric-size, 12px) * 1.8); font-size: var(--lyric-size, 12px); line-height: 1.6; color: var(--ink); }
+.lyric-seg { position: absolute; top: 0; white-space: nowrap; }
+.melody-line { position: relative; height: calc(var(--lyric-size, 12px) * 1.5); font-size: calc(var(--lyric-size, 12px) * 1.05); color: #6b6259; font-weight: 600; }
+.melody-seg { position: absolute; top: 0; white-space: nowrap; }
+.lyric-seg + .lyric-seg { }
 .chart { --chord-size: 17px; --lyric-size: 12px; }
 
 /* Toolbar / key info */
@@ -321,6 +325,7 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
     <label><input type="checkbox" id="show-degrees" checked> 級數</label>
     <label><input type="checkbox" id="show-lyrics" checked> 歌詞</label>
     <label><input type="checkbox" id="lyric-snap" checked> 歌詞對齊音訊</label>
+    <label><input type="checkbox" id="show-melody"> 簡譜旋律</label>
     <label><input type="checkbox" id="show-diagrams"> 指版圖</label>
     <label><input type="checkbox" id="continuous"> 連續播放</label>
     <label class="size-ctl" title="和弦字級">和弦 <input type="range" id="chord-size" min="12" max="26" value="17"></label>
@@ -349,6 +354,8 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
       <button class="btn ghost small" id="btn-copy-prev" style="display:none;">↩ 複製前一小節</button>
     </div>
     <p class="advanced-label">以上是這一調的級數和弦；要別的和弦再往下選：</p>
+    <label>歌詞 <textarea id="edit-lyric" rows="2" placeholder="這一小節的歌詞（清空＝還原自動對齊）"
+      style="width:100%;font-size:13px;padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink);resize:vertical;"></textarea></label>
     <label>根音 <select id="edit-root"></select></label>
     <label>類型 <select id="edit-quality"></select></label>
     <div style="font-size:11px;color:var(--muted);margin-top:6px;" id="edit-hint">💡 以畫面上顯示的把位輸入，儲存時會自動換算回原調</div>
@@ -497,9 +504,10 @@ let state = {
   capo: 0, shapeName: 'C', displayMajor: 0,
   bpm: 120, beatsPerBar: 4,
   autoDownbeat: 0, downbeatShift: 0, gridShiftSec: 0,
-  lyrics: [], lyricBuckets: new Map(), showLyrics: true, showDegrees: true,
+  lyrics: [], lyricSegs: {}, lyricOverrides: {}, showLyrics: true, showDegrees: true,
   showDiagrams: false, continuous: false, notation: 'name',
   pickupOverride: null, lyricSnap: true, chordSize: 17, lyricSize: 12,
+  showMelody: false, melodyFrames: null, melodyBeats: null,
   onsetEnv: null, onsetHopSec: 0,
   instrument: 0, tuning: null,
   isPlaying: false, currentTime: 0, startTime: 0, playEnd: 0,
@@ -619,7 +627,8 @@ async function handleFile(file) {
       state.chords = [];
       state.keyConfidence = null;
       state.lyrics = [];
-      state.lyricBuckets = new Map();
+      state.lyricSegs = {};
+      state.lyricOverrides = {};
       document.getElementById('lyric-status').style.display = 'none';
       uploadZone.classList.add('has-file');
       document.getElementById('controls-row').style.display = 'flex';
@@ -711,6 +720,9 @@ async function analyzeWithBrowser() {
     const tracked = trackBeats(env, hopSec, tempo.periodFrames);
     state.onsetEnv = env;
     state.onsetHopSec = hopSec;
+    const vocalEnv = computeVocalEnvelope(buffer);
+    state.vocalEnv = vocalEnv.env;
+    state.vocalHopSec = vocalEnv.hopSec;
     state.baseBeats = tracked.times;
     state.bpm = bpmFromBeats(tracked.times) || Math.round(tempo.bpm);
     state.gridShiftSec = 0;
@@ -803,6 +815,41 @@ function computeOnsetEnvelope(buffer, hopSize = 512, frameSize = 1024) {
     const mean = acc / Math.min(f + 1, w);
     const v = flux[f] - mean * 0.9;
     out[f] = v > 0 ? v : 0;
+  }
+  return { env: out, hopSec: hopSize / sr };
+}
+
+// 人聲起音包絡：先做一階差分（高通，凸顯子音），再取能量上升量。
+// 歌詞要對到「字」用這個，比整首的起音包絡準（鼓的低頻不會一直搶第一）。
+function computeVocalEnvelope(buffer, hopSize = 256) {
+  const data = buffer.getChannelData(0);
+  const sr = buffer.sampleRate;
+  const nFrames = Math.max(0, Math.floor(data.length / hopSize));
+  const rms = new Float32Array(nFrames);
+  let prev = 0;
+  for (let f = 0; f < nFrames; f++) {
+    const off = f * hopSize;
+    let s = 0;
+    for (let i = 0; i < hopSize; i++) {
+      const x = data[off + i] || 0;
+      const d = x - prev;
+      prev = x;
+      s += d * d;
+    }
+    rms[f] = Math.sqrt(s / hopSize);
+  }
+  const rise = new Float32Array(nFrames);
+  for (let f = 1; f < nFrames; f++) {
+    const d = rms[f] - rms[f - 1];
+    rise[f] = d > 0 ? d : 0;
+  }
+  // 平滑一點，免得太碎
+  const W = 3;
+  const out = new Float32Array(nFrames);
+  for (let f = 0; f < nFrames; f++) {
+    let s = 0, c = 0;
+    for (let k = Math.max(0, f - W); k <= Math.min(nFrames - 1, f + W); k++) { s += rise[k]; c++; }
+    out[f] = c ? s / c : 0;
   }
   return { env: out, hopSec: hopSize / sr };
 }
@@ -1756,6 +1803,7 @@ function applyGrid(opts) {
     state.beatChords = decodeChordsForBeats(beats, state.chromaStore, duration, prior);
   }
 
+  if (state.melodyFrames) state.melodyBeats = melodyForBeats(beats, state.melodyFrames);
   state.originalChords = summarizeBars(state.bars, beats, state.beatChords);
 
   updateKeyView();
@@ -1790,7 +1838,7 @@ function renderChart() {
   document.getElementById('grid-row').style.display = 'flex';
   document.getElementById('chart-container').style.display = 'block';
 
-  computeLyricBuckets();
+  computeLyricSegments();
 
   let html = '';
   for (let r = 0; r < chords.length; r += 4) {
@@ -1848,13 +1896,27 @@ function barCellHtml(idx) {
   let ticks = '';
   for (let b = 1; b < total; b++) ticks += '<span class="tick" style="left:' + (b / total * 100).toFixed(2) + '%"></span>';
   const lineH = state.showDiagrams ? 152 : 27;
-  const lyric = state.showLyrics ? barLyric(idx) : '';
+  let melHtml = '';
+  if (state.showMelody && state.melodyBeats) {
+    const startIdx = (state.bars[idx] && state.bars[idx].beatIdx) || 0;
+    const nBeats = (state.bars[idx] && state.bars[idx].beats) ? state.bars[idx].beats.length : 0;
+    for (let k = 0; k < nBeats; k++) {
+      const v = state.melodyBeats[startIdx + k];
+      if (!v) continue;
+      melHtml += '<span class="melody-seg" style="left:' + ((k / total) * 100).toFixed(2) + '%">' + escapeHtml(v) + '</span>';
+    }
+  }
+  const lyricSegs = state.showLyrics ? (state.lyricSegs[idx] || []) : [];
+  const lyricHtml = lyricSegs.map(sg =>
+    '<span class="lyric-seg" style="left:' + ((sg.beat / total) * 100).toFixed(2) + '%">'
+    + escapeHtml(sg.text) + '</span>').join('');
   return '<div class="sys-bar' + (ch.isDiatonic ? '' : ' non-dia') + '" data-bar="' + idx + '"'
        + ' onclick="auditionBar(' + idx + ',0)">'
        + '<span class="bar-no">' + (ch.pickup ? '' : (idx + 1 - state.pickupBars)) + '</span>'
-       + '<button class="bar-edit" title="編輯和弦" onclick="event.stopPropagation();openEditModal(' + idx + ')">✏</button>'
+       + '<button class="bar-edit" title="編輯和弦／歌詞" onclick="event.stopPropagation();openEditModal(' + idx + ')">✏</button>'
        + '<div class="chord-line" style="height:' + lineH + 'px">' + ticks + segs + '</div>'
-       + '<div class="lyric-line">' + escapeHtml(lyric) + '</div>'
+       + (state.showMelody ? '<div class="melody-line">' + melHtml + '</div>' : '')
+       + '<div class="lyric-line">' + lyricHtml + '</div>'
        + '</div>';
 }
 
@@ -2075,41 +2137,204 @@ function addToLyricBucket(buckets, idx, text) {
 
 // 一行歌詞通常橫跨一到兩個小節。依這行佔用的時間長度，把字平均分配到
 // 它覆蓋的小節上（而不是整行塞進第一個小節）。
-function computeLyricBuckets() {
-  const buckets = new Map();
-  const lines = state.lyrics;
-  if (!lines.length) { state.lyricBuckets = buckets; return; }
-  const times = lines.map(l => snapLyricTime(l.time));
-  for (let i = 0; i < lines.length; i++) {
-    const t = times[i];
-    const nextT = (i + 1 < times.length) ? times[i + 1] : state.duration;
-    const startBar = lyricBarForTime(t);
-    if (startBar < 0) continue;
-    let endBar = barIndexForTime(Math.min(nextT - 0.02, state.duration));
-    if (endBar < startBar) endBar = startBar;
-    const span = Math.max(1, Math.min(4, endBar - startBar + 1));
-    const chars = Array.from(lines[i].text);
-    if (span === 1 || chars.length < span * 2) {
-      addToLyricBucket(buckets, startBar, lines[i].text);
-      continue;
+// 把一行歌詞的每個字對到這段時間內的人聲起音峰值。
+// 峰值夠多（>=字數）就用峰值的時間；不夠就平均分配，避免字擠在一起。
+function syllableTimes(n, t0, t1) {
+  const out = new Array(n);
+  const env = state.vocalEnv || state.onsetEnv;
+  const hop = state.vocalHopSec || state.onsetHopSec;
+  // 這一行的長度：到下一行開始為止，但最多「字數 × 0.6 秒」——一句歌詞
+  // 不會拖太久，否則最後幾個字會被推到下一小節。
+  const span = Math.max(0.4, Math.min(t1 - t0, Math.max(0.8, n * 0.6)));
+  const tEnd = t0 + span;
+
+  if (!env || !env.length || !hop) {
+    for (let k = 0; k < n; k++) out[k] = t0 + span * (k + 0.5) / n;
+    return out;
+  }
+  const lo = Math.max(1, Math.floor((t0 - 0.15) / hop));
+  const hi = Math.min(env.length - 2, Math.ceil(tEnd / hop));
+  let mx = 0;
+  for (let i = lo; i <= hi; i++) if (env[i] > mx) mx = env[i];
+  const peaks = [];
+  if (mx > 0) {
+    const th = mx * 0.3;
+    const cand = [];
+    for (let i = lo; i <= hi; i++) {
+      if (env[i] >= th && env[i] >= env[i - 1] && env[i] >= env[i + 1]) cand.push({ i, v: env[i] });
     }
-    const base = Math.floor(chars.length / span);
-    const rem = chars.length % span;
-    let pos = 0;
-    for (let k = 0; k < span; k++) {
-      const len = base + (k === span - 1 ? rem : 0);
-      const chunk = chars.slice(pos, pos + len).join('');
-      pos += len;
-      addToLyricBucket(buckets, startBar + k, chunk);
+    cand.sort((a, b) => b.v - a.v);
+    const picked = [];
+    const minGap = Math.max(1, Math.round(0.12 / hop));
+    for (const c of cand) {
+      let clash = false;
+      for (const q of picked) if (Math.abs(q.i - c.i) < minGap) { clash = true; break; }
+      if (!clash) picked.push(c);
+    }
+    for (const q of picked) peaks.push(q.i * hop);
+  }
+  // 每個字先分到自己的時間格（等距），再吸附到 ±0.25 秒內最近的起音。
+  // 這樣字一定按順序、平均分布，又盡量踩在真正的音頭上。
+  const tol = Math.max(0.15, Math.min(0.25, span / Math.max(1, n) * 0.6));
+  for (let k = 0; k < n; k++) {
+    const target = t0 + span * (k + 0.5) / n;
+    let best = -1, bestD = tol;
+    for (const p of peaks) {
+      const d = Math.abs(p - target);
+      if (d < bestD) { bestD = d; best = p; }
+    }
+    out[k] = best >= 0 ? best : target;
+  }
+  for (let k = 1; k < n; k++) if (out[k] <= out[k - 1]) out[k] = out[k - 1] + 0.001;
+  return out;
+}
+
+// ---- 簡譜旋律（實驗性）---------------------------------------------
+// 用「中央聲道」把主唱從立體聲混音裡拉出來（和 DAW 的分離同一思路：
+// 主唱在正中央、伴奏分左右），再對分離後的頻譜做諧波加總找音高。
+const SOLFEGE = ['1','♭2','2','♭3','3','4','♯4','5','♭6','6','♭7','7'];
+
+function computeMelodyFrames(buffer) {
+  const chs = buffer.numberOfChannels;
+  const L = buffer.getChannelData(0);
+  const R = chs > 1 ? buffer.getChannelData(1) : L;
+  const sr = buffer.sampleRate;
+  const N = 2048, H = 1024;
+  const win = hannWindow(N);
+  const F = makeFFT(N);
+  const reL = new Float32Array(N), imL = new Float32Array(N);
+  const reR = new Float32Array(N), imR = new Float32Array(N);
+  const nFrames = Math.max(0, Math.floor((L.length - N) / H));
+  const times = new Float32Array(nFrames);
+  const midi = new Int16Array(nFrames).fill(-1);
+  const bins = N / 2;
+  const binHz = sr / N;
+  const mag = new Float32Array(bins);
+
+  for (let f = 0; f < nFrames; f++) {
+    const off = f * H;
+    for (let i = 0; i < N; i++) {
+      const w = win[i];
+      reL[i] = L[off + i] * w; imL[i] = 0;
+      reR[i] = R[off + i] * w; imR[i] = 0;
+    }
+    fftInPlace(reL, imL, F);
+    fftInPlace(reR, imR, F);
+    for (let k = 1; k < bins; k++) {
+      const hz = k * binHz;
+      if (hz < 100 || hz > 3000) { mag[k] = 0; continue; }
+      const l2 = reL[k] * reL[k] + imL[k] * imL[k];
+      const r2 = reR[k] * reR[k] + imR[k] * imR[k];
+      const mr = (reL[k] + reR[k]) / 2, mi = (imL[k] + imR[k]) / 2;
+      const m2 = mr * mr + mi * mi;
+      const central = m2 / (l2 + r2 + 1e-12);
+      mag[k] = Math.sqrt(m2) * central * central;
+    }
+    let bestM = -1, bestS = 0;
+    for (let m = 45; m <= 84; m++) {
+      const f0 = 440 * Math.pow(2, (m - 69) / 12);
+      if (f0 < 80 || f0 > 1200) continue;
+      let sum = 0;
+      for (let h = 1; h <= 6; h++) {
+        const fz = f0 * h;
+        if (fz > 3000) break;
+        const k = Math.round(fz / binHz);
+        if (k < 1 || k >= bins) continue;
+        sum += mag[k] / h;
+      }
+      if (sum > bestS) { bestS = sum; bestM = m; }
+    }
+    midi[f] = bestS > 0.02 ? bestM : -1;
+    times[f] = (off + N / 2) / sr;
+    if ((f & 255) === 0) setProgress(20 + (f / Math.max(1, nFrames)) * 60, '分析旋律…');
+  }
+  return { times, midi, nFrames };
+}
+
+// 每一拍取這段時間內最常出現的音級，換成首調（相對於目前這一調）
+function melodyForBeats(beats, frames) {
+  if (!frames) return null;
+  const keyMajor = state.displayMajor;
+  const out = [];
+  for (let i = 0; i < beats.length; i++) {
+    const t0 = beats[i];
+    const t1 = (i + 1 < beats.length) ? beats[i + 1] : Math.min(state.duration, t0 + 0.6);
+    const lo = Math.max(0, frameStartIndex(frames, t0));
+    const hi = Math.min(frames.nFrames, frameStartIndex(frames, t1));
+    const counts = new Array(12).fill(0);
+    let any = false;
+    for (let f = lo; f < hi; f++) {
+      const m = frames.midi[f];
+      if (m >= 0) { counts[((m % 12) + 12) % 12]++; any = true; }
+    }
+    if (!any) { out.push(''); continue; }
+    let bestPc = 0, bestC = -1;
+    for (let pc = 0; pc < 12; pc++) if (counts[pc] > bestC) { bestC = counts[pc]; bestPc = pc; }
+    out.push(SOLFEGE[mod12(bestPc - keyMajor)]);
+  }
+  return out;
+}
+
+async function ensureMelody() {
+  if (!state.audioBuffer) return;
+  if (!state.melodyFrames) {
+    setStatus('分析旋律（人聲分離）…', 'analyzing');
+    state.melodyFrames = computeMelodyFrames(state.audioBuffer);
+    setProgressDone();
+  }
+  state.melodyBeats = melodyForBeats(state.beats, state.melodyFrames);
+  setStatus('旋律分析完成（首調數字僅供參考）', 'done');
+  renderChart();
+}
+
+function addLyricSeg(barIdx, beat, text) {
+  if (!text) return;
+  if (!state.lyricSegs[barIdx]) state.lyricSegs[barIdx] = [];
+  const arr = state.lyricSegs[barIdx];
+  const last = arr[arr.length - 1];
+  if (last && last.beat === beat) last.text += text;
+  else arr.push({ beat, text });
+}
+
+// 歌詞：逐字對到拍點。每個字先找到自己的時間（人聲起音），
+// 再換算成「第幾小節的第幾拍」，畫面上就像 KTV 一樣排在拍點上。
+function computeLyricSegments() {
+  state.lyricSegs = {};
+  const bars = state.bars;
+  if (!bars.length) { state.lyricSegs = {}; return; }
+  const bpb = state.beatsPerBar || 4;
+  const lines = state.lyrics;
+  for (let i = 0; i < lines.length; i++) {
+    const base = snapLyricTime(lines[i].time);
+    const nextT = (i + 1 < lines.length) ? snapLyricTime(lines[i + 1].time) : state.duration;
+    const chars = Array.from(lines[i].text).filter(ch => !/\s/.test(ch));
+    if (!chars.length) continue;
+    const times = syllableTimes(chars.length, base, Math.max(base + 0.2, Math.min(nextT, state.duration)));
+    for (let k = 0; k < chars.length; k++) {
+      const t = times[k];
+      const barIdx = lyricBarForTime(t);
+      if (barIdx < 0) continue;
+      const bar = bars[barIdx];
+      const frac = Math.max(0, Math.min(0.999, (t - bar.start) / Math.max(1e-6, bar.end - bar.start)));
+      const beat = Math.min(bpb - 1, Math.floor(frac * bpb));
+      addLyricSeg(barIdx, beat, chars[k]);
     }
   }
-  state.lyricBuckets = buckets;
+  // 手動編輯過的歌詞優先
+  for (const key in state.lyricOverrides) {
+    if (!Object.prototype.hasOwnProperty.call(state.lyricOverrides, key)) continue;
+    const idx = parseInt(key, 10);
+    const text = state.lyricOverrides[key];
+    if (text) state.lyricSegs[idx] = [{ beat: 0, text: text }];
+    else delete state.lyricSegs[idx];
+  }
 }
 
 function barLyric(idx) {
-  const arr = state.lyricBuckets.get(idx);
-  return arr ? arr.join(' / ') : '';
+  const arr = state.lyricSegs[idx];
+  return arr ? arr.map(s => s.text).join('') : '';
 }
+
 
 // =========================================================================
 // 播放控制
@@ -2298,6 +2523,12 @@ function openEditModal(idx) {
     btn.addEventListener('click', function () { applyEditChord(root, it[2]); });
     pal.appendChild(btn);
   });
+  const lyricBox = document.getElementById('edit-lyric');
+  if (lyricBox) {
+    lyricBox.value = Object.prototype.hasOwnProperty.call(state.lyricOverrides, idx)
+      ? state.lyricOverrides[idx] : barLyric(idx);
+  }
+
   const prevBtn = document.getElementById('btn-copy-prev');
   prevBtn.style.display = idx > 0 ? '' : 'none';
   prevBtn.onclick = copyPrevChord;
@@ -2329,9 +2560,19 @@ function applyEditChord(dispRoot, quality) {
 
 function saveEditChord() {
   if (editingBarIdx < 0) return;
+  const idx = editingBarIdx;
   const dispRoot = parseInt(document.getElementById('edit-root').value, 10);
   const quality = document.getElementById('edit-quality').value;
-  applyEditChord(dispRoot, quality);
+  const lyricBox = document.getElementById('edit-lyric');
+  const typed = lyricBox ? lyricBox.value.replace(/\s+$/,'').replace(/^\s+/,'') : null;
+  const autoLyric = barLyric(idx);
+  applyEditChord(dispRoot, quality);   // 會關閉視窗並重繪
+  if (typed != null) {
+    if (typed && typed !== autoLyric) state.lyricOverrides[idx] = typed;
+    else delete state.lyricOverrides[idx];
+    computeLyricSegments();
+    renderChart();
+  }
 }
 
 function copyPrevChord() {
@@ -2388,7 +2629,7 @@ function padDisplay(s, w) {
 }
 
 function buildTextChart() {
-  computeLyricBuckets();
+  computeLyricSegments();
   const lines = [];
   lines.push('【和弦譜】' + chartTitle());
   lines.push(chartMeta());
@@ -2411,7 +2652,7 @@ function buildTextChart() {
 }
 
 function buildWordHtml() {
-  computeLyricBuckets();
+  computeLyricSegments();
   const rows = [];
   for (let r = 0; r < state.chords.length; r += 4) {
     let tds = '';
@@ -2630,6 +2871,12 @@ function initUI() {
   });
 
   // 歌詞要不要吸到音訊的起音
+  document.getElementById('show-melody').addEventListener('change', function () {
+    state.showMelody = this.checked;
+    if (state.showMelody) ensureMelody();
+    else if (state.chords.length) renderChart();
+  });
+
   document.getElementById('lyric-snap').addEventListener('change', function () {
     state.lyricSnap = this.checked;
     if (state.chords.length) renderChart();
