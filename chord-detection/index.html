@@ -44,9 +44,9 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
 .chart { min-width: 760px; padding: 4px 0; }
 .sys { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid var(--line); }
 .sys:last-child { border-bottom: none; }
-.sys-bar { position: relative; padding: 16px 10px 8px 12px; border-left: 1.5px solid var(--line); cursor: pointer; transition: background .12s; }
-.sys-bar:first-child { border-left-width: 2.5px; }
-.sys-bar:last-child { border-right: 1.5px solid var(--line); }
+.sys-bar { position: relative; padding: 14px 8px 6px 8px; cursor: pointer; transition: background .12s; }
+.sys-bar:first-child { padding-left: 4px; }
+
 .sys-bar:hover { background: rgba(196,149,106,0.07); }
 .sys-bar.is-active { background: rgba(196,149,106,0.14); }
 .sys-bar.is-empty { cursor: default; }
@@ -56,24 +56,29 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
 .bar-edit:hover { background: var(--soft); opacity: 1; }
 .sys-bar.non-dia::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: #f59e0b; }
 .sys-bar.non-dia .chord .cname { color: #b45309; }
-.chord-line { position: relative; height: 27px; }
+.chord-line { position: relative; height: calc(var(--chord-size, 15px) * 1.7); margin-bottom: var(--row-gap, 2px); }
 .chord { position: absolute; top: 0; padding: 0 2px; overflow: hidden; white-space: nowrap; cursor: pointer; border-radius: 4px; }
 .chord .cname { font-size: var(--chord-size, 17px); font-weight: 800; line-height: 1.15; }
 .chord .cdeg { font-size: 10px; color: var(--muted); margin-left: 4px; }
 .chord .cdia { display: block; line-height: 0; margin-top: 2px; }
 .chord.is-active { background: rgba(196,149,106,0.28); }
 .tick { position: absolute; top: 2px; height: 24px; width: 1px; background: var(--line); opacity: .45; }
-.lyric-line { position: relative; min-height: 20px; height: calc(var(--lyric-size, 12px) * 1.8); font-size: var(--lyric-size, 12px); line-height: 1.6; color: var(--ink); }
+.lyric-line { position: relative; min-height: calc(var(--lyric-size, 14px) * 1.8); height: calc(var(--lyric-size, 14px) * 1.9); font-size: var(--lyric-size, 14px); line-height: 1.7; color: var(--ink); }
 .lyric-seg { position: absolute; top: 0; white-space: nowrap; }
-.melody-line { position: relative; height: calc(var(--lyric-size, 12px) * 1.5); font-size: calc(var(--lyric-size, 12px) * 1.05); color: #6b6259; font-weight: 600; }
-.melody-seg { position: absolute; top: 0; white-space: nowrap; }
+.melody-line { position: relative; height: calc(var(--melody-size, 13px) * 3.0); margin-bottom: var(--row-gap, 2px); font-size: var(--melody-size, 13px); color: #6b6259; font-weight: 600; }
+.melody-seg { position: absolute; top: 50%; transform: translateY(-50%); white-space: nowrap; padding: 0 1px; }
+.melody-seg .oct { position: absolute; left: 50%; transform: translateX(-50%); font-size: 0.9em; line-height: 1; letter-spacing: 0; font-weight: 700; }
+.melody-seg .oct.up { top: -1.0em; }
+.melody-seg .oct.down { bottom: -1.0em; }
 .melody-seg.u1 { border-bottom: 1px solid #6b6259; padding-bottom: 1px; }
 .melody-seg.u2 { border-bottom: 3px double #6b6259; padding-bottom: 1px; }
 .lyric-seg + .lyric-seg { }
-.chart { --chord-size: 17px; --lyric-size: 12px; }
+.chart { --chord-size: 15px; --lyric-size: 14px; --melody-size: 13px; --row-gap: 2px; }
 
 /* Toolbar / key info */
-.chart-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin: 12px 0 8px; font-size: 12px; }
+.chart-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; margin: 12px 0 8px; font-size: 12px; }
+.chart-toolbar .size-ctl { white-space: nowrap; flex: 0 0 auto; }
+.chart-toolbar .size-ctl input[type=range] { width: 80px; }
 .chart-toolbar label { display: flex; align-items: center; gap: 4px; cursor: pointer; color: var(--ink); }
 .chart-toolbar .spacer { flex: 1; }
 
@@ -330,8 +335,10 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
     <label><input type="checkbox" id="show-melody"> 簡譜旋律</label>
     <label><input type="checkbox" id="show-diagrams"> 指版圖</label>
     <label><input type="checkbox" id="continuous"> 連續播放</label>
-    <label class="size-ctl" title="和弦字級">和弦 <input type="range" id="chord-size" min="12" max="26" value="17"></label>
-    <label class="size-ctl" title="歌詞字級">歌詞 <input type="range" id="lyric-size" min="9" max="20" value="12"></label>
+    <label class="size-ctl" title="和弦字級">和弦 <input type="range" id="chord-size" min="10" max="24" value="15"></label>
+    <label class="size-ctl" title="簡譜字級">簡譜 <input type="range" id="melody-size" min="9" max="20" value="13"></label>
+    <label class="size-ctl" title="歌詞字級">歌詞 <input type="range" id="lyric-size" min="10" max="24" value="14"></label>
+    <label class="size-ctl" title="行距">行距 <input type="range" id="row-gap" min="0" max="10" value="2"></label>
     <span class="spacer"></span>
     <button class="btn ghost small" id="btn-import-lrc">📄 匯入 .lrc</button>
     <input type="file" id="lrc-input" accept=".lrc,.txt,text/plain" style="display:none;">
@@ -508,7 +515,7 @@ let state = {
   autoDownbeat: 0, downbeatShift: 0, gridShiftSec: 0,
   lyrics: [], lyricSegs: {}, lyricOverrides: {}, showLyrics: true, showDegrees: true,
   showDiagrams: false, continuous: false, notation: 'name',
-  pickupOverride: null, lyricSnap: true, chordSize: 17, lyricSize: 12,
+  pickupOverride: null, lyricSnap: true, chordSize: 15, lyricSize: 14, melodySize: 13, rowGap: 2,
   showMelody: false, melodyFrames: null, melodyNotes: null,
   onsetEnv: null, onsetHopSec: 0,
   instrument: 0, tuning: null,
@@ -1905,8 +1912,12 @@ function barCellHtml(idx) {
       if (nt.start < bar.start - 1e-6 || nt.start >= bar.end - 1e-6) continue;
       const sym = melodySymbol(nt);
       const left = ((nt.start - bar.start) / barDur) * 100;
+      const dots = Math.abs(sym.oct) > 0 ? '·'.repeat(Math.min(3, Math.abs(sym.oct))) : '';
       melHtml += '<span class="melody-seg ' + sym.cls + '" style="left:' + Math.max(0, left).toFixed(2) + '%">'
-        + escapeHtml(sym.num + sym.suffix) + '</span>';
+        + (sym.oct > 0 ? '<span class="oct up">' + dots + '</span>' : '')
+        + escapeHtml(sym.num + sym.suffix)
+        + (sym.oct < 0 ? '<span class="oct down">' + dots + '</span>' : '')
+        + '</span>';
     }
   }
   const lyricSegs = state.showLyrics ? (state.lyricSegs[idx] || []) : [];
@@ -2312,7 +2323,7 @@ function quantizeMelodyNotes(notes) {
   for (const n of notes) {
     const start = Math.round(n.start / grid) * grid;
     const beats = Math.max(0.25, Math.round((n.end - n.start) / grid) / 4);
-    out.push({ start, beats, pc: mod12(n.midi) });
+    out.push({ start, beats, pc: mod12(n.midi), midi: n.midi });
   }
   return out;
 }
@@ -2335,6 +2346,9 @@ function melodySymbol(note) {
   // 這樣把「轉成 D」之後數字會跟著換，換把位／Capo 時數字不會亂跳。
   const keyMajor = mod12(songMajorRoot() + state.transpose);
   const num = SOLFEGE[mod12(note.pc - keyMajor)];
+  // 八度點：以中央 C 所在的那個八度當基準（1 在中間），
+  // 高八度點在上面、低八度點在下面。
+  const oct = Math.round((note.midi - (60 + keyMajor)) / 12);
   let cls = '', suffix = '';
   if (note.beats >= 2) {
     suffix = ' ' + '– '.repeat(Math.max(1, Math.round(note.beats) - 1)).trim();
@@ -2345,7 +2359,7 @@ function melodySymbol(note) {
   } else if (note.beats <= 0.5) {
     cls = 'u1';
   }
-  return { num, cls, suffix };
+  return { num, cls, suffix, oct: oct };
 }
 
 function addLyricSeg(barIdx, beat, text) {
@@ -2911,13 +2925,23 @@ function initUI() {
     if (!el) return;
     el.style.setProperty('--chord-size', state.chordSize + 'px');
     el.style.setProperty('--lyric-size', state.lyricSize + 'px');
+    el.style.setProperty('--melody-size', state.melodySize + 'px');
+    el.style.setProperty('--row-gap', state.rowGap + 'px');
   }
   document.getElementById('chord-size').addEventListener('input', function () {
     state.chordSize = parseInt(this.value, 10) || 17;
     applyChartSizes();
   });
   document.getElementById('lyric-size').addEventListener('input', function () {
-    state.lyricSize = parseInt(this.value, 10) || 12;
+    state.lyricSize = parseInt(this.value, 10) || 14;
+    applyChartSizes();
+  });
+  document.getElementById('melody-size').addEventListener('input', function () {
+    state.melodySize = parseInt(this.value, 10) || 13;
+    applyChartSizes();
+  });
+  document.getElementById('row-gap').addEventListener('input', function () {
+    state.rowGap = parseInt(this.value, 10);
     applyChartSizes();
   });
   applyChartSizes();
