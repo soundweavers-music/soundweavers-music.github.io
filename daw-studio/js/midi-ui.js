@@ -3,7 +3,7 @@ import { store, newTrack, newMidiClip, isMidiClip, MAX_TRACKS } from './state.js
 import { engine } from './engine.js';
 import { PRESETS, PRESET_GROUPS } from './synth.js';
 import { parseMidi, writeMidi, presetForProgram, PROGRAM_FOR_PRESET } from './midifile.js';
-import { initWebMidi, midiState, setTyping, targetTrack } from './midi-input.js';
+import { initWebMidi, midiState, setTyping, targetTrack, setTranspose } from './midi-input.js';
 import { downloadBlob, toast } from './util.js';
 
 const $ = id => document.getElementById(id);
@@ -39,6 +39,7 @@ export async function importMidiFile(file, opts = {}) {
     const last = Math.max(...tr.notes.map(n => n.t + n.d));
     const len = Math.max(p.sigNum, Math.ceil(last / p.sigNum) * p.sigNum);
     const c = newMidiClip(startBeat, len, tr.notes.map(n => ({ ...n })));
+    if (tr.pedal && tr.pedal.length) c.pedal = tr.pedal.map(e => ({ ...e }));
     c.name = base;
     t.clips.push(c);
     added++;
@@ -63,20 +64,27 @@ export function exportMidi(clipIds = null) {
   for (const t of p.tracks) {
     if (t.kind !== 'midi') continue;
     if (!only && (t.mute || (solo && !t.solo))) continue;
-    const notes = [];
+    const notes = [], pedal = [];
     for (const c of t.clips) {
       if (!isMidiClip(c) || (only && !only.has(c.id))) continue;
       for (const n of c.notes) {
         if (n.t >= c.lengthBeats) continue;
         notes.push({ p: n.p, t: c.startBeat + n.t, d: Math.min(n.d, c.lengthBeats - n.t), v: n.v });
       }
+      // 踏板：片段範圍內的事件；片段結尾還踩著就補一個放開
+      let down = false;
+      for (const e of (c.pedal || []).slice().sort((a, z) => a.t - z.t)) {
+        if (e.t > c.lengthBeats) break;
+        pedal.push({ t: c.startBeat + e.t, on: e.on }); down = e.on;
+      }
+      if (down) pedal.push({ t: c.startBeat + c.lengthBeats, on: false });
     }
     if (!notes.length) continue;
     const drums = PRESETS[t.instrument]?.drum;
     let channel = drums ? 9 : ch++;
     if (channel === 9 && !drums) channel = ch++;
     if (channel > 15) channel = 15;
-    tracks.push({ name: t.name, channel, program: PROGRAM_FOR_PRESET[t.instrument] ?? 0, notes });
+    tracks.push({ name: t.name, channel, program: PROGRAM_FOR_PRESET[t.instrument] ?? 0, notes, pedal });
   }
   if (!tracks.length) { toast('沒有可匯出的 MIDI 音符', 'warn'); return false; }
   const blob = writeMidi({ bpm: p.bpm, sigNum: p.sigNum, sigDen: p.sigDen, tracks });
@@ -126,7 +134,7 @@ export function midiStatusSection() {
     <p class="midi-status">${
       !navigator.requestMIDIAccess ? '這個瀏覽器不支援 Web MIDI（Safari、Firefox 部分版本）。可以改用電腦鍵盤彈奏。'
         : devs.length ? `已連接：<b>${devs.map(n => n.replace(/[<>&]/g, '')).join('、')}</b>` : '沒有偵測到 MIDI 鍵盤（插上後會自動出現）'
-    }<br>彈奏目標：<b>${tgt ? tgt.name.replace(/[<>&]/g, '') : '（選一條 MIDI 軌）'}</b><br>電腦鍵盤彈奏：<b>${midiState.typing ? '開啟' : '關閉'}</b>（Caps Lock）</p>`;
+    }<br>彈奏目標：<b>${tgt ? tgt.name.replace(/[<>&]/g, '') : '（選一條 MIDI 軌）'}</b><br>輸入移調：<b>${midiState.transpose === 0 ? '不移調' : (midiState.transpose > 0 ? '+' : '') + midiState.transpose + ' 半音'}</b>（上方 − ＋ 或 [ ]）<br>電腦鍵盤彈奏：<b>${midiState.typing ? '開啟' : '關閉'}</b>（Caps Lock）</p>`;
   return sec;
 }
 
@@ -151,6 +159,22 @@ export function initMidiUi() {
   });
 
   $('btnTyping').onclick = () => setTyping(!midiState.typing);
+  // 輸入移調
+  const showTr = () => {
+    const n = midiState.transpose;
+    $('trVal').textContent = n === 0 ? '0' : (n > 0 ? '+' : '') + n;
+    $('trVal').title = n === 0 ? '不移調' : `${n > 0 ? '升' : '降'} ${Math.abs(n)} 個半音${Math.abs(n) % 12 === 0 ? `（${Math.abs(n) / 12} 個八度）` : ''}`;
+    $('midiTr').classList.toggle('on', n !== 0);
+  };
+  $('trUp').onclick = e => setTranspose(midiState.transpose + (e.shiftKey ? 12 : 1));
+  $('trDown').onclick = e => setTranspose(midiState.transpose - (e.shiftKey ? 12 : 1));
+  $('trVal').ondblclick = () => setTranspose(0);
+  store.on('midi-transpose', ({ value }) => {
+    showTr();
+    toast(value === 0 ? 'MIDI 輸入：不移調' : `MIDI 輸入移調 ${value > 0 ? '+' : ''}${value} 半音`);
+  });
+  showTr();
+  store.on('midi-pedal', ({ on }) => $('midiPed').classList.toggle('on', on));
   store.on('typing', ({ on }) => {
     $('btnTyping').classList.toggle('on', on);
     toast(on ? '電腦鍵盤彈奏：開啟（A S D F… 白鍵、W E T Y U 黑鍵、Z/X 換八度）' : '電腦鍵盤彈奏：關閉');

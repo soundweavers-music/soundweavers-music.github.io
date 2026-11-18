@@ -72,6 +72,16 @@ export const PRESETS = {
     { group: '明顯', name: 'Lo-fi', params: { mode: 2, drive: 16, tone: -6, output: -2, mix: 100 }, tip: '粗糙、懷舊的聲音。' },
     { group: '明顯', name: '破音', params: { mode: 3, drive: 22, tone: 2, output: -6, mix: 100 }, tip: '明顯的削波破音。' },
   ],
+  pitch: [
+    { group: '和聲', name: '和聲：上方三度（+4）', params: { semitones: 4, cents: 0, window: 50, mix: 40 }, tip: '跟原聲混在一起，做簡單的和聲。' },
+    { group: '和聲', name: '和聲：下方三度（−3）', params: { semitones: -3, cents: 0, window: 50, mix: 40 }, tip: '' },
+    { group: '和聲', name: '和聲：上方五度（+7）', params: { semitones: 7, cents: 0, window: 50, mix: 35 }, tip: '' },
+    { group: '加厚', name: '八度疊加（−12）', params: { semitones: -12, cents: 0, window: 80, mix: 35 }, tip: '讓聲音更厚，常用在吉他與 Lead。' },
+    { group: '加厚', name: '高八度亮度（+12）', params: { semitones: 12, cents: 0, window: 40, mix: 20 }, tip: '小量混入增加光澤。' },
+    { group: '加厚', name: '雙重人聲（+12 cent）', params: { semitones: 0, cents: 12, window: 40, mix: 45 }, tip: '只偏 12 cent 再混進原聲，聽起來像唱了兩次。' },
+    { group: '特效', name: '花栗鼠（+7 全濕）', params: { semitones: 7, cents: 0, window: 30, mix: 100 }, tip: '' },
+    { group: '特效', name: '怪獸（−7 全濕）', params: { semitones: -7, cents: 0, window: 90, mix: 100 }, tip: '' },
+  ],
   reverb: [
     { group: '空間', name: '小房間', params: { size: 0.6, predelay: 5, damp: 6000, mix: 18 }, tip: '自然的近距離空間。' },
     { group: '空間', name: '人聲殘響（Plate）', params: { size: 1.8, predelay: 25, damp: 7500, mix: 22 }, tip: '預延遲讓咬字先清楚出來，再接殘響。' },

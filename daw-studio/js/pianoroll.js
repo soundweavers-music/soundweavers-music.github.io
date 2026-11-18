@@ -4,6 +4,7 @@
 //  - 下方力度條：拖曳調整選取音符力度
 //  - 工具列：格線、量化、移調、力度、刪除
 import { store, isMidiClip, spb, clipStart } from './state.js';
+import { pedalSpans } from './engine.js';
 import { engine } from './engine.js';
 import { PRESETS, DRUM_NAMES, noteName } from './synth.js';
 import { toast } from './util.js';
@@ -21,7 +22,8 @@ const pr = {
   scrollY: null,
 };
 
-let root, keysCv, gridCv, velCv, wrap, info;
+let root, keysCv, gridCv, velCv, pedCv, wrap, info;
+const PED_H = 22;
 
 export function initPianoRoll() {
   root = $('pianoroll');
@@ -46,8 +48,13 @@ export function initPianoRoll() {
       <div class="pr-scroll" id="prScroll"><div class="pr-inner" id="prInner"></div></div>
       <canvas id="prGridCv"></canvas>
     </div>
-    <div class="pr-vel"><div class="pr-vel-lbl">力度</div><canvas id="prVelCv"></canvas></div>`;
+    <div class="pr-vel"><div class="pr-vel-lbl">力度</div><canvas id="prVelCv"></canvas></div>
+    <div class="pr-ped"><div class="pr-vel-lbl" title="延音踏板（CC64）：點空白新增一段、拖兩端改長度、右鍵刪除">踏板</div><canvas id="prPedCv"></canvas></div>`;
   keysCv = $('prKeys'); gridCv = $('prGridCv'); velCv = $('prVelCv'); wrap = $('prScroll'); info = $('prInfo');
+  pedCv = $('prPedCv');
+  pedCv.addEventListener('pointerdown', onPedDown);
+  pedCv.addEventListener('contextmenu', onPedContext);
+  pedCv.addEventListener('pointermove', e => { if (!e.buttons) { const h = pedHit(e); pedCv.style.cursor = h ? (h.edge ? 'ew-resize' : 'grab') : 'copy'; } });
 
   $('prGrid').onchange = e => { pr.grid = Number(e.target.value); draw(); };
   $('prQuant').onclick = quantize;
@@ -80,6 +87,7 @@ export function initPianoRoll() {
     if (kind === 'structure' || kind === 'mix') layout();
   });
   store.on('open-piano-roll', ({ clipId }) => open(clipId));
+  store.on('midi-rec', ({ clipId }) => { if (clipId === pr.clipId) layout(); });
 }
 
 export const isOpen = () => !!pr.clipId && !root.classList.contains('hidden');
@@ -225,6 +233,22 @@ export function draw() {
     v.fillStyle = pr.sel.has(note) ? '#fff' : track.color;
     v.fillRect(x, VEL_H - h, 3, h);
     v.beginPath(); v.arc(x + 1.5, VEL_H - h, 3, 0, Math.PI * 2); v.fill();
+  }
+
+  // ---- 踏板列 ----
+  const pw = Math.max(10, vw);
+  const pg = setup(pedCv, pw, PED_H);
+  pg.fillStyle = '#131417'; pg.fillRect(0, 0, pw, PED_H);
+  for (const [a, z] of pedalSpans(clip)) {
+    const x0 = xOf(a) - sx, x1 = xOf(Math.min(z, clip.lengthBeats)) - sx;
+    if (x1 < 0 || x0 > pw) continue;
+    const grad = pg.createLinearGradient(0, 0, 0, PED_H);
+    grad.addColorStop(0, track.color); grad.addColorStop(1, shade(track.color, 0.45));
+    pg.fillStyle = grad;
+    pg.fillRect(x0, 4, Math.max(2, x1 - x0), PED_H - 8);
+    pg.fillStyle = '#fff';
+    pg.fillRect(x0, 4, 2, PED_H - 8); pg.fillRect(x1 - 2, 4, 2, PED_H - 8);
+    if (x1 - x0 > 40) { pg.fillStyle = 'rgba(0,0,0,.65)'; pg.font = '10px sans-serif'; pg.fillText('Ped.', x0 + 5, PED_H - 7); }
   }
 }
 
@@ -383,6 +407,71 @@ function onVelDown(e) {
   const up = () => { velCv.removeEventListener('pointermove', apply); velCv.removeEventListener('pointerup', up); store.changed('structure'); };
   velCv.addEventListener('pointermove', apply);
   velCv.addEventListener('pointerup', up);
+}
+
+// ---------------- 踏板列編輯 ----------------
+// 內部用「區段」編輯，存回去時轉成 on/off 事件
+function setSpans(clip, spans) {
+  spans = spans.filter(([a, z]) => z - a > 1e-3).sort((x, y) => x[0] - y[0]);
+  // 合併重疊
+  const m = [];
+  for (const sp of spans) { const last = m[m.length - 1]; if (last && sp[0] <= last[1]) last[1] = Math.max(last[1], sp[1]); else m.push([...sp]); }
+  clip.pedal = m.flatMap(([a, z]) => [{ t: Math.max(0, a), on: true }, { t: z, on: false }]);
+  if (!clip.pedal.length) delete clip.pedal;
+}
+function pedHit(e) {
+  const f = cur(); if (!f) return null;
+  const r = pedCv.getBoundingClientRect();
+  const x = e.clientX - r.left + wrap.scrollLeft;
+  const spans = pedalSpans(f.clip);
+  for (let i = 0; i < spans.length; i++) {
+    const [a, z] = spans[i], xa = xOf(a), xz = xOf(z);
+    if (Math.abs(x - xa) < 6) return { i, edge: 'a', spans };
+    if (Math.abs(x - xz) < 6) return { i, edge: 'z', spans };
+    if (x > xa && x < xz) return { i, edge: null, spans };
+  }
+  return null;
+}
+function onPedDown(e) {
+  if (e.button !== 0) return;
+  const f = cur(); if (!f) return;
+  pedCv.setPointerCapture(e.pointerId);
+  const r = pedCv.getBoundingClientRect();
+  const toB = cx => Math.max(0, Math.min(f.clip.lengthBeats, snapB(bOf(cx - r.left + wrap.scrollLeft), !e.altKey)));
+  store.checkpoint();
+  let h = pedHit(e);
+  let spans = h ? h.spans : pedalSpans(f.clip);
+  if (!h) {
+    // 點空白：從這裡新增一小節長的踏板
+    const a = floorB(bOf(e.clientX - r.left + wrap.scrollLeft));
+    spans.push([a, Math.min(f.clip.lengthBeats, a + store.project.sigNum)]);
+    spans.sort((x, y) => x[0] - y[0]);
+    h = { i: spans.findIndex(sp => sp[0] === a), edge: 'z', spans };
+  }
+  const orig = spans.map(s2 => [...s2]);
+  const b0 = toB(e.clientX);
+  const move = ev => {
+    const b = toB(ev.clientX);
+    const s2 = orig.map(x => [...x]);
+    const sp = s2[h.i];
+    if (h.edge === 'a') sp[0] = Math.min(b, sp[1] - pr.grid);
+    else if (h.edge === 'z') sp[1] = Math.max(b, sp[0] + pr.grid);
+    else { const d = b - b0; const len = sp[1] - sp[0]; sp[0] = Math.max(0, Math.min(f.clip.lengthBeats - len, orig[h.i][0] + d)); sp[1] = sp[0] + len; }
+    setSpans(f.clip, s2);
+    draw();
+  };
+  const up = () => { pedCv.removeEventListener('pointermove', move); pedCv.removeEventListener('pointerup', up); store.changed('structure'); };
+  pedCv.addEventListener('pointermove', move); pedCv.addEventListener('pointerup', up);
+  setSpans(f.clip, spans); draw();
+}
+function onPedContext(e) {
+  e.preventDefault();
+  const f = cur(); const h = pedHit(e);
+  if (!f || !h) return;
+  store.checkpoint();
+  h.spans.splice(h.i, 1);
+  setSpans(f.clip, h.spans);
+  store.changed('structure');
 }
 
 // ---------------- 編輯指令 ----------------

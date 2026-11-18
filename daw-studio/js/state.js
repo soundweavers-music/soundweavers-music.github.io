@@ -169,6 +169,9 @@ class Store extends EventTarget {
 
 export const store = new Store();
 
+// 正在錄 MIDI 的片段 id（執行期狀態，不存進專案）
+export const recordingClips = new Set();
+
 // ---- 拍 ↔ 秒（以目前 BPM 換算）----
 export const spb = () => 60 / store.project.bpm;
 export const isMidiClip = c => Array.isArray(c.notes);
