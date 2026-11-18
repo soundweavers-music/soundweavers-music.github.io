@@ -1,43 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="聲帶閉合三級：漏氣、平衡、壓迫">
-  <title>聲帶閉合三級：漏氣、平衡、壓迫</title>
-  <rect width="640" height="360" fill="#FBF8F4"/>
-  <style>
-    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
-    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
-    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
-    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
-    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
-    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
-    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
-    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
-    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
-    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
-    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
-    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
-    .dot { fill: #3D3229; }
-  </style>
-  <text x="26" y="34" class="tb" font-size="16">聲帶閉合三級：漏氣、平衡、壓迫</text>
-  <text x="26" y="55" class="ts" font-size="12.5">中間那一級不是「用力」，是「剛好」</text>
-  <rect x="80" y="120" width="150" height="30" rx="8" fill="#6B8FBF" opacity="0.2"/>
-  <rect x="80" y="120" width="150" height="30" rx="8" fill="none" stroke="#6B8FBF" stroke-width="1.4"/>
-  <rect x="80" y="176" width="150" height="30" rx="8" fill="#6B8FBF" opacity="0.2"/>
-  <rect x="80" y="176" width="150" height="30" rx="8" fill="none" stroke="#6B8FBF" stroke-width="1.4"/>
-  <text x="155" y="230" class="t" font-size="13" text-anchor="middle" font-weight="600" fill="#6B8FBF">漏氣</text>
-  <text x="155" y="250" class="ts" font-size="11" text-anchor="middle">兩片分開</text>
-  <text x="155" y="272" class="ts" font-size="11" text-anchor="middle">氣音多、容易累</text>
-  <rect x="270" y="120" width="150" height="30" rx="8" fill="#6F8F6A" opacity="0.2"/>
-  <rect x="270" y="120" width="150" height="30" rx="8" fill="none" stroke="#6F8F6A" stroke-width="1.4"/>
-  <rect x="270" y="162" width="150" height="30" rx="8" fill="#6F8F6A" opacity="0.2"/>
-  <rect x="270" y="162" width="150" height="30" rx="8" fill="none" stroke="#6F8F6A" stroke-width="1.4"/>
-  <text x="345" y="230" class="t" font-size="13" text-anchor="middle" font-weight="600" fill="#6F8F6A">平衡</text>
-  <text x="345" y="250" class="ts" font-size="11" text-anchor="middle">輕輕靠攏</text>
-  <text x="345" y="272" class="ts" font-size="11" text-anchor="middle">乾淨、省力</text>
-  <rect x="460" y="120" width="150" height="30" rx="8" fill="#B0563F" opacity="0.2"/>
-  <rect x="460" y="120" width="150" height="30" rx="8" fill="none" stroke="#B0563F" stroke-width="1.4"/>
-  <rect x="460" y="156" width="150" height="30" rx="8" fill="#B0563F" opacity="0.2"/>
-  <rect x="460" y="156" width="150" height="30" rx="8" fill="none" stroke="#B0563F" stroke-width="1.4"/>
-  <text x="535" y="230" class="t" font-size="13" text-anchor="middle" font-weight="600" fill="#B0563F">壓迫</text>
-  <text x="535" y="250" class="ts" font-size="11" text-anchor="middle">夾得太緊</text>
-  <text x="535" y="272" class="ts" font-size="11" text-anchor="middle">刮、喉嚨痛</text>
-  <text x="26" y="342" class="ts" font-size="11">閉合是一個連續的光譜：太少會漏氣，太多會擠，中間才是可以唱很久的位置。</text>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 640 430" role="img" aria-label="聲帶閉合三級：氣聲、正常、閉合">
+  <title>聲帶閉合三級：氣聲、正常、閉合</title>
+  <rect width="640" height="430" fill="#FBF8F4"/>
+  <text x="26" y="34" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="16" font-weight="700" fill="#3D3229">聲帶閉合三級</text>
+  <text x="26" y="55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#8C8078">聲門張開的程度，決定聲音漏不漏氣、喉嚨累不累</text>
+  <svg x="40" y="96" width="180" height="194" viewBox="600 0 200 226"><image x="0" y="0" width="1200" height="226" xlink:href="_anatomy/src/glottis-positions.png"/></svg>
+  <text x="130.0" y="316" text-anchor="middle" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="13" font-weight="600" fill="#3D3229">氣聲（D）</text>
+  <text x="130.0" y="336" text-anchor="middle" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#8C8078">兩片分開，氣一直漏</text>
+  <text x="130.0" y="354" text-anchor="middle" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#8C8078">音色沙、容易累</text>
+  <svg x="240" y="96" width="180" height="194" viewBox="200 0 200 226"><image x="0" y="0" width="1200" height="226" xlink:href="_anatomy/src/glottis-positions.png"/></svg>
+  <text x="330.0" y="316" text-anchor="middle" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="13" font-weight="600" fill="#3D3229">正常嗓音（B）</text>
+  <text x="330.0" y="336" text-anchor="middle" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#8C8078">輕輕靠攏</text>
+  <text x="330.0" y="354" text-anchor="middle" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#8C8078">乾淨、省力</text>
+  <svg x="440" y="96" width="180" height="194" viewBox="0 0 200 226"><image x="0" y="0" width="1200" height="226" xlink:href="_anatomy/src/glottis-positions.png"/></svg>
+  <text x="530.0" y="316" text-anchor="middle" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="13" font-weight="600" fill="#3D3229">閉合（A）</text>
+  <text x="530.0" y="336" text-anchor="middle" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#8C8078">完全閉上，準備發聲</text>
+  <text x="530.0" y="354" text-anchor="middle" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#8C8078">擋得住氣，但別夾</text>
+  <text x="26" y="416" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078">底圖：Wikimedia Commons（公有領域），說明文字依原檔圖例 A／B／D 重繪</text>
 </svg>

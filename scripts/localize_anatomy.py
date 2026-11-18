@@ -153,6 +153,10 @@ def main(argv) -> int:
         target = build_png(cfg, check_only=check)
         if target:
             print("wrote", target.relative_to(BASE))
+    if not names or "closure-grades" in names:
+        target = build_glottis_states(check_only=check)
+        if target:
+            print("wrote", target.relative_to(BASE))
     return 0
 
 
@@ -249,6 +253,60 @@ def build_png(cfg: dict, check_only=False) -> Path | None:
     parts.append("</svg>\n")
 
     target = OUT / cfg["out"]
+    target.write_text("\n".join(parts), encoding="utf-8")
+    return target
+
+
+def build_glottis_states(check_only=False) -> Path | None:
+    """聲帶閉合三級：同一張《Glottis positions》裁出 D／B／A 三格。
+
+    這張圖是公有領域的線稿，圖例寫在檔案說明裡：
+    A 閉合、B 正常嗓音、C 耳語、D 氣聲、E–F 呼吸。
+    """
+    panels = [
+        ("氣聲（D）", "兩片分開，氣一直漏", "音色沙、容易累", 600),
+        ("正常嗓音（B）", "輕輕靠攏", "乾淨、省力", 200),
+        ("閉合（A）", "完全閉上，準備發聲", "擋得住氣，但別夾", 0),
+    ]
+    if check_only:
+        for name, *_ in panels:
+            print("  panel:", name)
+        return None
+
+    width, height = 640, 430
+    src_w, src_h = 1200, 226
+    panel_w, panel_h = 180, 194
+    xs = [40, 240, 440]
+    top = 96
+
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" '
+        f'viewBox="0 0 {width} {height}" role="img" aria-label="聲帶閉合三級：氣聲、正常、閉合">',
+        '  <title>聲帶閉合三級：氣聲、正常、閉合</title>',
+        f'  <rect width="{width}" height="{height}" fill="{PAPER}"/>',
+        f'  <text x="26" y="34" font-family="{FONT}" font-size="16" font-weight="700" fill="{INK}">聲帶閉合三級</text>',
+        f'  <text x="26" y="55" font-family="{FONT}" font-size="12.5" fill="{MUTED}">'
+        f'聲門張開的程度，決定聲音漏不漏氣、喉嚨累不累</text>',
+    ]
+    for i, (name, what, why, sx) in enumerate(panels):
+        x = xs[i]
+        parts.append(
+            f'  <svg x="{x}" y="{top}" width="{panel_w}" height="{panel_h}" '
+            f'viewBox="{sx} 0 200 {src_h}">'
+            f'<image x="0" y="0" width="{src_w}" height="{src_h}" xlink:href="_anatomy/src/glottis-positions.png"/>'
+            f"</svg>"
+        )
+        parts.append(f'  <text x="{x + panel_w / 2}" y="{top + panel_h + 26}" text-anchor="middle" '
+                     f'font-family="{FONT}" font-size="13" font-weight="600" fill="{INK}">{name}</text>')
+        parts.append(f'  <text x="{x + panel_w / 2}" y="{top + panel_h + 46}" text-anchor="middle" '
+                     f'font-family="{FONT}" font-size="11.5" fill="{MUTED}">{what}</text>')
+        parts.append(f'  <text x="{x + panel_w / 2}" y="{top + panel_h + 64}" text-anchor="middle" '
+                     f'font-family="{FONT}" font-size="11.5" fill="{MUTED}">{why}</text>')
+    parts.append(f'  <text x="26" y="{height - 14}" font-family="{FONT}" font-size="10.5" fill="{MUTED}">'
+                 f'底圖：Wikimedia Commons（公有領域），說明文字依原檔圖例 A／B／D 重繪</text>')
+    parts.append("</svg>\n")
+
+    target = OUT / "closure-grades.svg"
     target.write_text("\n".join(parts), encoding="utf-8")
     return target
 
