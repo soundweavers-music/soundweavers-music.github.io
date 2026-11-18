@@ -1733,20 +1733,34 @@ var WH = (function () {
     if (whLoading) return whLoading;
     whLoading = ensureOrt().then(function (ort) {
       setDetectStatus("載入語音模型（encoder 22 MB + decoder 51 MB，第一次會慢一點）…", "analyzing");
+      function stage(label, p) {
+        return p.catch(function (e) {
+          throw new Error(label + "：" + (e && e.message ? e.message : String(e)));
+        });
+      }
       return Promise.all([
-        fetch(WHISPER_DIR + "vocab.json").then(function (r) { return r.json(); }),
-        ort.InferenceSession.create(WHISPER_DIR + "encoder_model_quantized.onnx", { executionProviders: ["wasm"] }),
-        ort.InferenceSession.create(WHISPER_DIR + "decoder_model_merged_quantized.onnx", { executionProviders: ["wasm"] })
+        stage("下載 vocab.json", fetch(WHISPER_DIR + "vocab.json").then(function (r) {
+          if (!r.ok) throw new Error("HTTP " + r.status);
+          return r.json();
+        })),
+        stage("建立 encoder", ort.InferenceSession.create(
+          WHISPER_DIR + "encoder_model_quantized.onnx", { executionProviders: ["wasm"] })),
+        stage("建立 decoder", ort.InferenceSession.create(
+          WHISPER_DIR + "decoder_model_merged_quantized.onnx", { executionProviders: ["wasm"] }))
       ]).then(function (res) {
         var dec = res[2], past = [], table = whByteTable(), i;
-        for (i = 0; i < dec.inputNames.length; i++) {
-          if (dec.inputNames[i].indexOf("past_key_values.") === 0) past.push(dec.inputNames[i]);
+        // 不同 ORT 版本可能沒有 inputNames，退回 metadata 的鍵
+        var inNames = dec.inputNames || Object.keys(dec.inputMetadata || {});
+        var outNames = dec.outputNames || Object.keys(dec.outputMetadata || {});
+        for (i = 0; i < inNames.length; i++) {
+          if (inNames[i].indexOf("past_key_values.") === 0) past.push(inNames[i]);
         }
         var layers = {};
         for (i = 0; i < past.length; i++) layers[parseInt(past[i].split(".")[1], 10)] = true;
         var nLayers = Object.keys(layers).length;
         whCache = {
           ort: ort, enc: res[1], dec: dec, vocab: res[0], bytes: table,
+          outNames: outNames,
           pastNames: past, nLayers: nLayers, nHeads: 8, headDim: 64, nFrames: 1500,
           attnLayers: [Math.floor(nLayers / 2), Math.min(nLayers - 1, Math.floor(nLayers / 2) + 1)]
         };
@@ -1759,8 +1773,9 @@ var WH = (function () {
   function whZeros(cache, ort) {
     var feeds = {};
     for (var i = 0; i < cache.pastNames.length; i++) {
+      // 長度用 1 而不是 0：0 維張量在部分 ORT Web 版本會被拒收
       feeds[cache.pastNames[i]] = new ort.Tensor("float32",
-        new Float32Array(0), [1, cache.nHeads, 0, cache.headDim]);
+        new Float32Array(cache.nHeads * cache.headDim), [1, cache.nHeads, 1, cache.headDim]);
     }
     return feeds;
   }
@@ -1789,8 +1804,14 @@ var WH = (function () {
   async function whDecodeWindow(cache, pcm, offsetSec) {
     var ort = cache.ort;
     var mel = WH.logMel(pcm);
-    var encOut = await cache.enc.run({ input_features: new ort.Tensor("float32", mel, [1, 80, 3000]) });
-    var hidden = encOut[cache.enc.outputNames[0]];
+    var encOut;
+    try {
+      encOut = await cache.enc.run({ input_features: new ort.Tensor("float32", mel, [1, 80, 3000]) });
+    } catch (e) {
+      throw new Error("encoder 推論失敗：" + (e && e.message ? e.message : e));
+    }
+    var encNames = cache.enc.outputNames || Object.keys(cache.enc.outputMetadata || {});
+    var hidden = encOut[encNames[0]];
 
     var past = whZeros(cache, ort);
     var feeds = {};
@@ -1800,8 +1821,13 @@ var WH = (function () {
     feeds.encoder_hidden_states = hidden;
     feeds.use_cache_branch = new ort.Tensor("bool", Uint8Array.from([0]), [1]);
 
-    var res = await cache.dec.run(feeds);
-    var names = cache.dec.outputNames;
+    var res;
+    try {
+      res = await cache.dec.run(feeds);
+    } catch (e) {
+      throw new Error("decoder 第一次推論失敗：" + (e && e.message ? e.message : e));
+    }
+    var names = cache.outNames;
     var logits = res.logits.data;
 
     var hist = [], tokens = [], attn = [], frames = [];
@@ -1818,7 +1844,11 @@ var WH = (function () {
       f2.encoder_hidden_states = hidden;
       f2.use_cache_branch = new ort.Tensor("bool", Uint8Array.from([1]), [1]);
 
-      res = await cache.dec.run(f2);
+      try {
+        res = await cache.dec.run(f2);
+      } catch (e) {
+        throw new Error("decoder 第 " + step + " 步失敗：" + (e && e.message ? e.message : e));
+      }
 
       // cache 分支的 encoder K/V 是空張量，必須沿用第一次算好的
       for (i = 0; i < names.length; i++) {
