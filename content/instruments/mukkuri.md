@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：體鳴；依據：來源一簡述為「Ainu plucked idiophone」，分類標籤含「Idioglot guimbardes and
 source_url: https://soundweavers-music.github.io/instruments/mukkuri/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Mukkuri-Leo-Tadagawa.jpg/500px-Mukkuri-Leo-Tadagawa.jpg
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Mukkuri_%28Ainu%27s_Jaw_Harp%29_made_with_brass_%28photozou_29416375%29_by_Ludwig_D._Omen.jpg/500px-Mukkuri_%28Ainu%27s_Jaw_Harp%29_made_with_brass_%28photozou_29416375%29_by_Ludwig_D._Omen.jpg
 youtube_ids: uO9uDMB94M0 AjXAEmysidE
 ---
 

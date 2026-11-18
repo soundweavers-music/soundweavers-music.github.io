@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：體鳴（111.2）；依據：Wikidata P1762 為 111.2；英文維基 Handpan 描述其為 steelpan 子集、金屬半殼與音域
 source_url: https://soundweavers-music.github.io/instruments/rav-vast/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Kama_River._Perm._Art_Gallery_%28former_Transfiguration_Cathedral%29_P6242387_2575.jpg/500px-Kama_River._Perm._Art_Gallery_%28former_Transfiguration_Cathedral%29_P6242387_2575.jpg
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Rav_Vast.jpg/500px-Rav_Vast.jpg
 youtube_ids: RfTaYBMybYA 9wEhfh9Fx_Y
 ---
 

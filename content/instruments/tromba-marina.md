@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴（321.321-71）；依據：來源一：Medieval string instrument；來源三：H-S 321.321-71
 source_url: https://soundweavers-music.github.io/instruments/tromba-marina/
-image: https://upload.wikimedia.org/wikipedia/en/thumb/7/72/Marine_trumpet.jpg/500px-Marine_trumpet.jpg
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Tromba_Marina_MET_MUS1148B.jpg/500px-Tromba_Marina_MET_MUS1148B.jpg
 youtube_ids: srWxpRxlTbc YLB92Z7-XB4
 ---
 

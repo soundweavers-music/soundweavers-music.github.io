@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 待考（來源不足）
 issue_note: 英文維基只有 Shofar（猶太號角）條目，未涵蓋庫杜羚角號；以 Shofar 代證會誤植宗教用途。
 source_url: https://soundweavers-music.github.io/instruments/kudu-horn/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Kudu_%2817418137574%29.jpg/500px-Kudu_%2817418137574%29.jpg
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Kudu_horn.jpg/500px-Kudu_horn.jpg
 youtube_ids: 9dkEe3ph_bU ejgVnsyEbaQ
 ---
 

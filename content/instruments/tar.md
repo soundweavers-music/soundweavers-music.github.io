@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴（321.321-6）；依據：Wikidata P1762 Hornbostel–Sachs 321.321-6；英文維基全文稱 tar 為 Iran
 source_url: https://soundweavers-music.github.io/instruments/tar/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Ko%C5%9B%C4%87i%C3%B3%C5%82_w_Tarczynie_widok_tylnej_cz%C4%99%C5%9Bci_z_Rynku.jpg/500px-Ko%C5%9B%C4%87i%C3%B3%C5%82_w_Tarczynie_widok_tylnej_cz%C4%99%C5%9Bci_z_Rynku.jpg
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tar_%28string_instrument%29_02.jpg/500px-Tar_%28string_instrument%29_02.jpg
 youtube_ids: 8DcrwHqPcFo ACkm10c7KwU
 ---
 

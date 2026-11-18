@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴（421.221.11）；依據：來源五：seljefløyte 為 willow flute，具 fipple mouthpiece 的吹管樂器；來源一；與「Willow flute」互為別名／變體
 source_url: https://soundweavers-music.github.io/instruments/seljefl-yte/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Willow_whistle.jpg/500px-Willow_whistle.jpg
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Seljefl%C3%B8yte.jpg/500px-Seljefl%C3%B8yte.jpg
 youtube_ids: qlCxUyUY378 yaQIdmE-Nyw
 ---
 

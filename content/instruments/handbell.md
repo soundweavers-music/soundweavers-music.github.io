@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：體鳴（111.242.222）；依據：來源二與來源三均給出 Hornbostel–Sachs 111.242.222（Sets of clapper bell
 source_url: https://soundweavers-music.github.io/instruments/handbell/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Handchime.jpg/500px-Handchime.jpg
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Handbell_choir01.jpg/500px-Handbell_choir01.jpg
 youtube_ids: []
 ---
 

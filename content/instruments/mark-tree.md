@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：體鳴（111.232）；依據：英文維基：percussion idiophones；Wikidata P1762：111.232
 source_url: https://soundweavers-music.github.io/instruments/mark-tree/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Mark-twain-tree-4.jpg/500px-Mark-twain-tree-4.jpg
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Meinl_CH-12_Chimes.jpg/500px-Meinl_CH-12_Chimes.jpg
 youtube_ids: ym9tXVKHdkw WrZixjQjr0M
 ---
 

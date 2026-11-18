@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 待考（來源不足）
 issue_note: 英文維基 Pífano 未建立條目，且同名檢索會落到蘇格蘭 Fife 地區；巴西橫笛的專屬來源待補。
 source_url: https://soundweavers-music.github.io/instruments/p-fano/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Korea-Buk-01.jpg/500px-Korea-Buk-01.jpg
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Banda_de_P%C3%ADfanos_%E2%80%93_6458_001.jpg/500px-Banda_de_P%C3%ADfanos_%E2%80%93_6458_001.jpg
 youtube_ids: rh2xKgOUoIY tcsX-jZWHyk
 ---
 

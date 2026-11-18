@@ -14,7 +14,6 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：非樂器／非單一樂器；依據：來源一、三、五均顯示 Simbi 為中非水靈／守護靈，非樂器
 source_url: https://soundweavers-music.github.io/instruments/simbi/
-image: https://upload.wikimedia.org/wikipedia/commons/3/34/Dona_Fish_-_Mamba_Muntu_-_Simbi.jpg
 youtube_ids: mh8-CHTt-CU Nqsb55TkrgQ
 ---
 

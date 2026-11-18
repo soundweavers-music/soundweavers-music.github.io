@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴；依據：來源一：Chinese bowed string instrument；來源四：弓弦樂器
 source_url: https://soundweavers-music.github.io/instruments/jinghu/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/%E8%83%A1%E7%90%B4_%E6%98%8E%E6%B8%85%E6%A5%BD_%E6%A5%BD%E5%99%A8_1894_KOKIN_or_HUQIN_musical_instrument_used_in_MINSHINGAKU.jpg/500px-%E8%83%A1%E7%90%B4_%E6%98%8E%E6%B8%85%E6%A5%BD_%E6%A5%BD%E5%99%A8_1894_KOKIN_or_HUQIN_musical_instrument_used_in_MINSHINGAKU.jpg
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Jinghu_%28%E4%BA%AC%E8%83%A1%29_MET_DP-13678-007.jpg/500px-Jinghu_%28%E4%BA%AC%E8%83%A1%29_MET_DP-13678-007.jpg
 youtube_ids: WDRJXD5W50s AldhF51cpsM
 ---
 

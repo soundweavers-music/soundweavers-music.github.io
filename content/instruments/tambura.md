@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴（321.322）；依據：來源一/五：stringed instrument、Necked lutes；來源二/三：H-S 321.322；與「Balkan tambura」互為別名／變體
 source_url: https://soundweavers-music.github.io/instruments/tambura/
-image: https://upload.wikimedia.org/wikipedia/commons/e/eb/%E8%94%A1%E4%BE%9D%E6%9E%97%E5%87%BA%E5%B8%AD%E7%8E%8B%E5%9B%BD%E5%A4%A7%E5%B8%9D%E5%85%A8%E7%90%83%E5%B7%A1%E5%9B%9E%E8%B5%9B%E7%8E%B0%E5%9C%BA_cropped_%28cropped%29.jpg
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Bulgarian_Tambura.png/500px-Bulgarian_Tambura.png
 youtube_ids: fCtMNklEQKM F7tlqXix_eo
 ---
 

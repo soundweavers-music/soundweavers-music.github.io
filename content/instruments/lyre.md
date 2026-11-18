@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證（部分欄位待補）
 issue_note: 分類查證：弦鳴（321.21-5）；依據：來源五：lyre 為 stringed musical instrument，屬 chordophone/lute fa；內文段落來源不足未改寫：樂器材質
 source_url: https://soundweavers-music.github.io/instruments/lyre/
-image: https://upload.wikimedia.org/wikipedia/commons/4/4e/Lyre1913.jpg
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/A_reconstruction_of_an_ancient_lyre%2C_Kotsanas_Museum_of_Ancient_Greek_Technology.jpg/500px-A_reconstruction_of_an_ancient_lyre%2C_Kotsanas_Museum_of_Ancient_Greek_Technology.jpg
 youtube_ids: nmExqfKa1Uc FvFzQ35ESvM
 ---
 

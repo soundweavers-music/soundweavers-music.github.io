@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：膜鳴；依據：來源一稱 nagara/naghara 為 drum，來源五稱 Nagada/Nakara 為 skin-covered；與「Nagara」互為別名／變體
 source_url: https://soundweavers-music.github.io/instruments/nagada/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/MbgIMG_0411.jpg/500px-MbgIMG_0411.jpg
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/%D9%86%D9%82%D8%A7%D8%B1%D9%87_%D8%B3%DB%8C%D8%B1%D8%AC%D8%A7%D9%86.jpg/500px-%D9%86%D9%82%D8%A7%D8%B1%D9%87_%D8%B3%DB%8C%D8%B1%D8%AC%D8%A7%D9%86.jpg
 youtube_ids: vAQJEwwkYIA NdKJUXD-U5k
 ---
 

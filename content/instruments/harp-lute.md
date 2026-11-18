@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證（部分欄位待補）
 issue_note: 分類查證：弦鳴（323-5）；依據：Wikidata P1762 Hornbostel–Sachs 323-5；全文描述十二 catgut strings ；與「dital harp」互為別名／變體；內文段落來源不足未改寫：聆聽示範
 source_url: https://soundweavers-music.github.io/instruments/harp-lute/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Kitty_Stephens%2C_later_Countess_of_Essex_%281794-1882%29_by_George_Henry_Harlow.jpg/500px-Kitty_Stephens%2C_later_Countess_of_Essex_%281794-1882%29_by_George_Henry_Harlow.jpg
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Harp_Lute_MET_DP109502.jpg/500px-Harp_Lute_MET_DP109502.jpg
 youtube_ids: g-qnBRZnk5w WjdWVNRVO1I
 ---
 

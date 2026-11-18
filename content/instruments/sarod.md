@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴（321.321-6）；依據：來源五：sarod is a plucked lute；來源一分類：Necked bowl lutes, String 
 source_url: https://soundweavers-music.github.io/instruments/sarod/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Sarod_plectrum.jpg/500px-Sarod_plectrum.jpg
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Sarod_MET_DP-14177-002.jpg/500px-Sarod_MET_DP-14177-002.jpg
 youtube_ids: aCz4tvuA8iU 3utGH37HzCk
 ---
 
