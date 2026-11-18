@@ -573,6 +573,8 @@ def site_footer(page_path):
       <button type="button" class="mini-player-close" data-music-close
               aria-label="收起播放器" title="收起">×</button>
     </div>
+    <button type="button" class="mini-player-launcher" data-music-open hidden
+            aria-label="開啟隔壁織音人音樂播放器" title="播放隔壁織音人的音樂">♪</button>
   </div>
   <script src="{player_js}" defer></script>"""
 
@@ -589,15 +591,14 @@ MUSIC_PLAYER_JS = """/* Floating player: one of 隔壁織音人's songs at rando
   var TRACKS = __TRACKS__;
   var root = document.querySelector('[data-music]');
   if (!root || !TRACKS.length) { return; }
-  try {
-    if (sessionStorage.getItem('mini-player-dismissed') === '1') { return; }
-  } catch (e) { /* private mode */ }
 
   var nameEl = root.querySelector('[data-music-title]');
   var albumEl = root.querySelector('[data-music-album]');
   var playBtn = root.querySelector('[data-music-play]');
   var nextBtn = root.querySelector('[data-music-next]');
   var closeBtn = root.querySelector('[data-music-close]');
+  var openBtn = root.querySelector('[data-music-open]');
+  var bar = root.querySelector('.mini-player-bar');
   var frame = document.querySelector('[data-music-frame]');
   var current = null;
   var started = false;
@@ -636,8 +637,17 @@ MUSIC_PLAYER_JS = """/* Floating player: one of 隔壁織音人's songs at rando
   });
   nextBtn.addEventListener('click', function () { show(pick()); });
   closeBtn.addEventListener('click', function () {
-    root.hidden = true;
-    try { sessionStorage.setItem('mini-player-dismissed', '1'); } catch (e) {}
+    // 收起來只是縮成角落的 ♪ 按鈕，隨時可以再打開
+    bar.hidden = true;
+    frame.hidden = true;
+    frame.innerHTML = '';
+    started = false;
+    root.hidden = false;
+    openBtn.hidden = false;
+  });
+  openBtn.addEventListener('click', function () {
+    openBtn.hidden = true;
+    bar.hidden = false;
   });
 
   show(pick());
@@ -1766,6 +1776,12 @@ h2 { margin:0; font-weight:700; }
   font-size:15px; line-height:1; padding:0 2px;
 }
 .mini-player-close:hover { color:var(--ink); }
+.mini-player-launcher {
+  width:44px; height:44px; border-radius:50%; border:1px solid var(--line);
+  background:var(--paper); color:var(--accent); font-size:18px; cursor:pointer;
+  box-shadow:0 6px 20px rgba(0,0,0,.14);
+}
+.mini-player-launcher:hover { background:var(--accent-soft); }
 @media (max-width: 520px) {
   .mini-player-name, .mini-player-sub { max-width:110px; }
 }
@@ -3287,10 +3303,67 @@ def build_daw_tool():
 # 全站工具清單：/tools/ 總覽頁與各工具頁的「相關工具」都用這一份，新增工具只要改這裡
 TOOLS = [
     ("/tools/daw/", "🎚️", "織音線上編曲製作", "", "免安裝的瀏覽器編曲軟體：16 軌起跳的多軌錄音、MIDI 編曲與音色庫、效果器、混音、母帶與輸出 WAV／FLAC／MP3。檔案不會上傳。", "/tools/daw/guide/"),
-    ("/chord-detection/", "🎼", "自動抓和弦", "", "上傳音檔自動分析節拍與和弦，簡譜式小節表可移調、標示 Capo、匯入 .lrc 歌詞。", None),
-    ("/tools/lrc/", "📝", "LRC 動態歌詞工作室", "", "邊聽邊打時間碼，自動偵測句與句的停頓先排好初稿，輸出 .lrc 或 .srt。", None),
-    ("/tools/fretboard/", "🎸", "世界樂器指版與和弦圖", "", "19 種彈撥樂器的調弦法、各調性和弦、指版音位圖與順階和弦。", None),
+    ("/chord-detection/", "🎼", "自動抓和弦", "", "上傳音檔自動分析節拍與和弦，簡譜式小節表可移調、標示 Capo、匯入 .lrc 歌詞。", "/chord-detection/guide/"),
+    ("/tools/lrc/", "📝", "LRC 動態歌詞工作室", "", "邊聽邊打時間碼，自動偵測句與句的停頓先排好初稿，輸出 .lrc 或 .srt。", "/tools/lrc/guide/"),
+    ("/tools/fretboard/", "🎸", "世界樂器指版與和弦圖", "", "19 種彈撥樂器的調弦法、各調性和弦、指版音位圖與順階和弦。", "/tools/fretboard/guide/"),
 ]
+
+
+TOOL_GUIDES = [
+    ("fretboard", "/tools/fretboard/", "世界樂器指版與和弦圖", "Fretboard & Chord Charts",
+     "19 種彈撥樂器的調弦、和弦與指版音位，全部在瀏覽器裡算。"),
+    ("chord-detection", "/chord-detection/", "自動抓和弦", "Chord Detection",
+     "上傳音檔，自動分析節拍與和弦，整理成可移調的簡譜小節表。"),
+    ("lrc", "/tools/lrc/", "LRC 動態歌詞工作室", "LRC Lyrics Studio",
+     "邊聽邊打時間碼，輸出 .lrc 或 .srt。"),
+]
+
+
+def build_tool_guides():
+    """使用說明頁：content/tool-guides/<slug>.md → <工具>/guide/"""
+    css = """<style>
+.guide-wrap{display:grid;grid-template-columns:220px minmax(0,1fr);gap:32px;align-items:start;margin:8px 0 48px}
+.guide-toc{position:sticky;top:84px;display:flex;flex-direction:column;gap:2px;font-size:14px;border-left:2px solid var(--line,#e5e0d8);padding-left:12px}
+.guide-toc a{color:var(--muted,#6b6257);text-decoration:none;padding:3px 0}
+.guide-toc a:hover{color:var(--accent,#a0522d)}
+.guide-body{max-width:820px;line-height:1.85}
+.guide-body h2{margin-top:2.2em;padding-top:.4em;border-top:1px solid var(--line,#e5e0d8)}
+.guide-body h2:first-child{border-top:0;margin-top:0}
+.guide-body table{width:100%;border-collapse:collapse;margin:1em 0}
+.guide-body th,.guide-body td{border:1px solid var(--line,#e5e0d8);padding:7px 10px;text-align:left;vertical-align:top}
+.guide-body th{background:var(--soft,#f4efe6)}
+@media (max-width:820px){.guide-wrap{grid-template-columns:1fr}.guide-toc{position:static;border-left:0;border-top:1px solid var(--line,#e5e0d8);padding:8px 0 0}}
+</style>"""
+    built = 0
+    for slug, tool_path, name, eyebrow, lead in TOOL_GUIDES:
+        src = BASE_DIR / "content" / "tool-guides" / f"{slug}.md"
+        if not src.exists():
+            continue
+        out = OUTPUT_DIR / tool_path.strip("/") / "guide" / "index.html"
+        md = src.read_text(encoding="utf-8")
+        md = re.sub(r"^# .*\n", "", md, count=1)   # 標題交給頁首
+        md_html = markdown.markdown(md, extensions=["extra", "tables", "toc"], output_format="html5")
+        toc = "".join(f'<a href="#{m.group(1)}">{m.group(2)}</a>'
+                      for m in re.finditer(r'<h2 id="([^"]+)">(.*?)</h2>', md_html))
+        body = f"""<main class="page">
+  <section class="hero" style="padding-bottom:12px">
+    <p class="eyebrow">Tools · {escape(eyebrow)}</p>
+    <h1>{escape(name)}　使用說明</h1>
+    <p class="lead">{escape(lead)}</p>
+    <p><a class="btn btn-primary" href="{resolve_url(out, tool_path)}">開啟{escape(name)} →</a>
+       <a class="btn" href="{resolve_url(out, '/tools/')}">全部工具</a></p>
+  </section>
+  <div class="guide-wrap">
+    <nav class="guide-toc" aria-label="目錄">{toc}</nav>
+    <article class="guide-body">{md_html}</article>
+  </div>
+</main>{css}"""
+        write(out, page(f"{name}　使用說明", body, out,
+                        meta_description=f"{name}怎麼用：{lead} 這頁說明操作步驟、參數意義與常見問題。",
+                        jsonld_extra=page_jsonld("TechArticle", f"{name} 使用說明", lead,
+                                                 canonical_for(out))))
+        built += 1
+    print(f"  tool guides: {built}")
 
 
 def build_tools_index():
