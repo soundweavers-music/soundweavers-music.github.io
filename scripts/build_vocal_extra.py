@@ -110,7 +110,7 @@ def page(title, body, page_path=None, extra_head="", meta_description="", og_ima
     csp = ("default-src 'self'; img-src 'self' https: data:; "
            "style-src 'self' 'unsafe-inline'; "
            "script-src 'self' 'unsafe-inline'; "
-           "connect-src 'self'; frame-src 'self' https://www.youtube-nocookie.com https://www.youtube.com; "
+           "connect-src 'self'; worker-src 'self' blob:; frame-src 'self' https://www.youtube-nocookie.com https://www.youtube.com; "
            "base-uri 'self'; form-action 'self'; object-src 'none'")
     canonical = _bss().canonical_for(page_path)
     og_img = og_image or "https://soundweavers-music.github.io/assets/brand/banner.webp"
