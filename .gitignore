@@ -31,6 +31,9 @@ work/chunks/
 work/verify_imgs/
 work/cache_chunk*.json
 work/image_candidates_cache.json
+work/image_credits_cache.json
+work/missing_images.json
+work/category_hits.json
 
 # scratch scripts left by subagents
 work/_*.py
