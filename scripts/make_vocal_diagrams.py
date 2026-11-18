@@ -18,6 +18,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import vocal_anatomy as VOC  # noqa: E402  (reusable anatomical bases)
+import vocal_tract as VT  # noqa: E402  (traced vocal-tract base, CC BY 3.0)
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 OUT = BASE_DIR / "assets" / "vocal"
@@ -843,18 +844,19 @@ def _ana(body, w, h, title):
 
 
 def resonance_map() -> str:
-    """Sagittal head with the three resonance spaces called out."""
-    b = [VOC.T(24, 30, "聲音從喉嚨往上，經過三個可以改變形狀的空間", "lbl-b"),
-         f'<g transform="translate(10,26)">{VOC.head_sagittal(highlight="pharynx")}</g>']
+    """Traced sagittal section with the three resonance spaces called out."""
+    b = [VOC.T(18, 28, "聲音從喉嚨往上，經過三個可以改變形狀的空間", "lbl-b")]
+    b.append(VT.tract("nasal"))
     b += [
-        VOC.leader(196, 240, 96, 150, "鼻腔", "lbl", "end"),
-        VOC.leader(210, 300, 96, 300, "口腔", "lbl", "end"),
-        VOC.leader(300, 300, 372, 250, "咽喉腔"),
-        VOC.leader(300, 424, 372, 398, "喉（聲帶在這裡）"),
-        VOC.leader(300, 512, 372, 486, "氣管往下接肺"),
+        VOC.leader(150, 195, 96, 148, "鼻腔", "lbl", "end"),
+        VOC.leader(150, 268, 96, 292, "口腔", "lbl", "end"),
+        VOC.leader(234, 250, 330, 210, "咽喉腔"),
+        VOC.leader(236, 342, 330, 330, "喉（聲帶在這裡）"),
+        VOC.leader(228, 400, 110, 392, "氣管往下接肺", "lbl", "end"),
+        VT.credit(18, 452),
     ]
-    b.append(VOC.T(24, 640, "改變共鳴＝改變這幾個空間的形狀，不是把聲音「推」過去", "lbl-s"))
-    return _ana("\n  ".join(b), 470, 660, "頭頸側剖面：鼻腔、口腔、咽喉腔與喉的位置")
+    return _ana("\n  ".join(b), 444, 440,
+                "聲道側剖面：鼻腔、口腔、咽喉腔與喉的位置")
 
 
 def folds_open_closed() -> str:
@@ -926,15 +928,19 @@ def fold_thickness() -> str:
 
 
 def soft_palate() -> str:
-    b = [VOC.T(24, 30, "軟顎是一扇門：開哪邊，聲音就往哪邊去", "lbl-b")]
-    b.append(f'<g transform="translate(0,40) scale(0.92)">{VOC.head_sagittal(highlight="oral")}</g>')
+    b = [VOC.T(18, 28, "軟顎是一扇門：開哪邊，聲音就往哪邊去", "lbl-b")]
+    b.append(VT.tract("oral"))
     b += [
-        VOC.leader(258, 286, 380, 210, "軟顎抬起 → 走口腔，字清楚"),
-        VOC.leader(262, 306, 380, 330, "軟顎放下 → 漏進鼻腔，變鼻音"),
-        VOC.leader(232, 262, 380, 262, "鼻腔"),
-        VOC.T(24, 620, "想加鼻音色彩就把軟顎放一點；想要乾淨通透就抬起來", "lbl-s"),
+        VOC.arrow(224, 236, 268, 190, "ave"),
+        VOC.T(292, 196, "抬起 → 走口腔，字清楚", "lbl-s"),
+        VOC.arrow(222, 244, 262, 300, "ave2"),
+        VOC.T(292, 324, "放下 → 漏進鼻腔，變鼻音", "lbl-s"),
+        VOC.leader(150, 195, 96, 148, "鼻腔", "lbl", "end"),
+        VOC.T(18, 424, "想加鼻音色彩就把軟顎放一點；想要乾淨通透就抬起來", "lbl-s"),
+        VT.credit(18, 452),
     ]
-    return _ana("\n  ".join(b), 520, 650, "軟顎抬起與放下，聲音分別往口腔或鼻腔走")
+    return _ana("\n  ".join(b), 500, 440,
+                "軟顎抬起與放下，聲音分別往口腔或鼻腔走")
 
 
 DIAGRAMS = {

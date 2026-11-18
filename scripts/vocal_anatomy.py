@@ -90,54 +90,67 @@ def wrap(w, h, body, title):
 
 
 # ── base 1: sagittal head + neck (facing left) ────────────────────────
+# Traced from the classic vocal-tract sagittal plate: forehead → nose → lips →
+# chin, nasal cavity above the hard palate shelf, velum and uvula hanging at the
+# back, tongue filling the floor, epiglottis above the folds, oesophagus behind
+# the trachea.
 HEAD_PROFILE = (
-    "M302 92 C252 52 182 58 156 100 C138 128 132 158 138 182 "
-    "C144 200 152 210 150 220 C140 230 132 244 134 256 C136 266 144 270 154 268 "
-    "C148 278 146 286 152 294 C146 304 148 316 158 322 C150 332 152 344 162 352 "
-    "C156 366 160 382 174 392 C198 404 234 406 260 398 "
-    "C298 386 322 348 322 298 C322 228 332 130 302 92 Z"
+    "M300 60 C240 34 176 48 154 92 C140 116 136 142 142 162 "
+    "C150 178 156 186 152 196 C140 208 128 226 126 240 "
+    "C124 250 130 256 140 256 C130 264 126 274 130 282 "
+    "C122 292 124 304 134 312 C126 322 128 336 140 344 "
+    "C132 360 138 378 154 392 C150 430 152 500 156 596 "
+    "L330 596 C326 520 322 440 292 368 C306 340 316 300 318 250 "
+    "C320 170 336 96 300 60 Z"
 )
-NECK = ("M188 380 C202 414 208 468 210 566 L306 566 "
-        "C312 496 314 434 306 392 C284 404 224 406 188 380 Z")
 
 
 def head_sagittal(highlight=None) -> str:
     """Side section. highlight: 'nasal' | 'oral' | 'pharynx' | 'larynx'."""
     f = []
-    f.append(f'<path class="skin" d="{NECK}"/>')
     f.append(f'<path class="skin" d="{HEAD_PROFILE}"/>')
-    f.append('<path class="ink" d="M300 208 C324 200 342 216 340 238 '
-             'C338 258 320 268 304 262"/>')
-    f.append('<path class="bone" d="M292 350 L312 350 L316 470 L296 470 Z"/>')
+    f.append('<path class="out" d="M296 196 C320 186 336 202 333 224 '
+             'C330 246 313 256 297 249"/>')
+    f.append('<path class="out" d="M303 210 C313 206 320 214 318 226"/>')
     n = "hl" if highlight == "nasal" else "air"
-    f.append(f'<path class="{n}" d="M146 214 C154 200 170 198 186 206 '
-             f'C214 218 246 224 272 226 C280 236 280 250 274 258 '
-             f'C244 250 208 246 180 250 C164 254 148 256 144 248 '
-             f'C140 238 140 224 146 214 Z"/>')
-    f.append('<path class="ink" d="M146 246 C158 252 170 254 182 252"/>')
-    f.append('<path class="bone" d="M150 262 L276 258 L276 272 L152 278 Z"/>')
-    f.append('<path class="muc" d="M276 258 C296 262 304 276 300 290 '
-             'C294 302 282 302 276 294 Z"/>')
-    o = "hl2" if highlight == "oral" else "muc"
-    f.append(f'<path class="{o}" d="M154 280 C196 274 238 272 276 274 '
-             f'C284 288 282 310 276 322 C240 330 198 332 158 326 '
-             f'C150 312 148 294 154 280 Z"/>')
-    f.append('<path class="muc" d="M160 324 C190 304 230 300 272 310 '
-             'C278 316 272 324 260 326 C222 332 188 332 160 328 Z"/>')
-    for x in (156, 166):
-        f.append(f'<path class="ink" d="M{x} 262 L{x} 276"/>')
-        f.append(f'<path class="ink" d="M{x} 328 L{x} 340"/>')
+    f.append(f'<path class="{n}" d="M134 214 C152 198 182 194 212 200 '
+             f'C250 206 280 214 300 224 L298 250 C270 240 232 234 198 236 '
+             f'C170 238 146 244 138 248 Z"/>')
+    f.append('<path class="out" d="M160 212 C186 202 220 202 246 210"/>')
+    f.append('<path class="out" d="M168 228 C194 218 226 218 252 226"/>')
+    f.append('<path class="out" d="M130 244 C140 250 152 252 162 250"/>')
+    f.append('<path class="bone" d="M128 254 L300 248 L300 262 L130 268 Z"/>')
+    v = "hl2" if highlight == "oral" else "muc"
+    f.append(f'<path class="{v}" d="M298 248 C320 252 334 268 332 286 '
+             f'C330 300 318 306 310 298 C306 280 298 262 296 256 Z"/>')
+    f.append('<path class="muc" d="M331 288 C329 302 333 310 338 304 '
+             'C341 296 338 289 331 288 Z"/>')
+    o = "hl2" if highlight == "oral" else "air"
+    f.append(f'<path class="{o}" d="M132 268 C182 260 242 256 298 258 '
+             f'C306 280 304 306 296 318 C248 330 188 332 140 322 Z"/>')
+    f.append('<path class="muc" d="M140 322 C172 298 212 286 252 288 '
+             'C288 290 308 302 317 316 C310 327 288 331 260 331 '
+             'C212 333 168 330 140 326 Z"/>')
+    f.append('<path class="out" d="M160 316 C200 300 250 294 292 302"/>')
+    for x in (134, 144, 154):
+        f.append(f'<path class="bone" d="M{x} 250 L{x + 8} 250 L{x + 8} 268 L{x} 268 Z"/>')
+        f.append(f'<path class="bone" d="M{x} 320 L{x + 8} 320 L{x + 8} 338 L{x} 338 Z"/>')
+    f.append('<path class="muc" d="M124 276 C118 284 120 292 128 294 '
+             'C132 286 130 280 124 276 Z"/>')
+    f.append('<path class="muc" d="M128 300 C122 308 126 316 134 316 '
+             'C136 308 134 302 128 300 Z"/>')
     p = "hl" if highlight == "pharynx" else "air"
-    f.append(f'<path class="{p}" d="M276 258 L306 256 L312 392 L280 398 Z"/>')
+    f.append(f'<path class="{p}" d="M298 250 L330 246 L336 392 L302 400 Z"/>')
+    f.append('<path class="cart" d="M330 300 C318 296 310 312 314 328 '
+             'C318 342 332 342 338 332 Z"/>')
     l = "hl" if highlight == "larynx" else "cart"
-    f.append(f'<path class="{l}" d="M280 396 L314 390 L318 448 L284 454 Z"/>')
-    f.append('<path class="fold" d="M286 424 L312 420 L312 430 L286 434 Z"/>')
-    f.append('<path class="cart" d="M282 390 C270 384 262 394 266 404 '
-             'C270 414 282 414 286 406 Z"/>')
-    f.append('<path class="air" d="M284 454 L320 448 L326 560 L290 566 Z"/>')
-    for i in range(5):
-        y = 472 + i * 17
-        f.append(f'<path class="ink" d="M{285 + i} {y} L{320 + i} {y - 3}"/>')
+    f.append(f'<path class="{l}" d="M300 396 L340 390 L344 448 L304 454 Z"/>')
+    f.append('<path class="fold" d="M306 420 L340 414 L340 426 L306 432 Z"/>')
+    f.append('<path class="musc" d="M344 398 L366 394 L370 588 L348 590 Z"/>')
+    f.append('<path class="air" d="M304 454 L340 448 L344 590 L308 592 Z"/>')
+    for i in range(6):
+        y = 470 + i * 18
+        f.append(f'<path class="out" d="M306 {y} L342 {y - 3}"/>')
     return "\n  ".join(f)
 
 
