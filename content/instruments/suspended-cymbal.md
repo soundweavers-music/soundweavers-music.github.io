@@ -14,6 +14,7 @@ ensemble_links: 甘美朗合奏
 verification_status: 已查證
 issue_note: 分類查證：體鳴（11）；依據：Wikidata P1762 Hornbostel–Sachs：11；英文維基簡述：Unpitched percussi
 source_url: https://soundweavers-music.github.io/instruments/suspended-cymbal/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Aasuspendedcymbal.jpg/500px-Aasuspendedcymbal.jpg
 youtube_ids: m51seFRRal0 o_mweiAVgYM
 ---
 

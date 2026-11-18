@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴；依據：來源一稱 French bagpipe；來源五稱 type of bagpipes，drones 有 single re
 source_url: https://soundweavers-music.github.io/instruments/cornemuse-du-centre/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Cornemuse_du_centre_26p.jpg/500px-Cornemuse_du_centre_26p.jpg
 youtube_ids: L1hIGA5xBeY xWOQf7td5HM
 ---
 

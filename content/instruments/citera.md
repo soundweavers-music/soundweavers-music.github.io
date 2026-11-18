@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 待考（來源不足）
 issue_note: 英文維基無 Citera 條目；可能為匈牙利／中歐齊特琴地方名，需專業樂器辭書補證。
 source_url: https://soundweavers-music.github.io/instruments/citera/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Zither.png/500px-Zither.png
 youtube_ids: B3Z9XBAw4cU Md9hJrkYMhs
 ---
 

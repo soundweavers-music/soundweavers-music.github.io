@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴（321.312-7）；依據：來源一開頭稱 Kokyū 為以弓拉奏的日本傳統弦樂器；來源三 Wikidata P1762 為 321.312-7
 source_url: https://soundweavers-music.github.io/instruments/kokyu/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/JapaneseKokyu.jpg/500px-JapaneseKokyu.jpg
 youtube_ids: dx76YPgZviE jNEp84PVYes
 ---
 

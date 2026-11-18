@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：膜鳴（241）；依據：Wikidata P1762 Hornbostel–Sachs：241；英文維基分類標籤：Singing membran
 source_url: https://soundweavers-music.github.io/instruments/comb-and-paper/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Pettine_Filippo_Bonanni_Gabinetto_armonico_1722.jpg/500px-Pettine_Filippo_Bonanni_Gabinetto_armonico_1722.jpg
 youtube_ids: CkGwVO6KuMI 5rgo_4F5dHg
 ---
 

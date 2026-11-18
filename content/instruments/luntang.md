@@ -14,6 +14,7 @@ ensemble_links: 甘美朗合奏
 verification_status: 已查證
 issue_note: 分類查證：體鳴；依據：來源五稱 luntang 為 Philippine xylophone，logs beaten；來源一分類 Stick 
 source_url: https://soundweavers-music.github.io/instruments/luntang/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Gandingan_a_Kayo_01.jpg/500px-Gandingan_a_Kayo_01.jpg
 youtube_ids: be0nHnSxlME H9D_hlJFiZM
 ---
 

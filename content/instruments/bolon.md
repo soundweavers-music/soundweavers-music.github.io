@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴（323.1）；依據：來源二/三：Hornbostel–Sachs 323/323.1（harp lutes）；來源一：traditional
 source_url: https://soundweavers-music.github.io/instruments/bolon/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Griot_Soussou_%28Guin%C3%A9e%29.jpg/500px-Griot_Soussou_%28Guin%C3%A9e%29.jpg
 youtube_ids: LtZiWtVrOVQ Br8P6zvmG1Q
 ---
 

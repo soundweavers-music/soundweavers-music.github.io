@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：膜鳴；依據：來源五：naker 指 naqareh 的歐洲變體，small Arabic kettle-drum；與「naqareh」互為別名／變體
 source_url: https://soundweavers-music.github.io/instruments/naker/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/%D9%86%D9%82%D8%A7%D8%B1%D9%87_%D8%B3%DB%8C%D8%B1%D8%AC%D8%A7%D9%86.jpg/500px-%D9%86%D9%82%D8%A7%D8%B1%D9%87_%D8%B3%DB%8C%D8%B1%D8%AC%D8%A7%D9%86.jpg
 youtube_ids: IvUU8joBb1Q z4PKzz81m5c
 ---
 

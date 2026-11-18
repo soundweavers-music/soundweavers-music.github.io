@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴（321.321）；依據：英文維基：plucked string musical instrument；Wikidata P1762=321.32
 source_url: https://soundweavers-music.github.io/instruments/r/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Baglama_turc_manche_long.jpg/500px-Baglama_turc_manche_long.jpg
 youtube_ids: 9o1Ej-RnabE 8bL2BCiFkTk
 ---
 

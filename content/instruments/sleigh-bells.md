@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：體鳴（112.1）；依據：來源一：jingle bell/sleigh bell 為金屬鈴、打擊樂器；來源三：Wikidata P1762 Hor；與「Jingle bell」互為別名／變體
 source_url: https://soundweavers-music.github.io/instruments/sleigh-bells/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Tuned_Chromatic_Sleigh_Bells_%28from_Emil_Richards_Collection%29.jpg/500px-Tuned_Chromatic_Sleigh_Bells_%28from_Emil_Richards_Collection%29.jpg
 youtube_ids: WCLavUoX7Sc DZ98oN9LN98
 ---
 

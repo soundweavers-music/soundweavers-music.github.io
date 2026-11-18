@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴（321.2）；依據：來源一：Class of string instruments；來源五：class of string instrume
 source_url: https://soundweavers-music.github.io/instruments/yoke-lutes/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Kinnorancient.png/500px-Kinnorancient.png
 youtube_ids: uyezX3VlaPQ YzLv-8ne88k
 ---
 

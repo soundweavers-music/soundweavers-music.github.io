@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴；依據：來源五：moseño 被描述為安地斯雙管竹笛，輔助管作為氣道
 source_url: https://soundweavers-music.github.io/instruments/moxe-o/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Mohoceno.jpg/500px-Mohoceno.jpg
 youtube_ids: AykVbcOFI30 XpPHpB4jmWY
 ---
 

@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：電鳴；依據：來源一：Brand of electronic instruments；來源五：sound being actually
 source_url: https://soundweavers-music.github.io/instruments/eigenharp/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Eigenharp_Alpha_piano_black_head_stock_0310_8618.jpg/500px-Eigenharp_Alpha_piano_black_head_stock_0310_8618.jpg
 youtube_ids: hFbKMfLGiUo qJhiY3oQRIk
 ---
 

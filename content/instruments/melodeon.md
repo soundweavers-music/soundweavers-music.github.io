@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴（412.132）；依據：來源一與來源二/三：melodeon 為 free-reed aerophone，H-S 412.132 sets of；與「Diatonic button accordion」互為別名／變體
 source_url: https://soundweavers-music.github.io/instruments/melodeon/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Diatonic_Button_Accordion_-_Rudolf_Bukovec.jpg/500px-Diatonic_Button_Accordion_-_Rudolf_Bukovec.jpg
 youtube_ids: REyB0l9n5Jw alT5mPvSE9U
 ---
 

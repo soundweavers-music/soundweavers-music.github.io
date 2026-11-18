@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 待考（來源不足）
 issue_note: 英文維基 Caixa 為消歧義頁；樂器義（巴西小鼓）無獨立條目，Wikidata 亦無對應樂器實體。
 source_url: https://soundweavers-music.github.io/instruments/caixa/
-image: 
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Caixa_de_samba.JPG/500px-Caixa_de_samba.JPG
 youtube_ids: qbkNNTkmJQ4 6vaJiSlguBg
 ---
 

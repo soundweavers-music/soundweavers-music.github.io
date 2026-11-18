@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴（321.322-71）；依據：英文維基簡述：Small bowed string instrument；英文維基開頭：small stringed i
 source_url: https://soundweavers-music.github.io/instruments/pochette/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Pochette_MET_DP225415.jpg/500px-Pochette_MET_DP225415.jpg
 youtube_ids: Q_-voNY5_gs Fu5rsEnkjJw
 ---
 

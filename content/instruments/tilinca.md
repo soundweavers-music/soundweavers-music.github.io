@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴（421.111-1）；依據：來源一簡述為 folk flute，分類含 End-blown flutes、Fipple flutes；來源二與來源三
 source_url: https://soundweavers-music.github.io/instruments/tilinca/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Europeana.eu-951-Culturalia_d4efc901_e453_455f_b888_0b43a9b6db66-d1d1ccb6482347c33272399aa7986af9.jpg/500px-Europeana.eu-951-Culturalia_d4efc901_e453_455f_b888_0b43a9b6db66-d1d1ccb6482347c33272399aa7986af9.jpg
 youtube_ids: vzuxElYNc8M iEj_h6rnYtU
 ---
 

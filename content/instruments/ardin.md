@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴；依據：來源一與來源五：Ardin is a type of traditional harp / stringed instr
 source_url: https://soundweavers-music.github.io/instruments/ardin/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/20150705-TFF-Rudolstadt-Noura-Mint-Seymali-7444.jpg/500px-20150705-TFF-Rudolstadt-Noura-Mint-Seymali-7444.jpg
 youtube_ids: a4n62H71MdI SAwYZR4EEiw
 ---
 

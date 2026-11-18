@@ -14,6 +14,7 @@ ensemble_links: 甘美朗合奏
 verification_status: 已查證
 issue_note: 分類查證：體鳴；依據：來源一與來源五均描述其為「a number of gongs that are attached to a circle
 source_url: https://soundweavers-music.github.io/instruments/kong-vong/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Kong_Von_Thom.jpg/500px-Kong_Von_Thom.jpg
 youtube_ids: Z38pHShLoMI 8upcf2jpHTs
 ---
 

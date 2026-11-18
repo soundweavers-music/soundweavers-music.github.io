@@ -14,6 +14,7 @@ ensemble_links: 甘美朗合奏
 verification_status: 待考（來源不足）
 issue_note: 「陶土打擊樂器」是材料分類而非單一樂器；英文維基僅有通論性的 Percussion instrument 條目。
 source_url: https://soundweavers-music.github.io/instruments/ceramic-percussion/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Aztec_Percussion_Instrument_Ceramic_Representation_Placed_in_Great_Temple_Offering_%289782062445%29.jpg/500px-Aztec_Percussion_Instrument_Ceramic_Representation_Placed_in_Great_Temple_Offering_%289782062445%29.jpg
 youtube_ids: 0A_5Xoe45hw 3yBNZ2_nBlI
 ---
 

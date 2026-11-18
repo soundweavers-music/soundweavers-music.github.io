@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：膜鳴（211.242.11）；依據：來源二與來源三均給出 Hornbostel–Sachs 211.242.11，為雙皮沙漏形鼓；來源一亦描述其為 drum；與「Talking drum」互為別名／變體
 source_url: https://soundweavers-music.github.io/instruments/dundun/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Dundun_malinke.jpg/500px-Dundun_malinke.jpg
 youtube_ids: rRAumyyji7w Ako9iv9O780
 ---
 

@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：體鳴（122.1）；依據：來源二與來源三均列 Hornbostel–Sachs 122.1 / Plucked idiophone；來源一亦稱 l
 source_url: https://soundweavers-music.github.io/instruments/sanza/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Sanza_Boa-Za%C3%AFre-Mus%C3%A9e_royal_de_l%27Afrique_centrale.jpg/500px-Sanza_Boa-Za%C3%AFre-Mus%C3%A9e_royal_de_l%27Afrique_centrale.jpg
 youtube_ids: kd7KC3PaEaA Z3b1bz_9gEo
 ---
 

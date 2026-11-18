@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：體鳴（122.1）；依據：Wikidata P1762 為 122.1；英文維基全文稱 agidigbo 為 plucked lamellopho
 source_url: https://soundweavers-music.github.io/instruments/agidigbo/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Nigeria%2C_efik%2C_sanza_%28agidigbo%29%2C_in_legno_pirografato%2C_xix_secolo%2C_da_old_calabar.jpg/500px-Nigeria%2C_efik%2C_sanza_%28agidigbo%29%2C_in_legno_pirografato%2C_xix_secolo%2C_da_old_calabar.jpg
 youtube_ids: eNxJdeC94jw gGrmVe6bsUo
 ---
 

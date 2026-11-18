@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴（311.121.222）；依據：英文維基簡述為 Musical bow；Wikidata P1762 為 311.121.222
 source_url: https://soundweavers-music.github.io/instruments/bobre/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Le_Bobre_-_de_l%27ile_Maurice_-_DPLA_-_1c2497d9ebeac36198a8bb1b9738ab64.jpg/500px-Le_Bobre_-_de_l%27ile_Maurice_-_DPLA_-_1c2497d9ebeac36198a8bb1b9738ab64.jpg
 youtube_ids: cVqqNigImtU gYJg9cLk1us
 ---
 

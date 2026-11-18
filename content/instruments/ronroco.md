@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴（321.321-5）；依據：英文維基簡述為 Andean stringed instrument，且 Wikidata/infobox 給出 H-S
 source_url: https://soundweavers-music.github.io/instruments/ronroco/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Charango_jt.png/500px-Charango_jt.png
 youtube_ids: IypC-ow50uc 1CoOxR6Cj88
 ---
 

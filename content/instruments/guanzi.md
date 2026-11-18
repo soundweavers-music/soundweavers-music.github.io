@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證（部分欄位待補）
 issue_note: 分類查證：氣鳴；依據：來源五：Guan (instrument) (管, or guanzi 管子), Chinese double reed；與「Guan (instrument)」互為別名／變體；內文段落來源不足未改寫：聆聽示範、樂器材質
 source_url: https://soundweavers-music.github.io/instruments/guanzi/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Guanzi.jpg/500px-Guanzi.jpg
 youtube_ids: Gia7kqri-Ko YdmRfmuHIeg
 ---
 

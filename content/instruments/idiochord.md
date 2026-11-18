@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴；依據：來源一分類標籤含 String instruments, Zithers；來源五稱 idiochord 的「弦」由共鳴體
 source_url: https://soundweavers-music.github.io/instruments/idiochord/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Phillipine_Tube_zither.jpg/500px-Phillipine_Tube_zither.jpg
 youtube_ids: 0dyTyphiYd0 bqi9B4vtZNo
 ---
 

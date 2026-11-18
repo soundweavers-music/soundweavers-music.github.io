@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 
 source_url: https://soundweavers-music.github.io/instruments/bomba-drum/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Bomba_Instrument.jpg/500px-Bomba_Instrument.jpg
 youtube_ids: jExzmw_UFfE P-mscTqdCA4
 ---
 

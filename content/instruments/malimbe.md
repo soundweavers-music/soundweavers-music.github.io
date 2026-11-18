@@ -14,6 +14,7 @@ ensemble_links: 甘美朗合奏
 verification_status: 已查證
 issue_note: 分類查證：體鳴；依據：來源一：Malimbe 為 xylophone，且分類標籤含 Idiophone instrument stubs
 source_url: https://soundweavers-music.github.io/instruments/malimbe/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Marimbol2.jpg/500px-Marimbol2.jpg
 youtube_ids: -cLAwAOi-hA skv2FDnh91E
 ---
 

@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴（421.211.12）；依據：來源一：Suling 為 bamboo ring flute；來源三：Wikidata H-S 421.211.12；與「Suling」互為別名／變體
 source_url: https://soundweavers-music.github.io/instruments/suling-sunda/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Suling.jpg/500px-Suling.jpg
 youtube_ids: PeJ-vJNw5JA MxCfggzG0IE
 ---
 

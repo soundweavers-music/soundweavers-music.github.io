@@ -14,6 +14,7 @@ ensemble_links: 甘美朗合奏
 verification_status: 已查證
 issue_note: 分類查證：體鳴；依據：來源一簡述與分類標籤稱其為 Philippine xylophone / Stick percussion idioph；與「Luntang」互為別名／變體
 source_url: https://soundweavers-music.github.io/instruments/kwintangan-kayo/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Kulintang_a_Kayo_01.jpg/500px-Kulintang_a_Kayo_01.jpg
 youtube_ids: 1R96GJLUYu4 tC_aEkCXzqs
 ---
 

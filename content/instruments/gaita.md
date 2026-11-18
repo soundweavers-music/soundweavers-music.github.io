@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證（部分欄位待補）
 issue_note: 分類查證：非樂器／非單一樂器；依據：來源一與來源三顯示 Gaita 為消歧義頁；來源五列出多個不同樂器／類型（bagpipe、flute、hornpipe、；內文段落來源不足未改寫：音色描述、樂器材質
 source_url: https://soundweavers-music.github.io/instruments/gaita/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Gaita_nafarra.jpg/500px-Gaita_nafarra.jpg
 youtube_ids: OJi-uKOlLV4 fwWmcMz0ZVk
 ---
 

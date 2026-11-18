@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴（421.111.22）；依據：來源一與來源五：鼻笛是以鼻吹氣發聲的笛類；來源二：Hornbostel–Sachs 421 氣鳴；與「Nose flute」互為別名／變體
 source_url: https://soundweavers-music.github.io/instruments/hawaiian-nose-flute/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/%E2%80%98Ohe_Hano_Ihu.jpg/500px-%E2%80%98Ohe_Hano_Ihu.jpg
 youtube_ids: 5tSAGZZ8-7U XwqH-HKaGN8
 ---
 

@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：體鳴（122.1）；依據：來源二與來源三：Hornbostel–Sachs 122.1 / Plucked idiophone；來源五：Mbira；與「Mbira」互為別名／變體
 source_url: https://soundweavers-music.github.io/instruments/sansi/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Small_Mbira.jpg/500px-Small_Mbira.jpg
 youtube_ids: 3EpwMrbUzVE 60olR1DEbE4
 ---
 
