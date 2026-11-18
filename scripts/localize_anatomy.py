@@ -138,6 +138,94 @@ def localize(cfg: dict, check_only=False) -> Path | None:
     return target
 
 
+# ── 本站描線重繪 ────────────────────────────────────────────────────────
+# 幾何取自 traced/*.json（由 trace_regions.py 產生），顏色、線條與標註都在這裡
+# 決定；輸出不含任何外部圖片，是本站自己的向量圖。
+TRACE_PALETTE = {
+    (217, 217, 209): "#EFE9E0",
+    (215, 214, 186): "#E8DCC6",
+    (230, 230, 212): "#F1E7D4",
+    (184, 183, 158): "#D9CBAE",
+    (236, 236, 238): "#F9F5EE",
+    (155, 154, 134): "#C4B394",
+    (0, 0, 0): "#3D3229",
+    (230, 165, 153): "#DFB09A",
+}
+
+TRACED_FIGURES = [
+    {
+        "json": "larynx-regions.json",
+        "out": "larynx-anatomy.svg",
+        "title": "喉部構造",
+        "sub": "舌骨在上、甲狀軟骨像一面盾、環狀軟骨在下方一圈，氣管接著往下",
+        "width": 640,
+        "credit": "幾何參考 Wikimedia Commons／Olek Remesz（CC BY-SA 2.5），本站描線重繪、改用自家配色",
+        "labels": [
+            ("舌骨", 280, 62, 150, 60),
+            ("甲狀軟骨", 250, 205, 120, 190),
+            ("環甲肌", 185, 305, 110, 320),
+            ("氣管", 270, 405, 150, 420),
+        ],
+    },
+]
+
+
+def _nearest(rgb):
+    best, bd = "#EFE9E0", 1e9
+    for k, v in TRACE_PALETTE.items():
+        d = sum((a - c) ** 2 for a, c in zip(k, rgb))
+        if d < bd:
+            best, bd = v, d
+    return best
+
+
+def build_traced(cfg, check_only=False):
+    import json as _json
+
+    data = _json.loads((BASE / "assets" / "vocal" / "_anatomy" / "traced" / cfg["json"]).read_text(encoding="utf-8"))
+    sw, sh = data["size"]
+    if check_only:
+        print("  traced:", cfg["out"], len(data["regions"]), "regions")
+        return None
+
+    scale = cfg["width"] / sw
+    out_w, out_h, top = cfg["width"], round(sh * scale) + 150, 100
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {out_w} {out_h}" role="img" aria-label="{cfg["title"]}">',
+        f'  <title>{cfg["title"]}：{cfg["sub"]}</title>',
+        f'  <rect width="{out_w}" height="{out_h}" fill="{PAPER}"/>',
+        f'  <text x="26" y="34" font-family="{FONT}" font-size="16" font-weight="700" fill="{INK}">{cfg["title"]}</text>',
+        f'  <text x="26" y="55" font-family="{FONT}" font-size="12.5" fill="{MUTED}">{cfg["sub"]}</text>',
+        f'  <g transform="translate(0,{top}) scale({scale:.5f})">',
+    ]
+    for reg in data["regions"]:
+        pts = reg["points"]
+        if len(pts) < 3:
+            continue
+        xs = [p[0] for p in pts]
+        ys = [p[1] for p in pts]
+        if min(xs) <= 2 and min(ys) <= 2 and max(xs) >= sw - 3 and max(ys) >= sh - 3:
+            continue
+        d = "M" + " L".join(f"{x} {y}" for x, y in pts) + " Z"
+        parts.append(f'    <path d="{d}" fill="{_nearest(reg["rgb"])}" stroke="#C9BCAA" stroke-width="1.2"/>')
+    parts.append("  </g>")
+
+    for text, ax, ay, tx, ty in cfg["labels"]:
+        lx, ly = tx * scale, ty * scale + top
+        px, py = ax * scale, ay * scale + top
+        parts.append(f'  <path d="M{px:.1f} {py:.1f} L{lx:.1f} {ly + 4:.1f}" stroke="{MUTED}" stroke-width="1" fill="none"/>')
+        parts.append(f'  <circle cx="{px:.1f}" cy="{py:.1f}" r="2.8" fill="{MUTED}"/>')
+        anchor = "end" if tx < ax else "start"
+        parts.append(f'  <text x="{lx:.1f}" y="{ly:.1f}" font-family="{FONT}" font-size="12.5" fill="{INK}" '
+                     f'text-anchor="{anchor}">{text}</text>')
+    parts.append(f'  <text x="26" y="{out_h - 12}" font-family="{FONT}" font-size="10.5" fill="{MUTED}">{cfg["credit"]}</text>')
+    parts.append("</svg>")
+
+    target = OUT / cfg["out"]
+    target.write_text("\n".join(parts) + "\n", encoding="utf-8")
+    return target
+
+
 def main(argv) -> int:
     check = "--check" in argv
     names = [a for a in argv if not a.startswith("-")]
@@ -155,6 +243,12 @@ def main(argv) -> int:
             print("wrote", target.relative_to(BASE))
     if not names or "closure-grades" in names:
         target = build_glottis_states(check_only=check)
+        if target:
+            print("wrote", target.relative_to(BASE))
+    for cfg in TRACED_FIGURES:
+        if names and cfg["out"].split("/")[-1].replace(".svg", "") not in names:
+            continue
+        target = build_traced(cfg, check_only=check)
         if target:
             print("wrote", target.relative_to(BASE))
     if not names or "folds-open-closed" in names:
