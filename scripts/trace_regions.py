@@ -128,8 +128,15 @@ def main(argv) -> int:
         im = im.resize((im.width // scale, im.height // scale))
 
     idx, centres = quantise(im, bins)
+    uniq = np.unique(idx)
     regions = []
+    bg_index = int(np.where(uniq == -1)[0][0]) if (uniq == -1).any() else -1
     for ci in range(len(centres)):
+        if ci == bg_index:
+            continue                      # 透明背景不描
+        r, g, b = (int(v) for v in centres[ci])
+        if 0.299 * r + 0.587 * g + 0.114 * b < 60:
+            continue                      # 黑色線稿交給程式自己描邊
         mask = idx == ci
         if mask.sum() < min_area:
             continue
