@@ -289,7 +289,7 @@ def build_portal_homepage(instruments):
     <div class="hero-scene" role="img" aria-label="木質房間裡，一把吉他、一把曼陀林、一台鋼琴與麥克風"></div>
     <div class="hero-inner">
     <p class="hero-eyebrow">世界樂器・人聲・樂理・錄音</p>
-    <h1>世界聲音百科</h1>
+    <h1>世界聲音</h1>
     <p class="hero-sub">循著聲音，走進不同文化的現場</p>
     <form class="hero-search" action="{resolve_url(index_path, '/instruments/')}" method="get" role="search">
       <input type="search" name="q" placeholder="搜尋樂器、國家、分類…　例：尺八、甘美朗、非洲" aria-label="搜尋樂器">
@@ -777,7 +777,7 @@ def build_contact_page():
     <p class="card-desc">我們會在 2-3 個工作日內回覆您的訊息。若您有商業合作、音樂製作相關需求，也歡迎來信洽談；想加入創作或配唱，請見<a href="../recruit/">招募夥伴</a>。</p>
   </div>
 </main>"""
-    write(page_dir / "index.html", page("聯絡我們", body, page_dir / "index.html", meta_description="對世界聲音百科有任何建議、發現資料錯誤或想推薦內容？歡迎透過 Email 與我們聯繫。"))
+    write(page_dir / "index.html", page("聯絡我們", body, page_dir / "index.html", meta_description="對世界聲音有任何建議、發現資料錯誤或想推薦內容？歡迎透過 Email 與我們聯繫。"))
     print("  Contact page written.")
 
 
@@ -1276,7 +1276,7 @@ body.nav-hidden .nav-toggle-btn { top:12px; }
 </script>"""
 
     write(out_dir / "index.html", page("世界樂器體驗", body, out_dir / "index.html",
-        meta_description="世界樂器體驗 — 透過虛擬鍵盤模擬鋼琴、吉他、小提琴等樂器的音色與音域。世界聲音百科 by 隔壁織音人。"))
+        meta_description="世界樂器體驗 — 透過虛擬鍵盤模擬鋼琴、吉他、小提琴等樂器的音色與音域。世界聲音 by 隔壁織音人。"))
     print("  Experience page written.")
 
 

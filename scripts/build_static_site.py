@@ -533,7 +533,7 @@ def site_header(page_path):
       <div class="nav-dropdown">
         <a href="{resolve_url(page_path, '/about/')}" class="dropdown-trigger">關於</a>
         <div class="dropdown-menu">
-          <a href="{resolve_url(page_path, '/about/')}">關於世界聲音百科</a>
+          <a href="{resolve_url(page_path, '/about/')}">關於世界聲音</a>
           <a href="{resolve_url(page_path, '/about/author/')}">作者</a>
           <a href="{resolve_url(page_path, '/about/works/')}">歷年作品</a>
           <a href="{resolve_url(page_path, '/recruit/')}">招募夥伴</a>
@@ -543,7 +543,7 @@ def site_header(page_path):
     </nav>
     <button id="theme-toggle" class="theme-toggle" aria-label="切換色調">🎋</button>
   </header>
-  <div class="site-banner" role="img" aria-label="世界聲音百科 — 木質工作室裡的吉他、曼陀林、鋼琴與麥克風"></div>"""
+  <div class="site-banner" role="img" aria-label="世界聲音 — 木質工作室裡的吉他、曼陀林、鋼琴與麥克風"></div>"""
 
 
 def site_footer(page_path):
@@ -682,7 +682,7 @@ def website_jsonld(desc):
   "@type": "WebSite",
   "@id": "{SITE_DOMAIN}/#website",
   "name": "{SITE_NAME}",
-  "alternateName": ["世界聲音百科", "World Sound Encyclopedia"],
+  "alternateName": ["世界聲音", "World Sound Encyclopedia"],
   "url": "{SITE_DOMAIN}/",
   "description": "{escape(desc)}",
   "inLanguage": "zh-Hant",
@@ -945,7 +945,7 @@ def build_index(instruments):
     <main class="page">
       <section class="hero">
         <p class="eyebrow">World Musical Instruments Encyclopedia</p>
-        <h1>世界聲音百科</h1>
+        <h1>世界聲音</h1>
         <p class="lead hero-lead">收錄來自世界各地的傳統與現代樂器，探索人類音樂的多元面貌。</p>
         <div class="search-panel">
           <input id="site-search" type="search" placeholder="搜尋中文名、英文名、分類、國家或年代…" autocomplete="off" spellcheck="false">
@@ -1057,7 +1057,7 @@ def build_index(instruments):
       </div>
     </main>
     """
-    write(index_path, page("世界聲音百科 | 隔壁織音人", body, index_path, meta_description="世界聲音百科 by 隔壁織音人 — 收錄世界各國傳統與現代樂器（卡林巴、手碟、鋼琴、吉他、小提琴等）、人聲歌唱教學、錄音後製知識與基礎樂理。探索樂器分類、國家地區、年代與音色，適合音樂創作者、教育工作者與樂器愛好者。"))
+    write(index_path, page("世界聲音 | 隔壁織音人", body, index_path, meta_description="世界聲音 by 隔壁織音人 — 收錄世界各國傳統與現代樂器（卡林巴、手碟、鋼琴、吉他、小提琴等）、人聲歌唱教學、錄音後製知識與基礎樂理。探索樂器分類、國家地區、年代與音色，適合音樂創作者、教育工作者與樂器愛好者。"))
 
     # Write map data as JSON for the map page
     map_features = build_map_data(instruments)
@@ -1157,7 +1157,7 @@ def build_detail_pages(instruments):
             if tag
         )
         og_tags = "\n".join(filter(None, [
-            f'<meta property="og:title" content="{escape(item["title"])}｜世界聲音百科">',
+            f'<meta property="og:title" content="{escape(item["title"])}｜世界聲音">',
             f'<meta property="og:description" content="{escape(desc_text)}">' if desc_text else "",
             f'<meta property="og:image" content="{img_url}">' if img_url else "",
             f'<meta property="og:type" content="article">',
@@ -1223,7 +1223,7 @@ def build_facet_pages(instruments, field, folder, title):
     browse_desc = desc_map.get(field, f"{title}一覽")
     write(
         OUTPUT_DIR / folder / "index.html",
-        page(title, f'<main class="page"><section class="compact-hero"><h1>{escape(title)}</h1></section><div class="facet-grid">{facet_cards}</div></main>', meta_description=f"{browse_desc} — 探索來自各{field}的樂器，包含樂器介紹、聆賞示範與文化背景。世界聲音百科 by 隔壁織音人。"),
+        page(title, f'<main class="page"><section class="compact-hero"><h1>{escape(title)}</h1></section><div class="facet-grid">{facet_cards}</div></main>', meta_description=f"{browse_desc} — 探索來自各{field}的樂器，包含樂器介紹、聆賞示範與文化背景。世界聲音 by 隔壁織音人。"),
     )
     facet_label = {"category": "主分類", "subcategory": "子分類", "country": "國家／地區"}.get(field, "")
     for name, items in grouped.items():
@@ -1408,7 +1408,7 @@ def build_category_detail_pages(instruments):
                 f"{code} {cat_name}",
                 body,
                 OUTPUT_DIR / "categories" / slug / "index.html",
-                meta_description=f"{cat_name} — {arch['description']} 共 {len(items_in_cat)} 件樂器，含子分類：{'、'.join(arch['subcategories'])}。世界聲音百科 by 隔壁織音人。",
+                meta_description=f"{cat_name} — {arch['description']} 共 {len(items_in_cat)} 件樂器，含子分類：{'、'.join(arch['subcategories'])}。世界聲音 by 隔壁織音人。",
             ),
         )
 
@@ -2289,12 +2289,12 @@ def build_special_pages(instruments):
     if popular:
         page_dir = OUTPUT_DIR / "popular"
         page_dir.mkdir(parents=True, exist_ok=True)
-        write(page_dir / "index.html", list_page("熱門樂器", popular, page_dir / "index.html", meta_description=f"熱門樂器 — {len(popular)} 件最受歡迎的世界樂器，包含鋼琴、吉他、小提琴、爵士鼓、卡林巴、手碟等知名樂器的介紹、聆賞與教學。世界聲音百科 by 隔壁織音人。"))
+        write(page_dir / "index.html", list_page("熱門樂器", popular, page_dir / "index.html", meta_description=f"熱門樂器 — {len(popular)} 件最受歡迎的世界樂器，包含鋼琴、吉他、小提琴、爵士鼓、卡林巴、手碟等知名樂器的介紹、聆賞與教學。世界聲音 by 隔壁織音人。"))
 
     if uncommon:
         page_dir = OUTPUT_DIR / "uncommon"
         page_dir.mkdir(parents=True, exist_ok=True)
-        write(page_dir / "index.html", list_page("冷門樂器", uncommon, page_dir / "index.html", meta_description=f"冷門樂器 — {len(uncommon)} 件稀有珍奇的世界樂器，發掘來自世界各地的獨特聲音。世界聲音百科 by 隔壁織音人。"))
+        write(page_dir / "index.html", list_page("冷門樂器", uncommon, page_dir / "index.html", meta_description=f"冷門樂器 — {len(uncommon)} 件稀有珍奇的世界樂器，發掘來自世界各地的獨特聲音。世界聲音 by 隔壁織音人。"))
 
 def build_map_page(instruments):
     """Build a standalone map page at /map/ with clickable markers."""
@@ -2338,7 +2338,7 @@ def build_map_page(instruments):
   if (bounds.length > 0) map.fitBounds(bounds, {{ padding: [30, 30], maxZoom: 4 }});
 }})();
 </script>"""
-    write(page_dir_ / "index.html", page("地圖導覽", body, page_dir_ / "index.html", extra_head=extra, meta_description="世界樂器地圖導覽 — 透過互動式世界地圖探索各國樂器，點擊標記瀏覽該地區的所有樂器。世界聲音百科 by 隔壁織音人。"))
+    write(page_dir_ / "index.html", page("地圖導覽", body, page_dir_ / "index.html", extra_head=extra, meta_description="世界樂器地圖導覽 — 透過互動式世界地圖探索各國樂器，點擊標記瀏覽該地區的所有樂器。世界聲音 by 隔壁織音人。"))
 
 
 def build_manager_page(instruments):
@@ -2604,7 +2604,7 @@ def build_manager_page(instruments):
 
 
 
-ABOUT_TABS = [("/about/", "關於世界聲音百科"), ("/about/author/", "作者"),
+ABOUT_TABS = [("/about/", "關於世界聲音"), ("/about/author/", "作者"),
               ("/about/works/", "歷年作品"), ("/recruit/", "招募夥伴"),
               ("/contact/", "聯絡我們")]
 
@@ -2692,13 +2692,13 @@ def build_about_page():
         return f'<a href="{resolve_url(about_path, href)}">{label}</a>'
 
     body = f"""<main class="about-page">
-  {banner_hero("About World Sound Encyclopedia", "關於世界聲音百科", "循著聲音，走進不同文化的現場")}
+  {banner_hero("About World Sound Encyclopedia", "關於世界聲音", "循著聲音，走進不同文化的現場")}
   {about_tabs(about_path, "/about/")}
   <div class="about-body">
     <section class="about-section">
       <h2>這個網站是什麼</h2>
       <div class="about-text">
-        <p>世界聲音百科從一個很簡單的念頭開始：世界上有這麼多種樂器，卻很少有人能把它們連在一起看。我們想做的，就是那張可以連起來的地圖。</p>
+        <p>世界聲音從一個很簡單的念頭開始：世界上有這麼多種樂器，卻很少有人能把它們連在一起看。我們想做的，就是那張可以連起來的地圖。</p>
         <p>每一件樂器都不只是發聲的工具。它是當地的材料與工藝——竹子、葫蘆、羊皮、銅與絲線；也是信仰、勞動與生活的痕跡。當你聽見陌生的音色，有時覺得遙遠，有時又莫名熟悉，那就是這個網站想帶你反覆經過的時刻。</p>
 
         <h3 style="font-size:18px;margin:1.5em 0 .5em;color:var(--ink);">為什麼需要這個平台？</h3>
@@ -2785,8 +2785,8 @@ def build_about_page():
     </div>
   </div>
 </main>"""
-    write(about_path, page("關於世界聲音百科", body, about_path,
-          meta_description="世界聲音百科是什麼：世界樂器、合奏編制、人聲、錄音、樂理與樂器教材的內容總覽，以及我們如何查證分類、標示圖片授權與說明 AI 的參與程度。"))
+    write(about_path, page("關於世界聲音", body, about_path,
+          meta_description="世界聲音是什麼：世界樂器、合奏編制、人聲、錄音、樂理與樂器教材的內容總覽，以及我們如何查證分類、標示圖片授權與說明 AI 的參與程度。"))
 
     author_path = OUTPUT_DIR / "about" / "author" / "index.html"
     logo = resolve_url(author_path, "/assets/brand/logo.png")
@@ -2922,7 +2922,7 @@ def build_learn_page():
   </div>
 </main>"""
     write(path, page("學習", body, path,
-          meta_description="世界聲音百科學習專區：人聲與歌唱、錄音後製、樂理基礎、曼陀林專區、流行吉他彈唱指南、烏克麗麗教學。"))
+          meta_description="世界聲音學習專區：人聲與歌唱、錄音後製、樂理基礎、曼陀林專區、流行吉他彈唱指南、烏克麗麗教學。"))
 
 
 def get_theory_data():
@@ -3401,7 +3401,7 @@ def build_tools_index():
 .tool-guide{border-top:1px solid var(--line,#e5e0d8);padding:10px 20px;font-size:14px;text-decoration:none}
 </style>"""
     write(out, page("工具", body, out, extra_head=css,
-                    meta_description="世界聲音百科的線上音樂工具：瀏覽器編曲軟體、自動抓和弦、LRC 歌詞工作室、指版和弦圖、樂器體驗。全部在瀏覽器裡執行，檔案不上傳。"))
+                    meta_description="世界聲音的線上音樂工具：瀏覽器編曲軟體、自動抓和弦、LRC 歌詞工作室、指版和弦圖、樂器體驗。全部在瀏覽器裡執行，檔案不上傳。"))
 
 
 def build_experience_page():

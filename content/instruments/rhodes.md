@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：電鳴（511）；依據：來源一稱 Rhodes piano 為 Electric piano；來源三 Wikidata P1762 Hornbo
 source_url: https://soundweavers-music.github.io/instruments/rhodes/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Rhodes_sentinel2_%28cropped%29.jpg/500px-Rhodes_sentinel2_%28cropped%29.jpg
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Rhodes_Mk_II_73_cropped.jpg/500px-Rhodes_Mk_II_73_cropped.jpg
 youtube_ids: CimnsB-lHpk k0co0GAbass
 ---
 

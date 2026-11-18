@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴（321.321）；依據：來源一簡述與來源五全文均稱 bandurria 為 plucked chordophone；來源二/三 H-S 為 32
 source_url: https://soundweavers-music.github.io/instruments/bandurria/
-image: https://upload.wikimedia.org/wikipedia/commons/0/00/Bandurria-tuning.png
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Bandurria_arrunta.jpg/500px-Bandurria_arrunta.jpg
 youtube_ids: fzE-Azd9tOk qg_blCOQ8Nk
 ---
 

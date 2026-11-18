@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴；依據：來源一：簡述 String instrument；分類標籤 String instruments with sympat
 source_url: https://soundweavers-music.github.io/instruments/gottuvadyam/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Chitravina_N_Ravikiran-1300972.jpg/500px-Chitravina_N_Ravikiran-1300972.jpg
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Ch2.JPG/500px-Ch2.JPG
 youtube_ids: L45XwfOEbus mxWkvAUfzGs
 ---
 

@@ -42,7 +42,7 @@ CATEGORY_ARCHITECTURE = {
 }
 
 ABOUT_TEXT = (
-    "世界聲音百科由「隔壁織音人」團隊整理，致力於建立一個兼具知識性、"
+    "世界聲音由「隔壁織音人」團隊整理，致力於建立一個兼具知識性、"
     "可讀性與探索感的世界樂器百科平台。我們將世界各地的樂器整理為系統化"
     "的知識體系，讓讀者能像翻閱地圖般，循著聲音的軌跡，走進不同文化的現場。\n\n"
     "作者：隔壁織音人 (Next Door Sound Weavers)\n"
@@ -295,7 +295,7 @@ def build_docx(instruments, code, arch, page_map=None):
 
     p = doc.add_paragraph()
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    set_run_font(p.add_run("隔壁織音人 · 世界聲音百科"), name_sans=FONT_SANS, size=11, color=(0x66, 0x70, 0x85))
+    set_run_font(p.add_run("隔壁織音人 · 世界聲音"), name_sans=FONT_SANS, size=11, color=(0x66, 0x70, 0x85))
 
     # ═══════════════════════════════════════════════
     #  關於作者（強制獨立頁面）
