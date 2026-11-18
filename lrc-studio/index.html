@@ -2001,12 +2001,7 @@ var WH = (function () {
         times.push(out.times[i]);
       }
     }
-    var nTs = 0;
-    for (i = 0; i < tokens.length; i++) if (tokens[i] >= WH_TS_BEGIN) nTs++;
-    return {
-      chars: chars, times: times,
-      info: "token " + tokens.length + " 個（時間戳 " + nTs + " 個），文字 " + chars.length + " 字"
-    };
+    return { chars: chars, times: times };
   }
 
   function analyzeAndFill() {
