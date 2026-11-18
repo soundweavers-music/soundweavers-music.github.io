@@ -304,11 +304,23 @@ const CHORD_TEMPLATES = {
   'aug':   [1,0,0,0,1,0,0,0,1,0,0,0], 'sus2':  [1,0,1,0,0,0,0,1,0,0,0,0],
   'sus4':  [1,0,0,0,0,1,0,1,0,0,0,0], '6':     [1,0,0,0,1,0,0,1,0,1,0,0],
   'm6':    [1,0,0,1,0,0,0,1,0,1,0,0], '9':     [1,0,1,0,1,0,0,1,0,0,1,0],
+  'add9':  [1,0,1,0,1,0,0,1,0,0,0,0],
 };
 
-// C 大調 / G 大調順階和弦
-const C_DIATONIC = [[0,'maj'],[2,'m'],[4,'m'],[5,'maj'],[7,'maj'],[9,'m'],[11,'dim']];
-const G_DIATONIC = [[7,'maj'],[9,'m'],[11,'m'],[0,'maj'],[2,'maj'],[4,'m'],[5,'dim']];
+// 預先展開成 (品質, 和弦音級陣列, 音數) — 每次比對都重算很浪費
+const CHORD_TEMPLATE_ENTRIES = Object.entries(CHORD_TEMPLATES).map(([quality, t]) => {
+  const tones = [];
+  for (let i = 0; i < 12; i++) if (t[i]) tones.push(i);
+  return { quality, tones, size: tones.length };
+});
+
+// Krumhansl-Kessler 調性輪廓（大調 / 小調）
+const KEY_PROFILE_MAJOR = [6.35,2.23,3.48,2.33,4.38,4.09,2.52,5.19,2.39,3.66,2.29,2.88];
+const KEY_PROFILE_MINOR = [6.33,2.68,3.52,5.38,2.60,3.53,2.54,4.75,3.98,2.69,3.34,3.17];
+
+// 音階（相對於主音的半音數）
+const SCALE_MAJOR = [0,2,4,5,7,9,11];
+const SCALE_MINOR = [0,2,3,5,7,8,10];
 
 // 樂器資料（完整 19 種）
 const INSTRUMENTS_DATA = [
@@ -339,13 +351,17 @@ const INSTRUMENTS_DATA = [
 let state = {
   audioBuffer: null, sampleRate: 44100, duration: 0,
   beats: [], bars: [], chords: [], rawChords: [],
-  detectedKey: 0, capo: {capo:0, targetKey:'C', description:''},
+  detectedKey: 0, detectedMode: 'major',
+  capo: {capo:0, targetKey:'C', description:''},
   isPlaying: false, currentTime: 0, startTime: 0,
   currentBar: -1, instrument: 0, tuning: null,
   sourceNode: null, analyserNode: null, animFrame: null,
   showDiagrams: true, showConfidence: true,
   bpm: 120,
-  
+
+  // 分析中間結果：chroma 只在換歌時重算，換 BPM 時直接重用
+  chromaStore: null, beatChords: [], onsetEnv: null, onsetHopSec: 0,
+  beatPhaseSec: 0, downbeatOffset: 0,
   originalChords: null,
   // Async yield control
   yieldEveryMs: 8, // ~120fps max yields
@@ -419,6 +435,10 @@ async function handleFile(file) {
       ctx.close();
       state.sampleRate = state.audioBuffer.sampleRate;
       state.duration = state.audioBuffer.duration;
+      // 換歌就丟掉上一首快取的音高資料
+      state.chromaStore = null;
+      state.beatChords = [];
+      state.originalChords = null;
       uploadZone.classList.add('has-file');
       document.getElementById('controls-row').style.display = 'flex';
       document.getElementById('waveform-container').style.display = 'block';
@@ -498,31 +518,51 @@ async function startAnalysis() {
   await analyzeWithBrowser();
 }
 
-// ── 瀏覽器端分析（Meyda-based，async with yielding）─────────────
+// ── 瀏覽器端分析 ────────────────────────────────────────────────
 async function analyzeWithBrowser() {
   const buffer = state.audioBuffer;
   if (!buffer) return;
   try {
-    setProgress(10, '步驟 1/3：偵測節拍…');
+    setProgress(8, '步驟 1/4：偵測節拍…');
     await yieldToUI();
-    const onsets = detectOnsets(buffer);
-    state.beats = quantizeBeats(onsets, buffer.duration);
-    state.bpm = Math.round(state.beats.length > 1 ? 60 / (state.beats[1] - state.beats[0]) : 120);
+
+    // 1. 起音包絡 → 速度 → 有相位對齊的節拍格線
+    const { env, hopSec } = computeOnsetEnvelope(buffer);
+    const tempo = estimateTempo(env, hopSec);
+    state.bpm = Math.round(tempo.bpm);
     document.getElementById('bpm-input').value = state.bpm;
-    state.bars = groupIntoBars(state.beats, buffer.duration);
+    state.onsetEnv = env;
+    state.onsetHopSec = hopSec;
+    state.beatPhaseSec = tempo.phase * hopSec;
 
-    setProgress(35, '步驟 2/3：分析和弦 (Meyda chroma)…');
+    // 2. 全曲 chroma（每 2048 取樣 ≈ 46 ms 一格，之後所有計算都重複利用）
+    setProgress(20, '步驟 2/4：取出音高光譜…');
     await yieldToUI();
-    const chords = await detectChordsMeydaAsync(buffer, state.bars);
-    state.originalChords = chords;
+    const store = await computeChromaFrames(buffer);
+    state.chromaStore = store;
 
-    setProgress(75, '步驟 3/3：HMM 平滑 + 調性分析…');
+    // 3. 用 chroma 變化量決定小節線從哪一拍開始
+    state.beats = buildBeatGrid(env, hopSec, tempo.periodFrames);
+    const downbeat = estimateDownbeatOffset(state.beats, store);
+    state.downbeatOffset = downbeat;
+    state.bars = groupIntoBars(state.beats, buffer.duration, 4, downbeat);
+
+    // 4. 逐拍比對 + Viterbi 解碼 + 收斂成小節
+    setProgress(70, '步驟 3/4：比對和弦…');
     await yieldToUI();
-    const smoothed = hmmSmooth(chords);
-    state.detectedKey = detectKey(smoothed);
-    const capo = suggestCapo(state.detectedKey);
-    state.capo = capo;
-    state.chords = transposeToDiatonic(smoothed, capo.targetRoot);
+    const decoded = decodeChordsForBeats(state.beats, store, buffer.duration);
+    state.beatChords = decoded;
+    const barChords = summarizeBars(state.bars, state.beats, decoded);
+    state.originalChords = barChords;
+
+    // 5. 調性（大小調都比）與移調夾建議
+    setProgress(92, '步驟 4/4：調性分析…');
+    await yieldToUI();
+    const key = detectKey(decoded);
+    state.detectedKey = key.root;
+    state.detectedMode = key.mode;
+    state.capo = suggestCapo(key.root, key.mode);
+    state.chords = markDiatonic(barChords, key.root, key.mode);
 
     setProgressDone();
     setStatus('分析完成！', 'done');
@@ -534,326 +574,555 @@ async function analyzeWithBrowser() {
   }
 }
 
-function detectOnsets(buffer) {
+// =========================================================================
+// 節拍
+// =========================================================================
+
+// 短時能量包絡 + 半波整流差分 + 滑動平均去勢
+function computeOnsetEnvelope(buffer, hopSize = 256, frameSize = 1024) {
   const samples = buffer.getChannelData(0);
-  const frameSize = 2048;
-  const hopSize = 512;
-  const energies = [];
-  for (let i = 0; i < samples.length - frameSize; i += hopSize) {
-    let sum = 0;
-    for (let j = 0; j < frameSize; j++) sum += samples[i+j] * samples[i+j];
-    energies.push(Math.sqrt(sum / frameSize));
-  }
-  const onsets = [];
-  const threshold = 0.025;
-  for (let i = 3; i < energies.length - 3; i++) {
-    const avg = (energies[i-1]+energies[i]+energies[i+1])/3;
-    const localAvg = (energies[i-3]+energies[i-2]+energies[i-1]+energies[i+1]+energies[i+2]+energies[i+3])/6;
-    if (energies[i] > threshold && energies[i] > localAvg * 1.8 && energies[i] > avg * 1.3) {
-      onsets.push(i * hopSize / buffer.sampleRate);
+  const sr = buffer.sampleRate;
+  const nFrames = Math.max(0, Math.floor((samples.length - frameSize) / hopSize));
+  const rms = new Float32Array(nFrames);
+  for (let f = 0; f < nFrames; f++) {
+    const off = f * hopSize;
+    let s = 0;
+    for (let i = 0; i < frameSize; i += 2) {
+      const v = samples[off + i];
+      s += v * v;
     }
+    rms[f] = Math.sqrt(s / (frameSize / 2));
   }
-  return onsets;
+
+  const env = new Float32Array(nFrames);
+  for (let f = 1; f < nFrames; f++) {
+    const d = rms[f] - rms[f - 1];
+    env[f] = d > 0 ? d : 0;
+  }
+
+  // 減掉慢速移動平均，避免整首歌的音量起伏被當成起音
+  const w = 64;
+  const out = new Float32Array(nFrames);
+  let acc = 0;
+  for (let f = 0; f < nFrames; f++) {
+    acc += env[f];
+    if (f >= w) acc -= env[f - w];
+    const mean = acc / Math.min(f + 1, w);
+    const v = env[f] - mean * 0.9;
+    out[f] = v > 0 ? v : 0;
+  }
+  return { env: out, hopSec: hopSize / sr };
 }
 
-function quantizeBeats(onsets, duration) {
-  if (onsets.length < 4) {
-    const bpm = 120;
-    const interval = 60 / bpm;
-    const beats = [];
-    for (let t = 0; t < duration; t += interval) beats.push(t);
-    return beats;
+// 自相關估速度，再取相位
+function estimateTempo(env, hopSec) {
+  const n = env.length;
+  const minLag = Math.max(2, Math.round((60 / 190) / hopSec));
+  const maxLag = Math.min(n - 1, Math.round((60 / 55) / hopSec));
+  if (maxLag <= minLag) return { bpm: 120, periodFrames: Math.round((60 / 120) / hopSec), phase: 0 };
+
+  const ac = new Float32Array(maxLag + 2);
+  for (let lag = minLag; lag <= maxLag; lag++) {
+    let s = 0, c = 0;
+    for (let i = 0; i + lag < n; i++) { s += env[i] * env[i + lag]; c++; }
+    ac[lag] = c ? s / c : 0;
   }
-  const intervals = [];
-  for (let i = 1; i < onsets.length; i++) intervals.push(onsets[i] - onsets[i-1]);
-  intervals.sort((a,b) => a-b);
-  const medianInterval = intervals[Math.floor(intervals.length / 2)];
-  const bpm = Math.round(60 / medianInterval);
-  const beatInterval = 60 / bpm;
+
+  let bestLag = minLag, bestScore = -Infinity;
+  for (let lag = minLag; lag <= maxLag; lag++) {
+    if (ac[lag] > bestScore) { bestScore = ac[lag]; bestLag = lag; }
+  }
+
+  // 倍頻/半頻校正：太快的話往兩倍 lag 找，太慢的話往一半找
+  const bpmOf = lag => 60 / (lag * hopSec);
+  if (bpmOf(bestLag) > 165) {
+    for (const cand of [Math.round(bestLag * 2), Math.round(bestLag * 1.5)]) {
+      if (cand <= maxLag && ac[cand] > bestScore * 0.5 && bpmOf(cand) >= 65 && bpmOf(cand) <= 165) {
+        bestLag = cand; break;
+      }
+    }
+  } else if (bpmOf(bestLag) < 65) {
+    const cand = Math.round(bestLag / 2);
+    if (cand >= minLag && ac[cand] > bestScore * 0.4 && bpmOf(cand) >= 65) bestLag = cand;
+  }
+
+  const phase = alignBeatPhase(env, bestLag);
+  return { bpm: bpmOf(bestLag), periodFrames: bestLag, phase };
+}
+
+// 在固定週期下，找出讓格線踩到最多起音的相位
+function alignBeatPhase(env, periodFrames) {
+  const P = Math.max(1, Math.round(periodFrames));
+  let bestPhase = 0, best = -Infinity;
+  for (let phase = 0; phase < P && phase < env.length; phase++) {
+    let s = 0;
+    for (let i = phase; i < env.length; i += P) s += env[i];
+    if (s > best) { best = s; bestPhase = phase; }
+  }
+  return bestPhase;
+}
+
+function buildBeatGrid(env, hopSec, periodFrames) {
+  const P = Math.max(1, Math.round(periodFrames));
+  const phase = alignBeatPhase(env, P);
   const beats = [];
-  for (let t = 0; t < duration; t += beatInterval) beats.push(t);
+  for (let f = phase; f < env.length; f += P) beats.push(f * hopSec);
   return beats;
 }
 
-function groupIntoBars(beats, duration, beatsPerBar=4) {
-  if (!beats.length) return [{start:0, end:4, beats:[0,1,2,3]}];
-  const bars = [];
-  for (let i = 0; i < beats.length; i += beatsPerBar) {
-    const b = beats.slice(i, i + beatsPerBar);
-    if (!b.length) continue;
-    const interval = beats[1]-beats[0] || 1;
-    let end = b[b.length-1] + interval;
-    if (i + beatsPerBar < beats.length) end = Math.min(end, beats[i + beatsPerBar]);
-    else end = Math.min(end, duration);
-    bars.push({start: b[0], end, beats: b});
+// 用「哪一拍之後 chroma 變化最大」來推小節第一拍
+function estimateDownbeatOffset(beats, store) {
+  if (beats.length < 8) return 0;
+  let bestOffset = 0, best = -Infinity;
+  for (let off = 0; off < 4; off++) {
+    let s = 0, count = 0;
+    for (let i = off; i < beats.length; i += 4) {
+      const before = averageChromaInRange(store, beats[i] - 0.22, beats[i] - 0.04);
+      const after = averageChromaInRange(store, beats[i] + 0.04, beats[i] + 0.22);
+      if (before && after) { s += chromaDistance(before, after); count++; }
+    }
+    if (count && s / count > best) { best = s / count; bestOffset = off; }
   }
+  return bestOffset;
+}
+
+function groupIntoBars(beats, duration, beatsPerBar = 4, offset = 0) {
+  if (!beats.length) return [{ start: 0, end: Math.min(4, duration || 4), beats: [0, 1, 2, 3] }];
+  const bars = [];
+  for (let i = offset; i < beats.length; i += beatsPerBar) {
+    const group = beats.slice(i, i + beatsPerBar);
+    if (!group.length) continue;
+    const end = (i + beatsPerBar < beats.length) ? beats[i + beatsPerBar] : duration;
+    if (end <= group[0]) continue;
+    bars.push({ start: group[0], end, beats: group });
+  }
+  if (!bars.length) bars.push({ start: beats[0], end: duration, beats: [beats[0]] });
+  // 前奏可能不滿一個小節，把它併進第一小節，畫面才不會從幾秒後才開始
+  if (bars[0].start > 0) bars[0].start = 0;
   return bars;
 }
 
-// ── Meyda Chroma（非同步，每 CHUNK 幀 yield）─────────────────────
-const CHROMA_YIELD_INTERVAL = 40; // frames between yields
+// =========================================================================
+// Chroma
+// =========================================================================
 
-async function computeChromaMeydaAsync(segment, sampleRate) {
-  const fftSize = 2048;
-  const hopSize = 1024;
-  const chromaSum = new Float32Array(12);
-  let frames = 0;
-
-  if (typeof Meyda === 'undefined') {
-    return computeChromaNaiveAsync(segment, sampleRate);
+// Meyda 的 bufferSize 預設是 512：FFT 只看前 512 個取樣（11 毫秒），
+// 頻率解析度約 86 Hz，連 E2/F2 都分不開。這裡改成 4096（約 10.8 Hz）。
+// chromaFilterBank 是第一次呼叫時依 bufferSize 建好後快取的，所以改設定
+// 之後必須清掉，否則會沿用舊的低解析度濾波器。
+function configureMeyda(sampleRate) {
+  if (typeof Meyda === 'undefined') return false;
+  const size = 4096;
+  if (Meyda.bufferSize !== size || Meyda.sampleRate !== sampleRate) {
+    Meyda.bufferSize = size;
+    Meyda.sampleRate = sampleRate;
+    Meyda.chromaFilterBank = undefined;
+    Meyda.melFilterBank = undefined;
+    Meyda.barkScale = undefined;
   }
+  return true;
+}
 
-  for (let start = 0; start + fftSize < segment.length; start += hopSize) {
-    const frame = segment.slice(start, start + fftSize);
-    const result = Meyda.extract('chroma', frame);
-    if (result && result.chroma) {
-      const c = result.chroma;
-      for (let i = 0; i < 12; i++) chromaSum[i] += c[i];
-      frames++;
-    } else if (Array.isArray(result) && result.length === 12) {
-      for (let i = 0; i < 12; i++) chromaSum[i] += result[i];
-      frames++;
+// 全曲逐格算 chroma，之後換 BPM、重算小節都直接重複利用，不必重跑
+async function computeChromaFrames(buffer) {
+  if (!configureMeyda(buffer.sampleRate)) {
+    throw new Error('Meyda 未載入，無法分析音高（請確認 assets/vendor/meyda.min.js 可讀取）');
+  }
+  const samples = buffer.getChannelData(0);
+  const sr = buffer.sampleRate;
+  const fftSize = 4096;
+  const hop = 2048;   // ≈46 ms 一格；和弦變化遠比這慢，再細只是浪費時間
+  const nFrames = Math.max(0, Math.floor((samples.length - fftSize) / hop));
+  const frames = new Float32Array(nFrames * 12);
+  const times = new Float32Array(nFrames);
+
+  for (let f = 0; f < nFrames; f++) {
+    const off = f * hop;
+    times[f] = (off + fftSize / 2) / sr;
+    const result = Meyda.extract('chroma', samples.subarray(off, off + fftSize));
+    const c = (result && result.chroma) ? result.chroma
+            : (Array.isArray(result) && result.length === 12 ? result : null);
+    if (!c) continue;
+    // 開根號壓縮：不讓最大聲的樂器（通常是大鼓/貝斯）獨占權重
+    let mx = 0;
+    for (let i = 0; i < 12; i++) if (c[i] > mx) mx = c[i];
+    if (mx > 0) {
+      for (let i = 0; i < 12; i++) frames[f * 12 + i] = Math.sqrt(Math.max(0, c[i]) / mx);
     }
-
-    // Yield every N frames so the UI stays responsive
-    if (frames % CHROMA_YIELD_INTERVAL === 0) {
+    if ((f & 63) === 0) {
+      setProgress(20 + (f / nFrames) * 45, `步驟 2/4：取出音高光譜… ${Math.round(f / nFrames * 100)}%`);
       await yieldToUI();
     }
   }
-
-  if (frames > 0) for (let i = 0; i < 12; i++) chromaSum[i] /= frames;
-  return chromaSum;
+  return { frames, times, nFrames };
 }
 
-async function computeChromaNaiveAsync(segment, sampleRate) {
-  const fftSize = 4096;
-  const hopSize = 2048;
-  const chroma = new Float32Array(12);
-  let frames = 0;
-  for (let start = 0; start + fftSize < segment.length; start += hopSize) {
-    const frame = segment.slice(start, start + fftSize);
-    const spectrum = new Float32Array(fftSize/2);
-    for (let i = 0; i < fftSize/2; i++) {
-      let real = 0, imag = 0;
-      for (let j = 0; j < fftSize; j++) {
-        const angle = 2 * Math.PI * i * j / fftSize;
-        real += frame[j] * Math.cos(angle);
-        imag -= frame[j] * Math.sin(angle);
-      }
-      spectrum[i] = Math.sqrt(real*real + imag*imag) / fftSize;
-    }
-    for (let i = 0; i < fftSize/2; i++) {
-      const freq = i * sampleRate / fftSize;
-      if (freq < 60 || freq > 2000) continue;
-      const midi = 69 + 12 * Math.log2(freq / 440);
-      const pc = ((Math.round(midi) % 12) + 12) % 12;
-      chroma[pc] += spectrum[i];
-    }
-    frames++;
-    if (frames % CHROMA_YIELD_INTERVAL === 0) await yieldToUI();
+// 時間範圍內所有格的 chroma 平均（找不到就回 null）
+function averageChromaInRange(store, t0, t1) {
+  const out = new Float32Array(12);
+  let n = 0;
+  for (let f = 0; f < store.nFrames; f++) {
+    const t = store.times[f];
+    if (t < t0) continue;
+    if (t >= t1) break;
+    for (let i = 0; i < 12; i++) out[i] += store.frames[f * 12 + i];
+    n++;
   }
-  if (frames > 0) for (let i = 0; i < 12; i++) chroma[i] /= frames;
-  return chroma;
+  if (!n) return null;
+  for (let i = 0; i < 12; i++) out[i] /= n;
+  return out;
 }
 
-function matchChord(chroma) {
-  let bestScore = -Infinity;
-  let bestRoot = 0, bestQual = 'maj';
-  const scores = [];
-  const cSum = chroma.reduce((a,b)=>a+b, 0);
-  const normalized = cSum > 0 ? chroma.map(v => v/cSum) : chroma;
+// 時間範圍內取中位數：單一顆大鼓或一聲鈸不會毀掉整拍的音高分布
+function medianChromaInRange(store, t0, t1) {
+  const idx = [];
+  for (let f = 0; f < store.nFrames; f++) {
+    const t = store.times[f];
+    if (t < t0) continue;
+    if (t >= t1) break;
+    idx.push(f);
+  }
+  if (!idx.length) return null;
+  const out = new Float32Array(12);
+  const col = new Float32Array(idx.length);
+  for (let i = 0; i < 12; i++) {
+    for (let k = 0; k < idx.length; k++) col[k] = store.frames[idx[k] * 12 + i];
+    out[i] = medianOf(col.subarray(0, idx.length));
+  }
+  return out;
+}
 
+function medianOf(arr) {
+  const a = Array.from(arr).sort((x, y) => x - y);
+  const m = a.length >> 1;
+  return a.length % 2 ? a[m] : (a[m - 1] + a[m]) / 2;
+}
+
+function chromaDistance(a, b) {
+  if (!a || !b) return 0;
+  let d = 0;
+  for (let i = 0; i < 12; i++) d += Math.abs(a[i] - b[i]);
+  return d;
+}
+
+// 每個和弦的得分 = chroma 與二元模板的餘弦相似度：
+//   Σ(和弦音能量) / (‖chroma‖ · √音數)
+// 除以 √音數是關鍵：多一個音只有在它真的帶能量時才划算，否則
+// 三和絃會被硬拉成 maj7／6／add9。分母的 ‖chroma‖ 讓音量大小不影響結果。
+// 完全不做「順階加分」——那等於把 C 大調的假設硬套到每首歌上。
+function chordCandidates(chroma, topN = 6) {
+  const capped = [];
+  if (!chroma) return capped;
+
+  let energy = 0;
+  for (let i = 0; i < 12; i++) energy += chroma[i] * chroma[i];
+  if (energy < 1e-9) return capped;
+  const norm = Math.sqrt(energy);
+
+  // 根音微加分：低音通常是根音，用它可以分開「同音不同名」的和弦
+  // （Am7 和 C6 的音完全相同，只靠低音判斷）。
+  const ROOT_BONUS = 0.06;
+
+  const all = [];
   for (let root = 0; root < 12; root++) {
-    for (const [qual, template] of Object.entries(CHORD_TEMPLATES)) {
-      let score = 0;
-      const tSum = template.reduce((a,b)=>a+b, 0);
-      const tNorm = tSum > 0 ? template.map(v => v/tSum) : template;
-      for (let i = 0; i < 12; i++) {
-        const pc = (root + i) % 12;
-        score += normalized[pc] * tNorm[i];
-      }
-      const inC = C_DIATONIC.some(([r,q]) => r === root && q === qual);
-      const inG = G_DIATONIC.some(([r,q]) => r === root && q === qual);
-      if (inC || inG) score += 0.05;
-      scores.push({score, root, quality: qual});
-      if (score > bestScore) { bestScore = score; bestRoot = root; bestQual = qual; }
+    const rootBonus = ROOT_BONUS * chroma[root] / norm;
+    for (const { quality, tones, size } of CHORD_TEMPLATE_ENTRIES) {
+      let inEnergy = 0;
+      for (let k = 0; k < tones.length; k++) inEnergy += chroma[(root + tones[k]) % 12];
+      const score = inEnergy / (norm * Math.sqrt(size)) + rootBonus;
+      all.push({ root, quality, score });
     }
   }
-
-  scores.sort((a,b) => b.score - a.score);
-  const gap = scores.length > 1 ? scores[0].score - scores[1].score : 0.5;
-  const confidence = Math.min(1, Math.max(0.1, 0.5 + gap * 2));
-
-  return {root: bestRoot, quality: bestQual, confidence: Math.round(confidence * 1000) / 1000};
+  all.sort((a, b) => b.score - a.score);
+  for (let i = 0; i < Math.min(topN, all.length); i++) capped.push(all[i]);
+  return capped;
 }
 
-async function detectChordsMeydaAsync(buffer, bars) {
-  const samples = buffer.getChannelData(0);
-  const chords = [];
-  for (let bi = 0; bi < bars.length; bi++) {
-    const bar = bars[bi];
-    const startSample = Math.floor(bar.start * buffer.sampleRate);
-    const endSample = Math.min(Math.floor(bar.end * buffer.sampleRate), samples.length);
-    const segment = samples.slice(startSample, endSample);
-    if (segment.length < 512) {
-      chords.push({root: 0, quality: 'maj', confidence: 0.1});
-      continue;
-    }
-    const chroma = await computeChromaMeydaAsync(segment, buffer.sampleRate);
-    const chord = matchChord(chroma);
-    chords.push(chord);
-
-    // Update progress per bar
-    setProgress(35 + (bi / bars.length) * 40, `步驟 2/3：分析和弦 (${bi+1}/${bars.length})`);
-    await yieldToUI();
+// 逐拍取 median chroma → 候選和弦 → Viterbi 解碼
+function decodeChordsForBeats(beats, store, duration) {
+  if (!beats.length) return [];
+  const obs = [];
+  for (let i = 0; i < beats.length; i++) {
+    const t0 = beats[i];
+    const t1 = (i + 1 < beats.length) ? beats[i + 1] : Math.min(duration, t0 + 0.5);
+    // 頭尾各讓開一點，避免吃到前一個和弦的尾音
+    const pad = Math.min(0.06, (t1 - t0) / 8);
+    let chroma = null;
+    if (t1 - t0 > 0.12) chroma = medianChromaInRange(store, t0 + pad, t1 - pad);
+    if (!chroma) chroma = averageChromaInRange(store, t0, t1);
+    obs.push({ cands: chordCandidates(chroma, 6) });
+    if ((i & 63) === 0) setProgress(70 + (i / beats.length) * 18, '步驟 3/4：比對和弦…');
   }
-  return chords;
+  return viterbiDecode(obs);
 }
 
-// ── HMM 平滑 ────────────────────────────────────────────────────
-function hmmSmooth(chords) {
-  if (!chords.length) return chords;
-  const result = chords.map(c => ({...c}));
-  for (let i = 1; i < result.length; i++) {
-    const prev = result[i-1];
-    const curr = result[i];
-    if (curr.confidence < 0.35) {
-      if (prev.confidence > 0.3) {
-        result[i] = {...prev, confidence: Math.round(prev.confidence * 0.8 * 1000) / 1000};
-      }
-    } else if (curr.confidence < 0.55) {
-      if ((curr.root !== prev.root || curr.quality !== prev.quality) && prev.confidence > curr.confidence + 0.1) {
-        result[i] = {...prev, confidence: Math.round(prev.confidence * 0.9 * 1000) / 1000};
+// 真正的 HMM Viterbi：留在同一個和弦免費，換和弦要付固定代價。
+// 代價用「nats」表示，乘上溫度 TAU 後就是分數差，換和弦必須贏過這麼多分。
+function viterbiDecode(obs) {
+  const stateList = [];
+  const stateIndex = new Map();
+  for (const o of obs) {
+    for (const c of o.cands) {
+      const k = c.root + ':' + c.quality;
+      if (!stateIndex.has(k)) {
+        stateIndex.set(k, stateList.length);
+        stateList.push({ root: c.root, quality: c.quality });
       }
     }
   }
-  return result;
+  const N = stateList.length;
+  if (!N) return [];
+  const FLOOR = -0.15;
+
+  // 發射機率：分數做 softmax。溫度越小越相信分數差距。
+  // 餘弦分數的典型 top1-top2 差距約 0.1，TAU=0.03 時約等於 3 個 nat。
+  const TAU = 0.03;
+  const emitLog = [];
+  const emitProb = [];
+  for (const o of obs) {
+    const scores = new Float32Array(N).fill(FLOOR);
+    for (const c of o.cands) scores[stateIndex.get(c.root + ':' + c.quality)] = c.score;
+    let mx = -Infinity;
+    for (let n = 0; n < N; n++) if (scores[n] > mx) mx = scores[n];
+    const logp = new Float32Array(N);
+    let sum = 0;
+    for (let n = 0; n < N; n++) { logp[n] = (scores[n] - mx) / TAU; sum += Math.exp(logp[n]); }
+    emitLog.push(logp);
+    const prob = new Float32Array(N);
+    for (let n = 0; n < N; n++) prob[n] = Math.exp(logp[n]) / sum;
+    emitProb.push(prob);
+  }
+
+  // 換和弦的固定代價。用常數而非 1/N 分攤，才不會因為候選狀態變多
+  // 就突然變得超黏或超跳。
+  // 4.0 nat × TAU 0.03 ≈ 0.12 分：換和弦要比原和弦高出這麼多分才值得。
+  const SWITCH_COST = 4.0;
+  const logStay = 0;
+  const logSwitch = -SWITCH_COST;
+
+  let prev = new Float32Array(N);
+  const back = [];
+  for (let t = 0; t < obs.length; t++) {
+    const cur = new Float32Array(N);
+    const bp = new Int16Array(N);
+    for (let n = 0; n < N; n++) {
+      if (t === 0) {
+        cur[n] = emitLog[0][n];
+        bp[n] = n;
+        continue;
+      }
+      let bestVal = -Infinity, bestIdx = 0;
+      for (let p = 0; p < N; p++) {
+        const v = prev[p] + (p === n ? logStay : logSwitch);
+        if (v > bestVal) { bestVal = v; bestIdx = p; }
+      }
+      cur[n] = bestVal + emitLog[t][n];
+      bp[n] = bestIdx;
+    }
+    back.push(bp);
+    prev = cur;
+  }
+
+  let last = 0, best = -Infinity;
+  for (let n = 0; n < N; n++) if (prev[n] > best) { best = prev[n]; last = n; }
+  const path = new Int16Array(obs.length);
+  let cur = last;
+  for (let t = obs.length - 1; t >= 0; t--) {
+    path[t] = cur;
+    cur = back[t][cur];
+  }
+
+  // 信心度 = 選中的和弦與「第二可能」的發射機率比。狀態數多寡不會影響尺度，
+  // 所以 UI 上的顏色門檻不會因為候選變多而全部變紅。
+  const out = [];
+  for (let t = 0; t < obs.length; t++) {
+    const chosen = path[t];
+    const p = emitProb[t][chosen];
+    let bestOther = 0;
+    for (let n = 0; n < N; n++) {
+      if (n !== chosen && emitProb[t][n] > bestOther) bestOther = emitProb[t][n];
+    }
+    const denom = p + bestOther;
+    const s = stateList[chosen];
+    out.push({
+      root: s.root,
+      quality: s.quality,
+      confidence: Math.round(Math.max(0.05, denom > 0 ? p / denom : 0.5) * 1000) / 1000,
+    });
+  }
+  return out;
 }
 
-// ── 調性偵測 ────────────────────────────────────────────────────
-function detectKey(chords) {
-  if (!chords.length) return 0;
-  const chromaProfile = new Float32Array(12);
-  chords.forEach(c => {
-    const template = CHORD_TEMPLATES[c.quality] || CHORD_TEMPLATES.maj;
-    for (let i = 0; i < 12; i++) {
-      if (template[i]) chromaProfile[(c.root + i) % 12] += 1;
+// 把逐拍結果收斂成小節（一小節可以有多個和弦，顯示成 "C / G"）
+function summarizeBars(bars, beats, beatChords) {
+  return bars.map(bar => {
+    const idxs = [];
+    for (let i = 0; i < beats.length; i++) {
+      if (beats[i] >= bar.start - 1e-6 && beats[i] < bar.end - 1e-6) idxs.push(i);
     }
+    if (!idxs.length) return { root: 0, quality: 'maj', confidence: 0, parts: [] };
+
+    const runs = [];
+    for (const i of idxs) {
+      const c = beatChords[i] || { root: 0, quality: 'maj', confidence: 0 };
+      const last = runs[runs.length - 1];
+      if (last && last.root === c.root && last.quality === c.quality) {
+        last.count++;
+        last.confSum += c.confidence;
+      } else {
+        runs.push({ root: c.root, quality: c.quality, count: 1, confSum: c.confidence });
+      }
+    }
+
+    let dominant = runs[0];
+    for (const r of runs) if (r.count > dominant.count) dominant = r;
+
+    // 佔比太小的碎片（例如一拍就跳走）不顯示，避免畫面一堆「C / G / D」
+    const parts = runs.filter(r => r.count / idxs.length >= 0.2);
+
+    return {
+      root: dominant.root,
+      quality: dominant.quality,
+      confidence: Math.round((dominant.confSum / dominant.count) * 1000) / 1000,
+      parts: parts.map(r => ({
+        root: r.root,
+        quality: r.quality,
+        display: chordName(r.root, r.quality),
+        beats: r.count,
+      })),
+    };
   });
-  const majorProfile = [6.35,2.23,3.48,2.33,4.38,4.09,2.52,5.19,2.39,3.66,2.29,2.88];
-  let bestKey = 0, bestCorr = -Infinity;
-  for (let root = 0; root < 12; root++) {
-    let sumX=0,sumY=0,sumXY=0,sumX2=0,sumY2=0;
+}
+
+// ── 調性偵測（大調、小調都比）──────────────────────────────────
+function detectKey(beatChords) {
+  if (!beatChords || !beatChords.length) return { root: 0, mode: 'major' };
+
+  const profile = new Float32Array(12);
+  for (const c of beatChords) {
+    const template = CHORD_TEMPLATES[c.quality] || CHORD_TEMPLATES.maj;
+    const weight = 0.4 + 0.6 * (c.confidence || 0);
     for (let i = 0; i < 12; i++) {
-      const xi = chromaProfile[(root + i) % 12];
-      const yi = majorProfile[i];
-      sumX+=xi; sumY+=yi; sumXY+=xi*yi; sumX2+=xi*xi; sumY2+=yi*yi;
+      if (template[i]) profile[(c.root + i) % 12] += weight;
     }
-    const n = 12;
-    const corr = (n*sumXY - sumX*sumY) / Math.sqrt((n*sumX2 - sumX*sumX) * (n*sumY2 - sumY*sumY) || 1);
-    if (corr > bestCorr) { bestCorr = corr; bestKey = root; }
   }
-  return bestKey;
+
+  let best = { root: 0, mode: 'major', corr: -Infinity };
+  for (const [mode, keyProfile] of [['major', KEY_PROFILE_MAJOR], ['minor', KEY_PROFILE_MINOR]]) {
+    for (let root = 0; root < 12; root++) {
+      let sumX = 0, sumY = 0, sumXY = 0, sumX2 = 0, sumY2 = 0;
+      for (let i = 0; i < 12; i++) {
+        const xi = profile[(root + i) % 12];
+        const yi = keyProfile[i];
+        sumX += xi; sumY += yi; sumXY += xi * yi; sumX2 += xi * xi; sumY2 += yi * yi;
+      }
+      const denom = Math.sqrt((12 * sumX2 - sumX * sumX) * (12 * sumY2 - sumY * sumY));
+      const corr = denom > 0 ? (12 * sumXY - sumX * sumY) / denom : -Infinity;
+      if (corr > best.corr) best = { root, mode, corr };
+    }
+  }
+  return { root: best.root, mode: best.mode };
+}
+
+function keyName(root, mode) {
+  return NOTE_NAMES[root] + (mode === 'minor' ? 'm' : '');
 }
 
 // ── 移調夾建議 ──────────────────────────────────────────────────
-function suggestCapo(detectedKey) {
-  const capoC = (detectedKey - 0 + 12) % 12;
-  const capoG = (detectedKey - 7 + 12) % 12;
-  if (capoC <= capoG) {
-    return {capo: capoC, targetRoot: 0, targetKey: 'C',
-      description: `移調夾夾第 ${capoC} 格，以 C 大調順階和弦彈奏`};
-  } else {
-    return {capo: capoG, targetRoot: 7, targetKey: 'G',
-      description: `移調夾夾第 ${capoG} 格，以 G 大調順階和弦彈奏`};
+// 小調歌曲的習慣是用關係大調的指型（Am 用 C 的形狀），所以先轉成關係大調。
+function suggestCapo(keyRoot, mode) {
+  const majorRoot = mode === 'minor' ? (keyRoot + 3) % 12 : keyRoot;
+  // 只列吉他好按的開放/常用把位。F 把位要全封閉，實務上寧可夾一格用 E 型。
+  const shapes = [
+    { root: 0, name: 'C' }, { root: 7, name: 'G' }, { root: 2, name: 'D' },
+    { root: 9, name: 'A' }, { root: 4, name: 'E' },
+  ];
+  let best = null;
+  for (const s of shapes) {
+    const capo = (majorRoot - s.root + 12) % 12;
+    if (!best || capo < best.capo) best = { capo, shape: s };
   }
+  const sounding = keyName(keyRoot, mode);
+  const relativeMinor = NOTE_NAMES[(best.shape.root + 9) % 12] + 'm';
+  const shapeLabel = mode === 'minor'
+    ? `${best.shape.name} 大調把位（以 ${relativeMinor} 為主）`
+    : `${best.shape.name} 大調和弦`;
+  return {
+    capo: best.capo,
+    targetRoot: best.shape.root,
+    targetKey: best.shape.name,
+    detectedKeyName: sounding,
+    description: best.capo === 0
+      ? `${sounding} — 以 ${shapeLabel}彈奏，不必夾移調夾`
+      : `${sounding} — 移調夾夾第 ${best.capo} 格，以 ${shapeLabel}彈奏`,
+  };
 }
 
-// ── 映射到順階和弦 ──────────────────────────────────────────────
-function transposeToDiatonic(chords, targetRoot) {
-  const diatonic = targetRoot === 0 ? C_DIATONIC : G_DIATONIC;
-  const result = [];
-  chords.forEach(c => {
-    const transposedRoot = (c.root - targetRoot + 12) % 12;
-    const diatonicMatch = diatonic.find(([r, q]) => r === transposedRoot && q === c.quality);
-    if (diatonicMatch) {
-      result.push({
-        display: NOTE_NAMES[c.root] + getChordQualityLabel(c.quality),
-        root: c.root, quality: c.quality,
-        confidence: c.confidence, isDiatonic: true,
-        originalRoot: null,
-      });
-      return;
-    }
-    let bestDist = 999, bestMatch = null;
-    for (const [dr, dq] of diatonic) {
-      const actualRoot = (dr + targetRoot) % 12;
-      const dist = Math.min((c.root - actualRoot + 12) % 12, (actualRoot - c.root + 12) % 12);
-      const qualBonus = c.quality === dq ? 0.5 : 0;
-      const effectiveDist = dist - qualBonus;
-      if (effectiveDist < bestDist) {
-        bestDist = effectiveDist;
-        bestMatch = [actualRoot, dq];
+// ── 標記順階和弦（只做顯示標記，不改動偵測到的和弦）──────────────
+function markDiatonic(barChords, keyRoot, mode) {
+  const scale = mode === 'minor' ? SCALE_MINOR : SCALE_MAJOR;
+  const inScale = new Set(scale.map(s => (keyRoot + s) % 12));
+  // 小調常用和聲小調的 V（大三大和弦），一併視為順階
+  const harmonicLeading = mode === 'minor' ? (keyRoot + 11) % 12 : -1;
+
+  return barChords.map(ch => {
+    const toneSets = (ch.parts && ch.parts.length) ? ch.parts : [{ root: ch.root, quality: ch.quality }];
+    let allDiatonic = true;
+    for (const p of toneSets) {
+      const template = CHORD_TEMPLATES[p.quality] || CHORD_TEMPLATES.maj;
+      for (let i = 0; i < 12; i++) {
+        if (!template[i]) continue;
+        const pc = (p.root + i) % 12;
+        if (!inScale.has(pc) && pc !== harmonicLeading) { allDiatonic = false; break; }
       }
+      if (!allDiatonic) break;
     }
-    if (bestMatch) {
-      const [newRoot, newQual] = bestMatch;
-      const origName = NOTE_NAMES[c.root] + getChordQualityLabel(c.quality);
-      result.push({
-        display: NOTE_NAMES[newRoot] + getChordQualityLabel(newQual),
-        root: newRoot, quality: newQual,
-        confidence: Math.max(0.1, c.confidence - 0.15 * bestDist),
-        isDiatonic: false,
-        originalChord: origName,
-        originalRoot: c.root,
-      });
-    } else {
-      result.push({
-        display: NOTE_NAMES[c.root] + getChordQualityLabel(c.quality),
-        root: c.root, quality: c.quality,
-        confidence: c.confidence, isDiatonic: true,
-        originalRoot: null,
-      });
-    }
+
+    const parts = (ch.parts && ch.parts.length > 1) ? ch.parts : null;
+    return {
+      ...ch,
+      display: parts ? parts.map(p => p.display).join(' / ') : chordName(ch.root, ch.quality),
+      isDiatonic: allDiatonic,
+    };
   });
-  return result;
 }
 
-// ── BPM 重新計算（非同步）────────────────────────────────────────
+// ── BPM 重新計算 ────────────────────────────────────────────────
+// chroma 已經快取，所以換 BPM 只是重鋪格線，不必重新分析音訊。
 async function recalcWithBPM(newBpm) {
-  if (!state.audioBuffer) return;
-  const interval = 60 / newBpm;
+  if (!state.audioBuffer || !state.chromaStore) return;
   const duration = state.audioBuffer.duration;
+  const interval = 60 / newBpm;
+
+  // 保留原本的格線相位，只改週期，避免整首歌突然前後跳
+  const phase = state.beatPhaseSec || 0;
   const beats = [];
-  for (let t = 0; t < duration; t += interval) beats.push(t);
+  for (let t = phase > interval ? phase - interval : phase; t < duration; t += interval) {
+    if (t >= 0) beats.push(t);
+  }
+  if (!beats.length) return;
+
   state.beats = beats;
   state.bpm = newBpm;
-  state.bars = groupIntoBars(beats, duration);
+  const downbeat = estimateDownbeatOffset(beats, state.chromaStore);
+  state.downbeatOffset = downbeat;
+  state.bars = groupIntoBars(beats, duration, 4, downbeat);
 
-  if (state.originalChords) {
-    setProgress(10, '重新計算小節劃分與和弦…');
-    await yieldToUI();
-    const samples = state.audioBuffer.getChannelData(0);
-    const newChords = [];
-    for (let bi = 0; bi < state.bars.length; bi++) {
-      const bar = state.bars[bi];
-      const startSample = Math.floor(bar.start * state.audioBuffer.sampleRate);
-      const endSample = Math.min(Math.floor(bar.end * state.audioBuffer.sampleRate), samples.length);
-      const segment = samples.slice(startSample, endSample);
-      if (segment.length < 512) { newChords.push({root: 0, quality: 'maj', confidence: 0.1}); continue; }
-      const chroma = await computeChromaMeydaAsync(segment, state.audioBuffer.sampleRate);
-      newChords.push(matchChord(chroma));
-      setProgress(10 + (bi / state.bars.length) * 70, `重新分析 (${bi+1}/${state.bars.length})`);
-      await yieldToUI();
-    }
-    const smoothed = hmmSmooth(newChords);
-    state.detectedKey = detectKey(smoothed);
-    state.capo = suggestCapo(state.detectedKey);
-    state.chords = transposeToDiatonic(smoothed, state.capo.targetRoot);
-    state.originalChords = smoothed;
-    setProgressDone();
-  }
+  setProgress(10, '重新計算小節劃分與和弦…');
+  await yieldToUI();
 
+  const decoded = decodeChordsForBeats(beats, state.chromaStore, duration);
+  state.beatChords = decoded;
+  const barChords = summarizeBars(state.bars, beats, decoded);
+
+  const key = detectKey(decoded);
+  state.detectedKey = key.root;
+  state.detectedMode = key.mode;
+  state.capo = suggestCapo(key.root, key.mode);
+  state.chords = markDiatonic(barChords, key.root, key.mode);
+  state.originalChords = barChords;
+
+  setProgressDone();
   drawWaveform();
   renderResults();
   setStatus(`已重新計算（BPM: ${newBpm}）`, 'done');
@@ -872,7 +1141,7 @@ function renderResults() {
   if (!bars.length || !chords.length) return;
 
   document.getElementById('key-info').style.display = 'flex';
-  document.getElementById('detected-key').textContent = NOTE_NAMES[state.detectedKey];
+  document.getElementById('detected-key').textContent = keyName(state.detectedKey, state.detectedMode);
   document.getElementById('capo-suggestion').textContent = state.capo.capo + ' 格';
   document.getElementById('display-key').textContent = state.capo.targetKey;
   document.getElementById('capo-description').textContent = state.capo.description || '';
@@ -895,13 +1164,13 @@ function renderChordBars() {
     html += '<button class="chord-bar-edit" onclick="event.stopPropagation();openEditModal(' + idx + ')" title="編輯和弦">✏️</button>';
     if (showConf) html += '<span class="confidence-dot ' + confClass + '" title="信賴度: ' + Math.round(ch.confidence*100) + '%"></span>';
     if (!ch.isDiatonic) {
-      html += '<div style="font-size:9px;color:#f59e0b;font-weight:600;margin-top:2px;">替代</div>';
+      html += '<div style="font-size:9px;color:#f59e0b;font-weight:600;margin-top:2px;">調外</div>';
     }
     html += '<div class="chord-name">' + escapeHtml(ch.display) + '</div>';
-    if (!ch.isDiatonic && ch.originalChord) {
-      html += '<div style="font-size:9px;color:var(--muted);text-decoration:line-through;">' + escapeHtml(ch.originalChord) + '</div>';
-    }
-    html += '<div class="chord-quality">' + escapeHtml(ch.quality) + '</div>';
+    const qualText = (ch.parts && ch.parts.length > 1)
+      ? ch.parts.map(p => p.beats + ' 拍').join(' · ')
+      : (getChordQualityLabel(ch.quality) || '大三');
+    html += '<div class="chord-quality">' + escapeHtml(qualText) + '</div>';
     if (showDia) {
       html += '<div class="chord-diagram" id="dia-bar-' + idx + '"></div>';
     }
