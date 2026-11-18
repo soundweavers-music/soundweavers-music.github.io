@@ -772,7 +772,7 @@ def build_index(instruments):
           </a>
           <a class="featured-card" href="{resolve_url(index_path, '/chord-detection/')}" style="background:linear-gradient(135deg,#fef3c7,#fde68a);border:1px solid #f59e0b;">
             <strong>🎼 自動抓和弦 (beta)</strong>
-            <span>上傳音檔自動分析節拍與和弦進行，支援指版圖顯示與和弦編輯</span>
+            <span>上傳音檔自動分析節拍與和弦，簡譜式小節表可移調、標示 Capo、匯入 .lrc 歌詞</span>
           </a>
           <a class="featured-card" href="{resolve_url(index_path, '/tools/lrc/')}" style="background:linear-gradient(135deg,#eef6ff,#dbeafe);border:1px solid #bfdbfe;">
             <strong>📝 LRC 動態歌詞工作室</strong>
@@ -2849,7 +2849,7 @@ def build_chord_detection_tool():
         page_dir / "index.html",
         extra_head=chord_extra_head,
         csp=chord_csp,
-        meta_description="上傳音檔，自動分析節拍與和弦進行，支援指版圖顯示與和弦編輯，所有分析都在瀏覽器內完成。",
+        meta_description="上傳音檔，自動分析節拍與和弦，以簡譜式小節表顯示；可移調、標示 Capo、匯入 .lrc 歌詞、點小節試聽，並匯出文字或 Word。所有分析都在瀏覽器內完成。",
     ))
 
     # chord-detection/local-agent/ (a Python program) stays in the repo only.

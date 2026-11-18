@@ -39,32 +39,49 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
 .waveform-container canvas { display: block; width: 100%; height: 120px; }
 .playback-cursor { position: absolute; top: 0; bottom: 0; width: 2px; background: #c0392b; pointer-events: none; z-index: 2; display: none; }
 
-/* Chord track — chordify-like timeline */
-.chord-track { position: relative; margin: 16px 0; overflow-x: auto; }
-.chord-bar-row { display: flex; gap: 4px; padding: 8px 0; min-width: 100%; }
-.chord-bar { flex: 1; min-width: 90px; border: 1px solid var(--line); border-radius: 8px; padding: 8px; text-align: center; cursor: pointer; transition: all .12s; background: var(--surface); position: relative; }
-.chord-bar:hover { border-color: var(--accent); transform: translateY(-1px); box-shadow: var(--shadow); }
-.chord-bar.is-active { border-color: var(--accent); background: rgba(196,149,106,0.1); box-shadow: 0 0 0 2px rgba(196,149,106,0.3); }
-.chord-bar .chord-name { font-size: 18px; font-weight: 800; }
-.chord-bar .chord-quality { font-size: 10px; color: var(--muted); }
-.chord-bar .chord-diagram { margin: 4px 0; line-height: 0; }
-.chord-bar .chord-diagram svg { max-width: 100%; }
-.chord-bar-edit { position: absolute; top: 2px; right: 4px; font-size: 10px; cursor: pointer; opacity: 0.3; background: none; border: none; color: var(--ink); padding: 2px; border-radius: 3px; }
-.chord-bar:hover .chord-bar-edit { opacity: 1; }
-.chord-bar-edit:hover { background: var(--soft); }
-.chord-bar .bar-num { font-size: 10px; color: var(--muted); position: absolute; bottom: 2px; right: 6px; }
-.chord-bar .confidence-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; position: absolute; top: 4px; left: 4px; }
+/* 簡譜式小節表 */
+.chart-wrap { border: 1px solid var(--line); border-radius: 10px; background: var(--surface); margin: 8px 0 16px; overflow-x: auto; }
+.chart { min-width: 720px; }
+.chart-row { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid var(--line); }
+.chart-row:last-child { border-bottom: none; }
+.bar { position: relative; min-height: 62px; padding: 20px 8px 8px; border-right: 1px solid var(--line); cursor: pointer; transition: background .12s; }
+.bar:nth-child(4) { border-right: none; }
+.bar:hover { background: rgba(196,149,106,0.07); }
+.bar.is-active { background: rgba(196,149,106,0.16); box-shadow: inset 0 0 0 2px var(--accent); }
+.bar.is-empty { cursor: default; }
+.bar-no { position: absolute; top: 3px; left: 7px; font-size: 10px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.bar-edit { position: absolute; top: 2px; right: 4px; font-size: 11px; line-height: 1; background: none; border: none; color: var(--muted); opacity: 0; cursor: pointer; padding: 3px; border-radius: 4px; }
+.bar:hover .bar-edit { opacity: .75; }
+.bar-edit:hover { background: var(--soft); opacity: 1; }
+.bar.non-dia .seg .cname { color: #b45309; }
+.bar.non-dia::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: #f59e0b; }
+.bar-body { position: relative; height: 40px; }
+.tick { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--line); opacity: .7; }
+.seg { position: absolute; top: 0; height: 100%; padding: 0 3px; overflow: hidden; cursor: pointer; border-radius: 4px; }
+.seg .cname { display: block; font-size: 19px; font-weight: 800; line-height: 1.1; white-space: nowrap; }
+.seg .cdeg { display: block; font-size: 10px; color: var(--muted); line-height: 1.3; }
+.seg .cdia { display: block; line-height: 0; margin-top: 2px; }
+.seg.is-active { background: rgba(196,149,106,0.28); }
+.lyric-row { display: grid; grid-template-columns: repeat(4, 1fr); background: var(--soft); border-bottom: 1px solid var(--line); }
+.lyric-cell { padding: 4px 8px; min-height: 20px; font-size: 11px; line-height: 1.45; border-right: 1px solid var(--line); color: var(--ink); word-break: break-all; }
+.lyric-cell:nth-child(4) { border-right: none; }
 
-/* Confidence colors */
-.conf-high { background: #22c55e; }
-.conf-med { background: #eab308; }
-.conf-low { background: #ef4444; }
-.chord-bar.is-non-diatonic { border-left: 3px solid #f59e0b; }
+/* Toolbar / key info */
+.chart-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin: 12px 0 8px; font-size: 12px; }
+.chart-toolbar label { display: flex; align-items: center; gap: 4px; cursor: pointer; color: var(--ink); }
+.chart-toolbar .spacer { flex: 1; }
 
 /* Key / Capo info */
-.key-info { background: var(--soft); border: 1px solid var(--line); border-radius: 8px; padding: 12px 16px; margin: 16px 0; display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
-.key-info .badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 14px; font-weight: 700; background: var(--accent); color: #fff; }
+.key-info { background: var(--soft); border: 1px solid var(--line); border-radius: 8px; padding: 12px 16px; margin: 16px 0; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
+.key-info .badge { display: inline-block; padding: 3px 12px; border-radius: 20px; font-size: 14px; font-weight: 700; background: var(--accent); color: #fff; }
 .key-info .badge.capo { background: #f59e0b; }
+.key-info label { font-size: 12px; display: flex; align-items: center; gap: 6px; }
+.key-info select { padding: 4px 8px; border: 1px solid var(--line); border-radius: 6px; font-size: 13px; background: var(--surface); color: var(--ink); }
+.key-info .capo-desc { font-size: 12px; color: var(--muted); flex-basis: 100%; }
+
+/* Grid nudge */
+.nudge { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 12px; }
+.btn.small { padding: 3px 9px; font-size: 11px; font-weight: 600; }
 
 /* Status */
 .status-msg { padding: 8px 12px; border-radius: 6px; font-size: 13px; margin: 8px 0; background: var(--soft); color: var(--muted); }
@@ -93,9 +110,6 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
 .edit-modal select { width: 100%; padding: 6px 8px; border: 1px solid var(--line); border-radius: 6px; font-size: 13px; }
 .edit-modal-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 16px; }
 
-/* Capo badge on chord bar */
-.chord-bar .capo-badge { font-size: 9px; background: #f59e0b; color: #fff; border-radius: 10px; padding: 1px 6px; position: absolute; top: -6px; left: 50%; transform: translateX(-50%); white-space: nowrap; }
-
 /* BPM selector */
 .bpm-edit { display: flex; align-items: center; gap: 6px; font-size: 13px; }
 .bpm-edit input { width: 60px; padding: 4px 6px; border: 1px solid var(--line); border-radius: 4px; font-size: 13px; text-align: center; background: var(--surface); color: var(--ink); }
@@ -107,7 +121,11 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
 .progress-bar { height: 4px; background: var(--soft); border-radius: 2px; margin: 8px 0; overflow: hidden; display: none; }
 .progress-bar-fill { height: 100%; background: var(--accent); width: 0%; transition: width .3s; }
 
-@media (max-width: 760px) { .chord-bar { min-width: 70px; } .chord-bar .chord-name { font-size: 15px; } .controls-row { flex-direction: column; align-items: stretch; } }
+@media (max-width: 760px) {
+  .seg .cname { font-size: 16px; }
+  .controls-row { flex-direction: column; align-items: stretch; }
+  .chart { min-width: 620px; }
+}
 </style>
 </head>
 <body>
@@ -181,7 +199,7 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
 <section class="compact-hero">
   <p class="eyebrow">Chord Detection (beta)</p>
   <h1>🎼 自動抓和弦</h1>
-  <p class="lead">上傳音檔，自動分析節拍與和弦進行。所有分析都在你的瀏覽器內完成，音檔不會上傳。</p>
+  <p class="lead">上傳音檔，自動分析節拍與和弦，以簡譜式小節表格呈現。可移調、標示 Capo、匯入 .lrc 歌詞、點小節試聽，並匯出文字或 Word。所有分析都在你的瀏覽器內完成，音檔不會上傳。</p>
 </section>
 
 <!-- Upload Zone -->
@@ -213,12 +231,37 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
 <!-- Key / Capo Info -->
 <div id="key-info" class="key-info" style="display:none;">
   <div>偵測調性：<span class="badge" id="detected-key">C</span></div>
-  <div>建議移調夾：<span class="badge capo" id="capo-suggestion">0 格</span></div>
-  <div id="capo-description" style="font-size:12px;color:var(--muted);"></div>
-  <div style="font-size:12px;color:var(--muted);">以 <span id="display-key">C</span> 大調順階和弦對應 · 橘色左框 = 非順階替代和弦</div>
-  <div style="font-size:11px;color:var(--muted);margin-left:auto;">
-    信賴度：<span style="color:#22c55e;">●</span> 高 <span style="color:#eab308;">●</span> 中 <span style="color:#ef4444;">●</span> 低
+  <label>轉成 <select id="transpose-select"></select></label>
+  <label>把位 <select id="shape-select">
+    <option value="auto">自動（C／G 優先）</option>
+    <option value="C">C 調指型</option>
+    <option value="G">G 調指型</option>
+    <option value="D">D 調指型</option>
+    <option value="A">A 調指型</option>
+    <option value="E">E 調指型</option>
+    <option value="off">原調和弦（不夾）</option>
+  </select></label>
+  <div>Capo：<span class="badge capo" id="capo-badge">0 格</span></div>
+  <div class="capo-desc" id="capo-description"></div>
+</div>
+
+<!-- Grid / beat controls -->
+<div class="controls-row" id="grid-row" style="display:none;">
+  <label>拍號 <select id="bpb-select"><option value="4">4/4</option><option value="3">3/4</option></select></label>
+  <div class="bpm-edit">
+    <label>BPM</label>
+    <input type="number" id="bpm-input" value="120" min="20" max="300">
+    <button class="btn ghost small" id="btn-recalc-bpm" title="以這個 BPM 重新鋪節拍格線">套用</button>
   </div>
+  <div class="nudge">
+    <span>小節線</span>
+    <button class="btn ghost small" id="btn-downbeat-prev" title="小節第一拍往前移一拍">◀ 拍</button>
+    <button class="btn ghost small" id="btn-downbeat-next" title="小節第一拍往後移一拍">拍 ▶</button>
+    <span style="margin-left:8px;">整首微調</span>
+    <button class="btn ghost small" id="btn-shift-minus" title="全部往前提早 20 毫秒">−20ms</button>
+    <button class="btn ghost small" id="btn-shift-plus" title="全部往後延 20 毫秒">＋20ms</button>
+  </div>
+  <span id="grid-hint" style="font-size:11px;color:var(--muted);"></span>
 </div>
 
 <!-- Waveform -->
@@ -227,26 +270,24 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
   <div class="playback-cursor" id="playback-cursor"></div>
 </div>
 
-<!-- Chord Track -->
-<div id="chord-track-container" style="display:none;">
-  <div style="display:flex;align-items:center;gap:8px;margin:12px 0;flex-wrap:wrap;">
-    <h3 style="margin:0;font-size:16px;">和弦進行</h3>
-    <span style="font-size:11px;color:var(--muted);">點擊和弦可編輯 · 播放時自動跳轉</span>
-    <span style="flex:1;"></span>
-    <label style="font-size:12px;display:flex;align-items:center;gap:4px;cursor:pointer;">
-      <input type="checkbox" id="show-diagrams" checked> 顯示指版圖
-    </label>
-    <label style="font-size:12px;display:flex;align-items:center;gap:4px;cursor:pointer;">
-      <input type="checkbox" id="show-confidence" checked> 信賴度
-    </label>
-    <div class="bpm-edit">
-      <label>BPM</label>
-      <input type="number" id="bpm-input" value="120" min="20" max="300">
-      <button class="btn ghost" id="btn-recalc-bpm" style="font-size:11px;" title="以新 BPM 重新計算小節">重新計算</button>
-    </div>
+<!-- Chart -->
+<div id="chart-container" style="display:none;">
+  <div class="chart-toolbar">
+    <strong style="font-size:14px;">和弦譜</strong>
+    <span style="font-size:11px;color:var(--muted);">點小節試聽 · ✏ 編輯</span>
+    <label><input type="checkbox" id="show-degrees" checked> 級數</label>
+    <label><input type="checkbox" id="show-lyrics" checked> 歌詞</label>
+    <label><input type="checkbox" id="show-diagrams"> 指版圖</label>
+    <label><input type="checkbox" id="continuous"> 連續播放</label>
+    <span class="spacer"></span>
+    <button class="btn ghost small" id="btn-import-lrc">📄 匯入 .lrc</button>
+    <input type="file" id="lrc-input" accept=".lrc,.txt,text/plain" style="display:none;">
+    <button class="btn ghost small" id="btn-export-txt">⬇ 純文字</button>
+    <button class="btn ghost small" id="btn-export-doc">⬇ Word</button>
   </div>
-  <div class="chord-track" id="chord-track">
-    <div class="chord-bar-row" id="chord-bar-row"></div>
+  <div id="lyric-status" class="status-msg" style="display:none;"></div>
+  <div class="chart-wrap">
+    <div class="chart" id="chart"></div>
   </div>
 </div>
 
@@ -257,8 +298,7 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
     <p style="font-size:12px;color:var(--muted);margin:4px 0 12px;" id="edit-bar-label">第 1 小節</p>
     <label>根音 <select id="edit-root"></select></label>
     <label>類型 <select id="edit-quality"></select></label>
-    <label>低音 Bass <select id="edit-bass"><option value="">無</option></select></label>
-    <div style="font-size:11px;color:var(--muted);margin-top:6px;">💡 和弦將自動對應所選樂器的指版圖</div>
+    <div style="font-size:11px;color:var(--muted);margin-top:6px;" id="edit-hint">💡 以畫面上顯示的把位輸入，儲存時會自動換算回原調</div>
     <div class="edit-modal-actions">
       <button class="btn ghost" onclick="closeEditModal()">取消</button>
       <button class="btn" onclick="saveEditChord()">儲存</button>
@@ -287,6 +327,10 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
 // 常數與全域設定
 // =========================================================================
 const NOTE_NAMES = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
+// 調性標籤用五線／常用調名（降號優先，比較符合吉他習慣）
+const KEY_LABELS = ['C','C♯','D','E♭','E','F','F♯','G','A♭','A','B♭','B'];
+const DEGREE_NAMES = ['1','♭2','2','♭3','3','4','♯4','5','♭6','6','♭7','7'];
+
 const CHORD_QUAL = [
   {key:'maj', label:''}, {key:'m', label:'m'}, {key:'7', label:'7'},
   {key:'maj7', label:'maj7'}, {key:'m7', label:'m7'}, {key:'dim', label:'dim'},
@@ -307,7 +351,7 @@ const CHORD_TEMPLATES = {
   'add9':  [1,0,1,0,1,0,0,1,0,0,0,0],
 };
 
-// 預先展開成 (品質, 和弦音級陣列, 音數) — 每次比對都重算很浪費
+// 預先展開成 (品質, 和弦音級陣列, 音數)
 const CHORD_TEMPLATE_ENTRIES = Object.entries(CHORD_TEMPLATES).map(([quality, t]) => {
   const tones = [];
   for (let i = 0; i < 12; i++) if (t[i]) tones.push(i);
@@ -321,6 +365,12 @@ const KEY_PROFILE_MINOR = [6.33,2.68,3.52,5.38,2.60,3.53,2.54,4.75,3.98,2.69,3.3
 // 音階（相對於主音的半音數）
 const SCALE_MAJOR = [0,2,4,5,7,9,11];
 const SCALE_MINOR = [0,2,3,5,7,8,10];
+
+// 吉他好按的開放把位；Capo 就是「實際調 − 把位調」
+const SHAPES = [
+  { root: 0, name: 'C' }, { root: 7, name: 'G' }, { root: 2, name: 'D' },
+  { root: 9, name: 'A' }, { root: 4, name: 'E' },
+];
 
 // 樂器資料（完整 19 種）
 const INSTRUMENTS_DATA = [
@@ -350,26 +400,28 @@ const INSTRUMENTS_DATA = [
 // =========================================================================
 let state = {
   audioBuffer: null, sampleRate: 44100, duration: 0,
-  beats: [], bars: [], chords: [], rawChords: [],
+  baseBeats: [],        // 節拍追蹤結果（不隨手動微調改變）
+  beats: [], bars: [],  // 套用微調後實際使用的格線
+  beatChords: [], originalChords: [], chords: [],
+  chromaStore: null,
   detectedKey: 0, detectedMode: 'major',
-  capo: {capo:0, targetKey:'C', description:''},
-  isPlaying: false, currentTime: 0, startTime: 0,
-  currentBar: -1, instrument: 0, tuning: null,
-  sourceNode: null, analyserNode: null, animFrame: null,
-  showDiagrams: true, showConfidence: true,
-  bpm: 120,
-
-  // 分析中間結果：chroma 只在換歌時重算，換 BPM 時直接重用
-  chromaStore: null, beatChords: [], onsetEnv: null, onsetHopSec: 0,
-  beatPhaseSec: 0, downbeatOffset: 0,
-  originalChords: null,
-  // Async yield control
-  yieldEveryMs: 8, // ~120fps max yields
+  transpose: 0,         // 要轉成（半音）
+  shapeMode: 'auto',    // auto / C / G / D / A / E / off
+  capo: 0, shapeName: 'C', displayMajor: 0,
+  bpm: 120, beatsPerBar: 4,
+  autoDownbeat: 0, downbeatShift: 0, gridShiftSec: 0,
+  lyrics: [], lyricBuckets: new Map(), showLyrics: true, showDegrees: true,
+  showDiagrams: false, continuous: false,
+  instrument: 0, tuning: null,
+  isPlaying: false, currentTime: 0, startTime: 0, playEnd: 0,
+  sourceNode: null, animFrame: null,
 };
 
 // =========================================================================
 // 工具函式
 // =========================================================================
+function mod12(n) { return ((n % 12) + 12) % 12; }
+
 function noteToMidi(n) {
   const map = {'C':0,'C#':1,'Db':1,'D':2,'D#':3,'Eb':3,'E':4,'F':5,'F#':6,'Gb':6,'G':7,'G#':8,'Ab':8,'A':9,'A#':10,'Bb':10,'B':11};
   const m = n.match(/^([A-G][#♯b♭]?)(\d)$/);
@@ -377,7 +429,7 @@ function noteToMidi(n) {
   let name = m[1].replace('♯','#').replace('♭','b');
   return (map[name]||0) + (parseInt(m[2])+1)*12;
 }
-function parseTuning(arr) { return arr.map(s=>noteToMidi(s)); }
+function parseTuning(arr) { return arr.map(s => noteToMidi(s)); }
 
 function getChordQualityLabel(q) {
   const found = CHORD_QUAL.find(x => x.key === q);
@@ -385,12 +437,35 @@ function getChordQualityLabel(q) {
 }
 
 function chordName(root, quality) {
-  return NOTE_NAMES[root] + getChordQualityLabel(quality);
+  return NOTE_NAMES[mod12(root)] + getChordQualityLabel(quality);
 }
 
-// Async yield helper — lets the event loop breathe between heavy chunks
+function keyName(root, mode) {
+  return KEY_LABELS[mod12(root)] + (mode === 'minor' ? 'm' : '');
+}
+
+// 級數（簡譜數字）：相對於畫面上把位的大調主音
+function degreeLabel(rootPC, quality, keyMajor) {
+  let d = DEGREE_NAMES[mod12(rootPC - keyMajor)];
+  if (quality === 'm' || quality === 'm7' || quality === 'm6' || quality === 'm7b5' || quality === 'm9') d += 'm';
+  else if (quality === 'dim' || quality === 'dim7') d += '°';
+  else if (quality && quality !== 'maj') d += quality;
+  return d;
+}
+
+function escapeHtml(s) {
+  return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
 function yieldToUI() {
   return new Promise(resolve => setTimeout(resolve, 0));
+}
+
+function medianOf(arr) {
+  const a = Array.from(arr).sort((x, y) => x - y);
+  if (!a.length) return 0;
+  const m = a.length >> 1;
+  return a.length % 2 ? a[m] : (a[m - 1] + a[m]) / 2;
 }
 
 function setProgress(pct, label) {
@@ -402,8 +477,13 @@ function setProgress(pct, label) {
 }
 
 function setProgressDone() {
-  const bar = document.getElementById('progress-bar');
-  bar.style.display = 'none';
+  document.getElementById('progress-bar').style.display = 'none';
+}
+
+function setStatus(msg, type) {
+  const el = document.getElementById('status-msg');
+  el.textContent = msg;
+  el.className = 'status-msg ' + (type || '');
 }
 
 // =========================================================================
@@ -411,6 +491,7 @@ function setProgressDone() {
 // =========================================================================
 const uploadZone = document.getElementById('upload-zone');
 const fileInput = document.getElementById('file-input');
+let currentFile = null;
 
 uploadZone.addEventListener('click', () => fileInput.click());
 uploadZone.addEventListener('dragover', e => { e.preventDefault(); uploadZone.classList.add('dragover'); });
@@ -421,8 +502,6 @@ uploadZone.addEventListener('drop', e => {
 });
 fileInput.addEventListener('change', () => { if (fileInput.files.length) handleFile(fileInput.files[0]); });
 
-let currentFile = null;
-
 async function handleFile(file) {
   currentFile = file;
   const reader = new FileReader();
@@ -430,15 +509,18 @@ async function handleFile(file) {
     setStatus('解碼音檔中…', 'analyzing');
     try {
       const ctx = new AudioContext();
-      const audioData = e.target.result;
-      state.audioBuffer = await ctx.decodeAudioData(audioData);
+      state.audioBuffer = await ctx.decodeAudioData(e.target.result);
       ctx.close();
       state.sampleRate = state.audioBuffer.sampleRate;
       state.duration = state.audioBuffer.duration;
-      // 換歌就丟掉上一首快取的音高資料
+      // 換歌就把上一首的快取與歌詞清掉
       state.chromaStore = null;
       state.beatChords = [];
-      state.originalChords = null;
+      state.originalChords = [];
+      state.chords = [];
+      state.lyrics = [];
+      state.lyricBuckets = new Map();
+      document.getElementById('lyric-status').style.display = 'none';
       uploadZone.classList.add('has-file');
       document.getElementById('controls-row').style.display = 'flex';
       document.getElementById('waveform-container').style.display = 'block';
@@ -447,7 +529,6 @@ async function handleFile(file) {
       setStatus('音檔已載入，開始分析…', '');
       document.getElementById('btn-analyze').style.display = '';
 
-      // Auto-analyze after a tick (UI has time to render waveform)
       setTimeout(() => startAnalysis(), 50);
     } catch(err) {
       setStatus('音檔解碼失敗：' + err.message, 'error');
@@ -457,7 +538,7 @@ async function handleFile(file) {
 }
 
 // =========================================================================
-// 波型繪製（含節拍線與時間軸）
+// 波型繪製（含節拍線與小節線）
 // =========================================================================
 function drawWaveform() {
   const canvas = document.getElementById('waveform-canvas');
@@ -473,100 +554,87 @@ function drawWaveform() {
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   ctx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#C4956A';
   ctx.lineWidth = 1.5;
-  ctx.beginPath();
-  const midY = canvas.height / 2;
+  const peaks = new Float32Array(canvas.width);
   for (let x = 0; x < canvas.width; x++) {
     let peak = 0;
     for (let j = 0; j < step; j++) {
       const v = Math.abs(data[x * step + j] || 0);
       if (v > peak) peak = v;
     }
-    const y = midY - peak * midY;
+    peaks[x] = peak;
+  }
+  const midY = canvas.height / 2;
+  ctx.beginPath();
+  for (let x = 0; x < canvas.width; x++) {
+    const y = midY - peaks[x] * midY;
     if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
   }
   ctx.stroke();
   ctx.beginPath();
   for (let x = 0; x < canvas.width; x++) {
-    let peak = 0;
-    for (let j = 0; j < step; j++) {
-      const v = Math.abs(data[x * step + j] || 0);
-      if (v > peak) peak = v;
-    }
-    const y = midY + peak * midY;
+    const y = midY + peaks[x] * midY;
     if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
   }
   ctx.stroke();
 
-  if (state.beats.length) {
-    ctx.strokeStyle = 'rgba(192,57,43,0.25)'; ctx.lineWidth = 1;
+  if (state.bars.length) {
+    ctx.strokeStyle = 'rgba(192,57,43,0.18)'; ctx.lineWidth = 1;
     state.beats.forEach(t => {
       const x = (t / state.duration) * canvas.width;
-      ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height * 0.35); ctx.stroke();
     });
-    for (let i = 0; i < state.bars.length; i++) {
-      const x = (state.bars[i].start / state.duration) * canvas.width;
+    state.bars.forEach(bar => {
+      const x = (bar.start / state.duration) * canvas.width;
       ctx.strokeStyle = 'rgba(192,57,43,0.45)'; ctx.lineWidth = 1.5;
       ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height); ctx.stroke();
-    }
+    });
   }
 }
 
 // =========================================================================
-// 分析引擎（非同步，每 N 幀 yield 防止卡頓）
+// 分析流程
 // =========================================================================
 async function startAnalysis() {
   await analyzeWithBrowser();
 }
 
-// ── 瀏覽器端分析 ────────────────────────────────────────────────
 async function analyzeWithBrowser() {
   const buffer = state.audioBuffer;
   if (!buffer) return;
   try {
-    setProgress(8, '步驟 1/4：偵測節拍…');
+    setProgress(6, '步驟 1/4：偵測節拍…');
     await yieldToUI();
 
-    // 1. 起音包絡 → 速度 → 有相位對齊的節拍格線
+    // 1. 起音包絡 → 速度種子 → 動態規劃節拍追蹤（逐拍定位，能跟上速度漂移）
     const { env, hopSec } = computeOnsetEnvelope(buffer);
     const tempo = estimateTempo(env, hopSec);
-    state.bpm = Math.round(tempo.bpm);
+    const tracked = trackBeats(env, hopSec, tempo.periodFrames);
+    state.baseBeats = tracked.times;
+    state.bpm = bpmFromBeats(tracked.times) || Math.round(tempo.bpm);
+    state.gridShiftSec = 0;
+    state.downbeatShift = 0;
+    state.beatsPerBar = parseInt(document.getElementById('bpb-select').value, 10) || 4;
     document.getElementById('bpm-input').value = state.bpm;
-    state.onsetEnv = env;
-    state.onsetHopSec = hopSec;
-    state.beatPhaseSec = tempo.phase * hopSec;
 
-    // 2. 全曲 chroma（每 2048 取樣 ≈ 46 ms 一格，之後所有計算都重複利用）
-    setProgress(20, '步驟 2/4：取出音高光譜…');
+    // 2. 全曲 chroma（每 2048 取樣 ≈ 46 ms 一格，之後換 BPM 都重複利用）
+    setProgress(24, '步驟 2/4：取出音高光譜…');
     await yieldToUI();
-    const store = await computeChromaFrames(buffer);
-    state.chromaStore = store;
+    state.chromaStore = await computeChromaFrames(buffer);
 
-    // 3. 用 chroma 變化量決定小節線從哪一拍開始
-    state.beats = buildBeatGrid(env, hopSec, tempo.periodFrames);
-    const downbeat = estimateDownbeatOffset(state.beats, store);
-    state.downbeatOffset = downbeat;
-    state.bars = groupIntoBars(state.beats, buffer.duration, 4, downbeat);
-
-    // 4. 逐拍比對 + Viterbi 解碼 + 收斂成小節
+    // 3. 小節線起點 + 逐拍和弦
     setProgress(70, '步驟 3/4：比對和弦…');
     await yieldToUI();
-    const decoded = decodeChordsForBeats(state.beats, store, buffer.duration);
-    state.beatChords = decoded;
-    const barChords = summarizeBars(state.bars, state.beats, decoded);
-    state.originalChords = barChords;
+    state.transpose = 0;
+    state.autoDownbeat = estimateDownbeatOffset(state.baseBeats, state.chromaStore, state.beatsPerBar);
+    applyGrid({ decode: true, detectKey: true });
 
-    // 5. 調性（大小調都比）與移調夾建議
-    setProgress(92, '步驟 4/4：調性分析…');
+    setProgress(96, '步驟 4/4：調性與移調夾…');
     await yieldToUI();
-    const key = detectKey(decoded);
-    state.detectedKey = key.root;
-    state.detectedMode = key.mode;
-    state.capo = suggestCapo(key.root, key.mode);
-    state.chords = markDiatonic(barChords, key.root, key.mode);
+    syncTransposeSelect();
 
     setProgressDone();
-    setStatus('分析完成！', 'done');
-    renderResults();
+    updateGridHint();
+    setStatus('分析完成！點小節可試聽，按 ✏ 可修正和弦。', 'done');
   } catch(err) {
     setProgressDone();
     setStatus('分析失敗：' + err.message, 'error');
@@ -575,11 +643,11 @@ async function analyzeWithBrowser() {
 }
 
 // =========================================================================
-// 節拍
+// 節拍偵測
 // =========================================================================
 
 // 短時能量包絡 + 半波整流差分 + 滑動平均去勢
-function computeOnsetEnvelope(buffer, hopSize = 256, frameSize = 1024) {
+function computeOnsetEnvelope(buffer, hopSize = 512, frameSize = 1024) {
   const samples = buffer.getChannelData(0);
   const sr = buffer.sampleRate;
   const nFrames = Math.max(0, Math.floor((samples.length - frameSize) / hopSize));
@@ -594,10 +662,10 @@ function computeOnsetEnvelope(buffer, hopSize = 256, frameSize = 1024) {
     rms[f] = Math.sqrt(s / (frameSize / 2));
   }
 
-  const env = new Float32Array(nFrames);
+  const flux = new Float32Array(nFrames);
   for (let f = 1; f < nFrames; f++) {
     const d = rms[f] - rms[f - 1];
-    env[f] = d > 0 ? d : 0;
+    flux[f] = d > 0 ? d : 0;
   }
 
   // 減掉慢速移動平均，避免整首歌的音量起伏被當成起音
@@ -605,21 +673,21 @@ function computeOnsetEnvelope(buffer, hopSize = 256, frameSize = 1024) {
   const out = new Float32Array(nFrames);
   let acc = 0;
   for (let f = 0; f < nFrames; f++) {
-    acc += env[f];
-    if (f >= w) acc -= env[f - w];
+    acc += flux[f];
+    if (f >= w) acc -= flux[f - w];
     const mean = acc / Math.min(f + 1, w);
-    const v = env[f] - mean * 0.9;
+    const v = flux[f] - mean * 0.9;
     out[f] = v > 0 ? v : 0;
   }
   return { env: out, hopSec: hopSize / sr };
 }
 
-// 自相關估速度，再取相位
+// 自相關估速度，只當作節拍追蹤的週期種子
 function estimateTempo(env, hopSec) {
   const n = env.length;
   const minLag = Math.max(2, Math.round((60 / 190) / hopSec));
   const maxLag = Math.min(n - 1, Math.round((60 / 55) / hopSec));
-  if (maxLag <= minLag) return { bpm: 120, periodFrames: Math.round((60 / 120) / hopSec), phase: 0 };
+  if (maxLag <= minLag) return { bpm: 120, periodFrames: Math.round((60 / 120) / hopSec) };
 
   const ac = new Float32Array(maxLag + 2);
   for (let lag = minLag; lag <= maxLag; lag++) {
@@ -633,7 +701,6 @@ function estimateTempo(env, hopSec) {
     if (ac[lag] > bestScore) { bestScore = ac[lag]; bestLag = lag; }
   }
 
-  // 倍頻/半頻校正：太快的話往兩倍 lag 找，太慢的話往一半找
   const bpmOf = lag => 60 / (lag * hopSec);
   if (bpmOf(bestLag) > 165) {
     for (const cand of [Math.round(bestLag * 2), Math.round(bestLag * 1.5)]) {
@@ -645,49 +712,115 @@ function estimateTempo(env, hopSec) {
     const cand = Math.round(bestLag / 2);
     if (cand >= minLag && ac[cand] > bestScore * 0.4 && bpmOf(cand) >= 65) bestLag = cand;
   }
-
-  const phase = alignBeatPhase(env, bestLag);
-  return { bpm: bpmOf(bestLag), periodFrames: bestLag, phase };
+  return { bpm: bpmOf(bestLag), periodFrames: bestLag };
 }
 
-// 在固定週期下，找出讓格線踩到最多起音的相位
-function alignBeatPhase(env, periodFrames) {
-  const P = Math.max(1, Math.round(periodFrames));
-  let bestPhase = 0, best = -Infinity;
-  for (let phase = 0; phase < P && phase < env.length; phase++) {
-    let s = 0;
-    for (let i = phase; i < env.length; i += P) s += env[i];
-    if (s > best) { best = s; bestPhase = phase; }
+// Ellis (2007) 動態規劃節拍追蹤：每一拍都重新找位置，
+// 所以速度有漂移時仍然踩在起音上，不會像固定格線愈後面愈歪。
+function trackBeats(env, hopSec, periodFrames) {
+  const N = env.length;
+  const P = Math.max(2, Math.round(periodFrames));
+  if (N < 4) return { frames: [], times: [], periodFrames: P };
+
+  // localscore：平滑後正規化到 0..1。平滑窗要小，否則起音被抹成一片高原，
+  // 動態規劃會在高原材料裡亂挑，節拍就慢慢漂掉。
+  const W = Math.max(1, Math.round(P / 16));
+  const smooth = new Float32Array(N);
+  for (let i = 0; i < N; i++) {
+    let s = 0, c = 0;
+    for (let j = Math.max(0, i - W); j <= Math.min(N - 1, i + W); j++) { s += env[j]; c++; }
+    smooth[i] = s / c;
   }
-  return bestPhase;
-}
+  let mx = 0;
+  for (let i = 0; i < N; i++) if (smooth[i] > mx) mx = smooth[i];
+  if (mx > 0) for (let i = 0; i < N; i++) smooth[i] /= mx;
 
-function buildBeatGrid(env, hopSec, periodFrames) {
-  const P = Math.max(1, Math.round(periodFrames));
-  const phase = alignBeatPhase(env, P);
-  const beats = [];
-  for (let f = phase; f < env.length; f += P) beats.push(f * hopSec);
-  return beats;
-}
+  const TIGHT = 12;
+  const cum = new Float32Array(N);
+  const back = new Int32Array(N).fill(-1);
+  const halfLo = Math.max(1, Math.round(P * 0.5));
+  const doubleHi = Math.max(2, Math.round(P * 2));
 
-// 用「哪一拍之後 chroma 變化最大」來推小節第一拍
-function estimateDownbeatOffset(beats, store) {
-  if (beats.length < 8) return 0;
-  let bestOffset = 0, best = -Infinity;
-  for (let off = 0; off < 4; off++) {
-    let s = 0, count = 0;
-    for (let i = off; i < beats.length; i += 4) {
-      const before = averageChromaInRange(store, beats[i] - 0.22, beats[i] - 0.04);
-      const after = averageChromaInRange(store, beats[i] + 0.04, beats[i] + 0.22);
-      if (before && after) { s += chromaDistance(before, after); count++; }
+  for (let t = 0; t < N; t++) {
+    let best = 0, bestIdx = -1;
+    const h = t - halfLo;
+    const l = Math.max(0, t - doubleHi);
+    for (let p = l; p <= h; p++) {
+      const r = Math.log((t - p) / P);
+      const sc = cum[p] - TIGHT * r * r;
+      if (sc > best) { best = sc; bestIdx = p; }
     }
-    if (count && s / count > best) { best = s / count; bestOffset = off; }
+    cum[t] = smooth[t] + best;
+    back[t] = bestIdx;
   }
-  return bestOffset;
+
+  // 從最後 4 秒內分數最高處回溯（避免剛好收在弱拍）
+  const from = Math.max(0, N - Math.round(4 / hopSec));
+  let last = -1, bestVal = -Infinity;
+  for (let t = from; t < N; t++) if (cum[t] > bestVal) { bestVal = cum[t]; last = t; }
+  if (last < 0) return { frames: [], times: [], periodFrames: P };
+
+  const frames = [];
+  let t = last;
+  let guard = 0;
+  while (t >= 0 && guard++ < N * 2) { frames.push(t); t = back[t]; }
+  frames.reverse();
+
+  // 用中位數間隔往前補，前奏沒有起音時歌才不會從中段才開始
+  if (frames.length >= 2) {
+    const ivs = [];
+    for (let i = 1; i < frames.length; i++) ivs.push(frames[i] - frames[i - 1]);
+    const med = Math.max(1, Math.round(medianOf(ivs) || P));
+    let first = frames[0];
+    while (first - med >= 0) { first -= med; frames.unshift(first); }
+  }
+
+  // 把每一拍吸附到附近起音的最大值（±35 ms），修正一兩格的偏移
+  const SNAP = Math.max(1, Math.round(0.035 / hopSec));
+  for (let i = 0; i < frames.length; i++) {
+    let bestF = frames[i], bestV = env[frames[i]] || 0;
+    for (let k = Math.max(0, frames[i] - SNAP); k <= Math.min(N - 1, frames[i] + SNAP); k++) {
+      if (env[k] > bestV) { bestV = env[k]; bestF = k; }
+    }
+    frames[i] = bestF;
+  }
+
+  return { frames, times: frames.map(f => f * hopSec), periodFrames: P };
+}
+
+function bpmFromBeats(beats) {
+  if (!beats || beats.length < 3) return 0;
+  const ivs = [];
+  for (let i = 1; i < beats.length; i++) ivs.push(beats[i] - beats[i - 1]);
+  const med = medianOf(ivs);
+  if (!(med > 0)) return 0;
+  let bpm = 60 / med;
+  while (bpm < 60) bpm *= 2;
+  while (bpm > 190) bpm /= 2;
+  return Math.round(bpm);
+}
+
+// 用「哪一拍之後 chroma 變化最大」推小節第一拍
+function estimateDownbeatOffset(beats, store, beatsPerBar) {
+  const bpb = beatsPerBar || 4;
+  if (!beats || beats.length < bpb * 2 || !store) return 0;
+  let bestOff = 0, bestScore = -Infinity;
+  for (let off = 0; off < bpb; off++) {
+    let s = 0, n = 0;
+    for (let i = off; i < beats.length; i += bpb) {
+      const before = averageChromaInRange(store, beats[i] - 0.25, beats[i] - 0.05);
+      const after = averageChromaInRange(store, beats[i] + 0.05, beats[i] + 0.25);
+      if (before && after) { s += chromaDistance(before, after); n++; }
+    }
+    if (!n) continue;
+    const score = s / n;
+    if (score > bestScore + 1e-9) { bestScore = score; bestOff = off; }
+  }
+  return bestOff;
 }
 
 function groupIntoBars(beats, duration, beatsPerBar = 4, offset = 0) {
-  if (!beats.length) return [{ start: 0, end: Math.min(4, duration || 4), beats: [0, 1, 2, 3] }];
+  if (!beats.length) return [{ start: 0, end: Math.min(4, duration || 4), beats: [] }];
   const bars = [];
   for (let i = offset; i < beats.length; i += beatsPerBar) {
     const group = beats.slice(i, i + beatsPerBar);
@@ -697,7 +830,7 @@ function groupIntoBars(beats, duration, beatsPerBar = 4, offset = 0) {
     bars.push({ start: group[0], end, beats: group });
   }
   if (!bars.length) bars.push({ start: beats[0], end: duration, beats: [beats[0]] });
-  // 前奏可能不滿一個小節，把它併進第一小節，畫面才不會從幾秒後才開始
+  // 前奏不滿一個小節時併進第一小節，畫面才不會從幾秒後才開始
   if (bars[0].start > 0) bars[0].start = 0;
   return bars;
 }
@@ -706,10 +839,9 @@ function groupIntoBars(beats, duration, beatsPerBar = 4, offset = 0) {
 // Chroma
 // =========================================================================
 
-// Meyda 的 bufferSize 預設是 512：FFT 只看前 512 個取樣（11 毫秒），
-// 頻率解析度約 86 Hz，連 E2/F2 都分不開。這裡改成 4096（約 10.8 Hz）。
-// chromaFilterBank 是第一次呼叫時依 bufferSize 建好後快取的，所以改設定
-// 之後必須清掉，否則會沿用舊的低解析度濾波器。
+// Meyda 的 bufferSize 預設是 512：FFT 只看前 512 個取樣，頻率解析度約 86 Hz，
+// 連 E2/F2 都分不開。這裡改成 4096（約 10.8 Hz）。chromaFilterBank 是第一次
+// 呼叫時依 bufferSize 建好後快取的，所以改設定之後必須清掉。
 function configureMeyda(sampleRate) {
   if (typeof Meyda === 'undefined') return false;
   const size = 4096;
@@ -723,7 +855,6 @@ function configureMeyda(sampleRate) {
   return true;
 }
 
-// 全曲逐格算 chroma，之後換 BPM、重算小節都直接重複利用，不必重跑
 async function computeChromaFrames(buffer) {
   if (!configureMeyda(buffer.sampleRate)) {
     throw new Error('Meyda 未載入，無法分析音高（請確認 assets/vendor/meyda.min.js 可讀取）');
@@ -731,7 +862,7 @@ async function computeChromaFrames(buffer) {
   const samples = buffer.getChannelData(0);
   const sr = buffer.sampleRate;
   const fftSize = 4096;
-  const hop = 2048;   // ≈46 ms 一格；和弦變化遠比這慢，再細只是浪費時間
+  const hop = 2048;   // ≈46 ms 一格
   const nFrames = Math.max(0, Math.floor((samples.length - fftSize) / hop));
   const frames = new Float32Array(nFrames * 12);
   const times = new Float32Array(nFrames);
@@ -743,28 +874,34 @@ async function computeChromaFrames(buffer) {
     const c = (result && result.chroma) ? result.chroma
             : (Array.isArray(result) && result.length === 12 ? result : null);
     if (!c) continue;
-    // 開根號壓縮：不讓最大聲的樂器（通常是大鼓/貝斯）獨占權重
+    // 開根號壓縮：不讓最大聲的樂器獨占權重
     let mx = 0;
     for (let i = 0; i < 12; i++) if (c[i] > mx) mx = c[i];
     if (mx > 0) {
       for (let i = 0; i < 12; i++) frames[f * 12 + i] = Math.sqrt(Math.max(0, c[i]) / mx);
     }
     if ((f & 63) === 0) {
-      setProgress(20 + (f / nFrames) * 45, `步驟 2/4：取出音高光譜… ${Math.round(f / nFrames * 100)}%`);
+      setProgress(24 + (f / nFrames) * 42, `步驟 2/4：取出音高光譜… ${Math.round(f / nFrames * 100)}%`);
       await yieldToUI();
     }
   }
   return { frames, times, nFrames };
 }
 
-// 時間範圍內所有格的 chroma 平均（找不到就回 null）
+function frameStartIndex(store, t) {
+  let lo = 0, hi = store.nFrames;
+  while (lo < hi) {
+    const mid = (lo + hi) >> 1;
+    if (store.times[mid] < t) lo = mid + 1; else hi = mid;
+  }
+  return lo;
+}
+
 function averageChromaInRange(store, t0, t1) {
+  if (!store) return null;
   const out = new Float32Array(12);
   let n = 0;
-  for (let f = 0; f < store.nFrames; f++) {
-    const t = store.times[f];
-    if (t < t0) continue;
-    if (t >= t1) break;
+  for (let f = frameStartIndex(store, t0); f < store.nFrames && store.times[f] < t1; f++) {
     for (let i = 0; i < 12; i++) out[i] += store.frames[f * 12 + i];
     n++;
   }
@@ -775,13 +912,10 @@ function averageChromaInRange(store, t0, t1) {
 
 // 時間範圍內取中位數：單一顆大鼓或一聲鈸不會毀掉整拍的音高分布
 function medianChromaInRange(store, t0, t1) {
+  if (!store) return null;
+  const start = frameStartIndex(store, t0);
   const idx = [];
-  for (let f = 0; f < store.nFrames; f++) {
-    const t = store.times[f];
-    if (t < t0) continue;
-    if (t >= t1) break;
-    idx.push(f);
-  }
+  for (let f = start; f < store.nFrames && store.times[f] < t1; f++) idx.push(f);
   if (!idx.length) return null;
   const out = new Float32Array(12);
   const col = new Float32Array(idx.length);
@@ -790,12 +924,6 @@ function medianChromaInRange(store, t0, t1) {
     out[i] = medianOf(col.subarray(0, idx.length));
   }
   return out;
-}
-
-function medianOf(arr) {
-  const a = Array.from(arr).sort((x, y) => x - y);
-  const m = a.length >> 1;
-  return a.length % 2 ? a[m] : (a[m - 1] + a[m]) / 2;
 }
 
 function chromaDistance(a, b) {
@@ -808,8 +936,7 @@ function chromaDistance(a, b) {
 // 每個和弦的得分 = chroma 與二元模板的餘弦相似度：
 //   Σ(和弦音能量) / (‖chroma‖ · √音數)
 // 除以 √音數是關鍵：多一個音只有在它真的帶能量時才划算，否則
-// 三和絃會被硬拉成 maj7／6／add9。分母的 ‖chroma‖ 讓音量大小不影響結果。
-// 完全不做「順階加分」——那等於把 C 大調的假設硬套到每首歌上。
+// 三和絃會被硬拉成 maj7／6／add9。完全不做「順階加分」。
 function chordCandidates(chroma, topN = 6) {
   const capped = [];
   if (!chroma) return capped;
@@ -819,9 +946,7 @@ function chordCandidates(chroma, topN = 6) {
   if (energy < 1e-9) return capped;
   const norm = Math.sqrt(energy);
 
-  // 根音微加分：低音通常是根音，用它可以分開「同音不同名」的和弦
-  // （Am7 和 C6 的音完全相同，只靠低音判斷）。
-  const ROOT_BONUS = 0.06;
+  const ROOT_BONUS = 0.06; // 低音通常是根音，用來分開同音不同名的和弦
 
   const all = [];
   for (let root = 0; root < 12; root++) {
@@ -840,24 +965,21 @@ function chordCandidates(chroma, topN = 6) {
 
 // 逐拍取 median chroma → 候選和弦 → Viterbi 解碼
 function decodeChordsForBeats(beats, store, duration) {
-  if (!beats.length) return [];
+  if (!beats.length || !store) return [];
   const obs = [];
   for (let i = 0; i < beats.length; i++) {
     const t0 = beats[i];
     const t1 = (i + 1 < beats.length) ? beats[i + 1] : Math.min(duration, t0 + 0.5);
-    // 頭尾各讓開一點，避免吃到前一個和弦的尾音
-    const pad = Math.min(0.06, (t1 - t0) / 8);
+    const pad = Math.min(0.06, Math.max(0, (t1 - t0) / 8));
     let chroma = null;
-    if (t1 - t0 > 0.12) chroma = medianChromaInRange(store, t0 + pad, t1 - pad);
+    if (t1 - t0 > 0.12) chroma = medianChromaInRange(store, t0 + pad, Math.max(t0 + pad + 0.01, t1 - pad));
     if (!chroma) chroma = averageChromaInRange(store, t0, t1);
     obs.push({ cands: chordCandidates(chroma, 6) });
-    if ((i & 63) === 0) setProgress(70 + (i / beats.length) * 18, '步驟 3/4：比對和弦…');
   }
   return viterbiDecode(obs);
 }
 
 // 真正的 HMM Viterbi：留在同一個和弦免費，換和弦要付固定代價。
-// 代價用「nats」表示，乘上溫度 TAU 後就是分數差，換和弦必須贏過這麼多分。
 function viterbiDecode(obs) {
   const stateList = [];
   const stateIndex = new Map();
@@ -874,8 +996,7 @@ function viterbiDecode(obs) {
   if (!N) return [];
   const FLOOR = -0.15;
 
-  // 發射機率：分數做 softmax。溫度越小越相信分數差距。
-  // 餘弦分數的典型 top1-top2 差距約 0.1，TAU=0.03 時約等於 3 個 nat。
+  // 發射機率：分數做 softmax。TAU 越小越相信分數差距。
   const TAU = 0.03;
   const emitLog = [];
   const emitProb = [];
@@ -893,9 +1014,7 @@ function viterbiDecode(obs) {
     emitProb.push(prob);
   }
 
-  // 換和弦的固定代價。用常數而非 1/N 分攤，才不會因為候選狀態變多
-  // 就突然變得超黏或超跳。
-  // 4.0 nat × TAU 0.03 ≈ 0.12 分：換和弦要比原和弦高出這麼多分才值得。
+  // 換和弦的固定代價：4.0 nat × TAU 0.03 ≈ 0.12 分
   const SWITCH_COST = 4.0;
   const logStay = 0;
   const logSwitch = -SWITCH_COST;
@@ -932,8 +1051,6 @@ function viterbiDecode(obs) {
     cur = back[t][cur];
   }
 
-  // 信心度 = 選中的和弦與「第二可能」的發射機率比。狀態數多寡不會影響尺度，
-  // 所以 UI 上的顏色門檻不會因為候選變多而全部變紅。
   const out = [];
   for (let t = 0; t < obs.length; t++) {
     const chosen = path[t];
@@ -953,7 +1070,7 @@ function viterbiDecode(obs) {
   return out;
 }
 
-// 把逐拍結果收斂成小節（一小節可以有多個和弦，顯示成 "C / G"）
+// 把逐拍結果收斂成小節（一小節可以有多個和弦）
 function summarizeBars(bars, beats, beatChords) {
   return bars.map(bar => {
     const idxs = [];
@@ -977,7 +1094,7 @@ function summarizeBars(bars, beats, beatChords) {
     let dominant = runs[0];
     for (const r of runs) if (r.count > dominant.count) dominant = r;
 
-    // 佔比太小的碎片（例如一拍就跳走）不顯示，避免畫面一堆「C / G / D」
+    // 佔比太小的碎片不顯示，避免畫面一堆「C / G / D」
     const parts = runs.filter(r => r.count / idxs.length >= 0.2);
 
     return {
@@ -1024,192 +1141,264 @@ function detectKey(beatChords) {
   return { root: best.root, mode: best.mode };
 }
 
-function keyName(root, mode) {
-  return NOTE_NAMES[root] + (mode === 'minor' ? 'm' : '');
+// =========================================================================
+// 移調與 Capo
+// =========================================================================
+// 小調歌曲習慣用關係大調的指型（Am 用 C 的形狀），所以先轉成關係大調。
+function songMajorRoot() {
+  return state.detectedMode === 'minor' ? mod12(state.detectedKey + 3) : state.detectedKey;
 }
 
-// ── 移調夾建議 ──────────────────────────────────────────────────
-// 小調歌曲的習慣是用關係大調的指型（Am 用 C 的形狀），所以先轉成關係大調。
-function suggestCapo(keyRoot, mode) {
-  const majorRoot = mode === 'minor' ? (keyRoot + 3) % 12 : keyRoot;
-  // 只列吉他好按的開放/常用把位。F 把位要全封閉，實務上寧可夾一格用 E 型。
-  const shapes = [
-    { root: 0, name: 'C' }, { root: 7, name: 'G' }, { root: 2, name: 'D' },
-    { root: 9, name: 'A' }, { root: 4, name: 'E' },
-  ];
-  let best = null;
-  for (const s of shapes) {
-    const capo = (majorRoot - s.root + 12) % 12;
-    if (!best || capo < best.capo) best = { capo, shape: s };
-  }
-  const sounding = keyName(keyRoot, mode);
-  const relativeMinor = NOTE_NAMES[(best.shape.root + 9) % 12] + 'm';
-  const shapeLabel = mode === 'minor'
-    ? `${best.shape.name} 大調把位（以 ${relativeMinor} 為主）`
-    : `${best.shape.name} 大調和弦`;
-  return {
-    capo: best.capo,
-    targetRoot: best.shape.root,
-    targetKey: best.shape.name,
-    detectedKeyName: sounding,
-    description: best.capo === 0
-      ? `${sounding} — 以 ${shapeLabel}彈奏，不必夾移調夾`
-      : `${sounding} — 移調夾夾第 ${best.capo} 格，以 ${shapeLabel}彈奏`,
-  };
-}
+function updateKeyView() {
+  const targetMajor = mod12(songMajorRoot() + state.transpose);
+  let shapeRoot = targetMajor;
 
-// ── 標記順階和弦（只做顯示標記，不改動偵測到的和弦）──────────────
-function markDiatonic(barChords, keyRoot, mode) {
-  const scale = mode === 'minor' ? SCALE_MINOR : SCALE_MAJOR;
-  const inScale = new Set(scale.map(s => (keyRoot + s) % 12));
-  // 小調常用和聲小調的 V（大三大和弦），一併視為順階
-  const harmonicLeading = mode === 'minor' ? (keyRoot + 11) % 12 : -1;
-
-  return barChords.map(ch => {
-    const toneSets = (ch.parts && ch.parts.length) ? ch.parts : [{ root: ch.root, quality: ch.quality }];
-    let allDiatonic = true;
-    for (const p of toneSets) {
-      const template = CHORD_TEMPLATES[p.quality] || CHORD_TEMPLATES.maj;
-      for (let i = 0; i < 12; i++) {
-        if (!template[i]) continue;
-        const pc = (p.root + i) % 12;
-        if (!inScale.has(pc) && pc !== harmonicLeading) { allDiatonic = false; break; }
+  if (state.shapeMode === 'off') {
+    state.capo = 0;
+    state.shapeName = KEY_LABELS[targetMajor];
+  } else if (state.shapeMode === 'auto') {
+    let best = null;
+    for (const s of SHAPES) {
+      const capo = mod12(targetMajor - s.root);
+      const pref = (s.name === 'C' || s.name === 'G') ? 0 : 1; // 平手時 C／G 優先
+      if (!best || capo < best.capo || (capo === best.capo && pref < best.pref)) {
+        best = { capo, pref, shape: s };
       }
-      if (!allDiatonic) break;
     }
+    state.capo = best.capo;
+    shapeRoot = best.shape.root;
+    state.shapeName = best.shape.name;
+  } else {
+    const s = SHAPES.find(x => x.name === state.shapeMode) || SHAPES[0];
+    state.capo = mod12(targetMajor - s.root);
+    shapeRoot = s.root;
+    state.shapeName = s.name;
+  }
+  state.displayMajor = shapeRoot;
+}
 
-    const parts = (ch.parts && ch.parts.length > 1) ? ch.parts : null;
+// 畫面上的和弦 = 原調和弦 + 移調 − Capo
+function displayRootOf(soundingRoot) {
+  return mod12(soundingRoot + state.transpose - state.capo);
+}
+
+function isDiatonicChord(rootPC, quality, keyMajorRoot, mode) {
+  const scale = new Set(SCALE_MAJOR.map(s => mod12(keyMajorRoot + s)));
+  if (mode === 'minor') scale.add(mod12(keyMajorRoot + 8)); // 和聲小調的導音
+  const t = CHORD_TEMPLATES[quality] || CHORD_TEMPLATES.maj;
+  for (let i = 0; i < 12; i++) if (t[i] && !scale.has(mod12(rootPC + i))) return false;
+  return true;
+}
+
+function buildDisplayChords() {
+  const shapeMajor = state.displayMajor;
+  const mode = state.detectedMode;
+  state.chords = (state.originalChords || []).map((ch, idx) => {
+    const rawParts = (ch.parts && ch.parts.length)
+      ? ch.parts
+      : [{ root: ch.root, quality: ch.quality, beats: state.beatsPerBar }];
+    const parts = rawParts.map(p => {
+      const root = displayRootOf(p.root);
+      return {
+        root,
+        quality: p.quality,
+        beats: p.beats || 1,
+        name: chordName(root, p.quality),
+        degree: degreeLabel(root, p.quality, shapeMajor),
+      };
+    });
+    const isDiatonic = parts.every(p => isDiatonicChord(p.root, p.quality, shapeMajor, mode));
     return {
-      ...ch,
-      display: parts ? parts.map(p => p.display).join(' / ') : chordName(ch.root, ch.quality),
-      isDiatonic: allDiatonic,
+      idx,
+      parts,
+      display: parts.map(p => p.name).join(' / '),
+      isDiatonic,
+      confidence: ch.confidence || 0,
     };
   });
 }
 
-// ── BPM 重新計算 ────────────────────────────────────────────────
-// chroma 已經快取，所以換 BPM 只是重鋪格線，不必重新分析音訊。
-async function recalcWithBPM(newBpm) {
-  if (!state.audioBuffer || !state.chromaStore) return;
-  const duration = state.audioBuffer.duration;
-  const interval = 60 / newBpm;
-
-  // 保留原本的格線相位，只改週期，避免整首歌突然前後跳
-  const phase = state.beatPhaseSec || 0;
-  const beats = [];
-  for (let t = phase > interval ? phase - interval : phase; t < duration; t += interval) {
-    if (t >= 0) beats.push(t);
+function refreshKeyInfo() {
+  const detected = document.getElementById('detected-key');
+  if (detected) detected.textContent = keyName(state.detectedKey, state.detectedMode);
+  const capoEl = document.getElementById('capo-badge');
+  if (capoEl) capoEl.textContent = state.capo + ' 格';
+  const desc = document.getElementById('capo-description');
+  if (!desc) return;
+  const target = keyName(mod12(state.detectedKey + state.transpose), state.detectedMode);
+  const shapeRoot = state.displayMajor;
+  let text;
+  if (state.shapeMode === 'off') {
+    text = `以 ${KEY_LABELS[mod12(shapeRoot)]} 調和弦直接彈，不夾移調夾`;
+  } else if (state.capo === 0) {
+    text = `以 ${state.shapeName} 調指型彈奏（不用夾移調夾）`;
+  } else {
+    text = `移調夾夾第 ${state.capo} 格，以 ${state.shapeName} 調指型彈奏`;
   }
-  if (!beats.length) return;
+  if (state.transpose !== 0) text += ` · 已從原調 ${keyName(state.detectedKey, state.detectedMode)} 轉成 ${target}`;
+  if (state.capo > 7) text += ' · Capo 偏高，可考慮換把位';
+  desc.textContent = text;
+}
 
+function syncTransposeSelect() {
+  const sel = document.getElementById('transpose-select');
+  if (!sel) return;
+  sel.innerHTML = '';
+  for (let pc = 0; pc < 12; pc++) {
+    const o = document.createElement('option');
+    o.value = pc;
+    o.textContent = keyName(pc, state.detectedMode);
+    if (pc === mod12(state.detectedKey + state.transpose)) o.selected = true;
+    sel.appendChild(o);
+  }
+}
+
+// =========================================================================
+// 格線重建（換 BPM / 改拍號 / 微調都走這裡，chroma 不必重算）
+// =========================================================================
+function applyGrid(opts) {
+  opts = opts || {};
+  if (!state.chromaStore) return;
+  const duration = state.duration;
+  const bpb = state.beatsPerBar;
+
+  const beats = state.baseBeats
+    .map(t => t + state.gridShiftSec)
+    .filter(t => t >= 0 && t < duration);
   state.beats = beats;
-  state.bpm = newBpm;
-  const downbeat = estimateDownbeatOffset(beats, state.chromaStore);
-  state.downbeatOffset = downbeat;
-  state.bars = groupIntoBars(beats, duration, 4, downbeat);
 
-  setProgress(10, '重新計算小節劃分與和弦…');
-  await yieldToUI();
+  const off = ((state.autoDownbeat + state.downbeatShift) % bpb + bpb) % bpb;
+  state.bars = groupIntoBars(beats, duration, bpb, off);
 
-  const decoded = decodeChordsForBeats(beats, state.chromaStore, duration);
-  state.beatChords = decoded;
-  const barChords = summarizeBars(state.bars, beats, decoded);
+  if (opts.decode !== false || state.beatChords.length !== beats.length) {
+    state.beatChords = decodeChordsForBeats(beats, state.chromaStore, duration);
+  }
 
-  const key = detectKey(decoded);
-  state.detectedKey = key.root;
-  state.detectedMode = key.mode;
-  state.capo = suggestCapo(key.root, key.mode);
-  state.chords = markDiatonic(barChords, key.root, key.mode);
-  state.originalChords = barChords;
+  state.originalChords = summarizeBars(state.bars, beats, state.beatChords);
 
-  setProgressDone();
+  if (opts.detectKey !== false) {
+    const key = detectKey(state.beatChords);
+    state.detectedKey = key.root;
+    state.detectedMode = key.mode;
+  }
+
+  updateKeyView();
+  buildDisplayChords();
+  refreshKeyInfo();
   drawWaveform();
-  renderResults();
-  setStatus(`已重新計算（BPM: ${newBpm}）`, 'done');
+  renderChart();
 }
 
-function escapeHtml(s) {
-  return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function regridFromBPM(bpm) {
+  const duration = state.duration;
+  const interval = 60 / bpm;
+  const phase = state.baseBeats.length ? state.baseBeats[0] % interval : 0;
+  const beats = [];
+  for (let t = phase; t < duration; t += interval) beats.push(t);
+  state.baseBeats = beats;
+  state.gridShiftSec = 0;
+  state.downbeatShift = 0;
+  state.autoDownbeat = estimateDownbeatOffset(beats, state.chromaStore, state.beatsPerBar);
+  state.bpm = bpm;
 }
 
 // =========================================================================
-// 渲染結果
+// 渲染：簡譜式小節表
 // =========================================================================
-function renderResults() {
-  const bars = state.bars;
+function renderChart() {
   const chords = state.chords;
-  if (!bars.length || !chords.length) return;
+  const bars = state.bars;
+  if (!chords.length || !bars.length) return;
 
   document.getElementById('key-info').style.display = 'flex';
-  document.getElementById('detected-key').textContent = keyName(state.detectedKey, state.detectedMode);
-  document.getElementById('capo-suggestion').textContent = state.capo.capo + ' 格';
-  document.getElementById('display-key').textContent = state.capo.targetKey;
-  document.getElementById('capo-description').textContent = state.capo.description || '';
-  document.getElementById('chord-track-container').style.display = 'block';
-  renderChordBars();
-  drawWaveform();
+  document.getElementById('grid-row').style.display = 'flex';
+  document.getElementById('chart-container').style.display = 'block';
+
+  computeLyricBuckets();
+  const showLyricRows = state.showLyrics && state.lyrics.length > 0;
+
+  let html = '';
+  for (let r = 0; r < chords.length; r += 4) {
+    html += '<div class="chart-row">';
+    for (let c = 0; c < 4; c++) {
+      const idx = r + c;
+      html += (idx < chords.length) ? barCellHtml(idx) : '<div class="bar is-empty"></div>';
+    }
+    html += '</div>';
+    if (showLyricRows) {
+      html += '<div class="lyric-row">';
+      for (let c = 0; c < 4; c++) {
+        const idx = r + c;
+        const txt = idx < chords.length ? barLyric(idx) : '';
+        html += '<div class="lyric-cell">' + escapeHtml(txt) + '</div>';
+      }
+      html += '</div>';
+    }
+  }
+  document.getElementById('chart').innerHTML = html;
+  if (state.showDiagrams) renderChordDiagrams();
 }
 
-function renderChordBars() {
-  const container = document.getElementById('chord-bar-row');
-  const showDia = document.getElementById('show-diagrams').checked;
-  const showConf = document.getElementById('show-confidence').checked;
-  state.showDiagrams = showDia;
-  state.showConfidence = showConf;
-  let html = '';
-  state.chords.forEach((ch, idx) => {
-    const confClass = ch.confidence >= 0.7 ? 'conf-high' : ch.confidence >= 0.4 ? 'conf-med' : 'conf-low';
-    const nonDiaClass = ch.isDiatonic ? '' : ' is-non-diatonic';
-    html += '<div class="chord-bar' + nonDiaClass + '" data-bar="' + idx + '" onclick="seekToBar(' + idx + ')">';
-    html += '<button class="chord-bar-edit" onclick="event.stopPropagation();openEditModal(' + idx + ')" title="編輯和弦">✏️</button>';
-    if (showConf) html += '<span class="confidence-dot ' + confClass + '" title="信賴度: ' + Math.round(ch.confidence*100) + '%"></span>';
-    if (!ch.isDiatonic) {
-      html += '<div style="font-size:9px;color:#f59e0b;font-weight:600;margin-top:2px;">調外</div>';
-    }
-    html += '<div class="chord-name">' + escapeHtml(ch.display) + '</div>';
-    const qualText = (ch.parts && ch.parts.length > 1)
-      ? ch.parts.map(p => p.beats + ' 拍').join(' · ')
-      : (getChordQualityLabel(ch.quality) || '大三');
-    html += '<div class="chord-quality">' + escapeHtml(qualText) + '</div>';
-    if (showDia) {
-      html += '<div class="chord-diagram" id="dia-bar-' + idx + '"></div>';
-    }
-    html += '<div class="bar-num">' + (idx+1) + '</div>';
-    html += '</div>';
+function barParts(idx) {
+  const ch = state.chords[idx];
+  return (ch && ch.parts && ch.parts.length) ? ch.parts : [];
+}
+
+function barTotalBeats(idx) {
+  const parts = barParts(idx);
+  let total = 0;
+  for (const p of parts) total += (p.beats || 1);
+  return total || state.beatsPerBar;
+}
+
+function barCellHtml(idx) {
+  const ch = state.chords[idx];
+  const parts = barParts(idx);
+  const total = barTotalBeats(idx);
+  let acc = 0, segs = '';
+  parts.forEach((p, k) => {
+    const left = (acc / total) * 100;
+    const width = ((p.beats || 1) / total) * 100;
+    segs += '<span class="seg" data-beat="' + acc + '"'
+          + ' style="left:' + left.toFixed(3) + '%;width:' + width.toFixed(3) + '%"'
+          + ' onclick="event.stopPropagation();auditionBar(' + idx + ',' + acc + ')">'
+          + '<span class="cname">' + escapeHtml(p.name) + '</span>'
+          + (state.showDegrees ? '<span class="cdeg">' + escapeHtml(p.degree) + '</span>' : '')
+          + (state.showDiagrams ? '<span class="cdia" data-dia="' + idx + '-' + k + '"></span>' : '')
+          + '</span>';
+    acc += (p.beats || 1);
   });
-  container.innerHTML = html;
-  renderChordDiagrams();
+  let ticks = '';
+  for (let b = 1; b < total; b++) ticks += '<span class="tick" style="left:' + (b / total * 100).toFixed(2) + '%"></span>';
+  const bodyH = state.showDiagrams ? 152 : 40;
+  return '<div class="bar' + (ch.isDiatonic ? '' : ' non-dia') + '" data-bar="' + idx + '"'
+       + ' onclick="auditionBar(' + idx + ',0)">'
+       + '<span class="bar-no">' + (idx + 1) + '</span>'
+       + '<button class="bar-edit" title="編輯和弦" onclick="event.stopPropagation();openEditModal(' + idx + ')">✏</button>'
+       + '<div class="bar-body" style="height:' + bodyH + 'px">' + ticks + segs + '</div>'
+       + '</div>';
 }
 
 function renderChordDiagrams() {
   if (typeof CHORD_LIBRARY === 'undefined') {
-    // Chord library not loaded yet; wait for it
     setTimeout(renderChordDiagrams, 200);
     return;
   }
+  const byInst = CHORD_LIBRARY[state.instrument];
+  const byTune = byInst ? byInst[state.tuning] : null;
+  const instData = INSTRUMENTS_DATA[state.instrument];
+  const tm = (instData && state.tuning) ? parseTuning(instData.tunings[state.tuning]) : null;
   state.chords.forEach((ch, idx) => {
-    const container = document.getElementById('dia-bar-' + idx);
-    if (!container) return;
-    const instIdx = state.instrument;
-    const byInst = CHORD_LIBRARY[instIdx];
-    if (!byInst) {
-      container.innerHTML = '<span style="font-size:10px;color:var(--muted);">無指型庫</span>';
-      return;
-    }
-    const byTune = byInst[state.tuning];
-    if (!byTune) {
-      container.innerHTML = '<span style="font-size:10px;color:var(--muted);">無此調弦</span>';
-      return;
-    }
-    const key = ch.root + ':' + ch.quality;
-    const shape = byTune[key];
-    if (shape) {
-      const instData = INSTRUMENTS_DATA[instIdx];
-      const tm = parseTuning(instData.tunings[state.tuning]);
-      container.innerHTML = svgFromShape(shape.frets, shape.fingers, shape.barre, ch.root, tm, 100);
-    } else {
-      container.innerHTML = '<span style="font-size:10px;color:var(--muted);">無指型</span>';
-    }
+    ch.parts.forEach((p, k) => {
+      const el = document.querySelector('[data-dia="' + idx + '-' + k + '"]');
+      if (!el) return;
+      const shape = byTune ? byTune[p.root + ':' + p.quality] : null;
+      if (!shape || !tm) {
+        el.innerHTML = '<span style="font-size:9px;color:var(--muted);">無指型</span>';
+        return;
+      }
+      el.innerHTML = svgFromShape(shape.frets, shape.fingers, shape.barre, p.root, tm, 86);
+    });
   });
 }
 
@@ -1223,7 +1412,7 @@ function svgFromShape(frets, fingers, barre, rootPC, tm, W) {
   const fretted = frets.filter(f => f > 0);
   let startFret = 1, FRET_COLS = 4;
   if (fretted.length) {
-    const lo = Math.min(...fretted), hi = Math.max(...fretted);
+    const lo = Math.min.apply(null, fretted), hi = Math.max.apply(null, fretted);
     if (lo > 3) startFret = lo;
     FRET_COLS = Math.max(4, hi - startFret + 1);
   }
@@ -1231,29 +1420,158 @@ function svgFromShape(frets, fingers, barre, rootPC, tm, W) {
 }
 
 function svgVertical(frets, fingers, barre, rootPC, tm, W, n, startFret, FRET_COLS, showNut) {
-  const mL=18,mR=10,mT=22,mB=12;
-  const colW=Math.min(22,Math.max(10,(W-mL-mR)/(n-1||1)));
-  const gridW=(n-1)*colW,rowH=18,gridH=FRET_COLS*rowH,H=mT+gridH+mB,Wv=mL+gridW+mR;
-  function colOf(s){ return (n-1-s); }
-  let sh='<svg width="'+Wv+'" height="'+H+'" viewBox="0 0 '+Wv+' '+H+'" xmlns="http://www.w3.org/2000/svg">';
-  for(let f=0;f<=FRET_COLS;f++){const fy=mT+f*rowH;const lw=(f===0&&showNut)?3:1;sh+='<line x1="'+mL+'" y1="'+fy+'" x2="'+(mL+gridW)+'" y2="'+fy+'" stroke="#8B7355" stroke-width="'+lw+'" opacity="0.5"/>';}
-  for(let s=0;s<n;s++){const sx=mL+colOf(s)*colW;sh+='<line x1="'+sx+'" y1="'+mT+'" x2="'+sx+'" y2="'+(mT+gridH)+'" stroke="#555" stroke-width="1" opacity="0.3"/>';}
-  for(let f=1;f<=FRET_COLS;f++){const fy=mT+(f-0.5)*rowH;sh+='<text x="'+(mL-6)+'" y="'+(fy+3)+'" text-anchor="middle" font-size="8" fill="#999">'+(startFret+f-1)+'</text>';}
-  if(!showNut)sh+='<text x="'+(mL-6)+'" y="'+(mT-4)+'" text-anchor="middle" font-size="9" font-weight="700" fill="#C4956A">'+startFret+'fr</text>';
-  if(barre){const brow=barre.fret-startFret,by=mT+(brow+0.5)*rowH;const bcx1=mL+colOf(barre.from)*colW,bcx2=mL+colOf(barre.to)*colW;const bx1=Math.min(bcx1,bcx2),bx2=Math.max(bcx1,bcx2);sh+='<rect x="'+(bx1-6)+'" y="'+(by-6)+'" width="'+(bx2-bx1+12)+'" height="12" rx="6" fill="#0f766e" opacity="0.8"/>';}
-  for(let s=0;s<n;s++){const sx=mL+colOf(s)*colW,c=frets[s];if(c===-1){sh+='<text x="'+sx+'" y="'+(mT-6)+'" text-anchor="middle" font-size="10" font-weight="700" fill="#c0392b">✕</text>';}else if(c===0){sh+='<circle cx="'+sx+'" cy="'+(mT-8)+'" r="4" fill="none" stroke="#0f766e" stroke-width="1.5"/>';}else{const row=c-startFret,fy=mT+(row+0.5)*rowH;const nc=(tm[s]+c)%12,ir=nc===rootPC;const finger=(fingers&&fingers[s])?fingers[s]:Math.min(4,c-startFret+1);sh+='<circle cx="'+sx+'" cy="'+fy+'" r="6" fill="'+(ir?'#C4956A':'#0f766e')+'"/>';sh+='<text x="'+sx+'" y="'+(fy+2)+'" text-anchor="middle" font-size="8" font-weight="700" fill="#fff">'+finger+'</text>';}}
-  sh+='</svg>';return sh;
+  const mL = 18, mR = 10, mT = 22, mB = 12;
+  const colW = Math.min(22, Math.max(10, (W - mL - mR) / (n - 1 || 1)));
+  const gridW = (n - 1) * colW, rowH = 18, gridH = FRET_COLS * rowH, H = mT + gridH + mB, Wv = mL + gridW + mR;
+  function colOf(s) { return (n - 1 - s); }
+  let sh = '<svg width="' + Wv + '" height="' + H + '" viewBox="0 0 ' + Wv + ' ' + H + '" xmlns="http://www.w3.org/2000/svg">';
+  for (let f = 0; f <= FRET_COLS; f++) {
+    const fy = mT + f * rowH;
+    const lw = (f === 0 && showNut) ? 3 : 1;
+    sh += '<line x1="' + mL + '" y1="' + fy + '" x2="' + (mL + gridW) + '" y2="' + fy + '" stroke="#8B7355" stroke-width="' + lw + '" opacity="0.5"/>';
+  }
+  for (let s = 0; s < n; s++) {
+    const sx = mL + colOf(s) * colW;
+    sh += '<line x1="' + sx + '" y1="' + mT + '" x2="' + sx + '" y2="' + (mT + gridH) + '" stroke="#555" stroke-width="1" opacity="0.3"/>';
+  }
+  for (let f = 1; f <= FRET_COLS; f++) {
+    const fy = mT + (f - 0.5) * rowH;
+    sh += '<text x="' + (mL - 6) + '" y="' + (fy + 3) + '" text-anchor="middle" font-size="8" fill="#999">' + (startFret + f - 1) + '</text>';
+  }
+  if (!showNut) sh += '<text x="' + (mL - 6) + '" y="' + (mT - 4) + '" text-anchor="middle" font-size="9" font-weight="700" fill="#C4956A">' + startFret + 'fr</text>';
+  if (barre) {
+    const brow = barre.fret - startFret, by = mT + (brow + 0.5) * rowH;
+    const bcx1 = mL + colOf(barre.from) * colW, bcx2 = mL + colOf(barre.to) * colW;
+    const bx1 = Math.min(bcx1, bcx2), bx2 = Math.max(bcx1, bcx2);
+    sh += '<rect x="' + (bx1 - 6) + '" y="' + (by - 6) + '" width="' + (bx2 - bx1 + 12) + '" height="12" rx="6" fill="#0f766e" opacity="0.8"/>';
+  }
+  for (let s = 0; s < n; s++) {
+    const sx = mL + colOf(s) * colW, c = frets[s];
+    if (c === -1) {
+      sh += '<text x="' + sx + '" y="' + (mT - 6) + '" text-anchor="middle" font-size="10" font-weight="700" fill="#c0392b">✕</text>';
+    } else if (c === 0) {
+      sh += '<circle cx="' + sx + '" cy="' + (mT - 8) + '" r="4" fill="none" stroke="#0f766e" stroke-width="1.5"/>';
+    } else {
+      const row = c - startFret, fy = mT + (row + 0.5) * rowH;
+      const nc = (tm[s] + c) % 12, ir = nc === rootPC;
+      const finger = (fingers && fingers[s]) ? fingers[s] : Math.min(4, c - startFret + 1);
+      sh += '<circle cx="' + sx + '" cy="' + fy + '" r="6" fill="' + (ir ? '#C4956A' : '#0f766e') + '"/>';
+      sh += '<text x="' + sx + '" y="' + (fy + 2) + '" text-anchor="middle" font-size="8" font-weight="700" fill="#fff">' + finger + '</text>';
+    }
+  }
+  sh += '</svg>';
+  return sh;
 }
 
 function assignFingers(frets) {
-  const n=frets.length,fingers=[]; for(let i=0;i<n;i++)fingers.push(0);
-  const pressed=[]; for(let s=0;s<n;s++)if(frets[s]>0)pressed.push(s);
-  if(!pressed.length) return {fingers, barre:null, count:0};
-  const f0=Math.min(...pressed.map(s=>frets[s]));
-  const at0=pressed.filter(s=>frets[s]===f0);
-  let barre=null;
-  if(at0.length>=2){const lo=Math.min(...at0),hi=Math.max(...at0);let ok=true;for(let s=lo;s<=hi;s++){if(frets[s]>=0&&frets[s]!==f0){ok=false;break;}}if(ok){barre={fret:f0,from:lo,to:hi};at0.forEach(s=>fingers[s]=1);const rem=pressed.filter(s=>frets[s]>f0);let nf=2;rem.sort((a,b)=>frets[a]-frets[b]||a-b);rem.forEach(s=>{fingers[s]=Math.min(4,nf);nf++;});return {fingers, barre, count:nf-1};}}
-  const order=[],seen={};pressed.forEach(s=>{if(!seen[frets[s]]){seen[frets[s]]=1;order.push(frets[s]);}});order.sort((a,b)=>a-b);const fmap={};order.forEach((fr,i)=>fmap[fr]=i+1);pressed.forEach(s=>fingers[s]=Math.min(4,fmap[frets[s]]));return {fingers, barre:null, count:order.length};
+  const n = frets.length, fingers = [];
+  for (let i = 0; i < n; i++) fingers.push(0);
+  const pressed = [];
+  for (let s = 0; s < n; s++) if (frets[s] > 0) pressed.push(s);
+  if (!pressed.length) return { fingers, barre: null, count: 0 };
+  const f0 = Math.min.apply(null, pressed.map(s => frets[s]));
+  const at0 = pressed.filter(s => frets[s] === f0);
+  let barre = null;
+  if (at0.length >= 2) {
+    const lo = Math.min.apply(null, at0), hi = Math.max.apply(null, at0);
+    let ok = true;
+    for (let s = lo; s <= hi; s++) { if (frets[s] >= 0 && frets[s] !== f0) { ok = false; break; } }
+    if (ok) {
+      barre = { fret: f0, from: lo, to: hi };
+      at0.forEach(s => fingers[s] = 1);
+      const rem = pressed.filter(s => frets[s] > f0);
+      let nf = 2;
+      rem.sort((a, b) => frets[a] - frets[b] || a - b);
+      rem.forEach(s => { fingers[s] = Math.min(4, nf); nf++; });
+      return { fingers, barre, count: nf - 1 };
+    }
+  }
+  const order = [], seen = {};
+  pressed.forEach(s => { if (!seen[frets[s]]) { seen[frets[s]] = 1; order.push(frets[s]); } });
+  order.sort((a, b) => a - b);
+  const fmap = {};
+  order.forEach((fr, i) => fmap[fr] = i + 1);
+  pressed.forEach(s => fingers[s] = Math.min(4, fmap[frets[s]]));
+  return { fingers, barre: null, count: order.length };
+}
+
+// =========================================================================
+// 歌詞（.lrc）
+// =========================================================================
+function decodeText(buf) {
+  const attempt = enc => {
+    try { return new TextDecoder(enc, { fatal: true }).decode(buf); } catch (e) { return null; }
+  };
+  return attempt('utf-8') || attempt('big5') || attempt('gb18030') || new TextDecoder('utf-8').decode(buf);
+}
+
+function parseLRC(text) {
+  const out = [];
+  const tagRe = /\[(\d{1,3}):(\d{1,2})(?:[.:](\d{1,3}))?\]/g;
+  text.split(/\r?\n/).forEach(line => {
+    const times = [];
+    let m, lastEnd = 0;
+    tagRe.lastIndex = 0;
+    while ((m = tagRe.exec(line))) {
+      const sec = parseInt(m[2], 10);
+      const ms = m[3] ? parseInt(m[3].padEnd(3, '0'), 10) / 1000 : 0;
+      times.push(parseInt(m[1], 10) * 60 + sec + ms);
+      lastEnd = tagRe.lastIndex;
+    }
+    if (!times.length) return;
+    const content = line.slice(lastEnd).trim();
+    if (!content) return;
+    for (const t of times) out.push({ time: t, text: content });
+  });
+  out.sort((a, b) => a.time - b.time);
+  return out;
+}
+
+async function loadLRCFile(file) {
+  const buf = await file.arrayBuffer();
+  const text = decodeText(buf);
+  state.lyrics = parseLRC(text);
+  const el = document.getElementById('lyric-status');
+  el.style.display = 'block';
+  if (!state.lyrics.length) {
+    el.textContent = '這個檔案裡找不到時間碼（[mm:ss.xx]），請確認是 .lrc 檔。';
+    el.className = 'status-msg error';
+    return;
+  }
+  el.textContent = `已載入 ${state.lyrics.length} 行歌詞（${file.name}）`;
+  el.className = 'status-msg done';
+  renderChart();
+}
+
+function barIndexForTime(t) {
+  const bars = state.bars;
+  if (!bars.length) return -1;
+  let lo = 0, hi = bars.length - 1, ans = -1;
+  while (lo <= hi) {
+    const mid = (lo + hi) >> 1;
+    if (t < bars[mid].start) hi = mid - 1;
+    else if (t >= bars[mid].end) lo = mid + 1;
+    else { ans = mid; break; }
+  }
+  if (ans === -1 && t < bars[0].start) ans = 0;
+  if (ans === -1 && t >= bars[bars.length - 1].end) ans = bars.length - 1;
+  return ans;
+}
+
+function computeLyricBuckets() {
+  const buckets = new Map();
+  for (const l of state.lyrics) {
+    const idx = barIndexForTime(l.time);
+    if (idx < 0) continue;
+    if (!buckets.has(idx)) buckets.set(idx, []);
+    buckets.get(idx).push(l.text);
+  }
+  state.lyricBuckets = buckets;
+}
+
+function barLyric(idx) {
+  const arr = state.lyricBuckets.get(idx);
+  return arr ? arr.join(' / ') : '';
 }
 
 // =========================================================================
@@ -1267,45 +1585,60 @@ document.getElementById('btn-analyze').addEventListener('click', () => {
 });
 
 function togglePlay() {
-  const btn = document.getElementById('btn-play');
   if (state.isPlaying) {
     stopPlayback();
-    btn.textContent = '▶';
+    document.getElementById('btn-play').textContent = '▶';
   } else {
-    startPlayback();
-    btn.textContent = '⏸';
+    if (state.currentTime >= state.duration - 0.05) state.currentTime = 0;
+    playFrom(state.currentTime, state.duration);
   }
 }
 
-function startPlayback() {
+function playFrom(startSec, endSec) {
   if (!state.audioBuffer) return;
+  stopPlayback();
   const ctx = audioCtx;
   if (ctx.state === 'suspended') ctx.resume();
-  state.sourceNode = ctx.createBufferSource();
-  state.sourceNode.buffer = state.audioBuffer;
-  state.sourceNode.connect(ctx.destination);
-  state.sourceNode.start(0, state.currentTime);
+  const start = Math.max(0, Math.min(startSec, state.duration - 0.05));
+  const end = Math.max(start + 0.05, Math.min(endSec, state.duration));
+  const src = ctx.createBufferSource();
+  src.buffer = state.audioBuffer;
+  src.connect(ctx.destination);
+  src.start(0, start, end - start);
+  state.sourceNode = src;
   state.isPlaying = true;
-  state.startTime = ctx.currentTime - state.currentTime;
+  state.currentTime = start;
+  state.playEnd = end;
+  state.startTime = ctx.currentTime - start;
+  src.onended = function () {
+    if (state.sourceNode === src) finishPlayback();
+  };
+  document.getElementById('btn-play').textContent = '⏸';
   updatePlaybackPosition();
 }
 
 function stopPlayback() {
-  if (state.sourceNode) { try { state.sourceNode.stop(); } catch(e) {} state.sourceNode = null; }
+  if (state.sourceNode) { try { state.sourceNode.stop(); } catch (e) {} state.sourceNode = null; }
   state.isPlaying = false;
   if (state.animFrame) { cancelAnimationFrame(state.animFrame); state.animFrame = null; }
 }
 
+function finishPlayback() {
+  state.sourceNode = null;
+  state.isPlaying = false;
+  document.getElementById('btn-play').textContent = '▶';
+  if (state.animFrame) { cancelAnimationFrame(state.animFrame); state.animFrame = null; }
+  updatePositionDisplay();
+  setActiveBar(-1);
+}
+
 function updatePlaybackPosition() {
   if (!state.isPlaying) return;
-  const ctx = audioCtx;
-  const elapsed = ctx.currentTime - state.startTime;
-  state.currentTime = Math.min(elapsed, state.duration);
+  state.currentTime = Math.min(audioCtx.currentTime - state.startTime, state.duration);
   updatePositionDisplay();
-  if (state.currentTime >= state.duration) {
-    stopPlayback();
-    document.getElementById('btn-play').textContent = '▶';
-    state.currentTime = 0;
+  if (state.currentTime >= state.playEnd - 0.02) {
+    // 交給 onended，但保險起見這裡也收尾
+    state.animFrame = requestAnimationFrame(updatePlaybackPosition);
     return;
   }
   state.animFrame = requestAnimationFrame(updatePlaybackPosition);
@@ -1314,44 +1647,65 @@ function updatePlaybackPosition() {
 function updatePositionDisplay() {
   const cursor = document.getElementById('playback-cursor');
   const canvas = document.getElementById('waveform-canvas');
+  if (!state.duration) return;
   const x = (state.currentTime / state.duration) * canvas.width;
   cursor.style.left = (x + 12) + 'px';
   cursor.style.display = 'block';
   const t = Math.floor(state.currentTime);
   document.getElementById('time-display').textContent =
-    Math.floor(t/60) + ':' + String(t%60).padStart(2,'0') + ' / ' +
-    Math.floor(state.duration/60) + ':' + String(Math.floor(state.duration)%60).padStart(2,'0');
-  updateCurrentBar();
+    Math.floor(t / 60) + ':' + String(t % 60).padStart(2, '0') + ' / ' +
+    Math.floor(state.duration / 60) + ':' + String(Math.floor(state.duration) % 60).padStart(2, '0');
+  updateActiveBar();
 }
 
-function updateCurrentBar() {
+function setActiveBar(idx) {
+  document.querySelectorAll('.bar').forEach(el => {
+    el.classList.toggle('is-active', Number(el.dataset.bar) === idx);
+  });
+  if (idx < 0) {
+    document.querySelectorAll('.seg.is-active').forEach(el => el.classList.remove('is-active'));
+    return;
+  }
+  const barEl = document.querySelector('.bar[data-bar="' + idx + '"]');
+  if (!barEl) return;
+  barEl.querySelectorAll('.seg').forEach(el => el.classList.remove('is-active'));
+}
+
+function updateActiveBar() {
   const bars = state.bars;
   if (!bars.length) return;
-  let currentIdx = -1;
-  bars.forEach((bar, idx) => {
-    if (state.currentTime >= bar.start && state.currentTime < bar.end) currentIdx = idx;
-  });
-  if (currentIdx !== state.currentBar) {
-    state.currentBar = currentIdx;
-    document.querySelectorAll('.chord-bar').forEach((el, idx) => {
-      el.classList.toggle('is-active', idx === currentIdx);
-    });
-    if (currentIdx >= 0) {
-      const el = document.querySelector('.chord-bar[data-bar="' + currentIdx + '"]');
-      if (el) el.scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'});
+  const idx = barIndexForTime(state.currentTime);
+  if (idx !== state.lastActiveBar) {
+    state.lastActiveBar = idx;
+    setActiveBar(idx);
+    if (idx >= 0 && state.isPlaying) {
+      const el = document.querySelector('.bar[data-bar="' + idx + '"]');
+      if (el) el.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
     }
   }
+  if (idx < 0) return;
+  const bar = bars[idx];
+  const total = barTotalBeats(idx);
+  const frac = (state.currentTime - bar.start) / Math.max(1e-6, bar.end - bar.start);
+  const beatPos = Math.max(0, Math.min(total - 1e-6, frac * total));
+  const barEl = document.querySelector('.bar[data-bar="' + idx + '"]');
+  if (!barEl) return;
+  let activeSeg = null;
+  barEl.querySelectorAll('.seg').forEach(seg => {
+    if (Number(seg.dataset.beat) <= beatPos + 1e-6) activeSeg = seg;
+  });
+  barEl.querySelectorAll('.seg').forEach(seg => seg.classList.toggle('is-active', seg === activeSeg));
 }
 
-function seekToBar(idx) {
+// 點小節（或小節內的某個和弦）就試聽那一段
+function auditionBar(idx, segBeat) {
   if (idx < 0 || idx >= state.bars.length) return;
-  state.currentTime = state.bars[idx].start;
-  if (audioCtx.state === 'suspended') audioCtx.resume();
-  if (state.isPlaying) {
-    stopPlayback();
-    startPlayback();
-  }
-  updatePositionDisplay();
+  const bar = state.bars[idx];
+  const total = barTotalBeats(idx);
+  const frac = Math.max(0, Math.min(0.99, (segBeat || 0) / total));
+  const start = bar.start + frac * (bar.end - bar.start);
+  const end = state.continuous ? state.duration : bar.end;
+  playFrom(start, end);
 }
 
 // =========================================================================
@@ -1360,29 +1714,33 @@ function seekToBar(idx) {
 let editingBarIdx = -1;
 
 function openEditModal(idx) {
-  editingBarIdx = idx;
   const ch = state.chords[idx];
   if (!ch) return;
-  document.getElementById('edit-bar-label').textContent = '第 ' + (idx+1) + ' 小節';
+  editingBarIdx = idx;
+  const shapeText = state.shapeMode === 'off' ? '原調' : state.shapeName + ' 調把位';
+  document.getElementById('edit-bar-label').textContent = '第 ' + (idx + 1) + ' 小節（以 ' + shapeText + '顯示）';
+  document.getElementById('edit-hint').textContent = state.capo > 0
+    ? '💡 用 ' + state.shapeName + ' 調把位輸入；儲存時會自動換算回原調（Capo ' + state.capo + ' 格）'
+    : '💡 以畫面上顯示的和弦輸入，儲存時會自動換算回原調';
+
   const rootSel = document.getElementById('edit-root');
   const qualSel = document.getElementById('edit-quality');
-  const bassSel = document.getElementById('edit-bass');
+  const curRoot = ch.parts.length ? ch.parts[0].root : 0;
+  const curQuality = ch.parts.length ? ch.parts[0].quality : 'maj';
+
   rootSel.innerHTML = '';
-  qualSel.innerHTML = '';
-  bassSel.innerHTML = '<option value="">無</option>';
   NOTE_NAMES.forEach((n, i) => {
-    const o = document.createElement('option'); o.value = i; o.textContent = n;
-    if (i === ch.root) o.selected = true;
+    const o = document.createElement('option');
+    o.value = i; o.textContent = n;
+    if (i === curRoot) o.selected = true;
     rootSel.appendChild(o);
   });
+  qualSel.innerHTML = '';
   CHORD_QUAL.forEach(q => {
-    const o = document.createElement('option'); o.value = q.key; o.textContent = q.label || '（大三）';
-    if (q.key === ch.quality) o.selected = true;
+    const o = document.createElement('option');
+    o.value = q.key; o.textContent = q.label || '（大三）';
+    if (q.key === curQuality) o.selected = true;
     qualSel.appendChild(o);
-  });
-  NOTE_NAMES.forEach((n, i) => {
-    const o = document.createElement('option'); o.value = i; o.textContent = n;
-    bassSel.appendChild(o);
   });
   document.getElementById('edit-modal').style.display = 'flex';
 }
@@ -1394,31 +1752,176 @@ function closeEditModal() {
 
 function saveEditChord() {
   if (editingBarIdx < 0) return;
-  const root = parseInt(document.getElementById('edit-root').value);
+  const dispRoot = parseInt(document.getElementById('edit-root').value, 10);
   const quality = document.getElementById('edit-quality').value;
-  const bass = document.getElementById('edit-bass').value;
-  state.chords[editingBarIdx] = {
-    display: NOTE_NAMES[root] + getChordQualityLabel(quality),
-    root, quality,
-    bass: bass ? parseInt(bass) : null,
-    confidence: 1.0,
-    isDiatonic: true,
+  const beats = barTotalBeats(editingBarIdx);
+  // 畫面座標換回原調：sounding = display − 移調 + Capo
+  const sounding = mod12(dispRoot - state.transpose + state.capo);
+  state.originalChords[editingBarIdx] = {
+    root: sounding,
+    quality,
+    confidence: 1,
+    parts: [{ root: sounding, quality, beats }],
   };
   closeEditModal();
-  renderChordBars();
+  buildDisplayChords();
+  renderChart();
 }
 
 // =========================================================================
-// BPM 編輯
+// 匯出（純文字 / Word）
 // =========================================================================
-document.getElementById('btn-recalc-bpm').addEventListener('click', function() {
-  const newBpm = parseInt(document.getElementById('bpm-input').value);
-  if (newBpm >= 20 && newBpm <= 300) {
-    recalcWithBPM(newBpm);
-  } else {
-    setStatus('BPM 範圍需在 20–300 之間', 'error');
+function chartTitle() {
+  return currentFile ? currentFile.name.replace(/\.[^.]+$/, '') : '未命名';
+}
+
+function chartMeta() {
+  const shapeText = state.shapeMode === 'off' ? '原調和弦（不夾）' : state.shapeName + ' 調指型';
+  return '原調 ' + keyName(state.detectedKey, state.detectedMode)
+    + '　把位 ' + shapeText
+    + '　Capo ' + state.capo + ' 格'
+    + '　BPM ' + state.bpm
+    + '　拍號 ' + state.beatsPerBar + '/4'
+    + (state.transpose !== 0 ? '　（已移調 ' + (state.transpose > 0 ? '+' : '') + state.transpose + ' 半音）' : '');
+}
+
+function dispWidth(s) {
+  let w = 0;
+  for (const ch of String(s)) {
+    const code = ch.codePointAt(0);
+    const wide = (code >= 0x1100 && code <= 0x115f) || code === 0x2329 || code === 0x232a ||
+      (code >= 0x2e80 && code <= 0xa4cf) || (code >= 0xac00 && code <= 0xd7a3) ||
+      (code >= 0xf900 && code <= 0xfaff) || (code >= 0xfe30 && code <= 0xfe4f) ||
+      (code >= 0xff00 && code <= 0xff60) || (code >= 0xffe0 && code <= 0xffe6);
+    w += wide ? 2 : 1;
   }
-});
+  return w;
+}
+
+function padDisplay(s, w) {
+  let out = String(s == null ? '' : s);
+  let cur = dispWidth(out);
+  if (cur >= w) return out;
+  while (cur < w) { out += ' '; cur++; }
+  return out;
+}
+
+function buildTextChart() {
+  computeLyricBuckets();
+  const lines = [];
+  lines.push('【和弦譜】' + chartTitle());
+  lines.push(chartMeta());
+  if (state.lyrics.length) lines.push('歌詞：已匯入 ' + state.lyrics.length + ' 行（.lrc）');
+  lines.push('');
+  const W = 18;
+  for (let r = 0; r < state.chords.length; r += 4) {
+    let chordLine = '', lyricLine = '';
+    for (let c = 0; c < 4; c++) {
+      const idx = r + c;
+      const has = idx < state.chords.length;
+      chordLine += padDisplay(has ? state.chords[idx].display : '', W);
+      lyricLine += padDisplay(has && state.showLyrics ? barLyric(idx) : '', W);
+    }
+    lines.push(String(r + 1).padStart(3, ' ') + ' | ' + chordLine.replace(/\s+$/, ''));
+    const lyr = lyricLine.replace(/\s+$/, '');
+    if (lyr.trim()) lines.push('    | ' + lyr);
+  }
+  return lines.join('\n') + '\n';
+}
+
+function buildWordHtml() {
+  computeLyricBuckets();
+  const rows = [];
+  for (let r = 0; r < state.chords.length; r += 4) {
+    let tds = '';
+    for (let c = 0; c < 4; c++) {
+      const idx = r + c;
+      const has = idx < state.chords.length;
+      const chord = has ? state.chords[idx].display : '';
+      const lyric = has ? barLyric(idx) : '';
+      tds += '<td><div class="ch">' + escapeHtml(chord) + '</div>'
+           + '<div class="ly">' + (lyric ? escapeHtml(lyric) : '&nbsp;') + '</div>'
+           + '<div class="bn">' + (has ? (idx + 1) : '') + '</div></td>';
+    }
+    rows.push('<tr>' + tds + '</tr>');
+  }
+  const title = escapeHtml(chartTitle());
+  return '﻿<html xmlns:o="urn:schemas-microsoft-com:office:office"'
+    + ' xmlns:w="urn:schemas-microsoft-com:office:word"'
+    + ' xmlns="http://www.w3.org/TR/REC-html40"><head>'
+    + '<meta http-equiv="Content-Type" content="text/html; charset=utf-8">'
+    + '<title>' + title + '</title><style>'
+    + '@page{size:A4;margin:1.8cm}'
+    + 'body{font-family:"Microsoft JhengHei","PingFang TC",sans-serif;font-size:11pt;color:#222}'
+    + 'h1{font-size:15pt;margin:0 0 4pt}'
+    + '.meta{color:#555;font-size:10pt;margin-bottom:10pt}'
+    + 'table{border-collapse:collapse;width:100%}'
+    + 'td{border:0.5pt solid #999;padding:4pt 6pt;vertical-align:top;width:25%}'
+    + '.ch{font-size:13pt;font-weight:bold}'
+    + '.ly{font-size:9pt;color:#333;min-height:12pt}'
+    + '.bn{font-size:8pt;color:#888;text-align:right}'
+    + '</style></head><body><h1>' + title + '</h1>'
+    + '<div class="meta">' + escapeHtml(chartMeta()) + '</div>'
+    + '<table>' + rows.join('') + '</table></body></html>';
+}
+
+function downloadBlob(content, mime, filename) {
+  const blob = new Blob([content], { type: mime });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(() => { URL.revokeObjectURL(url); a.remove(); }, 1000);
+}
+
+function safeFilename(ext) {
+  return (chartTitle() || '和弦譜').replace(/[\\/:*?"<>|]/g, '_').slice(0, 60) + ext;
+}
+
+function exportText() {
+  if (!state.chords.length) { setStatus('還沒有分析結果可以匯出', 'error'); return; }
+  downloadBlob(buildTextChart(), 'text/plain;charset=utf-8', safeFilename('_和弦譜.txt'));
+  setStatus('已下載純文字和弦譜', 'done');
+}
+
+function exportWord() {
+  if (!state.chords.length) { setStatus('還沒有分析結果可以匯出', 'error'); return; }
+  downloadBlob(buildWordHtml(), 'application/msword', safeFilename('_和弦譜.doc'));
+  setStatus('已下載 Word 檔（.doc），可直接開啟編輯', 'done');
+}
+
+// =========================================================================
+// 格線微調
+// =========================================================================
+function updateGridHint() {
+  const el = document.getElementById('grid-hint');
+  if (!el) return;
+  el.textContent = 'BPM ' + state.bpm
+    + ' · 整首微調 ' + (state.gridShiftSec * 1000).toFixed(0) + ' ms'
+    + ' · 小節線偏移 ' + state.downbeatShift + ' 拍'
+    + ' · ' + state.beatsPerBar + '/4';
+}
+
+function nudgeDownbeat(dir) {
+  if (!state.chromaStore) return;
+  const bpb = state.beatsPerBar;
+  state.downbeatShift = ((state.downbeatShift + dir) % bpb + bpb) % bpb;
+  applyGrid({ decode: false, detectKey: false });
+  updateGridHint();
+  setStatus('小節線已移動 ' + state.downbeatShift + ' 拍', '');
+}
+
+function nudgeGridShift(delta) {
+  if (!state.chromaStore) return;
+  let v = Math.round((state.gridShiftSec + delta) * 1000) / 1000;
+  v = Math.max(-0.5, Math.min(0.5, v));
+  state.gridShiftSec = v;
+  applyGrid({ decode: true, detectKey: false });
+  updateGridHint();
+  setStatus('整首格線微調 ' + (v * 1000).toFixed(0) + ' ms', '');
+}
 
 // =========================================================================
 // UI 設定
@@ -1426,37 +1929,104 @@ document.getElementById('btn-recalc-bpm').addEventListener('click', function() {
 function initUI() {
   const instSel = document.getElementById('instrument-select');
   INSTRUMENTS_DATA.forEach((inst, i) => {
-    const o = document.createElement('option'); o.value = i; o.textContent = inst.name;
+    const o = document.createElement('option');
+    o.value = i; o.textContent = inst.name;
     instSel.appendChild(o);
   });
   instSel.addEventListener('change', function() {
-    state.instrument = parseInt(this.value);
+    state.instrument = parseInt(this.value, 10);
     const tuningSel = document.getElementById('tuning-select');
     tuningSel.innerHTML = '';
     const inst = INSTRUMENTS_DATA[state.instrument];
     const tk = Object.keys(inst.tunings);
     tk.forEach(n => {
-      const o = document.createElement('option'); o.value = n; o.textContent = n;
+      const o = document.createElement('option');
+      o.value = n; o.textContent = n;
       tuningSel.appendChild(o);
     });
     state.tuning = tk[0];
     tuningSel.value = state.tuning;
-    if (state.chords.length) renderChordDiagrams();
+    if (state.chords.length && state.showDiagrams) renderChordDiagrams();
   });
   instSel.dispatchEvent(new Event('change'));
 
-  document.getElementById('show-diagrams').addEventListener('change', function() {
-    renderChordBars();
+  document.getElementById('tuning-select').addEventListener('change', function() {
+    state.tuning = this.value;
+    if (state.chords.length && state.showDiagrams) renderChordDiagrams();
   });
-  document.getElementById('show-confidence').addEventListener('change', function() {
-    renderChordBars();
-  });
-}
 
-function setStatus(msg, type) {
-  const el = document.getElementById('status-msg');
-  el.textContent = msg;
-  el.className = 'status-msg ' + (type || '');
+  document.getElementById('show-degrees').addEventListener('change', function() {
+    state.showDegrees = this.checked;
+    if (state.chords.length) renderChart();
+  });
+  document.getElementById('show-lyrics').addEventListener('change', function() {
+    state.showLyrics = this.checked;
+    if (state.chords.length) renderChart();
+  });
+  document.getElementById('show-diagrams').addEventListener('change', function() {
+    state.showDiagrams = this.checked;
+    if (state.chords.length) renderChart();
+  });
+  document.getElementById('continuous').addEventListener('change', function() {
+    state.continuous = this.checked;
+  });
+
+  document.getElementById('btn-import-lrc').addEventListener('click', function() {
+    document.getElementById('lrc-input').click();
+  });
+  document.getElementById('lrc-input').addEventListener('change', function() {
+    if (this.files && this.files.length) loadLRCFile(this.files[0]);
+    this.value = '';
+  });
+  document.getElementById('btn-export-txt').addEventListener('click', exportText);
+  document.getElementById('btn-export-doc').addEventListener('click', exportWord);
+
+  document.getElementById('transpose-select').addEventListener('change', function() {
+    if (!state.chromaStore) return;
+    state.transpose = mod12(parseInt(this.value, 10) - state.detectedKey);
+    updateKeyView();
+    buildDisplayChords();
+    refreshKeyInfo();
+    renderChart();
+  });
+  document.getElementById('shape-select').addEventListener('change', function() {
+    state.shapeMode = this.value;
+    if (!state.chromaStore) return;
+    updateKeyView();
+    buildDisplayChords();
+    refreshKeyInfo();
+    renderChart();
+  });
+
+  document.getElementById('bpb-select').addEventListener('change', function() {
+    state.beatsPerBar = parseInt(this.value, 10) || 4;
+    if (!state.chromaStore) return;
+    state.autoDownbeat = estimateDownbeatOffset(state.baseBeats, state.chromaStore, state.beatsPerBar);
+    state.downbeatShift = 0;
+    applyGrid({ decode: false, detectKey: false });
+    updateGridHint();
+  });
+
+  document.getElementById('btn-downbeat-prev').addEventListener('click', () => nudgeDownbeat(-1));
+  document.getElementById('btn-downbeat-next').addEventListener('click', () => nudgeDownbeat(1));
+  document.getElementById('btn-shift-minus').addEventListener('click', () => nudgeGridShift(-0.02));
+  document.getElementById('btn-shift-plus').addEventListener('click', () => nudgeGridShift(0.02));
+
+  document.getElementById('btn-recalc-bpm').addEventListener('click', function() {
+    const bpm = parseInt(document.getElementById('bpm-input').value, 10);
+    if (!(bpm >= 20 && bpm <= 300)) { setStatus('BPM 範圍需在 20–300 之間', 'error'); return; }
+    if (!state.chromaStore) return;
+    regridFromBPM(bpm);
+    applyGrid({ decode: true, detectKey: true });
+    syncTransposeSelect();
+    document.getElementById('bpm-input').value = bpm;
+    updateGridHint();
+    setStatus('已用 ' + bpm + ' BPM 重新鋪格線', 'done');
+  });
+
+  document.getElementById('bpm-input').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') document.getElementById('btn-recalc-bpm').click();
+  });
 }
 
 document.addEventListener('DOMContentLoaded', initUI);
