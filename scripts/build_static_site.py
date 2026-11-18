@@ -2283,42 +2283,6 @@ def build_manager_page(instruments):
 
   </div>
 
-  <div class="manage-card">
-    <h2>📖 電子書下載</h2>
-    <p>依 A1~A9 分類輸出為 Word (.docx) 與 PDF 格式，每本包含封面、關於作者、目錄與完整樂器介紹（含 YouTube QR Code）。</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-top:16px;">
-      <div style="border:1px solid var(--line);border-radius:8px;padding:14px;background:var(--surface);">
-        <strong>A1 吹奏與氣息樂器</strong><br>
-        <span style="font-size:12px;color:var(--muted);">225 件樂器</span><br>
-        <a href="../assets/世界樂器百科Ⅰ_A1-吹奏與氣息樂器.docx" download style="font-size:13px;">DOCX</a>
-        <a href="../assets/世界樂器百科Ⅰ_A1-吹奏與氣息樂器.pdf" download style="font-size:13px;margin-left:12px;">PDF</a>
-      </div>
-      <div style="border:1px solid var(--line);border-radius:8px;padding:14px;background:var(--surface);">
-        <strong>A2 弦樂器</strong><br>
-        <span style="font-size:12px;color:var(--muted);">373 件樂器</span><br>
-        <a href="../assets/世界樂器百科Ⅱ_A2-弦樂器.docx" download style="font-size:13px;">DOCX</a>
-        <a href="../assets/世界樂器百科Ⅱ_A2-弦樂器.pdf" download style="font-size:13px;margin-left:12px;">PDF</a>
-      </div>
-      <div style="border:1px solid var(--line);border-radius:8px;padding:14px;background:var(--surface);">
-        <strong>A3 鼓與打擊樂器</strong><br>
-        <span style="font-size:12px;color:var(--muted);">150 件樂器</span><br>
-        <a href="../assets/世界樂器百科Ⅲ_A3-鼓與打擊樂器.docx" download style="font-size:13px;">DOCX</a>
-        <a href="../assets/世界樂器百科Ⅲ_A3-鼓與打擊樂器.pdf" download style="font-size:13px;margin-left:12px;">PDF</a>
-      </div>
-      <div style="border:1px solid var(--line);border-radius:8px;padding:14px;background:var(--surface);">
-        <strong>A4 電子與電聲樂器</strong><br>
-        <span style="font-size:12px;color:var(--muted);">78 件樂器</span><br>
-        <a href="../assets/世界樂器百科Ⅳ_A4-電子與電聲樂器.docx" download style="font-size:13px;">DOCX</a>
-        <a href="../assets/世界樂器百科Ⅳ_A4-電子與電聲樂器.pdf" download style="font-size:13px;margin-left:12px;">PDF</a>
-      </div>
-      <div style="border:1px solid var(--line);border-radius:8px;padding:14px;background:var(--surface);">
-        <strong>A9 待分類</strong><br>
-        <span style="font-size:12px;color:var(--muted);">7 件樂器</span><br>
-        <a href="../assets/世界樂器百科Ⅴ_A9-待分類.docx" download style="font-size:13px;">DOCX</a>
-        <a href="../assets/世界樂器百科Ⅴ_A9-待分類.pdf" download style="font-size:13px;margin-left:12px;">PDF</a>
-      </div>
-    </div>
-  </div>
 
 </main>
 
@@ -2933,7 +2897,6 @@ def build_chord_detection_tool():
 
     chord_extra_head = (
         f'<style>{inline_css}</style>\n'
-        f'<script src="{resolve_url(page_dir / "index.html", "/assets/vendor/meyda.min.js")}"></script>\n'
         f'<script src="{resolve_url(page_dir / "index.html", "/scripts/_chord_library.js")}"></script>'
     )
 

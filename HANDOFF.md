@@ -28,7 +28,7 @@ Repo：soundweavers-music/soundweavers-music.github.io（`main` 推上去就會�
  ② scripts/build_vocal_extra.py   覆寫首頁、聯絡、人聲、錄音後製、樂理、/experience/（世界樂器體驗）
 ③ scripts/build_ensembles.py     合奏與編制百科 /ensembles/：七類 40 篇（內容在 content/ensembles/）
  ④ scripts/build_mandolin.py      曼陀林專區 /mandolin/ + 22 章
- ⑤ scripts/build_ebook.py         電子書（CI 有裝 LibreOffice）
+       （scripts/build_ebook.py 電子書已從 CI 移除，2026-11-18；要出書再手動跑）
         ▼
  outputs/world-instruments-static/   ← 真正部署的內容（gitignore）
         ▼
