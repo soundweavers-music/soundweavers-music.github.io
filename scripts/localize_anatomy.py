@@ -154,6 +154,24 @@ TRACE_PALETTE = {
 
 TRACED_FIGURES = [
     {
+        "json": "fold-regions.json",
+        "out": "vocal-fold-layers.svg",
+        "title": "一片聲帶的剖面：三層結構",
+        "sub": "外層黏膜、中間韌帶、內層肌肉；厚度與張力由這三層決定",
+        "width": 640,
+        "palette": {
+            (224, 160, 63): "#E4BC96",
+            (238, 228, 22): "#EFE3B0",
+            (192, 35, 24): "#C08063",
+        },
+        "credit": "幾何參考 Fred the Oyster（CC BY-SA 4.0，Wikimedia Commons），本站描線重繪",
+        "labels": [
+            ("黏膜", 590, 200, 690, 150),
+            ("韌帶", 540, 330, 690, 330),
+            ("聲帶肌", 380, 520, 690, 430),
+        ],
+    },
+    {
         "json": "torso-regions.json",
         "out": "breathing-apparatus.svg",
         "title": "呼吸用到的構造",
@@ -326,20 +344,7 @@ PNG_FIGURES = [
         "labels": [],
     },
 
-    {
-        "src": "vocal-fold-scheme.png",
-        "out": "vocal-fold-layers.svg",
-        "title": "一片聲帶的剖面：三層結構",
-        "sub": "外層黏膜、中間韌帶、內層肌肉；厚度與張力就由這三層決定",
-        "crop": (20, 50, 880, 880),
-        "width": 640,
-        "credit": "底圖：Fred the Oyster（CC BY-SA 4.0，Wikimedia Commons），本站裁切並加中文標籤",
-        "labels": [
-            ("黏膜", 700, 300, 790, 240),
-            ("韌帶", 650, 470, 790, 450),
-            ("聲帶肌", 520, 720, 790, 700),
-        ],
-    },
+
 
 ]
 
