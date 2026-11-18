@@ -28,3 +28,4 @@ work/shots/
 # scratch scripts left by subagents
 work/_*.py
 work/factcheck-ensembles/
+work/youtube_broken.json
