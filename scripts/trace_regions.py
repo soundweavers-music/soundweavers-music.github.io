@@ -25,13 +25,17 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 BASE = Path(__file__).resolve().parent.parent
 
 
+def flatten(im: Image.Image) -> Image.Image:
+    """把透明區域壓平成白色，腔室才會變成可描的「色面」。"""
+    im = im.convert("RGBA")
+    bg = Image.new("RGBA", im.size, (255, 255, 255, 255))
+    return Image.alpha_composite(bg, im).convert("RGB")
+
+
 def quantise(im: Image.Image, bins: int = 24) -> tuple[np.ndarray, np.ndarray]:
     """把顏色量化成少數幾類，回傳 (分類索引圖, 每類代表色)。"""
-    a = np.array(im.convert("RGBA"))
-    rgb = a[..., :3].astype(np.int32)
-    alpha = a[..., 3]
+    rgb = np.array(im.convert("RGB")).astype(np.int32)
     key = (rgb[..., 0] // bins) * 10_000 + (rgb[..., 1] // bins) * 100 + (rgb[..., 2] // bins)
-    key = np.where(alpha < 60, -1, key)          # 透明＝背景
     uniq, inverse = np.unique(key, return_inverse=True)
     centres = np.zeros((len(uniq), 3), dtype=np.int32)
     for i, k in enumerate(uniq):
@@ -122,7 +126,7 @@ def main(argv) -> int:
     eps = float(argv[argv.index("--eps") + 1]) if "--eps" in argv else 2.0
     min_area = int(argv[argv.index("--min-area") + 1]) if "--min-area" in argv else 200
 
-    im = Image.open(src)
+    im = flatten(Image.open(src))
     scale = 2 if max(im.size) > 900 else 1
     if scale > 1:
         im = im.resize((im.width // scale, im.height // scale))
@@ -141,6 +145,10 @@ def main(argv) -> int:
         if mask.sum() < min_area:
             continue
         for cells in components(mask, min_area):
+            ys0, xs0 = cells[:, 0], cells[:, 1]
+            if (ys0.min() == 0 or xs0.min() == 0
+                    or ys0.max() == idx.shape[0] - 1 or xs0.max() == idx.shape[1] - 1):
+                continue          # 貼邊＝外背景
             pts = boundary_points(cells)
             if len(pts) < 3:
                 continue

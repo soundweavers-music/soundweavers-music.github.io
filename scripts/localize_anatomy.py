@@ -154,6 +154,26 @@ TRACE_PALETTE = {
 
 TRACED_FIGURES = [
     {
+        "json": "sagittal-regions.json",
+        "out": "sagittal-head.svg",
+        "title": "頭頸側剖：聲音走過的路",
+        "sub": "鼻腔、口腔與咽的位置；氣從鼻子或嘴巴進來，轉彎往下",
+        "width": 640,
+        "palette": {
+            (229, 229, 229): "#EFE2D2",
+            (254, 254, 254): "#FBF8F4",
+            (0, 0, 0): "#3D3229",
+        },
+        "credit": "幾何參考 Richard Wright、Dan McCloy（CC0，Wikimedia Commons），本站描線重繪",
+        "labels": [
+            ("鼻腔", 1000, 950, 700, 870),
+            ("口腔", 1150, 1230, 1330, 1140),
+            ("咽", 880, 1240, 700, 1210),
+            ("喉（聲帶）", 950, 1730, 700, 1700),
+            ("氣管", 900, 1980, 700, 1950),
+        ],
+    },
+    {
         "json": "larynx-regions.json",
         "out": "larynx-anatomy.svg",
         "title": "喉部構造",
@@ -170,9 +190,10 @@ TRACED_FIGURES = [
 ]
 
 
-def _nearest(rgb):
+def _nearest(rgb, palette=None):
+    palette = palette or TRACE_PALETTE
     best, bd = "#EFE9E0", 1e9
-    for k, v in TRACE_PALETTE.items():
+    for k, v in palette.items():
         d = sum((a - c) ** 2 for a, c in zip(k, rgb))
         if d < bd:
             best, bd = v, d
@@ -207,7 +228,8 @@ def build_traced(cfg, check_only=False):
         if min(xs) <= 2 and min(ys) <= 2 and max(xs) >= sw - 3 and max(ys) >= sh - 3:
             continue
         d = "M" + " L".join(f"{x} {y}" for x, y in pts) + " Z"
-        parts.append(f'    <path d="{d}" fill="{_nearest(reg["rgb"])}" stroke="#C9BCAA" stroke-width="1.2"/>')
+        fill = _nearest(reg["rgb"], cfg.get("palette"))
+        parts.append(f'    <path d="{d}" fill="{fill}" stroke="#C9BCAA" stroke-width="1.2"/>')
     parts.append("  </g>")
 
     for text, ax, ay, tx, ty in cfg["labels"]:
@@ -310,23 +332,7 @@ PNG_FIGURES = [
             ("聲帶肌", 520, 720, 790, 700),
         ],
     },
-    {
-        "src": "neutral-sagittal.png",
-        "out": "sagittal-head.svg",
-        "title": "頭頸側剖：聲音走過的路",
-        "sub": "從鼻腔、口腔，經過咽與喉，最後進到氣管",
-        "crop": (40, 60, 1520, 2140),
-        "width": 640,
-        "credit": "底圖：Richard Wright、Dan McCloy（CC0，Wikimedia Commons），本站裁切並加中文標籤",
-        "labels": [
-            ("鼻腔", 1010, 900, 1180, 830),
-            ("口腔", 1150, 1210, 1260, 1150),
-            ("舌", 1060, 1430, 1200, 1430),
-            ("咽", 880, 1240, 700, 1180),
-            ("喉（聲帶）", 950, 1730, 700, 1700),
-            ("氣管", 900, 1980, 700, 1950),
-        ],
-    },
+
 ]
 
 
