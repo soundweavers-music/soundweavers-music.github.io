@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：體鳴（111.222）；依據：英文維基 infobox 與 Wikidata 均標記 Hornbostel–Sachs 111.222，且英文全文稱其
 source_url: https://soundweavers-music.github.io/instruments/fangxiang/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Imperial_Encyclopaedia_-_Music_-_pic023_-_%E6%96%B9%E9%9F%BF.svg/500px-Imperial_Encyclopaedia_-_Music_-_pic023_-_%E6%96%B9%E9%9F%BF.svg.png
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/%EB%B0%A9%ED%96%A5%28%EA%B5%AD%EB%A6%BD%EA%B3%A0%EA%B6%81%EB%B0%95%EB%AC%BC%EA%B4%80%29.jpg/500px-%EB%B0%A9%ED%96%A5%28%EA%B5%AD%EB%A6%BD%EA%B3%A0%EA%B6%81%EB%B0%95%EB%AC%BC%EA%B4%80%29.jpg
 youtube_ids: 2EztLQr9jag 49qJFSPThN8
 ---
 

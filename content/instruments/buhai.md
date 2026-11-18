@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：非樂器／非單一樂器；依據：來源一、三、五均顯示 Buhai 為羅馬尼亞河流，非樂器
 source_url: https://soundweavers-music.github.io/instruments/buhai/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/P%C3%A2r%C3%A2ul_%C8%99i_Podul_Buhai.jpg/500px-P%C3%A2r%C3%A2ul_%C8%99i_Podul_Buhai.jpg
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Buhai_%28Romania%29.jpg/500px-Buhai_%28Romania%29.jpg
 youtube_ids: NVOtE1qSymU 7OTqIPpJlss
 ---
 
