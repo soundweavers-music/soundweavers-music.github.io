@@ -1591,7 +1591,6 @@ FIGURES = {
     "vocal/diaphragm-support": fig_diaphragm_support,
     "vocal/posture-side": fig_posture_side,
     "vocal/articulation": fig_articulation,
-    "vocal/folds-open-closed": fig_folds_open_closed,
     "vocal/fold-thickness": fig_fold_thickness,
     "vocal/fold-swelling": fig_fold_swelling,
     "vocal/breath-noise": fig_breath_noise,

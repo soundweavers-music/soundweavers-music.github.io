@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 420 968" role="img" aria-label="氣聲（圖例 D）">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 420 1018" role="img" aria-label="氣聲（圖例 D）">
   <title>氣聲（圖例 D）：兩片分開，氣一直漏；音色沙，唱不久</title>
-  <rect width="420" height="968" fill="#FBF8F4"/>
+  <rect width="420" height="1018" fill="#FBF8F4"/>
   <text x="26" y="34" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="16" font-weight="700" fill="#3D3229">氣聲（圖例 D）</text>
   <text x="26" y="55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#8C8078">兩片分開，氣一直漏；音色沙，唱不久</text>
-  <g transform="translate(0,100) scale(3.62069) translate(-634,0)">
+  <g transform="translate(0,150) scale(3.62069) translate(-634,0)">
     <image x="0" y="0" width="1200" height="226" xlink:href="../_anatomy/src/glottis-positions.png"/>
   </g>
-  <text x="26" y="956" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078">底圖：Wikimedia Commons「Glottis positions」（公有領域），本站裁切</text>
+  <text x="26" y="1006" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078">底圖：Wikimedia Commons「Glottis positions」（公有領域），本站裁切</text>
 </svg>

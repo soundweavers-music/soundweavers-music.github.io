@@ -111,7 +111,7 @@ def localize(cfg: dict, check_only=False) -> Path | None:
     overlay_parts = []
     for ax, ay, text, tx, ty in cfg.get("overlay", []):
         lx = (tx - cx) * scale
-        ly = (ty - cy) * scale + 100
+        ly = (ty - cy) * scale + 150
         overlay_parts.append(
             f'  <g transform="translate(0,66) scale({scale:.5f}) translate({-cx},{-cy})">'
             f'<path d="M{ax} {ay} L{tx} {ty}" stroke="{MUTED}" stroke-width="1" fill="none"/>'
@@ -155,6 +155,10 @@ def main(argv) -> int:
             print("wrote", target.relative_to(BASE))
     if not names or "closure-grades" in names:
         target = build_glottis_states(check_only=check)
+        if target:
+            print("wrote", target.relative_to(BASE))
+    if not names or "folds-open-closed" in names:
+        target = build_glottis_pair(check_only=check)
         if target:
             print("wrote", target.relative_to(BASE))
     return 0
@@ -241,7 +245,7 @@ def build_png(cfg: dict, check_only=False) -> Path | None:
     cx, cy, cw, ch = cfg["crop"]
     width = cfg["width"]
     scale = width / cw
-    out_h = round(ch * scale) + 150
+    out_h = round(ch * scale) + 200
     depth = "../" if "/" in cfg["out"] else ""
     href = f"{depth}_anatomy/src/{cfg['src']}"
     import struct
@@ -255,15 +259,15 @@ def build_png(cfg: dict, check_only=False) -> Path | None:
         f'  <rect width="{width}" height="{out_h}" fill="{PAPER}"/>',
         f'  <text x="26" y="34" font-family="{FONT}" font-size="16" font-weight="700" fill="{INK}">{cfg["title"]}</text>',
         f'  <text x="26" y="55" font-family="{FONT}" font-size="12.5" fill="{MUTED}">{cfg["sub"]}</text>',
-        f'  <g transform="translate(0,100) scale({scale:.5f}) translate({-cx},{-cy})">',
+        f'  <g transform="translate(0,150) scale({scale:.5f}) translate({-cx},{-cy})">',
         f'    <image x="0" y="0" width="{im_w}" height="{im_h}" xlink:href="{href}"/>',
         "  </g>",
     ]
     for text, ax, ay, tx, ty in cfg["labels"]:
         lx = (tx - cx) * scale
-        ly = (ty - cy) * scale + 100
+        ly = (ty - cy) * scale + 150
         px = (ax - cx) * scale
-        py = (ay - cy) * scale + 100
+        py = (ay - cy) * scale + 150
         parts.append(
             f'  <path d="M{px:.1f} {py:.1f} L{lx:.1f} {ly + 4:.1f}" stroke="{MUTED}" stroke-width="1" fill="none"/>'
             f'<circle cx="{px:.1f}" cy="{py:.1f}" r="2.8" fill="{MUTED}"/>'
@@ -328,6 +332,50 @@ def build_glottis_states(check_only=False) -> Path | None:
     parts.append("</svg>\n")
 
     target = OUT / "closure-grades.svg"
+    target.write_text("\n".join(parts), encoding="utf-8")
+    return target
+
+
+def build_glottis_pair(check_only=False) -> Path | None:
+    """吸氣張開／發聲靠攏：同一份線稿的 F（呼吸）與 A（閉合）。"""
+    if check_only:
+        print("  panels: F（呼吸）, A（閉合）")
+        return None
+
+    panels = [
+        ("吸氣：張開", "讓氣通過", 1034),
+        ("發聲：靠攏", "兩片碰在一起才擋得住氣", 34),
+    ]
+    width, height = 640, 430
+    src_w, src_h = 1200, 226
+    panel_w, panel_h = 160, 200
+    xs = [120, 360]
+
+    parts = [
+        '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" '
+        f'viewBox="0 0 {width} {height}" role="img" aria-label="聲帶開合：吸氣張開、發聲靠攏">',
+        "  <title>聲帶開合：吸氣張開、發聲靠攏</title>",
+        f'  <rect width="{width}" height="{height}" fill="{PAPER}"/>',
+        f'  <text x="26" y="34" font-family="{FONT}" font-size="16" font-weight="700" fill="{INK}">聲帶的開與合</text>',
+        f'  <text x="26" y="55" font-family="{FONT}" font-size="12.5" fill="{MUTED}">'
+        "吸氣時張開讓氣通過，發聲時靠攏把氣擋住</text>",
+    ]
+    for i, (name, note, sx) in enumerate(panels):
+        x = xs[i]
+        parts.append(
+            f'  <svg x="{x}" y="96" width="{panel_w}" height="{panel_h}" viewBox="{sx} 0 116 {src_h}">'
+            f'<image x="0" y="0" width="{src_w}" height="{src_h}" xlink:href="_anatomy/src/glottis-positions.png"/>'
+            f"</svg>"
+        )
+        parts.append(f'  <text x="{x + panel_w / 2}" y="{96 + panel_h + 28}" text-anchor="middle" '
+                     f'font-family="{FONT}" font-size="13" font-weight="600" fill="{INK}">{name}</text>')
+        parts.append(f'  <text x="{x + panel_w / 2}" y="{96 + panel_h + 48}" text-anchor="middle" '
+                     f'font-family="{FONT}" font-size="11.5" fill="{MUTED}">{note}</text>')
+    parts.append(f'  <text x="26" y="{height - 14}" font-family="{FONT}" font-size="10.5" fill="{MUTED}">'
+                 "底圖：Wikimedia Commons「Glottis positions」（公有領域），本站裁切</text>")
+    parts.append("</svg>\n")
+
+    target = OUT / "folds-open-closed.svg"
     target.write_text("\n".join(parts), encoding="utf-8")
     return target
 
