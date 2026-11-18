@@ -905,6 +905,7 @@ a.hub-card:hover::after { transform: scaleX(1); }
 }
 .doc-reader-bar a { color: var(--accent); text-decoration: none; }
 .doc-frame {
-  width: 100%; height: calc(100vh - 200px); min-height: 520px;
+  display: block; width: 100%; height: calc(100vh - 190px); min-height: 560px;
   border: 1px solid var(--line); border-radius: 10px; background: #fff;
 }
+.doc-reader-hint { font-size: 12px; color: var(--muted); }

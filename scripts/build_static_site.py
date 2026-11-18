@@ -516,7 +516,7 @@ def page(title, body, page_path=None, meta_extra="", extra_head="", meta_descrip
             "style-src 'self' 'unsafe-inline'; "
             "script-src 'self' 'unsafe-inline'; "
             "connect-src 'self'; "
-            "frame-src https://www.youtube-nocookie.com https://www.youtube.com; "
+            "frame-src 'self' https://www.youtube-nocookie.com https://www.youtube.com; "
             "base-uri 'self'; form-action 'self'; object-src 'none'"
         )
     keywords_default = "隔壁織音人,世界樂器,世界樂器百科,世界聲音百科,樂器教學,歌唱教學,錄音後製,吉他教學,鋼琴教學,基礎樂理,音樂知識,民族樂器,傳統樂器,電子樂器,打擊樂器,管樂器,弦樂器,鍵盤樂器"
@@ -2786,7 +2786,7 @@ def build_chord_detection_tool():
         "style-src 'self' 'unsafe-inline'; "
         "script-src 'self' 'unsafe-inline'; "
         "connect-src 'self'; "
-        "frame-src https://www.youtube-nocookie.com https://www.youtube.com; "
+        "frame-src 'self' https://www.youtube-nocookie.com https://www.youtube.com; "
         "base-uri 'self'; form-action 'self'; object-src 'none'"
     )
 

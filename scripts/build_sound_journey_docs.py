@@ -122,11 +122,9 @@ def main() -> None:
     <div class="doc-reader-bar">
       <a href="{bve.resolve_url(rdir / "index.html", "/sound-journey/")}">← 聲音旅圖</a>
       <span>{bve.escape(title)}</span>
-      <a href="{pdf_url}" target="_blank" rel="noopener">另開 PDF</a>
+      <span class="doc-reader-hint">可直接捲動閱讀，或用檢視器上的放大與頁碼</span>
     </div>
-    <object data="{pdf_url}" type="application/pdf" class="doc-frame">
-      <p>你的瀏覽器無法內嵌 PDF，請 <a href="{pdf_url}">點此下載</a>。</p>
-    </object>
+    <iframe src="{pdf_url}#view=FitH" class="doc-frame" title="{bve.escape(title)}"></iframe>
   </div>
 </main>"""
             bve.write(rdir / "index.html", bve.page(
