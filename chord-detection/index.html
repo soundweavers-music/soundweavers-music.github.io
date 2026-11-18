@@ -39,31 +39,31 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
 .playback-cursor { position: absolute; top: 0; bottom: 0; width: 2px; background: #c0392b; pointer-events: none; z-index: 2; display: none; }
 
 /* 簡譜式小節表 */
+/* 譜面：比照歌本的和弦譜 —— 和弦在歌詞上方，只有小節線，沒有格子 */
 .chart-wrap { border: 1px solid var(--line); border-radius: 10px; background: var(--surface); margin: 8px 0 16px; overflow-x: auto; }
-.chart { min-width: 720px; }
-.chart-row { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid var(--line); }
-.chart-row:last-child { border-bottom: none; }
-.bar { position: relative; min-height: 62px; padding: 20px 8px 8px; border-right: 1px solid var(--line); cursor: pointer; transition: background .12s; }
-.bar:nth-child(4) { border-right: none; }
-.bar:hover { background: rgba(196,149,106,0.07); }
-.bar.is-active { background: rgba(196,149,106,0.16); box-shadow: inset 0 0 0 2px var(--accent); }
-.bar.is-empty { cursor: default; }
-.bar-no { position: absolute; top: 3px; left: 7px; font-size: 10px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.chart { min-width: 760px; padding: 4px 0; }
+.sys { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid var(--line); }
+.sys:last-child { border-bottom: none; }
+.sys-bar { position: relative; padding: 16px 10px 8px 12px; border-left: 1.5px solid var(--line); cursor: pointer; transition: background .12s; }
+.sys-bar:first-child { border-left-width: 2.5px; }
+.sys-bar:last-child { border-right: 1.5px solid var(--line); }
+.sys-bar:hover { background: rgba(196,149,106,0.07); }
+.sys-bar.is-active { background: rgba(196,149,106,0.14); }
+.sys-bar.is-empty { cursor: default; }
+.bar-no { position: absolute; top: 2px; left: 6px; font-size: 10px; color: var(--muted); font-variant-numeric: tabular-nums; }
 .bar-edit { position: absolute; top: 2px; right: 4px; font-size: 11px; line-height: 1; background: none; border: none; color: var(--muted); opacity: 0; cursor: pointer; padding: 3px; border-radius: 4px; }
-.bar:hover .bar-edit { opacity: .75; }
+.sys-bar:hover .bar-edit { opacity: .75; }
 .bar-edit:hover { background: var(--soft); opacity: 1; }
-.bar.non-dia .seg .cname { color: #b45309; }
-.bar.non-dia::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: #f59e0b; }
-.bar-body { position: relative; height: 40px; }
-.tick { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--line); opacity: .7; }
-.seg { position: absolute; top: 0; height: 100%; padding: 0 3px; overflow: hidden; cursor: pointer; border-radius: 4px; }
-.seg .cname { display: block; font-size: 19px; font-weight: 800; line-height: 1.1; white-space: nowrap; }
-.seg .cdeg { display: block; font-size: 10px; color: var(--muted); line-height: 1.3; }
-.seg .cdia { display: block; line-height: 0; margin-top: 2px; }
-.seg.is-active { background: rgba(196,149,106,0.28); }
-.lyric-row { display: grid; grid-template-columns: repeat(4, 1fr); background: var(--soft); border-bottom: 1px solid var(--line); }
-.lyric-cell { padding: 4px 8px; min-height: 20px; font-size: 11px; line-height: 1.45; border-right: 1px solid var(--line); color: var(--ink); word-break: break-all; }
-.lyric-cell:nth-child(4) { border-right: none; }
+.sys-bar.non-dia::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: #f59e0b; }
+.sys-bar.non-dia .chord .cname { color: #b45309; }
+.chord-line { position: relative; height: 27px; }
+.chord { position: absolute; top: 0; padding: 0 2px; overflow: hidden; white-space: nowrap; cursor: pointer; border-radius: 4px; }
+.chord .cname { font-size: 17px; font-weight: 800; line-height: 1.15; }
+.chord .cdeg { font-size: 10px; color: var(--muted); margin-left: 4px; }
+.chord .cdia { display: block; line-height: 0; margin-top: 2px; }
+.chord.is-active { background: rgba(196,149,106,0.28); }
+.tick { position: absolute; top: 2px; height: 24px; width: 1px; background: var(--line); opacity: .45; }
+.lyric-line { min-height: 20px; font-size: 12px; line-height: 1.5; color: var(--ink); word-break: break-all; }
 
 /* Toolbar / key info */
 .chart-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin: 12px 0 8px; font-size: 12px; }
@@ -145,13 +145,13 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
   .print-head .meta { font-size: 10pt; color: #333; }
   .chart-wrap { border: 0 !important; margin: 0 !important; overflow: visible !important; }
   .chart { min-width: 0 !important; }
-  .chart-row, .lyric-row { border-color: #000 !important; break-inside: avoid; page-break-inside: avoid; }
-  .bar { border-color: #000 !important; min-height: 18mm; }
-  .bar-body { height: auto !important; min-height: 12mm; }
-  .seg .cname { color: #000 !important; font-size: 13pt !important; }
-  .seg .cdeg { color: #333 !important; }
-  .seg.is-active { background: none !important; }
-  .lyric-cell { font-size: 9pt !important; }
+  .sys { border-color: #000 !important; break-inside: avoid; page-break-inside: avoid; }
+  .sys-bar { border-color: #000 !important; min-height: 18mm; }
+  .chord-line { height: auto !important; min-height: 8mm; }
+  .chord .cname { color: #000 !important; font-size: 12pt !important; }
+  .chord .cdeg { color: #333 !important; }
+  .chord.is-active { background: none !important; }
+  .lyric-line { font-size: 9.5pt !important; }
   .bar-no { font-size: 8pt !important; color: #000 !important; }
   a { color: #000 !important; text-decoration: none !important; }
 }
@@ -1754,25 +1754,15 @@ function renderChart() {
   document.getElementById('chart-container').style.display = 'block';
 
   computeLyricBuckets();
-  const showLyricRows = state.showLyrics && state.lyrics.length > 0;
 
   let html = '';
   for (let r = 0; r < chords.length; r += 4) {
-    html += '<div class="chart-row">';
+    html += '<div class="sys">';
     for (let c = 0; c < 4; c++) {
       const idx = r + c;
-      html += (idx < chords.length) ? barCellHtml(idx) : '<div class="bar is-empty"></div>';
+      html += (idx < chords.length) ? barCellHtml(idx) : '<div class="sys-bar is-empty"></div>';
     }
     html += '</div>';
-    if (showLyricRows) {
-      html += '<div class="lyric-row">';
-      for (let c = 0; c < 4; c++) {
-        const idx = r + c;
-        const txt = idx < chords.length ? barLyric(idx) : '';
-        html += '<div class="lyric-cell">' + escapeHtml(txt) + '</div>';
-      }
-      html += '</div>';
-    }
   }
   document.getElementById('chart').innerHTML = html;
 
@@ -1809,7 +1799,7 @@ function barCellHtml(idx) {
     const useDegree = state.notation === 'degree';
     const primary = useDegree ? p.degree : p.name;
     const secondary = useDegree ? p.name : (state.showDegrees ? p.degree : '');
-    segs += '<span class="seg" data-beat="' + acc + '"'
+    segs += '<span class="chord" data-beat="' + acc + '"'
           + ' style="left:' + left.toFixed(3) + '%;width:' + width.toFixed(3) + '%"'
           + ' onclick="event.stopPropagation();auditionBar(' + idx + ',' + acc + ')">'
           + '<span class="cname">' + escapeHtml(primary) + '</span>'
@@ -1820,12 +1810,14 @@ function barCellHtml(idx) {
   });
   let ticks = '';
   for (let b = 1; b < total; b++) ticks += '<span class="tick" style="left:' + (b / total * 100).toFixed(2) + '%"></span>';
-  const bodyH = state.showDiagrams ? 152 : 40;
-  return '<div class="bar' + (ch.isDiatonic ? '' : ' non-dia') + '" data-bar="' + idx + '"'
+  const lineH = state.showDiagrams ? 152 : 27;
+  const lyric = state.showLyrics ? barLyric(idx) : '';
+  return '<div class="sys-bar' + (ch.isDiatonic ? '' : ' non-dia') + '" data-bar="' + idx + '"'
        + ' onclick="auditionBar(' + idx + ',0)">'
        + '<span class="bar-no">' + (idx + 1) + '</span>'
        + '<button class="bar-edit" title="編輯和弦" onclick="event.stopPropagation();openEditModal(' + idx + ')">✏</button>'
-       + '<div class="bar-body" style="height:' + bodyH + 'px">' + ticks + segs + '</div>'
+       + '<div class="chord-line" style="height:' + lineH + 'px">' + ticks + segs + '</div>'
+       + '<div class="lyric-line">' + escapeHtml(lyric) + '</div>'
        + '</div>';
 }
 
@@ -2008,10 +2000,24 @@ function barIndexForTime(t) {
   return ans;
 }
 
+// LRC 的時間碼通常比實際唱出來早一點（用意是讓歌詞先跳出來），
+// 所以時間落在小節線前半拍以內時，歌詞算「下一個小節」。
+function lyricBarForTime(t) {
+  const idx = barIndexForTime(t);
+  if (idx < 0) return idx;
+  const bars = state.bars;
+  const next = idx + 1;
+  if (next < bars.length) {
+    const beat = (bars[idx].end - bars[idx].start) / Math.max(1, state.beatsPerBar);
+    if (bars[next].start - t <= beat * 0.5) return next;
+  }
+  return idx;
+}
+
 function computeLyricBuckets() {
   const buckets = new Map();
   for (const l of state.lyrics) {
-    const idx = barIndexForTime(l.time);
+    const idx = lyricBarForTime(l.time);
     if (idx < 0) continue;
     if (!buckets.has(idx)) buckets.set(idx, []);
     buckets.get(idx).push(l.text);
@@ -2109,16 +2115,16 @@ function updatePositionDisplay() {
 }
 
 function setActiveBar(idx) {
-  document.querySelectorAll('.bar').forEach(el => {
+  document.querySelectorAll('.sys-bar').forEach(el => {
     el.classList.toggle('is-active', Number(el.dataset.bar) === idx);
   });
   if (idx < 0) {
-    document.querySelectorAll('.seg.is-active').forEach(el => el.classList.remove('is-active'));
+    document.querySelectorAll('.chord.is-active').forEach(el => el.classList.remove('is-active'));
     return;
   }
-  const barEl = document.querySelector('.bar[data-bar="' + idx + '"]');
+  const barEl = document.querySelector('.sys-bar[data-bar="' + idx + '"]');
   if (!barEl) return;
-  barEl.querySelectorAll('.seg').forEach(el => el.classList.remove('is-active'));
+  barEl.querySelectorAll('.chord').forEach(el => el.classList.remove('is-active'));
 }
 
 function updateActiveBar() {
@@ -2129,7 +2135,7 @@ function updateActiveBar() {
     state.lastActiveBar = idx;
     setActiveBar(idx);
     if (idx >= 0 && state.isPlaying) {
-      const el = document.querySelector('.bar[data-bar="' + idx + '"]');
+      const el = document.querySelector('.sys-bar[data-bar="' + idx + '"]');
       if (el) el.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
     }
   }
@@ -2138,13 +2144,13 @@ function updateActiveBar() {
   const total = barTotalBeats(idx);
   const frac = (state.currentTime - bar.start) / Math.max(1e-6, bar.end - bar.start);
   const beatPos = Math.max(0, Math.min(total - 1e-6, frac * total));
-  const barEl = document.querySelector('.bar[data-bar="' + idx + '"]');
+  const barEl = document.querySelector('.sys-bar[data-bar="' + idx + '"]');
   if (!barEl) return;
   let activeSeg = null;
-  barEl.querySelectorAll('.seg').forEach(seg => {
+  barEl.querySelectorAll('.chord').forEach(seg => {
     if (Number(seg.dataset.beat) <= beatPos + 1e-6) activeSeg = seg;
   });
-  barEl.querySelectorAll('.seg').forEach(seg => seg.classList.toggle('is-active', seg === activeSeg));
+  barEl.querySelectorAll('.chord').forEach(seg => seg.classList.toggle('is-active', seg === activeSeg));
 }
 
 // 點小節（或小節內的某個和弦）就試聽那一段
