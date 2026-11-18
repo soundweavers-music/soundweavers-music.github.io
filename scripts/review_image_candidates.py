@@ -46,7 +46,7 @@ def fetch_bytes(file_name, url, attempts=4):
     and keeps working, so try it first for Commons files.
     """
     if file_name:
-        for i in range(attempts):
+        for i in range(2):
             time.sleep(1.0)
             try:
                 r = requests.get(
@@ -60,7 +60,7 @@ def fetch_bytes(file_name, url, attempts=4):
             if r.status_code == 200 and r.headers.get("content-type", "").startswith("image"):
                 return r.content
             if r.status_code == 429:
-                time.sleep(min(float(r.headers.get("Retry-After") or 30), 90))
+                time.sleep(min(float(r.headers.get("Retry-After") or 20), 20))
                 continue
             break
     for i in range(attempts):

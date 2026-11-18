@@ -24,6 +24,7 @@ Usage:
     python scripts/fetch_missing_images.py --only sho,sipsi
 """
 import hashlib
+import html
 import io
 import json
 import os
@@ -124,6 +125,9 @@ def article_image(lang, title):
         if not looks_musical(text):
             return None
 
+        # commented-out images are usually ones deleted for copyright reasons
+        text = re.sub(r"<!--.*?-->", "", text, flags=re.S)
+
         # infobox parameter:  | image = Foo.jpg   /  | Image = [[File:Foo.jpg]]
         for pat in (r"\|\s*image\s*=\s*(?:\[\[\s*(?:File|Image):)?([^|\]}\n]+)",):
             m = re.search(pat, text, re.I)
@@ -147,6 +151,29 @@ def clean_filename(raw):
     if not name or not PHOTO_EXT.search(name) or BAD_FILE.search(name):
         return ""
     return name
+
+
+def file_ok(filename):
+    """Does the file really exist?
+
+    Wikitext keeps images that were deleted from Commons (usually copyright
+    takedowns) inside HTML comments, and infobox parameters sometimes point at
+    files that were never uploaded. thumb.php answers 404 for both, and unlike
+    the CDN it does not rate-limit us.
+    """
+    global requests_made
+    sleep_gap()
+    requests_made += 1
+    try:
+        r = requests.get(
+            "https://commons.wikimedia.org/w/thumb.php",
+            params={"f": filename, "w": "40"},
+            headers=HEADERS,
+            timeout=(5, 20),
+        )
+    except Exception:
+        return False
+    return r.status_code == 200 and r.headers.get("content-type", "").startswith("image")
 
 
 def thumb_url(filename):
@@ -180,7 +207,8 @@ def commons_search(query, limit=8):
     hits = re.findall(r'title="(File:[^"]+)"', r.text)
     out, seen = [], set()
     for h in hits:
-        fname = h[5:]
+        # the search page HTML-escapes apostrophes and quotes in file names
+        fname = html.unescape(h[5:])
         if fname in seen or not PHOTO_EXT.search(fname) or BAD_FILE.search(fname):
             continue
         seen.add(fname)
@@ -242,14 +270,14 @@ def resolve(slug, meta, with_commons):
     for v in en_variants(en):
         tried.append(f"en:{v}")
         name = article_image("en", v)
-        if name:
+        if name and file_ok(name):
             cands.append({"url": thumb_url(name), "file": name, "via": f"enwiki:{v}"})
             break
 
     if not cands and zh:
         tried.append(f"zh:{zh}")
         name = article_image("zh", zh)
-        if name:
+        if name and file_ok(name):
             cands.append({"url": thumb_url(name), "file": name, "via": f"zhwiki:{zh}"})
 
     needs_check = not cands
