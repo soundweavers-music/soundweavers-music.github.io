@@ -462,33 +462,13 @@ def site_header(page_path):
     <nav>
       <div class="nav-dropdown">
         <a href="{resolve_url(page_path, '/instruments/')}" class="dropdown-trigger">樂器百科</a>
-        <div class="dropdown-menu multi-col">
-          <div class="menu-col">
-            <a href="{resolve_url(page_path, '/categories/')}" style="font-weight:700;">分類</a>
-            {nav_class_links(page_path)}
-          </div>
-          <div class="menu-col">
-            <a href="#" id="random-nav-link" class="random-link">隨選樂器</a>
-          </div>
-          <div class="menu-col">
-            <a href="{resolve_url(page_path, '/countries/')}">國家／地區</a>
-          </div>
-          <div class="menu-col">
-            <a href="{resolve_url(page_path, '/map/')}">地圖</a>
-          </div>
-        </div>
-      </div>
-      <div class="nav-dropdown">
-        <a href="{resolve_url(page_path, '/sound-journey/')}" class="dropdown-trigger">聲音旅圖</a>
         <div class="dropdown-menu">
-          <a href="{resolve_url(page_path, '/sound-journey/')}">旅圖門口</a>
-          <a href="{resolve_url(page_path, '/sound-journey/1/')}">旅圖一｜氣息離開身體</a>
-          <a href="{resolve_url(page_path, '/sound-journey/2/')}">旅圖二｜懷裡與大地的弦</a>
-          <a href="{resolve_url(page_path, '/sound-journey/3/')}">旅圖三｜天空裡拉長的弦</a>
-          <a href="{resolve_url(page_path, '/sound-journey/4/')}">旅圖四｜地心與手邊的微光</a>
-          <a href="{resolve_url(page_path, '/sound-journey/5/')}">旅圖五｜城市與星塵的節奏</a>
-          <a href="{resolve_url(page_path, '/sound-journey/6/')}">旅圖六｜按鍵打開房間，眾聲走向廣場</a>
-          <a href="{resolve_url(page_path, '/sound-journey/all/')}">全部文章</a>
+          <a href="{resolve_url(page_path, '/categories/')}" style="font-weight:700;">分類</a>
+          <a href="#" id="random-nav-link" class="random-link">隨選樂器</a>
+          <a href="{resolve_url(page_path, '/countries/')}">國家／地區</a>
+          <a href="{resolve_url(page_path, '/map/')}">地圖</a>
+          <hr style="margin:6px 0;border:none;border-top:1px solid var(--line);">
+          {nav_class_links(page_path)}
         </div>
       </div>
       <div class="nav-dropdown">
@@ -530,6 +510,19 @@ def site_header(page_path):
         </div>
       </div>
       <div class="nav-dropdown">
+        <a href="{resolve_url(page_path, '/sound-journey/')}" class="dropdown-trigger">聲音旅圖</a>
+        <div class="dropdown-menu">
+          <a href="{resolve_url(page_path, '/sound-journey/')}">旅圖門口</a>
+          <a href="{resolve_url(page_path, '/sound-journey/1/')}">旅圖一｜氣息離開身體</a>
+          <a href="{resolve_url(page_path, '/sound-journey/2/')}">旅圖二｜懷裡與大地的弦</a>
+          <a href="{resolve_url(page_path, '/sound-journey/3/')}">旅圖三｜天空裡拉長的弦</a>
+          <a href="{resolve_url(page_path, '/sound-journey/4/')}">旅圖四｜地心與手邊的微光</a>
+          <a href="{resolve_url(page_path, '/sound-journey/5/')}">旅圖五｜城市與星塵的節奏</a>
+          <a href="{resolve_url(page_path, '/sound-journey/6/')}">旅圖六｜按鍵打開房間，眾聲走向廣場</a>
+          <a href="{resolve_url(page_path, '/sound-journey/all/')}">全部文章</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
         <a href="{resolve_url(page_path, '/about/')}" class="dropdown-trigger">關於</a>
         <div class="dropdown-menu">
           <a href="{resolve_url(page_path, '/about/')}">關於世界聲音百科</a>
@@ -546,29 +539,100 @@ def site_header(page_path):
 
 
 def site_footer(page_path):
+    """Footer: one credit line plus the random-song player.
+
+    The long link list that used to sit here duplicated the header nav; it is
+    replaced by 隔壁織音人's own music, one song picked at random per page."""
+    player_js = resolve_url(page_path, "/assets/music-player.js")
     return f"""  <footer class="site-footer">
     <div class="footer-inner">
       <span>世界聲音百科 — 世界樂器、人聲與音樂文化的旅圖</span>
+      <div class="footer-music" data-music>
+        <button type="button" class="footer-music-btn" data-music-play
+                aria-label="隨機播放隔壁織音人的音樂">▶</button>
+        <span class="footer-music-text">
+          <span class="footer-music-name" data-music-title>隨機播放・隔壁織音人</span>
+          <span class="footer-music-sub" data-music-album>按 ▶ 聽一首</span>
+        </span>
+        <button type="button" class="footer-music-btn" data-music-next
+                aria-label="換一首" title="換一首">↻</button>
+        <a class="footer-music-link" href="https://music.youtube.com/channel/UCeon05ADqOnC8kSHgZC_5lw"
+           target="_blank" rel="noopener">YouTube Music</a>
+      </div>
+      <div class="footer-music-frame" data-music-frame hidden></div>
       <span>作者：<a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">隔壁織音人</a></span>
-      <nav class="footer-nav">
-        <a href="{resolve_url(page_path, '/')}">首頁</a>
-        <a href="{resolve_url(page_path, '/sound-journey/')}">聲音旅圖</a>
-        <a href="{resolve_url(page_path, '/learn/')}">學習</a>
-        <a href="{resolve_url(page_path, '/vocal/')}">人聲與歌唱</a>
-        <a href="{resolve_url(page_path, '/digitalmusic/')}">錄音後製</a>
-        <a href="{resolve_url(page_path, '/categories/')}">分類</a>
-        <a href="{resolve_url(page_path, '/countries/')}">國家</a>
-        <a href="{resolve_url(page_path, '/subcategories/')}">子分類</a>
-        <a href="{resolve_url(page_path, '/ensembles/')}">合奏百科</a>
-        <a href="{resolve_url(page_path, '/theory/')}">樂理基礎</a>
-        <a href="{resolve_url(page_path, '/mandolin/')}">曼陀林專區</a>
-        <a href="{resolve_url(page_path, '/about/')}">關於</a>
-        <a href="{resolve_url(page_path, '/recruit/')}">招募夥伴</a>
-        <a href="{resolve_url(page_path, '/contact/')}">聯絡我們</a>
-        <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">訂閱 YouTube</a>
-      </nav>
     </div>
+    <script src="{player_js}" defer></script>
   </footer>"""
+
+
+MUSIC_PLAYER_JS = """/* Footer player: one of 隔壁織音人's songs at random.
+ *
+ * The track list is written into this file at build time from
+ * content/music_tracks.json, so the page makes no network request until the
+ * listener presses ▶ — and the iframe only appears after that click.
+ */
+(function () {
+  'use strict';
+  var TRACKS = __TRACKS__;
+  var root = document.querySelector('[data-music]');
+  if (!root || !TRACKS.length) { return; }
+
+  var nameEl = root.querySelector('[data-music-title]');
+  var albumEl = root.querySelector('[data-music-album]');
+  var playBtn = root.querySelector('[data-music-play]');
+  var nextBtn = root.querySelector('[data-music-next]');
+  var frame = document.querySelector('[data-music-frame]');
+  var current = null;
+  var started = false;
+
+  function pick() {
+    var next;
+    do { next = TRACKS[Math.floor(Math.random() * TRACKS.length)]; }
+    while (TRACKS.length > 1 && current && next.id === current.id);
+    return next;
+  }
+
+  function show(track) {
+    current = track;
+    nameEl.textContent = track.title;
+    albumEl.textContent = track.album || '隔壁織音人';
+    if (started) { embed(true); }
+  }
+
+  function embed(autoplay) {
+    frame.hidden = false;
+    frame.innerHTML = '';
+    var iframe = document.createElement('iframe');
+    iframe.className = 'footer-music-iframe';
+    iframe.title = current.title;
+    iframe.allow = 'autoplay; encrypted-media';
+    iframe.src = 'https://www.youtube-nocookie.com/embed/' + current.id +
+                 '?rel=0&modestbranding=1' + (autoplay ? '&autoplay=1' : '');
+    frame.appendChild(iframe);
+  }
+
+  playBtn.addEventListener('click', function () {
+    started = true;
+    embed(true);
+  });
+  nextBtn.addEventListener('click', function () { show(pick()); });
+
+  show(pick());
+})();
+"""
+
+
+def build_music_player():
+    """Write assets/music-player.js with the track list baked in."""
+    try:
+        tracks = json.loads((BASE_DIR / "content" / "music_tracks.json").read_text(encoding="utf-8"))
+    except Exception:
+        tracks = []
+    payload = json.dumps([{"id": t["id"], "title": t["title"], "album": t.get("album", "")}
+                          for t in tracks], ensure_ascii=False)
+    write(OUTPUT_DIR / "assets" / "music-player.js", MUSIC_PLAYER_JS.replace("__TRACKS__", payload))
+    print(f"  music player: {len(tracks)} tracks")
 
 
 def page(title, body, page_path=None, meta_extra="", extra_head="", meta_description="", meta_keywords="", csp=None):
@@ -1574,6 +1638,20 @@ h2 { margin:0; font-weight:700; }
   flex-wrap:wrap; gap:12px; color:var(--muted); font-size:13px;
 }
 .footer-inner a { color:var(--blue); text-decoration:none; }
+/* random song player */
+.footer-music { display:flex; align-items:center; gap:10px; margin:0 auto; }
+.footer-music-btn {
+  width:30px; height:30px; border-radius:50%; border:1px solid var(--line);
+  background:#fff; color:var(--accent); font-size:13px; cursor:pointer; flex:none;
+  transition:background .2s ease, transform .2s ease;
+}
+.footer-music-btn:hover { background:var(--accent-soft); transform:translateY(-1px); }
+.footer-music-text { display:flex; flex-direction:column; line-height:1.35; min-width:0; }
+.footer-music-name { color:var(--ink); font-weight:700; font-size:13px; }
+.footer-music-sub { color:var(--muted); font-size:11.5px; }
+.footer-music-link { font-size:11.5px; color:var(--muted) !important; }
+.footer-music-frame { flex-basis:100%; }
+.footer-music-iframe { display:block; width:min(420px,100%); height:236px; border:0; border-radius:8px; }
 .visit-counter { font-size:12px; color:var(--muted); white-space:nowrap; }
 .footer-nav { display:flex; gap:16px; }
 .footer-nav a { color:var(--muted); text-decoration:none; }
@@ -3199,6 +3277,7 @@ def main():
     build_facet_pages(instruments, "subcategory", "subcategories", "子分類")
     build_facet_pages(instruments, "country", "countries", "國家/地區")
     build_404(instruments)
+    build_music_player()
     build_sitemap(instruments)
     build_robots(instruments)
     build_fretboard_tool()
