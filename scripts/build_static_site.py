@@ -376,23 +376,17 @@ def set_nav_subcategories(instruments):
     )
 
 
-def nav_class_links(page_path, code):
-    """'A3 鼓與打擊樂器' plus its subcategory links, or '' if absent."""
-    name = dict(NAV_CLASSES).get(code)
-    if not name:
-        return ""
-    subs = _NAV_SUBCATS.get(code) or []
-    if not subs:
-        return ""
-    rows = [f'<a href="{resolve_url(page_path, f"/categories/{name}/")}" '
-            f'style="font-weight:700;color:var(--accent);">{code} {escape(name)}</a>']
-    last = len(subs) - 1
-    for i, (sub, n) in enumerate(subs):
-        branch = "└" if i == last else "├"
+def nav_class_links(page_path):
+    """A1–A4 as a flat vertical list, one line each.
+
+    Each class used to be followed by its subcategories as a ├/└ tree, which
+    made the panel tall and hard to scan. The subcategories live on the class
+    page now — you see them after you click in."""
+    rows = []
+    for code, name in NAV_CLASSES:
         rows.append(
-            f'<a href="{resolve_url(page_path, f"/subcategories/{slugify(sub)}/")}" '
-            f'class="sub-link" title="{escape(sub)}（{n} 件）">　{branch} {escape(sub)}'
-            f'<span class="sub-count">{n}</span></a>'
+            f'<a href="{resolve_url(page_path, f"/categories/{name}/")}">'
+            f'<strong>{code}</strong>　{escape(name)}</a>'
         )
     return "\n            ".join(rows)
 
@@ -470,22 +464,17 @@ def site_header(page_path):
         <a href="{resolve_url(page_path, '/instruments/')}" class="dropdown-trigger">樂器百科</a>
         <div class="dropdown-menu multi-col">
           <div class="menu-col">
-            <a href="{resolve_url(page_path, '/categories/')}" style="font-weight:700;">全部分類</a>
+            <a href="{resolve_url(page_path, '/categories/')}" style="font-weight:700;">分類</a>
+            {nav_class_links(page_path)}
+          </div>
+          <div class="menu-col">
             <a href="#" id="random-nav-link" class="random-link">隨選樂器</a>
+          </div>
+          <div class="menu-col">
             <a href="{resolve_url(page_path, '/countries/')}">國家／地區</a>
+          </div>
+          <div class="menu-col">
             <a href="{resolve_url(page_path, '/map/')}">地圖</a>
-            <hr style="margin:4px 0;border:none;border-top:1px solid var(--line);">
-            {nav_class_links(page_path, "A1")}
-          </div>
-          <div class="menu-col">
-            {nav_class_links(page_path, "A2")}
-            <hr style="margin:4px 0;border:none;border-top:1px solid var(--line);">
-            <a href="{resolve_url(page_path, '/categories/待分類-偵錯暫存/')}" style="font-weight:700;color:var(--muted);">A9 待分類／偵錯暫存</a>
-          </div>
-          <div class="menu-col">
-            {nav_class_links(page_path, "A3")}
-            <hr style="margin:4px 0;border:none;border-top:1px solid var(--line);">
-            {nav_class_links(page_path, "A4")}
           </div>
         </div>
       </div>
@@ -1108,12 +1097,6 @@ CATEGORY_ARCHITECTURE = {
         "description": "電子振盪、合成、取樣、磁帶、擴音、控制器或電聲改造。",
         "subcategories": ["電子振盪", "合成器", "取樣與磁帶", "鼓機與節奏機", "電聲改造樂器", "控制器與數位介面"],
     },
-    "A9": {
-        "name": "待分類／偵錯暫存",
-        "hs": "",
-        "description": "只供偵錯、刪除、整併、待查使用；正式公開版目標是清空。",
-        "subcategories": ["待確認"],
-    },
 }
 
 ENSEMBLE_ARCHITECTURE = [
@@ -1128,7 +1111,7 @@ ENSEMBLE_ARCHITECTURE = [
 
 
 def build_category_detail_pages(instruments):
-    """為每個 A1-A9 分類建立含子分類樹狀結構的頁面。"""
+    """為每個 A1-A4 分類建立含子分類樹狀結構的頁面。"""
     # Build class_code → list of instruments
     code_to_instruments = defaultdict(list)
     code_to_subcats = defaultdict(set)
@@ -1153,7 +1136,7 @@ def build_category_detail_pages(instruments):
         <div class="featured-links">
           <a class="featured-card" href="{site_url('/categories/single-instrument/')}" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:1px solid #bbf7d0;">
             <strong>A. 單一樂器百科</strong>
-            <span>依發聲原理分為 A1 吹奏與氣息樂器、A2 弦樂器、A3 鼓與打擊樂器、A4 電子與電聲樂器及 A9 待分類，共 5 大類。</span>
+            <span>依發聲原理分為 A1 吹奏與氣息樂器、A2 弦樂器、A3 鼓與打擊樂器、A4 電子與電聲樂器，共 4 大類。</span>
           </a>
           <a class="featured-card" href="{site_url('/ensembles/')}" style="background:linear-gradient(135deg,#f0f5ff,#e0efff);border:1px solid #c5ddfd;">
             <strong>B. 合奏與編制百科</strong>
@@ -1166,10 +1149,10 @@ def build_category_detail_pages(instruments):
     write(
         OUTPUT_DIR / "categories" / "index.html",
         page("全部分類", cat_index_body, OUTPUT_DIR / "categories" / "index.html",
-             meta_description="世界樂器全部分類 — A. 單一樂器百科（A1-A9）與 B. 合奏與編制百科（B1-B7）。"),
+             meta_description="世界樂器全部分類 — A. 單一樂器百科（A1-A4）與 B. 合奏與編制百科（B1-B7）。"),
     )
 
-    # ─── /categories/single-instrument/index.html — A. 單一樂器百科（A1-A9 列表） ───
+    # ─── /categories/single-instrument/index.html — A. 單一樂器百科（A1-A4 列表） ───
     a_cards_list = []
     for code, arch in CATEGORY_ARCHITECTURE.items():
         cat_slug = slugify(arch['name'])
@@ -1199,11 +1182,11 @@ def build_category_detail_pages(instruments):
             </main>
             """,
             single_instrument_dir / "index.html",
-            meta_description="單一樂器百科 A1-A9 分類總覽 — 從吹奏樂器到電子樂器，探索世界各地的樂器分類。",
+            meta_description="單一樂器百科 A1-A4 分類總覽 — 從吹奏樂器到電子樂器，探索世界各地的樂器分類。",
         ),
     )
 
-    # ─── 各 A1-A9 分類頁面（含子分類） ───
+    # ─── 各 A1-A4 分類頁面（含子分類） ───
     for code, arch in CATEGORY_ARCHITECTURE.items():
         cat_name = arch["name"]
         slug = slugify(cat_name)
