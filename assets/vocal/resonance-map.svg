@@ -1,49 +1,57 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 570" role="img" aria-label="人體三大共鳴腔示意圖：胸腔、咽喉腔、鼻腔與頭腔">
-  <title>人體三大共鳴腔示意圖：胸腔、咽喉腔、鼻腔與頭腔</title>
-  <rect width="560" height="570" fill="#fbf8f2"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 660" role="img" aria-label="頭頸側剖面：鼻腔、口腔、咽喉腔與喉的位置">
+  <title>頭頸側剖面：鼻腔、口腔、咽喉腔與喉的位置</title>
+  <rect width="470" height="660" fill="#fbf8f2"/>
   <style>
-    .ink { fill: none; stroke: #2b2a26; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
-    .thin { fill: none; stroke: #8a8578; stroke-width: 1.4; stroke-dasharray: 5 5; }
-    .grid { fill: none; stroke: #d8d0c2; stroke-width: 1.2; }
-    .fill { fill: #b5734a; opacity: .18; stroke: #b5734a; stroke-width: 1.8; }
-    .fill2 { fill: #7d9b76; opacity: .18; stroke: #7d9b76; stroke-width: 1.8; }
-    .solid { fill: #b5734a; opacity: .85; }
-    .solid2 { fill: #7d9b76; opacity: .85; }
-    .lbl { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 15px; fill: #2b2a26; }
-    .lbl-s { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 12.5px; fill: #8a8578; }
-    .lbl-b { font-family: 'Noto Serif TC', 'Songti TC', 'PingFang TC', serif; font-size: 15px; fill: #2b2a26; font-weight: 700; }
+    .out   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
+    .lead  { fill: none; stroke: #2a2724; stroke-width: .9; }
+    .dot   { fill: #2a2724; }
+    .skin  { fill: #f1e0d6; stroke: #2a2724; stroke-width: 1.8; }
+    .muc   { fill: #e2a99b; stroke: #cb8f82; stroke-width: 1.2; }
+    .muc2  { fill: #cb8f82; stroke: #2a2724; stroke-width: 1.4; }
+    .cart  { fill: #d5d5c2; stroke: #2a2724; stroke-width: 1.5; }
+    .bone  { fill: #ece6d8; stroke: #2a2724; stroke-width: 1.4; }
+    .air   { fill: #d5e5e7; stroke: #2a2724; stroke-width: 1.3; }
+    .fold  { fill: #f6f3ea; stroke: #c9c1ac; stroke-width: 1.6; }
+    .musc  { fill: #cf8f88; stroke: #2a2724; stroke-width: 1.1; }
+    .hl    { fill: #b5734a; fill-opacity: .22; stroke: #b5734a; stroke-width: 1.7; }
+    .hl2   { fill: #7d9b76; fill-opacity: .22; stroke: #7d9b76; stroke-width: 1.7; }
+    .ink   { fill: none; stroke: #2a2724; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
+    .ave   { fill: none; stroke: #b5734a; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
+    .ave2  { fill: none; stroke: #7d9b76; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
+    .thin  { fill: none; stroke: #d8d0c2; stroke-width: 1.3; stroke-dasharray: 5 5; }
+    .lbl   { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; }
+    .lbl-s { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 12px; fill: #6f6a60; }
+    .lbl-b { font-family: 'Noto Sans TC','PingFang TC',system-ui,sans-serif; font-size: 14px; fill: #2a2724; font-weight: 700; }
   </style>
-
-  <!-- head: cranium, face, neck -->
-  <path class="ink" d="M120 300 C112 250 116 200 140 162 C164 124 212 100 262 102
-                        C316 104 356 140 362 190 C366 222 352 236 346 250
-                        C364 262 386 274 404 296 C414 309 410 322 398 326
-                        C384 331 366 330 350 323 C342 337 336 351 340 366
-                        C344 384 352 400 350 418"/>
-  <path class="ink" d="M120 300 C110 340 106 400 112 452 C116 482 128 502 150 512"/>
-  <path class="ink" d="M350 418 C338 452 332 492 340 528"/>
-
-  <!-- ear hint -->
-  <path class="ink" d="M300 214 C322 206 340 218 342 238 C344 258 328 270 310 266"/>
-
-  <!-- 1 chest -->
-  <ellipse class="fill" cx="186" cy="474" rx="62" ry="34" transform="rotate(-8 186 474)"/>
-  <text class="lbl" x="196" y="540">胸腔</text>
-  <text class="lbl-s" x="196" y="558">低頻、厚實</text>
-
-  <!-- 2 pharynx -->
-  <ellipse class="fill2" cx="352" cy="330" rx="26" ry="40" transform="rotate(14 352 330)"/>
-  <text class="lbl" x="408" y="326">咽喉腔</text>
-  <text class="lbl-s" x="408" y="344">中頻、穿透</text>
-
-  <!-- 3 nasal / head -->
-  <ellipse class="fill" cx="318" cy="236" rx="38" ry="20" transform="rotate(-18 318 236)"/>
-  <text class="lbl" x="404" y="240">鼻腔／頭腔</text>
-  <text class="lbl-s" x="404" y="258">高頻、明亮</text>
-
-  <!-- airflow -->
-  <path class="thin" d="M192 460 C230 420 288 392 336 366 C352 332 340 300 330 274"/>
-  <path class="ink" d="M334 282 l-10 6 l12 8z" fill="#2b2a26"/>
-  <text class="lbl-s" x="150" y="404">氣流與聲波往上走</text>
-
+<text class="lbl-b" x="24" y="30">聲音從喉嚨往上，經過三個可以改變形狀的空間</text>
+  <g transform="translate(10,26)"><path class="skin" d="M188 380 C202 414 208 468 210 566 L306 566 C312 496 314 434 306 392 C284 404 224 406 188 380 Z"/>
+  <path class="skin" d="M302 92 C252 52 182 58 156 100 C138 128 132 158 138 182 C144 200 152 210 150 220 C140 230 132 244 134 256 C136 266 144 270 154 268 C148 278 146 286 152 294 C146 304 148 316 158 322 C150 332 152 344 162 352 C156 366 160 382 174 392 C198 404 234 406 260 398 C298 386 322 348 322 298 C322 228 332 130 302 92 Z"/>
+  <path class="ink" d="M300 208 C324 200 342 216 340 238 C338 258 320 268 304 262"/>
+  <path class="bone" d="M292 350 L312 350 L316 470 L296 470 Z"/>
+  <path class="air" d="M146 214 C154 200 170 198 186 206 C214 218 246 224 272 226 C280 236 280 250 274 258 C244 250 208 246 180 250 C164 254 148 256 144 248 C140 238 140 224 146 214 Z"/>
+  <path class="ink" d="M146 246 C158 252 170 254 182 252"/>
+  <path class="bone" d="M150 262 L276 258 L276 272 L152 278 Z"/>
+  <path class="muc" d="M276 258 C296 262 304 276 300 290 C294 302 282 302 276 294 Z"/>
+  <path class="muc" d="M154 280 C196 274 238 272 276 274 C284 288 282 310 276 322 C240 330 198 332 158 326 C150 312 148 294 154 280 Z"/>
+  <path class="muc" d="M160 324 C190 304 230 300 272 310 C278 316 272 324 260 326 C222 332 188 332 160 328 Z"/>
+  <path class="ink" d="M156 262 L156 276"/>
+  <path class="ink" d="M156 328 L156 340"/>
+  <path class="ink" d="M166 262 L166 276"/>
+  <path class="ink" d="M166 328 L166 340"/>
+  <path class="hl" d="M276 258 L306 256 L312 392 L280 398 Z"/>
+  <path class="cart" d="M280 396 L314 390 L318 448 L284 454 Z"/>
+  <path class="fold" d="M286 424 L312 420 L312 430 L286 434 Z"/>
+  <path class="cart" d="M282 390 C270 384 262 394 266 404 C270 414 282 414 286 406 Z"/>
+  <path class="air" d="M284 454 L320 448 L326 560 L290 566 Z"/>
+  <path class="ink" d="M285 472 L320 469"/>
+  <path class="ink" d="M286 489 L321 486"/>
+  <path class="ink" d="M287 506 L322 503"/>
+  <path class="ink" d="M288 523 L323 520"/>
+  <path class="ink" d="M289 540 L324 537"/></g>
+  <path class="lead" d="M196 240 L96 150"/><circle class="dot" cx="196" cy="240" r="2.6"/><text class="lbl" x="90" y="154" text-anchor="end">鼻腔</text>
+  <path class="lead" d="M210 300 L96 300"/><circle class="dot" cx="210" cy="300" r="2.6"/><text class="lbl" x="90" y="304" text-anchor="end">口腔</text>
+  <path class="lead" d="M300 300 L372 250"/><circle class="dot" cx="300" cy="300" r="2.6"/><text class="lbl" x="378" y="254">咽喉腔</text>
+  <path class="lead" d="M300 424 L372 398"/><circle class="dot" cx="300" cy="424" r="2.6"/><text class="lbl" x="378" y="402">喉（聲帶在這裡）</text>
+  <path class="lead" d="M300 512 L372 486"/><circle class="dot" cx="300" cy="512" r="2.6"/><text class="lbl" x="378" y="490">氣管往下接肺</text>
+  <text class="lbl-s" x="24" y="640">改變共鳴＝改變這幾個空間的形狀，不是把聲音「推」過去</text>
 </svg>

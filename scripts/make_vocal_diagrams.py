@@ -13,7 +13,11 @@ Usage:  python scripts/make_vocal_diagrams.py
 from __future__ import annotations
 
 import math
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import vocal_anatomy as VOC  # noqa: E402  (reusable anatomical bases)
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 OUT = BASE_DIR / "assets" / "vocal"
@@ -837,6 +841,108 @@ def formant_filter() -> str:
     body += '<text class="lbl-s" x="300" y="300">峰的位置就是共振峰（F1、F2…）</text>\n'
     body += '<text class="lbl-s" x="40" y="200">頻率 →</text>\n'
     return svg(600, 330, body, "線性聲源－濾波器示意圖：諧波經過聲道濾波形成共振峰")
+
+
+# ══════════════════════════════════════════════════════════════════════
+# Anatomical versions, built on scripts/vocal_anatomy.py
+# ══════════════════════════════════════════════════════════════════════
+def _ana(body, w, h, title):
+    return VOC.wrap(w, h, body, title)
+
+
+def resonance_map() -> str:
+    """Sagittal head with the three resonance spaces called out."""
+    b = [VOC.T(24, 30, "聲音從喉嚨往上，經過三個可以改變形狀的空間", "lbl-b"),
+         f'<g transform="translate(10,26)">{VOC.head_sagittal(highlight="pharynx")}</g>']
+    b += [
+        VOC.leader(196, 240, 96, 150, "鼻腔", "lbl", "end"),
+        VOC.leader(210, 300, 96, 300, "口腔", "lbl", "end"),
+        VOC.leader(300, 300, 372, 250, "咽喉腔"),
+        VOC.leader(300, 424, 372, 398, "喉（聲帶在這裡）"),
+        VOC.leader(300, 512, 372, 486, "氣管往下接肺"),
+    ]
+    b.append(VOC.T(24, 640, "改變共鳴＝改變這幾個空間的形狀，不是把聲音「推」過去", "lbl-s"))
+    return _ana("\n  ".join(b), 470, 660, "頭頸側剖面：鼻腔、口腔、咽喉腔與喉的位置")
+
+
+def folds_open_closed() -> str:
+    b = [VOC.T(24, 30, "呼吸時聲帶張開，發聲時靠攏", "lbl-b")]
+    b.append(f'<g transform="translate(30,60)">{VOC.glottis(gap=1.3)}</g>')
+    b.append(f'<g transform="translate(410,60)">{VOC.glottis(gap=-0.35)}</g>')
+    b += [
+        VOC.T(210, 88, "吸氣：聲門張開", "lbl-b", "middle"),
+        VOC.T(590, 88, "發聲：聲門靠攏", "lbl-b", "middle"),
+        VOC.T(210, 420, "空氣直接通過，沒有聲音", "lbl-s", "middle"),
+        VOC.T(590, 420, "氣流把兩片聲帶吸在一起振動", "lbl-s", "middle"),
+    ]
+    b.append(VOC.T(24, 470, "從上往下看喉部；兩片白色的是聲帶，中間的縫是聲門", "lbl-s"))
+    return _ana("\n  ".join(b), 780, 500, "聲帶開合：吸氣時張開，發聲時靠攏")
+
+
+def closure_grades() -> str:
+    b = [VOC.T(24, 30, "閉合度不是愈緊愈好，是「剛好不漏」", "lbl-b")]
+    for i, (gap, name, note) in enumerate([
+        (1.5, "漏氣", "中間有縫：氣音多、撐不久"),
+        (0.0, "平衡", "剛好靠攏：聲音穩、最省力"),
+        (-0.9, "壓迫", "擠過頭：亮但緊、容易累"),
+    ]):
+        x = 30 + i * 250
+        b.append(f'<g transform="translate({x},60)">{VOC.glottis(gap=gap)}</g>')
+        b.append(VOC.T(x + 180, 92, name, "lbl-b", "middle"))
+        b.append(VOC.T(x + 180, 420, note, "lbl-s", "middle"))
+    b.append(VOC.T(24, 468, "從上往下看：兩片聲帶在中線相遇。理想是靠攏但不夾死", "lbl-s"))
+    return _ana("\n  ".join(b), 780, 500, "聲帶閉合三級：漏氣、平衡、壓迫")
+
+
+def fold_swelling() -> str:
+    b = [VOC.T(24, 30, "沙啞常常不是唱壞，是聲帶腫了、關不緊", "lbl-b")]
+    b.append(f'<g transform="translate(60,60)">{VOC.glottis(gap=-0.1)}</g>')
+    b.append(f'<g transform="translate(430,60)">{VOC.glottis(gap=0.8, swollen=1.1)}</g>')
+    b.append(VOC.T(240, 92, "正常", "lbl-b", "middle"))
+    b.append(VOC.T(610, 92, "水腫", "lbl-b", "middle"))
+    b.append(VOC.leader(600, 300, 690, 300, "邊緣變圓"))
+    b.append(VOC.T(240, 420, "邊緣清楚、有稜角，能靠攏", "lbl-s", "middle"))
+    b.append(VOC.T(610, 420, "變厚變圓，中間合不起來", "lbl-s", "middle"))
+    b.append(VOC.T(24, 468, "水腫時硬唱，大腦會叫假聲帶代班補縫隙——那才是真正傷聲帶的一步", "lbl-s"))
+    b.append(VOC.T(24, 492, "處理方式只有休息、補水、少說話；隔天再唱，不要當天硬練", "lbl-s"))
+    return _ana("\n  ".join(b), 780, 520, "正常聲帶與水腫聲帶的比較")
+
+
+def false_folds() -> str:
+    b = [VOC.T(24, 30, "假聲帶在真聲帶上面，負責關門與保護", "lbl-b")]
+    b.append(f'<g transform="translate(60,50)">{VOC.larynx_side(hl="false")}</g>')
+    b += [
+        VOC.leader(255, 170, 340, 120, "假聲帶（室襞）"),
+        VOC.leader(255, 235, 340, 250, "真聲帶（聲襞）"),
+        VOC.leader(230, 330, 340, 330, "氣管"),
+        VOC.T(24, 420, "咳嗽、清喉嚨、硬擠高音，都是叫上面的假聲帶出來代班", "lbl-s"),
+        VOC.T(24, 444, "聲音會啞就是這樣來的", "lbl-s"),
+    ]
+    return _ana("\n  ".join(b), 560, 470, "喉部側剖面：假聲帶（室襞）在真聲帶（聲襞）上方")
+
+
+def fold_thickness() -> str:
+    b = [VOC.T(24, 30, "同一條聲帶，厚薄改變就是音高改變", "lbl-b")]
+    b.append(f'<g transform="translate(50,60)">{VOC.larynx_side(hl="true")}</g>')
+    b.append(f'<g transform="translate(360,60)">{VOC.larynx_side(hl="true", stretched=True)}</g>')
+    b.append(VOC.T(220, 92, "厚、短 → 低音", "lbl-b", "middle"))
+    b.append(VOC.T(530, 92, "薄、長 → 高音", "lbl-b", "middle"))
+    b.append(VOC.T(220, 404, "甲杓肌（TA）收縮", "lbl-s", "middle"))
+    b.append(VOC.T(530, 404, "環甲肌（CT）收縮", "lbl-s", "middle"))
+    b.append(VOC.T(24, 452, "厚的時候面積大、振動慢；拉薄之後張力高、振動快", "lbl-s"))
+    return _ana("\n  ".join(b), 720, 490, "聲帶厚薄與音高：甲狀軟骨的傾斜改變張力")
+
+
+def soft_palate() -> str:
+    b = [VOC.T(24, 30, "軟顎是一扇門：開哪邊，聲音就往哪邊去", "lbl-b")]
+    b.append(f'<g transform="translate(0,40) scale(0.92)">{VOC.head_sagittal(highlight="oral")}</g>')
+    b += [
+        VOC.leader(258, 286, 380, 210, "軟顎抬起 → 走口腔，字清楚"),
+        VOC.leader(262, 306, 380, 330, "軟顎放下 → 漏進鼻腔，變鼻音"),
+        VOC.leader(232, 262, 380, 262, "鼻腔"),
+        VOC.T(24, 620, "想加鼻音色彩就把軟顎放一點；想要乾淨通透就抬起來", "lbl-s"),
+    ]
+    return _ana("\n  ".join(b), 520, 650, "軟顎抬起與放下，聲音分別往口腔或鼻腔走")
 
 
 DIAGRAMS = {
