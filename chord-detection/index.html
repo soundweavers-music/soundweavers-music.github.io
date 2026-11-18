@@ -58,12 +58,13 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
 .sys-bar.non-dia .chord .cname { color: #b45309; }
 .chord-line { position: relative; height: 27px; }
 .chord { position: absolute; top: 0; padding: 0 2px; overflow: hidden; white-space: nowrap; cursor: pointer; border-radius: 4px; }
-.chord .cname { font-size: 17px; font-weight: 800; line-height: 1.15; }
+.chord .cname { font-size: var(--chord-size, 17px); font-weight: 800; line-height: 1.15; }
 .chord .cdeg { font-size: 10px; color: var(--muted); margin-left: 4px; }
 .chord .cdia { display: block; line-height: 0; margin-top: 2px; }
 .chord.is-active { background: rgba(196,149,106,0.28); }
 .tick { position: absolute; top: 2px; height: 24px; width: 1px; background: var(--line); opacity: .45; }
-.lyric-line { min-height: 20px; font-size: 12px; line-height: 1.5; color: var(--ink); word-break: break-all; }
+.lyric-line { min-height: 20px; font-size: var(--lyric-size, 12px); line-height: 1.5; color: var(--ink); word-break: break-all; }
+.chart { --chord-size: 17px; --lyric-size: 12px; }
 
 /* Toolbar / key info */
 .chart-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin: 12px 0 8px; font-size: 12px; }
@@ -278,6 +279,11 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
 <!-- Grid / beat controls -->
 <div class="controls-row" id="grid-row" style="display:none;">
   <label>拍號 <select id="bpb-select"><option value="4">4/4</option><option value="3">3/4</option></select></label>
+  <label>預備拍 <select id="pickup-select">
+    <option value="auto">自動</option>
+    <option value="0">0 拍</option><option value="1">1 拍</option>
+    <option value="2">2 拍</option><option value="3">3 拍</option>
+  </select></label>
   <div class="bpm-edit">
     <label>BPM</label>
     <input type="number" id="bpm-input" value="120" min="20" max="300">
@@ -311,8 +317,11 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
     </select></label>
     <label><input type="checkbox" id="show-degrees" checked> 級數</label>
     <label><input type="checkbox" id="show-lyrics" checked> 歌詞</label>
+    <label><input type="checkbox" id="lyric-snap" checked> 歌詞對齊音訊</label>
     <label><input type="checkbox" id="show-diagrams"> 指版圖</label>
     <label><input type="checkbox" id="continuous"> 連續播放</label>
+    <label class="size-ctl" title="和弦字級">和弦 <input type="range" id="chord-size" min="12" max="26" value="17"></label>
+    <label class="size-ctl" title="歌詞字級">歌詞 <input type="range" id="lyric-size" min="9" max="20" value="12"></label>
     <span class="spacer"></span>
     <button class="btn ghost small" id="btn-import-lrc">📄 匯入 .lrc</button>
     <input type="file" id="lrc-input" accept=".lrc,.txt,text/plain" style="display:none;">
@@ -487,6 +496,8 @@ let state = {
   autoDownbeat: 0, downbeatShift: 0, gridShiftSec: 0,
   lyrics: [], lyricBuckets: new Map(), showLyrics: true, showDegrees: true,
   showDiagrams: false, continuous: false, notation: 'name',
+  pickupOverride: null, lyricSnap: true, chordSize: 17, lyricSize: 12,
+  onsetEnv: null, onsetHopSec: 0,
   instrument: 0, tuning: null,
   isPlaying: false, currentTime: 0, startTime: 0, playEnd: 0,
   sourceNode: null, animFrame: null,
@@ -695,6 +706,8 @@ async function analyzeWithBrowser() {
     const { env, hopSec } = computeOnsetEnvelope(buffer);
     const tempo = estimateTempo(env, hopSec);
     const tracked = trackBeats(env, hopSec, tempo.periodFrames);
+    state.onsetEnv = env;
+    state.onsetHopSec = hopSec;
     state.baseBeats = tracked.times;
     state.bpm = bpmFromBeats(tracked.times) || Math.round(tempo.bpm);
     state.gridShiftSec = 0;
@@ -955,8 +968,17 @@ function groupIntoBars(beats, duration, beatsPerBar = 4, offset = 0) {
     bars.push({ start: group[0], end, beats: group, beatIdx: i });
   }
   if (!bars.length) bars.push({ start: beats[0], end: duration, beats: [beats[0]], beatIdx: 0 });
-  // 前奏不滿一個小節時併進第一小節，畫面才不會從幾秒後才開始
-  if (bars[0].start > 0) bars[0].start = 0;
+  if (bars[0].start > 1e-6 && beats.length) {
+    const pre = beats.slice(0, Math.min(offset, beats.length)).filter(t => t < bars[0].start - 1e-6);
+    if (offset > 0 && pre.length) {
+      // 預備拍（anacrusis）：獨立成一個不完整小節，不要併進第一小節，
+      // 否則第一小節會變成六拍、整份譜看起來偏掉。
+      bars.unshift({ start: 0, end: bars[0].start, beats: pre, beatIdx: 0, pickup: true });
+    } else {
+      // 前奏不滿一個小節時併進第一小節，畫面才不會從幾秒後才開始
+      bars[0].start = 0;
+    }
+  }
   return bars;
 }
 
@@ -1663,6 +1685,7 @@ function buildDisplayChords() {
       display: parts.map(p => p.name).join(' / '),
       isDiatonic,
       confidence: ch.confidence || 0,
+      pickup: !!(state.bars[idx] && state.bars[idx].pickup),
     };
   });
 }
@@ -1716,8 +1739,11 @@ function applyGrid(opts) {
     .filter(t => t >= 0 && t < duration);
   state.beats = beats;
 
-  const off = ((state.autoDownbeat + state.downbeatShift) % bpb + bpb) % bpb;
+  const off = (state.pickupOverride != null)
+    ? state.pickupOverride
+    : ((state.autoDownbeat + state.downbeatShift) % bpb + bpb) % bpb;
   state.bars = groupIntoBars(beats, duration, bpb, off);
+  state.pickupBars = (state.bars.length && state.bars[0].pickup) ? 1 : 0;
 
   if (opts.decode !== false || state.beatChords.length !== beats.length) {
     // 用目前這一調當先驗：順階和弦加分、常見級數接法打折。
@@ -1822,7 +1848,7 @@ function barCellHtml(idx) {
   const lyric = state.showLyrics ? barLyric(idx) : '';
   return '<div class="sys-bar' + (ch.isDiatonic ? '' : ' non-dia') + '" data-bar="' + idx + '"'
        + ' onclick="auditionBar(' + idx + ',0)">'
-       + '<span class="bar-no">' + (idx + 1) + '</span>'
+       + '<span class="bar-no">' + (ch.pickup ? '' : (idx + 1 - state.pickupBars)) + '</span>'
        + '<button class="bar-edit" title="編輯和弦" onclick="event.stopPropagation();openEditModal(' + idx + ')">✏</button>'
        + '<div class="chord-line" style="height:' + lineH + 'px">' + ticks + segs + '</div>'
        + '<div class="lyric-line">' + escapeHtml(lyric) + '</div>'
@@ -2022,13 +2048,57 @@ function lyricBarForTime(t) {
   return idx;
 }
 
+// 把歌詞時間吸到最近的起音（用分析時算好的起音包絡）。
+// LRC 的時間碼常常差個 0.2–0.5 秒，吸到真正出聲的那一拍會準很多。
+function snapLyricTime(t) {
+  const env = state.onsetEnv, hop = state.onsetHopSec;
+  if (!state.lyricSnap || !env || !env.length || !hop) return t;
+  let peak = 0;
+  for (let i = 0; i < env.length; i++) if (env[i] > peak) peak = env[i];
+  if (!(peak > 0)) return t;
+  const lo = Math.max(0, Math.floor((t - 0.45) / hop));
+  const hi = Math.min(env.length - 1, Math.ceil((t + 0.45) / hop));
+  let best = -1, bestV = 0;
+  for (let i = lo; i <= hi; i++) if (env[i] > bestV) { bestV = env[i]; best = i; }
+  return (best >= 0 && bestV > peak * 0.25) ? best * hop : t;
+}
+
+function addToLyricBucket(buckets, idx, text) {
+  const t = (text || '').trim();
+  if (!t) return;
+  if (!buckets.has(idx)) buckets.set(idx, []);
+  buckets.get(idx).push(t);
+}
+
+// 一行歌詞通常橫跨一到兩個小節。依這行佔用的時間長度，把字平均分配到
+// 它覆蓋的小節上（而不是整行塞進第一個小節）。
 function computeLyricBuckets() {
   const buckets = new Map();
-  for (const l of state.lyrics) {
-    const idx = lyricBarForTime(l.time);
-    if (idx < 0) continue;
-    if (!buckets.has(idx)) buckets.set(idx, []);
-    buckets.get(idx).push(l.text);
+  const lines = state.lyrics;
+  if (!lines.length) { state.lyricBuckets = buckets; return; }
+  const times = lines.map(l => snapLyricTime(l.time));
+  for (let i = 0; i < lines.length; i++) {
+    const t = times[i];
+    const nextT = (i + 1 < times.length) ? times[i + 1] : state.duration;
+    const startBar = lyricBarForTime(t);
+    if (startBar < 0) continue;
+    let endBar = barIndexForTime(Math.min(nextT - 0.02, state.duration));
+    if (endBar < startBar) endBar = startBar;
+    const span = Math.max(1, Math.min(4, endBar - startBar + 1));
+    const chars = Array.from(lines[i].text);
+    if (span === 1 || chars.length < span * 2) {
+      addToLyricBucket(buckets, startBar, lines[i].text);
+      continue;
+    }
+    const base = Math.floor(chars.length / span);
+    const rem = chars.length % span;
+    let pos = 0;
+    for (let k = 0; k < span; k++) {
+      const len = base + (k === span - 1 ? rem : 0);
+      const chunk = chars.slice(pos, pos + len).join('');
+      pos += len;
+      addToLyricBucket(buckets, startBar + k, chunk);
+    }
   }
   state.lyricBuckets = buckets;
 }
@@ -2406,19 +2476,28 @@ function exportWord() {
 function updateGridHint() {
   const el = document.getElementById('grid-hint');
   if (!el) return;
+  const off = state.pickupOverride != null
+    ? state.pickupOverride
+    : ((state.autoDownbeat + state.downbeatShift) % state.beatsPerBar + state.beatsPerBar) % state.beatsPerBar;
   el.textContent = 'BPM ' + state.bpm
     + ' · 整首微調 ' + (state.gridShiftSec * 1000).toFixed(0) + ' ms'
-    + ' · 小節線偏移 ' + state.downbeatShift + ' 拍'
+    + ' · 小節起點第 ' + (off + 1) + ' 拍（預備拍 ' + off + '）'
     + ' · ' + state.beatsPerBar + '/4';
 }
 
 function nudgeDownbeat(dir) {
   if (!state.chromaStore) return;
   const bpb = state.beatsPerBar;
-  state.downbeatShift = ((state.downbeatShift + dir) % bpb + bpb) % bpb;
+  const cur = state.pickupOverride != null
+    ? state.pickupOverride
+    : ((state.autoDownbeat + state.downbeatShift) % bpb + bpb) % bpb;
+  state.pickupOverride = ((cur + dir) % bpb + bpb) % bpb;
+  state.downbeatShift = 0;
+  const sel = document.getElementById('pickup-select');
+  if (sel) sel.value = String(state.pickupOverride);
   applyGrid({ decode: false, detectKey: false });
   updateGridHint();
-  setStatus('小節線已移動 ' + state.downbeatShift + ' 拍', '');
+  setStatus('小節起點移到第 ' + (state.pickupOverride + 1) + ' 拍（預備拍 ' + state.pickupOverride + '）', '');
 }
 
 function nudgeGridShift(delta) {
@@ -2518,6 +2597,38 @@ function initUI() {
     state.downbeatShift = 0;
     applyGrid({ decode: false, detectKey: false });
     updateGridHint();
+  });
+
+  // 字級（和弦／歌詞可個別調整）
+  function applyChartSizes() {
+    const el = document.getElementById('chart');
+    if (!el) return;
+    el.style.setProperty('--chord-size', state.chordSize + 'px');
+    el.style.setProperty('--lyric-size', state.lyricSize + 'px');
+  }
+  document.getElementById('chord-size').addEventListener('input', function () {
+    state.chordSize = parseInt(this.value, 10) || 17;
+    applyChartSizes();
+  });
+  document.getElementById('lyric-size').addEventListener('input', function () {
+    state.lyricSize = parseInt(this.value, 10) || 12;
+    applyChartSizes();
+  });
+  applyChartSizes();
+
+  // 預備拍：0..3 拍，或交給自動判斷
+  document.getElementById('pickup-select').addEventListener('change', function () {
+    state.pickupOverride = this.value === 'auto' ? null : parseInt(this.value, 10);
+    state.downbeatShift = 0;
+    if (!state.chromaStore) return;
+    applyGrid({ decode: false, detectKey: false });
+    updateGridHint();
+  });
+
+  // 歌詞要不要吸到音訊的起音
+  document.getElementById('lyric-snap').addEventListener('change', function () {
+    state.lyricSnap = this.checked;
+    if (state.chords.length) renderChart();
   });
 
   document.getElementById('btn-downbeat-prev').addEventListener('click', () => nudgeDownbeat(-1));
