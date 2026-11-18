@@ -38,13 +38,31 @@ LABEL_W = 230
 PAD = 8
 
 
-def download(url, dest, attempts=4):
-    """Fetch a thumbnail, waiting out 429s — the image CDN throttles this host."""
-    if dest.exists() and dest.stat().st_size > 512:
-        try:
-            return Image.open(dest)
-        except Exception:
-            dest.unlink(missing_ok=True)
+def fetch_bytes(file_name, url, attempts=4):
+    """Thumbnail bytes.
+
+    `upload.wikimedia.org` answers 429 in bursts on this network, but
+    `commons.wikimedia.org/w/thumb.php` is served by the application servers
+    and keeps working, so try it first for Commons files.
+    """
+    if file_name:
+        for i in range(attempts):
+            time.sleep(1.0)
+            try:
+                r = requests.get(
+                    "https://commons.wikimedia.org/w/thumb.php",
+                    params={"f": file_name, "w": "500"},
+                    headers=HEADERS,
+                    timeout=(5, 25),
+                )
+            except Exception:
+                continue
+            if r.status_code == 200 and r.headers.get("content-type", "").startswith("image"):
+                return r.content
+            if r.status_code == 429:
+                time.sleep(min(float(r.headers.get("Retry-After") or 30), 90))
+                continue
+            break
     for i in range(attempts):
         time.sleep(1.2 + i)
         try:
@@ -52,17 +70,28 @@ def download(url, dest, attempts=4):
         except Exception:
             continue
         if r.status_code == 429:
-            wait = min(float(r.headers.get("Retry-After") or 30), 90)
-            time.sleep(wait)
+            time.sleep(min(float(r.headers.get("Retry-After") or 30), 90))
             continue
-        if r.status_code != 200 or len(r.content) < 512:
+        if r.status_code != 200 or not r.headers.get("content-type", "").startswith("image"):
             return None
-        try:
-            dest.write_bytes(r.content)
-            return Image.open(io.BytesIO(r.content))
-        except Exception:
-            return None
+        return r.content
     return None
+
+
+def download(cand, dest):
+    if dest.exists() and dest.stat().st_size > 512:
+        try:
+            return Image.open(dest)
+        except Exception:
+            dest.unlink(missing_ok=True)
+    data = fetch_bytes(cand.get("file", ""), cand["url"])
+    if not data or len(data) < 512:
+        return None
+    try:
+        dest.write_bytes(data)
+        return Image.open(io.BytesIO(data))
+    except Exception:
+        return None
 
 
 def fit(img, box):
@@ -76,7 +105,7 @@ def safe_name(name):
 
 
 def get_image(slug, idx, cand):
-    return download(cand["url"], CAND_DIR / f"{slug}__{idx}__{safe_name(cand['file'])}")
+    return download(cand, CAND_DIR / f"{slug}__{idx}__{safe_name(cand['file'])}")
 
 
 def grid_sheets(records, cols=6, rows=4):

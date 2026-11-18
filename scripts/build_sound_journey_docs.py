@@ -146,13 +146,17 @@ def main() -> None:
       <a href="{bve.resolve_url(rdir / "index.html", "/sound-journey/")}">← 聲音旅圖</a>
       <span>{bve.escape(title)}</span>
     </div>
-    <div class="doc-book" data-pdf-reader data-src="{pdf_url}"
+    <div class="doc-book" data-pdf-reader data-mode="spread" data-src="{pdf_url}"
          data-pages='{_json.dumps(page_urls)}'>
       <div class="doc-book-spread">
         <img data-pdf-left class="doc-book-page" alt="">
         <img data-pdf-right class="doc-book-page" alt="">
       </div>
       <div class="doc-book-controls">
+        <div class="doc-book-modes" role="group" aria-label="版式">
+          <button type="button" class="doc-book-mode" data-pdf-mode="single" aria-pressed="false">單頁</button>
+          <button type="button" class="doc-book-mode" data-pdf-mode="spread" aria-pressed="true">雙頁</button>
+        </div>
         <button type="button" class="doc-book-btn" data-pdf-prev aria-label="上一頁">←</button>
         <span class="doc-book-label" data-pdf-label>載入中…</span>
         <button type="button" class="doc-book-btn" data-pdf-next aria-label="下一頁">→</button>

@@ -387,6 +387,25 @@ def canonical_for(page_path):
     return f"{SITE_DOMAIN}{SITE_BASE_PATH}{path}"
 
 
+_COURSE_CHAPTERS: dict[str, int] = {}
+
+
+def course_chapters(slug):
+    """How many numbered chapters a course in content/<slug>/ has.
+
+    Read from disk so the counts in the nav and the 學習 hub cannot drift when
+    chapters are added (the guitar course was advertised as 16 chapters while
+    it had 25)."""
+    if slug not in _COURSE_CHAPTERS:
+        folder = BASE_DIR / "content" / slug
+        _COURSE_CHAPTERS[slug] = (
+            sum(1 for p in folder.glob("*.md") if re.fullmatch(r"\d+\.md", p.name))
+            if folder.exists()
+            else 0
+        )
+    return _COURSE_CHAPTERS[slug]
+
+
 def site_header(page_path):
     """The one site header + nav. page() here and in build_vocal_extra, plus
     the hand-maintained tool pages, all use this so the nav cannot drift."""
@@ -453,9 +472,9 @@ def site_header(page_path):
           <a href="{resolve_url(page_path, '/vocal/')}"><strong>人聲與歌唱</strong>　初階 15 堂・進階 35 堂</a>
           <a href="{resolve_url(page_path, '/digitalmusic/')}"><strong>錄音後製</strong>　基礎 15 堂・進階 15 堂</a>
           <a href="{resolve_url(page_path, '/theory/')}"><strong>樂理基礎</strong>　五階段</a>
-          <a href="{resolve_url(page_path, '/mandolin/')}"><strong>曼陀林專區</strong>　22 章知識庫</a>
-          <a href="{resolve_url(page_path, '/guitar/')}"><strong>流行吉他彈唱指南</strong>　16 章</a>
-          <a href="{resolve_url(page_path, '/ukulele/')}"><strong>烏克麗麗流行彈唱與演奏</strong>　25 章</a>
+          <a href="{resolve_url(page_path, '/mandolin/')}"><strong>曼陀林專區</strong>　{course_chapters('mandolin')} 章知識庫</a>
+          <a href="{resolve_url(page_path, '/guitar/')}"><strong>流行吉他彈唱指南</strong>　{course_chapters('guitar')} 章</a>
+          <a href="{resolve_url(page_path, '/ukulele/')}"><strong>烏克麗麗流行彈唱與演奏</strong>　{course_chapters('ukulele')} 章</a>
         </div>
       </div>
       <div class="nav-dropdown">
@@ -473,9 +492,9 @@ def site_header(page_path):
           <a href="{resolve_url(page_path, '/about/author/')}">作者</a>
           <a href="{resolve_url(page_path, '/about/works/')}">歷年作品</a>
           <a href="{resolve_url(page_path, '/recruit/')}">招募夥伴</a>
+          <a href="{resolve_url(page_path, '/contact/')}">聯絡我們</a>
         </div>
       </div>
-      <a href="{resolve_url(page_path, '/contact/')}">聯絡我們</a>
     </nav>
     <button id="theme-toggle" class="theme-toggle" aria-label="切換色調">🎋</button>
   </header>
@@ -2339,7 +2358,8 @@ def build_manager_page(instruments):
 
 
 ABOUT_TABS = [("/about/", "關於世界聲音百科"), ("/about/author/", "作者"),
-              ("/about/works/", "歷年作品"), ("/recruit/", "招募夥伴")]
+              ("/about/works/", "歷年作品"), ("/recruit/", "招募夥伴"),
+              ("/contact/", "聯絡我們")]
 
 
 def about_tabs(page_path, current):
@@ -2561,9 +2581,9 @@ def build_learn_page():
         ("/vocal/", "🎤", "人聲與歌唱", "從發聲啟蒙、身體覺察到混聲技術，系統化的流行歌唱教學，搭配研究專欄深入聲學與製作觀點。", "初階 15 堂・進階 35 堂"),
         ("/digitalmusic/", "🎛", "錄音後製", "從宅錄建置、錄音與混音基礎，到音色雕塑、曲風實戰與母帶後期的完整課程。", "基礎 15 堂・進階 15 堂"),
         ("/theory/", "🎼", "樂理基礎", "譜號、節拍、拍號、音調、音域與發聲原理，分五個階段建立紮實的音樂理論基礎。", "前言＋五階段"),
-        ("/mandolin/", "🪕", "曼陀林專區", "22 章中文曼陀林知識庫：琴型歷史、構造製琴、演奏技法、曲風合奏與專輯導聆，附學習建議時數。", "22 章・建議約 28.5 小時"),
-        ("/guitar/", "🎸", "流行吉他彈唱指南", "從挑琴、調音、看懂六線譜，到刷奏、和弦與彈唱協調，寫給零基礎成人的流行吉他彈唱教材。", "16 章・持續增補"),
-        ("/ukulele/", "🎵", "烏克麗麗流行彈唱與演奏指南", "四條弦的大小事：選琴、調音、和弦家族、刷奏節奏型到指彈與打板，以華語流行歌為練習材料。", "25 章・持續增補"),
+        ("/mandolin/", "🪕", "曼陀林專區", "22 章中文曼陀林知識庫：琴型歷史、構造製琴、演奏技法、曲風合奏與專輯導聆，附學習建議時數。", f"{course_chapters('mandolin')} 章・建議約 28.5 小時"),
+        ("/guitar/", "🎸", "流行吉他彈唱指南", "從挑琴、調音、看懂六線譜，到刷奏、和弦與彈唱協調，寫給零基礎成人的流行吉他彈唱教材。", f"{course_chapters('guitar')} 章・持續增補"),
+        ("/ukulele/", "🎵", "烏克麗麗流行彈唱與演奏指南", "四條弦的大小事：選琴、調音、和弦家族、刷奏節奏型到指彈與打板，以華語流行歌為練習材料。", f"{course_chapters('ukulele')} 章・持續增補"),
     ]
     cards = "\n".join(
         f"""      <a class="hub-card" href="{resolve_url(path, href)}">

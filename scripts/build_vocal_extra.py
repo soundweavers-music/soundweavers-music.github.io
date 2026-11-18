@@ -267,7 +267,7 @@ def build_portal_homepage(instruments):
       <input type="search" name="q" placeholder="搜尋樂器、國家、分類…　例：尺八、甘美朗、非洲" aria-label="搜尋樂器">
       <button type="submit" aria-label="搜尋">搜尋</button>
     </form>
-    <p class="hero-stats"><span><strong>833</strong> 件樂器</span><span><strong>22</strong> 章曼陀林</span><span><strong>50</strong> 堂歌唱課</span><span><strong>30</strong> 堂錄音課</span></p>
+    <p class="hero-stats"><span><strong>{len(instruments)}</strong> 件樂器</span><span><strong>22</strong> 章曼陀林</span><span><strong>50</strong> 堂歌唱課</span><span><strong>30</strong> 堂錄音課</span></p>
     </div>
   </section>
 
@@ -717,7 +717,8 @@ def build_contact_page():
     print("Building contact page...")
     page_dir = OUTPUT_DIR / "contact"
     page_dir.mkdir(parents=True, exist_ok=True)
-    body = """<main class="contact-page">
+    body = f"""<main class="contact-page">
+  {_bss().about_tabs(page_dir / "index.html", "/contact/")}
   <section class="contact-hero">
     <p class="eyebrow">Contact Us</p>
     <h1>聯絡我們</h1>
@@ -746,19 +747,9 @@ def build_contact_page():
 
 
 def build_about_page_extra():
-    """Update about page to add link to contact page."""
-    about_path = OUTPUT_DIR / "about" / "index.html"
-    if about_path.exists():
-        text = about_path.read_text(encoding="utf-8")
-        # Add contact link if not already there
-        if "contact" not in text:
-            text = text.replace(
-                '<a class="btn" href="mailto:nextdoor20250726@gmail.com"',
-                '<a href="/contact/" style="display:inline-block;padding:12px 24px;background:var(--accent);color:#fff;border-radius:8px;text-decoration:none;font-weight:700;font-size:15px;margin-bottom:16px;">→ 前往完整聯絡頁面</a>\n          <a class="btn" href="mailto:nextdoor20250726@gmail.com"',
-                1
-            )
-            about_path.write_text(text, encoding="utf-8")
-            print("  About page updated with contact link.")
+    """Retired: 聯絡我們 is now a tab of the 關於 section, so the about page no
+    longer needs a hand-injected "前往完整聯絡頁面" button."""
+    return
 
 
 def build_theory_pages():
