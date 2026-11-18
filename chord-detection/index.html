@@ -360,10 +360,11 @@ const CHORD_TEMPLATES = {
   'add9':  [1,0,1,0,1,0,0,1,0,0,0,0],
 };
 
-// 偵測用的和弦詞彙。流行歌來來去去就這七種；把 6／9／add9／aug／sus2／m6
+// 偵測用的和弦詞彙。流行歌來來去去就這幾種；把 6／9／add9／aug／sus2／m6
 // 也放進候選只是讓「同一組音的另一種寫法」互相搶分，反而更容易錯。
-// （編輯視窗仍可選全部品質，偵測完再手動改。）
-const DETECT_QUALITIES = ['maj', 'm', '7', 'm7', 'maj7', 'sus4', 'dim'];
+// sus4 尤其容易吸走別的答案：C sus4 = C F G，剛好是「F 接 G」兩個和弦
+// 混在一起時最省事的解，所以偵測階段先不給它。（編輯視窗仍可手動選 sus4。）
+const DETECT_QUALITIES = ['maj', 'm', '7', 'm7', 'maj7', 'dim'];
 
 // 預先展開成 (品質, 和弦音級陣列, 音數)
 const CHORD_TEMPLATE_ENTRIES = Object.entries(CHORD_TEMPLATES)
@@ -883,7 +884,12 @@ function bpmFromBeats(beats) {
 function estimateDownbeatOffset(beats, store, beatsPerBar) {
   const bpb = beatsPerBar || 4;
   if (!beats || beats.length < bpb * 2 || !store) return 0;
-  let bestOff = 0, bestScore = -Infinity;
+  // 每個 offset 的分數 = 平均「跨過這條小節線時和弦變化多大」。
+  // 和弦每兩拍換一次的歌（| F  G | F  G |）會讓 offset 0 和 2 都很高分，
+  // 但選 2 會讓第一小節變成六拍、之後全部錯位，所以取「分數接近最高
+  // （≥70%）裡最小的 offset」——真的從第二拍起才有小節線的歌，offset 0
+  // 的分數會遠低於最高分，不會被誤選。
+  const scores = new Array(bpb).fill(null);
   for (let off = 0; off < bpb; off++) {
     let s = 0, n = 0;
     for (let i = off; i < beats.length; i += bpb) {
@@ -891,11 +897,15 @@ function estimateDownbeatOffset(beats, store, beatsPerBar) {
       const after = averageChromaInRange(store, beats[i] + 0.05, beats[i] + 0.25);
       if (before && after) { s += chromaDistance(before, after); n++; }
     }
-    if (!n) continue;
-    const score = s / n;
-    if (score > bestScore + 1e-9) { bestScore = score; bestOff = off; }
+    scores[off] = n ? s / n : null;
   }
-  return bestOff;
+  let maxScore = 0;
+  for (const v of scores) if (v != null && v > maxScore) maxScore = v;
+  if (!(maxScore > 0)) return 0;
+  for (let off = 0; off < bpb; off++) {
+    if (scores[off] != null && scores[off] >= maxScore * 0.7) return off;
+  }
+  return 0;
 }
 
 function groupIntoBars(beats, duration, beatsPerBar = 4, offset = 0) {
@@ -906,9 +916,9 @@ function groupIntoBars(beats, duration, beatsPerBar = 4, offset = 0) {
     if (!group.length) continue;
     const end = (i + beatsPerBar < beats.length) ? beats[i + beatsPerBar] : duration;
     if (end <= group[0]) continue;
-    bars.push({ start: group[0], end, beats: group });
+    bars.push({ start: group[0], end, beats: group, beatIdx: i });
   }
-  if (!bars.length) bars.push({ start: beats[0], end: duration, beats: [beats[0]] });
+  if (!bars.length) bars.push({ start: beats[0], end: duration, beats: [beats[0]], beatIdx: 0 });
   // 前奏不滿一個小節時併進第一小節，畫面才不會從幾秒後才開始
   if (bars[0].start > 0) bars[0].start = 0;
   return bars;
@@ -1428,8 +1438,17 @@ function viterbiDecode(obs, prior) {
 function summarizeBars(bars, beats, beatChords) {
   return bars.map(bar => {
     const idxs = [];
-    for (let i = 0; i < beats.length; i++) {
-      if (beats[i] >= bar.start - 1e-6 && beats[i] < bar.end - 1e-6) idxs.push(i);
+    // 用小節建立時記下的第一拍索引，而不是用時間範圍重掃：第一小節可能
+    // 被拉長到 0 秒（前奏併入），重掃會多收前面幾拍，那一小節就變成六拍。
+    if (bar.beatIdx != null && bar.beats && bar.beats.length) {
+      for (let k = 0; k < bar.beats.length; k++) {
+        const i = bar.beatIdx + k;
+        if (i < beatChords.length) idxs.push(i);
+      }
+    } else {
+      for (let i = 0; i < beats.length; i++) {
+        if (beats[i] >= bar.start - 1e-6 && beats[i] < bar.end - 1e-6) idxs.push(i);
+      }
     }
     if (!idxs.length) return { root: 0, quality: 'maj', confidence: 0, parts: [] };
 
