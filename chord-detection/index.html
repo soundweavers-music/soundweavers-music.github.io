@@ -67,6 +67,8 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
 .lyric-seg { position: absolute; top: 0; white-space: nowrap; }
 .melody-line { position: relative; height: calc(var(--lyric-size, 12px) * 1.5); font-size: calc(var(--lyric-size, 12px) * 1.05); color: #6b6259; font-weight: 600; }
 .melody-seg { position: absolute; top: 0; white-space: nowrap; }
+.melody-seg.u1 { border-bottom: 1px solid #6b6259; padding-bottom: 1px; }
+.melody-seg.u2 { border-bottom: 3px double #6b6259; padding-bottom: 1px; }
 .lyric-seg + .lyric-seg { }
 .chart { --chord-size: 17px; --lyric-size: 12px; }
 
@@ -507,7 +509,7 @@ let state = {
   lyrics: [], lyricSegs: {}, lyricOverrides: {}, showLyrics: true, showDegrees: true,
   showDiagrams: false, continuous: false, notation: 'name',
   pickupOverride: null, lyricSnap: true, chordSize: 17, lyricSize: 12,
-  showMelody: false, melodyFrames: null, melodyBeats: null,
+  showMelody: false, melodyFrames: null, melodyNotes: null,
   onsetEnv: null, onsetHopSec: 0,
   instrument: 0, tuning: null,
   isPlaying: false, currentTime: 0, startTime: 0, playEnd: 0,
@@ -1803,7 +1805,6 @@ function applyGrid(opts) {
     state.beatChords = decodeChordsForBeats(beats, state.chromaStore, duration, prior);
   }
 
-  if (state.melodyFrames) state.melodyBeats = melodyForBeats(beats, state.melodyFrames);
   state.originalChords = summarizeBars(state.bars, beats, state.beatChords);
 
   updateKeyView();
@@ -1897,13 +1898,15 @@ function barCellHtml(idx) {
   for (let b = 1; b < total; b++) ticks += '<span class="tick" style="left:' + (b / total * 100).toFixed(2) + '%"></span>';
   const lineH = state.showDiagrams ? 152 : 27;
   let melHtml = '';
-  if (state.showMelody && state.melodyBeats) {
-    const startIdx = (state.bars[idx] && state.bars[idx].beatIdx) || 0;
-    const nBeats = (state.bars[idx] && state.bars[idx].beats) ? state.bars[idx].beats.length : 0;
-    for (let k = 0; k < nBeats; k++) {
-      const v = state.melodyBeats[startIdx + k];
-      if (!v) continue;
-      melHtml += '<span class="melody-seg" style="left:' + ((k / total) * 100).toFixed(2) + '%">' + escapeHtml(v) + '</span>';
+  if (state.showMelody && state.melodyNotes && state.melodyNotes.length) {
+    const bar = state.bars[idx];
+    const barDur = Math.max(1e-6, bar.end - bar.start);
+    for (const nt of state.melodyNotes) {
+      if (nt.start < bar.start - 1e-6 || nt.start >= bar.end - 1e-6) continue;
+      const sym = melodySymbol(nt);
+      const left = ((nt.start - bar.start) / barDur) * 100;
+      melHtml += '<span class="melody-seg ' + sym.cls + '" style="left:' + Math.max(0, left).toFixed(2) + '%">'
+        + escapeHtml(sym.num + sym.suffix) + '</span>';
     }
   }
   const lyricSegs = state.showLyrics ? (state.lyricSegs[idx] || []) : [];
@@ -2190,8 +2193,9 @@ function syllableTimes(n, t0, t1) {
 }
 
 // ---- 簡譜旋律（實驗性）---------------------------------------------
-// 用「中央聲道」把主唱從立體聲混音裡拉出來（和 DAW 的分離同一思路：
-// 主唱在正中央、伴奏分左右），再對分離後的頻譜做諧波加總找音高。
+// 用「中央聲道」把主唱從立體聲混音裡拉出來（同 DAW separate-worker 的思路：
+// 主唱在正中央、伴奏分左右），對分離後的頻譜做諧波加總找音高，再用
+// Viterbi 平滑（偏好停在同一音、換音要付代價）壓低抖動。
 const SOLFEGE = ['1','♭2','2','♭3','3','4','♯4','5','♭6','6','♭7','7'];
 
 function computeMelodyFrames(buffer) {
@@ -2206,10 +2210,11 @@ function computeMelodyFrames(buffer) {
   const reR = new Float32Array(N), imR = new Float32Array(N);
   const nFrames = Math.max(0, Math.floor((L.length - N) / H));
   const times = new Float32Array(nFrames);
-  const midi = new Int16Array(nFrames).fill(-1);
+  const raw = new Int16Array(nFrames).fill(-1);
   const bins = N / 2;
   const binHz = sr / N;
   const mag = new Float32Array(bins);
+  const LO = 45, HI = 84, S = HI - LO + 1;
 
   for (let f = 0; f < nFrames; f++) {
     const off = f * H;
@@ -2231,7 +2236,7 @@ function computeMelodyFrames(buffer) {
       mag[k] = Math.sqrt(m2) * central * central;
     }
     let bestM = -1, bestS = 0;
-    for (let m = 45; m <= 84; m++) {
+    for (let m = LO; m <= HI; m++) {
       const f0 = 440 * Math.pow(2, (m - 69) / 12);
       if (f0 < 80 || f0 > 1200) continue;
       let sum = 0;
@@ -2244,33 +2249,70 @@ function computeMelodyFrames(buffer) {
       }
       if (sum > bestS) { bestS = sum; bestM = m; }
     }
-    midi[f] = bestS > 0.02 ? bestM : -1;
+    raw[f] = bestS > 0.02 ? bestM : -1;
     times[f] = (off + N / 2) / sr;
     if ((f & 255) === 0) setProgress(20 + (f / Math.max(1, nFrames)) * 60, '分析旋律…');
+  }
+
+  const SWITCH = 0.35;
+  const midi = new Int16Array(nFrames).fill(-1);
+  let prev = new Float32Array(S).fill(0);
+  let prevValid = false;
+  for (let f = 0; f < nFrames; f++) {
+    const m0 = raw[f];
+    if (m0 < 0) { if (prevValid) for (let q = 0; q < S; q++) prev[q] *= 0.98; continue; }
+    const cur = new Float32Array(S).fill(-1e9);
+    for (let q = 0; q < S; q++) {
+      const d = Math.abs((LO + q) - m0);
+      const emit = d === 0 ? 1 : (d === 1 ? 0.55 : -1e9);
+      if (emit < -1e8) continue;
+      // 分數永遠夾在 0 以上：換到很遠的音時可以「重新起算」，
+      // 否則一旦跳超過兩個半音，之後全部變成 -1e9 就再也接不回來。
+      let best = prevValid ? Math.max(0, prev[q]) : 0;
+      if (prevValid) {
+        if (q > 0) best = Math.max(best, prev[q - 1] - SWITCH);
+        if (q < S - 1) best = Math.max(best, prev[q + 1] - SWITCH);
+      }
+      cur[q] = best + emit;
+    }
+    let bs = -1e9, bi = -1;
+    for (let q = 0; q < S; q++) if (cur[q] > bs) { bs = cur[q]; bi = q; }
+    if (bi >= 0 && bs > -1e8) midi[f] = LO + bi;
+    prev = cur; prevValid = true;
   }
   return { times, midi, nFrames };
 }
 
-// 每一拍取這段時間內最常出現的音級，換成首調（相對於目前這一調）
-function melodyForBeats(beats, frames) {
-  if (!frames) return null;
-  const keyMajor = state.displayMajor;
+// 逐格音高 → 音符事件（同音合併、太短的碎片併進前一個音）
+function melodyNotes(frames) {
+  const notes = [];
+  if (!frames) return notes;
+  let cur = null;
+  for (let f = 0; f < frames.nFrames; f++) {
+    const m = frames.midi[f];
+    const t = frames.times[f];
+    if (m < 0) { if (cur) { cur.end = t; notes.push(cur); cur = null; } continue; }
+    if (cur && cur.midi === m) cur.end = t;
+    else { if (cur) { cur.end = t; notes.push(cur); } cur = { midi: m, start: t, end: t }; }
+  }
+  if (cur) { cur.end = cur.start + 0.05; notes.push(cur); }
   const out = [];
-  for (let i = 0; i < beats.length; i++) {
-    const t0 = beats[i];
-    const t1 = (i + 1 < beats.length) ? beats[i + 1] : Math.min(state.duration, t0 + 0.6);
-    const lo = Math.max(0, frameStartIndex(frames, t0));
-    const hi = Math.min(frames.nFrames, frameStartIndex(frames, t1));
-    const counts = new Array(12).fill(0);
-    let any = false;
-    for (let f = lo; f < hi; f++) {
-      const m = frames.midi[f];
-      if (m >= 0) { counts[((m % 12) + 12) % 12]++; any = true; }
-    }
-    if (!any) { out.push(''); continue; }
-    let bestPc = 0, bestC = -1;
-    for (let pc = 0; pc < 12; pc++) if (counts[pc] > bestC) { bestC = counts[pc]; bestPc = pc; }
-    out.push(SOLFEGE[mod12(bestPc - keyMajor)]);
+  for (const n of notes) {
+    if (n.end - n.start < 0.07 && out.length) { out[out.length - 1].end = n.end; continue; }
+    out.push(n);
+  }
+  return out;
+}
+
+// 對到 1/4 拍網格：附點、長音、下劃線都靠這個判斷
+function quantizeMelodyNotes(notes) {
+  const beat = 60 / Math.max(30, state.bpm);
+  const grid = beat / 4;
+  const out = [];
+  for (const n of notes) {
+    const start = Math.round(n.start / grid) * grid;
+    const beats = Math.max(0.25, Math.round((n.end - n.start) / grid) / 4);
+    out.push({ start, beats, pc: mod12(n.midi) });
   }
   return out;
 }
@@ -2280,11 +2322,30 @@ async function ensureMelody() {
   if (!state.melodyFrames) {
     setStatus('分析旋律（人聲分離）…', 'analyzing');
     state.melodyFrames = computeMelodyFrames(state.audioBuffer);
+    state.melodyNotes = quantizeMelodyNotes(melodyNotes(state.melodyFrames));
     setProgressDone();
   }
-  state.melodyBeats = melodyForBeats(state.beats, state.melodyFrames);
   setStatus('旋律分析完成（首調數字僅供參考）', 'done');
   renderChart();
+}
+
+// 簡譜符號：長音加延音線、附點、八分／十六分加下劃線
+function melodySymbol(note) {
+  // 簡譜的首調以「實際調」（含移調）為基準，不是吉他指型的把位：
+  // 這樣把「轉成 D」之後數字會跟著換，換把位／Capo 時數字不會亂跳。
+  const keyMajor = mod12(songMajorRoot() + state.transpose);
+  const num = SOLFEGE[mod12(note.pc - keyMajor)];
+  let cls = '', suffix = '';
+  if (note.beats >= 2) {
+    suffix = ' ' + '– '.repeat(Math.max(1, Math.round(note.beats) - 1)).trim();
+  } else if (Math.abs(note.beats - 1.5) < 0.01 || Math.abs(note.beats - 0.75) < 0.01) {
+    suffix = '·';
+  } else if (note.beats <= 0.25) {
+    cls = 'u2';
+  } else if (note.beats <= 0.5) {
+    cls = 'u1';
+  }
+  return { num, cls, suffix };
 }
 
 function addLyricSeg(barIdx, beat, text) {
