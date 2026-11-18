@@ -293,6 +293,9 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
     <span>小節線</span>
     <button class="btn ghost small" id="btn-downbeat-prev" title="小節第一拍往前移一拍">◀ 拍</button>
     <button class="btn ghost small" id="btn-downbeat-next" title="小節第一拍往後移一拍">拍 ▶</button>
+    <span style="margin-left:8px;">半小節</span>
+    <button class="btn ghost small" id="btn-half-prev" title="小節起點往前半小節">◀ ½</button>
+    <button class="btn ghost small" id="btn-half-next" title="小節起點往後半小節">½ ▶</button>
     <span style="margin-left:8px;">整首微調</span>
     <button class="btn ghost small" id="btn-shift-minus" title="全部往前提早 20 毫秒">−20ms</button>
     <button class="btn ghost small" id="btn-shift-plus" title="全部往後延 20 毫秒">＋20ms</button>
@@ -2485,13 +2488,14 @@ function updateGridHint() {
     + ' · ' + state.beatsPerBar + '/4';
 }
 
-function nudgeDownbeat(dir) {
+function nudgeDownbeat(dir, step) {
   if (!state.chromaStore) return;
   const bpb = state.beatsPerBar;
+  const amount = step || 1;
   const cur = state.pickupOverride != null
     ? state.pickupOverride
     : ((state.autoDownbeat + state.downbeatShift) % bpb + bpb) % bpb;
-  state.pickupOverride = ((cur + dir) % bpb + bpb) % bpb;
+  state.pickupOverride = ((cur + dir * amount) % bpb + bpb) % bpb;
   state.downbeatShift = 0;
   const sel = document.getElementById('pickup-select');
   if (sel) sel.value = String(state.pickupOverride);
@@ -2633,6 +2637,8 @@ function initUI() {
 
   document.getElementById('btn-downbeat-prev').addEventListener('click', () => nudgeDownbeat(-1));
   document.getElementById('btn-downbeat-next').addEventListener('click', () => nudgeDownbeat(1));
+  document.getElementById('btn-half-prev').addEventListener('click', () => nudgeDownbeat(-1, Math.max(1, Math.floor(state.beatsPerBar / 2))));
+  document.getElementById('btn-half-next').addEventListener('click', () => nudgeDownbeat(1, Math.max(1, Math.floor(state.beatsPerBar / 2))));
   document.getElementById('btn-shift-minus').addEventListener('click', () => nudgeGridShift(-0.02));
   document.getElementById('btn-shift-plus').addEventListener('click', () => nudgeGridShift(0.02));
 
