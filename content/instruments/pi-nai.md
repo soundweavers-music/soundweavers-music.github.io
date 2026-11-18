@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴；依據：來源一稱 Pi 為 quadruple reed oboes；來源五稱 Pi nai 為 Double reed Woo
 source_url: https://soundweavers-music.github.io/instruments/pi-nai/
+image: https://images.metmuseum.org/CRDImages/mi/original/midp89.4.1304.jpg
 youtube_ids: Y3s6-pqlqqo oEo9csr7PSc
 ---
 

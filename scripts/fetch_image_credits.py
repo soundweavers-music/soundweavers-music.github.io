@@ -164,6 +164,18 @@ def main():
     for slug, name in slugs:
         if name in cache:
             out[slug] = cache[name]
+
+    # Entries added by hand for museum images (not on Commons) have no file to
+    # look up here; keep them instead of dropping them on the next refresh.
+    if OUT_FILE.exists():
+        try:
+            previous = json.loads(OUT_FILE.read_text(encoding="utf-8"))
+        except Exception:
+            previous = {}
+        for slug, info in previous.items():
+            if slug not in out and not str(info.get("page", "")).startswith("https://commons.wikimedia.org/"):
+                out[slug] = info
+
     OUT_FILE.write_text(json.dumps(out, ensure_ascii=False, indent=1, sort_keys=True), encoding="utf-8")
 
     missing = [s for s, n in slugs if n not in cache]

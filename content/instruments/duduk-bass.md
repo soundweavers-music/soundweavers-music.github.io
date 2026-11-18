@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴（422.111）；依據：來源一/五稱 duduk 為 double reed woodwind；來源三 Wikidata P1762 為 422；與「Duduk」互為別名／變體
 source_url: https://soundweavers-music.github.io/instruments/duduk-bass/
+image: https://images.metmuseum.org/CRDImages/mi/original/midp89.4.438.jpg
 youtube_ids: iSBd88ZleyM zwgvelZPb10
 ---
 
