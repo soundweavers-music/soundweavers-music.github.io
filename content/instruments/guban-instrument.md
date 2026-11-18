@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證（部分欄位待補）
 issue_note: 分類查證：複合；依據：來源五：guban refers collectively to a small drum and paiban (cl；內文段落來源不足未改寫：歷史背景
 source_url: https://soundweavers-music.github.io/instruments/guban-instrument/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/%E6%88%B2%E7%8F%AD%E6%89%80%E7%94%A8%E6%9D%BF%E9%BC%93.jpg/500px-%E6%88%B2%E7%8F%AD%E6%89%80%E7%94%A8%E6%9D%BF%E9%BC%93.jpg
 youtube_ids: nNwJgEIecys _HP1_qJXhWs
 ---
 

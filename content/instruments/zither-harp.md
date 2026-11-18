@@ -14,6 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴（314.122）；依據：來源一/五稱其為 chordophones、box zithers、psaltery；Wikidata P1762 為 ；與「Guitar zither」互為別名／變體
 source_url: https://soundweavers-music.github.io/instruments/zither-harp/
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Museum_Erding_Zitherharfe_um_1890.jpg/500px-Museum_Erding_Zitherharfe_um_1890.jpg
 youtube_ids: B3Z9XBAw4cU Md9hJrkYMhs
 ---
 
