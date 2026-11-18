@@ -233,7 +233,7 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
   <div>偵測調性：<span class="badge" id="detected-key">C</span></div>
   <label>轉成 <select id="transpose-select"></select></label>
   <label>把位 <select id="shape-select">
-    <option value="auto">自動（C／G 優先）</option>
+    <option value="auto">自動（只用 C／G 指型）</option>
     <option value="C">C 調指型</option>
     <option value="G">G 調指型</option>
     <option value="D">D 調指型</option>
@@ -366,6 +366,32 @@ const KEY_PROFILE_MINOR = [6.33,2.68,3.52,5.38,2.60,3.53,2.54,4.75,3.98,2.69,3.3
 const SCALE_MAJOR = [0,2,4,5,7,9,11];
 const SCALE_MINOR = [0,2,3,5,7,8,10];
 
+// 大調順階級數：把音級換成 I..vii 的索引（不是順階音就 -1）
+const DEGREE_OF_PC = [0, -1, 1, -1, 2, 3, -1, 4, -1, 5, -1, 6];
+// 每個級數「應該」是什麼和弦品質（M 大、m 小、d 減）
+const DEGREE_EXPECTED = ['M', 'm', 'm', 'M', 'M', 'm', 'd'];
+// 和弦品質 → 家族（大三、小三、減、屬七、掛留、增）
+const QUAL_FAMILY = {
+  maj:'M', maj7:'M', '6':'M', add9:'M', '7':'D', '9':'D',
+  m:'m', m7:'m', m6:'m', m7b5:'d', dim:'d', dim7:'d',
+  sus2:'S', sus4:'S', aug:'A',
+};
+
+// 流行歌常見接法（以大調級數 I..vii 表示）。
+// 值越大代表「這個級數接這個級數」越常見，Viterbi 換和弦時會打折。
+// 參考曲例：C Am F G(I-vi-IV-V)、C G Am Em F C Dm7 G(I-V-vi-iii-IV-I-ii-V)、
+//           F G Em Am Dm7 G C(IV-V-iii-vi-ii-V-I)
+const DEGREE_TRANSITION = [
+  //  to:  I     ii    iii   IV    V     vi    vii
+  /* I   */ [0,   0.5,  0.4,  0.8,  0.8,  0.9,  0.3],
+  /* ii  */ [0.5, 0,    0.3,  0.5,  1.0,  0.3,  0],
+  /* iii */ [0.3, 0.4,  0,    0.6,  0.3,  0.8,  0],
+  /* IV  */ [0.8, 0.4,  0.3,  0,    1.0,  0.6,  0.2],
+  /* V   */ [1.2, 0.3,  0.5,  0.5,  0,    0.6,  0.3],
+  /* vi  */ [0.6, 0.8,  0.3,  0.8,  0.5,  0,    0.2],
+  /* vii */ [0.8, 0.2,  0.2,  0.3,  0.3,  0.3,  0],
+];
+
 // 吉他好按的開放把位；Capo 就是「實際調 − 把位調」
 const SHAPES = [
   { root: 0, name: 'C' }, { root: 7, name: 'G' }, { root: 2, name: 'D' },
@@ -404,7 +430,7 @@ let state = {
   beats: [], bars: [],  // 套用微調後實際使用的格線
   beatChords: [], originalChords: [], chords: [],
   chromaStore: null,
-  detectedKey: 0, detectedMode: 'major',
+  detectedKey: 0, detectedMode: 'major', keyConfidence: null,
   transpose: 0,         // 要轉成（半音）
   shapeMode: 'auto',    // auto / C / G / D / A / E / off
   capo: 0, shapeName: 'C', displayMajor: 0,
@@ -436,8 +462,18 @@ function getChordQualityLabel(q) {
   return found ? found.label : q;
 }
 
-function chordName(root, quality) {
-  return NOTE_NAMES[mod12(root)] + getChordQualityLabel(quality);
+// 和弦名稱的升降記法：相對調性看是 ♭2／♭3／♭6／♭7 的時候用降號
+// （C 調的 bVII 要寫 B♭，不是 A♯），♯4 用升號，其餘自然音兩邊一樣。
+const NOTE_NAMES_FLAT = ['C','D♭','D','E♭','E','F','G♭','G','A♭','A','B♭','B'];
+function noteLabel(pc, keyMajor) {
+  if (keyMajor == null) return NOTE_NAMES[mod12(pc)];
+  const off = mod12(pc - keyMajor);
+  if (off === 1 || off === 3 || off === 8 || off === 10) return NOTE_NAMES_FLAT[mod12(pc)];
+  return NOTE_NAMES[mod12(pc)];
+}
+
+function chordName(root, quality, keyMajor) {
+  return noteLabel(root, keyMajor) + getChordQualityLabel(quality);
 }
 
 function keyName(root, mode) {
@@ -518,6 +554,7 @@ async function handleFile(file) {
       state.beatChords = [];
       state.originalChords = [];
       state.chords = [];
+      state.keyConfidence = null;
       state.lyrics = [];
       state.lyricBuckets = new Map();
       document.getElementById('lyric-status').style.display = 'none';
@@ -621,12 +658,21 @@ async function analyzeWithBrowser() {
     await yieldToUI();
     state.chromaStore = await computeChromaFrames(buffer);
 
-    // 3. 小節線起點 + 逐拍和弦
+    // 3. 先從整首 chroma 判調，再拿這一調當先驗去解和弦
+    //    （順階和弦加分、常見級數接法打折，避免一拍換一個和弦）
     setProgress(70, '步驟 3/4：比對和弦…');
     await yieldToUI();
     state.transpose = 0;
+    const chromaKey = detectKeyFromChroma(state.chromaStore, buffer.duration);
+    if (chromaKey) {
+      state.detectedKey = chromaKey.root;
+      state.detectedMode = chromaKey.mode;
+      // 相關係數太低代表調性其實不明顯，這時候硬套順階先驗反而會抓錯，
+      // 先驗只在有把握時才啟用。
+      state.keyConfidence = chromaKey.corr;
+    }
     state.autoDownbeat = estimateDownbeatOffset(state.baseBeats, state.chromaStore, state.beatsPerBar);
-    applyGrid({ decode: true, detectKey: true });
+    applyGrid({ decode: true });
 
     setProgress(96, '步驟 4/4：調性與移調夾…');
     await yieldToUI();
@@ -773,6 +819,9 @@ function trackBeats(env, hopSec, periodFrames) {
     const med = Math.max(1, Math.round(medianOf(ivs) || P));
     let first = frames[0];
     while (first - med >= 0) { first -= med; frames.unshift(first); }
+    // 第一拍常常抓不到（第 0 格的 RMS 差分一定是 0），留下半拍以上的空隙
+    // 等於整首歌的小節線往後錯一拍，第一小節就會硬塞兩個和弦。
+    if (frames[0] > med * 0.5) frames.unshift(0);
   }
 
   // 把每一拍吸附到附近起音的最大值（±35 ms），修正一兩格的偏移
@@ -937,6 +986,36 @@ function chromaDistance(a, b) {
 //   Σ(和弦音能量) / (‖chroma‖ · √音數)
 // 除以 √音數是關鍵：多一個音只有在它真的帶能量時才划算，否則
 // 三和絃會被硬拉成 maj7／6／add9。完全不做「順階加分」。
+// 順階先驗：同一音級上「品質正確」的和弦加最多分，同根不同品質少一點，
+// 非順階音不加分。單位是 chroma 分數（TAU=0.03 時 0.06 約等於 2 nat）。
+function diatonicBonus(root, quality, keyMajor) {
+  // 6／m6 和 sus、aug 在流行歌裡少見，而且常是「同一組音的另一種寫法」
+  // （Dm7 與 F6、Am7 與 C6 音完全一樣）。稍微扣分讓常見寫法留下來。
+  const rare = (quality === '6' || quality === 'm6') ? 0.025
+             : (quality === 'aug') ? 0.02
+             : (quality === 'sus2' || quality === 'sus4') ? 0.012 : 0;
+
+  const deg = DEGREE_OF_PC[mod12(root - keyMajor)];
+  if (deg < 0) return -rare;
+  const fam = QUAL_FAMILY[quality] || '?';
+  const exp = DEGREE_EXPECTED[deg];
+  let base = 0.02;
+  if (deg === 4) {              // V 級：大三或屬七都算，掛留次之
+    if (fam === 'M' || fam === 'D') base = 0.06;
+    else if (fam === 'S') base = 0.03;
+  } else if (fam === exp) {
+    base = 0.06;
+  } else if (exp === 'M' && fam === 'D') {
+    base = 0.04;                // 順階上的七和弦
+  }
+  return Math.max(0, base - rare);
+}
+
+function transitionBonus(a, b) {
+  if (a < 0 || b < 0) return 0;
+  return (DEGREE_TRANSITION[a][b] || 0) * 0.9;   // 0.9 = 把權重換成 nat
+}
+
 function chordCandidates(chroma, topN = 6) {
   const capped = [];
   if (!chroma) return capped;
@@ -964,7 +1043,7 @@ function chordCandidates(chroma, topN = 6) {
 }
 
 // 逐拍取 median chroma → 候選和弦 → Viterbi 解碼
-function decodeChordsForBeats(beats, store, duration) {
+function decodeChordsForBeats(beats, store, duration, prior) {
   if (!beats.length || !store) return [];
   const obs = [];
   for (let i = 0; i < beats.length; i++) {
@@ -974,13 +1053,15 @@ function decodeChordsForBeats(beats, store, duration) {
     let chroma = null;
     if (t1 - t0 > 0.12) chroma = medianChromaInRange(store, t0 + pad, Math.max(t0 + pad + 0.01, t1 - pad));
     if (!chroma) chroma = averageChromaInRange(store, t0, t1);
-    obs.push({ cands: chordCandidates(chroma, 6) });
+    // 有調性先驗時多留幾個候選，讓順階和弦有機會被挑回來
+    obs.push({ cands: chordCandidates(chroma, prior ? 10 : 6) });
   }
-  return viterbiDecode(obs);
+  return viterbiDecode(obs, prior);
 }
 
 // 真正的 HMM Viterbi：留在同一個和弦免費，換和弦要付固定代價。
-function viterbiDecode(obs) {
+// prior = { keyMajor } 時，順階和弦加分、常見級數接法打折。
+function viterbiDecode(obs, prior) {
   const stateList = [];
   const stateIndex = new Map();
   for (const o of obs) {
@@ -996,13 +1077,25 @@ function viterbiDecode(obs) {
   if (!N) return [];
   const FLOOR = -0.15;
 
+  const stateBonus = new Float32Array(N);
+  const stateDeg = new Int8Array(N).fill(-1);
+  if (prior) {
+    for (let n = 0; n < N; n++) {
+      stateBonus[n] = diatonicBonus(stateList[n].root, stateList[n].quality, prior.keyMajor);
+      stateDeg[n] = DEGREE_OF_PC[mod12(stateList[n].root - prior.keyMajor)];
+    }
+  }
+
   // 發射機率：分數做 softmax。TAU 越小越相信分數差距。
   const TAU = 0.03;
   const emitLog = [];
   const emitProb = [];
   for (const o of obs) {
     const scores = new Float32Array(N).fill(FLOOR);
-    for (const c of o.cands) scores[stateIndex.get(c.root + ':' + c.quality)] = c.score;
+    for (const c of o.cands) {
+      const idx = stateIndex.get(c.root + ':' + c.quality);
+      scores[idx] = c.score + stateBonus[idx];
+    }
     let mx = -Infinity;
     for (let n = 0; n < N; n++) if (scores[n] > mx) mx = scores[n];
     const logp = new Float32Array(N);
@@ -1014,10 +1107,17 @@ function viterbiDecode(obs) {
     emitProb.push(prob);
   }
 
-  // 換和弦的固定代價：4.0 nat × TAU 0.03 ≈ 0.12 分
-  const SWITCH_COST = 4.0;
-  const logStay = 0;
-  const logSwitch = -SWITCH_COST;
+  // 換和弦的固定代價：5.0 nat。常見級數接法會打折，所以 I-vi-IV-V 這種
+  // 進行很便宜，亂跳則要付出全部代價——和弦就不會一拍換一次。
+  const SWITCH_COST = 5.0;
+  // transLog[from * N + to]：留在原和弦 0 分，換和弦負分
+  const transLog = new Float32Array(N * N);
+  for (let p = 0; p < N; p++) {
+    for (let n = 0; n < N; n++) {
+      if (p === n) transLog[p * N + n] = 0;
+      else transLog[p * N + n] = -(SWITCH_COST - transitionBonus(stateDeg[p], stateDeg[n]));
+    }
+  }
 
   let prev = new Float32Array(N);
   const back = [];
@@ -1032,7 +1132,7 @@ function viterbiDecode(obs) {
       }
       let bestVal = -Infinity, bestIdx = 0;
       for (let p = 0; p < N; p++) {
-        const v = prev[p] + (p === n ? logStay : logSwitch);
+        const v = prev[p] + transLog[p * N + n];
         if (v > bestVal) { bestVal = v; bestIdx = p; }
       }
       cur[n] = bestVal + emitLog[t][n];
@@ -1094,8 +1194,13 @@ function summarizeBars(bars, beats, beatChords) {
     let dominant = runs[0];
     for (const r of runs) if (r.count > dominant.count) dominant = r;
 
-    // 佔比太小的碎片不顯示，避免畫面一堆「C / G / D」
-    const parts = runs.filter(r => r.count / idxs.length >= 0.2);
+    // 只留下真的佔到一小節三分之一以上的和弦；一小節最多顯示兩個，
+    // 免得畫面出現「C / G / D」這種一看就知道是誤判的碎片。
+    let parts = runs.filter(r => r.count / idxs.length >= 0.34);
+    if (parts.length > 2) {
+      parts = parts.slice().sort((a, b) => b.count - a.count).slice(0, 2)
+        .sort((a, b) => runs.indexOf(a) - runs.indexOf(b));
+    }
 
     return {
       root: dominant.root,
@@ -1141,6 +1246,29 @@ function detectKey(beatChords) {
   return { root: best.root, mode: best.mode };
 }
 
+// 直接從整首的平均 chroma 判調（Krumhansl 輪廓）。比用「已解出的和弦」更穩，
+// 因為它吃的是音檔本身，不是上一輪可能已經歪掉的結果。
+function detectKeyFromChroma(store, duration) {
+  if (!store) return null;
+  const avg = averageChromaInRange(store, 0, duration);
+  if (!avg) return null;
+  let best = { root: 0, mode: 'major', corr: -Infinity };
+  for (const [mode, keyProfile] of [['major', KEY_PROFILE_MAJOR], ['minor', KEY_PROFILE_MINOR]]) {
+    for (let root = 0; root < 12; root++) {
+      let sumX = 0, sumY = 0, sumXY = 0, sumX2 = 0, sumY2 = 0;
+      for (let i = 0; i < 12; i++) {
+        const xi = avg[(root + i) % 12];
+        const yi = keyProfile[i];
+        sumX += xi; sumY += yi; sumXY += xi * yi; sumX2 += xi * xi; sumY2 += yi * yi;
+      }
+      const denom = Math.sqrt((12 * sumX2 - sumX * sumX) * (12 * sumY2 - sumY * sumY));
+      const corr = denom > 0 ? (12 * sumXY - sumX * sumY) / denom : -Infinity;
+      if (corr > best.corr) best = { root, mode, corr };
+    }
+  }
+  return best;
+}
+
 // =========================================================================
 // 移調與 Capo
 // =========================================================================
@@ -1157,13 +1285,13 @@ function updateKeyView() {
     state.capo = 0;
     state.shapeName = KEY_LABELS[targetMajor];
   } else if (state.shapeMode === 'auto') {
+    // 預設只給 C／G 兩種指型（流行歌最常用的把位）。
+    // 例：F 調 → C 指型 Capo 5；A 調 → G 指型 Capo 2。
     let best = null;
     for (const s of SHAPES) {
+      if (s.name !== 'C' && s.name !== 'G') continue;
       const capo = mod12(targetMajor - s.root);
-      const pref = (s.name === 'C' || s.name === 'G') ? 0 : 1; // 平手時 C／G 優先
-      if (!best || capo < best.capo || (capo === best.capo && pref < best.pref)) {
-        best = { capo, pref, shape: s };
-      }
+      if (!best || capo < best.capo) best = { capo, shape: s };
     }
     state.capo = best.capo;
     shapeRoot = best.shape.root;
@@ -1203,7 +1331,7 @@ function buildDisplayChords() {
         root,
         quality: p.quality,
         beats: p.beats || 1,
-        name: chordName(root, p.quality),
+        name: chordName(root, p.quality, shapeMajor),
         degree: degreeLabel(root, p.quality, shapeMajor),
       };
     });
@@ -1271,16 +1399,14 @@ function applyGrid(opts) {
   state.bars = groupIntoBars(beats, duration, bpb, off);
 
   if (opts.decode !== false || state.beatChords.length !== beats.length) {
-    state.beatChords = decodeChordsForBeats(beats, state.chromaStore, duration);
+    // 用目前這一調當先驗：順階和弦加分、常見級數接法打折。
+    // 調性其實不明顯（chroma 相關性低）時就不套先驗，免得愈套愈歪。
+    const confident = state.keyConfidence == null ? true : state.keyConfidence >= 0.45;
+    const prior = confident ? { keyMajor: songMajorRoot() } : null;
+    state.beatChords = decodeChordsForBeats(beats, state.chromaStore, duration, prior);
   }
 
   state.originalChords = summarizeBars(state.bars, beats, state.beatChords);
-
-  if (opts.detectKey !== false) {
-    const key = detectKey(state.beatChords);
-    state.detectedKey = key.root;
-    state.detectedMode = key.mode;
-  }
 
   updateKeyView();
   buildDisplayChords();
@@ -1729,12 +1855,13 @@ function openEditModal(idx) {
   const curQuality = ch.parts.length ? ch.parts[0].quality : 'maj';
 
   rootSel.innerHTML = '';
-  NOTE_NAMES.forEach((n, i) => {
+  for (let i = 0; i < 12; i++) {
     const o = document.createElement('option');
-    o.value = i; o.textContent = n;
+    o.value = i;
+    o.textContent = noteLabel(i, state.displayMajor);   // 跟譜面同一種升降記法
     if (i === curRoot) o.selected = true;
     rootSel.appendChild(o);
-  });
+  }
   qualSel.innerHTML = '';
   CHORD_QUAL.forEach(q => {
     const o = document.createElement('option');
@@ -2017,7 +2144,7 @@ function initUI() {
     if (!(bpm >= 20 && bpm <= 300)) { setStatus('BPM 範圍需在 20–300 之間', 'error'); return; }
     if (!state.chromaStore) return;
     regridFromBPM(bpm);
-    applyGrid({ decode: true, detectKey: true });
+    applyGrid({ decode: true });
     syncTransposeSelect();
     document.getElementById('bpm-input').value = bpm;
     updateGridHint();
