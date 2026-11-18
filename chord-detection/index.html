@@ -9,7 +9,6 @@
 <meta name="description" content="上傳音檔，自動分析節拍與和弦進行，支援指版圖顯示與和弦編輯。所有分析都在瀏覽器內完成，不上傳檔案。">
 <link rel="canonical" href="https://soundweavers-music.github.io/chord-detection/">
 <script>!function(){try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);else document.documentElement.setAttribute("data-theme","nextdoor")}catch(e){}}()</script>
-<script src="../assets/vendor/meyda.min.js"></script>
 <script src="../scripts/_chord_library.js"></script>
 <link rel="stylesheet" href="../assets/site.css">
 <style>
@@ -108,7 +107,12 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
 .edit-modal h3 { margin: 0 0 12px; }
 .edit-modal label { display: block; margin: 8px 0; font-size: 13px; }
 .edit-modal select { width: 100%; padding: 6px 8px; border: 1px solid var(--line); border-radius: 6px; font-size: 13px; }
-.edit-modal-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 16px; }
+.edit-modal-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 16px; flex-wrap: wrap; }
+.edit-modal .palette { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 10px; }
+.edit-modal .palette button { padding: 6px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--ink); cursor: pointer; font-size: 14px; font-weight: 700; line-height: 1.2; }
+.edit-modal .palette button:hover { border-color: var(--accent); background: var(--soft); }
+.edit-modal .palette button .deg { font-size: 10px; font-weight: 400; color: var(--muted); margin-left: 4px; }
+.edit-modal .advanced-label { font-size: 11px; color: var(--muted); margin: 4px 0 0; }
 
 /* BPM selector */
 .bpm-edit { display: flex; align-items: center; gap: 6px; font-size: 13px; }
@@ -296,6 +300,11 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
   <div class="edit-modal">
     <h3>✏️ 編輯和弦</h3>
     <p style="font-size:12px;color:var(--muted);margin:4px 0 12px;" id="edit-bar-label">第 1 小節</p>
+    <div class="palette" id="edit-palette"></div>
+    <div class="edit-modal-actions" style="justify-content:flex-start;margin-top:0;">
+      <button class="btn ghost small" id="btn-copy-prev" style="display:none;">↩ 複製前一小節</button>
+    </div>
+    <p class="advanced-label">以上是這一調的級數和弦；要別的和弦再往下選：</p>
     <label>根音 <select id="edit-root"></select></label>
     <label>類型 <select id="edit-quality"></select></label>
     <div style="font-size:11px;color:var(--muted);margin-top:6px;" id="edit-hint">💡 以畫面上顯示的把位輸入，儲存時會自動換算回原調</div>
@@ -351,12 +360,19 @@ const CHORD_TEMPLATES = {
   'add9':  [1,0,1,0,1,0,0,1,0,0,0,0],
 };
 
+// 偵測用的和弦詞彙。流行歌來來去去就這七種；把 6／9／add9／aug／sus2／m6
+// 也放進候選只是讓「同一組音的另一種寫法」互相搶分，反而更容易錯。
+// （編輯視窗仍可選全部品質，偵測完再手動改。）
+const DETECT_QUALITIES = ['maj', 'm', '7', 'm7', 'maj7', 'sus4', 'dim'];
+
 // 預先展開成 (品質, 和弦音級陣列, 音數)
-const CHORD_TEMPLATE_ENTRIES = Object.entries(CHORD_TEMPLATES).map(([quality, t]) => {
-  const tones = [];
-  for (let i = 0; i < 12; i++) if (t[i]) tones.push(i);
-  return { quality, tones, size: tones.length };
-});
+const CHORD_TEMPLATE_ENTRIES = Object.entries(CHORD_TEMPLATES)
+  .filter(([quality]) => DETECT_QUALITIES.indexOf(quality) >= 0)
+  .map(([quality, t]) => {
+    const tones = [];
+    for (let i = 0; i < 12; i++) if (t[i]) tones.push(i);
+    return { quality, tones, size: tones.length };
+  });
 
 // Krumhansl-Kessler 調性輪廓（大調 / 小調）
 const KEY_PROFILE_MAJOR = [6.35,2.23,3.48,2.33,4.38,4.09,2.52,5.19,2.39,3.66,2.29,2.88];
@@ -674,6 +690,20 @@ async function analyzeWithBrowser() {
     state.autoDownbeat = estimateDownbeatOffset(state.baseBeats, state.chromaStore, state.beatsPerBar);
     applyGrid({ decode: true });
 
+    // 關係大小調（C 大調／Am）共用同一組音，chroma 常常分不出來。
+    // 用解出來的和弦再判一次；如果只是大小調標記不同，以和弦證據為準。
+    const chordKey = detectKey(state.beatChords);
+    const chromaMajor = state.detectedMode === 'minor' ? mod12(state.detectedKey + 3) : state.detectedKey;
+    const chordMajor = chordKey.mode === 'minor' ? mod12(chordKey.root + 3) : chordKey.root;
+    if (chordMajor === chromaMajor && chordKey.mode !== state.detectedMode) {
+      state.detectedKey = chordKey.root;
+      state.detectedMode = chordKey.mode;
+      updateKeyView();
+      buildDisplayChords();
+      refreshKeyInfo();
+      renderChart();
+    }
+
     setProgress(96, '步驟 4/4：調性與移調夾…');
     await yieldToUI();
     syncTransposeSelect();
@@ -888,53 +918,216 @@ function groupIntoBars(beats, duration, beatsPerBar = 4, offset = 0) {
 // Chroma
 // =========================================================================
 
-// Meyda 的 bufferSize 預設是 512：FFT 只看前 512 個取樣，頻率解析度約 86 Hz，
-// 連 E2/F2 都分不開。這裡改成 4096（約 10.8 Hz）。chromaFilterBank 是第一次
-// 呼叫時依 bufferSize 建好後快取的，所以改設定之後必須清掉。
-function configureMeyda(sampleRate) {
-  if (typeof Meyda === 'undefined') return false;
-  const size = 4096;
-  if (Meyda.bufferSize !== size || Meyda.sampleRate !== sampleRate) {
-    Meyda.bufferSize = size;
-    Meyda.sampleRate = sampleRate;
-    Meyda.chromaFilterBank = undefined;
-    Meyda.melFilterBank = undefined;
-    Meyda.barkScale = undefined;
+// ---------------------------------------------------------------------
+// 自寫 FFT／STFT：Meyda 的 chroma 沒有去鼓，也沒有低頻資訊，而鼓聲
+// （尤其小鼓、hi-hat）與貝斯正好是流行歌裡最容易污染和弦判斷的兩個來源。
+// ---------------------------------------------------------------------
+
+function makeFFT(n) {
+  const rev = new Uint32Array(n);
+  const bits = Math.round(Math.log2(n));
+  for (let i = 0; i < n; i++) {
+    let r = 0;
+    for (let b = 0; b < bits; b++) r = (r << 1) | ((i >> b) & 1);
+    rev[i] = r;
   }
-  return true;
+  const cos = new Float32Array(n / 2), sin = new Float32Array(n / 2);
+  for (let i = 0; i < n / 2; i++) {
+    cos[i] = Math.cos(2 * Math.PI * i / n);
+    sin[i] = Math.sin(2 * Math.PI * i / n);
+  }
+  return { n, rev, cos, sin };
 }
 
-async function computeChromaFrames(buffer) {
-  if (!configureMeyda(buffer.sampleRate)) {
-    throw new Error('Meyda 未載入，無法分析音高（請確認 assets/vendor/meyda.min.js 可讀取）');
+function fftInPlace(re, im, F) {
+  const n = F.n, rev = F.rev;
+  for (let i = 0; i < n; i++) {
+    const j = rev[i];
+    if (j > i) {
+      let t = re[i]; re[i] = re[j]; re[j] = t;
+      t = im[i]; im[i] = im[j]; im[j] = t;
+    }
   }
-  const samples = buffer.getChannelData(0);
+  for (let len = 2; len <= n; len <<= 1) {
+    const half = len >> 1, step = n / len;
+    for (let i = 0; i < n; i += len) {
+      for (let k = 0; k < half; k++) {
+        const wr = F.cos[k * step], wi = -F.sin[k * step];
+        const a = i + k, b = a + half;
+        const xr = re[b] * wr - im[b] * wi;
+        const xi = re[b] * wi + im[b] * wr;
+        re[b] = re[a] - xr; im[b] = im[a] - xi;
+        re[a] += xr; im[a] += xi;
+      }
+    }
+  }
+}
+
+function hannWindow(n) {
+  const w = new Float32Array(n);
+  for (let i = 0; i < n; i++) w[i] = 0.5 - 0.5 * Math.cos(2 * Math.PI * i / (n - 1));
+  return w;
+}
+
+// 就地排序取中位數（長度固定 9 的小陣列，插入排序最快）
+function medianSmall(a, n) {
+  for (let i = 1; i < n; i++) {
+    const v = a[i];
+    let j = i - 1;
+    while (j >= 0 && a[j] > v) { a[j + 1] = a[j]; j--; }
+    a[j + 1] = v;
+  }
+  return a[n >> 1];
+}
+
+// 全域調音偏移（單位：半音，−0.5..0.5）。有些錄音整体高了或低了 20–40 cents，
+// 不校正的話音級會固定偏掉。
+function estimateTuning(buffer, F, win) {
+  const sr = buffer.sampleRate;
+  const fftSize = F.n;
+  const data = buffer.getChannelData(0);
+  const nFrames = Math.max(1, Math.floor((data.length - fftSize) / 2048));
+  const step = Math.max(1, Math.floor(nFrames / 150));
+  const re = new Float32Array(fftSize), im = new Float32Array(fftSize);
+  let wsum = 0, dsum = 0;
+
+  for (let f = 0; f + fftSize <= data.length; f += 2048 * step) {
+    for (let i = 0; i < fftSize; i++) { re[i] = data[f + i] * win[i]; im[i] = 0; }
+    fftInPlace(re, im, F);
+    const half = fftSize >> 1;
+    const mags = new Float32Array(half);
+    let mean = 0;
+    for (let b = 1; b < half; b++) { mags[b] = Math.sqrt(re[b] * re[b] + im[b] * im[b]); mean += mags[b]; }
+    mean /= Math.max(1, half);
+    for (let b = 2; b < half - 1; b++) {
+      if (mags[b] < mean * 4) continue;
+      if (mags[b] < mags[b - 1] || mags[b] < mags[b + 1]) continue;
+      const hz = b * sr / fftSize;
+      if (hz < 80 || hz > 4000) continue;
+      const midi = 69 + 12 * Math.log2(hz / 440);
+      const dev = midi - Math.round(midi);
+      wsum += mags[b];
+      dsum += mags[b] * dev;
+    }
+  }
+  if (wsum <= 0) return 0;
+  return Math.max(-0.45, Math.min(0.45, dsum / wsum));
+}
+
+// 全曲逐格算「諧波分離後的 chroma」與「低頻分布（判斷根音用）」。
+// 諧波/打擊分離：時間方向的中位數留下持續音（和弦），頻率方向的中位數抓打擊
+// （鼓），再用 Wiener 遮罩只留諧波成分。
+async function computeChromaFrames(buffer) {
   const sr = buffer.sampleRate;
   const fftSize = 4096;
   const hop = 2048;   // ≈46 ms 一格
-  const nFrames = Math.max(0, Math.floor((samples.length - fftSize) / hop));
+  const data = buffer.getChannelData(0);
+  const nFrames = Math.max(0, Math.floor((data.length - fftSize) / hop));
+  const binHz = sr / fftSize;
+  const nBins = Math.max(8, Math.min((fftSize >> 1) - 1, Math.floor(4500 / binHz)) + 1);
+
+  const F = makeFFT(fftSize);
+  const win = hannWindow(fftSize);
+  const re = new Float32Array(fftSize), im = new Float32Array(fftSize);
+  const tuning = estimateTuning(buffer, F, win);
+
   const frames = new Float32Array(nFrames * 12);
+  const bass = new Float32Array(nFrames * 12);
   const times = new Float32Array(nFrames);
+  const filled = new Uint8Array(nFrames);
+
+  const TIME_R = 4, FREQ_R = 4, W = TIME_R * 2 + 1;
+  const ring = [];
+  const scratchT = new Float32Array(W);
+  const scratchF = new Float32Array(FREQ_R * 2 + 1);
+  const harmBuf = new Float32Array(nBins);
 
   for (let f = 0; f < nFrames; f++) {
     const off = f * hop;
+    for (let i = 0; i < fftSize; i++) { re[i] = data[off + i] * win[i]; im[i] = 0; }
+    fftInPlace(re, im, F);
+    const mag = new Float32Array(nBins);
+    for (let b = 0; b < nBins; b++) mag[b] = Math.sqrt(re[b] * re[b] + im[b] * im[b]);
+    ring.push(mag);
+    if (ring.length > W) ring.shift();
     times[f] = (off + fftSize / 2) / sr;
-    const result = Meyda.extract('chroma', samples.subarray(off, off + fftSize));
-    const c = (result && result.chroma) ? result.chroma
-            : (Array.isArray(result) && result.length === 12 ? result : null);
-    if (!c) continue;
-    // 開根號壓縮：不讓最大聲的樂器獨占權重
-    let mx = 0;
-    for (let i = 0; i < 12; i++) if (c[i] > mx) mx = c[i];
-    if (mx > 0) {
-      for (let i = 0; i < 12; i++) frames[f * 12 + i] = Math.sqrt(Math.max(0, c[i]) / mx);
+
+    if (ring.length === W) {
+      const ci = f - TIME_R;
+      const center = ring[TIME_R];
+      // 先算這一格的諧波幅值（HPSS 的 Wiener 遮罩）
+      for (let b = 1; b < nBins; b++) {
+        for (let k = 0; k < W; k++) scratchT[k] = ring[k][b];
+        const hMed = medianSmall(scratchT, W);
+        let nn = 0;
+        for (let k = Math.max(1, b - FREQ_R); k <= Math.min(nBins - 1, b + FREQ_R); k++) scratchF[nn++] = center[k];
+        const pMed = medianSmall(scratchF, nn);
+        const mask = (hMed * hMed) / (hMed * hMed + pMed * pMed + 1e-12);
+        harmBuf[b] = mask * center[b];
+      }
+      let hmax = 0;
+      for (let b = 1; b < nBins; b++) if (harmBuf[b] > hmax) hmax = harmBuf[b];
+
+      // 只取「頻譜峰值」對到音級。把每個 bin 都丟進 chroma 的話，Hann 窗
+      // 主瓣的旁瓣會讓 C 的能量同時算到 B 和 C♯，整張圖糊成一片，
+      // 三和絃就會被讀成 maj7。
+      const c = new Float32Array(12);
+      const bprof = new Float32Array(12);
+      const thresh = hmax * 0.04;
+      for (let b = 2; b < nBins - 1; b++) {
+        const v = harmBuf[b];
+        if (!(v > thresh)) continue;
+        if (v < harmBuf[b - 1] || v < harmBuf[b + 1]) continue;
+        // 拋物線內插，把峰值位置修到比 bin 更細
+        const l = harmBuf[b - 1], r2 = harmBuf[b + 1];
+        const den = l - 2 * v + r2;
+        const delta = den !== 0 ? 0.5 * (l - r2) / den : 0;
+        const hz = (b + Math.max(-0.5, Math.min(0.5, delta))) * binHz;
+        if (hz < 40) continue;
+        const midi = 69 + 12 * Math.log2(hz / 440) + tuning;
+        const pc = ((Math.round(midi) % 12) + 12) % 12;
+        c[pc] += v;
+        if (hz <= 320) bprof[pc] += v;
+      }
+
+      let mx = 0;
+      for (let i = 0; i < 12; i++) if (c[i] > mx) mx = c[i];
+      if (mx > 0) for (let i = 0; i < 12; i++) frames[ci * 12 + i] = Math.sqrt(c[i] / mx);
+      let bx = 0;
+      for (let i = 0; i < 12; i++) if (bprof[i] > bx) bx = bprof[i];
+      if (bx > 0) for (let i = 0; i < 12; i++) bass[ci * 12 + i] = bprof[i] / bx;
+      filled[ci] = 1;
     }
+
     if ((f & 63) === 0) {
-      setProgress(24 + (f / nFrames) * 42, `步驟 2/4：取出音高光譜… ${Math.round(f / nFrames * 100)}%`);
+      setProgress(24 + (f / Math.max(1, nFrames)) * 42, `步驟 2/4：分析音高光譜… ${Math.round(f / Math.max(1, nFrames) * 100)}%`);
       await yieldToUI();
     }
   }
-  return { frames, times, nFrames };
+
+  // 頭尾幾格（中位數窗不完整）與短檔案的補齊
+  let lastGood = -1;
+  for (let f = 0; f < nFrames; f++) {
+    if (filled[f]) { lastGood = f; continue; }
+    if (lastGood >= 0) {
+      for (let i = 0; i < 12; i++) {
+        frames[f * 12 + i] = frames[lastGood * 12 + i];
+        bass[f * 12 + i] = bass[lastGood * 12 + i];
+      }
+    }
+  }
+  let firstGood = -1;
+  for (let f = 0; f < nFrames; f++) if (filled[f]) { firstGood = f; break; }
+  if (firstGood > 0) {
+    for (let f = 0; f < firstGood; f++) {
+      for (let i = 0; i < 12; i++) {
+        frames[f * 12 + i] = frames[firstGood * 12 + i];
+        bass[f * 12 + i] = bass[firstGood * 12 + i];
+      }
+    }
+  }
+
+  return { frames, bass, times, nFrames, tuning };
 }
 
 function frameStartIndex(store, t) {
@@ -970,6 +1163,23 @@ function medianChromaInRange(store, t0, t1) {
   const col = new Float32Array(idx.length);
   for (let i = 0; i < 12; i++) {
     for (let k = 0; k < idx.length; k++) col[k] = store.frames[idx[k] * 12 + i];
+    out[i] = medianOf(col.subarray(0, idx.length));
+  }
+  return out;
+}
+
+// 低頻分布：用來判斷「低音在哪個音級」，也就是和弦的根音。
+// Dm7 和 F6 的音完全相同，只有貝斯能把兩者分開。
+function medianBassInRange(store, t0, t1) {
+  if (!store || !store.bass) return null;
+  const start = frameStartIndex(store, t0);
+  const idx = [];
+  for (let f = start; f < store.nFrames && store.times[f] < t1; f++) idx.push(f);
+  if (!idx.length) return null;
+  const out = new Float32Array(12);
+  const col = new Float32Array(idx.length);
+  for (let i = 0; i < 12; i++) {
+    for (let k = 0; k < idx.length; k++) col[k] = store.bass[idx[k] * 12 + i];
     out[i] = medianOf(col.subarray(0, idx.length));
   }
   return out;
@@ -1016,24 +1226,35 @@ function transitionBonus(a, b) {
   return (DEGREE_TRANSITION[a][b] || 0) * 0.9;   // 0.9 = 把權重換成 nat
 }
 
-function chordCandidates(chroma, topN = 6) {
+function chordCandidates(chroma, topN, bass) {
   const capped = [];
   if (!chroma) return capped;
+  topN = topN || 6;
 
   let energy = 0;
   for (let i = 0; i < 12; i++) energy += chroma[i] * chroma[i];
   if (energy < 1e-9) return capped;
   const norm = Math.sqrt(energy);
 
-  const ROOT_BONUS = 0.06; // 低音通常是根音，用來分開同音不同名的和弦
+  const ROOT_BONUS = 0.06;      // chroma 上的根音微加分
+  const BASS_BONUS = 0.10;      // 低頻有這個音級 → 幾乎確定是根音
 
   const all = [];
   for (let root = 0; root < 12; root++) {
-    const rootBonus = ROOT_BONUS * chroma[root] / norm;
+    const rootBonus = ROOT_BONUS * chroma[root] / norm
+      + (bass ? BASS_BONUS * bass[root] : 0);
     for (const { quality, tones, size } of CHORD_TEMPLATE_ENTRIES) {
       let inEnergy = 0;
-      for (let k = 0; k < tones.length; k++) inEnergy += chroma[(root + tones[k]) % 12];
-      const score = inEnergy / (norm * Math.sqrt(size)) + rootBonus;
+      const inMask = new Uint8Array(12);
+      for (let k = 0; k < tones.length; k++) {
+        const pc = (root + tones[k]) % 12;
+        inMask[pc] = 1;
+        inEnergy += chroma[pc];
+      }
+      // 和弦外的能量要扣分：否則只要有微量雜訊，三和絃就會被升成 maj7／m7
+      let outEnergy = 0;
+      for (let pc = 0; pc < 12; pc++) if (!inMask[pc]) outEnergy += chroma[pc];
+      const score = (inEnergy - 0.12 * outEnergy) / (norm * Math.sqrt(size)) + rootBonus;
       all.push({ root, quality, score });
     }
   }
@@ -1042,19 +1263,52 @@ function chordCandidates(chroma, topN = 6) {
   return capped;
 }
 
-// 逐拍取 median chroma → 候選和弦 → Viterbi 解碼
+// 逐拍取 median chroma → 前後拍加權平均 → 候選和弦 → Viterbi 解碼。
+// 只有「鄰拍的音級分布差不多」時才混（代表同一和弦、只是有裝飾音）；
+// 差很多就是換和弦了，混下去會把下一拍的音帶進來（C 會被讀成 Cmaj7）。
+function chromaDist(a, b) {
+  if (!a || !b) return 99;
+  let s = 0;
+  for (let k = 0; k < 12; k++) s += Math.abs(a[k] - b[k]);
+  return s;
+}
+
+function blendProfiles(list, i) {
+  const cur = list[i];
+  const out = new Float32Array(12);
+  if (!cur) return out;
+  const prev = list[Math.max(0, i - 1)];
+  const next = list[Math.min(list.length - 1, i + 1)];
+  const wPrev = (i > 0 && chromaDist(cur, prev) < 0.8) ? 0.3 : 0;
+  const wNext = (i < list.length - 1 && chromaDist(cur, next) < 0.8) ? 0.3 : 0;
+  const total = 1 + wPrev + wNext;
+  for (let k = 0; k < 12; k++) {
+    out[k] = (cur[k] + wPrev * (prev ? prev[k] : 0) + wNext * (next ? next[k] : 0)) / total;
+  }
+  return out;
+}
+
 function decodeChordsForBeats(beats, store, duration, prior) {
   if (!beats.length || !store) return [];
-  const obs = [];
+  const chromas = [];
+  const basses = [];
   for (let i = 0; i < beats.length; i++) {
     const t0 = beats[i];
     const t1 = (i + 1 < beats.length) ? beats[i + 1] : Math.min(duration, t0 + 0.5);
     const pad = Math.min(0.06, Math.max(0, (t1 - t0) / 8));
-    let chroma = null;
-    if (t1 - t0 > 0.12) chroma = medianChromaInRange(store, t0 + pad, Math.max(t0 + pad + 0.01, t1 - pad));
+    const lo = t0 + pad, hi = Math.max(t0 + pad + 0.01, t1 - pad);
+    let chroma = null, bass = null;
+    if (t1 - t0 > 0.12) { chroma = medianChromaInRange(store, lo, hi); bass = medianBassInRange(store, lo, hi); }
     if (!chroma) chroma = averageChromaInRange(store, t0, t1);
+    if (!bass) bass = medianBassInRange(store, t0, t1);
+    chromas.push(chroma);
+    basses.push(bass);
+  }
+  const obs = [];
+  for (let i = 0; i < beats.length; i++) {
+    const blended = blendProfiles(chromas, i);
     // 有調性先驗時多留幾個候選，讓順階和弦有機會被挑回來
-    obs.push({ cands: chordCandidates(chroma, prior ? 10 : 6) });
+    obs.push({ cands: chordCandidates(blended, prior ? 10 : 6, basses[i]) });
   }
   return viterbiDecode(obs, prior);
 }
@@ -1869,6 +2123,28 @@ function openEditModal(idx) {
     if (q.key === curQuality) o.selected = true;
     qualSel.appendChild(o);
   });
+
+  // 級數快捷鍵：一拍就能改掉整個和弦，不必再選根音＋類型
+  const pal = document.getElementById('edit-palette');
+  pal.innerHTML = '';
+  const keyMajor = state.displayMajor;
+  const items = [
+    ['1', 0, 'maj'], ['2', 2, 'm'], ['3', 4, 'm'], ['4', 5, 'maj'],
+    ['5', 7, 'maj'], ['5⁷', 7, '7'], ['6', 9, 'm'], ['7°', 11, 'dim'],
+    ['♭7', 10, 'maj'], ['4m', 5, 'm'],
+  ];
+  items.forEach(function (it) {
+    const root = mod12(keyMajor + it[1]);
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.innerHTML = escapeHtml(chordName(root, it[2], keyMajor)) + '<span class="deg">' + it[0] + '</span>';
+    btn.addEventListener('click', function () { applyEditChord(root, it[2]); });
+    pal.appendChild(btn);
+  });
+  const prevBtn = document.getElementById('btn-copy-prev');
+  prevBtn.style.display = idx > 0 ? '' : 'none';
+  prevBtn.onclick = copyPrevChord;
+
   document.getElementById('edit-modal').style.display = 'flex';
 }
 
@@ -1877,12 +2153,11 @@ function closeEditModal() {
   editingBarIdx = -1;
 }
 
-function saveEditChord() {
+// 把「畫面上看到的那個和弦」寫回該小節；座標換回原調：
+// sounding = display − 移調 + Capo
+function applyEditChord(dispRoot, quality) {
   if (editingBarIdx < 0) return;
-  const dispRoot = parseInt(document.getElementById('edit-root').value, 10);
-  const quality = document.getElementById('edit-quality').value;
   const beats = barTotalBeats(editingBarIdx);
-  // 畫面座標換回原調：sounding = display − 移調 + Capo
   const sounding = mod12(dispRoot - state.transpose + state.capo);
   state.originalChords[editingBarIdx] = {
     root: sounding,
@@ -1893,6 +2168,20 @@ function saveEditChord() {
   closeEditModal();
   buildDisplayChords();
   renderChart();
+}
+
+function saveEditChord() {
+  if (editingBarIdx < 0) return;
+  const dispRoot = parseInt(document.getElementById('edit-root').value, 10);
+  const quality = document.getElementById('edit-quality').value;
+  applyEditChord(dispRoot, quality);
+}
+
+function copyPrevChord() {
+  if (editingBarIdx <= 0) return;
+  const prev = state.chords[editingBarIdx - 1];
+  if (!prev || !prev.parts.length) return;
+  applyEditChord(prev.parts[0].root, prev.parts[0].quality);
 }
 
 // =========================================================================
