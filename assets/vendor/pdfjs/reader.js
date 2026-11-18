@@ -8,7 +8,15 @@
   'use strict';
 
   var root = document.querySelector('[data-pdf-reader]');
-  if (!root || typeof pdfjsLib === 'undefined') { return; }
+  if (!root) { return; }
+
+  // If PDF.js did not initialise, fall back to the browser's inline viewer so
+  // the article is still readable instead of sitting on「載入中…」forever.
+  function fallback() {
+    root.innerHTML = '<iframe class="doc-frame" title="PDF" src="' +
+      root.getAttribute('data-src') + '#view=FitH"></iframe>';
+  }
+  if (typeof pdfjsLib === 'undefined') { fallback(); return; }
 
   var canvas = root.querySelector('canvas');
   var ctx = canvas.getContext('2d');
@@ -94,6 +102,7 @@
     total = doc.numPages;
     render();
   }).catch(function () {
-    label.textContent = 'PDF 載入失敗';
+    label.textContent = '改用內建檢視器';
+    fallback();
   });
 })();
