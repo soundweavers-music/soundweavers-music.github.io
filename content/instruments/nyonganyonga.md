@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：體鳴（122.1）；依據：來源二、三：H-S 122.1 Plucked idiophone；來源一：lamellophone/plucked i
 source_url: https://soundweavers-music.github.io/instruments/nyonganyonga/
-image: https://upload.wikimedia.org/wikipedia/commons/c/c0/Ene_mbira.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled
+image: https://images.metmuseum.org/CRDImages/mi/original/DP302548.jpg
 youtube_ids: XNU9iH5wu00 UhdXsujcIHE
 ---
 

@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：膜鳴（211.212.1）；依據：來源二與來源三均給出 Hornbostel–Sachs 211.212.1（Individual double-skin
 source_url: https://soundweavers-music.github.io/instruments/bass-drum/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Drum_kit_parts.png/500px-Drum_kit_parts.png
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Mounted_concert_bass_drum.jpg/500px-Mounted_concert_bass_drum.jpg
 youtube_ids: 7gkMjbwvxeo xCCJyYIBK9s
 ---
 

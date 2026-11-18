@@ -14,7 +14,6 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴；依據：來源一與來源五均稱 adjalin 為 zither（弦鳴樂器）
 source_url: https://soundweavers-music.github.io/instruments/adjalin/
-image: https://commons.wikimedia.org/w/resources/assets/file-type-icons/fileicon-ogg.png
 youtube_ids: heLgssHPoQs gA09zywGcC0
 ---
 

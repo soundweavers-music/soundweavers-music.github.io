@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴（421.121.12-71）；依據：來源二/三：Hornbostel–Sachs 421.121.12-71，flute-like aerophone / 
 source_url: https://soundweavers-music.github.io/instruments/piccolo/
-image: https://upload.wikimedia.org/wikipedia/commons/1/1e/Range_piccolo.png
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Piccolo_in_D-flat_MET_MUS1399A5.jpg/500px-Piccolo_in_D-flat_MET_MUS1399A5.jpg
 youtube_ids: ivQpiJos1Sw 3EFLa5dK-nU
 ---
 

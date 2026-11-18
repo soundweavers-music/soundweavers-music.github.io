@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：體鳴（111.11）；依據：來源二與來源三均標為 Hornbostel–Sachs 111.11 concussion idiophone；來源一描；英文 Rhythm Sticks 在部分教材中與 Claves（響木）混用；兩列並存，此列保留泛稱。
 source_url: https://soundweavers-music.github.io/instruments/rhythm-sticks/
-image: https://upload.wikimedia.org/wikipedia/commons/4/44/Claves.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Clapsticks.JPG/500px-Clapsticks.JPG
 youtube_ids: F80LKTinhJE 9lTzTpaM6bw
 ---
 

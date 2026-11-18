@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴（314.122-4）；依據：Wikidata P1762 為 314.122-4，且英文維基分類為 Hammered box zithers
 source_url: https://soundweavers-music.github.io/instruments/santur/
-image: https://upload.wikimedia.org/wikipedia/commons/2/2c/Santur_Range.png
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Iraqi_Santur_Player.jpg/500px-Iraqi_Santur_Player.jpg
 youtube_ids: reohb3CiSAM uhyJrNxTxQ4
 ---
 

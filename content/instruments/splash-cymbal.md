@@ -14,7 +14,7 @@ ensemble_links: 爵士編制
 verification_status: 已查證
 issue_note: 分類查證：體鳴（111.24）；依據：Wikidata P1762 Hornbostel–Sachs 111.24；英文維基條目稱其為 cymbal/effe
 source_url: https://soundweavers-music.github.io/instruments/splash-cymbal/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Drums_schematic.svg/500px-Drums_schematic.svg.png
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Sabian_AA_10_Splash.jpg/500px-Sabian_AA_10_Splash.jpg
 youtube_ids: 0l2xcLCwz04 9BXAlPoSdns
 ---
 

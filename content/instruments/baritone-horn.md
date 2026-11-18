@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴（423.232）；依據：來源一分類 Aerophones；來源二/三 H-S 423.232；來源五 valved brass instrume
 source_url: https://soundweavers-music.github.io/instruments/baritone-horn/
-image: https://upload.wikimedia.org/wikipedia/commons/8/8b/Baritonehorn_range.png
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/2008_BC_Highland_Games_-_2.jpg/500px-2008_BC_Highland_Games_-_2.jpg
 youtube_ids: 3rV2ZwyGdY8 l5aomOpZoaU
 ---
 

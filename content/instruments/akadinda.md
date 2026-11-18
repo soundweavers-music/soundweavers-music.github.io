@@ -14,7 +14,6 @@ ensemble_links: 甘美朗合奏
 verification_status: 已查證
 issue_note: 
 source_url: https://soundweavers-music.github.io/instruments/akadinda/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Xylophone_%28PSF%29.svg/500px-Xylophone_%28PSF%29.svg.png
 youtube_ids: x8_Z8upsC-o IMkI52odgoo
 ---
 

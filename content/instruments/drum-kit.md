@@ -14,7 +14,7 @@ ensemble_links: 爵士編制
 verification_status: 已查證
 issue_note: 
 source_url: https://soundweavers-music.github.io/instruments/drum-kit/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Drum_kit_parts.png/500px-Drum_kit_parts.png
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/A_drum_kit_made_by_Mapex_Drums_-_Cacon_Photos-_Copyleft_-_Creative_Commons_11.jpg/500px-A_drum_kit_made_by_Mapex_Drums_-_Cacon_Photos-_Copyleft_-_Creative_Commons_11.jpg
 youtube_ids: MHj9XlV3fFg qK8g6jbn4sY
 ---
 

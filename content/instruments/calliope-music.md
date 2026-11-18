@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴（421.222.11）；依據：Wikidata P1762 Hornbostel–Sachs 421.222.11；英文維基全文稱以蒸汽或壓縮空氣通過
 source_url: https://soundweavers-music.github.io/instruments/calliope-music/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Calliope%2C_the_wonderful_operonicon_or_steam_car_of_the_muses%2C_advertising_poster%2C_1874.jpg/500px-Calliope%2C_the_wonderful_operonicon_or_steam_car_of_the_muses%2C_advertising_poster%2C_1874.jpg
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Calliope_%28music%29_wagon_for_European_Zoological_Association.jpg/500px-Calliope_%28music%29_wagon_for_European_Zoological_Association.jpg
 youtube_ids: Olnm66Uxy8U SFgqDSBba1g
 ---
 

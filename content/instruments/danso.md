@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴（421.141.12）；依據：Wikidata P1762 給出 Hornbostel–Sachs 421.141.12，且英文全文描述為 end-b
 source_url: https://soundweavers-music.github.io/instruments/danso/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Danso_fingering_chart.svg/500px-Danso_fingering_chart.svg.png
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Danso.jpg/500px-Danso.jpg
 youtube_ids: 91idAyR_Rg0 twnZR-cZtFg
 ---
 

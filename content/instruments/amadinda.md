@@ -14,7 +14,7 @@ ensemble_links: 甘美朗合奏
 verification_status: 已查證
 issue_note: 
 source_url: https://soundweavers-music.github.io/instruments/amadinda/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Xylophone_%28PSF%29.svg/500px-Xylophone_%28PSF%29.svg.png
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Xylophone_rn.jpg/500px-Xylophone_rn.jpg
 youtube_ids: 6KrYB9f9fsw oTrdbsyV1gI
 ---
 

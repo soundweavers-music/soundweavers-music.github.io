@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴（421.222.11+421.222.3+412.1）；依據：來源一：Wind instrument controlled by keyboard；來源五：produces soun
 source_url: https://soundweavers-music.github.io/instruments/pipe-organ/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Organ_Range.svg/500px-Organ_Range.svg.png
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Dion654a_ancient_organ.jpg/500px-Dion654a_ancient_organ.jpg
 youtube_ids: Ctykf8qh288 xXJtzh2TlhE
 ---
 

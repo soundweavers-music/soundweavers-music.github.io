@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴（422.211.2-71）；依據：英文維基 infobox 與 Wikidata 均給出 Hornbostel–Sachs 422.211.2-71，屬單
 source_url: https://soundweavers-music.github.io/instruments/bass-clarinet/
-image: https://upload.wikimedia.org/wikipedia/commons/8/89/BassClarinetRange-Written.png
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Bassaklarinett.jpg/500px-Bassaklarinett.jpg
 youtube_ids: Iu60MwpMiow gKOgKVJ7Lio
 ---
 

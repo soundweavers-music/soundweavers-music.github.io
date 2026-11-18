@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴（321.322-5）；依據：來源二：H-S 321.322–5 / Composite string instrument；來源四：彈撥樂器
 source_url: https://soundweavers-music.github.io/instruments/classical-guitar/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Range_guitar.png/500px-Range_guitar.png
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Musee-de-la-musique-6.jpg/500px-Musee-de-la-musique-6.jpg
 youtube_ids: inBKFMB-yPg HxGT5z6d-GA
 ---
 

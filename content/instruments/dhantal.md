@@ -14,7 +14,6 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：體鳴；依據：來源一分類標籤：Stick percussion idiophones
 source_url: https://soundweavers-music.github.io/instruments/dhantal/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Dhantal.svg/500px-Dhantal.svg.png
 youtube_ids: IZc911eG1vQ CYFHUZhsHIc
 ---
 

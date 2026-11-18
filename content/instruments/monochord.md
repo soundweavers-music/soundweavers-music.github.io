@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：弦鳴（314.122）；依據：Wikidata P1762 Hornbostel–Sachs 314.122；英文全文稱 monochords are
 source_url: https://soundweavers-music.github.io/instruments/monochord/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Monochord_Jeans.svg/500px-Monochord_Jeans.svg.png
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/MIM_String_Instruments.jpg/500px-MIM_String_Instruments.jpg
 youtube_ids: c1aCNMIZ5lM CecEVzXxvQg
 ---
 

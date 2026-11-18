@@ -14,7 +14,7 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：氣鳴；依據：來源一分類 Aerophone instrument stubs；來源五描述為 long trumpet or horn；與「Tibetan horn」互為別名／變體
 source_url: https://soundweavers-music.github.io/instruments/dungchen/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Tibetian_Wheel.svg/500px-Tibetian_Wheel.svg.png
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Horn_%28dungchen%29%2C_Tamang_people%2C_Nepal%2C_mid-20th_century.jpg/500px-Horn_%28dungchen%29%2C_Tamang_people%2C_Nepal%2C_mid-20th_century.jpg
 youtube_ids: Z1_C3TLXRlI 7aWtCJiyiZ8
 ---
 

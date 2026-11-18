@@ -14,7 +14,7 @@ ensemble_links: 爵士編制
 verification_status: 已查證
 issue_note: 分類查證：體鳴（111.24）；依據：來源三 Wikidata P1762 給出 Hornbostel–Sachs 111.24；來源一與來源五均稱 ride
 source_url: https://soundweavers-music.github.io/instruments/ride-cymbal/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Drum_kit_parts.png/500px-Drum_kit_parts.png
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Zildjian-Ride.jpg/500px-Zildjian-Ride.jpg
 youtube_ids: qG-PN-Ffxk4 Xk0FoUSlLas
 ---
 

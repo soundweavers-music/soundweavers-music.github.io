@@ -14,7 +14,7 @@ ensemble_links: 爵士編制
 verification_status: 已查證
 issue_note: 分類查證：體鳴（111.24）；依據：來源二英文維基 infobox 標注 Hornbostel–Sachs 111.24 / Percussion vess；與「Hi-hat」互為別名／變體
 source_url: https://soundweavers-music.github.io/instruments/hi-hat-cymbal/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Drums_schematic.svg/500px-Drums_schematic.svg.png
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Zildjian_Quick_Beat_Hi_Hat_15.jpg/500px-Zildjian_Quick_Beat_Hi_Hat_15.jpg
 youtube_ids: p3ZhikuAI8E MsrwwmJ6Mts
 ---
 

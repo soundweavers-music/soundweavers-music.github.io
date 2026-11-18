@@ -14,7 +14,7 @@ ensemble_links: 安地斯合奏
 verification_status: 已查證
 issue_note: 分類查證：氣鳴（421.112.11）；依據：英文維基：traditional Andean panpipe；Wikidata P1762：421.112.11
 source_url: https://soundweavers-music.github.io/instruments/siku/
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/POL_COA_Trzaska.svg/500px-POL_COA_Trzaska.svg.png
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Siku_%2810%29.jpg/500px-Siku_%2810%29.jpg
 youtube_ids: 1NWtZZbYUeY FcF2HPZzMEA
 ---
 

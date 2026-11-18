@@ -14,7 +14,6 @@ ensemble_links:
 verification_status: 已查證
 issue_note: 分類查證：體鳴；依據：來源一分類標籤含 Idiophone instrument stubs、Crystallophones、Sets of 
 source_url: https://soundweavers-music.github.io/instruments/verrophone/
-image: https://commons.wikimedia.org/w/resources/assets/file-type-icons/fileicon-ogg.png
 youtube_ids: nOQuo_44unA cVqqNigImtU
 ---
 
