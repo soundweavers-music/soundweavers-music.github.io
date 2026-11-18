@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 640 790" role="img" aria-label="一片聲帶的剖面：三層結構">
+  <title>一片聲帶的剖面：三層結構：外層黏膜、中間韌帶、內層肌肉；厚度與張力就由這三層決定</title>
+  <rect width="640" height="790" fill="#FBF8F4"/>
+  <text x="26" y="34" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="16" font-weight="700" fill="#3D3229">一片聲帶的剖面：三層結構</text>
+  <text x="26" y="55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#8C8078">外層黏膜、中間韌帶、內層肌肉；厚度與張力就由這三層決定</text>
+  <g transform="translate(0,100) scale(0.72727) translate(-20,-50)">
+    <image x="0" y="0" width="1600" height="994" xlink:href="_anatomy/src/vocal-fold-scheme.png"/>
+  </g>
+  <path d="M494.5 281.8 L560.0 242.2" stroke="#8C8078" stroke-width="1" fill="none"/><circle cx="494.5" cy="281.8" r="2.8" fill="#8C8078"/><text x="560.0" y="238.2" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="start">黏膜</text>
+  <path d="M458.2 405.5 L560.0 394.9" stroke="#8C8078" stroke-width="1" fill="none"/><circle cx="458.2" cy="405.5" r="2.8" fill="#8C8078"/><text x="560.0" y="390.9" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="start">韌帶</text>
+  <path d="M363.6 587.3 L560.0 576.7" stroke="#8C8078" stroke-width="1" fill="none"/><circle cx="363.6" cy="587.3" r="2.8" fill="#8C8078"/><text x="560.0" y="572.7" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="start">聲帶肌</text>
+  <text x="26" y="778" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078">底圖：Fred the Oyster（CC BY-SA 4.0，Wikimedia Commons），本站裁切並加中文標籤</text>
+</svg>

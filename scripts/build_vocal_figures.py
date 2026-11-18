@@ -609,22 +609,23 @@ def fig_checklist():
 
 
 def fig_diaphragm():
-    w, h = 640, 360
+    w, h = 640, 460
     body = []
     # 左：用肩膀吸
-    body.append(t(150, 90, "用肩膀吸", size=13.5, anchor="middle", weight=600, color=RED))
-    body.append(path("M110 130 C130 116 170 116 190 130", cls="ink", sw=1.6))
-    body.append(arrow(130, 150, 130, 118, "red", size=6))
-    body.append(arrow(170, 150, 170, 118, "red", size=6))
-    body.append(rect(112, 190, 76, 84, fill=RED_SOFT, stroke=RED, rx=10, sw=1.2))
-    body.append(ts(150, 292, "胸口抬起、脖子變短", size=11, anchor="middle"))
+    body.append(human_figure(70, 96, height=280))
+    lcx = 70 + 233 / 2
+    body.append(t(lcx, 86, "用肩膀吸", size=13, anchor="middle", weight=600, color=RED))
+    body.append(arrow(lcx - 26, 156, lcx - 44, 124, "red", size=6))
+    body.append(arrow(lcx + 26, 156, lcx + 44, 124, "red", size=6))
+    body.append(ts(lcx, 408, "胸口抬起、脖子變短", size=11, anchor="middle"))
     # 右：用下腹
-    body.append(t(450, 90, "用下腹（橫膈膜）", size=13.5, anchor="middle", weight=600, color=GREEN))
-    body.append(path("M410 130 C430 118 470 118 490 130", cls="ink", sw=1.6))
-    body.append(rect(412, 150, 76, 124, fill=GREEN_SOFT, stroke=GREEN, rx=10, sw=1.2))
-    body.append(arrow(450, 258, 450, 190, "green", size=6))
-    body.append(ts(450, 292, "肩膀不動，下腹鬆開外擴", size=11, anchor="middle"))
-    body.append(ts(450, 312, "肚子鼓是結果，不是動作", size=11, anchor="middle"))
+    body.append(human_figure(370, 96, height=280))
+    rcx = 370 + 220 / 2
+    body.append(t(rcx, 86, "用下腹（橫膈膜）", size=13, anchor="middle", weight=600, color=GREEN))
+    body.append(f'  <ellipse cx="{rcx}" cy="236" rx="32" ry="22" fill="{GREEN}" opacity=".2"/>')
+    body.append(arrow(rcx + 16, 236, rcx + 46, 236, "green", size=6))
+    body.append(arrow(rcx - 16, 236, rcx - 46, 236, "green", size=6))
+    body.append(ts(rcx, 408, "肩膀不動，下腹鬆開外擴", size=11, anchor="middle"))
     body.append(ts(26, h - 18, "吸氣像聞花香：沒有聲音、肩膀不動，只有下腹與肋骨在動。", size=11))
     return w, h, "用肚子吸氣，不是用肩膀", "空氣只會進肺，肚子鼓是橫膈膜往下推的結果", "\n".join(body), None
 
@@ -703,17 +704,26 @@ def fig_glottis_breathy():
 
 
 def fig_hand_chest():
-    w, h = 640, 300
+    w, h = 640, 420
     body = []
-    body.append(rect(120, 90, 150, 150, fill="#F2E7DC", stroke=INK, rx=14, sw=1.5))
-    body.append(circle(196, 140, 26, fill=PANEL, stroke=INK, sw=1.4))
+    body.append(human_figure(120, 70, height=300))
+    cx, cy = 120 + 233 / 2, 70 + 300 * 0.30        # 胸口位置
+    # 手掌
+    body.append(f'  <g transform="rotate(-12 {cx} {cy})">')
+    body.append(rect(cx - 26, cy - 14, 52, 30, fill="#EFD9C6", stroke=INK, rx=8, sw=1.4))
+    for i in range(4):
+        body.append(path(f"M{cx - 18 + i * 12} {cy - 14} L{cx - 16 + i * 12} {cy + 4}", cls="ink", sw=1))
+    body.append("  </g>")
+    # 震動
     for i in range(3):
-        body.append(circle(196, 140, 34 + i * 9, fill="none", stroke=ACCENT, sw=1))
-    body.append(ts(196, 264, "手掌貼胸口", size=11.5, anchor="middle"))
-    body.append(ts(320, 120, "唱低音時，手掌會感覺到間歇的震動。", size=12))
-    body.append(ts(320, 142, "感覺不到，不代表你唱錯——", size=12))
-    body.append(ts(320, 164, "可能是音量太小，或共鳴位置偏高。", size=12))
-    body.append(ts(26, h - 18, "手掌只是感測器：用來確認低頻有沒有出來，不是用來壓。", size=11))
+        body.append(circle(cx + 34 + i * 11, cy, 26 + i * 10, fill="none", stroke=ACCENT, sw=1, opacity=0.55))
+    body.append(ts(cx - 60, cy + 44, "手掌貼胸口", size=11.5, anchor="end"))
+    body.append(ts(400, 150, "唱低音時，手掌會感覺到間歇的震動。", size=12))
+    body.append(ts(400, 172, "感覺不到，不代表你唱錯——", size=12))
+    body.append(ts(400, 194, "可能是音量太小，或共鳴位置偏高。", size=12))
+    body.append(ts(400, 240, "手掌只是感測器：確認低頻有沒有出來，", size=12))
+    body.append(ts(400, 262, "不是用來壓。", size=12))
+    body.append(ts(26, h - 18, "同一個音，摸得到震動代表低頻共鳴有出來；摸不到也先別硬壓。", size=11))
     return w, h, "手掌貼胸口，找低頻的震動", "摸得到震動，代表低頻共鳴有出來", "\n".join(body), None
 
 
@@ -1003,20 +1013,39 @@ def fig_diaphragm_support():
     return w, h, "丹田支撐：吸氣外擴，發聲保持", "氣不是被「推」出來，是被穩定地放出來", "\n".join(body), None
 
 
+def human_figure(x, y, height=300, fill="#E9DACA", stroke=INK):
+    """把 CC0 人形輪廓（assets/vocal/_anatomy/src/human-standing.svg）縮放後放進圖裡。"""
+    import re as _re
+    src = (BASE_DIR / "assets" / "vocal" / "_anatomy" / "src" / "human-standing.svg").read_text(encoding="utf-8")
+    d = _re.search(r'<path[^>]*\sd="([^"]+)"', src, _re.S).group(1)
+    s = height / 297.0
+    return (
+        f'  <g transform="translate({x},{y}) scale({s:.4f})">'
+        f'<path d="{d}" fill="{fill}" stroke="{stroke}" stroke-width="{1.3 / s:.2f}" stroke-linejoin="round"/>'
+        f"</g>"
+    )
+
+
 def fig_posture_side():
-    w, h = 640, 380
+    w, h = 640, 480
     body = []
-    body.append(f'  <path d="M230 70 L230 330" fill="none" stroke="{LINE}" stroke-width="1.2" stroke-dasharray="5 5"/>')
-    for y, label in [(96, "耳"), (150, "肩"), (230, "骨盆"), (320, "腳踝")]:
-        body.append(circle(230, y, 6.5, fill=ACCENT))
-        body.append(ts(214, y + 4, label, size=11.5, anchor="end"))
-    body.append(path("M224 150 C214 190 216 214 230 230 C244 250 236 292 230 320", cls="ink", sw=1.2, opacity=0.3))
-    body.append(ts(272, 96, "從側面看，四個點落在同一條鉛垂線上。", size=12))
-    body.append(ts(272, 130, "頭往前伸、肋骨往前翻，是最常見的兩個走位。", size=12))
-    body.append(ts(272, 176, "站直不是挺胸：挺胸會讓肋骨翻起來，", size=12))
-    body.append(ts(272, 198, "腰反而更凹、氣更難下去。", size=12))
+    body.append(human_figure(150, 84, height=330))
+    # 中軸與四個定位點（正面觀）
+    cx = 150 + 233 / 2
+    body.append(f'  <path d="M{cx} 96 L{cx} 404" fill="none" stroke="{MUTED}" stroke-width="1" stroke-dasharray="5 5"/>')
+    marks = [(cx, 118, "耳"), (cx, 150, "肩"), (cx, 290, "骨盆"), (cx, 402, "腳踝")]
+    for mx, my, label in marks:
+        body.append(circle(mx, my, 5, fill=ACCENT, stroke="#fff", sw=1.5))
+        body.append(callout(mx - 5, my, 196, my))
+        body.append(ts(190, my + 4, label, size=11.5, anchor="end"))
+    body.append(ts(410, 112, "站好時，耳朵、肩膀、骨盆、", size=12))
+    body.append(ts(410, 134, "腳踝要落在同一條鉛垂線上。", size=12))
+    body.append(ts(410, 188, "肩膀一高一低、骨盆歪一邊，", size=12))
+    body.append(ts(410, 210, "氣就會只進得去半邊。", size=12))
+    body.append(ts(410, 264, "站直不是挺胸：挺胸會讓肋骨", size=12))
+    body.append(ts(410, 286, "翻起來，腰反而更凹。", size=12))
     body.append(ts(26, h - 18, "姿勢的目的只有一個：讓氣道是直的。", size=11))
-    return w, h, "站姿側面：四個點對齊", "耳、肩、骨盆、腳踝在同一條鉛垂線上", "\n".join(body), None
+    return w, h, "站姿：四個點對齊", "耳朵、肩膀、骨盆、腳踝落在同一條鉛垂線上", "\n".join(body), None
 
 
 def fig_articulation():

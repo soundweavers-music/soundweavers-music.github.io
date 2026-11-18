@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 640 1051" role="img" aria-label="頭頸側剖：聲音走過的路">
+  <title>頭頸側剖：聲音走過的路：從鼻腔、口腔，經過咽與喉，最後進到氣管</title>
+  <rect width="640" height="1051" fill="#FBF8F4"/>
+  <text x="26" y="34" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="16" font-weight="700" fill="#3D3229">頭頸側剖：聲音走過的路</text>
+  <text x="26" y="55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#8C8078">從鼻腔、口腔，經過咽與喉，最後進到氣管</text>
+  <g transform="translate(0,100) scale(0.42105) translate(-40,-60)">
+    <image x="0" y="0" width="1600" height="2263" xlink:href="_anatomy/src/neutral-sagittal.png"/>
+  </g>
+  <path d="M408.4 453.7 L480.0 428.2" stroke="#8C8078" stroke-width="1" fill="none"/><circle cx="408.4" cy="453.7" r="2.8" fill="#8C8078"/><text x="480.0" y="424.2" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="start">鼻腔</text>
+  <path d="M467.4 584.2 L513.7 562.9" stroke="#8C8078" stroke-width="1" fill="none"/><circle cx="467.4" cy="584.2" r="2.8" fill="#8C8078"/><text x="513.7" y="558.9" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="start">口腔</text>
+  <path d="M429.5 676.8 L488.4 680.8" stroke="#8C8078" stroke-width="1" fill="none"/><circle cx="429.5" cy="676.8" r="2.8" fill="#8C8078"/><text x="488.4" y="676.8" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="start">舌</text>
+  <path d="M353.7 596.8 L277.9 575.6" stroke="#8C8078" stroke-width="1" fill="none"/><circle cx="353.7" cy="596.8" r="2.8" fill="#8C8078"/><text x="277.9" y="571.6" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="end">咽</text>
+  <path d="M383.2 803.2 L277.9 794.5" stroke="#8C8078" stroke-width="1" fill="none"/><circle cx="383.2" cy="803.2" r="2.8" fill="#8C8078"/><text x="277.9" y="790.5" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="end">喉（聲帶）</text>
+  <path d="M362.1 908.4 L277.9 899.8" stroke="#8C8078" stroke-width="1" fill="none"/><circle cx="362.1" cy="908.4" r="2.8" fill="#8C8078"/><text x="277.9" y="895.8" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="end">氣管</text>
+  <text x="26" y="1039" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078">底圖：Richard Wright、Dan McCloy（CC0，Wikimedia Commons），本站裁切並加中文標籤</text>
+</svg>

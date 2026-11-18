@@ -18,7 +18,7 @@
 
 ## 原理：為什麼會這樣
 
-![側面示意圖：胸腔、咽喉腔、鼻腔與頭腔的位置](/assets/vocal/resonance-map.svg)
+![頭頸側剖：聲音從鼻腔、口腔經過咽與喉，最後進到氣管](/assets/vocal/sagittal-head.svg)
 
 聲音在三個區域被修飾，各自偏重的頻段不太一樣：
 
