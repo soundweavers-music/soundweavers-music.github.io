@@ -40,6 +40,8 @@ COURSES = {
         "icon": "🪗",
     },
 }
+READ_CHARS_PER_MIN = 300
+PRACTICE_FACTOR = 2.0
 CHAPTER_RE = re.compile(r"^(\d+)\.md$")
 EXTRA = [("前言.md", "preface", "前言"), ("目錄.md", "toc", "目錄")]
 
@@ -63,7 +65,9 @@ def load_chapters(slug: str) -> list[dict]:
             "title": title,
             "path": path,
             "chars": chars,
-            "hours": max(0.5, -(-chars // 300 // 30 * 2) / 2),
+            # 建議學習時數＝閱讀時間（300 字/分）加倍計入練習，向上取整到半小時，
+            # 與曼陀林專區採同一個量級
+            "hours": max(0.5, -(-int(chars / READ_CHARS_PER_MIN * PRACTICE_FACTOR) // 30) / 2),
         })
     return sorted(chapters, key=lambda c: c["num"])
 
@@ -83,7 +87,7 @@ def build_index(slug: str, conf: dict, chapters: list[dict]) -> None:
             f'<li class="chapter-item has-link"><a href="{href}">'
             f'<span class="ch-num done">{ch["num"]}</span>'
             f'<span class="ch-title">{bve.escape(ch["title"])}</span>'
-            f'<span class="ch-status ch-status-done">約 {ch["chars"]:,} 字</span>'
+            f'<span class="ch-status ch-status-done">約 {ch["hours"]:g} 小時</span>'
             f'</a></li>'
         )
     body = f"""<main>
@@ -93,7 +97,7 @@ def build_index(slug: str, conf: dict, chapters: list[dict]) -> None:
     <p class="lead">{bve.escape(conf["lead"])}</p>
     <p class="hero-stats" style="text-align:left;margin-top:20px">
       <span><strong>{len(chapters)}</strong> 章</span>
-      <span>共約 <strong>{sum(c["chars"] for c in chapters):,}</strong> 字</span>
+      <span>建議約 <strong>{sum(c["hours"] for c in chapters):g}</strong> 小時</span>
     </p>
   </section>
   <div class="vocal-page">
@@ -134,7 +138,7 @@ def build_chapters(slug: str, conf: dict, chapters: list[dict]) -> None:
       <span>/</span><span>第 {ch["num"]} 章</span>
     </div>
     <h1>{bve.escape(ch["title"])}</h1>
-    <p class="level-name">第 {ch["num"]} 章・約 {ch["chars"]:,} 字</p>
+    <p class="level-name">第 {ch["num"]} 章・建議約 {ch["hours"]:g} 小時</p>
   </div>
   <div class="vocal-content markdown-body">{html_body}</div>
   <div class="vocal-nav-links">{prev_link}{next_link}</div>
@@ -167,8 +171,8 @@ def build_extras(slug: str, conf: dict) -> list[tuple[str, str]]:
   <div class="vocal-content markdown-body">{html_body}</div>
   <a class="back-link" href="{bve.resolve_url(d / "index.html", "/" + slug + "/")}">← 返回章節列表</a>
 </main>"""
-        bve.write(d / "index.html", bve.page(label, body, d / "index.html",
-                                             meta_description=f"{conf['name']} {label}"))
+        bve.write(d / "index.html", bve.page(f"{conf['name']}・{label}", body, d / "index.html",
+                                             meta_description=f"{conf['name']}的{label}。{conf['lead']}"))
         made.append((page_slug, label))
     return made
 

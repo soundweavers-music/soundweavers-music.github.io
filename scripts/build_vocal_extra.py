@@ -14,6 +14,33 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 CONTENT_DIR = BASE_DIR / "content"
 OUTPUT_DIR = BASE_DIR / "outputs" / "world-instruments-static"
+
+
+def instrument_course_totals():
+    """章數與建議學習時數：曼陀林專區＋吉他＋烏克麗麗。
+
+    Mandolin hours come from its own study_hours(); the two course folders share
+    build_courses.py's formula, kept in step with READING_CHARS_PER_MIN below."""
+    chapters, hours = 0, 0.0
+    try:
+        import importlib
+        bm = importlib.import_module("build_mandolin")
+        for ch in bm.load_chapters():
+            chapters += 1
+            hours += bm.study_hours(ch)
+    except Exception:
+        pass
+    for slug in ("guitar", "ukulele"):
+        folder = CONTENT_DIR / slug
+        if not folder.exists():
+            continue
+        for path in folder.glob("*.md"):
+            if not re.fullmatch(r"\d+\.md", path.name):
+                continue
+            chars = len(re.findall(r"[一-鿿]", path.read_text(encoding="utf-8")))
+            chapters += 1
+            hours += max(0.5, -(-int(chars / 300 * 2.0) // 30) / 2)
+    return chapters, hours
 SITE_BASE_PATH = os.environ.get("SITE_BASE_PATH", "").strip()
 
 
@@ -106,7 +133,7 @@ def markdown_to_html(md_text, strip_first_h1=True):
 
 
 def page(title, body, page_path=None, extra_head="", meta_description="", og_image=""):
-    desc = meta_description or "世界聲音百科 by 隔壁織音人 — 收錄世界各國樂器、人聲歌唱教學、錄音後製知識與基礎樂理。從傳統民族樂器到現代電子樂器，提供樂器介紹、聆賞示範、演奏教學與文化背景。循著聲音，走進不同文化的現場。"
+    desc = meta_description or "世界聲音 by 隔壁織音人：世界樂器百科、人聲與歌唱教學、錄音後製與樂理課程，以及在瀏覽器直接使用的音樂工具——指版和弦圖、自動抓和弦、LRC 歌詞工作室與線上編曲軟體。"
     csp = ("default-src 'self'; img-src 'self' https: data:; "
            "style-src 'self' 'unsafe-inline'; "
            "script-src 'self' 'unsafe-inline'; "
@@ -117,7 +144,7 @@ def page(title, body, page_path=None, extra_head="", meta_description="", og_ima
     jsonld = f'''{{
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "世界聲音百科",
+  "name": "世界聲音",
   "alternateName": "World Sound Encyclopedia",
   "url": "https://soundweavers-music.github.io/",
   "description": "{escape(desc)}",
@@ -146,8 +173,8 @@ def page(title, body, page_path=None, extra_head="", meta_description="", og_ima
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="{escape(desc)}">
-  <meta name="keywords" content="隔壁織音人,世界樂器,世界樂器百科,世界聲音百科,樂器教學,歌唱教學,錄音後製,吉他教學,鋼琴教學,基礎樂理,音樂知識">
-  <meta property="og:title" content="{escape(title) if "|" in title or "｜" in title else escape(title) + "｜世界聲音百科"}">
+  <meta name="keywords" content="隔壁織音人,世界聲音,世界樂器,樂器百科,音樂教學,線上編曲,編曲軟體,自動抓和弦,和弦圖,歌唱教學,錄音後製,吉他教學,基礎樂理">
+  <meta property="og:title" content="{escape(title) if "|" in title or "｜" in title else escape(title) + "｜世界聲音"}">
   <meta property="og:description" content="{escape(desc)}">
   <meta property="og:image" content="{og_img}">
   <meta property="og:type" content="website">
@@ -155,7 +182,7 @@ def page(title, body, page_path=None, extra_head="", meta_description="", og_ima
   <link rel="canonical" href="{canonical}">
   <meta http-equiv="Content-Security-Policy" content="{csp}">
   <meta name="google-site-verification" content="AzedQ-PxUmSW7_0jyEHmHCKgN2nIK0Bio5d6LCsJTtE">
-  <title>{escape(title) if "|" in title or "｜" in title else escape(title) + "｜世界聲音百科"}</title>
+  <title>{escape(title) if "|" in title or "｜" in title else escape(title) + "｜世界聲音"}</title>
   {_dm_head}
   <link rel="icon" href="{resolve_url(page_path, '/assets/brand/favicon.png')}" type="image/png">
   <link rel="apple-touch-icon" href="{resolve_url(page_path, '/assets/brand/logo.png')}">
@@ -255,6 +282,7 @@ def build_portal_homepage(instruments):
         featured.extend(shuffled[:2])
     rng.shuffle(featured)
     sample_cards = "\n".join(card(item, index_path) for item in featured[:8])
+    course_total = instrument_course_totals()
 
     body = f"""<main>
   <section class="portal-hero hero-banner">
@@ -267,7 +295,7 @@ def build_portal_homepage(instruments):
       <input type="search" name="q" placeholder="搜尋樂器、國家、分類…　例：尺八、甘美朗、非洲" aria-label="搜尋樂器">
       <button type="submit" aria-label="搜尋">搜尋</button>
     </form>
-    <p class="hero-stats"><span><strong>{len(instruments)}</strong> 件樂器</span><span><strong>22</strong> 章曼陀林</span><span><strong>50</strong> 堂歌唱課</span><span><strong>30</strong> 堂錄音課</span></p>
+    <p class="hero-stats"><span><strong>{len(instruments)}</strong> 件樂器</span><span><strong>{course_total[0]}</strong> 章樂器課程・約 <strong>{course_total[1]:g}</strong> 小時</span><span><strong>50</strong> 堂歌唱課</span><span><strong>30</strong> 堂錄音課</span></p>
     </div>
   </section>
 
@@ -341,12 +369,6 @@ def build_portal_homepage(instruments):
       <div class="card-desc">免安裝的瀏覽器編曲軟體：16 軌多軌錄音、讀取本機音檔、混音台、存專案、輸出 WAV／分軌。所有音訊只在你的電腦上處理，不會上傳雲端。</div>
       <span class="card-badge badge-new">新工具 beta</span>
     </a>
-    <a class="portal-card card-tools" href="{resolve_url(index_path, '/experience/')}" style="border-color:var(--accent);">
-      <div class="card-icon">🎹</div>
-      <div class="card-label">世界樂器體驗</div>
-      <div class="card-desc">透過虛擬鍵盤模擬鋼琴、吉他、小提琴、琵琶等樂器的音色與音域，親耳感受各種樂器的聲音特質。</div>
-      <span class="card-badge badge-info">聆聽</span>
-    </a>
   </div>
 
   <section class="portal-content">
@@ -354,7 +376,8 @@ def build_portal_homepage(instruments):
     <div class="instrument-grid">{sample_cards}</div>
   </section>
 </main>"""
-    write(index_path, page("世界聲音百科 | 隔壁織音人", body, index_path, meta_description="世界聲音百科 by 隔壁織音人 — 收錄世界各國樂器、人聲歌唱教學、錄音後製知識與基礎樂理。從傳統民族樂器到現代電子樂器，提供樂器介紹、聆賞示範、演奏教學與文化背景。循著聲音，走進不同文化的現場。"))
+    write(index_path, page("世界聲音｜世界樂器、音樂教學、線上編曲軟體｜隔壁織音人", body, index_path,
+                           meta_description="世界聲音 by 隔壁織音人：829 件世界樂器的分類百科、人聲與歌唱教學、錄音後製與樂理課程，以及指版和弦圖、自動抓和弦、線上編曲軟體等可直接在瀏覽器使用的工具。循著聲音，走進不同文化的現場。"))
     print("  Portal homepage written.")
 
 
