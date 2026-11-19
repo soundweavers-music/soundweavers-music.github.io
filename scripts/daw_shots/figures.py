@@ -106,6 +106,13 @@ FIGS = [
     dict(id="daw-19-auto", shot="automation", box=[196, 150, 820, 210],
          marks=[("r", (432, 262, 900, 56))]),
 
+    # ── 第 21-24 堂：電子琴進階、智慧編曲與創作 ─────────────
+    dict(id="daw-21-sections", shot="arranger", box=[60, 40, 1120, 520], marks=[]),
+    dict(id="daw-23-tabs", shot="ai", box=[210, 340, 1035, 175], marks=[]),
+    dict(id="daw-23-plan", shot="ai-arrange", box=[205, 350, 1045, 520],
+         marks=[("r", (225, 400, 620, 60)), ("r", (225, 520, 1010, 150))]),
+    dict(id="daw-24-compose", shot="ai-compose", box=[205, 350, 1045, 520], marks=[]),
+
     # ── 第 20 堂：母帶與輸出 ───────────────────────────────
     dict(id="daw-20-master", shot="master", box=("sel", "#masterPanel", 0, 6), marks=[]),
 
