@@ -910,6 +910,129 @@ def fig_pattern(key):
     return width, height, chr(10).join(parts)
 
 
+# ---------------------------------------------------------------------------
+# 通用版面：步驟卡、比較欄、曲式時間軸、音符時值
+# ---------------------------------------------------------------------------
+
+def fig_steps(title, subtitle, steps, footer=""):
+    """編號卡片：每張一個標題 + 一兩行說明。"""
+    n = len(steps)
+    width = 640
+    cols = 2 if n > 3 else n
+    rows = (n + cols - 1) // cols
+    cw = (width - 48) / cols
+    ch = 104
+    height = 96 + rows * ch + 34
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" role="img" aria-label="{title}">',
+        f'  <title>{title}</title>',
+        f'  <rect width="{width}" height="{height}" fill="{BG}"/>',
+        t(24, 34, title, 15, anchor="start", weight=700),
+        t(24, 55, subtitle, 11.5, anchor="start", fill=MUTED),
+    ]
+    for i, (head, body) in enumerate(steps):
+        col, row = i % cols, i // cols
+        x = 24 + col * cw
+        y = 84 + row * ch
+        parts.append(f'<rect x="{x}" y="{y}" width="{cw - 16}" height="{ch - 14}" rx="10" fill="{ACCENT_SOFT}" stroke="{LINE}"/>')
+        parts.append(t(x + 18, y + 30, f"{i + 1}", 20, anchor="start", fill=ACCENT, weight=700))
+        parts.append(t(x + 44, y + 30, head, 12.5, anchor="start", weight=700))
+        for k, line in enumerate(_wrap(body, 17)[:3]):
+            parts.append(t(x + 18, y + 54 + k * 18, line, 10.5, anchor="start", fill=INK))
+    if footer:
+        parts.append(t(24, height - 14, footer, 10.5, anchor="start", fill=MUTED))
+    parts.append("</svg>")
+    return width, height, chr(10).join(parts)
+
+
+def fig_compare(title, subtitle, columns, rows, footer=""):
+    """左右對照：columns 是欄名，rows 是每列的 (項目, 值1, 值2…)。"""
+    width = 640
+    ncol = len(columns)
+    label_w = 96
+    cw = (width - 48 - label_w) / max(1, ncol - 1)
+    rowh = 56
+    height = 96 + len(rows) * rowh + 30
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" role="img" aria-label="{title}">',
+        f'  <title>{title}</title>',
+        f'  <rect width="{width}" height="{height}" fill="{BG}"/>',
+        t(24, 34, title, 15, anchor="start", weight=700),
+        t(24, 55, subtitle, 11.5, anchor="start", fill=MUTED),
+    ]
+    for j, name in enumerate(columns[1:]):
+        parts.append(t(24 + label_w + j * cw + 8, 84, name, 11.5, anchor="start", fill=ACCENT, weight=700))
+    for i, row in enumerate(rows):
+        y = 96 + i * rowh
+        if i % 2 == 0:
+            parts.append(f'<rect x="24" y="{y}" width="{width - 48}" height="{rowh}" fill="{ACCENT_SOFT}" opacity=".5"/>')
+        parts.append(t(34, y + 24, row[0], 11.5, anchor="start", weight=700))
+        for j, val in enumerate(row[1:]):
+            for k, line in enumerate(_wrap(val, 12)[:2]):
+                parts.append(t(24 + label_w + j * cw + 8, y + 22 + k * 17, line, 10.5, anchor="start", fill=INK))
+    if footer:
+        parts.append(t(24, height - 12, footer, 10.5, anchor="start", fill=MUTED))
+    parts.append("</svg>")
+    return width, height, chr(10).join(parts)
+
+
+def fig_timeline(title, subtitle, parts_list, footer=""):
+    """曲式時間軸：parts_list = [(段落, 相對長度, 說明)]"""
+    width = 640
+    total = sum(w for _, w, _ in parts_list)
+    x = 24
+    height = 230
+    out = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" role="img" aria-label="{title}">',
+        f'  <title>{title}</title>',
+        f'  <rect width="{width}" height="{height}" fill="{BG}"/>',
+        t(24, 34, title, 15, anchor="start", weight=700),
+        t(24, 55, subtitle, 11.5, anchor="start", fill=MUTED),
+    ]
+    avail = width - 48
+    for name, wgt, note in parts_list:
+        bw = avail * wgt / total
+        out.append(f'<rect x="{x:.1f}" y="84" width="{bw - 4:.1f}" height="52" rx="7" '
+                   f'fill="{ACCENT_SOFT}" stroke="{LINE}"/>')
+        out.append(t(x + (bw - 4) / 2, 116, name, 11.5, weight=700))
+        for k, line in enumerate(_wrap(note, 9)[:3]):
+            out.append(t(x + 2, 156 + k * 16, line, 9.5, anchor="start", fill=MUTED))
+        x += bw
+    if footer:
+        out.append(t(24, height - 12, footer, 10.5, anchor="start", fill=MUTED))
+    out.append("</svg>")
+    return width, height, chr(10).join(out)
+
+
+def fig_note_values(title="四種基本音符：一個小節可以裝幾個"):
+    """全音符／二分／四分／八分在 4/4 一小節裡的長度。"""
+    width, height = 640, 320
+    rows = [("全音符", 1, "4 拍", "刷一下，讓它響滿整小節"),
+            ("二分音符", 2, "2 拍", "一小節兩下"),
+            ("四分音符", 4, "1 拍", "跟著節拍器一下一下"),
+            ("八分音符", 8, "半拍", "一拍裡兩下，數成 1 & 2 &")]
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" role="img" aria-label="{title}">',
+        f'  <title>{title}</title>',
+        f'  <rect width="{width}" height="{height}" fill="{BG}"/>',
+        t(24, 34, title, 15, anchor="start", weight=700),
+        t(24, 55, "橫條的長度就是音延續的長度；4/4 拍一小節固定 4 拍", 11.5, anchor="start", fill=MUTED),
+    ]
+    bar_x, bar_w = 150, 420
+    for i, (name, count, beats, note) in enumerate(rows):
+        y = 88 + i * 54
+        parts.append(t(140, y + 20, name, 12, anchor="end", weight=700))
+        seg = bar_w / count
+        for k in range(count):
+            parts.append(f'<rect x="{bar_x + k * seg:.1f}" y="{y}" width="{seg - 4:.1f}" height="28" rx="5" '
+                         f'fill="{ACCENT}" opacity="{0.85 if k % 2 == 0 else 0.55}"/>')
+        parts.append(t(bar_x, y + 46, f"{beats}｜{note}", 10, anchor="start", fill=MUTED))
+        parts.append(f'<line x1="{bar_x}" y1="{y - 6}" x2="{bar_x}" y2="{y + 34}" stroke="{INK}" stroke-width="1.6"/>')
+        parts.append(f'<line x1="{bar_x + bar_w}" y1="{y - 6}" x2="{bar_x + bar_w}" y2="{y + 34}" stroke="{INK}" stroke-width="1.6"/>')
+    parts.append("</svg>")
+    return width, height, chr(10).join(parts)
+
+
 ARPEGGIO_FINGERS = ["T", "1", "2", "1", "3", "1", "2", "1"]
 ARPEGGIO_STRINGS = [5, 3, 2, 3, 1, 3, 2, 3]
 
@@ -1032,6 +1155,37 @@ def _wrap(text, n):
 
 
 FIGURES = {
+    "note-values": fig_note_values,
+    "steps-tuning": lambda: fig_steps(
+        "調音四步驟：從第 6 弦調到第 1 弦",
+        "每次拿起琴都先做這一輪，一分鐘內可以完成",
+        [("夾上調音器", "夾在琴頭，模式選 C（十二平均律）或 G（吉他），基準 440Hz"),
+         ("一次只撥一根弦", "從第 6 弦開始；撥完等 1～2 秒，讓音穩定再讀"),
+         ("先看音名、再看指針", "音名不對就是差太多，先把字母調對，指針只是微調"),
+         ("調完回頭再檢查一次", "調好第 1 弦之後，張力變化會讓前面幾條弦跑掉，再跑一輪")],
+        "調音器顯示 D 或 D♯ 而你正在調第 6 弦（E），代表現在太低，要轉緊。"),
+    "steps-string-change": lambda: fig_steps(
+        "換弦四步驟：一次只換一條",
+        "四條一起拆掉，琴頸會突然失去張力，音準與琴頸都要重新穩定",
+        [("鬆弦", "轉鬆弦鈕到完全沒有張力，再動手拆"),
+         ("取出舊弦", "從琴橋把弦釘／弦球取出，順手擦一下指板與琴格"),
+         ("穿新弦", "弦球卡進琴橋、弦穿過弦鈕，預留約兩指寬的長度"),
+         ("邊調邊拉", "一圈一圈繞整齊，調音時把弦輕輕拉起再調，重複到不再走音")],
+        "新弦頭兩天一定會再走音，這是正常的；彈之前先調，彈完再調一次。"),
+    "compare-body": lambda: fig_compare(
+        "三種常見桶型：差別在音量與抱起來的舒不舒服",
+        "桶型沒有好壞，只有適不適合你的體型與彈法",
+        ["桶型", "Dreadnought", "OM / 000"],
+        [("音量", "大，低頻厚", "均衡，中頻清楚"),
+         ("抱起來", "琴身大，肩膀要張開", "薄一些，久坐不吃力"),
+         ("適合", "刷奏伴奏、需要音量", "指法、錄音、長時間練習")],
+        "第一次買琴，先確認「抱十分鐘不會想放下」再談聲音。"),
+    "timeline-form": lambda: fig_timeline(
+        "一首流行歌的標準曲式",
+        "同一組和弦，靠段落與力度做出起伏",
+        [("前奏", 1, "8 小節內"), ("主歌", 2, "留白"), ("導歌", 1, "漸強"),
+         ("副歌", 2, "全刷"), ("間奏", 1, "喘息"), ("副歌", 2, "最高點"), ("尾奏", 1, "漸慢")],
+        "副歌之所以聽起來大聲，是因為前面的主歌刻意收；一路全刷反而沒有起伏。"),
     "beat16": (lambda: fig_pattern("beat16")),
     "beat68": (lambda: fig_pattern("beat68")),
     "ch7": (lambda k="ch7": fig_song_chart(k)),
