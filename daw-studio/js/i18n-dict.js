@@ -1432,5 +1432,6 @@ export const EN = {
  "F 大調": "F Major",
  "F 小調": "F minor",
  "G 大調": "G major",
- "G 小調": "G minor"
+ "G 小調": "G minor",
+ "電腦鍵盤：按 Caps Lock 開啟「鍵盤彈奏」後，A S D F… 是琴鍵（Z／X 換八度）；數字 1–9 切換段落、Enter 啟動／停止、\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ 過門、− ＝ 調速度。伴奏的六個聲部是專案裡的「伴奏-」MIDI 軌，可以在混音台調音量、加效果，也能換成 SoundFont 音色。": "Computer keyboard: Press Caps Lock to enable Keyboard Play. A S D F… are piano keys (Z/X to change octave); 1–9 switch sections, Enter starts/stops, \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ for fills, − = adjusts tempo. The six accompaniment parts are \"伴奏-\" MIDI tracks in the project—you can adjust volume, add effects in the mixer, or swap to SoundFont instruments."
 };

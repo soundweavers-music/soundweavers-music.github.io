@@ -38,6 +38,7 @@ export function t(zh) {
 const RULES = [
   [/^音量 (-?\d+(?:\.\d+)? dB)$/, (m, v) => `Volume ${v}`],
   [/^音訊 (\d+)$/, (m, v) => `Audio ${v}`],
+  [/^已暫存 (上午|下午)(\d{1,2}):(\d{2})$/, (m, ap, h, mi) => `Saved ${Number(h)}:${mi} ${ap === '上午' ? 'AM' : 'PM'}`],
   [/^已暫存 (.+)$/, (m, v) => `Saved ${v.replace('上午', 'AM ').replace('下午', 'PM ')}`],
   [/^([AB]) 殘響：(關|-?\d+(?:\.\d+)? dB)$/, (m, b, v) => `Reverb ${b}: ${v === '關' ? 'off' : v}`],
   [/^([A-G][♭♯]?\d) 以下$/, (m, n) => `Below ${n}`],
@@ -46,10 +47,21 @@ const RULES = [
   [/^(.+?)・(\d+) 個音符・(\d+) 小節$/, (m, name, n, b) => `${t(name)} · ${n} notes · ${b} bars`],
   [/^MIDI 輸入移調 ([-+]?\d+) 半音$/, (m, n) => `MIDI transpose ${n} semitones`],
   [/^([−＋+-]?\d+)\s*度$/, (m, n) => `${n.replace('＋', '+')} oct`],
-  [/^示範：(.+)$/, (m, name) => `Demo: ${name.replace(/（(.+?) 大調）$/, ' ($1 major)').replace(/（(.+?) 小調）$/, ' ($1 minor)')}`],
+  [/^示範：(.+)$/, (m, name) => {
+    const mm = name.match(/^(.+?)（(.+?)(?:・(.+))?\s*(大調|小調)）$/);
+    if (mm) {
+      const extra = mm[3] ? `, ${t(mm[3])}` : '';
+      return `Demo: ${t(mm[1].replace('卡農', 'Canon'))} (${mm[2]} ${mm[4] === '大調' ? 'major' : 'minor'}${extra})`;
+    }
+    return `Demo: ${t(name.replace('卡農', 'Canon'))}`;
+  }],
   [/^♪ (.+)$/, (m, name) => `♪ ${t(name)}`],
   [/^・(\d+) 個音色・(.+)$/, (m, n, size) => `· ${n} instruments · ${size}`],
   [/^(\d+) = 用風格自己的長度$/, (m, n) => `${n} = use the style's own length`],
+  // 輸出時的進度：混音算圖中…／WAV 編碼中…／已用 12 秒　剩約 34 秒　57%
+  [/^(.+?)編碼中…$/, (m, label) => `${label.trim()} encoding…`],
+  [/^已用 (\d+) 秒　剩約 (.+?) 秒　(\d+)%$/, (m, a, b, c) => `Elapsed ${a}s · ${b === '不到 1' ? '<1' : b}s left · ${c}%`],
+  [/^已用 (\d+) 秒　(\d+)%$/, (m, a, c) => `Elapsed ${a}s · ${c}%`],
 ];
 
 function tr(text) {
