@@ -64,6 +64,9 @@ Release 決定壓縮器「訊號低於 Threshold 後，多快停止壓縮」。�
 
 ---
 
+
+![壓縮轉換曲線：Threshold 與 Ratio 在做什麼](../../assets/digitalmusic/comp-ratio-mid.svg)
+
 ## 三、Makeup Gain：補償增益的藝術
 
 壓縮器降低了大聲段的音量，整體聽感自然會變小聲。Makeup Gain（補償增益，常標示為 Output Gain 或 Makeup）的功能就是在壓縮後將整體音量拉回原本的水準，甚至更高。

@@ -94,6 +94,9 @@ Send/Return（又稱 Aux Bus 或 Bus 架構）是專業混音的核心技術：
 3. 在每個需要殘響的音軌上，開啟對應的 Send（通常是 DAW 的 Sends 面板），路由到上述三條 Aux Track
 4. 調整每軌的 Send Level——通常節奏組（鼓、貝斯）送 Room 較多、送 Hall 較少；主唱送 Plate 和 Hall 較多
 
+
+![RT60 1.2 秒：短殘響的尾巴](../../assets/digitalmusic/decay-short.svg)
+
 ## 五、Pre-delay：在清晰度下創造深度
 
 ![殘響的時間軸](../../assets/digitalmusic/reverb-timeline.svg)
@@ -134,6 +137,9 @@ Decay Time（又稱 RT60）是殘響衰減 60dB 所需的時間，是決定空�
 - 1 拍 = 500ms，建議 Decay 設為 1.5~2.0 秒（3~4 拍長度）
 
 這樣殘響尾音會在樂句的拍點上消散，保持節奏的整潔感。
+
+
+![RT60 3 秒：長殘響的尾巴](../../assets/digitalmusic/decay-long.svg)
 
 ## 七、對 Reverb Return 使用 EQ：高通與低通濾波
 
