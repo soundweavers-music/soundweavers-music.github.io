@@ -18,6 +18,7 @@ work/harvest-strings.json。
 """
 from __future__ import annotations
 
+import html as htmllib
 import io
 import json
 import os
@@ -89,7 +90,8 @@ def main() -> int:
     m = re.search(r'<pre id="harvest">(.*?)</pre>', html, re.S)
     if not m:
         raise SystemExit("沒有收到結果：頁面可能載入失敗（先確認 /daw-studio/ 可以在本機開）")
-    found = set(json.loads(m.group(1)))
+    # --dump-dom 會把 & < > 轉成 HTML 實體（例如 R&amp;B），先還原
+    found = {htmllib.unescape(s) for s in json.loads(m.group(1))}
 
     old = set(json.loads(OUT.read_text(encoding="utf-8"))) if OUT.exists() else set()
     new = sorted(found - old)

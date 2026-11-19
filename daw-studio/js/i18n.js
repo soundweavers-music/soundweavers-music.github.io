@@ -35,34 +35,48 @@ export function t(zh) {
 
 // 帶數字、名稱的字串（音量 -12.0 dB、音訊 3、已暫存 下午09:12…）不可能逐條收進字典，
 // 用規則現算。
+// 每條規則都帶一個 sample：scripts/daw_i18n_test.py 會自動拿它去驗，
+// 新加規則就自動有測試（忘了寫 sample 的話測試會提示）。
 const RULES = [
-  [/^音量 (-?\d+(?:\.\d+)? dB)$/, (m, v) => `Volume ${v}`],
-  [/^音訊 (\d+)$/, (m, v) => `Audio ${v}`],
-  [/^已暫存 (上午|下午)(\d{1,2}):(\d{2})$/, (m, ap, h, mi) => `Saved ${Number(h)}:${mi} ${ap === '上午' ? 'AM' : 'PM'}`],
-  [/^已暫存 (.+)$/, (m, v) => `Saved ${v.replace('上午', 'AM ').replace('下午', 'PM ')}`],
-  [/^([AB]) 殘響：(關|-?\d+(?:\.\d+)? dB)$/, (m, b, v) => `Reverb ${b}: ${v === '關' ? 'off' : v}`],
-  [/^([A-G][♭♯]?\d) 以下$/, (m, n) => `Below ${n}`],
-  [/^([A-G][♭♯]?) 大調$/, (m, r) => `${r} major`],
-  [/^([A-G][♭♯]?) 小調$/, (m, r) => `${r} minor`],
-  [/^(.+?)・(\d+) 個音符・(\d+) 小節$/, (m, name, n, b) => `${t(name)} · ${n} notes · ${b} bars`],
-  [/^MIDI 輸入移調 ([-+]?\d+) 半音$/, (m, n) => `MIDI transpose ${n} semitones`],
-  [/^([−＋+-]?\d+)\s*度$/, (m, n) => `${n.replace('＋', '+')} oct`],
-  [/^示範：(.+)$/, (m, name) => {
+  { re: /^音量 (-?\d+(?:\.\d+)? dB)$/, fn: (m, v) => `Volume ${v}`, sample: '音量 -12.0 dB' },
+  { re: /^音訊 (\d+)$/, fn: (m, v) => `Audio ${v}`, sample: '音訊 3' },
+  { re: /^已暫存 (上午|下午)(\d{1,2}):(\d{2})$/, sample: '已暫存 下午09:12',
+    fn: (m, ap, h, mi) => `Saved ${Number(h)}:${mi} ${ap === '上午' ? 'AM' : 'PM'}` },
+  { re: /^已暫存 (.+)$/, fn: (m, v) => `Saved ${v.replace('上午', 'AM ').replace('下午', 'PM ')}`, sample: '已暫存 昨天' },
+  { re: /^([AB]) 殘響：(關|-?\d+(?:\.\d+)? dB)$/, sample: 'A 殘響：-13.0 dB',
+    fn: (m, b, v) => `Reverb ${b}: ${v === '關' ? 'off' : v}` },
+  { re: /^([A-G][♭♯]?\d) 以下$/, fn: (m, n) => `Below ${n}`, sample: 'C♯3 以下' },
+  { re: /^([A-G][♭♯]?) 大調$/, fn: (m, r) => `${r} major`, sample: 'F♯ 大調' },
+  { re: /^([A-G][♭♯]?) 小調$/, fn: (m, r) => `${r} minor`, sample: 'E♭ 小調' },
+  { re: /^(.+?)・(\d+) 個音符・(\d+) 小節$/, sample: '弦樂合奏・28 個音符・24 小節',
+    fn: (m, name, n, b) => `${t(name)} · ${n} notes · ${b} bars` },
+  { re: /^MIDI 輸入移調 ([-+]?\d+) 半音$/, fn: (m, n) => `MIDI transpose ${n} semitones`, sample: 'MIDI 輸入移調 +1 半音' },
+  { re: /^([−＋+-]?\d+)\s*度$/, fn: (m, n) => `${n.replace('＋', '+')} oct`, sample: '＋8度' },
+  { re: /^示範：(.+)$/, sample: '示範：卡農（D 大調）', fn: (m, name) => {
     const mm = name.match(/^(.+?)（(.+?)(?:・(.+))?\s*(大調|小調)）$/);
     if (mm) {
       const extra = mm[3] ? `, ${t(mm[3])}` : '';
       return `Demo: ${t(mm[1].replace('卡農', 'Canon'))} (${mm[2]} ${mm[4] === '大調' ? 'major' : 'minor'}${extra})`;
     }
     return `Demo: ${t(name.replace('卡農', 'Canon'))}`;
-  }],
-  [/^♪ (.+)$/, (m, name) => `♪ ${t(name)}`],
-  [/^・(\d+) 個音色・(.+)$/, (m, n, size) => `· ${n} instruments · ${size}`],
-  [/^(\d+) = 用風格自己的長度$/, (m, n) => `${n} = use the style's own length`],
+  } },
+  { re: /^♪ (.+)$/, fn: (m, name) => `♪ ${t(name)}`, sample: '♪ 小提琴 1（主旋律）' },
+  { re: /^・(\d+) 個音色・(.+)$/, fn: (m, n, size) => `· ${n} instruments · ${size}`, sample: '・3 個音色・7.3 MB' },
+  { re: /^(\d+) = 用風格自己的長度$/, fn: (m, n) => `${n} = use the style's own length`, sample: '0 = 用風格自己的長度' },
   // 輸出時的進度：混音算圖中…／WAV 編碼中…／已用 12 秒　剩約 34 秒　57%
-  [/^(.+?)編碼中…$/, (m, label) => `${label.trim()} encoding…`],
-  [/^已用 (\d+) 秒　剩約 (.+?) 秒　(\d+)%$/, (m, a, b, c) => `Elapsed ${a}s · ${b === '不到 1' ? '<1' : b}s left · ${c}%`],
-  [/^已用 (\d+) 秒　(\d+)%$/, (m, a, c) => `Elapsed ${a}s · ${c}%`],
+  { re: /^(.+?)編碼中…$/, fn: (m, label) => `${label.trim()} encoding…`, sample: 'WAV 編碼中…' },
+  { re: /^已用 (\d+) 秒　剩約 (.+?) 秒　(\d+)%$/, sample: '已用 7 秒　剩約 不到 1 秒　99%',
+    fn: (m, a, b, c) => `Elapsed ${a}s · ${b === '不到 1' ? '<1' : b}s left · ${c}%` },
+  { re: /^已用 (\d+) 秒　(\d+)%$/, fn: (m, a, c) => `Elapsed ${a}s · ${c}%`, sample: '已用 12 秒　57%' },
 ];
+
+// 給 scripts/daw_i18n_test.py 用：字典的鍵與每條規則的樣本
+export function dictKeys() {
+  return Object.keys(EN).filter(k => CJK.test(k));
+}
+export function ruleSamples() {
+  return RULES.map(r => r.sample).filter(Boolean);
+}
 
 function tr(text) {
   const s = text.trim();
@@ -74,7 +88,7 @@ function tr(text) {
   const m = s.match(/^([✓　\s]+)(.+)$/);
   if (m && EN[m[2].trim()]) return m[1] + EN[m[2].trim()];
   const bare = m ? m[2].trim() : s;
-  for (const [re, fn] of RULES) {
+  for (const { re, fn } of RULES) {
     const hit = bare.match(re);
     if (hit) return (m ? m[1] : '') + fn(...hit);
   }
