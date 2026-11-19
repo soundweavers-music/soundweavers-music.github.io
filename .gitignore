@@ -39,3 +39,6 @@ work/category_hits.json
 work/_*.py
 work/factcheck-ensembles/
 work/youtube_broken.json
+
+# 完整版音色庫不入版控（授權與大小），只留裁切後的內建版
+assets/daw-bank/GeneralUserGS.sf2
