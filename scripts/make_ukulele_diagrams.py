@@ -372,6 +372,114 @@ def lowg() -> str:
     return svg(w, h, "".join(p), "High-G 與 Low-G 弦序比較")
 
 
+
+# ---------------------------------------------------------------- chord diagram anatomy
+def chord_read() -> str:
+    w, h = 520, 300
+    p = [f'<text x="24" y="28" font-size="14" fill="{INK}" {FONT}>怎麼讀和弦圖</text>']
+    x, y = 90, 70
+    p.append(chord_grid(x, y, [0, 0, 0, 3], "C"))
+    labels = [(x+80, y+6, "○ 空弦（左手不按，右手要刷）"),
+              (x+80, y+40, "數字 = 第幾格，不是手指編號"),
+              (x+80, y+74, "直線由左至右 = 第 4 弦到第 1 弦"),
+              (x+80, y+108, "頂端粗線 = 上弦枕；✕ = 不彈這條弦")]
+    for lx, ly, text in labels:
+        p.append(f'<text x="{lx}" y="{ly}" font-size="11.5" fill="{INK}" {FONT}>{text}</text>')
+    p.append(f'<text x="24" y="286" font-size="10.5" fill="{MUTED}" {FONT}>'
+             f'和弦圖是「直立看琴」：最左邊是靠近你下巴的第 4 弦。</text>')
+    return svg(w, h, "".join(p), "和弦圖閱讀說明")
+
+
+# ---------------------------------------------------------------- picking pattern
+def picking() -> str:
+    w, h = 560, 220
+    p = [f'<text x="24" y="28" font-size="14" fill="{INK}" {FONT}>抒情分解：T 1 2 1 3 1 2 1</text>']
+    seq = ["T", "1", "2", "1", "3", "1", "2", "1"]
+    x0, y0, cw = 60, 70, 58
+    for i, t in enumerate(seq):
+        x = x0 + i * cw
+        strong = t == "T"
+        p.append(f'<rect x="{x}" y="{y0}" width="{cw-6}" height="60" rx="6" '
+                 f'fill="{"#f3ece2" if strong else PAPER}" stroke="{LINE}"/>')
+        p.append(f'<text x="{x+(cw-6)/2}" y="{y0+38}" font-size="20" text-anchor="middle" '
+                 f'fill="{WOOD_D}" {FONT}>{t}</text>')
+        p.append(f'<text x="{x+(cw-6)/2}" y="{y0+54}" font-size="9" text-anchor="middle" fill="{MUTED}" {FONT}>{i+1}</text>')
+    p.append(f'<text x="24" y="{y0+92}" font-size="11.5" fill="{MUTED}" {FONT}>'
+             f'T＝拇指（第 4 弦）、1 食指（第 3 弦）、2 中指（第 2 弦）、3 無名指（第 1 弦）。'
+             f'同一小節循環一次，換和弦時拇指先落。</text>')
+    return svg(w, h, "".join(p), "T1213121 分解指法")
+
+
+# ---------------------------------------------------------------- offbeat grid
+def offbeat() -> str:
+    w, h = 560, 200
+    beats = ["1", "&", "2", "&", "3", "&", "4", "&"]
+    marks = ["X", "", "↑", "", "X", "", "↑", ""]
+    p = [f'<text x="24" y="28" font-size="14" fill="{INK}" {FONT}>雷鬼的「反拍」：正拍悶掉、反拍才刷</text>']
+    x0, y0, cw = 40, 70, 62
+    for i, (b, m) in enumerate(zip(beats, marks)):
+        x = x0 + i * cw
+        on = m != ""
+        p.append(f'<rect x="{x}" y="{y0}" width="{cw-6}" height="56" rx="6" '
+                 f'fill="{"#f6e3d8" if m=="X" else ("#f3ece2" if on else PAPER)}" stroke="{LINE}"/>')
+        p.append(f'<text x="{x+(cw-6)/2}" y="{y0+16}" font-size="10" text-anchor="middle" fill="{MUTED}" {FONT}>{b}</text>')
+        p.append(f'<text x="{x+(cw-6)/2}" y="{y0+42}" font-size="18" text-anchor="middle" fill="{WOOD_D}" {FONT}>{m}</text>')
+    p.append(f'<text x="24" y="{y0+86}" font-size="11.5" fill="{MUTED}" {FONT}>'
+             f'X＝左手放鬆悶住四條弦、右手輕碰；↑＝反拍上刷。正拍越安靜，反拍越有彈跳感。</text>')
+    return svg(w, h, "".join(p), "雷鬼反拍節奏")
+
+
+# ---------------------------------------------------------------- F diatonic row
+def fchords() -> str:
+    shapes = _load_shapes()
+    row = [("F", "5:maj"), ("Gm", "7:m"), ("Am", "9:m"), ("Bb", "10:maj"),
+           ("C", "0:maj"), ("Dm", "2:m"), ("Edim", "4:dim")]
+    w, h = 820, 210
+    p = [f'<text x="24" y="30" font-size="14" fill="{INK}" {FONT}>F 大調六大順階和弦（＋ vii°）</text>']
+    for i, (name, key) in enumerate(row):
+        sh = shapes.get(key)
+        if not sh:
+            continue
+        p.append(chord_grid(30 + i * 112, 70, sh["frets"], name, 88, 120))
+    p.append(f'<text x="24" y="196" font-size="10.5" fill="{MUTED}" {FONT}>'
+             f'級數：1　2m　3m　4　5　7°；把它們排成同一排，就能看出「三和弦家族」的規律。</text>')
+    return svg(w, h, "".join(p), "F 大調順階和弦")
+
+
+# ---------------------------------------------------------------- sevenths
+def sevenths() -> str:
+    shapes = _load_shapes()
+    row = [("Cmaj7", "0:maj7"), ("Am7", "9:m7"), ("Dm7", "2:m7"), ("G7", "7:7")]
+    w, h = 560, 210
+    p = [f'<text x="24" y="30" font-size="14" fill="{INK}" {FONT}>City Pop 感：四個常用七和弦</text>']
+    for i, (name, key) in enumerate(row):
+        sh = shapes.get(key)
+        if not sh:
+            continue
+        p.append(chord_grid(36 + i * 128, 70, sh["frets"], name, 96, 120))
+    p.append(f'<text x="24" y="196" font-size="10.5" fill="{MUTED}" {FONT}>'
+             f'七和弦多一個「第 7 音」，聽起來較成熟；先確認多出來的那根手指按得乾淨。</text>')
+    return svg(w, h, "".join(p), "常用七和弦")
+
+
+# ---------------------------------------------------------------- restring
+def restring() -> str:
+    w, h = 640, 210
+    p = [f'<text x="24" y="28" font-size="14" fill="{INK}" {FONT}>換弦三步</text>']
+    steps = [("① 鬆", "先鬆弦鈕，讓弦完全沒有張力再加熱"), ("② 拆", "從琴橋拉出舊弦，清潔指板與琴格"),
+             ("③ 綁", "新弦繞成八字結，邊調音邊拉緊")]
+    for i, (title, text) in enumerate(steps):
+        x = 30 + i * 205
+        p.append(f'<rect x="{x}" y="60" width="185" height="96" rx="10" fill="#fbf7f0" stroke="{LINE}"/>')
+        p.append(f'<text x="{x+92}" y="96" font-size="22" text-anchor="middle" fill="{WOOD_D}" {FONT}>{title}</text>')
+        words = text.split("，")
+        for k, wd in enumerate(words):
+            p.append(f'<text x="{x+92}" y="{112+k*17}" font-size="10.5" text-anchor="middle" fill="{MUTED}" {FONT}>{wd}</text>')
+    p.append(f'<text x="24" y="190" font-size="10.5" fill="{MUTED}" {FONT}>'
+             f'一次只換一條弦，換完立刻調音；四條都換完再整體微調一次。</text>')
+    return svg(w, h, "".join(p), "換弦三步")
+
+
 def main() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
     figures = {
@@ -387,6 +495,12 @@ def main() -> int:
         "barre.svg": barre(),
         "harmonics.svg": harmonics(),
         "lowg.svg": lowg(),
+        "chord_read.svg": chord_read(),
+        "picking.svg": picking(),
+        "offbeat.svg": offbeat(),
+        "fchords.svg": fchords(),
+        "sevenths.svg": sevenths(),
+        "restring.svg": restring(),
     }
     for name, content in figures.items():
         (OUT / name).write_text(content, encoding="utf-8")
