@@ -18,6 +18,7 @@ import { addMidiClipAt } from './arrange.js';
 import { initBankUi, sfSection } from './bank-ui.js';
 import { insertsSection, sendSection, closeFxPanel } from './fx-ui.js';
 import { initMasterUi, toggleMaster, masterOpen } from './master-ui.js';
+import { toggleAlbum } from './album-ui.js';
 import { initAutomationUi, tickAutomation } from './automation-ui.js';
 import { showMenu } from './menu.js';
 import { pitchShiftClips } from './pitch-render.js';
@@ -486,6 +487,7 @@ async function boot() {
     requestAnimationFrame(() => renderArrange());
   });
   $('btnMaster').onclick = () => toggleMaster();
+$('btnAlbum').onclick = () => toggleAlbum();
   // 片段升降音對話框
   store.on('open-pitch', ({ clipIds }) => {
     const d = $('dlgPitch');
@@ -520,6 +522,7 @@ async function boot() {
     showMenu(r.left, r.bottom + 2, [
       { label: '匯入 MIDI…', action: () => $('btnImportMidi').click() },
       { label: '音色庫（SoundFont）…', action: () => $('btnBanks').click() },
+      { label: '專輯母帶（批次）…', action: () => toggleAlbum(true) },
       '-',
       { label: '錄音延遲校正…', action: openLatency },
       { label: '配色主題…', action: () => $('btnTheme').click() },

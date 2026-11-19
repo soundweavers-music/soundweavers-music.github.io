@@ -715,3 +715,73 @@ a.tbtn { text-decoration: none; }
 .ai-sep .ai-chk { display: flex; align-items: center; gap: 6px; color: var(--tx1); cursor: pointer; }
 .ai-sep .ai-bar { height: 8px; border-radius: 4px; background: var(--bg0); overflow: hidden; border: 1px solid var(--line2); }
 .ai-sep .ai-bar i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #35c9a5, var(--accent)); transition: width .3s; }
+
+/* ---------- 專輯母帶 ---------- */
+.alb { position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,.55); display: grid; place-items: center; }
+.alb.hidden { display: none; }
+.alb-win { width: min(1180px, 96vw); height: min(780px, 94vh); display: grid; grid-template-rows: auto 1fr; background: var(--bg2); border: 1px solid var(--line2); border-radius: 10px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,.5); }
+.alb-head { display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+.alb-head strong { font-size: 14px; }
+.alb-sub { color: var(--tx2); font-size: 11.5px; }
+.alb-head .spacer { flex: 1; }
+.alb-body { display: grid; grid-template-columns: 1fr 340px; min-height: 0; }
+.alb-list { display: grid; grid-template-rows: auto 1fr auto; min-height: 0; padding: 12px; gap: 8px; border-right: 1px solid var(--line); }
+.alb-list.over { outline: 2px dashed var(--accent); outline-offset: -6px; }
+.alb-drop { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; padding: 10px; border: 1px dashed var(--line2); border-radius: 8px; color: var(--tx1); }
+.alb-drop .tbtn:first-of-type { margin-left: auto; }
+.alb-rows { overflow-y: auto; display: grid; align-content: start; gap: 4px; min-height: 0; }
+.alb-empty { color: var(--tx2); text-align: center; padding: 40px 10px; }
+.alb-row { display: grid; grid-template-columns: 14px 24px 1fr 62px 62px auto 26px; align-items: center; gap: 6px; padding: 6px 8px; border: 1px solid var(--line2); border-radius: 7px; background: var(--bg1); }
+.alb-row.drag { opacity: .4; }
+.alb-row.tgt { border-color: var(--accent); box-shadow: inset 0 2px 0 var(--accent); }
+.alb-row.work { border-color: var(--cycle); }
+.alb-row.ok { border-color: color-mix(in srgb, var(--play) 50%, var(--line2)); }
+.alb-row.err .inf { color: var(--rec); }
+.alb-row .grip { cursor: grab; color: var(--tx2); }
+.alb-row .no { font-family: var(--mono); color: var(--tx2); }
+.alb-row .meta { display: grid; gap: 2px; min-width: 0; }
+.alb-row .nm { background: transparent; border: 1px solid transparent; border-radius: 4px; padding: 1px 4px; color: var(--tx0); font-weight: 600; min-width: 0; }
+.alb-row .nm:hover, .alb-row .nm:focus { border-color: var(--line2); background: var(--bg0); outline: none; }
+.alb-row .inf, .alb-row .res { font-size: 11px; color: var(--tx2); padding-left: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.alb-row .inf em { color: var(--cycle); font-style: normal; }
+.alb-row .res b { color: var(--play); font-weight: 600; }
+.alb-row .ov { display: flex; align-items: center; gap: 3px; font-size: 10.5px; color: var(--tx2); }
+.alb-row .ov input { width: 42px; background: var(--bg0); border: 1px solid var(--line2); border-radius: 4px; padding: 2px 4px; color: var(--tx0); }
+.alb-row .pl { display: flex; gap: 3px; }
+.alb-row .pl .tbtn, .alb-row .rm { height: 24px; min-width: 26px; padding: 0 6px; font-size: 11px; }
+.alb-row .pl .tbtn.on { background: var(--accent); color: #fff; }
+.alb-set { overflow-y: auto; padding: 12px 14px; display: grid; align-content: start; gap: 8px; }
+.alb-set h4 { margin: 6px 0 0; font-size: 12px; color: var(--tx2); }
+.alb-set .seg { display: grid; border: 1px solid var(--line2); border-radius: 6px; overflow: hidden; }
+.alb-set .seg label { padding: 6px 8px; cursor: pointer; color: var(--tx1); border-bottom: 1px solid var(--line); font-size: 12px; }
+.alb-set .seg label:last-child { border-bottom: 0; }
+.alb-set .seg input { display: none; }
+.alb-set .seg label:has(input:checked) { background: var(--accent); color: #fff; }
+.alb-set label.f { display: grid; gap: 4px; color: var(--tx1); }
+.alb-set select, .alb-set input[type=number] { background: var(--bg0); border: 1px solid var(--line2); border-radius: 5px; padding: 4px 6px; color: var(--tx0); }
+.alb-fade { display: grid; grid-template-columns: auto 1fr; gap: 6px 8px; align-items: center; }
+.alb-fade label { display: flex; align-items: center; gap: 4px; color: var(--tx1); white-space: nowrap; }
+.alb-fade input { width: 58px; }
+.alb-quick { display: flex; flex-wrap: wrap; gap: 4px; color: var(--tx2); font-size: 11px; align-items: center; }
+.alb-quick button { height: 22px; padding: 0 7px; border-radius: 11px; border: 1px solid var(--line2); background: var(--bg0); color: var(--tx1); font-size: 11px; cursor: pointer; }
+.alb-quick button:hover { border-color: var(--accent); }
+.alb-chk { display: flex; align-items: center; gap: 6px; color: var(--tx1); cursor: pointer; }
+.alb-chk input[type=number] { width: 54px; }
+.alb-set .note { color: var(--tx2); font-size: 11.5px; line-height: 1.6; margin: 0; }
+.alb-go { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
+.alb-go .tbtn { height: 32px; }
+.alb-prog { display: grid; gap: 6px; }
+.alb-prog .ai-bar { height: 8px; border-radius: 4px; background: var(--bg0); overflow: hidden; border: 1px solid var(--line2); }
+.alb-prog .ai-bar i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #35c9a5, var(--accent)); transition: width .3s; }
+@media (max-width: 860px) { .alb-body { grid-template-columns: 1fr; grid-template-rows: 1fr auto; } .alb-list { border-right: 0; border-bottom: 1px solid var(--line); } }
+.alb-keep { display: grid; grid-template-columns: auto 1fr 40px; align-items: center; gap: 8px; color: var(--tx1); font-size: 12px; }
+.alb-keep input { accent-color: var(--accent); }
+.alb-keep b { font-family: var(--mono); font-weight: 500; text-align: right; }
+.alb-keep.off { opacity: .4; pointer-events: none; }
+.alb [hidden] { display: none !important; }
+.alb-set .seg { height: auto; display: flex; flex-direction: column; }
+.alb-set .seg label { flex: 0 0 auto; text-align: left; height: auto; line-height: 1.4; }
+.alb-set { display: flex; flex-direction: column; min-height: 0; }
+.alb-set > * { flex: 0 0 auto; }
+.alb-list { min-height: 0; overflow: hidden; }
+.alb-body { overflow: hidden; }
