@@ -4,7 +4,7 @@ import { uid, TRACK_COLORS } from './util.js';
 import { defaultMastering } from './mastering.js';
 
 export const MAX_TRACKS = 32;
-export const DEFAULT_TRACKS = 16;
+export const DEFAULT_TRACKS = 3;   // 新專案：2 條音訊 + 1 條 MIDI，其他用「＋」再加
 
 // 片段時間單位：
 //  - 音訊片段：start / duration / offset 以「秒」為單位（音訊本身是秒）
@@ -41,7 +41,7 @@ export function defaultBuses() {
 }
 
 // 前 12 軌音訊、後 4 軌 MIDI（預先選好常用音色）
-const DEFAULT_MIDI = [['piano', '鋼琴'], ['strings', '弦樂'], ['bass', '貝斯'], ['drums', '鼓組']];
+const DEFAULT_MIDI = [['piano', '鋼琴']];
 
 export function newProject() {
   const tracks = [];

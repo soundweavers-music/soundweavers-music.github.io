@@ -74,6 +74,20 @@ function moveBars(n) {
   engine.seek(Math.max(0, target));
 }
 
+// 檔案動作：選單與快捷鍵共用
+async function fileNew() {
+  if (store.dirty && !confirm('目前的專案還沒存檔，確定要開新專案？')) return;
+  engine.stop(); engine.seek(0);
+  resetHandle();
+  store.replaceProject(newProject(), new Map(), new Map());
+  await clearAutosave();
+}
+function fileOpen() {
+  if (store.dirty && !confirm('目前的專案還沒存檔，確定要開啟其他專案？')) return;
+  pickAndOpenProject().catch(e => toast('開啟失敗：' + e.message, 'error'));
+}
+const fileSave = () => saveProject(false).catch(e => toast('儲存失敗：' + e.message, 'error'));
+
 function bindTopbar() {
   $('btnPlay').onclick = togglePlay;
   $('btnStop').onclick = stopAll;
@@ -115,19 +129,22 @@ function bindTopbar() {
   });
   for (const id of ['projName', 'bpm']) $(id).addEventListener('keydown', e => { e.stopPropagation(); if (e.key === 'Enter') e.target.blur(); });
 
-  $('btnNew').onclick = async () => {
-    if (store.dirty && !confirm('目前的專案還沒存檔，確定要開新專案？')) return;
-    engine.stop(); engine.seek(0);
-    resetHandle();
-    store.replaceProject(newProject(), new Map(), new Map());
-    await clearAutosave();
+  // 檔案選單：新增／開啟／儲存／匯入集中在一個按鈕
+  $('btnFile').onclick = e => {
+    const r = e.currentTarget.getBoundingClientRect();
+    showMenu(r.left, r.bottom + 2, [
+      { label: '新專案', key: 'Ctrl+N', action: fileNew },
+      { label: '開啟專案…', key: 'Ctrl+O', action: fileOpen },
+      '-',
+      { label: canSaveInPlace() ? '儲存（覆寫目前的檔案）' : '儲存到電腦（下載 .zyproj）', key: 'Ctrl+S', action: fileSave },
+      { label: '另存新檔…', key: 'Ctrl+Shift+S', action: () => saveProject(true).catch(err => toast('儲存失敗：' + err.message, 'error')) },
+      '-',
+      { label: '匯入音檔…', key: 'Ctrl+I', action: () => $('fileAudio').click() },
+      { label: '匯入 MIDI…', action: () => $('fileMidi').click() },
+      '-',
+      { label: '專案會自動暫存到這個瀏覽器', disabled: true },
+    ]);
   };
-  $('btnOpen').onclick = () => {
-    if (store.dirty && !confirm('目前的專案還沒存檔，確定要開啟其他專案？')) return;
-    pickAndOpenProject().catch(e => toast('開啟失敗：' + e.message, 'error'));
-  };
-  $('btnSave').onclick = () => saveProject(false).catch(e => toast('儲存失敗：' + e.message, 'error'));
-  $('btnSave').title = canSaveInPlace() ? '儲存到你電腦上的專案檔 (Ctrl+S；Ctrl+Shift+S 另存新檔)' : '下載專案檔 (Ctrl+S)';
   $('btnImport').onclick = () => $('fileAudio').click();
   $('fileAudio').addEventListener('change', async e => {
     const files = [...e.target.files];
@@ -337,7 +354,7 @@ function bindKeys() {
     }
     if (mod) {
       if (k === 's') return run(() => saveProject(e.shiftKey).catch(err => toast(err.message, 'error')));
-      if (k === 'o') return run(() => $('btnOpen').click());
+      if (k === 'o') return run(fileOpen);
       if (k === 'i') return run(() => $('btnImport').click());
       if (k === 'e') return run(openExport);
       if (k === 'z') return run(() => (e.shiftKey ? store.redo() : store.undo()) || toast(e.shiftKey ? '沒有可以重做的動作' : '沒有可以復原的動作'));
@@ -451,6 +468,7 @@ function chordSection(t) {
   sec.innerHTML = `<h4 style="margin-top:0">和弦軌</h4>
     <div class="row"><span>已抓</span><span>${list.length ? list.length + ' 個和弦' : '—'}${key ? `　（${ROOTS[key.key]} ${key.minor ? '小調' : '大調'}）` : ''}</span></div>
     <div class="row"><span>顯示</span><select class="ch-view">${VIEW_NAMES.map((n, i) => `<option value="${i}"${(store.project.chordView || 0) === i ? ' selected' : ''}>${n}</option>`).join('')}</select></div>
+    <div class="row"><span>解析度</span><select class="ch-res"><option value="0.5">每半拍</option><option value="1">每一拍</option><option value="2">每兩拍</option><option value="4">每小節</option></select></div>
     <div class="row"><button class="tbtn ch-detect" style="width:100%;height:24px">偵測這條軌的和弦</button></div>
     <div class="row"><button class="tbtn ch-show" style="width:100%;height:24px">${store.project.showChords ? '隱藏和弦軌' : '顯示和弦軌'}</button></div>
     <div class="row"><button class="tbtn" style="flex:1;height:24px" data-apply="harm">套用到和聲</button><button class="tbtn" style="flex:1;height:24px" data-apply="tune">套用到修音</button></div>
@@ -459,9 +477,13 @@ function chordSection(t) {
   sel.addEventListener('keydown', e => e.stopPropagation());
   sel.onchange = () => { store.checkpoint(); store.project.chordView = +sel.value; store.changed('structure'); store.emit('chords', {}); };
   const det = sec.querySelector('.ch-detect');
+  const res = sec.querySelector('.ch-res');
+  res.addEventListener('keydown', e => e.stopPropagation());
+  res.value = String(store.project.chordRes || 1);
+  res.onchange = () => { store.project.chordRes = +res.value; store.dirty = true; };
   det.onclick = async () => {
     det.disabled = true; det.textContent = '分析中…';
-    try { await detectAndApply(t.id, 1); } finally { det.disabled = false; det.textContent = '偵測這條軌的和弦'; }
+    try { await detectAndApply(t.id, +(res.value) || 1); } finally { det.disabled = false; det.textContent = '偵測這條軌的和弦'; }
   };
   sec.querySelector('.ch-show').onclick = () => { toggleChordLane(); renderArrange(); renderInspector(); };
   sec.querySelector('[data-apply=harm]').onclick = () => applyChordsToHarmony(store.selection.trackId);

@@ -104,6 +104,7 @@ function build() {
           <label>分割點 <select class="arr-split"></select></label>
           <label class="chk"><input type="checkbox" class="arr-memory"> 放開仍保持和弦</label>
           <label class="chk"><input type="checkbox" class="arr-autofill"> 換段落時自動過門</label>
+          <label class="arr-level" title="伴奏整體力度。聲部全開時若聽到破音，往左調">伴奏音量 <input type="range" class="arr-lvl" min="30" max="100" step="1"><b class="arr-lvlv"></b></label>
         </div>
       </div>
     </div>
@@ -152,7 +153,8 @@ function build() {
   $('.arr-secs').innerHTML = SECTIONS.map(s => `<button type="button" data-sec="${s.id}" class="${s.kind || ''}"><i></i><b>${s.name}</b><kbd>${s.key}</kbd></button>`).join('');
   $('.arr-secs').onclick = e => { const b = e.target.closest('button'); if (b) doAction('sec:' + b.dataset.sec); };
   $('.arr-learnbtn').onclick = () => { const l = $('.arr-learn'); l.hidden = !l.hidden; renderLearn(); };
-  renderParts(); renderKb();
+  renderParts();
+  bindLevel(); renderKb();
   arranger.on(() => sync());
   store.on('banks', () => open && renderParts());
   store.on('change', ({ kind }) => { if (open && kind === 'structure') renderParts(); });
@@ -166,6 +168,15 @@ function build() {
     e.preventDefault(); e.stopImmediatePropagation();
     if (!e.repeat) doAction(a.id);
   }, true);
+}
+
+function bindLevel() {
+  const inp = root.querySelector('.arr-lvl'), val = root.querySelector('.arr-lvlv');
+  if (!inp) return;
+  const show = () => { inp.value = Math.round((arranger.level || 0.72) * 100); val.textContent = inp.value + '%'; };
+  show();
+  inp.addEventListener('input', () => { arranger.setLevel(Number(inp.value) / 100); val.textContent = inp.value + '%'; });
+  inp.addEventListener('change', () => toast('伴奏音量 ' + inp.value + '%（聲部全開時若破音，往左調）'));
 }
 
 function renderParts() {

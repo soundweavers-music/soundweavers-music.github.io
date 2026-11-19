@@ -25,12 +25,10 @@
       </div>
     </div>
     <div class="group">
-      <button class="tbtn ghost" id="btnNew" title="新專案">新增</button>
-      <button class="tbtn ghost" id="btnOpen" title="開啟專案 (Ctrl+O)">開啟</button>
-      <button class="tbtn ghost" id="btnSave" title="儲存專案 (Ctrl+S)">儲存</button>
-      <button class="tbtn ghost" id="btnImport" title="匯入音檔 (Ctrl+I)">匯入音檔</button>
-      <button class="tbtn ghost" id="btnImportMidi" title="匯入 .mid（每一軌會變成一條 MIDI 軌）">匯入 MIDI</button>
+      <button class="tbtn ghost" id="btnFile" title="檔案：新專案、開啟、儲存、匯入">檔案 ▾</button>
       <button class="tbtn ghost" id="btnBanks" title="管理 SoundFont 音色庫">音色庫<span class="bank-badge" id="bankBadge"></span></button>
+      <button class="tbtn ghost hidden" id="btnImport" aria-hidden="true"></button>
+      <button class="tbtn ghost hidden" id="btnImportMidi" aria-hidden="true"></button>
       <button class="tbtn ghost" id="btnMore" title="更多">⋯</button>
       <button class="tbtn ghost" id="btnTheme" title="配色主題：專業深色、世界聲音木質深色／淺色">配色</button>
       <a class="tbtn ghost" id="btnHelp" href="guide/" target="_blank" rel="noopener" title="使用說明（新分頁開啟）">說明</a>
@@ -71,7 +69,6 @@
       <span class="midi-ped" id="midiPed" title="延音踏板">Ped</span>
     </div>
     <div class="spacer"></div>
-    <span class="privacy" title="這個頁面的安全政策禁止連到其他網站（connect-src 'self'，只能讀取本站的程式檔）。音檔、錄音與專案只存在你的電腦與瀏覽器裡。">🔒<span class="pv-text"> 不上傳雲端</span></span>
     <span class="saveinfo" id="saveInfo"></span>
     <div class="group">
       <button class="tbtn ghost vb" id="btnInspector" title="檢閱器 (I)"><i>☰</i><span>檢閱器</span></button>
