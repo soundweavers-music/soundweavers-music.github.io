@@ -26,6 +26,7 @@ const HARM = {
   organ: [1, 0.8, 0.0, 0.6, 0.0, 0.4, 0.0, 0.5, 0, 0, 0, 0.25, 0, 0, 0, 0.2],
   bell: [1, 0, 0, 0.5, 0, 0, 0.35, 0, 0, 0, 0.2],
   marimba: [1, 0, 0, 0.25, 0, 0, 0, 0, 0, 0.08],
+  guitar: [1, 0.68, 0.5, 0.38, 0.26, 0.2, 0.14, 0.11, 0.07, 0.05, 0.035, 0.025],
 };
 
 // 每個音色：osc 列表、濾波器、振幅 ADSR、濾波器包絡
@@ -47,6 +48,14 @@ export const PRESETS = {
              filter: { type: 'lowpass', freq: 1600, q: 3, env: 3000, key: 0.5 }, amp: { a: 0.005, d: 0.2, s: 0.75, r: 0.12 }, fenv: { a: 0.001, d: 0.25, s: 0.3, r: 0.15 }, vib: { rate: 5.5, depth: 10, delay: 0.25 }, glideMono: false },
   pluck:   { name: '合成撥弦', group: '合成器', osc: [{ type: 'sawtooth', gain: 0.25 }, { type: 'square', ratio: 2, gain: 0.06 }],
              filter: { type: 'lowpass', freq: 400, q: 4, env: 5000, key: 0.5 }, amp: { a: 0.001, d: 0.5, s: 0, r: 0.2 }, fenv: { a: 0.001, d: 0.18, s: 0, r: 0.15 } },
+  aguitar: { name: '木吉他（鋼弦）', group: '吉他', osc: [{ type: 'guitar', gain: 0.5 }, { type: 'sawtooth', ratio: 2, detune: 4, gain: 0.05, decay: 0.12 }],
+             filter: { type: 'lowpass', freq: 1500, q: 0.8, env: 4200, key: 0.5 }, amp: { a: 0.001, d: 1.6, s: 0, r: 0.25 }, fenv: { a: 0.001, d: 0.25, s: 0.12, r: 0.2 }, keyDecay: true, hammer: true },
+  nguitar: { name: '古典吉他（尼龍弦）', group: '吉他', osc: [{ type: 'guitar', gain: 0.55 }],
+             filter: { type: 'lowpass', freq: 900, q: 0.6, env: 2200, key: 0.4 }, amp: { a: 0.002, d: 1.3, s: 0, r: 0.25 }, fenv: { a: 0.001, d: 0.2, s: 0.1, r: 0.2 }, keyDecay: true },
+  eguitar: { name: '清音電吉他', group: '吉他', osc: [{ type: 'guitar', gain: 0.45 }, { type: 'square', ratio: 1, gain: 0.05 }],
+             filter: { type: 'lowpass', freq: 2200, q: 1.1, env: 2500, key: 0.4 }, amp: { a: 0.001, d: 2.0, s: 0.12, r: 0.2 }, fenv: { a: 0.001, d: 0.3, s: 0.2, r: 0.2 }, keyDecay: true },
+  dguitar: { name: '破音吉他（強力和弦）', group: '吉他', osc: [{ type: 'sawtooth', gain: 0.22 }, { type: 'sawtooth', detune: 12, gain: 0.18 }, { type: 'square', ratio: 0.5, gain: 0.08 }],
+             filter: { type: 'lowpass', freq: 2400, q: 1.4, env: 1200, key: 0.2 }, amp: { a: 0.002, d: 0.6, s: 0.55, r: 0.12 }, fenv: { a: 0.001, d: 0.2, s: 0.5, r: 0.1 } },
   bass:    { name: '合成貝斯', group: '貝斯', osc: [{ type: 'sawtooth', gain: 0.3 }, { type: 'square', ratio: 0.5, gain: 0.25 }],
              filter: { type: 'lowpass', freq: 260, q: 5, env: 1400, key: 0.2 }, amp: { a: 0.003, d: 0.3, s: 0.7, r: 0.08 }, fenv: { a: 0.001, d: 0.22, s: 0.15, r: 0.1 } },
   fbass:   { name: '指彈電貝斯', group: '貝斯', osc: [{ type: 'triangle', gain: 0.55 }, { type: 'sine', ratio: 2, gain: 0.12 }, { type: 'sawtooth', gain: 0.06 }],
@@ -57,7 +66,7 @@ export const PRESETS = {
              filter: { type: 'lowpass', freq: 3500, q: 0.4 }, amp: { a: 0.001, d: 0.55, s: 0, r: 0.2 }, keyDecay: true },
   drums:   { name: '鼓組（GM 鼓位）', group: '鼓', drum: true },
 };
-export const PRESET_GROUPS = ['鍵盤', '弦樂', '合成器', '貝斯', '打擊', '鼓'];
+export const PRESET_GROUPS = ['鍵盤', '吉他', '弦樂', '合成器', '貝斯', '打擊', '鼓'];
 export const DEFAULT_PRESET = 'piano';
 
 // GM 鼓位名稱（鋼琴捲簾左側顯示）

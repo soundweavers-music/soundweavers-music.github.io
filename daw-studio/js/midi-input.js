@@ -21,6 +21,12 @@ const state = {
 
 export const midiState = state;
 
+// 自動伴奏（或其他功能）可以攔截輸入：hook.note(on, midi, vel) 回傳 true = 這個音被吃掉、不發聲
+// hook.message(ev) 回傳 true = 這個 MIDI 訊息已處理（MIDI Learn 對應的按鈕）
+const hooks = new Set();
+export function addInputHook(h) { hooks.add(h); return () => hooks.delete(h); }
+const hookNote = (on, key, vel) => { let eat = false; for (const h of hooks) if (h.note && h.note(on, key, vel)) eat = true; return eat; };
+
 // 允許的 MIDI 輸入（空 = 全部）；存在 localStorage，設定視窗可逐台開關
 function loadEnabled() {
   try { const v = JSON.parse(localStorage.getItem('daw.midiInputs') || 'null'); return Array.isArray(v) ? new Set(v) : null; } catch (_) { return null; }
@@ -49,18 +55,23 @@ export function setEnabledInputs(ids) {
 
 export function midiInputs() { return (state.inputs || []).map(i => ({ id: i.id, name: i.name })); }
 
+// 沒有待命／選取的 MIDI 軌時，可以由其他模組（自動伴奏）提供預設的旋律軌
+let fallbackTrack = null;
+export function setFallbackTrack(fn) { fallbackTrack = fn; }
 export function targetTrack() {
   const p = store.project;
   const armed = p.tracks.find(t => t.kind === 'midi' && t.arm);
   if (armed) return armed;
   const sel = store.track(store.selection.trackId);
-  return sel && sel.kind === 'midi' ? sel : null;
+  if (sel && sel.kind === 'midi') return sel;
+  return fallbackTrack ? fallbackTrack() : null;
 }
 
 // ---------------- 音符進出 ----------------
 // 輸入移調：鍵盤按下的音 + transpose（半音），寫進片段與發聲的都是移調後的音
 // key = 實際按下的鍵；held 以 key 為索引，移調途中改值也能正確放開
 export function noteOn(key, vel = state.velocity) {
+  if (hookNote(true, key, vel)) { state.eaten = state.eaten || new Set(); state.eaten.add(key); store.emit('midi-activity', { midi: key, on: true, eaten: true }); return; }
   const t = targetTrack();
   if (!t) return;
   state.lastActivity = performance.now();
@@ -73,6 +84,7 @@ export function noteOn(key, vel = state.velocity) {
 }
 
 export function noteOff(key, force = false) {
+  if (state.eaten?.has(key)) { state.eaten.delete(key); hookNote(false, key, 0); store.emit('midi-activity', { midi: key, on: false, eaten: true }); return; }
   const h = state.held.get(key);
   if (!h) return;
   // 錄音：音符長度 = 手實際按住的長度（跟專業 DAW 一樣），踏板另外記成 CC64 事件
@@ -197,6 +209,7 @@ export async function initWebMidi() {
 }
 
 export function handleMidiMessage(ev) {
+  for (const h of hooks) if (h.message && h.message(ev.data)) return;
   const [st, a, b] = ev.data;
   const type = st & 0xf0;
   if (type === 0x90 && b > 0) noteOn(a, b);
@@ -243,7 +256,7 @@ export function handleTypingKey(e, down) {
   if (e.repeat) return true;
   const midi = (state.octave + 1) * 12 + KEYMAP[k];
   if (down) {
-    if (!targetTrack()) { toast('先選一條 MIDI 軌才能彈', 'warn'); return true; }
+    if (!targetTrack() && !hooks.size) { toast('先選一條 MIDI 軌才能彈', 'warn'); return true; }
     noteOn(midi);
   } else noteOff(midi);
   return true;
