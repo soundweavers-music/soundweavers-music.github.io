@@ -8,6 +8,7 @@ import os
 import random
 import re
 import shutil
+import sys
 import time
 from collections import Counter, defaultdict
 from html import escape
@@ -17,6 +18,9 @@ import markdown
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(BASE_DIR / "scripts"))
+import course_hours  # noqa: E402  (章數與建議學習時數的唯一來源)
+
 CONTENT_DIR = BASE_DIR / "content" / "instruments"
 OUTPUT_DIR = BASE_DIR / "outputs" / "world-instruments-static"
 SITE_BASE_PATH = os.environ.get("SITE_BASE_PATH", "").strip()
@@ -2909,14 +2913,21 @@ def build_recruit_page():
 def build_learn_page():
     """/learn/: hub for the four course areas the 學習 menu points to."""
     path = OUTPUT_DIR / "learn" / "index.html"
+    # 章數與時數一律跟 scripts/course_hours.py 要，跟各課程頁、首頁同一個來源
+    stats = {c["key"]: c for c in course_hours.all_courses()}
+
+    def meta(key):
+        c = stats[key]
+        return f"{c['chapters']} 章・建議約 {c['hours']:g} 小時"
+
     courses = [
-        ("/vocal/", "🎤", "人聲與歌唱", "從發聲啟蒙、身體覺察到混聲技術，系統化的流行歌唱教學，搭配研究專欄深入聲學與製作觀點。", "初階 15 堂・進階 35 堂"),
-        ("/digitalmusic/", "🎛", "錄音後製", "從宅錄建置、錄音與混音基礎，到音色雕塑、曲風實戰與母帶後期的完整課程。", "基礎 15 堂・進階 15 堂"),
-        ("/theory/", "🎼", "樂理基礎", "譜號、節拍、拍號、音調、音域與發聲原理，分五個階段建立紮實的音樂理論基礎。", "前言＋五階段"),
-        ("/mandolin/", "🪕", "曼陀林專區", "22 章中文曼陀林知識庫：琴型歷史、構造製琴、演奏技法、曲風合奏與專輯導聆，附學習建議時數。", f"{course_chapters('mandolin')} 章・建議約 28.5 小時"),
-        ("/guitar/", "🎸", "流行吉他彈唱指南", "從挑琴、調音、看懂六線譜，到刷奏、和弦與彈唱協調，寫給零基礎成人的流行吉他彈唱教材。", f"{course_chapters('guitar')} 章・持續增補"),
-        ("/ukulele/", "🎵", "烏克麗麗流行彈唱與演奏指南", "四條弦的大小事：選琴、調音、和弦家族、刷奏節奏型到指彈與打板，以華語流行歌為練習材料。", f"{course_chapters('ukulele')} 章・持續增補"),
-        ("/tools/daw/learn/", "🎚️", "線上編曲製作（DAW）課程", "搭配本站的瀏覽器編曲軟體，從錄音、MIDI、混音、修音與和聲到母帶輸出，每一堂都有實際軟體截圖與原理說明。", f"{len(list((BASE_DIR / 'content' / 'dawcourse').glob('*.md')))} 堂操作課"),
+        ("/vocal/", "🎤", "人聲與歌唱", "從發聲啟蒙、身體覺察到混聲技術，系統化的流行歌唱教學，搭配研究專欄深入聲學與製作觀點。", meta("vocal")),
+        ("/digitalmusic/", "🎛", "錄音後製", "從宅錄建置、錄音與混音基礎，到音色雕塑、曲風實戰與母帶後期的完整課程。", meta("digitalmusic")),
+        ("/theory/", "🎼", "樂理基礎", "譜號、節拍、拍號、音調、音域與發聲原理，分五個階段建立紮實的音樂理論基礎。", meta("theory")),
+        ("/mandolin/", "🪕", "曼陀林專區", "22 章中文曼陀林知識庫：琴型歷史、構造製琴、演奏技法、曲風合奏與專輯導聆，附學習建議時數。", meta("mandolin")),
+        ("/guitar/", "🎸", "流行吉他彈唱指南", "從挑琴、調音、看懂六線譜，到刷奏、和弦與彈唱協調，寫給零基礎成人的流行吉他彈唱教材。", meta("guitar")),
+        ("/ukulele/", "🎵", "烏克麗麗流行彈唱與演奏指南", "四條弦的大小事：選琴、調音、和弦家族、刷奏節奏型到指彈與打板，以華語流行歌為練習材料。", meta("ukulele")),
+        ("/tools/daw/learn/", "🎚️", "線上編曲製作（DAW）課程", "搭配本站的瀏覽器編曲軟體，從錄音、MIDI、混音、修音與和聲到母帶輸出，每一堂都有實際軟體截圖與原理說明。", meta("daw")),
     ]
     cards = "\n".join(
         f"""      <a class="hub-card" href="{resolve_url(path, href)}">
@@ -2925,9 +2936,15 @@ def build_learn_page():
         <p>{desc}</p>
         <span class="hub-meta">{meta} →</span>
       </a>""" for href, icon, name, desc, meta in courses)
+    total_ch, total_h = course_hours.totals()
     body = f"""<main>
   {banner_hero("Learn", "學習", "人聲、錄音、樂理、曼陀林、吉他、烏克麗麗與線上編曲——挑一條路開始，按自己的節奏前進。")}
   <div class="hub-page">
+    <p class="hero-stats" style="justify-content:flex-start;margin:2px 0 18px">
+      <span><strong>{len(courses)}</strong> 套課程</span>
+      <span>共 <strong>{total_ch}</strong> 章</span>
+      <span>建議約 <strong>{total_h:g}</strong> 小時</span>
+    </p>
     <div class="learn-search" role="search">
       <label class="learn-search-box">
         <span class="learn-search-ico" aria-hidden="true">⌕</span>
@@ -3464,7 +3481,7 @@ def _daw_figures(html, page_path):
 
 
 def build_daw_course(daw_dir: Path) -> None:
-    """20 堂 DAW 課程：/tools/daw/learn/。
+    """DAW 課程：/tools/daw/learn/（堂數由 content/dawcourse/ 的檔案數決定）。
 
     原始內容在 content/dawcourse/NN.md（frontmatter: title / summary / image），
     截圖在 assets/daw-course/。每頁都有上一堂／下一堂與「打開軟體」的連結。
@@ -3491,7 +3508,10 @@ def build_daw_course(daw_dir: Path) -> None:
                     return line.split(":", 1)[1].strip()
             return ""
         lessons.append({"no": f.stem, "title": field("title"), "summary": field("summary"),
-                        "image": field("image"), "md": body_md})
+                        "image": field("image"), "md": body_md,
+                        # 建議學習時數：跟其他課程同一個公式（scripts/course_hours.py）
+                        "hours": course_hours.study_hours(course_hours.cjk_count(body_md))})
+    daw_hours = sum(l["hours"] for l in lessons)
     out_dir = daw_dir / "learn"
     if out_dir.exists():
         shutil.rmtree(out_dir)
@@ -3520,7 +3540,7 @@ def build_daw_course(daw_dir: Path) -> None:
 
     cards = "".join(
         '<a class="dawc-card" href="' + lesson_url(out_dir / "index.html", l["no"]) + '">'
-        + '<em>第 ' + str(int(l["no"])) + ' 堂</em><b>' + l["title"].split("：", 1)[-1] + '</b><span>' + l["summary"] + '</span></a>'
+        + '<em>第 ' + str(int(l["no"])) + ' 堂・約 ' + ('%g' % l["hours"]) + ' 小時</em><b>' + l["title"].split("：", 1)[-1] + '</b><span>' + l["summary"] + '</span></a>'
         for l in lessons)
     tool_url = resolve_url(out_dir / "index.html", "/tools/daw/?demo=1")
     guide_url = resolve_url(out_dir / "index.html", "/tools/daw/guide/")
@@ -3528,16 +3548,20 @@ def build_daw_course(daw_dir: Path) -> None:
         '<main class="page"><div class="dawc-wrap">'
         '<section class="dawc-hero">'
         '<p class="eyebrow">Tools · Browser DAW</p>'
-        '<h1>織音線上編曲製作　20 堂課</h1>'
+        '<h1>織音線上編曲製作　' + str(len(lessons)) + ' 堂課</h1>'
         '<p class="lead">從看懂畫面到母帶輸出，一堂一個主題，配實際操作截圖與「為什麼」的原理說明。邊看邊開軟體跟著做最快。</p>'
+        '<p class="hero-stats" style="text-align:left;margin-top:16px">'
+        f'<span><strong>{len(lessons)}</strong> 堂</span>'
+        f'<span>建議約 <strong>{daw_hours:g}</strong> 小時</span>'
+        '</p>'
         f'<p><a class="btn btn-primary" href="{tool_url}">開啟軟體（載入示範專案）→</a> '
         f'<a class="btn" href="{guide_url}">功能說明書</a></p>'
         '</section>'
         f'<div class="dawc-grid">{cards}</div>'
         '</div></main>')
-    write(out_dir / "index.html", page("織音線上編曲製作　20 堂課",
+    write(out_dir / "index.html", page(f"織音線上編曲製作　{len(lessons)} 堂課",
         index_body, out_dir / "index.html", extra_head=css,
-        meta_description="織音線上編曲製作的 20 堂課程：畫面總覽、專案與存檔、錄音、MIDI、和弦軌、自動伴奏、EQ、壓縮、人聲修音、和聲、空間效果、混音、自動化、母帶與輸出。",
+        meta_description=f"織音線上編曲製作的 {len(lessons)} 堂課程：畫面總覽、專案與存檔、錄音、MIDI、和弦軌、自動伴奏、EQ、壓縮、人聲修音、和聲、空間效果、混音、自動化、母帶與輸出。",
         meta_keywords="DAW,編曲教學,錄音教學,混音教學,母帶,MIDI,人聲修音"))
 
     # 各堂
@@ -3567,7 +3591,7 @@ def build_daw_course(daw_dir: Path) -> None:
         body = (
             '<main class="page"><div class="dawc-wrap">'
             '<section class="dawc-hero">'
-            f'<p class="eyebrow"><a href="{back_url}" style="text-decoration:none">20 堂課</a> · 第 {int(l["no"])} 堂</p>'
+            f'<p class="eyebrow"><a href="{back_url}" style="text-decoration:none">{len(lessons)} 堂課</a> · 第 {int(l["no"])} 堂・約 {l["hours"]:g} 小時</p>'
             f'<h1>{l["title"]}</h1>'
             f'<p class="lead">{l["summary"]}</p>'
             f'<p><a class="btn btn-primary" href="{go_url}">邊看邊做 →</a></p>'
