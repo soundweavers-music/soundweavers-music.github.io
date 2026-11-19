@@ -252,7 +252,7 @@ def fig_grand_staff():
 
 # ── 7. 音符時值 ──────────────────────────────────────────────
 def fig_note_values():
-    W, H = 760, 300
+    W, H = 760, 386
     body = []
     body.append(text(40, 96, "一個全音符 = 4 拍（4/4 拍下）", 12.5, INK, "700"))
     bars = [("全音符", 4, "4 拍"), ("二分音符", 2, "2 拍"), ("四分音符", 1, "1 拍"),
@@ -264,10 +264,10 @@ def fig_note_values():
         body.append(text(190, y + 3, name, 12, "end", INK, "700"))
         body.append(text(200 + w + 10, y + 3, label, 11.5, MUTED))
         y += 32
-    body.append(text(40, 196, "拍號決定「一拍」是什麼音符：", 12, INK, "700"))
-    body.append(text(40, 216, "4/4 → 四分音符為一拍", 11.5, MUTED))
-    body.append(text(40, 234, "6/8 → 八分音符為一拍", 11.5, MUTED))
-    body.append(text(40, 252, "2/2 → 二分音符為一拍", 11.5, MUTED))
+    body.append(text(40, 292, "拍號決定「一拍」是什麼音符：", 12, INK, "700"))
+    body.append(text(40, 314, "4/4 → 四分音符為一拍", 11.5, MUTED))
+    body.append(text(40, 334, "6/8 → 八分音符為一拍", 11.5, MUTED))
+    body.append(text(40, 354, "2/2 → 二分音符為一拍", 11.5, MUTED))
     write("note-values.svg", frame(W, H, "音符的時值：倍數關係",
                                    "每一種音符都是上一種的一半長", body))
 
@@ -299,7 +299,7 @@ def fig_meter():
 
 # ── 9. 樂器音域對照 ──────────────────────────────────────────
 def fig_instrument_ranges():
-    W, H = 760, 380
+    W, H = 760, 430
     body = []
     lo_f, hi_f = 27.5, 4186.0
     x0, x1 = 230, 700

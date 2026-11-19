@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" width="100%" role="img" aria-label="音符的時值：倍數關係">
-<rect width="760" height="300" fill="#f7f3ee"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 386" width="100%" role="img" aria-label="音符的時值：倍數關係">
+<rect width="760" height="386" fill="#f7f3ee"/>
 <text x="28.0" y="40.0" font-size="19" text-anchor="start" fill="#2b2722" font-weight="700">音符的時值：倍數關係</text>
 <text x="28.0" y="62.0" font-size="12.5" text-anchor="start" fill="#8a8078" font-weight="400">每一種音符都是上一種的一半長</text>
 <text x="40.0" y="96.0" font-size="12.5" text-anchor="#2b2722" fill="700" font-weight="400">一個全音符 = 4 拍（4/4 拍下）</text>
@@ -18,8 +18,8 @@
 <rect x="200.0" y="246.0" width="25.0" height="20.0" rx="3" fill="#A67C52" stroke="#A67C52" stroke-width="1.4"/>
 <text x="190.0" y="261.0" font-size="12" text-anchor="end" fill="#2b2722" font-weight="700">十六分音符</text>
 <text x="235.0" y="261.0" font-size="11.5" text-anchor="#8a8078" fill="#2b2722" font-weight="400">1/4 拍</text>
-<text x="40.0" y="196.0" font-size="12" text-anchor="#2b2722" fill="700" font-weight="400">拍號決定「一拍」是什麼音符：</text>
-<text x="40.0" y="216.0" font-size="11.5" text-anchor="#8a8078" fill="#2b2722" font-weight="400">4/4 → 四分音符為一拍</text>
-<text x="40.0" y="234.0" font-size="11.5" text-anchor="#8a8078" fill="#2b2722" font-weight="400">6/8 → 八分音符為一拍</text>
-<text x="40.0" y="252.0" font-size="11.5" text-anchor="#8a8078" fill="#2b2722" font-weight="400">2/2 → 二分音符為一拍</text>
+<text x="40.0" y="292.0" font-size="12" text-anchor="#2b2722" fill="700" font-weight="400">拍號決定「一拍」是什麼音符：</text>
+<text x="40.0" y="314.0" font-size="11.5" text-anchor="#8a8078" fill="#2b2722" font-weight="400">4/4 → 四分音符為一拍</text>
+<text x="40.0" y="334.0" font-size="11.5" text-anchor="#8a8078" fill="#2b2722" font-weight="400">6/8 → 八分音符為一拍</text>
+<text x="40.0" y="354.0" font-size="11.5" text-anchor="#8a8078" fill="#2b2722" font-weight="400">2/2 → 二分音符為一拍</text>
 </svg>

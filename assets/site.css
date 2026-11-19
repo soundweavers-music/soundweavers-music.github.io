@@ -271,6 +271,56 @@ h2 { margin:0; font-weight:700; }
   flex-wrap:wrap; gap:12px; color:var(--muted); font-size:13px;
 }
 .footer-inner a { color:var(--blue); text-decoration:none; }
+/* nav entries that are not clickable yet */
+.nav-soon {
+  display:flex; align-items:center; justify-content:space-between; gap:10px;
+  padding:7px 11px; color:var(--muted); font-size:13px; cursor:default;
+}
+.nav-soon-tag {
+  font-size:10.5px; letter-spacing:.04em; padding:1px 6px; border-radius:999px;
+  background:var(--soft); color:var(--muted); flex:none;
+}
+/* floating random-song player (bottom-right) */
+.mini-player {
+  position:fixed; right:16px; bottom:16px; z-index:60;
+  display:flex; flex-direction:column; align-items:flex-end; gap:8px;
+  max-width:min(320px, calc(100vw - 32px));
+}
+.mini-player[hidden] { display:none; }
+.mini-player-frame iframe, .mini-player-iframe {
+  display:block; width:min(320px, calc(100vw - 32px)); height:180px;
+  border:0; border-radius:10px; background:#000; box-shadow:0 10px 28px rgba(0,0,0,.22);
+}
+.mini-player-bar {
+  display:flex; align-items:center; gap:8px; padding:7px 10px;
+  border:1px solid var(--line); border-radius:999px; background:var(--paper);
+  box-shadow:0 6px 20px rgba(0,0,0,.14);
+}
+.mini-player-btn {
+  width:28px; height:28px; border-radius:50%; border:1px solid var(--line);
+  background:#fff; color:var(--accent); font-size:12px; cursor:pointer; flex:none;
+  transition:background .2s ease, transform .2s ease;
+}
+.mini-player-btn:hover { background:var(--accent-soft); transform:translateY(-1px); }
+.mini-player-text { display:flex; flex-direction:column; line-height:1.25; min-width:0; }
+.mini-player-name,
+.mini-player-sub { max-width:170px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.mini-player-name { color:var(--ink); font-weight:700; font-size:12.5px; }
+.mini-player-sub { color:var(--muted); font-size:11px; }
+.mini-player-close {
+  border:0; background:transparent; color:var(--muted); cursor:pointer;
+  font-size:15px; line-height:1; padding:0 2px;
+}
+.mini-player-close:hover { color:var(--ink); }
+.mini-player-launcher {
+  width:44px; height:44px; border-radius:50%; border:1px solid var(--line);
+  background:var(--paper); color:var(--accent); font-size:18px; cursor:pointer;
+  box-shadow:0 6px 20px rgba(0,0,0,.14);
+}
+.mini-player-launcher:hover { background:var(--accent-soft); }
+@media (max-width: 520px) {
+  .mini-player-name, .mini-player-sub { max-width:110px; }
+}
 .visit-counter { font-size:12px; color:var(--muted); white-space:nowrap; }
 .footer-nav { display:flex; gap:16px; }
 .footer-nav a { color:var(--muted); text-decoration:none; }
@@ -289,6 +339,13 @@ h2 { margin:0; font-weight:700; }
 .about-section { margin-bottom:40px; }
 .about-section h2 { font-size:22px; margin:0 0 16px; padding-bottom:8px; border-bottom:2px solid var(--accent); display:inline-block; }
 .about-text p { color:var(--ink2); line-height:1.9; font-size:16px; margin:0 0 16px; }
+.about-text ul { margin:0 0 18px; padding-left:1.2em; }
+.about-text li { color:var(--ink2); line-height:1.85; font-size:15.5px; margin-bottom:10px; }
+.about-text li strong { color:var(--ink); }
+.about-index { list-style:none; padding-left:0; }
+.about-index li { padding-left:14px; border-left:2px solid var(--line); }
+.about-index li strong a { color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line); }
+.about-index li strong a:hover { color:var(--accent); border-bottom-color:var(--accent); }
 .about-author { display:flex; gap:24px; align-items:start; flex-wrap:wrap; }
 .author-avatar { width:80px; height:80px; border-radius:50%; background:var(--accent); color:#fff; display:flex; align-items:center; justify-content:center; font-size:28px; font-weight:800; flex-shrink:0; }
 .author-avatar img,img.author-avatar { width:80px; height:80px; border-radius:50%; object-fit:cover; display:block; }
@@ -311,6 +368,8 @@ h2 { margin:0; font-weight:700; }
 
 /* ── Image credit ───────────────────────────────────────────── */
 .image-credit { font-size:12px; color:var(--muted); text-align:center; margin-top:6px; }
+.image-credit a { color:inherit; text-decoration:none; border-bottom:1px dotted currentColor; }
+.image-credit a:hover { color:var(--accent); border-bottom-color:var(--accent); }
 
 /* ── Badges ──────────────────────────────────────────────────── */
 .badge-row { margin:8px 0 0; display:flex; gap:6px; }

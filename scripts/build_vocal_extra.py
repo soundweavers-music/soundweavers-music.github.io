@@ -1558,7 +1558,7 @@ def append_css():
 .research-link { display:block; padding:18px 20px; text-decoration:none; color:inherit; }
 .research-item .research-num { display:inline-block; padding:2px 10px; border-radius:20px; background:#e0e7ff; color:#3730a3; font-size:11px; font-weight:700; margin-bottom:6px; }
 .research-item .research-title { font-weight:600; font-size:15px; }
-.vocal-detail-page { max-width:800px; margin:0 auto; padding:32px 20px 80px; }
+.vocal-detail-page { max-width:1040px; margin:0 auto; padding:32px 20px 80px; }
 .vocal-detail-header { margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--line); }
 .vocal-detail-header .breadcrumb { display:flex; flex-wrap:wrap; gap:8px; color:var(--muted); font-size:13px; margin-bottom:16px; }
 .vocal-detail-header .breadcrumb a { text-decoration:none; color:var(--muted); }
@@ -1568,12 +1568,12 @@ def append_css():
 .level-tag-advanced { background:#e0e7ff; color:#3730a3; }
 .vocal-detail-header h1 { font-size:clamp(24px,3.5vw,34px); margin:0; line-height:1.3; }
 .vocal-detail-header .level-name { color:var(--muted); font-size:14px; margin-top:8px; }
-.vocal-content { color:#344054; line-height:1.9; font-size:16px; }
+.vocal-content { color:#344054; line-height:1.95; font-size:17px; }
 .vocal-content h2 { font-size:22px; margin:1.6em 0 .6em; padding-bottom:8px; border-bottom:1px solid var(--line); color:var(--ink); }
 .vocal-content h3 { font-size:18px; margin:1.4em 0 .5em; color:var(--ink); }
 .vocal-content p { margin:0 0 1.2em; }
 .vocal-content blockquote { margin:1em 0; padding:.5em 1em; border-left:3px solid var(--accent); color:var(--muted); background:var(--soft); border-radius:0 6px 6px 0; }
-.vocal-content img { max-width:100%; border-radius:8px; margin:1em 0; }
+.vocal-content img { max-width:100%; border-radius:8px; margin:1.2em 0; }
 .vocal-nav-links { display:flex; justify-content:space-between; margin-top:48px; padding-top:24px; border-top:1px solid var(--line); }
 .vocal-nav-link { display:inline-flex; align-items:center; gap:6px; padding:10px 18px; border:1px solid var(--line); border-radius:8px; text-decoration:none; font-weight:600; font-size:14px; color:var(--muted); transition:all .15s; }
 .vocal-nav-link:hover { border-color:var(--accent); color:var(--accent); }

@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" width="100%" role="img" aria-label="常見樂器的實際音域">
-<rect width="760" height="380" fill="#f7f3ee"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" width="100%" role="img" aria-label="常見樂器的實際音域">
+<rect width="760" height="430" fill="#f7f3ee"/>
 <text x="28.0" y="40.0" font-size="19" text-anchor="start" fill="#2b2722" font-weight="700">常見樂器的實際音域</text>
 <text x="28.0" y="62.0" font-size="12.5" text-anchor="start" fill="#8a8078" font-weight="400">橫軸是對數刻度；同一個八度佔一樣寬</text>
 <text x="28.0" y="112.0" font-size="12" text-anchor="start" fill="#2b2722" font-weight="400">長笛 Flute</text>
@@ -41,5 +41,5 @@
 <line x1="635.2" y1="96.0" x2="635.2" y2="336.0" stroke="#d9d2c9" stroke-width="1"/>
 <text x="635.2" y="360.0" font-size="10.5" text-anchor="middle" fill="#8a8078" font-weight="400">C7</text>
 <text x="704.0" y="96.0" font-size="11" text-anchor="start" fill="#2b2722" font-weight="400"></text>
-<text x="28.0" y="362.0" font-size="11.5" text-anchor="start" fill="#8a8078" font-weight="400">各樂器實際可演奏範圍因型號與演奏者而異，此為常見範圍。</text>
+<text x="28.0" y="412.0" font-size="11.5" text-anchor="start" fill="#8a8078" font-weight="400">各樂器實際可演奏範圍因型號與演奏者而異，此為常見範圍。</text>
 </svg>
