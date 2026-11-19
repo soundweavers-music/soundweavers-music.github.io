@@ -131,8 +131,47 @@ def fig_chord_basics():
     return width, height, "\n".join(parts)
 
 
+
+
+def fig_chord_hold():
+    """10-1 的保留指四和弦：無名指與小指留在 2 弦 3 格、1 弦 3 格。"""
+    names = ["G", "Em7", "Cadd9", "D/F#"]
+    width, height = 640, 300
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" role="img" aria-label="保留指四和弦：G、Em7、Cadd9、D/F#">',
+        '  <title>保留指四和弦：G、Em7、Cadd9、D/F#</title>',
+        f'  <rect width="{width}" height="{height}" fill="{BG}"/>',
+        t(26, 34, "保留指的四顆和弦", size=16, anchor="start", weight=700),
+        t(26, 55, "G、Em7、Cadd9 的無名指與小指都停在 2 弦 3 格、1 弦 3 格；換到 D/F# 時小指要退到 1 弦 2 格", size=11, anchor="start", fill=MUTED),
+    ]
+    for i, name in enumerate(names):
+        parts.append(chord_diagram(name, 30 + i * 150, 74, w=124, h=150))
+    parts.append(t(26, height - 12, "○ 空弦　✕ 不彈；D/F# 的第 6 弦要按第 2 格（F#），第 1 弦按第 2 格才是 D 的根音", size=10, anchor="start", fill=MUTED))
+    parts.append("</svg>")
+    return width, height, "\n".join(parts)
+
+
+def fig_barre():
+    """12-2 的封閉和弦：F（6 弦橫按）與 Bm（5 弦橫按）。"""
+    width, height = 640, 330
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" role="img" aria-label="封閉和弦：F 與 Bm 的按法">',
+        '  <title>封閉和弦：F 與 Bm</title>',
+        f'  <rect width="{width}" height="{height}" fill="{BG}"/>',
+        t(26, 34, "兩個必學的封閉和弦", size=16, anchor="start", weight=700),
+        t(26, 55, "食指一次壓住整排弦（橫按），其餘三指補上；數字是手指，1 就是橫按的食指", size=11, anchor="start", fill=MUTED),
+    ]
+    parts.append(chord_diagram("F", 90, 80, w=150, h=190))
+    parts.append(chord_diagram("Bm", 330, 80, w=150, h=190))
+    parts.append(t(26, height - 12, "F = 133211（6 弦全按）；Bm = x24432（第 5 弦到第 1 弦）", size=10.5, anchor="start", fill=MUTED))
+    parts.append("</svg>")
+    return width, height, "\n".join(parts)
+
+
 FIGURES = {
     "chord-basics": fig_chord_basics,
+    "chord-hold": fig_chord_hold,
+    "barre-chords": fig_barre,
 }
 
 
