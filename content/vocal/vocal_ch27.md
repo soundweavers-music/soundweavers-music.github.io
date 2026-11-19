@@ -6,11 +6,17 @@
 
 練完的改變：副歌的高音可以唱得大聲、扎實，但不會卡頸；「阿」這種大開口的字，在高音不再一唱就破。
 
+
+![先講結論：這一節的三句話](../../assets/vocal/concl-27-a.svg)
+
 ## 常見誤解
 
 很多人以為強混聲就是真音硬扯。如果高音還維持講話時的厚度，喉嚨一定會卡死，英文教學裡叫 pulling chest。你越用力，它越上不去。
 
 另一個誤解是「大聲就要把嘴巴張到最大」。在高音區，嘴張太大反而讓喉頭往上跑，聲音變扁、變乾。音越高，母音通常要收得越攏，讓共振峰跟得上泛音。
+
+
+![常見誤解與實際情況的對照](../../assets/vocal/mis-27.svg)
 
 ## 原理：為什麼會這樣
 
@@ -101,9 +107,15 @@
 
 下一步是第 28 章，把咽腔的集中單獨拉出來練。強混聲之所以能厚，很大一部分是它做的。
 
+
+![練完之後：這一節的三句話](../../assets/vocal/concl-27-b.svg)
+
 ## 延伸查證
 
 - **Sundberg, J., & Thalén, M. (2015).** Respiratory and Acoustical Differences Between Belt and Neutral Style of Singing. *Journal of Voice.* 厚而有力的高音，氣壓與共振峰策略都和中性唱法不同。PMID 25819162。
 - **Lebowitz, A., & Baken, R. J. (2011).** Correlates of the belt voice: a broader examination. *Journal of Voice.* Belt 不是單一參數，是多項特徵的組合。PMID 20236798。
 - **McGlashan, J., Aaen, M., & White, A. (2023).** A mixed-method feasibility study of the use of the Complete Vocal Technique (CVT), a pedagogic method to improve the singing voice. *Pilot and Feasibility Studies.* CVT 把有力的高音分成 overdrive 與 belting 兩種模式，差別在金屬感與音域。PMID 37226281。
 - **Pettersen, V., Bjørkøy, K., & Torp, H. (2005).** Neck and shoulder muscle activity and thorax movement in singing and speaking tasks with variation in vocal loudness and pitch. *Journal of Voice.* 越大聲、越高音，頸肩的代償活動越明顯；爆發力不該長在脖子上。PMID 16301107。
+
+![延伸查證的重點整理](../../assets/vocal/kp-27-7.svg)
+

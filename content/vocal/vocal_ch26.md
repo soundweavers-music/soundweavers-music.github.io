@@ -6,11 +6,17 @@
 
 這一章要教你從高音往下找這條線，而不是從低音把重量整個拖上去。練完的改變：安靜的段落你能唱得清楚又不壓迫，高音不必靠音量才有存在感。
 
+
+![先講結論：這一節的三句話](../../assets/vocal/concl-26-a.svg)
+
 ## 常見誤解
 
 很多人一遇到「輕柔高音」，就直接切成假音，或把真音的音量壓小。前者鬆散，一碰到伴奏就被吃掉；後者只是變小聲，聲音還是悶在喉嚨，沒有高音該有的亮。
 
 弱混聲不是這兩種。它要閉合，但不加厚；要有高頻的亮，但不需要大音量。差別在「閉合乾不乾淨」，不在「大小聲」。
+
+
+![常見誤解與實際情況的對照](../../assets/vocal/mis-26.svg)
 
 ## 原理：為什麼會這樣
 
@@ -101,9 +107,15 @@
 
 下一步是第 27 章，把另一端練起來：有力但不卡頸的高音。先確定你能在輕與重之間移動，兩端才有意義。
 
+
+![練完之後：這一節的三句話](../../assets/vocal/concl-26-b.svg)
+
 ## 延伸查證
 
 - **Lee, Y., Oya, M., & Kaburagi, T. (2023).** Differences Among Mixed, Chest, and Falsetto Registers: A Multiparametric Study. *Journal of Voice.* 混聲與假聲在參數上可區分，關鍵之一在閉合與氣流的比例。PMID 33518476。
 - **Sundberg, J., & Thalén, M. (2015).** Respiratory and Acoustical Differences Between Belt and Neutral Style of Singing. *Journal of Voice.* 輕與重是兩套不同的氣壓與共振峰策略，不只是音量大小。PMID 25819162。
 - **Vurma, A. (2022).** Amplitude Effects of Vocal Tract Resonance Adjustments When Singing Louder. *Journal of Voice.* 音量改變時，聲道的共振調整是可量測的動作。PMID 32624371。
 - **McGlashan, J., Aaen, M., & White, A. (2023).** A mixed-method feasibility study of the use of the Complete Vocal Technique (CVT), a pedagogic method to improve the singing voice. *Pilot and Feasibility Studies.* CVT 的 neutral 模式就是輕量、閉合仍清楚的類型。PMID 37226281。
+
+![延伸查證的重點整理](../../assets/vocal/kp-26-7.svg)
+

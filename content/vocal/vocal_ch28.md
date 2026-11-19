@@ -6,11 +6,17 @@
 
 練完的改變：同樣的音量，你的聲音在伴奏裡聽得見；高音快破的時候，不必再給更多氣，只要把集中感加回來。
 
+
+![先講結論：這一節的三句話](../../assets/vocal/concl-28-a.svg)
+
 ## 常見誤解
 
 很多人以為穿透力等於大聲。所以一被蓋掉就扯嗓，兩首歌之後聲音就啞了。讓聲音穿出去的是頻率，不是音量。
 
 另一個誤解是「咽音是很玄的祕技」。它其實只是一個動作：用咽縮肌與杓會厭肌把喉部上方的咽腔收窄，讓聲道形成一個小漏斗。收窄之後，共振峰的位置改變，中低頻被壓抑，高頻泛音被放大，聲音就變亮、變集中。這個動作我們平常在學鴨子叫、學小孩嘲笑人時就用過。
+
+
+![常見誤解與實際情況的對照](../../assets/vocal/mis-28.svg)
 
 ## 原理：為什麼會這樣
 
@@ -101,9 +107,15 @@
 
 下一步是第 29 章：軟顎。它和咽腔合起來，你就能調出大部分的流行音色。
 
+
+![練完之後：這一節的三句話](../../assets/vocal/concl-28-b.svg)
+
 ## 延伸查證
 
 - **Lee, S. H., Kwon, H. J., & Choi, H. J. (2008).** The singer's formant and speaker's ring resonance: a long-term average spectrum analysis. *Clinical and Experimental Otorhinolaryngology.* 歌手共振峰（約 2.8–3.2 kHz 附近的能量群）可以被量測。PMID 19434279。
 - **Vampola, T., Horáček, J., & Laukkanen, A. M. (2024).** Three-Dimensional Finite Element Modeling of the Singer's Formant Cluster Optimization by Epilaryngeal Tube Shaping. *Journal of Voice.* 小體積的會厭腔（咽部收窄）能集中高頻能量。PMID 39218756。
 - **Vurma, A. (2022).** Amplitude Effects of Vocal Tract Resonance Adjustments When Singing Louder. *Journal of Voice.* 聲道共鳴的調整是可量測的動作，不只是「感覺」。PMID 32624371。
 - **Guzman, M., Laukkanen, A. M., & Krupa, P. (2013).** Vocal tract and glottal function during and after vocal exercising with resonance tube and straw. *Journal of Voice.* 用管子製造口腔阻力時，聲道與聲門功能會跟著改變——和收窄咽腔是同一類的阻抗調整。PMID 23683806。
+
+![延伸查證的重點整理](../../assets/vocal/kp-28-7.svg)
+

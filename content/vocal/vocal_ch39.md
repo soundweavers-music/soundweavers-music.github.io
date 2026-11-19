@@ -6,11 +6,17 @@
 
 練完你會發現：你的主歌開始有人味，而且你不需要真的哭，就能讓聲音聽起來快哭了。
 
+
+![先講結論：這一節的三句話](../../assets/vocal/concl-39-a.svg)
+
 ## 常見誤解
 
 很多人以為要有感情，就得讓自己真的難過。其實真的哽咽時，喉嚨是緊的、氣息是亂的，音準和閉合都會跑掉，唱出來是失控，不是動人。情緒是設計出來的，不是失控出來的。
 
 另一種誤解是「氣泡音越多越有味道」。氣泡音像辣椒，一點提味，滿鍋都是就毀了。它是一種最低張力的振動，用得節制才聽得出意思（Elias et al., 2016）。
+
+
+![常見誤解與實際情況的對照](../../assets/vocal/mis-39.svg)
 
 ## 原理：為什麼會這樣
 
@@ -96,9 +102,15 @@
 
 下一章要處理呼吸：換氣不是偷偷來的事情，它本身就可以是情緒的一部分。
 
+
+![練完之後：這一節的三句話](../../assets/vocal/concl-39-b.svg)
+
 ## 延伸查證
 
 - **Elias, V. S., Cielo, C. A., & Jotz, G. P. (2016).** Effect of Vocal Fry on Voice and on Velopharyngeal Sphincter. *International Archives of Otorhinolaryngology.* PMID: 27096021。氣泡音是低張力、低頻的振動，對嗓音與共鳴有可量測的影響。
 - **Paolillo, N. P., Carrozza, L., & Osio, M. (2021).** Inspiratory Vocal Fry: Anatomical and Physiological Aspects, Application in Speech Therapy, Voice Therapy and Singing Pedagogy. *Journal of Voice.* PMID: 31708370。氣泡音有呼氣與吸氣兩個方向，兩者在治療與歌唱教學上都有用途。
 - **Aura, M., Geneid, A., & Bjørkøy, K. (2022).** A Nasoendoscopic Study of "Head Resonance" and "Imposto" in Classical Singing. *Journal of Voice.* PMID: 32513553。所謂的「共鳴位置」其實是聲道形狀的改變；哭腔的往前上方，也是同一種調整。
 - **Behlau, M., & Oliveira, G. (2009).** Vocal hygiene for the voice professional. *Current Opinion in Otolaryngology & Head and Neck Surgery.* PMID: 19342952。補水、避免清喉嚨、安排聲音休息，是專業用聲者的基本保養。
+
+![延伸查證的重點整理](../../assets/vocal/kp-39-7.svg)
+

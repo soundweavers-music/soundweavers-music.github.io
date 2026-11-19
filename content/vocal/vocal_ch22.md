@@ -6,11 +6,17 @@
 
 練完的改變：唱同樣的高度，喉嚨裡面是開的，聲音不用變大就能出來；原本一到高音就啞掉的地方，會先鬆開，再談音準。
 
+
+![先講結論：這一節的三句話](../../assets/vocal/concl-22-a.svg)
+
 ## 常見誤解
 
 很多人把「假聲帶」和「假音」混在一起。這是兩個不同的東西。假音（falsetto）是真聲帶邊緣振動的一種狀態；假聲帶是喉嚨裡實體存在的兩片組織，位在真聲帶上方，平常不負責發出你唱歌的主要聲音。
 
 另一個誤解是「高音要更用力才穩」。你越把它當成搬重物，身體越會叫假聲帶出來幫忙關門。結果是聲音被壓扁、喉嚨痛、破音。真正的高音，喉部反而要比低音更鬆。
+
+
+![常見誤解與實際情況的對照](../../assets/vocal/mis-22.svg)
 
 ## 原理：為什麼會這樣
 
@@ -92,6 +98,9 @@
 
 下一步是第 23 章的氣泡音。它會讓你在一種幾乎不出力的狀態下，重新感覺聲帶邊緣怎麼靠攏。
 
+
+![練完之後：這一節的三句話](../../assets/vocal/concl-22-b.svg)
+
 ## 延伸查證
 
 - **Han, J., & Morrison, R. (2023).** Quantification of False Vocal Fold Hyperfunction During Quiet Breathing in Muscle Tension Dysphonia. *The Laryngoscope.* 假聲帶在緊張、用力時向中線靠攏，是可觀察、可量測的現象，也與肌肉緊張性嗓音障礙相關。PMID 37314219。
@@ -99,3 +108,6 @@
 - **Pettersen, V., Bjørkøy, K., & Torp, H. (2005).** Neck and shoulder muscle activity and thorax movement in singing and speaking tasks with variation in vocal loudness and pitch. *Journal of Voice.* 音越高、越大聲，頸肩的代償活動越明顯。PMID 16301107。
 - **Titze, I. R., et al. (2014).** Bi-stable vocal fold adduction: a mechanism of modal–falsetto register shifts and mixed registration. *Journal of the Acoustical Society of America.* 聲帶閉合可以停在不同的穩定狀態，換聲區就是兩種狀態的交接。PMID 25235006。
 - **Titze, I. R. (2006).** Voice training and therapy with a semi-occluded vocal tract: rationale and scientific underpinnings. *Journal of Speech, Language, and Hearing Research, 49*(2), 448–459. 半閉口練習讓聲帶在較低的壓力下振動，喉部不必防禦性收縮。PMID 16671856。
+
+![延伸查證的重點整理](../../assets/vocal/kp-22-7.svg)
+

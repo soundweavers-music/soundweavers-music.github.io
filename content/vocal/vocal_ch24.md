@@ -6,11 +6,17 @@
 
 這一章要教你三件事：找到自己的換聲區在哪、在交界之前就先減重、用母音和一點集中感把兩端接起來。
 
+
+![先講結論：這一節的三句話](../../assets/vocal/concl-24-a.svg)
+
 ## 常見誤解
 
 很多人以為換聲區是一道要撞破的牆，只要氣夠猛、丹田夠用力，就能把真音頂上去。撞破的結果通常是喉嚨卡死或聲音啞掉。它不是牆，是斜坡上的一個轉彎。
 
 另一個誤解是「別人的換聲區在哪，我的就在哪」。它跟聲帶長短、喉部構造、訓練背景都有關。教學上常說男生大約在 E4 到 F4 附近、女生在 A4 到 C5 附近，但那只是粗略的參考，不是每個人都一樣。你要用耳朵找自己的。
+
+
+![常見誤解與實際情況的對照](../../assets/vocal/mis-24.svg)
 
 ## 原理：為什麼會這樣
 
@@ -101,9 +107,15 @@
 
 下一步是第 25 章：混聲。換聲區是交界，混聲是讓交界兩邊用比例混在一起，聽起來沒有接縫。
 
+
+![練完之後：這一節的三句話](../../assets/vocal/concl-24-b.svg)
+
 ## 延伸查證
 
 - **Titze, I. R., et al. (2014).** Bi-stable vocal fold adduction: a mechanism of modal–falsetto register shifts and mixed registration. *Journal of the Acoustical Society of America.* 換聲區是兩種閉合狀態交接的地方，不是一條聲帶換成另一條。PMID 25235006。
 - **Lee, Y., Oya, M., & Kaburagi, T. (2023).** Differences Among Mixed, Chest, and Falsetto Registers: A Multiparametric Study. *Journal of Voice.* 胸聲、混聲、假聲在參數上可以區分，但界線是連續的。PMID 33518476。
 - **Berger, T., Fuchs, M., & Dippold, S. (2022).** Standardization and Feasibility of Voice Range Profile Measurements in Epidemiological Studies. *Journal of Voice.* 音域圖是客觀量測，不是憑感覺說「我唱得到」。PMID 32402662。
 - **Mürbe, D., Pabst, F., & Hofmann, G. (2002).** Significance of auditory and kinesthetic feedback to singers' pitch control. *Journal of Voice.* 音準同時依賴聽覺與身體感覺，兩者要一起用。PMID 12002886。
+
+![延伸查證的重點整理](../../assets/vocal/kp-24-7.svg)
+

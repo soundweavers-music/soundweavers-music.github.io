@@ -8,6 +8,9 @@
 
 先講清楚一件事：你能控制的是「讓它變」，不是「把它拉薄」。真正拉薄聲帶的是環甲肌，不是你的意志力。
 
+
+![先講結論：這一節的三句話](../../assets/vocal/concl-21-a.svg)
+
 ## 常見誤解
 
 很多人以為高音聽起來厚、有爆發力，就代表唱的時候聲帶也很厚。剛好相反。你聽到的那種厚，很大一部分是共鳴和氣流做出來的；真正在振動的是被拉薄之後的整片聲帶，只是振動的質量比低音時小得多。帶著整片厚聲帶去撞高音，換來的是卡頸、破音，或隔天喉嚨痛。
@@ -15,6 +18,9 @@
 另一個誤解是「變薄就是把聲音變虛、變小」。變薄指的是振動的質量變小，聲音可以小，也可以很亮、很集中。虛不虛，主要看閉合乾不乾淨，不看厚度。
 
 還有一種混淆：把「厚」和「大聲」當同一件事。你可以用很小的音量唱出很厚的低音，也可以用很大的音量唱出很薄的細音。練習時先固定音量、只改音高，你會比較聽得出厚度怎麼變。
+
+
+![常見誤解與實際情況的對照](../../assets/vocal/mis-21.svg)
 
 ## 原理：為什麼會這樣
 
@@ -92,9 +98,15 @@
 
 下一步是第 22 章：假聲帶。很多高音卡住的原因，不是聲帶不夠薄，是上面那兩片保護用的組織壓下來了。
 
+
+![練完之後：這一節的三句話](../../assets/vocal/concl-21-b.svg)
+
 ## 延伸查證
 
 - **Titze, I. R., et al. (2014).** Bi-stable vocal fold adduction: a mechanism of modal–falsetto register shifts and mixed registration. *Journal of the Acoustical Society of America.* 真音與假音是同一條聲帶的兩種閉合狀態，不是兩條不同的聲帶。PMID 25235006。
 - **Lee, Y., Oya, M., & Kaburagi, T. (2023).** Differences Among Mixed, Chest, and Falsetto Registers: A Multiparametric Study. *Journal of Voice.* 三種登記在聲學與氣動參數上可以區分，但界線是連續的。PMID 33518476。
 - **Pettersen, V., Bjørkøy, K., & Torp, H. (2005).** Neck and shoulder muscle activity and thorax movement in singing and speaking tasks with variation in vocal loudness and pitch. *Journal of Voice.* 音越高、越大聲，頸肩的代償活動越明顯。PMID 16301107。
 - **Titze, I. R. (2006).** Voice training and therapy with a semi-occluded vocal tract: rationale and scientific underpinnings. *Journal of Speech, Language, and Hearing Research, 49*(2), 448–459. 彈唇、哼鳴這類半閉口練習為什麼能讓聲帶在較低的壓力下振動。PMID 16671856。
+
+![延伸查證的重點整理](../../assets/vocal/kp-21-7.svg)
+

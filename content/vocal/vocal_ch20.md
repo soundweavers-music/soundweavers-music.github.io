@@ -8,6 +8,9 @@
 
 閉合沒有單一標準答案。它會跟著音高、音量、情緒一起調整，你要練的是「調得動」，不是「固定在某一格」。
 
+
+![先講結論：這一節的三句話](../../assets/vocal/concl-20-a.svg)
+
 ## 常見誤解
 
 很多人以為聲音要結實，就把聲帶用力捏緊。你捏不到聲帶，你捏到的是喉嚨外面的肌肉：下巴、舌根、脖子。結果聲音變緊、變扁，聲帶本身並沒有閉得更好。
@@ -15,6 +18,9 @@
 另一個誤解是漏氣就是氣不夠，多吸一點就好。漏氣是閉合效率的問題，不是氣量的問題。吸得再多，如果每次振動都漏掉一大半，句子還是很快見底。
 
 還有人把「放鬆」和「鬆掉」搞混。該放鬆的是喉嚨外圍；聲帶本身的閉合需要適度的張力。兩件事要分開處理，不然你會越放越虛，或越收越緊。
+
+
+![常見誤解與實際情況的對照](../../assets/vocal/mis-20.svg)
 
 ## 原理：為什麼會這樣
 
@@ -97,9 +103,15 @@
 
 下一章要處理聲帶的厚薄：同一個音，怎麼唱得厚、又怎麼唱得薄。
 
+
+![練完之後：這一節的三句話](../../assets/vocal/concl-20-b.svg)
+
 ## 延伸查證
 
 - **Titze, I. R. (2006).** Voice training and therapy with a semi-occluded vocal tract: rationale and scientific underpinnings. *Journal of Speech, Language, and Hearing Research, 49*(2), 448–459. 口腔後方增加阻力後，聲帶可以用較低的壓力振動，對閉合過緊的人特別有用。PMID 16671856。
 - **Guzman, M., Laukkanen, A. M., & Krupa, P. (2013).** Vocal tract and glottal function during and after vocal exercising with resonance tube and straw. *Journal of Voice.* 吸管與共鳴管發聲會改變聲道與聲門功能，是量測得到的。PMID 23683806。
 - **Elias, V. S., Cielo, C. A., & Jotz, G. P. (2016).** Effect of Vocal Fry on Voice and on Velopharyngeal Sphincter. *International Archives of Otorhinolaryngology.* 氣泡音是低張力、低氣壓下的振動，可以當作放鬆閉合的練習。PMID 27096021。
 - **Lee, Y., Oya, M., & Kaburagi, T. (2023).** Differences Among Mixed, Chest, and Falsetto Registers: A Multiparametric Study. *Journal of Voice.* 不同登記在氣動與聲學參數上可以區分，但界線連續，閉合是滑動的。PMID 33518476。
+
+![延伸查證的重點整理](../../assets/vocal/kp-20-7.svg)
+

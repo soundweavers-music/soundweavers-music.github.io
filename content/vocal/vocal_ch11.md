@@ -8,6 +8,9 @@
 
 如果你現在直接跳上去會「喀」一聲斷掉，那不是你沒天分，是中間少了一座橋。這一章會給你兩座：彈唇和哼鳴。
 
+
+![先講結論：這一節的三句話](../../assets/vocal/concl-11-a.svg)
+
 ## 常見誤解
 
 很多人以為用假音唱高音是「逃避」，覺得會唱真音才叫有實力。其實歌裡那些一碰就碎的柔、飄、嘆息，多半是假音做的。整首都用真音硬撐，聽起來只會像在喊口號。
@@ -15,6 +18,9 @@
 另一個誤解是「假音要用力擠才發得出來」。剛好相反。假音的重點是放掉喉嚨的力氣，讓氣流順一點、聲帶只輕輕靠著。你一擠，聲帶就被夾緊，它反而出不來，還會刮喉嚨。
 
 還有人把「假音」和「氣音」混在一起。氣音是幾乎不震動、只有氣流；假音是聲帶邊緣有在震動，只是同時漏氣。假音是有音高的，氣音沒有。
+
+
+![常見誤解與實際情況的對照](../../assets/vocal/mis-11.svg)
 
 ## 原理：為什麼會這樣
 
@@ -105,9 +111,15 @@
 
 下一個要處理的是歌的段落：什麼時候該收，什麼時候該放。
 
+
+![練完之後：這一節的三句話](../../assets/vocal/concl-11-b.svg)
+
 ## 延伸查證
 
 - **Titze, I. R. (2006).** Voice training and therapy with a semi-occluded vocal tract: rationale and scientific underpinnings. *Journal of Speech, Language, and Hearing Research, 49*(2), 448–459. 這篇是「彈唇、哼鳴、吸管發聲」這類半閉口練習的理論基礎：口腔後方增加阻力，聲帶可以用較低的壓力振動。PMID 16671856。
 - **Titze, I. R., et al. (2014).** Bi-stable vocal fold adduction: a mechanism of modal–falsetto register shifts and mixed registration. *Journal of the Acoustical Society of America.* 說明真音與假音是同一條聲帶的兩種閉合狀態，不是兩條不同的聲帶。PMID 25235006。
 - **Differences Among Mixed, Chest, and Falsetto Registers: A Multiparametric Study (2023).** *Journal of Voice.* 以聲學與氣動參數比較胸聲、混聲、假聲三種登記，量測上確實可以區分，但界線是連續的。PMID 33518476。
 - **Titze, I. R. (1994).** *Principles of Voice Production.* Prentice Hall. 聲帶振動與音高的力學基礎（教科書，沒有 PMID）。
+
+![延伸查證的重點整理](../../assets/vocal/kp-11-7.svg)
+

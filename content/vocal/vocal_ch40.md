@@ -6,6 +6,9 @@
 
 練完你會發現：你可以在一句話中間停下來吸氣，聽的人不會覺得你斷掉，反而更專心。
 
+
+![先講結論：這一節的三句話](../../assets/vocal/concl-40-a.svg)
+
 ## 常見誤解
 
 很多人以為吸氣一定要無聲，不能讓觀眾發現。那是合唱與古典聲樂的規矩。流行歌貼在耳朵旁邊唱，完全無聲的呼吸有時反而讓人覺得像機器。
@@ -13,6 +16,9 @@
 另一種誤解是「氣越飽越好」。吸到肩膀聳起來、胸口繃住，第一句反而變硬，後面的句子也跟著亂。夠用就好。
 
 還有一種：把換氣當成樂句的結束。其實換氣點可以放在句子中間，製造一個懸空，那是語氣，不是失誤。
+
+
+![常見誤解與實際情況的對照](../../assets/vocal/mis-40.svg)
 
 ## 原理：為什麼會這樣
 
@@ -97,9 +103,15 @@
 
 下一章要談的是更抽象的一層：怎麼讓自己真的進入歌曲的畫面和情境，而不是只在做語氣。
 
+
+![練完之後：這一節的三句話](../../assets/vocal/concl-40-b.svg)
+
 ## 延伸查證
 
 - **Thorpe, C. W., Cala, S. J., & Chapman, J. (2001).** Patterns of breath support in projection of the singing voice. *Journal of Voice.* PMID: 12269638。支撐不是單一動作，不同歌手用不同的軀幹策略達到同一結果；換氣方式也一樣，不必全盤照抄。
 - **Emerich Gordon, K., & Reed, O. (2020).** The Role of the Pelvic Floor in Respiration: A Multidisciplinary Literature Review. *Journal of Voice.* PMID: 30447797。下腹與骨盆底在呼吸中的角色；小口吸氣能讓氣掉到這裡，而不是停在胸口。
 - **Behlau, M., & Oliveira, G. (2009).** Vocal hygiene for the voice professional. *Current Opinion in Otolaryngology & Head and Neck Surgery.* PMID: 19342952。補水、避免清喉嚨、安排聲音休息的實證建議。
 - **Keltz, A., & McHenry, M. (2022).** Steam and/or Semi-occluded Vocal Tract Exercise as Morning Vocal Warm-up Strategy. *Journal of Voice.* PMID: 32988703。蒸氣與半閉口練習可以當早晨暖嗓；蒸氣是舒緩，不是治療。
+
+![延伸查證的重點整理](../../assets/vocal/kp-40-7.svg)
+
