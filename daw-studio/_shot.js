@@ -3,6 +3,7 @@ import { newFx } from './js/effects.js';
 const P = new URLSearchParams(location.search);
 const acts = (P.get('do') || '').split(',').map(function (s) { return s.trim(); }).filter(Boolean);
 const sleep = function (ms) { return new Promise(function (r) { setTimeout(r, ms); }); };
+const EVALS = [];
 const waitFor = async function (fn, ms) {
   const t0 = Date.now();
   while (!fn()) { if (Date.now() - t0 > (ms || 10000)) return false; await sleep(60); }
@@ -42,15 +43,20 @@ for (const a of acts) {
       window.__daw.openFxPanel(t.id, fx.id);
     }
     else if (key === 'wait') await sleep(Number(arg[0]));
-    else if (key === 'eval') (0, eval)(decodeURIComponent(arg.join(':')));
+    else if (key === 'eval') { const js = decodeURIComponent(arg.join(':')); (0, eval)(js); EVALS.push(js); }
   } catch (e) { console.warn('shot action failed', a, e); }
   await sleep(420);
 }
 await sleep(350);
+// 介面重繪會把捲動位置歸零，量座標前再套一次
+for (const js of EVALS) { try { (0, eval)(js); } catch (e) {} }
+await sleep(200);
 // 把畫面元素的位置回報給截圖腳本，標註框才不會用寫死的座標
 try {
   const sels = (P.get('rects') || '').split('|').filter(Boolean);
   const out = {};
+  out.__viewport = [[window.innerWidth, window.innerHeight,
+                     document.documentElement.scrollHeight, document.body.clientHeight]];
   for (const sel of sels) {
     out[sel] = Array.from(document.querySelectorAll(sel)).slice(0, 8).map(function (el) {
       const r = el.getBoundingClientRect();

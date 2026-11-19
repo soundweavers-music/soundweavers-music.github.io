@@ -757,11 +757,12 @@ $('btnArranger').onclick = () => toggleArranger();
   // 站上的音色庫：鋼琴單獨一份（Salamander 抽稀），其餘靠 GM。
   // 兩份都背景抓，抓不到就維持原本的合成音色，不影響任何功能。
   const pianoLink = document.getElementById('builtinPiano');
+  const stringsLink = document.getElementById('builtinStrings');
   const bankLink = document.getElementById('builtinBank');
   const GM = { drums: [0, 0, 128], bass: [33, 0], keys: [0, 0], guitar: [25, 0], strings: [48, 0], arp: [4, 0] };
   (async () => {
     const ids = [];
-    for (const [link, label] of [[pianoLink, 'Salamander Piano'], [bankLink, 'GeneralUser GS']]) {
+    for (const [link, label] of [[pianoLink, 'Salamander Piano'], [stringsLink, 'Sonatina Strings'], [bankLink, 'GeneralUser GS']]) {
       if (!link || !link.href) continue;
       try { ids.push(await loadBuiltinBank(link.href, label)); } catch (e) { /* 抓不到就跳過 */ }
     }
