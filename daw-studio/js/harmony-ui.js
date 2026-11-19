@@ -29,6 +29,16 @@ export function harmEditor(owner, desc, onChange) {
   const root = document.createElement('div');
   root.className = 'hmx';
   root.innerHTML = `
+    <div class="hmx-q">
+      <div class="hmx-qtabs"><button type="button" data-q="0" title="和聲即時產生，錄音時可以邊唱邊聽">⚡ 即時（可邊唱邊聽）</button><button type="button" data-q="1" title="先分析整段主唱再算出和聲：音準準確很多、聲音乾淨，但不能即時監聽">✨ 高品質（預先運算）</button></div>
+      <div class="hmx-qhq">
+        <span class="hmx-qst"></span>
+        <label class="hmx-vk" title="和聲要不要跟著主唱的顫音一起抖（100% = 跟主唱一模一樣；0% = 和聲是平穩的長音）">保留顫音 <input type="range" min="0" max="100" step="5"><b></b></label>
+        <button type="button" class="tbtn primary hmx-qgo">運算和聲</button>
+        <button type="button" class="tbtn ghost hmx-qrm" title="刪掉算好的和聲軌">刪除和聲軌</button>
+      </div>
+      <div class="hmx-qbar" hidden><i></i><span></span></div>
+    </div>
     <div class="hmx-count"><span>和聲部數</span>${[1, 2, 3, 4].map(n => `<button type="button" data-n="${n}">${n} 部</button>`).join('')}
       <span class="hmx-sp"></span><div class="hmx-pre"></div></div>
     <div class="hmx-voices"></div>
@@ -65,6 +75,55 @@ export function harmEditor(owner, desc, onChange) {
   function live() { store.dirty = true; store.emit('fx-live', {}); }
   function changed() { onChange(false); refresh(); }
   const cp = () => store.checkpoint();
+
+  // ---------- 品質：即時 / 高品質（預先運算）----------
+  const qTabs = $('.hmx-qtabs'), qSt = $('.hmx-qst'), qGo = $('.hmx-qgo'), qRm = $('.hmx-qrm'), qBar = $('.hmx-qbar');
+  const vk = $('.hmx-vk input'), vkv = $('.hmx-vk b');
+  if (P.vibKeep === undefined) P.vibKeep = 100;
+  vk.value = P.vibKeep; vkv.textContent = P.vibKeep + '%';
+  vk.addEventListener('pointerdown', cp);
+  vk.oninput = () => { P.vibKeep = +vk.value; vkv.textContent = P.vibKeep + '%'; store.dirty = true; syncQ(); };
+  qTabs.onclick = async e => {
+    const b = e.target.closest('button'); if (!b) return;
+    const q = +b.dataset.q;
+    if (q === (P.hq ? 1 : 0)) return;
+    if (q === 0) {
+      const { hqTracksOf, removeHq } = await import('./harmony-render.js');
+      const n = hqTracksOf(desc).length;
+      if (n && !confirm(`切回即時模式會刪除 ${n} 條算好的高品質和聲軌，確定嗎？（可以 Ctrl+Z 復原）`)) return;
+      if (n) removeHq(desc);
+      cp(); P.hq = 0; changed(); toast('即時模式：和聲由效果器即時產生，可以邊唱邊聽');
+    } else {
+      cp(); P.hq = 1; changed();
+      toast('高品質模式：按「運算和聲」產生和聲軌；之後改了設定要再按一次');
+    }
+  };
+  async function syncQ() {
+    qTabs.querySelectorAll('button').forEach(b => b.classList.toggle('sel', +b.dataset.q === (P.hq ? 1 : 0)));
+    root.classList.toggle('hq', !!P.hq);
+    const { hqTracksOf, hqSignature } = await import('./harmony-render.js');
+    const tr = store.track(owner), have = hqTracksOf(desc).length;
+    const stale = have && tr && P.hqSig !== hqSignature(tr, desc);
+    qSt.innerHTML = !have ? '<em>尚未運算</em>：設定好聲部後按「運算和聲」' : stale ? `<b class="warn">設定已變更</b>，按「重新運算」更新 ${have} 條和聲軌` : `<b class="ok">✓ 已完成</b>：${have} 條和聲軌（在主唱軌下方，可以個別調音量、加效果）`;
+    qGo.textContent = have ? '重新運算' : '運算和聲';
+    qGo.classList.toggle('primary', !have || !!stale);
+    qRm.hidden = !have;
+  }
+  qGo.onclick = async () => {
+    const { renderHq } = await import('./harmony-render.js');
+    qGo.disabled = true; qBar.hidden = false;
+    const bar = qBar.querySelector('i'), txt = qBar.querySelector('span');
+    const t0 = performance.now();
+    try {
+      const n = await renderHq(owner, desc, (p, t) => { bar.style.width = (p * 100).toFixed(1) + '%'; txt.textContent = t; });
+      toast(`已產生 ${n} 部高品質和聲（${((performance.now() - t0) / 1000).toFixed(1)} 秒）`);
+    } catch (err) { toast('運算失敗：' + err.message, 'error'); console.error(err); }
+    finally { qGo.disabled = false; qBar.hidden = true; syncQ(); }
+  };
+  qRm.onclick = async () => {
+    const { removeHq } = await import('./harmony-render.js');
+    const n = removeHq(desc); if (n) toast(`已刪除 ${n} 條和聲軌`); syncQ();
+  };
 
   // ---------- 部數、預設值 ----------
   const countBox = $('.hmx-count');
@@ -533,6 +592,7 @@ export function harmEditor(owner, desc, onChange) {
   }
 
   function refresh() {
+    syncQ();
     renderVoices();
     tabs.querySelectorAll('button').forEach(b => b.classList.toggle('sel', +b.dataset.s === (P.source | 0)));
     $('.hmx-src0').style.display = P.source === 1 ? 'none' : '';
