@@ -3,6 +3,7 @@
 //
 // 對外 API：
 //   PRESETS / PRESET_GROUPS     音色清單
+import { bakedVoice } from './bake.js';
 //   startVoice(ctx, dest, presetId, midi, vel, when) → voice（voice.release(t)、voice.end）
 //   scheduleNote(ctx, dest, presetId, midi, vel, when, dur)  一次排好起訖
 
@@ -66,8 +67,17 @@ export const PRESETS = {
              filter: { type: 'lowpass', freq: 3500, q: 0.4 }, amp: { a: 0.001, d: 0.55, s: 0, r: 0.2 }, keyDecay: true },
   drums:   { name: '鼓組（GM 鼓位）', group: '鼓', drum: true },
 };
-export const PRESET_GROUPS = ['鍵盤', '吉他', '弦樂', '合成器', '貝斯', '打擊', '鼓'];
+export const PRESET_GROUPS = ['內建音色 2', '鍵盤', '吉他', '弦樂', '合成器', '貝斯', '打擊', '鼓'];
 export const DEFAULT_PRESET = 'piano';
+
+// 內建音色 2：按下音符時才即時烘焙波形（見 bake.js），不讀任何檔案
+export const BAKE_PRESETS = {
+  bpiano: { name: '平台鋼琴・烘焙版', group: '內建音色 2', bake: 'piano', gain: 0.95, release: 0.32, amp: { a: 0.001, d: 3, s: 0, r: 0.3 } },
+  bpluck: { name: '鋼弦吉他・烘焙版', group: '內建音色 2', bake: 'pluck', gain: 1.0, release: 0.12, bakeOpts: { bright: 0.45 }, amp: { a: 0.001, d: 2, s: 0, r: 0.12 } },
+  bngit:  { name: '尼龍吉他・烘焙版', group: '內建音色 2', bake: 'pluck', gain: 0.95, release: 0.14, bakeOpts: { bright: 0.28 }, amp: { a: 0.002, d: 2, s: 0, r: 0.15 } },
+  bbass:  { name: '電貝斯・烘焙版', group: '內建音色 2', bake: 'pluck', gain: 1.0, release: 0.1, bakeOpts: { bright: 0.22 }, amp: { a: 0.002, d: 2, s: 0, r: 0.1 } },
+};
+Object.assign(PRESETS, BAKE_PRESETS);
 
 // GM 鼓位名稱（鋼琴捲簾左側顯示）
 export const DRUM_NAMES = {
@@ -265,6 +275,10 @@ export function startVoice(ctx, dest, presetId, midi, vel, when) {
     presetId = sfHook.isDrums(presetId) ? 'drums' : DEFAULT_PRESET;
   }
   const P = PRESETS[presetId] || PRESETS[DEFAULT_PRESET];
+  if (P.bake) {
+    const bv = bakedVoice(ctx, dest, P, midi, vel, when);
+    if (bv) return bv;
+  }
   return P.drum ? drumVoice(ctx, dest, midi, vel, when) : melodicVoice(ctx, dest, P, midi, vel, when);
 }
 

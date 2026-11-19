@@ -3441,6 +3441,16 @@ def build_tool_guides():
     print(f"  tool guides: {built}")
 
 
+def _daw_figures(html, page_path):
+    """Markdown 的 ![...](...) → 有圖說的 figure，並把站台絕對路徑改成這頁的相對路徑。"""
+    def repl(m):
+        alt, src = m.group(1), m.group(2)
+        url = resolve_url(page_path, src) if src.startswith("/") else src
+        return ('<figure class="dawc-shot"><img src="' + url + '" alt="' + alt + '" loading="lazy">'
+                '<figcaption>' + alt + '</figcaption></figure>')
+    return re.sub(r'<p><img alt="([^"]*)" src="([^"]*)"\s*/?></p>', repl, html)
+
+
 def build_daw_course(daw_dir: Path) -> None:
     """20 堂 DAW 課程：/tools/daw/learn/。
 
@@ -3522,7 +3532,7 @@ def build_daw_course(daw_dir: Path) -> None:
     for i, l in enumerate(lessons):
         d = out_dir / l["no"]
         d.mkdir(parents=True, exist_ok=True)
-        html_md = markdown.markdown(l["md"], extensions=["extra", "tables"])
+        html_md = _daw_figures(markdown.markdown(l["md"], extensions=["extra", "tables"]), d / "index.html")
         img = ""
         if l["image"]:
             src_img = resolve_url(d / "index.html", l["image"])
@@ -3708,6 +3718,14 @@ def main():
     if theory_img.exists():
         shutil.copytree(str(theory_img), str(OUTPUT_DIR / "assets" / "theory"), dirs_exist_ok=True)
     # DAW 課程截圖
+    dawbank = BASE_DIR / "assets" / "daw-bank"
+    if dawbank.exists():
+        # 只發布裁切後的內建版；完整的 GeneralUser GS 留在本機（授權與大小）
+        dst = OUTPUT_DIR / "assets" / "daw-bank"
+        dst.mkdir(parents=True, exist_ok=True)
+        for f in dawbank.glob("*.sf2"):
+            if f.name.startswith("builtin"):
+                shutil.copy2(str(f), str(dst / f.name))
     dawcourse_img = BASE_DIR / "assets" / "daw-course"
     if dawcourse_img.exists():
         shutil.copytree(str(dawcourse_img), str(OUTPUT_DIR / "assets" / "daw-course"), dirs_exist_ok=True)

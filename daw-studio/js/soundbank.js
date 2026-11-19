@@ -92,6 +92,34 @@ export async function addBankFile(file) {
 }
 
 // 開頁時：列出 IndexedDB 裡的音色庫，並在背景解析
+/**
+ * 站上內建的音色庫：第一次用到才抓（不擋開頁），抓完走跟手動選檔一樣的路徑，
+ * 所以一樣會存進 IndexedDB，第二次開啟直接從快取還原。
+ */
+export async function loadBuiltinBank(url, label) {
+  for (const b of banks.values()) {
+    if (b.builtin && b.status === 'ready') return b.id;
+  }
+  const res = await fetch(url, { cache: 'force-cache' });
+  if (!res.ok) throw new Error('HTTP ' + res.status);
+  const ab = await res.arrayBuffer();
+  const file = new File([ab], (label || 'builtin') + '.sf2', { type: 'application/octet-stream' });
+  const before = new Set(banks.keys());
+  const id = await addBankFile(file);
+  const added = [...banks.keys()].find(k => !before.has(k)) || id;
+  const entry = banks.get(added);
+  if (entry) entry.builtin = true;
+  return added;
+}
+
+/** 在音色庫裡找 GM program 對應的 preset 索引 */
+export function findProgram(bankId, program, bank) {
+  const b = banks.get(bankId);
+  if (!b || !b.presets) return -1;
+  const want = bank === undefined ? 0 : bank;
+  return b.presets.findIndex(pr => (pr.program ?? -1) === program && (pr.bank ?? 0) === want);
+}
+
 export async function restoreBanks() {
   let db;
   try { db = await idb(); } catch (_) { return; }

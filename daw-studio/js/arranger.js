@@ -153,7 +153,7 @@ class Arranger {
         if (p.tracks.length >= MAX_TRACKS) continue;
         if (!added) store.checkpoint();   // 第一次加伴奏軌：可以 Ctrl+Z 拿掉
         t = newTrack(p.tracks.length, 'midi');
-        t.name = '伴奏-' + part.name; t.instrument = part.def; t.arrPart = part.id; t.volumeDb = part.defVol; t.color = part.color;
+        t.name = '伴奏-' + part.name; t.instrument = (window.__dawArrangerInst && window.__dawArrangerInst[part.id]) || part.def; t.arrPart = part.id; t.volumeDb = part.defVol; t.color = part.color;
         p.tracks.push(t); added++;
       }
       ids[part.id] = t.id;
