@@ -50,6 +50,9 @@
 
 ---
 
+
+![遮蔽長什麼樣：兩個頻譜重疊的地方](../../assets/digitalmusic/mask-vocal-guitar.svg)
+
 ## 解決頻率遮蔽的核心技巧
 
 ### 互補式 EQ（Complimentary EQ）

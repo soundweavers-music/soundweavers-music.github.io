@@ -27,6 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(BASE_DIR / "scripts"))
 
 import build_vocal_figures as vf  # noqa: E402
+import dm_graphs as dg  # noqa: E402
 
 OUT_DIR = BASE_DIR / "assets" / "digitalmusic"
 
@@ -2248,6 +2249,135 @@ for _k, (_title, _sub, _items, _note) in FLOW_FIGURES.items():
     FIGURES[_k] = make_flow(_title, _sub, _items, _note)
 for _k, (_title, _sub, _cols, _rows, _note) in CMP_FIGURES.items():
     FIGURES[_k] = make_cmp(_title, _sub, _cols, _rows, _note)
+
+
+# ---------------------------------------------------------------- 定量圖（真的算出來的曲線）
+def make_eq(title, sub, bands, note="", marks=()):
+    """bands: dict(kind, f, gain, q)；marks: [(freq, 文字)] 標在曲線上。"""
+    def fn():
+        x0, y0, x1, y1 = 70, 96, 590, 300
+        b = []
+        b += dg.grid(x0, y0, x1, y1, t, ts, path, LINE, MUTED)
+        b.append(dg.eq_curve(x0, y0, x1, y1, bands, path))
+        for f, label in marks:
+            xx = dg._x(f, x0, x1)
+            b.append(path(f"M{xx:.1f} {y0} L{xx:.1f} {y1}", cls="thin", sw=0.8, opacity=0.45, dash="3 3"))
+            b.append(ts(xx + 4, y0 + 12, label, size=9.5, color=ACCENT))
+        b.append(ts(26, 344, note, size=11))
+        return 660, 366, title, sub, "".join(b), None
+    return fn
+
+
+def make_comp(title, sub, threshold=-24, ratio=4, knee=6, note=""):
+    def fn():
+        x0, y0, x1, y1 = 80, 96, 560, 300
+        b = []
+        for v in (-60, -48, -36, -24, -12, 0):
+            xx = x0 + (v + 60) / 60 * (x1 - x0)
+            yy = y1 - (v + 60) / 60 * (y1 - y0)
+            b.append(path(f"M{xx:.1f} {y0} L{xx:.1f} {y1}", cls="thin", sw=0.8, opacity=0.5))
+            b.append(path(f"M{x0} {yy:.1f} L{x1} {yy:.1f}", cls="thin", sw=0.8, opacity=0.5))
+            b.append(ts(xx, y1 + 15, f"{v}", size=8.5, anchor="middle", color=MUTED))
+            b.append(ts(x0 - 6, yy + 3.5, f"{v}", size=8.5, anchor="end", color=MUTED))
+        b.append(dg.comp_curve(x0, y0, x1, y1, threshold, ratio, knee, path))
+        xx = x0 + (threshold + 60) / 60 * (x1 - x0)
+        b.append(ts(xx + 4, y1 - 8, f"Threshold {threshold} dB", size=9.5, color=ACCENT))
+        b.append(ts(26, 340, note, size=11))
+        b.append(ts(x1 + 8, y1 + 15, "輸入 dBFS", size=9, color=MUTED))
+        return 660, 362, title, sub, "".join(b), None
+    return fn
+
+
+def make_decay(title, sub, rt60=2.0, pre=0.02, note=""):
+    def fn():
+        x0, y0, x1, y1 = 70, 96, 590, 300
+        b = []
+        for db in (0, -20, -40, -60):
+            yy = y1 - ((db + 60) / 60) * (y1 - y0)
+            b.append(path(f"M{x0} {yy:.1f} L{x1} {yy:.1f}", cls="thin", sw=1 if db else 1.3))
+            b.append(ts(x0 - 6, yy + 3.5, f"{db} dB", size=8.5, anchor="end", color=MUTED))
+        b.append(dg.decay_curve(x0, y0, x1, y1, rt60, pre, path))
+        for sec in range(1, int(rt60 * 1.08) + 1):
+            xx = x0 + (sec / (rt60 * 1.08)) * (x1 - x0)
+            b.append(path(f"M{xx:.1f} {y1} L{xx:.1f} {y1 + 5}" , cls="thin", sw=0.9))
+            b.append(ts(xx, y1 + 16, f"{sec}s", size=8.5, anchor="middle", color=MUTED))
+        b.append(ts(26, 340, note, size=11))
+        return 660, 362, title, sub, "".join(b), None
+    return fn
+
+
+def make_masking(title, sub, peaks, note=""):
+    def fn():
+        x0, y0, x1, y1 = 70, 96, 590, 300
+        b = []
+        for f in (100, 500, 2000, 8000):
+            xx = dg._x(f, x0, x1)
+            b.append(path(f"M{xx:.1f} {y0} L{xx:.1f} {y1}", cls="thin", sw=0.8, opacity=0.45))
+            b.append(ts(xx, y1 + 14, f"{f}", size=8.5, anchor="middle", color=MUTED))
+        for peak, width, amp, cls in peaks:
+            b.append(dg.spectrum(x0, y0, x1, y1, peak, width, amp, cls, path))
+        b.append(ts(26, 340, note, size=11))
+        return 660, 362, title, sub, "".join(b), None
+    return fn
+
+
+EQ_FIGURES = {
+    "eq-mud-cut": ("清掉 200–500 Hz 的模糊區",
+        "人聲與吉他常在這一段累積「箱音」；用窄一點的鐘形挖 2–4 dB 就好",
+        [{"kind": "bell", "f": 320, "gain": -4, "q": 1.4}],
+        "挖太多會變薄；先挖 2 dB，聽不出差別再往下加。", [(320, "300–400 Hz")]),
+    "eq-harsh-cut": ("減少 2–4 kHz 的刺耳感",
+        "這一段是耳朵最敏感的地方，長時間聽會累",
+        [{"kind": "bell", "f": 2800, "gain": -3.5, "q": 1.6}],
+        "刺耳常常是「某個音特別衝」，用窄 Q 只處理那一顆，不要整段壓。", [(2800, "2.8 kHz")]),
+    "eq-highpass": ("高通：把不需要的低頻清掉",
+        "人聲 80 Hz 以下幾乎沒有內容，留著只會讓混音變糊",
+        [{"kind": "hp", "f": 90, "order": 2}],
+        "12 dB/oct 是常用的斜率；太陡會有相位問題，太緩又清不乾淨。", [(90, "90 Hz")]),
+    "eq-shelf": ("擱架式 EQ：整段抬起或放下",
+        "不是只動一個點，而是「這個頻率以上／以下全部」",
+        [{"kind": "high_shelf", "f": 4000, "gain": 3},
+         {"kind": "low_shelf", "f": 200, "gain": -2}],
+        "母帶最常用擱架：抬一點空氣感、放一點低頻，整體就換一個氣質。", [(4000, "4 kHz 以上 +3"), (200, "200 Hz 以下 −2")]),
+}
+
+COMP_FIGURES = {
+    "comp-ratio-mid": ("2:1 與 4:1：差別在「壓多少」",
+        "同一條對角線，Ratio 越大，轉折後越平",
+        -24, 4, 6, "流行歌人聲常用 2:1～4:1；超過 8:1 就已經接近限制了。"),
+    "comp-attack-fast": ("Threshold 越低，越早開始壓",
+        "Threshold 決定「從多大聲開始被壓」，Ratio 決定「壓得多兇」",
+        -36, 3, 3, "Threshold 太低會把整首歌都壓住，動態就不見了。"),
+}
+
+DECAY_FIGURES = {
+    "decay-short": ("短殘響：房間／Plate 的尾巴",
+        "RT60 約 1.2 秒，適合流行歌的人聲與小鼓",
+        1.2, 0.02, "RT60＝聲音衰減 60 dB 所需的時間，是描述殘響長度的標準說法。"),
+    "decay-long": ("長殘響：Hall 的尾巴",
+        "RT60 約 3 秒；尾巴越長，越快聽起來「遠」",
+        3.0, 0.03, "長殘響要配 pre-delay，否則人聲會黏在空間裡、字變得模糊。"),
+}
+
+MASK_FIGURES = {
+    "mask-vocal-guitar": ("遮蔽：人聲被吉他蓋住長什麼樣",
+        "兩個頻譜重疊的地方，聽起來只剩比較大的那一個",
+        [(1000, 1.1, 1.0, "blue"), (1150, 1.0, 0.75, "acc")],
+        "解法不是把人聲推大，而是在吉他那一軌的 1 kHz 附近挖 2～3 dB。"),
+    "mask-bass-kick": ("低頻遮蔽：Kick 與 Bass 撞在一起",
+        "兩個都在 60–90 Hz，結果是誰也不清楚",
+        [(70, 0.9, 1.0, "acc"), (95, 0.9, 0.85, "blue")],
+        "分工的方式：讓 Kick 負責 60 Hz 的衝擊、Bass 負責 100 Hz 的厚度。"),
+}
+
+for _k, (_title, _sub, _bands, _note, _marks) in EQ_FIGURES.items():
+    FIGURES[_k] = make_eq(_title, _sub, _bands, _note, _marks)
+for _k, (_title, _sub, _th, _ra, _kn, _note) in COMP_FIGURES.items():
+    FIGURES[_k] = make_comp(_title, _sub, _th, _ra, _kn, _note)
+for _k, (_title, _sub, _rt, _pre, _note) in DECAY_FIGURES.items():
+    FIGURES[_k] = make_decay(_title, _sub, _rt, _pre, _note)
+for _k, (_title, _sub, _peaks, _note) in MASK_FIGURES.items():
+    FIGURES[_k] = make_masking(_title, _sub, _peaks, _note)
 
 
 def build(names=None):
