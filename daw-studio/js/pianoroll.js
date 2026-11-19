@@ -8,6 +8,7 @@ import { pedalSpans } from './engine.js';
 import { engine } from './engine.js';
 import { PRESETS, DRUM_NAMES, noteName } from './synth.js';
 import { toast } from './util.js';
+import { cssVar } from './theme.js';
 
 const KEYS_W = 64, ROW_H = 12, VEL_H = 64, LOW = 0, HIGH = 127;
 const BLACK = new Set([1, 3, 6, 8, 10]);
@@ -168,7 +169,7 @@ export function draw() {
 
   // ---- 琴鍵 ----
   const k = setup(keysCv, KEYS_W, H);
-  k.fillStyle = '#1b1c20'; k.fillRect(0, 0, KEYS_W, H);
+  k.fillStyle = cssVar('--pr-keys-bg'); k.fillRect(0, 0, KEYS_W, H);
   k.font = '9.5px ui-monospace, Consolas, monospace'; k.textBaseline = 'middle';
   for (let p = pOf(sy + H) ; p <= Math.min(HIGH, pOf(sy) + 1); p++) {
     const y = yOf(p) - sy;
@@ -183,9 +184,9 @@ export function draw() {
   const g = setup(gridCv, W, H);
   for (let p = pOf(sy + H); p <= Math.min(HIGH, pOf(sy) + 1); p++) {
     const y = yOf(p) - sy;
-    g.fillStyle = drums ? (DRUM_NAMES[p] ? '#202227' : '#18191c') : BLACK.has(p % 12) ? '#1a1b1f' : '#212328';
+    g.fillStyle = drums ? (DRUM_NAMES[p] ? cssVar('--pr-row-d') : cssVar('--pr-row-d2')) : BLACK.has(p % 12) ? cssVar('--pr-row-b') : cssVar('--pr-row-w');
     g.fillRect(0, y, W, ROW_H);
-    if (p % 12 === 0) { g.fillStyle = '#2f3238'; g.fillRect(0, y + ROW_H - 1, W, 1); }
+    if (p % 12 === 0) { g.fillStyle = cssVar('--pr-oct'); g.fillRect(0, y + ROW_H - 1, W, 1); }
   }
   const n = store.project.sigNum;
   const b0 = Math.floor(bOf(sx) / pr.grid) * pr.grid, b1 = bOf(sx + W);
@@ -193,13 +194,13 @@ export function draw() {
     const x = Math.round(xOf(b) - sx) + 0.5;
     const isBar = Math.abs(b / n - Math.round(b / n)) < 1e-6;
     const isBeat = Math.abs(b - Math.round(b)) < 1e-6;
-    g.strokeStyle = isBar ? '#4a4d55' : isBeat ? '#33363d' : '#26282d';
+    g.strokeStyle = isBar ? cssVar('--pr-bar') : isBeat ? cssVar('--pr-beat') : cssVar('--pr-sub');
     g.beginPath(); g.moveTo(x, 0); g.lineTo(x, H); g.stroke();
-    if (isBar && b >= 0) { g.fillStyle = '#8a8e97'; g.font = '10px ui-monospace, Consolas'; g.fillText(String(Math.round(b / n) + 1), x + 3, 10); }
+    if (isBar && b >= 0) { g.fillStyle = cssVar('--pr-num'); g.font = '10px ui-monospace, Consolas'; g.fillText(String(Math.round(b / n) + 1), x + 3, 10); }
   }
   // 片段範圍之外變暗
   const endX = xOf(clip.lengthBeats) - sx;
-  if (endX < W) { g.fillStyle = 'rgba(0,0,0,.45)'; g.fillRect(Math.max(0, endX), 0, W, H); g.fillStyle = track.color; g.fillRect(endX - 1, 0, 2, H); }
+  if (endX < W) { g.fillStyle = cssVar('--pr-dim'); g.fillRect(Math.max(0, endX), 0, W, H); g.fillStyle = track.color; g.fillRect(endX - 1, 0, 2, H); }
 
   // ---- 音符 ----
   for (const note of clip.notes) {
@@ -208,29 +209,29 @@ export function draw() {
     const sel = pr.sel.has(note);
     const a = 0.45 + 0.55 * note.v / 127;
     g.globalAlpha = note.t >= clip.lengthBeats ? 0.3 : 1;
-    g.fillStyle = sel ? '#ffffff' : shade(track.color, a);
+    g.fillStyle = sel ? cssVar('--cv-sel') : shade(track.color, a);
     g.fillRect(x, y + 1, w, ROW_H - 2);
     g.strokeStyle = sel ? track.color : 'rgba(0,0,0,.6)';
     g.strokeRect(x + 0.5, y + 1.5, w - 1, ROW_H - 3);
-    if (w > 28 && !drums) { g.fillStyle = sel ? '#111' : 'rgba(0,0,0,.7)'; g.font = '9px ui-monospace, Consolas'; g.fillText(noteName(note.p), x + 3, y + ROW_H - 3); }
+    if (w > 28 && !drums) { g.fillStyle = sel ? cssVar('--cv-sel-tx') : 'rgba(0,0,0,.7)'; g.font = '9px ui-monospace, Consolas'; g.fillText(noteName(note.p), x + 3, y + ROW_H - 3); }
   }
   g.globalAlpha = 1;
   // 播放頭
   const ph = engine.currentTime() / spb() - clip.startBeat;
   const phx = xOf(ph) - sx;
-  if (phx >= 0 && phx <= W) { g.fillStyle = '#fff'; g.fillRect(phx, 0, 1, H); }
+  if (phx >= 0 && phx <= W) { g.fillStyle = cssVar('--playhead'); g.fillRect(phx, 0, 1, H); }
   if (marquee) { g.strokeStyle = '#4f9dff'; g.fillStyle = 'rgba(79,157,255,.12)'; const m = marquee; g.fillRect(m.x - sx, m.y - sy, m.w, m.h); g.strokeRect(m.x - sx + .5, m.y - sy + .5, m.w, m.h); }
 
   // ---- 力度條 ----
   const vw = velCv.parentElement.clientWidth - KEYS_W;
   const v = setup(velCv, Math.max(10, vw), VEL_H);
-  v.fillStyle = '#16171a'; v.fillRect(0, 0, vw, VEL_H);
-  v.strokeStyle = '#2a2c31'; v.beginPath(); v.moveTo(0, VEL_H / 2 + .5); v.lineTo(vw, VEL_H / 2 + .5); v.stroke();
+  v.fillStyle = cssVar('--pr-vel-bg'); v.fillRect(0, 0, vw, VEL_H);
+  v.strokeStyle = cssVar('--pr-vel-mid'); v.beginPath(); v.moveTo(0, VEL_H / 2 + .5); v.lineTo(vw, VEL_H / 2 + .5); v.stroke();
   for (const note of clip.notes) {
     const x = xOf(note.t) - sx;
     if (x < -4 || x > vw) continue;
     const h = (note.v / 127) * (VEL_H - 6);
-    v.fillStyle = pr.sel.has(note) ? '#fff' : track.color;
+    v.fillStyle = pr.sel.has(note) ? cssVar('--cv-sel') : track.color;
     v.fillRect(x, VEL_H - h, 3, h);
     v.beginPath(); v.arc(x + 1.5, VEL_H - h, 3, 0, Math.PI * 2); v.fill();
   }
@@ -238,7 +239,7 @@ export function draw() {
   // ---- 踏板列 ----
   const pw = Math.max(10, vw);
   const pg = setup(pedCv, pw, PED_H);
-  pg.fillStyle = '#131417'; pg.fillRect(0, 0, pw, PED_H);
+  pg.fillStyle = cssVar('--pr-ped-bg'); pg.fillRect(0, 0, pw, PED_H);
   for (const [a, z] of pedalSpans(clip)) {
     const x0 = xOf(a) - sx, x1 = xOf(Math.min(z, clip.lengthBeats)) - sx;
     if (x1 < 0 || x0 > pw) continue;
@@ -246,7 +247,7 @@ export function draw() {
     grad.addColorStop(0, track.color); grad.addColorStop(1, shade(track.color, 0.45));
     pg.fillStyle = grad;
     pg.fillRect(x0, 4, Math.max(2, x1 - x0), PED_H - 8);
-    pg.fillStyle = '#fff';
+    pg.fillStyle = cssVar('--cv-sel');
     pg.fillRect(x0, 4, 2, PED_H - 8); pg.fillRect(x1 - 2, 4, 2, PED_H - 8);
     if (x1 - x0 > 40) { pg.fillStyle = 'rgba(0,0,0,.65)'; pg.font = '10px sans-serif'; pg.fillText('Ped.', x0 + 5, PED_H - 7); }
   }

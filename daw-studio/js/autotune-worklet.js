@@ -26,8 +26,19 @@ class AutoTune extends AudioWorkletProcessor {
   constructor(opt) {
     super();
     const sr = sampleRate;
-    this.report = !!(opt && opt.processorOptions && opt.processorOptions.report);
-    this.L = Math.round(0.032 * sr);
+    const po = (opt && opt.processorOptions) || {};
+    this.report = !!po.report;
+    // 現場模式用 16 ms；一般模式 32 ms。太短的話重疊相加沒有空間，所以下限 8 ms。
+    this.L = Math.round(Math.max(0.008, Math.min(0.064, po.latency || 0.032)) * sr);
+    // 時間軸對照（ctx 時刻 ↔ 專案秒數）與手動編輯的音符
+    this.segs = (po.segs || []).slice();
+    this.notes = [];
+    this.ni = 0;
+    this.port.onmessage = e => {
+      const d = e.data || {};
+      if (d.segs) this.segs = d.segs;
+      if (d.notes) { this.notes = d.notes.slice().sort((a, b) => a.s - b.s); this.ni = 0; }
+    };
     this.N = 1 << 14; this.M = this.N - 1;
     this.inb = [new Float32Array(this.N), new Float32Array(this.N)];
     this.mono = new Float32Array(this.N);
@@ -111,6 +122,30 @@ class AutoTune extends AudioWorkletProcessor {
 
   allowed(mask, k) { return (mask >> (((k % 12) + 12) % 12)) & 1; }
 
+  // ctx 時刻 → 專案秒數（用 engine 送來的對照表；找不到就回 null）
+  projectOf(c) {
+    const S = this.segs;
+    if (!S || !S.length) return null;
+    if (c < S[0].c - 0.25) return null;
+    let best = S[0];
+    for (const s of S) { if (s.c <= c) best = s; else break; }
+    return best.p + (c - best.c);
+  }
+
+  // 目前位置有沒有手動編輯的音符（跨區段/倒退播放都能處理）
+  noteAt(proj) {
+    const N = this.notes;
+    if (!N || !N.length || proj == null) return null;
+    let i = this.ni;
+    if (i > N.length) i = 0;
+    while (i > 0 && i - 1 < N.length && N[i - 1].s > proj) i--;
+    while (i < N.length && N[i].e <= proj) i++;
+    while (i > 0 && N[i - 1].s <= proj && N[i - 1].e > proj) i--;
+    this.ni = i;
+    const n = N[i];
+    return n && n.s <= proj && proj < n.e ? n : null;
+  }
+
   nearest(m, mask) {
     if (!mask) return m;
     let best = -1, bd = 99;
@@ -159,7 +194,9 @@ class AutoTune extends AudioWorkletProcessor {
     }
 
     // ---- 分析 ----
-    const f = this.detect(params.fmin[0], params.fmax[0]);
+    // 現場模式窗變短：最低音域要跟著提高，否則一顆 grain 放不進去
+    const fminEff = Math.max(params.fmin[0], this.L <= Math.round(0.02 * sr) ? 100 : 50);
+    const f = this.detect(fminEff, params.fmax[0]);
     const blkSec = len / sr;
     const mask = Math.round(params.mask[0]);
     if (f > 0) {
@@ -173,8 +210,13 @@ class AutoTune extends AudioWorkletProcessor {
       else this.center += (mi - this.center) * (1 - Math.exp(-blkSec / 0.12));
       const vib = params.vibrato[0];
       const ref = mi + vib * (this.center - mi);
-      const tgt = this.nearest(ref, mask);
-      let st = (tgt - ref) * params.amount[0];
+      // 手動編輯過這一段 → 直接以編輯的音高為目標（不受音階遮罩與遲滯影響）
+      // 輸入訊號比輸出早 L 秒進來，所以要查「輸入所在」的專案位置
+      const proj = this.projectOf(currentTime);
+      const note = proj == null ? null : this.noteAt(proj + this.L / sr);
+      const tgt = note ? note.midi : this.nearest(ref, mask);
+      const amt = params.amount[0] * (note ? Math.max(0, Math.min(1, note.amt ?? 1)) : 1);
+      let st = (tgt - ref) * amt;
       st = Math.max(-12, Math.min(12, st));
       const rt = params.retune[0];
       const a = rt <= 0.5 ? 1 : 1 - Math.exp(-blkSec * 1000 / rt);

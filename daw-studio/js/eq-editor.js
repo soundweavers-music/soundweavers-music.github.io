@@ -6,6 +6,7 @@
 import { store } from './state.js';
 import { engine } from './engine.js';
 import { EQ_BAND_TYPES, EQ_BAND_COLORS, buildFx, migrateEqParams } from './effects.js';
+import { cssVar, ink } from './theme.js';
 
 const FMIN = 20, FMAX = 20000, DBR = 18;   // 顯示範圍：±18 dB
 const xOfF = (f, W) => Math.log(f / FMIN) / Math.log(FMAX / FMIN) * W;
@@ -135,7 +136,7 @@ export function eqEditor(owner, desc, onChange) {
     g.setTransform(dpr, 0, 0, dpr, 0, 0);
     // 背景
     const bg = g.createLinearGradient(0, 0, 0, H);
-    bg.addColorStop(0, '#12141a'); bg.addColorStop(1, '#0a0b0e');
+    bg.addColorStop(0, cssVar('--cv-bg-a')); bg.addColorStop(1, cssVar('--cv-bg-b'));
     g.fillStyle = bg; g.fillRect(0, 0, W, H);
     const fx = inst();
     const live = engine.ctx && engine.playing && fx.analyser && fx.analyser.context === engine.ctx;
@@ -152,15 +153,15 @@ export function eqEditor(owner, desc, onChange) {
     for (const f of [30, 50, 100, 200, 300, 500, 1000, 2000, 3000, 5000, 10000, 20000]) {
       const x = Math.round(xOfF(f, W)) + 0.5;
       const major = [100, 1000, 10000].includes(f);
-      g.strokeStyle = major ? 'rgba(255,255,255,.10)' : 'rgba(255,255,255,.045)';
+      g.strokeStyle = major ? ink(.10) : ink(.045);
       g.beginPath(); g.moveTo(x, 0); g.lineTo(x, H); g.stroke();
-      if ([50, 100, 200, 500, 1000, 2000, 5000, 10000].includes(f)) { g.fillStyle = 'rgba(255,255,255,.35)'; g.fillText(f >= 1000 ? `${f / 1000}k` : f, x + 3, H - 13); }
+      if ([50, 100, 200, 500, 1000, 2000, 5000, 10000].includes(f)) { g.fillStyle = ink(.35); g.fillText(f >= 1000 ? `${f / 1000}k` : f, x + 3, H - 13); }
     }
     for (const db of [-12, -6, 0, 6, 12]) {
       const y = Math.round(yOfDb(db, H)) + 0.5;
-      g.strokeStyle = db === 0 ? 'rgba(255,255,255,.18)' : 'rgba(255,255,255,.05)';
+      g.strokeStyle = db === 0 ? ink(.18) : ink(.05);
       g.beginPath(); g.moveTo(0, y); g.lineTo(W, y); g.stroke();
-      g.fillStyle = 'rgba(255,255,255,.3)'; g.fillText((db > 0 ? '+' : '') + db, 4, y + 2);
+      g.fillStyle = ink(.3); g.fillText((db > 0 ? '+' : '') + db, 4, y + 2);
     }
     // 選中頻段的彩色小曲線（半透明填色到 0 dB 線）
     const c = EQ_BAND_COLORS[sel];
@@ -185,7 +186,7 @@ export function eqEditor(owner, desc, onChange) {
     for (const [pos, col] of stops) lg.addColorStop(pos, col);
     const fillPath = new Path2D(path); fillPath.lineTo(W, yOfDb(0, H)); fillPath.lineTo(0, yOfDb(0, H)); fillPath.closePath();
     g.globalAlpha = desc.on ? 0.16 : 0.06; g.fillStyle = lg; g.fill(fillPath); g.globalAlpha = 1;
-    g.shadowColor = 'rgba(255,255,255,.35)'; g.shadowBlur = desc.on ? 8 : 0;
+    g.shadowColor = ink(.35); g.shadowBlur = desc.on ? 8 : 0;
     g.strokeStyle = desc.on ? lg : '#666'; g.lineWidth = 2.5; g.stroke(path);
     g.shadowBlur = 0;
     // 節點
@@ -197,7 +198,7 @@ export function eqEditor(owner, desc, onChange) {
       g.beginPath(); g.arc(x, y, r + 3, 0, Math.PI * 2);
       g.fillStyle = b.on ? EQ_BAND_COLORS[i] + '30' : 'transparent'; g.fill();
       g.beginPath(); g.arc(x, y, r, 0, Math.PI * 2);
-      g.fillStyle = b.on ? EQ_BAND_COLORS[i] : '#2a2c31'; g.fill();
+      g.fillStyle = b.on ? EQ_BAND_COLORS[i] : cssVar('--cv-node-off'); g.fill();
       g.lineWidth = i === sel ? 2.5 : 1.5; g.strokeStyle = b.on ? '#fff' : EQ_BAND_COLORS[i]; g.stroke();
       g.fillStyle = b.on ? '#0b0c0f' : EQ_BAND_COLORS[i]; g.font = 'bold 9px sans-serif'; g.textAlign = 'center'; g.textBaseline = 'middle';
       g.fillText(String(i + 1), x, y + 0.5);
