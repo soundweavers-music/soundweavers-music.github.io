@@ -1295,6 +1295,38 @@ def transpose_grid() -> str:
     return svg(w, h, "".join(p), "移調夾速查")
 
 
+def tuning_steps() -> str:
+    return uk_steps(
+        "調音四步驟：從第 4 弦調到第 1 弦",
+        "每次拿起琴都先跑一輪，一分鐘內可以完成",
+        [("夾上調音器", "夾在琴頭，模式選 C（十二平均律），基準 440Hz"),
+         ("一次只撥一根弦", "從第 4 弦開始；撥完等 1～2 秒，讓音穩定再讀"),
+         ("先看音名、再看指針", "字母不對就是差太多，先把音名調對，指針只是微調"),
+         ("回頭再檢查一次", "調好第 1 弦後張力會變，前面幾條常會跟著跑掉")],
+        "換弦後的前兩天一定會一直走音，這是正常的；彈之前先調，彈完再調一次。")
+
+
+def warmup_steps() -> str:
+    return uk_steps(
+        "今日暖身：三件事，各兩分鐘",
+        "暖身的目的不是練會什麼，是讓手指醒過來、讓音準穩定",
+        [("爬格子", "第 1～4 格，一指一格，從第 4 弦爬到第 1 弦，60 BPM"),
+         ("空弦穩定度", "每條弦撥四下，聲音要一樣大、一樣長"),
+         ("和弦切換", "C → Am → F → G7 慢慢換，只求乾淨不求快")],
+        "手還沒熱就練快，是成年人練琴最常見的受傷原因。")
+
+
+def arrange_steps() -> str:
+    return uk_steps(
+        "把流行歌改成指彈：四個步驟",
+        "順序不能顛倒——先把旋律抓對，再談伴奏",
+        [("抓主旋律", "只彈單音，跟著唱，確認每一個音都對"),
+         ("旋律搬到高音弦", "把旋律音全部排到第 1、2 弦，方便之後疊和弦"),
+         ("填空隙", "旋律的空拍處塞和弦音，一次只塞一兩個"),
+         ("決定低音", "每小節第 1 拍給根音，其他拍讓給旋律")],
+        "新手最常犯的錯：先編伴奏，結果旋律被蓋掉，聽不出在彈哪一首。")
+
+
 def main() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
     figures = {
@@ -1306,6 +1338,9 @@ def main() -> int:
         "double_stops.svg": double_stops(),
         "fingerstyle_roles.svg": fingerstyle_roles(),
         "percussion.svg": percussion(),
+        "tuning_steps.svg": tuning_steps(),
+        "warmup_steps.svg": warmup_steps(),
+        "arrange_steps.svg": arrange_steps(),
         "chord_loop.svg": chord_loop(),
         "beats34_68.svg": beats34_68(),
         "transpose_grid.svg": transpose_grid(),
