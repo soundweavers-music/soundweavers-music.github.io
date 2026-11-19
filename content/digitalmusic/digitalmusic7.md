@@ -49,7 +49,7 @@
 
 ## 四、直接監聽 vs 軟體監聽
 
-![Direct Monitor 與軟體監聽的兩條路徑](/assets/digitalmusic/latency-routing.svg)
+![Direct Monitor 與軟體監聽的兩條路徑](../../assets/digitalmusic/latency-routing.svg)
 
 這兩種監聽模式的選擇，直接影響錄音品質與樂手體驗。
 
@@ -85,7 +85,7 @@ Cubase 的「Low Latency Monitoring」模式、Logic Pro 的「Low Latency Mode�
 
 ### 緩衝區設定指南
 
-![緩衝區大小與來回延遲的換算](/assets/digitalmusic/buffer-latency.svg)
+![緩衝區大小與來回延遲的換算](../../assets/digitalmusic/buffer-latency.svg)
 
 Buffer Size 的選擇是一門平衡藝術：
 
@@ -99,7 +99,7 @@ Buffer Size 的選擇是一門平衡藝術：
 
 ## 六、多軌錄音實戰：錄製多個 Take
 
-![Punch In／Out 的時間窗口](/assets/digitalmusic/punch-in.svg)
+![Punch In／Out 的時間窗口](../../assets/digitalmusic/punch-in.svg)
 
 ### Take 管理策略
 
@@ -161,6 +161,7 @@ Buffer Size 的選擇是一門平衡藝術：
 多軌錄音是數位音樂製作的必修課，它涵蓋了訊號路由、監聽系統設計、延遲管理與錄音實務等面向。精通這些技術，能夠讓你在任何錄音環境中都能獲得乾淨、同步且高品質的錄音成果。
 
 學習建議：
+
 - 從單軌錄音開始熟悉 DAW 的基本操作與 ASIO 設定。
 - 逐步嘗試兩軌（如吉他與人聲）的同步錄音，練習建立 Cue Mix。
 - 挑戰小型樂團錄音（三至四位樂手），掌握耳機分配與即時混音調整。

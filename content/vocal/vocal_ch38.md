@@ -16,7 +16,7 @@
 
 ## 原理：為什麼會這樣
 
-![把主歌與副歌的張力推向高點](/assets/vocal/dynamics-curve.svg)
+![把主歌與副歌的張力推向高點](../../assets/vocal/dynamics-curve.svg)
 
 人對持續不變的刺激會很快適應。同樣的音量聽久了，耳朵就把它當背景。所以真正讓人起雞皮疙瘩的，是變化：從很小突然變大，或從很滿突然收掉。
 
@@ -38,7 +38,7 @@
 
 ## 現在就做
 
-![把整首歌的能量畫成一條線](/assets/vocal/ex/emotion-map.svg)
+![把整首歌的能量畫成一條線](../../assets/vocal/ex/emotion-map.svg)
 
 這不是發聲練習，是一張紙、一支筆，加上三次錄音。
 

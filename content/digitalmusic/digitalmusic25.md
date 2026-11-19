@@ -20,7 +20,7 @@ Ambient 的風格跨度極廣，從 Brian Eno 的《Music for Airports》這種�
 
 ## 打造 Pad 音色：疊層、濾波與緩慢調變
 
-![環境音樂的四層結構](/assets/digitalmusic/ambient-layers.svg)
+![環境音樂的四層結構](../../assets/digitalmusic/ambient-layers.svg)
 
 Pad 是 Ambient 音樂的聲音基石。與其他曲風不同，Ambient 的 Pad 不能只是靜止的和弦——它們必須呼吸、變化。
 
@@ -154,7 +154,7 @@ Ambient 的低頻不該完全靜止。嘗試以下技巧：
 
 ## 顆粒合成：打造永不重複的紋理
 
-![顆粒合成的密度](/assets/digitalmusic/granular.svg)
+![顆粒合成的密度](../../assets/digitalmusic/granular.svg)
 
 顆粒合成（Granular Synthesis）是 Ambient 音樂的秘密武器。它能將任何聲音打碎成極小的片段（顆粒），再以新的順序、速度和密度重組，創造出永遠不會完全相同的聲音織體。
 

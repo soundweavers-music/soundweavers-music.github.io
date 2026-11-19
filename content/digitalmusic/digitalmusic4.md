@@ -20,7 +20,7 @@
 
 ## **二、噴麥 (Plosives) 的毀滅性打擊**
 
-![噴麥在波形上是一個低頻脈衝](/assets/digitalmusic/plosive.svg)
+![噴麥在波形上是一個低頻脈衝](../../assets/digitalmusic/plosive.svg)
 
 在開始錄音前，請先測試你的「噴麥」狀況。什麼是噴麥？就是當你唱到含有 **「P」、「B」、「T」、「K」** 這些子音時，嘴巴會瞬間噴出一股極強的氣流。
 
@@ -36,7 +36,7 @@
 
 ## **三、近接效應 (Proximity Effect)：聲音的濾鏡**
 
-![距離越近，150 Hz 以下的能量越多](/assets/digitalmusic/mic-proximity.svg)
+![距離越近，150 Hz 以下的能量越多](../../assets/digitalmusic/mic-proximity.svg)
 
 接下來，我們要認識錄音界一個非常迷人、但也可能變成殺手的現象：**「近接效應（Proximity Effect）」**。
 
@@ -62,7 +62,7 @@
 
 ## **四、實戰場景：不同曲風的麥克風設定**
 
-![軸上與軸外的差別](/assets/digitalmusic/off-axis.svg)
+![軸上與軸外的差別](../../assets/digitalmusic/off-axis.svg)
 
 | 距離 | 低頻 | 唇齒細節 | 風險 |
 |---|---|---|---|

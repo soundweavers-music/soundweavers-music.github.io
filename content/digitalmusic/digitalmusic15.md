@@ -12,7 +12,7 @@
 
 ## 二、四大核心參數：Threshold、Ratio、Attack、Release
 
-![Attack 與 Release 對波形的影響](/assets/digitalmusic/attack-release.svg)
+![Attack 與 Release 對波形的影響](../../assets/digitalmusic/attack-release.svg)
 
 | 參數 | 作用 | 常用起點 |
 |---|---|---|
@@ -22,7 +22,7 @@
 | Release | 多快放開 | 80–200 ms（跟著節奏） |
 
 
-![Threshold 以上，輸入與輸出的斜率改變](/assets/digitalmusic/compressor-curve.svg)
+![Threshold 以上，輸入與輸出的斜率改變](../../assets/digitalmusic/compressor-curve.svg)
 
 任何壓縮器，無論是硬體還是軟體，都圍繞著四個基本參數運作。理解這四個參數，你就掌握了壓縮器的全部邏輯。
 
@@ -230,6 +230,8 @@ Release 決定壓縮器「訊號低於 Threshold 後，多快停止壓縮」。�
 
 ---
 
+![壓縮最常見的四個錯誤](../../assets/digitalmusic/cmp-compress-errors.svg)
+
 ## 八、聽覺訓練——練習聽出壓縮的痕跡
 
 壓縮器最難的部分不是學會怎麼轉旋鈕，而是學會聽出壓縮的效果。以下是幾個具體的聽覺訓練練習。
@@ -237,6 +239,7 @@ Release 決定壓縮器「訊號低於 Threshold 後，多快停止壓縮」。�
 ### 練習一：壓縮與否的 A/B 辨識
 
 找一段動態變化大的錄音（例如只有人聲和一把木吉他的現場錄音，或是一段爵士鼓獨奏）。在 DAW 中插入壓縮器，使用以下設定：
+
 - Ratio 4:1，Threshold 讓 Gain Reduction 約 6 dB，Attack 10 ms，Release 100 ms
 - 不斷在 Bypass 與 Active 之間切換
 - **訓練目標**：不看成 Gain Reduction 表頭，只憑聽覺分辨哪個是壓縮過、哪個是未壓縮的。閉上眼睛，請朋友幫你按 Bypass，你來猜。
@@ -244,6 +247,7 @@ Release 決定壓縮器「訊號低於 Threshold 後，多快停止壓縮」。�
 ### 練習二：聽出 Attack 時間的變化
 
 在同一個音源上（小鼓或打擊樂最佳），固定 Threshold 和 Ratio，只改變 Attack：
+
 1. Attack 設為 0.1 ms（最快），聆聽「瞬態消失」的聲音
 2. Attack 設為 30 ms（較慢），聆聽「瞬態保留」的聲音
 3. 在兩者之間切換，專注聽打擊樂器的「敲擊感」變化
@@ -253,6 +257,7 @@ Release 決定壓縮器「訊號低於 Threshold 後，多快停止壓縮」。�
 
 在一個有持續背景樂器的段落（如 pad 或鋼琴和弦），加上一個節奏明顯的鼓聲。
 在包含 pad 與大鼓的總線（Bus）上設定壓縮器，Threshold 較低、Ratio 較高（例如 8:1），然後：
+
 1. Release 設為 20 ms（最快），聆聽 Pumping 效應——背景 pad 會跟著大鼓節奏起伏
 2. Release 設為 500 ms（較慢），聆聽 Pumping 如何減少
 - **訓練目標**：能清楚辨識 Pumping 效應，並理解 Release 時間對它的影響
@@ -260,6 +265,7 @@ Release 決定壓縮器「訊號低於 Threshold 後，多快停止壓縮」。�
 ### 練習四：壓縮量聽覺訓練
 
 找一段動態範圍大的錄音（鋼琴獨奏或管弦樂都很適合）。
+
 1. 設定一個溫和的壓縮（Ratio 2:1，Gain Reduction 約 2 dB）
 2. 聆聽後，將壓縮量加大（Ratio 6:1，Gain Reduction 約 8 dB）
 3. 再加大到極限（Ratio 20:1，Gain Reduction 約 15 dB）
@@ -269,6 +275,7 @@ Release 決定壓縮器「訊號低於 Threshold 後，多快停止壓縮」。�
 ### 練習五：不同壓縮器類型的盲測
 
 找三個不同類型的壓縮器插件（例如一個 VCA、一個 Optical、一個 FET），在同一個音源上做接近的壓縮量設定（Gain Reduction 約 4 dB）。不要看名字，不斷切換聆聽：
+
 - 哪一個聽起來最「乾淨」？
 - 哪一個聽起來最「有顏色」？
 - 哪一個讓音源聽起來最「自然」？

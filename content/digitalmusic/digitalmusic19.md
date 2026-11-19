@@ -8,7 +8,7 @@
 
 ## 什麼是飽和度？為聲音添加泛音
 
-![飽和後往上長出的泛音](/assets/digitalmusic/harmonics.svg)
+![飽和後往上長出的泛音](../../assets/digitalmusic/harmonics.svg)
 
 飽和度這個詞源自類比電路——當訊號通過一個電子元件（如真空管、電晶體、變壓器）時，若訊號強度超過該元件的線性工作範圍，波形便會開始被壓縮、切平，產生原本不存在的**諧波（Harmonics）**。這個過程稱為飽和。
 
@@ -53,6 +53,8 @@
 在混音應用中，**飽和度是最常被使用的工具**。你可以把它想像成「帶有色彩的音量推桿」——把訊號推上去的同時，順便加了一層美麗的諧波塗層。
 
 ---
+
+![飽和、失真、破音：同一件事的三種程度](../../assets/digitalmusic/cmp-saturation.svg)
 
 ## 四種主要的飽和類型
 
@@ -223,7 +225,7 @@
 
 ## 軟剪輯 vs 硬剪輯：該推到多遠？
 
-![軟削波與硬削波](/assets/digitalmusic/saturation-curves.svg)
+![軟削波與硬削波](../../assets/digitalmusic/saturation-curves.svg)
 
 飽和度最後的臨界點，就是剪輯（Clipping）——波形被硬生生地截斷。
 

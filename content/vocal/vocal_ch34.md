@@ -14,7 +14,7 @@
 
 ## 原理：為什麼會這樣
 
-![唇齒舌的咬字部位](/assets/vocal/articulation.svg)
+![唇齒舌的咬字部位](../../assets/vocal/articulation.svg)
 
 下巴（下顎骨）體積大、質量重，它跟喉頭之間有肌肉連結。你快速開合下巴時，喉頭會跟著上下晃，聲帶的閉合就變得不穩定。速度一快，這個晃動來不及修正，結果就是拖拍、破音、喉嚨緊。頸肩的代償也是同一條路：越用力，脖子和肩膀越會自動接手（Pettersen et al., 2005）。
 
@@ -53,7 +53,7 @@
 
 ### 練習三：舌尖四兄弟
 
-![舌尖練習：da-ta-na-la](/assets/vocal/ex/vowel.svg)
+![舌尖練習：da-ta-na-la](../../assets/vocal/ex/vowel.svg)
 
 1. 用節拍器，慢速開始，練「Da-Ta-Na-La」，四拍一組，每拍四個音。
 2. 只讓舌尖最前面三分之一動。

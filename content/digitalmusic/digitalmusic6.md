@@ -22,7 +22,7 @@ Gain Staging（增益階段管理）是錄音與混音中最基本卻最常被�
 
 ## 三、錄音階段的理想電平：-18 dBFS 到 -12 dBFS
 
-![訊號鏈四站的電平與餘裕](/assets/digitalmusic/gain-staging.svg)
+![訊號鏈四站的電平與餘裕](../../assets/digitalmusic/gain-staging.svg)
 
 ### 為什麼不錄到 0 dBFS？
 
@@ -96,7 +96,7 @@ headroom 保留得越多，混音時的彈性就越大。你可以自由地添�
 
 ## 六、VU Meter 與 dBFS Meter：兩種不同的視角
 
-![VU 表與峰值表看的是不同的東西](/assets/digitalmusic/vu-vs-peak.svg)
+![VU 表與峰值表看的是不同的東西](../../assets/digitalmusic/vu-vs-peak.svg)
 
 ### dBFS Meter（數位峰值表）
 
@@ -224,7 +224,7 @@ Input → Trim Plugin（校準到 -18 dBFS / 0 VU）
 
 ## 九、進階觀念：Crest Factor 與 Dynamic Range
 
-![Crest factor 與動態餘裕](/assets/digitalmusic/crest-factor.svg)
+![Crest factor 與動態餘裕](../../assets/digitalmusic/crest-factor.svg)
 
 Crest factor = Peak level - RMS level（單位 dB）。它描述了一段音訊的動態豐富程度。
 

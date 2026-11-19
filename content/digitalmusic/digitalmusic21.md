@@ -21,9 +21,11 @@ Delay（延遲效果）是將輸入訊號複製一份，經過一段可設定的
 | **Ping-Pong Delay（乒乓延遲）** | 延遲訊號交替出現在左右聲道 | 立體聲寬度拓展、節奏性樂段 |
 | **Multi-Tap Delay（多點延遲）** | 多條延遲線同時作用，每個 tap 有獨立的時間與聲像 | 複雜節奏 pattern、音牆堆疊 |
 
+![Delay 的三種用法](../../assets/digitalmusic/cmp-delay-types.svg)
+
 ## 2. 延遲時間與速度同步
 
-![四種 Delay 的時間與左右安排](/assets/digitalmusic/delay-types.svg)
+![四種 Delay 的時間與左右安排](../../assets/digitalmusic/delay-types.svg)
 
 將 Delay Time 與歌曲的 BPM（Beats Per Minute）對齊，是確保 Delay 不「亂拍」的關鍵。現代 DAW 幾乎都內建 Tempo Sync 功能，但了解背後的計算邏輯仍然重要。
 
@@ -144,7 +146,7 @@ Sound Wall（音牆）並不一定要靠大量的樂器堆疊。用多個不同�
 
 ## 8. Filtered Delay：用 EQ 修飾回聲
 
-![拍點同步的延遲時間](/assets/digitalmusic/delay-sync.svg)
+![拍點同步的延遲時間](../../assets/digitalmusic/delay-sync.svg)
 
 Filtered Delay（過濾延遲）是指在 Delay 插件的 Feedback 路徑中啟用內建 Filter（LPF/HPF），或在 DAW 中將 Delay 的輸出經 EQ 後再送回輸入端，構成外部回授迴路，讓每次回聲的頻率內容逐漸變化。
 

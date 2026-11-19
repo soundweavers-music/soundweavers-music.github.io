@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 354" role="img" aria-label="壓縮最常見的四個錯誤">
+  <title>壓縮最常見的四個錯誤</title>
+  <rect width="660" height="354" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">壓縮最常見的四個錯誤</text>
+  <text x="26" y="55" class="ts" font-size="12.5">同一個問題通常會連帶出現另一個；一次只修一種</text>
+  <text x="150.0" y="92" class="t" font-size="11.5" font-weight="700" fill="#A67C52">聽起來</text>  <text x="395.0" y="92" class="t" font-size="11.5" font-weight="700" fill="#A67C52">怎麼修</text>  <rect x="26" y="104" width="608" height="58" rx="4" fill="#F3E9DC" opacity="0.55"/>  <text x="34" y="126" class="t" font-size="11.5" font-weight="700">Attack 太快</text>  <text x="150.0" y="124" class="ts" font-size="10" fill="#5D4E41">鼓的衝擊感不見了</text>  <text x="395.0" y="124" class="ts" font-size="10" fill="#5D4E41">放慢 attack，讓瞬態</text>  <text x="395.0" y="139" class="ts" font-size="10" fill="#5D4E41">先過去</text>  <text x="34" y="184" class="t" font-size="11.5" font-weight="700">Release 太快</text>  <text x="150.0" y="182" class="ts" font-size="10" fill="#5D4E41">聲音一抽一抽</text>  <text x="395.0" y="182" class="ts" font-size="10" fill="#5D4E41">放慢 release，跟歌</text>  <text x="395.0" y="197" class="ts" font-size="10" fill="#5D4E41">曲節奏對齊</text>  <rect x="26" y="220" width="608" height="58" rx="4" fill="#F3E9DC" opacity="0.55"/>  <text x="34" y="242" class="t" font-size="11.5" font-weight="700">Ratio 太高</text>  <text x="150.0" y="240" class="ts" font-size="10" fill="#5D4E41">動態被壓平、變扁</text>  <text x="395.0" y="240" class="ts" font-size="10" fill="#5D4E41">降到 2:1～4:1，用兩</text>  <text x="395.0" y="255" class="ts" font-size="10" fill="#5D4E41">段串聯</text>  <text x="34" y="300" class="t" font-size="11.5" font-weight="700">沒有補償增益</text>  <text x="150.0" y="298" class="ts" font-size="10" fill="#5D4E41">壓完之後整體變小</text>  <text x="395.0" y="298" class="ts" font-size="10" fill="#5D4E41">用 makeup gain</text>  <text x="395.0" y="313" class="ts" font-size="10" fill="#5D4E41"> 補回來再比較</text>
+  <text x="26" y="336" class="ts" font-size="11">判斷方法：旁通（bypass）前後切換，音量要一樣，只聽動態的差別。</text>
+</svg>

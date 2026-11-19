@@ -29,6 +29,7 @@ LUFS（Loudness Units relative to Full Scale）是國際電信聯盟（ITU-R BS.
 2. **極度壓縮的電子樂**：Integrated LUFS = -8，削波邊緣（例如 -0.5 dBTP）
 
 將兩者上傳至 YouTube（目標 -14 LUFS）：
+
 - 古典樂：平台將其增益 +6 dB，使其達到 -14 LUFS。因為古典樂本身動態大，聽起來仍然自然。
 - 電子樂：平台將其衰減 -6 dB，使其降到 -14 LUFS。但因為它原本就被壓縮得很「平」，衰減後動態對比消失，聽起來缺乏衝擊力與層次感。
 
@@ -83,7 +84,7 @@ True Peak（真實峰值）與普通 Peak（樣本峰值）不同。在數位音
 
 ## 各平台的響度目標
 
-![各平台 LUFS 目標與限縮後的波形](/assets/digitalmusic/loudness-limiter.svg)
+![各平台 LUFS 目標與限縮後的波形](../../assets/digitalmusic/loudness-limiter.svg)
 
 不同平台對響度標準有不同的偏好。以下是 2025 年的主流規範：
 
@@ -107,7 +108,7 @@ True Peak（真實峰值）與普通 Peak（樣本峰值）不同。在數位音
 
 ## 什麼是 Limiter？
 
-![Limiter 與 Gain Reduction](/assets/digitalmusic/limiter-gr.svg)
+![Limiter 與 Gain Reduction](../../assets/digitalmusic/limiter-gr.svg)
 
 Limiter（限制器）是一種動態處理器，其功能是「**訊號永遠不超過某個設定門檻**」。你可以把它想像成一個非常強硬的保安：
 

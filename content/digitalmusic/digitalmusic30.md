@@ -8,7 +8,7 @@
 
 ## 一、什麼是 Dither？
 
-![有無 Dither 的量化階梯](/assets/digitalmusic/dither-quantize.svg)
+![有無 Dither 的量化階梯](../../assets/digitalmusic/dither-quantize.svg)
 
 ### 1.1 問題的根源：量化失真
 
@@ -112,7 +112,7 @@ Spotify、Apple Music、Tidal 等平台通常接受 24-bit 44.1kHz 或 48kHz 的
 
 ## 五、輸出格式全面解析
 
-![輸出格式的取捨](/assets/digitalmusic/export-formats.svg)
+![輸出格式的取捨](../../assets/digitalmusic/export-formats.svg)
 
 ### 5.1 無失真格式（Lossless）
 
@@ -191,6 +191,8 @@ Spotify、Apple Music、Tidal 等平台通常接受 24-bit 44.1kHz 或 48kHz 的
 6. **Conversion Quality（轉換品質）**：選擇最高品質（如 Best / High Quality），越高的 SRC 品質耗時越久但結果越好
 
 ---
+
+![輸出的檢查順序](../../assets/digitalmusic/flow-export.svg)
 
 ## 七、專業檔案命名與 Metadata
 

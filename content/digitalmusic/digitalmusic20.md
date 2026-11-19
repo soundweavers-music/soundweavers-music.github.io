@@ -28,9 +28,11 @@ Reverberation（殘響，簡稱 Reverb）是指聲音在空間中反射、擴散
 
 **Convolution Reverb（卷積殘響）**：使用真實空間的脈衝響應取樣進行計算，還原度極高。缺點是參數靈活性低、CPU 消耗高。
 
+![四種殘響：差別在空間怎麼被算出來](../../assets/digitalmusic/cmp-reverb-types.svg)
+
 ## 三、Send/Return（Aux Bus）路由：為何優於 Insert 效果
 
-![Send/Return 的殘響匯流排](/assets/digitalmusic/reverb-architecture.svg)
+![Send/Return 的殘響匯流排](../../assets/digitalmusic/reverb-architecture.svg)
 
 在 DAW 中，將 Reverb 加在音軌上有兩種主要方式：Insert 與 Send/Return。
 
@@ -94,7 +96,7 @@ Send/Return（又稱 Aux Bus 或 Bus 架構）是專業混音的核心技術：
 
 ## 五、Pre-delay：在清晰度下創造深度
 
-![殘響的時間軸](/assets/digitalmusic/reverb-timeline.svg)
+![殘響的時間軸](../../assets/digitalmusic/reverb-timeline.svg)
 
 Pre-delay（預延遲）是指原始乾訊號發出後，到殘響開始出現之間的時間間隔。這是空間感營造中最容易被忽略但極其重要的參數。
 
@@ -128,6 +130,7 @@ Decay Time（又稱 RT60）是殘響衰減 60dB 所需的時間，是決定空�
 - 建議 Decay Time 落在 1~4 個拍子的長度
 
 例如 BPM = 120：
+
 - 1 拍 = 500ms，建議 Decay 設為 1.5~2.0 秒（3~4 拍長度）
 
 這樣殘響尾音會在樂句的拍點上消散，保持節奏的整潔感。
@@ -145,6 +148,7 @@ Decay Time（又稱 RT60）是殘響衰減 60dB 所需的時間，是決定空�
 - 清除低頻殘響能讓混音的低頻更乾淨、更有力量
 
 **建議設定**：
+
 - Room Reverb HPF：200~300Hz
 - Plate Reverb HPF：300~500Hz
 - Hall Reverb HPF：200~400Hz（可依情況降至 150Hz 保留溫暖感）
@@ -158,6 +162,7 @@ Decay Time（又稱 RT60）是殘響衰減 60dB 所需的時間，是決定空�
 - 讓殘響更柔軟、更「類比」
 
 **建議設定**：
+
 - Room Reverb LPF：12~16kHz
 - Plate Reverb LPF：10~14kHz
 - Hall Reverb LPF：8~12kHz（長的殘響適合更柔和的尾音）

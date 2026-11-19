@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 346" role="img" aria-label="輸出的檢查順序">
+  <title>輸出的檢查順序</title>
+  <rect width="660" height="346" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">輸出的檢查順序</text>
+  <text x="26" y="55" class="ts" font-size="12.5">輸出前五分鐘做這幾件事，可以少一次重做</text>
+  <circle cx="38.0" cy="110" r="10" fill="#A67C52"/>  <text x="38.0" y="114" text-anchor="middle" class="num">1</text>  <rect x="26.0" y="96" width="141.5" height="88" rx="9" fill="#F3E9DC" stroke="#D9CFC4" stroke-width="1.4"/>  <text x="36.0" y="140" class="t" font-size="12.5" font-weight="700">檢查峰值</text>  <text x="36.0" y="158" class="ts" font-size="9.5" fill="#8C8078">True Peak 不</text>  <text x="36.0" y="173" class="ts" font-size="9.5" fill="#8C8078">要超過 -1 dBTP</text>  <path d="M169.5 140.0 L173.2 140.0" fill="none" stroke="#A67C52" stroke-width="1.7" stroke-linecap="round"/><path d="M179.5 140.0 L173.1 142.9 L173.1 137.1 Z" fill="#A67C52"/>  <circle cx="193.5" cy="110" r="10" fill="#A67C52"/>  <text x="193.5" y="114" text-anchor="middle" class="num">2</text>  <rect x="181.5" y="96" width="141.5" height="88" rx="9" fill="#F3E9DC" stroke="#D9CFC4" stroke-width="1.4"/>  <text x="191.5" y="140" class="t" font-size="12.5" font-weight="700">檢查響度</text>  <text x="191.5" y="158" class="ts" font-size="9.5" fill="#8C8078">確認符合平台要求</text>  <path d="M325.0 140.0 L328.7 140.0" fill="none" stroke="#A67C52" stroke-width="1.7" stroke-linecap="round"/><path d="M335.0 140.0 L328.6 142.9 L328.6 137.1 Z" fill="#A67C52"/>  <circle cx="349.0" cy="110" r="10" fill="#A67C52"/>  <text x="349.0" y="114" text-anchor="middle" class="num">3</text>  <rect x="337.0" y="96" width="141.5" height="88" rx="9" fill="#F3E9DC" stroke="#D9CFC4" stroke-width="1.4"/>  <text x="347.0" y="140" class="t" font-size="12.5" font-weight="700">檢查長度</text>  <text x="347.0" y="158" class="ts" font-size="9.5" fill="#8C8078">頭尾不要有多的空白或截</text>  <text x="347.0" y="173" class="ts" font-size="9.5" fill="#8C8078">斷</text>  <path d="M480.5 140.0 L484.2 140.0" fill="none" stroke="#A67C52" stroke-width="1.7" stroke-linecap="round"/><path d="M490.5 140.0 L484.1 142.9 L484.1 137.1 Z" fill="#A67C52"/>  <circle cx="504.5" cy="110" r="10" fill="#A67C52"/>  <text x="504.5" y="114" text-anchor="middle" class="num">4</text>  <rect x="492.5" y="96" width="141.5" height="88" rx="9" fill="#F3E9DC" stroke="#D9CFC4" stroke-width="1.4"/>  <text x="502.5" y="140" class="t" font-size="12.5" font-weight="700">檢查相位</text>  <text x="502.5" y="158" class="ts" font-size="9.5" fill="#8C8078">單聲道摺疊聽一次，有沒</text>  <text x="502.5" y="173" class="ts" font-size="9.5" fill="#8C8078">有東西消失</text>  <circle cx="38.0" cy="232" r="10" fill="#A67C52"/>  <text x="38.0" y="236" text-anchor="middle" class="num">5</text>  <rect x="26.0" y="218" width="141.5" height="88" rx="9" fill="#F3E9DC" stroke="#D9CFC4" stroke-width="1.4"/>  <text x="36.0" y="262" class="t" font-size="12.5" font-weight="700">命名</text>  <text x="36.0" y="280" class="ts" font-size="9.5" fill="#8C8078">檔名帶上版本與日期</text>
+  <text x="26" y="328" class="ts" font-size="11">輸出的檔案要留一份無損的母帶，平台用的壓縮檔另外轉。</text>
+</svg>

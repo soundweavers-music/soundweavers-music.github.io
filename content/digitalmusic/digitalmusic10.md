@@ -9,6 +9,7 @@
 彈性音訊的本質是**時間軸的非線性縮放**。DAW 會先在音訊波形中偵測出「過零點（zero-crossing）」或「瞬態（transient）」，並將這些點之間的區域視為獨立區塊。當需要加快或放慢某一部份時，DAW 會短暫地將區塊內的音訊取樣點進行**重取樣（resampling）**以及**窗函數疊加（overlap-add）**處理，讓聽覺上感受不到音高的變化。
 
 實務上，這個過程分為三個步驟：
+
 1. **瞬態偵測**：軟體自動找出波形中的打擊點、子音起始、換氣聲等明顯的時間錨點。
 2. **標記建立**：在每個瞬態位置放置 Warp Marker（扭曲標記）。
 3. **時間對齊**：使用者拖動這些標記，或者讓 DAW 自動將標記對齊到 Grid（網格）上。
@@ -17,7 +18,7 @@
 
 ## 二、不同演算法的選擇
 
-![四種 Warp 模式](/assets/digitalmusic/warp-modes.svg)
+![四種 Warp 模式](../../assets/digitalmusic/warp-modes.svg)
 
 並非所有音訊都適合用同一種拉伸演算法。DAW（如 Ableton Live、Logic Pro、Pro Tools、Cubase）通常提供多種 **Warp Mode（扭曲模式）** 或 **Elastic Audio 演算法**，針對不同素材類型進行最佳化。
 
@@ -52,6 +53,7 @@
 Ableton Live 的 **Warp From Here** 與 **Warp as 1/2 Beat Loop / 4 Beat Loop** 能夠一鍵完成速度偵測與標記建立。Logic Pro 的 **Smart Tempo** 會自動分析錄音並將整個 Project Tempo 對齊錄音。Pro Tools 的 **Elastic Audio** 則在 Clip 屬性面板中提供 **Tempo Detection**。
 
 操作流程如下：
+
 1. 將音訊匯入 DAW。
 2. 選取「自動偵測速度」。
 3. DAW 會放置 Warp Marker 並調整 Clip 的 BPM 以符合偵測結果。
@@ -73,7 +75,7 @@ Ableton Live 的 **Warp From Here** 與 **Warp as 1/2 Beat Loop / 4 Beat Loop** 
 
 ## 四、將音訊量化至網格（Quantize Audio to Grid）
 
-![Warp 標記釘在瞬態上，格線是專案速度](/assets/digitalmusic/warp-markers.svg)
+![Warp 標記釘在瞬態上，格線是專案速度](../../assets/digitalmusic/warp-markers.svg)
 
 量化是節奏校正最核心的功能。操作流程如下：
 
@@ -95,6 +97,7 @@ Ableton Live 的 **Warp From Here** 與 **Warp as 1/2 Beat Loop / 4 Beat Loop** 
 ### 步驟一：識別問題段落
 
 以波形放大檢視，尋找以下跡象：
+
 - 貝斯聲與大鼓的 Attack 點沒有對齊在同一時間軸
 - 節奏吉他刷弦的掃弦終點落在網格之後
 - 主唱的子音發聲點（如「t」、「k」、「p」的爆破音）與網格有明顯錯位
@@ -116,6 +119,7 @@ Double-click 在 Warp Marker 上，將其拖動至正確的 Grid 位置。對於
 ### 策略一：以鼓機為主，拉伸原聲樂器
 
 如果 MIDI 鼓組是編曲的骨架，那麼應該讓真實樂器的時間向鼓機靠攏。
+
 1. 將 MIDI 鼓組設定為 Project Tempo 的基礎。
 2. 對原聲樂器（如真實爵士鼓）啟用 Elastic Audio。
 3. 針對每個小節的 Kick 與 Snare 位置，將原聲鼓的瞬態對齊到 MIDI 鼓組對應的 Grid 位置。
@@ -124,6 +128,7 @@ Double-click 在 Warp Marker 上，將其拖動至正確的 Grid 位置。對於
 ### 策略二：保留原聲鼓的動態，MIDI 跟隨
 
 有些製作人偏好保留真鼓的「人類感覺」，然後讓 MIDI 樂器去跟隨真鼓：
+
 1. 先將真鼓 loop 匯入 DAW 並完成 Warp 設定。
 2. 開啟 Project Tempo 的 Follow/Master 模式（Logic Pro 的 Smart Tempo Follow、Ableton 的 Set as Master）。
 3. 將 MIDI 鼓組的播放模式設為「Follow Project Tempo」，DAW 會自動改變播放速度以對齊真鼓。
@@ -135,6 +140,7 @@ Double-click 在 Warp Marker 上，將其拖動至正確的 Grid 位置。對於
 ### 人工假音（Artifacts）
 
 極端拉伸（超過 200% 或低於 50%）會導致明顯的數位假音：顫抖（wobble）、金屬聲、撕裂聲。解決方案：
+
 - 分割音訊，只對需要校正的段落進行拉伸
 - 使用多層重疊（Crossfade）技術平滑過渡
 - 考慮重新錄製而不是極端拉伸
