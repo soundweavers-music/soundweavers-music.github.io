@@ -2,51 +2,191 @@ import { newFx } from './js/effects.js';
 import { toggleArranger } from './js/arranger-ui.js';
 import { exportAudio } from './js/exporter.js';
 import { engine } from './js/engine.js';
+import { detectAndApply } from './js/chord-ui.js';
+import { importAudioFiles } from './js/project-io.js';
 // 課程截圖用：照 ?do= 的指令把介面操作到指定狀態，好了才通知伺服器放行截圖
 const P = new URLSearchParams(location.search);
 const acts = (P.get('do') || '').split(',').map(function (s) { return s.trim(); }).filter(Boolean);
 const sleep = function (ms) { return new Promise(function (r) { setTimeout(r, ms); }); };
 
-// ── 邊界巡檢：軌道上限、縮放極值、空專案 ─────────────────────────
+// ── 設定對話框：只改輸出裝置時，提示訊息對不對 ──────────────────
+async function runToastTest() {
+  const log = [];
+  const push = function (m) { log.push(m); window.__shotErr = log.join(' ｜ '); };
+  localStorage.setItem('daw.latencyHint', 'interactive');
+  document.getElementById('btnSettings').click();
+  await sleep(400);
+  // 關掉選單再開裝置對話框
+  document.body.click();
+  await sleep(200);
+  const d = document.getElementById('dlgDevices');
+  if (!d) { push('找不到裝置對話框'); return; }
+  d.showModal();
+  await sleep(300);
+  const lat = d.querySelector('[name=lat]');
+  push('對話框開啟時 lat=' + (lat ? lat.value : 'N/A'));
+  if (lat) lat.value = 'interactive';          // 沒有改延遲，只按確定
+  const toastEl = document.getElementById('toast');
+  const seen = [];
+  const mo = new MutationObserver(function () {
+    const s = (toastEl.textContent || '').trim();
+    if (s && seen.indexOf(s) < 0) seen.push(s);
+  });
+  if (toastEl) mo.observe(toastEl, { childList: true, characterData: true, subtree: true, attributes: true });
+  d.returnValue = 'ok';
+  d.close();
+  await sleep(3000);
+  if (mo) mo.disconnect();
+  push('按下確定後跳出的提示：' + (seen.length ? JSON.stringify(seen) : '(沒有抓到)'));
+}
+
+// ── 監聽器外漏巡檢：面板開關十次，看 store 上的監聽會不會越疊越多 ──
+async function runLeakTest() {
+  const E = window.__ERRS, D = window.__daw, st = D.store;
+  const log = [];
+  const push = function (m) { log.push(m); window.__shotErr = log.join(' ｜ '); };
+  const added = {}, removed = {};
+  const oa = EventTarget.prototype.addEventListener;
+  const orm = EventTarget.prototype.removeEventListener;
+  const track = function (self, type, fn, o) {
+    if (self === st) {
+      added[type] = (added[type] || 0) + 1;
+      if (window.__onStore) window.__onStore[type] = (window.__onStore[type] || 0) + 1;
+    }
+  };
+  EventTarget.prototype.addEventListener = function (type, fn, o) { track(this, type); return oa.call(this, type, fn, o); };
+  EventTarget.prototype.removeEventListener = function (type, fn, o) {
+    if (this === st) removed[type] = (removed[type] || 0) + 1;
+    return orm.call(this, type, fn, o);
+  };
+  window.__onStore = {};
+  const base = Object.assign({}, window.__onStore);
+
+  const cycle = async function (fn, times) {
+    for (let i = 0; i < times; i++) { await fn(); await sleep(80); }
+  };
+  const N = 30;
+  await cycle(function () { document.getElementById('btnMixer').click(); }, N);
+  await cycle(function () { document.getElementById('btnMaster').click(); }, N);
+  await cycle(function () { D.toggleArranger(true); D.toggleArranger(false); }, N / 2);
+  const midiClip = st.project.tracks.reduce(function (a, x) { return a || (x.clips || []).find(function (c) { return c.notes; }); }, null);
+  if (midiClip) await cycle(function () { D.openPianoRoll(midiClip.id); }, 20);
+
+  const diff = {};
+  for (const k in window.__onStore) {
+    const d = window.__onStore[k] - (base[k] || 0);
+    if (d) diff[k] = d;
+  }
+  push(N + ' 次開關後新增在 store 上的監聽：' + (Object.keys(diff).length ? JSON.stringify(diff) : '沒有'));
+  push('移除：' + (Object.keys(removed).length ? JSON.stringify(removed) : '沒有'));
+  EventTarget.prototype.addEventListener = oa;
+  EventTarget.prototype.removeEventListener = orm;
+  push('完成');
+}
+
+// ── 功能巡檢：抓和弦、升降音、母帶最佳化 ────────────────────────
+async function runFeatureTest() {
+  const E = window.__ERRS, D = window.__daw, st = D.store;
+  const log = [];
+  const push = function (m) { log.push(m); window.__shotErr = log.join(' ｜ '); };
+  const timed = async function (label, ms, fn) {
+    const t0 = Date.now();
+    const out = await Promise.race([
+      Promise.resolve().then(fn).then(function (v) { return 'ok(' + v + ')'; },
+                                    function (e) { return 'reject: ' + e.message; }),
+      sleep(ms).then(function () { return 'TIMEOUT'; }),
+    ]);
+    push(label + ' => ' + out + ' ' + (Math.round((Date.now() - t0) / 100) / 10) + 's');
+    return out;
+  };
+
+  // 1) 抓和弦（會分析整條軌的音高分布）
+  const midiTrack = st.project.tracks.find(function (x) { return x.kind === 'midi' && x.clips.length; });
+  if (midiTrack) {
+    await timed('抓和弦', 40000, function () {
+      return detectAndApply(midiTrack.id, 1).then(function (r) { return r ? r.chords.length + ' 個' : 'null'; });
+    });
+    push('　抓到 ' + (st.project.chords || []).length + ' 個和弦，調性=' +
+         JSON.stringify(st.project.chordKey));
+  } else push('沒有 MIDI 軌可測');
+
+  // 2) 匯入一個自己生的 WAV（示範專案沒有音訊軌，這條路平常沒被走過）
+  const makeWav = function (sec, sr) {
+    const n = Math.floor(sec * sr), b = new ArrayBuffer(44 + n * 2), v = new DataView(b);
+    const w = function (o, s) { for (let i = 0; i < s.length; i++) v.setUint8(o + i, s.charCodeAt(i)); };
+    w(0, 'RIFF'); v.setUint32(4, 36 + n * 2, true); w(8, 'WAVE'); w(12, 'fmt ');
+    v.setUint32(16, 16, true); v.setUint16(20, 1, true); v.setUint16(22, 1, true);
+    v.setUint32(24, sr, true); v.setUint32(28, sr * 2, true); v.setUint16(32, 2, true);
+    v.setUint16(34, 16, true); w(36, 'data'); v.setUint32(40, n * 2, true);
+    for (let i = 0; i < n; i++) v.setInt16(44 + i * 2, Math.sin(2 * Math.PI * 440 * i / sr) * 16384, true);
+    return new File([b], 'probe.wav', { type: 'audio/wav' });
+  };
+  const before = st.project.tracks.length;
+  await timed('匯入 WAV', 20000, function () {
+    return importAudioFiles([makeWav(1.5, 44100)], null, 0).then(function () {
+      const at = st.project.tracks.filter(function (x) { return x.kind === 'audio'; });
+      return '音訊軌 ' + at.length + ' 條、片段 ' + at.reduce(function (a, x) { return a + x.clips.length; }, 0);
+    });
+  });
+  push('　軌道 ' + before + ' → ' + st.project.tracks.length);
+
+  // 3) 片段升降音（會重算整個 buffer）
+  const clip = st.project.tracks.reduce(function (a, x) {
+    return a || x.clips.find(function (c) { return c.bufferId; });
+  }, null);
+  if (clip) {
+    await timed('升降音 +2 半音', 40000, function () {
+      return new Promise(function (res) {
+        st.emit('open-pitch', { clipIds: [clip.id] });
+        setTimeout(function () {
+          const d = document.getElementById('dlgPitch');
+          if (!d || !d.open) { res('沒有開對話框'); return; }
+          d.querySelector('[name=semis]').value = '2';
+          d.returnValue = 'ok';
+          d.close();
+          setTimeout(function () { res('已送出'); }, 2500);
+        }, 250);
+      });
+    });
+  } else push('沒有音訊片段可測升降音');
+
+  push('完成');
+}
+
+// ── 邊界巡檢：加軌道的成本、縮放極值 ───────────────────────────
 async function runLimitTest() {
   const E = window.__ERRS, D = window.__daw, st = D.store;
   const log = [];
   const push = function (m) { log.push(m); window.__shotErr = log.join(' ｜ '); };
-
-  // 1) 加到上限
-  let added = 0, guard = 0;
-  while (st.addTrack('audio') && guard++ < 100) added++;
-  push('加到上限：新增 ' + added + ' 條，現在 ' + st.project.tracks.length + ' 條');
-  if (st.project.tracks.length > 32) push('!! 超過 MAX_TRACKS');
-  const nullTry = st.addTrack('midi');
-  if (nullTry) push('!! 已達上限卻還能新增');
-
-  // 2) 全部復原
-  for (let i = 0; i < added + 2; i++) st.undo();
-  push('復原後 ' + st.project.tracks.length + ' 條');
-
-  // 3) 縮放極值
-  for (const z of [0, 1, 4, 640, 5000, -5]) {
-    D.view.pxPerBeat = z;
-    st.emit('zoom', {});
-    await sleep(120);
-    const lanesEl = document.getElementById('lanesInner');
-    const w = lanesEl ? lanesEl.getBoundingClientRect().width : -1;
-    if (!isFinite(w) || w <= 0) push('!! 縮放 ' + z + ' 時寬度是 ' + w);
-  }
-  D.view.pxPerBeat = 40;
-  st.emit('zoom', {});
-
-  // 4) 空專案：全部刪掉再復原
+  const t0 = Date.now();
+  let added = 0;
+  for (let i = 0; i < 10 && st.addTrack('audio'); i++) added++;
+  const t10 = Date.now() - t0;
+  push('前 10 條：' + (t10 / Math.max(added, 1)).toFixed(0) + ' ms/條');
+  const t1 = Date.now();
+  let added2 = 0;
+  for (let i = 0; i < 10 && st.addTrack('audio'); i++) added2++;
+  const t20 = Date.now() - t1;
+  push('第 11–20 條：' + (t20 / Math.max(added2, 1)).toFixed(0) + ' ms/條，共 ' + st.project.tracks.length + ' 條');
+  if (t20 / Math.max(added2, 1) > 4 * (t10 / Math.max(added, 1)) + 20) push('!! 加軌道越後面越慢');
+  const t2 = Date.now();
+  for (let i = 0; i < added + added2; i++) st.undo();
+  push('復原 ' + (added + added2) + ' 次：' + (Date.now() - t2) + ' ms，剩 ' + st.project.tracks.length + ' 條');
+  // 全部刪掉再復原（使用者真的會這樣做）
   const n = st.project.tracks.length;
+  const t3 = Date.now();
   for (let i = 0; i < n; i++) st.removeTrack(st.project.tracks[0].id);
-  push('刪光後 ' + st.project.tracks.length + ' 條，selection=' + st.selection.trackId);
+  push('刪光 ' + n + ' 條：' + (Date.now() - t3) + ' ms，剩 ' + st.project.tracks.length +
+       ' 條，selection=' + st.selection.trackId);
+  const t4 = Date.now();
   D.renderInspector(); D.renderArrange();
-  await sleep(200);
+  push('空專案重繪：' + (Date.now() - t4) + ' ms');
+  const t5 = Date.now();
   for (let i = 0; i < n; i++) st.undo();
-  push('復原後 ' + st.project.tracks.length + ' 條');
+  push('全部復原：' + (Date.now() - t5) + ' ms，剩 ' + st.project.tracks.length + ' 條');
+  const t6 = Date.now();
   D.renderInspector(); D.renderArrange();
-  await sleep(200);
+  push('復原後重繪：' + (Date.now() - t6) + ' ms');
   push('完成');
 }
 
@@ -285,11 +425,14 @@ for (const a of acts) {
   const key = parts[0], arg = parts.slice(1);
   try {
     if (key === 'tour') await runTour(Number(arg[0] || 0));
+    else if (key === 'toasttest') await runToastTest();
+    else if (key === 'leaktest') await runLeakTest();
+    else if (key === 'featuretest') await runFeatureTest();
     else if (key === 'limittest') await runLimitTest();
     else if (key === 'dragtest') await runDragTest();
     else if (key === 'exporttest') await runExportTest();
     else if (key === 'undotest') await runUndoTest();
-    else if (key === 'selftest') { setTimeout(function () { throw new Error('collector-selftest'); }, 0); await sleep(400); }
+    else if (key === 'selftest') { console.warn('probe-warn'); setTimeout(function () { throw new Error('collector-selftest'); }, 0); await sleep(400); }
     else if (key === 'click') document.getElementById(arg[0]) && document.getElementById(arg[0]).click();
     else if (key === 'dlg') { const d = document.getElementById(arg[0]); if (d && d.showModal) d.showModal(); }
     else if (key === 'track') {        // 選第 N 條軌道（0 起算）

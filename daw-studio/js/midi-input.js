@@ -79,7 +79,8 @@ export function noteOn(key, vel = state.velocity) {
   if (state.held.has(key)) { state.sustained.delete(key); releaseKey(key); }
   const midi = Math.max(0, Math.min(127, key + state.transpose));
   // 這一軌若設了「輸入力度」，就用固定值蓋掉鍵盤送來的力度（錄音也照這個值寫）
-  const useVel = t.inputVel > 0 ? Math.min(127, Math.round(t.inputVel)) : vel;
+  // 相對偏移（像 Logic 的 Velocity）：保留原本的輕重，只整體加減
+  const useVel = Math.max(1, Math.min(127, Math.round(vel + (t.inputVel || 0))));
   engine.noteOn(t.id, midi, useVel);
   state.held.set(key, { trackId: t.id, midi, vel: useVel, startPos: engine.currentTime() });
   store.emit('midi-activity', { midi, on: true });
