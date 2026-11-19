@@ -955,3 +955,26 @@ a.tbtn { text-decoration: none; }
 .arr-level { display: flex; align-items: center; gap: 6px; font-size: 11.5px; color: var(--tx2); }
 .arr-level input[type=range] { width: 92px; accent-color: var(--accent); }
 .arr-level b { font-family: var(--mono); font-size: 11px; color: var(--tx1); min-width: 34px; }
+
+/* ---------- Harmony：品質（即時／高品質）---------- */
+.hmx-q { display: grid; gap: 6px; padding: 8px 10px; border: 1px solid var(--line2); border-radius: 10px; background: var(--bg1); }
+.hmx-qtabs { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--line2); border-radius: 7px; overflow: hidden; }
+.hmx-qtabs button { height: 32px; border: 0; background: var(--bg0); color: var(--tx1); cursor: pointer; font-size: 12.5px; }
+.hmx-qtabs button.sel { background: var(--accent); color: #fff; font-weight: 600; }
+.hmx-qtabs button[data-q="1"].sel { background: linear-gradient(90deg, #b58bff, #f78fc3); }
+.hmx-qhq { display: none; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 12px; }
+.hmx.hq .hmx-qhq { display: flex; }
+.hmx-qst { flex: 1; min-width: 220px; color: var(--tx1); }
+.hmx-qst em { font-style: normal; color: var(--tx2); }
+.hmx-qst .ok { color: var(--play); }
+.hmx-qst .warn { color: var(--cycle); }
+.hmx-vk { display: flex; align-items: center; gap: 6px; color: var(--tx1); }
+.hmx-vk input { width: 100px; accent-color: var(--accent); }
+.hmx-vk b { font: 11px var(--mono); min-width: 34px; color: var(--tx2); }
+.hmx-qhq .tbtn { height: 28px; }
+.hmx-qbar { position: relative; height: 18px; border-radius: 9px; background: var(--bg0); overflow: hidden; border: 1px solid var(--line2); }
+.hmx-qbar[hidden] { display: none; }
+.hmx-qbar i { position: absolute; inset: 0 auto 0 0; width: 0; background: linear-gradient(90deg, #b58bff, #f78fc3); transition: width .2s; }
+.hmx-qbar span { position: relative; display: block; text-align: center; font-size: 10.5px; line-height: 18px; color: var(--tx0); }
+/* 高品質模式：即時監聽的音高圖用不到，旋鈕「滑音／人性化」仍有效 */
+.hmx.hq .hmx-graph { opacity: .45; }

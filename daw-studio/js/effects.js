@@ -828,12 +828,13 @@ const PCS_CACHE = { maj: [0, 4, 7], min: [0, 3, 7], 7: [0, 4, 7, 10], maj7: [0, 
 export function harmConfig(p, bpm, off = 0) {
   const s = 60 / (bpm || 120);
   const R = TUNE_RANGES[p.range | 0] || TUNE_RANGES[0];
-  const voices = (p.voices || harmDefaults().voices).map(v => ({ on: !!v.on, n: v.n, g: dbg(v.g || 0), pan: v.pan || 0 }));
+  // 高品質模式：和聲已經預先算成音訊軌，這裡只送出主唱（保持延遲補償與主唱音量）
+  const voices = (p.voices || harmDefaults().voices).map(v => ({ on: !!v.on && !p.hq, n: v.n, g: dbg(v.g || 0), pan: v.pan || 0 }));
   return {
     source: p.source | 0, mask: p.mask | 0, fmin: R.fmin, fmax: R.fmax,
     lead: p.lead <= -60 ? 0 : dbg(p.lead), hgain: p.hgain <= -60 ? 0 : dbg(p.hgain),
     width: (p.width ?? 70) / 100, humanize: (p.humanize ?? 50) / 100, tight: (p.tight ?? 85) / 100, glide: p.glide ?? 30,
-    secMode: p.secMode ? 1 : 0, off, voices,
+    secMode: p.secMode && !p.hq ? 1 : 0, off, voices,
     chords: (p.chords || []).map(c => ({ s: c.t * s, e: (c.t + c.d) * s, pcs: (PCS_CACHE[c.q] || PCS_CACHE.maj).reduce((m, k) => m | 1 << ((c.root + k) % 12), 0), name: c.root + c.q })),
     sections: (p.sections || []).map((x, i) => ({ s: x.t * s, e: (x.t + x.d) * s, iv: x.iv, i })),
     curves: (p.curves || [[], [], [], []]).map(c => (c || []).slice().sort((a, b) => a.t - b.t).map(pt => ({ s: pt.t * s, v: pt.v }))),

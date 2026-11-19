@@ -71,15 +71,29 @@ class Harmony extends AudioWorkletProcessor {
       d[tau] = s; run += s;
       cm[tau] = run > 0 ? s * tau / run : 1;
     }
-    let best = -1;
-    for (let tau = tmin; tau <= tmax; tau++) {
-      if (cm[tau] < 0.15) { while (tau + 1 <= tmax && cm[tau + 1] < cm[tau]) tau++; best = tau; break; }
+    // 候選週期：所有局部最低點；成本 = τ、2τ、3τ 的平均（真正的週期在倍數處也是低點，共振峰造成的「諧波週期」不是），
+    // 是較短候選整數倍的（低八度）去掉；再加一點「跟上一格同一個八度」的偏好。這跟高品質版用的是同一套規則。
+    const cand = this.cand || (this.cand = []);
+    cand.length = 0;
+    for (let tau = tmin + 1; tau < tmax; tau++) if (cm[tau] < cm[tau - 1] && cm[tau] <= cm[tau + 1] && cm[tau] < 0.6) cand.push(tau);
+    if (!cand.length) return 0;
+    const at = k => { k = Math.round(k); if (k < 2 || k >= tmax) return -1; let m = 9; for (let q = Math.max(1, k - 1); q <= Math.min(tmax, k + 1); q++) if (cm[q] < m) m = cm[q]; return m; };
+    let best = -1, bestCost = 9;
+    const prevT = this.voiced && this.lastTau ? this.lastTau : 0;
+    for (let ci = 0; ci < cand.length; ci++) {
+      const tau = cand[ci];
+      let c = cm[tau], n = 1;
+      const m2 = at(tau * 2), m3 = at(tau * 3);
+      if (m2 >= 0) { c += m2; n++; } if (m3 >= 0) { c += m3; n++; }
+      c /= n;
+      let sub = false;
+      for (let cj = 0; cj < ci; cj++) { const r = tau / cand[cj], rr = Math.round(r); if (rr >= 2 && Math.abs(r - rr) < 0.04 && cm[cand[cj]] < cm[tau] + 0.05) { sub = true; break; } }
+      if (sub) continue;
+      if (prevT) { const oct = Math.abs(Math.log2(tau / prevT)); if (oct > 0.7) c += 0.06; }
+      if (c < bestCost) { bestCost = c; best = tau; }
     }
-    if (best < 0) {
-      let mv = 1e9;
-      for (let tau = tmin; tau <= tmax; tau++) if (cm[tau] < mv) { mv = cm[tau]; best = tau; }
-      if (mv > 0.3) return 0;
-    }
+    if (best < 0 || bestCost > 0.32) return 0;
+    this.lastTau = best;
     let t = best;
     if (best > 1 && best < tmax) {
       const a = cm[best - 1], b = cm[best], c = cm[best + 1], den = a - 2 * b + c;
@@ -221,18 +235,41 @@ class Harmony extends AudioWorkletProcessor {
     if (!cfg) return true;
 
     // ---- 分析 ----
-    const f = this.detect(cfg.fmin, cfg.fmax);
+    let f = this.detect(cfg.fmin, cfg.fmax);
     const blkSec = len / SR;
     let q = 0, mi = 0;
+    // 八度遲滯（因果版的 Viterbi）：同一個音裡突然差一個八度（或 12 度）的估計，要持續 40 ms 才採用，否則折回原本的八度
+    if (f > 0 && this.voiced && this.lastMidi > 0) {
+      const raw0 = 69 + 12 * Math.log2(f / 440), d = raw0 - this.lastMidi;
+      const k = Math.round(d / 12), k19 = Math.abs(d - 19) < 1.2 ? 19 : Math.abs(d + 19) < 1.2 ? -19 : 0;
+      const jump = k19 || (Math.abs(k) >= 1 && Math.abs(d - 12 * k) < 1.2 ? 12 * k : 0);
+      if (jump) {
+        this.octRun = (this.octJump === jump ? this.octRun : 0) + blkSec; this.octJump = jump;
+        if (this.octRun < 0.04) f = f / Math.pow(2, jump / 12);
+      } else { this.octRun = 0; this.octJump = 0; }
+    }
+    // 起音保護：子音之後剛出聲的前幾格，窗裡還有一部分是無聲，最容易抓到低八度（甚至兩個八度）。
+    // 先收集 3 格，三格一致（差不到 1 個半音）才開始當成有聲；之後再跟上一個音比，跳超過一個八度也要多確認
+    if (f > 0 && !this.voiced) {
+      const raw = 69 + 12 * Math.log2(f / 440);
+      this.pre = this.pre || []; this.pre.push(raw);
+      if (this.pre.length > 3) this.pre.shift();
+      const ok = this.pre.length === 3 && Math.max(...this.pre) - Math.min(...this.pre) < 1;
+      const far = this.lastNote > 0 && Math.abs(raw - this.lastNote) > 13 && (this.preFar = (this.preFar || 0) + 1) < 6;
+      if (!ok || far) f = 0;
+      else { this.preFar = 0; }
+    }
     if (f > 0) {
       const raw = 69 + 12 * Math.log2(f / 440);
-      if (!this.voiced) { this.h3 = [raw, raw, raw]; this.q = -1; }
+      if (!this.voiced) { const p3 = this.pre.slice().sort((a, b) => a - b); this.h3 = [p3[1], p3[1], p3[1]]; this.q = -1; this.pre.length = 0; }
       this.h3.shift(); this.h3.push(raw);
       const s3 = this.h3.slice().sort((a, b) => a - b);
       mi = s3[1];
+      this.lastNote = mi;
       this.Pin = SR / (440 * Math.pow(2, (mi - 69) / 12));
       this.voiced = true;
     } else {
+      if (this.voiced) this.pre = [];
       this.voiced = false;
       this.Pin = this.Pu;
     }
