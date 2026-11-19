@@ -1199,6 +1199,34 @@ def fig_bass_note():
     return width, height, chr(10).join(parts)
 
 
+def fig_string_tuning():
+    """2-2：六條弦與標準調音。"""
+    strings = [(1, "E4", "329.63"), (2, "B3", "246.94"), (3, "G3", "196.00"),
+               (4, "D3", "146.83"), (5, "A2", "110.00"), (6, "E2", "82.41")]
+    width, height = 640, 340
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" role="img" aria-label="六條弦的標準調音">',
+        '  <title>六條弦的標準調音</title>',
+        f'  <rect width="{width}" height="{height}" fill="{BG}"/>',
+        t(24, 34, "六條弦與標準調音 E–A–D–G–B–E", 15, anchor="start", weight=700),
+        t(24, 55, "由上而下是第 1 弦（最細）到第 6 弦（最粗）；數字是空弦的頻率", 11.5, anchor="start", fill=MUTED),
+    ]
+    left, right, top = 110, 452, 96
+    for i, (num, name, hz) in enumerate(strings):
+        y = top + i * 34
+        wide = 1 + (num - 1) * 0.55
+        parts.append(f'<line x1="{left}" y1="{y}" x2="{right}" y2="{y}" stroke="{INK}" '
+                     f'stroke-width="{wide:.1f}" opacity=".55"/>')
+        parts.append(t(left - 14, y + 5, f"第 {num} 弦", 11.5, anchor="end", weight=700))
+        parts.append(f'<circle cx="{right + 30}" cy="{y}" r="14" fill="{ACCENT_SOFT}" stroke="{LINE}"/>')
+        parts.append(t(right + 30, y + 5, name, 11, fill=ACCENT, weight=700))
+        parts.append(t(right + 58, y + 5, f"{hz} Hz", 10, fill=MUTED))
+    parts.append(t(24, height - 48, "第 1 弦在最上面、第 6 弦在最下面——這和「抱琴時粗弦在上面」是同一件事。", 11, anchor="start", fill=INK))
+    parts.append(t(24, height - 22, "口訣：Eddie Ate Dynamite, Good Bye Eddie（E-A-D-G-B-E）。", 10.5, anchor="start", fill=MUTED))
+    parts.append("</svg>")
+    return width, height, chr(10).join(parts)
+
+
 ARPEGGIO_FINGERS = ["T", "1", "2", "1", "3", "1", "2", "1"]
 ARPEGGIO_STRINGS = [5, 3, 2, 3, 1, 3, 2, 3]
 
@@ -1321,6 +1349,16 @@ def _wrap(text, n):
 
 
 FIGURES = {
+    "string-tuning": fig_string_tuning,
+    "compare-dynamics": lambda: fig_compare(
+        "一把吉他的「混音台」：四個旋鈕",
+        "沒有第二把琴、沒有踏板，一樣可以做出主歌與副歌的落差",
+        ["旋鈕", "收（主歌）", "放（副歌）"],
+        [("發聲方式", "指腹撥弦，圓潤", "Pick 刷奏，清脆"),
+         ("觸弦位置", "靠指板末端，柔", "靠響孔中央，穿透"),
+         ("音域", "只彈低音與中音弦", "六條全刷"),
+         ("節奏密度", "分解和弦，一次一顆音", "滿弦刷奏，加切音")],
+        "副歌之所以大，是因為主歌刻意小；四件事同時做，落差才出得來。"),
     "compare-switch": lambda: fig_compare(
         "換和弦卡卡的：兩個可以馬上改的習慣",
         "不是手指不夠快，是每次都多做了不必要的工作",

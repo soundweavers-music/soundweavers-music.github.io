@@ -1369,6 +1369,29 @@ def faq_week1() -> str:
         "痛是正常的，破皮不是。指尖起繭之前，寧可少彈十分鐘，也不要硬撐。")
 
 
+def accessories() -> str:
+    return uk_steps(
+        "買琴必備的四樣配件",
+        "這四樣加起來通常不到琴價的一成，但少了會很麻煩",
+        [("調音器", "夾式即可；手機 App 也可以，但夾式在吵雜環境更穩"),
+         ("琴袋或琴盒", "厚琴袋就夠日常使用；要帶出門選有硬殼的"),
+         ("背帶", "站著彈才需要；坐著彈靠三點支撐就好"),
+         ("擦拭布", "每次彈完擦弦，弦的壽命差很多")],
+        "先不要買一堆效果器或改裝品；把這四樣準備好，再談第二把琴。")
+
+
+def strum_dynamics() -> str:
+    return uk_compare(
+        "刷弦的力度：不要從頭到尾一樣大聲",
+        "「鋸木頭式」的平刷是新手最常見的問題，差別在重音放哪裡",
+        ["段落", "刷法", "力道"],
+        [("主歌", "指法分解或半拍下刷", "輕，讓歌聲在前面"),
+         ("導歌", "每拍下刷、逐漸加密", "中，一拍比一拍重"),
+         ("副歌", "16 Beat 全刷", "重，四條弦全響"),
+         ("尾奏", "回到分解、放慢", "漸弱，讓最後一顆音自然消失")],
+        "同一組和弦，只要改「刷幾條弦、刷幾下、多大聲」，聽起來就像另一首歌。")
+
+
 def main() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
     figures = {
@@ -1380,6 +1403,8 @@ def main() -> int:
         "double_stops.svg": double_stops(),
         "fingerstyle_roles.svg": fingerstyle_roles(),
         "percussion.svg": percussion(),
+        "accessories.svg": accessories(),
+        "strum_dynamics.svg": strum_dynamics(),
         "wood_types.svg": wood_types(),
         "seventh_pair.svg": seventh_pair(),
         "faq_week1.svg": faq_week1(),
