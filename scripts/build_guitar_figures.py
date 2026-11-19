@@ -168,10 +168,70 @@ def fig_barre():
     return width, height, "\n".join(parts)
 
 
+
+
+def fig_guitar_anatomy():
+    """民謠吉他各部位（正面觀、直立擺放）。"""
+    width, height = 640, 520
+    cx = 300
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" role="img" aria-label="民謠吉他各部位名稱">',
+        '  <title>民謠吉他的部位</title>',
+        f'  <rect width="{width}" height="{height}" fill="{BG}"/>',
+        t(26, 34, "民謠吉他的部位", size=16, anchor="start", weight=700),
+        t(26, 55, "由上而下：琴頭、上弦枕、指板與琴格、琴身、響孔、琴橋", size=11.5, anchor="start", fill=MUTED),
+    ]
+    # 琴身（上下兩個圓弧 + 腰身）
+    parts.append(f'<path d="M{cx-62} 250 C{cx-118} 268 {cx-128} 330 {cx-118} 372 '
+                 f'C{cx-108} 420 {cx-70} 452 {cx} 452 C{cx+70} 452 {cx+108} 420 {cx+118} 372 '
+                 f'C{cx+128} 330 {cx+118} 268 {cx+62} 250 Z" '
+                 f'fill="{ACCENT_SOFT}" stroke="{INK}" stroke-width="2"/>')
+    # 琴頸／指板
+    parts.append(f'<rect x="{cx-26}" y="120" width="52" height="132" fill="#EDE3D6" stroke="{INK}" stroke-width="1.6"/>')
+    # 琴格
+    for i in range(1, 8):
+        y = 120 + i * 16
+        parts.append(f'<line x1="{cx-26}" y1="{y}" x2="{cx+26}" y2="{y}" stroke="{MUTED}" stroke-width="1"/>')
+    # 弦
+    for i in range(6):
+        x = cx - 20 + i * 8
+        parts.append(f'<line x1="{x}" y1="150" x2="{x}" y2="392" stroke="{INK}" stroke-width="0.9" opacity=".55"/>')
+    # 上弦枕
+    parts.append(f'<rect x="{cx-28}" y="146" width="56" height="7" fill="{INK}"/>')
+    # 琴頭
+    parts.append(f'<path d="M{cx-30} 146 L{cx-24} 72 L{cx+24} 72 L{cx+30} 146 Z" fill="#EDE3D6" stroke="{INK}" stroke-width="1.6"/>')
+    for i in range(3):
+        parts.append(f'<circle cx="{cx-16}" cy="{86+i*20}" r="5" fill="{BG}" stroke="{INK}" stroke-width="1.2"/>')
+        parts.append(f'<circle cx="{cx+16}" cy="{86+i*20}" r="5" fill="{BG}" stroke="{INK}" stroke-width="1.2"/>')
+    # 響孔與琴橋
+    parts.append(f'<circle cx="{cx}" cy="352" r="30" fill="{BG}" stroke="{INK}" stroke-width="1.6"/>')
+    parts.append(f'<rect x="{cx-34}" y="404" width="68" height="12" rx="3" fill="#DCCDBB" stroke="{INK}" stroke-width="1.2"/>')
+
+    def label(txt, ax, ay, lx, ly):
+        parts.append(f'<path d="M{ax} {ay} L{lx} {ly}" stroke="{MUTED}" stroke-width="1" fill="none"/>')
+        parts.append(f'<circle cx="{ax}" cy="{ay}" r="2.6" fill="{MUTED}"/>')
+        parts.append(t(lx + (8 if lx > ax else -8), ly + 4, txt, size=12,
+                       anchor="start" if lx > ax else "end"))
+
+    label("琴頭 Headstock", cx + 24, 100, 400, 92)
+    label("弦鈕 Tuning Pegs", cx + 16, 126, 400, 132)
+    label("上弦枕 Nut", cx + 26, 150, 400, 172)
+    label("指板與琴格 Frets", cx - 26, 200, 150, 196)
+    label("琴身 Body", cx - 118, 350, 110, 330)
+    label("響孔 Soundhole", cx - 22, 352, 150, 380)
+    label("琴橋 Bridge", cx - 34, 410, 130, 448)
+    label("弦 Strings（六條）", cx + 4, 300, 400, 300)
+
+    parts.append(t(26, height - 14, "第 1 弦是最細的高音 E，第 6 弦是最粗的低音 E；和弦圖的左右順序就是照這張圖。", size=10.5, anchor="start", fill=MUTED))
+    parts.append("</svg>")
+    return width, height, "@@NL@@".join(parts).replace("@@NL@@", chr(10))
+
+
 FIGURES = {
     "chord-basics": fig_chord_basics,
     "chord-hold": fig_chord_hold,
     "barre-chords": fig_barre,
+    "guitar-anatomy": fig_guitar_anatomy,
 }
 
 

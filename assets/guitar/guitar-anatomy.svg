@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 520" role="img" aria-label="民謠吉他各部位名稱">
+  <title>民謠吉他的部位</title>
+  <rect width="640" height="520" fill="#FBF8F4"/>
+<text x="26" y="34" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="16" fill="#3D3229" text-anchor="start" font-weight="700">民謠吉他的部位</text>
+<text x="26" y="55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#8C8078" text-anchor="start">由上而下：琴頭、上弦枕、指板與琴格、琴身、響孔、琴橋</text>
+<path d="M238 250 C182 268 172 330 182 372 C192 420 230 452 300 452 C370 452 408 420 418 372 C428 330 418 268 362 250 Z" fill="#F3E9DC" stroke="#3D3229" stroke-width="2"/>
+<rect x="274" y="120" width="52" height="132" fill="#EDE3D6" stroke="#3D3229" stroke-width="1.6"/>
+<line x1="274" y1="136" x2="326" y2="136" stroke="#8C8078" stroke-width="1"/>
+<line x1="274" y1="152" x2="326" y2="152" stroke="#8C8078" stroke-width="1"/>
+<line x1="274" y1="168" x2="326" y2="168" stroke="#8C8078" stroke-width="1"/>
+<line x1="274" y1="184" x2="326" y2="184" stroke="#8C8078" stroke-width="1"/>
+<line x1="274" y1="200" x2="326" y2="200" stroke="#8C8078" stroke-width="1"/>
+<line x1="274" y1="216" x2="326" y2="216" stroke="#8C8078" stroke-width="1"/>
+<line x1="274" y1="232" x2="326" y2="232" stroke="#8C8078" stroke-width="1"/>
+<line x1="280" y1="150" x2="280" y2="392" stroke="#3D3229" stroke-width="0.9" opacity=".55"/>
+<line x1="288" y1="150" x2="288" y2="392" stroke="#3D3229" stroke-width="0.9" opacity=".55"/>
+<line x1="296" y1="150" x2="296" y2="392" stroke="#3D3229" stroke-width="0.9" opacity=".55"/>
+<line x1="304" y1="150" x2="304" y2="392" stroke="#3D3229" stroke-width="0.9" opacity=".55"/>
+<line x1="312" y1="150" x2="312" y2="392" stroke="#3D3229" stroke-width="0.9" opacity=".55"/>
+<line x1="320" y1="150" x2="320" y2="392" stroke="#3D3229" stroke-width="0.9" opacity=".55"/>
+<rect x="272" y="146" width="56" height="7" fill="#3D3229"/>
+<path d="M270 146 L276 72 L324 72 L330 146 Z" fill="#EDE3D6" stroke="#3D3229" stroke-width="1.6"/>
+<circle cx="284" cy="86" r="5" fill="#FBF8F4" stroke="#3D3229" stroke-width="1.2"/>
+<circle cx="316" cy="86" r="5" fill="#FBF8F4" stroke="#3D3229" stroke-width="1.2"/>
+<circle cx="284" cy="106" r="5" fill="#FBF8F4" stroke="#3D3229" stroke-width="1.2"/>
+<circle cx="316" cy="106" r="5" fill="#FBF8F4" stroke="#3D3229" stroke-width="1.2"/>
+<circle cx="284" cy="126" r="5" fill="#FBF8F4" stroke="#3D3229" stroke-width="1.2"/>
+<circle cx="316" cy="126" r="5" fill="#FBF8F4" stroke="#3D3229" stroke-width="1.2"/>
+<circle cx="300" cy="352" r="30" fill="#FBF8F4" stroke="#3D3229" stroke-width="1.6"/>
+<rect x="266" y="404" width="68" height="12" rx="3" fill="#DCCDBB" stroke="#3D3229" stroke-width="1.2"/>
+<path d="M324 100 L400 92" stroke="#8C8078" stroke-width="1" fill="none"/>
+<circle cx="324" cy="100" r="2.6" fill="#8C8078"/>
+<text x="408" y="96" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="start">琴頭 Headstock</text>
+<path d="M316 126 L400 132" stroke="#8C8078" stroke-width="1" fill="none"/>
+<circle cx="316" cy="126" r="2.6" fill="#8C8078"/>
+<text x="408" y="136" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="start">弦鈕 Tuning Pegs</text>
+<path d="M326 150 L400 172" stroke="#8C8078" stroke-width="1" fill="none"/>
+<circle cx="326" cy="150" r="2.6" fill="#8C8078"/>
+<text x="408" y="176" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="start">上弦枕 Nut</text>
+<path d="M274 200 L150 196" stroke="#8C8078" stroke-width="1" fill="none"/>
+<circle cx="274" cy="200" r="2.6" fill="#8C8078"/>
+<text x="142" y="200" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="end">指板與琴格 Frets</text>
+<path d="M182 350 L110 330" stroke="#8C8078" stroke-width="1" fill="none"/>
+<circle cx="182" cy="350" r="2.6" fill="#8C8078"/>
+<text x="102" y="334" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="end">琴身 Body</text>
+<path d="M278 352 L150 380" stroke="#8C8078" stroke-width="1" fill="none"/>
+<circle cx="278" cy="352" r="2.6" fill="#8C8078"/>
+<text x="142" y="384" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="end">響孔 Soundhole</text>
+<path d="M266 410 L130 448" stroke="#8C8078" stroke-width="1" fill="none"/>
+<circle cx="266" cy="410" r="2.6" fill="#8C8078"/>
+<text x="122" y="452" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="end">琴橋 Bridge</text>
+<path d="M304 300 L400 300" stroke="#8C8078" stroke-width="1" fill="none"/>
+<circle cx="304" cy="300" r="2.6" fill="#8C8078"/>
+<text x="408" y="304" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="start">弦 Strings（六條）</text>
+<text x="26" y="506" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="start">第 1 弦是最細的高音 E，第 6 弦是最粗的低音 E；和弦圖的左右順序就是照這張圖。</text>
+</svg>
