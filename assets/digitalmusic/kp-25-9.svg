@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 460" role="img" aria-label="總結">
+  <title>總結</title>
+  <rect width="660" height="460" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">總結</text>
+  <text x="26" y="55" class="ts" font-size="12.5">把這一節的重點排在一起</text>
+  <rect x="26.0" y="96" width="295.0" height="96" rx="9" fill="#F3E9DC" stroke="#D9CFC4" stroke-width="1.4"/>  <circle cx="40.0" cy="116" r="10" fill="#A67C52"/>  <text x="40.0" y="120" text-anchor="middle" class="num">1</text>  <text x="60.0" y="121" class="t" font-size="12" font-weight="700">空間就是音樂</text>  <text x="40.0" y="144" class="ts" font-size="9.5" fill="#8C8078">殘響、延遲和全景安排不是附加效</text>  <text x="40.0" y="160" class="ts" font-size="9.5" fill="#8C8078">果，而是作品的骨架。</text>  <rect x="339.0" y="96" width="295.0" height="96" rx="9" fill="#F3E9DC" stroke="#D9CFC4" stroke-width="1.4"/>  <circle cx="353.0" cy="116" r="10" fill="#A67C52"/>  <text x="353.0" y="120" text-anchor="middle" class="num">2</text>  <text x="373.0" y="121" class="t" font-size="12" font-weight="700">低頻需要刻意管理</text>  <text x="353.0" y="144" class="ts" font-size="9.5" fill="#8C8078">深沉不等於轟鳴，使用HPF、動</text>  <text x="353.0" y="160" class="ts" font-size="9.5" fill="#8C8078">態EQ與單聲道彙整來保持低頻清</text>  <text x="353.0" y="176" class="ts" font-size="9.5" fill="#8C8078">晰。</text>  <rect x="26.0" y="206" width="295.0" height="96" rx="9" fill="#F3E9DC" stroke="#D9CFC4" stroke-width="1.4"/>  <circle cx="40.0" cy="226" r="10" fill="#A67C52"/>  <text x="40.0" y="230" text-anchor="middle" class="num">3</text>  <text x="60.0" y="231" class="t" font-size="12" font-weight="700">緩慢演化創造深度</text>  <text x="40.0" y="254" class="ts" font-size="9.5" fill="#8C8078">任何參數的變化都應該以10–6</text>  <text x="40.0" y="270" class="ts" font-size="9.5" fill="#8C8078">0秒為單位來思考。</text>  <rect x="339.0" y="206" width="295.0" height="96" rx="9" fill="#F3E9DC" stroke="#D9CFC4" stroke-width="1.4"/>  <circle cx="353.0" cy="226" r="10" fill="#A67C52"/>  <text x="353.0" y="230" text-anchor="middle" class="num">4</text>  <text x="373.0" y="231" class="t" font-size="12" font-weight="700">紋理重於音符</text>  <text x="353.0" y="254" class="ts" font-size="9.5" fill="#8C8078">聲音的質感比和弦進行或旋律更重</text>  <text x="353.0" y="270" class="ts" font-size="9.5" fill="#8C8078">要。</text>  <rect x="26.0" y="316" width="295.0" height="96" rx="9" fill="#F3E9DC" stroke="#D9CFC4" stroke-width="1.4"/>  <circle cx="40.0" cy="336" r="10" fill="#A67C52"/>  <text x="40.0" y="340" text-anchor="middle" class="num">5</text>  <text x="60.0" y="341" class="t" font-size="12" font-weight="700">敘事藏在動態裡</text>  <text x="40.0" y="364" class="ts" font-size="9.5" fill="#8C8078">即使沒有主歌副歌，透過音量、濾</text>  <text x="40.0" y="380" class="ts" font-size="9.5" fill="#8C8078">波和空間的變化，仍然可以帶領聽</text>  <text x="40.0" y="396" class="ts" font-size="9.5" fill="#8C8078">眾經歷一段情感旅程。</text>
+</svg>

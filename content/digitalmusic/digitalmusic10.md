@@ -16,6 +16,9 @@
 
 ---
 
+
+![一、什麼是彈性音訊／時間拉伸？的重點整理](../../assets/digitalmusic/kp-10-1.svg)
+
 ## 二、不同演算法的選擇
 
 ![四種 Warp 模式](../../assets/digitalmusic/warp-modes.svg)
@@ -73,6 +76,9 @@ Ableton Live 的 **Warp From Here** 與 **Warp as 1/2 Beat Loop / 4 Beat Loop** 
 
 ---
 
+
+![三、偵測速度與設定 Warp Markers的重點整理](../../assets/digitalmusic/kp-10-3.svg)
+
 ## 四、將音訊量化至網格（Quantize Audio to Grid）
 
 ![Warp 標記釘在瞬態上，格線是專案速度](../../assets/digitalmusic/warp-markers.svg)
@@ -112,6 +118,9 @@ Double-click 在 Warp Marker 上，將其拖動至正確的 Grid 位置。對於
 
 ---
 
+
+![五、收緊鬆散演奏：瞬態標記微調的重點整理](../../assets/digitalmusic/kp-10-5.svg)
+
 ## 六、對齊原聲樂器與 MIDI／鼓機
 
 現代流行音樂製作中，常會將**原聲樂器錄音（真鼓、吉他、鋼琴）**與 **MIDI 鼓組或鼓機（808、LinnDrum 等）** 混搭。兩者的時間感若不協調，聽起來就會像「樂團跟節拍器打架」。
@@ -134,6 +143,9 @@ Double-click 在 Warp Marker 上，將其拖動至正確的 Grid 位置。對於
 3. 將 MIDI 鼓組的播放模式設為「Follow Project Tempo」，DAW 會自動改變播放速度以對齊真鼓。
 
 ---
+
+
+![六、對齊原聲樂器與 MIDI／鼓機的重點整理](../../assets/digitalmusic/kp-10-6.svg)
 
 ## 七、常見陷阱與注意事項
 
@@ -158,6 +170,9 @@ Double-click 在 Warp Marker 上，將其拖動至正確的 Grid 位置。對於
 在多麥克風錄音（如 true drum kit 的 overhead、room 與 close mic）中，對個別音軌單獨進行 Elastic Audio 可能會破壞原始錄音的**相位一致性（phase coherence）**。建議將所有鼓軌分組（Group）後一起進行 Warp 操作，或者使用 DAW 的 Multi-track Warp 功能。
 
 ---
+
+
+![七、常見陷阱與注意事項的重點整理](../../assets/digitalmusic/kp-10-7.svg)
 
 ## 八、保留 Groove vs 完美量化
 
@@ -217,6 +232,9 @@ Double-click 在 Warp Marker 上，將其拖動至正確的 Grid 位置。對於
 
 ---
 
+
+![九、實戰：人聲節奏校正工作流程的重點整理](../../assets/digitalmusic/kp-10-9.svg)
+
 ## 十、伸展鼓 Loop 以符合專案速度
 
 鼓 Loop 是 Elastic Audio 應用最常見的場景之一。
@@ -241,6 +259,9 @@ Double-click 在 Warp Marker 上，將其拖動至正確的 Grid 位置。對於
 在同一個 Project 中匯入不同 BPM 的鼓 Loop 時，只需要分別對每個 Loop 進行獨立的 Warp 設定即可。DAW 會根據 Clip 的原始 BPM 資訊自動計算拉伸量，確保所有 Loop 與 Project Tempo 同步。這在現代電子音樂製作中是標準做法。
 
 ---
+
+
+![十、伸展鼓 Loop 以符合專案速度的重點整理](../../assets/digitalmusic/kp-10-10.svg)
 
 ## 結語
 

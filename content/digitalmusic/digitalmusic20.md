@@ -12,6 +12,9 @@ Reverberation（殘響，簡稱 Reverb）是指聲音在空間中反射、擴散
 
 數位 Reverb 是透過 DSP 技術模擬自然空間聲學的插件或硬體，為乾冷的錄音賦予空間感與深度。常見技術包括演算法 Reverb（數學模型，參數靈活、CPU 負載低）和 Convolution Reverb（取樣真實空間脈衝響應，還原度極高但調整彈性低）。
 
+
+![自然殘響與數位殘響](../../assets/digitalmusic/cmp-reverb-vs-digital.svg)
+
 ## 二、Reverb 的類型
 
 不同的 Reverb 類型各有獨特的音色特質與應用場景。
@@ -177,6 +180,9 @@ Decay Time（又稱 RT60）是殘響衰減 60dB 所需的時間，是決定空�
 
 有時若殘響在中頻（約 1~4kHz）產生「轟鳴感」或箱音，可以用 Bell EQ 進行小幅衰減（-1~3dB），讓殘響更乾淨透明。
 
+
+![七、對 Reverb Return 使用 EQ：高通與低通濾波的重點整理](../../assets/digitalmusic/kp-20-7.svg)
+
 ## 八、Early Reflections vs Tail：控制空間感知
 
 Reverb 的時域結構分為早期反射（Early Reflections）和尾音（Tail）。
@@ -184,6 +190,9 @@ Reverb 的時域結構分為早期反射（Early Reflections）和尾音（Tail�
 早期反射是聲音發出後最初幾次撞擊牆壁反射回來的聲音（10~80ms 內到達），數量少、方向明確，是大腦判斷空間大小與距離的主要線索。尾音則是後續密集反射疊加而成的平滑衰減，決定了殘響的「氣氛」。
 
 調整 Early Reflections 與 Tail 的比例可改變空間感知：增加 Early Reflections 並縮短 Tail，聲源聽起來近、空間具體；減少 Early Reflections 並延長 Tail，聲源聽起來遠、空間朦朧。若想讓主唱「在前方但背後有廣闊空間」，採用較少 ER、較長 Tail；若想讓鼓組在一個具體小房間的感覺，則增加 ER 並縮短 Decay Time。
+
+
+![Early Reflections 與 Tail：兩段不同的東西](../../assets/digitalmusic/decay-er.svg)
 
 ## 九、創造深度：近距離樂器 = 較少的殘響
 
@@ -204,6 +213,9 @@ Reverb 的時域結構分為早期反射（Early Reflections）和尾音（Tail�
 聽覺心理學告訴我們：離聲源越遠，直達聲越弱，殘響比例越高。增加某個樂器的 Send Level，就是在大腦中把它「推遠」。實戰中先將所有 Send Level 歸零，從前景樂器開始只加極少殘響，中景逐步增加，背景樂器才配置較多殘響，自然形成清晰的前後層次。
 
 **前景主唱**：Send Level 低，只加少量 Room 或 Plate（Pre-delay 40~60ms），保持清晰臨場感。**中景節奏吉他**：適量 Plate，Decay 約 1.5~2.0 秒。**背景和聲**：加大 Hall Send，Decay 2.0~3.0 秒。**Pad 樂器**：大量 Hall 或 Convolution，Decay 3.0 秒以上。
+
+
+![越近的樂器，殘響要越少](../../assets/digitalmusic/decay-near-far.svg)
 
 ## 十、實用 Reverb 設定
 
@@ -232,6 +244,9 @@ Reverb 用量極少。若需空間感，用短 Room，Decay 0.3~0.6 秒，HPF 50
 ### 背景和聲（Background Vocals）
 
 Hall，Decay 2.0~3.0 秒，Pre-delay 20~40ms（比主唱短，使其位於主唱後方），Send Level 比主唱多 3~6dB，HPF 400~500Hz。
+
+
+![實用 Reverb 設定：從這裡開始調](../../assets/digitalmusic/cmp-reverb-presets.svg)
 
 ## 結語
 

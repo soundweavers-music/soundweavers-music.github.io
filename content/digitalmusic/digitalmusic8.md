@@ -16,6 +16,9 @@
 
 一個實用的經驗法則：錄音時的底噪應該低於訊號峰值至少 50 dB，這樣在後製時才不會捉襟見肘。
 
+
+![什麼是底噪？為什麼它至關重要？的重點整理](../../assets/digitalmusic/kp-8-1.svg)
+
 ## 常見底噪來源與對策
 
 ![底噪的頻譜長相](../../assets/digitalmusic/noise-floor.svg)
@@ -123,6 +126,9 @@
 
 **重要觀念**：高通濾波器應優先用在**錄音階段**，而非混音階段。在錄音時就將不必要的低頻切除，可以避免低頻資訊佔用寶貴的動態範圍，也能減少後製時才發現的問題。
 
+
+![高通在實際運用上：每一軌都該有一個](../../assets/digitalmusic/eq-hpf-usage.svg)
+
 ## 相位問題：什麼是相位抵消？
 
 ![同相相加與反相抵消](../../assets/digitalmusic/phase-correlation.svg)
@@ -188,6 +194,9 @@
 
 例如：第一支麥克風距離音源 10 公分，第二支至少應在 30 公分以外。這樣做能確保兩支麥克風收到的音量差異夠大，使相位抵消的影響降到最低。
 
+
+![如何檢查與解決相位問題的重點整理](../../assets/digitalmusic/kp-8-6.svg)
+
 ## 相位關聯表（Phase Correlation Meter）
 
 相位關聯表是混音必備的視覺工具。它顯示立體聲訊號的左右聲道之間的相位關係，數值範圍從 -1 到 +1：
@@ -208,6 +217,9 @@
 - 特別注意 Bass、Kick 等低頻樂器——它們最容易受到相位問題影響。
 
 主要 DAW 的內建工具：Logic Pro 的 MultiMeter、Pro Tools 的 Correlation Meter、Reaper 的 JS: Stereo Field 或 JS: Goniometer。
+
+
+![相位關聯表（Phase Correlation Meter）的重點整理](../../assets/digitalmusic/kp-8-7.svg)
 
 ## 多麥克風錄音實戰工作流程
 
@@ -249,6 +261,9 @@
 1. 對人聲或獨奏樂器軌道施加溫和的雜訊閘（Threshold 設在底噪之上 5 dB，Range 約 20 dB）。
 2. 背景噪音較嚴重的軌道可使用擴展器（Ratio 2:1，Attack 慢一些以保留音頭）。
 3. 最後在 Master Bus 上掛相位關聯表，確保整體混音的相位健康。
+
+
+![多麥克風錄音實戰工作流程的重點整理](../../assets/digitalmusic/kp-8-8.svg)
 
 ## 結語
 

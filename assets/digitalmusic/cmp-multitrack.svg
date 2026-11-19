@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 296" role="img" aria-label="多軌錄音的基本配置">
+  <title>多軌錄音的基本配置</title>
+  <rect width="660" height="296" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">多軌錄音的基本配置</text>
+  <text x="26" y="55" class="ts" font-size="12.5">一次錄很多軌，重點是「每個人聽到不同的 mix」</text>
+  <text x="150.0" y="92" class="t" font-size="11.5" font-weight="700" fill="#A67C52">說明</text>  <text x="395.0" y="92" class="t" font-size="11.5" font-weight="700" fill="#A67C52">注意</text>  <rect x="26" y="104" width="608" height="58" rx="4" fill="#F3E9DC" opacity="0.55"/>  <text x="34" y="126" class="t" font-size="11.5" font-weight="700">Input 清單</text>  <text x="150.0" y="124" class="ts" font-size="10" fill="#5D4E41">哪一軌接哪個樂器</text>  <text x="395.0" y="124" class="ts" font-size="10" fill="#5D4E41">先標好名字，事後才不會找不</text>  <text x="395.0" y="139" class="ts" font-size="10" fill="#5D4E41">到</text>  <text x="34" y="184" class="t" font-size="11.5" font-weight="700">Cue Mix</text>  <text x="150.0" y="182" class="ts" font-size="10" fill="#5D4E41">每位樂手一組耳機混音</text>  <text x="395.0" y="182" class="ts" font-size="10" fill="#5D4E41">自己聽不到自己就會彈大聲</text>  <rect x="26" y="220" width="608" height="58" rx="4" fill="#F3E9DC" opacity="0.55"/>  <text x="34" y="242" class="t" font-size="11.5" font-weight="700">Buffer</text>  <text x="150.0" y="240" class="ts" font-size="10" fill="#5D4E41">越小延遲越低</text>  <text x="395.0" y="240" class="ts" font-size="10" fill="#5D4E41">太小會爆音，錄音時通常 1</text>  <text x="395.0" y="255" class="ts" font-size="10" fill="#5D4E41">28–256</text>
+  <text x="26" y="278" class="ts" font-size="11">多軌錄音最常見的災難是事後才發現某一軌沒錄到；開錄前逐一確認。</text>
+</svg>

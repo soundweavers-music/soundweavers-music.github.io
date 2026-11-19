@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 460" role="img" aria-label="課後練習">
+  <title>課後練習</title>
+  <rect width="660" height="460" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">課後練習</text>
+  <text x="26" y="55" class="ts" font-size="12.5">把這一節的重點排在一起</text>
+  <rect x="26.0" y="96" width="295.0" height="96" rx="9" fill="#F3E9DC" stroke="#D9CFC4" stroke-width="1.4"/>  <circle cx="40.0" cy="116" r="10" fill="#A67C52"/>  <text x="40.0" y="120" text-anchor="middle" class="num">1</text>  <text x="60.0" y="121" class="t" font-size="12" font-weight="700">遮蔽聽力訓練</text>  <text x="40.0" y="144" class="ts" font-size="9.5" fill="#8C8078">找一首你喜歡的歌曲，嘗試在混音</text>  <text x="40.0" y="160" class="ts" font-size="9.5" fill="#8C8078">中「隔離」出每一個樂器。</text>  <rect x="339.0" y="96" width="295.0" height="96" rx="9" fill="#F3E9DC" stroke="#D9CFC4" stroke-width="1.4"/>  <circle cx="353.0" cy="116" r="10" fill="#A67C52"/>  <text x="353.0" y="120" text-anchor="middle" class="num">2</text>  <text x="373.0" y="121" class="t" font-size="12" font-weight="700">互補EQ實戰</text>  <text x="353.0" y="144" class="ts" font-size="9.5" fill="#8C8078">用你自己或他人的多軌混音，選一</text>  <text x="353.0" y="160" class="ts" font-size="9.5" fill="#8C8078">組打架的樂器（如節奏吉他和鋼琴</text>  <text x="353.0" y="176" class="ts" font-size="9.5" fill="#8C8078">），練習使用互補式EQ來解決</text>  <rect x="26.0" y="206" width="295.0" height="96" rx="9" fill="#F3E9DC" stroke="#D9CFC4" stroke-width="1.4"/>  <circle cx="40.0" cy="226" r="10" fill="#A67C52"/>  <text x="40.0" y="230" text-anchor="middle" class="num">3</text>  <text x="60.0" y="231" class="t" font-size="12" font-weight="700">M/SEQ練習</text>  <text x="40.0" y="254" class="ts" font-size="9.5" fill="#8C8078">找一條立體聲的木吉他或鋼琴軌道</text>  <text x="40.0" y="270" class="ts" font-size="9.5" fill="#8C8078">，嘗試使用M/SEQ：在Sid</text>  <text x="40.0" y="286" class="ts" font-size="9.5" fill="#8C8078">e做高通濾波（200Hz），</text>  <rect x="339.0" y="206" width="295.0" height="96" rx="9" fill="#F3E9DC" stroke="#D9CFC4" stroke-width="1.4"/>  <circle cx="353.0" cy="226" r="10" fill="#A67C52"/>  <text x="353.0" y="230" text-anchor="middle" class="num">4</text>  <text x="373.0" y="231" class="t" font-size="12" font-weight="700">動態EQvs.靜態EQ</text>  <text x="353.0" y="254" class="ts" font-size="9.5" fill="#8C8078">找一段有明顯問題頻段（如貝斯的</text>  <text x="353.0" y="270" class="ts" font-size="9.5" fill="#8C8078">特定音符箱音）的音檔，先用靜態</text>  <text x="353.0" y="286" class="ts" font-size="9.5" fill="#8C8078">EQ解決，再用動態EQ解決。</text>  <rect x="26.0" y="316" width="295.0" height="96" rx="9" fill="#F3E9DC" stroke="#D9CFC4" stroke-width="1.4"/>  <circle cx="40.0" cy="336" r="10" fill="#A67C52"/>  <text x="40.0" y="340" text-anchor="middle" class="num">5</text>  <text x="60.0" y="341" class="t" font-size="12" font-weight="700">全混音流程</text>  <text x="40.0" y="364" class="ts" font-size="9.5" fill="#8C8078">找一首8-12軌的多軌檔案，按</text>  <text x="40.0" y="380" class="ts" font-size="9.5" fill="#8C8078">照本課的七步流程進行完整的頻率</text>  <text x="40.0" y="396" class="ts" font-size="9.5" fill="#8C8078">遮蔽處理。</text>
+</svg>

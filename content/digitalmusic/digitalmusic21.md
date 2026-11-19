@@ -68,6 +68,9 @@ Haas Effect（哈斯效應）是心理聲學（psychoacoustics）中一個重要
 - **單聲道相容性**：Haas Effect 在 mono 下會產生 comb filtering（梳狀濾波），導致聲音變「空」。務必在混音過程中檢查 mono 兼容性。
 - **最佳應用場景**：背景合聲、pad 音色、吉他 double tracking。主 vocal 建議謹慎使用，因為 mono 相容性問題可能影響主唱清晰度。
 
+
+![3. Haas Effect：用短延遲創造立體聲寬度的重點整理](../../assets/digitalmusic/kp-21-3.svg)
+
 ## 4. Ping-Pong Delay：節奏與空間的結合
 
 Ping-Pong Delay 將延遲訊號交替分配到左右聲道。例如輸入在中央，第一次回聲在左聲道，第二次在右聲道，第三次又在左聲道，如此交替。
@@ -87,6 +90,9 @@ Ping-Pong Delay 將延遲訊號交替分配到左右聲道。例如輸入在中�
 - **吉他 arpeggio**：分解和弦配合 Ping-Pong Delay，聽起來像兩把吉他在對話。
 - **合成器 lead**：簡單的單音旋律經過 Ping-Pong Delay 後立刻變得豐富。
 
+
+![4. Ping-Pong Delay：節奏與空間的結合的重點整理](../../assets/digitalmusic/kp-21-4.svg)
+
 ## 5. Slapback Delay：搖滾經典音色
 
 Slapback Delay 是最古老也最經典的 Delay 用法之一，起源於 1950 年代的類比磁帶延遲。它的特點是：
@@ -102,6 +108,9 @@ Slapback Delay 是最古老也最經典的 Delay 用法之一，起源於 1950 �
 - **口琴與管樂**：Slapback 能為單音吹奏樂器增加「雙音」的錯覺，聽起來更有力量。
 
 > 小技巧：在 Slapback 的回聲路徑上掛一個 Low-Pass Filter（6-8 kHz 以下），模擬磁帶延遲的高頻衰減特性，讓聲音更復古。
+
+
+![5. Slapback Delay：搖滾經典音色的重點整理](../../assets/digitalmusic/kp-21-5.svg)
 
 ## 6. Delay vs Reverb：何時選用哪一種？
 
@@ -146,6 +155,9 @@ Sound Wall（音牆）並不一定要靠大量的樂器堆疊。用多個不同�
 - **避免頻率累積**：多層 Delay 很容易在特定頻率疊加，產生「轟鳴感」。每個層級的 Delay 都應該用 EQ 做頻率區隔。
 - **節奏不衝突**：確保不同 Delay Time 之間不互相打架。1/8 + Dotted 1/8 是經典的安全組合。
 - **立體聲場不要過寬**：不是所有聲音都要極左極右。保留中央位置給主要元素，讓延遲回聲在兩側展開即可。
+
+
+![7. 用多層 Delay 堆疊出音牆的重點整理](../../assets/digitalmusic/kp-21-7.svg)
 
 ## 8. Filtered Delay：用 EQ 修飾回聲
 
@@ -193,6 +205,9 @@ Delay Throw（又稱 Delay Dump 或 Echo Throw）是一種常見於現代流行�
 - Delay Throw 的 Wet 量不要超過原始 vocal 的 -6 dB，以免喧賓奪主。
 - 在 Delay 後串一個 Reverb（Send → Delay → Reverb），回聲會帶著殘響消散，聽感更加華麗。
 
+
+![9. Automated Delay Throw：精準的詞尾回聲的重點整理](../../assets/digitalmusic/kp-21-9.svg)
+
 ## 10. 不同樂器的實用 Delay 設定速查表
 
 以下是經過實戰驗證的 Delay 設定，可以直接套用：
@@ -224,6 +239,9 @@ Delay Throw（又稱 Delay Dump 或 Echo Throw）是一種常見於現代流行�
 | Pluck | 1/16 note + Low Feedback | 節奏感強的短回聲 |
 | Bass | Slapback 50ms (Mono) | 不建議立體聲 Delay，低頻會模糊 |
 
+
+![不同樂器的 Delay 起點](../../assets/digitalmusic/cmp-delay-cheat.svg)
+
 ## 11. 進階技巧：Delay 的創意應用
 
 ### 11.1 Reverse Delay（反轉延遲）
@@ -241,6 +259,9 @@ Delay Throw（又稱 Delay Dump 或 Echo Throw）是一種常見於現代流行�
 ### 11.4 極端 Feedback 效果
 
 將 Feedback 調到 90% 以上，Delay 會產生自激振盪。配合 Filter 的劇烈變化，可以製造出科幻感十足的聲效、過場噪音或實驗性片段。使用時務必控制音量，避免損壞聽力或設備。
+
+
+![Delay 的創意用法](../../assets/digitalmusic/cmp-delay-creative.svg)
 
 ## 結語
 
@@ -260,3 +281,6 @@ Delay 遠不止是「讓聲音變大變寬」的工具。當你理解了它在�
 - Filtered Delay 讓回聲距離感更自然
 - Delay Throw 能精準控制哪些詞句有回聲
 - 多層 Delay 堆疊注意頻率區隔與節奏不衝突
+
+![結語的重點整理](../../assets/digitalmusic/kp-21-12.svg)
+

@@ -55,6 +55,9 @@ Spotify、Apple Music、Tidal 等平台通常接受 24-bit 44.1kHz 或 48kHz 的
 
 ---
 
+
+![二、何時該用 Dither？的重點整理](../../assets/digitalmusic/kp-30-3.svg)
+
 ## 三、Dither 的類型
 
 ### 3.1 TPDF（Triangular Probability Density Function）
@@ -112,6 +115,9 @@ Spotify、Apple Music、Tidal 等平台通常接受 24-bit 44.1kHz 或 48kHz 的
 如果你完全不加 Dither 直接截斷位元（Bit Truncation），小音量訊號會產生 Harmonic Distortion（諧波失真），聽起來像粗糙的顆粒感。這就是為什麼「不加 Dither」在很多情況下反而比「加了 Dither」聽起來更糟——儘管不加 Dither 的測量數據（THD+N）可能更低。
 
 ---
+
+
+![什麼時候不該用 Dither](../../assets/digitalmusic/cmp-dither-when.svg)
 
 ## 五、輸出格式全面解析
 
@@ -255,6 +261,9 @@ ISRC 是追蹤版稅的核心識別碼。格式為：**CC-XXX-YY-NNNNNN**
 
 ---
 
+
+![七、專業檔案命名與 Metadata的重點整理](../../assets/digitalmusic/kp-30-8.svg)
+
 ## 八、歸檔與製作備份策略
 
 ### 8.1 專案檔案的目錄結構範例
@@ -306,6 +315,9 @@ Project_TrackName/
 
 ---
 
+
+![八、歸檔與製作備份策略的重點整理](../../assets/digitalmusic/kp-30-9.svg)
+
 ## 九、發行前的最終檢查清單
 
 ### 9.1 音訊品管（Quality Check）
@@ -332,6 +344,9 @@ Project_TrackName/
 - [ ] 若是實體 USB 或 SD 卡：確認檔案系統格式（FAT32 或 exFAT），檔名無特殊字元
 
 ---
+
+
+![九、發行前的最終檢查清單的重點整理](../../assets/digitalmusic/kp-30-10.svg)
 
 ## 十、最終輸出的發行方式
 
@@ -371,6 +386,9 @@ Project_TrackName/
 
 ---
 
+
+![十、最終輸出的發行方式的重點整理](../../assets/digitalmusic/kp-30-11.svg)
+
 ## 十一、常見問題與陷阱
 
 ### Q1：我在 Ableton Live 中匯出 16-bit WAV，需要開 Dither 嗎？
@@ -399,6 +417,9 @@ Project_TrackName/
 
 ---
 
+
+![十一、常見問題與陷阱的重點整理](../../assets/digitalmusic/kp-30-12.svg)
+
 ## 十二、總結：最後一步的策略
 
 從混音到發行，整個數位音樂製作流程的最終環節看似簡單，卻最容易出錯。以下是必須永遠記住的關鍵要點：
@@ -423,3 +444,6 @@ Project_TrackName/
 - iZotope 官方 Dither 技術白皮書（izotope.com/resources）
 - 紅皮書 CD 標準（IEC 60908）
 - AES17 數位音訊測量標準
+
+![十二、總結：最後一步的策略的重點整理](../../assets/digitalmusic/kp-30-13.svg)
+

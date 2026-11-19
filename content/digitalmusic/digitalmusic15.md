@@ -10,6 +10,11 @@
 
 ---
 
+
+
+
+![壓縮轉換曲線：Threshold 決定從哪裡開始壓](../../assets/digitalmusic/comp-attack-fast.svg)
+
 ## 二、四大核心參數：Threshold、Ratio、Attack、Release
 
 ![Attack 與 Release 對波形的影響](../../assets/digitalmusic/attack-release.svg)
@@ -77,6 +82,9 @@ Release 決定壓縮器「訊號低於 Threshold 後，多快停止壓縮」。�
 
 ---
 
+
+![Makeup Gain：把被壓掉的音量補回來](../../assets/digitalmusic/comp-makeup.svg)
+
 ## 四、視覺 vs 聽覺：學會用耳朵聽壓縮
 
 這可能是最重要的一堂課：**壓縮器是用聽的，不是用看的。** 許多新手盯著壓縮器的 Gain Reduction 指針，以為看到 6 dB 的衰減就代表做對了。事實上，壓縮器的視覺指示僅供參考，你的耳朵才是最終裁判。
@@ -97,6 +105,9 @@ Release 決定壓縮器「訊號低於 Threshold 後，多快停止壓縮」。�
 專業混音師的祕訣：**閉上眼睛聽**。視覺干擾（波形顯示、指針跳動）會誤導你的判斷。關掉螢幕或用布蓋住壓縮器的顯示區域，只用耳朵做決定。
 
 ---
+
+
+![四、視覺 vs 聽覺：學會用耳朵聽壓縮的重點整理](../../assets/digitalmusic/kp-15-4.svg)
 
 ## 五、不同類型的壓縮器：VCA、FET、Optical、Vari-Mu
 
@@ -202,6 +213,9 @@ Release 決定壓縮器「訊號低於 Threshold 後，多快停止壓縮」。�
 
 ---
 
+
+![六、不同樂器的實務壓縮設定的重點整理](../../assets/digitalmusic/kp-15-6.svg)
+
 ## 七、常見錯誤與解決方案
 
 ### 7.1 過度壓縮（Over-Compression）
@@ -288,6 +302,9 @@ Release 決定壓縮器「訊號低於 Threshold 後，多快停止壓縮」。�
 - **訓練目標**：建立對不同壓縮器音色差異的聽覺辨識能力
 
 ---
+
+
+![八、聽覺訓練——練習聽出壓縮的痕跡的重點整理](../../assets/digitalmusic/kp-15-8.svg)
 
 ## 九、結語：壓縮器是你的聲音雕刻師
 
