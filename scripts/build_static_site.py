@@ -2928,12 +2928,24 @@ def build_learn_page():
     body = f"""<main>
   {banner_hero("Learn", "學習", "人聲、錄音、樂理、曼陀林、吉他、烏克麗麗與線上編曲——挑一條路開始，按自己的節奏前進。")}
   <div class="hub-page">
-    <div class="hub-grid">
+    <div class="learn-search" role="search">
+      <label class="learn-search-box">
+        <span class="learn-search-ico" aria-hidden="true">⌕</span>
+        <input id="learnSearch" type="search" data-index="{resolve_url(path, '/assets/learn-index.json')}"
+               placeholder="搜尋學習內容：共鳴、混音、六線譜、拍號…（按 / 開始）"
+               aria-label="搜尋學習內容：課程與章節標題、各級小標" autocomplete="off" spellcheck="false">
+        <kbd class="learn-search-kbd" aria-hidden="true">/</kbd>
+      </label>
+      <p class="learn-search-status" id="learnSearchStatus" role="status" aria-live="polite"></p>
+    </div>
+    <div class="learn-results" id="learnResults" hidden></div>
+    <div class="hub-grid" id="learnCards">
 {cards}
     </div>
-    <p class="hub-note">每個課程都可以單獨閱讀；第一次來的話，建議從「樂理基礎」的前言開始，再依興趣進入人聲或錄音課程。</p>
+    <p class="hub-note" id="learnNote">每個課程都可以單獨閱讀；第一次來的話，建議從「樂理基礎」的前言開始，再依興趣進入人聲或錄音課程。</p>
   </div>
-</main>"""
+</main>
+<script src="{resolve_url(path, '/assets/learn-search.js')}" defer></script>"""
     write(path, page("學習", body, path,
           meta_description="世界聲音學習專區：人聲與歌唱、錄音後製、樂理基礎、曼陀林專區、流行吉他彈唱指南、烏克麗麗教學、線上編曲製作（DAW）課程。"))
 
@@ -3690,6 +3702,10 @@ def main():
             src = out_assets / sub
             if src.exists():
                 shutil.copytree(str(src), str(root_assets / sub), dirs_exist_ok=True)
+    # /learn/ 的內容搜尋（索引由 scripts/build_learn_index.py 另外產生）
+    learn_js = BASE_DIR / "assets" / "learn-search.js"
+    if learn_js.exists():
+        write(OUTPUT_DIR / "assets" / "learn-search.js", learn_js.read_text(encoding="utf-8"))
     # Copy the bundled CJK serif so @font-face in site-refresh.css resolves
     font_src = BASE_DIR / "fonts"
     if font_src.exists():

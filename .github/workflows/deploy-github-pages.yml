@@ -69,6 +69,10 @@ jobs:
       - name: Build ensembles
         run: python scripts/build_ensembles.py
 
+      # /learn/ 搜尋框用的索引：要在所有課程都建好之後才跑，否則會缺章節
+      - name: Build learn search index
+        run: python scripts/build_learn_index.py
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
