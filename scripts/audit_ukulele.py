@@ -31,7 +31,7 @@ BANNED = ["完美", "極致", "終極", "震撼", "據說", "一般認為", "眾
 BAD_FACTS = [
     (r"第\s*1\s*弦[^。\n]{0,12}(?:是|為|＝|=)\s*(?:G|C)", "第 1 弦是 A，不是 G 或 C"),
     (r"第\s*4\s*弦[^。\n]{0,12}(?:是|為|＝|=)\s*(?:A|E)", "第 4 弦是 G（High-G 或 Low-G），不是 A 或 E"),
-    (r"[Hh]igh[-\s]?G[^。\n]{0,20}第\s*3\s*弦", "High-G 講的是第 4 弦，不是第 3 弦"),
+    (r"High[-\s]?G[^。\n]{0,12}(?:等於|就是|指的是)\s*第\s*3\s*弦", "High-G 講的是第 4 弦，不是第 3 弦"),
     (r"[Bb]aritone[^。\n]{0,20}G\s*[-－]\s*C\s*[-－]\s*E\s*[-－]\s*A", "Baritone 是 D-G-B-E，不是 G-C-E-A"),
     (r"soprano[^。\n]{0,20}23\s*吋", "Soprano 是 21 吋，23 吋是 Concert"),
     (r"tenor[^。\n]{0,20}21\s*吋", "Tenor 是 26 吋"),
@@ -71,8 +71,8 @@ def audit(path: Path) -> list[dict]:
     for pat, why in BAD_FACTS:
         for m in re.finditer(pat, text):
             line = text[text.rfind("\n", 0, m.start()) + 1: text.find("\n", m.start())]
-            # 「由第 4 弦到第 1 弦是 G-C-E-A」是正確說法，不要誤判
-            if re.search(r"(到|至)第\s*1\s*弦|由第", line):
+            # 「由第 4 弦到第 1 弦是 G-C-E-A」「第 4 弦比第 3 弦高八度」都是正確說法
+            if re.search(r"(到|至)第\s*1\s*弦|由第|比第|高八度", line):
                 continue
             issues.append({"kind": "fact", "quote": line.strip()[:60], "why": why})
 
