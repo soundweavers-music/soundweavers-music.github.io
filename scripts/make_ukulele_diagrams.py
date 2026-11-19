@@ -1392,6 +1392,216 @@ def strum_dynamics() -> str:
         "同一組和弦，只要改「刷幾條弦、刷幾下、多大聲」，聽起來就像另一首歌。")
 
 
+def uk_grid(title, subtitle, rows, footer="", slots=8):
+    w = 720
+    left = 132
+    colw = (w - left - 30) / slots
+    h = 120 + len(rows) * 32 + 40
+    p = [_t(24, 34, title, 15, weight=700), _t(24, 55, subtitle, 11.5, fill=MUTED)]
+    top = 92
+    for i in range(slots + 1):
+        x = left + i * colw
+        strong = i % max(1, slots // 4) == 0
+        p.append(f'<line x1="{x:.1f}" y1="{top - 14}" x2="{x:.1f}" y2="{top + len(rows) * 32 - 8}" '
+                 f'stroke="{LINE if not strong else WOOD}" stroke-width="1"/>')
+    for r, (name, items) in enumerate(rows):
+        y = top + r * 32
+        p.append(_t(left - 12, y + 5, name, 10.5, "end", MUTED))
+        for i, s in enumerate(items):
+            if not s:
+                continue
+            cx = left + (i + 0.5) * colw
+            if name == "拍點":
+                p.append(_t(cx, y + 5, s, 10.5, "middle", MUTED))
+            elif s in ("X", "×"):
+                p.append(_t(cx, y + 6, s, 16, "middle", "#B4553F", 700))
+            elif s.startswith("("):
+                p.append(_t(cx, y + 5, s, 12, "middle", "#cfc4b8"))
+            else:
+                p.append(_t(cx, y + 6, s, 15, "middle", WOOD_D, 700))
+    if footer:
+        p.append(_t(24, h - 14, footer, 10.5, fill=MUTED))
+    return svg(w, h, "".join(p), title)
+
+
+def uk_degrees() -> str:
+    rows = [("級數", ["1", "2m", "3m", "4", "5", "6m", "7dim"]),
+            ("C 大調", ["C", "Dm", "Em", "F", "G", "Am", "Bdim"]),
+            ("G 大調", ["G", "Am", "Bm", "C", "D", "Em", "F#dim"])]
+    w, h, left = 720, 270, 140
+    colw = (w - left - 30) / 7
+    p = [_t(24, 34, "級數：不管什麼調，同一個號碼就是同一種角色", 15, weight=700),
+         _t(24, 55, "記住級數，換調時只要把整排換名字，進行完全不用重記", 11.5, fill=MUTED)]
+    for r, (name, items) in enumerate(rows):
+        y = 100 + r * 46
+        p.append(_t(left - 12, y + 6, name, 11, "end", MUTED))
+        for i, s in enumerate(items):
+            x = left + i * colw
+            strong = s in ("1", "5", "6m")
+            p.append(f'<rect x="{x + 4:.1f}" y="{y - 16}" width="{colw - 8:.1f}" height="34" rx="7" '
+                     f'fill="{"#f3ece2" if strong else PAPER}" stroke="{LINE}"/>')
+            p.append(_t(x + colw / 2, y + 6, s, 12.5, "middle", INK, 700 if strong else None))
+    p.append(_t(24, h - 16, "換調時整排平移：C 調的 1-5-6m-4 到了 G 調就是 G-D-Em-C。", 10.5, fill=MUTED))
+    return svg(w, h, "".join(p), "級數與和弦的對應")
+
+
+def uk_harmonics() -> str:
+    w, h = 720, 300
+    p = [_t(24, 34, "泛音：手指輕觸格線正上方，不要壓下去", 15, weight=700),
+         _t(24, 55, "第 12 格最好按、音量最大；第 7 與第 5 格更高更薄", 11.5, fill=MUTED)]
+    top, fh = 96, 60
+    left, right = 90, 640
+    p.append(f'<rect x="{left}" y="{top}" width="{right - left}" height="{fh}" fill="#faf4ea" stroke="{LINE}"/>')
+    frets = 12
+    fw = (right - left) / frets
+    for i in range(frets + 1):
+        x = left + i * fw
+        p.append(f'<line x1="{x:.1f}" y1="{top}" x2="{x:.1f}" y2="{top + fh}" stroke="{MUTED}" stroke-width="{2.6 if i == 0 else 1}"/>')
+    for n, label in [(12, "第 12 格｜高八度"), (7, "第 7 格｜高八度＋五度"), (5, "第 5 格｜高兩個八度")]:
+        x = left + n * fw
+        p.append(f'<circle cx="{x:.1f}" cy="{top + fh / 2}" r="11" fill="{WOOD_D}"/>')
+        p.append(_t(x, top + fh + 22, f"{n}", 11, "middle", INK, 700))
+        p.append(_t(x, top + fh + 40, label, 9, "middle", MUTED))
+    for i in range(1, frets + 1):
+        p.append(_t(left + i * fw - fw / 2, top + fh + 22, str(i), 8.5, "middle", "#cfc4b8"))
+    p.append(_t(24, h - 62, "做法：左手指腹「浮貼」在格線正上方（不要壓實），右手撥弦，左手同時離開。", 11))
+    p.append(_t(24, h - 38, "音量小是正常的；錄音時把麥克風靠近一點，或事後把這幾顆音推上來。", 10.5, fill=MUTED))
+    return svg(w, h, "".join(p), "自然泛音的位置")
+
+
+def uk_mute() -> str:
+    return uk_compare(
+        "左手悶音：按下去是聲音，放鬆是「嚓」",
+        "手指不離開弦，只改變按壓力道——這是放克與雷鬼的基礎",
+        ["狀態", "手指力道", "發出的聲音"],
+        [("按實", "指尖立起、壓到底", "和弦音，飽滿"),
+         ("虛按", "放鬆到弦貼著指腹、不碰銅條", "悶音，只剩打擊感"),
+         ("放開", "手指離弦", "空弦音（通常不是你要的）")],
+        "練習：同一個和弦，四下「按實、虛按、虛按、按實」，節奏感就出來了。")
+
+
+def uk_ensemble() -> str:
+    w, h = 720, 280
+    p = [_t(24, 34, "雙人合奏：把音域分開，才不會互打架", 15, weight=700),
+         _t(24, 55, "兩把琴都待在第 1～3 格，頻率會全部擠在一起", 11.5, fill=MUTED)]
+    lanes = [("角色 A｜低把位", 92, 40, "刷節奏、打拍子，負責地板"),
+             ("角色 B｜高把位", 156, 40, "第 5～10 格的三和弦與過門，負責天空")]
+    for name, y, x0, note in lanes:
+        p.append(f'<rect x="40" y="{y}" width="640" height="34" rx="8" fill="#f3ece2" stroke="{LINE}"/>')
+        for i in range(8):
+            p.append(f'<line x1="{40 + i * 80:.1f}" y1="{y}" x2="{40 + i * 80:.1f}" y2="{y + 34}" stroke="{LINE}" opacity=".7"/>')
+        p.append(_t(52, y + 22, name, 11, fill=INK, weight=700))
+        p.append(_t(40, y + 54, note, 10, fill=MUTED))
+    p.append(_t(24, h - 16, "分工後音量不用大：兩把琴的音域錯開，聽起來自然就厚。", 10.5, fill=MUTED))
+    return svg(w, h, "".join(p), "雙人合奏的音域分工")
+
+
+def uk_phone() -> str:
+    return uk_compare(
+        "手機拍彈唱：擺位比器材重要",
+        "手機的麥克風在底部，它聽到的是「離它最近的那個聲音」",
+        ["項目", "建議", "為什麼"],
+        [("距離", "80～120cm", "太近只收到琴，太遠收到整個房間"),
+         ("高度", "對準嘴巴，略高於琴", "人聲在最前面，琴在後面"),
+         ("角度", "45 度側逆光", "臉有立體感，也不會逆光變黑"),
+         ("背景", "布簾、衣櫃、床邊", "硬牆會讓聲音變空")],
+        "先錄 20 秒試聽一次再正式錄；位置調對，比換麥克風有效。")
+
+
+def uk_cold_keys() -> str:
+    return uk_compare(
+        "冷門調（Eb／Ab／Db）怎麼變簡單",
+        "不是換和弦，是「換一組指法 + 夾移調夾」",
+        ["原曲調", "用這組指法", "Capo 夾幾格"],
+        [("Eb", "C 調指法（C–Am–F–G）", "第 3 格"),
+         ("Ab", "C 調指法", "第 8 格（太高，改用 G 調指法夾第 1 格）"),
+         ("Db", "C 調指法", "第 1 格")],
+        "夾到第 6 格以上琴格會變窄；這時換一組低把位指法，通常更好按。")
+
+
+def lyric_grid() -> str:
+    """5.3：歌詞對到刷弦拍點。"""
+    beats = ["1", "&", "2", "&", "3", "&", "4", "&"]
+    strum = ["↓", "-", "↓", "↑", "-", "↑", "↓", "↑"]
+    lyric = ["有", "一", "個", "美", "麗", "的", "小", "薇"]
+    w = 720
+    left = 132
+    colw = (w - left - 30) / 8
+    h = 292
+    p = [_t(24, 34, "歌詞對到拍點：一個字配一下刷弦", 15, weight=700),
+         _t(24, 55, "先把歌詞一個字一個字放進格子裡，再彈；對不上就是格子放錯，不是手笨", 11.5, fill=MUTED)]
+    rows = [("拍點", beats, MUTED, 10.5), ("刷法", strum, WOOD_D, 16), ("歌詞", lyric, INK, 14)]
+    top = 92
+    for i in range(9):
+        x = left + i * colw
+        strong = i % 2 == 0
+        p.append(f'<line x1="{x:.1f}" y1="{top - 14}" x2="{x:.1f}" y2="{top + 3 * 34 - 6}" '
+                 f'stroke="{LINE if not strong else WOOD}" stroke-width="1"/>')
+    for r, (name, items, color, size) in enumerate(rows):
+        y = top + r * 34
+        p.append(_t(left - 12, y + 6, name, 10.5, "end", MUTED))
+        for i, s in enumerate(items):
+            cx = left + (i + 0.5) * colw
+            if r == 1 and s == "-":
+                p.append(_t(cx, y + 5, "·", 14, "middle", "#cfc4b8"))
+            else:
+                p.append(_t(cx, y + 6, s, size, "middle", color, 700 if r == 1 else None))
+    p.append(_t(24, h - 62, "練習順序：① 只唸歌詞打拍子 ② 只刷不唱 ③ 兩者一起。", 11))
+    p.append(_t(24, h - 36, "換和弦時右手不要停：左手換位置，右手繼續擺動。", 10.5, fill=MUTED))
+    return svg(w, h, "".join(p), "歌詞與拍點對齊")
+
+
+def slide_fill() -> str:
+    """11.2：滑音與和弦內的過門。"""
+    w, h = 720, 300
+    p = [_t(24, 34, "滑音與過門：讓和弦之間有東西可聽", 15, weight=700),
+         _t(24, 55, "滑音是「同一個手指沿著弦移動」；過門是「在空拍處塞一兩個音」", 11.5, fill=MUTED)]
+
+    def panel(x, label, a, b, mark, note):
+        top = 96
+        p.append(_t(x + 90, top - 16, label, 12, "middle", INK, 700))
+        p.append(f'<line x1="{x}" y1="{top + 30}" x2="{x + 180}" y2="{top + 30}" stroke="{INK}" stroke-width="1.2" opacity=".45"/>')
+        for i, f in enumerate((a, b)):
+            cx = x + 44 + i * 92
+            p.append(f'<rect x="{cx - 11}" y="{top + 20}" width="22" height="20" fill="{PAPER}"/>')
+            p.append(_t(cx, top + 36, f, 15, "middle", WOOD_D, 700))
+        p.append(f'<path d="M{x + 56} {top + 12} Q{x + 90} {top - 18} {x + 124} {top + 12}" '
+                 f'stroke="{WOOD_D}" stroke-width="1.6" fill="none"/>')
+        p.append(_t(x + 90, top - 2, mark, 13, "middle", WOOD_D, 700))
+        for k, line in enumerate(_wrap(note, 11)):
+            p.append(_t(x, top + 70 + k * 16, line, 10, fill=MUTED))
+
+    panel(40, "滑音 Slide", "2", "5", "/", "壓住第 2 格撥響，手指不鬆開滑到第 5 格")
+    panel(280, "錘音 Hammer", "0", "2", "H", "撥空弦後用手指敲第 2 格，右手不再撥")
+    panel(520, "勾音 Pull-off", "2", "0", "P", "按住第 2 格撥響，手指往下勾離開")
+    p.append(_t(24, h - 16, "過門的位置通常在每小節最後半拍：先讓和弦響滿，再用一個音把聽眾帶到下一小節。", 10.5))
+    return svg(w, h, "".join(p), "滑音與過門")
+
+
+def shape_shift() -> str:
+    """12.3：封閉和弦指型平移。"""
+    w, h = 720, 300
+    p = [_t(24, 34, "封閉和弦的平移：同一個手型，往右就是升調", 15, weight=700),
+         _t(24, 55, "食指橫按整個格，其餘三指補位；整組往琴身移 1 格＝升 1 個半音", 11.5, fill=MUTED)]
+    left, top, fw, nf = 90, 96, 88, 5
+    p.append(f'<rect x="{left}" y="{top}" width="{nf * fw}" height="80" rx="6" fill="#faf4ea" stroke="{LINE}"/>')
+    for i in range(nf + 1):
+        x = left + i * fw
+        p.append(f'<line x1="{x}" y1="{top}" x2="{x}" y2="{top + 80}" stroke="{MUTED}" stroke-width="{2.6 if i == 0 else 1}"/>')
+    for i in range(nf):
+        p.append(_t(left + i * fw + fw / 2, top + 98, str(i + 1), 10, "middle", MUTED))
+    blocks = [(0, "Bb", "1 格"), (1, "B", "2 格"), (2, "C", "3 格")]
+    for i, (idx, name, note) in enumerate(blocks):
+        x = left + idx * fw + fw / 2
+        p.append(f'<rect x="{x - 26:.1f}" y="{top + 20}" width="52" height="42" rx="8" '
+                 f'fill="{WOOD}" opacity="{0.95 - i * 0.2}"/>')
+        p.append(_t(x, top + 40, name, 14, "middle", PAPER, 700))
+        p.append(_t(x, top + 56, note, 9, "middle", PAPER))
+    p.append(_t(24, h - 66, "同一個手型，第 1 格是 Bb、第 2 格是 B、第 3 格是 C——不用換按法，只要移動。", 11))
+    p.append(_t(24, h - 40, "每日 3 分鐘：在 1、3、5、7 格各按一次，每次撥四下，確認四條弦都響。", 10.5, fill=MUTED))
+    return svg(w, h, "".join(p), "封閉和弦指型平移")
+
+
 def main() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
     figures = {
@@ -1403,6 +1613,21 @@ def main() -> int:
         "double_stops.svg": double_stops(),
         "fingerstyle_roles.svg": fingerstyle_roles(),
         "percussion.svg": percussion(),
+        "lyric_grid.svg": lyric_grid(),
+        "slide_fill.svg": slide_fill(),
+        "shape_shift.svg": shape_shift(),
+        "grid_air.svg": uk_grid(
+            "空刷：手照樣揮，只是不碰弦",
+            "沒有空刷，拍子就會用「停下來等」來補，一停就亂",
+            [("拍點", ["1", "&", "2", "&", "3", "&", "4", "&"]),
+             ("手腕", ["↓", "↑", "↓", "↑", "↓", "↑", "↓", "↑"]),
+             ("實際", ["↓", "(↑)", "↓", "↑", "(↓)", "↑", "↓", "↑"])]),
+        "degrees.svg": uk_degrees(),
+        "harmonics_map.svg": uk_harmonics(),
+        "mute.svg": uk_mute(),
+        "ensemble.svg": uk_ensemble(),
+        "phone.svg": uk_phone(),
+        "cold_keys.svg": uk_cold_keys(),
         "accessories.svg": accessories(),
         "strum_dynamics.svg": strum_dynamics(),
         "wood_types.svg": wood_types(),

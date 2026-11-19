@@ -1292,6 +1292,67 @@ def fig_degrees():
     return width, height, chr(10).join(parts)
 
 
+def fig_capo_grid():
+    """10-2：移調夾速查（吉他版）。"""
+    names = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
+
+    def up(root, n):
+        return names[(names.index(root) + n) % 12]
+
+    groups = [("C 調指法", "C"), ("G 調指法", "G"), ("D 調指法", "D"), ("A 調指法", "A")]
+    width, left, colw = 640, 140, 82
+    height = 100 + len(groups) * 40 + 40
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" role="img" aria-label="移調夾速查">',
+        '  <title>移調夾速查</title>',
+        f'  <rect width="{width}" height="{height}" fill="{BG}"/>',
+        t(24, 34, "移調夾速查：按同一組指法，實際唱出來的調", 15, anchor="start", weight=700),
+        t(24, 55, "往琴身方向夾 1 格＝升 1 個半音；移調夾只能升，不能降", 11.5, anchor="start", fill=MUTED),
+    ]
+    for c in range(6):
+        parts.append(t(left + c * colw + colw / 2, 86, f"夾 {c} 格" if c else "不夾", 10, "middle", MUTED))
+    for i, (label, root) in enumerate(groups):
+        y = 96 + i * 40
+        parts.append(t(left - 12, y + 17, label, 11, anchor="end", weight=700))
+        for c in range(6):
+            x = left + c * colw
+            same = c == 0
+            parts.append(f'<rect x="{x}" y="{y}" width="{colw - 6}" height="30" rx="6" '
+                         f'fill="{ACCENT_SOFT if same else BG}" stroke="{LINE}"/>')
+            parts.append(t(x + (colw - 6) / 2, y + 20, up(root, c), 12, "middle",
+                           INK if same else ACCENT, 700 if same else None))
+    parts.append(t(24, height - 14, "例：原曲 E 大調要唱，用 C 調指法夾第 4 格；覺得太高就換 D 調或 G 調指法再夾。", 10.5,
+                   anchor="start", fill=MUTED))
+    parts.append("</svg>")
+    return width, height, chr(10).join(parts)
+
+
+def fig_pluck_check():
+    """5-3：爬音測試——每一條弦都要單獨響。"""
+    width, height = 640, 320
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" role="img" aria-label="爬音測試">',
+        '  <title>爬音測試</title>',
+        f'  <rect width="{width}" height="{height}" fill="{BG}"/>',
+        t(24, 34, "爬音測試：一顆和弦按好之後，六條弦逐條撥", 15, anchor="start", weight=700),
+        t(24, 55, "哪一條悶，就修那一條；不要一次改三個地方", 11.5, anchor="start", fill=MUTED),
+    ]
+    good = [6, 5, 4, 3, 2, 1]
+    bad = {4: True}
+    for i, s in enumerate(good):
+        y = 104 + i * 32
+        parts.append(t(120, y, f"第 {s} 弦", 11.5, anchor="end", weight=700))
+        mute = s in bad
+        parts.append(f'<circle cx="160" cy="{y - 4}" r="9" '
+                     f'fill="{"#B4553F" if mute else ACCENT}"/>')
+        parts.append(t(186, y, "悶音 → 檢查手指有沒有壓到旁邊的弦" if mute else "清脆、能延音", 10.5,
+                       anchor="start", fill="#B4553F" if mute else MUTED))
+    parts.append(t(24, height - 48, "順序固定：由第 6 弦往上撥到第 1 弦，每次都一樣，耳朵才比較得出來。", 11, anchor="start", fill=INK))
+    parts.append(t(24, height - 22, "全部清脆之後再刷整排；有一條悶，刷起來就會「少一塊」。", 10.5, anchor="start", fill=MUTED))
+    parts.append("</svg>")
+    return width, height, chr(10).join(parts)
+
+
 ARPEGGIO_FINGERS = ["T", "1", "2", "1", "3", "1", "2", "1"]
 ARPEGGIO_STRINGS = [5, 3, 2, 3, 1, 3, 2, 3]
 
@@ -1414,6 +1475,41 @@ def _wrap(text, n):
 
 
 FIGURES = {
+    "capo-grid": fig_capo_grid,
+    "pluck-check": fig_pluck_check,
+    "compare-strum-vs-pluck": lambda: fig_compare(
+        "刷和弦與分散和弦：同一個和弦的兩種長相",
+        "一個是和聲一起響，一個是一顆一顆排隊",
+        ["比較", "刷奏", "分散（Arpeggio）"],
+        [("聲音", "厚、整塊", "一顆一顆，線條清楚"),
+         ("適合", "副歌、需要氣勢", "主歌、抒情、夜深"),
+         ("右手", "Pick 或食指上下刷", "拇指與三根手指分工"),
+         ("難點", "手腕要穩", "每根手指的音量要一樣")],
+        "同一首歌常兩者交替：主歌分解，副歌改刷，落差自然就出來了。"),
+    "steps-shoot": lambda: fig_steps(
+        "拍 Cover 影片：四個讓畫面變好看的順序",
+        "先解決聲音，再處理畫面；聲音不對，畫質再好也沒人看完",
+        [("收音", "手機離 40～60cm，對準嘴巴略高於琴；先試錄 20 秒"),
+         ("光線", "側面窗光或立燈，不要背光；臉上有光就有精神"),
+         ("構圖", "橫式放琴與手，直式放臉與上胸；留一點空間給字幕"),
+         ("背景", "牆面乾淨、雜物移開；布簾或書櫃都可以")],
+        "錄之前先開飛航模式：一通電話就會毀掉最好的一次。"),
+    "steps-recital": lambda: fig_steps(
+        "你的個人畢業音樂會：四步準備",
+        "不是等練好才錄，是錄了才知道哪裡沒練好",
+        [("挑三首", "一首抒情分解、一首輕快刷奏、一首 6/8 或慢靈魂"),
+         ("練段落", "每首只練主歌＋副歌，先求完整不求完美"),
+         ("錄一次", "從頭到尾不中斷，錯也繼續；錄完再回頭修"),
+         ("公開", "貼給一個朋友聽；有人聽，才會真的彈完")],
+        "畢業的標準不是彈得完美，是能在別人面前從頭彈完一首歌。"),
+    "compare-recital": lambda: fig_compare(
+        "三首畢業曲目：技術規格對照",
+        "三首分別考驗不同東西，練的時候分開檢核",
+        ["曲目", "主要技巧", "難點"],
+        [("抒情分解", "T1213121、保留指", "音量均勻、換和弦不斷"),
+         ("輕快刷奏", "8 Beat、切音", "拍子穩、切音乾淨"),
+         ("6/8 或慢靈魂", "三拍子或 16 Beat", "重音位置、手腕幅度")],
+        "三首都錄一次，就知道自己哪一種類型的歌最弱。"),
     "grid16": lambda: fig_grid(
         "16 分音符：一拍切成四下",
         "口訣 1 e & a｜2 e & a｜3 e & a｜4 e & a；手腕在同一個幅度裡抖四下",
