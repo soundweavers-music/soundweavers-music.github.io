@@ -494,7 +494,9 @@ a { text-underline-offset: 3px; }
 .vocal-content img {
   display: block;
   width: 100%;
-  max-width: 560px;
+  /* 640 matches the viewBox of every course diagram; at 560 the 10–11px
+     labels were being scaled down to ~9px and became hard to read. */
+  max-width: 640px;
   height: auto;
   margin: 1.5em auto 1.8em;
   border-radius: 10px;

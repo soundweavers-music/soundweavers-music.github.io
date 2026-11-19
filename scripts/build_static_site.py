@@ -2740,7 +2740,7 @@ def build_about_page():
       <h2>織音線上編曲製作</h2>
       <div class="about-text">
         <p>這是一套直接在瀏覽器裡執行的數位音訊工作站（DAW），介面參考專業編曲軟體的工作流程：上方是播放控制與小節時間顯示，中間是多軌時間軸，下方可以切換混音台、鋼琴捲簾與母帶面板。不需要安裝、不需要註冊。</p>
-        <p><strong>檔案不會上傳。</strong>這個頁面的安全政策直接禁止對外連線（Content-Security-Policy 的 <code>connect-src 'none'</code>），所以你的錄音、匯入的音檔與專案，在技術上就不可能離開你的電腦。專案存成 <code>.zyproj</code> 檔放在你自己的硬碟，瀏覽器另外會自動暫存一份，避免關掉分頁時遺失。</p>
+        <p><strong>檔案不會上傳。</strong>這個頁面的安全政策禁止連到其他任何伺服器（Content-Security-Policy 的 <code>connect-src 'self'</code>，只能讀取本站自己的程式檔），而本站是沒有後端的靜態網站，所以你的錄音、匯入的音檔與專案，在技術上就不可能離開你的電腦。專案存成 <code>.zyproj</code> 檔放在你自己的硬碟，瀏覽器另外會自動暫存一份，避免關掉分頁時遺失。</p>
         <ul class="about-index">
           <li><strong>多軌錄音與編輯</strong>　預設 16 軌，最多 32 軌；可錄麥克風、拖入本機音檔，切割、修剪、淡入淡出。</li>
           <li><strong>MIDI 編曲</strong>　鋼琴捲簾、12 種內建合成音色與鼓組；可接 MIDI 鍵盤，也能載入你自己下載的 SoundFont（.sf2）音色庫。</li>
@@ -3236,8 +3236,11 @@ def build_daw_tool():
     ES modules) is copied as-is; only the ``../`` links, which are relative
     to the source dir, are rewritten for the deeper /tools/daw/ location.
 
-    Its CSP is ``connect-src 'none'`` — the page cannot reach any server,
-    which is what backs the "不上傳雲端" promise on the page.
+    Its CSP is ``connect-src 'self'`` + ``'wasm-unsafe-eval'`` — the page can
+    only read this static site's own files (the ONNX Runtime engine for the
+    opt-in Demucs separation) and cannot reach any other server, which is what
+    backs the "不上傳雲端" promise on the page. The 172 MB model is downloaded
+    by the user's browser via a plain link and handed to the page as a file.
     """
     src_dir = BASE_DIR / "daw-studio"
     if not src_dir.exists():

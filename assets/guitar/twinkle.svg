@@ -1,0 +1,202 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 500" role="img" aria-label="小星星單音六線譜">
+  <title>〈小星星〉單音六線譜</title>
+  <rect width="640" height="500" fill="#FBF8F4"/>
+<text x="26" y="34" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="16" fill="#3D3229" text-anchor="start" font-weight="700">〈小星星〉：C 大調、4/4 拍、一分鐘 72 拍</text>
+<text x="26" y="55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#8C8078" text-anchor="start">上面是簡譜，中間是六線譜，下面是歌詞；一個格子一拍，「·」代表這一拍不彈、讓上一個音延續</text>
+<line x1="84.0" y1="104.0" x2="215.0" y2="104.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<text x="74.0" y="108" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="end">第 1 弦　E</text>
+<line x1="84.0" y1="120.0" x2="215.0" y2="120.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<text x="74.0" y="124" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="end">第 2 弦　B</text>
+<line x1="84.0" y1="136.0" x2="215.0" y2="136.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<text x="74.0" y="140" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="end">第 3 弦　G</text>
+<line x1="84.0" y1="152.0" x2="215.0" y2="152.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<text x="74.0" y="156" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="end">第 4 弦　D</text>
+<line x1="84.0" y1="168.0" x2="215.0" y2="168.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<text x="74.0" y="172" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="end">第 5 弦　A</text>
+<line x1="84.0" y1="184.0" x2="215.0" y2="184.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<text x="74.0" y="188" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="end">第 6 弦　E</text>
+<rect x="92.4" y="161.0" width="16" height="14" fill="#FBF8F4"/>
+<text x="100.375" y="172" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">3</text>
+<rect x="125.1" y="161.0" width="16" height="14" fill="#FBF8F4"/>
+<text x="133.125" y="172" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">3</text>
+<rect x="157.9" y="129.0" width="16" height="14" fill="#FBF8F4"/>
+<text x="165.875" y="140" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">0</text>
+<rect x="190.6" y="129.0" width="16" height="14" fill="#FBF8F4"/>
+<text x="198.625" y="140" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">0</text>
+<line x1="215.0" y1="97.0" x2="215.0" y2="191.0" stroke="#3D3229" stroke-width="1.6"/>
+<line x1="84.0" y1="97.0" x2="84.0" y2="191.0" stroke="#3D3229" stroke-width="1.6"/>
+<text x="100.375" y="204" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#A67C52" text-anchor="middle" font-weight="700">1</text>
+<text x="133.125" y="204" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#A67C52" text-anchor="middle" font-weight="700">1</text>
+<text x="165.875" y="204" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#A67C52" text-anchor="middle" font-weight="700">5</text>
+<text x="198.625" y="204" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#A67C52" text-anchor="middle" font-weight="700">5</text>
+<text x="100.375" y="224" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">一</text>
+<text x="133.125" y="224" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">閃</text>
+<text x="165.875" y="224" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">一</text>
+<text x="198.625" y="224" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">閃</text>
+<text x="74.0" y="204" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="end">簡譜</text>
+<text x="74.0" y="224" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="end">歌詞</text>
+<line x1="215.0" y1="104.0" x2="346.0" y2="104.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<line x1="215.0" y1="120.0" x2="346.0" y2="120.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<line x1="215.0" y1="136.0" x2="346.0" y2="136.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<line x1="215.0" y1="152.0" x2="346.0" y2="152.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<line x1="215.0" y1="168.0" x2="346.0" y2="168.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<line x1="215.0" y1="184.0" x2="346.0" y2="184.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<rect x="223.4" y="129.0" width="16" height="14" fill="#FBF8F4"/>
+<text x="231.375" y="140" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">2</text>
+<rect x="256.1" y="129.0" width="16" height="14" fill="#FBF8F4"/>
+<text x="264.125" y="140" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">2</text>
+<line x1="346.0" y1="97.0" x2="346.0" y2="191.0" stroke="#3D3229" stroke-width="1.6"/>
+<text x="231.375" y="204" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#A67C52" text-anchor="middle" font-weight="700">6</text>
+<text x="264.125" y="204" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#A67C52" text-anchor="middle" font-weight="700">6</text>
+<text x="296.875" y="204" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#A67C52" text-anchor="middle" font-weight="700">5</text>
+<text x="231.375" y="224" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">亮</text>
+<text x="264.125" y="224" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">晶</text>
+<text x="296.875" y="224" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">晶</text>
+<text x="329.625" y="224" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">·</text>
+<line x1="346.0" y1="104.0" x2="477.0" y2="104.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<line x1="346.0" y1="120.0" x2="477.0" y2="120.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<line x1="346.0" y1="136.0" x2="477.0" y2="136.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<line x1="346.0" y1="152.0" x2="477.0" y2="152.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<line x1="346.0" y1="168.0" x2="477.0" y2="168.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<line x1="346.0" y1="184.0" x2="477.0" y2="184.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<rect x="354.4" y="145.0" width="16" height="14" fill="#FBF8F4"/>
+<text x="362.375" y="156" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">3</text>
+<rect x="387.1" y="145.0" width="16" height="14" fill="#FBF8F4"/>
+<text x="395.125" y="156" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">3</text>
+<rect x="419.9" y="145.0" width="16" height="14" fill="#FBF8F4"/>
+<text x="427.875" y="156" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">2</text>
+<rect x="452.6" y="145.0" width="16" height="14" fill="#FBF8F4"/>
+<text x="460.625" y="156" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">2</text>
+<line x1="477.0" y1="97.0" x2="477.0" y2="191.0" stroke="#3D3229" stroke-width="1.6"/>
+<text x="362.375" y="204" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#A67C52" text-anchor="middle" font-weight="700">4</text>
+<text x="395.125" y="204" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#A67C52" text-anchor="middle" font-weight="700">4</text>
+<text x="427.875" y="204" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#A67C52" text-anchor="middle" font-weight="700">3</text>
+<text x="460.625" y="204" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#A67C52" text-anchor="middle" font-weight="700">3</text>
+<text x="362.375" y="224" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">滿</text>
+<text x="395.125" y="224" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">天</text>
+<text x="427.875" y="224" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">都</text>
+<text x="460.625" y="224" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">是</text>
+<line x1="477.0" y1="104.0" x2="608.0" y2="104.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<line x1="477.0" y1="120.0" x2="608.0" y2="120.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<line x1="477.0" y1="136.0" x2="608.0" y2="136.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<line x1="477.0" y1="152.0" x2="608.0" y2="152.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<line x1="477.0" y1="168.0" x2="608.0" y2="168.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<line x1="477.0" y1="184.0" x2="608.0" y2="184.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<rect x="485.4" y="145.0" width="16" height="14" fill="#FBF8F4"/>
+<text x="493.375" y="156" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">0</text>
+<rect x="518.1" y="145.0" width="16" height="14" fill="#FBF8F4"/>
+<text x="526.125" y="156" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">0</text>
+<rect x="550.9" y="161.0" width="16" height="14" fill="#FBF8F4"/>
+<text x="558.875" y="172" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">3</text>
+<rect x="583.6" y="161.0" width="16" height="14" fill="#FBF8F4"/>
+<text x="591.625" y="172" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">3</text>
+<line x1="608.0" y1="97.0" x2="608.0" y2="191.0" stroke="#3D3229" stroke-width="1.6"/>
+<text x="493.375" y="204" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#A67C52" text-anchor="middle" font-weight="700">2</text>
+<text x="526.125" y="204" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#A67C52" text-anchor="middle" font-weight="700">2</text>
+<text x="558.875" y="204" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#A67C52" text-anchor="middle" font-weight="700">1</text>
+<text x="493.375" y="224" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">小</text>
+<text x="526.125" y="224" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">星</text>
+<text x="558.875" y="224" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">星</text>
+<text x="591.625" y="224" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">·</text>
+<line x1="84.0" y1="300.0" x2="215.0" y2="300.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<text x="74.0" y="304" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="end">第 1 弦　E</text>
+<line x1="84.0" y1="316.0" x2="215.0" y2="316.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<text x="74.0" y="320" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="end">第 2 弦　B</text>
+<line x1="84.0" y1="332.0" x2="215.0" y2="332.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<text x="74.0" y="336" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="end">第 3 弦　G</text>
+<line x1="84.0" y1="348.0" x2="215.0" y2="348.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<text x="74.0" y="352" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="end">第 4 弦　D</text>
+<line x1="84.0" y1="364.0" x2="215.0" y2="364.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<text x="74.0" y="368" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="end">第 5 弦　A</text>
+<line x1="84.0" y1="380.0" x2="215.0" y2="380.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<text x="74.0" y="384" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="end">第 6 弦　E</text>
+<rect x="92.4" y="325.0" width="16" height="14" fill="#FBF8F4"/>
+<text x="100.375" y="336" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">0</text>
+<rect x="125.1" y="325.0" width="16" height="14" fill="#FBF8F4"/>
+<text x="133.125" y="336" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">0</text>
+<rect x="157.9" y="341.0" width="16" height="14" fill="#FBF8F4"/>
+<text x="165.875" y="352" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">3</text>
+<rect x="190.6" y="341.0" width="16" height="14" fill="#FBF8F4"/>
+<text x="198.625" y="352" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">3</text>
+<line x1="215.0" y1="293.0" x2="215.0" y2="387.0" stroke="#3D3229" stroke-width="1.6"/>
+<line x1="84.0" y1="293.0" x2="84.0" y2="387.0" stroke="#3D3229" stroke-width="1.6"/>
+<text x="100.375" y="400" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#A67C52" text-anchor="middle" font-weight="700">5</text>
+<text x="133.125" y="400" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#A67C52" text-anchor="middle" font-weight="700">5</text>
+<text x="165.875" y="400" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#A67C52" text-anchor="middle" font-weight="700">4</text>
+<text x="198.625" y="400" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#A67C52" text-anchor="middle" font-weight="700">4</text>
+<text x="100.375" y="420" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">掛</text>
+<text x="133.125" y="420" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">在</text>
+<text x="165.875" y="420" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">天</text>
+<text x="198.625" y="420" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">空</text>
+<text x="74.0" y="400" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="end">簡譜</text>
+<text x="74.0" y="420" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="end">歌詞</text>
+<line x1="215.0" y1="300.0" x2="346.0" y2="300.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<line x1="215.0" y1="316.0" x2="346.0" y2="316.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<line x1="215.0" y1="332.0" x2="346.0" y2="332.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<line x1="215.0" y1="348.0" x2="346.0" y2="348.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<line x1="215.0" y1="364.0" x2="346.0" y2="364.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<line x1="215.0" y1="380.0" x2="346.0" y2="380.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<rect x="223.4" y="341.0" width="16" height="14" fill="#FBF8F4"/>
+<text x="231.375" y="352" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">2</text>
+<rect x="256.1" y="341.0" width="16" height="14" fill="#FBF8F4"/>
+<text x="264.125" y="352" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">2</text>
+<rect x="288.9" y="341.0" width="16" height="14" fill="#FBF8F4"/>
+<text x="296.875" y="352" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">0</text>
+<rect x="321.6" y="341.0" width="16" height="14" fill="#FBF8F4"/>
+<text x="329.625" y="352" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">0</text>
+<line x1="346.0" y1="293.0" x2="346.0" y2="387.0" stroke="#3D3229" stroke-width="1.6"/>
+<text x="231.375" y="400" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#A67C52" text-anchor="middle" font-weight="700">3</text>
+<text x="264.125" y="400" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#A67C52" text-anchor="middle" font-weight="700">3</text>
+<text x="296.875" y="400" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#A67C52" text-anchor="middle" font-weight="700">2</text>
+<text x="231.375" y="420" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">放</text>
+<text x="264.125" y="420" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">光</text>
+<text x="296.875" y="420" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">明</text>
+<text x="329.625" y="420" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">·</text>
+<line x1="346.0" y1="300.0" x2="477.0" y2="300.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<line x1="346.0" y1="316.0" x2="477.0" y2="316.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<line x1="346.0" y1="332.0" x2="477.0" y2="332.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<line x1="346.0" y1="348.0" x2="477.0" y2="348.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<line x1="346.0" y1="364.0" x2="477.0" y2="364.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<line x1="346.0" y1="380.0" x2="477.0" y2="380.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<rect x="354.4" y="325.0" width="16" height="14" fill="#FBF8F4"/>
+<text x="362.375" y="336" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">0</text>
+<rect x="387.1" y="325.0" width="16" height="14" fill="#FBF8F4"/>
+<text x="395.125" y="336" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">0</text>
+<rect x="419.9" y="341.0" width="16" height="14" fill="#FBF8F4"/>
+<text x="427.875" y="352" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">3</text>
+<rect x="452.6" y="341.0" width="16" height="14" fill="#FBF8F4"/>
+<text x="460.625" y="352" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">3</text>
+<line x1="477.0" y1="293.0" x2="477.0" y2="387.0" stroke="#3D3229" stroke-width="1.6"/>
+<text x="362.375" y="400" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#A67C52" text-anchor="middle" font-weight="700">5</text>
+<text x="395.125" y="400" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#A67C52" text-anchor="middle" font-weight="700">5</text>
+<text x="427.875" y="400" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#A67C52" text-anchor="middle" font-weight="700">4</text>
+<text x="460.625" y="400" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#A67C52" text-anchor="middle" font-weight="700">4</text>
+<text x="362.375" y="420" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">好</text>
+<text x="395.125" y="420" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">像</text>
+<text x="427.875" y="420" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">許</text>
+<text x="460.625" y="420" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">多</text>
+<line x1="477.0" y1="300.0" x2="608.0" y2="300.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<line x1="477.0" y1="316.0" x2="608.0" y2="316.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<line x1="477.0" y1="332.0" x2="608.0" y2="332.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<line x1="477.0" y1="348.0" x2="608.0" y2="348.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<line x1="477.0" y1="364.0" x2="608.0" y2="364.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<line x1="477.0" y1="380.0" x2="608.0" y2="380.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<rect x="485.4" y="341.0" width="16" height="14" fill="#FBF8F4"/>
+<text x="493.375" y="352" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">2</text>
+<rect x="518.1" y="341.0" width="16" height="14" fill="#FBF8F4"/>
+<text x="526.125" y="352" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">2</text>
+<rect x="550.9" y="341.0" width="16" height="14" fill="#FBF8F4"/>
+<text x="558.875" y="352" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">0</text>
+<rect x="583.6" y="341.0" width="16" height="14" fill="#FBF8F4"/>
+<text x="591.625" y="352" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">0</text>
+<line x1="608.0" y1="293.0" x2="608.0" y2="387.0" stroke="#3D3229" stroke-width="1.6"/>
+<text x="493.375" y="400" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#A67C52" text-anchor="middle" font-weight="700">3</text>
+<text x="526.125" y="400" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#A67C52" text-anchor="middle" font-weight="700">3</text>
+<text x="558.875" y="400" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#A67C52" text-anchor="middle" font-weight="700">2</text>
+<text x="493.375" y="420" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">小</text>
+<text x="526.125" y="420" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">眼</text>
+<text x="558.875" y="420" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">睛</text>
+<text x="591.625" y="420" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">·</text>
+<text x="26" y="460" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#3D3229" text-anchor="start">第 5 弦第 3 格是低音 Do，第 2 弦第 1 格是高音 Do；這首只用到中央這一段。</text>
+<text x="26" y="486" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="start">手指：第 3 格＝無名指、第 2 格＝中指、0＝空弦。右手用大拇指往下撥或 Pick 往下撥都可以。</text>
+</svg>

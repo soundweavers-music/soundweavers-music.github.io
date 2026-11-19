@@ -94,6 +94,12 @@ def audit(path: Path) -> list[dict]:
         if not target.exists():
             issues.append({"kind": "image", "quote": m.group(0)[:60], "why": "圖片檔案不存在"})
 
+    # 「90% 的人…」這種百分比是宣稱，不是量測
+    for m in re.finditer(r"(\d{2})%\s*的", text):
+        line = text[text.rfind("\n", 0, m.start()) + 1: text.find("\n", m.start())]
+        issues.append({"kind": "claim", "quote": line.strip()[:40],
+                       "why": f"未經量測的百分比「{m.group(0).strip()}」"})
+
     # 章末應有檢查表／重點整理
     if stem.isdigit() and not re.search(r"本章(重點|檢查表|回顧)", text):
         issues.append({"kind": "structure", "quote": "", "why": "缺少章末重點／檢查表"})
