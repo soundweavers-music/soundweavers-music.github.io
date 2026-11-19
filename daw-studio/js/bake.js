@@ -66,11 +66,11 @@ function bakePiano(sr, freq, seconds, vel) {
   const B = 0.0004 * Math.pow(freq / 261.63, 1.2);      // 非諧和性：越高越明顯
   const bright = 0.55 + 0.45 * vel;                       // 力度決定亮度
   const detune = 1 + 0.0007;                              // 第二條弦
-  for (let k = 1; k <= 16; k++) {
+  for (let k = 1; k <= 22; k++) {
     const f0 = k * freq * Math.sqrt(1 + B * k * k);
     if (f0 > sr * 0.45) break;
-    const amp = Math.pow(k, -1.5) * bright * (k <= 2 ? 1 : 0.9);
-    const tau = (2.6 / (1 + 0.55 * (k - 1))) * (0.7 + 0.6 * vel);
+    const amp = Math.pow(k, -1.35) * bright * (k <= 2 ? 1 : 0.92) * (k > 10 ? 0.75 : 1);
+    const tau = (3.6 / (1 + 0.42 * (k - 1))) * (0.75 + 0.5 * vel);
     // 用遞迴式產生正弦（sin(nw) = 2cos(w)·sin((n-1)w) − sin((n-2)w)）：
     // 每樣本只要兩次乘法，比 Math.sin 快一個數量級，否則第一個音會卡 0.4 秒
     const w = 2 * Math.PI * f0 / sr;
@@ -108,7 +108,7 @@ export function bakedBuffer(ctx, kind, freq, vel, opts) {
   let entry = cache.get(k);
   if (entry) return entry;
 
-  const seconds = kind === 'piano' ? 4.2 : 2.6;
+  const seconds = kind === 'piano' ? 5.2 : 2.6;
   let data;
   if (kind === 'piano') data = bakePiano(sr, freq, seconds, vel);
   else data = bakePluck(sr, freq, seconds, vel, opts.bright || 0.5);
