@@ -97,6 +97,19 @@ export async function addBankFile(file) {
  * 所以一樣會存進 IndexedDB，第二次開啟直接從快取還原。
  */
 export async function loadBuiltinBank(url, label) {
+  // 同名（Salamander Piano／Sonatina Strings…）的舊版一律先清掉：
+  // 音色庫的 id 是「檔名 + 大小」，檔案一改大小就會變成新 id，
+  // 不清掉的話清單裡會同時出現新舊兩份。
+  const stale = [...banks.entries()].filter(([, b]) => (b.name || '').startsWith(label));
+  for (const [id, b] of stale) {
+    banks.delete(id);
+    try {
+      const db = await idb();
+      await tx(db, 'readwrite', s => s.delete(id));
+      db.close();
+    } catch (e) { /* 快取刪不掉就算了，至少清單裡不會重複 */ }
+  }
+  if (stale.length) emit();
   for (const b of banks.values()) {
     if (b.builtin && b.status === 'ready') return b.id;
   }
