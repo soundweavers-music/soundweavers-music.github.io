@@ -58,7 +58,7 @@ export const FX_TYPES = {
     },
   },
   tune: {
-    name: 'Auto Tune 人聲修音', short: 'Tune', custom: 'tune',
+    name: '人聲修音（音高校正）', short: '修音', custom: 'tune',
     params: {
       key: { label: '主音', min: 0, max: 11, step: 1, def: 0 },
       scale: { label: '音階', min: 0, max: 9, step: 1, def: 0 },
@@ -840,7 +840,7 @@ export function harmConfig(p, bpm, off = 0) {
   };
 }
 
-// ---------- Auto Tune 共用定義 ----------
+// ---------- 人聲修音共用定義 ----------
 export const AUTOTUNE_LATENCY = 0.032;
 // 現場演出模式：延遲只有一半，但分析窗變短，最低音域拉到 100 Hz
 export const TUNE_LIVE_LATENCY = 0.016;

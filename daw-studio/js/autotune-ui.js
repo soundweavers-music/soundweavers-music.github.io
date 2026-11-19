@@ -1,4 +1,4 @@
-// Auto Tune 面板：調音表、即時音高曲線、音階鍵盤、旋鈕、預設值、偵測調性
+// 人聲修音面板：調音表、即時音高曲線、音階鍵盤、旋鈕、預設值、偵測調性
 import { store } from './state.js';
 import { engine } from './engine.js';
 import { TUNE_SCALES, TUNE_RANGES, NOTE_NAMES_ZH, scaleMask } from './effects.js';
@@ -24,7 +24,7 @@ export const TUNE_PRESETS = [
 ];
 
 export function tuneEditor(owner, desc, onChange) {
-  let raf = 0;   // 每個面板自己一個（可以同時開好幾個 Auto Tune 面板）
+  let raf = 0;   // 每個面板自己一個（可以同時開好幾個修音面板）
   const P = desc.params;
   const root = document.createElement('div');
   root.className = 'atx';

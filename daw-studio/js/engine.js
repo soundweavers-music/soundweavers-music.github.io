@@ -57,7 +57,7 @@ export function midiEvents(clip, transpose = 0) {
   return out.sort((a, z) => a.s - z.s);
 }
 
-// 軌道上啟用中、有固定延遲的效果器（Auto Tune、Harmony 各 32 ms）的延遲總和
+// 軌道上啟用中、有固定延遲的效果器（人聲修音、Harmony 各 32 ms）的延遲總和
 export function trackLatency(t) {
   let L = 0;
   for (const d of t.inserts || []) L += fxLatency(d);
