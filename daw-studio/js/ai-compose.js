@@ -74,8 +74,8 @@ const PROG = {
 
 export const FORMS = [
   { id: 'short', name: '短版：主歌＋副歌（16 小節）', secs: [['verse', 8], ['chorus', 8]] },
-  { id: 'std', name: '標準：主歌－導歌－副歌 ×2（48 小節）', secs: [['verse', 8], ['pre', 4], ['chorus', 8], ['verse', 8], ['pre', 4], ['chorus', 8]] },
-  { id: 'full', name: '完整：再加橋段與最後副歌（60 小節）', secs: [['verse', 8], ['pre', 4], ['chorus', 8], ['verse', 8], ['pre', 4], ['chorus', 8], ['bridge', 4], ['chorus', 8]] },
+  { id: 'std', name: '標準：主歌－導歌－副歌 ×2（40 小節）', secs: [['verse', 8], ['pre', 4], ['chorus', 8], ['verse', 8], ['pre', 4], ['chorus', 8]] },
+  { id: 'full', name: '完整：再加橋段與最後副歌（52 小節）', secs: [['verse', 8], ['pre', 4], ['chorus', 8], ['verse', 8], ['pre', 4], ['chorus', 8], ['bridge', 4], ['chorus', 8]] },
 ];
 export const SEC_LABEL = { verse: '主歌', pre: '導歌', chorus: '副歌', bridge: '橋段' };
 
