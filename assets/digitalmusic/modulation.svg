@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 380" role="img" aria-label="Chorus、Flanger、Phaser">
+  <title>Chorus、Flanger、Phaser</title>
+  <rect width="660" height="380" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">Chorus、Flanger、Phaser</text>
+  <text x="26" y="55" class="ts" font-size="12.5">同樣是 LFO，改的是不同的參數</text>
+  <text x="26" y="84" class="ts" font-size="12">三者都在「週期性地改變時間或相位」，差別在延遲長度與迴授。</text>
+  <rect x="40" y="104" width="190" height="150" rx="6" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.4"/>
+  <text x="52" y="126" class="t" font-size="12.5" font-weight="700" fill="#6B8FBF">Chorus</text>
+  <text x="52" y="144" class="ts" font-size="9">20–30 ms 延遲＋緩慢 LFO</text>
+  <text x="52" y="160" class="ts" font-size="9.5" fill="#8C8078">加厚、變寬</text>
+  <path d="M52.0 208.0 L54.8 201.3 L57.5 195.2 L60.3 190.3 L63.1 187.2 L65.8 186.2 L68.6 187.2 L71.4 190.3 L74.1 195.2 L76.9 201.3 L79.7 208.0 L82.4 214.7 L85.2 220.8 L88.0 225.7 L90.7 228.8 L93.5 229.8 L96.3 228.8 L99.0 225.7 L101.8 220.8 L104.6 214.7 L107.3 208.0 L110.1 201.3 L112.9 195.2 L115.6 190.3 L118.4 187.2 L121.2 186.2 L123.9 187.2 L126.7 190.3 L129.5 195.2 L132.2 201.3 L135.0 208.0 L137.8 214.7 L140.5 220.8 L143.3 225.7 L146.1 228.8 L148.8 229.8 L151.6 228.8 L154.4 225.7 L157.1 220.8 L159.9 214.7 L162.7 208.0 L165.4 201.3 L168.2 195.2 L171.0 190.3 L173.7 187.2 L176.5 186.2 L179.3 187.2 L182.0 190.3 L184.8 195.2 L187.6 201.3 L190.3 208.0 L193.1 214.7 L195.9 220.8 L198.6 225.7 L201.4 228.8 L204.2 229.8 L206.9 228.8 L209.7 225.7 L212.5 220.8 L215.2 214.7 L218.0 208.0" class="blue"/>
+  <path d="M52 234 L218 234" class="thin"/>
+  <rect x="246" y="104" width="190" height="150" rx="6" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.4"/>
+  <text x="258" y="126" class="t" font-size="12.5" font-weight="700" fill="#B0563F">Flanger</text>
+  <text x="258" y="144" class="ts" font-size="9">1–10 ms 延遲＋迴授</text>
+  <text x="258" y="160" class="ts" font-size="9.5" fill="#8C8078">噴射機、金屬掃頻</text>
+  <path d="M258.0 208.0 L260.8 200.3 L263.5 193.3 L266.3 187.8 L269.1 184.3 L271.8 183.0 L274.6 184.3 L277.4 187.8 L280.1 193.3 L282.9 200.3 L285.7 208.0 L288.4 215.7 L291.2 222.7 L294.0 228.2 L296.7 231.7 L299.5 233.0 L302.3 231.7 L305.0 228.2 L307.8 222.7 L310.6 215.7 L313.3 208.0 L316.1 200.3 L318.9 193.3 L321.6 187.8 L324.4 184.3 L327.2 183.0 L329.9 184.3 L332.7 187.8 L335.5 193.3 L338.2 200.3 L341.0 208.0 L343.8 215.7 L346.5 222.7 L349.3 228.2 L352.1 231.7 L354.8 233.0 L357.6 231.7 L360.4 228.2 L363.1 222.7 L365.9 215.7 L368.7 208.0 L371.4 200.3 L374.2 193.3 L377.0 187.8 L379.7 184.3 L382.5 183.0 L385.3 184.3 L388.0 187.8 L390.8 193.3 L393.6 200.3 L396.3 208.0 L399.1 215.7 L401.9 222.7 L404.6 228.2 L407.4 231.7 L410.2 233.0 L412.9 231.7 L415.7 228.2 L418.5 222.7 L421.2 215.7 L424.0 208.0" class="red"/>
+  <path d="M258 234 L424 234" class="thin"/>
+  <rect x="452" y="104" width="190" height="150" rx="6" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.4"/>
+  <text x="464" y="126" class="t" font-size="12.5" font-weight="700" fill="#6F8F6A">Phaser</text>
+  <text x="464" y="144" class="ts" font-size="9">全通濾波＋相位</text>
+  <text x="464" y="160" class="ts" font-size="9.5" fill="#8C8078">溫柔的漩渦</text>
+  <path d="M464.0 208.0 L466.8 203.2 L469.5 198.8 L472.3 195.4 L475.1 193.2 L477.8 192.4 L480.6 193.2 L483.4 195.4 L486.1 198.8 L488.9 203.2 L491.7 208.0 L494.4 212.8 L497.2 217.2 L500.0 220.6 L502.7 222.8 L505.5 223.6 L508.3 222.8 L511.0 220.6 L513.8 217.2 L516.6 212.8 L519.3 208.0 L522.1 203.2 L524.9 198.8 L527.6 195.4 L530.4 193.2 L533.2 192.4 L535.9 193.2 L538.7 195.4 L541.5 198.8 L544.2 203.2 L547.0 208.0 L549.8 212.8 L552.5 217.2 L555.3 220.6 L558.1 222.8 L560.8 223.6 L563.6 222.8 L566.4 220.6 L569.1 217.2 L571.9 212.8 L574.7 208.0 L577.4 203.2 L580.2 198.8 L583.0 195.4 L585.7 193.2 L588.5 192.4 L591.3 193.2 L594.0 195.4 L596.8 198.8 L599.6 203.2 L602.3 208.0 L605.1 212.8 L607.9 217.2 L610.6 220.6 L613.4 222.8 L616.2 223.6 L618.9 222.8 L621.7 220.6 L624.5 217.2 L627.2 212.8 L630.0 208.0" class="green"/>
+  <path d="M464 234 L630 234" class="thin"/>
+  <text x="26" y="286" class="ts" font-size="11">放在訊號鏈太前面，會讓後面的壓縮器與 EQ 抓不準；通常擺在飽和之後、殘響之前。</text>
+  <text x="26" y="314" class="ts" font-size="11" fill="#8C8078">Mono 相容性：Chorus 與 Flanger 相加成單聲道時，有些東西會消失。</text>
+  <text x="26" y="362" class="ts" font-size="11">Rate 慢（0.2–1 Hz）＝寬；快（3–8 Hz）＝明顯的效果音。</text>
+</svg>

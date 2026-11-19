@@ -8,6 +8,8 @@
 
 ## 一、什麼是 Dither？
 
+![有無 Dither 的量化階梯](/assets/digitalmusic/dither-quantize.svg)
+
 ### 1.1 問題的根源：量化失真
 
 在數位音訊中，類比訊號被取樣並量化成有限位元數的離散數值。當你從高位元深度（如 24-bit）降轉到低位元深度（如 16-bit）時，每個取樣點的有效數值範圍縮小，原本可以由 16,777,216 個階梯描述的訊號被強迫塞進 65,536 個階梯。這個過程會產生**量化誤差**（Quantization Error），在極小聲的段落中表現為可聽聞的失真或顆粒感。
@@ -34,7 +36,7 @@ Dither 是在降轉位元深度之前，刻意加入極低音量的噪聲（通�
 
 - **從 24-bit 降轉到 16-bit** → 需要 Dither
 - **從 32-bit float 降轉到 24-bit** → 不需要 Dither（32-bit float 的 mantissa 足夠大）
-- **從 24-bit 降轉到 24-bit**（不做任何轉換） → 不需要 Dither
+- **24-bit 專案直接輸出 24-bit**（不做位元深度轉換） → 不需要 Dither
 - **匯出成 MP3** → 不需要 Dither（MP3 編碼器內部有自己的量化機制）
 
 ### 2.2 母帶階段使用，混音階段通常不用
@@ -68,9 +70,9 @@ Spotify、Apple Music、Tidal 等平台通常接受 24-bit 44.1kHz 或 48kHz 的
 **不同廠商的 Noise Shaping 演算法**：
 
 - **POW-r (Psychoacoustically Optimized Wordlength Reduction)**：有三種模式。POW-r #1 最輕微，POW-r #3 噪聲整形幅度最大，但也可能與後續編碼產生互動問題。
-- **MBIT+ (Metric Halo)**：動態調節噪聲整形曲線，現代 DAW 中常見的優質選擇。
+- **iZotope MBIT+**（Ozone／RX 內建）：可選 TPDF 或 Noise Shaping，並能調整噪聲量與整形曲線。
 - **UV22HR (Apogee)**：Apogee 的專利技術，擅長保留極低頻的細節。
-- **Izotope MBIT+ Dither**：iZotope 的版本，可調節噪聲量與整形曲線。
+- **iZotope Ozone／RX 內建 Dither**：可選 TPDF 或 Noise Shaping，並能調整噪聲量與整形曲線。
 
 **注意**：Noise Shaping 後的檔案不適合再經過任何 EQ、動態處理或格式轉換，因為這些操作會破壞精心設計的噪聲曲線。
 
@@ -98,7 +100,7 @@ Spotify、Apple Music、Tidal 等平台通常接受 24-bit 44.1kHz 或 48kHz 的
 | 24-bit → 24-bit | 否 | 位元深度未變 |
 | 32-bit float → 24-bit | 否 | mantissa 足夠精確 |
 | 24-bit → 16-bit WAV | 是 | 明顯的位元深度降轉 |
-| 24-bit → MP3 | 通常是 | 但 MP3 編碼器可能另有機制 |
+| 24-bit → MP3 | 否 | MP3 編碼器內部自行量化，外部 Dither 沒有意義 |
 | CD 燒錄（16-bit PCM） | 是 | 紅皮書 CD 規格強制 16-bit |
 | 匯出 24-bit FLAC | 否 | 保持原生位元深度 |
 
@@ -227,7 +229,7 @@ ArtistName_TrackTitle_MixVersion_Format_SampleRate-BitDepth.wav
 **建議填寫的欄位**：
 
 6. **Genre**：音樂類型
-7. **ISRC（International Standard Recording Code）**：國際標準錄音錄影資料代碼，每首曲目唯一，由各國 RIAA 機構核發
+7. **ISRC（International Standard Recording Code）**：國際標準錄音錄影資料代碼，每首曲目唯一，由 IFPI 指定的各國 National ISRC Agency 核發
 8. **Label / Publisher**：唱片公司或發行商
 9. **Composer**：作曲者
 10. **Lyricist**：作詞者
@@ -341,7 +343,7 @@ Project_TrackName/
 ### 10.2 數位發行平台
 
 - **DistroKid**：低年費，簡單快速，適合獨立音樂人
-- **TuneCore**：按曲收費，保留 100% 版稅
+- **TuneCore**：年費制、不限上架曲數，保留 100% 版稅
 - **CD Baby**：傳統大廠，也處理實體發行
 - **Apple Music for Artists / Spotify for Artists**：直接上架需要經過 Distributor
 
@@ -411,6 +413,6 @@ Project_TrackName/
 
 - iZotope RX 系列手冊中的 Dither 章節
 - Bob Katz《Mastering Audio: The Art and the Science》（母帶處理聖經）
-- T. O'Conner 《The Dither Book》（免費線上資源）
+- iZotope 官方 Dither 技術白皮書（izotope.com/resources）
 - 紅皮書 CD 標準（IEC 60908）
 - AES17 數位音訊測量標準

@@ -4,6 +4,8 @@
 
 ## 什麼是平行壓縮？
 
+![串聯是一關接一關，平行是另開一條路](/assets/digitalmusic/parallel-serial.svg)
+
 平行壓縮，又稱為 **紐約壓縮（New York Compression）**，原理極其簡單卻極其強大：**將原始未壓縮的乾訊號，與經過重度壓縮的濕訊號混合在一起**。聽起來像是矛盾對吧？一邊要保持動態，一邊又要壓扁訊號——但正是這種組合創造出神奇的效果。
 
 為什麼要這麼做？因為單靠傳統的串列壓縮（compressors inserted directly on a track），一旦你調高壓縮比或降低 Threshold，就必然會損失瞬態（transient）和動態細節。鼓的攻擊感變鈍、人聲的尾音被吞沒——這些都是過度壓縮的典型症狀。
@@ -75,7 +77,7 @@
 1. 將所有鼓音軌（Kick、Snare、OH、Room）送至一個鼓 Bus
 2. 從鼓 Bus Send 到平行壓縮 Aux
 3. 在 Aux 上掛載一臺壓縮器，例如 **CLA-76（1176 模擬）** 或 **API 2500**
-4. 設定 Ratio 12:1、Attack 3ms、Release 80ms、Threshold 壓到 Gain Reduction 達 10~15dB
+4. 設定 Ratio 12:1、Attack 0.5ms ~ 0.8ms、Release 80ms、Threshold 壓到 Gain Reduction 達 10~15dB
 5. 慢慢推 Aux 推桿到與原始鼓聲混合
 
 **聽感目標**：鼓的尾音（room sound 和 sustain）變得明顯，但攻擊點依然是乾淨的。整體鼓組聽起來更「大」、更「有力」。
@@ -87,7 +89,7 @@
 **設定步驟**：
 1. 主唱音軌 Send 到人聲平行 Aux
 2. 使用 **LA-2A（光學壓縮器模擬）**，Ratio 固定（LA-2A 的壓縮曲線大約是 3:1 到 6:1），Peak Reduction 調到 7~10dB
-3. 或者使用 1176，Ratio 8:1、Attack 2ms、Release 200ms
+3. 或者使用 1176，Ratio 8:1、Attack 0.5ms ~ 0.8ms、Release 200ms
 4. Aux 推桿設定在 -10dB 到 -5dB（相對於原始人聲）
 
 **技巧**：在平行壓縮 Aux 前加一個 High-Pass Filter（約 200Hz），可以避免壓縮器被低頻隆隆聲觸發，讓壓縮更乾淨。
@@ -162,7 +164,7 @@
 
 **第一步：1176（FET 壓縮器）**
 - Ratio: 4:1
-- Attack: 3ms ~ 5ms
+- Attack: 0.02ms ~ 0.8ms（旋鈕由 7 轉至 1）
 - Release: 50ms ~ 100ms
 - Input: 調到 Gain Reduction 約 3~5dB
 - 作用：捕捉人聲的瞬態爆音、唇齒音和爆裂字頭
@@ -191,7 +193,7 @@
 
 ### 貝斯串聯鏈：Dbx 160 → LA-2A
 
-- **Dbx 160（VCA 壓縮器）**：Ratio 8:1、Attack 10ms、Release 50ms，做 4~6dB GR
+- **Dbx 160（VCA 壓縮器）**：Ratio 8:1，Attack 由程式內容自動決定（program-dependent），Release 選 Fast，做 4~6 dB GR
 - **LA-2A**：Peak Reduction 20~30%，做 2~3dB GR
 - 結果：attack 清晰、sustain 紮實、低頻穩定
 
@@ -217,7 +219,7 @@
 ### 範例：鼓組完整壓縮鏈
 
 ```
-鼓 Bus → 串聯 API 2500 → 平行 Aux（1176 或 Distressor 重壓 15:1）
+鼓 Bus → 串聯 API 2500 → 平行 Aux（1176 重壓 12:1，或 Distressor 重壓 15:1）
           └→ Room Mic 重壓 Aux（極端壓縮，創造空間感）
 ```
 

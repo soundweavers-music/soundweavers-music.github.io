@@ -48,7 +48,7 @@ Pro Tools 的 Playlist 系統在管理大量 Take 時非常靈活，但不像 Lo
 
 ### Ableton Live / Cubase / Studio One
 
-- **Ableton Live**：使用 Session View 的 Launch 功能錄製多個 Clip，然後拖曳到 Arrangement View 中手動編排。雖然沒有專屬的 Comp Folder，但搭配「Take Lanes」功能（Live 11 後）可以達到類似的效果。
+- **Ableton Live**：使用 Session View 的 Launch 功能錄製多個 Clip，再拖到 Arrangement View 手動編排。沒有專屬的 Comp Folder，但搭配「Take Lanes」（Live 10 起）可以達到類似的效果。
 - **Cubase**：使用「Lane Track」系統，類似 Pro Tools 的 Playlist，可以疊加顯示多個 Take，並用 Range Selection 工具選取後直接填入 Comp Track。
 - **Studio One**：採用類似 Logic Pro 的 Comping 系統，稱作「Take Management」，錄音時自動建立 Take，可用畫筆工具直接在 Comp Track 上選取片段。
 
@@ -137,7 +137,7 @@ Crossfade 的做法是：在兩個片段的交界處，讓第一個片段的音�
 在所有 DAW 中，Crossfade 的基本操作都非常相似：
 
 1. 使用 Selector Tool（游標工具）選取兩個片段重疊的部分
-2. 按下快捷鍵：Logic Pro 是 `Cmd + X`（有些版本是從功能表選取 Crossfade），Pro Tools 是 `Cmd + F`（Windows 為 `Ctrl + F`），Cubase 是 `X` 鍵
+2. 依 DAW 操作：Logic Pro 沒有預設快捷鍵，選取重疊區域後從 Edit ▸ Crossfade 建立（或拖曳片段邊界的 Fade 手柄）；Pro Tools 選取跨兩段的區域後按 `Cmd + F`／`Ctrl + F` 開啟 Fade 對話框；Cubase 選取重疊的兩段後按 `X`，或從 Edit ▸ Create Crossfade 執行。
 3. DAW 會自動在選取區域建立一個 Crossfade
 
 也可以手動調整：將游標移到片段左上角或右上角，會出現 Fade 手柄，拖曳即可建立淡入或淡出曲線。兩邊的曲線交叉處就是 Crossfade。
@@ -145,6 +145,8 @@ Crossfade 的做法是：在兩個片段的交界處，讓第一個片段的音�
 ---
 
 ## 交叉淡入淡出的類型：Equal Power vs Equal Gain
+
+![等功率與等增益兩條交叉曲線](/assets/digitalmusic/crossfade.svg)
 
 Crossfade 並非只有一種數學曲線，不同的曲線類型會影響聽感。最常見的兩種是 Equal Power 與 Equal Gain：
 
@@ -218,7 +220,7 @@ Click 和 Pop（爆音、啵聲）是剪輯音訊時最常見的問題，通常�
 
 ### Click 成因
 
-1. **波形被零點以外切斷**：音訊波形在非零點處被截斷，產生瞬間的 DC 偏移，聽起來就是一個 Click。
+1. **波形被零點以外切斷**：音訊波形在非零點處被截斷，產生瞬間的波形不連續（step discontinuity），激發出寬頻能量，聽起來就是一個 Click。
 2. **相位不連續**：兩個片段的波形在接點處的相位相差太大。
 3. **數位削波**：片段邊界處原本就有超過 0dBFS 的瞬間峰值。
 
@@ -246,7 +248,7 @@ Strip Silence 是一種自動化工具，會掃描選取的音訊片段，找出
 
 ### 參數設定
 
-以 Logic Pro 為例，Strip Silence（功能表 > Functions > Strip Silence）中有三個主要參數：
+以 Logic Pro 為例，Strip Silence（功能表 > Functions > Strip Silence）中有四個主要參數：
 
 1. **Threshold（門檻值）**：設定判定為「靜音」的音量下限。設定太低會保留所有噪音，設定太高會切掉尾音和弱音。
 2. **Minimum Time to Accept as Silence（最小靜音時間）**：低於閾值的段落必須持續超過這個時間才被視為靜音。建議設定在 50ms-200ms 之間，避免切掉音符之間的極短停頓。
@@ -282,7 +284,7 @@ Strip Silence 是一種自動化工具，會掃描選取的音訊片段，找出
 
 - **Logic Pro**：選取 Comp Track 並選擇「Bounce Regions in Place」或「Flatten」。也可以先 Merge 再 Consolidate。
 - **Pro Tools**：選取整條 Comp Track，使用「Consolidate Clip」指令（快捷鍵 `Shift + Alt + 3` 在 Mac，`Shift + Ctrl + 3` 在 Windows）。或使用「Bounce to Disk」匯出為獨立檔案。
-- **Cubase**：選取 Comp Track 後選擇「Bounce Selection」（快捷鍵 `P` 後按 `Shift + B`）。
+- **Cubase**：選取 Comp Track 後，從 Audio 選單選擇 Bounce Selection。
 - **Ableton Live**：選取 Comp Track 後，右鍵選擇「Consolidate」（快捷鍵 `Ctrl/Cmd + J`）。
 
 ### 統整後檢查

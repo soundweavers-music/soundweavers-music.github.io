@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 380" role="img" aria-label="環境音樂的四層">
+  <title>環境音樂的四層</title>
+  <rect width="660" height="380" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">環境音樂的四層</text>
+  <text x="26" y="55" class="ts" font-size="12.5">每一層只負責一件事</text>
+  <text x="26" y="84" class="ts" font-size="12">環境音樂不是「什麼都沒有」，是很多層各做一點事。</text>
+  <rect x="70" y="122" width="384.0" height="40" rx="6" fill="#6B8FBF" stroke="#6B8FBF" stroke-width="1.2" opacity="0.22"/>
+  <text x="84" y="147" class="t" font-size="11.5" font-weight="700">高頻空氣</text>
+  <text x="430" y="147" class="ts" font-size="10" fill="#8C8078">shimmer、磁帶嘶聲</text>
+  <rect x="70" y="178" width="319.2" height="40" rx="6" fill="#A67C52" stroke="#A67C52" stroke-width="1.2" opacity="0.22"/>
+  <text x="84" y="203" class="t" font-size="11.5" font-weight="700">中頻旋律</text>
+  <text x="430" y="203" class="ts" font-size="10" fill="#8C8078">主奏 pad、口風琴</text>
+  <rect x="70" y="234" width="258.0" height="40" rx="6" fill="#6F8F6A" stroke="#6F8F6A" stroke-width="1.2" opacity="0.22"/>
+  <text x="84" y="259" class="t" font-size="11.5" font-weight="700">和聲底</text>
+  <text x="430" y="259" class="ts" font-size="10" fill="#8C8078">長音 pad、人聲片段</text>
+  <rect x="70" y="290" width="168.0" height="40" rx="6" fill="#5D4E41" stroke="#5D4E41" stroke-width="1.2" opacity="0.22"/>
+  <text x="84" y="315" class="t" font-size="11.5" font-weight="700">低頻 drone</text>
+  <text x="430" y="315" class="ts" font-size="10" fill="#8C8078">持續的低音，幾乎不變</text>
+  <text x="26" y="340" class="ts" font-size="11">每一層都要有動作（緩慢的濾波掃頻、音量漂移），否則聽起來只是靜止的合成器。</text>
+  <text x="26" y="362" class="ts" font-size="11">殘響是主樂器：長 decay、低 high-cut、送出去之前先把 200 Hz 以下切掉。</text>
+</svg>

@@ -30,7 +30,7 @@ LUFS（Loudness Units relative to Full Scale）是國際電信聯盟（ITU-R BS.
 
 將兩者上傳至 YouTube（目標 -14 LUFS）：
 - 古典樂：平台將其增益 +6 dB，使其達到 -14 LUFS。因為古典樂本身動態大，聽起來仍然自然。
-- 電子樂：平台將其衰減 -6 dB，使其降到 -14 LUFS。但因為它原本就被壓縮得很「平」，衰減後聽起來反而比古典樂還小聲。
+- 電子樂：平台將其衰減 -6 dB，使其降到 -14 LUFS。但因為它原本就被壓縮得很「平」，衰減後動態對比消失，聽起來缺乏衝擊力與層次感。
 
 **結論：一味追求混音「大聲」已無意義。** 平台最終會把它們拉到同一響度，反而保留動態的作品聽起來更有力量。
 
@@ -76,12 +76,14 @@ True Peak（真實峰值）與普通 Peak（樣本峰值）不同。在數位音
 ### True Peak 為何重要？
 
 1. **編碼器失真**：壓縮成 AAC、MP3 或 OGG 等有損格式時，編碼器會重新取樣計算，可能將隱藏的 True Peak 暴露為可聽見的爆音。
-2. **串流平台的規範**：Apple Music 要求 True Peak 不超過 -1 dBTP，Spotify 建議低於 -2 dBTP。
+2. **串流平台的規範**：Apple Music 要求 True Peak 不超過 -1 dBTP，Spotify 建議低於 −1 dBTP。
 3. **類比設備保護**：如果最終要轉換為類比訊號（黑膠、廣播），True Peak 超標會直接導致功率放大器過載。
 
 **實務建議**：在 Master Bus 的最後一級使用支援 True Peak 檢測的 Limiter，將 Ceiling 設為 -1.0 到 -0.5 dBTP，保留安全餘裕。
 
 ## 各平台的響度目標
+
+![各平台 LUFS 目標與限縮後的波形](/assets/digitalmusic/loudness-limiter.svg)
 
 不同平台對響度標準有不同的偏好。以下是 2025 年的主流規範：
 
@@ -93,7 +95,7 @@ True Peak（真實峰值）與普通 Peak（樣本峰值）不同。在數位音
 | **Tidal** | -14 LUFS | -1 dBTP | Master 品質建議 -1 dBTP |
 | **Amazon Music** | -14 LUFS | -1 dBTP | 與多數平台一致 |
 | **播客（Podcast）** | -16 到 -19 LUFS | -1 dBTP | 語音為主，要求更高一致性 |
-| **廣播（電視）** | -23 LUFS（ITU-R BS.1770） | -2 dBTP | 各國略有不同（如日本 -24） |
+| **廣播（電視）** | −23 LUFS（EBU R128，測量依 ITU-R BS.1770） | -2 dBTP | 各國略有不同（如日本 -24） |
 
 ### 實務策略：該以哪個平台為準？
 
@@ -241,7 +243,7 @@ Limiter 偵測到超標訊號後，多快開始壓制。
 
 ### 檢查項目
 
-1. **Integrated LUFS**：整首曲目的平均響度。確認落在目標範圍內（一般建議 -9 到 -14 LUFS，但以聽感為主）。
+1. **Integrated LUFS**：整首曲目的平均響度。確認落在目標範圍內（一般建議 −14 到 −16 LUFS，但仍以聽感為主）。
 2. **Short-term LUFS Range**：主歌與副歌的落差。落差過大（> 6 LU）可能需要調整 Automation 或壓縮參數。
 3. **Momentary LUFS Max**：整曲中最響亮處。確保沒有突發的極端響度（例如意外的大鼓擊）。
 4. **True Peak Max**：整曲中的 True Peak 最大值，絕對不能超過 Ceiling 設定。

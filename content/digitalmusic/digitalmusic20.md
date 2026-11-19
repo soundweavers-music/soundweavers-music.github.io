@@ -30,6 +30,8 @@ Reverberation（殘響，簡稱 Reverb）是指聲音在空間中反射、擴散
 
 ## 三、Send/Return（Aux Bus）路由：為何優於 Insert 效果
 
+![Send/Return 的殘響匯流排](/assets/digitalmusic/reverb-architecture.svg)
+
 在 DAW 中，將 Reverb 加在音軌上有兩種主要方式：Insert 與 Send/Return。
 
 ### Insert 方式的問題

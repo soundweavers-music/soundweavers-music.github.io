@@ -20,6 +20,8 @@
 
 ## 建立人聲處理鏈（Vocal Chain）
 
+![流行人聲的處理鏈順序](/assets/digitalmusic/vocal-chain.svg)
+
 人聲處理鏈是訊號依序通過的效果器順序。雖然沒有絕對正確的順序，但 Mandopop 實戰中有一條非常成熟的標準鏈路：
 
 **EQ（等化器）→ Compressor（壓縮器）→ De-esser（去齒音）→ Reverb（殘響）→ Delay（延遲）**
@@ -153,6 +155,16 @@ Mandopop 的和聲編排有幾種常見模式：
 ---
 
 ## 實戰逐步流程：從乾音到成品
+
+| 順序 | 處理 | 典型設定 |
+|---|---|---|
+| 1 | High-pass | 80–100 Hz |
+| 2 | 動態 EQ | 只壓 200–400 Hz 的箱音 |
+| 3 | 壓縮 | 衰減 3–5 dB，ratio 約 3:1 |
+| 4 | De-ess | 6–9 kHz，只壓齒音 |
+| 5 | EQ 雕塑 | 3 kHz 附近加 1–2 dB 的清晰度 |
+| 6 | 空間 | 短 plate 殘響＋1/4 拍 delay |
+
 
 以下是一個完整的 Mandopop 人聲處理實戰流程，適合在任意的 DAW 中操作：
 

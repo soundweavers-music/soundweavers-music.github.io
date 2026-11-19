@@ -20,6 +20,8 @@ Ambient 的風格跨度極廣，從 Brian Eno 的《Music for Airports》這種�
 
 ## 打造 Pad 音色：疊層、濾波與緩慢調變
 
+![環境音樂的四層結構](/assets/digitalmusic/ambient-layers.svg)
+
 Pad 是 Ambient 音樂的聲音基石。與其他曲風不同，Ambient 的 Pad 不能只是靜止的和弦——它們必須呼吸、變化。
 
 ### 疊層原則
@@ -35,7 +37,7 @@ Pad 是 Ambient 音樂的聲音基石。與其他曲風不同，Ambient 的 Pad 
 
 ### Filter Automation 實戰
 
-在 DAW 中畫一條長達 2–4 小節的 filter cutoff 自動化曲線：
+在 DAW 中畫一條長達 8–16 小節的 filter cutoff 自動化曲線：
 
 - 起點：cutoff 500 Hz，低共鳴
 - 中段：cutoff 緩緩上升到 2 kHz，共鳴逐漸增加
@@ -46,6 +48,14 @@ Pad 是 Ambient 音樂的聲音基石。與其他曲風不同，Ambient 的 Pad 
 ---
 
 ## 殘響：環境音樂的主樂器
+
+| 層次 | 內容 | 處理方式 |
+|---|---|---|
+| 低頻 drone | 持續低音 | 幾乎不動，只微調濾波 |
+| 和聲底 | 長音 pad | 慢速 chorus、低 high-cut |
+| 旋律 | 主奏音色 | 少量 delay，保持可辨識 |
+| 空氣 | shimmer、雜訊 | 高通、放寬聲像 |
+
 
 在 Ambient 中，殘響不是「加一點空間感」，它就是樂器本身。正確使用殘響是區分「業餘氛圍」與「專業 Ambient」的關鍵。
 
@@ -95,7 +105,7 @@ Ambient 的低頻不同於舞曲——它不追求衝擊力，而是追求持續
 
 1. 選擇一個根音（例如 C2，約 65 Hz）
 2. 複製兩軌，一軌比原音高一個八度（C3），另一軌高純五度（G2）
-3. 三軌混音時，C2 置中，C3 和 G2 分別 pan 到左 30% 和右 30%
+3. 三軌混音時，C2 與 G2 置中，只有 C3 pan 到左或右 20%，其餘保持單聲道。
 4. 各軌添加獨立的 LFO 調變音量，速率約 0.08 Hz（週期 12 秒）
 
 這樣做出來的 drone 會像大地的低吟，穩定但帶有微妙的動態。
@@ -148,7 +158,7 @@ Ambient 的低頻不該完全靜止。嘗試以下技巧：
 
 ### 實用工具
 
-- **Granulator II**（Max for Live）：Ableton Live 內建顆粒合成器
+- **Granulator II**（Max for Live）：Ableton Live Suite 附帶的顆粒合成器
 - **Quanta**（Audio Damage）：獨立顆粒合成器 VST
 - **Borderlands Granular**（App）：iOS 上的顆粒合成應用
 
@@ -218,7 +228,7 @@ Ambient 雖然沒有傳統結構，但不等於沒有動態。專業的 Ambient 
 - 使用 Serum 或 Vital 合成器，兩個正弦波 oscillator：C2（65 Hz）和 G2（98 Hz）
 - LFO 1 調變 Volume（rate 0.05 Hz，depth 30%）
 - LFO 2 調變 Filter Cutoff（rate 0.1 Hz，depth 20%）
-- 掛上 ValhallaShimmer 或類似的大廳殘響（decay 12 s，mix 60%）
+- 掛上 ValhallaShimmer 或類似的 shimmer 殘響（decay 12 s，mix 60%）
 
 ### 步驟 2：加入 Pad 層
 
