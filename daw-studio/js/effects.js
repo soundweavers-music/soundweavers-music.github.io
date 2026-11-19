@@ -70,6 +70,23 @@ export const FX_TYPES = {
       mix: { label: '濕度', min: 0, max: 100, step: 1, def: 100, unit: '%' },
     },
   },
+  harm: {
+    name: 'Harmony 人聲和聲（1～4 部）', short: 'Harm', custom: 'harm',
+    params: {
+      source: { label: '和聲依據', min: 0, max: 1, step: 1, def: 0 },          // 0 = 調性、1 = 和弦
+      key: { label: '主音', min: 0, max: 11, step: 1, def: 0 },
+      scale: { label: '音階', min: 0, max: 9, step: 1, def: 0 },
+      mask: { label: '音階遮罩', min: 0, max: 4095, step: 1, def: 2741 },
+      range: { label: '音域', min: 0, max: 3, step: 1, def: 0 },
+      lead: { label: '主唱', min: -60, max: 6, step: 0.5, def: 0, unit: 'dB' },
+      hgain: { label: '和聲', min: -60, max: 6, step: 0.5, def: -4, unit: 'dB' },
+      width: { label: '寬度', min: 0, max: 100, step: 1, def: 70, unit: '%' },
+      humanize: { label: '人性化', min: 0, max: 100, step: 1, def: 50, unit: '%' },
+      tight: { label: '和聲音準', min: 0, max: 100, step: 1, def: 85, unit: '%' },
+      glide: { label: '滑音', min: 0, max: 200, step: 1, def: 30, unit: 'ms' },
+      secMode: { label: '段落模式', min: 0, max: 1, step: 1, def: 0, toggle: true },
+    },
+  },
   pitch: {
     name: 'Pitch 即時移調（和聲／效果用）', short: 'Pitch',
     params: {
@@ -144,7 +161,7 @@ export const FX_TYPES = {
     },
   },
 };
-export const FX_ORDER = ['tune', 'eq', 'comp', 'deess', 'sat', 'pitch', 'reverb', 'delay', 'chorus', 'drive', 'gate'];
+export const FX_ORDER = ['tune', 'harm', 'eq', 'comp', 'deess', 'sat', 'pitch', 'reverb', 'delay', 'chorus', 'drive', 'gate'];
 export const MAX_INSERTS = 6;
 
 export function newFx(type) {
@@ -152,6 +169,7 @@ export function newFx(type) {
   const params = {};
   for (const [k, d] of Object.entries(T.params)) params[k] = d.def;
   if (type === 'eq') params.bands = EQ_DEFAULT_BANDS.map(b => ({ ...b }));
+  if (type === 'harm') Object.assign(params, harmDefaults());
   return { id: uid('fx'), type, on: true, params };
 }
 
@@ -229,7 +247,7 @@ function wetDry(ctx) {
 }
 
 // bpm：Delay 同步用
-export function buildFx(ctx, desc, bpm = 120) {
+export function buildFx(ctx, desc, bpm = 120, info = {}) {
   const P = desc.params;
   let fx;
   switch (desc.type) {
@@ -371,6 +389,29 @@ export function buildFx(ctx, desc, bpm = 120) {
           }
           wd.setMix(p.mix);
         },
+      };
+      break;
+    }
+    case 'harm': {
+      // 主唱與和聲都在 worklet 裡（主唱延遲 32 ms 對齊），輸出 = 主唱 × lead + Σ 和聲
+      const input = ctx.createGain(), out = ctx.createGain();
+      let node = null;
+      const live = typeof ctx.startRendering !== 'function';
+      const segs = (ctx._zyTransport || []).slice();
+      try {
+        node = new AudioWorkletNode(ctx, 'zy-harmony', { numberOfInputs: 1, numberOfOutputs: 1, outputChannelCount: [2],
+          processorOptions: { report: live, cfg: harmConfig(P, bpm, info.off || 0), segs } });
+        input.connect(node).connect(out);
+      } catch (_) {
+        const dd = ctx.createDelay(0.1); dd.delayTime.value = HARMONY_LATENCY; input.connect(dd).connect(out);
+      }
+      const listeners = new Set();
+      if (node) node.port.onmessage = e => { for (const fn of listeners) fn(e.data); };
+      fx = {
+        input, output: out, worklet: node, latency: HARMONY_LATENCY,
+        onPitch(fn) { listeners.add(fn); return () => listeners.delete(fn); },
+        setTransport(list) { if (node) node.port.postMessage({ segs: list }); },
+        set(p, b = bpm) { bpm = b; if (node) node.port.postMessage({ cfg: harmConfig(p, b, info.off || 0) }); },
       };
       break;
     }
@@ -590,8 +631,54 @@ export function ensureFxWorklets(ctx) {
   if (!fxWorklets.has(ctx)) fxWorklets.set(ctx, Promise.all([
     ctx.audioWorklet.addModule(new URL('./pitch-worklet.js', import.meta.url)),
     ctx.audioWorklet.addModule(new URL('./autotune-worklet.js', import.meta.url)),
+    ctx.audioWorklet.addModule(new URL('./harmony-worklet.js', import.meta.url)),
   ]));
   return fxWorklets.get(ctx);
+}
+
+
+// ---------- 延遲 ----------
+// 有固定延遲的效果器：engine 依此做延遲補償
+export function fxLatency(d) {
+  if (!d.on) return 0;
+  if (d.type === 'tune') return (d.params.mix ?? 100) > 0 ? AUTOTUNE_LATENCY : 0;
+  if (d.type === 'harm') return HARMONY_LATENCY;
+  return 0;
+}
+export const WORKLET_FX = new Set(['pitch', 'tune', 'harm']);
+
+// ---------- Harmony 人聲和聲 ----------
+export const HARMONY_LATENCY = 0.032;
+// 預設 4 個聲部：上三度、下四度、上五度、下八度（只開第 1 部）
+export function harmDefaults() {
+  return {
+    voices: [
+      { on: true, n: 2, g: 0, pan: -0.6 },
+      { on: false, n: -3, g: 0, pan: 0.6 },
+      { on: false, n: 4, g: -2, pan: -0.9 },
+      { on: false, n: -7, g: -3, pan: 0.9 },
+    ],
+    chords: [],          // [{ t, d, root, q }]（拍）
+    sections: [],        // [{ t, d, iv:[n|null ×4] }]（拍）
+    curves: [[], [], [], []],   // 每個聲部的音量曲線 [{ t:拍, v:倍數 0~1.5 }]
+    chordTrack: null,
+  };
+}
+const PCS_CACHE = { maj: [0, 4, 7], min: [0, 3, 7], 7: [0, 4, 7, 10], maj7: [0, 4, 7, 11], m7: [0, 3, 7, 10], dim: [0, 3, 6], aug: [0, 4, 8], sus2: [0, 2, 7], sus4: [0, 5, 7] };
+// 專案描述（拍、dB）→ worklet 設定（秒、線性）
+export function harmConfig(p, bpm, off = 0) {
+  const s = 60 / (bpm || 120);
+  const R = TUNE_RANGES[p.range | 0] || TUNE_RANGES[0];
+  const voices = (p.voices || harmDefaults().voices).map(v => ({ on: !!v.on, n: v.n, g: dbg(v.g || 0), pan: v.pan || 0 }));
+  return {
+    source: p.source | 0, mask: p.mask | 0, fmin: R.fmin, fmax: R.fmax,
+    lead: p.lead <= -60 ? 0 : dbg(p.lead), hgain: p.hgain <= -60 ? 0 : dbg(p.hgain),
+    width: (p.width ?? 70) / 100, humanize: (p.humanize ?? 50) / 100, tight: (p.tight ?? 85) / 100, glide: p.glide ?? 30,
+    secMode: p.secMode ? 1 : 0, off, voices,
+    chords: (p.chords || []).map(c => ({ s: c.t * s, e: (c.t + c.d) * s, pcs: (PCS_CACHE[c.q] || PCS_CACHE.maj).reduce((m, k) => m | 1 << ((c.root + k) % 12), 0), name: c.root + c.q })),
+    sections: (p.sections || []).map((x, i) => ({ s: x.t * s, e: (x.t + x.d) * s, iv: x.iv, i })),
+    curves: (p.curves || [[], [], [], []]).map(c => (c || []).slice().sort((a, b) => a.t - b.t).map(pt => ({ s: pt.t * s, v: pt.v }))),
+  };
 }
 
 // ---------- Auto Tune 共用定義 ----------
@@ -628,9 +715,12 @@ export function buildChain(ctx, list, bpm) {
   const input = ctx.createGain(), output = ctx.createGain();
   const live = [];
   let prev = input;
+  // off：這個效果器「之後」還有多少固定延遲（engine 提早送素材的量扣掉前面已經延遲的部分），Harmony 用來換算專案位置
+  let rest = (list || []).reduce((a, d) => a + fxLatency(d), 0);
   for (const d of list || []) {
     if (!d.on) continue;
-    const fx = buildFx(ctx, d, bpm);
+    const fx = buildFx(ctx, d, bpm, { off: rest });
+    rest -= fxLatency(d);
     fx.desc = d;
     prev.connect(fx.input);
     prev = fx.output;
