@@ -3498,6 +3498,13 @@ def main():
     vocal_img = BASE_DIR / "assets" / "vocal"
     if vocal_img.exists():
         shutil.copytree(str(vocal_img), str(OUTPUT_DIR / "assets" / "vocal"), dirs_exist_ok=True)
+    guitar_img = BASE_DIR / "assets" / "guitar"
+    if guitar_img.exists():
+        shutil.copytree(str(guitar_img), str(OUTPUT_DIR / "assets" / "guitar"), dirs_exist_ok=True)
+    # Recording / mixing course diagrams
+    dm_img = BASE_DIR / "assets" / "digitalmusic"
+    if dm_img.exists():
+        shutil.copytree(str(dm_img), str(OUTPUT_DIR / "assets" / "digitalmusic"), dirs_exist_ok=True)
     # Mandolin book images
     mand_img = BASE_DIR / "assets" / "mandolin" / "img"
     if mand_img.exists():
