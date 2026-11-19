@@ -3,18 +3,18 @@
   <rect width="640" height="294" fill="#FBF8F4"/>
 <text x="24" y="34" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="15" fill="#3D3229" text-anchor="start" font-weight="700">三種常見桶型：差別在音量與抱起來的舒不舒服</text>
 <text x="24" y="55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#8C8078" text-anchor="start">桶型沒有好壞，只有適不適合你的體型與彈法</text>
-<text x="128.0" y="84" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#A67C52" text-anchor="start" font-weight="700">Dreadnought</text>
-<text x="376.0" y="84" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#A67C52" text-anchor="start" font-weight="700">OM / 000</text>
+<text x="164.0" y="84" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#A67C52" text-anchor="start" font-weight="700">Dreadnought</text>
+<text x="394.0" y="84" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#A67C52" text-anchor="start" font-weight="700">OM / 000</text>
 <rect x="24" y="96" width="592" height="56" fill="#F3E9DC" opacity=".5"/>
 <text x="34" y="120" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#3D3229" text-anchor="start" font-weight="700">音量</text>
-<text x="128.0" y="118" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start">大，低頻厚</text>
-<text x="376.0" y="118" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start">均衡，中頻清楚</text>
+<text x="164.0" y="118" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start">大，低頻厚</text>
+<text x="394.0" y="118" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start">均衡，中頻清楚</text>
 <text x="34" y="176" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#3D3229" text-anchor="start" font-weight="700">抱起來</text>
-<text x="128.0" y="174" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start">琴身大，肩膀要張開</text>
-<text x="376.0" y="174" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start">薄一些，久坐不吃力</text>
+<text x="164.0" y="174" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start">琴身大，肩膀要張開</text>
+<text x="394.0" y="174" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start">薄一些，久坐不吃力</text>
 <rect x="24" y="208" width="592" height="56" fill="#F3E9DC" opacity=".5"/>
 <text x="34" y="232" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#3D3229" text-anchor="start" font-weight="700">適合</text>
-<text x="128.0" y="230" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start">刷奏伴奏、需要音量</text>
-<text x="376.0" y="230" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start">指法、錄音、長時間練習</text>
+<text x="164.0" y="230" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start">刷奏伴奏、需要音量</text>
+<text x="394.0" y="230" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start">指法、錄音、長時間練習</text>
 <text x="24" y="282" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="start">第一次買琴，先確認「抱十分鐘不會想放下」再談聲音。</text>
 </svg>

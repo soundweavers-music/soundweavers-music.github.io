@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="持琴的三個支撐點">
+  <title>持琴的三個支撐點</title>
+  <rect width="640" height="360" fill="#FBF8F4"/>
+<text x="24" y="34" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="15" fill="#3D3229" text-anchor="start" font-weight="700">持琴三點：胸口、右前臂、左手虎口</text>
+<text x="24" y="55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#8C8078" text-anchor="start">三個點都只是「靠著」；任何一點用力夾緊，音色會變悶、換和弦也會變慢</text>
+<path d="M244 150 C190 168 182 226 192 264 C202 306 238 330 320 330 C402 330 438 306 448 264 C458 226 450 168 396 150 Z" fill="#F3E9DC" stroke="#3D3229" stroke-width="2"/>
+<rect x="296" y="96" width="48" height="70" fill="#EDE3D6" stroke="#3D3229" stroke-width="1.6"/>
+<circle cx="320" cy="242" r="26" fill="#FBF8F4" stroke="#3D3229" stroke-width="1.5"/>
+<path d="M224 196 L118 132" stroke="#8C8078" stroke-width="1" fill="none"/>
+<circle cx="224" cy="196" r="5" fill="#A67C52"/>
+<text x="108" y="136" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#3D3229" text-anchor="end" font-weight="700">① 胸口</text>
+<path d="M428 216 L470 196" stroke="#8C8078" stroke-width="1" fill="none"/>
+<circle cx="428" cy="216" r="5" fill="#A67C52"/>
+<text x="480" y="200" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#3D3229" text-anchor="start" font-weight="700">② 右前臂</text>
+<path d="M296 110 L150 92" stroke="#8C8078" stroke-width="1" fill="none"/>
+<circle cx="296" cy="110" r="5" fill="#A67C52"/>
+<text x="140" y="96" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#3D3229" text-anchor="end" font-weight="700">③ 左虎口</text>
+<text x="24" y="344" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="start">背帶只是備援：坐著彈時，琴不該靠背帶撐住；站著彈時才讓背帶分擔重量。</text>
+</svg>

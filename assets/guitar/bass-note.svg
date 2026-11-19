@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 330" role="img" aria-label="各和弦的根音在第幾弦">
+  <title>大拇指該撥哪一條弦</title>
+  <rect width="640" height="330" fill="#FBF8F4"/>
+<text x="24" y="34" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="15" fill="#3D3229" text-anchor="start" font-weight="700">大拇指（T）只跟著根音換弦</text>
+<text x="24" y="55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#8C8078" text-anchor="start">食指、中指、無名指固定守在第 3、2、1 弦；整組指法裡唯一會動的就是大拇指</text>
+<text x="110" y="118" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="end" font-weight="700">C、Am</text>
+<rect x="140" y="98" width="26" height="30" rx="6" fill="#FBF8F4" stroke="#C9BCAA" stroke-width="1"/>
+<text x="153" y="118" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#8C8078" text-anchor="middle">6</text>
+<rect x="172" y="98" width="26" height="30" rx="6" fill="#A67C52" stroke="#A67C52" stroke-width="2"/>
+<text x="185" y="118" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle" font-weight="700">5</text>
+<rect x="204" y="98" width="26" height="30" rx="6" fill="#FBF8F4" stroke="#C9BCAA" stroke-width="1"/>
+<text x="217" y="118" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#8C8078" text-anchor="middle">4</text>
+<rect x="236" y="98" width="26" height="30" rx="6" fill="#FBF8F4" stroke="#C9BCAA" stroke-width="1"/>
+<text x="249" y="118" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#8C8078" text-anchor="middle">3</text>
+<rect x="268" y="98" width="26" height="30" rx="6" fill="#FBF8F4" stroke="#C9BCAA" stroke-width="1"/>
+<text x="281" y="118" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#8C8078" text-anchor="middle">2</text>
+<rect x="300" y="98" width="26" height="30" rx="6" fill="#FBF8F4" stroke="#C9BCAA" stroke-width="1"/>
+<text x="313" y="118" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#8C8078" text-anchor="middle">1</text>
+<text x="340" y="118" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start">根音在第 5 弦；第 6 弦打 ✕ 不刷</text>
+<text x="110" y="180" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="end" font-weight="700">G、Em</text>
+<rect x="140" y="160" width="26" height="30" rx="6" fill="#A67C52" stroke="#A67C52" stroke-width="2"/>
+<text x="153" y="180" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle" font-weight="700">6</text>
+<rect x="172" y="160" width="26" height="30" rx="6" fill="#FBF8F4" stroke="#C9BCAA" stroke-width="1"/>
+<text x="185" y="180" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#8C8078" text-anchor="middle">5</text>
+<rect x="204" y="160" width="26" height="30" rx="6" fill="#FBF8F4" stroke="#C9BCAA" stroke-width="1"/>
+<text x="217" y="180" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#8C8078" text-anchor="middle">4</text>
+<rect x="236" y="160" width="26" height="30" rx="6" fill="#FBF8F4" stroke="#C9BCAA" stroke-width="1"/>
+<text x="249" y="180" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#8C8078" text-anchor="middle">3</text>
+<rect x="268" y="160" width="26" height="30" rx="6" fill="#FBF8F4" stroke="#C9BCAA" stroke-width="1"/>
+<text x="281" y="180" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#8C8078" text-anchor="middle">2</text>
+<rect x="300" y="160" width="26" height="30" rx="6" fill="#FBF8F4" stroke="#C9BCAA" stroke-width="1"/>
+<text x="313" y="180" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#8C8078" text-anchor="middle">1</text>
+<text x="340" y="180" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start">六條弦全刷，最粗的那條就是根音</text>
+<text x="110" y="242" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="end" font-weight="700">D、Fmaj7</text>
+<rect x="140" y="222" width="26" height="30" rx="6" fill="#FBF8F4" stroke="#C9BCAA" stroke-width="1"/>
+<text x="153" y="242" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#8C8078" text-anchor="middle">6</text>
+<rect x="172" y="222" width="26" height="30" rx="6" fill="#FBF8F4" stroke="#C9BCAA" stroke-width="1"/>
+<text x="185" y="242" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#8C8078" text-anchor="middle">5</text>
+<rect x="204" y="222" width="26" height="30" rx="6" fill="#A67C52" stroke="#A67C52" stroke-width="2"/>
+<text x="217" y="242" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle" font-weight="700">4</text>
+<rect x="236" y="222" width="26" height="30" rx="6" fill="#FBF8F4" stroke="#C9BCAA" stroke-width="1"/>
+<text x="249" y="242" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#8C8078" text-anchor="middle">3</text>
+<rect x="268" y="222" width="26" height="30" rx="6" fill="#FBF8F4" stroke="#C9BCAA" stroke-width="1"/>
+<text x="281" y="242" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#8C8078" text-anchor="middle">2</text>
+<rect x="300" y="222" width="26" height="30" rx="6" fill="#FBF8F4" stroke="#C9BCAA" stroke-width="1"/>
+<text x="313" y="242" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#8C8078" text-anchor="middle">1</text>
+<text x="340" y="242" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start">第 6、5 弦都打 ✕，從第 4 弦開始</text>
+<text x="140" y="86" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="start">← 第 6 弦　　　　　第 1 弦 →</text>
+<text x="24" y="314" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="start">換和弦時只換大拇指的位置，其他三根手指留在原地——這是分散和弦能彈快的關鍵。</text>
+</svg>
