@@ -51,6 +51,7 @@ CHORDS = {
 
 
 def t(x, y, s, size=12, anchor="middle", fill=INK, weight=None):
+    s = str(s).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
     w = f' font-weight="{weight}"' if weight else ""
     return (f'<text x="{x}" y="{y}" font-family="{FONT}" font-size="{size}" fill="{fill}" '
             f'text-anchor="{anchor}"{w}>{s}</text>')
@@ -227,11 +228,71 @@ def fig_guitar_anatomy():
     return width, height, "@@NL@@".join(parts).replace("@@NL@@", chr(10))
 
 
+
+
+BEATS = ["1", "&", "2", "&", "3", "&", "4", "&"]
+ARROWS = ["↓", "-", "↓", "↑", "↓", "-", "↓", "↑"]
+
+
+def _align_row(parts, y, chords, lyric, colw=64, left=26):
+    """一格一拍的對齊列：和弦｜拍點｜刷法｜歌詞。"""
+    parts.append(t(left - 6, y + 4, chords[0], size=12.5, anchor="end", weight=700))
+    for i, b in enumerate(BEATS):
+        x = left + i * colw + colw / 2
+        parts.append(t(x, y + 4, b, size=11.5, fill=MUTED))
+    parts.append(t(left - 6, y + 26, chords[1], size=12.5, anchor="end", weight=700))
+    for i, a in enumerate(ARROWS):
+        x = left + i * colw + colw / 2
+        parts.append(t(x, y + 26, a, size=13, fill=ACCENT, weight=700))
+    for i, ch in enumerate(lyric):
+        x = left + i * colw + colw / 2
+        if ch and ch != "空":
+            parts.append(t(x, y + 50, ch, size=14))
+        else:
+            parts.append(t(x, y + 50, "·", size=13, fill=MUTED))
+    # 格線
+    for i in range(len(BEATS) + 1):
+        x = left + i * colw
+        parts.append(f'<line x1="{x}" y1="{y - 14}" x2="{x}" y2="{y + 60}" stroke="{LINE}" stroke-width="1" opacity=".7"/>')
+    parts.append(f'<line x1="{left}" y1="{y + 60}" x2="{left + len(BEATS) * colw}" y2="{y + 60}" stroke="{LINE}" stroke-width="1" opacity=".7"/>')
+
+
+def fig_lyric_alignment():
+    """第 8 章：〈擁抱〉逐拍對齊。一格一拍，歌詞落在格子裡就不會跑掉。"""
+    rows = [
+        ("主歌", ("C", "Em"), list("脫下長日的假面空")),
+        ("", ("Am", "G"), list("南瓜馬車的午夜空")),
+        ("", ("C", "Em"), list("奔向夢幻的疆界空")),
+        ("", ("Am", "G"), list("換上童話的玻璃鞋")),
+        ("副歌", ("C", "Em"), list("抱緊我空空吻我空")),
+        ("", ("Am", "G"), list("愛空別走空空空空")),
+        ("", ("C", "Em"), list("隱藏自己的疲倦空")),
+        ("", ("Am", "G"), list("表達自己的狼狽空")),
+    ]
+    width, height = 640, 96 + len(rows) * 84 + 40
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" role="img" aria-label="擁抱逐拍歌詞對齊譜">',
+        '  <title>〈擁抱〉逐拍對齊譜</title>',
+        f'  <rect width="{width}" height="{height}" fill="{BG}"/>',
+        t(26, 34, "〈擁抱〉逐拍對齊：一個格子就是一個拍點", size=16, anchor="start", weight=700),
+        t(26, 55, "最上面是和弦與拍點，中間是刷弦方向，最下面是歌詞；「·」代表這個位置沒有字，但右手照樣要刷", size=11, anchor="start", fill=MUTED),
+    ]
+    for i, (label, chords, lyric) in enumerate(rows):
+        y = 96 + i * 84
+        if label:
+            parts.append(t(26, y - 22, label, size=12, anchor="start", weight=700, fill=ACCENT))
+        _align_row(parts, y, chords, lyric)
+    parts.append(t(26, height - 14, "速度 74 BPM；刷法 ↓ - ↓↑ ↓ - ↓↑（每兩格一組，第二格是回程的空揮）", size=10.5, anchor="start", fill=MUTED))
+    parts.append("</svg>")
+    return width, height, "@@NL@@".join(parts).replace("@@NL@@", chr(10))
+
+
 FIGURES = {
     "chord-basics": fig_chord_basics,
     "chord-hold": fig_chord_hold,
     "barre-chords": fig_barre,
     "guitar-anatomy": fig_guitar_anatomy,
+    "lyric-alignment": fig_lyric_alignment,
 }
 
 
