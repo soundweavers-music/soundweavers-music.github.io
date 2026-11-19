@@ -6,11 +6,17 @@
 
 練完你會發現：你可以在三種模式之間切換，而且不會喉嚨痛。
 
+
+![先講結論：這一節的三句話](../../assets/vocal/concl-48-a.svg)
+
 ## 常見誤解
 
 很多人以為「好聽的聲音」只有一種標準，所以用同一種唱法唱所有歌。結果唱民謠太用力，唱搖滾太圓潤。
 
 另一種誤解是「搖滾就是吼」。吼是用喉嚨硬擠，會受傷；輕搖滾要的是聲帶閉合更密、聲音更集中，不是更大聲。
+
+
+![常見誤解與實際情況的對照](../../assets/vocal/mis-48.svg)
 
 ## 原理：為什麼會這樣
 
@@ -66,9 +72,15 @@
 
 下一章要處理每個人都會遇到的事：練到某個程度，突然覺得自己不會唱了。
 
+
+![練完之後：這一節的三句話](../../assets/vocal/concl-48-b.svg)
+
 ## 延伸查證
 
 - **Sundberg, J., & Thalén, M. (2015).** Respiratory and Acoustical Differences Between Belt and Neutral Style of Singing. *Journal of Voice.* PMID: 25819162。belt 與中性唱法在聲壓、氣壓與共振峰策略上不同：曲風的差別有物理基礎，不只是「感覺」。
 - **Lebowitz, A., & Baken, R. J. (2011).** Correlates of the belt voice: a broader examination. *Journal of Voice.* PMID: 20236798。belt 不是單一參數，是多項特徵的組合；只抓其中一項硬做，容易受傷。
 - **McGlashan, J., Aaen, M., & White, A. (2023).** A mixed-method feasibility study of the use of the Complete Vocal Technique (CVT), a pedagogic method to improve the singing voice. *Pilot and Feasibility Studies.* PMID: 37226281。CVT 的四大模式與教學成效：一套好用的分類法，不是唯一的正解。
 - **Lee, Y., Oya, M., & Kaburagi, T. (2023).** Differences Among Mixed, Chest, and Falsetto Registers: A Multiparametric Study. *Journal of Voice.* PMID: 33518476。三種登記在聲學上可區分，但界線是連續的——所以你練的是滑動，不是三個開關。
+
+![延伸查證的重點整理](../../assets/vocal/kp-48-7.svg)
+

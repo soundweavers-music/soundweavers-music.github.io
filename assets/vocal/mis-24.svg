@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 258" role="img" aria-label="常見誤解：哪些說法其實是錯的">
+  <title>常見誤解：哪些說法其實是錯的</title>
+  <rect width="660" height="258" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">常見誤解：哪些說法其實是錯的</text>
+  <text x="26" y="55" class="ts" font-size="12.5">左邊是常聽到的說法，右邊是實際發生的事</text>
+  <text x="26" y="92" class="t" font-size="11.5" fill="#8C8078">常見的說法</text>  <text x="350" y="92" class="t" font-size="11.5" fill="#A67C52">實際發生的事</text>  <rect x="26" y="104" width="288" height="62" rx="8" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.4"/>  <rect x="346" y="104" width="288" height="62" rx="8" fill="#F3E9DC" stroke="#D9CFC4" stroke-width="1.4"/>  <text x="38" y="124" class="ts" font-size="10.5" fill="#3D3229">換聲區是一道要撞破的牆</text>  <text x="358" y="124" class="ts" font-size="10.5" fill="#3D3229">撞破的結果通常是喉嚨卡死或聲音啞掉</text>  <rect x="26" y="178" width="288" height="62" rx="8" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.4"/>  <rect x="346" y="178" width="288" height="62" rx="8" fill="#F3E9DC" stroke="#D9CFC4" stroke-width="1.4"/>  <text x="38" y="198" class="ts" font-size="10.5" fill="#3D3229">別人的換聲區在哪，我的就在哪</text>  <text x="358" y="198" class="ts" font-size="10.5" fill="#3D3229">它跟聲帶長短、喉部構造、訓練背景都有</text>  <text x="358" y="216" class="ts" font-size="10.5" fill="#3D3229">關</text>
+</svg>

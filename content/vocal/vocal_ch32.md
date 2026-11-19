@@ -8,6 +8,9 @@
 
 如果你的高音是漏氣、發虛的，這一章比再唱十次大聲長音有用。
 
+
+![先講結論：這一節的三句話](../../assets/vocal/concl-32-a.svg)
+
 ## 常見誤解
 
 很多人第一次做咽音，會覺得「這聲音這麼難聽，怎麼可能拿來唱歌」。練習時難聽是正常的。它像蹲馬步，不會搬上台，但會讓你在台上穩。真正要唱的時候，是把那份集中稀釋到母音裡，不是整首用鴨子叫。
@@ -15,6 +18,9 @@
 另一個誤解是「咽音可以修好受傷的聲帶」。講保守一點：收窄咽腔、讓聲音集中，是一種負荷較低的發聲練習，對健康的聲帶有幫助；但如果你已經沙啞超過兩週、唱完會痛、音域突然變窄，那不是練法的問題，是先去看耳鼻喉科或找語言治療師。練習不能代替診斷。
 
 還有一個混淆要拆開：把「集中」當成「夾」。集中是形狀變窄，夾是力氣變大。前者做完喉嚨鬆，後者做完喉嚨癢。
+
+
+![常見誤解與實際情況的對照](../../assets/vocal/mis-32.svg)
 
 ## 原理：為什麼會這樣
 
@@ -96,9 +102,15 @@
 
 下一步回去看第 25 到 27 章。咽音練的閉合，正好是混聲裡「輕但不虛」的那一半。
 
+
+![練完之後：這一節的三句話](../../assets/vocal/concl-32-b.svg)
+
 ## 延伸查證
 
 - **Vampola, T., Horáček, J., & Laukkanen, A. M. (2024).** Three-Dimensional Finite Element Modeling of the Singer's Formant Cluster Optimization by Epilaryngeal Tube Shaping. *Journal of Voice.* PMID: 39218756。小體積的會厭腔能集中歌手共振峰的能量群；咽腔形狀會直接改變高頻輸出。
 - **Titze, I. R. (2006).** Voice training and therapy with a semi-occluded vocal tract: rationale and scientific underpinnings. *Journal of Speech, Language, and Hearing Research, 49*(2), 448–459. PMID: 16671856。聲道的窄化與阻力，會直接影響聲帶振動所需的壓力。
 - **Guzman, M., Laukkanen, A. M., & Krupa, P. (2013).** Vocal tract and glottal function during and after vocal exercising with resonance tube and straw. *Journal of Voice.* PMID: 23683806。用共鳴管與吸管發聲時，聲道與聲門功能會改變；練完之後的變化也被量到。
 - **Pettersen, V., Bjørkøy, K., & Torp, H. (2005).** Neck and shoulder muscle activity and thorax movement in singing and speaking tasks with variation in vocal loudness and pitch. *Journal of Voice.* PMID: 16301107。唱得越大聲、越高，頸肩肌肉越容易代償；這也是「集中練成夾」時第一個出現的訊號。
+
+![延伸查證的重點整理](../../assets/vocal/kp-32-7.svg)
+

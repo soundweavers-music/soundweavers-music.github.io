@@ -6,11 +6,17 @@
 
 練完的改變：你能自己決定要不要鼻音、要多少；唱大歌時聲音乾淨，唱 R&B 時又能加一點慵懶的磁性。
 
+
+![先講結論：這一節的三句話](../../assets/vocal/concl-29-a.svg)
+
 ## 常見誤解
 
 很多人以為「有磁性的鼻音」就是把氣往鼻孔塞。塞進去只會變成感冒般的悶聲，字也糊掉。好聽的鼻音其實大部分聲音還是從嘴巴出來，只是分了一小部分到鼻腔，讓兩邊一起共振。
 
 另一個誤解是「軟顎只有開和關兩種」。它其實可以停在半開的位置，那個位置才是流行歌裡最常用的音色。
+
+
+![常見誤解與實際情況的對照](../../assets/vocal/mis-29.svg)
 
 ## 原理：為什麼會這樣
 
@@ -101,6 +107,9 @@
 
 下一步是第 30 章：頭腔。它和軟顎、咽腔一起，構成高音那一段的明亮度。
 
+
+![練完之後：這一節的三句話](../../assets/vocal/concl-29-b.svg)
+
 ## 延伸查證
 
 - **Aura, M., Geneid, A., & Bjørkøy, K. (2022).** A Nasoendoscopic Study of "Head Resonance" and "Imposto" in Classical Singing. *Journal of Voice.* 「頭腔共鳴」實際上是聲道形狀改變，不是聲音真的跑到頭骨裡。PMID 32513553。
@@ -108,3 +117,6 @@
 - **Titze, I. R. (2006).** Voice training and therapy with a semi-occluded vocal tract: rationale and scientific underpinnings. *Journal of Speech, Language, and Hearing Research, 49*(2), 448–459. 哼鳴這類半閉口練習為什麼能讓你更容易感覺到臉上的振動。PMID 16671856。
 - **Austin, S. F. (1997).** Movement of the velum during speech and singing in classically trained singers. *Journal of Voice.* 受訓歌手在說話與歌唱時，軟顎動作的模式不同；「把它變成可控制」有觀察依據。PMID 9181545。
 - **Birch, P., & Gümoes, B. (2002).** Velum behavior in professional classic operatic singing. *Journal of Voice.* 專業歌劇歌手的軟顎位置與鼻音比例，會隨音高與母音調整。PMID 12002888。
+
+![延伸查證的重點整理](../../assets/vocal/kp-29-7.svg)
+

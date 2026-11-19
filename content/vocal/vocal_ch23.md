@@ -6,11 +6,17 @@
 
 練完的改變：你能用很小的力氣唱出清楚的字；樂句的開頭和結尾可以做出顆粒感，而不是一開口就太實、一收尾就斷掉。
 
+
+![先講結論：這一節的三句話](../../assets/vocal/concl-23-a.svg)
+
 ## 常見誤解
 
 很多人以為氣泡音很傷聲帶，是硬擠出來的沙啞。其實正確的氣泡音，氣流最少、聲帶最鬆。傷喉嚨的不是氣泡音本身，是用太大的氣、或夾著喉嚨去製造那個聲音。
 
 另一個誤解是「氣泡音只能唱很低」。低音區最容易找到它，但控制得好的話，高音區也能出現細碎的摩擦感。那是進階變化，先把低音區做乾淨。
+
+
+![常見誤解與實際情況的對照](../../assets/vocal/mis-23.svg)
 
 ## 原理：為什麼會這樣
 
@@ -99,9 +105,15 @@
 
 下一步是第 24 章的換聲區。氣泡音練的是「鬆」，換聲區練的是「交界」，兩件事接在一起，你會開始聽得出自己是在哪裡換檔。
 
+
+![練完之後：這一節的三句話](../../assets/vocal/concl-23-b.svg)
+
 ## 延伸查證
 
 - **Elias, V. S., Cielo, C. A., & Jotz, G. P. (2016).** Effect of Vocal Fry on Voice and on Velopharyngeal Sphincter. *International Archives of Otorhinolaryngology.* 量測氣泡音對嗓音與軟顎—咽部關閉的影響。PMID 27096021。
 - **Paolillo, N. P., Carrozza, L., & Osio, M. (2021).** Inspiratory Vocal Fry: Anatomical and Physiological Aspects, Application in Speech Therapy, Voice Therapy and Singing Pedagogy. *Journal of Voice.* 氣泡音有呼氣與吸氣兩個方向，兩者都被用在治療與歌唱教學上。PMID 31708370。
 - **Behlau, M., & Oliveira, G. (2009).** Vocal hygiene for the voice professional. *Current Opinion in Otolaryngology & Head and Neck Surgery.* 補水、避免清喉嚨、聲音休息的實證建議。PMID 19342952。
 - **Titze, I. R. (2006).** Voice training and therapy with a semi-occluded vocal tract: rationale and scientific underpinnings. *Journal of Speech, Language, and Hearing Research, 49*(2), 448–459. 氣流與口腔阻力怎麼改變聲帶的工作條件。PMID 16671856。
+
+![延伸查證的重點整理](../../assets/vocal/kp-23-7.svg)
+

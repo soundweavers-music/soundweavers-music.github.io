@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 234" role="img" aria-label="先講結論">
+  <title>先講結論</title>
+  <rect width="660" height="234" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">先講結論</text>
+  <text x="26" y="55" class="ts" font-size="12.5">這一節的三句話</text>
+  <rect x="26" y="96" width="608" height="50" rx="8" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.4"/>  <circle cx="44" cy="121" r="10" fill="#A67C52"/>  <text x="44" y="125" text-anchor="middle" class="num">1</text>  <text x="66" y="118" class="ts" font-size="11" fill="#3D3229">「頭腔共鳴」不是把氣吹進腦袋，氣也進不去。</text>  <rect x="26" y="158" width="608" height="50" rx="8" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.4"/>  <circle cx="44" cy="183" r="10" fill="#A67C52"/>  <text x="44" y="187" text-anchor="middle" class="num">2</text>  <text x="66" y="180" class="ts" font-size="11" fill="#3D3229">練完的改變：高音除了有力，還多一層亮與光澤；唱長音時，聲音不</text>  <text x="66" y="196" class="ts" font-size="11" fill="#3D3229">會一大就變乾。</text>
+</svg>

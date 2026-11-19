@@ -8,6 +8,9 @@
 
 如果你常被說「唱得不錯，但不太像這首歌」，問題多半不在音準，在這裡。
 
+
+![先講結論：這一節的三句話](../../assets/vocal/concl-31-a.svg)
+
 ## 常見誤解
 
 很多人練出一種自己滿意的音色之後，就什麼歌都用它。結果唱安靜的慢歌，聽起來有壓迫；唱編曲很滿的快歌，聲音糊在伴奏裡。這不是技巧不夠，是沒有「適配」的概念。
@@ -15,6 +18,9 @@
 另一個誤解是「共鳴比例有標準答案」。沒有。同一首搖滾，有人唱得乾淨透亮，有人唱得厚實，兩種都成立，取決於樂器數量、混音空間，還有你站在哪裡唱。數字只是記法，不是處方。
 
 還有一件事要澄清：這裡講的「大調色彩」是氛圍，不是樂理上的調式。大調聽起來常常明亮、開放，但小調的歌也可以唱得很暖、很亮。決定聲音的不是調號，是編曲。
+
+
+![常見誤解與實際情況的對照](../../assets/vocal/mis-31.svg)
 
 ## 原理：為什麼會這樣
 
@@ -90,9 +96,15 @@
 
 下一步是第 32 章：咽音。它就是這一章「穿的版本」那顆旋鈕，單獨拉出來練會更穩、更省力。
 
+
+![練完之後：這一節的三句話](../../assets/vocal/concl-31-b.svg)
+
 ## 延伸查證
 
 - **Aura, M., Geneid, A., & Bjørkøy, K. (2022).** A Nasoendoscopic Study of "Head Resonance" and "Imposto" in Classical Singing. *Journal of Voice.* PMID: 32513553。古典唱法裡的「頭腔共鳴」與 imposto，內視鏡看到的是聲道形狀改變，不是聲音跑進頭骨。
 - **Lee, S. H., Kwon, H. J., & Choi, H. J. (2008).** The singer's formant and speaker's ring resonance: a long-term average spectrum analysis. *Clinical and Experimental Otorhinolaryngology.* PMID: 19434279。歌手共振峰（約 2.8–3.2 kHz 的能量群）可以用長期平均頻譜量到。
 - **Vurma, A. (2022).** Amplitude Effects of Vocal Tract Resonance Adjustments When Singing Louder. *Journal of Voice.* PMID: 32624371。音量改變時，聲道共鳴的調整是可量測的動作，不只是「感覺比較亮」。
 - **Sundberg, J., & Thalén, M. (2015).** Respiratory and Acoustical Differences Between Belt and Neutral Style of Singing. *Journal of Voice.* PMID: 25819162。同一段旋律，belt 與中性唱法的氣壓、聲壓與共振峰策略不同，音色是整套參數，不是單一開關。
+
+![延伸查證的重點整理](../../assets/vocal/kp-31-7.svg)
+

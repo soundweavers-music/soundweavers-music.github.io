@@ -6,11 +6,17 @@
 
 練完的改變：高音除了有力，還多一層亮與光澤；唱長音時，聲音不會一大就變乾。
 
+
+![先講結論：這一節的三句話](../../assets/vocal/concl-30-a.svg)
+
 ## 常見誤解
 
 很多人把「頭聲」和「頭腔共鳴」當成同一件事。頭聲指的是聲帶的狀態，環甲肌主導、聲帶拉長變薄；頭腔共鳴指的是聲音在高處的振動感。兩者常一起出現，但不是同一件事。
 
 另一個誤解是「要用力把聲音往上送」。送不上去。頭骨不是像琴身那樣的空箱，不會放大聲音。你如果往上推，只會把喉嚨拉緊，聲音反而更出不來。
+
+
+![常見誤解與實際情況的對照](../../assets/vocal/mis-30.svg)
 
 ## 原理：為什麼會這樣
 
@@ -101,9 +107,15 @@
 
 下一步是第 31 章，把胸腔、咽腔、鼻腔、頭腔這四個比例放在一起，依曲風調配。你會發現，同一句歌詞可以唱出完全不同的顏色。
 
+
+![練完之後：這一節的三句話](../../assets/vocal/concl-30-b.svg)
+
 ## 延伸查證
 
 - **Aura, M., Geneid, A., & Bjørkøy, K. (2022).** A Nasoendoscopic Study of "Head Resonance" and "Imposto" in Classical Singing. *Journal of Voice.* 「頭腔共鳴」實際上是聲道形狀改變，不是聲音真的跑到頭骨裡。PMID 32513553。
 - **Lee, S. H., Kwon, H. J., & Choi, H. J. (2008).** The singer's formant and speaker's ring resonance: a long-term average spectrum analysis. *Clinical and Experimental Otorhinolaryngology.* 歌手共振峰（約 2.8–3.2 kHz 附近的能量群）可以被量測。PMID 19434279。
 - **Vampola, T., Horáček, J., & Laukkanen, A. M. (2024).** Three-Dimensional Finite Element Modeling of the Singer's Formant Cluster Optimization by Epilaryngeal Tube Shaping. *Journal of Voice.* 咽部與會厭腔的形狀，會改變高頻能量集中的程度。PMID 39218756。
 - **Titze, I. R. (2006).** Voice training and therapy with a semi-occluded vocal tract: rationale and scientific underpinnings. *Journal of Speech, Language, and Hearing Research, 49*(2), 448–459. 哼鳴與吸管發聲為什麼能讓振動感更容易被感覺到。PMID 16671856。
+
+![延伸查證的重點整理](../../assets/vocal/kp-30-7.svg)
+

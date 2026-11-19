@@ -6,11 +6,17 @@
 
 練完的改變：換聲區附近不再是兩個世界，高音可以同時有力量和不緊；你能在同一個音高上把聲音從輕做到重，再收回來。
 
+
+![先講結論：這一節的三句話](../../assets/vocal/concl-25-a.svg)
+
 ## 常見誤解
 
 很多人以為混聲是一個特定開關，找到就一勞永逸。其實它是一段比例，不是一個點。你今天在哪個音高最容易混，跟疲勞、有沒有開嗓都有關。
 
 另一個誤解是「混聲就是假音加一點真音」。不完全對。假音是閉合較鬆的狀態，混聲要求閉合要夠，只是厚度可以少。只把假音的音量加大，聽起來還是鬆的；把真音硬推上去，就是卡頸。混聲介於兩者之間，但閉合要清楚。
+
+
+![常見誤解與實際情況的對照](../../assets/vocal/mis-25.svg)
 
 ## 原理：為什麼會這樣
 
@@ -89,9 +95,15 @@
 
 下一步是第 26、27 章，分別把偏頭聲和偏胸聲這兩端練細。先確認你能在兩端之間移動，再去追求任何一端。
 
+
+![練完之後：這一節的三句話](../../assets/vocal/concl-25-b.svg)
+
 ## 延伸查證
 
 - **Lee, Y., Oya, M., & Kaburagi, T. (2023).** Differences Among Mixed, Chest, and Falsetto Registers: A Multiparametric Study. *Journal of Voice.* 三種登記在聲學與氣動參數上可以區分，但界線是連續的。PMID 33518476。
 - **Titze, I. R., et al. (2014).** Bi-stable vocal fold adduction: a mechanism of modal–falsetto register shifts and mixed registration. *Journal of the Acoustical Society of America.* 混聲不是第三種發聲器官，是兩種閉合狀態之間的比例。PMID 25235006。
 - **McGlashan, J., Aaen, M., & White, A. (2023).** A mixed-method feasibility study of the use of the Complete Vocal Technique (CVT), a pedagogic method to improve the singing voice. *Pilot and Feasibility Studies.* CVT 把歌唱音色分成四種模式，每種模式的差別在於金屬感與重量的比例。PMID 37226281。
 - **Sundberg, J., & Thalén, M. (2015).** Respiratory and Acoustical Differences Between Belt and Neutral Style of Singing. *Journal of Voice.* 同一句話用不同風格唱，氣壓與共振峰策略會跟著改變。PMID 25819162。
+
+![延伸查證的重點整理](../../assets/vocal/kp-25-7.svg)
+
