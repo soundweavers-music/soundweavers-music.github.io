@@ -237,7 +237,7 @@ export function openFxPanel(owner, fxId) {
     panel._params = d.params; panel._on = d.on;
   }
   for (const [k, def] of Object.entries(T.params)) {
-    if (T.custom) break;   // EQ、Auto Tune 用自己的編輯器
+    if (T.custom) break;   // EQ、人聲修音用自己的編輯器
     const row = document.createElement('label');
     row.className = 'fx-row';
     if (def.choices) {

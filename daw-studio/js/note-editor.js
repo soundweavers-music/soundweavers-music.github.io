@@ -1,4 +1,4 @@
-// Auto Tune 音符編輯器（獨立視窗，可拉大、全螢幕）
+// 人聲修音的音符編輯器（獨立視窗，可拉大、全螢幕）
 // 左邊鋼琴鍵、上面時間尺、背景是人聲波形與原始音高曲線；音符可以拖曳、改長度、切開、框選多個一起移動。
 // 資料：desc.params.notes = [{ s, e, midi, orig, amt }]（專案秒數）；改動經 onChange 通知 effects 送進 worklet。
 import { store, isMidiClip } from './state.js';

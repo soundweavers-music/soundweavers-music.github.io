@@ -1,4 +1,4 @@
-// 和弦軌：自動偵測、顯示（音名／級數／首調）、逐格編輯，並套用到 Auto Tune 與 Harmony
+// 和弦軌：自動偵測、顯示（音名／級數／首調）、逐格編輯，並套用到人聲修音與 Harmony
 // 和弦存成「拍」：[{ t, d, root, q }]，跟隨 BPM 移動；project.chordKey = { key, minor }
 import { store, isMidiClip } from './state.js';
 import { detectChords, ROOTS, QUALITIES, chordName, chordPcs, diatonicChord } from './chords.js';
@@ -241,7 +241,7 @@ export function applyChordsToTune(trackId) {
   const t = store.track(trackId);
   for (const d of (t?.inserts || [])) if (d.type === 'tune') targets.push(d);
   if (!targets.length) for (const tr of store.project.tracks) for (const d of tr.inserts || []) if (d.type === 'tune') targets.push(d);
-  if (!targets.length) return toast('這一首還沒有 Auto Tune 效果器', 'warn');
+  if (!targets.length) return toast('這一首還沒有人聲修音效果器', 'warn');
   store.checkpoint();
   for (const d of targets) {
     d.params.key = key.key;

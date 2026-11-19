@@ -43,7 +43,7 @@ class Recorder {
     const an = ctx.createAnalyser(); an.fftSize = 1024;
     this.src.connect(an);
     this.inputMeter = { aL: an, aR: an, buf: new Float32Array(1024), hold: [0, 0], peakDb: -Infinity };
-    // 輸入監聽：接到「開了 I 的那一軌」的 strip 輸入 → 會經過那一軌的效果器（例如 Auto Tune）、推桿與聲像，
+    // 輸入監聽：接到「開了 I 的那一軌」的 strip 輸入 → 會經過那一軌的效果器（例如人聲修音）、推桿與聲像，
     // 跟最後錄進去、播出來的聲音一樣。錄進去的仍然是乾淨的原聲。
     this.monitorGain = ctx.createGain();
     this.monitorGain.gain.value = 0;
