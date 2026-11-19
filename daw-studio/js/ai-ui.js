@@ -158,7 +158,7 @@ function runCompose(progSeed, melSeed) {
   comp = { res, progSeed, melSeed };
   $('.aic-status').textContent = `已寫入：${res.sections.length} 段、${res.endBar - res.startBar} 小節、旋律 ${r.notes} 個音（#${progSeed % 1000}-${melSeed % 1000}）`;
   $('.aic-sum').innerHTML = res.sections.map(sec => {
-    const cs = res.chords.filter(c => c.t >= sec.bar * 4 && c.t < (sec.bar + sec.bars) * 4);
+    const cs = res.chords.filter(c => c.t + c.d > sec.bar * 4 && c.t < (sec.bar + sec.bars) * 4);   // 跨段落延續的和弦也算
     return `<div class="aic-sec"><b>${SEC_LABEL[sec.type]}${sec.round ? ' ' + (sec.round + 1) : ''}</b><span class="aiw-bar">${sec.bar + 1}–${sec.bar + sec.bars}</span><span class="note">${esc(sec.prog)}</span><span class="aiw-prog">${esc(cs.map(chordName).join(' – '))}</span></div>`;
   }).join('');
   $('.aic-after').hidden = false;
