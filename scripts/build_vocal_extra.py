@@ -363,6 +363,12 @@ def build_portal_homepage(instruments):
       <div class="card-desc">貼上歌詞、載入音檔，邊聽邊按時間碼；自動偵測句與句之間的停頓，先排好一版初稿，再微調輸出 .lrc 或 .srt。</div>
       <span class="card-badge badge-new">新工具</span>
     </a>
+    <a class="portal-card card-tools" href="{resolve_url(index_path, '/tools/tuner/')}" style="border-color:var(--accent);">
+      <div class="card-icon">🎯</div>
+      <div class="card-label">線上調音器與節拍器</div>
+      <div class="card-desc">對著麥克風彈一個音，即時顯示音準差了幾個音分。內建吉他、烏克麗麗、貝斯、小提琴、二胡、琵琶等 15 種調弦與參考音，旁邊還有節拍器。聲音只在你的瀏覽器裡分析。</div>
+      <span class="card-badge badge-new">新工具</span>
+    </a>
     <a class="portal-card card-tools" href="{resolve_url(index_path, '/tools/daw/')}" style="border-color:var(--accent);">
       <div class="card-icon">🎚️</div>
       <div class="card-label">織音線上編曲製作</div>
