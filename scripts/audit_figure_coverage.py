@@ -40,8 +40,8 @@ def sections(path: Path) -> list[dict]:
         cur["chars"] += len(re.findall(r"[一-鿿]", ln))
     if cur:
         out.append(cur)
-    # 「本章重點檢查表」這類收尾小節不需要圖
-    return [s for s in out if not re.search(r"檢查表|檢核|重點整理", s["title"])]
+    # 檢查表、練習設定、結語這類收尾小節不需要圖
+    return [s for s in out if not re.search(r"檢查表|檢核|重點整理|練習設定|結語", s["title"])]
 
 
 def main(argv: list[str]) -> int:
