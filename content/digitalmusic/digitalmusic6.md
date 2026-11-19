@@ -20,6 +20,9 @@ Gain Staging（增益階段管理）是錄音與混音中最基本卻最常被�
 
 類比時代的「push it until it sounds good」到了數位時代必須轉變為「keep it clean until you intentionally want color」。如果你想要 saturation 或 distortion，請用專用的插件（例如 Decapitator、Saturn、Tape Emulation）來添加，而不是讓真實的前級或 AD converter 硬 clipping。
 
+
+![類比與數位的 Headroom：兩種哲學](../../assets/digitalmusic/cmp-headroom.svg)
+
 ## 三、錄音階段的理想電平：-18 dBFS 到 -12 dBFS
 
 ![訊號鏈四站的電平與餘裕](../../assets/digitalmusic/gain-staging.svg)

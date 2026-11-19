@@ -27,6 +27,9 @@
 
 ---
 
+
+![三種分析工具：各看一件事](../../assets/digitalmusic/cmp-analyzer.svg)
+
 ## 2. 頻譜儀：用視覺閱讀頻率內容
 
 ![頻譜、相位、測角儀三種儀表](../../assets/digitalmusic/analysis-meter.svg)
@@ -193,6 +196,9 @@ A/B 測試（也稱為參考曲目對比）是混音最後階段最重要的品�
 3. 我的混音的整體響度是否在合理範圍內？
 
 ---
+
+
+![A/B 測試的順序](../../assets/digitalmusic/flow-ab.svg)
 
 ## 6. 實戰分析：全方位檢視一首混音
 

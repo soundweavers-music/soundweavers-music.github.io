@@ -102,6 +102,9 @@
 
 在 DAW 中，ReaGate（Reaper 內建）、FabFilter Pro-G、Waves NS1 都是優秀的工具。
 
+
+![雜訊閘與擴展器：都是「安靜時更安靜」](../../assets/digitalmusic/cmp-gate-expander.svg)
+
 ## 高通濾波器（High-Pass Filter）的運用
 
 高通濾波器是錄音中最被低估的工具。它允許高頻通過，並衰減低於截止頻率的訊號。
