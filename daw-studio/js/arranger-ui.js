@@ -6,6 +6,7 @@ import { PRESETS, PRESET_GROUPS } from './synth.js';
 import { listBanks, sfInstrumentId } from './soundbank.js';
 import { addInputHook, noteOn as kbOn, noteOff as kbOff, midiState, setFallbackTrack } from './midi-input.js';
 import { toast } from './util.js';
+import { toggleAI } from './ai-ui.js';
 
 const BLACK = new Set([1, 3, 6, 8, 10]);
 const NN = ['C', 'C♯', 'D', 'E♭', 'E', 'F', 'F♯', 'G', 'A♭', 'A', 'B♭', 'B'];
@@ -190,7 +191,7 @@ function renderParts() {
     row.className = 'arr-part' + (arranger.partOn[p.id] ? '' : ' off');
     row.style.setProperty('--pc', p.color);
     const opts = PRESET_GROUPS.map(g => `<optgroup label="${g}">${Object.entries(PRESETS).filter(([, P]) => P.group === g).map(([id, P]) => `<option value="${id}">${P.name}</option>`).join('')}</optgroup>`).join('')
-      + banks.map(b => `<optgroup label="SoundFont：${b.name}">${b.presets.filter(x => (p.id === 'drums') === x.drums).slice(0, 200).map(x => `<option value="${sfInstrumentId(b.id, x.idx)}">${x.program + 1}. ${x.name}</option>`).join('')}</optgroup>`).join('');
+      + banks.map(b => `<optgroup label="SoundFont：${b.name}">${(b.presets || []).filter(x => (p.id === 'drums') === x.drums).slice(0, 200).map(x => `<option value="${sfInstrumentId(b.id, x.idx)}">${x.program + 1}. ${x.name}</option>`).join('')}</optgroup>`).join('');
     row.innerHTML = `<button type="button" class="pw" title="開／關這個聲部">${arranger.partOn[p.id] ? '●' : '○'}</button><b>${p.name}</b>
       <select class="inst">${opts}</select>
       <input type="range" class="vol" min="-40" max="6" step="0.5" title="音量"><span class="db"></span>
