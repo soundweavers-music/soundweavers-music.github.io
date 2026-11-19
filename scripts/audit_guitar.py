@@ -55,13 +55,21 @@ def audit(path: Path) -> dict:
         if ph in text:
             issues.append(("BLOCKER", f"佔位圖連結：{ph}"))
 
-    for ref in re.findall(r"!\[[^\]]*\]\((/[^)]+)\)", text):
-        if not (BASE_DIR / ref.lstrip("/")).exists():
+    for ref in re.findall(r"!\[[^\]]*\]\(([^)\s]+)", text):
+        if ref.startswith(("http://", "https://", "data:")):
+            continue
+        target = (BASE_DIR / ref.lstrip("/")) if ref.startswith("/") else (path.parent / ref)
+        if not target.resolve().exists():
             issues.append(("BLOCKER", f"圖片不存在：{ref}"))
 
     for pat, msg in HARD_ERRORS:
         if re.search(pat, body):
             issues.append(("BLOCKER", msg))
+
+    # 「90% 的新手…」「超過 70% 的抒情歌…」這種百分比是宣稱不是量測
+    for m in re.finditer(r"(\d{2})%\s*的", body):
+        line = body[body.rfind("\n", 0, m.start()) + 1: body.find("\n", m.start())]
+        issues.append(("WARN", f"未經量測的百分比「{m.group(0).strip()}」：{line.strip()[:28]}"))
 
     blocks = re.findall(r"```[a-z]*\n(.*?)```", body, re.S)
     ascii_blocks = [b for b in blocks if ASCII_BOX.search(b)]

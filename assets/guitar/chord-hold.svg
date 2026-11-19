@@ -2,7 +2,7 @@
   <title>保留指四和弦：G、Em7、Cadd9、D/F#</title>
   <rect width="640" height="300" fill="#FBF8F4"/>
 <text x="26" y="34" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="16" fill="#3D3229" text-anchor="start" font-weight="700">保留指的四顆和弦</text>
-<text x="26" y="55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#8C8078" text-anchor="start">G、Em7、Cadd9 的無名指與小指都停在 2 弦 3 格、1 弦 3 格；換到 D/F# 時小指要退到 1 弦 2 格</text>
+<text x="26" y="55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#8C8078" text-anchor="start">G（四指版）、Em7、Cadd9 的無名指與小指都停在 2 弦 3 格、1 弦 3 格；換到 D/F# 時小指仍留在 2 弦 3 格</text>
 <text x="92.0" y="86" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="13" fill="#3D3229" text-anchor="middle" font-weight="700">G</text>
 <line x1="44.0" y1="100" x2="44.0" y2="202.0" stroke="#C9BCAA" stroke-width="1"/>
 <line x1="63.2" y1="100" x2="63.2" y2="202.0" stroke="#C9BCAA" stroke-width="1"/>
@@ -17,11 +17,12 @@
 <line x1="44" y1="202.0" x2="140.0" y2="202.0" stroke="#C9BCAA" stroke-width="1"/>
 <circle cx="82.4" cy="91" r="3.4" fill="none" stroke="#3D3229" stroke-width="1.2"/>
 <circle cx="101.6" cy="91" r="3.4" fill="none" stroke="#3D3229" stroke-width="1.2"/>
-<circle cx="120.8" cy="91" r="3.4" fill="none" stroke="#3D3229" stroke-width="1.2"/>
 <circle cx="44.0" cy="163.8" r="6.5" fill="#A67C52"/>
-<text x="44.0" y="167.55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">3</text>
+<text x="44.0" y="167.55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">2</text>
 <circle cx="63.2" cy="138.2" r="6.5" fill="#A67C52"/>
-<text x="63.2" y="142.05" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">2</text>
+<text x="63.2" y="142.05" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">1</text>
+<circle cx="120.8" cy="163.8" r="6.5" fill="#A67C52"/>
+<text x="120.8" y="167.55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">3</text>
 <circle cx="140.0" cy="163.8" r="6.5" fill="#A67C52"/>
 <text x="140.0" y="167.55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">4</text>
 <text x="242.0" y="86" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="13" fill="#3D3229" text-anchor="middle" font-weight="700">Em7</text>
@@ -39,11 +40,11 @@
 <circle cx="194.0" cy="91" r="3.4" fill="none" stroke="#3D3229" stroke-width="1.2"/>
 <circle cx="251.6" cy="91" r="3.4" fill="none" stroke="#3D3229" stroke-width="1.2"/>
 <circle cx="213.2" cy="138.2" r="6.5" fill="#A67C52"/>
-<text x="213.2" y="142.05" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">2</text>
+<text x="213.2" y="142.05" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">1</text>
 <circle cx="232.4" cy="138.2" r="6.5" fill="#A67C52"/>
-<text x="232.4" y="142.05" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">3</text>
+<text x="232.4" y="142.05" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">2</text>
 <circle cx="270.8" cy="163.8" r="6.5" fill="#A67C52"/>
-<text x="270.8" y="167.55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">4</text>
+<text x="270.8" y="167.55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">3</text>
 <circle cx="290.0" cy="163.8" r="6.5" fill="#A67C52"/>
 <text x="290.0" y="167.55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">4</text>
 <text x="392.0" y="86" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="13" fill="#3D3229" text-anchor="middle" font-weight="700">Cadd9</text>
@@ -90,5 +91,5 @@
 <text x="570.8" y="167.55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">4</text>
 <circle cx="590.0" cy="138.2" r="6.5" fill="#A67C52"/>
 <text x="590.0" y="142.05" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">2</text>
-<text x="26" y="288" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="start">○ 空弦　✕ 不彈；D/F# 的第 6 弦要按第 2 格（F#），第 1 弦按第 2 格才是 D 的根音</text>
+<text x="26" y="288" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="start">○ 空弦　✕ 不彈；D/F# 的第 6 弦按第 2 格是低音 F#，D 的根音在第 2 弦第 3 格</text>
 </svg>

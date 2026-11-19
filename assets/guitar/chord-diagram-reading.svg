@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 492" role="img" aria-label="和弦指法圖的讀法，以 C 和弦為例">
+  <title>和弦指法圖怎麼讀</title>
+  <rect width="640" height="492" fill="#FBF8F4"/>
+<text x="26" y="34" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="16" fill="#3D3229" text-anchor="start" font-weight="700">和弦指法圖怎麼讀（以 C 和弦為例）</text>
+<text x="26" y="55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#8C8078" text-anchor="start">圖是「把琴直立起來正面看」：左邊是第 6 弦，上面是琴頭那一端</text>
+<text x="295.0" y="130" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="13" fill="#3D3229" text-anchor="middle" font-weight="700">C</text>
+<line x1="214.0" y1="144" x2="214.0" y2="326.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="246.4" y1="144" x2="246.4" y2="326.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="278.8" y1="144" x2="278.8" y2="326.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="311.2" y1="144" x2="311.2" y2="326.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="343.6" y1="144" x2="343.6" y2="326.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="376.0" y1="144" x2="376.0" y2="326.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="214" y1="144.0" x2="376.0" y2="144.0" stroke="#3D3229" stroke-width="3"/>
+<line x1="214" y1="189.5" x2="376.0" y2="189.5" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="214" y1="235.0" x2="376.0" y2="235.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="214" y1="280.5" x2="376.0" y2="280.5" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="214" y1="326.0" x2="376.0" y2="326.0" stroke="#C9BCAA" stroke-width="1"/>
+<text x="214.0" y="138" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#8C8078" text-anchor="middle">✕</text>
+<circle cx="311.2" cy="135" r="3.4" fill="none" stroke="#3D3229" stroke-width="1.2"/>
+<circle cx="376.0" cy="135" r="3.4" fill="none" stroke="#3D3229" stroke-width="1.2"/>
+<circle cx="246.4" cy="257.8" r="11.0" fill="#A67C52"/>
+<text x="246.4" y="261.55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">3</text>
+<circle cx="278.8" cy="212.2" r="11.0" fill="#A67C52"/>
+<text x="278.8" y="216.05" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">2</text>
+<circle cx="343.6" cy="166.8" r="11.0" fill="#A67C52"/>
+<text x="343.6" y="170.55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">1</text>
+<text x="214.0" y="346.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="middle">6</text>
+<text x="246.4" y="346.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="middle">5</text>
+<text x="278.8" y="346.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="middle">4</text>
+<text x="311.2" y="346.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="middle">3</text>
+<text x="343.6" y="346.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="middle">2</text>
+<text x="376.0" y="346.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="middle">1</text>
+<text x="390.0" y="170.75" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="start">第 1 格</text>
+<text x="390.0" y="216.25" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="start">第 2 格</text>
+<text x="390.0" y="261.75" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="start">第 3 格</text>
+<text x="390.0" y="307.25" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="start">第 4 格</text>
+<path d="M214 128 L214 120" stroke="#8C8078" stroke-width="1"/>
+<text x="214" y="114" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="middle">✕ 不刷</text>
+<path d="M278.8 128 L278.8 120" stroke="#8C8078" stroke-width="1"/>
+<text x="278.8" y="114" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="middle">○ 空弦</text>
+<path d="M204 144 L188 144" stroke="#8C8078" stroke-width="1"/>
+<text x="184" y="148" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="end">上弦枕 Nut</text>
+<text x="26" y="404" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#3D3229" text-anchor="start">○ ＝ 空弦：左手不按，但右手要刷到</text>
+<text x="26" y="425" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#3D3229" text-anchor="start">✕ ＝ 不刷：和弦外音，右手要避開</text>
+<text x="26" y="446" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#3D3229" text-anchor="start">● 裡的數字是建議手指：1 食指、2 中指、3 無名指、4 小指</text>
+<text x="26" y="467" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#3D3229" text-anchor="start">最左邊的直線是第 6 弦，最右邊是第 1 弦；最上面那條粗線是上弦枕，往下一格一格數</text>
+</svg>

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 330" role="img" aria-label="六線譜的結構：六條橫線由第 1 弦到第 6 弦，數字是琴格">
+  <title>六線譜怎麼看</title>
+  <rect width="640" height="330" fill="#FBF8F4"/>
+<text x="26" y="34" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="16" fill="#3D3229" text-anchor="start" font-weight="700">六線譜（TAB）：最上面是第 1 弦，不是第 6 弦</text>
+<text x="26" y="55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#8C8078" text-anchor="start">六條橫線由上到下＝第 1 弦（最細）到第 6 弦（最粗）；線上的數字是左手要按第幾格</text>
+<line x1="118" y1="96" x2="470" y2="96" stroke="#3D3229" stroke-width="1" opacity=".45"/>
+<text x="106" y="100" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="end">第 1 弦　E</text>
+<line x1="118" y1="115" x2="470" y2="115" stroke="#3D3229" stroke-width="1" opacity=".45"/>
+<text x="106" y="119" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="end">第 2 弦　B</text>
+<line x1="118" y1="134" x2="470" y2="134" stroke="#3D3229" stroke-width="1" opacity=".45"/>
+<text x="106" y="138" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="end">第 3 弦　G</text>
+<line x1="118" y1="153" x2="470" y2="153" stroke="#3D3229" stroke-width="1" opacity=".45"/>
+<text x="106" y="157" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="end">第 4 弦　D</text>
+<line x1="118" y1="172" x2="470" y2="172" stroke="#3D3229" stroke-width="1" opacity=".45"/>
+<text x="106" y="176" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="end">第 5 弦　A</text>
+<line x1="118" y1="191" x2="470" y2="191" stroke="#3D3229" stroke-width="1" opacity=".45"/>
+<text x="106" y="195" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="end">第 6 弦　E</text>
+<rect x="159" y="88" width="18" height="16" fill="#FBF8F4"/>
+<text x="168" y="101" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="13" fill="#A67C52" text-anchor="middle" font-weight="700">0</text>
+<rect x="209" y="107" width="18" height="16" fill="#FBF8F4"/>
+<text x="218" y="120" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="13" fill="#A67C52" text-anchor="middle" font-weight="700">1</text>
+<rect x="259" y="126" width="18" height="16" fill="#FBF8F4"/>
+<text x="268" y="139" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="13" fill="#A67C52" text-anchor="middle" font-weight="700">0</text>
+<rect x="309" y="145" width="18" height="16" fill="#FBF8F4"/>
+<text x="318" y="158" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="13" fill="#A67C52" text-anchor="middle" font-weight="700">2</text>
+<rect x="359" y="164" width="18" height="16" fill="#FBF8F4"/>
+<text x="368" y="177" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="13" fill="#A67C52" text-anchor="middle" font-weight="700">3</text>
+<rect x="409" y="183" width="18" height="16" fill="#FBF8F4"/>
+<text x="418" y="196" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="13" fill="#A67C52" text-anchor="middle" font-weight="700">3</text>
+<path d="M118 225 L470 225" stroke="#A67C52" stroke-width="1.4" fill="none"/>
+<path d="M470 225 l-7 -4 v8 z" fill="#A67C52"/>
+<text x="294.0" y="219" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle">由左往右依序彈</text>
+<text x="26" y="232" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#3D3229" text-anchor="start">① 最上面那一條＝第 1 弦（最細的高音 E）；最下面＝第 6 弦（最粗的低音 E）</text>
+<text x="26" y="254" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#3D3229" text-anchor="start">② 數字＝左手按住第幾格。寫在第 3 弦那條線上，就是按第 3 弦</text>
+<text x="26" y="276" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#3D3229" text-anchor="start">③ 0 ＝ 空弦，左手不按，右手直接撥</text>
+<text x="26" y="298" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#3D3229" text-anchor="start">④ 同一條垂直線上疊起來的數字＝同時發聲（例：刷一個 C 和弦）</text>
+<text x="26" y="318" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="start">由上往下讀＝由細弦往粗弦；和弦圖的左右順序是反過來的，兩張表不要混著背</text>
+</svg>

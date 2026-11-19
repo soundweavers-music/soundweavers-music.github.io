@@ -480,9 +480,406 @@ def restring() -> str:
     return svg(w, h, "".join(p), "換弦三步")
 
 
+# ---------------------------------------------------------------- 16 分音符格子
+SOFT = "#f3ece2"
+
+
+def _t(x, y, s, size=11, anchor="start", fill=INK, weight=None) -> str:
+    s = str(s).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+    w = f' font-weight="{weight}"' if weight else ""
+    return (f'<text x="{x}" y="{y}" font-size="{size}" text-anchor="{anchor}" '
+            f'fill="{fill}"{w} {FONT}>{s}</text>')
+
+
+def _beat_strip(p, x0, y0, colw, slots=16):
+    """16 格：每 4 格一個大拍，交替底色，讓拍點一眼看得出來。"""
+    for i in range(slots):
+        beat = i // 4
+        if beat % 2 == 0:
+            p.append(f'<rect x="{x0 + i * colw}" y="{y0 - 16}" width="{colw}" height="150" '
+                     f'fill="{SOFT}" opacity="0.65"/>')
+    for i in range(slots + 1):
+        x = x0 + i * colw
+        strong = i % 4 == 0
+        p.append(f'<line x1="{x}" y1="{y0 - 16}" x2="{x}" y2="{y0 + 134}" '
+                 f'stroke="{LINE if not strong else WOOD}" stroke-width="{1 if not strong else 1.4}"/>')
+
+
+def slow_soul16() -> str:
+    w, h = 680, 330
+    x0, colw, y0 = 120, 33, 96
+    sub = ["1", "e", "&", "a"] * 4
+    real = {0, 4, 6, 7, 9, 10, 12, 13, 14, 15}
+    hand = ["↓", "↑", "↓", "↑"] * 4
+    p = [_t(24, 28, "16 Beat 慢靈魂刷法：一小節 16 個位置，實際只刷 10 下", 14, weight=700),
+         _t(24, 48, "灰色的下上上下是「空揮」——手腕照樣擺動，只是不碰到弦；粗體才是真正發聲的位置", 11, fill=MUTED)]
+    _beat_strip(p, x0, y0, colw)
+    # 大拍
+    for b in range(4):
+        p.append(_t(x0 + (b * 4 + 2) * colw, y0 - 2, str(b + 1), 12, "middle", INK, 700))
+    for i, s in enumerate(sub):
+        p.append(_t(x0 + (i + 0.5) * colw, y0 + 24, s, 10.5, "middle", MUTED))
+    for i, s in enumerate(hand):
+        on = i in real
+        p.append(_t(x0 + (i + 0.5) * colw, y0 + 62, s, 20 if on else 17, "middle",
+                    WOOD_D if on else "#cfc4b8", 700 if on else None))
+    p.append(_t(x0 - 14, y0 - 2, "大拍", 10.5, "end", MUTED))
+    p.append(_t(x0 - 14, y0 + 24, "十六細分", 10.5, "end", MUTED))
+    p.append(_t(x0 - 14, y0 + 62, "右手", 10.5, "end", MUTED))
+    p.append(_t(24, h - 42, "前半小節「下 —— 下、下上」；後半小節「（空）上下 —— 下上下上」。", 11.5, fill=INK))
+    p.append(_t(24, h - 18, "慢歌 BPM 只有 65～75，手腕要更小、更貼近琴弦，第 4 拍的四連音才來得及揮完。", 10.5, fill=MUTED))
+    return svg(w, h, "".join(p), "16 Beat 慢靈魂刷法")
+
+
+def funk16() -> str:
+    w, h = 680, 320
+    x0, colw, y0 = 120, 33, 92
+    sub = ["1", "e", "&", "a"] * 4
+    hand = ["↓", "↑"] * 8
+    fx = ["↓", "X", "X", "↑", "X", "X", "↓", "X", "X", "↑", "X", "X", "↓", "X", "↓", "↑"]
+    speak = ["蹦", "嚓", "嚓", "恰", "嚓", "嚓", "蹦", "嚓", "嚓", "恰", "嚓", "嚓", "蹦", "嚓", "蹦", "恰"]
+    p = [_t(24, 28, "16 Beat 放克刷法：右手永遠上下交替，左手開關決定響或悶", 14, weight=700),
+         _t(24, 48, "↓／↑ 是左手按實、刷出音高；X 是左手虛按、只留「嚓」的悶音", 11, fill=MUTED)]
+    _beat_strip(p, x0, y0, colw)
+    for b in range(4):
+        p.append(_t(x0 + (b * 4 + 2) * colw, y0 - 2, str(b + 1), 12, "middle", INK, 700))
+    for i, s in enumerate(sub):
+        p.append(_t(x0 + (i + 0.5) * colw, y0 + 24, s, 10.5, "middle", MUTED))
+    for i, s in enumerate(hand):
+        p.append(_t(x0 + (i + 0.5) * colw, y0 + 56, s, 13, "middle", "#cfc4b8"))
+    for i, s in enumerate(fx):
+        muted = s == "X"
+        p.append(_t(x0 + (i + 0.5) * colw, y0 + 92, s, 18, "middle",
+                    "#c9bdb2" if muted else WOOD_D, 700))
+    for i, s in enumerate(speak):
+        p.append(_t(x0 + (i + 0.5) * colw, y0 + 120, s, 11.5, "middle", MUTED))
+    for label, y in (("右手動作", y0 + 56), ("實際音效", y0 + 92), ("口訣", y0 + 120)):
+        p.append(_t(x0 - 14, y, label, 10.5, "end", MUTED))
+    p.append(_t(x0 - 14, y0 - 2, "拍點", 10.5, "end", MUTED))
+    p.append(_t(24, h - 40, "「嚓」的悶音不用左手按實：手指放鬆貼著弦，弦不會響，只剩打擊聲。", 11.5, fill=INK))
+    p.append(_t(24, h - 16, "嘴巴唱「蹦嚓嚓恰」時，右手不要跟著變慢——右手是背景節拍器，嘴巴踩在重音上就好。", 10.5, fill=MUTED))
+    return svg(w, h, "".join(p), "16 Beat 放克刷法")
+
+
+def legato_up() -> str:
+    w, h = 680, 300
+    cases = [("錘音 Hammer-on", "H", "0", "2", "右手撥 C 空弦，中指快速敲進第 2 格"),
+             ("勾音 Pull-off", "P", "2", "0", "按 C 弦第 2 格撥響，中指向下勾離開變空弦"),
+             ("滑音 Slide", "S", "2", "5", "壓住第 2 格撥響後不鬆手，滑到第 5 格停住")]
+    p = [_t(24, 28, "錘音、勾音、滑音：第二個音不靠右手", 14, weight=700),
+         _t(24, 48, "三個動作都在同一條弦上完成；左手在發聲的瞬間才動，而且要壓得住", 11, fill=MUTED)]
+    for i, (name, mark, a, b, note) in enumerate(cases):
+        x = 26 + i * 216
+        wd = 200
+        y = 160
+        p.append(_t(x + wd / 2, 96, name, 12.5, "middle", INK, 700))
+        p.append(_t(x, 122, "C 弦", 10, "start", MUTED))
+        p.append(f'<line x1="{x + 44}" y1="{y}" x2="{x + wd}" y2="{y}" stroke="{INK}" stroke-width="1.2" opacity="0.45"/>')
+        for j, fret in enumerate((a, b)):
+            cx = x + 66 + j * (wd - 86)
+            p.append(f'<rect x="{cx - 10}" y="{y - 10}" width="20" height="20" fill="{PAPER}"/>')
+            p.append(_t(cx, y + 6, fret, 16, "middle", WOOD_D, 700))
+        p.append(f'<path d="M{x + 78} {y - 16} Q{x + wd / 2} {y - 56} {x + wd - 20} {y - 16}" '
+                 f'stroke="{WOOD_D}" stroke-width="1.6" fill="none"/>')
+        p.append(f'<path d="M{x + wd - 20} {y - 16} l-7 -1 l2 -6 z" fill="{WOOD_D}"/>')
+        p.append(_t(x + wd / 2, y - 46, mark, 13, "middle", WOOD_D, 700))
+        p.append(_t(x, y + 42, note, 10.5, "start", INK))
+    p.append(_t(24, h - 16, "烏克麗麗弦軟、張力小，錘音與勾音特別容易「悶掉」：指尖要立起來，動作要小但果斷。", 10.5, fill=MUTED))
+    return svg(w, h, "".join(p), "錘音勾音滑音")
+
+
+def canon_progression() -> str:
+    w, h = 700, 260
+    chords = ["C", "G", "Am", "Em", "F", "C", "F", "G"]
+    degrees = ["1", "5", "6m", "3m", "4", "1", "4", "5"]
+    p = [_t(24, 28, "卡農進行：1 – 5 – 6m – 3m – 4 – 1 – 4 – 5", 14, weight=700),
+         _t(24, 48, "以 C 大調為例。同一組八個和弦換到 G 大調就是 G–D–Em–Bm–C–G–C–D，級數完全不變", 11, fill=MUTED)]
+    bw, x0, y = 74, 26, 86
+    for i, (ch, deg) in enumerate(zip(chords, degrees)):
+        x = x0 + i * (bw + 8)
+        p.append(f'<rect x="{x}" y="{y}" width="{bw}" height="86" rx="9" fill="{SOFT}" stroke="{LINE}"/>')
+        p.append(_t(x + bw / 2, y + 38, ch, 18, "middle", INK, 700))
+        p.append(_t(x + bw / 2, y + 68, deg, 12, "middle", WOOD_D))
+        if i < 7:
+            p.append(f'<path d="M{x + bw + 1} {y + 43} l6 0" stroke="{MUTED}" stroke-width="1.2"/>')
+    p.append(_t(x0 + 3 * (bw + 8), y + 108, "↑ 第 5 小節換成 4 級，情緒往外開；後面的 4–5 再把耳朵帶回家", 10.5, fill=MUTED))
+    notes = [("1 – 5 – 6m – 3m", "起手四個和弦，6m 與 3m 都是小和弦，所以聽起來偏柔、偏抒情"),
+             ("4 – 1 – 4 – 5", "中段先回到主和弦，再用 4–5 推回 1 級收尾"),
+             ("為什麼好記", "八個和弦裡有一半重複，實際只要記住六顆")]
+    for i, (k, v) in enumerate(notes):
+        p.append(_t(24, 216 + i * 20, f"{k}：{v}", 10.5, fill=INK if i else INK))
+    return svg(w, h, "".join(p), "卡農和弦進行")
+
+
+def capo_up() -> str:
+    w, h = 680, 320
+    p = [_t(24, 28, "移調夾：把第 3 格當成新的上弦枕", 14, weight=700),
+         _t(24, 48, "手指按的形狀完全不變，只是整把琴的音高往上移了三個半音", 11, fill=MUTED)]
+    # 琴頸
+    x0, y0, nf, fw = 70, 96, 6, 62
+    p.append(f'<rect x="{x0}" y="{y0 - 20}" width="{nf * fw}" height="86" rx="6" fill="#faf4ea" stroke="{LINE}"/>')
+    for i in range(nf + 1):
+        x = x0 + i * fw
+        p.append(f'<line x1="{x}" y1="{y0 - 20}" x2="{x}" y2="{y0 + 66}" stroke="{LINE}" stroke-width="{2.6 if i == 0 else 1}"/>')
+    for s in range(4):
+        y = y0 - 6 + s * 18
+        p.append(f'<line x1="{x0}" y1="{y}" x2="{x0 + nf * fw}" y2="{y}" stroke="{INK}" stroke-width="0.9" opacity="0.5"/>')
+    for i, name in enumerate(["G", "C", "E", "A"]):
+        p.append(_t(x0 - 10, y0 - 2 + i * 18, name, 10, "end", MUTED))
+    # 移調夾（夾在第 3 格＝第 3 條琴衍的左側，跟手指按弦的位置一樣）
+    cx = x0 + 3 * fw - 8
+    p.append(f'<rect x="{cx - 5}" y="{y0 - 26}" width="10" height="96" rx="4" fill="{WOOD_D}"/>')
+    p.append(f'<path d="M{cx} {y0 + 70} L{cx} {y0 + 86}" stroke="{WOOD_D}" stroke-width="1"/>')
+    p.append(_t(cx + 6, y0 + 98, "Capo 夾在第 3 格（緊貼第 3 條琴衍的左側，跟按弦的位置一樣）", 10.5, "start", WOOD_D))
+    for i in range(nf):
+        p.append(_t(x0 + i * fw + fw / 2, y0 + 74, str(i + 1), 9.5, "middle", MUTED))
+    # 對照
+    p.append(f'<rect x="{x0}" y="212" width="270" height="78" rx="9" fill="{SOFT}" stroke="{LINE}"/>')
+    p.append(_t(x0 + 14, 238, "左手按 C 大調指法", 11.5, "start", INK, 700))
+    p.append(_t(x0 + 14, 262, "C – Am – F – G", 12, "start", WOOD_D))
+    p.append(f'<path d="M{x0 + 286} 251 l26 0" stroke="{MUTED}" stroke-width="1.2"/>')
+    p.append(f'<path d="M{x0 + 312} 251 l-7 -4 v8 z" fill="{MUTED}"/>')
+    p.append(f'<rect x="{x0 + 330}" y="212" width="248" height="78" rx="9" fill="{SOFT}" stroke="{LINE}"/>')
+    p.append(_t(x0 + 344, 238, "耳朵聽到的實際音高", 11.5, "start", INK, 700))
+    p.append(_t(x0 + 344, 262, "Eb 大調（原曲的調）", 12, "start", WOOD_D))
+    p.append(_t(24, 312, "夾高 1 格＝升 1 個半音。移調夾只能升，不能降；要降就換一組低把位指法。", 10.5, fill=MUTED))
+    return svg(w, h, "".join(p), "移調夾位置與實際調性")
+
+
+def double_stops() -> str:
+    w, h = 680, 380
+    third = [("La", "0", "1"), ("Si", "2", "3"), ("Do", "3", "5"), ("Re", "5", "7"),
+             ("Mi", "7", "8"), ("Fa", "8", "10"), ("Sol", "10", "12")]
+    sixth = [("La", "0", "0"), ("Si", "2", "2"), ("Do", "3", "4"), ("Re", "5", "5"),
+             ("Mi", "7", "7"), ("Fa", "8", "9"), ("Sol", "10", "11"), ("La", "12", "12")]
+    p = [_t(24, 28, "雙音和聲：兩條弦同時撥響，旋律就多了一層厚度", 14, weight=700)]
+
+    def strip(y, title, rows, s1, s2, note):
+        p.append(_t(24, y - 26, title, 12, "start", INK, 700))
+        cw, x0 = 58, 212
+        for i, (sol, a, b) in enumerate(rows):
+            x = x0 + i * cw
+            p.append(f'<rect x="{x}" y="{y - 22}" width="{cw - 8}" height="66" rx="7" fill="{SOFT}" stroke="{LINE}"/>')
+            p.append(_t(x + (cw - 8) / 2, y - 4, sol, 11, "middle", MUTED))
+            p.append(_t(x + (cw - 8) / 2, y + 18, a, 14, "middle", WOOD_D, 700))
+            p.append(_t(x + (cw - 8) / 2, y + 36, b, 14, "middle", WOOD_D, 700))
+        p.append(_t(x0 - 12, y - 4, "唱名", 9.5, "end", MUTED))
+        p.append(_t(x0 - 12, y + 18, s1, 10, "end", INK))
+        p.append(_t(x0 - 12, y + 36, s2, 10, "end", INK))
+        p.append(_t(24, y + 62, note, 10, "start", MUTED))
+
+    strip(100, "三度雙音（第 1 弦＋第 2 弦）", third, "1 弦格", "2 弦格",
+          "兩條弦的格數差 1 或 2 格，不是同格；食指與中指（或無名指）一起放上去。")
+    strip(240, "六度雙音（第 1 弦＋第 3 弦）", sixth, "1 弦格", "3 弦格",
+          "六度的兩格差距較大，用拇指＋中指或拇指＋無名指同時撥，聲音比三度更開闊。")
+    p.append(_t(24, h - 16, "雙音的兩顆音都要清楚，不要一掌蓋上去；先分開撥、聽得出兩個音，再同時撥。", 10.5, fill=MUTED))
+    return svg(w, h, "".join(p), "三度與六度雙音")
+
+
+def fingerstyle_roles() -> str:
+    w, h = 680, 330
+    p = [_t(24, 28, "指彈的分工：上面的弦唱歌，下面的弦伴奏", 14, weight=700),
+         _t(24, 48, "同一把琴同時做兩件事——右手負責分層，左手負責把和弦按好", 11, fill=MUTED)]
+    rows = [("第 1 弦 A", "旋律", "無名指 a", "主旋律，音量最突出"),
+            ("第 2 弦 E", "旋律／和聲", "中指 m", "常與第 1 弦搭配成雙音"),
+            ("第 3 弦 C", "和聲", "食指 i", "填中間的音，別蓋過旋律"),
+            ("第 4 弦 G", "低音 Bass", "拇指 p", "每小節第 1 拍最重")]
+    y0 = 92
+    for i, (string, role, finger, note) in enumerate(rows):
+        y = y0 + i * 46
+        accented = i in (0, 3)
+        p.append(f'<rect x="24" y="{y}" width="632" height="38" rx="8" '
+                 f'fill="{SOFT if accented else PAPER}" stroke="{LINE}"/>')
+        p.append(_t(38, y + 24, string, 11.5, "start", INK, 700))
+        p.append(_t(160, y + 24, role, 11.5, "start", WOOD_D if accented else MUTED, 700 if accented else None))
+        p.append(_t(290, y + 24, finger, 11, "start", INK))
+        p.append(_t(430, y + 24, note, 10.5, "start", MUTED))
+    p.append(_t(24, h - 44, "改編三步：① 抓出主旋律 ② 旋律音全部排到最上面兩條弦 ③ 剩下的空隙用和弦音填滿。", 11, fill=INK))
+    p.append(_t(24, h - 18, "常見錯誤：低音刷得太滿、旋律被蓋掉。第 4 弦一響就收，把空間留給第 1 弦。", 10.5, fill=MUTED))
+    return svg(w, h, "".join(p), "指彈旋律與伴奏分工")
+
+
+def percussion() -> str:
+    w, h = 680, 430
+    p = [_t(24, 28, "打板：兩種擊點做出大鼓與小鼓", 14, weight=700),
+         _t(24, 48, "大鼓＝掌根敲面板低頻、小鼓＝指甲背拍弦；兩個點位不要混在一起", 11, fill=MUTED)]
+    cx, cy = 190, 240
+    # 琴身：上下兩個圓（上小下大）＋琴頸
+    p.append(f'<circle cx="{cx}" cy="{cy + 34}" r="66" fill="{WOOD}" stroke="{WOOD_D}" stroke-width="1.6"/>')
+    p.append(f'<circle cx="{cx}" cy="{cy - 56}" r="48" fill="{WOOD}" stroke="{WOOD_D}" stroke-width="1.6"/>')
+    p.append(f'<rect x="{cx - 16}" y="{cy - 172}" width="32" height="76" fill="{WOOD_D}" opacity="0.85"/>')
+    p.append(f'<rect x="{cx - 20}" y="{cy - 186}" width="40" height="18" rx="5" fill="{WOOD_D}"/>')
+    for i in range(4):
+        x = cx - 7 + i * 4.6
+        p.append(f'<line x1="{x:.1f}" y1="{cy - 182}" x2="{x:.1f}" y2="{cy + 52}" '
+                 f'stroke="{INK}" stroke-width="0.8" opacity="0.3"/>')
+    p.append(f'<circle cx="{cx}" cy="{cy - 18}" r="17" fill="{PAPER}" stroke="{LINE}" stroke-width="1.2"/>')
+    p.append(f'<rect x="{cx - 24}" y="{cy + 44}" width="48" height="11" rx="3" fill="{WOOD_D}"/>')
+
+    def marker(x, y, label, sub, ly):
+        p.append(f'<path d="M{x} {y} L340 {ly - 4}" stroke="{MUTED}" stroke-width="1" fill="none"/>')
+        p.append(f'<circle cx="{x}" cy="{y}" r="14" fill="{WOOD_D}"/>')
+        p.append(_t(x, y + 5, label, 12, "middle", PAPER, 700))
+        p.append(_t(348, ly, sub, 10.5, "start", INK))
+
+    marker(cx - 2, cy - 56, "K", "掌根敲上方面板＝大鼓（低、悶）", 128)
+    marker(cx, cy - 18, "S", "指甲背拍過琴弦＝小鼓（脆、亮）", 186)
+    marker(cx + 34, cy + 62, "K2", "側板下緣也可敲，聲音更集中", 300)
+    p.append(_t(348, 250, "兩個擊點要分開練：先只打 K（拍在腿上），再只打 S；", 10.5, fill=MUTED))
+    p.append(_t(348, 268, "兩件事都穩了，才把它們輪流放進同一小節。", 10.5, fill=MUTED))
+    p.append(_t(24, h - 62, "4 拍基本型：K – S – K – S，每一拍都同時撥一個旋律音（拇指撥低音、食指撥高音）。", 11, fill=INK))
+    p.append(_t(24, h - 34, "先把手拍在腿上打出 K–S–K–S，確定節奏穩了再上琴；上琴後音量放小，讓旋律線聽得見。", 10.5, fill=MUTED))
+    return svg(w, h, "".join(p), "打板擊點")
+
+
+# ---------------------------------------------------------------- 和弦指法圖
+# frets 一律照「第 4 弦、第 3 弦、第 2 弦、第 1 弦」的順序寫，-1＝不彈、0＝空弦
+CHORD_BLOCKS = {
+    "uke-chords-dm-em-g": (
+        "三個最常用的和弦：Dm、Em、G",
+        "由左至右是第 4 弦到第 1 弦；○ 要刷響、● 是按弦的位置",
+        [("Dm", [2, 2, 1, 0], "食指 2 弦 1 格、中指 3 弦 2 格、無名指 4 弦 2 格"),
+         ("Em", [0, 4, 3, 2], "小指 3 弦 4 格、無名指 2 弦 3 格、中指 1 弦 2 格"),
+         ("G", [0, 2, 3, 2], "食指 2 弦 2 格、中指 1 弦 3 格、無名指 3 弦 2 格")],
+        "Em 的 3 弦要按到第 4 格，所以手指是「中指—無名指—小指」一起往琴身方向排。"),
+    "uke-chords-bb": (
+        "四個要背起來的和弦：Bb、Bm、Cm、F#m",
+        "這四個都有橫按；先求每一條弦都響，再求換得快",
+        [("Bb", [3, 2, 1, 1], "食指橫按 2、1 弦 1 格，中指 3 弦 2 格，無名指 4 弦 3 格"),
+         ("Bm", [4, 2, 2, 2], "食指橫按四條弦第 2 格，其餘三指在上方補位"),
+         ("Cm", [0, 3, 3, 3], "4 弦空弦，其餘三條按第 3 格（小的半封閉）"),
+         ("F#m", [2, 1, 2, 0], "食指 3 弦 1 格、中指 4 弦 2 格、無名指 2 弦 2 格")],
+        "橫按按不響，十次有九次是食指沒有貼著琴衍；先把食指轉成側面再壓。"),
+    "uke-chords-d": (
+        "D 和弦的兩種按法：同一組音，兩種手指安排",
+        "手指細的人用三指法；手指粗、三指擠不進去的人用半封閉法",
+        [("D（三指）", [2, 2, 2, 0], "食指 3 弦 2 格、中指 2 弦 2 格、無名指 4 弦 2 格"),
+         ("D（半封閉）", [2, 2, 2, 0], "食指一次壓住 4、3、2 弦第 2 格，第 1 弦留空")],
+        "兩種按法聽起來一樣；挑一個你換得快的就好，不要兩種混著用。"),
+    "uke-chords-gm-c7": (
+        "Gm 與 C7：一個小和弦、一個屬七和弦",
+        "Gm 有三根手指在動，C7 只要一根——這兩個常一起出現在 F 大調的歌裡",
+        [("Gm", [0, 2, 3, 1], "食指 1 弦 1 格、中指 3 弦 2 格、無名指 2 弦 3 格"),
+         ("C7", [0, 0, 0, 1], "食指 1 弦 1 格，其餘三條空弦")],
+        "C7 的第 1 弦第 1 格是它的個性所在；放開就變回 C，張力會整個消失。"),
+    "uke-chords-maj7": (
+        "四個七和弦／延伸和弦：Cmaj7、Am7、Fmaj7、G6",
+        "七和弦只比三和弦多一顆音，卻讓整首歌多一層「都會感」",
+        [("Cmaj7", [0, 0, 0, 2], "中指 1 弦 2 格，其餘三條空弦"),
+         ("Am7", [0, 0, 0, 0], "四條全部空弦，一根手指都不用按"),
+         ("Fmaj7", [2, 4, 1, 3], "食指 2 弦 1 格、中指 4 弦 2 格、無名指 3 弦 4 格、小指 1 弦 3 格"),
+         ("G6", [0, 2, 0, 2], "食指 3 弦 2 格、中指 1 弦 2 格")],
+        "F 和弦把 3 弦 4 格那顆音換成 3 弦空弦，就變成 Fmaj7——不是「放開無名指」那麼簡單。"),
+}
+
+
+STEP_GRIDS = {
+    "chunk8": (
+        "切音搖滾刷法：一小節 8 個位置",
+        "括號是空揮（手照樣揮動、不碰弦）；X 是左手虛按、只留下打擊聲",
+        [("拍點", ["1", "&", "2", "&", "3", "&", "4", "&"]),
+         ("原始民謠", ["↓", "(↑)", "↓", "↑", "(↓)", "↑", "↓", "↑"]),
+         ("加入切音", ["↓", "(↑)", "X", "↑", "(↓)", "↑", "X", "↑"]),
+         ("口訣", ["下", "—", "切", "上", "—", "上", "切", "上"]),
+         ("模擬鼓點", ["大鼓", "", "小鼓", "", "空", "", "小鼓", ""])],
+        "切音落在第 2 拍與第 4 拍的正拍，正好對上小鼓；這兩下越乾脆，律動越明顯。"),
+    "reggae8": (
+        "海島雷鬼刷法：正拍全部留白",
+        "正拍（數字）手往下揮但不碰弦，反拍（&）才真的刷下去——這就是雷鬼的彈跳感",
+        [("拍點", ["1", "&", "2", "&", "3", "&", "4", "&"]),
+         ("右手", ["(↓)", "↑", "(↓)", "↑", "(↓)", "↑", "(↓)", "↑"]),
+         ("左手", ["預備", "按緊", "放開", "按緊", "放開", "按緊", "放開", "按緊"]),
+         ("聽覺", ["—", "恰！", "—", "恰！", "—", "恰！", "—", "恰！"])],
+        "左手在正拍「放開」是關鍵：弦一鬆，聲音就斷，反拍刷下去才有乾淨的「恰」。"),
+    "rumba8": (
+        "流行倫巴（Rumba）8 拍經典刷法",
+        "重音落在第 1 拍與第 3 拍；第 2 拍正反拍都空揮，製造拉丁味的停頓",
+        [("拍點", ["1", "&", "2", "&", "3", "&", "4", "&"]),
+         ("手腕", ["↓", "(↑)", "(↓)", "↑", "↓", "(↑)", "↓", "↑"]),
+         ("實際發聲", ["下", "—", "—", "上", "下", "—", "下", "上"]),
+         ("口訣", ["下", "—", "—", "上", "下", "—", "下", "上"]),
+         ("重音", ["強", "", "", "次強", "弱", "", "弱", ""])],
+        "倫巴的辨識度來自「空兩下再進來」；第 2 拍整個留白，第 3 拍再落重音。"),
+}
+
+
+def fig_step_grid(key) -> str:
+    title, subtitle, rows, footer = STEP_GRIDS[key]
+    n = len(rows[0][1])
+    w, margin = 700, 110
+    colw = (w - margin - 30) / n
+    h = 128 + len(rows) * 34
+    p = [_t(24, 30, title, 15, weight=700),
+         _t(24, 50, subtitle, 11.5, fill=MUTED)]
+    top = 92
+    for i in range(n + 1):
+        x = margin + i * colw
+        strong = i % 2 == 0
+        p.append(f'<line x1="{x:.1f}" y1="{top - 16}" x2="{x:.1f}" y2="{top + len(rows) * 34 - 6}" '
+                 f'stroke="{LINE if not strong else WOOD}" stroke-width="{1 if not strong else 1.3}"/>')
+    for r, (name, items) in enumerate(rows):
+        y = top + r * 34
+        p.append(_t(margin - 12, y + 5, name, 10.5, "end", MUTED))
+        for i, s in enumerate(items):
+            if not s:
+                continue
+            cx = margin + (i + 0.5) * colw
+            if name == "拍點":
+                p.append(_t(cx, y + 5, s, 11, "middle", MUTED))
+            elif s in ("X",):
+                p.append(_t(cx, y + 6, s, 17, "middle", "#B4553F", 700))
+            elif s.startswith("(") or s == "—":
+                p.append(_t(cx, y + 5, s, 12, "middle", "#cfc4b8"))
+            elif name in ("重音", "聽覺", "模擬鼓點"):
+                p.append(_t(cx, y + 5, s, 10.5, "middle", MUTED))
+            else:
+                p.append(_t(cx, y + 6, s, 15, "middle", WOOD_D, 700))
+    p.append(_t(24, h - 16, footer, 10.5, fill=MUTED))
+    return svg(w, h, "".join(p), title)
+
+
+def _wrap(text, n):
+    return [text[i:i + n] for i in range(0, len(text), n)]
+
+
+def fig_chord_block(key) -> str:
+    title, subtitle, items, footer = CHORD_BLOCKS[key]
+    w = 720
+    n = len(items)
+    step = (w - 48) / n
+    h = 372
+    p = [_t(24, 30, title, 15, weight=700),
+         _t(24, 50, subtitle, 11.5, fill=MUTED)]
+    for i, (name, frets, note) in enumerate(items):
+        x = 24 + i * step + step / 2 - 46
+        p.append(chord_grid(x, 92, list(reversed(frets)), name, 92, 130))
+        for k, line in enumerate(_wrap(note, 11)):
+            p.append(_t(24 + i * step + step / 2, 248 + k * 16, line, 9.5, "middle", MUTED))
+    p.append(_t(24, h - 14, footer, 10.5, fill=MUTED))
+    return svg(w, h, "".join(p), title)
+
+
 def main() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
     figures = {
+        "slow_soul16.svg": slow_soul16(),
+        "funk16.svg": funk16(),
+        "legato_up.svg": legato_up(),
+        "canon_progression.svg": canon_progression(),
+        "capo.svg": capo_up(),
+        "double_stops.svg": double_stops(),
+        "fingerstyle_roles.svg": fingerstyle_roles(),
+        "percussion.svg": percussion(),
+        "chunk8.svg": fig_step_grid("chunk8"),
+        "reggae8.svg": fig_step_grid("reggae8"),
+        "rumba8.svg": fig_step_grid("rumba8"),
+
+        "uke-chords-dm-em-g.svg": fig_chord_block("uke-chords-dm-em-g"),
+        "uke-chords-bb.svg": fig_chord_block("uke-chords-bb"),
+        "uke-chords-d.svg": fig_chord_block("uke-chords-d"),
+        "uke-chords-gm-c7.svg": fig_chord_block("uke-chords-gm-c7"),
+        "uke-chords-maj7.svg": fig_chord_block("uke-chords-maj7"),
+
         "sizes.svg": sizes(),
         "anatomy.svg": anatomy(),
         "tuning.svg": tuning(),

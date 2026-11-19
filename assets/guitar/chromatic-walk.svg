@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="1-2-3-4 爬格子練習：六條弦各按 1 到 4 格">
+  <title>1-2-3-4 爬格子</title>
+  <rect width="640" height="360" fill="#FBF8F4"/>
+<text x="26" y="34" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="16" fill="#3D3229" text-anchor="start" font-weight="700">1-2-3-4 爬格子：一格一指，按下去就不抬起來</text>
+<text x="26" y="55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#8C8078" text-anchor="start">每一條弦都依序按第 1、2、3、4 格（食指、中指、無名指、小指）；第 6 弦爬完換第 5 弦</text>
+<text x="28" y="112" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="start" font-weight="700">第 6 弦</text>
+<rect x="108" y="96" width="108" height="24" rx="6" fill="#F3E9DC" stroke="#C9BCAA" stroke-width="1"/>
+<text x="142.0" y="112" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#3D3229" text-anchor="middle" font-weight="700">1 格</text>
+<text x="184.0" y="112" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="middle">食指</text>
+<rect x="232" y="96" width="108" height="24" rx="6" fill="#F3E9DC" stroke="#C9BCAA" stroke-width="1"/>
+<text x="266.0" y="112" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#3D3229" text-anchor="middle" font-weight="700">2 格</text>
+<text x="308.0" y="112" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="middle">中指</text>
+<rect x="356" y="96" width="108" height="24" rx="6" fill="#F3E9DC" stroke="#C9BCAA" stroke-width="1"/>
+<text x="390.0" y="112" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#3D3229" text-anchor="middle" font-weight="700">3 格</text>
+<text x="432.0" y="112" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="middle">無名指</text>
+<rect x="480" y="96" width="108" height="24" rx="6" fill="#F3E9DC" stroke="#C9BCAA" stroke-width="1"/>
+<text x="514.0" y="112" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#3D3229" text-anchor="middle" font-weight="700">4 格</text>
+<text x="556.0" y="112" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="middle">小指</text>
+<text x="28" y="146" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="start" font-weight="700">第 5 弦</text>
+<rect x="108" y="130" width="108" height="24" rx="6" fill="#F3E9DC" stroke="#C9BCAA" stroke-width="1"/>
+<text x="142.0" y="146" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#3D3229" text-anchor="middle" font-weight="700">1 格</text>
+<text x="184.0" y="146" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="middle">食指</text>
+<rect x="232" y="130" width="108" height="24" rx="6" fill="#F3E9DC" stroke="#C9BCAA" stroke-width="1"/>
+<text x="266.0" y="146" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#3D3229" text-anchor="middle" font-weight="700">2 格</text>
+<text x="308.0" y="146" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="middle">中指</text>
+<rect x="356" y="130" width="108" height="24" rx="6" fill="#F3E9DC" stroke="#C9BCAA" stroke-width="1"/>
+<text x="390.0" y="146" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#3D3229" text-anchor="middle" font-weight="700">3 格</text>
+<text x="432.0" y="146" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="middle">無名指</text>
+<rect x="480" y="130" width="108" height="24" rx="6" fill="#F3E9DC" stroke="#C9BCAA" stroke-width="1"/>
+<text x="514.0" y="146" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#3D3229" text-anchor="middle" font-weight="700">4 格</text>
+<text x="556.0" y="146" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="middle">小指</text>
+<text x="28" y="180" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="start" font-weight="700">第 4 弦</text>
+<rect x="108" y="164" width="108" height="24" rx="6" fill="#F3E9DC" stroke="#C9BCAA" stroke-width="1"/>
+<text x="142.0" y="180" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#3D3229" text-anchor="middle" font-weight="700">1 格</text>
+<text x="184.0" y="180" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="middle">食指</text>
+<rect x="232" y="164" width="108" height="24" rx="6" fill="#F3E9DC" stroke="#C9BCAA" stroke-width="1"/>
+<text x="266.0" y="180" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#3D3229" text-anchor="middle" font-weight="700">2 格</text>
+<text x="308.0" y="180" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="middle">中指</text>
+<rect x="356" y="164" width="108" height="24" rx="6" fill="#F3E9DC" stroke="#C9BCAA" stroke-width="1"/>
+<text x="390.0" y="180" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#3D3229" text-anchor="middle" font-weight="700">3 格</text>
+<text x="432.0" y="180" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="middle">無名指</text>
+<rect x="480" y="164" width="108" height="24" rx="6" fill="#F3E9DC" stroke="#C9BCAA" stroke-width="1"/>
+<text x="514.0" y="180" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#3D3229" text-anchor="middle" font-weight="700">4 格</text>
+<text x="556.0" y="180" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="middle">小指</text>
+<text x="28" y="214" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="start" font-weight="700">第 3 弦</text>
+<rect x="108" y="198" width="108" height="24" rx="6" fill="#F3E9DC" stroke="#C9BCAA" stroke-width="1"/>
+<text x="142.0" y="214" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#3D3229" text-anchor="middle" font-weight="700">1 格</text>
+<text x="184.0" y="214" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="middle">食指</text>
+<rect x="232" y="198" width="108" height="24" rx="6" fill="#F3E9DC" stroke="#C9BCAA" stroke-width="1"/>
+<text x="266.0" y="214" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#3D3229" text-anchor="middle" font-weight="700">2 格</text>
+<text x="308.0" y="214" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="middle">中指</text>
+<rect x="356" y="198" width="108" height="24" rx="6" fill="#F3E9DC" stroke="#C9BCAA" stroke-width="1"/>
+<text x="390.0" y="214" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#3D3229" text-anchor="middle" font-weight="700">3 格</text>
+<text x="432.0" y="214" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="middle">無名指</text>
+<rect x="480" y="198" width="108" height="24" rx="6" fill="#F3E9DC" stroke="#C9BCAA" stroke-width="1"/>
+<text x="514.0" y="214" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#3D3229" text-anchor="middle" font-weight="700">4 格</text>
+<text x="556.0" y="214" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="middle">小指</text>
+<text x="28" y="248" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="start" font-weight="700">第 2 弦</text>
+<rect x="108" y="232" width="108" height="24" rx="6" fill="#F3E9DC" stroke="#C9BCAA" stroke-width="1"/>
+<text x="142.0" y="248" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#3D3229" text-anchor="middle" font-weight="700">1 格</text>
+<text x="184.0" y="248" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="middle">食指</text>
+<rect x="232" y="232" width="108" height="24" rx="6" fill="#F3E9DC" stroke="#C9BCAA" stroke-width="1"/>
+<text x="266.0" y="248" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#3D3229" text-anchor="middle" font-weight="700">2 格</text>
+<text x="308.0" y="248" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="middle">中指</text>
+<rect x="356" y="232" width="108" height="24" rx="6" fill="#F3E9DC" stroke="#C9BCAA" stroke-width="1"/>
+<text x="390.0" y="248" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#3D3229" text-anchor="middle" font-weight="700">3 格</text>
+<text x="432.0" y="248" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="middle">無名指</text>
+<rect x="480" y="232" width="108" height="24" rx="6" fill="#F3E9DC" stroke="#C9BCAA" stroke-width="1"/>
+<text x="514.0" y="248" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#3D3229" text-anchor="middle" font-weight="700">4 格</text>
+<text x="556.0" y="248" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="middle">小指</text>
+<text x="28" y="282" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="start" font-weight="700">第 1 弦</text>
+<rect x="108" y="266" width="108" height="24" rx="6" fill="#F3E9DC" stroke="#C9BCAA" stroke-width="1"/>
+<text x="142.0" y="282" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#3D3229" text-anchor="middle" font-weight="700">1 格</text>
+<text x="184.0" y="282" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="middle">食指</text>
+<rect x="232" y="266" width="108" height="24" rx="6" fill="#F3E9DC" stroke="#C9BCAA" stroke-width="1"/>
+<text x="266.0" y="282" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#3D3229" text-anchor="middle" font-weight="700">2 格</text>
+<text x="308.0" y="282" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="middle">中指</text>
+<rect x="356" y="266" width="108" height="24" rx="6" fill="#F3E9DC" stroke="#C9BCAA" stroke-width="1"/>
+<text x="390.0" y="282" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#3D3229" text-anchor="middle" font-weight="700">3 格</text>
+<text x="432.0" y="282" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="middle">無名指</text>
+<rect x="480" y="266" width="108" height="24" rx="6" fill="#F3E9DC" stroke="#C9BCAA" stroke-width="1"/>
+<text x="514.0" y="282" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#3D3229" text-anchor="middle" font-weight="700">4 格</text>
+<text x="556.0" y="282" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="middle">小指</text>
+<path d="M628 96 L628 290" stroke="#A67C52" stroke-width="1.4" fill="none"/>
+<path d="M628 290 l-4 -7 h8 z" fill="#A67C52"/>
+<text x="26" y="320" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#3D3229" text-anchor="start">節拍器 60 BPM，一拍一個音：先爬完第 6 弦，再換第 5 弦，最後到第 1 弦。</text>
+<text x="26" y="346" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="start">四根手指都留在弦上不要抬（保留指）；抬得越高，按回來就越慢。</text>
+</svg>
