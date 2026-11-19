@@ -48,7 +48,10 @@ def audit(path: Path) -> list[dict]:
     issues: list[dict] = []
     n = len(text)
 
-    if n < MIN_CHARS:
+    # 有圖的章節字數會比較少（圖取代了一段文字），門檻跟著放寬
+    has_img = "![" in text
+    floor = MIN_CHARS if not has_img else 1000
+    if n < floor:
         issues.append({"kind": "short", "quote": "", "why": f"只有 {n} 字，可能沒寫完"})
     if n > MAX_CHARS:
         issues.append({"kind": "long", "quote": "", "why": f"{n} 字，超過 {MAX_CHARS}"})
