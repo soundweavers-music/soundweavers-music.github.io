@@ -5,6 +5,7 @@ import { engine } from './engine.js';
 import { FX_TYPES, FX_ORDER, MAX_INSERTS, newFx, fmtParam } from './effects.js';
 import { presetsFor } from './fx-presets.js';
 import { eqEditor } from './eq-editor.js';
+import { tuneEditor } from './autotune-ui.js';
 import { showMenu } from './menu.js';
 import { toast, fmtDb } from './util.js';
 
@@ -97,7 +98,7 @@ export function openFxPanel(owner, fxId) {
   const T = FX_TYPES[d.type];
   const presets = presetsFor(d.type);
   panel = document.createElement('div');
-  panel.className = 'fx-panel' + (d.type === 'eq' ? ' wide' : '');
+  panel.className = 'fx-panel' + (d.type === 'eq' ? ' wide' : d.type === 'tune' ? ' wide tune' : '');
   panel.innerHTML = `
     <div class="fx-head"><span class="fx-title">${T.name}</span><span class="fx-owner"></span>
       <button class="tbtn ghost fx-onoff">${d.on ? '啟用中' : '已停用'}</button><button class="tbtn ghost fx-x" title="關閉 (Esc)">✕</button></div>
@@ -109,15 +110,16 @@ export function openFxPanel(owner, fxId) {
     <div class="fx-params"></div>
     ${d.type === 'gate' ? '<p class="fx-note">噪音閘只在即時播放與錄音監聽時作用；輸出檔案時會略過（瀏覽器的離線算圖沒有辦法做門檻開關）。</p>' : ''}
     ${d.type === 'eq' ? '<p class="fx-note">拖曳圓點：左右改頻率、上下改增益；滾輪改 Q；雙擊歸零或開關。按住 Shift 微調。播放時背景顯示即時頻譜（灰 = 處理前、彩色 = 處理後）。</p>' : ''}
+    ${d.type === 'tune' ? '<p class="fx-note">修音延遲約 32 ms，播放與輸出時會自動補償、跟伴奏對齊。錄音時開啟這一軌的 <b>I（輸入監聽）</b>可以邊唱邊聽修正後的聲音；錄進去的仍是原聲，之後隨時能改設定。建議放在效果器第一格（EQ、壓縮之前）。</p>' : ''}
     ${d.type === 'pitch' ? '<p class="fx-note">即時移調適合做和聲、雙重人聲、八度疊加等效果，音準會有輕微顫動。<b>要把整段伴奏或人聲轉調</b>，請在片段上按右鍵選「升降音…」，用高品質演算法重新計算，音準準確。</p>' : ''}
     ${d.type === 'deess' ? '<p class="fx-note">打開「只聽齒音」，邊播放邊調「齒音頻率」，找到最刺耳的位置後再關掉。衰減量通常 3–8 dB 就夠，壓太多會像大舌頭。</p>' : ''}`;
   panel.querySelector('.fx-owner').textContent = ownerName(owner) || '';
   document.body.appendChild(panel);
   if (keepPos) Object.assign(panel.style, keepPos);
   else {
-    const w = d.type === 'eq' ? 640 : 420;
+    const w = d.type === 'eq' ? 640 : d.type === 'tune' ? 720 : 420;
     panel.style.left = Math.max(10, innerWidth / 2 - w / 2) + 'px';
-    panel.style.top = Math.max(60, innerHeight / 2 - (d.type === 'eq' ? 280 : 220)) + 'px';
+    panel.style.top = Math.max(60, innerHeight / 2 - (d.type === 'eq' ? 280 : d.type === 'tune' ? 300 : 220)) + 'px';
   }
   panel.querySelector('.fx-x').onclick = closeFxPanel;
   panel.querySelector('.fx-onoff').onclick = () => { store.checkpoint(); d.on = !d.on; store.changed('fx'); openFxPanel(owner, fxId); };
@@ -149,6 +151,12 @@ export function openFxPanel(owner, fxId) {
   }
 
   const box = panel.querySelector('.fx-params');
+  if (T.custom === 'tune') {
+    const ed = tuneEditor(owner, d, live => { store.dirty = true; if (live) store.emit('fx-live', {}); else store.changed('fx'); });
+    panel.querySelector('.fx-custom').appendChild(ed);
+    panel._eq = ed;
+    panel._params = d.params; panel._on = d.on;
+  }
   if (T.custom === 'eq') {
     const ed = eqEditor(owner, d, live => { store.dirty = true; if (live) store.emit('fx-live', {}); else store.changed('fx'); });
     panel.querySelector('.fx-custom').appendChild(ed);
@@ -156,7 +164,7 @@ export function openFxPanel(owner, fxId) {
     panel._params = d.params; panel._on = d.on;
   }
   for (const [k, def] of Object.entries(T.params)) {
-    if (T.custom === 'eq') break;   // EQ 的輸出增益在編輯器裡
+    if (T.custom) break;   // EQ、Auto Tune 用自己的編輯器
     const row = document.createElement('label');
     row.className = 'fx-row';
     if (def.choices) {

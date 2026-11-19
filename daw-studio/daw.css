@@ -431,3 +431,40 @@ a.tbtn { text-decoration: none; }
 .pitch-quick button.up { color: #ffb38a; }
 .pitch-quick button small { font-size: 9px; opacity: .7; }
 .pitch-quick button.sel { color: #fff; }
+
+/* ---------- Auto Tune 人聲修音 ---------- */
+.fx-panel.tune { width: 720px; }
+.atx { display: grid; gap: 10px; padding: 12px; background: radial-gradient(120% 80% at 0% 0%, rgba(53,201,165,.08), transparent 60%), radial-gradient(120% 80% at 100% 0%, rgba(181,139,255,.08), transparent 60%), #17181c; }
+.atx-top { display: grid; grid-template-columns: 210px 1fr; gap: 10px; }
+.atx-tuner { position: relative; background: linear-gradient(#1d1f25, #121318); border: 1px solid var(--line2); border-radius: 10px; padding: 6px 6px 8px; box-shadow: inset 0 1px 0 rgba(255,255,255,.04); }
+.atx-meter { display: block; width: 100%; height: 118px; }
+.atx-note { display: grid; justify-items: center; gap: 2px; margin-top: -4px; }
+.atx-note b { font-size: 26px; font-weight: 700; letter-spacing: .02em; color: var(--tx1); font-family: var(--mono); text-shadow: 0 0 14px currentColor; transition: color .15s; }
+.atx-note span { font-size: 10.5px; color: var(--tx2); font-family: var(--mono); white-space: nowrap; }
+.atx-graph { position: relative; border: 1px solid var(--line2); border-radius: 10px; overflow: hidden; box-shadow: inset 0 1px 0 rgba(255,255,255,.04); }
+.atx-cv { display: block; width: 100%; height: 170px; }
+.atx-hint { position: absolute; inset: 0; display: grid; place-items: center; color: var(--tx2); font-size: 12px; pointer-events: none; }
+.atx-mid { display: grid; grid-template-columns: 1fr 260px; gap: 12px; align-items: center; }
+.atx-keysel { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; color: var(--tx1); font-size: 12px; }
+.atx-keysel label { display: flex; align-items: center; gap: 6px; }
+.atx-keysel select { background: var(--bg0); border: 1px solid var(--line2); border-radius: 5px; padding: 4px 6px; color: var(--tx0); }
+.atx-keysel .atx-detect { height: 28px; }
+.atx-piano { position: relative; height: 74px; display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; padding: 3px; background: #0d0e11; border-radius: 7px; border: 1px solid var(--line2); }
+.atx-k { position: relative; border: 0; padding: 0 0 5px; cursor: pointer; font-size: 9.5px; display: flex; align-items: flex-end; justify-content: center; transition: background .12s, box-shadow .12s; }
+.atx-k.w { background: linear-gradient(#d9dbe0, #b8bbc3); color: #555; border-radius: 0 0 4px 4px; }
+.atx-k.w.on { background: linear-gradient(#bff3dc, #6fdcae); color: #0b3a26; font-weight: 700; }
+.atx-k.b { position: absolute; top: 3px; width: 9.2%; height: 58%; z-index: 1; background: linear-gradient(#3a3c43, #1a1b1f); color: #999; border-radius: 0 0 3px 3px; box-shadow: 0 2px 3px rgba(0,0,0,.5); font-size: 8px; padding-bottom: 3px; }
+.atx-k.b.on { background: linear-gradient(#2fbf8c, #157a57); color: #eafff5; font-weight: 700; }
+.atx-k.root::after { content: ''; position: absolute; top: 5px; left: 50%; width: 6px; height: 6px; margin-left: -3px; border-radius: 50%; background: #f5b83d; box-shadow: 0 0 6px #f5b83d; }
+.atx-k:hover { filter: brightness(1.08); }
+.atx-k span { pointer-events: none; }
+.atx-knobs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.atx-knob { display: grid; justify-items: center; gap: 1px; padding: 8px 4px 6px; background: linear-gradient(#1f2127, #18191e); border: 1px solid var(--line2); border-radius: 10px; }
+.atx-knob canvas { cursor: ns-resize; touch-action: none; }
+.atx-knob b { font-size: 12px; color: var(--tx0); font-weight: 600; margin-top: 2px; }
+.atx-knob .v { font-family: var(--mono); font-size: 12px; color: #8fc4ff; }
+.atx-knob em { font-style: normal; font-size: 10.5px; color: var(--tx2); min-height: 14px; }
+.atx-pre { display: flex; flex-wrap: wrap; gap: 6px; }
+.atx-pre button { flex: 1 1 auto; height: 28px; padding: 0 10px; border-radius: 14px; border: 1px solid var(--line2); background: var(--bg0); color: var(--tx1); font-size: 12px; cursor: pointer; transition: all .12s; }
+.atx-pre button:hover { border-color: #4f9dff; color: var(--tx0); background: rgba(79,157,255,.12); }
+.atx-pre button:first-child { border-color: rgba(63,216,138,.5); color: #9ff0c6; }
