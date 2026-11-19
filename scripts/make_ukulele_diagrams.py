@@ -242,6 +242,94 @@ def fretboard() -> str:
     return svg(w, h, "".join(p), "烏克麗麗指板音名")
 
 
+
+# ---------------------------------------------------------------- posture
+def posture() -> str:
+    w, h = 660, 320
+    p = [f'<text x="24" y="28" font-size="14" fill="{INK}" {FONT}>持琴三點支撐（側面示意）</text>']
+    # 軀幹（簡化）
+    p.append(f'<rect x="96" y="70" width="118" height="196" rx="26" fill="#f6efe6" stroke="{LINE}"/>')
+    p.append(f'<circle cx="155" cy="52" r="22" fill="#f6efe6" stroke="{LINE}"/>')
+    # 琴（斜靠胸前）
+    p.append(f'<g transform="translate(206,196) rotate(-22)">'
+             f'<circle cx="0" cy="14" r="27" fill="{WOOD}" stroke="{WOOD_D}" stroke-width="1.4"/>'
+             f'<circle cx="0" cy="-12" r="20" fill="{WOOD}" stroke="{WOOD_D}" stroke-width="1.4"/>'
+             f'<rect x="-4" y="-82" width="8" height="52" fill="{WOOD_D}"/>'
+             f'<rect x="-9" y="-100" width="18" height="20" rx="4" fill="{WOOD_D}"/></g>')
+    # 三個支點：胸口、右前臂、左手虎口
+    pts = [(150, 196, "① 胸口貼住琴背（只是靠著）"),
+           (232, 246, "② 右前臂輕壓琴身右上緣"),
+           (214, 118, "③ 左手虎口輕托琴頸，不要夾死")]
+    for i, (x, y, text) in enumerate(pts):
+        ly = 86 + i * 62
+        p.append(f'<line x1="{x}" y1="{y}" x2="330" y2="{ly-4}" stroke="{LINE}" stroke-dasharray="3 3"/>')
+        p.append(f'<circle cx="{x}" cy="{y}" r="10" fill="{WOOD_D}"/>')
+        p.append(f'<text x="{x}" y="{y+4}" font-size="11" text-anchor="middle" fill="#fff" {FONT}>{["①","②","③"][i]}</text>')
+        p.append(f'<text x="340" y="{ly}" font-size="12.5" fill="{INK}" {FONT}>{text}</text>')
+    p.append(f'<text x="24" y="300" font-size="11" fill="{MUTED}" {FONT}>'
+             f'三點都只是「靠著」，不要用力夾：右臂壓太緊面板會悶，虎口夾死換和弦會變慢。</text>')
+    return svg(w, h, "".join(p), "持琴三點支撐")
+
+
+# ---------------------------------------------------------------- waltz grids
+def strum_waltz() -> str:
+    w, h = 620, 300
+    p = [f'<text x="24" y="28" font-size="14" fill="{INK}" {FONT}>3/4 與 6/8 的刷弦位置</text>']
+    # 3/4
+    p.append(f'<text x="24" y="62" font-size="12.5" fill="{INK}" {FONT}>3/4（華爾滋：強－弱－弱）</text>')
+    for i, s_txt in enumerate(["↓", "↓ ↑", "↓ ↑"]):
+        x = 40 + i * 120
+        strong = i == 0
+        p.append(f'<rect x="{x}" y="74" width="104" height="52" rx="6" fill="{"#f3ece2" if strong else PAPER}" stroke="{LINE}"/>')
+        p.append(f'<text x="{x+52}" y="106" font-size="18" text-anchor="middle" fill="{WOOD_D}" {FONT}>{s_txt}</text>')
+        p.append(f'<text x="{x+52}" y="120" font-size="10" text-anchor="middle" fill="{MUTED}" {FONT}>{i+1}</text>')
+    # 6/8
+    p.append(f'<text x="24" y="168" font-size="12.5" fill="{INK}" {FONT}>6/8（兩大拍，每大拍三下）</text>')
+    for i in range(2):
+        x = 40 + i * 250
+        p.append(f'<rect x="{x}" y="180" width="234" height="52" rx="6" fill="{"#f3ece2" if i == 0 else PAPER}" stroke="{LINE}"/>')
+        p.append(f'<text x="{x+117}" y="206" font-size="16" text-anchor="middle" fill="{WOOD_D}" {FONT}>↓　↓　↑</text>')
+        p.append(f'<text x="{x+117}" y="222" font-size="10" text-anchor="middle" fill="{MUTED}" {FONT}>1 2 3{"　" if i == 0 else " 4 5 6"}</text>')
+    p.append(f'<text x="24" y="268" font-size="11" fill="{MUTED}" {FONT}>'
+             f'3/4 的第 1 拍要最飽滿；6/8 則是「兩大拍」的重音，不要把六下刷得一樣重。</text>')
+    return svg(w, h, "".join(p), "三拍子刷弦位置")
+
+
+# ---------------------------------------------------------------- chunk
+def strum_chunk() -> str:
+    w, h = 620, 220
+    beats = ["1", "&", "2", "&", "3", "&", "4", "&"]
+    strokes = ["↓", "↑", "X", "↑", "↓", "↑", "X", "↑"]
+    p = [f'<text x="24" y="28" font-size="14" fill="{INK}" {FONT}>切音搖滾：下 切 上 上 切 上（X＝切音）</text>']
+    x0, y0, cw = 40, 70, 68
+    for i, (b, s_txt) in enumerate(zip(beats, strokes)):
+        x = x0 + i * cw
+        muted = s_txt == "X"
+        strong = b.isdigit()
+        p.append(f'<rect x="{x}" y="{y0}" width="{cw-6}" height="64" rx="6" '
+                 f'fill="{"#f6e3d8" if muted else ("#f3ece2" if strong else PAPER)}" stroke="{LINE}"/>')
+        p.append(f'<text x="{x+(cw-6)/2}" y="{y0+18}" font-size="10.5" text-anchor="middle" fill="{MUTED}" {FONT}>{b}</text>')
+        p.append(f'<text x="{x+(cw-6)/2}" y="{y0+46}" font-size="20" text-anchor="middle" fill="{WOOD_D}" {FONT}>{s_txt}</text>')
+    p.append(f'<text x="24" y="{y0+96}" font-size="11.5" fill="{MUTED}" {FONT}>'
+             f'「X」用小指側肉墊輕觸弦、同時指甲撞下去，做出短促的「嚓」，不是拍面板。</text>')
+    return svg(w, h, "".join(p), "切音搖滾節奏")
+
+
+# ---------------------------------------------------------------- barre
+def barre() -> str:
+    shapes = _load_shapes()
+    w, h = 400, 200
+    p = [f'<text x="24" y="30" font-size="14" fill="{INK}" {FONT}>封閉和弦：F 與 Bb（食指橫壓）</text>']
+    for i, (label, key) in enumerate([("F", "5:maj"), ("Bb", "10:maj")]):
+        shape = shapes.get(key)
+        if not shape:
+            continue
+        p.append(chord_grid(36 + i * 150, 70, shape["frets"], label))
+    p.append(f'<text x="24" y="186" font-size="10.5" fill="{MUTED}" {FONT}>'
+             f'食指整根橫壓四條弦（第 1 格），其餘手指再按出和弦形狀；先練到每一條弦都響再加快。</text>')
+    return svg(w, h, "".join(p), "封閉和弦按法")
+
+
 def main() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
     figures = {
@@ -251,6 +339,10 @@ def main() -> int:
         "chords_cafg.svg": chords(),
         "strum_folk.svg": strum_folk(),
         "fretboard.svg": fretboard(),
+        "posture.svg": posture(),
+        "strum_waltz.svg": strum_waltz(),
+        "strum_chunk.svg": strum_chunk(),
+        "barre.svg": barre(),
     }
     for name, content in figures.items():
         (OUT / name).write_text(content, encoding="utf-8")
