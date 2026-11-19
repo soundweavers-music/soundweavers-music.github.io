@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 350" role="img" aria-label="台灣的濕度對吉他的影響">
+  <title>台灣的濕度對吉他的影響</title>
+  <rect width="640" height="350" fill="#FBF8F4"/>
+<text x="24" y="34" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="15" fill="#3D3229" text-anchor="start" font-weight="700">台灣的濕度對吉他的影響</text>
+<text x="24" y="55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#8C8078" text-anchor="start">木材怕的是「變化」，不是「濕」或「乾」本身</text>
+<text x="164.0" y="84" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#A67C52" text-anchor="start" font-weight="700">太濕（&gt;70%）</text>
+<text x="394.0" y="84" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#A67C52" text-anchor="start" font-weight="700">太乾（&lt;40%）</text>
+<rect x="24" y="96" width="592" height="56" fill="#F3E9DC" opacity=".5"/>
+<text x="34" y="120" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#3D3229" text-anchor="start" font-weight="700">面板</text>
+<text x="164.0" y="118" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start">膨脹、弦距變高</text>
+<text x="394.0" y="118" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start">收縮、可能乾裂</text>
+<text x="34" y="176" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#3D3229" text-anchor="start" font-weight="700">聲音</text>
+<text x="164.0" y="174" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start">變悶、延音短</text>
+<text x="394.0" y="174" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start">變尖、低頻不見</text>
+<rect x="24" y="208" width="592" height="56" fill="#F3E9DC" opacity=".5"/>
+<text x="34" y="232" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#3D3229" text-anchor="start" font-weight="700">弦</text>
+<text x="164.0" y="230" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start">生鏽快</text>
+<text x="394.0" y="230" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start">較不易生鏽</text>
+<text x="34" y="288" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#3D3229" text-anchor="start" font-weight="700">對策</text>
+<text x="164.0" y="286" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start">琴袋放乾燥劑、除濕機 5</text>
+<text x="164.0" y="303" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start">5%</text>
+<text x="394.0" y="286" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start">琴袋放調濕包，遠離出風口</text>
+<text x="24" y="338" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="start">最省心：琴袋裡放一包雙向調濕包（49%），比每天追濕度計有效。</text>
+</svg>

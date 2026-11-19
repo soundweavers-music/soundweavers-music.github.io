@@ -1227,6 +1227,71 @@ def fig_string_tuning():
     return width, height, chr(10).join(parts)
 
 
+def fig_grid(title, subtitle, rows, footer="", slots=8):
+    """通用拍點格：rows = [(列名, [每個位置的文字])]"""
+    width, height = 640, 120 + len(rows) * 32 + 40
+    left = 120
+    colw = (width - left - 30) / slots
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" role="img" aria-label="{title}">',
+        f'  <title>{title}</title>',
+        f'  <rect width="{width}" height="{height}" fill="{BG}"/>',
+        t(24, 34, title, 15, anchor="start", weight=700),
+        t(24, 55, subtitle, 11.5, anchor="start", fill=MUTED),
+    ]
+    top = 92
+    for i in range(slots + 1):
+        x = left + i * colw
+        strong = i % (slots // 4) == 0
+        parts.append(f'<line x1="{x:.1f}" y1="{top - 14}" x2="{x:.1f}" y2="{top + len(rows) * 32 - 8}" '
+                     f'stroke="{LINE if not strong else MUTED}" stroke-width="1"/>')
+    for r, (name, items) in enumerate(rows):
+        y = top + r * 32
+        parts.append(t(left - 12, y + 5, name, 10.5, anchor="end", fill=MUTED))
+        for i, s in enumerate(items):
+            if not s:
+                continue
+            cx = left + (i + 0.5) * colw
+            if name == "拍點":
+                parts.append(t(cx, y + 5, s, 10.5, fill=MUTED))
+            elif s.startswith("("):
+                parts.append(t(cx, y + 5, s, 12, fill="#cfc4b8"))
+            else:
+                parts.append(t(cx, y + 6, s, 15, fill=ACCENT, weight=700))
+    if footer:
+        parts.append(t(24, height - 14, footer, 10.5, anchor="start", fill=MUTED))
+    parts.append("</svg>")
+    return width, height, chr(10).join(parts)
+
+
+def fig_degrees():
+    """19-1：級數與和弦的對應。"""
+    rows = [("級數", ["1", "2m", "3m", "4", "5", "6m", "7dim"]),
+            ("C 大調", ["C", "Dm", "Em", "F", "G", "Am", "Bdim"]),
+            ("G 大調", ["G", "Am", "Bm", "C", "D", "Em", "F#dim"])]
+    width, height = 640, 260
+    left, colw = 130, (640 - 130 - 30) / 7
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" role="img" aria-label="級數與和弦的對應">',
+        '  <title>級數與和弦的對應</title>',
+        f'  <rect width="{width}" height="{height}" fill="{BG}"/>',
+        t(24, 34, "級數：不管什麼調，同一個號碼就是同一種角色", 15, anchor="start", weight=700),
+        t(24, 55, "記住級數，換調時只要把整排換名字，進行完全不用重記", 11.5, anchor="start", fill=MUTED),
+    ]
+    for r, (name, items) in enumerate(rows):
+        y = 96 + r * 46
+        parts.append(t(left - 12, y + 6, name, 11, anchor="end", fill=MUTED))
+        for i, s in enumerate(items):
+            x = left + i * colw
+            strong = s in ("1", "5", "6m") or (r == 0 and s in ("1", "5", "6m"))
+            parts.append(f'<rect x="{x + 4:.1f}" y="{y - 16}" width="{colw - 8:.1f}" height="34" rx="7" '
+                         f'fill="{ACCENT_SOFT if strong else BG}" stroke="{LINE}"/>')
+            parts.append(t(x + colw / 2, y + 6, s, 12.5, "middle", INK, 700 if strong else None))
+    parts.append(t(24, height - 16, "1、5、6m 是最常出現的三個：主和弦、屬和弦、關係小調。", 10.5, anchor="start", fill=MUTED))
+    parts.append("</svg>")
+    return width, height, chr(10).join(parts)
+
+
 ARPEGGIO_FINGERS = ["T", "1", "2", "1", "3", "1", "2", "1"]
 ARPEGGIO_STRINGS = [5, 3, 2, 3, 1, 3, 2, 3]
 
@@ -1349,6 +1414,125 @@ def _wrap(text, n):
 
 
 FIGURES = {
+    "grid16": lambda: fig_grid(
+        "16 分音符：一拍切成四下",
+        "口訣 1 e & a｜2 e & a｜3 e & a｜4 e & a；手腕在同一個幅度裡抖四下",
+        [("拍點", ["1", "e", "&", "a", "2", "e", "&", "a", "3", "e", "&", "a", "4", "e", "&", "a"]),
+         ("手腕", ["↓", "↑", "↓", "↑", "↓", "↑", "↓", "↑", "↓", "↑", "↓", "↑", "↓", "↑", "↓", "↑"])],
+        "8 Beat 是一拍兩下；16 Beat 是一拍四下，速度不變、密度加倍。", slots=16),
+    "grid-shuffle": lambda: fig_grid(
+        "Shuffle：把一拍切成三份，重音放前兩份",
+        "不是「平均的兩半」，而是「長—短」；第二下要刻意延後一點點",
+        [("三連音", ["1", "·", "·", "2", "·", "·"]),
+         ("刷法", ["↓", "·", "↑", "↓", "·", "↑"]),
+         ("對照", ["正拍", "·", "反拍", "正拍", "·", "反拍"])],
+        "先唸「噠—啊—噠」抓比例，再上琴；用節拍器時把細分設成三連音。", slots=6),
+    "degrees": fig_degrees,
+    "steps-accessories": lambda: fig_steps(
+        "彈唱必備的五樣東西",
+        "加起來通常不到琴價的兩成，但少了任何一樣都會卡住",
+        [("調音器", "夾式為主；每次拿琴先調，一分鐘就好"),
+         ("Pick", "三種厚度各一：0.6 刷弦、0.8 萬用、1.0 練重音"),
+         ("移調夾", "彈唱一定要有，夾上去就換調"),
+         ("背帶", "站著彈才需要；坐著彈靠三點支撐"),
+         ("擦拭布", "每次彈完擦弦，弦的壽命差很多")],
+        "先不要買效果器或第二把琴；把這五樣準備好，前半年就很夠用。"),
+    "compare-direction": lambda: fig_compare(
+        "下刷與上刷：同一個動作的兩邊",
+        "正拍永遠往下、反拍永遠往上；這條規則不要破",
+        ["比較", "下刷 ↓", "上刷 ↑"],
+        [("拍點", "1、2、3、4 正拍", "&（每拍後半）"),
+         ("碰到幾條弦", "從根音弦刷到第 1 弦", "只帶第 1～3 弦"),
+         ("聲音", "厚、重、撐住律動", "輕、亮、推進感"),
+         ("力道", "約七成", "約三成")],
+        "手腕像鐘擺一樣上下不間斷；不碰弦的那一下叫空刷，照樣要揮過去。"),
+    "compare-blank": lambda: fig_compare(
+        "一開口就亂：三個真正的原因",
+        "不是「手口不協調」這麼抽象，是這三件具體的事",
+        ["原因", "症狀", "怎麼解"],
+        [("伴奏還沒自動化", "一開口就要看手", "把伴奏彈到不看也能彈"),
+         ("歌詞沒有對到拍點", "某個字永遠亂", "把那句的歌詞標上拍點（見 8-3）"),
+         ("速度靠感覺", "副歌越來越快", "全程跟節拍器，先慢到 60 BPM")],
+        "卡住的位置要記下來：每次都在同一個字亂，就是那一個字的拍點還沒對齊。"),
+    "compare-fancy": lambda: fig_compare(
+        "「高級感」從哪裡來：三個最有效的裝飾",
+        "不是加更多音，而是換掉關鍵的那一顆",
+        ["手法", "怎麼做", "效果"],
+        [("加九音", "C 換成 Cadd9（多一顆 D）", "現代、清爽"),
+         ("換七和弦", "C 換 Cmaj7、Am 換 Am7", "都會、夜景感"),
+         ("掛留音", "G 換 Gsus4 再接回 G", "懸浮、期待")],
+        "一次只用一種：整首歌都掛留音，就失去「解決」的對比了。"),
+    "compare-tension": lambda: fig_compare(
+        "反差感：讓同一段聽起來有張力",
+        "張力不是彈得更大聲，是「前面收得夠小」",
+        ["做法", "主歌", "副歌"],
+        [("力道", "四成，像在耳邊說話", "八成，整把琴都在響"),
+         ("節奏", "分解和弦、留白", "滿弦刷奏、切音"),
+         ("音域", "低音區為主", "高音弦一起來"),
+         ("歌聲", "低而近", "放開，不過度用力")],
+        "錄一段自己彈的主歌與副歌來聽：如果兩段一樣大聲，就沒有副歌。"),
+    "compare-humidity": lambda: fig_compare(
+        "台灣的濕度對吉他的影響",
+        "木材怕的是「變化」，不是「濕」或「乾」本身",
+        ["狀況", "太濕（>70%）", "太乾（<40%）"],
+        [("面板", "膨脹、弦距變高", "收縮、可能乾裂"),
+         ("聲音", "變悶、延音短", "變尖、低頻不見"),
+         ("弦", "生鏽快", "較不易生鏽"),
+         ("對策", "琴袋放乾燥劑、除濕機 55%", "琴袋放調濕包，遠離出風口")],
+        "最省心：琴袋裡放一包雙向調濕包（49%），比每天追濕度計有效。"),
+    "compare-slash": lambda: fig_compare(
+        "看到 G/B 別慌：斜線右邊只是低音",
+        "斜線和弦＝左邊的和弦 ＋ 右邊指定的低音",
+        ["符號", "意思", "怎麼按"],
+        [("G/B", "G 和弦，低音改彈 B", "原 G 指型，第 5 弦改按第 2 格"),
+         ("D/F#", "D 和弦，低音改彈 F#", "第 6 弦按第 2 格，其餘照 D"),
+         ("C/E", "C 和弦，低音改彈 E", "第 6 弦空弦，其餘照 C")],
+        "按不出來時，直接彈斜線左邊那個和弦也不會錯；低音只是加分。"),
+    "compare-simplify": lambda: fig_compare(
+        "複雜和弦的簡化：先求彈得出來",
+        "網路上抓來的譜常常有大七、九、掛留；新手可以先簡化",
+        ["看到", "可以簡化成", "差別"],
+        [("Fmaj7", "F 或 C 的省力版", "少了第 7 音的夢幻感"),
+         ("Gsus4", "G", "少了懸浮感，但進行不變"),
+         ("Am7 / Am9", "Am", "少了都會感，不影響和聲方向"),
+         ("D/F#", "D", "低音線條不見，和弦本身沒錯")],
+        "簡化只動「顏色」，不要動根音與級數；這首歌聽起來才還是同一首。"),
+    "compare-record": lambda: fig_compare(
+        "手機錄彈唱：三個常見的失衡",
+        "手機只有一個收音點，它會放大最靠近的那個聲音",
+        ["問題", "原因", "怎麼解"],
+        [("吉他太大聲", "手機離響孔太近", "把手機移到嘴與琴中間，約 40～60cm"),
+         ("人聲太遠", "手機對著琴、背對人", "讓手機正對嘴巴高度"),
+         ("整個房間在響", "硬牆反射", "背後掛布簾、靠近衣櫃或床邊錄")],
+        "先錄 20 秒聽一次，再調整位置；十次盲錄不如一次試聽。"),
+    "steps-intro": lambda: fig_steps(
+        "三套萬用前奏：沒有前奏也能開場",
+        "這三招都用同一組和弦，差別只在「從哪裡開始、彈幾拍」",
+        [("最後一小節先出現", "從副歌最後一句的和弦開始，彈 4 拍再接主歌"),
+         ("單音爬音", "從根音開始往上爬，最慢但最有氣氛"),
+         ("切音四拍", "四下短促切音，適合輕快的歌")],
+        "前奏的目的不是炫技，是給聽眾與自己「準備開始唱」的四到八拍。"),
+    "steps-outro": lambda: fig_steps(
+        "收尾兩招：讓歌不只是「停下來」",
+        "直接停會很突兀；給一個收的動作，耳朵會舒服很多",
+        [("漸慢刷奏", "最後四小節每兩拍慢一點，最後一下延長"),
+         ("第 12 格泛音", "在最後一個和弦上輕觸第 12 格，刷一下收掉")],
+        "泛音那一下要留在最後一拍之後：先讓和弦響完，再讓泛音浮出來。"),
+    "compare-posture-sing": lambda: fig_compare(
+        "坐著唱為什麼比較難發力",
+        "不是姿勢本身有錯，是「低頭看琴」把呼吸道擠掉了",
+        ["比較", "坐著彈唱", "站著彈唱"],
+        [("視線", "容易低頭看手", "自然看向前方"),
+         ("喉嚨", "下巴內收、氣道變窄", "氣道打開"),
+         ("支撐", "腹部常塌下去", "比較容易用到腹式呼吸")],
+        "坐著也可以：把琴架高、譜放在眼睛高度，不要為了看琴而低頭。"),
+    "steps-breath": lambda: fig_steps(
+        "換氣點怎麼標：三個原則",
+        "標在譜上，比每次憑感覺可靠",
+        [("句尾換氣", "一個樂句結束的地方標一個「V」"),
+         ("長音前先吸", "遇到兩拍以上的長音，前一小節就要準備"),
+         ("不要卡在字中間", "換氣點要落在詞與詞之間，不要切斷一個詞")],
+        "用鉛筆標、用螢光筆畫都可以；標過一次，下次就不用再想。"),
     "string-tuning": fig_string_tuning,
     "compare-dynamics": lambda: fig_compare(
         "一把吉他的「混音台」：四個旋鈕",
