@@ -3494,7 +3494,7 @@ def build_daw_course(daw_dir: Path) -> None:
 .dawc-card b{display:block;font-size:15px;margin-bottom:4px}
 .dawc-card span{color:var(--muted,#6b6257);font-size:13px;line-height:1.6}
 .dawc-card em{display:block;font-style:normal;font-size:11px;color:var(--accent,#a0522d);letter-spacing:.08em;margin-bottom:6px}
-.dawc-shot{margin:18px 0 8px;border:1px solid var(--line,#e5e0d8);border-radius:12px;overflow:hidden;background:#0c0d11}
+.dawc-shot{margin:18px 0 8px;border:1px solid var(--line,#e5e0d8);border-radius:12px;overflow:hidden;background:#f6f2ec}
 .dawc-shot img{display:block;width:100%;height:auto}
 .dawc-shot figcaption{font-size:12px;color:var(--muted,#6b6257);padding:8px 12px;background:var(--paper-2,#f6f2ec)}
 .dawc-nav{display:flex;justify-content:space-between;gap:12px;margin:36px 0 8px;border-top:1px solid var(--line,#e5e0d8);padding-top:16px}
