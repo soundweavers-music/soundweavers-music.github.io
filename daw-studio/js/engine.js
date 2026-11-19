@@ -3,7 +3,7 @@
 import { store, isMidiClip, spb, recordingClips } from './state.js';
 import { dbToGain } from './util.js';
 import { startVoice, scheduleNote, releaseTail } from './synth.js';
-import { buildChain, chainShape, ensureFxWorklets, AUTOTUNE_LATENCY } from './effects.js';
+import { buildChain, chainShape, ensureFxWorklets, fxLatency, WORKLET_FX } from './effects.js';
 import { ensureWorklet, buildMastering, defaultMastering } from './mastering.js';
 import { isActive, schedule as autoSchedule, AUTO_PARAMS, valueAt as valueAtBeat } from './automation.js';
 
@@ -57,10 +57,10 @@ function midiEvents(clip) {
   return out.sort((a, z) => a.s - z.s);
 }
 
-// 軌道上啟用中、有固定延遲的效果器（目前是 Auto Tune 32 ms）的延遲總和
+// 軌道上啟用中、有固定延遲的效果器（Auto Tune、Harmony 各 32 ms）的延遲總和
 export function trackLatency(t) {
   let L = 0;
-  for (const d of t.inserts || []) if (d.on && d.type === 'tune' && (d.params.mix ?? 100) > 0) L += AUTOTUNE_LATENCY;
+  for (const d of t.inserts || []) L += fxLatency(d);
   return L;
 }
 
@@ -193,6 +193,7 @@ class Engine {
     this.segments = [];        // MIDI 排程區段：{ ctxStart, posStart, posEnd, cursor, events }
     this.voices = new Set();   // 正在發聲的合成器 voice（停止時要全部消音）
     this.live = new Map();     // 即時彈奏（鍵盤/試聽）的 voice：key -> voice
+    this.transport = [];       // Harmony 用的「ctx 時刻 ↔ 專案秒數」對照
   }
 
   async ensure() {
@@ -328,7 +329,7 @@ class Engine {
 
   rebuildWorkletChains() {
     const p = store.project;
-    const uses = list => (list || []).some(d => d.on && (d.type === 'pitch' || d.type === 'tune'));
+    const uses = list => (list || []).some(d => d.on && WORKLET_FX.has(d.type));
     for (const t of p.tracks) { const s = this.strips.get(t.id); if (s && uses(t.inserts)) rebuildChain(this.ctx, s, t.inserts, p.bpm); }
     (p.buses || []).forEach((bd, i) => { if (uses(bd.inserts)) this.buses[i].shape = ''; });
     if (uses(p.masterInserts)) this.masterShape = '';
@@ -404,6 +405,8 @@ class Engine {
     events.sort((a, z) => a.s - z.s);
     if (fresh) this.segments = [];
     this.segments.push({ ctxStart: when, posStart: from, posEnd: until, i: 0, events });
+    // Harmony：告訴 worklet「ctx 時刻 when 對應專案第 from 秒」，它才知道現在在哪個段落／和弦
+    this._setTransport(fresh ? [{ c: when, p: from }] : [...this.transport.slice(-2), { c: when, p: from }]);
     this._midiTick();
     // 循環：在結束前 150ms 先把下一輪排在「剛好 L.end 那一刻」，接縫是 sample 精準的
     clearTimeout(this.loopTimer);
@@ -422,6 +425,14 @@ class Engine {
       this.metroNext = this._nextBeatTime(from);
       this.metroNextCtx = when + (this.metroNext - from);
     }
+  }
+
+  // 把播放時間對照表送給所有 Harmony 效果器（新建的效果器從 ctx._zyTransport 取得）
+  _setTransport(list) {
+    this.transport = list;
+    this.ctx._zyTransport = list;
+    const chains = [...[...this.strips.values()].map(s => s.chain), ...this.buses.map(b => b.chain), this.masterChain];
+    for (const ch of chains) for (const fx of ch?.fx || []) if (fx.setTransport) fx.setTransport(list);
   }
 
   _stopSources() {
@@ -505,6 +516,7 @@ class Engine {
     this.position = this.currentTime();
     this.playing = false;
     this._stopSources();
+    this._setTransport([]);
     clearTimeout(this.loopTimer);
     clearInterval(this.metroTimer);
     // 自動化排程清掉，推桿回到靜態值
@@ -624,6 +636,7 @@ class Engine {
     // limiter 有 5ms look-ahead：多算這段，最後從開頭裁掉，總長度不變
     const latComp = opts.masterFx !== false && M0 && M0.on && M0.limiter?.on ? Math.max(1, Math.round(sr * 0.005)) : 0;
     const oc = new OfflineAudioContext(2, len0 + latComp, sr);
+    oc._zyTransport = [{ c: 0, p: start }];   // 離線：ctx 0 秒（輸出端）= 專案 start 秒
     await ensureFxWorklets(oc);
     // 與即時播放相同的訊號路徑：tracks → (buses) → master 插入效果器 → master fader
     const master = oc.createGain();
