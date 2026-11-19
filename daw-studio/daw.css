@@ -950,3 +950,8 @@ a.tbtn { text-decoration: none; }
 .arr-lrow .tbtn { height: 22px; font-size: 11px; padding: 0 8px; }
 .arr-note { margin: 0; color: var(--tx2); font-size: 11.5px; line-height: 1.6; }
 @media (max-width: 900px) { .arr-top { grid-template-columns: 1fr; } .arr-secs { grid-template-columns: repeat(5, 1fr); } }
+
+/* ---------- 自動伴奏：音量 ---------- */
+.arr-level { display: flex; align-items: center; gap: 6px; font-size: 11.5px; color: var(--tx2); }
+.arr-level input[type=range] { width: 92px; accent-color: var(--accent); }
+.arr-level b { font-family: var(--mono); font-size: 11px; color: var(--tx1); min-width: 34px; }

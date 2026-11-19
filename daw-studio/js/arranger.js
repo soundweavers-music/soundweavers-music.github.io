@@ -106,6 +106,8 @@ class Arranger {
     this.split = Number(localStorage.getItem('arr.split') || 54);  // 這個音以下 = 左手（F#3）
     this.autoFill = localStorage.getItem('arr.fill') !== '0';
     this.memory = localStorage.getItem('arr.memory') !== '0';     // 左手放開和弦還繼續
+    // 伴奏音量：聲部很多（鋼琴 5 個音＋吉他 6 條弦＋貝斯＋鼓）時，原廠力度加起來很容易破 0 dBFS
+    this.level = Number(localStorage.getItem('arr.level') || 0.72);
     this.syncStart = false;
     this.running = false;
     this.section = 'intro';
@@ -134,7 +136,12 @@ class Arranger {
     store.emit('arranger-style', { bpm: s.bpm });
     this.emit({ kind: 'style' });
   }
-  setOpt(k, v) { this[k] = v; localStorage.setItem('arr.' + ({ mode: 'mode', split: 'split', autoFill: 'fill', memory: 'memory' }[k] || k), typeof v === 'boolean' ? (v ? '1' : '0') : String(v)); this.emit({ kind: 'opt' }); }
+  setOpt(k, v) {
+    this[k] = v;
+    localStorage.setItem('arr.' + ({ mode: 'mode', split: 'split', autoFill: 'fill', memory: 'memory' }[k] || k), typeof v === 'boolean' ? (v ? '1' : '0') : String(v));
+    this.emit({ kind: 'opt' });
+  }
+  setLevel(v) { this.level = Math.max(0.3, Math.min(1, Number(v) || 0.72)); localStorage.setItem('arr.level', String(this.level)); this.emit({ kind: 'opt' }); }
 
   // ---- 軌道 ----
   ensureTracks() {
@@ -332,7 +339,8 @@ class Arranger {
     notes.forEach((n, i) => {
       // 吉他刷弦：每條弦錯開幾毫秒（↓ 由低到高、↑ 由高到低）
       const strum = pid === 'guitar' && (e.r === 'D' || e.r === 'U') ? (e.r === 'D' ? i : notes.length - 1 - i) * 0.012 : 0;
-      const vel = clamp(Math.round(e.v * (pid === 'guitar' && e.r === 'U' ? 0.85 : 1) * this.dyn()), 1, 127);
+      // 力度留 headroom：滿載時（吉他 6 弦＋鋼琴 5 音）也不會把總和推破 0 dBFS
+      const vel = clamp(Math.round(e.v * (pid === 'guitar' && e.r === 'U' ? 0.85 : 1) * this.dyn() * this.level), 1, 104);
       const p = clamp(n + (tr.transpose || 0), 0, 127);
       const v = scheduleNote(engine.ctx, strip.input, tr.instrument || 'piano', p, vel, at + strum, Math.max(0.03, dur - strum));
       v._hold = hold;
@@ -340,7 +348,7 @@ class Arranger {
       if (this.rec) this.recordNote(pid, p, vel, at + strum, dur - strum);
     });
   }
-  dyn() { return this.section === 'chorus2' ? 1.06 : this.section === 'verse1' ? 0.92 : 1; }
+  dyn() { return this.section === 'chorus2' ? 1.0 : this.section === 'verse1' ? 0.9 : 0.96; }
 
   pitches(pid, e, chord) {
     if (pid === 'drums') return [e.n];

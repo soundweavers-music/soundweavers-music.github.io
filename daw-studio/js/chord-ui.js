@@ -47,13 +47,18 @@ export function drawChordLane(g, W, y0, h, sx, pxPerBeat) {
   const p = store.project;
   if (!p.showChords) return;
   g.save();
-  g.fillStyle = 'rgba(255,255,255,.035)';
+  // 跟著主題走：淺色介面不能再用白字／白底
+  const css = getComputedStyle(document.documentElement);
+  const txCol = (css.getPropertyValue('--cv-ruler-tx') || '#f7e3b8').trim() || '#f7e3b8';
+  g.fillStyle = 'rgba(128,128,128,.10)';
   g.fillRect(0, y0, W, h);
   const list = chordsOf();
   if (!list.length) {
-    g.fillStyle = 'rgba(255,255,255,.35)';
+    g.globalAlpha = 0.55;
+    g.fillStyle = txCol;
     g.font = '11px sans-serif'; g.textAlign = 'left';
     g.fillText('和弦軌：在檢閱器按「偵測這條軌的和弦」，或直接在和弦軌上點兩下新增', 8, y0 + h / 2 + 4);
+    g.globalAlpha = 1;
   }
   for (const c of list) {
     const x = c.t * pxPerBeat - sx, w = c.d * pxPerBeat;
@@ -65,7 +70,7 @@ export function drawChordLane(g, W, y0, h, sx, pxPerBeat) {
     g.lineWidth = 1;
     g.strokeRect(x + 1.5, y0 + 3.5, Math.max(1, w - 3), h - 7);
     if (w > 22) {
-      g.fillStyle = '#f7e3b8';
+      g.fillStyle = txCol;
       g.font = '600 12px ui-monospace, monospace';
       g.textAlign = 'left';
       g.fillText(chordLabel(c), x + 5, y0 + h / 2 + 4);

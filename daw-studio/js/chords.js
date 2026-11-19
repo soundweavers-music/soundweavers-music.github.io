@@ -71,6 +71,7 @@ function audioChroma(clip, buf, slotSec, nSlots, chroma, bass) {
   }
   const s0 = Math.floor(clip.offset * sr), s1 = Math.min(buf.length, Math.floor((clip.offset + clip.duration) * sr));
   const re = new Float32Array(N), im = new Float32Array(N);
+  const mags = new Float64Array(N / 2);
   for (let p = s0; p + N <= s1; p += hop) {
     for (let i = 0; i < N; i++) { re[i] = (ch0[p + i] + ch1[p + i]) * 0.5 * win[i]; im[i] = 0; }
     fftMag(re, im);
@@ -78,10 +79,23 @@ function audioChroma(clip, buf, slotSec, nSlots, chroma, bass) {
     const slot = Math.floor(tSec / slotSec);
     if (slot < 0 || slot >= nSlots) continue;
     const c = chroma[slot], b = bass[slot];
+    for (let k = 1; k < N / 2; k++) mags[k] = Math.sqrt(re[k] * re[k] + im[k] * im[k]);
+    // 諧波抑制：A3 的第三次泛音剛好是 E5，不處理的話「A+C+E 的泛音」會被讀成 Am
+    for (let k = 2; k < N / 2 - 8; k++) {
+      const m = mags[k];
+      if (m < 1e-4) continue;
+      for (const [mult, amt] of [[3, 0.55], [5, 0.32]]) {
+        const tgt = Math.round(k * mult);
+        if (tgt >= N / 2 - 1) continue;
+        for (let d = -2; d <= 2; d++) {
+          const kk = tgt + d;
+          if (kk > 0 && kk < N / 2) mags[kk] = Math.max(0, mags[kk] - m * amt / (1 + Math.abs(d)));
+        }
+      }
+    }
     for (let k = 1; k < N / 2; k++) {
       const pc = pcOf[k]; if (pc < 0) continue;
-      const mag = Math.sqrt(re[k] * re[k] + im[k] * im[k]);
-      const v = Math.sqrt(mag);           // 壓縮動態，讓弱的和弦音也算得到
+      const v = Math.sqrt(mags[k]);        // 壓縮動態，讓弱的和弦音也算得到
       if (isBass[k]) b[pc] += v; else c[pc] += v;
     }
   }
@@ -103,6 +117,20 @@ function midiChroma(track, slotBeats, nSlots, chroma, bass) {
     }
   }
   for (const b of bass) if (b._low) { b[b._low.p % 12] += b._low.w * 2; delete b._low; }
+}
+
+// 除錯用：印出每一格的 12 個音名能量（測試與調參數時很方便）
+export async function debugChroma(trackId, resolution = 1) {
+  const p = store.project, t = store.track(trackId);
+  const spbSec = 60 / p.bpm;
+  let endBeat = 0;
+  for (const c of t.clips) endBeat = Math.max(endBeat, isMidiClip(c) ? c.startBeat + c.lengthBeats : (c.start + c.duration) / spbSec);
+  const nSlots = Math.ceil(endBeat / resolution);
+  const chroma = Array.from({ length: nSlots }, () => new Float64Array(12));
+  const bass = Array.from({ length: nSlots }, () => new Float64Array(12));
+  if (t.kind === 'midi') midiChroma(t, resolution, nSlots, chroma, bass);
+  else for (const c of t.clips.filter(x => !isMidiClip(x))) { const b = store.buffers.get(c.bufferId); if (b) audioChroma(c, b, resolution * spbSec, nSlots, chroma, bass); }
+  return Array.from(chroma, row => Array.from(row, v => +v.toFixed(1)));
 }
 
 // 從參考軌抓和弦。resolution：每幾拍判斷一次（1 = 每拍、2 = 半小節、4 = 一小節）
@@ -145,23 +173,43 @@ export async function detectChords(trackId, resolution = 2, onProgress) {
   // 每格分數
   const energy = chroma.map(c => c.reduce((s, x) => s + x, 0));
   const eRef = energy.slice().sort((a, b) => a - b)[Math.floor(nSlots * 0.8)] || 1;
-  const S = chroma.map((c, s) => {
+  // 時間平滑：把前後格的色度也混一點進來，單格的誤判就不會變成一個和弦
+  const smooth = chroma.map((c, s) => {
+    const a = chroma[Math.max(0, s - 1)], b = chroma[Math.min(nSlots - 1, s + 1)];
+    const out = new Float64Array(12);
+    const w = t.kind === 'midi' ? 0.28 : 0.14;   // 音訊平滑少一點，短和弦才不會被前後吃掉
+    for (let i = 0; i < 12; i++) out[i] = c[i] * (1 - 2 * w) + a[i] * w + b[i] * w;
+    return out;
+  });
+  // 調性信心：推測很確定時，調內和弦的加分才拉高
+  const keyConf = key ? Math.max(0, Math.min(1, key.confidence ?? 0.5)) : 0;
+  const S = smooth.map((c, s) => {
     const nrm = Math.sqrt(c.reduce((a, x) => a + x * x, 0)) || 1;
     const bm = Math.max(...bass[s]) || 1;
     return tmpl.map((T, k) => {
       let dot = 0; for (let i = 0; i < 12; i++) dot += c[i] * T.v[i];
-      return dot / (nrm * T.nrm) + T.prior + 0.12 * bass[s][cands[k].root] / bm;
+      const dia = diat.has(cands[k].root * 16 + QI[cands[k].q]) ? 0.03 + 0.09 * keyConf : 0;
+      return dot / (nrm * T.nrm) + T.prior + dia + 0.14 * bass[s][cands[k].root] / bm;
     });
   });
-  // Viterbi：換和弦有小小的懲罰，避免每格亂跳
-  const K = cands.length, SW = 0.08;
+  // Viterbi：換和弦要付代價。換根音比換性質貴 -> 不會在 Am 和 A 之間亂跳
+  const K = cands.length;
+  // 分數尺度因情況而異（MIDI 很乾淨、音訊很糊），懲罰跟著分數的分布走
+  let lo = Infinity, hi = -Infinity;
+  for (const row of S) for (const v of row) { if (v < lo) lo = v; if (v > hi) hi = v; }
+  const spread = Math.max(0.05, hi - lo);
+  // 音訊的色度比較糊，換和弦的懲罰要小一點，否則短和弦會被前一個吃掉
+  const SW_ROOT = t.kind === 'midi' ? Math.min(0.09, Math.max(0.03, spread * 0.06)) : 0.02;
+  const SW_Q = SW_ROOT * 0.45;
+  const rootOf = k => cands[k].root;
   let prev = S[0].slice(); const back = [];
   for (let s = 1; s < nSlots; s++) {
     const quiet = energy[s] < eRef * 0.08;
     let bi = 0; for (let k = 1; k < K; k++) if (prev[k] > prev[bi]) bi = k;
     const cur = new Float64Array(K), bk = new Int16Array(K);
     for (let k = 0; k < K; k++) {
-      const stay = prev[k], jump = prev[bi] - SW;
+      const stay = prev[k];
+      const jump = prev[bi] - (rootOf(bi) === rootOf(k) ? SW_Q : SW_ROOT);
       if (stay >= jump) { cur[k] = stay; bk[k] = k; } else { cur[k] = jump; bk[k] = bi; }
       cur[k] += quiet ? 0 : S[s][k];     // 幾乎無聲的格子：延續前一個和弦
     }
@@ -178,7 +226,81 @@ export async function detectChords(trackId, resolution = 2, onProgress) {
     if (last && last.root === c.root && last.q === c.q) last.d += resolution;
     else chords.push({ t: s * resolution, d: resolution, root: c.root, q: c.q });
   }
-  return { chords, key };
+  // ---- 收尾：逐段用「沒有平滑」的原始色度重新評估 ----
+  // Viterbi 為了穩定會把短和弦併進前一個，這裡用實際能量再確認：
+  //   1) 整段重新挑一次候選（只有明顯更好才改）
+  //   2) 長段切一半再挑一次，兩半偏好不同就切開（音訊最常見的「少一個和弦」）
+  const idOf = (r, q) => r * 16 + QI[q];
+  const bestFor = (a, z) => {
+    const sum = new Float64Array(12), bsum = new Float64Array(12);
+    for (let s2 = a; s2 < z; s2++) { for (let i = 0; i < 12; i++) { sum[i] += chroma[s2][i]; bsum[i] += bass[s2][i]; } }
+    return { sum, bsum, nrm: Math.sqrt(sum.reduce((x, y) => x + y * y, 0)) || 1, bm: Math.max(...bsum) || 1 };
+  };
+  const scoreK = (k, F) => {
+    const T = tmpl[k], cd = cands[k];
+    let dot = 0; for (let i = 0; i < 12; i++) dot += F.sum[i] * T.v[i];
+    const dia = diat.has(idOf(cd.root, cd.q)) ? 0.03 + 0.09 * keyConf : 0;
+    return dot / (F.nrm * T.nrm) + T.prior + dia + 0.14 * F.bsum[cd.root] / F.bm;
+  };
+  const pickBest = (a, z) => {
+    const F = bestFor(a, z);
+    let bk = 0, bs = -1e9;
+    for (let k = 0; k < cands.length; k++) { const sc = scoreK(k, F); if (sc > bs) { bs = sc; bk = k; } }
+    return { k: bk, sc: bs, F };
+  };
+  const refined = [];
+  for (const c of chords) {
+    const a = Math.max(0, Math.round(c.t / resolution)), z = Math.min(nSlots, Math.round((c.t + c.d) / resolution));
+    if (z <= a) { refined.push(c); continue; }
+    const cur = idOf(c.root, c.q);
+    if (z - a >= 2) {
+      // 掃過每一個可能的切點，找出「切開之後兩段各自最像什麼」總分最高的位置
+      const whole = pickBest(a, z);
+      const curIdx = cands.findIndex(x => idOf(x.root, x.q) === cur);
+      const base = curIdx >= 0 ? scoreK(curIdx, whole.F) : -1e9;
+      let bk = -1, bs = base + 0.015;
+      for (let k = a + 1; k < z; k++) {
+        const l = pickBest(a, k), r2 = pickBest(k, z);
+        const sc = (l.sc * (k - a) + r2.sc * (z - k)) / (z - a);
+        if (sc > bs) { bs = sc; bk = k; }
+      }
+      if (bk > 0) {
+        const l = pickBest(a, bk), r2 = pickBest(bk, z);
+        refined.push({ t: a * resolution, d: (bk - a) * resolution, root: cands[l.k].root, q: cands[l.k].q });
+        refined.push({ t: bk * resolution, d: (z - bk) * resolution, root: cands[r2.k].root, q: cands[r2.k].q });
+        continue;
+      }
+    }
+    const p = pickBest(a, z);
+    const sameIdx = cands.findIndex(x => idOf(x.root, x.q) === cur);
+    const curSc = sameIdx >= 0 ? scoreK(sameIdx, p.F) : -1e9;
+    refined.push(p.sc > curSc + 0.02
+      ? { t: c.t, d: c.d, root: cands[p.k].root, q: cands[p.k].q }
+      : c);
+  }
+  chords.length = 0; chords.push(...refined);
+  // 七和弦／掛留：看第七音、第四音的實際能量，比模板更可靠
+  for (const c of chords) {
+    const a = Math.max(0, Math.round(c.t / resolution)), z = Math.min(nSlots, Math.round((c.t + c.d) / resolution));
+    const F = bestFor(a, z);
+    const e = i => F.sum[(c.root + i) % 12];
+    const base = Math.max(1e-9, e(0));
+    const has = (iv, th = 0.30) => e(iv) > base * th;
+    const minorOK = has(3) && !has(4);
+    if (has(10) && minorOK) c.q = 'm7';
+    else if (has(11) && has(4)) c.q = 'maj7';
+    else if (has(10) && has(4)) c.q = '7';
+    else if (has(5) && !has(4) && !has(3)) c.q = 'sus4';
+    else if (has(6) && has(3)) c.q = 'dim';
+  }
+  // 相鄰且完全一樣的和弦合併
+  const merged = [];
+  for (const c of chords) {
+    const last = merged[merged.length - 1];
+    if (last && last.root === c.root && last.q === c.q && Math.abs(last.t + last.d - c.t) < 1e-6) last.d += c.d;
+    else merged.push({ ...c });
+  }
+  return { chords: merged, key };
 }
 
 // ---------- 自動編排 ----------
