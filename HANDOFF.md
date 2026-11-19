@@ -111,6 +111,16 @@ Chrome 開站顯示「危險網站／可能誘騙你安裝軟體」。查詢 `ht
 
 ## 5. 本次變更紀錄
 
+### 2026-11-19（手機寬度與字型）
+
+- **手機版**：`.site-header` 在 700px 以下會換行，但 refresh 樣式把高度鎖在 60px、
+  導覽維持單排，窄螢幕時整排會跑出畫面。820px 以下改成可換行、高度自適應。
+- **字型從 16.9 MB 降到 1.5 MB**：`fonts/` 原本放整套 Source Han Serif TW VF
+  （可變字型 16.9 MB）。改成只留站上實際用到的 3,700 個中文字的 woff2 子集，
+  `@font-face` 指向 `fonts/SourceHanSerifTW-VF-subset.woff2`。
+  要重新產生跑 `python scripts/subset_font.py`（需要原始 TTF，檔頭有下載網址）；
+  原始 TTF 已從 repo 移除，不再跟著部署。
+
 ### 2026-11-19（課程圖解補齊）
 
 - **兩套課程現在每個小節都有圖**：`scripts/audit_figure_coverage.py` 會列出沒有圖的

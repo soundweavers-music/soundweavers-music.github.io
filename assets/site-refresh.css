@@ -57,7 +57,9 @@
    the system stack (PingFang/JhengHei) which is already good. */
 @font-face {
   font-family: "Source Han Serif TW VF";
-  src: url("../fonts/Variable/TTF/Subset/SourceHanSerifTW-VF.ttf") format("truetype");
+  /* 只留站上實際用到的 3,700 個中文字：16.9 MB → 1.6 MB。
+     要重新產生請跑 scripts/subset_font.py（需要原始 TTF，見該檔說明）。 */
+  src: url("../fonts/SourceHanSerifTW-VF-subset.woff2") format("woff2");
   font-weight: 200 900;
   font-display: swap;
   /* the fallback stack above resolves first on Windows/macOS, so this file
@@ -113,6 +115,23 @@ a { text-underline-offset: 3px; }
 @media (max-width: 600px) {
   .brand-text { display: none; }
   .brand-mark { width: 30px; height: 30px; }
+}
+
+/* The base stylesheet stacks the header at <=700px, but the refresh rules above
+   pin a 60px height and keep the nav on one line, so on a phone the nav ran off
+   the right edge. Let the bar become two rows instead. */
+@media (max-width: 820px) {
+  .site-header {
+    height: auto;
+    padding: 10px 16px;
+    flex-wrap: wrap;
+    gap: 6px 10px;
+  }
+  .site-header nav { flex-wrap: wrap; gap: 2px; }
+  .site-header nav a { font-size: 13px; padding: 6px 8px; }
+}
+@media (max-width: 520px) {
+  .site-header nav a { font-size: 12.5px; padding: 5px 7px; }
 }
 .site-header nav a {
   font-size: 13.5px;
