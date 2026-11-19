@@ -1,0 +1,1131 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer-when-downgrade">
+<title>線上調音器與節拍器｜世界聲音</title>
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/site-refresh.css">
+<style>
+/* ── 調音器與節拍器 ────────────────────────────────────────────
+   類名一律以 tune- / metro- 起頭，避免撞到 site.css 的 .card .section 等。
+   顏色全部走既有 token，深色模式自動跟著變。
+   建置時只會抽出主內容區與最後一段 script，外層 class 會被換掉，
+   所以註解裡不要出現小於角括號標籤字樣，會打亂建置腳本的正則。 */
+
+.tune-hint { color: var(--muted); font-size: 13px; margin: 6px 0 0; line-height: 1.7; }
+
+.tune-app {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+  margin: 10px 0 28px;
+}
+@media (max-width: 940px) { .tune-app { grid-template-columns: 1fr; } }
+
+.tune-panel {
+  --tune-ok: #2f8f5b;
+  --tune-warn: #b57a2a;
+  --tune-bad: #b4503f;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  min-width: 0;
+}
+[data-theme="dark"] .tune-panel,
+[data-theme="nextdoor"] .tune-panel { --tune-ok: #3f9c63; --tune-warn: #c08a3c; --tune-bad: #c2674f; }
+[data-theme="dark"] .tune-panel { --tune-ok: #4ade80; --tune-warn: #fbbf24; --tune-bad: #f87171; }
+
+.tune-head {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px;
+  border-bottom: 1px solid var(--line); padding-bottom: 9px; margin-bottom: 14px;
+}
+.tune-head h2 { font-size: 19px; margin: 0; }
+.tune-status { margin-left: auto; font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.tune-status.is-live { color: var(--accent); }
+
+/* 控制列 */
+.tune-bar { display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-end; }
+.tune-field { display: flex; flex-direction: column; gap: 4px; font-size: 11px; letter-spacing: .08em; color: var(--muted); text-transform: uppercase; font-weight: 700; }
+.tune-field select, .tune-field input[type="number"] {
+  font: inherit; font-size: 14px; letter-spacing: 0; text-transform: none; font-weight: 400;
+  color: var(--ink); background: var(--surface);
+  border: 1px solid var(--line); border-radius: 4px; padding: 7px 9px; min-width: 96px;
+}
+.tune-field input[type="number"] { min-width: 74px; font-variant-numeric: tabular-nums; }
+.tune-ref { display: flex; align-items: center; gap: 5px; }
+.tune-unit { font-size: 12px; color: var(--muted); }
+
+.tune-btn {
+  font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;
+  border: 1px solid var(--line); border-radius: 4px; background: var(--surface); color: var(--ink);
+  padding: 9px 16px; line-height: 1.2; transition: background .12s, border-color .12s, color .12s;
+}
+.tune-btn:hover { border-color: var(--accent); color: var(--accent); }
+.tune-btn--primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.tune-btn--primary:hover { background: var(--accent2); border-color: var(--accent2); color: #fff; }
+.tune-btn--on { background: var(--tune-bad); border-color: var(--tune-bad); color: #fff; }
+.tune-btn--on:hover { background: var(--tune-bad); border-color: var(--tune-bad); color: #fff; opacity: .88; }
+.tune-btn:disabled { opacity: .45; cursor: not-allowed; }
+
+/* 音名顯示 */
+.tune-display { display: flex; align-items: flex-end; gap: 18px; margin: 18px 0 4px; min-height: 88px; }
+.tune-note { font-family: var(--font-serif, serif); font-size: 72px; line-height: .95; font-weight: 700; letter-spacing: -.02em; font-variant-numeric: tabular-nums; color: var(--ink); transition: color .15s; }
+.tune-note sup { font-size: .34em; vertical-align: super; margin-left: 2px; color: var(--muted); }
+.tune-note.is-ok { color: var(--tune-ok); }
+.tune-note.is-warn { color: var(--tune-warn); }
+.tune-note.is-bad { color: var(--tune-bad); }
+.tune-note.is-idle { color: var(--muted); opacity: .5; }
+.tune-note.is-idle sup { color: var(--muted); }
+.tune-note-sub { font-size: 13px; color: var(--muted); padding-bottom: 8px; line-height: 1.6; }
+.tune-note-sub strong { color: var(--ink2, var(--ink)); font-weight: 600; font-variant-numeric: tabular-nums; }
+
+/* 刻度盤 */
+.tune-gauge { display: block; width: 100%; height: 186px; touch-action: none; }
+
+/* 數值列 */
+.tune-numbers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 4px; overflow: hidden; margin: 10px 0 14px; }
+.tune-numbers > div { background: var(--surface); padding: 9px 12px; display: flex; flex-direction: column; gap: 2px; }
+.tune-k { font-size: 11px; letter-spacing: .08em; color: var(--muted); text-transform: uppercase; }
+.tune-v { font-size: 17px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.tune-v small { font-size: 11px; font-weight: 500; color: var(--muted); margin-left: 3px; }
+
+/* 音量條 */
+.tune-meter { height: 6px; background: var(--soft); border-radius: 999px; overflow: hidden; border: 1px solid var(--line); }
+.tune-meter i { display: block; height: 100%; width: 0%; background: var(--accent); transition: width .08s linear; }
+
+/* 弦（樂器模式） */
+.tune-strings { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.tune-string {
+  font: inherit; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 1px;
+  min-width: 58px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 6px;
+  background: var(--surface); color: var(--ink); transition: border-color .12s, background .12s, color .12s;
+}
+.tune-string:hover { border-color: var(--accent); }
+.tune-string b { font-size: 15px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.tune-string span { font-size: 10.5px; color: var(--muted); letter-spacing: .04em; }
+.tune-string.is-active { border-color: var(--accent); background: var(--accent); color: #fff; }
+.tune-string.is-active span { color: rgba(255,255,255,.8); }
+.tune-string.is-in { border-color: var(--tune-ok); box-shadow: inset 0 -3px 0 var(--tune-ok); }
+.tune-string.is-active.is-in { background: var(--tune-ok); border-color: var(--tune-ok); }
+
+.tune-empty { color: var(--muted); font-size: 13px; margin: 14px 0 0; }
+
+/* ── 節拍器 ─────────────────────────────────────────────── */
+.metro-top { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+.metro-bpm { display: flex; align-items: baseline; gap: 6px; margin-left: auto; }
+.metro-bpm span { font-size: 46px; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; font-family: var(--font-serif, serif); }
+.metro-bpm small { font-size: 11px; letter-spacing: .1em; color: var(--muted); }
+
+.tune-range { -webkit-appearance: none; appearance: none; width: 100%; height: 4px; border-radius: 999px; background: var(--line); outline: none; margin: 4px 0 16px; }
+.tune-range::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; border-radius: 50%; background: var(--accent); border: 2px solid var(--surface); box-shadow: 0 0 0 1px var(--accent); cursor: pointer; }
+.tune-range::-moz-range-thumb { width: 16px; height: 16px; border-radius: 50%; background: var(--accent); border: 2px solid var(--surface); cursor: pointer; }
+
+.metro-dots { display: flex; flex-wrap: wrap; gap: 9px; justify-content: center; margin: 0 0 16px; min-height: 20px; }
+.metro-dot {
+  width: 18px; height: 18px; border-radius: 50%;
+  border: 1px solid var(--line); background: var(--soft);
+  transition: background .05s, transform .05s, border-color .05s;
+}
+.metro-dot.is-beat { border-color: var(--line); }
+.metro-dot.is-on { background: var(--accent); border-color: var(--accent); transform: scale(1.18); }
+.metro-dot.is-accent.is-on { background: var(--tune-warn); border-color: var(--tune-warn); }
+.metro-dot.is-first { box-shadow: inset 0 0 0 3px var(--surface); }
+
+.metro-toggles { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 14px; font-size: 13.5px; color: var(--muted); }
+.metro-toggles label { display: flex; align-items: center; gap: 6px; cursor: pointer; }
+.metro-toggles input { accent-color: var(--accent); }
+
+.metro-tap-hint { font-size: 12px; color: var(--muted); margin: 12px 0 0; line-height: 1.7; }
+
+.tune-toast {
+  position: fixed; left: 50%; bottom: 26px; transform: translateX(-50%) translateY(8px);
+  background: var(--ink); color: var(--paper, #fff); padding: 9px 16px; border-radius: 999px;
+  font-size: 13px; opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; z-index: 90;
+}
+.tune-toast.is-on { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+@media (max-width: 560px) {
+  .tune-note { font-size: 58px; }
+  .tune-numbers { grid-template-columns: 1fr; }
+  .metro-bpm span { font-size: 38px; }
+}
+</style>
+</head>
+<body>
+<main class="page">
+  <section class="compact-hero">
+    <p class="eyebrow">Tool</p>
+    <h1>線上調音器與節拍器</h1>
+    <p class="lead">對著麥克風彈一個音，工具會即時算出音高與偏差的音分（cent）；也可以播參考音用耳朵調，或用節拍器練穩定度。常見樂器的調弦法都幫你列好了。</p>
+    <p class="tune-hint">麥克風的聲音只在你的瀏覽器裡分析，不會上傳到任何地方。用喇叭播節拍器時，麥克風會一起收到，建議戴耳機。</p>
+  </section>
+
+  <div class="tune-app">
+    <!-- ── 調音器 ─────────────────────────────────────────── -->
+    <section class="tune-panel" aria-label="調音器">
+      <header class="tune-head">
+        <h2>調音器</h2>
+        <span id="tune-status" class="tune-status">麥克風未開啟</span>
+      </header>
+
+      <div class="tune-bar">
+        <label class="tune-field">樂器
+          <select id="tune-mode"></select>
+        </label>
+        <label class="tune-field">參考音 A4
+          <span class="tune-ref">
+            <input id="tune-ref" type="number" min="415" max="466" step="0.5" value="440" aria-label="A4 參考頻率">
+            <span class="tune-unit">Hz</span>
+          </span>
+        </label>
+        <label class="tune-field">輸入裝置
+          <select id="tune-device"><option value="">預設麥克風</option></select>
+        </label>
+        <button type="button" id="tune-toggle" class="tune-btn tune-btn--primary">開始聽音</button>
+      </div>
+
+      <div class="tune-display">
+        <div id="tune-note" class="tune-note is-idle">—<sup></sup></div>
+        <div class="tune-note-sub" id="tune-sub">按「開始聽音」並允許麥克風</div>
+      </div>
+
+      <canvas id="tune-gauge" class="tune-gauge" aria-label="音準刻度盤，指針在中間代表準"></canvas>
+
+      <div class="tune-numbers">
+        <div><span class="tune-k">偏差</span><span class="tune-v"><span id="tune-cents">—</span><small>cent</small></span></div>
+        <div><span class="tune-k">頻率</span><span class="tune-v"><span id="tune-freq">—</span><small>Hz</small></span></div>
+        <div><span class="tune-k">目標</span><span class="tune-v"><span id="tune-target">—</span></span></div>
+      </div>
+
+      <div class="tune-meter" aria-hidden="true"><i id="tune-level"></i></div>
+
+      <div id="tune-strings" class="tune-strings"></div>
+      <p class="tune-empty" id="tune-empty">選一個樂器，這裡會列出它的空弦；點一下就播參考音。</p>
+    </section>
+
+    <!-- ── 節拍器 ─────────────────────────────────────────── -->
+    <section class="tune-panel" aria-label="節拍器">
+      <header class="tune-head">
+        <h2>節拍器</h2>
+        <span id="metro-status" class="tune-status">已停止</span>
+      </header>
+
+      <div class="metro-top">
+        <button type="button" id="metro-toggle" class="tune-btn tune-btn--primary">開始</button>
+        <div class="metro-bpm"><span id="metro-bpm-val">90</span><small>BPM</small></div>
+        <button type="button" id="metro-tap" class="tune-btn">Tap</button>
+      </div>
+
+      <input id="metro-range" class="tune-range" type="range" min="30" max="260" step="1" value="90" aria-label="速度">
+
+      <div id="metro-dots" class="metro-dots" aria-hidden="true"></div>
+
+      <div class="tune-bar">
+        <label class="tune-field">拍號
+          <select id="metro-meter">
+            <option value="4/4">4/4</option>
+            <option value="3/4">3/4</option>
+            <option value="2/4">2/4</option>
+            <option value="6/8">6/8</option>
+            <option value="9/8">9/8</option>
+            <option value="12/8">12/8</option>
+            <option value="5/4">5/4</option>
+            <option value="7/8">7/8</option>
+            <option value="1/4">1/4</option>
+          </select>
+        </label>
+        <label class="tune-field">細分
+          <select id="metro-sub">
+            <option value="1">一拍一下</option>
+            <option value="2">八分（兩下）</option>
+            <option value="3">三連音（三下）</option>
+            <option value="4">十六分（四下）</option>
+          </select>
+        </label>
+        <label class="tune-field">音色
+          <select id="metro-sound">
+            <option value="wood">木魚</option>
+            <option value="beep">電子嗶</option>
+            <option value="drum">低鼓</option>
+          </select>
+        </label>
+        <label class="tune-field">音量
+          <input id="metro-vol" class="tune-range" type="range" min="0" max="100" value="70" style="width:92px;margin:6px 0 0" aria-label="音量">
+        </label>
+      </div>
+
+      <div class="metro-toggles">
+        <label><input type="checkbox" id="metro-accent" checked> 第一拍重音</label>
+        <label><input type="checkbox" id="metro-silent"> 只閃燈不出聲</label>
+      </div>
+
+      <p class="metro-tap-hint">BPM 以拍號下方的音符為一拍：4/4 時是四分音符，6/8、9/8 時是八分音符。連續點 <strong>Tap</strong> 幾下也能量速度。</p>
+    </section>
+  </div>
+
+  <section class="section">
+    <div class="section-heading"><h2>相關工具</h2></div>
+    <div class="featured-links">
+      <a class="featured-card" href="../tools/fretboard/" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:1px solid #bbf7d0;">
+        <strong>🎸 世界樂器指版與和弦圖</strong>
+        <span>19 種彈撥樂器的調弦法、各調性和弦與指版音位圖</span>
+      </a>
+      <a class="featured-card" href="../tools/daw/" style="background:linear-gradient(135deg,#1f2937,#111827);border:1px solid #374151;color:#e5e7eb;">
+        <strong>🎚️ 織音線上編曲製作</strong>
+        <span>錄好之後想編曲、配節拍，這裡有多軌錄音與 MIDI 編輯</span>
+      </a>
+      <a class="featured-card" href="../chord-detection/" style="background:linear-gradient(135deg,#fef3c7,#fde68a);border:1px solid #f59e0b;">
+        <strong>🎼 自動抓和弦</strong>
+        <span>上傳音檔自動分析節拍與和弦進行</span>
+      </a>
+      <a class="featured-card" href="../theory/" style="background:linear-gradient(135deg,#f5f0ff,#ebe0ff);border:1px solid #d5c5fd;">
+        <strong>📖 樂理基礎</strong>
+        <span>音名、音程、五度圈——調音時聽到的那些音到底是什麼</span>
+      </a>
+    </div>
+  </section>
+
+  <div id="tune-toast" class="tune-toast" role="status" aria-live="polite"></div>
+</main>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ══ 音名與頻率 ══════════════════════════════════════════════ */
+  var NAMES = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
+
+  // "C#4" → MIDI 61；C4 = 60（中央 C）
+  function parseNote(s) {
+    var m = /^([A-Ga-g])([#b]?)(-?\d+)$/.exec(String(s).trim());
+    if (!m) return null;
+    var pc = NAMES.indexOf(m[1].toUpperCase());
+    if (pc < 0) return null;
+    if (m[2] === "#") pc += 1;
+    if (m[2] === "b") pc -= 1;
+    return pc + (parseInt(m[3], 10) + 1) * 12;
+  }
+
+  function midiToFreq(m, refA4) { return (refA4 || 440) * Math.pow(2, (m - 69) / 12); }
+  function freqToMidi(f, refA4) { return 69 + 12 * Math.log2(f / (refA4 || 440)); }
+  function noteName(m) { var r = ((m % 12) + 12) % 12; return NAMES[r]; }
+  function noteOct(m) { return Math.floor(m / 12) - 1; }
+
+  /* ══ 音高偵測（YIN 的累積均值正規化差分函數） ═══════════════
+     代價 O(n・maxLag)，在 12 kHz / 2048 點、maxLag≈430 時約 90 萬次運算，
+     每 70 ms 跑一次在主執行緒還算輕鬆。 */
+  function decimate(buf, factor) {
+    var n = Math.floor(buf.length / factor), out = new Float32Array(n), i, k, s;
+    if (factor === 1) { out.set(buf.subarray(0, n)); return out; }
+    for (i = 0; i < n; i++) {
+      s = 0;
+      for (k = 0; k < factor; k++) s += buf[i * factor + k];
+      out[i] = s / factor;          // 盒形濾波順便砍掉高頻
+    }
+    return out;
+  }
+
+  function rmsOf(x) {
+    var s = 0, i;
+    for (i = 0; i < x.length; i++) s += x[i] * x[i];
+    return Math.sqrt(s / x.length);
+  }
+
+  /**
+   * @param {Float32Array} x  時域樣本
+   * @param {number} sr       取樣率（降採樣後的）
+   * @returns {{freq:number, clarity:number}|null}
+   */
+  function detectPitch(x, sr) {
+    var n = x.length;
+    var minLag = Math.max(2, Math.floor(sr / 1300));      // 最高約 1300 Hz
+    var maxLag = Math.min(Math.floor(sr / 28), Math.floor(n / 2)); // 最低約 28 Hz
+
+    // 去直流：平均值偏移會讓差分函數整條隆起
+    var mean = 0, j;
+    for (j = 0; j < n; j++) mean += x[j];
+    mean /= n;
+    var s = new Float32Array(n);
+    for (j = 0; j < n; j++) s[j] = x[j] - mean;
+
+    if (maxLag <= minLag + 2) return null;
+
+    var d = new Float32Array(maxLag + 2);
+    var tau, lim, sum, t;
+    for (tau = 1; tau <= maxLag + 1; tau++) {
+      sum = 0;
+      lim = n - tau;
+      for (j = 0; j < lim; j++) { t = s[j] - s[j + tau]; sum += t * t; }
+      d[tau] = sum;
+    }
+
+    // 累積均值正規化差分（CMND）
+    var cm = new Float32Array(maxLag + 2), running = 0;
+    cm[0] = 1;
+    for (tau = 1; tau <= maxLag + 1; tau++) {
+      running += d[tau];
+      cm[tau] = running > 0 ? d[tau] * tau / running : 1;
+    }
+
+    // 從短週期往長週期找，取第一個「夠深且正在下降」的谷。
+    // 不能用全域最小值：單音在週期的 2、3、4 倍上差分一樣低，
+    // 取最深的會掉到低八度；也不能把門檻放寬，雜訊造成的假谷會讓音偏高。
+    var THRESH = 0.15;
+    var cand = -1;
+    for (tau = minLag; tau <= maxLag; tau++) {
+      if (cm[tau] < THRESH && cm[tau] <= cm[tau + 1]) { cand = tau; break; }
+    }
+    if (cand < 0) {
+      // 沒有明顯的谷：退而求其次取全域最小值，太淺就當作沒有音高
+      var bestVal = 1e9;
+      for (tau = minLag; tau <= maxLag; tau++) {
+        if (cm[tau] < bestVal) { bestVal = cm[tau]; cand = tau; }
+      }
+      if (cand < 0 || bestVal > 0.5) return null;
+    }
+
+    // 拋物線內插把週期修到小數點以下。
+    // 試過對數（高斯）內插，在本函數上反而更差：CMND 的谷接近 V 形，
+    // 取對數後頂點被拉偏，880 Hz 會差到 16 cent。
+    var shift = 0;
+    if (cand > 1 && cand < maxLag) {
+      var a = cm[cand - 1];
+      var b = cm[cand];
+      var c = cm[cand + 1];
+      var den = a - 2 * b + c;
+      if (den !== 0) {
+        shift = 0.5 * (a - c) / den;
+        if (shift > 0.5) shift = 0.5;
+        if (shift < -0.5) shift = -0.5;
+      }
+    }
+
+    var freq = sr / (cand + shift);
+    if (!isFinite(freq) || freq < 25 || freq > 1400) return null;
+    return { freq: freq, lag: cand + shift, clarity: Math.max(0, 1 - cm[cand]) };
+  }
+
+  /* ══ 樂器與調弦 ═════════════════════════════════════════════ */
+  // strings 由低到高排列；n 是這條弦在該樂器上的稱呼
+  var INSTRUMENTS = [
+    { id: "chromatic", name: "自動辨識（單音）", strings: [] },
+    { id: "guitar", name: "吉他 · EADGBE", strings: [
+      { n: "6", p: "E2" }, { n: "5", p: "A2" }, { n: "4", p: "D3" },
+      { n: "3", p: "G3" }, { n: "2", p: "B3" }, { n: "1", p: "E4" }] },
+    { id: "ukulele", name: "烏克麗麗 · GCEA", strings: [
+      { n: "4", p: "G4" }, { n: "3", p: "C4" }, { n: "2", p: "E4" }, { n: "1", p: "A4" }] },
+    { id: "ukulele-low", name: "烏克麗麗 · 低音 G", strings: [
+      { n: "4", p: "G3" }, { n: "3", p: "C4" }, { n: "2", p: "E4" }, { n: "1", p: "A4" }] },
+    { id: "bass4", name: "電貝斯 · 4 弦", strings: [
+      { n: "4", p: "E1" }, { n: "3", p: "A1" }, { n: "2", p: "D2" }, { n: "1", p: "G2" }] },
+    { id: "bass5", name: "電貝斯 · 5 弦", strings: [
+      { n: "5", p: "B0" }, { n: "4", p: "E1" }, { n: "3", p: "A1" },
+      { n: "2", p: "D2" }, { n: "1", p: "G2" }] },
+    { id: "violin", name: "小提琴 · GDAE", strings: [
+      { n: "4", p: "G3" }, { n: "3", p: "D4" }, { n: "2", p: "A4" }, { n: "1", p: "E5" }] },
+    { id: "viola", name: "中提琴 · CGDA", strings: [
+      { n: "4", p: "C3" }, { n: "3", p: "G3" }, { n: "2", p: "D4" }, { n: "1", p: "A4" }] },
+    { id: "cello", name: "大提琴 · CGDA", strings: [
+      { n: "4", p: "C2" }, { n: "3", p: "G2" }, { n: "2", p: "D3" }, { n: "1", p: "A3" }] },
+    { id: "doublebass", name: "低音提琴 · EADG", strings: [
+      { n: "4", p: "E1" }, { n: "3", p: "A1" }, { n: "2", p: "D2" }, { n: "1", p: "G2" }] },
+    { id: "mandolin", name: "曼陀林 · GDAE（8 弦）", strings: [
+      { n: "4", p: "G3" }, { n: "3", p: "D4" }, { n: "2", p: "A4" }, { n: "1", p: "E5" }] },
+    { id: "banjo", name: "五弦班卓琴 · gDGBD", strings: [
+      { n: "5", p: "G4" }, { n: "4", p: "D3" }, { n: "3", p: "G3" },
+      { n: "2", p: "B3" }, { n: "1", p: "D4" }] },
+    { id: "erhu", name: "二胡 · DA", strings: [
+      { n: "內", p: "D4" }, { n: "外", p: "A4" }] },
+    { id: "pipa", name: "琵琶 · ADEA", strings: [
+      { n: "4", p: "A2" }, { n: "3", p: "D3" }, { n: "2", p: "E3" }, { n: "1", p: "A3" }] },
+    { id: "zhongruan", name: "中阮 · GDGD", strings: [
+      { n: "4", p: "G2" }, { n: "3", p: "D3" }, { n: "2", p: "G3" }, { n: "1", p: "D4" }] },
+    { id: "shamisen", name: "三味線 · 本調子", strings: [
+      { n: "三", p: "C3" }, { n: "二", p: "G3" }, { n: "一", p: "C4" }] }
+  ];
+
+  function instrumentById(id) {
+    for (var i = 0; i < INSTRUMENTS.length; i++) if (INSTRUMENTS[i].id === id) return INSTRUMENTS[i];
+    return INSTRUMENTS[0];
+  }
+
+  // 只比音級、不比八度：低八度的誤判也會落在同一條弦上
+  function centsTo(targetMidi, midi) {
+    var d = (midi - targetMidi) % 12;
+    if (d < -6) d += 12;
+    if (d >= 6) d -= 12;
+    return d * 100;
+  }
+
+  window.__tunerCore = {
+    NAMES: NAMES, parseNote: parseNote, midiToFreq: midiToFreq, freqToMidi: freqToMidi,
+    noteName: noteName, noteOct: noteOct, detectPitch: detectPitch, decimate: decimate,
+    rmsOf: rmsOf, centsTo: centsTo, INSTRUMENTS: INSTRUMENTS, instrumentById: instrumentById
+  };
+
+  /* ══ 頁面初始化 ═════════════════════════════════════════════ */
+  function init() {
+    if (!document.getElementById("tune-gauge")) return;   // 測試頁沒有 UI，直接放過
+
+    var $ = function (id) { return document.getElementById(id); };
+    var pref = {
+      read: function (k, d) {
+        try { var v = localStorage.getItem("tuner." + k); return v === null ? d : JSON.parse(v); }
+        catch (e) { return d; }
+      },
+      write: function (k, v) { try { localStorage.setItem("tuner." + k, JSON.stringify(v)); } catch (e) {} }
+    };
+
+    var toastEl = $("tune-toast"), toastTimer = 0;
+    function toast(msg) {
+      if (!toastEl) return;
+      toastEl.textContent = msg;
+      toastEl.classList.add("is-on");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(function () { toastEl.classList.remove("is-on"); }, 2200);
+    }
+
+    /* ── 音訊環境 ──────────────────────────────────────────── */
+    var ctx = null;
+    function audioCtx() {
+      if (!ctx) {
+        var AC = window.AudioContext || window.webkitAudioContext;
+        ctx = new AC({ latencyHint: "interactive" });
+      }
+      if (ctx.state === "suspended") ctx.resume();
+      return ctx;
+    }
+
+    /* ── 調音器狀態 ────────────────────────────────────────── */
+    var tune = {
+      running: false, stream: null, analyser: null, rawBuf: null,
+      decim: 4, effRate: 12000, timer: 0, hist: [], quiet: 0
+    };
+    var refA4 = pref.read("refA4", 440);
+    var modeId = pref.read("mode", "guitar");
+
+    // 空弦的目標音：只在換樂器時重算（每 70 ms 重建一次陣列太浪費）
+    var targetCache = null;
+    function targets() {
+      if (targetCache) return targetCache;
+      targetCache = instrumentById(modeId).strings.map(function (s) {
+        var midi = parseNote(s.p);
+        return { midi: midi, name: s.p.replace(/-?\d+$/, ""), label: s.n };
+      });
+      return targetCache;
+    }
+
+    /* ── 刻度盤 ────────────────────────────────────────────── */
+    var gaugeCv = $("tune-gauge");
+    var gaugeCtx = gaugeCv ? gaugeCv.getContext("2d") : null;
+    var panelEl = document.querySelector(".tune-panel");
+    var lastCents = null;   // 記住指針位置，換主題或視窗縮放時重畫才不會跳回中間
+
+    function cssVar(name, fallback) {
+      var v = panelEl ? getComputedStyle(panelEl).getPropertyValue(name) : "";
+      return (v || "").trim() || fallback;
+    }
+
+    function drawGauge(cents, state) {
+      if (!gaugeCtx) return;
+      var dpr = window.devicePixelRatio || 1;
+      var w = gaugeCv.clientWidth || 420, h = gaugeCv.clientHeight || 168;
+      if (gaugeCv.width !== Math.round(w * dpr) || gaugeCv.height !== Math.round(h * dpr)) {
+        gaugeCv.width = Math.round(w * dpr);
+        gaugeCv.height = Math.round(h * dpr);
+      }
+      var g = gaugeCtx;
+      g.setTransform(dpr, 0, 0, dpr, 0, 0);
+      g.clearRect(0, 0, w, h);
+
+      var ink = cssVar("--muted", "#8b8b8b");
+      var line = cssVar("--line", "#e4e7ec");
+      var accent = cssVar("--accent", "#0d766b");
+      var ok = cssVar("--tune-ok", "#2f8f5b");
+      var warn = cssVar("--tune-warn", "#b57a2a");
+      var bad = cssVar("--tune-bad", "#b4503f");
+
+      var cx = w / 2;
+      var cy = h - 18;
+      var R = Math.min(w / 2 - 34, h - 34);
+      var A0 = Math.PI, A1 = Math.PI * 2;          // 180°→360°，正上方是 0 cent
+      var span = A1 - A0;
+      var ang = function (c) { return A0 + (Math.max(-50, Math.min(50, c)) + 50) / 100 * span; };
+
+      // 底弧
+      g.lineCap = "butt";
+      g.lineWidth = 12;
+      g.strokeStyle = line;
+      g.beginPath();
+      g.arc(cx, cy, R, A0, A1);
+      g.stroke();
+
+      // ±5 cent 的命中區
+      g.lineWidth = 12;
+      g.strokeStyle = ok;
+      g.globalAlpha = 0.3;
+      g.beginPath();
+      g.arc(cx, cy, R, ang(-5), ang(5));
+      g.stroke();
+      g.globalAlpha = 1;
+
+      // 刻度（往圓心方向畫，才不會擠到弧外面）
+      for (var c = -50; c <= 50; c += 5) {
+        var a = ang(c);
+        var major = (c % 25 === 0);
+        var r2 = R - 3;
+        var r1 = r2 - (major ? 13 : 7);
+        g.strokeStyle = c === 0 ? accent : ink;
+        g.globalAlpha = c === 0 ? 0.9 : 0.5;
+        g.lineWidth = c === 0 ? 2 : 1;
+        g.beginPath();
+        g.moveTo(cx + Math.cos(a) * r1, cy + Math.sin(a) * r1);
+        g.lineTo(cx + Math.cos(a) * r2, cy + Math.sin(a) * r2);
+        g.stroke();
+      }
+      g.globalAlpha = 1;
+
+      // 兩端與中間的數字
+      g.fillStyle = ink;
+      g.globalAlpha = 0.72;
+      g.font = "500 11px ui-monospace, SFMono-Regular, Menlo, monospace";
+      g.textAlign = "center";
+      g.textBaseline = "middle";
+      var labels = [[-50, "−50"], [-25, "−25"], [0, "0"], [25, "+25"], [50, "+50"]];
+      for (var i = 0; i < labels.length; i++) {
+        var la = ang(labels[i][0]);
+        var lr = R - 24;
+        g.fillText(labels[i][1], cx + Math.cos(la) * lr, cy + Math.sin(la) * lr);
+      }
+      g.globalAlpha = 1;
+
+      // 指針：從中心畫到弧，末端一顆點
+      if (state !== "idle" && cents !== null && isFinite(cents)) {
+        var na = ang(cents);
+        var col = Math.abs(cents) <= 5 ? ok : (Math.abs(cents) <= 15 ? warn : bad);
+        g.strokeStyle = col;
+        g.lineCap = "round";
+        g.lineWidth = 3;
+        g.beginPath();
+        g.moveTo(cx, cy);
+        g.lineTo(cx + Math.cos(na) * (R - 4), cy + Math.sin(na) * (R - 4));
+        g.stroke();
+        g.fillStyle = col;
+        g.beginPath();
+        g.arc(cx + Math.cos(na) * (R - 4), cy + Math.sin(na) * (R - 4), 5, 0, Math.PI * 2);
+        g.fill();
+      }
+      // 中心鉸鏈（有指針時才畫，不然會是一顆孤零零的點）
+      if (state === "idle" || cents === null) return;
+      g.fillStyle = accent;
+      g.beginPath();
+      g.arc(cx, cy, 4, 0, Math.PI * 2);
+      g.fill();
+    }
+
+    /* ── 顯示更新 ──────────────────────────────────────────── */
+    var elNote = $("tune-note"), elSub = $("tune-sub"), elCents = $("tune-cents"),
+        elFreq = $("tune-freq"), elTarget = $("tune-target"), elLevel = $("tune-level"),
+        elStatus = $("tune-status");
+
+    function idleReadout(msg) {
+      elNote.className = "tune-note is-idle";
+      elNote.innerHTML = "—<sup></sup>";
+      if (msg) elSub.textContent = msg;
+      elCents.textContent = "—";
+      elFreq.textContent = "—";
+      elTarget.textContent = "—";
+      elLevel.style.width = "0%";
+      lastCents = null;
+      drawGauge(null, "idle");
+    }
+
+    function classify(absCents) {
+      if (absCents <= 5) return "is-ok";
+      if (absCents <= 15) return "is-warn";
+      return "is-bad";
+    }
+
+    function renderDetection(freq, level) {
+      var midi = freqToMidi(freq, refA4);
+      var target = null, best = 1e9;
+
+      if (modeId !== "chromatic") {
+        var list = targets();
+        for (var i = 0; i < list.length; i++) {
+          if (list[i].midi === null) continue;
+          var c = centsTo(list[i].midi, midi);
+          if (Math.abs(c) < Math.abs(best)) { best = c; target = list[i]; }
+        }
+        var near = Math.round(midi);
+        var detName = noteName(near) + noteOct(near);
+        var tf = target ? midiToFreq(target.midi, refA4) : null;
+        var shownCents = target ? best : 0;
+        var abs = Math.abs(shownCents);
+
+        // 樂器模式不顯示八度：正在調的是「哪條弦」，不是聽到的音高。
+        // 吉他第 5 弦叫 A2，但你彈 A3、A4 都算對，標了八度反而讓人以為調錯。
+        elNote.className = "tune-note " + classify(abs);
+        elNote.innerHTML = target ? target.name : "—";
+        elCents.textContent = (shownCents > 0 ? "+" : shownCents < 0 ? "−" : "±") + Math.abs(Math.round(shownCents));
+        elFreq.textContent = freq.toFixed(1);
+        elTarget.textContent = target ? (target.label + " 弦 · " + (tf ? tf.toFixed(1) : "") + " Hz") : "—";
+        elSub.innerHTML = abs <= 5
+          ? "<strong>準了</strong>　" + (target ? target.name + noteOct(target.midi) + " 弦" : "")
+          : "偵測到 <strong>" + detName + "</strong>（" + freq.toFixed(1) + " Hz）　" +
+            (abs > 45 ? "離空弦音有點遠，確認一下是不是這條弦" : (shownCents > 0 ? "偏高，放鬆一點" : "偏低，再轉緊一點"));
+        highlightString(target, shownCents);
+      } else {
+        var near2 = Math.round(midi);
+        var cents = (midi - near2) * 100;
+        var abs2 = Math.abs(cents);
+        elNote.className = "tune-note " + classify(abs2);
+        elNote.innerHTML = noteName(near2) + "<sup>" + noteOct(near2) + "</sup>";
+        elCents.textContent = (cents > 0 ? "+" : cents < 0 ? "−" : "±") + Math.abs(Math.round(cents));
+        elFreq.textContent = freq.toFixed(1);
+        elTarget.textContent = midiToFreq(near2, refA4).toFixed(1) + " Hz";
+        elSub.innerHTML = abs2 <= 5
+          ? "<strong>準了</strong>"
+          : (cents > 0 ? "偏高 " + Math.abs(Math.round(cents)) + " cent" : "偏低 " + Math.abs(Math.round(cents)) + " cent");
+        highlightString(null, 0);
+      }
+
+      elLevel.style.width = Math.min(100, Math.round(level * 380)) + "%";
+      lastCents = modeId === "chromatic"
+        ? (midi - Math.round(midi)) * 100
+        : best;
+      drawGauge(lastCents, "live");
+    }
+
+    /* ── 空弦按鈕 ──────────────────────────────────────────── */
+    var stringsEl = $("tune-strings"), emptyEl = $("tune-empty");
+    var stringBtns = [];
+
+    function highlightString(target, cents) {
+      for (var i = 0; i < stringBtns.length; i++) {
+        var b = stringBtns[i];
+        var on = target && b.getAttribute("data-midi") === String(target.midi);
+        b.classList.toggle("is-active", !!on);
+        b.classList.toggle("is-in", !!on && Math.abs(cents) <= 5);
+      }
+    }
+
+    function buildStrings() {
+      stringsEl.innerHTML = "";
+      stringBtns = [];
+      var inst = instrumentById(modeId);
+      if (!inst.strings.length) {
+        stringsEl.style.display = "none";
+        emptyEl.style.display = "";
+        return;
+      }
+      stringsEl.style.display = "";
+      emptyEl.style.display = "none";
+      inst.strings.forEach(function (s) {
+        var midi = parseNote(s.p);
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "tune-string";
+        b.setAttribute("data-midi", String(midi));
+        b.innerHTML = "<b>" + s.p.replace(/(-?\d+)$/, "") + "</b><span>" + s.n + " 弦</span>";
+        b.title = "播放參考音 " + s.p + "（" + midiToFreq(midi, refA4).toFixed(1) + " Hz）";
+        b.addEventListener("click", function () {
+          playReference(midi);
+          toast(s.p.replace(/(-?\d+)$/, "") + noteOct(midi) + " 參考音");
+        });
+        stringsEl.appendChild(b);
+        stringBtns.push(b);
+      });
+    }
+
+    function playReference(midi) {
+      var c = audioCtx();
+      var f = midiToFreq(midi, refA4);
+      var now = c.currentTime;
+      var osc = c.createOscillator(), osc2 = c.createOscillator(), g = c.createGain();
+      osc.type = "triangle";
+      osc.frequency.value = f;
+      osc2.type = "sine";
+      osc2.frequency.value = f * 2;
+      var g2 = c.createGain();
+      g2.gain.value = 0.12;
+      g.gain.setValueAtTime(0, now);
+      g.gain.linearRampToValueAtTime(0.24, now + 0.015);
+      g.gain.exponentialRampToValueAtTime(0.0001, now + 1.8);
+      osc.connect(g);
+      osc2.connect(g2); g2.connect(g);
+      g.connect(c.destination);
+      osc.start(now); osc.stop(now + 1.9);
+      osc2.start(now); osc2.stop(now + 1.9);
+    }
+
+    /* ── 偵測迴圈 ──────────────────────────────────────────── */
+    function median(arr) {
+      var a = arr.slice().sort(function (x, y) { return x - y; });
+      return a[Math.floor(a.length / 2)];
+    }
+
+    function loop() {
+      if (!tune.running) return;
+      var an = tune.analyser;
+      an.getFloatTimeDomainData(tune.rawBuf);
+
+      var dec = decimate(tune.rawBuf, tune.decim);
+      var level = rmsOf(dec);
+      var res = level < 0.006 ? null : detectPitch(dec, tune.effRate);
+
+      if (!res || res.clarity < 0.5) {
+        tune.quiet++;
+        elLevel.style.width = Math.min(100, Math.round(level * 380)) + "%";
+        if (tune.quiet > 6) {
+          tune.hist = [];
+          idleReadout("等待聲音…彈一個單音，或吹一個長音");
+          highlightString(null, 0);
+        }
+      } else {
+        tune.quiet = 0;
+        // 音高跳超過 6 個半音（換弦、換音）就重新開始平滑，免得指針拖著跑
+        if (tune.hist.length && Math.abs(12 * Math.log2(res.freq / median(tune.hist))) > 6) tune.hist = [];
+        tune.hist.push(res.freq);
+        if (tune.hist.length > 5) tune.hist.shift();
+        renderDetection(median(tune.hist), level);
+      }
+      tune.timer = setTimeout(loop, 70);
+    }
+
+    /* ── 麥克風開關 ────────────────────────────────────────── */
+    var btnToggle = $("tune-toggle");
+
+    function setRunning(on) {
+      tune.running = on;
+      btnToggle.textContent = on ? "停止聽音" : "開始聽音";
+      btnToggle.classList.toggle("tune-btn--on", on);
+      btnToggle.classList.toggle("tune-btn--primary", !on);
+      elStatus.textContent = on ? "Listening…" : "麥克風未開啟";
+      elStatus.classList.toggle("is-live", on);
+    }
+
+    function stop() {
+      tune.running = false;
+      clearTimeout(tune.timer);
+      if (tune.stream) { tune.stream.getTracks().forEach(function (t) { t.stop(); }); tune.stream = null; }
+      tune.analyser = null;
+      setRunning(false);
+      idleReadout("已停止。按「開始聽音」重新開啟麥克風。");
+    }
+
+    function start() {
+      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+        toast("這個瀏覽器不支援麥克風收音");
+        return;
+      }
+      var c = audioCtx();
+      var devId = $("tune-device").value;
+      var audio = {
+        echoCancellation: false, noiseSuppression: false, autoGainControl: false, channelCount: 1
+      };
+      if (devId) audio.deviceId = { exact: devId };
+
+      navigator.mediaDevices.getUserMedia({ audio: audio, video: false }).then(function (stream) {
+        tune.stream = stream;
+        var src = c.createMediaStreamSource(stream);
+        var an = c.createAnalyser();
+        an.fftSize = 8192;
+        an.smoothingTimeConstant = 0;
+        src.connect(an);            // 只接分析節點，不接到喇叭，避免回授
+        tune.analyser = an;
+        tune.rawBuf = new Float32Array(an.fftSize);
+        // 保留 16 kHz 左右：再降下去，高音（880 Hz 以上）的音分解析度會不夠
+        tune.decim = Math.max(1, Math.round(c.sampleRate / 16000));
+        tune.effRate = c.sampleRate / tune.decim;
+        tune.hist = [];
+        tune.quiet = 0;
+        setRunning(true);
+        elSub.textContent = "聽音中…";
+        fillDevices();
+        loop();
+      }).catch(function (err) {
+        setRunning(false);
+        var msg = err && err.name === "NotAllowedError"
+          ? "麥克風權限被拒絕，請在網址列左邊的鎖頭圖示重新允許"
+          : "拿不到麥克風：" + (err && err.message ? err.message : err);
+        toast(msg);
+        elStatus.textContent = "無法開啟麥克風";
+      });
+    }
+
+    btnToggle.addEventListener("click", function () { tune.running ? stop() : start(); });
+
+    function fillDevices() {
+      if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) return;
+      navigator.mediaDevices.enumerateDevices().then(function (list) {
+        var sel = $("tune-device");
+        var cur = sel.value;
+        var inputs = list.filter(function (d) { return d.kind === "audioinput"; });
+        if (!inputs.length) return;
+        sel.innerHTML = '<option value="">預設麥克風</option>';
+        inputs.forEach(function (d, i) {
+          var o = document.createElement("option");
+          o.value = d.deviceId;
+          o.textContent = d.label || ("麥克風 " + (i + 1));
+          sel.appendChild(o);
+        });
+        if (cur) sel.value = cur;
+      }).catch(function () {});
+    }
+    if (navigator.mediaDevices && navigator.mediaDevices.addEventListener) {
+      navigator.mediaDevices.addEventListener("devicechange", fillDevices);
+    }
+
+    /* ── 樂器選單與參考音 ──────────────────────────────────── */
+    var modeSel = $("tune-mode");
+    (function buildModeSelect() {
+      INSTRUMENTS.forEach(function (inst) {
+        var o = document.createElement("option");
+        o.value = inst.id;
+        o.textContent = inst.name;
+        modeSel.appendChild(o);
+      });
+      modeSel.value = modeId;
+      if (!modeSel.value) { modeId = "guitar"; modeSel.value = modeId; }
+    })();
+
+    modeSel.addEventListener("change", function () {
+      modeId = modeSel.value;
+      pref.write("mode", modeId);
+      targetCache = null;
+      buildStrings();
+      tune.hist = [];
+      idleReadout(instrumentById(modeId).strings.length
+        ? "已切換到「" + instrumentById(modeId).name + "」，彈一條空弦開始"
+        : "自動辨識模式：彈或吹任何一個音");
+    });
+
+    var refInput = $("tune-ref");
+    refInput.value = refA4;
+    function applyRef(v) {
+      var n = parseFloat(v);
+      if (!isFinite(n) || n < 400 || n > 480) return;
+      refA4 = n;
+      pref.write("refA4", refA4);
+      buildStrings();
+      if (tune.running) { tune.hist = []; }
+    }
+    refInput.addEventListener("change", function () { applyRef(refInput.value); refInput.value = refA4; });
+    refInput.addEventListener("input", function () { applyRef(refInput.value); });
+
+    /* ── 節拍器 ────────────────────────────────────────────── */
+    var metro = {
+      on: false, bpm: pref.read("bpm", 90), beats: 4, denom: 4, sub: 1,
+      accent: true, silent: false, sound: pref.read("sound", "wood"), vol: 0.7,
+      next: 0, beatIdx: 0, pulse: 0, queue: [], tickTimer: 0, raf: 0, taps: []
+    };
+
+    var elMetroToggle = $("metro-toggle"), elMetroStatus = $("metro-status"),
+        elBpmVal = $("metro-bpm-val"), elBpmRange = $("metro-range"),
+        elDots = $("metro-dots"), elVol = $("metro-vol");
+
+    function beatSec() { return (60 / metro.bpm) * (4 / metro.denom); }
+
+    function readMeter() {
+      var v = $("metro-meter").value.split("/");
+      metro.beats = parseInt(v[0], 10) || 4;
+      metro.denom = parseInt(v[1], 10) || 4;
+    }
+
+    function buildDots() {
+      elDots.innerHTML = "";
+      for (var i = 0; i < metro.beats; i++) {
+        var d = document.createElement("span");
+        d.className = "metro-dot is-beat" + (i === 0 ? " is-first" : "");
+        elDots.appendChild(d);
+      }
+    }
+
+    function clickAt(time, accent) {
+      if (metro.silent) return;
+      var c = audioCtx();
+      var g = c.createGain();
+      g.connect(c.destination);
+      var peak = (accent ? 1 : 0.6) * metro.vol * 0.9;
+
+      if (metro.sound === "beep") {
+        var o = c.createOscillator();
+        o.type = "sine";
+        o.frequency.setValueAtTime(accent ? 1320 : 990, time);
+        g.gain.setValueAtTime(0, time);
+        g.gain.linearRampToValueAtTime(peak * 0.55, time + 0.004);
+        g.gain.exponentialRampToValueAtTime(0.0001, time + (accent ? 0.16 : 0.11));
+        o.connect(g); o.start(time); o.stop(time + 0.2);
+      } else if (metro.sound === "drum") {
+        var o2 = c.createOscillator();
+        o2.type = "sine";
+        o2.frequency.setValueAtTime(accent ? 150 : 120, time);
+        o2.frequency.exponentialRampToValueAtTime(48, time + 0.09);
+        g.gain.setValueAtTime(0, time);
+        g.gain.linearRampToValueAtTime(peak, time + 0.005);
+        g.gain.exponentialRampToValueAtTime(0.0001, time + 0.17);
+        o2.connect(g); o2.start(time); o2.stop(time + 0.2);
+      } else {
+        // 木魚：短促的方波＋一點高通，聽起來像木頭敲到
+        var o3 = c.createOscillator();
+        o3.type = "square";
+        o3.frequency.setValueAtTime(accent ? 1560 : 1180, time);
+        var hp = c.createBiquadFilter();
+        hp.type = "highpass"; hp.frequency.value = 600;
+        g.gain.setValueAtTime(0, time);
+        g.gain.linearRampToValueAtTime(peak * 0.42, time + 0.002);
+        g.gain.exponentialRampToValueAtTime(0.0001, time + 0.055);
+        o3.connect(hp); hp.connect(g); o3.start(time); o3.stop(time + 0.09);
+      }
+    }
+
+    function scheduler() {
+      if (!metro.on) return;
+      var c = audioCtx();
+      var look = c.currentTime + 0.12;
+      var guard = 0;
+      while (metro.next < look && guard++ < 64) {
+        var accent = metro.accent && metro.beatIdx === 0 && metro.pulse === 0;
+        clickAt(metro.next, accent);
+        metro.queue.push({ t: metro.next, beat: metro.beatIdx, accent: accent });
+        metro.pulse++;
+        if (metro.pulse >= metro.sub) {
+          metro.pulse = 0;
+          metro.beatIdx = (metro.beatIdx + 1) % metro.beats;
+        }
+        metro.next += beatSec() / metro.sub;
+      }
+    }
+
+    function paintBeat(beat, accent) {
+      var dots = elDots.children;
+      for (var i = 0; i < dots.length; i++) {
+        dots[i].classList.toggle("is-on", i === beat);
+        dots[i].classList.toggle("is-accent", i === beat && accent);
+      }
+    }
+
+    function visualLoop() {
+      if (!metro.on) { metro.raf = 0; return; }
+      var now = ctx ? ctx.currentTime : 0;
+      while (metro.queue.length && metro.queue[0].t <= now) {
+        var e = metro.queue.shift();
+        paintBeat(e.beat, e.accent);
+      }
+      metro.raf = requestAnimationFrame(visualLoop);
+    }
+
+    function startMetro() {
+      if (metro.on) return;
+      var c = audioCtx();
+      metro.on = true;
+      metro.beatIdx = 0;
+      metro.pulse = 0;
+      metro.queue = [];
+      metro.next = c.currentTime + 0.08;
+      elMetroToggle.textContent = "停止";
+      elMetroToggle.classList.remove("tune-btn--primary");
+      elMetroToggle.classList.add("tune-btn--on");
+      elMetroStatus.textContent = "▶ " + metro.bpm + " BPM　" + $("metro-meter").value;
+      elMetroStatus.classList.add("is-live");
+      metro.tickTimer = setInterval(scheduler, 25);
+      scheduler();
+      if (!metro.raf) metro.raf = requestAnimationFrame(visualLoop);
+    }
+
+    function stopMetro() {
+      metro.on = false;
+      clearInterval(metro.tickTimer);
+      metro.tickTimer = 0;
+      metro.queue = [];
+      if (metro.raf) { cancelAnimationFrame(metro.raf); metro.raf = 0; }
+      var dots = elDots.children;
+      for (var i = 0; i < dots.length; i++) dots[i].classList.remove("is-on", "is-accent");
+      elMetroToggle.textContent = "開始";
+      elMetroToggle.classList.remove("tune-btn--on");
+      elMetroToggle.classList.add("tune-btn--primary");
+      elMetroStatus.textContent = "已停止";
+      elMetroStatus.classList.remove("is-live");
+    }
+
+    elMetroToggle.addEventListener("click", function () {
+      metro.on ? stopMetro() : startMetro();
+    });
+
+    function setBpm(v) {
+      metro.bpm = Math.max(30, Math.min(260, Math.round(v)));
+      elBpmVal.textContent = metro.bpm;
+      elBpmRange.value = metro.bpm;
+      pref.write("bpm", metro.bpm);
+      if (metro.on) elMetroStatus.textContent = "▶ " + metro.bpm + " BPM　" + $("metro-meter").value;
+    }
+
+    elBpmRange.addEventListener("input", function () { setBpm(this.value); });
+
+    var elTap = $("metro-tap");
+    elTap.addEventListener("click", function () {
+      var now = performance.now();
+      if (metro.taps.length && now - metro.taps[metro.taps.length - 1] > 2500) metro.taps = [];
+      metro.taps.push(now);
+      if (metro.taps.length > 5) metro.taps.shift();
+      if (metro.taps.length >= 2) {
+        var sum = 0;
+        for (var i = 1; i < metro.taps.length; i++) sum += metro.taps[i] - metro.taps[i - 1];
+        setBpm(60000 / (sum / (metro.taps.length - 1)));
+      }
+    });
+
+    $("metro-meter").addEventListener("change", function () {
+      readMeter();
+      buildDots();
+      if (metro.on) {
+        metro.beatIdx = 0;
+        metro.pulse = 0;
+        elMetroStatus.textContent = "▶ " + metro.bpm + " BPM　" + this.value;
+        paintBeat(0, false);
+      }
+      pref.write("meter", this.value);
+    });
+    $("metro-sub").addEventListener("change", function () { metro.sub = parseInt(this.value, 10) || 1; });
+    $("metro-sound").addEventListener("change", function () { metro.sound = this.value; pref.write("sound", this.value); });
+    $("metro-accent").addEventListener("change", function () { metro.accent = this.checked; });
+    $("metro-silent").addEventListener("change", function () { metro.silent = this.checked; });
+    elVol.addEventListener("input", function () { metro.vol = this.value / 100; });
+
+    /* ── 還原上次的設定 ────────────────────────────────────── */
+    elVol.value = Math.round(metro.vol * 100);
+    var savedMeter = pref.read("meter", "4/4");
+    if ($("metro-meter").querySelector('option[value="' + savedMeter + '"]')) $("metro-meter").value = savedMeter;
+    readMeter();
+    buildDots();
+    setBpm(metro.bpm);
+    metro.sound && ($("metro-sound").value = metro.sound);
+
+    buildStrings();
+    idleReadout("按「開始聽音」並允許麥克風");
+
+    // 主題切換時重畫刻度盤（顏色是從 CSS 變數讀的）
+    function repaint() { drawGauge(lastCents, lastCents === null ? "idle" : "live"); }
+    new MutationObserver(repaint)
+      .observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+    window.addEventListener("resize", repaint);
+    drawGauge(null, "idle");
+
+    // 離開頁面時把麥克風與節拍器關掉
+    window.addEventListener("pagehide", function () { stop(); stopMetro(); });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>
