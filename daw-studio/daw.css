@@ -978,3 +978,46 @@ a.tbtn { text-decoration: none; }
 .hmx-qbar span { position: relative; display: block; text-align: center; font-size: 10.5px; line-height: 18px; color: var(--tx0); }
 /* 高品質模式：即時監聽的音高圖用不到，旋鈕「滑音／人性化」仍有效 */
 .hmx.hq .hmx-graph { opacity: .45; }
+/* ---- 英文介面：英文字比中文長，按鈕縮字、超出用省略號，不要互相蓋住 ---- */
+html[lang="en"] .corner .tbtn { font-size: 10.5px; padding: 0 4px; letter-spacing: -.1px; }
+html[lang="en"] #inspector .tbtn { font-size: 11px; padding: 0 5px; }
+html[lang="en"] .tbtn { white-space: nowrap; }
+html[lang="en"] #inspector .row .tbtn { overflow: hidden; text-overflow: ellipsis; display: block; }
+html[lang="en"] .chord-apply .tbtn,
+html[lang="en"] #inspector [data-apply] { overflow: hidden; text-overflow: ellipsis; }
+html[lang="en"] .insp-sec > h4, html[lang="en"] .sec-h { letter-spacing: 0; }
+
+/* ---------- AI 編曲視窗 ---------- */
+.aiw { position: fixed; inset: 0; z-index: 195; background: rgba(0,0,0,.45); display: grid; place-items: center; }
+.aiw.hidden { display: none; }
+.aiw-win { width: min(980px, 96vw); max-height: 92vh; overflow: auto; display: grid; gap: 10px; align-content: start; padding: 12px 16px 16px; color: var(--tx0); background: var(--bg2); border: 1px solid var(--line2); border-radius: 12px; box-shadow: 0 24px 70px rgba(0,0,0,.5); }
+.aiw-head { display: flex; align-items: center; gap: 10px; }
+.aiw-head > b { font-size: 15px; }
+.aiw-sub { color: var(--tx2); font-size: 11.5px; }
+.aiw-head .spacer, .aiw-plan-h .spacer, .aiw-opt-h .spacer { flex: 1; }
+.aiw-tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--line); }
+.aiw-tabs button { background: none; border: 0; border-bottom: 2px solid transparent; color: var(--tx1); padding: 7px 14px; font: inherit; font-size: 13px; cursor: pointer; }
+.aiw-tabs button.on { color: var(--tx0); border-bottom-color: var(--accent); font-weight: 600; }
+.aiw-pane { display: grid; gap: 10px; }
+.aiw-pane[hidden] { display: none; }
+.aiw-row { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: end; }
+.aiw-row[hidden] { display: none; }
+.aiw-row .f { display: grid; gap: 3px; font-size: 12px; color: var(--tx1); }
+.aiw-rng { display: flex; align-items: center; gap: 6px; }
+.aiw-rng b { min-width: 36px; font-weight: 500; color: var(--tx0); }
+.aiw-info b { color: var(--tx0); }
+.aiw-opts { display: grid; gap: 8px; }
+.aiw-opt { border: 1px solid var(--line2); border-radius: 8px; padding: 9px 12px; background: var(--bg1); display: grid; gap: 4px; }
+.aiw-opt.on { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset; }
+.aiw-opt-h { display: flex; align-items: center; gap: 10px; }
+.aiw-fit { font-size: 11.5px; color: var(--tx2); }
+.aiw-prog { font-family: var(--mono); font-size: 13px; color: var(--tx0); line-height: 1.6; word-break: break-word; }
+.aiw-parts { display: flex; flex-wrap: wrap; gap: 6px 14px; }
+.aiw-part { display: flex; align-items: center; gap: 5px; font-size: 12.5px; color: var(--tx1); border-left: 3px solid var(--c); padding-left: 6px; cursor: pointer; }
+.aiw-plan-h { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.aiw-chk { display: flex; align-items: center; gap: 4px; font-size: 12px; color: var(--tx1); }
+.aiw-plan { display: grid; gap: 4px; max-height: 300px; overflow-y: auto; }
+.aiw-seg { display: grid; grid-template-columns: 70px 160px 110px 220px 30px 30px; justify-content: start; gap: 8px; align-items: center; padding: 4px 8px; border: 1px solid var(--line2); border-radius: 7px; background: var(--bg1); font-size: 12px; color: var(--tx1); }
+.aiw-seg input[type=number] { width: 52px; }
+.aiw-bar { font-family: var(--mono); color: var(--tx2); }
+.aiw-empty { color: var(--tx2); padding: 16px; text-align: center; }

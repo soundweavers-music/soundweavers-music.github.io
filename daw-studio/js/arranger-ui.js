@@ -76,6 +76,7 @@ function build() {
     <div class="arr-head"><b>自動伴奏電子琴</b><span class="arr-sub">左手按和弦、右手彈旋律；段落按鈕切換前奏、主歌、副歌、過門</span>
       <div class="spacer"></div>
       <label class="arr-en"><input type="checkbox" checked> 伴奏接管左手</label>
+      <button type="button" class="tbtn ghost arr-aibtn" title="依和弦軌把整首直接編成 MIDI">✦ AI 整首編曲</button>
       <button type="button" class="tbtn ghost arr-learnbtn">MIDI 鍵位設定</button>
       <button type="button" class="tbtn ghost arr-max" title="最大化">▢</button>
       <button type="button" class="tbtn ghost arr-x" title="關閉">✕</button></div>
@@ -153,6 +154,7 @@ function build() {
   // 段落
   $('.arr-secs').innerHTML = SECTIONS.map(s => `<button type="button" data-sec="${s.id}" class="${s.kind || ''}"><i></i><b>${s.name}</b><kbd>${s.key}</kbd></button>`).join('');
   $('.arr-secs').onclick = e => { const b = e.target.closest('button'); if (b) doAction('sec:' + b.dataset.sec); };
+  $('.arr-aibtn').onclick = () => { toggleArranger(false); toggleAI(true); };
   $('.arr-learnbtn').onclick = () => { const l = $('.arr-learn'); l.hidden = !l.hidden; renderLearn(); };
   renderParts();
   bindLevel(); renderKb();
