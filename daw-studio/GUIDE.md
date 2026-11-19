@@ -544,6 +544,7 @@ MIDI 軌的檢閱器有「這一軌移調」：±1 半音或 ±8 度。它只影
 織音線上編曲製作預設會背景載入兩份音色庫，不需要你下載：
 
 - **平台鋼琴**：Salamander Grand Piano（Yamaha C5），作者 Alexander Holm，授權 CC BY 3.0，本站已抽稀成 7 MB 的 sf2。
+- **弦樂**：Sonatina Symphonic Orchestra（小提琴、中提琴、大提琴、低音提琴），CC0 公有領域，本站抽稀成 3 MB 的 sf2。
 - **其他 GM 音色**：GeneralUser GS，作者 S. Christian Collins，免費使用。
 
 兩份都在 `assets/daw-bank/`，只在你開啟這個工具時才抓。
