@@ -28,10 +28,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 DM = BASE_DIR / "content" / "digitalmusic"
 FIG_DIR = BASE_DIR / "assets" / "digitalmusic"
 
+# 這裡只列「一定是空話」的詞。人聲課程那份清單還禁用「完美」「絕對」，
+# 但在錄音工程的中文語境裡那兩個字多半是技術用法（「絕對不能超過 Ceiling」
+# 「沒有絕對正確的擺位」），照抄只會製造假警報。
 BANNED = [
     ("萬用開場", re.compile(r"歡迎來到.{0,12}(課程|世界)|在我們共同走過")),
-    ("行銷詞", re.compile(r"完美|極致|神級|終極|震撼|神器|靈魂的洗禮")),
-    ("無條件保證", re.compile(r"絕對|保證|百分之百|一定要買")),
+    ("行銷詞", re.compile(r"神級|神器|極致飽滿|靈魂的洗禮|震撼人心")),
     ("含糊來源", re.compile(r"據說|一般認為|大家都知道|眾所周知")),
 ]
 MIN_CHARS, MAX_CHARS = 1200, 12000
