@@ -22,6 +22,8 @@ Gain Staging（增益階段管理）是錄音與混音中最基本卻最常被�
 
 ## 三、錄音階段的理想電平：-18 dBFS 到 -12 dBFS
 
+![訊號鏈四站的電平與餘裕](/assets/digitalmusic/gain-staging.svg)
+
 ### 為什麼不錄到 0 dBFS？
 
 許多初學者錄音時拚命推前級增益，看到波形填滿整個畫面才安心，彷彿「不用白不用」。這是完全錯誤的觀念。24-bit 錄音的噪聲底（noise floor）大約在 -120 dBFS 左右，而你的麥克風前級與環境噪聲通常在 -60 dBFS 到 -50 dBFS 之間。即使你把訊號峰值只錄在 -18 dBFS，訊號與噪聲的差距（SNR）仍然有 30 dB 以上，完全足夠。
@@ -89,7 +91,7 @@ headroom 保留得越多，混音時的彈性就越大。你可以自由地添�
 ### 實用工具
 
 - **Voxengo SPAN**：免費的頻譜分析儀，內建 peak / RMS / K-system meter，可以精確校準插件 input / output。
-- **Meter Plugins**：DAW 內建的 TRIM 或 GAIN 插件（如 Pro Tools 的 Trim、Logic 的 Gain、Ableton Live 的 Utility）是調整 gain staging 最直接的工具。
+- **DAW 內建增益工具**：Pro Tools 的 Trim、Logic 的 Gain、Ableton Live 的 Utility，是調整 gain staging 最直接的工具。
 - **LUFS Meter**：Youlean Loudness Meter 或 DAW 內建 loudness meter，幫助確認整體混音的 loudness 是否符合目標。
 
 ## 六、VU Meter 與 dBFS Meter：兩種不同的視角
@@ -107,7 +109,7 @@ VU meter 是類比時代的標準，它模擬了**人類耳朵對聲音強度的
 在數位 DAW 中，VU meter 插件（如 Klanghelm VUMT、PSP VintageMeter 或 DAW 內建的 VU 模式）通常將 -18 dBFS 對應到 0 VU。這意味著：
 
 - 0 VU = -18 dBFS（nominal level）
-- 訊號偶爾跳到 +3 VU（約 -12 dBFS）是可接受的
+- 訊號偶爾跳到 +3 VU（約 -15 dBFS）是可接受的
 - 持續超過 0 VU 太多表示電平過高
 
 ### 實務搭配使用
@@ -160,9 +162,9 @@ Reverb 或 delay 的 aux send 如果電平過高，回傳到 bus 時也可能造
 - Aux return 軌道本身也要有足夠 headroom
 - 在 reverb / delay 插件內部降低 wet mix 而非在 return 軌上硬壓
 
-### 錯誤六：忽略預聽 bus 的電平
+### 錯誤六：### 錯誤六：忽略匯流 bus（summing bus）的電平
 
-當你 solo 一軌時聽起來正常，但全部 play 時 master bus 卻爆了。這是因為各軌道的頻率疊加與相位相關性會使總和電平高於個別軌道的算術和（constructive interference）。所以即使每一軌都低於 -18 dBFS，30 軌疊加後 master bus 仍然可能到 -3 dBFS 甚至更高。混音過程中要定期檢查 master bus 的 peak 與 RMS 電平。
+當你 solo 一軌時聽起來正常，但全部 play 時 master bus 卻爆了。這是因為各軌道的頻率與相位相關性，會讓總和電平遠高於「不相關訊號的功率和」（每翻倍僅 +3 dB），並趨近「算術和」（每翻倍 +6 dB，constructive interference）。所以即使每一軌都低於 -18 dBFS，30 軌疊加後 master bus 仍然可能到 -3 dBFS 甚至更高。混音過程中要定期檢查 master bus 的 peak 與 RMS 電平。
 
 ## 八、Gain Staging 實戰工作流程
 

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 420" role="img" aria-label="五種基本濾波器">
+  <title>五種基本濾波器</title>
+  <rect width="660" height="420" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">五種基本濾波器</text>
+  <text x="26" y="55" class="ts" font-size="12.5">高通、低通、鐘形、低擱架、高擱架</text>
+  <text x="26" y="84" class="ts" font-size="12">五種基本形狀；每一種的參數只有頻率、增益、Q 三件事。</text>
+  <rect x="40" y="104" width="184" height="128" rx="6" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.4"/>
+  <text x="50" y="124" class="t" font-size="11.5" font-weight="700" fill="#A67C52">High-pass</text>
+  <text x="50" y="140" class="ts" font-size="9" fill="#8C8078">切掉低頻，斜率 12–24 dB/oct</text>
+  <path d="M50 210 L214 210" class="thin"/>
+  <path d="M50.0 220.0 L54.1 220.0 L58.2 220.0 L62.3 220.0 L66.4 220.0 L70.5 220.0 L74.6 220.0 L78.7 220.0 L82.8 220.0 L86.9 220.0 L91.0 220.0 L95.1 220.0 L99.2 220.0 L103.3 220.0 L107.4 220.0 L111.5 220.0 L115.6 220.0 L119.7 220.0 L123.8 220.0 L127.9 220.0 L132.0 220.0 L136.1 220.0 L140.2 219.3 L144.3 215.7 L148.4 212.1 L152.5 208.5 L156.6 204.8 L160.7 201.2 L164.8 197.6 L168.9 193.9 L173.0 190.3 L177.1 186.7 L181.2 183.0 L185.3 179.4 L189.4 175.8 L193.5 172.2 L197.6 168.5 L201.7 164.9 L205.8 161.3 L209.9 157.6 L214.0 154.0" class="acc"/>
+  <rect x="240" y="104" width="184" height="128" rx="6" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.4"/>
+  <text x="250" y="124" class="t" font-size="11.5" font-weight="700" fill="#6B8FBF">Low-pass</text>
+  <text x="250" y="140" class="ts" font-size="9" fill="#8C8078">切掉高頻</text>
+  <path d="M250 210 L414 210" class="thin"/>
+  <path d="M250.0 154.0 L254.1 157.6 L258.2 161.3 L262.3 164.9 L266.4 168.5 L270.5 172.2 L274.6 175.8 L278.7 179.4 L282.8 183.0 L286.9 186.7 L291.0 190.3 L295.1 193.9 L299.2 197.6 L303.3 201.2 L307.4 204.8 L311.5 208.5 L315.6 212.1 L319.7 215.7 L323.8 219.3 L327.9 220.0 L332.0 220.0 L336.1 220.0 L340.2 220.0 L344.3 220.0 L348.4 220.0 L352.5 220.0 L356.6 220.0 L360.7 220.0 L364.8 220.0 L368.9 220.0 L373.0 220.0 L377.1 220.0 L381.2 220.0 L385.3 220.0 L389.4 220.0 L393.5 220.0 L397.6 220.0 L401.7 220.0 L405.8 220.0 L409.9 220.0 L414.0 220.0" class="blue"/>
+  <rect x="440" y="104" width="184" height="128" rx="6" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.4"/>
+  <text x="450" y="124" class="t" font-size="11.5" font-weight="700" fill="#6F8F6A">Bell</text>
+  <text x="450" y="140" class="ts" font-size="9" fill="#8C8078">中間挖或加，Q 決定寬窄</text>
+  <path d="M450 210 L614 210" class="thin"/>
+  <path d="M450.0 187.0 L454.1 187.0 L458.2 187.0 L462.3 187.0 L466.4 187.0 L470.5 187.0 L474.6 187.0 L478.7 187.0 L482.8 187.0 L486.9 187.0 L491.0 187.0 L495.1 187.0 L499.2 187.0 L503.3 186.8 L507.4 186.3 L511.5 184.8 L515.6 181.4 L519.7 175.4 L523.8 167.4 L527.9 160.2 L532.0 157.3 L536.1 160.2 L540.2 167.4 L544.3 175.4 L548.4 181.4 L552.5 184.8 L556.6 186.3 L560.7 186.8 L564.8 187.0 L568.9 187.0 L573.0 187.0 L577.1 187.0 L581.2 187.0 L585.3 187.0 L589.4 187.0 L593.5 187.0 L597.6 187.0 L601.7 187.0 L605.8 187.0 L609.9 187.0 L614.0 187.0" class="green"/>
+  <rect x="40" y="254" width="184" height="128" rx="6" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.4"/>
+  <text x="50" y="274" class="t" font-size="11.5" font-weight="700" fill="#A67C52">Low shelf</text>
+  <text x="50" y="290" class="ts" font-size="9" fill="#8C8078">低頻整段上下移</text>
+  <path d="M50 360 L214 360" class="thin"/>
+  <path d="M50.0 363.4 L54.1 363.3 L58.2 363.3 L62.3 363.2 L66.4 363.1 L70.5 362.9 L74.6 362.7 L78.7 362.3 L82.8 361.7 L86.9 360.9 L91.0 359.7 L95.1 358.0 L99.2 355.8 L103.3 353.1 L107.4 350.2 L111.5 347.3 L115.6 344.6 L119.7 342.4 L123.8 340.7 L127.9 339.5 L132.0 338.7 L136.1 338.1 L140.2 337.7 L144.3 337.5 L148.4 337.3 L152.5 337.2 L156.6 337.1 L160.7 337.1 L164.8 337.0 L168.9 337.0 L173.0 337.0 L177.1 337.0 L181.2 337.0 L185.3 337.0 L189.4 337.0 L193.5 337.0 L197.6 337.0 L201.7 337.0 L205.8 337.0 L209.9 337.0 L214.0 337.0" class="acc"/>
+  <rect x="240" y="254" width="184" height="128" rx="6" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.4"/>
+  <text x="250" y="274" class="t" font-size="11.5" font-weight="700" fill="#6B8FBF">High shelf</text>
+  <text x="250" y="290" class="ts" font-size="9" fill="#8C8078">高頻整段上下移</text>
+  <path d="M250 360 L414 360" class="thin"/>
+  <path d="M250.0 337.0 L254.1 337.0 L258.2 337.0 L262.3 337.0 L266.4 337.0 L270.5 337.0 L274.6 337.0 L278.7 337.0 L282.8 337.0 L286.9 337.0 L291.0 337.0 L295.1 337.0 L299.2 337.0 L303.3 336.9 L307.4 336.9 L311.5 336.8 L315.6 336.7 L319.7 336.5 L323.8 336.3 L327.9 335.9 L332.0 335.3 L336.1 334.5 L340.2 333.3 L344.3 331.6 L348.4 329.4 L352.5 326.7 L356.6 323.8 L360.7 320.9 L364.8 318.2 L368.9 316.0 L373.0 314.3 L377.1 313.1 L381.2 312.3 L385.3 311.7 L389.4 311.3 L393.5 311.1 L397.6 310.9 L401.7 310.8 L405.8 310.7 L409.9 310.7 L414.0 310.6" class="blue"/>
+  <text x="26" y="400" class="ts" font-size="11.5">減法優先：先想「哪個頻段不需要」，再想「哪裡要加」。</text>
+</svg>

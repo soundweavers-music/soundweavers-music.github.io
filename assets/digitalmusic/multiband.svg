@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 380" role="img" aria-label="多頻段壓縮的分頻">
+  <title>多頻段壓縮的分頻</title>
+  <rect width="660" height="380" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">多頻段壓縮的分頻</text>
+  <text x="26" y="55" class="ts" font-size="12.5">先把問題隔離，再各自處理</text>
+  <text x="26" y="84" class="ts" font-size="12">先把頻譜切成幾段，各自壓縮，再合起來——問題才不會被別段蓋掉。</text>
+  <rect x="70" y="118" width="140.0" height="40" rx="4" fill="#6B8FBF" stroke="#6B8FBF" stroke-width="1.2" opacity="0.3"/>
+  <text x="140.0" y="143" class="ts" font-size="10.5" text-anchor="middle">低頻</text>
+  <text x="76" y="178" class="ts" font-size="9.5" fill="#8C8078">控制貝斯與大鼓的起伏</text>
+  <path d="M210.0 118 L210.0 250" class="thin" stroke-dasharray="3 3"/>
+  <rect x="210.0" y="118" width="140.0" height="40" rx="4" fill="#6F8F6A" stroke="#6F8F6A" stroke-width="1.2" opacity="0.3"/>
+  <text x="280.0" y="143" class="ts" font-size="10.5" text-anchor="middle">中低</text>
+  <text x="216.0" y="178" class="ts" font-size="9.5" fill="#8C8078">處理箱音與悶感</text>
+  <path d="M350.0 118 L350.0 250" class="thin" stroke-dasharray="3 3"/>
+  <rect x="350.0" y="118" width="120.0" height="40" rx="4" fill="#A67C52" stroke="#A67C52" stroke-width="1.2" opacity="0.3"/>
+  <text x="410.0" y="143" class="ts" font-size="10.5" text-anchor="middle">中高</text>
+  <text x="356.0" y="178" class="ts" font-size="9.5" fill="#8C8078">修人聲與吉他的前傾</text>
+  <path d="M470.0 118 L470.0 250" class="thin" stroke-dasharray="3 3"/>
+  <rect x="470.0" y="118" width="100.0" height="40" rx="4" fill="#B0563F" stroke="#B0563F" stroke-width="1.2" opacity="0.3"/>
+  <text x="520.0" y="143" class="ts" font-size="10.5" text-anchor="middle">高頻</text>
+  <text x="476.0" y="178" class="ts" font-size="9.5" fill="#8C8078">馴服齒音與鈸</text>
+  <path d="M70 250 L570 250" class="thin"/>
+  <text x="70" y="274" class="ts" font-size="10.5">分頻點（crossover）：預設 120 Hz／800 Hz／4 kHz 是多數素材的起點。</text>
+  <rect x="70" y="294" width="220" height="54" rx="8" fill="#E4EBDC" stroke="#D9CFC4" stroke-width="1.3"/>
+  <text x="82" y="316" class="t" font-size="13" font-weight="700">什麼時候用</text>
+  <text x="82" y="335" class="ts" font-size="11">某一段一直失控、其他段好好的</text>
+  <rect x="320" y="294" width="230" height="54" rx="8" fill="#F4DFD7" stroke="#D9CFC4" stroke-width="1.3"/>
+  <text x="332" y="316" class="t" font-size="13" font-weight="700">什麼時候別用</text>
+  <text x="332" y="335" class="ts" font-size="11">整首平均時只多一個相位問題</text>
+</svg>

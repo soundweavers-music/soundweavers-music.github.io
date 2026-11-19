@@ -18,6 +18,8 @@ EQ 的本質是「頻率的手術刀」。它讓你針對某一個或某一段�
 
 ## 五種基本濾波器類型
 
+![五種基本濾波器的形狀](/assets/digitalmusic/eq-filters.svg)
+
 EQ 中的濾波器決定了你如何影響聲音。以下是五種最常用的類型：
 
 ### 高通濾波器（High-Pass Filter, HPF）

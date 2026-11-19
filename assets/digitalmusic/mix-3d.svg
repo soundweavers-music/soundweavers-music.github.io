@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 400" role="img" aria-label="混音的三維座標">
+  <title>混音的三維座標</title>
+  <rect width="660" height="400" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">混音的三維座標</text>
+  <text x="26" y="55" class="ts" font-size="12.5">把每個樂器放在一個立體位置，而不是全部擠在中央</text>
+  <text x="26" y="84" class="ts" font-size="12">左右（X）、頻率（Y）、深度（Z）三個軸各自獨立，才不會互相打架。</text>
+  <path d="M330.0 300.0 L562.8 300.0" fill="none" stroke="#A67C52" stroke-width="1.7" stroke-linecap="round"/><path d="M570.0 300.0 L562.7 303.3 L562.7 296.7 Z" fill="#A67C52"/>
+  <text x="580" y="304" class="ts" font-size="11">X 聲像</text>
+  <path d="M330.0 300.0 L330.0 117.2" fill="none" stroke="#6F8F6A" stroke-width="1.7" stroke-linecap="round"/><path d="M330.0 110.0 L333.3 117.3 L326.7 117.3 Z" fill="#6F8F6A"/>
+  <text x="324" y="100" class="ts" font-size="11" text-anchor="middle">Y 頻率</text>
+  <path d="M330.0 300.0 L166.5 375.0" fill="none" stroke="#6B8FBF" stroke-width="1.7" stroke-linecap="round"/><path d="M160.0 378.0 L165.3 372.0 L168.0 377.9 Z" fill="#6B8FBF"/>
+  <text x="152" y="392" class="ts" font-size="11">Z 深度</text>
+  <circle cx="120" cy="190" r="7" fill="#A67C52" opacity="0.85"/>
+  <text x="132" y="182" class="ts" font-size="10.5" fill="#A67C52">人聲</text>
+  <circle cx="250" cy="150" r="7" fill="#6F8F6A" opacity="0.85"/>
+  <text x="262" y="142" class="ts" font-size="10.5" fill="#6F8F6A">吉他</text>
+  <circle cx="300" cy="250" r="7" fill="#5D4E41" opacity="0.85"/>
+  <text x="312" y="242" class="ts" font-size="10.5" fill="#5D4E41">鼓</text>
+  <circle cx="180" cy="270" r="7" fill="#6B8FBF" opacity="0.85"/>
+  <text x="192" y="262" class="ts" font-size="10.5" fill="#6B8FBF">貝斯</text>
+  <text x="60" y="110" class="ts" font-size="10.5" fill="#8C8078">前：乾、近、亮</text>
+  <text x="60" y="130" class="ts" font-size="10.5" fill="#8C8078">後：濕、遠、暗</text>
+  <rect x="60" y="322" width="160" height="48" rx="8" fill="#F3E9DC" stroke="#D9CFC4" stroke-width="1.3"/>
+  <text x="72" y="344" class="t" font-size="13" font-weight="700">X</text>
+  <text x="72" y="363" class="ts" font-size="11">聲像與寬度</text>
+  <rect x="240" y="322" width="160" height="48" rx="8" fill="#E4EBDC" stroke="#D9CFC4" stroke-width="1.3"/>
+  <text x="252" y="344" class="t" font-size="13" font-weight="700">Y</text>
+  <text x="252" y="363" class="ts" font-size="11">頻率與 EQ</text>
+  <rect x="420" y="322" width="160" height="48" rx="8" fill="#DEE8F3" stroke="#D9CFC4" stroke-width="1.3"/>
+  <text x="432" y="344" class="t" font-size="13" font-weight="700">Z</text>
+  <text x="432" y="363" class="ts" font-size="11">深度與殘響</text>
+</svg>

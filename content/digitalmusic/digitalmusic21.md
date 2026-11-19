@@ -23,6 +23,8 @@ Delay（延遲效果）是將輸入訊號複製一份，經過一段可設定的
 
 ## 2. 延遲時間與速度同步
 
+![四種 Delay 的時間與左右安排](/assets/digitalmusic/delay-types.svg)
+
 將 Delay Time 與歌曲的 BPM（Beats Per Minute）對齊，是確保 Delay 不「亂拍」的關鍵。現代 DAW 幾乎都內建 Tempo Sync 功能，但了解背後的計算邏輯仍然重要。
 
 ### 2.1 常見音符時值的延遲時間計算公式
@@ -94,7 +96,7 @@ Slapback Delay 是最古老也最經典的 Delay 用法之一，起源於 1950 �
 ### 5.1 經典應用
 
 - **Rockabilly 吉他**：Elvis Presley、Stray Cats 的吉他都大量使用 Slapback。設定 80-100 ms，單次回聲，吉他在中央，回聲在中央或稍微偏右。
-- **Vocal 潤色**：50-70 ms 的 Slapback 可以為 vocal 增加厚度，同時保留清晰度。這也是早期搖滾樂 vocal 的標誌性聲音。
+- **Vocal 潤色**：70-100 ms 的 Slapback 可以為 vocal 增加厚度，同時保留清晰度。這也是早期搖滾樂 vocal 的標誌性聲音。
 - **口琴與管樂**：Slapback 能為單音吹奏樂器增加「雙音」的錯覺，聽起來更有力量。
 
 > 小技巧：在 Slapback 的回聲路徑上掛一個 Low-Pass Filter（6-8 kHz 以下），模擬磁帶延遲的高頻衰減特性，讓聲音更復古。
@@ -142,16 +144,16 @@ Sound Wall（音牆）並不一定要靠大量的樂器堆疊。用多個不同�
 
 ## 8. Filtered Delay：用 EQ 修飾回聲
 
-Filtered Delay（過濾延遲）是指在 Delay 的回授路徑（Feedback Loop）中插入濾波器，讓每次回聲的頻率內容逐漸變化。
+Filtered Delay（過濾延遲）是指在 Delay 插件的 Feedback 路徑中啟用內建 Filter（LPF/HPF），或在 DAW 中將 Delay 的輸出經 EQ 後再送回輸入端，構成外部回授迴路，讓每次回聲的頻率內容逐漸變化。
 
 ### 8.1 實作方法
 
 1. 在 DAW 中建立 Send Track，插入 Delay 效果器。
-2. 在 Delay 之後串接一個 EQ（最好是類比風格的 EQ 或 Filter plugin）。
+2. 使用 Delay 插件內建的 Feedback Filter（LPF/HPF），或在 feedback 路徑中建立外部迴圈將 EQ 插入回授端，使每輪回聲逐次變暗。（最好是類比風格的 EQ 或 Filter plugin）。
 3. 設定 Low-Pass Filter 在 5-8 kHz，High-Pass Filter 在 200-400 Hz。
 4. 將 Feedback 設在 30-50%，讓回聲循環多次。
 
-結果：每次回聲的高頻都會被削減更多，聽起來像聲音在遠處逐漸消散。這比單純降低 Feedback Volume 來得更自然、更有空間感。
+結果：所有回聲的高頻都被同樣削減，聽起來像聲音在遠處消散。若要每次回聲逐次變暗，得使用 Delay 內建的 Feedback Filter，或手動搭建外部回授迴路；這比單純降低 Feedback 量自然得多。
 
 ### 8.2 進階應用
 
@@ -174,7 +176,7 @@ Delay Throw（又稱 Delay Dump 或 Echo Throw）是一種常見於現代流行�
 
 ### 9.2 經典應用範例
 
-- **Billie Eilish 風 vocal**：在每句結尾的最後一個字觸發長回聲（1/2 note delay，Feedback 50%），營造空靈感。
+- **空靈系 pop vocal：在每句結尾的最後一個字觸發長回聲（1/2 note delay，Feedback 50%），營造空靈感。**：在每句結尾的最後一個字觸發長回聲（1/2 note delay，Feedback 50%），營造空靈感。
 - **Hip-hop ad-lib**：在 punchline 結尾觸發快速重複的 short delay（1/16 note，Feedback 70%），增加節奏力度。
 - **Rock 主歌到副歌**：在主歌最後一句觸發 Delay Throw，讓回聲在副歌開頭繼續殘留，形成無縫過渡。
 
@@ -247,7 +249,7 @@ Delay 遠不止是「讓聲音變大變寬」的工具。當你理解了它在�
 
 - Delay 有三種基本類型：Simple、Ping-Pong、Multi-Tap
 - BPM 同步的附點八分音符是最萬用的延遲時間
-- Haas Effect（5-20ms）可以在保持單聲道相容的前提下拓展立體聲寬度
+- Haas Effect（5-20ms）可拓展立體聲寬度，但 mono 下會產生梳狀濾波，須檢查單聲道相容性
 - Filtered Delay 讓回聲距離感更自然
 - Delay Throw 能精準控制哪些詞句有回聲
 - 多層 Delay 堆疊注意頻率區隔與節奏不衝突

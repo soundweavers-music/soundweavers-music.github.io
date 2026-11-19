@@ -47,7 +47,7 @@
 
 ### 自動偵測
 
-Ableton Live 的 **Warp From Here** 與 **Warp as XXX-BPM Loop** 能夠一鍵完成速度偵測與標記建立。Logic Pro 的 **Smart Tempo** 會自動分析錄音並將整個 Project Tempo 對齊錄音。Pro Tools 的 **Elastic Audio** 則在 Clip 屬性面板中提供 **Tempo Detection**。
+Ableton Live 的 **Warp From Here** 與 **Warp as 1/2 Beat Loop / 4 Beat Loop** 能夠一鍵完成速度偵測與標記建立。Logic Pro 的 **Smart Tempo** 會自動分析錄音並將整個 Project Tempo 對齊錄音。Pro Tools 的 **Elastic Audio** 則在 Clip 屬性面板中提供 **Tempo Detection**。
 
 操作流程如下：
 1. 將音訊匯入 DAW。
@@ -65,17 +65,19 @@ Ableton Live 的 **Warp From Here** 與 **Warp as XXX-BPM Loop** 能夠一鍵完
 
 ### 標記的固定點（Warp from Here）
 
-在 Ableton Live 中，設定一個 Warp Marker 並設為「Warp from Here」之後，該標記左側的區域保持不變，右側區域根據拉伸比例重新計算。這個概念非常重要——它代表標記的位置會改變，但標記之間的音訊區域會被重新分配時間。
+在 Ableton Live 中，設定一個 Warp Marker 並設為「Warp from Here」之後，該標記左側的區域保持不變，右側區域根據拉伸比例重新計算。這個概念非常重要——它代表標記位置固定不動，右側區域的音訊會依拉伸比例重新分配時間。
 
 ---
 
 ## 四、將音訊量化至網格（Quantize Audio to Grid）
 
+![Warp 標記釘在瞬態上，格線是專案速度](/assets/digitalmusic/warp-markers.svg)
+
 量化是節奏校正最核心的功能。操作流程如下：
 
 1. 確認 DAW 已經正確放置了 Warp Marker 且 Project Tempo 已設定。
 2. 選取目標音訊片段。
-3. 執行 Quantize 指令（Ableton：Ctrl+Cmd+U；Logic：Q 鍵；Pro Tools：Alt+0）。
+3. 執行 Quantize 指令（Ableton：Cmd+U（Mac）／ Ctrl+U（Win）；Logic：Cmd+Q（或 Edit ▸ Quantize）；Pro Tools：Edit ▸ Quantize（或 Cmd/Ctrl+Shift+0））。
 4. 設定量化參數：
    - **Grid Size**：選擇最小量化單位（1/4 音符、1/8、1/16、三連音等）。對於流行樂人聲，1/16 通常就足夠；對於鼓組 loop，可以嘗試 1/32 甚至 1/64。
    - **Strength（量化強度）**：0-100%。100% 代表完全對齊網格，建議設定在 70-90% 之間以保留部份自然律動。
@@ -137,7 +139,7 @@ Double-click 在 Warp Marker 上，將其拖動至正確的 Grid 位置。對於
 
 ### 失去自然律動（Feel）
 
-過度量化會讓每一拍都精準到 0 ms，但這往往讓音樂聽起來像機器演奏的。這就是所謂的 **Quantization Death**。人耳對於微秒級的時間訊息非常敏感，完全整齊的節奏反而會產生「僵屍感」。
+過度量化會讓每一拍都精準到 0 ms，但這往往讓音樂聽起來像機器演奏的。這就是所謂的 **Quantization Death**。人耳對於毫秒級（約 5–25 ms）的時間偏移非常敏感，完全整齊的節奏反而會產生「僵屍感」。
 
 ### 呼吸聲與換氣
 
@@ -219,8 +221,8 @@ Double-click 在 Warp Marker 上，將其拖動至正確的 Grid 位置。對於
 
 ### 製作 Half-Time 與 Double-Time 效果
 
-- **Half-Time**：將 Warp Mode 設為 Percussive，將 Clip BPM 設定為 Project BPM 的一半，DAW 會將 4 小節的 Loop 拉伸為 8 小節。
-- **Double-Time**：同理，設定為 Project BPM 的兩倍，Loop 會縮短為 2 小節。
+- **Half-Time**：Warp Mode 設為 Percussive，Clip BPM 設為 Project BPM 的兩倍，4 小節的 Loop 會拉成 8 小節。
+- **Double-Time**：Clip BPM 設為 Project BPM 的一半，Loop 會縮短為 2 小節。
 - 這兩種手法在 Trap、Dubstep、Lo-fi 等風格中廣泛使用。
 
 ### 混合不同 BPM 的 Loop

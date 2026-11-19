@@ -12,6 +12,16 @@
 
 ## 二、四大核心參數：Threshold、Ratio、Attack、Release
 
+| 參數 | 作用 | 常用起點 |
+|---|---|---|
+| Threshold | 從哪裡開始壓 | 比峰值低 3–6 dB |
+| Ratio | 壓縮比例 | 人聲 3:1–4:1，鼓 4:1–8:1 |
+| Attack | 多快開始壓 | 10–30 ms（保留瞬態） |
+| Release | 多快放開 | 80–200 ms（跟著節奏） |
+
+
+![Threshold 以上，輸入與輸出的斜率改變](/assets/digitalmusic/compressor-curve.svg)
+
 任何壓縮器，無論是硬體還是軟體，都圍繞著四個基本參數運作。理解這四個參數，你就掌握了壓縮器的全部邏輯。
 
 ### 2.1 Threshold（閾值）：壓縮啟動的門檻
@@ -240,7 +250,7 @@ Release 決定壓縮器「訊號低於 Threshold 後，多快停止壓縮」。�
 ### 練習三：聽出 Release 時間的 Pumping
 
 在一個有持續背景樂器的段落（如 pad 或鋼琴和弦），加上一個節奏明顯的鼓聲。
-在大鼓上設定壓縮器，Threshold 較低、Ratio 較高（例如 8:1），然後：
+在包含 pad 與大鼓的總線（Bus）上設定壓縮器，Threshold 較低、Ratio 較高（例如 8:1），然後：
 1. Release 設為 20 ms（最快），聆聽 Pumping 效應——背景 pad 會跟著大鼓節奏起伏
 2. Release 設為 500 ms（較慢），聆聽 Pumping 如何減少
 - **訓練目標**：能清楚辨識 Pumping 效應，並理解 Release 時間對它的影響

@@ -94,16 +94,18 @@ Phaser 的訊號處理路徑：
 - **柔和度**：比 Flanger 更溫和、更易於融入背景
 - **復古質感**：70 年代 Funk 與 Psychedelic Rock 的標誌性聲音
 
-### Phaser 的極性（Poles / Stages）
+### Phaser 的級數（Stages / Poles）
 
 全通濾波器的級數（Stages，通常為 2 的倍數，如 4、6、8、12 級）決定了 Notch 的數量。級數越多，Notch 越密集，效果越明顯：
 
 - **4-Stage Phaser**：2 個 Notch，效果細緻微妙，經典 Small Stone 風格
-- **6-Stage Phaser**：3 個 Notch，經典 MXR Phase 90 風格
+- **6-Stage Phaser**：3 個 Notch，將 MXR Phase 90 移至 4-Stage 條目。
 - **8-Stage Phaser**：4 個 Notch，效果更飽滿濃郁
 - **12-Stage Phaser**：6 個 Notch，聲音複雜而濃烈
 
 ## 五、Chorus、Flanger、Phaser 的技術差異
+
+![Chorus、Flanger、Phaser 的 LFO 差異](/assets/digitalmusic/modulation.svg)
 
 雖然三者都屬於調變效果，但從技術層面來看，它們的本質區別在於延遲時間的長短和訊號處理的方式。
 
@@ -166,7 +168,7 @@ Chorus 是 Vocal 處理的萬用工具。對於主唱，輕微的 Chorus（Rate 
 
 ### Flanger 在鼓組上的應用
 
-Flanger 在鼓組上可以創造出極具衝擊力的效果。最經典的應用是將 Flanger 用在 Cymbal 或整個鼓組的 Bus 上，創造出類似 Van Halen《Unchained》或 Phil Collins《In The Air Tonight》那種戲劇性的鼓聲。
+Flanger 在鼓組上可以創造出極具衝擊力的效果。最經典的應用是將 Flanger 用在 Cymbal 或整個鼓組的 Bus 上，創造出類似 Van Halen《Unchained》那種戲劇性的鼓聲。（《In The Air Tonight》的鼓聲是 gated reverb，不是 Flanger。）
 
 - **Snare 加 Flanger**：Rate 0.2~0.4Hz 慢速掃掠，Feedback 20~30%，在 Snare 擊打時產生動態變化的尾音
 - **Hi-hat / Cymbal**：Rate 0.6~1.0Hz，Depth 30~50%，製造節奏性的閃爍感
@@ -174,7 +176,7 @@ Flanger 在鼓組上可以創造出極具衝擊力的效果。最經典的應用
 
 ### Flanger 在吉他上的應用
 
-Flanger 與失真吉他的結合是搖滾史上最經典的搭配之一。Eddie Van Halen 的招牌音色大量運用了 Flanger（如《Ain't Talkin' 'Bout Love》的節奏吉他）。
+Flanger 與失真吉他的結合是搖滾史上最經典的搭配之一。失真加上 Flanger，會讓原本已經很密的泛音再被掃頻推擠，聽起來更寬、更有侵略性。
 
 - **失真節奏吉他**：Rate 0.3~0.6Hz，Depth 30~50%，Feedback 10~25%，讓 Chord 聽起來有動態的「轟鳴感」
 - **Clean 吉他**：慢速 Flanger（Rate 0.2~0.4Hz）可營造類似 Chorus 但更豐富的聲音
@@ -334,7 +336,7 @@ Depth 的變化直接影響效果的「強度」，適合用來強化歌曲的�
 
 ### 在 Distortion / Overdrive 之前
 
-調變效果放在破音之前，LFO 調變的是破音前的訊號，破音本身的非線性失真會放大這些調變，產生更豐富的泛音和更「狂暴」的聲音。Eddie Van Halen 的 Flanger 在破音之前的設定就是經典案例。
+調變效果放在破音之前，LFO 調變的是破音前的訊號，破音本身的非線性失真會放大這些調變，產生更豐富的泛音和更「狂暴」的聲音。把 Flanger 放在破音之前，是搖滾吉他最常見的用法。
 
 ### 在 Distortion / Overdrive 之後
 
