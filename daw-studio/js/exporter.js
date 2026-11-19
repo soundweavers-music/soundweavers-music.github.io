@@ -39,7 +39,7 @@ function dither(buf, bits) {
 const EXT = { wav: 'wav', flac: 'flac', mp3: 'mp3' };
 
 async function encode(buf, opts, label) {
-  const progress = p => store.emit('export-progress', { text: `${label}編碼 ${Math.round(p * 100)}%` });
+  const progress = p => store.emit('export-progress', { text: `${label}編碼中…`, frac: 0.8 + p * 0.2 });
   if (opts.format === 'mp3') return encodeMp3(buf, opts.kbps, progress);
   const bits = opts.format === 'flac' ? Math.min(24, opts.bitDepth) : opts.bitDepth;
   if (opts.format === 'flac' || bits < 32) dither(buf, bits);
@@ -76,8 +76,9 @@ export async function exportAudio(opts) {
     downloadBlob(await zip.generateAsync({ type: 'blob', compression: 'STORE' }), `${base}_stems.zip`);
     toast(`已輸出 ${tracks.length} 個分軌`);
   } else {
-    store.emit('export-progress', { text: '混音算圖中…' });
-    const buf = await engine.render(common);
+    store.emit('export-progress', { text: '混音算圖中…', frac: 0 });
+    const buf = await engine.render({ ...common,
+      onProgress: f => store.emit('export-progress', { text: '混音算圖中…', frac: f * 0.8 }) });
     const pk = peakDb(buf);
     if (opts.normalize) normalize(buf, -1);
     // 輸出前量一次響度，顯示在完成訊息

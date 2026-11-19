@@ -699,6 +699,14 @@ class Engine {
         }
       }
     }
+    if (typeof opts.onProgress === 'function' && end > start) {
+      const dur = end - start;
+      const steps = Math.max(2, Math.min(240, Math.ceil(dur / 2)));
+      for (let i = 1; i < steps; i++) {
+        const at = (dur * i) / steps;
+        oc.suspend(at).then(() => { try { opts.onProgress(i / steps); } catch (_) {} return oc.resume(); }).catch(() => {});
+      }
+    }
     const out = await oc.startRendering();
     // limiter 有 5ms look-ahead 延遲：把開頭這段裁掉，輸出檔才會跟時間軸對齊
     if (latComp) {
