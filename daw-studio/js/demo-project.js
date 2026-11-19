@@ -315,7 +315,10 @@ export function seedDemo() {
     ],
   };
 
-  // 弦樂掛 EQ 修掉刺耳高頻，鼓與貝斯各掛一顆壓縮
+  // 弦樂主旋律：先修音準，再 EQ 修掉刺耳高頻（修音不是只能用在人聲）
+  const tune = newFx('tune');
+  tune.params.key = 2; tune.params.scale = 0; tune.params.retune = 55; tune.params.amount = 70; tune.params.vibrato = 80;
+  vln1.inserts.push(tune);
   const eq = newFx('eq');
   eq.params.bands[0].on = true; eq.params.bands[0].freq = 180;
   eq.params.bands[5].gain = -1.5; eq.params.bands[6].gain = 1;
