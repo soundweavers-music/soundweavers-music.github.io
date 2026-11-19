@@ -45,14 +45,14 @@ export function sustainedEnd(clip, notes, spans) {
 }
 
 // 把 MIDI 片段攤平成「專案秒數」的音符：{ s, e, p, v }，已裁掉片段結尾之後的部分；踏板延音已套用
-function midiEvents(clip) {
+export function midiEvents(clip, transpose = 0) {
   const b = spb(), c0 = clip.startBeat, len = clip.lengthBeats;
   const notes = clip.notes.filter(n => n.t < len && n.t >= 0);
   const ends = sustainedEnd(clip, notes, pedalSpans(clip));
   const out = [];
   notes.forEach((n, i) => {
     const e = Math.min(ends[i], len);
-    out.push({ s: (c0 + n.t) * b, e: (c0 + e) * b, p: n.p, v: n.v });
+    out.push({ s: (c0 + n.t) * b, e: (c0 + e) * b, p: n.p + transpose, v: n.v });
   });
   return out.sort((a, z) => a.s - z.s);
 }
@@ -198,7 +198,11 @@ class Engine {
 
   async ensure() {
     if (!this.ctx) {
-      this.ctx = new (window.AudioContext || window.webkitAudioContext)({ latencyHint: 'interactive' });
+      // 延遲模式（設定選單）在建立時決定，之後要改得重新載入頁面
+      const hint = localStorage.getItem('daw.latencyHint') || 'interactive';
+      this.ctx = new (window.AudioContext || window.webkitAudioContext)({ latencyHint: hint });
+      const outId = localStorage.getItem('daw.outputId');
+      if (outId && this.ctx.setSinkId) this.ctx.setSinkId(outId).catch(() => {});
       const c = this.ctx;
       // master：sum → [master 插入效果器] → post → [母帶鏈] → master fader → 輸出
       this.masterSum = c.createGain();
@@ -240,6 +244,18 @@ class Engine {
   }
 
   get sampleRate() { return this.ctx ? this.ctx.sampleRate : 48000; }
+
+  // 切換輸出裝置（Chrome 支援 AudioContext.setSinkId）
+  async setOutputDevice(id) {
+    if (!this.ctx) return;
+    if (typeof this.ctx.setSinkId !== 'function') throw new Error('這個瀏覽器不支援在播放中切換輸出裝置');
+    await this.ctx.setSinkId(id || '');
+  }
+
+  // 目前的輸出裝置
+  outputDeviceId() {
+    try { return this.ctx?.sinkId || ''; } catch (_) { return ''; }
+  }
 
   // bus：input → [效果器] → fader → master
   _syncBuses() {
@@ -395,7 +411,7 @@ class Engine {
           // 正在錄的片段不播放：彈的聲音已經即時發出來了，再播一次會變成兩個音
           if (recordingClips.has(clip.id)) continue;
           // 只收從 from 之後才開始的音符（不從音符中間起音）
-          for (const ev of midiEvents(clip)) if (ev.s >= f2 - 1e-6 && ev.s < until) events.push({ ...ev, s: ev.s - lat, e: ev.e - lat, track: t, strip });
+          for (const ev of midiEvents(clip, t.transpose || 0)) if (ev.s >= f2 - 1e-6 && ev.s < until) events.push({ ...ev, s: ev.s - lat, e: ev.e - lat, track: t, strip });
           continue;
         }
         const s = scheduleClip(c, clip, store.buffers.get(clip.bufferId), strip.input, w2, f2, until);
@@ -473,7 +489,8 @@ class Engine {
     if (!t || !strip) return;
     const key = trackId + ':' + midi;
     this.live.get(key)?.release(this.ctx.currentTime);
-    this.live.set(key, startVoice(this.ctx, strip.input, t.instrument || 'piano', midi, vel, this.ctx.currentTime));
+    this.live.set(key, startVoice(this.ctx, strip.input, t.instrument || 'piano',
+      Math.max(0, Math.min(127, midi + (t.transpose || 0))), vel, this.ctx.currentTime));
   }
 
   noteOff(trackId, midi) {
@@ -492,7 +509,8 @@ class Engine {
   async audition(trackId, midi, vel = 100, dur = 0.35) {
     await this.ensure();
     const t = store.track(trackId), strip = this.strips.get(trackId);
-    if (t && strip) scheduleNote(this.ctx, strip.input, t.instrument || 'piano', midi, vel, this.ctx.currentTime + 0.005, dur);
+    if (t && strip) scheduleNote(this.ctx, strip.input, t.instrument || 'piano',
+      Math.max(0, Math.min(127, midi + (t.transpose || 0))), vel, this.ctx.currentTime + 0.005, dur);
   }
 
   async play(from = this.position, opts = {}) {
@@ -670,7 +688,7 @@ class Engine {
       const lat = trackLatency(t);
       for (const clip of t.clips) {
         if (isMidiClip(clip)) {
-          for (const e of midiEvents(clip)) {
+          for (const e of midiEvents(clip, t.transpose || 0)) {
             if (e.s < start + lat - 1e-6 || e.s >= end) continue;
             scheduleNote(oc, strip.input, t.instrument, e.p, e.v, e.s - start - lat, Math.min(e.e, end) - e.s);
           }

@@ -26,6 +26,7 @@ export function newTrack(index, kind = 'audio') {
     sends: [-60, -60],       // 送到 Bus A / Bus B 的量（dB，-60 = 關），post-fader
     auto: {},                // 自動化：{ volume: { on, points:[{t:拍, v}] }, pan: …, send0: …, send1: … }
     clips: [],
+    transpose: 0,            // MIDI 軌專用：這一軌整體升降幾個半音
   };
   if (kind === 'midi') t.instrument = 'piano';
   return t;
@@ -64,6 +65,10 @@ export function newProject() {
     metronome: false,
     countIn: false,
     snap: true,
+    chords: [],              // 和弦軌 [{ t, d, root, q }]（拍）
+    chordKey: null,          // 推測的調性 { key, minor }
+    chordView: 0,            // 0 音名、1 級數、2 首調（簡譜）
+    showChords: false,       // 尺規下方顯示和弦軌
     tracks,
   };
 }
@@ -190,6 +195,7 @@ export function newMidiClip(startBeat, lengthBeats, notes = []) {
 export function migrateProject(p) {
   for (const t of p.tracks) {
     if (t.kind === 'midi' && !t.instrument) t.instrument = 'piano';
+    if (typeof t.transpose !== 'number') t.transpose = 0;
     if (!Array.isArray(t.inserts)) t.inserts = [];
     if (!Array.isArray(t.sends)) t.sends = [-60, -60];
   }
@@ -197,6 +203,9 @@ export function migrateProject(p) {
   if (!Array.isArray(p.masterInserts)) p.masterInserts = [];
   if (!p.mastering) p.mastering = defaultMastering();
   for (const t of p.tracks) if (!t.auto) t.auto = {};
+  if (!Array.isArray(p.chords)) p.chords = [];
+  if (typeof p.chordView !== 'number') p.chordView = 0;
+  if (typeof p.showChords !== 'boolean') p.showChords = false;
   p.version = 4;
   return p;
 }

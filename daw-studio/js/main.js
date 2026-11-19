@@ -13,7 +13,7 @@ import { fmtTime, fmtBars, toast } from './util.js';
 import { isMidiClip, clipStart, clipDur } from './state.js';
 import { initPianoRoll, open as openPianoRoll, close as closePianoRoll, isOpen as pianoOpen, handleKey as pianoKey, tick as pianoTick } from './pianoroll.js';
 import { initMidiUi, instrumentSection, midiStatusSection, exportMidi } from './midi-ui.js';
-import { handleTypingKey, setTyping, midiState, allOff as midiAllOff, setTranspose } from './midi-input.js';
+import { handleTypingKey, setTyping, midiState, allOff as midiAllOff, setTranspose, midiInputs, setEnabledInputs, setMidiEnabled, initWebMidi } from './midi-input.js';
 import { addMidiClipAt } from './arrange.js';
 import { initBankUi, sfSection } from './bank-ui.js';
 import { insertsSection, sendSection, closeFxPanel } from './fx-ui.js';
@@ -21,6 +21,8 @@ import { initMasterUi, toggleMaster, masterOpen } from './master-ui.js';
 import { toggleAlbum } from './album-ui.js';
 import { initAutomationUi, tickAutomation } from './automation-ui.js';
 import { showMenu } from './menu.js';
+import { toggleChordLane, detectAndApply, applyChordsToHarmony, applyChordsToTune, clearChords, chordsOf, chordKeyOf, chordLabel, VIEW_NAMES } from './chord-ui.js';
+import { LiveLoudness, TARGETS } from './loudness.js';
 import { pitchShiftClips } from './pitch-render.js';
 import { THEMES, setTheme, currentTheme } from './theme.js';
 import { draw as drawPianoRoll } from './pianoroll.js';
@@ -204,7 +206,8 @@ function renderInspector() {
   nm.addEventListener('keydown', e => e.stopPropagation());
   nm.addEventListener('change', () => { store.checkpoint(); t.name = nm.value.trim() || t.name; store.changed('structure'); });
   sec.querySelector('#insColor').addEventListener('change', e => { store.checkpoint(); t.color = e.target.value; store.changed('structure'); });
-  if (t.kind === 'midi') { box.appendChild(instrumentSection(t)); box.appendChild(sfSection(t)); box.appendChild(midiStatusSection()); }
+  if (t.kind === 'midi') { box.appendChild(instrumentSection(t)); box.appendChild(sfSection(t)); box.appendChild(midiStatusSection()); box.appendChild(transposeSection(t)); }
+  box.appendChild(chordSection(t));
   box.appendChild(insertsSection(t.id));
   box.appendChild(sendSection(t));
 
@@ -412,11 +415,135 @@ function openLatency() {
   };
 }
 
+// 這一軌的移調（MIDI 軌）
+function transposeSection(t) {
+  const sec = document.createElement('div'); sec.className = 'sec';
+  sec.innerHTML = `<h4 style="margin-top:0">這一軌移調 <span style="color:var(--tx2);font-weight:400">（播放時）</span></h4>
+    <div class="row tr-row">
+      <button class="tbtn" data-d="-12" title="降一個八度">−8度</button>
+      <button class="tbtn" data-d="-1">−</button>
+      <b class="tr-val">0</b>
+      <button class="tbtn" data-d="1">＋</button>
+      <button class="tbtn" data-d="12" title="升一個八度">＋8度</button>
+    </div>
+    <p class="note">只影響播放與即時彈奏，音符本身不變；要改寫音符請用鋼琴捲簾或片段升降音。</p>`;
+  const val = sec.querySelector('.tr-val');
+  const show = () => { val.textContent = (t.transpose > 0 ? '+' : '') + (t.transpose || 0); };
+  show();
+  sec.querySelectorAll('button[data-d]').forEach(b => {
+    b.onclick = () => {
+      store.checkpoint();
+      t.transpose = Math.max(-24, Math.min(24, (t.transpose || 0) + Number(b.dataset.d)));
+      show(); store.changed('structure');
+    };
+  });
+  sec.querySelector('.tr-val').ondblclick = () => { store.checkpoint(); t.transpose = 0; show(); store.changed('structure'); };
+  return sec;
+}
+
+// 和弦軌（任何軌都可以當參考）
+function chordSection(t) {
+  const sec = document.createElement('div'); sec.className = 'sec';
+  const list = chordsOf();
+  const key = chordKeyOf();
+  const ROOTS = ['C', 'C♯', 'D', 'E♭', 'E', 'F', 'F♯', 'G', 'A♭', 'A', 'B♭', 'B'];
+  sec.innerHTML = `<h4 style="margin-top:0">和弦軌</h4>
+    <div class="row"><span>已抓</span><span>${list.length ? list.length + ' 個和弦' : '—'}${key ? `　（${ROOTS[key.key]} ${key.minor ? '小調' : '大調'}）` : ''}</span></div>
+    <div class="row"><span>顯示</span><select class="ch-view">${VIEW_NAMES.map((n, i) => `<option value="${i}"${(store.project.chordView || 0) === i ? ' selected' : ''}>${n}</option>`).join('')}</select></div>
+    <div class="row"><button class="tbtn ch-detect" style="width:100%;height:24px">偵測這條軌的和弦</button></div>
+    <div class="row"><button class="tbtn ch-show" style="width:100%;height:24px">${store.project.showChords ? '隱藏和弦軌' : '顯示和弦軌'}</button></div>
+    <div class="row"><button class="tbtn" style="flex:1;height:24px" data-apply="harm">套用到和聲</button><button class="tbtn" style="flex:1;height:24px" data-apply="tune">套用到修音</button></div>
+    <p class="note">「偵測」會分析這一軌（MIDI 軌最準），抓出每拍的和弦並推測調性。點尺規下方的和弦可以改和弦、換根音、切開或刪除。</p>`;
+  const sel = sec.querySelector('.ch-view');
+  sel.addEventListener('keydown', e => e.stopPropagation());
+  sel.onchange = () => { store.checkpoint(); store.project.chordView = +sel.value; store.changed('structure'); store.emit('chords', {}); };
+  const det = sec.querySelector('.ch-detect');
+  det.onclick = async () => {
+    det.disabled = true; det.textContent = '分析中…';
+    try { await detectAndApply(t.id, 1); } finally { det.disabled = false; det.textContent = '偵測這條軌的和弦'; }
+  };
+  sec.querySelector('.ch-show').onclick = () => { toggleChordLane(); renderArrange(); renderInspector(); };
+  sec.querySelector('[data-apply=harm]').onclick = () => applyChordsToHarmony(store.selection.trackId);
+  sec.querySelector('[data-apply=tune]').onclick = () => applyChordsToTune(store.selection.trackId);
+  return sec;
+}
+
+// 裝置設定（音效卡、緩衝區、MIDI）
+const esc = s => String(s).replace(/[<>&"]/g, c => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;' }[c]));
+async function openDevices() {
+  const d = $('dlgDevices');
+  const inSel = d.querySelector('[name=devIn]');
+  const outSel = d.querySelector('[name=devOut]');
+  const latSel = d.querySelector('[name=lat]');
+  const midiOn = d.querySelector('[name=midiOn]');
+  const list = d.querySelector('#devMidi');
+  latSel.value = localStorage.getItem('daw.latencyHint') || 'interactive';
+  midiOn.checked = midiState.midiOn !== false;
+  // 錄音輸入
+  inSel.innerHTML = '<option value="">預設麥克風</option>';
+  try {
+    const ins = (await recorder.listInputs()).filter(x => x.deviceId && x.deviceId !== 'default');
+    ins.forEach((dev, i) => inSel.insertAdjacentHTML('beforeend', `<option value="${dev.deviceId}">${esc(dev.label || '輸入裝置 ' + (i + 1))}</option>`));
+    inSel.value = recorder.deviceId || '';
+  } catch (_) { /* 尚未授權 */ }
+  // 播放輸出
+  outSel.innerHTML = '<option value="">系統預設</option>';
+  const canSink = !!(engine.ctx && typeof engine.ctx.setSinkId === 'function') || typeof AudioContext.prototype.setSinkId === 'function';
+  try {
+    const outs = (await navigator.mediaDevices.enumerateDevices()).filter(x => x.kind === 'audiooutput');
+    outs.forEach((dev, i) => outSel.insertAdjacentHTML('beforeend', `<option value="${dev.deviceId}">${esc(dev.label || '輸出裝置 ' + (i + 1))}</option>`));
+    outSel.value = localStorage.getItem('daw.outputId') || '';
+  } catch (_) { /* noop */ }
+  outSel.disabled = !canSink;
+  // MIDI
+  try { await initWebMidi(); } catch (_) { /* noop */ }
+  const inputs = midiInputs();
+  list.innerHTML = inputs.length
+    ? inputs.map(x => `<label><input type="checkbox" value="${x.id}"${(!midiState.enabled || midiState.enabled.has(x.id)) ? ' checked' : ''}> ${esc(x.name || '未命名裝置')}</label>`).join('')
+    : '<span class="empty">沒有偵測到 MIDI 鍵盤（仍然可以用電腦鍵盤彈奏：Caps Lock）</span>';
+
+  d.showModal();
+  d.onclose = async () => {
+    if (d.returnValue !== 'ok') return;
+    localStorage.setItem('daw.latencyHint', latSel.value);
+    const outId = outSel.value;
+    localStorage.setItem('daw.outputId', outId);
+    if (engine.ctx && typeof engine.ctx.setSinkId === 'function') {
+      try { await engine.setOutputDevice(outId); } catch (err) { toast('切換輸出裝置失敗：' + err.message, 'error'); }
+    }
+    try { await recorder.setDevice(inSel.value); } catch (err) { toast(err.message, 'error'); }
+    setMidiEnabled(midiOn.checked);
+    const ids = [...list.querySelectorAll('input:checked')].map(x => x.value);
+    setEnabledInputs(ids.length === inputs.length ? null : ids);
+    toast(latSel.value === (localStorage.getItem('daw.latencyHint') || 'interactive')
+      ? '設定已套用（緩衝區在下次開啟音訊引擎時生效）' : '設定已套用');
+  };
+}
+
 // ---------------- 每幀 ----------------
+let tbLive = null;
+function tickTopMaster() {
+  const el = $('tbLUFS'); if (!el) return;
+  if (!(engine.ctx && engine.masterMeter)) return;
+  if (!tbLive) tbLive = new LiveLoudness(engine.ctx, engine.masterMeter.aL, engine.masterMeter.aR);
+  const r = tbLive.tick(engine.playing);
+  $('tbLUFS').textContent = isFinite(r.i) ? r.i.toFixed(1) : '—';
+  const lv = engine.masterLevels();
+  const pk = lv && isFinite(lv[0]) ? Math.max(lv[0], lv[1]) : 0;
+  $('tbMaster').title = `母帶：整合 ${isFinite(r.i) ? r.i.toFixed(1) : '—'} LUFS・峰值 ${pk > 1e-6 ? (20 * Math.log10(pk)).toFixed(1) : '—'} dB（點一下打開母帶視窗）`;
+  $('tbGR').textContent = engine.mastering && engine.playing ? engine.mastering.gr().toFixed(1) : '0.0';
+  const M = store.project.mastering || {};
+  const T = TARGETS.find(x => x.id === (M.target || 'stream')) || TARGETS[0];
+  $('tbTarget').textContent = `${T.lufs} LUFS`;
+  $('tbLUFS').classList.toggle('hot', isFinite(r.i) && r.i > T.lufs + 1);
+  $('tbMaster').classList.toggle('on', !!(M && M.on));
+}
+
 function frame() {
   const pos = engine.currentTime();
   const p = store.project;
   $('lcdTime').textContent = fmtTime(pos);
+  tickTopMaster();
   $('lcdBars').textContent = fmtBars(pos, p.bpm, p.sigNum);
   updatePlayhead(pos);
   if (engine.playing) followPlayhead(pos);
@@ -487,7 +614,18 @@ async function boot() {
     requestAnimationFrame(() => renderArrange());
   });
   $('btnMaster').onclick = () => toggleMaster();
-$('btnAlbum').onclick = () => toggleAlbum();
+  $('btnAlbum').onclick = () => toggleAlbum();
+  // 和弦軌：顯示切換（狀態列／檢閱器會跟著更新）
+  $('btnChords').classList.toggle('on', !!store.project.showChords);
+  $('btnChords').onclick = () => { toggleChordLane(); $('btnChords').classList.toggle('on', !!store.project.showChords); renderArrange(); };
+  store.on('chords', () => {
+    $('btnChords').classList.toggle('on', !!store.project.showChords);
+    requestAnimationFrame(() => { renderArrange(); renderInspector(); });
+  });
+  // 頂部母帶狀態列：點一下打開母帶視窗
+  $('tbMaster').onclick = () => toggleMaster();
+  // 裝置設定
+
   // 片段升降音對話框
   store.on('open-pitch', ({ clipIds }) => {
     const d = $('dlgPitch');
@@ -523,6 +661,7 @@ $('btnAlbum').onclick = () => toggleAlbum();
       { label: '匯入 MIDI…', action: () => $('btnImportMidi').click() },
       { label: '音色庫（SoundFont）…', action: () => $('btnBanks').click() },
       { label: '專輯母帶（批次）…', action: () => toggleAlbum(true) },
+      { label: '裝置設定（音效卡／緩衝區／MIDI）…', action: () => openDevices() },
       '-',
       { label: '錄音延遲校正…', action: openLatency },
       { label: '配色主題…', action: () => $('btnTheme').click() },
