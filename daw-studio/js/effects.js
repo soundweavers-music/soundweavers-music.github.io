@@ -57,6 +57,19 @@ export const FX_TYPES = {
       listen: { label: '只聽齒音', min: 0, max: 1, step: 1, def: 0, toggle: true },
     },
   },
+  tune: {
+    name: 'Auto Tune 人聲修音', short: 'Tune', custom: 'tune',
+    params: {
+      key: { label: '主音', min: 0, max: 11, step: 1, def: 0 },
+      scale: { label: '音階', min: 0, max: 9, step: 1, def: 0 },
+      mask: { label: '音階遮罩', min: 0, max: 4095, step: 1, def: 2741 },
+      retune: { label: '修正速度', min: 0, max: 400, step: 1, def: 40, unit: 'ms' },
+      amount: { label: '修正強度', min: 0, max: 100, step: 1, def: 100, unit: '%' },
+      vibrato: { label: '保留顫音', min: 0, max: 100, step: 1, def: 60, unit: '%' },
+      range: { label: '音域', min: 0, max: 3, step: 1, def: 0 },
+      mix: { label: '濕度', min: 0, max: 100, step: 1, def: 100, unit: '%' },
+    },
+  },
   pitch: {
     name: 'Pitch 即時移調（和聲／效果用）', short: 'Pitch',
     params: {
@@ -131,7 +144,7 @@ export const FX_TYPES = {
     },
   },
 };
-export const FX_ORDER = ['eq', 'comp', 'deess', 'sat', 'pitch', 'reverb', 'delay', 'chorus', 'drive', 'gate'];
+export const FX_ORDER = ['tune', 'eq', 'comp', 'deess', 'sat', 'pitch', 'reverb', 'delay', 'chorus', 'drive', 'gate'];
 export const MAX_INSERTS = 6;
 
 export function newFx(type) {
@@ -329,6 +342,34 @@ export function buildFx(ctx, desc, bpm = 120) {
           grProbe.getFloatTimeDomainData(probeBuf);
           let m = 0; for (const v of probeBuf) if (v < m) m = v;
           return m;     // 負值 dB
+        },
+      };
+      break;
+    }
+    case 'tune': {
+      const wd = wetDry(ctx);
+      let node = null;
+      const live = typeof ctx.startRendering !== 'function';
+      try {
+        node = new AudioWorkletNode(ctx, 'zy-autotune', { numberOfInputs: 1, numberOfOutputs: 1, outputChannelCount: [2], processorOptions: { report: live } });
+        wd.input.connect(node).connect(wd.wet);
+      } catch (_) { wd.input.connect(wd.wet); }
+      // 乾聲延遲同樣 32 ms，濕度不到 100% 時才不會有梳狀濾波
+      const dryDelay = ctx.createDelay(0.1); dryDelay.delayTime.value = AUTOTUNE_LATENCY;
+      wd.input.disconnect(wd.dry); wd.input.connect(dryDelay).connect(wd.dry);
+      const listeners = new Set();
+      if (node) node.port.onmessage = e => { for (const fn of listeners) fn(e.data); };
+      fx = {
+        input: wd.input, output: wd.output, worklet: node, latency: AUTOTUNE_LATENCY,
+        onPitch(fn) { listeners.add(fn); return () => listeners.delete(fn); },
+        set(p) {
+          if (node) {
+            const R = TUNE_RANGES[p.range | 0] || TUNE_RANGES[0];
+            const set = (k, v) => node.parameters.get(k).setValueAtTime(v, 0);
+            set('mask', p.mask); set('retune', p.retune); set('amount', p.amount / 100); set('vibrato', p.vibrato / 100);
+            set('fmin', R.fmin); set('fmax', R.fmax);
+          }
+          wd.setMix(p.mix);
         },
       };
       break;
@@ -546,8 +587,40 @@ export function buildFx(ctx, desc, bpm = 120) {
 // 需要 AudioWorklet 的效果器：建鏈前先載入模組（每個 context 一次）
 const fxWorklets = new WeakMap();
 export function ensureFxWorklets(ctx) {
-  if (!fxWorklets.has(ctx)) fxWorklets.set(ctx, ctx.audioWorklet.addModule(new URL('./pitch-worklet.js', import.meta.url)));
+  if (!fxWorklets.has(ctx)) fxWorklets.set(ctx, Promise.all([
+    ctx.audioWorklet.addModule(new URL('./pitch-worklet.js', import.meta.url)),
+    ctx.audioWorklet.addModule(new URL('./autotune-worklet.js', import.meta.url)),
+  ]));
   return fxWorklets.get(ctx);
+}
+
+// ---------- Auto Tune 共用定義 ----------
+export const AUTOTUNE_LATENCY = 0.032;
+export const NOTE_NAMES_ZH = ['C', 'C♯', 'D', 'E♭', 'E', 'F', 'F♯', 'G', 'A♭', 'A', 'B♭', 'B'];
+// 音階：以主音為 0 的半音集合
+export const TUNE_SCALES = [
+  { name: '大調', steps: [0, 2, 4, 5, 7, 9, 11] },
+  { name: '自然小調', steps: [0, 2, 3, 5, 7, 8, 10] },
+  { name: '和聲小調', steps: [0, 2, 3, 5, 7, 8, 11] },
+  { name: '大調五聲', steps: [0, 2, 4, 7, 9] },
+  { name: '小調五聲', steps: [0, 3, 5, 7, 10] },
+  { name: '藍調', steps: [0, 3, 5, 6, 7, 10] },
+  { name: '多利安', steps: [0, 2, 3, 5, 7, 9, 10] },
+  { name: '米索利地安', steps: [0, 2, 4, 5, 7, 9, 10] },
+  { name: '半音階（全部 12 音）', steps: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] },
+  { name: '自訂', steps: null },
+];
+export const TUNE_RANGES = [
+  { name: '一般人聲', fmin: 70, fmax: 1000 },
+  { name: '男低音', fmin: 55, fmax: 450 },
+  { name: '女高音', fmin: 140, fmax: 1300 },
+  { name: '樂器（寬）', fmin: 50, fmax: 1500 },
+];
+export function scaleMask(key, scaleIdx) {
+  const S = TUNE_SCALES[scaleIdx];
+  if (!S || !S.steps) return null;
+  let m = 0; for (const st of S.steps) m |= 1 << ((key + st) % 12);
+  return m;
 }
 
 // 把一串效果器描述接成一條鏈：input → [fx...] → output；關閉的效果器直接跳過

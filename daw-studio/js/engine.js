@@ -3,7 +3,7 @@
 import { store, isMidiClip, spb, recordingClips } from './state.js';
 import { dbToGain } from './util.js';
 import { startVoice, scheduleNote, releaseTail } from './synth.js';
-import { buildChain, chainShape, ensureFxWorklets } from './effects.js';
+import { buildChain, chainShape, ensureFxWorklets, AUTOTUNE_LATENCY } from './effects.js';
 import { ensureWorklet, buildMastering, defaultMastering } from './mastering.js';
 import { isActive, schedule as autoSchedule, AUTO_PARAMS, valueAt as valueAtBeat } from './automation.js';
 
@@ -55,6 +55,13 @@ function midiEvents(clip) {
     out.push({ s: (c0 + n.t) * b, e: (c0 + e) * b, p: n.p, v: n.v });
   });
   return out.sort((a, z) => a.s - z.s);
+}
+
+// 軌道上啟用中、有固定延遲的效果器（目前是 Auto Tune 32 ms）的延遲總和
+export function trackLatency(t) {
+  let L = 0;
+  for (const d of t.inserts || []) if (d.on && d.type === 'tune' && (d.params.mix ?? 100) > 0) L += AUTOTUNE_LATENCY;
+  return L;
 }
 
 function anySolo(project) { return project.tracks.some(t => t.solo); }
@@ -321,7 +328,7 @@ class Engine {
 
   rebuildWorkletChains() {
     const p = store.project;
-    const uses = list => (list || []).some(d => d.on && d.type === 'pitch');
+    const uses = list => (list || []).some(d => d.on && (d.type === 'pitch' || d.type === 'tune'));
     for (const t of p.tracks) { const s = this.strips.get(t.id); if (s && uses(t.inserts)) rebuildChain(this.ctx, s, t.inserts, p.bpm); }
     (p.buses || []).forEach((bd, i) => { if (uses(bd.inserts)) this.buses[i].shape = ''; });
     if (uses(p.masterInserts)) this.masterShape = '';
@@ -378,15 +385,19 @@ class Engine {
       const strip = this.strips.get(t.id);
       if (!strip) continue;
       scheduleAutomation(strip, t, when, from, until);
+      // 延遲補償：這一軌的效果器會晚 lat 秒出聲 → 素材提早 lat 秒送進去，出來剛好對齊其他軌
+      const lat = trackLatency(t);
+      const w2 = Math.max(c.currentTime, when - lat);
+      const f2 = from + (w2 - (when - lat));     // 開頭來不及提早的那一小段直接略過
       for (const clip of t.clips) {
         if (isMidiClip(clip)) {
           // 正在錄的片段不播放：彈的聲音已經即時發出來了，再播一次會變成兩個音
           if (recordingClips.has(clip.id)) continue;
           // 只收從 from 之後才開始的音符（不從音符中間起音）
-          for (const ev of midiEvents(clip)) if (ev.s >= from - 1e-6 && ev.s < until) events.push({ ...ev, track: t, strip });
+          for (const ev of midiEvents(clip)) if (ev.s >= f2 - 1e-6 && ev.s < until) events.push({ ...ev, s: ev.s - lat, e: ev.e - lat, track: t, strip });
           continue;
         }
-        const s = scheduleClip(c, clip, store.buffers.get(clip.bufferId), strip.input, when, from, until);
+        const s = scheduleClip(c, clip, store.buffers.get(clip.bufferId), strip.input, w2, f2, until);
         if (s) this.sources.push(s);
       }
     }
@@ -643,13 +654,18 @@ class Engine {
       strip.fader.gain.value = dbToGain(t.volumeDb);
       strip.pan.pan.value = t.pan;
       scheduleAutomation(strip, t, 0, start, end);
+      const lat = trackLatency(t);
       for (const clip of t.clips) {
         if (isMidiClip(clip)) {
           for (const e of midiEvents(clip)) {
-            if (e.s < start - 1e-6 || e.s >= end) continue;
-            scheduleNote(oc, strip.input, t.instrument, e.p, e.v, e.s - start, Math.min(e.e, end) - e.s);
+            if (e.s < start + lat - 1e-6 || e.s >= end) continue;
+            scheduleNote(oc, strip.input, t.instrument, e.p, e.v, e.s - start - lat, Math.min(e.e, end) - e.s);
           }
-        } else scheduleClip(oc, clip, store.buffers.get(clip.bufferId), strip.input, 0, start, end);
+        } else {
+          // 專案時間 x 要在 ctx 的 (x − start − lat) 送進效果器，出來時剛好在 (x − start)。
+          // 以 from = start + lat 對應 ctx 0；start ~ start+lat 這一小段（lat 秒）來不及提早，略過。
+          scheduleClip(oc, clip, store.buffers.get(clip.bufferId), strip.input, 0, start + lat, end);
+        }
       }
     }
     const out = await oc.startRendering();

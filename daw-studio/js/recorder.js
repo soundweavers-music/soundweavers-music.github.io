@@ -43,9 +43,14 @@ class Recorder {
     const an = ctx.createAnalyser(); an.fftSize = 1024;
     this.src.connect(an);
     this.inputMeter = { aL: an, aR: an, buf: new Float32Array(1024), hold: [0, 0], peakDb: -Infinity };
+    // 輸入監聽：接到「開了 I 的那一軌」的 strip 輸入 → 會經過那一軌的效果器（例如 Auto Tune）、推桿與聲像，
+    // 跟最後錄進去、播出來的聲音一樣。錄進去的仍然是乾淨的原聲。
     this.monitorGain = ctx.createGain();
     this.monitorGain.gain.value = 0;
-    this.src.connect(this.monitorGain).connect(ctx.destination);
+    this.src.connect(this.monitorGain);
+    this.routeMonitor();
+    // 軌道增刪、I 切換、strip 重建 → 重新決定監聽要送到哪一軌（engine 的監聽先註冊，strip 已更新）
+    if (!this._routeSub) { this._routeSub = true; store.on('change', () => this.routeMonitor()); }
     this.node.port.onmessage = e => {
       if (e.data.chunk) this.chunks.push(e.data.chunk);
       else if (e.data.done && this._onDone) this._onDone();
@@ -57,7 +62,9 @@ class Recorder {
     if (!this.stream) return;
     this.stream.getTracks().forEach(t => t.stop());
     try { this.src.disconnect(); } catch (_) { /* noop */ }
+    try { this.monitorGain.disconnect(); } catch (_) { /* noop */ }
     this.stream = null; this.src = null; this.node = null; this.inputMeter = null;
+    this.monitorGain = null; this._monDest = null;
   }
 
   async setDevice(id) {
@@ -66,8 +73,22 @@ class Recorder {
     if (this.stream) { this.closeInput(); await this.openInput(); }
   }
 
+  // 監聽送到哪一軌：第一條開了 I 的音訊軌；沒有就直接到輸出
+  routeMonitor() {
+    if (!this.monitorGain) return;
+    const t = store.project.tracks.find(x => x.kind === 'audio' && x.monitor);
+    const strip = t && engine.strips.get(t.id);
+    const dest = strip ? strip.input : engine.ctx.destination;
+    if (this._monDest === dest) return;
+    try { this.monitorGain.disconnect(); } catch (_) { /* noop */ }
+    this.monitorGain.connect(dest);
+    this._monDest = dest;
+  }
+
   setMonitor(on) {
-    if (this.monitorGain) this.monitorGain.gain.setTargetAtTime(on ? 1 : 0, engine.ctx.currentTime, 0.02);
+    if (!this.monitorGain) return;
+    this.routeMonitor();
+    this.monitorGain.gain.setTargetAtTime(on ? 1 : 0, engine.ctx.currentTime, 0.02);
   }
 
   inputLevels() { return this.inputMeter ? engine.readMeter(this.inputMeter) : [0, 0]; }
