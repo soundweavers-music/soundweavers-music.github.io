@@ -1327,6 +1327,48 @@ def arrange_steps() -> str:
         "新手最常犯的錯：先編伴奏，結果旋律被蓋掉，聽不出在彈哪一首。")
 
 
+def wood_types() -> str:
+    return uk_compare(
+        "三種板材：價格差在哪裡",
+        "差別在「面板是幾層」，不是木頭品種的名字好不好聽",
+        ["板材", "合板（Laminate）", "全單板（Solid）"],
+        [("結構", "三層薄木交錯壓合", "整塊實木切薄"),
+         ("聲音", "較平、開聲空間小", "越彈越開，低頻與延音更好"),
+         ("價格", "便宜，適合第一把", "貴，需要保養"),
+         ("適合", "旅行、隨手彈、預算有限", "每天彈、在意音色")],
+        "面單板（面板實木、側背合板）是中間選項：音色明顯比合板好，價格又不到全單板。")
+
+
+def seventh_pair() -> str:
+    w = 720
+    items = [("C", [0, 0, 0, 3], "三和弦"), ("Cmaj7", [0, 0, 0, 2], "換一個音就變七和弦"),
+             ("Am", [2, 0, 0, 0], "三和弦"), ("Am7", [0, 0, 0, 0], "四條全空弦")]
+    step = (w - 48) / 4
+    h = 372
+    p = [_t(24, 34, "三和弦 → 七和弦：只換一顆音，氣質就變了", 15, weight=700),
+         _t(24, 55, "七和弦多的是「第 7 音」；它讓和聲多一層都會感，但不会讓和弦變難按", 11.5, fill=MUTED)]
+    for i, (name, frets, note) in enumerate(items):
+        x = 24 + i * step + step / 2 - 46
+        p.append(chord_grid(x, 92, list(reversed(frets)), name, 92, 130))
+        for k, line in enumerate(_wrap(note, 11)):
+            p.append(_t(24 + i * step + step / 2, 250 + k * 16, line, 9.5, "middle", MUTED))
+        if i % 2 == 1:
+            p.append(_t(24 + i * step - 8, 160, "→", 18, "middle", WOOD_D, 700))
+    p.append(_t(24, h - 14, "同一段旋律換上七和弦，鼓跟貝斯不用動，整首歌就會突然「夜景」起來。", 10.5, fill=MUTED))
+    return svg(w, h, "".join(p), "三和弦與七和弦對照")
+
+
+def faq_week1() -> str:
+    return uk_compare(
+        "第一週最常卡住的三件事",
+        "這三個問題幾乎每個人都會遇到，而且都不是「你沒天分」",
+        ["問題", "真正的原因", "怎麼解"],
+        [("手指痛", "按弦位置太中間、指尖塌下去", "貼琴衍、指尖立起；一天 10 分鐘就夠"),
+         ("和弦悶音", "旁邊的弦被手指壓到", "手指站直，只壓需要響的那條弦"),
+         ("換和弦太慢", "每次都整組手抬起來重找", "留一根共同指當路標（見 5.2）")],
+        "痛是正常的，破皮不是。指尖起繭之前，寧可少彈十分鐘，也不要硬撐。")
+
+
 def main() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
     figures = {
@@ -1338,6 +1380,9 @@ def main() -> int:
         "double_stops.svg": double_stops(),
         "fingerstyle_roles.svg": fingerstyle_roles(),
         "percussion.svg": percussion(),
+        "wood_types.svg": wood_types(),
+        "seventh_pair.svg": seventh_pair(),
+        "faq_week1.svg": faq_week1(),
         "tuning_steps.svg": tuning_steps(),
         "warmup_steps.svg": warmup_steps(),
         "arrange_steps.svg": arrange_steps(),
