@@ -16,31 +16,11 @@ CONTENT_DIR = BASE_DIR / "content"
 OUTPUT_DIR = BASE_DIR / "outputs" / "world-instruments-static"
 
 
-def instrument_course_totals():
-    """章數與建議學習時數：曼陀林專區＋吉他＋烏克麗麗。
+# 課程的章數與建議學習時數集中在 scripts/course_hours.py（唯一來源），
+# 首頁、/learn/ 與各課程頁都從那裡算，才不會各講各的。
+sys.path.insert(0, str(BASE_DIR / "scripts"))
+import course_hours  # noqa: E402
 
-    Mandolin hours come from its own study_hours(); the two course folders share
-    build_courses.py's formula, kept in step with READING_CHARS_PER_MIN below."""
-    chapters, hours = 0, 0.0
-    try:
-        import importlib
-        bm = importlib.import_module("build_mandolin")
-        for ch in bm.load_chapters():
-            chapters += 1
-            hours += bm.study_hours(ch)
-    except Exception:
-        pass
-    for slug in ("guitar", "ukulele"):
-        folder = CONTENT_DIR / slug
-        if not folder.exists():
-            continue
-        for path in folder.glob("*.md"):
-            if not re.fullmatch(r"\d+\.md", path.name):
-                continue
-            chars = len(re.findall(r"[一-鿿]", path.read_text(encoding="utf-8")))
-            chapters += 1
-            hours += max(0.5, -(-int(chars / 300 * 2.0) // 30) / 2)
-    return chapters, hours
 SITE_BASE_PATH = os.environ.get("SITE_BASE_PATH", "").strip()
 
 
@@ -282,7 +262,8 @@ def build_portal_homepage(instruments):
         featured.extend(shuffled[:2])
     rng.shuffle(featured)
     sample_cards = "\n".join(card(item, index_path) for item in featured[:8])
-    course_total = instrument_course_totals()
+    course_total = course_hours.totals()
+    course_count = len(course_hours.all_courses())
 
     body = f"""<main>
   <section class="portal-hero hero-banner">
@@ -295,7 +276,7 @@ def build_portal_homepage(instruments):
       <input type="search" name="q" placeholder="搜尋樂器、國家、分類…　例：尺八、甘美朗、非洲" aria-label="搜尋樂器">
       <button type="submit" aria-label="搜尋">搜尋</button>
     </form>
-    <p class="hero-stats"><span><strong>{len(instruments)}</strong> 件樂器</span><span><strong>{course_total[0]}</strong> 章樂器課程・約 <strong>{course_total[1]:g}</strong> 小時</span><span><strong>50</strong> 堂歌唱課</span><span><strong>30</strong> 堂錄音課</span></p>
+    <p class="hero-stats"><span><strong>{len(instruments)}</strong> 件樂器</span><span><strong>{course_count}</strong> 套學習課程・共 <strong>{course_total[0]}</strong> 章</span><span>全部讀完約 <strong>{course_total[1]:g}</strong> 小時</span></p>
     </div>
   </section>
 
@@ -467,12 +448,16 @@ def build_vocal_pages():
         else:
             research_items.append(f'<div class="research-item"><div class="research-num">專欄{idx}</div><div class="research-title">{escape(fallback_title)}</div><span class="ch-status ch-status-writing" style="display:inline-block;margin-top:8px;">撰寫中</span></div>')
     research = "\n".join(research_items)
+    vocal_ch, vocal_h = course_hours.course_stats("vocal")
 
     idx_body = f"""<main>
   <section class="vocal-hero">
     <p class="eyebrow">Voice &amp; Singing</p>
     <h1>人聲與歌唱</h1>
     <p class="lead">從啟蒙覺察到錄音室實戰，系統化的流行歌唱教學體系。無論你是零基礎初學者、進階歌者，還是對聲音科學感興趣的音樂人，都能在這裡找到適合的內容。</p>
+    <p class="hero-stats" style="text-align:left;margin-top:16px">
+      <span><strong>{vocal_ch}</strong> 章</span><span>建議約 <strong>{vocal_h:g}</strong> 小時</span>
+    </p>
   </section>
   <div class="vocal-page">
     <div class="vocal-tabs">
@@ -660,12 +645,16 @@ def build_digitalmusic_pages():
 
     bh = lesson_range_html(1, 15)
     ah = lesson_range_html(16, 30)
+    dm_ch, dm_h = course_hours.course_stats("digitalmusic")
 
     idx_body = f"""<main>
   <section class="vocal-hero">
     <p class="eyebrow">Recording &amp; Mixing</p>
     <h1>錄音後製</h1>
     <p class="lead">從宅錄設備建置到專業混音母帶，系統化的錄音後製教學體系。無論你是剛起步的獨立音樂人、Podcast 創作者，還是想提升混音實力的工程師，都能在這裡找到適合的內容。</p>
+    <p class="hero-stats" style="text-align:left;margin-top:16px">
+      <span><strong>{dm_ch}</strong> 堂</span><span>建議約 <strong>{dm_h:g}</strong> 小時</span>
+    </p>
   </section>
   <div class="vocal-page">
     <div class="vocal-tabs">
@@ -990,14 +979,18 @@ def build_theory_pages():
                    % (resolve_url(out_dir / "index.html", "/theory/%d/" % s["num"]),
                       escape(s["title"]), items))
 
+    th_ch, th_h = course_hours.course_stats("theory")
     index = """<main class="page theory-page">
   <header class="theory-hero">
     <h1 style="font-size:32px;margin:0 0 10px;">音樂理論基礎</h1>
     <p style="color:var(--muted);max-width:640px;">從聲音的物理、節拍、五線譜、拍號，一路到樂器分類與合奏。
     五個階段、二十章，每章一頁，附示意圖。</p>
+    <p class="hero-stats" style="text-align:left;margin-top:16px">
+      <span><strong>%d</strong> 章</span><span>建議約 <strong>%g</strong> 小時</span>
+    </p>
   </header>
   %s
-</main>""" % blocks
+</main>""" % (th_ch, th_h, blocks)
     write(out_dir / "index.html", page("音樂理論基礎", index, out_dir / "index.html",
                                        extra_head=css,
                                        meta_description="音樂理論基礎：聲音、節拍、五線譜、拍號、樂器分類與合奏，共五階段二十章。"))
