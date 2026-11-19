@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 338" role="img" aria-label="調音四步驟：從第 6 弦調到第 1 弦">
+  <title>調音四步驟：從第 6 弦調到第 1 弦</title>
+  <rect width="640" height="338" fill="#FBF8F4"/>
+<text x="24" y="34" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="15" fill="#3D3229" text-anchor="start" font-weight="700">調音四步驟：從第 6 弦調到第 1 弦</text>
+<text x="24" y="55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#8C8078" text-anchor="start">每次拿起琴都先做這一輪，一分鐘內可以完成</text>
+<rect x="24.0" y="84" width="280.0" height="90" rx="10" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="42.0" y="114" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="20" fill="#A67C52" text-anchor="start" font-weight="700">1</text>
+<text x="68.0" y="114" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="start" font-weight="700">夾上調音器</text>
+<text x="42.0" y="138" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start">夾在琴頭，模式選 C（十二平均律）</text>
+<text x="42.0" y="156" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start">或 G（吉他），基準 440Hz</text>
+<rect x="320.0" y="84" width="280.0" height="90" rx="10" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="338.0" y="114" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="20" fill="#A67C52" text-anchor="start" font-weight="700">2</text>
+<text x="364.0" y="114" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="start" font-weight="700">一次只撥一根弦</text>
+<text x="338.0" y="138" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start">從第 6 弦開始；撥完等 1～2 </text>
+<text x="338.0" y="156" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start">秒，讓音穩定再讀</text>
+<rect x="24.0" y="188" width="280.0" height="90" rx="10" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="42.0" y="218" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="20" fill="#A67C52" text-anchor="start" font-weight="700">3</text>
+<text x="68.0" y="218" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="start" font-weight="700">先看音名、再看指針</text>
+<text x="42.0" y="242" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start">音名不對就是差太多，先把字母調對，</text>
+<text x="42.0" y="260" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start">指針只是微調</text>
+<rect x="320.0" y="188" width="280.0" height="90" rx="10" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="338.0" y="218" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="20" fill="#A67C52" text-anchor="start" font-weight="700">4</text>
+<text x="364.0" y="218" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="start" font-weight="700">調完回頭再檢查一次</text>
+<text x="338.0" y="242" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start">調好第 1 弦之後，張力變化會讓前</text>
+<text x="338.0" y="260" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start">面幾條弦跑掉，再跑一輪</text>
+<text x="24" y="324" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="start">調音器顯示 D 或 D♯ 而你正在調第 6 弦（E），代表現在太低，要轉緊。</text>
+</svg>
