@@ -25,7 +25,7 @@ export function ink(a) {
 
 export function currentTheme() {
   const t = document.documentElement.dataset.theme;
-  return THEMES.some(x => x.id === t) ? t : 'wood-dark';
+  return THEMES.some(x => x.id === t) ? t : 'wood-light';
 }
 
 export function setTheme(id) {

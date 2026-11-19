@@ -867,7 +867,7 @@ a.tbtn { text-decoration: none; }
 /* ---------- 自動伴奏電子琴 ---------- */
 .arr { position: fixed; inset: 0; z-index: 190; background: rgba(0,0,0,.5); display: grid; place-items: center; }
 .arr.hidden { display: none; }
-.arr-win { width: min(1240px, 97vw); max-height: 95vh; overflow: auto; display: grid; gap: 10px; padding: 12px 14px 14px; background: linear-gradient(var(--panel-head-a, #24262c), var(--panel, #17181c)); border: 1px solid var(--line2); border-radius: 12px; box-shadow: 0 24px 70px rgba(0,0,0,.6); }
+.arr-win { width: min(1240px, 97vw); max-height: 95vh; overflow: auto; display: grid; gap: 10px; padding: 12px 14px 14px; color: var(--tx0); background: linear-gradient(var(--bg3), var(--bg1)); border: 1px solid var(--line2); border-radius: 12px; box-shadow: 0 24px 70px rgba(0,0,0,.6); }
 .arr.max .arr-win { width: 100vw; height: 100vh; max-height: 100vh; border-radius: 0; }
 .arr-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .arr-head > b { font-size: 15px; }
