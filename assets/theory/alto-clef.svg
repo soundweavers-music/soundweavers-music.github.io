@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" width="100%" role="img" aria-label="C 譜號：記號放在哪一條線，中央 C 就在那裡">
+<rect width="760" height="360" fill="#f7f3ee"/>
+<text x="28.0" y="40.0" font-size="19" text-anchor="start" fill="#2b2722" font-weight="700">C 譜號：記號放在哪一條線，中央 C 就在那裡</text>
+<text x="28.0" y="62.0" font-size="12.5" text-anchor="start" fill="#8a8078" font-weight="400">同一組五線，C 譜號往上一條線，整把尺就跟著上移</text>
+<text x="28.0" y="108.0" font-size="12" text-anchor="start" fill="#2b2722" font-weight="700">女高音譜號</text>
+<text x="28.0" y="154.0" font-size="9.5" text-anchor="start" fill="#8a8078" font-weight="400">少見，特定教材與古樂</text>
+<line x1="260.0" y1="102.0" x2="560.0" y2="102.0" stroke="#2b2722" stroke-width="1.1"/>
+<line x1="260.0" y1="115.0" x2="560.0" y2="115.0" stroke="#2b2722" stroke-width="1.1"/>
+<line x1="260.0" y1="128.0" x2="560.0" y2="128.0" stroke="#2b2722" stroke-width="1.1"/>
+<line x1="260.0" y1="141.0" x2="560.0" y2="141.0" stroke="#2b2722" stroke-width="1.1"/>
+<line x1="260.0" y1="154.0" x2="560.0" y2="154.0" stroke="#2b2722" stroke-width="1.1"/>
+<circle cx="300.0" cy="154.0" r="13.0" fill="none" stroke="#A67C52" stroke-width="2"/>
+<text x="300.0" y="159.0" font-size="12" text-anchor="middle" fill="#A67C52" font-weight="700">C</text>
+<circle cx="400.0" cy="154.0" r="4.5" fill="#A67C52" stroke="none" stroke-width="1.4"/>
+<text x="414.0" y="158.0" font-size="10.5" text-anchor="start" fill="#A67C52" font-weight="700">第一線＝中央 C</text>
+<text x="28.0" y="186.0" font-size="12" text-anchor="start" fill="#2b2722" font-weight="700">中音譜號</text>
+<text x="28.0" y="232.0" font-size="9.5" text-anchor="start" fill="#8a8078" font-weight="400">中提琴的標準譜號</text>
+<line x1="260.0" y1="180.0" x2="560.0" y2="180.0" stroke="#2b2722" stroke-width="1.1"/>
+<line x1="260.0" y1="193.0" x2="560.0" y2="193.0" stroke="#2b2722" stroke-width="1.1"/>
+<line x1="260.0" y1="206.0" x2="560.0" y2="206.0" stroke="#2b2722" stroke-width="1.1"/>
+<line x1="260.0" y1="219.0" x2="560.0" y2="219.0" stroke="#2b2722" stroke-width="1.1"/>
+<line x1="260.0" y1="232.0" x2="560.0" y2="232.0" stroke="#2b2722" stroke-width="1.1"/>
+<circle cx="300.0" cy="206.0" r="13.0" fill="none" stroke="#A67C52" stroke-width="2"/>
+<text x="300.0" y="211.0" font-size="12" text-anchor="middle" fill="#A67C52" font-weight="700">C</text>
+<circle cx="400.0" cy="206.0" r="4.5" fill="#A67C52" stroke="none" stroke-width="1.4"/>
+<text x="414.0" y="210.0" font-size="10.5" text-anchor="start" fill="#A67C52" font-weight="700">第三線＝中央 C</text>
+<text x="28.0" y="264.0" font-size="12" text-anchor="start" fill="#2b2722" font-weight="700">次中音譜號</text>
+<text x="28.0" y="310.0" font-size="9.5" text-anchor="start" fill="#8a8078" font-weight="400">大提琴、低音管的高音域</text>
+<line x1="260.0" y1="258.0" x2="560.0" y2="258.0" stroke="#2b2722" stroke-width="1.1"/>
+<line x1="260.0" y1="271.0" x2="560.0" y2="271.0" stroke="#2b2722" stroke-width="1.1"/>
+<line x1="260.0" y1="284.0" x2="560.0" y2="284.0" stroke="#2b2722" stroke-width="1.1"/>
+<line x1="260.0" y1="297.0" x2="560.0" y2="297.0" stroke="#2b2722" stroke-width="1.1"/>
+<line x1="260.0" y1="310.0" x2="560.0" y2="310.0" stroke="#2b2722" stroke-width="1.1"/>
+<circle cx="300.0" cy="271.0" r="13.0" fill="none" stroke="#A67C52" stroke-width="2"/>
+<text x="300.0" y="276.0" font-size="12" text-anchor="middle" fill="#A67C52" font-weight="700">C</text>
+<circle cx="400.0" cy="271.0" r="4.5" fill="#A67C52" stroke="none" stroke-width="1.4"/>
+<text x="414.0" y="275.0" font-size="10.5" text-anchor="start" fill="#A67C52" font-weight="700">第四線＝中央 C</text>
+<text x="28.0" y="342.0" font-size="11.5" text-anchor="start" fill="#8a8078" font-weight="400">這也是為什麼中提琴手換到高音譜號會卡住——尺換了。</text>
+</svg>

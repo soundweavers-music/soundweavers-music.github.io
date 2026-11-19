@@ -35,6 +35,11 @@ def _room(x, y, s, size):
 
 
 def text(x, y, s, size=13, anchor="start", color=INK, weight="400", _track=True):
+    # 早期有些呼叫把顏色當成第 5 個參數傳進來（text(x, y, s, 12, MUTED)），
+    # 結果 anchor 收到色碼、weight 收到顏色，輸出成 text-anchor="#8a8078"。
+    # 這裡自動把它們撥回正確的位置，舊圖不必一張張改。
+    if isinstance(anchor, str) and anchor.startswith("#"):
+        weight, color, anchor = color, anchor, "start"
     if _track:
         box = _room(x, y, s, size)
         if anchor == "middle":
@@ -661,6 +666,629 @@ def fig_timbre_families():
                                       "敲擊類起音快、衰減快；持續類可以維持不墜", body))
 
 
+# ═══════════════════════════════════════════════════════════════
+# 第二批：每一節再補一張，把抽象的說法畫成看得見的東西
+# ═══════════════════════════════════════════════════════════════
+
+def arrow(x1, y1, x2, y2, color=ACCENT, sw=1.5, head=7.5):
+    ang = math.atan2(y2 - y1, x2 - x1)
+    a1 = (x2 - head * math.cos(ang - 0.42), y2 - head * math.sin(ang - 0.42))
+    a2 = (x2 - head * math.cos(ang + 0.42), y2 - head * math.sin(ang + 0.42))
+    return (line(x1, y1, x2, y2, color, sw)
+            + path("M%.1f %.1f L%.1f %.1f L%.1f %.1f" % (a1[0], a1[1], x2, y2, a2[0], a2[1]),
+                   stroke=color, sw=sw))
+
+
+# ── 21. 聲音是空氣的疏密波（1.1） ───────────────────────────
+def fig_sound_wave_air():
+    W, H = 760, 330
+    body = []
+    body.append(text(28, 96, "點＝空氣分子。擠在一起是「密」，拉開是「鬆」；波往外走，分子幾乎原地不動。", 12))
+    body.append(rect(50, 136, 12, 84, ACCENT, "none", 3))
+    body.append(text(56, 244, "鼓面", 10.5, "middle", MUTED))
+    for y in (132, 162, 192, 222):
+        for k in range(44):
+            x = 96 + k * 14
+            dx = -9 * math.sin((x - 96) / 160.0 * 2 * math.pi)
+            body.append(circle(x + dx, y, 2.5, INK))
+    body.append(text(256, 112, "密", 11.5, "middle", ACCENT, "700"))
+    body.append(text(336, 112, "鬆", 11.5, "middle", MUTED, "700"))
+    body.append(arrow(160, 268, 700, 268))
+    body.append(text(430, 290, "疏密往外傳", 11.5, "middle", MUTED))
+    write("sound-wave-air.svg", frame(W, H, "聲音是空氣的疏密波",
+                                     "鼓面一推一退，空氣就被壓成疏密相間、往外跑的波", body,
+                                     "空氣中約 343 m/s；水中約 1,480 m/s，固體更快。"))
+
+
+# ── 22. 人耳聽得到什麼（1.3） ───────────────────────────────
+def fig_hearing_range():
+    W, H = 760, 370
+    body = []
+    lo, hi = 10.0, 100000.0
+    x0, x1 = 150, 700
+
+    def xf(f):
+        return x0 + (math.log10(f) - math.log10(lo)) / (math.log10(hi) - math.log10(lo)) * (x1 - x0)
+
+    body.append(rect(xf(20), 96, xf(20000) - xf(20), 216, "#efe8df", "none", 6))
+    body.append(text(xf(20) + 4, 88, "人耳（20 Hz – 20 kHz）", 10.5, color=MUTED))
+    rows = [
+        ("人耳", 20, 20000, "20 Hz – 20 kHz", True),
+        ("鋼琴", 27.5, 4186, "A0 – C8", False),
+        ("小提琴", 196, 3136, "G3 – G7", False),
+        ("人聲", 82, 1100, "E2 – C6", False),
+        ("狗", 40, 60000, "40 – 60 kHz", False),
+    ]
+    y = 136
+    for name, f1, f2, lab, hot in rows:
+        body.append(text(28, y + 4, name, 11.5, weight="700" if hot else "400"))
+        body.append(rect(xf(f1), y - 7, max(3, xf(f2) - xf(f1)), 14,
+                         ACCENT if hot else "#c2ae97", "none", 3))
+        body.append(text(xf(f2) + 8, y + 4, lab, 9.5, MUTED))
+        y += 40
+    body.append(line(x0, 316, x1, 316, MUTED, 1.2))
+    for f in (10, 100, 1000, 10000, 100000):
+        body.append(line(xf(f), 310, xf(f), 322, MUTED, 1))
+        lab = {10: "10", 100: "100", 1000: "1k", 10000: "10k", 100000: "100k"}[f]
+        body.append(text(xf(f), 338, lab, 10, "middle", MUTED))
+    body.append(text(x0 - 10, 338, "Hz", 10, "end", MUTED))
+    write("hearing-range.svg", frame(W, H, "聽覺的邊界：20 Hz 到 20 kHz",
+                                     "橫軸是對數刻度；超過 20 kHz 就是「超音波」", body,
+                                     "年紀越大，高頻的上限越低；成年後多數人只聽到 15–17 kHz。"))
+
+
+# ── 23. 等響曲線（1.4） ────────────────────────────────────
+def fig_equal_loudness():
+    W, H = 760, 390
+    body = []
+    x0, x1 = 120, 640
+    y0, y1 = 116, 300
+
+    def xf(f):
+        return x0 + (math.log10(f) - math.log10(20)) / (math.log10(20000) - math.log10(20)) * (x1 - x0)
+
+    def ydb(db):
+        return y1 - max(0.0, min(db, 100.0)) / 100.0 * (y1 - y0)
+
+    for f, lab in ((100, "100 Hz"), (1000, "1 kHz"), (10000, "10 kHz")):
+        body.append(line(xf(f), y0, xf(f), y1, LINE, 1))
+        body.append(text(xf(f), y1 + 16, lab, 10, "middle", MUTED))
+    for db in (20, 40, 60, 80, 100):
+        body.append(line(x0, ydb(db), x1, ydb(db), LINE, 1))
+        body.append(text(x0 - 10, ydb(db) + 4, str(db), 10, "end", MUTED))
+    body.append(text(x0 - 10, y0 - 16, "音壓 dB SPL", 10.5, "end", MUTED))
+
+    def curve(phon, color, sw):
+        pts = []
+        for i in range(121):
+            lf = math.log10(20) + i / 120.0 * (math.log10(20000) - math.log10(20))
+            f = 10 ** lf
+            boost = max(0.0, 3.2 - lf) * 20 * (1.0 - 0.42 * (phon - 40) / 40.0)
+            boost -= 3.0 * math.exp(-((lf - 3.5) ** 2) / 0.03)   # 3–4 kHz 耳道共振
+            pts.append("%.1f %.1f" % (x0 + i / 120.0 * (x1 - x0), ydb(phon + boost)))
+        return path("M" + " L".join(pts), stroke=color, sw=sw)
+
+    for phon, col, sw in ((80, ACCENT, 2), (60, BLUE, 1.8), (40, MUTED, 1.8)):
+        body.append(curve(phon, col, sw))
+        body.append(text(x1 + 10, ydb(phon) + 4, "%d 方" % phon, 10.5, color=col, weight="700"))
+    body.append(text(28, 336, "同一條線上的音，聽起來一樣大聲。音量轉小之後，低頻與極高頻會先「消失」。", 11.5))
+    body.append(text(28, 356, "所以小聲聽音樂時總覺得沒低音——把音量調大，低頻就回來了。", 11, MUTED))
+    write("equal-loudness.svg", frame(W, H, "等響曲線：同樣大聲，不等於同樣音壓",
+                                      "曲線是等響線，數字是 phon（方）；低頻要更多音壓才聽得一樣響", body,
+                                      "曲線為示意，實際數據見 ISO 226 等響曲線。"))
+
+
+# ── 24. 全音與半音（2.2） ──────────────────────────────────
+def fig_whole_half_step():
+    W, H = 760, 340
+    body = []
+    names = ["C", "C♯", "D", "D♯", "E", "F", "F♯", "G", "G♯", "A", "A♯", "B"]
+    black = {1, 3, 6, 8, 10}
+    x0, w, y = 52, 54, 140
+    body.append(text(28, 106, "把一個八度攤平：12 個半音，白鍵 7 個、黑鍵 5 個。", 12))
+    for i, nm in enumerate(names):
+        x = x0 + i * w
+        body.append(rect(x, y, w - 3, 78, INK if i in black else "#fff", LINE, 3))
+        body.append(text(x + (w - 3) / 2, y + 46, nm, 12, "middle",
+                         "#fff" if i in black else INK, "700"))
+    body.append(arrow(x0 + 4, 250, x0 + 2 * w - 10, 250))
+    body.append(text(x0 + 4, 272, "全音＝跨 2 格（2 個半音）", 11, ACCENT, "700"))
+    xe = x0 + 4 * w
+    body.append(arrow(xe + 4, 250, xe + w - 10, 250))
+    body.append(text(xe + 22, 272, "半音＝跨 1 格", 11, ACCENT, "700"))
+    write("whole-half-step.svg", frame(W, H, "全音與半音：樓梯的高度差",
+                                      "半音是最小的一格；兩個半音黏起來就是一個全音", body,
+                                      "E–F 與 B–C 之間沒有黑鍵，那兩格本來就只有半音。"))
+
+
+# ── 25. 節拍 vs 節奏（3.2） ────────────────────────────────
+def fig_beat_vs_rhythm():
+    W, H = 760, 330
+    body = []
+    x0, slot = 160, 66
+    for i in range(9):
+        body.append(line(x0 + i * slot, 104, x0 + i * slot, 268, LINE, 1, "3 5"))
+    body.append(text(28, 118, "節拍", 13, weight="700"))
+    body.append(text(28, 136, "背景的格子", 10.5, color=MUTED))
+    body.append(text(28, 206, "節奏", 13, weight="700"))
+    body.append(text(28, 224, "格子上的長短", 10.5, color=MUTED))
+    beats = [(2, "1"), (0, "2"), (1, "3"), (0, "4")]
+    for i, (strong, lab) in enumerate(beats):
+        cx = x0 + i * 2 * slot
+        r = 15 if strong == 2 else (10 if strong == 1 else 8)
+        body.append(circle(cx, 150, r, ACCENT if strong == 2 else SOFT,
+                           ACCENT if strong else MUTED, 1.8))
+        body.append(text(cx, 154, lab, 10.5 if strong else 9, "middle",
+                         "#fff" if strong == 2 else (ACCENT if strong else MUTED)))
+    k = 0
+    for d in (2, 1, 1, 2, 1, 1):
+        body.append(rect(x0 + k * slot + 6, 236, d * slot - 12, 22, ACCENT, "none", 6))
+        k += d
+    write("beat-vs-rhythm.svg", frame(W, H, "節拍是格子，節奏是格子裡的東西",
+                                      "同一小節、同一個速度：格子不動，填進去的長短可以千變萬化", body,
+                                      "沒有節拍，節奏就沒有參考點；沒有節奏，節拍只是節拍器。"))
+
+
+# ── 26. 切分（3.3） ────────────────────────────────────────
+def fig_syncopation():
+    W, H = 760, 310
+    body = []
+    x0, slot = 190, 62
+    rows = [
+        ("正拍重音", [1, 0, 0, 0, 1, 0, 0, 0], "重音落在 1、3 拍：穩定、好數拍"),
+        ("切分", [0, 0, 1, 0, 0, 0, 1, 0], "重音閃開正拍：往前推、坐不住"),
+    ]
+    for ri, (name, pattern, desc) in enumerate(rows):
+        y = 132 + ri * 96
+        body.append(text(28, y - 4, name, 12.5, weight="700"))
+        body.append(text(20, y + 34, desc, 10, color=MUTED))
+        for i, acc in enumerate(pattern):
+            cx = x0 + i * slot
+            body.append(circle(cx, y, 13 if acc else 8,
+                               ACCENT if acc else SOFT, ACCENT if acc else MUTED, 1.8))
+        for i in range(9):
+            body.append(line(x0 + i * slot, y + 20, x0 + i * slot, y + 26, LINE, 1))
+    body.append(text(x0, 268, "格＝八分音符；大圓＝重音", 10, color=MUTED))
+    write("syncopation.svg", frame(W, H, "切分：把重音搬到不該在的地方",
+                                   "一樣的音符、一樣的總長，重音換位置，身體的感覺就完全不同", body))
+
+
+# ── 27. 速度是活的（4.3） ──────────────────────────────────
+def fig_tempo_feel():
+    W, H = 760, 320
+    body = []
+    body.append(text(28, 100, "節拍器：每一拍間隔一模一樣", 12, weight="700"))
+    body.append(text(20, 118, "適合練習，不適合演奏", 10, color=MUTED))
+    for i in range(13):
+        body.append(line(140 + i * 44, 130, 140 + i * 44, 168, INK, 1.6))
+    body.append(text(28, 214, "真人演奏：靠近高潮時撐開，過了再收緊", 12, weight="700"))
+    body.append(text(20, 232, "術語叫 rubato（彈性速度）", 10, color=MUTED))
+    x = 140.0
+    for g in (40, 40, 40, 44, 50, 58, 64, 58, 48, 40, 34, 30, 28):
+        body.append(line(x, 244, x, 282, INK, 1.6))
+        if abs(g - 64) < 1:
+            body.append(line(x + 32, 118, x + 32, 292, ACCENT, 1.2, "5 5"))
+            body.append(text(x + 38, 108, "樂句高潮", 10.5, color=ACCENT, weight="700"))
+        x += g
+    write("tempo-feel.svg", frame(W, H, "速度是活的，不是節拍器上的數字",
+                                  "同樣標 BPM 120，機器與人的差別在「每一拍之間怎麼分配」", body))
+
+
+# ── 28. 記譜法的演化（5.1／5.2） ───────────────────────────
+def fig_notation_history():
+    W, H = 760, 360
+    body = []
+    panels = [
+        (52, "紐姆譜", "9–10 世紀", ["記號浮在歌詞上方", "只記方向與輪廓", "高低靠記憶與口傳"]),
+        (290, "四線譜", "11 世紀・桂多", ["把線拉出來", "音高第一次有位置", "唱詩班可以遠距教學"]),
+        (528, "五線譜", "17 世紀至今", ["五條線＋譜號", "高低與節奏都寫得清", "樂器、聲部都能記"]),
+    ]
+    for x, name, era, lines in panels:
+        body.append(text(x, 108, name, 14, weight="700"))
+        body.append(text(x, 126, era, 10.5, color=MUTED))
+        if name == "紐姆譜":
+            for k, (dx, dy) in enumerate(((20, 0), (52, -6), (86, 2), (118, -4))):
+                body.append(ellipse(x + 26 + dx, 176 + dy, 7, 4.5, ACCENT))
+            body.append(text(x + 10, 214, "歌　詞　行", 10, color=MUTED))
+        elif name == "四線譜":
+            for k in range(4):
+                body.append(line(x, 164 + k * 14, x + 170, 164 + k * 14, INK, 1.1))
+            for k, nx in enumerate((40, 92, 140)):
+                body.append(rect(x + nx, 170 + k % 2 * 14 - 5, 9, 9, ACCENT, "none", 1))
+            body.append(text(x + 10, 232, "線＝音高的樓梯", 10, color=MUTED))
+        else:
+            for k in range(5):
+                body.append(line(x, 158 + k * 13, x + 170, 158 + k * 13, INK, 1.1))
+            body.append(circle(x + 22, 171, 12, "none", ACCENT, 2))
+            body.append(text(x + 22, 176, "G", 11, "middle", ACCENT, "700"))
+            for k, nx in enumerate((70, 120)):
+                body.append(ellipse(x + nx, 184 - k * 13, 8, 6, ACCENT))
+            body.append(text(x + 10, 232, "線＋譜號＝解碼鑰匙", 10, color=MUTED))
+        for k, ln in enumerate(lines):
+            body.append(text(x, 268 + k * 18, ln, 10, color=MUTED))
+    body.append(arrow(60, 336, 700, 336, MUTED, 1.2))
+    write("notation-history.svg", frame(W, H, "從紐姆譜到五線譜",
+                                       "每一個發明都在回答同一個問題：怎麼把聲音寫下來，讓別人唱得一樣", body))
+
+
+# ── 29. 高音譜號的地盤（6.3） ─────────────────────────────
+def fig_treble_territory():
+    W, H = 760, 330
+    body = []
+    x0, x1 = 52, 250
+    for k in range(5):
+        body.append(line(x0, 150 + k * 13, x1, 150 + k * 13, INK, 1.1))
+    body.append(circle(x0 + 26, 163, 14, "none", ACCENT, 2))
+    body.append(text(x0 + 26, 168, "G", 13, "middle", ACCENT, "700"))
+    body.append(text(x0, 128, "高音譜號（G 譜號）", 13, weight="700"))
+    body.append(text(x0, 232, "螺旋圈住第二線 → 那條線就是 G4", 10, color=MUTED))
+    body.append(text(x0, 252, "常用範圍大約 C4 – C6，往上加線可以更高", 10, color=MUTED))
+    chips = ["長笛", "雙簧管", "單簧管", "小提琴", "小號", "鋼琴右手"]
+    for i, nm in enumerate(chips):
+        cx = 330 + (i % 2) * 200
+        cy = 116 + (i // 2) * 58
+        body.append(rect(cx, cy, 180, 44, "#fff", LINE, 8))
+        body.append(text(cx + 16, cy + 28, nm, 12))
+    body.append(text(330, 300, "旋律幾乎都住在這裡：這是「主角」的譜號。", 11.5, color=ACCENT, weight="700"))
+    write("treble-territory.svg", frame(W, H, "高音譜號管什麼",
+                                        "大部分旋律樂器與人聲的高音，都寫在高音譜號上", body))
+
+
+# ── 30. 低音譜號的地盤（7.3） ─────────────────────────────
+def fig_bass_territory():
+    W, H = 760, 330
+    body = []
+    x0, x1 = 52, 250
+    for k in range(5):
+        body.append(line(x0, 150 + k * 13, x1, 150 + k * 13, INK, 1.1))
+    body.append(circle(x0 + 26, 176, 14, "none", ACCENT, 2))
+    body.append(text(x0 + 26, 181, "F", 13, "middle", ACCENT, "700"))
+    body.append(text(x0, 128, "低音譜號（F 譜號）", 13, weight="700"))
+    body.append(text(x0, 232, "兩點夾住第四線 → 那條線就是 F3", 10, color=MUTED))
+    body.append(text(x0, 252, "常用範圍大約 E2 – C4，往下加線可以更低", 10, color=MUTED))
+    chips = ["低音管", "長號", "大提琴", "低音提琴", "低音號", "鋼琴左手"]
+    for i, nm in enumerate(chips):
+        cx = 330 + (i % 2) * 200
+        cy = 116 + (i // 2) * 58
+        body.append(rect(cx, cy, 180, 44, "#fff", LINE, 8))
+        body.append(text(cx + 16, cy + 28, nm, 12))
+    body.append(text(330, 300, "地基都寫在這裡：這是「根」的譜號。", 11.5, color=ACCENT, weight="700"))
+    write("bass-territory.svg", frame(W, H, "低音譜號管什麼",
+                                      "低音樂器與左手聲部，都寫在低音譜號上", body))
+
+
+# ── 31. C 譜號會移動（8.2） ───────────────────────────────
+def fig_alto_clef():
+    W, H = 760, 360
+    body = []
+    rows = [
+        (1, "女高音譜號", "第一線＝中央 C", "少見，特定教材與古樂"),
+        (3, "中音譜號", "第三線＝中央 C", "中提琴的標準譜號"),
+        (4, "次中音譜號", "第四線＝中央 C", "大提琴、低音管的高音域"),
+    ]
+    for i, (line_no, name, where, who) in enumerate(rows):
+        y0 = 128 + i * 78
+        body.append(text(28, y0 - 20, name, 12, weight="700"))
+        body.append(text(28, y0 + 26, who, 9.5, color=MUTED))
+        for k in range(5):
+            body.append(line(260, y0 - 26 + k * 13, 560, y0 - 26 + k * 13, INK, 1.1))
+        cy = y0 + 26 - (line_no - 1) * 13
+        body.append(circle(300, cy, 13, "none", ACCENT, 2))
+        body.append(text(300, cy + 5, "C", 12, "middle", ACCENT, "700"))
+        body.append(circle(400, cy, 4.5, ACCENT))
+        body.append(text(414, cy + 4, where, 10.5, color=ACCENT, weight="700"))
+    write("alto-clef.svg", frame(W, H, "C 譜號：記號放在哪一條線，中央 C 就在那裡",
+                                 "同一組五線，C 譜號往上一條線，整把尺就跟著上移", body,
+                                 "這也是為什麼中提琴手換到高音譜號會卡住——尺換了。"))
+
+
+# ── 32. 升降記號（9.1） ───────────────────────────────────
+def fig_accidentals():
+    W, H = 760, 310
+    body = []
+    cards = [
+        ("♯", "升記號", "把音升高半音", "C → C♯", ACCENT),
+        ("♭", "降記號", "把音降低半音", "D → D♭", ACCENT),
+        ("♮", "還原記號", "取消前面的升降", "C♯ → C", MUTED),
+    ]
+    for i, (sym, name, what, eg, col) in enumerate(cards):
+        x = 34 + i * 244
+        body.append(rect(x, 104, 224, 168, "#fff", LINE, 10))
+        body.append(text(x + 112, 176, sym, 44, "middle", col, "700"))
+        body.append(text(x + 112, 206, name, 12.5, "middle", weight="700"))
+        body.append(text(x + 112, 230, what, 10.5, "middle", color=MUTED))
+        body.append(text(x + 112, 252, eg, 11, "middle", color=ACCENT, weight="700"))
+    write("accidentals.svg", frame(W, H, "臨時記號只管一小節",
+                                  "同一個音，加一個記號就換了身分；小節線之後自動失效", body))
+
+
+# ── 33. 小節與拍號（10.2） ───────────────────────────────
+def fig_bar_measure():
+    W, H = 760, 320
+    body = []
+    x0, x1 = 70, 700
+    for k in range(5):
+        body.append(line(x0, 150 + k * 13, x1, 150 + k * 13, INK, 1.1))
+    body.append(line(170, 150, 170, 202, INK, 2))
+    for bx in (302, 435, 567):
+        body.append(line(bx, 150, bx, 202, INK, 2))
+    body.append(line(695, 150, 695, 202, INK, 2))
+    body.append(line(700, 150, 700, 202, INK, 2))
+    body.append(text(120, 170, "4", 13, "middle", INK, "700"))
+    body.append(text(120, 194, "4", 13, "middle", INK, "700"))
+    for b in range(4):
+        bx = 170 + b * 132.5
+        for k in range(4):
+            body.append(text(bx + 17 + k * 33, 226, str(k + 1), 10, "middle", MUTED))
+    body.append(text(70, 128, "拍號", 11, color=ACCENT, weight="700"))
+    body.append(text(302, 128, "小節線", 11, color=ACCENT, weight="700"))
+    body.append(text(648, 128, "終止線", 11, "end", color=ACCENT, weight="700"))
+    body.append(text(28, 268, "上面的 4：一小節有幾拍。下面的 4：用四分音符當一拍。", 11.5))
+    body.append(text(28, 290, "小節線只是把拍子分組，不是音樂「暫停」的地方。", 11, color=MUTED))
+    write("bar-measure.svg", frame(W, H, "拍號與小節：把時間切成一格一格",
+                                  "4/4 ＝ 每小節 4 拍，每拍是四分音符", body))
+
+
+# ── 34. 附點音符（12.1） ─────────────────────────────────
+def fig_dotted_note():
+    W, H = 760, 320
+    body = []
+    rows = [
+        ("四分音符", 1.0, 0.0, "1 拍"),
+        ("附點四分音符", 1.5, 0.5, "1.5 拍"),
+        ("二分音符", 2.0, 0.0, "2 拍"),
+        ("附點二分音符", 3.0, 1.0, "3 拍"),
+    ]
+    x, scale = 260, 92
+    y = 120
+    for name, total, extra, label in rows:
+        body.append(text(248, y + 5, name, 11.5, "end", weight="700"))
+        body.append(rect(x, y - 11, (total - extra) * scale, 22, ACCENT, "none", 4))
+        if extra:
+            body.append(rect(x + (total - extra) * scale, y - 11, extra * scale, 22,
+                             "#e7d9c8", ACCENT, 4))
+            body.append(text(x + (total - extra) * scale + extra * scale / 2, y + 4,
+                             "＋一半", 9.5, "middle", ACCENT))
+        body.append(text(x + total * scale + 14, y + 5, label, 10.5, color=MUTED))
+        y += 44
+    body.append(text(28, 272, "附點只做一件事：把原本的音符長度再加一半。", 11.5))
+    write("dotted-note.svg", frame(W, H, "附點：加上原本的一半",
+                                  "淺色那一段就是點帶來的長度", body,
+                                  "兩個附點＝加一半再一半，也就是原本的 1.75 倍。"))
+
+
+# ── 35. 2/2 與 4/4（13.1） ───────────────────────────────
+def fig_two_two():
+    W, H = 760, 320
+    body = []
+    x0, step = 170, 130
+
+    def note(cx, y, filled=True):
+        return (ellipse(cx, y, 9, 6.5, ACCENT if filled else "none", INK, 1.4)
+                + line(cx + 8.5, y, cx + 8.5, y - 34, INK, 1.4))
+
+    body.append(text(28, 112, "4/4", 15, weight="700"))
+    body.append(text(28, 130, "四拍，四分音符為一拍", 10, color=MUTED))
+    for k in range(4):
+        body.append(note(x0 + k * step, 160))
+        body.append(text(x0 + k * step, 196, str(k + 1), 11, "middle", MUTED))
+    body.append(text(28, 226, "2/2", 15, weight="700"))
+    body.append(text(28, 244, "兩拍，二分音符為一拍", 10, color=MUTED))
+    for k in range(4):
+        body.append(note(x0 + k * step, 268))
+    for a, b, lab in ((0, 1, "第 1 拍"), (2, 3, "第 2 拍")):
+        lx, rx = x0 + a * step - 12, x0 + b * step + 12
+        body.append(path("M%.1f 288 L%.1f 296 L%.1f 296 L%.1f 288" % (lx, lx, rx, rx),
+                         stroke=ACCENT, sw=1.3))
+        body.append(text((lx + rx) / 2, 312, lab, 10.5, "middle", ACCENT, "700"))
+    write("two-two.svg", frame(W, H, "二二拍：一樣的音符，兩倍長的一拍",
+                               "4/4 與 2/2 寫的是同一串音，但「一拍」的長度不同，重量感就不同", body))
+
+
+# ── 36. 鋼琴的身分危機（14.1） ───────────────────────────
+def fig_piano_identity():
+    W, H = 760, 330
+    body = []
+    body.append(rect(40, 148, 130, 74, ACCENT, "none", 8))
+    body.append(text(105, 182, "鋼琴", 15, "middle", "#fff", "700"))
+    body.append(text(105, 204, "有弦・有槌・有鍵", 9.5, "middle", "#f0e6da"))
+    cands = [("弦樂", "有弦，可是不是拉也不是撥"), ("打擊樂", "用槌敲，可是敲的是弦"), ("鍵盤樂", "有鍵盤，可是鍵盤只是開關")]
+    for i, (name, why) in enumerate(cands):
+        y = 104 + i * 70
+        body.append(arrow(178, 185, 300, y + 24, MUTED, 1.2))
+        body.append(rect(300, y, 400, 48, "#fff", LINE, 8))
+        body.append(text(318, y + 22, name, 12.5, weight="700"))
+        body.append(text(318, y + 40, why, 10, color=MUTED))
+    body.append(rect(300, 290, 400, 0, "none"))
+    body.append(text(28, 300, "S-H 的答案：弦鳴・敲弦。振動源是弦，動它的是槌——兩個問題分開問就沒有矛盾。", 11, color=ACCENT, weight="700"))
+    write("piano-identity.svg", frame(W, H, "鋼琴是弦樂、打擊還是鍵盤？",
+                                      "三種說法都對一半，因為它們回答的是不同的問題", body))
+
+
+# ── 37. 弦的三個旋鈕（15.1） ─────────────────────────────
+def fig_string_three_knobs():
+    W, H = 760, 350
+    body = []
+    body.append(text(28, 96, "音高由三件事決定，任何一個變動都會改變頻率。", 12))
+    body.append(text(28, 140, "長度", 12, weight="700"))
+    body.append(line(120, 136, 460, 136, INK, 2.6))
+    body.append(line(120, 168, 250, 168, INK, 2.6))
+    body.append(arrow(470, 136, 530, 136))
+    body.append(text(540, 141, "弦越短 → 音越高", 11, color=ACCENT, weight="700"))
+    body.append(text(120, 190, "按弦就是這個動作：把有效弦長砍短。", 10, color=MUTED))
+    body.append(text(28, 228, "張力", 12, weight="700"))
+    body.append(line(120, 224, 460, 224, INK, 2.6))
+    body.append(arrow(112, 224, 60, 224, MUTED, 1.2))
+    body.append(arrow(468, 224, 520, 224, MUTED, 1.2))
+    body.append(arrow(520, 224, 580, 224))
+    body.append(text(590, 229, "越緊 → 音越高", 11, color=ACCENT, weight="700"))
+    body.append(text(28, 292, "質量", 12, weight="700"))
+    body.append(line(120, 288, 460, 288, INK, 2.6))
+    body.append(line(120, 306, 460, 306, INK, 5.2))
+    body.append(text(472, 292, "細弦 高", 10, color=ACCENT))
+    body.append(text(472, 310, "粗弦 低", 10, color=MUTED))
+    body.append(text(120, 332, "同樣長度下，越粗越重，振動越慢。", 10, color=MUTED))
+    write("string-three-knobs.svg", frame(W, H, "弦的三個旋鈕：長度、張力、質量",
+                                         "頻率 ∝ √(張力／質量) ÷ 長度；實務上最常動的是長度", body))
+
+
+# ── 38. 鼓皮的張力（16.1） ───────────────────────────────
+def fig_membrane_tension():
+    W, H = 760, 320
+    body = []
+    cx, cy, r = 170, 200, 66
+    body.append(circle(cx, cy, r, "#fff", INK, 1.6))
+    body.append(circle(cx, cy, r + 9, "none", LINE, 1.2))
+    for k in range(8):
+        a = math.pi * 2 * k / 8
+        x1, y1 = cx + (r + 2) * math.cos(a), cy + (r + 2) * math.sin(a)
+        x2, y2 = cx + (r + 16) * math.cos(a), cy + (r + 16) * math.sin(a)
+        body.append(line(x1, y1, x2, y2, ACCENT, 1.6))
+    body.append(text(cx, cy - 66, "鼓皮", 11, "middle", MUTED))
+    body.append(text(28, 296, "八個張力點一起拉＝調音；單邊拉太緊，鼓皮會歪，音也不乾淨。", 10.5, color=MUTED))
+    body.append(text(320, 130, "面積越大 → 音越低", 11.5, weight="700"))
+    body.append(circle(360, 210, 24, "#fff", INK, 1.4))
+    body.append(text(360, 252, "小鼓", 10, "middle", MUTED))
+    body.append(circle(500, 210, 46, "#fff", INK, 1.4))
+    body.append(text(500, 272, "大鼓", 10, "middle", MUTED))
+    body.append(text(320, 176, "拉得越緊 → 音越高", 11.5, color=ACCENT, weight="700"))
+    body.append(text(600, 190, "鼓皮張力＝弦的", 10.5, color=MUTED))
+    body.append(text(600, 208, "「張力旋鈕」；", 10.5, color=MUTED))
+    body.append(text(600, 226, "直徑＝弦的", 10.5, color=MUTED))
+    body.append(text(600, 244, "「長度」。", 10.5, color=MUTED))
+    write("membrane-tension.svg", frame(W, H, "鼓的聲音怎麼調",
+                                        "膜鳴樂器用張力與面積控制音高，跟弦樂是同一個物理", body))
+
+
+# ── 39. 音域的三個層次（17.2） ───────────────────────────
+def fig_range_three_levels():
+    W, H = 760, 350
+    body = []
+    x0, x1 = 250, 690
+    rows = [
+        ("理論音域", 0.02, 0.98, "樂譜寫得出來、樂器做得到", "#e7d9c8"),
+        ("實用音域", 0.18, 0.86, "演出與錄音真正會用的", "#d6c3ab"),
+        ("舒適音域", 0.36, 0.68, "長時間待著也不累的", ACCENT),
+    ]
+    for i, (name, a, b, desc, col) in enumerate(rows):
+        y = 130 + i * 60
+        body.append(text(28, y - 4, name, 12.5, weight="700"))
+        body.append(text(28, y + 14, desc, 9.5, color=MUTED))
+        body.append(rect(x0 + (x1 - x0) * a, y - 12, (x1 - x0) * (b - a), 24, col, "none", 5))
+    body.append(text(28, 308, "越往裡面，越能長時間待著；把高潮寫在舒適帶上緣，而不是極限。", 11.5, color=ACCENT, weight="700"))
+    write("range-three-levels.svg", frame(W, H, "音域不是一條線，是三層",
+                                          "理論、實用、舒適——同一個樂器，三種不同的「極限」", body,
+                                          "實際數字依樂器、型號與演奏者而異；重點是三層之間的關係。"))
+
+
+# ── 40. 舒適音域（18.2） ────────────────────────────────
+def fig_tessitura():
+    W, H = 760, 350
+    body = []
+    x0, x1 = 250, 690
+    rows = [
+        ("女高音", 0.46, 0.86, 0.58, 0.74),
+        ("女中音", 0.36, 0.76, 0.48, 0.64),
+        ("男高音", 0.20, 0.58, 0.30, 0.46),
+        ("男低音", 0.04, 0.42, 0.14, 0.30),
+    ]
+    for i, (name, a, b, ca, cb) in enumerate(rows):
+        y = 120 + i * 44
+        body.append(text(28, y + 5, name, 11.5, weight="700"))
+        body.append(rect(x0 + (x1 - x0) * a, y - 9, (x1 - x0) * (b - a), 18, "#e7d9c8", "none", 4))
+        body.append(rect(x0 + (x1 - x0) * ca, y - 9, (x1 - x0) * (cb - ca), 18, ACCENT, "none", 4))
+    body.append(text(x0, 288, "深色＝舒適帶（tessitura），淺色＝能唱到的範圍", 10.5, color=MUTED))
+    body.append(text(28, 306, "整場演出大部分的音落在深色裡，聲音才撐得住；一首歌從頭飆在淺色邊緣，兩首就燒聲。", 11))
+    write("tessitura.svg", frame(W, H, "能唱到 ≠ 能一直唱",
+                                "淺色是極限，深色是「可以待很久」的地方", body,
+                                "寫歌時把最高音放在舒適帶上緣，而不是聲部極限。"))
+
+
+# ── 41. 管弦樂團的聲部疊法（19.1） ──────────────────────
+def fig_orchestra_layers():
+    W, H = 760, 380
+    body = []
+    x0, x1 = 180, 700
+    bands = [
+        ("高音", 106, ["長笛", "小提琴", "雙簧管", "小號"]),
+        ("中音", 190, ["中提琴", "單簧管", "法國號", "雙簧管 II"]),
+        ("低音", 274, ["大提琴", "低音管", "低音提琴", "低音號"]),
+    ]
+    body.append(text(28, 96, "三層各自有住戶；相鄰兩層留一點重疊（法國號可以補中音，也可以補低音）。", 12))
+    for name, y, chips in bands:
+        body.append(rect(x0, y, x1 - x0, 72, "#efe8df", "none", 10))
+        body.append(text(x0 - 14, y + 42, name, 12.5, "end", weight="700"))
+        for i, nm in enumerate(chips):
+            cx = x0 + 16 + i * 126
+            body.append(rect(cx, y + 14, 112, 44, "#fff", LINE, 8))
+            body.append(text(cx + 56, y + 42, nm, 10.5, "middle"))
+    body.append(text(28, 372, "真正的重點不是「塞滿」，是每一層都聽得見。", 11.5, color=MUTED))
+    write("orchestra-layers.svg", frame(W, H, "管弦樂團的三層樓",
+                                        "高、中、低三層各自有幾個住戶；重疊太多會互相蓋住", body))
+
+
+# ── 42. 世界各地的調音（20.2） ──────────────────────────
+def fig_world_tunings():
+    W, H = 760, 400
+    body = []
+    x0, x1 = 120, 690
+
+    def xc(c):
+        return x0 + c / 1200.0 * (x1 - x0)
+
+    systems = [
+        ("十二平均律", [0, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200], ACCENT,
+         "每個半音都剛好 100 音分，轉調最方便"),
+        ("純律（Just）", [0, 204, 386, 498, 702, 884, 1088, 1200], BLUE,
+         "用簡單比例算，三度特別甜，但換調會走音"),
+        ("甘美朗 Slendro", [0, 240, 480, 720, 960, 1200], INK,
+         "一個八度切成五個幾乎等長的小步"),
+    ]
+    y = 116
+    for name, cents, col, desc in systems:
+        body.append(text(28, y - 4, name, 11.5, weight="700"))
+        body.append(text(20, y + 14, desc, 9.5, color=MUTED))
+        body.append(line(x0, y + 4, x1, y + 4, LINE, 1))
+        for c in cents:
+            body.append(line(xc(c), y - 6, xc(c), y + 14, col, 2))
+        y += 96
+    for c in range(0, 1301, 200):
+        body.append(line(xc(c), 84, xc(c), 300, LINE, 1, "2 6"))
+        body.append(text(xc(c), 338, str(c), 10, "middle", MUTED))
+    body.append(text((x0 + x1) / 2, 360, "音分（cent）── 一個八度＝1200 音分", 10.5, "middle", MUTED))
+    write("world-tunings.svg", frame(W, H, "十二平均律只是其中一種切法",
+                                     "同一個八度，不同文化切在不同位置上；耳朵會適應，也會聽出不同", body,
+                                     "圖為概念示意，不同地區與樂團的實際調音仍有差異。"))
+
+
+# ── 43. 伴奏型：走路還是轉圈（11.2–11.4） ─────────────────
+def fig_accompaniment():
+    W, H = 760, 330
+    body = []
+    x0, cell = 230, 74
+    rows = [
+        ("2/4 進行曲", "碰 · 恰", ["碰", "恰"], "左腳踩在「碰」上，右腳在「恰」上"),
+        ("3/4 華爾滋", "碰 · 恰 · 恰", ["碰", "恰", "恰"], "一步重、兩步輕，所以會轉圈"),
+        ("4/4 流行", "碰 · 恰 · 碰 · 恰", ["碰", "恰", "碰", "恰"], "兩組「碰恰」，聽起來最穩"),
+    ]
+    body.append(text(28, 96, "同樣的和弦，重音怎麼擺，律動就不同。", 12))
+    for i, (name, pattern, beats, desc) in enumerate(rows):
+        y = 140 + i * 60
+        body.append(text(28, y - 4, name, 12, weight="700"))
+        body.append(text(20, y + 16, desc, 9.5, color=MUTED))
+        body.append(line(x0 - 10, y + 20, x0 + len(beats) * cell - 10, y + 20, LINE, 1.2))
+        for k, b in enumerate(beats):
+            cx = x0 + k * cell + 20
+            big = b == "碰"
+            body.append(circle(cx, y, 15 if big else 10,
+                               ACCENT if big else SOFT, ACCENT if big else MUTED, 1.8))
+            body.append(text(cx, y + 5, b, 11 if big else 9.5, "middle",
+                             "#fff" if big else MUTED))
+    body.append(text(28, 306, "把三種伴奏輪流彈一次，同一首歌換一個拍子，感覺就換了。", 11.5, color=MUTED))
+    write("accompaniment.svg", frame(W, H, "同樣的和弦，不同的律動",
+                                    "「碰」是低音、「恰」是和弦；重音落在哪一拍，決定音樂是走路還是轉圈", body))
+
+
 def main() -> None:
     print("產生樂理示意圖：")
     fig_frequency()
@@ -683,6 +1311,30 @@ def main() -> None:
     fig_simple_meters()
     fig_string_air()
     fig_timbre_families()
+    print("── 第二批 ──")
+    fig_sound_wave_air()
+    fig_hearing_range()
+    fig_equal_loudness()
+    fig_whole_half_step()
+    fig_beat_vs_rhythm()
+    fig_syncopation()
+    fig_tempo_feel()
+    fig_notation_history()
+    fig_treble_territory()
+    fig_bass_territory()
+    fig_alto_clef()
+    fig_accidentals()
+    fig_bar_measure()
+    fig_dotted_note()
+    fig_two_two()
+    fig_piano_identity()
+    fig_string_three_knobs()
+    fig_membrane_tension()
+    fig_range_three_levels()
+    fig_tessitura()
+    fig_orchestra_layers()
+    fig_world_tunings()
+    fig_accompaniment()
     print("\n輸出目錄：%s" % OUT.relative_to(BASE_DIR))
 
 

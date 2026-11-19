@@ -20,7 +20,7 @@
 <circle cx="580.0" cy="130.0" r="9.0" fill="#f7f3ee" stroke="#A67C52" stroke-width="1.8"/>
 <circle cx="610.0" cy="130.0" r="9.0" fill="#f7f3ee" stroke="#A67C52" stroke-width="1.8"/>
 <line x1="626.0" y1="114.0" x2="626.0" y2="146.0" stroke="#d9d2c9" stroke-width="1.2"/>
-<text x="60.0" y="200.0" font-size="12" text-anchor="#2b2722" fill="#2b2722" font-weight="400">單拍子：一拍＝一個自然單位（2 或 3 等分都自然）</text>
-<text x="60.0" y="222.0" font-size="12" text-anchor="#2b2722" fill="#2b2722" font-weight="400">複拍子：一拍＝三個小單位組成的「大拍」</text>
-<text x="60.0" y="252.0" font-size="12" text-anchor="#A67C52" fill="700" font-weight="400">所以 6/8 不是「六拍的 4/4」，而是「兩大拍、每拍三下」。</text>
+<text x="60.0" y="200.0" font-size="12" text-anchor="start" fill="#2b2722" font-weight="#2b2722">單拍子：一拍＝一個自然單位（2 或 3 等分都自然）</text>
+<text x="60.0" y="222.0" font-size="12" text-anchor="start" fill="#2b2722" font-weight="#2b2722">複拍子：一拍＝三個小單位組成的「大拍」</text>
+<text x="60.0" y="252.0" font-size="12" text-anchor="start" fill="#A67C52" font-weight="700">所以 6/8 不是「六拍的 4/4」，而是「兩大拍、每拍三下」。</text>
 </svg>

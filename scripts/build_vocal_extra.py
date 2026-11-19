@@ -860,8 +860,8 @@ def build_theory_pages():
 
     css = """
 <style>
-.theory-page { max-width: 780px; }
-.theory-page .markdown-body { font-size: 16.5px; line-height: 1.95; }
+.theory-page { max-width: 1040px; }
+.theory-page .markdown-body { font-size: 17px; line-height: 1.95; }
 .theory-page .markdown-body h2:first-child { display: none; }
 .theory-page .markdown-body h3 { margin-top: 2.2em; }
 .theory-page .markdown-body table { width: 100%; border-collapse: collapse; margin: 1.4em 0; font-size: 14.5px; }
