@@ -1,10 +1,13 @@
 <!doctype html><meta charset="utf-8">
 <style>html,body{margin:0;height:100%;overflow:hidden}iframe{border:0;width:100vw;height:100vh;display:block}</style>
-<iframe id="f" src="index.html?demo=1"></iframe>
+<iframe id="f"></iframe>
 <script>
 const q = new URLSearchParams(location.search);
 const view = q.get('v') || 'overview';
 const f = document.getElementById('f');
+// 課程截圖統一用「世界聲音・木質深色」，跟既有圖片一致
+try { localStorage.setItem('zhiyin-daw-theme', 'wood-dark'); } catch (e) { /* ignore */ }
+f.src = 'index.html?demo=1';
 const wait = ms => new Promise(r => setTimeout(r, ms));
 f.addEventListener('load', async () => {
   await wait(1200);

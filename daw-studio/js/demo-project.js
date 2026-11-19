@@ -201,167 +201,153 @@ const chordNotes = (root, ivs, oct = 4) => ivs.map(iv => 12 * oct + ((root + iv)
 const hum = (v, amt = 6) => Math.max(1, Math.min(127, Math.round(v + (Math.random() * 2 - 1) * amt)));
 const hurry = (t, amt = 0.02) => Math.max(0, t + (Math.random() * 2 - 1) * amt);
 
-// ── 卡農示範曲 ──────────────────────────────────────────────
+// ── 卡農示範曲（弦樂版）────────────────────────────────────
 // 和聲與低音取自 Pachelbel《Canon in D》（約 1680，已進入公有領域）：
 //   D – A – Bm – F#m – G – D – G – A
-// 這是市面上最常被拿來練編曲的進行之一（卡農進行）。人聲唱的是這段低音動機
-// 往上兩個八度的無詞哼唱版本；節奏、配器、鼓與貝斯的句子都是原創。
-// 沒有轉錄任何受保護的編曲或歌詞，可以自由使用。
+// 編曲手法也是「卡農」本來的樣子：同一段動機由兩個聲部先後模仿（相差兩小節、
+// 相差八度），上面再疊一層八度齊奏與 Pad。24 小節、三個段落。
+// 全部由程式產生，沒有轉錄任何受保護的編曲、歌詞或錄音，可自由使用。
 export const DEMO_PROG = [
   [2, 'maj'], [9, 'maj'], [11, 'min'], [6, 'min'],
   [7, 'maj'], [2, 'maj'], [7, 'maj'], [9, 'maj'],
 ];
-// 低音的根音（D3 A2 B2 F#2 G2 D3 G2 A2）＝ 卡農的固定低音
-const GROUND = [50, 45, 47, 42, 43, 50, 43, 45];
+const GROUND = [50, 45, 47, 42, 43, 50, 43, 45];   // 卡農的固定低音 D3 A2 B2 F#2 G2 D3 G2 A2
 const ivsOf = q => (q === 'min' ? [0, 3, 7] : [0, 4, 7]);
-const BARS = 16;
+const BARS = 24;
 const LEN = BARS * 4;
-
 const chordAtBar = bar => DEMO_PROG[bar % 8];
 const groundOf = bar => GROUND[bar % 8];
+// 三個段落：A 室內樂、B 加入低音與第二聲部、C 全奏
+const sectionOf = bar => (bar < 8 ? 'A' : bar < 16 ? 'B' : 'C');
 
 function buildCanon() {
-  const piano = [], epiano = [], guitar = [], bass = [], drums = [], strings = [], lead = [];
+  const vln1 = [], vln2 = [], piano = [], epiano = [], bass = [], drums = [], pad = [];
 
   for (let bar = 0; bar < BARS; bar++) {
     const b0 = bar * 4;
     const [root, q] = chordAtBar(bar);
     const iv = ivsOf(q);
     const gr = groundOf(bar);
-    const intro = bar < 4, verse = bar >= 4 && bar < 8, chorus = bar >= 8 && bar < 12, outro = bar >= 12;
+    const sec = sectionOf(bar);
 
-    // 鋼琴：八分音符分解和弦（卡農最經典的織體）
-    const arp = [0, 1, 2, 1, 2, 1, 0, 1];   // 0=根音 1=五度 2=三度（依和弦性質）
-    arp.forEach((k, i) => {
-      const tones = chordNotes(root, iv, 4);
-      const n = (k === 0 ? gr + 12 : tones[k]);
-      piano.push({ p: n, t: hurry(b0 + i * 0.5, 0.012), d: 0.55, v: hum(intro || outro ? 62 : 70, 5) });
+    // 第一聲部（小提琴）：第 5 小節進來；C 段加八度齊奏
+    if (bar >= 4) {
+      const p = gr + 24;
+      const v = sec === 'A' ? 58 : sec === 'B' ? 68 : 80;
+      vln1.push({ p, t: hurry(b0, 0.01), d: 3.92, v: hum(v, 3) });
+      if (sec === 'C') vln1.push({ p: p + 12, t: hurry(b0 + 0.03, 0.01), d: 3.9, v: hum(v - 12, 3) });
+    }
+    // 第二聲部（中提琴）：晚兩小節、低八度 —— 這就是「卡農」的模仿
+    if (bar >= 6) {
+      const p = gr + 12;
+      const v = sec === 'A' ? 50 : sec === 'B' ? 60 : 72;
+      vln2.push({ p, t: hurry(b0 + 0.02, 0.012), d: 3.92, v: hum(v, 3) });
+    }
+
+    // 鋼琴：分解和弦。A/B 段八分音符，C 段十六分音符
+    const tones = chordNotes(root, iv, 4);
+    const pattern = sec === 'C' ? [0, 1, 2, 3, 2, 1, 0, 2, 1, 3, 2, 1, 0, 2, 3, 1] : [0, 1, 2, 1, 3, 1, 2, 1];
+    const step = 4 / pattern.length;
+    pattern.forEach((k, i) => {
+      const n = k === 0 ? gr + 12 : tones[(k - 1) % 3] + (k === 3 ? 12 : 0);
+      piano.push({ p: n, t: hurry(b0 + i * step, 0.008), d: step * 1.6, v: hum(sec === 'A' ? 52 : sec === 'B' ? 58 : 64, 4) });
     });
-    // 尾奏：鋼琴加一層高八度，讓收尾更亮
-    if (outro) chordNotes(root, iv, 5).forEach((n, i) => piano.push({ p: n, t: hurry(b0 + 1 + i * 0.5), d: 0.9, v: hum(52, 4) }));
 
-    // 電鋼琴：主歌的長音和聲（墊在鋼琴後面）
-    if (verse) chordNotes(root, iv, 4).forEach((n, i) => epiano.push({ p: n, t: b0 + i * 0.02, d: 3.7, v: hum(52, 4) }));
+    // 電鋼琴：A 段的長音和聲
+    if (sec === 'A') chordNotes(root, iv, 4).forEach((n, i) => epiano.push({ p: n, t: b0 + i * 0.02, d: 3.7, v: hum(46, 3) }));
 
-    // 吉他：副歌刷弦
-    if (chorus) {
-      for (let k = 0; k < 2; k++) {
-        chordNotes(root, iv, 3).concat([root + 48]).forEach((n, i) => {
-          const p = n < 45 ? n + 12 : n;
-          guitar.push({ p, t: hurry(b0 + k * 2 + i * 0.035, 0.01), d: 1.2, v: hum(k === 0 ? 70 : 62) });
-        });
+    // 低音提琴：跟固定低音（B、C 段）
+    if (bar >= 8) {
+      bass.push({ p: gr, t: hurry(b0), d: 1.7, v: hum(sec === 'C' ? 98 : 92) });
+      bass.push({ p: gr + 7, t: hurry(b0 + 2), d: 0.6, v: hum(80) });
+      if (sec === 'C') bass.push({ p: gr + 12, t: hurry(b0 + 3), d: 0.45, v: hum(86) });
+    }
+
+    // 鼓：B 段輕輕進來，C 段才滿
+    if (bar >= 8) {
+      const heavy = sec === 'C';
+      drums.push({ p: 36, t: b0, d: 0.2, v: hum(heavy ? 108 : 92) });
+      drums.push({ p: 36, t: b0 + 2, d: 0.2, v: hum(heavy ? 102 : 88) });
+      drums.push({ p: 38, t: b0 + 1, d: 0.2, v: hum(heavy ? 104 : 86) });
+      drums.push({ p: 38, t: b0 + 3, d: 0.2, v: hum(heavy ? 100 : 84) });
+      const hats = heavy ? 16 : 8;
+      for (let k = 0; k < hats; k++) drums.push({ p: heavy ? 42 : 44, t: b0 + k * (4 / hats), d: 0.12, v: hum(k % 2 ? 58 : 72, 5) });
+      if (bar === 15 || bar === 23) {
+        for (let k = 0; k < 8; k++) drums.push({ p: 38, t: b0 + 2 + k * 0.25, d: 0.1, v: hum(68 + k * 7, 4) });
       }
+      if (bar === 16 || bar === 23) drums.push({ p: 49, t: b0 + 3.75, d: 0.3, v: 106 });
     }
 
-    // 貝斯：跟卡農的固定低音（根音長音＋五度、八度裝飾）
-    if (!intro) {
-      bass.push({ p: gr, t: hurry(b0), d: 1.6, v: hum(94) });
-      bass.push({ p: gr + 7, t: hurry(b0 + 2), d: 0.5, v: hum(80) });
-      bass.push({ p: gr + 12, t: hurry(b0 + 3), d: 0.45, v: hum(84) });
-    }
-
-    // 鼓：主歌 8 分 hi-hat、副歌 16 分；第 8、12 小節過門
-    if (verse || chorus) {
-      drums.push({ p: 36, t: b0, d: 0.2, v: hum(110) });
-      drums.push({ p: 36, t: b0 + 2, d: 0.2, v: hum(104) });
-      drums.push({ p: 38, t: b0 + 1, d: 0.2, v: hum(102) });
-      drums.push({ p: 38, t: b0 + 3, d: 0.2, v: hum(100) });
-      const hats = chorus ? 16 : 8;
-      for (let k = 0; k < hats; k++) drums.push({ p: 42, t: b0 + k * (4 / hats), d: 0.12, v: hum(k % 2 ? 60 : 74, 5) });
-      if (bar === 7 || bar === 11) {
-        for (let k = 0; k < 8; k++) drums.push({ p: 38, t: b0 + 2 + k * 0.25, d: 0.1, v: hum(70 + k * 6, 4) });
-      }
-      if (bar === 11) drums.push({ p: 49, t: b0 + 3.75, d: 0.3, v: 108 });
-    }
-
-    // 弦樂：前奏與副歌的長音 pad
-    if (intro || chorus) chordNotes(root, iv, 4).forEach((n, i) => strings.push({ p: n, t: b0 + i * 0.02, d: 3.9, v: hum(intro ? 50 : 60, 4) }));
-
-    // 合成器：副歌把旋律加高八度，撐起整個副歌
-    if (chorus) {
-      const top = groundOf(bar) + 36;
-      lead.push({ p: top, t: b0, d: 1.8, v: hum(72) });
-      lead.push({ p: top, t: b0 + 2, d: 1.8, v: hum(66) });
-    }
+    // Pad：C 段鋪一層，把全奏撐滿
+    if (sec === 'C') chordNotes(root, iv, 4).forEach((n, i) => pad.push({ p: n, t: b0 + i * 0.03, d: 3.9, v: hum(52, 3) }));
   }
-  return { piano, epiano, guitar, bass, drums, strings, lead };
-}
-
-// 人聲：卡農低音動機往上兩個八度（D5 A4 B4 F#4 G4 D5 G4 A4），每小節「長—短—短」
-function canonMelody() {
-  const notes = [];
-  for (let bar = 4; bar < 12; bar++) {
-    const p = groundOf(bar) + 24;
-    notes.push({ t: bar * 4, d: 2, midi: p, vowel: 'a' });
-    notes.push({ t: bar * 4 + 2, d: 1, midi: p, vowel: 'o' });
-    notes.push({ t: bar * 4 + 3, d: 1, midi: p, vowel: 'a' });
-  }
-  return notes;
+  return { vln1, vln2, piano, epiano, bass, drums, pad };
 }
 
 export function seedDemo() {
   const p = store.project;
-  p.name = '示範：卡農（D 大調）';
-  p.bpm = 100; p.sigNum = 4; p.sigDen = 4;
+  p.name = '示範：卡農（D 大調・弦樂）';
+  p.bpm = 96; p.sigNum = 4; p.sigDen = 4;
   p.tracks.length = 0;
   store.buffers.clear(); store.bufferMeta.clear();
 
-  // ── 主唱：無詞哼唱卡農的低音動機（第 5–12 小節）────────────
-  const vocal = newTrack(0, 'audio');
-  vocal.name = '主唱'; vocal.color = '#f78fc3';
-  const buf = makeVocalBuffer(p.bpm, { bars: BARS, notes: canonMelody() });
-  const bid = uid('buf');
-  store.buffers.set(bid, buf);
-  store.bufferMeta.set(bid, { name: '主唱 take1.wav', peaks: computePeaks(buf) });
-  vocal.clips.push({
-    id: uid('clip'), bufferId: bid, name: '主唱 take1',
-    start: 0, duration: buf.duration, offset: 0, gainDb: 0, fadeIn: 0.01, fadeOut: 0.9,
-  });
-  const tune = newFx('tune'); tune.params.key = 2; tune.params.scale = 0; tune.params.retune = 45;
-  const eq = newFx('eq'); eq.params.bands[0].on = true; eq.params.bands[0].freq = 90;
-  const comp = newFx('comp'); comp.params.threshold = -20; comp.params.ratio = 3; comp.params.makeup = 3;
-  vocal.inserts.push(tune, eq, comp);
-  vocal.sends = [-14, -60];
-  p.tracks.push(vocal);
-
-  // ── 樂器軌（卡農的經典編制）────────────────────────────────
   const parts = buildCanon();
-  const add = (name, color, inst, notes, vol) => p.tracks.push(midiTrack(p.tracks.length, name, color, inst, notes, vol));
-  add('鋼琴', '#4f9dff', 'piano', parts.piano, -8);
-  add('電鋼琴', '#35c9a5', 'epiano', parts.epiano, -13);
-  add('吉他', '#f5b83d', 'aguitar', parts.guitar, -11);
-  add('貝斯', '#9bd35a', 'fbass', parts.bass, -6);
-  add('鼓組', '#ff8a5c', 'drums', parts.drums, -7);
-  add('弦樂', '#b58bff', 'strings', parts.strings, -13);
-  add('合成器', '#f78fc3', 'lead', parts.lead, -14);
+  const add = (name, color, inst, notes, vol) => {
+    const t = midiTrack(p.tracks.length, name, color, inst, notes, vol);
+    p.tracks.push(t);
+    return t;
+  };
 
-  // 鼓與貝斯各掛一顆壓縮：流行歌「黏」起來的關鍵
+  const vln1 = add('小提琴 1（主旋律）', '#f78fc3', 'strings', parts.vln1, -7);
+  add('小提琴 2（模仿）', '#b58bff', 'strings', parts.vln2, -11);
+  add('鋼琴', '#4f9dff', 'piano', parts.piano, -10);
+  add('電鋼琴', '#35c9a5', 'epiano', parts.epiano, -16);
+  const bass = add('低音提琴', '#9bd35a', 'fbass', parts.bass, -7);
+  const drums = add('鼓組', '#ff8a5c', 'drums', parts.drums, -10);
+  add('Pad', '#4f9dff', 'pad', parts.pad, -18);
+
+  // 弦樂主旋律：整首慢慢推上來，最後兩小節收掉（自動化示範）
+  vln1.auto.volume = {
+    on: true,
+    points: [
+      { t: 16, v: -22 }, { t: 24, v: -10 }, { t: 32, v: -7 },
+      { t: 64, v: -5 }, { t: 88, v: -5 }, { t: 96, v: -26 },
+    ],
+  };
+
+  // 弦樂掛 EQ 修掉刺耳高頻，鼓與貝斯各掛一顆壓縮
+  const eq = newFx('eq');
+  eq.params.bands[0].on = true; eq.params.bands[0].freq = 180;
+  eq.params.bands[5].gain = -1.5; eq.params.bands[6].gain = 1;
+  vln1.inserts.push(eq);
+  vln1.sends = [-13, -60];
+  p.tracks.find(t => t.name === '小提琴 2（模仿）').sends = [-16, -60];
+  p.tracks.find(t => t.name === 'Pad').sends = [-14, -60];
+
   const drumComp = newFx('comp');
-  drumComp.params.threshold = -18; drumComp.params.ratio = 3; drumComp.params.attack = 12;
-  drumComp.params.release = 120; drumComp.params.makeup = 2.5;
-  p.tracks.find(t => t.name === '鼓組').inserts.push(drumComp);
+  drumComp.params.threshold = -20; drumComp.params.ratio = 3; drumComp.params.attack = 15;
+  drumComp.params.release = 140; drumComp.params.makeup = 2;
+  drums.inserts.push(drumComp);
   const bassComp = newFx('comp');
-  bassComp.params.threshold = -22; bassComp.params.ratio = 3.5; bassComp.params.attack = 8;
-  bassComp.params.release = 140; bassComp.params.makeup = 3;
-  p.tracks.find(t => t.name === '貝斯').inserts.push(bassComp);
-  p.tracks.find(t => t.name === '弦樂').sends = [-11, -60];
+  bassComp.params.threshold = -22; bassComp.params.ratio = 3.5; bassComp.params.attack = 10;
+  bassComp.params.release = 150; bassComp.params.makeup = 3;
+  bass.inserts.push(bassComp);
 
   // ── 和弦軌：卡農進行 ──────────────────────────────────────
   p.chords = [];
   for (let bar = 0; bar < BARS; bar++) {
-    const [root0, q0] = chordAtBar(bar);
-    p.chords.push({ t: bar * 4, d: 4, root: root0, q: q0 });
+    const [root, q] = chordAtBar(bar);
+    p.chords.push({ t: bar * 4, d: 4, root, q });
   }
   p.chordKey = { key: 2, minor: false };
   p.chordView = 1;
   p.showChords = true;
 
-  // 母帶：開著，目標串流平台
   p.mastering.on = true;
   p.masterDb = 0;
   p.masterInserts = [];
 
-  store.selection.trackId = vocal.id;
+  store.selection.trackId = vln1.id;
   store.selection.clipIds = new Set();
   store.dirty = false;
   store.changed('structure');

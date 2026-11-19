@@ -754,30 +754,34 @@ $('btnArranger').onclick = () => toggleArranger();
 
   // 站上內建的音色庫：背景抓，抓完把示範專案的鋼琴與貝斯換成 GM 音色。
   // 抓不到就維持原本的合成音色，不影響任何功能。
+  // 站上的音色庫：鋼琴單獨一份（Salamander 抽稀），其餘靠 GM。
+  // 兩份都背景抓，抓不到就維持原本的合成音色，不影響任何功能。
+  const pianoLink = document.getElementById('builtinPiano');
   const bankLink = document.getElementById('builtinBank');
-  if (bankLink && bankLink.href) {
-    // GM program 對照：自動伴奏六個聲部與示範專案的鋼琴、貝斯
-    const GM = { drums: [0, 0, 128], bass: [33, 0], keys: [0, 0], guitar: [25, 0], strings: [48, 0], arp: [4, 0] };
-    loadBuiltinBank(bankLink.href, 'GeneralUser GS').then(bankId => {
-      const map = {};
-      for (const [part, spec] of Object.entries(GM)) {
+  const GM = { drums: [0, 0, 128], bass: [33, 0], keys: [0, 0], guitar: [25, 0], strings: [48, 0], arp: [4, 0] };
+  (async () => {
+    const ids = [];
+    for (const [link, label] of [[pianoLink, 'Salamander Piano'], [bankLink, 'GeneralUser GS']]) {
+      if (!link || !link.href) continue;
+      try { ids.push(await loadBuiltinBank(link.href, label)); } catch (e) { /* 抓不到就跳過 */ }
+    }
+    if (!ids.length) return;
+    const map = {};
+    for (const [part, spec] of Object.entries(GM)) {
+      for (const bankId of ids) {                       // 鋼琴庫優先，找不到再找 GM
         const idx = spec.length === 3 ? findProgram(bankId, spec[1], 128) : findProgram(bankId, spec[0], spec[1] || 0);
-        if (idx >= 0) map[part] = sfInstrumentId(bankId, idx);
+        if (idx >= 0) { map[part] = sfInstrumentId(bankId, idx); break; }
       }
-      window.__dawArrangerInst = map;            // 之後新建的伴奏軌也吃同一套音色
-      // 已經存在的自動伴奏軌
-      for (const t of store.project.tracks) {
-        if (t.arrPart && map[t.arrPart]) t.instrument = map[t.arrPart];
-      }
-      // 示範專案的鋼琴與貝斯
-      for (const t of store.project.tracks) {
-        if (t.kind !== 'midi' || t.arrPart) continue;
-        if (t.name === '鋼琴' && map.keys) t.instrument = map.keys;
-        if (t.name === '貝斯' && map.bass) t.instrument = map.bass;
-      }
-      renderInspector(); renderArrange();
-    }).catch(() => { /* 沒有音色庫就用內建的 */ });
-  }
+    }
+    window.__dawArrangerInst = map;
+    for (const t of store.project.tracks) if (t.arrPart && map[t.arrPart]) t.instrument = map[t.arrPart];
+    for (const t of store.project.tracks) {
+      if (t.kind !== 'midi' || t.arrPart) continue;
+      if (t.name === '鋼琴' && map.keys) t.instrument = map.keys;
+      if (t.name === '貝斯' && map.bass) t.instrument = map.bass;
+    }
+    renderInspector(); renderArrange();
+  })();
 
   // ?demo=1：載入示範專案（課程截圖與第一次試用）。不會覆蓋使用者已存的專案
   if (new URLSearchParams(location.search).has('demo')) {
