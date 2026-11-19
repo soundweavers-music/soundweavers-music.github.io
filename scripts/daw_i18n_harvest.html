@@ -1,0 +1,119 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>DAW i18n harvest</title></head>
+<body>
+<script>
+// 執行期盤點：把 DAW 用英文模式載進 iframe，點過所有按鈕、選單、對話框與分頁，
+// 收集「還看得到的中文」字串。靜態掃描抓不到的東西（樣板組字、拆在 <b> 之間的
+// 句子）只有這裡收得到。
+//
+// 由 scripts/daw_i18n_harvest.py 開 headless Chrome 載入，結果放進
+// work/harvest-strings.json，再給 daw_i18n_extract.py 併進字典來源。
+// 也可以自己開：http://127.0.0.1:PORT/scripts/daw_i18n_harvest.html?src=/daw-studio/index.html%3Fdemo%3D1
+const P = new URLSearchParams(location.search);
+localStorage.setItem('zhiyin-daw-lang', 'en');
+localStorage.setItem('zhiyin-daw-theme', 'wood-light');
+
+const CJK = /[㐀-鿿]/;
+const HITS = new Set();
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+function scan(doc) {
+  const w = doc.createTreeWalker(doc.body, NodeFilter.SHOW_TEXT | NodeFilter.SHOW_ELEMENT, {
+    acceptNode(n) {
+      if (n.nodeType === 1 && /^(SCRIPT|STYLE|NOSCRIPT)$/.test(n.tagName)) return NodeFilter.FILTER_REJECT;
+      return NodeFilter.FILTER_ACCEPT;
+    },
+  });
+  let n = w.nextNode();
+  while (n) {
+    if (n.nodeType === 3) {
+      const s = n.nodeValue.trim();
+      if (s && CJK.test(s) && s.length <= 240) HITS.add(s);
+    } else if (n.getAttribute) {
+      for (const a of ['title', 'placeholder', 'aria-label', 'alt']) {
+        const v = n.getAttribute(a);
+        if (v && CJK.test(v) && v.length <= 240) HITS.add(v.trim());
+      }
+    }
+    n = w.nextNode();
+  }
+}
+
+// 拆在 <b> 之間的整句：用 i18n.js 的規則組成一句再收
+let I18N = null;
+import('/daw-studio/js/i18n.js').then(m => { I18N = m; }).catch(() => {});
+function scanWhole(doc) {
+  if (!I18N || !I18N.collectWholeTexts) return;
+  for (const s of I18N.collectWholeTexts(doc.body)) if (CJK.test(s)) HITS.add(s);
+}
+function scanAll(doc) { scan(doc); scanWhole(doc); }
+
+async function waitFor(fn, ms) {
+  const t0 = Date.now();
+  while (!fn()) { if (Date.now() - t0 > ms) return false; await sleep(80); }
+  return true;
+}
+
+(async () => {
+  const f = document.createElement('iframe');
+  f.width = '1500'; f.height = '900';
+  f.src = P.get('src') || '/daw-studio/index.html?demo=1';
+  document.body.appendChild(f);
+  await waitFor(() => { try { return f.contentDocument && f.contentDocument.querySelectorAll('#headersInner .thead').length > 0; } catch (e) { return false; } }, 20000);
+  const doc = f.contentDocument;
+  const win = f.contentWindow;
+  await sleep(1500);
+
+  // 開場可能跳出「找到上次的工作進度」，先關掉
+  const restore = doc.getElementById('dlgRestore');
+  if (restore && restore.open) { scanAll(doc); const b = restore.querySelector('button[value=discard]'); if (b) b.click(); await sleep(300); }
+
+  scanAll(doc);
+
+  for (const d of Array.from(doc.querySelectorAll('dialog'))) {
+    try { d.showModal(); scanAll(doc); d.close(); } catch (e) {}
+    await sleep(120);
+  }
+
+  const ids = ['btnFile', 'btnSettings', 'btnChords', 'btnArranger', 'btnMaster', 'btnAlbum',
+               'btnMixer', 'btnPiano', 'btnInspector', 'btnAuto', 'btnExport', 'btnBanks',
+               'btnAddMidi', 'btnAddTrack', 'btnSnap', 'btnMetro', 'btnCountIn', 'trUp', 'trDown',
+               'btnAI'];
+  for (const id of ids) {
+    const el = doc.getElementById(id);
+    if (!el) continue;
+    try { el.click(); } catch (e) {}
+    await sleep(500);
+    scanAll(doc);
+    doc.dispatchEvent(new win.KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+    await sleep(150);
+  }
+
+  // 智慧編曲視窗：三個分頁都看一遍
+  const aiBtn = doc.getElementById('btnAI');
+  if (aiBtn) {
+    aiBtn.click();
+    await sleep(600);
+    scanAll(doc);
+    for (const tb of Array.from(doc.querySelectorAll('.aiw-win [data-tab]'))) {
+      try { tb.click(); } catch (e) {}
+      await sleep(500);
+      scanAll(doc);
+    }
+    const x = doc.querySelector('.aiw-x');
+    if (x) x.click();
+    await sleep(200);
+  }
+
+  // 每一條軌道（音訊／MIDI／不同音色）的檢閱器
+  const heads = Array.from(doc.querySelectorAll('#headersInner .track-head'));
+  for (const h of heads) {
+    try { h.dispatchEvent(new win.MouseEvent('pointerdown', { bubbles: true })); h.click(); } catch (e) {}
+    await sleep(400);
+    scanAll(doc);
+  }
+
+  document.body.innerHTML = '<pre id="harvest">' + JSON.stringify([...HITS].sort()) + '</pre>';
+})();
+</script>
+</body></html>
