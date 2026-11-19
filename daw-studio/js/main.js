@@ -439,15 +439,30 @@ function openLatency() {
 // 這一軌的移調（MIDI 軌）
 function inputVelSection(t) {
   const sec = document.createElement('div'); sec.className = 'sec';
-  sec.innerHTML = `<h4 style="margin-top:0">輸入力度 <span style="color:var(--tx2);font-weight:400">（這一軌）</span></h4>
-    <div class="row"><span>力度</span><input type="range" min="0" max="127" step="1" id="insVel" style="flex:1"><b id="insVelVal" style="min-width:56px;text-align:right">依鍵盤</b></div>
-    <p class="note">拉到最左邊＝照鍵盤送來的力度；右邊任何位置＝固定用這個力度彈奏與錄音。打字鍵盤也用同一個值。</p>`;
+  sec.innerHTML = `<h4 style="margin-top:0">輸入力度 <span style="color:var(--tx2);font-weight:400">（相對）</span></h4>
+    <div class="row"><span>偏移</span><input type="range" min="-80" max="80" step="1" id="insVel" style="flex:1"><b id="insVelVal" style="min-width:52px;text-align:right">±0</b></div>
+    <div class="row vel-presets">
+      <button class="tbtn" data-v="-20">輕 −20</button>
+      <button class="tbtn" data-v="0">還原</button>
+      <button class="tbtn" data-v="20">重 ＋20</button>
+    </div>
+    <p class="note">跟 Logic 的 Velocity 一樣是「加減」：彈小力還是小力、彈大力還是大力，只是整體往輕或往重推。錄音與即時試聽都套用。</p>`;
   const r = sec.querySelector('#insVel'), v = sec.querySelector('#insVelVal');
-  const show = () => { v.textContent = (t.inputVel > 0 ? String(Math.round(t.inputVel)) : '依鍵盤'); r.value = t.inputVel > 0 ? t.inputVel : 0; };
+  const show = () => {
+    const n = Math.round(t.inputVel || 0);
+    v.textContent = (n > 0 ? '+' : n < 0 ? '−' : '±') + Math.abs(n);
+    r.value = n;
+  };
   show();
-  r.addEventListener('input', () => { r.value = +r.value; v.textContent = r.value > 0 ? r.value : '依鍵盤'; });
+  r.addEventListener('input', () => {
+    const n = +r.value;
+    v.textContent = (n > 0 ? '+' : n < 0 ? '−' : '±') + Math.abs(n);
+  });
   r.addEventListener('change', () => { store.checkpoint(); t.inputVel = +r.value; show(); store.changed('structure'); });
   r.addEventListener('keydown', e => e.stopPropagation());
+  sec.querySelectorAll('.vel-presets .tbtn').forEach(b => {
+    b.onclick = () => { store.checkpoint(); t.inputVel = +b.dataset.v; show(); store.changed('structure'); };
+  });
   return sec;
 }
 

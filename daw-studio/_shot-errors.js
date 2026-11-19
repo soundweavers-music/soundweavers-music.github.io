@@ -8,3 +8,18 @@ window.addEventListener('unhandledrejection', function (e) {
   var r = e.reason;
   window.__ERRS.push('reject: ' + ((r && (r.stack || r.message)) || String(r)));
 });
+// App 把很多失敗吞進 console.warn（例如 worklet 載入失敗），一般使用者看不到
+['warn', 'error'].forEach(function (k) {
+  var orig = console[k].bind(console);
+  console[k] = function () {
+    try {
+      var parts = [];
+      for (var i = 0; i < arguments.length; i++) {
+        var a = arguments[i];
+        parts.push(a && a.stack ? a.stack : (typeof a === 'object' ? JSON.stringify(a) : String(a)));
+      }
+      window.__ERRS.push('console.' + k + ': ' + parts.join(' ').slice(0, 400));
+    } catch (e) { /* ignore */ }
+    orig.apply(console, arguments);
+  };
+});
