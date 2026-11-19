@@ -21,6 +21,8 @@ import { initMasterUi, toggleMaster, masterOpen } from './master-ui.js';
 import { initAutomationUi, tickAutomation } from './automation-ui.js';
 import { showMenu } from './menu.js';
 import { pitchShiftClips } from './pitch-render.js';
+import { THEMES, setTheme, currentTheme } from './theme.js';
+import { draw as drawPianoRoll } from './pianoroll.js';
 
 const $ = id => document.getElementById(id);
 
@@ -520,8 +522,19 @@ async function boot() {
       { label: '音色庫（SoundFont）…', action: () => $('btnBanks').click() },
       '-',
       { label: '錄音延遲校正…', action: openLatency },
+      { label: '配色主題…', action: () => $('btnTheme').click() },
     ]);
   };
+  // 配色主題：選單列出三種，目前的打勾；切換後重畫靜態的 canvas（其他 canvas 每幀都會重畫）
+  $('btnTheme').onclick = e => {
+    const r = e.currentTarget.getBoundingClientRect(), cur = currentTheme();
+    showMenu(r.left, r.bottom + 2, THEMES.map(t => ({ label: (t.id === cur ? '✓ ' : '　 ') + t.name, action: () => setTheme(t.id) })));
+  };
+  window.addEventListener('daw-theme', () => {
+    renderArrange();
+    if (pianoOpen()) drawPianoRoll();
+    document.querySelectorAll('.atx, .hmx').forEach(el => el._refresh && el._refresh());
+  });
   bindTopbar();
   bindKeys();
   syncTopbar();

@@ -8,6 +8,7 @@ import { TUNE_SCALES, TUNE_RANGES, NOTE_NAMES_ZH, scaleMask, harmDefaults } from
 import { detectKeyFromTrack } from './keydetect.js';
 import { ROOTS, QUALITIES, chordName, detectChords, autoArrange, diatonicChord, INTERVAL_CHOICES, intervalLabel } from './chords.js';
 import { toast } from './util.js';
+import { cssVar, ink } from './theme.js';
 
 export const VOICE_COLORS = ['#35c9a5', '#f5b83d', '#b58bff', '#f78fc3'];
 const noteOf = m => NOTE_NAMES_ZH[((Math.round(m) % 12) + 12) % 12] + (Math.floor(Math.round(m) / 12) - 1);
@@ -211,39 +212,39 @@ export function harmEditor(owner, desc, onChange) {
     const W = Math.ceil(LBL + TB * ppb + 4), dpr = devicePixelRatio || 1;
     tl.width = W * dpr; tl.height = TLH * dpr; tl.style.width = W + 'px'; tl.style.height = TLH + 'px';
     const g = tl.getContext('2d'); g.setTransform(dpr, 0, 0, dpr, 0, 0);
-    g.fillStyle = '#111216'; g.fillRect(0, 0, W, TLH);
+    g.fillStyle = cssVar('--tl-bg'); g.fillRect(0, 0, W, TLH);
     // 小節格線
     g.font = '9px ui-monospace, Consolas'; g.textAlign = 'left';
     for (let b = 0; b <= TB; b++) {
       const x = Math.round(xOf(b)) + 0.5, bar = b % bpb() === 0;
-      g.strokeStyle = bar ? 'rgba(255,255,255,.12)' : 'rgba(255,255,255,.04)';
+      g.strokeStyle = bar ? ink(.12) : ink(.04);
       g.beginPath(); g.moveTo(x, bar ? 0 : ROW.ruler); g.lineTo(x, TLH); g.stroke();
-      if (bar && (b / bpb()) % (ppb * bpb() < 24 ? 4 : ppb * bpb() < 40 ? 2 : 1) === 0) { g.fillStyle = '#7d818b'; g.fillText(String(b / bpb() + 1), x + 3, 12); }
+      if (bar && (b / bpb()) % (ppb * bpb() < 24 ? 4 : ppb * bpb() < 40 ? 2 : 1) === 0) { g.fillStyle = cssVar('--cv-tx2'); g.fillText(String(b / bpb() + 1), x + 3, 12); }
     }
     // 列標題
-    g.fillStyle = '#17181c'; g.fillRect(0, 0, LBL, TLH);
-    g.fillStyle = '#9aa0ab'; g.font = '10px sans-serif';
+    g.fillStyle = cssVar('--tl-lbl'); g.fillRect(0, 0, LBL, TLH);
+    g.fillStyle = cssVar('--cv-tx4'); g.font = '10px sans-serif';
     g.fillText('小節', 6, 12); g.fillText('和弦', 6, Y.chord + 16); g.fillText('段落', 6, Y.sec + 16);
-    if (!P.secMode) { g.fillStyle = '#5c616b'; g.fillText('（未啟用）', 4, Y.sec + 30); }
+    if (!P.secMode) { g.fillStyle = cssVar('--cv-tx3'); g.fillText('（未啟用）', 4, Y.sec + 30); }
     for (let k = 0; k < 4; k++) { g.fillStyle = VOICE_COLORS[k]; g.fillText(`第${k + 1}部`, 6, Y.curve + ROW.curve * k + 14); }
     // 和弦
     const srcChord = P.source === 1;
     P.chords.forEach((c, i) => {
       const x0 = xOf(c.t), x1 = xOf(c.t + c.d), s = sel && sel.kind === 'chord' && sel.i === i;
-      g.fillStyle = s ? 'rgba(79,157,255,.45)' : srcChord ? (i % 2 ? 'rgba(79,157,255,.18)' : 'rgba(79,157,255,.26)') : 'rgba(255,255,255,.07)';
+      g.fillStyle = s ? 'rgba(79,157,255,.45)' : srcChord ? (i % 2 ? 'rgba(79,157,255,.18)' : 'rgba(79,157,255,.26)') : ink(.07);
       g.fillRect(x0 + 1, Y.chord + 2, x1 - x0 - 2, ROW.chord - 4);
-      if (s) { g.strokeStyle = '#8fc4ff'; g.strokeRect(x0 + 1.5, Y.chord + 2.5, x1 - x0 - 3, ROW.chord - 5); }
-      g.fillStyle = srcChord ? '#e9eaee' : '#7d818b'; g.font = '600 11px ui-monospace, Consolas';
+      if (s) { g.strokeStyle = cssVar('--tl-sel'); g.strokeRect(x0 + 1.5, Y.chord + 2.5, x1 - x0 - 3, ROW.chord - 5); }
+      g.fillStyle = srcChord ? cssVar('--cv-tx') : cssVar('--cv-tx2'); g.font = '600 11px ui-monospace, Consolas';
       const name = chordName(c);
       if (g.measureText(name).width < x1 - x0 - 4) g.fillText(name, x0 + 4, Y.chord + 17);
     });
-    if (!P.chords.length) { g.fillStyle = '#5c616b'; g.font = '10px sans-serif'; g.fillText(srcChord ? '按「抓和弦」從伴奏軌自動抓，或在這一列拖曳新增' : '（依調性時不使用和弦）', LBL + 8, Y.chord + 17); }
+    if (!P.chords.length) { g.fillStyle = cssVar('--cv-tx3'); g.font = '10px sans-serif'; g.fillText(srcChord ? '按「抓和弦」從伴奏軌自動抓，或在這一列拖曳新增' : '（依調性時不使用和弦）', LBL + 8, Y.chord + 17); }
     // 段落
     P.sections.forEach((s, i) => {
       const x0 = xOf(s.t), x1 = xOf(s.t + s.d), on = sel && sel.kind === 'sec' && sel.i === i;
       g.globalAlpha = P.secMode ? 1 : 0.4;
-      g.fillStyle = on ? '#2b3446' : '#1f232c'; g.fillRect(x0 + 1, Y.sec + 2, x1 - x0 - 2, ROW.sec - 4);
-      g.strokeStyle = on ? '#8fc4ff' : '#3a404c'; g.strokeRect(x0 + 1.5, Y.sec + 2.5, x1 - x0 - 3, ROW.sec - 5);
+      g.fillStyle = on ? cssVar('--tl-sec-on') : cssVar('--tl-sec'); g.fillRect(x0 + 1, Y.sec + 2, x1 - x0 - 2, ROW.sec - 4);
+      g.strokeStyle = on ? cssVar('--tl-sel') : cssVar('--tl-sec-line'); g.strokeRect(x0 + 1.5, Y.sec + 2.5, x1 - x0 - 3, ROW.sec - 5);
       // 每個聲部一條色帶 + 音程
       const bh = (ROW.sec - 8) / 4;
       for (let k = 0; k < 4; k++) {
@@ -255,12 +256,12 @@ export function harmEditor(owner, desc, onChange) {
       }
       g.globalAlpha = 1;
     });
-    if (!P.sections.length) { g.fillStyle = '#5c616b'; g.font = '10px sans-serif'; g.fillText('按「自動編排」，或在這一列拖曳框出小節範圍', LBL + 8, Y.sec + 34); }
+    if (!P.sections.length) { g.fillStyle = cssVar('--cv-tx3'); g.font = '10px sans-serif'; g.fillText('按「自動編排」，或在這一列拖曳框出小節範圍', LBL + 8, Y.sec + 34); }
     // 音量曲線
     for (let k = 0; k < 4; k++) {
       const pts = (P.curves[k] || []).slice().sort((a, b) => a.t - b.t), y0 = Y.curve + ROW.curve * k;
-      g.fillStyle = k % 2 ? 'rgba(255,255,255,.015)' : 'rgba(255,255,255,.03)'; g.fillRect(LBL, y0, W - LBL, ROW.curve);
-      g.strokeStyle = 'rgba(255,255,255,.08)'; g.setLineDash([2, 3]); g.beginPath(); g.moveTo(LBL, curveY(1, k)); g.lineTo(W, curveY(1, k)); g.stroke(); g.setLineDash([]);
+      g.fillStyle = k % 2 ? ink(.015) : ink(.03); g.fillRect(LBL, y0, W - LBL, ROW.curve);
+      g.strokeStyle = ink(.08); g.setLineDash([2, 3]); g.beginPath(); g.moveTo(LBL, curveY(1, k)); g.lineTo(W, curveY(1, k)); g.stroke(); g.setLineDash([]);
       g.strokeStyle = VOICE_COLORS[k]; g.lineWidth = 1.5; g.globalAlpha = P.voices[k].on ? 1 : 0.35;
       g.beginPath();
       if (!pts.length) { g.moveTo(LBL, curveY(1, k)); g.lineTo(W, curveY(1, k)); }
@@ -448,12 +449,12 @@ export function harmEditor(owner, desc, onChange) {
       cv.width = S * dpr; cv.height = S * dpr; cv.style.width = cv.style.height = S + 'px';
       const g = cv.getContext('2d'); g.setTransform(dpr, 0, 0, dpr, 0, 0);
       const c = S / 2, R = 22, a0 = Math.PI * 0.75, a1 = Math.PI * 2.25;
-      g.lineCap = 'round'; g.lineWidth = 5; g.strokeStyle = '#25272d'; g.beginPath(); g.arc(c, c, R, a0, a1); g.stroke();
+      g.lineCap = 'round'; g.lineWidth = 5; g.strokeStyle = cssVar('--cv-knob-track'); g.beginPath(); g.arc(c, c, R, a0, a1); g.stroke();
       const grad = g.createLinearGradient(0, S, S, 0); grad.addColorStop(0, '#35c9a5'); grad.addColorStop(0.5, '#f5b83d'); grad.addColorStop(1, '#f78fc3');
       g.strokeStyle = grad; g.beginPath(); g.arc(c, c, R, a0, a0 + (a1 - a0) * t); g.stroke();
       const ang = a0 + (a1 - a0) * t;
-      g.fillStyle = '#2f3238'; g.beginPath(); g.arc(c, c, 15, 0, Math.PI * 2); g.fill();
-      g.strokeStyle = '#fff'; g.lineWidth = 2; g.beginPath(); g.moveTo(c + Math.cos(ang) * 6, c + Math.sin(ang) * 6); g.lineTo(c + Math.cos(ang) * 13, c + Math.sin(ang) * 13); g.stroke();
+      g.fillStyle = cssVar('--cv-knob-cap'); g.beginPath(); g.arc(c, c, 15, 0, Math.PI * 2); g.fill();
+      g.strokeStyle = cssVar('--cv-knob-mark'); g.lineWidth = 2; g.beginPath(); g.moveTo(c + Math.cos(ang) * 6, c + Math.sin(ang) * 6); g.lineTo(c + Math.cos(ang) * 13, c + Math.sin(ang) * 13); g.stroke();
       w.querySelector('.v').textContent = K.fmt(v);
       w.querySelector('em').textContent = K.sub ? K.sub(v) : '';
     };
@@ -489,7 +490,7 @@ export function harmEditor(owner, desc, onChange) {
     const W = cv.clientWidth || 300, H = cv.clientHeight || 120;
     cv.width = W * dpr; cv.height = H * dpr;
     const g = cv.getContext('2d'); g.setTransform(dpr, 0, 0, dpr, 0, 0);
-    g.fillStyle = '#0e0f13'; g.fillRect(0, 0, W, H);
+    g.fillStyle = cssVar('--pitch-bg'); g.fillRect(0, 0, W, H);
     const now = engine.ctx ? engine.ctx.currentTime : 0, span = 4;
     const vis = hist.filter(h => h.t > now - span), vp = vis.filter(h => h.v);
     hint.style.display = vp.length ? 'none' : '';
@@ -501,8 +502,8 @@ export function harmEditor(owner, desc, onChange) {
       const pc = ((m % 12) + 12) % 12;
       if (pc !== 0 && pc !== 7) continue;
       const y = Math.round(yOf(m)) + 0.5;
-      g.strokeStyle = 'rgba(255,255,255,.06)'; g.beginPath(); g.moveTo(30, y); g.lineTo(W, y); g.stroke();
-      g.fillStyle = '#5c616b'; g.font = '9px ui-monospace'; g.fillText(noteOf(m), 2, y + 3);
+      g.strokeStyle = ink(.06); g.beginPath(); g.moveTo(30, y); g.lineTo(W, y); g.stroke();
+      g.fillStyle = cssVar('--cv-tx3'); g.font = '9px ui-monospace'; g.fillText(noteOf(m), 2, y + 3);
     }
     const xOfT = t => 30 + (t - (now - span)) / span * (W - 30);
     const line = (get, style, width) => {
@@ -516,8 +517,8 @@ export function harmEditor(owner, desc, onChange) {
       g.strokeStyle = style; g.lineWidth = width; g.lineJoin = 'round'; g.stroke();
     };
     for (let k = 0; k < 4; k++) line(h => h.notes && h.notes[k], VOICE_COLORS[k], 2.2);
-    line(h => h.mi, 'rgba(233,234,238,.85)', 1.6);
-    g.font = '10px sans-serif'; g.fillStyle = '#e9eaee'; g.fillText('— 主唱', W - 52, 12);
+    line(h => h.mi, `rgba(${cssVar('--cv-lead')},.85)`, 1.6);
+    g.font = '10px sans-serif'; g.fillStyle = cssVar('--cv-tx'); g.fillText('— 主唱', W - 52, 12);
     // 目前和弦、段落
     const fresh = last && performance.now() - (last._at || 0) < 400;
     if (fresh && engine.playing) {

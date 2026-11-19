@@ -68,6 +68,7 @@ export const FX_TYPES = {
       vibrato: { label: '保留顫音', min: 0, max: 100, step: 1, def: 60, unit: '%' },
       range: { label: '音域', min: 0, max: 3, step: 1, def: 0 },
       mix: { label: '濕度', min: 0, max: 100, step: 1, def: 100, unit: '%' },
+      live: { label: '現場低延遲', min: 0, max: 1, step: 1, def: 0, toggle: true },
     },
   },
   harm: {
@@ -118,11 +119,15 @@ export const FX_TYPES = {
     },
   },
   reverb: {
-    name: 'Reverb 殘響', short: 'Verb',
+    name: 'Reverb 殘響', short: 'Verb', custom: 'reverb',
     params: {
-      size: { label: '空間', min: 0.2, max: 8, step: 0.1, def: 2.2, unit: '秒' },
+      space: { label: '空間類型', min: 0, max: 5, step: 1, def: 1, choices: ['房間 Room', '大廳 Hall', '板式 Plate', '教堂 Cathedral', '彈簧 Spring', '閘門 Gate'] },
+      size: { label: '尾巴長度', min: 0.2, max: 8, step: 0.1, def: 2.2, unit: '秒' },
       predelay: { label: '預延遲', min: 0, max: 120, step: 1, def: 15, unit: 'ms' },
       damp: { label: '高頻衰減', min: 1000, max: 16000, step: 100, def: 7000, unit: 'Hz', log: true },
+      er: { label: '早期反射', min: 0, max: 100, step: 1, def: 35, unit: '%' },
+      mod: { label: '調變（飄動）', min: 0, max: 100, step: 1, def: 20, unit: '%' },
+      width: { label: '立體寬度', min: 0, max: 100, step: 1, def: 100, unit: '%' },
       mix: { label: '濕度', min: 0, max: 100, step: 1, def: 25, unit: '%' },
     },
   },
@@ -144,6 +149,17 @@ export const FX_TYPES = {
       mix: { label: '濕度', min: 0, max: 100, step: 1, def: 40, unit: '%' },
     },
   },
+  width: {
+    name: 'Stereo Width 立體聲寬度', short: 'Width', custom: 'width',
+    params: {
+      mode: { label: '方式', min: 0, max: 3, step: 1, def: 0, choices: ['Haas 延遲（單聲道→立體）', '相位去相關（單聲道→立體）', 'M-S 擴大（既有立體聲）', '全部混用'] },
+      width: { label: '寬度', min: 0, max: 200, step: 1, def: 100, unit: '%' },
+      delay: { label: 'Haas 延遲', min: 2, max: 40, step: 0.5, def: 14, unit: 'ms' },
+      bass: { label: '低頻保持單聲道', min: 20, max: 400, step: 5, def: 120, unit: 'Hz' },
+      tone: { label: '側向高頻', min: -12, max: 12, step: 0.5, def: 0, unit: 'dB' },
+      mix: { label: '濕度', min: 0, max: 100, step: 1, def: 100, unit: '%' },
+    },
+  },
   drive: {
     name: 'Distortion 失真', short: 'Drive',
     params: {
@@ -161,7 +177,7 @@ export const FX_TYPES = {
     },
   },
 };
-export const FX_ORDER = ['tune', 'harm', 'eq', 'comp', 'deess', 'sat', 'pitch', 'reverb', 'delay', 'chorus', 'drive', 'gate'];
+export const FX_ORDER = ['tune', 'harm', 'eq', 'comp', 'deess', 'sat', 'pitch', 'width', 'reverb', 'delay', 'chorus', 'drive', 'gate'];
 export const MAX_INSERTS = 6;
 
 export function newFx(type) {
@@ -196,33 +212,89 @@ function satCurve(mode, drive) {
 
 const dbg = db => Math.pow(10, db / 20);
 
-// 用程式產生殘響的脈衝響應：指數衰減的立體聲雜訊，高頻衰減得比較快
+// 用程式產生殘響的脈衝響應：早期反射（離散的點）＋ 擴散尾巴（雜訊）× 衰減曲線。
+// 空間類型只改「建立速度、反射排列、亮度、立體差異」，參數表在下面 SPACES。
+const SPACES = [
+  // 0 房間：反射近、密、亮；尾巴短而乾淨
+  { attack: 0.004, bright: 1.0, spread: 0.55, er: [[0.003, 1], [0.006, -0.8], [0.011, 0.62], [0.017, -0.5], [0.024, 0.4]] },
+  // 1 大廳：尾巴慢慢堆起來，反射拉得比較開
+  { attack: 0.018, bright: 0.85, spread: 1.0, er: [[0.011, 0.7], [0.019, -0.6], [0.031, 0.55], [0.044, -0.42], [0.06, 0.3]] },
+  // 2 板式：沒有離散反射，一瞬間就是密的尾巴，高頻多
+  { attack: 0.001, bright: 1.3, spread: 0.3, er: [] },
+  // 3 教堂：建立得慢、反射稀疏，尾巴最長
+  { attack: 0.032, bright: 0.7, spread: 1.15, er: [[0.021, 0.5], [0.056, -0.45], [0.095, 0.35]] },
+  // 4 彈簧：金屬共振 + 短促的「啾」聲
+  { attack: 0.002, bright: 1.15, spread: 0.7, er: [[0.004, 0.9], [0.009, -0.7]], spring: [1180, 2730, 4310], chirp: 0.5 },
+  // 5 閘門：80 年代鼓的 gated reverb，尾巴到某個時間就被切掉
+  { attack: 0.002, bright: 1.0, spread: 0.5, er: [[0.002, 1], [0.005, -0.7]], gate: 0.35 },
+];
 const irCache = new WeakMap();
-function impulse(ctx, seconds, damp) {
+// 匯出給測試用（殘響的脈衝響應是本專案自己算的，值得單獨驗）
+export function impulse(ctx, p) {
+  const size = p.size, damp = p.damp || 7000, space = Math.max(0, Math.min(SPACES.length - 1, p.space | 0));
+  const erAmt = (p.er ?? 35) / 100, width = Math.max(0, Math.min(1, (p.width ?? 100) / 100));
+  const S = SPACES[space];
   let m = irCache.get(ctx);
   if (!m) { m = new Map(); irCache.set(ctx, m); }
-  const key = seconds.toFixed(2) + '|' + Math.round(damp / 100);
+  const key = [size, damp, space, Math.round(erAmt * 20), Math.round(width * 10)].join('|');
   if (m.has(key)) return m.get(key);
-  const sr = ctx.sampleRate, len = Math.max(1, Math.round(sr * seconds));
+  const sr = ctx.sampleRate, len = Math.max(1, Math.round(sr * size));
   const b = ctx.createBuffer(2, len, sr);
-  // 一階低通係數：damp 越低，尾巴越暗
-  const a = Math.exp(-2 * Math.PI * damp / sr);
+  const a = Math.exp(-2 * Math.PI * Math.min(damp, sr * 0.45) / sr);
+  const gateAt = S.gate ? S.gate : 0;
   let seed = 22222;
+  const chans = [b.getChannelData(0), b.getChannelData(1)];
   for (let c = 0; c < 2; c++) {
-    const d = b.getChannelData(c);
+    const d = chans[c];
+    const off = c ? S.spread * 0.0011 : 0;          // 右聲道晚一點點 → 立體感
     let lp = 0;
     for (let i = 0; i < len; i++) {
       seed = (seed * 1664525 + 1013904223) >>> 0;
       const n = seed / 2147483648 - 1;
-      const t = i / len;
-      // 越後面越暗：混合原始雜訊與低通雜訊
+      const t = i / len, sec = i / sr;
+      // 衰減：低頻留得久、高頻掉得快（damp 越低越暗）
       lp = lp * a + n * (1 - a);
-      const tone = n * (1 - t) + lp * t * 2.5;
-      d[i] = tone * Math.pow(1 - t, 2.2) * Math.exp(-3 * t);
+      const tone = (n * (1 - t) + lp * t * 2.5) * S.bright;
+      let env = Math.pow(1 - t, 2.2) * Math.exp(-3 * t);
+      // 建立速度：板式幾乎瞬間、教堂慢慢堆
+      env *= Math.min(1, sec / Math.max(1e-4, S.attack));
+      if (gateAt) env *= t < gateAt ? 1 : Math.max(0, 1 - (t - gateAt) / 0.02);
+      if (S.spring) {   // 彈簧：金屬共振把尾巴染成「金屬聲」
+        let res = 0;
+        for (const f of S.spring) res += Math.cos(2 * Math.PI * f * sec + c) * 0.35;
+        env *= 1 + res * 0.55;
+      }
+      d[i] = tone * env;
     }
-    // 開頭 5ms 淡入，避免爆點
+    // 早期反射：離散的短脈衝，量大時像「房間的牆」
+    const taps = S.er || [];
+    for (const [dt, g] of taps) {
+      const at = Math.round((dt + off) * sr);
+      if (at >= len) continue;
+      const widthN = Math.max(3, Math.round(sr * 0.0015));
+      for (let k = 0; k < widthN && at + k < len; k++) {
+        const w = 0.5 + 0.5 * Math.cos(Math.PI * k / widthN);
+        d[at + k] += g * erAmt * w * 0.9;
+      }
+    }
+    if (S.chirp) {   // 彈簧的「啾」：短促上掃音
+      const n0 = Math.round(0.002 * sr), n1 = Math.min(len, Math.round((0.002 + 0.03 * Math.min(1, size / 2)) * sr));
+      for (let i = n0; i < n1; i++) {
+        const u = (i - n0) / Math.max(1, n1 - n0);
+        d[i] += Math.sin(2 * Math.PI * (900 + 2600 * u) * (i - n0) / sr) * 0.25 * (1 - u) * S.chirp;
+      }
+    }
+    // 開頭 5 ms 淡入，避免爆點
     const fi = Math.min(len, Math.round(sr * 0.005));
     for (let i = 0; i < fi; i++) d[i] *= i / fi;
+  }
+  // 立體寬度：100% 保留原本的左右差，0% 收成單聲道
+  if (width < 0.999) {
+    const [L, R] = chans;
+    for (let i = 0; i < len; i++) {
+      const mid = (L[i] + R[i]) * 0.5, side = (L[i] - R[i]) * 0.5 * width;
+      L[i] = mid + side; R[i] = mid - side;
+    }
   }
   m.set(key, b);
   return b;
@@ -368,24 +440,35 @@ export function buildFx(ctx, desc, bpm = 120, info = {}) {
       const wd = wetDry(ctx);
       let node = null;
       const live = typeof ctx.startRendering !== 'function';
+      // 現場模式只留 16 ms，代價是最低音域要拉到 100 Hz（週期越長，越沒有空間做重疊相加）
+      const L = P.live ? TUNE_LIVE_LATENCY : AUTOTUNE_LATENCY;
       try {
-        node = new AudioWorkletNode(ctx, 'zy-autotune', { numberOfInputs: 1, numberOfOutputs: 1, outputChannelCount: [2], processorOptions: { report: live } });
+        node = new AudioWorkletNode(ctx, 'zy-autotune', {
+          numberOfInputs: 1, numberOfOutputs: 1, outputChannelCount: [2],
+          processorOptions: { report: live, latency: L, segs: (ctx._zyTransport || []).slice() },
+        });
         wd.input.connect(node).connect(wd.wet);
       } catch (_) { wd.input.connect(wd.wet); }
-      // 乾聲延遲同樣 32 ms，濕度不到 100% 時才不會有梳狀濾波
-      const dryDelay = ctx.createDelay(0.1); dryDelay.delayTime.value = AUTOTUNE_LATENCY;
+      // 乾聲延遲同樣 L 秒，濕度不到 100% 時才不會有梳狀濾波
+      const dryDelay = ctx.createDelay(0.1); dryDelay.delayTime.value = L;
       wd.input.disconnect(wd.dry); wd.input.connect(dryDelay).connect(wd.dry);
       const listeners = new Set();
       if (node) node.port.onmessage = e => { for (const fn of listeners) fn(e.data); };
+      let lastNotes = '';
       fx = {
-        input: wd.input, output: wd.output, worklet: node, latency: AUTOTUNE_LATENCY,
+        input: wd.input, output: wd.output, worklet: node, latency: L,
         onPitch(fn) { listeners.add(fn); return () => listeners.delete(fn); },
+        setTransport(list) { if (node) node.port.postMessage({ segs: list }); },
         set(p) {
           if (node) {
             const R = TUNE_RANGES[p.range | 0] || TUNE_RANGES[0];
             const set = (k, v) => node.parameters.get(k).setValueAtTime(v, 0);
             set('mask', p.mask); set('retune', p.retune); set('amount', p.amount / 100); set('vibrato', p.vibrato / 100);
             set('fmin', R.fmin); set('fmax', R.fmax);
+            // 手動編輯的音符（時間軸上的絕對秒數）
+            const notes = p.notesOn === false ? [] : (p.notes || []);
+            const sig = notes.map(n => `${n.s.toFixed(3)}:${n.e.toFixed(3)}:${n.midi}:${n.amt ?? 1}`).join(',');
+            if (sig !== lastNotes) { node.port.postMessage({ notes }); lastNotes = sig; }
           }
           wd.setMix(p.mix);
         },
@@ -485,17 +568,90 @@ export function buildFx(ctx, desc, bpm = 120, info = {}) {
       break;
     }
     case 'reverb': {
+      // 舊專案的殘響參數沒有 space／er／mod／width，補上預設值再畫
+      Object.assign(P, { space: 1, er: 35, mod: 20, width: 100, ...P });
       const wd = wetDry(ctx);
       const pre = ctx.createDelay(0.2);
       const conv = ctx.createConvolver();
-      wd.input.connect(pre).connect(conv).connect(wd.wet);
+      // 調變：尾巴上掛一個很淺的延遲，讓殘響微微飄動（板式與大廳的「活」感）
+      const modD = ctx.createDelay(0.06);
+      const lfo = ctx.createOscillator(); lfo.type = 'sine'; lfo.frequency.value = 0.7;
+      const lfoG = ctx.createGain(); lfoG.gain.value = 0;
+      lfo.connect(lfoG).connect(modD.delayTime);
+      lfo.start();
+      wd.input.connect(pre).connect(conv).connect(modD).connect(wd.wet);
       let lastKey = '';
       fx = {
-        input: wd.input, output: wd.output,
+        input: wd.input, output: wd.output, osc: [lfo],
+        irBuffer: () => conv.buffer,          // 給測試與除錯讀目前的脈衝響應
         set(p) {
           pre.delayTime.value = p.predelay / 1000;
-          const k = p.size + '|' + p.damp;
-          if (k !== lastKey) { conv.buffer = impulse(ctx, p.size, p.damp); lastKey = k; }
+          const md = (p.mod ?? 20) / 100;
+          modD.delayTime.setTargetAtTime(0.002 + md * 0.004, ctx.currentTime, 0.05);
+          lfoG.gain.setTargetAtTime(md * 0.0022, ctx.currentTime, 0.05);
+          const k = [p.size, p.damp, p.space | 0, p.er ?? 35, p.width ?? 100].join('|');
+          if (k !== lastKey) { conv.buffer = impulse(ctx, p); lastKey = k; }
+          wd.setMix(p.mix);
+        },
+      };
+      break;
+    }
+    case 'width': {
+      const wd = wetDry(ctx);
+      // 單聲道來源要「複製到左右」再拆，不能用離散上混（那會讓右聲道變成靜音、整體小 6 dB）
+      wd.input.channelCount = 2;
+      wd.input.channelCountMode = 'explicit';
+      wd.input.channelInterpretation = 'speakers';
+      const split = ctx.createChannelSplitter(2);
+      wd.input.connect(split);
+      // 中間訊號與側向訊號（M/S）
+      const mid = ctx.createGain(), side = ctx.createGain();
+      const gl = ctx.createGain(), gr = ctx.createGain(), gls = ctx.createGain(), grs = ctx.createGain();
+      gl.gain.value = 0.5; gr.gain.value = 0.5; gls.gain.value = 0.5; grs.gain.value = -0.5;
+      split.connect(gl, 0); split.connect(gr, 1); gl.connect(mid); gr.connect(mid);
+      split.connect(gls, 0); split.connect(grs, 1); gls.connect(side); grs.connect(side);
+      // 單聲道來源沒有側向訊號：用「延遲 + 全通」自己生一個，左右相反相加，單聲道監聽時完全消失
+      const dA = ctx.createDelay(0.08), dB = ctx.createDelay(0.08);
+      const apA = ctx.createBiquadFilter(), apB = ctx.createBiquadFilter();
+      apA.type = apB.type = 'allpass';
+      const genA = ctx.createGain(), genB = ctx.createGain();
+      genB.gain.value = -1;
+      mid.connect(dA).connect(apA).connect(genA);
+      mid.connect(dB).connect(apB).connect(genB);
+      const gen = ctx.createGain(); genA.connect(gen); genB.connect(gen);
+      const base = ctx.createGain();
+      side.connect(base);
+      const sideIn = ctx.createGain();
+      base.connect(sideIn); gen.connect(sideIn);
+      const hp = ctx.createBiquadFilter(); hp.type = 'highpass'; hp.Q.value = 0.5;   // 低頻留在中央，比較穩
+      const shelf = ctx.createBiquadFilter(); shelf.type = 'highshelf'; shelf.frequency.value = 6000;
+      const wide = ctx.createGain();
+      sideIn.connect(hp).connect(shelf).connect(wide);
+      const merge = ctx.createChannelMerger(2), inv = ctx.createGain(); inv.gain.value = -1;
+      mid.connect(merge, 0, 0); mid.connect(merge, 0, 1);
+      wide.connect(merge, 0, 0); wide.connect(inv); inv.connect(merge, 0, 1);
+      merge.connect(wd.wet);
+      // 給介面的向量示波器
+      const scopeSplit = ctx.createChannelSplitter(2);
+      const aL = ctx.createAnalyser(), aR = ctx.createAnalyser();
+      aL.fftSize = aR.fftSize = 2048;
+      wd.output.connect(scopeSplit); scopeSplit.connect(aL, 0); scopeSplit.connect(aR, 1);
+      const bufL = new Float32Array(1024), bufR = new Float32Array(1024);
+      fx = {
+        input: wd.input, output: wd.output,
+        vectors() { aL.getFloatTimeDomainData(bufL); aR.getFloatTimeDomainData(bufR); return { l: bufL, r: bufR }; },
+        set(p) {
+          const mode = p.mode | 0;
+          base.gain.value = mode === 2 ? 1 : mode === 3 ? 0.7 : 0;
+          gen.gain.value = mode === 2 ? 0 : 1;
+          const dms = mode === 1 ? 0.002 : p.delay / 1000;
+          dA.delayTime.value = dms;
+          dB.delayTime.value = mode === 1 ? 0.0035 : 0;
+          apA.frequency.value = mode === 1 ? 500 : 1200;
+          apB.frequency.value = mode === 1 ? 2100 : 300;
+          hp.frequency.value = p.bass;
+          shelf.gain.value = p.tone;
+          wide.gain.value = p.width / 100;
           wd.setMix(p.mix);
         },
       };
@@ -641,7 +797,10 @@ export function ensureFxWorklets(ctx) {
 // 有固定延遲的效果器：engine 依此做延遲補償
 export function fxLatency(d) {
   if (!d.on) return 0;
-  if (d.type === 'tune') return (d.params.mix ?? 100) > 0 ? AUTOTUNE_LATENCY : 0;
+  if (d.type === 'tune') {
+    if ((d.params.mix ?? 100) <= 0) return 0;
+    return d.params.live ? TUNE_LIVE_LATENCY : AUTOTUNE_LATENCY;
+  }
   if (d.type === 'harm') return HARMONY_LATENCY;
   return 0;
 }
@@ -683,6 +842,8 @@ export function harmConfig(p, bpm, off = 0) {
 
 // ---------- Auto Tune 共用定義 ----------
 export const AUTOTUNE_LATENCY = 0.032;
+// 現場演出模式：延遲只有一半，但分析窗變短，最低音域拉到 100 Hz
+export const TUNE_LIVE_LATENCY = 0.016;
 export const NOTE_NAMES_ZH = ['C', 'C♯', 'D', 'E♭', 'E', 'F', 'F♯', 'G', 'A♭', 'A', 'B♭', 'B'];
 // 音階：以主音為 0 的半音集合
 export const TUNE_SCALES = [
@@ -734,7 +895,9 @@ export function buildChain(ctx, list, bpm) {
 }
 
 // 描述的「形狀」（有哪些效果器、開關狀態）：形狀變了要重建鏈，只有參數變就直接 set
-export const chainShape = list => (list || []).map(d => d.id + (d.on ? '+' : '-')).join(',');
+// 延遲長度也決定了鏈要不要重建（現場模式 16 ms ↔ 標準 32 ms）
+export const chainShape = list => (list || []).map(d => d.id + (d.on ? '+' : '-')
+  + (d.type === 'tune' && d.params.live ? 'L' : '')).join(',');
 
 export function fmtParam(def, v, bpm) {
   if (def.toggle) return v ? '開' : '關';

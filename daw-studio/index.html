@@ -3,13 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- connect-src 'none'：這個頁面不能對任何伺服器發出連線，你的音檔與專案不可能被上傳 -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; font-src 'self'; connect-src 'none'; worker-src 'self' blob:; object-src 'none'; base-uri 'none'; form-action 'none'">
+<!-- connect-src 'self'：這個頁面只能讀取本站自己的程式檔（AI 模型的執行引擎），不能連到任何其他伺服器；本站是純靜態網站，沒有接收上傳的地方 -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; font-src 'self'; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'none'; form-action 'none'">
 <title>織音線上編曲製作 — 免安裝、不上傳的瀏覽器 DAW</title>
 <meta name="description" content="在瀏覽器裡多軌錄音、編曲、混音與輸出。16 軌起跳、可錄音、讀取本機音檔、儲存專案；所有音訊只在你的電腦上處理，不會上傳到雲端。">
 <!--CANONICAL-->
 <link rel="icon" href="../assets/brand/favicon.png" type="image/png">
 <link rel="stylesheet" href="daw.css">
+<script src="js/theme-boot.js"></script>
 <script src="../assets/vendor/jszip.min.js" defer></script>
 <script type="module" src="js/main.js"></script>
 </head>
@@ -31,6 +32,7 @@
       <button class="tbtn ghost" id="btnImportMidi" title="匯入 .mid（每一軌會變成一條 MIDI 軌）">匯入 MIDI</button>
       <button class="tbtn ghost" id="btnBanks" title="管理 SoundFont 音色庫">音色庫<span class="bank-badge" id="bankBadge"></span></button>
       <button class="tbtn ghost" id="btnMore" title="更多">⋯</button>
+      <button class="tbtn ghost" id="btnTheme" title="配色主題：專業深色、世界聲音木質深色／淺色">配色</button>
       <a class="tbtn ghost" id="btnHelp" href="guide/" target="_blank" rel="noopener" title="使用說明（新分頁開啟）">說明</a>
     </div>
     <div class="spacer"></div>
@@ -63,7 +65,7 @@
       <span class="midi-ped" id="midiPed" title="延音踏板">Ped</span>
     </div>
     <div class="spacer"></div>
-    <span class="privacy" title="這個頁面的安全政策禁止對外連線（connect-src 'none'）。音檔、錄音與專案只存在你的電腦與瀏覽器裡。">🔒<span class="pv-text"> 不上傳雲端</span></span>
+    <span class="privacy" title="這個頁面的安全政策禁止連到其他網站（connect-src 'self'，只能讀取本站的程式檔）。音檔、錄音與專案只存在你的電腦與瀏覽器裡。">🔒<span class="pv-text"> 不上傳雲端</span></span>
     <span class="saveinfo" id="saveInfo"></span>
     <div class="group">
       <button class="tbtn ghost vb" id="btnInspector" title="檢閱器 (I)"><i>☰</i><span>檢閱器</span></button>

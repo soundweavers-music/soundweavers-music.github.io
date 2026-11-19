@@ -3,12 +3,14 @@ import { store, isMidiClip, clipStart, clipDur, setClipStart, newMidiClip, spb }
 import { PRESETS } from './synth.js';
 import { sfLabel } from './soundbank.js';
 import { separateClip } from './separate.js';
+import { openAiSeparate } from './demucs-ui.js';
 import { engine } from './engine.js';
 import { recorder } from './recorder.js';
 import { importAudioFiles } from './project-io.js';
 import { view, secToPx, pxToSec, snap, gridStep, beatSec, setZoom } from './view.js';
 import { uid, toast, TRACK_COLORS } from './util.js';
 import { showMenu } from './menu.js';
+import { cssVar } from './theme.js';
 
 const $ = id => document.getElementById(id);
 let lanes, lanesInner, headersInner, ruler, rulerWrap, grid, loopbar, playhead, phCap;
@@ -131,11 +133,11 @@ function drawRuler() {
   for (let b = first; b <= last; b++) {
     const x = Math.round(secToPx(b * bar) - sx) + 0.5;
     const major = b % every === 0;
-    g.strokeStyle = major ? '#8a8e97' : '#4b4e56';
+    g.strokeStyle = major ? cssVar('--cv-ruler-major') : cssVar('--cv-ruler-minor');
     g.beginPath(); g.moveTo(x, major ? 14 : 24); g.lineTo(x, h); g.stroke();
-    if (major) { g.fillStyle = '#c9ccd3'; g.fillText(String(b + 1), x + 4, 23); }
+    if (major) { g.fillStyle = cssVar('--cv-ruler-tx'); g.fillText(String(b + 1), x + 4, 23); }
     if (barPx / p.sigNum >= 12) {
-      g.strokeStyle = '#3d4047';
+      g.strokeStyle = cssVar('--cv-ruler-beat');
       for (let k = 1; k < p.sigNum; k++) {
         const bx = Math.round(x + secToPx(k * beat)) + 0.5;
         g.beginPath(); g.moveTo(bx, 28); g.lineTo(bx, h); g.stroke();
@@ -152,7 +154,7 @@ function drawGrid() {
   p.tracks.forEach((t, i) => {
     const y = i * view.trackH - sy;
     if (y > h || y + view.trackH < 0) return;
-    g.fillStyle = t.id === store.selection.trackId ? '#1d1f24' : (i % 2 ? '#17181b' : '#191a1e');
+    g.fillStyle = t.id === store.selection.trackId ? cssVar('--cv-trk-sel') : (i % 2 ? cssVar('--cv-trk-a') : cssVar('--cv-trk-b'));
     g.fillRect(0, y, w, view.trackH);
   });
   const step = gridStep(), bar = beatSec() * p.sigNum;
@@ -161,7 +163,7 @@ function drawGrid() {
     const t = k * step;
     const x = Math.round(secToPx(t) - sx) + 0.5;
     const isBar = Math.abs(t / bar - Math.round(t / bar)) < 1e-6;
-    g.strokeStyle = isBar ? '#2e3036' : '#212226';
+    g.strokeStyle = isBar ? cssVar('--cv-grid-bar') : cssVar('--cv-grid-sub');
     g.beginPath(); g.moveTo(x, 0); g.lineTo(x, h); g.stroke();
   }
   // 循環區間
@@ -345,7 +347,7 @@ function clipEl(t, c) {
     let d = '';
     if (fi > 1) d += `M0 ${h} L${fi} 0 L0 0 Z `;
     if (fo > 1) d += `M${w} ${h} L${w - fo} 0 L${w} 0 Z`;
-    svg.innerHTML = `<path d="${d}" fill="rgba(0,0,0,.35)" stroke="rgba(255,255,255,.7)" stroke-width="1"/>`;
+    svg.innerHTML = `<path d="${d}" style="fill:var(--clip-fade-bg);stroke:var(--clip-fade)" stroke-width="1"/>`;
     el.appendChild(svg);
   }
   el.insertAdjacentHTML('beforeend',
@@ -384,7 +386,7 @@ function drawWaveforms() {
       const { min, max, block } = meta.peaks;
       const sr = buf.sampleRate;
       const gain = Math.pow(10, (c.gainDb || 0) / 20);
-      g.fillStyle = 'rgba(255,255,255,.82)';
+      g.fillStyle = cssVar('--cv-wave');
       const mid = h / 2;
       for (let x = 0; x < cw; x++) {
         const t0 = c.offset + pxToSec(a - left + x);
@@ -404,7 +406,7 @@ function drawWaveforms() {
 function drawMidiPreview(g, c, x0, cw, h) {
   const notes = c.notes.filter(n => n.t < c.lengthBeats);
   if (!notes.length) {
-    g.fillStyle = 'rgba(255,255,255,.35)'; g.font = '10px sans-serif';
+    g.fillStyle = cssVar('--cv-empty'); g.font = '10px sans-serif';
     if (x0 < 4) g.fillText('（空的，雙擊編輯）', 6 - x0, h / 2 + 3);
     return;
   }
@@ -414,7 +416,7 @@ function drawMidiPreview(g, c, x0, cw, h) {
   const rows = Math.max(12, hi - lo + 1);
   const rh = Math.max(1.5, Math.min(5, (h - 4) / rows));
   const pxb = secToPx(spb());
-  g.fillStyle = 'rgba(255,255,255,.88)';
+  g.fillStyle = cssVar('--cv-midi');
   for (const n of notes) {
     const x = n.t * pxb - x0, w = Math.max(1.5, Math.min(n.d, c.lengthBeats - n.t) * pxb - 1);
     if (x + w < 0 || x > cw) continue;
@@ -729,6 +731,7 @@ function onLanesContext(e) {
       ...(midi ? [] : [
         { label: n > 1 ? `升降音（${n} 個片段）…` : '升降音…', action: () => store.emit('open-pitch', { clipIds: [...store.selection.clipIds] }) },
         { label: '分離人聲／伴奏（簡易版）', disabled: n > 1, action: () => separateClip(id) },
+        { label: 'AI 分離人聲／伴奏（Demucs）…', disabled: n > 1, action: () => openAiSeparate(id) },
         '-',
         { label: '片段音量 +1 dB', action: () => nudgeGain(1) },
         { label: '片段音量 −1 dB', action: () => nudgeGain(-1) },
