@@ -537,3 +537,13 @@ MIDI 軌的檢閱器有「這一軌移調」：±1 半音或 ±8 度。它只影
 - MP3 編碼使用 [lamejs](https://github.com/zhuker/lamejs)（LAME 的 JavaScript 版本，LGPL 授權）。
 - 推薦的音色庫各有其授權，請參考各自的官方頁面。
 - 其餘功能（SoundFont 解析、FLAC 編碼、響度量測、效果器與合成音色）為本站自行實作，全部在你的瀏覽器裡執行。
+
+
+## 站上內建的音色庫與授權
+
+織音線上編曲製作預設會背景載入兩份音色庫，不需要你下載：
+
+- **平台鋼琴**：Salamander Grand Piano（Yamaha C5），作者 Alexander Holm，授權 CC BY 3.0，本站已抽稀成 7 MB 的 sf2。
+- **其他 GM 音色**：GeneralUser GS，作者 S. Christian Collins，免費使用。
+
+兩份都在 `assets/daw-bank/`，只在你開啟這個工具時才抓。
