@@ -29,6 +29,7 @@ import { pitchShiftClips } from './pitch-render.js';
 import { THEMES, setTheme, currentTheme } from './theme.js';
 import { draw as drawPianoRoll } from './pianoroll.js';
 import { seedDemo } from './demo-project.js';
+import { translateDom, setLang, langPref } from './i18n.js';
 
 const $ = id => document.getElementById(id);
 
@@ -693,6 +694,11 @@ $('btnArranger').onclick = () => toggleArranger();
       '-',
       { label: `音色庫（SoundFont）…${nBanks ? `　已載入 ${nBanks} 個` : ''}`, action: () => $('btnBanks').click() },
       '-',
+      { label: '語言 Language', disabled: true },
+      { label: (langPref() === 'auto' ? '✓ ' : '　 ') + '自動（非中文語系用英文）', action: () => setLang('auto') },
+      { label: (langPref() === 'zh' ? '✓ ' : '　 ') + '中文', action: () => setLang('zh') },
+      { label: (langPref() === 'en' ? '✓ ' : '　 ') + 'English', action: () => setLang('en') },
+      '-',
       { label: '配色', disabled: true },
       ...THEMES.map(t => ({ label: (t.id === cur ? '✓ ' : '　 ') + t.name, action: () => setTheme(t.id) })),
     ]);
@@ -748,6 +754,7 @@ $('btnArranger').onclick = () => toggleArranger();
   }, true);
 
   requestAnimationFrame(frame);
+  translateDom();          // 非中文語系：整個介面換成英文
 
   // 除錯／課程截圖用的鉤子（不會影響正常操作）
   window.__daw = { store, engine, view, toggleMixer, togglePiano, toggleMaster, toggleArranger, renderInspector, renderArrange, openPianoRoll, openFxPanel };
