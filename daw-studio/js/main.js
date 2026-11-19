@@ -327,9 +327,25 @@ function openExport() {
   };
 }
 
-function busy(text) {
+let _busyStart = 0, _busyFrac = 0;
+function busy(text, frac) {
   $('busy').classList.toggle('show', !!text);
-  if (text) $('busyText').textContent = text;
+  if (!text) { _busyStart = 0; $('busyBar').hidden = true; $('busyEta').textContent = ''; return; }
+  $('busyText').textContent = text;
+  const bar = $('busyBar'), fill = $('busyFill'), eta = $('busyEta');
+  if (frac === undefined || frac === null) { bar.hidden = true; eta.textContent = ''; return; }
+  if (!_busyStart) _busyStart = performance.now();
+  _busyFrac = Math.max(0, Math.min(1, frac));
+  bar.hidden = false;
+  fill.style.width = (_busyFrac * 100).toFixed(1) + '%';
+  const el = (performance.now() - _busyStart) / 1000;
+  if (_busyFrac > 0.03) {
+    const total = el / _busyFrac;
+    const left = Math.max(0, total - el);
+    eta.textContent = `已用 ${el.toFixed(0)} 秒　剩約 ${left < 1 ? '不到 1' : left.toFixed(0)} 秒　${(_busyFrac * 100).toFixed(0)}%`;
+  } else {
+    eta.textContent = `已用 ${el.toFixed(0)} 秒　${(_busyFrac * 100).toFixed(0)}%`;
+  }
 }
 
 // ---------------- 快捷鍵 ----------------
@@ -760,7 +776,7 @@ $('btnArranger').onclick = () => toggleArranger();
   store.on('record', () => syncTopbar());
   store.on('busy', d => busy(d && d.text));
   store.on('transport', ({ playing }) => { if (!playing) midiAllOff(); });
-  store.on('export-progress', d => { if (!d.done) busy(d.text); });
+  store.on('export-progress', d => { if (!d.done) busy(d.text, d.frac); });
   store.on('saved', syncTopbar);
   store.on('autosaved', d => {
     $('saveInfo').textContent = d.error ? '暫存失敗' : `已暫存 ${new Date(d.at).toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit' })}`;

@@ -1039,3 +1039,8 @@ html[lang="en"] .insp-sec > h4, html[lang="en"] .sec-h { letter-spacing: 0; }
 .inspector .tr-row, .inspector .vel-presets { flex-wrap: wrap; gap: 4px; }
 .inspector .tr-row .tbtn, .inspector .vel-presets .tbtn { flex: 1 1 44px; min-width: 40px; padding: 0 6px; }
 .inspector .row b { font-variant-numeric: tabular-nums; }
+
+/* 算圖／編碼進度 */
+.busy-bar { width: min(420px, 70vw); height: 8px; margin: 12px auto 6px; border-radius: 999px; background: rgba(255,255,255,.14); overflow: hidden; }
+.busy-bar i { display: block; height: 100%; width: 0; border-radius: 999px; background: var(--accent); transition: width .2s linear; }
+.busy-eta { font-size: 12px; opacity: .7; font-variant-numeric: tabular-nums; min-height: 16px; }
