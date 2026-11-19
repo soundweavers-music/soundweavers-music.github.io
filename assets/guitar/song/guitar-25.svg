@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 540" role="img" aria-label="這一段的和弦進行">
+  <title>這一段的和弦進行</title>
+  <rect width="720" height="540" fill="#FBF8F4"/>
+<text x="28.0" y="34.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="15" fill="#3D3229" text-anchor="start" font-weight="700">這一段的和弦進行</text>
+<text x="28.0" y="55.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#8C8078" text-anchor="start">每一列是一輪；下面的小字是那一輪的刷法或歌詞</text>
+<rect x="28.0" y="92" width="52" height="30" rx="8" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="54.0" y="112.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">C</text>
+<text x="86.0" y="112.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#8C8078" text-anchor="start">→</text>
+<rect x="100.0" y="92" width="52" height="30" rx="8" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="126.0" y="112.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">G/B</text>
+<text x="158.0" y="112.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#8C8078" text-anchor="start">→</text>
+<rect x="172.0" y="92" width="52" height="30" rx="8" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="198.0" y="112.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">Am7</text>
+<text x="230.0" y="112.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#8C8078" text-anchor="start">→</text>
+<rect x="244.0" y="92" width="70" height="30" rx="8" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="279.0" y="112.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">Am7/G</text>
+<text x="28.0" y="140.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="start">刻在我心底的名字(空)忘記了時間這回事(空)</text>
+<rect x="28.0" y="160" width="70" height="30" rx="8" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="63.0" y="180.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">Fmaj7</text>
+<text x="104.0" y="180.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#8C8078" text-anchor="start">→</text>
+<rect x="118.0" y="160" width="52" height="30" rx="8" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="144.0" y="180.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">C/E</text>
+<text x="176.0" y="180.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#8C8078" text-anchor="start">→</text>
+<rect x="190.0" y="160" width="52" height="30" rx="8" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="216.0" y="180.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">Dm7</text>
+<text x="248.0" y="180.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#8C8078" text-anchor="start">→</text>
+<rect x="262.0" y="160" width="52" height="30" rx="8" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="288.0" y="180.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">G</text>
+<text x="28.0" y="208.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="start">既然決定愛上一次就一輩子(空)</text>
+<rect x="28.0" y="228" width="52" height="30" rx="8" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="54.0" y="248.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">G</text>
+<text x="86.0" y="248.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#8C8078" text-anchor="start">→</text>
+<rect x="100.0" y="228" width="59" height="30" rx="8" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="129.5" y="248.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">D/F#</text>
+<text x="165.0" y="248.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#8C8078" text-anchor="start">→</text>
+<rect x="179.0" y="228" width="52" height="30" rx="8" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="205.0" y="248.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">Em7</text>
+<text x="237.0" y="248.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#8C8078" text-anchor="start">→</text>
+<rect x="251.0" y="228" width="52" height="30" rx="8" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="277.0" y="248.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">Bm7</text>
+<text x="28.0" y="276.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="start">看魚仔在那游來游去游來游去(空)</text>
+<rect x="28.0" y="296" width="52" height="30" rx="8" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="54.0" y="316.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">C</text>
+<text x="86.0" y="316.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#8C8078" text-anchor="start">→</text>
+<rect x="100.0" y="296" width="52" height="30" rx="8" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="126.0" y="316.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">G/B</text>
+<text x="158.0" y="316.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#8C8078" text-anchor="start">→</text>
+<rect x="172.0" y="296" width="52" height="30" rx="8" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="198.0" y="316.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">Am7</text>
+<text x="230.0" y="316.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#8C8078" text-anchor="start">→</text>
+<rect x="244.0" y="296" width="52" height="30" rx="8" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="270.0" y="316.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">D7</text>
+<text x="28.0" y="344.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="start">我對你想來想去想來想去(空)</text>
+<rect x="28.0" y="364" width="52" height="30" rx="8" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="54.0" y="384.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">G</text>
+<text x="86.0" y="384.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#8C8078" text-anchor="start">→</text>
+<rect x="100.0" y="364" width="59" height="30" rx="8" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="129.5" y="384.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">D/F#</text>
+<text x="165.0" y="384.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#8C8078" text-anchor="start">→</text>
+<rect x="179.0" y="364" width="52" height="30" rx="8" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="205.0" y="384.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">Em7</text>
+<text x="237.0" y="384.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#8C8078" text-anchor="start">→</text>
+<rect x="251.0" y="364" width="52" height="30" rx="8" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="277.0" y="384.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">Bm</text>
+<text x="28.0" y="412.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="start">不知道(空)不明瞭(空)不想要(空)為什麼(空)</text>
+<rect x="28.0" y="432" width="52" height="30" rx="8" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="54.0" y="452.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">C</text>
+<text x="86.0" y="452.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#8C8078" text-anchor="start">→</text>
+<rect x="100.0" y="432" width="52" height="30" rx="8" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="126.0" y="452.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">G/B</text>
+<text x="158.0" y="452.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#8C8078" text-anchor="start">→</text>
+<rect x="172.0" y="432" width="52" height="30" rx="8" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="198.0" y="452.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">Am7</text>
+<text x="230.0" y="452.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#8C8078" text-anchor="start">→</text>
+<rect x="244.0" y="432" width="52" height="30" rx="8" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="270.0" y="452.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">D</text>
+<text x="28.0" y="480.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="start">我的心(空)明明是想靠近(空)卻孤單到黎明</text>
+<text x="28.0" y="506.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="start">整段反覆；換和弦時右手不要停，只換左手。</text>
+</svg>
