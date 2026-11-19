@@ -114,7 +114,7 @@ def anatomy() -> str:
 
 # ---------------------------------------------------------------- tuning
 def tuning() -> str:
-    w, h = 720, 330
+    w, h = 720, 372
     p = [f'<text x="24" y="30" font-size="14" fill="{INK}" {FONT}>標準調音 G-C-E-A</text>']
     # 頻率線：越高越上面
     base_y, span = 260, 170
@@ -136,7 +136,7 @@ def tuning() -> str:
     p.append(f'<line x1="60" y1="{yg:.0f}" x2="640" y2="{yg:.0f}" stroke="{WOOD_D}" stroke-dasharray="5 5"/>')
     p.append(f'<circle cx="110" cy="{yg:.0f}" r="7" fill="none" stroke="{WOOD_D}" stroke-width="2"/>')
     p.append(f'<text x="122" y="{yg+4:.0f}" font-size="11" fill="{WOOD_D}" {FONT}>Low-G（第 4 弦換成低八度 G3，196 Hz）</text>')
-    p.append(f'<text x="24" y="300" font-size="11.5" fill="{MUTED}" {FONT}>'
+    p.append(f'<text x="24" y="352" font-size="11.5" fill="{MUTED}" {FONT}>'
              f'High-G：第 4 弦（G4）比第 3 弦（C4）高，所以四條弦由低到高是 C→E→G→A，不是「愈左愈低」。</text>')
     return svg(w, h, "".join(p), "烏克麗麗調音音高圖")
 

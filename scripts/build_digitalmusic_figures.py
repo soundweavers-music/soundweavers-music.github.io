@@ -1999,21 +1999,21 @@ def _flow_body(items, w=660):
     per_row = min(4, len(items))
     gap = 14
     bw = (w - 52 - (per_row - 1) * gap) / per_row
-    bh = 88
+    bh = 108
     for i, (head, sub) in enumerate(items):
         row, col = divmod(i, per_row)
         x = 26 + col * (bw + gap)
-        y = 96 + row * (bh + 34)
+        y = 96 + row * (bh + 24)
         b.append(badge(x + 12, y + 14, i + 1))
         b.append(rect(x, y, bw, bh, fill=ACCENT_SOFT, stroke=LINE, rx=9))
         for k, line in enumerate(_wrap(head, 9)[:2]):
-            b.append(t(x + 10, y + 44 + k * 17, line, 12.5, weight=700))
-        for k, line in enumerate(_wrap(sub, 11)[:3]):
-            b.append(ts(x + 10, y + 62 + k * 15, line, 9.5, color=MUTED))
+            b.append(t(x + 10, y + 30 + k * 17, line, 12.5, weight=700))
+        for k, line in enumerate(_wrap(sub, 12)[:3]):
+            b.append(ts(x + 10, y + 68 + k * 14, line, 9.5, color=MUTED))
         if col < per_row - 1 and i < len(items) - 1:
             b.append(arrow(x + bw + 2, y + bh / 2, x + bw + gap - 2, y + bh / 2))
     rows = (len(items) + per_row - 1) // per_row
-    return b, 96 + rows * (bh + 34)
+    return b, 96 + rows * (bh + 24) + 10
 
 
 def make_flow(title, sub, items, note=""):
