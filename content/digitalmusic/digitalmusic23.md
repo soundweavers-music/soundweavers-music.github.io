@@ -20,7 +20,7 @@
 
 ## 建立人聲處理鏈（Vocal Chain）
 
-![流行人聲的處理鏈順序](/assets/digitalmusic/vocal-chain.svg)
+![流行人聲的處理鏈順序](../../assets/digitalmusic/vocal-chain.svg)
 
 人聲處理鏈是訊號依序通過的效果器順序。雖然沒有絕對正確的順序，但 Mandopop 實戰中有一條非常成熟的標準鏈路：
 
@@ -121,7 +121,7 @@ Slap delay 是另一個 Mandopop 的秘密武器。它是在殘響之前加入�
 
 ## 雙軌錄音與人聲拓寬
 
-![雙軌人聲的時差與聲像](/assets/digitalmusic/vocal-double.svg)
+![雙軌人聲的時差與聲像](../../assets/digitalmusic/vocal-double.svg)
 
 ### 雙軌錄音（Double Tracking）
 

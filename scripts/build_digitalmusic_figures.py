@@ -1987,6 +1987,150 @@ FIGURES = {
 }
 
 
+# ---------------------------------------------------------------- 流程卡與對照卡
+def _wrap(text, n):
+    return [text[i:i + n] for i in range(0, len(text), n)]
+
+
+def _flow_body(items, w=660):
+    """橫向編號流程：超過四個自動折成兩列。"""
+    b = []
+    per_row = min(4, len(items))
+    gap = 14
+    bw = (w - 52 - (per_row - 1) * gap) / per_row
+    bh = 88
+    for i, (head, sub) in enumerate(items):
+        row, col = divmod(i, per_row)
+        x = 26 + col * (bw + gap)
+        y = 96 + row * (bh + 34)
+        b.append(badge(x + 12, y + 14, i + 1))
+        b.append(rect(x, y, bw, bh, fill=ACCENT_SOFT, stroke=LINE, rx=9))
+        for k, line in enumerate(_wrap(head, 9)[:2]):
+            b.append(t(x + 10, y + 44 + k * 17, line, 12.5, weight=700))
+        for k, line in enumerate(_wrap(sub, 11)[:3]):
+            b.append(ts(x + 10, y + 62 + k * 15, line, 9.5, color=MUTED))
+        if col < per_row - 1 and i < len(items) - 1:
+            b.append(arrow(x + bw + 2, y + bh / 2, x + bw + gap - 2, y + bh / 2))
+    rows = (len(items) + per_row - 1) // per_row
+    return b, 96 + rows * (bh + 34)
+
+
+def make_flow(title, sub, items, note=""):
+    def fn():
+        b, h = _flow_body(items)
+        return 660, h + 6, title, sub, "".join(b), note
+    return fn
+
+
+def make_cmp(title, sub, columns, rows, note=""):
+    def fn():
+        b = []
+        label_w = 118
+        ncol = len(columns) - 1
+        cw = (660 - 52 - label_w) / max(1, ncol)
+        rowh = 58
+        for j, name in enumerate(columns[1:]):
+            b.append(t(26 + label_w + j * cw + 6, 92, name, 11.5, color=ACCENT, weight=700))
+        for i, row in enumerate(rows):
+            y = 104 + i * rowh
+            if i % 2 == 0:
+                b.append(rect(26, y, 660 - 52, rowh, fill=ACCENT_SOFT, opacity=0.55, rx=4))
+            b.append(t(34, y + 22, row[0], 11.5, weight=700))
+            for j, val in enumerate(row[1:]):
+                for k, line in enumerate(_wrap(val, 13)[:3]):
+                    b.append(ts(26 + label_w + j * cw + 6, y + 20 + k * 15, line, 10, color=INK2))
+        h = 122 + len(rows) * rowh
+        return 660, h, title, sub, "".join(b), note
+    return fn
+
+
+
+FLOW_FIGURES = {
+    "flow-vocal-tune": ("手動調音的工作流程：先修大的，再修小的",
+        "一次只調一個音，調完立刻聽前後兩秒；不要整首掃過去",
+        [("標記問題音", "聽一遍，把明顯走音的地方留下 marker"), ("粗調", "先把差半音以上的拉回來"),
+         ("細調", "1～2 個半音內的誤差，看音高曲線平不平"), ("修抖音", "把抖動的幅度縮小，保留頻率"),
+         ("回聽", "整段播一次，確認沒有不自然的跳動")],
+        "修完一定要從頭聽：單獨聽都對，連起來聽才聽得出來「太機械」。"),
+    "flow-mix": ("建立混音的順序：先把地基打好",
+        "順序錯了會一直在補救；照這個順序，每一步都只需要顧一件事",
+        [("Fader 歸零", "全部推回 0，先聽原始平衡"), ("主唱定位", "以人聲為基準，決定整體音量"),
+         ("節奏組", "Kick、Snare、Bass 對齊"), ("支撐樂器", "吉他、鍵盤、Pad 補空隙"),
+         ("聲向", "擺左右，把頻率錯開"), ("動態與空間", "最後才加壓縮與殘響")],
+        "順序不是鐵律，但「先平衡、後處理」幾乎不會錯。"),
+    "flow-masking": ("頻率遮蔽的解決流程：先找誰擋誰",
+        "遮蔽不是「不夠亮」，是「被別的東西蓋住」",
+        [("找出被蓋住的聲音", " Solo 每一軌，聽哪一軌在合奏時消失"),
+         ("找頻段", "用窄頻掃描，找出兩者重疊的位置"),
+         ("決定誰讓位", "通常讓配樂讓給主唱，而不是把主唱推大"),
+         ("用減法", "在讓位的那一軌做幾 dB 的衰減"), ("回聽", "兩軌一起播，確認焦點回來了")],
+        "加法 EQ 會讓整體變吵；先試著「讓誰小一點」，通常一次就解決。"),
+    "flow-static-mix": ("靜態混音的建立順序",
+        "先建立不用自動化也站得住的平衡，之後的動態才有意義",
+        [("全部歸零", "Fader 全部回 0，關掉所有效果"), ("主唱", "先讓主唱在合理音量"),
+         ("Kick 與 Bass", "確認低頻不打架"), ("Snare 與節奏", "把拍點釘住"),
+         ("鋪底與裝飾", "最後才加"), ("檢查", "用參考曲目比對整體亮度與低頻")],
+        "靜態混音沒做好，之後所有壓縮與自動化都只是在補破網。"),
+    "flow-export": ("輸出的檢查順序",
+        "輸出前五分鐘做這幾件事，可以少一次重做",
+        [("檢查峰值", "True Peak 不要超過 -1 dBTP"), ("檢查響度", "確認符合平台要求"),
+         ("檢查長度", "頭尾不要有多的空白或截斷"), ("檢查相位", "單聲道摺疊聽一次，有沒有東西消失"),
+         ("命名", "檔名帶上版本與日期")],
+        "輸出的檔案要留一份無損的母帶，平台用的壓縮檔另外轉。"),
+    "flow-drum-edit": ("鼓組編輯的順序",
+        "先對拍、再對音，最後才談音色",
+        [("對拍", "先把明顯拖拍的音移回格線"), ("對齊相位", "多麥克風時確認沒有抵銷"),
+         ("修音高", "大鼓與小鼓必要時微調"), ("清理", "剪掉沒聲音的段落與雜音"),
+         ("檢查", "整段播一次，確認沒有喀噠聲")],
+        "編輯的痕跡通常來自「剪太狠」；交界處留 2～3ms 的交叉淡化。"),
+}
+
+CMP_FIGURES = {
+    "cmp-compress-errors": ("壓縮最常見的四個錯誤",
+        "同一個問題通常會連帶出現另一個；一次只修一種",
+        ["錯誤", "聽起來", "怎麼修"],
+        [("Attack 太快", "鼓的衝擊感不見了", "放慢 attack，讓瞬態先過去"),
+         ("Release 太快", "聲音一抽一抽", "放慢 release，跟歌曲節奏對齊"),
+         ("Ratio 太高", "動態被壓平、變扁", "降到 2:1～4:1，用兩段串聯"),
+         ("沒有補償增益", "壓完之後整體變小", "用 makeup gain 補回來再比較")],
+        "判斷方法：旁通（bypass）前後切換，音量要一樣，只聽動態的差別。"),
+    "cmp-reverb-types": ("四種殘響：差別在「空間怎麼被算出來」",
+        "不是哪一種比較好，是適合哪一種場合",
+        ["類型", "聽起來", "適合"],
+        [("Plate", "密、亮、尾巴平滑", "人聲、小鼓"),
+         ("Spring", "金屬感、彈簧聲", "吉他、復古風"),
+         ("Room", "短、自然、有實體感", "鼓組、需要「同一個房間」"),
+         ("Hall", "長、寬、尾巴厚", "弦樂、慢歌、營造空間")],
+        "古典與電影感常用 Hall；流行歌人聲多半用 Plate 疊一點 Room。"),
+    "cmp-delay-types": ("Delay 的三種用法",
+        "同一台 Delay，換個節奏型就是另一種效果",
+        ["用法", "設定", "聽起來"],
+        [("Slap", "30～120ms，一次", "像在牆邊彈"),
+         ("八分／附點八分", "跟著 BPM 對拍", "流行歌最常見的寬度"),
+         ("Ping-pong", "左右交替", "很寬，但會搶戲")],
+        "Delay 一定要跟拍；沒有對拍的 delay 聽起來就是「髒」。"),
+    "cmp-saturation": ("飽和、失真、破音：同一件事的三種程度",
+        "都是「加諧波」，差別在加了多兇、以及有沒有削波",
+        ["名稱", "加了什麼", "聽起來"],
+        [("Saturation", "少量的偶次諧波", "厚、暖，動態還在"),
+         ("Overdrive", "更多諧波、開始軟削波", "有明顯顆粒"),
+         ("Distortion", "硬削波", "粗糙、有攻擊性")],
+        "母帶階段通常只用到最輕的 saturation；重一點的留給單軌。"),
+    "cmp-master-order": ("母帶處理的順序",
+        "順序錯了，後面的處理會一直在補前面的問題",
+        ["步驟", "做什麼", "為什麼在這"],
+        [("1 修正", "修掉極端的低頻與刺耳", "先處理問題，再談音量"),
+         ("2 動態", "壓縮或限制，控制峰值", "讓後面的限制器不用做苦工"),
+         ("3 音色", "寬度與飽和度微調", "讓整體聽起來像同一張專輯"),
+         ("4 響度", "限制器推到目標", "最後一步，前面都沒動它")],
+        "每一首歌都照同一個順序做，專輯裡各首歌的差異才不會忽大忽小。"),
+}
+
+for _k, (_title, _sub, _items, _note) in FLOW_FIGURES.items():
+    FIGURES[_k] = make_flow(_title, _sub, _items, _note)
+for _k, (_title, _sub, _cols, _rows, _note) in CMP_FIGURES.items():
+    FIGURES[_k] = make_cmp(_title, _sub, _cols, _rows, _note)
+
 def build(names=None):
     written = []
     for key, fn in FIGURES.items():

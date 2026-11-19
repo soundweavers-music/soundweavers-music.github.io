@@ -10,7 +10,7 @@
 
 ## **一、聲音是如何被「塞」進電腦裡的？（類比轉數位）**
 
-![Nyquist 與折返失真](/assets/digitalmusic/nyquist-alias.svg)
+![Nyquist 與折返失真](../../assets/digitalmusic/nyquist-alias.svg)
 
 在介紹那三個神秘參數之前，我們必須先弄懂一個非常基礎，但超級重要的概念：**電腦其實是個「聾子」**。
 
@@ -24,7 +24,7 @@
 
 ## **二、取樣率 (Sample Rate)：聲音的「影格率」**
 
-![取樣點與量化誤差：點越密，波形越接近原聲](/assets/digitalmusic/ad-conversion.svg)
+![取樣點與量化誤差：點越密，波形越接近原聲](../../assets/digitalmusic/ad-conversion.svg)
 
 當你打開 DAW，第一個要設定的就是 Sample Rate（取樣率）。常見的選項有：44.1kHz, 48kHz, 96kHz, 甚至是 192kHz。
 
@@ -51,7 +51,7 @@
 
 ## **三、位元深度 (Bit Depth)：聲音的「色彩豐富度與動態範圍」**
 
-![位元深度與動態範圍](/assets/digitalmusic/bit-depth-range.svg)
+![位元深度與動態範圍](../../assets/digitalmusic/bit-depth-range.svg)
 
 | 設定 | 常用值 | 換到什麼 | 代價 |
 |---|---|---|---|

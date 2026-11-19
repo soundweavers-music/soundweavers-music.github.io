@@ -16,7 +16,7 @@
 
 ## 原理：為什麼會這樣
 
-![直音、顫音與滑音的波形](/assets/vocal/vibrato-wave.svg)
+![直音、顫音與滑音的波形](../../assets/vocal/vibrato-wave.svg)
 
 先把三者分清楚。
 
@@ -40,7 +40,7 @@
 
 ### 練習一：先把階梯踩清楚
 
-![轉音：每個音都要有落點](/assets/vocal/ex/glissando.svg)
+![轉音：每個音都要有落點](../../assets/vocal/ex/glissando.svg)
 
 1. 選一個五個音下行的小句子，例如 La-Sol-Mi-Re-Do，用「啊」。
 2. 速度放慢到平常的三分之一，每個音分開唱，音和音之間停一下。

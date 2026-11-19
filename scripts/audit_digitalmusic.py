@@ -52,10 +52,10 @@ def main() -> int:
         text = path.read_text(encoding="utf-8")
         issues = []
 
-        imgs = re.findall(r"!\[[^\]]*\]\((/assets/digitalmusic/([a-z0-9-]+)\.svg)\)", text)
+        imgs = re.findall(r"!\[[^\]]*\]\((?:/|\.\./\.\./)assets/digitalmusic/([a-z0-9-]+)\.svg\)", text)
         if not imgs:
             issues.append("沒有圖")
-        for _, key in imgs:
+        for key in imgs:
             if not (FIG_DIR / f"{key}.svg").exists():
                 issues.append(f"圖檔不存在：{key}.svg")
 

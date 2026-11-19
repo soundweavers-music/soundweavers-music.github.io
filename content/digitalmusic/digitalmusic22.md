@@ -20,7 +20,7 @@
 
 ## 二、Chorus：加倍效果與音色增厚
 
-![Chorus 的延遲調變](/assets/digitalmusic/chorus-mod.svg)
+![Chorus 的延遲調變](../../assets/digitalmusic/chorus-mod.svg)
 
 ### Chorus 的原理
 
@@ -107,7 +107,7 @@ Phaser 的訊號處理路徑：
 
 ## 五、Chorus、Flanger、Phaser 的技術差異
 
-![Chorus、Flanger、Phaser 的 LFO 差異](/assets/digitalmusic/modulation.svg)
+![Chorus、Flanger、Phaser 的 LFO 差異](../../assets/digitalmusic/modulation.svg)
 
 雖然三者都屬於調變效果，但從技術層面來看，它們的本質區別在於延遲時間的長短和訊號處理的方式。
 

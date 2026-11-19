@@ -10,7 +10,7 @@
 
 ## 多頻段壓縮 vs 一般壓縮：何時該用哪一種？
 
-![多頻段的分段單獨聆聽](/assets/digitalmusic/mb-bands.svg)
+![多頻段的分段單獨聆聽](../../assets/digitalmusic/mb-bands.svg)
 
 這是最常被問到的問題。以下提供一個簡單的判斷原則：
 
@@ -29,7 +29,7 @@
 
 ## 分頻點（Crossover）的設定策略
 
-![分頻點把頻譜切成幾段各自處理](/assets/digitalmusic/multiband.svg)
+![分頻點把頻譜切成幾段各自處理](../../assets/digitalmusic/multiband.svg)
 
 分頻點是多頻段壓縮中最關鍵的參數。分頻點設定不當，輕則效果不明顯，重則產生可聽的相位失真和頻譜凹陷。
 
@@ -152,6 +152,7 @@ Master Bus 是整首歌曲的最後一道關卡。在這裡使用多頻段壓縮
 多頻段壓縮器的分頻濾波器會引入相位偏移。雖然 Linkwitz-Riley 濾波器在分頻點上能保持相位一致（Sum 回來的頻率響應是平坦的），但不同頻段的壓縮量不同時，分頻點附近的相位關係就會改變，導致可聽的音色變化。
 
 **解決方案**：
+
 - 使用高品質的多頻段壓縮器（FabFilter Pro-MB、iZotope Ozone）
 - 避免在分頻點附近有重要樂器
 - 使用 Linear Phase 模式（注意會有 Latency 和 Pre-ringing）

@@ -16,7 +16,7 @@
 
 ## 原理：為什麼會這樣
 
-![樂句與換氣點的安排](/assets/vocal/phrase-breath.svg)
+![樂句與換氣點的安排](../../assets/vocal/phrase-breath.svg)
 
 安靜吸氣時，聲帶是打開的，氣流沒有摩擦。要讓吸氣有情緒，就讓聲帶稍微靠近一點，氣流通過時產生摩擦聲。這和講話講到激動時倒抽一口氣是同一件事。
 
@@ -47,7 +47,7 @@
 
 ### 練習二：吸氣當引信
 
-![把吸氣接上第一句](/assets/vocal/ex/breath-points.svg)
+![把吸氣接上第一句](../../assets/vocal/ex/breath-points.svg)
 
 1. 用剛才的吸氣，接一句你熟悉的副歌開頭。
 2. 吸完不要停，直接把氣變成聲音。

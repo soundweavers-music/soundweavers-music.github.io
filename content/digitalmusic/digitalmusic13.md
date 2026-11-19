@@ -31,6 +31,8 @@
 
 ---
 
+![靜態混音的建立順序](../../assets/digitalmusic/flow-static-mix.svg)
+
 ## 建立參考點：主唱是最重要的燈塔
 
 在一首典型的流行、搖滾或任何有 Vocal 的音樂中，**主唱 (Lead Vocal) 永遠是混音的絕對參考點**。聽眾潛意識會以人聲為中心去判斷其他樂器是否太大或太小。因此，靜態混音的標準流程是：
@@ -106,7 +108,7 @@
 | 和聲與裝飾 | −15 到 −21 dB | 只在需要的地方出現 |
 
 
-![從主唱往下排的音量層級](/assets/digitalmusic/fader-pyramid.svg)
+![從主唱往下排的音量層級](../../assets/digitalmusic/fader-pyramid.svg)
 
 靜態混音本質上就是在定義層級 (Hierarchy)。以下是一個典型的音量金字塔（從最大聲到最小聲），可作為通用參考：
 
@@ -141,7 +143,7 @@
 
 ## Fader Ride 技巧：找到每個元素的甜蜜點
 
-![Fader ride 在句子裡微調](/assets/digitalmusic/fader-ride.svg)
+![Fader ride 在句子裡微調](../../assets/digitalmusic/fader-ride.svg)
 
 「Fader Ride」這個詞源自類比控台的時代，混音師用手推移推桿來找到每個樂器最適合的靜態位置。在數位 DAW 中，這個技巧同樣重要。
 

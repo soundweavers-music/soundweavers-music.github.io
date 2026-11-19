@@ -83,7 +83,7 @@
 
 ## 三、爵士鼓（Drum Kit）收音
 
-![鼓組的麥克風位置](/assets/digitalmusic/drum-kit-map.svg)
+![鼓組的麥克風位置](../../assets/digitalmusic/drum-kit-map.svg)
 
 爵士鼓是錄音中最具挑戰性的樂器之一——因為它有太多聲源同時發聲。一套標準鼓組的收音通常分三層。
 
@@ -191,9 +191,9 @@ Overheads 負責捕捉鈸（cymbal）與整體鼓組的立體感。通常使用�
 
 ## 七、多麥克風的相位相關性：3:1 規則
 
-![3:1 規則](/assets/digitalmusic/three-to-one.svg)
+![3:1 規則](../../assets/digitalmusic/three-to-one.svg)
 
-![AB、XY、ORTF、MS 四種立體聲收音](/assets/digitalmusic/stereo-techniques.svg)
+![AB、XY、ORTF、MS 四種立體聲收音](../../assets/digitalmusic/stereo-techniques.svg)
 
 當你同時使用兩支（以上）麥克風錄製同一個聲源時，**相位**（phase）就成為最重要的課題。
 
@@ -210,6 +210,7 @@ Overheads 負責捕捉鈸（cymbal）與整體鼓組的立體感。通常使用�
 > **當使用兩支麥克風錄製同一聲源時，第二支麥克風與第一支麥克風的距離，至少要是第一支麥克風與聲源距離的三倍。**
 
 舉例來說：
+
 - 如果 Mic A 離吉他面板 30 公分，那麼 Mic B 與 Mic A 之間的距離至少要是 **90 公分**。
 
 這個規則可以大幅減少兩支麥克風之間的可聽相位抵銷。注意，它是一個粗略指引，並非絕對真理——在實際操作中仍需聆聽驗證。
@@ -227,6 +228,8 @@ Overheads 負責捕捉鈸（cymbal）與整體鼓組的立體感。通常使用�
 - 對鼓組錄音來說，**Snare 的下鼓皮麥克風**幾乎一定需要相位反轉（因為上鼓皮與下鼓皮的振動方向相反）。
 
 ---
+
+![鼓組編輯的順序：先對拍、再對音、最後才談音色](../../assets/digitalmusic/flow-drum-edit.svg)
 
 ## 八、總結與實戰口訣
 

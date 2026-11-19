@@ -14,7 +14,7 @@
 
 ## 原理：為什麼會這樣
 
-![段落張力曲線：畫面感跟著段落走](/assets/vocal/dynamics-curve.svg)
+![段落張力曲線：畫面感跟著段落走](../../assets/vocal/dynamics-curve.svg)
 
 身體會對畫面有反應。你真的想起某件事，呼吸會變淺、喉嚨會收、眼睛會熱。這些變化會直接改變聲帶的閉合程度和聲道形狀，比任何刻意的技巧都細。
 
@@ -34,7 +34,7 @@
 
 ## 現在就做
 
-![練習示意圖：本章動作拆解](/assets/vocal/ex/emotion-map.svg)
+![練習示意圖：本章動作拆解](../../assets/vocal/ex/emotion-map.svg)
 
 這一章是紙上作業加一次實驗，不是發聲練習。
 

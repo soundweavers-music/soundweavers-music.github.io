@@ -17,7 +17,7 @@
 
 ## 音量 Automation：混音中最關鍵的工具
 
-![音量自動化曲線](/assets/digitalmusic/automation-curve.svg)
+![音量自動化曲線](../../assets/digitalmusic/automation-curve.svg)
 
 如果說 automation 有一項你必須精通的核心技能，那就是音量 automation。這是塑造歌曲動態最直接、最有效的方法。
 
@@ -142,11 +142,13 @@ Delay 的 feedback（回授量）是另一個強大的 automation 目標：
 用滑鼠在 automation 車道（automation lane）上直接畫曲線。
 
 **優點**：
+
 - 極度精確——你可以畫出任何形狀的曲線
 - 容易編輯——點擊 breakpoint 即可調整
 - 可重複——不會因為錄製時的手抖而產生誤差
 
 **缺點**：
+
 - 缺乏人性化的細微變化——可能聽起來太「機械」
 - 速度較慢——需要一筆一筆地畫
 
@@ -157,11 +159,13 @@ Delay 的 feedback（回授量）是另一個強大的 automation 目標：
 DAW 處於錄製 automation 模式時，你一邊播放歌曲一邊推動推桿或轉動旋鈕，DAW 會即時記錄你的所有操作。
 
 **優點**：
+
 - 有機、自然——人的手勢帶有微妙的 timing 和力度變化
 - 直觀——用耳朵聽、用手操作，不需要視覺輔助
 - 快速——一次錄製就能得到完整的 automation
 
 **缺點**：
+
 - 不夠精確——很難在正確的時機點達到完全正確的數值
 - 需要練習——好的「手感」需要時間培養
 - 編輯較麻煩——可能需要清理不必要的 breakpoint
@@ -174,7 +178,7 @@ DAW 處於錄製 automation 模式時，你一邊播放歌曲一邊推動推桿�
 
 ## Clip Gain vs Track Automation
 
-![Clip gain 與 Fader 動在不同位置](/assets/digitalmusic/clip-gain-vs-fader.svg)
+![Clip gain 與 Fader 動在不同位置](../../assets/digitalmusic/clip-gain-vs-fader.svg)
 
 兩者都是在調整音量，但用處不同。
 
@@ -183,6 +187,7 @@ DAW 處於錄製 automation 模式時，你一邊播放歌曲一邊推動推桿�
 在音頻 clip 上直接調整增益，而不是在 track 的 automation lane 上。
 
 **適合用於**：
+
 - 錄音前的音量平衡——讓每個 clip 的音量一致
 - 移除錄音中的音量不均（如歌手某些字特別大聲）
 - 在編輯階段就完成的音量調整，與混音階段的 automation 分開管理
@@ -194,6 +199,7 @@ DAW 處於錄製 automation 模式時，你一邊播放歌曲一邊推動推桿�
 在 track 的 volume fader 上 automation。
 
 **適合用於**：
+
 - 整體段落的音量變化（主歌到副歌的漸強）
 - 與其他 automation（pan、效果器）配合使用
 - 混音階段最後的修飾

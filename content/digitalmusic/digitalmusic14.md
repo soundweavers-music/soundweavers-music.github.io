@@ -18,7 +18,7 @@ EQ 的本質是「頻率的手術刀」。它讓你針對某一個或某一段�
 
 ## 五種基本濾波器類型
 
-![五種基本濾波器的形狀](/assets/digitalmusic/eq-filters.svg)
+![五種基本濾波器的形狀](../../assets/digitalmusic/eq-filters.svg)
 
 EQ 中的濾波器決定了你如何影響聲音。以下是五種最常用的類型：
 
@@ -70,7 +70,7 @@ EQ 中的濾波器決定了你如何影響聲音。以下是五種最常用的�
 
 ## 掃除技術：如何找到問題頻率
 
-![Q 值與影響範圍](/assets/digitalmusic/q-width.svg)
+![Q 值與影響範圍](../../assets/digitalmusic/q-width.svg)
 
 掃除技術（Sweeping Technique）是 EQ 混音中最實用的技巧之一，特別適合用來找出干擾頻率。
 
