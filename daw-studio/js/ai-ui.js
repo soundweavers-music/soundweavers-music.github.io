@@ -1,13 +1,13 @@
 // 智慧編曲視窗：① 旋律配和弦（主旋律 → 和弦軌，2～3 個版本）② 一鍵編曲（和弦軌 + 段落 → 各聲部 MIDI）
 import { store } from './state.js';
 import { engine } from './engine.js';
-import { STYLES, SECTIONS, styleById } from './arranger-styles.js';
+import { STYLES, SECTIONS, styleById, romanToChord } from './arranger-styles.js';
 import { PARTS } from './arranger.js';
 import { melodyOf, melodyKey, suggestChords, keyName, progressionText } from './ai-chords.js';
 import { chordRange, autoPlan, generate, applyArrangement, removeArrangement } from './ai-arrange.js';
 import { ROOTS } from './chords.js';
 import { toast } from './util.js';
-import { compose, applyComposition, FORMS, SEC_LABEL } from './ai-compose.js';
+import { compose, applyComposition, FORMS, SEC_LABEL, parseProgression, progressionChoices } from './ai-compose.js';
 import { chordName } from './chords.js';
 
 const KEY = 'zhiyin-daw-ai';
@@ -58,10 +58,12 @@ function build() {
         <label class="f">旋律變化 <span class="aiw-rng"><input type="range" class="aic-var" min="0" max="100" step="5"><b class="aic-varv"></b></span></label>
         <label class="f">旋律音色 <select class="aic-inst"><option value="lead">方波 Lead</option><option value="piano">鋼琴</option><option value="epiano">電鋼琴</option><option value="strings">弦樂</option><option value="marimba">木琴</option></select></label>
       </div>
+      <div class="aic-progs-h"><b>和弦進行</b><span class="note">每種段落可以自己決定：選「隨機」才會抽籤；選「自己寫」可以輸入簡譜數字（1 5 6m 4）、級數（I V vi IV）或和弦名（C G Am F），用「+」把兩個和弦放進同一小節（例如 4 5+3 6m）</span></div>
+      <div class="aic-progs"></div>
       <div class="aiw-row">
         <button type="button" class="tbtn primary aic-new">✦ 寫一首新的</button>
         <button type="button" class="tbtn aic-mel" title="和弦不變，只換一條旋律">只換旋律</button>
-        <button type="button" class="tbtn aic-prog" title="曲式與旋律風格不變，換一組和弦進行">只換和弦進行</button>
+        <button type="button" class="tbtn aic-prog" title="旋律種子不變，重抽「隨機」的段落（指定的段落不會變）">重抽隨機和弦</button>
         <button type="button" class="tbtn aic-play">▶ 從頭播放</button>
         <span class="note aic-status"></span>
       </div>
@@ -124,11 +126,11 @@ function build() {
   $('.aiw-del').onclick = () => { if (removeArrangement()) { toast('已移除智慧編曲的片段（Ctrl+Z 可以復原）'); status(''); } else toast('目前沒有智慧編曲的片段', 'warn'); };
   // ③ 智慧創作
   $('.aic-key').value = S.cKey || '0M';
-  $('.aic-key').onchange = e => { S.cKey = e.target.value; save(); };
+  $('.aic-key').onchange = e => { S.cKey = e.target.value; save(); renderProgs(); };
   $('.aic-bpm').value = String(S.cBpm || 80);
   $('.aic-bpm').onchange = e => { S.cBpm = Math.max(50, Math.min(180, Number(e.target.value) || 80)); save(); };
   $('.aic-form').value = S.cForm || 'std';
-  $('.aic-form').onchange = e => { S.cForm = e.target.value; save(); };
+  $('.aic-form').onchange = e => { S.cForm = e.target.value; save(); renderProgs(); };
   $('.aic-reg').value = String(S.cReg ?? 0);
   $('.aic-reg').onchange = e => { S.cReg = Number(e.target.value); save(); };
   $('.aic-var').value = String(Math.round((S.cVar ?? 0.4) * 100));
@@ -147,19 +149,64 @@ function build() {
 }
 
 let lastStart = null, comp = null;
+
+// 每種段落的和弦進行選擇：隨機／進行庫／自己寫（即時解析，顯示成這個調的和弦名）
+function renderProgs() {
+  const k = S.cKey || '0M', key = parseInt(k, 10), minor = k.endsWith('m');
+  const form = FORMS.find(f => f.id === (S.cForm || 'std')) || FORMS[1];
+  const types = [...new Set(form.secs.map(x => x[0]))];
+  S.cProgs = S.cProgs || {}; S.cCustom = S.cCustom || {};
+  const major = minor ? (key + 3) % 12 : key;
+  const asNames = rns => rns.map(rn => chordName(romanToChord(rn, major))).join(' ');
+  $('.aic-progs').innerHTML = types.map(type => {
+    const { own, other } = progressionChoices(type, minor), v = S.cProgs[type] || 'rand';
+    const opt = x => `<option value="${esc(x.id)}"${x.id === v ? ' selected' : ''}>${esc(x.name)}　${esc(asNames(x.rns))}</option>`;
+    return `<div class="aic-prow" data-type="${type}">
+      <b>${SEC_LABEL[type]}</b>
+      <select class="aic-psel"><option value="rand"${v === 'rand' ? ' selected' : ''}>🎲 隨機（每次抽一組）</option>
+        <optgroup label="${SEC_LABEL[type]}常用">${own.map(opt).join('')}</optgroup>
+        <optgroup label="其他段落的進行">${other.map(opt).join('')}</optgroup>
+        <option value="custom"${v === 'custom' ? ' selected' : ''}>✎ 自己寫…</option></select>
+      <input type="text" class="aic-ptext" placeholder="例如 1 5 6m 4　或　C G Am F" value="${esc(S.cCustom[type] || '')}"${v === 'custom' ? '' : ' hidden'}>
+      <span class="aic-pprev note"></span>
+    </div>`;
+  }).join('');
+  $('.aic-progs').querySelectorAll('.aic-prow').forEach(row => {
+    const type = row.dataset.type, sel = row.querySelector('.aic-psel'), inp = row.querySelector('.aic-ptext'), prev = row.querySelector('.aic-pprev');
+    const preview = () => {
+      prev.classList.remove('bad');
+      if (sel.value !== 'custom') { prev.textContent = ''; return; }
+      const r = parseProgression(inp.value, key, minor);
+      if (!inp.value.trim()) { prev.textContent = '還沒輸入：會改用隨機'; return; }
+      const txt = r.bars.map(b => b.map(chordName).join('+')).join(' │ ');
+      prev.textContent = (r.bars.length ? `${r.bars.length} 小節：${txt}` : '') + (r.bad.length ? `　看不懂：${r.bad.join('、')}` : '');
+      if (r.bad.length) prev.classList.add('bad');
+    };
+    sel.onchange = () => { S.cProgs[type] = sel.value; save(); inp.hidden = sel.value !== 'custom'; if (!inp.hidden) inp.focus(); preview(); };
+    inp.oninput = () => { S.cCustom[type] = inp.value; save(); preview(); };
+    inp.onkeydown = e => e.stopPropagation();   // 打字時不要觸發 DAW 的快捷鍵
+    preview();
+  });
+}
 function runCompose(progSeed, melSeed) {
   const p = store.project;
   if ((p.sigNum || 4) !== 4) { toast('智慧創作目前只支援 4/4 拍，請先把拍號改成 4/4', 'warn'); return; }
   const k = S.cKey || '0M';
   // 放在第 5 小節開始，前面留 4 小節給前奏
-  const res = compose({ key: parseInt(k, 10), minor: k.endsWith('m'), form: S.cForm || 'std', register: S.cReg ?? 0, variation: S.cVar ?? 0.4, startBar: 4, progSeed, melSeed });
+  // 每種段落的和弦：使用者選的（進行庫／自己寫）優先，「隨機」的才抽
+  const progs = {};
+  for (const [type, v] of Object.entries(S.cProgs || {})) {
+    if (v === 'custom') { const text = (S.cCustom || {})[type] || ''; if (text.trim()) progs[type] = { kind: 'custom', text }; }
+    else if (v && v !== 'rand') progs[type] = { kind: 'lib', id: v };
+  }
+  const res = compose({ key: parseInt(k, 10), minor: k.endsWith('m'), form: S.cForm || 'std', register: S.cReg ?? 0, variation: S.cVar ?? 0.4, startBar: 4, progSeed, melSeed, progs });
   const r = applyComposition(res, { bpm: S.cBpm || 80, instrument: S.cInst || 'lead' });
   if (r.err) { toast(r.err, 'warn'); return; }
   comp = { res, progSeed, melSeed };
   $('.aic-status').textContent = `已寫入：${res.sections.length} 段、${res.endBar - res.startBar} 小節、旋律 ${r.notes} 個音（#${progSeed % 1000}-${melSeed % 1000}）`;
   $('.aic-sum').innerHTML = res.sections.map(sec => {
     const cs = res.chords.filter(c => c.t + c.d > sec.bar * 4 && c.t < (sec.bar + sec.bars) * 4);   // 跨段落延續的和弦也算
-    return `<div class="aic-sec"><b>${SEC_LABEL[sec.type]}${sec.round ? ' ' + (sec.round + 1) : ''}</b><span class="aiw-bar">${sec.bar + 1}–${sec.bar + sec.bars}</span><span class="note">${esc(sec.prog)}</span><span class="aiw-prog">${esc(cs.map(chordName).join(' – '))}</span></div>`;
+    return `<div class="aic-sec"><b>${SEC_LABEL[sec.type]}${sec.round ? ' ' + (sec.round + 1) : ''}</b><span class="aiw-bar">${sec.bar + 1}–${sec.bar + sec.bars}</span><span class="note">${esc(sec.prog)}${sec.custom || sec.locked ? '（指定）' : '（隨機）'}</span><span class="aiw-prog">${esc(cs.map(chordName).join(' – '))}</span></div>`;
   }).join('');
   $('.aic-after').hidden = false;
   toast('智慧創作完成：和弦軌與「智慧主旋律」軌都寫好了，按播放聽聽看（Ctrl+Z 可以復原）');
@@ -307,6 +354,7 @@ function renderTab() {
   root.querySelectorAll('.aiw-pane').forEach(el => { el.hidden = el.dataset.pane !== S.tab; });
   if (S.tab === 'chords') { fillTracks(); renderOpts(); }
   else if (S.tab === 'arrange') { renderVals(); renderParts(); renderPlan(); }
+  else if (S.tab === 'compose') renderProgs();
 }
 
 export function toggleAI(force) {
