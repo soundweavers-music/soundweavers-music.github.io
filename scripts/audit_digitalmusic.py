@@ -40,6 +40,7 @@ MIN_CHARS, MAX_CHARS = 1200, 12000
 def main() -> int:
     strict = "--strict" in sys.argv
     problems = 0
+    style_total = 0
     for n in range(1, 31):
         path = DM / f"digitalmusic{n}.md"
         if not path.exists():
@@ -65,15 +66,22 @@ def main() -> int:
         elif chars > MAX_CHARS:
             issues.append(f"太長（{chars} 字）")
 
+        style = []
         for name, pat in BANNED:
             for m in pat.finditer(text):
-                issues.append(f"{name}：「{m.group(0)}」")
+                style.append(f"{name}：「{m.group(0)}」")
 
         mark = "!!" if issues else "OK"
-        print(f"{mark} {n:02d} {chars:>5} 字 圖{len(imgs)}  " + "；".join(issues[:4]))
+        line = f"{mark} {n:02d} {chars:>5} 字 圖{len(imgs)}"
+        if issues:
+            line += "  " + "；".join(issues[:3])
+        if style:
+            line += f"　（語氣建議 {len(style)} 處）"
+        print(line)
         problems += len(issues)
+        style_total += len(style)
 
-    print(f"\n{'有問題' if problems else '全部通過'}：{problems} 項")
+    print(f"\n結構問題：{problems} 項；語氣建議：{style_total} 處（只供參考，不影響發佈）")
     return 1 if (problems and strict) else 0
 
 
