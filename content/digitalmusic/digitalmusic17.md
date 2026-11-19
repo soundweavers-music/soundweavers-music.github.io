@@ -21,6 +21,8 @@
 
 ## 平行壓縮的設定方式
 
+![平行壓縮的乾濕比](/assets/digitalmusic/parallel-blend.svg)
+
 實作平行壓縮有兩種主流方法，各有優缺點。
 
 ### 方法一：Send/Return 架構（推薦）

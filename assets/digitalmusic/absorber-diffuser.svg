@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 370" role="img" aria-label="吸音與擴散">
+  <title>吸音與擴散</title>
+  <rect width="660" height="370" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">吸音與擴散</text>
+  <text x="26" y="55" class="ts" font-size="12.5">一個減少反射，一個讓反射變得均勻</text>
+  <text x="26" y="84" class="ts" font-size="12">吸音把能量吃掉，擴散把能量打散；兩種都要，不是越多越好。</text>
+  <rect x="60" y="110" width="260" height="160" rx="8" fill="#FFFFFF" stroke="#A67C52" stroke-width="1.4"/>
+  <text x="74" y="134" class="t" font-size="12" font-weight="700" fill="#A67C52">吸音 Absorber</text>
+  <text x="74" y="154" class="ts" font-size="9.5" fill="#8C8078">厚布料、泡棉、低頻陷阱</text>
+  <rect x="184" y="168" width="12" height="84" rx="2" fill="#A67C52" opacity="0.25"/>
+  <path d="M130.0 186.0 L175.5 186.0" fill="none" stroke="#8C8078" stroke-width="1.7" stroke-linecap="round"/><path d="M180.0 186.0 L175.4 188.0 L175.4 184.0 Z" fill="#8C8078"/>
+  <path d="M184 186 l10 -4" class="thin"/>
+  <path d="M130.0 210.0 L175.5 210.0" fill="none" stroke="#8C8078" stroke-width="1.7" stroke-linecap="round"/><path d="M180.0 210.0 L175.4 212.0 L175.4 208.0 Z" fill="#8C8078"/>
+  <path d="M184 210 l10 -4" class="thin"/>
+  <path d="M130.0 234.0 L175.5 234.0" fill="none" stroke="#8C8078" stroke-width="1.7" stroke-linecap="round"/><path d="M180.0 234.0 L175.4 236.0 L175.4 232.0 Z" fill="#8C8078"/>
+  <path d="M184 234 l10 -4" class="thin"/>
+  <rect x="360" y="110" width="260" height="160" rx="8" fill="#FFFFFF" stroke="#6F8F6A" stroke-width="1.4"/>
+  <text x="374" y="134" class="t" font-size="12" font-weight="700" fill="#6F8F6A">擴散 Diffuser</text>
+  <text x="374" y="154" class="ts" font-size="9.5" fill="#8C8078">格柵、書櫃、不規則表面</text>
+  <rect x="484" y="168" width="12" height="84" rx="2" fill="#6F8F6A" opacity="0.25"/>
+  <path d="M430.0 186.0 L475.5 186.0" fill="none" stroke="#8C8078" stroke-width="1.7" stroke-linecap="round"/><path d="M480.0 186.0 L475.4 188.0 L475.4 184.0 Z" fill="#8C8078"/>
+  <path d="M498.0 186.0 L548.5 172.9" fill="none" stroke="#6F8F6A" stroke-width="1.7" stroke-linecap="round"/><path d="M552.0 172.0 L548.9 174.5 L548.1 171.3 Z" fill="#6F8F6A"/>
+  <path d="M498.0 186.0 L548.4 186.0" fill="none" stroke="#6F8F6A" stroke-width="1.7" stroke-linecap="round"/><path d="M552.0 186.0 L548.3 187.6 L548.3 184.4 Z" fill="#6F8F6A"/>
+  <path d="M498.0 186.0 L548.5 199.1" fill="none" stroke="#6F8F6A" stroke-width="1.7" stroke-linecap="round"/><path d="M552.0 200.0 L548.1 200.7 L548.9 197.5 Z" fill="#6F8F6A"/>
+  <path d="M430.0 210.0 L475.5 210.0" fill="none" stroke="#8C8078" stroke-width="1.7" stroke-linecap="round"/><path d="M480.0 210.0 L475.4 212.0 L475.4 208.0 Z" fill="#8C8078"/>
+  <path d="M498.0 210.0 L548.5 196.9" fill="none" stroke="#6F8F6A" stroke-width="1.7" stroke-linecap="round"/><path d="M552.0 196.0 L548.9 198.5 L548.1 195.3 Z" fill="#6F8F6A"/>
+  <path d="M498.0 210.0 L548.4 210.0" fill="none" stroke="#6F8F6A" stroke-width="1.7" stroke-linecap="round"/><path d="M552.0 210.0 L548.3 211.6 L548.3 208.4 Z" fill="#6F8F6A"/>
+  <path d="M498.0 210.0 L548.5 223.1" fill="none" stroke="#6F8F6A" stroke-width="1.7" stroke-linecap="round"/><path d="M552.0 224.0 L548.1 224.7 L548.9 221.5 Z" fill="#6F8F6A"/>
+  <path d="M430.0 234.0 L475.5 234.0" fill="none" stroke="#8C8078" stroke-width="1.7" stroke-linecap="round"/><path d="M480.0 234.0 L475.4 236.0 L475.4 232.0 Z" fill="#8C8078"/>
+  <path d="M498.0 234.0 L548.5 220.9" fill="none" stroke="#6F8F6A" stroke-width="1.7" stroke-linecap="round"/><path d="M552.0 220.0 L548.9 222.5 L548.1 219.3 Z" fill="#6F8F6A"/>
+  <path d="M498.0 234.0 L548.4 234.0" fill="none" stroke="#6F8F6A" stroke-width="1.7" stroke-linecap="round"/><path d="M552.0 234.0 L548.3 235.6 L548.3 232.4 Z" fill="#6F8F6A"/>
+  <path d="M498.0 234.0 L548.5 247.1" fill="none" stroke="#6F8F6A" stroke-width="1.7" stroke-linecap="round"/><path d="M552.0 248.0 L548.1 248.7 L548.9 245.5 Z" fill="#6F8F6A"/>
+  <rect x="60" y="290" width="250" height="52" rx="8" fill="#F3E9DC" stroke="#D9CFC4" stroke-width="1.3"/>
+  <text x="72" y="312" class="t" font-size="13" font-weight="700">小房間先吸音</text>
+  <text x="72" y="331" class="ts" font-size="11">處理 100–300 Hz 與早期反射</text>
+  <rect x="340" y="290" width="260" height="52" rx="8" fill="#E4EBDC" stroke="#D9CFC4" stroke-width="1.3"/>
+  <text x="352" y="312" class="t" font-size="13" font-weight="700">空間夠大才擴散</text>
+  <text x="352" y="331" class="ts" font-size="11">否則只是把問題彈回來</text>
+</svg>

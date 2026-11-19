@@ -12,6 +12,7 @@
 from __future__ import annotations
 
 import argparse
+import io
 import json
 import os
 import re
@@ -20,6 +21,10 @@ import threading
 from pathlib import Path
 
 import anthropic
+
+# 章節標題含 emoji（🎵 等），cp950 主控台會直接炸掉，所以先換成 UTF-8。
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace")
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 SRC_DIR = BASE_DIR / "content" / "musictheory"

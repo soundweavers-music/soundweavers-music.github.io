@@ -75,7 +75,7 @@
 - **聽感特徵**：豐富、甜美、富有音樂性，俗稱「管子味」。
 - **諧波特性**：以偶次諧波（尤其是二次諧波）為主力，聽感極度悅耳。
 - **附加效果**：動態壓縮感強烈，訊號越大壓越多。
-- **經典插件**：Warm Audio WA76、Tube-Tech CL 1B、Black Box HG-2。
+- **經典插件**：Black Box HG-2、Soundtoys Radiator、Softube Saturation Knob。（WA76、CL 1B 是壓縮器，真空管電路本身帶飽和，但主要用途不是加飽和。）
 - **最佳場景**：主唱、貝斯、木吉他、鋼琴——任何需要「貴氣」的聲源。
 
 ### 電晶體飽和（Transistor Saturation）
@@ -107,7 +107,7 @@
 
 鼓是飽和度最有感的應用對象。
 
-- **小鼓（Snare）**：掛 Tape Saturation，Input 推到開始壓縮的位置。小鼓的瞬態會被馴服，尾音變厚，擊打感依然保留。建議 Attack 放慢（50-100ms），讓飽和只作用在 sustain 上。
+- **小鼓（Snare）**：掛 Tape Saturation，Input 推到開始壓縮的位置。小鼓的瞬態會被馴服，尾音變厚，擊打感依然保留。飽和插件沒有 Attack 旋鈕；想留住瞬態衝擊，先用瞬態塑形器（Transient Shaper）壓低 Attack 再送進飽和。
 - **大鼓（Kick）**：Tube Saturation 最適合。踢鼓的低頻會填入更多的「肉」，Q 彈感大增。與其用 EQ 死命 Boost 60Hz，不如用飽和度增加低頻的泛音密度，聽感更自然。
 - **Overhead / 鈸**：微量的 Tape Saturation。只需要一點點（Input 推到 -2 到 -3 dB 的飽和點），讓銅鈸的刺耳高頻變得絲滑。
 - **鼓組總線**：一台 API 2500 風格的 VCA Bus Compressor，搭配變壓器飽和，整組鼓立刻「黏」在一起，聽感像一張完整的唱片。
@@ -124,8 +124,8 @@
 
 人聲飽和是專業混音與業餘混音之間的分水嶺之一。
 
-- **主唱**：Tube Saturation（如 Black Box HG-2）的經典用法。驅動量不大，約 2-3 dB 的 GR（Gain Reduction）。人聲會變得更有「臨場感」，像錄音室等級的麥克風前級推出來的質地。
-- **背景和聲**：Tape Saturation，略高的驅動（4-6 dB GR）。和聲之間會產生融合效果，不會互相搶戲，整體聽感像同一組麥克風在同一個空間錄的。
+- **主唱**：Tube Saturation（如 Black Box HG-2）的經典用法。驅動量不大，輸入增益約 +2～3 dB（Triode 刻度約 2–3）。人聲會變得更有「臨場感」，像錄音室等級的麥克風前級推出來的質地。
+- **背景和聲**：Tape Saturation，略高的驅動（輸入增益約 +4～6 dB）。和聲之間會產生融合效果，不會互相搶戲，整體聽感像同一組麥克風在同一個空間錄的。
 - **饒舌 / 演說人聲**：Transistor Saturation，Mix 開到 10-15%。增加中頻的撕裂感與攻擊性，讓聲音「頂」在混音前方。
 
 ### 吉他（Guitars）
@@ -147,7 +147,7 @@
 ### 效果
 
 - **凝聚力**：所有軌道像被「壓在一起」，各樂器之間的頻率互相融合。
-- **立體感**：飽和度會產生微量的立體聲加寬效果（Phase Smear），讓音場變寬但不空洞。
+- **立體感**：磁帶的輕微串音（Crosstalk）讓左右聲道微微融合，音場聽起來更飽滿，而不是更寬。
 - **高頻馴服**：數位混音最容易累積刺耳高頻，總線上的磁帶飽和會自然地滾降 12kHz 以上的極高頻。
 - **音量競爭力**：飽和造成的動態壓縮讓 RMS 提升，混音整體聽感變大聲，不需要之後用 Limiter 硬推。
 
@@ -178,7 +178,7 @@
 ### 推薦插件
 
 - **Waves RBass / Aphex Vintage Exciter** — 經典的低頻與高頻激發。
-- **Oeksound Soothe2** — 雖然是動態處理器，但它的「Live」模式可作為非常透明的諧波激發器。
+- **Oeksound Soothe2** — 本質是動態共振抑制器，適合放在飽和之後修掉刺耳的諧波峰值，讓失真聽起來更圓潤（現場用的版本是另一個獨立產品 soothe live）。
 - **iZotope Ozone Exciter** — 多頻帶激發，可分別控制四個頻段。
 
 ---
@@ -191,14 +191,14 @@
 
 - 插件：Waves J37 (Tape)
 - Input：推到 VU +3 dB
-- Speed：15 IPS（高帶速，保留高頻）
-- Bias：略調高（+0.5 dB），增加二次諧波
+- Speed：15 IPS（標準帶速；要更乾淨的高頻延伸再切到 30 IPS）
+- Bias：略調低（−0.5 dB），增加二次諧波與飽和量
 - Mix：100%
 
 ### 貝斯（合成器）飽和
 
 - 插件：Soundtoys Decapitator
-- Style：Punish (Transistor)
+- Style：N（Neve）或 P（Pentode），需要更兇再按 Punish
 - Drive：3.5
 - Filter：低通約 8kHz（只讓低中頻飽和）
 - Mix：30%（乾濕並存，保留低頻本體）
@@ -222,6 +222,8 @@
 ---
 
 ## 軟剪輯 vs 硬剪輯：該推到多遠？
+
+![軟削波與硬削波](/assets/digitalmusic/saturation-curves.svg)
 
 飽和度最後的臨界點，就是剪輯（Clipping）——波形被硬生生地截斷。
 

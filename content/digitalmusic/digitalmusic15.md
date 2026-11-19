@@ -12,6 +12,8 @@
 
 ## 二、四大核心參數：Threshold、Ratio、Attack、Release
 
+![Attack 與 Release 對波形的影響](/assets/digitalmusic/attack-release.svg)
+
 | 參數 | 作用 | 常用起點 |
 |---|---|---|
 | Threshold | 從哪裡開始壓 | 比峰值低 3–6 dB |

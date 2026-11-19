@@ -141,6 +141,8 @@
 
 ## Fader Ride 技巧：找到每個元素的甜蜜點
 
+![Fader ride 在句子裡微調](/assets/digitalmusic/fader-ride.svg)
+
 「Fader Ride」這個詞源自類比控台的時代，混音師用手推移推桿來找到每個樂器最適合的靜態位置。在數位 DAW 中，這個技巧同樣重要。
 
 ### 如何進行 Fader Ride

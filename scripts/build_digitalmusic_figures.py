@@ -34,7 +34,7 @@ ACCENT, ACCENT_SOFT = vf.ACCENT, vf.ACCENT_SOFT
 BLUE, BLUE_SOFT = vf.BLUE, vf.BLUE_SOFT
 GREEN, GREEN_SOFT = vf.GREEN, vf.GREEN_SOFT
 RED, RED_SOFT = vf.RED, vf.RED_SOFT
-INK, INK2, MUTED, LINE, PANEL = vf.INK, vf.INK2, vf.MUTED, vf.LINE, vf.PANEL
+INK, INK2, MUTED, LINE, PANEL, BG = vf.INK, vf.INK2, vf.MUTED, vf.LINE, vf.PANEL, vf.BG
 
 t, tb, ts = vf.t, vf.tb, vf.ts
 rect, circle, path, arrow, badge, callout, steps = (
@@ -467,6 +467,139 @@ def fig_pitch_cents():
     b.append(ts(360, 252, "是音準問題，還是氣息與咬字的問題？", size=10.5))
     b.append(ts(360, 272, "後者拉音準只會更假。", size=10.5, color=MUTED))
     return w, h, "音高偏差以音分計", "半音切成 100 份，耳朵聽得出 5 音分", "\n".join(b), None
+
+
+def fig_pitch_curve():
+    import math
+    w, h = 660, 430
+    b = []
+    b.append(ts(26, 84, "同一段旋律的兩種樣子：藍色是唱出來的，棕色是修過的。", size=12))
+    K = 0.42  # 每 1 音分 0.42 px
+
+    def seg(xa, xb, y, fn, n=56):
+        pts = []
+        for i in range(n + 1):
+            t = i / n
+            pts.append(f"{xa + (xb - xa) * t:.1f} {y - fn(t) * K:.1f}")
+        return "M" + " L".join(pts)
+
+    for xa, xb, y, name in [(74, 205, 250, "C4"), (210, 335, 205, "D4"),
+                            (340, 465, 160, "E4"), (470, 618, 205, "D4")]:
+        b.append(path(f"M{xa} {y} L{xb} {y}", cls="thin", dash="5 4"))
+        b.append(ts(xa + 4, y - 9, name, size=9.5, color=MUTED))
+
+    b.append(arrow(52, 320, 52, 110, "ink", 8))
+    b.append(ts(46, 104, "音高", size=10.5, anchor="end"))
+
+    orig = [
+        seg(74, 108, 250, lambda t: -38 + 34 * t),                                # 進歌偏低
+        seg(108, 205, 250, lambda t: -4 + 28 * math.sin(2 * math.pi * 1.6 * t)),  # 抖音
+        seg(210, 230, 205, lambda t: 58 * math.exp(-3.6 * t)),                    # 進歌衝高
+        seg(230, 335, 205, lambda t: -6 + 12 * math.sin(2 * math.pi * 1.5 * t)),
+        seg(340, 465, 160, lambda t: 6 - 74 * t),                                 # 長音下滑
+        seg(470, 556, 205, lambda t: -6 + 5 * math.sin(2 * math.pi * 1.2 * t)),
+        seg(556, 618, 205, lambda t: -6 + 58 * max(0.0, (t - 0.45) / 0.55) ** 1.6),  # 結尾上飄
+    ]
+    b.append(path(" ".join(orig), cls="blue", sw=1.9, dash="6 4", opacity=0.9))
+
+    fixed = [
+        seg(74, 205, 250, lambda t: 26 * math.sin(2 * math.pi * 1.6 * t)),
+        seg(210, 335, 205, lambda t: 24 * math.sin(2 * math.pi * 1.5 * t)),
+        seg(340, 465, 160, lambda t: 25 * math.sin(2 * math.pi * 1.4 * t)),
+        seg(470, 618, 205, lambda t: 22 * math.sin(2 * math.pi * 1.3 * t)),
+    ]
+    b.append(path(" ".join(fixed), cls="acc", sw=2.3))
+
+    for x, y, n, s in [(80, 292, 1, "進歌偏低 10–20 音分"), (222, 172, 2, "進歌先衝高再拉回"),
+                       (402, 118, 3, "長音一路下滑"), (534, 168, 4, "結尾往上飄")]:
+        b.append(badge(x, y, n))
+        b.append(ts(x + 16, y + 4, s, size=10.5))
+
+    b.append(ts(26, 344, "修的方式：把整條曲線的中心線搬到目標音，抖音的擺動原樣留著。", size=11.5))
+    b.append(ts(26, 366, "逐點壓平會聽出機械感；中心線對了，耳朵就覺得準。", size=11, color=MUTED))
+    b.append(ts(26, 390, "藍色虛線＝原始演唱　棕色實線＝修正後　灰色虛線＝目標音高", size=10.5, color=MUTED))
+    return w, h, "音高曲線上的四種毛病", "Melodyne 這類工具看到的就是這條線", "\n".join(b), None
+
+
+def fig_retune_speed():
+    w, h = 660, 380
+    b = []
+    b.append(ts(26, 84, "同一句換音，Retune Speed 決定它「跳」過去還是「滑」過去。", size=12))
+
+    def sstep(t):
+        return t * t * (3 - 2 * t)
+
+    panels = [
+        (60, "0–5 ms", "瞬間到位，中間沒有過渡", "階梯感＝T-Pain 效果", RED, "jump"),
+        (250, "20–30 ms", "幾十毫秒內追上目標", "自然風格的常用設定", ACCENT, "fast"),
+        (440, "50 ms 以上", "慢到幾乎跟著原聲", "只修大方向，細節不動", BLUE, "slow"),
+    ]
+    for x, top, mid, bot, col, kind in panels:
+        b.append(rect(x, 100, 165, 132, fill=PANEL, stroke=LINE, rx=6))
+        y_lo, y_hi = 206, 156
+        xa, xb = x + 14, x + 150
+        b.append(path(f"M{xa} {y_lo} L{xb} {y_lo}", cls="thin", dash="4 4"))
+        b.append(path(f"M{xa} {y_hi} L{xb} {y_hi}", cls="thin", dash="4 4"))
+        if kind == "jump":
+            d = f"M{xa} {y_lo} L{x + 62} {y_lo} L{x + 62} {y_hi} L{xb} {y_hi}"
+        else:
+            span = 26 if kind == "fast" else 92
+            pts = []
+            for i in range(41):
+                xx = xa + (xb - xa) * i / 40
+                tt = min(1.0, max(0.0, ((xx - x) - 50) / span))
+                pts.append(f"{xx:.1f} {y_lo - (y_lo - y_hi) * sstep(tt):.1f}")
+            d = "M" + " L".join(pts)
+        b.append(path(d, cls={"jump": "red", "fast": "acc", "slow": "blue"}[kind], sw=2.2))
+        b.append(t(x + 10, 240, top, size=11.5, weight=700, color=col))
+        b.append(ts(x + 10, 258, mid, size=10))
+        b.append(ts(x + 10, 276, bot, size=10, color=MUTED))
+
+    b.append(ts(26, 306, "Retune Speed 是一個時間值，不是強度：數值越小，聲音越快被拉回目標音。", size=11.5))
+    b.append(ts(26, 328, "要人味就把 Speed 放慢，同時留一點 Humanize／Flex-Tune 的空間；", size=11, color=MUTED))
+    b.append(ts(26, 348, "要機械感就把 Speed 歸零，兩個自然化參數一起關掉。", size=11, color=MUTED))
+    return w, h, "Retune Speed 的快慢", "差別只在聲音用幾十毫秒追上目標音", "\n".join(b), None
+
+
+def fig_formant_shift():
+    import math
+    w, h = 660, 440
+    b = []
+    b.append(ts(26, 84, "移調時泛音該跟著移；共振峰跟著移，聲音就變形了。", size=12))
+    lo, hi = 150.0, 4000.0
+    x0, x1 = 210, 620
+
+    def xf(f):
+        return x0 + (math.log2(f) - math.log2(lo)) / (math.log2(hi) - math.log2(lo)) * (x1 - x0)
+
+    rows = [
+        (112, ["原音", "220 Hz（A3）"], [700, 1220, 2600], ACCENT, "acc"),
+        (208, ["移高 5 個半音", "未修正共振峰"], [934, 1629, 3471], BLUE, "blue"),
+        (304, ["移高 5 個半音", "已修正共振峰"], [700, 1220, 2600], GREEN, "green"),
+    ]
+    for ybase, (l1, l2), peaks, col, cls in rows:
+        b.append(ts(28, ybase + 26, l1, size=10, color=col))
+        b.append(ts(28, ybase + 44, l2, size=10, color=MUTED))
+        base = ybase + 70
+        b.append(path(f"M{x0} {base} L{x1} {base}", cls="thin"))
+        pts = []
+        for i in range(161):
+            f = lo * (hi / lo) ** (i / 160)
+            v = sum(math.exp(-((math.log2(f / pf)) ** 2) / (2 * 0.16 ** 2)) for pf in peaks)
+            pts.append(f"{xf(f):.1f} {base - min(v, 1.0) * 48:.1f}")
+        b.append(path("M" + " L".join(pts), cls=cls, sw=1.9))
+        for pf in peaks:
+            b.append(circle(xf(pf), base, 2.6, fill=col))
+
+    for pf, nm in [(700, "F1"), (1220, "F2"), (2600, "F3")]:
+        b.append(path(f"M{xf(pf)} 100 L{xf(pf)} 386", cls="thin", dash="3 5", opacity=0.7))
+        b.append(ts(xf(pf), 96, nm, size=9.5, anchor="middle", color=MUTED))
+
+    for f, lab in [(200, "200"), (500, "500"), (1000, "1k"), (2000, "2k"), (4000, "4k Hz")]:
+        b.append(ts(xf(f), 400, lab, size=9.5, anchor="middle", color=MUTED))
+
+    b.append(ts(26, 424, "5 個半音＝頻率 ×1.335。共振峰沒有一起搬回來，聽起來就是花栗鼠或巨人。", size=11))
+    return w, h, "移調與共振峰", "泛音列與共振峰是兩件事，改一個不一定會改另一個", "\n".join(b), None
 
 
 # ── 第 12 堂：混音三維 ────────────────────────────────────────────────
@@ -992,6 +1125,793 @@ def fig_dither_quantize():
     return w, h, "Dither 在做什麼", "把量化階梯換成聽起來像底噪的隨機抖動", "\n".join(b), None
 
 
+# ── 追加圖（第二批）────────────────────────────────────────────────────
+
+def fig_mic_types():
+    w, h = 660, 380
+    b = []
+    b.append(ts(26, 84, "同一句話，兩種麥克風收到的是不同版本；差別在靈敏度與耐音壓。", size=12))
+    specs = [("動圈 Dynamic", "靈敏度低、耐音壓高、不用供電", ACCENT, 0.45),
+             ("電容 Condenser", "靈敏度高、細節多、要 +48V", BLUE, 0.95)]
+    for i, (name, note, col, reach) in enumerate(specs):
+        x = 60 + i * 290
+        b.append(rect(x, 108, 250, 150, fill=PANEL, stroke=col, rx=8, sw=1.5))
+        b.append(t(x + 14, 132, name, size=12.5, weight=700, color=col))
+        b.append(ts(x + 14, 152, note, size=9.5, color=MUTED))
+        cx, cy = x + 60, 210
+        b.append(circle(cx, cy, 18, fill=INK, opacity=0.8))
+        for k in range(4):
+            b.append(path(f"M{cx + 20} {cy - 12 + k * 8} q{40 * reach:.0f} {-6 + k * 4} {80 * reach:.0f} 0",
+                          cls="thin", dash="3 3"))
+        b.append(ts(x + 96, 238, "收音範圍", size=9))
+        b.append(ts(x + 96, 252, f"約 {int(reach * 100)}%", size=10, color=col))
+    b.append(box(60, 280, 250, 56, "房間吵、要錄鼓與吉他音箱", "先買動圈", tint=ACCENT_SOFT))
+    b.append(box(340, 280, 260, 56, "房間安靜、要錄細膩人聲", "再買電容", tint=BLUE_SOFT))
+    b.append(ts(26, h - 18, "電容麥克風錄到的是「房間＋人聲」；房間不好，它會誠實地告訴你。", size=11))
+    return w, h, "動圈與電容麥克風", "靈敏度決定它聽見多少房間", chr(10).join(b), None
+
+
+def fig_headphone_types():
+    w, h = 660, 360
+    b = []
+    b.append(ts(26, 84, "封閉式擋住漏音、開放式聽得自然；錄音與混音要的是不同的東西。", size=12))
+    for i, (name, note, col, open_) in enumerate([
+            ("封閉式 Closed-back", "耳罩密封，聲音不會漏出去", ACCENT, False),
+            ("開放式 Open-back", "耳罩有孔，聲音像喇叭自然", GREEN, True)]):
+        x = 60 + i * 300
+        b.append(rect(x, 110, 260, 120, fill=PANEL, stroke=col, rx=8, sw=1.5))
+        b.append(t(x + 14, 134, name, size=12, weight=700, color=col))
+        b.append(ts(x + 14, 154, note, size=9.5, color=MUTED))
+        cx, cy = x + 60, 196
+        b.append(path(f"M{cx - 25} {cy} a25 25 0 1 1 50 0", cls="ink"))
+        b.append(rect(cx - 32, cy - 4, 16, 30, fill=col, rx=4, opacity=0.35))
+        b.append(rect(cx + 16, cy - 4, 16, 30, fill=col, rx=4, opacity=0.35))
+        if open_:
+            for k in range(3):
+                b.append(circle(cx - 24 + k * 4, cy + 12, 2, fill=BG))
+        b.append(ts(x + 120, 196, "漏音", size=9.5))
+        b.append(ts(x + 120, 214, "低" if not open_ else "高", size=11, color=col))
+    b.append(box(60, 252, 250, 56, "錄音時戴封閉式", "伴奏不會被麥克風收進去", tint=ACCENT_SOFT))
+    b.append(box(340, 252, 260, 56, "混音時用開放式或喇叭", "長時間聽不壓迫，空間感正確", tint=GREEN_SOFT))
+    b.append(ts(26, h - 18, "藍牙耳機不能用：延遲與音染都會讓你對不準、判斷錯。", size=11))
+    return w, h, "封閉式與開放式耳機", "一個用來錄，一個用來聽", chr(10).join(b), None
+
+
+def fig_first_reflection():
+    w, h = 660, 380
+    b = []
+    b.append(ts(26, 84, "鏡子法：坐在位置上，哪裡能從鏡中看到喇叭，那裡就是第一反射點。", size=12))
+    b.append(rect(80, 122, 500, 168, fill=PANEL, stroke=LINE, rx=4))
+    b.append(rect(80, 122, 500, 10, fill=INK, opacity=0.25))
+    b.append(ts(330, 116, "側牆與背牆", size=10, anchor="middle", color=MUTED))
+    b.append(circle(330, 250, 8, fill=ACCENT))
+    b.append(ts(330, 274, "耳朵", size=10, anchor="middle"))
+    b.append(circle(180, 150, 7, fill=BLUE))
+    b.append(circle(480, 150, 7, fill=BLUE))
+    b.append(ts(180, 136, "喇叭 L", size=9.5, anchor="middle", color=BLUE))
+    b.append(ts(480, 136, "喇叭 R", size=9.5, anchor="middle", color=BLUE))
+    for sx, rx_, tx in ((180, 100, 275), (480, 560, 385)):
+        b.append(path(f"M{sx} 158 L{rx_} 172", cls="thin"))
+        b.append(path(f"M{rx_} 172 L{tx} 244", cls="thin"))
+        b.append(circle(rx_, 172, 5, fill=RED))
+    b.append(ts(120, 196, "反射點", size=10, color=RED))
+    b.append(ts(544, 196, "反射點", size=10, color=RED, anchor="end"))
+    b.append(ts(26, 320, "反射點上放吸音板，比把整面牆貼滿有效得多。", size=11.5))
+    b.append(ts(26, h - 18, "背牆也一樣：喇叭後方與耳朵後方都會有反射，先處理最近的兩個。", size=11))
+    return w, h, "找出第一反射點", "鏡子看得到喇叭的位置，就是吸音該放的位置", chr(10).join(b), None
+
+
+def fig_absorber_diffuser():
+    w, h = 660, 370
+    b = []
+    b.append(ts(26, 84, "吸音把能量吃掉，擴散把能量打散；兩種都要，不是越多越好。", size=12))
+    for i, (name, note, col, kind) in enumerate([
+            ("吸音 Absorber", "厚布料、泡棉、低頻陷阱", ACCENT, "absorb"),
+            ("擴散 Diffuser", "格柵、書櫃、不規則表面", GREEN, "diffuse")]):
+        x = 60 + i * 300
+        b.append(rect(x, 110, 260, 160, fill=PANEL, stroke=col, rx=8, sw=1.4))
+        b.append(t(x + 14, 134, name, size=12, weight=700, color=col))
+        b.append(ts(x + 14, 154, note, size=9.5, color=MUTED))
+        bx = x + 130
+        b.append(rect(bx - 6, 168, 12, 84, fill=col, opacity=0.25, rx=2))
+        for k in range(3):
+            y = 186 + k * 24
+            if kind == "absorb":
+                b.append(arrow(bx - 60, y, bx - 10, y, "muted", 5))
+                b.append(path(f"M{bx - 6} {y} l10 -4", cls="thin"))
+            else:
+                b.append(arrow(bx - 60, y, bx - 10, y, "muted", 5))
+                for dy in (-14, 0, 14):
+                    b.append(arrow(bx + 8, y, bx + 62, y + dy, "green", 4))
+    b.append(box(60, 290, 250, 52, "小房間先吸音", "處理 100–300 Hz 與早期反射", tint=ACCENT_SOFT))
+    b.append(box(340, 290, 260, 52, "空間夠大才擴散", "否則只是把問題彈回來", tint=GREEN_SOFT))
+    return w, h, "吸音與擴散", "一個減少反射，一個讓反射變得均勻", chr(10).join(b), None
+
+
+def fig_nyquist_alias():
+    w, h = 660, 380
+    b = []
+    b.append(ts(26, 84, "取樣率不夠時，高頻不會消失，而是「折返」成一個不存在的低頻。", size=12))
+    import math
+    x0, y0, pw = 80, 150, 480
+    b.append(path(f"M{x0} {y0} L{x0 + pw} {y0}", cls="thin"))
+    b.append(ts(x0, y0 + 24, "實際頻率 →", size=10))
+    for f, name, col in [(0.35, "真實訊號", BLUE), (0.85, "超過 Nyquist", RED)]:
+        pts = []
+        for i in range(81):
+            px = x0 + pw * i / 80
+            py = y0 - 26 * math.sin(2 * math.pi * f * i / 8)
+            pts.append(f"{px:.1f} {py:.1f}")
+        b.append(path("M" + " L".join(pts), cls="blue" if col == BLUE else "red", sw=1.8))
+        b.append(ts(x0 + pw * f, y0 - 40, name, size=10, anchor="middle", color=col))
+    b.append(path(f"M{x0 + pw * 0.5} {y0} L{x0 + pw * 0.5} {y0 + 60}", cls="thin", dash="4 4"))
+    b.append(ts(x0 + pw * 0.5, y0 + 76, "Nyquist（取樣率的一半）", size=10, anchor="middle", color=MUTED))
+    b.append(arrow(x0 + pw * 0.85, y0 + 100, x0 + pw * 0.15, y0 + 100, "red", 6))
+    b.append(ts(x0 + pw * 0.5, y0 + 124, "折返後的假頻率：聽起來像另一個音", size=10.5, anchor="middle", color=RED))
+    b.append(ts(26, 330, "這就是為什麼抗混疊濾波器必須存在，也是 44.1 kHz 選在 20 kHz 兩倍以上的原因。", size=11))
+    return w, h, "Nyquist 與折返失真", "取樣率不足時，高頻會變成不存在的低頻", chr(10).join(b), None
+
+
+def fig_bit_depth_range():
+    w, h = 660, 360
+    b = []
+    b.append(ts(26, 84, "位元深度決定的是「最安靜能到多小」，不是「最大聲能多大」。", size=12))
+    rows = [("16-bit", "96 dB", "約 6.5 萬階", ACCENT, 0.55),
+            ("24-bit", "144 dB", "約 1670 萬階", BLUE, 0.8),
+            ("32-bit float", "≈ 1528 dB（數學上）", "內部處理用", GREEN, 1.0)]
+    for i, (name, dr, steps, col, frac) in enumerate(rows):
+        y = 120 + i * 62
+        b.append(t(60, y + 6, name, size=12, weight=700, color=col))
+        b.append(rect(180, y - 10, 380, 22, fill=PANEL, stroke=LINE, rx=4))
+        b.append(rect(180, y - 10, 380 * frac, 22, fill=col, rx=4, opacity=0.30))
+        b.append(ts(570, y + 6, dr, size=9.5, color=col, anchor="end"))
+        b.append(ts(180, y + 26, steps, size=9, color=MUTED))
+    b.append(rect(180, 300, 380, 18, fill=RED_SOFT, rx=4, opacity=0.7))
+    b.append(ts(370, 313, "任何一段聽得到的底噪，都會佔掉最底下那幾階", size=9.5, anchor="middle", color=RED))
+    b.append(ts(26, h - 18, "錄音用 24-bit：不是為了更大聲，是為了留著後面還能修。", size=11))
+    return w, h, "位元深度與動態範圍", "位元數越多，最低的那一階越小", chr(10).join(b), None
+
+
+def fig_plosive():
+    w, h = 660, 370
+    b = []
+    b.append(ts(26, 84, "「P」「B」噴出的那股氣流撞上振膜，會在低頻留下一個脈衝。", size=12))
+    import math
+    x0, y0 = 90, 210
+    b.append(path(f"M{x0} {y0} L{x0 + 420} {y0}", cls="thin"))
+    pts = []
+    for i in range(201):
+        t = i / 200
+        v = math.sin(2 * math.pi * 7 * t) * 0.28
+        if 0.42 < t < 0.5:
+            v += 0.62 * math.exp(-((t - 0.46) ** 2) / 0.0004)
+        pts.append(f"{x0 + 420 * t:.1f} {y0 - 90 * v:.1f}")
+    b.append(path("M" + " L".join(pts), cls="acc", sw=1.6))
+    b.append(rect(x0 + 420 * 0.42, y0 - 96, 34, 110, fill=RED, opacity=0.13, rx=3))
+    b.append(ts(x0 + 420 * 0.46, y0 + 30, "噴麥", size=10, anchor="middle", color=RED))
+    b.append(box(60, 268, 250, 54, "防噴罩", "把氣流打散，高頻幾乎不變", tint=GREEN_SOFT))
+    b.append(box(340, 268, 260, 54, "麥克風稍微偏 10–15 度", "讓氣流擦過而不是正面撞上", tint=BLUE_SOFT))
+    b.append(ts(26, h - 18, "防噴罩擋的是氣流，不是聲音；距離太遠反而失去效果。", size=11))
+    return w, h, "噴麥是氣流問題", "波形上是一個低頻脈衝，不是「太大聲」", chr(10).join(b), None
+
+
+def fig_off_axis():
+    w, h = 660, 360
+    b = []
+    b.append(ts(26, 84, "正對嘴巴收得最亮、最多唇齒聲；偏一點角度，這兩樣都會少。", size=12))
+    cx, cy = 200, 190
+    b.append(circle(cx, cy, 26, fill=INK, opacity=0.85))
+    b.append(ts(cx, cy + 48, "麥克風", size=10, anchor="middle"))
+    import math
+    for ang, name, col, cls in [(0, "軸上 0°", ACCENT, "acc"), (15, "偏 15°", GREEN, "green"),
+                                (40, "偏 40°", BLUE, "blue")]:
+        dx, dy = math.cos(math.radians(ang)), math.sin(math.radians(ang))
+        b.append(path(f"M{cx + 28 * dx:.0f} {cy + 28 * dy:.0f} L{cx + 150 * dx:.0f} {cy + 150 * dy:.0f}",
+                      cls=cls, sw=1.6))
+        b.append(ts(cx + 160 * dx + 6, cy + 160 * dy, name, size=10, color=col))
+    b.append(box(400, 120, 200, 54, "軸上", "唇齒、鼻音最明顯", tint=ACCENT_SOFT))
+    b.append(box(400, 184, 200, 54, "偏 15–20°", "噴麥與齒音都減少", tint=GREEN_SOFT))
+    b.append(box(400, 248, 200, 54, "偏 40° 以上", "聲音開始發悶", tint=BLUE_SOFT))
+    b.append(ts(26, h - 18, "偏角是取捨：少一點噴麥，就少一點高頻細節。先錄一版聽聽看。", size=11))
+    return w, h, "軸上與軸外", "角度換掉的是唇齒與氣流", chr(10).join(b), None
+
+
+def fig_drum_kit_map():
+    w, h = 660, 400
+    b = []
+    b.append(ts(26, 84, "鼓組收音的麥克風位置：先顧好 kick、snare 與 overheads，其餘再補。", size=12))
+    b.append(rect(120, 104, 420, 210, fill=PANEL, stroke=LINE, rx=6))
+    positions = [("Kick", 250, 250, "in / out", ACCENT),
+                 ("Snare", 320, 200, "top + bottom", GREEN),
+                 ("Hi-Hat", 400, 180, "邊緣上方", BLUE),
+                 ("Tom 1", 300, 150, "", INK2),
+                 ("Tom 2", 370, 150, "", INK2),
+                 ("Floor Tom", 430, 240, "", INK2)]
+    for name, x, y, note, col in positions:
+        b.append(circle(x, y, 16, fill=col, opacity=0.25, stroke=col))
+        b.append(ts(x, y + 30, name, size=9, anchor="middle"))
+        if note:
+            b.append(ts(x, y + 42, note, size=8, anchor="middle", color=MUTED))
+    b.append(path("M180 130 L480 130", cls="acc", sw=1.4, dash="4 4"))
+    b.append(ts(180, 122, "Overheads（XY 或 AB）", size=9.5, color=ACCENT))
+    b.append(circle(150, 180, 7, fill=BLUE))
+    b.append(ts(150, 164, "Room", size=9, anchor="middle", color=BLUE))
+    b.append(ts(26, 344, "每一支額外的麥克風都會帶來相位問題；先用四支能聽，再加。", size=11))
+    b.append(ts(26, h - 18, "Overheads 決定鼓組的整體聲音，close mic 只是補細節。", size=11, color=MUTED))
+    return w, h, "鼓組的麥克風地圖", "先有輪廓，再補細節", chr(10).join(b), None
+
+
+def fig_three_to_one():
+    w, h = 660, 360
+    b = []
+    b.append(ts(26, 84, "第二支麥克風的距離，至少是第一支到音源的三倍。", size=12))
+    src = (110, 220)
+    b.append(circle(*src, 12, fill=ACCENT, opacity=0.6))
+    b.append(ts(src[0], src[1] + 34, "音源", size=10, anchor="middle"))
+    m1 = (200, 220)
+    m2 = (420, 220)
+    b.append(circle(*m1, 10, fill=INK))
+    b.append(circle(*m2, 10, fill=INK))
+    b.append(ts(m1[0], m1[1] + 30, "Mic 1（1 倍）", size=9.5, anchor="middle"))
+    b.append(ts(m2[0], m2[1] + 30, "Mic 2（≥3 倍）", size=9.5, anchor="middle"))
+    b.append(path(f"M{src[0] + 14} {src[1]} L{m1[0] - 12} {m1[1]}", cls="thin"))
+    b.append(path(f"M{src[0] + 14} {src[1]} L{m2[0] - 12} {m2[1]}", cls="thin"))
+    b.append(ts(155, 208, "d", size=10, color=MUTED))
+    b.append(ts(265, 208, "3d 以上", size=10, color=RED))
+    b.append(box(60, 268, 250, 52, "為什麼是三倍", "距離差越大，梳狀濾波的凹陷越密", tint=BLUE_SOFT))
+    b.append(box(340, 268, 260, 52, "不能只靠耳朵", "相位問題在單聲道監聽下才明顯", tint=ACCENT_SOFT))
+    return w, h, "3:1 規則", "兩支麥克風的距離差決定相位問題的密度", chr(10).join(b), None
+
+
+def fig_vu_vs_peak():
+    w, h = 660, 360
+    b = []
+    b.append(ts(26, 84, "同一個訊號，VU 表看的是平均值，峰值表看的是那一瞬間。", size=12))
+    import math
+    x0, y0 = 80, 210
+    b.append(path(f"M{x0} {y0} L{x0 + 420} {y0}", cls="thin"))
+    pts = []
+    for i in range(201):
+        t = i / 200
+        v = math.sin(2 * math.pi * 9 * t) * 0.35 * math.sin(math.pi * t)
+        pts.append(f"{x0 + 420 * t:.1f} {y0 - 100 * v:.1f}")
+    b.append(path("M" + " L".join(pts), cls="acc", sw=1.5))
+    env = []
+    for i in range(201):
+        t = i / 200
+        env.append(f"{x0 + 420 * t:.1f} {y0 - 100 * 0.35 * math.sin(math.pi * t):.1f}")
+    b.append(path("M" + " L".join(env), cls="blue", sw=1.4, dash="5 4"))
+    b.append(ts(x0 + 6, y0 - 92, "VU ≈ 這條包絡線", size=9.5, color=BLUE))
+    b.append(ts(x0 + 300, y0 - 116, "peak", size=9.5, color=ACCENT))
+    b.append(box(60, 258, 250, 54, "VU：接近人耳的感受", "適合看整體平衡", tint=BLUE_SOFT))
+    b.append(box(340, 258, 260, 54, "Peak／dBFS：看得到削波風險", "適合看 headroom", tint=ACCENT_SOFT))
+    b.append(ts(26, h - 18, "兩個都要看：VU 決定好不好聽，peak 決定會不會爆。", size=11))
+    return w, h, "VU 與峰值表", "一個看平均，一個看瞬間", chr(10).join(b), None
+
+
+def fig_crest_factor():
+    w, h = 660, 350
+    b = []
+    b.append(ts(26, 84, "Crest factor＝峰值減平均；數字越小，代表動態被壓得越扁。", size=12))
+    cases = [("人聲（未壓縮）", "約 12–18 dB", 0.18, ACCENT),
+             ("混音總線", "約 8–12 dB", 0.55, BLUE),
+             ("已母帶的流行歌", "約 6–9 dB", 0.85, RED)]
+    for i, (name, cf, frac, col) in enumerate(cases):
+        y = 120 + i * 62
+        b.append(t(60, y + 6, name, size=11))
+        b.append(rect(210, y - 12, 300, 24, fill=PANEL, stroke=LINE, rx=4))
+        b.append(rect(210, y - 12, 300 * frac, 24, fill=col, rx=4, opacity=0.30))
+        b.append(ts(214 + 300 * frac, y + 24, cf, size=9.5, color=col))
+    b.append(ts(26, 320, "壓縮做得越多，crest factor 越小——聽起來越「貼」，也越沒有呼吸。", size=11))
+    b.append(ts(26, h - 18, "混音階段留 10 dB 左右，母帶才有東西可以處理。", size=11, color=MUTED))
+    return w, h, "動態餘裕（Crest Factor）", "峰值與平均的差距", chr(10).join(b), None
+
+
+def fig_punch_in():
+    w, h = 660, 340
+    b = []
+    b.append(ts(26, 84, "Punch In/Out 就是在時間軸上開一個窗口，只重錄那一段。", size=12))
+    x0, y0, pw = 70, 170, 520
+    for label, y in (("原始 Take", 140), ("Punch 錄音", 210)):
+        b.append(ts(x0 - 8, y + 4, label, size=9.5, anchor="end", color=MUTED))
+        b.append(rect(x0, y - 22, pw, 44, fill=PANEL, stroke=LINE, rx=4))
+    b.append(rect(x0 + pw * 0.35, 118, pw * 0.3, 44, fill=RED, opacity=0.18))
+    b.append(rect(x0 + pw * 0.35, 188, pw * 0.3, 44, fill=GREEN, opacity=0.25))
+    for f, name in ((0.35, "In"), (0.65, "Out")):
+        x = x0 + pw * f
+        b.append(path(f"M{x} 108 L{x} 244", cls="red", sw=1.4, dash="4 4"))
+        b.append(ts(x, 102, name, size=9.5, anchor="middle", color=RED))
+    b.append(ts(x0 + pw * 0.5, 258, "只這一段被新錄音取代，前後保持原樣", size=10, anchor="middle"))
+    b.append(ts(26, 300, "錄之前先留兩小節前後緩衝，剪接點比較好處理。", size=11))
+    b.append(ts(26, h - 18, "Punch 進去的瞬間要對準拍點，否則會聽到一個接縫。", size=11, color=MUTED))
+    return w, h, "Punch In／Out", "時間軸上開一個窗口重錄", chr(10).join(b), None
+
+
+def fig_noise_floor():
+    w, h = 660, 360
+    b = []
+    b.append(ts(26, 84, "底噪不是「有雜音」，而是一條一直存在的低電平頻譜。", size=12))
+    import math
+    x0, y0, pw, ph = 80, 100, 490, 160
+    b.append(rect(x0, y0, pw, ph, fill=PANEL, stroke=LINE, rx=4))
+    pts = []
+    for i in range(121):
+        f = i / 120
+        v = 0.22 + 0.10 * math.exp(-((f - 0.08) ** 2) / 0.004) + 0.045 * (0.5 - ((i * 37) % 100) / 200)
+        pts.append(f"{x0 + pw * f:.1f} {y0 + ph - ph * v:.1f}")
+    b.append(path("M" + " L".join(pts), cls="thin", sw=1.4))
+    b.append(ts(x0 + 8, y0 + 26, "60 Hz 嗡嗡聲", size=9.5, color=RED))
+    b.append(circle(x0 + pw * 0.08, y0 + ph - ph * 0.32, 4, fill=RED))
+    b.append(path(f"M{x0 + pw * 0.2} {y0} L{x0 + pw * 0.2} {y0 + ph}", cls="thin", dash="4 4"))
+    b.append(ts(x0 + pw * 0.21, y0 + 18, "高通起點", size=9.5, color=GREEN))
+    b.append(box(60, 282, 250, 50, "先找來源", "冷氣、變壓器、USB 供電", tint=RED_SOFT))
+    b.append(box(340, 282, 260, 50, "再考慮處理", "高通＋降噪，但別把細節一起吃掉", tint=GREEN_SOFT))
+    b.append(ts(26, h - 18, "底噪是錄進來就固定的；後面放大，它也一起變大。", size=11))
+    return w, h, "底噪長什麼樣子", "一條持續存在、低於訊號的頻譜", chr(10).join(b), None
+
+
+def fig_comp_lanes():
+    w, h = 660, 380
+    b = []
+    b.append(ts(26, 84, "Comping 就是從幾條 Take 裡，一段一段挑最好的。", size=12))
+    lanes = [("Take 1", [1, 0, 0, 0]), ("Take 2", [0, 1, 0, 1]), ("Take 3", [0, 0, 1, 0])]
+    x0, y0, pw = 110, 120, 460
+    for i, (name, seg) in enumerate(lanes):
+        y = y0 + i * 54
+        b.append(ts(x0 - 10, y + 16, name, size=9.5, anchor="end", color=MUTED))
+        for k in range(4):
+            xa = x0 + pw * k / 4
+            chosen = seg[k]
+            b.append(rect(xa + 2, y, pw / 4 - 4, 32,
+                          fill=GREEN if chosen else PANEL,
+                          stroke=LINE, rx=3, opacity=0.35 if chosen else 1))
+            if chosen:
+                b.append(ts(xa + pw / 8, y + 22, "✓", size=11, anchor="middle", color=GREEN))
+    y = y0 + 3 * 54
+    b.append(ts(x0 - 10, y + 16, "Comp", size=9.5, anchor="end", color=ACCENT))
+    for k in range(4):
+        xa = x0 + pw * k / 4
+        b.append(rect(xa + 2, y, pw / 4 - 4, 32, fill=ACCENT, rx=3, opacity=0.25))
+    b.append(ts(x0 + pw / 2, y + 22, "選定的段落，交界處做 crossfade", size=9.5, anchor="middle"))
+    b.append(ts(26, 348, "每一段都聽三次：一次聽音準、一次聽節奏、一次只聽情緒。", size=11))
+    b.append(ts(26, h - 18, "交界點放在換氣或子音上，剪接幾乎聽不出來。", size=11, color=MUTED))
+    return w, h, "Take 與 Comp", "一條成品由很多小段落組成", chr(10).join(b), None
+
+
+def fig_warp_modes():
+    w, h = 660, 370
+    b = []
+    b.append(ts(26, 84, "同一段音訊，四種 Warp 模式對「什麼該保留」有不同的答案。", size=12))
+    modes = [("Beats", "保留瞬態，適合鼓與打擊", ACCENT, "acc"),
+             ("Tones", "保留音高與和聲，適合人聲與貝斯", BLUE, "blue"),
+             ("Texture", "保留質感，適合 pad 與環境音", GREEN, "green"),
+             ("Re-Pitch", "像改變轉速，音高會跟著變", INK2, "ink")]
+    for i, (name, note, col, cls) in enumerate(modes):
+        x = 50 + (i % 2) * 300
+        y = 112 + (i // 2) * 118
+        b.append(rect(x, y, 270, 100, fill=PANEL, stroke=col, rx=8, sw=1.4))
+        b.append(t(x + 14, y + 26, name, size=12.5, weight=700, color=col))
+        b.append(ts(x + 14, y + 48, note, size=9.5, color=MUTED))
+        import math
+        pts = []
+        for k in range(41):
+            f = k / 40
+            if name == "Beats":
+                v = (1 if (f * 8) % 1 < 0.08 else 0.2) * (1 if k % 2 else -1)
+            elif name == "Re-Pitch":
+                v = math.sin(2 * math.pi * 4.2 * f) * 0.4
+            else:
+                v = math.sin(2 * math.pi * 3 * f) * 0.4
+            pts.append(f"{x + 16 + 236 * f:.1f} {y + 82 - 20 * v:.1f}")
+        b.append(path("M" + " L".join(pts), cls=cls, sw=1.4))
+    b.append(ts(26, h - 18, "選錯模式，時間伸縮就會出現金屬聲或雙重瞬態。", size=11))
+    return w, h, "四種 Warp 模式", "每一種保留的東西不一樣", chr(10).join(b), None
+
+
+# ── 追加圖（第三批）────────────────────────────────────────────────────
+
+def fig_pan_law():
+    w, h = 660, 350
+    b = []
+    b.append(ts(26, 84, "把聲音推到一邊，另一邊不會自動變大——這就是等功率聲像。", size=12))
+    x0, y0, pw, ph = 90, 250, 400, 120
+    b.append(path(f"M{x0} {y0} L{x0 + pw} {y0}", cls="thin"))
+    b.append(ts(x0 - 8, y0 + 4, "L", size=10, anchor="end"))
+    b.append(ts(x0 + pw + 8, y0 + 4, "R", size=10))
+    b.append(ts(x0 + pw / 2, y0 + 24, "中央", size=9.5, anchor="middle", color=MUTED))
+    import math
+    left, right = [], []
+    for i in range(41):
+        f = i / 40
+        left.append(f"{x0 + pw * f:.1f} {y0 - ph * math.cos(f * math.pi / 2) * 0.9:.1f}")
+        right.append(f"{x0 + pw * f:.1f} {y0 - ph * math.sin(f * math.pi / 2) * 0.9:.1f}")
+    b.append(path("M" + " L".join(left), cls="acc", sw=1.8))
+    b.append(path("M" + " L".join(right), cls="blue", sw=1.8))
+    b.append(ts(x0 + 10, y0 - ph * 0.9 - 6, "左聲道", size=9.5, color=ACCENT))
+    b.append(ts(x0 + pw - 10, y0 - ph * 0.9 - 6, "右聲道", size=9.5, color=BLUE, anchor="end"))
+    b.append(box(60, 276, 250, 52, "置中", "兩邊等量，中央最實", tint=ACCENT_SOFT))
+    b.append(box(340, 276, 260, 52, "推到底", "只剩單邊，另一邊 -∞", tint=BLUE_SOFT))
+    return w, h, "等功率聲像", "推到一邊時，另一邊會補上来", chr(10).join(b), None
+
+
+def fig_frequency_map():
+    w, h = 660, 340
+    b = []
+    b.append(ts(26, 84, "同一個頻譜，不同區段負責不同的「感覺」；先知道自己在調哪一段。", size=12))
+    bands = [("Sub", "20–60", "身體感", BLUE, 0.10),
+             ("低頻", "60–250", "厚度", GREEN, 0.18),
+             ("中低", "250–800", "箱音、悶", ACCENT, 0.22),
+             ("中頻", "800–3k", "存在感", INK2, 0.20),
+             ("中高", "3k–6k", "清晰、齒音", RED, 0.15),
+             ("高頻", "6k–20k", "空氣感", BLUE, 0.15)]
+    x = 60
+    for name, rng, feel, col, frac in bands:
+        wid = 540 * frac
+        b.append(rect(x, 120, wid - 2, 44, fill=col, rx=4, opacity=0.25, stroke=col, sw=1.2))
+        b.append(ts(x + wid / 2, 147, name, size=10, anchor="middle"))
+        b.append(ts(x + wid / 2, 182, rng + " Hz", size=8.5, anchor="middle", color=MUTED))
+        b.append(ts(x + wid / 2, 200, feel, size=8.5, anchor="middle", color=MUTED))
+        x += wid
+    b.append(ts(26, 250, "樂器之間搶的通常是 250–800 Hz 與 3–6 kHz 這兩段。", size=11))
+    b.append(ts(26, 276, "低頻留給大鼓與貝斯，中高頻留給人聲與鈸——先決定誰擁有哪一段。", size=11, color=MUTED))
+    return w, h, "頻譜分區", "每一段負責不同的感覺", chr(10).join(b), None
+
+
+def fig_fader_ride():
+    w, h = 660, 350
+    b = []
+    b.append(ts(26, 84, "Fader ride 是在一句話之內微調，不是把整段推大。", size=12))
+    x0, y0, pw = 80, 210, 480
+    b.append(path(f"M{x0} {y0} L{x0 + pw} {y0}", cls="thin"))
+    import math
+    pts = []
+    for i in range(121):
+        f = i / 120
+        v = 0.5 + 0.18 * math.sin(f * 5) - 0.12 * math.exp(-((f - 0.55) ** 2) / 0.004)
+        pts.append(f"{x0 + pw * f:.1f} {y0 - 90 * v:.1f}")
+    b.append(path("M" + " L".join(pts), cls="acc", sw=1.8))
+    b.append(ts(x0 + pw * 0.55, y0 - 100, "某個字被吃掉 → 只推那一下", size=9.5, anchor="middle", color=RED))
+    b.append(box(60, 250, 250, 54, "先修 clip gain", "段落性的問題用它，推桿留給表情", tint=BLUE_SOFT))
+    b.append(box(340, 250, 260, 54, "推桿只做小幅度", "超過 3 dB 就該回頭看錄音", tint=ACCENT_SOFT))
+    return w, h, "Fader ride", "在句子裡面微調，而不是整段推大", chr(10).join(b), None
+
+
+def fig_q_width():
+    w, h = 660, 350
+    b = []
+    b.append(ts(26, 84, "同一個增益，Q 越小影響的範圍越寬；掃頻找問題時先把 Q 拉高。", size=12))
+    import math
+    x0, y0, pw, ph = 90, 250, 460, 130
+    b.append(rect(x0, y0 - ph, pw, ph, fill=PANEL, stroke=LINE, rx=4))
+    b.append(path(f"M{x0} {y0 - ph / 2} L{x0 + pw} {y0 - ph / 2}", cls="thin", dash="3 4"))
+    for q, name, col, cls in ((0.7, "Q 低（寬）", BLUE, "blue"), (3.0, "Q 中", ACCENT, "acc"), (9.0, "Q 高（窄）", RED, "red")):
+        pts = []
+        for i in range(121):
+            f = i / 120
+            v = math.exp(-((f - 0.5) ** 2) * q * 18)
+            pts.append(f"{x0 + pw * f:.1f} {y0 - ph / 2 - 44 * v:.1f}")
+        b.append(path("M" + " L".join(pts), cls=cls, sw=1.7))
+    b.append(ts(x0 + 6, y0 - ph - 8, "0 dB", size=9, color=MUTED))
+    b.append(ts(x0 + pw / 2, y0 + 18, "頻率 →", size=9.5, anchor="middle"))
+    b.append(box(60, 276, 250, 50, "寬 Q：修整體音色", "影響範圍大，聽起來自然", tint=BLUE_SOFT))
+    b.append(box(340, 276, 260, 50, "窄 Q：抓單一頻率", "掃頻時用，找到再放寬", tint=RED_SOFT))
+    return w, h, "Q 值與影響範圍", "窄 Q 像手術刀，寬 Q 像調整體", chr(10).join(b), None
+
+
+def fig_attack_release():
+    w, h = 660, 360
+    b = []
+    b.append(ts(26, 84, "Attack 決定「多快開始壓」，Release 決定「多快放開」。", size=12))
+    import math
+    x0, y0 = 90, 120
+    b.append(rect(x0, y0, 480, 150, fill=PANEL, stroke=LINE, rx=4))
+    base = y0 + 110
+    b.append(path(f"M{x0 + 10} {base} L{x0 + 470} {base}", cls="thin"))
+    xin = x0 + 60
+    b.append(path(f"M{xin} {base} L{xin} {base - 90}", cls="acc", sw=1.6))
+    b.append(path(f"M{xin + 120} {base} L{xin + 120} {base - 30}", cls="acc", sw=1.6))
+    b.append(ts(xin, base + 18, "輸入", size=9, anchor="middle", color=ACCENT))
+    fast = []
+    slow = []
+    for i in range(61):
+        t = i / 60
+        fast.append(f"{xin + 160 + 120 * t:.1f} {base - 86 + 30 * t:.1f}")
+        slow.append(f"{xin + 160 + 120 * t:.1f} {base - 86 + 40 * (1 - math.exp(-t * 3)):.1f}")
+    b.append(path("M" + " L".join(fast), cls="red", sw=1.5))
+    b.append(path("M" + " L".join(slow), cls="green", sw=1.5))
+    b.append(ts(xin + 250, base - 74, "慢 Attack：瞬態先通過", size=9.5, color=GREEN))
+    b.append(ts(xin + 250, base - 56, "快 Attack：瞬態被壓住", size=9.5, color=RED))
+    b.append(ts(xin + 250, base - 36, "（兩條曲線都在同一格裡）", size=8.5, color=MUTED))
+    b.append(ts(26, 300, "鼓要留打擊感就把 Attack 放慢；人聲要平順就快一點。", size=11))
+    b.append(ts(26, h - 18, "Release 太短會「抽」，太長會讓下一句來不及恢復。", size=11, color=MUTED))
+    return w, h, "Attack 與 Release 對波形的影響", "一個管開頭，一個管尾巴", chr(10).join(b), None
+
+
+def fig_mid_side_eq():
+    w, h = 660, 360
+    b = []
+    b.append(ts(26, 84, "Mid 是左右共同的內容（人聲、大鼓），Side 是左右的差異（殘響、寬度）。", size=12))
+    b.append(box(60, 110, 160, 60, "立體聲", "L / R", tint=PANEL))
+    b.append(box(270, 110, 120, 60, "Mid", "L+R", tint=ACCENT_SOFT))
+    b.append(box(270, 200, 120, 60, "Side", "L−R", tint=BLUE_SOFT))
+    b.append(path("M220 140 L266 140", cls="thin"))
+    b.append(path("M220 140 C240 140 246 230 266 230", cls="thin"))
+    b.append(box(440, 110, 160, 60, "EQ 只動 Mid", "人聲更清楚", tint=ACCENT_SOFT))
+    b.append(box(440, 200, 160, 60, "EQ 只動 Side", "殘響變乾淨", tint=BLUE_SOFT))
+    b.append(path("M390 140 L436 140", cls="thin"))
+    b.append(path("M390 230 L436 230", cls="thin"))
+    b.append(ts(26, 300, "把 200 Hz 以下的 Side 切掉，低頻會立刻集中；把 3 kHz 的 Mid 修掉，人聲不會那麼刺。", size=11))
+    b.append(ts(26, h - 18, "M/S 處理後一定要檢查單聲道：Side 完全消失是正常，Mid 不該消失。", size=11, color=MUTED))
+    return w, h, "Mid / Side 處理", "把中央與兩側分開處理", chr(10).join(b), None
+
+
+def fig_parallel_blend():
+    w, h = 660, 350
+    b = []
+    b.append(ts(26, 84, "平行壓縮的關鍵是「乾濕比例」，不是壓得多兇。", size=12))
+    blends = [(0, "全乾：只有原本的動態", 0.0), (35, "輕混：加厚但不失動態", 0.35),
+              (70, "重混：明顯變厚、變近", 0.7), (100, "全濕：等於串聯壓縮", 1.0)]
+    for i, (pct, note, frac) in enumerate(blends):
+        y = 118 + i * 52
+        b.append(t(60, y + 6, f"{pct}% 濕", size=10.5))
+        b.append(rect(140, y - 10, 380, 22, fill=PANEL, stroke=LINE, rx=4))
+        b.append(rect(140, y - 10, 380 * frac, 22, fill=ACCENT, rx=4, opacity=0.30))
+        b.append(ts(146 + 380 * frac, y + 24, note, size=9, color=MUTED))
+    b.append(ts(26, 330, "實務上從 30% 開始加，加到「聽得出厚、但還聽得出原本的動態」為止。", size=11))
+    return w, h, "平行壓縮的乾濕比", "混多少進去，決定它有多明顯", chr(10).join(b), None
+
+
+def fig_mb_bands():
+    w, h = 660, 360
+    b = []
+    b.append(ts(26, 84, "多頻段壓縮的實務順序：先單獨聽一段，確定問題在哪，再動手。", size=12))
+    bands = [("低頻", "120 Hz 以下", "貝斯與大鼓的起伏", BLUE),
+             ("中低", "120–800 Hz", "箱音、悶", GREEN),
+             ("中高", "800–4k", "人聲前傾", ACCENT),
+             ("高頻", "4k 以上", "齒音、鈸", RED)]
+    for i, (name, rng, note, col) in enumerate(bands):
+        y = 116 + i * 48
+        b.append(rect(60, y, 60, 34, fill=col, rx=4, opacity=0.25, stroke=col, sw=1.2))
+        b.append(ts(90, y + 22, "S", size=10, anchor="middle", color=col))
+        b.append(t(140, y + 16, name, size=11, weight=700))
+        b.append(ts(140, y + 32, rng, size=9, color=MUTED))
+        b.append(ts(300, y + 22, note, size=10))
+        b.append(ts(500, y + 22, "衰減 2–4 dB" if i else "衰減 1–2 dB", size=9.5, color=col))
+    b.append(ts(26, 330, "一次只 solo 一段，否則你會以為問題消失了，其實只是被別段蓋住。", size=11))
+    return w, h, "單獨聽某一段", "Solo 是按鈕，不是診斷", chr(10).join(b), None
+
+
+def fig_saturation_curves():
+    w, h = 660, 380
+    b = []
+    b.append(ts(26, 84, "軟削波保留一點圓角，硬削波直接切平——泛音結構完全不同。", size=12))
+    import math
+    x0, y0, scale = 100, 190, 110
+    for k, (name, col, cls) in enumerate([("軟削波 Soft clip", ACCENT, "acc"),
+                                         ("硬削波 Hard clip", RED, "red")]):
+        cx = x0 + k * 280
+        b.append(path(f"M{cx - scale} {y0} L{cx + scale} {y0}", cls="thin"))
+        b.append(path(f"M{cx} {y0 - scale} L{cx} {y0 + scale}", cls="thin"))
+        pts = []
+        for i in range(81):
+            x = -1 + 2 * i / 80
+            y = math.tanh(2.2 * x) if k == 0 else max(-0.7, min(0.7, x))
+            pts.append(f"{cx + x * scale:.1f} {y0 - y * scale:.1f}")
+        b.append(path("M" + " L".join(pts), cls=cls, sw=2))
+        b.append(ts(cx, y0 + scale + 26, name, size=10, anchor="middle", color=col))
+    b.append(box(60, 316, 250, 44, "軟削波：奇次泛音較少", "聽起來厚、溫和", tint=ACCENT_SOFT))
+    b.append(box(340, 316, 260, 44, "硬削波：大量奇次泛音", "聽起來刺、有攻擊性", tint=RED_SOFT))
+    return w, h, "軟削波與硬削波", "圓角與切平，差的是泛音", chr(10).join(b), None
+
+
+def fig_reverb_timeline():
+    w, h = 660, 360
+    b = []
+    b.append(ts(26, 84, "殘響的時間軸：pre-delay 是空白，decay 是尾巴。", size=12))
+    x0, y0, pw = 70, 200, 520
+    b.append(path(f"M{x0} {y0} L{x0 + pw} {y0}", cls="thin"))
+    b.append(rect(x0, y0 - 46, 40, 46, fill=ACCENT, opacity=0.35, rx=3))
+    b.append(ts(x0 + 20, y0 + 20, "直接音", size=9, anchor="middle"))
+    import math
+    start = x0 + 90
+    pts = []
+    for i in range(101):
+        f = i / 100
+        amp = math.exp(-f * 3.2) * 0.9
+        pts.append(f"{start + (pw - 120) * f:.1f} {y0 - 40 * amp * (0.6 + 0.4 * abs(math.sin(f * 40))):.1f}")
+    b.append(path("M" + " L".join(pts), cls="blue", sw=1.2))
+    b.append(path(f"M{x0 + 40} {y0 - 60} L{start} {y0 - 60}", cls="acc", sw=1.4))
+    b.append(ts((x0 + 40 + start) / 2, y0 - 68, "Pre-delay", size=9.5, anchor="middle", color=ACCENT))
+    b.append(path(f"M{start} {y0 - 60} L{start + (pw - 120)} {y0 - 60}", cls="blue", sw=1.4))
+    b.append(ts(start + (pw - 120) / 2, y0 - 68, "Decay", size=9.5, anchor="middle", color=BLUE))
+    b.append(ts(26, 280, "Pre-delay 20–30 ms：聲音清楚但仍有空間；60 ms 以上：明顯聽成另一個空間。", size=11))
+    b.append(ts(26, h - 18, "Early reflections 決定「牆有多近」，decay 決定「房間有多大」。", size=11, color=MUTED))
+    return w, h, "殘響的時間軸", "pre-delay、early reflections、decay", chr(10).join(b), None
+
+
+def fig_delay_sync():
+    w, h = 660, 350
+    b = []
+    b.append(ts(26, 84, "拍點同步的 delay：音符長度決定時間，BPM 一改它就跟著改。", size=12))
+    rows = [("1/4", "一拍", 120), ("1/8", "半拍", 60), ("1/8 dotted", "附點八分", 90), ("1/16", "十六分", 30)]
+    for i, (note, name, frac) in enumerate(rows):
+        y = 116 + i * 50
+        b.append(t(60, y + 6, note, size=11, weight=700))
+        b.append(ts(180, y + 6, name, size=10, color=MUTED))
+        for k in range(5):
+            x = 320 + k * 68 * (frac / 120)
+            b.append(circle(x, y, 5, fill=ACCENT, opacity=0.75 - k * 0.14))
+    b.append(ts(320, 96, "第一下之後的回聲位置", size=9.5, color=MUTED))
+    b.append(ts(26, 300, "120 BPM 時：1/8＝250 ms、1/8 dotted＝375 ms、1/4＝500 ms。", size=11))
+    b.append(ts(26, h - 18, "dotted 的比例最好聽，因為它跟人類的擺動感接近。", size=11, color=MUTED))
+    return w, h, "拍點同步的 Delay", "音符長度換算成毫秒", chr(10).join(b), None
+
+
+def fig_chorus_mod():
+    w, h = 660, 340
+    b = []
+    b.append(ts(26, 84, "Chorus 是把延遲時間緩緩地推來推去，讓兩個聲音永遠差一點點。", size=12))
+    import math
+    x0, y0, pw = 90, 190, 480
+    b.append(path(f"M{x0} {y0} L{x0 + pw} {y0}", cls="thin"))
+    base = []
+    mod = []
+    for i in range(161):
+        f = i / 160
+        base.append(f"{x0 + pw * f:.1f} {y0 - 60 * math.sin(2 * math.pi * 4 * f):.1f}")
+        m = 0.06 * math.sin(2 * math.pi * 1.2 * f)
+        mod.append(f"{x0 + pw * (f + m):.1f} {y0 - 34 * math.sin(2 * math.pi * 4 * f):.1f}")
+    b.append(path("M" + " L".join(base), cls="acc", sw=1.6))
+    b.append(path("M" + " L".join(mod), cls="blue", sw=1.6))
+    b.append(ts(x0 + 6, y0 - 70, "原本的訊號", size=9.5, color=ACCENT))
+    b.append(ts(x0 + 6, y0 - 92, "加上延遲調變後", size=9.5, color=BLUE))
+    b.append(ts(26, 260, "Rate 慢＝寬鬆、像很多人一起唱；Rate 快＝明顯的效果音。", size=11))
+    b.append(ts(26, h - 18, "Depth 決定音高飄多少；太多會走音，太少等於沒效果。", size=11, color=MUTED))
+    return w, h, "Chorus 在做什麼", "把延遲時間緩慢地推來推去", chr(10).join(b), None
+
+
+def fig_vocal_double():
+    w, h = 660, 350
+    b = []
+    b.append(ts(26, 84, "雙軌人聲不是複製貼上：要的是兩次「幾乎一樣但不一樣」的演出。", size=12))
+    b.append(box(60, 108, 160, 56, "主唱", "置中、乾", tint=ACCENT_SOFT))
+    b.append(box(60, 186, 160, 56, "Double", "偏 10–20 ms", tint=BLUE_SOFT))
+    for i, (label, y, col, dx) in enumerate([("L", 136, ACCENT, 0), ("R", 214, BLUE, 4)]):
+        b.append(rect(280 + dx, y - 8, 240, 18, fill=col, rx=3, opacity=0.25))
+        b.append(ts(286 + dx, y + 4, label, size=9, color=col))
+    b.append(ts(560, 140, "主唱：兩邊等量", size=9.5, color=ACCENT))
+    b.append(ts(560, 218, "Double：稍微偏一邊", size=9.5, color=BLUE))
+    b.append(ts(26, 290, "兩軌時間差 10–25 ms，聽起來會變寬；完全相同只會變大聲。", size=11))
+    b.append(ts(26, h - 18, "Double 要重新唱一次；複製貼上加延遲是另一種效果，不是加厚。", size=11, color=MUTED))
+    return w, h, "雙軌人聲", "兩次演出，不是兩份檔案", chr(10).join(b), None
+
+
+def fig_wall_of_sound():
+    w, h = 660, 360
+    b = []
+    b.append(ts(26, 84, "音牆不是把音量推大，是把很多層疊到頻譜上沒有空隙。", size=12))
+    layers = [("主奏吉他", 0.9, ACCENT), ("節奏吉他 1", 0.75, BLUE),
+              ("節奏吉他 2", 0.65, GREEN), ("Pad", 0.5, INK2)]
+    for i, (name, level, col) in enumerate(layers):
+        y = 118 + i * 46
+        b.append(rect(70, y, 420 * level + 60, 32, fill=col, rx=5, opacity=0.20, stroke=col, sw=1.2))
+        b.append(t(84, y + 21, name, size=10.5, weight=700))
+    b.append(ts(26, 300, "每一層在頻譜上佔不同位置：一層留低中頻、一層留中高頻，就不會互相遮蔽。", size=11))
+    b.append(ts(26, h - 18, "所有層都開滿破音與殘響，只會得到一團噪音；留白是音牆的一部分。", size=11, color=MUTED))
+    return w, h, "音牆是疊出來的", "每一層負責一段頻率", chr(10).join(b), None
+
+
+def fig_granular():
+    w, h = 660, 340
+    b = []
+    b.append(ts(26, 84, "顆粒合成把聲音切成幾十毫秒的小片，再以不同的密度與位置重組。", size=12))
+    import math
+    x0, y0, pw = 70, 180, 520
+    b.append(path(f"M{x0} {y0} L{x0 + pw} {y0}", cls="thin"))
+    for i in range(60):
+        f = i / 60
+        x = x0 + pw * f
+        amp = 0.5 + 0.5 * math.sin(f * 17)
+        b.append(rect(x, y0 - 70 * amp, 5, 70 * amp, fill=BLUE, rx=2, opacity=0.35))
+    b.append(ts(x0, y0 + 24, "時間 →", size=9.5))
+    b.append(ts(26, 250, "Grain size 決定「是顆粒還是糊」：10–50 ms 聽得出顆粒，200 ms 以上幾乎是原音。", size=11))
+    b.append(ts(26, 276, "Density 越高越連續，越低越像星塵。", size=11, color=MUTED))
+    return w, h, "顆粒合成", "把聲音切成小片再重組", chr(10).join(b), None
+
+
+def fig_clip_gain_vs_fader():
+    w, h = 660, 350
+    b = []
+    b.append(ts(26, 84, "Clip gain 改的是「檔案本身」，fader 改的是「播放時」。", size=12))
+    b.append(box(60, 110, 250, 70, "Clip gain", "在波形上直接調，訊號進外掛前就變了", tint=BLUE_SOFT))
+    b.append(box(340, 110, 260, 70, "Fader／volume automation", "在外掛之後調，送出去的量才變", tint=ACCENT_SOFT))
+    b.append(path("M60 220 L600 220", cls="thin"))
+    for i, (label, col) in enumerate([("Clip gain", BLUE), ("EQ", INK2), ("壓縮", INK2), ("Fader", ACCENT)]):
+        x = 80 + i * 130
+        b.append(rect(x, 240, 110, 40, fill=PANEL, stroke=col, rx=6))
+        b.append(ts(x + 55, 265, label, size=9.5, anchor="middle", color=col))
+        if i < 3:
+            b.append(arrow(x + 112, 260, x + 128, 260, "muted", 5))
+    b.append(ts(26, 316, "要修「這段錄太大」用 clip gain；要做「這句要更靠近」用 fader。", size=11))
+    return w, h, "Clip gain 與 Fader", "動在哪裡，決定後面聽到什麼", chr(10).join(b), None
+
+
+def fig_stem_vs_master():
+    w, h = 660, 340
+    b = []
+    b.append(ts(26, 84, "Stem 是分組的混音結果，母帶是最後那一份；交出去之前先搞清楚對方要哪一種。", size=12))
+    b.append(box(60, 110, 150, 52, "鼓", "", tint=ACCENT_SOFT))
+    b.append(box(60, 174, 150, 52, "貝斯", "", tint=ACCENT_SOFT))
+    b.append(box(60, 238, 150, 52, "人聲", "", tint=ACCENT_SOFT))
+    b.append(box(250, 110, 150, 52, "吉他／鍵盤", "", tint=ACCENT_SOFT))
+    b.append(box(250, 174, 150, 52, "效果／氛圍", "", tint=ACCENT_SOFT))
+    b.append(arrow(400, 200, 440, 200, "muted", 6))
+    b.append(box(444, 168, 90, 64, "Master", "2 軌", tint=GREEN_SOFT))
+    b.append(ts(26, 320, "Stem 交出去時：不加母帶處理、檔頭對齊、峰值 −6 dBFS。", size=11))
+    return w, h, "Stem 與母帶", "分組輸出與最終輸出的差別", chr(10).join(b), None
+
+
+def fig_limiter_gr():
+    w, h = 660, 350
+    b = []
+    b.append(ts(26, 84, "Limiter 的工作是「只切掉超過 Ceiling 的那一點」，不是把整首壓扁。", size=12))
+    import math
+    x0, y0 = 80, 230
+    b.append(path(f"M{x0} {y0} L{x0 + 460} {y0}", cls="thin"))
+    ceiling = y0 - 120
+    b.append(path(f"M{x0} {ceiling} L{x0 + 460} {ceiling}", cls="red", sw=1.2, dash="5 4"))
+    b.append(ts(x0 + 464, ceiling + 4, "Ceiling", size=9, color=RED))
+    pts = []
+    for i in range(161):
+        f = i / 160
+        v = math.sin(2 * math.pi * 6 * f) * (0.75 + 0.35 * math.sin(f * 3))
+        pts.append(f"{x0 + 460 * f:.1f} {y0 - 110 * v:.1f}")
+    b.append(path("M" + " L".join(pts), cls="thin", sw=1.3))
+    b.append(rect(x0, ceiling, 460, 14, fill=RED, opacity=0.1))
+    b.append(ts(26, 286, "Gain reduction 通常 1–3 dB 聽不出來；超過 6 dB 會開始失去衝擊。", size=11))
+    b.append(ts(26, h - 18, "要看的是 GR 表，不是波形；波形被切平代表 Ceiling 設太低或推太大。", size=11, color=MUTED))
+    return w, h, "Limiter 與 Gain Reduction", "只處理超過 Ceiling 的那一點", chr(10).join(b), None
+
+
+def fig_stereo_width():
+    w, h = 660, 340
+    b = []
+    b.append(ts(26, 84, "寬度不是越大越好：太窄擠在中央，太寬在單聲道下會消失。", size=12))
+    cases = [("單聲道", 0.1, "全部擠在中央", RED), ("正常", 0.55, "有寬度但中央仍清楚", GREEN),
+             ("過寬", 1.0, "單聲道下會塌掉", RED)]
+    for i, (name, frac, note, col) in enumerate(cases):
+        x = 60 + i * 200
+        b.append(rect(x, 120, 170, 90, fill=PANEL, stroke=LINE, rx=6))
+        cx, cy = x + 85, 165
+        for k, ww in enumerate((40, 80, 120)):
+            b.append(path(f"M{cx - ww / 2} {cy - 20 + k * 20} L{cx + ww / 2} {cy - 20 + k * 20}",
+                          cls="thin", opacity=0.5))
+        b.append(rect(cx - 120 * frac / 2, cy - 12, 120 * frac, 24, fill=col, rx=4, opacity=0.22))
+        b.append(ts(x + 85, 228, name, size=10.5, anchor="middle", weight=700))
+        b.append(ts(x + 85, 244, note, size=8.5, anchor="middle", color=MUTED))
+    b.append(ts(26, 300, "檢查方式：按 mono，聽聽看有沒有東西消失，或中央突然變大。", size=11))
+    return w, h, "立體聲寬度", "三種寬度在單聲道下的下場", chr(10).join(b), None
+
+
+def fig_export_formats():
+    w, h = 660, 360
+    b = []
+    b.append(ts(26, 84, "輸出格式決定「誰還能再處理」：WAV 是工作檔，MP3 是成品。", size=12))
+    rows = [("WAV 24-bit", "未壓縮", "母帶、送母帶師", GREEN),
+            ("AIFF 24-bit", "未壓縮", "macOS 生態、交換", GREEN),
+            ("FLAC", "無損壓縮", "存檔、發行無損版", BLUE),
+            ("AAC / M4A", "有損", "Apple 生態串流", ACCENT),
+            ("MP3 320k", "有損", "相容性最好的成品", ACCENT)]
+    for i, (name, kind, use, col) in enumerate(rows):
+        y = 112 + i * 42
+        b.append(rect(60, y, 540, 32, fill=col, rx=4, opacity=0.10))
+        b.append(t(74, y + 22, name, size=11, weight=700))
+        b.append(ts(220, y + 22, kind, size=10, color=MUTED))
+        b.append(ts(380, y + 22, use, size=10))
+    b.append(ts(26, 330, "不管輸出哪一種，母帶檔一定要留一份未壓縮的原始版本。", size=11))
+    return w, h, "輸出格式", "工作檔與成品是兩件事", chr(10).join(b), None
+
+
 FIGURES = {
     "signal-chain": fig_signal_chain,
     "room-modes": fig_room_modes,
@@ -1006,6 +1926,9 @@ FIGURES = {
     "crossfade": fig_crossfade,
     "warp-markers": fig_warp_markers,
     "pitch-cents": fig_pitch_cents,
+    "pitch-curve": fig_pitch_curve,
+    "retune-speed": fig_retune_speed,
+    "formant-shift": fig_formant_shift,
     "mix-3d": fig_mix_3d,
     "fader-pyramid": fig_fader_pyramid,
     "eq-filters": fig_eq_filters,
@@ -1025,6 +1948,42 @@ FIGURES = {
     "loudness-limiter": fig_loudness_limiter,
     "analysis-meter": fig_analysis_meter,
     "dither-quantize": fig_dither_quantize,
+    "mic-types": fig_mic_types,
+    "headphone-types": fig_headphone_types,
+    "first-reflection": fig_first_reflection,
+    "absorber-diffuser": fig_absorber_diffuser,
+    "nyquist-alias": fig_nyquist_alias,
+    "bit-depth-range": fig_bit_depth_range,
+    "plosive": fig_plosive,
+    "off-axis": fig_off_axis,
+    "drum-kit-map": fig_drum_kit_map,
+    "three-to-one": fig_three_to_one,
+    "vu-vs-peak": fig_vu_vs_peak,
+    "crest-factor": fig_crest_factor,
+    "punch-in": fig_punch_in,
+    "noise-floor": fig_noise_floor,
+    "comp-lanes": fig_comp_lanes,
+    "warp-modes": fig_warp_modes,
+    "pan-law": fig_pan_law,
+    "frequency-map": fig_frequency_map,
+    "fader-ride": fig_fader_ride,
+    "q-width": fig_q_width,
+    "attack-release": fig_attack_release,
+    "mid-side-eq": fig_mid_side_eq,
+    "parallel-blend": fig_parallel_blend,
+    "mb-bands": fig_mb_bands,
+    "saturation-curves": fig_saturation_curves,
+    "reverb-timeline": fig_reverb_timeline,
+    "delay-sync": fig_delay_sync,
+    "chorus-mod": fig_chorus_mod,
+    "vocal-double": fig_vocal_double,
+    "wall-of-sound": fig_wall_of_sound,
+    "granular": fig_granular,
+    "clip-gain-vs-fader": fig_clip_gain_vs_fader,
+    "stem-vs-master": fig_stem_vs_master,
+    "limiter-gr": fig_limiter_gr,
+    "stereo-width": fig_stereo_width,
+    "export-formats": fig_export_formats,
 }
 
 

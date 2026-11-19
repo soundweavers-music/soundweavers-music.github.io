@@ -20,6 +20,8 @@
 
 ## 二、Chorus：加倍效果與音色增厚
 
+![Chorus 的延遲調變](/assets/digitalmusic/chorus-mod.svg)
+
 ### Chorus 的原理
 
 Chorus（合聲效果）模擬多個演奏者同時演奏同一個樂器時產生的細微差異。當一群人同時唱同一個音符時，每個人之間存在極小的音高偏差（Pitch Deviation）和時間偏移，這些人耳無法單獨分辨的微小差異疊加在一起，形成一種「比一個人更飽滿」的聲音。

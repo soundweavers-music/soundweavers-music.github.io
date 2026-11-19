@@ -85,48 +85,73 @@ def judge_one(path: Path, record: dict) -> dict:
             })
     if not items:
         return {"file": path.name, "items": [], "confirmed": []}
-    payload = json.dumps(items, ensure_ascii=False, indent=1)
-    prompt = f"章節全文：\n\n{body}\n\n---\n\n審查者的發現（JSON）：\n{payload}"
-    try:
-        resp = client().messages.create(
-            model=MODEL, max_tokens=8000, temperature=0.1,
-            thinking={"type": "enabled", "budget_tokens": 2500},
-            system=JUDGE,
-            messages=[{"role": "user", "content": prompt}],
-        )
-        text = next((b.text for b in resp.content if getattr(b, "type") == "text"), "").strip()
-        if text.startswith("```"):
-            text = text.split("```")[1]
-        data = json.loads(text[text.find("{"): text.rfind("}") + 1])
-        by_id = {i["id"]: i for i in items}
-        for v in data.get("items", []):
-            src = by_id.get(v.get("id"))
-            if src:
-                src["verdict"] = v.get("verdict")
-                src["reason"] = v.get("reason", "")
-                src["judge_fix"] = v.get("fix", "")
-    except Exception as exc:  # noqa: BLE001
-        for it in items:
-            it["verdict"] = "ERROR"
-            it["reason"] = f"裁判失敗：{exc}"
+    # 一次丟二、三十條時，模型常常回出壞掉的 JSON（少逗號、字串裡夾引號）。
+    # 切成小批、每批失敗再試一次，比整章重跑便宜也可靠得多。
+    chunks = [items[i:i + 8] for i in range(0, len(items), 8)]
+
+    def _prompt_for(chunk_payload: str) -> str:
+        nl = chr(10)
+        return nl.join(["章節全文：", "", body, "", "---", "", "審查者的發現（JSON）：", chunk_payload])
+
+    for chunk in chunks:
+        payload = json.dumps(chunk, ensure_ascii=False, indent=1)
+        prompt = _prompt_for(payload)
+        for attempt in range(2):
+            try:
+                resp = client().messages.create(
+                    model=MODEL, max_tokens=6000, temperature=0.1,
+                    thinking={"type": "enabled", "budget_tokens": 1800},
+                    system=JUDGE,
+                    messages=[{"role": "user", "content": prompt}],
+                )
+                text = next((b.text for b in resp.content if getattr(b, "type", "") == "text"), "").strip()
+                if text.startswith("```"):
+                    text = text.split("```")[1]
+                data = json.loads(text[text.find("{"): text.rfind("}") + 1])
+                by_id = {i["id"]: i for i in chunk}
+                for v in data.get("items", []):
+                    src = by_id.get(v.get("id"))
+                    if src:
+                        src["verdict"] = v.get("verdict")
+                        src["reason"] = v.get("reason", "")
+                        src["judge_fix"] = v.get("fix", "")
+                if all(i.get("verdict") for i in chunk):
+                    break
+                missing = [i["id"] for i in chunk if not i.get("verdict")]
+                prompt = (_prompt_for(payload) + chr(10) * 2
+                          + "上一次的回覆不是合法 JSON 或缺了 id。請只輸出合法 JSON，"
+                          + f"每個 id（{', '.join(str(m) for m in missing)}）都要有一筆。")
+            except Exception as exc:  # noqa: BLE001
+                if attempt:
+                    for it in chunk:
+                        if not it.get("verdict"):
+                            it["verdict"] = "ERROR"
+                            it["reason"] = f"裁判失敗：{exc}"
     confirmed = [i for i in items if i.get("verdict") == "CONFIRMED"]
     return {"file": path.name, "items": items, "confirmed": confirmed}
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--file", help="只判某一章，例如 digitalmusic4.md")
+    ap.add_argument("--file", help="只判指定章節，可用逗號分隔，例如 digitalmusic8.md,digitalmusic19.md")
     ap.add_argument("--workers", type=int, default=4)
     args = ap.parse_args()
 
     files = sorted(IN_DIR.glob("digitalmusic*.json"))
     if args.file:
-        files = [f for f in files if f.name == args.file]
+        wanted = {f.strip() for f in args.file.split(",") if f.strip()}
+        files = [f for f in files
+                 if f.name in wanted or f.name.replace(".json", ".md") in wanted]
     results = []
     with ThreadPoolExecutor(max_workers=args.workers) as pool:
         results = list(pool.map(lambda f: judge_one(CONTENT_DIR / f.name.replace(".json", ".md"),
                                                     json.loads(f.read_text(encoding="utf-8"))), files))
 
+    # --file 只重判幾章時，把結果併回原有的 adjudicated.json，不要蓋掉其他章節。
+    if args.file and OUT_FILE.exists():
+        kept = [r for r in json.loads(OUT_FILE.read_text(encoding="utf-8"))
+                if r["file"] not in {r2["file"] for r2 in results}]
+        results = sorted(kept + results, key=lambda r: int("".join(c for c in r["file"] if c.isdigit())))
     OUT_FILE.write_text(json.dumps(results, ensure_ascii=False, indent=1), encoding="utf-8")
     total_conf = 0
     for r in results:

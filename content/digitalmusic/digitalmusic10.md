@@ -17,6 +17,8 @@
 
 ## 二、不同演算法的選擇
 
+![四種 Warp 模式](/assets/digitalmusic/warp-modes.svg)
+
 並非所有音訊都適合用同一種拉伸演算法。DAW（如 Ableton Live、Logic Pro、Pro Tools、Cubase）通常提供多種 **Warp Mode（扭曲模式）** 或 **Elastic Audio 演算法**，針對不同素材類型進行最佳化。
 
 ### 多音色模式（Polyphonic / Complex）
