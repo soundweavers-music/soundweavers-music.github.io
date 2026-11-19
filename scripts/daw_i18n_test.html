@@ -1,0 +1,37 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>DAW i18n 規則測試</title></head>
+<body>
+<script>
+// 驗 i18n.js 的翻譯：字典的每一條鍵、以及 RULES 的每一個樣本。
+// 樣本由 i18n.js 自己提供（dictKeys()／ruleSamples()），所以新增翻譯或規則
+// 就自動有測試，不會出現「手寫清單跟字典分岔」。
+//
+// 由 scripts/daw_i18n_test.py 開 headless Chrome 載入；結果寫進 <pre id="out">。
+localStorage.setItem('zhiyin-daw-lang', 'en');
+
+const box = document.createElement('div');
+box.style.display = 'none';
+document.body.appendChild(box);
+
+import('/daw-studio/js/i18n.js').then(m => {
+  const dictKeys = m.dictKeys();
+  const ruleSamples = m.ruleSamples();
+  const nodes = [];
+  for (const s of dictKeys.concat(ruleSamples)) {
+    const p = document.createElement('p');
+    p.textContent = s;
+    box.appendChild(p);
+    nodes.push([s, p]);
+  }
+  m.translateDom();
+  const out = nodes.map(([src, p]) => [src, p.textContent]);
+  const rules = new Set(ruleSamples);
+  document.body.innerHTML = '<pre id="out">' + JSON.stringify({
+    dict: out.filter(([s]) => !rules.has(s)),
+    rules: out.filter(([s]) => rules.has(s)),
+  }) + '</pre>';
+}).catch(e => {
+  document.body.innerHTML = '<pre id="out">' + JSON.stringify({ error: String(e) }) + '</pre>';
+});
+</script>
+</body></html>

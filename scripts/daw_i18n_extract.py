@@ -9,6 +9,7 @@
 """
 from __future__ import annotations
 
+import html as htmllib
 import io
 import json
 import re
@@ -53,7 +54,7 @@ def main() -> int:
     harvest = BASE / "work" / "harvest-strings.json"
     if harvest.exists():
         for s in json.loads(harvest.read_text(encoding="utf-8")):
-            s = s.strip()
+            s = htmllib.unescape(s).strip()
             if s and CJK.search(s) and len(s) <= 240:
                 found.add(s)
 
