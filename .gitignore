@@ -42,3 +42,6 @@ work/youtube_broken.json
 
 # 完整版音色庫不入版控（授權與大小），只留裁切後的內建版
 assets/daw-bank/GeneralUserGS.sf2
+
+# 課程截圖腳本每次執行都會重寫這個檔，不進版控（避免工作目錄一直是髒的）
+daw-studio/_shot.js
