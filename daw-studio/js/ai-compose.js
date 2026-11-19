@@ -104,6 +104,84 @@ const RHY_LONG = [   // 副歌：長音多一點，比較好「放」
 
 const SCALE = [0, 2, 4, 5, 7, 9, 11];
 
+// ---------------- 使用者自己寫的和弦進行 ----------------
+// 一個記號 = 一小節；用「+」把兩個和弦放進同一小節（各半小節）。分隔可以用空白、逗號、「-」或「|」
+// 三種寫法都可以混用：
+//   數字（首調）：1 5 6m 4、2m7 5 1、b7、4m、3M（大三）——沒寫性質就用調內和弦
+//   級數：I V vi IV、ii7 V7 I、bVII、III
+//   音名：C G Am F、F#m7、Bb、Eb/G（斜線後面的低音先忽略）
+// 小調歌照華語簡譜的習慣以關係大調為準：6m 是主和弦（A 小調 = 6m 4 5 1 → Am F G C）
+const DIAT_Q = ['maj', 'min', 'min', 'maj', 'maj', 'min', 'dim'];
+const LETTER = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 };
+const ROMAN_N = { i: 0, ii: 1, iii: 2, iv: 3, v: 4, vi: 5, vii: 6 };
+const accidental = a => (a === 'b' || a === '♭' ? -1 : a === '#' || a === '♯' ? 1 : 0);
+// 性質字尾 → 和弦性質；base：'min' | 'maj' | null（null = 照調內）；看不懂回傳 undefined
+function quality(x, base) {
+  if (x === '') return base;
+  if (/^(maj7|M7|Δ7?|△7?)$/.test(x)) return 'maj7';
+  if (/^(m7|min7|-7)$/.test(x)) return 'm7';
+  if (x === '7') return base === 'min' ? 'm7' : '7';
+  if (/^(m|min|-)$/.test(x)) return 'min';
+  if (/^(M|maj)$/.test(x)) return 'maj';
+  if (/^(dim|°|o)$/.test(x)) return 'dim';
+  if (x === 'aug' || x === '+5') return 'aug';
+  if (/^sus4?$/.test(x)) return 'sus4';
+  if (x === 'sus2') return 'sus2';
+  if (/^(add9|9|2|add2)$/.test(x)) return base === 'min' ? 'min' : base || 'maj';   // 色彩音先當三和弦
+  return undefined;
+}
+function parseChord(tok, major) {
+  tok = tok.replace(/\/.*$/, '');
+  let m = tok.match(/^([b#♭♯]?)([1-7])(.*)$/);
+  if (m) {
+    const deg = Number(m[2]) - 1, root = (major + SCALE[deg] + accidental(m[1]) + 12) % 12;
+    let q = quality(m[3], null);
+    if (q === undefined) return null;
+    if (q === null) q = m[1] ? 'maj' : DIAT_Q[deg];
+    if (q === '7' && !m[1] && DIAT_Q[deg] === 'min') q = 'm7';   // 2 7 → 2m7（調內）
+    return { root, q };
+  }
+  m = tok.match(/^([b#♭♯]?)(VII|VI|IV|V|III|II|I|vii|vi|iv|v|iii|ii|i)(.*)$/);
+  if (m) {
+    const deg = ROMAN_N[m[2].toLowerCase()], lower = m[2] === m[2].toLowerCase();
+    const root = (major + SCALE[deg] + accidental(m[1]) + 12) % 12;
+    if (lower && /^(°|o|dim)$/.test(m[3])) return { root, q: 'dim' };
+    const q = quality(m[3], lower ? 'min' : 'maj');
+    return q ? { root, q } : null;
+  }
+  m = tok.match(/^([A-G])([b#♭♯]?)(.*)$/);
+  if (m) {
+    const q = quality(m[3], 'maj');
+    return q ? { root: (LETTER[m[1]] + accidental(m[2]) + 12) % 12, q } : null;
+  }
+  return null;
+}
+// 回傳 { bars: [[{root,q}], …], bad: [看不懂的記號] }
+export function parseProgression(text, key, minor) {
+  const major = minor ? (key + 3) % 12 : key;
+  const bars = [], bad = [];
+  const toks = String(text || '').replace(/[，、｜]/g, ',').replace(/＋/g, '+')
+    .split(/[\s,|]+/).flatMap(t => t.split(/(?<=[0-9A-Za-z#♯♭°])-(?=[b#♭♯]?[0-9A-GIViv])/)).map(t => t.trim()).filter(Boolean);
+  for (const t of toks) {
+    const bar = [];
+    for (const x of t.split('+').filter(Boolean).slice(0, 2)) { const c = parseChord(x, major); if (c) bar.push(c); else bad.push(x); }
+    if (bar.length) bars.push(bar);
+  }
+  return { bars, bad };
+}
+
+// 給介面用：每種段落可以選的進行（這種段落常用的放前面，其他段落的也可以拿來用）
+export function progressionChoices(type, minor) {
+  const lib = PROG[minor ? 'minor' : 'major'], seen = new Set(), own = [], other = [];
+  for (const [t, list] of Object.entries(lib)) for (const x of list) {
+    const id = x.n + '@' + x.c.join(' ');
+    if (seen.has(id)) continue;
+    seen.add(id);
+    (t === type ? own : other).push({ id, name: x.n, rns: x.c });
+  }
+  return { own, other };
+}
+
 function expand(tpl, bars) {
   const out = [];
   for (let i = 0; i < bars; i++) out.push(tpl[i % tpl.length]);
@@ -125,36 +203,63 @@ export function compose(o) {
   const pick = (arr, R) => arr[Math.floor(R() * arr.length)];
 
   // 每一種段落挑一組進行（同種段落重複時沿用）
-  const chosen = {};
-  for (const [s] of form.secs) if (!chosen[s]) chosen[s] = pick(lib[s], RP);
-  // 導歌不要跟副歌同一組；主歌跟副歌也盡量不同
-  if (chosen.pre && chosen.chorus && chosen.pre.n === chosen.chorus.n) chosen.pre = lib.pre.find(x => x.n !== chosen.chorus.n) || chosen.pre;
-  if (chosen.verse.n === chosen.chorus?.n) chosen.verse = lib.verse.find(x => x.n !== chosen.chorus.n) || chosen.verse;
+  // o.progs[段落] = { kind: 'lib', id } | { kind: 'custom', text }；沒指定 = 隨機
+  const user = o.progs || {}, chosen = {};
+  const allLib = Object.values(lib).flat();
+  for (const [s] of form.secs) {
+    if (chosen[s]) continue;
+    const u = user[s];
+    if (u && u.kind === 'custom') {
+      const r = parseProgression(u.text, key, minor);
+      if (r.bars.length) { chosen[s] = { n: '自訂', bars: r.bars, custom: true }; continue; }
+    }
+    if (u && u.kind === 'lib') {
+      const x = allLib.find(y => y.n + '@' + y.c.join(' ') === u.id);
+      if (x) { chosen[s] = { ...x, locked: true }; continue; }
+    }
+    chosen[s] = pick(lib[s], RP);
+  }
+  // 隨機挑的：導歌不要跟副歌同一組；主歌跟副歌也盡量不同（使用者指定的不動）
+  const free = x => x && !x.locked && !x.custom;
+  if (free(chosen.pre) && chosen.chorus && chosen.pre.n === chosen.chorus.n) chosen.pre = lib.pre.find(x => x.n !== chosen.chorus.n) || chosen.pre;
+  if (free(chosen.verse) && chosen.verse.n === chosen.chorus?.n) chosen.verse = lib.verse.find(x => x.n !== chosen.chorus.n) || chosen.verse;
 
   // 攤開成每小節的級數
   const sections = [];
   let bar = startBar;
   const lastChorus = form.secs.map(x => x[0]).lastIndexOf('chorus');
-  form.secs.forEach(([s, n], i) => {
-    const rns = expand(chosen[s].c, n);
-    if (s === 'pre' && !['V', 'IV', 'III'].includes(rns[n - 1])) rns[n - 1] = 'V';
-    if (i === lastChorus || i === form.secs.length - 1) {
-      // 收尾：最後兩小節 V → 主和弦
-      if (rns[n - 2] !== 'V' && rns[n - 2] !== 'IV') rns[n - 2] = 'V';
-      rns[n - 1] = tonicRn;
+  form.secs.forEach(([s, n0], i) => {
+    const ch = chosen[s];
+    let barList;
+    if (ch.custom) {
+      // 自己寫的：照寫的走、不自動改結尾；寫得比段落長就把段落拉長（湊成 4 的倍數）
+      barList = expand(ch.bars, Math.max(n0, Math.ceil(ch.bars.length / 4) * 4));
+    } else {
+      const n = n0, rns = expand(ch.c, n);
+      // 結尾自動修正（導歌停在 V、最後副歌 V → 主和弦）只用在隨機挑的；使用者指定的照原樣
+      if (!ch.locked) {
+        if (s === 'pre' && !['V', 'IV', 'III'].includes(rns[n - 1])) rns[n - 1] = 'V';
+        if (i === lastChorus || i === form.secs.length - 1) {
+          if (rns[n - 2] !== 'V' && rns[n - 2] !== 'IV') rns[n - 2] = 'V';
+          rns[n - 1] = tonicRn;
+        }
+      }
+      barList = rns.map(rn => [romanToChord(rn, major)]);
     }
     const round = form.secs.slice(0, i).filter(x => x[0] === s).length;
-    sections.push({ type: s, bar, bars: n, rns, prog: chosen[s].n, round, last: i === lastChorus });
-    bar += n;
+    sections.push({ type: s, bar, bars: barList.length, barChords: barList, prog: ch.n, custom: !!ch.custom, locked: !!ch.locked, round, last: i === lastChorus });
+    bar += barList.length;
   });
   const endBar = bar;
   const chords = [];
-  for (const S of sections) S.rns.forEach((rn, k) => {
-    const c = romanToChord(rn, major);
-    const t = (S.bar + k) * bpb;
-    const last = chords[chords.length - 1];
-    if (last && last.root === c.root && last.q === c.q && last.t + last.d === t) last.d += bpb;
-    else chords.push({ t, d: bpb, root: c.root, q: c.q });
+  for (const S of sections) S.barChords.forEach((list, k) => {
+    const len = list.length > 1 ? bpb / 2 : bpb;
+    list.forEach((c, j) => {
+      const t = (S.bar + k) * bpb + j * len;
+      const last = chords[chords.length - 1];
+      if (last && last.root === c.root && last.q === c.q && Math.abs(last.t + last.d - t) < 1e-6) last.d += len;
+      else chords.push({ t, d: len, root: c.root, q: c.q });
+    });
   });
 
   // ---------------- 旋律 ----------------
@@ -164,7 +269,8 @@ export function compose(o) {
   const RANGE = { verse: [-5, 9], pre: [-3, 11], chorus: [0, 14], bridge: [-2, 12] };
   const inScale = p => SCALE.includes(((p - major) % 12 + 12) % 12);
   const degOf = p => SCALE.indexOf(((p - major) % 12 + 12) % 12);   // 0..6（大調級數）
-  const chordOfBar = b => { const c = chords.find(x => b * bpb >= x.t && b * bpb < x.t + x.d); return c; };
+  const chordAt = beat => chords.find(x => beat >= x.t - 1e-6 && beat < x.t + x.d - 1e-6) || chords[chords.length - 1];
+  const chordOfBar = b => chordAt(b * bpb);
   const isCT = (p, c) => !!(chordPcs(c) & (1 << (((p % 12) + 12) % 12)));
 
   const melody = [];
@@ -203,7 +309,7 @@ export function compose(o) {
       // 第二輪同一段：旋律一樣（真正的歌是換歌詞），最後一輪副歌的結尾照新和弦修正
       const src = memo[S.type];
       for (const n of src.notes) {
-        const relBar = Math.floor(n.t / bpb), c = chordOfBar(S.bar + relBar);
+        const c = chordAt(S.bar * bpb + n.t);
         let p = n.p;
         if (n.strong && !isCT(p, c)) {
           let bestP = p, bd = 99;
@@ -226,32 +332,33 @@ export function compose(o) {
     const busy = S.type === 'chorus' && RM() < 0.55 ? RHY_LONG.concat(RHY_BUSY.slice(0, 3)) : RHY_BUSY;
     const a = pick(busy, RM), b = RM() < 0.5 ? pick(RHY_BUSY, RM) : pick(RHY_END, RM), e = pick(busy, RM);
     const c1 = pick(RHY_END, RM), d1 = pick(RHY_END.filter(x => x[x.length - 1][1] >= 2), RM);
-    const rhythm = S.bars === 4 ? [a, e, a, c1] : [a, b, a, c1, a, b, e, d1];
+    const rhythm = S.bars <= 4 ? [a, e, a, c1] : [a, b, a, c1, a, b, e, d1];
     const local = [];
     const barPitches = [];
     for (let k = 0; k < S.bars; k++) {
-      const c = chordOfBar(S.bar + k);
       const phrasePos = (k % 4 + 0.5) / 4;                   // 句子裡的位置 0..1：拱形
       const span = hi - lo;
       const lift = S.type === 'chorus' && k % 4 === 0 ? 0.1 : 0;
       const target = lo + span * (0.3 + lift) + span * 0.38 * Math.sin(Math.PI * phrasePos) - (k >= 4 && S.bars === 8 ? span * 0.05 : 0);
-      const pat = rhythm[k];
-      // 重複：第 5、6 小節沿用第 1、2 小節的音（和弦不同時，強拍修正到最近的和弦音）
-      const copyFrom = S.bars === 8 && (k === 4 || k === 5) ? barPitches[k - 4] : null;
+      // 段落可能被自訂進行拉長到 12、16 小節：節奏每 8 小節循環，最後一小節用長音收
+      const pat = S.bars > 4 && k === S.bars - 1 ? d1 : rhythm[k % rhythm.length];
+      // 重複：每 8 小節的第 5、6 小節沿用第 1、2 小節的音（和弦不同時，強拍修正到最近的和弦音）
+      const copyFrom = S.bars >= 8 && (k % 8 === 4 || k % 8 === 5) && pat === rhythm[(k - 4) % rhythm.length] ? barPitches[k - 4] : null;
       // 模進：第 3 小節依和弦根音的級數差移動第 1 小節的音
-      const seqFrom = k === 2 && RM() < 0.55 ? barPitches[0] : null;
+      const seqFrom = k % 8 === 2 && RM() < 0.55 ? barPitches[k - 2] : null;
       const ps = [];
       pat.forEach(([t0, d], j) => {
+        const c = chordAt((S.bar + k) * bpb + t0);   // 一小節兩個和弦時，後半拍用第二個
         const strong = t0 === 0 || t0 === 2 || d >= 1;
         const lastOfBar = j === pat.length - 1;
         let endKind = null;
-        if (lastOfBar && (k === 3 || k === S.bars - 1)) endKind = k === S.bars - 1 ? (S.type === 'chorus' || S.last ? 'tonic' : 'stable') : 'half';
+        if (lastOfBar && (k % 4 === 3 || k === S.bars - 1)) endKind = k === S.bars - 1 ? (S.type === 'chorus' || S.last ? 'tonic' : 'stable') : 'half';
         let p = null;
         const src = copyFrom || seqFrom;
         if (src && src[j] != null && !endKind) {
           p = src[j];
           if (seqFrom) {
-            const d2 = degOf(chordOfBar(S.bar + 2).root), d0 = degOf(chordOfBar(S.bar).root), shift = d2 - d0;
+            const d2 = degOf(chordOfBar(S.bar + k).root), d0 = degOf(chordOfBar(S.bar + k - 2).root), shift = d2 - d0;
             const dg = degOf(p);
             if (dg >= 0 && d2 >= 0 && d0 >= 0) { const nd = dg + shift; p = p - SCALE[dg] + SCALE[((nd % 7) + 7) % 7] + 12 * Math.floor(nd / 7); }
             if (p > hi) p -= 12; if (p < lo) p += 12;
