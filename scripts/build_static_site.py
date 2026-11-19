@@ -512,6 +512,7 @@ def site_header(page_path):
           <a href="{resolve_url(page_path, '/mandolin/')}"><strong>曼陀林專區</strong>　{course_chapters('mandolin')} 章知識庫</a>
           <a href="{resolve_url(page_path, '/guitar/')}"><strong>流行吉他彈唱指南</strong>　{course_chapters('guitar')} 章</a>
           <a href="{resolve_url(page_path, '/ukulele/')}"><strong>烏克麗麗流行彈唱與演奏</strong>　{course_chapters('ukulele')} 章</a>
+          <a href="{resolve_url(page_path, '/tools/daw/learn/')}"><strong>線上編曲製作（DAW）</strong>　{len(list((BASE_DIR / 'content' / 'dawcourse').glob('*.md')))} 堂操作課</a>
         </div>
       </div>
       <div class="nav-dropdown">
@@ -2915,6 +2916,7 @@ def build_learn_page():
         ("/mandolin/", "🪕", "曼陀林專區", "22 章中文曼陀林知識庫：琴型歷史、構造製琴、演奏技法、曲風合奏與專輯導聆，附學習建議時數。", f"{course_chapters('mandolin')} 章・建議約 28.5 小時"),
         ("/guitar/", "🎸", "流行吉他彈唱指南", "從挑琴、調音、看懂六線譜，到刷奏、和弦與彈唱協調，寫給零基礎成人的流行吉他彈唱教材。", f"{course_chapters('guitar')} 章・持續增補"),
         ("/ukulele/", "🎵", "烏克麗麗流行彈唱與演奏指南", "四條弦的大小事：選琴、調音、和弦家族、刷奏節奏型到指彈與打板，以華語流行歌為練習材料。", f"{course_chapters('ukulele')} 章・持續增補"),
+        ("/tools/daw/learn/", "🎚️", "線上編曲製作（DAW）課程", "搭配本站的瀏覽器編曲軟體，從錄音、MIDI、混音、修音與和聲到母帶輸出，每一堂都有實際軟體截圖與原理說明。", f"{len(list((BASE_DIR / 'content' / 'dawcourse').glob('*.md')))} 堂操作課"),
     ]
     cards = "\n".join(
         f"""      <a class="hub-card" href="{resolve_url(path, href)}">
@@ -2924,7 +2926,7 @@ def build_learn_page():
         <span class="hub-meta">{meta} →</span>
       </a>""" for href, icon, name, desc, meta in courses)
     body = f"""<main>
-  {banner_hero("Learn", "學習", "人聲、錄音、樂理、曼陀林、吉他與烏克麗麗——挑一條路開始，按自己的節奏前進。")}
+  {banner_hero("Learn", "學習", "人聲、錄音、樂理、曼陀林、吉他、烏克麗麗與線上編曲——挑一條路開始，按自己的節奏前進。")}
   <div class="hub-page">
     <div class="hub-grid">
 {cards}
@@ -2933,7 +2935,7 @@ def build_learn_page():
   </div>
 </main>"""
     write(path, page("學習", body, path,
-          meta_description="世界聲音學習專區：人聲與歌唱、錄音後製、樂理基礎、曼陀林專區、流行吉他彈唱指南、烏克麗麗教學。"))
+          meta_description="世界聲音學習專區：人聲與歌唱、錄音後製、樂理基礎、曼陀林專區、流行吉他彈唱指南、烏克麗麗教學、線上編曲製作（DAW）課程。"))
 
 
 def get_theory_data():

@@ -26,11 +26,9 @@
     </div>
     <div class="group">
       <button class="tbtn ghost" id="btnFile" title="檔案：新專案、開啟、儲存、匯入">檔案 ▾</button>
-      <button class="tbtn ghost" id="btnBanks" title="管理 SoundFont 音色庫">音色庫<span class="bank-badge" id="bankBadge"></span></button>
-      <button class="tbtn ghost hidden" id="btnImport" aria-hidden="true"></button>
-      <button class="tbtn ghost hidden" id="btnImportMidi" aria-hidden="true"></button>
-      <button class="tbtn ghost" id="btnMore" title="更多">⋯</button>
-      <button class="tbtn ghost" id="btnTheme" title="配色主題：專業深色、世界聲音木質深色／淺色">配色</button>
+      <button class="tbtn ghost" id="btnSettings" title="設定：音訊裝置、MIDI、錄音延遲、音色庫、配色">設定 ▾<span class="bank-badge" id="bankBadge"></span></button>
+      <!-- 隱藏的觸發點：其他模組用 .click() 開對應功能（不佔版面） -->
+      <span class="tb-hidden" aria-hidden="true"><button type="button" id="btnImport" tabindex="-1"></button><button type="button" id="btnImportMidi" tabindex="-1"></button><button type="button" id="btnBanks" tabindex="-1"></button></span>
       <a class="tbtn ghost" id="btnLearn" href="learn/" target="_blank" rel="noopener" title="20 堂課程（新分頁開啟）">課程</a>
       <a class="tbtn ghost" id="btnHelp" href="guide/" target="_blank" rel="noopener" title="使用說明（新分頁開啟）">說明</a>
     </div>

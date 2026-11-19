@@ -494,7 +494,7 @@ function chordSection(t) {
 
 // 裝置設定（音效卡、緩衝區、MIDI）
 const esc = s => String(s).replace(/[<>&"]/g, c => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;' }[c]));
-async function openDevices() {
+async function openDevices(focus) {
   const d = $('dlgDevices');
   const inSel = d.querySelector('[name=devIn]');
   const outSel = d.querySelector('[name=devOut]');
@@ -527,6 +527,8 @@ async function openDevices() {
     : '<span class="empty">沒有偵測到 MIDI 鍵盤（仍然可以用電腦鍵盤彈奏：Caps Lock）</span>';
 
   d.showModal();
+  // 從「MIDI 設定」進來：捲到 MIDI 那一段
+  if (focus === 'midi') d.querySelector('.dev-h')?.scrollIntoView({ block: 'start' });
   d.onclose = async () => {
     if (d.returnValue !== 'ok') return;
     localStorage.setItem('daw.latencyHint', latSel.value);
@@ -679,24 +681,20 @@ $('btnArranger').onclick = () => toggleArranger();
       if (s2 || c2) pitchShiftClips(clipIds, s2, c2);
     };
   });
-  // 窄螢幕收起來的按鈕
-  $('btnMore').onclick = e => {
-    const r = e.currentTarget.getBoundingClientRect();
-    showMenu(r.left, r.bottom + 2, [
-      { label: '匯入 MIDI…', action: () => $('btnImportMidi').click() },
-      { label: '音色庫（SoundFont）…', action: () => $('btnBanks').click() },
-      { label: '專輯母帶（批次）…', action: () => toggleAlbum(true) },
-      { label: '自動伴奏電子琴…', action: () => toggleArranger(true) },
-      { label: '裝置設定（音效卡／緩衝區／MIDI）…', action: () => openDevices() },
-      '-',
-      { label: '錄音延遲校正…', action: openLatency },
-      { label: '配色主題…', action: () => $('btnTheme').click() },
-    ]);
-  };
-  // 配色主題：選單列出三種，目前的打勾；切換後重畫靜態的 canvas（其他 canvas 每幀都會重畫）
-  $('btnTheme').onclick = e => {
+  // 設定選單：裝置、MIDI、延遲、音色庫、配色（配色直接列在選單裡，目前的打勾）
+  $('btnSettings').onclick = e => {
     const r = e.currentTarget.getBoundingClientRect(), cur = currentTheme();
-    showMenu(r.left, r.bottom + 2, THEMES.map(t => ({ label: (t.id === cur ? '✓ ' : '　 ') + t.name, action: () => setTheme(t.id) })));
+    const nBanks = ($('bankBadge')?.textContent || '').trim();
+    showMenu(r.left, r.bottom + 2, [
+      { label: '音訊裝置（麥克風輸入、播放輸出、緩衝區）…', action: () => openDevices() },
+      { label: 'MIDI 設定（輸入裝置）…', action: () => openDevices('midi') },
+      { label: '錄音延遲校正…', action: openLatency },
+      '-',
+      { label: `音色庫（SoundFont）…${nBanks ? `　已載入 ${nBanks} 個` : ''}`, action: () => $('btnBanks').click() },
+      '-',
+      { label: '配色', disabled: true },
+      ...THEMES.map(t => ({ label: (t.id === cur ? '✓ ' : '　 ') + t.name, action: () => setTheme(t.id) })),
+    ]);
   };
   window.addEventListener('daw-theme', () => {
     renderArrange();

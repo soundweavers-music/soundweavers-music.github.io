@@ -490,11 +490,11 @@ dialog label.f[hidden] { display: none; }
   .brand .title strong { font-size: 12px; }
 }
 @media (max-width: 1500px) {
-  #btnImportMidi, #btnBanks { display: none; }
   .topbar { gap: 4px; }
 }
-#btnMore { display: none; }
-@media (max-width: 1500px) { #btnMore { display: inline-flex; } }
+.tb-hidden { display: none !important; }
+#btnSettings { position: relative; }
+#btnSettings .bank-badge { margin-left: 4px; }
 .tbtn.vb i { font-style: normal; display: none; font-size: 14px; }
 @media (max-width: 1500px) {
   .tbtn.vb span { display: none; }
