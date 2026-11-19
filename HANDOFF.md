@@ -114,7 +114,7 @@ Chrome 開站顯示「危險網站／可能誘騙你安裝軟體」。查詢 `ht
 ### 2026-11-19（DAW 課程截圖：木質淺色、標註改成量出來的）
 
 - **全部改成「世界聲音・木質淺色」**：31 張截圖重拍（22 張課程圖、9 張封面圖）。
-  `work/daw-shots/capture.py` 在 `theme-boot.js` 之前插一支 `_shot-theme.js`
+  `scripts/daw_shots/capture.py` 在 `theme-boot.js` 之前插一支 `_shot-theme.js`
   把 localStorage 與 `data-theme` 釘成 `wood-light`，主題就不會跟著使用者設定跑。
 - **紅色標註不再寫死座標**：截圖前 harness 會把 `RECT_SELECTORS` 裡每個元素的
   `getBoundingClientRect` POST 回 `raw/<shot>.json`；`figures.py` 改成用
@@ -122,6 +122,12 @@ Chrome 開站顯示「危險網站／可能誘騙你安裝軟體」。查詢 `ht
   介面一改版（多一條軌、換示範專案、面板高度變）標註就不會再跑掉。
 - **第 1 堂五區圖**：#5 原本標在檢閱器的插入效果器上（狀態列根本被裁掉）、
   #2 貼在面板左緣被切掉、還有一個說明裡沒有的 #6；現在五個都落在對應區塊。
+- **截圖工具鏈現在進版控了**：`scripts/daw_shots/capture.py`（跑介面 → 截圖 →
+  回報元素座標）與 `figures.py`（讀座標 → 裁切 → 加紅框／編號）。產物
+  （`raw/`、profile、`_figs.png`）仍然留在 `work/daw-shots/`，那裡是本機檔。
+  重跑：`python scripts/daw_shots/capture.py` 再 `python scripts/daw_shots/figures.py`。
+  以前這兩支放在 `work/` 底下，而 `work/` 是靠 `.git/info/exclude` 排除的
+  （每個人自己的檔、不進版控），所以別人 clone 下來根本沒有工具可以用。
 - **`--window-size` 是視窗不是視窗區**：Chrome 會內縮約 (22, 154)，要拍 1400×840
   的畫面就得給 1422×994，否則量到的座標和截圖差了 154 px（這就是以前標註
   對不上的根本原因）。截圖也比視窗區大，`figures.py` 会先裁左上角。
