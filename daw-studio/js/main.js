@@ -19,6 +19,7 @@ import { initBankUi, sfSection } from './bank-ui.js';
 import { insertsSection, sendSection, closeFxPanel } from './fx-ui.js';
 import { initMasterUi, toggleMaster, masterOpen } from './master-ui.js';
 import { toggleAlbum } from './album-ui.js';
+import { toggleArranger } from './arranger-ui.js';
 import { initAutomationUi, tickAutomation } from './automation-ui.js';
 import { showMenu } from './menu.js';
 import { toggleChordLane, detectAndApply, applyChordsToHarmony, applyChordsToTune, clearChords, chordsOf, chordKeyOf, chordLabel, VIEW_NAMES } from './chord-ui.js';
@@ -615,6 +616,7 @@ async function boot() {
   });
   $('btnMaster').onclick = () => toggleMaster();
   $('btnAlbum').onclick = () => toggleAlbum();
+$('btnArranger').onclick = () => toggleArranger();
   // 和弦軌：顯示切換（狀態列／檢閱器會跟著更新）
   $('btnChords').classList.toggle('on', !!store.project.showChords);
   $('btnChords').onclick = () => { toggleChordLane(); $('btnChords').classList.toggle('on', !!store.project.showChords); renderArrange(); };
@@ -661,6 +663,7 @@ async function boot() {
       { label: '匯入 MIDI…', action: () => $('btnImportMidi').click() },
       { label: '音色庫（SoundFont）…', action: () => $('btnBanks').click() },
       { label: '專輯母帶（批次）…', action: () => toggleAlbum(true) },
+      { label: '自動伴奏電子琴…', action: () => toggleArranger(true) },
       { label: '裝置設定（音效卡／緩衝區／MIDI）…', action: () => openDevices() },
       '-',
       { label: '錄音延遲校正…', action: openLatency },

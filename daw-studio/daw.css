@@ -863,3 +863,90 @@ a.tbtn { text-decoration: none; }
   .topbar .group .tbtn.ghost { padding: 0 5px; }
   .tb-master .tbm-lbl { display: none; }
 }
+
+/* ---------- 自動伴奏電子琴 ---------- */
+.arr { position: fixed; inset: 0; z-index: 190; background: rgba(0,0,0,.5); display: grid; place-items: center; }
+.arr.hidden { display: none; }
+.arr-win { width: min(1240px, 97vw); max-height: 95vh; overflow: auto; display: grid; gap: 10px; padding: 12px 14px 14px; background: linear-gradient(var(--panel-head-a, #24262c), var(--panel, #17181c)); border: 1px solid var(--line2); border-radius: 12px; box-shadow: 0 24px 70px rgba(0,0,0,.6); }
+.arr.max .arr-win { width: 100vw; height: 100vh; max-height: 100vh; border-radius: 0; }
+.arr-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.arr-head > b { font-size: 15px; }
+.arr-sub { color: var(--tx2); font-size: 11.5px; }
+.arr-head .spacer { flex: 1; }
+.arr-en { display: flex; align-items: center; gap: 5px; color: var(--tx1); font-size: 12px; cursor: pointer; }
+.arr-top { display: grid; grid-template-columns: 360px 1fr; gap: 12px; }
+.arr-lcd { background: linear-gradient(#0b1a14, #07120d); border: 2px solid #050a08; border-radius: 8px; padding: 10px 14px; font-family: var(--mono); color: #7cf0b5; box-shadow: inset 0 0 22px rgba(124,240,181,.12), 0 1px 0 rgba(255,255,255,.06); display: grid; gap: 6px; }
+.arr-lcd .l1, .arr-lcd .l3 { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #5fc891; }
+.arr-lcd .l2 { display: flex; align-items: baseline; gap: 14px; }
+.arr-lcd .chord { font-size: 40px; line-height: 1; color: #b9ffd9; text-shadow: 0 0 12px rgba(124,240,181,.5); min-width: 130px; }
+.arr-lcd .sec { font-size: 14px; color: #9ff0c6; }
+.arr-lcd .beat { display: flex; gap: 5px; }
+.arr-lcd .beat i { width: 10px; height: 10px; border-radius: 50%; background: #133325; }
+.arr-lcd .beat i.on { background: #7cf0b5; box-shadow: 0 0 8px #7cf0b5; }
+.arr-lcd .beat i:first-child.on { background: #f5d33d; box-shadow: 0 0 8px #f5d33d; }
+.arr-ctl { display: grid; gap: 8px; align-content: start; }
+.arr-trans { display: flex; gap: 8px; flex-wrap: wrap; }
+.arr-big { height: 44px; min-width: 96px; padding: 0 16px; border-radius: 8px; border: 1px solid #000; font: 700 13px var(--mono); letter-spacing: .06em; cursor: pointer; color: #e9eaee; background: linear-gradient(#3a3d45, #24262b); box-shadow: 0 2px 0 #0b0c0e, inset 0 1px 0 rgba(255,255,255,.08); }
+.arr-big:active { transform: translateY(1px); box-shadow: 0 1px 0 #0b0c0e; }
+.arr-big.start.on { background: linear-gradient(#2fbf6e, #1a8048); color: #fff; box-shadow: 0 0 14px rgba(63,216,138,.5), 0 2px 0 #0b0c0e; }
+.arr-big.sync.on { background: linear-gradient(#f5b83d, #b57f1a); color: #1a1306; animation: arrBlink .8s steps(2) infinite; }
+.arr-big.fill:hover { background: linear-gradient(#4a4f5a, #2b2e35); }
+.arr-big.rec.on { background: linear-gradient(#ff5c5c, #b02a2a); color: #fff; }
+@keyframes arrBlink { 50% { filter: brightness(.6); } }
+.arr-tempo { display: flex; gap: 4px; align-items: center; }
+.arr-tempo .tbtn { height: 28px; }
+.arr-bpm { width: 64px; height: 28px; text-align: center; background: var(--bg0); border: 1px solid var(--line2); border-radius: 5px; color: var(--tx0); font: 600 14px var(--mono); }
+.arr-opt { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; font-size: 12px; color: var(--tx1); }
+.arr-opt label { display: flex; align-items: center; gap: 5px; }
+.arr-opt select { background: var(--bg0); border: 1px solid var(--line2); border-radius: 5px; padding: 3px 5px; color: var(--tx0); max-width: 300px; }
+.arr-opt .chk { cursor: pointer; }
+.arr-styles { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 6px; }
+.arr-styles button { display: grid; gap: 2px; text-align: left; padding: 7px 10px; border-radius: 7px; border: 1px solid var(--line2); background: var(--bg1); color: var(--tx1); cursor: pointer; }
+.arr-styles button b { font-size: 12.5px; color: var(--tx0); }
+.arr-styles button span { font-size: 10.5px; color: var(--tx2); font-family: var(--mono); }
+.arr-styles button.on { border-color: #f5b83d; background: rgba(245,184,61,.12); box-shadow: inset 0 0 0 1px #f5b83d; }
+.arr-secs { display: grid; grid-template-columns: repeat(9, 1fr); gap: 6px; }
+.arr-secs button { position: relative; display: grid; justify-items: center; gap: 3px; padding: 10px 4px 7px; border-radius: 8px; border: 1px solid #000; background: linear-gradient(#34373e, #22242a); color: #e9eaee; cursor: pointer; box-shadow: 0 2px 0 #0b0c0e, inset 0 1px 0 rgba(255,255,255,.06); }
+.arr-secs button i { width: 26px; height: 5px; border-radius: 3px; background: #3a1d1d; }
+.arr-secs button b { font-size: 12px; font-weight: 600; }
+.arr-secs button kbd { font: 10px var(--mono); color: #9aa0ab; }
+.arr-secs button.on i { background: #ff5c5c; box-shadow: 0 0 8px #ff5c5c; }
+.arr-secs button.next i { background: #f5b83d; animation: arrBlink .5s steps(2) infinite; }
+.arr-secs button.intro, .arr-secs button.ending { background: linear-gradient(#2c3a4d, #1d2633); }
+.arr-secs button.break { background: linear-gradient(#3d2c2c, #2a1e1e); }
+.arr-secs button.na { opacity: .35; }
+.arr-parts { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 6px; }
+.arr-part { display: grid; grid-template-columns: 22px 44px 1fr 110px 56px auto; align-items: center; gap: 6px; padding: 5px 8px; border-radius: 7px; border: 1px solid var(--line2); background: var(--bg1); border-left: 3px solid var(--pc); }
+.arr-part.off { opacity: .45; }
+.arr-part .pw { border: 0; background: none; color: var(--pc); cursor: pointer; font-size: 14px; }
+.arr-part b { font-size: 12px; }
+.arr-part select { min-width: 0; background: var(--bg0); border: 1px solid var(--line2); border-radius: 5px; padding: 3px 5px; color: var(--tx0); font-size: 11.5px; }
+.arr-part input[type=range] { width: 100%; accent-color: var(--pc); }
+.arr-part .db { font: 10.5px var(--mono); color: var(--tx2); text-align: right; }
+.arr-part .tbtn { height: 22px; font-size: 10.5px; padding: 0 6px; }
+.arr-kbwrap { padding: 8px 8px 10px; background: linear-gradient(#111216, #08090b); border-radius: 8px; border: 1px solid #000; }
+.arr-kb { position: relative; height: 130px; user-select: none; touch-action: none; }
+.arr-kb .k { position: absolute; top: 0; cursor: pointer; box-sizing: border-box; }
+.arr-kb .k.w { height: 100%; background: linear-gradient(#f4f5f7, #d6d8dd); border: 1px solid #8a8c92; border-radius: 0 0 5px 5px; z-index: 1; }
+.arr-kb .k.w.left { background: linear-gradient(#e3f3ff, #bcd9f2); }
+.arr-kb .k.b { height: 62%; background: linear-gradient(#3a3c43, #0e0f12); border-radius: 0 0 4px 4px; z-index: 2; box-shadow: 0 3px 4px rgba(0,0,0,.6); }
+.arr-kb .k.b.left { background: linear-gradient(#36485e, #101824); }
+.arr-kb .k span { position: absolute; bottom: 4px; left: 0; right: 0; text-align: center; font: 9px var(--mono); color: #666; pointer-events: none; }
+.arr-kb .k.w.down { background: linear-gradient(#ffd36b, #f5b83d); }
+.arr-kb .k.b.down { background: linear-gradient(#f5b83d, #a26f13); }
+.arr-kb .k.w.chord { background: linear-gradient(#9fe8c3, #4fcf93); }
+.arr-kb .k.b.chord { background: linear-gradient(#3fd88a, #157a57); }
+.arr-learn { display: grid; gap: 8px; padding: 10px; border: 1px solid var(--line2); border-radius: 8px; background: var(--bg1); }
+.arr-learn[hidden] { display: none; }
+.arr-lh { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.arr-lh span { color: var(--tx2); font-size: 11.5px; flex: 1; min-width: 260px; }
+.arr-lh .tbtn { height: 26px; }
+.arr-lgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 4px; }
+.arr-lrow { display: grid; grid-template-columns: 1fr 100px 60px auto auto; align-items: center; gap: 6px; padding: 3px 6px; border-radius: 5px; font-size: 12px; }
+.arr-lrow:nth-child(odd) { background: rgba(127,127,127,.06); }
+.arr-lrow.on { background: rgba(245,184,61,.15); }
+.arr-lrow code { font: 11px var(--mono); color: var(--accent); }
+.arr-lrow kbd { font: 10.5px var(--mono); color: var(--tx2); }
+.arr-lrow .tbtn { height: 22px; font-size: 11px; padding: 0 8px; }
+.arr-note { margin: 0; color: var(--tx2); font-size: 11.5px; line-height: 1.6; }
+@media (max-width: 900px) { .arr-top { grid-template-columns: 1fr; } .arr-secs { grid-template-columns: repeat(5, 1fr); } }
