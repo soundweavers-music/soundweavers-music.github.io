@@ -40,8 +40,8 @@ COURSES = {
         "icon": "🪗",
     },
 }
-READ_CHARS_PER_MIN = 300
-PRACTICE_FACTOR = 2.0
+# 時數公式集中在 course_hours.py；這裡只留 import，避免兩邊各自演化
+from course_hours import study_hours  # noqa: E402
 CHAPTER_RE = re.compile(r"^(\d+)\.md$")
 EXTRA = [("前言.md", "preface", "前言"), ("目錄.md", "toc", "目錄")]
 
@@ -65,9 +65,8 @@ def load_chapters(slug: str) -> list[dict]:
             "title": title,
             "path": path,
             "chars": chars,
-            # 建議學習時數＝閱讀時間（300 字/分）加倍計入練習，向上取整到半小時，
-            # 與曼陀林專區採同一個量級
-            "hours": max(0.5, -(-int(chars / READ_CHARS_PER_MIN * PRACTICE_FACTOR) // 30) / 2),
+            # 建議學習時數：公式在 scripts/course_hours.py（首頁、/learn/ 共用同一個）
+            "hours": study_hours(chars),
         })
     return sorted(chapters, key=lambda c: c["num"])
 
