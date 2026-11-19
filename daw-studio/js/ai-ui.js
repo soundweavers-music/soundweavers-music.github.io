@@ -1,4 +1,4 @@
-// AI 編曲視窗：① 旋律配和弦（主旋律 → 和弦軌，2～3 個版本）② 一鍵編曲（和弦軌 + 段落 → 各聲部 MIDI）
+// 智慧編曲視窗：① 旋律配和弦（主旋律 → 和弦軌，2～3 個版本）② 一鍵編曲（和弦軌 + 段落 → 各聲部 MIDI）
 import { store } from './state.js';
 import { engine } from './engine.js';
 import { STYLES, SECTIONS, styleById } from './arranger-styles.js';
@@ -7,6 +7,8 @@ import { melodyOf, melodyKey, suggestChords, keyName, progressionText } from './
 import { chordRange, autoPlan, generate, applyArrangement, removeArrangement } from './ai-arrange.js';
 import { ROOTS } from './chords.js';
 import { toast } from './util.js';
+import { compose, applyComposition, FORMS, SEC_LABEL } from './ai-compose.js';
+import { chordName } from './chords.js';
 
 const KEY = 'zhiyin-daw-ai';
 const SEC_NAME = Object.fromEntries(SECTIONS.map(s => [s.id, s.name]));
@@ -23,15 +25,16 @@ function build() {
   root = document.createElement('div');
   root.className = 'aiw hidden';
   root.innerHTML = `
-  <div class="aiw-win" role="dialog" aria-label="AI 編曲">
-    <div class="aiw-head"><b>AI 編曲</b><span class="aiw-sub">全部在這台電腦上計算：旋律 → 和弦 → 整首伴奏 MIDI</span>
+  <div class="aiw-win" role="dialog" aria-label="智慧編曲">
+    <div class="aiw-head"><b>智慧編曲</b><span class="aiw-sub">全部在這台電腦上計算：旋律 → 和弦 → 整首伴奏 MIDI</span>
       <div class="spacer"></div><button type="button" class="tbtn ghost aiw-x" title="關閉">✕</button></div>
     <div class="aiw-tabs">
       <button type="button" data-tab="chords">① 旋律配和弦</button>
       <button type="button" data-tab="arrange">② 一鍵編曲</button>
+      <button type="button" data-tab="compose">③ 智慧創作</button>
     </div>
     <section class="aiw-pane" data-pane="chords">
-      <p class="note">選主唱（音訊）或旋律（MIDI）那一軌，AI 會找出調性，再用和弦機率模型（HMM／Viterbi）配出最順的和弦進行，偏好華語流行常見的走法。挑一個版本寫進和弦軌，之後可以在和弦軌上逐格修改。</p>
+      <p class="note">選主唱（音訊）或旋律（MIDI）那一軌，系統會找出調性，再用和弦機率模型（HMM／Viterbi）配出最順的和弦進行，偏好華語流行常見的走法。挑一個版本寫進和弦軌，之後可以在和弦軌上逐格修改。</p>
       <div class="aiw-row">
         <label class="f">旋律軌 <select class="aiw-mel"></select></label>
         <label class="f">換和弦的密度 <select class="aiw-per"><option value="1">每小節 1 個</option><option value="2">每小節 2 個</option></select></label>
@@ -43,6 +46,28 @@ function build() {
       <div class="aiw-row aiw-after" hidden>
         <button type="button" class="tbtn aiw-play">▶ 從頭播放</button>
         <button type="button" class="tbtn primary aiw-next">下一步：用這組和弦一鍵編曲 →</button>
+      </div>
+    </section>
+    <section class="aiw-pane" data-pane="compose">
+      <p class="note">從零寫一首歌的骨架：用華語流行最常見的和弦進行（卡農、1-5-6-4、4-5-3-6 王道…）排出主歌、導歌、副歌，再配一條<b>好唱、安全</b>的主旋律——正拍落在和弦音、多級進、動機重複、句尾落在穩定音。寫進和弦軌與「智慧主旋律」軌之後，可以接著用 ② 一鍵編曲配上伴奏。</p>
+      <div class="aiw-row">
+        <label class="f">調性 <select class="aic-key">${ROOTS.map((r, i) => `<option value="${i}M">${r} 大調</option>`).join('')}${ROOTS.map((r, i) => `<option value="${i}m">${r} 小調</option>`).join('')}</select></label>
+        <label class="f">速度 <input type="number" class="aic-bpm" min="50" max="180" step="1" style="width:64px"></label>
+        <label class="f">曲式 <select class="aic-form">${FORMS.map(f => `<option value="${f.id}">${f.name}</option>`).join('')}</select></label>
+        <label class="f">音域 <select class="aic-reg"><option value="-1">低（男聲）</option><option value="0">中</option><option value="1">高（女聲）</option></select></label>
+        <label class="f">旋律變化 <span class="aiw-rng"><input type="range" class="aic-var" min="0" max="100" step="5"><b class="aic-varv"></b></span></label>
+        <label class="f">旋律音色 <select class="aic-inst"><option value="lead">方波 Lead</option><option value="piano">鋼琴</option><option value="epiano">電鋼琴</option><option value="strings">弦樂</option><option value="marimba">木琴</option></select></label>
+      </div>
+      <div class="aiw-row">
+        <button type="button" class="tbtn primary aic-new">✦ 寫一首新的</button>
+        <button type="button" class="tbtn aic-mel" title="和弦不變，只換一條旋律">只換旋律</button>
+        <button type="button" class="tbtn aic-prog" title="曲式與旋律風格不變，換一組和弦進行">只換和弦進行</button>
+        <button type="button" class="tbtn aic-play">▶ 從頭播放</button>
+        <span class="note aic-status"></span>
+      </div>
+      <div class="aic-sum"></div>
+      <div class="aiw-row aic-after" hidden>
+        <button type="button" class="tbtn primary aic-next">下一步：配上伴奏（② 一鍵編曲）→</button>
       </div>
     </section>
     <section class="aiw-pane" data-pane="arrange">
@@ -63,7 +88,7 @@ function build() {
         <button type="button" class="tbtn primary aiw-gen">產生編曲</button>
         <button type="button" class="tbtn aiw-regen" title="同樣的設定，換一組過門、經過音與 Voicing">重新產生（換一版）</button>
         <button type="button" class="tbtn aiw-play2">▶ 從頭播放</button>
-        <button type="button" class="tbtn ghost aiw-del">移除 AI 編曲</button>
+        <button type="button" class="tbtn ghost aiw-del">移除智慧編曲</button>
         <span class="note aiw-status"></span>
       </div>
     </section>
@@ -96,12 +121,49 @@ function build() {
   $('.aiw-gen').onclick = () => runGenerate(false);
   $('.aiw-regen').onclick = () => runGenerate(true);
   $('.aiw-play2').onclick = () => playFrom(lastStart ?? 0);
-  $('.aiw-del').onclick = () => { if (removeArrangement()) { toast('已移除 AI 編曲的片段（Ctrl+Z 可以復原）'); status(''); } else toast('目前沒有 AI 編曲的片段', 'warn'); };
+  $('.aiw-del').onclick = () => { if (removeArrangement()) { toast('已移除智慧編曲的片段（Ctrl+Z 可以復原）'); status(''); } else toast('目前沒有智慧編曲的片段', 'warn'); };
+  // ③ 智慧創作
+  $('.aic-key').value = S.cKey || '0M';
+  $('.aic-key').onchange = e => { S.cKey = e.target.value; save(); };
+  $('.aic-bpm').value = String(S.cBpm || 80);
+  $('.aic-bpm').onchange = e => { S.cBpm = Math.max(50, Math.min(180, Number(e.target.value) || 80)); save(); };
+  $('.aic-form').value = S.cForm || 'std';
+  $('.aic-form').onchange = e => { S.cForm = e.target.value; save(); };
+  $('.aic-reg').value = String(S.cReg ?? 0);
+  $('.aic-reg').onchange = e => { S.cReg = Number(e.target.value); save(); };
+  $('.aic-var').value = String(Math.round((S.cVar ?? 0.4) * 100));
+  $('.aic-var').oninput = e => { S.cVar = Number(e.target.value) / 100; save(); $('.aic-varv').textContent = e.target.value + '%'; };
+  $('.aic-varv').textContent = Math.round((S.cVar ?? 0.4) * 100) + '%';
+  $('.aic-inst').value = S.cInst || 'lead';
+  $('.aic-inst').onchange = e => { S.cInst = e.target.value; save(); const t = store.project.tracks.find(x => x.aiMelody); if (t) { t.instrument = S.cInst; store.changed('structure'); } };
+  const newSeed = () => (Math.random() * 2 ** 31) >>> 0 || 5;
+  $('.aic-new').onclick = () => runCompose(newSeed(), newSeed());
+  $('.aic-mel').onclick = () => runCompose(comp?.progSeed ?? newSeed(), newSeed());
+  $('.aic-prog').onclick = () => runCompose(newSeed(), comp?.melSeed ?? newSeed());
+  $('.aic-play').onclick = () => playFrom(comp ? Math.max(0, comp.res.startBar - 0) * 4 : 0);
+  $('.aic-next').onclick = () => { S.tab = 'arrange'; save(); plan = comp?.res.plan.map(x => ({ ...x })) || null; renderTab(); };
   store.on('change', ({ kind }) => { if (open && kind === 'structure') { fillTracks(); if (S.tab === 'arrange') renderRange(); } });
   document.addEventListener('keydown', e => { if (open && e.key === 'Escape') { e.stopPropagation(); toggleAI(false); } }, true);
 }
 
-let lastStart = null;
+let lastStart = null, comp = null;
+function runCompose(progSeed, melSeed) {
+  const p = store.project;
+  if ((p.sigNum || 4) !== 4) { toast('智慧創作目前只支援 4/4 拍，請先把拍號改成 4/4', 'warn'); return; }
+  const k = S.cKey || '0M';
+  // 放在第 5 小節開始，前面留 4 小節給前奏
+  const res = compose({ key: parseInt(k, 10), minor: k.endsWith('m'), form: S.cForm || 'std', register: S.cReg ?? 0, variation: S.cVar ?? 0.4, startBar: 4, progSeed, melSeed });
+  const r = applyComposition(res, { bpm: S.cBpm || 80, instrument: S.cInst || 'lead' });
+  if (r.err) { toast(r.err, 'warn'); return; }
+  comp = { res, progSeed, melSeed };
+  $('.aic-status').textContent = `已寫入：${res.sections.length} 段、${res.endBar - res.startBar} 小節、旋律 ${r.notes} 個音（#${progSeed % 1000}-${melSeed % 1000}）`;
+  $('.aic-sum').innerHTML = res.sections.map(sec => {
+    const cs = res.chords.filter(c => c.t >= sec.bar * 4 && c.t < (sec.bar + sec.bars) * 4);
+    return `<div class="aic-sec"><b>${SEC_LABEL[sec.type]}${sec.round ? ' ' + (sec.round + 1) : ''}</b><span class="aiw-bar">${sec.bar + 1}–${sec.bar + sec.bars}</span><span class="note">${esc(sec.prog)}</span><span class="aiw-prog">${esc(cs.map(chordName).join(' – '))}</span></div>`;
+  }).join('');
+  $('.aic-after').hidden = false;
+  toast('智慧創作完成：和弦軌與「智慧主旋律」軌都寫好了，按播放聽聽看（Ctrl+Z 可以復原）');
+}
 function status(t) { $('.aiw-status').textContent = t; }
 async function playFrom(beat) {
   await engine.ensure();
@@ -237,14 +299,14 @@ function runGenerate(newSeed) {
   const bpmNote = Math.abs(p.bpm - style.bpm) > 12 ? `；這個風格建議 ${style.bpm} BPM，專案是 ${p.bpm} BPM（不會自動改速度）` : '';
   if ((style.sig || 4) !== (p.sigNum || 4)) toast(`注意：這個風格是 ${style.sig}/4 拍，專案是 ${p.sigNum}/4，小節會對不上`, 'warn');
   status(`已產生 ${res.bars} 小節、${n} 個音（版本 #${seed % 10000}）${bpmNote}`);
-  toast(`AI 編曲完成：${res.bars} 小節、${Object.keys(res.clips).length} 個聲部`);
+  toast(`智慧編曲完成：${res.bars} 小節、${Object.keys(res.clips).length} 個聲部`);
 }
 
 function renderTab() {
   root.querySelectorAll('.aiw-tabs button').forEach(b => b.classList.toggle('on', b.dataset.tab === S.tab));
   root.querySelectorAll('.aiw-pane').forEach(el => { el.hidden = el.dataset.pane !== S.tab; });
   if (S.tab === 'chords') { fillTracks(); renderOpts(); }
-  else { renderVals(); renderParts(); renderPlan(); }
+  else if (S.tab === 'arrange') { renderVals(); renderParts(); renderPlan(); }
 }
 
 export function toggleAI(force) {
@@ -254,7 +316,7 @@ export function toggleAI(force) {
   if (open) renderTab();
 }
 export const aiOpen = () => open;
-// 頂列的「AI 編曲」按鈕（不經過 main.js）
+// 頂列的「智慧編曲」按鈕（不經過 main.js）
 document.getElementById('btnAI')?.addEventListener('click', () => toggleAI());
 // 給測試用
-export const _ai = { get plan() { return plan; }, get sugg() { return sugg; }, analyze, useOption, runGenerate, renderPlan, SEC_NAME };
+export const _ai = { get plan() { return plan; }, get sugg() { return sugg; }, analyze, useOption, runGenerate, renderPlan, runCompose, get comp() { return comp; }, SEC_NAME };

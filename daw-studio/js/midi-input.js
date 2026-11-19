@@ -78,8 +78,10 @@ export function noteOn(key, vel = state.velocity) {
   // 同一個鍵再按一次（例如踏板踩住時重彈）：先把舊的音收掉
   if (state.held.has(key)) { state.sustained.delete(key); releaseKey(key); }
   const midi = Math.max(0, Math.min(127, key + state.transpose));
-  engine.noteOn(t.id, midi, vel);
-  state.held.set(key, { trackId: t.id, midi, vel, startPos: engine.currentTime() });
+  // 這一軌若設了「輸入力度」，就用固定值蓋掉鍵盤送來的力度（錄音也照這個值寫）
+  const useVel = t.inputVel > 0 ? Math.min(127, Math.round(t.inputVel)) : vel;
+  engine.noteOn(t.id, midi, useVel);
+  state.held.set(key, { trackId: t.id, midi, vel: useVel, startPos: engine.currentTime() });
   store.emit('midi-activity', { midi, on: true });
 }
 

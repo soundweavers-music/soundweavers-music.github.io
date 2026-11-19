@@ -987,7 +987,7 @@ html[lang="en"] .chord-apply .tbtn,
 html[lang="en"] #inspector [data-apply] { overflow: hidden; text-overflow: ellipsis; }
 html[lang="en"] .insp-sec > h4, html[lang="en"] .sec-h { letter-spacing: 0; }
 
-/* ---------- AI 編曲視窗 ---------- */
+/* ---------- 智慧編曲視窗 ---------- */
 .aiw { position: fixed; inset: 0; z-index: 195; background: rgba(0,0,0,.45); display: grid; place-items: center; }
 .aiw.hidden { display: none; }
 .aiw-win { width: min(980px, 96vw); max-height: 92vh; overflow: auto; display: grid; gap: 10px; align-content: start; padding: 12px 16px 16px; color: var(--tx0); background: var(--bg2); border: 1px solid var(--line2); border-radius: 12px; box-shadow: 0 24px 70px rgba(0,0,0,.5); }
@@ -1021,3 +1021,5 @@ html[lang="en"] .insp-sec > h4, html[lang="en"] .sec-h { letter-spacing: 0; }
 .aiw-seg input[type=number] { width: 52px; }
 .aiw-bar { font-family: var(--mono); color: var(--tx2); }
 .aiw-empty { color: var(--tx2); padding: 16px; text-align: center; }
+.aic-sum { display: grid; gap: 4px; }
+.aic-sec { display: grid; grid-template-columns: 70px 70px 170px 1fr; gap: 8px; align-items: baseline; padding: 5px 9px; border: 1px solid var(--line2); border-radius: 7px; background: var(--bg1); font-size: 12px; }

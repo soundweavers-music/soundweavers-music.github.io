@@ -1,8 +1,8 @@
-// AI 編曲（第一步）：依和弦軌＋段落，用自動伴奏的風格把整首歌直接編成 MIDI 片段
+// 智慧編曲（第一步）：依和弦軌＋段落，用自動伴奏的風格把整首歌直接編成 MIDI 片段
 // - 跟電子琴共用同一套風格資料（arranger-styles.js）與音高換算（arranger.pitches），所以聽起來一樣，只是一次寫成整首
 // - 段落表：一列 = 一段（幾小節、哪個段落、強度）；換段落的前一小節自動打過門，新段落第一拍加強音鈸
 // - 「變化」：同一組設定換一個種子就會換過門、經過音、Voicing 與力度起伏；種子存在片段上，可以重現
-// - 寫進「伴奏-鼓／貝斯…」軌（沒有就建立），舊的 AI 編曲片段會被取代；整個動作可以 Ctrl+Z 復原
+// - 寫進「伴奏-鼓／貝斯…」軌（沒有就建立），舊的 智慧編曲片段會被取代；整個動作可以 Ctrl+Z 復原
 import { store, newMidiClip } from './state.js';
 import { arranger, PARTS } from './arranger.js';
 import { styleById, romanToChord } from './arranger-styles.js';
@@ -249,7 +249,7 @@ export function generate(o) {
   return { clips, bars: bars.length, startBar, key, sections: bars.map(x => x.sec) };
 }
 
-// 寫進專案：取代舊的 AI 編曲片段
+// 寫進專案：取代舊的 智慧編曲片段
 export function applyArrangement(res, meta = {}) {
   if (!res) return 0;
   store.checkpoint();
@@ -260,7 +260,7 @@ export function applyArrangement(res, meta = {}) {
     t.clips = t.clips.filter(c => !c.aiArr);
     const c = res.clips[part.id]; if (!c) continue;
     const clip = newMidiClip(c.startBeat, c.lengthBeats, c.notes);
-    clip.name = 'AI 編曲 ' + (meta.styleName || '');
+    clip.name = '智慧編曲 ' + (meta.styleName || '');
     clip.aiArr = { seed: meta.seed, style: meta.styleId };
     t.clips.push(clip);
     n += c.notes.length;
@@ -269,7 +269,7 @@ export function applyArrangement(res, meta = {}) {
   return n;
 }
 
-// 移除 AI 編曲片段
+// 移除智慧編曲片段
 export function removeArrangement() {
   let any = false;
   for (const t of store.project.tracks) if (t.clips.some(c => c.aiArr)) any = true;
