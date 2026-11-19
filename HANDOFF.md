@@ -111,6 +111,17 @@ Chrome 開站顯示「危險網站／可能誘騙你安裝軟體」。查詢 `ht
 
 ## 5. 本次變更紀錄
 
+### 2026-11-19（課程圖解補齊）
+
+- **兩套課程現在每個小節都有圖**：`scripts/audit_figure_coverage.py` 會列出沒有圖的
+  `## x.y`（檢查表／練習設定／結語不算），目前 149 個小節、0 個缺圖。
+- 圖都從程式產生，共用的版面放在兩支產生器的前段：步驟卡、左右對照、曲式時間軸、
+  音符時值、拍點格、音程與級數；`scripts/song_card.py` 是兩套課程共用的「歌曲卡」，
+  把和弦進行畫成一排方塊，資料直接從章節裡既有的和弦表抓。
+- 圖檔：吉他 73 張、烏克麗麗 84 張（含 `song/` 子目錄），全部被引用、沒有缺檔。
+- 重新產生：`python scripts/build_guitar_figures.py`、`python scripts/make_ukulele_diagrams.py`，
+  再用 `python scripts/audit_figure_coverage.py` 檢查有沒有漏。
+
 ### 2026-11-19（吉他／烏克麗麗課程收尾）
 
 - **`assets/ukulele/` 從未複製到輸出目錄**：`build_static_site.py` 的資產複製是一項一項列出來的，加了 guitar 卻漏了 ukulele，線上 18 張烏克麗麗圖全部 404。已補上複製步驟。
