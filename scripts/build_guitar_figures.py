@@ -949,7 +949,7 @@ def fig_compare(title, subtitle, columns, rows, footer=""):
     """左右對照：columns 是欄名，rows 是每列的 (項目, 值1, 值2…)。"""
     width = 640
     ncol = len(columns)
-    label_w = 96
+    label_w = 132
     cw = (width - 48 - label_w) / max(1, ncol - 1)
     rowh = 56
     height = 96 + len(rows) * rowh + 30
@@ -1029,6 +1029,172 @@ def fig_note_values(title="四種基本音符：一個小節可以裝幾個"):
         parts.append(t(bar_x, y + 46, f"{beats}｜{note}", 10, anchor="start", fill=MUTED))
         parts.append(f'<line x1="{bar_x}" y1="{y - 6}" x2="{bar_x}" y2="{y + 34}" stroke="{INK}" stroke-width="1.6"/>')
         parts.append(f'<line x1="{bar_x + bar_w}" y1="{y - 6}" x2="{bar_x + bar_w}" y2="{y + 34}" stroke="{INK}" stroke-width="1.6"/>')
+    parts.append("</svg>")
+    return width, height, chr(10).join(parts)
+
+
+def fig_strum_four():
+    """7-2：四種 8 Beat 節奏型並列。"""
+    patterns = [
+        ("節奏型 1", ["↓", "·", "↓", "·", "↓", "·", "↓", "·"], "四拍全下刷，最穩"),
+        ("節奏型 2", ["↓", "↑", "↓", "↑", "↓", "↑", "↓", "↑"], "八下全刷，練手腕均勻"),
+        ("節奏型 3", ["↓", "·", "↓", "↑", "↓", "·", "↓", "↑"], "最經典的入門民謠"),
+        ("節奏型 4", ["↓", "·", "↓", "↑", "·", "↑", "↓", "↑"], "靈魂刷法：第 3 拍空揮"),
+    ]
+    width, height = 640, 400
+    left = 110
+    colw = (610 - left) / 8
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" role="img" aria-label="四種 8 Beat 刷奏節奏型">',
+        '  <title>四種 8 Beat 節奏型</title>',
+        f'  <rect width="{width}" height="{height}" fill="{BG}"/>',
+        t(24, 34, "四種 8 Beat 節奏型：從第一種練到第四種", 15, anchor="start", weight=700),
+        t(24, 55, "「·」是手繼續擺動但不碰弦的空揮；八個格子就是一拍的兩半", 11.5, anchor="start", fill=MUTED),
+    ]
+    for b in range(4):
+        parts.append(t(left + (b * 2 + 1) * colw, 84, str(b + 1), 11, fill=MUTED))
+    for i, (name, syms, note) in enumerate(patterns):
+        y = 112 + i * 68
+        parts.append(t(left - 12, y + 2, name, 11, anchor="end", weight=700))
+        parts.append(t(left - 12, y + 18, note, 9, anchor="end", fill=MUTED))
+        for k in range(8):
+            x = left + k * colw
+            bg = ACCENT_SOFT if (k // 2) % 2 == 0 else BG
+            parts.append(f'<rect x="{x:.1f}" y="{y - 14}" width="{colw:.1f}" height="44" fill="{bg}"/>')
+            s = syms[k]
+            if s == "·":
+                parts.append(t(x + colw / 2, y + 12, "·", 15, fill="#cfc4b8"))
+            else:
+                parts.append(t(x + colw / 2, y + 10, s, 19, fill=ACCENT, weight=700))
+    for k in range(9):
+        x = left + k * colw
+        parts.append(f'<line x1="{x:.1f}" y1="96" x2="{x:.1f}" y2="308" stroke="{LINE}" stroke-width="1" opacity=".6"/>')
+    parts.append(t(24, height - 14, "節奏型 3 是民謠的骨幹；節奏型 4 只是把第 3 拍正拍放掉，感覺就完全不同。", 10.5, anchor="start", fill=MUTED))
+    parts.append("</svg>")
+    return width, height, chr(10).join(parts)
+
+
+def fig_posture():
+    """2-1：三個支撐點，都是「靠著」不是「夾住」。"""
+    width, height = 640, 360
+    cx = 320
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" role="img" aria-label="持琴的三個支撐點">',
+        '  <title>持琴的三個支撐點</title>',
+        f'  <rect width="{width}" height="{height}" fill="{BG}"/>',
+        t(24, 34, "持琴三點：胸口、右前臂、左手虎口", 15, anchor="start", weight=700),
+        t(24, 55, "三個點都只是「靠著」；任何一點用力夾緊，音色會變悶、換和弦也會變慢", 11.5, anchor="start", fill=MUTED),
+    ]
+    parts.append(f'<path d="M{cx - 76} 150 C{cx - 130} 168 {cx - 138} 226 {cx - 128} 264 '
+                 f'C{cx - 118} 306 {cx - 82} 330 {cx} 330 C{cx + 82} 330 {cx + 118} 306 {cx + 128} 264 '
+                 f'C{cx + 138} 226 {cx + 130} 168 {cx + 76} 150 Z" fill="{ACCENT_SOFT}" stroke="{INK}" stroke-width="2"/>')
+    parts.append(f'<rect x="{cx - 24}" y="96" width="48" height="70" fill="#EDE3D6" stroke="{INK}" stroke-width="1.6"/>')
+    parts.append(f'<circle cx="{cx}" cy="242" r="26" fill="{BG}" stroke="{INK}" stroke-width="1.5"/>')
+    pts = [("① 胸口", cx - 96, 196, 118, 136),
+           ("② 右前臂", cx + 108, 216, 470, 200),
+           ("③ 左虎口", cx - 24, 110, 150, 96)]
+    for label, ax, ay, lx, ly in pts:
+        parts.append(f'<path d="M{ax} {ay} L{lx} {ly - 4}" stroke="{MUTED}" stroke-width="1" fill="none"/>')
+        parts.append(f'<circle cx="{ax}" cy="{ay}" r="5" fill="{ACCENT}"/>')
+        parts.append(t(lx + (10 if lx > ax else -10), ly, label, 11.5,
+                       anchor="start" if lx > ax else "end", weight=700))
+    parts.append(t(24, height - 16, "背帶只是備援：坐著彈時，琴不該靠背帶撐住；站著彈時才讓背帶分擔重量。", 10.5, anchor="start", fill=MUTED))
+    parts.append("</svg>")
+    return width, height, chr(10).join(parts)
+
+
+def fig_fret_press():
+    """2-4：手指要按在琴格右側、指尖立起來。"""
+    width, height = 640, 330
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" role="img" aria-label="左手按弦的位置與角度">',
+        '  <title>左手按弦：靠近琴衍、指尖立起</title>',
+        f'  <rect width="{width}" height="{height}" fill="{BG}"/>',
+        t(24, 34, "按弦的兩件事：位置與角度", 15, anchor="start", weight=700),
+        t(24, 55, "同一顆音，按對地方不用出力就響；按錯地方再用力也是悶的", 11.5, anchor="start", fill=MUTED),
+    ]
+    panels = [("○ 正確：貼著琴衍右側", 0.80, ACCENT),
+              ("✕ 太中間：要多花一倍力氣", 0.50, "#B4553F"),
+              ("✕ 壓在琴衍上：聲音會死掉", 0.97, "#B4553F")]
+    for i, (label, frac, color) in enumerate(panels):
+        x = 40 + i * 200
+        top, fh = 96, 64
+        parts.append(f'<rect x="{x}" y="{top}" width="160" height="{fh}" fill="#F7F1E7" stroke="{LINE}"/>')
+        for k in range(3):
+            yy = top + k * 32
+            parts.append(f'<line x1="{x}" y1="{yy}" x2="{x + 160}" y2="{yy}" stroke="{MUTED}" stroke-width="{2.4 if k == 0 else 1}"/>')
+        parts.append(f'<line x1="{x}" y1="{top + fh}" x2="{x + 160}" y2="{top + fh}" stroke="{MUTED}" stroke-width="1"/>')
+        # 右邊那條粗線＝琴衍（金屬條）
+        parts.append(f'<line x1="{x + 160}" y1="{top}" x2="{x + 160}" y2="{top + fh}" stroke="{INK}" stroke-width="3"/>')
+        fx = x + 16 + frac * 120
+        parts.append(f'<circle cx="{fx:.1f}" cy="{top + 48}" r="9" fill="{color}"/>')
+        parts.append(t(x + 80, top + fh + 28, label, 10.5, fill=INK))
+    parts.append(t(40, 240, "指尖立起來、從琴頸正上方落下：手指與弦垂直，旁邊的弦才不會被悶到。", 11, anchor="start", fill=INK))
+    parts.append(t(40, 264, "手腕微拱、虎口留空；手掌貼在琴頸上會讓小指伸不出去。", 11, anchor="start", fill=INK))
+    parts.append(t(40, height - 16, "按不響先檢查兩件事：有沒有貼著琴衍、指尖有沒有立起來。力氣通常不是問題。", 10.5, anchor="start", fill=MUTED))
+    parts.append("</svg>")
+    return width, height, chr(10).join(parts)
+
+
+def fig_chord_colors():
+    """5-1：大三與小三只差中間那顆音。"""
+    width, height = 640, 300
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" role="img" aria-label="大三和弦與小三和弦的差別">',
+        '  <title>大三與小三：只差中間那顆音</title>',
+        f'  <rect width="{width}" height="{height}" fill="{BG}"/>',
+        t(24, 34, "大三與小三：只差中間那顆音差幾個半音", 15, anchor="start", weight=700),
+        t(24, 55, "根音與五音都一樣，只有三音不同——這就是「明亮」與「憂傷」的全部差別", 11.5, anchor="start", fill=MUTED),
+    ]
+    for i, (name, gaps, note) in enumerate([("大三和弦（C）", [4, 3], "根音 → 4 個半音 → 再 3 個半音"),
+                                           ("小三和弦（Cm）", [3, 4], "根音 → 3 個半音 → 再 4 個半音")]):
+        y = 108 + i * 84
+        parts.append(t(150, y + 5, name, 12.5, anchor="end", weight=700))
+        x, unit = 176, 26
+        labels = ["根音", "三音", "五音"]
+        pos = [0, gaps[0], gaps[0] + gaps[1]]
+        for k in range(3):
+            cx = x + pos[k] * unit
+            parts.append(f'<rect x="{cx - 18:.1f}" y="{y - 18}" width="36" height="36" rx="8" '
+                         f'fill="{ACCENT if k else ACCENT_SOFT}" stroke="{ACCENT}"/>')
+            parts.append(t(cx, y + 5, labels[k], 10, "middle", "#FFFFFF" if k else INK, 700))
+        for k in range(2):
+            x1 = x + pos[k] * unit + 18
+            x2 = x + pos[k + 1] * unit - 18
+            parts.append(f'<path d="M{x1:.1f} {y} L{x2:.1f} {y}" stroke="{MUTED}" stroke-width="1" stroke-dasharray="3 3"/>')
+            parts.append(t((x1 + x2) / 2, y - 8, str(gaps[k]), 10, "middle", MUTED))
+        parts.append(t(x + 7 * unit + 34, y + 5, note, 10.5, anchor="start", fill=MUTED))
+    parts.append(t(24, height - 16, "把三音降半個音，大三就變成小三；這也是為什麼同一個根音可以有兩種完全不同的情緒。", 10.5, anchor="start", fill=MUTED))
+    parts.append("</svg>")
+    return width, height, chr(10).join(parts)
+
+
+def fig_bass_note():
+    """6-2：大拇指要撥哪一條弦。"""
+    width, height = 640, 330
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" role="img" aria-label="各和弦的根音在第幾弦">',
+        '  <title>大拇指該撥哪一條弦</title>',
+        f'  <rect width="{width}" height="{height}" fill="{BG}"/>',
+        t(24, 34, "大拇指（T）只跟著根音換弦", 15, anchor="start", weight=700),
+        t(24, 55, "食指、中指、無名指固定守在第 3、2、1 弦；整組指法裡唯一會動的就是大拇指", 11.5, anchor="start", fill=MUTED),
+    ]
+    groups = [("C、Am", 5, "根音在第 5 弦；第 6 弦打 ✕ 不刷"),
+              ("G、Em", 6, "六條弦全刷，最粗的那條就是根音"),
+              ("D、Fmaj7", 4, "第 6、5 弦都打 ✕，從第 4 弦開始")]
+    for i, (name, string, note) in enumerate(groups):
+        y = 112 + i * 62
+        parts.append(t(110, y + 6, name, 12.5, anchor="end", weight=700))
+        for k in range(6):
+            s = 6 - k
+            x = 140 + k * 32
+            hit = (s == string)
+            parts.append(f'<rect x="{x}" y="{y - 14}" width="26" height="30" rx="6" '
+                         f'fill="{ACCENT if hit else BG}" stroke="{ACCENT if hit else LINE}" stroke-width="{2 if hit else 1}"/>')
+            parts.append(t(x + 13, y + 6, str(s), 11, "middle", "#FFFFFF" if hit else MUTED, 700 if hit else None))
+        parts.append(t(340, y + 6, note, 10.5, anchor="start", fill=INK))
+    parts.append(t(140, 86, "← 第 6 弦　　　　　第 1 弦 →", 9.5, anchor="start", fill=MUTED))
+    parts.append(t(24, height - 16, "換和弦時只換大拇指的位置，其他三根手指留在原地——這是分散和弦能彈快的關鍵。", 10.5, anchor="start", fill=MUTED))
     parts.append("</svg>")
     return width, height, chr(10).join(parts)
 
@@ -1155,6 +1321,42 @@ def _wrap(text, n):
 
 
 FIGURES = {
+    "compare-saddle": lambda: fig_compare(
+        "弦距：決定「好不好按」的頭號關鍵",
+        "弦距＝琴弦底部到琴格銅條的距離，量第 12 格最準",
+        ["狀況", "太高", "太低"],
+        [("手感", "按不緊、手指痛、和弦悶", "隨便按就響，但容易打弦"),
+         ("聲音", "音量小，怎麼刷都不亮", "用力就出現「啪」的打弦雜音"),
+         ("怎麼辦", "調整上下弦枕或琴頸鋼筋", "確認弦有沒有裝好，必要時換粗一號的弦")],
+        "剛好的弦距：第 12 格夾一張名片不會掉、按起來不痛。新手別自己磨弦枕。"),
+    "steps-metronome": lambda: fig_steps(
+        "節拍器訓練：三階段，每階段 5 分鐘",
+        "先求穩，再求快；跟著節拍器彈對一次，勝過亂彈十次",
+        [("只刷正拍", "60 BPM，一拍一下；每一聲「噠」都要和撥弦同時"),
+         ("加反拍", "同樣 60 BPM，改成一拍兩下，數 1 and 2 and"),
+         ("混搭節奏型", "用節奏型 3（↓ - ↓↑ - ↑↓↑），第 3 拍空揮不能亂")],
+        "跟不上就把速度降到 50；能穩穩彈完兩遍再往上加 5 BPM。"),
+    "compare-trouble": lambda: fig_compare(
+        "單音彈奏常見問題：聽起來卡卡的，通常是這三件事",
+        "先聽聲音、再找原因，不要一開始就懷疑手指太短",
+        ["狀況", "原因", "對策"],
+        [("聲音很短促", "手指太早離開琴弦", "下一個音要按下去的瞬間才放開"),
+         ("音色乾癟", "撥弦位置太靠近琴橋", "移到響孔正中央或左側"),
+         ("跨弦常撥錯", "右手沒有支點", "小指輕靠在護板上當參考點")],
+        "同一個問題反覆出現，先改動作，不要用更大的力氣硬蓋過去。"),
+    "compare-barre": lambda: fig_compare(
+        "大橫按按不響：三個物理盲點",
+        "不是力氣不夠，是施力方式不對——這三點改掉，F 和弦就會響",
+        ["盲點", "為什麼按不響", "怎麼改"],
+        [("食指用正面軟肉", "關節凹陷處卡住弦", "食指側轉 15～20 度，用骨頭邊緣壓"),
+         ("壓在琴格正中央", "離銅條太遠，要兩倍力氣", "貼著第 1 格右側銅條邊緣"),
+         ("只靠虎口死命夾", "左手很快就會痠", "右手前臂往內收，讓琴頸靠向食指")],
+        "檢查方式：從第 6 弦到第 1 弦逐條撥，哪一條悶就先修那一條。"),
+    "strum-four": fig_strum_four,
+    "posture": fig_posture,
+    "fret-press": fig_fret_press,
+    "chord-colors": fig_chord_colors,
+    "bass-note": fig_bass_note,
     "note-values": fig_note_values,
     "steps-tuning": lambda: fig_steps(
         "調音四步驟：從第 6 弦調到第 1 弦",
