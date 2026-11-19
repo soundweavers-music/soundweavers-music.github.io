@@ -64,6 +64,9 @@
 
 ---
 
+
+![節奏組的平衡順序：Kick、Snare、Bass](../../assets/digitalmusic/flow-rhythm-section.svg)
+
 ## 加入支撐樂器：節奏吉他、鍵盤與 Pad
 
 當節奏組與主唱的平衡確立後，下一步是加入支撐樂器（Rhythm Guitar、Keyboard、Pad 等）。這些樂器的角色是填補中頻的空間，但**絕對不能搶走主唱的風采**。

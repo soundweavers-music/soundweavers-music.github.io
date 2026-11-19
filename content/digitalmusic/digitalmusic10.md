@@ -176,6 +176,9 @@ Double-click 在 Warp Marker 上，將其拖動至正確的 Grid 位置。對於
 
 ---
 
+
+![保留 Groove 還是完美量化](../../assets/digitalmusic/cmp-groove-quantize.svg)
+
 ## 九、實戰：人聲節奏校正工作流程
 
 以下是一個完整的 Vocal Timing Correction 實作流程：

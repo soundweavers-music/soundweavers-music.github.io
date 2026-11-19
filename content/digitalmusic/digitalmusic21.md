@@ -122,6 +122,9 @@ Delay 與 Reverb 都是創造空間感的工具，但它們的聽感與用途截
 - **深度感不足時**：先加 Delay，還不夠再加 Reverb。Delay 在前、Reverb 在後的串接（Serial）配置最常見。
 - **兩者一起用**：將 Delay 的輸出送到 Reverb（Delay → Reverb），可以創造深度與空間感兼具的豪華音色。此時 Delay 的 Mix 設在 20-30%，Reverb 設在 15-25%，效果最佳。
 
+
+![Delay 與 Reverb：兩種「後面有東西」](../../assets/digitalmusic/cmp-delay-vs-reverb.svg)
+
 ## 7. 用多層 Delay 堆疊出音牆
 
 Sound Wall（音牆）並不一定要靠大量的樂器堆疊。用多個不同設定的 Delay，可以讓一個簡單的聲音訊號膨脹成壯觀的聲響。

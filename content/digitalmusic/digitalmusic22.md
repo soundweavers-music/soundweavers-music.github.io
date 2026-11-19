@@ -18,6 +18,9 @@
 
 沒有調變效果的聲音是「靜態」的——它的頻譜和時間結構在持續時間內保持不變。人耳對這種靜態聲音很快就會產生聽覺疲勞。調變效果透過持續的細微變化，讓聲音的頻譜不斷漂移、抖動、掃掠，使聽覺系統保持警覺與興趣。這也是為什麼好的混音會加入適量調變效果來讓音色「活起來」。
 
+
+![Chorus、Flanger、Phaser：三種掃掠](../../assets/digitalmusic/cmp-modulation.svg)
+
 ## 二、Chorus：加倍效果與音色增厚
 
 ![Chorus 的延遲調變](../../assets/digitalmusic/chorus-mod.svg)

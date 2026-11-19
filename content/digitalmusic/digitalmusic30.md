@@ -82,6 +82,9 @@ Spotify、Apple Music、Tidal 等平台通常接受 24-bit 44.1kHz 或 48kHz 的
 
 ---
 
+
+![Dither 的類型：加什麼樣的雜訊](../../assets/digitalmusic/cmp-dither.svg)
+
 ## 四、何時不該用 Dither？
 
 ### 4.1 雙重 Dither 的陷阱

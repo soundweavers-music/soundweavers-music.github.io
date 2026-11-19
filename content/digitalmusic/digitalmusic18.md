@@ -8,6 +8,9 @@
 
 這項技術最早出現在類比硬體時代的廣播與母帶處理，後來 TC Electronic 的 Finalizer 是硬體多頻段處理器的代表。現代的數位多頻段壓縮器（如 iZotope Ozone Dynamics、FabFilter Pro-MB、Waves C4/C6、Brainworx bx_masterdesk 等）已經將這項技術發展得極為成熟，甚至可以在頻譜上自由繪製壓縮區段。
 
+
+![多頻段壓縮與單頻段壓縮](../../assets/digitalmusic/cmp-multiband.svg)
+
 ## 多頻段壓縮 vs 一般壓縮：何時該用哪一種？
 
 ![多頻段的分段單獨聆聽](../../assets/digitalmusic/mb-bands.svg)

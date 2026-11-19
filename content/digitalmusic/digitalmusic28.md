@@ -67,6 +67,9 @@ ITU-R BS.1770 定義了三種 LUFS 測量模式，各自應用於不同場景：
 - **混音過程中**：注意 Short-term 和 Momentary LUFS，確保各段落響度平衡。
 - **混音結束後**：從頭到尾播放一次，記錄 Integrated LUFS 作為匯出依據。
 
+
+![LUFS 的三種測量：看哪一個才對](../../assets/digitalmusic/cmp-lufs.svg)
+
 ## True Peak：真實峰值的重要性
 
 True Peak（真實峰值）與普通 Peak（樣本峰值）不同。在數位音訊中，取樣點之間的波形實際上是一條平滑曲線，取樣點本身的振幅可能低於曲線的實際最高點。

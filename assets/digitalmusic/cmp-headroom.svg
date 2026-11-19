@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 354" role="img" aria-label="類比與數位的 Headroom：兩種哲學">
+  <title>類比與數位的 Headroom：兩種哲學</title>
+  <rect width="660" height="354" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">類比與數位的 Headroom：兩種哲學</text>
+  <text x="26" y="55" class="ts" font-size="12.5">類比怕太小聲（雜訊），數位怕太大聲（削波）</text>
+  <text x="150.0" y="92" class="t" font-size="11.5" font-weight="700" fill="#A67C52">類比</text>  <text x="395.0" y="92" class="t" font-size="11.5" font-weight="700" fill="#A67C52">數位</text>  <rect x="26" y="104" width="608" height="58" rx="4" fill="#F3E9DC" opacity="0.55"/>  <text x="34" y="126" class="t" font-size="11.5" font-weight="700">上限</text>  <text x="150.0" y="124" class="ts" font-size="10" fill="#5D4E41">軟壓縮，超過只是失真</text>  <text x="395.0" y="124" class="ts" font-size="10" fill="#5D4E41">0 dBFS 硬切，直接壞</text>  <text x="395.0" y="139" class="ts" font-size="10" fill="#5D4E41">掉</text>  <text x="34" y="184" class="t" font-size="11.5" font-weight="700">底噪</text>  <text x="150.0" y="182" class="ts" font-size="10" fill="#5D4E41">本身有嘶聲</text>  <text x="395.0" y="182" class="ts" font-size="10" fill="#5D4E41">幾乎沒有底噪</text>  <rect x="26" y="220" width="608" height="58" rx="4" fill="#F3E9DC" opacity="0.55"/>  <text x="34" y="242" class="t" font-size="11.5" font-weight="700">最佳工作區</text>  <text x="150.0" y="240" class="ts" font-size="10" fill="#5D4E41">推高一點，蓋過雜訊</text>  <text x="395.0" y="240" class="ts" font-size="10" fill="#5D4E41">峰值留 -6 dB 以下</text>  <text x="34" y="300" class="t" font-size="11.5" font-weight="700">心態</text>  <text x="150.0" y="298" class="ts" font-size="10" fill="#5D4E41">盡量用滿動態</text>  <text x="395.0" y="298" class="ts" font-size="10" fill="#5D4E41">留空間給之後的處理</text>
+  <text x="26" y="336" class="ts" font-size="11">錄音時的目標很簡單：平均 -18 dBFS 左右，峰值不要碰到 0。</text>
+</svg>
