@@ -9,6 +9,7 @@ import { recorder } from './recorder.js';
 import { importAudioFiles } from './project-io.js';
 import { view, secToPx, pxToSec, snap, gridStep, beatSec, setZoom } from './view.js';
 import { uid, toast, TRACK_COLORS } from './util.js';
+import { chordLaneHeight, drawChordLane, openChordMenu } from './chord-ui.js';
 import { showMenu } from './menu.js';
 import { cssVar } from './theme.js';
 
@@ -84,6 +85,8 @@ function contentWidth() {
 
 export function render() {
   measure();
+  const ar = document.getElementById('arrange');
+  if (ar) ar.style.setProperty('--ruler-h', store.project.showChords ? '64px' : '34px');
   const p = store.project;
   const h = p.tracks.length * view.trackH;
   lanesInner.style.width = contentWidth() + 'px';
@@ -128,22 +131,26 @@ function drawRuler() {
   while (barPx * every < 44) every *= 2;
   const first = Math.floor(pxToSec(sx) / bar);
   const last = Math.ceil(pxToSec(sx + w) / bar);
+  const chordH = chordLaneHeight();
+  const rulerH = h - chordH;
   g.font = '11px ui-monospace, Consolas, monospace';
   g.textBaseline = 'middle';
   for (let b = first; b <= last; b++) {
     const x = Math.round(secToPx(b * bar) - sx) + 0.5;
     const major = b % every === 0;
     g.strokeStyle = major ? cssVar('--cv-ruler-major') : cssVar('--cv-ruler-minor');
-    g.beginPath(); g.moveTo(x, major ? 14 : 24); g.lineTo(x, h); g.stroke();
+    g.beginPath(); g.moveTo(x, major ? 14 : 24); g.lineTo(x, rulerH); g.stroke();
     if (major) { g.fillStyle = cssVar('--cv-ruler-tx'); g.fillText(String(b + 1), x + 4, 23); }
     if (barPx / p.sigNum >= 12) {
       g.strokeStyle = cssVar('--cv-ruler-beat');
       for (let k = 1; k < p.sigNum; k++) {
         const bx = Math.round(x + secToPx(k * beat)) + 0.5;
-        g.beginPath(); g.moveTo(bx, 28); g.lineTo(bx, h); g.stroke();
+        g.beginPath(); g.moveTo(bx, 28); g.lineTo(bx, rulerH); g.stroke();
       }
     }
   }
+  // 和弦軌（尺規下半部）
+  if (chordH) drawChordLane(g, w, rulerH, chordH, sx, view.pxPerBeat);
 }
 
 function drawGrid() {
@@ -502,6 +509,12 @@ function onRulerDown(e) {
       L.start = Math.min(a, b); L.end = Math.max(a, b); L.on = L.end > L.start;
       placeLoopbar(); drawGrid();
     }, () => store.changed('transport'));
+    return;
+  }
+  // 和弦軌：點在和弦上 → 編輯選單；點空白處 → 新增
+  const chordH = chordLaneHeight();
+  if (chordH && e.clientY - r.top > r.height - chordH) {
+    openChordMenu(e.clientX, e.clientY, lanes.scrollLeft, view.pxPerBeat, null);
     return;
   }
   const seekTo = cx => engine.seek(snap(toSec(cx)));

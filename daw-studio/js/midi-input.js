@@ -21,6 +21,34 @@ const state = {
 
 export const midiState = state;
 
+// 允許的 MIDI 輸入（空 = 全部）；存在 localStorage，設定視窗可逐台開關
+function loadEnabled() {
+  try { const v = JSON.parse(localStorage.getItem('daw.midiInputs') || 'null'); return Array.isArray(v) ? new Set(v) : null; } catch (_) { return null; }
+}
+state.enabled = loadEnabled();
+state.midiOn = localStorage.getItem('daw.midiOn') !== '0';
+
+function applyInputHandlers() {
+  for (const inp of state.inputs || []) {
+    const ok = state.midiOn && (!state.enabled || state.enabled.has(inp.id));
+    inp.onmidimessage = ok ? handleMidiMessage : null;
+  }
+}
+
+export function setMidiEnabled(on) {
+  state.midiOn = !!on;
+  localStorage.setItem('daw.midiOn', on ? '1' : '0');
+  applyInputHandlers();
+}
+
+export function setEnabledInputs(ids) {
+  state.enabled = Array.isArray(ids) ? new Set(ids) : null;
+  localStorage.setItem('daw.midiInputs', JSON.stringify(ids ?? null));
+  applyInputHandlers();
+}
+
+export function midiInputs() { return (state.inputs || []).map(i => ({ id: i.id, name: i.name })); }
+
 export function targetTrack() {
   const p = store.project;
   const armed = p.tracks.find(t => t.kind === 'midi' && t.arm);
@@ -160,7 +188,7 @@ export async function initWebMidi() {
   }
   const bind = () => {
     state.inputs = [...state.access.inputs.values()];
-    for (const inp of state.inputs) inp.onmidimessage = handleMidiMessage;
+    applyInputHandlers();
     store.emit('midi-devices', { inputs: state.inputs.map(i => i.name) });
   };
   state.access.onstatechange = bind;

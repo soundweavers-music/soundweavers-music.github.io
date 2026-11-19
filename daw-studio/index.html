@@ -45,6 +45,12 @@
       <button class="tbtn rec" id="btnRec" title="錄音 (R)"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.5"/></svg></button>
       <button class="tbtn cycle" id="btnCycle" title="循環 (C)"><svg viewBox="0 0 16 16"><path d="M4 5h7V3l3 3-3 3V7H4a1 1 0 00-1 1v1H1V8a3 3 0 013-3zm8 6H5v2l-3-3 3-3v2h7a1 1 0 001-1V7h2v1a3 3 0 01-3 3z"/></svg></button>
     </div>
+    <div class="tb-master" id="tbMaster" title="母帶狀態：點一下打開母帶處理視窗">
+      <span class="tbm-lbl">母帶</span>
+      <span class="tbm-v" id="tbLUFS">—</span><span class="tbm-u">LUFS</span>
+      <span class="tbm-v gr" id="tbGR">0.0</span><span class="tbm-u">GR</span>
+      <span class="tbm-target" id="tbTarget">—</span>
+    </div>
     <div class="lcd" id="lcd">
       <div class="cell"><span class="lbl">小節　拍</span><span class="big" id="lcdBars">  1 1 1   1</span></div>
       <div class="cell"><span class="lbl">時間</span><span class="big" id="lcdTime">00:00.000</span></div>
@@ -84,6 +90,7 @@
         <button class="tbtn" id="btnAddTrack" title="新增音訊軌">＋ 音訊</button>
         <button class="tbtn" id="btnAddMidi" title="新增 MIDI 軌">＋ MIDI</button>
         <button class="tbtn auto" id="btnAuto" title="顯示／編輯自動化曲線 (A)">自動化</button>
+        <button class="tbtn" id="btnChords" title="在尺規下方顯示和弦軌：自動偵測、編輯、套用到修音與和聲">和弦</button>
         <div class="spacer"></div>
         <button class="tbtn ghost" id="btnZoomOut" title="縮小 (-)">−</button>
         <button class="tbtn ghost" id="btnZoomIn" title="放大 (=)">＋</button>
@@ -199,6 +206,33 @@
     <header>找到上次的工作進度</header>
     <div class="dbody"><p class="note" id="restoreNote"></p></div>
     <footer><button class="tbtn ghost" value="discard">捨棄，開新專案</button><button class="tbtn primary" value="restore">還原</button></footer>
+  </form>
+</dialog>
+
+<dialog id="dlgDevices">
+  <form method="dialog">
+    <header>裝置設定<span style="color:var(--tx2);font-weight:400">音效卡、緩衝區與 MIDI</span></header>
+    <div class="dbody">
+      <label class="f">錄音輸入
+        <select name="devIn"><option value="">預設麥克風</option></select>
+      </label>
+      <label class="f">播放輸出
+        <select name="devOut"><option value="">系統預設</option></select>
+      </label>
+      <label class="f">緩衝區（延遲）
+        <select name="lat">
+          <option value="interactive">低延遲 — 錄音、即時演奏（建議）</option>
+          <option value="balanced">平衡 — 大專案、較多效果器</option>
+          <option value="playback">穩定 — 只做混音與輸出</option>
+        </select>
+      </label>
+      <p class="note">輸入與輸出可以立即切換；<b>緩衝區</b>要在下次開啟音訊引擎（重新整理頁面）才生效。專案會自動暫存，重新整理不會不見。</p>
+      <h4 class="dev-h">MIDI 輸入</h4>
+      <label class="dev-switch"><input type="checkbox" name="midiOn"> 啟用 MIDI 輸入</label>
+      <div class="dev-midi" id="devMidi"></div>
+      <p class="note" id="devMidiNote">第一次使用時瀏覽器會詢問 MIDI 權限；沒有接鍵盤也可以用電腦鍵盤彈奏（Caps Lock）。</p>
+    </div>
+    <footer><button class="tbtn ghost" value="cancel">取消</button><button class="tbtn primary" value="ok">套用</button></footer>
   </form>
 </dialog>
 
