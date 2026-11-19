@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" width="100%" role="img" aria-label="大譜表：把兩個譜號縫在一起">
+<rect width="760" height="300" fill="#f7f3ee"/>
+<text x="28.0" y="40.0" font-size="19" text-anchor="start" fill="#2b2722" font-weight="700">大譜表：把兩個譜號縫在一起</text>
+<text x="28.0" y="62.0" font-size="12.5" text-anchor="start" fill="#8a8078" font-weight="400">鋼琴譜用大譜表，中央 C 落在兩個譜表之間</text>
+<line x1="300.0" y1="90.0" x2="660.0" y2="90.0" stroke="#2b2722" stroke-width="1.1"/>
+<line x1="300.0" y1="102.0" x2="660.0" y2="102.0" stroke="#2b2722" stroke-width="1.1"/>
+<line x1="300.0" y1="114.0" x2="660.0" y2="114.0" stroke="#2b2722" stroke-width="1.1"/>
+<line x1="300.0" y1="126.0" x2="660.0" y2="126.0" stroke="#2b2722" stroke-width="1.1"/>
+<line x1="300.0" y1="138.0" x2="660.0" y2="138.0" stroke="#2b2722" stroke-width="1.1"/>
+<line x1="300.0" y1="190.0" x2="660.0" y2="190.0" stroke="#2b2722" stroke-width="1.1"/>
+<line x1="300.0" y1="202.0" x2="660.0" y2="202.0" stroke="#2b2722" stroke-width="1.1"/>
+<line x1="300.0" y1="214.0" x2="660.0" y2="214.0" stroke="#2b2722" stroke-width="1.1"/>
+<line x1="300.0" y1="226.0" x2="660.0" y2="226.0" stroke="#2b2722" stroke-width="1.1"/>
+<line x1="300.0" y1="238.0" x2="660.0" y2="238.0" stroke="#2b2722" stroke-width="1.1"/>
+<circle cx="334.0" cy="114.0" r="13.0" fill="none" stroke="#A67C52" stroke-width="2"/>
+<text x="334.0" y="119.0" font-size="13" text-anchor="middle" fill="#A67C52" font-weight="700">G</text>
+<circle cx="334.0" cy="214.0" r="13.0" fill="none" stroke="#A67C52" stroke-width="2"/>
+<text x="334.0" y="219.0" font-size="13" text-anchor="middle" fill="#A67C52" font-weight="700">F</text>
+<line x1="300.0" y1="152.0" x2="660.0" y2="152.0" stroke="#A67C52" stroke-width="1.2" stroke-dasharray="4 4"/>
+<circle cx="510.0" cy="152.0" r="5.5" fill="#A67C52" stroke="none" stroke-width="1.4"/>
+<text x="526.0" y="156.0" font-size="12" text-anchor="#A67C52" fill="700" font-weight="400">中央 C（C4，約 261.6 Hz）</text>
+<text x="28.0" y="96.0" font-size="13" text-anchor="start" fill="#2b2722" font-weight="700">高音譜號</text>
+<text x="28.0" y="114.0" font-size="11" text-anchor="start" fill="#8a8078" font-weight="400">右手常用</text>
+<text x="28.0" y="196.0" font-size="13" text-anchor="start" fill="#2b2722" font-weight="700">低音譜號</text>
+<text x="28.0" y="214.0" font-size="11" text-anchor="start" fill="#8a8078" font-weight="400">左手常用</text>
+<text x="510.0" y="262.0" font-size="11.5" text-anchor="middle" fill="#8a8078" font-weight="400">兩個譜表只隔一條加線——那條線上的音就是中央 C</text>
+</svg>

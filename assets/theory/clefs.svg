@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340" width="100%" role="img" aria-label="三種譜號：記號本身就是線索">
+<rect width="760" height="340" fill="#f7f3ee"/>
+<text x="28.0" y="40.0" font-size="19" text-anchor="start" fill="#2b2722" font-weight="700">三種譜號：記號本身就是線索</text>
+<text x="28.0" y="62.0" font-size="12.5" text-anchor="start" fill="#8a8078" font-weight="400">圈起來的那條線，就是譜號名字說的那個音</text>
+<text x="28.0" y="104.0" font-size="13.5" text-anchor="start" fill="#2b2722" font-weight="700">高音譜號（G 譜號）</text>
+<text x="28.0" y="122.0" font-size="11" text-anchor="start" fill="#8a8078" font-weight="400">圈圈繞著第二線 → 第二線就是 G</text>
+<line x1="300.0" y1="76.0" x2="700.0" y2="76.0" stroke="#2b2722" stroke-width="1.1"/>
+<line x1="300.0" y1="88.0" x2="700.0" y2="88.0" stroke="#2b2722" stroke-width="1.1"/>
+<line x1="300.0" y1="100.0" x2="700.0" y2="100.0" stroke="#2b2722" stroke-width="1.1"/>
+<line x1="300.0" y1="112.0" x2="700.0" y2="112.0" stroke="#2b2722" stroke-width="1.1"/>
+<line x1="300.0" y1="124.0" x2="700.0" y2="124.0" stroke="#2b2722" stroke-width="1.1"/>
+<circle cx="334.0" cy="88.0" r="13.0" fill="none" stroke="#A67C52" stroke-width="2"/>
+<text x="334.0" y="93.0" font-size="13" text-anchor="middle" fill="#A67C52" font-weight="700">G</text>
+<circle cx="510.0" cy="88.0" r="7.0" fill="#A67C52" stroke="none" stroke-width="1.4"/>
+<text x="523.0" y="92.0" font-size="11.5" text-anchor="#A67C52" fill="700" font-weight="400">這一條線 = G</text>
+<text x="28.0" y="182.0" font-size="13.5" text-anchor="start" fill="#2b2722" font-weight="700">中音譜號（C 譜號）</text>
+<text x="28.0" y="200.0" font-size="11" text-anchor="start" fill="#8a8078" font-weight="400">缺口對準第三線 → 第三線就是中央 C</text>
+<line x1="300.0" y1="154.0" x2="700.0" y2="154.0" stroke="#2b2722" stroke-width="1.1"/>
+<line x1="300.0" y1="166.0" x2="700.0" y2="166.0" stroke="#2b2722" stroke-width="1.1"/>
+<line x1="300.0" y1="178.0" x2="700.0" y2="178.0" stroke="#2b2722" stroke-width="1.1"/>
+<line x1="300.0" y1="190.0" x2="700.0" y2="190.0" stroke="#2b2722" stroke-width="1.1"/>
+<line x1="300.0" y1="202.0" x2="700.0" y2="202.0" stroke="#2b2722" stroke-width="1.1"/>
+<circle cx="334.0" cy="166.0" r="13.0" fill="none" stroke="#A67C52" stroke-width="2"/>
+<text x="334.0" y="171.0" font-size="13" text-anchor="middle" fill="#A67C52" font-weight="700">C</text>
+<circle cx="510.0" cy="166.0" r="7.0" fill="#A67C52" stroke="none" stroke-width="1.4"/>
+<text x="523.0" y="170.0" font-size="11.5" text-anchor="#A67C52" fill="700" font-weight="400">這一條線 = C</text>
+<text x="28.0" y="260.0" font-size="13.5" text-anchor="start" fill="#2b2722" font-weight="700">低音譜號（F 譜號）</text>
+<text x="28.0" y="278.0" font-size="11" text-anchor="start" fill="#8a8078" font-weight="400">兩點夾住第四線 → 第四線就是 F</text>
+<line x1="300.0" y1="232.0" x2="700.0" y2="232.0" stroke="#2b2722" stroke-width="1.1"/>
+<line x1="300.0" y1="244.0" x2="700.0" y2="244.0" stroke="#2b2722" stroke-width="1.1"/>
+<line x1="300.0" y1="256.0" x2="700.0" y2="256.0" stroke="#2b2722" stroke-width="1.1"/>
+<line x1="300.0" y1="268.0" x2="700.0" y2="268.0" stroke="#2b2722" stroke-width="1.1"/>
+<line x1="300.0" y1="280.0" x2="700.0" y2="280.0" stroke="#2b2722" stroke-width="1.1"/>
+<circle cx="334.0" cy="256.0" r="13.0" fill="none" stroke="#A67C52" stroke-width="2"/>
+<text x="334.0" y="261.0" font-size="13" text-anchor="middle" fill="#A67C52" font-weight="700">F</text>
+<circle cx="510.0" cy="256.0" r="7.0" fill="#A67C52" stroke="none" stroke-width="1.4"/>
+<text x="523.0" y="260.0" font-size="11.5" text-anchor="#A67C52" fill="700" font-weight="400">這一條線 = F</text>
+<text x="28.0" y="322.0" font-size="11.5" text-anchor="start" fill="#8a8078" font-weight="400">實際樂譜中，三種譜號不會同時出現在同一組五線上。</text>
+</svg>
