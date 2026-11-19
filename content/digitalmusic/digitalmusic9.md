@@ -56,6 +56,9 @@ Pro Tools 的 Playlist 系統在管理大量 Take 時非常靈活，但不像 Lo
 
 ---
 
+
+![在 DAW 中設定 Comping 工作流程的重點整理](../../assets/digitalmusic/kp-9-2.svg)
+
 ## 如何組織 Take 並建立 Comp Track
 
 無論使用哪一套 DAW，組織 Take 的邏輯是共通的：
@@ -87,6 +90,9 @@ Pro Tools 的 Playlist 系統在管理大量 Take 時非常靈活，但不像 Lo
 - 暫時不要調整音量自動化，先專注於選取內容
 
 ---
+
+
+![如何組織 Take 並建立 Comp Track的重點整理](../../assets/digitalmusic/kp-9-3.svg)
 
 ## 聆聽的關鍵：從情感、節奏與音準三個面向評選
 
@@ -120,6 +126,9 @@ Pro Tools 的 Playlist 系統在管理大量 Take 時非常靈活，但不像 Lo
 
 ---
 
+
+![聆聽的關鍵：從情感、節奏與音準三個面向評選的重點整理](../../assets/digitalmusic/kp-9-4.svg)
+
 ## 交叉淡入淡出（Crossfade）的基礎概念
 
 選取好片段、排列到 Comp Track 之後，接下來的工作是讓這些片段之間的過渡聽起來平滑。這就是 Crossfade 的任務。
@@ -145,6 +154,9 @@ Crossfade 的做法是：在兩個片段的交界處，讓第一個片段的音�
 也可以手動調整：將游標移到片段左上角或右上角，會出現 Fade 手柄，拖曳即可建立淡入或淡出曲線。兩邊的曲線交叉處就是 Crossfade。
 
 ---
+
+
+![交叉淡入淡出（Crossfade）的基礎概念的重點整理](../../assets/digitalmusic/kp-9-5.svg)
 
 ## 交叉淡入淡出的類型：Equal Power vs Equal Gain
 
@@ -218,6 +230,9 @@ Crossfade 並非只有一種數學曲線，不同的曲線類型會影響聽感�
 
 ---
 
+
+![手動編輯 Crossfade：打造無縫銜接的重點整理](../../assets/digitalmusic/kp-9-7.svg)
+
 ## 處理剪輯邊界的 Click 與 Pop
 
 Click 和 Pop（爆音、啵聲）是剪輯音訊時最常見的問題，通常由以下原因造成：
@@ -241,6 +256,9 @@ Click 和 Pop（爆音、啵聲）是剪輯音訊時最常見的問題，通常�
 - 使用好的麥克風前級和線材，減少底噪
 
 ---
+
+
+![處理剪輯邊界的 Click 與 Pop的重點整理](../../assets/digitalmusic/kp-9-8.svg)
 
 ## Strip Silence：移除樂句間的靜音段落
 
@@ -273,6 +291,9 @@ Strip Silence 是一種自動化工具，會掃描選取的音訊片段，找出
 
 ---
 
+
+![Strip Silence：移除樂句間的靜音段落的重點整理](../../assets/digitalmusic/kp-9-9.svg)
+
 ## 統整 Comping 段落：打造最終乾淨音軌
 
 完成以上所有步驟後，最後的工作是將 Comped 的片段**統整（Consolidate/Flatten/Bounce in Place）** 為一條完整的、連續的音訊檔案。
@@ -303,6 +324,9 @@ Strip Silence 是一種自動化工具，會掃描選取的音訊片段，找出
 如果有問題，回頭重新調整 Comping 選取或 Crossfade 設定，然後再次統整。
 
 ---
+
+
+![統整 Comping 段落：打造最終乾淨音軌的重點整理](../../assets/digitalmusic/kp-9-10.svg)
 
 ## 實戰綜合案例：人聲 Comping 完整流程
 
@@ -343,6 +367,9 @@ Strip Silence 後的新邊界同樣需要 Crossfade。遍歷所有新產生的�
 從頭到尾完整播放一次，確認銜接流暢、無雜音、情感一致，然後將原始 Take 檔案歸檔（保留備份，以防日後需要重新 Comping）。
 
 ---
+
+
+![人聲 Comping 的完整流程](../../assets/digitalmusic/flow-comping.svg)
 
 ## 小結
 

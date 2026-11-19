@@ -18,6 +18,9 @@ Ambient 的風格跨度極廣，從 Brian Eno 的《Music for Airports》這種�
 
 ---
 
+
+![什麼是環境音樂？的重點整理](../../assets/digitalmusic/kp-25-1.svg)
+
 ## 打造 Pad 音色：疊層、濾波與緩慢調變
 
 ![環境音樂的四層結構](../../assets/digitalmusic/ambient-layers.svg)
@@ -95,6 +98,9 @@ Pad 是 Ambient 音樂的聲音基石。與其他曲風不同，Ambient 的 Pad 
 
 ---
 
+
+![殘響：環境音樂的主樂器的重點整理](../../assets/digitalmusic/kp-25-3.svg)
+
 ## 低頻設計：Drone 與 Sub-Bass
 
 Ambient 的低頻不同於舞曲——它不追求衝擊力，而是追求持續的包覆感與身體共鳴。
@@ -128,6 +134,9 @@ Ambient 的低頻不該完全靜止。嘗試以下技巧：
 
 ---
 
+
+![低頻設計：Drone 與 Sub-Bass的重點整理](../../assets/digitalmusic/kp-25-4.svg)
+
 ## 田野錄音與聲音紋理
 
 田野錄音（Field Recording）是 Ambient 製作中最強大的紋理素材來源。
@@ -151,6 +160,9 @@ Ambient 的低頻不該完全靜止。嘗試以下技巧：
 田野錄音不應該搶眼——它應該是「剛剛好被注意到，但更多時候被感覺到」的存在。
 
 ---
+
+
+![田野錄音與聲音紋理的重點整理](../../assets/digitalmusic/kp-25-5.svg)
 
 ## 顆粒合成：打造永不重複的紋理
 
@@ -221,6 +233,9 @@ Ambient 雖然沒有傳統結構，但不等於沒有動態。專業的 Ambient 
 
 ---
 
+
+![敘事感：沒有主歌副歌的動態曲線的重點整理](../../assets/digitalmusic/kp-25-7.svg)
+
 ## 實戰 Walkthrough：Drone + 紋理 + 演化
 
 讓我們實際組裝一首短小的 Ambient 作品：
@@ -271,6 +286,9 @@ Ambient 雖然沒有傳統結構，但不等於沒有動態。專業的 Ambient 
 
 ---
 
+
+![實戰 Walkthrough：Drone + 紋理 + 演化的重點整理](../../assets/digitalmusic/kp-25-8.svg)
+
 ## 總結
 
 Ambient 音樂的製作與傳統音樂截然不同——它要求我們從「寫歌」的思維轉變為「設計聲音空間」的思維。關鍵要點：
@@ -282,3 +300,6 @@ Ambient 音樂的製作與傳統音樂截然不同——它要求我們從「寫
 5. **敘事藏在動態裡**：即使沒有主歌副歌，透過音量、濾波和空間的變化，仍然可以帶領聽眾經歷一段情感旅程。
 
 練習建議：找一段 10 分鐘的田野錄音，以它為素材創作一首完整的 Ambient 作品——不使用傳統樂器，完全依靠殘響、濾波與自動化來創造結構。這是訓練「聲音空間思維」最好的練習。
+
+![總結的重點整理](../../assets/digitalmusic/kp-25-9.svg)
+

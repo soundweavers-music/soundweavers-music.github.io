@@ -8,6 +8,9 @@ Gain Staging（增益階段管理）是錄音與混音中最基本卻最常被�
 
 在數位領域，gain staging 的意義又比類比時代更微妙。類比設備在過載時會產生諧波失真（harmonic distortion），有時是「好聽的 saturation」；但數位系統在 0 dBFS 以上就是毫無妥協的硬 clipping——方波、爆音、資訊永久丟失。因此數位 gain staging 的首要原則就是：**永遠不要讓訊號在類比數位轉換器或 DAW 內部超過 0 dBFS。**
 
+
+![Gain Staging 的順序：每個環節都留一樣的空間](../../assets/digitalmusic/flow-gain-staging.svg)
+
 ## 二、類比 vs 數位：不同的 Headroom 哲學
 
 ### 類比時代的觀念
@@ -66,6 +69,9 @@ Headroom 的字面意思是「頭頂空間」，指 nominal level 以上到 clip
 
 headroom 保留得越多，混音時的彈性就越大。你可以自由地添加飽和、壓縮、EQ boost，而不必擔心邊際效應導致失真。當混音接近完成時，最後再透過 master bus 的 makeup gain 或 limiter 把整體音量提升到發行標準（通常是 -14 LUFS 或 -12 LUFS 左右）。**先把音訊錄好錄乾淨，最後再「開大聲」**——這是專業工程師與業餘者最明顯的分水嶺。
 
+
+![為什麼錄音時要保持低電平](../../assets/digitalmusic/cmp-low-level.svg)
+
 ## 五、插件內的 Gain Staging：Input / Output Trim
 
 ### 問題所在
@@ -96,6 +102,9 @@ headroom 保留得越多，混音時的彈性就越大。你可以自由地添�
 - **Voxengo SPAN**：免費的頻譜分析儀，內建 peak / RMS / K-system meter，可以精確校準插件 input / output。
 - **DAW 內建增益工具**：Pro Tools 的 Trim、Logic 的 Gain、Ableton Live 的 Utility，是調整 gain staging 最直接的工具。
 - **LUFS Meter**：Youlean Loudness Meter 或 DAW 內建 loudness meter，幫助確認整體混音的 loudness 是否符合目標。
+
+
+![五、插件內的 Gain Staging：Input / Output Trim的重點整理](../../assets/digitalmusic/kp-6-5.svg)
 
 ## 六、VU Meter 與 dBFS Meter：兩種不同的視角
 
@@ -171,6 +180,9 @@ Reverb 或 delay 的 aux send 如果電平過高，回傳到 bus 時也可能造
 
 當你 solo 一軌時聽起來正常，但全部 play 時 master bus 卻爆了。這是因為各軌道的頻率與相位相關性，會讓總和電平遠高於「不相關訊號的功率和」（每翻倍僅 +3 dB），並趨近「算術和」（每翻倍 +6 dB，constructive interference）。所以即使每一軌都低於 -18 dBFS，30 軌疊加後 master bus 仍然可能到 -3 dBFS 甚至更高。混音過程中要定期檢查 master bus 的 peak 與 RMS 電平。
 
+
+![七、常見錯誤的重點整理](../../assets/digitalmusic/kp-6-7.svg)
+
 ## 八、Gain Staging 實戰工作流程
 
 以下是一份可以在任何 DAW 中套用的 step-by-step 工作流程：
@@ -224,6 +236,9 @@ Input → Trim Plugin（校準到 -18 dBFS / 0 VU）
 - Master bus RMS 約在 -24 dBFS 到 -18 dBFS（視曲風而定）
 - 沒有任何 insert plugin 的 clip indicator 亮紅燈
 - 沒有任何 aux return 的 peak 異常
+
+
+![八、Gain Staging 實戰工作流程的重點整理](../../assets/digitalmusic/kp-6-8.svg)
 
 ## 九、進階觀念：Crest Factor 與 Dynamic Range
 

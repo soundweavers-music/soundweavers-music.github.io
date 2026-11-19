@@ -75,6 +75,9 @@ Flanger 的訊號處理方式：
 
 Flanger 的 Feedback（或稱 Regeneration）參數將輸出訊號的一部分反饋回效果器的輸入端。Feedback 為正數時會增強梳形濾波的共振尖峰，使效果更強烈、更「吵」；Feedback 為負數時反轉相位，產生不同的音色特徵。Feedback 調高時，Flanger 的聲音會從溫和的掃掠變成極具侵略性的聲響效果。
 
+
+![三、Flanger：動態 Comb Filter 與噴射機聲的重點整理](../../assets/digitalmusic/kp-22-3.svg)
+
 ## 四、Phaser：Notch Filter 掃掠與水漾空間感
 
 ### Phaser 的原理
@@ -107,6 +110,9 @@ Phaser 的訊號處理路徑：
 - **6-Stage Phaser**：3 個 Notch，將 MXR Phase 90 移至 4-Stage 條目。
 - **8-Stage Phaser**：4 個 Notch，效果更飽滿濃郁
 - **12-Stage Phaser**：6 個 Notch，聲音複雜而濃烈
+
+
+![四、Phaser：Notch Filter 掃掠與水漾空間感的重點整理](../../assets/digitalmusic/kp-22-4.svg)
 
 ## 五、Chorus、Flanger、Phaser 的技術差異
 
@@ -169,6 +175,9 @@ Chorus 是 Vocal 處理的萬用工具。對於主唱，輕微的 Chorus（Rate 
 | Voices | 1~2 | 2~3 | 3~4 |
 | Mix | 20~35% | 40~55% | 60~75% |
 
+
+![六、Chorus 的實際應用的重點整理](../../assets/digitalmusic/kp-22-6.svg)
+
 ## 七、Flanger 的實際應用
 
 ### Flanger 在鼓組上的應用
@@ -201,6 +210,9 @@ Flanger 與失真吉他的結合是搖滾史上最經典的搭配之一。失真
 | Depth | 15~30% | 35~55% | 60~100% |
 | Feedback | 0~15% | 15~35% | 40~80% |
 | Mix | 15~30% | 35~50% | 50~80% |
+
+
+![七、Flanger 的實際應用的重點整理](../../assets/digitalmusic/kp-22-7.svg)
 
 ## 八、Phaser 的實際應用
 
@@ -237,6 +249,9 @@ Phaser 非常適合用於長音類型的音色。合成器 Pad、弦樂、背景
 | Feedback | 0~10% | 10~30% | 30~60% |
 | Stages | 4 | 4~6 | 6~12 |
 | Mix | 20~35% | 40~60% | 60~80% |
+
+
+![八、Phaser 的實際應用的重點整理](../../assets/digitalmusic/kp-22-8.svg)
 
 ## 九、Rate、Depth、Feedback、Mix 四大參數解析
 
@@ -284,6 +299,9 @@ Mix 控制原始乾訊號與處理後濕訊號的比例。
 
 **_關鍵建議_**：對於混音中的調變效果，建議從低 Mix（20~30%）開始，緩慢增加直到效果「剛好被注意到」的程度，然後稍微退回一點。這個臨界點是最佳的 Mix 設定，既為聲音注入了流動感，又不會讓聽眾意識到效果器的存在。
 
+
+![九、Rate、Depth、Feedback、Mix 四大參數解析的重點整理](../../assets/digitalmusic/kp-22-9.svg)
+
 ## 十、實戰組合：多個調變效果的疊加使用
 
 使用多個調變效果時需要特別謹慎，避免產生「調變過度」導致聲音模糊、失去焦點。
@@ -302,6 +320,9 @@ Mix 控制原始乾訊號與處理後濕訊號的比例。
 **80 年代流行鼓聲**：鼓組 Bus 先掛輕微 Compressor 控制動態，然後 Chorus（Mix 15~25%），最後再接微量的 Hall Reverb。Chorus 讓鼓組聽起來更寬、更飽滿。
 
 **電子音樂的超級 Pad**：合成器 Pad 訊號分為兩路——一路正常處理，另一路加上 Flanger（Rate 0.2Hz、Depth 60%）後用 LPF 切除高頻。兩路混合後得到既有厚度又有動態流動感的音色。
+
+
+![十、實戰組合：多個調變效果的疊加使用的重點整理](../../assets/digitalmusic/kp-22-10.svg)
 
 ## 十一、創意調變：參數自動化與動態紋理
 
@@ -335,6 +356,9 @@ Depth 的變化直接影響效果的「強度」，適合用來強化歌曲的�
 
 進階技巧：利用 Sidechain 訊號觸發調變效果的參數變化。例如，使 Flanger 的 Rate 隨著大鼓的節奏同步跳動，或者讓 Chorus 的 Depth 在 Hi-hat 擊打時產生瞬間變化。這種節奏性的調變在電子音樂和現代流行音樂中非常常見。
 
+
+![十一、創意調變：參數自動化與動態紋理的重點整理](../../assets/digitalmusic/kp-22-11.svg)
+
 ## 十二、調變效果的訊號鏈位置
 
 調變效果在效果器鏈中的位置會顯著影響最終聲音：
@@ -354,6 +378,9 @@ Depth 的變化直接影響效果的「強度」，適合用來強化歌曲的�
 ### 在 Delay / Reverb 之後
 
 較少見，但可用於創造特殊的「晃動空間」效果——空間本身的聲音在持續變化，產生類似失重感的聽覺體驗。
+
+
+![調變效果在訊號鏈的哪裡](../../assets/digitalmusic/flow-signal-chain-position.svg)
 
 ## 結語
 

@@ -10,6 +10,9 @@ LUFS（Loudness Units relative to Full Scale）是國際電信聯盟（ITU-R BS.
 
 > **關鍵觀念：LUFS 測量的是「耳朵感受到的大小聲」，而非「波形的高度」。**
 
+
+![LUFS 是什麼：為什麼不是 dB](../../assets/digitalmusic/cmp-lufs-what.svg)
+
 ## 為什麼響度標準這麼重要？
 
 在串流平台主宰音樂聆聽的時代，響度標準不再只是選項，而是必要條件。原因如下：
@@ -34,6 +37,9 @@ LUFS（Loudness Units relative to Full Scale）是國際電信聯盟（ITU-R BS.
 - 電子樂：平台將其衰減 -6 dB，使其降到 -14 LUFS。但因為它原本就被壓縮得很「平」，衰減後動態對比消失，聽起來缺乏衝擊力與層次感。
 
 **結論：一味追求混音「大聲」已無意義。** 平台最終會把它們拉到同一響度，反而保留動態的作品聽起來更有力量。
+
+
+![為什麼響度標準這麼重要？的重點整理](../../assets/digitalmusic/kp-28-2.svg)
 
 ## LUFS 的三種測量方式
 
@@ -84,6 +90,9 @@ True Peak（真實峰值）與普通 Peak（樣本峰值）不同。在數位音
 3. **類比設備保護**：如果最終要轉換為類比訊號（黑膠、廣播），True Peak 超標會直接導致功率放大器過載。
 
 **實務建議**：在 Master Bus 的最後一級使用支援 True Peak 檢測的 Limiter，將 Ceiling 設為 -1.0 到 -0.5 dBTP，保留安全餘裕。
+
+
+![True Peak：真實峰值的重要性的重點整理](../../assets/digitalmusic/kp-28-4.svg)
 
 ## 各平台的響度目標
 
@@ -172,6 +181,9 @@ Limiter 偵測到超標訊號後，多快開始壓制。
 - **Hard Knee（0 dB）**：訊號一過 Threshold，立即開始限制，反應最銳利。
 - **Soft Knee（1-6 dB）**：在 Threshold 附近有一個平滑過渡區，聽感上較不突兀，適合音樂素材。
 
+
+![Limiter 的核心設定參數的重點整理](../../assets/digitalmusic/kp-28-7.svg)
+
 ## 透明限縮 vs 侵略性限縮
 
 ### 透明限縮（Transparent Limiting）
@@ -194,6 +206,9 @@ Limiter 偵測到超標訊號後，多快開始壓制。
 - 搭配前置壓縮器（Pre-compressor）分散處理壓力
 - 增益衰減總量可能達到 6-12 dB
 
+
+![透明限縮 vs 侵略性限縮的重點整理](../../assets/digitalmusic/kp-28-8.svg)
+
 ## 響度戰爭：大聲真的更好嗎？
 
 1990 年代到 2010 年代初，音樂產業陷入所謂的「響度戰爭」（Loudness War）。製作人將專輯越做越大聲——壓縮再壓縮，直到波形幾乎變成方塊，代價是聽覺疲勞與動態喪失。
@@ -205,6 +220,9 @@ Limiter 偵測到超標訊號後，多快開始壓制。
 - **不要為了 -14 LUFS 而犧牲音樂性**。如果你的音樂在 -16 LUFS 聽起來完美，就保留 -16 LUFS。
 - **使用多重處理而非單一 Limiter**。在前級先用 Compressor 和 Saturator 控制動態，最後再用 Limiter 做最終把關。
 - **A/B 測試**：總是將處理前後的訊號進行 A/B 對比。如果處理後聽起來更差，就減少處理量。
+
+
+![響度戰爭：大聲真的更好嗎？的重點整理](../../assets/digitalmusic/kp-28-9.svg)
 
 ## 實用限縮鏈：從 Compressor 到 Limiter
 
@@ -243,6 +261,9 @@ Limiter 偵測到超標訊號後，多快開始壓制。
 - 在主 Limiter 後可再加一個輕度 True Peak Limiter，Ceiling 設為 -1.0 dBTP。
 - 注意：不要讓兩個 Limiter 各自壓制總和超過 6 dB，否則動態會嚴重受損。
 
+
+![實用限縮鏈：從 Compressor 到 Limiter的重點整理](../../assets/digitalmusic/kp-28-10.svg)
+
 ## 最後的 LUFS 檢查
 
 在匯出前進行最終 LUFS 檢查，確保符合目標平台的規範。以下是最後檢查清單：
@@ -273,6 +294,9 @@ Limiter 偵測到超標訊號後，多快開始壓制。
 ### 最後提醒
 
 LUFS 是科學工具，但音樂終歸是藝術。**不要讓數字綁架你的聽覺**。如果你在 -16 LUFS 聽起來已經非常完美，就沒有理由硬壓到 -14 LUFS。平台的正規化會處理剩下的差異，而你的音樂保留了最真實的動態生命力。
+
+
+![最後的 LUFS 檢查的重點整理](../../assets/digitalmusic/kp-28-11.svg)
 
 ## 總結
 

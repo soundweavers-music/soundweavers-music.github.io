@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 460" role="img" aria-label="各樂器的實用 EQ 流程">
+  <title>各樂器的實用 EQ 流程</title>
+  <rect width="660" height="460" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">各樂器的實用 EQ 流程</text>
+  <text x="26" y="55" class="ts" font-size="12.5">把這一節的重點排在一起</text>
+  <rect x="26.0" y="96" width="295.0" height="96" rx="9" fill="#F3E9DC" stroke="#D9CFC4" stroke-width="1.4"/>  <circle cx="40.0" cy="116" r="10" fill="#A67C52"/>  <text x="40.0" y="120" text-anchor="middle" class="num">1</text>  <text x="60.0" y="121" class="t" font-size="12" font-weight="700">HPF</text>  <text x="40.0" y="144" class="ts" font-size="9.5" fill="#8C8078">80–120Hz，清除低頻噪音</text>  <text x="40.0" y="160" class="ts" font-size="9.5" fill="#8C8078">。</text>  <rect x="339.0" y="96" width="295.0" height="96" rx="9" fill="#F3E9DC" stroke="#D9CFC4" stroke-width="1.4"/>  <circle cx="353.0" cy="116" r="10" fill="#A67C52"/>  <text x="353.0" y="120" text-anchor="middle" class="num">2</text>  <text x="373.0" y="121" class="t" font-size="12" font-weight="700">LowMids清理</text>  <text x="353.0" y="144" class="ts" font-size="9.5" fill="#8C8078">250–400Hz微Cut（-</text>  <text x="353.0" y="160" class="ts" font-size="9.5" fill="#8C8078">1到-2dB），減少鼻音。</text>  <rect x="26.0" y="206" width="295.0" height="96" rx="9" fill="#F3E9DC" stroke="#D9CFC4" stroke-width="1.4"/>  <circle cx="40.0" cy="226" r="10" fill="#A67C52"/>  <text x="40.0" y="230" text-anchor="middle" class="num">3</text>  <text x="60.0" y="231" class="t" font-size="12" font-weight="700">Mids清晰度</text>  <text x="40.0" y="254" class="ts" font-size="9.5" fill="#8C8078">如果聲音太遠，在1–2kHz小</text>  <text x="40.0" y="270" class="ts" font-size="9.5" fill="#8C8078">Boost（+1到+2dB）。</text>  <rect x="339.0" y="206" width="295.0" height="96" rx="9" fill="#F3E9DC" stroke="#D9CFC4" stroke-width="1.4"/>  <circle cx="353.0" cy="226" r="10" fill="#A67C52"/>  <text x="353.0" y="230" text-anchor="middle" class="num">4</text>  <text x="373.0" y="231" class="t" font-size="12" font-weight="700">刺耳點</text>  <text x="353.0" y="254" class="ts" font-size="9.5" fill="#8C8078">掃除2–4kHz，找到問題點後</text>  <text x="353.0" y="270" class="ts" font-size="9.5" fill="#8C8078">Cut（-2到-4dB）。</text>  <rect x="26.0" y="316" width="295.0" height="96" rx="9" fill="#F3E9DC" stroke="#D9CFC4" stroke-width="1.4"/>  <circle cx="40.0" cy="336" r="10" fill="#A67C52"/>  <text x="40.0" y="340" text-anchor="middle" class="num">5</text>  <text x="60.0" y="341" class="t" font-size="12" font-weight="700">Presence</text>  <text x="40.0" y="364" class="ts" font-size="9.5" fill="#8C8078">4–6kHz小Boost，增加</text>  <text x="40.0" y="380" class="ts" font-size="9.5" fill="#8C8078">臨場感。</text>  <rect x="339.0" y="316" width="295.0" height="96" rx="9" fill="#F3E9DC" stroke="#D9CFC4" stroke-width="1.4"/>  <circle cx="353.0" cy="336" r="10" fill="#A67C52"/>  <text x="353.0" y="340" text-anchor="middle" class="num">6</text>  <text x="373.0" y="341" class="t" font-size="12" font-weight="700">Air</text>  <text x="353.0" y="364" class="ts" font-size="9.5" fill="#8C8078">8–12kHzHighShel</text>  <text x="353.0" y="380" class="ts" font-size="9.5" fill="#8C8078">f+2到+4dB。</text>
+</svg>

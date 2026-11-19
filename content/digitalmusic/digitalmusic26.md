@@ -15,6 +15,9 @@
 - 靜音 / 獨奏狀態（Mute / Solo）
 - 樂器參數（合成器的 cutoff、resonance、envelope 等）
 
+
+![什麼是 Automation（自動化）？的重點整理](../../assets/digitalmusic/kp-26-1.svg)
+
 ## 音量 Automation：混音中最關鍵的工具
 
 ![音量自動化曲線](../../assets/digitalmusic/automation-curve.svg)
@@ -61,6 +64,9 @@ Compressor（壓縮器）確實可以控制音量，但它是被動的、基於�
 
 用 automation 控制鼓組的壓縮器 mix 量或平行壓縮的 send level。在主歌時壓縮較少，讓鼓聲較自然；逐漸接近副歌時增加壓縮量，讓鼓聲越來越「黏」、越來越有力。
 
+
+![主歌到副歌的漸強 Build-Up的重點整理](../../assets/digitalmusic/kp-26-3.svg)
+
 ## 聲像 Automation：為聲音注入動感
 
 | 種類 | 控制什麼 | 常見用途 |
@@ -91,6 +97,9 @@ Compressor（壓縮器）確實可以控制音量，但它是被動的、基於�
 ### 段落過渡的 Panning
 
 在段落轉換時（例如 bridge 結束要回到最後一次副歌），對一個 rising sound（如 riser）從左聲道 pan 到右聲道，製造出一種「掃過」空間的感覺，為轉場增加立體感。
+
+
+![聲像 Automation：為聲音注入動感的重點整理](../../assets/digitalmusic/kp-26-4.svg)
 
 ## 效果器參數 Automation：聲音設計的核心
 
@@ -132,6 +141,9 @@ Delay 的 feedback（回授量）是另一個強大的 automation 目標：
 - **Compressor Ratio / Threshold**：改變壓縮強度，影響聲音的 punch
 - **EQ Frequency / Gain**：在 bridge 時提升中頻，增加親密感；在 chorus 時提升高頻，增加空氣感
 - **Chorus / Flanger Rate**：調變效果的速率隨音樂情緒而變化
+
+
+![效果器參數 Automation：聲音設計的核心的重點整理](../../assets/digitalmusic/kp-26-5.svg)
 
 ## 手動繪製 Automation vs 錄製推桿移動
 
@@ -175,6 +187,9 @@ DAW 處於錄製 automation 模式時，你一邊播放歌曲一邊推動推桿�
 ### 最佳做法：兩者結合
 
 先用手推錄製出自然的 automation，然後進入 automation lane 手動微調——移除多餘的 breakpoint、平滑鋸齒狀的曲線、微調 timing。這樣既保留了人性的感覺，又達到了專業的精確度。
+
+
+![手動繪製 Automation vs 錄製推桿移動的重點整理](../../assets/digitalmusic/kp-26-6.svg)
 
 ## Clip Gain vs Track Automation
 
@@ -237,6 +252,9 @@ Riser 通常是一個持續升高的音色，搭配以下 automation：
 4. **第 4 小節**：所有 automation 衝向最大值——volume、pan speed、filter cutoff、reverb、delay——在第 4 小節最後一拍達到最高點
 5. **副歌第一拍**：全部 automation 瞬間重置，drop 進副歌
 
+
+![Automation 用於轉場（Transitions）的重點整理](../../assets/digitalmusic/kp-26-8.svg)
+
 ## 透過 Automation 創造情緒弧線
 
 一首讓人難忘的歌曲，背後一定有一條精心設計的情緒弧線。Automation 是實現這條弧線的工具。
@@ -264,6 +282,9 @@ Riser 通常是一個持續升高的音色，搭配以下 automation：
 - **平滑曲線**：使用 DAW 的曲線工具（而不是直線工具）來畫 automation
 
 在 Ableton Live 中，你可以按住 Ctrl（Mac：Cmd）拖曳 breakpoint 來畫曲線；在 Logic Pro 中，選擇「Curve」模式來自動平滑；在 FL Studio 中，右鍵點擊 automation clip 選擇「Smooth」。了解你的 DAW 的曲線編輯工具，並熟練使用。
+
+
+![透過 Automation 創造情緒弧線的重點整理](../../assets/digitalmusic/kp-26-9.svg)
 
 ## 實用 Automation 工作流程
 
@@ -304,6 +325,9 @@ Riser 通常是一個持續升高的音色，搭配以下 automation：
 - 檢查是否有不必要的 automation 跳動（尤其是在段落交界處）
 - 確認 automation 的 timing 是否與音樂同步（用 zoom in 到小節的尺度檢視）
 
+
+![實用 Automation 工作流程的重點整理](../../assets/digitalmusic/kp-26-10.svg)
+
 ## 自然感的 Automation 曲線技巧
 
 ### 1. 避免直線
@@ -325,6 +349,9 @@ Riser 通常是一個持續升高的音色，搭配以下 automation：
 ### 5. Automation 的「空間」
 
 不要讓 automation 填滿整首歌的每一個瞬間。有時候，不 automation 就是最好的 automation——讓某些段落保持穩定，反而能讓有變化的部分更加突出。
+
+
+![Automation 的自然曲線：用 S 曲線，不要手畫直線](../../assets/digitalmusic/automation-curve.svg)
 
 ## 結語
 
