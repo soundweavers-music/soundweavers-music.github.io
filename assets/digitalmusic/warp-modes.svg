@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 370" role="img" aria-label="四種 Warp 模式">
+  <title>四種 Warp 模式</title>
+  <rect width="660" height="370" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">四種 Warp 模式</text>
+  <text x="26" y="55" class="ts" font-size="12.5">每一種保留的東西不一樣</text>
+  <text x="26" y="84" class="ts" font-size="12">同一段音訊，四種 Warp 模式對「什麼該保留」有不同的答案。</text>
+  <rect x="50" y="112" width="270" height="100" rx="8" fill="#FFFFFF" stroke="#A67C52" stroke-width="1.4"/>
+  <text x="64" y="138" class="t" font-size="12.5" font-weight="700" fill="#A67C52">Beats</text>
+  <text x="64" y="160" class="ts" font-size="9.5" fill="#8C8078">保留瞬態，適合鼓與打擊</text>
+  <path d="M66.0 214.0 L71.9 190.0 L77.8 198.0 L83.7 190.0 L89.6 198.0 L95.5 174.0 L101.4 198.0 L107.3 190.0 L113.2 198.0 L119.1 190.0 L125.0 214.0 L130.9 190.0 L136.8 198.0 L142.7 190.0 L148.6 198.0 L154.5 174.0 L160.4 198.0 L166.3 190.0 L172.2 198.0 L178.1 190.0 L184.0 214.0 L189.9 190.0 L195.8 198.0 L201.7 190.0 L207.6 198.0 L213.5 174.0 L219.4 198.0 L225.3 190.0 L231.2 198.0 L237.1 190.0 L243.0 214.0 L248.9 190.0 L254.8 198.0 L260.7 190.0 L266.6 198.0 L272.5 174.0 L278.4 198.0 L284.3 190.0 L290.2 198.0 L296.1 190.0 L302.0 214.0" class="acc"/>
+  <rect x="350" y="112" width="270" height="100" rx="8" fill="#FFFFFF" stroke="#6B8FBF" stroke-width="1.4"/>
+  <text x="364" y="138" class="t" font-size="12.5" font-weight="700" fill="#6B8FBF">Tones</text>
+  <text x="364" y="160" class="ts" font-size="9.5" fill="#8C8078">保留音高與和聲，適合人聲與貝斯</text>
+  <path d="M366.0 194.0 L371.9 190.4 L377.8 187.5 L383.7 186.1 L389.6 186.4 L395.5 188.3 L401.4 191.5 L407.3 195.3 L413.2 198.7 L419.1 201.1 L425.0 202.0 L430.9 201.1 L436.8 198.7 L442.7 195.3 L448.6 191.5 L454.5 188.3 L460.4 186.4 L466.3 186.1 L472.2 187.5 L478.1 190.4 L484.0 194.0 L489.9 197.6 L495.8 200.5 L501.7 201.9 L507.6 201.6 L513.5 199.7 L519.4 196.5 L525.3 192.7 L531.2 189.3 L537.1 186.9 L543.0 186.0 L548.9 186.9 L554.8 189.3 L560.7 192.7 L566.6 196.5 L572.5 199.7 L578.4 201.6 L584.3 201.9 L590.2 200.5 L596.1 197.6 L602.0 194.0" class="blue"/>
+  <rect x="50" y="230" width="270" height="100" rx="8" fill="#FFFFFF" stroke="#6F8F6A" stroke-width="1.4"/>
+  <text x="64" y="256" class="t" font-size="12.5" font-weight="700" fill="#6F8F6A">Texture</text>
+  <text x="64" y="278" class="ts" font-size="9.5" fill="#8C8078">保留質感，適合 pad 與環境音</text>
+  <path d="M66.0 312.0 L71.9 308.4 L77.8 305.5 L83.7 304.1 L89.6 304.4 L95.5 306.3 L101.4 309.5 L107.3 313.3 L113.2 316.7 L119.1 319.1 L125.0 320.0 L130.9 319.1 L136.8 316.7 L142.7 313.3 L148.6 309.5 L154.5 306.3 L160.4 304.4 L166.3 304.1 L172.2 305.5 L178.1 308.4 L184.0 312.0 L189.9 315.6 L195.8 318.5 L201.7 319.9 L207.6 319.6 L213.5 317.7 L219.4 314.5 L225.3 310.7 L231.2 307.3 L237.1 304.9 L243.0 304.0 L248.9 304.9 L254.8 307.3 L260.7 310.7 L266.6 314.5 L272.5 317.7 L278.4 319.6 L284.3 319.9 L290.2 318.5 L296.1 315.6 L302.0 312.0" class="green"/>
+  <rect x="350" y="230" width="270" height="100" rx="8" fill="#FFFFFF" stroke="#5D4E41" stroke-width="1.4"/>
+  <text x="364" y="256" class="t" font-size="12.5" font-weight="700" fill="#5D4E41">Re-Pitch</text>
+  <text x="364" y="278" class="ts" font-size="9.5" fill="#8C8078">像改變轉速，音高會跟著變</text>
+  <path d="M366.0 312.0 L371.9 307.1 L377.8 304.3 L383.7 304.7 L389.6 308.1 L395.5 313.3 L401.4 317.8 L407.3 320.0 L413.2 318.8 L419.1 314.7 L425.0 309.5 L430.9 305.4 L436.8 304.0 L442.7 306.0 L448.6 310.5 L454.5 315.6 L460.4 319.2 L466.3 319.8 L472.2 317.1 L478.1 312.3 L484.0 307.3 L489.9 304.3 L495.8 304.6 L501.7 307.9 L507.6 313.0 L513.5 317.7 L519.4 319.9 L525.3 318.9 L531.2 314.9 L537.1 309.8 L543.0 305.5 L548.9 304.0 L554.8 305.8 L560.7 310.3 L566.6 315.4 L572.5 319.1 L578.4 319.9 L584.3 317.3 L590.2 312.5 L596.1 307.5 L602.0 304.4" class="ink"/>
+  <text x="26" y="352" class="ts" font-size="11">選錯模式，時間伸縮就會出現金屬聲或雙重瞬態。</text>
+</svg>

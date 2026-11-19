@@ -107,6 +107,8 @@ True Peak（真實峰值）與普通 Peak（樣本峰值）不同。在數位音
 
 ## 什麼是 Limiter？
 
+![Limiter 與 Gain Reduction](/assets/digitalmusic/limiter-gr.svg)
+
 Limiter（限制器）是一種動態處理器，其功能是「**訊號永遠不超過某個設定門檻**」。你可以把它想像成一個非常強硬的保安：
 
 - 當訊號低於門檻：放行，不做任何處理。

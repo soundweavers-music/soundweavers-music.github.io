@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 350" role="img" aria-label="雙軌人聲">
+  <title>雙軌人聲</title>
+  <rect width="660" height="350" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">雙軌人聲</text>
+  <text x="26" y="55" class="ts" font-size="12.5">兩次演出，不是兩份檔案</text>
+  <text x="26" y="84" class="ts" font-size="12">雙軌人聲不是複製貼上：要的是兩次「幾乎一樣但不一樣」的演出。</text>
+  <rect x="60" y="108" width="160" height="56" rx="8" fill="#F3E9DC" stroke="#D9CFC4" stroke-width="1.3"/>
+  <text x="72" y="130" class="t" font-size="13" font-weight="700">主唱</text>
+  <text x="72" y="149" class="ts" font-size="11">置中、乾</text>
+  <rect x="60" y="186" width="160" height="56" rx="8" fill="#DEE8F3" stroke="#D9CFC4" stroke-width="1.3"/>
+  <text x="72" y="208" class="t" font-size="13" font-weight="700">Double</text>
+  <text x="72" y="227" class="ts" font-size="11">偏 10–20 ms</text>
+  <rect x="280" y="128" width="240" height="18" rx="3" fill="#A67C52" opacity="0.25"/>
+  <text x="286" y="140" class="ts" font-size="9" fill="#A67C52">L</text>
+  <rect x="284" y="206" width="240" height="18" rx="3" fill="#6B8FBF" opacity="0.25"/>
+  <text x="290" y="218" class="ts" font-size="9" fill="#6B8FBF">R</text>
+  <text x="560" y="140" class="ts" font-size="9.5" fill="#A67C52">主唱：兩邊等量</text>
+  <text x="560" y="218" class="ts" font-size="9.5" fill="#6B8FBF">Double：稍微偏一邊</text>
+  <text x="26" y="290" class="ts" font-size="11">兩軌時間差 10–25 ms，聽起來會變寬；完全相同只會變大聲。</text>
+  <text x="26" y="332" class="ts" font-size="11" fill="#8C8078">Double 要重新唱一次；複製貼上加延遲是另一種效果，不是加厚。</text>
+</svg>

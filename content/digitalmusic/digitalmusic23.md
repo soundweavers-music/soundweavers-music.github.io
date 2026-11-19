@@ -121,6 +121,8 @@ Slap delay 是另一個 Mandopop 的秘密武器。它是在殘響之前加入�
 
 ## 雙軌錄音與人聲拓寬
 
+![雙軌人聲的時差與聲像](/assets/digitalmusic/vocal-double.svg)
+
 ### 雙軌錄音（Double Tracking）
 
 許多 Mandopop 歌曲會在副歌或重點段落使用雙軌錄音。歌手將同一句歌詞唱兩次（甚至三次），分別位於左右聲道，這樣會產生極其自然的加寬效果。實務上：

@@ -94,6 +94,8 @@ Send/Return（又稱 Aux Bus 或 Bus 架構）是專業混音的核心技術：
 
 ## 五、Pre-delay：在清晰度下創造深度
 
+![殘響的時間軸](/assets/digitalmusic/reverb-timeline.svg)
+
 Pre-delay（預延遲）是指原始乾訊號發出後，到殘響開始出現之間的時間間隔。這是空間感營造中最容易被忽略但極其重要的參數。
 
 ### Pre-delay 的混音應用

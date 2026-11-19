@@ -174,6 +174,8 @@ DAW 處於錄製 automation 模式時，你一邊播放歌曲一邊推動推桿�
 
 ## Clip Gain vs Track Automation
 
+![Clip gain 與 Fader 動在不同位置](/assets/digitalmusic/clip-gain-vs-fader.svg)
+
 兩者都是在調整音量，但用處不同。
 
 ### Clip Gain（片段增益）

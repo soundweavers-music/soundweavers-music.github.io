@@ -110,6 +110,8 @@
 
 ## 4. 測角儀：立體聲寬度的視覺化
 
+![立體聲寬度與單聲道相容](/assets/digitalmusic/stereo-width.svg)
+
 測角儀（Goniometer 或 Vectorscope）是立體聲寬度的視覺化工具。它以 XY 座標的方式顯示立體聲信號：X 軸代表 Side（L−R，左右差異），Y 軸代表 Mid（L+R，中央成分）。
 
 **如何閱讀測角儀**：

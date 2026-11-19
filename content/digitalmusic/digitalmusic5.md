@@ -83,6 +83,8 @@
 
 ## 三、爵士鼓（Drum Kit）收音
 
+![鼓組的麥克風位置](/assets/digitalmusic/drum-kit-map.svg)
+
 爵士鼓是錄音中最具挑戰性的樂器之一——因為它有太多聲源同時發聲。一套標準鼓組的收音通常分三層。
 
 ### 3.1 Close Miking（近距離收音）
@@ -188,6 +190,8 @@ Overheads 負責捕捉鈸（cymbal）與整體鼓組的立體感。通常使用�
 ---
 
 ## 七、多麥克風的相位相關性：3:1 規則
+
+![3:1 規則](/assets/digitalmusic/three-to-one.svg)
 
 ![AB、XY、ORTF、MS 四種立體聲收音](/assets/digitalmusic/stereo-techniques.svg)
 

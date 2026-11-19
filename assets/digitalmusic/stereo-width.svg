@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 340" role="img" aria-label="立體聲寬度">
+  <title>立體聲寬度</title>
+  <rect width="660" height="340" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">立體聲寬度</text>
+  <text x="26" y="55" class="ts" font-size="12.5">三種寬度在單聲道下的下場</text>
+  <text x="26" y="84" class="ts" font-size="12">寬度不是越大越好：太窄擠在中央，太寬在單聲道下會消失。</text>
+  <rect x="60" y="120" width="170" height="90" rx="6" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.4"/>
+  <path d="M125.0 145 L165.0 145" class="thin" opacity="0.5"/>
+  <path d="M105.0 165 L185.0 165" class="thin" opacity="0.5"/>
+  <path d="M85.0 185 L205.0 185" class="thin" opacity="0.5"/>
+  <rect x="139.0" y="153" width="12.0" height="24" rx="4" fill="#B0563F" opacity="0.22"/>
+  <text x="145" y="228" class="ts" font-size="10.5" text-anchor="middle" font-weight="700">單聲道</text>
+  <text x="145" y="244" class="ts" font-size="8.5" text-anchor="middle" fill="#8C8078">全部擠在中央</text>
+  <rect x="260" y="120" width="170" height="90" rx="6" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.4"/>
+  <path d="M325.0 145 L365.0 145" class="thin" opacity="0.5"/>
+  <path d="M305.0 165 L385.0 165" class="thin" opacity="0.5"/>
+  <path d="M285.0 185 L405.0 185" class="thin" opacity="0.5"/>
+  <rect x="312.0" y="153" width="66.0" height="24" rx="4" fill="#6F8F6A" opacity="0.22"/>
+  <text x="345" y="228" class="ts" font-size="10.5" text-anchor="middle" font-weight="700">正常</text>
+  <text x="345" y="244" class="ts" font-size="8.5" text-anchor="middle" fill="#8C8078">有寬度但中央仍清楚</text>
+  <rect x="460" y="120" width="170" height="90" rx="6" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.4"/>
+  <path d="M525.0 145 L565.0 145" class="thin" opacity="0.5"/>
+  <path d="M505.0 165 L585.0 165" class="thin" opacity="0.5"/>
+  <path d="M485.0 185 L605.0 185" class="thin" opacity="0.5"/>
+  <rect x="485.0" y="153" width="120.0" height="24" rx="4" fill="#B0563F" opacity="0.22"/>
+  <text x="545" y="228" class="ts" font-size="10.5" text-anchor="middle" font-weight="700">過寬</text>
+  <text x="545" y="244" class="ts" font-size="8.5" text-anchor="middle" fill="#8C8078">單聲道下會塌掉</text>
+  <text x="26" y="300" class="ts" font-size="11">檢查方式：按 mono，聽聽看有沒有東西消失，或中央突然變大。</text>
+</svg>

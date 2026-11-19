@@ -3505,10 +3505,18 @@ def main():
     guitar_img = BASE_DIR / "assets" / "guitar"
     if guitar_img.exists():
         shutil.copytree(str(guitar_img), str(OUTPUT_DIR / "assets" / "guitar"), dirs_exist_ok=True)
+    # Ukulele course diagrams (used by content/ukulele/*.md via ../../assets/ukulele/)
+    ukulele_img = BASE_DIR / "assets" / "ukulele"
+    if ukulele_img.exists():
+        shutil.copytree(str(ukulele_img), str(OUTPUT_DIR / "assets" / "ukulele"), dirs_exist_ok=True)
     # Recording / mixing course diagrams
     dm_img = BASE_DIR / "assets" / "digitalmusic"
     if dm_img.exists():
         shutil.copytree(str(dm_img), str(OUTPUT_DIR / "assets" / "digitalmusic"), dirs_exist_ok=True)
+    # Theory course diagrams (content/musictheory/*.md → /assets/theory/*.svg)
+    theory_img = BASE_DIR / "assets" / "theory"
+    if theory_img.exists():
+        shutil.copytree(str(theory_img), str(OUTPUT_DIR / "assets" / "theory"), dirs_exist_ok=True)
     # Mandolin book images
     mand_img = BASE_DIR / "assets" / "mandolin" / "img"
     if mand_img.exists():

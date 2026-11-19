@@ -112,6 +112,8 @@ Spotify、Apple Music、Tidal 等平台通常接受 24-bit 44.1kHz 或 48kHz 的
 
 ## 五、輸出格式全面解析
 
+![輸出格式的取捨](/assets/digitalmusic/export-formats.svg)
+
 ### 5.1 無失真格式（Lossless）
 
 #### WAV（Waveform Audio File Format）

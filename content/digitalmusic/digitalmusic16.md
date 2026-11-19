@@ -171,6 +171,8 @@
 
 ## Mid-Side EQ：處理立體聲的頻率內容
 
+![Mid／Side 分開處理](/assets/digitalmusic/mid-side-eq.svg)
+
 Mid-Side EQ（簡稱 M/S EQ）是一種更精密的 EQ 處理方式，它允許你獨立處理立體聲信號的「中央（Mid）」和「兩側（Side）」內容。
 
 - **中央（Mid）**：左右聲道相同的部分，通常包含人聲、大鼓、貝斯、主奏樂器

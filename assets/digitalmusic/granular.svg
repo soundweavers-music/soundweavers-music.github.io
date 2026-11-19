@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 340" role="img" aria-label="顆粒合成">
+  <title>顆粒合成</title>
+  <rect width="660" height="340" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">顆粒合成</text>
+  <text x="26" y="55" class="ts" font-size="12.5">把聲音切成小片再重組</text>
+  <text x="26" y="84" class="ts" font-size="12">顆粒合成把聲音切成幾十毫秒的小片，再以不同的密度與位置重組。</text>
+  <path d="M70 180 L590 180" class="thin"/>
+  <rect x="70.0" y="145.0" width="5" height="35.0" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="78.66666666666667" y="135.21548310919255" width="5" height="44.78451689080746" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="87.33333333333333" y="126.21120482121137" width="5" height="53.78879517878864" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="96.0" y="118.70518582008975" width="5" height="61.29481417991025" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="104.66666666666666" y="113.29597234409167" width="5" height="66.70402765590833" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="113.33333333333333" y="110.41490681022151" width="5" height="69.58509318977849" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="122.0" y="110.2917316341636" width="5" height="69.7082683658364" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="130.66666666666666" y="112.93626907166573" width="5" height="67.06373092833427" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="139.33333333333331" y="118.13763797055809" width="5" height="61.86236202944191" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="148.0" y="125.48106989130041" width="5" height="54.51893010869959" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="156.66666666666666" y="134.38098364212502" width="5" height="45.619016357874976" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="165.33333333333331" y="144.12768079359375" width="5" height="35.87231920640626" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="174.0" y="153.9439385709391" width="5" height="26.056061429060893" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="182.66666666666669" y="163.04698728418546" width="5" height="16.953012715814534" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="191.33333333333331" y="170.71093008132215" width="5" height="9.289069918677857" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="200.0" y="176.3246275380004" width="5" height="3.6753724619995776" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="208.66666666666666" y="179.44043124100094" width="5" height="0.5595687589990522" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="217.33333333333334" y="179.80988024380585" width="5" height="0.190119756194142" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="226.0" y="177.40351388147064" width="5" height="2.596486118529364" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="234.66666666666666" y="172.413221027957" width="5" height="7.586778972042995" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="243.33333333333331" y="165.23693846105084" width="5" height="14.763061538949161" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="252.0" y="156.44691852044096" width="5" height="23.55308147955905" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="260.66666666666663" y="146.7440964647419" width="5" height="33.25590353525811" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="269.33333333333337" y="136.90219637340434" width="5" height="43.09780362659567" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="278.0" y="127.70603271014869" width="5" height="52.29396728985131" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="286.6666666666667" y="119.88892751509741" width="5" height="60.11107248490259" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="295.33333333333337" y="114.07423371447035" width="5" height="65.92576628552965" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="304.0" y="110.72562760598301" width="5" height="69.27437239401699" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="312.66666666666663" y="110.1101343049945" width="5" height="69.8898656950055" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="321.33333333333337" y="112.2768345825405" width="5" height="67.7231654174595" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="330.0" y="117.05295105817784" width="5" height="62.94704894182216" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="338.6666666666667" y="124.05762584311412" width="5" height="55.94237415688587" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="347.3333333333333" y="132.73229097447046" width="5" height="47.26770902552953" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="356.0" y="142.38520983636636" width="5" height="37.61479016363366" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="364.6666666666667" y="152.24663773828166" width="5" height="27.75336226171835" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="373.33333333333337" y="161.53020302651842" width="5" height="18.469796973481586" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="382.0" y="169.495614065774" width="5" height="10.504385934226018" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="390.6666666666667" y="175.50769170008587" width="5" height="4.492308299914135" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="399.3333333333333" y="179.08701981664763" width="5" height="0.9129801833523854" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="408.0" y="179.9481750266616" width="5" height="0.05182497333841185" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="416.66666666666663" y="178.02248694554197" width="5" height="1.977513054458015" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="425.3333333333333" y="173.46351411835127" width="5" height="6.536485881648736" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="434.0" y="166.63479892829622" width="5" height="13.365201071703785" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="442.6666666666667" y="158.08087793844322" width="5" height="21.919122061556763" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="451.3333333333333" y="148.48385936489458" width="5" height="31.51614063510541" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="460.0" y="138.60903028791031" width="5" height="41.39096971208969" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="468.6666666666667" y="129.24383099996044" width="5" height="50.756169000039556" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="477.3333333333333" y="121.13506280857663" width="5" height="58.864937191423365" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="486.0" y="114.92933648002261" width="5" height="65.07066351997739" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="494.6666666666667" y="111.12151009407374" width="5" height="68.87848990592626" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="503.33333333333337" y="110.01522798721925" width="5" height="69.98477201278075" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="512.0" y="111.69870749456283" width="5" height="68.30129250543717" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="520.6666666666667" y="116.03770430814787" width="5" height="63.962295691852134" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="529.3333333333333" y="122.68621740929551" width="5" height="57.31378259070449" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="538.0" y="131.11407994042858" width="5" height="48.885920059571426" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="546.6666666666666" y="140.64923586040692" width="5" height="39.350764139593075" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="555.3333333333333" y="150.53133115116742" width="5" height="29.468668848832593" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="564.0" y="159.97234609659046" width="5" height="20.027653903409558" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="572.6666666666667" y="168.2194336841478" width="5" height="11.780566315852205" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <rect x="581.3333333333333" y="174.61495325886256" width="5" height="5.385046741137458" rx="2" fill="#6B8FBF" opacity="0.35"/>
+  <text x="70" y="204" class="ts" font-size="9.5">時間 →</text>
+  <text x="26" y="250" class="ts" font-size="11">Grain size 決定「是顆粒還是糊」：10–50 ms 聽得出顆粒，200 ms 以上幾乎是原音。</text>
+  <text x="26" y="276" class="ts" font-size="11" fill="#8C8078">Density 越高越連續，越低越像星塵。</text>
+</svg>

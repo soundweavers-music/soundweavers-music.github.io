@@ -96,6 +96,8 @@ headroom 保留得越多，混音時的彈性就越大。你可以自由地添�
 
 ## 六、VU Meter 與 dBFS Meter：兩種不同的視角
 
+![VU 表與峰值表看的是不同的東西](/assets/digitalmusic/vu-vs-peak.svg)
+
 ### dBFS Meter（數位峰值表）
 
 這是 DAW 中預設的 meter 類型，顯示的是**取樣點層級的瞬間峰值**。它的特性是反應極快，能捕捉到最短 1 sample 的 transient。這對於避免 clipping 至關重要——只要任何一個 sample 超過 0 dBFS，就產生了不可逆的 clipping。
@@ -221,6 +223,8 @@ Input → Trim Plugin（校準到 -18 dBFS / 0 VU）
 - 沒有任何 aux return 的 peak 異常
 
 ## 九、進階觀念：Crest Factor 與 Dynamic Range
+
+![Crest factor 與動態餘裕](/assets/digitalmusic/crest-factor.svg)
 
 Crest factor = Peak level - RMS level（單位 dB）。它描述了一段音訊的動態豐富程度。
 

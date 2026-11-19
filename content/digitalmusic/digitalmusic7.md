@@ -85,6 +85,8 @@ Cubase 的「Low Latency Monitoring」模式、Logic Pro 的「Low Latency Mode�
 
 ### 緩衝區設定指南
 
+![緩衝區大小與來回延遲的換算](/assets/digitalmusic/buffer-latency.svg)
+
 Buffer Size 的選擇是一門平衡藝術：
 
 - **錄音階段**（需要即時監聽）：Buffer 設為 32、64 或 128 samples。若為 44.1 kHz，64 samples 對應約 1.45 ms 的延遲，這是大多數樂手可以接受的範圍。若 CPU 不夠強勁，可嘗試 128 samples（約 2.9 ms）。
@@ -96,6 +98,8 @@ Buffer Size 的選擇是一門平衡藝術：
 在 RME 介面中，可以透過 TotalMix FX 將直接監聽訊號與 DAW 回放訊號在硬體層面混合，並獨立控制延遲。而在 Universal Audio 的 Apollo 系列中，透過 Console 軟體與 UAD DSP 晶片，可以在零延遲下對輸入訊號即時施加 UAD 效果器（如壓縮器、殘響、類比模擬），同時將未處理的乾訊號錄製到 DAW——這被稱為「Unison」技術，是直接監聽與軟體監聽的理想折衷。
 
 ## 六、多軌錄音實戰：錄製多個 Take
+
+![Punch In／Out 的時間窗口](/assets/digitalmusic/punch-in.svg)
 
 ### Take 管理策略
 

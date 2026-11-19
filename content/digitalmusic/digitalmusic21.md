@@ -144,6 +144,8 @@ Sound Wall（音牆）並不一定要靠大量的樂器堆疊。用多個不同�
 
 ## 8. Filtered Delay：用 EQ 修飾回聲
 
+![拍點同步的延遲時間](/assets/digitalmusic/delay-sync.svg)
+
 Filtered Delay（過濾延遲）是指在 Delay 插件的 Feedback 路徑中啟用內建 Filter（LPF/HPF），或在 DAW 中將 Delay 的輸出經 EQ 後再送回輸入端，構成外部回授迴路，讓每次回聲的頻率內容逐漸變化。
 
 ### 8.1 實作方法

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 360" role="img" aria-label="封閉式與開放式耳機">
+  <title>封閉式與開放式耳機</title>
+  <rect width="660" height="360" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">封閉式與開放式耳機</text>
+  <text x="26" y="55" class="ts" font-size="12.5">一個用來錄，一個用來聽</text>
+  <text x="26" y="84" class="ts" font-size="12">封閉式擋住漏音、開放式聽得自然；錄音與混音要的是不同的東西。</text>
+  <rect x="60" y="110" width="260" height="120" rx="8" fill="#FFFFFF" stroke="#A67C52" stroke-width="1.5"/>
+  <text x="74" y="134" class="t" font-size="12" font-weight="700" fill="#A67C52">封閉式 Closed-back</text>
+  <text x="74" y="154" class="ts" font-size="9.5" fill="#8C8078">耳罩密封，聲音不會漏出去</text>
+  <path d="M95 196 a25 25 0 1 1 50 0" class="ink"/>
+  <rect x="88" y="192" width="16" height="30" rx="4" fill="#A67C52" opacity="0.35"/>
+  <rect x="136" y="192" width="16" height="30" rx="4" fill="#A67C52" opacity="0.35"/>
+  <text x="180" y="196" class="ts" font-size="9.5">漏音</text>
+  <text x="180" y="214" class="ts" font-size="11" fill="#A67C52">低</text>
+  <rect x="360" y="110" width="260" height="120" rx="8" fill="#FFFFFF" stroke="#6F8F6A" stroke-width="1.5"/>
+  <text x="374" y="134" class="t" font-size="12" font-weight="700" fill="#6F8F6A">開放式 Open-back</text>
+  <text x="374" y="154" class="ts" font-size="9.5" fill="#8C8078">耳罩有孔，聲音像喇叭自然</text>
+  <path d="M395 196 a25 25 0 1 1 50 0" class="ink"/>
+  <rect x="388" y="192" width="16" height="30" rx="4" fill="#6F8F6A" opacity="0.35"/>
+  <rect x="436" y="192" width="16" height="30" rx="4" fill="#6F8F6A" opacity="0.35"/>
+  <circle cx="396" cy="208" r="2" fill="#FBF8F4"/>
+  <circle cx="400" cy="208" r="2" fill="#FBF8F4"/>
+  <circle cx="404" cy="208" r="2" fill="#FBF8F4"/>
+  <text x="480" y="196" class="ts" font-size="9.5">漏音</text>
+  <text x="480" y="214" class="ts" font-size="11" fill="#6F8F6A">高</text>
+  <rect x="60" y="252" width="250" height="56" rx="8" fill="#F3E9DC" stroke="#D9CFC4" stroke-width="1.3"/>
+  <text x="72" y="274" class="t" font-size="13" font-weight="700">錄音時戴封閉式</text>
+  <text x="72" y="293" class="ts" font-size="11">伴奏不會被麥克風收進去</text>
+  <rect x="340" y="252" width="260" height="56" rx="8" fill="#E4EBDC" stroke="#D9CFC4" stroke-width="1.3"/>
+  <text x="352" y="274" class="t" font-size="13" font-weight="700">混音時用開放式或喇叭</text>
+  <text x="352" y="293" class="ts" font-size="11">長時間聽不壓迫，空間感正確</text>
+  <text x="26" y="342" class="ts" font-size="11">藍牙耳機不能用：延遲與音染都會讓你對不準、判斷錯。</text>
+</svg>

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 350" role="img" aria-label="Clip gain 與 Fader">
+  <title>Clip gain 與 Fader</title>
+  <rect width="660" height="350" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">Clip gain 與 Fader</text>
+  <text x="26" y="55" class="ts" font-size="12.5">動在哪裡，決定後面聽到什麼</text>
+  <text x="26" y="84" class="ts" font-size="12">Clip gain 改的是「檔案本身」，fader 改的是「播放時」。</text>
+  <rect x="60" y="110" width="250" height="70" rx="8" fill="#DEE8F3" stroke="#D9CFC4" stroke-width="1.3"/>
+  <text x="72" y="132" class="t" font-size="13" font-weight="700">Clip gain</text>
+  <text x="72" y="151" class="ts" font-size="11">在波形上直接調，訊號進外掛前就變了</text>
+  <rect x="340" y="110" width="260" height="70" rx="8" fill="#F3E9DC" stroke="#D9CFC4" stroke-width="1.3"/>
+  <text x="352" y="132" class="t" font-size="13" font-weight="700">Fader／volume automation</text>
+  <text x="352" y="151" class="ts" font-size="11">在外掛之後調，送出去的量才變</text>
+  <path d="M60 220 L600 220" class="thin"/>
+  <rect x="80" y="240" width="110" height="40" rx="6" fill="#FFFFFF" stroke="#6B8FBF" stroke-width="1.4"/>
+  <text x="135" y="265" class="ts" font-size="9.5" text-anchor="middle" fill="#6B8FBF">Clip gain</text>
+  <path d="M192.0 260.0 L203.5 260.0" fill="none" stroke="#8C8078" stroke-width="1.7" stroke-linecap="round"/><path d="M208.0 260.0 L203.4 262.0 L203.4 258.0 Z" fill="#8C8078"/>
+  <rect x="210" y="240" width="110" height="40" rx="6" fill="#FFFFFF" stroke="#5D4E41" stroke-width="1.4"/>
+  <text x="265" y="265" class="ts" font-size="9.5" text-anchor="middle" fill="#5D4E41">EQ</text>
+  <path d="M322.0 260.0 L333.5 260.0" fill="none" stroke="#8C8078" stroke-width="1.7" stroke-linecap="round"/><path d="M338.0 260.0 L333.4 262.0 L333.4 258.0 Z" fill="#8C8078"/>
+  <rect x="340" y="240" width="110" height="40" rx="6" fill="#FFFFFF" stroke="#5D4E41" stroke-width="1.4"/>
+  <text x="395" y="265" class="ts" font-size="9.5" text-anchor="middle" fill="#5D4E41">壓縮</text>
+  <path d="M452.0 260.0 L463.5 260.0" fill="none" stroke="#8C8078" stroke-width="1.7" stroke-linecap="round"/><path d="M468.0 260.0 L463.4 262.0 L463.4 258.0 Z" fill="#8C8078"/>
+  <rect x="470" y="240" width="110" height="40" rx="6" fill="#FFFFFF" stroke="#A67C52" stroke-width="1.4"/>
+  <text x="525" y="265" class="ts" font-size="9.5" text-anchor="middle" fill="#A67C52">Fader</text>
+  <text x="26" y="316" class="ts" font-size="11">要修「這段錄太大」用 clip gain；要做「這句要更靠近」用 fader。</text>
+</svg>

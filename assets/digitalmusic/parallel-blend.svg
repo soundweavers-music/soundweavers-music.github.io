@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 350" role="img" aria-label="平行壓縮的乾濕比">
+  <title>平行壓縮的乾濕比</title>
+  <rect width="660" height="350" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">平行壓縮的乾濕比</text>
+  <text x="26" y="55" class="ts" font-size="12.5">混多少進去，決定它有多明顯</text>
+  <text x="26" y="84" class="ts" font-size="12">平行壓縮的關鍵是「乾濕比例」，不是壓得多兇。</text>
+  <text x="60" y="124" class="t" font-size="10.5">0% 濕</text>
+  <rect x="140" y="108" width="380" height="22" rx="4" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.4"/>
+  <rect x="140" y="108" width="0.0" height="22" rx="4" fill="#A67C52" opacity="0.3"/>
+  <text x="146.0" y="142" class="ts" font-size="9" fill="#8C8078">全乾：只有原本的動態</text>
+  <text x="60" y="176" class="t" font-size="10.5">35% 濕</text>
+  <rect x="140" y="160" width="380" height="22" rx="4" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.4"/>
+  <rect x="140" y="160" width="133.0" height="22" rx="4" fill="#A67C52" opacity="0.3"/>
+  <text x="279.0" y="194" class="ts" font-size="9" fill="#8C8078">輕混：加厚但不失動態</text>
+  <text x="60" y="228" class="t" font-size="10.5">70% 濕</text>
+  <rect x="140" y="212" width="380" height="22" rx="4" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.4"/>
+  <rect x="140" y="212" width="266.0" height="22" rx="4" fill="#A67C52" opacity="0.3"/>
+  <text x="412.0" y="246" class="ts" font-size="9" fill="#8C8078">重混：明顯變厚、變近</text>
+  <text x="60" y="280" class="t" font-size="10.5">100% 濕</text>
+  <rect x="140" y="264" width="380" height="22" rx="4" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.4"/>
+  <rect x="140" y="264" width="380.0" height="22" rx="4" fill="#A67C52" opacity="0.3"/>
+  <text x="526.0" y="298" class="ts" font-size="9" fill="#8C8078">全濕：等於串聯壓縮</text>
+  <text x="26" y="330" class="ts" font-size="11">實務上從 30% 開始加，加到「聽得出厚、但還聽得出原本的動態」為止。</text>
+</svg>
