@@ -227,7 +227,7 @@ function renderInspector() {
   nm.addEventListener('keydown', e => e.stopPropagation());
   nm.addEventListener('change', () => { store.checkpoint(); t.name = nm.value.trim() || t.name; store.changed('structure'); });
   sec.querySelector('#insColor').addEventListener('change', e => { store.checkpoint(); t.color = e.target.value; store.changed('structure'); });
-  if (t.kind === 'midi') { box.appendChild(instrumentSection(t)); box.appendChild(sfSection(t)); box.appendChild(midiStatusSection()); box.appendChild(transposeSection(t)); }
+  if (t.kind === 'midi') { box.appendChild(instrumentSection(t)); box.appendChild(sfSection(t)); box.appendChild(midiStatusSection()); box.appendChild(inputVelSection(t)); box.appendChild(transposeSection(t)); }
   box.appendChild(chordSection(t));
   box.appendChild(insertsSection(t.id));
   box.appendChild(sendSection(t));
@@ -437,6 +437,20 @@ function openLatency() {
 }
 
 // 這一軌的移調（MIDI 軌）
+function inputVelSection(t) {
+  const sec = document.createElement('div'); sec.className = 'sec';
+  sec.innerHTML = `<h4 style="margin-top:0">輸入力度 <span style="color:var(--tx2);font-weight:400">（這一軌）</span></h4>
+    <div class="row"><span>力度</span><input type="range" min="0" max="127" step="1" id="insVel" style="flex:1"><b id="insVelVal" style="min-width:56px;text-align:right">依鍵盤</b></div>
+    <p class="note">拉到最左邊＝照鍵盤送來的力度；右邊任何位置＝固定用這個力度彈奏與錄音。打字鍵盤也用同一個值。</p>`;
+  const r = sec.querySelector('#insVel'), v = sec.querySelector('#insVelVal');
+  const show = () => { v.textContent = (t.inputVel > 0 ? String(Math.round(t.inputVel)) : '依鍵盤'); r.value = t.inputVel > 0 ? t.inputVel : 0; };
+  show();
+  r.addEventListener('input', () => { r.value = +r.value; v.textContent = r.value > 0 ? r.value : '依鍵盤'; });
+  r.addEventListener('change', () => { store.checkpoint(); t.inputVel = +r.value; show(); store.changed('structure'); });
+  r.addEventListener('keydown', e => e.stopPropagation());
+  return sec;
+}
+
 function transposeSection(t) {
   const sec = document.createElement('div'); sec.className = 'sec';
   sec.innerHTML = `<h4 style="margin-top:0">這一軌移調 <span style="color:var(--tx2);font-weight:400">（播放時）</span></h4>
