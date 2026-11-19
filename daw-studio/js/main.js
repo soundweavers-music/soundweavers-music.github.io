@@ -27,6 +27,7 @@ import { LiveLoudness, TARGETS } from './loudness.js';
 import { pitchShiftClips } from './pitch-render.js';
 import { THEMES, setTheme, currentTheme } from './theme.js';
 import { draw as drawPianoRoll } from './pianoroll.js';
+import { seedDemo } from './demo-project.js';
 
 const $ = id => document.getElementById(id);
 
@@ -748,7 +749,21 @@ $('btnArranger').onclick = () => toggleArranger();
   }, true);
 
   requestAnimationFrame(frame);
-  await maybeRestore();
+
+  // 除錯／課程截圖用的鉤子（不會影響正常操作）
+  window.__daw = { store, engine, view, toggleMixer, togglePiano, toggleMaster, toggleArranger, renderInspector, renderArrange, openPianoRoll };
+
+  // ?demo=1：載入示範專案（課程截圖與第一次試用）。不會覆蓋使用者已存的專案
+  if (new URLSearchParams(location.search).has('demo')) {
+    try {
+      seedDemo();
+      renderArrange();
+      renderInspector();
+      syncTopbar();
+    } catch (e) { console.warn('demo failed', e); }
+  } else {
+    await maybeRestore();
+  }
 }
 
 boot();

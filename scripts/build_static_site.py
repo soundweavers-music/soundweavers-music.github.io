@@ -519,6 +519,7 @@ def site_header(page_path):
         <div class="dropdown-menu">
           <a href="{resolve_url(page_path, '/tools/daw/')}">🎚️ 織音線上編曲製作</a>
           <a href="{resolve_url(page_path, '/tools/fretboard/')}">🎸 世界樂器指版和弦圖</a>
+          <a href="{resolve_url(page_path, '/tools/tuner/')}">🎯 線上調音器與節拍器</a>
           <a href="{resolve_url(page_path, '/chord-detection/')}">🎼 自動抓和弦</a>
           <a href="{resolve_url(page_path, '/tools/lrc/')}">📝 LRC 動態歌詞工作室</a>
         </div>
@@ -971,6 +972,10 @@ def build_index(instruments):
           <a class="featured-card" href="{resolve_url(index_path, '/chord-detection/')}" style="background:linear-gradient(135deg,#fef3c7,#fde68a);border:1px solid #f59e0b;">
             <strong>🎼 自動抓和弦</strong>
             <span>上傳音檔自動分析節拍與和弦，簡譜式小節表可移調、標示 Capo、匯入 .lrc 歌詞</span>
+          </a>
+          <a class="featured-card" href="{resolve_url(index_path, '/tools/tuner/')}" style="background:linear-gradient(135deg,#f5f5f0,#e8e6dd);border:1px solid #d6d2c4;">
+            <strong>🎯 線上調音器與節拍器</strong>
+            <span>麥克風即時測音高與音分偏差，15 種樂器調弦、參考音與節拍器</span>
           </a>
           <a class="featured-card" href="{resolve_url(index_path, '/tools/lrc/')}" style="background:linear-gradient(135deg,#eef6ff,#dbeafe);border:1px solid #bfdbfe;">
             <strong>📝 LRC 動態歌詞工作室</strong>
@@ -2223,6 +2228,7 @@ def build_sitemap(instruments):
                  "/sound-journey/", "/experience/", "/contact/",
                  "/chord-detection/", "/tools/", "/tools/fretboard/", "/tools/fretboard/guide/",
                  "/chord-detection/guide/", "/tools/lrc/", "/tools/lrc/guide/", "/tools/daw/", "/tools/daw/guide/",
+                 "/tools/tuner/", "/tools/tuner/guide/",
                  "/learn/", "/about/author/", "/about/works/", "/recruit/", "/mandolin/",
                  "/guitar/", "/ukulele/"]:
         urls.append(u(path))
@@ -2730,6 +2736,7 @@ def build_about_page():
           <li><strong>{link('/tools/fretboard/', '世界樂器指版與和弦圖')}</strong>　19 種彈撥樂器的調弦、和弦與指版音位。</li>
           <li><strong>{link('/chord-detection/', '自動抓和弦')}</strong>　上傳音檔，在瀏覽器裡分析和弦與調性，檔案不會離開你的電腦。</li>
           <li><strong>{link('/experience/', '世界樂器體驗')}</strong>　用虛擬鍵盤試聽各種樂器的音色與音域。</li>
+          <li><strong>{link('/tools/tuner/', '線上調音器與節拍器')}</strong>　用麥克風測音高與音分偏差，內建 15 種樂器調弦與節拍器。</li>
           <li><strong>{link('/tools/lrc/', 'LRC 動態歌詞工作室')}</strong>　邊聽邊打時間碼，輸出 .lrc 或 .srt。</li>
           <li><strong>{link('/tools/daw/', '織音線上編曲製作')}</strong>　免安裝的瀏覽器編曲軟體：多軌錄音、MIDI 編曲、效果器、混音、母帶與輸出。（{link('/tools/daw/guide/', '使用說明')}）</li>
         </ul>
@@ -3227,6 +3234,61 @@ def build_lrc_tool():
     ))
 
 
+def build_tuner_tool():
+    """Build 線上調音器與節拍器 at /tools/tuner/.
+
+    Source is ``tuner-studio/index.html`` — a self-contained page with inline
+    CSS and JS, same shape as the LRC studio. Only the ``<style>``, the
+    ``<main>`` contents and the inline ``<script>`` are lifted out; header,
+    nav, footer, SEO and the theme switcher all come from ``page()``.
+
+    The microphone stays in the browser: the audio never leaves the page and
+    the default CSP (``connect-src 'self'``) keeps it that way.
+
+    Trap: the extractor takes the *last* ``<script>`` match, so the source
+    file must not contain the literal tag text inside a comment — that has
+    already swallowed the whole page once.
+    """
+    src_path = BASE_DIR / "tuner-studio" / "index.html"
+    if not src_path.exists():
+        return
+    page_dir = OUTPUT_DIR / "tools" / "tuner"
+    page_dir.mkdir(parents=True, exist_ok=True)
+    out = page_dir / "index.html"
+
+    raw = src_path.read_text(encoding="utf-8")
+
+    style_m = re.search(r'<style[^>]*>(.*?)</style>', raw, re.DOTALL)
+    inline_css = style_m.group(1).strip() if style_m else ""
+
+    opening = list(re.finditer(r'<main[^>]*>', raw))
+    main_content = ""
+    if opening:
+        start = opening[-1].end()
+        end = raw.find("</main>", start)
+        if end > start:
+            main_content = raw[start:end].strip()
+
+    # 來源檔在 /tuner-studio/，成品在 /tools/tuner/，主內容裡的相對連結要重算
+    for target in ("/tools/fretboard/", "/tools/daw/", "/chord-detection/",
+                   "/theory/", "/tools/lrc/", "/experience/"):
+        main_content = main_content.replace(
+            f'href="..{target}"', f'href="{resolve_url(out, target)}"')
+
+    scripts = re.findall(r'<script>(.*?)</script>', raw, re.DOTALL)
+    inline_js = scripts[-1].strip() if scripts else ""
+
+    body = f'<main class="page">\n{main_content}\n</main>\n<script>\n{inline_js}\n</script>\n'
+    write(out, page(
+        "線上調音器與節拍器",
+        body,
+        out,
+        extra_head=f"<style>{inline_css}</style>",
+        meta_description="用麥克風即時顯示音高與音分偏差，內建吉他、烏克麗麗、貝斯、小提琴、二胡、琵琶等 15 種樂器調弦，可播參考音，附節拍器。聲音只在瀏覽器裡分析，不會上傳。",
+        meta_keywords="線上調音器,調音器,節拍器,吉他調音,烏克麗麗調音,小提琴調音,二胡調音,音準,音分,cent,BPM,拍速",
+    ))
+
+
 def build_daw_tool():
     """Build 織音線上編曲製作 (browser DAW) at /tools/daw/.
 
@@ -3300,6 +3362,7 @@ def build_daw_tool():
 .daw-guide-body blockquote{margin:1em 0;padding:8px 14px;border-left:3px solid var(--accent,#a0522d);background:var(--paper-2,#f8f4ee)}
 @media (max-width:900px){.daw-guide-wrap{grid-template-columns:1fr}.daw-guide-toc{position:static;flex-direction:row;flex-wrap:wrap;gap:4px 12px;border-left:0;padding-left:0}}
 </style>"""
+        build_daw_course(page_dir)
         write(gout, page(
             "織音線上編曲製作　使用說明", body, gout, extra_head=css,
             meta_description="織音線上編曲製作的完整使用說明：錄音、MIDI 編曲、SoundFont 音色庫、效果器（EQ、壓縮、去齒音、飽和度）、混音、自動化、人聲伴奏分離、母帶與輸出。",
@@ -3311,6 +3374,7 @@ def build_daw_tool():
 TOOLS = [
     ("/tools/daw/", "🎚️", "織音線上編曲製作", "", "免安裝的瀏覽器編曲軟體：16 軌起跳的多軌錄音、MIDI 編曲與音色庫、效果器、混音、母帶與輸出 WAV／FLAC／MP3。檔案不會上傳。", "/tools/daw/guide/"),
     ("/chord-detection/", "🎼", "自動抓和弦", "", "上傳音檔自動分析節拍與和弦，簡譜式小節表可移調、標示 Capo、匯入 .lrc 歌詞。", "/chord-detection/guide/"),
+    ("/tools/tuner/", "🎯", "線上調音器與節拍器", "", "麥克風即時測音高與音分偏差，內建 15 種樂器調弦與參考音，右欄還有節拍器。", "/tools/tuner/guide/"),
     ("/tools/lrc/", "📝", "LRC 動態歌詞工作室", "", "邊聽邊打時間碼，自動偵測句與句的停頓先排好初稿，輸出 .lrc 或 .srt。", "/tools/lrc/guide/"),
     ("/tools/fretboard/", "🎸", "世界樂器指版與和弦圖", "", "19 種彈撥樂器的調弦法、各調性和弦、指版音位圖與順階和弦。", "/tools/fretboard/guide/"),
 ]
@@ -3323,6 +3387,8 @@ TOOL_GUIDES = [
      "上傳音檔，自動分析節拍與和弦，整理成可移調的簡譜小節表。"),
     ("lrc", "/tools/lrc/", "LRC 動態歌詞工作室", "LRC Lyrics Studio",
      "邊聽邊打時間碼，輸出 .lrc 或 .srt。"),
+    ("tuner", "/tools/tuner/", "線上調音器與節拍器", "Tuner & Metronome",
+     "麥克風即時測音高與音分偏差，15 種樂器調弦、參考音與節拍器。"),
 ]
 
 
@@ -3371,6 +3437,124 @@ def build_tool_guides():
                                                  canonical_for(out))))
         built += 1
     print(f"  tool guides: {built}")
+
+
+def build_daw_course(daw_dir: Path) -> None:
+    """20 堂 DAW 課程：/tools/daw/learn/。
+
+    原始內容在 content/dawcourse/NN.md（frontmatter: title / summary / image），
+    截圖在 assets/daw-course/。每頁都有上一堂／下一堂與「打開軟體」的連結。
+    """
+    src = BASE_DIR / "content" / "dawcourse"
+    if not src.exists():
+        return
+    files = sorted(src.glob("*.md"))
+    if not files:
+        return
+    lessons = []
+    for f in files:
+        raw = f.read_text(encoding="utf-8")
+        NL = chr(10)
+        meta, body_md = "", raw
+        if raw.startswith("---" + NL):
+            parts = raw[4:].split(NL + "---" + NL, 1)
+            if len(parts) == 2:
+                meta, body_md = parts[0], parts[1]
+
+        def field(key):
+            for line in meta.split(NL):
+                if line.startswith(key + ":"):
+                    return line.split(":", 1)[1].strip()
+            return ""
+        lessons.append({"no": f.stem, "title": field("title"), "summary": field("summary"),
+                        "image": field("image"), "md": body_md})
+    out_dir = daw_dir / "learn"
+    if out_dir.exists():
+        shutil.rmtree(out_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    css = """<style>
+.dawc-wrap{max-width:860px;margin:0 auto;line-height:1.9}
+.dawc-hero{margin:8px 0 24px}
+.dawc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin:24px 0 48px}
+.dawc-card{display:block;border:1px solid var(--line,#e5e0d8);border-radius:12px;padding:14px 16px;text-decoration:none;color:inherit;background:var(--paper,#fff);transition:.15s}
+.dawc-card:hover{border-color:var(--accent,#a0522d);transform:translateY(-2px)}
+.dawc-card b{display:block;font-size:15px;margin-bottom:4px}
+.dawc-card span{color:var(--muted,#6b6257);font-size:13px;line-height:1.6}
+.dawc-card em{display:block;font-style:normal;font-size:11px;color:var(--accent,#a0522d);letter-spacing:.08em;margin-bottom:6px}
+.dawc-shot{margin:18px 0 8px;border:1px solid var(--line,#e5e0d8);border-radius:12px;overflow:hidden;background:#0c0d11}
+.dawc-shot img{display:block;width:100%;height:auto}
+.dawc-shot figcaption{font-size:12px;color:var(--muted,#6b6257);padding:8px 12px;background:var(--paper-2,#f6f2ec)}
+.dawc-nav{display:flex;justify-content:space-between;gap:12px;margin:36px 0 8px;border-top:1px solid var(--line,#e5e0d8);padding-top:16px}
+.dawc-nav a{text-decoration:none;color:var(--accent,#a0522d)}
+.daw-tip{border-left:3px solid var(--accent,#a0522d);background:var(--paper-2,#f8f4ee);padding:10px 14px;border-radius:0 8px 8px 0;margin:1.2em 0}
+</style>"""
+
+    # 目錄頁
+    def lesson_url(base_dir, no):
+        return resolve_url(base_dir, "/tools/daw/learn/" + no + "/")
+
+    cards = "".join(
+        '<a class="dawc-card" href="' + lesson_url(out_dir / "index.html", l["no"]) + '">'
+        + '<em>第 ' + str(int(l["no"])) + ' 堂</em><b>' + l["title"].split("：", 1)[-1] + '</b><span>' + l["summary"] + '</span></a>'
+        for l in lessons)
+    tool_url = resolve_url(out_dir / "index.html", "/tools/daw/?demo=1")
+    guide_url = resolve_url(out_dir / "index.html", "/tools/daw/guide/")
+    index_body = (
+        '<main class="page"><div class="dawc-wrap">'
+        '<section class="dawc-hero">'
+        '<p class="eyebrow">Tools · Browser DAW</p>'
+        '<h1>織音線上編曲製作　20 堂課</h1>'
+        '<p class="lead">從看懂畫面到母帶輸出，一堂一個主題，配實際操作截圖與「為什麼」的原理說明。邊看邊開軟體跟著做最快。</p>'
+        f'<p><a class="btn btn-primary" href="{tool_url}">開啟軟體（載入示範專案）→</a> '
+        f'<a class="btn" href="{guide_url}">功能說明書</a></p>'
+        '</section>'
+        f'<div class="dawc-grid">{cards}</div>'
+        '</div></main>')
+    write(out_dir / "index.html", page("織音線上編曲製作　20 堂課",
+        index_body, out_dir / "index.html", extra_head=css,
+        meta_description="織音線上編曲製作的 20 堂課程：畫面總覽、專案與存檔、錄音、MIDI、和弦軌、自動伴奏、EQ、壓縮、人聲修音、和聲、空間效果、混音、自動化、母帶與輸出。",
+        meta_keywords="DAW,編曲教學,錄音教學,混音教學,母帶,MIDI,人聲修音"))
+
+    # 各堂
+    for i, l in enumerate(lessons):
+        d = out_dir / l["no"]
+        d.mkdir(parents=True, exist_ok=True)
+        html_md = markdown.markdown(l["md"], extensions=["extra", "tables"])
+        img = ""
+        if l["image"]:
+            src_img = resolve_url(d / "index.html", l["image"])
+            img = ('<figure class="dawc-shot"><img src="' + src_img + '" alt="' + l["title"] + '" loading="lazy">'
+                   '<figcaption>' + l["summary"] + '</figcaption></figure>')
+        prev_l = lessons[i - 1] if i else None
+        next_l = lessons[i + 1] if i + 1 < len(lessons) else None
+        nav = '<nav class="dawc-nav">'
+        if prev_l:
+            nav += '<a href="' + lesson_url(d / "index.html", prev_l["no"]) + '">← 第 ' + str(int(prev_l["no"])) + ' 堂</a>'
+        else:
+            nav += '<span></span>'
+        if next_l:
+            nav += '<a href="' + lesson_url(d / "index.html", next_l["no"]) + '">第 ' + str(int(next_l["no"])) + ' 堂 →</a>'
+        else:
+            nav += '<a href="' + resolve_url(d / "index.html", "/tools/daw/learn/") + '">回課程目錄</a>'
+        nav += '</nav>'
+        back_url = resolve_url(d / "index.html", "/tools/daw/learn/")
+        go_url = resolve_url(d / "index.html", "/tools/daw/?demo=1")
+        body = (
+            '<main class="page"><div class="dawc-wrap">'
+            '<section class="dawc-hero">'
+            f'<p class="eyebrow"><a href="{back_url}" style="text-decoration:none">20 堂課</a> · 第 {int(l["no"])} 堂</p>'
+            f'<h1>{l["title"]}</h1>'
+            f'<p class="lead">{l["summary"]}</p>'
+            f'<p><a class="btn btn-primary" href="{go_url}">邊看邊做 →</a></p>'
+            '</section>'
+            + img +
+            f'<article class="dawc-body">{html_md}</article>'
+            + nav +
+            '</div></main>')
+        write(d / "index.html", page(f'{l["title"]}｜織音線上編曲製作', body, d / "index.html",
+            extra_head=css, meta_description=l["summary"],
+            meta_keywords="DAW,編曲,錄音,混音,MIDI,教學"))
 
 
 def build_tools_index():
@@ -3460,6 +3644,7 @@ def main():
     build_fretboard_tool()
     build_chord_detection_tool()
     build_lrc_tool()
+    build_tuner_tool()
     build_daw_tool()
     build_tools_index()
     build_experience_page()
@@ -3520,6 +3705,10 @@ def main():
     theory_img = BASE_DIR / "assets" / "theory"
     if theory_img.exists():
         shutil.copytree(str(theory_img), str(OUTPUT_DIR / "assets" / "theory"), dirs_exist_ok=True)
+    # DAW 課程截圖
+    dawcourse_img = BASE_DIR / "assets" / "daw-course"
+    if dawcourse_img.exists():
+        shutil.copytree(str(dawcourse_img), str(OUTPUT_DIR / "assets" / "daw-course"), dirs_exist_ok=True)
     # Mandolin book images
     mand_img = BASE_DIR / "assets" / "mandolin" / "img"
     if mand_img.exists():
