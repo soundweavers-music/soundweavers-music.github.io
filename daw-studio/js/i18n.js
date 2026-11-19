@@ -47,6 +47,9 @@ const RULES = [
   [/^MIDI 輸入移調 ([-+]?\d+) 半音$/, (m, n) => `MIDI transpose ${n} semitones`],
   [/^([−＋+-]?\d+)\s*度$/, (m, n) => `${n.replace('＋', '+')} oct`],
   [/^示範：(.+)$/, (m, name) => `Demo: ${name.replace(/（(.+?) 大調）$/, ' ($1 major)').replace(/（(.+?) 小調）$/, ' ($1 minor)')}`],
+  [/^♪ (.+)$/, (m, name) => `♪ ${t(name)}`],
+  [/^・(\d+) 個音色・(.+)$/, (m, n, size) => `· ${n} instruments · ${size}`],
+  [/^(\d+) = 用風格自己的長度$/, (m, n) => `${n} = use the style's own length`],
 ];
 
 function tr(text) {
