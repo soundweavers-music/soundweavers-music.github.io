@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" width="100%" role="img" aria-label="速度是活的，不是節拍器上的數字">
+<rect width="760" height="320" fill="#f7f3ee"/>
+<text x="28.0" y="40.0" font-size="19" text-anchor="start" fill="#2b2722" font-weight="700">速度是活的，不是節拍器上的數字</text>
+<text x="28.0" y="62.0" font-size="12.5" text-anchor="start" fill="#8a8078" font-weight="400">同樣標 BPM 120，機器與人的差別在「每一拍之間怎麼分配」</text>
+<text x="28.0" y="100.0" font-size="12" text-anchor="start" fill="#2b2722" font-weight="700">節拍器：每一拍間隔一模一樣</text>
+<text x="20.0" y="118.0" font-size="10" text-anchor="start" fill="#8a8078" font-weight="400">適合練習，不適合演奏</text>
+<line x1="140.0" y1="130.0" x2="140.0" y2="168.0" stroke="#2b2722" stroke-width="1.6"/>
+<line x1="184.0" y1="130.0" x2="184.0" y2="168.0" stroke="#2b2722" stroke-width="1.6"/>
+<line x1="228.0" y1="130.0" x2="228.0" y2="168.0" stroke="#2b2722" stroke-width="1.6"/>
+<line x1="272.0" y1="130.0" x2="272.0" y2="168.0" stroke="#2b2722" stroke-width="1.6"/>
+<line x1="316.0" y1="130.0" x2="316.0" y2="168.0" stroke="#2b2722" stroke-width="1.6"/>
+<line x1="360.0" y1="130.0" x2="360.0" y2="168.0" stroke="#2b2722" stroke-width="1.6"/>
+<line x1="404.0" y1="130.0" x2="404.0" y2="168.0" stroke="#2b2722" stroke-width="1.6"/>
+<line x1="448.0" y1="130.0" x2="448.0" y2="168.0" stroke="#2b2722" stroke-width="1.6"/>
+<line x1="492.0" y1="130.0" x2="492.0" y2="168.0" stroke="#2b2722" stroke-width="1.6"/>
+<line x1="536.0" y1="130.0" x2="536.0" y2="168.0" stroke="#2b2722" stroke-width="1.6"/>
+<line x1="580.0" y1="130.0" x2="580.0" y2="168.0" stroke="#2b2722" stroke-width="1.6"/>
+<line x1="624.0" y1="130.0" x2="624.0" y2="168.0" stroke="#2b2722" stroke-width="1.6"/>
+<line x1="668.0" y1="130.0" x2="668.0" y2="168.0" stroke="#2b2722" stroke-width="1.6"/>
+<text x="28.0" y="214.0" font-size="12" text-anchor="start" fill="#2b2722" font-weight="700">真人演奏：靠近高潮時撐開，過了再收緊</text>
+<text x="20.0" y="232.0" font-size="10" text-anchor="start" fill="#8a8078" font-weight="400">術語叫 rubato（彈性速度）</text>
+<line x1="140.0" y1="244.0" x2="140.0" y2="282.0" stroke="#2b2722" stroke-width="1.6"/>
+<line x1="180.0" y1="244.0" x2="180.0" y2="282.0" stroke="#2b2722" stroke-width="1.6"/>
+<line x1="220.0" y1="244.0" x2="220.0" y2="282.0" stroke="#2b2722" stroke-width="1.6"/>
+<line x1="260.0" y1="244.0" x2="260.0" y2="282.0" stroke="#2b2722" stroke-width="1.6"/>
+<line x1="304.0" y1="244.0" x2="304.0" y2="282.0" stroke="#2b2722" stroke-width="1.6"/>
+<line x1="354.0" y1="244.0" x2="354.0" y2="282.0" stroke="#2b2722" stroke-width="1.6"/>
+<line x1="412.0" y1="244.0" x2="412.0" y2="282.0" stroke="#2b2722" stroke-width="1.6"/>
+<line x1="444.0" y1="118.0" x2="444.0" y2="292.0" stroke="#A67C52" stroke-width="1.2" stroke-dasharray="5 5"/>
+<text x="450.0" y="108.0" font-size="10.5" text-anchor="start" fill="#A67C52" font-weight="700">樂句高潮</text>
+<line x1="476.0" y1="244.0" x2="476.0" y2="282.0" stroke="#2b2722" stroke-width="1.6"/>
+<line x1="534.0" y1="244.0" x2="534.0" y2="282.0" stroke="#2b2722" stroke-width="1.6"/>
+<line x1="582.0" y1="244.0" x2="582.0" y2="282.0" stroke="#2b2722" stroke-width="1.6"/>
+<line x1="622.0" y1="244.0" x2="622.0" y2="282.0" stroke="#2b2722" stroke-width="1.6"/>
+<line x1="656.0" y1="244.0" x2="656.0" y2="282.0" stroke="#2b2722" stroke-width="1.6"/>
+<line x1="686.0" y1="244.0" x2="686.0" y2="282.0" stroke="#2b2722" stroke-width="1.6"/>
+</svg>

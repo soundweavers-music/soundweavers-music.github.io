@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 350" width="100%" role="img" aria-label="能唱到 ≠ 能一直唱">
+<rect width="760" height="350" fill="#f7f3ee"/>
+<text x="28.0" y="40.0" font-size="19" text-anchor="start" fill="#2b2722" font-weight="700">能唱到 ≠ 能一直唱</text>
+<text x="28.0" y="62.0" font-size="12.5" text-anchor="start" fill="#8a8078" font-weight="400">淺色是極限，深色是「可以待很久」的地方</text>
+<text x="28.0" y="125.0" font-size="11.5" text-anchor="start" fill="#2b2722" font-weight="700">女高音</text>
+<rect x="452.4" y="111.0" width="176.0" height="18.0" rx="4" fill="#e7d9c8" stroke="none" stroke-width="1.4"/>
+<rect x="505.2" y="111.0" width="70.4" height="18.0" rx="4" fill="#A67C52" stroke="none" stroke-width="1.4"/>
+<text x="28.0" y="169.0" font-size="11.5" text-anchor="start" fill="#2b2722" font-weight="700">女中音</text>
+<rect x="408.4" y="155.0" width="176.0" height="18.0" rx="4" fill="#e7d9c8" stroke="none" stroke-width="1.4"/>
+<rect x="461.2" y="155.0" width="70.4" height="18.0" rx="4" fill="#A67C52" stroke="none" stroke-width="1.4"/>
+<text x="28.0" y="213.0" font-size="11.5" text-anchor="start" fill="#2b2722" font-weight="700">男高音</text>
+<rect x="338.0" y="199.0" width="167.2" height="18.0" rx="4" fill="#e7d9c8" stroke="none" stroke-width="1.4"/>
+<rect x="382.0" y="199.0" width="70.4" height="18.0" rx="4" fill="#A67C52" stroke="none" stroke-width="1.4"/>
+<text x="28.0" y="257.0" font-size="11.5" text-anchor="start" fill="#2b2722" font-weight="700">男低音</text>
+<rect x="267.6" y="243.0" width="167.2" height="18.0" rx="4" fill="#e7d9c8" stroke="none" stroke-width="1.4"/>
+<rect x="311.6" y="243.0" width="70.4" height="18.0" rx="4" fill="#A67C52" stroke="none" stroke-width="1.4"/>
+<text x="250.0" y="288.0" font-size="10.5" text-anchor="start" fill="#8a8078" font-weight="400">深色＝舒適帶（tessitura），淺色＝能唱到的範圍</text>
+<text x="28.0" y="306.0" font-size="11" text-anchor="start" fill="#2b2722" font-weight="400">整場演出大部分的音落在深色裡，聲音才撐得住；一首歌從頭飆在淺色邊緣，兩首就燒聲。</text>
+<text x="28.0" y="332.0" font-size="11.5" text-anchor="start" fill="#8a8078" font-weight="400">寫歌時把最高音放在舒適帶上緣，而不是聲部極限。</text>
+</svg>

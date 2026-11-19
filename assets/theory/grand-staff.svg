@@ -18,7 +18,7 @@
 <text x="334.0" y="219.0" font-size="13" text-anchor="middle" fill="#A67C52" font-weight="700">F</text>
 <line x1="300.0" y1="152.0" x2="660.0" y2="152.0" stroke="#A67C52" stroke-width="1.2" stroke-dasharray="4 4"/>
 <circle cx="510.0" cy="152.0" r="5.5" fill="#A67C52" stroke="none" stroke-width="1.4"/>
-<text x="526.0" y="156.0" font-size="12" text-anchor="#A67C52" fill="700" font-weight="400">中央 C（C4，約 261.6 Hz）</text>
+<text x="526.0" y="156.0" font-size="12" text-anchor="start" fill="#A67C52" font-weight="700">中央 C（C4，約 261.6 Hz）</text>
 <text x="28.0" y="96.0" font-size="13" text-anchor="start" fill="#2b2722" font-weight="700">高音譜號</text>
 <text x="28.0" y="114.0" font-size="11" text-anchor="start" fill="#8a8078" font-weight="400">右手常用</text>
 <text x="28.0" y="196.0" font-size="13" text-anchor="start" fill="#2b2722" font-weight="700">低音譜號</text>
