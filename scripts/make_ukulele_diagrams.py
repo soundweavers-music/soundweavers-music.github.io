@@ -1052,6 +1052,145 @@ def semitone_keys() -> str:
     return svg(w, h, "".join(p), "半音階鍵盤圖")
 
 
+def uk_steps(title, subtitle, steps, footer=""):
+    n = len(steps)
+    cols = 2 if n > 2 else n
+    rows = (n + cols - 1) // cols
+    cw = (720 - 48) / cols
+    ch = 104
+    h = 96 + rows * ch + 34
+    p = [_t(24, 34, title, 15, weight=700), _t(24, 55, subtitle, 11.5, fill=MUTED)]
+    for i, (head, body) in enumerate(steps):
+        col, row = i % cols, i // cols
+        x = 24 + col * cw
+        y = 84 + row * ch
+        p.append(f'<rect x="{x}" y="{y}" width="{cw - 16}" height="{ch - 14}" rx="10" fill="#f3ece2" stroke="{LINE}"/>')
+        p.append(_t(x + 18, y + 30, str(i + 1), 20, fill=WOOD_D, weight=700))
+        p.append(_t(x + 44, y + 30, head, 12.5, weight=700))
+        for k, line in enumerate(_wrap(body, 17)[:3]):
+            p.append(_t(x + 18, y + 54 + k * 18, line, 10.5, fill=INK))
+    if footer:
+        p.append(_t(24, h - 14, footer, 10.5, fill=MUTED))
+    return svg(720, h, "".join(p), title)
+
+
+def uk_compare(title, subtitle, columns, rows, footer=""):
+    width, label_w = 720, 132
+    ncol = len(columns)
+    cw = (width - 48 - label_w) / max(1, ncol - 1)
+    rowh = 56
+    h = 96 + len(rows) * rowh + 30
+    p = [_t(24, 34, title, 15, weight=700), _t(24, 55, subtitle, 11.5, fill=MUTED)]
+    for j, name in enumerate(columns[1:]):
+        p.append(_t(24 + label_w + j * cw + 8, 84, name, 11.5, fill=WOOD_D, weight=700))
+    for i, row in enumerate(rows):
+        y = 96 + i * rowh
+        if i % 2 == 0:
+            p.append(f'<rect x="24" y="{y}" width="{width - 48}" height="{rowh}" fill="#f3ece2" opacity=".5"/>')
+        p.append(_t(34, y + 24, row[0], 11.5, weight=700))
+        for j, val in enumerate(row[1:]):
+            for k, line in enumerate(_wrap(val, 12)[:2]):
+                p.append(_t(24 + label_w + j * cw + 8, y + 22 + k * 17, line, 10.5, fill=INK))
+    if footer:
+        p.append(_t(24, h - 12, footer, 10.5, fill=MUTED))
+    return svg(width, h, "".join(p), title)
+
+
+def uk_timeline(title, subtitle, parts_list, footer=""):
+    width, h = 720, 240
+    total = sum(w for _, w, _ in parts_list)
+    avail = width - 48
+    p = [_t(24, 34, title, 15, weight=700), _t(24, 55, subtitle, 11.5, fill=MUTED)]
+    x = 24
+    for name, wgt, note in parts_list:
+        bw = avail * wgt / total
+        p.append(f'<rect x="{x:.1f}" y="84" width="{bw - 4:.1f}" height="52" rx="7" fill="#f3ece2" stroke="{LINE}"/>')
+        p.append(_t(x + (bw - 4) / 2, 116, name, 11.5, "middle", INK, 700))
+        for k, line in enumerate(_wrap(note, 9)[:3]):
+            p.append(_t(x + 2, 156 + k * 16, line, 9.5, fill=MUTED))
+        x += bw
+    if footer:
+        p.append(_t(24, h - 12, footer, 10.5, fill=MUTED))
+    return svg(width, h, "".join(p), title)
+
+
+def note_values() -> str:
+    rows = [("全音符", 1, "4 拍", "刷一下，讓它響滿整小節"),
+            ("二分音符", 2, "2 拍", "一小節兩下"),
+            ("四分音符", 4, "1 拍", "跟著節拍器一下一下"),
+            ("八分音符", 8, "半拍", "一拍裡兩下，數 1 & 2 &")]
+    w, h = 720, 320
+    p = [_t(24, 34, "四種基本音符：一個小節可以裝幾個", 15, weight=700),
+         _t(24, 55, "橫條的長度就是音延續的長度；4/4 拍一小節固定 4 拍", 11.5, fill=MUTED)]
+    bar_x, bar_w = 170, 470
+    for i, (name, count, beats, note) in enumerate(rows):
+        y = 88 + i * 54
+        p.append(_t(160, y + 20, name, 12, "end", INK, 700))
+        seg = bar_w / count
+        for k in range(count):
+            p.append(f'<rect x="{bar_x + k * seg:.1f}" y="{y}" width="{seg - 4:.1f}" height="28" rx="5" '
+                     f'fill="{WOOD}" opacity="{0.9 if k % 2 == 0 else 0.55}"/>')
+        p.append(_t(bar_x, y + 46, f"{beats}｜{note}", 10, fill=MUTED))
+        for x in (bar_x, bar_x + bar_w):
+            p.append(f'<line x1="{x}" y1="{y - 6}" x2="{x}" y2="{y + 34}" stroke="{INK}" stroke-width="1.6"/>')
+    return svg(w, h, "".join(p), "四種基本音符")
+
+
+def press_hand() -> str:
+    w, h = 720, 330
+    p = [_t(24, 34, "按弦的兩件事：位置與角度", 15, weight=700),
+         _t(24, 55, "同一顆音，按對地方不用出力就響；按錯地方再用力也是悶的", 11.5, fill=MUTED)]
+    panels = [("○ 正確：貼著琴衍右側", 0.80, WOOD_D),
+              ("✕ 太中間：要多花一倍力氣", 0.50, "#B4553F"),
+              ("✕ 壓在琴衍上：聲音會死掉", 0.97, "#B4553F")]
+    for i, (label, frac, color) in enumerate(panels):
+        x = 48 + i * 224
+        top, fh = 96, 64
+        p.append(f'<rect x="{x}" y="{top}" width="176" height="{fh}" fill="#faf4ea" stroke="{LINE}"/>')
+        for k in range(3):
+            yy = top + k * 32
+            p.append(f'<line x1="{x}" y1="{yy}" x2="{x + 176}" y2="{yy}" stroke="{MUTED}" stroke-width="{2.4 if k == 0 else 1}"/>')
+        p.append(f'<line x1="{x}" y1="{top + fh}" x2="{x + 176}" y2="{top + fh}" stroke="{MUTED}"/>')
+        p.append(f'<line x1="{x + 176}" y1="{top}" x2="{x + 176}" y2="{top + fh}" stroke="{INK}" stroke-width="3"/>')
+        fx = x + 18 + frac * 132
+        p.append(f'<circle cx="{fx:.1f}" cy="{top + 48}" r="9" fill="{color}"/>')
+        p.append(_t(x + 88, top + fh + 28, label, 10.5, "middle", INK))
+    p.append(_t(48, 240, "指尖立起來、從琴頸正上方落下：手指與弦垂直，旁邊的弦才不會被悶到。", 11))
+    p.append(_t(48, 264, "手腕微拱、虎口留空；手掌貼在琴頸上會讓小指伸不出去。", 11))
+    p.append(_t(48, h - 16, "烏克麗麗弦軟，按不響幾乎都是「沒貼著琴衍」或「指尖塌下去」，很少是力氣問題。", 10.5, fill=MUTED))
+    return svg(w, h, "".join(p), "左手按弦的位置與角度")
+
+
+def wrist_pendulum() -> str:
+    w, h = 720, 300
+    p = [_t(24, 34, "右手是鐘擺：手腕動，手肘不動", 15, weight=700),
+         _t(24, 55, "下刷走全弦、上刷只帶高音弦；中間不碰弦的那一下叫空刷", 11.5, fill=MUTED)]
+    # 前臂
+    p.append(f'<rect x="90" y="118" width="150" height="34" rx="12" fill="#f3ece2" stroke="{LINE}"/>')
+    p.append(_t(165, 108, "前臂（固定）", 10, "middle", MUTED))
+    # 手腕支點
+    p.append(f'<circle cx="250" cy="135" r="13" fill="{WOOD_D}"/>')
+    p.append(_t(250, 172, "手腕支點", 10, "middle", MUTED))
+    # 擺動弧
+    p.append(f'<path d="M250 135 m -92 -46 a 104 104 0 0 1 0 92" stroke="{WOOD}" stroke-width="3" fill="none"/>')
+    p.append(f'<path d="M250 135 L404 96" stroke="{WOOD_D}" stroke-width="3"/>')
+    p.append(f'<path d="M250 135 L404 176" stroke="{WOOD_D}" stroke-width="3"/>')
+    p.append(_t(414, 100, "上刷（只碰高音弦）", 10.5, fill=INK))
+    p.append(_t(414, 180, "下刷（全弦）", 10.5, fill=INK))
+    p.append(_t(356, 70, "空刷：手照樣走，只是不碰弦", 10, "middle", MUTED))
+    p.append(f'<path d="M330 62 q 26 -18 52 0" stroke="{MUTED}" stroke-width="1" fill="none"/>')
+    p.append(_t(24, h - 62, "只要手腕在動，拍子就不會掉；手肘跟著甩，拍子一定亂。", 11))
+    p.append(_t(24, h - 34, "刷子越短、越靠手腕，速度才有辦法往上加——這是之後 16 Beat 的前提。", 10.5, fill=MUTED))
+    return svg(w, h, "".join(p), "手腕鐘擺")
+
+
+def dynamics_timeline() -> str:
+    return uk_timeline(
+        "一首歌的動態：主歌收、副歌放",
+        "同一組和弦，靠「刷幾條弦、刷幾下、多大聲」做出三段落差",
+        [("主歌", 3, "指法分解"), ("導歌", 2, "漸強下刷"), ("副歌", 3, "16 Beat 全刷"), ("尾奏", 2, "回到分解")],
+        "副歌之所以聽起來大，是因為前面刻意收；一路全刷反而沒有起伏。")
+
 def _wrap(text, n):
     return [text[i:i + n] for i in range(0, len(text), n)]
 
@@ -1073,6 +1212,18 @@ def fig_chord_block(key) -> str:
     return svg(w, h, "".join(p), title)
 
 
+def humidity() -> str:
+    return uk_compare(
+        "台灣的濕度對琴做了什麼",
+        "實木面板怕的是「變化」，不是「濕」或「乾」本身；穩定比數字漂亮重要",
+        ["狀況", "太濕（>70%）", "太乾（<40%）"],
+        [("面板", "膨脹凸起、弦距變高", "收縮、可能乾裂"),
+         ("聲音", "變悶、延音變短", "變尖、失去低頻"),
+         ("弦", "生鏽快、手感變澀", "較不易生鏽"),
+         ("對策", "琴袋放乾燥劑、除濕機設 55%", "琴袋放調濕包，遠離冷氣出風口")],
+        "最省心的做法：琴袋內放一包雙向調濕包（例如 49%），比每天追著濕度計跑有效。")
+
+
 def main() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
     figures = {
@@ -1084,6 +1235,12 @@ def main() -> int:
         "double_stops.svg": double_stops(),
         "fingerstyle_roles.svg": fingerstyle_roles(),
         "percussion.svg": percussion(),
+        "humidity.svg": humidity(),
+        "note_values.svg": note_values(),
+        "press_hand.svg": press_hand(),
+        "wrist_pendulum.svg": wrist_pendulum(),
+        "dynamics_timeline.svg": dynamics_timeline(),
+
         "semitone_keys.svg": semitone_keys(),
         "tab_4_0.svg": fig_tab("4_0"),
         "tab_4_1.svg": fig_tab("4_1"),
