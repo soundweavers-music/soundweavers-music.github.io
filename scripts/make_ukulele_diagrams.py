@@ -330,6 +330,48 @@ def barre() -> str:
     return svg(w, h, "".join(p), "封閉和弦按法")
 
 
+
+# ---------------------------------------------------------------- harmonics
+def harmonics() -> str:
+    w, h = 700, 200
+    p = [f'<text x="24" y="28" font-size="14" fill="{INK}" {FONT}>自然泛音位置（第 12／7／5 格）</text>']
+    x0, y0, col = 70, 90, 44
+    for f in range(13):
+        x = x0 + f * col
+        p.append(f'<line x1="{x}" y1="{y0}" x2="{x}" y2="{y0+70}" stroke="{LINE}"/>')
+        p.append(f'<text x="{x}" y="{y0-10}" font-size="9" text-anchor="middle" fill="{MUTED}" {FONT}>{f}</text>')
+    marks = [(12, "高八度"), (7, "高八度＋五度"), (5, "高兩個八度")]
+    for f, text in marks:
+        x = x0 + f * col
+        p.append(f'<circle cx="{x}" cy="{y0+35}" r="9" fill="{WOOD}"/>')
+        p.append(f'<text x="{x}" y="{y0+58}" font-size="10.5" text-anchor="middle" fill="{INK}" {FONT}>{text}</text>')
+        p.append(f'<text x="{x}" y="{y0+72}" font-size="9" text-anchor="middle" fill="{MUTED}" {FONT}>第 {f} 格</text>')
+    p.append(f'<text x="24" y="186" font-size="11" fill="{MUTED}" {FONT}>'
+             f'手指輕觸格線正上方（不要壓到琴格），撥弦後立刻離手，就會發出鐘聲般的泛音。</text>')
+    return svg(w, h, "".join(p), "自然泛音位置")
+
+
+# ---------------------------------------------------------------- high vs low G
+def lowg() -> str:
+    w, h = 640, 240
+    p = [f'<text x="24" y="28" font-size="14" fill="{INK}" {FONT}>High-G 與 Low-G 的弦序差異</text>']
+    rows = [("High-G（標準）", ["A4", "E4", "C4", "G4"], "第 4 弦比第 3 弦高，聽起來「跳」"),
+            ("Low-G（改裝）", ["A4", "E4", "C4", "G3"], "第 4 弦變成最低音，和弦更厚")]
+    for i, (name, notes, note) in enumerate(rows):
+        y = 70 + i * 76
+        p.append(f'<text x="24" y="{y+4}" font-size="12" fill="{INK}" {FONT}>{name}</text>')
+        for k, n in enumerate(notes):
+            x = 190 + k * 72
+            low = n.endswith("3")
+            p.append(f'<rect x="{x}" y="{y-16}" width="60" height="28" rx="6" '
+                     f'fill="{"#f6efe6" if low else PAPER}" stroke="{LINE}"/>')
+            p.append(f'<text x="{x+30}" y="{y+2}" font-size="12" text-anchor="middle" fill="{INK}" {FONT}>{n}</text>')
+        p.append(f'<text x="24" y="{y+26}" font-size="11" fill="{MUTED}" {FONT}>{note}</text>')
+    p.append(f'<text x="24" y="222" font-size="10.5" fill="{MUTED}" {FONT}>'
+             f'由左至右＝第 1 弦到第 4 弦；Low-G 只換第 4 弦，其餘三條不變，指法完全通用。</text>')
+    return svg(w, h, "".join(p), "High-G 與 Low-G 弦序比較")
+
+
 def main() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
     figures = {
@@ -343,6 +385,8 @@ def main() -> int:
         "strum_waltz.svg": strum_waltz(),
         "strum_chunk.svg": strum_chunk(),
         "barre.svg": barre(),
+        "harmonics.svg": harmonics(),
+        "lowg.svg": lowg(),
     }
     for name, content in figures.items():
         (OUT / name).write_text(content, encoding="utf-8")
