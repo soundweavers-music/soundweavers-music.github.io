@@ -8,6 +8,7 @@ import { chordRange, autoPlan, generate, applyArrangement, removeArrangement } f
 import { ROOTS } from './chords.js';
 import { toast } from './util.js';
 import { compose, applyComposition, FORMS, SEC_LABEL, parseProgression, progressionChoices } from './ai-compose.js';
+import { exportAudio } from './exporter.js';
 import { chordName } from './chords.js';
 
 const KEY = 'zhiyin-daw-ai';
@@ -66,6 +67,11 @@ function build() {
         <button type="button" class="tbtn aic-prog" title="旋律種子不變，重抽「隨機」的段落（指定的段落不會變）">重抽隨機和弦</button>
         <button type="button" class="tbtn aic-play">▶ 從頭播放</button>
         <span class="note aic-status"></span>
+      </div>
+      <div class="aiw-row">
+        <label class="f">配樂風格 <select class="aic-style">${STYLES.map(s => `<option value="${s.id}">${esc(s.name)}</option>`).join('')}</select></label>
+        <button type="button" class="tbtn primary aic-all" title="寫和弦與旋律，再用這個風格把整首伴奏配好，一次完成">✦ 一鍵完成（含伴奏）</button>
+        <button type="button" class="tbtn aic-wav" title="把目前的專案算成 WAV 下載（長度越長、效果器越多，算得越久）">↓ 輸出成音檔</button>
       </div>
       <div class="aic-sum"></div>
       <div class="aiw-row aic-after" hidden>
@@ -144,6 +150,33 @@ function build() {
   $('.aic-prog').onclick = () => runCompose(newSeed(), comp?.melSeed ?? newSeed());
   $('.aic-play').onclick = () => playFrom(comp ? Math.max(0, comp.res.startBar - 0) * 4 : 0);
   $('.aic-next').onclick = () => { S.tab = 'arrange'; save(); plan = comp?.res.plan.map(x => ({ ...x })) || null; renderTab(); };
+  // ③ 一鍵完成：寫和弦＋旋律，接著用選定的風格把整首伴奏配好（等於跑完 ③ 再跑 ②）
+  $('.aic-style').value = S.cStyle || S.styleId || 'cballad';
+  $('.aic-style').onchange = e => { S.cStyle = e.target.value; save(); };
+  $('.aic-all').onclick = () => {
+    runCompose(newSeed(), newSeed());
+    if (!comp) return;                       // 失敗時 runCompose 已經提示過了
+    S.styleId = S.cStyle || S.styleId;
+    save();
+    plan = comp.res.plan.map(x => ({ ...x }));
+    runGenerate(false);
+    if (store.project.tracks.some(t => t.clips.some(c => c.aiArr))) {
+      toast('一鍵完成：旋律、和弦與伴奏都配好了，按播放聽聽看');
+    }
+  };
+  // 輸出：把目前專案算成 WAV 下載（沒有伺服器，全部在這台電腦算）
+  $('.aic-wav').onclick = async () => {
+    const btn = $('.aic-wav');
+    btn.disabled = true;
+    try {
+      await exportAudio({ mode: 'mix', range: 'all', format: 'wav', bitDepth: 16,
+                          sampleRate: 44100, normalize: false });
+    } catch (e) {
+      toast('輸出失敗：' + e.message, 'error');
+    } finally {
+      btn.disabled = false;
+    }
+  };
   store.on('change', ({ kind }) => { if (open && kind === 'structure') { fillTracks(); if (S.tab === 'arrange') renderRange(); } });
   document.addEventListener('keydown', e => { if (open && e.key === 'Escape') { e.stopPropagation(); toggleAI(false); } }, true);
 }
