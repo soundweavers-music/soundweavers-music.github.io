@@ -1224,6 +1224,77 @@ def humidity() -> str:
         "最省心的做法：琴袋內放一包雙向調濕包（例如 49%），比每天追著濕度計跑有效。")
 
 
+def chord_loop() -> str:
+    """5.2：C → Am → F → G7 的共同指。"""
+    items = [("C", [0, 0, 0, 3], "無名指 1 弦 3 格；中指先懸在 4 弦 2 格上方"),
+             ("Am", [2, 0, 0, 0], "中指落下來就是 Am，無名指同時抬起"),
+             ("F", [2, 0, 1, 0], "中指不要放開，食指加按 2 弦 1 格"),
+             ("G7", [0, 2, 1, 2], "食指留著當軸心，中指移到 3 弦 2 格")]
+    w = 720
+    step = (w - 48) / 4
+    h = 372
+    p = [_t(24, 34, "無痛換和弦：四顆和弦其實共用手指", 15, weight=700),
+         _t(24, 55, "換和弦時手指全部抬起來，是最常見的「慢」；留一根手指當路標就會快很多", 11.5, fill=MUTED)]
+    for i, (name, frets, note) in enumerate(items):
+        x = 24 + i * step + step / 2 - 46
+        p.append(chord_grid(x, 92, list(reversed(frets)), name, 92, 130))
+        for k, line in enumerate(_wrap(note, 11)):
+            p.append(_t(24 + i * step + step / 2, 248 + k * 16, line, 9.5, "middle", MUTED))
+    p.append(_t(24, h - 14, "四個和弦裡，2 弦 1 格、4 弦 2 格、1 弦 2–3 格反覆出現——記位置，不要記「整組手型」。", 10.5, fill=MUTED))
+    return svg(w, h, "".join(p), "換和弦的共同指")
+
+
+def beats34_68() -> str:
+    """8.1：3/4 與 6/8 的重音位置。"""
+    w, h = 720, 320
+    p = [_t(24, 34, "3/4 與 6/8：重音落在不同地方", 15, weight=700),
+         _t(24, 55, "兩者都是三拍一組，但 6/8 是「兩大拍、每大拍三下」，聽起來更快、更圓", 11.5, fill=MUTED)]
+    rows = [("3/4", ["強", "弱", "弱"], "三拍一一數；第 1 拍最飽滿"),
+            ("6/8", ["強", "弱", "弱", "次強", "弱", "弱"], "兩大拍；第 4 下要再給一次力道")]
+    for i, (name, marks, note) in enumerate(rows):
+        y = 104 + i * 96
+        p.append(_t(96, y + 6, name, 14, "end", WOOD_D, 700))
+        n = len(marks)
+        colw = 520 / n
+        for k, m in enumerate(marks):
+            x = 120 + k * colw
+            strong = m in ("強", "次強")
+            p.append(f'<rect x="{x:.1f}" y="{y - 16}" width="{colw - 6:.1f}" height="36" rx="6" '
+                     f'fill="{WOOD if strong else "#f3ece2"}" stroke="{LINE}"/>')
+            p.append(_t(x + (colw - 6) / 2, y + 7, m, 11.5, "middle", PAPER if strong else MUTED,
+                       700 if strong else None))
+        p.append(_t(120, y + 44, note, 10, fill=MUTED))
+    p.append(_t(24, h - 16, "6/8 不是「六個平均的四拍」；數成兩大拍，第 1 與第 4 下明顯更用力，律動就對了。", 10.5, fill=MUTED))
+    return svg(w, h, "".join(p), "3/4 與 6/8 的重音")
+
+
+def transpose_grid() -> str:
+    """17.2：移調夾速查。"""
+    names = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
+    def up(root, n):
+        return names[(names.index(root) + n) % 12]
+    groups = [("C 調指法", "C"), ("G 調指法", "G"), ("F 調指法", "F")]
+    w = 720
+    left, colw = 150, 88
+    h = 96 + len(groups) * 44 + 30
+    p = [_t(24, 34, "移調夾速查：按同一組指法，實際唱出來的調", 15, weight=700),
+         _t(24, 55, "往琴身方向夾 1 格＝升 1 個半音；移調夾只能升，不能降", 11.5, fill=MUTED)]
+    for c in range(6):
+        p.append(_t(left + c * colw + colw / 2, 86, f"夾 {c} 格" if c else "不夾", 10.5, "middle", MUTED))
+    for i, (label, root) in enumerate(groups):
+        y = 98 + i * 44
+        p.append(_t(left - 12, y + 18, label, 11.5, "end", INK, 700))
+        for c in range(6):
+            x = left + c * colw
+            same = c == 0
+            p.append(f'<rect x="{x}" y="{y}" width="{colw - 6}" height="32" rx="6" '
+                     f'fill="{"#f3ece2" if same else PAPER}" stroke="{LINE}"/>')
+            p.append(_t(x + (colw - 6) / 2, y + 21, up(root, c), 12, "middle", INK if same else WOOD_D,
+                       700 if same else None))
+    p.append(_t(24, h - 14, "例：原曲 Eb 大調要唱，用 C 調指法夾第 3 格；太高就換一組指法再夾，不是把夾子往回夾。", 10.5, fill=MUTED))
+    return svg(w, h, "".join(p), "移調夾速查")
+
+
 def main() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
     figures = {
@@ -1235,6 +1306,9 @@ def main() -> int:
         "double_stops.svg": double_stops(),
         "fingerstyle_roles.svg": fingerstyle_roles(),
         "percussion.svg": percussion(),
+        "chord_loop.svg": chord_loop(),
+        "beats34_68.svg": beats34_68(),
+        "transpose_grid.svg": transpose_grid(),
         "humidity.svg": humidity(),
         "note_values.svg": note_values(),
         "press_hand.svg": press_hand(),
