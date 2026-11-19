@@ -110,7 +110,7 @@ export function openFxPanel(owner, fxId) {
   const d = list?.find(x => x.id === fxId);
   if (!d) return;
   const old = panels.get(fxId);
-  const keepPos = old && { left: old.style.left, top: old.style.top };
+  const keepPos = old && { left: old.style.left, top: old.style.top, width: old.style.width, height: old.style.height };
   if (old) closeFxPanel(fxId);
   const T = FX_TYPES[d.type];
   const presets = presetsFor(d.type);
@@ -141,7 +141,33 @@ export function openFxPanel(owner, fxId) {
     ${d.type === 'deess' ? '<p class="fx-note">打開「只聽齒音」，邊播放邊調「齒音頻率」，找到最刺耳的位置後再關掉。衰減量通常 3–8 dB 就夠，壓太多會像大舌頭。</p>' : ''}`;
   panel.querySelector('.fx-owner').textContent = ownerName(owner) || '';
   document.body.appendChild(panel);
-  if (keepPos) Object.assign(panel.style, keepPos);
+  // 可以拉大：右下角的把手；大小依效果器類型記住
+  const grip = document.createElement('div');
+  grip.className = 'fx-grip'; grip.title = '拖曳改變視窗大小（雙擊還原）';
+  panel.appendChild(grip);
+  const SZ = 'zhiyin-daw-fxsize:' + d.type;
+  const saved = (() => { try { return JSON.parse(localStorage.getItem(SZ) || 'null'); } catch (_) { return null; } })();
+  if (saved && !keepPos) Object.assign(panel.style, { width: saved.w + 'px', height: saved.h + 'px' });
+  grip.addEventListener('pointerdown', e => {
+    e.preventDefault(); e.stopPropagation(); try { grip.setPointerCapture(e.pointerId); } catch (_) { /* noop */ }
+    const r = panel.getBoundingClientRect(), x0 = e.clientX, y0 = e.clientY;
+    panel.classList.add('sized');
+    const mv = ev => {
+      panel.style.width = Math.max(360, Math.min(innerWidth - r.left - 4, r.width + ev.clientX - x0)) + 'px';
+      panel.style.height = Math.max(240, Math.min(innerHeight - r.top - 4, r.height + ev.clientY - y0)) + 'px';
+      panel.dispatchEvent(new Event('fx-resize'));
+    };
+    const up = () => {
+      grip.removeEventListener('pointermove', mv); grip.removeEventListener('pointerup', up);
+      const rr = panel.getBoundingClientRect();
+      localStorage.setItem(SZ, JSON.stringify({ w: Math.round(rr.width), h: Math.round(rr.height) }));
+      panel._eq?._refresh?.();
+    };
+    grip.addEventListener('pointermove', mv); grip.addEventListener('pointerup', up);
+  });
+  grip.addEventListener('dblclick', () => { localStorage.removeItem(SZ); panel.style.width = ''; panel.style.height = ''; panel.classList.remove('sized'); panel._eq?._refresh?.(); });
+  if (saved && !keepPos) panel.classList.add('sized');
+  if (keepPos) { Object.assign(panel.style, keepPos); if (keepPos.height) panel.classList.add('sized'); }
   else {
     const w = d.type === 'eq' ? 640 : d.type === 'tune' ? 720 : d.type === 'harm' ? 780 : d.type === 'reverb' ? 620 : d.type === 'width' ? 600 : 420;
     // 新開的面板錯開一點，不要整個疊在前一個上面

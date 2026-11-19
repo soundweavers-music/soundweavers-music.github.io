@@ -98,7 +98,7 @@ export function eqEditor(owner, desc, onChange) {
   function size() {
     const dpr = devicePixelRatio || 1;
     W = cv.clientWidth || 520; H = cv.clientHeight || 220;
-    if (cv.width !== Math.round(W * dpr)) { cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); }
+    if (cv.width !== Math.round(W * dpr) || cv.height !== Math.round(H * dpr)) { cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); }
     freqs = new Float32Array(N);
     for (let i = 0; i < N; i++) freqs[i] = fOfX(i / (N - 1) * W, W);
     return dpr;

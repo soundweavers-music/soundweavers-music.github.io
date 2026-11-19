@@ -1,10 +1,10 @@
 // Auto Tune 面板：調音表、即時音高曲線、音階鍵盤、旋鈕、預設值、偵測調性
-import { store, isMidiClip } from './state.js';
+import { store } from './state.js';
 import { engine } from './engine.js';
 import { TUNE_SCALES, TUNE_RANGES, NOTE_NAMES_ZH, scaleMask } from './effects.js';
 import { detectKeyFromTrack } from './keydetect.js';
-import { detectNotes } from './note-detect.js';
 import { toast } from './util.js';
+import { openNoteEditor } from './note-editor.js';
 import { cssVar, ink } from './theme.js';
 
 const BLACK = new Set([1, 3, 6, 8, 10]);
@@ -51,16 +51,10 @@ export function tuneEditor(owner, desc, onChange) {
     <div class="atx-notes">
       <div class="atx-nhead">
         <b>音符編輯</b>
-        <button type="button" class="tbtn atx-analyze" title="分析這一軌的音訊，切成一顆一顆的音符">分析這一軌</button>
-        <button type="button" class="tbtn ghost atx-nclear">全部清除</button>
         <span class="atx-ninfo"></span>
+        <button type="button" class="tbtn primary atx-nopen" title="在大視窗裡一顆一顆調整音高、長度（可以拉大、最大化）">🎼 開啟音符編輯器</button>
       </div>
-      <canvas class="atx-ncv"></canvas>
-      <div class="atx-ntools">
-        <label>音高 <input type="range" class="atx-npitch" min="-12" max="12" step="1"></label>
-        <label>強度 <input type="range" class="atx-namt" min="0" max="100" step="1"></label>
-        <span class="atx-nhint">拖曳音符改位置與音高、拖右緣改長度、右鍵刪除</span>
-      </div>
+      <canvas class="atx-ncv" title="點一下開啟音符編輯器"></canvas>
     </div>
     <div class="atx-pre"></div>`;
   const $ = s => root.querySelector(s);
@@ -194,196 +188,34 @@ export function tuneEditor(owner, desc, onChange) {
   };
   syncLive();
 
-  // ---------- 音符編輯 ----------
+  // ---------- 音符編輯：這裡只放縮圖與按鈕，編輯在獨立視窗 ----------
   const ncv = $('.atx-ncv'), ninfo = $('.atx-ninfo');
-  const pitchInp = $('.atx-npitch'), amtInp = $('.atx-namt');
-  const notes = () => (P.notes || (P.notes = []));
-  let sel = -1;
-  const NS = { t0: 0, t1: 8, lo: 48, hi: 72 };   // 目前的畫布範圍（給命中測試用）
-  const NW = () => ncv.clientWidth || 660;
-  const NH = () => ncv.clientHeight || 150;
-  const xOf = t => 30 + (t - NS.t0) / (NS.t1 - NS.t0) * (NW() - 36);
-  const tOf = x => NS.t0 + (x - 30) / (NW() - 36) * (NS.t1 - NS.t0);
-  const rowH = () => (NH() - 16) / (NS.hi - NS.lo + 1);
-  const yOf = m => NH() - 8 - (m - NS.lo + 0.5) * rowH();
-  const mOf = y => NS.lo + (NH() - 8 - y) / rowH() - 0.5;
-
-  const fit = () => {
-    const all = notes();
-    let t0 = 0, t1 = 8, lo = 55, hi = 72;
-    if (all.length) {
-      t0 = Math.min(...all.map(n => n.s)) - 0.3;
-      t1 = Math.max(...all.map(n => n.e)) + 0.3;
-      lo = Math.min(...all.map(n => n.midi)) - 2;
-      hi = Math.max(...all.map(n => n.midi)) + 2;
-    }
-    if (t1 - t0 < 2) t1 = t0 + 2;
-    if (hi - lo < 6) { const c = (hi + lo) / 2; lo = c - 3; hi = c + 3; }
-    Object.assign(NS, { t0, t1, lo: Math.floor(lo), hi: Math.ceil(hi) });
-  };
-
+  const notes = () => P.notes || [];
+  const openEd = () => openNoteEditor(owner, desc, onChange);
+  $('.atx-nopen').onclick = openEd;
+  ncv.addEventListener('click', openEd);
   const drawNotes = () => {
-    const dpr = devicePixelRatio || 1, W = NW(), H = NH();
     if (!ncv.isConnected) return;
+    const dpr = devicePixelRatio || 1, W = ncv.clientWidth || 660, H = ncv.clientHeight || 54;
     ncv.width = W * dpr; ncv.height = H * dpr;
     const g = ncv.getContext('2d'); g.setTransform(dpr, 0, 0, dpr, 0, 0);
-    const bg = g.createLinearGradient(0, 0, 0, H); bg.addColorStop(0, cssVar('--cv-bg-a')); bg.addColorStop(1, cssVar('--cv-bg-b'));
-    g.fillStyle = bg; g.fillRect(0, 0, W, H);
-    fit();
-    // 半音格線（音階內比較亮）
-    for (let m = NS.lo; m <= NS.hi; m++) {
-      const pc = ((m % 12) + 12) % 12, inKey = (P.mask >> pc) & 1;
-      g.strokeStyle = inKey ? ink(.10) : ink(.04);
-      g.beginPath(); g.moveTo(30, yOf(m)); g.lineTo(W, yOf(m)); g.stroke();
-      if (inKey) { g.fillStyle = pc === P.key ? cssVar('--cv-good') : cssVar('--cv-tx2'); g.font = '9px ui-monospace'; g.textAlign = 'left'; g.fillText(noteOf(m), 2, yOf(m) + 3); }
-    }
-    // 時間格線
-    const step = (NS.t1 - NS.t0) > 30 ? 5 : 1;
-    for (let t = Math.ceil(NS.t0); t <= NS.t1; t += step) {
-      const x = xOf(t);
-      g.strokeStyle = ink(.05); g.beginPath(); g.moveTo(x, 0); g.lineTo(x, H); g.stroke();
-      g.fillStyle = ink(.28); g.font = '9px ui-monospace'; g.textAlign = 'center';
-      g.fillText(`${t.toFixed(0)}s`, x, H - 1);
-    }
-    // 音符
+    g.fillStyle = cssVar('--cv-bg-b'); g.fillRect(0, 0, W, H);
     const all = notes();
-    all.forEach((n, i) => {
-      const x = xOf(n.s), w = Math.max(3, xOf(n.e) - x), y = yOf(n.midi), h = Math.max(6, rowH() - 3);
-      const moved = n.orig != null && Math.abs(n.midi - n.orig) > 0.05;
-      const fixed = (n.amt ?? 1) > 0.02 && moved;
-      g.fillStyle = i === sel ? ink(.9) : moved ? 'rgba(247,143,195,.75)' : 'rgba(79,157,255,.55)';
-      g.strokeStyle = i === sel ? cssVar('--cv-sel') : moved ? 'rgba(247,143,195,.9)' : 'rgba(79,157,255,.9)';
-      g.lineWidth = 1;
-      g.beginPath();
-      if (g.roundRect) g.roundRect(x, y - h / 2, w, h, Math.min(4, w / 2));
-      else g.rect(x, y - h / 2, w, h);
-      g.fill(); g.stroke();
-      if (w > 40) {
-        g.fillStyle = 'rgba(8,9,12,.92)'; g.font = '10px ui-monospace'; g.textAlign = 'left';
-        g.fillText(noteOf(n.midi), x + 4, y + 3.5);
-      }
-      // 長度把手
-      if (i === sel && w > 8) {
-        g.fillStyle = ink(.8);
-        g.fillRect(x + w - 3, y - h / 2, 3, h);
-      }
-    });
-    // 播放頭
-    if (engine.playing && engine.ctx) {
-      const pos = engine.currentTime();
-      if (pos > NS.t0 && pos < NS.t1) {
-        g.fillStyle = ink(.5); g.fillRect(xOf(pos), 0, 1, H);
-      }
-    }
+    const edited = all.filter(n => n.orig != null && Math.abs(n.midi - n.orig) > 0.05).length;
+    ninfo.textContent = all.length ? `${all.length} 個音，${edited} 個手動改過${P.notesOn === false ? '（目前停用）' : ''}` : '還沒有分析';
     if (!all.length) {
       g.fillStyle = cssVar('--cv-tx2'); g.font = '11px sans-serif'; g.textAlign = 'center';
-      g.fillText('按「分析這一軌」把錄音切成一顆一顆的音符，就能個別調整', W / 2, H / 2);
+      g.fillText('開啟音符編輯器後按「分析這一軌」，就能一顆一顆調整音高', W / 2, H / 2 + 4); return;
     }
-    ninfo.textContent = all.length ? `${all.length} 個音${sel >= 0 ? `（選第 ${sel + 1} 個）` : ''}` : '';
-  };
-
-  // 命中測試
-  const hit = (x, y) => {
-    const all = notes();
-    for (let i = all.length - 1; i >= 0; i--) {
-      const n = all[i];
-      const nx = xOf(n.s), nw = Math.max(3, xOf(n.e) - nx), ny = yOf(n.midi), nh = Math.max(6, rowH() - 3);
-      if (x >= nx - 2 && x <= nx + nw + 2 && Math.abs(y - ny) <= nh / 2 + 2) return i;
+    const t0 = all[0].s, t1 = Math.max(...all.map(n => n.e)), lo = Math.min(...all.map(n => n.midi)) - 1, hi = Math.max(...all.map(n => n.midi)) + 1;
+    const x = t => 4 + (t - t0) / Math.max(0.1, t1 - t0) * (W - 8), y = m => H - 4 - (m - lo) / Math.max(1, hi - lo) * (H - 8);
+    for (const n of all) {
+      g.fillStyle = n.orig != null && Math.abs(n.midi - n.orig) > 0.05 ? '#f78fc3' : 'rgba(79,157,255,.8)';
+      g.fillRect(x(n.s), y(n.midi) - 1.5, Math.max(1, x(n.e) - x(n.s)), 3);
     }
-    return -1;
+    if (engine.playing) { const p = engine.currentTime(); if (p > t0 && p < t1) { g.fillStyle = '#ff4d4d'; g.fillRect(x(p), 0, 1, H); } }
   };
-
-  const syncSel = () => {
-    const n = notes()[sel];
-    pitchInp.disabled = amtInp.disabled = !n;
-    if (!n) return;
-    pitchInp.value = Math.round(n.midi - (n.orig ?? n.midi));
-    amtInp.value = Math.round((n.amt ?? 1) * 100);
-  };
-
-  ncv.addEventListener('pointerdown', e => {
-    const r = ncv.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
-    const i = hit(x, y);
-    sel = i; syncSel();
-    if (i < 0) return;
-    store.checkpoint();   // 只有真的抓到音符才存還原點
-    const n = notes()[i];
-    const edge = x > xOf(n.e) - 6;
-    const x0 = x, y0 = y, s0 = n.s, e0 = n.e, m0 = n.midi;
-    ncv.setPointerCapture(e.pointerId);
-    const mv = ev => {
-      const dx = ev.clientX - r.left - x0, dy = ev.clientY - r.top - y0;
-      const dt = dx / Math.max(30, NW() - 36) * (NS.t1 - NS.t0);
-      if (edge) n.e = Math.max(n.s + 0.04, e0 + dt);
-      else { n.s = Math.max(0, s0 + dt); n.e = Math.max(n.s + 0.04, e0 + dt); n.midi = Math.round((m0 - dy / rowH()) * 10) / 10; }
-      live(); syncSel();
-    };
-    const up = () => {
-      ncv.removeEventListener('pointermove', mv); ncv.removeEventListener('pointerup', up);
-      changed(); syncSel();
-    };
-    ncv.addEventListener('pointermove', mv); ncv.addEventListener('pointerup', up);
-  });
-  ncv.addEventListener('contextmenu', e => {
-    e.preventDefault();
-    const r = ncv.getBoundingClientRect(), i = hit(e.clientX - r.left, e.clientY - r.top);
-    if (i < 0) return;
-    store.checkpoint(); notes().splice(i, 1); sel = -1; syncSel(); changed();
-  });
-  ncv.addEventListener('wheel', e => {   // 滾輪微調選中的音高
-    if (sel < 0) return;
-    e.preventDefault();
-    const n = notes()[sel];
-    store.checkpoint();
-    n.midi = Math.round((n.midi + (e.deltaY < 0 ? 0.1 : -0.1)) * 10) / 10;
-    live(); syncSel(); clearTimeout(ncv._t); ncv._t = setTimeout(changed, 200);
-  }, { passive: false });
-
-  pitchInp.addEventListener('input', () => {
-    const n = notes()[sel]; if (!n) return;
-    n.midi = Math.round(((n.orig ?? n.midi) + Number(pitchInp.value)) * 10) / 10;
-    live();
-  });
-  pitchInp.addEventListener('change', () => changed());
-  amtInp.addEventListener('input', () => {
-    const n = notes()[sel]; if (!n) return;
-    n.amt = Number(amtInp.value) / 100; live();
-  });
-  amtInp.addEventListener('change', () => changed());
-
-  $('.atx-nclear').onclick = () => {
-    store.checkpoint(); P.notes = []; sel = -1; syncSel(); changed();
-    toast('已清空手動編輯的音符，回到依音階自動修正');
-  };
-
-  $('.atx-analyze').onclick = async () => {
-    const btn = $('.atx-analyze');
-    const t = store.track(owner);
-    if (!t || !t.clips?.length) { toast('這一軌沒有音訊片段可以分析', 'warn'); return; }
-    btn.disabled = true; btn.textContent = '分析中…';
-    try {
-      const out = [];
-      for (const c of t.clips) {
-        if (isMidiClip(c)) continue;
-        const b = store.buffers.get(c.bufferId);
-        if (!b) continue;
-        const ns = detectNotes(b, c.offset, Math.min(c.duration, 240));
-        for (const n of ns) {
-          const s = c.start + n.s, e = c.start + n.e;
-          if (e > c.start + c.duration + 0.001) continue;
-          const midi = Math.round(n.midi * 10) / 10;
-          out.push({ s, e, midi, orig: midi, amt: 1 });
-        }
-        await new Promise(r => setTimeout(r));   // 讓畫面有機會更新
-      }
-      out.sort((a, b) => a.s - b.s);
-      store.checkpoint();
-      P.notes = out; P.notesOn = true; sel = -1; syncSel();
-      changed();
-      toast(out.length ? `找到 ${out.length} 個音，拖曳就能個別調整` : '沒有抓到清楚的音，換一段或先確認錄音音量');
-    } catch (err) { toast('分析失敗：' + err.message, 'error'); }
-    finally { btn.disabled = false; btn.textContent = '分析這一軌'; }
-  };
+  const syncSel = () => {};
 
   function live() { store.dirty = true; store.emit('fx-live', {}); }
   function changed() { onChange(false); renderPiano(); }
@@ -487,6 +319,7 @@ export function tuneEditor(owner, desc, onChange) {
   syncSel();
   raf = requestAnimationFrame(frame);
   root._dispose = () => { cancelAnimationFrame(raf); if (unsub) unsub(); };
+  root._openNotes = openEd;
   root._refresh = () => {
     keySel.value = P.key; scaleSel.value = P.scale; rangeSel.value = P.range;
     renderPiano(); Object.values(kEls).forEach(f => f()); syncLive(); syncSel();
