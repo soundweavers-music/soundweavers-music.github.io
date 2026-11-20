@@ -152,8 +152,13 @@ def _load_shapes() -> dict:
     return {}
 
 
-def chord_grid(x: int, y: int, frets: list[int], name: str, w: int = 92, h: int = 120) -> str:
-    """4-string chord diagram: frets list from 4th string to 1st."""
+def chord_grid(x: int, y: int, frets: list[int], name: str, w: int = 92, h: int = 120,
+               fingers: list[int] | None = None) -> str:
+    """四弦和弦圖。frets 是「第 1 弦 → 第 4 弦」，跟 _chord_library.js 同一個順序。
+
+    fingers 有給的話，會把指法編號（1 食指、2 中指、3 無名指、4 小指）
+    畫在圓點裡——網路上大部分和弦圖都有這個數字，初學者靠它決定用哪根手指。
+    """
     p = [f'<text x="{x + w/2}" y="{y - 8}" font-size="14" text-anchor="middle" fill="{INK}" {FONT}>{name}</text>']
     top, left = y + 18, x + 18
     gap = 18
@@ -165,6 +170,7 @@ def chord_grid(x: int, y: int, frets: list[int], name: str, w: int = 92, h: int 
         ry = top + r * 18
         p.append(f'<line x1="{left}" y1="{ry}" x2="{left + 3 * gap}" y2="{ry}" '
                  f'stroke="{INK if r == 0 else LINE}" stroke-width="{2 if r == 0 else 1.2}"/>')
+    fin = list(reversed(fingers)) if fingers else None
     for s, f in enumerate(reversed(frets)):
         sx = left + s * gap
         if f < 0:
@@ -174,12 +180,20 @@ def chord_grid(x: int, y: int, frets: list[int], name: str, w: int = 92, h: int 
         else:
             ry = top + (min(f, rows) - 0.5) * 18
             p.append(f'<circle cx="{sx}" cy="{ry}" r="6.5" fill="{WOOD}"/>')
+            n = fin[s] if fin else 0
+            if n:
+                p.append(f'<text x="{sx}" y="{ry + 3.5}" font-size="9" text-anchor="middle" '
+                         f'fill="#fff" {FONT}>{n}</text>')
     return "".join(p)
 
 
 def chords() -> str:
-    shapes = _load_shapes()
-    names = [("C", "0:maj"), ("Am", "9:m"), ("F", "5:maj"), ("G7", "7:7")]
+    # 指法編號照課文寫的：C 無名指、Am 中指、F 加食指、G7 三指成正三角形。
+    # 不要用 _chord_library.js 的 fingers——那裡 C 記成食指，跟 5.1 的說明打架。
+    names = [("C", [3, 0, 0, 0], [3, 0, 0, 0]),
+             ("Am", [0, 0, 0, 2], [0, 0, 0, 2]),
+             ("F", [0, 1, 0, 2], [0, 1, 0, 2]),
+             ("G7", [2, 1, 2, 0], [3, 1, 2, 0])]
     w, h = 520, 200
     p = [f'<text x="24" y="30" font-size="14" fill="{INK}" {FONT}>萬能四和弦（High-G GCEA）</text>']
     for i, (label, key) in enumerate(names):
@@ -378,7 +392,9 @@ def chord_read() -> str:
     w, h = 520, 300
     p = [f'<text x="24" y="28" font-size="14" fill="{INK}" {FONT}>怎麼讀和弦圖</text>']
     x, y = 90, 70
-    p.append(chord_grid(x, y, [0, 0, 0, 3], "C"))
+    # chord_grid 吃的是「第 1 弦 → 第 4 弦」（跟 _chord_library.js 同一個順序），
+    # 所以 C（0003）要寫成 [3, 0, 0, 0]：按下去的是第 1 弦，不是左邊的第 4 弦。
+    p.append(chord_grid(x, y, [3, 0, 0, 0], "C"))
     labels = [(x+80, y+6, "○ 空弦（左手不按，右手要刷）"),
               (x+80, y+40, "數字 = 第幾格，不是手指編號"),
               (x+80, y+74, "直線由左至右 = 第 4 弦到第 1 弦"),
@@ -1195,6 +1211,56 @@ def _wrap(text, n):
     return [text[i:i + n] for i in range(0, len(text), n)]
 
 
+def chords_fingers() -> str:
+    """5.x：萬能四和弦＋指法編號（原本是第 5 章裡的 ASCII 圖）。"""
+    # 指法編號照課文寫的：C 無名指、Am 中指、F 加食指、G7 三指成正三角形。
+    # 不要用 _chord_library.js 的 fingers——那裡 C 記成食指，跟 5.1 的說明打架。
+    names = [("C", [3, 0, 0, 0], [3, 0, 0, 0]),
+             ("Am", [0, 0, 0, 2], [0, 0, 0, 2]),
+             ("F", [0, 1, 0, 2], [0, 1, 0, 2]),
+             ("G7", [2, 1, 2, 0], [3, 1, 2, 0])]
+    w, h = 600, 290
+    p = [_t(24, 30, "萬能四和弦與指法編號", 15, weight=700),
+         _t(24, 50, "圓點裡的數字＝左手手指：1 食指、2 中指、3 無名指、4 小指", 11, fill=MUTED)]
+    for i, (label, frets, fingers) in enumerate(names):
+        x = 48 + i * 134
+        for s, num in enumerate((4, 3, 2, 1)):
+            p.append(_t(x + 18 + s * 18, 84, str(num), 9, "middle", MUTED))
+        p.append(chord_grid(x, 112, frets, label, 96, 130, fingers=fingers))
+    p.append(_t(24, h - 16,
+               "由左至右＝第 4 弦到第 1 弦；上面的 ○ 是空弦（左手不按、右手要刷），✕ 是不彈。",
+               10.5, fill=MUTED))
+    return svg(w, h, "".join(p), "萬能四和弦與指法編號")
+
+
+def progression_loop() -> str:
+    """5.x：C → Am → F → G7 的四小節循環、兩種刷法（原本是第 5 章的 ASCII 圖）。"""
+    w, h = 720, 352
+    names = ["C", "Am", "F", "G7"]
+    p = [_t(24, 32, "四小節循環：C → Am → F → G7", 15, weight=700),
+         _t(24, 52, "每一小節四拍；下面的「重／輕」是右手力道，不是拍子", 11, fill=MUTED)]
+    rows = [("平均四刷", ["↓"] * 4, ""),
+            ("重輕輕輕", ["↓", "↓", "↓", "↓"], "重　輕　重　輕")]
+    for ri, (label, marks, dyn) in enumerate(rows):
+        y = 92 + ri * 108
+        p.append(_t(24, y + 26, label, 12, weight=700))
+        for bi, ch in enumerate(names):
+            bx = 120 + bi * 148
+            p.append(f'<rect x="{bx}" y="{y}" width="136" height="82" rx="8" '
+                     f'fill="#f7f2ea" stroke="{LINE}"/>')
+            p.append(_t(bx + 68, y + 20, ch, 13, "middle", WOOD_D, 700))
+            for k, mark in enumerate(marks):
+                cx = bx + 17 + k * 34
+                p.append(_t(cx, y + 52, mark, 16, "middle", INK))
+                p.append(_t(cx, y + 70, str(k + 1), 9, "middle", MUTED))
+        if dyn:
+            p.append(_t(120, y + 100, dyn, 10.5, fill=MUTED))
+    p.append(_t(24, 320,
+               "「重」是手腕多用一點力、聲音更飽；「輕」不是不刷，是刷得薄一點。四拍都要刷到，差別在力道。",
+               10.5, fill=MUTED))
+    return svg(w, h, "".join(p), "四小節循環與刷法")
+
+
 def fig_chord_block(key) -> str:
     title, subtitle, items, footer = CHORD_BLOCKS[key]
     w = 720
@@ -1674,6 +1740,8 @@ def main() -> int:
         "anatomy.svg": anatomy(),
         "tuning.svg": tuning(),
         "chords_cafg.svg": chords(),
+        "chords_fingers.svg": chords_fingers(),
+        "progression_loop.svg": progression_loop(),
         "strum_folk.svg": strum_folk(),
         "fretboard.svg": fretboard(),
         "posture.svg": posture(),
