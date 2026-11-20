@@ -86,6 +86,11 @@ QUAL = {
     'sus2': {0, 2, 7},
     'sus4': {0, 5, 7},
     'add9': {0, 4, 7, 2},
+    'aug7': {0, 4, 8, 10},
+    '7sus4': {0, 5, 7, 10},
+    'maj9': {0, 4, 7, 11, 2},
+    'm9': {0, 3, 7, 10, 2},
+    'madd9': {0, 3, 7, 2},
 }
 # tones that MUST appear (5th may be dropped on 7ths/9ths; matches QDEF in the tool)
 ESSENTIAL = {
@@ -104,10 +109,16 @@ ESSENTIAL = {
     'sus2': {0, 2, 7},
     'sus4': {0, 5, 7},
     'add9': {0, 4, 2},
+    'aug7': {0, 4, 8, 10},
+    '7sus4': {0, 5, 10},
+    'maj9': {0, 4, 11, 2},
+    'm9': {0, 3, 10, 2},
+    'madd9': {0, 3, 2},
 }
 # core = curated open shapes / guitar barres; the rest are solved (low position).
 CORE = ['maj', 'm', '7', 'maj7', 'm7']
-QUALITIES = CORE + ['aug', 'dim', 'dim7', 'm7b5', '6', 'm6', '9', 'sus2', 'sus4', 'add9']
+QUALITIES = CORE + ['aug', 'aug7', 'dim', 'dim7', 'm7b5', '6', 'm6',
+             '9', 'maj9', 'm9', 'sus2', 'sus4', '7sus4', 'add9', 'madd9']
 
 # ---- curated, recognizable open shapes (absolute frets, -1 = mute) ----
 # guitar index order: 1st,2nd,3rd,4th,5th,6th
