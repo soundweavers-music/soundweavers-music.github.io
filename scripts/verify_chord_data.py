@@ -172,42 +172,63 @@ def check_ukulele_course(problems) -> int:
 
 
 def check_markdown(problems) -> int:
-    """和弦指法表裡的「發音」欄必須跟「按格」對得起來。"""
+    """content/chord/*.md 是文字資料庫：抽幾列比對「按格」是否跟函式庫一致。"""
+    src = LIB.read_text(encoding="utf-8")
+    lib = json.loads(src[src.find("{"): src.rfind("}") + 1])
+    files = {"guitar": "0", "ukulele": "2", "banjo": "3", "mandolin": "4"}
     n = 0
-    headers = {"guitar": ("吉他", TUNING[0][1], ["E4", "B3", "G3", "D3", "A2", "E2"]),
-               "ukulele": ("烏克麗麗", TUNING[2][1], ["A4", "E4", "C4", "g4"])}
-    for fname_en, (fname, base, strings) in headers.items():
-        path = BASE / "content" / "chord" / f"{fname_en}.md"
+    for fname, inst in files.items():
+        path = BASE / "content" / "chord" / f"{fname}.md"
         if not path.exists():
             continue
-        cur = None
+        table = None
         for line in path.read_text(encoding="utf-8").splitlines():
-            m = re.match(r"^### (.+?)（", line)
-            if m:
-                cur = m.group(1)
+            if line.startswith("## "):
+                table = lib[inst].get(line[3:].strip())
                 continue
-            if not line.startswith("| 第") or cur is None:
+            if not line.startswith("| **") or table is None:
                 continue
             cells = [c.strip() for c in line.strip("|").split("|")]
-            if len(cells) < 4:
+            if len(cells) < 3:
                 continue
-            idx = int(re.search(r"第(\d)弦", cells[0]).group(1)) - 1
-            sound = cells[3]
-            frets = re.search(r"第(\d+)格", cells[1])
+            name = cells[0].strip("* ")
+            key = md_name_to_key(name)
+            entry = table.get(key) if key else None
+            if entry is None:
+                problems.append(f"[指法表 {fname}.md] {name}：資料庫裡找不到")
+                continue
+            frets_md = " ".join("✕" if f < 0 else str(f) for f in entry["frets"])
+            # 一般和弦 6 欄（和弦／類型／按格／手指／封閉／其他把位），
+            # 斜線和弦 4 欄（和弦／按格／手指／其他把位）
+            col = 2 if len(cells) >= 6 else 1
+            if cells[col] != frets_md:
+                problems.append(f"[指法表 {fname}.md] {name}：按格寫「{cells[col]}」，"
+                                f"資料庫是「{frets_md}」")
             n += 1
-            if "空弦" in cells[1]:
-                pc = base[len(base) - 1 - idx] % 12 if True else None
-            elif frets:
-                pc = (base[len(base) - 1 - idx] + int(frets.group(1))) % 12
-            else:
-                continue
-            written = ROOT_PC.get(sound.strip().replace("♭", "♭"))
-            if written is None:
-                written = ROOT_PC.get(sound.strip())
-            if written != pc:
-                problems.append(f"[指法表 {fname}] {cur} 第{idx + 1}弦："
-                                f"寫「{sound}」但按格算出來是 {NOTE[pc]}")
     return n
+
+
+def md_name_to_key(name: str):
+    """把「C♯m7/G」這種寫法換回資料庫的 key。"""
+    import re as _re
+    m = _re.match(r"^([A-G][♯♭]?)(.*)$", name)
+    if not m:
+        return None
+    root_txt, rest = m.group(1), m.group(2)
+    root_pc = None
+    for i, txt in enumerate(NOTE):
+        if txt.replace("♯", "#") == root_txt.replace("♯", "#"):
+            root_pc = i
+    if root_pc is None:
+        return None
+    qual, _, bass_txt = rest.partition("/")
+    qual = qual or "maj"
+    key = f"{root_pc}:{qual}"
+    if bass_txt:
+        for i, txt in enumerate(NOTE):
+            if txt == bass_txt:
+                key += f"/{i}"
+    return key
 
 
 def check_simple(problems) -> None:
