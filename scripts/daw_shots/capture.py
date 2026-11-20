@@ -525,6 +525,10 @@ for (const a of acts) {
         .find(function (e) { return re.test(e.textContent); });
       if (el) el.click();
     }
+    else if (key === 'pr') {          // 打開第一條 MIDI 軌第一個片段的鋼琴捲簾
+      const t = window.__daw.store.project.tracks.find(x => x.kind === 'midi' && x.clips.length);
+      if (t) window.__daw.openPianoRoll(t.clips[0].id);
+    }
     else if (key === 'fx2') {          // 暫時掛一個效果器並打開它的面板
       const t = window.__daw.store.project.tracks[Number(arg[1] || 0)];
       const fx = newFx(arg[0]);        // 預設參數才不會顯示 NaN
@@ -656,6 +660,7 @@ SHOT_LIST = {
     # 主畫面與四大面板
     "overview":   ("", ""),
     "mixer":      ("click:btnMixer", ""),
+    "pianoroll":  ("pr,wait:400,eval:document.dispatchEvent(new Event(&quot;daw-theme&quot;))%2Cwindow.dispatchEvent(new Event(&quot;resize&quot;)),wait:600", ""),
     "piano":      ("piano", ""),
     "master":     ("click:btnMaster", ""),
     "arranger":   ("arr", ""),
