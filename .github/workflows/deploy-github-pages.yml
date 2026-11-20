@@ -67,6 +67,11 @@ jobs:
       - name: Build guitar & ukulele courses
         run: python scripts/build_courses.py
 
+      # 英文版課程頁（/en/<course>/）與 /en/ 落地頁。要在 build_courses.py 之後，
+      # 因為它接手所有英文課程頁面（build_courses.py 只管中文）。
+      - name: Build English course pages
+        run: python scripts/build_en_courses.py
+
       - name: Build sound-journey reader
         run: python scripts/build_sound_journey_docs.py
 

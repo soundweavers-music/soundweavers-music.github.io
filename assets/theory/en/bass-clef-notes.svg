@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340" width="100%" role="img" aria-label="低音譜號：五條線與四個間">
+<rect width="760" height="340" fill="#f7f3ee"/>
+<text x="28.0" y="40.0" font-size="19" text-anchor="start" fill="#2b2722" font-weight="700">The bass clef: five lines, four spaces</text>
+<text x="28.0" y="62.0" font-size="12.5" text-anchor="start" fill="#8a8078" font-weight="400">Two dots bracket the fourth line (F3); count up or down by step</text>
+<line x1="110.0" y1="156.0" x2="720.0" y2="156.0" stroke="#2b2722" stroke-width="1.1"/>
+<line x1="110.0" y1="142.0" x2="720.0" y2="142.0" stroke="#2b2722" stroke-width="1.1"/>
+<line x1="110.0" y1="128.0" x2="720.0" y2="128.0" stroke="#2b2722" stroke-width="1.1"/>
+<line x1="110.0" y1="114.0" x2="720.0" y2="114.0" stroke="#2b2722" stroke-width="1.1"/>
+<line x1="110.0" y1="100.0" x2="720.0" y2="100.0" stroke="#2b2722" stroke-width="1.1"/>
+<circle cx="140.0" cy="114.0" r="15.0" fill="none" stroke="#A67C52" stroke-width="2"/>
+<text x="140.0" y="119.0" font-size="14" text-anchor="middle" fill="#A67C52" font-weight="700">F</text>
+<text x="140.0" y="82.0" font-size="9.5" text-anchor="middle" fill="#8a8078" font-weight="400">Two dots bracket line 4</text>
+<ellipse cx="240.0" cy="135.0" rx="8.5" ry="6.2" fill="#2b2722" stroke="none" stroke-width="1.4" transform="rotate(-20 240.0 135.0)"/>
+<text x="251.0" y="128.0" font-size="9.5" text-anchor="start" fill="#8a8078" font-weight="400">C3</text>
+<ellipse cx="296.0" cy="128.0" rx="8.5" ry="6.2" fill="#2b2722" stroke="none" stroke-width="1.4" transform="rotate(-20 296.0 128.0)"/>
+<text x="307.0" y="121.0" font-size="9.5" text-anchor="start" fill="#8a8078" font-weight="400">D3</text>
+<ellipse cx="352.0" cy="121.0" rx="8.5" ry="6.2" fill="#2b2722" stroke="none" stroke-width="1.4" transform="rotate(-20 352.0 121.0)"/>
+<text x="363.0" y="114.0" font-size="9.5" text-anchor="start" fill="#8a8078" font-weight="400">E3</text>
+<ellipse cx="408.0" cy="114.0" rx="8.5" ry="6.2" fill="#A67C52" stroke="none" stroke-width="1.4" transform="rotate(-20 408.0 114.0)"/>
+<text x="419.0" y="107.0" font-size="9.5" text-anchor="start" fill="#A67C52" font-weight="400">F3</text>
+<ellipse cx="464.0" cy="107.0" rx="8.5" ry="6.2" fill="#2b2722" stroke="none" stroke-width="1.4" transform="rotate(-20 464.0 107.0)"/>
+<text x="475.0" y="100.0" font-size="9.5" text-anchor="start" fill="#8a8078" font-weight="400">G3</text>
+<ellipse cx="520.0" cy="100.0" rx="8.5" ry="6.2" fill="#2b2722" stroke="none" stroke-width="1.4" transform="rotate(-20 520.0 100.0)"/>
+<text x="531.0" y="93.0" font-size="9.5" text-anchor="start" fill="#8a8078" font-weight="400">A3</text>
+<ellipse cx="576.0" cy="93.0" rx="8.5" ry="6.2" fill="#2b2722" stroke="none" stroke-width="1.4" transform="rotate(-20 576.0 93.0)"/>
+<text x="587.0" y="86.0" font-size="9.5" text-anchor="start" fill="#8a8078" font-weight="400">B3</text>
+<line x1="614.0" y1="86.0" x2="650.0" y2="86.0" stroke="#2b2722" stroke-width="1.1"/>
+<ellipse cx="632.0" cy="86.0" rx="8.5" ry="6.2" fill="#2b2722" stroke="none" stroke-width="1.4" transform="rotate(-20 632.0 86.0)"/>
+<text x="643.0" y="79.0" font-size="9.5" text-anchor="start" fill="#8a8078" font-weight="400">C4</text>
+<text x="28.0" y="218.0" font-size="12" text-anchor="start" fill="#2b2722" font-weight="400">Lines, bottom up: G2・B2・D3・F3・A3</text>
+<text x="28.0" y="242.0" font-size="12" text-anchor="start" fill="#2b2722" font-weight="400">Spaces, bottom up: A2・C3・E3・G3</text>
+<text x="28.0" y="268.0" font-size="11.5" text-anchor="start" fill="#8a8078" font-weight="400">Mnemonic: Good Boys Do Fine Always / All Cows Eat Grass</text>
+<text x="28.0" y="296.0" font-size="11.5" text-anchor="start" fill="#8a8078" font-weight="400">The same line gets a new name under a new clef—middle C is one ledger line above</text>
+</svg>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 350" width="100%" role="img" aria-label="弦的三個旋鈕：長度、張力、質量">
+<rect width="760" height="350" fill="#f7f3ee"/>
+<text x="28.0" y="40.0" font-size="19" text-anchor="start" fill="#2b2722" font-weight="700">Three knobs on a string: length, tension, mass</text>
+<text x="28.0" y="62.0" font-size="12.5" text-anchor="start" fill="#8a8078" font-weight="400">frequency ∝ √(tension/mass) ÷ length; in practice length is the one you move</text>
+<text x="28.0" y="96.0" font-size="12" text-anchor="start" fill="#2b2722" font-weight="400">Pitch is set by three things, and changing any one changes the frequency</text>
+<text x="28.0" y="140.0" font-size="12" text-anchor="start" fill="#2b2722" font-weight="700">length</text>
+<line x1="120.0" y1="136.0" x2="460.0" y2="136.0" stroke="#2b2722" stroke-width="2.6"/>
+<line x1="120.0" y1="168.0" x2="250.0" y2="168.0" stroke="#2b2722" stroke-width="2.6"/>
+<line x1="470.0" y1="136.0" x2="530.0" y2="136.0" stroke="#A67C52" stroke-width="1.5"/><path d="M523.2 139.1 L530.0 136.0 L523.2 132.9" fill="none" stroke="#A67C52" stroke-width="1.5"/>
+<text x="540.0" y="141.0" font-size="11" text-anchor="start" fill="#A67C52" font-weight="700">shorter string → higher note</text>
+<text x="120.0" y="190.0" font-size="10" text-anchor="start" fill="#8a8078" font-weight="400">Fretting a note is exactly this: cutting the sounding length short</text>
+<text x="28.0" y="228.0" font-size="12" text-anchor="start" fill="#2b2722" font-weight="700">tension</text>
+<line x1="120.0" y1="224.0" x2="460.0" y2="224.0" stroke="#2b2722" stroke-width="2.6"/>
+<line x1="112.0" y1="224.0" x2="60.0" y2="224.0" stroke="#8a8078" stroke-width="1.2"/><path d="M66.8 220.9 L60.0 224.0 L66.8 227.1" fill="none" stroke="#8a8078" stroke-width="1.2"/>
+<line x1="468.0" y1="224.0" x2="520.0" y2="224.0" stroke="#8a8078" stroke-width="1.2"/><path d="M513.2 227.1 L520.0 224.0 L513.2 220.9" fill="none" stroke="#8a8078" stroke-width="1.2"/>
+<line x1="520.0" y1="224.0" x2="580.0" y2="224.0" stroke="#A67C52" stroke-width="1.5"/><path d="M573.2 227.1 L580.0 224.0 L573.2 220.9" fill="none" stroke="#A67C52" stroke-width="1.5"/>
+<text x="590.0" y="229.0" font-size="11" text-anchor="start" fill="#A67C52" font-weight="700">tighter → higher note</text>
+<text x="28.0" y="292.0" font-size="12" text-anchor="start" fill="#2b2722" font-weight="700">mass</text>
+<line x1="120.0" y1="288.0" x2="460.0" y2="288.0" stroke="#2b2722" stroke-width="2.6"/>
+<line x1="120.0" y1="306.0" x2="460.0" y2="306.0" stroke="#2b2722" stroke-width="5.2"/>
+<text x="472.0" y="292.0" font-size="10" text-anchor="start" fill="#A67C52" font-weight="400">thin string: high</text>
+<text x="472.0" y="310.0" font-size="10" text-anchor="start" fill="#8a8078" font-weight="400">thick string: low</text>
+<text x="120.0" y="332.0" font-size="10" text-anchor="start" fill="#8a8078" font-weight="400">At the same length, thicker means heavier, and heavier vibrates slower</text>
+</svg>

@@ -174,16 +174,23 @@ def page(title, body, page_path=None, extra_head="", meta_description="", og_ima
            "base-uri 'self'; form-action 'self'; object-src 'none'")
     canonical = _bss().canonical_for(page_path)
     og_img = og_image or "https://soundweavers-music.github.io/assets/brand/banner.webp"
+    # 英文頁的品牌名與收尾字樣；中文頁維持原名
+    brand = "World Sound" if lang == "en" else "世界聲音"
+    title_suffix = " · World Sound" if lang == "en" else "｜世界聲音"
+    keywords = ("world instruments, instrument encyclopedia, music theory, ear training, "
+                "songwriting, mixing, guitar, ukulele, browser music tools") if lang == "en" else \
+               ("隔壁織音人,世界聲音,世界樂器,樂器百科,音樂教學,線上編曲,編曲軟體,"
+                "自動抓和弦,和弦圖,歌唱教學,錄音後製,吉他教學,基礎樂理")
     jsonld = f'''{{
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "世界聲音",
+  "name": "{brand}",
   "alternateName": "World Sound Encyclopedia",
   "url": "https://soundweavers-music.github.io/",
   "description": "{escape(desc)}",
   "author": {{
     "@type": "Person",
-    "name": "隔壁織音人",
+    "name": "{'Next Door Sound Weavers' if lang == 'en' else '隔壁織音人'}",
     "url": "https://www.youtube.com/@NextDoorSoundWeavers/"
   }},
   "potentialAction": {{
@@ -215,8 +222,8 @@ def page(title, body, page_path=None, extra_head="", meta_description="", og_ima
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="{escape(desc)}">
-  <meta name="keywords" content="隔壁織音人,世界聲音,世界樂器,樂器百科,音樂教學,線上編曲,編曲軟體,自動抓和弦,和弦圖,歌唱教學,錄音後製,吉他教學,基礎樂理">
-  <meta property="og:title" content="{escape(title) if "|" in title or "｜" in title else escape(title) + "｜世界聲音"}">
+  <meta name="keywords" content="{keywords}">
+  <meta property="og:title" content="{escape(title) if ("|" in title or "｜" in title) else escape(title) + title_suffix}">
   <meta property="og:description" content="{escape(desc)}">
   <meta property="og:image" content="{og_img}">
   <meta property="og:type" content="website">
@@ -225,6 +232,7 @@ def page(title, body, page_path=None, extra_head="", meta_description="", og_ima
   <meta http-equiv="Content-Security-Policy" content="{csp}">
   <meta name="google-site-verification" content="AzedQ-PxUmSW7_0jyEHmHCKgN2nIK0Bio5d6LCsJTtE">
   <title>{escape(title) if ("|" in title or "｜" in title or lang == "en") else escape(title) + "｜世界聲音"}</title>
+
   {hreflang}
   {_dm_head}
   <link rel="icon" href="{resolve_url(page_path, '/assets/brand/favicon.png')}" type="image/png">
@@ -238,7 +246,7 @@ def page(title, body, page_path=None, extra_head="", meta_description="", og_ima
 {site_header_en(page_path) if lang == "en" else _bss().site_header(page_path)}
   {body}
 {site_footer_en(page_path) if lang == "en" else _bss().site_footer(page_path)}
-  <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
+  <button id="back-top" class="back-top" aria-label="{"Back to top" if lang == "en" else "回頂部"}">↑</button>
   <script src="{resolve_url(page_path, '/assets/search.js')}"></script>
   <script src="{resolve_url(page_path, '/assets/random-instrument.js')}"></script>
   {_dm_foot}
@@ -845,7 +853,7 @@ def build_about_page_extra():
     return
 
 
-def build_theory_pages():
+def build_theory_pages(lang="zh"):
     """Build the music theory course: 前言 + 5 階段總覽 + 一頁一章（共 20 章）。
 
     來源仍是 content/musictheory/*.md；`## 第 N 章` 切成一章一頁，
@@ -862,8 +870,12 @@ def build_theory_pages():
     allowed_attrs = {**_BA, "a": ["href", "title", "target", "rel"],
                      "img": ["src", "alt", "title"], "div": ["class"], "span": ["class"]}
 
-    theory_dir = CONTENT_DIR / "musictheory"
-    out_dir = OUTPUT_DIR / "theory"
+    theory_dir = (CONTENT_DIR / "en" / "musictheory") if lang == "en" else (CONTENT_DIR / "musictheory")
+    out_dir = (OUTPUT_DIR / "en" / "theory") if lang == "en" else (OUTPUT_DIR / "theory")
+    root = "/en/theory" if lang == "en" else "/theory"
+    if not theory_dir.exists():
+        print("  en/theory: 還沒有英文稿，跳過")
+        return
     out_dir.mkdir(parents=True, exist_ok=True)
 
     # ── 解析：每個檔案是一個階段，`## 第 N 章` 切成章 ──────────────
@@ -883,10 +895,11 @@ def build_theory_pages():
         for p in parts[1:]:
             head, _, body = p.partition("\n")
             head = _re.sub(r"[*#]", "", head).strip()
-            m = _re.search(r"第\s*(\d+)\s*章", head)
+            m = _re.search(r"第\s*(\d+)\s*章|Chapter\s+(\d+)", head)
             if not m:
                 continue
-            chapters.append({"num": int(m.group(1)), "title": head, "body": body.strip()})
+            num = int(m.group(1) or m.group(2))
+            chapters.append({"num": num, "title": head, "body": body.strip()})
         stages.append({"num": num, "title": title, "intro": intro, "chapters": chapters})
 
     stages.sort(key=lambda s: s["num"])
@@ -896,6 +909,41 @@ def build_theory_pages():
     for s in stages:
         for c in s["chapters"]:
             stage_of[c["num"]] = s
+
+    # ── 外框文字（中文／英文）──────────────────────────────────────
+    # 內文來自 content/…；這裡只換標題、麵包屑、導覽這些模板字串。
+    def short_title(t: str) -> str:
+        """`第 1 章：聲音從哪裡來` / `Chapter 1: Where Sound Comes From` → 冒號後的標題。"""
+        for sep in ("：", ": "):
+            if sep in t:
+                return t.split(sep, 1)[-1].strip()
+        return t
+
+    trunc = 40 if lang == "en" else 14
+    L = {
+        "course": "Music Theory" if lang == "en" else "音樂理論基礎",
+        "page_title": "%s · Music Theory" if lang == "en" else "%s｜音樂理論基礎",
+        "stage_label": "Stage" if lang == "en" else "階段",
+        "before": "Before We Start" if lang == "en" else "開始之前",
+        "before_t": "The basic vocabulary" if lang == "en" else "基礎名詞介紹",
+        "back": "Back to Music Theory" if lang == "en" else "回音樂理論基礎",
+        "go": "Go to the preface" if lang == "en" else "前往前言",
+        "ch_count": "chapters" if lang == "en" else "章",
+        "ch_word": "Chapter %d" if lang == "en" else "第 %d 章",
+        "stage_line": "Chapter %d · %s" if lang == "en" else "第 %d 章 · %s",
+        "nav_prev": "← Chapter %d %s" if lang == "en" else "← 第 %d 章 %s",
+        "nav_next": "Chapter %d %s →" if lang == "en" else "第 %d 章 %s →",
+        "hours": "about <strong>%s</strong> hours" if lang == "en"
+                 else "建議約 <strong>%s</strong> 小時",
+        "lead": ("From the physics of sound through beat, the staff and time signatures to "
+                 "instrument families and ensembles. Five stages, twenty chapters, one page "
+                 "each, with diagrams.") if lang == "en" else
+                ("從聲音的物理、節拍、五線譜、拍號，一路到樂器分類與合奏。"
+                 "五個階段、二十章，每章一頁，附示意圖。"),
+        "meta": ("Music Theory: sound, beat, the staff, time signatures, instrument families "
+                 "and ensembles—five stages, twenty chapters.") if lang == "en" else
+                ("音樂理論基礎：聲音、節拍、五線譜、拍號、樂器分類與合奏，共五階段二十章。"),
+    }
 
     def md(text: str) -> str:
         html = markdown.markdown(text, extensions=["extra", "tables", "fenced_code"],
@@ -945,52 +993,57 @@ def build_theory_pages():
         prev_l = next_l = ""
         if idx > 0:
             pch = flat[idx - 1]
-            prev_l = '<a class="vocal-nav-link" href="%s">← 第 %d 章 %s</a>' % (
-                resolve_url(cdir / "index.html", "/theory/ch%d/" % pch["num"]), pch["num"],
-                escape(pch["title"].split("：")[-1][:14]))
+            prev_l = '<a class="vocal-nav-link" href="%s">%s</a>' % (
+                resolve_url(cdir / "index.html", root + "/ch%d/" % pch["num"]),
+                escape(L["nav_prev"] % (pch["num"], short_title(pch["title"])[:trunc])))
         if idx + 1 < len(flat):
             nch = flat[idx + 1]
-            next_l = '<a class="vocal-nav-link" href="%s">第 %d 章 %s →</a>' % (
-                resolve_url(cdir / "index.html", "/theory/ch%d/" % nch["num"]), nch["num"],
-                escape(nch["title"].split("：")[-1][:14]))
-        title_only = ch["title"].split("：", 1)[-1] if "：" in ch["title"] else ch["title"]
+            next_l = '<a class="vocal-nav-link" href="%s">%s</a>' % (
+                resolve_url(cdir / "index.html", root + "/ch%d/" % nch["num"]),
+                escape(L["nav_next"] % (nch["num"], short_title(nch["title"])[:trunc])))
+        title_only = short_title(ch["title"])
+        bc_label = L["course"]
+        back_label = L["back"]
+        stage_label = L["stage_line"] % (ch["num"], short_title(stage["title"]))
         detail = """<main class="page theory-page">
   <nav class="breadcrumb" style="margin-bottom:20px;">
-    <a href="%s">← 音樂理論基礎</a> <span>/</span>
+    <a href="%s">← %s</a> <span>/</span>
     <a href="%s">%s</a>
   </nav>
   <header class="theory-chap-head">
-    <div class="stage">第 %d 章 · %s</div>
+    <div class="stage">%s</div>
     <h1>%s</h1>
   </header>
   <article class="markdown-body">%s</article>
   <div class="vocal-nav-links">%s%s</div>
-  <a class="back-link" href="%s">← 回音樂理論基礎</a>
+  <a class="back-link" href="%s">← %s</a>
 </main>""" % (
-            resolve_url(cdir / "index.html", "/theory/"),
-            resolve_url(cdir / "index.html", "/theory/%d/" % stage["num"]),
+            resolve_url(cdir / "index.html", root + "/"),
+            bc_label,
+            resolve_url(cdir / "index.html", root + "/%d/" % stage["num"]),
             escape(stage["title"]),
-            ch["num"], escape(stage["title"].split("：")[-1]),
+            stage_label,
             escape(title_only),
-            md(ch["body"]), prev_l, next_l,
-            resolve_url(cdir / "index.html", "/theory/"))
-        write(cdir / "index.html", page("%s｜音樂理論基礎" % title_only, detail,
+            relativize(md(ch["body"]), cdir / "index.html"), prev_l, next_l,
+            resolve_url(cdir / "index.html", root + "/"), back_label)
+        write(cdir / "index.html", page(L["page_title"] % title_only, detail,
                                         cdir / "index.html", extra_head=css,
-                                        meta_description=escape(title_only)))
+                                        meta_description=escape(title_only), lang=lang))
 
     # ── 前言 ──────────────────────────────────────────────────
     if preface:
         pdir = out_dir / "preface"
         pdir.mkdir(parents=True, exist_ok=True)
         detail = """<main class="page theory-page">
-  <nav class="breadcrumb" style="margin-bottom:20px;"><a href="%s">← 音樂理論基礎</a></nav>
-  <header class="theory-chap-head"><div class="stage">開始之前</div><h1>%s</h1></header>
+  <nav class="breadcrumb" style="margin-bottom:20px;"><a href="%s">← %s</a></nav>
+  <header class="theory-chap-head"><div class="stage">%s</div><h1>%s</h1></header>
   <article class="markdown-body">%s</article>
-  <a class="back-link" href="%s">← 回音樂理論基礎</a>
-</main>""" % (resolve_url(pdir / "index.html", "/theory/"), escape(preface["title"]),
-             md(preface["raw"]), resolve_url(pdir / "index.html", "/theory/"))
-        write(pdir / "index.html", page(preface["title"], detail, pdir / "index.html",
-                                        extra_head=css))
+  <a class="back-link" href="%s">← %s</a>
+</main>""" % (resolve_url(pdir / "index.html", root + "/"), escape(L["course"]),
+             escape(L["before"]), escape(preface["title"]), md(preface["raw"]),
+             resolve_url(pdir / "index.html", root + "/"), escape(L["back"]))
+        write(pdir / "index.html", page(L["page_title"] % preface["title"], detail,
+                                        pdir / "index.html", extra_head=css, lang=lang))
 
     # 舊網址 /theory/0/ 是前言，保留一個轉址頁避免舊連結失效
     zdir = out_dir / "0"
@@ -999,64 +1052,68 @@ def build_theory_pages():
           '<!doctype html><meta charset="utf-8">'
           '<meta http-equiv="refresh" content="0;url=%s">'
           '<link rel="canonical" href="%s">'
-          '<title>音樂理論基礎</title><p><a href="%s">前往前言</a></p>'
-          % (resolve_url(zdir / "index.html", "/theory/preface/"),
-             resolve_url(zdir / "index.html", "/theory/preface/"),
-             resolve_url(zdir / "index.html", "/theory/preface/")))
+          '<title>%s</title><p><a href="%s">%s</a></p>'
+          % (resolve_url(zdir / "index.html", root + "/"),
+             resolve_url(zdir / "index.html", root + "/"),
+             escape(L["course"]),
+             resolve_url(zdir / "index.html", root + "/"),
+             escape(L["go"])))
 
     # ── 階段總覽 ──────────────────────────────────────────────
     for s in stages:
         sdir = out_dir / str(s["num"])
         sdir.mkdir(parents=True, exist_ok=True)
         items = "".join(
-            '<a href="%s"><span class="n">第 %d 章</span><span class="t">%s</span></a>' % (
-                resolve_url(sdir / "index.html", "/theory/ch%d/" % c["num"]), c["num"],
-                escape(c["title"].split("：", 1)[-1]))
+            '<a href="%s"><span class="n">%s</span><span class="t">%s</span></a>' % (
+                resolve_url(sdir / "index.html", root + "/ch%d/" % c["num"]),
+                escape(L["ch_word"] % c["num"]), escape(short_title(c["title"])))
             for c in s["chapters"])
         detail = """<main class="page theory-page">
-  <nav class="breadcrumb" style="margin-bottom:20px;"><a href="%s">← 音樂理論基礎</a></nav>
-  <header class="theory-chap-head"><div class="stage">階段</div><h1>%s</h1></header>
+  <nav class="breadcrumb" style="margin-bottom:20px;"><a href="%s">← %s</a></nav>
+  <header class="theory-chap-head"><div class="stage">%s</div><h1>%s</h1></header>
   <article class="markdown-body">%s</article>
   <div class="theory-outline">%s</div>
-  <a class="back-link" href="%s">← 回音樂理論基礎</a>
-</main>""" % (resolve_url(sdir / "index.html", "/theory/"), escape(s["title"]),
-             md(s["intro"]), items, resolve_url(sdir / "index.html", "/theory/"))
-        write(sdir / "index.html", page(s["title"], detail, sdir / "index.html",
-                                        extra_head=css))
+  <a class="back-link" href="%s">← %s</a>
+</main>""" % (resolve_url(sdir / "index.html", root + "/"), escape(L["course"]),
+             escape(L["stage_label"]), escape(s["title"]), md(s["intro"]), items,
+             resolve_url(sdir / "index.html", root + "/"), escape(L["back"]))
+        write(sdir / "index.html", page(L["page_title"] % short_title(s["title"]), detail,
+                                        sdir / "index.html", extra_head=css, lang=lang))
 
     # ── 目錄 ──────────────────────────────────────────────────
     blocks = ""
     if preface:
         blocks += ('<div class="theory-outline" style="margin-top:22px;">'
-                   '<a href="%s"><span class="n">開始之前</span>'
-                   '<span class="t">基礎名詞介紹</span></a></div>'
-                   % resolve_url(out_dir / "index.html", "/theory/preface/"))
+                   '<a href="%s"><span class="n">%s</span>'
+                   '<span class="t">%s</span></a></div>'
+                   % (resolve_url(out_dir / "index.html", root + "/preface/"),
+                      escape(L["before"]), escape(L["before_t"])))
     for s in stages:
         items = "".join(
-            '<a href="%s"><span class="n">第 %d 章</span><span class="t">%s</span></a>' % (
-                resolve_url(out_dir / "index.html", "/theory/ch%d/" % c["num"]), c["num"],
-                escape(c["title"].split("：", 1)[-1]))
+            '<a href="%s"><span class="n">%s</span><span class="t">%s</span></a>' % (
+                resolve_url(out_dir / "index.html", root + "/ch%d/" % c["num"]),
+                escape(L["ch_word"] % c["num"]), escape(short_title(c["title"])))
             for c in s["chapters"])
         blocks += ('<div class="theory-stage"><h2><a href="%s" style="text-decoration:none;color:inherit;">%s</a></h2>'
                    '<div class="theory-outline">%s</div></div>'
-                   % (resolve_url(out_dir / "index.html", "/theory/%d/" % s["num"]),
+                   % (resolve_url(out_dir / "index.html", root + "/%d/" % s["num"]),
                       escape(s["title"]), items))
 
     th_ch, th_h = course_hours.course_stats("theory")
     index = """<main class="page theory-page">
   <header class="theory-hero">
-    <h1 style="font-size:32px;margin:0 0 10px;">音樂理論基礎</h1>
-    <p style="color:var(--muted);max-width:640px;">從聲音的物理、節拍、五線譜、拍號，一路到樂器分類與合奏。
-    五個階段、二十章，每章一頁，附示意圖。</p>
+    <h1 style="font-size:32px;margin:0 0 10px;">%s</h1>
+    <p style="color:var(--muted);max-width:640px;">%s</p>
     <p class="hero-stats" style="text-align:left;margin-top:16px">
-      <span><strong>%d</strong> 章</span><span>建議約 <strong>%g</strong> 小時</span>
+      <span><strong>%d</strong> %s</span><span>%s</span>
     </p>
   </header>
   %s
-</main>""" % (th_ch, th_h, blocks)
-    write(out_dir / "index.html", page("音樂理論基礎", index, out_dir / "index.html",
+</main>""" % (escape(L["course"]), escape(L["lead"]), th_ch, escape(L["ch_count"]),
+             L["hours"] % ("%g" % th_h), blocks)
+    write(out_dir / "index.html", page(L["course"], index, out_dir / "index.html",
                                        extra_head=css,
-                                       meta_description="音樂理論基礎：聲音、節拍、五線譜、拍號、樂器分類與合奏，共五階段二十章。"))
+                                       meta_description=L["meta"], lang=lang))
     print("  Built theory course: %d stages, %d chapters" % (len(stages), len(flat)))
 
 
@@ -1488,7 +1545,8 @@ def main():
     append_css()
     build_portal_homepage(instruments)
     build_vocal_pages()
-    build_theory_pages()
+    build_theory_pages("zh")
+    build_theory_pages("en")
     build_contact_page()
     build_digitalmusic_pages()
     build_experience_page()

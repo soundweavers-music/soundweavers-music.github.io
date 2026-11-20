@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" width="100%" role="img" aria-label="弦與管怎麼控制音高">
+<rect width="760" height="380" fill="#f7f3ee"/>
+<text x="28.0" y="40.0" font-size="19" text-anchor="start" fill="#2b2722" font-weight="700">How strings and air columns control pitch</text>
+<text x="28.0" y="62.0" font-size="12.5" text-anchor="start" fill="#8a8078" font-weight="400">Both obey one law: halve the vibrating length and the frequency doubles</text>
+<text x="28.0" y="96.0" font-size="12.5" text-anchor="start" fill="#2b2722" font-weight="700">String: pressing it shortens the sounding length, so the note goes up</text>
+<line x1="120.0" y1="132.0" x2="540.0" y2="132.0" stroke="#2b2722" stroke-width="2.4"/>
+<circle cx="120.0" cy="132.0" r="4.2" fill="#A67C52" stroke="none" stroke-width="1.4"/>
+<text x="550.0" y="136.0" font-size="10.5" text-anchor="start" fill="#8a8078" font-weight="400">whole string = C</text>
+<line x1="120.0" y1="166.0" x2="330.0" y2="166.0" stroke="#2b2722" stroke-width="2.4"/>
+<circle cx="120.0" cy="166.0" r="4.2" fill="#A67C52" stroke="none" stroke-width="1.4"/>
+<text x="340.0" y="170.0" font-size="10.5" text-anchor="start" fill="#8a8078" font-weight="400">half = octave up</text>
+<line x1="120.0" y1="200.0" x2="225.0" y2="200.0" stroke="#2b2722" stroke-width="2.4"/>
+<circle cx="120.0" cy="200.0" r="4.2" fill="#A67C52" stroke="none" stroke-width="1.4"/>
+<text x="235.0" y="204.0" font-size="10.5" text-anchor="start" fill="#8a8078" font-weight="400">quarter = two octaves up</text>
+<text x="28.0" y="254.0" font-size="12.5" text-anchor="start" fill="#2b2722" font-weight="700">Air column: opening a hole shortens the sounding length, so the note goes up</text>
+<rect x="120.0" y="277.0" width="420.0" height="18.0" rx="3" fill="#f7f3ee" stroke="#2b2722" stroke-width="1.4"/>
+<text x="550.0" y="290.0" font-size="10.5" text-anchor="start" fill="#8a8078" font-weight="400">whole pipe = C</text>
+<rect x="120.0" y="313.0" width="210.0" height="18.0" rx="3" fill="#f7f3ee" stroke="#2b2722" stroke-width="1.4"/>
+<text x="340.0" y="326.0" font-size="10.5" text-anchor="start" fill="#8a8078" font-weight="400">half = octave up</text>
+<text x="28.0" y="362.0" font-size="11.5" text-anchor="start" fill="#8a8078" font-weight="400">Tension and thickness, the holes and the shape of the pipe all matter too; length is the most direct knob</text>
+</svg>

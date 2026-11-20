@@ -736,6 +736,10 @@ body:has(.banner-hero) .site-banner { display: none; }
   transition: transform .25s ease, box-shadow .25s ease;
 }
 .album-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* 還沒上架的專輯用 <span> 而不是 <a>：不要有播放角標，也不要假的 hover 位移 */
+.album-cover-static::after { content: none; }
+.album-cover-static:hover { transform: none; }
 .album-cover::after {
   content: "▶"; position: absolute; right: 10px; bottom: 10px;
   width: 38px; height: 38px; border-radius: 50%;
