@@ -527,13 +527,26 @@ for (const a of acts) {
     }
     else if (key === 'pr') {          // 打開第一條 MIDI 軌第一個片段的鋼琴捲簾
       const cands = window.__daw.store.project.tracks.filter(x => x.kind === 'midi' && x.clips.length);
-      const t = cands.sort((a, b) => (b.clips[0].notes || []).length - (a.clips[0].notes || []).length)[0];
+      const t = cands.find(x => x.name.indexOf('鋼琴') >= 0) || cands.sort((a, b) => (b.clips[0].notes || []).length - (a.clips[0].notes || []).length)[0];
       if (t) window.__daw.openPianoRoll(t.clips[0].id);
     }
-    else if (key === 'prscroll') {   // 把捲簾往右捲，讓音符進到畫面裡
+    else if (key === 'prscroll') {   // 把捲簾所有可捲動的容器都捲到音符位置
       const root = document.getElementById('pianoroll');
-      const sc = [...root.querySelectorAll('*')].find(e => e.scrollWidth > e.clientWidth + 50);
-      if (sc) { sc.scrollLeft = Math.round(sc.scrollWidth * 0.28); sc.dispatchEvent(new Event('scroll')); }
+      const cands = window.__daw.store.project.tracks.filter(x => x.kind === 'midi' && x.clips.length);
+      const t = cands.sort((a, b) => (b.clips[0].notes || []).length - (a.clips[0].notes || []).length)[0];
+      const notes = (t && t.clips[0].notes) || [];
+      if (!notes.length) return;
+      const ps = notes.map(n => n.p).sort((a, b) => a - b);
+      const med = ps[Math.floor(ps.length / 2)];
+      for (const el of [root, ...root.querySelectorAll('*')]) {
+        if (el.scrollHeight > el.clientHeight + 20) {
+          el.scrollTop = Math.max(0, el.scrollHeight - (127 - med) * (el.scrollHeight / 128) - el.clientHeight / 2);
+        }
+        if (el.scrollWidth > el.clientWidth + 20) {
+          el.scrollLeft = Math.min(el.scrollWidth - el.clientWidth, el.scrollWidth * 0.12);
+        }
+      }
+      window.dispatchEvent(new Event('resize'));
     }
     else if (key === 'fx2') {          // 暫時掛一個效果器並打開它的面板
       const t = window.__daw.store.project.tracks[Number(arg[1] || 0)];
