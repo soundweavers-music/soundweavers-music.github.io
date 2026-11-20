@@ -45,3 +45,6 @@ assets/daw-bank/GeneralUserGS.sf2
 
 # 課程截圖腳本每次執行都會重寫這個檔，不進版控（避免工作目錄一直是髒的）
 daw-studio/_shot.js
+# 樂器圖打包（本機產物，57 MB）
+world-instruments-images.zip
+work/inst-images/
