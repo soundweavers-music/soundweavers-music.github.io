@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 294" role="img" aria-label="This section&#x27;s chord progression">
+  <title>This section&#x27;s chord progression</title>
+  <rect width="720" height="294" fill="#FBF8F4"/>
+<text x="28.0" y="34.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="15" fill="#3D3229" text-anchor="start" font-weight="700">This section&#x27;s chord progression</text>
+<text x="28.0" y="55.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#8C8078" text-anchor="start">Each row is one round; the small line under it is that round&#x27;s strumming or lyrics</text>
+<rect x="28.0" y="92" width="70" height="30" rx="8" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="63.0" y="112.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">Cmaj7</text>
+<text x="104.0" y="112.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#8C8078" text-anchor="start">→</text>
+<rect x="118.0" y="92" width="52" height="30" rx="8" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="144.0" y="112.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">Am7</text>
+<text x="176.0" y="112.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#8C8078" text-anchor="start">→</text>
+<rect x="190.0" y="92" width="52" height="30" rx="8" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="216.0" y="112.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">Dm7</text>
+<text x="248.0" y="112.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#8C8078" text-anchor="start">→</text>
+<rect x="262.0" y="92" width="52" height="30" rx="8" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="288.0" y="112.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">G6</text>
+<rect x="28.0" y="146" width="70" height="30" rx="8" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="63.0" y="166.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">Cmaj7</text>
+<text x="104.0" y="166.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#8C8078" text-anchor="start">→</text>
+<rect x="118.0" y="146" width="52" height="30" rx="8" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="144.0" y="166.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">Am7</text>
+<text x="176.0" y="166.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#8C8078" text-anchor="start">→</text>
+<rect x="190.0" y="146" width="70" height="30" rx="8" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="225.0" y="166.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">Fadd9</text>
+<text x="266.0" y="166.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#8C8078" text-anchor="start">→</text>
+<rect x="280.0" y="146" width="114" height="30" rx="8" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="337.0" y="166.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">Gsus4   G</text>
+<rect x="28.0" y="200" width="70" height="30" rx="8" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="63.0" y="220.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">Fadd9</text>
+<text x="104.0" y="220.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#8C8078" text-anchor="start">→</text>
+<rect x="118.0" y="200" width="52" height="30" rx="8" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="144.0" y="220.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">G6</text>
+<text x="176.0" y="220.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#8C8078" text-anchor="start">→</text>
+<rect x="190.0" y="200" width="52" height="30" rx="8" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="216.0" y="220.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">Am7</text>
+<text x="28.0" y="260.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="start">Loop it; when the chord changes the right hand never stops, only the left hand moves</text>
+</svg>
