@@ -750,6 +750,62 @@ def fig_turan_study():
 # ---------------------------------------------------------------------------
 # 和弦＋刷法＋歌詞的練習譜（由原本的純文字譜面整理而成）
 # ---------------------------------------------------------------------------
+# ----------------------------------------------------------------- 歌詞對拍圖
+# 原本第 5 章有兩段用空白與框線排的 ASCII 譜（和弦／刷法／拍數／歌詞四層）。
+# 方框線在網頁上會隨字型跑掉，改成畫出來的圖。
+LYRIC_CHARTS = {
+    "ch5verse": (
+        "〈小薇〉主歌：C → Am → Dm（或 Fmaj7）→ G",
+        "每小節四拍、第 1 拍下刷；歌詞下方對齊的是拍點，不是字數",
+        [[("C", "有一個美"), ("Am", "麗的小女"), ("Dm", "孩"), ("G", "她的名字")],
+         [("C", "叫作小"), ("Am", "薇"), ("Dm", "她有雙溫"), ("G", "柔的眼")],
+         [("C", "—"), ("Am", "—"), ("Dm", "—"), ("G", "→ C")]],
+    ),
+    "ch5chorus": (
+        "〈小薇〉副歌：C → Am → Fmaj7 → G",
+        "同樣四小節一循環；副歌把第 2、4 拍刷滿，情緒就推上去了",
+        [[("C", "小薇啊"), ("Am", "你可知道"), ("Fmaj7", "我多愛"), ("G", "你")],
+         [("C", "我要帶你"), ("Am", "飛到天上"), ("Fmaj7", "去"), ("G", "看看那顆")],
+         [("C", "星"), ("Am", "—"), ("Fmaj7", "摘下一"), ("G", "顆")]],
+    ),
+}
+
+
+def fig_lyric_chart(key):
+    """和弦／刷法／拍數／歌詞四層對齊的練習譜（一行四個小節）。"""
+    title, subtitle, rows = LYRIC_CHARTS[key]
+    w, margin = 760, 24
+    bar_w = (w - margin * 2) / 4
+    row_h = 92
+    h = 104 + len(rows) * row_h + 26
+    p = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" role="img" aria-label="{title}">',
+         f'<title>{title}</title>',
+         f'<rect width="{w}" height="{h}" fill="{BG}"/>',
+         t(margin, 34, title, 15, anchor="start", weight=700),
+         t(margin, 55, subtitle, 11.5, anchor="start", fill=MUTED)]
+    y = 96
+    for row in rows:
+        for bi, (chord, lyric) in enumerate(row):
+            x = margin + bi * bar_w
+            p.append(f'<rect x="{x + 2:.1f}" y="{y}" width="{bar_w - 4:.1f}" height="{row_h - 20}" '
+                     f'rx="7" fill="#F4EFE7" stroke="{LINE}"/>')
+            p.append(t(x + bar_w / 2, y + 20, chord, 12.5, fill=INK, weight=700))
+            # 四拍的刷法：第 1 拍下刷、第 2–4 拍手繼續擺動但不碰弦
+            for k in range(4):
+                cx = x + bar_w / 2 + (k - 1.5) * 34
+                p.append(t(cx, y + 40, "↓" if k == 0 else "-", 13,
+                           fill=INK if k == 0 else MUTED))
+                p.append(t(cx, y + 53, str(k + 1), 9, fill=MUTED))
+            if lyric and lyric != "—":
+                p.append(t(x + bar_w / 2, y + 68, lyric, 10.5, fill=INK))
+        y += row_h
+    p.append(t(margin, h - 12,
+               "「-」是手繼續上下擺動但不碰弦的空揮；先把右手刷成自動化，再把歌詞掛在第 1 拍上。",
+               10.5, anchor="start", fill=MUTED))
+    p.append("</svg>")
+    return "\n".join(p)
+
+
 CHART_DATA = {'ch7': [{'chords': ['C', 'Em'],
           'strums': [{0: '↓', 1: '-', 2: '↓', 3: '↑', 4: '↓', 5: '-', 6: '↓', 7: '↑'}, {0: '↓', 1: '-', 2: '↓', 3: '↑', 4: '↓', 5: '-', 6: '↓', 7: '↑'}],
           'beats': [{0: '1', 1: '&', 2: '2', 3: '&', 4: '3', 5: '&', 6: '4', 7: '&'}, {0: '1', 1: '&', 2: '2', 3: '&', 4: '3', 5: '&', 6: '4', 7: '&'}],
@@ -1741,6 +1797,8 @@ FIGURES = {
     "beat68": (lambda: fig_pattern("beat68")),
     "ch7": (lambda k="ch7": fig_song_chart(k)),
     "ch9": (lambda k="ch9": fig_song_chart(k)),
+    "ch5verse": (lambda k="ch5verse": fig_lyric_chart(k)),
+    "ch5chorus": (lambda k="ch5chorus": fig_lyric_chart(k)),
     "tab-reading": fig_tab_reading,
     "chord-diagram-reading": fig_chord_diagram_reading,
     "chromatic-walk": fig_chromatic_walk,
