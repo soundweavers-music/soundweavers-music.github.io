@@ -667,7 +667,7 @@ def fig_happy_birthday():
 
 
 def fig_arpeggio_study(title, subtitle, bars, footer):
-    """把和弦進行畫成八音分解練習。bars = [(和弦, {弦: {格位: 文字}}, 垂音格位或 None)]"""
+    """把和弦進行畫成八音分解練習。bars = [(和弦, {弦: {格位: 文字}}, 錘音格位或 None)]"""
     width = 640
     left = LABEL_W + 10
     bar_w = (width - left - 24) / 2
@@ -718,7 +718,7 @@ def fig_sunny_study():
 
 
 def fig_turan_study():
-    """16-2：以 C–G/B–Am7–Am7/G–F–C/E–Dm7–G 練 4 弦垂音裝飾。"""
+    """16-2：以 C–G/B–Am7–Am7/G–F–C/E–Dm7–G 練 4 弦錘音裝飾。"""
     def bar(bass_string, bass_fret, third, second, first, hammer=False):
         notes = {bass_string: {0: bass_fret},
                  3: {1: third, 3: third, 5: third},
@@ -741,8 +741,8 @@ def fig_turan_study():
         ("G", bar(6, "3", "0", "3", "3"), None),
     ]
     return fig_arpeggio_study(
-        "跟著進行練垂音：C 與 Am7 的第 4 拍在 4 弦做 0 → 2",
-        "和弦是這首歌的進行（C–G/B–Am7–Am7/G–F–C/E–Dm7–G）；下面的分解與垂音是練習用的編排，不是原曲採譜",
+        "跟著進行練錘音：C 與 Am7 的第 4 拍在 4 弦做 0 → 2",
+        "和弦是這首歌的進行（C–G/B–Am7–Am7/G–F–C/E–Dm7–G）；下面的分解與錘音是練習用的編排，不是原曲採譜",
         bars,
         "低音一路往下：C → B → A → G → F → E → D → G。標 H 的位置右手不撥，用中指敲第 4 弦第 2 格。")
 
@@ -1431,19 +1431,19 @@ def fig_soul_strum():
 
 
 LEGATO = [
-    ("垂音 Hammer-on", "H", "0", "2", "右手撥 0 之後，左手手指像小鐵鎚敲進第 2 格"),
+    ("錘音 Hammer-on", "H", "0", "2", "右手撥 0 之後，左手手指像小鐵鎚敲進第 2 格"),
     ("勾音 Pull-off", "P", "2", "0", "按住第 2 格撥響，手指往地板方向勾離開，帶出空弦"),
     ("滑音 Slide", "S", "2", "4", "壓住第 2 格撥響後不鬆手，沿著弦滑到第 4 格停住"),
 ]
 
 
 def fig_legato():
-    """16-1：垂音、勾音、滑音。"""
+    """16-1：錘音、勾音、滑音。"""
     width, height = 640, 320
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" role="img" '
-        f'aria-label="垂音、勾音與滑音三種圓滑音">',
-        '  <title>垂音、勾音、滑音</title>',
+        f'aria-label="錘音、勾音與滑音三種圓滑音">',
+        '  <title>錘音、勾音、滑音</title>',
         f'  <rect width="{width}" height="{height}" fill="{BG}"/>',
         t(26, 34, "圓滑音三兄弟：右手只撥第一下", size=16, anchor="start", weight=700),
         t(26, 55, "第二個音不靠右手，是靠左手敲、勾、滑出來的，所以聽起來像人聲的轉音", size=11.5, anchor="start", fill=MUTED),
