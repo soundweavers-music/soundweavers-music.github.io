@@ -57,11 +57,14 @@ TUNING = {
     4: ("曼陀林", [55, 62, 69, 76]),
 }
 
-# 同一件樂器可能有其他調弦（Drop D、DADGAD）；名稱跟函式庫的鍵一致
-EXTRA_TUNING = {
-    "Drop D": [38, 45, 50, 55, 59, 64],
-    "DADGAD": [38, 45, 50, 55, 57, 62],
-}
+# 同一件樂器可能有其他調弦；基準音高直接跟產生器要，避免兩邊不同步
+try:
+    import gen_chord_library as _gcl
+    EXTRA_TUNING = {(inst, name): list(reversed(base))   # 產生器是「第 1 弦在前」
+                    for inst, extras in _gcl.EXTRA_TUNINGS.items()
+                    for name, base in extras}
+except Exception:                                        # 找不到就用空的
+    EXTRA_TUNING = {}
 
 # 這幾個和弦是初學者最先學的，把位要簡單：不用封閉、按弦不超過 3 根
 # F 與 C7 本來就需要封閉／第四根手指，不算「應該簡單」
@@ -124,11 +127,11 @@ def check_library(problems) -> int:
         if inst not in TUNING:
             continue
         for tuning_name, table in by_tuning.items():
-            base = EXTRA_TUNING.get(tuning_name, TUNING[inst][1])
+            base = EXTRA_TUNING.get((inst, tuning_name), TUNING[inst][1])
             for key, entry in table.items():
                 root_s, qual = key.split(":")
                 name = NOTE[int(root_s)] + ("" if qual == "maj" else qual)
-                tag = TUNING[inst][0] + (f" · {tuning_name}" if tuning_name in EXTRA_TUNING else "")
+                tag = TUNING[inst][0] + (f" · {tuning_name}" if (inst, tuning_name) in EXTRA_TUNING else "")
                 check(f"[函式庫 {tag}]", name, entry["frets"], base, problems, high_first=True)
                 n += 1
     return n
