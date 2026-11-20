@@ -1196,14 +1196,13 @@ def build_detail_pages(instruments):
             </div>
             {f'<div class="header-image">{img_html}{img_credit_html}</div>' if img_url else ""}
           {"<dl class='meta-grid'>" + meta_grid + "</dl>" if meta_grid else ""}
+          <article class="markdown-body">{body_html}</article>
           {f'''
-          <div class="tab-bar">
-            <button class="tab-btn is-active" data-tab="intro">介紹</button>
-            <button class="tab-btn" data-tab="tutorial">教學</button>
-          </div>
-          <div id="tab-intro" class="tab-pane is-active"><article class="markdown-body">{body_html}</article></div>
-          <div id="tab-tutorial" class="tab-pane"><article class="markdown-body">{item["tutorial"]}</article></div>
-          '''}
+          <section class="inst-tutorial">
+            <h2 id="tutorial">教學與演奏</h2>
+            <div class="markdown-body">{item["tutorial"]}</div>
+          </section>
+          ''' if (item.get("tutorial") or "").strip() else ""}
           {related_html}
         </main>
         """
@@ -1729,6 +1728,9 @@ h2 { margin:0; font-weight:700; }
 .tab-btn.is-active { background:var(--surface); color:var(--accent); border-color:var(--line); border-bottom-color:var(--surface); }
 .tab-pane { display:none; }
 .tab-pane.is-active { display:block; }
+/* 介紹與教學合併成一頁：教學接在後面，用一條線隔開 */
+.inst-tutorial { margin-top:44px; padding-top:28px; border-top:2px solid var(--line); }
+.inst-tutorial > h2 { font-size:22px; margin:0 0 18px; color:var(--ink); }
 
 /* ── Related instruments ─────────────────────────────────────── */
 .related-section { margin-top:48px; padding-top:32px; border-top:1px solid var(--line); }
