@@ -3,34 +3,277 @@
   "apple_artist": "https://music.apple.com/tw/artist/1885759902",
   "ytm_artist": "https://music.youtube.com/channel/UCeon05ADqOnC8kSHgZC_5lw",
   "released": [
-    {"title": "聖誕，叮咚叮咚", "en": "Ding Dong, It's Christmas!", "date": "2026-11-05", "type": "專輯", "cat": "人聲", "tracks": 12, "apple": "6829706451", "ytm": "OLAK5uy_nPOYlZMGDywZdTp6X2Gyjld_iES8EArQs"},
-    {"title": "風與水的途中", "en": "Between Wind and Water", "date": "2026-11-05", "type": "專輯", "cat": "純音樂", "tracks": 20, "apple": "6832516111", "ytm": "OLAK5uy_lvo2OrZYow_k-Xh9ib5tbHHaSTXx_ap5I"},
-    {"title": "夜色織音（中輯）：日常的拾趣．兩人時光篇", "en": "Night Weaving, Part 2: Everyday Little Joys", "date": "2026-10-20", "type": "專輯", "cat": "純音樂", "tracks": 19, "apple": "6832517213", "ytm": "OLAK5uy_kQczQ98Tro_oJl-9rxmbCFft61M8XwePM"},
-    {"title": "曼常微光", "en": "Eight Strings In Everyday Light", "date": "2026-10-05", "type": "專輯", "cat": "純音樂", "tracks": 20, "apple": "6832517426", "ytm": "OLAK5uy_lNbvuz9oE_kh-MyH_aZm7DlhUQAPXnS6o"},
-    {"title": "夜色織音（上輯）：門內的守候．毛孩視角篇", "en": "Night Weaving, Part 1: Waiting Inside the Door", "date": "2026-09-15", "type": "專輯", "cat": "純音樂", "tracks": 19, "apple": "6832516294", "ytm": "OLAK5uy_nOL3gYFn-vDBf3y0Ls3TyVMFlhMRCsE9c"},
-    {"title": "記憶依舊", "en": "", "date": "2026-06-24", "type": "單曲", "cat": "人聲", "tracks": 2, "apple": "6785524303", "ytm": "OLAK5uy_k4Laipr-VSVYu8vFkVBzXRBktsk-x7tPA"},
-    {"title": "夜色織音（上輯）：門後的歸零．兩人時光篇", "en": "Night Weaving, Part 1: Reset Behind Closed Doors", "date": "2026-05-21", "type": "專輯", "cat": "純音樂", "tracks": 19, "apple": "6772087722", "ytm": "OLAK5uy_maM7DPn9UzbbvyMW7bJpgpc4rwLvnHeMM"},
-    {"title": "心流時刻", "en": "Flow Moments", "date": "2026-05-01", "type": "專輯", "cat": "純音樂", "tracks": 20, "apple": "1893327752", "ytm": "OLAK5uy_nBKRFduskXqigwAi1pQaF0IixguRLqdJY"},
-    {"title": "留白的午後練習", "en": "The Art of an Unhurried Afternoon", "date": "2026-03-05", "type": "專輯", "cat": "純音樂", "tracks": 20, "apple": "6832517153", "ytm": "OLAK5uy_kfy6oft_Nbr6a9_GlMbrwfFepOatC9TsM"},
-    {"title": "彼女の姿", "en": "", "date": "2026-03-03", "type": "單曲", "cat": "人聲", "tracks": 2, "apple": "1891371070", "ytm": "OLAK5uy_kFKx2R4Fs287-jRxIis-eB3gskPQHjqrQ"},
-    {"title": "靜謐時刻", "en": "Serene Moments", "date": "2026-02-24", "type": "專輯", "cat": "純音樂", "tracks": 15, "apple": "1877693859", "ytm": "OLAK5uy_lBwAkUuo9bmcf1yvuvx5UbcCOkMX3nf8M"},
-    {"title": "當冬夜有光", "en": "", "date": "2025-12-31", "type": "單曲", "cat": "人聲", "tracks": 2, "apple": "1863950653", "ytm": "OLAK5uy_lReqnRw66PruWUgKfmAJmazV7-zu0AcLs"},
-    {"title": "Frost Waltz: Faint Beat of Intertwined Glow", "en": "冰霜圓舞：暖意交織的微光節拍", "date": "2025-12-12", "type": "專輯", "cat": "純音樂", "tracks": 21, "apple": "1863477982", "ytm": "OLAK5uy_mOuvZDuWQHvW2X-LbPIbMhWJTA_JK4flo"},
-    {"title": "Breath of Serenity III: Celestial Harmony", "en": "", "date": "2025-11-30", "type": "專輯", "cat": "純音樂", "tracks": 20, "apple": "1854474888", "ytm": "OLAK5uy_mqAl7ACUyoTeaVw6SEhL1n__l8sPmuCyw"},
-    {"title": "Breath of Serenity II: Earthbound Calm", "en": "", "date": "2025-11-30", "type": "專輯", "cat": "純音樂", "tracks": 20, "apple": "1854472859", "ytm": "OLAK5uy_mSGK_BmQI7uB-whHO2oPlYS_hlrikEsT4"},
-    {"title": "Breath of Serenity I: Dawn Rising", "en": "", "date": "2025-11-30", "type": "專輯", "cat": "純音樂", "tracks": 20, "apple": "1854477746", "ytm": "OLAK5uy_lnkLSSxeSucDiV0Pe5tqijpGWPVFtyP4Q"},
-    {"title": "我不想再乖了", "en": "", "date": "2025-11-04", "type": "單曲", "cat": "人聲", "tracks": 2, "apple": "1851576447", "ytm": "OLAK5uy_kgIcUZv6hgZvvHAH5ueg1RTOwH29Gct6E"},
-    {"title": "兩個宇宙", "en": "", "date": "2025-10-24", "type": "單曲", "cat": "人聲", "tracks": 2, "apple": "1849159485", "ytm": "OLAK5uy_k7XlTL9pnWRNSQAtCbmZQQ8f-Ddq4H62A"},
-    {"title": "巧克力", "en": "Chocolate", "date": "2025-10-24", "type": "單曲", "cat": "人聲", "tracks": 2, "apple": "1849410638", "ytm": "OLAK5uy_lciDy6W8wA-p9ZjWUqby0x-UPI3rKDO-Q"},
-    {"title": "逐樂無憂", "en": "", "date": "2025-07-04", "type": "單曲", "cat": "人聲", "tracks": 2, "apple": "1824702827", "ytm": "OLAK5uy_mzFawEmTow7p1yDyeiZWQKvbNvTbIvVqw"},
-    {"title": "放鬆時刻－豎琴與笛共舞", "en": "Relaxing Moments - Dance of Harp and Flute", "date": "2024-08-21", "type": "專輯", "cat": "純音樂", "tracks": 8, "apple": "1836214648", "ytm": "OLAK5uy_ndbcmLg5cdMjbF6Igh6uCUQhHejt4EB0g"},
-    {"title": "放鬆舒緩輕音樂（明日的扉頁）八音盒版", "en": "", "date": "2024-08-07", "type": "專輯", "cat": "純音樂", "tracks": 17, "apple": "1884246988", "ytm": "OLAK5uy_mSr7dNEn2gmiCfUhKeBNEY4RD4opL4mSY"},
-    {"title": "明日的扉頁", "en": "", "date": "2024-07-08", "type": "專輯", "cat": "純音樂", "tracks": 17, "apple": "1835143820", "ytm": "OLAK5uy_n6SXons9GukECTamOhUoTGdDyvHGQLOfQ"}
+    {
+      "title": "為你留一盞燈：松果街的聖誕",
+      "date": "2026-11-20",
+      "type": "專輯",
+      "cat": "純音樂",
+      "tracks": 8,
+      "ytm": "OLAK5uy_kW3gJvsmUuieKLaa4znU7PeSwznDxdwB8",
+      "cover": "2026-11-20.webp",
+      "tracklist": [
+        "轉角的第一盞聖誕燈",
+        "我的小星星",
+        "窗邊的熱可可",
+        "被吹走的紅緞帶",
+        "聖誕夜的溫柔散步",
+        "快進來！聖誕晚餐開始了",
+        "星星也來跳聖誕舞",
+        "早安！聖誕還在繼續"
+      ]
+    },
+    {
+      "title": "聖誕，叮咚叮咚",
+      "en": "Ding Dong, It's Christmas!",
+      "date": "2026-11-05",
+      "type": "專輯",
+      "cat": "人聲",
+      "tracks": 12,
+      "apple": "6829706451",
+      "ytm": "OLAK5uy_nPOYlZMGDywZdTp6X2Gyjld_iES8EArQs"
+    },
+    {
+      "title": "風與水的途中",
+      "en": "Between Wind and Water",
+      "date": "2026-11-05",
+      "type": "專輯",
+      "cat": "純音樂",
+      "tracks": 20,
+      "apple": "6832516111",
+      "ytm": "OLAK5uy_lvo2OrZYow_k-Xh9ib5tbHHaSTXx_ap5I"
+    },
+    {
+      "title": "夜色織音（中輯）：日常的拾趣．兩人時光篇",
+      "en": "Night Weaving, Part 2: Everyday Little Joys",
+      "date": "2026-10-20",
+      "type": "專輯",
+      "cat": "純音樂",
+      "tracks": 19,
+      "apple": "6832517213",
+      "ytm": "OLAK5uy_kQczQ98Tro_oJl-9rxmbCFft61M8XwePM"
+    },
+    {
+      "title": "曼常微光",
+      "en": "Eight Strings In Everyday Light",
+      "date": "2026-10-05",
+      "type": "專輯",
+      "cat": "純音樂",
+      "tracks": 20,
+      "apple": "6832517426",
+      "ytm": "OLAK5uy_lNbvuz9oE_kh-MyH_aZm7DlhUQAPXnS6o"
+    },
+    {
+      "title": "夜色織音（上輯）：門內的守候．毛孩視角篇",
+      "en": "Night Weaving, Part 1: Waiting Inside the Door",
+      "date": "2026-09-15",
+      "type": "專輯",
+      "cat": "純音樂",
+      "tracks": 19,
+      "apple": "6832516294",
+      "ytm": "OLAK5uy_nOL3gYFn-vDBf3y0Ls3TyVMFlhMRCsE9c"
+    },
+    {
+      "title": "記憶依舊",
+      "en": "",
+      "date": "2026-06-24",
+      "type": "單曲",
+      "cat": "人聲",
+      "tracks": 2,
+      "apple": "6785524303",
+      "ytm": "OLAK5uy_k4Laipr-VSVYu8vFkVBzXRBktsk-x7tPA"
+    },
+    {
+      "title": "夜色織音（上輯）：門後的歸零．兩人時光篇",
+      "en": "Night Weaving, Part 1: Reset Behind Closed Doors",
+      "date": "2026-05-21",
+      "type": "專輯",
+      "cat": "純音樂",
+      "tracks": 19,
+      "apple": "6772087722",
+      "ytm": "OLAK5uy_maM7DPn9UzbbvyMW7bJpgpc4rwLvnHeMM"
+    },
+    {
+      "title": "心流時刻",
+      "en": "Flow Moments",
+      "date": "2026-05-01",
+      "type": "專輯",
+      "cat": "純音樂",
+      "tracks": 20,
+      "apple": "1893327752",
+      "ytm": "OLAK5uy_nBKRFduskXqigwAi1pQaF0IixguRLqdJY"
+    },
+    {
+      "title": "留白的午後練習",
+      "en": "The Art of an Unhurried Afternoon",
+      "date": "2026-03-05",
+      "type": "專輯",
+      "cat": "純音樂",
+      "tracks": 20,
+      "apple": "6832517153",
+      "ytm": "OLAK5uy_kfy6oft_Nbr6a9_GlMbrwfFepOatC9TsM"
+    },
+    {
+      "title": "彼女の姿",
+      "en": "",
+      "date": "2026-03-03",
+      "type": "單曲",
+      "cat": "人聲",
+      "tracks": 2,
+      "apple": "1891371070",
+      "ytm": "OLAK5uy_kFKx2R4Fs287-jRxIis-eB3gskPQHjqrQ"
+    },
+    {
+      "title": "靜謐時刻",
+      "en": "Serene Moments",
+      "date": "2026-02-24",
+      "type": "專輯",
+      "cat": "純音樂",
+      "tracks": 15,
+      "apple": "1877693859",
+      "ytm": "OLAK5uy_lBwAkUuo9bmcf1yvuvx5UbcCOkMX3nf8M"
+    },
+    {
+      "title": "當冬夜有光",
+      "en": "",
+      "date": "2025-12-31",
+      "type": "單曲",
+      "cat": "人聲",
+      "tracks": 2,
+      "apple": "1863950653",
+      "ytm": "OLAK5uy_lReqnRw66PruWUgKfmAJmazV7-zu0AcLs"
+    },
+    {
+      "title": "Frost Waltz: Faint Beat of Intertwined Glow",
+      "en": "冰霜圓舞：暖意交織的微光節拍",
+      "date": "2025-12-12",
+      "type": "專輯",
+      "cat": "純音樂",
+      "tracks": 21,
+      "apple": "1863477982",
+      "ytm": "OLAK5uy_mOuvZDuWQHvW2X-LbPIbMhWJTA_JK4flo"
+    },
+    {
+      "title": "Breath of Serenity III: Celestial Harmony",
+      "en": "",
+      "date": "2025-11-30",
+      "type": "專輯",
+      "cat": "純音樂",
+      "tracks": 20,
+      "apple": "1854474888",
+      "ytm": "OLAK5uy_mqAl7ACUyoTeaVw6SEhL1n__l8sPmuCyw"
+    },
+    {
+      "title": "Breath of Serenity II: Earthbound Calm",
+      "en": "",
+      "date": "2025-11-30",
+      "type": "專輯",
+      "cat": "純音樂",
+      "tracks": 20,
+      "apple": "1854472859",
+      "ytm": "OLAK5uy_mSGK_BmQI7uB-whHO2oPlYS_hlrikEsT4"
+    },
+    {
+      "title": "Breath of Serenity I: Dawn Rising",
+      "en": "",
+      "date": "2025-11-30",
+      "type": "專輯",
+      "cat": "純音樂",
+      "tracks": 20,
+      "apple": "1854477746",
+      "ytm": "OLAK5uy_lnkLSSxeSucDiV0Pe5tqijpGWPVFtyP4Q"
+    },
+    {
+      "title": "我不想再乖了",
+      "en": "",
+      "date": "2025-11-04",
+      "type": "單曲",
+      "cat": "人聲",
+      "tracks": 2,
+      "apple": "1851576447",
+      "ytm": "OLAK5uy_kgIcUZv6hgZvvHAH5ueg1RTOwH29Gct6E"
+    },
+    {
+      "title": "兩個宇宙",
+      "en": "",
+      "date": "2025-10-24",
+      "type": "單曲",
+      "cat": "人聲",
+      "tracks": 2,
+      "apple": "1849159485",
+      "ytm": "OLAK5uy_k7XlTL9pnWRNSQAtCbmZQQ8f-Ddq4H62A"
+    },
+    {
+      "title": "巧克力",
+      "en": "Chocolate",
+      "date": "2025-10-24",
+      "type": "單曲",
+      "cat": "人聲",
+      "tracks": 2,
+      "apple": "1849410638",
+      "ytm": "OLAK5uy_lciDy6W8wA-p9ZjWUqby0x-UPI3rKDO-Q"
+    },
+    {
+      "title": "逐樂無憂",
+      "en": "",
+      "date": "2025-07-04",
+      "type": "單曲",
+      "cat": "人聲",
+      "tracks": 2,
+      "apple": "1824702827",
+      "ytm": "OLAK5uy_mzFawEmTow7p1yDyeiZWQKvbNvTbIvVqw"
+    },
+    {
+      "title": "放鬆時刻－豎琴與笛共舞",
+      "en": "Relaxing Moments - Dance of Harp and Flute",
+      "date": "2024-08-21",
+      "type": "專輯",
+      "cat": "純音樂",
+      "tracks": 8,
+      "apple": "1836214648",
+      "ytm": "OLAK5uy_ndbcmLg5cdMjbF6Igh6uCUQhHejt4EB0g"
+    },
+    {
+      "title": "放鬆舒緩輕音樂（明日的扉頁）八音盒版",
+      "en": "",
+      "date": "2024-08-07",
+      "type": "專輯",
+      "cat": "純音樂",
+      "tracks": 17,
+      "apple": "1884246988",
+      "ytm": "OLAK5uy_mSr7dNEn2gmiCfUhKeBNEY4RD4opL4mSY"
+    },
+    {
+      "title": "明日的扉頁",
+      "en": "",
+      "date": "2024-07-08",
+      "type": "專輯",
+      "cat": "純音樂",
+      "tracks": 17,
+      "apple": "1835143820",
+      "ytm": "OLAK5uy_n6SXons9GukECTamOhUoTGdDyvHGQLOfQ"
+    }
   ],
   "upcoming": [
-    {"title": "為你留一盞燈：松果街的聖誕", "date": "2026-11-20", "type": "專輯", "cat": "純音樂", "tracks": 8},
-    {"title": "夜色織音（中輯）：角落的嬉遊．毛孩視角篇", "date": "2026-12-20", "type": "專輯", "cat": "純音樂", "tracks": 17},
-    {"title": "光陰棲息", "date": "2027-01-05", "type": "專輯", "cat": "純音樂", "tracks": 20},
-    {"title": "重現", "date": "2027-02-05", "type": "專輯", "cat": "純音樂", "tracks": 8}
+    {
+      "title": "夜色織音（中輯）：角落的嬉遊．毛孩視角篇",
+      "date": "2026-12-20",
+      "type": "專輯",
+      "cat": "純音樂",
+      "tracks": 17
+    },
+    {
+      "title": "光陰棲息",
+      "date": "2027-01-05",
+      "type": "專輯",
+      "cat": "純音樂",
+      "tracks": 20
+    },
+    {
+      "title": "重現",
+      "date": "2027-02-05",
+      "type": "專輯",
+      "cat": "純音樂",
+      "tracks": 8
+    }
   ]
 }

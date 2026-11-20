@@ -2692,7 +2692,7 @@ def discography_section(page_path: Path) -> str:
         links_html = ('<p class="album-links">' + "".join(links) + '</p>') if links else                      '<p class="album-meta">平台連結上架後補上</p>'
         tl = a.get("tracklist") or []
         track_html = (f'<details class="album-tracks"><summary>曲目 {len(tl)} 首</summary><ol>'
-                      + "".join(f"<li>{escape(t)}</li>" for t in tl) + '</ol></details>') if tl else ""'
+                      + "".join(f"<li>{escape(t)}</li>" for t in tl) + '</ol></details>') if tl else ""
         cards.append(f"""      <li class="album-card">
         {cover_open}
           {cover_html}
