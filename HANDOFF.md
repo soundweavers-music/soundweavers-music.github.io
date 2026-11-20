@@ -111,6 +111,28 @@ Chrome 開站顯示「危險網站／可能誘騙你安裝軟體」。查詢 `ht
 
 ## 5. 本次變更紀錄
 
+### 2026-11-21（英文版：樂理 20 章＋整條管線）
+
+- **英文內容放 `content/en/<course>/`**，跟中文原稿一個資料夾對一個資料夾。
+  課程頁在 `/en/<course>/`，落地頁 `/en/`。
+- **`scripts/build_en_courses.py` 是英文課程頁的唯一建置器**：`COURSES` 一筆
+  課程 = 目錄頁＋每章一頁＋上下章。`build_courses.py` 從此只建中文
+  （以前兩邊都寫 `/en/index.html`，誰後跑誰贏）。樂理例外，仍在
+  `build_vocal_extra.build_theory_pages("en")`（它有階段頁），英文那邊只把
+  它列進落地頁（`landing_only`）。
+- **圖的英文版**：`scripts/figure_i18n.py extract|merge|generate <course>`。
+  中文圖先產生好，再逐字串換掉；字串表在 `scripts/figure_strings/<course>.py`，
+  工作檔在 `work/figure_strings/<course>/*.json`（gitignore）。
+  `generate` 沒翻完會列出來並離開碼 1，所以覆蓋率是可檢查的。
+  樂理 46 張圖、470 條字串已全數翻完。英文稿引用圖要用
+  `/assets/<course>/en/<name>.svg`（絕對路徑，`relativize()` 會轉相對）。
+- **翻譯契約在 `content/en/_STYLE.md`**：語氣、結構、術語表（bar 不用 measure、
+  staff 不用 stave…）。翻譯／審查都先讀這一份，不然同一個詞會在兩章長得不一樣。
+- **`page()` 的英文外框**：`lang="en"` 時 keywords、og:title、JSON-LD 的
+  name/author、回頂部 aria-label 都換英文，只剩語言切換的「中文」是中文（正確）。
+- **進度**：樂理 20 章＋前言、詞曲創作 6 堂已完成；吉他、烏克麗麗、人聲、
+  錄音後製、DAW、曼陀林逐套進行中。`figure_i18n.py status` 可以看每套圖還剩幾條。
+
 ### 2026-11-20（新課程：流行歌曲詞曲創作）
 
 - **`/songwriting/` 六堂課**：拆歌 → 歌詞 → 旋律 → 和弦 → 詞曲合一 → 寫完拿出去。

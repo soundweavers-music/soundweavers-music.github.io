@@ -174,6 +174,26 @@ column is what the English edition must say every time.
 - Chinese instrument names that are already English loanwords (guzheng, pipa,
   erhu, dizi) stay romanised, with a one-line description the first time.
 
+## Lyric quotes — do not translate them
+
+The Chinese lessons sometimes line a chord chart up against real pop lyrics
+(〈小薇〉, 〈擁抱〉, 〈旅行的意義〉, 〈情非得已〉 …). Those lyrics are under
+copyright, and a translation is a derivative work: **the English edition does
+not reproduce them and does not translate them.**
+
+What to do instead, wherever the Chinese quotes a lyric line:
+
+- Keep the structural point ("one syllable per box", "the downbeat lands on the
+  first syllable", "the last syllable is held for two beats").
+- Replace the quoted words with a neutral description: "the line's first
+  syllable", "the title line", "a four-syllable phrase".
+- If a table cell or figure label needs to show where syllables fall, use
+  syllable counts or `la la la` placeholders, never the actual words.
+
+Song **titles** are fine: give the original plus an English gloss, e.g.
+〈擁抱〉 ("Embrace"). Titles are not protected the way lyrics are. Chord
+progressions are facts and stay as they are.
+
 ## Numbers and units
 
 Chinese counts characters; English counts words. Keep the numbers from the

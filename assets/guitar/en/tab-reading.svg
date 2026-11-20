@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 330" role="img" aria-label="How tab works: six lines, string 1 to string 6, numbers are frets">
+  <title>How to read tab</title>
+  <rect width="640" height="330" fill="#FBF8F4"/>
+<text x="26" y="34" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="16" fill="#3D3229" text-anchor="start" font-weight="700">Tab: the top line is the 1st string, not the 6th</text>
+<text x="26" y="55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#8C8078" text-anchor="start">Six lines, top to bottom = 1st string (thinnest) to 6th (thickest); the number is the fret pressed</text>
+<line x1="118" y1="96" x2="470" y2="96" stroke="#3D3229" stroke-width="1" opacity=".45"/>
+<text x="106" y="100" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="end">String 1 E</text>
+<line x1="118" y1="115" x2="470" y2="115" stroke="#3D3229" stroke-width="1" opacity=".45"/>
+<text x="106" y="119" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="end">String 2 B</text>
+<line x1="118" y1="134" x2="470" y2="134" stroke="#3D3229" stroke-width="1" opacity=".45"/>
+<text x="106" y="138" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="end">String 3 G</text>
+<line x1="118" y1="153" x2="470" y2="153" stroke="#3D3229" stroke-width="1" opacity=".45"/>
+<text x="106" y="157" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="end">String 4 D</text>
+<line x1="118" y1="172" x2="470" y2="172" stroke="#3D3229" stroke-width="1" opacity=".45"/>
+<text x="106" y="176" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="end">String 5 A</text>
+<line x1="118" y1="191" x2="470" y2="191" stroke="#3D3229" stroke-width="1" opacity=".45"/>
+<text x="106" y="195" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="end">String 6 E</text>
+<rect x="159" y="88" width="18" height="16" fill="#FBF8F4"/>
+<text x="168" y="101" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="13" fill="#A67C52" text-anchor="middle" font-weight="700">0</text>
+<rect x="209" y="107" width="18" height="16" fill="#FBF8F4"/>
+<text x="218" y="120" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="13" fill="#A67C52" text-anchor="middle" font-weight="700">1</text>
+<rect x="259" y="126" width="18" height="16" fill="#FBF8F4"/>
+<text x="268" y="139" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="13" fill="#A67C52" text-anchor="middle" font-weight="700">0</text>
+<rect x="309" y="145" width="18" height="16" fill="#FBF8F4"/>
+<text x="318" y="158" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="13" fill="#A67C52" text-anchor="middle" font-weight="700">2</text>
+<rect x="359" y="164" width="18" height="16" fill="#FBF8F4"/>
+<text x="368" y="177" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="13" fill="#A67C52" text-anchor="middle" font-weight="700">3</text>
+<rect x="409" y="183" width="18" height="16" fill="#FBF8F4"/>
+<text x="418" y="196" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="13" fill="#A67C52" text-anchor="middle" font-weight="700">3</text>
+<path d="M118 225 L470 225" stroke="#A67C52" stroke-width="1.4" fill="none"/>
+<path d="M470 225 l-7 -4 v8 z" fill="#A67C52"/>
+<text x="294.0" y="219" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle">Play left to right</text>
+<text x="26" y="232" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#3D3229" text-anchor="start">① Top line = 1st string (the thin high E); bottom line = 6th (the thick low E)</text>
+<text x="26" y="254" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#3D3229" text-anchor="start">② A number = the fret the left hand presses. On the 3rd line it means the 3rd string</text>
+<text x="26" y="276" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#3D3229" text-anchor="start">③ 0 = open string: no left hand, just pluck it</text>
+<text x="26" y="298" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#3D3229" text-anchor="start">④ Numbers stacked on one vertical line = notes together (e.g. strum a C chord)</text>
+<text x="26" y="318" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="start">Read top to bottom = thin to thick; chord charts run left to right the other way, so don&#x27;t mix them up</text>
+</svg>

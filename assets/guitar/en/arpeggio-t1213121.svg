@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="The T 1 2 1 3 1 2 1 arpeggio pattern">
+  <title>The T 1 2 1 3 1 2 1 arpeggio pattern</title>
+  <rect width="640" height="360" fill="#FBF8F4"/>
+<text x="26" y="34" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="16" fill="#3D3229" text-anchor="start" font-weight="700">T 1 2 1 3 1 2 1: one finger per string</text>
+<text x="26" y="55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#8C8078" text-anchor="start">In a C chord, index, middle and ring hold strings 3, 2, 1; only the thumb (T) follows the root</text>
+<line x1="84.0" y1="118.0" x2="588.0" y2="118.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<text x="74" y="122" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="end">1st string E</text>
+<line x1="84.0" y1="134.0" x2="588.0" y2="134.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<text x="74" y="138" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="end">2nd string B</text>
+<line x1="84.0" y1="150.0" x2="588.0" y2="150.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<text x="74" y="154" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="end">3rd string G</text>
+<line x1="84.0" y1="166.0" x2="588.0" y2="166.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<text x="74" y="170" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="end">4th string D</text>
+<line x1="84.0" y1="182.0" x2="588.0" y2="182.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<text x="74" y="186" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="end">5th string A</text>
+<line x1="84.0" y1="198.0" x2="588.0" y2="198.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<text x="74" y="202" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="end">6th string E</text>
+<line x1="588.0" y1="111.0" x2="588.0" y2="205.0" stroke="#3D3229" stroke-width="1.6"/>
+<line x1="84.0" y1="111.0" x2="84.0" y2="205.0" stroke="#3D3229" stroke-width="1.6"/>
+<circle cx="115.5" cy="182" r="6.5" fill="#FFFFFF" stroke="#A67C52" stroke-width="1.8"/>
+<circle cx="178.5" cy="150" r="5" fill="#FBF8F4" stroke="#A67C52" stroke-width="1.8"/>
+<circle cx="241.5" cy="134" r="5" fill="#FBF8F4" stroke="#A67C52" stroke-width="1.8"/>
+<circle cx="304.5" cy="150" r="5" fill="#FBF8F4" stroke="#A67C52" stroke-width="1.8"/>
+<circle cx="367.5" cy="118" r="5" fill="#FBF8F4" stroke="#A67C52" stroke-width="1.8"/>
+<circle cx="430.5" cy="150" r="5" fill="#FBF8F4" stroke="#A67C52" stroke-width="1.8"/>
+<circle cx="493.5" cy="134" r="5" fill="#FBF8F4" stroke="#A67C52" stroke-width="1.8"/>
+<circle cx="556.5" cy="150" r="5" fill="#FBF8F4" stroke="#A67C52" stroke-width="1.8"/>
+<text x="115.5" y="224" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="middle">1</text>
+<text x="178.5" y="224" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="middle">&amp;</text>
+<text x="241.5" y="224" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="middle">2</text>
+<text x="304.5" y="224" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="middle">&amp;</text>
+<text x="367.5" y="224" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="middle">3</text>
+<text x="430.5" y="224" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="middle">&amp;</text>
+<text x="493.5" y="224" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="middle">4</text>
+<text x="556.5" y="224" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="middle">&amp;</text>
+<text x="115.5" y="250" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#A67C52" text-anchor="middle" font-weight="700">T</text>
+<text x="178.5" y="250" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#A67C52" text-anchor="middle" font-weight="700">1</text>
+<text x="241.5" y="250" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#A67C52" text-anchor="middle" font-weight="700">2</text>
+<text x="304.5" y="250" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#A67C52" text-anchor="middle" font-weight="700">1</text>
+<text x="367.5" y="250" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#A67C52" text-anchor="middle" font-weight="700">3</text>
+<text x="430.5" y="250" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#A67C52" text-anchor="middle" font-weight="700">1</text>
+<text x="493.5" y="250" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#A67C52" text-anchor="middle" font-weight="700">2</text>
+<text x="556.5" y="250" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#A67C52" text-anchor="middle" font-weight="700">1</text>
+<text x="74" y="250" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="end">Right hand</text>
+<text x="74" y="224" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="end">Beat</text>
+<text x="26" y="320" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#3D3229" text-anchor="start">On a chord change only the thumb moves: C and Am pluck the 5th string, G and Em the 6th, Dm and Fmaj7 the 4th</text>
+<text x="26" y="346" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="start">All eight notes the same volume, even as a gearwheel; the circled one is the root, a touch heavier</text>
+</svg>

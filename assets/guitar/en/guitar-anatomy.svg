@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 660" role="img" aria-label="The parts of an acoustic guitar">
+  <title>Parts of the acoustic guitar</title>
+  <rect width="640" height="660" fill="#FBF8F4"/>
+<text x="26" y="34" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="16" fill="#3D3229" text-anchor="start" font-weight="700">Parts of the acoustic guitar</text>
+<text x="26" y="55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#8C8078" text-anchor="start">Top to bottom: headstock, nut, fretboard and frets, body, soundhole, bridge</text>
+<path d="M232 300 C208 326 216 372 234 402 C244 420 246 434 238 456 C214 500 196 552 222 580 C250 604 292 606 320 606 C348 606 390 604 418 580 C444 552 426 500 402 456 C394 434 396 420 406 402 C424 372 432 326 408 300 Z" fill="#F3E9DC" stroke="#3D3229" stroke-width="2"/>
+<path d="M295 132 L345 132 L353 300 L287 300 Z" fill="#EDE3D6" stroke="#3D3229" stroke-width="1.4"/>
+<rect x="287" y="300" width="66" height="109.2" fill="#EDE3D6" stroke="#3D3229" stroke-width="1.2"/>
+<line x1="293.9" y1="155.3" x2="346.1" y2="155.3" stroke="#8C8078" stroke-width="0.9" opacity=".8"/>
+<line x1="292.8" y1="177.4" x2="347.2" y2="177.4" stroke="#8C8078" stroke-width="0.9" opacity=".8"/>
+<line x1="291.8" y1="198.2" x2="348.2" y2="198.2" stroke="#8C8078" stroke-width="0.9" opacity=".8"/>
+<line x1="290.9" y1="217.8" x2="349.1" y2="217.8" stroke="#8C8078" stroke-width="0.9" opacity=".8"/>
+<line x1="290.0" y1="236.4" x2="350.0" y2="236.4" stroke="#8C8078" stroke-width="0.9" opacity=".8"/>
+<line x1="289.2" y1="253.8" x2="350.8" y2="253.8" stroke="#8C8078" stroke-width="0.9" opacity=".8"/>
+<line x1="288.4" y1="270.4" x2="351.6" y2="270.4" stroke="#8C8078" stroke-width="0.9" opacity=".8"/>
+<line x1="287.7" y1="285.9" x2="352.3" y2="285.9" stroke="#8C8078" stroke-width="0.9" opacity=".8"/>
+<line x1="287.0" y1="300.6" x2="353.0" y2="300.6" stroke="#8C8078" stroke-width="0.9" opacity=".8"/>
+<line x1="286.3" y1="314.5" x2="353.7" y2="314.5" stroke="#8C8078" stroke-width="0.9" opacity=".8"/>
+<line x1="285.7" y1="327.6" x2="354.3" y2="327.6" stroke="#8C8078" stroke-width="0.9" opacity=".8"/>
+<line x1="285.1" y1="340.0" x2="354.9" y2="340.0" stroke="#8C8078" stroke-width="0.9" opacity=".8"/>
+<line x1="284.5" y1="351.7" x2="355.5" y2="351.7" stroke="#8C8078" stroke-width="0.9" opacity=".8"/>
+<line x1="284.0" y1="362.7" x2="356.0" y2="362.7" stroke="#8C8078" stroke-width="0.9" opacity=".8"/>
+<line x1="283.5" y1="373.1" x2="356.5" y2="373.1" stroke="#8C8078" stroke-width="0.9" opacity=".8"/>
+<line x1="283.1" y1="382.9" x2="356.9" y2="382.9" stroke="#8C8078" stroke-width="0.9" opacity=".8"/>
+<line x1="282.6" y1="392.2" x2="357.4" y2="392.2" stroke="#8C8078" stroke-width="0.9" opacity=".8"/>
+<line x1="282.2" y1="400.9" x2="357.8" y2="400.9" stroke="#8C8078" stroke-width="0.9" opacity=".8"/>
+<line x1="281.8" y1="409.2" x2="358.2" y2="409.2" stroke="#8C8078" stroke-width="0.9" opacity=".8"/>
+<line x1="300" y1="132" x2="292.5" y2="548" stroke="#3D3229" stroke-width="0.70" opacity=".55"/>
+<line x1="308" y1="132" x2="303.5" y2="548" stroke="#3D3229" stroke-width="0.82" opacity=".55"/>
+<line x1="316" y1="132" x2="314.5" y2="548" stroke="#3D3229" stroke-width="0.94" opacity=".55"/>
+<line x1="324" y1="132" x2="325.5" y2="548" stroke="#3D3229" stroke-width="1.06" opacity=".55"/>
+<line x1="332" y1="132" x2="336.5" y2="548" stroke="#3D3229" stroke-width="1.18" opacity=".55"/>
+<line x1="340" y1="132" x2="347.5" y2="548" stroke="#3D3229" stroke-width="1.30" opacity=".55"/>
+<rect x="293" y="125" width="54" height="7" fill="#3D3229"/>
+<path d="M293 125 L289 74 L351 74 L347 125 Z" fill="#EDE3D6" stroke="#3D3229" stroke-width="1.4"/>
+<circle cx="300" cy="88" r="4.6" fill="#FBF8F4" stroke="#3D3229" stroke-width="1.2"/>
+<circle cx="340" cy="88" r="4.6" fill="#FBF8F4" stroke="#3D3229" stroke-width="1.2"/>
+<circle cx="300" cy="105" r="4.6" fill="#FBF8F4" stroke="#3D3229" stroke-width="1.2"/>
+<circle cx="340" cy="105" r="4.6" fill="#FBF8F4" stroke="#3D3229" stroke-width="1.2"/>
+<circle cx="300" cy="122" r="4.6" fill="#FBF8F4" stroke="#3D3229" stroke-width="1.2"/>
+<circle cx="340" cy="122" r="4.6" fill="#FBF8F4" stroke="#3D3229" stroke-width="1.2"/>
+<circle cx="320" cy="452" r="32" fill="#FBF8F4" stroke="#3D3229" stroke-width="1.6"/>
+<rect x="278" y="542" width="84" height="13" rx="3" fill="#DCCDBB" stroke="#3D3229" stroke-width="1.2"/>
+<path d="M350 96 L400 88" stroke="#8C8078" stroke-width="1" fill="none"/>
+<circle cx="350" cy="96" r="2.6" fill="#8C8078"/>
+<text x="408" y="92" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="start">Headstock</text>
+<path d="M340 122 L400 120" stroke="#8C8078" stroke-width="1" fill="none"/>
+<circle cx="340" cy="122" r="2.6" fill="#8C8078"/>
+<text x="408" y="124" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="start">Tuning pegs</text>
+<path d="M347 132 L400 160" stroke="#8C8078" stroke-width="1" fill="none"/>
+<circle cx="347" cy="132" r="2.6" fill="#8C8078"/>
+<text x="408" y="164" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="start">Nut</text>
+<path d="M290 220 L150 216" stroke="#8C8078" stroke-width="1" fill="none"/>
+<circle cx="290" cy="220" r="2.6" fill="#8C8078"/>
+<text x="142" y="220" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="end">Fretboard and frets</text>
+<path d="M208 360 L120 340" stroke="#8C8078" stroke-width="1" fill="none"/>
+<circle cx="208" cy="360" r="2.6" fill="#8C8078"/>
+<text x="112" y="344" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="end">Body</text>
+<path d="M290 452 L150 452" stroke="#8C8078" stroke-width="1" fill="none"/>
+<circle cx="290" cy="452" r="2.6" fill="#8C8078"/>
+<text x="142" y="456" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="end">Soundhole</text>
+<path d="M278 548 L130 552" stroke="#8C8078" stroke-width="1" fill="none"/>
+<circle cx="278" cy="548" r="2.6" fill="#8C8078"/>
+<text x="122" y="556" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="end">Bridge</text>
+<path d="M330 250 L400 248" stroke="#8C8078" stroke-width="1" fill="none"/>
+<circle cx="330" cy="250" r="2.6" fill="#8C8078"/>
+<text x="408" y="252" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="start">Strings (six)</text>
+<text x="26" y="646" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="start">String 1 is the thin high E, string 6 the thick low E; chord charts read left to right the same way</text>
+</svg>

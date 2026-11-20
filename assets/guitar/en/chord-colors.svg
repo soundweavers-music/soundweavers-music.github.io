@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" role="img" aria-label="Major and minor triads compared">
+  <title>Major and minor: one note apart</title>
+  <rect width="640" height="300" fill="#FBF8F4"/>
+<text x="24" y="34" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="15" fill="#3D3229" text-anchor="start" font-weight="700">Major and minor: only the middle note differs, by a few semitones</text>
+<text x="24" y="55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#8C8078" text-anchor="start">Root and fifth are identical, only the third changes—that is the whole difference between bright and sad</text>
+<text x="150" y="113" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="end" font-weight="700">Major triad (C)</text>
+<rect x="158.0" y="90" width="36" height="36" rx="8" fill="#F3E9DC" stroke="#A67C52"/>
+<text x="176" y="113" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#3D3229" text-anchor="middle" font-weight="700">Root</text>
+<rect x="262.0" y="90" width="36" height="36" rx="8" fill="#A67C52" stroke="#A67C52"/>
+<text x="280" y="113" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">Third</text>
+<rect x="340.0" y="90" width="36" height="36" rx="8" fill="#A67C52" stroke="#A67C52"/>
+<text x="358" y="113" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">Fifth</text>
+<path d="M194.0 108 L262.0 108" stroke="#8C8078" stroke-width="1" stroke-dasharray="3 3"/>
+<text x="228.0" y="100" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="middle">4</text>
+<path d="M298.0 108 L340.0 108" stroke="#8C8078" stroke-width="1" stroke-dasharray="3 3"/>
+<text x="319.0" y="100" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="middle">3</text>
+<text x="392" y="113" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="start">Root → 4 semitones → then 3 semitones</text>
+<text x="150" y="197" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="end" font-weight="700">Minor triad (Cm)</text>
+<rect x="158.0" y="174" width="36" height="36" rx="8" fill="#F3E9DC" stroke="#A67C52"/>
+<text x="176" y="197" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#3D3229" text-anchor="middle" font-weight="700">Root</text>
+<rect x="236.0" y="174" width="36" height="36" rx="8" fill="#A67C52" stroke="#A67C52"/>
+<text x="254" y="197" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">Third</text>
+<rect x="340.0" y="174" width="36" height="36" rx="8" fill="#A67C52" stroke="#A67C52"/>
+<text x="358" y="197" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">Fifth</text>
+<path d="M194.0 192 L236.0 192" stroke="#8C8078" stroke-width="1" stroke-dasharray="3 3"/>
+<text x="215.0" y="184" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="middle">3</text>
+<path d="M272.0 192 L340.0 192" stroke="#8C8078" stroke-width="1" stroke-dasharray="3 3"/>
+<text x="306.0" y="184" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="middle">4</text>
+<text x="392" y="197" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="start">Root → 3 semitones → then 4 semitones</text>
+<text x="24" y="284" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="start">Lower the third a semitone and major turns minor; that&#x27;s why one root can hold two different moods</text>
+</svg>

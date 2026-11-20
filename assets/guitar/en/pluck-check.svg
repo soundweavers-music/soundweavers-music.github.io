@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" role="img" aria-label="The pluck test">
+  <title>The pluck test</title>
+  <rect width="640" height="320" fill="#FBF8F4"/>
+<text x="24" y="34" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="15" fill="#3D3229" text-anchor="start" font-weight="700">The arpeggio test: fret a chord, then pluck the six strings one by one</text>
+<text x="24" y="55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#8C8078" text-anchor="start">Fix only the string that&#x27;s muted—don&#x27;t change three things at once</text>
+<text x="120" y="104" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#3D3229" text-anchor="end" font-weight="700">String 6</text>
+<circle cx="160" cy="100" r="9" fill="#A67C52"/>
+<text x="186" y="104" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="start">Clear, rings on</text>
+<text x="120" y="136" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#3D3229" text-anchor="end" font-weight="700">String 5</text>
+<circle cx="160" cy="132" r="9" fill="#A67C52"/>
+<text x="186" y="136" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="start">Clear, rings on</text>
+<text x="120" y="168" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#3D3229" text-anchor="end" font-weight="700">String 4</text>
+<circle cx="160" cy="164" r="9" fill="#B4553F"/>
+<text x="186" y="168" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#B4553F" text-anchor="start">Muted → check a finger isn&#x27;t touching the string beside it</text>
+<text x="120" y="200" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#3D3229" text-anchor="end" font-weight="700">String 3</text>
+<circle cx="160" cy="196" r="9" fill="#A67C52"/>
+<text x="186" y="200" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="start">Clear, rings on</text>
+<text x="120" y="232" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#3D3229" text-anchor="end" font-weight="700">String 2</text>
+<circle cx="160" cy="228" r="9" fill="#A67C52"/>
+<text x="186" y="232" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="start">Clear, rings on</text>
+<text x="120" y="264" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#3D3229" text-anchor="end" font-weight="700">String 1</text>
+<circle cx="160" cy="260" r="9" fill="#A67C52"/>
+<text x="186" y="264" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="start">Clear, rings on</text>
+<text x="24" y="272" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#3D3229" text-anchor="start">Always the same order, 6th string up to the 1st, so your ear can compare</text>
+<text x="24" y="298" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="start">Strum the whole set only once every string is clear; one mute and the strum is missing a piece</text>
+</svg>
