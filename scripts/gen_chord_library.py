@@ -173,11 +173,11 @@ def played_pcs(frets, base):
     return {(base[s] + f) % 12 for s, f in enumerate(frets) if f >= 0}
 
 
-def valid_shape(frets, base, root, quality):
+def valid_shape(frets, base, root, quality, allow=()):
     pcs = {(base[s] + f) % 12 for s, f in enumerate(frets) if f >= 0}
     if not pcs:
         return False
-    chordset = {(root + i) % 12 for i in QUAL[quality]}
+    chordset = {(root + i) % 12 for i in QUAL[quality]} | set(allow)
     if not pcs <= chordset:                      # no foreign notes
         return False
     ess = {(root + i) % 12 for i in ESSENTIAL[quality]}
@@ -257,8 +257,8 @@ def fingers_needed(frets):
     return (1 if barre else 0) + len(rest_frets)
 
 
-def solve(base, root, quality, max_mute, mute_first=False):
-    chordset = {(root + i) % 12 for i in QUAL[quality]}
+def solve(base, root, quality, max_mute, mute_first=False, window=None, allow=()):
+    chordset = {(root + i) % 12 for i in QUAL[quality]} | set(allow)
     n = len(base)
     # per-string candidate frets
     cand = []
@@ -278,9 +278,11 @@ def solve(base, root, quality, max_mute, mute_first=False):
             span = max(fretted) - min(fretted)
             if span > 3:
                 continue
+            if window and not (window[0] <= min(fretted) and max(fretted) <= window[1]):
+                continue
         else:
             span = 0
-        if not valid_shape(list(combo), base, root, quality):
+        if not valid_shape(list(combo), base, root, quality, allow):
             continue
         if fingers_needed(list(combo)) > 4:
             continue
@@ -291,11 +293,95 @@ def solve(base, root, quality, max_mute, mute_first=False):
         open_cnt = sum(1 for f in combo if f == 0)
         # 標準調弦：最低把位優先；特殊調弦：先把弦用滿（少悶音），再挑低把位
         score = ((muted, maxfret, span, bass_penalty, -open_cnt) if mute_first
-                 else (maxfret, span, muted, bass_penalty, -open_cnt))
+                 else (1 if muted else 0, maxfret, span, muted, bass_penalty, -open_cnt))
         if best is None or score < best[0]:
             best = (score, list(combo))
     return best[1] if best else None
 
+
+
+
+def bass_pc(frets, base):
+    """最低音的 pitch class（用來處理 C/E 這種斜線和弦）。"""
+    lowest = None
+    for i, f in enumerate(frets):
+        if f is None or f < 0:
+            continue
+        midi = base[i] + f          # base 與 frets 都是「第 1 弦在前」
+        if lowest is None or midi < lowest:
+            lowest = midi
+    return None if lowest is None else lowest % 12
+
+
+def voicings(base, root, quality, max_mute, bass=None, limit=3, mute_first=True):
+    """同一個和弦在不同把位的按法（含資料庫原本那一組）。"""
+    found, seen = [], set()
+    for lo in range(0, 12):
+        frets = solve(base, root, quality, max_mute, mute_first=mute_first,
+                      window=(lo, lo + 4), allow=((bass,) if bass is not None else ()))
+        if frets is None:
+            continue
+        if bass is not None and bass_pc(frets, base) != bass % 12:
+            continue
+        key = tuple(frets)
+        if key in seen:
+            continue
+        seen.add(key)
+        fingers, barre = assign_fingers(frets)
+        if not fingers_ok(frets, fingers, barre):
+            continue
+        found.append({"frets": frets, "fingers": fingers, "barre": barre})
+        if len(found) >= limit:
+            break
+    return found
+
+
+
+
+def solve_bass(base, root, quality, bass, max_mute, limit=2):
+    """斜線和弦：列出所有「最低音＝指定低音」的合法指型，取前幾個。"""
+    chordset = {(root + i) % 12 for i in QUAL[quality]} | {bass % 12}
+    n = len(base)
+    cand = []
+    for i in range(n):
+        opts = [-1]
+        for f in range(0, 13):
+            if (base[i] + f) % 12 in chordset:
+                opts.append(f)
+        cand.append(opts)
+    best = []
+    for combo in itertools.product(*cand):
+        muted = sum(1 for f in combo if f == -1)
+        if muted > max_mute or (n - muted) < 3:
+            continue
+        fretted = [f for f in combo if f > 0]
+        if fretted:
+            span = max(fretted) - min(fretted)
+            if span > 3:
+                continue
+        if not valid_shape(list(combo), base, root, quality, (bass % 12,)):
+            continue
+        if bass_pc(list(combo), base) != bass % 12:
+            continue
+        if fingers_needed(list(combo)) > 4:
+            continue
+        fingers, barre = assign_fingers(list(combo))
+        if not fingers_ok(list(combo), fingers, barre):
+            continue
+        maxf = max(fretted) if fretted else 0
+        score = (1 if muted > 1 else 0, maxf, muted, span)
+        best.append((score, {"frets": list(combo), "fingers": fingers, "barre": barre}))
+    best.sort(key=lambda x: x[0])
+    out, seen = [], set()
+    for _sc, sh in best:
+        key = tuple(sh["frets"])
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append(sh)
+        if len(out) >= limit:
+            break
+    return out
 
 def build():
     lib = {}
@@ -325,10 +411,18 @@ def build():
                 fingers, barre = assign_fingers(frets)
                 if not fingers_ok(frets, fingers, barre):
                     continue
-                table[f"{root}:{q}"] = {
-                    "frets": frets, "fingers": fingers,
-                    "barre": barre,
-                }
+                entry = {"frets": frets, "fingers": fingers, "barre": barre}
+                # 其他把位（最多再 2 個，去掉跟主指型一樣的）
+                alts = []
+                for v in voicings(base, root, q, MAX_MUTE[idx], limit=4):
+                    if v["frets"] == frets or v["frets"] in [a["frets"] for a in alts]:
+                        continue
+                    alts.append(v)
+                    if len(alts) >= 2:
+                        break
+                if alts:
+                    entry["alts"] = alts
+                table[f"{root}:{q}"] = entry
                 n_ok += 1
         stats[idx] = (n_ok, n_solved)
         # 同一件樂器的其他調弦：一樣逐個和弦求解＋驗證（封閉樣板只適用標準調弦）
@@ -352,6 +446,29 @@ def build():
                     table2[f"{root}:{q}"] = {"frets": frets, "fingers": fingers, "barre": barre}
                     n2 += 1
             stats[f"{idx}:{tuning_name2}"] = (n2, n2)
+
+        # 斜線和弦（C/E、G/B…）：只做標準調弦，常見四種品質 + 和弦音當低音
+        if idx in (0, 2):
+            tuning_name0 = INSTRUMENTS[idx][0]
+            table0 = lib[str(idx)][tuning_name0]
+            n_slash = 0
+            for root in range(12):
+                for q in ("maj", "m", "7", "m7"):
+                    tones = {(root + iv) % 12 for iv in QUAL[q]} - {root}
+                    if q in ("maj", "m"):
+                        tones.add((root + 10) % 12)     # b7 當低音：Am/G 這類
+                    if q == "maj":
+                        tones.add((root + 2) % 12)      # 9 度當低音：F/G 這類
+                    for b in sorted(tones):
+                        vs = solve_bass(base, root, q, b, MAX_MUTE[idx], limit=2)
+                        if not vs:
+                            continue
+                        entry = dict(vs[0])
+                        if len(vs) > 1:
+                            entry["alts"] = vs[1:]
+                        table0[f"{root}:{q}/{b}"] = entry
+                        n_slash += 1
+            stats[f"{idx}:slash"] = (n_slash, n_slash)
     return lib, stats
 
 
