@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" role="img" aria-label="重音要落在強拍上">
+  <title>重音要落在強拍上</title>
+  <rect width="760" height="300" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">重音要落在強拍上</text>
+  <text x="26" y="55" class="ts" font-size="12.5">同一句話，重音一換，意思的重心就換了</text>
+  <text x="26" y="136" class="ts" font-size="11.5" font-weight="700">重音在「車」</text>  <text x="190" y="135" class="ts" font-size="13" text-anchor="middle" fill="#3D3229">我</text>  <text x="236" y="135" class="ts" font-size="13" text-anchor="middle" fill="#3D3229">把</text>  <circle cx="282" cy="130" r="17" fill="#A67C52"/>  <text x="282" y="135" class="ts" font-size="13" text-anchor="middle" style="fill:#FFFFFF">車</text>  <text x="328" y="135" class="ts" font-size="13" text-anchor="middle" fill="#3D3229">停</text>  <text x="374" y="135" class="ts" font-size="13" text-anchor="middle" fill="#3D3229">在</text>  <text x="420" y="135" class="ts" font-size="13" text-anchor="middle" fill="#3D3229">路</text>  <text x="466" y="135" class="ts" font-size="13" text-anchor="middle" fill="#3D3229">邊</text>  <text x="190" y="160" class="ts" font-size="10" fill="#8C8078">聽起來：我把〔車〕停在路邊</text>  <text x="26" y="220" class="ts" font-size="11.5" font-weight="700">重音在「停」</text>  <text x="190" y="219" class="ts" font-size="13" text-anchor="middle" fill="#3D3229">我</text>  <text x="236" y="219" class="ts" font-size="13" text-anchor="middle" fill="#3D3229">把</text>  <text x="282" y="219" class="ts" font-size="13" text-anchor="middle" fill="#3D3229">車</text>  <circle cx="328" cy="214" r="17" fill="#A67C52"/>  <text x="328" y="219" class="ts" font-size="13" text-anchor="middle" style="fill:#FFFFFF">停</text>  <text x="374" y="219" class="ts" font-size="13" text-anchor="middle" fill="#3D3229">在</text>  <text x="420" y="219" class="ts" font-size="13" text-anchor="middle" fill="#3D3229">路</text>  <text x="466" y="219" class="ts" font-size="13" text-anchor="middle" fill="#3D3229">邊</text>  <text x="190" y="244" class="ts" font-size="10" fill="#8C8078">聽起來：我把車〔停〕在路邊</text>  <text x="26" y="282" class="ts" font-size="10.5" fill="#8C8078">先決定這句話的重點是哪個字，再讓旋律把它放到第 1 拍。</text>
+</svg>

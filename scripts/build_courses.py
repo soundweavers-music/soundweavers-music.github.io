@@ -51,11 +51,54 @@ COURSES = {
 # 時數公式集中在 course_hours.py；這裡只留 import，避免兩邊各自演化
 from course_hours import study_hours, factor_for  # noqa: E402
 CHAPTER_RE = re.compile(r"^(\d+)\.md$")
+
+# 語言：中文版在 /guitar/，英文版在 /en/guitar/。內容分別讀 content/guitar/
+# 與 content/en/guitar/；英文缺檔的課程直接跳過（不會產出空頁）。
+LANG = "zh"
+LANG_LABEL = {"zh": "", "en": "en"}
+
+
+# 英文版的課程名稱與簡介。課程頁標題、meta 都用這一份。
+EN_CONF = {
+    "songwriting": {
+        "name": "Songwriting for Pop Songs",
+        "eyebrow": "Songwriting",
+        "lead": "Six lessons that take you from listening to finishing: song structure, lyrics, "
+                "melody, chords, putting words to music, and getting the song out of your head.",
+    },
+    "guitar": {
+        "name": "Pop Guitar for Singers",
+        "eyebrow": "Guitar",
+        "lead": "From choosing a guitar and tuning to strumming patterns and singing while playing.",
+    },
+    "ukulele": {
+        "name": "Ukulele: Strumming and Fingerstyle",
+        "eyebrow": "Ukulele",
+        "lead": "Everything about four strings: tuning, chord families, strumming patterns and fingerstyle.",
+    },
+}
+
+
+def conf_for(conf: dict, slug: str) -> dict:
+    """英文版用 EN_CONF，缺的就沿用中文設定（英文稿存在的課程才會有）。"""
+    if LANG == "en" and slug in EN_CONF:
+        return {**conf, **EN_CONF[slug]}
+    return conf
+
+
+def content_dir(slug: str) -> Path:
+    base = BASE_DIR / "content"
+    return base / "en" / slug if LANG == "en" else base / slug
+
+
+def out_dir_for(slug: str) -> Path:
+    root = bve.OUTPUT_DIR / "en" if LANG == "en" else bve.OUTPUT_DIR
+    return root / slug
 EXTRA = [("前言.md", "preface", "前言"), ("目錄.md", "toc", "目錄")]
 
 
 def load_chapters(slug: str) -> list[dict]:
-    folder = BASE_DIR / "content" / slug
+    folder = content_dir(slug)
     if not folder.exists():
         return []
     chapters = []
@@ -80,9 +123,9 @@ def load_chapters(slug: str) -> list[dict]:
 
 
 def build_index(slug: str, conf: dict, chapters: list[dict]) -> None:
-    out_dir = bve.OUTPUT_DIR / slug
+    out_dir = out_dir_for(slug)
     extra_links = ""
-    if (BASE_DIR / "content" / slug / "前言.md").exists():
+    if (content_dir(slug) / "前言.md").exists():
         extra_links = ('<p class="course-extras">'
                        f'<a href="{bve.resolve_url(out_dir / "index.html", "/%s/preface/" % slug)}">前言</a>'
                        f'<a href="{bve.resolve_url(out_dir / "index.html", "/%s/toc/" % slug)}">目錄</a>'
@@ -103,8 +146,8 @@ def build_index(slug: str, conf: dict, chapters: list[dict]) -> None:
     <h1>{bve.escape(conf["name"])}</h1>
     <p class="lead">{bve.escape(conf["lead"])}</p>
     <p class="hero-stats" style="text-align:left;margin-top:20px">
-      <span><strong>{len(chapters)}</strong> {conf.get("unit", "章")}</span>
-      <span>建議約 <strong>{sum(c["hours"] for c in chapters):g}</strong> 小時</span>
+      <span><strong>{len(chapters)}</strong> {conf.get("unit", "章") if LANG != "en" else "lessons"}</span>
+      <span>{"about" if LANG == "en" else "建議約"} <strong>{sum(c["hours"] for c in chapters):g}</strong> {"hours" if LANG == "en" else "小時"}</span>
     </p>
   </section>
   <div class="vocal-page">
@@ -114,11 +157,11 @@ def build_index(slug: str, conf: dict, chapters: list[dict]) -> None:
 </main>"""
     bve.write(out_dir / "index.html", bve.page(
         conf["name"], body, out_dir / "index.html",
-        meta_description=f"{conf['name']}：{len(chapters)} 章完整教材。"))
+        meta_description=f"{conf['name']}：{len(chapters)} 章完整教材。", lang=LANG))
 
 
 def build_chapters(slug: str, conf: dict, chapters: list[dict]) -> None:
-    out_dir = bve.OUTPUT_DIR / slug
+    out_dir = out_dir_for(slug)
     lookup = {c["num"]: c for c in chapters}
     for ch in chapters:
         ch_dir = out_dir / ch["slug"]
@@ -142,25 +185,25 @@ def build_chapters(slug: str, conf: dict, chapters: list[dict]) -> None:
         detail = f"""<main class="vocal-detail-page">
   <div class="vocal-detail-header">
     <div class="breadcrumb">
-      <a href="{bve.resolve_url(ch_dir / "index.html", "/" + slug + "/")}">← {bve.escape(conf["name"])}</a>
-      <span>/</span><span>第 {ch["num"]} {conf.get("unit", "章")}</span>
+      <a href="{bve.resolve_url(ch_dir / "index.html", ("/en/" if LANG == "en" else "/") + slug + "/")}">← {bve.escape(conf["name"])}</a>
+      <span>/</span><span>{("Lesson %d" % ch["num"]) if LANG == "en" else ("第 %d %s" % (ch["num"], conf.get("unit", "章")))}</span>
     </div>
     <h1>{bve.escape(ch["title"])}</h1>
-    <p class="level-name">第 {ch["num"]} {conf.get("unit", "章")}・建議約 {ch["hours"]:g} 小時</p>
+    <p class="level-name">{("Lesson %d" % ch["num"]) if LANG == "en" else ("第 %d %s" % (ch["num"], conf.get("unit", "章")))}・{"about %g h" % ch["hours"] if LANG == "en" else "建議約 %g 小時" % ch["hours"]}</p>
   </div>
   <div class="vocal-content markdown-body">{html_body}</div>
   <div class="vocal-nav-links">{prev_link}{next_link}</div>
-  <a class="back-link" href="{bve.resolve_url(ch_dir / "index.html", "/" + slug + "/")}">← 返回章節列表</a>
+  <a class="back-link" href="{bve.resolve_url(ch_dir / "index.html", ("/en/" if LANG == "en" else "/") + slug + "/")}">← {"Back to the course" if LANG == "en" else "返回章節列表"}</a>
 </main>"""
         bve.write(ch_dir / "index.html", bve.page(
             ch["title"], detail, ch_dir / "index.html",
-            meta_description=f"{conf['name']} 第 {ch['num']} 章：{ch['title']}"))
+            meta_description=f"{conf['name']} 第 {ch['num']} 章：{ch['title']}", lang=LANG))
 
 
 def build_extras(slug: str, conf: dict) -> list[tuple[str, str]]:
     """前言 / 目錄 are part of the book but are not numbered chapters."""
-    folder = BASE_DIR / "content" / slug
-    out_dir = bve.OUTPUT_DIR / slug
+    folder = content_dir(slug)
+    out_dir = out_dir_for(slug)
     made = []
     for fname, page_slug, label in EXTRA:
         path = folder / fname
@@ -181,21 +224,35 @@ def build_extras(slug: str, conf: dict) -> list[tuple[str, str]]:
   <a class="back-link" href="{bve.resolve_url(d / "index.html", "/" + slug + "/")}">← 返回章節列表</a>
 </main>"""
         bve.write(d / "index.html", bve.page(f"{conf['name']}・{label}", body, d / "index.html",
-                                             meta_description=f"{conf['name']}的{label}。{conf['lead']}"))
+                                             meta_description=f"{conf['name']}的{label}。{conf['lead']}", lang=LANG))
         made.append((page_slug, label))
     return made
 
 
-def main() -> None:
+def build_lang(lang: str, only: str = "") -> None:
+    """跑一個語言版本。中文在 /guitar/，英文在 /en/guitar/。"""
+    global LANG
+    LANG = lang
     for slug, conf in COURSES.items():
+        if only and slug != only:
+            continue
+        if lang == "en":
+            conf = conf_for(conf, slug)
         chapters = load_chapters(slug)
         if not chapters:
-            print(f"  {slug}: no chapters found, skipped")
+            if lang == "en":
+                print(f"  en/{slug}: 還沒有英文稿，跳過")
             continue
         build_index(slug, conf, chapters)
         build_extras(slug, conf)
         build_chapters(slug, conf, chapters)
         print(f"  {conf['name']}: index + {len(chapters)} chapter pages written.")
+
+
+def main() -> None:
+    only = sys.argv[1] if len(sys.argv) > 1 else ""
+    build_lang("zh", only)
+    build_lang("en", only)
 
 
 if __name__ == "__main__":

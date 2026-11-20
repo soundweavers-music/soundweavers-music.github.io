@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" role="img" aria-label="先決定誰唱">
+  <title>先決定誰唱</title>
+  <rect width="760" height="320" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">先決定誰唱</text>
+  <text x="26" y="55" class="ts" font-size="12.5">寫給自己唱的歌，最好當場唱一次；唱不上去就不是高潮，是冒險</text>
+  <path d="M60 186 L720 186" class="ink"/>  <rect x="178.8" y="134" width="224.4" height="22" rx="6" fill="#D8C7AF"/>  <text x="60" y="126" class="ts" font-size="11.5" font-weight="700">男聲</text>  <text x="413.2" y="150" class="ts" font-size="10" fill="#8C8078">C3–E4 左右</text>  <rect x="337.2" y="90" width="237.60000000000002" height="22" rx="6" fill="#A67C52"/>  <text x="60" y="82" class="ts" font-size="11.5" font-weight="700">女聲</text>  <text x="584.8000000000001" y="106" class="ts" font-size="10" fill="#8C8078">G3–C5 左右</text>  <text x="60" y="210" class="ts" font-size="10.5" fill="#8C8078">低</text>  <text x="720" y="210" class="ts" font-size="10.5" text-anchor="end" fill="#8C8078">高</text>  <text x="26" y="302" class="ts" font-size="10.5" fill="#8C8078">副歌的最高音不要超過舒適音域的邊緣——可以碰一下，不能整段待在那裡。</text>
+</svg>

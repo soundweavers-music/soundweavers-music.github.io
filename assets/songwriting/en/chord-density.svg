@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" role="img" aria-label="換和弦的密度">
+  <title>換和弦的密度</title>
+  <rect width="760" height="300" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">換和弦的密度</text>
+  <text x="26" y="55" class="ts" font-size="12.5">同樣四個小節，換的時機一變，氣質就變</text>
+  <text x="26" y="126" class="ts" font-size="11.5" font-weight="700">一小節一顆</text>  <rect x="190.0" y="104" width="162.0" height="32" rx="6" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.4"/>  <text x="271.0" y="125" class="ts" font-size="10" text-anchor="middle">和弦</text>  <rect x="390.0" y="104" width="162.0" height="32" rx="6" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.4"/>  <text x="471.0" y="125" class="ts" font-size="10" text-anchor="middle">和弦</text>  <text x="600" y="126" class="ts" font-size="10" fill="#8C8078">抒情、慢歌，旋律有空間</text>  <text x="26" y="192" class="ts" font-size="11.5" font-weight="700">兩拍一顆</text>  <rect x="190.0" y="170" width="77.0" height="32" rx="6" fill="#F3E4D2" stroke="#A67C52" stroke-width="1.4"/>  <text x="228.5" y="191" class="ts" font-size="10" text-anchor="middle">和弦</text>  <rect x="275.0" y="170" width="77.0" height="32" rx="6" fill="#F3E4D2" stroke="#A67C52" stroke-width="1.4"/>  <text x="313.5" y="191" class="ts" font-size="10" text-anchor="middle">和弦</text>  <rect x="390.0" y="170" width="77.0" height="32" rx="6" fill="#F3E4D2" stroke="#A67C52" stroke-width="1.4"/>  <text x="428.5" y="191" class="ts" font-size="10" text-anchor="middle">和弦</text>  <rect x="475.0" y="170" width="77.0" height="32" rx="6" fill="#F3E4D2" stroke="#A67C52" stroke-width="1.4"/>  <text x="513.5" y="191" class="ts" font-size="10" text-anchor="middle">和弦</text>  <text x="600" y="192" class="ts" font-size="10" fill="#8C8078">副歌，有推動感</text>  <text x="26" y="258" class="ts" font-size="11.5" font-weight="700">前半＋後半</text>  <rect x="190.0" y="236" width="77.0" height="32" rx="6" fill="#FFFFFF" stroke="#A67C52" stroke-width="1.4"/>  <text x="228.5" y="257" class="ts" font-size="10" text-anchor="middle">和弦</text>  <rect x="275.0" y="236" width="77.0" height="32" rx="6" fill="#FFFFFF" stroke="#A67C52" stroke-width="1.4"/>  <text x="313.5" y="257" class="ts" font-size="10" text-anchor="middle">和弦</text>  <rect x="390.0" y="236" width="77.0" height="32" rx="6" fill="#FFFFFF" stroke="#A67C52" stroke-width="1.4"/>  <text x="428.5" y="257" class="ts" font-size="10" text-anchor="middle">和弦</text>  <rect x="475.0" y="236" width="77.0" height="32" rx="6" fill="#FFFFFF" stroke="#A67C52" stroke-width="1.4"/>  <text x="513.5" y="257" class="ts" font-size="10" text-anchor="middle">和弦</text>  <text x="600" y="258" class="ts" font-size="10" fill="#8C8078">導歌，製造「快到了」</text>  <text x="26" y="282" class="ts" font-size="10.5" fill="#8C8078">要延長情緒時，降低密度比加樂器有效——把一顆和弦拉成兩小節試試看。</text>
+</svg>

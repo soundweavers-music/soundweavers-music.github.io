@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" role="img" aria-label="七顆和弦，三種角色">
+  <title>七顆和弦，三種角色</title>
+  <rect width="760" height="320" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">七顆和弦，三種角色</text>
+  <text x="26" y="55" class="ts" font-size="12.5">2、3、6 都是替身，讓路線不要那麼直</text>
+  <rect x="30" y="96" width="224" height="150" rx="10" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.4"/>  <rect x="30" y="96" width="224" height="34" rx="10" fill="#A67C52"/>  <text x="142" y="118" class="ts" font-size="12.5" text-anchor="middle" font-weight="700" style="fill:#FFFFFF">主 T</text>  <text x="142" y="158" class="ts" font-size="12" text-anchor="middle">1（C）</text>  <text x="142" y="184" class="ts" font-size="12" text-anchor="middle">3m（Em）</text>  <text x="142" y="210" class="ts" font-size="12" text-anchor="middle">6m（Am）</text>  <text x="142" y="236" class="ts" font-size="10.5" text-anchor="middle" fill="#8C8078">家。安定、結束</text>  <rect x="274" y="96" width="224" height="150" rx="10" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.4"/>  <rect x="274" y="96" width="224" height="34" rx="10" fill="#C9A883"/>  <text x="386" y="118" class="ts" font-size="12.5" text-anchor="middle" font-weight="700" style="fill:#FFFFFF">下屬 S</text>  <text x="386" y="158" class="ts" font-size="12" text-anchor="middle">4（F）</text>  <text x="386" y="184" class="ts" font-size="12" text-anchor="middle">2m（Dm）</text>  <text x="386" y="236" class="ts" font-size="10.5" text-anchor="middle" fill="#8C8078">往外走</text>  <rect x="518" y="96" width="224" height="150" rx="10" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.4"/>  <rect x="518" y="96" width="224" height="34" rx="10" fill="#3D3229"/>  <text x="630" y="118" class="ts" font-size="12.5" text-anchor="middle" font-weight="700" style="fill:#FFFFFF">屬 D</text>  <text x="630" y="158" class="ts" font-size="12" text-anchor="middle">5（G）</text>  <text x="630" y="184" class="ts" font-size="12" text-anchor="middle">7°（Bdim）</text>  <text x="630" y="236" class="ts" font-size="10.5" text-anchor="middle" fill="#8C8078">最想回家</text>  <text x="26" y="302" class="ts" font-size="10.5" fill="#8C8078">流行歌九成的段落就是這三種角色在輪流：家 → 出去 → 更想回家 → 回家。</text>
+</svg>
