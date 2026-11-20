@@ -24,6 +24,7 @@ PAGES = [
     BASE / "tools" / "fretboard" / "index.html",
 ]
 BLOCK = re.compile(r"var CHORD_LIBRARY = \{.*?\};(?=\s*\n)", re.S)
+EXTERNAL = '<script src="../../scripts/_chord_library.js"></script>'
 
 
 def main() -> int:
@@ -40,7 +41,9 @@ def main() -> int:
         html = page.read_text(encoding="utf-8")
         m = BLOCK.search(html)
         if not m:
-            print(f"{page.relative_to(BASE)}：找不到 var CHORD_LIBRARY，跳過")
+            # 已經是外部檔案版本：只要確認有載入就行
+            ok = EXTERNAL in html
+            print(f"{page.relative_to(BASE)}：使用外部資料檔 {'✓' if ok else '✗ 沒載入'}")
             continue
         before = len(m.group(0))
         page.write_text(BLOCK.sub(lib_js.rstrip() + "\n", html, count=1), encoding="utf-8")

@@ -129,10 +129,21 @@ def check_library(problems) -> int:
         for tuning_name, table in by_tuning.items():
             base = EXTRA_TUNING.get((inst, tuning_name), TUNING[inst][1])
             for key, entry in table.items():
-                root_s, qual = key.split(":")
+                root_s, rest = key.split(":")
+                qual, _, bass_s = rest.partition("/")
                 name = NOTE[int(root_s)] + ("" if qual == "maj" else qual)
+                if bass_s:
+                    name += "/" + NOTE[int(bass_s)]
                 tag = TUNING[inst][0] + (f" · {tuning_name}" if (inst, tuning_name) in EXTRA_TUNING else "")
                 check(f"[函式庫 {tag}]", name, entry["frets"], base, problems, high_first=True)
+                if bass_s:   # 斜線和弦：最低音必須是指定的那個音
+                    low = min(base[len(base) - 1 - i] + f
+                              for i, f in enumerate(entry["frets"]) if f is not None and f >= 0)
+                    if low % 12 != int(bass_s):
+                        problems.append(f"[函式庫 {tag}] {name}：最低音是 {NOTE[low % 12]}，"
+                                        f"不是標示的低音")
+                for alt in entry.get("alts", []):
+                    check(f"[函式庫 {tag} 其他把位]", name, alt["frets"], base, problems, high_first=True)
                 n += 1
     return n
 
