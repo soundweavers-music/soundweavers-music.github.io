@@ -184,9 +184,15 @@ def fig_barre():
 
 
 def fig_guitar_anatomy():
-    """民謠吉他各部位（正面觀、直立擺放）。"""
-    width, height = 640, 520
-    cx = 300
+    """民謠吉他各部位（正面觀、直立擺放）。
+
+    比例照真實的 dreadnought 量：琴身長約寬的 1.25 倍、腰身約在下半部 40% 處、
+    弦長（上弦枕到琴橋）418 px、琴格依 2^(-n/12) 遞減間距，不是等分。
+    """
+    width, height = 640, 660
+    cx = 320
+    NUT, BRIDGE = 132, 548          # 上弦枕、琴橋（決定弦長）
+    BODY_TOP, BODY_BOT = 300, 606
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" role="img" aria-label="民謠吉他各部位名稱">',
         '  <title>民謠吉他的部位</title>',
@@ -194,31 +200,50 @@ def fig_guitar_anatomy():
         t(26, 34, "民謠吉他的部位", size=16, anchor="start", weight=700),
         t(26, 55, "由上而下：琴頭、上弦枕、指板與琴格、琴身、響孔、琴橋", size=11.5, anchor="start", fill=MUTED),
     ]
-    # 琴身（上下兩個圓弧 + 腰身）
-    parts.append(f'<path d="M{cx-62} 250 C{cx-118} 268 {cx-128} 330 {cx-118} 372 '
-                 f'C{cx-108} 420 {cx-70} 452 {cx} 452 C{cx+70} 452 {cx+108} 420 {cx+118} 372 '
-                 f'C{cx+128} 330 {cx+118} 268 {cx+62} 250 Z" '
-                 f'fill="{ACCENT_SOFT}" stroke="{INK}" stroke-width="2"/>')
-    # 琴頸／指板
-    parts.append(f'<rect x="{cx-26}" y="120" width="52" height="132" fill="#EDE3D6" stroke="{INK}" stroke-width="1.6"/>')
-    # 琴格
-    for i in range(1, 8):
-        y = 120 + i * 16
-        parts.append(f'<line x1="{cx-26}" y1="{y}" x2="{cx+26}" y2="{y}" stroke="{MUTED}" stroke-width="1"/>')
-    # 弦
+    # 琴身：上窄、腰細、下寬（左右對稱的貝茲曲線）
+    body = (f'M{cx-88} {BODY_TOP} '
+            f'C{cx-112} {BODY_TOP+26} {cx-104} 372 {cx-86} 402 '
+            f'C{cx-76} 420 {cx-74} 434 {cx-82} 456 '
+            f'C{cx-106} 500 {cx-124} 552 {cx-98} 580 '
+            f'C{cx-70} 604 {cx-28} 606 {cx} {BODY_BOT} '
+            f'C{cx+28} 606 {cx+70} 604 {cx+98} 580 '
+            f'C{cx+124} 552 {cx+106} 500 {cx+82} 456 '
+            f'C{cx+74} 434 {cx+76} 420 {cx+86} 402 '
+            f'C{cx+104} 372 {cx+112} {BODY_TOP+26} {cx+88} {BODY_TOP} Z')
+    parts.append(f'<path d="{body}" fill="{ACCENT_SOFT}" stroke="{INK}" stroke-width="2"/>')
+    # 琴頸／指板（往上愈窄：琴枕 50、接琴身處 66）
+    neck = (f'<path d="M{cx-25} {NUT} L{cx+25} {NUT} L{cx+33} {BODY_TOP} L{cx-33} {BODY_TOP} Z" '
+            f'fill="#EDE3D6" stroke="{INK}" stroke-width="1.4"/>')
+    parts.append(neck)
+    # 指板延伸到琴身上（19 格），琴格才不會浮在琴身上面
+    ext_bottom = NUT + (BRIDGE - NUT) * (1 - 2 ** (-19 / 12))
+    parts.append(f'<rect x="{cx-33}" y="{BODY_TOP}" width="66" '
+                 f'height="{ext_bottom - BODY_TOP:.1f}" fill="#EDE3D6" stroke="{INK}" stroke-width="1.2"/>')
+    # 琴格：2^(-n/12) 真實間距
+    scale = BRIDGE - NUT
+    for n in range(1, 20):
+        y = NUT + scale * (1 - 2 ** (-n / 12))
+        half = 25 + (33 - 25) * (y - NUT) / (BODY_TOP - NUT)
+        parts.append(f'<line x1="{cx-half:.1f}" y1="{y:.1f}" x2="{cx+half:.1f}" y2="{y:.1f}" '
+                     f'stroke="{MUTED}" stroke-width="0.9" opacity=".8"/>')
+    # 弦：六條，往琴橋方向微微變寬
     for i in range(6):
-        x = cx - 20 + i * 8
-        parts.append(f'<line x1="{x}" y1="150" x2="{x}" y2="392" stroke="{INK}" stroke-width="0.9" opacity=".55"/>')
+        x1 = cx - 20 + i * 8
+        x2 = cx - 27.5 + i * 11
+        w = 0.7 + i * 0.12
+        parts.append(f'<line x1="{x1}" y1="{NUT}" x2="{x2:.1f}" y2="{BRIDGE}" '
+                     f'stroke="{INK}" stroke-width="{w:.2f}" opacity=".55"/>')
     # 上弦枕
-    parts.append(f'<rect x="{cx-28}" y="146" width="56" height="7" fill="{INK}"/>')
-    # 琴頭
-    parts.append(f'<path d="M{cx-30} 146 L{cx-24} 72 L{cx+24} 72 L{cx+30} 146 Z" fill="#EDE3D6" stroke="{INK}" stroke-width="1.6"/>')
+    parts.append(f'<rect x="{cx-27}" y="{NUT-7}" width="54" height="7" fill="{INK}"/>')
+    # 琴頭（上寬下窄，兩側各三顆弦鈕）
+    parts.append(f'<path d="M{cx-27} {NUT-7} L{cx-31} 74 L{cx+31} 74 L{cx+27} {NUT-7} Z" '
+                 f'fill="#EDE3D6" stroke="{INK}" stroke-width="1.4"/>')
     for i in range(3):
-        parts.append(f'<circle cx="{cx-16}" cy="{86+i*20}" r="5" fill="{BG}" stroke="{INK}" stroke-width="1.2"/>')
-        parts.append(f'<circle cx="{cx+16}" cy="{86+i*20}" r="5" fill="{BG}" stroke="{INK}" stroke-width="1.2"/>')
+        parts.append(f'<circle cx="{cx-20}" cy="{88+i*17}" r="4.6" fill="{BG}" stroke="{INK}" stroke-width="1.2"/>')
+        parts.append(f'<circle cx="{cx+20}" cy="{88+i*17}" r="4.6" fill="{BG}" stroke="{INK}" stroke-width="1.2"/>')
     # 響孔與琴橋
-    parts.append(f'<circle cx="{cx}" cy="352" r="30" fill="{BG}" stroke="{INK}" stroke-width="1.6"/>')
-    parts.append(f'<rect x="{cx-34}" y="404" width="68" height="12" rx="3" fill="#DCCDBB" stroke="{INK}" stroke-width="1.2"/>')
+    parts.append(f'<circle cx="{cx}" cy="452" r="32" fill="{BG}" stroke="{INK}" stroke-width="1.6"/>')
+    parts.append(f'<rect x="{cx-42}" y="{BRIDGE-6}" width="84" height="13" rx="3" fill="#DCCDBB" stroke="{INK}" stroke-width="1.2"/>')
 
     def label(txt, ax, ay, lx, ly):
         parts.append(f'<path d="M{ax} {ay} L{lx} {ly}" stroke="{MUTED}" stroke-width="1" fill="none"/>')
@@ -226,21 +251,18 @@ def fig_guitar_anatomy():
         parts.append(t(lx + (8 if lx > ax else -8), ly + 4, txt, size=12,
                        anchor="start" if lx > ax else "end"))
 
-    label("琴頭 Headstock", cx + 24, 100, 400, 92)
-    label("弦鈕 Tuning Pegs", cx + 16, 126, 400, 132)
-    label("上弦枕 Nut", cx + 26, 150, 400, 172)
-    label("指板與琴格 Frets", cx - 26, 200, 150, 196)
-    label("琴身 Body", cx - 118, 350, 110, 330)
-    label("響孔 Soundhole", cx - 22, 352, 150, 380)
-    label("琴橋 Bridge", cx - 34, 410, 130, 448)
-    label("弦 Strings（六條）", cx + 4, 300, 400, 300)
+    label("琴頭 Headstock", cx + 30, 96, 400, 88)
+    label("弦鈕 Tuning Pegs", cx + 20, 122, 400, 120)
+    label("上弦枕 Nut", cx + 27, NUT, 400, 160)
+    label("指板與琴格 Frets", cx - 30, 220, 150, 216)
+    label("琴身 Body", cx - 112, 360, 120, 340)
+    label("響孔 Soundhole", cx - 30, 452, 150, 452)
+    label("琴橋 Bridge", cx - 42, BRIDGE, 130, BRIDGE + 4)
+    label("弦 Strings（六條）", cx + 10, 250, 400, 248)
 
     parts.append(t(26, height - 14, "第 1 弦是最細的高音 E，第 6 弦是最粗的低音 E；和弦圖的左右順序就是照這張圖。", size=10.5, anchor="start", fill=MUTED))
     parts.append("</svg>")
     return width, height, "@@NL@@".join(parts).replace("@@NL@@", chr(10))
-
-
-
 
 BEATS = ["1", "&", "2", "&", "3", "&", "4", "&"]
 ARROWS = ["↓", "-", "↓", "↑", "↓", "-", "↓", "↑"]
