@@ -112,6 +112,18 @@ def markdown_to_html(md_text, strip_first_h1=True):
     return raw
 
 
+def relativize(html, page_path):
+    """把稿子裡的站內絕對連結（`/guitar/ch01/`）換成從這一頁出發的相對路徑。
+
+    稿子寫成站內絕對路徑最不會出錯——同一個檔案不管被放到第幾層都對；
+    但輸出時要換成相對路徑，`file://` 預覽與 `SITE_BASE_PATH` 才打得開。
+    """
+    if page_path is None:
+        return html
+    return re.sub(r'href="/(?!/)([^"]*)"',
+                  lambda m: 'href="%s"' % resolve_url(page_path, "/" + m.group(1)), html)
+
+
 def page(title, body, page_path=None, extra_head="", meta_description="", og_image=""):
     desc = meta_description or "世界聲音 by 隔壁織音人：世界樂器百科、人聲與歌唱教學、錄音後製與樂理課程，以及在瀏覽器直接使用的音樂工具——指版和弦圖、自動抓和弦、LRC 歌詞工作室與線上編曲軟體。"
     csp = ("default-src 'self'; img-src 'self' https: data:; "

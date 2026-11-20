@@ -127,6 +127,11 @@ def main() -> None:
         else:
             href = bve.resolve_url(OUT / "index.html", f"/sound-journey/doc/{docx.name}")
             meta = f"第 {i} 篇・Word 原檔（此環境未安裝 LibreOffice）"
+            # 沒有 LibreOffice 就沒有 PDF，直接給 Word 原檔；沒複製過去就是 404
+            DOC_OUT.mkdir(parents=True, exist_ok=True)
+            target = DOC_OUT / docx.name
+            if not target.exists() or target.stat().st_mtime < docx.stat().st_mtime:
+                shutil.copy2(docx, target)
         cards.append(
             f'      <a class="hub-card" href="{href}">'
             f'<span class="hub-icon">🗺</span><h2>{bve.escape(title)}</h2>'

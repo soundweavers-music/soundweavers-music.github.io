@@ -115,7 +115,8 @@ def build_chapters(slug: str, conf: dict, chapters: list[dict]) -> None:
     for ch in chapters:
         ch_dir = out_dir / ch["slug"]
         ch_dir.mkdir(parents=True, exist_ok=True)
-        html_body = bve.markdown_to_html(ch["path"].read_text(encoding="utf-8"))
+        html_body = bve.relativize(bve.markdown_to_html(ch["path"].read_text(encoding="utf-8")),
+                                   ch_dir / "index.html")
 
         prev_c = lookup.get(ch["num"] - 1)
         next_c = lookup.get(ch["num"] + 1)
@@ -159,7 +160,8 @@ def build_extras(slug: str, conf: dict) -> list[tuple[str, str]]:
             continue
         d = out_dir / page_slug
         d.mkdir(parents=True, exist_ok=True)
-        html_body = bve.markdown_to_html(path.read_text(encoding="utf-8"))
+        html_body = bve.relativize(bve.markdown_to_html(path.read_text(encoding="utf-8")),
+                                   d / "index.html")
         body = f"""<main class="vocal-detail-page">
   <div class="vocal-detail-header">
     <div class="breadcrumb">

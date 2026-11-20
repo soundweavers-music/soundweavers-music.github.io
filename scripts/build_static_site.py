@@ -3447,6 +3447,13 @@ def build_tool_guides():
         md = src.read_text(encoding="utf-8")
         md = re.sub(r"^# .*\n", "", md, count=1)   # 標題交給頁首
         md_html = markdown.markdown(md, extensions=["extra", "tables", "toc"], output_format="html5")
+        # 稿子裡的站內連結一律寫成「/xxx/」（相對於網站根），這裡再換算成從這一頁
+        # 出發的相對路徑。使用說明放在 <工具>/guide/，深度跟工具頁不一樣，
+        # 稿子裡寫 ../ 一定會少一層；寫成根路徑就不會再錯一次。
+        md_html = re.sub(
+            r'href="/(?!/)([^"]*)"',
+            lambda m: 'href="%s"' % resolve_url(out, "/" + m.group(1)),
+            md_html)
         toc = "".join(f'<a href="#{m.group(1)}">{m.group(2)}</a>'
                       for m in re.finditer(r'<h2 id="([^"]+)">(.*?)</h2>', md_html))
         body = f"""<main class="page">
