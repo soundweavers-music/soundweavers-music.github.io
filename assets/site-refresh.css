@@ -1031,3 +1031,11 @@ a.hub-card:hover::after { transform: scaleX(1); }
   background: repeating-linear-gradient(135deg, #F4EFE7, #F4EFE7 10px, #EFE7DB 10px, #EFE7DB 20px);
   color: var(--muted); font-size: 13px; letter-spacing: .08em;
 }
+
+/* 專輯曲目（有資料才顯示的可收合清單） */
+.album-tracks { margin: 6px 0 2px; font-size: 12.5px; color: var(--ink2); }
+.album-tracks summary { cursor: pointer; color: var(--accent); list-style: none; }
+.album-tracks summary::-webkit-details-marker { display: none; }
+.album-tracks summary::before { content: "▸ "; }
+.album-tracks[open] summary::before { content: "▾ "; }
+.album-tracks ol { margin: 6px 0 0; padding-left: 1.6em; line-height: 1.7; }
