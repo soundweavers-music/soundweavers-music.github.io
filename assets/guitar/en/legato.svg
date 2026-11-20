@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" role="img" aria-label="Three legato moves: hammer-on, pull-off and slide">
+  <title>Hammer-on, pull-off and slide</title>
+  <rect width="640" height="320" fill="#FBF8F4"/>
+<text x="26" y="34" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="16" fill="#3D3229" text-anchor="start" font-weight="700">Legato, three ways: the right hand plucks only once</text>
+<text x="26" y="55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#8C8078" text-anchor="start">The second note comes from the left hand, not the right—it sounds like a singer&#x27;s turn</text>
+<text x="119.0" y="96" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle" font-weight="700">Hammer-on</text>
+<line x1="26" y1="150" x2="212" y2="150" stroke="#3D3229" stroke-width="1.2" opacity=".45"/>
+<rect x="50" y="141" width="20" height="18" fill="#FBF8F4"/>
+<text x="60" y="155" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="15" fill="#A67C52" text-anchor="middle" font-weight="700">0</text>
+<rect x="168" y="141" width="20" height="18" fill="#FBF8F4"/>
+<text x="178" y="155" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="15" fill="#A67C52" text-anchor="middle" font-weight="700">2</text>
+<path d="M72 136 Q119.0 98 166 136" stroke="#A67C52" stroke-width="1.6" fill="none"/>
+<path d="M166 136 l-6 -2 l2 -6 z" fill="#A67C52"/>
+<text x="119.0" y="108" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="13" fill="#A67C52" text-anchor="middle" font-weight="700">H</text>
+<text x="26" y="194" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start">Pluck 0, then the left hand</text>
+<text x="26" y="212" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start">finger hammers down into</text>
+<text x="26" y="230" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start"> fret 2, like a tiny hammer</text>
+<text x="321.0" y="96" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle" font-weight="700">Pull-off</text>
+<line x1="228" y1="150" x2="414" y2="150" stroke="#3D3229" stroke-width="1.2" opacity=".45"/>
+<rect x="252" y="141" width="20" height="18" fill="#FBF8F4"/>
+<text x="262" y="155" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="15" fill="#A67C52" text-anchor="middle" font-weight="700">2</text>
+<rect x="370" y="141" width="20" height="18" fill="#FBF8F4"/>
+<text x="380" y="155" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="15" fill="#A67C52" text-anchor="middle" font-weight="700">0</text>
+<path d="M274 136 Q321.0 98 368 136" stroke="#A67C52" stroke-width="1.6" fill="none"/>
+<path d="M368 136 l-6 -2 l2 -6 z" fill="#A67C52"/>
+<text x="321.0" y="108" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="13" fill="#A67C52" text-anchor="middle" font-weight="700">P</text>
+<text x="228" y="194" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start">Hold fret 2 and pluck, then</text>
+<text x="228" y="212" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start">pull the finger off toward the</text>
+<text x="228" y="230" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start">floor and the open string rings</text>
+<text x="523.0" y="96" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle" font-weight="700">Slide</text>
+<line x1="430" y1="150" x2="616" y2="150" stroke="#3D3229" stroke-width="1.2" opacity=".45"/>
+<rect x="454" y="141" width="20" height="18" fill="#FBF8F4"/>
+<text x="464" y="155" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="15" fill="#A67C52" text-anchor="middle" font-weight="700">2</text>
+<rect x="572" y="141" width="20" height="18" fill="#FBF8F4"/>
+<text x="582" y="155" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="15" fill="#A67C52" text-anchor="middle" font-weight="700">4</text>
+<path d="M476 136 Q523.0 98 570 136" stroke="#A67C52" stroke-width="1.6" fill="none"/>
+<path d="M570 136 l-6 -2 l2 -6 z" fill="#A67C52"/>
+<text x="523.0" y="108" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="13" fill="#A67C52" text-anchor="middle" font-weight="700">S</text>
+<text x="430" y="194" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start">Press fret 2 and pluck, then</text>
+<text x="430" y="212" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start">slide along the string without</text>
+<text x="430" y="230" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start"> letting go, to fret 4 and stop</text>
+<text x="26" y="306" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="start">All three: the left hand moves as the note sounds and holds firm—lift off too far and you get only a thud</text>
+</svg>

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 260" role="img" aria-label="Chord degrees and the chords they map to">
+  <title>Chord degrees and the chords they map to</title>
+  <rect width="640" height="260" fill="#FBF8F4"/>
+<text x="24" y="34" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="15" fill="#3D3229" text-anchor="start" font-weight="700">Degrees: in any key, the same number plays the same role</text>
+<text x="24" y="55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#8C8078" text-anchor="start">Learn the degrees and a key change just renames the row—the progression stays</text>
+<text x="118" y="102" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#8C8078" text-anchor="end">Degree</text>
+<rect x="134.0" y="80" width="60.6" height="34" rx="7" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="164.28571428571428" y="102" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle" font-weight="700">1</text>
+<rect x="202.6" y="80" width="60.6" height="34" rx="7" fill="#FBF8F4" stroke="#C9BCAA"/>
+<text x="232.85714285714283" y="102" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">2m</text>
+<rect x="271.1" y="80" width="60.6" height="34" rx="7" fill="#FBF8F4" stroke="#C9BCAA"/>
+<text x="301.4285714285714" y="102" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">3m</text>
+<rect x="339.7" y="80" width="60.6" height="34" rx="7" fill="#FBF8F4" stroke="#C9BCAA"/>
+<text x="370.0" y="102" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">4</text>
+<rect x="408.3" y="80" width="60.6" height="34" rx="7" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="438.57142857142856" y="102" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle" font-weight="700">5</text>
+<rect x="476.9" y="80" width="60.6" height="34" rx="7" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="507.1428571428571" y="102" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle" font-weight="700">6m</text>
+<rect x="545.4" y="80" width="60.6" height="34" rx="7" fill="#FBF8F4" stroke="#C9BCAA"/>
+<text x="575.7142857142858" y="102" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">7dim</text>
+<text x="118" y="148" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#8C8078" text-anchor="end">C major</text>
+<rect x="134.0" y="126" width="60.6" height="34" rx="7" fill="#FBF8F4" stroke="#C9BCAA"/>
+<text x="164.28571428571428" y="148" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">C</text>
+<rect x="202.6" y="126" width="60.6" height="34" rx="7" fill="#FBF8F4" stroke="#C9BCAA"/>
+<text x="232.85714285714283" y="148" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">Dm</text>
+<rect x="271.1" y="126" width="60.6" height="34" rx="7" fill="#FBF8F4" stroke="#C9BCAA"/>
+<text x="301.4285714285714" y="148" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">Em</text>
+<rect x="339.7" y="126" width="60.6" height="34" rx="7" fill="#FBF8F4" stroke="#C9BCAA"/>
+<text x="370.0" y="148" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">F</text>
+<rect x="408.3" y="126" width="60.6" height="34" rx="7" fill="#FBF8F4" stroke="#C9BCAA"/>
+<text x="438.57142857142856" y="148" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">G</text>
+<rect x="476.9" y="126" width="60.6" height="34" rx="7" fill="#FBF8F4" stroke="#C9BCAA"/>
+<text x="507.1428571428571" y="148" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">Am</text>
+<rect x="545.4" y="126" width="60.6" height="34" rx="7" fill="#FBF8F4" stroke="#C9BCAA"/>
+<text x="575.7142857142858" y="148" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">Bdim</text>
+<text x="118" y="194" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#8C8078" text-anchor="end">G major</text>
+<rect x="134.0" y="172" width="60.6" height="34" rx="7" fill="#FBF8F4" stroke="#C9BCAA"/>
+<text x="164.28571428571428" y="194" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">G</text>
+<rect x="202.6" y="172" width="60.6" height="34" rx="7" fill="#FBF8F4" stroke="#C9BCAA"/>
+<text x="232.85714285714283" y="194" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">Am</text>
+<rect x="271.1" y="172" width="60.6" height="34" rx="7" fill="#FBF8F4" stroke="#C9BCAA"/>
+<text x="301.4285714285714" y="194" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">Bm</text>
+<rect x="339.7" y="172" width="60.6" height="34" rx="7" fill="#FBF8F4" stroke="#C9BCAA"/>
+<text x="370.0" y="194" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">C</text>
+<rect x="408.3" y="172" width="60.6" height="34" rx="7" fill="#FBF8F4" stroke="#C9BCAA"/>
+<text x="438.57142857142856" y="194" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">D</text>
+<rect x="476.9" y="172" width="60.6" height="34" rx="7" fill="#FBF8F4" stroke="#C9BCAA"/>
+<text x="507.1428571428571" y="194" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">Em</text>
+<rect x="545.4" y="172" width="60.6" height="34" rx="7" fill="#FBF8F4" stroke="#C9BCAA"/>
+<text x="575.7142857142858" y="194" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle">F#dim</text>
+<text x="24" y="244" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="start">1, 5 and 6m turn up most: tonic, dominant, relative minor</text>
+</svg>

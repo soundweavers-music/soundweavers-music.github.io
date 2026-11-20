@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 330" role="img" aria-label="Which string carries each chord&#x27;s root">
+  <title>Which string the thumb should pluck</title>
+  <rect width="640" height="330" fill="#FBF8F4"/>
+<text x="24" y="34" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="15" fill="#3D3229" text-anchor="start" font-weight="700">The thumb (T) only moves with the root</text>
+<text x="24" y="55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#8C8078" text-anchor="start">Index, middle and ring stay on strings 3, 2 and 1; the thumb is the only finger that moves</text>
+<text x="110" y="118" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="end" font-weight="700">C、Am</text>
+<rect x="140" y="98" width="26" height="30" rx="6" fill="#FBF8F4" stroke="#C9BCAA" stroke-width="1"/>
+<text x="153" y="118" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#8C8078" text-anchor="middle">6</text>
+<rect x="172" y="98" width="26" height="30" rx="6" fill="#A67C52" stroke="#A67C52" stroke-width="2"/>
+<text x="185" y="118" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle" font-weight="700">5</text>
+<rect x="204" y="98" width="26" height="30" rx="6" fill="#FBF8F4" stroke="#C9BCAA" stroke-width="1"/>
+<text x="217" y="118" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#8C8078" text-anchor="middle">4</text>
+<rect x="236" y="98" width="26" height="30" rx="6" fill="#FBF8F4" stroke="#C9BCAA" stroke-width="1"/>
+<text x="249" y="118" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#8C8078" text-anchor="middle">3</text>
+<rect x="268" y="98" width="26" height="30" rx="6" fill="#FBF8F4" stroke="#C9BCAA" stroke-width="1"/>
+<text x="281" y="118" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#8C8078" text-anchor="middle">2</text>
+<rect x="300" y="98" width="26" height="30" rx="6" fill="#FBF8F4" stroke="#C9BCAA" stroke-width="1"/>
+<text x="313" y="118" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#8C8078" text-anchor="middle">1</text>
+<text x="340" y="118" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start">Root on the 5th string; the 6th gets an ✕, don&#x27;t strum it</text>
+<text x="110" y="180" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="end" font-weight="700">G、Em</text>
+<rect x="140" y="160" width="26" height="30" rx="6" fill="#A67C52" stroke="#A67C52" stroke-width="2"/>
+<text x="153" y="180" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle" font-weight="700">6</text>
+<rect x="172" y="160" width="26" height="30" rx="6" fill="#FBF8F4" stroke="#C9BCAA" stroke-width="1"/>
+<text x="185" y="180" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#8C8078" text-anchor="middle">5</text>
+<rect x="204" y="160" width="26" height="30" rx="6" fill="#FBF8F4" stroke="#C9BCAA" stroke-width="1"/>
+<text x="217" y="180" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#8C8078" text-anchor="middle">4</text>
+<rect x="236" y="160" width="26" height="30" rx="6" fill="#FBF8F4" stroke="#C9BCAA" stroke-width="1"/>
+<text x="249" y="180" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#8C8078" text-anchor="middle">3</text>
+<rect x="268" y="160" width="26" height="30" rx="6" fill="#FBF8F4" stroke="#C9BCAA" stroke-width="1"/>
+<text x="281" y="180" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#8C8078" text-anchor="middle">2</text>
+<rect x="300" y="160" width="26" height="30" rx="6" fill="#FBF8F4" stroke="#C9BCAA" stroke-width="1"/>
+<text x="313" y="180" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#8C8078" text-anchor="middle">1</text>
+<text x="340" y="180" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start">Strum all six strings; the thickest one is the root</text>
+<text x="110" y="242" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="end" font-weight="700">D、Fmaj7</text>
+<rect x="140" y="222" width="26" height="30" rx="6" fill="#FBF8F4" stroke="#C9BCAA" stroke-width="1"/>
+<text x="153" y="242" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#8C8078" text-anchor="middle">6</text>
+<rect x="172" y="222" width="26" height="30" rx="6" fill="#FBF8F4" stroke="#C9BCAA" stroke-width="1"/>
+<text x="185" y="242" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#8C8078" text-anchor="middle">5</text>
+<rect x="204" y="222" width="26" height="30" rx="6" fill="#A67C52" stroke="#A67C52" stroke-width="2"/>
+<text x="217" y="242" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle" font-weight="700">4</text>
+<rect x="236" y="222" width="26" height="30" rx="6" fill="#FBF8F4" stroke="#C9BCAA" stroke-width="1"/>
+<text x="249" y="242" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#8C8078" text-anchor="middle">3</text>
+<rect x="268" y="222" width="26" height="30" rx="6" fill="#FBF8F4" stroke="#C9BCAA" stroke-width="1"/>
+<text x="281" y="242" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#8C8078" text-anchor="middle">2</text>
+<rect x="300" y="222" width="26" height="30" rx="6" fill="#FBF8F4" stroke="#C9BCAA" stroke-width="1"/>
+<text x="313" y="242" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#8C8078" text-anchor="middle">1</text>
+<text x="340" y="242" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#3D3229" text-anchor="start">6th and 5th both get an ✕; start from the 4th</text>
+<text x="140" y="86" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="start">← 6th string to 1st string →</text>
+<text x="24" y="314" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="start">On a chord change only the thumb moves; the other three stay put—that is what makes an arpeggio fast</text>
+</svg>

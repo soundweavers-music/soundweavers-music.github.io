@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 380" role="img" aria-label="First-position C major scale on the fretboard">
+  <title>First-position C major scale map</title>
+  <rect width="640" height="380" fill="#FBF8F4"/>
+<text x="26" y="34" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="16" fill="#3D3229" text-anchor="start" font-weight="700">C major in first position: where the notes in frets 0-3 are</text>
+<text x="26" y="55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#8C8078" text-anchor="start">Each box holds a note name and solfège name; the empty boxes are outside C major, skip them for now</text>
+<text x="162.0" y="90" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="middle">Open (0)</text>
+<text x="286.0" y="90" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="middle">Fret 1</text>
+<text x="410.0" y="90" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="middle">Fret 2</text>
+<text x="534.0" y="90" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="middle">Fret 3</text>
+<text x="28" y="126" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="start" font-weight="700">1st string</text>
+<rect x="108" y="106" width="108" height="28" rx="7" fill="#F3E9DC" stroke="#C9BCAA" stroke-width="1"/>
+<text x="150.0" y="125" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle" font-weight="700">E</text>
+<text x="178.0" y="125" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="middle">Mi</text>
+<rect x="232" y="106" width="108" height="28" rx="7" fill="#F3E9DC" stroke="#C9BCAA" stroke-width="1"/>
+<text x="274.0" y="125" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle" font-weight="700">F</text>
+<text x="302.0" y="125" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="middle">Fa</text>
+<rect x="356" y="106" width="108" height="28" rx="7" fill="none" stroke="#C9BCAA" stroke-width="1" stroke-dasharray="3 4"/>
+<rect x="480" y="106" width="108" height="28" rx="7" fill="#F3E9DC" stroke="#C9BCAA" stroke-width="1"/>
+<text x="522.0" y="125" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle" font-weight="700">G</text>
+<text x="550.0" y="125" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="middle">Sol</text>
+<text x="28" y="162" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="start" font-weight="700">2nd string</text>
+<rect x="108" y="142" width="108" height="28" rx="7" fill="#F3E9DC" stroke="#C9BCAA" stroke-width="1"/>
+<text x="150.0" y="161" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle" font-weight="700">B</text>
+<text x="178.0" y="161" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="middle">Si</text>
+<rect x="232" y="142" width="108" height="28" rx="7" fill="#F3E9DC" stroke="#C9BCAA" stroke-width="1"/>
+<text x="274.0" y="161" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle" font-weight="700">C</text>
+<text x="302.0" y="161" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="middle">Do</text>
+<rect x="356" y="142" width="108" height="28" rx="7" fill="none" stroke="#C9BCAA" stroke-width="1" stroke-dasharray="3 4"/>
+<rect x="480" y="142" width="108" height="28" rx="7" fill="#F3E9DC" stroke="#C9BCAA" stroke-width="1"/>
+<text x="522.0" y="161" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle" font-weight="700">D</text>
+<text x="550.0" y="161" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="middle">Re</text>
+<text x="28" y="198" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="start" font-weight="700">3rd string</text>
+<rect x="108" y="178" width="108" height="28" rx="7" fill="#F3E9DC" stroke="#C9BCAA" stroke-width="1"/>
+<text x="150.0" y="197" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle" font-weight="700">G</text>
+<text x="178.0" y="197" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="middle">Sol</text>
+<rect x="232" y="178" width="108" height="28" rx="7" fill="none" stroke="#C9BCAA" stroke-width="1" stroke-dasharray="3 4"/>
+<rect x="356" y="178" width="108" height="28" rx="7" fill="#F3E9DC" stroke="#C9BCAA" stroke-width="1"/>
+<text x="398.0" y="197" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle" font-weight="700">A</text>
+<text x="426.0" y="197" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="middle">La</text>
+<rect x="480" y="178" width="108" height="28" rx="7" fill="none" stroke="#C9BCAA" stroke-width="1" stroke-dasharray="3 4"/>
+<text x="28" y="234" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="start" font-weight="700">4th string</text>
+<rect x="108" y="214" width="108" height="28" rx="7" fill="#F3E9DC" stroke="#C9BCAA" stroke-width="1"/>
+<text x="150.0" y="233" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle" font-weight="700">D</text>
+<text x="178.0" y="233" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="middle">Re</text>
+<rect x="232" y="214" width="108" height="28" rx="7" fill="none" stroke="#C9BCAA" stroke-width="1" stroke-dasharray="3 4"/>
+<rect x="356" y="214" width="108" height="28" rx="7" fill="#F3E9DC" stroke="#C9BCAA" stroke-width="1"/>
+<text x="398.0" y="233" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle" font-weight="700">E</text>
+<text x="426.0" y="233" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="middle">Mi</text>
+<rect x="480" y="214" width="108" height="28" rx="7" fill="#F3E9DC" stroke="#C9BCAA" stroke-width="1"/>
+<text x="522.0" y="233" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle" font-weight="700">F</text>
+<text x="550.0" y="233" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="middle">Fa</text>
+<text x="28" y="270" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="start" font-weight="700">5th string</text>
+<rect x="108" y="250" width="108" height="28" rx="7" fill="#F3E9DC" stroke="#C9BCAA" stroke-width="1"/>
+<text x="150.0" y="269" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle" font-weight="700">A</text>
+<text x="178.0" y="269" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="middle">La</text>
+<rect x="232" y="250" width="108" height="28" rx="7" fill="none" stroke="#C9BCAA" stroke-width="1" stroke-dasharray="3 4"/>
+<rect x="356" y="250" width="108" height="28" rx="7" fill="#F3E9DC" stroke="#C9BCAA" stroke-width="1"/>
+<text x="398.0" y="269" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle" font-weight="700">B</text>
+<text x="426.0" y="269" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="middle">Si</text>
+<rect x="480" y="250" width="108" height="28" rx="7" fill="#F3E9DC" stroke="#C9BCAA" stroke-width="1"/>
+<text x="522.0" y="269" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle" font-weight="700">C</text>
+<text x="550.0" y="269" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="middle">Do</text>
+<text x="28" y="306" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="start" font-weight="700">6th string</text>
+<rect x="108" y="286" width="108" height="28" rx="7" fill="#F3E9DC" stroke="#C9BCAA" stroke-width="1"/>
+<text x="150.0" y="305" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle" font-weight="700">E</text>
+<text x="178.0" y="305" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="middle">Mi</text>
+<rect x="232" y="286" width="108" height="28" rx="7" fill="#F3E9DC" stroke="#C9BCAA" stroke-width="1"/>
+<text x="274.0" y="305" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle" font-weight="700">F</text>
+<text x="302.0" y="305" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="middle">Fa</text>
+<rect x="356" y="286" width="108" height="28" rx="7" fill="none" stroke="#C9BCAA" stroke-width="1" stroke-dasharray="3 4"/>
+<rect x="480" y="286" width="108" height="28" rx="7" fill="#F3E9DC" stroke="#C9BCAA" stroke-width="1"/>
+<text x="522.0" y="305" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle" font-weight="700">G</text>
+<text x="550.0" y="305" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="middle">Sol</text>
+<text x="26" y="338" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#3D3229" text-anchor="start">The rule: fret 0 is the open string, fret 1 the index, fret 2 the middle, fret 3 the ring</text>
+<text x="26" y="366" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="start">Low Do is 5th string fret 3, high Do 2nd string fret 1; learn those two, then work out the rest</text>
+</svg>

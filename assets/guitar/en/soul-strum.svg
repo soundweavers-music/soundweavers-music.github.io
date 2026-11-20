@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 340" role="img" aria-label="The eight beats of the 8-beat soul strum">
+  <title>The 8-beat soul strum</title>
+  <rect width="640" height="340" fill="#FBF8F4"/>
+<text x="26" y="34" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="16" fill="#3D3229" text-anchor="start" font-weight="700">The 8 Beat soul strum: ↓  ↓↑  ↑↓↑</text>
+<text x="26" y="55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#8C8078" text-anchor="start">Grey lines are ghost strums: the hand swings but misses the strings</text>
+<text x="80" y="106" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="end">Count</text>
+<text x="117.125" y="100" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#8C8078" text-anchor="middle">1</text>
+<text x="183.375" y="100" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#8C8078" text-anchor="middle">&amp;</text>
+<text x="249.625" y="100" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#8C8078" text-anchor="middle">2</text>
+<text x="315.875" y="100" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#8C8078" text-anchor="middle">&amp;</text>
+<text x="382.125" y="100" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#8C8078" text-anchor="middle">3</text>
+<text x="448.375" y="100" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#8C8078" text-anchor="middle">&amp;</text>
+<text x="514.625" y="100" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#8C8078" text-anchor="middle">4</text>
+<text x="580.875" y="100" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#8C8078" text-anchor="middle">&amp;</text>
+<line x1="84" y1="126" x2="614" y2="126" stroke="#C9BCAA" stroke-width="1"/>
+<text x="80" y="174" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="end">Wrist</text>
+<text x="117.125" y="168" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="20" fill="#C9BCAA" text-anchor="middle">↓</text>
+<text x="183.375" y="168" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="20" fill="#C9BCAA" text-anchor="middle">↑</text>
+<text x="249.625" y="168" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="20" fill="#C9BCAA" text-anchor="middle">↓</text>
+<text x="315.875" y="168" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="20" fill="#C9BCAA" text-anchor="middle">↑</text>
+<text x="382.125" y="168" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="20" fill="#C9BCAA" text-anchor="middle">↓</text>
+<text x="448.375" y="168" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="20" fill="#C9BCAA" text-anchor="middle">↑</text>
+<text x="514.625" y="168" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="20" fill="#C9BCAA" text-anchor="middle">↓</text>
+<text x="580.875" y="168" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="20" fill="#C9BCAA" text-anchor="middle">↑</text>
+<line x1="84" y1="194" x2="614" y2="194" stroke="#C9BCAA" stroke-width="1"/>
+<text x="80" y="242" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="end">Struck</text>
+<text x="117.125" y="236" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="22" fill="#A67C52" text-anchor="middle" font-weight="700">↓</text>
+<text x="249.625" y="236" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="22" fill="#A67C52" text-anchor="middle" font-weight="700">↓</text>
+<text x="315.875" y="236" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="22" fill="#A67C52" text-anchor="middle" font-weight="700">↑</text>
+<text x="448.375" y="236" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="22" fill="#A67C52" text-anchor="middle" font-weight="700">↑</text>
+<text x="514.625" y="236" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="22" fill="#A67C52" text-anchor="middle" font-weight="700">↓</text>
+<text x="580.875" y="236" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="22" fill="#A67C52" text-anchor="middle" font-weight="700">↑</text>
+<line x1="84" y1="262" x2="614" y2="262" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="84.0" y1="86" x2="84.0" y2="262" stroke="#C9BCAA" stroke-width="1" opacity=".55"/>
+<line x1="150.25" y1="86" x2="150.25" y2="262" stroke="#C9BCAA" stroke-width="1" opacity=".55"/>
+<line x1="216.5" y1="86" x2="216.5" y2="262" stroke="#C9BCAA" stroke-width="1" opacity=".55"/>
+<line x1="282.75" y1="86" x2="282.75" y2="262" stroke="#C9BCAA" stroke-width="1" opacity=".55"/>
+<line x1="349.0" y1="86" x2="349.0" y2="262" stroke="#C9BCAA" stroke-width="1" opacity=".55"/>
+<line x1="415.25" y1="86" x2="415.25" y2="262" stroke="#C9BCAA" stroke-width="1" opacity=".55"/>
+<line x1="481.5" y1="86" x2="481.5" y2="262" stroke="#C9BCAA" stroke-width="1" opacity=".55"/>
+<line x1="547.75" y1="86" x2="547.75" y2="262" stroke="#C9BCAA" stroke-width="1" opacity=".55"/>
+<line x1="614.0" y1="86" x2="614.0" y2="262" stroke="#C9BCAA" stroke-width="1" opacity=".55"/>
+<rect x="150.25" y="86" width="66.25" height="176" fill="#F3E9DC" opacity=".55"/>
+<rect x="349.0" y="86" width="66.25" height="176" fill="#F3E9DC" opacity=".55"/>
+<text x="26" y="300" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#3D3229" text-anchor="start">Chant &quot;down, down-up, up-down-up&quot;: only the downstroke on beat 3 is empty; the rest follows the wrist</text>
+<text x="26" y="326" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="start">The usual sticking point: after the upstroke on beat 2, don&#x27;t park in mid-air—keep the wrist swinging down</text>
+</svg>

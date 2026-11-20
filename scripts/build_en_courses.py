@@ -180,6 +180,7 @@ def build_course(conf: dict) -> list[dict]:
                 f'</a></li>')
 
     by_num = {c["num"]: c for c in chapters}
+    extra_links = build_extras(conf)
     blocks = []
     if conf["groups"]:
         for label, first, last in conf["groups"]:
@@ -202,6 +203,7 @@ def build_course(conf: dict) -> list[dict]:
     </p>
   </section>
   <div class="vocal-page">
+    {extra_links}
     {''.join(blocks)}
   </div>
 </main>"""
@@ -210,6 +212,47 @@ def build_course(conf: dict) -> list[dict]:
 
     build_chapter_pages(conf, chapters)
     return chapters
+
+
+EXTRAS = [("preface.md", "preface", "Preface"), ("contents.md", "contents", "Contents")]
+
+
+def build_extras(conf: dict) -> str:
+    """前言 / 目錄：有稿就建，回傳課程頁上要放的連結。"""
+    slug = conf["slug"]
+    folder = CONTENT / slug
+    out_dir = bve.OUTPUT_DIR / "en" / slug
+    idx = out_dir / "index.html"
+    made = []
+    for fname, page_slug, label in EXTRAS:
+        path = folder / fname
+        if not path.exists():
+            continue
+        d = out_dir / page_slug
+        d.mkdir(parents=True, exist_ok=True)
+        page_path = d / "index.html"
+        html_body = bve.relativize(bve.markdown_to_html(path.read_text(encoding="utf-8")),
+                                   page_path)
+        body = f"""<main class="vocal-detail-page">
+  <div class="vocal-detail-header">
+    <div class="breadcrumb">
+      <a href="{bve.resolve_url(page_path, "/en/%s/" % slug)}">← {bve.escape(conf["name"])}</a>
+    </div>
+    <h1>{label}</h1>
+  </div>
+  <div class="vocal-content markdown-body">{html_body}</div>
+  <a class="back-link" href="{bve.resolve_url(page_path, "/en/%s/" % slug)}">← Back to the course</a>
+</main>"""
+        bve.write(page_path, bve.page("%s · %s" % (label, conf["name"]), body, page_path,
+                                      meta_description="%s of %s" % (label, conf["name"]),
+                                      lang="en"))
+        made.append((page_slug, label))
+    if not made:
+        return ""
+    links = "".join(
+        f'<a href="{bve.resolve_url(idx, "/en/%s/%s/" % (slug, s))}">{bve.escape(t)}</a>'
+        for s, t in made)
+    return '<p class="course-extras">%s</p>' % links
 
 
 def build_chapter_pages(conf: dict, chapters: list[dict]) -> None:

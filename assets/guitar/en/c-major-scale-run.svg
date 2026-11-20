@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 330" role="img" aria-label="The C major scale up and down, first position">
+  <title>C major scale up and down, first position</title>
+  <rect width="640" height="330" fill="#FBF8F4"/>
+<text x="26" y="34" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="16" fill="#3D3229" text-anchor="start" font-weight="700">C major up and down: Do to high Do and back</text>
+<text x="26" y="55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#8C8078" text-anchor="start">One note per beat, 60-70 BPM. Numbered notation on top, tab in the middle, fingers below</text>
+<line x1="86.0" y1="116.0" x2="610.0" y2="116.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<text x="76" y="120" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="end">1st string E</text>
+<line x1="86.0" y1="132.0" x2="610.0" y2="132.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<text x="76" y="136" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="end">2nd string B</text>
+<line x1="86.0" y1="148.0" x2="610.0" y2="148.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<text x="76" y="152" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="end">3rd string G</text>
+<line x1="86.0" y1="164.0" x2="610.0" y2="164.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<text x="76" y="168" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="end">4th string D</text>
+<line x1="86.0" y1="180.0" x2="610.0" y2="180.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<text x="76" y="184" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="end">5th string A</text>
+<line x1="86.0" y1="196.0" x2="610.0" y2="196.0" stroke="#3D3229" stroke-width="1" opacity=".38"/>
+<text x="76" y="200" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="end">6th string E</text>
+<rect x="94.5" y="173.0" width="18" height="14" fill="#FBF8F4"/>
+<text x="103.46666666666667" y="184" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">3</text>
+<rect x="129.4" y="157.0" width="18" height="14" fill="#FBF8F4"/>
+<text x="138.39999999999998" y="168" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">0</text>
+<rect x="164.3" y="157.0" width="18" height="14" fill="#FBF8F4"/>
+<text x="173.33333333333331" y="168" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">2</text>
+<rect x="199.3" y="157.0" width="18" height="14" fill="#FBF8F4"/>
+<text x="208.26666666666665" y="168" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">3</text>
+<rect x="234.2" y="141.0" width="18" height="14" fill="#FBF8F4"/>
+<text x="243.2" y="152" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">0</text>
+<rect x="269.1" y="141.0" width="18" height="14" fill="#FBF8F4"/>
+<text x="278.1333333333333" y="152" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">2</text>
+<rect x="304.1" y="125.0" width="18" height="14" fill="#FBF8F4"/>
+<text x="313.0666666666666" y="136" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">0</text>
+<rect x="339.0" y="125.0" width="18" height="14" fill="#FBF8F4"/>
+<text x="348.0" y="136" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">1</text>
+<rect x="373.9" y="125.0" width="18" height="14" fill="#FBF8F4"/>
+<text x="382.9333333333333" y="136" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">0</text>
+<rect x="408.9" y="141.0" width="18" height="14" fill="#FBF8F4"/>
+<text x="417.8666666666666" y="152" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">2</text>
+<rect x="443.8" y="141.0" width="18" height="14" fill="#FBF8F4"/>
+<text x="452.79999999999995" y="152" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">0</text>
+<rect x="478.7" y="157.0" width="18" height="14" fill="#FBF8F4"/>
+<text x="487.7333333333333" y="168" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">3</text>
+<rect x="513.7" y="157.0" width="18" height="14" fill="#FBF8F4"/>
+<text x="522.6666666666666" y="168" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">2</text>
+<rect x="548.6" y="157.0" width="18" height="14" fill="#FBF8F4"/>
+<text x="557.5999999999999" y="168" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">0</text>
+<rect x="583.5" y="173.0" width="18" height="14" fill="#FBF8F4"/>
+<text x="592.5333333333333" y="184" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#A67C52" text-anchor="middle" font-weight="700">3</text>
+<text x="103.46666666666667" y="100" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">1</text>
+<text x="103.46666666666667" y="218" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="middle">3</text>
+<text x="138.39999999999998" y="100" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">2</text>
+<text x="138.39999999999998" y="218" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="middle">○</text>
+<text x="173.33333333333331" y="100" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">3</text>
+<text x="173.33333333333331" y="218" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="middle">2</text>
+<text x="208.26666666666665" y="100" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">4</text>
+<text x="208.26666666666665" y="218" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="middle">3</text>
+<text x="243.2" y="100" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">5</text>
+<text x="243.2" y="218" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="middle">○</text>
+<text x="278.1333333333333" y="100" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">6</text>
+<text x="278.1333333333333" y="218" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="middle">2</text>
+<text x="313.0666666666666" y="100" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">7</text>
+<text x="313.0666666666666" y="218" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="middle">○</text>
+<text x="348.0" y="100" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">i</text>
+<text x="348.0" y="218" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="middle">1</text>
+<text x="382.9333333333333" y="100" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">7</text>
+<text x="382.9333333333333" y="218" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="middle">○</text>
+<text x="417.8666666666666" y="100" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">6</text>
+<text x="417.8666666666666" y="218" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="middle">2</text>
+<text x="452.79999999999995" y="100" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">5</text>
+<text x="452.79999999999995" y="218" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="middle">○</text>
+<text x="487.7333333333333" y="100" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">4</text>
+<text x="487.7333333333333" y="218" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="middle">3</text>
+<text x="522.6666666666666" y="100" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">3</text>
+<text x="522.6666666666666" y="218" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="middle">2</text>
+<text x="557.5999999999999" y="100" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">2</text>
+<text x="557.5999999999999" y="218" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="middle">○</text>
+<text x="592.5333333333333" y="100" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">1</text>
+<text x="592.5333333333333" y="218" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="middle">3</text>
+<line x1="86.0" y1="90" x2="86.0" y2="230" stroke="#8C8078" stroke-width="1"/>
+<line x1="120.9" y1="90" x2="120.9" y2="230" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="155.9" y1="90" x2="155.9" y2="230" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="190.8" y1="90" x2="190.8" y2="230" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="225.7" y1="90" x2="225.7" y2="230" stroke="#8C8078" stroke-width="1"/>
+<line x1="260.7" y1="90" x2="260.7" y2="230" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="295.6" y1="90" x2="295.6" y2="230" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="330.5" y1="90" x2="330.5" y2="230" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="365.5" y1="90" x2="365.5" y2="230" stroke="#8C8078" stroke-width="1"/>
+<line x1="400.4" y1="90" x2="400.4" y2="230" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="435.3" y1="90" x2="435.3" y2="230" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="470.3" y1="90" x2="470.3" y2="230" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="505.2" y1="90" x2="505.2" y2="230" stroke="#8C8078" stroke-width="1"/>
+<line x1="540.1" y1="90" x2="540.1" y2="230" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="575.1" y1="90" x2="575.1" y2="230" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="610.0" y1="90" x2="610.0" y2="230" stroke="#C9BCAA" stroke-width="1"/>
+<text x="76" y="100" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="end">Numbered</text>
+<text x="76" y="218" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="9.5" fill="#8C8078" text-anchor="end">Finger</text>
+<text x="26" y="290" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#3D3229" text-anchor="start">An open string is written &quot;0&quot;, no finger; the rest are fret 1 index, fret 2 middle, fret 3 ring</text>
+<text x="26" y="316" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="start">The low Do appears only at 5th string fret 3; the high Do is 2nd string fret 1</text>
+</svg>

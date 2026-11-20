@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 268" role="img" aria-label="The chord progression for this section">
+  <title>The chord progression for this section</title>
+  <rect width="720" height="268" fill="#FBF8F4"/>
+<text x="28.0" y="34.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="15" fill="#3D3229" text-anchor="start" font-weight="700">The chord progression for this section</text>
+<text x="28.0" y="55.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#8C8078" text-anchor="start">Each row is one pass; the small text under it is that pass&#x27;s strumming or lyric</text>
+<rect x="28.0" y="92" width="52" height="30" rx="8" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="54.0" y="112.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">C</text>
+<text x="86.0" y="112.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#8C8078" text-anchor="start">→</text>
+<rect x="100.0" y="92" width="52" height="30" rx="8" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="126.0" y="112.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">C</text>
+<text x="158.0" y="112.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#8C8078" text-anchor="start">→</text>
+<rect x="172.0" y="92" width="70" height="30" rx="8" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="207.0" y="112.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">Fmaj7</text>
+<text x="248.0" y="112.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#8C8078" text-anchor="start">→</text>
+<rect x="262.0" y="92" width="70" height="30" rx="8" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="297.0" y="112.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">Fmaj7</text>
+<text x="28.0" y="140.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="start">two lyric phrases, no rest marked</text>
+<rect x="28.0" y="160" width="52" height="30" rx="8" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="54.0" y="180.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">Dm</text>
+<text x="86.0" y="180.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#8C8078" text-anchor="start">→</text>
+<rect x="100.0" y="160" width="52" height="30" rx="8" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="126.0" y="180.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">Dm</text>
+<text x="158.0" y="180.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#8C8078" text-anchor="start">→</text>
+<rect x="172.0" y="160" width="52" height="30" rx="8" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="198.0" y="180.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">G</text>
+<text x="230.0" y="180.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#8C8078" text-anchor="start">→</text>
+<rect x="244.0" y="160" width="52" height="30" rx="8" fill="#F3E9DC" stroke="#C9BCAA"/>
+<text x="270.0" y="180.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12" fill="#3D3229" text-anchor="middle" font-weight="700">G</text>
+<text x="28.0" y="208.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="start">one long lyric phrase, no rest marked</text>
+<text x="28.0" y="234.0" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#8C8078" text-anchor="start">Repeat the whole section; at each chord change the right hand never stops, only the left hand moves.</text>
+</svg>

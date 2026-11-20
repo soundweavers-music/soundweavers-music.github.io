@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 496" role="img" aria-label="Six basic open chords and how to finger them">
+  <title>Six basic open chords: C, G, D, Am, Em, Dm</title>
+  <rect width="640" height="496" fill="#FBF8F4"/>
+<text x="26" y="34" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="16" fill="#3D3229" text-anchor="start" font-weight="700">How to play the six basic open chords</text>
+<text x="26" y="55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#8C8078" text-anchor="start">Left to right is 6th string to 1st; the numbers are fingers: 1 index, 2 middle, 3 ring, 4 little</text>
+<text x="84.0" y="94" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="13" fill="#3D3229" text-anchor="middle" font-weight="700">C</text>
+<line x1="38.0" y1="108" x2="38.0" y2="200.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="56.4" y1="108" x2="56.4" y2="200.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="74.8" y1="108" x2="74.8" y2="200.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="93.2" y1="108" x2="93.2" y2="200.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="111.6" y1="108" x2="111.6" y2="200.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="130.0" y1="108" x2="130.0" y2="200.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="38" y1="108.0" x2="130.0" y2="108.0" stroke="#3D3229" stroke-width="3"/>
+<line x1="38" y1="131.0" x2="130.0" y2="131.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="38" y1="154.0" x2="130.0" y2="154.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="38" y1="177.0" x2="130.0" y2="177.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="38" y1="200.0" x2="130.0" y2="200.0" stroke="#C9BCAA" stroke-width="1"/>
+<text x="38.0" y="102" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#8C8078" text-anchor="middle">✕</text>
+<circle cx="93.2" cy="99" r="3.4" fill="none" stroke="#3D3229" stroke-width="1.2"/>
+<circle cx="130.0" cy="99" r="3.4" fill="none" stroke="#3D3229" stroke-width="1.2"/>
+<circle cx="56.4" cy="165.5" r="6.3" fill="#A67C52"/>
+<text x="56.4" y="169.3" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">3</text>
+<circle cx="74.8" cy="142.5" r="6.3" fill="#A67C52"/>
+<text x="74.8" y="146.3" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">2</text>
+<circle cx="111.6" cy="119.5" r="6.3" fill="#A67C52"/>
+<text x="111.6" y="123.3" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">1</text>
+<text x="234.0" y="94" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="13" fill="#3D3229" text-anchor="middle" font-weight="700">G</text>
+<line x1="188.0" y1="108" x2="188.0" y2="200.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="206.4" y1="108" x2="206.4" y2="200.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="224.8" y1="108" x2="224.8" y2="200.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="243.2" y1="108" x2="243.2" y2="200.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="261.6" y1="108" x2="261.6" y2="200.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="280.0" y1="108" x2="280.0" y2="200.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="188" y1="108.0" x2="280.0" y2="108.0" stroke="#3D3229" stroke-width="3"/>
+<line x1="188" y1="131.0" x2="280.0" y2="131.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="188" y1="154.0" x2="280.0" y2="154.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="188" y1="177.0" x2="280.0" y2="177.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="188" y1="200.0" x2="280.0" y2="200.0" stroke="#C9BCAA" stroke-width="1"/>
+<circle cx="224.8" cy="99" r="3.4" fill="none" stroke="#3D3229" stroke-width="1.2"/>
+<circle cx="243.2" cy="99" r="3.4" fill="none" stroke="#3D3229" stroke-width="1.2"/>
+<circle cx="261.6" cy="99" r="3.4" fill="none" stroke="#3D3229" stroke-width="1.2"/>
+<circle cx="188.0" cy="165.5" r="6.3" fill="#A67C52"/>
+<text x="188.0" y="169.3" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">2</text>
+<circle cx="206.4" cy="142.5" r="6.3" fill="#A67C52"/>
+<text x="206.4" y="146.3" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">1</text>
+<circle cx="280.0" cy="165.5" r="6.3" fill="#A67C52"/>
+<text x="280.0" y="169.3" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">3</text>
+<text x="384.0" y="94" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="13" fill="#3D3229" text-anchor="middle" font-weight="700">D</text>
+<line x1="338.0" y1="108" x2="338.0" y2="200.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="356.4" y1="108" x2="356.4" y2="200.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="374.8" y1="108" x2="374.8" y2="200.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="393.2" y1="108" x2="393.2" y2="200.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="411.6" y1="108" x2="411.6" y2="200.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="430.0" y1="108" x2="430.0" y2="200.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="338" y1="108.0" x2="430.0" y2="108.0" stroke="#3D3229" stroke-width="3"/>
+<line x1="338" y1="131.0" x2="430.0" y2="131.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="338" y1="154.0" x2="430.0" y2="154.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="338" y1="177.0" x2="430.0" y2="177.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="338" y1="200.0" x2="430.0" y2="200.0" stroke="#C9BCAA" stroke-width="1"/>
+<text x="338.0" y="102" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#8C8078" text-anchor="middle">✕</text>
+<text x="356.4" y="102" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#8C8078" text-anchor="middle">✕</text>
+<circle cx="374.8" cy="99" r="3.4" fill="none" stroke="#3D3229" stroke-width="1.2"/>
+<circle cx="393.2" cy="142.5" r="6.3" fill="#A67C52"/>
+<text x="393.2" y="146.3" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">1</text>
+<circle cx="411.6" cy="165.5" r="6.3" fill="#A67C52"/>
+<text x="411.6" y="169.3" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">3</text>
+<circle cx="430.0" cy="142.5" r="6.3" fill="#A67C52"/>
+<text x="430.0" y="146.3" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">2</text>
+<text x="84.0" y="264" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="13" fill="#3D3229" text-anchor="middle" font-weight="700">Am</text>
+<line x1="38.0" y1="278" x2="38.0" y2="370.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="56.4" y1="278" x2="56.4" y2="370.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="74.8" y1="278" x2="74.8" y2="370.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="93.2" y1="278" x2="93.2" y2="370.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="111.6" y1="278" x2="111.6" y2="370.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="130.0" y1="278" x2="130.0" y2="370.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="38" y1="278.0" x2="130.0" y2="278.0" stroke="#3D3229" stroke-width="3"/>
+<line x1="38" y1="301.0" x2="130.0" y2="301.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="38" y1="324.0" x2="130.0" y2="324.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="38" y1="347.0" x2="130.0" y2="347.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="38" y1="370.0" x2="130.0" y2="370.0" stroke="#C9BCAA" stroke-width="1"/>
+<text x="38.0" y="272" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#8C8078" text-anchor="middle">✕</text>
+<circle cx="56.4" cy="269" r="3.4" fill="none" stroke="#3D3229" stroke-width="1.2"/>
+<circle cx="130.0" cy="269" r="3.4" fill="none" stroke="#3D3229" stroke-width="1.2"/>
+<circle cx="74.8" cy="312.5" r="6.3" fill="#A67C52"/>
+<text x="74.8" y="316.3" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">2</text>
+<circle cx="93.2" cy="312.5" r="6.3" fill="#A67C52"/>
+<text x="93.19999999999999" y="316.3" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">3</text>
+<circle cx="111.6" cy="289.5" r="6.3" fill="#A67C52"/>
+<text x="111.6" y="293.3" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">1</text>
+<text x="234.0" y="264" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="13" fill="#3D3229" text-anchor="middle" font-weight="700">Em</text>
+<line x1="188.0" y1="278" x2="188.0" y2="370.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="206.4" y1="278" x2="206.4" y2="370.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="224.8" y1="278" x2="224.8" y2="370.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="243.2" y1="278" x2="243.2" y2="370.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="261.6" y1="278" x2="261.6" y2="370.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="280.0" y1="278" x2="280.0" y2="370.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="188" y1="278.0" x2="280.0" y2="278.0" stroke="#3D3229" stroke-width="3"/>
+<line x1="188" y1="301.0" x2="280.0" y2="301.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="188" y1="324.0" x2="280.0" y2="324.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="188" y1="347.0" x2="280.0" y2="347.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="188" y1="370.0" x2="280.0" y2="370.0" stroke="#C9BCAA" stroke-width="1"/>
+<circle cx="188.0" cy="269" r="3.4" fill="none" stroke="#3D3229" stroke-width="1.2"/>
+<circle cx="243.2" cy="269" r="3.4" fill="none" stroke="#3D3229" stroke-width="1.2"/>
+<circle cx="261.6" cy="269" r="3.4" fill="none" stroke="#3D3229" stroke-width="1.2"/>
+<circle cx="280.0" cy="269" r="3.4" fill="none" stroke="#3D3229" stroke-width="1.2"/>
+<circle cx="206.4" cy="312.5" r="6.3" fill="#A67C52"/>
+<text x="206.4" y="316.3" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">1</text>
+<circle cx="224.8" cy="312.5" r="6.3" fill="#A67C52"/>
+<text x="224.8" y="316.3" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">2</text>
+<text x="384.0" y="264" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="13" fill="#3D3229" text-anchor="middle" font-weight="700">Dm</text>
+<line x1="338.0" y1="278" x2="338.0" y2="370.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="356.4" y1="278" x2="356.4" y2="370.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="374.8" y1="278" x2="374.8" y2="370.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="393.2" y1="278" x2="393.2" y2="370.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="411.6" y1="278" x2="411.6" y2="370.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="430.0" y1="278" x2="430.0" y2="370.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="338" y1="278.0" x2="430.0" y2="278.0" stroke="#3D3229" stroke-width="3"/>
+<line x1="338" y1="301.0" x2="430.0" y2="301.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="338" y1="324.0" x2="430.0" y2="324.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="338" y1="347.0" x2="430.0" y2="347.0" stroke="#C9BCAA" stroke-width="1"/>
+<line x1="338" y1="370.0" x2="430.0" y2="370.0" stroke="#C9BCAA" stroke-width="1"/>
+<text x="338.0" y="272" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#8C8078" text-anchor="middle">✕</text>
+<text x="356.4" y="272" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11" fill="#8C8078" text-anchor="middle">✕</text>
+<circle cx="374.8" cy="269" r="3.4" fill="none" stroke="#3D3229" stroke-width="1.2"/>
+<circle cx="393.2" cy="312.5" r="6.3" fill="#A67C52"/>
+<text x="393.2" y="316.3" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">2</text>
+<circle cx="411.6" cy="335.5" r="6.3" fill="#A67C52"/>
+<text x="411.6" y="339.3" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">3</text>
+<circle cx="430.0" cy="289.5" r="6.3" fill="#A67C52"/>
+<text x="430.0" y="293.3" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">1</text>
+<text x="26" y="480" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078" text-anchor="start">○ open string  ✕ don&#x27;t play; the thick line at the top is the nut</text>
+</svg>
