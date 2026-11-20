@@ -2929,6 +2929,7 @@ def build_learn_page():
         ("/mandolin/", "🪕", "曼陀林專區", "22 章中文曼陀林知識庫：琴型歷史、構造製琴、演奏技法、曲風合奏與專輯導聆，附學習建議時數。", meta("mandolin")),
         ("/guitar/", "🎸", "流行吉他彈唱指南", "從挑琴、調音、看懂六線譜，到刷奏、和弦與彈唱協調，寫給零基礎成人的流行吉他彈唱教材。", meta("guitar")),
         ("/ukulele/", "🎵", "烏克麗麗流行彈唱與演奏指南", "四條弦的大小事：選琴、調音、和弦家族、刷奏節奏型到指彈與打板，以華語流行歌為練習材料。", meta("ukulele")),
+        ("/songwriting/", "✍️", "流行歌曲詞曲創作", "六堂課走完一首歌：拆結構、寫詞、寫旋律、配和弦、詞曲合一、寫完拿出去。每堂都有一個可以帶走的產出。", meta("songwriting")),
         ("/tools/daw/learn/", "🎚️", "線上編曲製作（DAW）課程", "搭配本站的瀏覽器編曲軟體，從錄音、MIDI、混音、修音與和聲到母帶輸出，每一堂都有實際軟體截圖與原理說明。", meta("daw")),
     ]
     cards = "\n".join(
@@ -3778,6 +3779,10 @@ def main():
     dawcourse_img = BASE_DIR / "assets" / "daw-course"
     if dawcourse_img.exists():
         shutil.copytree(str(dawcourse_img), str(OUTPUT_DIR / "assets" / "daw-course"), dirs_exist_ok=True)
+    # 詞曲創作課程圖
+    sw_img = BASE_DIR / "assets" / "songwriting"
+    if sw_img.exists():
+        shutil.copytree(str(sw_img), str(OUTPUT_DIR / "assets" / "songwriting"), dirs_exist_ok=True)
     # Mandolin book images
     mand_img = BASE_DIR / "assets" / "mandolin" / "img"
     if mand_img.exists():

@@ -32,6 +32,14 @@ COURSES = {
                 "的流行吉他彈唱教材，每一步都附可執行的練習。",
         "icon": "🎸",
     },
+    "songwriting": {
+        "name": "流行歌曲詞曲創作",
+        "eyebrow": "Songwriting",
+        "lead": "從拆解一首歌的結構開始，依序寫詞、寫旋律、配和弦，最後把六堂課的產出"
+                "黏成一首寫得完、唱得順、拿得出去的原創歌。",
+        "icon": "✍️",
+        "unit": "堂",
+    },
     "ukulele": {
         "name": "烏克麗麗流行彈唱與演奏指南",
         "eyebrow": "Ukulele",
@@ -41,7 +49,7 @@ COURSES = {
     },
 }
 # 時數公式集中在 course_hours.py；這裡只留 import，避免兩邊各自演化
-from course_hours import study_hours  # noqa: E402
+from course_hours import study_hours, factor_for  # noqa: E402
 CHAPTER_RE = re.compile(r"^(\d+)\.md$")
 EXTRA = [("前言.md", "preface", "前言"), ("目錄.md", "toc", "目錄")]
 
@@ -57,7 +65,7 @@ def load_chapters(slug: str) -> list[dict]:
             continue
         text = path.read_text(encoding="utf-8")
         h1 = next((ln[2:].strip() for ln in text.splitlines() if ln.startswith("# ")), path.stem)
-        title = re.sub(r"^第\s*\d+\s*章[｜:：]\s*", "", h1)
+        title = re.sub(r"^第\s*\d+\s*[章堂][｜:：]\s*", "", h1)
         chars = len(re.findall(r"[一-鿿]", text))
         chapters.append({
             "num": int(m.group(1)),
@@ -66,7 +74,7 @@ def load_chapters(slug: str) -> list[dict]:
             "path": path,
             "chars": chars,
             # 建議學習時數：公式在 scripts/course_hours.py（首頁、/learn/ 共用同一個）
-            "hours": study_hours(chars),
+            "hours": study_hours(chars, factor_for(slug)),
         })
     return sorted(chapters, key=lambda c: c["num"])
 
@@ -95,7 +103,7 @@ def build_index(slug: str, conf: dict, chapters: list[dict]) -> None:
     <h1>{bve.escape(conf["name"])}</h1>
     <p class="lead">{bve.escape(conf["lead"])}</p>
     <p class="hero-stats" style="text-align:left;margin-top:20px">
-      <span><strong>{len(chapters)}</strong> 章</span>
+      <span><strong>{len(chapters)}</strong> {conf.get("unit", "章")}</span>
       <span>建議約 <strong>{sum(c["hours"] for c in chapters):g}</strong> 小時</span>
     </p>
   </section>
@@ -135,10 +143,10 @@ def build_chapters(slug: str, conf: dict, chapters: list[dict]) -> None:
   <div class="vocal-detail-header">
     <div class="breadcrumb">
       <a href="{bve.resolve_url(ch_dir / "index.html", "/" + slug + "/")}">← {bve.escape(conf["name"])}</a>
-      <span>/</span><span>第 {ch["num"]} 章</span>
+      <span>/</span><span>第 {ch["num"]} {conf.get("unit", "章")}</span>
     </div>
     <h1>{bve.escape(ch["title"])}</h1>
-    <p class="level-name">第 {ch["num"]} 章・建議約 {ch["hours"]:g} 小時</p>
+    <p class="level-name">第 {ch["num"]} {conf.get("unit", "章")}・建議約 {ch["hours"]:g} 小時</p>
   </div>
   <div class="vocal-content markdown-body">{html_body}</div>
   <div class="vocal-nav-links">{prev_link}{next_link}</div>
