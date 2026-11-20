@@ -1153,9 +1153,13 @@ def fig_strum_four():
 
 
 def fig_posture():
-    """2-1：三個支撐點，都是「靠著」不是「夾住」。"""
-    width, height = 640, 360
-    cx = 320
+    """2-1：三個支撐點，都是「靠著」不是「夾住」。
+
+    琴身比例照 dreadnought（長約寬的 1.25 倍、有腰身），琴頸往左上斜，
+    才像真的抱在身上的樣子（原本畫成一個橫向的圓餅）。
+    """
+    width, height = 640, 420
+    cx = 330
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" role="img" aria-label="持琴的三個支撐點">',
         '  <title>持琴的三個支撐點</title>',
@@ -1163,14 +1167,28 @@ def fig_posture():
         t(24, 34, "持琴三點：胸口、右前臂、左手虎口", 15, anchor="start", weight=700),
         t(24, 55, "三個點都只是「靠著」；任何一點用力夾緊，音色會變悶、換和弦也會變慢", 11.5, anchor="start", fill=MUTED),
     ]
-    parts.append(f'<path d="M{cx - 76} 150 C{cx - 130} 168 {cx - 138} 226 {cx - 128} 264 '
-                 f'C{cx - 118} 306 {cx - 82} 330 {cx} 330 C{cx + 82} 330 {cx + 118} 306 {cx + 128} 264 '
-                 f'C{cx + 138} 226 {cx + 130} 168 {cx + 76} 150 Z" fill="{ACCENT_SOFT}" stroke="{INK}" stroke-width="2"/>')
-    parts.append(f'<rect x="{cx - 24}" y="96" width="48" height="70" fill="#EDE3D6" stroke="{INK}" stroke-width="1.6"/>')
-    parts.append(f'<circle cx="{cx}" cy="242" r="26" fill="{BG}" stroke="{INK}" stroke-width="1.5"/>')
-    pts = [("① 胸口", cx - 96, 196, 118, 136),
-           ("② 右前臂", cx + 108, 216, 470, 200),
-           ("③ 左虎口", cx - 24, 110, 150, 96)]
+    # 琴身：直立、有腰身（長約寬 1.25 倍），整體微微向左傾
+    body = (f'M{cx-70} 150 C{cx-92} 168 {cx-86} 196 {cx-72} 216 '
+            f'C{cx-64} 228 {cx-63} 238 {cx-69} 252 '
+            f'C{cx-88} 282 {cx-102} 320 {cx-80} 344 '
+            f'C{cx-58} 366 {cx-22} 370 {cx} 370 '
+            f'C{cx+22} 370 {cx+58} 366 {cx+80} 344 '
+            f'C{cx+102} 320 {cx+88} 282 {cx+69} 252 '
+            f'C{cx+63} 238 {cx+64} 228 {cx+72} 216 '
+            f'C{cx+86} 196 {cx+92} 168 {cx+70} 150 Z')
+    parts.append(f'<g transform="rotate(-8 {cx} 260)">')
+    parts.append(f'<path d="{body}" fill="{ACCENT_SOFT}" stroke="{INK}" stroke-width="2"/>')
+    # 琴頸與琴格（往左上延伸）
+    parts.append(f'<path d="M{cx-22} 150 L{cx+22} 150 L{cx+26} 66 L{cx-18} 66 Z" fill="#EDE3D6" stroke="{INK}" stroke-width="1.4"/>')
+    for n in range(1, 8):
+        y = 66 + (150 - 66) * n / 8
+        parts.append(f'<line x1="{cx-20+n*0.5}" y1="{y:.1f}" x2="{cx+24-n*0.5}" y2="{y:.1f}" stroke="{MUTED}" stroke-width="0.8"/>')
+    parts.append(f'<circle cx="{cx}" cy="252" r="22" fill="{BG}" stroke="{INK}" stroke-width="1.5"/>')
+    parts.append(f'<rect x="{cx-30}" y="318" width="60" height="10" rx="2" fill="#DCCDBB" stroke="{INK}" stroke-width="1"/>')
+    parts.append('</g>')
+    pts = [("① 胸口（琴身背面貼著）", cx - 92, 250, 150, 175),
+           ("② 右前臂（靠在琴身下緣）", cx + 76, 330, 420, 372),
+           ("③ 左虎口（托住琴頸背後）", cx - 12, 96, 150, 96)]
     for label, ax, ay, lx, ly in pts:
         parts.append(f'<path d="M{ax} {ay} L{lx} {ly - 4}" stroke="{MUTED}" stroke-width="1" fill="none"/>')
         parts.append(f'<circle cx="{ax}" cy="{ay}" r="5" fill="{ACCENT}"/>')
