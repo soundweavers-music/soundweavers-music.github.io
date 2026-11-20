@@ -513,6 +513,7 @@ def site_header(page_path):
           <a href="{resolve_url(page_path, '/vocal/')}"><strong>人聲與歌唱</strong>　初階 15 堂・進階 35 堂</a>
           <a href="{resolve_url(page_path, '/digitalmusic/')}"><strong>錄音後製</strong>　基礎 15 堂・進階 15 堂</a>
           <a href="{resolve_url(page_path, '/theory/')}"><strong>樂理基礎</strong>　五階段二十章</a>
+          <a href="{resolve_url(page_path, '/songwriting/')}"><strong>流行歌曲詞曲創作</strong>　{course_chapters('songwriting')} 堂</a>
           <a href="{resolve_url(page_path, '/mandolin/')}"><strong>曼陀林專區</strong>　{course_chapters('mandolin')} 章知識庫</a>
           <a href="{resolve_url(page_path, '/guitar/')}"><strong>流行吉他彈唱指南</strong>　{course_chapters('guitar')} 章</a>
           <a href="{resolve_url(page_path, '/ukulele/')}"><strong>烏克麗麗流行彈唱與演奏</strong>　{course_chapters('ukulele')} 章</a>
@@ -2231,7 +2232,7 @@ def build_sitemap(instruments):
     # Static top-level pages
     for path in ["/", "/instruments/", "/categories/", "/categories/single-instrument/",
                  "/countries/", "/ensembles/", "/subcategories/", "/map/",
-                 "/about/", "/theory/", "/vocal/", "/digitalmusic/",
+                 "/about/", "/theory/", "/vocal/", "/digitalmusic/", "/songwriting/",
                  "/sound-journey/", "/experience/", "/contact/",
                  "/chord-detection/", "/tools/", "/tools/fretboard/", "/tools/fretboard/guide/",
                  "/chord-detection/guide/", "/tools/lrc/", "/tools/lrc/guide/", "/tools/daw/", "/tools/daw/guide/",
