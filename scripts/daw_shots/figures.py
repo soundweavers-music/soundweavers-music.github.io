@@ -111,6 +111,8 @@ FIGS = [
     dict(id="daw-23-tabs", shot="ai", box=[210, 340, 1035, 175], marks=[]),
     dict(id="daw-23-plan", shot="ai-arrange", box=[205, 350, 1045, 520],
          marks=[("r", (225, 400, 620, 60)), ("r", (225, 520, 1010, 150))]),
+    dict(id="daw-23-analyze", shot="ai", box=[210, 385, 1035, 250], marks=[]),
+    dict(id="daw-24-chords", shot="ai-compose", box=[205, 455, 1045, 330], marks=[]),
     dict(id="daw-24-compose", shot="ai-compose", box=[205, 350, 1045, 520], marks=[]),
 
     # ── 第 20 堂：母帶與輸出 ───────────────────────────────
