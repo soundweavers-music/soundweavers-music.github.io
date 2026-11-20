@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" role="img" aria-label="句尾收在哪">
+  <title>句尾收在哪</title>
+  <rect width="760" height="320" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">句尾收在哪</text>
+  <text x="26" y="55" class="ts" font-size="12.5">1、3、5 是穩定音；2、4、6、7 是不穩定音（以 C 大調為例）</text>
+  <text x="26" y="84" class="ts" font-size="12">四句副歌：前三句懸著（逗號），最後一句落地（句號）。</text>  <text x="26" y="136" class="ts" font-size="11.5" font-weight="700">第 1 句</text>  <text x="110" y="136" class="ts" font-size="11.5" font-weight="700" fill="#8C8078">收在 2</text>  <rect x="200" y="116" width="300" height="30" rx="5" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.4"/>  <path d="M210 138 L440 138" class="ink" stroke-dasharray="3 4"/>  <text x="516" y="136" class="ts" font-size="10.5" font-weight="700" fill="#8C8078">不穩定</text>  <text x="596" y="136" class="ts" font-size="10" fill="#8C8078">往前推</text>  <text x="26" y="184" class="ts" font-size="11.5" font-weight="700">第 2 句</text>  <text x="110" y="184" class="ts" font-size="11.5" font-weight="700" fill="#8C8078">收在 4</text>  <rect x="200" y="164" width="300" height="30" rx="5" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.4"/>  <path d="M210 186 L440 186" class="ink" stroke-dasharray="3 4"/>  <text x="516" y="184" class="ts" font-size="10.5" font-weight="700" fill="#8C8078">不穩定</text>  <text x="596" y="184" class="ts" font-size="10" fill="#8C8078">再推一次</text>  <text x="26" y="232" class="ts" font-size="11.5" font-weight="700">第 3 句</text>  <text x="110" y="232" class="ts" font-size="11.5" font-weight="700" fill="#8C8078">收在 6</text>  <rect x="200" y="212" width="300" height="30" rx="5" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.4"/>  <path d="M210 234 L440 234" class="ink" stroke-dasharray="3 4"/>  <text x="516" y="232" class="ts" font-size="10.5" font-weight="700" fill="#8C8078">不穩定</text>  <text x="596" y="232" class="ts" font-size="10" fill="#8C8078">換口氣，但別放掉</text>  <text x="26" y="280" class="ts" font-size="11.5" font-weight="700">第 4 句</text>  <text x="110" y="280" class="ts" font-size="11.5" font-weight="700" fill="#A67C52">收在 1</text>  <rect x="200" y="260" width="300" height="30" rx="5" fill="#F3E4D2" stroke="#D9CFC4" stroke-width="1.4"/>  <path d="M210 282 L488 282" class="ink" stroke-dasharray="3 4"/>  <text x="516" y="280" class="ts" font-size="10.5" font-weight="700" fill="#A67C52">穩定</text>  <text x="596" y="280" class="ts" font-size="10" fill="#8C8078">收住</text>  <text x="26" y="302" class="ts" font-size="10.5" fill="#8C8078">四句都落地會很平，四句都懸著會很飄；前後落差就是「完整」的感覺。</text>
+</svg>

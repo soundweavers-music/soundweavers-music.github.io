@@ -120,12 +120,53 @@ def relativize(html, page_path):
     """
     if page_path is None:
         return html
-    return re.sub(r'href="/(?!/)([^"]*)"',
+    html = re.sub(r'href="/(?!/)([^"]*)"',
                   lambda m: 'href="%s"' % resolve_url(page_path, "/" + m.group(1)), html)
+    # 圖片也一樣：英文頁多一層 /en/，寫死 ../../ 會指到錯的地方
+    return re.sub(r'src="/(?!/)([^"]*)"',
+                  lambda m: 'src="%s"' % resolve_url(page_path, "/" + m.group(1)), html)
 
 
-def page(title, body, page_path=None, extra_head="", meta_description="", og_image=""):
-    desc = meta_description or "世界聲音 by 隔壁織音人：世界樂器百科、人聲與歌唱教學、錄音後製與樂理課程，以及在瀏覽器直接使用的音樂工具——指版和弦圖、自動抓和弦、LRC 歌詞工作室與線上編曲軟體。"
+
+# ── 英文版的外殼 ────────────────────────────────────────────────
+# 英文頁先落地成 /en/<course>/…，導覽列只有英文確實存在的入口，其餘先連到中文頁
+# （工具與百科都還是中文），並在右上角放一個語言切換。
+EN_NAV = [("/en/", "Courses"), ("/instruments/", "Instruments"),
+          ("/ensembles/", "Ensembles"), ("/tools/", "Tools"), ("/about/", "About")]
+
+
+def _lang_switch(page_path, lang):
+    """回中文／去英文的對應頁。英文頁在 /en/x/y/，中文對應就是 /x/y/。"""
+    here = str(page_path or "")
+    if lang == "en":
+        return resolve_url(page_path, "/"), "中文"
+    # 中文頁 → 英文（只做課程，其他頁先回首頁）
+    return resolve_url(page_path, "/en/"), "English"
+
+
+def site_header_en(page_path):
+    nav = "".join(f'<a href="{resolve_url(page_path, href)}">{label}</a>' for href, label in EN_NAV)
+    zh_url, zh_label = _lang_switch(page_path, "en")
+    return f"""  <header class="site-header">
+    <a class="brand" href="{resolve_url(page_path, '/en/')}"><img class="brand-mark" src="{resolve_url(page_path, '/assets/brand/logo.png')}" alt="" width="34" height="34"><span class="brand-text">World Sound</span></a>
+    <nav>{nav}<a href="{zh_url}" hreflang="zh-Hant" lang="zh-Hant">{zh_label}</a></nav>
+  </header>"""
+
+
+def site_footer_en(page_path):
+    return f"""  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>World Sound — world instruments, music courses, and a browser DAW</span>
+      <span>By <a href="https://www.youtube.com/@NextDoorSoundWeavers/" target="_blank" rel="noopener">Next Door Sound Weavers</a></span>
+    </div>
+  </footer>"""
+
+
+def page(title, body, page_path=None, extra_head="", meta_description="", og_image="", lang="zh"):
+    desc = meta_description or ("World Sound by Next Door Sound Weavers: an encyclopedia of world instruments, "
+                                 "plus courses in singing, recording, music theory and songwriting, and browser-based music tools."
+                                 if lang == "en" else
+                                 "世界聲音 by 隔壁織音人：世界樂器百科、人聲與歌唱教學、錄音後製與樂理課程，以及在瀏覽器直接使用的音樂工具——指版和弦圖、自動抓和弦、LRC 歌詞工作室與線上編曲軟體。")
     csp = ("default-src 'self'; img-src 'self' https: data:; "
            "style-src 'self' 'unsafe-inline'; "
            "script-src 'self' 'unsafe-inline'; "
@@ -157,10 +198,19 @@ def page(title, body, page_path=None, extra_head="", meta_description="", og_ima
     "https://www.youtube.com/@NextDoorSoundWeavers/"
   ]
 }}'''
+    html_lang = "en" if lang == "en" else "zh-Hant"
+    site_domain = "https://soundweavers-music.github.io"
+    if lang == "en":
+        en_path = canonical.split(site_domain)[-1] or "/"
+        zh_path = en_path[3:] if en_path.startswith("/en") else en_path
+        hreflang = (f'<link rel="alternate" hreflang="en" href="{site_domain}{en_path}">\n'
+                    f'  <link rel="alternate" hreflang="zh-Hant" href="{site_domain}{zh_path or "/"}">')
+    else:
+        hreflang = ""
     _dm_head = '<script>!function(){try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);else document.documentElement.setAttribute("data-theme","nextdoor")}catch(e){}}()</script>'
     _dm_foot = '<script>(function(){var t=document.getElementById("theme-toggle"),d=document.documentElement;var I={nextdoor:"🎋",light:"🌤",dark:"🌙"};function s(m){d.setAttribute("data-theme",m);if(t)t.textContent=I[m]||"🎋";try{localStorage.setItem("theme",m)}catch(e){}}var v=(localStorage.getItem("theme")||"nextdoor");s(v);if(t)t.addEventListener("click",function(){var c=d.getAttribute("data-theme");s(c==="nextdoor"?"light":c==="light"?"dark":"nextdoor")});})();</script>'
     return f"""<!doctype html>
-<html lang="zh-Hant">
+<html lang="{html_lang}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -174,7 +224,8 @@ def page(title, body, page_path=None, extra_head="", meta_description="", og_ima
   <link rel="canonical" href="{canonical}">
   <meta http-equiv="Content-Security-Policy" content="{csp}">
   <meta name="google-site-verification" content="AzedQ-PxUmSW7_0jyEHmHCKgN2nIK0Bio5d6LCsJTtE">
-  <title>{escape(title) if "|" in title or "｜" in title else escape(title) + "｜世界聲音"}</title>
+  <title>{escape(title) if ("|" in title or "｜" in title or lang == "en") else escape(title) + "｜世界聲音"}</title>
+  {hreflang}
   {_dm_head}
   <link rel="icon" href="{resolve_url(page_path, '/assets/brand/favicon.png')}" type="image/png">
   <link rel="apple-touch-icon" href="{resolve_url(page_path, '/assets/brand/logo.png')}">
@@ -184,9 +235,9 @@ def page(title, body, page_path=None, extra_head="", meta_description="", og_ima
   {extra_head}
 </head>
 <body>
-{_bss().site_header(page_path)}
+{site_header_en(page_path) if lang == "en" else _bss().site_header(page_path)}
   {body}
-{_bss().site_footer(page_path)}
+{site_footer_en(page_path) if lang == "en" else _bss().site_footer(page_path)}
   <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="{resolve_url(page_path, '/assets/search.js')}"></script>
   <script src="{resolve_url(page_path, '/assets/random-instrument.js')}"></script>

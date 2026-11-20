@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 310" role="img" aria-label="唱不順的三種症狀">
+  <title>唱不順的三種症狀</title>
+  <rect width="760" height="310" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">唱不順的三種症狀</text>
+  <text x="26" y="55" class="ts" font-size="12.5">先診斷，再修；三種一起改通常會全改壞</text>
+  <text x="30" y="104" class="ts" font-size="11" font-weight="700" fill="#8C8078">症狀</text>  <text x="300" y="104" class="ts" font-size="11" font-weight="700" fill="#8C8078">原因</text>  <text x="450" y="104" class="ts" font-size="11" font-weight="700" fill="#A67C52">修法</text>  <rect x="26" y="120" width="232" height="40" rx="6" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.4"/>  <text x="40" y="146" class="ts" font-size="11">唱到某個字會卡</text>  <text x="300" y="146" class="ts" font-size="10.5" fill="#8C8078">聲調與旋律打架</text>  <text x="450" y="146" class="ts" font-size="10.5" fill="#A67C52">改那個字的旋律，或換聲調不同的同義字</text>  <rect x="26" y="172" width="232" height="40" rx="6" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.4"/>  <text x="40" y="198" class="ts" font-size="11">唱到一半沒氣</text>  <text x="300" y="198" class="ts" font-size="10.5" fill="#8C8078">換氣點不見了</text>  <text x="450" y="198" class="ts" font-size="10.5" fill="#A67C52">把句子切短，或把某個字改成拖腔</text>  <rect x="26" y="224" width="232" height="40" rx="6" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.4"/>  <text x="40" y="250" class="ts" font-size="11">像講話，不像唱歌</text>  <text x="300" y="250" class="ts" font-size="10.5" fill="#8C8078">整首一路太密</text>  <text x="450" y="250" class="ts" font-size="10.5" fill="#A67C52">在句尾拉長一個字，兩拍到四拍</text>  <text x="26" y="294" class="ts" font-size="10.5" fill="#8C8078">三個症狀對應三種修法，先判斷是哪一種，再動手。</text>
+</svg>

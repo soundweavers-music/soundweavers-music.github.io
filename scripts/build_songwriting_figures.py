@@ -8,6 +8,8 @@
 """
 from __future__ import annotations
 
+import html
+import re
 import sys
 from pathlib import Path
 
@@ -496,11 +498,98 @@ FIGS = [
 ]
 
 
+# ── 英文版 ───────────────────────────────────────────────────
+# 圖是程式畫的，重畫一份英文版最容易走鐘；改成「畫一次中文，再把 <text> 的
+# 內容換成英文」。字典裡沒有的字串會原樣留下，並列在跑完的報告裡。
+EN = {
+    "流行歌的七個零件": "The seven parts of a pop song",
+    "同樣的骨架用了三十年，改變的是包裝，不是順序":
+        "The same skeleton for thirty years: the wrapping changed, not the order",
+    "一首三分鐘的歌，橫軸是時間；色塊的寬度就是它在歌裡佔的長度。":
+        "A three-minute song; the bar is time, and each block is how long that part lasts.",
+    "副歌只佔三分之一": "The chorus is a third of the clock",
+    "但整首歌的記憶度幾乎全部來自這裡——力氣要放在對的地方。":
+        "and nearly all of the memorability comes from here.",
+    "主歌 2 比主歌 1 短": "Verse 2 is shorter than verse 1",
+    "第一次聽需要資訊，第二次聽只需要回到副歌。":
+        "The first listen needs information; the second just wants the chorus.",
+    "橋段可有可無": "The bridge is optional",
+    "換一種情緒用的；沒有橋段不會不成立，只是少了一次對比。":
+        "It exists for contrast; without it the song still works, it just has one fewer turn.",
+    "前奏": "Intro", "主歌 1": "Verse 1", "主歌 2": "Verse 2",
+    "導歌": "Pre", "副歌 1": "Chorus 1", "副歌 2": "Chorus 2", "副歌 3": "Chorus 3",
+    "橋段": "Bridge", "尾奏": "Outro",
+    "三十秒定律": "The thirty-second rule",
+    "粉紅底是前 30 秒；三種結構都在回答同一個問題：怎麼最快給出記憶點":
+        "The tinted band is the first 30 seconds; all three answer one question: how to give them something to remember, fastest.",
+    "使用者平均只給你 30 秒。這 30 秒裡要有東西抓住人。":
+        "Listeners give you about 30 seconds. Something has to grab them inside it.",
+    "一般結構": "Standard", "副歌先唱": "Chorus first", "前奏即鉤子": "Intro is the hook",
+    "前奏 8 小節": "Intro 8 bars", "副歌 1": "Chorus 1",
+    "副歌（清唱）": "Chorus (bare)", "前奏（記憶點）": "Intro (the hook)",
+    "副歌在 0:45 才出現——風險高": "The chorus lands at 0:45 — risky",
+    "一開口就是最強的那八小節": "The strongest eight bars are the first thing you hear",
+    "前奏自己就是一段會記住的旋律": "The intro is itself a melody you remember",
+    "拆歌三步": "Three steps to take a song apart",
+    "一首歌聽三遍，一遍只做一件事": "Listen three times, one job per pass",
+    "① 標段落": "1. Mark sections",
+    "② 標和弦": "2. Mark chords",
+    "③ 標動機": "3. Mark the motif",
+    "聽第一遍，只標「換段落」": "First pass: only mark section changes",
+    "不用術語：聽起來變成": "No terminology: if it sounds like",
+    "另一件事就是了": "a different thing, mark it",
+    "聽第二遍，抓每個段落的": "Second pass: find the chords in each",
+    "和弦。抓不到全部沒關係，": "section. You don't need all of them,",
+    "副歌那幾顆一定要有": "but you must get the chorus",
+    "聽第三遍，把副歌第一句的": "Third pass: draw the pitch shape of",
+    "音高形狀畫出來：往上、": "the chorus's first line — up, down,",
+    "往下、持平": "or flat",
+    "三步都不碰歌詞——你要抓的是骨架，不是內容。":
+        "None of the three touches the lyrics: you want the skeleton, not the content.",
+    "主歌": "Verse", "副歌": "Chorus", "約 3:00": "~3:00",
+}
+
+TEXT_RE = re.compile(r"(<text\b[^>]*>)(.*?)(</text>)", re.S)
+CJK_RE = re.compile(r"[一-鿿]")
+
+
+def translate_svg(svg: str):
+    """把 <text> 的內容換成英文；回傳 (新 svg, 沒翻到的字串)。"""
+    missing = []
+
+    def repl(m):
+        raw = html.unescape(m.group(2)).strip()
+        if not raw or not CJK_RE.search(raw):
+            return m.group(0)
+        en = EN.get(raw)
+        if en is None:
+            missing.append(raw)
+            return m.group(0)
+        return m.group(1) + html.escape(en) + m.group(3)
+
+    return TEXT_RE.sub(repl, svg), missing
+
+
 def main() -> None:
     print("產生詞曲創作示意圖：")
+    en_out = OUT / "en"
+    en_out.mkdir(parents=True, exist_ok=True)
+    untranslated = {}
     for name, fn in FIGS:
-        write(name, fn())
-    print("\n輸出目錄：%s" % OUT.relative_to(BASE_DIR))
+        svg = fn()
+        write(name, svg)
+        en_svg, missing = translate_svg(svg)
+        (en_out / name).write_text(en_svg, encoding="utf-8")
+        if missing:
+            untranslated[name] = missing
+    print("\n中文：%s　英文：%s" % (OUT.relative_to(BASE_DIR), en_out.relative_to(BASE_DIR)))
+    if untranslated:
+        total = sum(len(v) for v in untranslated.values())
+        print("\n還有 %d 條字串沒有英文（會以中文顯示）：" % total)
+        for name, items in untranslated.items():
+            print("  %-24s %s" % (name, "、".join(items[:5])))
+    else:
+        print("\n全部字串都有英文版。")
 
 
 if __name__ == "__main__":
