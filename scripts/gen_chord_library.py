@@ -50,7 +50,7 @@ ESSENTIAL = {
     'aug':  {0, 4, 8},
     'dim':  {0, 3, 6},
     'dim7': {0, 3, 6, 9},
-    'm7b5': {0, 3, 10},
+    'm7b5': {0, 3, 6, 10},   # 半減：b5 是這個和弦的定義音，不能省
     '6':    {0, 4, 9},
     'm6':   {0, 3, 9},
     '9':    {0, 4, 10, 2},
@@ -147,7 +147,12 @@ def assign_fingers(frets):
         return fingers, barre
     f0 = min(f for _, f in pressed)
     at0 = [s for s, f in pressed if f == f0]
-    if len(at0) >= 2:
+    # 什麼時候算「封閉」：一次壓 4 條以上（F、Bm 的食指橫按），
+    # 或同一格壓在不相鄰的弦上（例如 Bm 的第 1、5 弦）。
+    # Em（第 4、5 弦第 2 格）是相鄰的兩條弦 → 兩根手指，不是封閉。
+    contiguous = (max(at0) - min(at0) + 1) == len(at0)
+    lowest = max(i for i, f in enumerate(frets) if f >= 0)   # 最低音弦（索引最大的弦）
+    if len(at0) >= 4 or (len(at0) >= 2 and not contiguous and lowest in at0):
         barre = {'fret': f0, 'from': min(at0), 'to': max(at0)}
         for s in at0:
             fingers[s] = 1
@@ -158,10 +163,14 @@ def assign_fingers(frets):
                 fmap[f] = min(4, nf); nf += 1
             fingers[s] = fmap[f]
     else:
-        order = sorted(set(f for _, f in pressed))
-        fmap = {fr: min(4, i + 1) for i, fr in enumerate(order)}
-        for s, f in pressed:
-            fingers[s] = fmap[f]
+        # 沒有封閉：由低把位往高把位、同一格由低音弦往高音弦，
+        # 依序分到不同的手指（1、2、3、4），不會兩條弦共用一根手指。
+        n = 1
+        for s_, f_ in sorted(pressed, key=lambda x: (x[1], -x[0])):
+            fingers[s_] = min(4, n)
+            n += 1
+        # 只有一組、兩條相鄰弦（Em 022000）：用 1、2 指，跟課程裡
+        # 「G → Em 食指留在第 5 弦第 2 格」的保留指教法一致。
     return fingers, barre
 
 

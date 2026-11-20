@@ -37,6 +37,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install Markdown openpyxl bleach python-docx qrcode pillow
 
+      # 和弦資料（組成音、必備音、簡單把位）先驗一次，壞掉就不要部署
+      - name: Verify chord data
+        run: python scripts/verify_chord_data.py
+
       - name: Build static site
         run: |
           REPO_NAME="${GITHUB_REPOSITORY#*/}"
