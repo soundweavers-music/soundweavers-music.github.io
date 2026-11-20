@@ -43,6 +43,8 @@ COURSES = [
     ("guitar", "流行吉他彈唱指南", "guitar", "[0-9]*.md", 2.0),
     ("ukulele", "烏克麗麗流行彈唱與演奏指南", "ukulele", "[0-9]*.md", 2.0),
     ("daw", "線上編曲製作（DAW）課程", "dawcourse", "[0-9]*.md", 2.0),
+    # 詞曲創作每堂都要真的坐下來寫 30–60 分鐘，練習倍率比純閱讀的課高
+    ("songwriting", "流行歌曲詞曲創作", "songwriting", "[0-9]*.md", 5.0),
 ]
 
 
@@ -82,6 +84,14 @@ def _mandolin() -> tuple[int, float]:
         return len(chapters), sum(bm.study_hours(c) for c in chapters)
     except Exception:
         return 0, 0.0
+
+
+def factor_for(slug: str, default: float = PRACTICE_FACTOR) -> float:
+    """這門課的練習倍率（各課程頁算時數時要用同一個，不然會跟 /learn/ 對不起來）。"""
+    for _k, _name, s, _pattern, factor in COURSES:
+        if s == slug and factor is not None:
+            return factor
+    return default
 
 
 def course_stats(key: str) -> tuple[int, float]:
