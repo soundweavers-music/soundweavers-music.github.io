@@ -10,6 +10,7 @@
 <link rel="canonical" href="https://soundweavers-music.github.io/chord-detection/">
 <script>!function(){try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);else document.documentElement.setAttribute("data-theme","nextdoor")}catch(e){}}()</script>
 <script src="../scripts/_chord_library.js"></script>
+<script src="chord-ai.js"></script>
 <link rel="stylesheet" href="../assets/site.css">
 <style>
 :root { --accent: #C4956A; --accent2: #A67C52; --surface: #fff; --soft: #f8f6f4; --line: #e8e4e0; --ink: #2c2c2c; --muted: #9C8F87; }
@@ -169,6 +170,12 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
   a { color: #000 !important; text-decoration: none !important; }
 }
 @page { size: A4; margin: 15mm 12mm; }
+.ai-mode { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0 4px; }
+.ai-opt { display: block; padding: 10px 14px; border: 1px solid var(--line, #ddd); border-radius: 10px; cursor: pointer; font-size: 14px; line-height: 1.5; background: var(--card, #fff); }
+.ai-opt input { margin-right: 4px; }
+.ai-opt span { display: block; color: var(--muted, #777); font-size: 12.5px; margin-top: 2px; }
+.ai-opt:has(input:checked) { border-color: var(--accent, #b07a3c); box-shadow: 0 0 0 1px var(--accent, #b07a3c) inset; }
+@media (max-width: 640px) { .ai-mode { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -251,6 +258,12 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
   <div class="text">點擊或拖放音檔到此處</div>
   <div class="sub">支援 MP3, WAV, OGG, M4A / 音檔只在瀏覽器內分析，不會上傳</div>
   <input type="file" id="file-input" accept="audio/*" style="display:none;">
+</div>
+
+<!-- 辨識模式 -->
+<div class="ai-mode" id="ai-mode">
+  <label class="ai-opt"><input type="radio" name="detect-mode" value="ai"> <b>AI 精準模式</b>（推薦）<span>用和弦辨識 AI 模型判斷每一拍，七和弦、大七和弦等和弦性質準確很多。第一次使用要下載約 13 MB 的模型，之後瀏覽器會記住。</span></label>
+  <label class="ai-opt"><input type="radio" name="detect-mode" value="dsp"> <b>快速模式</b><span>不需要下載，用頻譜分析直接判斷；根音與大小調一樣準，但七和弦常判錯。</span></label>
 </div>
 
 <!-- Progress bar -->
@@ -719,6 +732,49 @@ async function startAnalysis() {
   await analyzeWithBrowser();
 }
 
+// ---- AI 精準模式（BTC 模型，chord-ai.js）----
+function detectMode() {
+  const el = document.querySelector('input[name="detect-mode"]:checked');
+  return el ? el.value : 'ai';
+}
+(function initDetectMode() {
+  let m = 'ai';
+  try { m = localStorage.getItem('chord.detectMode') || 'ai'; } catch (e) {}
+  const el = document.querySelector('input[name="detect-mode"][value="' + m + '"]') || document.querySelector('input[name="detect-mode"][value="ai"]');
+  if (el) el.checked = true;
+  document.querySelectorAll('input[name="detect-mode"]').forEach(r => r.addEventListener('change', () => {
+    try { localStorage.setItem('chord.detectMode', detectMode()); } catch (e) {}
+    // 已經有音檔：換模式就重新判斷和弦（節拍與小節不變）
+    if (state.audioBuffer && state.chromaStore) reanalyzeChordsForMode();
+  }));
+})();
+
+async function computeAiProbs(buffer) {
+  if (!window.ChordAI) throw new Error('AI 模組沒有載入');
+  return window.ChordAI.framewiseProbs(buffer, ensureOrt, {
+    download: p => setProgress(30 + p * 25, `步驟 2/4：下載 AI 模型 ${Math.round(p * 100)}%（第一次才需要，約 13 MB）`),
+    cqt: p => setProgress(55 + p * 10, '步驟 2/4：AI 聽音高…'),
+    infer: p => setProgress(65 + p * 5, '步驟 2/4：AI 判斷和弦…'),
+  });
+}
+
+async function reanalyzeChordsForMode() {
+  try {
+    if (detectMode() === 'ai' && !state.aiProbs) {
+      setStatus('切換到 AI 精準模式…', 'analyzing');
+      state.aiProbs = await computeAiProbs(state.audioBuffer);
+      setProgressDone();
+    }
+    applyGrid({ decode: true });
+    setStatus(detectMode() === 'ai' ? '已用 AI 精準模式重新判斷和弦。' : '已用快速模式重新判斷和弦。', 'done');
+  } catch (err) {
+    setProgressDone();
+    setStatus('AI 模式失敗，改用快速模式：' + err.message, 'error');
+    const d = document.querySelector('input[name="detect-mode"][value="dsp"]'); if (d) d.checked = true;
+    applyGrid({ decode: true });
+  }
+}
+
 async function analyzeWithBrowser() {
   const buffer = state.audioBuffer;
   if (!buffer) return;
@@ -746,6 +802,14 @@ async function analyzeWithBrowser() {
     setProgress(24, '步驟 2/4：取出音高光譜…');
     await yieldToUI();
     state.chromaStore = await computeChromaFrames(buffer);
+    state.aiProbs = null;
+    if (detectMode() === 'ai') {
+      try { state.aiProbs = await computeAiProbs(buffer); }
+      catch (e) {
+        console.warn('AI 模式失敗，改用快速模式', e);
+        setStatus('AI 模型載入失敗（' + e.message + '），這次先用快速模式。', 'error');
+      }
+    }
 
     // 3. 先從整首 chroma 判調，再拿這一調當先驗去解和弦
     //    （順階和弦加分、常見級數接法打折，避免一拍換一個和弦）
@@ -783,7 +847,8 @@ async function analyzeWithBrowser() {
 
     setProgressDone();
     updateGridHint();
-    setStatus('分析完成！點小節可試聽，按 ✏ 可修正和弦。', 'done');
+    if (detectMode() === 'ai' && !state.aiProbs) setStatus('分析完成（AI 模型沒有載入成功，這次用快速模式；網路正常後按「↻ 重新分析」可改用 AI）。點小節可試聽，按 ✏ 可修正和弦。', 'done');
+    else setStatus((state.aiProbs ? '分析完成（AI 精準模式）！' : '分析完成！') + '點小節可試聽，按 ✏ 可修正和弦。', 'done');
   } catch(err) {
     setProgressDone();
     setStatus('分析失敗：' + err.message, 'error');
@@ -1418,8 +1483,30 @@ function blendProfiles(list, i) {
   return out;
 }
 
+// AI 模式：每拍的候選直接用模型機率（log p），跟頻譜模式共用同一個 Viterbi 與流行歌先驗。
+// score = TAU × log p，於是 Viterbi 裡 (score − max) / TAU 就是模型自己的對數機率差，
+// 順階加分、常見接法的單位（nat）不用重新調。
+function aiObservations(beats, duration) {
+  const TAU = 0.03;
+  const obs = window.ChordAI.beatCandidates(state.aiProbs, beats, duration, 10);
+  let lastGood = null;
+  return obs.map(o => {
+    // 幾乎沒有和聲的拍（只有鼓、靜音）：沿用上一拍，跟頻譜模式同一個原則
+    if (o.noChord > 0.6 && lastGood) return lastGood;
+    const total = o.list.reduce((a, c) => a + c.p, 0) || 1;
+    const cands = o.list.map(c => ({ root: c.root, quality: c.quality, score: TAU * Math.log(Math.max(1e-6, c.p / total)) }));
+    const r = { cands };
+    lastGood = r;
+    return r;
+  });
+}
+
 function decodeChordsForBeats(beats, store, duration, prior) {
   if (!beats.length || !store) return [];
+  if (state.aiProbs && detectMode() === 'ai' && window.ChordAI) {
+    const o = aiObservations(beats, duration); o.aiMode = true;
+    return viterbiDecode(o, prior);
+  }
   const chromas = [];
   const basses = [];
   let lastChroma = null, lastBass = null;
@@ -1505,7 +1592,8 @@ function viterbiDecode(obs, prior) {
 
   // 換和弦的固定代價：5.0 nat。常見級數接法會打折，所以 I-vi-IV-V 這種
   // 進行很便宜，亂跳則要付出全部代價——和弦就不會一拍換一次。
-  const SWITCH_COST = 5.0;
+  // AI 模式：模型本身已經是雙向、有前後文的，只要很小的換和弦代價；頻譜模式維持 5 nat
+  const SWITCH_COST = (prior && prior.switchCost != null) ? prior.switchCost : (obs.aiMode ? 1.0 : 5.0);
   // transLog[from * N + to]：留在原和弦 0 分，換和弦負分
   const transLog = new Float32Array(N * N);
   for (let p = 0; p < N; p++) {

@@ -2920,7 +2920,7 @@ def build_learn_page():
 
     def meta(key):
         c = stats[key]
-        return f"{c['chapters']} 章・建議約 {c['hours']:g} 小時"
+        return f"{c['chapters']} {c.get('unit', '章')}・建議約 {c['hours']:g} 小時"
 
     courses = [
         ("/vocal/", "🎤", "人聲與歌唱", "從發聲啟蒙、身體覺察到混聲技術，系統化的流行歌唱教學，搭配研究專欄深入聲學與製作觀點。", meta("vocal")),
@@ -3177,7 +3177,9 @@ def build_chord_detection_tool():
 
     chord_extra_head = (
         f'<style>{inline_css}</style>\n'
-        f'<script src="{resolve_url(page_dir / "index.html", "/scripts/_chord_library.js")}"></script>'
+        f'<script src="{resolve_url(page_dir / "index.html", "/scripts/_chord_library.js")}"></script>\n'
+        # AI 精準模式（BTC 和弦模型，模型檔在 /assets/chord-ai/，執行引擎用 assets/vendor/vad/ 的 onnxruntime）
+        f'<script src="{resolve_url(page_dir / "index.html", "/chord-detection/chord-ai.js")}"></script>'
     )
 
     body = f'<main class="page">\n{main_content}\n</main>\n' + f'\n<script>{inline_js}</script>\n'
@@ -3194,6 +3196,10 @@ def build_chord_detection_tool():
     # chord-detection/local-agent/ (a Python program) stays in the repo only.
     # The public page must not ask visitors to install or run anything, or
     # connect to localhost: Safe Browsing flagged the site for that pattern.
+
+    ai_js = BASE_DIR / "chord-detection" / "chord-ai.js"
+    if ai_js.exists():
+        shutil.copy2(str(ai_js), str(page_dir / "chord-ai.js"))
 
     # Ensure chord library is in output scripts/ directory
     lib_src = BASE_DIR / "scripts" / "_chord_library.js"
@@ -3797,6 +3803,10 @@ def main():
     vendor_src = BASE_DIR / "assets" / "vendor"
     if vendor_src.exists():
         shutil.copytree(str(vendor_src), str(OUTPUT_DIR / "assets" / "vendor"), dirs_exist_ok=True)
+    # 自動抓和弦 AI 精準模式的模型（BTC，MIT；13 MB，訪客第一次用 AI 模式時才下載）
+    chord_ai = BASE_DIR / "assets" / "chord-ai"
+    if chord_ai.exists():
+        shutil.copytree(str(chord_ai), str(OUTPUT_DIR / "assets" / "chord-ai"), dirs_exist_ok=True)
     write(OUTPUT_DIR / ".nojekyll", "")
     # Copy Google Search Console verification file to output root
     gsc_file = BASE_DIR / "googled81b331c3a5b66a0.html"
