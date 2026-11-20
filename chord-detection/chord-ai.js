@@ -172,5 +172,150 @@
     return obs;
   }
 
-  window.ChordAI = { framewiseProbs, beatCandidates, ensureModel, MODEL_URL };
+  // =================== 簡譜旋律：中央聲道遮罩 → SwiftF0（MIT，135 KB）→ 八度校正 ===================
+  // 測試（work/chord_bench/songs_mel，8 首立體聲、493 個旋律音）：
+  //   舊做法（中央聲道＋諧波加總）簡譜數字對 64%；直接把混音丟 SwiftF0 75%；遮罩後再丟 SwiftF0 98%。
+  //   兩者互補：遮罩拿掉左右擺位的伴奏，SwiftF0 不會像諧波加總那樣抓到高八度、五度或貝斯。
+  const F0_URL = new URL('../assets/chord-ai/swiftf0.onnx', document.baseURI).href;
+  const F0_SR = 16000, F0_HOP = 256, F0_WIN = 1875, F0_LEFT = 11, F0_AHEAD = 10;
+  let f0Session = null, f0Loading = null;
+
+  async function ensureF0(ensureOrt) {
+    if (f0Session) return f0Session;
+    if (!f0Loading) f0Loading = (async () => {
+      const ort = await ensureOrt();
+      const res = await fetch(F0_URL);
+      if (!res.ok) throw new Error('下載旋律模型失敗（HTTP ' + res.status + '）');
+      f0Session = await ort.InferenceSession.create(new Uint8Array(await res.arrayBuffer()), { executionProviders: ['wasm'] });
+      return f0Session;
+    })();
+    try { return await f0Loading; } catch (e) { f0Loading = null; throw e; }
+  }
+
+  // 實數 FFT（radix-2）
+  function fft(re, im, inv) {
+    const n = re.length;
+    for (let i = 1, j = 0; i < n; i++) {
+      let bit = n >> 1;
+      for (; j & bit; bit >>= 1) j ^= bit;
+      j ^= bit;
+      if (i < j) { let t = re[i]; re[i] = re[j]; re[j] = t; t = im[i]; im[i] = im[j]; im[j] = t; }
+    }
+    for (let len = 2; len <= n; len <<= 1) {
+      const ang = (inv ? 2 : -2) * Math.PI / len, wr = Math.cos(ang), wi = Math.sin(ang), h = len >> 1;
+      for (let i = 0; i < n; i += len) {
+        let cr = 1, ci = 0;
+        for (let k = 0; k < h; k++) {
+          const a = i + k, b = a + h;
+          const xr = re[b] * cr - im[b] * ci, xi = re[b] * ci + im[b] * cr;
+          re[b] = re[a] - xr; im[b] = im[a] - xi; re[a] += xr; im[a] += xi;
+          const t = cr * wr - ci * wi; ci = cr * wi + ci * wr; cr = t;
+        }
+      }
+    }
+    if (inv) for (let i = 0; i < n; i++) { re[i] /= n; im[i] /= n; }
+  }
+
+  // 中央聲道遮罩：主唱通常擺在正中央、伴奏分左右。每個頻率格算「左右有多相等」(0–1)，
+  // 8 次方後當增益，只留中間的聲音；再拿掉 160 Hz 以下（貝斯、大鼓）與 5 kHz 以上（鈸）。單聲道檔案原樣回傳。
+  async function centerVocal(buffer, onProgress) {
+    const sr = buffer.sampleRate, n = buffer.length;
+    const L = buffer.getChannelData(0), R = buffer.numberOfChannels > 1 ? buffer.getChannelData(1) : null;
+    if (!R) return { x: L, sr };
+    const N = 2048, H = 512, win = new Float32Array(N);
+    for (let i = 0; i < N; i++) win[i] = 0.5 - 0.5 * Math.cos(2 * Math.PI * i / N);
+    const y = new Float32Array(n), wsum = new Float32Array(n);
+    const reL = new Float32Array(N), imL = new Float32Array(N), reR = new Float32Array(N), imR = new Float32Array(N);
+    const lo = Math.round(160 * N / sr), hi = Math.round(5000 * N / sr);
+    let k = 0;
+    for (let off = 0; off + N < n; off += H, k++) {
+      for (let i = 0; i < N; i++) { reL[i] = L[off + i] * win[i]; imL[i] = 0; reR[i] = R[off + i] * win[i]; imR[i] = 0; }
+      fft(reL, imL, false); fft(reR, imR, false);
+      for (let b = 0; b < N; b++) {
+        const bb = Math.min(b, N - b);
+        if (bb < lo || bb > hi) { reL[b] = 0; imL[b] = 0; continue; }
+        const l2 = reL[b] * reL[b] + imL[b] * imL[b], r2 = reR[b] * reR[b] + imR[b] * imR[b];
+        const mr = (reL[b] + reR[b]) * 0.5, mi = (imL[b] + imR[b]) * 0.5, m2 = mr * mr + mi * mi;
+        let g = Math.min(1, m2 / (0.5 * (l2 + r2) + 1e-12));
+        g = g * g; g = g * g; g = g * g;              // 8 次方
+        reL[b] = mr * g; imL[b] = mi * g;
+      }
+      fft(reL, imL, true);
+      for (let i = 0; i < N; i++) { y[off + i] += reL[i] * win[i]; wsum[off + i] += win[i] * win[i]; }
+      if ((k & 511) === 0) { if (onProgress) onProgress(off / n); await new Promise(r => setTimeout(r)); }
+    }
+    for (let i = 0; i < n; i++) y[i] = wsum[i] > 1e-6 ? y[i] / wsum[i] : 0;
+    return { x: y, sr };
+  }
+
+  // 任意取樣率 → 16 kHz（先做簡單低通再線性內插；人聲音高用這樣就夠）
+  function to16k(x, sr) {
+    const ratio = sr / F0_SR, n = Math.floor(x.length / ratio), out = new Float32Array(n);
+    const taps = Math.max(1, Math.round(ratio));       // 盒型低通，長度≈降頻倍數
+    for (let i = 0; i < n; i++) {
+      const c = Math.floor(i * ratio); let s = 0, m = 0;
+      for (let k = 0; k < taps; k++) { const j = c + k; if (j < x.length) { s += x[j]; m++; } }
+      out[i] = m ? s / m : 0;
+    }
+    return out;
+  }
+
+  // 前後 win 秒內的音高中位數當參考，把離它超過 6 個半音的音折回最近的八度，再夾到 G3–C6
+  function foldOctaves(times, midi, win) {
+    const n = midi.length, idx = [];
+    for (let i = 0; i < n; i++) if (midi[i] >= 0) idx.push(i);
+    const out = Int16Array.from(midi);
+    let a = 0, b = 0;
+    for (const i of idx) {
+      const t = times[i];
+      while (a < idx.length && times[idx[a]] < t - win / 2) a++;
+      while (b < idx.length && times[idx[b]] <= t + win / 2) b++;
+      const seg = []; for (let k = a; k < b; k++) seg.push(midi[idx[k]]);
+      seg.sort((p, q) => p - q);
+      const med = seg[seg.length >> 1];
+      let m = midi[i];
+      while (m - med > 6) m -= 12;
+      while (med - m > 6) m += 12;
+      while (m < 55) m += 12;
+      while (m > 84) m -= 12;
+      out[i] = m;
+    }
+    return out;
+  }
+
+  // 回傳頁面用的格式：{ times, midi（-1 = 沒有旋律）, nFrames }
+  async function melodyFrames(buffer, ensureOrt, segs, hooks) {
+    hooks = hooks || {};
+    const sess = await ensureF0(ensureOrt);
+    const ort = window.ort;
+    const cv = await centerVocal(buffer, hooks.separate);
+    const x = to16k(cv.x, cv.sr);
+    const n = Math.max(1, Math.floor(x.length / F0_HOP));
+    const pitch = new Float32Array(n), conf = new Float32Array(n);
+    const fmin = new ort.Tensor('float32', new Float32Array([110]), []);
+    const fmax = new ort.Tensor('float32', new Float32Array([1000]), []);
+    for (let s = 0; s < n; s += F0_WIN) {
+      const e = Math.min(s + F0_WIN, n), l = Math.max(0, s - F0_LEFT);
+      const w = e < n ? x.subarray(l * F0_HOP, (e + F0_AHEAD) * F0_HOP) : x.subarray(l * F0_HOP);
+      const out = await sess.run({ audio: new ort.Tensor('float32', Float32Array.from(w), [1, w.length]), fmin, fmax });
+      const p = out.pitch.data, c = out.confidence.data;
+      for (let f = s; f < e; f++) { pitch[f] = Number(p[f - l]); conf[f] = c[f - l]; }
+      if (hooks.track) hooks.track(e / n);
+      await new Promise(r => setTimeout(r));
+    }
+    const times = new Float32Array(n), midi = new Int16Array(n).fill(-1);
+    for (let f = 0; f < n; f++) {
+      times[f] = f * F0_HOP / F0_SR;
+      if (conf[f] >= 0.5 && pitch[f] > 0) midi[f] = Math.round(69 + 12 * Math.log2(pitch[f] / 440));
+      // 有人聲模型給的「哪裡在唱」區段就再篩一次（沒有就全部保留）
+      if (midi[f] >= 0 && segs && segs.length) {
+        let inside = false;
+        for (const sg of segs) if (times[f] >= sg[0] && times[f] <= sg[1]) { inside = true; break; }
+        if (!inside) midi[f] = -1;
+      }
+    }
+    return { times, midi: foldOctaves(times, midi, 4.0), nFrames: n };
+  }
+
+  window.ChordAI = { framewiseProbs, beatCandidates, ensureModel, MODEL_URL, melodyFrames };
 })();

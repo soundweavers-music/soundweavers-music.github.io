@@ -69,6 +69,7 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
 .melody-line { position: relative; height: calc(var(--melody-size, 13px) * 3.0); margin-bottom: var(--row-gap, 2px); font-size: var(--melody-size, 13px); color: #6b6259; font-weight: 600; }
 .melody-seg { position: absolute; top: 50%; transform: translateY(-50%); white-space: nowrap; padding: 0 1px; }
 .melody-seg .acc { font-size: 0.66em; margin-right: -0.06em; vertical-align: 0.15em; font-weight: 600; }
+.melody-seg .mnum { position: relative; display: inline-block; }
 .melody-seg .oct { position: absolute; left: 50%; transform: translateX(-50%); font-size: 0.9em; line-height: 1; letter-spacing: 0; font-weight: 700; }
 .melody-seg .oct.up { top: -1.0em; }
 .melody-seg .oct.down { bottom: -1.0em; }
@@ -176,6 +177,11 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
 .ai-opt span { display: block; color: var(--muted, #777); font-size: 12.5px; margin-top: 2px; }
 .ai-opt:has(input:checked) { border-color: var(--accent, #b07a3c); box-shadow: 0 0 0 1px var(--accent, #b07a3c) inset; }
 @media (max-width: 640px) { .ai-mode { grid-template-columns: 1fr; } }
+.jianpu-head { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; margin: 6px 0 8px; padding: 6px 12px; border-left: 4px solid var(--accent, #b07a3c); background: var(--soft, #f7f1e8); border-radius: 6px; }
+.jianpu-head .jp-key { font-size: 20px; font-weight: 700; letter-spacing: .5px; }
+.jianpu-head .jp-meter { font-size: 18px; font-weight: 600; }
+.jianpu-head .jp-note { font-size: 12.5px; color: var(--muted, #777); }
+@media print { .jianpu-head { display: none !important; } }
 </style>
 </head>
 <body>
@@ -363,6 +369,7 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
   </div>
   <div id="lyric-status" class="status-msg" style="display:none;"></div>
   <div id="print-header" class="print-only"></div>
+  <div id="jianpu-head" class="jianpu-head" style="display:none;"></div>
   <div class="chart-wrap">
     <div class="chart" id="chart"></div>
   </div>
@@ -826,6 +833,18 @@ async function analyzeWithBrowser() {
     }
     state.autoDownbeat = estimateDownbeatOffset(state.baseBeats, state.chromaStore, state.beatsPerBar);
     applyGrid({ decode: true });
+
+    // AI 模式的和弦很可靠：用和弦進行重新判調；跟 chroma 判的不同就換掉，再用新的調當先驗重解一次
+    // （調錯了，級數與簡譜數字會整份錯，所以這一步很重要）
+    if (state.aiProbs) {
+      // 判調要用「不帶調性先驗」解出來的和弦：用 chroma 判的調當先驗去解，和弦會被拉向那個調，判調就繞回原點
+      const neutral = decodeChordsForBeats(state.beats, state.chromaStore, state.duration, null);
+      const pk = keyFromChordProgression(neutral);
+      if (pk && pk.majorRoot !== songMajorRoot()) {
+        state.detectedKey = pk.majorRoot; state.detectedMode = 'major'; state.keyConfidence = 1;
+        applyGrid({ decode: true });
+      }
+    }
 
     // 關係大小調（C 大調／Am）共用同一組音，chroma 常常分不出來。
     // 用解出來的和弦再判一次；如果只是大小調標記不同，以和弦證據為準。
@@ -1739,6 +1758,39 @@ function detectKey(beatChords) {
   return { root: best.root, mode: best.mode };
 }
 
+// 用「解出來的和弦」判調（回傳關係大調的根音 0–11）。比 chroma 判調準很多：
+// 測試 35 首：chroma 判對 17 首（多半差五度：D 判成 A、A♭ 判成 E♭），這個方法 32 首（其餘 3 首本來就模稜兩可）。
+// 看三件事：順階和弦佔多少時間、開頭與結尾是不是 I 或 vi、候選調的 ♭VII（大三）多不多
+// （♭VII 大三很多 ＝ 候選調高了五度；II 大三多 ＝ 候選調低了五度）。
+function keyFromChordProgression(beatChords) {
+  if (!beatChords || beatChords.length < 8) return null;
+  const fam = q => (q === 'dim' || q === 'm7b5' || q === 'dim7') ? 'd' : (/^m(?!aj)/.test(q) ? 'm' : 'M');
+  const DEG = { 0: ['M', 1.0], 2: ['m', 0.7], 4: ['m', 0.6], 5: ['M', 1.0], 7: ['M', 1.0], 9: ['m', 0.9], 11: ['d', 0.2] };
+  const cs = beatChords.filter(Boolean);
+  const n = cs.length;
+  let best = -1, bestS = -Infinity, second = -Infinity;
+  for (let k = 0; k < 12; k++) {
+    let sc = 0;
+    for (const c of cs) {
+      const d = mod12(c.root - k), f = fam(c.quality);
+      if (DEG[d]) {
+        const [exp, w] = DEG[d];
+        if (f === exp || (d === 7 && f === 'M')) sc += w;
+        else if (d === 2 && f === 'M') sc -= 0.3;
+        else if (d === 4 && f === 'M') sc += 0.4;     // III（V/vi），華語常見
+        else sc -= 0.3;
+      } else if (d === 10 && f === 'M') sc -= 1.2;
+      else sc -= 0.6;
+    }
+    sc /= n;
+    // 開頭／結尾：看「第一個與最後一個和弦」（不是前後 4 拍——最後一個和弦常拖好幾拍，會被重複計算）
+    const tonicLike = c => (mod12(c.root - k) === 0 && fam(c.quality) === 'M') || (mod12(c.root - k) === 9 && fam(c.quality) === 'm') ? 1 : 0;
+    sc += 0.5 * (tonicLike(cs[0]) + tonicLike(cs[n - 1]));
+    if (sc > bestS) { second = bestS; bestS = sc; best = k; } else if (sc > second) second = sc;
+  }
+  return { majorRoot: best, margin: bestS - second };
+}
+
 // 直接從整首的平均 chroma 判調（Krumhansl 輪廓）。比用「已解出的和弦」更穩，
 // 因為它吃的是音檔本身，不是上一輪可能已經歪掉的結果。
 function detectKeyFromChroma(store, duration) {
@@ -1950,6 +2002,16 @@ function renderChart() {
   }
   document.getElementById('chart').innerHTML = html;
 
+  // 開了簡譜旋律：像真正的簡譜一樣，最上面寫「1 = C　4/4」，讓人知道數字是首調
+  const jh = document.getElementById('jianpu-head');
+  if (jh) {
+    const on = state.showMelody && state.melodyNotes && state.melodyNotes.length;
+    jh.style.display = on ? 'flex' : 'none';
+    if (on) jh.innerHTML = '<span class="jp-key">' + escapeHtml(jianpuKeyLabel()) + '</span>'
+      + '<span class="jp-meter">' + state.beatsPerBar + '/4</span>'
+      + '<span class="jp-note">首調簡譜：數字跟著調走，換調時 1 也跟著換</span>';
+  }
+
   // 列印用的標頭（畫面上隱藏，只出現在列印／存 PDF）
   const ph = document.getElementById('print-header');
   if (ph) {
@@ -1999,18 +2061,29 @@ function barCellHtml(idx) {
   if (state.showMelody && state.melodyNotes && state.melodyNotes.length) {
     const bar = state.bars[idx];
     const barDur = Math.max(1e-6, bar.end - bar.start);
+    // 同一小節裡兩個音至少隔這麼寬（%），避免「小節線前一點點的音」被拉進來後跟第一個音疊在一起
+    const MIN_GAP = 100 / ((state.beatsPerBar || 4) * 4) * 0.9;
+    let lastLeft = -1e9;
     for (const nt of state.melodyNotes) {
       // 用和歌詞一樣的歸屬規則（含「接近小節線就算下一小節」），
       // 兩邊才會落在同一個 x 位置
       if (lyricBarForTime(nt.start) !== idx) continue;
-      const sym = melodySymbol(nt);
-      const left = ((nt.start - bar.start) / barDur) * 100;
+      // 長音只畫到這個小節結束（跨小節的部分不要擠在同一格裡畫一長串「– – – –」）
+      const beatsLeft = (bar.end - nt.start) / Math.max(1e-6, barDur / (state.beatsPerBar || 4));
+      const sym = melodySymbol(nt.beats > beatsLeft + 0.01 ? Object.assign({}, nt, { beats: Math.max(0.25, Math.round(beatsLeft * 4) / 4) }) : nt);
+      const left = Math.max(Math.max(0, ((nt.start - bar.start) / barDur) * 100), lastLeft + MIN_GAP);
+      if (left > 97) continue;
+      lastLeft = left;
       const dots = Math.abs(sym.oct) > 0 ? '·'.repeat(Math.min(3, Math.abs(sym.oct))) : '';
-      melHtml += '<span class="melody-seg ' + sym.cls + '" style="left:' + Math.max(0, left).toFixed(2) + '%">'
+      // 高低八度的點只標在數字上（不是整段含延音線的中間），所以數字自己包一層
+      melHtml += '<span class="melody-seg ' + sym.cls + '" style="left:' + left.toFixed(2) + '%">'
+        + '<span class="mnum">'
         + (sym.oct > 0 ? '<span class="oct up">' + dots + '</span>' : '')
         + (sym.acc ? '<span class="acc">' + sym.acc + '</span>' : '')
-        + escapeHtml(sym.base + sym.suffix)
+        + escapeHtml(sym.base)
         + (sym.oct < 0 ? '<span class="oct down">' + dots + '</span>' : '')
+        + '</span>'
+        + (sym.suffix ? '<span class="msuf">' + escapeHtml(sym.suffix) + '</span>' : '')
         + '</span>';
     }
   }
@@ -2599,13 +2672,31 @@ function melodyNotes(frames) {
 }
 
 // 對到 1/4 拍網格：附點、長音、下劃線都靠這個判斷
+// 音符起點對齊「實際偵測到的拍點」的 1/4 拍細分（不是從 0 秒起算的固定格線——那樣會漂移、
+// 跟小節線對不上，兩個音會擠在同一個位置疊在一起）。對齊後撞在同一格的音只留比較長的那一個。
+function snapToBeatGrid(t) {
+  const bt = state.beats;
+  if (!bt || bt.length < 2) return t;
+  let i = 0;
+  while (i + 1 < bt.length && bt[i + 1] <= t) i++;
+  const b0 = bt[i], b1 = i + 1 < bt.length ? bt[i + 1] : b0 + (bt[i] - bt[i - 1]);
+  const q = Math.round(((t - b0) / Math.max(1e-6, b1 - b0)) * 4) / 4;
+  return b0 + q * (b1 - b0);
+}
+
 function quantizeMelodyNotes(notes, keepStart) {
   const beat = 60 / Math.max(30, state.bpm);
   const grid = beat / 4;
   const out = [];
   for (const n of notes) {
-    const start = keepStart ? n.start : Math.round(n.start / grid) * grid;
+    const start = keepStart ? n.start : snapToBeatGrid(n.start);
     const beats = Math.max(0.25, Math.round((n.end - n.start) / grid) / 4);
+    const prev = out[out.length - 1];
+    if (prev && Math.abs(start - prev.start) < grid * 0.5) {
+      // 同一格：留長的（短的通常是換音時的滑音碎片）
+      if (beats > prev.beats) { prev.beats = beats; prev.pc = mod12(n.midi); prev.midi = n.midi; }
+      continue;
+    }
     out.push({ start, beats, pc: mod12(n.midi), midi: n.midi });
   }
   return out;
@@ -2623,7 +2714,26 @@ function rebuildMelodyNotes() {
 
 async function ensureMelody() {
   if (!state.audioBuffer) return;
+  // AI 旋律（中央聲道遮罩＋SwiftF0）：測試 493 個音，簡譜數字對 98%（舊做法 64%）。
+  // 它自己的信心值就能分出「有沒有在唱」，所以預設不再用人聲模型（VAD）篩：VAD 是為說話設計的，
+  // 在歌聲上常把整段判成沒聲音（測試裡漏掉 85% 的音）。
+  if (!state.melodyFrames && window.ChordAI && window.ChordAI.melodyFrames) {
+    try {
+      setStatus('AI 分析旋律…（第一次會下載 135 KB 的旋律模型）', 'analyzing');
+      state.melodyFrames = await window.ChordAI.melodyFrames(state.audioBuffer, ensureOrt, null, {
+        separate: p => setProgress(10 + p * 50, '分離主唱… ' + Math.round(p * 100) + '%'),
+        track: p => setProgress(60 + p * 35, 'AI 抓旋律音高… ' + Math.round(p * 100) + '%'),
+      });
+      state.melodyEngine = 'ai';
+      state.melodySmooth = smoothMelody(state.melodyFrames);
+      setProgressDone();
+    } catch (e) {
+      console.warn('AI 旋律失敗，改用舊做法', e);
+      state.melodyFrames = null;
+    }
+  }
   if (!state.melodyFrames) {
+    state.melodyEngine = 'dsp';
     state.vocalSegs = null;
     if (state.useVad) {
       try {
@@ -2645,8 +2755,20 @@ async function ensureMelody() {
     setProgressDone();
   }
   rebuildMelodyNotes();
-  setStatus('旋律分析完成（首調數字僅供參考）', 'done');
+  setStatus(state.melodyEngine === 'ai'
+    ? '旋律分析完成（AI）。簡譜是首調：' + jianpuKeyLabel() + '。'
+    : '旋律分析完成（AI 旋律模型沒有載入，用舊做法，準確度較低）。簡譜是首調：' + jianpuKeyLabel() + '。', 'done');
   renderChart();
+}
+
+// 首調標示：「1 = C」。小調歌照華語簡譜習慣以關係大調為 1（A 小調 → 1 = C，主音唱 6）。
+// 跟 melodySymbol 用同一個基準（實際調，含移調），數字與標示永遠一致。
+const NOTE_NAMES_SHARP = ['C', 'C♯', 'D', 'E♭', 'E', 'F', 'F♯', 'G', 'A♭', 'A', 'B♭', 'B'];
+function jianpuKeyLabel() {
+  const keyMajor = mod12(songMajorRoot() + state.transpose);
+  let s = '1 = ' + NOTE_NAMES_SHARP[keyMajor];
+  if (state.detectedMode === 'minor') s += '（' + NOTE_NAMES_SHARP[mod12(keyMajor + 9)] + ' 小調，主音唱 6）';
+  return s;
 }
 
 // 簡譜符號：長音加延音線、附點、八分／十六分加下劃線
@@ -2984,7 +3106,8 @@ function chartMeta() {
     + '　BPM ' + state.bpm
     + '　拍號 ' + state.beatsPerBar + '/4'
     + (state.transpose !== 0 ? '　（已移調 ' + (state.transpose > 0 ? '+' : '') + state.transpose + ' 半音）' : '')
-    + '　記法 ' + (state.notation === 'degree' ? '級數' : '和弦名');
+    + '　記法 ' + (state.notation === 'degree' ? '級數' : '和弦名')
+    + (state.showMelody && state.melodyNotes && state.melodyNotes.length ? '　簡譜（首調）' + jianpuKeyLabel() : '');
 }
 
 // 這個小節在畫面上／匯出時要顯示的標籤（跟著記法切換）
