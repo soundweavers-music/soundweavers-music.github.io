@@ -66,6 +66,26 @@ try:
 except Exception:                                        # 找不到就用空的
     EXTRA_TUNING = {}
 
+# 教科書基本指型（第二個參考來源：各樂器通用教材）。按格一律第 1 弦在前，-1 不彈。
+TEXTBOOK = {
+    ("標準調弦 Standard", "C"): [0, 1, 0, 2, 3, -1],
+    ("標準調弦 Standard", "G"): [3, 0, 0, 0, 2, 3],
+    ("標準調弦 Standard", "D"): [2, 3, 2, 0, -1, -1],
+    ("標準調弦 Standard", "A"): [0, 2, 2, 2, 0, -1],
+    ("標準調弦 Standard", "E"): [0, 0, 1, 2, 2, 0],
+    ("標準調弦 Standard", "Am"): [0, 1, 2, 2, 0, -1],
+    ("標準調弦 Standard", "Em"): [0, 0, 0, 2, 2, 0],
+    ("標準調弦 Standard", "Dm"): [1, 3, 2, 0, -1, -1],
+    ("標準調弦 Standard", "C7"): [0, 1, 3, 2, 3, -1],
+    ("標準調弦 Standard", "G7"): [1, 0, 0, 0, 2, 3],
+    ("標準 (高音 GCEA)", "C"): [3, 0, 0, 0],
+    ("標準 (高音 GCEA)", "G"): [2, 3, 2, 0],
+    ("標準 (高音 GCEA)", "Am"): [0, 0, 0, 2],
+    ("標準 (高音 GCEA)", "F"): [0, 1, 0, 2],
+    ("標準 (高音 GCEA)", "Em"): [2, 3, 4, 0],
+    ("標準 (高音 GCEA)", "Dm"): [0, 1, 2, 2],
+}
+
 # 這幾個和弦是初學者最先學的，把位要簡單：不用封閉、按弦不超過 3 根
 # F 與 C7 本來就需要封閉／第四根手指，不算「應該簡單」
 SIMPLE = {(0, "maj"): "C G D A E", (0, "m"): "Am Em Dm", (0, "7"): "D7 E7 G7"}
@@ -231,6 +251,28 @@ def md_name_to_key(name: str):
     return key
 
 
+def check_textbook(problems) -> None:
+    """基本和弦要跟教科書的標準指型一致（第二個獨立參考來源）。"""
+    src = LIB.read_text(encoding="utf-8")
+    lib = json.loads(src[src.find("{"): src.rfind("}") + 1])
+    by_tuning = {}
+    for inst in ("0", "2"):
+        for tuning, table in lib[inst].items():
+            by_tuning.setdefault(tuning, {}).update(table)
+    for (tuning, name), frets in TEXTBOOK.items():
+        table = by_tuning.get(tuning)
+        if not table:
+            continue
+        root, qual = name_pcs(name)
+        entry = table.get(f"{root}:{qual}")
+        if not entry:
+            problems.append(f"[教科書] {tuning} {name}：資料庫沒有這個和弦")
+            continue
+        if entry["frets"] != frets:
+            problems.append(f"[教科書] {tuning} {name}：資料庫是 {entry['frets']}，"
+                            f"教科書標準指型是 {frets}")
+
+
 def check_simple(problems) -> None:
     """初學和弦優先給簡單把位：按弦 ≤3 根、不是封閉。"""
     src = LIB.read_text(encoding="utf-8")
@@ -257,6 +299,7 @@ def main() -> int:
     n_u = check_ukulele_course(problems)
     n_md = check_markdown(problems)
     check_simple(problems)
+    check_textbook(problems)
     print(f"檢查：函式庫 {n_lib} 條、吉他課程 {n_g} 條、烏克麗麗課程 {n_u} 條、"
           f"指法表 {n_md} 列")
     if problems:
