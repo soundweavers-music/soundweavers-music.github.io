@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" role="img" aria-label="垂音、勾音與滑音三種圓滑音">
-  <title>垂音、勾音、滑音</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" role="img" aria-label="錘音、勾音與滑音三種圓滑音">
+  <title>錘音、勾音、滑音</title>
   <rect width="640" height="320" fill="#FBF8F4"/>
 <text x="26" y="34" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="16" fill="#3D3229" text-anchor="start" font-weight="700">圓滑音三兄弟：右手只撥第一下</text>
 <text x="26" y="55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#8C8078" text-anchor="start">第二個音不靠右手，是靠左手敲、勾、滑出來的，所以聽起來像人聲的轉音</text>
-<text x="119.0" y="96" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle" font-weight="700">垂音 Hammer-on</text>
+<text x="119.0" y="96" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#3D3229" text-anchor="middle" font-weight="700">錘音 Hammer-on</text>
 <line x1="26" y1="150" x2="212" y2="150" stroke="#3D3229" stroke-width="1.2" opacity=".45"/>
 <rect x="50" y="141" width="20" height="18" fill="#FBF8F4"/>
 <text x="60" y="155" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="15" fill="#A67C52" text-anchor="middle" font-weight="700">0</text>
