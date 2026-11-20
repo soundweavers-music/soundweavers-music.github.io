@@ -548,6 +548,7 @@ def site_header(page_path):
           <a href="{resolve_url(page_path, '/contact/')}">聯絡我們</a>
         </div>
       </div>
+      <a href="{resolve_url(page_path, '/en/')}" hreflang="en" lang="en" class="nav-lang">EN</a>
     </nav>
     <button id="theme-toggle" class="theme-toggle" aria-label="切換色調">🎋</button>
   </header>

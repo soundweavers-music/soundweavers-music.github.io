@@ -56,7 +56,8 @@ COURSES = [
         "slug": "digitalmusic", "name": "Recording and Mixing", "eyebrow": "Recording", "icon": "🎚",
         "lead": "From a bedroom setup to a finished master: tracking, editing, EQ, compression, "
                 "reverb, and what each genre actually needs.",
-        "factor": 2.0,
+        # 1.75 而不是 2.0：英文稿比中文長，用 2.0 會算出 20 小時，中文站寫的是 17.5
+        "factor": 1.75,
         "groups": [("Foundations", 1, 15), ("Advanced", 16, 30)],
     },
     {
@@ -84,7 +85,8 @@ COURSES = [
         "slug": "mandolin", "name": "Mandolin", "eyebrow": "Mandolin", "icon": "🎻",
         "lead": "The instrument, the holding position, the tunings and the repertoire — "
                 "a complete course for a small instrument with a long history.",
-        "factor": 2.0,
+        # 中文站曼陀林用 2.5 的倍率（技法章節練得更久），英文版跟著用同一個
+        "factor": 2.5,
         "groups": [],
     },
     {
