@@ -22,7 +22,22 @@ LIB = BASE / "scripts" / "_chord_library.js"
 OUT = BASE / "content" / "chord"
 
 NOTE = ["C", "C♯", "D", "D♯", "E", "F", "F♯", "G", "G♯", "A", "A♯", "B"]
-META = {
+try:                       # 樂器名稱與索引直接跟產生器要，新增樂器不用改這支
+    import gen_chord_library as _gcl
+    _NAMES = dict(_gcl.TOOL_INSTRUMENTS)
+except Exception:
+    _NAMES = {}
+
+
+def _slug(name: str, idx: str) -> str:
+    import re as _re
+    latin = _re.findall(r"[A-Za-z][A-Za-z0-9 ]*", name)
+    if latin:
+        return _re.sub(r"[^a-z0-9]+", "-", latin[-1].strip().lower()).strip("-")
+    return f"inst{idx}"
+
+
+META = {str(idx): (name, _slug(name, str(idx))) for idx, name in _NAMES.items()} or {
     "0": ("吉他 Guitar", "guitar"),
     "2": ("烏克麗麗 Ukulele", "ukulele"),
     "3": ("班卓琴 Banjo", "banjo"),

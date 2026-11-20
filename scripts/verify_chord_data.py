@@ -60,11 +60,14 @@ TUNING = {
 # 同一件樂器可能有其他調弦；基準音高直接跟產生器要，避免兩邊不同步
 try:
     import gen_chord_library as _gcl
-    EXTRA_TUNING = {(inst, name): list(reversed(base))   # 產生器是「第 1 弦在前」
-                    for inst, extras in _gcl.EXTRA_TUNINGS.items()
-                    for name, base in extras}
+    # 全部樂器／調弦的基準音高都跟產生器要（它讀的是指板頁面的資料）
+    EXTRA_TUNING = {(idx, name): list(reversed(base))
+                    for idx, lst in _gcl.TOOL_TUNINGS.items()
+                    for name, base in lst}
+    INST_NAMES = dict(_gcl.TOOL_INSTRUMENTS)
 except Exception:                                        # 找不到就用空的
     EXTRA_TUNING = {}
+    INST_NAMES = {}
 
 # 教科書基本指型（第二個參考來源：各樂器通用教材）。按格一律第 1 弦在前，-1 不彈。
 TEXTBOOK = {
@@ -144,26 +147,31 @@ def check_library(problems) -> int:
     n = 0
     for inst_s, by_tuning in lib.items():
         inst = int(inst_s)
-        if inst not in TUNING:
-            continue
+        first_tuning = next(iter(by_tuning), None)
         for tuning_name, table in by_tuning.items():
-            base = EXTRA_TUNING.get((inst, tuning_name), TUNING[inst][1])
+            base = EXTRA_TUNING.get((inst, tuning_name))
+            if base is None:
+                base = TUNING.get(inst, ("", []))[1]
+            if not base:
+                continue
+            iname = INST_NAMES.get(inst, TUNING.get(inst, ("", ""))[0])
+            tag = iname + ("" if tuning_name == first_tuning else f" · {tuning_name}")
             for key, entry in table.items():
                 root_s, rest = key.split(":")
                 qual, _, bass_s = rest.partition("/")
                 name = NOTE[int(root_s)] + ("" if qual == "maj" else qual)
                 if bass_s:
                     name += "/" + NOTE[int(bass_s)]
-                tag = TUNING[inst][0] + (f" · {tuning_name}" if (inst, tuning_name) in EXTRA_TUNING else "")
                 check(f"[函式庫 {tag}]", name, entry["frets"], base, problems, high_first=True)
-                if bass_s:   # 斜線和弦：最低音必須是指定的那個音
-                    low = min(base[len(base) - 1 - i] + f
-                              for i, f in enumerate(entry["frets"]) if f is not None and f >= 0)
-                    if low % 12 != int(bass_s):
-                        problems.append(f"[函式庫 {tag}] {name}：最低音是 {NOTE[low % 12]}，"
-                                        f"不是標示的低音")
+                if bass_s:      # 斜線和弦：最低音必須是指定的那個音
+                    sounds = [base[len(base) - 1 - i] + f
+                              for i, f in enumerate(entry["frets"]) if f is not None and f >= 0]
+                    if sounds and min(sounds) % 12 != int(bass_s):
+                        problems.append(f"[函式庫 {tag}] {name}：最低音是 "
+                                        f"{NOTE[min(sounds) % 12]}，不是標示的低音")
                 for alt in entry.get("alts", []):
-                    check(f"[函式庫 {tag} 其他把位]", name, alt["frets"], base, problems, high_first=True)
+                    check(f"[函式庫 {tag} 其他把位]", name, alt["frets"], base,
+                          problems, high_first=True)
                 n += 1
     return n
 
