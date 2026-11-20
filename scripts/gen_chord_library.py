@@ -355,10 +355,9 @@ def solve_bass(base, root, quality, bass, max_mute, limit=2):
         if muted > max_mute or (n - muted) < 3:
             continue
         fretted = [f for f in combo if f > 0]
-        if fretted:
-            span = max(fretted) - min(fretted)
-            if span > 3:
-                continue
+        span = (max(fretted) - min(fretted)) if fretted else 0
+        if span > 3:
+            continue
         if not valid_shape(list(combo), base, root, quality, (bass % 12,)):
             continue
         if bass_pc(list(combo), base) != bass % 12:
@@ -447,11 +446,13 @@ def build():
                     n2 += 1
             stats[f"{idx}:{tuning_name2}"] = (n2, n2)
 
-        # 斜線和弦（C/E、G/B…）：只做標準調弦，常見四種品質 + 和弦音當低音
-        if idx in (0, 2):
-            tuning_name0 = INSTRUMENTS[idx][0]
-            table0 = lib[str(idx)][tuning_name0]
-            n_slash = 0
+        # 斜線和弦（C/E、G/B…）：每一種調弦都收，常見四種品質 + 和弦音當低音
+        slash_targets = [(INSTRUMENTS[idx][0], base)] + list(EXTRA_TUNINGS.get(idx, []))
+        n_slash = 0
+        for tuning_name0, base0 in slash_targets:
+            table0 = lib[str(idx)].get(tuning_name0)
+            if table0 is None:
+                continue
             for root in range(12):
                 for q in ("maj", "m", "7", "m7"):
                     tones = {(root + iv) % 12 for iv in QUAL[q]} - {root}
@@ -460,7 +461,7 @@ def build():
                     if q == "maj":
                         tones.add((root + 2) % 12)      # 9 度當低音：F/G 這類
                     for b in sorted(tones):
-                        vs = solve_bass(base, root, q, b, MAX_MUTE[idx], limit=2)
+                        vs = solve_bass(base0, root, q, b, MAX_MUTE[idx], limit=2)
                         if not vs:
                             continue
                         entry = dict(vs[0])
@@ -468,6 +469,7 @@ def build():
                             entry["alts"] = vs[1:]
                         table0[f"{root}:{q}/{b}"] = entry
                         n_slash += 1
+        if n_slash:
             stats[f"{idx}:slash"] = (n_slash, n_slash)
     return lib, stats
 

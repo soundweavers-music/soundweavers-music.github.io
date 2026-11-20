@@ -1,47 +1,35 @@
-# 和弦指法資料庫索引 Chord Library Index
+# 和弦資料庫索引
 
-網頁可參考此索引及各樂器 `.md` 檔，確認某和弦是否已在資料庫中。
+> 由 `scripts/gen_chord_md.py` 產生；詳細指法在各自的檔案。
 
-## 收錄樂器
+## 吉他 Guitar（[guitar.md](guitar.md)）
+- 標準調弦 Standard：330 個（含斜線 156）
+- Drop D：322 個（含斜線 156）
+- Drop C：322 個（含斜線 156）
+- Open D：328 個（含斜線 156）
+- Open G：327 個（含斜線 156）
+- Open C：328 個（含斜線 156）
+- DADGAD：320 個（含斜線 156）
+- Half-step Down：324 個（含斜線 156）
+- Full-step Down：324 個（含斜線 156）
+- Nashville Tuning：324 個（含斜線 156）
 
-- [吉他 Guitar](guitar.md) — 180 個指型
-  - 調弦：標準調弦 Standard
-  - 收錄根音：C · C♯ · D · D♯ · E · F · F♯ · G · G♯ · A · A♯ · B
-  - 收錄和弦類型：6 · 7 · 9 · add9 · aug · dim · dim7 · m · m6 · m7 · m7b5 · maj · maj7 · sus2 · sus4
+## 烏克麗麗 Ukulele（[ukulele.md](ukulele.md)）
+- 標準 (高音 GCEA)：331 個（含斜線 151）
+- Low G：336 個（含斜線 156）
+- D 調 (ADF♯B)：331 個（含斜線 151）
+- Baritone (DGBE)：336 個（含斜線 156）
 
-- [烏克麗麗 Ukulele](ukulele.md) — 180 個指型
-  - 調弦：標準 (高音 GCEA)
-  - 收錄根音：C · C♯ · D · D♯ · E · F · F♯ · G · G♯ · A · A♯ · B
-  - 收錄和弦類型：6 · 7 · 9 · add9 · aug · dim · dim7 · m · m6 · m7 · m7b5 · maj · maj7 · sus2 · sus4
+## 班卓琴 Banjo（[banjo.md](banjo.md)）
+- 標準 Open G (5弦)：316 個（含斜線 156）
+- Open C：316 個（含斜線 156）
+- Double C：301 個（含斜線 156）
+- Double D：327 個（含斜線 156）
+- Sawmill：321 個（含斜線 156）
+- Irish (4弦)：325 個（含斜線 145）
 
-- [班卓琴 Banjo](banjo.md) — 180 個指型
-  - 調弦：標準 Open G (5弦)
-  - 收錄根音：C · C♯ · D · D♯ · E · F · F♯ · G · G♯ · A · A♯ · B
-  - 收錄和弦類型：6 · 7 · 9 · add9 · aug · dim · dim7 · m · m6 · m7 · m7b5 · maj · maj7 · sus2 · sus4
+## 曼陀林 Mandolin（[mandolin.md](mandolin.md)）
+- 標準：332 個（含斜線 152）
+- 跨弦標準 (CGDA)：332 個（含斜線 152）
+- Open G：288 個（含斜線 122）
 
-- [曼陀林 Mandolin](mandolin.md) — 180 個指型
-  - 調弦：標準
-  - 收錄根音：C · C♯ · D · D♯ · E · F · F♯ · G · G♯ · A · A♯ · B
-  - 收錄和弦類型：6 · 7 · 9 · add9 · aug · dim · dim7 · m · m6 · m7 · m7b5 · maj · maj7 · sus2 · sus4
-
-## 和弦類型代碼對照
-
-| 代碼 | 中文名稱 | 後綴 |
-|------|---------|------|
-| `maj` | 大三和弦 |  |
-| `m` | 小三和弦 | m |
-| `7` | 屬七和弦 | 7 |
-| `maj7` | 大七和弦 | maj7 |
-| `m7` | 小七和弦 | m7 |
-| `6` | 大六和弦 | 6 |
-| `m6` | 小六和弦 | m6 |
-| `9` | 屬九和弦 | 9 |
-| `sus2` | 掛留二和弦 | sus2 |
-| `sus4` | 掛留四和弦 | sus4 |
-| `add9` | 加九和弦 | add9 |
-| `aug` | 增三和弦 | aug |
-| `dim` | 減三和弦 | dim |
-| `dim7` | 減七和弦 | dim7 |
-| `m7b5` | 半減七和弦 | m7b5 |
-
-> 最後更新：2026-11-20
