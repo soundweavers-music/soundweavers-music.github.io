@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 302" role="img" aria-label="第一類：聲音的三維空間（高低、大小、長相）">
+  <title>第一類：聲音的三維空間（高低、大小、長相）</title>
+  <rect width="660" height="302" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">Type 1: the three dimensions of sound (pitch, loudness, timbre)</text>
+  <text x="26" y="55" class="ts" font-size="12.5">The terms in this group, in plain words</text>
+  <rect x="26" y="96" width="300" height="82" rx="9" fill="#F3E9DC" stroke="#D9CFC4" stroke-width="1.4"/>  <circle cx="42" cy="118" r="10" fill="#A67C52"/>  <text x="42" y="122" text-anchor="middle" class="num">1</text>  <text x="62" y="123" class="t" font-size="12" font-weight="700">Pitch</text>  <text x="42" y="144" class="ts" font-size="9.5" fill="#8C8078">How high or low a sound is</text>  <rect x="342" y="96" width="300" height="82" rx="9" fill="#F3E9DC" stroke="#D9CFC4" stroke-width="1.4"/>  <circle cx="358" cy="118" r="10" fill="#A67C52"/>  <text x="358" y="122" text-anchor="middle" class="num">2</text>  <text x="378" y="123" class="t" font-size="12" font-weight="700">Timbre</text>  <text x="358" y="144" class="ts" font-size="9.5" fill="#8C8078">Why different sound sources feel</text>  <text x="358" y="159" class="ts" font-size="9.5" fill="#8C8078">unlike each other</text>  <rect x="26" y="192" width="300" height="82" rx="9" fill="#F3E9DC" stroke="#D9CFC4" stroke-width="1.4"/>  <circle cx="42" cy="214" r="10" fill="#A67C52"/>  <text x="42" y="218" text-anchor="middle" class="num">3</text>  <text x="62" y="219" class="t" font-size="12" font-weight="700">Dynamics</text>  <text x="42" y="240" class="ts" font-size="9.5" fill="#8C8078">How loud and soft the music goes</text>  <rect x="342" y="192" width="300" height="82" rx="9" fill="#F3E9DC" stroke="#D9CFC4" stroke-width="1.4"/>  <circle cx="358" cy="214" r="10" fill="#A67C52"/>  <text x="358" y="218" text-anchor="middle" class="num">4</text>  <text x="378" y="219" class="t" font-size="12" font-weight="700">Octave</text>  <text x="358" y="240" class="ts" font-size="9.5" fill="#8C8078">Two notes with the same name,</text>  <text x="358" y="255" class="ts" font-size="9.5" fill="#8C8078">one octave apart</text>
+</svg>

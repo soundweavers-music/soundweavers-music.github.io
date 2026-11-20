@@ -2668,26 +2668,40 @@ def discography_section(page_path: Path) -> str:
         sub = f'<span class="album-en">{escape(a["en"])}</span>' if a.get("en") else ""
         is_new = (today[:7] == str(a.get("date", ""))[:7])          # 本月發行
         tag = escape(a["cat"]) + ('・新發行' if is_new else '')
-        if apple_id:
-            cover_html = (f'<img src="{resolve_url(page_path, f"/assets/brand/albums/{apple_id}.webp")}" '
+        cover_file = a.get("cover") or (f"{apple_id}.webp" if apple_id else "")
+        if cover_file:
+            cover_html = (f'<img src="{resolve_url(page_path, f"/assets/brand/albums/{cover_file}")}" '
                           f'alt="《{title}》專輯封面" width="480" height="480" loading="lazy">')
         else:
-            cover_html = f'<span class="album-cover-pending">封面待補</span>'
-        href = ytm or apple or "about:blank"
+            cover_html = '<span class="album-cover-pending">封面待補</span>'
+        # 還沒上架的專輯沒有連結可指，就不要包成 <a>：about:blank 會讓連結檢查
+        # 抓到一个壞連結，按下去也是一片空白。
+        href = ytm or apple
+        if href:
+            cover_open = (f'<a class="album-cover" href="{href}" target="_blank" '
+                          f'rel="noopener" aria-label="播放《{title}》">')
+            cover_close = '</a>'
+        else:
+            cover_open = '<span class="album-cover album-cover-static">'
+            cover_close = '</span>'
         links = []
         if apple:
             links.append(f'<a class="album-link is-apple" href="{apple}" target="_blank" rel="noopener">Apple Music</a>')
         if ytm:
             links.append(f'<a class="album-link is-ytm" href="{ytm}" target="_blank" rel="noopener">YouTube Music</a>')
         links_html = ('<p class="album-links">' + "".join(links) + '</p>') if links else                      '<p class="album-meta">平台連結上架後補上</p>'
+        tl = a.get("tracklist") or []
+        track_html = (f'<details class="album-tracks"><summary>曲目 {len(tl)} 首</summary><ol>'
+                      + "".join(f"<li>{escape(t)}</li>" for t in tl) + '</ol></details>') if tl else ""'
         cards.append(f"""      <li class="album-card">
-        <a class="album-cover" href="{href}" target="_blank" rel="noopener" aria-label="播放《{title}》">
+        {cover_open}
           {cover_html}
           <span class="album-tag">{tag}</span>
-        </a>
+        {cover_close}
         <div class="album-body">
           <h3>{title}</h3>{sub}
           <p class="album-meta">{a["date"].replace("-", ".")}・{escape(a["type"])}・{a["tracks"]} 首</p>
+          {track_html}
           {links_html}
         </div>
       </li>""")
