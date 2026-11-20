@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" role="img" aria-label="拆歌三步">
+  <title>拆歌三步</title>
+  <rect width="760" height="300" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">拆歌三步</text>
+  <text x="26" y="55" class="ts" font-size="12.5">一首歌聽三遍，一遍只做一件事</text>
+  <rect x="26" y="92" width="226" height="130" rx="8" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.4"/>  <text x="42" y="118" class="ts" font-size="12.5" font-weight="700" fill="#3D3229">① 標段落</text>  <text x="42" y="140" class="ts" font-size="10.5" fill="#8C8078">聽第一遍，只標「換段落」</text>  <text x="42" y="158" class="ts" font-size="10.5" fill="#8C8078">不用術語：聽起來變成</text>  <text x="42" y="176" class="ts" font-size="10.5" fill="#8C8078">另一件事就是了</text>  <rect x="272" y="92" width="226" height="130" rx="8" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.4"/>  <text x="288" y="118" class="ts" font-size="12.5" font-weight="700" fill="#3D3229">② 標和弦</text>  <text x="288" y="140" class="ts" font-size="10.5" fill="#8C8078">聽第二遍，抓每個段落的</text>  <text x="288" y="158" class="ts" font-size="10.5" fill="#8C8078">和弦。抓不到全部沒關係，</text>  <text x="288" y="176" class="ts" font-size="10.5" fill="#8C8078">副歌那幾顆一定要有</text>  <rect x="518" y="92" width="226" height="130" rx="8" fill="#F3E4D2" stroke="#D9CFC4" stroke-width="1.4"/>  <text x="534" y="118" class="ts" font-size="12.5" font-weight="700" fill="#A67C52">③ 標動機</text>  <text x="534" y="140" class="ts" font-size="10.5" fill="#8C8078">聽第三遍，把副歌第一句的</text>  <text x="534" y="158" class="ts" font-size="10.5" fill="#8C8078">音高形狀畫出來：往上、</text>  <text x="534" y="176" class="ts" font-size="10.5" fill="#8C8078">往下、持平</text>  <text x="26" y="258" class="ts" font-size="11" fill="#8C8078">三步都不碰歌詞——你要抓的是骨架，不是內容。</text>
+</svg>

@@ -202,6 +202,277 @@ def fig_phrase_ending():
                     subtitle="1、3、5 是穩定音；2、4、6、7 是不穩定音（以 C 大調為例）")
 
 
+# ═══════════════════════════════════════════════════════════════
+# 第二批：第 1–6 堂各再補圖
+# ═══════════════════════════════════════════════════════════════
+
+def _card(b, x, y, w, h, title, lines, accent=False):
+    """一張小卡：標題＋兩三行說明。"""
+    b.append(vf.rect(x, y, w, h, fill="#F3E4D2" if accent else "#FFFFFF", stroke=vf.LINE, rx=8))
+    b.append(vf.ts(x + 16, y + 26, title, size=12.5, weight="700",
+                   color=vf.ACCENT if accent else vf.INK))
+    for i, line in enumerate(lines):
+        b.append(vf.ts(x + 16, y + 48 + i * 18, line, size=10.5, color=vf.MUTED))
+
+
+def fig_three_steps():
+    w, h = W, 300
+    b = []
+    steps = [("① 標段落", ["聽第一遍，只標「換段落」", "不用術語：聽起來變成", "另一件事就是了"]),
+             ("② 標和弦", ["聽第二遍，抓每個段落的", "和弦。抓不到全部沒關係，", "副歌那幾顆一定要有"]),
+             ("③ 標動機", ["聽第三遍，把副歌第一句的", "音高形狀畫出來：往上、", "往下、持平"])]
+    for i, (title, lines) in enumerate(steps):
+        _card(b, 26 + i * 246, 92, 226, 130, title, lines, accent=(i == 2))
+    b.append(vf.ts(26, 258, "三步都不碰歌詞——你要抓的是骨架，不是內容。", size=11, color=vf.MUTED))
+    return vf.frame(w, h, "拆歌三步", "".join(b), subtitle="一首歌聽三遍，一遍只做一件事")
+
+
+def fig_line_capacity():
+    w, h = W, 300
+    b = []
+    b.append(vf.ts(26, 84, "副歌八小節＝四句；一句 8–12 個字是最好唱的長度。", size=12))
+    for i in range(4):
+        x = 40 + i * 176
+        b.append(vf.rect(x, 108, 152, 60, fill="#FFFFFF" if i < 3 else "#F3E4D2",
+                         stroke=vf.LINE, rx=7))
+        b.append(vf.ts(x + 12, 132, "第 %d 句" % (i + 1), size=11, weight="700"))
+        b.append(vf.ts(x + 12, 152, "8–12 字", size=10.5, color=vf.MUTED))
+    b.append(vf.ts(40, 196, "八小節用完之後，第 2 輪副歌通常只留四句——不再加新內容。", size=11, color=vf.MUTED))
+    b.append(vf.ts(40, 226, "寫之前先數格子：四句，就是四件事。第五件請留給下一首歌。",
+                   size=11, color=vf.ACCENT, weight="700"))
+    return vf.frame(w, h, "副歌的容納量", "".join(b),
+                    subtitle="不是「寫得下就塞」，是先算你有幾個格子")
+
+
+def fig_range_map():
+    w, h = W, 320
+    b = []
+    y = 186
+    b.append(vf.path("M60 %d L%d %d" % (y, w - 40, y), cls="ink", sw=1.2))
+    for i, (name, lo, hi, note) in enumerate([("男聲", 0.18, 0.52, "C3–E4 左右"),
+                                              ("女聲", 0.42, 0.78, "G3–C5 左右")]):
+        yy = y - 52 - i * 44
+        b.append(vf.rect(60 + (w - 100) * lo, yy, (w - 100) * (hi - lo), 22,
+                         fill=vf.ACCENT if i else "#D8C7AF", stroke="none", rx=6))
+        b.append(vf.ts(60, yy - 8, name, size=11.5, weight="700"))
+        b.append(vf.ts(60 + (w - 100) * hi + 10, yy + 16, note, size=10, color=vf.MUTED))
+    b.append(vf.ts(60, y + 24, "低", size=10.5, color=vf.MUTED))
+    b.append(vf.ts(w - 40, y + 24, "高", size=10.5, anchor="end", color=vf.MUTED))
+    b.append(vf.ts(26, h - 18, "副歌的最高音不要超過舒適音域的邊緣——可以碰一下，不能整段待在那裡。",
+                   size=10.5, color=vf.MUTED))
+    return vf.frame(w, h, "先決定誰唱", "".join(b),
+                    subtitle="寫給自己唱的歌，最好當場唱一次；唱不上去就不是高潮，是冒險")
+
+
+def fig_chord_functions():
+    w, h = W, 320
+    b = []
+    cols = [("主 T", ["1（C）", "3m（Em）", "6m（Am）"], "家。安定、結束", vf.ACCENT),
+            ("下屬 S", ["4（F）", "2m（Dm）"], "往外走", "#C9A883"),
+            ("屬 D", ["5（G）", "7°（Bdim）"], "最想回家", vf.INK)]
+    for i, (name, chords, note, col) in enumerate(cols):
+        x = 30 + i * 244
+        b.append(vf.rect(x, 96, 224, 150, fill="#FFFFFF", stroke=vf.LINE, rx=10))
+        b.append(vf.rect(x, 96, 224, 34, fill=col, stroke="none", rx=10))
+        b.append(vf.ts(x + 112, 118, name, size=12.5, anchor="middle",
+                       style="fill:#FFFFFF", weight="700"))
+        for j, c in enumerate(chords):
+            b.append(vf.ts(x + 112, 158 + j * 26, c, size=12, anchor="middle"))
+        b.append(vf.ts(x + 112, 236, note, size=10.5, anchor="middle", color=vf.MUTED))
+    b.append(vf.ts(26, h - 18, "流行歌九成的段落就是這三種角色在輪流：家 → 出去 → 更想回家 → 回家。",
+                   size=10.5, color=vf.MUTED))
+    return vf.frame(w, h, "七顆和弦，三種角色", "".join(b),
+                    subtitle="2、3、6 都是替身，讓路線不要那麼直")
+
+
+def fig_progressions():
+    w, h = W, 330
+    b = []
+    rows = [("1-5-6-4", ["1", "5", "6", "4"], "C–G–Am–F", "最通用；一直在動，適合主歌"),
+            ("卡農", ["1", "5", "6", "3", "4", "1", "4", "5"], "C–G–Am–Em–F–C–F–G", "八小節；旋律怎麼唱都合"),
+            ("4-5-3-6", ["4", "5", "3", "6"], "F–G–Em–Am", "王道進行；還沒開始就在路上")]
+    for i, (name, degs, chords, note) in enumerate(rows):
+        y = 108 + i * 74
+        b.append(vf.ts(26, y + 20, name, size=12, weight="700"))
+        for j, d in enumerate(degs):
+            cx = 150 + j * 58
+            b.append(vf.circle(cx, y + 14, 15, fill="#FFFFFF", stroke=vf.ACCENT, sw=1.6))
+            b.append(vf.ts(cx, y + 19, d, size=11, anchor="middle", color=vf.ACCENT, weight="700"))
+        b.append(vf.ts(150, y + 44, chords, size=10, color=vf.MUTED))
+        b.append(vf.ts(26, y + 44, note, size=10, color=vf.MUTED))
+    return vf.frame(w, h, "三組萬用進行", "".join(b),
+                    subtitle="差別不在和弦，在「從哪裡開始、繞多遠」")
+
+
+def fig_chord_density():
+    w, h = W, 300
+    b = []
+    rows = [("一小節一顆", 1, "抒情、慢歌，旋律有空間"),
+            ("兩拍一顆", 2, "副歌，有推動感"),
+            ("前半＋後半", 2, "導歌，製造「快到了」")]
+    for i, (label, per, note) in enumerate(rows):
+        y = 104 + i * 66
+        b.append(vf.ts(26, y + 22, label, size=11.5, weight="700"))
+        for bar in range(2):
+            for k in range(per):
+                width = 170 / per
+                x = 190 + bar * 200 + k * width
+                b.append(vf.rect(x, y, width - 8, 32, fill="#F3E4D2" if i == 1 else "#FFFFFF",
+                                 stroke=vf.ACCENT if per > 1 else vf.LINE, rx=6))
+                b.append(vf.ts(x + (width - 8) / 2, y + 21, "和弦", size=10, anchor="middle"))
+        b.append(vf.ts(600, y + 22, note, size=10, color=vf.MUTED))
+    b.append(vf.ts(26, h - 18, "要延長情緒時，降低密度比加樂器有效——把一顆和弦拉成兩小節試試看。",
+                   size=10.5, color=vf.MUTED))
+    return vf.frame(w, h, "換和弦的密度", "".join(b),
+                    subtitle="同樣四個小節，換的時機一變，氣質就變")
+
+
+def fig_stress_on_beat():
+    w, h = W, 300
+    b = []
+    words = ["我", "把", "車", "停", "在", "路", "邊"]
+    for i, (label, stress, note) in enumerate([("重音在「車」", 2, "聽起來：我把〔車〕停在路邊"),
+                                               ("重音在「停」", 3, "聽起來：我把車〔停〕在路邊")]):
+        y = 110 + i * 84
+        b.append(vf.ts(26, y + 26, label, size=11.5, weight="700"))
+        for j, wd in enumerate(words):
+            cx = 190 + j * 46
+            strong = j == stress
+            if strong:
+                b.append(vf.circle(cx, y + 20, 17, fill=vf.ACCENT))
+            b.append(vf.ts(cx, y + 25, wd, size=13, anchor="middle",
+                           **({"style": "fill:#FFFFFF"} if strong else {"color": vf.INK})))
+        b.append(vf.ts(190, y + 50, note, size=10, color=vf.MUTED))
+    b.append(vf.ts(26, h - 18, "先決定這句話的重點是哪個字，再讓旋律把它放到第 1 拍。",
+                   size=10.5, color=vf.MUTED))
+    return vf.frame(w, h, "重音要落在強拍上", "".join(b),
+                    subtitle="同一句話，重音一換，意思的重心就換了")
+
+
+def fig_syllable_beat():
+    w, h = W, 330
+    b = []
+    rows = [("一字一拍", 4, "很清楚，適合抒情"),
+            ("一字半拍", 8, "流行歌最常見，有流動感"),
+            ("一字四分之一拍", 16, "已經是饒舌的密度")]
+    for i, (label, n, note) in enumerate(rows):
+        y = 104 + i * 66
+        b.append(vf.ts(26, y + 22, label, size=11.5, weight="700"))
+        b.append(vf.ts(190, y + 22, "一小節 %d 個字" % n, size=11, color=vf.ACCENT, weight="700"))
+        b.append(vf.ts(190, y + 42, note, size=10, color=vf.MUTED))
+        for k in range(n):
+            width = 360 / n
+            b.append(vf.rect(360 + k * width, y - 4, width - 3, 24, fill="#F3E4D2",
+                             stroke=vf.LINE, rx=3))
+    b.append(vf.ts(26, 314, "寫之前先數：這句幾個字？超過 10 個字又要塞進一小節，就得砍。",
+                   size=10.5, color=vf.MUTED))
+    return vf.frame(w, h, "字與拍的密度", "".join(b),
+                    subtitle="同樣四拍，放 4 個字和放 16 個字是兩種完全不同的歌")
+
+
+def fig_prechorus_lift():
+    w, h = W, 320
+    b = []
+    x0, x1 = 70, w - 50
+    yb = 250
+
+    def curve(pts, col, sw=2.2, dash=None):
+        d = "M" + " L".join("%.0f %.0f" % (x0 + (x1 - x0) * a, yb - v) for a, v in pts)
+        b.append(vf.path(d, stroke=col, sw=sw, dash=dash))
+
+    curve([(0, 20), (0.25, 40), (0.5, 55), (0.66, 80), (0.78, 140), (1, 190)], vf.ACCENT)
+    curve([(0, 30), (0.3, 30), (0.6, 45), (0.8, 70), (1, 90)], "#C9A883", 2, "5 4")
+    curve([(0, 45), (0.4, 45), (0.7, 60), (0.85, 120), (1, 160)], vf.MUTED, 1.8, "2 4")
+    for x, label in ((x0, "主歌"), (x0 + (x1 - x0) * 0.72, "導歌"), (x1, "副歌")):
+        b.append(vf.ts(x, yb + 26, label, size=11, anchor="middle", color=vf.MUTED))
+    b.append(vf.ts(x1 - 6, 66, "音高", size=10.5, anchor="end", color=vf.ACCENT))
+    b.append(vf.ts(x1 - 6, 84, "節奏密度", size=10.5, anchor="end", color="#C9A883"))
+    b.append(vf.ts(x1 - 6, 102, "和聲張力", size=10.5, anchor="end", color=vf.MUTED))
+    b.append(vf.ts(26, h - 18, "三個工具可以只用一個。最省事的是第三個：導歌最後一小節停在 5 級不動。",
+                   size=10.5, color=vf.MUTED))
+    return vf.frame(w, h, "導歌：三條線同時往上", "".join(b),
+                    subtitle="導歌不講內容，只做「往上」這件事")
+
+
+def fig_rewrite_check():
+    w, h = W, 310
+    b = []
+    rows = [("唱到某個字會卡", "聲調與旋律打架", "改那個字的旋律，或換聲調不同的同義字"),
+            ("唱到一半沒氣", "換氣點不見了", "把句子切短，或把某個字改成拖腔"),
+            ("像講話，不像唱歌", "整首一路太密", "在句尾拉長一個字，兩拍到四拍")]
+    b.append(vf.ts(30, 104, "症狀", size=11, color=vf.MUTED, weight="700"))
+    b.append(vf.ts(300, 104, "原因", size=11, color=vf.MUTED, weight="700"))
+    b.append(vf.ts(450, 104, "修法", size=11, color=vf.ACCENT, weight="700"))
+    for i, (sym, cause, fix) in enumerate(rows):
+        y = 120 + i * 52
+        b.append(vf.rect(26, y, 232, 40, fill="#FFFFFF", stroke=vf.LINE, rx=6))
+        b.append(vf.ts(40, y + 26, sym, size=11))
+        b.append(vf.ts(300, y + 26, cause, size=10.5, color=vf.MUTED))
+        b.append(vf.ts(450, y + 26, fix, size=10.5, color=vf.ACCENT))
+    b.append(vf.ts(26, h - 16, "三個症狀對應三種修法，先判斷是哪一種，再動手。", size=10.5, color=vf.MUTED))
+    return vf.frame(w, h, "唱不順的三種症狀", "".join(b),
+                    subtitle="先診斷，再修；三種一起改通常會全改壞")
+
+
+def fig_demo_two_track():
+    w, h = W, 300
+    b = []
+    b.append(vf.ts(26, 84, "左邊是兩軌 demo 該有的樣子；右邊是「加太多會發生的事」。", size=12))
+    left = [("人聲", vf.ACCENT), ("吉他／鋼琴", "#C9A883")]
+    right = [("人聲", vf.ACCENT), ("鼓", "#D8C7AF"), ("貝斯", "#D8C7AF"),
+             ("吉他", "#D8C7AF"), ("弦樂", "#D8C7AF"), ("合聲", "#D8C7AF")]
+    for i, (name, col) in enumerate(left):
+        y = 112 + i * 40
+        b.append(vf.rect(40, y, 250, 30, fill=col, stroke="none", rx=6))
+        b.append(vf.ts(52, y + 20, name, size=11, style="fill:#FFFFFF", weight="700"))
+    b.append(vf.ts(40, 212, "聽得出走音、拍子、換氣點", size=10.5, color=vf.ACCENT, weight="700"))
+    for i, (name, col) in enumerate(right):
+        y = 104 + i * 28
+        b.append(vf.rect(410, y, 300, 22, fill=col, stroke="none", rx=5))
+        b.append(vf.ts(422, y + 16, name, size=10,
+                       **({"style": "fill:#FFFFFF"} if col == vf.ACCENT else {"color": vf.INK})))
+    b.append(vf.ts(410, 284, "聽起來很滿，但問題全被蓋住了", size=10.5, color=vf.MUTED))
+    return vf.frame(w, h, "兩軌 demo 是照妖鏡", "".join(b),
+                    subtitle="demo 的用途是讓人聽懂歌，不是讓人驚豔製作")
+
+
+def fig_thirty_minute():
+    w, h = W, 290
+    b = []
+    blocks = [("0–5", "主題句"), ("5–15", "四句副歌"), ("15–25", "旋律"), ("25–30", "錄音／標記")]
+    for i, (span, task) in enumerate(blocks):
+        x = 30 + i * 178
+        b.append(vf.rect(x, 104, 164, 72, fill=vf.ACCENT if i == 1 else "#FFFFFF",
+                         stroke=vf.LINE, rx=8))
+        b.append(vf.ts(x + 82, 132, span, size=11, anchor="middle",
+                       **({"style": "fill:#FFFFFF"} if i == 1 else {"color": vf.MUTED})))
+        b.append(vf.ts(x + 82, 156, task, size=12.5, anchor="middle",
+                       **({"style": "fill:#FFFFFF"} if i == 1 else {"color": vf.INK})))
+    b.append(vf.ts(30, 206, "時間到就停。你練的是「在壓力下做決定」，不是「無限修到好」。",
+                   size=11, color=vf.MUTED))
+    b.append(vf.ts(30, 236, "第一次做完，你至少會有一段完整（但粗糙）的副歌——那就夠了。",
+                   size=11, color=vf.ACCENT, weight="700"))
+    return vf.frame(w, h, "三十分鐘計時流程", "".join(b),
+                    subtitle="四個階段，每段只做一件事")
+
+
+def fig_checklist():
+    w, h = W, 300
+    b = []
+    items = ["副歌一次就能懂", "主歌有畫面", "沒有唱不順的地方",
+             "副歌會重複，而且第二次有變化", "兩軌 demo 聽得完", "標題對得上"]
+    for i, item in enumerate(items):
+        y = 96 + i * 32
+        b.append(vf.rect(40, y, 18, 18, fill="#FFFFFF", stroke=vf.ACCENT, rx=4))
+        b.append(vf.ts(70, y + 15, item, size=11.5))
+    b.append(vf.ts(430, 108, "六項都過", size=12.5, color=vf.ACCENT, weight="700"))
+    b.append(vf.ts(430, 130, "才拿出去給人聽。", size=11, color=vf.MUTED))
+    b.append(vf.ts(430, 162, "沒過的那一項，", size=11, color=vf.MUTED))
+    b.append(vf.ts(430, 180, "就是你下一次要改的東西。", size=11, color=vf.MUTED))
+    return vf.frame(w, h, "可以拿出去之前的六項檢查", "".join(b),
+                    subtitle="檢核表不是打分數，是告訴你「還差哪一項」")
+
+
 FIGS = [
     ("song-structure.svg", fig_song_structure),
     ("hook-window.svg", fig_hook_window),
@@ -209,6 +480,19 @@ FIGS = [
     ("tone-contour.svg", fig_tone_contour),
     ("motive.svg", fig_motive),
     ("phrase-ending.svg", fig_phrase_ending),
+    ("three-steps.svg", fig_three_steps),
+    ("line-capacity.svg", fig_line_capacity),
+    ("range-map.svg", fig_range_map),
+    ("chord-functions.svg", fig_chord_functions),
+    ("progressions.svg", fig_progressions),
+    ("chord-density.svg", fig_chord_density),
+    ("stress-on-beat.svg", fig_stress_on_beat),
+    ("syllable-beat.svg", fig_syllable_beat),
+    ("prechorus-lift.svg", fig_prechorus_lift),
+    ("rewrite-check.svg", fig_rewrite_check),
+    ("demo-two-track.svg", fig_demo_two_track),
+    ("thirty-minute.svg", fig_thirty_minute),
+    ("checklist.svg", fig_checklist),
 ]
 
 

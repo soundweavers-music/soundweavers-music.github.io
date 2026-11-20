@@ -29,6 +29,10 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 CONTENT_DIR = BASE_DIR / "content"
 
+# 大部分課程的單位是「章」，少數是「堂」。顯示時要跟著用對，不然 /learn/ 會
+# 寫成「6 章」、課程頁卻是「第 1 堂」。
+UNITS = {"daw": "堂", "songwriting": "堂"}
+
 CHARS_PER_MIN = 300
 PRACTICE_FACTOR = 2.0
 CJK = re.compile(r"[一-鿿]")
@@ -110,11 +114,12 @@ def course_stats(key: str) -> tuple[int, float]:
 
 
 def all_courses() -> list[dict]:
-    """每一套課程的 {key, name, chapters, hours}，依顯示順序。"""
+    """每一套課程的 {key, name, chapters, hours, unit}，依顯示順序。"""
     out = []
     for key, name, _slug, _pattern, _factor in COURSES:
         chapters, hours = course_stats(key)
-        out.append({"key": key, "name": name, "chapters": chapters, "hours": hours})
+        out.append({"key": key, "name": name, "chapters": chapters, "hours": hours,
+                    "unit": UNITS.get(key, "章")})
     return out
 
 
