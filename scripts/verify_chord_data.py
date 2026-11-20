@@ -57,6 +57,12 @@ TUNING = {
     4: ("曼陀林", [55, 62, 69, 76]),
 }
 
+# 同一件樂器可能有其他調弦（Drop D、DADGAD）；名稱跟函式庫的鍵一致
+EXTRA_TUNING = {
+    "Drop D": [38, 45, 50, 55, 59, 64],
+    "DADGAD": [38, 45, 50, 55, 57, 62],
+}
+
 # 這幾個和弦是初學者最先學的，把位要簡單：不用封閉、按弦不超過 3 根
 # F 與 C7 本來就需要封閉／第四根手指，不算「應該簡單」
 SIMPLE = {(0, "maj"): "C G D A E", (0, "m"): "Am Em Dm", (0, "7"): "D7 E7 G7"}
@@ -117,12 +123,13 @@ def check_library(problems) -> int:
         inst = int(inst_s)
         if inst not in TUNING:
             continue
-        base = TUNING[inst][1]
-        for _tuning, table in by_tuning.items():
+        for tuning_name, table in by_tuning.items():
+            base = EXTRA_TUNING.get(tuning_name, TUNING[inst][1])
             for key, entry in table.items():
                 root_s, qual = key.split(":")
                 name = NOTE[int(root_s)] + ("" if qual == "maj" else qual)
-                check(f"[函式庫 {TUNING[inst][0]}]", name, entry["frets"], base, problems, high_first=True)
+                tag = TUNING[inst][0] + (f" · {tuning_name}" if tuning_name in EXTRA_TUNING else "")
+                check(f"[函式庫 {tag}]", name, entry["frets"], base, problems, high_first=True)
                 n += 1
     return n
 

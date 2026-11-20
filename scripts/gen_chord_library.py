@@ -20,6 +20,28 @@ INSTRUMENTS = {
     3: ("標準 Open G (5弦)", [62, 59, 55, 50, 67]),          # 班卓琴 D4 B3 G3 D3 g4
     4: ("標準", [76, 69, 62, 55]),                           # 曼陀林 E5 A4 D4 G3
 }
+# 同一件樂器的其他調弦（工具裡有、也要有指型）。名稱必須跟 INSTRUMENTS_DATA 一字不差。
+# 由高音弦排到低音弦，跟 INSTRUMENTS 一致。
+# 特殊調弦的常用和弦：照教科書／常見按法直接指定（仍然會驗證組成音）
+EXTRA_OVERRIDES = {
+    ("Drop D", (2, 'maj')): [2, 3, 2, 0, 0, 0],     # D：000232
+    ("Drop D", (2, 'm')):   [1, 3, 2, 0, 0, 0],     # Dm：000231
+    ("Drop D", (2, '7')):   [2, 1, 2, 0, 0, 0],     # D7
+    ("Drop D", (2, 'sus4')): [3, 3, 2, 0, 0, 0],    # Dsus4
+    ("Drop D", (7, 'maj')): [3, 0, 0, 0, 2, 0],     # G：000203（低音 D）
+    ("Drop D", (0, 'maj')): [0, 1, 0, 2, 3, -1],    # C：x32010，第 6 弦不彈
+    ("Drop D", (9, 'm')):   [0, 1, 2, 2, 0, -1],    # Am
+    ("Drop D", (4, 'm')):   [0, 0, 0, 2, 2, -1],    # Em
+    ("Drop D", (5, 'maj')): [1, 1, 2, 3, 3, -1],    # F（第 6 弦不彈）
+}
+
+EXTRA_TUNINGS = {
+    0: [
+        ("Drop D", [64, 59, 55, 50, 45, 38]),      # E4 B3 G3 D3 A2 D2
+        ("DADGAD", [62, 57, 55, 50, 45, 38]),      # D4 A3 G3 D3 A2 D2
+    ],
+}
+
 MAX_MUTE = {0: 2, 2: 1, 3: 2, 4: 1}
 
 # full chord tones (allowed pitch classes — no note outside this set may sound)
@@ -140,38 +162,63 @@ def valid_shape(frets, base, root, quality):
 
 
 def assign_fingers(frets):
+    """把按格換成手指編號（最多 4 指；真的需要橫按時才畫成封閉）。"""
     pressed = [(s, f) for s, f in enumerate(frets) if f > 0]
     fingers = [0] * len(frets)
     barre = None
     if not pressed:
         return fingers, barre
-    f0 = min(f for _, f in pressed)
-    at0 = [s for s, f in pressed if f == f0]
-    # 什麼時候算「封閉」：一次壓 4 條以上（F、Bm 的食指橫按），
-    # 或同一格壓在不相鄰的弦上（例如 Bm 的第 1、5 弦）。
-    # Em（第 4、5 弦第 2 格）是相鄰的兩條弦 → 兩根手指，不是封閉。
-    contiguous = (max(at0) - min(at0) + 1) == len(at0)
-    lowest = max(i for i, f in enumerate(frets) if f >= 0)   # 最低音弦（索引最大的弦）
-    if len(at0) >= 4 or (len(at0) >= 2 and not contiguous and lowest in at0):
-        barre = {'fret': f0, 'from': min(at0), 'to': max(at0)}
-        for s in at0:
-            fingers[s] = 1
-        rest = sorted([(s, f) for s, f in pressed if f > f0], key=lambda x: (x[1], x[0]))
-        fmap, nf = {}, 2
-        for s, f in rest:
-            if f not in fmap:
-                fmap[f] = min(4, nf); nf += 1
-            fingers[s] = fmap[f]
+
+    groups = {}
+    for s, f in pressed:
+        groups.setdefault(f, []).append(s)
+    frets_sorted = sorted(groups)
+
+    # 最低那一格：相鄰的 2~3 條弦用 1、2（、3）；不相鄰或 4 條以上才橫按
+    low = frets_sorted[0]
+    g0 = sorted(groups[low], reverse=True)
+    span = g0[0] - g0[-1] + 1          # 這幾條弦跨過幾個弦位
+    nxt = 1
+    # 跨 4 個弦位以上（Bm 第 1、5 弦、F 全部）或一次壓 4 條以上才算封閉；
+    # 像 D（第 1、3 弦）或 uke G（第 1、3 弦）只是兩根手指，不是封閉。
+    if len(g0) >= 4 or span >= 4:
+        for s_ in g0:
+            fingers[s_] = 1
+        barre = {'fret': low, 'from': min(g0), 'to': max(g0)}
+        nxt = 2
     else:
-        # 沒有封閉：由低把位往高把位、同一格由低音弦往高音弦，
-        # 依序分到不同的手指（1、2、3、4），不會兩條弦共用一根手指。
-        n = 1
-        for s_, f_ in sorted(pressed, key=lambda x: (x[1], -x[0])):
-            fingers[s_] = min(4, n)
-            n += 1
-        # 只有一組、兩條相鄰弦（Em 022000）：用 1、2 指，跟課程裡
-        # 「G → Em 食指留在第 5 弦第 2 格」的保留指教法一致。
+        for s_ in g0:
+            fingers[s_] = nxt
+            nxt += 1
+        # Em（只有這一組、兩條相鄰弦）用 1、2 指，跟課程的保留指教法一致
+    # 其他格：依序給手指；手指不夠就把那一格橫按
+    for f in frets_sorted[1:]:
+        strings = sorted(groups[f], reverse=True)
+        if nxt + len(strings) - 1 > 4:
+            for s_ in strings:
+                fingers[s_] = min(4, nxt)
+            if len(strings) >= 2:
+                barre = {'fret': f, 'from': min(strings), 'to': max(strings)}
+            nxt = min(4, nxt) + 1
+        else:
+            for s_ in strings:
+                fingers[s_] = nxt
+                nxt += 1
     return fingers, barre
+
+
+def fingers_ok(frets, fingers, barre):
+    """同一根手指用在多條弦時，必須是那一格的橫按，否則這個指型彈不出來。"""
+    groups = {}
+    for s_, f in enumerate(fingers):
+        if f > 0:
+            groups.setdefault(f, []).append(s_)
+    for f, ss in groups.items():
+        if len(ss) > 1:
+            same_fret = len({frets[s2] for s2 in ss}) == 1
+            if not (barre and same_fret):
+                return False
+    return True
 
 
 def fingers_needed(frets):
@@ -185,7 +232,7 @@ def fingers_needed(frets):
     return (1 if barre else 0) + len(rest_frets)
 
 
-def solve(base, root, quality, max_mute):
+def solve(base, root, quality, max_mute, mute_first=False):
     chordset = {(root + i) % 12 for i in QUAL[quality]}
     n = len(base)
     # per-string candidate frets
@@ -217,8 +264,9 @@ def solve(base, root, quality, max_mute):
         bass_penalty = 0 if bass % 12 == root else 1
         maxfret = max(fretted) if fretted else 0
         open_cnt = sum(1 for f in combo if f == 0)
-        # 優先：最低把位 → 最小跨度 → 最少悶音 → 根音在低音 → 越多空弦越好
-        score = (maxfret, span, muted, bass_penalty, -open_cnt)
+        # 標準調弦：最低把位優先；特殊調弦：先把弦用滿（少悶音），再挑低把位
+        score = ((muted, maxfret, span, bass_penalty, -open_cnt) if mute_first
+                 else (maxfret, span, muted, bass_penalty, -open_cnt))
         if best is None or score < best[0]:
             best = (score, list(combo))
     return best[1] if best else None
@@ -250,12 +298,35 @@ def build():
                 if frets is None:
                     continue
                 fingers, barre = assign_fingers(frets)
+                if not fingers_ok(frets, fingers, barre):
+                    continue
                 table[f"{root}:{q}"] = {
                     "frets": frets, "fingers": fingers,
                     "barre": barre,
                 }
                 n_ok += 1
         stats[idx] = (n_ok, n_solved)
+        # 同一件樂器的其他調弦：一樣逐個和弦求解＋驗證（封閉樣板只適用標準調弦）
+        for tuning_name2, base2 in EXTRA_TUNINGS.get(idx, []):
+            lib[str(idx)][tuning_name2] = {}
+            table2 = lib[str(idx)][tuning_name2]
+            n2 = 0
+            for root in range(12):
+                for q in QUALITIES:
+                    frets = EXTRA_OVERRIDES.get((tuning_name2, (root, q)))
+                    if frets is not None:
+                        assert valid_shape(frets, base2, root, q),                             f"BAD ALT OVERRIDE {tuning_name2} {NOTE[root]}{q}: {frets}"
+                    else:
+                        frets = solve(base2, root, q, MAX_MUTE[idx], mute_first=True)
+                    if frets is None:
+                        continue
+                    assert valid_shape(frets, base2, root, q),                         f"BAD ALT inst{idx} {tuning_name2} {NOTE[root]}{q}: {frets}"
+                    fingers, barre = assign_fingers(frets)
+                    if not fingers_ok(frets, fingers, barre):   # 四根手指按不出來 → 不收
+                        continue
+                    table2[f"{root}:{q}"] = {"frets": frets, "fingers": fingers, "barre": barre}
+                    n2 += 1
+            stats[f"{idx}:{tuning_name2}"] = (n2, n2)
     return lib, stats
 
 
