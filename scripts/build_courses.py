@@ -249,10 +249,53 @@ def build_lang(lang: str, only: str = "") -> None:
         print(f"  {conf['name']}: index + {len(chapters)} chapter pages written.")
 
 
+def build_en_home(built: list[tuple[str, dict, int]]) -> None:
+    """`/en/` 的落地頁：列出目前有英文稿的課程。"""
+    if not built:
+        return
+    out = bve.OUTPUT_DIR / "en" / "index.html"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    cards = "\n".join(
+        f'      <a class="portal-card" href="{bve.resolve_url(out, "/en/" + slug + "/")}">'
+        f'<div class="card-icon">{conf.get("icon", "🎵")}</div>'
+        f'<div class="card-label">{bve.escape(conf["name"])}</div>'
+        f'<div class="card-desc">{bve.escape(conf.get("lead", ""))}</div>'
+        f'<span class="card-badge badge-ready">{n} lessons</span></a>'
+        for slug, conf, n in built)
+    body = f"""<main>
+  <section class="portal-hero hero-banner">
+    <div class="hero-scene" role="img" aria-label="A wooden room with a guitar, a mandolin, a piano and a microphone"></div>
+    <div class="hero-inner">
+      <p class="hero-eyebrow">World instruments · Voice · Theory · Songwriting</p>
+      <h1>World Sound</h1>
+      <p class="hero-sub">Follow the sound into the room it came from</p>
+      <p class="hero-stats"><span>Courses available in English: <strong>{len(built)}</strong></span></p>
+    </div>
+  </section>
+  <p class="portal-intro">The instrument encyclopedia and the music tools are in Chinese for now.
+  These courses are fully translated; the rest are on the way.</p>
+  <div class="portal-grid">
+{cards}
+  </div>
+</main>"""
+    bve.write(out, bve.page("World Sound — English", body, out,
+                            meta_description="English editions of the World Sound music courses.",
+                            lang="en"))
+
+
 def main() -> None:
     only = sys.argv[1] if len(sys.argv) > 1 else ""
     build_lang("zh", only)
+    built = []
+    for slug, conf in COURSES.items():
+        if only and slug != only:
+            continue
+        if (BASE_DIR / "content" / "en" / slug).exists():
+            # 這裡 LANG 還是 "zh"（等等才切英文），所以直接合併，不能走 conf_for
+            built.append((slug, {**conf, **EN_CONF.get(slug, {})},
+                          len(list((BASE_DIR / "content" / "en" / slug).glob("[0-9]*.md")))))
     build_lang("en", only)
+    build_en_home(built)
 
 
 if __name__ == "__main__":
