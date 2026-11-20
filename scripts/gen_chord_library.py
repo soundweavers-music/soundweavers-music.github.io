@@ -364,3 +364,4 @@ if __name__ == "__main__":
     with open("scripts/_chord_library.js", "w", encoding="utf-8") as fh:
         fh.write(js)
     print("// bytes:", len(js))
+    print("// 記得再跑 scripts/sync_fretboard_library.py，把資料同步進指板工具頁面")
