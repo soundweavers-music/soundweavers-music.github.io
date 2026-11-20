@@ -9,6 +9,7 @@ import random
 import re
 import shutil
 import sys
+from datetime import date
 import time
 from collections import Counter, defaultdict
 from html import escape
@@ -2649,31 +2650,50 @@ def banner_hero(eyebrow, title, lead):
 def discography_section(page_path: Path) -> str:
     """歷年作品 album grid from content/discography.json (covers in assets/brand/albums/)."""
     data = json.loads((BASE_DIR / "content" / "discography.json").read_text(encoding="utf-8"))
-    released = data["released"]
+    released = list(data["released"])
+    today = date.today().isoformat()
+    # 「即將發行」到了發行日就自動變成歷年作品（平台連結晚一點才補得上也沒關係）
+    due = [a for a in data.get("upcoming", []) if str(a.get("date", "")) <= today]
+    still_upcoming = [a for a in data.get("upcoming", []) if str(a.get("date", "")) > today]
+    released = released + due
+    released.sort(key=lambda a: str(a.get("date", "")), reverse=True)
+
     cards = []
     for a in released:
-        apple = f"https://music.apple.com/tw/album/{a['apple']}"
-        ytm = f"https://music.youtube.com/playlist?list={a['ytm']}"
-        cover = resolve_url(page_path, f"/assets/brand/albums/{a['apple']}.webp")
+        apple_id = a.get("apple")
+        ytm_id = a.get("ytm")
+        apple = f"https://music.apple.com/tw/album/{apple_id}" if apple_id else ""
+        ytm = f"https://music.youtube.com/playlist?list={ytm_id}" if ytm_id else ""
         title = escape(a["title"])
         sub = f'<span class="album-en">{escape(a["en"])}</span>' if a.get("en") else ""
+        is_new = (today[:7] == str(a.get("date", ""))[:7])          # 本月發行
+        tag = escape(a["cat"]) + ('・新發行' if is_new else '')
+        if apple_id:
+            cover_html = (f'<img src="{resolve_url(page_path, f"/assets/brand/albums/{apple_id}.webp")}" '
+                          f'alt="《{title}》專輯封面" width="480" height="480" loading="lazy">')
+        else:
+            cover_html = f'<span class="album-cover-pending">封面待補</span>'
+        href = ytm or apple or "about:blank"
+        links = []
+        if apple:
+            links.append(f'<a class="album-link is-apple" href="{apple}" target="_blank" rel="noopener">Apple Music</a>')
+        if ytm:
+            links.append(f'<a class="album-link is-ytm" href="{ytm}" target="_blank" rel="noopener">YouTube Music</a>')
+        links_html = ('<p class="album-links">' + "".join(links) + '</p>') if links else                      '<p class="album-meta">平台連結上架後補上</p>'
         cards.append(f"""      <li class="album-card">
-        <a class="album-cover" href="{ytm}" target="_blank" rel="noopener" aria-label="在 YouTube Music 播放《{title}》">
-          <img src="{cover}" alt="《{title}》專輯封面" width="480" height="480" loading="lazy">
-          <span class="album-tag">{escape(a["cat"])}</span>
+        <a class="album-cover" href="{href}" target="_blank" rel="noopener" aria-label="播放《{title}》">
+          {cover_html}
+          <span class="album-tag">{tag}</span>
         </a>
         <div class="album-body">
           <h3>{title}</h3>{sub}
           <p class="album-meta">{a["date"].replace("-", ".")}・{escape(a["type"])}・{a["tracks"]} 首</p>
-          <p class="album-links">
-            <a class="album-link is-apple" href="{apple}" target="_blank" rel="noopener">Apple Music</a>
-            <a class="album-link is-ytm" href="{ytm}" target="_blank" rel="noopener">YouTube Music</a>
-          </p>
+          {links_html}
         </div>
       </li>""")
     upcoming = "".join(
         f'<li><span>{a["date"].replace("-", ".")}</span>{escape(a["title"])}<em>{escape(a["type"])}・{a["tracks"]} 首</em></li>'
-        for a in data.get("upcoming", []))
+        for a in still_upcoming)
     upcoming_html = f"""
     <div class="album-upcoming">
       <h3>即將發行</h3>

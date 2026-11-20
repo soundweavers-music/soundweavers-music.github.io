@@ -1019,3 +1019,11 @@ a.hub-card:hover::after { transform: scaleX(1); }
   .learn-result { grid-template-columns: 1fr; }
   .learn-result .lr-course { grid-column: 1; grid-row: 2; }
 }
+
+/* 剛發行、平台連結還沒補上的專輯封面 */
+.album-cover-pending {
+  display: flex; align-items: center; justify-content: center;
+  width: 100%; aspect-ratio: 1 / 1;
+  background: repeating-linear-gradient(135deg, #F4EFE7, #F4EFE7 10px, #EFE7DB 10px, #EFE7DB 20px);
+  color: var(--muted); font-size: 13px; letter-spacing: .08em;
+}
