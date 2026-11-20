@@ -2622,10 +2622,29 @@ function dominantMidiInRange(frames, t0, t1) {
 
 // 有歌詞時：一個字一個音。直接用歌詞的字數與字頭時間切旋律，
 // 這比自由切音穩定得多，也讓簡譜和歌詞自然對齊。
+// AI 歌詞對齊：有 AI 旋律時，整首用動態規劃把每個字對到一個真正唱出來的音（chord-ai.js 的 alignLyrics）。
+// 回傳每行一個陣列 [{t, end, midi}]；沒有 AI 旋律、關掉「歌詞對齊音訊」或對不起來就回傳 null（退回舊做法）。
+function lyricAlignment() {
+  if (!state.lyricSnap || state.melodyEngine !== 'ai' || !state.melodySmooth || !state.lyrics.length) return null;
+  if (!(window.ChordAI && window.ChordAI.alignLyrics)) return null;
+  const key = state.lyrics.map(l => l.time + '|' + l.text).join('\n');
+  if (state.lyricAlignKey === key && state.lyricAlignFor === state.melodySmooth) return state.lyricAlign;
+  let al = null;
+  try { al = window.ChordAI.alignLyrics(state.melodySmooth, state.melodyFrames && state.melodyFrames.rise, state.lyrics); }
+  catch (e) { console.warn('AI 歌詞對齊失敗，改用舊做法', e); al = null; }
+  state.lyricAlign = al; state.lyricAlignKey = key; state.lyricAlignFor = state.melodySmooth;
+  return al;
+}
+
 function melodyNotesFromLyrics(frames) {
   const notes = [];
   const lines = state.lyrics;
   if (!lines.length) return notes;
+  const al = lyricAlignment();
+  if (al) {
+    for (const ln of al) for (const c of ln) notes.push({ midi: c.midi, start: c.t, end: Math.max(c.t + 0.08, c.end) });
+    return notes;
+  }
   for (let i = 0; i < lines.length; i++) {
     const t0 = snapLyricTime(lines[i].time);
     const nextT = (i + 1 < lines.length) ? snapLyricTime(lines[i + 1].time) : state.duration;
@@ -2815,12 +2834,14 @@ function computeLyricSegments() {
   if (!bars.length) { state.lyricSegs = {}; return; }
   const bpb = state.beatsPerBar || 4;
   const lines = state.lyrics;
+  const al = lyricAlignment();
   for (let i = 0; i < lines.length; i++) {
     const base = snapLyricTime(lines[i].time);
     const nextT = (i + 1 < lines.length) ? snapLyricTime(lines[i + 1].time) : state.duration;
     const chars = Array.from(lines[i].text).filter(ch => !/\s/.test(ch));
     if (!chars.length) continue;
-    const times = syllableTimes(chars.length, base, Math.max(base + 0.2, Math.min(nextT, state.duration)));
+    const times = (al && al[i] && al[i].length === chars.length) ? al[i].map(c => c.t)
+      : syllableTimes(chars.length, base, Math.max(base + 0.2, Math.min(nextT, state.duration)));
     for (let k = 0; k < chars.length; k++) {
       const t = times[k];
       const barIdx = lyricBarForTime(t);
@@ -3408,6 +3429,7 @@ function initUI() {
 
   document.getElementById('lyric-snap').addEventListener('change', function () {
     state.lyricSnap = this.checked;
+    if (state.melodySmooth) rebuildMelodyNotes();
     if (state.chords.length) renderChart();
   });
 
