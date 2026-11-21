@@ -3187,11 +3187,15 @@ def build_fretboard_tool():
     rendering JS, and is therefore the single source of truth. We copy it into the build
     output verbatim instead of regenerating it here, so the two can never drift apart.
     """
-    src = BASE_DIR / "tools" / "fretboard" / "index.html"
+    src_dir = BASE_DIR / "tools" / "fretboard"
     page_dir = OUTPUT_DIR / "tools" / "fretboard"
     page_dir.mkdir(parents=True, exist_ok=True)
     out = page_dir / "index.html"
-    write(out, with_site_chrome(src.read_text(encoding="utf-8"), out))
+    write(out, with_site_chrome((src_dir / "index.html").read_text(encoding="utf-8"), out))
+    # 同目錄的 JS（pluck.js 音源、play-ui.js 播放介面）要一起帶過去，
+    # 不然線上會 404，頁面看起來正常但完全沒聲音
+    for js in sorted(src_dir.glob("*.js")):
+        shutil.copy2(str(js), str(page_dir / js.name))
 
 
 def with_site_chrome(html, page_path):
