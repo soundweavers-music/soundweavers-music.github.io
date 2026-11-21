@@ -2752,7 +2752,7 @@ async function ensureLyricAnchors() {
   try {
     setStatus('AI 聽歌詞…（第一次會下載約 251 MB 的歌詞辨識模型，之後瀏覽器會記住）', 'analyzing');
     state.lyricAnchors = await window.ChordAI.lyricAnchors(mf.x16, state.lyrics, ensureOrt, {
-      download: p => setProgress(p * 60, '下載歌詞辨識模型… ' + Math.round(p * 100) + '%'),
+      download: (p, bytes) => setProgress(p * 60, '下載歌詞辨識模型… ' + Math.round(p * 100) + '%' + (bytes ? '（' + Math.round(bytes / 1048576) + ' / 251 MB）' : '')),
       track: p => setProgress(60 + p * 38, 'AI 聽歌詞… ' + Math.round(p * 100) + '%'),
     });
     state.lyricAnchorsKey = key; state.lyricAnchorsFor = mf;
@@ -2943,11 +2943,65 @@ async function ensureMelody() {
     ? '旋律分析完成（AI）。簡譜是首調：' + jianpuKeyLabel() + '。' + lyricNote
     : '旋律分析完成（AI 旋律模型沒有載入，用舊做法，準確度較低）。簡譜是首調：' + jianpuKeyLabel() + '。', 'done');
   renderChart();
-  // 出版譜：還沒手動改過（或還沒有音）就用新的旋律重新產生
-  if (typeof SC === 'object' && SC.score && !SC.undo.length && !SC.edited) {
-    const meta = SC.score.meta; SC.score = scBuildFromDetection(); Object.assign(SC.score.meta, meta, { key: SC.score.meta.key });
-    scFillPanel(); scRender(); scSyncTools();
+  // 出版譜：還沒手動改過就用新的旋律整份重新產生；
+  // 改過的話不能整份重排（會蓋掉使用者的修改），但「匯入歌詞／AI 聽歌詞」是明確要把歌詞放上譜，
+  // 所以只把新對齊好的歌詞搬到改過的譜上（音、記號都不動）。以前這裡直接略過，
+  // 結果改過一個音之後再匯入 LRC，狀態列說「已對齊」，譜上卻一個字都沒有。
+  if (typeof SC === 'object' && SC.score) {
+    if (!SC.undo.length && !SC.edited) {
+      const meta = SC.score.meta; SC.score = scBuildFromDetection(); Object.assign(SC.score.meta, meta, { key: SC.score.meta.key });
+    } else if (state.lyrics.length) {
+      scMergeLyrics(scBuildFromDetection());
+    }
+    scInvalidateTimes(); scFillPanel(); scRender(); scSyncTools();
   }
+}
+
+// 把 fresh（剛從偵測產生的譜）上的歌詞搬到使用者改過的譜。
+// 用序列對齊（動態規劃）：字照唱的順序一個一個放到改過的譜上「有音高的音」，絕不倒退，
+// 讓「字的拍位」跟「放到的音的拍位」差距總和最小；差太遠（> 2 拍）寧可不放、報給使用者補。
+// （以前用「同小節最近的空音」，兩個字搶相鄰的音時順序會顛倒：「清晨醒」變成「清醒晨」。）
+// 搬之前先清掉譜上原本的歌詞，所以重匯一次 LRC 會換成新的歌詞。
+function scMergeLyrics(fresh) {
+  const sc = SC.score, bpb = scMeterBeats(sc.meta);
+  const flat = s => {
+    const out = [];
+    s.bars.forEach((bar, b) => {
+      let pos = bar.pickup ? bpb - bar.notes.reduce((a, n) => a + n.dur, 0) : 0;
+      bar.notes.forEach((n, i) => { out.push({ b, i, n, at: b * bpb + pos }); pos += n.dur; });
+    });
+    return out;
+  };
+  const syl = flat(fresh).filter(x => x.n.lyric);
+  const tgt = flat(sc).filter(x => x.n.deg && !x.n.cont);
+  scPush();
+  sc.bars.forEach(bar => bar.notes.forEach(n => { delete n.lyric; }));
+  const S = syl.length, N = tgt.length, DROP = 2, INF = 1e18;
+  // dp[i][j]：前 i 個字、只用前 j 個音的最小代價；一個字可以「放到第 j 個音」或「不放（DROP）」，音可以跳過不用
+  const dp = new Float64Array((S + 1) * (N + 1)).fill(INF), bk = new Int8Array((S + 1) * (N + 1));
+  const at = (i, j) => i * (N + 1) + j;
+  for (let j = 0; j <= N; j++) dp[at(0, j)] = 0;
+  for (let i = 1; i <= S; i++) {
+    dp[at(i, 0)] = dp[at(i - 1, 0)] + DROP; bk[at(i, 0)] = 2;
+    for (let j = 1; j <= N; j++) {
+      const d = Math.abs(syl[i - 1].at - tgt[j - 1].at);
+      let best = d <= 2 ? dp[at(i - 1, j - 1)] + d : INF, k = 1;          // 放到這個音
+      if (dp[at(i, j - 1)] < best) { best = dp[at(i, j - 1)]; k = 0; }    // 這個音不放字
+      if (dp[at(i - 1, j)] + DROP < best) { best = dp[at(i - 1, j)] + DROP; k = 2; }   // 這個字放不下
+      dp[at(i, j)] = best; bk[at(i, j)] = k;
+    }
+  }
+  let moved = 0, lost = 0;
+  for (let i = S, j = N; i > 0;) {
+    const k = bk[at(i, j)];
+    if (k === 1) { tgt[j - 1].n.lyric = syl[i - 1].n.lyric; moved++; i--; j--; }
+    else if (k === 0) j--;
+    else { lost++; i--; }
+  }
+  sc.edited = true; SC.edited = true;
+  scSave();
+  if (lost) setStatus(document.getElementById('status-msg').textContent + `（你改過譜，歌詞照拍位放回去了；有 ${lost} 個字找不到對應的音，請手動補。）`, 'done');
+  return moved;
 }
 
 // 首調標示：「1 = C」。小調歌照華語簡譜習慣以關係大調為 1（A 小調 → 1 = C，主音唱 6）。
@@ -4464,10 +4518,21 @@ function scInitUI() {
   const asrBox = document.getElementById('sc-lyric-asr');
   try { state.useLyricAsr = localStorage.getItem('chord.lyricAsr') === '1'; } catch (e) {}
   asrBox.checked = state.useLyricAsr;
+  // 每一種情況都要在狀態列給回應（以前沒音檔或還沒匯入歌詞時打勾，畫面完全沒變，看起來像壞掉）
   asrBox.addEventListener('change', async function () {
     state.useLyricAsr = this.checked;
     try { localStorage.setItem('chord.lyricAsr', this.checked ? '1' : '0'); } catch (e) {}
-    if (state.audioBuffer && state.lyrics.length && state.showMelody) { state.lyricAnchors = null; state.lyricAnchorsKey = null; await ensureMelody(); }
+    if (!this.checked) {
+      state.lyricAnchors = null; state.lyricAnchorsKey = null; state.lyricAlignKey = null;
+      if (state.audioBuffer && state.lyrics.length && state.showMelody) await ensureMelody();
+      else setStatus('已關閉「AI 聽歌詞」。', 'done');
+      return;
+    }
+    if (!state.audioBuffer) { setStatus('已開啟「AI 聽歌詞」。先上傳歌曲，再按「📄 匯入 .lrc 歌詞」，就會用 AI 對歌詞（第一次下載約 251 MB）。', 'done'); return; }
+    if (!state.lyrics.length) { setStatus('已開啟「AI 聽歌詞」。接著按「📄 匯入 .lrc 歌詞」，匯入後就會用 AI 對歌詞（第一次下載約 251 MB）。', 'done'); return; }
+    state.lyricAnchors = null; state.lyricAnchorsKey = null;
+    state.showMelody = true;
+    await ensureMelody();
   });
   // 標頭欄位
   const bind = (id, key, conv) => document.getElementById(id).addEventListener('change', function () {
