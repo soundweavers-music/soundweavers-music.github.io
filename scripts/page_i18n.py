@@ -150,7 +150,11 @@ def _js_strings(block: str) -> list[str]:
                 buf.append(c)
                 i += 1
             s = "".join(buf).strip()
-            if s and CJK.search(s) and len(s) <= 120:
+            # 只收「像一句話」的：程式片段（含 ; { } => 或換行）不是介面文字，
+            # 收進來只會讓「未翻譯」的數字永遠降不到 0
+            code_like = (";" in s or "{" in s or "}" in s or "=>" in s
+                         or "\n" in s or s.startswith("/") or s.startswith("."))
+            if s and CJK.search(s) and len(s) <= 120 and not code_like:
                 out.append(s)
             continue
         i += 1

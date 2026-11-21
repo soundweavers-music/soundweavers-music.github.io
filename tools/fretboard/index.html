@@ -57,6 +57,19 @@
 .fretboard-container {overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface);padding:16px;margin-bottom:24px;}
 .fretboard-wrapper {position:relative;min-width:600px;}
 .fretboard-svg {display:block;width:100%;height:auto;}
+.pb-bar {margin:0 0 18px;padding:10px 14px;border:1px solid var(--line);border-radius:10px;background:var(--surface);}
+.pb-row {display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.pb-btn {display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);font-size:13px;font-weight:600;cursor:pointer;transition:all .15s;}
+.pb-btn:hover {border-color:var(--accent);color:var(--accent);}
+.pb-btn.pb-main {background:var(--accent);border-color:var(--accent);color:#fff;}
+.pb-btn.pb-main:hover {filter:brightness(1.05);color:#fff;}
+.pb-btn.playing {background:#0f766e;border-color:#0f766e;color:#fff;}
+.pb-select {height:34px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);font-size:13px;padding:0 8px;cursor:pointer;min-width:190px;}
+.pb-field {display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);font-weight:600;}
+.pb-field input[type=number] {width:64px;height:32px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink);font-size:13px;padding:0 6px;}
+.pb-field input[type=range] {width:96px;}
+.pb-hint {font-size:12px;color:var(--muted);}
+.fretboard-svg {cursor:crosshair;}
 .panels-grid {display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px;}
 .info-card {border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden;}
 .info-card-header {padding:14px 18px;background:var(--soft);border-bottom:1px solid var(--line);font-weight:700;font-size:15px;display:flex;align-items:center;gap:8px;}
@@ -291,7 +304,7 @@ function loadPresetChords() {
 }
 function savePresetChords() { try { localStorage.setItem('fretboard_common_chords', JSON.stringify(state.presetChords)); } catch (e) {} }
 
-var state = {instrument:0,tuning:null,key:0,mode:'major',selectedChord:null,selectedCommonChord:null,selectedPreset:null,presetChords:loadPresetChords(),fretCount:15,horizontal:(localStorage.getItem('fretboard_chord_horizontal')==='1'),lefty:(localStorage.getItem('fretboard_chord_lefty')==='1'),diagramSize:parseInt(localStorage.getItem('fretboard_diagram_size'))||150,showNotes:localStorage.getItem('fretboard_show_notes')==='1',showQuality:localStorage.getItem('fretboard_show_quality')==='1',showPlayBtn:localStorage.getItem('fretboard_show_play')==='1',qualityFilter:null};
+var state = {instrument:0,tuning:null,key:0,mode:'major',selectedChord:null,selectedCommonChord:null,selectedPreset:null,presetChords:loadPresetChords(),fretCount:15,horizontal:(localStorage.getItem('fretboard_chord_horizontal')==='1'),lefty:(localStorage.getItem('fretboard_chord_lefty')==='1'),diagramSize:parseInt(localStorage.getItem('fretboard_diagram_size'))||150,showNotes:localStorage.getItem('fretboard_show_notes')==='1',showQuality:localStorage.getItem('fretboard_show_quality')==='1',showPlayBtn:localStorage.getItem('fretboard_show_play')!=='0',qualityFilter:null};
 
 function parseTuning(arr) { return arr.map(function(s){var m=s.match(/^([A-G][♯♭]?)(\d)$/);if(!m)return 60;var no=noteToMidi(m[1]);var o=(parseInt(m[2])+1)*12;return no+o;});}
 function midiToDisplay(m) {return NOTE_NAMES[m%12]+Math.floor(m/12-1);}
@@ -1815,7 +1828,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <a href="./" class="dropdown-trigger">工具</a>
         <div class="dropdown-menu">
           <a href="./">🎸 世界樂器指版和弦圖</a>
-          <a href="../../chord-detection/">🎼 自動抓和弦 (beta)</a>
+          <a href="../../chord-detection/">🎼 織音AI自動轉譜</a>
           <a href="../../experience/">🎧 體驗</a>
         </div>
       </div>
@@ -2049,6 +2062,8 @@ document.addEventListener('DOMContentLoaded', function() {
   <button id="back-top" class="back-top" aria-label="回頂部">↑</button>
   <script src="../../assets/search.js"></script>
     <script src="../../assets/random-instrument.js"></script>
+  <script src="pluck.js"></script>
+  <script src="play-ui.js"></script>
   <script>(function(){var t=document.getElementById("theme-toggle"),d=document.documentElement;var I={nextdoor:"🎋",light:"🌤",dark:"🌙"};function s(m){d.setAttribute("data-theme",m);if(t)t.textContent=I[m]||"🎋";try{localStorage.setItem("theme",m)}catch(e){}}var v=(localStorage.getItem("theme")||"nextdoor");s(v);if(t)t.addEventListener("click",function(){var c=d.getAttribute("data-theme");s(c==="nextdoor"?"light":c==="light"?"dark":"nextdoor")});})();</script>
 </body>
 </html>
