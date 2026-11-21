@@ -527,7 +527,7 @@ def site_header(page_path):
           <a href="{resolve_url(page_path, '/tools/daw/')}">🎚️ 織音線上編曲製作</a>
           <a href="{resolve_url(page_path, '/tools/fretboard/')}">🎸 世界樂器指版和弦圖</a>
           <a href="{resolve_url(page_path, '/tools/tuner/')}">🎯 線上調音器與節拍器</a>
-          <a href="{resolve_url(page_path, '/chord-detection/')}">🎼 自動抓和弦</a>
+          <a href="{resolve_url(page_path, '/chord-detection/')}">🎼 織音AI自動轉譜</a>
           <a href="{resolve_url(page_path, '/tools/lrc/')}">📝 LRC 動態歌詞工作室</a>
         </div>
       </div>
@@ -683,7 +683,7 @@ def build_music_player():
 
 SITE_NAME = "世界聲音"
 SITE_DESC = ("世界聲音 by 隔壁織音人：世界樂器百科、人聲與歌唱教學、錄音後製與樂理課程，"
-             "以及在瀏覽器直接使用的音樂工具——指版和弦圖、自動抓和弦、LRC 歌詞工作室與線上編曲軟體。")
+             "以及在瀏覽器直接使用的音樂工具——指版和弦圖、織音AI自動轉譜、LRC 歌詞工作室與線上編曲軟體。")
 
 
 def website_jsonld(desc):
@@ -739,7 +739,7 @@ def page(title, body, page_path=None, meta_extra="", extra_head="", meta_descrip
             "base-uri 'self'; form-action 'self'; object-src 'none'"
         )
     keywords_default = ("隔壁織音人,世界聲音,世界樂器,樂器百科,音樂教學,線上編曲,編曲軟體,"
-                        "自動抓和弦,和弦圖,歌唱教學,錄音後製,吉他教學,基礎樂理,民族樂器,傳統樂器,打擊樂器,管樂器,弦樂器")
+                        "織音AI自動轉譜,和弦圖,歌唱教學,錄音後製,吉他教學,基礎樂理,民族樂器,傳統樂器,打擊樂器,管樂器,弦樂器")
     kw = meta_keywords or keywords_default
     desc = re.sub(r"\s+", " ", meta_description or SITE_DESC).strip()
     canonical_url = canonical_for(page_path)
@@ -978,7 +978,7 @@ def build_index(instruments):
             <span>瀏覽常見彈撥樂器的調弦法、各調性和弦、指版音位圖與順階和弦</span>
           </a>
           <a class="featured-card" href="{resolve_url(index_path, '/chord-detection/')}" style="background:linear-gradient(135deg,#fef3c7,#fde68a);border:1px solid #f59e0b;">
-            <strong>🎼 自動抓和弦</strong>
+            <strong>🎼 織音AI自動轉譜</strong>
             <span>上傳音檔自動分析節拍與和弦，簡譜式小節表可移調、標示 Capo、匯入 .lrc 歌詞</span>
           </a>
           <a class="featured-card" href="{resolve_url(index_path, '/tools/tuner/')}" style="background:linear-gradient(135deg,#f5f5f0,#e8e6dd);border:1px solid #d6d2c4;">
@@ -2663,6 +2663,7 @@ def discography_section(page_path: Path) -> str:
     for a in released:
         apple_id = a.get("apple")
         ytm_id = a.get("ytm")
+        kkbox_id = a.get("kkbox")
         apple = f"https://music.apple.com/tw/album/{apple_id}" if apple_id else ""
         ytm = f"https://music.youtube.com/playlist?list={ytm_id}" if ytm_id else ""
         title = escape(a["title"])
@@ -2690,11 +2691,16 @@ def discography_section(page_path: Path) -> str:
             links.append(f'<a class="album-link is-apple" href="{apple}" target="_blank" rel="noopener">Apple Music</a>')
         if ytm:
             links.append(f'<a class="album-link is-ytm" href="{ytm}" target="_blank" rel="noopener">YouTube Music</a>')
+        if kkbox_id:
+            links.append(f'<a class="album-link is-kkbox" href="https://www.kkbox.com/tw/tc/album/{kkbox_id}" target="_blank" rel="noopener">KKBOX</a>')
         links_html = ('<p class="album-links">' + "".join(links) + '</p>') if links else                      '<p class="album-meta">平台連結上架後補上</p>'
         tl = a.get("tracklist") or []
         track_html = (f'<details class="album-tracks"><summary>曲目 {len(tl)} 首</summary><ol>'
                       + "".join(f"<li>{escape(t)}</li>" for t in tl) + '</ol></details>') if tl else ""
-        cards.append(f"""      <li class="album-card">
+        intro = a.get("intro") or []
+        intro_html = ('<details class="album-intro"><summary>專輯簡介</summary><div class="album-intro-body">'
+                      + "".join(f"<p>{escape(p)}</p>" for p in intro) + '</div></details>') if intro else ""
+        cards.append(f"""      <li class="album-card" data-cat="{escape(a.get("cat", ""))}">
         {cover_open}
           {cover_html}
           <span class="album-tag">{tag}</span>
@@ -2702,6 +2708,7 @@ def discography_section(page_path: Path) -> str:
         <div class="album-body">
           <h3>{title}</h3>{sub}
           <p class="album-meta">{a["date"].replace("-", ".")}・{escape(a["type"])}・{a["tracks"]} 首</p>
+          {intro_html}
           {track_html}
           {links_html}
         </div>
@@ -2715,16 +2722,49 @@ def discography_section(page_path: Path) -> str:
       <ul>{upcoming}</ul>
     </div>""" if upcoming else ""
     n_album = sum(a["type"] == "專輯" for a in released)
+    n_instr = sum(a.get("cat") == "純音樂" for a in released)
+    n_vocal = sum(a.get("cat") == "人聲" for a in released)
+    kkbox_artist = data.get("kkbox_artist", "")
+    kkbox_btn = (f'\n        <a class="btn-ghost" href="{kkbox_artist}" target="_blank" rel="noopener">KKBOX 歌手頁 ↗</a>'
+                 if kkbox_artist else "")
     return f"""    <section class="about-section discography">
       <h2>歷年作品 Discography</h2>
       <p class="discography-lead">自 2024 年起已發行 {len(released)} 張作品（專輯 {n_album} 張、單曲 {len(released) - n_album} 張），橫跨療癒純音樂、兒童音樂與華語、日語流行歌曲。點封面即可在 YouTube Music 播放。</p>
       <p class="discography-artist">
         <a class="btn-ghost" href="{data["apple_artist"]}" target="_blank" rel="noopener">Apple Music 歌手頁 ↗</a>
-        <a class="btn-ghost" href="{data["ytm_artist"]}" target="_blank" rel="noopener">YouTube Music 歌手頁 ↗</a>
+        <a class="btn-ghost" href="{data["ytm_artist"]}" target="_blank" rel="noopener">YouTube Music 歌手頁 ↗</a>{kkbox_btn}
       </p>
+      <div class="album-tabs" role="tablist" aria-label="作品分類">
+        <button type="button" class="album-tab is-active" data-filter="all" role="tab" aria-selected="true">全部 <span>{len(released)}</span></button>
+        <button type="button" class="album-tab" data-filter="純音樂" role="tab" aria-selected="false">純音樂 <span>{n_instr}</span></button>
+        <button type="button" class="album-tab" data-filter="人聲" role="tab" aria-selected="false">人聲 <span>{n_vocal}</span></button>
+      </div>
       <ul class="album-grid">
 {chr(10).join(cards)}
       </ul>{upcoming_html}
+      <script>
+      (function () {{
+        var root = document.currentScript.closest('.discography');
+        var tabs = root.querySelectorAll('.album-tab');
+        var cards = root.querySelectorAll('.album-card');
+        function apply(filter) {{
+          for (var i = 0; i < cards.length; i++) {{
+            var cat = cards[i].getAttribute('data-cat');
+            cards[i].hidden = !(filter === 'all' || cat === filter);
+          }}
+          for (var j = 0; j < tabs.length; j++) {{
+            var on = tabs[j].getAttribute('data-filter') === filter;
+            tabs[j].classList.toggle('is-active', on);
+            tabs[j].setAttribute('aria-selected', on ? 'true' : 'false');
+          }}
+        }}
+        for (var k = 0; k < tabs.length; k++) {{
+          tabs[k].addEventListener('click', function () {{
+            apply(this.getAttribute('data-filter'));
+          }});
+        }}
+      }})();
+      </script>
     </section>"""
 
 
@@ -2777,7 +2817,7 @@ def build_about_page():
         <h3 style="font-size:18px;margin:1.5em 0 .5em;color:var(--ink);">可以動手的工具</h3>
         <ul class="about-index">
           <li><strong>{link('/tools/fretboard/', '世界樂器指版與和弦圖')}</strong>　19 種彈撥樂器的調弦、和弦與指版音位。</li>
-          <li><strong>{link('/chord-detection/', '自動抓和弦')}</strong>　上傳音檔，在瀏覽器裡分析和弦與調性，檔案不會離開你的電腦。</li>
+          <li><strong>{link('/chord-detection/', '織音AI自動轉譜')}</strong>　上傳歌曲，AI 自動轉成簡譜（旋律＋和弦＋歌詞），可即時編輯、播放、列印成出版譜；檔案不會離開你的電腦。</li>
           <li><strong>{link('/experience/', '世界樂器體驗')}</strong>　用虛擬鍵盤試聽各種樂器的音色與音域。</li>
           <li><strong>{link('/tools/tuner/', '線上調音器與節拍器')}</strong>　用麥克風測音高與音分偏差，內建 15 種樂器調弦與節拍器。</li>
           <li><strong>{link('/tools/lrc/', 'LRC 動態歌詞工作室')}</strong>　邊聽邊打時間碼，輸出 .lrc 或 .srt。</li>
@@ -2899,7 +2939,7 @@ def build_about_page():
   </div>
 </main>"""
     write(works_path, page("歷年作品・隔壁織音人", body, works_path,
-          meta_description="隔壁織音人歷年作品：療癒純音樂、兒童音樂與華語、日語流行歌曲專輯與單曲，附 Apple Music 與 YouTube Music 收聽連結。"))
+          meta_description="隔壁織音人歷年作品：療癒純音樂、兒童音樂與華語、日語流行歌曲專輯與單曲，附專輯簡介、完整曲目與 Apple Music、YouTube Music、KKBOX 收聽連結。"))
 
 
 def build_recruit_page():
@@ -3221,12 +3261,12 @@ def build_chord_detection_tool():
     body = f'<main class="page">\n{main_content}\n</main>\n' + f'\n<script>{inline_js}</script>\n'
 
     write(page_dir / "index.html", page(
-        "自動抓和弦",
+        "織音AI自動轉譜",
         body,
         page_dir / "index.html",
         extra_head=chord_extra_head,
         csp=chord_csp,
-        meta_description="上傳音檔，自動分析節拍與和弦，以簡譜式小節表顯示；可移調、標示 Capo、匯入 .lrc 歌詞、點小節試聽，並匯出文字或 Word。所有分析都在瀏覽器內完成。",
+        meta_description="織音AI自動轉譜：上傳歌曲，AI 自動抓旋律、和弦與歌詞，排成可出版的簡譜；可即時編輯、播放、移調、標示 Capo、列印成 PDF。所有分析都在瀏覽器內完成，檔案不上傳。",
     ))
 
     # chord-detection/local-agent/ (a Python program) stays in the repo only.
@@ -3449,7 +3489,7 @@ def build_daw_tool():
 # 全站工具清單：/tools/ 總覽頁與各工具頁的「相關工具」都用這一份，新增工具只要改這裡
 TOOLS = [
     ("/tools/daw/", "🎚️", "織音線上編曲製作", "", "免安裝的瀏覽器編曲軟體：16 軌起跳的多軌錄音、MIDI 編曲與音色庫、效果器、混音、母帶與輸出 WAV／FLAC／MP3。檔案不會上傳。", "/tools/daw/guide/"),
-    ("/chord-detection/", "🎼", "自動抓和弦", "", "上傳音檔自動分析節拍與和弦，簡譜式小節表可移調、標示 Capo、匯入 .lrc 歌詞。", "/chord-detection/guide/"),
+    ("/chord-detection/", "🎼", "織音AI自動轉譜", "", "上傳歌曲，AI 自動轉成簡譜：旋律、和弦、歌詞一次排好，可即時編輯、播放、移調、列印成出版譜。", "/chord-detection/guide/"),
     ("/tools/tuner/", "🎯", "線上調音器與節拍器", "", "麥克風即時測音高與音分偏差，內建 15 種樂器調弦與參考音，右欄還有節拍器。", "/tools/tuner/guide/"),
     ("/tools/lrc/", "📝", "LRC 動態歌詞工作室", "", "邊聽邊打時間碼，自動偵測句與句的停頓先排好初稿，輸出 .lrc 或 .srt。", "/tools/lrc/guide/"),
     ("/tools/fretboard/", "🎸", "世界樂器指版與和弦圖", "", "19 種彈撥樂器的調弦法、各調性和弦、指版音位圖與順階和弦。", "/tools/fretboard/guide/"),
@@ -3459,7 +3499,7 @@ TOOLS = [
 TOOL_GUIDES = [
     ("fretboard", "/tools/fretboard/", "世界樂器指版與和弦圖", "Fretboard & Chord Charts",
      "19 種彈撥樂器的調弦、和弦與指版音位，全部在瀏覽器裡算。"),
-    ("chord-detection", "/chord-detection/", "自動抓和弦", "Chord Detection",
+    ("chord-detection", "/chord-detection/", "織音AI自動轉譜", "AI Score Transcription",
      "上傳音檔，自動分析節拍與和弦，整理成可移調的簡譜小節表。"),
     ("lrc", "/tools/lrc/", "LRC 動態歌詞工作室", "LRC Lyrics Studio",
      "邊聽邊打時間碼，輸出 .lrc 或 .srt。"),
@@ -3692,7 +3732,7 @@ def build_tools_index():
 .tool-guide{border-top:1px solid var(--line,#e5e0d8);padding:10px 20px;font-size:14px;text-decoration:none}
 </style>"""
     write(out, page("工具", body, out, extra_head=css,
-                    meta_description="世界聲音的線上音樂工具：瀏覽器編曲軟體、自動抓和弦、LRC 歌詞工作室、指版和弦圖、樂器體驗。全部在瀏覽器裡執行，檔案不上傳。"))
+                    meta_description="世界聲音的線上音樂工具：瀏覽器編曲軟體、織音AI自動轉譜、LRC 歌詞工作室、指版和弦圖、樂器體驗。全部在瀏覽器裡執行，檔案不上傳。"))
 
 
 def build_experience_page():
@@ -3839,7 +3879,7 @@ def main():
     vendor_src = BASE_DIR / "assets" / "vendor"
     if vendor_src.exists():
         shutil.copytree(str(vendor_src), str(OUTPUT_DIR / "assets" / "vendor"), dirs_exist_ok=True)
-    # 自動抓和弦 AI 精準模式的模型（BTC，MIT；13 MB，訪客第一次用 AI 模式時才下載）
+    # 織音AI自動轉譜 AI 精準模式的模型（BTC，MIT；13 MB，訪客第一次用 AI 模式時才下載）
     chord_ai = BASE_DIR / "assets" / "chord-ai"
     if chord_ai.exists():
         shutil.copytree(str(chord_ai), str(OUTPUT_DIR / "assets" / "chord-ai"), dirs_exist_ok=True)
