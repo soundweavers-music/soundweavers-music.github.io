@@ -132,14 +132,22 @@ def relativize(html, page_path):
 # 英文頁先落地成 /en/<course>/…，導覽列只有英文確實存在的入口，其餘先連到中文頁
 # （工具與百科都還是中文），並在右上角放一個語言切換。
 EN_NAV = [("/en/", "Courses"), ("/instruments/", "Instruments"),
-          ("/ensembles/", "Ensembles"), ("/tools/", "Tools"), ("/about/", "About")]
+          ("/ensembles/", "Ensembles"), ("/en/tools/", "Tools"), ("/en/about/", "About")]
 
 
 def _lang_switch(page_path, lang):
     """回中文／去英文的對應頁。英文頁在 /en/x/y/，中文對應就是 /x/y/。"""
-    here = str(page_path or "")
+    here = str(page_path or "").replace("\\", "/")
     if lang == "en":
-        return resolve_url(page_path, "/"), "中文"
+        # /en/tools/fretboard/index.html → /tools/fretboard/（英文頁的中文對應）
+        i = here.find("/en/")
+        back = here[i + 3:] if i != -1 else ""
+        back = "/" + (back.split("index.html")[0] or "")
+        # 中文對應頁不存在就回首頁：DAW 課程英文在 /en/dawcourse/、中文在
+        # /tools/daw/learn/，把 /en 去掉會連到一個不存在的 /dawcourse/
+        if not (OUTPUT_DIR / back.strip("/") / "index.html").exists() and back != "/":
+            back = "/"
+        return resolve_url(page_path, back), "中文"
     # 中文頁 → 英文（只做課程，其他頁先回首頁）
     return resolve_url(page_path, "/en/"), "English"
 
@@ -166,7 +174,7 @@ def page(title, body, page_path=None, extra_head="", meta_description="", og_ima
     desc = meta_description or ("World Sound by Next Door Sound Weavers: an encyclopedia of world instruments, "
                                  "plus courses in singing, recording, music theory and songwriting, and browser-based music tools."
                                  if lang == "en" else
-                                 "世界聲音 by 隔壁織音人：世界樂器百科、人聲與歌唱教學、錄音後製與樂理課程，以及在瀏覽器直接使用的音樂工具——指版和弦圖、自動抓和弦、LRC 歌詞工作室與線上編曲軟體。")
+                                 "世界聲音 by 隔壁織音人：世界樂器百科、人聲與歌唱教學、錄音後製與樂理課程，以及在瀏覽器直接使用的音樂工具——指版和弦圖、織音AI自動轉譜、LRC 歌詞工作室與線上編曲軟體。")
     csp = ("default-src 'self'; img-src 'self' https: data:; "
            "style-src 'self' 'unsafe-inline'; "
            "script-src 'self' 'unsafe-inline'; "
@@ -180,7 +188,7 @@ def page(title, body, page_path=None, extra_head="", meta_description="", og_ima
     keywords = ("world instruments, instrument encyclopedia, music theory, ear training, "
                 "songwriting, mixing, guitar, ukulele, browser music tools") if lang == "en" else \
                ("隔壁織音人,世界聲音,世界樂器,樂器百科,音樂教學,線上編曲,編曲軟體,"
-                "自動抓和弦,和弦圖,歌唱教學,錄音後製,吉他教學,基礎樂理")
+                "織音AI自動轉譜,和弦圖,歌唱教學,錄音後製,吉他教學,基礎樂理")
     jsonld = f'''{{
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -210,8 +218,14 @@ def page(title, body, page_path=None, extra_head="", meta_description="", og_ima
     if lang == "en":
         en_path = canonical.split(site_domain)[-1] or "/"
         zh_path = en_path[3:] if en_path.startswith("/en") else en_path
-        hreflang = (f'<link rel="alternate" hreflang="en" href="{site_domain}{en_path}">\n'
-                    f'  <link rel="alternate" hreflang="zh-Hant" href="{site_domain}{zh_path or "/"}">')
+        # hreflang 的中文對應要真的存在：DAW 課程英文在 /en/dawcourse/、中文在
+        # /tools/daw/learn/，直接去掉 /en 會指向一個不存在的頁面（連結檢查會抓到）
+        zh_dir = OUTPUT_DIR / zh_path.strip("/")
+        has_zh = (zh_dir / "index.html").exists()
+        hreflang = f'<link rel="alternate" hreflang="en" href="{site_domain}{en_path}">\n'
+        if has_zh:
+            hreflang += (f'  <link rel="alternate" hreflang="zh-Hant" '
+                         f'href="{site_domain}{zh_path or "/"}">')
     else:
         hreflang = ""
     _dm_head = '<script>!function(){try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);else document.documentElement.setAttribute("data-theme","nextdoor")}catch(e){}}()</script>'
@@ -435,7 +449,7 @@ def build_portal_homepage(instruments):
   </section>
 </main>"""
     write(index_path, page("世界聲音｜世界樂器、音樂教學、線上編曲軟體｜隔壁織音人", body, index_path,
-                           meta_description="世界聲音 by 隔壁織音人：829 件世界樂器的分類百科、人聲與歌唱教學、錄音後製與樂理課程，以及指版和弦圖、自動抓和弦、線上編曲軟體等可直接在瀏覽器使用的工具。循著聲音，走進不同文化的現場。"))
+                           meta_description="世界聲音 by 隔壁織音人：829 件世界樂器的分類百科、人聲與歌唱教學、錄音後製與樂理課程，以及指版和弦圖、織音AI自動轉譜、線上編曲軟體等可直接在瀏覽器使用的工具。循著聲音，走進不同文化的現場。"))
     print("  Portal homepage written.")
 
 

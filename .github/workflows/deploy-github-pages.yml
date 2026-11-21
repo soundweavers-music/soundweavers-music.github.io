@@ -72,6 +72,10 @@ jobs:
       - name: Build English course pages
         run: python scripts/build_en_courses.py
 
+      # 工具／關於／說明頁的英文版：中文頁是唯一真相，這裡換字生出 /en/ 的副本
+      - name: Build English tool and about pages
+        run: python scripts/page_i18n.py build
+
       # 英文版的守門員：章數對不對、圖在不在、有沒有整段還是中文
       - name: Check English edition
         run: python scripts/check_en_site.py
