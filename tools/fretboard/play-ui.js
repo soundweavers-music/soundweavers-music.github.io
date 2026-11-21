@@ -327,9 +327,12 @@
     document.addEventListener('click', function (e) {
       var t = e.target;
       if (!t || !t.closest) return;
-      var area = t.closest('.common-chord-grid, #common-chord-grid, #preset-chord-grid, #chord-detail, #preset-chord-detail, #common-chord-detail, .chord-diagram-box');
-      if (area) onChartClick(e);
-    });
+      // 判斷依據：這個點擊落在「和和弦圖」的 svg 裡。
+      // 不要用外層容器類別去猜——和弦卡的外框是 .cc-diagram／.common-chord-card，
+      // 跟區塊 id 對不上，猜錯就會整個事件被吃掉（點弦沒反應就是這樣來的）。
+      var svg = t.closest('svg');
+      if (svg && svg.querySelector('[data-midi]')) onChartClick(e);
+    }, true);   // 用捕獲階段：卡片自己的點擊處理會 stopPropagation，冒泡階段會漏接
     var instSel = document.getElementById('instrument-select');
     if (instSel) instSel.addEventListener('change', function () { setTimeout(refreshPatterns, 0); });
     document.querySelectorAll('.tuning-item').forEach(function (el) {
