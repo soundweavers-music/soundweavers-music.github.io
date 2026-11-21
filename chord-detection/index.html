@@ -2638,7 +2638,10 @@ function lyricAlignment() {
   const key = state.lyrics.map(l => l.time + '|' + l.text).join('\n');
   if (state.lyricAlignKey === key && state.lyricAlignFor === state.melodySmooth) return state.lyricAlign;
   let al = null;
-  try { al = window.ChordAI.alignLyrics(state.melodySmooth, state.melodyFrames && state.melodyFrames.rise, state.lyrics, state.lyrics.map(l => l.end)); }
+  try {
+    const mf = state.melodyFrames || {};
+    al = window.ChordAI.alignLyrics(state.melodySmooth, mf.rise, state.lyrics, state.lyrics.map(l => l.end), mf.sepEngine);
+  }
   catch (e) { console.warn('AI 歌詞對齊失敗，改用舊做法', e); al = null; }
   state.lyricAlign = al; state.lyricAlignKey = key; state.lyricAlignFor = state.melodySmooth;
   return al;

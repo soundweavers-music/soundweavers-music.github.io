@@ -474,10 +474,10 @@
       const pts = [a]; let last = a;
       for (let i = i0 + 1; i < i1; i++) {
         const t = i * RISE_HOP;
-        if (rise[i] >= 6 && rise[i] >= rise[i - 1] && rise[i] >= rise[i + 1] && t - last >= 0.12 && b - t >= 0.12) { pts.push(t); last = t; }
+        if (rise[i] >= RISE_SPLIT && rise[i] >= rise[i - 1] && rise[i] >= rise[i + 1] && t - last >= 0.12 && b - t >= 0.12) { pts.push(t); last = t; }
       }
       pts.push(b);
-      for (let q = 0; q + 1 < pts.length; q++) out.push({ start: pts[q], end: pts[q + 1], midi: nt.midi });
+      for (let q = 0; q + 1 < pts.length; q++) out.push({ start: pts[q], end: pts[q + 1], midi: nt.midi, split: q > 0 });
     }
     return out;
   }
@@ -492,8 +492,31 @@
   //     下一行的行首字可以整段跨過間奏（間奏裡零星的雜音不算拖腔）
   // 測試：合成 8 首 475 字（LRC ±0.35 秒）字的時間對 34.5% → 58%、字底下的音對 73% → 81%；
   //       真實歌曲（叮叮噹！聖誕來了，40 行）每行起點都在 LRC ±0.4 秒內，重複的副歌音高一致。
-  const W_DUR = 0.3, W_K = 0.3, W_LINE = 1.5, LINE_WIN = 0.9, MAXK = 6, BREAK_GAP = 3.0;
-  function alignLyrics(frames, rise, lines, ends) {
+  // 細節（使用者給的正確副歌，6 次「聖誕來了 叮叮噹」＋3 次「聖誕快樂大聲唱」，63 字：56% → 84%）：
+  //   - 從同音高長音中間切出來的起點（split）比較不像新字：長音尾巴常常有響度起伏，會被誤切
+  //   - 太短的音（< 0.12 秒）多半是滑音
+  //   - 倚音：很短（≤ 0.22 秒）、直接接到下一個音、往上 1–2 個半音、下一個音長 3 倍以上
+  //     （例：「叮」前面的 7 → 1'）→ 是下一個字的裝飾，不是新的字
+  // 前兩條只在「AI 分離主唱」時用：分離乾淨的人聲，新字會有明顯的重新起音；中央遮罩的人聲（或合成人聲）
+  // 同音高連唱的字沒有這個差別，套用反而變差（合成 8 首字的時間 58% → 37%）。倚音那條兩邊都用。
+  const W_K = 0.3, W_LINE = 1.5, LINE_WIN = 0.9, MAXK = 6, BREAK_GAP = 3.0;
+  const SHORT_NOTE = 0.12, W_GRACE = 5, GRACE_DUR = 0.22, GRACE_RATIO = 3;
+  const TUNE = {
+    spleeter: { W_DUR: 0.6, RISE_SPLIT: 8, W_SPLIT: 2, W_SHORT: 1 },
+    center: { W_DUR: 0.3, RISE_SPLIT: 6, W_SPLIT: 0, W_SHORT: 0 },
+  };
+  let W_DUR = 0.3, RISE_SPLIT = 6, W_SPLIT = 0, W_SHORT = 0;
+  function startCost(notes, j) {
+    const q = notes[j], d = q.end - q.start, nx = notes[j + 1];
+    let v = 0;
+    if (q.split) v += W_SPLIT;
+    if (d < SHORT_NOTE) v += W_SHORT;
+    if (nx && d <= GRACE_DUR && nx.start - q.end < 0.03 && nx.midi - q.midi >= 1 && nx.midi - q.midi <= 2 &&
+        nx.end - nx.start > GRACE_RATIO * d) v += W_GRACE;
+    return v;
+  }
+  function alignLyrics(frames, rise, lines, ends, sepEngine) {
+    ({ W_DUR, RISE_SPLIT, W_SPLIT, W_SHORT } = TUNE[sepEngine === 'spleeter' ? 'spleeter' : 'center']);
     const notes = splitAtOnsets(notesFromFrames(frames.times, frames.midi), rise);
     const M = notes.length;
     ends = ends || [];
@@ -519,11 +542,13 @@
     if (!N || M < N) return null;
     const INF = 1e18, cum = new Float64Array(M + 1);
     for (let j = 0; j < M; j++) cum[j + 1] = cum[j] + notes[j].end - notes[j].start;
+    const sc = new Float64Array(M);
+    for (let j = 0; j < M; j++) sc[j] = startCost(notes, j);
     const node = (c, j) => {
       if (notes[j].start > chars[c].end + 0.5) return INF;      // 不能拖進 LRC 標示的間奏
-      if (!chars[c].first) return 0;
+      if (!chars[c].first) return sc[j];
       const d = Math.abs(notes[j].start - chars[c].lt);
-      return W_LINE * d / 0.35 + (d > LINE_WIN ? 8 : 0);
+      return sc[j] + W_LINE * d / 0.35 + (d > LINE_WIN ? 8 : 0);
     };
     const dp = new Float64Array(N * M).fill(INF), bk = new Int32Array(N * M).fill(-1);
     for (let j = 0; j <= M - N; j++) dp[j] = node(0, j);
