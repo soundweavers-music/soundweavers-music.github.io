@@ -405,6 +405,16 @@ dialog .soon { opacity: .45; pointer-events: none; }
 .fx-slot.off .fx-pow { color: var(--tx2); }
 .fx-slot .fx-name { overflow: hidden; text-overflow: ellipsis; }
 .fx-slots.compact .fx-slot { height: 17px; font-size: 10px; }
+/* 效果器圖示：跟著槽位的文字顏色走，停用時自動變淡 */
+.fx-slot .fxi { flex: 0 0 auto; opacity: .92; }
+.fx-slot.off .fxi { opacity: .45; }
+.fx-slots.compact .fxi { width: 12px; height: 12px; }
+.fx-slot { cursor: grab; }
+.fx-slot.add { cursor: pointer; }
+.fx-slot.dragging { opacity: .85; cursor: grabbing; box-shadow: 0 3px 10px rgba(0,0,0,.35); position: relative; z-index: 3; outline: 1px solid var(--accent); }
+.fx-slot .fx-pow { cursor: pointer; }
+.ctxmenu button.has-icon { display: flex; align-items: center; gap: 6px; }
+.ctxmenu button.has-icon .fxi { opacity: .8; flex: 0 0 auto; }
 .strip .sends { display: flex; gap: 6px; justify-content: center; }
 .strip .send { display: flex; flex-direction: column; align-items: center; font-size: 9px; color: var(--tx2); }
 .knob.mini-knob { width: 22px; height: 22px; }

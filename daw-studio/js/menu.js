@@ -13,6 +13,7 @@ export function showMenu(x, y, items) {
     b.type = 'button';
     b.disabled = !!it.disabled;
     b.textContent = it.label;
+    if (it.icon) { b.classList.add('has-icon'); b.insertAdjacentHTML('afterbegin', it.icon); }
     if (it.danger) b.style.color = 'var(--err-tx)';
     if (it.key) { const s = document.createElement('span'); s.textContent = it.key; b.appendChild(s); }
     b.addEventListener('click', () => { closeMenu(); it.action(); });

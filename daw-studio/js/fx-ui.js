@@ -10,6 +10,7 @@ import { harmEditor } from './harmony-ui.js';
 import { widthEditor } from './width-ui.js';
 import { reverbEditor } from './reverb-ui.js';
 import { showMenu } from './menu.js';
+import { fxIcon } from './fx-icons.js';
 import { toast, fmtDb } from './util.js';
 import { cssVar, ink } from './theme.js';
 
@@ -36,13 +37,15 @@ export function insertSlots(owner, compact = false) {
   list.forEach((d, i) => {
     const s = document.createElement('div');
     s.className = 'fx-slot' + (d.on ? '' : ' off');
-    s.innerHTML = `<button class="fx-pow" title="開／關">${d.on ? '●' : '○'}</button><span class="fx-name">${FX_TYPES[d.type].short}</span>`;
-    s.title = `${FX_TYPES[d.type].name}（點一下編輯、右鍵更多）`;
+    s.dataset.fxid = d.id;
+    s.innerHTML = `<button class="fx-pow" title="開／關">${d.on ? '●' : '○'}</button>${fxIcon(d.type)}<span class="fx-name">${FX_TYPES[d.type].short}</span>`;
+    s.title = `${FX_TYPES[d.type].name}（點一下編輯、上下拖曳調整順序、右鍵更多）`;
     s.querySelector('.fx-pow').addEventListener('click', e => {
       e.stopPropagation();
       store.checkpoint(); d.on = !d.on; store.changed('fx');
     });
-    s.addEventListener('click', () => openFxPanel(owner, d.id));
+    bindSlotDrag(owner, box, s, d);
+    s.addEventListener('click', () => { if (!suppressSlotClick) openFxPanel(owner, d.id); });
     s.addEventListener('contextmenu', e => {
       e.preventDefault(); e.stopPropagation();
       showMenu(e.clientX, e.clientY, [
@@ -66,6 +69,7 @@ export function insertSlots(owner, compact = false) {
       const r = add.getBoundingClientRect();
       showMenu(r.left, r.bottom + 2, FX_ORDER.map(type => ({
         label: FX_TYPES[type].name,
+        icon: fxIcon(type),
         action: () => {
           store.checkpoint();
           const fx = newFx(type);
@@ -79,6 +83,49 @@ export function insertSlots(owner, compact = false) {
     box.appendChild(add);
   }
   return box;
+}
+
+// 插入槽上下拖曳＝調整效果器順序（訊號會照這個順序處理）
+// 拖曳中只搬 DOM，放開才改資料，避免每次移動都重畫整個清單
+let suppressSlotClick = false;
+
+function bindSlotDrag(owner, box, el, d) {
+  el.addEventListener('pointerdown', e => {
+    if (e.button !== 0 || e.target.closest('.fx-pow')) return;
+    const y0 = e.clientY;
+    let moved = false, snapshot = null;
+    const slots = () => [...box.querySelectorAll('.fx-slot:not(.add)')].filter(x => x !== el);
+    const onMove = ev => {
+      if (!moved && Math.abs(ev.clientY - y0) < 4) return;
+      if (!moved) { moved = true; snapshot = JSON.stringify(store.project); el.classList.add('dragging'); }
+      const target = slots().find(x => { const r = x.getBoundingClientRect(); return ev.clientY < r.top + r.height / 2; });
+      const add = box.querySelector('.fx-slot.add');
+      if (target) {
+        if (el.nextElementSibling !== target) box.insertBefore(el, target);
+      } else if (el.nextElementSibling !== add) {
+        if (add) box.insertBefore(el, add); else box.appendChild(el);
+      }
+    };
+    const onUp = () => {
+      window.removeEventListener('pointermove', onMove);
+      window.removeEventListener('pointerup', onUp);
+      el.classList.remove('dragging');
+      if (!moved) return;
+      // 拖完會接著跳出 click，不要順手把面板打開
+      suppressSlotClick = true;
+      setTimeout(() => { suppressSlotClick = false; }, 0);
+      const order = [...box.querySelectorAll('.fx-slot:not(.add)')].map(x => x.dataset.fxid);
+      const list = ownerList(owner) || [];
+      if (order.length !== list.length || order.every((id, i) => list[i]?.id === id)) return;
+      store.undoStack.push(snapshot); store.redoStack.length = 0; store.dirty = true;
+      const byId = new Map(list.map(x => [x.id, x]));
+      list.length = 0;
+      for (const id of order) { const x = byId.get(id); if (x) list.push(x); }
+      store.changed('fx');
+    };
+    window.addEventListener('pointermove', onMove);
+    window.addEventListener('pointerup', onUp);
+  });
 }
 
 // ---------------- 參數面板（浮動視窗，可以同時開很多個）----------------
