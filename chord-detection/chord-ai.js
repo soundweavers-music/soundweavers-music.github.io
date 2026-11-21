@@ -650,13 +650,29 @@ const tr = (zh, en) => (document.documentElement.lang || '').startsWith('en') ? 
       const cj = await fetch(ASR_BASE + 'funasr_nano_chars.json');
       if (!cj.ok) throw new Error(tr('下載歌詞字表失敗（HTTP ' + cj.status + '）', 'Could not download the lyric vocabulary (HTTP ' + cj.status + ')'));
       asrChars = await cj.json();
+      // 邊下載邊回報進度（251 MB 在慢網路上要好幾分鐘；以前每塊下載完才更新一次，看起來像沒反應）
       const bufs = []; let total = 0;
+      const EXPECT = 263531902;            // 三塊加起來的大小（只用來算百分比）
       for (let k = 0; k < ASR_PARTS.length; k++) {
         const res = await fetch(ASR_PARTS[k]);
         if (!res.ok) throw new Error(tr('下載歌詞辨識模型失敗（HTTP ' + res.status + '）', 'Could not download the lyric-recognition model (HTTP ' + res.status + ')'));
-        const b = new Uint8Array(await res.arrayBuffer()); bufs.push(b); total += b.length;
-        if (onProgress) onProgress((k + 1) / ASR_PARTS.length);
+        if (res.body && res.body.getReader) {
+          const rd = res.body.getReader(), parts = []; let got = 0;
+          for (;;) {
+            const { done, value } = await rd.read();
+            if (done) break;
+            parts.push(value); got += value.length;
+            if (onProgress) onProgress(Math.min(0.99, (total + got) / EXPECT), total + got);
+          }
+          const b = new Uint8Array(got); let o = 0;
+          for (const p of parts) { b.set(p, o); o += p.length; }
+          bufs.push(b); total += got;
+        } else {
+          const b = new Uint8Array(await res.arrayBuffer()); bufs.push(b); total += b.length;
+          if (onProgress) onProgress(Math.min(0.99, total / EXPECT), total);
+        }
       }
+      if (onProgress) onProgress(1, total);
       const all = new Uint8Array(total); let o = 0;
       for (const b of bufs) { all.set(b, o); o += b.length; }
       bufs.length = 0;
