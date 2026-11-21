@@ -5,6 +5,7 @@ import {
   FILTERS, TRANSITIONS, COLOR_KEYS, isVideoClip, isTextClip, clipColor, filterCss,
   stillCanvas, transitionCanvas, refreshPreview, videoSettings,
 } from './video.js';
+import { engine } from './engine.js';
 import { toast } from './util.js';
 
 const $ = id => document.getElementById(id);
@@ -14,6 +15,13 @@ export function selectedVisualClip() {
   for (const id of store.selection.clipIds) {
     const f = store.findClip(id);
     if (f && (isVideoClip(f.clip) || isTextClip(f.clip))) return f;
+  }
+  // 只選了軌道（沒選片段）：拿播放頭下那一段，沒有就用第一段
+  const tr = store.track(store.selection.trackId);
+  if (tr && (tr.kind === 'video' || tr.kind === 'text' || tr.kind === 'sub') && tr.clips.length) {
+    const t = engine.currentTime();
+    const c = tr.clips.find(c => t >= clipStart(c) && t < clipStart(c) + clipDur(c)) || tr.clips[0];
+    return { track: tr, clip: c };
   }
   return null;
 }
@@ -39,8 +47,7 @@ export function initVideoPanel() {
       <button class="tbtn ghost" id="vpClose" title="關閉">✕</button>
     </div>
     <div class="vp-body"></div>`;
-  const main = $('main');
-  main.parentNode.insertBefore(panel, main.nextSibling);
+  $('main').appendChild(panel);          // 右側第三欄（CapCut 式屬性面板）
   body = panel.querySelector('.vp-body');
   panel.querySelectorAll('.vp-tabs button').forEach(b => {
     b.onclick = () => { tab = b.dataset.tab; render(); };
@@ -54,14 +61,14 @@ export function initVideoPanel() {
 export function toggleVideoPanel(on = !videoPanelOpen()) {
   initVideoPanel();
   // 先讓其他下方面板收起來，再開自己
-  if (on) store.emit('panel', { name: 'vidpanel' });
   panel.classList.toggle('hidden', !on);
+  $('main').classList.toggle('has-vid', !!on);
+  requestAnimationFrame(() => window.dispatchEvent(new Event('resize')));
   if (on) {
     const f = selectedVisualClip();
     shownClipId = f?.clip.id || null;
     render();
   }
-  requestAnimationFrame(() => window.dispatchEvent(new Event('resize')));
 }
 
 // 開面板並切到某個分頁（雙擊片段、右鍵選單用）
@@ -280,10 +287,12 @@ function syncValues(clip) {
   }
 }
 
-// 選到別的片段時跟著換（面板開著才做）
+// 點到影片／文字軌或片段：右側面板預設打開；選到別的軌就收起來
 store.on('select', () => {
-  if (!videoPanelOpen()) return;
   const f = selectedVisualClip();
+  if (f && !videoPanelOpen()) { toggleVideoPanel(true); return; }
+  if (!f && videoPanelOpen()) { toggleVideoPanel(false); return; }
+  if (!videoPanelOpen()) return;
   const id = f?.clip.id || null;
   if (id === shownClipId) return;
   shownClipId = id;

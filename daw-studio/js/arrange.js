@@ -231,19 +231,21 @@ export function renderHeaders() {
     el.className = 'thead' + (t.id === store.selection.trackId ? ' sel' : '');
     el.style.height = trackH(t) + 'px';
     el.dataset.id = t.id;
-    const visual = t.kind === 'video' || t.kind === 'text' || t.kind === 'sub';
-    const kindMark = t.kind === 'midi' ? '♪' : t.kind === 'video' ? '▶' : t.kind === 'text' ? 'T' : t.kind === 'sub' ? '字' : '∿';
+    const noAudio = t.kind === 'text' || t.kind === 'sub';      // 文字／字幕軌沒有聲音
+    const isVideo = t.kind === 'video';
+    const kindMark = t.kind === 'midi' ? '♪' : isVideo ? '▶' : t.kind === 'text' ? 'T' : t.kind === 'sub' ? '字' : '∿';
     el.innerHTML = `
       <div class="color" style="background:${t.color}"></div>
       <div class="num">${i + 1}<br><span class="kind ${t.kind}">${kindMark}</span></div>
       <div class="body">
         <div class="nrow"><input class="name" value="" maxlength="40" aria-label="軌道名稱">${t.kind === 'midi' ? instLabel(t) : ''}</div>
         <div class="ctrls">
-          <button class="mini m ${t.mute ? 'on' : ''}" data-act="mute" title="${visual ? '隱藏這一軌' : '靜音'}">M</button>
-          ${visual ? '' : `<button class="mini s ${t.solo ? 'on' : ''}" data-act="solo" title="獨奏">S</button>`}
-          ${visual ? '' : `<button class="mini r ${t.arm ? 'on' : ''}" data-act="arm" title="${t.kind === 'midi' ? '錄音待命（MIDI 鍵盤）' : '錄音待命'}">R</button>`}
+          <button class="mini m ${t.mute ? 'on' : ''}" data-act="mute" title="${noAudio ? '隱藏這一軌' : '靜音'}">M</button>
+          ${noAudio ? '' : `<button class="mini s ${t.solo ? 'on' : ''}" data-act="solo" title="獨奏">S</button>`}
+          ${(t.kind === 'audio' || t.kind === 'midi') ? `<button class="mini r ${t.arm ? 'on' : ''}" data-act="arm" title="${t.kind === 'midi' ? '錄音待命（MIDI 鍵盤）' : '錄音待命'}">R</button>` : ''}
           ${t.kind === 'audio' ? `<button class="mini i ${t.monitor ? 'on' : ''}" data-act="monitor" title="輸入監聽（請戴耳機）">I</button>` : ''}
-          ${visual ? '' : `<input class="vol" type="range" min="-60" max="6" step="0.1" value="${t.volumeDb}" title="音量 ${t.volumeDb.toFixed(1)} dB">`}
+          ${isVideo ? `<button class="mini e ${t.hidden ? 'on' : ''}" data-act="hidden" title="隱藏畫面（聲音照樣播放）">眼</button>` : ''}
+          ${noAudio ? '' : `<input class="vol" type="range" min="-60" max="6" step="0.1" value="${t.volumeDb}" title="音量 ${t.volumeDb.toFixed(1)} dB">`}
         </div>
       </div>
       <div class="tmeter"><i></i></div>`;

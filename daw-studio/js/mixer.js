@@ -214,9 +214,9 @@ function render() {
   const keep = root.scrollLeft;
   root.innerHTML = '';
   pruneMeters();
-  // 影片／文字／字幕軌沒有聲音，不進混音台
+  // 文字／字幕軌沒有聲音，不進混音台；影片軌有影片檔解出來的聲音，照樣可以調
   for (const t of store.project.tracks) {
-    if (t.kind === 'video' || t.kind === 'text' || t.kind === 'sub') continue;
+    if (t.kind === 'text' || t.kind === 'sub') continue;
     root.appendChild(stripFor(t));
   }
   const gap = document.createElement('div'); gap.style.flex = '1 0 8px'; root.appendChild(gap);

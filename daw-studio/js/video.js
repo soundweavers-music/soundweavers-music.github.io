@@ -2,7 +2,7 @@
 // 三種軌道都只是「畫面上的東西」：不進混音、不影響音訊輸出。
 import { store, clipStart, clipDur, spb } from './state.js';
 import { engine } from './engine.js';
-import { uid, toast } from './util.js';
+import { uid, toast, computePeaks } from './util.js';
 import { putMedia, getMedia } from './media-store.js';
 
 export const NON_AUDIO_KINDS = new Set(['video', 'text', 'sub']);
@@ -344,7 +344,7 @@ export async function composeFrame(ctx, W, H, t, { seek = true } = {}) {
   ctx.fillStyle = vs.bg || '#000';
   ctx.fillRect(0, 0, W, H);
   for (const tr of p.tracks) {
-    if (tr.kind !== 'video' || tr.mute) continue;
+    if (tr.kind !== 'video' || tr.hidden) continue;
     const cs = [...tr.clips].sort((x, y) => clipStart(x) - clipStart(y));
     for (let i = 0; i < cs.length; i++) {
       const c = cs[i], next = cs[i + 1];
@@ -386,13 +386,17 @@ export function syncVideos(t) {
       const rec = media.get(c.mediaId);
       if (!rec || !rec.ready) continue;
       const s = clipStart(c), d = clipDur(c);
-      const on = !tr.mute && t >= s && t < s + d;
+      const on = t >= s && t < s + d;
       const el = rec.el;
       if (!on) { if (!el.paused) el.pause(); continue; }
       const target = Math.max(0, (c.offset || 0) + (t - s));
       if (playing) {
-        if (el.paused) { el.currentTime = target; el.play().catch(() => {}); }
-        else if (Math.abs(el.currentTime - target) > 0.22) el.currentTime = target;
+        if (el.paused || el.ended) { el.currentTime = target; el.play().catch(() => {}); }
+        // 修正漂移要節流：每格都 seek 會讓畫面卡住不動
+        else if (Math.abs(el.currentTime - target) > 0.3 && performance.now() - (rec.seekAt || 0) > 700) {
+          rec.seekAt = performance.now();
+          el.currentTime = target;
+        }
       } else {
         if (!el.paused) el.pause();
         if (Math.abs(el.currentTime - target) > 0.02) el.currentTime = target;
@@ -423,7 +427,17 @@ export async function importVideoFiles(files, trackId, at) {
     const rec = await ensureMedia(id);
     if (!rec.ready) { toast(`讀不到 ${f.name}（這個影片格式瀏覽器解不開）`, 'error'); continue; }
     const dur = Math.max(0.1, rec.dur || 0);
-    t.clips.push({ id: uid('clip'), mediaId: id, name: stripExt(f.name), start: pos, duration: dur, offset: 0, gainDb: 0 });
+    const clip = { id: uid('clip'), mediaId: id, name: stripExt(f.name), start: pos, duration: dur, offset: 0, gainDb: 0 };
+    // 影片檔裡的聲音：瀏覽器解得開就當成這一軌的音訊（音量、靜音、效果器都照常）
+    try {
+      const ctx = await engine.ensure();
+      const buf = await ctx.decodeAudioData(await f.arrayBuffer());
+      const bufferId = uid('buf');
+      store.buffers.set(bufferId, buf);
+      store.bufferMeta.set(bufferId, { name: f.name, peaks: computePeaks(buf) });
+      clip.bufferId = bufferId;
+    } catch (_) { /* 沒有音軌、或是容器不支援解碼：這一段就只有畫面 */ }
+    t.clips.push(clip);
     if (t.clips.length === 1 && /^影片 \d+$/.test(t.name)) t.name = stripExt(f.name).slice(0, 20);
     pos += dur;
   }
@@ -603,8 +617,26 @@ export function toggleVideoPreview(on = !previewOpen()) {
   panel.classList.toggle('hidden', !on);
   if (on) {
     refreshPreview(true);
-    if (!raf) raf = requestAnimationFrame(tick);
-  }
+    startLoop();
+  } else stopLoop();
+}
+
+// 播放迴圈：rAF 為主，另外用一個慢速計時器當保險（分頁被瀏覽器降頻、
+// 或某一格算圖卡住時，畫面才不會停在那裡不動）
+let lastTickAt = 0, watchdog = 0, drawSince = 0;
+function startLoop() {
+  if (!raf) raf = requestAnimationFrame(tick);
+  if (!watchdog) watchdog = setInterval(() => {
+    if (!previewOpen()) { stopLoop(); return; }
+    if (performance.now() - lastTickAt > 600) { if (raf) cancelAnimationFrame(raf); raf = requestAnimationFrame(tick); }
+    if (drawing && performance.now() - drawSince > 1500) drawing = false;   // 算圖卡住就放行
+  }, 500);
+}
+function stopLoop() {
+  if (raf) cancelAnimationFrame(raf);
+  raf = 0;
+  if (watchdog) clearInterval(watchdog);
+  watchdog = 0;
 }
 
 export function refreshPreview(force = false) {
@@ -619,18 +651,22 @@ let drawing = false;
 function tick() {
   raf = 0;
   if (!previewOpen()) return;
-  const t = engine.currentTime();
-  syncVideos(t);
-  if (dirty || Math.abs(t - lastT) > 0.004) {
-    dirty = false; lastT = t;
-    drawLive(t);
-  }
-  raf = requestAnimationFrame(tick);
+  lastTickAt = performance.now();
+  try {
+    const t = engine.currentTime();
+    syncVideos(t);
+    if (dirty || Math.abs(t - lastT) > 0.004) {
+      dirty = false; lastT = t;
+      drawLive(t);
+    }
+  } catch (e) { console.warn('preview tick', e); }
+  raf = requestAnimationFrame(tick);       // 出錯也要繼續排下一格
 }
 
 async function drawLive(t) {
   if (drawing) return;
   drawing = true;
+  drawSince = performance.now();
   try {
     // 暫停時逐格定位（畫質正確），播放中交給 syncVideos 保持流暢
     await composeFrame(ctx, canvas.width, canvas.height, t, { seek: !engine.playing });
