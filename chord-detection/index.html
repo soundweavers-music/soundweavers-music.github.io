@@ -2244,11 +2244,18 @@ function parseLRC(text) {
     }
     if (!times.length) return;
     const content = line.slice(lastEnd).trim();
-    if (!content) return;
+    // 空白時間碼（[02:27.96] 後面沒字）＝上一行唱完、間奏開始：記下來給 AI 歌詞對齊當「這一行的結束」
     for (const t of times) out.push({ time: t, text: content });
   });
   out.sort((a, b) => a.time - b.time);
-  return out;
+  const lines = [];
+  for (let i = 0; i < out.length; i++) {
+    if (!out[i].text) continue;
+    const ln = { time: out[i].time, text: out[i].text };
+    if (i + 1 < out.length && !out[i + 1].text) ln.end = out[i + 1].time;
+    lines.push(ln);
+  }
+  return lines;
 }
 
 async function loadLRCFile(file) {
@@ -2264,6 +2271,7 @@ async function loadLRCFile(file) {
   }
   el.textContent = `已載入 ${state.lyrics.length} 行歌詞（${file.name}）`;
   el.className = 'status-msg done';
+  if (state.showMelody && state.audioBuffer && detectMode() === 'ai') { await ensureMelody(); return; }   // 會改用 AI 分離主唱重抓旋律
   if (state.melodySmooth) rebuildMelodyNotes();
   renderChart();
 }
@@ -2630,7 +2638,7 @@ function lyricAlignment() {
   const key = state.lyrics.map(l => l.time + '|' + l.text).join('\n');
   if (state.lyricAlignKey === key && state.lyricAlignFor === state.melodySmooth) return state.lyricAlign;
   let al = null;
-  try { al = window.ChordAI.alignLyrics(state.melodySmooth, state.melodyFrames && state.melodyFrames.rise, state.lyrics); }
+  try { al = window.ChordAI.alignLyrics(state.melodySmooth, state.melodyFrames && state.melodyFrames.rise, state.lyrics, state.lyrics.map(l => l.end)); }
   catch (e) { console.warn('AI 歌詞對齊失敗，改用舊做法', e); al = null; }
   state.lyricAlign = al; state.lyricAlignKey = key; state.lyricAlignFor = state.melodySmooth;
   return al;
@@ -2642,7 +2650,7 @@ function melodyNotesFromLyrics(frames) {
   if (!lines.length) return notes;
   const al = lyricAlignment();
   if (al) {
-    for (const ln of al) for (const c of ln) notes.push({ midi: c.midi, start: c.t, end: Math.max(c.t + 0.08, c.end) });
+    for (const ln of al) if (ln) for (const c of ln) notes.push({ midi: c.midi, start: c.t, end: Math.max(c.t + 0.08, c.end) });
     return notes;
   }
   for (let i = 0; i < lines.length; i++) {
@@ -2736,14 +2744,23 @@ async function ensureMelody() {
   // AI 旋律（中央聲道遮罩＋SwiftF0）：測試 493 個音，簡譜數字對 98%（舊做法 64%）。
   // 它自己的信心值就能分出「有沒有在唱」，所以預設不再用人聲模型（VAD）篩：VAD 是為說話設計的，
   // 在歌聲上常把整段判成沒聲音（測試裡漏掉 85% 的音）。
+  // 有匯入 LRC（而且是 AI 精準模式）才用 AI 分離主唱（Spleeter，第一次下載約 38 MB）：
+  // 中央聲道遮罩會把擺正中間的樂器當成旋律，歌詞就被拖進前奏／間奏。沒有歌詞時維持原本的輕量做法。
+  const wantSpl = detectMode() === 'ai' && state.lyrics.length > 0;
+  if (state.melodyFrames && wantSpl && state.melodyFrames.sepEngine !== 'spleeter' && !state.melodyFrames.splTried) {
+    state.melodyFrames = null; state.melodySmooth = null;     // 之前沒歌詞時是用中央遮罩算的 → 重算一次
+  }
   if (!state.melodyFrames && window.ChordAI && window.ChordAI.melodyFrames) {
     try {
-      setStatus('AI 分析旋律…（第一次會下載 135 KB 的旋律模型）', 'analyzing');
+      setStatus(wantSpl ? 'AI 分離主唱＋抓旋律…（第一次會下載約 38 MB 的人聲分離模型，之後瀏覽器會記住）'
+        : 'AI 分析旋律…（第一次會下載 135 KB 的旋律模型）', 'analyzing');
       state.melodyFrames = await window.ChordAI.melodyFrames(state.audioBuffer, ensureOrt, null, {
-        separate: p => setProgress(10 + p * 50, '分離主唱… ' + Math.round(p * 100) + '%'),
+        useSpleeter: wantSpl,
+        separate: p => setProgress(10 + p * 50, (wantSpl ? 'AI 分離主唱… ' : '分離主唱… ') + Math.round(p * 100) + '%'),
         track: p => setProgress(60 + p * 35, 'AI 抓旋律音高… ' + Math.round(p * 100) + '%'),
       });
       state.melodyEngine = 'ai';
+      state.melodyFrames.splTried = wantSpl;
       state.melodySmooth = smoothMelody(state.melodyFrames);
       setProgressDone();
     } catch (e) {
@@ -2774,8 +2791,18 @@ async function ensureMelody() {
     setProgressDone();
   }
   rebuildMelodyNotes();
+  let lyricNote = '';
+  if (state.melodyEngine === 'ai' && state.lyrics.length) {
+    const al = lyricAlignment();
+    const spl = state.melodyFrames && state.melodyFrames.sepEngine === 'spleeter';
+    if (al) {
+      const skipped = state.lyrics.filter((_, i) => !al[i]).length;
+      lyricNote = '歌詞已用 AI 逐字對齊' + (spl ? '（AI 分離主唱）' : '') +
+        (skipped ? '；' + skipped + ' 行在音檔裡沒聽到唱（例如歌名、詞曲資訊），只顯示文字、不配音符' : '') + '。';
+    }
+  }
   setStatus(state.melodyEngine === 'ai'
-    ? '旋律分析完成（AI）。簡譜是首調：' + jianpuKeyLabel() + '。'
+    ? '旋律分析完成（AI）。簡譜是首調：' + jianpuKeyLabel() + '。' + lyricNote
     : '旋律分析完成（AI 旋律模型沒有載入，用舊做法，準確度較低）。簡譜是首調：' + jianpuKeyLabel() + '。', 'done');
   renderChart();
 }
@@ -2840,8 +2867,13 @@ function computeLyricSegments() {
     const nextT = (i + 1 < lines.length) ? snapLyricTime(lines[i + 1].time) : state.duration;
     const chars = Array.from(lines[i].text).filter(ch => !/\s/.test(ch));
     if (!chars.length) continue;
+    let tEnd = Math.min(nextT, state.duration);
+    if (al && !al[i]) {
+      // AI 判定這行沒唱（歌名、詞曲資訊）：文字照樣排在它的 LRC 時間，但不能擠進下一句真正唱的字
+      for (let q = i + 1; q < lines.length; q++) if (al[q] && al[q].length) { tEnd = Math.min(tEnd, al[q][0].t - 0.3); break; }
+    }
     const times = (al && al[i] && al[i].length === chars.length) ? al[i].map(c => c.t)
-      : syllableTimes(chars.length, base, Math.max(base + 0.2, Math.min(nextT, state.duration)));
+      : syllableTimes(chars.length, base, Math.max(base + 0.2, tEnd));
     for (let k = 0; k < chars.length; k++) {
       const t = times[k];
       const barIdx = lyricBarForTime(t);
