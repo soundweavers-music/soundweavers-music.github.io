@@ -283,12 +283,129 @@
     return out;
   }
 
-  // 回傳頁面用的格式：{ times, midi（-1 = 沒有旋律）, nFrames }
+  // ===== AI 分離主唱：Spleeter 2stems（Deezer，MIT；ONNX 轉檔來自 sherpa-onnx）=====
+  // 44.1 kHz、STFT 4096 點 hop 1024 Hann → 前 1024 個頻率格（0–11 kHz）的幅度 → 兩個模型各估一份「人聲／伴奏」幅度
+  // → 人聲遮罩 = v² / (v² + a²) → 乘回原本的頻譜 → iSTFT。每次餵 512 格（約 12 秒），記憶體才不會爆。
+  // 為什麼要它：中央聲道遮罩會把「擺在正中間的樂器」（鋼琴、鐘琴、主奏）也留下來。真實歌曲測試裡，
+  // 前奏／間奏有 45–73% 的格子被當成旋律，歌詞就被拖進間奏；Spleeter 在前奏／間奏是 0%，主歌反而多抓到 7%。
+  const SPL_URLS = ['spleeter_vocals.onnx', 'spleeter_accomp.onnx'].map(f => new URL('../assets/chord-ai/' + f, document.baseURI).href);
+  const SPL_SR = 44100, SPL_N = 4096, SPL_H = 1024, SPL_BINS = 1024, SPL_T = 512;
+  let splSessions = null, splLoading = null;
+
+  async function ensureSpleeter(ensureOrt, onProgress) {
+    if (splSessions) return splSessions;
+    if (!splLoading) splLoading = (async () => {
+      const ort = await ensureOrt();
+      const out = [];
+      for (let k = 0; k < SPL_URLS.length; k++) {
+        const res = await fetch(SPL_URLS[k]);
+        if (!res.ok) throw new Error('下載人聲分離模型失敗（HTTP ' + res.status + '）');
+        out.push(await ort.InferenceSession.create(new Uint8Array(await res.arrayBuffer()), { executionProviders: ['wasm'] }));
+        if (onProgress) onProgress((k + 1) / SPL_URLS.length);
+      }
+      splSessions = out;
+      return out;
+    })();
+    try { return await splLoading; } catch (e) { splLoading = null; throw e; }
+  }
+
+  function resampleLinear(x, from, to) {
+    if (from === to) return x;
+    const n = Math.floor(x.length * to / from), out = new Float32Array(n), r = from / to;
+    for (let i = 0; i < n; i++) {
+      const p = i * r, a = Math.floor(p), f = p - a;
+      out[i] = (x[a] || 0) * (1 - f) + (x[a + 1] || 0) * f;
+    }
+    return out;
+  }
+
+  // 回傳單聲道主唱（44.1 kHz）。hooks.progress(0..1)
+  async function spleeterVocal(buffer, ensureOrt, onProgress) {
+    const [sv, sa] = await ensureSpleeter(ensureOrt);
+    const ort = window.ort;
+    const chs = [];
+    for (let c = 0; c < Math.min(2, buffer.numberOfChannels); c++) chs.push(resampleLinear(buffer.getChannelData(c), buffer.sampleRate, SPL_SR));
+    if (chs.length === 1) chs.push(chs[0]);
+    const len = chs[0].length, nFr = Math.max(1, 1 + Math.floor((len - SPL_N) / SPL_H));
+    const win = new Float32Array(SPL_N);
+    for (let i = 0; i < SPL_N; i++) win[i] = 0.5 - 0.5 * Math.cos(2 * Math.PI * i / SPL_N);
+    // 只存前 1024 格的複數頻譜（其餘頻率本來就會被丟掉：人聲遮罩外 = 0）
+    const RE = [new Float32Array(nFr * SPL_BINS), new Float32Array(nFr * SPL_BINS)];
+    const IM = [new Float32Array(nFr * SPL_BINS), new Float32Array(nFr * SPL_BINS)];
+    const re = new Float32Array(SPL_N), im = new Float32Array(SPL_N);
+    for (let c = 0; c < 2; c++) {
+      const x = chs[c];
+      for (let f = 0; f < nFr; f++) {
+        const off = f * SPL_H;
+        for (let i = 0; i < SPL_N; i++) { re[i] = (x[off + i] || 0) * win[i]; im[i] = 0; }
+        fft(re, im, false);
+        RE[c].set(re.subarray(0, SPL_BINS), f * SPL_BINS); IM[c].set(im.subarray(0, SPL_BINS), f * SPL_BINS);
+        if ((f & 1023) === 0) { if (onProgress) onProgress(0.15 * (c + f / nFr) / 2); await new Promise(r => setTimeout(r)); }
+      }
+    }
+    const nBlk = Math.ceil(nFr / SPL_T), mask = [new Float32Array(nFr * SPL_BINS), new Float32Array(nFr * SPL_BINS)];
+    const X = new Float32Array(2 * SPL_T * SPL_BINS);
+    for (let b = 0; b < nBlk; b++) {
+      X.fill(0);
+      const f0 = b * SPL_T, f1 = Math.min(nFr, f0 + SPL_T);
+      for (let c = 0; c < 2; c++) for (let f = f0; f < f1; f++) {
+        const o = f * SPL_BINS, d = c * SPL_T * SPL_BINS + (f - f0) * SPL_BINS;
+        for (let k = 0; k < SPL_BINS; k++) X[d + k] = Math.hypot(RE[c][o + k], IM[c][o + k]);
+      }
+      const feed = { x: new ort.Tensor('float32', X, [2, 1, SPL_T, SPL_BINS]) };
+      const v = (await sv.run(feed)).y.data, a = (await sa.run(feed)).y.data;
+      for (let c = 0; c < 2; c++) for (let f = f0; f < f1; f++) {
+        const o = f * SPL_BINS, d = c * SPL_T * SPL_BINS + (f - f0) * SPL_BINS;
+        for (let k = 0; k < SPL_BINS; k++) {
+          const vv = v[d + k] * v[d + k], aa = a[d + k] * a[d + k];
+          mask[c][o + k] = (vv + 5e-11) / (vv + aa + 1e-10);
+        }
+      }
+      if (onProgress) onProgress(0.15 + 0.75 * (b + 1) / nBlk);
+      await new Promise(r => setTimeout(r));
+    }
+    // iSTFT（兩聲道平均成單聲道；頻譜線性，所以先平均再反轉換＝反轉換後平均）
+    const y = new Float32Array(len), ws = new Float32Array(len);
+    for (let f = 0; f < nFr; f++) {
+      re.fill(0); im.fill(0);
+      const o = f * SPL_BINS;
+      for (let k = 0; k < SPL_BINS; k++) {
+        re[k] = 0.5 * (RE[0][o + k] * mask[0][o + k] + RE[1][o + k] * mask[1][o + k]);
+        im[k] = 0.5 * (IM[0][o + k] * mask[0][o + k] + IM[1][o + k] * mask[1][o + k]);
+      }
+      for (let k = 1; k < SPL_BINS; k++) { re[SPL_N - k] = re[k]; im[SPL_N - k] = -im[k]; }   // 共軛對稱 → 實數輸出
+      fft(re, im, true);
+      const off = f * SPL_H;
+      for (let i = 0; i < SPL_N && off + i < len; i++) { y[off + i] += re[i] * win[i]; ws[off + i] += win[i] * win[i]; }
+      if ((f & 1023) === 0) { if (onProgress) onProgress(0.9 + 0.1 * f / nFr); await new Promise(r => setTimeout(r)); }
+    }
+    for (let i = 0; i < len; i++) y[i] = ws[i] > 1e-6 ? y[i] / ws[i] : 0;
+    return { x: y, sr: SPL_SR };
+  }
+
+  // 回傳頁面用的格式：{ times, midi（-1 = 沒有旋律）, nFrames, rise, riseHop, engine }
+  // hooks.useSpleeter：要不要先用 AI 分離主唱（下載 38 MB）；失敗或聽起來不像有人聲（合成音色、純演奏）就退回中央聲道遮罩。
   async function melodyFrames(buffer, ensureOrt, segs, hooks) {
     hooks = hooks || {};
     const sess = await ensureF0(ensureOrt);
     const ort = window.ort;
-    const cv = await centerVocal(buffer, hooks.separate);
+    let cv = null, sepEngine = 'center';
+    if (hooks.useSpleeter) {
+      try {
+        const sp = await spleeterVocal(buffer, ensureOrt, hooks.separate);
+        // 分離後幾乎沒聲音（例：電子合成的「人聲」、純演奏曲）→ Spleeter 不認得，用回中央遮罩
+        let es = 0, em = 0;
+        const L = buffer.getChannelData(0);
+        for (let i = 0; i < sp.x.length; i += 7) es += sp.x[i] * sp.x[i];
+        for (let i = 0; i < L.length; i += 7) em += L[i] * L[i];
+        const ratio = Math.sqrt((es / Math.ceil(sp.x.length / 7)) / (em / Math.ceil(L.length / 7) + 1e-12));
+        if (ratio >= 0.15) { cv = sp; sepEngine = 'spleeter'; }
+        else console.info('AI 分離後人聲太小（' + ratio.toFixed(2) + '），改用中央聲道');
+      } catch (e) {
+        console.warn('AI 分離主唱失敗，改用中央聲道', e);
+      }
+    }
+    if (!cv) cv = await centerVocal(buffer, hooks.separate);
     const x = to16k(cv.x, cv.sr);
     const n = Math.max(1, Math.floor(x.length / F0_HOP));
     const pitch = new Float32Array(n), conf = new Float32Array(n);
@@ -315,7 +432,7 @@
       }
     }
     const rise = vocalRise(cv.x, cv.sr);
-    return { times, midi: foldOctaves(times, midi, 4.0), nFrames: n, rise, riseHop: RISE_HOP };
+    return { times, midi: foldOctaves(times, midi, 4.0), nFrames: n, rise, riseHop: RISE_HOP, sepEngine };
   }
 
   // ===== 歌詞對齊（LRC 一個字對到一個唱出來的音）=====
@@ -369,20 +486,41 @@
   // 中間多出來的音當拖腔。偏好字唱得久一點（短的多半是滑音），一個字吃太多音要付代價；
   // 每行第一個字要靠近 LRC 時間（手打 LRC 常差 ±0.3 秒，所以是軟性的）。
   // 行跟行的分界由音樂決定，不會因為 LRC 早了半秒就把上一行最後一個字搶過來。
-  // 測試（8 首、475 字，LRC 時間 ±0.35 秒誤差）：字的時間對 34.5% → 58%、字底下的音對 73% → 81%。
-  const W_DUR = 0.3, W_K = 0.3, W_LINE = 1.5, LINE_WIN = 0.9, MAXK = 6;
-  function alignLyrics(frames, rise, lines) {
+  // 跟 LRC 交叉比對：
+  //   - LRC 有、但那段時間幾乎沒有唱的音（標題、「詞／曲」、口白）→ 整行略過，不硬塞音符
+  //   - LRC 的空白時間碼（[02:27.96] 後面沒字）＝上一行唱完、間奏開始 → 上一行的字不能拖進間奏，
+  //     下一行的行首字可以整段跨過間奏（間奏裡零星的雜音不算拖腔）
+  // 測試：合成 8 首 475 字（LRC ±0.35 秒）字的時間對 34.5% → 58%、字底下的音對 73% → 81%；
+  //       真實歌曲（叮叮噹！聖誕來了，40 行）每行起點都在 LRC ±0.4 秒內，重複的副歌音高一致。
+  const W_DUR = 0.3, W_K = 0.3, W_LINE = 1.5, LINE_WIN = 0.9, MAXK = 6, BREAK_GAP = 3.0;
+  function alignLyrics(frames, rise, lines, ends) {
     const notes = splitAtOnsets(notesFromFrames(frames.times, frames.midi), rise);
-    const chars = [];
-    lines.forEach((ln, li) => {
-      const cs = Array.from(ln.text).filter(ch => !/\s/.test(ch));
-      cs.forEach((_, q) => chars.push({ li, first: q === 0, lt: ln.time }));
+    const M = notes.length;
+    ends = ends || [];
+    // 1) 交叉比對：每行在它的時間範圍內有沒有足夠的音（≥ 字數的一半）
+    const keep = lines.map((ln, i) => {
+      const n = Array.from(ln.text).filter(ch => !/\s/.test(ch)).length;
+      const t1 = ends[i] != null ? ends[i] : (i + 1 < lines.length ? lines[i + 1].time : ln.time + 8);
+      let have = 0;
+      for (const nt of notes) if (nt.start >= ln.time - LINE_WIN && nt.start < t1 + 0.5) have++;
+      return n > 0 && have >= Math.max(1, n >> 1);
     });
-    const N = chars.length, M = notes.length;
+    const chars = [];
+    let prevKept = -1;
+    lines.forEach((ln, li) => {
+      if (!keep[li]) return;
+      const cs = Array.from(ln.text).filter(ch => !/\s/.test(ch));
+      const end = ends[li] != null ? ends[li] : Infinity;
+      const brk = prevKept >= 0 && ends[prevKept] != null && ln.time - ends[prevKept] >= BREAK_GAP;
+      cs.forEach((_, q) => chars.push({ li, first: q === 0, lt: ln.time, end, brk: brk && q === 0 }));
+      prevKept = li;
+    });
+    const N = chars.length;
     if (!N || M < N) return null;
     const INF = 1e18, cum = new Float64Array(M + 1);
     for (let j = 0; j < M; j++) cum[j + 1] = cum[j] + notes[j].end - notes[j].start;
     const node = (c, j) => {
+      if (notes[j].start > chars[c].end + 0.5) return INF;      // 不能拖進 LRC 標示的間奏
       if (!chars[c].first) return 0;
       const d = Math.abs(notes[j].start - chars[c].lt);
       return W_LINE * d / 0.35 + (d > LINE_WIN ? 8 : 0);
@@ -390,16 +528,19 @@
     const dp = new Float64Array(N * M).fill(INF), bk = new Int32Array(N * M).fill(-1);
     for (let j = 0; j <= M - N; j++) dp[j] = node(0, j);
     for (let c = 1; c < N; c++) {
-      const row = c * M, prow = (c - 1) * M;
+      const row = c * M, prow = (c - 1) * M, brk = chars[c].brk;
       for (let j = c; j < M - (N - 1 - c); j++) {
+        const nv = node(c, j);
+        if (nv >= INF) continue;
         let best = INF, bj = -1;
-        for (let p = Math.max(c - 1, j - MAXK); p < j; p++) {
+        for (let p = brk ? c - 1 : Math.max(c - 1, j - MAXK); p < j; p++) {
           const d0 = dp[prow + p];
           if (d0 >= INF) continue;
-          const v = d0 - W_DUR * Math.log(Math.max(0.05, cum[j] - cum[p])) + W_K * (j - p - 1);
+          const k = Math.min(j - p, MAXK);       // 跨間奏時，上一個字最多算吃 MAXK 個音
+          const v = d0 - W_DUR * Math.log(Math.max(0.05, cum[p + k] - cum[p])) + W_K * (k - 1);
           if (v < best) { best = v; bj = p; }
         }
-        if (bj >= 0) { dp[row + j] = best + node(c, j); bk[row + j] = bj; }
+        if (bj >= 0) { dp[row + j] = best + nv; bk[row + j] = bj; }
       }
     }
     let jb = -1, bv = INF;
@@ -412,9 +553,11 @@
     if (jb < 0) return null;
     const starts = new Array(N);
     for (let c = N - 1, j = jb; c >= 0; c--) { starts[c] = j; j = bk[c * M + j]; }
-    const out = lines.map(() => []);
+    const out = lines.map(() => null);
     for (let c = 0; c < N; c++) {
-      const j = starts[c], e = c + 1 < N ? starts[c + 1] : Math.min(M, j + 2);
+      const j = starts[c];
+      let e = c + 1 < N ? starts[c + 1] : Math.min(M, j + 2);
+      e = Math.min(e, j + MAXK);
       // 字的音高＝它唱的那幾個音裡加起來最長的（避開字頭的滑音）
       const acc = new Map(); let midi = notes[j].midi, best = 0;
       for (let q = j; q < e; q++) {
@@ -426,10 +569,12 @@
       let end = notes[j].end;
       for (let q = j + 1; q < e && notes[q].start - end < 0.3; q++) end = notes[q].end;
       if (c + 1 < N) end = Math.min(end, notes[starts[c + 1]].start);
-      out[chars[c].li].push({ t: notes[j].start, end, midi });
+      const li = chars[c].li;
+      if (!out[li]) out[li] = [];
+      out[li].push({ t: notes[j].start, end, midi });
     }
-    return out;
+    return out;            // 每行一個陣列；沒唱的行是 null
   }
 
-  window.ChordAI = { framewiseProbs, beatCandidates, ensureModel, MODEL_URL, melodyFrames, alignLyrics };
+  window.ChordAI = { framewiseProbs, beatCandidates, ensureModel, MODEL_URL, melodyFrames, alignLyrics, ensureSpleeter };
 })();
