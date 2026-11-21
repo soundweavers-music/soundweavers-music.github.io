@@ -12,7 +12,7 @@ import { uid, toast, TRACK_COLORS } from './util.js';
 import { chordLaneHeight, drawChordLane, openChordMenu } from './chord-ui.js';
 import { showMenu } from './menu.js';
 import { cssVar } from './theme.js';
-import { isVideoClip, isTextClip, ensureMedia, mediaDuration, firstFrameCanvas, addTextClip, editTextClip, toggleVideoPreview } from './video.js';
+import { isVideoClip, isTextClip, ensureMedia, mediaDuration, firstFrameCanvas, addTextClip, editTextClip, toggleVideoPreview, TRANSITIONS } from './video.js';
 
 const $ = id => document.getElementById(id);
 let lanes, lanesInner, headersInner, ruler, rulerWrap, grid, loopbar, playhead, phCap;
@@ -423,9 +423,28 @@ function clipEl(t, c) {
   // 影片片段：縮圖用影片本身畫（非同步），淡入淡出對畫面沒有意義所以不畫
   if (isVideoClip(c)) {
     el.classList.add('vclip');
-    el.title = '影片片段：雙擊打開預覽，拖曳邊緣可以裁切';
+    el.title = '影片片段：雙擊打開影像編輯，拖曳邊緣可以裁切';
     el.dataset.thumb = c.id;
-    el.insertAdjacentHTML('beforeend', `<div class="edge l" data-h="trimL"></div><div class="edge r" data-h="trimR"></div>`);
+    const hv = trackH(t) - 4;
+    const fi = secToPx(c.fadeIn || 0), fo = secToPx(c.fadeOut || 0);
+    if (fi > 1 || fo > 1) {
+      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.setAttribute('class', 'fades');
+      svg.setAttribute('width', w); svg.setAttribute('height', hv);
+      let d = '';
+      if (fi > 1) d += `M0 ${hv} L${fi} 0 L0 0 Z `;
+      if (fo > 1) d += `M${w} ${hv} L${w - fo} 0 L${w} 0 Z`;
+      svg.innerHTML = `<path d="${d}" style="fill:var(--clip-fade-bg);stroke:var(--clip-fade)" stroke-width="1"/>`;
+      el.appendChild(svg);
+    }
+    el.insertAdjacentHTML('beforeend',
+      `<div class="edge l" data-h="trimL"></div><div class="edge r" data-h="trimR"></div>
+       <div class="fade" data-h="fadeIn" style="left:${Math.max(5, fi)}px" title="畫面淡入"></div>
+       <div class="fade" data-h="fadeOut" style="left:${Math.min(w - 5, w - fo)}px" title="畫面淡出"></div>`);
+    if (c.trans?.type) {
+      const nm = (TRANSITIONS.find(x => x.id === c.trans.type) || {}).name || '轉場';
+      el.insertAdjacentHTML('beforeend', `<div class="trans-mark" title="轉場：${nm}">⇄</div>`);
+    }
     queueVideoThumb(c, el);
     return el;
   }
@@ -471,6 +490,7 @@ function drawWaveforms() {
       if (!el) continue;
       const cv = el.querySelector('canvas');
       if (!cv) continue;                                // 文字片段的方塊沒有畫布
+      if (isVideoClip(c)) continue;                     // 影片縮圖由 pumpThumbs 負責，這裡完全不要動它
       const left = secToPx(clipStart(c)), w = secToPx(clipDur(c));
       const a = Math.max(left, sx - 50), b = Math.min(left + w, sx + vw + 50);
       if (offscreen || b <= a) { cv.style.display = 'none'; continue; }
@@ -482,7 +502,6 @@ function drawWaveforms() {
       const g = cv.getContext('2d');
       g.setTransform(dpr, 0, 0, dpr, 0, 0);
       if (isMidiClip(c)) { drawMidiPreview(g, c, a - left, cw, h); continue; }
-      if (isVideoClip(c)) continue;                     // 影片片段畫縮圖，不畫波形
       if (isTextClip(c)) { cv.style.display = 'none'; continue; }
       const meta = store.bufferMeta.get(c.bufferId);
       const buf = store.buffers.get(c.bufferId);
@@ -865,8 +884,8 @@ function onLanesDbl(e) {
     const f = store.findClip(clipNode.dataset.id);
     if (!f) return;
     if (isMidiClip(f.clip)) store.emit('open-piano-roll', { clipId: f.clip.id });
-    else if (isTextClip(f.clip)) editTextClip(f.clip);
-    else if (isVideoClip(f.clip)) toggleVideoPreview(true);
+    else if (isTextClip(f.clip)) { store.emit('open-video-panel', {}); }
+    else if (isVideoClip(f.clip)) { toggleVideoPreview(true); store.emit('open-video-panel', {}); }
     return;
   }
   const t = laneAt(e.clientY);
@@ -900,8 +919,14 @@ function onLanesContext(e) {
     const id = clipNode.dataset.id;
     if (!store.selection.clipIds.has(id)) { store.selection.clipIds = new Set([id]); store.emit('select', {}); }
     const n = store.selection.clipIds.size;
-    const midi = isMidiClip(store.findClip(id).clip);
+    const found = store.findClip(id).clip;
+    const midi = isMidiClip(found);
+    const visual = isVideoClip(found) || isTextClip(found);
     showMenu(e.clientX, e.clientY, [
+      ...(visual ? [
+        { label: '影像編輯…（濾鏡／調色／轉場／淡入淡出）', action: () => store.emit('open-video-panel', {}) },
+        { label: isTextClip(found) ? '編輯文字…' : '看預覽', action: () => (isTextClip(found) ? editTextClip(found) : toggleVideoPreview(true)) },
+        '-'] : []),
       ...(midi ? [{ label: '打開鋼琴捲簾', action: () => store.emit('open-piano-roll', { clipId: id }) },
         { label: '匯出成 .mid', action: () => store.emit('export-midi', { clipIds: [...store.selection.clipIds] }) }, '-'] : []),
       { label: '在播放頭切開', key: 'Ctrl+T', action: () => splitSelected(engine.currentTime()) },

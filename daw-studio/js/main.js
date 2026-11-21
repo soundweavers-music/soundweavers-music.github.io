@@ -10,6 +10,7 @@ import { saveProject, pickAndOpenProject, openProjectFile, autosave, readAutosav
 import { exportAudio } from './exporter.js';
 import { exportVideoMp4 } from './video-export.js';
 import { importVideoFiles, addTextClip, toggleVideoPreview, initVideoPreview, videoSettings } from './video.js';
+import { initVideoPanel, toggleVideoPanel, openVideoPanel, videoPanelOpen } from './video-ui.js';
 import { view, setZoom, beatSec, snap } from './view.js';
 import { fmtTime, fmtBars, toast, uid } from './util.js';
 import { isMidiClip, clipStart, clipDur } from './state.js';
@@ -185,6 +186,9 @@ function bindTopbar() {
     ]);
   };
   $('btnPreview').onclick = () => toggleVideoPreview();
+  // 預覽視窗上的「影像編輯」按鈕／右鍵選單都走這裡
+  store.on('toggle-preview', () => toggleVideoPreview());
+  store.on('open-video-panel', ({ tab: tb }) => openVideoPanel(tb));
   $('fileVideo').addEventListener('change', async e => {
     const files = [...e.target.files];
     e.target.value = '';
@@ -798,11 +802,13 @@ async function boot() {
   initMasterUi();
   initAutomationUi();
   initVideoPreview();
+  initVideoPanel();
   // 下方面板（混音台／鋼琴捲簾／母帶）一次只開一個
   store.on('panel', ({ name }) => {
     if (name && name !== 'mixer' && !$('mixer').classList.contains('hidden')) { showMixer(false); $('btnMixer').classList.remove('on'); }
     if (name && name !== 'pianoroll' && pianoOpen()) closePianoRoll();
     if (name && name !== 'master' && masterOpen()) toggleMaster(false);
+    if (name && name !== 'vidpanel' && videoPanelOpen()) toggleVideoPanel(false);
     $('btnPiano').classList.toggle('on', name === 'pianoroll' || pianoOpen());
     requestAnimationFrame(() => renderArrange());
   });
