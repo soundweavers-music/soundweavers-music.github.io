@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="referrer" content="no-referrer-when-downgrade">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; base-uri 'self'; form-action 'self'; object-src 'none'">
-<title>自動抓和弦 (beta)｜世界聲音百科</title>
+<title>織音AI自動轉譜｜世界聲音百科</title>
 <meta name="description" content="上傳音檔，自動分析節拍與和弦進行，支援指版圖顯示與和弦編輯。所有分析都在瀏覽器內完成，不上傳檔案。">
 <link rel="canonical" href="https://soundweavers-music.github.io/chord-detection/">
 <script>!function(){try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);else document.documentElement.setAttribute("data-theme","nextdoor")}catch(e){}}()</script>
@@ -203,6 +203,13 @@ body.print-score #score-view { page: score; }
 .sc-tools button:disabled { opacity: .35; cursor: default; }
 .sc-tools input.sc-lyric { width: 70px; height: 26px; padding: 0 6px; border: 1px solid var(--line); border-radius: 6px; font-size: 14px; }
 .sc-hint { font-size: 11.5px; color: var(--muted); margin: 0 0 6px; }
+.sc-play { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; font-size: 12.5px; margin: 4px 0; }
+.sc-play label { display: flex; align-items: center; gap: 4px; cursor: pointer; }
+.sc-play .sc-play-hint { color: var(--muted); font-size: 11.5px; }
+.sc-play .spacer { flex: 1; }
+.sc-page .now { fill: rgba(220,90,40,.22); }
+.sc-page .nowbar { fill: rgba(220,90,40,.05); }
+.sc-page .cbox { fill: none; stroke: #111; stroke-width: 1.1; }
 .sc-pages { display: flex; flex-direction: column; align-items: center; gap: 18px; background: #e9e6e1; border-radius: 10px; padding: 18px 8px; overflow-x: auto; }
 .sc-page { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,.18); flex: 0 0 auto; }
 .sc-page svg { display: block; }
@@ -299,9 +306,9 @@ body.print-score #score-view { page: score; }
 
 <main class="page">
 <section class="compact-hero">
-  <p class="eyebrow">Chord Detection</p>
-  <h1>🎼 自動抓和弦</h1>
-  <p class="lead">上傳音檔，自動分析節拍與和弦，以簡譜式小節表格呈現。可移調、標示 Capo、匯入 .lrc 歌詞、點小節試聽，並匯出文字或 Word。所有分析都在你的瀏覽器內完成，音檔不會上傳。</p>
+  <p class="eyebrow">AI Score Transcription</p>
+  <h1>🎼 織音AI自動轉譜</h1>
+  <p class="lead">上傳歌曲，AI 自動抓出旋律、和弦與節拍，排成可以直接出版的簡譜；匯入 .lrc 歌詞會逐字對到音符。譜面可以即時編輯、邊播邊看、移調、標示 Capo，列印成 A4 PDF。所有分析都在你的瀏覽器內完成，音檔不會上傳。</p>
 </section>
 
 <!-- Upload Zone -->
@@ -313,10 +320,7 @@ body.print-score #score-view { page: score; }
 </div>
 
 <!-- 辨識模式 -->
-<div class="ai-mode" id="ai-mode">
-  <label class="ai-opt"><input type="radio" name="detect-mode" value="ai"> <b>AI 精準模式</b>（推薦）<span>用和弦辨識 AI 模型判斷每一拍，七和弦、大七和弦等和弦性質準確很多。第一次使用要下載約 13 MB 的模型，之後瀏覽器會記住。</span></label>
-  <label class="ai-opt"><input type="radio" name="detect-mode" value="dsp"> <b>快速模式</b><span>不需要下載，用頻譜分析直接判斷；根音與大小調一樣準，但七和弦常判錯。</span></label>
-</div>
+
 
 <!-- Progress bar -->
 <div class="progress-bar" id="progress-bar"><div class="progress-bar-fill" id="progress-fill"></div></div>
@@ -388,11 +392,7 @@ body.print-score #score-view { page: score; }
 
 <!-- Chart -->
 <div id="chart-container" style="display:none;">
-  <div class="chart-toolbar" style="margin-bottom:0;">
-    <span class="view-tabs"><button id="tab-chart" class="on">和弦譜</button><button id="tab-score">簡譜出版譜</button></span>
-    <span style="font-size:11px;color:var(--muted);">「簡譜出版譜」：標準歌本排版，可編輯音符、歌詞與記號，列印成 A4</span>
-  </div>
-  <div id="score-view">
+  <div id="score-view" style="display:block;">
     <div class="sc-panel">
       <label>曲名 <input id="sc-title"></label>
       <label>副標題 <input id="sc-subtitle" placeholder="（可空白）"></label>
@@ -404,8 +404,18 @@ body.print-score #score-view { page: score; }
       <label>調號 1 = <select id="sc-key"></select></label>
       <label>拍號 <select id="sc-meter"><option>2/4</option><option>3/4</option><option selected>4/4</option><option>6/8</option></select></label>
       <label>每行小節數 <select id="sc-bpl"><option>3</option><option selected>4</option><option>5</option><option>6</option></select></label>
-      <label>顯示 <select id="sc-show"><option value="all">和弦＋簡譜＋歌詞</option><option value="nochord">簡譜＋歌詞</option><option value="nolyric">和弦＋簡譜</option></select></label>
+      <label>顯示 <select id="sc-show"><option value="all">和弦＋簡譜＋歌詞</option><option value="nochord">簡譜＋歌詞</option><option value="nolyric">和弦＋簡譜</option><option value="chordonly">和弦＋歌詞（不顯示簡譜）</option></select></label>
+      <label>和弦寫法 <select id="sc-chordstyle"><option value="name">和弦名（C　Am）</option><option value="box">級數方框（歌本式 1　6m）</option><option value="both">和弦名＋級數</option></select></label>
+      <label>指版圖 <select id="sc-diagram"><option value="off">不顯示</option><option value="inline">在和弦上方</option><option value="head">集中在曲名下方</option></select></label>
+      <label>指版圖大小 <input id="sc-diasize" type="range" min="40" max="120" value="64"></label>
       <label>字級 <input id="sc-scale" type="range" min="80" max="130" value="100"></label>
+    </div>
+    <div class="sc-play" id="sc-play">
+      <label><input type="checkbox" id="sc-follow" checked> 播放時跟著捲動</label>
+      <label><input type="checkbox" id="sc-clickplay" checked> 點音符從那裡播</label>
+      <span class="sc-play-hint">播放：空白鍵 ▶／⏸（不在打字時）· 目前唱到的音會標亮</span>
+      <span class="spacer"></span>
+      <button class="btn ghost small" id="sc-import-lrc">📄 匯入 .lrc 歌詞</button>
     </div>
     <div class="sc-tools" id="sc-tools">
       <span class="grp"><span class="gl">音高</span>
@@ -438,7 +448,7 @@ body.print-score #score-view { page: score; }
     <p class="sc-hint" id="sc-hint">點音符選取（Shift＋點選一段）；鍵盤：1–7 / 0 改音、↑↓ 八度、←→ 換音、/ 減半、* 加倍、. 附點、Delete 刪除、Enter 改歌詞。點小節空白處選小節（加反覆、換行等）。修改會自動存在這台電腦。</p>
     <div class="sc-pages" id="sc-pages"></div>
   </div>
-  <div id="chart-view">
+  <div id="chart-view" style="display:none;">
   <div class="chart-toolbar">
     <strong style="font-size:14px;">和弦譜</strong>
     <span style="font-size:11px;color:var(--muted);">點小節試聽 · ✏ 編輯</span>
@@ -449,7 +459,7 @@ body.print-score #score-view { page: score; }
     <label><input type="checkbox" id="show-degrees" checked> 級數</label>
     <label><input type="checkbox" id="show-lyrics" checked> 歌詞</label>
     <label><input type="checkbox" id="lyric-snap" checked> 歌詞對齊音訊</label>
-    <label><input type="checkbox" id="show-melody"> 簡譜旋律</label>
+    <label><input type="checkbox" id="show-melody" checked> 簡譜旋律</label>
     <label title="用和 LRC 工作室同一顆 Silero VAD 模型判斷哪裡有人在唱（第一次會下載約 12 MB）"><input type="checkbox" id="use-vad" checked> 人聲模型</label>
     <label><input type="checkbox" id="show-diagrams"> 指版圖</label>
     <label><input type="checkbox" id="continuous"> 連續播放</label>
@@ -636,7 +646,7 @@ let state = {
   lyrics: [], lyricSegs: {}, lyricOverrides: {}, showLyrics: true, showDegrees: true,
   showDiagrams: false, continuous: false, notation: 'name',
   pickupOverride: null, lyricSnap: true, chordSize: 15, lyricSize: 14, melodySize: 13, rowGap: 2,
-  showMelody: false, melodyFrames: null, melodySmooth: null, melodyNotes: null,
+  showMelody: true, melodyFrames: null, melodySmooth: null, melodyNotes: null,
   useVad: true, vocalSegs: null,
   onsetEnv: null, onsetHopSec: 0,
   instrument: 0, tuning: null,
@@ -836,24 +846,17 @@ function drawWaveform() {
 // =========================================================================
 async function startAnalysis() {
   await analyzeWithBrowser();
+  if (!state.chords.length) return;
+  // 預設就抓好簡譜：和弦完成後接著抓旋律，再排成出版譜
+  scOpen();
+  if (state.showMelody) await ensureMelody();
+  scOpen();
 }
 
-// ---- AI 精準模式（BTC 模型，chord-ai.js）----
-function detectMode() {
-  const el = document.querySelector('input[name="detect-mode"]:checked');
-  return el ? el.value : 'ai';
-}
-(function initDetectMode() {
-  let m = 'ai';
-  try { m = localStorage.getItem('chord.detectMode') || 'ai'; } catch (e) {}
-  const el = document.querySelector('input[name="detect-mode"][value="' + m + '"]') || document.querySelector('input[name="detect-mode"][value="ai"]');
-  if (el) el.checked = true;
-  document.querySelectorAll('input[name="detect-mode"]').forEach(r => r.addEventListener('change', () => {
-    try { localStorage.setItem('chord.detectMode', detectMode()); } catch (e) {}
-    // 已經有音檔：換模式就重新判斷和弦（節拍與小節不變）
-    if (state.audioBuffer && state.chromaStore) reanalyzeChordsForMode();
-  }));
-})();
+// ---- AI 辨識（BTC 和弦模型＋SwiftF0 旋律＋Spleeter 人聲分離，chord-ai.js）----
+// 只有 AI 模式（「快速模式」已移除）。AI 模型下載失敗時，內部才退回頻譜分析，讓工具照樣能用。
+let aiUnavailable = false;
+function detectMode() { return aiUnavailable ? 'dsp' : 'ai'; }
 
 async function computeAiProbs(buffer) {
   if (!window.ChordAI) throw new Error('AI 模組沒有載入');
@@ -872,11 +875,11 @@ async function reanalyzeChordsForMode() {
       setProgressDone();
     }
     applyGrid({ decode: true });
-    setStatus(detectMode() === 'ai' ? '已用 AI 精準模式重新判斷和弦。' : '已用快速模式重新判斷和弦。', 'done');
+    setStatus(detectMode() === 'ai' ? '已用 AI 精準模式重新判斷和弦。' : '已用頻譜分析重新判斷和弦。', 'done');
   } catch (err) {
     setProgressDone();
-    setStatus('AI 模式失敗，改用快速模式：' + err.message, 'error');
-    const d = document.querySelector('input[name="detect-mode"][value="dsp"]'); if (d) d.checked = true;
+    setStatus('AI 模型載入失敗，暫時改用頻譜分析：' + err.message, 'error');
+    aiUnavailable = true;
     applyGrid({ decode: true });
   }
 }
@@ -912,8 +915,8 @@ async function analyzeWithBrowser() {
     if (detectMode() === 'ai') {
       try { state.aiProbs = await computeAiProbs(buffer); }
       catch (e) {
-        console.warn('AI 模式失敗，改用快速模式', e);
-        setStatus('AI 模型載入失敗（' + e.message + '），這次先用快速模式。', 'error');
+        console.warn('AI 模型失敗，改用頻譜分析', e); aiUnavailable = true;
+        setStatus('AI 模型載入失敗（' + e.message + '），這次先用頻譜分析（準確度較低）。', 'error');
       }
     }
 
@@ -965,7 +968,7 @@ async function analyzeWithBrowser() {
 
     setProgressDone();
     updateGridHint();
-    if (detectMode() === 'ai' && !state.aiProbs) setStatus('分析完成（AI 模型沒有載入成功，這次用快速模式；網路正常後按「↻ 重新分析」可改用 AI）。點小節可試聽，按 ✏ 可修正和弦。', 'done');
+    if (detectMode() === 'ai' && !state.aiProbs) setStatus('分析完成（AI 模型沒有載入成功，這次用頻譜分析、準確度較低；網路正常後按「↻ 重新分析」可改用 AI）。點小節可試聽，按 ✏ 可修正和弦。', 'done');
     else setStatus((state.aiProbs ? '分析完成（AI 精準模式）！' : '分析完成！') + '點小節可試聽，按 ✏ 可修正和弦。', 'done');
   } catch(err) {
     setProgressDone();
@@ -2119,6 +2122,7 @@ function renderChart() {
   }
 
   if (state.showDiagrams) renderChordDiagrams();
+  if (typeof scOnDetectionChanged === 'function') scOnDetectionChanged();
 }
 
 function barParts(idx) {
@@ -2908,9 +2912,9 @@ async function ensureMelody() {
     : '旋律分析完成（AI 旋律模型沒有載入，用舊做法，準確度較低）。簡譜是首調：' + jianpuKeyLabel() + '。', 'done');
   renderChart();
   // 出版譜：還沒手動改過（或還沒有音）就用新的旋律重新產生
-  if (typeof SC === 'object' && SC.score && !SC.undo.length) {
+  if (typeof SC === 'object' && SC.score && !SC.undo.length && !SC.edited) {
     const meta = SC.score.meta; SC.score = scBuildFromDetection(); Object.assign(SC.score.meta, meta, { key: SC.score.meta.key });
-    if (document.getElementById('score-view').style.display === 'block') { scFillPanel(); scRender(); scSyncTools(); }
+    scFillPanel(); scRender(); scSyncTools();
   }
 }
 
@@ -3086,6 +3090,7 @@ function updatePositionDisplay() {
     Math.floor(t / 60) + ':' + String(t % 60).padStart(2, '0') + ' / ' +
     Math.floor(state.duration / 60) + ':' + String(Math.floor(state.duration) % 60).padStart(2, '0');
   updateActiveBar();
+  if (typeof scHighlight === 'function') scHighlight(state.currentTime, state.isPlaying);
 }
 
 function setActiveBar(idx) {
@@ -3221,9 +3226,11 @@ function applyEditChord(dispRoot, quality) {
     confidence: 1,
     parts: [{ root: sounding, quality, beats }],
   };
+  const idx = editingBarIdx;
   closeEditModal();
   buildDisplayChords();
   renderChart();
+  if (typeof scSyncChordsFromState === 'function') scSyncChordsFromState(idx);
 }
 
 function saveEditChord() {
@@ -3660,6 +3667,27 @@ function scBeatSplit(start, len) {
   return out.length ? out : [0.25];
 }
 
+// 和弦在譜上的寫法：和弦名／歌本式級數方框（1、5/7、6m7）／兩者
+function scChordDegree(c) {
+  // 級數以譜上的「1 =」為準（不是吉他把位），跟簡譜數字同一個基準
+  if (c.root == null) return c.deg || c.name;
+  const key = SC.score ? SC.score.meta.key : 0;
+  const sounding = mod12(c.root + state.capo);              // c.root 是把位上的根音 → 加回 Capo 成為實際音
+  // 跟和弦名同一套性質寫法（Dm7 → 2m7、G7 → 57、Cmaj7 → 1maj7），跟歌本一致
+  return DEGREE_NAMES[mod12(sounding - key)] + getChordQualityLabel(c.quality);
+}
+// 指版圖（用目前選的樂器與調音；找不到指型就不畫）
+function scDiagramSvg(c, size) {
+  if (typeof CHORD_LIBRARY === 'undefined' || c.root == null) return '';
+  const byInst = CHORD_LIBRARY[state.instrument];
+  const byTune = byInst ? byInst[state.tuning] : null;
+  const instData = INSTRUMENTS_DATA[state.instrument];
+  const tm = (instData && state.tuning) ? parseTuning(instData.tunings[state.tuning]) : null;
+  const shape = byTune ? byTune[c.root + ':' + c.quality] : null;
+  if (!shape || !tm) return '';
+  return svgFromShape(shape.frets, shape.fingers, shape.barre, c.root, tm, size);
+}
+
 function scKeyPc() { return mod12(songMajorRoot() + state.transpose); }
 
 // 從偵測結果產生一份譜：小節＝state.bars，音＝state.melodyNotes（已量化到 1/4 拍），和弦＝state.chords
@@ -3732,8 +3760,8 @@ function scBuildFromDetection() {
       let acc = bars[b].pickup ? bpb - (bars[b].beats || []).length : 0;
       for (const p of ch.parts) {
         const prev = chords[chords.length - 1];
-        const name = state.notation === 'degree' ? p.degree : p.name;
-        if (!prev || prev.name !== name) chords.push({ beat: acc, name });
+        const name = p.name;
+        if (!prev || prev.name !== name) chords.push({ beat: acc, name, deg: p.degree, root: p.root, quality: p.quality });
         acc += p.beats || 1;
       }
     }
@@ -3777,6 +3805,61 @@ function scBuildFromDetection() {
   if (score.bars.length) score.bars[score.bars.length - 1].marks.final = true;
   return score;
 }
+
+// 拍位 → 秒：照偵測到的拍點（小節 b 的第 beat 拍），譜被改過也能對到音檔
+function scBeatTime(b, beat) {
+  const bars = state.bars, bpb = scMeterBeats(SC.score.meta);
+  if (!bars || !bars.length) return null;
+  if (b >= bars.length) { const last = bars[bars.length - 1]; return last.end + (b - bars.length + beat / bpb) * (last.end - last.start); }
+  const bar = bars[b], bt = bar.beats && bar.beats.length ? bar.beats : [bar.start];
+  const off = bar.pickup ? bpb - bt.length : 0;
+  const x = beat - off;
+  if (x < 0) return bar.start;
+  const i = Math.min(bt.length - 1, Math.floor(x));
+  const b0 = bt[i], b1 = i + 1 < bt.length ? bt[i + 1] : bar.end;
+  return b0 + (x - i) * (b1 - b0);
+}
+// 每個音的 [開始秒, 結束秒]（給播放時標亮、點音符播放）
+function scNoteTimes() {
+  const out = [];
+  if (!SC.score) return out;
+  SC.score.bars.forEach((bar, b) => {
+    let pos = bar.pickup ? scMeterBeats(SC.score.meta) - bar.notes.reduce((a, n) => a + n.dur, 0) : 0;
+    bar.notes.forEach((n, i) => {
+      const t0 = scBeatTime(b, pos), t1 = scBeatTime(b, pos + n.dur);
+      out.push({ b, i, t0, t1, deg: n.deg });
+      pos += n.dur;
+    });
+  });
+  return out;
+}
+
+// 播放時：標亮正在唱的音與小節；換到新的一行時捲到畫面中間
+let scTimes = null, scTimesFor = null, scLastNow = '';
+function scHighlight(t, playing) {
+  if (!SC.score) return;
+  if (scTimesFor !== SC.score) { scTimes = scNoteTimes(); scTimesFor = SC.score; }
+  let cur = null;
+  for (const x of scTimes) { if (x.t0 != null && x.t0 <= t + 0.02 && t < x.t1 - 0.01) { cur = x; break; } if (x.t0 > t) break; }
+  const key = cur ? cur.b + ':' + cur.i : '';
+  if (key === scLastNow) return;
+  scLastNow = key;
+  const host = document.getElementById('sc-pages');
+  host.querySelectorAll('.now').forEach(el => el.classList.remove('now'));
+  host.querySelectorAll('.nowbar').forEach(el => el.classList.remove('nowbar'));
+  if (!cur) return;
+  const el = host.querySelector(`.hit[data-b="${cur.b}"][data-i="${cur.i}"]`);
+  const bar = host.querySelector(`.barhit[data-bar="${cur.b}"]`);
+  if (el && cur.deg) el.classList.add('now');
+  if (bar) bar.classList.add('nowbar');
+  const target = el || bar;
+  if (playing && target && document.getElementById('sc-follow').checked) {
+    const r = target.getBoundingClientRect();
+    if (r.top < 90 || r.bottom > window.innerHeight - 60) window.scrollBy({ top: r.top - window.innerHeight * 0.4, behavior: 'smooth' });
+  }
+}
+// 譜面內容改了（編輯、重排）→ 時間表要重算
+function scInvalidateTimes() { scTimesFor = null; scLastNow = ''; }
 
 function scStoreKey() { return 'chord.score:' + (currentFile ? currentFile.name + ':' + currentFile.size : 'none'); }
 function scSave() {
@@ -3859,6 +3942,7 @@ function scRender() {
   const sc = SC.score, m = sc.meta, s = (m.scale || 100) / 100;
   const P = SC_PAGE, usable = P.w - P.ml - P.mr;
   const showChord = m.show !== 'nochord' && sc.bars.some(b => b.chords && b.chords.length);
+  const showDigits = m.show !== 'chordonly';
   const showLyric = m.show !== 'nolyric' && sc.bars.some(b => b.notes.some(n => n.lyric));
   const meterBeats = scMeterBeats(m);
   const FD = 19 * s;                        // 數字字級
@@ -3887,6 +3971,22 @@ function scRender() {
       const tempo = (m.bpm ? '♩ = ' + m.bpm : '') + (m.tempoText ? (m.bpm ? '　' : '') + m.tempoText : '');
       if (tempo) svg.push(`<text x="${P.ml}" y="${y + 21 * s}" font-size="${14 * s}" class="lyr">${esc(tempo)}</text>`);
       y += Math.max(right.length, tempo ? 2 : 1) * 19 * s + 18 * s;
+      // 指版圖集中在曲名下方（每個和弦只畫一次，歌本常見的排法）
+      if (m.diagram === 'head' && m.show !== 'nochord') {
+        const seen = new Set(), list = [];
+        sc.bars.forEach(bar => (bar.chords || []).forEach(c => { if (!seen.has(c.name)) { seen.add(c.name); list.push(c); } }));
+        const sz = m.diaSize || 64, cellW = sz + 22, cellH = sz * 1.25 + 26;
+        let dx = P.ml, rowY = y;
+        list.forEach(c => {
+          const d = scDiagramSvg(c, sz);
+          if (!d) return;
+          if (dx + cellW > P.w - P.mr) { dx = P.ml; rowY += cellH; }
+          svg.push(`<text x="${dx + cellW / 2 - 6}" y="${rowY + 12 * s}" text-anchor="middle" font-size="${12.5 * s}" font-weight="700" font-family="Arial, Helvetica, sans-serif">${esc(c.name)}</text>`);
+          svg.push(d.replace('<svg ', `<svg x="${dx}" y="${rowY + 14 * s}" `));
+          dx += cellW;
+        });
+        if (list.length) y = rowY + cellH + 10 * s;
+      }
     }
   }
   newPage();
@@ -3907,12 +4007,15 @@ function scRender() {
     unit = Math.min(unit, 46 * s);
     const hasMarks = barIdx.some(b => { const k = sc.bars[b].marks; return k.section || k.text || k.volta; })
       || barIdx.some(b => sc.bars[b].notes.some(n => n.dyn));
-    const H = (hasMarks ? 20 : 4) * s + (showChord ? 22 : 0) * s + 52 * s + (showLyric ? 26 : 0) * s + 20 * s;
+    const diaH = (showChord && m.diagram === 'inline') ? scDiaHeight() : 0;
+    const chordH = showChord ? (m.chordStyle === 'both' ? 36 : 24) * s : 0;
+    const H = (hasMarks ? 20 : 4) * s + diaH + chordH + (showDigits ? 52 * s : 6 * s) + (showLyric ? 26 : 0) * s + 20 * s;
     if (y + H > P.h - P.mb) newPage();
     const top = y;
     const yMark = top + 12 * s;
-    const yChord = top + (hasMarks ? 20 : 4) * s + 15 * s;
-    const yD = top + (hasMarks ? 20 : 4) * s + (showChord ? 22 : 0) * s + 30 * s;   // 數字基線
+    const yDia = top + (hasMarks ? 20 : 4) * s;
+    const yChord = top + (hasMarks ? 20 : 4) * s + diaH + 16 * s;
+    const yD = top + (hasMarks ? 20 : 4) * s + diaH + chordH + (showDigits ? 30 * s : 0);   // 數字基線
     const yLyr = yD + 30 * s;
     let x = P.ml;
     barIdx.forEach((b, k) => {
@@ -3941,25 +4044,38 @@ function scRender() {
       lay.els.forEach(e => { if (e.t === 'digit' && !e.sub) noteX[e.ni] = e.x; });
       if (showChord && MR[b] > 1) {
         // 多小節休止：把這幾小節的和弦依序寫成一串（前奏、間奏的進行）
-        const names = [];
-        for (let q = b; q < b + MR[b]; q++) (sc.bars[q].chords || []).forEach(c => { if (names[names.length - 1] !== c.name) names.push(c.name); });
-        svg.push(`<text x="${x0 + PAD * unit}" y="${yChord}" font-size="${12.5 * s}" font-weight="700" font-family="Arial, Helvetica, sans-serif">${esc(names.join('  '))}</text>`);
+        // 跟一般小節同一套寫法（和弦名／級數方框／兩者），一個接一個往右排
+        const list = [];
+        for (let q = b; q < b + MR[b]; q++) (sc.bars[q].chords || []).forEach(c => { if (!list.length || list[list.length - 1].name !== c.name) list.push(c); });
+        let cxm = x0 + PAD * unit;
+        list.forEach(c => {
+          svg.push(scChordMark(c, cxm, yChord, s, m));
+          const n = Math.max(Array.from(c.name).length, m.chordStyle === 'name' || !m.chordStyle ? 0 : Array.from(scChordDegree(c)).length);
+          cxm += n * 8.6 * s + 16 * s;
+        });
       } else if (showChord && bar.chords) {
         bar.chords.forEach(c => {
           // 和弦寫在「那一拍開始的音」正上方；那一拍沒有音就用比例位置
           let pos = 0, cxx = null;
           for (let i = 0; i < bar.notes.length; i++) { if (pos >= c.beat - 1e-6) { cxx = noteX[i]; break; } pos += bar.notes[i].dur; }
           if (cxx == null) { const el = lay.els.find(e => e.pos >= c.beat - 1e-6); cxx = el ? el.x : x0 + PAD * unit + (c.beat / meterBeats) * (bw - 2 * PAD * unit); }
-          svg.push(`<text x="${cxx - 5 * s}" y="${yChord}" font-size="${13.5 * s}" font-weight="700" font-family="Arial, Helvetica, sans-serif">${esc(c.name)}</text>`);
+          svg.push(`<g class="chordhit" data-cbar="${b}" style="cursor:pointer">` + scChordMark(c, cxx - 5 * s, yChord, s, m)
+            + `<rect x="${cxx - 8 * s}" y="${yChord - 15 * s}" width="${Math.max(30, c.name.length * 9) * s}" height="${20 * s}" fill="transparent"><title>點一下修改和弦</title></rect></g>`);
+          if (m.diagram === 'inline') {
+            const d = scDiagramSvg(c, m.diaSize || 64);
+            if (d) svg.push(d.replace('<svg ', `<svg x="${cxx - 14 * s}" y="${yDia}" `));
+          }
         });
       }
-      // 音符元素
+      // 音符元素（「和弦＋歌詞」模式不畫數字，只留歌詞位置）
       lay.els.forEach(e => {
+        if (!showDigits && e.t !== 'digit') return;
         const n = bar.notes[e.ni];
         const sel = SC.sel && SC.sel.b === b && (SC.selEnd ? scInRange(b, e.ni) : SC.sel.i === e.ni);
         if (e.t === 'digit') {
           if (!e.sub) svg.push(`<rect class="hit${sel ? ' sel' : ''}" data-b="${b}" data-i="${e.ni}" x="${e.x - 0.5 * unit}" y="${yD - 22 * s}" width="${unit * e.w}" height="${(showLyric ? 52 : 30) * s}"/>`);
-          svg.push(`<text x="${e.x}" y="${yD}" text-anchor="middle" font-size="${FD}">${n.deg || 0}</text>`);
+          if (showDigits) svg.push(`<text x="${e.x}" y="${yD}" text-anchor="middle" font-size="${FD}" font-weight="700">${n.deg || 0}</text>`);
+          if (!showDigits) { if (!e.sub) placed[b + ':' + e.ni] = { x: e.x, yd: yD, page: pageNo, top: yD }; if (showLyric && n.lyric && !e.sub) svg.push(`<text x="${e.x}" y="${yLyr}" text-anchor="middle" font-size="${15 * s}" class="lyr">${esc(n.lyric)}</text>`); return; }
           if (n.acc && !e.sub) svg.push(`<text x="${e.x - 6.5 * s}" y="${yD - 9 * s}" text-anchor="middle" font-size="${11 * s}">${n.acc > 0 ? '♯' : n.acc < 0 ? '♭' : ''}</text>`);
           if (n.natural && !e.sub) svg.push(`<text x="${e.x - 6.5 * s}" y="${yD - 9 * s}" text-anchor="middle" font-size="${11 * s}">♮</text>`);
           for (let q = 0; q < Math.max(0, n.oct || 0); q++) svg.push(`<circle cx="${e.x}" cy="${yD - 17 * s - q * 4.5 * s}" r="${1.6 * s}" fill="#111"/>`);
@@ -3987,7 +4103,7 @@ function scRender() {
         }
       });
       // 減時線：同一拍裡連續的短音共用底線（第二條只連十六分的）
-      for (const lvl of [1, 2]) {
+      for (const lvl of (showDigits ? [1, 2] : [])) {
         let run = null;
         const flush = () => { if (run) svg.push(`<line x1="${run.a - 0.36 * unit}" x2="${run.z + 0.36 * unit}" y1="${yD + 5 * s + (lvl - 1) * 3.6 * s}" y2="${yD + 5 * s + (lvl - 1) * 3.6 * s}" stroke="#111" stroke-width="${1.15 * s}"/>`); run = null; };
         lay.els.forEach(e => {
@@ -4001,7 +4117,7 @@ function scRender() {
       }
       // 小節線
       const bl = (xx, kind) => {
-        const ya = yD - 21 * s, yb = yD + 7 * s;
+        const ya = showDigits ? yD - 21 * s : yD - 4 * s, yb = showDigits ? yD + 7 * s : (showLyric ? yLyr + 6 * s : yD + 7 * s);
         const thin = (q) => svg.push(`<line x1="${q}" x2="${q}" y1="${ya}" y2="${yb}" stroke="#111" stroke-width="1"/>`);
         const thick = (q) => svg.push(`<line x1="${q}" x2="${q}" y1="${ya}" y2="${yb}" stroke="#111" stroke-width="${3.2 * s}"/>`);
         const dots = (q) => svg.push(`<circle cx="${q}" cy="${yD - 11 * s}" r="${1.8 * s}" fill="#111"/><circle cx="${q}" cy="${yD - 3 * s}" r="${1.8 * s}" fill="#111"/>`);
@@ -4025,8 +4141,28 @@ function scRender() {
       + scArcs(placed, i + 1)
       + (pages.length > 1 ? `<text x="${P.w / 2}" y="${P.h - 30}" text-anchor="middle" font-size="11">— ${i + 1} —</text>` : '')
       + `</svg></div>`).join('');
+    scLastNow = '';
+    if (state.isPlaying) scHighlight(state.currentTime, false);
   };
   finish();
+}
+
+// 和弦記號：和弦名／歌本式級數方框／兩者（級數方框在上、和弦名在下）
+function scChordMark(c, x, y, s, m) {
+  const esc = escapeHtml, style = m.chordStyle || 'name';
+  const font = 'font-family="Arial, Helvetica, sans-serif" font-weight="700"';
+  const box = (txt, yy) => {
+    const w = Array.from(txt).length * 8.2 * s + 9 * s;
+    return `<rect class="cbox" x="${x - 3 * s}" y="${yy - 13 * s}" width="${w}" height="${17 * s}" rx="${2 * s}"/>`
+      + `<text x="${x - 3 * s + w / 2}" y="${yy}" text-anchor="middle" font-size="${13 * s}" ${font}>${esc(txt)}</text>`;
+  };
+  if (style === 'box') return box(scChordDegree(c), y);
+  if (style === 'both') return box(scChordDegree(c), y - 2 * s) + `<text x="${x}" y="${y + 15 * s}" font-size="${11.5 * s}" ${font} fill="#444">${esc(c.name)}</text>`;
+  return `<text x="${x}" y="${y}" font-size="${13.5 * s}" ${font}>${esc(c.name)}</text>`;
+}
+function scDiaHeight() {
+  const sz = (SC.score && SC.score.meta.diaSize) || 64;
+  return sz * 1.25 + 6;
 }
 
 function scInRange(b, i) {
@@ -4077,8 +4213,8 @@ function scSelected() {              // 選取範圍內所有音 [{b,i,n}]
   SC.score.bars.forEach((bar, b) => bar.notes.forEach((n, i) => { if (SC.selEnd ? scInRange(b, i) : (SC.sel.b === b && SC.sel.i === i)) out.push({ b, i, n }); }));
   return out;
 }
-function scCommit() { scSave(); scRender(); scSyncTools(); }
-function scEdit(fn) { if (!SC.score) return; scPush(); fn(); scCommit(); }
+function scCommit() { scInvalidateTimes(); scSave(); scRender(); scSyncTools(); }
+function scEdit(fn) { if (!SC.score) return; scPush(); fn(); SC.edited = true; SC.score.edited = true; scCommit(); }
 
 function scMove(dir) {
   if (!SC.sel) return;
@@ -4170,6 +4306,54 @@ function scAction(act) {
   }
 }
 
+// 改和弦：用原本的和弦編輯視窗（照把位輸入、自動換算回原調）；存檔後把這小節的和弦同步回譜面
+function scEditChord(b) {
+  if (!state.chords[b]) return;
+  scEditingChordBar = b;
+  openEditModal(b);
+  // 譜面上的歌詞是逐字編（點音符改），這個視窗只改和弦
+  const ly = document.getElementById('edit-lyric');
+  if (ly) ly.closest('label').style.display = 'none';
+}
+let scEditingChordBar = -1;
+function scSyncChordsFromState(b) {
+  if (!SC.score || !SC.score.bars[b] || !state.chords[b]) return;
+  scPush();
+  const bpb = scMeterBeats(SC.score.meta), bar = state.bars[b];
+  let acc = bar && bar.pickup ? bpb - (bar.beats || []).length : 0;
+  const chords = [];
+  for (const p of state.chords[b].parts) {
+    const prev = chords[chords.length - 1];
+    if (!prev || prev.name !== p.name) chords.push({ beat: acc, name: p.name, deg: p.degree, root: p.root, quality: p.quality });
+    acc += p.beats || 1;
+  }
+  SC.score.bars[b].chords = chords;
+  SC.edited = true; SC.score.edited = true;
+  scCommit();
+}
+
+// 偵測結果或移調／把位變了：沒手動改過就整份重排；改過的話只換調號（音高不變）與和弦名稱
+let scLastSig = '';
+function scOnDetectionChanged() {
+  if (!SC.score || !state.chords.length) return;
+  const sig = [scKeyPc(), state.capo, state.shapeMode, state.chords.length, state.beatsPerBar].join('|');
+  if (sig === scLastSig) return;
+  scLastSig = sig;
+  if (!SC.edited) {
+    const meta = SC.score.meta; SC.score = scBuildFromDetection();
+    Object.assign(SC.score.meta, meta, { key: SC.score.meta.key, meter: SC.score.meta.meter });
+  } else {
+    if (SC.score.meta.key !== scKeyPc()) scChangeKey(scKeyPc());
+    SC.score.bars.forEach((bar, b) => {
+      if (!state.chords[b]) return;
+      const map = new Map(state.chords[b].parts.map(p => [p.beats, p]));
+      let acc = 0; const parts = state.chords[b].parts;
+      bar.chords = (bar.chords || []).map((c, k) => { const p = parts[Math.min(k, parts.length - 1)]; return p ? Object.assign({}, c, { name: p.name, deg: p.degree, root: p.root, quality: p.quality }) : c; });
+    });
+  }
+  scInvalidateTimes(); scFillPanel(); scRender(); scSyncTools();
+}
+
 function scPrint() {
   document.body.classList.add('print-score');
   const off = () => { document.body.classList.remove('print-score'); window.removeEventListener('afterprint', off); };
@@ -4209,6 +4393,7 @@ function scFillPanel() {
   set('sc-title', m.title); set('sc-subtitle', m.subtitle); set('sc-lyricist', m.lyricist); set('sc-composer', m.composer);
   set('sc-arranger', m.arranger); set('sc-tempo-text', m.tempoText); set('sc-bpm', m.bpm); set('sc-key', m.key);
   set('sc-meter', m.meter); set('sc-bpl', m.bpl); set('sc-show', m.show); set('sc-scale', m.scale);
+  set('sc-chordstyle', m.chordStyle || 'name'); set('sc-diagram', m.diagram || 'off'); set('sc-diasize', m.diaSize || 64);
 }
 
 // 改調號：音高不變（MIDI 一樣），數字跟著新的 1 重算
@@ -4226,27 +4411,20 @@ function scOpen() {
   if (!state.chords.length) return;
   if (!SC.score) {
     const saved = scLoad();
-    SC.score = (saved && saved.v === 1 && saved.bars && saved.bars.length) ? saved : scBuildFromDetection();
+    SC.score = (saved && saved.v === 1 && saved.bars && saved.bars.length && saved.edited) ? saved : scBuildFromDetection();
+    SC.edited = !!SC.score.edited;
   }
   scFillPanel(); scRender(); scSyncTools();
   if (!state.showMelody) setStatus('提示：勾選「簡譜旋律」讓 AI 抓旋律，出版譜才會有音符（按「重新產生」套用）。', 'done');
 }
 
-function scSetView(which) {
-  const isScore = which === 'score';
-  document.getElementById('score-view').style.display = isScore ? 'block' : 'none';
-  document.getElementById('chart-view').style.display = isScore ? 'none' : 'block';
-  document.getElementById('tab-chart').classList.toggle('on', !isScore);
-  document.getElementById('tab-score').classList.toggle('on', isScore);
-  if (isScore) scOpen();
-}
+function scSetView() { scOpen(); }
 
 function scInitUI() {
   const keySel = document.getElementById('sc-key');
   if (!keySel) return;
   keySel.innerHTML = SC_KEYS.map((k, i) => `<option value="${i}">${k}</option>`).join('');
-  document.getElementById('tab-chart').addEventListener('click', () => scSetView('chart'));
-  document.getElementById('tab-score').addEventListener('click', () => scSetView('score'));
+  document.getElementById('sc-import-lrc').addEventListener('click', () => document.getElementById('lrc-input').click());
   // 標頭欄位
   const bind = (id, key, conv) => document.getElementById(id).addEventListener('change', function () {
     if (!SC.score) return;
@@ -4258,7 +4436,8 @@ function scInitUI() {
   bind('sc-title', 'title'); bind('sc-subtitle', 'subtitle'); bind('sc-lyricist', 'lyricist'); bind('sc-composer', 'composer');
   bind('sc-arranger', 'arranger'); bind('sc-tempo-text', 'tempoText'); bind('sc-bpm', 'bpm', v => parseInt(v, 10) || '');
   bind('sc-key', 'key', v => parseInt(v, 10) || 0); bind('sc-meter', 'meter'); bind('sc-bpl', 'bpl', v => parseInt(v, 10) || 4);
-  bind('sc-show', 'show');
+  bind('sc-show', 'show'); bind('sc-chordstyle', 'chordStyle'); bind('sc-diagram', 'diagram');
+  document.getElementById('sc-diasize').addEventListener('input', function () { if (SC.score) { SC.score.meta.diaSize = parseInt(this.value, 10); scSave(); scRender(); } });
   document.getElementById('sc-scale').addEventListener('input', function () { if (SC.score) { SC.score.meta.scale = parseInt(this.value, 10); scSave(); scRender(); } });
   // 工具列
   const tools = document.getElementById('sc-tools');
@@ -4297,8 +4476,16 @@ function scInitUI() {
       const p = { b: Number(hit.dataset.b), i: Number(hit.dataset.i) };
       if (e.shiftKey && SC.sel) SC.selEnd = p; else { SC.sel = p; SC.selEnd = null; }
       SC.selBar = p.b;
-      scRender(); scSyncTools(); return;
+      scRender(); scSyncTools();
+      if (!e.shiftKey && document.getElementById('sc-clickplay').checked && state.audioBuffer) {
+        if (scTimesFor !== SC.score) { scTimes = scNoteTimes(); scTimesFor = SC.score; }
+        const x = scTimes.find(q => q.b === p.b && q.i === p.i);
+        if (x && x.t0 != null) playFrom(Math.max(0, x.t0 - 0.05), state.continuous ? state.duration : (scTimes.find(q => q.b === p.b + 1 && q.i === 0) || { t0: state.duration }).t0 + 0.6);
+      }
+      return;
     }
+    const ch = e.target.closest('.chordhit');
+    if (ch) { scEditChord(Number(ch.dataset.cbar)); return; }
     const bh = e.target.closest('.barhit');
     if (bh) { SC.selBar = Number(bh.dataset.bar); SC.sel = null; SC.selEnd = null; scRender(); scSyncTools(); }
   });
@@ -4323,6 +4510,14 @@ function scInitUI() {
     if (k === '*') { e.preventDefault(); const n = scNote(); if (n && n.dur < 4) scSetDur(Math.min(4, n.dur * 2)); return; }
     if (k === 'Enter') { e.preventDefault(); ly.focus(); ly.select(); return; }
     if (k === 'Escape') { SC.sel = null; SC.selEnd = null; scRender(); scSyncTools(); }
+  });
+  // 空白鍵：播放／暫停（打字時不攔）
+  document.addEventListener('keydown', e => {
+    if (e.key !== ' ' || e.ctrlKey || e.metaKey || e.altKey) return;
+    const tag = (document.activeElement && document.activeElement.tagName) || '';
+    if (/INPUT|TEXTAREA|SELECT|BUTTON/.test(tag) || !state.audioBuffer) return;
+    e.preventDefault();
+    document.getElementById('btn-play').click();
   });
 }
 document.addEventListener('DOMContentLoaded', scInitUI);
