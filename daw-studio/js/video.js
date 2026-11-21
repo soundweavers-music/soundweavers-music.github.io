@@ -521,22 +521,34 @@ export function initVideoPreview() {
   panel.querySelector('#vidClose').onclick = () => toggleVideoPreview(false);
   panel.querySelector('#vidFit').onclick = () => { panel.style.width = ''; panel.classList.remove('sized'); };
 
-  // 拖曳視窗 + 記住位置
+  // 拖曳視窗 + 記住位置。CSS 預設用 left/bottom 定位，拖曳時改成 left/top 並
+  // 把 bottom 取消、高度固定住，不然往下拖會把視窗「拉長」（上下都被撐開）。
   const head = panel.querySelector('header');
   head.addEventListener('pointerdown', e => {
     if (e.target.closest('button')) return;
     const r = panel.getBoundingClientRect(), dx = e.clientX - r.left, dy = e.clientY - r.top;
+    panel.style.bottom = 'auto';
+    panel.style.height = r.height + 'px';
     head.setPointerCapture(e.pointerId);
-    const mv = ev => { panel.style.left = Math.max(0, ev.clientX - dx) + 'px'; panel.style.top = Math.max(0, ev.clientY - dy) + 'px'; };
+    const mv = ev => {
+      panel.style.left = Math.max(0, Math.min(innerWidth - 80, ev.clientX - dx)) + 'px';
+      panel.style.top = Math.max(0, Math.min(innerHeight - 40, ev.clientY - dy)) + 'px';
+      panel.style.height = r.height + 'px';
+    };
     const up = () => {
       head.removeEventListener('pointermove', mv); head.removeEventListener('pointerup', up);
-      try { localStorage.setItem(POS, JSON.stringify({ left: panel.style.left, top: panel.style.top, width: panel.style.width })); } catch (_) { /* noop */ }
+      try {
+        localStorage.setItem(POS, JSON.stringify({ left: panel.style.left, top: panel.style.top, width: panel.style.width, height: r.height }));
+      } catch (_) { /* noop */ }
     };
     head.addEventListener('pointermove', mv); head.addEventListener('pointerup', up);
   });
   try {
     const s = JSON.parse(localStorage.getItem(POS) || 'null');
-    if (s) { panel.style.left = s.left; panel.style.top = s.top; if (s.width) { panel.style.width = s.width; panel.classList.add('sized'); } }
+    if (s) {
+      panel.style.left = s.left; panel.style.top = s.top; panel.style.bottom = 'auto';
+      if (s.width) { panel.style.width = s.width; panel.classList.add('sized'); }
+    }
   } catch (_) { /* noop */ }
 
   // 在畫面上拖曳文字／字幕
@@ -582,6 +594,7 @@ export function initVideoPreview() {
     const r = panel.getBoundingClientRect();
     grip.setPointerCapture(e.pointerId);
     panel.classList.add('sized');
+    panel.style.height = 'auto';           // 寬度改變＝等比縮放，高度交還給內容決定
     const mv = ev => { panel.style.width = Math.max(260, Math.min(innerWidth - r.left - 8, r.width + ev.clientX - e.clientX)) + 'px'; };
     const up = () => { grip.removeEventListener('pointermove', mv); grip.removeEventListener('pointerup', up); };
     grip.addEventListener('pointermove', mv); grip.addEventListener('pointerup', up);

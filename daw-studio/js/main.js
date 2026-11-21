@@ -8,6 +8,7 @@ import { initMixer, showMixer, tickMeters, stripFor, relayoutFaders } from './mi
 import { saveProject, pickAndOpenProject, openProjectFile, autosave, readAutosave, restoreAutosave,
   clearAutosave, importAudioFiles, resetHandle, canSaveInPlace } from './project-io.js';
 import { exportAudio } from './exporter.js';
+import { importChordFile } from './chord-import.js';
 import { exportVideoMp4 } from './video-export.js';
 import { importVideoFiles, addTextClip, toggleVideoPreview, initVideoPreview, videoSettings } from './video.js';
 import { initVideoPanel, toggleVideoPanel, openVideoPanel, videoPanelOpen } from './video-ui.js';
@@ -145,8 +146,9 @@ function bindTopbar() {
       { label: canSaveInPlace() ? '儲存（覆寫目前的檔案）' : '儲存到電腦（下載 .zyproj）', key: 'Ctrl+S', action: fileSave },
       { label: '另存新檔…', key: 'Ctrl+Shift+S', action: () => saveProject(true).catch(err => toast('儲存失敗：' + err.message, 'error')) },
       '-',
-      { label: '匯入音檔…', key: 'Ctrl+I', action: () => $('fileAudio').click() },
+      { label: '匯入音檔…（也可以選分軌 .zip）', key: 'Ctrl+I', action: () => $('fileAudio').click() },
       { label: '匯入 MIDI…', action: () => $('fileMidi').click() },
+      { label: '匯入和弦（來自「自動抓和弦」）…', action: () => $('fileChords').click() },
       '-',
       { label: '專案會自動暫存到這個瀏覽器', disabled: true },
     ]);
@@ -160,6 +162,13 @@ function bindTopbar() {
     const at = consumeImportAt() || { trackId: store.selection.trackId, at: snap(engine.currentTime()) };
     busy(`正在讀取 ${files.length} 個音檔…`);
     try { await importAudioFiles(files, at.trackId, at.at); } finally { busy(null); }
+  });
+  // 自動抓和弦工具匯出的 .zychords.json → 直接變成和弦軌
+  $('fileChords').addEventListener('change', async e => {
+    const f = e.target.files[0];
+    e.target.value = '';
+    if (!f) return;
+    try { await importChordFile(f); } catch (err) { toast('和弦匯入失敗：' + err.message, 'error'); }
   });
 
   $('btnAddTrack').onclick = () => { if (!store.addTrack('audio')) toast('最多 32 軌', 'warn'); };

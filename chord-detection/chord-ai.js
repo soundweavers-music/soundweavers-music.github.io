@@ -445,7 +445,9 @@ const tr = (zh, en) => (document.documentElement.lang || '').startsWith('en') ? 
     const rise = vocalRise(cv.x, cv.sr);
     // AI 分離的主唱（16 kHz）留著給「AI 聽歌詞」用（4 分鐘約 15 MB）；中央遮罩的不留（伴奏太多，聽歌詞不準）
     return { times, midi: foldOctaves(times, midi, 4.0), nFrames: n, rise, riseHop: RISE_HOP, sepEngine,
-             x16: sepEngine === 'spleeter' ? x : null };
+             x16: sepEngine === 'spleeter' ? x : null,
+             // 給「匯出分軌」用：AI 分離出來的原始主唱（單聲道、44.1 kHz）
+             sep: sepEngine === 'spleeter' ? cv : null };
   }
 
   // ===== 歌詞對齊（LRC 一個字對到一個唱出來的音）=====
