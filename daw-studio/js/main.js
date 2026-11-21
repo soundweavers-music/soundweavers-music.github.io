@@ -8,6 +8,8 @@ import { initMixer, showMixer, tickMeters, stripFor, relayoutFaders } from './mi
 import { saveProject, pickAndOpenProject, openProjectFile, autosave, readAutosave, restoreAutosave,
   clearAutosave, importAudioFiles, resetHandle, canSaveInPlace } from './project-io.js';
 import { exportAudio } from './exporter.js';
+import { exportVideoMp4 } from './video-export.js';
+import { importVideoFiles, addTextClip, toggleVideoPreview, initVideoPreview, videoSettings } from './video.js';
 import { view, setZoom, beatSec, snap } from './view.js';
 import { fmtTime, fmtBars, toast, uid } from './util.js';
 import { isMidiClip, clipStart, clipDur } from './state.js';
@@ -165,6 +167,35 @@ function bindTopbar() {
     if (!t) return toast('最多 32 軌', 'warn');
     store.selection.trackId = t.id; store.emit('select', {});
   };
+  // 影片／文字／字幕
+  const addVisualTrack = kind => {
+    const t = store.addTrack(kind);
+    if (!t) { toast('最多 32 軌', 'warn'); return null; }
+    store.selection.trackId = t.id; store.emit('select', {});
+    toggleVideoPreview(true);
+    return t;
+  };
+  $('btnAddVisual').onclick = e => {
+    const r = e.currentTarget.getBoundingClientRect();
+    const at = snap(engine.currentTime());
+    showMenu(r.left, r.bottom + 2, [
+      { label: '匯入影片…（MP4 / WebM）', action: () => $('fileVideo').click() },
+      { label: '新增文字軌', action: () => { const t = addVisualTrack('text'); if (t) addTextClip(t, at, '文字'); } },
+      { label: '新增字幕軌', action: () => { const t = addVisualTrack('sub'); if (t) addTextClip(t, at, '字幕文字'); } },
+    ]);
+  };
+  $('btnPreview').onclick = () => toggleVideoPreview();
+  $('fileVideo').addEventListener('change', async e => {
+    const files = [...e.target.files];
+    e.target.value = '';
+    if (!files.length) return;
+    const at = consumeImportAt() || { trackId: store.selection.trackId, at: snap(engine.currentTime()) };
+    busy(`正在讀取 ${files.length} 個影片…`);
+    try {
+      await importVideoFiles(files, at.trackId, at.at);
+      toggleVideoPreview(true);
+    } finally { busy(null); }
+  });
   $('btnPiano').onclick = togglePiano;
   $('btnZoomIn').onclick = () => setZoom(view.pxPerBeat * 1.4);
   $('btnZoomOut').onclick = () => setZoom(view.pxPerBeat / 1.4);
@@ -218,7 +249,7 @@ function renderInspector() {
   const sec = document.createElement('div'); sec.className = 'sec';
   sec.innerHTML = `
     <div class="row"><input type="text" id="insName" maxlength="40"></div>
-    <div class="row"><span>類型</span><span>${t.kind === 'audio' ? '音訊' : 'MIDI'}</span></div>
+    <div class="row"><span>類型</span><span>${({ audio: '音訊', midi: 'MIDI', video: '影片', text: '文字', sub: '字幕' })[t.kind] || '音訊'}</span></div>
     <div class="row"><span>片段</span><span>${t.clips.length} 個</span></div>
     <div class="row"><span>顏色</span><input type="color" id="insColor" value="${t.color}" style="width:40px;height:20px;border:0;background:none;padding:0"></div>`;
   h.appendChild(sec);
@@ -229,6 +260,16 @@ function renderInspector() {
   nm.addEventListener('change', () => { store.checkpoint(); t.name = nm.value.trim() || t.name; store.changed('structure'); });
   sec.querySelector('#insColor').addEventListener('change', e => { store.checkpoint(); t.color = e.target.value; store.changed('structure'); });
   if (t.kind === 'midi') { box.appendChild(instrumentSection(t)); box.appendChild(sfSection(t)); box.appendChild(midiStatusSection()); box.appendChild(inputVelSection(t)); box.appendChild(transposeSection(t)); }
+  // 影片／文字／字幕軌只有畫面，沒有音訊處理
+  if (t.kind === 'video' || t.kind === 'text' || t.kind === 'sub') {
+    const vs = videoSettings();
+    const vsec = document.createElement('div'); vsec.className = 'sec';
+    vsec.innerHTML = `<h4 style="margin-top:0">畫面</h4>
+      <div class="row"><span>畫布</span><span>${vs.w}×${vs.h}・${vs.fps} fps</span></div>
+      <p class="midi-status">這一軌只出現在畫面上：不進混音、輸出音檔時會被略過。按 <b>預覽</b>（V）可以看合成結果，文字可以用滑鼠在預覽畫面上拖曳。</p>`;
+    box.appendChild(vsec);
+    return;
+  }
   box.appendChild(chordSection(t));
   box.appendChild(insertsSection(t.id));
   box.appendChild(sendSection(t));
@@ -298,12 +339,18 @@ function openExport() {
   if (!d.querySelector(`[name=sampleRate] option[value="${engine.sampleRate}"]`)) d.querySelector('[name=sampleRate]').value = '48000';
   const M = store.project.mastering;
   if (M?.on) $('exportNote').insertAdjacentHTML('beforeend', '<br><b>母帶處理已開啟</b>，整首混音會套用母帶鏈。');
-  // 格式切換：MP3 顯示位元率、FLAC 不能 32-bit
+  // 格式切換：MP3 顯示位元率、FLAC 不能 32-bit、MP4 用影片預覽的畫布設定
   const fmt = d.querySelector('[name=format]');
+  const baseNote = $('exportNote').innerHTML;
+  const vs = videoSettings();
+  const videoNote = `<br><b>影片</b>：${vs.w}×${vs.h}、${vs.fps} fps（在預覽視窗下方可以改），聲音 48 kHz AAC。`
+    + '有影片的段落會逐格算圖，比輸出音檔慢很多。';
   const syncFmt = () => {
     const f = fmt.value;
-    $('fBitDepth').hidden = f === 'mp3' || f === 'mid';
+    $('fBitDepth').hidden = f === 'mp3' || f === 'mid' || f === 'mp4';
     $('fBitrate').hidden = f !== 'mp3';
+    $('fSampleRate').hidden = f === 'mp4';
+    $('exportNote').innerHTML = baseNote + (f === 'mp4' ? videoNote : '');
     const bd = d.querySelector('[name=bitDepth]');
     bd.querySelector('option[value="32"]').disabled = f === 'flac';
     if (f === 'flac' && bd.value === '32') bd.value = '24';
@@ -316,6 +363,14 @@ function openExport() {
     if (d.returnValue !== 'ok') return;
     const fd = new FormData(d.querySelector('form'));
     if (fd.get('format') === 'mid') { exportMidi(); return; }
+    if (fd.get('format') === 'mp4') {
+      busy('輸出影片…', 0);
+      try {
+        await exportVideoMp4({ range: fd.get('range'), width: vs.w, height: vs.h, fps: vs.fps });
+      } catch (e) { toast('影片輸出失敗：' + e.message, 'error'); console.error(e); }
+      finally { busy(null); }
+      return;
+    }
     busy('輸出中…');
     try {
       await exportAudio({
@@ -472,6 +527,7 @@ function bindKeys() {
     if (k === 'g') return run(() => $('btnSnap').click());
     if (k === 'x') return run(toggleMixer);
     if (k === 'p') return run(togglePiano);
+    if (k === 'v') return run(() => toggleVideoPreview());
     if (e.shiftKey && k === 'm') return run(() => toggleMaster());
     if (k === 'a' && !e.shiftKey) return run(() => store.emit('toggle-automation', {}));
     if (k === 'i') return run(toggleInspector);
@@ -741,6 +797,7 @@ async function boot() {
   initBankUi();
   initMasterUi();
   initAutomationUi();
+  initVideoPreview();
   // 下方面板（混音台／鋼琴捲簾／母帶）一次只開一個
   store.on('panel', ({ name }) => {
     if (name && name !== 'mixer' && !$('mixer').classList.contains('hidden')) { showMixer(false); $('btnMixer').classList.remove('on'); }

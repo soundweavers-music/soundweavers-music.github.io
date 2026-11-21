@@ -312,6 +312,8 @@ class Engine {
     }
     const busIn = this.buses.map(b => b.input);
     for (const t of p.tracks) {
+      // 影片／文字／字幕軌不需要混音通道
+      if (t.kind === 'video' || t.kind === 'text' || t.kind === 'sub') continue;
       const s = this.strips.get(t.id);
       if (!s) this.strips.set(t.id, buildStrip(this.ctx, this.masterSum, true, t, busIn, p.bpm));
       else if (chainShape(t.inserts) !== s.shape) rebuildChain(this.ctx, s, t.inserts, p.bpm);
@@ -401,6 +403,8 @@ class Engine {
     for (const t of p.tracks) {
       const strip = this.strips.get(t.id);
       if (!strip) continue;
+      // 影片／文字／字幕軌只有畫面，沒有聲音可以排程
+      if (t.kind === 'video' || t.kind === 'text' || t.kind === 'sub') continue;
       scheduleAutomation(strip, t, when, from, until);
       // 延遲補償：這一軌的效果器會晚 lat 秒出聲 → 素材提早 lat 秒送進去，出來剛好對齊其他軌
       const lat = trackLatency(t);

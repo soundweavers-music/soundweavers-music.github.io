@@ -12,6 +12,7 @@ import { uid, toast, TRACK_COLORS } from './util.js';
 import { chordLaneHeight, drawChordLane, openChordMenu } from './chord-ui.js';
 import { showMenu } from './menu.js';
 import { cssVar } from './theme.js';
+import { isVideoClip, isTextClip, ensureMedia, mediaDuration, firstFrameCanvas, addTextClip, editTextClip, toggleVideoPreview } from './video.js';
 
 const $ = id => document.getElementById(id);
 let lanes, lanesInner, headersInner, ruler, rulerWrap, grid, loopbar, playhead, phCap;
@@ -230,17 +231,19 @@ export function renderHeaders() {
     el.className = 'thead' + (t.id === store.selection.trackId ? ' sel' : '');
     el.style.height = trackH(t) + 'px';
     el.dataset.id = t.id;
+    const visual = t.kind === 'video' || t.kind === 'text' || t.kind === 'sub';
+    const kindMark = t.kind === 'midi' ? '♪' : t.kind === 'video' ? '▶' : t.kind === 'text' ? 'T' : t.kind === 'sub' ? '字' : '∿';
     el.innerHTML = `
       <div class="color" style="background:${t.color}"></div>
-      <div class="num">${i + 1}<br><span class="kind ${t.kind}">${t.kind === 'midi' ? '♪' : '∿'}</span></div>
+      <div class="num">${i + 1}<br><span class="kind ${t.kind}">${kindMark}</span></div>
       <div class="body">
         <div class="nrow"><input class="name" value="" maxlength="40" aria-label="軌道名稱">${t.kind === 'midi' ? instLabel(t) : ''}</div>
         <div class="ctrls">
-          <button class="mini m ${t.mute ? 'on' : ''}" data-act="mute" title="靜音">M</button>
-          <button class="mini s ${t.solo ? 'on' : ''}" data-act="solo" title="獨奏">S</button>
-          <button class="mini r ${t.arm ? 'on' : ''}" data-act="arm" title="${t.kind === 'midi' ? '錄音待命（MIDI 鍵盤）' : '錄音待命'}">R</button>
+          <button class="mini m ${t.mute ? 'on' : ''}" data-act="mute" title="${visual ? '隱藏這一軌' : '靜音'}">M</button>
+          ${visual ? '' : `<button class="mini s ${t.solo ? 'on' : ''}" data-act="solo" title="獨奏">S</button>`}
+          ${visual ? '' : `<button class="mini r ${t.arm ? 'on' : ''}" data-act="arm" title="${t.kind === 'midi' ? '錄音待命（MIDI 鍵盤）' : '錄音待命'}">R</button>`}
           ${t.kind === 'audio' ? `<button class="mini i ${t.monitor ? 'on' : ''}" data-act="monitor" title="輸入監聽（請戴耳機）">I</button>` : ''}
-          <input class="vol" type="range" min="-60" max="6" step="0.1" value="${t.volumeDb}" title="音量 ${t.volumeDb.toFixed(1)} dB">
+          ${visual ? '' : `<input class="vol" type="range" min="-60" max="6" step="0.1" value="${t.volumeDb}" title="音量 ${t.volumeDb.toFixed(1)} dB">`}
         </div>
       </div>
       <div class="tmeter"><i></i></div>`;
@@ -281,14 +284,17 @@ export function renderHeaders() {
       e.stopPropagation();
       toggleTrackFlag(t, b.dataset.act, e.altKey);
     }));
+    // 影片／文字／字幕軌沒有音量滑桿
     const vol = el.querySelector('.vol');
-    vol.addEventListener('pointerdown', () => store.checkpoint());
-    // 拖曳中不重建標頭，否則滑桿會被換掉、拖曳中斷
-    vol.addEventListener('input', () => {
-      t.volumeDb = Number(vol.value); vol.title = `音量 ${t.volumeDb.toFixed(1)} dB`;
-      store.dirty = true; engine.applyMix(); store.emit('mixlive', { from: 'header' });
-    });
-    vol.addEventListener('dblclick', () => { store.checkpoint(); t.volumeDb = 0; store.changed('mix'); });
+    if (vol) {
+      vol.addEventListener('pointerdown', () => store.checkpoint());
+      // 拖曳中不重建標頭，否則滑桿會被換掉、拖曳中斷
+      vol.addEventListener('input', () => {
+        t.volumeDb = Number(vol.value); vol.title = `音量 ${t.volumeDb.toFixed(1)} dB`;
+        store.dirty = true; engine.applyMix(); store.emit('mixlive', { from: 'header' });
+      });
+      vol.addEventListener('dblclick', () => { store.checkpoint(); t.volumeDb = 0; store.changed('mix'); });
+    }
     // 底部把手：上下拖曳調整這一軌的高度（雙擊還原）
     const grip = document.createElement('div');
     grip.className = 'hresize';
@@ -414,6 +420,24 @@ function clipEl(t, c) {
     el.insertAdjacentHTML('beforeend', `<div class="edge l" data-h="trimL"></div><div class="edge r" data-h="trimR"></div>`);
     return el;
   }
+  // 影片片段：縮圖用影片本身畫（非同步），淡入淡出對畫面沒有意義所以不畫
+  if (isVideoClip(c)) {
+    el.classList.add('vclip');
+    el.title = '影片片段：雙擊打開預覽，拖曳邊緣可以裁切';
+    el.dataset.thumb = c.id;
+    el.insertAdjacentHTML('beforeend', `<div class="edge l" data-h="trimL"></div><div class="edge r" data-h="trimR"></div>`);
+    queueVideoThumb(c, el);
+    return el;
+  }
+  // 文字／字幕片段：直接顯示文字內容
+  if (isTextClip(c)) {
+    el.classList.add('tclip');
+    cv.remove();
+    name.textContent = (c.text || '（空白）').replace(/\n/g, ' ⏎ ');
+    el.title = '雙擊編輯文字';
+    el.insertAdjacentHTML('beforeend', `<div class="edge l" data-h="trimL"></div><div class="edge r" data-h="trimR"></div>`);
+    return el;
+  }
   // 淡入淡出曲線
   const h = trackH(t) - 4;
   const fi = secToPx(c.fadeIn || 0), fo = secToPx(c.fadeOut || 0);
@@ -446,6 +470,7 @@ function drawWaveforms() {
       const el = lanesInner.querySelector(`.clip[data-id="${c.id}"]`);
       if (!el) continue;
       const cv = el.querySelector('canvas');
+      if (!cv) continue;                                // 文字片段的方塊沒有畫布
       const left = secToPx(clipStart(c)), w = secToPx(clipDur(c));
       const a = Math.max(left, sx - 50), b = Math.min(left + w, sx + vw + 50);
       if (offscreen || b <= a) { cv.style.display = 'none'; continue; }
@@ -457,6 +482,8 @@ function drawWaveforms() {
       const g = cv.getContext('2d');
       g.setTransform(dpr, 0, 0, dpr, 0, 0);
       if (isMidiClip(c)) { drawMidiPreview(g, c, a - left, cw, h); continue; }
+      if (isVideoClip(c)) continue;                     // 影片片段畫縮圖，不畫波形
+      if (isTextClip(c)) { cv.style.display = 'none'; continue; }
       const meta = store.bufferMeta.get(c.bufferId);
       const buf = store.buffers.get(c.bufferId);
       if (!meta || !buf) continue;
@@ -477,6 +504,52 @@ function drawWaveforms() {
       }
     }
   });
+}
+
+// 影片片段縮圖：每個素材只抓一格（快取起來），再沿著片段寬度重複貼
+const thumbs = new Map();     // mediaId -> Promise<canvas|null>
+function thumbFor(mediaId) {
+  let p = thumbs.get(mediaId);
+  if (p) return p;
+  p = (async () => {
+    const rec = await ensureMedia(mediaId);
+    if (!rec.ready) return null;
+    return firstFrameCanvas(rec);
+  })();
+  thumbs.set(mediaId, p);
+  return p;
+}
+
+const thumbQueue = [];
+let thumbBusy = false;
+function queueVideoThumb(c, el) {
+  thumbQueue.push({ c, el });
+  pumpThumbs();
+}
+async function pumpThumbs() {
+  if (thumbBusy) return;
+  thumbBusy = true;
+  while (thumbQueue.length) {
+    const { c, el } = thumbQueue.shift();
+    const cs = thumbFor(c.mediaId);
+    cs.then(img => {
+      if (!img || !el.isConnected) return;
+      const cv = el.querySelector('canvas');
+      if (!cv) return;
+      const w = Math.max(1, el.clientWidth), h = Math.max(1, el.clientHeight - 16);
+      const dpr = window.devicePixelRatio || 1;
+      cv.style.display = ''; cv.style.left = '0px';
+      cv.style.width = w + 'px'; cv.style.height = h + 'px';
+      cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr);
+      const g = cv.getContext('2d');
+      g.setTransform(dpr, 0, 0, dpr, 0, 0);
+      g.globalAlpha = 0.9;
+      const tw = Math.max(24, h * (img.width / img.height));
+      for (let x = 0; x < w; x += tw) g.drawImage(img, x, 0, tw, h);
+      g.globalAlpha = 1;
+    });
+  }
+  thumbBusy = false;
 }
 
 // MIDI 片段裡的小型音符預覽：音高範圍自動縮放到片段高度
@@ -630,6 +703,15 @@ function onLanesDown(e) {
   startMove(e);
 }
 
+// 這一軌收不收這種片段（拖曳換軌時檢查）
+function canPlace(track, clip) {
+  const k = track.kind;
+  if (isMidiClip(clip)) return k === 'midi';
+  if (isVideoClip(clip)) return k === 'video';
+  if (isTextClip(clip)) return k === 'text' || k === 'sub';
+  return k === 'audio';
+}
+
 function startMove(e) {
   const x0 = e.clientX, y0 = e.clientY;
   const tracks = store.project.tracks;
@@ -662,10 +744,10 @@ function startMove(e) {
     const d = items.d || 0;
     const minTi = Math.min(...items.map(i => i.ti)), maxTi = Math.max(...items.map(i => i.ti));
     let dt = Math.max(-minTi, Math.min(tracks.length - 1 - maxTi, items.dt || 0));
-    // 音訊片段只能放到音訊軌、MIDI 片段只能放到 MIDI 軌；有任何一個放不進去就只做水平移動
-    if (dt && items.some(it => (tracks[it.ti + dt].kind === 'midi') !== isMidiClip(it.clip))) {
+    // 不同類型的片段不能互換軌道；有任何一個放不進去就只做水平移動
+    if (dt && items.some(it => !canPlace(tracks[it.ti + dt], it.clip))) {
       dt = 0;
-      toast('音訊片段與 MIDI 片段不能放到不同類型的軌道', 'warn');
+      toast('音訊、MIDI、影片、文字的片段不能放到不同類型的軌道', 'warn');
     }
     const newSel = new Set();
     for (const it of items) {
@@ -714,7 +796,8 @@ function startEdit(e, { clip }, handle) {
   const x0 = e.clientX;
   const o = { ...clip };
   const buf = store.buffers.get(clip.bufferId);
-  const srcLen = buf ? buf.duration : clip.offset + clip.duration;
+  // 影片片段可以往兩邊拉回原始長度，其他（找不到音訊的）只能縮短
+  const srcLen = buf ? buf.duration : (isVideoClip(clip) ? (mediaDuration(clip.mediaId) ?? clip.offset + clip.duration) : clip.offset + clip.duration);
   const min = 0.01;
   store.checkpoint();
   drag(e, ev => {
@@ -780,7 +863,10 @@ function onLanesDbl(e) {
   const clipNode = e.target.closest('.clip');
   if (clipNode) {
     const f = store.findClip(clipNode.dataset.id);
-    if (f && isMidiClip(f.clip)) store.emit('open-piano-roll', { clipId: f.clip.id });
+    if (!f) return;
+    if (isMidiClip(f.clip)) store.emit('open-piano-roll', { clipId: f.clip.id });
+    else if (isTextClip(f.clip)) editTextClip(f.clip);
+    else if (isVideoClip(f.clip)) toggleVideoPreview(true);
     return;
   }
   const t = laneAt(e.clientY);
@@ -790,6 +876,14 @@ function onLanesDbl(e) {
   if (t.kind === 'midi') {
     const c = addMidiClipAt(t, Math.max(0, xToSec(e.clientX)));
     if (c) store.emit('open-piano-roll', { clipId: c.id });
+    return;
+  }
+  // 文字／字幕軌雙擊：新增一段文字
+  if (t.kind === 'text' || t.kind === 'sub') { addTextClip(t, snap(Math.max(0, xToSec(e.clientX)))); return; }
+  // 影片軌雙擊：選影片檔
+  if (t.kind === 'video') {
+    importAt = { trackId: t.id, at: snap(Math.max(0, xToSec(e.clientX))) };
+    $('fileVideo').click();
     return;
   }
   importAt = { trackId: t.id, at: snap(Math.max(0, xToSec(e.clientX))) };
