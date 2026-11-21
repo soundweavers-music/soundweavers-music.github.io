@@ -7,10 +7,13 @@ const tr = (zh, en) => (document.documentElement.lang || '').startsWith('en') ? 
 // 全部在使用者的電腦上算，模型檔放在本站（assets/chord-ai/），不連任何外部伺服器。
 (function () {
   'use strict';
+  // 模型資料夾一律從「這支 chord-ai.js 自己的位置」算（/chord-detection/chord-ai.js → /assets/chord-ai/），
+  // 不用頁面網址：英文頁在 /en/chord-detection/、LRC 工作室在 /tools/lrc/，用頁面網址算會指到不存在的 /en/assets/、/tools/assets/。
+  const AI_DIR = new URL('../assets/chord-ai/', (document.currentScript && document.currentScript.src) || document.baseURI).href;
   const SR = 22050, HOP = 2048, NB = 144, BPO = 24, NOCT = 6, T = 108;
   const FMIN = 32.70319566257483;     // C1
   const MEAN = -2.2279878897355596, STD = 1.7191329394436938;
-  const MODEL_URL = new URL('../assets/chord-ai/btc_large.onnx', document.baseURI).href;
+  const MODEL_URL = AI_DIR + 'btc_large.onnx';
   // BTC 的 14 種性質 → 頁面裡的名稱（sus 不給：見 foldQualities）
   const BTC_Q = ['m', 'maj', 'dim', 'aug', 'm6', '6', 'm7', 'mM7', 'maj7', '7', 'dim7', 'm7b5', 'sus2', 'sus4'];
 
@@ -180,7 +183,7 @@ const tr = (zh, en) => (document.documentElement.lang || '').startsWith('en') ? 
   // 測試（work/chord_bench/songs_mel，8 首立體聲、493 個旋律音）：
   //   舊做法（中央聲道＋諧波加總）簡譜數字對 64%；直接把混音丟 SwiftF0 75%；遮罩後再丟 SwiftF0 98%。
   //   兩者互補：遮罩拿掉左右擺位的伴奏，SwiftF0 不會像諧波加總那樣抓到高八度、五度或貝斯。
-  const F0_URL = new URL('../assets/chord-ai/swiftf0.onnx', document.baseURI).href;
+  const F0_URL = AI_DIR + 'swiftf0.onnx';
   const F0_SR = 16000, F0_HOP = 256, F0_WIN = 1875, F0_LEFT = 11, F0_AHEAD = 10;
   let f0Session = null, f0Loading = null;
 
@@ -293,7 +296,7 @@ const tr = (zh, en) => (document.documentElement.lang || '').startsWith('en') ? 
   // → 人聲遮罩 = v² / (v² + a²) → 乘回原本的頻譜 → iSTFT。每次餵 512 格（約 12 秒），記憶體才不會爆。
   // 為什麼要它：中央聲道遮罩會把「擺在正中間的樂器」（鋼琴、鐘琴、主奏）也留下來。真實歌曲測試裡，
   // 前奏／間奏有 45–73% 的格子被當成旋律，歌詞就被拖進間奏；Spleeter 在前奏／間奏是 0%，主歌反而多抓到 7%。
-  const SPL_URLS = ['spleeter_vocals.onnx', 'spleeter_accomp.onnx'].map(f => new URL('../assets/chord-ai/' + f, document.baseURI).href);
+  const SPL_URLS = ['spleeter_vocals.onnx', 'spleeter_accomp.onnx'].map(f => AI_DIR + f);
   const SPL_SR = 44100, SPL_N = 4096, SPL_H = 1024, SPL_BINS = 1024, SPL_T = 512;
   let splSessions = null, splLoading = null;
 
@@ -635,7 +638,7 @@ const tr = (zh, en) => (document.documentElement.lang || '').startsWith('en') ? 
   // 真實歌（叮叮噹！聖誕來了）使用者答案 64 → 72/77；沒唱的行（歌名、詞曲）信心 0.00，有唱的 0.43–1.00。
   // 輸入 x[1,T,560]＝kaldi fbank 80 維（25/10 ms、hamming、樣本 ×32768）做 LFR 7/6；輸出 logits[1,T,60515]，blank＝60514。
   // 模型檔超過 GitHub 單檔上限，切成 3 塊下載後在記憶體裡接回去。
-  const ASR_BASE = new URL('../assets/chord-ai/', document.baseURI).href;
+  const ASR_BASE = AI_DIR;
   const ASR_PARTS = [0, 1, 2].map(k => ASR_BASE + 'funasr_nano.onnx.part' + k);
   const ASR_BLANK = 60514, ASR_HOP = 0.06, ASR_CHUNK = 30 * 16000;
   let asrSess = null, asrLoading = null, asrChars = null;
@@ -795,6 +798,31 @@ const tr = (zh, en) => (document.documentElement.lang || '').startsWith('en') ? 
     }
     const lp = new Float32Array(Tall * nCol); let o = 0;
     for (const c of chunks) { lp.set(c, o); o += c.length; }
+    const usable = i => lineIds[i].length && !lineIds[i].some(c => !c.length);
+    // 歌詞完全沒有時間（LRC 工作室剛貼上歌詞）：整首一起強制對齊，靠「字的順序」決定每行在哪裡，
+    // 副歌重複也不會對錯地方。先拿掉整首都聽不到的行（歌名、詞曲），不然它們會被硬塞進前奏。
+    if (hooks.wholeSong) {
+      const peak = c => { let m = -99; for (let t = 0; t < Tall; t++) for (const k of c) if (lp[t * nCol + k] > m) m = lp[t * nCol + k]; return Math.exp(m); };
+      const peakOf = new Map();
+      const heard = lines.map((_, i) => {
+        if (!usable(i)) return false;
+        let ok = 0;
+        for (const c of lineIds[i]) { const key = c.join(','); if (!peakOf.has(key)) peakOf.set(key, peak(c)); if (peakOf.get(key) >= 0.3) ok++; }
+        return ok >= lineIds[i].length * 0.5;
+      });
+      const ids = [], owner = [];
+      lines.forEach((_, i) => { if (heard[i]) lineIds[i].forEach(c => { ids.push(c); owner.push(i); }); });
+      const al = ids.length ? asrAlignLine(null, 0, Tall, ids, blankCol, nCol, lp) : null;
+      const out = lines.map(() => null);
+      if (!al) return out;
+      for (let k = 0; k < ids.length; k++) {
+        const i = owner[k];
+        if (!out[i]) out[i] = { t: [], p: [], conf: 0 };
+        out[i].t.push(al.t[k]); out[i].p.push(al.p[k]);
+      }
+      out.forEach(r => { if (r) r.conf = r.p.reduce((a, b) => a + b, 0) / r.p.length; });
+      return out;
+    }
     return lines.map((ln, i) => {
       if (!lineIds[i].length || lineIds[i].some(c => !c.length)) return null;
       const t1 = i + 1 < lines.length ? lines[i + 1].time : ln.time + 6;
