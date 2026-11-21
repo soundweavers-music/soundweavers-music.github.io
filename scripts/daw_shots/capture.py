@@ -509,6 +509,12 @@ for (const a of acts) {
     else if (key === 'undotest') await runUndoTest();
     else if (key === 'selftest') { console.warn('probe-warn'); setTimeout(function () { throw new Error('collector-selftest'); }, 0); await sleep(400); }
     else if (key === 'click') document.getElementById(arg[0]) && document.getElementById(arg[0]).click();
+    else if (key === 'ai') {   // 開智慧編曲面板，可指定分頁（chords／arrange／compose）
+      const b = document.getElementById('btnAI'); if (b) b.click();
+      await sleep(500);
+      if (arg[0]) { const tab = document.querySelector('.aiw-tabs button[data-tab="' + arg[0] + '"]');
+        if (tab) tab.click(); await sleep(500); }
+    }
     else if (key === 'dlg') { const d = document.getElementById(arg[0]); if (d && d.showModal) d.showModal(); }
     else if (key === 'track') {        // 選第 N 條軌道（0 起算）
       const heads = document.querySelectorAll('#headersInner .track-head');
@@ -537,7 +543,9 @@ for (const a of acts) {
       const cands = window.__daw.store.project.tracks.filter(x => x.kind === 'midi' && x.clips.length);
       const t = cands.sort((a, b) => (b.clips[0].notes || []).length - (a.clips[0].notes || []).length)[0];
       const notes = (t && t.clips[0].notes) || [];
-      if (!notes.length) return;
+      // 注意：這裡是模組的 top level，不能用 return（整支 _shot.js 會語法錯誤、
+      // 一個動作都不會跑）。用 if 包起來跳過。
+      if (notes.length) {
       const ps = notes.map(n => n.p).sort((a, b) => a - b);
       const med = ps[Math.floor(ps.length / 2)];
       for (const el of [root, ...root.querySelectorAll('*')]) {
@@ -549,6 +557,7 @@ for (const a of acts) {
         }
       }
       window.dispatchEvent(new Event('resize'));
+      }
     }
     else if (key === 'fx2') {          // 暫時掛一個效果器並打開它的面板
       const t = window.__daw.store.project.tracks[Number(arg[1] || 0)];
@@ -700,6 +709,10 @@ SHOT_LIST = {
     "limittest":  ("limittest", ""),
     "featuretest": ("featuretest", ""),
     "aitest":     ("aitest", ""),
+    # 智慧編曲面板（第 23、24 堂的圖）
+    "ai":         ("ai:", ""),
+    "ai-arrange": ("ai:arrange", ""),
+    "ai-compose": ("ai:compose", ""),
     "leaktest":   ("leaktest", ""),
     "toasttest":  ("toasttest", ""),
     # 效果器面板（檢閱器第一個軌道的插入槽）

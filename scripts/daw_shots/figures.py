@@ -81,6 +81,10 @@ FIGS = [
     dict(id="daw-06-transport", shot="overview", box=[700, 0, 140, 56],
          marks=[("r", (763, 4, 51, 46))]),
 
+    # ── 第 9 堂：鋼琴捲簾怎麼讀（英文版補的，中文版那張是舊腳本畫的）──────
+    # 不疊字：紅標貼上去會壓住音符，這張乾淨的就好，讀法交給課文說明
+    dict(id="daw-09-pr", shot="pianoroll", box=[0, 500, 1400, 340], marks=[]),
+
     # ── 第 8 堂：片段編輯 ─────────────────────────────────
     dict(id="daw-08-clip", shot="overview", box=[428, 280, 620, 72],
          marks=[("r", (432, 284, 580, 52))]),
@@ -115,8 +119,6 @@ FIGS = [
     # ── 第 21-24 堂：電子琴進階、智慧編曲與創作 ─────────────
     dict(id="daw-21-sections", shot="arranger", box=[60, 40, 1120, 520], marks=[]),
     dict(id="daw-23-tabs", shot="ai", box=[210, 340, 1035, 175], marks=[]),
-    dict(id="daw-23-plan", shot="ai-arrange", box=[205, 350, 1045, 520],
-         marks=[("r", (225, 400, 620, 60)), ("r", (225, 520, 1010, 150))]),
     dict(id="daw-23-analyze", shot="ai", box=[210, 385, 1035, 250], marks=[]),
     dict(id="daw-24-chords", shot="ai-compose", box=[205, 455, 1045, 330], marks=[]),
     dict(id="daw-24-compose", shot="ai-compose", box=[205, 350, 1045, 520], marks=[]),

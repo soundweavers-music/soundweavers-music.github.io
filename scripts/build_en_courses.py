@@ -283,6 +283,27 @@ def build_extras(conf: dict) -> str:
     return '<p class="course-extras">%s</p>' % links
 
 
+def clean_source(chapter: dict) -> str:
+    """課程稿 → 要轉成 HTML 的 Markdown。
+
+    兩件事要先剝掉，不然會原樣印在頁面上：
+      1. YAML frontmatter（曼陀林與 DAW 的稿子有 title／summary／image）
+      2. 開頭的 `# Chapter N:`／`# Lesson N:` 那一行——頁面標題已經由模板顯示，
+         不剝會出現兩次大標題。
+    """
+    text = chapter["path"].read_text(encoding="utf-8")
+    if text.startswith("---"):
+        end = text.find("\n---", 3)
+        if end != -1:
+            text = text[end + 4:].lstrip("\n")
+    lines = text.splitlines()
+    if lines and lines[0].startswith("# "):
+        lines = lines[1:]
+        while lines and not lines[0].strip():
+            lines.pop(0)
+    return "\n".join(lines)
+
+
 def build_chapter_pages(conf: dict, chapters: list[dict]) -> None:
     slug = conf["slug"]
     out_dir = bve.OUTPUT_DIR / "en" / slug
@@ -292,8 +313,7 @@ def build_chapter_pages(conf: dict, chapters: list[dict]) -> None:
         ch_dir = out_dir / c["slug"]
         ch_dir.mkdir(parents=True, exist_ok=True)
         page_path = ch_dir / "index.html"
-        html_body = bve.relativize(
-            bve.markdown_to_html(c["path"].read_text(encoding="utf-8")), page_path)
+        html_body = bve.relativize(bve.markdown_to_html(clean_source(c)), page_path)
         prev_c, next_c = lookup.get(c["num"] - 1), lookup.get(c["num"] + 1)
         prev_link = (f'<a class="vocal-nav-link" href="{bve.resolve_url(page_path, "/en/%s/%s/" % (slug, prev_c["slug"]))}">← {bve.escape(prev_c["title"])}</a>'
                      if prev_c else '<span class="vocal-nav-link disabled">← Previous</span>')
