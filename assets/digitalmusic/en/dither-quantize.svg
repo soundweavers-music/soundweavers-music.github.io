@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 380" role="img" aria-label="What dither does">
+  <title>What dither does</title>
+  <rect width="660" height="380" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">What dither does</text>
+  <text x="26" y="55" class="ts" font-size="12.5">Turns the quantizing staircase into noise-like randomness</text>
+  <text x="26" y="84" class="ts" font-size="12">Dropping bit depth rounds quiet detail into steps; dither smooths them with noise</text>
+  <rect x="60" y="120" width="250" height="130" rx="4" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.4"/>
+  <text x="68" y="138" class="t" font-size="10.5" font-weight="700" fill="#B0563F">No dither</text>
+  <path d="M70.0 191.0 L72.9 191.0 L75.8 176.7 L78.6 176.7 L81.5 162.3 L84.4 162.3 L87.2 162.3 L90.1 148.0 L93.0 148.0 L95.9 148.0 L98.8 148.0 L101.6 148.0 L104.5 148.0 L107.4 148.0 L110.2 162.3 L113.1 162.3 L116.0 162.3 L118.9 176.7 L121.8 176.7 L124.6 191.0 L127.5 191.0 L130.4 191.0 L133.2 205.3 L136.1 205.3 L139.0 219.7 L141.9 219.7 L144.8 219.7 L147.6 234.0 L150.5 234.0 L153.4 234.0 L156.2 234.0 L159.1 234.0 L162.0 234.0 L164.9 234.0 L167.8 219.7 L170.6 219.7 L173.5 219.7 L176.4 205.3 L179.2 205.3 L182.1 191.0 L185.0 191.0 L187.9 191.0 L190.8 176.7 L193.6 176.7 L196.5 162.3 L199.4 162.3 L202.2 162.3 L205.1 148.0 L208.0 148.0 L210.9 148.0 L213.8 148.0 L216.6 148.0 L219.5 148.0 L222.4 148.0 L225.2 162.3 L228.1 162.3 L231.0 162.3 L233.9 176.7 L236.8 176.7 L239.6 191.0 L242.5 191.0 L245.4 191.0 L248.2 205.3 L251.1 205.3 L254.0 219.7 L256.9 219.7 L259.8 219.7 L262.6 234.0 L265.5 234.0 L268.4 234.0 L271.2 234.0 L274.1 234.0 L277.0 234.0 L279.9 234.0 L282.8 219.7 L285.6 219.7 L288.5 219.7 L291.4 205.3 L294.2 205.3 L297.1 191.0 L300.0 191.0" class="red"/>
+  <rect x="350" y="120" width="250" height="130" rx="4" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.4"/>
+  <text x="358" y="138" class="t" font-size="10.5" font-weight="700" fill="#6F8F6A">With dither</text>
+  <path d="M360.0 188.4 L361.9 189.4 L363.8 176.0 L365.8 177.0 L367.7 178.0 L369.6 179.0 L371.5 160.5 L373.4 161.5 L375.3 162.4 L377.2 163.4 L379.2 150.1 L381.1 145.9 L383.0 146.9 L384.9 147.8 L386.8 148.8 L388.8 149.8 L390.7 145.6 L392.6 146.6 L394.5 147.6 L396.4 148.6 L398.3 149.5 L400.2 164.9 L402.2 160.7 L404.1 161.7 L406.0 162.6 L407.9 178.0 L409.8 178.9 L411.8 174.8 L413.7 175.7 L415.6 191.1 L417.5 192.0 L419.4 193.0 L421.3 203.2 L423.2 204.1 L425.2 205.1 L427.1 220.4 L429.0 221.4 L430.9 217.2 L432.8 218.2 L434.8 219.2 L436.7 234.5 L438.6 235.5 L440.5 236.5 L442.4 232.3 L444.3 233.3 L446.2 234.3 L448.2 235.2 L450.1 236.2 L452.0 232.0 L453.9 233.0 L455.8 234.0 L457.8 220.6 L459.7 221.6 L461.6 217.4 L463.5 218.4 L465.4 219.4 L467.3 206.1 L469.2 207.0 L471.2 202.9 L473.1 189.5 L475.0 190.5 L476.9 191.5 L478.8 178.1 L480.8 179.1 L482.7 174.9 L484.6 175.9 L486.5 162.5 L488.4 163.5 L490.3 164.5 L492.2 160.3 L494.2 147.0 L496.1 147.9 L498.0 148.9 L499.9 149.9 L501.8 145.7 L503.8 146.7 L505.7 147.7 L507.6 148.7 L509.5 149.7 L511.4 145.5 L513.3 146.5 L515.2 161.8 L517.2 162.7 L519.1 163.7 L521.0 164.7 L522.9 174.9 L524.8 175.8 L526.8 176.8 L528.7 177.8 L530.6 193.1 L532.5 188.9 L534.4 189.9 L536.3 205.2 L538.2 206.2 L540.2 207.2 L542.1 203.0 L544.0 218.3 L545.9 219.3 L547.8 220.3 L549.8 221.3 L551.7 231.4 L553.6 232.4 L555.5 233.4 L557.4 234.4 L559.3 235.3 L561.2 236.3 L563.2 232.1 L565.1 233.1 L567.0 234.1 L568.9 235.1 L570.8 236.1 L572.8 217.6 L574.7 218.5 L576.6 219.5 L578.5 220.5 L580.4 207.1 L582.3 203.0 L584.2 203.9 L586.2 204.9 L588.1 191.6 L590.0 192.5" class="green" opacity="0.9"/>
+  <rect x="60" y="272" width="250" height="52" rx="8" fill="#F3E9DC" stroke="#D9CFC4" stroke-width="1.3"/>
+  <text x="72" y="294" class="t" font-size="13" font-weight="700">24-bit mix → 16-bit delivery</text>
+  <text x="72" y="313" class="ts" font-size="11">Only on the final export</text>
+  <rect x="330" y="272" width="270" height="52" rx="8" fill="#DEE8F3" stroke="#D9CFC4" stroke-width="1.3"/>
+  <text x="342" y="294" class="t" font-size="13" font-weight="700">32-bit float internal</text>
+  <text x="342" y="313" class="ts" font-size="11">Not needed, does no harm, but never twice</text>
+  <text x="26" y="362" class="ts" font-size="11">Add dither once, at the step that drops bit depth; twice is just more noise</text>
+</svg>

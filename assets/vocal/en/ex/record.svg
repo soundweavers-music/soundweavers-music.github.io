@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 340" role="img" aria-label="Record, listen, change one thing, re-record">
+  <title>Record, listen, change one thing, re-record</title>
+  <rect width="640" height="340" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">Record, listen, change one thing, re-record</text>
+  <text x="26" y="55" class="ts" font-size="12.5">The smallest practice loop: change one variable at a time</text>
+  <ellipse cx="300" cy="200" rx="96" ry="69" class="dash" fill="none"/>
+  <circle cx="300.0" cy="130.88" r="26" fill="#FFFFFF" stroke="#A67C52" stroke-width="1.6"/>
+  <circle cx="300.0" cy="100.88" r="9" fill="#A67C52"/>  <text x="300.0" y="104.88" text-anchor="middle" class="num">1</text>
+  <text x="300.0" y="135.88" class="t" font-size="12" text-anchor="middle" font-weight="600">record once</text>
+  <circle cx="396.0" cy="200.0" r="26" fill="#FFFFFF" stroke="#A67C52" stroke-width="1.6"/>
+  <circle cx="396.0" cy="170.0" r="9" fill="#A67C52"/>  <text x="396.0" y="174.0" text-anchor="middle" class="num">2</text>
+  <text x="396.0" y="205.0" class="t" font-size="12" text-anchor="middle" font-weight="600">listen once</text>
+  <circle cx="300.0" cy="269.12" r="26" fill="#FFFFFF" stroke="#A67C52" stroke-width="1.6"/>
+  <circle cx="300.0" cy="239.12" r="9" fill="#A67C52"/>  <text x="300.0" y="243.12" text-anchor="middle" class="num">3</text>
+  <text x="300.0" y="274.12" class="t" font-size="12" text-anchor="middle" font-weight="600">change one thing</text>
+  <circle cx="204.0" cy="200.0" r="26" fill="#FFFFFF" stroke="#A67C52" stroke-width="1.6"/>
+  <circle cx="204.0" cy="170.0" r="9" fill="#A67C52"/>  <text x="204.0" y="174.0" text-anchor="middle" class="num">4</text>
+  <text x="204.0" y="205.0" class="t" font-size="12" text-anchor="middle" font-weight="600">record again</text>
+  <path d="M340.0 194.0 L357.1 180.0" fill="none" stroke="#A67C52" stroke-width="1.7" stroke-linecap="round"/><path d="M362.0 176.0 L358.9 182.3 L355.2 177.8 Z" fill="#A67C52"/>
+  <text x="26" y="322" class="ts" font-size="11">Change one movement at a time, or you cannot hear which one made the difference</text>
+</svg>

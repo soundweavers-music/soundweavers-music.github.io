@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 640 430" role="img" aria-label="Three grades of vocal fold closure: breathy, normal, closed">
+  <title>Three grades of vocal fold closure: breathy, normal, closed</title>
+  <rect width="640" height="430" fill="#FBF8F4"/>
+  <text x="26" y="34" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="16" font-weight="700" fill="#3D3229">Three grades of vocal fold closure</text>
+  <text x="26" y="55" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="12.5" fill="#8C8078">How far the glottis opens decides airiness and how tired the throat gets</text>
+  <svg x="40" y="96" width="180" height="194" viewBox="600 0 200 226"><image x="0" y="0" width="1200" height="226" xlink:href="_anatomy/src/glottis-positions.png"/></svg>
+  <text x="130.0" y="316" text-anchor="middle" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="13" font-weight="600" fill="#3D3229">breathy (D)</text>
+  <text x="130.0" y="336" text-anchor="middle" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#8C8078">folds apart, air leaks</text>
+  <text x="130.0" y="354" text-anchor="middle" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#8C8078">sandy tone, tiring</text>
+  <svg x="240" y="96" width="180" height="194" viewBox="200 0 200 226"><image x="0" y="0" width="1200" height="226" xlink:href="_anatomy/src/glottis-positions.png"/></svg>
+  <text x="330.0" y="316" text-anchor="middle" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="13" font-weight="600" fill="#3D3229">normal voice (B)</text>
+  <text x="330.0" y="336" text-anchor="middle" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#8C8078">gently together</text>
+  <text x="330.0" y="354" text-anchor="middle" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#8C8078">clean, efficient</text>
+  <svg x="440" y="96" width="180" height="194" viewBox="0 0 200 226"><image x="0" y="0" width="1200" height="226" xlink:href="_anatomy/src/glottis-positions.png"/></svg>
+  <text x="530.0" y="316" text-anchor="middle" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="13" font-weight="600" fill="#3D3229">closed (A)</text>
+  <text x="530.0" y="336" text-anchor="middle" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#8C8078">fully shut, ready to sound</text>
+  <text x="530.0" y="354" text-anchor="middle" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="11.5" fill="#8C8078">holds air, don&#x27;t squeeze</text>
+  <text x="26" y="416" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif" font-size="10.5" fill="#8C8078">Base image: Wikimedia Commons (public domain); labels follow its A/B/D figures</text>
+</svg>

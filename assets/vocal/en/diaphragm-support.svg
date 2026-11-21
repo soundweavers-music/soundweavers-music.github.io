@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Breath support: spread on inhale, hold while singing">
+  <title>Breath support: spread on inhale, hold while singing</title>
+  <rect width="640" height="360" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">Breath support: spread on inhale, hold while singing</text>
+  <text x="26" y="55" class="ts" font-size="12.5">The air is not pushed out; it is let out steadily</text>
+  <rect x="70" y="86" width="170" height="210" rx="18" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.2"/>
+  <ellipse cx="126" cy="178" rx="30" ry="48" fill="#DEE8F3" stroke="#6B8FBF" stroke-width="1.3" opacity=".85"/>
+  <ellipse cx="184" cy="178" rx="30" ry="48" fill="#DEE8F3" stroke="#6B8FBF" stroke-width="1.3" opacity=".85"/>
+  <path d="M88 148 C130 132 180 132 222 148" class="thin"/>
+  <path d="M88 182 C130 166 180 166 222 182" class="thin"/>
+  <path d="M88 216 C130 200 180 200 222 216" class="thin"/>
+  <path d="M86 282 C122 218 188 218 224 282" class="ink" fill="#A67C52" stroke="#A67C52" stroke-width="2" opacity="0.3"/>
+  <text x="155" y="68" class="t" font-size="13" text-anchor="middle" font-weight="600" fill="#6B8FBF">Inhale: lower belly spreads</text>
+  <text x="155" y="84" class="ts" font-size="10.5" text-anchor="middle">ribs open to the sides and back</text>
+  <text x="155" y="320" class="ts" font-size="10.5" text-anchor="middle">shoulders stay still</text>
+  <rect x="370" y="86" width="170" height="210" rx="18" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.2"/>
+  <ellipse cx="426" cy="178" rx="30" ry="48" fill="#DEE8F3" stroke="#6B8FBF" stroke-width="1.3" opacity=".85"/>
+  <ellipse cx="484" cy="178" rx="30" ry="48" fill="#DEE8F3" stroke="#6B8FBF" stroke-width="1.3" opacity=".85"/>
+  <path d="M388 148 C430 132 480 132 522 148" class="thin"/>
+  <path d="M388 182 C430 166 480 166 522 182" class="thin"/>
+  <path d="M388 216 C430 200 480 200 522 216" class="thin"/>
+  <path d="M386 282 C422 226 488 226 524 282" class="ink" fill="#A67C52" stroke="#A67C52" stroke-width="2" opacity="0.3"/>
+  <text x="455" y="68" class="t" font-size="13" text-anchor="middle" font-weight="600" fill="#6F8F6A">Sing: keep the support</text>
+  <text x="455" y="84" class="ts" font-size="10.5" text-anchor="middle">don&#x27;t collapse right away</text>
+  <text x="455" y="320" class="ts" font-size="10.5" text-anchor="middle">the belly wall resists</text>
+  <path d="M292.0 210.0 L292.0 244.6" fill="none" stroke="#A67C52" stroke-width="1.7" stroke-linecap="round"/><path d="M292.0 250.0 L289.6 244.5 L294.4 244.5 Z" fill="#A67C52"/>
+  <text x="70" y="340" class="ts" font-size="11.5">Support is not pushing the belly out; it is not letting it snap back</text>
+</svg>

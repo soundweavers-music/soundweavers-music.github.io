@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-label="The three-step exercise">
+  <title>The three-step exercise</title>
+  <rect width="640" height="280" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">The three-step exercise</text>
+  <text x="26" y="55" class="ts" font-size="12.5">Split → join → back into the song</text>
+  <rect x="70" y="110" width="150" height="84" rx="8" fill="#FFFFFF" stroke="#A67C52" stroke-width="1.4"/>
+  <circle cx="90" cy="132" r="9" fill="#A67C52"/>  <text x="90" y="136" text-anchor="middle" class="num">1</text>
+  <text x="110" y="137" class="t" font-size="13.5" font-weight="600">split first</text>
+  <text x="86" y="172" class="ts" font-size="11">do each movement on its own</text>
+  <path d="M228.0 152.0 L240.6 152.0" fill="none" stroke="#8C8078" stroke-width="1.7" stroke-linecap="round"/><path d="M246.0 152.0 L240.5 154.4 L240.5 149.6 Z" fill="#8C8078"/>
+  <rect x="250" y="110" width="150" height="84" rx="8" fill="#FFFFFF" stroke="#A67C52" stroke-width="1.4"/>
+  <circle cx="270" cy="132" r="9" fill="#A67C52"/>  <text x="270" y="136" text-anchor="middle" class="num">2</text>
+  <text x="290" y="137" class="t" font-size="13.5" font-weight="600">then join them</text>
+  <text x="266" y="172" class="ts" font-size="11">join slowly, failing is fine</text>
+  <path d="M408.0 152.0 L420.6 152.0" fill="none" stroke="#8C8078" stroke-width="1.7" stroke-linecap="round"/><path d="M426.0 152.0 L420.5 154.4 L420.5 149.6 Z" fill="#8C8078"/>
+  <rect x="430" y="110" width="150" height="84" rx="8" fill="#FFFFFF" stroke="#A67C52" stroke-width="1.4"/>
+  <circle cx="450" cy="132" r="9" fill="#A67C52"/>  <text x="450" y="136" text-anchor="middle" class="num">3</text>
+  <text x="470" y="137" class="t" font-size="13.5" font-weight="600">back in the song</text>
+  <text x="446" y="172" class="ts" font-size="11">one word at a time</text>
+  <text x="26" y="262" class="ts" font-size="11">Every technique goes through these three; skip the first and you stall at the third</text>
+</svg>

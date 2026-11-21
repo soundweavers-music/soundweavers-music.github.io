@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 360" role="img" aria-label="A wall of sound is built in layers">
+  <title>A wall of sound is built in layers</title>
+  <rect width="660" height="360" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">A wall of sound is built in layers</text>
+  <text x="26" y="55" class="ts" font-size="12.5">Each layer owns one band</text>
+  <text x="26" y="84" class="ts" font-size="12">A wall is not a louder fader: it is many layers stacked until the spectrum has no gaps</text>
+  <rect x="70" y="118" width="438.0" height="32" rx="5" fill="#A67C52" stroke="#A67C52" stroke-width="1.2" opacity="0.2"/>
+  <text x="84" y="139" class="t" font-size="10.5" font-weight="700">Lead guitar</text>
+  <rect x="70" y="164" width="375.0" height="32" rx="5" fill="#6B8FBF" stroke="#6B8FBF" stroke-width="1.2" opacity="0.2"/>
+  <text x="84" y="185" class="t" font-size="10.5" font-weight="700">Rhythm guitar 1</text>
+  <rect x="70" y="210" width="333.0" height="32" rx="5" fill="#6F8F6A" stroke="#6F8F6A" stroke-width="1.2" opacity="0.2"/>
+  <text x="84" y="231" class="t" font-size="10.5" font-weight="700">Rhythm guitar 2</text>
+  <rect x="70" y="256" width="270.0" height="32" rx="5" fill="#5D4E41" stroke="#5D4E41" stroke-width="1.2" opacity="0.2"/>
+  <text x="84" y="277" class="t" font-size="10.5" font-weight="700">Pad</text>
+  <text x="26" y="300" class="ts" font-size="11">Each layer takes its own slice: one keeps the low mids, one the high mids, so nothing masks</text>
+  <text x="26" y="342" class="ts" font-size="11" fill="#8C8078">Every layer wide open with distortion and reverb gives you mush; the gaps are part of the wall</text>
+</svg>

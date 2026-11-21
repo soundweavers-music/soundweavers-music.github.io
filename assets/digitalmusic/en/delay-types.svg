@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 380" role="img" aria-label="Four uses for delay">
+  <title>Four uses for delay</title>
+  <rect width="660" height="380" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">Four uses for delay</text>
+  <text x="26" y="55" class="ts" font-size="12.5">The difference is the time and the left/right layout</text>
+  <text x="26" y="84" class="ts" font-size="12">The time decides thickener or echo; under 30 ms it fuses with the source</text>
+  <text x="60" y="120" class="t" font-size="11.5" font-weight="700" fill="#6B8FBF">Haas / thicken</text>
+  <text x="60" y="138" class="ts" font-size="9.5" fill="#8C8078">10–30 ms　no echo, just a wider sound</text>
+  <circle cx="330" cy="116" r="6" fill="#6B8FBF" opacity="0.75"/>
+  <path d="M336 116 L400 116" class="thin"/>
+  <circle cx="408" cy="116" r="6" fill="#6B8FBF" opacity="0.5700000000000001"/>
+  <path d="M414 116 L478 116" class="thin"/>
+  <circle cx="486" cy="116" r="6" fill="#6B8FBF" opacity="0.39"/>
+  <text x="60" y="180" class="t" font-size="11.5" font-weight="700" fill="#A67C52">Slapback</text>
+  <text x="60" y="198" class="ts" font-size="9.5" fill="#8C8078">60–120 ms　the rock and country vocal classic</text>
+  <circle cx="330" cy="176" r="6" fill="#A67C52" opacity="0.75"/>
+  <path d="M336 176 L400 176" class="thin"/>
+  <circle cx="408" cy="176" r="6" fill="#A67C52" opacity="0.5700000000000001"/>
+  <path d="M414 176 L478 176" class="thin"/>
+  <circle cx="486" cy="176" r="6" fill="#A67C52" opacity="0.39"/>
+  <text x="60" y="240" class="t" font-size="11.5" font-weight="700" fill="#6F8F6A">Synced</text>
+  <text x="60" y="258" class="ts" font-size="9.5" fill="#8C8078">1/8, 1/4, dotted　locks to the groove; remember the low-cut</text>
+  <circle cx="330" cy="236" r="6" fill="#6F8F6A" opacity="0.75"/>
+  <path d="M336 236 L400 236" class="thin"/>
+  <circle cx="408" cy="236" r="6" fill="#6F8F6A" opacity="0.5700000000000001"/>
+  <path d="M414 236 L478 236" class="thin"/>
+  <circle cx="486" cy="236" r="6" fill="#6F8F6A" opacity="0.39"/>
+  <text x="60" y="300" class="t" font-size="11.5" font-weight="700" fill="#5D4E41">Ping-pong</text>
+  <text x="60" y="318" class="ts" font-size="9.5" fill="#8C8078">Left/right　sending a mono source to both sides</text>
+  <circle cx="330" cy="288" r="6" fill="#5D4E41" opacity="0.75"/>
+  <path d="M336 288 L400 304" class="thin"/>
+  <circle cx="408" cy="304" r="6" fill="#5D4E41" opacity="0.5700000000000001"/>
+  <path d="M414 304 L478 288" class="thin"/>
+  <circle cx="486" cy="288" r="6" fill="#5D4E41" opacity="0.39"/>
+  <text x="26" y="362" class="ts" font-size="11">Always low-cut the delay: repeated bass drags the mix down</text>
+</svg>

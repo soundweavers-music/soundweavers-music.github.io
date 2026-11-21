@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 412" role="img" aria-label="Five problems analysis tools flag">
+  <title>Five problems analysis tools flag</title>
+  <rect width="660" height="412" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">Five problems analysis tools flag</text>
+  <text x="26" y="55" class="ts" font-size="12.5">The tool finds; you decide</text>
+  <text x="150.0" y="92" class="t" font-size="11.5" font-weight="700" fill="#A67C52">Means</text>  <text x="395.0" y="92" class="t" font-size="11.5" font-weight="700" fill="#A67C52">Do this first</text>  <rect x="26" y="104" width="608" height="58" rx="4" fill="#F3E9DC" opacity="0.55"/>  <text x="34" y="126" class="t" font-size="11.5" font-weight="700">Dip in the mid spectrum</text>  <text x="150.0" y="124" class="ts" font-size="10" fill="#5D4E41">Two instruments fighting for it</text>  <text x="395.0" y="124" class="ts" font-size="10" fill="#5D4E41">Split the frequency range</text>  <text x="34" y="184" class="t" font-size="11.5" font-weight="700">Phase meter sits low</text>  <text x="150.0" y="182" class="ts" font-size="10" fill="#5D4E41">It vanishes in mono</text>  <text x="395.0" y="182" class="ts" font-size="10" fill="#5D4E41">Check timing and polarity</text>  <rect x="26" y="220" width="608" height="58" rx="4" fill="#F3E9DC" opacity="0.55"/>  <text x="34" y="242" class="t" font-size="11.5" font-weight="700">True Peak over</text>  <text x="150.0" y="240" class="ts" font-size="10" fill="#5D4E41">Streaming turns it down</text>  <text x="395.0" y="240" class="ts" font-size="10" fill="#5D4E41">Lower the limiter output</text>  <text x="34" y="300" class="t" font-size="11.5" font-weight="700">Narrow dynamic range</text>  <text x="150.0" y="298" class="ts" font-size="10" fill="#5D4E41">The whole song is one level</text>  <text x="395.0" y="298" class="ts" font-size="10" fill="#5D4E41">Go back and fix the verses</text>  <rect x="26" y="336" width="608" height="58" rx="4" fill="#F3E9DC" opacity="0.55"/>  <text x="34" y="358" class="t" font-size="11.5" font-weight="700">Unstable low end</text>  <text x="150.0" y="356" class="ts" font-size="10" fill="#5D4E41">Level jumps between sections</text>  <text x="395.0" y="356" class="ts" font-size="10" fill="#5D4E41">Multiband or automation</text>
+  <text x="26" y="394" class="ts" font-size="11">Fix the most obvious one, then look again; change them all at once and it runs away</text>
+</svg>

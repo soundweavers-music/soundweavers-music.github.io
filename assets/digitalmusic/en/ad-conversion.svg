@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 400" role="img" aria-label="Sample rate and bit depth">
+  <title>Sample rate and bit depth</title>
+  <rect width="660" height="400" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">Sample rate and bit depth</text>
+  <text x="26" y="55" class="ts" font-size="12.5">Nyquist: sample at least twice the highest frequency</text>
+  <text x="26" y="84" class="ts" font-size="12">Sample: measure at fixed intervals. Quantize: snap each value to the nearest step</text>
+  <rect x="60" y="104" width="540" height="150" rx="4" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.4"/>
+  <path d="M60 104.0 L600 104.0" class="thin"/>
+  <path d="M60 141.5 L600 141.5" class="thin"/>
+  <path d="M60 179.0 L600 179.0" class="thin"/>
+  <path d="M60 216.5 L600 216.5" class="thin"/>
+  <path d="M60 254.0 L600 254.0" class="thin"/>
+  <path d="M330.0 179.0 L331.7 176.0 L333.5 173.0 L335.2 170.0 L336.9 167.1 L338.7 164.2 L340.4 161.3 L342.1 158.4 L343.9 155.6 L345.6 152.8 L347.3 150.1 L349.1 147.4 L350.8 144.9 L352.5 142.4 L354.3 139.9 L356.0 137.6 L357.7 135.3 L359.5 133.1 L361.2 131.1 L362.9 129.1 L364.7 127.2 L366.4 125.5 L368.1 123.8 L369.9 122.3 L371.6 120.9 L373.3 119.6 L375.1 118.5 L376.8 117.4 L378.5 116.5 L380.3 115.8 L382.0 115.2 L383.7 114.7 L385.5 114.3 L387.2 114.1 L388.9 114.0 L390.7 114.1 L392.4 114.3 L394.1 114.6 L395.9 115.1 L397.6 115.7 L399.3 116.4 L401.1 117.3 L402.8 118.3 L404.5 119.4 L406.3 120.7 L408.0 122.0 L409.7 123.5 L411.5 125.2 L413.2 126.9 L414.9 128.7 L416.7 130.7 L418.4 132.8 L420.1 134.9 L421.9 137.1 L423.6 139.5 L425.3 141.9 L427.1 144.4 L428.8 147.0 L430.5 149.6 L432.3 152.3 L434.0 155.1 L435.7 157.9 L437.5 160.7 L439.2 163.6 L440.9 166.6 L442.7 169.5 L444.4 172.5 L446.1 175.5 L447.9 178.5 L449.6 181.4 L451.3 184.4 L453.1 187.4 L454.8 190.4 L456.5 193.3 L458.3 196.2 L460.0 199.1 L461.7 201.9 L463.5 204.7 L465.2 207.4 L466.9 210.1 L468.7 212.7 L470.4 215.2 L472.1 217.6 L473.9 220.0 L475.6 222.3 L477.3 224.5 L479.1 226.6 L480.8 228.6 L482.5 230.4 L484.3 232.2 L486.0 233.9 L487.7 235.4 L489.5 236.9 L491.2 238.2 L492.9 239.3 L494.7 240.4 L496.4 241.3 L498.1 242.1 L499.9 242.7 L501.6 243.3 L503.3 243.6 L505.1 243.9 L506.8 244.0 L508.5 244.0 L510.3 243.8 L512.0 243.5 L513.7 243.0 L515.5 242.5 L517.2 241.7 L518.9 240.9 L520.7 239.9 L522.4 238.8 L524.1 237.6 L525.9 236.2 L527.6 234.7 L529.3 233.1 L531.1 231.4 L532.8 229.6 L534.5 227.7 L536.3 225.6 L538.0 223.5 L539.7 221.3 L541.5 218.9 L543.2 216.5 L544.9 214.1 L546.7 211.5 L548.4 208.9 L550.1 206.2 L551.9 203.4 L553.6 200.6 L555.3 197.8 L557.1 194.9 L558.8 192.0 L560.5 189.0 L562.3 186.1 L564.0 183.1 L565.7 180.1 L567.5 177.1 L569.2 174.1 L570.9 171.1 L572.7 168.2 L574.4 165.2 L576.1 162.3 L577.9 159.4 L579.6 156.6 L581.3 153.8 L583.1 151.1 L584.8 148.4 L586.5 145.8 L588.3 143.3 L590.0 140.8 L591.7 138.4 L593.5 136.1 L595.2 133.9 L596.9 131.8 L598.7 129.8 L600.4 127.9 L602.1 126.1 L603.9 124.4 L605.6 122.8 L607.3 121.4 L609.1 120.1 L610.8 118.9 L612.5 117.8 L614.3 116.9 L616.0 116.0 L617.7 115.4 L619.5 114.8 L621.2 114.4 L622.9 114.1 L624.7 114.0 L626.4 114.0 L628.1 114.2 L629.9 114.4 L631.6 114.9 L633.3 115.4 L635.1 116.1 L636.8 116.9 L638.5 117.9 L640.3 119.0 L642.0 120.2 L643.7 121.5 L645.5 123.0 L647.2 124.6 L648.9 126.3 L650.7 128.1 L652.4 130.0 L654.1 132.0 L655.9 134.1 L657.6 136.3 L659.3 138.6 L661.1 141.0 L662.8 143.5 L664.5 146.0 L666.3 148.6 L668.0 151.3 L669.7 154.1 L671.5 156.9 L673.2 159.7 L674.9 162.6 L676.7 165.5 L678.4 168.4 L680.1 171.4 L681.9 174.4 L683.6 177.4 L685.3 180.4 L687.1 183.4 L688.8 186.3 L690.5 189.3 L692.3 192.2 L694.0 195.2 L695.7 198.0 L697.5 200.9 L699.2 203.7 L700.9 206.4 L702.7 209.1 L704.4 211.7 L706.1 214.3 L707.9 216.8 L709.6 219.2 L711.3 221.5 L713.1 223.7 L714.8 225.8 L716.5 227.8 L718.3 229.8 L720.0 231.6 L721.7 233.3 L723.5 234.9 L725.2 236.3 L726.9 237.7 L728.7 238.9 L730.4 240.0 L732.1 241.0 L733.9 241.8 L735.6 242.5 L737.3 243.1 L739.1 243.5 L740.8 243.8 L742.5 244.0 L744.3 244.0 L746.0 243.9 L747.7 243.6 L749.5 243.2 L751.2 242.7 L752.9 242.0 L754.7 241.2 L756.4 240.3 L758.1 239.2 L759.9 238.0 L761.6 236.7 L763.3 235.3 L765.1 233.7 L766.8 232.1 L768.5 230.3 L770.3 228.4 L772.0 226.4 L773.7 224.3 L775.5 222.1 L777.2 219.8 L778.9 217.4 L780.7 215.0 L782.4 212.4 L784.1 209.8 L785.9 207.2 L787.6 204.4 L789.3 201.7 L791.1 198.8 L792.8 196.0 L794.5 193.0 L796.3 190.1 L798.0 187.1 L799.7 184.2 L801.5 181.2 L803.2 178.2 L804.9 175.2 L806.7 172.2 L808.4 169.2 L810.1 166.3 L811.9 163.4 L813.6 160.5 L815.3 157.6 L817.1 154.8 L818.8 152.1 L820.5 149.4 L822.3 146.7 L824.0 144.2 L825.7 141.7 L827.5 139.3 L829.2 136.9 L830.9 134.7 L832.7 132.6 L834.4 130.5 L836.1 128.6 L837.9 126.7 L839.6 125.0 L841.3 123.4 L843.1 121.9 L844.8 120.5 L846.5 119.3 L848.3 118.2 L850.0 117.2" class="thin"/>
+  <circle cx="70.0" cy="179.0" r="2.4" fill="#A67C52"/>
+  <rect x="66.0" y="179.0" width="8" height="1.0" fill="#B0563F" opacity="0.35"/>
+  <circle cx="94.76190476190476" cy="139.2379205575246" r="2.4" fill="#A67C52"/>
+  <rect x="90.76190476190476" y="139.2379205575246" width="8" height="8.262079442475397" fill="#B0563F" opacity="0.35"/>
+  <circle cx="119.52380952380952" cy="116.09074135070668" r="2.4" fill="#A67C52"/>
+  <rect x="115.52380952380952" y="114.0" width="8" height="3.090741350706679" fill="#B0563F" opacity="0.35"/>
+  <circle cx="144.28571428571428" cy="119.23069478415573" r="2.4" fill="#A67C52"/>
+  <rect x="140.28571428571428" y="114.0" width="8" height="6.23069478415573" fill="#B0563F" opacity="0.35"/>
+  <circle cx="169.04761904761904" cy="147.34572641371614" r="2.4" fill="#A67C52"/>
+  <rect x="165.04761904761904" y="146.5" width="8" height="1.845726413716136" fill="#B0563F" opacity="0.35"/>
+  <circle cx="193.8095238095238" cy="188.68774730145134" r="2.4" fill="#A67C52"/>
+  <rect x="189.8095238095238" y="188.68774730145134" width="8" height="7.5622526985486616" fill="#B0563F" opacity="0.35"/>
+  <circle cx="218.57142857142858" cy="225.98166614878048" r="2.4" fill="#A67C52"/>
+  <rect x="214.57142857142858" y="225.98166614878048" width="8" height="2.7683338512195235" fill="#B0563F" opacity="0.35"/>
+  <circle cx="243.33333333333334" cy="243.64392319893778" r="2.4" fill="#A67C52"/>
+  <rect x="239.33333333333334" y="243.64392319893778" width="8" height="1.3560768010622155" fill="#B0563F" opacity="0.35"/>
+  <circle cx="268.0952380952381" cy="234.29420426967707" r="2.4" fill="#A67C52"/>
+  <rect x="264.0952380952381" y="227.75" width="8" height="7.544204269677067" fill="#B0563F" opacity="0.35"/>
+  <circle cx="292.8571428571429" cy="201.83936356528724" r="2.4" fill="#A67C52"/>
+  <rect x="288.8571428571429" y="195.25" width="8" height="7.589363565287243" fill="#B0563F" opacity="0.35"/>
+  <circle cx="317.6190476190476" cy="159.84091366329122" r="2.4" fill="#A67C52"/>
+  <rect x="313.6190476190476" y="159.84091366329122" width="8" height="3.909086336708782" fill="#B0563F" opacity="0.35"/>
+  <circle cx="342.3809523809524" cy="125.84823993181195" r="2.4" fill="#A67C52"/>
+  <rect x="338.3809523809524" y="125.84823993181195" width="8" height="5.401760068188054" fill="#B0563F" opacity="0.35"/>
+  <circle cx="367.14285714285717" cy="114.06545067481456" r="2.4" fill="#A67C52"/>
+  <rect x="363.14285714285717" y="114.0" width="8" height="1.0654506748145565" fill="#B0563F" opacity="0.35"/>
+  <circle cx="391.9047619047619" cy="129.41607782895272" r="2.4" fill="#A67C52"/>
+  <rect x="387.9047619047619" y="129.41607782895272" width="8" height="1.833922171047277" fill="#B0563F" opacity="0.35"/>
+  <circle cx="416.6666666666667" cy="165.48574009684566" r="2.4" fill="#A67C52"/>
+  <rect x="412.6666666666667" y="162.75" width="8" height="3.73574009684566" fill="#B0563F" opacity="0.35"/>
+  <circle cx="441.42857142857144" cy="207.20244304264136" r="2.4" fill="#A67C52"/>
+  <rect x="437.42857142857144" y="207.20244304264136" width="8" height="5.297556957358637" fill="#B0563F" opacity="0.35"/>
+  <circle cx="466.1904761904762" cy="237.13453149831193" r="2.4" fill="#A67C52"/>
+  <rect x="462.1904761904762" y="237.13453149831193" width="8" height="7.8654685016880705" fill="#B0563F" opacity="0.35"/>
+  <circle cx="490.95238095238096" cy="242.7746449206212" r="2.4" fill="#A67C52"/>
+  <rect x="486.95238095238096" y="242.7746449206212" width="8" height="2.225355079378801" fill="#B0563F" opacity="0.35"/>
+  <circle cx="515.7142857142858" cy="221.76601718608126" r="2.4" fill="#A67C52"/>
+  <rect x="511.7142857142858" y="221.76601718608126" width="8" height="6.983982813918743" fill="#B0563F" opacity="0.35"/>
+  <circle cx="540.4761904761905" cy="182.88727000642717" r="2.4" fill="#A67C52"/>
+  <rect x="536.4761904761905" y="179.0" width="8" height="4.887270006427173" fill="#B0563F" opacity="0.35"/>
+  <circle cx="565.2380952380952" cy="142.38419622586457" r="2.4" fill="#A67C52"/>
+  <rect x="561.2380952380952" y="142.38419622586457" width="8" height="5.115803774135429" fill="#B0563F" opacity="0.35"/>
+  <circle cx="590.0" cy="117.18132644081498" r="2.4" fill="#A67C52"/>
+  <rect x="586.0" y="114.0" width="8" height="4.181326440814985" fill="#B0563F" opacity="0.35"/>
+  <text x="330.0" y="278" class="ts" font-size="11" text-anchor="middle">Red is quantization error; denser samples get closer to the original</text>
+  <rect x="60" y="296" width="168" height="54" rx="6" fill="#DEE8F3" opacity="0.8"/>
+  <text x="72" y="316" class="t" font-size="12.5" font-weight="700">44.1 kHz</text>
+  <text x="72" y="332" class="ts" font-size="9.5" fill="#8C8078">Captures up to 22.05 kHz</text>
+  <text x="72" y="346" class="ts" font-size="9.5" fill="#8C8078">CD standard</text>
+  <rect x="244" y="296" width="168" height="54" rx="6" fill="#DEE8F3" opacity="0.8"/>
+  <text x="256" y="316" class="t" font-size="12.5" font-weight="700">48 kHz</text>
+  <text x="256" y="332" class="ts" font-size="9.5" fill="#8C8078">Captures up to 24 kHz</text>
+  <text x="256" y="346" class="ts" font-size="9.5" fill="#8C8078">Video and most DAW defaults</text>
+  <rect x="428" y="296" width="168" height="54" rx="6" fill="#DEE8F3" opacity="0.8"/>
+  <text x="440" y="316" class="t" font-size="12.5" font-weight="700">96 kHz</text>
+  <text x="440" y="332" class="ts" font-size="9.5" fill="#8C8078">Captures up to 48 kHz</text>
+  <text x="440" y="346" class="ts" font-size="9.5" fill="#8C8078">Hi-res masters, heavy processing</text>
+  <text x="26" y="382" class="ts" font-size="11">Sample rate sets the highest pitch you can capture; bit depth sets the quietest</text>
+</svg>

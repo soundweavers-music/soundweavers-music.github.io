@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 340" role="img" aria-label="Three onsets: breathy, balanced, hard">
+  <title>Three onsets: breathy, balanced, hard</title>
+  <rect width="640" height="340" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">Three onsets: breathy, balanced, hard</text>
+  <text x="26" y="55" class="ts" font-size="12.5">In one phrase, the onset sets the mood of the first word</text>
+  <path d="M80 230 L230 230" class="thin"/>
+  <path d="M80 230 C110 210 140 154 176 150 L226 150" class="blue"/>
+  <text x="155" y="256" class="t" font-size="12.5" text-anchor="middle" font-weight="600" fill="#6B8FBF">breathy onset</text>
+  <text x="155" y="276" class="ts" font-size="10.5" text-anchor="middle">air first, then the folds close</text>
+  <path d="M268 230 L418 230" class="thin"/>
+  <path d="M268 230 C294 190 312 146 348 146 L414 146" class="green"/>
+  <text x="343" y="256" class="t" font-size="12.5" text-anchor="middle" font-weight="600" fill="#6F8F6A">balanced onset</text>
+  <text x="343" y="276" class="ts" font-size="10.5" text-anchor="middle">air and closure together</text>
+  <path d="M456 230 L606 230" class="thin"/>
+  <path d="M456 230 L466 122 L602 152" class="red"/>
+  <text x="531" y="256" class="t" font-size="12.5" text-anchor="middle" font-weight="600" fill="#B0563F">hard onset</text>
+  <text x="531" y="276" class="ts" font-size="10.5" text-anchor="middle">close first, then release air</text>
+  <text x="26" y="322" class="ts" font-size="11">Onset is which comes first, air or closure; together gives the cleanest sound</text>
+</svg>

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 420" role="img" aria-label="Four stereo mic setups">
+  <title>Four stereo mic setups</title>
+  <rect width="660" height="420" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">Four stereo mic setups</text>
+  <text x="26" y="55" class="ts" font-size="12.5">AB, XY, ORTF and MS: how each trades time and level</text>
+  <text x="26" y="84" class="ts" font-size="12">Same players, four setups, four senses of space; the difference is time and level</text>
+  <rect x="40" y="104" width="280" height="118" rx="8" fill="#FFFFFF" stroke="#6B8FBF" stroke-width="1.5"/>
+  <text x="54" y="130" class="t" font-size="15" font-weight="700" fill="#6B8FBF">AB</text>
+  <text x="54" y="152" class="ts" font-size="10.5">Two omnis, 40–80 cm apart</text>
+  <text x="54" y="172" class="ts" font-size="10.5" fill="#8C8078">Time difference dominates</text>
+  <circle cx="250" cy="196" r="5" fill="#6B8FBF"/>
+  <circle cx="302" cy="196" r="5" fill="#6B8FBF"/>
+  <path d="M255 196 L297 196" class="thin" stroke-dasharray="3 3"/>
+  <rect x="340" y="104" width="280" height="118" rx="8" fill="#FFFFFF" stroke="#A67C52" stroke-width="1.5"/>
+  <text x="354" y="130" class="t" font-size="15" font-weight="700" fill="#A67C52">XY</text>
+  <text x="354" y="152" class="ts" font-size="10.5">Two cardioids, 90° at one point</text>
+  <text x="354" y="172" class="ts" font-size="10.5" fill="#8C8078">Level difference, mono-compatible</text>
+  <circle cx="572" cy="196" r="5" fill="#A67C52"/>
+  <circle cx="580" cy="196" r="5" fill="#A67C52"/>
+  <path d="M572 196 l-14 -10 M572 196 l-14 10" class="thin"/>
+  <path d="M580 196 l14 -10 M580 196 l14 10" class="thin" stroke-dasharray="3 3"/>
+  <rect x="40" y="244" width="280" height="118" rx="8" fill="#FFFFFF" stroke="#6F8F6A" stroke-width="1.5"/>
+  <text x="54" y="270" class="t" font-size="15" font-weight="700" fill="#6F8F6A">ORTF</text>
+  <text x="54" y="292" class="ts" font-size="10.5">Two cardioids, 17 cm, 110°</text>
+  <text x="54" y="312" class="ts" font-size="10.5" fill="#8C8078">Time plus level difference</text>
+  <circle cx="267" cy="332" r="5" fill="#6F8F6A"/>
+  <circle cx="285" cy="340" r="5" fill="#6F8F6A"/>
+  <path d="M267 332 l-12 -12" class="thin"/>
+  <path d="M285 340 l12 12" class="thin" stroke-dasharray="3 3"/>
+  <rect x="340" y="244" width="280" height="118" rx="8" fill="#FFFFFF" stroke="#5D4E41" stroke-width="1.5"/>
+  <text x="354" y="270" class="t" font-size="15" font-weight="700" fill="#5D4E41">MS</text>
+  <text x="354" y="292" class="ts" font-size="10.5">One mid plus one figure-8</text>
+  <text x="354" y="312" class="ts" font-size="10.5" fill="#8C8078">M/S ratio sets the width</text>
+  <circle cx="576" cy="326" r="5" fill="#5D4E41"/>
+  <circle cx="576" cy="346" r="5" fill="#6B8FBF"/>
+  <path d="M560 326 L592 326" class="thin"/>
+  <path d="M576 346 l0 0" class="thin"/>
+  <text x="26" y="380" class="ts" font-size="11.5">The 3:1 rule: put the second mic at least three times the first mic&#x27;s distance</text>
+  <text x="26" y="402" class="ts" font-size="11">Mono compatibility: fold left and right together and nothing should vanish</text>
+</svg>

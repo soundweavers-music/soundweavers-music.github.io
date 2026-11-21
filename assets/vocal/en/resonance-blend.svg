@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" role="img" aria-label="How three resonators blend">
+  <title>How three resonators blend</title>
+  <rect width="640" height="320" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">How three resonators blend</text>
+  <text x="26" y="55" class="ts" font-size="12.5">How much chest, oropharynx and nasal/head</text>
+  <rect x="80" y="150" width="480" height="30" rx="15" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.1"/>
+  <rect x="82" y="152" width="140.0" height="26" rx="13" fill="#6F8F6A" opacity="0.3"/>
+  <text x="152.0" y="172" class="t" font-size="11.5" text-anchor="middle" font-weight="600">chest</text>
+  <rect x="226.0" y="152" width="212.0" height="26" rx="13" fill="#A67C52" opacity="0.3"/>
+  <text x="332.0" y="172" class="t" font-size="11.5" text-anchor="middle" font-weight="600">oropharynx</text>
+  <rect x="442.0" y="152" width="116.0" height="26" rx="13" fill="#6B8FBF" opacity="0.3"/>
+  <text x="500.0" y="172" class="t" font-size="11.5" text-anchor="middle" font-weight="600">nasal/head</text>
+  <text x="80" y="136" class="ts" font-size="12">How three resonators blend</text>
+  <text x="80" y="216" class="ts" font-size="12">The mix is adjustable: a line leaning chest is darker, leaning head is brighter</text>
+  <text x="80" y="240" class="ts" font-size="12">But full on all three is not best: the sound turns muddy</text>
+  <text x="26" y="302" class="ts" font-size="11">Resonance is not sending sound to a cavity; it is shaping the tract so some frequencies stay</text>
+</svg>

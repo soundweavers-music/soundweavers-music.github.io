@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 340" role="img" aria-label="Range test: speaking, comfortable, extreme">
+  <title>Range test: speaking, comfortable, extreme</title>
+  <rect width="640" height="340" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">Range test: speaking, comfortable, extreme</text>
+  <text x="26" y="55" class="ts" font-size="12.5">Pick songs by your comfortable range, not your top note</text>
+  <path d="M90 240 L560 240" class="thin"/>
+  <text x="78" y="94" class="t" font-size="11.5" text-anchor="end">speaking range</text>
+  <rect x="90" y="81" width="470" height="18" rx="9" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1"/>
+  <rect x="90.0" y="81" width="122.2" height="18" rx="9" fill="#6F8F6A" opacity="0.35"/>
+  <text x="78" y="134" class="t" font-size="11.5" text-anchor="end">comfortable range</text>
+  <rect x="90" y="121" width="470" height="18" rx="9" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1"/>
+  <rect x="155.8" y="121" width="216.2" height="18" rx="9" fill="#A67C52" opacity="0.35"/>
+  <text x="78" y="174" class="t" font-size="11.5" text-anchor="end">extreme range</text>
+  <rect x="90" y="161" width="470" height="18" rx="9" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1"/>
+  <rect x="334.4" y="161" width="206.79999999999998" height="18" rx="9" fill="#B0563F" opacity="0.35"/>
+  <text x="90" y="268" class="ts" font-size="10.5">low</text>
+  <text x="560" y="268" class="ts" font-size="10.5" text-anchor="end">high</text>
+  <text x="26" y="322" class="ts" font-size="11">A wider comfortable range means more songs; touch the extremes, don&#x27;t practise there</text>
+</svg>

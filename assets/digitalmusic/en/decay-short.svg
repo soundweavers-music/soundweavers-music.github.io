@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 362" role="img" aria-label="Short reverb: a room or plate tail">
+  <title>Short reverb: a room or plate tail</title>
+  <rect width="660" height="362" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">Short reverb: a room or plate tail</text>
+  <text x="26" y="55" class="ts" font-size="12.5">RT60 about 1.2 s, right for pop vocals and snare</text>
+  <path d="M70 96.0 L590 96.0" class="thin"/>  <text x="64" y="99.5" class="ts" font-size="8.5" text-anchor="end" fill="#8C8078">0 dB</text>  <path d="M70 164.0 L590 164.0" class="thin"/>  <text x="64" y="167.5" class="ts" font-size="8.5" text-anchor="end" fill="#8C8078">-20 dB</text>  <path d="M70 232.0 L590 232.0" class="thin"/>  <text x="64" y="235.5" class="ts" font-size="8.5" text-anchor="end" fill="#8C8078">-40 dB</text>  <path d="M70 300.0 L590 300.0" class="thin"/>  <text x="64" y="303.5" class="ts" font-size="8.5" text-anchor="end" fill="#8C8078">-60 dB</text>  <path d="M70.0 96.0 L73.7 96.0 L77.4 96.0 L81.1 97.3 L84.9 98.9 L88.6 100.5 L92.3 102.0 L96.0 103.6 L99.7 105.2 L103.4 106.8 L107.1 108.3 L110.9 109.9 L114.6 111.5 L118.3 113.1 L122.0 114.6 L125.7 116.2 L129.4 117.8 L133.1 119.4 L136.9 120.9 L140.6 122.5 L144.3 124.1 L148.0 125.6 L151.7 127.2 L155.4 128.8 L159.1 130.4 L162.9 131.9 L166.6 133.5 L170.3 135.1 L174.0 136.7 L177.7 138.2 L181.4 139.8 L185.1 141.4 L188.9 143.0 L192.6 144.5 L196.3 146.1 L200.0 147.7 L203.7 149.3 L207.4 150.8 L211.1 152.4 L214.9 154.0 L218.6 155.5 L222.3 157.1 L226.0 158.7 L229.7 160.3 L233.4 161.8 L237.1 163.4 L240.9 165.0 L244.6 166.6 L248.3 168.1 L252.0 169.7 L255.7 171.3 L259.4 172.9 L263.1 174.4 L266.9 176.0 L270.6 177.6 L274.3 179.2 L278.0 180.7 L281.7 182.3 L285.4 183.9 L289.1 185.4 L292.9 187.0 L296.6 188.6 L300.3 190.2 L304.0 191.7 L307.7 193.3 L311.4 194.9 L315.1 196.5 L318.9 198.0 L322.6 199.6 L326.3 201.2 L330.0 202.8 L333.7 204.3 L337.4 205.9 L341.1 207.5 L344.9 209.1 L348.6 210.6 L352.3 212.2 L356.0 213.8 L359.7 215.3 L363.4 216.9 L367.1 218.5 L370.9 220.1 L374.6 221.6 L378.3 223.2 L382.0 224.8 L385.7 226.4 L389.4 227.9 L393.1 229.5 L396.9 231.1 L400.6 232.7 L404.3 234.2 L408.0 235.8 L411.7 237.4 L415.4 239.0 L419.1 240.5 L422.9 242.1 L426.6 243.7 L430.3 245.3 L434.0 246.8 L437.7 248.4 L441.4 250.0 L445.1 251.5 L448.9 253.1 L452.6 254.7 L456.3 256.3 L460.0 257.8 L463.7 259.4 L467.4 261.0 L471.1 262.6 L474.9 264.1 L478.6 265.7 L482.3 267.3 L486.0 268.9 L489.7 270.4 L493.4 272.0 L497.1 273.6 L500.9 275.2 L504.6 276.7 L508.3 278.3 L512.0 279.9 L515.7 281.4 L519.4 283.0 L523.1 284.6 L526.9 286.2 L530.6 287.7 L534.3 289.3 L538.0 290.9 L541.7 292.5 L545.4 294.0 L549.1 295.6 L552.9 297.2 L556.6 298.8 L560.3 300.0 L564.0 300.0 L567.7 300.0 L571.4 300.0 L575.1 300.0 L578.9 300.0 L582.6 300.0 L586.3 300.0 L590.0 300.0" class="acc"/>  <path d="M471.2 300 L471.2 305" class="thin"/>  <text x="471.2345679012346" y="316" class="ts" font-size="8.5" text-anchor="middle" fill="#8C8078">1s</text>  <text x="26" y="340" class="ts" font-size="11">RT60 is the time to fall 60 dB, the standard way to state reverb length</text>
+</svg>

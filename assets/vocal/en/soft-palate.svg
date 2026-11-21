@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Soft palate up and down">
+  <title>Soft palate up and down</title>
+  <rect width="640" height="360" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">Soft palate up and down</text>
+  <text x="26" y="55" class="ts" font-size="12.5">This muscle decides whether sound goes to the mouth or the nose</text>
+  <text x="170" y="80" class="t" font-size="12" text-anchor="middle" font-weight="600" fill="#B0563F">Soft palate down: sound goes nasal</text>
+  <path d="M60 120 C120 100 190 100 240 118" class="ink"/>
+  <path d="M240 118 C256 134 266 156 264 176" class="ink"/>
+  <path d="M250.0 130.0 L270.3 108.0" fill="none" stroke="#B0563F" stroke-width="1.7" stroke-linecap="round"/><path d="M274.0 104.0 L272.1 109.7 L268.5 106.4 Z" fill="#B0563F"/>
+  <text x="276" y="104" class="ts" font-size="11" fill="#B0563F">leaks into the nose</text>
+  <rect x="90" y="156" width="150" height="26" rx="6" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1"/>
+  <text x="165" y="200" class="ts" font-size="11" text-anchor="middle">mouth</text>
+  <text x="460" y="80" class="t" font-size="12" text-anchor="middle" font-weight="600" fill="#6F8F6A">Soft palate up: sound goes oral</text>
+  <path d="M350 120 C410 100 480 100 530 118" class="ink"/>
+  <path d="M530 118 C546 104 558 96 564 86" class="ink"/>
+  <path d="M460.0 150.0 L460.0 194.6" fill="none" stroke="#6F8F6A" stroke-width="1.7" stroke-linecap="round"/><path d="M460.0 200.0 L457.6 194.5 L462.4 194.5 Z" fill="#6F8F6A"/>
+  <text x="460" y="222" class="ts" font-size="11" text-anchor="middle" fill="#6F8F6A">air goes through the mouth</text>
+  <rect x="380" y="156" width="150" height="26" rx="6" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1"/>
+  <text x="455" y="200" class="ts" font-size="11" text-anchor="middle">mouth</text>
+  <text x="26" y="342" class="ts" font-size="11">The soft palate switches nasal and oral; if it will not lift, the sound goes dull</text>
+</svg>

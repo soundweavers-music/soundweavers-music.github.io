@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 340" role="img" aria-label="Larynx in section: false folds above, vocal folds below">
+  <title>Larynx in section: false folds above, vocal folds below</title>
+  <rect width="640" height="340" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">Larynx in section: false folds above, vocal folds below</text>
+  <text x="26" y="55" class="ts" font-size="12.5">Two folds: one sings, one protects</text>
+  <path d="M120 90 C200 80 260 100 280 140 C296 176 280 214 240 226 L120 226" class="ink" fill="#F2E7DC" stroke="#3D3229" stroke-width="1.5"/>
+  <rect x="150" y="120" width="110" height="12" rx="6" fill="#B0563F" opacity="0.3"/>
+  <rect x="150" y="120" width="110" height="12" rx="6" fill="none" stroke="#B0563F" stroke-width="1.3"/>
+  <rect x="150" y="152" width="110" height="14" rx="7" fill="#A67C52" opacity="0.35"/>
+  <rect x="150" y="152" width="110" height="14" rx="7" fill="none" stroke="#A67C52" stroke-width="1.4"/>
+  <text x="200" y="110" class="ts" font-size="11" text-anchor="middle" fill="#B0563F">false folds</text>
+  <text x="200" y="188" class="ts" font-size="11" text-anchor="middle" fill="#A67C52">vocal folds</text>
+  <path d="M120.0 250.0 L120.0 219.4" fill="none" stroke="#6B8FBF" stroke-width="1.7" stroke-linecap="round"/><path d="M120.0 214.0 L122.4 219.5 L117.6 219.5 Z" fill="#6B8FBF"/>
+  <text x="110" y="268" class="ts" font-size="11" text-anchor="end" fill="#6B8FBF">airflow</text>
+  <text x="320" y="130" class="ts" font-size="12">False folds above, vocal folds below</text>
+  <text x="320" y="152" class="ts" font-size="12">Pinch the false folds and the sound dulls;</text>
+  <text x="320" y="174" class="ts" font-size="12">its job is to hold air and protect, not to voice</text>
+  <text x="320" y="214" class="ts" font-size="11.5" fill="#B0563F">The &quot;stuck above the throat&quot; feeling is usually them</text>
+  <text x="26" y="322" class="ts" font-size="11">The false folds close by reflex when you cough or strain; that is protection, not singing</text>
+</svg>

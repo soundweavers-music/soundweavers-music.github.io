@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" role="img" aria-label="Always put it back into a real line of a song">
+  <title>Always put it back into a real line of a song</title>
+  <rect width="640" height="300" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">Always put it back into a real line of a song</text>
+  <text x="26" y="55" class="ts" font-size="12.5">Practice is not hitting the note, it is taking the movement into the song</text>
+  <path d="M86 110 L520 110" class="thin" stroke-width=".9"/>
+  <path d="M86 126 L520 126" class="thin" stroke-width=".9"/>
+  <path d="M86 142 L520 142" class="thin" stroke-width=".9"/>
+  <path d="M86 158 L520 158" class="thin" stroke-width=".9"/>
+  <path d="M86 174 L520 174" class="thin" stroke-width=".9"/>
+  <path d="M120 174 L170 158 L214 142 L250 150 L292 126 L330 134 L372 118 L414 142 L456 158" class="thin" stroke="#A67C52" stroke-width="1.6" opacity="0.55"/>
+  <circle cx="120" cy="174" r="5.5" fill="#3D3229" opacity="0.75"/>
+  <circle cx="170" cy="158" r="5.5" fill="#3D3229" opacity="0.75"/>
+  <circle cx="214" cy="142" r="5.5" fill="#3D3229" opacity="0.75"/>
+  <circle cx="250" cy="150" r="5.5" fill="#3D3229" opacity="0.75"/>
+  <circle cx="292" cy="126" r="5.5" fill="#3D3229" opacity="0.75"/>
+  <circle cx="330" cy="134" r="5.5" fill="#3D3229" opacity="0.75"/>
+  <circle cx="372" cy="118" r="7" fill="#A67C52" opacity="1"/>
+  <circle cx="414" cy="142" r="5.5" fill="#3D3229" opacity="0.75"/>
+  <circle cx="456" cy="158" r="5.5" fill="#3D3229" opacity="0.75"/>
+  <text x="372" y="96" class="ts" font-size="11.5" text-anchor="middle" fill="#A67C52">mark this line</text>
+  <circle cx="556" cy="138" r="10" fill="#6F8F6A"/>  <text x="556" y="142" text-anchor="middle" class="num">✓</text>
+  <text x="532" y="143" class="t" font-size="12.5" text-anchor="end">sing it again</text>
+  <text x="86" y="236" class="ts" font-size="12.5">Get it right on one note, then back into this line; one change at a time</text>
+</svg>

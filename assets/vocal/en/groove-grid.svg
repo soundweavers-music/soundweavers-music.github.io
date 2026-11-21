@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" role="img" aria-label="Tiny timing offsets around the beat">
+  <title>Tiny timing offsets around the beat</title>
+  <rect width="640" height="320" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">Tiny timing offsets around the beat</text>
+  <text x="26" y="55" class="ts" font-size="12.5">Ahead, on and behind differ by tens of milliseconds</text>
+  <path d="M100.0 140 L100.0 220" class="thin"/>
+  <path d="M157.5 140 L157.5 220" class="thin"/>
+  <path d="M215.0 140 L215.0 220" class="thin"/>
+  <path d="M272.5 140 L272.5 220" class="thin"/>
+  <path d="M330.0 140 L330.0 220" class="thin"/>
+  <path d="M387.5 140 L387.5 220" class="thin"/>
+  <path d="M445.0 140 L445.0 220" class="thin"/>
+  <path d="M502.5 140 L502.5 220" class="thin"/>
+  <path d="M560.0 140 L560.0 220" class="thin"/>
+  <path d="M100.0 126 L100.0 234" class="ink" opacity="0.45"/>
+  <path d="M215.0 126 L215.0 234" class="ink" opacity="0.45"/>
+  <path d="M330.0 126 L330.0 234" class="ink" opacity="0.45"/>
+  <path d="M445.0 126 L445.0 234" class="ink" opacity="0.45"/>
+  <path d="M560.0 126 L560.0 234" class="ink" opacity="0.45"/>
+  <circle cx="152.9" cy="180" r="7" fill="#B0563F"/>
+  <text x="152.9" y="254" class="ts" font-size="11.5" text-anchor="middle" fill="#B0563F">ahead</text>
+  <circle cx="215.0" cy="180" r="7" fill="#6F8F6A"/>
+  <text x="215.0" y="254" class="ts" font-size="11.5" text-anchor="middle" fill="#6F8F6A">on the beat</text>
+  <circle cx="279.4" cy="180" r="7" fill="#6B8FBF"/>
+  <text x="279.4" y="254" class="ts" font-size="11.5" text-anchor="middle" fill="#6B8FBF">behind</text>
+  <text x="100" y="104" class="ts" font-size="12">The same beat sung a little early or late feels different</text>
+  <text x="26" y="302" class="ts" font-size="11">Groove is deliberate offset; land on the beat first, then move it</text>
+</svg>
