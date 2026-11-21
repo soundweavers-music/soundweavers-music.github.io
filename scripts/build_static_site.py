@@ -1198,6 +1198,7 @@ def build_detail_pages(instruments):
               {soundscape_html}
             </div>
             {f'<div class="header-image">{img_html}{img_credit_html}</div>' if img_url else ""}
+          </header>
           {"<dl class='meta-grid'>" + meta_grid + "</dl>" if meta_grid else ""}
           <article class="markdown-body">{body_html}</article>
           {f'''
