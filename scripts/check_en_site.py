@@ -19,6 +19,7 @@
 from __future__ import annotations
 
 import argparse
+import os
 import pathlib
 import re
 import subprocess
@@ -63,11 +64,12 @@ def main() -> int:
     ap.add_argument("--build", action="store_true", help="先跑一次建置")
     a = ap.parse_args()
     if a.build:
-        env = {"PYTHONIOENCODING": "utf-8", "SITE_BASE_PATH": ""}
+        # 不能把 PATH 清掉：subprocess 連 python 都找不到
+        env = {**os.environ, "PYTHONIOENCODING": "utf-8", "SITE_BASE_PATH": ""}
         for s in ["build_static_site.py", "build_vocal_extra.py", "build_mandolin.py",
                   "build_courses.py", "build_en_courses.py"]:
             subprocess.run([sys.executable, str(BASE / "scripts" / s)], check=True,
-                           cwd=BASE, env={**env, "PATH": ""})
+                           cwd=BASE, env=env)
 
     problems: list[str] = []
     print("課程\t\t英文章數\t中文章數")
