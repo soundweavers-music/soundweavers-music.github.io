@@ -92,6 +92,13 @@ const indexAtY = y => {
   for (let i = 0; i < ts.length; i++) { const h = trackH(ts[i]); if (y < acc + h) return i; acc += h; }
   return Math.max(0, ts.length - 1);
 };
+// 拖曳片段時看游標落在哪一軌，換算成「移動了幾軌」（每軌高度不一定相同，不能拿固定高度除）
+function trackDelta(items, clientY, lanesTop) {
+  const n = store.project.tracks.length;
+  const minTi = Math.min(...items.map(i => i.ti)), maxTi = Math.max(...items.map(i => i.ti));
+  const to = indexAtY(clientY - lanesTop);
+  return Math.max(-minTi, Math.min(n - 1 - maxTi, to - items[0].ti));
+}
 
 export function render() {
   measure();
@@ -290,12 +297,19 @@ export function renderHeaders() {
       e.stopPropagation(); e.preventDefault();
       const y0 = e.clientY, h0 = trackH(t);
       store.checkpoint();
+      // 每個 pointermove 都重建整個排列區會卡，改成一個影格最多重排一次
+      let raf = 0;
+      const reflow = () => { raf = 0; store.changed('structure'); };
       const move = ev => {
         t.h = Math.max(32, Math.min(240, Math.round(h0 + ev.clientY - y0)));
-        el.style.height = t.h + 'px';
+        if (!raf) raf = requestAnimationFrame(reflow);
+      };
+      const up = () => {
+        window.removeEventListener('pointermove', move);
+        window.removeEventListener('pointerup', up);
+        if (raf) { cancelAnimationFrame(raf); raf = 0; }
         store.changed('structure');
       };
-      const up = () => { window.removeEventListener('pointermove', move); window.removeEventListener('pointerup', up); store.changed('structure'); };
       window.addEventListener('pointermove', move);
       window.addEventListener('pointerup', up);
     });
@@ -623,6 +637,7 @@ function startMove(e) {
     .map(({ track, clip }) => ({ clip, ti: tracks.indexOf(track), start: clipStart(clip) }));
   const earliest = Math.min(...items.map(i => i.start));
   const copy = e.altKey;
+  const lanesTop = lanesInner.getBoundingClientRect().top;
   let moved = false, snapshot = null;
   drag(e, ev => {
     const dx = ev.clientX - x0, dy = ev.clientY - y0;
@@ -632,11 +647,12 @@ function startMove(e) {
     let d = pxToSec(dx);
     d = snap(earliest + d) - earliest;
     if (earliest + d < 0) d = -earliest;
-    const dt = Math.round(dy / trackH(store.track(items[0].trackId) || {}));
+    const dt = trackDelta(items, ev.clientY, lanesTop);
+    const ref = items[0].ti, dyPx = topOf(ref + dt) - topOf(ref);
     for (const it of items) {
       const el = lanesInner.querySelector(`.clip[data-id="${it.clip.id}"]`);
       el.style.left = secToPx(it.start + d) + 'px';
-      el.style.transform = `translateY(${dt * view.trackH}px)`;
+      el.style.transform = `translateY(${dyPx}px)`;
       el.style.opacity = copy ? .7 : 1;
     }
     items.d = d; items.dt = dt;
