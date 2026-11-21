@@ -171,6 +171,8 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
   a { color: #000 !important; text-decoration: none !important; }
 }
 @page { size: A4; margin: 15mm 12mm; }
+@page score { size: A4; margin: 0; }
+body.print-score #score-view { page: score; }
 .ai-mode { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0 4px; }
 .ai-opt { display: block; padding: 10px 14px; border: 1px solid var(--line, #ddd); border-radius: 10px; cursor: pointer; font-size: 14px; line-height: 1.5; background: var(--card, #fff); }
 .ai-opt input { margin-right: 4px; }
@@ -182,6 +184,50 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
 .jianpu-head .jp-meter { font-size: 18px; font-weight: 600; }
 .jianpu-head .jp-note { font-size: 12.5px; color: var(--muted, #777); }
 @media print { .jianpu-head { display: none !important; } }
+
+/* ===== 簡譜出版譜（樂譜編輯器） ===== */
+.view-tabs { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; margin-right: 6px; }
+.view-tabs button { border: 0; background: var(--surface); color: var(--ink); padding: 5px 12px; font-size: 13px; font-weight: 700; cursor: pointer; }
+.view-tabs button.on { background: var(--accent); color: #fff; }
+#score-view { display: none; }
+.sc-panel { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 6px 10px; background: var(--soft); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; margin: 8px 0; font-size: 12px; }
+.sc-panel label { display: flex; flex-direction: column; gap: 2px; color: var(--muted); }
+.sc-panel input, .sc-panel select { padding: 4px 6px; border: 1px solid var(--line); border-radius: 6px; font-size: 13px; background: var(--surface); color: var(--ink); }
+.sc-tools { position: sticky; top: 0; z-index: 5; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 6px 8px; margin: 8px 0; box-shadow: 0 2px 8px rgba(0,0,0,.05); }
+.sc-tools .grp { display: inline-flex; gap: 2px; padding-right: 6px; margin-right: 2px; border-right: 1px solid var(--line); align-items: center; }
+.sc-tools .grp:last-child { border-right: 0; }
+.sc-tools .gl { font-size: 10px; color: var(--muted); margin-right: 3px; }
+.sc-tools button { min-width: 28px; height: 28px; padding: 0 6px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--ink); font-size: 14px; cursor: pointer; font-family: 'Times New Roman', 'Noto Serif TC', serif; }
+.sc-tools button:hover { border-color: var(--accent); background: var(--soft); }
+.sc-tools button.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+.sc-tools button:disabled { opacity: .35; cursor: default; }
+.sc-tools input.sc-lyric { width: 70px; height: 26px; padding: 0 6px; border: 1px solid var(--line); border-radius: 6px; font-size: 14px; }
+.sc-hint { font-size: 11.5px; color: var(--muted); margin: 0 0 6px; }
+.sc-pages { display: flex; flex-direction: column; align-items: center; gap: 18px; background: #e9e6e1; border-radius: 10px; padding: 18px 8px; overflow-x: auto; }
+.sc-page { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,.18); flex: 0 0 auto; }
+.sc-page svg { display: block; }
+.sc-page text { font-family: 'Times New Roman', 'Noto Serif TC', 'Source Han Serif TC', 'PMingLiU', serif; fill: #111; }
+.sc-page .lyr { font-family: 'Noto Serif TC', 'Source Han Serif TC', 'PMingLiU', 'Songti TC', serif; }
+.sc-page .hit { fill: transparent; cursor: pointer; }
+.sc-page .hit:hover { fill: rgba(196,149,106,.14); }
+.sc-page .sel { fill: rgba(196,149,106,.32); }
+.sc-page .barhit { fill: transparent; cursor: pointer; }
+.sc-page .barhit.selbar { fill: rgba(80,140,220,.08); stroke: rgba(80,140,220,.5); stroke-dasharray: 3 3; }
+.sc-page .bad { fill: rgba(220,60,60,.10); }
+@media print {
+  body.print-score .page > *:not(#chart-container) { display: none !important; }
+  body.print-score #chart-container > *:not(#score-view) { display: none !important; }
+  body.print-score #score-view > *:not(.sc-pages) { display: none !important; }
+  body.print-score #score-view { display: block !important; }
+  body.print-score .sc-pages { background: none !important; padding: 0 !important; gap: 0 !important; display: block !important; }
+  body.print-score .sc-page { box-shadow: none !important; break-after: page; page-break-after: always; width: 210mm !important; height: 296mm !important; overflow: hidden; margin: 0 !important; }
+  body.print-score .sc-page svg { width: 210mm !important; height: 296mm !important; }
+  body.print-score .page, body.print-score main { padding: 0 !important; margin: 0 !important; max-width: none !important; }
+  body.print-score .site-header, body.print-score .site-footer { display: none !important; }
+  body.print-score .sc-page:last-child { break-after: auto; page-break-after: auto; }
+  body.print-score .sc-page .hit, body.print-score .sc-page .barhit { fill: transparent !important; stroke: none !important; }
+  body.print-score .sc-page .bad { fill: transparent !important; }
+}
 </style>
 </head>
 <body>
@@ -342,6 +388,57 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
 
 <!-- Chart -->
 <div id="chart-container" style="display:none;">
+  <div class="chart-toolbar" style="margin-bottom:0;">
+    <span class="view-tabs"><button id="tab-chart" class="on">和弦譜</button><button id="tab-score">簡譜出版譜</button></span>
+    <span style="font-size:11px;color:var(--muted);">「簡譜出版譜」：標準歌本排版，可編輯音符、歌詞與記號，列印成 A4</span>
+  </div>
+  <div id="score-view">
+    <div class="sc-panel">
+      <label>曲名 <input id="sc-title"></label>
+      <label>副標題 <input id="sc-subtitle" placeholder="（可空白）"></label>
+      <label>作詞 <input id="sc-lyricist"></label>
+      <label>作曲 <input id="sc-composer"></label>
+      <label>編曲／記譜 <input id="sc-arranger" placeholder="（可空白）"></label>
+      <label>速度標記 <input id="sc-tempo-text" placeholder="例：中板、輕快地"></label>
+      <label>速度 ♩= <input id="sc-bpm" type="number" min="20" max="300"></label>
+      <label>調號 1 = <select id="sc-key"></select></label>
+      <label>拍號 <select id="sc-meter"><option>2/4</option><option>3/4</option><option selected>4/4</option><option>6/8</option></select></label>
+      <label>每行小節數 <select id="sc-bpl"><option>3</option><option selected>4</option><option>5</option><option>6</option></select></label>
+      <label>顯示 <select id="sc-show"><option value="all">和弦＋簡譜＋歌詞</option><option value="nochord">簡譜＋歌詞</option><option value="nolyric">和弦＋簡譜</option></select></label>
+      <label>字級 <input id="sc-scale" type="range" min="80" max="130" value="100"></label>
+    </div>
+    <div class="sc-tools" id="sc-tools">
+      <span class="grp"><span class="gl">音高</span>
+        <button data-k="1">1</button><button data-k="2">2</button><button data-k="3">3</button><button data-k="4">4</button>
+        <button data-k="5">5</button><button data-k="6">6</button><button data-k="7">7</button><button data-k="0" title="休止符">0</button>
+      </span>
+      <span class="grp"><span class="gl">八度</span><button data-act="octUp" title="高八度（↑）">·̇</button><button data-act="octDown" title="低八度（↓）">·̣</button></span>
+      <span class="grp"><span class="gl">升降</span><button data-act="sharp" title="升記號">♯</button><button data-act="flat" title="降記號">♭</button><button data-act="natural" title="還原">♮</button></span>
+      <span class="grp"><span class="gl">時值</span>
+        <button data-dur="4" title="全音符 1 - - -">𝅝</button><button data-dur="2" title="二分音符 1 -">𝅗𝅥</button><button data-dur="1" title="四分音符">♩</button>
+        <button data-dur="0.5" title="八分音符（一條底線）">♪</button><button data-dur="0.25" title="十六分音符（兩條底線）">𝅘𝅥𝅯</button>
+        <button data-act="dot" title="附點（.）">·</button>
+      </span>
+      <span class="grp"><span class="gl">連線</span><button data-act="tie" title="延音線：跟下一個同音連起來">⁀</button><button data-act="slur" title="圓滑線：選一段音（Shift+點）">◠</button><button data-act="triplet" title="三連音（選 3 個音）">³</button></span>
+      <span class="grp"><span class="gl">記號</span>
+        <button data-act="fermata" title="延長記號">𝄐</button><button data-act="breath" title="換氣">∨</button><button data-act="accent" title="重音">&gt;</button><button data-act="staccato" title="跳音">▾</button>
+        <select id="sc-dyn" title="力度"><option value="">力度</option><option>pp</option><option>p</option><option>mp</option><option>mf</option><option>f</option><option>ff</option><option>cresc.</option><option>dim.</option></select>
+      </span>
+      <span class="grp"><span class="gl">小節</span>
+        <button data-act="repStart" title="反覆開始 ‖:">‖:</button><button data-act="repEnd" title="反覆結束 :‖">:‖</button>
+        <button data-act="volta1" title="第一房">1.</button><button data-act="volta2" title="第二房">2.</button>
+        <button data-act="dbl" title="雙小節線">‖</button><button data-act="section" title="段落標記（A、主歌、副歌…）">段</button>
+        <button data-act="text" title="文字（D.C.、Fine、rit.…）">文</button><button data-act="newline" title="從這小節換行">↵</button>
+      </span>
+      <span class="grp"><span class="gl">歌詞</span><input class="sc-lyric" id="sc-lyric" placeholder="字"></span>
+      <span class="grp"><button data-act="insert" title="在後面插入一個音">＋音</button><button data-act="del" title="刪除（Delete）">刪</button>
+        <button data-act="undo" title="復原（Ctrl+Z）">↶</button><button data-act="redo" title="重做（Ctrl+Y）">↷</button></span>
+      <span class="grp"><button data-act="rebuild" title="捨棄手動修改，用目前的偵測結果重新產生">重新產生</button><button data-act="print" title="列印／存成 PDF">🖨 列印</button></span>
+    </div>
+    <p class="sc-hint" id="sc-hint">點音符選取（Shift＋點選一段）；鍵盤：1–7 / 0 改音、↑↓ 八度、←→ 換音、/ 減半、* 加倍、. 附點、Delete 刪除、Enter 改歌詞。點小節空白處選小節（加反覆、換行等）。修改會自動存在這台電腦。</p>
+    <div class="sc-pages" id="sc-pages"></div>
+  </div>
+  <div id="chart-view">
   <div class="chart-toolbar">
     <strong style="font-size:14px;">和弦譜</strong>
     <span style="font-size:11px;color:var(--muted);">點小節試聽 · ✏ 編輯</span>
@@ -372,6 +469,7 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
   <div id="jianpu-head" class="jianpu-head" style="display:none;"></div>
   <div class="chart-wrap">
     <div class="chart" id="chart"></div>
+  </div>
   </div>
 </div>
 
@@ -643,6 +741,7 @@ fileInput.addEventListener('change', () => { if (fileInput.files.length) handleF
 
 async function handleFile(file) {
   currentFile = file;
+  if (typeof SC === 'object') { SC.score = null; SC.sel = null; SC.selEnd = null; SC.selBar = null; SC.undo = []; SC.redo = []; }
   const reader = new FileReader();
   reader.onload = async function(e) {
     setStatus('解碼音檔中…', 'analyzing');
@@ -2808,6 +2907,11 @@ async function ensureMelody() {
     ? '旋律分析完成（AI）。簡譜是首調：' + jianpuKeyLabel() + '。' + lyricNote
     : '旋律分析完成（AI 旋律模型沒有載入，用舊做法，準確度較低）。簡譜是首調：' + jianpuKeyLabel() + '。', 'done');
   renderChart();
+  // 出版譜：還沒手動改過（或還沒有音）就用新的旋律重新產生
+  if (typeof SC === 'object' && SC.score && !SC.undo.length) {
+    const meta = SC.score.meta; SC.score = scBuildFromDetection(); Object.assign(SC.score.meta, meta, { key: SC.score.meta.key });
+    if (document.getElementById('score-view').style.display === 'block') { scFillPanel(); scRender(); scSyncTools(); }
+  }
 }
 
 // 首調標示：「1 = C」。小調歌照華語簡譜習慣以關係大調為 1（A 小調 → 1 = C，主音唱 6）。
@@ -3493,6 +3597,735 @@ function initUI() {
 }
 
 document.addEventListener('DOMContentLoaded', initUI);
+
+// =========================================================================
+// 簡譜出版譜：資料模型
+// 一份譜 = { meta, bars:[{ chords:[{beat, name}], notes:[音], marks }], ... }
+// 音 = { deg: 0–7（0＝休止）, acc: -1/0/1, oct: -2..2, dur: 拍數（0.25/0.5/1/1.5/2/3/4…）,
+//        lyric, tie（跟下一音延音線）, slurStart/slurEnd, trip, fermata, breath, accent, staccato, dyn }
+// 小節 marks = { repStart, repEnd, volta, dbl, section, text, newline, final }
+// =========================================================================
+const SC = { score: null, sel: null, selEnd: null, selBar: null, undo: [], redo: [], key: null };
+const SC_KEYS = ['C', 'D♭', 'D', 'E♭', 'E', 'F', 'F♯', 'G', 'A♭', 'A', 'B♭', 'B'];
+const SC_MAJOR = [0, 2, 4, 5, 7, 9, 11];
+
+// MIDI → 首調簡譜（相對於大調主音 keyPc）
+function scFromMidi(midi, keyPc) {
+  const rel = midi - (60 + keyPc);
+  const oct = Math.floor(rel / 12), pc = ((rel % 12) + 12) % 12;
+  let deg = SC_MAJOR.indexOf(pc), acc = 0;
+  if (deg < 0) {
+    // 半音：♯4 照習慣，其餘用降記號（♭2 ♭3 ♭6 ♭7）
+    if (pc === 6) { deg = SC_MAJOR.indexOf(5); acc = 1; } else { deg = SC_MAJOR.indexOf(pc + 1); acc = -1; }
+  }
+  return { deg: deg + 1, acc, oct: Math.max(-2, Math.min(2, oct)) };
+}
+function scToMidi(n, keyPc) {
+  if (!n.deg) return null;
+  return 60 + keyPc + SC_MAJOR[n.deg - 1] + (n.acc || 0) + 12 * (n.oct || 0);
+}
+
+// 一個時值能不能直接寫成一個音（含附點）
+const SC_DURS = [4, 3, 2, 1.5, 1, 0.75, 0.5, 0.375, 0.25];
+function scSplitDur(d) {
+  // 把任意長度拆成可寫的時值（大的在前），用延音線連起來
+  const out = [];
+  let r = Math.round(d * 4) / 4;
+  while (r > 0.124) {
+    const x = SC_DURS.find(v => v <= r + 1e-6) || 0.25;
+    out.push(x); r = Math.round((r - x) * 8) / 8;
+  }
+  return out;
+}
+
+// 照拍子拆時值（簡譜慣例）：從拍點開始的整拍可以寫成 1、2（1 -）、3（1 - -）、4；
+// 不在拍點上的音先補到下一拍，再接整拍。例：從 0.5 拍開始長 2 拍 → 0.5 + 1 + 0.5。附點八分只在拍內用。
+function scBeatSplit(start, len) {
+  const out = [];
+  let p = start, r = len;
+  while (r > 0.124) {
+    const fr = p - Math.floor(p + 1e-6);
+    let d;
+    if (fr > 1e-6) {
+      const toBeat = 1 - fr;
+      d = r >= toBeat - 1e-6 ? toBeat : r;
+      if (d === 0.75 && fr !== 0.25) d = 0.5;
+    } else if (r >= 1 - 1e-6) {
+      d = Math.min(4, Math.floor(r + 1e-6));
+      if (d === 3 && Math.round(p) % 2 === 1) d = 1;     // 從弱拍開始的三拍拆開寫
+    } else d = r;
+    if (![4, 3, 2, 1, 0.75, 0.5, 0.25].some(v => Math.abs(v - d) < 1e-6)) d = d > 0.5 ? 0.5 : 0.25;
+    out.push(d); p += d; r = Math.round((r - d) * 8) / 8;
+  }
+  return out.length ? out : [0.25];
+}
+
+function scKeyPc() { return mod12(songMajorRoot() + state.transpose); }
+
+// 從偵測結果產生一份譜：小節＝state.bars，音＝state.melodyNotes（已量化到 1/4 拍），和弦＝state.chords
+function scBuildFromDetection() {
+  const keyPc = scKeyPc();
+  const bpb = state.beatsPerBar || 4;
+  const title = chartTitle();
+  const score = {
+    v: 1,
+    meta: { title, subtitle: '', lyricist: '', composer: '', arranger: '', tempoText: '', bpm: Math.round(state.bpm),
+            key: keyPc, meter: bpb + '/4', bpl: 4, show: 'all', scale: 100 },
+    bars: [],
+  };
+  // 每個音：起點換算成「第幾小節第幾拍」（照拍點，不是秒數）
+  const bars = state.bars;
+  const beatPos = t => {
+    // 回傳 [小節, 小節內拍數]，用實際拍點內插
+    let b = Math.max(0, lyricBarForTime(t));
+    const bar = bars[b];
+    const bt = bar.beats && bar.beats.length ? bar.beats : [bar.start];
+    let i = 0;
+    while (i + 1 < bt.length && bt[i + 1] <= t) i++;
+    const b0 = bt[i], b1 = i + 1 < bt.length ? bt[i + 1] : bar.end;
+    const frac = Math.max(0, Math.min(1, (t - b0) / Math.max(1e-6, b1 - b0)));
+    let beat = (bar.pickup ? bpb - bt.length : 0) + i + Math.round(frac * 4) / 4;
+    if (beat >= bpb - 1e-6) { b = Math.min(bars.length - 1, b + 1); beat = 0; }
+    return [b, beat];
+  };
+  // 每個音帶著它的歌詞字（有 LRC 時 melodyNotes 是一字一音、順序相同）
+  const lyricChars = [];
+  if (state.lyrics.length) {
+    const al = (typeof lyricAlignment === 'function') ? lyricAlignment() : null;
+    state.lyrics.forEach((ln, i) => {
+      if (al && !al[i]) return;
+      for (const ch of Array.from(ln.text)) if (!/\s/.test(ch) && !/[，。！？、,.!?：:；;「」『』（）()]/.test(ch)) lyricChars.push(ch);
+    });
+  }
+  // 出版譜的寫法：起點對齊八分音符格；一個字唱到下一個字開始為止（連唱，不在字跟字之間塞小休止符）；
+  // 只有空出 ≥ 1 拍（換氣、間奏）才寫休止符。這樣才不會出現一堆「0 1· 0 1·」。
+  const mel = state.melodyNotes || [];
+  const useLyr = lyricChars.length === mel.length;
+  const abs = mel.map((nt, k) => {
+    const [b, beat] = beatPos(nt.start);
+    const q = Math.round(beat * 2) / 2;
+    return { b, beat: q >= bpb ? bpb - 0.5 : q, dur: nt.beats, midi: nt.midi, lyric: useLyr ? lyricChars[k] : '' };
+  });
+  const absBeat = x => x.b * bpb + x.beat;
+  const placed = bars.map(() => []);
+  abs.forEach((x, k) => {
+    const nx = abs[k + 1];
+    const sung = Math.max(0.5, Math.round(x.dur * 2) / 2);
+    let len = sung;
+    if (nx) {
+      const gap = absBeat(nx) - absBeat(x);
+      if (gap <= 0) return;                                 // 撞同一格：留前一個
+      len = (gap - sung < 1) ? gap : sung;                  // 空不到一拍 → 連到下一個字
+      len = Math.min(len, gap);
+    }
+    placed[x.b].push({ beat: x.beat, dur: len, midi: x.midi, lyric: x.lyric });
+  });
+  let carry = null;                                          // 上一小節延過來的音（延音線）
+  for (let b = 0; b < bars.length; b++) {
+    if (carry) {
+      if (!placed[b].length || placed[b][0].beat > 0) placed[b].unshift({ beat: 0, dur: carry.dur, midi: carry.midi, lyric: '', cont: true });
+      carry = null;
+    }
+    const ch = state.chords[b];
+    const chords = [];
+    if (ch && ch.parts) {
+      let acc = bars[b].pickup ? bpb - (bars[b].beats || []).length : 0;
+      for (const p of ch.parts) {
+        const prev = chords[chords.length - 1];
+        const name = state.notation === 'degree' ? p.degree : p.name;
+        if (!prev || prev.name !== name) chords.push({ beat: acc, name });
+        acc += p.beats || 1;
+      }
+    }
+    // 小節內：依拍位排，空的地方補休止符，超過小節的音截斷並用延音線接到下一小節
+    const ns = placed[b].sort((x, y) => x.beat - y.beat);
+    const notes = [];
+    let pos = 0;
+    const startBeat = bars[b].pickup ? bpb - (bars[b].beats || []).length : 0;
+    pos = startBeat;
+    const pushRest = (len) => { let q = pos; for (const d of scBeatSplit(pos, len)) { for (const e of (d >= 1 ? Array(Math.round(d)).fill(1) : [d])) notes.push({ deg: 0, acc: 0, oct: 0, dur: e }); q += d; } };
+    ns.forEach((n, i) => {
+      if (n.beat < pos - 1e-6) return;                 // 撞位置，丟掉
+      if (n.beat > pos + 1e-6) pushRest(n.beat - pos);
+      const nextB = i + 1 < ns.length ? ns[i + 1].beat : bpb;
+      const want = Math.min(n.dur, nextB - n.beat);
+      const len = Math.max(0.25, Math.min(want, bpb - n.beat));
+      const over = want - len;
+      if (over > 0.24 && i === ns.length - 1 && b + 1 < bars.length) carry = { dur: over, midi: n.midi };
+      const p = scFromMidi(n.midi, keyPc);
+      // 拆時值：照拍子切（跨拍的長音在拍點切開，看得出拍子），用延音線連
+      const parts = scBeatSplit(n.beat, len);
+      if (n.cont && notes.length === 0 && b > 0) {
+        const prevBar = score.bars[b - 1], last = prevBar && prevBar.notes[prevBar.notes.length - 1];
+        if (last) last.tie = true;
+      }
+      parts.forEach((d, q) => notes.push(Object.assign({}, p, { dur: d, lyric: q === 0 ? (n.lyric || '') : '', tie: q < parts.length - 1 || (q === parts.length - 1 && carry && i === ns.length - 1) ? true : undefined })));
+      pos = n.beat + len;
+    });
+    if (pos < bpb - 1e-6) pushRest(bpb - pos);
+    // 歌本寫法：同一小節內被拍點切開又用延音線接回來的音，能寫成一個音（1、2、附點）就併回去
+    for (let i = 0; i + 1 < notes.length; i++) {
+      const a = notes[i], z = notes[i + 1];
+      if (!a.tie || !a.deg || z.lyric || z.deg !== a.deg || z.oct !== a.oct || z.acc !== a.acc) continue;
+      const d = a.dur + z.dur;
+      if ([1, 1.5, 2, 3, 4].includes(d) || (d === 0.75)) { a.dur = d; a.tie = z.tie; notes.splice(i + 1, 1); i--; }
+    }
+    if (bars[b].pickup && !ns.length) notes.length = 0, pushRest(bpb - startBeat);
+    score.bars.push({ chords, notes, marks: {}, pickup: !!bars[b].pickup });
+  }
+  // 拿掉開頭、結尾整小節都是休止、又沒有和弦的小節（前奏、尾奏照留：有和弦就留）
+  if (score.bars.length) score.bars[score.bars.length - 1].marks.final = true;
+  return score;
+}
+
+function scStoreKey() { return 'chord.score:' + (currentFile ? currentFile.name + ':' + currentFile.size : 'none'); }
+function scSave() {
+  try { localStorage.setItem(scStoreKey(), JSON.stringify(SC.score)); } catch (e) {}
+}
+function scLoad() {
+  try { const s = localStorage.getItem(scStoreKey()); return s ? JSON.parse(s) : null; } catch (e) { return null; }
+}
+function scPush() {                 // 存一份「改之前」給復原
+  SC.undo.push(JSON.stringify(SC.score));
+  if (SC.undo.length > 200) SC.undo.shift();
+  SC.redo = [];
+}
+
+// =========================================================================
+// 簡譜出版譜：排版（SVG，A4 直式 794×1123，比照歌本／出版譜）
+// =========================================================================
+const SC_PAGE = { w: 794, h: 1123, ml: 58, mr: 58, mt: 56, mb: 64 };
+
+function scMeterBeats(meta) {
+  const [a, b] = String(meta.meter || '4/4').split('/').map(Number);
+  return b === 8 ? a / 2 : a;            // 6/8 以四分音符當一拍算 → 3 拍
+}
+
+// 一個小節拆成「排版元素」：數字、增時線（－）、附點；記下每個音的拍位與底線數
+function scBarLayout(bar) {
+  const els = [];
+  let pos = 0;
+  bar.notes.forEach((n, i) => {
+    const d = n.dur;
+    const dotted = [1.5, 0.75, 0.375, 3].includes(d);
+    const base = d === 3 ? 2 : dotted ? d / 1.5 : d;
+    const ul = base >= 1 ? 0 : base >= 0.5 ? 1 : 2;
+    if (!n.deg && d >= 2) {
+      // 休止符兩拍以上寫成「0 0」，不用增時線
+      for (let k = 0; k < Math.round(d); k++) els.push({ t: 'digit', ni: i, w: 1, pos: pos + k, ul: 0, rest: true, sub: k > 0 });
+    } else {
+      els.push({ t: 'digit', ni: i, w: ul ? 0.82 : 1, pos, ul });
+      if (dotted && d < 3) els.push({ t: 'dot', ni: i, w: 0.42, pos: pos + base, ul });
+      const dashes = d >= 1 ? Math.round((d === 3 ? 3 : Math.floor(d)) - 1) : 0;
+      for (let k = 0; k < dashes; k++) els.push({ t: 'dash', ni: i, w: 1, pos: pos + 1 + k, ul: 0 });
+    }
+    pos += d;
+  });
+  return { els, beats: pos };
+}
+
+// 換行：每行最多 bpl 小節；「↵」記號強制換行；太擠時提早換
+function scSystems(score) {
+  const sys = [];
+  let cur = [];
+  score.bars.forEach((b, i) => {
+    // 連續的全休止小節（前奏、間奏）已經併成一格多小節休止：只算一格
+    if (score._mr && score._mr[i] === -1) return;
+    if (cur.length && (cur.length >= score.meta.bpl || b.marks.newline)) { sys.push(cur); cur = []; }
+    cur.push(i);
+  });
+  if (cur.length) sys.push(cur);
+  return sys;
+}
+
+// 多小節休止：連續 ≥ 2 個「只有休止符、沒有歌詞、沒有記號」的小節 → 第一個畫成一條粗線＋小節數，其餘不畫
+function scMultiRests(score) {
+  const mr = {};
+  const empty = b => b.notes.every(n => !n.deg) && !Object.keys(b.marks || {}).some(k => b.marks[k] && k !== 'final');
+  let i = 0;
+  while (i < score.bars.length) {
+    if (!empty(score.bars[i])) { i++; continue; }
+    let j = i;
+    while (j + 1 < score.bars.length && empty(score.bars[j + 1]) && !score.bars[j + 1].marks.final) j++;
+    if (j > i) { mr[i] = j - i + 1; for (let k = i + 1; k <= j; k++) mr[k] = -1; }
+    i = j + 1;
+  }
+  return mr;
+}
+
+function scRender() {
+  const host = document.getElementById('sc-pages');
+  if (!host || !SC.score) return;
+  const sc = SC.score, m = sc.meta, s = (m.scale || 100) / 100;
+  const P = SC_PAGE, usable = P.w - P.ml - P.mr;
+  const showChord = m.show !== 'nochord' && sc.bars.some(b => b.chords && b.chords.length);
+  const showLyric = m.show !== 'nolyric' && sc.bars.some(b => b.notes.some(n => n.lyric));
+  const meterBeats = scMeterBeats(m);
+  const FD = 19 * s;                        // 數字字級
+  const esc = escapeHtml;
+  const pages = [];
+  let svg = [], y = 0, pageNo = 0;
+  const placed = {};                         // 'b:i' → { x, yd, page }
+
+  function newPage() {
+    if (svg.length) pages.push(svg);
+    svg = []; pageNo++;
+    y = P.mt;
+    if (pageNo === 1) {
+      // 標頭：曲名（置中大字）、副標題；左：調號拍號速度；右：作詞作曲
+      y = 74;
+      svg.push(`<text x="${P.w / 2}" y="${y}" text-anchor="middle" font-size="${27 * s}" font-weight="700" class="lyr">${esc(m.title || '')}</text>`);
+      y += 24 * s;
+      if (m.subtitle) { svg.push(`<text x="${P.w / 2}" y="${y}" text-anchor="middle" font-size="${14 * s}" class="lyr">${esc(m.subtitle)}</text>`); y += 20 * s; }
+      y += 16 * s;
+      const right = [];
+      if (m.lyricist) right.push('作詞：' + m.lyricist);
+      if (m.composer) right.push('作曲：' + m.composer);
+      if (m.arranger) right.push('編曲：' + m.arranger);
+      right.forEach((t, k) => svg.push(`<text x="${P.w - P.mr}" y="${y + k * 19 * s}" text-anchor="end" font-size="${13.5 * s}" class="lyr">${esc(t)}</text>`));
+      svg.push(`<text x="${P.ml}" y="${y}" font-size="${16 * s}">1 = ${esc(SC_KEYS[m.key] || 'C')}<tspan dx="${14 * s}">${esc(m.meter)}</tspan></text>`);
+      const tempo = (m.bpm ? '♩ = ' + m.bpm : '') + (m.tempoText ? (m.bpm ? '　' : '') + m.tempoText : '');
+      if (tempo) svg.push(`<text x="${P.ml}" y="${y + 21 * s}" font-size="${14 * s}" class="lyr">${esc(tempo)}</text>`);
+      y += Math.max(right.length, tempo ? 2 : 1) * 19 * s + 18 * s;
+    }
+  }
+  newPage();
+
+  sc._mr = scMultiRests(sc);
+  const systems = scSystems(sc);
+  delete sc._mr;
+  const MR = scMultiRests(sc);
+  systems.forEach((barIdx, si) => {
+    const lays = barIdx.map(b => MR[b] > 1
+      ? { els: [{ t: 'mrest', ni: 0, w: 4, pos: 0, ul: 0, count: MR[b] }], beats: meterBeats }
+      : scBarLayout(sc.bars[b]));
+    const PAD = 0.55;
+    const units = lays.reduce((a, l) => a + l.els.reduce((x, e) => x + e.w, 0) + 2 * PAD, 0);
+    let unit = usable / units;
+    const isLast = si === systems.length - 1;
+    if (isLast && barIdx.length < m.bpl && unit > 30 * s) unit = 30 * s;     // 最後一行不硬撐滿
+    unit = Math.min(unit, 46 * s);
+    const hasMarks = barIdx.some(b => { const k = sc.bars[b].marks; return k.section || k.text || k.volta; })
+      || barIdx.some(b => sc.bars[b].notes.some(n => n.dyn));
+    const H = (hasMarks ? 20 : 4) * s + (showChord ? 22 : 0) * s + 52 * s + (showLyric ? 26 : 0) * s + 20 * s;
+    if (y + H > P.h - P.mb) newPage();
+    const top = y;
+    const yMark = top + 12 * s;
+    const yChord = top + (hasMarks ? 20 : 4) * s + 15 * s;
+    const yD = top + (hasMarks ? 20 : 4) * s + (showChord ? 22 : 0) * s + 30 * s;   // 數字基線
+    const yLyr = yD + 30 * s;
+    let x = P.ml;
+    barIdx.forEach((b, k) => {
+      const bar = sc.bars[b], lay = lays[k], mk = bar.marks || {};
+      const bw = (lay.els.reduce((a, e) => a + e.w, 0) + 2 * PAD) * unit;
+      const x0 = x, x1 = x + bw;
+      // 小節選取區（在最底層）
+      const full = bar.pickup || mk.final ? lay.beats <= meterBeats + 1e-6 : Math.abs(lay.beats - meterBeats) < 1e-6;
+      svg.push(`<rect class="barhit${SC.selBar === b ? ' selbar' : ''}${full ? '' : ' bad'}" data-bar="${b}" x="${x0}" y="${yD - 26 * s}" width="${bw}" height="${(showLyric ? yLyr + 8 * s : yD + 16 * s) - (yD - 26 * s)}"><title>第 ${b + 1} 小節${full ? '' : `（拍數 ${lay.beats}，應為 ${meterBeats}）`}</title></rect>`);
+      // 小節號：每行第一小節左上
+      if (k === 0) svg.push(`<text x="${x0}" y="${yD - 24 * s}" font-size="${9.5 * s}" fill="#555">${b + 1}</text>`);
+      // 段落、文字、反覆房
+      let markX = x0 + 2;
+      if (mk.section) {
+        const w = Array.from(String(mk.section)).reduce((a, c) => a + (c.charCodeAt(0) > 0x2e80 ? 13 : 7.5), 0) * s + 10 * s;
+        svg.push(`<rect x="${markX}" y="${yMark - 12 * s}" width="${w}" height="${17 * s}" fill="#fff" stroke="#111" stroke-width="1.1"/>`
+          + `<text x="${markX + w / 2}" y="${yMark + 1 * s}" text-anchor="middle" font-size="${12.5 * s}" font-weight="700" class="lyr">${esc(mk.section)}</text>`);
+        markX += w + 6 * s;
+      }
+      if (mk.text) svg.push(`<text x="${x1 - 4}" y="${yMark}" text-anchor="end" font-size="${12.5 * s}" font-style="italic" font-weight="700">${esc(mk.text)}</text>`);
+      if (mk.volta) svg.push(`<path d="M${markX + 1} ${yMark + 6 * s} V${yMark - 8 * s} H${x1 - 6}${mk.volta === 1 ? ` V${yMark + 6 * s}` : ''}" fill="none" stroke="#111" stroke-width="1"/><text x="${markX + 5 * s}" y="${yMark + 3 * s}" font-size="${11.5 * s}">${mk.volta}.</text>`);
+      // 和弦
+      const noteX = [];
+      let cx = x0 + PAD * unit;
+      lay.els.forEach(e => { e.x = cx + e.w * unit / 2; cx += e.w * unit; });
+      lay.els.forEach(e => { if (e.t === 'digit' && !e.sub) noteX[e.ni] = e.x; });
+      if (showChord && MR[b] > 1) {
+        // 多小節休止：把這幾小節的和弦依序寫成一串（前奏、間奏的進行）
+        const names = [];
+        for (let q = b; q < b + MR[b]; q++) (sc.bars[q].chords || []).forEach(c => { if (names[names.length - 1] !== c.name) names.push(c.name); });
+        svg.push(`<text x="${x0 + PAD * unit}" y="${yChord}" font-size="${12.5 * s}" font-weight="700" font-family="Arial, Helvetica, sans-serif">${esc(names.join('  '))}</text>`);
+      } else if (showChord && bar.chords) {
+        bar.chords.forEach(c => {
+          // 和弦寫在「那一拍開始的音」正上方；那一拍沒有音就用比例位置
+          let pos = 0, cxx = null;
+          for (let i = 0; i < bar.notes.length; i++) { if (pos >= c.beat - 1e-6) { cxx = noteX[i]; break; } pos += bar.notes[i].dur; }
+          if (cxx == null) { const el = lay.els.find(e => e.pos >= c.beat - 1e-6); cxx = el ? el.x : x0 + PAD * unit + (c.beat / meterBeats) * (bw - 2 * PAD * unit); }
+          svg.push(`<text x="${cxx - 5 * s}" y="${yChord}" font-size="${13.5 * s}" font-weight="700" font-family="Arial, Helvetica, sans-serif">${esc(c.name)}</text>`);
+        });
+      }
+      // 音符元素
+      lay.els.forEach(e => {
+        const n = bar.notes[e.ni];
+        const sel = SC.sel && SC.sel.b === b && (SC.selEnd ? scInRange(b, e.ni) : SC.sel.i === e.ni);
+        if (e.t === 'digit') {
+          if (!e.sub) svg.push(`<rect class="hit${sel ? ' sel' : ''}" data-b="${b}" data-i="${e.ni}" x="${e.x - 0.5 * unit}" y="${yD - 22 * s}" width="${unit * e.w}" height="${(showLyric ? 52 : 30) * s}"/>`);
+          svg.push(`<text x="${e.x}" y="${yD}" text-anchor="middle" font-size="${FD}">${n.deg || 0}</text>`);
+          if (n.acc && !e.sub) svg.push(`<text x="${e.x - 6.5 * s}" y="${yD - 9 * s}" text-anchor="middle" font-size="${11 * s}">${n.acc > 0 ? '♯' : n.acc < 0 ? '♭' : ''}</text>`);
+          if (n.natural && !e.sub) svg.push(`<text x="${e.x - 6.5 * s}" y="${yD - 9 * s}" text-anchor="middle" font-size="${11 * s}">♮</text>`);
+          for (let q = 0; q < Math.max(0, n.oct || 0); q++) svg.push(`<circle cx="${e.x}" cy="${yD - 17 * s - q * 4.5 * s}" r="${1.6 * s}" fill="#111"/>`);
+          const lowY = yD + 5 * s + e.ul * 3.6 * s + 3.2 * s;
+          for (let q = 0; q < Math.max(0, -(n.oct || 0)); q++) svg.push(`<circle cx="${e.x}" cy="${lowY + q * 4.5 * s}" r="${1.6 * s}" fill="#111"/>`);
+          if (!e.sub) {
+            placed[b + ':' + e.ni] = { x: e.x, yd: yD, page: pageNo, top: yD - 19 * s - Math.max(0, n.oct || 0) * 4.5 * s };
+            if (n.fermata) svg.push(`<path d="M${e.x - 7 * s} ${yD - 24 * s} A ${7 * s} ${7 * s} 0 0 1 ${e.x + 7 * s} ${yD - 24 * s}" fill="none" stroke="#111" stroke-width="${1.3 * s}"/><circle cx="${e.x}" cy="${yD - 26 * s}" r="${1.4 * s}" fill="#111"/>`);
+            if (n.accent) svg.push(`<text x="${e.x}" y="${yD - 20 * s}" text-anchor="middle" font-size="${11 * s}">&gt;</text>`);
+            if (n.staccato) svg.push(`<path d="M${e.x - 2.2 * s} ${yD - 24 * s} L${e.x + 2.2 * s} ${yD - 24 * s} L${e.x} ${yD - 19 * s} Z" fill="#111"/>`);
+            if (n.breath) svg.push(`<text x="${e.x + 9 * s}" y="${yD - 13 * s}" font-size="${12 * s}">∨</text>`);
+            if (n.dyn) svg.push(`<text x="${e.x - 6 * s}" y="${yMark + 2 * s}" font-size="${13 * s}" font-style="italic" font-weight="700">${esc(n.dyn)}</text>`);
+            if (showLyric && n.lyric) svg.push(`<text x="${e.x}" y="${yLyr}" text-anchor="middle" font-size="${15 * s}" class="lyr">${esc(n.lyric)}</text>`);
+          }
+        } else if (e.t === 'mrest') {
+          svg.push(`<rect class="hit" data-b="${b}" data-i="0" x="${e.x - 2 * unit}" y="${yD - 22 * s}" width="${unit * 4}" height="${30 * s}"/>`);
+          svg.push(`<line x1="${e.x - 1.3 * unit}" x2="${e.x + 1.3 * unit}" y1="${yD - 6 * s}" y2="${yD - 6 * s}" stroke="#111" stroke-width="${5 * s}"/>`
+            + `<line x1="${e.x - 1.3 * unit}" x2="${e.x - 1.3 * unit}" y1="${yD - 12 * s}" y2="${yD}" stroke="#111" stroke-width="1.2"/>`
+            + `<line x1="${e.x + 1.3 * unit}" x2="${e.x + 1.3 * unit}" y1="${yD - 12 * s}" y2="${yD}" stroke="#111" stroke-width="1.2"/>`
+            + `<text x="${e.x}" y="${yD - 15 * s}" text-anchor="middle" font-size="${15 * s}" font-weight="700">${e.count}</text>`);
+        } else if (e.t === 'dash') {
+          svg.push(`<line x1="${e.x - 5.5 * s}" x2="${e.x + 5.5 * s}" y1="${yD - 6 * s}" y2="${yD - 6 * s}" stroke="#111" stroke-width="${1.4 * s}"/>`);
+        } else if (e.t === 'dot') {
+          svg.push(`<circle cx="${e.x - 2 * unit * 0.2}" cy="${yD - 6 * s}" r="${1.7 * s}" fill="#111"/>`);
+        }
+      });
+      // 減時線：同一拍裡連續的短音共用底線（第二條只連十六分的）
+      for (const lvl of [1, 2]) {
+        let run = null;
+        const flush = () => { if (run) svg.push(`<line x1="${run.a - 0.36 * unit}" x2="${run.z + 0.36 * unit}" y1="${yD + 5 * s + (lvl - 1) * 3.6 * s}" y2="${yD + 5 * s + (lvl - 1) * 3.6 * s}" stroke="#111" stroke-width="${1.15 * s}"/>`); run = null; };
+        lay.els.forEach(e => {
+          const beat = Math.floor(e.pos + 1e-6);
+          if (e.ul >= lvl && (e.t === 'digit' || e.t === 'dot')) {
+            const ex = e.t === 'dot' ? e.x : e.x;
+            if (run && run.beat === beat) run.z = ex; else { flush(); run = { a: e.x, z: ex, beat }; }
+          } else flush();
+        });
+        flush();
+      }
+      // 小節線
+      const bl = (xx, kind) => {
+        const ya = yD - 21 * s, yb = yD + 7 * s;
+        const thin = (q) => svg.push(`<line x1="${q}" x2="${q}" y1="${ya}" y2="${yb}" stroke="#111" stroke-width="1"/>`);
+        const thick = (q) => svg.push(`<line x1="${q}" x2="${q}" y1="${ya}" y2="${yb}" stroke="#111" stroke-width="${3.2 * s}"/>`);
+        const dots = (q) => svg.push(`<circle cx="${q}" cy="${yD - 11 * s}" r="${1.8 * s}" fill="#111"/><circle cx="${q}" cy="${yD - 3 * s}" r="${1.8 * s}" fill="#111"/>`);
+        if (kind === 'final') { thin(xx - 5 * s); thick(xx - 1.6 * s); }
+        else if (kind === 'repEnd') { dots(xx - 10 * s); thin(xx - 5 * s); thick(xx - 1.6 * s); }
+        else if (kind === 'repStart') { thick(xx + 1.6 * s); thin(xx + 5 * s); dots(xx + 10 * s); }
+        else if (kind === 'dbl') { thin(xx - 3 * s); thin(xx); }
+        else thin(xx);
+      };
+      if (mk.repStart) bl(x0, 'repStart'); else if (k === 0) { /* 行首不畫線 */ }
+      bl(x1, mk.final ? 'final' : mk.repEnd ? 'repEnd' : mk.dbl ? 'dbl' : 'thin');
+      x = x1;
+    });
+    y += H;
+  });
+  // 頁碼、出處
+  const finish = () => {
+    pages.push(svg);
+    host.innerHTML = pages.map((p, i) => `<div class="sc-page"><svg xmlns="http://www.w3.org/2000/svg" width="${P.w}" height="${P.h}" viewBox="0 0 ${P.w} ${P.h}">`
+      + `<rect width="${P.w}" height="${P.h}" fill="#fff"/>` + p.join('')
+      + scArcs(placed, i + 1)
+      + (pages.length > 1 ? `<text x="${P.w / 2}" y="${P.h - 30}" text-anchor="middle" font-size="11">— ${i + 1} —</text>` : '')
+      + `</svg></div>`).join('');
+  };
+  finish();
+}
+
+function scInRange(b, i) {
+  const a = SC.sel, z = SC.selEnd || SC.sel;
+  const k = v => v.b * 10000 + v.i, kk = b * 10000 + i;
+  return kk >= Math.min(k(a), k(z)) && kk <= Math.max(k(a), k(z));
+}
+
+// 延音線（跟下一個音）與圓滑線（slurStart → slurEnd）：畫在數字上方的弧線；跨行時拆成兩段
+function scArcs(placed, page) {
+  const sc = SC.score, out = [];
+  const flat = [];
+  sc.bars.forEach((bar, b) => bar.notes.forEach((n, i) => flat.push({ b, i, n })));
+  const arc = (p, q, dy) => {
+    if (!p || !q) return;
+    const s = (sc.meta.scale || 100) / 100;
+    if (p.page === page && q.page === page && Math.abs(p.yd - q.yd) < 1) {
+      const y0 = Math.min(p.top, q.top) - 3 * s, h = Math.min(10 * s, 3 * s + (q.x - p.x) * 0.06);
+      out.push(`<path d="M${p.x + 2} ${y0} Q ${(p.x + q.x) / 2} ${y0 - h - dy} ${q.x - 2} ${y0}" fill="none" stroke="#111" stroke-width="${1.1 * s}"/>`);
+    } else {
+      // 跨行：前半段畫到行尾、後半段從行首開始
+      if (p.page === page) out.push(`<path d="M${p.x + 2} ${p.top - 3 * s} Q ${p.x + 18 * s} ${p.top - 12 * s} ${p.x + 34 * s} ${p.top - 8 * s}" fill="none" stroke="#111" stroke-width="${1.1 * s}"/>`);
+      if (q.page === page) out.push(`<path d="M${q.x - 34 * s} ${q.top - 8 * s} Q ${q.x - 18 * s} ${q.top - 12 * s} ${q.x - 2} ${q.top - 3 * s}" fill="none" stroke="#111" stroke-width="${1.1 * s}"/>`);
+    }
+  };
+  let slurOpen = null;
+  flat.forEach((f, k) => {
+    const p = placed[f.b + ':' + f.i];
+    if (f.n.tie && k + 1 < flat.length) arc(p, placed[flat[k + 1].b + ':' + flat[k + 1].i], 0);
+    if (f.n.slurStart) slurOpen = p;
+    if (f.n.slurEnd && slurOpen) { arc(slurOpen, p, 4); slurOpen = null; }
+    if (f.n.trip && p) {
+      const s = (sc.meta.scale || 100) / 100;
+      const q = placed[(flat[k + 2] || f).b + ':' + (flat[k + 2] || f).i] || p;
+      if (p.page === page) out.push(`<path d="M${p.x - 3} ${p.top - 2 * s} V${p.top - 7 * s} H${q.x + 3} V${p.top - 2 * s}" fill="none" stroke="#111" stroke-width="0.9"/><text x="${(p.x + q.x) / 2}" y="${p.top - 9 * s}" text-anchor="middle" font-size="${10 * s}" font-style="italic">3</text>`);
+    }
+  });
+  return out.join('');
+}
+
+// =========================================================================
+// 簡譜出版譜：編輯
+// =========================================================================
+function scNote() { return SC.sel ? (SC.score.bars[SC.sel.b] || {}).notes[SC.sel.i] : null; }
+function scSelected() {              // 選取範圍內所有音 [{b,i,n}]
+  if (!SC.sel) return [];
+  const out = [];
+  SC.score.bars.forEach((bar, b) => bar.notes.forEach((n, i) => { if (SC.selEnd ? scInRange(b, i) : (SC.sel.b === b && SC.sel.i === i)) out.push({ b, i, n }); }));
+  return out;
+}
+function scCommit() { scSave(); scRender(); scSyncTools(); }
+function scEdit(fn) { if (!SC.score) return; scPush(); fn(); scCommit(); }
+
+function scMove(dir) {
+  if (!SC.sel) return;
+  let { b, i } = SC.sel;
+  i += dir;
+  while (b >= 0 && b < SC.score.bars.length && (i < 0 || i >= SC.score.bars[b].notes.length)) {
+    if (i < 0) { b--; if (b >= 0) i = SC.score.bars[b].notes.length - 1; }
+    else { b++; i = 0; }
+  }
+  if (b < 0 || b >= SC.score.bars.length) return;
+  SC.sel = { b, i }; SC.selEnd = null; SC.selBar = b;
+  scRender(); scSyncTools();
+}
+
+function scSetDur(d) {
+  scEdit(() => scSelected().forEach(({ n }) => { n.dur = d; }));
+}
+
+function scAction(act) {
+  const sel = scSelected(), sc = SC.score;
+  const bar = SC.selBar != null ? sc.bars[SC.selBar] : null;
+  const toggleBar = (k, v) => scEdit(() => { if (!bar) return; bar.marks[k] = bar.marks[k] === (v === undefined ? true : v) ? undefined : (v === undefined ? true : v); });
+  const toggleNote = k => scEdit(() => { const on = !sel.every(x => x.n[k]); sel.forEach(x => { x.n[k] = on || undefined; }); });
+  switch (act) {
+    case 'octUp': return scEdit(() => sel.forEach(({ n }) => { if (n.deg) n.oct = Math.min(2, (n.oct || 0) + 1); }));
+    case 'octDown': return scEdit(() => sel.forEach(({ n }) => { if (n.deg) n.oct = Math.max(-2, (n.oct || 0) - 1); }));
+    case 'sharp': return scEdit(() => sel.forEach(({ n }) => { n.acc = n.acc === 1 ? 0 : 1; n.natural = undefined; }));
+    case 'flat': return scEdit(() => sel.forEach(({ n }) => { n.acc = n.acc === -1 ? 0 : -1; n.natural = undefined; }));
+    case 'natural': return scEdit(() => sel.forEach(({ n }) => { n.acc = 0; n.natural = !n.natural || undefined; }));
+    case 'dot': return scEdit(() => sel.forEach(({ n }) => {
+      const dotted = [1.5, 0.75, 0.375, 3].includes(n.dur);
+      n.dur = dotted ? n.dur / 1.5 : (n.dur * 1.5 <= 3 ? n.dur * 1.5 : n.dur);
+    }));
+    case 'tie': return toggleNote('tie');
+    case 'fermata': return toggleNote('fermata');
+    case 'breath': return toggleNote('breath');
+    case 'accent': return toggleNote('accent');
+    case 'staccato': return toggleNote('staccato');
+    case 'slur': return scEdit(() => {
+      if (sel.length < 2) { setStatus('圓滑線：先點第一個音，再按住 Shift 點最後一個音', 'error'); return; }
+      const a = sel[0].n, z = sel[sel.length - 1].n;
+      if (a.slurStart && z.slurEnd) { a.slurStart = undefined; z.slurEnd = undefined; } else { a.slurStart = true; z.slurEnd = true; }
+    });
+    case 'triplet': return scEdit(() => {
+      if (sel.length !== 3) { setStatus('三連音：選剛好 3 個音（Shift＋點）', 'error'); return; }
+      const on = !sel[0].n.trip;
+      sel[0].n.trip = on || undefined;
+      const total = sel[0].n.dur * 2;          // 三個八分 = 一拍
+      sel.forEach(x => { x.n.dur = on ? Math.round(total / 3 * 1000) / 1000 : total / 2; });
+    });
+    case 'repStart': return toggleBar('repStart');
+    case 'repEnd': return toggleBar('repEnd');
+    case 'dbl': return toggleBar('dbl');
+    case 'newline': return toggleBar('newline');
+    case 'volta1': return toggleBar('volta', 1);
+    case 'volta2': return toggleBar('volta', 2);
+    case 'section': {
+      if (!bar) return;
+      const v = prompt('段落名稱（例：A、B、主歌、副歌、前奏；空白＝刪除）', bar.marks.section || '');
+      if (v === null) return;
+      return scEdit(() => { bar.marks.section = v.trim() || undefined; });
+    }
+    case 'text': {
+      if (!bar) return;
+      const v = prompt('文字記號（例：D.C. al Fine、Fine、D.S.、rit.、a tempo；空白＝刪除）', bar.marks.text || '');
+      if (v === null) return;
+      return scEdit(() => { bar.marks.text = v.trim() || undefined; });
+    }
+    case 'insert': return scEdit(() => {
+      if (!SC.sel) return;
+      const b = sc.bars[SC.sel.b];
+      const cur = b.notes[SC.sel.i];
+      b.notes.splice(SC.sel.i + 1, 0, { deg: cur ? cur.deg : 1, acc: 0, oct: cur ? cur.oct : 0, dur: cur ? cur.dur : 1, lyric: '' });
+      SC.sel = { b: SC.sel.b, i: SC.sel.i + 1 }; SC.selEnd = null;
+    });
+    case 'del': return scEdit(() => {
+      const byBar = {};
+      sel.forEach(x => (byBar[x.b] = byBar[x.b] || []).push(x.i));
+      Object.keys(byBar).forEach(b => byBar[b].sort((p, q) => q - p).forEach(i => sc.bars[b].notes.splice(i, 1)));
+      SC.selEnd = null;
+      if (SC.sel && !sc.bars[SC.sel.b].notes[SC.sel.i]) SC.sel = sc.bars[SC.sel.b].notes.length ? { b: SC.sel.b, i: sc.bars[SC.sel.b].notes.length - 1 } : null;
+    });
+    case 'undo': if (SC.undo.length) { SC.redo.push(JSON.stringify(SC.score)); SC.score = JSON.parse(SC.undo.pop()); scFillPanel(); scCommit(); } return;
+    case 'redo': if (SC.redo.length) { SC.undo.push(JSON.stringify(SC.score)); SC.score = JSON.parse(SC.redo.pop()); scFillPanel(); scCommit(); } return;
+    case 'rebuild':
+      if (!confirm('捨棄這份譜的所有手動修改，用目前的偵測結果重新產生？（可以按 ↶ 復原）')) return;
+      return scEdit(() => { const meta = SC.score.meta; SC.score = scBuildFromDetection(); Object.assign(SC.score.meta, meta, { key: SC.score.meta.key }); SC.sel = null; SC.selEnd = null; });
+    case 'print': return scPrint();
+  }
+}
+
+function scPrint() {
+  document.body.classList.add('print-score');
+  const off = () => { document.body.classList.remove('print-score'); window.removeEventListener('afterprint', off); };
+  window.addEventListener('afterprint', off);
+  window.print();
+  setTimeout(off, 1500);
+}
+
+function scSyncTools() {
+  const n = scNote();
+  const tools = document.getElementById('sc-tools');
+  if (!tools) return;
+  tools.querySelectorAll('button[data-dur]').forEach(btn => {
+    const d = Number(btn.dataset.dur);
+    btn.classList.toggle('on', !!n && (n.dur === d || n.dur === d * 1.5));
+  });
+  const on = (a, v) => { const b = tools.querySelector(`button[data-act="${a}"]`); if (b) b.classList.toggle('on', !!v); };
+  on('dot', n && [1.5, 0.75, 0.375, 3].includes(n.dur));
+  on('tie', n && n.tie); on('fermata', n && n.fermata); on('breath', n && n.breath);
+  on('accent', n && n.accent); on('staccato', n && n.staccato);
+  on('sharp', n && n.acc === 1); on('flat', n && n.acc === -1); on('natural', n && n.natural);
+  const bar = SC.selBar != null && SC.score ? SC.score.bars[SC.selBar] : null, mk = bar ? bar.marks : {};
+  on('repStart', mk.repStart); on('repEnd', mk.repEnd); on('dbl', mk.dbl); on('newline', mk.newline);
+  on('volta1', mk.volta === 1); on('volta2', mk.volta === 2); on('section', mk.section); on('text', mk.text);
+  tools.querySelectorAll('button[data-k]').forEach(b => b.classList.toggle('on', !!n && String(n.deg) === b.dataset.k));
+  const ly = document.getElementById('sc-lyric');
+  if (ly && document.activeElement !== ly) ly.value = n ? (n.lyric || '') : '';
+  const dyn = document.getElementById('sc-dyn'); if (dyn) dyn.value = n && n.dyn ? n.dyn : '';
+  on('undo', false); on('redo', false);
+  const u = tools.querySelector('[data-act="undo"]'), r = tools.querySelector('[data-act="redo"]');
+  if (u) u.disabled = !SC.undo.length; if (r) r.disabled = !SC.redo.length;
+}
+
+function scFillPanel() {
+  const m = SC.score.meta;
+  const set = (id, v) => { const el = document.getElementById(id); if (el) el.value = v == null ? '' : v; };
+  set('sc-title', m.title); set('sc-subtitle', m.subtitle); set('sc-lyricist', m.lyricist); set('sc-composer', m.composer);
+  set('sc-arranger', m.arranger); set('sc-tempo-text', m.tempoText); set('sc-bpm', m.bpm); set('sc-key', m.key);
+  set('sc-meter', m.meter); set('sc-bpl', m.bpl); set('sc-show', m.show); set('sc-scale', m.scale);
+}
+
+// 改調號：音高不變（MIDI 一樣），數字跟著新的 1 重算
+function scChangeKey(newKey) {
+  const sc = SC.score, old = sc.meta.key;
+  sc.bars.forEach(bar => bar.notes.forEach(n => {
+    const midi = scToMidi(n, old);
+    if (midi == null) return;
+    const p = scFromMidi(midi, newKey); n.deg = p.deg; n.acc = p.acc; n.oct = p.oct; n.natural = undefined;
+  }));
+  sc.meta.key = newKey;
+}
+
+function scOpen() {
+  if (!state.chords.length) return;
+  if (!SC.score) {
+    const saved = scLoad();
+    SC.score = (saved && saved.v === 1 && saved.bars && saved.bars.length) ? saved : scBuildFromDetection();
+  }
+  scFillPanel(); scRender(); scSyncTools();
+  if (!state.showMelody) setStatus('提示：勾選「簡譜旋律」讓 AI 抓旋律，出版譜才會有音符（按「重新產生」套用）。', 'done');
+}
+
+function scSetView(which) {
+  const isScore = which === 'score';
+  document.getElementById('score-view').style.display = isScore ? 'block' : 'none';
+  document.getElementById('chart-view').style.display = isScore ? 'none' : 'block';
+  document.getElementById('tab-chart').classList.toggle('on', !isScore);
+  document.getElementById('tab-score').classList.toggle('on', isScore);
+  if (isScore) scOpen();
+}
+
+function scInitUI() {
+  const keySel = document.getElementById('sc-key');
+  if (!keySel) return;
+  keySel.innerHTML = SC_KEYS.map((k, i) => `<option value="${i}">${k}</option>`).join('');
+  document.getElementById('tab-chart').addEventListener('click', () => scSetView('chart'));
+  document.getElementById('tab-score').addEventListener('click', () => scSetView('score'));
+  // 標頭欄位
+  const bind = (id, key, conv) => document.getElementById(id).addEventListener('change', function () {
+    if (!SC.score) return;
+    scEdit(() => {
+      const v = conv ? conv(this.value) : this.value;
+      if (key === 'key') scChangeKey(v); else SC.score.meta[key] = v;
+    });
+  });
+  bind('sc-title', 'title'); bind('sc-subtitle', 'subtitle'); bind('sc-lyricist', 'lyricist'); bind('sc-composer', 'composer');
+  bind('sc-arranger', 'arranger'); bind('sc-tempo-text', 'tempoText'); bind('sc-bpm', 'bpm', v => parseInt(v, 10) || '');
+  bind('sc-key', 'key', v => parseInt(v, 10) || 0); bind('sc-meter', 'meter'); bind('sc-bpl', 'bpl', v => parseInt(v, 10) || 4);
+  bind('sc-show', 'show');
+  document.getElementById('sc-scale').addEventListener('input', function () { if (SC.score) { SC.score.meta.scale = parseInt(this.value, 10); scSave(); scRender(); } });
+  // 工具列
+  const tools = document.getElementById('sc-tools');
+  tools.addEventListener('click', e => {
+    const btn = e.target.closest('button'); if (!btn) return;
+    if (btn.dataset.k != null) return scEdit(() => scSelected().forEach(({ n }) => { n.deg = Number(btn.dataset.k); if (!n.deg) { n.acc = 0; n.oct = 0; } }));
+    if (btn.dataset.dur) return scSetDur(Number(btn.dataset.dur));
+    if (btn.dataset.act) return scAction(btn.dataset.act);
+  });
+  document.getElementById('sc-dyn').addEventListener('change', function () { const v = this.value; scEdit(() => scSelected().forEach(({ n }) => { n.dyn = v || undefined; })); });
+  const ly = document.getElementById('sc-lyric');
+  ly.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === 'Tab') {
+      e.preventDefault();
+      const v = ly.value.trim();
+      // 一次打好幾個字：依序填到後面的音（跳過休止符）
+      scEdit(() => {
+        const chars = Array.from(v);
+        if (chars.length <= 1) { const n = scNote(); if (n) n.lyric = v; return; }
+        let { b, i } = SC.sel;
+        for (const ch of chars) {
+          while (b < SC.score.bars.length && (i >= SC.score.bars[b].notes.length || !SC.score.bars[b].notes[i].deg)) {
+            if (i >= SC.score.bars[b].notes.length) { b++; i = 0; } else i++;
+          }
+          if (b >= SC.score.bars.length) break;
+          SC.score.bars[b].notes[i].lyric = ch; i++;
+        }
+      });
+      scMove(1); ly.focus(); ly.select();
+    } else if (e.key === 'Escape') ly.blur();
+  });
+  // 點譜面
+  document.getElementById('sc-pages').addEventListener('click', e => {
+    const hit = e.target.closest('.hit');
+    if (hit) {
+      const p = { b: Number(hit.dataset.b), i: Number(hit.dataset.i) };
+      if (e.shiftKey && SC.sel) SC.selEnd = p; else { SC.sel = p; SC.selEnd = null; }
+      SC.selBar = p.b;
+      scRender(); scSyncTools(); return;
+    }
+    const bh = e.target.closest('.barhit');
+    if (bh) { SC.selBar = Number(bh.dataset.bar); SC.sel = null; SC.selEnd = null; scRender(); scSyncTools(); }
+  });
+  document.getElementById('sc-pages').addEventListener('dblclick', e => {
+    if (e.target.closest('.hit')) { ly.focus(); ly.select(); }
+  });
+  // 鍵盤
+  document.addEventListener('keydown', e => {
+    if (document.getElementById('score-view').style.display !== 'block') return;
+    const tag = (document.activeElement && document.activeElement.tagName) || '';
+    if (/INPUT|TEXTAREA|SELECT/.test(tag)) return;
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'z') { e.preventDefault(); return scAction(e.shiftKey ? 'redo' : 'undo'); }
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'y') { e.preventDefault(); return scAction('redo'); }
+    if (!SC.sel) return;
+    const k = e.key;
+    if (/^[0-7]$/.test(k)) { e.preventDefault(); return scEdit(() => scSelected().forEach(({ n }) => { n.deg = Number(k); if (!n.deg) { n.acc = 0; n.oct = 0; } })); }
+    const map = { ArrowUp: 'octUp', ArrowDown: 'octDown', '.': 'dot', Delete: 'del', Backspace: 'del', '#': 'sharp', b: 'flat', t: 'tie', s: 'slur', f: 'fermata', ',': 'breath' };
+    if (map[k]) { e.preventDefault(); return scAction(map[k]); }
+    if (k === 'ArrowRight') { e.preventDefault(); return scMove(1); }
+    if (k === 'ArrowLeft') { e.preventDefault(); return scMove(-1); }
+    if (k === '/') { e.preventDefault(); const n = scNote(); if (n && n.dur > 0.25) scSetDur(n.dur / 2); return; }
+    if (k === '*') { e.preventDefault(); const n = scNote(); if (n && n.dur < 4) scSetDur(Math.min(4, n.dur * 2)); return; }
+    if (k === 'Enter') { e.preventDefault(); ly.focus(); ly.select(); return; }
+    if (k === 'Escape') { SC.sel = null; SC.selEnd = null; scRender(); scSyncTools(); }
+  });
+}
+document.addEventListener('DOMContentLoaded', scInitUI);
 </script>
 </body>
 </html>
