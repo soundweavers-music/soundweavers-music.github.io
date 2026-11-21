@@ -440,7 +440,9 @@ const tr = (zh, en) => (document.documentElement.lang || '').startsWith('en') ? 
       }
     }
     const rise = vocalRise(cv.x, cv.sr);
-    return { times, midi: foldOctaves(times, midi, 4.0), nFrames: n, rise, riseHop: RISE_HOP, sepEngine };
+    // AI 分離的主唱（16 kHz）留著給「AI 聽歌詞」用（4 分鐘約 15 MB）；中央遮罩的不留（伴奏太多，聽歌詞不準）
+    return { times, midi: foldOctaves(times, midi, 4.0), nFrames: n, rise, riseHop: RISE_HOP, sepEngine,
+             x16: sepEngine === 'spleeter' ? x : null };
   }
 
   // ===== 歌詞對齊（LRC 一個字對到一個唱出來的音）=====
@@ -529,7 +531,11 @@ const tr = (zh, en) => (document.documentElement.lang || '').startsWith('en') ? 
         ((pv.midi < q.midi && q.midi < nx.midi) || (pv.midi > q.midi && q.midi > nx.midi))) v += W_PASS;
     return v;
   }
-  function alignLyrics(frames, rise, lines, ends, sepEngine) {
+  // anchors（選用，lyricAnchors 的結果）：每行每字 AI 聽到的時間 t 與信心 p。
+  // 字的起點音離 AI 時間越遠扣越多（最多算 0.3 秒，信心越高越重）；整行信心 < 0.1 → AI 沒聽到有人唱這行，略過。
+  // 參數用真實歌答案掃過（work/lyric_ai/al_asr.py）：W 0.5、上限 0.3 秒、信心 ≥ 0.3 才用，64 → 72/77。
+  const W_ASR = 0.5, ASR_CAP = 0.3, ASR_PMIN = 0.3, ASR_SKIP = 0.1;
+  function alignLyrics(frames, rise, lines, ends, sepEngine, anchors) {
     ({ W_DUR, RISE_SPLIT, W_SPLIT, W_SHORT } = TUNE[sepEngine === 'spleeter' ? 'spleeter' : 'center']);
     const notes = splitAtOnsets(notesFromFrames(frames.times, frames.midi), rise);
     const M = notes.length;
@@ -540,6 +546,7 @@ const tr = (zh, en) => (document.documentElement.lang || '').startsWith('en') ? 
       const t1 = ends[i] != null ? ends[i] : (i + 1 < lines.length ? lines[i + 1].time : ln.time + 8);
       let have = 0;
       for (const nt of notes) if (nt.start >= ln.time - LINE_WIN && nt.start < t1 + 0.5) have++;
+      if (anchors && anchors[i] && anchors[i].conf < ASR_SKIP) return false;
       return n > 0 && have >= Math.max(1, n >> 1);
     });
     const chars = [];
@@ -549,7 +556,12 @@ const tr = (zh, en) => (document.documentElement.lang || '').startsWith('en') ? 
       const cs = Array.from(ln.text).filter(ch => !/\s/.test(ch));
       const end = ends[li] != null ? ends[li] : Infinity;
       const brk = prevKept >= 0 && ends[prevKept] != null && ln.time - ends[prevKept] >= BREAK_GAP;
-      cs.forEach((_, q) => chars.push({ li, first: q === 0, lt: ln.time, end, brk: brk && q === 0 }));
+      const A = anchors && anchors[li];
+      cs.forEach((_, q) => {
+        const c = { li, first: q === 0, lt: ln.time, end, brk: brk && q === 0 };
+        if (A && q < A.t.length && A.p[q] >= ASR_PMIN) { c.ta = A.t[q]; c.pa = A.p[q]; }
+        chars.push(c);
+      });
       prevKept = li;
     });
     const N = chars.length;
@@ -560,9 +572,11 @@ const tr = (zh, en) => (document.documentElement.lang || '').startsWith('en') ? 
     for (let j = 0; j < M; j++) sc[j] = startCost(notes, j);
     const node = (c, j) => {
       if (notes[j].start > chars[c].end + 0.5) return INF;      // 不能拖進 LRC 標示的間奏
-      if (!chars[c].first) return sc[j];
-      const d = Math.abs(notes[j].start - chars[c].lt);
-      return sc[j] + W_LINE * d / 0.35 + (d > LINE_WIN ? 8 : 0);
+      const ch = chars[c];
+      const va = ch.ta != null ? W_ASR * Math.min(Math.abs(notes[j].start - ch.ta), ASR_CAP) / 0.1 * ch.pa : 0;
+      if (!ch.first) return sc[j] + va;
+      const d = Math.abs(notes[j].start - ch.lt);
+      return sc[j] + va + W_LINE * d / 0.35 + (d > LINE_WIN ? 8 : 0);
     };
     const dp = new Float64Array(N * M).fill(INF), bk = new Int32Array(N * M).fill(-1);
     for (let j = 0; j <= M - N; j++) dp[j] = node(0, j);
@@ -615,5 +629,180 @@ const tr = (zh, en) => (document.documentElement.lang || '').startsWith('en') ? 
     return out;            // 每行一個陣列；沒唱的行是 null
   }
 
-  window.ChordAI = { framewiseProbs, beatCandidates, ensureModel, MODEL_URL, melodyFrames, alignLyrics, ensureSpleeter };
+  // ===== AI 聽歌詞：Fun-ASR-Nano（FunAudioLLM，Apache-2.0；CTC 頭，sherpa-onnx 轉 int8）=====
+  // 選用（預設關閉，下載 251 MB）。用分離出來的主唱，逐行找出 LRC 每個字「大概在哪一秒唱」，
+  // 交給 alignLyrics 當軟性錨點（不是硬規定：AI 偶爾判錯也不會把字硬拉走）。
+  // 真實歌（叮叮噹！聖誕來了）使用者答案 64 → 72/77；沒唱的行（歌名、詞曲）信心 0.00，有唱的 0.43–1.00。
+  // 輸入 x[1,T,560]＝kaldi fbank 80 維（25/10 ms、hamming、樣本 ×32768）做 LFR 7/6；輸出 logits[1,T,60515]，blank＝60514。
+  // 模型檔超過 GitHub 單檔上限，切成 3 塊下載後在記憶體裡接回去。
+  const ASR_BASE = new URL('../assets/chord-ai/', document.baseURI).href;
+  const ASR_PARTS = [0, 1, 2].map(k => ASR_BASE + 'funasr_nano.onnx.part' + k);
+  const ASR_BLANK = 60514, ASR_HOP = 0.06, ASR_CHUNK = 30 * 16000;
+  let asrSess = null, asrLoading = null, asrChars = null;
+
+  async function ensureLyricAsr(ensureOrt, onProgress) {
+    if (asrSess) return asrSess;
+    if (!asrLoading) asrLoading = (async () => {
+      const ort = await ensureOrt();
+      const cj = await fetch(ASR_BASE + 'funasr_nano_chars.json');
+      if (!cj.ok) throw new Error(tr('下載歌詞字表失敗（HTTP ' + cj.status + '）', 'Could not download the lyric vocabulary (HTTP ' + cj.status + ')'));
+      asrChars = await cj.json();
+      const bufs = []; let total = 0;
+      for (let k = 0; k < ASR_PARTS.length; k++) {
+        const res = await fetch(ASR_PARTS[k]);
+        if (!res.ok) throw new Error(tr('下載歌詞辨識模型失敗（HTTP ' + res.status + '）', 'Could not download the lyric-recognition model (HTTP ' + res.status + ')'));
+        const b = new Uint8Array(await res.arrayBuffer()); bufs.push(b); total += b.length;
+        if (onProgress) onProgress((k + 1) / ASR_PARTS.length);
+      }
+      const all = new Uint8Array(total); let o = 0;
+      for (const b of bufs) { all.set(b, o); o += b.length; }
+      bufs.length = 0;
+      asrSess = await ort.InferenceSession.create(all, { executionProviders: ['wasm'], enableCpuMemArena: false });
+      return asrSess;
+    })();
+    try { return await asrLoading; } catch (e) { asrLoading = null; throw e; }
+  }
+
+  // kaldi fbank（跟 kaldi-native-fbank 預設一致：snip_edges、去直流、預加重 0.97、hamming、512 點 power、
+  // mel 20 Hz–8 kHz 80 格、log；energy_floor 0）
+  let melFB = null;
+  function asrMel() {
+    if (melFB) return melFB;
+    const N = 512, nb = N / 2 + 1, sr = 16000, lo = 20, hi = sr / 2, M = 80;
+    const mel = f => 1127 * Math.log(1 + f / 700);
+    const ml = mel(lo), mh = mel(hi), d = (mh - ml) / (M + 1);
+    melFB = [];
+    for (let m = 0; m < M; m++) {
+      const l = ml + m * d, c = ml + (m + 1) * d, r = ml + (m + 2) * d, w = new Float32Array(nb);
+      let a = -1, z = -1;
+      for (let k = 0; k < N / 2; k++) {
+        const fm = mel(k * sr / N);
+        const v = fm > l && fm < r ? (fm <= c ? (fm - l) / (c - l) : (r - fm) / (r - c)) : 0;
+        w[k] = v; if (v > 0) { if (a < 0) a = k; z = k; }
+      }
+      melFB.push({ w, a: Math.max(0, a), z });
+    }
+    return melFB;
+  }
+  function asrFbank(x) {
+    const L = 400, S = 160, N = 512, n = x.length >= L ? 1 + Math.floor((x.length - L) / S) : 0;
+    const fb = asrMel(), out = new Float32Array(n * 80);
+    const win = new Float32Array(L);
+    for (let i = 0; i < L; i++) win[i] = 0.54 - 0.46 * Math.cos(2 * Math.PI * i / (L - 1));
+    const re = new Float32Array(N), im = new Float32Array(N), fr = new Float64Array(L);
+    for (let f = 0; f < n; f++) {
+      const off = f * S; let mean = 0;
+      for (let i = 0; i < L; i++) { fr[i] = x[off + i] * 32768; mean += fr[i]; }
+      mean /= L;
+      for (let i = 0; i < L; i++) fr[i] -= mean;
+      for (let i = L - 1; i > 0; i--) fr[i] -= 0.97 * fr[i - 1];
+      fr[0] -= 0.97 * fr[0];
+      re.fill(0); im.fill(0);
+      for (let i = 0; i < L; i++) re[i] = fr[i] * win[i];
+      fft(re, im, false);
+      for (let m = 0; m < 80; m++) {
+        const { w, a, z } = fb[m]; let s = 0;
+        for (let k = a; k <= z; k++) s += w[k] * (re[k] * re[k] + im[k] * im[k]);
+        out[f * 80 + m] = Math.log(Math.max(s, 1.1920928955078125e-7));
+      }
+    }
+    return { feat: out, n };
+  }
+  // LFR：每 6 格取前後 7 格接起來（開頭補 3 格第一格、結尾不夠就重複最後一格）
+  function asrLfr(feat, n) {
+    const m = 7, s = 6, pad = 3, T = Math.ceil(n / s), out = new Float32Array(T * 560);
+    for (let t = 0; t < T; t++) for (let j = 0; j < m; j++) {
+      const src = Math.min(n - 1, Math.max(0, t * s + j - pad));
+      out.set(feat.subarray(src * 80, src * 80 + 80), t * 560 + j * 80);
+    }
+    return { x: out, T };
+  }
+
+  // 逐行強制對齊（CTC Viterbi）：每行只看「LRC 時間 −1 秒 … 下一行時間 +1 秒」；字的發射分數＝繁體、簡體 token 取高的。
+  // 回傳每行 { t: [每字起點秒], p: [每字信心], conf }；整行 conf 很低＝AI 聽不到這行（歌名、詞曲）。
+  function asrAlignLine(cols, T0, T1, ids, blankCol, nCol, lp) {
+    const T = T1 - T0, S = ids.length, L = 2 * S + 1, NEG = -1e30;
+    if (T < S || !S) return null;
+    const E = new Float64Array(T * L);
+    for (let t = 0; t < T; t++) {
+      const row = (T0 + t) * nCol;
+      for (let s = 0; s < L; s++) {
+        if (s % 2 === 0) { E[t * L + s] = lp[row + blankCol]; continue; }
+        const c = ids[s >> 1]; let v = -30;
+        for (const k of c) if (lp[row + k] > v) v = lp[row + k];
+        E[t * L + s] = v;
+      }
+    }
+    let dp = new Float64Array(L).fill(NEG), nd = new Float64Array(L);
+    const bp = new Int8Array(T * L);
+    dp[0] = E[0]; dp[1] = E[1];
+    for (let t = 1; t < T; t++) {
+      for (let s = 0; s < L; s++) {
+        let best = dp[s], b = 0;
+        if (s >= 1 && dp[s - 1] > best) { best = dp[s - 1]; b = 1; }
+        if (s >= 3 && s % 2 === 1 && dp[s - 2] > best) { best = dp[s - 2]; b = 2; }
+        nd[s] = best + E[t * L + s]; bp[t * L + s] = b;
+      }
+      const tmp = dp; dp = nd; nd = tmp;
+    }
+    let s = dp[L - 1] > dp[L - 2] ? L - 1 : L - 2;
+    const first = new Int32Array(S).fill(-1), best = new Float64Array(S).fill(-99);
+    for (let t = T - 1; t >= 0; t--) {
+      if (s % 2 === 1) { const k = s >> 1; first[k] = t; if (E[t * L + s] > best[k]) best[k] = E[t * L + s]; }
+      s -= bp[t * L + s];
+    }
+    const ts = [], ps = []; let cs = 0;
+    for (let k = 0; k < S; k++) { ts.push((T0 + Math.max(0, first[k])) * ASR_HOP); const p = Math.exp(best[k]); ps.push(p); cs += p; }
+    return { t: ts, p: ps, conf: cs / S };
+  }
+
+  const LYR_PUNCT = /[\s，。！？、,.!?/：:；;「」『』（）()]/;
+  // x16：16 kHz 單聲道主唱；lines：[{time,text}]。回傳跟 lines 同長度的陣列（沒字的行 null）
+  async function lyricAnchors(x16, lines, ensureOrt, hooks) {
+    hooks = hooks || {};
+    const sess = await ensureLyricAsr(ensureOrt, hooks.download);
+    const ort = window.ort;
+    // 只留歌詞會用到的字＋blank 的欄位（整個詞表 6 萬欄，整首會吃好幾 GB）
+    const colOf = new Map(); const keep = [];
+    const col = id => { if (!colOf.has(id)) { colOf.set(id, keep.length); keep.push(id); } return colOf.get(id); };
+    const blankCol = col(ASR_BLANK);
+    const lineIds = lines.map(ln => Array.from(ln.text || '').filter(ch => !LYR_PUNCT.test(ch)).map(ch => {
+      const a = asrChars.id[ch], b = asrChars.simp[ch], o = [];
+      if (a != null) o.push(col(a)); if (b != null) o.push(col(b));
+      return o;
+    }));
+    const nCol = keep.length, chunks = [];
+    let Tall = 0;
+    for (let a = 0; a < x16.length; a += ASR_CHUNK) {
+      const seg = x16.subarray(a, Math.min(x16.length, a + ASR_CHUNK));
+      if (seg.length < 16000) break;
+      const { feat, n } = asrFbank(seg);
+      const { x, T } = asrLfr(feat, n);
+      const out = await sess.run({ x: new ort.Tensor('float32', x, [1, T, 560]) });
+      const z = out.logits.data, V = out.logits.dims[2], Tz = out.logits.dims[1];
+      const lp = new Float32Array(Tz * nCol);
+      for (let t = 0; t < Tz; t++) {
+        const o = t * V; let mx = -Infinity;
+        for (let v = 0; v < V; v++) if (z[o + v] > mx) mx = z[o + v];
+        let se = 0;
+        for (let v = 0; v < V; v++) se += Math.exp(z[o + v] - mx);
+        const lse = mx + Math.log(se);
+        for (let c = 0; c < nCol; c++) lp[t * nCol + c] = z[o + keep[c]] - lse;
+      }
+      chunks.push(lp); Tall += Tz;
+      if (hooks.track) hooks.track(Math.min(1, (a + ASR_CHUNK) / x16.length));
+      await new Promise(r => setTimeout(r));
+    }
+    const lp = new Float32Array(Tall * nCol); let o = 0;
+    for (const c of chunks) { lp.set(c, o); o += c.length; }
+    return lines.map((ln, i) => {
+      if (!lineIds[i].length || lineIds[i].some(c => !c.length)) return null;
+      const t1 = i + 1 < lines.length ? lines[i + 1].time : ln.time + 6;
+      const T0 = Math.max(0, Math.floor((ln.time - 1) / ASR_HOP)), T1 = Math.min(Tall, Math.floor((t1 + 1) / ASR_HOP));
+      return asrAlignLine(null, T0, T1, lineIds[i], blankCol, nCol, lp);
+    });
+  }
+
+  window.ChordAI = { framewiseProbs, beatCandidates, ensureModel, MODEL_URL, melodyFrames, alignLyrics, ensureSpleeter,
+                     ensureLyricAsr, lyricAnchors, _asrFbank: asrFbank, _asrLfr: asrLfr };
 })();

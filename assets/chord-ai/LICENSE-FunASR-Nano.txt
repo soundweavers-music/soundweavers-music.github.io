@@ -1,0 +1,13 @@
+Fun-ASR-Nano-2512 (lyric / speech recognition, CTC head)
+Original model: https://huggingface.co/FunAudioLLM/Fun-ASR-Nano-2512
+Copyright (c) FunAudioLLM (Alibaba Tongyi Lab)
+License: Apache License 2.0 — https://www.apache.org/licenses/LICENSE-2.0
+
+ONNX int8 conversion by k2-fsa / sherpa-onnx:
+https://huggingface.co/csukuangfj/sherpa-onnx-sense-voice-funasr-nano-int8-2025-12-17
+
+Files here:
+  funasr_nano.onnx.part0..2  — model.int8.onnx split into three pieces (GitHub file-size limit);
+                               the page concatenates them in the browser. Unmodified.
+  funasr_nano_chars.json     — the single-character entries of tokens.txt (char → id),
+                               plus traditional→simplified id fallbacks.
