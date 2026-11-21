@@ -418,6 +418,7 @@ body.print-score #score-view { page: score; }
       <label><input type="checkbox" id="sc-clickplay" checked> 點音符從那裡播</label>
       <span class="sc-play-hint">播放：空白鍵 ▶／⏸（不在打字時）· 目前唱到的音會標亮</span>
       <span class="spacer"></span>
+      <label title="匯入歌詞後，用 AI 聽出每個字在哪一秒唱，字底下的音更準。第一次要下載約 251 MB 的模型，電腦記憶體建議 8 GB 以上。"><input type="checkbox" id="sc-lyric-asr"> AI 聽歌詞（更準，下載 251 MB）</label>
       <button class="btn ghost small" id="sc-import-lrc">📄 匯入 .lrc 歌詞</button>
     </div>
     <div class="sc-tools" id="sc-tools">
@@ -649,6 +650,7 @@ let state = {
   lyrics: [], lyricSegs: {}, lyricOverrides: {}, showLyrics: true, showDegrees: true,
   showDiagrams: false, continuous: false, notation: 'name',
   pickupOverride: null, lyricSnap: true, chordSize: 15, lyricSize: 14, melodySize: 13, rowGap: 2,
+  useLyricAsr: false, lyricAnchors: null, lyricAsrError: null,
   showMelody: true, melodyFrames: null, melodySmooth: null, melodyNotes: null,
   useVad: true, vocalSegs: null,
   onsetEnv: null, onsetHopSec: 0,
@@ -2738,15 +2740,39 @@ function dominantMidiInRange(frames, t0, t1) {
 // 這比自由切音穩定得多，也讓簡譜和歌詞自然對齊。
 // AI 歌詞對齊：有 AI 旋律時，整首用動態規劃把每個字對到一個真正唱出來的音（chord-ai.js 的 alignLyrics）。
 // 回傳每行一個陣列 [{t, end, midi}]；沒有 AI 旋律、關掉「歌詞對齊音訊」或對不起來就回傳 null（退回舊做法）。
+// 「AI 聽歌詞」（選用，Fun-ASR-Nano 251 MB）：用 AI 分離出來的主唱，逐行找出每個字大概在哪一秒唱，
+// 給 alignLyrics 當參考。結果依歌詞內容快取；勾選框關掉或失敗就是 null（照一般對齊）。
+async function ensureLyricAnchors() {
+  const mf = state.melodyFrames;
+  if (!state.useLyricAsr || !state.lyricSnap || state.melodyEngine !== 'ai' || !state.lyrics.length || !mf || !mf.x16) { state.lyricAnchors = null; return; }
+  if (!(window.ChordAI && window.ChordAI.lyricAnchors)) { state.lyricAnchors = null; return; }
+  const key = state.lyrics.map(l => l.time + '|' + l.text).join('\n');
+  if (state.lyricAnchorsKey === key && state.lyricAnchorsFor === mf) return;
+  state.lyricAsrError = null;
+  try {
+    setStatus('AI 聽歌詞…（第一次會下載約 251 MB 的歌詞辨識模型，之後瀏覽器會記住）', 'analyzing');
+    state.lyricAnchors = await window.ChordAI.lyricAnchors(mf.x16, state.lyrics, ensureOrt, {
+      download: p => setProgress(p * 60, '下載歌詞辨識模型… ' + Math.round(p * 100) + '%'),
+      track: p => setProgress(60 + p * 38, 'AI 聽歌詞… ' + Math.round(p * 100) + '%'),
+    });
+    state.lyricAnchorsKey = key; state.lyricAnchorsFor = mf;
+  } catch (e) {
+    console.warn('AI 聽歌詞失敗，改用一般對齊', e);
+    state.lyricAnchors = null; state.lyricAsrError = (e && e.message) || String(e);
+  }
+  state.lyricAlignKey = null;          // 對齊結果要重算
+  setProgressDone();
+}
+
 function lyricAlignment() {
   if (!state.lyricSnap || state.melodyEngine !== 'ai' || !state.melodySmooth || !state.lyrics.length) return null;
   if (!(window.ChordAI && window.ChordAI.alignLyrics)) return null;
-  const key = state.lyrics.map(l => l.time + '|' + l.text).join('\n');
+  const key = state.lyrics.map(l => l.time + '|' + l.text).join('\n') + (state.lyricAnchors ? '|asr' : '');
   if (state.lyricAlignKey === key && state.lyricAlignFor === state.melodySmooth) return state.lyricAlign;
   let al = null;
   try {
     const mf = state.melodyFrames || {};
-    al = window.ChordAI.alignLyrics(state.melodySmooth, mf.rise, state.lyrics, state.lyrics.map(l => l.end), mf.sepEngine);
+    al = window.ChordAI.alignLyrics(state.melodySmooth, mf.rise, state.lyrics, state.lyrics.map(l => l.end), mf.sepEngine, state.lyricAnchors);
   }
   catch (e) { console.warn('AI 歌詞對齊失敗，改用舊做法', e); al = null; }
   state.lyricAlign = al; state.lyricAlignKey = key; state.lyricAlignFor = state.melodySmooth;
@@ -2899,6 +2925,7 @@ async function ensureMelody() {
     state.melodySmooth = smoothMelody(state.melodyFrames);
     setProgressDone();
   }
+  await ensureLyricAnchors();
   rebuildMelodyNotes();
   let lyricNote = '';
   if (state.melodyEngine === 'ai' && state.lyrics.length) {
@@ -2906,9 +2933,11 @@ async function ensureMelody() {
     const spl = state.melodyFrames && state.melodyFrames.sepEngine === 'spleeter';
     if (al) {
       const skipped = state.lyrics.filter((_, i) => !al[i]).length;
-      lyricNote = '歌詞已用 AI 逐字對齊' + (spl ? '（AI 分離主唱）' : '') +
+      lyricNote = '歌詞已用 AI 逐字對齊' + (spl ? '（AI 分離主唱' + (state.lyricAnchors ? '＋AI 聽歌詞' : '') + '）' : '') +
         (skipped ? '；' + skipped + ' 行在音檔裡沒聽到唱（例如歌名、詞曲資訊），只顯示文字、不配音符' : '') + '。';
     }
+    if (state.useLyricAsr && !state.lyricAnchors && state.lyricAsrError) lyricNote += '（AI 聽歌詞沒有成功：' + state.lyricAsrError + '，這次用一般對齊。）';
+    else if (state.useLyricAsr && !spl) lyricNote += '（AI 聽歌詞需要 AI 分離主唱，這首退回中央聲道，所以沒用。）';
   }
   setStatus(state.melodyEngine === 'ai'
     ? '旋律分析完成（AI）。簡譜是首調：' + jianpuKeyLabel() + '。' + lyricNote
@@ -4431,6 +4460,15 @@ function scInitUI() {
   if (!keySel) return;
   keySel.innerHTML = SC_KEYS.map((k, i) => `<option value="${i}">${k}</option>`).join('');
   document.getElementById('sc-import-lrc').addEventListener('click', () => document.getElementById('lrc-input').click());
+  // AI 聽歌詞（預設關閉、會記住）：打勾時如果已經有歌詞與 AI 分離的主唱，就直接重新對齊
+  const asrBox = document.getElementById('sc-lyric-asr');
+  try { state.useLyricAsr = localStorage.getItem('chord.lyricAsr') === '1'; } catch (e) {}
+  asrBox.checked = state.useLyricAsr;
+  asrBox.addEventListener('change', async function () {
+    state.useLyricAsr = this.checked;
+    try { localStorage.setItem('chord.lyricAsr', this.checked ? '1' : '0'); } catch (e) {}
+    if (state.audioBuffer && state.lyrics.length && state.showMelody) { state.lyricAnchors = null; state.lyricAnchorsKey = null; await ensureMelody(); }
+  });
   // 標頭欄位
   const bind = (id, key, conv) => document.getElementById(id).addEventListener('change', function () {
     if (!SC.score) return;
