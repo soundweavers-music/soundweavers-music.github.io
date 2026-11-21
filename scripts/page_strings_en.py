@@ -4881,14 +4881,3 @@ EN: dict[str, dict[str, str]] = {
         "📝 LRC 動態歌詞工作室": "📝 LRC Lyrics Studio",
     },
 }
-
-# 導覽列改名後新增的「自動抓和弦」。這幾條必須有英文，否則
-# scripts/page_i18n.py build 會回傳 1（還有 N 條沒翻），
-# GitHub Actions 第 12 步失敗，整站就不會部署。
-_AUTO_CHORD_EN = {
-    "自動抓和弦": "Auto chord detection",
-    "🎼 自動抓和弦": "🎼 Auto chord detection",
-    "🎼 自動抓和弦 (beta)": "🎼 Auto chord detection (beta)",
-}
-for _page in ("tools__fretboard__guide", "tools__tuner", "tools__lrc", "tools__lrc__guide"):
-    EN.setdefault(_page, {}).update(_AUTO_CHORD_EN)
