@@ -25,8 +25,12 @@ import sys
 from PIL import Image, ImageDraw, ImageFont
 
 BASE = pathlib.Path(__file__).resolve().parent.parent.parent
-RAW = BASE / "work" / "daw-shots" / "raw"
-OUT = BASE / "assets" / "daw-course"
+# --en：讀英文介面的截圖，輸出到 assets/daw-course/en/（中文版那一批不動）
+EN = "--en" in sys.argv
+if EN:
+    sys.argv.remove("--en")
+RAW = BASE / "work" / "daw-shots" / ("raw-en" if EN else "raw")
+OUT = BASE / "assets" / "daw-course" / ("en" if EN else "")
 DPR = 2
 W, H = 1400, 840          # capture.py 的視窗區大小（CSS px）
 
@@ -67,7 +71,9 @@ FIGS = [
 
     # ── 第 5 堂：匯入音檔 ──────────────────────────────────
     dict(id="daw-05-import", shot="overview", box=[428, 538, 900, 275],
-         marks=[("R", (444, 656, 868, 130)), ("t", (462, 692, "把檔案拖到軌道的空白處"))]),
+         marks=[("R", (444, 656, 868, 130)),
+                ("t", (462, 692, "Drag the file onto an empty part of a track" if EN
+                       else "把檔案拖到軌道的空白處"))]),
 
     # ── 第 6 堂：錄音 ─────────────────────────────────────
     dict(id="daw-06-record", shot="overview", box=("sel", ".thead", 0, 12),

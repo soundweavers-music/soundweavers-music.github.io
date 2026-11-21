@@ -93,6 +93,7 @@ COURSES = [
         "slug": "dawcourse", "name": "Producing in a DAW", "eyebrow": "Production", "icon": "🎛",
         "lead": "Twenty-four hands-on lessons in the browser studio on this site: "
                 "arranging, MIDI, virtual instruments, mixing and export.",
+        "cta": ("/tools/daw/", "Open the studio"),
         "factor": 2.0,
         "groups": [],
         "unit": "Lesson",
@@ -161,10 +162,29 @@ def theory_chapters() -> list[dict]:
     return sorted(out, key=lambda c: c["num"])
 
 
+def missing_assets(chapters: list[dict]) -> list[str]:
+    """這一套課程引用的圖，有沒有缺的。
+
+    翻譯跟截圖是分開做的，常常文字好了、圖還沒。缺圖就整門課先不要建，
+    不然線上會出現一堆破圖的頁面——寧可少一門，也不要半套。
+    """
+    gone = set()
+    for c in chapters:
+        text = c["path"].read_text(encoding="utf-8")
+        for path in re.findall(r"/assets/[^\s\"')]+", text):
+            if not (BASE_DIR / path.lstrip("/")).exists():
+                gone.add(path)
+    return sorted(gone)
+
+
 def build_course(conf: dict) -> list[dict]:
     slug = conf["slug"]
     chapters = load_chapters(slug)
     if not chapters:
+        return []
+    gone = missing_assets(chapters)
+    if gone:
+        print("  en/%s: 還缺 %d 張圖，先跳過（%s…）" % (slug, len(gone), gone[0]))
         return []
     factor = conf.get("factor", 2.0)
     for c in chapters:
@@ -194,6 +214,11 @@ def build_course(conf: dict) -> list[dict]:
         blocks = ['<ol class="chapter-list">%s</ol>' % "".join(row(c) for c in chapters)]
 
     total = sum(c["hours"] for c in chapters)
+    # 有對應工具站的課程（DAW）多一顆按鈕：讀完就能直接開軟體
+    cta = ""
+    if conf.get("cta"):
+        cta = ('<p style="margin:22px 0 0"><a class="btn-primary" href="%s">%s</a></p>'
+               % (bve.resolve_url(idx, conf["cta"][0]), bve.escape(conf["cta"][1])))
     body = f"""<main>
   <section class="vocal-hero">
     <p class="eyebrow">{bve.escape(conf["eyebrow"])}</p>
@@ -203,6 +228,7 @@ def build_course(conf: dict) -> list[dict]:
       <span><strong>{len(chapters)}</strong> lessons</span>
       <span>about <strong>{total:g}</strong> hours</span>
     </p>
+    {cta}
   </section>
   <div class="vocal-page">
     {extra_links}
