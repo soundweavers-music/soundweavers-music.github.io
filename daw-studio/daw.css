@@ -1047,3 +1047,8 @@ html[lang="en"] .insp-sec > h4, html[lang="en"] .sec-h { letter-spacing: 0; }
 
 /* 拖曳標頭調換軌道順序 */
 .thead.dragging { opacity: .85; z-index: 6; position: relative; box-shadow: 0 8px 18px rgba(0,0,0,.35); cursor: grabbing; }
+
+/* 軌道高度把手（標頭下緣） */
+.thead { position: relative; box-sizing: border-box; }
+.hresize { position: absolute; left: 0; right: 0; bottom: 0; height: 6px; cursor: ns-resize; }
+.hresize:hover { background: var(--accent); opacity: .5; }

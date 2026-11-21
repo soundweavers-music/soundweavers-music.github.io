@@ -83,12 +83,22 @@ function contentWidth() {
   return Math.max(vw + 200, secToPx(end));
 }
 
+const trackH = t => Math.max(32, Math.round(t && t.h ? t.h : view.trackH));
+const topOf = i => store.project.tracks.slice(0, i).reduce((a, t) => a + trackH(t), 0);
+const totalH = () => store.project.tracks.reduce((a, t) => a + trackH(t), 0);
+const indexAtY = y => {
+  let acc = 0;
+  const ts = store.project.tracks;
+  for (let i = 0; i < ts.length; i++) { const h = trackH(ts[i]); if (y < acc + h) return i; acc += h; }
+  return Math.max(0, ts.length - 1);
+};
+
 export function render() {
   measure();
   const ar = document.getElementById('arrange');
   if (ar) ar.style.setProperty('--ruler-h', store.project.showChords ? '64px' : '34px');
   const p = store.project;
-  const h = p.tracks.length * view.trackH;
+  const h = totalH();
   lanesInner.style.width = contentWidth() + 'px';
   lanesInner.style.height = Math.max(h, vh) + 'px';
   renderHeaders();
@@ -159,10 +169,11 @@ function drawGrid() {
   const p = store.project, sx = lanes.scrollLeft, sy = lanes.scrollTop;
   // 選取軌底色
   p.tracks.forEach((t, i) => {
-    const y = i * view.trackH - sy;
-    if (y > h || y + view.trackH < 0) return;
+    const th = trackH(t);
+    const y = topOf(i) - sy;
+    if (y > h || y + th < 0) return;
     g.fillStyle = t.id === store.selection.trackId ? cssVar('--cv-trk-sel') : (i % 2 ? cssVar('--cv-trk-a') : cssVar('--cv-trk-b'));
-    g.fillRect(0, y, w, view.trackH);
+    g.fillRect(0, y, w, th);
   });
   const step = gridStep(), bar = beatSec() * p.sigNum;
   const first = Math.floor(pxToSec(sx) / step), last = Math.ceil(pxToSec(sx + w) / step);
@@ -210,6 +221,7 @@ export function renderHeaders() {
   p.tracks.forEach((t, i) => {
     const el = document.createElement('div');
     el.className = 'thead' + (t.id === store.selection.trackId ? ' sel' : '');
+    el.style.height = trackH(t) + 'px';
     el.dataset.id = t.id;
     el.innerHTML = `
       <div class="color" style="background:${t.color}"></div>
@@ -240,8 +252,8 @@ export function renderHeaders() {
         moved = true;
         el.classList.add('dragging');
         const box = headersInner.getBoundingClientRect();
-        to = Math.max(0, Math.min(p.tracks.length - 1, Math.floor((ev.clientY - box.top) / view.trackH)));
-        el.style.transform = `translateY(${(to - from) * view.trackH}px)`;
+        to = Math.max(0, Math.min(p.tracks.length - 1, indexAtY(ev.clientY - box.top)));
+        el.style.transform = `translateY(${topOf(to) - topOf(from)}px)`;
       };
       const onUp = () => {
         window.removeEventListener('pointermove', onMove);
@@ -270,6 +282,25 @@ export function renderHeaders() {
       store.dirty = true; engine.applyMix(); store.emit('mixlive', { from: 'header' });
     });
     vol.addEventListener('dblclick', () => { store.checkpoint(); t.volumeDb = 0; store.changed('mix'); });
+    // 底部把手：上下拖曳調整這一軌的高度（雙擊還原）
+    const grip = document.createElement('div');
+    grip.className = 'hresize';
+    grip.title = '拖曳調整軌道高度（雙擊還原）';
+    grip.addEventListener('pointerdown', e => {
+      e.stopPropagation(); e.preventDefault();
+      const y0 = e.clientY, h0 = trackH(t);
+      store.checkpoint();
+      const move = ev => {
+        t.h = Math.max(32, Math.min(240, Math.round(h0 + ev.clientY - y0)));
+        el.style.height = t.h + 'px';
+        store.changed('structure');
+      };
+      const up = () => { window.removeEventListener('pointermove', move); window.removeEventListener('pointerup', up); store.changed('structure'); };
+      window.addEventListener('pointermove', move);
+      window.addEventListener('pointerup', up);
+    });
+    grip.addEventListener('dblclick', e => { e.stopPropagation(); store.checkpoint(); delete t.h; store.changed('structure'); });
+    el.appendChild(grip);
     headersInner.appendChild(el);
   });
 }
@@ -342,7 +373,7 @@ function renderLanes() {
     const lane = document.createElement('div');
     lane.className = 'lane';
     lane.dataset.id = t.id;
-    lane.style.cssText = `position:absolute;left:0;right:0;top:${i * view.trackH}px;height:${view.trackH}px`;
+    lane.style.cssText = `position:absolute;left:0;right:0;top:${topOf(i)}px;height:${trackH(t)}px`;
     for (const c of t.clips) lane.appendChild(clipEl(t, c));
     frag.appendChild(lane);
   });
@@ -370,7 +401,7 @@ function clipEl(t, c) {
     return el;
   }
   // 淡入淡出曲線
-  const h = view.trackH - 4;
+  const h = trackH(t) - 4;
   const fi = secToPx(c.fadeIn || 0), fo = secToPx(c.fadeOut || 0);
   if (fi > 1 || fo > 1) {
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -393,10 +424,10 @@ function clipEl(t, c) {
 function drawWaveforms() {
   const sx = lanes.scrollLeft, sy = lanes.scrollTop;
   const dpr = window.devicePixelRatio || 1;
-  const h = view.trackH - 4 - 15;
   store.project.tracks.forEach((t, i) => {
-    const y = i * view.trackH;
-    const offscreen = y > sy + vh || y + view.trackH < sy;
+    const h = trackH(t) - 4 - 15;
+    const y = topOf(i);
+    const offscreen = y > sy + vh || y + trackH(t) < sy;
     for (const c of t.clips) {
       const el = lanesInner.querySelector(`.clip[data-id="${c.id}"]`);
       if (!el) continue;
@@ -489,7 +520,7 @@ export function addMidiClipAt(track, sec) {
 // ---------------- 互動 ----------------
 function laneAt(clientY) {
   const r = lanesInner.getBoundingClientRect();
-  const i = Math.floor((clientY - r.top) / view.trackH);
+  const i = indexAtY(clientY - r.top);
   return store.project.tracks[Math.max(0, Math.min(store.project.tracks.length - 1, i))];
 }
 const xToSec = clientX => pxToSec(clientX - lanesInner.getBoundingClientRect().left);
@@ -601,7 +632,7 @@ function startMove(e) {
     let d = pxToSec(dx);
     d = snap(earliest + d) - earliest;
     if (earliest + d < 0) d = -earliest;
-    const dt = Math.round(dy / view.trackH);
+    const dt = Math.round(dy / trackH(store.track(items[0].trackId) || {}));
     for (const it of items) {
       const el = lanesInner.querySelector(`.clip[data-id="${it.clip.id}"]`);
       el.style.left = secToPx(it.start + d) + 'px';
@@ -715,7 +746,7 @@ function startMarquee(e) {
     const L = Math.min(x0, x1), T = Math.min(y0, y1), W = Math.abs(x1 - x0), H = Math.abs(y1 - y0);
     Object.assign(box.style, { left: L + 'px', top: T + 'px', width: W + 'px', height: H + 'px' });
     const s0 = pxToSec(L), s1 = pxToSec(L + W);
-    const ti0 = Math.floor(T / view.trackH), ti1 = Math.floor((T + H) / view.trackH);
+    const ti0 = indexAtY(T), ti1 = indexAtY(T + H);
     store.selection.clipIds.clear();
     store.project.tracks.forEach((tr, i) => {
       if (i < ti0 || i > ti1) return;
