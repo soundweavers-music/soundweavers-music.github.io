@@ -145,12 +145,13 @@ Chrome 開站顯示「危險網站／可能誘騙你安裝軟體」。查詢 `ht
   「看起來做完」跟「真的做完」差很遠——它一次檢查：每套課程的英文章數 vs
   中文章數、英文稿引用的 `/assets/<course>/en/*` 在不在、有沒有整段還是中文、
   有沒有指到中文圖。有問題離開碼 1。
-- **DAW 課程還沒做**，而且不能只翻文字：24 堂課的截圖是中文介面。做法是
-  在 `scripts/daw_shots/capture.py` 的注入腳本裡加
-  `localStorage.setItem('zhiyin-daw-lang','en')`（DAW 本身已有 i18n，
-  `daw-studio/js/i18n.js` 讀這個鍵），重跑 capture 與 figures 產生英文介面
-  的截圖，再翻 24 篇稿子。`build_en_courses.py` 的 `dawcourse` 那一筆已經寫好了，
-  缺的只是 `content/en/dawcourse/NN.md` 與英文截圖。
+- **DAW 課程的英文截圖**：`DAW_SHOT_LANG=en python scripts/daw_shots/capture.py`
+  會在注入的 `_shot-theme.js` 多設 `zhiyin-daw-lang=en`（DAW 的 i18n 讀這個鍵），
+  截圖存到 `work/daw-shots/raw-en/`，再 `python scripts/daw_shots/figures.py --en`
+  產到 `assets/daw-course/en/`。中文那批完全不受影響。
+  兩個坑：Chrome 偶爾會卡在某一張（實測 `album`）到 120 秒逾時，`capture()` 現在
+  會接住 `TimeoutExpired` 繼續跑下一張；`figures.py` 的標註文字也要跟著雙語，
+  不然英文截圖上會貼一張中文紅標。
 
 ### 2026-11-20（新課程：流行歌曲詞曲創作）
 

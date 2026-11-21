@@ -16,6 +16,7 @@
 """
 import functools
 import http.server
+import os
 import pathlib
 import re
 import shutil
@@ -27,7 +28,8 @@ import time
 
 BASE = pathlib.Path(__file__).resolve().parent.parent.parent
 SHOTS = BASE / "work" / "daw-shots"
-RAW = SHOTS / "raw"
+EN = os.environ.get("DAW_SHOT_LANG") == "en"   # 英文版課程的截圖
+RAW = SHOTS / ("raw-en" if EN else "raw")
 CHROME = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
 PORT = 8781
 # Chrome 的 --window-size 是「視窗」尺寸，不是視窗區：實測內縮 (22, 154)。
@@ -627,7 +629,9 @@ window.addEventListener('unhandledrejection', function (e) {
 THEME_JS = """// 課程截圖一律用「世界聲音・木質淺色」。
 try { localStorage.setItem('zhiyin-daw-theme', 'wood-light'); } catch (e) {}
 document.documentElement.setAttribute('data-theme', 'wood-light');
-"""
+""" + ("""// 英文版課程：介面先切成英文（DAW 的 i18n 讀這個鍵），不然截圖會是中文。
+try { localStorage.setItem('zhiyin-daw-lang', 'en'); } catch (e) {}
+""" if EN else "")
 
 
 def build_shot_page():
@@ -791,8 +795,14 @@ def main():
             do, extra = SHOT_LIST[n]
             do = ",".join(x for x in (do, extra) if x)
             t0 = time.time()
-            out = capture(n, do, CHROME)
-            print(("  ✓ " if out else "  ✗ ") + n + f"  ({time.time() - t0:.1f}s)")
+            # 一張逾時不要讓整批停掉：Chrome 偶爾會卡在某一張（實測 album 卡過 120 秒），
+            # 但圖其實已經截好了，後面十幾張不該跟著陪葬。
+            try:
+                out = capture(n, do, CHROME)
+            except subprocess.TimeoutExpired:
+                out = RAW / (n + ".png")
+                print("  ! " + n + "  截圖逾時，看檔案在不在")
+            print(("  ✓ " if out and out.exists() else "  ✗ ") + n + f"  ({time.time() - t0:.1f}s)")
         httpd.shutdown()
 
 
