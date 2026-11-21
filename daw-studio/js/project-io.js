@@ -212,8 +212,33 @@ export async function clearAutosave() {
   } catch (_) { /* noop */ }
 }
 
+// 分軌 zip（例如「自動抓和弦」匯出的人聲／伴奏，或別的分軌包）→ 解成一個一個音檔
+async function expandZip(file) {
+  if (!window.JSZip) return [];
+  const zip = await window.JSZip.loadAsync(file);
+  const names = Object.keys(zip.files)
+    .filter(n => !zip.files[n].dir && /\.(wav|mp3|flac|ogg|m4a|aac|aif|aiff)$/i.test(n)).sort();
+  const out = [];
+  for (const n of names) {
+    const blob = await zip.files[n].async('blob');
+    out.push(new File([blob], n.split('/').pop(), { type: blob.type || '' }));
+  }
+  return out;
+}
+
 // 本機音檔匯入（拖放或檔案選擇）
 export async function importAudioFiles(files, trackId, at) {
+  // 選到 .zip：當成分軌包，裡面每個音檔各放一軌
+  if (files.some(f => /\.zip$/i.test(f.name))) {
+    const out = [];
+    for (const f of files) {
+      if (/\.zip$/i.test(f.name)) {
+        try { out.push(...await expandZip(f)); } catch (e) { console.warn('zip', e); toast(`${f.name} 打不開（不是標準 zip？）`, 'error'); }
+      } else out.push(f);
+    }
+    files = out;
+    if (!files.length) { toast('這個 zip 裡沒有可以讀的音檔', 'warn'); return; }
+  }
   const ctx = await engine.ensure();
   const audioTracks = () => store.project.tracks.filter(x => x.kind === 'audio');
   let t = store.track(trackId);

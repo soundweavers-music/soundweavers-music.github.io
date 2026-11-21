@@ -477,6 +477,8 @@ body.print-score #score-view { page: score; }
     <button class="btn ghost small" id="btn-print">🖨 列印／PDF</button>
     <button class="btn ghost small" id="btn-export-txt">⬇ 純文字</button>
     <button class="btn ghost small" id="btn-export-doc">⬇ Word</button>
+    <button class="btn small" id="btn-export-daw" title="下載和弦檔（.zychords.json），在「織音線上編曲製作」用 檔案 → 匯入和弦 就能變成和弦軌">🎹 給編曲工具</button>
+    <button class="btn ghost small" id="btn-export-stems" style="display:none" title="把 AI 分離出來的主唱與伴奏各存成 WAV，可以直接拖進編曲工具">⬇ 人聲／伴奏</button>
   </div>
   <div id="lyric-status" class="status-msg" style="display:none;"></div>
   <div id="print-header" class="print-only"></div>
@@ -2897,6 +2899,11 @@ async function ensureMelody() {
       state.melodyEngine = 'ai';
       state.melodyFrames.splTried = wantSpl;
       state.melodySmooth = smoothMelody(state.melodyFrames);
+      // 有 AI 分離出主唱就顯示「人聲／伴奏」匯出（可以直接拖進編曲工具）
+      {
+        const sb = document.getElementById('btn-export-stems');
+        if (sb) sb.style.display = state.melodyFrames.sep ? '' : 'none';
+      }
       setProgressDone();
     } catch (e) {
       console.warn('AI 旋律失敗，改用舊做法', e);
@@ -3477,6 +3484,95 @@ function exportWord() {
   setStatus('已下載 Word 檔（.doc），可直接開啟編輯', 'done');
 }
 
+// ---- 給 DAW（織音線上編曲製作）：和弦、拍、調性 ----
+// 和弦位置用「拍」表示，根音一律寫實際音高（原調，已扣掉移調與 Capo）
+function buildDawChords() {
+  const spb = 60 / (state.bpm || 120);
+  const bpb = state.beatsPerBar || 4;
+  const chords = [];
+  (state.chords || []).forEach((ch, idx) => {
+    const bar = (state.bars || [])[idx] || {};
+    const startSec = bar.start != null ? bar.start : idx * bpb * spb;
+    const parts = (ch.parts && ch.parts.length) ? ch.parts : [{ root: 0, quality: 'maj', beats: bpb }];
+    let acc = 0;
+    for (const p of parts) {
+      const beats = p.beats || (bpb / parts.length);
+      const root = mod12(p.root - (state.transpose || 0) + (state.capo || 0));
+      chords.push({ t: +(startSec / spb + acc).toFixed(3), d: +beats.toFixed(3), root, q: p.quality || 'maj' });
+      acc += beats;
+    }
+  });
+  return {
+    app: 'zhiyin-chords', version: 1,
+    name: chartTitle() || '和弦',
+    bpm: state.bpm || 120,
+    sigNum: bpb, sigDen: 4,
+    key: state.detectedKey != null ? { root: mod12(state.detectedKey), minor: state.detectedMode === 'minor' } : null,
+    duration: state.audioBuffer ? +state.audioBuffer.duration.toFixed(3) : null,
+    chords,
+  };
+}
+
+function exportDaw() {
+  if (!state.chords.length) { setStatus('還沒有分析結果可以匯出', 'error'); return; }
+  const doc = buildDawChords();
+  downloadBlob(JSON.stringify(doc, null, 1), 'application/json', safeFilename('.zychords.json'));
+  setStatus('已下載和弦檔：在織音線上編曲製作按「檔案 → 匯入和弦」就會畫在和弦軌上', 'done');
+}
+
+// ---- 分軌：AI 分離出來的主唱 + 伴奏（原檔扣掉主唱）----
+function encodeWav16(channels, sampleRate) {
+  const n = channels[0].length, ch = channels.length;
+  const out = new DataView(new ArrayBuffer(44 + n * ch * 2));
+  const str = (off, s) => { for (let i = 0; i < s.length; i++) out.setUint8(off + i, s.charCodeAt(i)); };
+  str(0, 'RIFF'); out.setUint32(4, 36 + n * ch * 2, true); str(8, 'WAVE');
+  str(12, 'fmt '); out.setUint32(16, 16, true); out.setUint16(20, 1, true); out.setUint16(22, ch, true);
+  out.setUint32(24, sampleRate, true); out.setUint32(28, sampleRate * ch * 2, true);
+  out.setUint16(32, ch * 2, true); out.setUint16(34, 16, true);
+  str(36, 'data'); out.setUint32(40, n * ch * 2, true);
+  let o = 44;
+  for (let i = 0; i < n; i++) {
+    for (let c = 0; c < ch; c++) {
+      const v = Math.max(-1, Math.min(1, channels[c][i]));
+      out.setInt16(o, Math.round(v < 0 ? v * 0x8000 : v * 0x7fff), true);
+      o += 2;
+    }
+  }
+  return out.buffer;
+}
+
+function resampleLinear(x, from, to) {
+  if (from === to) return x;
+  const n = Math.max(1, Math.round(x.length * to / from));
+  const y = new Float32Array(n), k = from / to;
+  for (let i = 0; i < n; i++) {
+    const p = i * k, j = Math.floor(p), f = p - j;
+    y[i] = (x[j] || 0) * (1 - f) + (x[j + 1] || 0) * f;
+  }
+  return y;
+}
+
+function exportStems() {
+  const sep = state.melodyFrames && state.melodyFrames.sep;
+  const buf = state.audioBuffer;
+  if (!sep || !buf) { setStatus('這次分析沒有做 AI 分離主唱，所以沒有分軌可以匯出（匯入歌詞後再用 AI 精準模式分析就會分離）', 'error'); return; }
+  const vocal = resampleLinear(sep.x, sep.sr, buf.sampleRate);
+  const base = (chartTitle() || '歌曲').replace(/[\\/:*?"<>|]/g, '_').slice(0, 60);
+  // 主唱
+  downloadBlob(new Blob([encodeWav16([vocal], buf.sampleRate)], { type: 'audio/wav' }), 'audio/wav', base + '_人聲.wav');
+  // 伴奏 = 原檔 − 主唱（主唱是單聲道，兩邊都扣）
+  const chans = [];
+  for (let c = 0; c < buf.numberOfChannels; c++) {
+    const d = buf.getChannelData(c).slice();
+    for (let i = 0; i < d.length; i++) d[i] -= vocal[i] || 0;
+    chans.push(d);
+  }
+  setTimeout(() => {
+    downloadBlob(new Blob([encodeWav16(chans, buf.sampleRate)], { type: 'audio/wav' }), 'audio/wav', base + '_伴奏.wav');
+  }, 400);
+  setStatus('已下載人聲與伴奏兩個 WAV：兩個一起拖進編曲工具就會變成兩軌（起點對齊）', 'done');
+}
+
 // =========================================================================
 // 格線微調
 // =========================================================================
@@ -3575,6 +3671,8 @@ function initUI() {
   });
   document.getElementById('btn-export-txt').addEventListener('click', exportText);
   document.getElementById('btn-export-doc').addEventListener('click', exportWord);
+  document.getElementById('btn-export-daw').addEventListener('click', exportDaw);
+  document.getElementById('btn-export-stems').addEventListener('click', exportStems);
   document.getElementById('btn-print').addEventListener('click', function () { window.print(); });
   document.getElementById('notation-select').addEventListener('change', function () {
     state.notation = this.value;
