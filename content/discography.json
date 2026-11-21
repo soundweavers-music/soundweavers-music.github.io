@@ -1,7 +1,8 @@
 {
-  "_source": "content/歷年作品.md；Apple Music 由 iTunes Lookup API（artistId 1885759902）比對，YouTube Music 取自官方歌手頁。封面由 scripts/fetch_album_covers.py 下載至 assets/brand/albums/。",
+  "_source": "content/歷年作品.md（由 scripts/md_to_discography.py 產生，請改 md 不要改這份）",
   "apple_artist": "https://music.apple.com/tw/artist/1885759902",
   "ytm_artist": "https://music.youtube.com/channel/UCeon05ADqOnC8kSHgZC_5lw",
+  "kkbox_artist": "https://www.kkbox.com/tw/tc/artist/4khusIwqN3_1LgFy9f",
   "released": [
     {
       "title": "為你留一盞燈：松果街的聖誕",
@@ -9,8 +10,6 @@
       "type": "專輯",
       "cat": "純音樂",
       "tracks": 8,
-      "ytm": "OLAK5uy_kW3gJvsmUuieKLaa4znU7PeSwznDxdwB8",
-      "cover": "2026-11-20.webp",
       "tracklist": [
         "轉角的第一盞聖誕燈",
         "我的小星星",
@@ -21,49 +20,22 @@
         "星星也來跳聖誕舞",
         "早安！聖誕還在繼續"
       ],
-      "kkbox": "4nJ14IK0zvZw2edNKF",
+      "en": "A Light Left for You: Christmas On Pinecone Street",
       "intro": [
-        "在松果街，聖誕節有一個溫柔的習慣——為需要陪伴的人，留一盞燈。 冬雪悄悄落下，街角的第一盞聖誕燈亮了起來。 小松鼠阿栗也開始準備一份特別的禮物：一顆親手製作的小木星星。 然而，一場意外讓星星缺了一角，也讓阿栗失去了送出禮物的勇氣。 直到聖誕夜裡，熊伯為牠打開家門， 阿栗才發現，原來真正的溫暖，不需要用一份完美的禮物來交換。 《為你留一盞燈：松果街的聖誕》 以鋼琴、木吉他、曼陀林、馬林巴、木管樂器、手風琴、手鐘 及各種清脆的聖誕鈴聲，交織出一段充滿童趣、溫暖與歡笑的冬日旅程。 從街角點燈、手作禮物、熱可可與紅緞帶的追逐，到聖誕晚餐、星光舞會， 以及充滿鳥鳴的明亮早晨，八首樂曲串起一個關於接納、分享與愛的故事。 當聖誕夜過去，阿栗也學會為下一位需要陪伴的朋友點亮一盞燈。 因為聖誕節最珍貴的禮物，或許不是我們收到了什麼， 而是有人願意為我們留一個位置，讓溫暖繼續傳下去。"
-      ]
-    },
-    {
-      "title": "聖誕，叮咚叮咚",
-      "en": "Ding Dong, It's Christmas!",
-      "date": "2026-11-05",
-      "type": "專輯",
-      "cat": "人聲",
-      "tracks": 12,
-      "apple": "6829706451",
-      "ytm": "OLAK5uy_leHapQfiLFMGke2IpzgwkFR_PR22LsTlA",
-      "tracklist": [
-        "叮叮噹！聖誕來了",
-        "聖誕樹呀亮晶晶",
-        "出發！聖誕小市集",
-        "聖誕大餐開動啦！",
-        "聖誕夜，晚安",
-        "早安！聖誕快樂",
-        "叮叮噹！聖誕來了 (伴奏版)",
-        "聖誕樹呀亮晶晶 (伴奏版)",
-        "出發！聖誕小市集 (伴奏版)",
-        "聖誕大餐開動啦！ (伴奏版)",
-        "聖誕夜，晚安 (伴奏版)",
-        "早安！聖誕快樂 (伴奏版)"
+        "在松果街，聖誕節有一個溫柔的習慣——為需要陪伴的人，留一盞燈。冬雪悄悄落下，街角的第一盞聖誕燈亮了起來。小松鼠阿栗也開始準備一份特別的禮物：一顆親手製作的小木星星。然而，一場意外讓星星缺了一角，也讓阿栗失去了送出禮物的勇氣。直到聖誕夜裡，熊伯為牠打開家門，阿栗才發現，原來真正的溫暖，不需要用一份完美的禮物來交換。《為你留一盞燈：松果街的聖誕》 以鋼琴、木吉他、曼陀林、馬林巴、木管樂器、手風琴、手鐘及各種清脆的聖誕鈴聲，交織出一段充滿童趣、溫暖與歡笑的冬日旅程。從街角點燈、手作禮物、熱可可與紅緞帶的追逐，到聖誕晚餐、星光舞會，以及充滿鳥鳴的明亮早晨，八首樂曲串起一個關於接納、分享與愛的故事。當聖誕夜過去，阿栗也學會為下一位需要陪伴的朋友點亮一盞燈。因為聖誕節最珍貴的禮物，或許不是我們收到了什麼，而是有人願意為我們留一個位置，讓溫暖繼續傳下去。"
       ],
-      "cover": "2026-11-05-6829706451.webp",
-      "kkbox": "CrW7007JyWtohgdzIf",
-      "intro": [
-        "叮咚叮咚！聖誕節來啦！ 當清晨的第一聲鈴鐺響起， 一場充滿歡笑、驚喜與溫暖的聖誕小旅行， 悄悄展開。 從打開窗戶迎接聖誕、替聖誕樹掛上閃亮的彩球， 到圍起圍巾逛逛熱鬧的聖誕小市集； 回家後一起揉麵團、烤薑餅， 準備香噴噴的聖誕大餐。 當夜色漸深，伴著柔和的星光進入甜甜夢鄉， 再迎接充滿禮物與驚喜的聖誕早晨。 《聖誕，叮咚叮咚》是隔壁織音人為孩子與全家人創作的六首原創聖誕兒歌， 以一段完整的節慶日常， 串起聖誕節裡最令人期待的美好時刻。 音樂融合輕快的原聲流行、溫暖的民謠、俏皮的節奏與輕柔的搖籃曲。 透過清新自然的女聲演唱， 搭配木吉他、曼陀林、鋼琴及各式溫潤的原聲樂器， 讓每一首歌都有容易跟唱的旋律， 也有屬於自己的聖誕風景。 聖誕節不只是閃亮的燈飾、美味的大餐與期待已久的禮物， 更是一起動手布置、分享笑聲，以及陪伴彼此的幸福時光。 希望這六首歌曲，能陪著孩子拍拍手、唱唱歌， 也陪著全家人留下一段暖暖的聖誕回憶。 今年聖誕節，叮咚叮咚！一起過聖誕吧！"
-      ]
+      "cover": "2026-11-20.webp",
+      "apple": "6833509970",
+      "ytm": "MPREb_dNfs5O1MJ8L",
+      "kkbox": "4nJ14IK0zvZw2edNKF",
+      "spotify": "7nhXxgbonDynPe9HWs7Vnc"
     },
     {
       "title": "風與水的途中",
-      "en": "Between Wind and Water",
       "date": "2026-11-05",
       "type": "專輯",
       "cat": "純音樂",
       "tracks": 20,
-      "apple": "6832516111",
-      "ytm": "OLAK5uy_lcKx94pvDheqUpcrfGr-zj40PPGy40e_0",
       "tracklist": [
         "霧醒之前風先來了",
         "林梢藏著一陣風",
@@ -87,17 +59,47 @@
         "風終於停在弦上"
       ],
       "cover": "2026-11-05-6832516111.webp",
-      "kkbox": "CkVRs5hjW4Ta2sjiup"
+      "apple": "6832516111",
+      "ytm": "MPREb_VqofszUYpqJ",
+      "kkbox": "CkVRs5hjW4Ta2sjiup",
+      "spotify": "2P81I3uMXKKXYZw4ECpaFx"
+    },
+    {
+      "title": "聖誕，叮咚叮咚",
+      "date": "2026-11-05",
+      "type": "專輯",
+      "cat": "人聲",
+      "tracks": 12,
+      "tracklist": [
+        "叮叮噹！聖誕來了",
+        "聖誕樹呀亮晶晶",
+        "出發！聖誕小市集",
+        "聖誕大餐開動啦！",
+        "聖誕夜，晚安",
+        "早安！聖誕快樂",
+        "叮叮噹！聖誕來了 (伴奏版)",
+        "聖誕樹呀亮晶晶 (伴奏版)",
+        "出發！聖誕小市集 (伴奏版)",
+        "聖誕大餐開動啦！ (伴奏版)",
+        "聖誕夜，晚安 (伴奏版)",
+        "早安！聖誕快樂 (伴奏版)"
+      ],
+      "en": "Ding Dong, It's Christmas!",
+      "intro": [
+        "叮咚叮咚！聖誕節來啦！當清晨的第一聲鈴鐺響起，一場充滿歡笑、驚喜與溫暖的聖誕小旅行，悄悄展開。從打開窗戶迎接聖誕、替聖誕樹掛上閃亮的彩球，到圍起圍巾逛逛熱鬧的聖誕小市集；回家後一起揉麵團、烤薑餅，準備香噴噴的聖誕大餐。當夜色漸深，伴著柔和的星光進入甜甜夢鄉，再迎接充滿禮物與驚喜的聖誕早晨。《聖誕，叮咚叮咚》是隔壁織音人為孩子與全家人創作的六首原創聖誕兒歌，以一段完整的節慶日常，串起聖誕節裡最令人期待的美好時刻。音樂融合輕快的原聲流行、溫暖的民謠、俏皮的節奏與輕柔的搖籃曲。透過清新自然的女聲演唱，搭配木吉他、曼陀林、鋼琴及各式溫潤的原聲樂器，讓每一首歌都有容易跟唱的旋律，也有屬於自己的聖誕風景。聖誕節不只是閃亮的燈飾、美味的大餐與期待已久的禮物，更是一起動手布置、分享笑聲，以及陪伴彼此的幸福時光。希望這六首歌曲，能陪著孩子拍拍手、唱唱歌，也陪著全家人留下一段暖暖的聖誕回憶。今年聖誕節，叮咚叮咚！一起過聖誕吧！"
+      ],
+      "cover": "2026-11-05-6829706451.webp",
+      "apple": "6829706451",
+      "ytm": "MPREb_IHZAd4UK1Dn",
+      "kkbox": "CrW7007JyWtohgdzIf",
+      "spotify": "58JMjxCG9KQ4x4uXGekVdv"
     },
     {
       "title": "夜色織音（中輯）：日常的拾趣．兩人時光篇",
-      "en": "Night Weaving, Part 2: Everyday Little Joys",
       "date": "2026-10-20",
       "type": "專輯",
       "cat": "純音樂",
       "tracks": 19,
-      "apple": "6832517213",
-      "ytm": "OLAK5uy_nNG5C3QDk7De5JkMwdh89OnhuyySEJ1pI",
       "tracklist": [
         "毛線球的追逐大戰",
         "畫布水彩與直立琴",
@@ -120,17 +122,17 @@
         "轉動旋鈕的靜電音"
       ],
       "cover": "2026-10-20.webp",
-      "kkbox": "HZ6W_pFSAsSpKGxkLJ"
+      "apple": "6832517213",
+      "ytm": "MPREb_KDNFy1peq2X",
+      "kkbox": "HZ6W_pFSAsSpKGxkLJ",
+      "spotify": "4ZrBWose2pGiGfwA3HuZeX"
     },
     {
       "title": "曼常微光",
-      "en": "Eight Strings In Everyday Light",
       "date": "2026-10-05",
       "type": "專輯",
       "cat": "純音樂",
       "tracks": 20,
-      "apple": "6832517426",
-      "ytm": "OLAK5uy_lNbvuz9oE_kh-MyH_aZm7DlhUQAPXnS6o",
       "tracklist": [
         "晨光越過半掩的窗",
         "水汽在廚房緩緩升起",
@@ -153,30 +155,30 @@
         "月光停在還沒闔上的書頁",
         "明天從同一扇窗開始"
       ],
-      "cover": "2026-10-05.webp",
-      "kkbox": "GncPb2xHPEfOA2yPfc",
       "intro": [
         "一天裡，其實有很多很小的光。",
-        "它可能是清晨從窗簾邊緣落進房間的第一道亮色，是水壺開始加熱時，廚房漸漸醒來的聲音；也可能只是走去買麵包的一小段路、十點半熟悉的街角，或陽光剛好停在木桌上的那幾分鐘。 《曼常微光》以曼陀林為主要聲音，沿著一整天的時間緩緩前進。",
+        "它可能是清晨從窗簾邊緣落進房間的第一道亮色，是水壺開始加熱時，廚房漸漸醒來的聲音；也可能只是走去買麵包的一小段路、十點半熟悉的街角，或陽光剛好停在木桌上的那幾分鐘。《曼常微光》以曼陀林為主要聲音，沿著一整天的時間緩緩前進。",
         "從清晨醒來，到上午開始走進生活；從午後三點半稍微放慢的步調，到一場突然落下、又很快停歇的小雨；接著進入黃昏，看街燈與窗戶一盞一盞亮起，再回到晚餐前忙碌的廚房。最後，把杯子洗好，把桌面擦乾淨，把今天用過的東西一一放回原位，也把一天慢慢收進夜裡。",
         "20 首曲目就像 20 個生活切片。",
-        "沒有巨大的事件，也沒有刻意安排的遠方。這裡記錄的是早餐仍冒著熱氣、曬好的衣服帶著太陽的氣味、雨停後路面映出的微光，以及收到一個小小好消息時，嘴角不自覺揚起來的瞬間。 有時它們像房間裡彼此回應的聲音，有時像街上的腳步、窗外的風、雨滴落下後留下的空白。",
+        "沒有巨大的事件，也沒有刻意安排的遠方。這裡記錄的是早餐仍冒著熱氣、曬好的衣服帶著太陽的氣味、雨停後路面映出的微光，以及收到一個小小好消息時，嘴角不自覺揚起來的瞬間。有時它們像房間裡彼此回應的聲音，有時像街上的腳步、窗外的風、雨滴落下後留下的空白。",
         "它想回到日常裡。",
         "去發現那些平常很容易被忽略的事情：沒有安排的二十分鐘、刻意繞遠一點的回家路、晚餐前有人在廚房來回走動的聲音，還有深夜明明該睡了，卻仍想再坐十分鐘的片刻。",
         "一天沒有被畫下句點，只是暫時收好。",
         "因為窗外還會再次變亮，水壺還會重新開始唱歌，熟悉的街道仍然會有人走過。",
         "而那些看似平凡的時刻，也會在明天，繼續發著一點點的光。"
-      ]
+      ],
+      "cover": "2026-10-05.webp",
+      "apple": "6832517426",
+      "ytm": "MPREb_ppUioYd60c2",
+      "kkbox": "GncPb2xHPEfOA2yPfc",
+      "spotify": "6L0xqPXXofwgbu0NouMQqK"
     },
     {
-      "title": "夜色織音（上輯）：門內的守候．毛孩視角篇",
-      "en": "Night Weaving, Part 1: Waiting Inside the Door",
+      "title": "夜色織音 (上輯) ：門內的守候．毛孩視角篇",
       "date": "2026-09-15",
       "type": "專輯",
       "cat": "純音樂",
       "tracks": 19,
-      "apple": "6832516294",
-      "ytm": "OLAK5uy_nOL3gYFn-vDBf3y0Ls3TyVMFlhMRCsE9c",
       "tracklist": [
         "門外熟悉的腳步聲",
         "迎接歸來時的雀躍",
@@ -198,47 +200,47 @@
         "地毯上的搗蛋毛孩",
         "穿梭拼圖間的尋寶"
       ],
-      "cover": "2026-09-15.webp",
-      "kkbox": "Ko_yw5sa1IXU89mba3",
       "intro": [
         "門外的人還沒回來，家裡真的安靜嗎？",
-        "當夜色慢慢落下，門內其實一直有人等著。 窩在熟悉的角落、趴在地毯上、靠著窗邊發呆，偶爾因為走廊傳來一點聲響便抬起頭。 對毛孩來說，一天的時間沒有會議、死線，也沒有通勤尖峰； 他們記得的，是熟悉的腳步聲、鑰匙碰撞的清脆聲響，以及門終於被推開的那一刻。",
-        "毛孩視角篇把視線留在家裡，從動物夥伴的高度重新看見同一個夜晚。 當你還在外面的世界奔波，他們守著空下來的房間，也守著那些屬於彼此的生活氣味與聲音。 這是一段沒有催促的等待，也是一種安安靜靜存在著的陪伴。",
-        "全專輯環繞著療癒的 432 Hz 基準頻率，延續《兩人時光篇》溫暖而自然的聲響質地。 室內原聲流行（Chamber Pop）的細緻空間、民族原聲（Acoustic Folk）的輕巧呼吸、新古典流行（Neo-Classical Pop）的柔和旋律， 以及輕當代爵士（Light Contemporary Jazz）微微晃動的節奏，被重新編織成毛孩眼中的居家夜景。",
-        "指彈尼龍吉他的溫潤、毛氈鋼琴細微的機械聲響、低音提琴沉穩而不壓迫的脈動，以及偶爾落下的輕柔打擊樂，像房間裡一盞盞慢慢亮起的小燈。 純粹的原聲樂器保留了呼吸、摩擦與共鳴，也讓這些沒有說出口的等待，有了自己的聲音。 專輯的聽覺動線，跟著毛孩們度過門內的一個晚上。",
-        "可能是水豚隔比悠趴在門邊，聽見電梯停靠便悄悄抬起頭； 柔音牙蜷在熟悉的軟墊裡，耳朵捕捉著走廊上每一次接近的腳步； 米音丸在窗邊望著逐漸亮起的城市燈火； 鄰音丸則趁沒人注意時撥弄紙片，在安靜的房間裡製造一些細碎的小騷動。 直到鑰匙終於插進門鎖。",
-        "門打開之後，等待也跟著變成另一種節奏。 腳步聲、衣料落下的摩擦聲、廚房裡鍋子的輕響、杯子放上桌面的聲音， 還有那些沒有特別說出口，卻每天都會發生的小小重逢。",
-        "有人開始準備晚餐，有人坐到鋼琴前隨手彈了幾個音； 毛孩們在腳邊來來回回，最後各自找到最舒服的位置躺下。 原本空著的屋子，就這樣一點一點重新有了溫度。",
-        "夜再深一些，音樂也慢慢放輕。 兩個人在自己的世界裡聊天、閱讀、整理房間，或者只是靜靜坐著； 毛孩們則散落在身旁，打盹、伸懶腰，偶爾抬頭確認熟悉的人依然還在。 對他們而言，這或許就是一天裡最重要的時刻。",
-        "今晚，從門內開始播放。 聽一場沒有台詞的守候， 聽那些一直待在家裡的小小身影，如何用呼吸、腳步與安靜的陪伴，記住你回家的聲音。",
-        "當門終於關上，外面的世界留在門外。 而門內，有一群早已等了你一整天的夥伴。 仍是夜色織音 只是故事，換成了他們的視角。"
-      ]
+        "當夜色慢慢落下，門內其實一直有人等著。窩在熟悉的角落、趴在地毯上、靠著窗邊發呆，偶爾因為走廊傳來一點聲響便抬起頭。對毛孩來說，一天的時間沒有會議、死線，也沒有通勤尖峰；他們記得的，是熟悉的腳步聲、鑰匙碰撞的清脆聲響，以及門終於被推開的那一刻。",
+        "毛孩視角篇把視線留在家裡，從動物夥伴的高度重新看見同一個夜晚。當你還在外面的世界奔波，他們守著空下來的房間，也守著那些屬於彼此的生活氣味與聲音。這是一段沒有催促的等待，也是一種安安靜靜存在著的陪伴。",
+        "全專輯環繞著療癒的 432 Hz 基準頻率，延續《兩人時光篇》溫暖而自然的聲響質地。室內原聲流行（Chamber Pop）的細緻空間、民族原聲（Acoustic Folk）的輕巧呼吸、新古典流行（Neo-Classical Pop）的柔和旋律，以及輕當代爵士（Light Contemporary Jazz）微微晃動的節奏，被重新編織成毛孩眼中的居家夜景。",
+        "指彈尼龍吉他的溫潤、毛氈鋼琴細微的機械聲響、低音提琴沉穩而不壓迫的脈動，以及偶爾落下的輕柔打擊樂，像房間裡一盞盞慢慢亮起的小燈。純粹的原聲樂器保留了呼吸、摩擦與共鳴，也讓這些沒有說出口的等待，有了自己的聲音。專輯的聽覺動線，跟著毛孩們度過門內的一個晚上。",
+        "可能是水豚隔比悠趴在門邊，聽見電梯停靠便悄悄抬起頭；柔音牙蜷在熟悉的軟墊裡，耳朵捕捉著走廊上每一次接近的腳步；米音丸在窗邊望著逐漸亮起的城市燈火；鄰音丸則趁沒人注意時撥弄紙片，在安靜的房間裡製造一些細碎的小騷動。直到鑰匙終於插進門鎖。",
+        "門打開之後，等待也跟著變成另一種節奏。腳步聲、衣料落下的摩擦聲、廚房裡鍋子的輕響、杯子放上桌面的聲音，還有那些沒有特別說出口，卻每天都會發生的小小重逢。",
+        "有人開始準備晚餐，有人坐到鋼琴前隨手彈了幾個音；毛孩們在腳邊來來回回，最後各自找到最舒服的位置躺下。原本空著的屋子，就這樣一點一點重新有了溫度。",
+        "夜再深一些，音樂也慢慢放輕。兩個人在自己的世界裡聊天、閱讀、整理房間，或者只是靜靜坐著；毛孩們則散落在身旁，打盹、伸懶腰，偶爾抬頭確認熟悉的人依然還在。對他們而言，這或許就是一天裡最重要的時刻。",
+        "今晚，從門內開始播放。聽一場沒有台詞的守候，聽那些一直待在家裡的小小身影，如何用呼吸、腳步與安靜的陪伴，記住你回家的聲音。",
+        "當門終於關上，外面的世界留在門外。而門內，有一群早已等了你一整天的夥伴。仍是夜色織音只是故事，換成了他們的視角。"
+      ],
+      "cover": "2026-09-15.webp",
+      "apple": "6832516294",
+      "ytm": "MPREb_sv6961m70EZ",
+      "kkbox": "Ko_yw5sa1IXU89mba3",
+      "spotify": "4IJ6w8MdqeTW1JQdfXuU5Y"
     },
     {
       "title": "記憶依舊",
-      "en": "",
       "date": "2026-06-24",
       "type": "單曲",
       "cat": "人聲",
       "tracks": 2,
-      "apple": "6785524303",
-      "ytm": "OLAK5uy_k4Laipr-VSVYu8vFkVBzXRBktsk-x7tPA",
       "tracklist": [
         "記憶依舊",
         "記憶依舊 (伴奏版)"
       ],
       "cover": "2026-06-24.webp",
-      "kkbox": "KkyNvaQALfA_O-N-Jk"
+      "apple": "6785524303",
+      "ytm": "MPREb_AS6AeKrpNqG",
+      "kkbox": "KkyNvaQALfA_O-N-Jk",
+      "spotify": "63C2DPar831Gu6HbYFe0tQ"
     },
     {
-      "title": "夜色織音（上輯）：門後的歸零．兩人時光篇",
-      "en": "Night Weaving, Part 1: Reset Behind Closed Doors",
+      "title": "夜色織音 (上輯) ：門後的歸零．兩人時光篇",
       "date": "2026-05-21",
       "type": "專輯",
       "cat": "純音樂",
       "tracks": 19,
-      "apple": "6772087722",
-      "ytm": "OLAK5uy_maM7DPn9UzbbvyMW7bJpgpc4rwLvnHeMM",
       "tracklist": [
         "鑰匙轉動的清脆聲",
         "褪去外套的輕鬆時刻",
@@ -260,26 +262,26 @@
         "地毯拼圖的歡笑聲",
         "尋找邊緣碎片的專注"
       ],
-      "cover": "2026-05-21.webp",
-      "kkbox": "Kng5NbxJbvUVLSgknJ",
       "intro": [
         "關上電腦，心真的下班了嗎？",
-        "跨過家門、褪下外衣那一刻，腦袋裡堆疊的會議死線與車水馬龍的喧囂，往往無法瞬間散去。 在還不想睡覺的晚間時光裡，我們更需要一段用樂音溫柔微調的「門後過渡帶」。 給靈魂留一段清醒的放鬆期，平慢呼吸，在有機的音符裡安心著陸。",
-        "整張專輯滿溢著最真摯的鄰家陪伴感。 將聽覺視角拉回那些平凡卻珍貴的居家微動態，如同隔壁夥伴給予無壓力、最懂你的日常守候。 全專環繞著療癒的 432 Hz 基準頻率，將室內原聲流行（Chamber Pop）的立體聲學空間、 民族原聲（Acoustic Folk）的輕盈跳躍、新古典流行（Neo-Classical Pop）的抒情優美， 與輕當代爵士（Light Contemporary Jazz）的慵懶搖擺細細交織成一段舒服的深夜私語。 指彈尼龍吉他的溫潤、毛氈鋼琴保留的機械摩擦聲，與低音提琴緊實不混濁的低頻脈動， 用純粹原聲樂器的真實震動交織出與世隔絕的安全感。",
-        "聽覺的流轉，細膩貼著主角與動物夥伴們生動、充滿煙火氣的居家步伐。 在靜謐的柔情裡，交織著充滿溫馨互動的生活微動態： 從鑰匙轉動的清脆喀噠聲、廚房燉鍋冒泡的熱騰騰香氣， 到洗碗槽肥皂泡沫與玻璃杯輕碰間的清脆家務時光。",
-        "隨後，音符化作迎著晚風的露臺不插電合奏，或是換上柔軟睡衣後， 兩人在地毯上一邊拼圖，一邊看著絨鼠鄰音丸調皮撥弄紙片的歡笑餘韻。",
-        "今晚，不要急著睡。 點開播放鍵，讓音符將白天的混亂有條不紊地打理乾淨， 優雅地將一切歸零，拿回屬於你們的夜晚掌控權。"
-      ]
+        "跨過家門、褪下外衣那一刻，腦袋裡堆疊的會議死線與車水馬龍的喧囂，往往無法瞬間散去。在還不想睡覺的晚間時光裡，我們更需要一段用樂音溫柔微調的「門後過渡帶」。給靈魂留一段清醒的放鬆期，平慢呼吸，在有機的音符裡安心著陸。",
+        "整張專輯滿溢著最真摯的鄰家陪伴感。將聽覺視角拉回那些平凡卻珍貴的居家微動態，如同隔壁夥伴給予無壓力、最懂你的日常守候。全專環繞著療癒的 432 Hz 基準頻率，將室內原聲流行（Chamber Pop）的立體聲學空間、民族原聲（Acoustic Folk）的輕盈跳躍、新古典流行（Neo-Classical Pop）的抒情優美，與輕當代爵士（Light Contemporary Jazz）的慵懶搖擺細細交織成一段舒服的深夜私語。指彈尼龍吉他的溫潤、毛氈鋼琴保留的機械摩擦聲，與低音提琴緊實不混濁的低頻脈動，用純粹原聲樂器的真實震動交織出與世隔絕的安全感。",
+        "聽覺的流轉，細膩貼著主角與動物夥伴們生動、充滿煙火氣的居家步伐。在靜謐的柔情裡，交織著充滿溫馨互動的生活微動態：從鑰匙轉動的清脆喀噠聲、廚房燉鍋冒泡的熱騰騰香氣，到洗碗槽肥皂泡沫與玻璃杯輕碰間的清脆家務時光。",
+        "隨後，音符化作迎著晚風的露臺不插電合奏，或是換上柔軟睡衣後，兩人在地毯上一邊拼圖，一邊看著絨鼠鄰音丸調皮撥弄紙片的歡笑餘韻。",
+        "今晚，不要急著睡。點開播放鍵，讓音符將白天的混亂有條不紊地打理乾淨，優雅地將一切歸零，拿回屬於你們的夜晚掌控權。"
+      ],
+      "cover": "2026-05-21.webp",
+      "apple": "6772087722",
+      "ytm": "MPREb_9fXiZ5DJpqp",
+      "kkbox": "Kng5NbxJbvUVLSgknJ",
+      "spotify": "4oVLmufuk0c2NAKWdChMEV"
     },
     {
       "title": "心流時刻",
-      "en": "Flow Moments",
       "date": "2026-05-01",
       "type": "專輯",
       "cat": "純音樂",
       "tracks": 20,
-      "apple": "1893327752",
-      "ytm": "OLAK5uy_nBKRFduskXqigwAi1pQaF0IixguRLqdJY",
       "tracklist": [
         "晨光微隙",
         "拂曉的決心",
@@ -302,23 +304,23 @@
         "萬物歸靜",
         "晨鳥的呼喚"
       ],
-      "cover": "2026-05-01.webp",
-      "kkbox": "CooHwd-O1JHryMEiq7",
       "intro": [
-        "歡迎來到《心流時刻》。這不僅是一張輕音樂專輯，更是一趟為你量身打造的專注旅程。 你的專注力，是這個世界上最稀缺的超能力。",
-        "我們捨棄了複雜的電子合成器與喧鬧的人聲，留下黑白琴鍵的純淨與木吉他琴弦的溫潤。 整張專輯溫柔地跟隨著你大腦的自然節奏： 從剛坐下時為你加油打氣的「準備進入狀態」、思緒逐漸清晰的「釋放壓力」， 接著深潛入忘我專注的「心流巔峰」，最後在任務完成時給你一個溫暖的「擁抱與恢復」。",
-        "戴上耳機，泡一杯熱茶，按下播放鍵。讓這些充滿呼吸感的旋律、溫暖的木質共鳴與深邃的弦樂紋理， 為你建立起一面堅不可摧的神經護盾。無論是面對龐雜的程式碼、繁重的數據分析，還是枯竭的寫作靈感 ，『心流時刻』將帶領你隔絕世界的喧囂，毫不費力地滑入絕對專注的深海，找回最平靜、最高效的自己。"
-      ]
+        "歡迎來到《心流時刻》。這不僅是一張輕音樂專輯，更是一趟為你量身打造的專注旅程。你的專注力，是這個世界上最稀缺的超能力。",
+        "我們捨棄了複雜的電子合成器與喧鬧的人聲，留下黑白琴鍵的純淨與木吉他琴弦的溫潤。整張專輯溫柔地跟隨著你大腦的自然節奏：從剛坐下時為你加油打氣的「準備進入狀態」、思緒逐漸清晰的「釋放壓力」，接著深潛入忘我專注的「心流巔峰」，最後在任務完成時給你一個溫暖的「擁抱與恢復」。",
+        "戴上耳機，泡一杯熱茶，按下播放鍵。讓這些充滿呼吸感的旋律、溫暖的木質共鳴與深邃的弦樂紋理，為你建立起一面堅不可摧的神經護盾。無論是面對龐雜的程式碼、繁重的數據分析，還是枯竭的寫作靈感，『心流時刻』將帶領你隔絕世界的喧囂，毫不費力地滑入絕對專注的深海，找回最平靜、最高效的自己。"
+      ],
+      "cover": "2026-05-01.webp",
+      "apple": "1893327752",
+      "ytm": "MPREb_SVpO5tmEWjq",
+      "kkbox": "CooHwd-O1JHryMEiq7",
+      "spotify": "1nBQhLYotFzyncxVDr1Xbl"
     },
     {
       "title": "留白的午後練習",
-      "en": "The Art of an Unhurried Afternoon",
       "date": "2026-03-05",
       "type": "專輯",
       "cat": "純音樂",
       "tracks": 20,
-      "apple": "6832517153",
-      "ytm": "OLAK5uy_n7JAFWSSfJCQYByFAKXLUzV3qBR0BTtE4",
       "tracklist": [
         "先把下午空下來",
         "桌角的一小片晴朗",
@@ -342,38 +344,38 @@
         "午後，未完待續"
       ],
       "cover": "2026-03-05.webp",
-      "kkbox": "Krswaw20QPhDDxCCfo"
+      "apple": "6832517153",
+      "ytm": "MPREb_oqXO2oEPNE3",
+      "kkbox": "Krswaw20QPhDDxCCfo",
+      "spotify": "3VsaXnXRO3ymS77AxONTZ6"
     },
     {
       "title": "彼女の姿",
-      "en": "",
       "date": "2026-03-03",
       "type": "單曲",
       "cat": "人聲",
       "tracks": 2,
-      "apple": "1891371070",
-      "ytm": "OLAK5uy_kFKx2R4Fs287-jRxIis-eB3gskPQHjqrQ",
       "tracklist": [
         "彼女の姿",
         "彼女の姿 (伴奏版)"
       ],
-      "cover": "2026-03-03.webp",
-      "kkbox": "Km-35r96mUrTkLLMaX",
       "intro": [
-        "起源於六月的某一天，一個美麗的想像側影。 腦海中，反覆勾勒出住在隔壁城市的那位女孩。她不只是一個角色，更像是一種「關於美好的可能性」。 雖然認識不深，在夢境的想像中，她的頭髮帶著潮水的鹹味與陽光的溫度，那是南方的氣息； 她的眼神從不耽溺於腳下的沙灘，而是越過海浪，看向那個我還沒抵達的遠方。",
-        "那是我們對「理想自我」的最初想像。 期待著女孩的模樣：期待她即便背負著沈重的夢想，腳步依然輕盈； 期待那件被夕陽染紅的連身裙，能在漫長的時光裡，始終保有最明亮的色澤。 我們想像她在雨中仰望，不是為了哀傷，而是為了尋找隱藏在雲層後的另一片陽光。",
-        "這首歌寫給那位想像中的女孩，也是寫給每一個在岸邊守望、在夢想中跋涉的你。 我們期待著，當音樂結束、當故事與肩頭交疊時，你已經在那片遙遠的未來裡，活成了最自由、最燦爛的樣子。"
-      ]
+        "起源於六月的某一天，一個美麗的想像側影。腦海中，反覆勾勒出住在隔壁城市的那位女孩。她不只是一個角色，更像是一種「關於美好的可能性」。雖然認識不深，在夢境的想像中，她的頭髮帶著潮水的鹹味與陽光的溫度，那是南方的氣息；她的眼神從不耽溺於腳下的沙灘，而是越過海浪，看向那個我還沒抵達的遠方。",
+        "那是我們對「理想自我」的最初想像。期待著女孩的模樣：期待她即便背負著沈重的夢想，腳步依然輕盈；期待那件被夕陽染紅的連身裙，能在漫長的時光裡，始終保有最明亮的色澤。我們想像她在雨中仰望，不是為了哀傷，而是為了尋找隱藏在雲層後的另一片陽光。",
+        "這首歌寫給那位想像中的女孩，也是寫給每一個在岸邊守望、在夢想中跋涉的你。我們期待著，當音樂結束、當故事與肩頭交疊時，你已經在那片遙遠的未來裡，活成了最自由、最燦爛的樣子。"
+      ],
+      "cover": "2026-03-03.webp",
+      "apple": "1891371070",
+      "ytm": "MPREb_elZM3BzF0xm",
+      "kkbox": "Km-35r96mUrTkLLMaX",
+      "spotify": "5ltgR8n0wGE2HsIgAVTXrp"
     },
     {
       "title": "靜謐時刻",
-      "en": "Serene Moments",
       "date": "2026-02-24",
       "type": "專輯",
       "cat": "純音樂",
       "tracks": 15,
-      "apple": "1877693859",
-      "ytm": "OLAK5uy_lBwAkUuo9bmcf1yvuvx5UbcCOkMX3nf8M",
       "tracklist": [
         "晨霧深處",
         "緩緩挪移的光影",
@@ -391,44 +393,44 @@
         "沉默裡守護的溫柔",
         "回歸純粹的留白"
       ],
-      "cover": "2026-02-24.webp",
-      "kkbox": "-kkQM5PhzpOHQ5WU0X",
       "intro": [
-        "當外在世界的資訊與嘈雜過載時，我們需要一個地方安放疲憊。 音樂在這裡是一種陪伴的能量。 透過鋼琴琴弦震動產生的共鳴，將雜念過濾，只留下最純粹的當下。 帶你進行自我修復的靜謐之境。",
+        "當外在世界的資訊與嘈雜過載時，我們需要一個地方安放疲憊。音樂在這裡是一種陪伴的能量。透過鋼琴琴弦震動產生的共鳴，將雜念過濾，只留下最純粹的當下。帶你進行自我修復的靜謐之境。",
         "## 2025"
-      ]
+      ],
+      "cover": "2026-02-24.webp",
+      "apple": "1877693859",
+      "ytm": "MPREb_APTyxAgqLlz",
+      "spotify": "2xrC35cwLchvFkAJjf5Mm3",
+      "kkbox": "-kkQM5PhzpOHQ5WU0X"
     },
     {
       "title": "當冬夜有光",
-      "en": "",
       "date": "2025-12-31",
       "type": "單曲",
       "cat": "人聲",
       "tracks": 2,
-      "apple": "1863950653",
-      "ytm": "OLAK5uy_lReqnRw66PruWUgKfmAJmazV7-zu0AcLs",
       "tracklist": [
         "當冬夜有光",
         "當冬夜有光 (伴奏版)"
       ],
-      "cover": "2025-12-31.webp",
-      "kkbox": "Pajko7OBDe7LUi_06k",
       "intro": [
-        "冬天的夜，總是被拉得特別漫長。 風聲靜下來之後，人也更容易聽見那些藏在心底、 平時來不及面對的聲音。",
-        "我們選擇了在沉默中努力前行。 也許孤單還在，寒意尚未散去， 但只要心裡還留著夢，身邊有人願意陪著， 冬夜，就不再只是寒冷與黑暗。",
-        "在歌曲中，男女聲的交錯， 一方於黑暗中低聲詢問， 一方不急著給答案，選擇靜靜地陪伴。 最終他們的聲音在合唱裡匯聚。",
-        "即使走過無數次孤單， 只要曾經為彼此真誠地綻放過一束光芒， 那份溫度，就足以照亮接下來的路。"
-      ]
+        "冬天的夜，總是被拉得特別漫長。風聲靜下來之後，人也更容易聽見那些藏在心底、平時來不及面對的聲音。",
+        "我們選擇了在沉默中努力前行。也許孤單還在，寒意尚未散去，但只要心裡還留著夢，身邊有人願意陪著，冬夜，就不再只是寒冷與黑暗。",
+        "在歌曲中，男女聲的交錯，一方於黑暗中低聲詢問，一方不急著給答案，選擇靜靜地陪伴。最終他們的聲音在合唱裡匯聚。",
+        "即使走過無數次孤單，只要曾經為彼此真誠地綻放過一束光芒，那份溫度，就足以照亮接下來的路。"
+      ],
+      "cover": "2025-12-31.webp",
+      "apple": "1863950653",
+      "ytm": "MPREb_pajJGRJSitU",
+      "spotify": "1oRBNqsvJ5rfUY9uUheSSD",
+      "kkbox": "Pajko7OBDe7LUi_06k"
     },
     {
       "title": "Frost Waltz: Faint Beat of Intertwined Glow",
-      "en": "冰霜圓舞：暖意交織的微光節拍",
       "date": "2025-12-12",
       "type": "專輯",
       "cat": "純音樂",
       "tracks": 21,
-      "apple": "1863477982",
-      "ytm": "OLAK5uy_mOuvZDuWQHvW2X-LbPIbMhWJTA_JK4flo",
       "tracklist": [
         "緩緩降落：窗外世界的甜蜜期待",
         "夜間絮語：熱湯裡的暖意流動",
@@ -442,7 +444,7 @@
         "爐火溫情：酣暢餘韻的安適小歇",
         "低頻擁抱：沉靜心跳的甜香賞味",
         "緩拍治癒：午後輕柔的律動頻率",
-        "柔光共讀：共振交織的溫暖和弦",
+        "柔光共讀：共振交織的溫暖弦",
         "水鏡交纏：極致溫柔的相融昇華",
         "聖誕市集：小鎮歡鬧的暖意迴旋",
         "聖誕盛宴：燭光下的相擁圓舞",
@@ -452,21 +454,58 @@
         "冰霜合奏：愛與希望的啟程序曲",
         "晚安輕聲：脈動之間的晨曦期盼"
       ],
-      "cover": "2025-12-12.webp",
-      "kkbox": "OpAJiGIQB1A8-Jti6H",
       "intro": [
-        "這是一封來自隔壁小鎮的冬季情書。透過 21 首單曲，細膩地記錄了情侶男孩與女孩一段平凡而溫馨的冬日日常。故事的主角是四位：除了情侶，還有活潑的兔子柔音芽，以及沉靜的療癒水豚隔比悠。從木屋晨光的日常延伸至小鎮節慶，交織出最動人的暖意。 本專輯是冬季情感層次的聲音詩篇，核心理念在於捕捉冰雪寒冷的外在世界與內在湧動的暖意之間的對比與融合，將音樂打造成療癒心靈的「暖意處方」。音樂始於寧靜、舒緩的微光節拍，運用極致柔和的緩拍和深沉的低音，描繪情感的緩慢積累與心靈沉澱。節奏隨劇情逐漸加快，過渡到聖誕和跨年時高潮的華麗圓舞曲，最終在微弱但持續的節拍中找到安穩的錨點。 為了引導聽眾感受這段溫暖旅程的脈絡，專輯的 21 首單曲被編排為五個情感篇章： I. 寒冷夜色下的愛戀序曲： 寒冷雪夜，男孩女孩在木屋相聚，於清晨的擁抱與朝食中迎來故事開端。 II. 冰雪世界的酣暢餘韻： 與柔音芽在冰雪世界裡盡情追逐玩耍，享受戶外歡樂後回到爐火邊小憩。 III. 低頻共振的心靈錨定： 與隔比悠一同感受慢速時光，情侶共浴共讀，在低頻共振中完成身心靈淨化與情感沉澱。 IV. 暖光交織的聖誕節拍： 前往隔壁小鎮市集，感受暖光交織的節日氣氛，以盛大的聖誕晚宴迎來愛情的圓滿。 V. 共鳴迴響的歲末終章： 跨年夜，四位主角的情感在倒數聲中達到最高點，以一場輕柔圓舞曲為冬日日常劃下句點。 這不僅是音樂，更是對寒冬中暖意的一次深情定格。 This album is a winter love letter from the nearby town. Through 21 singles, it intricately chronicles the ordinary, yet deeply warm, winter daily life of the couple, the Boy and the Girl. The story features four protagonists: the couple, the cheerful rabbit Rou Yinya, and the tranquil healing capybara Yi-shen. Their routine, extending from the cabin's morning light to the town's festivities, weaves the most touching narrative of warmth. This album is a sonic poem of winter emotional stratification. The core philosophy captures the contrast and fusion between the cold external world of ice and snow and the surging internal feeling of warmth, creating a therapeutic \"Warmth Prescription\" for the soul. The music begins with the serene, soothing Faint Beat, utilizing extremely gentle slow-beats and deep bass tones to depict the slow accumulation of emotion and spiritual grounding. The tempo gradually accelerates with the plot, culminating in the dazzling grand waltzes during the Christmas and New Year's Eve climaxes, embodying the joyous explosion of affection. We map the couple's intimate relationship, where they ultimately find a stable anchor in the faint yet persistent beat. To guide listeners through the warmth of this journey, the 21 singles are arranged into five emotional chapters: I. Prelude of Affection Beneath the Cold Nightscape: A cold, snowy night where the Boy and Girl gather in the cabin, starting the story with a morning embrace and shared meal. II. The Hearty Lingering Charm of the Ice and Snow World: Playing joyfully with Rou Yinya in the ice and snow world, enjoying outdoor fun before settling by the hearth. III. Low-Frequency Resonance & Soul Anchoring: Experiencing slow-motion time with Yi-shen; the couple achieves body, mind, and spirit purification and emotional grounding through shared bathing and reading. IV. Healing Tempo of Christmas Glow: Visiting the nearby town market to feel the intertwined warm glow of the festive season, concluding with a grand Christmas feast for the fulfillment of love. V. Coda of Resonant Echoes: On New Year's Eve, the emotions of the four protagonists reach their climax during the countdown, marking the end of the winter routine with a gentle waltz. This is more than music; it is an intimate snapshot of warmth found within the deepest winter."
-      ]
+        "這是一封來自隔壁小鎮的冬季情書。透過 21 首單曲，細膩地記錄了情侶男孩與女孩一段平凡而溫馨的冬日日常。故事的主角是四位：除了情侶，還有活潑的兔子柔音芽，以及沉靜的療癒水豚隔比悠。從木屋晨光的日常延伸至小鎮節慶，交織出最動人的暖意。本專輯是冬季情感層次的聲音詩篇，核心理念在於捕捉冰雪寒冷的外在世界與內在湧動的暖意之間的對比與融合，將音樂打造成療癒心靈的「暖意處方」。音樂始於寧靜、舒緩的微光節拍，運用極致柔和的緩拍和深沉的低音，描繪情感的緩慢積累與心靈沉澱。節奏隨劇情逐漸加快，過渡到聖誕和跨年時高潮的華麗圓舞曲，最終在微弱但持續的節拍中找到安穩的錨點。為了引導聽眾感受這段溫暖旅程的脈絡，專輯的 21 首單曲被編排為五個情感篇章：I. 寒冷夜色下的愛戀序曲： 寒冷雪夜，男孩女孩在木屋相聚，於清晨的擁抱與朝食中迎來故事開端。II. 冰雪世界的酣暢餘韻： 與柔音芽在冰雪世界裡盡情追逐玩耍，享受戶外歡樂後回到爐火邊小憩。III. 低頻共振的心靈錨定： 與隔比悠一同感受慢速時光，情侶共浴共讀，在低頻共振中完成身心靈淨化與情感沉澱。IV. 暖光交織的聖誕節拍： 前往隔壁小鎮市集，感受暖光交織的節日氣氛，以盛大的聖誕晚宴迎來愛情的圓滿。V. 共鳴迴響的歲末終章： 跨年夜，四位主角的情感在倒數聲中達到最高點，以一場輕柔圓舞曲為冬日日常劃下句點。這不僅是音樂，更是對寒冬中暖意的一次深情定格。This album is a winter love letter from the nearby town. Through 21 singles, it intricately chronicles the ordinary, yet deeply warm, winter daily life of the couple, the Boy and the Girl. The story features four protagonists: the couple, the cheerful rabbit Rou Yinya, and the tranquil healing capybara Yi-shen. Their routine, extending from the cabin's morning light to the town's festivities, weaves the most touching narrative of warmth.This album is a sonic poem of winter emotional stratification. The core philosophy captures the contrast and fusion between the cold external world of ice and snow and the surging internal feeling of warmth, creating a therapeutic \"Warmth Prescription\" for the soul. The music begins with the serene, soothing Faint Beat, utilizing extremely gentle slow-beats and deep bass tones to depict the slow accumulation of emotion and spiritual grounding. The tempo gradually accelerates with the plot, culminating in the dazzling grand waltzes during the Christmas and New Year's Eve climaxes, embodying the joyous explosion of affection. We map the couple's intimate relationship, where they ultimately find a stable anchor in the faint yet persistent beat.To guide listeners through the warmth of this journey, the 21 singles are arranged into five emotional chapters:I. Prelude of Affection Beneath the Cold Nightscape: A cold, snowy night where the Boy and Girl gather in the cabin, starting the story with a morning embrace and shared meal.II. The Hearty Lingering Charm of the Ice and Snow World: Playing joyfully with Rou Yinya in the ice and snow world, enjoying outdoor fun before settling by the hearth.III. Low-Frequency Resonance & Soul Anchoring: Experiencing slow-motion time with Yi-shen; the couple achieves body, mind, and spirit purification and emotional grounding through shared bathing and reading.IV. Healing Tempo of Christmas Glow: Visiting the nearby town market to feel the intertwined warm glow of the festive season, concluding with a grand Christmas feast for the fulfillment of love.V. Coda of Resonant Echoes: On New Year's Eve, the emotions of the four protagonists reach their climax during the countdown, marking the end of the winter routine with a gentle waltz.This is more than music; it is an intimate snapshot of warmth found within the deepest winter."
+      ],
+      "cover": "2025-12-12.webp",
+      "apple": "1863477982",
+      "ytm": "MPREb_sKI5Dq6g7cC",
+      "spotify": "1tiHXb3KQMD51OmqEA6gp3",
+      "kkbox": "OpAJiGIQB1A8-Jti6H"
     },
     {
-      "title": "Breath of Serenity III: Celestial Harmony",
-      "en": "",
+      "title": "Breath of Serenity II: Earthbound Calm",
       "date": "2025-11-30",
       "type": "專輯",
       "cat": "純音樂",
       "tracks": 20,
-      "apple": "1854474888",
-      "ytm": "OLAK5uy_mqAl7ACUyoTeaVw6SEhL1n__l8sPmuCyw",
+      "tracklist": [
+        "Dew On Still Roots",
+        "Soft Moss Footsteps",
+        "Tender Earth Whispers",
+        "Quiet Cedar Shade",
+        "Forest Breathline",
+        "Shimmering Streams",
+        "Riverstone Rhythm",
+        "Widening Sky Drift",
+        "Earthbound Glow",
+        "Steady Mountain Air",
+        "Heartfire Through Earth",
+        "Courage of the Valley",
+        "Awakening Wind Pulse",
+        "Bright Spirit Rise",
+        "Deep Sky Movement",
+        "Quiet Horizon Flow",
+        "Cloud-Touched Ridge",
+        "Gentle Stone Echo",
+        "Evening Earth Calm",
+        "Fading Into Stillness"
+      ],
+      "intro": [
+        "《Earthbound Calm》聚焦於「安定」。以自然環境的層次與寧靜音景為核心，創造如森林深呼吸般的沈浸體驗。這張作品非常適合需要長時間放鬆、閱讀、工作專注的場合，讓大地的韻律安穩托住你的身心。"
+      ],
+      "cover": "2025-11-30-1854472859.webp",
+      "apple": "1854472859",
+      "ytm": "MPREb_BnpXkuQfqyd",
+      "spotify": "5fMpKUHCjHMptJHvh1eiUE",
+      "kkbox": "D_akinDasaFcOcRPLe"
+    },
+    {
+      "title": "Breath of Serenity III: Celestial Harmony",
+      "date": "2025-11-30",
+      "type": "專輯",
+      "cat": "純音樂",
+      "tracks": 20,
       "tracklist": [
         "Dew On Still Roots",
         "Soft Moss Footsteps",
@@ -489,60 +528,23 @@
         "Evening Earth Calm",
         "Fading Into Stillness"
       ],
-      "cover": "2025-11-30-1854474888.webp",
-      "kkbox": "-om4Ejxc2jy1zedkCC",
       "intro": [
         "這張作品以「天空的和諧」為意象，延續前兩部曲的療癒核心，卻在音色上更向外擴展。柔和鋼琴、輕盈絃樂與大自然的呼吸相互交織，像是夜空中不急不徐的星光，透亮、安定，也引導著心重新找到節奏。",
-        "每一首曲子都彷彿是宇宙的低語 溫暖但不強求、遼闊卻不遙遠。它們陪伴你靜下來，聆聽自己；陪你在日常的紛擾裡，再次看見心中那片依然純粹的光。",
-        "願《Celestial Harmony》成為你在喧囂世界裡最平靜的一口呼吸， 讓內心的星河，再次恢復和諧的流動。"
-      ]
-    },
-    {
-      "title": "Breath of Serenity II: Earthbound Calm",
-      "en": "",
-      "date": "2025-11-30",
-      "type": "專輯",
-      "cat": "純音樂",
-      "tracks": 20,
-      "apple": "1854472859",
-      "ytm": "OLAK5uy_mSGK_BmQI7uB-whHO2oPlYS_hlrikEsT4",
-      "tracklist": [
-        "Dew On Still Roots",
-        "Soft Moss Footsteps",
-        "Tender Earth Whispers",
-        "Quiet Cedar Shade",
-        "Forest Breathline",
-        "Shimmering Streams",
-        "Riverstone Rhythm",
-        "Widening Sky Drift",
-        "Earthbound Glow",
-        "Steady Mountain Air",
-        "Heartfire Through Earth",
-        "Courage of the Valley",
-        "Awakening Wind Pulse",
-        "Bright Spirit Rise",
-        "Deep Sky Movement",
-        "Quiet Horizon Flow",
-        "Cloud-Touched Ridge",
-        "Gentle Stone Echo",
-        "Evening Earth Calm",
-        "Fading Into Stillness"
+        "每一首曲子都彷彿是宇宙的低語溫暖但不強求、遼闊卻不遙遠。它們陪伴你靜下來，聆聽自己；陪你在日常的紛擾裡，再次看見心中那片依然純粹的光。",
+        "願《Celestial Harmony》成為你在喧囂世界裡最平靜的一口呼吸，讓內心的星河，再次恢復和諧的流動。"
       ],
-      "cover": "2025-11-30-1854472859.webp",
-      "kkbox": "D_akinDasaFcOcRPLe",
-      "intro": [
-        "《Earthbound Calm》聚焦於「安定」。 以自然環境的層次與寧靜音景為核心， 創造如森林深呼吸般的沈浸體驗。 這張作品非常適合需要長時間放鬆、閱讀、工作專注的場合， 讓大地的韻律安穩托住你的身心。"
-      ]
+      "cover": "2025-11-30-1854474888.webp",
+      "apple": "1854474888",
+      "ytm": "MPREb_23Kh22M0WRZ",
+      "spotify": "3eurnPhBLBHq9oAQNbJD5F",
+      "kkbox": "-om4Ejxc2jy1zedkCC"
     },
     {
       "title": "Breath of Serenity I: Dawn Rising",
-      "en": "",
       "date": "2025-11-30",
       "type": "專輯",
       "cat": "純音樂",
       "tracks": 20,
-      "apple": "1854477746",
-      "ytm": "OLAK5uy_lnkLSSxeSucDiV0Pe5tqijpGWPVFtyP4Q",
       "tracklist": [
         "Misty Morning Air",
         "Soft Moss Footsteps",
@@ -565,105 +567,105 @@
         "Fading Meadow Breath",
         "Into Gentle Silence"
       ],
-      "cover": "2025-11-30-1854477746.webp",
-      "kkbox": "KoWHLjsa1IXU_pYib3",
       "intro": [
-        "《Dawn Rising》象徵一天的開端。 以輕柔的鋼琴、環境音與空氣感的質地， 引導聽者在晨光中重新聚焦自我。 這張專輯適合清晨冥想、瑜珈、或是想重新整理思緒的時刻， 讓音符成為心靈甦醒的第一縷光。"
-      ]
+        "《Dawn Rising》象徵一天的開端。以輕柔的鋼琴、環境音與空氣感的質地，引導聽者在晨光中重新聚焦自我。這張專輯適合清晨冥想、瑜珈、或是想重新整理思緒的時刻，讓音符成為心靈甦醒的第一縷光。"
+      ],
+      "cover": "2025-11-30-1854477746.webp",
+      "apple": "1854477746",
+      "ytm": "MPREb_BUrP2RCF1lj",
+      "spotify": "2fYlZAES49iWd2oyfs1vTw",
+      "kkbox": "KoWHLjsa1IXU_pYib3"
     },
     {
       "title": "我不想再乖了",
-      "en": "",
       "date": "2025-11-04",
       "type": "單曲",
       "cat": "人聲",
       "tracks": 2,
-      "apple": "1851576447",
-      "ytm": "OLAK5uy_kgIcUZv6hgZvvHAH5ueg1RTOwH29Gct6E",
       "tracklist": [
         "我不想再乖了",
         "我不想再乖了 (伴奏版)"
       ],
-      "cover": "2025-11-04.webp",
       "intro": [
-        "「沒事你乖，忍耐點。」我聽了許久。 久到有時候懷疑那個總是低頭微笑的人，還是不是自己。 我們都會生氣、會委屈及不甘。 只是常被教導「穩重一點」、「不要那麼情緒化」、「你是誰誰誰，應該怎麼樣才對」。 於是把那些吶喊往心裡塞，把眼淚吞回喉嚨，再用理智包裝成成熟的樣子。 「乖」不是溫柔的代名詞，而是一種被期待馴化的形狀。 我不想再乖了。 不想再為了成全誰的期待。 我想允許自己有情緒、有軟弱、有笨拙的時候。 我想在錯誤裡學會真誠，而不是在別人定義的完美裡失去自我。 我不想再乖了。 不是要叛逆，也不是要傷人。 只是我終於明白，懂得照顧別人不代表要放棄自己。 我可以善良，但不必一直退讓。 我可以體諒，但不再委屈。 如果，周圍的世界因此有點混亂，那就讓它混亂吧。 至少這一次，是我所自己選擇的樣子。"
-      ]
+        "「沒事你乖，忍耐點。」我聽了許久。久到有時候懷疑那個總是低頭微笑的人，還是不是自己。我們都會生氣、會委屈及不甘。只是常被教導「穩重一點」、「不要那麼情緒化」、「你是誰誰誰，應該怎麼樣才對」。於是把那些吶喊往心裡塞，把眼淚吞回喉嚨，再用理智包裝成成熟的樣子。「乖」不是溫柔的代名詞，而是一種被期待馴化的形狀。我不想再乖了。不想再為了成全誰的期待。我想允許自己有情緒、有軟弱、有笨拙的時候。我想在錯誤裡學會真誠，而不是在別人定義的完美裡失去自我。我不想再乖了。不是要叛逆，也不是要傷人。只是我終於明白，懂得照顧別人不代表要放棄自己。我可以善良，但不必一直退讓。我可以體諒，但不再委屈。如果，周圍的世界因此有點混亂，那就讓它混亂吧。至少這一次，是我所自己選擇的樣子。"
+      ],
+      "cover": "2025-11-04.webp",
+      "apple": "1851576447",
+      "ytm": "MPREb_soo6f4Vb9KO",
+      "spotify": "5a2gc08j0wRfKuKuUZE6pk"
     },
     {
       "title": "兩個宇宙",
-      "en": "",
       "date": "2025-10-24",
       "type": "單曲",
       "cat": "人聲",
       "tracks": 2,
-      "apple": "1849159485",
-      "ytm": "OLAK5uy_k7XlTL9pnWRNSQAtCbmZQQ8f-Ddq4H62A",
       "tracklist": [
         "兩個宇宙",
         "兩個宇宙 (伴奏版)"
       ],
-      "cover": "2025-10-24-1849159485.webp",
-      "kkbox": "CnRr_zVF4d6Z1vYz96",
       "intro": [
-        "在同一個屋簷下醒來，兩人喝著不同味道的咖啡， 聽見相同的寂靜。 你愛白天的溫度，我習慣夜的孤獨。 我們都在努力相愛， 卻在一次次的妥協裡，慢慢失去了方向。 〈兩個宇宙〉是一首寫給「漸行漸遠的親密」的歌。 當眼神仍交會，心卻開始錯位， 那份沉默，比任何爭吵都更傷人。"
-      ]
+        "在同一個屋簷下醒來，兩人喝著不同味道的咖啡，聽見相同的寂靜。你愛白天的溫度，我習慣夜的孤獨。我們都在努力相愛，卻在一次次的妥協裡，慢慢失去了方向。〈兩個宇宙〉是一首寫給「漸行漸遠的親密」的歌。當眼神仍交會，心卻開始錯位，那份沉默，比任何爭吵都更傷人。"
+      ],
+      "cover": "2025-10-24-1849159485.webp",
+      "apple": "1849159485",
+      "ytm": "MPREb_NE8LXwwup0N",
+      "spotify": "5WY9oa1iGAHUDSmKKzOmgC",
+      "kkbox": "CnRr_zVF4d6Z1vYz96"
     },
     {
       "title": "巧克力",
-      "en": "Chocolate",
       "date": "2025-10-24",
       "type": "單曲",
       "cat": "人聲",
       "tracks": 2,
-      "apple": "1849410638",
-      "ytm": "OLAK5uy_lciDy6W8wA-p9ZjWUqby0x-UPI3rKDO-Q",
       "tracklist": [
         "巧克力",
         "巧克力 (伴奏版)"
       ],
-      "cover": "2025-10-24-1849410638.webp",
-      "kkbox": "4mO_keBU2kVG5RUBOb",
       "intro": [
-        "如果你也愛吃巧克力 你喜歡哪一種類的巧克力呢？",
-        "那天夜裡 從巧克力開始 男孩帶我回顧了過去十多年間的創作歲月 原來創作可以只是像這首巧克力一般 簡單單純的吐露一個念頭與心情",
+        "如果你也愛吃巧克力你喜歡哪一種類的巧克力呢？",
+        "那天夜裡 從巧克力開始男孩帶我回顧了過去十多年間的創作歲月原來創作可以只是像這首巧克力一般簡單單純的吐露一個念頭與心情",
         "：既然是第一個作品 為什麼不從箱裡拿出來呢？",
-        "一來一往好幾回合交戰之後 很榮幸的 用我的聲音推出來了 把煩惱也推出家門吧💕"
-      ]
+        "一來一往好幾回合交戰之後很榮幸的 用我的聲音推出來了把煩惱也推出家門吧💕"
+      ],
+      "cover": "2025-10-24-1849410638.webp",
+      "apple": "1849410638",
+      "ytm": "MPREb_1Wq8e5TFaFd",
+      "spotify": "1FhGSbGZkWU7zfsMMd4jML",
+      "kkbox": "4mO_keBU2kVG5RUBOb"
     },
     {
       "title": "逐樂無憂",
-      "en": "",
       "date": "2025-07-04",
       "type": "單曲",
       "cat": "人聲",
       "tracks": 2,
-      "apple": "1824702827",
-      "ytm": "OLAK5uy_mzFawEmTow7p1yDyeiZWQKvbNvTbIvVqw",
       "tracklist": [
         "逐樂無憂",
         "逐樂無憂 (伴奏版)"
       ],
-      "cover": "2025-07-04.webp",
-      "kkbox": "9YwIVawHpTG8IdOGs-",
       "intro": [
         "你有沒有過這樣的時刻？",
-        "想暫時離開人聲鼎沸的十字路口，想避開那些推著你往前、卻不知為何而奔的洪流？ 只想找一個安靜的角落，讓心好好地放鬆。",
-        "我們為生計奔波，在名韁利鎖間穿梭，有時連自己的輪廓都模糊了。 生存的必需，是否也該容許靈魂偶爾的喘息？",
+        "想暫時離開人聲鼎沸的十字路口，想避開那些推著你往前、卻不知為何而奔的洪流？只想找一個安靜的角落，讓心好好地放鬆。",
+        "我們為生計奔波，在名韁利鎖間穿梭，有時連自己的輪廓都模糊了。生存的必需，是否也該容許靈魂偶爾的喘息？",
         "而音樂，其實很簡單，我們的心，不過是想乘著旋律的羽翼，輕輕地，隨風浮游。",
-        "讓快樂的音符，自由自在地在空氣裡流轉跳躍吧！ 每一個跳動的音符，都承載著一份溫暖的問候，如故友掌心，輕落在你的肩頭。 它們從哪裡來？都來自我們心底最柔軟、最原始的那份觸動。",
+        "讓快樂的音符，自由自在地在空氣裡流轉跳躍吧！每一個跳動的音符，都承載著一份溫暖的問候，如故友掌心，輕落在你的肩頭。它們從哪裡來？都來自我們心底最柔軟、最原始的那份觸動。",
         "心之所向，隨樂徜徉。逐樂無憂，是我們的嚮往，也是初衷。",
         "## 2024"
-      ]
+      ],
+      "cover": "2025-07-04.webp",
+      "apple": "1824702827",
+      "ytm": "MPREb_NC7uAVctI6Z",
+      "spotify": "0Hg7bbKJUgfgBLZPUoRyqO",
+      "kkbox": "9YwIVawHpTG8IdOGs-"
     },
     {
-      "title": "放鬆時刻－豎琴與笛共舞",
-      "en": "Relaxing Moments - Dance of Harp and Flute",
+      "title": "放鬆時刻-豎琴與笛共舞",
       "date": "2024-08-21",
       "type": "專輯",
       "cat": "純音樂",
       "tracks": 8,
-      "apple": "1836214648",
-      "ytm": "OLAK5uy_ndbcmLg5cdMjbF6Igh6uCUQhHejt4EB0g",
       "tracklist": [
         "霓裳鳥語",
         "繾綣時光",
@@ -674,21 +676,21 @@
         "微雨心靈",
         "星辰伴入心"
       ],
-      "cover": "2024-08-21.webp",
-      "kkbox": "Omc_Glk4P4HnCtKUXW",
       "intro": [
         "豎琴與長笛為主體的純音樂演奏專輯，帶給大家輕鬆愉悅的音樂饗宴。"
-      ]
+      ],
+      "cover": "2024-08-21.webp",
+      "apple": "1836214648",
+      "ytm": "MPREb_AQ7UNqqOKEQ",
+      "spotify": "0GA4f8wl4rmJVIcwhHCRok",
+      "kkbox": "Omc_Glk4P4HnCtKUXW"
     },
     {
-      "title": "放鬆舒緩輕音樂（明日的扉頁）八音盒版",
-      "en": "",
+      "title": "放鬆舒緩輕音樂 (明日的扉頁) (八音盒版)",
       "date": "2024-08-07",
       "type": "專輯",
       "cat": "純音樂",
       "tracks": 17,
-      "apple": "1884246988",
-      "ytm": "OLAK5uy_mSr7dNEn2gmiCfUhKeBNEY4RD4opL4mSY",
       "tracklist": [
         "微風輕語 (八音盒版)",
         "夢中的溪流 (八音盒版)",
@@ -708,21 +710,21 @@
         "如風之翼 (八音盒版)",
         "追憶之詩 (八音盒版)"
       ],
-      "cover": "2024-08-07.webp",
-      "kkbox": "Kr8JYH2kQPhDDQeEBD",
       "intro": [
         "使用八音盒音色，適合冥想、放鬆、舒緩、睡眠"
-      ]
+      ],
+      "cover": "2024-08-07.webp",
+      "apple": "1884246988",
+      "ytm": "MPREb_QxLLhk8Mxs4",
+      "spotify": "60x6ZN3dfBsXNf184aJdZY",
+      "kkbox": "Kr8JYH2kQPhDDQeEBD"
     },
     {
       "title": "明日的扉頁",
-      "en": "",
       "date": "2024-07-08",
       "type": "專輯",
       "cat": "純音樂",
       "tracks": 17,
-      "apple": "1835143820",
-      "ytm": "OLAK5uy_n6SXons9GukECTamOhUoTGdDyvHGQLOfQ",
       "tracklist": [
         "微風輕語",
         "夢中的溪流",
@@ -742,39 +744,125 @@
         "如風之翼",
         "追憶之詩"
       ],
-      "cover": "2024-07-08.webp",
-      "kkbox": "HX-su4LMRr3eMSSw6F",
       "intro": [
         "你心中的夢是如何?",
-        "記憶中第一次夢到旋律的時候，是在國小三年級的時候。 那時候家裡有台電子琴，自己彈著彈著摸索音階。 而在那之後，我常常夢見許多旋律，時時走在路上哼起別人不知道的音樂。",
-        "明日的扉頁-初夢 是張純音樂創作專輯 無論何時，這些旋律能讓你感覺放鬆 讓自己好好休息，然後充電完繼續出發",
+        "記憶中第一次夢到旋律的時候，是在國小三年級的時候。那時候家裡有台電子琴，自己彈著彈著摸索音階。而在那之後，我常常夢見許多旋律，時時走在路上哼起別人不知道的音樂。",
+        "明日的扉頁-初夢 是張純音樂創作專輯無論何時，這些旋律能讓你感覺放鬆讓自己好好休息，然後充電完繼續出發",
         "## 人聲／純音樂分類總表",
         "依「該張專輯只要有任何一首有歌詞人聲，即歸入人聲」原則分類。"
-      ]
+      ],
+      "cover": "2024-07-08.webp",
+      "apple": "1835143820",
+      "ytm": "MPREb_atJs9NWeUa2",
+      "spotify": "4NQNe7L91aZ4kiy1XLtQQa",
+      "kkbox": "HX-su4LMRr3eMSSw6F"
     }
   ],
   "upcoming": [
+    {
+      "title": "曼漫。曼慢：島旅織音",
+      "date": "2026-12-05",
+      "type": "專輯",
+      "cat": "純音樂",
+      "tracks": 20,
+      "tracklist": [
+        "祝山列車載著晨霧",
+        "雲海那端，你看著我",
+        "神木之間捉迷藏",
+        "霧裡煮一鍋熱湯",
+        "螢火點亮回家的路",
+        "潭畔的風追著單車跑",
+        "纜車把湖泊舉起來",
+        "船搖進你的夢裡",
+        "伊達邵再逛一攤",
+        "湖收起最後一道光",
+        "我醒了，九份石階還沒乾",
+        "金瓜石裡淘一點光",
+        "茶煙漫過山城屋簷",
+        "燈籠亮了，再逛一攤",
+        "雨留門外，你留懷裡",
+        "龍磐大草原，風吹進合照",
+        "浪來了，快跑！",
+        "恆春買菜，煮成一桌",
+        "南方星空慢慢變亮",
+        "行李先別收，再聽一晚海"
+      ],
+      "en": "Mandolin Meanders, Mandolin Slows: Island Travel Sound Weaving",
+      "intro": [
+        "有些旅行，不需要急著抵達下一個地方。從阿里山祝山列車的晨霧，到日月潭畔追著單車跑的風；從九份還沒乾的石階、金瓜石的淘金時光，到恆春與墾丁的草原、海浪與滿天星光。《曼漫。曼慢：島旅織音》以二十首原創純器樂作品，記錄一段在台灣島嶼上慢慢展開的雙人旅行。Mandolin、Mandola 與 Octave Mandolin 是整張專輯的聲音主角。它們時而輕快追逐，時而低聲交談，並與馬林巴、大提琴、長笛、手碟及其他原聲樂器交織，讓火車、風、湖水、雨滴、市集與海浪化為能夠聽見的音樂畫面。兩個人會在神木之間嬉鬧、逛市集時捨不得離開、在海邊追著浪跑，也會一起煮晚餐、靜靜看星星，到了最後一晚，仍然捨不得收拾行李。"
+      ]
+    },
     {
       "title": "夜色織音（中輯）：角落的嬉遊．毛孩視角篇",
       "date": "2026-12-20",
       "type": "專輯",
       "cat": "純音樂",
-      "tracks": 17
+      "tracks": 17,
+      "tracklist": [
+        "地板滑倒的運動會",
+        "靜靜陪伴的畫模樣",
+        "盯著水菜的發呆神",
+        "聽著冰塊的抖耳樣",
+        "隨著節奏的拍尾巴",
+        "螢幕閃爍的好奇眼",
+        "跟著歡呼的跳躍步",
+        "穿梭盆栽的探險遊",
+        "葉片落下的晶水珠",
+        "露台金屬的共鳴聲",
+        "齊聚一堂的暖打盹",
+        "陪伴合奏的舒心感",
+        "窩在腿上的軟雲朵",
+        "聽著翻書的規律聲",
+        "陪伴寫字的安靜影",
+        "靠著機殼的微熱感",
+        "隨著電波的點頭樣"
+      ]
     },
     {
       "title": "光陰棲息",
       "date": "2027-01-05",
       "type": "專輯",
       "cat": "純音樂",
-      "tracks": 20
+      "tracks": 20,
+      "tracklist": [
+        "推開窗的微風",
+        "白紗簾後的陽光",
+        "葉尖上的慢時光",
+        "溫熱茶杯的霧氣",
+        "在木椅上深呼吸",
+        "午後三點的陽光切片",
+        "趴在窗台的貓",
+        "褪去盔甲的布沙發",
+        "翻開一半的舊畫冊",
+        "漫無目的的雲朵",
+        "橘子汽水般的晚風",
+        "夕陽摺疊的信紙",
+        "散步回家的慢拍子",
+        "暮色裡的溫柔收穫",
+        "亮起暖黃色檯燈",
+        "月光灑落木地板",
+        "漂浮在雲端的羊絨毯",
+        "星星在窗外慢舞",
+        "沉入溫暖的琥珀夢境",
+        "晚安時間的旅人"
+      ]
     },
     {
       "title": "重現",
       "date": "2027-02-05",
       "type": "專輯",
       "cat": "純音樂",
-      "tracks": 8
+      "tracks": 8,
+      "tracklist": [
+        "追尋",
+        "燈下",
+        "模樣",
+        "星夜",
+        "那年我們",
+        "時光",
+        "蔚藍",
+        "餘韻"
+      ]
     }
-  ],
-  "kkbox_artist": "https://www.kkbox.com/tw/tc/artist/4khusIwqN3_1LgFy9f"
+  ]
 }
