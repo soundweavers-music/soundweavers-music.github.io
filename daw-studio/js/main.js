@@ -148,62 +148,7 @@ function bindTopbar() {
       { label: '專案會自動暫存到這個瀏覽器', disabled: true },
     ]);
   };
-  // ── 編輯選單：復原／剪下／複製／貼上／刪除／全選 ──────────────
-  // 剪貼簿放在模組層級：複製的是片段的深拷貝，貼上時重新給 id 與位置
-  let clipClipboard = [];
-  const selectedClips = () => [...store.selection.clipIds].map(id => store.findClip(id)).filter(Boolean);
-  const copySelected = () => {
-    const sel = selectedClips();
-    if (!sel.length) { toast('先選取片段', 'warn'); return false; }
-    clipClipboard = sel.map(({ track, clip }) => ({ trackId: track.id, clip: structuredClone(clip) }));
-    toast(`已複製 ${clipClipboard.length} 個片段`);
-    return true;
-  };
-  const pasteClips = () => {
-    if (!clipClipboard.length) { toast('剪貼簿是空的', 'warn'); return; }
-    const at = snap(engine.currentTime());
-    const first = Math.min(...clipClipboard.map(x => clipStart(x.clip)));
-    store.checkpoint();
-    const ids = [];
-    for (const item of clipClipboard) {
-      const track = store.track(item.trackId) || store.track(store.selection.trackId);
-      if (!track) continue;
-      const c = structuredClone(item.clip);
-      c.id = uid('clip');
-      const shift = at - first;
-      if (isMidiClip(c)) c.startBeat = Math.max(0, c.startBeat + shift);
-      else c.start = Math.max(0, c.start + shift);
-      track.clips.push(c);
-      ids.push(c.id);
-    }
-    store.selection.clipIds = new Set(ids);
-    store.changed('structure');
-    store.emit('select', {});
-    toast(`已貼上 ${ids.length} 個片段`);
-  };
-  const cutSelected = () => { if (copySelected()) deleteSelected(); };
-  const selectAllClips = () => {
-    const t = store.track(store.selection.trackId);
-    const list = (t ? [t] : store.project.tracks).flatMap(x => x.clips.map(c => c.id));
-    store.selection.clipIds = new Set(list);
-    store.emit('select', {});
-    toast(`已選取 ${list.length} 個片段`);
-  };
-  $('btnEdit').onclick = e => {
-    const r = e.currentTarget.getBoundingClientRect();
-    const n = store.selection.clipIds.size;
-    showMenu(r.left, r.bottom + 2, [
-      { label: '復原', key: 'Ctrl+Z', action: () => store.undo() },
-      { label: '重複', key: 'Ctrl+Shift+Z', action: () => store.redo() },
-      '-',
-      { label: '剪下', key: 'Ctrl+X', disabled: !n, action: cutSelected },
-      { label: '複製', key: 'Ctrl+C', disabled: !n, action: copySelected },
-      { label: '貼上', key: 'Ctrl+V', disabled: !clipClipboard.length, action: pasteClips },
-      '-',
-      { label: '刪除', key: 'Del', disabled: !n, action: () => deleteSelected() },
-      { label: '選擇全部', key: 'Ctrl+A', action: selectAllClips },
-    ]);
-  };
+  bindEditMenu();
   $('btnImport').onclick = () => $('fileAudio').click();
   $('fileAudio').addEventListener('change', async e => {
     const files = [...e.target.files];
@@ -405,6 +350,65 @@ function busy(text, frac) {
 }
 
 // ---------------- 快捷鍵 ----------------
+// ── 編輯：剪貼簿與動作（選單與快捷鍵共用）：復原／剪下／複製／貼上／刪除／全選 ──────────────
+// 剪貼簿放在模組層級：複製的是片段的深拷貝，貼上時重新給 id 與位置
+let clipClipboard = [];
+const selectedClips = () => [...store.selection.clipIds].map(id => store.findClip(id)).filter(Boolean);
+const copySelected = () => {
+  const sel = selectedClips();
+  if (!sel.length) { toast('先選取片段', 'warn'); return false; }
+  clipClipboard = sel.map(({ track, clip }) => ({ trackId: track.id, clip: structuredClone(clip) }));
+  toast(`已複製 ${clipClipboard.length} 個片段`);
+  return true;
+};
+const pasteClips = () => {
+  if (!clipClipboard.length) { toast('剪貼簿是空的', 'warn'); return; }
+  const at = snap(engine.currentTime());
+  const first = Math.min(...clipClipboard.map(x => clipStart(x.clip)));
+  store.checkpoint();
+  const ids = [];
+  for (const item of clipClipboard) {
+    const track = store.track(item.trackId) || store.track(store.selection.trackId);
+    if (!track) continue;
+    const c = structuredClone(item.clip);
+    c.id = uid('clip');
+    const shift = at - first;
+    if (isMidiClip(c)) c.startBeat = Math.max(0, c.startBeat + shift);
+    else c.start = Math.max(0, c.start + shift);
+    track.clips.push(c);
+    ids.push(c.id);
+  }
+  store.selection.clipIds = new Set(ids);
+  store.changed('structure');
+  store.emit('select', {});
+  toast(`已貼上 ${ids.length} 個片段`);
+};
+const cutSelected = () => { if (copySelected()) deleteSelected(); };
+const selectAllClips = () => {
+  const t = store.track(store.selection.trackId);
+  const list = (t ? [t] : store.project.tracks).flatMap(x => x.clips.map(c => c.id));
+  store.selection.clipIds = new Set(list);
+  store.emit('select', {});
+  toast(`已選取 ${list.length} 個片段`);
+};
+function bindEditMenu() {
+  $('btnEdit').onclick = e => {
+  const r = e.currentTarget.getBoundingClientRect();
+  const n = store.selection.clipIds.size;
+  showMenu(r.left, r.bottom + 2, [
+    { label: '復原', key: 'Ctrl+Z', action: () => store.undo() },
+    { label: '重複', key: 'Ctrl+Shift+Z', action: () => store.redo() },
+    '-',
+    { label: '剪下', key: 'Ctrl+X', disabled: !n, action: cutSelected },
+    { label: '複製', key: 'Ctrl+C', disabled: !n, action: copySelected },
+    { label: '貼上', key: 'Ctrl+V', disabled: !clipClipboard.length, action: pasteClips },
+    '-',
+    { label: '刪除', key: 'Del', disabled: !n, action: () => deleteSelected() },
+    { label: '選擇全部', key: 'Ctrl+A', action: selectAllClips },
+  ]);
+};
+}
+
 function bindKeys() {
   window.addEventListener('keyup', e => {
     if (e.target.closest('input,select,textarea') && e.target.type !== 'range') return;
@@ -436,7 +440,10 @@ function bindKeys() {
       if (k === 'y') return run(() => store.redo());
       if (k === 't') return run(() => splitSelected(engine.currentTime()));
       if (k === 'd') return run(duplicateSelected);
-      if (k === 'a') return run(selectAll);
+      if (k === 'a') return run(selectAllClips);
+      if (k === 'c') return run(copySelected);
+      if (k === 'x') return run(cutSelected);
+      if (k === 'v') return run(pasteClips);
       return;
     }
     switch (e.key) {
