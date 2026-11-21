@@ -1,3 +1,6 @@
+// 英文頁（<html lang="en">，也就是 /en/chord-detection/）用英文訊息，中文頁照舊。
+const tr = (zh, en) => (document.documentElement.lang || '').startsWith('en') ? en : zh;
+
 // AI 精準模式：BTC 和弦辨識模型（Park et al., ISMIR 2019, MIT 授權）在瀏覽器裡跑
 // 流程：音訊 → 22050 Hz 單聲道 → 逐八度降頻的 CQT（144 bins、24 bins/octave、hop 2048）
 //       → log → 正規化 → 每 108 格一段丟進 ONNX → 每格 170 類機率 → 依拍平均 → 給 Viterbi 當發射分數
@@ -96,7 +99,8 @@
       const ort = await ensureOrt();
       // 自己 fetch 才能顯示下載進度；瀏覽器 HTTP 快取會留著，第二次幾乎不用等
       const res = await fetch(MODEL_URL);
-      if (!res.ok) throw new Error('下載 AI 模型失敗（HTTP ' + res.status + '）');
+      if (!res.ok) throw new Error(tr('下載 AI 模型失敗（HTTP ' + res.status + '）',
+                                    'Could not download the AI model (HTTP ' + res.status + ')'));
       const total = +res.headers.get('Content-Length') || 13068673;
       const reader = res.body.getReader(); const chunks = []; let got = 0;
       for (;;) {
@@ -185,7 +189,8 @@
     if (!f0Loading) f0Loading = (async () => {
       const ort = await ensureOrt();
       const res = await fetch(F0_URL);
-      if (!res.ok) throw new Error('下載旋律模型失敗（HTTP ' + res.status + '）');
+      if (!res.ok) throw new Error(tr('下載旋律模型失敗（HTTP ' + res.status + '）',
+                                    'Could not download the melody model (HTTP ' + res.status + ')'));
       f0Session = await ort.InferenceSession.create(new Uint8Array(await res.arrayBuffer()), { executionProviders: ['wasm'] });
       return f0Session;
     })();
@@ -299,7 +304,8 @@
       const out = [];
       for (let k = 0; k < SPL_URLS.length; k++) {
         const res = await fetch(SPL_URLS[k]);
-        if (!res.ok) throw new Error('下載人聲分離模型失敗（HTTP ' + res.status + '）');
+        if (!res.ok) throw new Error(tr('下載人聲分離模型失敗（HTTP ' + res.status + '）',
+                                    'Could not download the vocal-separation model (HTTP ' + res.status + ')'));
         out.push(await ort.InferenceSession.create(new Uint8Array(await res.arrayBuffer()), { executionProviders: ['wasm'] }));
         if (onProgress) onProgress((k + 1) / SPL_URLS.length);
       }
@@ -400,9 +406,11 @@
         for (let i = 0; i < L.length; i += 7) em += L[i] * L[i];
         const ratio = Math.sqrt((es / Math.ceil(sp.x.length / 7)) / (em / Math.ceil(L.length / 7) + 1e-12));
         if (ratio >= 0.15) { cv = sp; sepEngine = 'spleeter'; }
-        else console.info('AI 分離後人聲太小（' + ratio.toFixed(2) + '），改用中央聲道');
+        else console.info(tr('AI 分離後人聲太小（' + ratio.toFixed(2) + '），改用中央聲道',
+                           'The separated vocal is too quiet (' + ratio.toFixed(2) + '); using the centre channel instead'));
       } catch (e) {
-        console.warn('AI 分離主唱失敗，改用中央聲道', e);
+        console.warn(tr('AI 分離主唱失敗，改用中央聲道',
+                       'Vocal separation failed; using the centre channel instead'), e);
       }
     }
     if (!cv) cv = await centerVocal(buffer, hooks.separate);

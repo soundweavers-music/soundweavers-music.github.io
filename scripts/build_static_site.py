@@ -3858,6 +3858,10 @@ def main():
         for f in dawbank.glob("*.sf2"):
             if f.name.startswith("builtin"):
                 shutil.copy2(str(f), str(dst / f.name))
+    # 英文工具頁的即時翻譯器（/en/tools/… 會載入它）
+    i18n_rt = BASE_DIR / "assets" / "i18n-runtime.js"
+    if i18n_rt.exists():
+        shutil.copy2(str(i18n_rt), str(OUTPUT_DIR / "assets" / "i18n-runtime.js"))
     dawcourse_img = BASE_DIR / "assets" / "daw-course"
     if dawcourse_img.exists():
         shutil.copytree(str(dawcourse_img), str(OUTPUT_DIR / "assets" / "daw-course"), dirs_exist_ok=True)
