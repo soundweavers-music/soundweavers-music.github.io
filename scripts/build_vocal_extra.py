@@ -132,7 +132,7 @@ def relativize(html, page_path):
 # 英文頁先落地成 /en/<course>/…，導覽列只有英文確實存在的入口，其餘先連到中文頁
 # （工具與百科都還是中文），並在右上角放一個語言切換。
 EN_NAV = [("/en/", "Courses"), ("/instruments/", "Instruments"),
-          ("/ensembles/", "Ensembles"), ("/en/tools/", "Tools"), ("/en/about/", "About")]
+          ("/en/ensembles/", "Ensembles"), ("/en/tools/", "Tools"), ("/en/about/", "About")]
 
 
 def _lang_switch(page_path, lang):

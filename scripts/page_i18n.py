@@ -57,10 +57,34 @@ PAGES = [
     "about/works/index.html",
     "recruit/index.html",
     "contact/index.html",
+    # 英文導覽會走到的其他頁：學習總覽、世界樂器體驗、聲音旅圖、分類、地圖、合奏總覽
+    "learn/index.html",
+    "experience/index.html",
+    "sound-journey/index.html",
+    "categories/index.html",
+    "map/index.html",
+    "ensembles/index.html",
 ]
 
-# 這些中文連結有「不是同路徑」的英文對應（課程在 /en/dawcourse/）
-EXTRA_LINKS = {"/tools/daw/learn/": "/en/dawcourse/", "/tools/daw/learn": "/en/dawcourse/"}
+# 這些中文連結有「不是同路徑」或「不在 PAGES 裡」的英文對應。
+# 課程頁由 build_en_courses.py 產生（/en/<course>/），DAW 的課程在 /en/dawcourse/。
+EXTRA_LINKS = {
+    "/tools/daw/learn/": "/en/dawcourse/",
+    "/tools/daw/learn": "/en/dawcourse/",
+    "/vocal/": "/en/vocal/",
+    "/digitalmusic/": "/en/digitalmusic/",
+    "/theory/": "/en/theory/",
+    "/songwriting/": "/en/songwriting/",
+    "/guitar/": "/en/guitar/",
+    "/ukulele/": "/en/ukulele/",
+    "/mandolin/": "/en/mandolin/",
+    "/experience/": "/en/experience/",
+    "/sound-journey/": "/en/sound-journey/",
+    "/categories/": "/en/categories/",
+    "/ensembles/": "/en/ensembles/",
+    "/map/": "/en/map/",
+    "/learn/": "/en/learn/",
+}
 
 CJK = re.compile(r"[一-鿿]")
 # 文字節點；<script>／<style> 先整段拿掉，不然會抓到程式碼裡的字串
