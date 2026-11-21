@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-Hant" data-theme="wood-light"><head><meta charset="utf-8"><title>影片輸出測試</title></head>
+<html lang="zh-Hant"><head><meta charset="utf-8"><title>影片輸出測試</title></head>
 <body><img src="/__ready" style="display:none"><pre id="out">running…</pre>
 <script type="module">
 import { store, newTrack } from './js/state.js';
@@ -16,8 +16,8 @@ engine.render = async ({ start = 0, end = 2, sampleRate = 48000 }) =>
 const out = [], log = (...a) => { out.push(a.join(' ')); document.getElementById('out').textContent = out.join('\n'); };
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
-// 1) 造一段 2 秒的來源影片（綠底 + 移動方塊），用 MediaRecorder 錄成 WebM
-async function makeSourceVideo() {
+// 兩段純色來源（紅、藍），方便用像素判斷濾鏡／轉場／淡入有沒有生效
+async function makeSolid(seconds, color) {
   const cv = document.createElement('canvas'); cv.width = 320; cv.height = 180;
   const g = cv.getContext('2d');
   const stream = cv.captureStream(30);
@@ -27,54 +27,59 @@ async function makeSourceVideo() {
   const done = new Promise(r => { rec.onstop = r; });
   rec.start();
   const t0 = performance.now();
-  while (performance.now() - t0 < 2000) {
-    const k = (performance.now() - t0) / 2000;
-    g.fillStyle = '#0a5'; g.fillRect(0, 0, 320, 180);
-    g.fillStyle = '#fff'; g.fillRect(k * 240, 60, 60, 60);
+  while (performance.now() - t0 < seconds * 1000) {
+    g.fillStyle = color; g.fillRect(0, 0, 320, 180);
     await sleep(33);
   }
   rec.stop(); await done;
   return new Blob(parts, { type: 'video/webm' });
 }
 
-try {
-  const blob = await makeSourceVideo();
-  log('source webm bytes', blob.size);
-  const id = 'media_test';
-  await putMedia(id, { name: 'test.webm', type: 'video/webm', blob });
+function px(v, t) {
+  return new Promise(res => {
+    const done = () => {
+      const cv = document.createElement('canvas'); cv.width = 320; cv.height = 180;
+      const g = cv.getContext('2d'); g.drawImage(v, 0, 0);
+      const d = g.getImageData(160, 90, 1, 1).data;
+      res([d[0], d[1], d[2]]);
+    };
+    v.onseeked = done; v.currentTime = t;
+    setTimeout(done, 4000);
+  });
+}
 
-  // 2) 組一個小專案：影片軌 + 字幕
+try {
+  const red = await makeSolid(1.5, '#e02020');
+  const blue = await makeSolid(1.5, '#2040e0');
+  await putMedia('mred', { name: 'r.webm', type: 'video/webm', blob: red });
+  await putMedia('mblue', { name: 'b.webm', type: 'video/webm', blob: blue });
+
   const p = store.project;
   p.name = 'vidtest'; p.video = { w: 320, h: 180, fps: 30, bg: '#000' };
   p.tracks.length = 0;
   const vt = newTrack(0, 'video'); vt.name = '影片'; p.tracks.push(vt);
-  const st = newTrack(1, 'sub'); st.name = '字幕'; p.tracks.push(st);
-  vt.clips.push({ id: 'c_v', mediaId: id, name: 'test', start: 0, duration: 2, offset: 0 });
-  const c = addTextClip(st, 0, '測試字幕 TEST');
-  c.duration = 2;
+  // 第一段：黑白濾鏡 + 淡入；交界處 0.8 秒疊化
+  vt.clips.push({ id: 'c1', mediaId: 'mred', name: 'red', start: 0, duration: 1.5, offset: 0,
+    filter: 'bw', filterAmt: 1, fadeIn: 0.5, trans: { type: 'dissolve', dur: 0.8 } });
+  vt.clips.push({ id: 'c2', mediaId: 'mblue', name: 'blue', start: 1.5, duration: 1.5, offset: 0,
+    color: { b: 40, c: 0, s: 30, t: 40, h: 0, v: 0, f: 0 } });
   store.changed('structure');
 
-  // 3) 輸出
   const mp4 = await exportVideoMp4({ width: 320, height: 180, fps: 30, download: false });
   log('mp4 bytes', mp4.size);
 
-  // 4) 自己檢查一次：載回來看得到嗎
   const url = URL.createObjectURL(mp4);
   const v = document.createElement('video'); v.muted = true; v.src = url;
   await new Promise(r => { v.onloadeddata = r; v.onerror = r; setTimeout(r, 6000); });
-  log('playback duration', v.duration, 'size', v.videoWidth + 'x' + v.videoHeight);
-  v.currentTime = 0.8;
-  await new Promise(r => { v.onseeked = r; setTimeout(r, 3000); });
-  const c2 = document.createElement('canvas'); c2.width = 320; c2.height = 180;
-  const g2 = c2.getContext('2d'); g2.drawImage(v, 0, 0);
-  const px = g2.getImageData(10, 10, 1, 1).data;      // 左上角應該是來源影片的綠底
-  const pb = g2.getImageData(160, 168, 1, 1).data;    // 下方應該有字幕
-  log('pixel bg', Array.from(px).join(','), 'pixel sub', Array.from(pb).join(','));
+  log('duration', v.duration, 'size', v.videoWidth + 'x' + v.videoHeight);
+  for (const t of [0.15, 1.2, 1.5, 1.9]) {
+    log(`t=${t}`, (await px(v, t)).join(','));
+  }
+  // 期望：0.15 很暗（淡入）、1.2 灰（黑白濾鏡）、1.5 紅藍混合、1.9 藍
 
-  // 5) 給外面的檢查程式抓檔
-  const buf = new Uint8Array(await mp4.arrayBuffer());
+  const bytes = new Uint8Array(await mp4.arrayBuffer());
   let s = '';
-  for (let i = 0; i < buf.length; i += 8192) s += String.fromCharCode.apply(null, buf.subarray(i, i + 8192));
+  for (let i = 0; i < bytes.length; i += 8192) s += String.fromCharCode.apply(null, bytes.subarray(i, i + 8192));
   const pre = document.createElement('pre'); pre.id = 'b64'; pre.textContent = btoa(s);
   document.body.appendChild(pre);
   log('DONE');
