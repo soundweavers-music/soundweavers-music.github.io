@@ -72,6 +72,10 @@ jobs:
       - name: Build English course pages
         run: python scripts/build_en_courses.py
 
+      # 英文版的守門員：章數對不對、圖在不在、有沒有整段還是中文
+      - name: Check English edition
+        run: python scripts/check_en_site.py
+
       - name: Build sound-journey reader
         run: python scripts/build_sound_journey_docs.py
 
