@@ -214,7 +214,11 @@ function render() {
   const keep = root.scrollLeft;
   root.innerHTML = '';
   pruneMeters();
-  for (const t of store.project.tracks) root.appendChild(stripFor(t));
+  // 影片／文字／字幕軌沒有聲音，不進混音台
+  for (const t of store.project.tracks) {
+    if (t.kind === 'video' || t.kind === 'text' || t.kind === 'sub') continue;
+    root.appendChild(stripFor(t));
+  }
   const gap = document.createElement('div'); gap.style.flex = '1 0 8px'; root.appendChild(gap);
   (store.project.buses || []).forEach((_, i) => root.appendChild(busStrip(i)));
   root.appendChild(stripFor(null));

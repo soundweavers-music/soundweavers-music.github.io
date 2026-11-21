@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-Hant" data-theme="wood-light"><head><meta charset="utf-8"><title>影片輸出測試</title></head>
+<body><img src="/__ready" style="display:none"><pre id="out">running…</pre>
+<script type="module">
+import { store, newTrack } from './js/state.js';
+import { putMedia } from './js/media-store.js';
+import { exportVideoMp4 } from './js/video-export.js';
+import { addTextClip } from './js/video.js';
+import { engine } from './js/engine.js';
+
+// 無頭瀏覽器開音訊引擎會卡住，這裡直接餵一段合成的靜音，只測影片那一段
+engine.ensure = async () => ({ sampleRate: 48000 });
+engine.render = async ({ start = 0, end = 2, sampleRate = 48000 }) =>
+  new AudioBuffer({ numberOfChannels: 2, length: Math.max(1, Math.round((end - start) * sampleRate)), sampleRate });
+
+const out = [], log = (...a) => { out.push(a.join(' ')); document.getElementById('out').textContent = out.join('\n'); };
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+// 1) 造一段 2 秒的來源影片（綠底 + 移動方塊），用 MediaRecorder 錄成 WebM
+async function makeSourceVideo() {
+  const cv = document.createElement('canvas'); cv.width = 320; cv.height = 180;
+  const g = cv.getContext('2d');
+  const stream = cv.captureStream(30);
+  const rec = new MediaRecorder(stream, { mimeType: 'video/webm;codecs=vp8' });
+  const parts = [];
+  rec.ondataavailable = e => e.data.size && parts.push(e.data);
+  const done = new Promise(r => { rec.onstop = r; });
+  rec.start();
+  const t0 = performance.now();
+  while (performance.now() - t0 < 2000) {
+    const k = (performance.now() - t0) / 2000;
+    g.fillStyle = '#0a5'; g.fillRect(0, 0, 320, 180);
+    g.fillStyle = '#fff'; g.fillRect(k * 240, 60, 60, 60);
+    await sleep(33);
+  }
+  rec.stop(); await done;
+  return new Blob(parts, { type: 'video/webm' });
+}
+
+try {
+  const blob = await makeSourceVideo();
+  log('source webm bytes', blob.size);
+  const id = 'media_test';
+  await putMedia(id, { name: 'test.webm', type: 'video/webm', blob });
+
+  // 2) 組一個小專案：影片軌 + 字幕
+  const p = store.project;
+  p.name = 'vidtest'; p.video = { w: 320, h: 180, fps: 30, bg: '#000' };
+  p.tracks.length = 0;
+  const vt = newTrack(0, 'video'); vt.name = '影片'; p.tracks.push(vt);
+  const st = newTrack(1, 'sub'); st.name = '字幕'; p.tracks.push(st);
+  vt.clips.push({ id: 'c_v', mediaId: id, name: 'test', start: 0, duration: 2, offset: 0 });
+  const c = addTextClip(st, 0, '測試字幕 TEST');
+  c.duration = 2;
+  store.changed('structure');
+
+  // 3) 輸出
+  const mp4 = await exportVideoMp4({ width: 320, height: 180, fps: 30, download: false });
+  log('mp4 bytes', mp4.size);
+
+  // 4) 自己檢查一次：載回來看得到嗎
+  const url = URL.createObjectURL(mp4);
+  const v = document.createElement('video'); v.muted = true; v.src = url;
+  await new Promise(r => { v.onloadeddata = r; v.onerror = r; setTimeout(r, 6000); });
+  log('playback duration', v.duration, 'size', v.videoWidth + 'x' + v.videoHeight);
+  v.currentTime = 0.8;
+  await new Promise(r => { v.onseeked = r; setTimeout(r, 3000); });
+  const c2 = document.createElement('canvas'); c2.width = 320; c2.height = 180;
+  const g2 = c2.getContext('2d'); g2.drawImage(v, 0, 0);
+  const px = g2.getImageData(10, 10, 1, 1).data;      // 左上角應該是來源影片的綠底
+  const pb = g2.getImageData(160, 168, 1, 1).data;    // 下方應該有字幕
+  log('pixel bg', Array.from(px).join(','), 'pixel sub', Array.from(pb).join(','));
+
+  // 5) 給外面的檢查程式抓檔
+  const buf = new Uint8Array(await mp4.arrayBuffer());
+  let s = '';
+  for (let i = 0; i < buf.length; i += 8192) s += String.fromCharCode.apply(null, buf.subarray(i, i + 8192));
+  const pre = document.createElement('pre'); pre.id = 'b64'; pre.textContent = btoa(s);
+  document.body.appendChild(pre);
+  log('DONE');
+} catch (e) {
+  log('FAILED', e.message, e.stack?.split('\n')[1] || '');
+}
+document.title = 'done';
+fetch('/__go');
+</script>
+</body></html>

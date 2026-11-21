@@ -10,11 +10,13 @@ export const DEFAULT_TRACKS = 3;   // 新專案：2 條音訊 + 1 條 MIDI，其
 //  - 音訊片段：start / duration / offset 以「秒」為單位（音訊本身是秒）
 //  - MIDI 片段：startBeat / lengthBeats，notes[] 內 { p:音高, t:起點拍, d:長度拍, v:力度 }（相對於片段起點）
 //    MIDI 用拍數儲存，改 BPM 時音符會跟著小節走；engine 會換算成秒。
+const KIND_NAME = { audio: '音訊', midi: 'MIDI', video: '影片', text: '文字', sub: '字幕' };
+
 export function newTrack(index, kind = 'audio') {
   const t = {
     id: uid('trk'),
     kind,
-    name: `${kind === 'audio' ? '音訊' : 'MIDI'} ${index + 1}`,
+    name: `${KIND_NAME[kind] || '音訊'} ${index + 1}`,
     color: TRACK_COLORS[index % TRACK_COLORS.length],
     volumeDb: 0,
     pan: 0,
@@ -29,6 +31,7 @@ export function newTrack(index, kind = 'audio') {
     transpose: 0,            // MIDI 軌專用：這一軌整體升降幾個半音
   };
   if (kind === 'midi') t.instrument = 'piano';
+  if (kind === 'video') t.h = 74;      // 影片軌預設高一點，看得到畫面
   return t;
 }
 
@@ -52,7 +55,8 @@ export function newProject() {
     tracks.push(t);
   });
   return {
-    version: 4,
+    version: 5,
+    video: { w: 1280, h: 720, fps: 30, bg: '#000000' },
     buses: defaultBuses(),
     masterInserts: [],
     mastering: defaultMastering(),
@@ -170,6 +174,13 @@ class Store extends EventTarget {
     for (const t of this.project.tracks) for (const c of t.clips) if (c.bufferId) s.add(c.bufferId);
     return s;
   }
+
+  // 影片素材（存在 IndexedDB）參照到的 id
+  usedMediaIds() {
+    const s = new Set();
+    for (const t of this.project.tracks) for (const c of t.clips) if (c.mediaId) s.add(c.mediaId);
+    return s;
+  }
 }
 
 export const store = new Store();
@@ -206,6 +217,7 @@ export function migrateProject(p) {
   if (!Array.isArray(p.chords)) p.chords = [];
   if (typeof p.chordView !== 'number') p.chordView = 0;
   if (typeof p.showChords !== 'boolean') p.showChords = false;
-  p.version = 4;
+  if (!p.video) p.video = { w: 1280, h: 720, fps: 30, bg: '#000000' };
+  p.version = 5;
   return p;
 }

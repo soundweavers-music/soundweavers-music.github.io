@@ -5,6 +5,7 @@
 import { store, migrateProject } from './state.js';
 import { engine } from './engine.js';
 import { encodeWav, computePeaks, downloadBlob, toast, uid } from './util.js';
+import { getMedia, putMedia } from './media-store.js';
 
 const EXT = '.zyproj';
 let fileHandle = null;
@@ -21,7 +22,15 @@ async function packProject() {
     zip.file(`audio/${id}.wav`, encodeWav(buf, 32));   // 32-bit float，無損
     audio[id] = { name: store.bufferMeta.get(id)?.name || id };
   }
-  const doc = { app: 'zhiyin-daw', ...store.project, audio };
+  // 影片素材：直接放原始檔（不壓縮），換一台電腦開專案也還在
+  const video = {};
+  for (const id of store.usedMediaIds()) {
+    const rec = await getMedia(id);
+    if (!rec?.blob) continue;
+    zip.file(`video/${id}`, rec.blob, { binary: true });
+    video[id] = { name: rec.name, type: rec.type };
+  }
+  const doc = { app: 'zhiyin-daw', ...store.project, audio, video };
   zip.file('project.json', JSON.stringify(doc, null, 1));
   return zip.generateAsync({ type: 'blob', compression: 'STORE' });
 }
@@ -73,7 +82,14 @@ export async function openProjectFile(file, handle = null) {
     buffers.set(id, buf);
     meta.set(id, { name: info.name, peaks: computePeaks(buf) });
   }
-  delete doc.audio; delete doc.app;
+  // 影片素材放回本機 IndexedDB（專案檔本身只記 id）
+  for (const [id, info] of Object.entries(doc.video || {})) {
+    const f = zip.file(`video/${id}`);
+    if (!f) continue;
+    const blob = await f.async('blob');
+    await putMedia(id, { name: info.name || id, type: info.type || 'video/mp4', blob });
+  }
+  delete doc.audio; delete doc.video; delete doc.app;
   migrateProject(doc);
   engine.stop(); engine.seek(0);
   store.replaceProject(doc, buffers, meta);

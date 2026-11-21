@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><title>mp4 mux test</title></head>
+<body><img src="/__ready" style="display:none"><pre id="out">running…</pre>
+<script type="module">
+import { buildMp4 } from './js/mp4-writer.js';
+const out = [], log = (...a) => { out.push(a.join(' ')); document.getElementById('out').textContent = out.join('\n'); };
+
+const W = 640, H = 360, FPS = 30, SECS = 2;
+const cv = document.createElement('canvas'); cv.width = W; cv.height = H;
+const g = cv.getContext('2d');
+
+const vsamples = [];
+let avcC = null;
+const venc = new VideoEncoder({
+  output: (chunk, meta) => {
+    if (meta?.decoderConfig?.description && !avcC) avcC = new Uint8Array(meta.decoderConfig.description);
+    const d = new Uint8Array(chunk.byteLength); chunk.copyTo(d);
+    vsamples.push({ data: d, key: chunk.type === 'key' });
+  },
+  error: e => log('venc error', e.message),
+});
+venc.configure({ codec: 'avc1.42001f', width: W, height: H, bitrate: 1.2e6, framerate: FPS });
+for (let i = 0; i < FPS * SECS; i++) {
+  g.fillStyle = '#123'; g.fillRect(0, 0, W, H);
+  g.fillStyle = '#e93'; g.fillRect((i * 8) % (W - 80), 100, 80, 80);
+  const f = new VideoFrame(cv, { timestamp: Math.round(i * 1e6 / FPS), duration: Math.round(1e6 / FPS) });
+  venc.encode(f, { keyFrame: i % 30 === 0 }); f.close();
+}
+await venc.flush();
+log('video chunks', vsamples.length, 'avcC', avcC && avcC.length);
+
+// 1 秒 440 Hz 立體聲
+const SR = 48000, CH = 2, FRAME = 1024;
+const asamples = [];
+let asc = null;
+const aenc = new AudioEncoder({
+  output: (chunk, meta) => {
+    if (meta?.decoderConfig?.description && !asc) asc = new Uint8Array(meta.decoderConfig.description);
+    const d = new Uint8Array(chunk.byteLength); chunk.copyTo(d);
+    asamples.push({ data: d, duration: FRAME });
+  },
+  error: e => log('aenc error', e.message),
+});
+aenc.configure({ codec: 'mp4a.40.2', sampleRate: SR, numberOfChannels: CH, bitrate: 160000 });
+for (let n = 0; n < SR / FRAME; n++) {
+  const d = new Float32Array(FRAME * CH);
+  for (let i = 0; i < FRAME; i++) { const v = Math.sin(2 * Math.PI * 440 * (n * FRAME + i) / SR) * .3; d[i] = v; d[FRAME + i] = v; }
+  const ad = new AudioData({ format: 'f32-planar', sampleRate: SR, numberOfFrames: FRAME, numberOfChannels: CH, timestamp: Math.round(n * FRAME / SR * 1e6), data: d });
+  aenc.encode(ad); ad.close();
+}
+await aenc.flush();
+log('audio chunks', asamples.length, 'asc', asc ? Array.from(asc).join(',') : 'none');
+
+const bytes = buildMp4({ width: W, height: H, fps: FPS, videoSamples: vsamples, avcC,
+  audio: { sampleRate: SR, channels: CH, asc, bitrate: 160000, samples: asamples } });
+log('mp4 bytes', bytes.length);
+const blob = new Blob([bytes], { type: 'video/mp4' });
+const url = URL.createObjectURL(blob);
+
+const v = document.createElement('video');
+v.muted = true; v.src = url;
+v.onerror = () => log('video error', v.error?.code, v.error?.message);
+await new Promise(r => { v.onloadeddata = r; setTimeout(r, 8000); });
+log('loaded duration', v.duration, 'size', v.videoWidth + 'x' + v.videoHeight, 'readyState', v.readyState);
+
+await new Promise(r => { v.currentTime = 0.8; v.onseeked = r; setTimeout(r, 4000); });
+const c2 = document.createElement('canvas'); c2.width = W; c2.height = H;
+const g2 = c2.getContext('2d');
+try { g2.drawImage(v, 0, 0); const p = g2.getImageData(W / 2, 140, 1, 1).data; log('pixel', Array.from(p).join(',')); }
+catch (e) { log('draw failed', e.message); }
+
+// 音軌有沒有出來：播放一下看解碼位元組數
+await v.play().catch(e => log('play fail', e.message));
+await new Promise(r => setTimeout(r, 700));
+log('audioDecodedBytes', v.webkitAudioDecodedByteCount, 'currentTime', v.currentTime.toFixed(2));
+log('DONE');
+// 給外面的檢查程式（work/_mp4dump.py）取出檔案
+{
+  let s = '';
+  for (let i = 0; i < bytes.length; i += 8192) s += String.fromCharCode.apply(null, bytes.subarray(i, i + 8192));
+  const pre = document.createElement('pre'); pre.id = 'b64'; pre.textContent = btoa(s);
+  document.body.appendChild(pre);
+}
+document.title = 'done';
+fetch('/__go');
+</script>
+</body></html>

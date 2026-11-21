@@ -81,6 +81,7 @@
       <button class="tbtn ghost vb" id="btnArranger" title="自動伴奏電子琴：左手和弦、段落與過門"><i>♫</i><span>伴奏</span></button>
       <button class="tbtn ghost vb" id="btnAI" title="智慧編曲：旋律自動配和弦、依和弦軌一鍵編成整首伴奏 MIDI"><i>✦</i><span>智慧編曲</span></button>
       <button class="tbtn ghost vb" id="btnAlbum" title="專輯母帶：批次處理多首歌（母帶、統一響度、淡入淡出）"><i>◫</i><span>專輯</span></button>
+      <button class="tbtn ghost vb" id="btnPreview" title="預覽：影片、文字與字幕畫面 (V)"><i>▷</i><span>預覽</span></button>
       <button class="tbtn primary" id="btnExport" title="輸出 (Ctrl+E)">輸出</button>
     </div>
   </header>
@@ -91,6 +92,7 @@
       <div class="corner">
         <button class="tbtn" id="btnAddTrack" title="新增音訊軌">＋ 音訊</button>
         <button class="tbtn" id="btnAddMidi" title="新增 MIDI 軌">＋ MIDI</button>
+        <button class="tbtn" id="btnAddVisual" title="影片、文字、字幕軌">＋ 影像</button>
         <button class="tbtn auto" id="btnAuto" title="顯示／編輯自動化曲線 (A)">自動化</button>
         <button class="tbtn" id="btnChords" title="在尺規下方顯示和弦軌：自動偵測、編輯、套用到修音與和聲">和弦</button>
         <div class="spacer"></div>
@@ -134,6 +136,7 @@
           <option value="wav">WAV（無損，最通用）</option>
           <option value="flac">FLAC（無損，約小 30–50%）</option>
           <option value="mp3">MP3（有損，檔案最小）</option>
+          <option value="mp4">影片 MP4（H.264 + AAC，含時間軸上的影片、文字與字幕）</option>
           <option value="mid">MIDI（.mid，只含 MIDI 軌的音符）</option>
         </select>
       </label>
@@ -144,7 +147,7 @@
         <label class="f" id="fBitrate" hidden>位元率
           <select name="kbps"><option value="128">128 kbps</option><option value="192">192 kbps</option><option value="256">256 kbps</option><option value="320" selected>320 kbps</option></select>
         </label>
-        <label class="f">取樣率
+        <label class="f" id="fSampleRate">取樣率
           <select name="sampleRate"><option value="44100">44.1 kHz</option><option value="48000" selected>48 kHz</option><option value="96000">96 kHz</option></select>
         </label>
       </div>
@@ -250,6 +253,7 @@
 </dialog>
 
 <input type="file" id="fileAudio" accept="audio/*,.wav,.mp3,.flac,.ogg,.m4a,.aac" multiple hidden>
+<input type="file" id="fileVideo" accept="video/*,.mp4,.m4v,.webm,.mov" multiple hidden>
 <input type="file" id="fileMidi" accept=".mid,.midi,audio/midi" hidden>
 <input type="file" id="fileSf2" accept=".sf2" multiple hidden>
 <div id="toast" role="status" aria-live="polite"></div>

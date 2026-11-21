@@ -1062,3 +1062,32 @@ html[lang="en"] .insp-sec > h4, html[lang="en"] .sec-h { letter-spacing: 0; }
 .thead { position: relative; box-sizing: border-box; }
 .hresize { position: absolute; left: 0; right: 0; bottom: 0; height: 6px; cursor: ns-resize; }
 .hresize:hover { background: var(--accent); opacity: .5; }
+
+/* ---------- 影片／文字／字幕 ---------- */
+.clip.vclip { background: #14181d !important; border-color: #2b3540 !important; }
+.clip.vclip .cname { color: #eef3f8; }
+.clip.vclip canvas { position: absolute; left: 0; top: 15px; opacity: .9; }
+.clip.tclip { background: repeating-linear-gradient(135deg, rgba(255,255,255,.18) 0 6px, rgba(255,255,255,.06) 6px 12px) !important; }
+.clip.tclip .cname { color: var(--tx0); font-weight: 500; }
+.thead .kind.video { color: #6fd0ff; }
+.thead .kind.text { color: #ffd166; }
+.thead .kind.sub { color: #b8a2ff; }
+
+/* ---------- 預覽視窗 ---------- */
+.vid-win { position: fixed; right: 20px; top: 108px; width: 460px; z-index: 95; display: flex; flex-direction: column;
+  background: var(--bg1); border: 1px solid var(--line2); border-radius: 8px; box-shadow: 0 14px 44px rgba(0,0,0,.42); overflow: hidden; }
+.vid-win.hidden { display: none; }
+.vid-win header { display: flex; align-items: center; gap: 8px; padding: 6px 8px; background: var(--bg3);
+  border-bottom: 1px solid var(--line2); font-size: 12px; color: var(--tx1); cursor: move; user-select: none; }
+.vid-win .vtime { font-family: ui-monospace, Consolas, monospace; color: var(--tx2); }
+.vid-win header .tbtn { height: 20px; padding: 0 6px; font-size: 11px; }
+.vid-win #vidClose { margin-left: 0; }
+.vid-win #vidFit { margin-left: auto; }
+.vstage { background: #000; line-height: 0; }
+.vstage canvas { display: block; width: 100%; height: auto; cursor: default; }
+.vid-win footer { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding: 6px 8px;
+  font-size: 11px; color: var(--tx2); border-top: 1px solid var(--line2); }
+.vid-win footer select { height: 20px; font-size: 11px; background: var(--bg0); color: var(--tx0); border: 1px solid var(--line2); border-radius: 3px; }
+.vid-win .vhint { opacity: .65; }
+.vid-grip { position: absolute; right: 0; bottom: 0; width: 14px; height: 14px; cursor: nwse-resize;
+  background: linear-gradient(135deg, transparent 45%, var(--line2) 45% 55%, transparent 55%); }
