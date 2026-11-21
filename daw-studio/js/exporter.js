@@ -64,8 +64,9 @@ export async function exportAudio(opts) {
   const base = safe(p.name), ext = EXT[opts.format] || 'wav';
 
   if (opts.mode === 'stems') {
-    // 影片／文字／字幕軌沒有聲音，不列入分軌
-    const tracks = p.tracks.filter(t => t.clips.length && !t.mute && t.kind !== 'video' && t.kind !== 'text' && t.kind !== 'sub');
+    // 文字／字幕軌沒有聲音，不列入分軌（影片軌如果有解出音軌就算一份）
+    const tracks = p.tracks.filter(t => t.clips.length && !t.mute && t.kind !== 'text' && t.kind !== 'sub'
+      && t.clips.some(c => c.bufferId));
     if (!tracks.length) { toast('沒有可輸出的軌道', 'warn'); return; }
     const zip = new window.JSZip();
     for (const [i, t] of tracks.entries()) {
