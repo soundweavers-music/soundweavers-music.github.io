@@ -37,7 +37,10 @@ COURSES = {                      # 英文資料夾 → 中文資料夾／副檔�
     "ukulele": ("ukulele", "[0-9]*.md"),
     "mandolin": ("mandolin", "[0-9]*.md"),
     "songwriting": ("songwriting", "[0-9]*.md"),
+    "dawcourse": ("dawcourse", "[0-9]*.md"),
 }
+# 內容資料夾 → 輸出網址的課程代號（樂理的資料夾叫 musictheory、網址是 /en/theory/）
+OUT_SLUG = {"musictheory": "theory"}
 TITLE = re.compile(r"〈[^〉]*〉")
 CJK_RUN = re.compile(r"[一-鿿]{12,}")
 IMG = re.compile(r"!\[[^\]]*\]\(([^)]+)\)")
@@ -107,6 +110,11 @@ def main() -> int:
     missing = set()
     for path in sorted(EN.rglob("*.md")):
         if path.name.startswith("_"):        # _STYLE.md 是說明文件，不用檢查
+            continue
+        # 這次有沒有真的建出這套課程的頁面？沒建（例如英文截圖還在補）就不算缺圖，
+        # 不然還沒完成的課程會讓整條 CI 紅掉
+        slug = OUT_SLUG.get(path.parent.name, path.parent.name)
+        if not (OUT / "en" / slug / "index.html").exists():
             continue
         for target in IMG.findall(path.read_text(encoding="utf-8")):
             if not target.startswith("/assets/"):
