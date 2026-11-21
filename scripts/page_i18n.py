@@ -357,7 +357,12 @@ def cmd_build() -> int:
             inject = ('<script>window.__PAGE_I18N=%s;</script>'
                       '<script src="%s"></script>' %
                       (js, asset_rel(dst, "/assets/i18n-runtime.js")))
-            body = body.replace("</body>", inject + "\n</body>", 1)
+            # 插在「最後一個」</body> 之前：頁面的 JS 裡也可能有 "</body>" 字串
+            # （抓和弦有匯出 HTML 的功能），用第一個會把 script 切斷，
+            # 整段程式碼就原樣印在頁面上
+            cut = body.rfind("</body>")
+            if cut != -1:
+                body = body[:cut] + inject + "\n" + body[cut:]
 
         body = swap_chrome(body, dst)
         dst.write_text(body, encoding="utf-8")

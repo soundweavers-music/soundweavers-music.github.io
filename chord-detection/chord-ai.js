@@ -514,13 +514,19 @@ const tr = (zh, en) => (document.documentElement.lang || '').startsWith('en') ? 
     center: { W_DUR: 0.3, RISE_SPLIT: 6, W_SPLIT: 0, W_SHORT: 0 },
   };
   let W_DUR = 0.3, RISE_SPLIT = 6, W_SPLIT = 0, W_SHORT = 0;
+  // 經過音：很短（< 0.12 秒）、前後都接著唱、音高夾在前後兩個音中間（例：3 → 4 → 5 的 4）
+  // → 是滑過去的，不是新的字。「清晨醒來推開窗」1 1 1 2 3 5 5 原本被讀成 1 1 1 2 3 4 5。
+  // 上限放寬到 0.18 秒以上，副歌會變差（64 → 61/70），所以只抓很短的。
+  const PASS_DUR = 0.12, W_PASS = 2;
   function startCost(notes, j) {
-    const q = notes[j], d = q.end - q.start, nx = notes[j + 1];
+    const q = notes[j], d = q.end - q.start, nx = notes[j + 1], pv = notes[j - 1];
     let v = 0;
     if (q.split) v += W_SPLIT;
     if (d < SHORT_NOTE) v += W_SHORT;
     if (nx && d <= GRACE_DUR && nx.start - q.end < 0.03 && nx.midi - q.midi >= 1 && nx.midi - q.midi <= 2 &&
         nx.end - nx.start > GRACE_RATIO * d) v += W_GRACE;
+    if (pv && nx && d < PASS_DUR && q.start - pv.end < 0.05 && nx.start - q.end < 0.05 &&
+        ((pv.midi < q.midi && q.midi < nx.midi) || (pv.midi > q.midi && q.midi > nx.midi))) v += W_PASS;
     return v;
   }
   function alignLyrics(frames, rise, lines, ends, sepEngine) {
