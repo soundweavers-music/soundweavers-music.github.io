@@ -53,7 +53,7 @@ COURSES = [
         "groups": [("Beginner", 1, 15), ("Advanced", 16, 50)],
     },
     {
-        "slug": "digitalmusic", "name": "Recording and Mixing", "eyebrow": "Recording", "icon": "🎚",
+        "slug": "digitalmusic", "name": "Recording and Mixing", "eyebrow": "Recording", "icon": "🎧",
         "lead": "From a bedroom setup to a finished master: tracking, editing, EQ, compression, "
                 "reverb, and what each genre actually needs.",
         # 1.75 而不是 2.0：英文稿比中文長，用 2.0 會算出 20 小時，中文站寫的是 17.5
@@ -75,7 +75,7 @@ COURSES = [
         "groups": [],
     },
     {
-        "slug": "ukulele", "name": "Ukulele: Strumming and Fingerstyle", "eyebrow": "Ukulele", "icon": "🪗",
+        "slug": "ukulele", "name": "Ukulele: Strumming and Fingerstyle", "eyebrow": "Ukulele", "icon": "🎶",
         "lead": "Everything about four strings: tuning, chord families, strumming patterns, "
                 "fingerstyle and percussion.",
         "factor": 2.0,
