@@ -1044,3 +1044,6 @@ html[lang="en"] .insp-sec > h4, html[lang="en"] .sec-h { letter-spacing: 0; }
 .busy-bar { width: min(420px, 70vw); height: 8px; margin: 12px auto 6px; border-radius: 999px; background: rgba(255,255,255,.14); overflow: hidden; }
 .busy-bar i { display: block; height: 100%; width: 0; border-radius: 999px; background: var(--accent); transition: width .2s linear; }
 .busy-eta { font-size: 12px; opacity: .7; font-variant-numeric: tabular-nums; min-height: 16px; }
+
+/* 拖曳標頭調換軌道順序 */
+.thead.dragging { opacity: .85; z-index: 6; position: relative; box-shadow: 0 8px 18px rgba(0,0,0,.35); cursor: grabbing; }

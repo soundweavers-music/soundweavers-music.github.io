@@ -232,6 +232,31 @@ export function renderHeaders() {
     el.addEventListener('pointerdown', e => {
       if (e.target.closest('input,button')) return;
       selectTrack(t.id);
+      // 上下拖曳標頭＝調換軌道順序
+      const startY = e.clientY, from = p.tracks.indexOf(t);
+      let moved = false, to = from;
+      const onMove = ev => {
+        if (!moved && Math.abs(ev.clientY - startY) < 6) return;
+        moved = true;
+        el.classList.add('dragging');
+        const box = headersInner.getBoundingClientRect();
+        to = Math.max(0, Math.min(p.tracks.length - 1, Math.floor((ev.clientY - box.top) / view.trackH)));
+        el.style.transform = `translateY(${(to - from) * view.trackH}px)`;
+      };
+      const onUp = () => {
+        window.removeEventListener('pointermove', onMove);
+        window.removeEventListener('pointerup', onUp);
+        el.classList.remove('dragging');
+        el.style.transform = '';
+        if (!moved || to === from) return;
+        store.checkpoint();
+        const [mv] = store.project.tracks.splice(from, 1);
+        store.project.tracks.splice(to, 0, mv);
+        store.changed('structure');
+        toast(`第 ${from + 1} 軌移到第 ${to + 1}`);
+      };
+      window.addEventListener('pointermove', onMove);
+      window.addEventListener('pointerup', onUp);
     });
     el.querySelectorAll('[data-act]').forEach(b => b.addEventListener('click', e => {
       e.stopPropagation();
