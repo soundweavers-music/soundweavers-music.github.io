@@ -221,6 +221,9 @@ body.print-score #score-view { page: score; }
 .sc-page .barhit { fill: transparent; cursor: pointer; }
 .sc-page .barhit.selbar { fill: rgba(80,140,220,.08); stroke: rgba(80,140,220,.5); stroke-dasharray: 3 3; }
 .sc-page .bad { fill: rgba(220,60,60,.10); }
+/* 播放標亮要寫在 .hit / .barhit 後面（同樣權重，後寫的贏；寫在前面會被 fill: transparent 蓋掉，看起來就是「沒在動」） */
+.sc-page .hit.now { fill: rgba(220,90,40,.28); }
+.sc-page .barhit.nowbar { fill: rgba(220,90,40,.07); }
 @media print {
   body.print-score .page > *:not(#chart-container) { display: none !important; }
   body.print-score #chart-container > *:not(#score-view) { display: none !important; }
@@ -3839,8 +3842,10 @@ let scTimes = null, scTimesFor = null, scLastNow = '';
 function scHighlight(t, playing) {
   if (!SC.score) return;
   if (scTimesFor !== SC.score) { scTimes = scNoteTimes(); scTimesFor = SC.score; }
+  // 目前位置＝最後一個已經開始的音（音跟音之間、休止符時也停在上一個音，不會一閃一閃）
   let cur = null;
-  for (const x of scTimes) { if (x.t0 != null && x.t0 <= t + 0.02 && t < x.t1 - 0.01) { cur = x; break; } if (x.t0 > t) break; }
+  for (const x of scTimes) { if (x.t0 == null) continue; if (x.t0 > t + 0.02) break; cur = x; }
+  if (cur && t > cur.t1 + 1.0) cur = null;          // 已經過了很久（間奏、曲尾）就不標
   const key = cur ? cur.b + ':' + cur.i : '';
   if (key === scLastNow) return;
   scLastNow = key;
@@ -3853,9 +3858,10 @@ function scHighlight(t, playing) {
   if (el && cur.deg) el.classList.add('now');
   if (bar) bar.classList.add('nowbar');
   const target = el || bar;
+  // 跟著捲：唱到的那一行超過畫面 60% 高度（或跑到上面去）就把它捲到 30% 的位置，下一行永遠看得到
   if (playing && target && document.getElementById('sc-follow').checked) {
-    const r = target.getBoundingClientRect();
-    if (r.top < 90 || r.bottom > window.innerHeight - 60) window.scrollBy({ top: r.top - window.innerHeight * 0.4, behavior: 'smooth' });
+    const r = target.getBoundingClientRect(), vh = window.innerHeight;
+    if (r.top < 90 || r.bottom > vh * 0.6) window.scrollBy({ top: r.top - vh * 0.3, behavior: 'smooth' });
   }
 }
 // 譜面內容改了（編輯、重排）→ 時間表要重算
