@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="The two ends of the same vocal folds">
+  <title>The two ends of the same vocal folds</title>
+  <rect width="640" height="360" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">The two ends of the same vocal folds</text>
+  <text x="26" y="55" class="ts" font-size="12.5">Modal voice and falsetto differ in vibrating area, not volume</text>
+  <text x="178" y="78" class="t" font-size="14" text-anchor="middle" font-weight="700">modal voice / chest voice</text>
+  <text x="178" y="100" class="ts" font-size="11.5" text-anchor="middle">thick, short, all of it vibrates</text>
+  <rect x="100" y="118" width="156" height="38.0" rx="6" fill="#6F8F6A" opacity="0.22"/>
+  <rect x="100" y="118" width="156" height="38.0" rx="6" fill="none" stroke="#6F8F6A" stroke-width="1.6"/>
+  <rect x="100" y="190.0" width="156" height="32.0" rx="6" fill="#6F8F6A" opacity="0.22"/>
+  <rect x="100" y="190.0" width="156" height="32.0" rx="6" fill="none" stroke="#6F8F6A" stroke-width="1.6"/>
+  <text x="178" y="174.0" class="ts" font-size="10.5" text-anchor="middle">fully closed</text>
+  <text x="178" y="268" class="t" font-size="13" text-anchor="middle">the folds hold the air back</text>
+  <text x="178" y="288" class="t" font-size="13" text-anchor="middle">a sound with a core and weight</text>
+  <text x="462" y="78" class="t" font-size="14" text-anchor="middle" font-weight="700">falsetto / head voice</text>
+  <text x="462" y="100" class="ts" font-size="11.5" text-anchor="middle">thin, long, edges only</text>
+  <rect x="384" y="118" width="156" height="27.8" rx="6" fill="#6B8FBF" opacity="0.22"/>
+  <rect x="384" y="118" width="156" height="27.8" rx="6" fill="none" stroke="#6B8FBF" stroke-width="1.6"/>
+  <rect x="384" y="195.1" width="156" height="26.9" rx="6" fill="#6B8FBF" opacity="0.22"/>
+  <rect x="384" y="195.1" width="156" height="26.9" rx="6" fill="none" stroke="#6B8FBF" stroke-width="1.6"/>
+  <text x="462" y="179.1" class="ts" font-size="10.5" text-anchor="middle">glottis</text>
+  <text x="462" y="268" class="t" font-size="13" text-anchor="middle">a small gap lets air leak</text>
+  <text x="462" y="288" class="t" font-size="13" text-anchor="middle">light and floating, but still on pitch</text>
+  <path d="M300 190 L340 190" class="thin"/>
+  <text x="320" y="182" class="ts" font-size="11" text-anchor="middle">the same</text>
+  <text x="320" y="210" class="ts" font-size="11" text-anchor="middle">vocal folds</text>
+  <text x="26" y="342" class="ts" font-size="11">Thickness is shape, not force: stretch it and it thins, relax it and it thickens</text>
+</svg>

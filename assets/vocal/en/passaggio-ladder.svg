@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img" aria-label="Three registers and the passaggio">
+  <title>Three registers and the passaggio</title>
+  <rect width="640" height="420" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">Three registers and the passaggio</text>
+  <text x="26" y="55" class="ts" font-size="12.5">The same pitch can be made in different ways</text>
+  <path d="M56.0 336.0 L56.0 99.2" fill="none" stroke="#3D3229" stroke-width="1.7" stroke-linecap="round"/><path d="M56.0 92.0 L59.3 99.3 L52.7 99.3 Z" fill="#3D3229"/>
+  <text x="44" y="88" class="ts" font-size="11.5" text-anchor="end">pitch</text>
+  <rect x="72" y="260" width="232" height="64" rx="8" fill="#E4EBDC" stroke="#6F8F6A" stroke-width="1.6"/>
+  <text x="88" y="286" class="t" font-size="14" font-weight="700">low register</text>
+  <text x="88" y="306" class="ts" font-size="11.5">whole folds vibrate</text>
+  <rect x="72" y="180" width="232" height="64" rx="8" fill="#F3E9DC" stroke="#A67C52" stroke-width="1.6"/>
+  <text x="88" y="206" class="t" font-size="14" font-weight="700">passaggio</text>
+  <text x="88" y="226" class="ts" font-size="11.5">both muscle sets work</text>
+  <rect x="72" y="100" width="232" height="64" rx="8" fill="#DEE8F3" stroke="#6B8FBF" stroke-width="1.6"/>
+  <text x="88" y="126" class="t" font-size="14" font-weight="700">high register</text>
+  <text x="88" y="146" class="ts" font-size="11.5">only the edges vibrate</text>
+  <path d="M72 248 L304 248" fill="none" stroke="#B0563F" stroke-width="1.4" stroke-dasharray="5 4"/>
+  <text x="72" y="360" class="ts" font-size="11" fill="#B0563F">The dashed line is where a click is most likely, not the top of the range</text>
+  <text x="330" y="88" class="ts" font-size="12">How much each muscle set works</text>
+  <rect x="330" y="98" width="280" height="168" rx="6" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1"/>
+  <path d="M342 114 C400 118 440 138 470 182 C500 226 540 248 598 252" class="green"/>
+  <path d="M342 252 C400 248 440 226 470 182 C500 138 540 118 598 114" class="blue"/>
+  <circle cx="470" cy="182" r="3.6" fill="#3D3229"/>
+  <circle cx="342" cy="288" r="4" fill="#6F8F6A"/>
+  <text x="352" y="292" class="ts" font-size="11">TA thyroarytenoid (low)</text>
+  <circle cx="470" cy="288" r="4" fill="#6B8FBF"/>
+  <text x="480" y="292" class="ts" font-size="11">CT cricothyroid (high)</text>
+  <text x="330" y="330" class="ts" font-size="12.5">Not one note but a zone; relaxation narrows it</text>
+</svg>

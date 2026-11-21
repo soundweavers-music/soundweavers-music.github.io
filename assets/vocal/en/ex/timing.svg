@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" role="img" aria-label="Lock to the beat first, then talk groove">
+  <title>Lock to the beat first, then talk groove</title>
+  <rect width="640" height="300" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">Lock to the beat first, then talk groove</text>
+  <text x="26" y="55" class="ts" font-size="12.5">Groove is an offset from the beat, not randomness</text>
+  <path d="M90.0 140 L90.0 220" class="thin"/>
+  <path d="M148.75 140 L148.75 220" class="thin"/>
+  <path d="M207.5 140 L207.5 220" class="thin"/>
+  <path d="M266.25 140 L266.25 220" class="thin"/>
+  <path d="M325.0 140 L325.0 220" class="thin"/>
+  <path d="M383.75 140 L383.75 220" class="thin"/>
+  <path d="M442.5 140 L442.5 220" class="thin"/>
+  <path d="M501.25 140 L501.25 220" class="thin"/>
+  <path d="M560.0 140 L560.0 220" class="thin"/>
+  <path d="M90.0 126 L90.0 234" class="ink" opacity="0.5"/>
+  <path d="M207.5 126 L207.5 234" class="ink" opacity="0.5"/>
+  <path d="M325.0 126 L325.0 234" class="ink" opacity="0.5"/>
+  <path d="M442.5 126 L442.5 234" class="ink" opacity="0.5"/>
+  <path d="M560.0 126 L560.0 234" class="ink" opacity="0.5"/>
+  <circle cx="148.75" cy="180" r="7" fill="#B0563F"/>
+  <text x="148.75" y="254" class="ts" font-size="11.5" text-anchor="middle" fill="#B0563F">ahead</text>
+  <circle cx="207.5" cy="180" r="7" fill="#6F8F6A"/>
+  <text x="207.5" y="254" class="ts" font-size="11.5" text-anchor="middle" fill="#6F8F6A">on the beat</text>
+  <circle cx="266.25" cy="180" r="7" fill="#6B8FBF"/>
+  <text x="266.25" y="254" class="ts" font-size="11.5" text-anchor="middle" fill="#6B8FBF">behind</text>
+  <text x="90" y="100" class="ts" font-size="12">Get it exact first, then talk about &quot;tiny timing gaps&quot;</text>
+  <text x="26" y="282" class="ts" font-size="11">Rushing and dragging are decoration, not wrong notes; first you must land on the beat</text>
+</svg>

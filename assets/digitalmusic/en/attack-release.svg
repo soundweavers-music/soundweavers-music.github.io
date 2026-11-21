@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 360" role="img" aria-label="How Attack and Release shape the waveform">
+  <title>How Attack and Release shape the waveform</title>
+  <rect width="660" height="360" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">How Attack and Release shape the waveform</text>
+  <text x="26" y="55" class="ts" font-size="12.5">One handles the start, one the tail</text>
+  <text x="26" y="84" class="ts" font-size="12">Attack sets how fast it clamps down; Release sets how fast it lets go</text>
+  <rect x="90" y="120" width="480" height="150" rx="4" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.4"/>
+  <path d="M100 230 L560 230" class="thin"/>
+  <path d="M150 230 L150 140" class="acc"/>
+  <path d="M270 230 L270 200" class="acc"/>
+  <text x="150" y="248" class="ts" font-size="9" text-anchor="middle" fill="#A67C52">Input</text>
+  <path d="M310.0 144.0 L312.0 144.5 L314.0 145.0 L316.0 145.5 L318.0 146.0 L320.0 146.5 L322.0 147.0 L324.0 147.5 L326.0 148.0 L328.0 148.5 L330.0 149.0 L332.0 149.5 L334.0 150.0 L336.0 150.5 L338.0 151.0 L340.0 151.5 L342.0 152.0 L344.0 152.5 L346.0 153.0 L348.0 153.5 L350.0 154.0 L352.0 154.5 L354.0 155.0 L356.0 155.5 L358.0 156.0 L360.0 156.5 L362.0 157.0 L364.0 157.5 L366.0 158.0 L368.0 158.5 L370.0 159.0 L372.0 159.5 L374.0 160.0 L376.0 160.5 L378.0 161.0 L380.0 161.5 L382.0 162.0 L384.0 162.5 L386.0 163.0 L388.0 163.5 L390.0 164.0 L392.0 164.5 L394.0 165.0 L396.0 165.5 L398.0 166.0 L400.0 166.5 L402.0 167.0 L404.0 167.5 L406.0 168.0 L408.0 168.5 L410.0 169.0 L412.0 169.5 L414.0 170.0 L416.0 170.5 L418.0 171.0 L420.0 171.5 L422.0 172.0 L424.0 172.5 L426.0 173.0 L428.0 173.5 L430.0 174.0" class="red"/>
+  <path d="M310.0 144.0 L312.0 146.0 L314.0 147.8 L316.0 149.6 L318.0 151.3 L320.0 152.8 L322.0 154.4 L324.0 155.8 L326.0 157.2 L328.0 158.5 L330.0 159.7 L332.0 160.9 L334.0 162.0 L336.0 163.1 L338.0 164.1 L340.0 165.1 L342.0 166.0 L344.0 166.9 L346.0 167.7 L348.0 168.5 L350.0 169.3 L352.0 170.0 L354.0 170.7 L356.0 171.3 L358.0 172.0 L360.0 172.5 L362.0 173.1 L364.0 173.6 L366.0 174.1 L368.0 174.6 L370.0 175.1 L372.0 175.5 L374.0 175.9 L376.0 176.3 L378.0 176.7 L380.0 177.0 L382.0 177.4 L384.0 177.7 L386.0 178.0 L388.0 178.3 L390.0 178.6 L392.0 178.9 L394.0 179.1 L396.0 179.3 L398.0 179.6 L400.0 179.8 L402.0 180.0 L404.0 180.2 L406.0 180.4 L408.0 180.5 L410.0 180.7 L412.0 180.9 L414.0 181.0 L416.0 181.2 L418.0 181.3 L420.0 181.4 L422.0 181.6 L424.0 181.7 L426.0 181.8 L428.0 181.9 L430.0 182.0" class="green"/>
+  <text x="400" y="156" class="ts" font-size="9.5" fill="#6F8F6A">Slow attack: the transient gets through</text>
+  <text x="400" y="174" class="ts" font-size="9.5" fill="#B0563F">Fast attack: the transient is caught</text>
+  <text x="400" y="194" class="ts" font-size="8.5" fill="#8C8078">(both curves in the same frame)</text>
+  <text x="26" y="300" class="ts" font-size="11">Slow the attack to keep a drum&#x27;s punch; speed it up to smooth a vocal</text>
+  <text x="26" y="342" class="ts" font-size="11" fill="#8C8078">Too short a release pumps; too long and the next phrase never recovers</text>
+</svg>

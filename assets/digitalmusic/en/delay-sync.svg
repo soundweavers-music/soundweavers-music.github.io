@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 350" role="img" aria-label="Tempo-synced delay">
+  <title>Tempo-synced delay</title>
+  <rect width="660" height="350" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">Tempo-synced delay</text>
+  <text x="26" y="55" class="ts" font-size="12.5">Note values turned into milliseconds</text>
+  <text x="26" y="84" class="ts" font-size="12">Synced delay: the note value sets the time, and it follows the BPM</text>
+  <text x="60" y="122" class="t" font-size="11" font-weight="700">1/4</text>
+  <text x="180" y="122" class="ts" font-size="10" fill="#8C8078">1/4</text>
+  <circle cx="320.0" cy="116" r="5" fill="#A67C52" opacity="0.75"/>
+  <circle cx="388.0" cy="116" r="5" fill="#A67C52" opacity="0.61"/>
+  <circle cx="456.0" cy="116" r="5" fill="#A67C52" opacity="0.47"/>
+  <circle cx="524.0" cy="116" r="5" fill="#A67C52" opacity="0.32999999999999996"/>
+  <circle cx="592.0" cy="116" r="5" fill="#A67C52" opacity="0.18999999999999995"/>
+  <text x="60" y="172" class="t" font-size="11" font-weight="700">1/8</text>
+  <text x="180" y="172" class="ts" font-size="10" fill="#8C8078">1/8</text>
+  <circle cx="320.0" cy="166" r="5" fill="#A67C52" opacity="0.75"/>
+  <circle cx="354.0" cy="166" r="5" fill="#A67C52" opacity="0.61"/>
+  <circle cx="388.0" cy="166" r="5" fill="#A67C52" opacity="0.47"/>
+  <circle cx="422.0" cy="166" r="5" fill="#A67C52" opacity="0.32999999999999996"/>
+  <circle cx="456.0" cy="166" r="5" fill="#A67C52" opacity="0.18999999999999995"/>
+  <text x="60" y="222" class="t" font-size="11" font-weight="700">1/8 dotted</text>
+  <text x="180" y="222" class="ts" font-size="10" fill="#8C8078">1/8 dotted</text>
+  <circle cx="320.0" cy="216" r="5" fill="#A67C52" opacity="0.75"/>
+  <circle cx="371.0" cy="216" r="5" fill="#A67C52" opacity="0.61"/>
+  <circle cx="422.0" cy="216" r="5" fill="#A67C52" opacity="0.47"/>
+  <circle cx="473.0" cy="216" r="5" fill="#A67C52" opacity="0.32999999999999996"/>
+  <circle cx="524.0" cy="216" r="5" fill="#A67C52" opacity="0.18999999999999995"/>
+  <text x="60" y="272" class="t" font-size="11" font-weight="700">1/16</text>
+  <text x="180" y="272" class="ts" font-size="10" fill="#8C8078">1/16</text>
+  <circle cx="320.0" cy="266" r="5" fill="#A67C52" opacity="0.75"/>
+  <circle cx="337.0" cy="266" r="5" fill="#A67C52" opacity="0.61"/>
+  <circle cx="354.0" cy="266" r="5" fill="#A67C52" opacity="0.47"/>
+  <circle cx="371.0" cy="266" r="5" fill="#A67C52" opacity="0.32999999999999996"/>
+  <circle cx="388.0" cy="266" r="5" fill="#A67C52" opacity="0.18999999999999995"/>
+  <text x="320" y="96" class="ts" font-size="9.5" fill="#8C8078">Where the echoes land after the first</text>
+  <text x="26" y="300" class="ts" font-size="11">At 120 BPM: 1/8 = 250 ms, 1/8 dotted = 375 ms, 1/4 = 500 ms</text>
+  <text x="26" y="332" class="ts" font-size="11" fill="#8C8078">The dotted feel works best; it sits close to how people sway</text>
+</svg>

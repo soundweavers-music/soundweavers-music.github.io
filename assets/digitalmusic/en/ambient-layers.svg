@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 380" role="img" aria-label="The four layers of ambient">
+  <title>The four layers of ambient</title>
+  <rect width="660" height="380" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">The four layers of ambient</text>
+  <text x="26" y="55" class="ts" font-size="12.5">Each layer does one job</text>
+  <text x="26" y="84" class="ts" font-size="12">Ambient is not nothing; it is many layers each doing a little</text>
+  <rect x="70" y="122" width="384.0" height="40" rx="6" fill="#6B8FBF" stroke="#6B8FBF" stroke-width="1.2" opacity="0.22"/>
+  <text x="84" y="147" class="t" font-size="11.5" font-weight="700">High air</text>
+  <text x="430" y="147" class="ts" font-size="10" fill="#8C8078">Shimmer, tape hiss</text>
+  <rect x="70" y="178" width="319.2" height="40" rx="6" fill="#A67C52" stroke="#A67C52" stroke-width="1.2" opacity="0.22"/>
+  <text x="84" y="203" class="t" font-size="11.5" font-weight="700">Mid melody</text>
+  <text x="430" y="203" class="ts" font-size="10" fill="#8C8078">Lead pad, melodica</text>
+  <rect x="70" y="234" width="258.0" height="40" rx="6" fill="#6F8F6A" stroke="#6F8F6A" stroke-width="1.2" opacity="0.22"/>
+  <text x="84" y="259" class="t" font-size="11.5" font-weight="700">Harmonic bed</text>
+  <text x="430" y="259" class="ts" font-size="10" fill="#8C8078">Sustained pad, vocal fragments</text>
+  <rect x="70" y="290" width="168.0" height="40" rx="6" fill="#5D4E41" stroke="#5D4E41" stroke-width="1.2" opacity="0.22"/>
+  <text x="84" y="315" class="t" font-size="11.5" font-weight="700">Low drone</text>
+  <text x="430" y="315" class="ts" font-size="10" fill="#8C8078">A steady bass that barely moves</text>
+  <text x="26" y="340" class="ts" font-size="11">Every layer must move — slow filter sweeps, drifting level — or it is a static synth</text>
+  <text x="26" y="362" class="ts" font-size="11">Reverb is the lead: long decay, low high-cut, cut below 200 Hz before the send</text>
+</svg>

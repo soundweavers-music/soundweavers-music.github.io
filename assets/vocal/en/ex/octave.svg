@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" role="img" aria-label="Slide a whole octave in one breath">
+  <title>Slide a whole octave in one breath</title>
+  <rect width="640" height="300" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">Slide a whole octave in one breath</text>
+  <text x="26" y="55" class="ts" font-size="12.5">A smooth slide means the two muscle sets hand over cleanly</text>
+  <path d="M90 230 L550 230" class="thin"/>
+  <text x="90" y="254" class="ts" font-size="11">low note</text>
+  <text x="550" y="254" class="ts" font-size="11" text-anchor="end">the octave above it</text>
+  <path d="M90 220 C160 200 210 160 260 134 C320 106 400 92 460 90 C500 90 530 92 550 94" class="acc"/>
+  <text x="90" y="96" class="ts" font-size="12">Slide the octave in one breath; no break, no pushing</text>
+  <text x="26" y="282" class="ts" font-size="11">An octave slide is the quickest test of whether the passaggio works</text>
+</svg>

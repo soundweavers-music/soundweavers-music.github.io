@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 350" role="img" aria-label="Equal-power panning">
+  <title>Equal-power panning</title>
+  <rect width="660" height="350" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">Equal-power panning</text>
+  <text x="26" y="55" class="ts" font-size="12.5">Pan one way and the other side compensates</text>
+  <text x="26" y="84" class="ts" font-size="12">Pan hard and the total level holds steady — that is equal power</text>
+  <path d="M90 250 L490 250" class="thin"/>
+  <text x="82" y="254" class="ts" font-size="10" text-anchor="end">L</text>
+  <text x="498" y="254" class="ts" font-size="10">R</text>
+  <text x="290.0" y="274" class="ts" font-size="9.5" text-anchor="middle" fill="#8C8078">centre</text>
+  <path d="M90.0 142.0 L100.0 142.1 L110.0 142.3 L120.0 142.7 L130.0 143.3 L140.0 144.1 L150.0 145.0 L160.0 146.1 L170.0 147.3 L180.0 148.7 L190.0 150.2 L200.0 151.9 L210.0 153.8 L220.0 155.8 L230.0 157.9 L240.0 160.2 L250.0 162.6 L260.0 165.2 L270.0 167.9 L280.0 170.7 L290.0 173.6 L300.0 176.7 L310.0 179.9 L320.0 183.1 L330.0 186.5 L340.0 190.0 L350.0 193.6 L360.0 197.2 L370.0 201.0 L380.0 204.8 L390.0 208.7 L400.0 212.6 L410.0 216.6 L420.0 220.7 L430.0 224.8 L440.0 228.9 L450.0 233.1 L460.0 237.3 L470.0 241.5 L480.0 245.8 L490.0 250.0" class="acc"/>
+  <path d="M90.0 250.0 L100.0 245.8 L110.0 241.5 L120.0 237.3 L130.0 233.1 L140.0 228.9 L150.0 224.8 L160.0 220.7 L170.0 216.6 L180.0 212.6 L190.0 208.7 L200.0 204.8 L210.0 201.0 L220.0 197.2 L230.0 193.6 L240.0 190.0 L250.0 186.5 L260.0 183.1 L270.0 179.9 L280.0 176.7 L290.0 173.6 L300.0 170.7 L310.0 167.9 L320.0 165.2 L330.0 162.6 L340.0 160.2 L350.0 157.9 L360.0 155.8 L370.0 153.8 L380.0 151.9 L390.0 150.2 L400.0 148.7 L410.0 147.3 L420.0 146.1 L430.0 145.0 L440.0 144.1 L450.0 143.3 L460.0 142.7 L470.0 142.3 L480.0 142.1 L490.0 142.0" class="blue"/>
+  <text x="100" y="136.0" class="ts" font-size="9.5" fill="#A67C52">left</text>
+  <text x="480" y="136.0" class="ts" font-size="9.5" text-anchor="end" fill="#6B8FBF">right</text>
+  <rect x="60" y="276" width="250" height="52" rx="8" fill="#F3E9DC" stroke="#D9CFC4" stroke-width="1.3"/>
+  <text x="72" y="298" class="t" font-size="13" font-weight="700">centred</text>
+  <text x="72" y="317" class="ts" font-size="11">equal both sides, firmest in the centre</text>
+  <rect x="340" y="276" width="260" height="52" rx="8" fill="#DEE8F3" stroke="#D9CFC4" stroke-width="1.3"/>
+  <text x="352" y="298" class="t" font-size="13" font-weight="700">panned hard</text>
+  <text x="352" y="317" class="ts" font-size="11">one side only, the other -∞</text>
+</svg>

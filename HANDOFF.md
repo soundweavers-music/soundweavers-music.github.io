@@ -141,6 +141,16 @@ Chrome 開站顯示「危險網站／可能誘騙你安裝軟體」。查詢 `ht
   人聲 50 章、曼陀林 22 章、錄音後製 30 堂已完成；DAW 24 堂還沒開始
   （它的截圖是中文介面，要先用 `scripts/daw_shots/` 以 `lang=en` 重拍）。
   `python scripts/figure_i18n.py status` 看每套圖還剩幾條字串。
+- **收尾檢查**：`python scripts/check_en_site.py`。翻譯是分很多批做的，
+  「看起來做完」跟「真的做完」差很遠——它一次檢查：每套課程的英文章數 vs
+  中文章數、英文稿引用的 `/assets/<course>/en/*` 在不在、有沒有整段還是中文、
+  有沒有指到中文圖。有問題離開碼 1。
+- **DAW 課程還沒做**，而且不能只翻文字：24 堂課的截圖是中文介面。做法是
+  在 `scripts/daw_shots/capture.py` 的注入腳本裡加
+  `localStorage.setItem('zhiyin-daw-lang','en')`（DAW 本身已有 i18n，
+  `daw-studio/js/i18n.js` 讀這個鍵），重跑 capture 與 figures 產生英文介面
+  的截圖，再翻 24 篇稿子。`build_en_courses.py` 的 `dawcourse` 那一筆已經寫好了，
+  缺的只是 `content/en/dawcourse/NN.md` 與英文截圖。
 
 ### 2026-11-20（新課程：流行歌曲詞曲創作）
 

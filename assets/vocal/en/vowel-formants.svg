@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-label="Five vowels on the F1–F2 plane">
+  <title>Five vowels on the F1–F2 plane</title>
+  <rect width="640" height="400" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">Five vowels on the F1–F2 plane</text>
+  <text x="26" y="55" class="ts" font-size="12.5">On one pitch, a new vowel means a new tongue position</text>
+  <rect x="120" y="100" width="440" height="220" rx="4" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.2"/>
+  <path d="M104.0 100.0 L104.0 313.7" fill="none" stroke="#3D3229" stroke-width="1.7" stroke-linecap="round"/><path d="M104.0 320.0 L101.1 313.6 L106.9 313.6 Z" fill="#3D3229"/>
+  <text x="96" y="106" class="ts" font-size="10.5" text-anchor="end">F1 low</text>
+  <text x="96" y="320" class="ts" font-size="10.5" text-anchor="end">F1 high</text>
+  <path d="M120.0 340.0 L553.7 340.0" fill="none" stroke="#3D3229" stroke-width="1.7" stroke-linecap="round"/><path d="M560.0 340.0 L553.6 342.9 L553.6 337.1 Z" fill="#3D3229"/>
+  <text x="560" y="360" class="ts" font-size="10.5" text-anchor="end">F2 low → high</text>
+  <circle cx="208.0" cy="122.0" r="14" fill="#A67C52" opacity="0.16"/>
+  <circle cx="208.0" cy="122.0" r="4.5" fill="#A67C52"/>
+  <text x="226.0" y="127.0" class="t" font-size="14" font-weight="700">i</text>
+  <circle cx="260.8" cy="157.2" r="14" fill="#A67C52" opacity="0.16"/>
+  <circle cx="260.8" cy="157.2" r="4.5" fill="#A67C52"/>
+  <text x="278.8" y="162.2" class="t" font-size="14" font-weight="700">e</text>
+  <circle cx="362.0" cy="298.0" r="14" fill="#A67C52" opacity="0.16"/>
+  <circle cx="362.0" cy="298.0" r="4.5" fill="#A67C52"/>
+  <text x="380.0" y="303.0" class="t" font-size="14" font-weight="700">a</text>
+  <circle cx="296.0" cy="258.4" r="14" fill="#A67C52" opacity="0.16"/>
+  <circle cx="296.0" cy="258.4" r="4.5" fill="#A67C52"/>
+  <text x="314.0" y="263.4" class="t" font-size="14" font-weight="700">o</text>
+  <circle cx="243.20000000000002" cy="221.0" r="14" fill="#A67C52" opacity="0.16"/>
+  <circle cx="243.20000000000002" cy="221.0" r="4.5" fill="#A67C52"/>
+  <text x="261.20000000000005" y="226.0" class="t" font-size="14" font-weight="700">u</text>
+  <text x="26" y="382" class="ts" font-size="11">Vowel position comes from tongue height (F1) and frontness (F2), the frame every language shares</text>
+</svg>

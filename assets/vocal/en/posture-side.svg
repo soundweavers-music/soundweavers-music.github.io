@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-label="Standing: four points in line">
+  <title>Standing: four points in line</title>
+  <rect width="640" height="480" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">Standing: four points in line</text>
+  <text x="26" y="55" class="ts" font-size="12.5">Ear, shoulder, pelvis and ankle on one plumb line</text>
+  <path d="M200.7 84.0 L204.8 84.0 L206.1 85.4 L208.9 85.4 L214.4 88.1 L217.1 90.8 L217.1 93.6 L218.5 95.0 L218.5 103.2 L221.2 105.9 L221.2 115.5 L215.7 121.0 L214.4 123.7 L214.4 127.8 L213.0 129.2 L213.0 131.9 L217.1 136.0 L218.5 136.0 L225.3 141.5 L230.8 144.2 L233.5 144.2 L234.9 145.6 L237.6 145.6 L240.4 147.0 L245.9 152.5 L245.9 159.3 L247.2 160.7 L247.2 179.9 L248.6 181.2 L248.6 218.2 L250.0 219.6 L250.0 223.7 L251.3 225.0 L251.3 249.7 L252.7 251.1 L252.7 262.0 L254.1 263.4 L254.1 267.5 L256.8 273.0 L256.8 282.5 L255.4 285.3 L250.0 290.8 L247.2 290.8 L245.9 289.4 L244.5 290.8 L241.7 288.0 L241.7 285.3 L240.4 283.9 L240.4 279.8 L239.0 278.4 L239.0 270.2 L241.7 264.7 L241.7 249.7 L240.4 248.3 L240.4 241.5 L237.6 236.0 L237.6 230.5 L236.3 229.1 L236.3 223.7 L234.9 222.3 L234.9 210.0 L233.5 208.6 L233.5 203.1 L232.2 201.8 L229.4 207.2 L229.4 220.9 L228.0 222.3 L228.0 229.1 L229.4 230.5 L229.4 238.7 L230.8 240.1 L230.8 260.6 L229.4 262.0 L229.4 282.5 L228.0 283.9 L228.0 292.1 L226.7 293.5 L226.7 300.3 L225.3 301.7 L225.3 307.2 L223.9 308.6 L223.9 312.7 L222.6 314.0 L222.6 318.1 L221.2 319.5 L221.2 323.6 L219.8 325.0 L219.8 337.3 L218.5 338.7 L218.5 349.6 L219.8 351.0 L219.8 356.5 L221.2 357.9 L221.2 372.9 L219.8 374.3 L219.8 381.1 L218.5 382.5 L218.5 390.7 L217.1 392.1 L217.1 397.6 L215.7 398.9 L215.7 407.2 L214.4 408.5 L214.4 414.0 L204.8 414.0 L204.8 396.2 L203.4 394.8 L203.4 392.1 L202.0 390.7 L202.0 385.2 L200.7 383.9 L200.7 364.7 L202.0 363.3 L202.0 355.1 L200.7 353.8 L200.7 345.5 L199.3 344.2 L199.3 288.0 L197.9 286.7 L197.9 278.4 L196.6 277.1 L193.8 282.5 L193.8 296.2 L192.4 297.6 L192.4 327.7 L193.8 329.1 L193.8 336.0 L192.4 337.3 L192.4 345.5 L191.1 346.9 L191.1 359.2 L192.4 360.6 L192.4 379.8 L191.1 381.1 L191.1 388.0 L189.7 389.4 L189.7 393.5 L188.3 394.8 L188.3 414.0 L178.8 414.0 L178.8 405.8 L177.4 404.4 L177.4 400.3 L174.6 396.2 L174.6 392.1 L173.3 390.7 L173.3 381.1 L171.9 379.8 L171.9 353.8 L173.3 352.4 L173.3 327.7 L171.9 326.4 L171.9 322.3 L169.2 316.8 L169.2 312.7 L167.8 311.3 L167.8 307.2 L166.4 305.8 L166.4 301.7 L165.1 300.3 L165.1 292.1 L162.3 289.4 L156.8 289.4 L154.1 286.7 L154.1 283.9 L151.4 278.4 L151.4 262.0 L150.0 260.6 L150.0 256.5 L151.4 255.2 L151.4 230.5 L152.7 229.1 L152.7 222.3 L154.1 220.9 L154.1 211.3 L158.2 204.5 L158.2 194.9 L159.6 193.5 L159.6 159.3 L161.0 157.9 L162.3 151.1 L166.4 147.0 L191.1 134.7 L191.1 129.2 L189.7 127.8 L189.7 123.7 L188.3 122.3 L188.3 119.6 L184.2 115.5 L182.9 105.9 L185.6 103.2 L185.6 99.1 L187.0 97.7 L187.0 93.6 L188.3 90.8 L192.4 86.7 L195.2 85.4 L199.3 85.4 Z" fill="#E9DACA" stroke="#3D3229" stroke-width="1.4" stroke-linejoin="round"/>
+  <path d="M203.40248962655602 96 L203.40248962655602 404" fill="none" stroke="#8C8078" stroke-width="1" stroke-dasharray="5 5"/>
+  <circle cx="203.40248962655602" cy="118" r="5" fill="#A67C52" stroke="#fff" stroke-width="1.5"/>
+  <path d="M169.40248962655602 118 L150 118" class="lead"/>  <circle cx="169.40248962655602" cy="118" r="2.4" fill="#8C8078"/>
+  <text x="144" y="122" class="ts" font-size="11.5" text-anchor="end">ear</text>
+  <circle cx="203.40248962655602" cy="150" r="5" fill="#A67C52" stroke="#fff" stroke-width="1.5"/>
+  <path d="M169.40248962655602 150 L150 150" class="lead"/>  <circle cx="169.40248962655602" cy="150" r="2.4" fill="#8C8078"/>
+  <text x="144" y="154" class="ts" font-size="11.5" text-anchor="end">shoulder</text>
+  <circle cx="203.40248962655602" cy="290" r="5" fill="#A67C52" stroke="#fff" stroke-width="1.5"/>
+  <path d="M169.40248962655602 290 L150 290" class="lead"/>  <circle cx="169.40248962655602" cy="290" r="2.4" fill="#8C8078"/>
+  <text x="144" y="294" class="ts" font-size="11.5" text-anchor="end">pelvis</text>
+  <circle cx="203.40248962655602" cy="402" r="5" fill="#A67C52" stroke="#fff" stroke-width="1.5"/>
+  <path d="M169.40248962655602 402 L150 402" class="lead"/>  <circle cx="169.40248962655602" cy="402" r="2.4" fill="#8C8078"/>
+  <text x="144" y="406" class="ts" font-size="11.5" text-anchor="end">ankle</text>
+  <text x="410" y="112" class="ts" font-size="12">Standing tall, ear, shoulder,</text>
+  <text x="410" y="134" class="ts" font-size="12">pelvis and ankle on one line</text>
+  <text x="410" y="188" class="ts" font-size="12">One shoulder high, hips tilted:</text>
+  <text x="410" y="210" class="ts" font-size="12">air only fills one side</text>
+  <text x="410" y="264" class="ts" font-size="12">Not chest out: it flips the ribs up</text>
+  <text x="410" y="286" class="ts" font-size="12">and hollows the lower back</text>
+  <text x="26" y="462" class="ts" font-size="11">Posture has one job: keep the airway straight</text>
+</svg>

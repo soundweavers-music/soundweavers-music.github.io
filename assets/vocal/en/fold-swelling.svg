@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" role="img" aria-label="Normal folds and swollen folds">
+  <title>Normal folds and swollen folds</title>
+  <rect width="640" height="320" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">Normal folds and swollen folds</text>
+  <text x="26" y="55" class="ts" font-size="12.5">Swelling is painless but makes the voice dull and effortful</text>
+  <text x="150" y="90" class="t" font-size="13" text-anchor="middle" font-weight="600" fill="#6F8F6A">normal</text>
+  <rect x="70" y="120" width="160" height="34" rx="8" fill="#6F8F6A" opacity="0.2"/>
+  <rect x="70" y="120" width="160" height="34" rx="8" fill="none" stroke="#6F8F6A" stroke-width="1.4"/>
+  <rect x="70" y="174" width="160" height="34" rx="8" fill="#6F8F6A" opacity="0.2"/>
+  <rect x="70" y="174" width="160" height="34" rx="8" fill="none" stroke="#6F8F6A" stroke-width="1.4"/>
+  <text x="150" y="240" class="ts" font-size="11" text-anchor="middle">clean edges, full closure</text>
+  <text x="430" y="90" class="t" font-size="13" text-anchor="middle" font-weight="600" fill="#B0563F">swollen</text>
+  <rect x="350" y="114" width="160" height="50" rx="20" fill="#B0563F" opacity="0.2"/>
+  <rect x="350" y="114" width="160" height="50" rx="20" fill="none" stroke="#B0563F" stroke-width="1.4"/>
+  <rect x="350" y="184" width="160" height="50" rx="20" fill="#B0563F" opacity="0.2"/>
+  <rect x="350" y="184" width="160" height="50" rx="20" fill="none" stroke="#B0563F" stroke-width="1.4"/>
+  <text x="430" y="258" class="ts" font-size="11" text-anchor="middle">thicker, rounder, a gap in closure</text>
+  <text x="26" y="302" class="ts" font-size="11">Ice water, late nights, forcing a song: the folds swell, and you can hear it</text>
+</svg>

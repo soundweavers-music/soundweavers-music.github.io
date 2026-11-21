@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" role="img" aria-label="Steam first aid, then complete rest">
+  <title>Steam first aid, then complete rest</title>
+  <rect width="640" height="300" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">Steam first aid, then complete rest</text>
+  <text x="26" y="55" class="ts" font-size="12.5">Soothing is not treating</text>
+  <rect x="90" y="148" width="470" height="24" rx="12" fill="#DEE8F3" opacity="0.7"/>
+  <rect x="90" y="148" width="164.5" height="24" rx="12" fill="#6B8FBF" opacity="0.35"/>
+  <text x="90" y="134" class="ts" font-size="11.5" fill="#6B8FBF">steam 5–10 minutes</text>
+  <text x="560" y="134" class="ts" font-size="11.5" text-anchor="end">then complete rest</text>
+  <text x="90" y="200" class="ts" font-size="12">Steam only moistens the mucosa and eases it for a while;</text>
+  <text x="90" y="222" class="ts" font-size="12">It does not repair the folds, and it is no excuse to keep singing</text>
+  <text x="26" y="282" class="ts" font-size="11">Real pain, or hoarseness past two weeks: see a doctor, do not self-treat</text>
+</svg>

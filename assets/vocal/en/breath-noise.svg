@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 340" role="img" aria-label="Breathy tone: harmonics plus broadband noise">
+  <title>Breathy tone: harmonics plus broadband noise</title>
+  <rect width="640" height="340" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">Breathy tone: harmonics plus broadband noise</text>
+  <text x="26" y="55" class="ts" font-size="12.5">The &quot;sandiness&quot; in a voice comes from incomplete closure</text>
+  <text x="70" y="96" class="ts" font-size="12">Clean voice: clear harmonics</text>
+  <rect x="80" y="160" width="12" height="60" rx="2" fill="#A67C52" opacity="0.6"/>
+  <rect x="126" y="150" width="12" height="70" rx="2" fill="#A67C52" opacity="0.6"/>
+  <rect x="172" y="160" width="12" height="60" rx="2" fill="#A67C52" opacity="0.6"/>
+  <rect x="218" y="150" width="12" height="70" rx="2" fill="#A67C52" opacity="0.6"/>
+  <rect x="264" y="160" width="12" height="60" rx="2" fill="#A67C52" opacity="0.6"/>
+  <rect x="310" y="150" width="12" height="70" rx="2" fill="#A67C52" opacity="0.6"/>
+  <rect x="356" y="160" width="12" height="60" rx="2" fill="#A67C52" opacity="0.6"/>
+  <text x="70" y="250" class="ts" font-size="11">harmonics + a little noise</text>
+  <text x="70" y="300" class="ts" font-size="12">Breathy: broadband noise fills between harmonics</text>
+  <rect x="380" y="170" width="8" height="40" rx="2" fill="#A67C52" opacity="0.35"/>
+  <rect x="404" y="162" width="8" height="48" rx="2" fill="#A67C52" opacity="0.35"/>
+  <rect x="428" y="170" width="8" height="40" rx="2" fill="#A67C52" opacity="0.35"/>
+  <rect x="452" y="162" width="8" height="48" rx="2" fill="#A67C52" opacity="0.35"/>
+  <rect x="476" y="170" width="8" height="40" rx="2" fill="#A67C52" opacity="0.35"/>
+  <rect x="500" y="162" width="8" height="48" rx="2" fill="#A67C52" opacity="0.35"/>
+  <rect x="524" y="170" width="8" height="40" rx="2" fill="#A67C52" opacity="0.35"/>
+  <rect x="376" y="214" width="190" height="22" rx="6" fill="#6B8FBF" opacity="0.25"/>
+  <text x="376" y="250" class="ts" font-size="11" fill="#6B8FBF">the noise floor is raised</text>
+  <text x="26" y="322" class="ts" font-size="11">Breathiness is not emotion; it is incomplete closure plus too much air, use it on purpose</text>
+</svg>

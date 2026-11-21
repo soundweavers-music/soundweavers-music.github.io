@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-label="Use &quot;mmm&quot; to find the buzz">
+  <title>Use &quot;mmm&quot; to find the buzz</title>
+  <rect width="640" height="400" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">Use &quot;mmm&quot; to find the buzz</text>
+  <text x="26" y="55" class="ts" font-size="12.5">Humming is semi-occluded: some air goes nasal</text>
+  <path d="M120 300 L120 190" class="ink"/>
+  <path d="M100 300 L100 190" class="ink"/>
+  <path d="M100 190 C100 158 84 148 66 144 L66 120" class="blue"/>
+  <path d="M120 190 C120 164 138 154 162 150 L162 128" class="acc"/>
+  <rect x="34" y="86" width="64" height="34" rx="6" fill="#DEE8F3" stroke="#6B8FBF" stroke-width="1.3"/>
+  <text x="66" y="108" class="t" font-size="12.5" text-anchor="middle" font-weight="600">Nose</text>
+  <rect x="130" y="94" width="64" height="34" rx="6" fill="#F3E9DC" stroke="#A67C52" stroke-width="1.3"/>
+  <text x="162" y="116" class="t" font-size="12.5" text-anchor="middle" font-weight="600">Mouth</text>
+  <rect x="97" y="300" width="26" height="9" rx="4" fill="#A67C52"/>
+  <text x="132" y="308" class="ts" font-size="11" fill="#A67C52">Vocal folds</text>
+  <path d="M66.0 120.0 L66.0 101.4" fill="none" stroke="#6B8FBF" stroke-width="1.7" stroke-linecap="round"/><path d="M66.0 96.0 L68.4 101.5 L63.6 101.5 Z" fill="#6B8FBF"/>
+  <text x="84" y="132" class="ts" font-size="10.5" fill="#6B8FBF">A way out</text>
+  <circle cx="44" cy="134" r="3" fill="#6B8FBF" opacity="0.85"/>
+  <circle cx="60" cy="134" r="3" fill="#6B8FBF" opacity="0.85"/>
+  <circle cx="76" cy="134" r="3" fill="#6B8FBF" opacity="0.85"/>
+  <text x="34" y="330" class="ts" font-size="11.5">Humming opens the nasopharynx, so some sound goes nasal,</text>
+  <text x="34" y="348" class="ts" font-size="11.5">Nose bridge and cheeks buzz; hardly any air leaks</text>
+  <circle cx="392" cy="150" r="10" fill="#A67C52"/>  <text x="392" y="154" text-anchor="middle" class="num">1</text>
+  <text x="410" y="155" class="t" font-size="12.5" font-weight="600">Hum, lips closed</text>
+  <text x="410" y="173" class="ts" font-size="11">Feel the nose and cheeks buzz</text>
+  <circle cx="392" cy="212" r="10" fill="#A67C52"/>  <text x="392" y="216" text-anchor="middle" class="num">2</text>
+  <text x="410" y="217" class="t" font-size="12.5" font-weight="600">Hold three seconds</text>
+  <text x="410" y="235" class="ts" font-size="11">No squeeze in the throat</text>
+  <circle cx="392" cy="274" r="10" fill="#A67C52"/>  <text x="392" y="278" text-anchor="middle" class="num">3</text>
+  <text x="410" y="279" class="t" font-size="12.5" font-weight="600">Open to &quot;ah&quot;</text>
+  <text x="410" y="297" class="ts" font-size="11">Keep the buzz in place</text>
+  <text x="26" y="382" class="ts" font-size="11">Humming is a &quot;voiced closed mouth&quot;: air escapes, folds relax, face buzz comes easily</text>
+</svg>

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" role="img" aria-label="Drink early, before thirst">
+  <title>Drink early, before thirst</title>
+  <rect width="640" height="300" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">Drink early, before thirst</text>
+  <text x="26" y="55" class="ts" font-size="12.5">Mucosal moisture is set hours before</text>
+  <path d="M90 160 L560 160" class="thin"/>
+  <circle cx="90.0" cy="160" r="5" fill="#3D3229"/>
+  <circle cx="246.66666666666666" cy="160" r="5" fill="#3D3229"/>
+  <circle cx="403.3333333333333" cy="160" r="5" fill="#3D3229"/>
+  <circle cx="560.0" cy="160" r="5" fill="#3D3229"/>
+  <text x="90.0" y="188" class="ts" font-size="11" text-anchor="middle">2 hours before singing</text>
+  <text x="246.66666666666666" y="188" class="ts" font-size="11" text-anchor="middle">1 hour before</text>
+  <text x="403.3333333333333" y="188" class="ts" font-size="11" text-anchor="middle">While singing</text>
+  <text x="560.0" y="188" class="ts" font-size="11" text-anchor="middle">After</text>
+  <text x="90" y="130" class="ts" font-size="12">It is &quot;when&quot;, not &quot;how much&quot;</text>
+  <text x="90" y="226" class="ts" font-size="12">Water takes a while to reach the mucosa; one big bottle just means the toilet</text>
+  <text x="26" y="282" class="ts" font-size="11">Small sips, spread out, early. Coffee and tea are fine, just not your main water</text>
+</svg>

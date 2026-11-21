@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 340" role="img" aria-label="Mark intensity first">
+  <title>Mark intensity first</title>
+  <rect width="640" height="340" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">Mark intensity first</text>
+  <text x="26" y="55" class="ts" font-size="12.5">In one song, not every line needs full effort</text>
+  <path d="M80 250 L560 250" class="thin"/>
+  <path d="M80.0 250 L80.0 256" class="thin"/>
+  <text x="80.0" y="274" class="ts" font-size="10.5" text-anchor="middle">2</text>
+  <path d="M200.0 250 L200.0 256" class="thin"/>
+  <text x="200.0" y="274" class="ts" font-size="10.5" text-anchor="middle">4</text>
+  <path d="M320.0 250 L320.0 256" class="thin"/>
+  <text x="320.0" y="274" class="ts" font-size="10.5" text-anchor="middle">6</text>
+  <path d="M440.0 250 L440.0 256" class="thin"/>
+  <text x="440.0" y="274" class="ts" font-size="10.5" text-anchor="middle">8</text>
+  <path d="M560.0 250 L560.0 256" class="thin"/>
+  <text x="560.0" y="274" class="ts" font-size="10.5" text-anchor="middle">10</text>
+  <text x="80" y="294" class="ts" font-size="10.5">Intensity (0–10)</text>
+  <path d="M118 216 L224 190 L344 148 L464 106 L536 224" class="acc"/>
+  <circle cx="118.4" cy="216.0" r="4.5" fill="#A67C52"/>
+  <circle cx="224.0" cy="190.5" r="4.5" fill="#A67C52"/>
+  <circle cx="344.0" cy="148.0" r="4.5" fill="#A67C52"/>
+  <circle cx="464.0" cy="105.5" r="4.5" fill="#A67C52"/>
+  <circle cx="536.0" cy="224.5" r="4.5" fill="#A67C52"/>
+  <text x="80" y="110" class="ts" font-size="12">Mark intensity first: which line goes to 8, which only to 3</text>
+  <text x="26" y="322" class="ts" font-size="11">Numbers are crude, but more useful than &quot;sing it with feeling&quot;</text>
+</svg>

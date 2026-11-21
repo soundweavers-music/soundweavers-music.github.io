@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" role="img" aria-label="Headphones and bone conduction: two paths">
+  <title>Headphones and bone conduction: two paths</title>
+  <rect width="640" height="320" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">Headphones and bone conduction: two paths</text>
+  <text x="26" y="55" class="ts" font-size="12.5">The you in the recording is the you others hear</text>
+  <path d="M110 90 C150 70 210 70 250 90" class="ink"/>
+  <rect x="96" y="88" width="26" height="60" rx="8" fill="#A67C52" stroke="#A67C52" stroke-width="1.2" opacity="0.3"/>
+  <rect x="238" y="88" width="26" height="60" rx="8" fill="#A67C52" stroke="#A67C52" stroke-width="1.2" opacity="0.3"/>
+  <circle cx="180" cy="180" r="34" fill="#F2E7DC" stroke="#3D3229" stroke-width="1.4"/>
+  <text x="180" y="240" class="ts" font-size="11.5" text-anchor="middle">ear</text>
+  <path d="M150.0 120.0 L165.8 155.1" fill="none" stroke="#6B8FBF" stroke-width="1.7" stroke-linecap="round"/><path d="M168.0 160.0 L163.5 156.0 L168.0 154.0 Z" fill="#6B8FBF"/>
+  <text x="120" y="108" class="ts" font-size="11" fill="#6B8FBF">air conduction</text>
+  <path d="M196.0 130.0 L196.0 152.6" fill="none" stroke="#6F8F6A" stroke-width="1.7" stroke-linecap="round"/><path d="M196.0 158.0 L193.6 152.5 L198.4 152.5 Z" fill="#6F8F6A"/>
+  <text x="208" y="140" class="ts" font-size="11" fill="#6F8F6A">bone conduction</text>
+  <text x="320" y="120" class="ts" font-size="12">Sound from headphones travels by air,</text>
+  <text x="320" y="142" class="ts" font-size="12">your own voice also reaches you through bone</text>
+  <text x="320" y="186" class="ts" font-size="12">so the recorded you sounds unlike the usual you</text>
+  <text x="26" y="302" class="ts" font-size="11">Your ears are fine, the path is different; accept that, then mix</text>
+</svg>

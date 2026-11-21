@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 380" role="img" aria-label="The post-rock dynamic arc">
+  <title>The post-rock dynamic arc</title>
+  <rect width="660" height="380" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">The post-rock dynamic arc</text>
+  <text x="26" y="55" class="ts" font-size="12.5">Five sections; the drop is built by the space before it</text>
+  <text x="26" y="84" class="ts" font-size="12">The tension comes from daring to be quiet; the gap before the drop is design</text>
+  <path d="M70 290 L590 290" class="thin"/>
+  <rect x="73.0" y="264.08" width="87.6" height="25.92" rx="4" fill="#A67C52" opacity="0.16"/>
+  <text x="116.8" y="314" class="ts" font-size="10.5" text-anchor="middle" fill="#8C8078">Intro</text>
+  <rect x="166.6" y="241.4" width="98.00000000000003" height="48.6" rx="4" fill="#A67C52" opacity="0.16"/>
+  <text x="215.60000000000002" y="314" class="ts" font-size="10.5" text-anchor="middle" fill="#8C8078">Verse</text>
+  <rect x="270.6" y="200.89999999999998" width="118.79999999999995" height="89.10000000000001" rx="4" fill="#A67C52" opacity="0.16"/>
+  <text x="330.0" y="314" class="ts" font-size="10.5" text-anchor="middle" fill="#8C8078">Build</text>
+  <rect x="395.4" y="128.0" width="98.0" height="162.0" rx="4" fill="#A67C52" opacity="0.16"/>
+  <text x="444.4" y="314" class="ts" font-size="10.5" text-anchor="middle" fill="#8C8078">Drop</text>
+  <rect x="499.4" y="234.92" width="87.60000000000002" height="55.080000000000005" rx="4" fill="#A67C52" opacity="0.16"/>
+  <text x="543.2" y="314" class="ts" font-size="10.5" text-anchor="middle" fill="#8C8078">Outro</text>
+  <text x="26" y="340" class="ts" font-size="11">In the mix the drop is not turned up; the space before it is what makes it land</text>
+  <text x="26" y="362" class="ts" font-size="11">The loudest moment is usually the last drop; earlier ones sit 1–2 dB lower</text>
+</svg>

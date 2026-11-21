@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 354" role="img" aria-label="The four commonest compression mistakes">
+  <title>The four commonest compression mistakes</title>
+  <rect width="660" height="354" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">The four commonest compression mistakes</text>
+  <text x="26" y="55" class="ts" font-size="12.5">One problem drags in another; fix them one at a time</text>
+  <text x="150.0" y="92" class="t" font-size="11.5" font-weight="700" fill="#A67C52">Sounds like</text>  <text x="395.0" y="92" class="t" font-size="11.5" font-weight="700" fill="#A67C52">The fix</text>  <rect x="26" y="104" width="608" height="58" rx="4" fill="#F3E9DC" opacity="0.55"/>  <text x="34" y="126" class="t" font-size="11.5" font-weight="700">Attack too fast</text>  <text x="150.0" y="124" class="ts" font-size="10" fill="#5D4E41">The drum&#x27;s punch is gone</text>  <text x="395.0" y="124" class="ts" font-size="10" fill="#5D4E41">Slow the attack so the transient</text>  <text x="395.0" y="139" class="ts" font-size="10" fill="#5D4E41">gets through</text>  <text x="34" y="184" class="t" font-size="11.5" font-weight="700">Release too fast</text>  <text x="150.0" y="182" class="ts" font-size="10" fill="#5D4E41">The sound pumps</text>  <text x="395.0" y="182" class="ts" font-size="10" fill="#5D4E41">Slow the release to match</text>  <text x="395.0" y="197" class="ts" font-size="10" fill="#5D4E41">the groove</text>  <rect x="26" y="220" width="608" height="58" rx="4" fill="#F3E9DC" opacity="0.55"/>  <text x="34" y="242" class="t" font-size="11.5" font-weight="700">Ratio too high</text>  <text x="150.0" y="240" class="ts" font-size="10" fill="#5D4E41">Dynamics flattened, sound thin</text>  <text x="395.0" y="240" class="ts" font-size="10" fill="#5D4E41">Drop to 2:1–4:1, chain two</text>  <text x="395.0" y="255" class="ts" font-size="10" fill="#5D4E41">stages</text>  <text x="34" y="300" class="t" font-size="11.5" font-weight="700">No makeup gain</text>  <text x="150.0" y="298" class="ts" font-size="10" fill="#5D4E41">The whole mix got quieter</text>  <text x="395.0" y="298" class="ts" font-size="10" fill="#5D4E41">Add makeup gain</text>  <text x="395.0" y="313" class="ts" font-size="10" fill="#5D4E41"> back to level, then compare</text>
+  <text x="26" y="336" class="ts" font-size="11">To judge: bypass in and out at matched volume and listen only to the dynamics</text>
+</svg>

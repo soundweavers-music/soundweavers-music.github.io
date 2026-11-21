@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 340" role="img" aria-label="Avoid these first">
+  <title>Avoid these first</title>
+  <rect width="640" height="340" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">Avoid these first</text>
+  <text x="26" y="55" class="ts" font-size="12.5">Voice care is less harm, not more supplements</text>
+  <rect x="70" y="82" width="22" height="22" rx="4" fill="none" stroke="#B0563F" stroke-width="1.4"/>
+  <path d="M75 94 L81 101 L89 85" class="ink"/>
+  <text x="106" y="98" class="t" font-size="13.5" font-weight="600">Ice water, alcohol, spice</text>
+  <text x="300" y="98" class="ts" font-size="11.5">Swelling mucosa, worse closure</text>
+  <rect x="70" y="134" width="22" height="22" rx="4" fill="none" stroke="#B0563F" stroke-width="1.4"/>
+  <path d="M75 146 L81 153 L89 137" class="ink"/>
+  <text x="106" y="150" class="t" font-size="13.5" font-weight="600">Late-night singing</text>
+  <text x="300" y="150" class="ts" font-size="11.5">Your worst muscle control</text>
+  <rect x="70" y="186" width="22" height="22" rx="4" fill="none" stroke="#B0563F" stroke-width="1.4"/>
+  <path d="M75 198 L81 205 L89 189" class="ink"/>
+  <text x="106" y="202" class="t" font-size="13.5" font-weight="600">Throat clearing</text>
+  <text x="300" y="202" class="ts" font-size="11.5">Sandpaper on the vocal folds</text>
+  <rect x="70" y="238" width="22" height="22" rx="4" fill="none" stroke="#B0563F" stroke-width="1.4"/>
+  <path d="M75 250 L81 257 L89 241" class="ink"/>
+  <text x="106" y="254" class="t" font-size="13.5" font-weight="600">Talking over noise</text>
+  <text x="300" y="254" class="ts" font-size="11.5">You end up shouting</text>
+  <text x="26" y="322" class="ts" font-size="11">Not a lifetime ban, just avoid them before you sing</text>
+</svg>

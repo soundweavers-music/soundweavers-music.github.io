@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 330" role="img" aria-label="A natural automation curve">
+  <title>A natural automation curve</title>
+  <rect width="660" height="330" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">A natural automation curve</text>
+  <text x="26" y="55" class="ts" font-size="12.5">Easing a fader up beats jumping it up</text>
+  <path d="M80 270 L580 270" class="thin"/>  <path d="M80 96 L80 270" class="thin"/>  <path d="M80 250 L85.0 248.4 L90.0 248.2 L95.0 248.1 L100.0 247.9 L105.0 247.7 L110.0 247.5 L115.0 247.3 L120.0 247.0 L125.0 246.7 L130.0 246.4 L135.0 246.1 L140.0 245.8 L145.0 245.4 L150.0 244.9 L155.0 244.5 L160.0 244.0 L165.0 243.5 L170.0 242.9 L175.0 242.2 L180.0 241.6 L185.0 240.8 L190.0 240.0 L195.0 239.2 L200.0 238.2 L205.0 237.2 L210.0 236.1 L215.0 235.0 L220.0 233.7 L225.0 232.4 L230.0 231.0 L235.0 229.5 L240.0 227.9 L245.0 226.1 L250.0 224.3 L255.0 222.4 L260.0 220.4 L265.0 218.3 L270.0 216.0 L275.0 213.7 L280.0 211.3 L285.0 208.7 L290.0 206.1 L295.0 203.4 L300.0 200.7 L305.0 197.8 L310.0 194.9 L315.0 192.0 L320.0 189.0 L325.0 186.0 L330.0 183.0 L335.0 180.0 L340.0 177.0 L345.0 174.0 L350.0 171.1 L355.0 168.2 L360.0 165.3 L365.0 162.6 L370.0 159.9 L375.0 157.3 L380.0 154.7 L385.0 152.3 L390.0 150.0 L395.0 147.7 L400.0 145.6 L405.0 143.6 L410.0 141.7 L415.0 139.9 L420.0 138.1 L425.0 136.5 L430.0 135.0 L435.0 133.6 L440.0 132.3 L445.0 131.0 L450.0 129.9 L455.0 128.8 L460.0 127.8 L465.0 126.8 L470.0 126.0 L475.0 125.2 L480.0 124.4 L485.0 123.8 L490.0 123.1 L495.0 122.5 L500.0 122.0 L505.0 121.5 L510.0 121.1 L515.0 120.6 L520.0 120.2 L525.0 119.9 L530.0 119.6 L535.0 119.3 L540.0 119.0 L545.0 118.7 L550.0 118.5 L555.0 118.3 L560.0 118.1 L565.0 117.9 L570.0 117.8 L575.0 117.6 L580.0 117.5" class="acc"/>  <path d="M80 250 L580 250" class="thin" stroke-dasharray="4 4"/>  <text x="84" y="244" class="ts" font-size="9.5" fill="#8C8078">Verse (quiet)</text>  <text x="576" y="106" class="ts" font-size="9.5" text-anchor="end" fill="#A67C52">Chorus (loud)</text>  <text x="330.0" y="288" class="ts" font-size="9.5" text-anchor="middle" fill="#8C8078">Time →</text>  <text x="26" y="312" class="ts" font-size="11">A hand-drawn straight line sounds fake; use an S-curve, or start the rise a little later</text>
+</svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 350" role="img" aria-label="Crest factor">
+  <title>Crest factor</title>
+  <rect width="660" height="350" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">Crest factor</text>
+  <text x="26" y="55" class="ts" font-size="12.5">The gap between peak and average</text>
+  <text x="26" y="84" class="ts" font-size="12">Crest factor is peak minus average; smaller means flatter dynamics</text>
+  <text x="60" y="126" class="t" font-size="11">Vocal (uncompressed)</text>
+  <rect x="210" y="108" width="300" height="24" rx="4" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.4"/>
+  <rect x="210" y="108" width="54.0" height="24" rx="4" fill="#A67C52" opacity="0.3"/>
+  <text x="268.0" y="144" class="ts" font-size="9.5" fill="#A67C52">about 12–18 dB</text>
+  <text x="60" y="188" class="t" font-size="11">Mix bus</text>
+  <rect x="210" y="170" width="300" height="24" rx="4" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.4"/>
+  <rect x="210" y="170" width="165.0" height="24" rx="4" fill="#6B8FBF" opacity="0.3"/>
+  <text x="379.0" y="206" class="ts" font-size="9.5" fill="#6B8FBF">about 8–12 dB</text>
+  <text x="60" y="250" class="t" font-size="11">Mastered pop</text>
+  <rect x="210" y="232" width="300" height="24" rx="4" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.4"/>
+  <rect x="210" y="232" width="255.0" height="24" rx="4" fill="#B0563F" opacity="0.3"/>
+  <text x="469.0" y="268" class="ts" font-size="9.5" fill="#B0563F">about 6–9 dB</text>
+  <text x="26" y="320" class="ts" font-size="11">More compression, lower crest factor: it sits closer, and stops breathing</text>
+  <text x="26" y="332" class="ts" font-size="11" fill="#8C8078">Leave about 10 dB at the mix stage so mastering has something to work with</text>
+</svg>

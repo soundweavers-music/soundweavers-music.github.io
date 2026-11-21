@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 362" role="img" aria-label="Early reflections and tail: two different things">
+  <title>Early reflections and tail: two different things</title>
+  <rect width="660" height="362" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">Early reflections and tail: two different things</text>
+  <text x="26" y="55" class="ts" font-size="12.5">The first 20 ms is the room&#x27;s shape; after that comes the tail</text>
+  <path d="M70 96.0 L590 96.0" class="thin"/>  <text x="64" y="99.5" class="ts" font-size="8.5" text-anchor="end" fill="#8C8078">0 dB</text>  <path d="M70 164.0 L590 164.0" class="thin"/>  <text x="64" y="167.5" class="ts" font-size="8.5" text-anchor="end" fill="#8C8078">-20 dB</text>  <path d="M70 232.0 L590 232.0" class="thin"/>  <text x="64" y="235.5" class="ts" font-size="8.5" text-anchor="end" fill="#8C8078">-40 dB</text>  <path d="M70 300.0 L590 300.0" class="thin"/>  <text x="64" y="303.5" class="ts" font-size="8.5" text-anchor="end" fill="#8C8078">-60 dB</text>  <path d="M70.0 96.0 L73.7 96.0 L77.4 97.2 L81.1 98.8 L84.9 100.4 L88.6 102.0 L92.3 103.5 L96.0 105.1 L99.7 106.7 L103.4 108.3 L107.1 109.8 L110.9 111.4 L114.6 113.0 L118.3 114.5 L122.0 116.1 L125.7 117.7 L129.4 119.3 L133.1 120.8 L136.9 122.4 L140.6 124.0 L144.3 125.6 L148.0 127.1 L151.7 128.7 L155.4 130.3 L159.1 131.9 L162.9 133.4 L166.6 135.0 L170.3 136.6 L174.0 138.2 L177.7 139.7 L181.4 141.3 L185.1 142.9 L188.9 144.4 L192.6 146.0 L196.3 147.6 L200.0 149.2 L203.7 150.7 L207.4 152.3 L211.1 153.9 L214.9 155.5 L218.6 157.0 L222.3 158.6 L226.0 160.2 L229.7 161.8 L233.4 163.3 L237.1 164.9 L240.9 166.5 L244.6 168.1 L248.3 169.6 L252.0 171.2 L255.7 172.8 L259.4 174.3 L263.1 175.9 L266.9 177.5 L270.6 179.1 L274.3 180.6 L278.0 182.2 L281.7 183.8 L285.4 185.4 L289.1 186.9 L292.9 188.5 L296.6 190.1 L300.3 191.7 L304.0 193.2 L307.7 194.8 L311.4 196.4 L315.1 198.0 L318.9 199.5 L322.6 201.1 L326.3 202.7 L330.0 204.2 L333.7 205.8 L337.4 207.4 L341.1 209.0 L344.9 210.5 L348.6 212.1 L352.3 213.7 L356.0 215.3 L359.7 216.8 L363.4 218.4 L367.1 220.0 L370.9 221.6 L374.6 223.1 L378.3 224.7 L382.0 226.3 L385.7 227.9 L389.4 229.4 L393.1 231.0 L396.9 232.6 L400.6 234.1 L404.3 235.7 L408.0 237.3 L411.7 238.9 L415.4 240.4 L419.1 242.0 L422.9 243.6 L426.6 245.2 L430.3 246.7 L434.0 248.3 L437.7 249.9 L441.4 251.5 L445.1 253.0 L448.9 254.6 L452.6 256.2 L456.3 257.8 L460.0 259.3 L463.7 260.9 L467.4 262.5 L471.1 264.0 L474.9 265.6 L478.6 267.2 L482.3 268.8 L486.0 270.3 L489.7 271.9 L493.4 273.5 L497.1 275.1 L500.9 276.6 L504.6 278.2 L508.3 279.8 L512.0 281.4 L515.7 282.9 L519.4 284.5 L523.1 286.1 L526.9 287.7 L530.6 289.2 L534.3 290.8 L538.0 292.4 L541.7 293.9 L545.4 295.5 L549.1 297.1 L552.9 298.7 L556.6 300.0 L560.3 300.0 L564.0 300.0 L567.7 300.0 L571.4 300.0 L575.1 300.0 L578.9 300.0 L582.6 300.0 L586.3 300.0 L590.0 300.0" class="acc"/>  <path d="M370.9 300 L370.9 305" class="thin"/>  <text x="370.92592592592587" y="316" class="ts" font-size="8.5" text-anchor="middle" fill="#8C8078">1s</text>  <text x="26" y="340" class="ts" font-size="11">Early reflections set clarity, the tail sets distance; tune them apart</text>
+</svg>

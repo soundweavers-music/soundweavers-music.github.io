@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 380" role="img" aria-label="How fast Retune Speed is">
+  <title>How fast Retune Speed is</title>
+  <rect width="660" height="380" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">How fast Retune Speed is</text>
+  <text x="26" y="55" class="ts" font-size="12.5">It comes down to a few tens of ms to reach the target</text>
+  <text x="26" y="84" class="ts" font-size="12">On the same line, Retune Speed decides whether it jumps or glides</text>
+  <rect x="60" y="100" width="165" height="132" rx="6" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.4"/>
+  <path d="M74 206 L210 206" class="thin" stroke-dasharray="4 4"/>
+  <path d="M74 156 L210 156" class="thin" stroke-dasharray="4 4"/>
+  <path d="M74 206 L122 206 L122 156 L210 156" class="red"/>
+  <text x="70" y="240" class="t" font-size="11.5" font-weight="700" fill="#B0563F">0–5 ms</text>
+  <text x="70" y="258" class="ts" font-size="10">there at once, with no transition</text>
+  <text x="70" y="276" class="ts" font-size="10" fill="#8C8078">staircase = the T-Pain effect</text>
+  <rect x="250" y="100" width="165" height="132" rx="6" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.4"/>
+  <path d="M264 206 L400 206" class="thin" stroke-dasharray="4 4"/>
+  <path d="M264 156 L400 156" class="thin" stroke-dasharray="4 4"/>
+  <path d="M264.0 206.0 L267.4 206.0 L270.8 206.0 L274.2 206.0 L277.6 206.0 L281.0 206.0 L284.4 206.0 L287.8 206.0 L291.2 206.0 L294.6 206.0 L298.0 206.0 L301.4 205.6 L304.8 201.5 L308.2 194.2 L311.6 185.0 L315.0 175.3 L318.4 166.3 L321.8 159.5 L325.2 156.1 L328.6 156.0 L332.0 156.0 L335.4 156.0 L338.8 156.0 L342.2 156.0 L345.6 156.0 L349.0 156.0 L352.4 156.0 L355.8 156.0 L359.2 156.0 L362.6 156.0 L366.0 156.0 L369.4 156.0 L372.8 156.0 L376.2 156.0 L379.6 156.0 L383.0 156.0 L386.4 156.0 L389.8 156.0 L393.2 156.0 L396.6 156.0 L400.0 156.0" class="acc"/>
+  <text x="260" y="240" class="t" font-size="11.5" font-weight="700" fill="#A67C52">20–30 ms</text>
+  <text x="260" y="258" class="ts" font-size="10">reaches the target in tens of ms</text>
+  <text x="260" y="276" class="ts" font-size="10" fill="#8C8078">the usual setting for a natural sound</text>
+  <rect x="440" y="100" width="165" height="132" rx="6" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.4"/>
+  <path d="M454 206 L590 206" class="thin" stroke-dasharray="4 4"/>
+  <path d="M454 156 L590 156" class="thin" stroke-dasharray="4 4"/>
+  <path d="M454.0 206.0 L457.4 206.0 L460.8 206.0 L464.2 206.0 L467.6 206.0 L471.0 206.0 L474.4 206.0 L477.8 206.0 L481.2 206.0 L484.6 206.0 L488.0 206.0 L491.4 206.0 L494.8 205.6 L498.2 204.9 L501.6 203.8 L505.0 202.4 L508.4 200.8 L511.8 198.9 L515.2 196.8 L518.6 194.5 L522.0 192.1 L525.4 189.5 L528.8 186.8 L532.2 184.1 L535.6 181.3 L539.0 178.6 L542.4 175.8 L545.8 173.1 L549.2 170.5 L552.6 168.1 L556.0 165.7 L559.4 163.6 L562.8 161.6 L566.2 159.9 L569.6 158.5 L573.0 157.3 L576.4 156.5 L579.8 156.1 L583.2 156.0 L586.6 156.0 L590.0 156.0" class="blue"/>
+  <text x="450" y="240" class="t" font-size="11.5" font-weight="700" fill="#6B8FBF">50 ms and up</text>
+  <text x="450" y="258" class="ts" font-size="10">slow enough to follow the voice</text>
+  <text x="450" y="276" class="ts" font-size="10" fill="#8C8078">fixes the drift, leaves the detail</text>
+  <text x="26" y="306" class="ts" font-size="11.5">Retune Speed is a time, not an amount: smaller numbers pull the note back faster</text>
+  <text x="26" y="328" class="ts" font-size="11" fill="#8C8078">For a human feel slow the Speed and leave some Humanize/Flex-Tune room;</text>
+  <text x="26" y="348" class="ts" font-size="11" fill="#8C8078">For the robot sound drop Speed to zero and turn both naturalisers off</text>
+</svg>

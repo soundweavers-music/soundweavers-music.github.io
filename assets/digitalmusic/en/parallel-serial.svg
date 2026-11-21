@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 380" role="img" aria-label="Serial vs. parallel compression">
+  <title>Serial vs. parallel compression</title>
+  <rect width="660" height="380" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">Serial vs. parallel compression</text>
+  <text x="26" y="55" class="ts" font-size="12.5">One stage after another, or a second path</text>
+  <text x="26" y="84" class="ts" font-size="12">Serial chains stages; parallel copies the signal, treats it and blends it back</text>
+  <text x="60" y="116" class="t" font-size="12.5" font-weight="700">Serial</text>
+  <rect x="60" y="132" width="88" height="46" rx="6" fill="#FFFFFF" stroke="#A67C52" stroke-width="1.4"/>
+  <text x="104" y="160" class="t" font-size="11" text-anchor="middle">vocal</text>
+  <path d="M150.0 155.0 L159.5 155.0" fill="none" stroke="#8C8078" stroke-width="1.7" stroke-linecap="round"/><path d="M164.0 155.0 L159.4 157.0 L159.4 153.0 Z" fill="#8C8078"/>
+  <rect x="168" y="132" width="88" height="46" rx="6" fill="#FFFFFF" stroke="#A67C52" stroke-width="1.4"/>
+  <text x="212" y="160" class="t" font-size="11" text-anchor="middle">EQ</text>
+  <path d="M258.0 155.0 L267.5 155.0" fill="none" stroke="#8C8078" stroke-width="1.7" stroke-linecap="round"/><path d="M272.0 155.0 L267.4 157.0 L267.4 153.0 Z" fill="#8C8078"/>
+  <rect x="276" y="132" width="88" height="46" rx="6" fill="#FFFFFF" stroke="#A67C52" stroke-width="1.4"/>
+  <text x="320" y="160" class="t" font-size="11" text-anchor="middle">compress</text>
+  <path d="M366.0 155.0 L375.5 155.0" fill="none" stroke="#8C8078" stroke-width="1.7" stroke-linecap="round"/><path d="M380.0 155.0 L375.4 157.0 L375.4 153.0 Z" fill="#8C8078"/>
+  <rect x="384" y="132" width="88" height="46" rx="6" fill="#FFFFFF" stroke="#A67C52" stroke-width="1.4"/>
+  <text x="428" y="160" class="t" font-size="11" text-anchor="middle">saturate</text>
+  <text x="60" y="196" class="ts" font-size="10.5" fill="#8C8078">each stage hears the last one, mistakes included</text>
+  <text x="60" y="236" class="t" font-size="12.5" font-weight="700">Parallel</text>
+  <rect x="60" y="252" width="88" height="40" rx="6" fill="#FFFFFF" stroke="#6B8FBF" stroke-width="1.4"/>
+  <text x="104" y="277" class="t" font-size="11" text-anchor="middle">vocal</text>
+  <path d="M148 272 L196 272 L196 252" class="blue"/>
+  <path d="M148 272 L196 272 L196 292" class="blue"/>
+  <rect x="200" y="228" width="100" height="44" rx="6" fill="#DEE8F3" stroke="#6B8FBF" stroke-width="1.4"/>
+  <text x="250" y="254" class="t" font-size="10.5" text-anchor="middle">compress (heavy)</text>
+  <rect x="200" y="290" width="100" height="44" rx="6" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.4"/>
+  <text x="250" y="316" class="t" font-size="10.5" text-anchor="middle">dry signal</text>
+  <path d="M304.0 250.0 L345.8 266.4" fill="none" stroke="#8C8078" stroke-width="1.7" stroke-linecap="round"/><path d="M350.0 268.0 L345.0 268.2 L346.5 264.4 Z" fill="#8C8078"/>
+  <path d="M304.0 312.0 L346.0 290.1" fill="none" stroke="#8C8078" stroke-width="1.7" stroke-linecap="round"/><path d="M350.0 288.0 L346.9 291.9 L345.0 288.3 Z" fill="#8C8078"/>
+  <rect x="354" y="258" width="96" height="40" rx="6" fill="#E4EBDC" stroke="#6F8F6A" stroke-width="1.4"/>
+  <text x="402" y="283" class="t" font-size="11" text-anchor="middle">blend</text>
+  <text x="470" y="250" class="ts" font-size="10.5" fill="#3D3229">Why parallel:</text>
+  <text x="470" y="268" class="ts" font-size="10.5" fill="#8C8078">you can push it absurdly far,</text>
+  <text x="470" y="284" class="ts" font-size="10.5" fill="#8C8078">then dilute with the dry signal</text>
+  <text x="26" y="362" class="ts" font-size="11">In serial, order changes the result; in parallel, amount matters more</text>
+</svg>

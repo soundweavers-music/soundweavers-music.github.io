@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Stage monitors and the main PA">
+  <title>Stage monitors and the main PA</title>
+  <rect width="640" height="360" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">Stage monitors and the main PA</text>
+  <text x="26" y="55" class="ts" font-size="12.5">What you hear decides how hard you push</text>
+  <rect x="70" y="90" width="500" height="220" rx="10" fill="#FFFFFF" stroke="#D9CFC4" stroke-width="1.2"/>
+  <text x="320" y="116" class="t" font-size="12" text-anchor="middle">stage</text>
+  <rect x="70" y="70" width="500" height="12" rx="4" fill="#3D3229" opacity="0.12"/>
+  <text x="320" y="62" class="ts" font-size="11" text-anchor="middle">main PA (facing the audience)</text>
+  <path d="M200 240 L178 200 L222 200 Z" class="ink" fill="#A67C52" stroke="#A67C52" stroke-width="1.2" opacity="0.3"/>
+  <text x="200" y="262" class="ts" font-size="10.5" text-anchor="middle">monitor</text>
+  <path d="M320 240 L298 200 L342 200 Z" class="ink" fill="#A67C52" stroke="#A67C52" stroke-width="1.2" opacity="0.3"/>
+  <text x="320" y="262" class="ts" font-size="10.5" text-anchor="middle">monitor</text>
+  <path d="M440 240 L418 200 L462 200 Z" class="ink" fill="#A67C52" stroke="#A67C52" stroke-width="1.2" opacity="0.3"/>
+  <text x="440" y="262" class="ts" font-size="10.5" text-anchor="middle">monitor</text>
+  <circle cx="320" cy="300" r="12" fill="#DEE8F3" stroke="#6B8FBF" stroke-width="1.2"/>
+  <text x="320" y="332" class="ts" font-size="11" text-anchor="middle">you</text>
+  <text x="26" y="342" class="ts" font-size="11">Point monitors at you, not at the mic; the louder the PA, the harder you push</text>
+</svg>

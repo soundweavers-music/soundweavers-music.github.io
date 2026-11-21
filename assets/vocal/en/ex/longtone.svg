@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" role="img" aria-label="One note, held for 20 seconds">
+  <title>One note, held for 20 seconds</title>
+  <rect width="640" height="300" fill="#FBF8F4"/>
+  <style>
+    .t   { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; }
+    .tb  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #3D3229; font-weight: 700; }
+    .ts  { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #8C8078; }
+    .num { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; fill: #FFFFFF; font-weight: 700; font-size: 11px; }
+    .ink { fill: none; stroke: #3D3229; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+    .thin{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; }
+    .dash{ fill: none; stroke: #D9CFC4; stroke-width: 1.1; stroke-dasharray: 4 5; }
+    .lead{ fill: none; stroke: #8C8078; stroke-width: 1; }
+    .acc { fill: none; stroke: #A67C52; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .blue{ fill: none; stroke: #6B8FBF; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .green{ fill: none; stroke: #6F8F6A; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .red { fill: none; stroke: #B0563F; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .dot { fill: #3D3229; }
+  </style>
+  <text x="26" y="34" class="tb" font-size="16">One note, held for 20 seconds</text>
+  <text x="26" y="55" class="ts" font-size="12.5">A long tone tests whether the air comes out even</text>
+  <rect x="90" y="150" width="480" height="18" rx="9" fill="#DEE8F3" stroke="#6B8FBF" stroke-width="1.1"/>
+  <path d="M90.0 176 L90.0 184" class="thin"/>
+  <text x="90.0" y="200" class="ts" font-size="10.5" text-anchor="middle">0s</text>
+  <path d="M210.0 176 L210.0 184" class="thin"/>
+  <text x="210.0" y="200" class="ts" font-size="10.5" text-anchor="middle">5s</text>
+  <path d="M330.0 176 L330.0 184" class="thin"/>
+  <text x="330.0" y="200" class="ts" font-size="10.5" text-anchor="middle">10s</text>
+  <path d="M450.0 176 L450.0 184" class="thin"/>
+  <text x="450.0" y="200" class="ts" font-size="10.5" text-anchor="middle">15s</text>
+  <path d="M570.0 176 L570.0 184" class="thin"/>
+  <text x="570.0" y="200" class="ts" font-size="10.5" text-anchor="middle">20s</text>
+  <text x="90" y="136" class="ts" font-size="11.5">in one breath</text>
+  <text x="90" y="116" class="t" font-size="13.5" font-weight="600">One note, held for 20 seconds</text>
+  <text x="90" y="232" class="ts" font-size="12">Even volume throughout = steady support; fading at the end = too little air</text>
+  <text x="26" y="282" class="ts" font-size="11">Steady before long: 20 seconds is a practice target, not a performance demand</text>
+</svg>
