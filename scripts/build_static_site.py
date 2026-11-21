@@ -2664,6 +2664,7 @@ def discography_section(page_path: Path) -> str:
         apple_id = a.get("apple")
         ytm_id = a.get("ytm")
         kkbox_id = a.get("kkbox")
+        spotify_id = a.get("spotify")
         apple = f"https://music.apple.com/tw/album/{apple_id}" if apple_id else ""
         ytm = f"https://music.youtube.com/playlist?list={ytm_id}" if ytm_id else ""
         title = escape(a["title"])
@@ -2693,6 +2694,8 @@ def discography_section(page_path: Path) -> str:
             links.append(f'<a class="album-link is-ytm" href="{ytm}" target="_blank" rel="noopener">YouTube Music</a>')
         if kkbox_id:
             links.append(f'<a class="album-link is-kkbox" href="https://www.kkbox.com/tw/tc/album/{kkbox_id}" target="_blank" rel="noopener">KKBOX</a>')
+        if spotify_id:
+            links.append(f'<a class="album-link is-spotify" href="https://open.spotify.com/album/{spotify_id}" target="_blank" rel="noopener">Spotify</a>')
         links_html = ('<p class="album-links">' + "".join(links) + '</p>') if links else                      '<p class="album-meta">平台連結上架後補上</p>'
         tl = a.get("tracklist") or []
         track_html = (f'<details class="album-tracks"><summary>曲目 {len(tl)} 首</summary><ol>'
