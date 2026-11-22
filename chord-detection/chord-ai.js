@@ -447,9 +447,10 @@ const tr = (zh, en) => (document.documentElement.lang || '').startsWith('en') ? 
       }
     }
     const { rise, db } = vocalRise(cv.x, cv.sr);
-    // AI 分離的主唱（16 kHz）留著給「AI 聽歌詞」用（4 分鐘約 15 MB）；中央遮罩的不留（伴奏太多，聽歌詞不準）
+    // 16 kHz 主唱留著給「AI 聽歌詞」用（4 分鐘約 15 MB）。AI 分離過的最準；
+    // 只用中央遮罩時伴奏會留下一些，但還是聽得出歌詞（LRC 工作室對原始混音就是這樣做的）。
     return { times, midi: foldOctaves(times, midi, 4.0), nFrames: n, rise, db, riseHop: RISE_HOP, sepEngine,
-             x16: sepEngine === 'spleeter' ? x : null,
+             x16: x,
              // 給「匯出分軌」用：AI 分離出來的原始主唱（單聲道、44.1 kHz）
              sep: sepEngine === 'spleeter' ? cv : null };
   }
@@ -906,7 +907,8 @@ const tr = (zh, en) => (document.documentElement.lang || '').startsWith('en') ? 
   // 貪婪解碼（CTC）：每 60 ms 一格取最高分的 token，去掉連續重複與 blank；
   // 再依「字跟字之間空太久」切成一行一行。整首 4 分鐘約 3 秒（詞表 6 萬欄只取 argmax，不存）。
   // 這一份是「大概聽到的字」，匯入 LRC 之後以 LRC 為準（第二次會重排）。
-  const TX_GAP = 0.7, TX_MAXLEN = 14, TX_MINLEN = 6;
+  // 斷行參數：gapSec 停頓多久算換行、hardGapSec 一定換行、minChars 一句至少幾個字、maxChars 沒有停頓時的硬切長度
+  const TX_DEFAULTS = { gapSec: 0.5, hardGapSec: 1.2, minChars: 3, maxChars: 16 };
   function tokenCharMap() {
     if (tokenCharMap.cache) return tokenCharMap.cache;
     const m = new Map();
@@ -920,9 +922,12 @@ const tr = (zh, en) => (document.documentElement.lang || '').startsWith('en') ? 
     const sess = await ensureLyricAsr(ensureOrt, hooks.download);
     const ort = window.ort;
     const tokCh = tokenCharMap();
-    // 模型的詞表偏簡體 → 換回繁體再顯示（本站是繁體站）；對照表跟 /hans/ 版用的是同一份
+    // 模型的詞表偏簡體 → 繁體頁要換回繁體（/hans/ 簡體版就照原樣）。
+    // 對照表跟 /hans/ 版用的是同一份。
+    const pageLang = (document.documentElement.lang || '').toLowerCase();
+    const wantTrad = !/^zh-(hans|cn)/.test(pageLang);
     let toTrad = null;
-    try { const r = await fetch(ASR_BASE + 'hans2hant.json'); if (r.ok) toTrad = await r.json(); } catch (e) {}
+    if (wantTrad) { try { const r = await fetch(ASR_BASE + 'hans2hant.json'); if (r.ok) toTrad = await r.json(); } catch (e) {} }
     const fix = ch => (toTrad && toTrad[ch]) || ch;
     const chars = [];                       // { ch, t0, t1 }
     let tOff = 0, lastTok = -1;
@@ -955,32 +960,60 @@ const tr = (zh, en) => (document.documentElement.lang || '').startsWith('en') ? 
       const c = chars[i], nx = chars[i + 1];
       c.t1 = nx ? Math.max(c.t0 + ASR_HOP, nx.t0) : c.t0 + 0.3;
     }
-    // 一句一句：字跟字之間空超過 0.7 秒就斷；太長（超過 14 個字）就在最後 9 個字裡
-    // 「空隙最大」的地方斷（華語歌一句 7–10 個字，用空隙斷比硬切準）
-    const lines = [];
+    return splitLyricLines(chars, hooks);
+  }
+
+  // 一個字一個時間 → 一行一行。**照停頓斷行**：歌手換氣、句子之間才有空白，
+  // 沒停頓的地方硬切一定會切在詞中間（以前是「滿 14 個字就從最大的空隙切一刀」，斷點常常很奇怪）。
+  //   ① 停頓 ≥ gapSec 就換行，但一句至少 minChars 個字，免得「喔」「Yeah」自己一行
+  //   ② 停頓 ≥ hardGapSec 一定換行（大間隔就是換句，不管幾個字）
+  //   ③ 完全沒有停頓的超長樂句（> maxChars）才從「中間附近最大的空隙」切一刀
+  function splitLyricLines(chars, opts) {
+    const opt = k => (opts && +opts[k]) || TX_DEFAULTS[k];
+    const GAP_LINE = opt('gapSec'), GAP_HARD = opt('hardGapSec');
+    const MIN_CHARS = opt('minChars'), MAX_CHARS = opt('maxChars');
     const mk = arr => ({ time: arr[0].t0, text: arr.map(c => c.ch).join(''), end: arr[arr.length - 1].t1 });
+
+    // ① 照停頓切句
     let cur = [];
+    let phrases = [];
     for (const c of chars) {
-      if (cur.length && (c.t0 - cur[cur.length - 1].t1 >= TX_GAP || cur.length >= TX_MAXLEN)) {
-        let cut = cur.length;
-        if (cur.length >= TX_MAXLEN) {
-          let best = -1;                          // 在 6 個字到「倒數 4 個字」之間找最大的空隙
-          for (let k = TX_MINLEN; k <= cur.length - 4; k++) {
-            const g = cur[k].t0 - cur[k - 1].t1;
-            if (g > best + 1e-6) { best = g; cut = k; }
-          }
-        }
-        lines.push(mk(cur.slice(0, cut)));
-        cur = cur.slice(cut);
+      const pv = cur[cur.length - 1];
+      if (pv) {
+        const gap = c.t0 - pv.t1;
+        if (gap >= GAP_HARD || (gap >= GAP_LINE && cur.length >= MIN_CHARS)) { phrases.push(cur); cur = []; }
       }
       cur.push(c);
     }
-    if (cur.length) lines.push(mk(cur));
+    if (cur.length) phrases.push(cur);
+
+    // ② 太短的碎片併進隔壁（是斷得太碎，不是真的換句）
+    for (let i = 0; i < phrases.length; i++) {
+      if (phrases[i].length >= MIN_CHARS) continue;
+      if (phrases[i + 1]) { phrases[i + 1] = phrases[i].concat(phrases[i + 1]); phrases.splice(i, 1); i--; }
+      else if (i > 0) { phrases[i - 1] = phrases[i - 1].concat(phrases[i]); phrases.splice(i, 1); i--; }
+    }
+
+    // ③ 沒有停頓的長句：從中間附近最大的空隙切開，切完還太長就再切
+    const cutLong = arr => {
+      if (arr.length <= MAX_CHARS) return [arr];
+      const mid = Math.round(arr.length / 2);
+      let cut = -1, best = -1;
+      for (let k = Math.max(MIN_CHARS, mid - 6); k <= Math.min(arr.length - MIN_CHARS, mid + 6); k++) {
+        const g = arr[k].t0 - arr[k - 1].t1;
+        if (g > best + 1e-6) { best = g; cut = k; }
+      }
+      if (cut < 0) return [arr];
+      return cutLong(arr.slice(0, cut)).concat(cutLong(arr.slice(cut)));
+    };
+    const lines = [];
+    for (const ph of phrases) for (const part of cutLong(ph)) lines.push(mk(part));
     return lines;
   }
 
   window.ChordAI = { framewiseProbs, beatCandidates, ensureModel, MODEL_URL, melodyFrames, alignLyrics, ensureSpleeter,
                      ensureLyricAsr, lyricAnchors, transcribeLyrics, _asrFbank: asrFbank, _asrLfr: asrLfr,
+                     _splitLines: splitLyricLines,
                      // 測試用：看「有出聲、抓不到音高」補了哪些鬼音（work/lyric_ai/_ghost_dbg.py）
                      _ghosts: (frames) => insertGhosts(splitAtOnsets(notesFromFrames(frames.times, frames.midi), frames.rise), frames) };
 })();
