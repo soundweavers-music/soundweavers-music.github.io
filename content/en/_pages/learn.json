@@ -9,10 +9,12 @@
  "6 堂・建議約 4.5 小時 →": "6 lessons · about 4.5 hours →",
  "世界聲音學習專區：人聲與歌唱、錄音後製、樂理基礎、曼陀林專區、流行吉他彈唱指南、烏克麗麗教學、線上編曲製作（DAW）課程。": "The World Sound learning hub: Voice and Singing, Recording and Mixing, Music Theory, Mandolin, Pop Guitar for Singers, ukulele and Producing in a DAW.",
  "人聲、錄音、樂理、曼陀林、吉他、烏克麗麗與線上編曲——挑一條路開始，按自己的節奏前進。": "Voice, recording, theory, mandolin, guitar, ukulele and online arranging — pick a path and move at your own pace.",
+ "人聲與歌唱": "Voice and Singing",
  "六堂課走完一首歌：拆結構、寫詞、寫旋律、配和弦、詞曲合一、寫完拿出去。每堂都有一個可以帶走的產出。": "Six lessons that carry a song from start to finish: taking the structure apart, writing words, writing a melody, setting chords, fitting words and melody together, and finishing it to share. Every lesson ends with something you can take away.",
  "共": "Total",
  "四條弦的大小事：選琴、調音、和弦家族、刷奏節奏型到指彈與打板，以華語流行歌為練習材料。": "Everything four strings can do: choosing an instrument, tuning, chord families, strumming patterns, fingerstyle and body taps, with Mandarin pop songs as practice material.",
  "套課程": "courses",
+ "學習": "Courses",
  "學習｜世界聲音": "Learn | World Sound",
  "小時": "hours",
  "建議約": "about",
@@ -22,9 +24,14 @@
  "搜尋學習內容：共鳴、混音、六線譜、拍號…（按 / 開始）": "Search lessons: resonance, mixing, tab, time signature… (press / to start)",
  "搜尋學習內容：課程與章節標題、各級小標": "Search lessons: course and chapter titles, subheadings",
  "搭配本站的瀏覽器編曲軟體，從錄音、MIDI、混音、修音與和聲到母帶輸出，每一堂都有實際軟體截圖與原理說明。": "Built around this site's browser DAW: recording, MIDI, mixing, pitch correction and harmony, through to mastering and export. Every lesson has real screenshots of the software and explains the principles.",
+ "曼陀林專區": "Mandolin",
+ "樂理基礎": "Music Theory",
  "每個課程都可以單獨閱讀；第一次來的話，建議從「樂理基礎」的前言開始，再依興趣進入人聲或錄音課程。": "Every course can be read on its own. If this is your first visit, start with the preface to Music Theory, then go on to voice or recording as your interest takes you.",
+ "流行吉他彈唱指南": "Pop Guitar for Singers",
+ "流行歌曲詞曲創作": "Songwriting for Pop Songs",
  "烏克麗麗流行彈唱與演奏指南": "Ukulele: Strumming and Fingerstyle",
  "章": "chapters",
  "線上編曲製作（DAW）課程": "Producing in a DAW",
- "譜號、節拍、拍號、音調、音域與發聲原理，分五個階段建立紮實的音樂理論基礎。": "Clefs, beat, time signatures, key, range and how sound is made — five stages that build a solid foundation in music theory."
+ "譜號、節拍、拍號、音調、音域與發聲原理，分五個階段建立紮實的音樂理論基礎。": "Clefs, beat, time signatures, key, range and how sound is made — five stages that build a solid foundation in music theory.",
+ "錄音後製": "Recording and Mixing"
 }

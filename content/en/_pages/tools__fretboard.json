@@ -1,8 +1,4 @@
 {
- "\" title=\"移除\">✕</button>": "\" title=\"Remove\">✕</button>",
- "<span class=\"cc-auto\">＊自動推算</span>": "<span class=\"cc-auto\">＊Auto-derived</span>",
- "<td><strong>組成音</strong></td>": "<td><strong>Chord tones</strong></td>",
- "<th>級數</th>": "<th>Degree</th>",
  "Blues 音階": "Blues scale",
  "D 調 (ADF♯B)": "D tuning (ADF♯B)",
  "Drop D (4弦)": "Drop D (4-string)",
