@@ -1073,7 +1073,9 @@ a.hub-card:hover::after { transform: scaleX(1); }
 .album-tracks[open] summary::before { content: "▾ "; }
 .album-tracks ol { margin: 6px 0 0; padding-left: 1.6em; line-height: 1.7; }
 
-/* 中文頁導覽列最後的 EN：連到英文版（英文頁的「中文」連回來） */
+/* 導覽列最後的語言選單：繁體中文／简体中文／English 三份頁面互跳 */
 .nav-lang { margin-left:16px; font-size:13px; letter-spacing:.04em;
-  color:var(--muted); text-decoration:none; align-self:center; }
-.nav-lang:hover { color:var(--accent); }
+  color:var(--muted); text-decoration:none; align-self:center;
+  background:transparent; border:1px solid var(--line); border-radius:4px;
+  padding:5px 6px; cursor:pointer; font-family:inherit; max-width:9.5em; }
+.nav-lang:hover, .nav-lang:focus { color:var(--accent); border-color:var(--accent); }

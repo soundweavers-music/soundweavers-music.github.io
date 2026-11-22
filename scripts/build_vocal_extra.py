@@ -152,13 +152,87 @@ def _lang_switch(page_path, lang):
     return resolve_url(page_path, "/en/"), "English"
 
 
+EN_ENSEMBLE_CLASSES = [
+    ("B1", "Regional traditional ensembles"), ("B2", "Folk bands"),
+    ("B3", "Drumming and festival ensembles"), ("B4", "Classical and large ensembles"),
+    ("B5", "Modern national orchestras"), ("B6", "Jazz and pop line-ups"),
+    ("B7", "Hybrid and crossover ensembles"),
+]
+EN_COURSES = [
+    ("/en/vocal/", "🎤", "Voice and Singing"),
+    ("/en/digitalmusic/", "🎧", "Recording and Mixing"),
+    ("/en/theory/", "🎼", "Music Theory"),
+    ("/en/songwriting/", "✍️", "Songwriting for Pop Songs"),
+    ("/en/mandolin/", "🎻", "Mandolin"),
+    ("/en/guitar/", "🎸", "Pop Guitar for Singers"),
+    ("/en/ukulele/", "🎶", "Ukulele: Strumming and Fingerstyle"),
+    ("/en/dawcourse/", "🎛", "Producing in a DAW"),
+]
+EN_TOOLS = [
+    ("/en/tools/fretboard/", "🎸 Fretboard and chords"),
+    ("/en/chord-detection/", "🎼 Chord detection"),
+    ("/en/experience/", "🎹 World instrument experience"),
+    ("/en/tools/tuner/", "🎯 Tuner and metronome"),
+    ("/en/tools/lrc/", "📝 LRC lyrics studio"),
+    ("/en/tools/daw/", "🎛 Zhiyin online DAW"),
+]
+
+
+def _en_dropdown(page_path, title, href, items):
+    """英文導覽列的一個下拉選單：跟中文版同一個結構。"""
+    if not items:
+        return ""
+
+    def link(u, label):
+        # 「隨選樂器」是在這一頁按一下換一顆，不是連到別的頁面
+        if u == "#random":
+            return '<a href="#" id="random-nav-link" class="random-link">%s</a>' % label
+        return '<a href="%s">%s</a>' % (resolve_url(page_path, u), label)
+
+    links = "".join(link(u, label) for u, label in items)
+    return (f'      <div class="nav-dropdown">\n'
+            f'        <a href="{resolve_url(page_path, href)}" class="dropdown-trigger">{title}</a>\n'
+            f'        <div class="dropdown-menu">\n          {links}\n        </div>\n'
+            f'      </div>')
+
+
 def site_header_en(page_path):
-    nav = "".join(f'<a href="{resolve_url(page_path, href)}">{label}</a>' for href, label in EN_NAV)
-    zh_url, zh_label = _lang_switch(page_path, "en")
+    """英文頁的導覽列：跟中文版同一個外框（下拉選單、語言選單、色調按鈕）。"""
+    bss = _bss()
+    instruments = _en_dropdown(page_path, "Instruments", "/en/instruments/", [
+        ("/en/categories/", "Categories"),
+        ("#random", "Random instrument"),
+        ("/en/countries/", "Countries & regions"),
+        ("/en/map/", "Map"),
+    ])
+    ensembles = _en_dropdown(page_path, "Ensembles", "/en/ensembles/", [
+        ("/en/ensembles/%s/" % code, "%s %s" % (code, name))
+        for code, name in EN_ENSEMBLE_CLASSES
+    ])
+    courses = _en_dropdown(page_path, "Courses", "/en/learn/", [
+        ("/en/learn/", "All courses"),
+    ] + [(u, "%s %s" % (icon, name)) for u, icon, name in EN_COURSES])
+    tools = _en_dropdown(page_path, "Tools", "/en/tools/", EN_TOOLS)
+    about = _en_dropdown(page_path, "About", "/en/about/", [
+        ("/en/about/", "About World Sound"),
+        ("/en/about/author/", "Author"),
+        ("/en/about/works/", "Discography"),
+        ("/en/recruit/", "Join us"),
+        ("/en/contact/", "Contact"),
+    ])
     return f"""  <header class="site-header">
     <a class="brand" href="{resolve_url(page_path, '/en/')}"><img class="brand-mark" src="{resolve_url(page_path, '/assets/brand/logo.png')}" alt="" width="34" height="34"><span class="brand-text">World Sound</span></a>
-    <nav>{nav}<a href="{zh_url}" hreflang="zh-Hant" lang="zh-Hant">{zh_label}</a></nav>
-  </header>"""
+    <nav>
+{instruments}
+{ensembles}
+{courses}
+{tools}
+{about}
+      {bss.lang_selector(page_path, "en")}
+    </nav>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Switch theme">🎋</button>
+  </header>
+  <div class="site-banner" role="img" aria-label="World Sound — a guitar, a mandolin, a piano and a microphone in a wooden studio"></div>"""
 
 
 def site_footer_en(page_path):

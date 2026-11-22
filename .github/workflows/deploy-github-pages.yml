@@ -72,17 +72,6 @@ jobs:
       - name: Build English course pages
         run: python scripts/build_en_courses.py
 
-      # 工具／關於／說明頁的英文版：中文頁是唯一真相，這裡換字生出 /en/ 的副本。
-      # 這步只負責產生頁面，品質由下面的 Check English edition 把關；它遇到字典
-      # 漏字會回傳 1，不該因此讓整個網站（連中文頁）都部署不出去。
-      - name: Build English tool and about pages
-        continue-on-error: true
-        run: python scripts/page_i18n.py build
-
-      # 英文版的守門員：章數對不對、圖在不在、有沒有整段還是中文
-      - name: Check English edition
-        run: python scripts/check_en_site.py
-
       - name: Build sound-journey reader
         run: python scripts/build_sound_journey_docs.py
 
@@ -92,6 +81,26 @@ jobs:
       # /learn/ 搜尋框用的索引：要在所有課程都建好之後才跑，否則會缺章節
       - name: Build learn search index
         run: python scripts/build_learn_index.py
+
+      # 工具／關於／說明頁／樂器百科／國家頁／合奏百科的英文版：中文頁是唯一真相，
+      # 這裡換字生出 /en/ 的副本。**一定要排在所有中文頁建好之後**，它才掃得到
+      # （以前排在 ensembles 前面，/en/ensembles/ 因此整批漏掉）。
+      # 它遇到字典漏字會回傳 1，不該因此讓整個網站（連中文頁）都部署不出去。
+      - name: Build English pages
+        continue-on-error: true
+        run: python scripts/page_i18n.py build
+
+      # 簡體中文版：把繁體頁逐字轉成 /hans/，要在英文頁之後（語言選單要連過去）
+      - name: Build Simplified Chinese pages
+        run: python scripts/build_hans.py
+
+      # 英文版的守門員：章數對不對、圖在不在、有沒有整段還是中文
+      - name: Check English edition
+        run: python scripts/check_en_site.py
+
+      # 站內連結（含 /hans/ 與 /en/）有沒有斷
+      - name: Check internal links
+        run: python scripts/audit_links.py
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

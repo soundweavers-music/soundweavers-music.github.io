@@ -255,6 +255,9 @@ h2 { margin:0; font-weight:700; }
 .tab-btn.is-active { background:var(--surface); color:var(--accent); border-color:var(--line); border-bottom-color:var(--surface); }
 .tab-pane { display:none; }
 .tab-pane.is-active { display:block; }
+/* 介紹與教學合併成一頁：教學接在後面，用一條線隔開 */
+.inst-tutorial { margin-top:44px; padding-top:28px; border-top:2px solid var(--line); }
+.inst-tutorial > h2 { font-size:22px; margin:0 0 18px; color:var(--ink); }
 
 /* ── Related instruments ─────────────────────────────────────── */
 .related-section { margin-top:48px; padding-top:32px; border-top:1px solid var(--line); }

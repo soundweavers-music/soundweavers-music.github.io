@@ -412,6 +412,105 @@ def nav_class_links(page_path):
     return "\n            ".join(rows)
 
 
+# ── 語言切換 ────────────────────────────────────────────────────
+# 三個語言版本：/（繁中）、/hans/（簡中，由 / 轉字）、/en/（英文）。
+# 簡中不另外翻譯，由 build_hans.py 在建置時把繁中頁轉字產生。
+LANG_ORDER = [("zh", "繁體中文"), ("hans", "简体中文"), ("en", "English")]
+EN_COURSE_SLUGS = {"vocal", "digitalmusic", "guitar", "ukulele", "mandolin", "songwriting"}
+
+
+def output_rel(page_path) -> str:
+    """輸出頁 → 站內相對路徑（`instruments/erxian/index.html`；根目錄是 `index.html`）。"""
+    if page_path is None:
+        return ""
+    try:
+        return Path(page_path).relative_to(OUTPUT_DIR).as_posix()
+    except ValueError:
+        return ""
+
+
+def en_url_for(dir_path: str) -> str:
+    """中文站內路徑 → 英文版路徑。
+
+    課程的英文版一律是 `/en/<課程>/chNN/`（中文那邊的章節資料夾叫法不一：
+    `/vocal/1/`、`/mandolin/01/`、`/guitar/ch01/`），DAW 課程是 `/en/dawcourse/`，
+    其餘頁面就是 `/en/<同一條路徑>`。
+    """
+    d = dir_path.strip("/")
+    seg = d.split("/") if d else []
+    if d == "tools/daw/learn":
+        return "/en/dawcourse/"
+    m = re.fullmatch(r"tools/daw/learn/(\d+)", d)
+    if m:
+        return "/en/dawcourse/ch%02d/" % int(m.group(1))
+    if len(seg) == 1 and seg[0] in EN_COURSE_SLUGS:
+        return "/en/%s/" % seg[0]
+    if len(seg) == 2 and seg[0] in EN_COURSE_SLUGS and seg[1].isdigit():
+        return "/en/%s/ch%02d/" % (seg[0], int(seg[1]))
+    return "/en/%s" % (d + "/" if d else "")
+
+
+def zh_url_for(en_dir: str) -> str:
+    """英文版路徑 → 中文版路徑（en_url_for 的反函數）。
+
+    英文課程章節一律叫 `chNN`，中文那邊各有各的叫法：人聲、錄音後製是數字
+    （`/vocal/1/`），曼陀林是兩位數（`/mandolin/01/`），吉他、烏克麗麗、
+    詞曲創作也是 `chNN`。DAW 課程的英文在 `/en/dawcourse/chNN/`，
+    中文在 `/tools/daw/learn/NN/`。
+    """
+    d = en_dir.strip("/")
+    seg = d.split("/") if d else []
+    if d == "dawcourse":
+        return "/tools/daw/learn/"
+    m = re.fullmatch(r"dawcourse/ch(\d+)", d)
+    if m:
+        return "/tools/daw/learn/%02d/" % int(m.group(1))
+    m = re.fullmatch(r"(%s)/ch(\d+)" % "|".join(sorted(EN_COURSE_SLUGS)), d)
+    if m:
+        slug, n = m.group(1), int(m.group(2))
+        if slug in {"vocal", "digitalmusic"}:
+            return "/%s/%d/" % (slug, n)
+        if slug == "mandolin":
+            return "/%s/%02d/" % (slug, n)
+        return "/%s/ch%02d/" % (slug, n)
+    return "/" + (d + "/" if d else "")
+
+
+def lang_links(page_path):
+    """這一頁在三個語言版本的位置 → ({lang: 站內絕對路徑}, 目前語言)。"""
+    rel = output_rel(page_path)
+    if rel.startswith("en/"):
+        base, cur = rel[3:], "en"
+    elif rel.startswith("hans/"):
+        base, cur = rel[5:], "hans"
+    else:
+        base, cur = rel, "zh"
+    dir_path = base[: -len("index.html")] if base.endswith("index.html") else base
+    dir_path = dir_path.strip("/")
+    if cur == "en":
+        # 英文頁的目錄名跟中文不一樣（chNN ↔ 1、NN、chNN），要反查回去
+        zh = zh_url_for(dir_path)
+        return {"zh": zh, "hans": "/hans" + zh, "en": "/en/" + (dir_path + "/" if dir_path else "")}, cur
+    return {
+        "zh": "/" + (dir_path + "/" if dir_path else ""),
+        "hans": "/hans/" + (dir_path + "/" if dir_path else ""),
+        "en": en_url_for(dir_path),
+    }, cur
+
+
+def lang_selector(page_path, current: str | None = None):
+    """導覽列最右邊的語言選單。換語言就是換一份頁面，所以用 <select> 直接跳。"""
+    urls, cur = lang_links(page_path)
+    cur = current or cur
+    opts = []
+    for code, label in LANG_ORDER:
+        sel = " selected" if code == cur else ""
+        lang_attr = ' lang="en"' if code == "en" else ""
+        opts.append(f'<option value="{resolve_url(page_path, urls[code])}"{lang_attr}{sel}>{label}</option>')
+    return ('<select class="nav-lang" aria-label="語言／Language" '
+            'onchange="if(this.value)location.href=this.value">' + "".join(opts) + "</select>")
+
+
 def canonical_for(page_path):
     """Absolute public URL of an output page (…/vocal/1/index.html → /vocal/1/).
 
@@ -548,7 +647,7 @@ def site_header(page_path):
           <a href="{resolve_url(page_path, '/contact/')}">聯絡我們</a>
         </div>
       </div>
-      <a href="{resolve_url(page_path, '/en/')}" hreflang="en" lang="en" class="nav-lang">EN</a>
+      {lang_selector(page_path)}
     </nav>
     <button id="theme-toggle" class="theme-toggle" aria-label="切換色調">🎋</button>
   </header>
@@ -1217,8 +1316,9 @@ def build_detail_pages(instruments):
             (item["category"], SITE_DOMAIN + site_url(f'/categories/{item["category"]}/')),
             (item["title"], inst_url),
         ])
-        write(OUTPUT_DIR / "instruments" / item["slug"] / "index.html", page(
-            item["title"], body, meta_extra=og_tags, meta_description=desc_text,
+        detail_path = OUTPUT_DIR / "instruments" / item["slug"] / "index.html"
+        write(detail_path, page(
+            item["title"], body, detail_path, meta_extra=og_tags, meta_description=desc_text,
             meta_keywords=keywords, jsonld_extra=crumb, og_type="article"))
 
 
@@ -1236,12 +1336,13 @@ def build_facet_pages(instruments, field, folder, title):
     browse_desc = desc_map.get(field, f"{title}一覽")
     write(
         OUTPUT_DIR / folder / "index.html",
-        page(title, f'<main class="page"><section class="compact-hero"><h1>{escape(title)}</h1></section><div class="facet-grid">{facet_cards}</div></main>', meta_description=f"{browse_desc} — 探索來自各{field}的樂器，包含樂器介紹、聆賞示範與文化背景。世界聲音 by 隔壁織音人。"),
+        page(title, f'<main class="page"><section class="compact-hero"><h1>{escape(title)}</h1></section><div class="facet-grid">{facet_cards}</div></main>', OUTPUT_DIR / folder / "index.html", meta_description=f"{browse_desc} — 探索來自各{field}的樂器，包含樂器介紹、聆賞示範與文化背景。世界聲音 by 隔壁織音人。"),
     )
     facet_label = {"category": "主分類", "subcategory": "子分類", "country": "國家／地區"}.get(field, "")
     for name, items in grouped.items():
-        write(OUTPUT_DIR / folder / slugify(name) / "index.html", list_page(
-            name, sorted(items, key=lambda item: item["title"]),
+        facet_path = OUTPUT_DIR / folder / slugify(name) / "index.html"
+        write(facet_path, list_page(
+            name, sorted(items, key=lambda item: item["title"]), facet_path,
             label=f"{name}（{facet_label}）" if facet_label else None))
 
 
@@ -3171,11 +3272,13 @@ def build_sound_journey_pages():
       <div class="facet-grid">{items_html}</div>
     </main>
     """
+    all_path = sj_output_dir / "all" / "index.html"
     write(
-        sj_output_dir / "all" / "index.html",
+        all_path,
         page(
             "全部文章",
             body,
+            all_path,
             meta_description="隔壁家的世界聲音旅圖全部篇章一覽 — 從氣息、弦、鼓到電子聲音，六段旅圖六種靠近世界的方式。",
         ),
     )
