@@ -83,7 +83,10 @@ def redirect_for(rel: str) -> str:
     if m:
         return "/en/dawcourse/ch%02d/" % int(m.group(1))
     if len(seg) == 1 and seg[0] in EN_COURSE_SLUGS:
-        return "/en/%s/" % seg[0]
+        # 課程目錄頁的英文版就在同一條路徑（build_en_courses.py 建的）→「不要碰」。
+        # 以前回傳 /en/<課程>/，結果在 /en/guitar/index.html 寫了一個指向自己的
+        # 轉址頁，把整門課的英文入口蓋掉，開起來永遠在轉圈。
+        return ""
     if len(seg) == 2 and seg[0] in EN_COURSE_SLUGS and seg[1].isdigit():
         tgt = "/en/%s/ch%02d/" % (seg[0], int(seg[1]))
         # 英文頁就在同一條路徑（吉他、烏克麗麗、詞曲創作）→ 不是轉址，是「不要碰」
