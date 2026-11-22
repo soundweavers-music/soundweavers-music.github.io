@@ -43,6 +43,11 @@ HTML_LANG = re.compile(r'<html lang="zh-Hant"')
 CANON = re.compile(r'<link rel="canonical"[^>]*>')
 
 
+# 會被搬進 /hans/ 的頁面（main() 先填好）。相對連結要判斷「指到的東西兩邊都有嗎」，
+# 不能只看資料夾名字：doc/index.docx、daw.css 這種檔案不會有第二份。
+MIRRORED: set[str] = set()
+
+
 def load_map() -> dict:
     return json.loads(MAP_FILE.read_text(encoding="utf-8"))
 
@@ -51,10 +56,37 @@ def pages() -> list:
     out = []
     for p in sorted(OUTPUT.glob("**/index.html")):
         rel = p.relative_to(OUTPUT).as_posix()
-        if rel.startswith(SKIP_DIRS):
+        # 要比對「第一層資料夾名稱」而不是字首：用 startswith 的話
+        # ensembles/ 會被 "en" 吃掉，/hans/ensembles/ 整批漏掉，
+        # 所有簡體頁指過去的合奏百科連結就全 404（audit_links 會擋下部署）。
+        if rel.split("/")[0] in SKIP_DIRS:
             continue
         out.append(rel)
     return out
+
+
+def _mirror_url(url: str, here: str, rel: str) -> str:
+    """一個相對連結在 /hans/ 的頁面上要寫成什麼。
+
+    指到「頁面」的：整棵樹一起搬，相對關係不變，原樣留著。
+    指到「別的檔案」的（assets、fonts 與 doc/index.docx、daw.css 這種）：/hans/ 只
+    轉 HTML，不會有第二份，所以要改寫成從 /hans/<rel> 看過去、指到中文樹同一份
+    檔案的路徑。以前一律補一層 `../`，深層頁面會指錯（/hans/tools/daw/ + ../daw.css
+    → /hans/tools/daw.css）。
+    """
+    base, sep, frag = url.partition("#")
+    if not base:
+        return url
+    target = posixpath.normpath(posixpath.join(here, base))
+    if target.startswith(".."):
+        return url                      # 指到站外，不關 /hans/ 的事
+    if target in MIRRORED or target + "/index.html" in MIRRORED:
+        return url                      # 頁面：兩邊一起搬
+    # 兩邊都要用「從站台根算起」的絕對路徑，不然 relpath 會把相對路徑當成從目前
+    # 工作目錄開始，/hans/ 這一層會少算，多退一層就跑到站台外面（../../../../assets）。
+    new = posixpath.relpath("/" + target + ("/" if base.endswith("/") else ""),
+                            "/" + posixpath.dirname("hans/" + rel))
+    return new + sep + frag
 
 
 def convert_html(html: str, table: dict, rel: str = "") -> str:
@@ -69,11 +101,7 @@ def convert_html(html: str, table: dict, rel: str = "") -> str:
             url = "/hans" + url
         elif url and not url.startswith(("//", "http://", "https://", "mailto:", "tel:",
                                          "javascript:", "data:", "#", "/")):
-            # 相對連結只有在「指到鏡像外面」時才要補一層：資產、字型這些不進 /hans/
-            # （頁面與鏡像內的頁面一起往下搬，相對關係不變，例如 digitalmusic/19/）
-            target = posixpath.normpath(posixpath.join(here, url))
-            if target.split("/")[0] in ("assets", "vendor", "fonts") or target.startswith(".."):
-                url = "../" + url
+            url = _mirror_url(url, here, rel)
         held.append('%s="%s"' % (attr, url))
         return "\x00%d\x00" % (len(held) - 1)
 
@@ -88,6 +116,54 @@ def fix_site_urls(html: str) -> str:
     return ABS_SITE.sub(lambda m: SITE + "/hans" + (m.group(1) or "/"), html)
 
 
+def _nearest(url: str) -> str:
+    """站內絕對路徑 → 真的存在的最接近頁面（不存在就一層層往上退，最後回首頁）。
+
+    中文有、英文沒有的頁面（`/guitar/toc/`、`/vocal/research/1/`、`/manage/`…）
+    在語言選單裡直接指過去就是 404，所以退到最近一個存在的目錄（例如 /en/guitar/）。
+    """
+    cur = url
+    while True:
+        d = cur.strip("/")
+        if not d:
+            return cur
+        if ((OUTPUT / d / "index.html").exists()
+                or (d.startswith("hans/") and d[5:] in MIRRORED)):   # 正在產生的簡體頁
+            return cur
+        parent = posixpath.dirname(d)
+        cur = "/" + (parent + "/" if parent else "")
+
+
+def fix_language_links() -> int:
+    """最後一關：每一頁的語言選單只連到真的存在的那一頁。
+
+    這一關要等 /en/ 與 /hans/ 都建完才跑，不然判斷不準。
+    """
+    changed = 0
+    for p in sorted(OUTPUT.rglob("index.html")):
+        rel = p.relative_to(OUTPUT).as_posix()
+        if rel.split("/")[0] in ("assets", "fonts", "vendor", "scripts"):
+            continue
+        html = p.read_text(encoding="utf-8", errors="replace")
+        m = SELECT.search(html)
+        if not m:
+            continue
+        urls, cur = bss.lang_links(p)
+        opts = "".join(
+            '<option value="%s"%s%s>%s</option>' % (
+                bss.resolve_url(p, _nearest(urls[code])),
+                ' lang="en"' if code == "en" else "",
+                " selected" if code == cur else "",
+                label)
+            for code, label in bss.LANG_ORDER)
+        new = ('<select class="nav-lang" aria-label="語言／Language" '
+               'onchange="if(this.value)location.href=this.value">' + opts + "</select>")
+        if new != m.group(0):
+            p.write_text(html[:m.start()] + new + html[m.end():], encoding="utf-8")
+            changed += 1
+    return changed
+
+
 def build_page(rel: str, table: dict, made: list) -> None:
     src = OUTPUT / rel
     html = src.read_text(encoding="utf-8", errors="replace")
@@ -99,7 +175,7 @@ def build_page(rel: str, table: dict, made: list) -> None:
     html = HREFLANG.sub("", html)
 
     urls, _ = bss.lang_links(dst)
-    alts = "".join('<link rel="alternate" hreflang="%s" href="%s%s">\n' % (code, SITE, urls[key])
+    alts = "".join('<link rel="alternate" hreflang="%s" href="%s%s">\n' % (code, SITE, _nearest(urls[key]))
                    for code, key in (("zh-Hant", "zh"), ("zh-Hans", "hans"), ("en", "en")))
     html = CANON.sub(lambda m: m.group(0) + "\n" + alts.rstrip("\n"), html, count=1)
     html = SELECT.sub(lambda _m: bss.lang_selector(dst, "hans"), html, count=1)
@@ -115,8 +191,11 @@ def main() -> int:
     table = load_map()
     made: list[str] = []
     for rel in pages():
+        MIRRORED.add(rel)
+    for rel in sorted(MIRRORED):
         build_page(rel, table, made)
     print("產生 %d 個簡體頁（對照表 %d 字）。" % (len(made), len(table)))
+    print("語言選單修正 %d 頁。" % fix_language_links())
     return 0
 
 
