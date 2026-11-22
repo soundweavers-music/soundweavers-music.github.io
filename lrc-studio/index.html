@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="referrer" content="no-referrer-when-downgrade">
-<title>LRC 動態歌詞工作室｜世界聲音</title>
+<title>織音AI歌詞自動辨識｜世界聲音</title>
 <link rel="stylesheet" href="../assets/site.css">
 <link rel="stylesheet" href="../assets/site-refresh.css">
 <style>
@@ -247,7 +247,7 @@
 <main class="page">
   <section class="compact-hero">
     <p class="eyebrow">Tool</p>
-    <h1>LRC 動態歌詞工作室</h1>
+    <h1>織音AI歌詞自動辨識</h1>
     <p class="lead">貼上歌詞、載入音檔，一邊聽一邊按下時間碼。自動斷點偵測會先抓一個初稿，細部再靠耳朵微調。</p>
     <p class="lrc-hint">音檔只在你的瀏覽器裡解碼，不會上傳到任何地方。鍵盤：Enter 標記、空白鍵播放、↑↓ 換行、←→ 快轉 3 秒、Delete 清掉本行時間。</p>
   </section>
@@ -337,6 +337,7 @@
           placeholder="把歌詞貼在這裡，一行一句。若貼上的是已標好時間的 LRC，時間碼會一併讀進來。（Ctrl+Enter 直接載入）"></textarea>
         <div class="lrc-paste-actions">
           <button type="button" id="lrc-load" class="lrc-btn lrc-btn--primary">載入歌詞</button>
+          <button type="button" id="lrc-ai-text" class="lrc-btn" title="手上沒有歌詞？讓 AI 直接聽出歌詞與時間（第一次會下載約 251 MB 的模型）">AI 聽歌詞</button>
           <button type="button" id="lrc-tidy" class="lrc-btn" title="去掉空白行與前後空白">整理</button>
           <button type="button" id="lrc-close-paste" class="lrc-btn lrc-btn--ghost">收起</button>
         </div>
@@ -466,7 +467,7 @@
     analyze: $("#lrc-analyze"), detectStatus: $("#lrc-detect-status"),
     setVocalStart: $("#lrc-vocal-start"), vad: $("#lrc-vad"), asr: $("#lrc-asr"),
     pasteWrap: $("#lrc-paste-wrap"), paste: $("#lrc-paste"),
-    load: $("#lrc-load"), tidy: $("#lrc-tidy"),
+    load: $("#lrc-load"), tidy: $("#lrc-tidy"), aiText: $("#lrc-ai-text"),
     closePaste: $("#lrc-close-paste"), edit: $("#lrc-edit"),
     list: $("#lrc-lines"), empty: $("#lrc-empty"), count: $("#lrc-count"),
     fontUp: $("#lrc-font-up"), fontDown: $("#lrc-font-down"),
@@ -560,6 +561,42 @@
 
     var hadTime = state.lines.some(function (l) { return l.time != null; });
     toast("載入 " + state.lines.length + " 行" + (hadTime ? "（含原有時間碼）" : ""));
+  }
+
+  // 手上沒有歌詞也能開始：AI 直接聽出歌詞與每一句的時間（跟「織音AI自動轉譜」同一顆模型）。
+  // 聽完就填進上面的框、順便載入，之後照原來的方式拖時間軸微調；錯字直接改。
+  function fmtStamp(t) {
+    var m = Math.floor(t / 60), s = t - m * 60;
+    var ss = s < 10 ? "0" + s.toFixed(2) : s.toFixed(2);
+    return "[" + (m < 10 ? "0" + m : m) + ":" + ss + "]";
+  }
+
+  function aiFillLyrics() {
+    if (!state.buffer) { toast("先載入音檔"); return; }
+    el.pasteWrap.hidden = false;
+    el.aiText.disabled = true;
+    setDetectStatus("AI 聽歌詞…（第一次會下載約 251 MB 的模型，之後瀏覽器會記住）", "analyzing");
+    ensureChordAI().then(function (ai) {
+      if (!ai.transcribeLyrics) throw new Error("AI 模組太舊，請重新整理頁面");
+      var pcm = resampleMono(state.buffer, ASR_RATE);
+      return ai.transcribeLyrics(pcm, ensureOrt, {
+        download: function (p, bytes) {
+          setDetectStatus("下載歌詞辨識模型… " + Math.round(p * 100) + "%" +
+            (bytes ? "（" + Math.round(bytes / 1048576) + " / 251 MB）" : ""), "analyzing");
+        },
+        track: function (p) { setDetectStatus("AI 聽歌詞… " + Math.round(p * 100) + "%", "analyzing"); }
+      });
+    }).then(function (lines) {
+      el.aiText.disabled = false;
+      if (!lines || !lines.length) { toast("沒有聽出歌詞"); setDetectStatus("沒有聽出歌詞（這首可能是演奏曲）", "error"); return; }
+      el.paste.value = lines.map(function (l) { return fmtStamp(l.time) + l.text; }).join("\n");
+      loadLyrics();
+      setDetectStatus("AI 聽出 " + lines.length + " 句；錯字、斷行都可以直接改，時間再拖一下就更準", "done");
+    }).catch(function (e) {
+      el.aiText.disabled = false;
+      toast("AI 聽歌詞失敗：" + ((e && e.message) || e));
+      setDetectStatus("AI 聽歌詞失敗：" + ((e && e.message) || e), "error");
+    });
   }
 
   function tidyText() {
@@ -1808,6 +1845,7 @@
       el.gapOut.textContent = (parseInt(el.gap.value, 10) / 100).toFixed(2) + " 秒";
     });
     el.analyze.addEventListener("click", analyzeAndFill);
+    el.aiText.addEventListener("click", aiFillLyrics);      // 沒有歌詞也能用：AI 直接聽
 
     // AI 聽歌詞對齊（選用）：勾了才下載 Fun-ASR-Nano（跟自動轉譜共用）
     el.asr.addEventListener("change", function () {

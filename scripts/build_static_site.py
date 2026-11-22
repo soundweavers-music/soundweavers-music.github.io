@@ -627,7 +627,7 @@ def site_header(page_path):
           <a href="{resolve_url(page_path, '/tools/fretboard/')}">🎸 世界樂器指版和弦圖</a>
           <a href="{resolve_url(page_path, '/tools/tuner/')}">🎯 線上調音器與節拍器</a>
           <a href="{resolve_url(page_path, '/chord-detection/')}">🎼 織音AI自動轉譜</a>
-          <a href="{resolve_url(page_path, '/tools/lrc/')}">📝 LRC 動態歌詞工作室</a>
+          <a href="{resolve_url(page_path, '/tools/lrc/')}">📝 織音AI歌詞自動辨識</a>
         </div>
       </div>
       <div class="nav-dropdown">
@@ -1085,7 +1085,7 @@ def build_index(instruments):
             <span>麥克風即時測音高與音分偏差，15 種樂器調弦、參考音與節拍器</span>
           </a>
           <a class="featured-card" href="{resolve_url(index_path, '/tools/lrc/')}" style="background:linear-gradient(135deg,#eef6ff,#dbeafe);border:1px solid #bfdbfe;">
-            <strong>📝 LRC 動態歌詞工作室</strong>
+            <strong>📝 織音AI歌詞自動辨識</strong>
             <span>邊聽邊打時間碼，自動偵測句與句的停頓先排好初稿，輸出 .lrc 或 .srt</span>
           </a>
           <a class="featured-card" href="{resolve_url(index_path, '/tools/daw/')}" style="background:linear-gradient(135deg,#1f2937,#111827);border:1px solid #374151;color:#e5e7eb;">
@@ -2925,7 +2925,7 @@ def build_about_page():
           <li><strong>{link('/chord-detection/', '織音AI自動轉譜')}</strong>　上傳歌曲，AI 自動轉成簡譜（旋律＋和弦＋歌詞），可即時編輯、播放、列印成出版譜；檔案不會離開你的電腦。</li>
           <li><strong>{link('/experience/', '世界樂器體驗')}</strong>　用虛擬鍵盤試聽各種樂器的音色與音域。</li>
           <li><strong>{link('/tools/tuner/', '線上調音器與節拍器')}</strong>　用麥克風測音高與音分偏差，內建 15 種樂器調弦與節拍器。</li>
-          <li><strong>{link('/tools/lrc/', 'LRC 動態歌詞工作室')}</strong>　邊聽邊打時間碼，輸出 .lrc 或 .srt。</li>
+          <li><strong>{link('/tools/lrc/', '織音AI歌詞自動辨識')}</strong>　沒有歌詞也能用：AI 直接聽出歌詞與時間，再邊聽邊微調，輸出 .lrc 或 .srt。</li>
           <li><strong>{link('/tools/daw/', '織音線上編曲製作')}</strong>　免安裝的瀏覽器編曲軟體：多軌錄音、MIDI 編曲、效果器、混音、母帶與輸出。（{link('/tools/daw/guide/', '使用說明')}）</li>
         </ul>
       </div>
@@ -3397,7 +3397,7 @@ def build_chord_detection_tool():
 
 
 def build_lrc_tool():
-    """Build the LRC 動態歌詞工作室 at /tools/lrc/.
+    """Build the 織音AI歌詞自動辨識 at /tools/lrc/.
 
     Source is ``lrc-studio/index.html`` — a self-contained page with inline CSS
     and JS. Like the chord-detection tool, only the ``<style>``, the ``<main>``
@@ -3451,7 +3451,7 @@ def build_lrc_tool():
 
     body = f'<main class="page">\n{main_content}\n</main>\n<script>\n{inline_js}\n</script>\n'
     write(page_dir / "index.html", page(
-        "LRC 動態歌詞工作室",
+        "織音AI歌詞自動辨識",
         body,
         page_dir / "index.html",
         extra_head=f"<style>{inline_css}</style>",
@@ -3602,7 +3602,7 @@ TOOLS = [
     ("/tools/daw/", "🎚️", "織音線上編曲製作", "", "免安裝的瀏覽器編曲軟體：16 軌起跳的多軌錄音、MIDI 編曲與音色庫、效果器、混音、母帶與輸出 WAV／FLAC／MP3。檔案不會上傳。", "/tools/daw/guide/"),
     ("/chord-detection/", "🎼", "織音AI自動轉譜", "", "上傳歌曲，AI 自動轉成簡譜：旋律、和弦、歌詞一次排好，可即時編輯、播放、移調、列印成出版譜。", "/chord-detection/guide/"),
     ("/tools/tuner/", "🎯", "線上調音器與節拍器", "", "麥克風即時測音高與音分偏差，內建 15 種樂器調弦與參考音，右欄還有節拍器。", "/tools/tuner/guide/"),
-    ("/tools/lrc/", "📝", "LRC 動態歌詞工作室", "", "邊聽邊打時間碼，自動偵測句與句的停頓先排好初稿，輸出 .lrc 或 .srt。", "/tools/lrc/guide/"),
+    ("/tools/lrc/", "📝", "織音AI歌詞自動辨識", "", "沒有歌詞也能用：AI 直接聽出歌詞與每句的時間，再邊聽邊微調，輸出 .lrc 或 .srt。", "/tools/lrc/guide/"),
     ("/tools/fretboard/", "🎸", "世界樂器指版與和弦圖", "", "19 種彈撥樂器的調弦法、各調性和弦、指版音位圖與順階和弦。", "/tools/fretboard/guide/"),
 ]
 
@@ -3612,8 +3612,8 @@ TOOL_GUIDES = [
      "19 種彈撥樂器的調弦、和弦與指版音位，全部在瀏覽器裡算。"),
     ("chord-detection", "/chord-detection/", "織音AI自動轉譜", "AI Score Transcription",
      "上傳音檔，自動分析節拍與和弦，整理成可移調的簡譜小節表。"),
-    ("lrc", "/tools/lrc/", "LRC 動態歌詞工作室", "LRC Lyrics Studio",
-     "邊聽邊打時間碼，輸出 .lrc 或 .srt。"),
+    ("lrc", "/tools/lrc/", "織音AI歌詞自動辨識", "AI Lyric Recognition",
+     "No lyrics file? AI listens to the vocal and lines up the words, then you nudge them."),
     ("tuner", "/tools/tuner/", "線上調音器與節拍器", "Tuner & Metronome",
      "麥克風即時測音高與音分偏差，15 種樂器調弦、參考音與節拍器。"),
 ]

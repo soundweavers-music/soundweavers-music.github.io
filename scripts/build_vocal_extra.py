@@ -173,7 +173,7 @@ EN_TOOLS = [
     ("/en/chord-detection/", "🎼 Chord detection"),
     ("/en/experience/", "🎹 World instrument experience"),
     ("/en/tools/tuner/", "🎯 Tuner and metronome"),
-    ("/en/tools/lrc/", "📝 LRC lyrics studio"),
+    ("/en/tools/lrc/", "📝 AI lyric recognition"),
     ("/en/tools/daw/", "🎛 Zhiyin online DAW"),
 ]
 
@@ -499,7 +499,7 @@ def build_portal_homepage(instruments):
     </a>
     <a class="portal-card card-tools" href="{resolve_url(index_path, '/tools/lrc/')}" style="border-color:var(--accent);">
       <div class="card-icon">📝</div>
-      <div class="card-label">LRC 動態歌詞工作室</div>
+      <div class="card-label">織音AI歌詞自動辨識</div>
       <div class="card-desc">貼上歌詞、載入音檔，邊聽邊按時間碼；自動偵測句與句之間的停頓，先排好一版初稿，再微調輸出 .lrc 或 .srt。</div>
       <span class="card-badge badge-new">新工具</span>
     </a>
