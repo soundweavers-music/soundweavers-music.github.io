@@ -195,6 +195,10 @@ function bindTopbar() {
     ]);
   };
   $('btnPreview').onclick = () => toggleVideoPreview();
+  $('btnKeys').onclick = e => {
+    const r = e.currentTarget.getBoundingClientRect();
+    showShortcuts(Math.max(8, r.right - 300), r.bottom + 2);
+  };
   // 預覽視窗上的「影像編輯」按鈕／右鍵選單都走這裡
   store.on('toggle-preview', () => toggleVideoPreview());
   store.on('open-video-panel', ({ tab: tb }) => openVideoPanel(tb));
@@ -459,6 +463,57 @@ const selectAllClips = () => {
   store.emit('select', {});
   toast(`已選取 ${list.length} 個片段`);
 };
+// 快捷鍵一覽：導覽列上的「快捷鍵」按鈕打開（選單右邊會顯示按鍵）
+export function showShortcuts(x, y) {
+  const items = [];
+  const add = (label, key, hint) => items.push({ label: hint ? `${label}　${hint}` : label, key });
+  const sep = () => items.push('-');
+  add('播放／停止', '空白');
+  add('回到開頭', 'Enter');
+  add('前／後一小節', ', .');
+  add('錄音', 'R');
+  sep();
+  add('復原', 'Ctrl+Z');
+  add('重做', 'Ctrl+Shift+Z');
+  add('剪下', 'Ctrl+X');
+  add('複製', 'Ctrl+C');
+  add('貼上', 'Ctrl+V');
+  add('刪除', 'Del');
+  add('選擇全部', 'Ctrl+A');
+  add('複製一份片段', 'Ctrl+D');
+  add('在播放頭切開', 'Ctrl+T');
+  add('微調選取片段', '← →');
+  sep();
+  add('新專案', 'Ctrl+N');
+  add('開啟專案', 'Ctrl+O');
+  add('儲存', 'Ctrl+S');
+  add('另存新檔', 'Ctrl+Shift+S');
+  add('匯入音檔', 'Ctrl+I');
+  add('輸出', 'Ctrl+E');
+  sep();
+  add('節拍器', 'K');
+  add('循環區間', 'C');
+  add('對齊格線', 'G');
+  add('自動化曲線', 'A');
+  add('和弦軌', 'H');
+  add('檢閱器', 'I');
+  add('混音台', 'X');
+  add('鋼琴捲簾', 'P');
+  add('母帶', 'Shift+M');
+  add('預覽畫面', 'V');
+  sep();
+  add('這一軌靜音', 'M');
+  add('這一軌獨奏', 'S');
+  add('換選取軌道', '↑ ↓');
+  sep();
+  add('MIDI 移調（Shift＝八度）', '[ ]');
+  add('電腦鍵盤彈奏', 'Caps Lock');
+  add('電腦鍵盤彈奏', 'Ctrl+K');
+  add('縮小／放大', '- =');
+  add('取消選取／關閉面板', 'Esc');
+  showMenu(x, y, items);
+}
+
 function bindEditMenu() {
   $('btnEdit').onclick = e => {
   const r = e.currentTarget.getBoundingClientRect();
@@ -500,6 +555,7 @@ function bindKeys() {
       return;
     }
     if (mod) {
+      if (k === 'n') return run(fileNew);
       if (k === 's') return run(() => saveProject(e.shiftKey).catch(err => toast(err.message, 'error')));
       if (k === 'o') return run(fileOpen);
       if (k === 'i') return run(() => $('btnImport').click());
@@ -543,6 +599,7 @@ function bindKeys() {
     if (k === 'v') return run(() => toggleVideoPreview());
     if (e.shiftKey && k === 'm') return run(() => toggleMaster());
     if (k === 'a' && !e.shiftKey) return run(() => store.emit('toggle-automation', {}));
+    if (k === 'h') return run(() => $('btnChords').click());
     if (k === 'i') return run(toggleInspector);
     if (t && k === 'm') return run(() => toggleTrackFlag(t, 'mute'));
     if (t && k === 's') return run(() => toggleTrackFlag(t, 'solo'));
@@ -880,7 +937,11 @@ $('btnArranger').onclick = () => toggleArranger();
       { label: (langPref() === 'en' ? '✓ ' : '　 ') + 'English', action: () => setLang('en') },
       '-',
       { label: '配色', disabled: true },
-      ...THEMES.map(t => ({ label: (t.id === cur ? '✓ ' : '　 ') + t.name, action: () => setTheme(t.id) })),
+      ...THEMES.map(t => ({
+        label: (t.id === cur ? '✓ ' : '　 ') + t.name,
+        swatch: t.sw,
+        action: () => setTheme(t.id),
+      })),
     ]);
   };
   window.addEventListener('daw-theme', () => {

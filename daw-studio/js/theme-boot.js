@@ -2,9 +2,10 @@
 // 沒選過的人預設用「世界聲音・木質深色」，跟網站的木質調一致。
 (function () {
   var def = 'wood-light';
+  var ok = ['pro', 'wood-dark', 'wood-light', 'midnight', 'forest', 'sunset', 'graphite', 'sakura', 'ocean', 'mint'];
   try {
     var t = localStorage.getItem('zhiyin-daw-theme');
-    if (t === 'pro' || t === 'wood-dark' || t === 'wood-light') def = t;
+    if (ok.indexOf(t) >= 0) def = t;
   } catch (e) { /* ignore */ }
   document.documentElement.setAttribute('data-theme', def);
 })();

@@ -171,6 +171,14 @@ function drawRuler() {
   if (chordH) drawChordLane(g, w, rulerH, chordH, sx, view.pxPerBeat);
 }
 
+// '#rrggbb' → 'r,g,b'（給 canvas 的 rgba 字串用）
+const hexRgb = hex => {
+  const m = /^#?([0-9a-f]{6})$/i.exec(hex || '');
+  if (!m) return null;
+  const n = parseInt(m[1], 16);
+  return `${(n >> 16) & 255},${(n >> 8) & 255},${n & 255}`;
+};
+
 function drawGrid() {
   const w = lanes.clientWidth, h = lanes.clientHeight;
   const g = setupCanvas(grid, w, h);
@@ -180,8 +188,15 @@ function drawGrid() {
     const th = trackH(t);
     const y = topOf(i) - sy;
     if (y > h || y + th < 0) return;
-    g.fillStyle = t.id === store.selection.trackId ? cssVar('--cv-trk-sel') : (i % 2 ? cssVar('--cv-trk-a') : cssVar('--cv-trk-b'));
+    const sel = t.id === store.selection.trackId;
+    g.fillStyle = sel ? cssVar('--cv-trk-sel') : (i % 2 ? cssVar('--cv-trk-a') : cssVar('--cv-trk-b'));
     g.fillRect(0, y, w, th);
+    // 再用這一軌的顏色薄薄染一層，整排看起來不會一片灰
+    const rgb = hexRgb(t.color);
+    if (rgb) {
+      g.fillStyle = `rgba(${rgb},${sel ? 0.13 : 0.055})`;
+      g.fillRect(0, y, w, th);
+    }
   });
   const step = gridStep(), bar = beatSec() * p.sigNum;
   const first = Math.floor(pxToSec(sx) / step), last = Math.ceil(pxToSec(sx + w) / step);
@@ -231,6 +246,7 @@ export function renderHeaders() {
     el.className = 'thead' + (t.id === store.selection.trackId ? ' sel' : '');
     el.style.height = trackH(t) + 'px';
     el.dataset.id = t.id;
+    el.style.setProperty('--trk', t.color);        // 標頭與選取色都用這一軌的顏色
     const noAudio = t.kind === 'text' || t.kind === 'sub';      // 文字／字幕軌沒有聲音
     const isVideo = t.kind === 'video';
     const kindMark = t.kind === 'midi' ? '♪' : isVideo ? '▶' : t.kind === 'text' ? 'T' : t.kind === 'sub' ? '字' : '∿';
