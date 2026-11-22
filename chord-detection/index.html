@@ -434,7 +434,7 @@ body.print-score #score-view { page: score; }
       <label><input type="checkbox" id="sc-clickplay" checked> 點音符從那裡播</label>
       <span class="sc-play-hint">播放：空白鍵 ▶／⏸（不在打字時）· 目前唱到的音會標亮</span>
       <span class="spacer"></span>
-      <label title="匯入歌詞後，用 AI 聽出每個字在哪一秒唱，字底下的音更準。第一次要下載約 251 MB 的模型，電腦記憶體建議 8 GB 以上。"><input type="checkbox" id="sc-lyric-asr"> AI 聽歌詞（更準，下載 251 MB）</label>
+      <label title="沒有 LRC 時，AI 直接聽出歌詞、排成第一版譜；有匯入 LRC 時，改成用 AI 把每個字對到正確的一秒。第一次要下載約 251 MB 的模型，電腦記憶體建議 8 GB 以上。"><input type="checkbox" id="sc-lyric-asr"> AI 聽歌詞（預設開，下載 251 MB）</label>
       <button class="btn ghost small" id="sc-import-lrc">📄 匯入 .lrc 歌詞</button>
     </div>
     <div class="sc-tools" id="sc-tools">
@@ -668,7 +668,8 @@ let state = {
   lyrics: [], lyricSegs: {}, lyricOverrides: {}, showLyrics: true, showDegrees: true,
   showDiagrams: false, continuous: false, notation: 'name',
   pickupOverride: null, lyricSnap: true, chordSize: 15, lyricSize: 14, melodySize: 13, rowGap: 2,
-  useLyricAsr: false, lyricAnchors: null, lyricAsrError: null,
+  useLyricAsr: true, lyricAnchors: null, lyricAsrError: null,
+  lyricsAuto: false, lyricsAutoFor: null,        // 歌詞是 AI 聽出來的（第一版），匯入 LRC 後改回 false
   showMelody: true, melodyFrames: null, melodySmooth: null, melodyNotes: null,
   useVad: true, vocalSegs: null,
   onsetEnv: null, onsetHopSec: 0,
@@ -848,6 +849,8 @@ async function handleFile(file) {
       state.chords = [];
       state.keyConfidence = null;
       state.lyrics = [];
+      state.lyricsAuto = false; state.lyricsAutoFor = null;
+      state.lyricAnchors = null; state.lyricAnchorsKey = null;
       state.lyricSegs = {};
       state.lyricOverrides = {};
       document.getElementById('lyric-status').style.display = 'none';
@@ -2445,6 +2448,8 @@ async function loadLRCFile(file) {
   const buf = await file.arrayBuffer();
   const text = decodeText(buf);
   state.lyrics = parseLRC(text);
+  state.lyricsAuto = false; state.lyricsAutoFor = null;      // 以 LRC 為準，AI 聽出來的版本退場
+  state.lyricAlignKey = null;
   const el = document.getElementById('lyric-status');
   el.style.display = 'block';
   if (!state.lyrics.length) {
@@ -2818,6 +2823,36 @@ function dominantMidiInRange(frames, t0, t1) {
 // 回傳每行一個陣列 [{t, end, midi}]；沒有 AI 旋律、關掉「歌詞對齊音訊」或對不起來就回傳 null（退回舊做法）。
 // 「AI 聽歌詞」（選用，Fun-ASR-Nano 251 MB）：用 AI 分離出來的主唱，逐行找出每個字大概在哪一秒唱，
 // 給 alignLyrics 當參考。結果依歌詞內容快取；勾選框關掉或失敗就是 null（照一般對齊）。
+// 沒有匯入 LRC 時的「第一版歌詞」：AI 分離主唱 → Fun-ASR 貪婪解碼（chord-ai.js 的 transcribeLyrics）
+// → 直接排進譜裡，一開場就有字。之後匯入 .lrc 就以 LRC 為準，重排一次（LRC 的歌詞正確，AI 只負責音）。
+// 只在 AI 分離成功（mf.x16）時做；還沒下載模型、或使用者關掉「AI 聽歌詞」就照舊只看旋律。
+async function ensureAutoLyrics() {
+  const mf = state.melodyFrames;
+  if (!state.useLyricAsr || state.lyrics.length || !mf || !mf.x16) return false;
+  if (!(window.ChordAI && window.ChordAI.transcribeLyrics)) return false;
+  if (state.lyricsAuto && state.lyricsAutoFor === mf) return false;
+  setStatus('AI 聽歌詞…（第一次會下載約 251 MB 的歌詞辨識模型，之後瀏覽器會記住）', 'analyzing');
+  state.lyricAsrError = null;
+  try {
+    const lines = await window.ChordAI.transcribeLyrics(mf.x16, ensureOrt, {
+      download: (p, bytes) => setProgress(p * 55, '下載歌詞辨識模型… ' + Math.round(p * 100) + '%' +
+        (bytes ? '（' + Math.round(bytes / 1048576) + ' / 251 MB）' : '')),
+      track: p => setProgress(55 + p * 40, 'AI 聽歌詞… ' + Math.round(p * 100) + '%'),
+    });
+    if (!lines.length) throw new Error('沒有聽出歌詞');
+    state.lyrics = lines.map(l => ({ time: l.time, text: l.text, end: l.end }));
+    state.lyricsAuto = true; state.lyricsAutoFor = mf;
+    state.lyricAnchors = null; state.lyricAnchorsKey = null; state.lyricAlignKey = null;
+    setProgressDone();
+    return true;
+  } catch (e) {
+    console.warn('AI 聽歌詞失敗（還是可以只看旋律）', e);
+    state.lyricAsrError = (e && e.message) || String(e);
+    setProgressDone();
+    return false;
+  }
+}
+
 async function ensureLyricAnchors() {
   const mf = state.melodyFrames;
   if (!state.useLyricAsr || !state.lyricSnap || state.melodyEngine !== 'ai' || !state.lyrics.length || !mf || !mf.x16) { state.lyricAnchors = null; return; }
@@ -2957,7 +2992,10 @@ async function ensureMelody() {
   // 在歌聲上常把整段判成沒聲音（測試裡漏掉 85% 的音）。
   // 有匯入 LRC（而且是 AI 精準模式）才用 AI 分離主唱（Spleeter，第一次下載約 38 MB）：
   // 中央聲道遮罩會把擺正中間的樂器當成旋律，歌詞就被拖進前奏／間奏。沒有歌詞時維持原本的輕量做法。
-  const wantSpl = detectMode() === 'ai' && state.lyrics.length > 0;
+  // 2026-11-23：改成「一開始就用最強的做法」——不管有沒有 LRC，都先 AI 分離主唱（38 MB）。
+  // 以前要等匯入 LRC 才分離，導致沒有歌詞時譜上的旋律被伴奏帶歪；
+  // 而且分離出來的主唱正好是「AI 聽歌詞」的輸入，一開場就能出第一版有歌詞的譜。
+  const wantSpl = detectMode() === 'ai';
   if (state.melodyFrames && wantSpl && state.melodyFrames.sepEngine !== 'spleeter' && !state.melodyFrames.splTried) {
     state.melodyFrames = null; state.melodySmooth = null;     // 之前沒歌詞時是用中央遮罩算的 → 重算一次
   }
@@ -3006,10 +3044,16 @@ async function ensureMelody() {
     state.melodySmooth = smoothMelody(state.melodyFrames);
     setProgressDone();
   }
-  await ensureLyricAnchors();
+  // 沒有匯入 LRC → 先請 AI 把歌詞聽出來，譜上才有字（第一版）。匯入 LRC 之後以 LRC 為準。
+  await ensureAutoLyrics();
+  if (!state.lyricsAuto) await ensureLyricAnchors();
   rebuildMelodyNotes();
   let lyricNote = '';
-  if (state.melodyEngine === 'ai' && state.lyrics.length) {
+  if (state.lyricsAuto && state.lyrics.length) {
+    lyricNote = '歌詞是 AI 聽出來的（' + state.lyrics.length + ' 句，第一版）；' +
+      '要更準就按「📄 匯入 .lrc 歌詞」，會以 LRC 的文字為準再對一次時間。';
+    if (state.lyricAsrError) lyricNote += '（AI 聽歌詞的部分出錯：' + state.lyricAsrError + '）';
+  } else if (state.melodyEngine === 'ai' && state.lyrics.length) {
     const al = lyricAlignment();
     const spl = state.melodyFrames && state.melodyFrames.sepEngine === 'spleeter';
     if (al) {
@@ -4849,9 +4893,10 @@ function scInitUI() {
   if (!keySel) return;
   keySel.innerHTML = SC_KEYS.map((k, i) => `<option value="${i}">${k}</option>`).join('');
   document.getElementById('sc-import-lrc').addEventListener('click', () => document.getElementById('lrc-input').click());
-  // AI 聽歌詞（預設關閉、會記住）：打勾時如果已經有歌詞與 AI 分離的主唱，就直接重新對齊
+  // AI 聽歌詞（預設開啟、會記住）：沒有 LRC 時它就是第一版歌詞的來源；
+  // 有 LRC 時它只拿來把每個字對到正確的時間。打勾當下如果已經有音檔就直接重跑。
   const asrBox = document.getElementById('sc-lyric-asr');
-  try { state.useLyricAsr = localStorage.getItem('chord.lyricAsr') === '1'; } catch (e) {}
+  try { const v = localStorage.getItem('chord.lyricAsr'); state.useLyricAsr = v === null ? true : v === '1'; } catch (e) {}
   asrBox.checked = state.useLyricAsr;
   // 每一種情況都要在狀態列給回應（以前沒音檔或還沒匯入歌詞時打勾，畫面完全沒變，看起來像壞掉）
   asrBox.addEventListener('change', async function () {
@@ -4863,8 +4908,8 @@ function scInitUI() {
       else setStatus('已關閉「AI 聽歌詞」。', 'done');
       return;
     }
-    if (!state.audioBuffer) { setStatus('已開啟「AI 聽歌詞」。先上傳歌曲，再按「📄 匯入 .lrc 歌詞」，就會用 AI 對歌詞（第一次下載約 251 MB）。', 'done'); return; }
-    if (!state.lyrics.length) { setStatus('已開啟「AI 聽歌詞」。接著按「📄 匯入 .lrc 歌詞」，匯入後就會用 AI 對歌詞（第一次下載約 251 MB）。', 'done'); return; }
+    if (!state.audioBuffer) { setStatus('已開啟「AI 聽歌詞」。上傳歌曲、分析完就會直接出第一版歌詞（第一次下載約 251 MB）。', 'done'); return; }
+    if (!state.lyrics.length) { state.showMelody = true; await ensureMelody(); return; }   // 會走 ensureAutoLyrics
     state.lyricAnchors = null; state.lyricAnchorsKey = null;
     state.showMelody = true;
     await ensureMelody();

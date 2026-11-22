@@ -902,8 +902,85 @@ const tr = (zh, en) => (document.documentElement.lang || '').startsWith('en') ? 
     });
   }
 
+  // ===== 沒有 LRC 時，先請 AI 把歌詞聽出來（第一版譜）=====
+  // 貪婪解碼（CTC）：每 60 ms 一格取最高分的 token，去掉連續重複與 blank；
+  // 再依「字跟字之間空太久」切成一行一行。整首 4 分鐘約 3 秒（詞表 6 萬欄只取 argmax，不存）。
+  // 這一份是「大概聽到的字」，匯入 LRC 之後以 LRC 為準（第二次會重排）。
+  const TX_GAP = 0.7, TX_MAXLEN = 14, TX_MINLEN = 6;
+  function tokenCharMap() {
+    if (tokenCharMap.cache) return tokenCharMap.cache;
+    const m = new Map();
+    for (const ch in asrChars.id) if (!m.has(asrChars.id[ch])) m.set(asrChars.id[ch], ch);     // 繁體優先
+    for (const ch in asrChars.simp) if (!m.has(asrChars.simp[ch])) m.set(asrChars.simp[ch], ch);
+    tokenCharMap.cache = m;
+    return m;
+  }
+  async function transcribeLyrics(x16, ensureOrt, hooks) {
+    hooks = hooks || {};
+    const sess = await ensureLyricAsr(ensureOrt, hooks.download);
+    const ort = window.ort;
+    const tokCh = tokenCharMap();
+    // 模型的詞表偏簡體 → 換回繁體再顯示（本站是繁體站）；對照表跟 /hans/ 版用的是同一份
+    let toTrad = null;
+    try { const r = await fetch(ASR_BASE + 'hans2hant.json'); if (r.ok) toTrad = await r.json(); } catch (e) {}
+    const fix = ch => (toTrad && toTrad[ch]) || ch;
+    const chars = [];                       // { ch, t0, t1 }
+    let tOff = 0, lastTok = -1;
+    for (let a = 0; a < x16.length; a += ASR_CHUNK) {
+      const seg = x16.subarray(a, Math.min(x16.length, a + ASR_CHUNK));
+      if (seg.length < 16000) break;
+      const { feat, n } = asrFbank(seg);
+      const { x, T } = asrLfr(feat, n);
+      const out = await sess.run({ x: new ort.Tensor('float32', x, [1, T, 560]) });
+      const z = out.logits.data, V = out.logits.dims[2], Tz = out.logits.dims[1];
+      for (let t = 0; t < Tz; t++) {
+        const o = t * V;
+        let best = 0, bv = z[o];                       // argmax＝CTC 的貪婪解碼
+        for (let v = 1; v < V; v++) { const q = z[o + v]; if (q > bv) { bv = q; best = v; } }
+        const tt = tOff + t * ASR_HOP;
+        if (best === ASR_BLANK) { lastTok = ASR_BLANK; continue; }     // blank：字的時間到這裡結束
+        if (best !== lastTok) {
+          const raw = tokCh.get(best);
+          const ch = raw ? fix(raw) : raw;
+          if (ch && !LYR_PUNCT.test(ch)) chars.push({ ch, t0: tt, t1: tt });   // 標點不進歌詞
+        }
+        lastTok = best;
+      }
+      tOff += Tz * ASR_HOP;
+      if (hooks.track) hooks.track(Math.min(1, (a + ASR_CHUNK) / x16.length));
+      await new Promise(r => setTimeout(r));
+    }
+    // 每個字唱到下一字開始（沒有下一字就用 0.3 秒）
+    for (let i = 0; i < chars.length; i++) {
+      const c = chars[i], nx = chars[i + 1];
+      c.t1 = nx ? Math.max(c.t0 + ASR_HOP, nx.t0) : c.t0 + 0.3;
+    }
+    // 一句一句：字跟字之間空超過 0.7 秒就斷；太長（超過 14 個字）就在最後 9 個字裡
+    // 「空隙最大」的地方斷（華語歌一句 7–10 個字，用空隙斷比硬切準）
+    const lines = [];
+    const mk = arr => ({ time: arr[0].t0, text: arr.map(c => c.ch).join(''), end: arr[arr.length - 1].t1 });
+    let cur = [];
+    for (const c of chars) {
+      if (cur.length && (c.t0 - cur[cur.length - 1].t1 >= TX_GAP || cur.length >= TX_MAXLEN)) {
+        let cut = cur.length;
+        if (cur.length >= TX_MAXLEN) {
+          let best = -1;                          // 在 6 個字到「倒數 4 個字」之間找最大的空隙
+          for (let k = TX_MINLEN; k <= cur.length - 4; k++) {
+            const g = cur[k].t0 - cur[k - 1].t1;
+            if (g > best + 1e-6) { best = g; cut = k; }
+          }
+        }
+        lines.push(mk(cur.slice(0, cut)));
+        cur = cur.slice(cut);
+      }
+      cur.push(c);
+    }
+    if (cur.length) lines.push(mk(cur));
+    return lines;
+  }
+
   window.ChordAI = { framewiseProbs, beatCandidates, ensureModel, MODEL_URL, melodyFrames, alignLyrics, ensureSpleeter,
-                     ensureLyricAsr, lyricAnchors, _asrFbank: asrFbank, _asrLfr: asrLfr,
+                     ensureLyricAsr, lyricAnchors, transcribeLyrics, _asrFbank: asrFbank, _asrLfr: asrLfr,
                      // 測試用：看「有出聲、抓不到音高」補了哪些鬼音（work/lyric_ai/_ghost_dbg.py）
                      _ghosts: (frames) => insertGhosts(splitAtOnsets(notesFromFrames(frames.times, frames.midi), frames.rise), frames) };
 })();
