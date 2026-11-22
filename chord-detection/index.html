@@ -193,15 +193,37 @@ body.print-score #score-view { page: score; }
 .sc-panel { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 6px 10px; background: var(--soft); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; margin: 8px 0; font-size: 12px; }
 .sc-panel label { display: flex; flex-direction: column; gap: 2px; color: var(--muted); }
 .sc-panel input, .sc-panel select { padding: 4px 6px; border: 1px solid var(--line); border-radius: 6px; font-size: 13px; background: var(--surface); color: var(--ink); }
-.sc-tools { position: sticky; top: 0; z-index: 5; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 6px 8px; margin: 8px 0; box-shadow: 0 2px 8px rgba(0,0,0,.05); }
-.sc-tools .grp { display: inline-flex; gap: 2px; padding-right: 6px; margin-right: 2px; border-right: 1px solid var(--line); align-items: center; }
-.sc-tools .grp:last-child { border-right: 0; }
-.sc-tools .gl { font-size: 10px; color: var(--muted); margin-right: 3px; }
-.sc-tools button { min-width: 28px; height: 28px; padding: 0 6px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--ink); font-size: 14px; cursor: pointer; font-family: 'Times New Roman', 'Noto Serif TC', serif; }
+/* 簡譜編輯：左邊是工具（可以拖到譜上）、中間是譜、右邊是選取的音（歌詞／音高／和弦） */
+.sc-tools { display: grid; grid-template-columns: 168px minmax(0, 1fr) 196px; gap: 12px; align-items: start; margin: 10px 0; }
+.sc-rail { position: sticky; top: 12px; display: flex; flex-direction: column; gap: 10px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 10px; box-shadow: 0 1px 3px rgba(0,0,0,.05), 0 8px 24px -18px rgba(0,0,0,.5); }
+.sc-stage { min-width: 0; overflow-x: auto; }
+.sc-stage .sc-pages { display: flex; justify-content: center; }
+.sc-tools .sc-sec .sc-pads button.chord-chip { font-family: 'Inter', 'Noto Sans TC', system-ui, sans-serif; font-weight: 700; font-size: 13px; padding: 0 9px; }
+.sc-sec { border-top: 1px dashed var(--line); padding-top: 8px; }
+.sc-sec:first-child { border-top: 0; padding-top: 0; }
+.sc-sec h4 { margin: 0 0 6px; font-size: 11px; font-weight: 600; letter-spacing: .04em; color: var(--muted); display: flex; align-items: center; justify-content: space-between; }
+.sc-sec h4 small { font-weight: 400; opacity: .8; }
+.sc-pads { display: flex; flex-wrap: wrap; gap: 4px; }
+.sc-tools button { min-width: 30px; height: 30px; padding: 0 7px; border: 1px solid var(--line); border-radius: 7px; background: var(--surface); color: var(--ink); font-size: 14px; line-height: 1; cursor: pointer; font-family: 'Times New Roman', 'Noto Serif TC', serif; transition: background .12s, border-color .12s, transform .12s; }
 .sc-tools button:hover { border-color: var(--accent); background: var(--soft); }
+.sc-tools button:active { transform: scale(.95); }
 .sc-tools button.on { background: var(--accent); border-color: var(--accent); color: #fff; }
 .sc-tools button:disabled { opacity: .35; cursor: default; }
-.sc-tools input.sc-lyric { width: 70px; height: 26px; padding: 0 6px; border: 1px solid var(--line); border-radius: 6px; font-size: 14px; }
+.sc-tools button.pad-k { font-size: 16px; font-weight: 700; min-width: 32px; }
+.sc-tools button.wide { width: 100%; justify-content: center; text-align: center; }
+.sc-tools button[draggable="true"] { cursor: grab; }
+.sc-tools button[draggable="true"]:active { cursor: grabbing; }
+.sc-tools input.sc-lyric, .sc-tools select { width: 100%; height: 30px; padding: 0 8px; border: 1px solid var(--line); border-radius: 7px; font-size: 14px; background: var(--surface); color: var(--ink); box-sizing: border-box; }
+.sc-selinfo { font-size: 12px; color: var(--muted); line-height: 1.7; margin-bottom: 6px; }
+.sc-selinfo b { color: var(--ink); font-size: 15px; }
+.sc-dragbadge { position: fixed; z-index: 99; pointer-events: none; padding: 3px 8px; border-radius: 999px; background: var(--accent); color: #fff; font: 700 13px/1.6 'Noto Serif TC', serif; box-shadow: 0 4px 14px rgba(0,0,0,.25); display: none; }
+.sc-page svg .hit { cursor: grab; }
+.sc-page svg .drop-target { fill: var(--accent) !important; opacity: .18; }
+@media (max-width: 1080px) {
+  .sc-tools { grid-template-columns: 1fr; }
+  .sc-rail { position: static; flex-direction: row; flex-wrap: wrap; align-items: flex-start; }
+  .sc-sec { border-top: 0; padding-top: 0; min-width: 140px; }
+}
 .sc-hint { font-size: 11.5px; color: var(--muted); margin: 0 0 6px; }
 .sc-play { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; font-size: 12.5px; margin: 4px 0; }
 .sc-play label { display: flex; align-items: center; gap: 4px; cursor: pointer; }
@@ -243,9 +265,13 @@ body.print-score #score-view { page: score; }
 @media print {
   body.print-score .page > *:not(#chart-container) { display: none !important; }
   body.print-score #chart-container > *:not(#score-view) { display: none !important; }
-  body.print-score #score-view > *:not(.sc-pages) { display: none !important; }
+  /* 譜現在放在左右工具列中間（.sc-tools > .sc-stage > .sc-pages）：列印時只留譜 */
+  body.print-score #score-view > *:not(.sc-tools) { display: none !important; }
+  body.print-score .sc-tools { display: block !important; margin: 0 !important; }
+  body.print-score .sc-tools > *:not(.sc-stage) { display: none !important; }
+  body.print-score .sc-stage > *:not(.sc-pages) { display: none !important; }
   body.print-score #score-view { display: block !important; }
-  body.print-score .sc-pages { background: none !important; padding: 0 !important; gap: 0 !important; display: block !important; }
+  body.print-score .sc-pages { background: none !important; padding: 0 !important; gap: 0 !important; display: block !important; zoom: 1 !important; }
   body.print-score .sc-page { box-shadow: none !important; break-after: page; page-break-after: always; width: 210mm !important; height: 296mm !important; overflow: hidden; margin: 0 !important; }
   body.print-score .sc-page svg { width: 210mm !important; height: 296mm !important; }
   body.print-score .page, body.print-score main { padding: 0 !important; margin: 0 !important; max-width: none !important; }
@@ -438,35 +464,94 @@ body.print-score #score-view { page: score; }
       <button class="btn ghost small" id="sc-import-lrc">📄 匯入 .lrc 歌詞</button>
     </div>
     <div class="sc-tools" id="sc-tools">
-      <span class="grp"><span class="gl">音高</span>
-        <button data-k="1">1</button><button data-k="2">2</button><button data-k="3">3</button><button data-k="4">4</button>
-        <button data-k="5">5</button><button data-k="6">6</button><button data-k="7">7</button><button data-k="0" title="休止符">0</button>
-      </span>
-      <span class="grp"><span class="gl">八度</span><button data-act="octUp" title="高八度（↑）">·̇</button><button data-act="octDown" title="低八度（↓）">·̣</button></span>
-      <span class="grp"><span class="gl">升降</span><button data-act="sharp" title="升記號">♯</button><button data-act="flat" title="降記號">♭</button><button data-act="natural" title="還原">♮</button></span>
-      <span class="grp"><span class="gl">時值</span>
-        <button data-dur="4" title="全音符 1 - - -">𝅝</button><button data-dur="2" title="二分音符 1 -">𝅗𝅥</button><button data-dur="1" title="四分音符">♩</button>
-        <button data-dur="0.5" title="八分音符（一條底線）">♪</button><button data-dur="0.25" title="十六分音符（兩條底線）">𝅘𝅥𝅯</button>
-        <button data-act="dot" title="附點（.）">·</button>
-      </span>
-      <span class="grp"><span class="gl">連線</span><button data-act="tie" title="延音線：跟下一個同音連起來">⁀</button><button data-act="slur" title="圓滑線：選一段音（Shift+點）">◠</button><button data-act="triplet" title="三連音（選 3 個音）">³</button></span>
-      <span class="grp"><span class="gl">記號</span>
-        <button data-act="fermata" title="延長記號">𝄐</button><button data-act="breath" title="換氣">∨</button><button data-act="accent" title="重音">&gt;</button><button data-act="staccato" title="跳音">▾</button>
-        <select id="sc-dyn" title="力度"><option value="">力度</option><option>pp</option><option>p</option><option>mp</option><option>mf</option><option>f</option><option>ff</option><option>cresc.</option><option>dim.</option></select>
-      </span>
-      <span class="grp"><span class="gl">小節</span>
-        <button data-act="repStart" title="反覆開始 ‖:">‖:</button><button data-act="repEnd" title="反覆結束 :‖">:‖</button>
-        <button data-act="volta1" title="第一房">1.</button><button data-act="volta2" title="第二房">2.</button>
-        <button data-act="dbl" title="雙小節線">‖</button><button data-act="section" title="段落標記（A、主歌、副歌…）">段</button>
-        <button data-act="text" title="文字（D.C.、Fine、rit.…）">文</button><button data-act="newline" title="從這小節換行">↵</button>
-      </span>
-      <span class="grp"><span class="gl">歌詞</span><input class="sc-lyric" id="sc-lyric" placeholder="字"></span>
-      <span class="grp"><button data-act="insert" title="在後面插入一個音">＋音</button><button data-act="del" title="刪除（Delete）">刪</button>
-        <button data-act="undo" title="復原（Ctrl+Z）">↶</button><button data-act="redo" title="重做（Ctrl+Y）">↷</button></span>
-      <span class="grp"><button data-act="rebuild" title="捨棄手動修改，用目前的偵測結果重新產生">重新產生</button><button data-act="print" title="列印／存成 PDF">🖨 列印</button><button data-act="daw" title="下載一個編曲工具專案檔（.zyproj）：人聲、伴奏（預設靜音）、主旋律 MIDI、和弦軌、速度。在「織音線上編曲製作」按 檔案 → 開啟">🎹 送到編曲工具</button></span>
+      <!-- 左：可以按，也可以直接拖到譜上的工具 -->
+      <aside class="sc-rail sc-rail-l">
+        <div class="sc-sec">
+          <h4>音高 <small>拖到音符上</small></h4>
+          <div class="sc-pads">
+            <button class="pad-k" data-k="1" draggable="true">1</button><button class="pad-k" data-k="2" draggable="true">2</button>
+            <button class="pad-k" data-k="3" draggable="true">3</button><button class="pad-k" data-k="4" draggable="true">4</button>
+            <button class="pad-k" data-k="5" draggable="true">5</button><button class="pad-k" data-k="6" draggable="true">6</button>
+            <button class="pad-k" data-k="7" draggable="true">7</button><button class="pad-k" data-k="0" draggable="true" title="休止符">0</button>
+          </div>
+        </div>
+        <div class="sc-sec">
+          <h4>八度／升降</h4>
+          <div class="sc-pads">
+            <button data-act="octUp" title="高八度（↑）">·̇</button><button data-act="octDown" title="低八度（↓）">·̣</button>
+            <button data-act="sharp" title="升記號">♯</button><button data-act="flat" title="降記號">♭</button>
+            <button data-act="natural" title="還原">♮</button>
+          </div>
+        </div>
+        <div class="sc-sec">
+          <h4>時值 <small>拖到音符上</small></h4>
+          <div class="sc-pads">
+            <button data-dur="4" draggable="true" title="全音符 1 - - -">𝅝</button><button data-dur="2" draggable="true" title="二分音符 1 -">𝅗𝅥</button>
+            <button data-dur="1" draggable="true" title="四分音符">♩</button><button data-dur="0.5" draggable="true" title="八分音符（一條底線）">♪</button>
+            <button data-dur="0.25" draggable="true" title="十六分音符（兩條底線）">𝅘𝅥𝅯</button><button data-act="dot" title="附點（.）">·</button>
+          </div>
+        </div>
+        <div class="sc-sec">
+          <h4>連線／記號</h4>
+          <div class="sc-pads">
+            <button data-act="tie" title="延音線：跟下一個同音連起來">⁀</button><button data-act="slur" title="圓滑線：選一段音（Shift+點）">◠</button>
+            <button data-act="triplet" title="三連音（選 3 個音）">³</button><button data-act="fermata" title="延長記號">𝄐</button>
+            <button data-act="breath" title="換氣">∨</button><button data-act="accent" title="重音">&gt;</button><button data-act="staccato" title="跳音">▾</button>
+          </div>
+        </div>
+        <div class="sc-sec">
+          <h4>小節</h4>
+          <div class="sc-pads">
+            <button data-act="repStart" title="反覆開始 ‖:">‖:</button><button data-act="repEnd" title="反覆結束 :‖">:‖</button>
+            <button data-act="volta1" title="第一房">1.</button><button data-act="volta2" title="第二房">2.</button>
+            <button data-act="dbl" title="雙小節線">‖</button><button data-act="section" title="段落標記（A、主歌、副歌…）">段</button>
+            <button data-act="text" title="文字（D.C.、Fine、rit.…）">文</button><button data-act="newline" title="從這小節換行">↵</button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- 中：譜 -->
+      <div class="sc-stage">
+        <p class="sc-hint" id="sc-hint">拖音符：上下改音高、左右換位置（拖到別的小節也可以）。左邊的音高／時值可以直接拖到音符上。點音符選取（Shift＋點選一段）；鍵盤：1–7 / 0 改音、↑↓ 八度、←→ 換音、/ 減半、* 加倍、. 附點、Delete 刪除、Enter 改歌詞。修改會自動存在這台電腦。</p>
+        <div class="sc-pages" id="sc-pages"></div>
+      </div>
+
+      <!-- 右：選取的音 -->
+      <aside class="sc-rail sc-rail-r">
+        <div class="sc-sec">
+          <h4>選取的音</h4>
+          <div class="sc-selinfo" id="sc-selinfo">點譜上的數字</div>
+        </div>
+        <div class="sc-sec">
+          <h4>本小節和弦 <small>點一下改</small></h4>
+          <div class="sc-pads" id="sc-chordlist"></div>
+        </div>
+        <div class="sc-sec">
+          <h4>歌詞 <small>Enter 跳到下一個</small></h4>
+          <input class="sc-lyric" id="sc-lyric" placeholder="打一個字">
+        </div>
+        <div class="sc-sec">
+          <h4>力度</h4>
+          <select id="sc-dyn" title="力度"><option value="">（無）</option><option>pp</option><option>p</option><option>mp</option><option>mf</option><option>f</option><option>ff</option><option>cresc.</option><option>dim.</option></select>
+        </div>
+        <div class="sc-sec">
+          <h4>編輯</h4>
+          <div class="sc-pads">
+            <button data-act="insert" title="在後面插入一個音">＋音</button><button data-act="del" title="刪除（Delete）">刪</button>
+            <button data-act="undo" title="復原（Ctrl+Z）">↶</button><button data-act="redo" title="重做（Ctrl+Y）">↷</button>
+          </div>
+        </div>
+        <div class="sc-sec">
+          <h4>輸出</h4>
+          <div class="sc-pads">
+            <button class="wide" data-act="print" title="列印／存成 PDF">🖨 列印</button>
+            <button class="wide" data-act="daw" title="下載一個編曲工具專案檔（.zyproj）：人聲、伴奏（預設靜音）、主旋律 MIDI、和弦軌、速度。在「織音線上編曲製作」按 檔案 → 開啟">🎹 送到編曲工具</button>
+            <button class="wide" data-act="rebuild" title="捨棄手動修改，用目前的偵測結果重新產生">重新產生</button>
+          </div>
+        </div>
+      </aside>
     </div>
-    <p class="sc-hint" id="sc-hint">點音符選取（Shift＋點選一段）；鍵盤：1–7 / 0 改音、↑↓ 八度、←→ 換音、/ 減半、* 加倍、. 附點、Delete 刪除、Enter 改歌詞。點小節空白處選小節（加反覆、換行等）。修改會自動存在這台電腦。</p>
-    <div class="sc-pages" id="sc-pages"></div>
+    <div class="sc-dragbadge" id="sc-dragbadge"></div>
   </div>
   <div id="chart-view" style="display:none;">
   <div class="chart-toolbar">
@@ -4084,6 +4169,13 @@ function scToMidi(n, keyPc) {
 
 // 一個時值能不能直接寫成一個音（含附點）
 const SC_DURS = [4, 3, 2, 1.5, 1, 0.75, 0.5, 0.375, 0.25];
+// 時值的中文名字（給右邊「選取的音」看的）
+function scDurName(d) {
+  const map = { 4: '全音符', 3: '附點二分', 2: '二分音符', 1.5: '附點四分', 1: '四分音符',
+                0.75: '附點八分', 0.5: '八分音符', 0.375: '附點十六分', 0.25: '十六分音符', 0.125: '三十二分音符' };
+  if (map[d]) return map[d];
+  return (Math.round((d || 0) * 1000) / 1000) + ' 拍';
+}
 function scSplitDur(d) {
   // 把任意長度拆成可寫的時值（大的在前），用延音線連起來
   const out = [];
@@ -4612,6 +4704,18 @@ function scRender() {
     if (state.isPlaying) scHighlight(state.currentTime, false);
   };
   finish();
+  scFitStage();
+}
+
+// 譜是固定 A4 寬（794 px）。左右有工具列時中間不一定夠寬：不夠就整份等比縮小，
+// 讓整頁看得到（列印時 print CSS 會把 zoom 還原成 1）。
+function scFitStage() {
+  const stage = document.querySelector('.sc-stage'), pages = document.getElementById('sc-pages');
+  if (!stage || !pages) return;
+  pages.style.zoom = '';
+  const avail = stage.clientWidth - 6;
+  const w = pages.firstElementChild ? pages.firstElementChild.offsetWidth : 0;
+  if (w && avail > 200 && avail < w) pages.style.zoom = String(Math.max(0.5, avail / w));
 }
 
 // 和弦記號：和弦名／歌本式級數方框／兩者（級數方框在上、和弦名在下）
@@ -4850,6 +4954,34 @@ function scSyncTools() {
   const ly = document.getElementById('sc-lyric');
   if (ly && document.activeElement !== ly) ly.value = n ? (n.lyric || '') : '';
   const dyn = document.getElementById('sc-dyn'); if (dyn) dyn.value = n && n.dyn ? n.dyn : '';
+  // 右邊「本小節和弦」：列出這一小節的和弦，點一下開原本的和弦編輯視窗
+  const cl = document.getElementById('sc-chordlist');
+  if (cl) {
+    const chs = bar && bar.chords ? bar.chords : [];
+    cl.innerHTML = chs.length
+      ? chs.map((c, k) => `<button class="chord-chip" data-chordbar="${SC.selBar}" title="第 ${Math.round(SC.selBar + 1)} 小節的 ${escapeHtml(c.name)}（第 ${Math.round(c.beat) + 1} 拍）">${escapeHtml(c.name)}</button>`).join('')
+      : '<span style="font-size:11.5px;color:var(--muted)">這一小節沒有和弦</span>';
+  }
+  // 右邊「選取的音」：一眼看出現在在改哪一個音（第幾小節、第幾個、音高、歌詞）
+  const info = document.getElementById('sc-selinfo');
+  if (info) {
+    if (n && SC.sel) {
+      const oct = n.oct || 0;
+      const acc = n.acc === 1 ? '♯' : n.acc === -1 ? '♭' : n.natural ? '♮' : '';
+      const degTxt = n.deg ? acc + n.deg + (oct > 0 ? '˙'.repeat(oct) : oct < 0 ? '̣'.repeat(-oct) : '') : '0（休止）';
+      const durTxt = scDurName(n.dur);
+      const range = SC.selEnd && (SC.selEnd.b !== SC.sel.b || SC.selEnd.i !== SC.sel.i)
+        ? '（選了 ' + scSelected().length + ' 個音）' : '';
+      info.innerHTML = '第 <b>' + (SC.sel.b + 1) + '</b> 小節 · 第 <b>' + (SC.sel.i + 1) + '</b> 個音' + range
+        + '<br><b>' + degTxt + '</b>　' + durTxt + (n.lyric ? '<br>歌詞：<b>' + escapeHtml(n.lyric) + '</b>' : '');
+    } else if (bar) {
+      const beats = bar.notes.reduce((a, q) => a + (q.dur || 0), 0);
+      info.innerHTML = '第 <b>' + (SC.selBar + 1) + '</b> 小節（' + Math.round(beats * 100) / 100 + ' 拍）'
+        + '<br><span style="font-size:11px">點音符可以改它；下面的按鈕作用在整個小節</span>';
+    } else {
+      info.innerHTML = '點譜上的數字（Shift＋點可以選一段）';
+    }
+  }
   on('undo', false); on('redo', false);
   const u = tools.querySelector('[data-act="undo"]'), r = tools.querySelector('[data-act="redo"]');
   if (u) u.disabled = !SC.undo.length; if (r) r.disabled = !SC.redo.length;
@@ -4934,6 +5066,7 @@ function scInitUI() {
     const btn = e.target.closest('button'); if (!btn) return;
     if (btn.dataset.k != null) return scEdit(() => scSelected().forEach(({ n }) => { n.deg = Number(btn.dataset.k); if (!n.deg) { n.acc = 0; n.oct = 0; } }));
     if (btn.dataset.dur) return scSetDur(Number(btn.dataset.dur));
+    if (btn.dataset.chordbar != null) return scEditChord(Number(btn.dataset.chordbar));
     if (btn.dataset.act) return scAction(btn.dataset.act);
   });
   document.getElementById('sc-dyn').addEventListener('change', function () { const v = this.value; scEdit(() => scSelected().forEach(({ n }) => { n.dyn = v || undefined; })); });
@@ -4959,7 +5092,9 @@ function scInitUI() {
     } else if (e.key === 'Escape') ly.blur();
   });
   // 點譜面
+  let scSkipClick = false;                                   // 拖完音符放開時，不要又當成點擊
   document.getElementById('sc-pages').addEventListener('click', e => {
+    if (scSkipClick) { scSkipClick = false; return; }        // 剛剛是在拖音符，不是點擊
     const hit = e.target.closest('.hit');
     if (hit) {
       const p = { b: Number(hit.dataset.b), i: Number(hit.dataset.i) };
@@ -4980,6 +5115,144 @@ function scInitUI() {
   });
   document.getElementById('sc-pages').addEventListener('dblclick', e => {
     if (e.target.closest('.hit')) { ly.focus(); ly.select(); }
+  });
+
+  // ── 拖曳音符：上下＝改音高（1↔7 自動跨八度）、左右＝換位置（放開時底下的音互換，拖到別的小節也可以）──
+  // 沒拖動（位移 < 6 px）就交回原本的點擊（選取、點了從那裡播）。
+  const pagesEl = document.getElementById('sc-pages');
+  const badge = document.getElementById('sc-dragbadge');
+  // 用座標找「這個位置底下是哪一個音／哪一個小節」：數字是用 <text> 畫的，
+  // elementFromPoint 會拿到文字本身而不是那一格透明的 <rect>，所以自己掃命中框。
+  function scHitAt(x, y, list) {
+    for (const q of list) {
+      const r = q.r;
+      if (x >= r.left && x <= r.right && y >= r.top && y <= r.bottom) return q.el;
+    }
+    return null;
+  }
+  function scRectsAt(sel) {
+    return Array.from(pagesEl.querySelectorAll(sel)).map(el => ({ el, r: el.getBoundingClientRect() }));
+  }
+  let dragNote = null;
+  pagesEl.addEventListener('pointerdown', e => {
+    if (e.button !== 0 || !SC.score) return;
+    const rects = scRectsAt('.hit');
+    const hit = scHitAt(e.clientX, e.clientY, rects);
+    if (!hit) return;
+    const b = Number(hit.dataset.b), i = Number(hit.dataset.i);
+    const n = SC.score.bars[b] && SC.score.bars[b].notes[i];
+    if (!n) return;
+    dragNote = { b, i, x0: e.clientX, y0: e.clientY, deg0: n.deg, oct0: n.oct || 0,
+                 deg: n.deg, oct: n.oct || 0, moved: false, target: null, rects, barRects: scRectsAt('.barhit') };
+    try { hit.setPointerCapture && hit.setPointerCapture(e.pointerId); } catch (err) { }
+  });
+  pagesEl.addEventListener('pointermove', e => {
+    if (!dragNote) return;
+    const dx = e.clientX - dragNote.x0, dy = e.clientY - dragNote.y0;
+    if (!dragNote.moved && Math.hypot(dx, dy) < 6) return;
+    dragNote.moved = true;
+    // 上下：20 px 一個音級
+    let deg = dragNote.deg0, oct = dragNote.oct0;
+    if (deg) {
+      let v = Math.round(-dy / 20);
+      while (v > 0) { if (deg === 7) { deg = 1; oct++; } else deg++; v--; }
+      while (v < 0) { if (deg === 1) { deg = 7; oct--; } else deg--; v++; }
+      oct = Math.max(-2, Math.min(2, oct));
+    }
+    dragNote.deg = deg; dragNote.oct = oct;
+    badge.style.display = 'block';
+    badge.style.left = (e.clientX + 16) + 'px';
+    badge.style.top = (e.clientY - 12) + 'px';
+    badge.textContent = deg ? String(deg) + (oct > 0 ? '·'.repeat(oct) : '') : '0';
+    // 左右：看放開時底下的音是哪一個（滑過去會亮起來）
+    const t = scHitAt(e.clientX, e.clientY, dragNote.rects);
+    pagesEl.querySelectorAll('.hit.drop-target').forEach(x => x.classList.remove('drop-target'));
+    dragNote.target = null;
+    if (t) {
+      const tp = { b: Number(t.dataset.b), i: Number(t.dataset.i) };
+      if (tp.b !== dragNote.b || tp.i !== dragNote.i) { dragNote.target = tp; t.classList.add('drop-target'); }
+    }
+  });
+  const scEndDrag = e => {
+    if (!dragNote) return;
+    const d = dragNote; dragNote = null;
+    if (badge) badge.style.display = 'none';
+    pagesEl.querySelectorAll('.hit.drop-target').forEach(x => x.classList.remove('drop-target'));
+    if (!d.moved) return;                                    // 沒拖：讓點擊照原本的做
+    scSkipClick = true;
+    if (e && e.preventDefault) e.preventDefault();
+    const pitchChanged = d.deg !== d.deg0 || d.oct !== d.oct0;
+    // 沒有落在音符上、但是落在別的小節裡 → 搬到那個小節的最後面
+    let moveToBar = null;
+    if (!d.target && e && e.clientX != null) {
+      const barEl = scHitAt(e.clientX, e.clientY, d.barRects || []);
+      if (barEl) {
+        const tb = Number(barEl.dataset.bar);
+        if (tb !== d.b) moveToBar = tb;
+      }
+    }
+    if (!pitchChanged && !d.target && moveToBar == null) return;
+    scEdit(() => {
+      const n = SC.score.bars[d.b].notes[d.i];
+      if (n && pitchChanged) { n.deg = d.deg; n.oct = d.oct; if (!d.deg) { n.acc = 0; n.oct = 0; } }
+      if (d.target) {
+        const A = SC.score.bars[d.b], B = SC.score.bars[d.target.b];
+        const a = A && A.notes[d.i], b = B && B.notes[d.target.i];
+        if (a && b) { A.notes[d.i] = b; B.notes[d.target.i] = a; }
+      } else if (moveToBar != null) {
+        const A = SC.score.bars[d.b], B = SC.score.bars[moveToBar];
+        const moved = A.notes.splice(d.i, 1)[0];
+        if (moved) B.notes.push(moved);
+        SC.sel = { b: moveToBar, i: B.notes.length - 1 }; SC.selBar = moveToBar; SC.selEnd = null;
+      }
+    });
+    if (d.target) { SC.sel = { b: d.target.b, i: d.target.i }; SC.selBar = d.target.b; SC.selEnd = null; }
+    else if (moveToBar == null) { SC.sel = { b: d.b, i: d.i }; SC.selBar = d.b; SC.selEnd = null; }
+    scRender(); scSyncTools();
+  };
+  pagesEl.addEventListener('pointerup', scEndDrag);
+  pagesEl.addEventListener('pointercancel', scEndDrag);
+  window.addEventListener('resize', () => { if (SC.score) scFitStage(); });
+
+  // ── 左邊的音高／時值可以直接拖到譜上：拖到音符＝改那個音，拖到小節空白處＝加一個新音 ──
+  tools.querySelectorAll('button[draggable="true"]').forEach(btn => {
+    btn.addEventListener('dragstart', e => {
+      const payload = btn.dataset.k != null ? { kind: 'deg', v: Number(btn.dataset.k) }
+        : btn.dataset.dur ? { kind: 'dur', v: Number(btn.dataset.dur) } : null;
+      if (!payload) { e.preventDefault(); return; }
+      e.dataTransfer.setData('text/plain', JSON.stringify(payload));
+      e.dataTransfer.effectAllowed = 'copy';
+    });
+  });
+  pagesEl.addEventListener('dragover', e => { e.preventDefault(); e.dataTransfer.dropEffect = 'copy'; });
+  pagesEl.addEventListener('drop', e => {
+    e.preventDefault();
+    let payload = null;
+    try { payload = JSON.parse(e.dataTransfer.getData('text/plain') || 'null'); } catch (err) { }
+    if (!payload || !SC.score) return;
+    const hit = scHitAt(e.clientX, e.clientY, scRectsAt('.hit'));
+    const barEl = hit ? null : scHitAt(e.clientX, e.clientY, scRectsAt('.barhit'));
+    if (hit) {
+      const b = Number(hit.dataset.b), i = Number(hit.dataset.i);
+      scEdit(() => {
+        const n = SC.score.bars[b] && SC.score.bars[b].notes[i];
+        if (!n) return;
+        if (payload.kind === 'deg') { n.deg = payload.v; if (!n.deg) { n.acc = 0; n.oct = 0; } }
+        else n.dur = payload.v;
+      });
+      SC.sel = { b, i }; SC.selBar = b; SC.selEnd = null;
+    } else if (barEl) {
+      const b = Number(barEl.dataset.bar), bar = SC.score.bars[b];
+      if (!bar) return;
+      scEdit(() => {
+        const last = bar.notes[bar.notes.length - 1];
+        bar.notes.push({ deg: payload.kind === 'deg' ? payload.v : (last ? last.deg : 1), acc: 0,
+                         oct: last ? (last.oct || 0) : 0,
+                         dur: payload.kind === 'dur' ? payload.v : (last ? last.dur : 1), lyric: '' });
+      });
+      SC.sel = { b, i: SC.score.bars[b].notes.length - 1 }; SC.selBar = b; SC.selEnd = null;
+    } else return;
+    scRender(); scSyncTools();
   });
   // 鍵盤
   document.addEventListener('keydown', e => {
