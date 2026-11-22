@@ -1,7 +1,5 @@
 {
  "19 種彈撥樂器的調弦法、各調性和弦與指版音位圖": "Tunings, chords in every key and fretboard note maps for 19 plucked instruments",
- "<option value=\"\">預設麥克風</option>": "<option value=\"\">Default microphone</option>",
- "<strong>準了</strong>": "<strong>In tune</strong>",
  "A4 參考頻率": "A4 reference frequency",
  "BPM 以拍號下方的音符為一拍：4/4 時是四分音符，6/8、9/8 時是八分音符。連續點": "BPM counts the note value under the time signature as one beat: a quarter note in 4/4, an eighth note in 6/8 and 9/8. Tap",
  "」，彈一條空弦開始": "\" — pluck an open string to start",
@@ -25,7 +23,6 @@
  "偏高，放鬆一點": "Sharp — loosen the string a little",
  "停止": "Stop",
  "停止聽音": "Stop listening",
- "偵測到 <strong>": "Detected <strong>",
  "內": "Inner",
  "八分（兩下）": "Eighths (two per beat)",
  "十六分（四下）": "Sixteenths (four per beat)",
@@ -43,7 +40,6 @@
  "幾下也能量速度。": "a few times in a row to measure the tempo.",
  "弦": "string",
  "弦 ·": "string ·",
- "弦</span>": "string</span>",
  "拍號": "Time signature",
  "拿不到麥克風：": "Could not get the microphone:",
  "按「開始聽音」並允許麥克風": "Press \"Start listening\" and allow the microphone",
@@ -89,6 +85,8 @@
  "麥克風未開啟": "Microphone off",
  "麥克風權限被拒絕，請在網址列左邊的鎖頭圖示重新允許": "Microphone permission denied. Allow it again from the padlock at the left of the address bar.",
  "麥克風的聲音只在你的瀏覽器裡分析，不會上傳到任何地方。用喇叭播節拍器時，麥克風會一起收到，建議戴耳機。": "Microphone audio is analysed only in your browser and never uploaded. The microphone also picks up the metronome when it plays through speakers, so headphones are recommended.",
+ "🎚️ 織音線上編曲製作": "🎚️ Zhiyin online DAW",
  "🎸 世界樂器指版與和弦圖": "🎸 Fretboard & Chord Charts",
+ "🎼 織音AI自動轉譜": "🎼 Zhiyin AI auto transcription",
  "📖 樂理基礎": "📖 Music theory"
 }
