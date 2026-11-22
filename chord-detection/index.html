@@ -507,6 +507,7 @@ body.print-score #score-view { page: score; }
             <button data-act="repStart" title="反覆開始 ‖:">‖:</button><button data-act="repEnd" title="反覆結束 :‖">:‖</button>
             <button data-act="volta1" title="第一房">1.</button><button data-act="volta2" title="第二房">2.</button>
             <button data-act="dbl" title="雙小節線">‖</button><button data-act="section" title="段落標記（A、主歌、副歌…）">段</button>
+            <button data-act="autoSec" title="自動分段：聽歌詞在哪裡、旋律高低與和弦重複，標出前奏／主歌／副歌／間奏／尾奏">分段</button>
             <button data-act="text" title="文字（D.C.、Fine、rit.…）">文</button><button data-act="newline" title="從這小節換行">↵</button>
           </div>
         </div>
@@ -547,7 +548,7 @@ body.print-score #score-view { page: score; }
           <h4>輸出</h4>
           <div class="sc-pads">
             <button class="wide" data-act="print" title="列印／存成 PDF">🖨 列印</button>
-            <button class="wide" data-act="daw" title="下載一個編曲工具專案檔（.zyproj）：人聲、伴奏（預設靜音）、主旋律 MIDI、和弦軌、速度。在「織音線上編曲製作」按 檔案 → 開啟">🎹 送到編曲工具</button>
+            <button class="wide" data-act="daw" title="下載一個編曲工具專案檔（.zyproj）：人聲、伴奏（預設靜音）、主旋律 MIDI、和弦軌、速度。在「織音AI線上編曲製作」按 檔案 → 開啟">🎹 送到編曲工具</button>
             <button class="wide" data-act="rebuild" title="捨棄手動修改，用目前的偵測結果重新產生">重新產生</button>
           </div>
         </div>
@@ -568,6 +569,7 @@ body.print-score #score-view { page: score; }
     <label><input type="checkbox" id="lyric-snap" checked> 歌詞對齊音訊</label>
     <label><input type="checkbox" id="show-melody" checked> 簡譜旋律</label>
     <label title="用和 LRC 工作室同一顆 Silero VAD 模型判斷哪裡有人在唱（第一次會下載約 12 MB）"><input type="checkbox" id="use-vad" checked> 人聲模型</label>
+    <label title="先下載 38 MB 的 Spleeter 把人聲從伴奏裡分出來，旋律與「AI 聽歌詞」都會準很多。關掉就只用中央聲道（不用下載、快，但前奏／間奏容易把伴奏當成旋律）。"><input type="checkbox" id="use-spleeter" checked> AI 分離主唱</label>
     <label><input type="checkbox" id="show-diagrams"> 指版圖</label>
     <label><input type="checkbox" id="continuous"> 連續播放</label>
     <label class="size-ctl" title="和弦字級">和弦 <input type="range" id="chord-size" min="10" max="24" value="15"></label>
@@ -580,7 +582,7 @@ body.print-score #score-view { page: score; }
     <button class="btn ghost small" id="btn-print">🖨 列印／PDF</button>
     <button class="btn ghost small" id="btn-export-txt">⬇ 純文字</button>
     <button class="btn ghost small" id="btn-export-doc">⬇ Word</button>
-    <button class="btn small" id="btn-export-daw" title="下載和弦檔（.zychords.json），在「織音線上編曲製作」用 檔案 → 匯入和弦 就能變成和弦軌">🎹 給編曲工具</button>
+    <button class="btn small" id="btn-export-daw" title="下載和弦檔（.zychords.json），在「織音AI線上編曲製作」用 檔案 → 匯入和弦 就能變成和弦軌">🎹 給編曲工具</button>
     <button class="btn ghost small" id="btn-export-stems" style="display:none" title="把 AI 分離出來的主唱與伴奏各存成 WAV，可以直接拖進編曲工具">⬇ 人聲／伴奏</button>
   </div>
   <div id="lyric-status" class="status-msg" style="display:none;"></div>
@@ -759,6 +761,7 @@ let state = {
   lyricsAuto: false, lyricsAutoFor: null,        // 歌詞是 AI 聽出來的（第一版），匯入 LRC 後改回 false
   showMelody: true, melodyFrames: null, melodySmooth: null, melodyNotes: null,
   useVad: true, vocalSegs: null,
+  useSpleeter: true,        // 一開始就先 AI 分離主唱（38 MB）；關掉就只用中央聲道
   onsetEnv: null, onsetHopSec: 0,
   instrument: 0, tuning: null,
   isPlaying: false, currentTime: 0, startTime: 0, playEnd: 0,
@@ -2977,13 +2980,26 @@ function lyricAlignment() {
   return al;
 }
 
+// 標點不唱：對齊時仍算一格（停頓），但譜上不寫字
+const SC_PUNCT = /[，。！？、,.!?：:；;「」『』（）()／/]/;
+
 function melodyNotesFromLyrics(frames) {
   const notes = [];
   const lines = state.lyrics;
   if (!lines.length) return notes;
   const al = lyricAlignment();
+  // 每個音都記著自己唱哪一個字（`lyric`）。出版譜直接把字放在音上，
+  // 不再靠「字的總數 === 音的總數」——以前只要差一個字，整份譜就一個字都沒有。
   if (al) {
-    for (const ln of al) if (ln) for (const c of ln) notes.push({ midi: c.midi, start: c.t, end: Math.max(c.t + 0.08, c.end) });
+    for (let i = 0; i < al.length; i++) {
+      const ln = al[i];
+      if (!ln) continue;
+      const cs = Array.from(lines[i].text).filter(ch => !/\s/.test(ch));      // 跟 alignLyrics 一樣的字的順序（標點也在裡面）
+      ln.forEach((c, q) => {
+        const ch = cs[q] || '';
+        notes.push({ midi: c.midi, start: c.t, end: Math.max(c.t + 0.08, c.end), lyric: SC_PUNCT.test(ch) ? '' : ch });
+      });
+    }
     return notes;
   }
   for (let i = 0; i < lines.length; i++) {
@@ -2998,7 +3014,7 @@ function melodyNotesFromLyrics(frames) {
       const e = (k + 1 < chars.length) ? times[k + 1] : Math.min(t1, s + 1.0);
       const m = dominantMidiInRange(frames, s, Math.max(s + 0.08, e));
       if (m < 0) continue;
-      notes.push({ midi: m, start: s, end: Math.max(s + 0.08, e) });
+      notes.push({ midi: m, start: s, end: Math.max(s + 0.08, e), lyric: SC_PUNCT.test(chars[k]) ? '' : chars[k] });
     }
   }
   return notes;
@@ -3055,9 +3071,11 @@ function quantizeMelodyNotes(notes, keepStart) {
     if (prev && Math.abs(start - prev.start) < grid * 0.5) {
       // 同一格：留長的（短的通常是換音時的滑音碎片）
       if (beats > prev.beats) { prev.beats = beats; prev.pc = mod12(n.midi); prev.midi = n.midi; }
+      // 兩個字擠在同一格時，兩個字都留在這個音上（一個字都別丟）
+      if (n.lyric) prev.lyric = (prev.lyric || '') + n.lyric;
       continue;
     }
-    out.push({ start, beats, pc: mod12(n.midi), midi: n.midi });
+    out.push({ start, beats, pc: mod12(n.midi), midi: n.midi, lyric: n.lyric || '' });
   }
   return out;
 }
@@ -3082,14 +3100,16 @@ async function ensureMelody() {
   // 2026-11-23：改成「一開始就用最強的做法」——不管有沒有 LRC，都先 AI 分離主唱（38 MB）。
   // 以前要等匯入 LRC 才分離，導致沒有歌詞時譜上的旋律被伴奏帶歪；
   // 而且分離出來的主唱正好是「AI 聽歌詞」的輸入，一開場就能出第一版有歌詞的譜。
-  const wantSpl = detectMode() === 'ai';
+  // 使用者在工具列勾掉的（state.useSpleeter）就只做中央聲道——第一顆模型也不用下載。
+  const wantSpl = detectMode() === 'ai' && state.useSpleeter;
   if (state.melodyFrames && wantSpl && state.melodyFrames.sepEngine !== 'spleeter' && !state.melodyFrames.splTried) {
-    state.melodyFrames = null; state.melodySmooth = null;     // 之前沒歌詞時是用中央遮罩算的 → 重算一次
+    state.melodyFrames = null; state.melodySmooth = null;     // 之前是用中央遮罩算的 → 重算一次
   }
   if (!state.melodyFrames && window.ChordAI && window.ChordAI.melodyFrames) {
     try {
       setStatus(wantSpl ? 'AI 分離主唱＋抓旋律…（第一次會下載約 38 MB 的人聲分離模型，之後瀏覽器會記住）'
-        : 'AI 分析旋律…（第一次會下載 135 KB 的旋律模型）', 'analyzing');
+        : state.useSpleeter ? 'AI 分析旋律…（第一次會下載 135 KB 的旋律模型）'
+            : 'AI 分析旋律…（已關閉「AI 分離主唱」，只用中央聲道；第一次會下載 135 KB 的旋律模型）', 'analyzing');
       state.melodyFrames = await window.ChordAI.melodyFrames(state.audioBuffer, ensureOrt, null, {
         useSpleeter: wantSpl,
         separate: p => setProgress(10 + p * 50, (wantSpl ? 'AI 分離主唱… ' : '分離主唱… ') + Math.round(p * 100) + '%'),
@@ -3149,7 +3169,7 @@ async function ensureMelody() {
         (skipped ? '；' + skipped + ' 行在音檔裡沒聽到唱（例如歌名、詞曲資訊），只顯示文字、不配音符' : '') + '。';
     }
     if (state.useLyricAsr && !state.lyricAnchors && state.lyricAsrError) lyricNote += '（AI 聽歌詞沒有成功：' + state.lyricAsrError + '，這次用一般對齊。）';
-    else if (state.useLyricAsr && !spl) lyricNote += '（AI 聽歌詞需要 AI 分離主唱，這首退回中央聲道，所以沒用。）';
+    else if (state.useLyricAsr && !spl) lyricNote += '（這次沒先分離主唱，AI 聽歌詞是對中央聲道聽的，字會比較不準。）';
   }
   setStatus(state.melodyEngine === 'ai'
     ? '旋律分析完成（AI）。簡譜是首調：' + jianpuKeyLabel() + '。' + lyricNote
@@ -3160,10 +3180,23 @@ async function ensureMelody() {
   // 所以只把新對齊好的歌詞搬到改過的譜上（音、記號都不動）。以前這裡直接略過，
   // 結果改過一個音之後再匯入 LRC，狀態列說「已對齊」，譜上卻一個字都沒有。
   if (typeof SC === 'object' && SC.score) {
+    let fresh = false;
     if (!SC.undo.length && !SC.edited) {
       const meta = SC.score.meta; SC.score = scBuildFromDetection(); Object.assign(SC.score.meta, meta, { key: SC.score.meta.key });
+      fresh = true;
     } else if (state.lyrics.length) {
       scMergeLyrics(scBuildFromDetection());
+    }
+    // 剛產生的譜：順便把段落標一標（前奏／主歌／副歌／間奏／尾奏）。
+    // 改過的譜不動——使用者的段落是使用者的事；要重標按左邊的「分段」。
+    if (fresh && !SC.score.bars.some(b => b.marks.section)) {
+      try {
+        const secs = detectSongSections();
+        if (secs.length && scApplySections(secs)) {
+          setStatus(document.getElementById('status-msg').textContent +
+            '　已自動標段落：' + secs.map(s => s.label).join('・') + '（不對可以按「分段」重跑或「段」自己改）。', 'done');
+        }
+      } catch (e) { console.warn('自動分段失敗（不影響譜）', e); }
     }
     scInvalidateTimes(); scFillPanel(); scRender(); scSyncTools();
   }
@@ -3689,7 +3722,56 @@ function exportWord() {
   setStatus('已下載 Word 檔（.doc），可直接開啟編輯', 'done');
 }
 
-// ---- 給 DAW（織音線上編曲製作）：和弦、拍、調性 ----
+// ---- 給 DAW（織音AI線上編曲製作）：和弦、段落、拍、調性 ----
+// 段落名稱（「分段」標出來的，或自己用「段」打的 A、B、主歌…）→ 編曲工具的段落 id
+// 對應 arranger-styles.js 的 SECTIONS：intro／verse1／verse2／pre／chorus1／chorus2／bridge／break／ending
+function dawSectionId(label) {
+  const s = String(label || '').trim();
+  if (!s) return '';
+  const num = (s.match(/(\d+)/) || [])[1];
+  const second = num === '2' || num === '3';           // 第 2、3 輪用「加強版」
+  if (/前奏|intro/i.test(s)) return 'intro';
+  if (/導歌|預副歌|pre/i.test(s)) return 'pre';
+  if (/副歌|chorus|hook|refrain/i.test(s)) return second ? 'chorus2' : 'chorus1';
+  if (/橋段|橋|間奏|bridge|interlude|solo/i.test(s)) return 'bridge';
+  if (/停頓|break/i.test(s)) return 'break';
+  if (/尾奏|結尾|outro|ending/i.test(s)) return 'ending';
+  if (/主歌|verse|^[AB]\d*$/i.test(s)) return second ? 'verse2' : 'verse1';
+  return '';
+}
+
+// 段落（單位：拍）。譜上已經標好就用譜的（AI 標的、或自己用「段」改的），
+// 沒有就當場算一次 detectSongSections()（只讀，不會動到譜）；
+// 中間沒標到的小節沿用前一段，所以段落之間不會有縫。
+function buildDawSections() {
+  const bars = state.bars || [], n = bars.length;
+  if (!n) return [];
+  const spb = 60 / (state.bpm || 120);
+  let labels = new Array(n).fill('');
+  const sc = (typeof SC !== 'undefined') ? SC.score : null;
+  if (sc && sc.bars && sc.bars.length === n) labels = sc.bars.map(b => (b.marks && b.marks.section) || '');
+  if (!labels.some(Boolean) && typeof detectSongSections === 'function') {
+    try {
+      labels = new Array(n).fill('');
+      (detectSongSections() || []).forEach(s => { if (s.b0 >= 0 && s.b0 < n) labels[s.b0] = s.label; });
+    } catch (_) { return []; }
+  }
+  if (!labels.some(Boolean)) return [];
+  const runs = [];
+  let cur = null;
+  for (let b = 0; b < n; b++) {
+    const id = dawSectionId(labels[b]);
+    if (cur && (!id || id === cur.sec)) { cur.b1 = b + 1; continue; }   // 沒標到 / 同一段：接下去
+    cur = { sec: id || (cur ? cur.sec : 'verse1'), b0: b, b1: b + 1 };
+    runs.push(cur);
+  }
+  return runs.map(s => ({
+    t: +(bars[s.b0].start / spb).toFixed(3),
+    d: +((bars[s.b1 - 1].end - bars[s.b0].start) / spb).toFixed(3),
+    sec: s.sec,
+  }));
+}
+
 // 和弦位置用「拍」表示，根音一律寫實際音高（原調，已扣掉移調與 Capo）
 function buildDawChords() {
   const spb = 60 / (state.bpm || 120);
@@ -3715,6 +3797,7 @@ function buildDawChords() {
     key: state.detectedKey != null ? { root: mod12(state.detectedKey), minor: state.detectedMode === 'minor' } : null,
     duration: state.audioBuffer ? +state.audioBuffer.duration.toFixed(3) : null,
     chords,
+    sections: buildDawSections(),   // 段落軌：[{ t:拍, d:拍, sec:'verse1'… }]
   };
 }
 
@@ -3722,7 +3805,9 @@ function exportDaw() {
   if (!state.chords.length) { setStatus('還沒有分析結果可以匯出', 'error'); return; }
   const doc = buildDawChords();
   downloadBlob(JSON.stringify(doc, null, 1), 'application/json', safeFilename('.zychords.json'));
-  setStatus('已下載和弦檔：在織音線上編曲製作按「檔案 → 匯入和弦」就會畫在和弦軌上', 'done');
+  const ns = doc.sections ? doc.sections.length : 0;
+  setStatus('已下載和弦檔：在織音AI線上編曲製作按「檔案 → 匯入和弦」就會畫在和弦軌上'
+    + (ns ? '，段落軌也會照這 ' + ns + ' 段排好（前奏／主歌／副歌…）' : '（還沒有段落：到編曲工具再按「自動排段落」）'), 'done');
 }
 
 // ---- 分軌：AI 分離出來的主唱 + 伴奏（原檔扣掉主唱）----
@@ -3779,7 +3864,7 @@ function exportStems() {
 }
 
 // =========================================================================
-// 送到編曲工具：一個 .zyproj 專案檔（織音線上編曲製作 → 檔案 → 開啟 就能打開）
+// 送到編曲工具：一個 .zyproj 專案檔（織音AI線上編曲製作 → 檔案 → 開啟 就能打開）
 //   人聲（AI 分離）／伴奏（原檔 − 人聲，預設靜音）／主旋律（MIDI，照譜面、含手動修改）／
 //   和弦（尺規下的和弦軌＋一條鋼琴 MIDI 彈和弦）／速度、拍號、調性
 // 格式照 daw-studio/js/project-io.js 的 openProjectFile：zip（STORE）裡 project.json + audio/<id>.wav
@@ -3921,7 +4006,7 @@ async function exportToDaw() {
   downloadBlob(blob, 'application/zip', safeFilename('.zyproj'));
   setProgressDone();
   const mb = (blob.size / 1048576).toFixed(0);
-  setStatus(`已下載編曲工具專案檔（${mb} MB）：打開「織音線上編曲製作」→ 檔案 → 開啟，選這個 .zyproj。`
+  setStatus(`已下載編曲工具專案檔（${mb} MB）：打開「織音AI線上編曲製作」→ 檔案 → 開啟，選這個 .zyproj。`
     + (sep ? '裡面有人聲、伴奏（預設靜音）、' : '這首分不出人聲，裡面是原曲（預設靜音）、')
     + `主旋律 MIDI、和弦軌與和弦 MIDI，速度 ${project.bpm} BPM。`, 'done');
 }
@@ -4094,6 +4179,24 @@ function initUI() {
     updateGridHint();
   });
 
+  // 一開始要不要先用 AI 分離主唱（Spleeter 38 MB）。關掉＝只用中央聲道：
+  // 不用下載、快，但擺在正中間的伴奏（鋼琴、鐘琴）會被當成旋律，歌詞也會被拖進前奏／間奏。
+  // 選過的會記住；已經分析過的先不重算，下次分析（或勾選當下沒有旋律資料時）才生效。
+  const splBox = document.getElementById('use-spleeter');
+  try { const v = localStorage.getItem('chord.useSpleeter'); state.useSpleeter = v === null ? true : v === '1'; } catch (e) {}
+  splBox.checked = state.useSpleeter;
+  splBox.addEventListener('change', async function () {
+    state.useSpleeter = this.checked;
+    try { localStorage.setItem('chord.useSpleeter', this.checked ? '1' : '0'); } catch (e) {}
+    if (!this.checked) {
+      setStatus('已關閉「AI 分離主唱」：下次分析只做中央聲道（不會下載 38 MB，但前奏／間奏的旋律與歌詞會比較不準）。', 'done');
+      return;
+    }
+    setStatus('已開啟「AI 分離主唱」：下次分析會先分離主唱（第一次下載 38 MB），旋律與 AI 聽歌詞都會準很多。', 'done');
+    // 還沒跑過，或之前是中央聲道算的 → 現在就用最強的做法重算
+    if (state.audioBuffer && state.showMelody && state.melodyFrames && state.melodyFrames.sepEngine !== 'spleeter') await ensureMelody();
+  });
+
   // 歌詞要不要吸到音訊的起音
   document.getElementById('use-vad').addEventListener('change', function () {
     state.useVad = this.checked;
@@ -4261,23 +4364,27 @@ function scBuildFromDetection() {
     if (beat >= bpb - 1e-6) { b = Math.min(bars.length - 1, b + 1); beat = 0; }
     return [b, beat];
   };
-  // 每個音帶著它的歌詞字（有 LRC 時 melodyNotes 是一字一音、順序相同）
+  // 每個音帶著它的歌詞字：melodyNotesFromLyrics 已經把字記在音上（`lyric`），照著放就好。
+  // 以前靠「字的總數 === 音的總數」才敢放歌詞，只要差一個字（LRC 裡的標點、兩個字擠在同一格）
+  // 整份譜就一個字都沒有——匯入有標點的 LRC 之後最常發生。
   const lyricChars = [];
   if (state.lyrics.length) {
     const al = (typeof lyricAlignment === 'function') ? lyricAlignment() : null;
     state.lyrics.forEach((ln, i) => {
       if (al && !al[i]) return;
-      for (const ch of Array.from(ln.text)) if (!/\s/.test(ch) && !/[，。！？、,.!?：:；;「」『』（）()]/.test(ch)) lyricChars.push(ch);
+      for (const ch of Array.from(ln.text)) if (!/\s/.test(ch) && !SC_PUNCT.test(ch)) lyricChars.push(ch);
     });
   }
   // 出版譜的寫法：起點對齊八分音符格；一個字唱到下一個字開始為止（連唱，不在字跟字之間塞小休止符）；
   // 只有空出 ≥ 1 拍（換氣、間奏）才寫休止符。這樣才不會出現一堆「0 1· 0 1·」。
   const mel = state.melodyNotes || [];
-  const useLyr = lyricChars.length === mel.length;
+  const carryLyr = mel.some(nt => nt.lyric);                 // 音自己帶字（新的做法）
+  const useLyr = !carryLyr && lyricChars.length === mel.length;   // 舊做法：一字一音、照順序配
   const abs = mel.map((nt, k) => {
     const [b, beat] = beatPos(nt.start);
     const q = Math.round(beat * 2) / 2;
-    return { b, beat: q >= bpb ? bpb - 0.5 : q, dur: nt.beats, midi: nt.midi, lyric: useLyr ? lyricChars[k] : '' };
+    return { b, beat: q >= bpb ? bpb - 0.5 : q, dur: nt.beats, midi: nt.midi,
+             lyric: carryLyr ? (nt.lyric || '') : (useLyr ? lyricChars[k] : '') };
   });
   const absBeat = x => x.b * bpb + x.beat;
   const placed = bars.map(() => []);
@@ -4287,7 +4394,11 @@ function scBuildFromDetection() {
     let len = sung;
     if (nx) {
       const gap = absBeat(nx) - absBeat(x);
-      if (gap <= 0) return;                                 // 撞同一格：留前一個
+      if (gap <= 0) {                                       // 撞同一格：留前一個音，但字要留著
+        const prevPlaced = placed[x.b][placed[x.b].length - 1];
+        if (prevPlaced && x.lyric) prevPlaced.lyric = (prevPlaced.lyric || '') + x.lyric;
+        return;
+      }
       len = (gap - sung < 1) ? gap : sung;                  // 空不到一拍 → 連到下一個字
       len = Math.min(len, gap);
     }
@@ -4318,7 +4429,11 @@ function scBuildFromDetection() {
     pos = startBeat;
     const pushRest = (len) => { let q = pos; for (const d of scBeatSplit(pos, len)) { for (const e of (d >= 1 ? Array(Math.round(d)).fill(1) : [d])) notes.push({ deg: 0, acc: 0, oct: 0, dur: e }); q += d; } };
     ns.forEach((n, i) => {
-      if (n.beat < pos - 1e-6) return;                 // 撞位置，丟掉
+      if (n.beat < pos - 1e-6) {                       // 撞位置：音丟掉，字併到上一個音上
+        const prevNote = notes[notes.length - 1];
+        if (prevNote && prevNote.deg && n.lyric) prevNote.lyric = (prevNote.lyric || '') + n.lyric;
+        return;
+      }
       if (n.beat > pos + 1e-6) pushRest(n.beat - pos);
       const nextB = i + 1 < ns.length ? ns[i + 1].beat : bpb;
       const want = Math.min(n.dur, nextB - n.beat);
@@ -4349,6 +4464,384 @@ function scBuildFromDetection() {
   // 拿掉開頭、結尾整小節都是休止、又沒有和弦的小節（前奏、尾奏照留：有和弦就留）
   if (score.bars.length) score.bars[score.bars.length - 1].marks.final = true;
   return score;
+}
+
+// =========================================================================
+// 自動分段：前奏／主歌／副歌／間奏／尾奏（不用新的模型，全部用已經算好的東西）
+//   ① 哪裡有人在唱：歌詞行的時間（LRC 或 AI 聽出來的），加上分離後主唱的響度 db
+//   ② 這一段唱得高不高、密不密：SwiftF0 的音高曲線（中位數、起音密度、響度）
+//   ③ 哪幾段是同一段：每小節的和弦級數序列（副歌 2 通常跟副歌 1 一模一樣）
+// 邊界只落在小節線上、以 4 小節為單位；少於 3 小節的碎段併進隔壁。
+// 「比較高亢的那一段＝副歌」不是用絕對音高，而是同首歌裡各段的相對分數。
+// 結果寫進每個段落第一小節的 marks.section，使用者可以再用「段」改。
+function scBarChordKey(b) {
+  const ch = state.chords[b];
+  if (!ch || !ch.parts) return '';
+  return ch.parts.map(p => (p.degree || '') + (p.quality || '')).join(' ');
+}
+
+// 一個段落（小節 b0..b1-1）的音高／響度／密度特徵
+function scSectionFeatures(sm, loud, b0, b1, bars) {
+  const out = { b0, b1, pitch: 0, pitchTop: 0, loud: -40, density: 0, voiced: 0, bars: Math.max(1, b1 - b0) };
+  const chords = [];
+  for (let b = b0; b < b1; b++) chords.push(scBarChordKey(b));
+  out.chords = chords;
+  if (!sm || !sm.midi) return out;                       // 沒有旋律資料（沒勾「簡譜旋律」）也能分段，只是少了音高依據
+  const i0 = frameStartIndex(sm, bars[b0].start);
+  const i1 = frameStartIndex(sm, bars[Math.max(b0, b1 - 1)].end);
+  const ps = [];
+  let prev = -1, onsets = 0, voiced = 0;
+  for (let f = i0; f < i1; f++) {
+    const m = sm.midi[f];
+    if (m >= 0) {
+      ps.push(m); voiced++;
+      if (prev >= 0 && m !== prev) onsets++;
+      prev = m;
+    } else prev = -1;
+  }
+  ps.sort((a, b) => a - b);
+  const q = p => (ps.length ? ps[Math.min(ps.length - 1, Math.floor(p * ps.length))] : 0);
+  let lsum = 0, lc = 0;
+  for (let b = b0; b < b1; b++) if (loud[b] > -60) { lsum += loud[b]; lc++; }
+  const nb = Math.max(1, b1 - b0);
+  out.pitch = q(0.5);
+  out.pitchTop = q(0.9);
+  out.loud = lc ? lsum / lc : -40;
+  out.density = onsets / nb;
+  out.voiced = voiced / Math.max(1, i1 - i0);
+  out.bars = nb;
+  return out;
+}
+
+// 兩段的和弦進行有多像（最長共同子序列 / 較長的一段）
+function scChordSim(a, b) {
+  const A = a.chords, B = b.chords;
+  if (!A.length || !B.length) return 0;
+  const dp = new Int32Array((A.length + 1) * (B.length + 1));
+  for (let i = 1; i <= A.length; i++) {
+    for (let j = 1; j <= B.length; j++) {
+      dp[i * (B.length + 1) + j] = A[i - 1] === B[j - 1]
+        ? dp[(i - 1) * (B.length + 1) + j - 1] + 1
+        : Math.max(dp[(i - 1) * (B.length + 1) + j], dp[i * (B.length + 1) + j - 1]);
+    }
+  }
+  return dp[A.length * (B.length + 1) + B.length] / Math.max(A.length, B.length);
+}
+
+// ===== 自相似矩陣（SSM）：整首每個小節一個特徵向量，兩兩比相似度 =====
+// 重複的段落（主歌 2 對主歌 1、副歌 2 對副歌 1）在矩陣上會連成一條一條斜線；
+// 段落邊界就是「棋盤核」回應最大的地方。這是音樂結構分析的標準做法，
+// 比「邊界前後各比一小段平均值」穩——它同時看整首歌的重複關係，不怕段落長度不同。
+function scBarChroma(bars, n) {
+  const out = new Float32Array(n * 12);
+  const store = state.chromaStore;
+  if (store && store.frames && store.nFrames) {          // 分析時算好的整首 chroma（每格 ≈46 ms）
+    for (let b = 0; b < n; b++) {
+      const i0 = Math.max(0, frameStartIndex(store, bars[b].start));
+      const i1 = Math.min(store.nFrames, frameStartIndex(store, bars[b].end));
+      for (let f = i0; f < i1; f++) for (let k = 0; k < 12; k++) out[b * 12 + k] += store.frames[f * 12 + k];
+      let s = 0;
+      for (let k = 0; k < 12; k++) s += out[b * 12 + k];
+      if (s > 1e-9) for (let k = 0; k < 12; k++) out[b * 12 + k] /= s;
+    }
+    return out;
+  }
+  // 沒有 chroma（例如只讀了存下來的狀態）就用這一小節的和弦根音代替
+  for (let b = 0; b < n; b++) {
+    const ch = state.chords[b];
+    if (!ch || !ch.parts) continue;
+    let tot = 0;
+    for (const p of ch.parts) {
+      const w = p.beats || 1;
+      const pc = p.root == null ? null : ((p.root % 12) + 12) % 12;
+      if (pc != null) { out[b * 12 + pc] += w; tot += w; }
+    }
+    if (tot > 0) for (let k = 0; k < 12; k++) out[b * 12 + k] /= tot;
+  }
+  return out;
+}
+
+// 每個小節的向量：12 個半音的和聲 + 音域 + 音量 + 起音密度，每個維度先做 z 分數
+function scSectionVectors(n, barPitch, loud, barDens, chroma) {
+  const D = 15, V = new Float64Array(n * D);
+  let pm = 0, pc = 0, lm = 0, lc = 0;
+  for (let b = 0; b < n; b++) {
+    if (barPitch[b] > 0) { pm += barPitch[b]; pc++; }
+    if (loud[b] > -60) { lm += loud[b]; lc++; }
+  }
+  pm = pc ? pm / pc : 60; lm = lc ? lm / lc : -30;
+  for (let b = 0; b < n; b++) {
+    const o = b * D;
+    for (let k = 0; k < 12; k++) V[o + k] = chroma[b * 12 + k] * 2;
+    V[o + 12] = barPitch[b] > 0 ? (barPitch[b] - pm) / 6 : 0;
+    V[o + 13] = loud[b] > -60 ? (loud[b] - lm) / 8 : 0;
+    V[o + 14] = barDens[b] * 0.5;
+  }
+  for (let k = 0; k < D; k++) {                          // 每個維度標準化，權重才不會被尺度吃掉
+    let m = 0;
+    for (let b = 0; b < n; b++) m += V[b * D + k];
+    m /= n;
+    let sd = 0;
+    for (let b = 0; b < n; b++) { const d = V[b * D + k] - m; sd += d * d; }
+    sd = Math.sqrt(sd / n) || 1;
+    for (let b = 0; b < n; b++) V[b * D + k] = (V[b * D + k] - m) / sd;
+  }
+  return { V, D };
+}
+
+function scSelfSimilarity(V, n, D) {
+  const S = new Float64Array(n * n), norm = new Float64Array(n);
+  for (let i = 0; i < n; i++) { let s = 0; for (let k = 0; k < D; k++) { const x = V[i * D + k]; s += x * x; } norm[i] = Math.sqrt(s) || 1; }
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j <= i; j++) {
+      let s = 0;
+      for (let k = 0; k < D; k++) s += V[i * D + k] * V[j * D + k];
+      const v = s / (norm[i] * norm[j]);
+      S[i * n + j] = v; S[j * n + i] = v;
+    }
+  }
+  return S;
+}
+
+// 棋盤核：邊界前後的相似度正號、同一邊的正號 → 邊界上「前後不一樣」的地方分數最大
+function scNoveltyCurve(S, n, L) {
+  const H = new Float32Array(n), sig = L * 0.6, K = [];
+  for (let i = -L; i <= L; i++) for (let j = -L; j <= L; j++) {
+    if (!i || !j) continue;
+    K.push([i, j, Math.sign(i) * Math.sign(j) * Math.exp(-(i * i + j * j) / (2 * sig * sig))]);
+  }
+  for (let b = L; b < n - L; b++) {
+    let s = 0;
+    for (let q = 0; q < K.length; q++) s += S[(b + K[q][0]) * n + (b + K[q][1])] * K[q][2];
+    H[b] = s / K.length;
+  }
+  return H;
+}
+
+// 兩段在 SSM 上的相似度：短的對到長的上滑動，取覆蓋一半以上、平均最高的那條斜線
+function scBlockSim(S, n, a0, a1, b0, b1) {
+  const la = a1 - a0, lb = b1 - b0, len = Math.min(la, lb);
+  if (len < 4) return 0;
+  let best = 0;
+  for (let off = 0; off <= Math.abs(la - lb) + 1; off++) {
+    let s = 0, c = 0;
+    for (let k = 0; k + off < Math.max(la, lb); k++) {
+      if (k >= len) break;
+      const ai = la > lb ? a0 + k + off : a0 + k;
+      const bi = lb >= la ? b0 + k + off : b0 + k;
+      if (ai >= a1 || bi >= b1) break;
+      s += S[ai * n + bi]; c++;
+    }
+    if (c >= 0.5 * len && c) best = Math.max(best, s / c);
+  }
+  return best;
+}
+
+function detectSongSections() {
+  const bars = state.bars, n = bars.length;
+  if (n < 8) return [];
+  const sm = state.melodySmooth;
+  const mf = state.melodyFrames || {};
+  const db = mf.db, hop = mf.riseHop || 0.01;
+  const al = (typeof lyricAlignment === 'function') ? lyricAlignment() : null;
+
+  // ---- ① 每一小節「有字的時間」與主唱響度 ----
+  const spans = [];
+  state.lyrics.forEach((ln, i) => {
+    if (al && !al[i]) return;                       // AI 判定這行沒唱（歌名、詞曲）
+    const arr = al && al[i];
+    const t0 = arr && arr.length ? arr[0].t : ln.time;
+    let t1 = arr && arr.length ? arr[arr.length - 1].end
+      : (ln.end != null ? ln.end : (state.lyrics[i + 1] ? state.lyrics[i + 1].time : ln.time + 4));
+    if (!(t1 > t0)) t1 = t0 + 1;
+    spans.push([t0, t1]);
+  });
+  const vocal = new Float64Array(n), loud = new Float64Array(n).fill(-60);
+  for (let b = 0; b < n; b++) {
+    let cover = 0;
+    for (const sp of spans) {
+      const lo = Math.max(sp[0], bars[b].start), hi = Math.min(sp[1], bars[b].end);
+      if (hi > lo) cover += hi - lo;
+    }
+    vocal[b] = Math.min(1, cover / Math.max(0.2, bars[b].end - bars[b].start));
+  }
+  if (db && db.length) {
+    for (let b = 0; b < n; b++) {
+      const i0 = Math.max(0, Math.round(bars[b].start / hop)), i1 = Math.min(db.length, Math.round(bars[b].end / hop));
+      let s = 0, c = 0;
+      for (let i = i0; i < i1; i++) { s += db[i]; c++; }
+      if (c) loud[b] = s / c;
+    }
+  }
+  const hasLyrics = spans.length > 0;
+  const isVocal = b => hasLyrics ? vocal[b] >= 0.15 : (loud[b] > -34);
+
+  // ---- ② 先切「有沒有在唱」，碎段併進隔壁 ----
+  let runs = [];
+  for (let b = 0; b < n; b++) {
+    const v = isVocal(b);
+    if (runs.length && runs[runs.length - 1].vocal === v) runs[runs.length - 1].b1 = b + 1;
+    else runs.push({ vocal: v, b0: b, b1: b + 1 });
+  }
+  const MIN = 3;
+  const merged = [];
+  for (const r of runs) {
+    const last = merged[merged.length - 1];
+    if (last && (r.b1 - r.b0 < MIN || last.b1 - last.b0 < MIN)) { last.b1 = r.b1; continue; }
+    merged.push({ ...r });
+  }
+  if (merged.length > 1 && merged[0].b1 - merged[0].b0 < MIN) { merged[1].b0 = merged[0].b0; merged.shift(); }
+  runs = merged;
+
+  // ---- ③ 每個小節的向量（和聲＋音域＋音量＋密度）→ 自相似矩陣 → 棋盤核找換檔點 ----
+  const barPitch = new Float64Array(n);
+  if (sm && sm.midi) {
+    for (let b = 0; b < n; b++) {
+      const i0 = frameStartIndex(sm, bars[b].start), i1 = frameStartIndex(sm, bars[b].end);
+      const vals = [];
+      for (let f = i0; f < i1; f++) if (sm.midi[f] >= 0) vals.push(sm.midi[f]);
+      if (vals.length) { vals.sort((p, q) => p - q); barPitch[b] = vals[vals.length >> 1]; }
+      else barPitch[b] = -1;
+    }
+  }
+  const barDens = new Float64Array(n);                     // 每小節「換音」幾次＝起音密度
+  if (sm && sm.midi) {
+    let prev = -1;
+    for (let f = 0; f < sm.nFrames; f++) {
+      const m = sm.midi[f];
+      if (m >= 0 && prev >= 0 && m !== prev) {
+        const b = barIndexForTime(sm.times[f]);
+        if (b >= 0 && b < n) barDens[b] += 1;
+      }
+      prev = m >= 0 ? m : -1;
+    }
+  }
+  const chroma = scBarChroma(bars, n);
+  const vec = scSectionVectors(n, barPitch, loud, barDens, chroma);
+  const S = scSelfSimilarity(vec.V, n, vec.D);
+  const nov = scNoveltyCurve(S, n, 4);
+  // 切點：主要看「邊界前 4 小節 vs 後 4 小節」的音高／音量換檔（實測最準），
+  // 換檔不明顯、但棋盤核有明顯峰值時才用 SSM 補一刀（例如一路同一個和弦、只有編曲變厚的副歌）。
+  const avgOf = (arr, a, z) => { let s = 0, c = 0; for (let i = a; i < z; i++) if (arr[i] > -1) { s += arr[i]; c++; } return c ? s / c : 0; };
+  const splits = new Set();
+  for (const r of runs) {
+    if (!r.vocal || r.b1 - r.b0 < 12) continue;
+    const stack = [[r.b0, r.b1]];
+    let made = 0;
+    while (stack.length) {
+      const [a, z] = stack.pop();
+      if (z - a < 12) continue;
+      let bestAt = -1, bestC = 0;
+      for (let at = a + 4; at <= z - 4; at += 4) {
+        const dP = Math.abs(avgOf(barPitch, at, at + 4) - avgOf(barPitch, at - 4, at));
+        const dL = Math.abs(avgOf(loud, at, at + 4) - avgOf(loud, at - 4, at));
+        const c = dP + dL / 3;
+        if (c > bestC) { bestC = c; bestAt = at; }
+      }
+      // 換檔要夠明顯才切：前後 4 小節的音高差 2.5 個半音，或音量差 5 dB
+      if (bestAt > 0 && bestC >= 2.5) { splits.add(bestAt); made++; stack.push([a, bestAt], [bestAt, z]); }
+    }
+    // 這一整段都找不到換檔：改看自相似矩陣的棋盤核（取最強、離頭尾至少 8 小節的一刀）
+    if (!made && r.b1 - r.b0 >= 24) {
+      let at = -1, v = 0;
+      for (let b = r.b0 + 8; b <= r.b1 - 8; b += 4) {
+        const q = nov[b] || 0;
+        if (q > v && q >= 0.05 && (nov[b - 4] || 0) <= q && (nov[b + 4] || 0) <= q) { v = q; at = b; }
+      }
+      if (at > 0) splits.add(at);
+    }
+  }
+  let sections = [];
+  for (const r of runs) {
+    const cuts = [...splits].filter(x => x > r.b0 && x < r.b1).sort((a, b) => a - b);
+    let a = r.b0;
+    for (const c of cuts) { sections.push({ vocal: r.vocal, b0: a, b1: c }); a = c; }
+    sections.push({ vocal: r.vocal, b0: a, b1: r.b1 });
+  }
+
+  if (!sections.length) return [];
+
+  // ---- ④ 有唱的段落：用自相似矩陣判斷哪幾段是同一段（副歌 2 跟副歌 1 會在斜線上很像）----
+  const vocalSecs = sections.filter(s => s.vocal);
+  vocalSecs.forEach(s => { s.f = scSectionFeatures(sm, loud, s.b0, s.b1, bars); });
+  const groups = [];
+  for (const s of vocalSecs) {
+    let g = null, bestSim = 0;
+    for (const cand of groups) {
+      const r0 = cand.members[0];
+      const ratio = Math.min(s.b1 - s.b0, r0.b1 - r0.b0) / Math.max(s.b1 - s.b0, r0.b1 - r0.b0);
+      if (ratio < 0.5 || ratio > 2) continue;
+      const sim = scBlockSim(S, n, s.b0, s.b1, r0.b0, r0.b1);
+      if (sim >= 0.5 && sim > bestSim) { g = cand; bestSim = sim; }
+    }
+    if (!g) { g = { members: [] }; groups.push(g); }
+    g.members.push(s);
+    s.group = g;
+  }
+
+  // 分數：唱得高、比較大聲、音比較密的通常是副歌；重複最多次的再加一點
+  const zs = (vals) => {
+    const m = vals.reduce((a, b) => a + b, 0) / Math.max(1, vals.length);
+    const sd = Math.sqrt(vals.reduce((a, b) => a + (b - m) * (b - m), 0) / Math.max(1, vals.length)) || 1;
+    return v => (v - m) / sd;
+  };
+  const zPitch = zs(groups.map(g => g.members.reduce((a, s) => a + s.f.pitch, 0) / g.members.length));
+  const zLoud = zs(groups.map(g => g.members.reduce((a, s) => a + s.f.loud, 0) / g.members.length));
+  const zDens = zs(groups.map(g => g.members.reduce((a, s) => a + s.f.density, 0) / g.members.length));
+  groups.forEach((g, i) => {
+    const pitch = g.members.reduce((a, s) => a + s.f.pitch, 0) / g.members.length;
+    const l = g.members.reduce((a, s) => a + s.f.loud, 0) / g.members.length;
+    const d = g.members.reduce((a, s) => a + s.f.density, 0) / g.members.length;
+    g.score = zPitch(pitch) * 1.0 + zLoud(l) * 1.2 + zDens(d) * 0.4 + Math.min(3, g.members.length - 1) * 0.8;
+    g.first = Math.min(...g.members.map(s => s.b0));
+  });
+  // 副歌＝分數最高的那一組；其餘一律叫主歌（橋段先不分，標錯比標少難救）
+  if (groups.length) {
+    let chorus = groups[0];
+    for (const g of groups) if (g.score > chorus.score) chorus = g;
+    groups.filter(g => g !== chorus).sort((a, b) => a.first - b.first).forEach(g => { g.name = '主歌'; });
+    chorus.name = '副歌';
+  }
+
+  // ---- ⑤ 樂器段：第一個唱歌之前＝前奏、最後之後＝尾奏、中間＝間奏 ----
+  const firstVocal = Math.min(...vocalSecs.map(s => s.b0));
+  const lastVocal = Math.max(...vocalSecs.map(s => s.b1));
+  // 編號是「第幾次出現」：主歌1、主歌2、副歌1…（同一個和弦進行出現第二次就叫 2）
+  const occ = new Map();
+  const onlyInst = !vocalSecs.length;                       // 整首沒有人聲（純演奏）：只分前奏／間奏／尾奏
+  return sections.map((s, i) => {
+    let label;
+    if (s.vocal) {
+      const n = (occ.get(s.group) || 0) + 1;
+      occ.set(s.group, n);
+      label = s.group.name + n;
+    }
+    else if (onlyInst) label = i === 0 ? '前奏' : i === sections.length - 1 ? '尾奏' : '間奏';
+    else if (s.b1 <= firstVocal) label = '前奏';
+    else if (s.b0 >= lastVocal) label = '尾奏';
+    else label = '間奏';
+    return { b0: s.b0, b1: s.b1, vocal: s.vocal, label };
+  });
+}
+
+// 把分段結果寫進譜（段落第一小節的 marks.section），舊的全部換掉
+function scApplySections(secs) {
+  if (!SC.score || !secs || !secs.length) return false;
+  if (SC.score.bars.length !== state.bars.length) return false;   // 譜被增刪過小節，索引對不上
+  SC.score.bars.forEach(b => { delete b.marks.section; });
+  secs.forEach(s => { const bar = SC.score.bars[s.b0]; if (bar) bar.marks.section = s.label; });
+  return true;
+}
+
+// 手動按「自動分段」
+function scAutoSections() {
+  const secs = detectSongSections();
+  if (!secs.length) { setStatus('還不夠資料可以分段（要分析完、有小節與歌詞）。', 'error'); return; }
+  let ok = false;
+  scEdit(() => { ok = scApplySections(secs); });
+  if (!ok) { setStatus('譜的小節數跟分析結果不一樣（改過譜），先把譜「重新產生」再分段。', 'error'); return; }
+  setStatus('已標出段落：' + secs.map(s => s.label + '（' + (s.b1 - s.b0) + ' 小節）').join('、') + '。不對可以用左邊的「段」自己改。', 'done');
+  scFillPanel();
 }
 
 // 拍位 → 秒：照偵測到的拍點（小節 b 的第 beat 拍），譜被改過也能對到音檔
@@ -5123,6 +5616,7 @@ function scAction(act) {
     case 'newline': return toggleBar('newline');
     case 'volta1': return toggleBar('volta', 1);
     case 'volta2': return toggleBar('volta', 2);
+    case 'autoSec': return scAutoSections();
     case 'section': {
       if (!bar) return;
       const v = prompt('段落名稱（例：A、B、主歌、副歌、前奏；空白＝刪除）', bar.marks.section || '');
