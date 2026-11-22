@@ -68,6 +68,16 @@ const RULES = [
   { re: /^已用 (\d+) 秒　剩約 (.+?) 秒　(\d+)%$/, sample: '已用 7 秒　剩約 不到 1 秒　99%',
     fn: (m, a, b, c) => `Elapsed ${a}s · ${b === '不到 1' ? '<1' : b}s left · ${c}%` },
   { re: /^已用 (\d+) 秒　(\d+)%$/, fn: (m, a, c) => `Elapsed ${a}s · ${c}%`, sample: '已用 12 秒　57%' },
+  // 段落軌：段落選單與摘要（都是「動詞＋段落名」組出來的）
+  { re: /^(\d+) 段$/, fn: (m, n) => `${n} sections`, sample: '4 段' },
+  { re: /^段落軌有 (\d+) 段$/, fn: (m, n) => `Section track has ${n} sections`, sample: '段落軌有 4 段' },
+  { re: /^目前：(.+)$/, fn: (m, name) => `Current: ${t(name)}`, sample: '目前：副歌 1' },
+  { re: /^改成 (.+)$/, fn: (m, name) => `Change to ${t(name)}`, sample: '改成 副歌 1' },
+  { re: /^新增 (.+)（從這裡開始）$/, fn: (m, name) => `Add ${t(name)} (from here)`, sample: '新增 主歌 A（從這裡開始）' },
+  { re: /^在第 (\d+) 小節新增段落$/, fn: (m, n) => `Add a section at bar ${n}`, sample: '在第 3 小節新增段落' },
+  { re: /^已排好 (\d+) 段並寫進段落軌；要改就在尺規下方的段落軌上點$/, sample: '已排好 5 段並寫進段落軌；要改就在尺規下方的段落軌上點',
+    fn: (m, n) => `Planned ${n} sections and wrote them into the section track — click a section to change it` },
+  { re: /^已把 (\d+) 段寫進段落軌$/, fn: (m, n) => `Wrote ${n} sections into the section track`, sample: '已把 5 段寫進段落軌' },
 ];
 
 // 給 scripts/daw_i18n_test.py 用：字典的鍵與每條規則的樣本

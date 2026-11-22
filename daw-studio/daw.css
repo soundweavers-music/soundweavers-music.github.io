@@ -359,6 +359,34 @@ dialog .soon { opacity: .45; pointer-events: none; }
 .ctxmenu.cols .col hr { margin: 3px 0; }
 .ctxmenu hr { border: 0; border-top: 1px solid var(--menu-hr); margin: 4px 0; }
 
+/* ---------- 和弦編輯面板（點和弦軌跳出） ---------- */
+.chord-panel { position: fixed; z-index: 100; width: 262px; background: var(--menu-bg); border: 1px solid var(--menu-line); border-radius: 8px;
+  padding: 8px 9px 9px; box-shadow: 0 12px 32px var(--shadow-b); animation: menu-in .12s ease-out; }
+.chord-panel .cp-head { display: flex; align-items: baseline; gap: 8px; margin-bottom: 7px; }
+.chord-panel .cp-name { font-size: 15px; color: var(--tx0); font-family: var(--mono); letter-spacing: .3px; }
+.chord-panel .cp-pos { color: var(--tx2); font-size: 11px; }
+.chord-panel .cp-x { margin-left: auto; background: none; border: 0; color: var(--tx2); font-size: 12px; padding: 2px 4px; border-radius: 4px; cursor: pointer; }
+.chord-panel .cp-x:hover { background: var(--menu-hr); color: var(--tx0); }
+.chord-panel .cp-lbl { color: var(--tx2); font-size: 10px; letter-spacing: .08em; margin: 6px 0 3px; }
+.chord-panel .cp-grid { display: grid; gap: 3px; }
+.chord-panel .cp-roots { grid-template-columns: repeat(12, 1fr); }
+.chord-panel .cp-quals { grid-template-columns: repeat(5, 1fr); }
+.chord-panel .cp-degs { grid-template-columns: repeat(7, 1fr); }
+.chord-panel .cp-grid button { min-height: 24px; padding: 0 2px; border: 1px solid var(--menu-line); border-radius: 4px; background: var(--btn-b); color: var(--tx0);
+  font-family: var(--mono); font-size: 11px; cursor: pointer; line-height: 1.1; }
+.chord-panel .cp-degs button { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px; padding: 3px 1px; }
+.chord-panel .cp-degs button b { font-size: 11px; }
+.chord-panel .cp-degs button span { font-size: 9px; color: var(--tx2); }
+.chord-panel .cp-grid button:hover { border-color: var(--accent); }
+.chord-panel .cp-grid button.on { background: var(--accent); border-color: var(--accent); color: var(--accent-tx); }
+.chord-panel .cp-grid button.on span { color: var(--accent-tx); opacity: .8; }
+.chord-panel .cp-hint { margin: 7px 0 0; font-size: 11px; color: var(--tx2); min-height: 15px; }
+.chord-panel .cp-acts { display: flex; gap: 4px; margin-top: 6px; }
+.chord-panel .cp-acts[hidden] { display: none; }   /* display:flex 會蓋掉 [hidden]，要自己寫一條 */
+.chord-panel .cp-acts button { flex: 1; height: 24px; border: 1px solid var(--menu-line); border-radius: 4px; background: var(--btn-b); color: var(--tx0); font-size: 11px; cursor: pointer; }
+.chord-panel .cp-acts button:hover { background: var(--btn-hover-b); }
+.chord-panel .cp-acts button.danger { color: var(--err-tx, #ff8a8a); }
+
 #toast { position: fixed; left: 50%; bottom: 46px; transform: translate(-50%, 20px); background: var(--toast-bg); border: 1px solid var(--toast-line); color: var(--tx0);
   padding: 8px 16px; border-radius: 8px; opacity: 0; pointer-events: none; transition: .2s; z-index: 200; box-shadow: 0 8px 24px var(--shadow-b); }
 #toast.show { opacity: 1; transform: translate(-50%, 0); }
@@ -1130,6 +1158,13 @@ html[lang="en"] .insp-sec > h4, html[lang="en"] .sec-h { letter-spacing: 0; }
 .aiw-seg input[type=number] { width: 52px; }
 .aiw-bar { font-family: var(--mono); color: var(--tx2); }
 .aiw-empty { color: var(--tx2); padding: 18px; text-align: center; border: 1px dashed var(--line2); border-radius: 10px; }
+/* 段落表來自段落軌時是唯讀的，只顯示段落與小節範圍 */
+.aiw-seg.ro { grid-template-columns: 70px 120px 1fr; background: var(--bg2); }
+.aiw-seg.ro .aiw-seclbl { color: var(--tx0); font-weight: 600; }
+.aiw-rohint { margin: 0 2px 2px; }
+.aiw-plan-h select { height: 26px; border-radius: 5px; border: 1px solid var(--line2); background: var(--bg0); color: var(--tx0); }
+.aiw-opt2 { gap: 14px; align-items: center; }
+.aiw-chk:has(input:disabled) { opacity: .45; }
 
 /* ③ 結果摘要 */
 .aic-sum { display: grid; gap: 4px; }

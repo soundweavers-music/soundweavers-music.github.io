@@ -346,6 +346,14 @@ export function seedDemo() {
   p.chordView = 1;
   p.showChords = true;
 
+  // ── 段落軌：室內樂 → 加聲部 → 全奏 ────────────────────────
+  p.sections = [
+    { t: 0, d: 32, sec: 'verse1' },
+    { t: 32, d: 32, sec: 'chorus1' },
+    { t: 64, d: 32, sec: 'chorus2' },
+  ];
+  p.showSections = true;
+
   p.mastering.on = true;
   p.masterDb = 0;
   p.masterInserts = [];

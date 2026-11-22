@@ -4,7 +4,8 @@ import { engine } from './engine.js';
 import { STYLES, SECTIONS, styleById, romanToChord } from './arranger-styles.js';
 import { PARTS } from './arranger.js';
 import { melodyOf, melodyKey, suggestChords, keyName, progressionText } from './ai-chords.js';
-import { chordRange, autoPlan, generate, applyArrangement, removeArrangement } from './ai-arrange.js';
+import { chordRange, autoPlan, planFromSections, planWithBars, generate, applyArrangement, removeArrangement } from './ai-arrange.js';
+import { sectionsOf, toggleSectionLane, writePlanToSections } from './section-ui.js';
 import { ROOTS } from './chords.js';
 import { toast } from './util.js';
 import { compose, applyComposition, FORMS, SEC_LABEL, parseProgression, progressionChoices } from './ai-compose.js';
@@ -89,11 +90,21 @@ function build() {
       </div>
       <h4 class="aiw-h">要編哪些聲部</h4>
       <div class="aiw-parts"></div>
-      <div class="aiw-plan-h"><b>段落表</b><span class="note aiw-range"></span><div class="spacer"></div>
+      <div class="aiw-plan-h"><b>段落表</b>
+        <select class="aiw-secsrc" title="段落表要從哪裡來：時間軸上的段落軌，或依和弦樣式自動判斷">
+          <option value="track">依段落軌</option>
+          <option value="auto">自動判斷（依和弦）</option>
+        </select>
+        <span class="note aiw-srcnote"></span><div class="spacer"></div>
+        <button type="button" class="tbtn ghost aiw-auto" title="依和弦軌重複的樣式自動排主歌、導歌、副歌，並寫進段落軌">自動排段落</button>
+        <button type="button" class="tbtn ghost aiw-writesec" title="把下面的段落表寫進段落軌，之後可以在時間軸上點著改">寫進段落軌</button>
+        <button type="button" class="tbtn ghost aiw-showsec" title="在時間軸上打開段落軌">顯示段落軌</button>
+        <button type="button" class="tbtn ghost aiw-addsec">＋ 一段</button></div>
+      <div class="note aiw-range"></div>
+      <div class="aiw-row aiw-opt2">
         <label class="aiw-chk"><input type="checkbox" class="aiw-intro"> 加前奏</label>
         <label class="aiw-chk"><input type="checkbox" class="aiw-ending"> 加尾奏</label>
-        <button type="button" class="tbtn ghost aiw-auto" title="依和弦軌重複的樣式自動判斷主歌、導歌、副歌">自動排段落</button>
-        <button type="button" class="tbtn ghost aiw-addsec">＋ 一段</button></div>
+      </div>
       <div class="aiw-plan"></div>
       <div class="aiw-row aiw-acts">
         <button type="button" class="tbtn primary aiw-gen">產生編曲</button>
@@ -127,7 +138,32 @@ function build() {
   $('.aiw-intro').checked = S.intro; $('.aiw-ending').checked = S.ending;
   $('.aiw-intro').onchange = e => { S.intro = e.target.checked; save(); plan = null; renderPlan(); };
   $('.aiw-ending').onchange = e => { S.ending = e.target.checked; save(); plan = null; renderPlan(); };
-  $('.aiw-auto').onclick = () => { plan = null; renderPlan(); toast('已依和弦軌重新排段落'); };
+  // 段落從哪裡來：時間軸上的段落軌（預設）或依和弦樣式自動判斷
+  const src = $('.aiw-secsrc');
+  src.value = S.secSource || 'track';
+  src.addEventListener('keydown', e => e.stopPropagation());
+  src.onchange = e => { S.secSource = e.target.value; save(); plan = null; renderPlan(); };
+  $('.aiw-auto').onclick = () => {
+    const list = planWithBars(autoPlan(chordRange(), { intro: S.intro, ending: S.ending }), S.styleId);
+    if (!list.length) return toast('和弦軌是空的：先到「① 旋律配和弦」產生和弦，或用「和弦」按鈕自動偵測', 'warn');
+    plan = list;
+    writePlanToSections(list, store.project.sigNum || 4);
+    S.secSource = 'track'; src.value = 'track'; save();
+    renderPlan();
+    toast(`已排好 ${list.length} 段並寫進段落軌；要改就在尺規下方的段落軌上點`);
+  };
+  $('.aiw-writesec').onclick = () => {
+    ensurePlan();
+    const n = writePlanToSections(planWithBars(plan, S.styleId), store.project.sigNum || 4);
+    if (!n) return toast('下面的段落表沒有可以寫進段落軌的段落', 'warn');
+    S.secSource = 'track'; src.value = 'track'; save();
+    renderPlan();
+    toast(`已把 ${n} 段寫進段落軌`);
+  };
+  $('.aiw-showsec').onclick = () => {
+    if (!store.project.showSections) toggleSectionLane(true);
+    toast('段落軌已打開：按尺規下方的段落可以改種類、切一半、刪除');
+  };
   $('.aiw-addsec').onclick = () => { ensurePlan(); const at = plan.findIndex(s => s.post); plan.splice(at < 0 ? plan.length : at, 0, { sec: 'verse1', bars: 4, int: 0 }); renderPlan(); };
   $('.aiw-gen').onclick = () => runGenerate(false);
   $('.aiw-regen').onclick = () => runGenerate(true);
@@ -181,6 +217,10 @@ function build() {
     }
   };
   store.on('change', ({ kind }) => { if (open && kind === 'structure') { fillTracks(); if (S.tab === 'arrange') renderRange(); } });
+  // 段落軌或和弦軌被改過（含在時間軸上點）：段落表要重算
+  const resetPlan = () => { plan = null; if (open && S.tab === 'arrange') renderPlan(); };
+  store.on('sections', resetPlan);
+  store.on('chords', resetPlan);
   document.addEventListener('keydown', e => { if (open && e.key === 'Escape') { e.stopPropagation(); toggleAI(false); } }, true);
 }
 
@@ -323,17 +363,31 @@ function useOption(i) {
 }
 
 // ---------------- ② 一鍵編曲 ----------------
+// 段落表從哪裡來：預設照段落軌；段落軌是空的話退回「依和弦自動判斷」
+const trackSource = () => (S.secSource || 'track') === 'track' && sectionsOf().length > 0;
 function ensurePlan() {
+  if (plan) return plan;
+  if (trackSource()) plan = planFromSections();
   if (!plan) plan = autoPlan(chordRange(), { intro: S.intro, ending: S.ending });
   return plan;
 }
 function renderRange() {
-  const r = chordRange(), bpb = store.project.sigNum || 4;
+  const r = chordRange();
+  const nSec = sectionsOf().length;
+  $('.aiw-srcnote').textContent = trackSource()
+    ? `段落軌有 ${nSec} 段`
+    : nSec ? '段落軌是空的，目前依和弦自動判斷' : '還沒有段落：依和弦自動判斷';
   $('.aiw-range').textContent = r ? `和弦軌：第 ${r[0] + 1}–${r[1]} 小節（${r[1] - r[0]} 小節）` : '和弦軌是空的：先到「① 旋律配和弦」，或按時間軸左上的「和弦」自動偵測';
-  const used = (plan || []).filter(s => !s.pre && !s.post).reduce((n, s) => n + s.bars, 0);
-  if (r && plan && used !== r[1] - r[0]) $('.aiw-range').textContent += `；段落表中間共 ${used} 小節${used < r[1] - r[0] ? '（後面的和弦不會編到）' : '（超過和弦軌的部分延用最後一個和弦）'}`;
-  if (r && S.intro && r[0] < 2) $('.aiw-range').textContent += '；和弦軌從第 1 小節開始，前面沒有空小節放前奏（要前奏的話先把整首往後挪）';
-  void bpb;
+  if (!plan || !r) return;
+  const used = plan.filter(s => !s.pre && !s.post).reduce((n, s) => n + (s.bars || 0), 0);
+  if (used !== r[1] - r[0]) $('.aiw-range').textContent += `；段落表中間共 ${used} 小節${used < r[1] - r[0] ? '（後面的和弦不會編到）' : '（超過和弦軌的部分延用最後一個和弦）'}`;
+  if (S.intro && r[0] < 2 && !plan.some(s => s.pre)) $('.aiw-range').textContent += '；和弦軌從第 1 小節開始，前面沒有空小節放前奏（要前奏的話先把整首往後挪）';
+  // 段落表來自段落軌時，這裡不能再增減段落（要改就改段落軌）
+  const ro = trackSource();
+  $('.aiw-intro').disabled = ro;
+  $('.aiw-ending').disabled = ro;
+  $('.aiw-addsec').disabled = ro;
+  $('.aiw-writesec').disabled = ro;
 }
 function renderVals() {
   $('.aiw-varv').textContent = `${Math.round(S.variation * 100)}%`;
@@ -348,11 +402,21 @@ function renderPlan() {
   const style = styleById(S.styleId);
   const box = $('.aiw-plan');
   if (!plan.length) { box.innerHTML = '<div class="aiw-empty">和弦軌是空的，沒有段落可以排。</div>'; renderRange(); return; }
+  // 段落軌來的段落表是「唯讀」：要改就到時間軸上點段落軌，避免兩邊各記一份
+  const ro = trackSource();
   let bar = (chordRange()?.[0] ?? 0) - plan.filter(s => s.pre).reduce((n, s) => n + s.bars, 0);
   box.innerHTML = plan.map((s, i) => {
     const S2 = style.sections[s.sec];
     const nb = s.bars || (S2?.chords ? S2.chords.length + (s.sec === 'ending' ? 1 : 0) : 4);
-    const from = Math.max(0, bar) + 1; bar += nb;
+    const from = Math.max(0, Number.isFinite(s.bar) ? s.bar : bar) + 1;
+    bar = (Number.isFinite(s.bar) ? s.bar : bar) + nb;
+    if (ro) {
+      return `<div class="aiw-seg ro" data-i="${i}">
+        <span class="aiw-bar">${from}–${from + nb - 1}</span>
+        <b class="aiw-seclbl">${esc(SEC_NAME[s.sec] || s.sec)}</b>
+        <span class="note">${nb} 小節</span>
+      </div>`;
+    }
     return `<div class="aiw-seg" data-i="${i}">
       <span class="aiw-bar">${from}–${from + nb - 1}</span>
       <select class="aiw-sec">${SEC_CHOICES.map(x => `<option value="${x.id}"${x.id === s.sec ? ' selected' : ''}>${x.name}</option>`).join('')}</select>
@@ -362,6 +426,11 @@ function renderPlan() {
       <button type="button" class="tbtn ghost aiw-rm" title="刪掉這一段">✕</button>
     </div>`;
   }).join('');
+  if (ro) {
+    box.insertAdjacentHTML('afterbegin', '<p class="note aiw-rohint">下面的段落是段落軌的內容：要改種類、長度或增減段落，就在時間軸下方點段落軌。</p>');
+    renderRange();
+    return;
+  }
   box.querySelectorAll('.aiw-seg').forEach(el => {
     const i = Number(el.dataset.i);
     el.querySelector('.aiw-sec').onchange = e => { plan[i].sec = e.target.value; renderPlan(); };

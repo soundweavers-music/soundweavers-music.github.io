@@ -20,16 +20,17 @@ export const PARTS = [
   { id: 'arp', name: '琶音', def: 'epiano', defVol: -10, color: '#35c9a5' },
 ];
 
+// short：段落軌上顯示的短名；color：段落軌的顏色
 export const SECTIONS = [
-  { id: 'intro', name: 'Intro 前奏', key: '1', kind: 'intro' },
-  { id: 'verse1', name: '主歌 A', key: '2' },
-  { id: 'verse2', name: '主歌 B', key: '3' },
-  { id: 'pre', name: '導歌 Pre', key: '4' },
-  { id: 'chorus1', name: '副歌 1', key: '5' },
-  { id: 'chorus2', name: '副歌 2', key: '6' },
-  { id: 'bridge', name: '間奏／橋段', key: '7' },
-  { id: 'break', name: 'Break 停頓', key: '8', kind: 'break' },
-  { id: 'ending', name: 'Ending 尾奏', key: '9', kind: 'ending' },
+  { id: 'intro', name: 'Intro 前奏', short: '前奏', key: '1', kind: 'intro', color: '#8b95a8' },
+  { id: 'verse1', name: '主歌 A', short: '主歌 A', key: '2', color: '#4f9dff' },
+  { id: 'verse2', name: '主歌 B', short: '主歌 B', key: '3', color: '#3a7fd0' },
+  { id: 'pre', name: '導歌 Pre', short: '導歌', key: '4', color: '#35c9a5' },
+  { id: 'chorus1', name: '副歌 1', short: '副歌 1', key: '5', color: '#f5b83d' },
+  { id: 'chorus2', name: '副歌 2', short: '副歌 2', key: '6', color: '#ff8a5c' },
+  { id: 'bridge', name: '間奏／橋段', short: '間奏', key: '7', color: '#b58bff' },
+  { id: 'break', name: 'Break 停頓', short: '停頓', key: '8', kind: 'break', color: '#ff6f7d' },
+  { id: 'ending', name: 'Ending 尾奏', short: '尾奏', key: '9', kind: 'ending', color: '#8b95a8' },
 ];
 
 // 速記：把「x...x...」這種字串轉成事件（每個字元 = 一個 16 分音符格；x=強、o=中、.=休止、- 延長上一個）
