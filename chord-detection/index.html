@@ -2791,7 +2791,8 @@ function smoothMelody(frames) {
     vals.sort((a, b) => a - b);
     midi[f] = vals[vals.length >> 1];
   }
-  return { times: frames.times, midi, nFrames: n };
+  // db／riseHop 帶著走：歌詞對齊要拿「有出聲但抓不到音高」的格子補音（chord-ai.js 的 insertGhosts）
+  return { times: frames.times, midi, nFrames: n, db: frames.db || null, riseHop: frames.riseHop || 0.01 };
 }
 
 // 時間範圍內最常出現的音（先平滑過，所以 ±1 的抖動已經收斂）

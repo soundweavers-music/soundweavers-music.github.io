@@ -446,9 +446,9 @@ const tr = (zh, en) => (document.documentElement.lang || '').startsWith('en') ? 
         if (!inside) midi[f] = -1;
       }
     }
-    const rise = vocalRise(cv.x, cv.sr);
+    const { rise, db } = vocalRise(cv.x, cv.sr);
     // AI 分離的主唱（16 kHz）留著給「AI 聽歌詞」用（4 分鐘約 15 MB）；中央遮罩的不留（伴奏太多，聽歌詞不準）
-    return { times, midi: foldOctaves(times, midi, 4.0), nFrames: n, rise, riseHop: RISE_HOP, sepEngine,
+    return { times, midi: foldOctaves(times, midi, 4.0), nFrames: n, rise, db, riseHop: RISE_HOP, sepEngine,
              x16: sepEngine === 'spleeter' ? x : null,
              // 給「匯出分軌」用：AI 分離出來的原始主唱（單聲道、44.1 kHz）
              sep: sepEngine === 'spleeter' ? cv : null };
@@ -467,7 +467,7 @@ const tr = (zh, en) => (document.documentElement.lang || '').startsWith('en') ? 
       db[i] = 20 * Math.log10(Math.sqrt(s / h + 1e-12) + 1e-9);
     }
     for (let i = 0; i < n; i++) rise[i] = Math.max(0, db[i] - db[Math.max(0, i - 3)]);
-    return rise;
+    return { rise, db };      // db 給「有出聲但抓不到音高」的補音用
   }
 
   // 平滑過的逐格音高 → 音符（同音高連續就合併；斷掉 > 0.05 秒或換音高就切；短於 0.08 秒丟掉）
@@ -532,6 +532,7 @@ const tr = (zh, en) => (document.documentElement.lang || '').startsWith('en') ? 
   function startCost(notes, j) {
     const q = notes[j], d = q.end - q.start, nx = notes[j + 1], pv = notes[j - 1];
     let v = 0;
+    if (q.ghost) v += W_GHOST;          // 補出來的音：能用，但優先讓真的抓到音高的音當字頭
     if (q.split) v += W_SPLIT;
     if (d < SHORT_NOTE) v += W_SHORT;
     if (nx && d <= GRACE_DUR && nx.start - q.end < 0.03 && nx.midi - q.midi >= 1 && nx.midi - q.midi <= 2 &&
@@ -544,9 +545,57 @@ const tr = (zh, en) => (document.documentElement.lang || '').startsWith('en') ? 
   // 字的起點音離 AI 時間越遠扣越多（最多算 0.3 秒，信心越高越重）；整行信心 < 0.1 → AI 沒聽到有人唱這行，略過。
   // 參數用真實歌答案掃過（work/lyric_ai/al_asr.py）：W 0.5、上限 0.3 秒、信心 ≥ 0.3 才用，64 → 72/77。
   const W_ASR = 0.5, ASR_CAP = 0.3, ASR_PMIN = 0.3, ASR_SKIP = 0.1;
+
+  // 「有出聲、但抓不到音高」的字：在音前面補一個鬼音（音高借用下一個音）。
+  // 真實歌「清晨醒來推開窗」第 82 秒（第二次副歌）：SwiftF0 在 82.3–83.2 完全沒有音高
+  // （人聲分離後那一段只剩氣音與鈴鼓的高頻，基頻低通後量不到），整句因此往前錯一格
+  // （1 1 2 3 4 5 5，正確是 1 1 1 2 3 5 5）。補了之後這句 4/7 → 7/7、整首 86 → 89/98。
+  // 條件刻意嚴格：只看「這個音前面 1.5 秒內、沒有別的音」的那一段，而且人聲要一路有聲音到接近這個音，
+  // 所以間奏、前一句的尾巴都不會補。只在 AI 分離主唱時用（中央遮罩的人聲充滿伴奏，會亂補）。
+  // W_GHOST 2.5、最短 0.3 秒是掃出來的：太少會被「真音就在附近」的字搶走（8.4 秒那句反而變差），
+  // 太多則該補的地方不補。
+  const GHOST_DROP = 12, GHOST_LOOK = 1.5, GHOST_MIN = 0.3, GHOST_NEAR = 0.3, GHOST_GAP = 0.2, W_GHOST = 2.5;
+  function insertGhosts(notes, frames) {
+    const db = frames && frames.db;
+    if (!db || !db.length || !notes.length) return notes;
+    const HOP = frames.riseHop || RISE_HOP;
+    const vals = [];
+    for (let f = 0; f < frames.midi.length; f += 3) {
+      if (frames.midi[f] < 0) continue;
+      const i = Math.round(frames.times[f] / HOP);
+      if (i >= 0 && i < db.length) vals.push(db[i]);
+    }
+    if (!vals.length) return notes;
+    vals.sort((a, b) => a - b);
+    const thr = vals[vals.length >> 1] - GHOST_DROP;      // 基準＝有抓到音高的格子中位數
+    const out = [];
+    let prev = null;
+    for (const nt of notes) {
+      let lo = nt.start - GHOST_LOOK;
+      if (prev && prev.end > lo) lo = prev.end;
+      if (nt.start - lo >= GHOST_GAP) {
+        const i0 = Math.max(0, Math.round(lo / HOP)), i1 = Math.min(db.length, Math.round(nt.start / HOP));
+        let a = -1, last = -1;
+        for (let i = i0; i < i1; i++) {
+          if (db[i] < thr) continue;
+          if (a < 0) a = i;
+          last = i;
+        }
+        if (a >= 0 && (i1 - a) * HOP >= GHOST_GAP && (last - a + 1) * HOP >= GHOST_MIN &&
+            nt.start - last * HOP <= GHOST_NEAR) {
+          out.push({ start: a * HOP, end: nt.start, midi: nt.midi, ghost: true });   // a、last 是 db 的格子索引
+        }
+      }
+      out.push(nt);
+      prev = nt;
+    }
+    return out;
+  }
+
   function alignLyrics(frames, rise, lines, ends, sepEngine, anchors) {
     ({ W_DUR, RISE_SPLIT, W_SPLIT, W_SHORT } = TUNE[sepEngine === 'spleeter' ? 'spleeter' : 'center']);
-    const notes = splitAtOnsets(notesFromFrames(frames.times, frames.midi), rise);
+    let notes = splitAtOnsets(notesFromFrames(frames.times, frames.midi), rise);
+    if (sepEngine === 'spleeter') notes = insertGhosts(notes, frames);
     const M = notes.length;
     ends = ends || [];
     // 1) 交叉比對：每行在它的時間範圍內有沒有足夠的音（≥ 字數的一半）
@@ -854,5 +903,7 @@ const tr = (zh, en) => (document.documentElement.lang || '').startsWith('en') ? 
   }
 
   window.ChordAI = { framewiseProbs, beatCandidates, ensureModel, MODEL_URL, melodyFrames, alignLyrics, ensureSpleeter,
-                     ensureLyricAsr, lyricAnchors, _asrFbank: asrFbank, _asrLfr: asrLfr };
+                     ensureLyricAsr, lyricAnchors, _asrFbank: asrFbank, _asrLfr: asrLfr,
+                     // 測試用：看「有出聲、抓不到音高」補了哪些鬼音（work/lyric_ai/_ghost_dbg.py）
+                     _ghosts: (frames) => insertGhosts(splitAtOnsets(notesFromFrames(frames.times, frames.midi), frames.rise), frames) };
 })();
