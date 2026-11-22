@@ -121,6 +121,22 @@ Chrome 開站顯示「危險網站／可能誘騙你安裝軟體」。查詢 `ht
 - **共用外框抽出來**：導覽列、頁尾、播放器這些每頁都有的字串，出現在 20 頁以上
   就集中到 `_pages/_shared.json`，只翻一次。實測 135,929 條字串裡有 253 條是共用，
   抽掉之後各頁只剩 24,801 條——差了一個數量級。
+- **課程頁一律不歸 page_i18n 管**（2026-11-21 修掉的一個真 bug）：
+  `page_i18n build` 原本會替 `/vocal/1/`、`/guitar/ch01/`、`/theory/ch1/`
+  這些課也生一份「英文」頁，但字典裡沒有課程的條目，生出來的其實是**中文副本**，
+  而且會把 `build_en_courses.py`／`build_vocal_extra.py` 已經寫好的英文頁**蓋掉**
+  （`/en/theory/ch1/`、`/en/guitar/ch01/` 都中過）。現在：
+  `EN_COURSE_SLUGS`（vocal、digitalmusic、guitar、ukulele、mandolin、songwriting）
+  的頁面 page_i18n 一份都不寫；路徑與英文版不同的（`/vocal/1/` → `/en/vocal/ch01/`、
+  `/tools/daw/learn/03/` → `/en/dawcourse/ch03/`）產生轉址頁；
+  路徑相同又不能碰的（`/theory/`，英文版由 `build_vocal_extra` 寫在同一條路徑）
+  記在 `SAME_PATH_SECTIONS`，直接跳過。`extract` 也不再抽這些頁。
+- **合奏與編制百科（40 篇＋分類頁）走 page_i18n**：它沒有 `content/en/` 英文稿，
+  所以跟樂器百科、國家頁一樣，中文頁當唯一真相、建置時換字。
+- **`/tools/daw/learn/NN/` 不翻，直接轉址**：那 24 堂的英文版是
+  `build_en_courses.py` 建的 `/en/dawcourse/chNN/`，同一門課不再翻第二份。
+  `redirect_for()` 會為這些頁產生 `meta refresh` 轉址頁（順帶 canonical），
+  `stats` 也不算它們。少翻 1,237 條、也少 24 頁內容不同的重複頁。
 - **進度查詢**：`python scripts/page_i18n.py stats`。
 - **建置**：`python scripts/page_i18n.py build`，沒翻完會回傳非零。
 

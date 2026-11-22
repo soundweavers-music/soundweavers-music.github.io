@@ -48,7 +48,7 @@
  "平衡 — 大專案、較多效果器": "Balanced — large projects, more plugins",
  "延音踏板": "Sustain pedal",
  "影片 MP4（H.264 + AAC，含時間軸上的影片、文字與字幕）": "Video MP4 (H.264 + AAC, including the video, text and subtitles on the timeline)",
- "影片、文字、字幕軌": "",
+ "影片、文字、字幕軌": "Video, text and subtitle track",
  "從電腦選擇 .sf2…": "Choose .sf2 from computer…",
  "復原": "Undo",
  "循環 (C)": "Loop (C)",
@@ -145,7 +145,7 @@
  "額外延遲補償（毫秒）": "Extra latency compensation (ms)",
  "顯示／編輯自動化曲線 (A)": "Show/edit automation curves (A)",
  "（♪）上": "(♪)",
- "＋ 影像": "",
+ "＋ 影像": "＋ Video",
  "＋ 音訊": "＋ Audio",
  "，或按某一軌的": ", or press a track's",
  "，把數值調大；比節拍": ", increase the value; compare to the beat"
