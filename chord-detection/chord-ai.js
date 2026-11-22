@@ -282,8 +282,12 @@ const tr = (zh, en) => (document.documentElement.lang || '').startsWith('en') ? 
       seg.sort((p, q) => p - q);
       const med = seg[seg.length >> 1];
       let m = midi[i];
-      while (m - med > 6) m -= 12;
-      while (med - m > 6) m += 12;
+      // 只折「真的像跳錯八度」的音：離中位數 ≥ 10 半音，而且折了之後會更接近。
+      // 以前是「離中位數超過 6 半音就折」——旋律本來就會跨 5、6 度：
+      // 「笑容甜甜掛臉上」3 2 3 1 6 1 5 的兩個 1（C4，SwiftF0 聽對了 255／264 Hz）
+      // 在 G4 附近的中位數底下差 7 半音，被這裡硬推成高八度 1'。
+      while (m - med >= 10 && Math.abs(m - 12 - med) < m - med) m -= 12;
+      while (med - m >= 10 && Math.abs(m + 12 - med) < med - m) m += 12;
       while (m < 55) m += 12;
       while (m > 84) m -= 12;
       out[i] = m;
