@@ -346,8 +346,9 @@ dialog .soon { opacity: .45; pointer-events: none; }
 
 /* ---------- 右鍵選單 ---------- */
 .ctxmenu { position: fixed; z-index: 100; background: var(--menu-bg); border: 1px solid var(--menu-line); border-radius: 7px; padding: 4px; min-width: 180px;
-  max-height: calc(100vh - 10px); overflow-y: auto; overscroll-behavior: contain;
+  max-height: calc(100vh - 10px); overflow-y: auto; overscroll-behavior: contain; animation: menu-in .12s ease-out;
   box-shadow: 0 10px 30px var(--shadow-b); }
+@keyframes menu-in { from { opacity: 0; transform: translateY(-4px); } }
 .ctxmenu button { display: flex; justify-content: space-between; width: 100%; text-align: left; background: none; border: 0; padding: 6px 10px; border-radius: 4px; color: var(--tx0); }
 .ctxmenu button:hover { background: var(--accent); color: var(--menu-hover-tx); }
 .ctxmenu button:disabled { color: var(--tx2); background: none; cursor: default; }
@@ -1037,7 +1038,11 @@ html[lang="en"] .insp-sec > h4, html[lang="en"] .sec-h { letter-spacing: 0; }
 
 /* ---------- 智慧編曲視窗 ---------- */
 /* ---------- 智慧編曲視窗：卡片式版面 ---------- */
-.aiw { position: fixed; inset: 0; z-index: 195; background: rgba(10,8,8,.5); display: grid; place-items: center; }
+.aiw { position: fixed; inset: 0; z-index: 195; background: rgba(10,8,8,.5); display: grid; place-items: center;
+  animation: aiw-fade .16s ease-out; }
+.aiw-win { animation: aiw-rise .2s cubic-bezier(.2,.85,.25,1); }
+@keyframes aiw-fade { from { opacity: 0; } }
+@keyframes aiw-rise { from { opacity: 0; transform: translateY(10px) scale(.985); } }
 .aiw.hidden { display: none; }
 .aiw-win { width: min(1040px, 96vw); max-height: 92vh; overflow: auto; display: grid; gap: 14px; align-content: start;
   padding: 0 0 18px; color: var(--tx0); background: var(--bg2); border: 1px solid var(--line2); border-radius: 14px;
