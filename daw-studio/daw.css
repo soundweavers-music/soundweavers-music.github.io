@@ -88,6 +88,7 @@
   --pr-vel-bg: #1D1815; --pr-vel-mid: #3A322C; --pr-ped-bg: #1A1512;
   --tl-bg: #1A1512; --tl-lbl: #241E1A; --tl-sec: #2B2521; --tl-sec-on: #4A3A2D; --tl-sec-line: #4E443C; --tl-sel: #E3BC92; --pitch-bg: #171310;
   --cv-sel-tx: #1D1815;
+  color-scheme: dark;
 }
 
 /* ---------- 配色主題：世界聲音・木質淺色 ---------- */
@@ -183,6 +184,19 @@ button { cursor: pointer; }
 @keyframes recblink { 50% { background: #9b2222; } }
 
 .group, .brand { flex-shrink: 0; }
+
+/* 控制列上的快捷鍵：每一顆按鈕都標著自己的按鍵，不用先猜、也不用開說明 */
+.tbtn { position: relative; }
+.tbtn .k { font: 600 9px/1.15 var(--mono); color: var(--tx2); background: var(--bg0); border: 1px solid var(--line2);
+  border-radius: 3px; padding: 1px 3px; margin-left: 4px; white-space: nowrap; letter-spacing: .02em; }
+.tbtn:hover .k, .tbtn.on .k { color: var(--tx0); border-color: var(--line); background: var(--bg1); }
+.tbtn.primary .k { color: var(--primary-tx); border-color: var(--primary-border); background: rgba(0,0,0,.18); opacity: .85; }
+/* 只有圖示的鍵（播放、錄音、節拍器…）：按鍵貼在右下角，不會把按鈕撐寬 */
+.tbtn.stack { padding-bottom: 7px; }
+.tbtn.stack svg { margin-top: -3px; }
+.tbtn.stack .k { position: absolute; right: 3px; bottom: 1px; margin: 0; padding: 0; border: 0; background: none;
+  font-size: 8px; line-height: 1; opacity: .6; }
+.tbtn.stack:hover .k, .tbtn.stack.on .k { opacity: 1; background: none; }
 .lcd { flex: 0 0 auto; display: flex; align-items: stretch; background: var(--lcd-bg); border: 1px solid var(--lcd-border); border-radius: 6px;
   box-shadow: inset 0 2px 6px var(--lcd-shadow); color: var(--lcd-tx); font-family: var(--mono); overflow: hidden; }
 .lcd .cell { padding: 3px 12px; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid var(--lcd-sep); }
@@ -245,7 +259,8 @@ button { cursor: pointer; }
 .thead.sel .color { box-shadow: 2px 0 10px -2px var(--trk, var(--accent)); }
 .thead .num { color: color-mix(in srgb, var(--trk, var(--tx2)) 65%, var(--tx1)); font-size: 11px; text-align: right; font-family: var(--mono); font-weight: 600; }
 .thead .body { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
-.thead .name { background: transparent; border: 1px solid transparent; border-radius: 3px; padding: 1px 3px; font-weight: 600; min-width: 0; width: 100%; color: var(--tx0); }
+.thead .name { background: transparent; border: 1px solid transparent; border-radius: 3px; padding: 1px 3px; font-weight: 600; min-width: 0; width: 100%;
+  color: color-mix(in srgb, var(--trk, var(--tx0)) 45%, var(--tx0)); }
 .thead .name:focus { border-color: var(--accent); background: var(--bg0); outline: none; }
 .thead .ctrls { display: flex; align-items: center; gap: 3px; }
 .mini { width: 21px; height: 18px; font-size: 10px; font-weight: 700; border-radius: 3px; border: 1px solid var(--mini-border); background: var(--bg4); color: var(--tx1); padding: 0; }
@@ -253,7 +268,7 @@ button { cursor: pointer; }
 .mini.s.on { background: var(--solo); color: #2f2600; }
 .mini.r.on { background: var(--rec); color: #fff; }
 .mini.i.on { background: #ff9f5a; color: #2f1600; }
-.thead .vol { flex: 1; min-width: 40px; accent-color: var(--tx1); height: 12px; }
+.thead .vol { flex: 1; min-width: 40px; accent-color: var(--trk, var(--tx1)); height: 12px; }
 .thead .tmeter { position: absolute; right: 2px; top: 6px; bottom: 6px; width: 4px; background: var(--meter-bg0); border-radius: 2px; overflow: hidden; }
 .thead .tmeter i { position: absolute; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, #2fd27e 0 70%, #f5d33d 70% 90%, #ff4d4d 90%); transform-origin: bottom; transform: scaleY(0); height: 100%; }
 
@@ -331,11 +346,16 @@ dialog .soon { opacity: .45; pointer-events: none; }
 
 /* ---------- 右鍵選單 ---------- */
 .ctxmenu { position: fixed; z-index: 100; background: var(--menu-bg); border: 1px solid var(--menu-line); border-radius: 7px; padding: 4px; min-width: 180px;
+  max-height: calc(100vh - 10px); overflow-y: auto; overscroll-behavior: contain;
   box-shadow: 0 10px 30px var(--shadow-b); }
 .ctxmenu button { display: flex; justify-content: space-between; width: 100%; text-align: left; background: none; border: 0; padding: 6px 10px; border-radius: 4px; color: var(--tx0); }
 .ctxmenu button:hover { background: var(--accent); color: var(--menu-hover-tx); }
 .ctxmenu button:disabled { color: var(--tx2); background: none; cursor: default; }
 .ctxmenu button span { color: var(--tx2); }
+/* 多欄選單（快捷鍵一覽）：一欄一欄排，整份才不用捲 */
+.ctxmenu.cols { display: flex; gap: 6px; align-items: flex-start; }
+.ctxmenu.cols .col { display: flex; flex-direction: column; min-width: 226px; }
+.ctxmenu.cols .col hr { margin: 3px 0; }
 .ctxmenu hr { border: 0; border-top: 1px solid var(--menu-hr); margin: 4px 0; }
 
 #toast { position: fixed; left: 50%; bottom: 46px; transform: translate(-50%, 20px); background: var(--toast-bg); border: 1px solid var(--toast-line); color: var(--tx0);
@@ -522,8 +542,12 @@ dialog label.f[hidden] { display: none; }
 .tbtn.vb i { font-style: normal; display: none; font-size: 14px; }
 @media (max-width: 1500px) {
   .tbtn.vb span { display: none; }
-  .tbtn.vb i { display: inline; }
-  .tbtn.vb { min-width: 30px; }
+  .tbtn.vb i { display: inline; font-size: 13px; line-height: 1; margin-top: -2px; }
+  .tbtn.vb { min-width: 32px; flex-direction: column; gap: 0; padding: 2px 5px 7px; }
+  /* 圖示模式：按鍵貼在右下角（跟播放鍵一樣），不要把按鈕撐寬 */
+  .tbtn.vb .k { position: absolute; right: 3px; bottom: 1px; margin: 0; padding: 0; border: 0;
+    background: none; font-size: 8px; line-height: 1; opacity: .6; }
+  .tbtn.vb:hover .k { opacity: 1; background: none; }
 }
 
 /* 音色庫：下載與自動載入 */
@@ -1180,6 +1204,7 @@ html[lang="en"] .insp-sec > h4, html[lang="en"] .sec-h { letter-spacing: 0; }
   --pr-vel-bg: #10131c; --pr-vel-mid: #31343C; --pr-ped-bg: #1C1F27;
   --tl-bg: #10131c; --tl-lbl: #1C1F27; --tl-sec: #262830; --tl-sec-on: #363C60; --tl-sec-line: #585A60; --tl-sel: #BCC4FF; --pitch-bg: #10131c;
   --cv-sel-tx: #10131c;
+  color-scheme: dark;
 }
 /* forest */
 [data-theme="forest"] {
@@ -1215,6 +1240,7 @@ html[lang="en"] .insp-sec > h4, html[lang="en"] .sec-h { letter-spacing: 0; }
   --pr-vel-bg: #101611; --pr-vel-mid: #313732; --pr-ped-bg: #1C221D;
   --tl-bg: #101611; --tl-lbl: #1C221D; --tl-sec: #262B26; --tl-sec-on: #354A2C; --tl-sec-line: #585C58; --tl-sel: #BADCA6; --pitch-bg: #101611;
   --cv-sel-tx: #101611;
+  color-scheme: dark;
 }
 /* sunset */
 [data-theme="sunset"] {
@@ -1250,6 +1276,7 @@ html[lang="en"] .insp-sec > h4, html[lang="en"] .sec-h { letter-spacing: 0; }
   --pr-vel-bg: #1a1214; --pr-vel-mid: #3A3335; --pr-ped-bg: #251E20;
   --tl-bg: #1a1214; --tl-lbl: #251E20; --tl-sec: #2F2729; --tl-sec-on: #5A362A; --tl-sec-line: #5F595A; --tl-sel: #F6B99E; --pitch-bg: #1a1214;
   --cv-sel-tx: #1a1214;
+  color-scheme: dark;
 }
 /* graphite */
 [data-theme="graphite"] {
@@ -1285,6 +1312,187 @@ html[lang="en"] .insp-sec > h4, html[lang="en"] .sec-h { letter-spacing: 0; }
   --pr-vel-bg: #131416; --pr-vel-mid: #343537; --pr-ped-bg: #1F2022;
   --tl-bg: #131416; --tl-lbl: #1F2022; --tl-sec: #28292B; --tl-sec-on: #494B4F; --tl-sec-line: #5A5A5C; --tl-sel: #DDE0E5; --pitch-bg: #131416;
   --cv-sel-tx: #131416;
+  color-scheme: dark;
+}
+/* wine */
+[data-theme="wine"] {
+  --bg0: #1a1014; --bg1: #251C20; --bg2: #2F2629; --bg3: #3A3135; --bg4: #484043;
+  --line: #0C0709; --line2: #5F585A;
+  --tx0: #FAE4E8; --tx1: #F2BBC5; --tx2: #EB95A5;
+  --accent: #e2687f; --accent-soft: #3E2027; --accent-faint: #2E191F; --accent-tx: #0C0709;
+  --topbar-a: #140C0F; --topbar-b: #1a1014;
+  --btn-a: #484043; --btn-b: #3A3135; --btn-hover-a: #5E575A; --btn-hover-b: #524A4D; --btn-active: #251C20;
+  --btn-border: #0C0709; --btn-hi: rgba(255,255,255,.08); --on-tx: #1a1014;
+  --primary-a: #E67F92; --primary-b: #e2687f; --primary-border: #934453; --primary-tx: #0A0608;
+  --menu-hover-tx: #0A0608;
+  --lcd-bg: #120B0E; --lcd-tx: #EFACB9; --lcd-border: #0C0709; --lcd-sep: #3A3135; --lcd-lbl: #EB95A5;
+  --sel-bg: #3A3135; --sel-line: #696265;
+  --lane-line: #150D10; --lane-sel: rgba(255,255,255,.025);
+  --playhead: #FBE8EC; --playhead-glow: rgba(255,255,255,.45);
+  --menu-bg: #2F2629; --menu-line: #5F585A; --menu-hr: #484043;
+  --toast-bg: #2F2629; --toast-line: #5F585A;
+  --fx-slot-bg: #46232C; --fx-slot-line: #110A0D; --fx-slot-tx: #F8D9DF; --fx-slot-hover: #5A2C36;
+  --panel: #2F2629; --panel-line: #5F585A; --panel-head-a: #3A3135; --panel-head-b: #2F2629; --panel2: #251C20; --panel3: #1a1014;
+  --deep: #1a1014; --card-a: #2F2629; --card-b: #251C20; --well: #251C20; --well2: #1a1014;
+  --strip-master-bg: #3A3135; --strip-master-line: #756F72; --strip-bus-bg: #2F2629; --strip-bus-line: #5F585A;
+  --knob-a: #615A5D; --knob-b: #2F2629; --knob-border: #0C0709; --knob-mark: #F3C3CC; --fader-unity: #EB95A5;
+  --cv-ink: 249,225,229; --cv-ink-k: 1; --cv-bg-a: #251C20; --cv-bg-b: #1a1014;
+  --cv-tx: #FAE4E8; --cv-tx2: #EB95A5; --cv-tx3: #46232C; --cv-tx4: #F2BBC5; --cv-orig: 242,187,197; --cv-lead: 250,228,232;
+  --cv-knob-track: #2F2629; --cv-knob-cap: #3A3135; --cv-knob-mark: #F3C3CC; --cv-node-off: #2F2629;
+  --cv-tick: #3A3135; --cv-tick2: #522932; --cv-needle-off: #5F585A; --cv-sel: #FBE8EC;
+  --cv-ruler-major: #EB95A5; --cv-ruler-minor: #5F585A; --cv-ruler-tx: #F2BBC5; --cv-ruler-beat: #3A3135;
+  --cv-trk-sel: #2F2629; --cv-trk-a: #1a1014; --cv-trk-b: #180F12; --cv-grid-bar: #3A3135; --cv-grid-sub: #251C20;
+  --cv-wave: rgba(255,255,255,.82); --cv-midi: rgba(255,255,255,.88); --cv-empty: rgba(255,255,255,.35);
+  --pr-keys-bg: #251C20; --pr-row-w: #2F2629; --pr-row-b: #251C20; --pr-row-d: #2F2629; --pr-row-d2: #1a1014; --pr-oct: #484043;
+  --pr-bar: #5F585A; --pr-beat: #3A3135; --pr-sub: #2F2629; --pr-num: #EB95A5;
+  --pr-vel-bg: #1a1014; --pr-vel-mid: #3A3135; --pr-ped-bg: #251C20;
+  --tl-bg: #1a1014; --tl-lbl: #251C20; --tl-sec: #2F2629; --tl-sec-on: #562A34; --tl-sec-line: #5F585A; --tl-sel: #EEA4B2; --pitch-bg: #1a1014;
+  --cv-sel-tx: #1a1014;
+  color-scheme: dark;
+}
+/* teal */
+[data-theme="teal"] {
+  --bg0: #0e1718; --bg1: #1A2324; --bg2: #242C2D; --bg3: #303738; --bg4: #3E4546;
+  --line: #060A0B; --line2: #565D5D;
+  --tx0: #DEF5F4; --tx1: #ABE6E3; --tx2: #7DD8D3;
+  --accent: #45c8c0; --accent-soft: #183736; --accent-faint: #142929; --accent-tx: #060A0B;
+  --topbar-a: #0A1112; --topbar-b: #0e1718;
+  --btn-a: #3E4546; --btn-b: #303738; --btn-hover-a: #555B5C; --btn-hover-b: #494F50; --btn-active: #1A2324;
+  --btn-border: #060A0B; --btn-hi: rgba(255,255,255,.08); --on-tx: #0e1718;
+  --primary-a: #61D0C9; --primary-b: #45c8c0; --primary-border: #2D827D; --primary-tx: #06090A;
+  --menu-hover-tx: #06090A;
+  --lcd-bg: #0A1011; --lcd-tx: #99E1DC; --lcd-border: #060A0B; --lcd-sep: #303738; --lcd-lbl: #7DD8D3;
+  --sel-bg: #303738; --sel-line: #626768;
+  --lane-line: #0B1213; --lane-sel: rgba(255,255,255,.025);
+  --playhead: #E3F7F6; --playhead-glow: rgba(255,255,255,.45);
+  --menu-bg: #242C2D; --menu-line: #565D5D; --menu-hr: #3E4546;
+  --toast-bg: #242C2D; --toast-line: #565D5D;
+  --fx-slot-bg: #1A3E3D; --fx-slot-line: #090F10; --fx-slot-tx: #D0F1EF; --fx-slot-hover: #20504E;
+  --panel: #242C2D; --panel-line: #565D5D; --panel-head-a: #303738; --panel-head-b: #242C2D; --panel2: #1A2324; --panel3: #0e1718;
+  --deep: #0e1718; --card-a: #242C2D; --card-b: #1A2324; --well: #1A2324; --well2: #0e1718;
+  --strip-master-bg: #303738; --strip-master-line: #6E7374; --strip-bus-bg: #242C2D; --strip-bus-line: #565D5D;
+  --knob-a: #595F60; --knob-b: #242C2D; --knob-border: #060A0B; --knob-mark: #B5E9E6; --fader-unity: #7DD8D3;
+  --cv-ink: 218,244,242; --cv-ink-k: 1; --cv-bg-a: #1A2324; --cv-bg-b: #0e1718;
+  --cv-tx: #DEF5F4; --cv-tx2: #7DD8D3; --cv-tx3: #1A3E3D; --cv-tx4: #ABE6E3; --cv-orig: 171,230,227; --cv-lead: 222,245,244;
+  --cv-knob-track: #242C2D; --cv-knob-cap: #303738; --cv-knob-mark: #B5E9E6; --cv-node-off: #242C2D;
+  --cv-tick: #303738; --cv-tick2: #1D4947; --cv-needle-off: #565D5D; --cv-sel: #E3F7F6;
+  --cv-ruler-major: #7DD8D3; --cv-ruler-minor: #565D5D; --cv-ruler-tx: #ABE6E3; --cv-ruler-beat: #303738;
+  --cv-trk-sel: #242C2D; --cv-trk-a: #0e1718; --cv-trk-b: #0D1516; --cv-grid-bar: #303738; --cv-grid-sub: #1A2324;
+  --cv-wave: rgba(255,255,255,.82); --cv-midi: rgba(255,255,255,.88); --cv-empty: rgba(255,255,255,.35);
+  --pr-keys-bg: #1A2324; --pr-row-w: #242C2D; --pr-row-b: #1A2324; --pr-row-d: #242C2D; --pr-row-d2: #0e1718; --pr-oct: #3E4546;
+  --pr-bar: #565D5D; --pr-beat: #303738; --pr-sub: #242C2D; --pr-num: #7DD8D3;
+  --pr-vel-bg: #0e1718; --pr-vel-mid: #303738; --pr-ped-bg: #1A2324;
+  --tl-bg: #0e1718; --tl-lbl: #1A2324; --tl-sec: #242C2D; --tl-sec-on: #1E4C4A; --tl-sec-line: #565D5D; --tl-sel: #8FDED9; --pitch-bg: #0e1718;
+  --cv-sel-tx: #0e1718;
+  color-scheme: dark;
+}
+/* violet */
+[data-theme="violet"] {
+  --bg0: #15111f; --bg1: #211D2A; --bg2: #2A2633; --bg3: #36323E; --bg4: #44414C;
+  --line: #09080E; --line2: #5B5862;
+  --tx0: #EFEAFD; --tx1: #D6CBFA; --tx2: #C0AEF8;
+  --accent: #a58cf5; --accent-soft: #2F2746; --accent-faint: #231D34; --accent-tx: #09080E;
+  --topbar-a: #100D17; --topbar-b: #15111f;
+  --btn-a: #44414C; --btn-b: #36323E; --btn-hover-a: #5A5861; --btn-hover-b: #4E4B55; --btn-active: #211D2A;
+  --btn-border: #09080E; --btn-hi: rgba(255,255,255,.08); --on-tx: #15111f;
+  --primary-a: #B29DF6; --primary-b: #a58cf5; --primary-border: #6B5B9F; --primary-tx: #08070C;
+  --menu-hover-tx: #08070C;
+  --lcd-bg: #0F0C16; --lcd-tx: #CEC0FA; --lcd-border: #09080E; --lcd-sep: #36323E; --lcd-lbl: #C0AEF8;
+  --sel-bg: #36323E; --sel-line: #66636C;
+  --lane-line: #110E19; --lane-sel: rgba(255,255,255,.025);
+  --playhead: #F2EEFE; --playhead-glow: rgba(255,255,255,.45);
+  --menu-bg: #2A2633; --menu-line: #5B5862; --menu-hr: #44414C;
+  --toast-bg: #2A2633; --toast-line: #5B5862;
+  --fx-slot-bg: #352C4E; --fx-slot-line: #0E0B14; --fx-slot-tx: #E8E2FC; --fx-slot-hover: #433863;
+  --panel: #2A2633; --panel-line: #5B5862; --panel-head-a: #36323E; --panel-head-b: #2A2633; --panel2: #211D2A; --panel3: #15111f;
+  --deep: #15111f; --card-a: #2A2633; --card-b: #211D2A; --well: #211D2A; --well2: #15111f;
+  --strip-master-bg: #36323E; --strip-master-line: #727078; --strip-bus-bg: #2A2633; --strip-bus-line: #5B5862;
+  --knob-a: #5E5B65; --knob-b: #2A2633; --knob-border: #09080E; --knob-mark: #DBD1FB; --fader-unity: #C0AEF8;
+  --cv-ink: 237,232,253; --cv-ink-k: 1; --cv-bg-a: #211D2A; --cv-bg-b: #15111f;
+  --cv-tx: #EFEAFD; --cv-tx2: #C0AEF8; --cv-tx3: #352C4E; --cv-tx4: #D6CBFA; --cv-orig: 214,203,250; --cv-lead: 239,234,253;
+  --cv-knob-track: #2A2633; --cv-knob-cap: #36323E; --cv-knob-mark: #DBD1FB; --cv-node-off: #2A2633;
+  --cv-tick: #36323E; --cv-tick2: #3D335B; --cv-needle-off: #5B5862; --cv-sel: #F2EEFE;
+  --cv-ruler-major: #C0AEF8; --cv-ruler-minor: #5B5862; --cv-ruler-tx: #D6CBFA; --cv-ruler-beat: #36323E;
+  --cv-trk-sel: #2A2633; --cv-trk-a: #15111f; --cv-trk-b: #13101D; --cv-grid-bar: #36323E; --cv-grid-sub: #211D2A;
+  --cv-wave: rgba(255,255,255,.82); --cv-midi: rgba(255,255,255,.88); --cv-empty: rgba(255,255,255,.35);
+  --pr-keys-bg: #211D2A; --pr-row-w: #2A2633; --pr-row-b: #211D2A; --pr-row-d: #2A2633; --pr-row-d2: #15111f; --pr-oct: #44414C;
+  --pr-bar: #5B5862; --pr-beat: #36323E; --pr-sub: #2A2633; --pr-num: #C0AEF8;
+  --pr-vel-bg: #15111f; --pr-vel-mid: #36323E; --pr-ped-bg: #211D2A;
+  --tl-bg: #15111f; --tl-lbl: #211D2A; --tl-sec: #2A2633; --tl-sec-on: #40365F; --tl-sec-line: #5B5862; --tl-sel: #C9BAF9; --pitch-bg: #15111f;
+  --cv-sel-tx: #15111f;
+  color-scheme: dark;
+}
+/* olive */
+[data-theme="olive"] {
+  --bg0: #14160f; --bg1: #20221B; --bg2: #292B25; --bg3: #353731; --bg4: #43453F;
+  --line: #090A07; --line2: #5A5C57;
+  --tx0: #F2F4E3; --tx1: #DEE4B9; --tx2: #CCD692;
+  --accent: #b6c463; --accent-soft: #31351E; --accent-faint: #242717; --accent-tx: #090A07;
+  --topbar-a: #0F100B; --topbar-b: #14160f;
+  --btn-a: #43453F; --btn-b: #353731; --btn-hover-a: #5A5B56; --btn-hover-b: #4D4F4A; --btn-active: #20221B;
+  --btn-border: #090A07; --btn-hi: rgba(255,255,255,.08); --on-tx: #14160f;
+  --primary-a: #C1CD7A; --primary-b: #b6c463; --primary-border: #767F40; --primary-tx: #080906;
+  --menu-hover-tx: #080906;
+  --lcd-bg: #0E0F0A; --lcd-tx: #D7DFA9; --lcd-border: #090A07; --lcd-sep: #353731; --lcd-lbl: #CCD692;
+  --sel-bg: #353731; --sel-line: #656762;
+  --lane-line: #10120C; --lane-sel: rgba(255,255,255,.025);
+  --playhead: #F4F6E8; --playhead-glow: rgba(255,255,255,.45);
+  --menu-bg: #292B25; --menu-line: #5A5C57; --menu-hr: #43453F;
+  --toast-bg: #292B25; --toast-line: #5A5C57;
+  --fx-slot-bg: #383C21; --fx-slot-line: #0D0E0A; --fx-slot-tx: #EDF0D8; --fx-slot-hover: #484E2A;
+  --panel: #292B25; --panel-line: #5A5C57; --panel-head-a: #353731; --panel-head-b: #292B25; --panel2: #20221B; --panel3: #14160f;
+  --deep: #14160f; --card-a: #292B25; --card-b: #20221B; --well: #20221B; --well2: #14160f;
+  --strip-master-bg: #353731; --strip-master-line: #72736F; --strip-bus-bg: #292B25; --strip-bus-line: #5A5C57;
+  --knob-a: #5D5F5A; --knob-b: #292B25; --knob-border: #090A07; --knob-mark: #E2E7C1; --fader-unity: #CCD692;
+  --cv-ink: 240,243,224; --cv-ink-k: 1; --cv-bg-a: #20221B; --cv-bg-b: #14160f;
+  --cv-tx: #F2F4E3; --cv-tx2: #CCD692; --cv-tx3: #383C21; --cv-tx4: #DEE4B9; --cv-orig: 222,228,185; --cv-lead: 242,244,227;
+  --cv-knob-track: #292B25; --cv-knob-cap: #353731; --cv-knob-mark: #E2E7C1; --cv-node-off: #292B25;
+  --cv-tick: #353731; --cv-tick2: #414727; --cv-needle-off: #5A5C57; --cv-sel: #F4F6E8;
+  --cv-ruler-major: #CCD692; --cv-ruler-minor: #5A5C57; --cv-ruler-tx: #DEE4B9; --cv-ruler-beat: #353731;
+  --cv-trk-sel: #292B25; --cv-trk-a: #14160f; --cv-trk-b: #12140E; --cv-grid-bar: #353731; --cv-grid-sub: #20221B;
+  --cv-wave: rgba(255,255,255,.82); --cv-midi: rgba(255,255,255,.88); --cv-empty: rgba(255,255,255,.35);
+  --pr-keys-bg: #20221B; --pr-row-w: #292B25; --pr-row-b: #20221B; --pr-row-d: #292B25; --pr-row-d2: #14160f; --pr-oct: #43453F;
+  --pr-bar: #5A5C57; --pr-beat: #353731; --pr-sub: #292B25; --pr-num: #CCD692;
+  --pr-vel-bg: #14160f; --pr-vel-mid: #353731; --pr-ped-bg: #20221B;
+  --tl-bg: #14160f; --tl-lbl: #20221B; --tl-sec: #292B25; --tl-sec-on: #454A28; --tl-sec-line: #5A5C57; --tl-sel: #D3DCA1; --pitch-bg: #14160f;
+  --cv-sel-tx: #14160f;
+  color-scheme: dark;
+}
+/* amber */
+[data-theme="amber"] {
+  --bg0: #1a150e; --bg1: #25211A; --bg2: #2F2A24; --bg3: #3A3630; --bg4: #48443E;
+  --line: #0C0906; --line2: #5F5B56;
+  --tx0: #FAEFE0; --tx1: #F2D6B2; --tx2: #EBBF88;
+  --accent: #e3a455; --accent-soft: #3E2F1B; --accent-faint: #2E2315; --accent-tx: #0C0906;
+  --topbar-a: #14100A; --topbar-b: #1a150e;
+  --btn-a: #48443E; --btn-b: #3A3630; --btn-hover-a: #5E5A55; --btn-hover-b: #524E49; --btn-active: #25211A;
+  --btn-border: #0C0906; --btn-hi: rgba(255,255,255,.08); --on-tx: #1a150e;
+  --primary-a: #E7B26E; --primary-b: #e3a455; --primary-border: #946B37; --primary-tx: #0A0806;
+  --menu-hover-tx: #0A0806;
+  --lcd-bg: #120F0A; --lcd-tx: #F0CDA2; --lcd-border: #0C0906; --lcd-sep: #3A3630; --lcd-lbl: #EBBF88;
+  --sel-bg: #3A3630; --sel-line: #696662;
+  --lane-line: #15110B; --lane-sel: rgba(255,255,255,.025);
+  --playhead: #FBF1E6; --playhead-glow: rgba(255,255,255,.45);
+  --menu-bg: #2F2A24; --menu-line: #5F5B56; --menu-hr: #48443E;
+  --toast-bg: #2F2A24; --toast-line: #5F5B56;
+  --fx-slot-bg: #46341E; --fx-slot-line: #110E09; --fx-slot-tx: #F8E8D4; --fx-slot-hover: #5A4325;
+  --panel: #2F2A24; --panel-line: #5F5B56; --panel-head-a: #3A3630; --panel-head-b: #2F2A24; --panel2: #25211A; --panel3: #1a150e;
+  --deep: #1a150e; --card-a: #2F2A24; --card-b: #25211A; --well: #25211A; --well2: #1a150e;
+  --strip-master-bg: #3A3630; --strip-master-line: #75726E; --strip-bus-bg: #2F2A24; --strip-bus-line: #5F5B56;
+  --knob-a: #615E59; --knob-b: #2F2A24; --knob-border: #0C0906; --knob-mark: #F4DBBB; --fader-unity: #EBBF88;
+  --cv-ink: 249,237,221; --cv-ink-k: 1; --cv-bg-a: #25211A; --cv-bg-b: #1a150e;
+  --cv-tx: #FAEFE0; --cv-tx2: #EBBF88; --cv-tx3: #46341E; --cv-tx4: #F2D6B2; --cv-orig: 242,214,178; --cv-lead: 250,239,224;
+  --cv-knob-track: #2F2A24; --cv-knob-cap: #3A3630; --cv-knob-mark: #F4DBBB; --cv-node-off: #2F2A24;
+  --cv-tick: #3A3630; --cv-tick2: #523D22; --cv-needle-off: #5F5B56; --cv-sel: #FBF1E6;
+  --cv-ruler-major: #EBBF88; --cv-ruler-minor: #5F5B56; --cv-ruler-tx: #F2D6B2; --cv-ruler-beat: #3A3630;
+  --cv-trk-sel: #2F2A24; --cv-trk-a: #1a150e; --cv-trk-b: #18130D; --cv-grid-bar: #3A3630; --cv-grid-sub: #25211A;
+  --cv-wave: rgba(255,255,255,.82); --cv-midi: rgba(255,255,255,.88); --cv-empty: rgba(255,255,255,.35);
+  --pr-keys-bg: #25211A; --pr-row-w: #2F2A24; --pr-row-b: #25211A; --pr-row-d: #2F2A24; --pr-row-d2: #1a150e; --pr-oct: #48443E;
+  --pr-bar: #5F5B56; --pr-beat: #3A3630; --pr-sub: #2F2A24; --pr-num: #EBBF88;
+  --pr-vel-bg: #1a150e; --pr-vel-mid: #3A3630; --pr-ped-bg: #25211A;
+  --tl-bg: #1a150e; --tl-lbl: #25211A; --tl-sec: #2F2A24; --tl-sec-on: #564023; --tl-sec-line: #5F5B56; --tl-sel: #EEC899; --pitch-bg: #1a150e;
+  --cv-sel-tx: #1a150e;
+  color-scheme: dark;
 }
 /* sakura */
 [data-theme="sakura"] {
@@ -1391,9 +1599,186 @@ html[lang="en"] .insp-sec > h4, html[lang="en"] .sec-h { letter-spacing: 0; }
   --tl-bg: #ffffff; --tl-lbl: #F7FCF9; --tl-sec: #F0F4F0; --tl-sec-on: #C3E4D7; --tl-sec-line: #D2CCC9; --tl-sel: #2B3F35; --pitch-bg: #ffffff;
   --cv-sel-tx: #fff; color-scheme: light;
 }
+/* lavender */
+[data-theme="lavender"] {
+  --bg0: #f9f6ff; --bg1: #FCFAFF; --bg2: #FAF8FF; --bg3: #F4F0F6; --bg4: #E5E0E3;
+  --line: #E7E1E4; --line2: #D3CBCB;
+  --tx0: #3C3048; --tx1: #52416D; --tx2: #715E92;
+  --accent: #7a5ad0; --accent-soft: #E5DDF7; --accent-faint: #EFEAFB; --accent-tx: #fff;
+  --topbar-a: #ffffff; --topbar-b: #FCFAFF;
+  --btn-a: #ffffff; --btn-b: #FAF8FF; --btn-hover-a: #ffffff; --btn-hover-b: #F4F0F6; --btn-active: #E5E0E3;
+  --btn-border: #D3CBCB; --btn-hi: rgba(255,255,255,.9); --on-tx: #1E1A18;
+  --primary-a: #9278D8; --primary-b: #7a5ad0; --primary-border: #553F92; --primary-tx: #fff;
+  --menu-hover-tx: #fff;
+  --lcd-bg: #392C4E; --lcd-tx: #C3B5EA; --lcd-border: #E7E1E4; --lcd-sep: #D3CBCB; --lcd-lbl: #A994E0;
+  --sel-bg: #E5DDF7; --sel-line: #9B83DC;
+  --lane-line: #F4F0F6; --lane-sel: #F0EBFC;
+  --playhead: #3C3048; --playhead-glow: rgba(0,0,0,.18);
+  --menu-bg: #ffffff; --menu-line: #D3CBCB; --menu-hr: #E5E0E3;
+  --toast-bg: #ffffff; --toast-line: #D3CBCB;
+  --fx-slot-bg: #E5DDF7; --fx-slot-line: #C3B5EA; --fx-slot-tx: #3C3048; --fx-slot-hover: #D8CDF3;
+  --panel: #FCFAFF; --panel-line: #D3CBCB; --panel-head-a: #ffffff; --panel-head-b: #FAF8FF; --panel2: #FAF8FF; --panel3: #F4F0F6;
+  --deep: #FCFAFF; --card-a: #ffffff; --card-b: #FAF8FF; --well: #FAF8FF; --well2: #ffffff;
+  --strip-master-bg: #E0D7F6; --strip-master-line: #7a5ad0; --strip-bus-bg: #FAF8FF; --strip-bus-line: #D3CBCB;
+  --knob-a: #ffffff; --knob-b: #D3CBCB; --knob-border: #715E92; --knob-mark: #3C3048; --fader-unity: #715E92;
+  --cv-ink: 60,48,72; --cv-ink-k: 1.3; --cv-bg-a: #ffffff; --cv-bg-b: #FCFAFF;
+  --cv-tx: #3C3048; --cv-tx2: #715E92; --cv-tx3: #9C8EB3; --cv-tx4: #52416D; --cv-orig: 82,65,109; --cv-lead: 60,48,72;
+  --cv-knob-track: #E5E0E3; --cv-knob-cap: #ffffff; --cv-knob-mark: #3C3048; --cv-node-off: #E5E0E3;
+  --cv-tick: #D3CBCB; --cv-tick2: #715E92; --cv-needle-off: #D3CBCB; --cv-sel: #3C3048;
+  --cv-ruler-major: #52416D; --cv-ruler-minor: #D3CBCB; --cv-ruler-tx: #3C3048; --cv-ruler-beat: #E5E0E3;
+  --cv-trk-sel: #E7E0F8; --cv-trk-a: #FAF8FF; --cv-trk-b: #FCFAFF; --cv-grid-bar: #D3CBCB; --cv-grid-sub: #F4F0F6;
+  --cv-wave: rgba(40,32,30,.78); --cv-midi: rgba(40,32,30,.85); --cv-empty: rgba(60,50,48,.5);
+  --pr-keys-bg: #F4F0F6; --pr-row-w: #ffffff; --pr-row-b: #FAF8FF; --pr-row-d: #ffffff; --pr-row-d2: #FAF8FF; --pr-oct: #E5E0E3;
+  --pr-bar: #715E92; --pr-beat: #D3CBCB; --pr-sub: #F4F0F6; --pr-num: #715E92;
+  --pr-vel-bg: #FAF8FF; --pr-vel-mid: #E5E0E3; --pr-ped-bg: #FCFAFF;
+  --tl-bg: #ffffff; --tl-lbl: #FAF8FF; --tl-sec: #F4F0F6; --tl-sec-on: #D9CFF3; --tl-sec-line: #D3CBCB; --tl-sel: #3C3048; --pitch-bg: #ffffff;
+  --cv-sel-tx: #fff; color-scheme: light;
+}
+/* peach */
+[data-theme="peach"] {
+  --bg0: #fff5ef; --bg1: #FFFAF7; --bg2: #FFF8F3; --bg3: #F8EFEA; --bg4: #E8DFDB;
+  --line: #EAE1DD; --line2: #D4CBC8;
+  --tx0: #503328; --tx1: #764736; --tx2: #9C6651;
+  --accent: #d96a3f; --accent-soft: #F9DFD3; --accent-faint: #FCEAE1; --accent-tx: #fff;
+  --topbar-a: #ffffff; --topbar-b: #FFFAF7;
+  --btn-a: #ffffff; --btn-b: #FFF8F3; --btn-hover-a: #ffffff; --btn-hover-b: #F8EFEA; --btn-active: #E8DFDB;
+  --btn-border: #D4CBC8; --btn-hi: rgba(255,255,255,.9); --on-tx: #1E1A18;
+  --primary-a: #E08562; --primary-b: #d96a3f; --primary-border: #984A2C; --primary-tx: #fff;
+  --menu-hover-tx: #fff;
+  --lcd-bg: #553122; --lcd-tx: #EEBCA9; --lcd-border: #EAE1DD; --lcd-sep: #D4CBC8; --lcd-lbl: #E69E82;
+  --sel-bg: #F9DFD3; --sel-line: #E28F6F;
+  --lane-line: #F8EFEA; --lane-sel: #FCEBE3;
+  --playhead: #503328; --playhead-glow: rgba(0,0,0,.18);
+  --menu-bg: #ffffff; --menu-line: #D4CBC8; --menu-hr: #E8DFDB;
+  --toast-bg: #ffffff; --toast-line: #D4CBC8;
+  --fx-slot-bg: #F9DFD3; --fx-slot-line: #EEBCA9; --fx-slot-tx: #503328; --fx-slot-hover: #F5D1C1;
+  --panel: #FFFAF7; --panel-line: #D4CBC8; --panel-head-a: #ffffff; --panel-head-b: #FFF8F3; --panel2: #FFF8F3; --panel3: #F8EFEA;
+  --deep: #FFFAF7; --card-a: #ffffff; --card-b: #FFF8F3; --well: #FFF8F3; --well2: #ffffff;
+  --strip-master-bg: #F7D9CC; --strip-master-line: #d96a3f; --strip-bus-bg: #FFF8F3; --strip-bus-line: #D4CBC8;
+  --knob-a: #ffffff; --knob-b: #D4CBC8; --knob-border: #9C6651; --knob-mark: #503328; --fader-unity: #9C6651;
+  --cv-ink: 80,51,40; --cv-ink-k: 1.3; --cv-bg-a: #ffffff; --cv-bg-b: #FFFAF7;
+  --cv-tx: #503328; --cv-tx2: #9C6651; --cv-tx3: #BA9485; --cv-tx4: #764736; --cv-orig: 118,71,54; --cv-lead: 80,51,40;
+  --cv-knob-track: #E8DFDB; --cv-knob-cap: #ffffff; --cv-knob-mark: #503328; --cv-node-off: #E8DFDB;
+  --cv-tick: #D4CBC8; --cv-tick2: #9C6651; --cv-needle-off: #D4CBC8; --cv-sel: #503328;
+  --cv-ruler-major: #764736; --cv-ruler-minor: #D4CBC8; --cv-ruler-tx: #503328; --cv-ruler-beat: #E8DFDB;
+  --cv-trk-sel: #FAE2D6; --cv-trk-a: #FFF8F3; --cv-trk-b: #FFFAF7; --cv-grid-bar: #D4CBC8; --cv-grid-sub: #F8EFEA;
+  --cv-wave: rgba(40,32,30,.78); --cv-midi: rgba(40,32,30,.85); --cv-empty: rgba(60,50,48,.5);
+  --pr-keys-bg: #F8EFEA; --pr-row-w: #ffffff; --pr-row-b: #FFF8F3; --pr-row-d: #ffffff; --pr-row-d2: #FFF8F3; --pr-oct: #E8DFDB;
+  --pr-bar: #9C6651; --pr-beat: #D4CBC8; --pr-sub: #F8EFEA; --pr-num: #9C6651;
+  --pr-vel-bg: #FFF8F3; --pr-vel-mid: #E8DFDB; --pr-ped-bg: #FFFAF7;
+  --tl-bg: #ffffff; --tl-lbl: #FFF8F3; --tl-sec: #F8EFEA; --tl-sec-on: #F6D2C3; --tl-sec-line: #D4CBC8; --tl-sel: #503328; --pitch-bg: #ffffff;
+  --cv-sel-tx: #fff; color-scheme: light;
+}
+/* stone */
+[data-theme="stone"] {
+  --bg0: #f6f7f9; --bg1: #FAFBFC; --bg2: #F8F9FA; --bg3: #F2F1F2; --bg4: #E4E1E0;
+  --line: #E6E2E1; --line2: #D2CBCA;
+  --tx0: #363435; --tx1: #48484C; --tx2: #65666B;
+  --accent: #5f6c7a; --accent-soft: #DEE1E5; --accent-faint: #EAECEF; --accent-tx: #fff;
+  --topbar-a: #ffffff; --topbar-b: #FAFBFC;
+  --btn-a: #ffffff; --btn-b: #F8F9FA; --btn-hover-a: #ffffff; --btn-hover-b: #F2F1F2; --btn-active: #E4E1E0;
+  --btn-border: #D2CBCA; --btn-hi: rgba(255,255,255,.9); --on-tx: #1E1A18;
+  --primary-a: #7C8692; --primary-b: #5f6c7a; --primary-border: #424C55; --primary-tx: #fff;
+  --menu-hover-tx: #fff;
+  --lcd-bg: #313134; --lcd-tx: #B7BDC3; --lcd-border: #E6E2E1; --lcd-sep: #D2CBCA; --lcd-lbl: #979FA9;
+  --sel-bg: #DEE1E5; --sel-line: #87919B;
+  --lane-line: #F2F1F2; --lane-sel: #EBEDF0;
+  --playhead: #363435; --playhead-glow: rgba(0,0,0,.18);
+  --menu-bg: #ffffff; --menu-line: #D2CBCA; --menu-hr: #E4E1E0;
+  --toast-bg: #ffffff; --toast-line: #D2CBCA;
+  --fx-slot-bg: #DEE1E5; --fx-slot-line: #B7BDC3; --fx-slot-tx: #363435; --fx-slot-hover: #CFD3D8;
+  --panel: #FAFBFC; --panel-line: #D2CBCA; --panel-head-a: #ffffff; --panel-head-b: #F8F9FA; --panel2: #F8F9FA; --panel3: #F2F1F2;
+  --deep: #FAFBFC; --card-a: #ffffff; --card-b: #F8F9FA; --well: #F8F9FA; --well2: #ffffff;
+  --strip-master-bg: #D8DBE0; --strip-master-line: #5f6c7a; --strip-bus-bg: #F8F9FA; --strip-bus-line: #D2CBCA;
+  --knob-a: #ffffff; --knob-b: #D2CBCA; --knob-border: #65666B; --knob-mark: #363435; --fader-unity: #65666B;
+  --cv-ink: 54,52,53; --cv-ink-k: 1.3; --cv-bg-a: #ffffff; --cv-bg-b: #FAFBFC;
+  --cv-tx: #363435; --cv-tx2: #65666B; --cv-tx3: #939497; --cv-tx4: #48484C; --cv-orig: 72,72,76; --cv-lead: 54,52,53;
+  --cv-knob-track: #E4E1E0; --cv-knob-cap: #ffffff; --cv-knob-mark: #363435; --cv-node-off: #E4E1E0;
+  --cv-tick: #D2CBCA; --cv-tick2: #65666B; --cv-needle-off: #D2CBCA; --cv-sel: #363435;
+  --cv-ruler-major: #48484C; --cv-ruler-minor: #D2CBCA; --cv-ruler-tx: #363435; --cv-ruler-beat: #E4E1E0;
+  --cv-trk-sel: #E1E4E7; --cv-trk-a: #F8F9FA; --cv-trk-b: #FAFBFC; --cv-grid-bar: #D2CBCA; --cv-grid-sub: #F2F1F2;
+  --cv-wave: rgba(40,32,30,.78); --cv-midi: rgba(40,32,30,.85); --cv-empty: rgba(60,50,48,.5);
+  --pr-keys-bg: #F2F1F2; --pr-row-w: #ffffff; --pr-row-b: #F8F9FA; --pr-row-d: #ffffff; --pr-row-d2: #F8F9FA; --pr-oct: #E4E1E0;
+  --pr-bar: #65666B; --pr-beat: #D2CBCA; --pr-sub: #F2F1F2; --pr-num: #65666B;
+  --pr-vel-bg: #F8F9FA; --pr-vel-mid: #E4E1E0; --pr-ped-bg: #FAFBFC;
+  --tl-bg: #ffffff; --tl-lbl: #F8F9FA; --tl-sec: #F2F1F2; --tl-sec-on: #D0D4D9; --tl-sec-line: #D2CBCA; --tl-sel: #363435; --pitch-bg: #ffffff;
+  --cv-sel-tx: #fff; color-scheme: light;
+}
+/* sage */
+[data-theme="sage"] {
+  --bg0: #f5f9f2; --bg1: #FAFCF8; --bg2: #F8FAF5; --bg3: #F1F2ED; --bg4: #E3E1DD;
+  --line: #E5E2DE; --line2: #D2CBC8;
+  --tx0: #363C29; --tx1: #485537; --tx2: #657652;
+  --accent: #5f8f43; --accent-soft: #DDE8D6; --accent-faint: #E9F1E4; --accent-tx: #fff;
+  --topbar-a: #ffffff; --topbar-b: #FAFCF8;
+  --btn-a: #ffffff; --btn-b: #F8FAF5; --btn-hover-a: #ffffff; --btn-hover-b: #F1F2ED; --btn-active: #E3E1DD;
+  --btn-border: #D2CBC8; --btn-hi: rgba(255,255,255,.9); --on-tx: #1E1A18;
+  --primary-a: #7CA365; --primary-b: #5f8f43; --primary-border: #42642F; --primary-tx: #fff;
+  --menu-hover-tx: #fff;
+  --lcd-bg: #313C24; --lcd-tx: #B7CDAA; --lcd-border: #E5E2DE; --lcd-sep: #D2CBC8; --lcd-lbl: #97B685;
+  --sel-bg: #DDE8D6; --sel-line: #87AB72;
+  --lane-line: #F1F2ED; --lane-sel: #EAF2E6;
+  --playhead: #363C29; --playhead-glow: rgba(0,0,0,.18);
+  --menu-bg: #ffffff; --menu-line: #D2CBC8; --menu-hr: #E3E1DD;
+  --toast-bg: #ffffff; --toast-line: #D2CBC8;
+  --fx-slot-bg: #DDE8D6; --fx-slot-line: #B7CDAA; --fx-slot-tx: #363C29; --fx-slot-hover: #CEDDC4;
+  --panel: #FAFCF8; --panel-line: #D2CBC8; --panel-head-a: #ffffff; --panel-head-b: #F8FAF5; --panel2: #F8FAF5; --panel3: #F1F2ED;
+  --deep: #FAFCF8; --card-a: #ffffff; --card-b: #F8FAF5; --well: #F8FAF5; --well2: #ffffff;
+  --strip-master-bg: #D7E4CF; --strip-master-line: #5f8f43; --strip-bus-bg: #F8FAF5; --strip-bus-line: #D2CBC8;
+  --knob-a: #ffffff; --knob-b: #D2CBC8; --knob-border: #657652; --knob-mark: #363C29; --fader-unity: #657652;
+  --cv-ink: 54,60,41; --cv-ink-k: 1.3; --cv-bg-a: #ffffff; --cv-bg-b: #FAFCF8;
+  --cv-tx: #363C29; --cv-tx2: #657652; --cv-tx3: #939F86; --cv-tx4: #485537; --cv-orig: 72,85,55; --cv-lead: 54,60,41;
+  --cv-knob-track: #E3E1DD; --cv-knob-cap: #ffffff; --cv-knob-mark: #363C29; --cv-node-off: #E3E1DD;
+  --cv-tick: #D2CBC8; --cv-tick2: #657652; --cv-needle-off: #D2CBC8; --cv-sel: #363C29;
+  --cv-ruler-major: #485537; --cv-ruler-minor: #D2CBC8; --cv-ruler-tx: #363C29; --cv-ruler-beat: #E3E1DD;
+  --cv-trk-sel: #E0EADA; --cv-trk-a: #F8FAF5; --cv-trk-b: #FAFCF8; --cv-grid-bar: #D2CBC8; --cv-grid-sub: #F1F2ED;
+  --cv-wave: rgba(40,32,30,.78); --cv-midi: rgba(40,32,30,.85); --cv-empty: rgba(60,50,48,.5);
+  --pr-keys-bg: #F1F2ED; --pr-row-w: #ffffff; --pr-row-b: #F8FAF5; --pr-row-d: #ffffff; --pr-row-d2: #F8FAF5; --pr-oct: #E3E1DD;
+  --pr-bar: #657652; --pr-beat: #D2CBC8; --pr-sub: #F1F2ED; --pr-num: #657652;
+  --pr-vel-bg: #F8FAF5; --pr-vel-mid: #E3E1DD; --pr-ped-bg: #FAFCF8;
+  --tl-bg: #ffffff; --tl-lbl: #F8FAF5; --tl-sec: #F1F2ED; --tl-sec-on: #D0DEC6; --tl-sec-line: #D2CBC8; --tl-sel: #363C29; --pitch-bg: #ffffff;
+  --cv-sel-tx: #fff; color-scheme: light;
+}
+/* rose */
+[data-theme="rose"] {
+  --bg0: #fff5f7; --bg1: #FFFAFB; --bg2: #FFF8F9; --bg3: #F8EFF0; --bg4: #E8DFDF;
+  --line: #EAE1E0; --line2: #D4CBC9;
+  --tx0: #4B2C30; --tx1: #6D3B43; --tx2: #915761;
+  --accent: #c04a63; --accent-soft: #F5DADF; --accent-faint: #FAE7EB; --accent-tx: #fff;
+  --topbar-a: #ffffff; --topbar-b: #FFFAFB;
+  --btn-a: #ffffff; --btn-b: #FFF8F9; --btn-hover-a: #ffffff; --btn-hover-b: #F8EFF0; --btn-active: #E8DFDF;
+  --btn-border: #D4CBC9; --btn-hi: rgba(255,255,255,.9); --on-tx: #1E1A18;
+  --primary-a: #CB6B7F; --primary-b: #c04a63; --primary-border: #863445; --primary-tx: #fff;
+  --menu-hover-tx: #fff;
+  --lcd-bg: #4E272D; --lcd-tx: #E3AEB9; --lcd-border: #EAE1E0; --lcd-sep: #D4CBC9; --lcd-lbl: #D6899A;
+  --sel-bg: #F5DADF; --sel-line: #D0778A;
+  --lane-line: #F8EFF0; --lane-sel: #FBE9ED;
+  --playhead: #4B2C30; --playhead-glow: rgba(0,0,0,.18);
+  --menu-bg: #ffffff; --menu-line: #D4CBC9; --menu-hr: #E8DFDF;
+  --toast-bg: #ffffff; --toast-line: #D4CBC9;
+  --fx-slot-bg: #F5DADF; --fx-slot-line: #E3AEB9; --fx-slot-tx: #4B2C30; --fx-slot-hover: #EFC9D1;
+  --panel: #FFFAFB; --panel-line: #D4CBC9; --panel-head-a: #ffffff; --panel-head-b: #FFF8F9; --panel2: #FFF8F9; --panel3: #F8EFF0;
+  --deep: #FFFAFB; --card-a: #ffffff; --card-b: #FFF8F9; --well: #FFF8F9; --well2: #ffffff;
+  --strip-master-bg: #F2D3D9; --strip-master-line: #c04a63; --strip-bus-bg: #FFF8F9; --strip-bus-line: #D4CBC9;
+  --knob-a: #ffffff; --knob-b: #D4CBC9; --knob-border: #915761; --knob-mark: #4B2C30; --fader-unity: #915761;
+  --cv-ink: 75,44,48; --cv-ink-k: 1.3; --cv-bg-a: #ffffff; --cv-bg-b: #FFFAFB;
+  --cv-tx: #4B2C30; --cv-tx2: #915761; --cv-tx3: #B28990; --cv-tx4: #6D3B43; --cv-orig: 109,59,67; --cv-lead: 75,44,48;
+  --cv-knob-track: #E8DFDF; --cv-knob-cap: #ffffff; --cv-knob-mark: #4B2C30; --cv-node-off: #E8DFDF;
+  --cv-tick: #D4CBC9; --cv-tick2: #915761; --cv-needle-off: #D4CBC9; --cv-sel: #4B2C30;
+  --cv-ruler-major: #6D3B43; --cv-ruler-minor: #D4CBC9; --cv-ruler-tx: #4B2C30; --cv-ruler-beat: #E8DFDF;
+  --cv-trk-sel: #F6DDE2; --cv-trk-a: #FFF8F9; --cv-trk-b: #FFFAFB; --cv-grid-bar: #D4CBC9; --cv-grid-sub: #F8EFF0;
+  --cv-wave: rgba(40,32,30,.78); --cv-midi: rgba(40,32,30,.85); --cv-empty: rgba(60,50,48,.5);
+  --pr-keys-bg: #F8EFF0; --pr-row-w: #ffffff; --pr-row-b: #FFF8F9; --pr-row-d: #ffffff; --pr-row-d2: #FFF8F9; --pr-oct: #E8DFDF;
+  --pr-bar: #915761; --pr-beat: #D4CBC9; --pr-sub: #F8EFF0; --pr-num: #915761;
+  --pr-vel-bg: #FFF8F9; --pr-vel-mid: #E8DFDF; --pr-ped-bg: #FFFAFB;
+  --tl-bg: #ffffff; --tl-lbl: #FFF8F9; --tl-sec: #F8EFF0; --tl-sec-on: #EFCAD2; --tl-sec-line: #D4CBC9; --tl-sel: #4B2C30; --pitch-bg: #ffffff;
+  --cv-sel-tx: #fff; color-scheme: light;
+}
+
 
 /* ---------- 選單色票（配色） ---------- */
-.ctxmenu button.has-swatch { display: flex; align-items: center; gap: 8px; min-width: 210px; }
-.ctxmenu .sw-set { margin-left: auto; display: inline-flex; gap: 3px; }
-.ctxmenu .sw-set i { width: 14px; height: 14px; border-radius: 3px; display: block;
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,.25); }
+.ctxmenu button.has-swatch { display: flex; align-items: center; gap: 8px; min-width: 230px; }
+.ctxmenu button.has-swatch .sw-set { margin-left: auto; display: inline-flex; gap: 3px; }
+.ctxmenu .sw-set i { width: 15px; height: 15px; border-radius: 4px; display: block;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.28); }
+.ctxmenu .sw-set { display: inline-flex; gap: 3px; }
