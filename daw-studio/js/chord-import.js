@@ -1,7 +1,10 @@
-// 匯入「自動抓和弦」匯出的 .zychords.json → 專案的和弦軌
-// 檔案格式：{ app:'zhiyin-chords', bpm, sigNum, key:{root,minor}, chords:[{t:拍, d:拍, root:0-11, q}] }
+// 匯入「自動抓和弦」匯出的 .zychords.json → 專案的和弦軌（＋段落軌）
+// 檔案格式：{ app:'zhiyin-chords', bpm, sigNum, key:{root,minor}, chords:[{t:拍, d:拍, root:0-11, q}],
+//            sections?:[{t:拍, d:拍, sec:'verse1'|'主歌'…}] }
 import { store } from './state.js';
 import { toast } from './util.js';
+import { normSec, sectionsOf, writePlanToSections } from './section-ui.js';
+import { autoPlan, planWithBars, chordRange } from './ai-arrange.js';
 
 const $ = id => document.getElementById(id);
 
@@ -47,7 +50,26 @@ export async function importChordFile(file) {
   if (doc.name) p.chordName = doc.name;
   p.showChords = true;
   $('btnChords')?.classList.add('on');
+
+  // 段落軌：檔案有帶段落就照檔案，沒有就依和弦樣式排一份（已經有段落的不覆蓋）
+  let nSec = 0;
+  const bpb = p.sigNum || 4;
+  if (Array.isArray(doc.sections) && doc.sections.length) {
+    p.sections = doc.sections.map(s => ({
+      t: Math.max(0, Number(s.t) || 0),
+      d: Math.max(0.25, Number(s.d) || bpb),
+      sec: normSec(s.sec ?? s.label ?? s.name) || 'verse1',
+    })).sort((a, b) => a.t - b.t);
+    p.showSections = true;
+    nSec = p.sections.length;
+  } else if (!sectionsOf().length) {
+    nSec = writePlanToSections(planWithBars(autoPlan(chordRange(), {}), 'cballad'), bpb, false);
+  }
+  $('btnSections')?.classList.toggle('on', !!p.showSections);
+
   store.changed('structure');
   store.emit('chords', {});
-  toast(`已匯入 ${p.chords.length} 個和弦${doc.name ? `（${doc.name}）` : ''}，和弦軌已打開`);
+  store.emit('sections', {});
+  toast(`已匯入 ${p.chords.length} 個和弦${doc.name ? `（${doc.name}）` : ''}，和弦軌已打開`
+    + (nSec ? `；段落軌也排了 ${nSec} 段（可以再加減）` : ''));
 }

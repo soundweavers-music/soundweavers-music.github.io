@@ -2,7 +2,6 @@
 // 和弦存成「拍」：[{ t, d, root, q }]，跟隨 BPM 移動；project.chordKey = { key, minor }
 import { store, isMidiClip } from './state.js';
 import { detectChords, ROOTS, QUALITIES, chordName, chordPcs, diatonicChord } from './chords.js';
-import { showMenu } from './menu.js';
 import { toast } from './util.js';
 import { scaleMask } from './effects.js';
 
@@ -57,7 +56,7 @@ export function drawChordLane(g, W, y0, h, sx, pxPerBeat) {
     g.globalAlpha = 0.55;
     g.fillStyle = txCol;
     g.font = '11px sans-serif'; g.textAlign = 'left';
-    g.fillText('和弦軌：在檢閱器按「偵測這條軌的和弦」，或直接在和弦軌上點兩下新增', 8, y0 + h / 2 + 4);
+    g.fillText('和弦軌：點一下空白處新增和弦，點和弦可以換根音與性質', 8, y0 + h / 2 + 4);
     g.globalAlpha = 1;
   }
   for (const c of list) {
@@ -87,16 +86,10 @@ export function chordAt(x, sx, pxPerBeat) {
   return -1;
 }
 
-// 和弦軌要不要佔用上方空間（調整 --ruler-h，讓尺規變高）
-export function applyLaneLayout() {
-  const el = document.getElementById('arrange');
-  if (el) el.style.setProperty('--ruler-h', store.project.showChords ? '64px' : '34px');
-}
-
+// 尺規的高度（--ruler-h）由 arrange.js 依「段落軌＋和弦軌」一起算，這裡只切開關
 export function toggleChordLane(on) {
   const p = store.project;
   p.showChords = on === undefined ? !p.showChords : !!on;
-  applyLaneLayout();
   store.emit('chords', {});
   store.changed('structure');
 }
@@ -127,90 +120,162 @@ export async function detectAndApply(trackId, resolution = 1) {
 }
 
 // ---------------- 編輯 ----------------
-export function openChordMenu(x, y, sx, pxPerBeat, atBeat = null) {
-  const p = store.project;
-  const i = atBeat === null ? chordAt(x, sx, pxPerBeat) : chordsOf().findIndex(c => Math.abs(c.t - atBeat) < 1e-6);
-  const key = chordKeyOf();
-  const beat = atBeat !== null ? atBeat : (x + sx) / pxPerBeat;
-  const bar = p.sigNum || 4;
-  const start = Math.floor(beat / bar) * bar;
+// 點和弦軌跳出的小面板：12 個根音 × 9 種性質，加上這一調的七個級數。
+// 面板開著時可以一直點（換根音、換性質），整個面板的改動算一次復原。
+let panel = null, panelSnap = false, panelTarget = null, panelBeat = 0;
+let panelRoot = 0, panelQ = 'maj';
 
-  const setQ = (root, q) => {
+const closeChordPanel = () => {
+  if (!panel) return;
+  panel.remove(); panel = null; panelTarget = null;
+  window.removeEventListener('pointerdown', outsidePanel, true);
+  window.removeEventListener('keydown', escPanel, true);
+};
+const outsidePanel = e => { if (panel && !panel.contains(e.target)) closeChordPanel(); };
+const escPanel = e => { if (e.key === 'Escape') { e.stopPropagation(); closeChordPanel(); } };
+
+const barOfBeat = beat => Math.floor(beat / (store.project.sigNum || 4)) + 1;
+
+// 在點到的位置塞一個新和弦：長度到「下一個和弦」或「這一小節結束」
+function addChordAt(beat, root, q) {
+  const p = store.project, bpb = p.sigNum || 4;
+  const list = chordsOf();
+  const step = 0.25;
+  let t = Math.max(0, Math.round(beat / step) * step);
+  const prev = list.filter(c => c.t < t - 1e-6).sort((a, b) => b.t - a.t)[0];
+  if (prev && prev.t + prev.d > t) {                 // 點在既有和弦的尾巴上：切給新和弦
+    prev.d = Math.max(step, t - prev.t);
+  }
+  const next = list.filter(c => c.t > t + 1e-6).sort((a, b) => a.t - b.t)[0];
+  const end = next ? next.t : Math.ceil((t + 1e-6) / bpb) * bpb;
+  const c = { t, d: Math.max(step, end - t), root, q };
+  list.push(c);
+  list.sort((a, b) => a.t - b.t);
+  return c;
+}
+
+function paintPanel() {
+  if (!panel) return;
+  const c = panelTarget;
+  panel.querySelector('.cp-name').textContent = chordName(c || { root: panelRoot, q: panelQ });
+  panel.querySelector('.cp-pos').textContent = c
+    ? `第 ${barOfBeat(c.t)} 小節`
+    : `在第 ${barOfBeat(panelBeat)} 小節新增`;
+  const root = c ? c.root : panelRoot, q = c ? c.q : panelQ;
+  panel.querySelectorAll('.cp-roots [data-root]').forEach(b => b.classList.toggle('on', +b.dataset.root === root));
+  panel.querySelectorAll('.cp-quals [data-q]').forEach(b => b.classList.toggle('on', b.dataset.q === q));
+  const kind = QUALITIES[QI[q]]?.label || q;
+  panel.querySelector('.cp-hint').textContent = c ? `根音 ${ROOTS[root]}・${kind}` : `會新增 ${ROOTS[root]}${QUALITIES[QI[q]].suf}（${kind}）`;
+  const only = panel.querySelector('.cp-only');
+  if (only) only.hidden = !c;
+}
+
+function commitChord(root, q) {
+  if (!panelSnap) { store.checkpoint(); panelSnap = true; }
+  if (panelTarget) { panelTarget.root = root; panelTarget.q = q; }
+  else { panelTarget = addChordAt(panelBeat, root, q); }
+  chordsOf().sort((a, b) => a.t - b.t);
+  store.changed('structure');
+  store.emit('chords', {});
+  paintPanel();
+}
+
+// x / y 是畫面上的座標（面板位置）；xLocal 是相對於尺規左邊的像素
+export function openChordMenu(x, y, xLocal, sx, pxPerBeat) {
+  closeChordPanel();
+  const p = store.project;
+  const key = chordKeyOf();
+  const beat = Math.max(0, (xLocal + sx) / pxPerBeat);
+  const i = chordAt(xLocal, sx, pxPerBeat);
+  panelSnap = false;
+  panelBeat = beat;
+  panelTarget = i >= 0 ? chordsOf()[i] : null;
+  if (panelTarget) { panelRoot = panelTarget.root; panelQ = panelTarget.q; }
+  else {
+    // 新增：預設是這一調的主和弦（沒有調性就用 C 大三）
+    const d = key ? diatonicChord(key.key, key.minor, 0) : { root: 0, q: 'maj' };
+    panelRoot = d.root; panelQ = d.q;
+  }
+
+  panel = document.createElement('div');
+  panel.className = 'chord-panel';
+  const degRow = key ? `<div class="cp-lbl">這一調的級數</div>
+    <div class="cp-grid cp-degs">${Array.from({ length: 7 }, (_, d) => {
+      const c = diatonicChord(key.key, key.minor, d);
+      return `<button type="button" data-deg="${d}" data-root="${c.root}" data-q="${c.q}" title="${chordName(c)}"><b>${chordLabel(c, 2)}</b><span>${chordName(c)}</span></button>`;
+    }).join('')}</div>` : '';
+  panel.innerHTML = `
+    <div class="cp-head"><b class="cp-name">—</b><span class="cp-pos"></span><button type="button" class="cp-x" title="關閉">✕</button></div>
+    ${degRow}
+    <div class="cp-lbl">根音</div>
+    <div class="cp-grid cp-roots">${ROOTS.map((r, k) => `<button type="button" data-root="${k}">${r}</button>`).join('')}</div>
+    <div class="cp-lbl">性質</div>
+    <div class="cp-grid cp-quals">${QUALITIES.map(q => `<button type="button" data-q="${q.id}" title="${q.label}">${q.suf || 'maj'}</button>`).join('')}</div>
+    <div class="cp-hint note"></div>
+    <div class="cp-acts cp-only">
+      <button type="button" data-a="split">切一半</button>
+      <button type="button" data-a="merge">合併下一個</button>
+      <button type="button" data-a="del" class="danger">刪除</button>
+    </div>`;
+  document.body.appendChild(panel);
+  // 位置：夾在視窗裡
+  const r = panel.getBoundingClientRect();
+  panel.style.left = Math.max(4, Math.min(x - 12, innerWidth - r.width - 4)) + 'px';
+  panel.style.top = Math.max(4, Math.min(y + 14, innerHeight - r.height - 4)) + 'px';
+
+  // 有和弦在手上 = 直接改；還沒有 = 先記下選擇，第一次點就順便把和弦建出來
+  panel.querySelectorAll('.cp-roots [data-root]').forEach(b => {
+    b.onclick = () => {
+      const root = +b.dataset.root;
+      if (panelTarget) commitChord(root, panelTarget.q);
+      else { panelRoot = root; commitChord(root, panelQ); }
+    };
+  });
+  panel.querySelectorAll('.cp-quals [data-q]').forEach(b => {
+    b.onclick = () => {
+      if (panelTarget) commitChord(panelTarget.root, b.dataset.q);
+      else { panelQ = b.dataset.q; commitChord(panelRoot, panelQ); }
+    };
+  });
+  panel.querySelectorAll('.cp-degs [data-deg]').forEach(b => {
+    b.onclick = () => commitChord(+b.dataset.root, b.dataset.q);
+  });
+  panel.querySelector('.cp-x').onclick = () => closeChordPanel();
+  const acts = panel.querySelector('.cp-acts');
+  acts.querySelector('[data-a=split]').onclick = () => {
+    const c = panelTarget; if (!c) return;
+    if (c.d < 1) return toast('這個和弦太短，不能再切', 'warn');
+    store.checkpoint();
+    const half = Math.round(c.d / 2 * 2) / 2;
+    chordsOf().splice(chordsOf().indexOf(c) + 1, 0, { t: c.t + half, d: c.d - half, root: c.root, q: c.q });
+    c.d = half;
+    chordsOf().sort((a, b) => a.t - b.t);
+    panelSnap = true;
+    store.changed('structure'); store.emit('chords', {});
+    paintPanel();
+  };
+  acts.querySelector('[data-a=merge]').onclick = () => {
+    const c = panelTarget; if (!c) return;
+    const list = chordsOf(), n = list[list.indexOf(c) + 1];
+    if (!n) return toast('後面沒有和弦可以合併', 'warn');
+    store.checkpoint();
+    c.d = n.t + n.d - c.t;
+    list.splice(list.indexOf(n), 1);
+    panelSnap = true;
+    store.changed('structure'); store.emit('chords', {});
+    paintPanel();
+  };
+  acts.querySelector('[data-a=del]').onclick = () => {
+    const c = panelTarget; if (!c) return;
     store.checkpoint();
     const list = chordsOf();
-    if (i >= 0) { list[i].root = root; list[i].q = q; }
-    else {
-      // 新增：佔到目前位置之後的第一個和弦或小節線
-      const next = list.find(c => c.t > start);
-      const d = Math.max(1, Math.min(bar, (next ? next.t : start + bar) - start));
-      list.push({ t: start, d, root, q });
-      list.sort((a, b) => a.t - b.t);
-    }
-    store.changed('structure');
-    store.emit('chords', {});
+    list.splice(list.indexOf(c), 1);
+    store.changed('structure'); store.emit('chords', {});
+    closeChordPanel();
   };
-
-  const items = [];
-  if (i >= 0) {
-    const c = chordsOf()[i];
-    items.push({ label: `目前：${chordName(c)}`, disabled: true });
-    // 同根音換性質
-    for (const q of ['maj', 'min', '7', 'maj7', 'm7', 'sus4', 'dim']) {
-      if (q === c.q) continue;
-      items.push({ label: `改成 ${ROOTS[c.root]}${QUALITIES[QI[q]].suf}`, action: () => setQ(c.root, q) });
-    }
-    items.push('-');
-  } else {
-    items.push({ label: `在這裡新增和弦（第 ${Math.floor(start / bar) + 1} 小節）`, disabled: true });
-  }
-  // 調內和弦（有調性時最常用）
-  if (key) {
-    for (let d = 0; d < 7; d++) {
-      const c = diatonicChord(key.key, key.minor, d);
-      items.push({ label: `${chordLabel(c, 2)}　${chordName(c)}`, action: () => setQ(c.root, c.q) });
-    }
-    items.push('-');
-  }
-  // 12 個根音的大三／小三（兩層）
-  const rootIdx = i >= 0 ? chordsOf()[i].root : 0;
-  items.push({
-    label: '換根音…',
-    action: () => showMenu(x, y + 24, ROOTS.map((r, k) => ({
-      label: r, action: () => setQ(k, i >= 0 ? chordsOf()[i].q : (key && key.minor ? 'min' : 'maj')),
-    }))),
-  });
-  if (i >= 0) {
-    items.push({
-      label: '切成兩半',
-      action: () => {
-        const c = chordsOf()[i];
-        if (c.d < 2) return toast('這個和弦太短，不能再切', 'warn');
-        store.checkpoint();
-        const half = Math.round(c.d / 2);
-        chordsOf().splice(i + 1, 0, { t: c.t + half, d: c.d - half, root: c.root, q: c.q });
-        c.d = half;
-        store.changed('structure'); store.emit('chords', {});
-      },
-    });
-    items.push({
-      label: '合併下一個',
-      disabled: i >= chordsOf().length - 1,
-      action: () => {
-        const list = chordsOf(); const c = list[i], n = list[i + 1];
-        if (!n) return;
-        store.checkpoint();
-        c.d = n.t + n.d - c.t;
-        list.splice(i + 1, 1);
-        store.changed('structure'); store.emit('chords', {});
-      },
-    });
-    items.push('-');
-    items.push({
-      label: '刪除這個和弦', danger: true,
-      action: () => { store.checkpoint(); chordsOf().splice(i, 1); store.changed('structure'); store.emit('chords', {}); },
-    });
-  }
-  showMenu(x, y, items);
+  window.addEventListener('pointerdown', outsidePanel, true);
+  window.addEventListener('keydown', escPanel, true);
+  paintPanel();
 }
 
 // ---------------- 套用到效果器 ----------------

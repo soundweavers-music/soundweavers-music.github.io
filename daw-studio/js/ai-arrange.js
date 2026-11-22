@@ -7,6 +7,7 @@ import { store, newMidiClip } from './state.js';
 import { arranger, PARTS } from './arranger.js';
 import { styleById, romanToChord } from './arranger-styles.js';
 import { chordsOf, chordKeyOf } from './chord-ui.js';
+import { sectionsOf } from './section-ui.js';
 import { chordPcs } from './chords.js';
 import { keyFromHistogram } from './keydetect.js';
 
@@ -91,6 +92,59 @@ export function autoPlan(range, { intro = true, ending = true } = {}) {
   return plan;
 }
 
+// 段落軌 → 段落表（每一段帶絕對小節編號，編曲時直接照小節對位）
+// 一小節只要有一半以上落在某一段，就歸那一段；段落軌沒蓋到的小節沿用前一段。
+export function planFromSections() {
+  const secs = sectionsOf().filter(s => s.d > 0).slice().sort((a, b) => a.t - b.t);
+  if (!secs.length) return null;
+  const bpb = store.project.sigNum || 4;
+  const range = chordRange();
+  const first = Math.floor(secs[0].t / bpb);
+  const last = Math.ceil((secs[secs.length - 1].t + secs[secs.length - 1].d) / bpb);
+  const a = range ? Math.min(range[0], first) : first;
+  const z = range ? Math.max(range[1], last) : last;
+  if (z <= a) return null;
+  const secForBar = b => {
+    const b0 = b * bpb, b1 = b0 + bpb;
+    let best = null, bestOv = 0;
+    for (const s of secs) {
+      const ov = Math.min(b1, s.t + s.d) - Math.max(b0, s.t);
+      if (ov > bestOv + 1e-6) { bestOv = ov; best = s; }
+    }
+    return best;
+  };
+  const plan = [];
+  for (let b = a; b < z; b++) {
+    const hit = secForBar(b);
+    const sec = hit ? hit.sec : (plan.length ? plan[plan.length - 1].sec : 'verse1');
+    const prev = plan[plan.length - 1];
+    if (prev && prev.sec === sec && prev.bar + prev.bars === b) prev.bars++;
+    else plan.push({ sec, bars: 1, bar: b, int: 0 });
+  }
+  // 主歌的第一輪弱一點（拿掉吉他與琶音），跟自動排段落一致
+  const firstVerse = plan.find(s => s.sec === 'verse1');
+  if (firstVerse) firstVerse.int = -1;
+  return plan;
+}
+
+// 段落表補上絕對小節編號（段落軌、寫回段落軌時用；跟 generate() 的排版一致）
+// 已經有 bar 的（段落軌來的）照它，沒有的接在前一段後面；bars 0（尾奏）換成風格自己的長度
+export function planWithBars(plan, styleId) {
+  const style = styleById(styleId);
+  const range = chordRange();
+  const list = plan.filter(s => style.sections[s.sec]);
+  if (!range || !list.length) return list;
+  const pre = list.filter(s => s.pre).reduce((n, s) => n + (s.bars || 0), 0);
+  let bar = Math.max(0, range[0] - pre);
+  return list.map(s => {
+    const S = style.sections[s.sec];
+    const nb = s.bars || (S.chords ? S.chords.length + (s.sec === 'ending' ? 1 : 0) : 4);
+    const at = Number.isFinite(s.bar) ? s.bar : bar;
+    bar = at + nb;
+    return { ...s, bar: at, bars: nb };
+  });
+}
+
 // ---------------- 產生 ----------------
 // 歌曲的調：和弦軌有記就用；沒有就從和弦組成音推
 function songKey() {
@@ -126,19 +180,22 @@ export function generate(o) {
   const key = songKey();
   const majorRoot = key.minor ? (key.key + 3) % 12 : key.key;
   const spbSec = 60 / p.bpm;
-  // 把段落表攤成小節：前奏放在和弦軌前面、尾奏接在後面
+  // 把段落表攤成小節。段落表有絕對小節編號（段落軌、智慧創作）就照它對位，
+  // 沒有的（手動排的段落表）就從和弦軌開頭一直接下去，前奏放前面、尾奏接後面。
   const plan = o.plan.filter(s => style.sections[s.sec]);
-  const preBars = plan.filter(s => s.pre).reduce((n, s) => n + s.bars, 0);
-  let bar = range[0] - preBars;
+  const absolute = plan.length > 0 && plan.every(s => Number.isFinite(s.bar));
+  let bar = range[0] - plan.filter(s => s.pre).reduce((n, s) => n + s.bars, 0);
   if (bar < 0) bar = 0;
-  const startBar = bar;
+  const startBar = absolute ? Math.min(...plan.map(s => s.bar)) : bar;
   const bars = [];
   for (const s of plan) {
     const S = style.sections[s.sec];
     const nb = s.bars || (S.chords ? S.chords.length + (s.sec === 'ending' ? 1 : 0) : 4);
-    for (let i = 0; i < nb; i++) bars.push({ bar: bar + i, sec: s.sec, S, idx: i, n: nb, int: s.int || 0 });
-    bar += nb;
+    const at = absolute ? s.bar : bar;
+    for (let i = 0; i < nb; i++) bars.push({ bar: at + i, sec: s.sec, S, idx: i, n: nb, int: s.int || 0 });
+    bar = at + nb;
   }
+  bars.sort((x, y) => x.bar - y.bar);
   const chordAt = beat => {
     for (const c of chordsOf()) if (beat >= c.t - 1e-6 && beat < c.t + c.d - 1e-6) return c;
     return null;

@@ -28,6 +28,7 @@ import { toggleArranger } from './arranger-ui.js';
 import { initAutomationUi, tickAutomation } from './automation-ui.js';
 import { showMenu, showMenuCols } from './menu.js';
 import { toggleChordLane, detectAndApply, applyChordsToHarmony, applyChordsToTune, clearChords, chordsOf, chordKeyOf, chordLabel, VIEW_NAMES } from './chord-ui.js';
+import { toggleSectionLane, clearSections, sectionsOf, secName } from './section-ui.js';
 import { LiveLoudness, TARGETS } from './loudness.js';
 import { pitchShiftClips } from './pitch-render.js';
 import { THEMES, setTheme, currentTheme } from './theme.js';
@@ -288,6 +289,7 @@ function renderInspector() {
     return;
   }
   box.appendChild(chordSection(t));
+  box.appendChild(sectionSection());
   box.appendChild(insertsSection(t.id));
   box.appendChild(sendSection(t));
 
@@ -498,6 +500,7 @@ export function showShortcuts(x, y) {
   add('對齊格線', 'G');
   add('自動化曲線', 'A');
   add('和弦軌', 'H');
+  add('段落軌', 'J');
   add('檢閱器', 'I');
   add('混音台', 'X');
   add('鋼琴捲簾', 'P');
@@ -611,6 +614,7 @@ function bindKeys() {
     if (e.shiftKey && k === 'm') return run(() => toggleMaster());
     if (k === 'a' && !e.shiftKey) return run(() => store.emit('toggle-automation', {}));
     if (k === 'h') return run(() => $('btnChords').click());
+    if (k === 'j') return run(() => $('btnSections').click());
     if (k === 'i') return run(toggleInspector);
     if (t && k === 'm') return run(() => toggleTrackFlag(t, 'mute'));
     if (t && k === 's') return run(() => toggleTrackFlag(t, 'solo'));
@@ -736,6 +740,24 @@ function chordSection(t) {
   sec.querySelector('.ch-show').onclick = () => { toggleChordLane(); renderArrange(); renderInspector(); };
   sec.querySelector('[data-apply=harm]').onclick = () => applyChordsToHarmony(store.selection.trackId);
   sec.querySelector('[data-apply=tune]').onclick = () => applyChordsToTune(store.selection.trackId);
+  return sec;
+}
+
+// 段落軌：主歌／副歌的標記，智慧編曲會照著它排段落
+function sectionSection() {
+  const sec = document.createElement('div'); sec.className = 'sec';
+  const list = sectionsOf();
+  const names = [...new Set(list.map(s => secName(s.sec)))];
+  sec.innerHTML = `<h4 style="margin-top:0">段落軌</h4>
+    <div class="row"><span>已標</span><span>${list.length ? list.length + ' 段' : '—'}</span></div>
+    ${names.length ? `<div class="row"><span></span><span style="font-size:11px">${names.join('、')}</span></div>` : ''}
+    <div class="row"><button class="tbtn sec-show" style="width:100%;height:24px">${store.project.showSections ? '隱藏段落軌' : '顯示段落軌'}</button></div>
+    <div class="row"><button class="tbtn sec-clear" style="width:100%;height:24px"${list.length ? '' : ' disabled'}>清除段落</button></div>
+    <p class="note">點尺規下方的段落軌新增或改段落（前奏、主歌、導歌、副歌、尾奏…）。② 一鍵編曲會照著段落軌編；沒有段落軌時可以按它的「自動排段落」依和弦樣式排好並寫回來。</p>`;
+  sec.querySelector('.sec-show').onclick = () => { toggleSectionLane(); renderArrange(); renderInspector(); };
+  sec.querySelector('.sec-clear').onclick = () => {
+    if (clearSections()) toast('已清除段落軌（Ctrl+Z 可以復原）');
+  };
   return sec;
 }
 
@@ -897,6 +919,13 @@ $('btnArranger').onclick = () => toggleArranger();
   $('btnChords').onclick = () => { toggleChordLane(); $('btnChords').classList.toggle('on', !!store.project.showChords); renderArrange(); };
   store.on('chords', () => {
     $('btnChords').classList.toggle('on', !!store.project.showChords);
+    requestAnimationFrame(() => { renderArrange(); renderInspector(); });
+  });
+  // 段落軌：顯示切換（智慧編曲會照著段落軌編）
+  $('btnSections').classList.toggle('on', !!store.project.showSections);
+  $('btnSections').onclick = () => { toggleSectionLane(); $('btnSections').classList.toggle('on', !!store.project.showSections); renderArrange(); };
+  store.on('sections', () => {
+    $('btnSections').classList.toggle('on', !!store.project.showSections);
     requestAnimationFrame(() => { renderArrange(); renderInspector(); });
   });
   // 頂部母帶狀態列：點一下打開母帶視窗

@@ -73,6 +73,8 @@ export function newProject() {
     chordKey: null,          // 推測的調性 { key, minor }
     chordView: 0,            // 0 音名、1 級數、2 首調（簡譜）
     showChords: false,       // 尺規下方顯示和弦軌
+    sections: [],            // 段落軌 [{ t, d, sec }]（拍；sec 是 arranger-styles 的段落 id）
+    showSections: false,     // 尺規下方顯示段落軌
     tracks,
   };
 }
@@ -232,6 +234,8 @@ export function migrateProject(p) {
   if (!Array.isArray(p.chords)) p.chords = [];
   if (typeof p.chordView !== 'number') p.chordView = 0;
   if (typeof p.showChords !== 'boolean') p.showChords = false;
+  if (!Array.isArray(p.sections)) p.sections = [];
+  if (typeof p.showSections !== 'boolean') p.showSections = false;
   if (!p.video) p.video = { w: 1280, h: 720, fps: 30, bg: '#000000' };
   p.version = 5;
   return p;

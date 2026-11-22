@@ -4,12 +4,14 @@ import { PRESETS } from './synth.js';
 import { sfLabel } from './soundbank.js';
 import { separateClip } from './separate.js';
 import { openAiSeparate } from './demucs-ui.js';
+import { openBreathPanel } from './breath-ui.js';
 import { engine } from './engine.js';
 import { recorder } from './recorder.js';
 import { importAudioFiles } from './project-io.js';
 import { view, secToPx, pxToSec, snap, gridStep, beatSec, setZoom } from './view.js';
 import { uid, toast, TRACK_COLORS } from './util.js';
 import { chordLaneHeight, drawChordLane, openChordMenu } from './chord-ui.js';
+import { sectionLaneHeight, drawSectionLane, openSectionMenu } from './section-ui.js';
 import { showMenu } from './menu.js';
 import { cssVar } from './theme.js';
 import { isVideoClip, isTextClip, ensureMedia, mediaDuration, firstFrameCanvas, addTextClip, editTextClip, toggleVideoPreview, TRANSITIONS } from './video.js';
@@ -104,7 +106,8 @@ function trackDelta(items, clientY, lanesTop) {
 export function render() {
   measure();
   const ar = document.getElementById('arrange');
-  if (ar) ar.style.setProperty('--ruler-h', store.project.showChords ? '64px' : '34px');
+  // 尺規 = 34px 的小節尺 + 段落軌 + 和弦軌
+  if (ar) ar.style.setProperty('--ruler-h', (34 + sectionLaneHeight() + chordLaneHeight()) + 'px');
   const p = store.project;
   const h = totalH();
   lanesInner.style.width = contentWidth() + 'px';
@@ -149,8 +152,9 @@ function drawRuler() {
   while (barPx * every < 44) every *= 2;
   const first = Math.floor(pxToSec(sx) / bar);
   const last = Math.ceil(pxToSec(sx + w) / bar);
+  const secH = sectionLaneHeight();
   const chordH = chordLaneHeight();
-  const rulerH = h - chordH;
+  const rulerH = h - secH - chordH;
   g.font = '11px ui-monospace, Consolas, monospace';
   g.textBaseline = 'middle';
   for (let b = first; b <= last; b++) {
@@ -167,8 +171,9 @@ function drawRuler() {
       }
     }
   }
-  // 和弦軌（尺規下半部）
-  if (chordH) drawChordLane(g, w, rulerH, chordH, sx, view.pxPerBeat);
+  // 段落軌、和弦軌（尺規下半部；段落在上、和弦在下）
+  if (secH) drawSectionLane(g, w, rulerH, secH, sx, view.pxPerBeat);
+  if (chordH) drawChordLane(g, w, rulerH + secH, chordH, sx, view.pxPerBeat);
 }
 
 // '#rrggbb' → 'r,g,b'（給 canvas 的 rgba 字串用）
@@ -391,6 +396,9 @@ function onHeaderContext(e) {
     { label: '新增音訊軌', action: () => store.addTrack('audio') || toast('最多 32 軌', 'warn') },
     { label: '新增 MIDI 軌', action: () => store.addTrack('midi') || toast('最多 32 軌', 'warn') },
     ...(t.kind === 'midi' ? [{ label: '在播放頭新增 4 小節 MIDI 片段', action: () => addMidiClipAt(t, engine.currentTime()) }] : []),
+    ...(t.clips && t.clips.some(c => c.bufferId)
+      ? [{ label: '去除呼吸聲（整軌）…', action: () => openBreathPanel(t.id) }]
+      : []),
     { label: '換一個顏色', action: () => {
       store.checkpoint();
       const i = TRACK_COLORS.indexOf(t.color);
@@ -691,10 +699,16 @@ function onRulerDown(e) {
     }, () => store.changed('transport'));
     return;
   }
-  // 和弦軌：點在和弦上 → 編輯選單；點空白處 → 新增
-  const chordH = chordLaneHeight();
-  if (chordH && e.clientY - r.top > r.height - chordH) {
-    openChordMenu(e.clientX, e.clientY, lanes.scrollLeft, view.pxPerBeat, null);
+  // 段落軌／和弦軌：點在格子上 → 編輯；點空白處 → 在那一點新增
+  // （xLocal 是相對於尺規左邊的像素，尺規只畫可視範圍，要加上捲動量才對得上「拍」）
+  const secH = sectionLaneHeight(), chordH = chordLaneHeight();
+  const yIn = e.clientY - r.top, xLocal = e.clientX - r.left;
+  if (secH && yIn > r.height - secH - chordH && yIn <= r.height - chordH) {
+    openSectionMenu(e.clientX, e.clientY, xLocal, lanes.scrollLeft, view.pxPerBeat);
+    return;
+  }
+  if (chordH && yIn > r.height - chordH) {
+    openChordMenu(e.clientX, e.clientY, xLocal, lanes.scrollLeft, view.pxPerBeat);
     return;
   }
   const seekTo = cx => engine.seek(snap(toSec(cx)));
@@ -953,6 +967,7 @@ function onLanesContext(e) {
       ...(midi ? [] : [
         { label: n > 1 ? `升降音（${n} 個片段）…` : '升降音…', action: () => store.emit('open-pitch', { clipIds: [...store.selection.clipIds] }) },
         { label: '分離人聲／伴奏（簡易版）', disabled: n > 1, action: () => separateClip(id) },
+        { label: '去除呼吸聲…', disabled: n > 1 || !found.bufferId, action: () => openBreathPanel(store.findClip(id).track.id, id) },
         { label: 'AI 分離人聲／伴奏（Demucs）…', disabled: n > 1, action: () => openAiSeparate(id) },
         '-',
         { label: '片段音量 +1 dB', action: () => nudgeGain(1) },

@@ -11,6 +11,7 @@ import { store, newTrack, newMidiClip, MAX_TRACKS } from './state.js';
 import { romanToChord } from './arranger-styles.js';
 import { chordPcs } from './chords.js';
 import { rng } from './ai-arrange.js';
+import { writePlanToSections } from './section-ui.js';
 
 // ---------------- 和弦進行庫（級數以大調為準；小調歌 = 關係大調，主和弦是 vi）----------------
 const PROG = {
@@ -383,15 +384,15 @@ export function compose(o) {
     for (const n of local) melody.push({ p: n.p, t: S.bar * bpb + n.t, d: n.d, v: n.v });
   }
 
-  // 自動伴奏用的段落表
+  // 自動伴奏用的段落表（帶絕對小節編號，段落軌與 generate() 都照這個對位）
   const plan = [];
-  if (o.intro !== false && startBar >= 2) plan.push({ sec: 'intro', bars: Math.min(4, startBar), int: 0, pre: true });
+  if (o.intro !== false && startBar >= 2) plan.push({ sec: 'intro', bars: Math.min(4, startBar), bar: 0, int: 0, pre: true });
   let vRound = 0;
   for (const S of sections) {
     let sec = S.type === 'verse' ? (vRound++ ? 'verse2' : 'verse1') : S.type === 'pre' ? 'pre' : S.type === 'bridge' ? 'bridge' : S.last ? 'chorus2' : 'chorus1';
-    plan.push({ sec, bars: S.bars, int: S.type === 'verse' && S.round === 0 ? -1 : 0 });
+    plan.push({ sec, bars: S.bars, bar: S.bar, int: S.type === 'verse' && S.round === 0 ? -1 : 0 });
   }
-  if (o.ending !== false) plan.push({ sec: 'ending', bars: 0, int: 0, post: true });
+  if (o.ending !== false) plan.push({ sec: 'ending', bars: 0, bar: endBar, int: 0, post: true });
 
   return { key: { key, minor }, chords, melody, sections, plan, startBar, endBar };
 }
@@ -406,6 +407,9 @@ export function applyComposition(res, { bpm, instrument = 'lead' } = {}) {
   p.chords = (p.chords || []).filter(c => c.t + c.d <= a + 1e-6 || c.t >= z - 1e-6).concat(res.chords.map(c => ({ ...c }))).sort((x, y) => x.t - y.t);
   p.chordKey = { ...res.key };
   p.showChords = true;
+  // 曲式也寫進段落軌，② 一鍵編曲就會照著這些段落配伴奏
+  // （尾奏的 bars 0 是「用風格自己的長度」，段落軌上給它 4 小節）
+  writePlanToSections(res.plan.map(s => (s.bars ? s : { ...s, bars: 4 })), bpb, false);
   let t = p.tracks.find(x => x.aiMelody);
   if (!t) {
     if (p.tracks.length >= MAX_TRACKS) return { err: '軌道已滿，刪掉一條再試' };

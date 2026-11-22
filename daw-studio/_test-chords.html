@@ -1,0 +1,133 @@
+<!doctype html><meta charset="utf-8">
+<title>chord-test</title>
+<pre id="out">running</pre>
+<script type="module">
+// 和弦軌／段落軌／智慧編曲的回歸測試（跑完看 <pre id="out"> 的 PASS/FAIL）：
+//   python -m http.server 8080  →  http://127.0.0.1:8080/daw-studio/_test-chords.html
+//   無頭：chrome --headless --dump-dom <url>，數 PASS/FAIL 就好
+// 涵蓋：點和弦軌新增／改和弦、段落軌↔段落表對位、generate 照段落編、
+//       ③ 智慧創作寫段落軌、匯入 .zychords.json（有／沒有 sections 兩種）
+import { store } from './js/state.js';
+import { chordsOf, chordAt, openChordMenu } from './js/chord-ui.js';
+import { sectionsOf, addSection, writePlanToSections, normSec } from './js/section-ui.js';
+import { planFromSections, generate, planWithBars, autoPlan, chordRange } from './js/ai-arrange.js';
+import { PARTS } from './js/arranger.js';
+import { compose, applyComposition } from './js/ai-compose.js';
+import { importChordFile } from './js/chord-import.js';
+
+const out = [];
+const ok = (cond, msg) => out.push((cond ? 'PASS ' : 'FAIL ') + msg);
+const PXB = 40;  // pxPerBeat
+
+try {
+  // ---- 1. 點空白處新增和弦（x 是相對於尺規的像素） ----
+  store.project.chords = [];
+  store.project.sigNum = 4;
+  store.project.bpm = 120;
+  openChordMenu(300, 300, 200, 0, PXB);          // beat 5
+  const panel = document.querySelector('.chord-panel');
+  ok(!!panel, '面板有打開');
+  const rootBtn = panel.querySelector('.cp-roots [data-root="5"]');
+  ok(!!rootBtn, '面板有 12 個根音');
+  ok(panel.querySelectorAll('.cp-quals [data-q]').length === 9, '面板有 9 種性質');
+  rootBtn.click();
+  ok(chordsOf().length === 1, `點根音就新增一個和弦（${chordsOf().length}）`);
+  const c0 = chordsOf()[0];
+  ok(c0.t === 5, `新和弦從點的位置開始（t=${c0.t}）`);
+  ok(c0.root === 5, '根音正確');
+  ok(chordAt(200, 0, PXB) === 0, 'chordAt 找得到剛新增的和弦');
+
+  // ---- 2. 改性質 ----
+  panel.querySelector('.cp-quals [data-q="m7"]').click();
+  ok(chordsOf()[0].q === 'm7', `換性質生效（q=${chordsOf()[0].q}）`);
+  ok(chordsOf()[0].t === 5, '換性質不會動到位置');
+  document.querySelector('.chord-panel')?.remove();
+
+  // ---- 3. 點在既有和弦上 = 改它，不是新增 ----
+  const n0 = chordsOf().length;
+  openChordMenu(310, 300, 220, 0, PXB);          // beat 5.5，落在同一個和弦
+  ok(chordsOf().length === n0, '點在既有的和弦上不會多一個');
+  document.querySelector('.cp-roots [data-root="7"]').click();
+  ok(chordsOf().length === n0 && chordsOf().find(c => c.t === 5).root === 7, '點在既有的和弦上是改根音');
+  document.querySelector('.chord-panel')?.remove();
+
+  // ---- 4. 平行：兩個和弦不重疊 ----
+  openChordMenu(900, 300, 800, 0, PXB);          // beat 20
+  document.querySelector('.chord-panel [data-root="0"]').click();
+  document.querySelector('.chord-panel')?.remove();
+  const list = chordsOf();
+  const overlap = list.some((a, i) => list.some((b, j) => j > i && b.t < a.t + a.d - 1e-6 && b.t + b.d > a.t + 1e-6));
+  ok(!overlap, '和弦之間沒有重疊');
+  ok(list.length === 2, `總共兩個和弦（${list.length}）`);
+
+  // ---- 5. 段落軌 ----
+  store.project.sections = [];
+  addSection(0, 'intro', 16);
+  addSection(16, 'verse1', 32);
+  addSection(48, 'chorus1', 32);
+  ok(sectionsOf().length === 3, `段落 3 段（${sectionsOf().length}）`);
+  ok(normSec('副歌') === 'chorus1' && normSec('主歌B') === 'verse2' && normSec('outro') === 'ending', '段落名稱可以辨識');
+
+  const plan = planFromSections();
+  ok(Array.isArray(plan) && plan.length > 0, '段落軌可以變成段落表');
+  ok(plan.every(s => Number.isFinite(s.bar)), '段落表的每一段都有絕對小節');
+  ok(plan[0].sec === 'intro' && plan[0].bar === 0, `第一段是前奏、從第 1 小節開始（${plan[0].sec}@${plan[0].bar}）`);
+  const totalBars = plan.reduce((n, s) => n + s.bars, 0);
+  ok(totalBars === 20, `段落表加起來 20 小節（${totalBars}）`);
+
+  // ---- 6. 智慧編曲照段落軌編 ----
+  const res = generate({
+    styleId: 'cballad', plan: planFromSections(), variation: 0.4, seed: 12345,
+    parts: Object.fromEntries(PARTS.map(p => [p.id, true])), level: 0.8,
+  });
+  ok(!!res, 'generate 有回傳結果');
+  ok(res.bars === 20, `編了 20 小節（${res.bars}）`);
+  ok(res.startBar === 0, `從第 1 小節開始（${res.startBar}）`);
+  ok(Object.keys(res.clips).length >= 3, `有 ${Object.keys(res.clips).length} 個聲部`);
+  const secs = [...new Set(res.sections)];
+  ok(secs.includes('intro') && secs.includes('verse1') && secs.includes('chorus1'), `段落有帶進去（${secs.join(',')}）`);
+
+  // ---- 7. 段落軌 → 段落表 → 寫回段落軌，來回一致 ----
+  const auto = planWithBars(autoPlan(chordRange(), {}), 'cballad');
+  writePlanToSections(auto, 4);
+  ok(sectionsOf().length >= 2, `自動排段落寫回段落軌（${sectionsOf().length} 段）`);
+  ok(sectionsOf().some(s => s.sec === 'ending'), '尾奏也寫進段落軌（bars 0 換成風格長度）');
+  ok(sectionsOf().length === auto.filter(s => s.bars > 0).length, '段落表裡每一段都寫進去了');
+  const sorted = sectionsOf().every((s, i) => i === 0 || s.t >= sectionsOf()[i - 1].t + sectionsOf()[i - 1].d - 1e-6);
+  ok(sorted, '段落軌的段落依序排、不重疊');
+  const back = planFromSections();
+  ok(back && back.length > 0, '寫回去之後還排得出段落表');
+
+  // ---- 8. ③ 智慧創作：曲式要一起寫進段落軌 ----
+  const res2 = compose({ key: 0, minor: false, form: 'short', register: 0, variation: 0.3, startBar: 4, progSeed: 11, melSeed: 22 });
+  const wrote = applyComposition(res2, { bpm: 80, instrument: 'lead' });
+  ok(wrote && !wrote.err, `智慧創作寫入和弦與旋律${wrote && wrote.err ? '（' + wrote.err + '）' : ''}`);
+  ok(sectionsOf().some(s => s.sec === 'ending'), '智慧創作的尾奏也寫進段落軌（4 小節）');
+  ok(sectionsOf().every(s => s.d >= 4), '段落軌的每一段至少一小節');
+  const cPlan = planFromSections();
+  ok(cPlan && cPlan[0].sec === 'intro', `智慧創作的前奏在段落軌最前面（${cPlan && cPlan[0].sec}）`);
+  const gen2 = generate({ styleId: 'cpop', plan: cPlan, variation: 0.3, seed: 7,
+    parts: Object.fromEntries(PARTS.map(p => [p.id, true])), level: 0.8 });
+  ok(gen2 && Object.keys(gen2.clips).length >= 3, `照智慧創作的段落軌也編得出來（${gen2 ? Object.keys(gen2.clips).length : 0} 個聲部）`);
+  // ---- 9. 匯入 .zychords.json：沒帶段落就自動排，有帶段落就照檔案的 ----
+  {
+    const doc = {
+      app: 'zhiyin-chords', bpm: store.project.bpm, sigNum: 4, key: { root: 0, minor: false },
+      chords: Array.from({ length: 16 }, (_, i) => ({ t: i * 4, d: 4, root: [0, 9, 5, 7][i % 4], q: i % 4 === 1 ? 'min' : 'maj' })),
+    };
+    store.project.sections = [];
+    await importChordFile(new Blob([JSON.stringify(doc)], { type: 'application/json' }));
+    ok(chordsOf().length === 16, `匯入 16 個和弦（${chordsOf().length}）`);
+    ok(sectionsOf().length >= 2, `沒有段落欄位的檔案也會自動排段落（${sectionsOf().length} 段）`);
+
+    const doc2 = { ...doc, sections: [{ t: 0, d: 32, sec: 'verse1' }, { t: 32, d: 32, sec: '主歌' }] };
+    await importChordFile(new Blob([JSON.stringify(doc2)], { type: 'application/json' }));
+    ok(sectionsOf().length === 2, `檔案帶的段落照用（${sectionsOf().length} 段）`);
+    ok(sectionsOf()[1].sec === 'verse1', `中文段落名稱也認得（${sectionsOf()[1].sec}）`);
+  }
+} catch (err) {
+  out.push('FAIL 例外：' + (err && err.stack || err));
+}
+document.getElementById('out').textContent = out.join('\n');
+document.title = out.some(l => l.startsWith('FAIL')) ? 'chord-test-fail' : 'chord-test-ok';
+</script>
