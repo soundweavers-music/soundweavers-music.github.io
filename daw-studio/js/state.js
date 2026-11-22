@@ -104,6 +104,7 @@ class Store extends EventTarget {
     if (!this.undoStack.length) return false;
     this.redoStack.push(JSON.stringify(this.project));
     this.project = JSON.parse(this.undoStack.pop());
+    this.pruneSelection();
     this.changed('structure');
     return true;
   }
@@ -112,8 +113,21 @@ class Store extends EventTarget {
     if (!this.redoStack.length) return false;
     this.undoStack.push(JSON.stringify(this.project));
     this.project = JSON.parse(this.redoStack.pop());
+    this.pruneSelection();
     this.changed('structure');
     return true;
+  }
+
+  // 復原／刪軌之後，選取可能還指著已經不存在的軌道或片段；
+  // 留著的話接下來按 Del、Ctrl+C、拖曳都會對著幽靈片段做事。
+  pruneSelection() {
+    const ids = new Set();
+    for (const t of this.project.tracks) for (const c of t.clips) ids.add(c.id);
+    for (const id of [...this.selection.clipIds]) if (!ids.has(id)) this.selection.clipIds.delete(id);
+    if (this.selection.trackId && !this.track(this.selection.trackId)) {
+      this.selection.trackId = this.project.tracks[0]?.id ?? null;
+    }
+    return this.selection;
   }
 
   // kind: 'structure'（軌道/片段增減）| 'mix'（音量等參數）| 'transport'
@@ -158,6 +172,7 @@ class Store extends EventTarget {
     this.checkpoint();
     this.project.tracks.splice(i, 1);
     if (this.selection.trackId === id) this.selection.trackId = this.project.tracks[0]?.id ?? null;
+    this.pruneSelection();
     this.changed('structure');
   }
 
