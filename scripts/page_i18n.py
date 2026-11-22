@@ -90,7 +90,8 @@ def redirect_for(rel: str) -> str:
         return "" if tgt.strip("/") == d else tgt
     return ""
 
-SKIP_PREFIX = ("en/", "assets/", "vendor/", "manage/", "scripts/")
+# /hans/ 是簡體版，也是中文（只是換了字面），不是「還要翻成英文」的頁面
+SKIP_PREFIX = ("en/", "hans/", "assets/", "vendor/", "manage/", "scripts/")
 
 
 # ── 字典 ────────────────────────────────────────────────────────
@@ -155,7 +156,8 @@ def _js_strings(block: str) -> list:
                 i += 1
             s = "".join(buf).strip()
             code_like = (";" in s or "{" in s or "}" in s or "=>" in s
-                         or "\n" in s or s.startswith("/") or s.startswith("."))
+                         or "\n" in s or s.startswith("/") or s.startswith(".")
+                         or "<" in s or ">" in s)   # innerHTML 片段不是給人看的字
             if s and CJK.search(s) and len(s) <= 120 and not code_like:
                 out.append(s)
             continue
@@ -165,11 +167,16 @@ def _js_strings(block: str) -> list:
 
 def strings_of(page: str) -> list:
     """一頁要翻的字串：可見文字 ＋ title/placeholder/aria-label ＋ JS 字串。"""
+    # 標頭與 banner 在英文頁是整個換掉的（site_header_en），不要抽進來翻
+    page = HEADER_RE.sub("", page)
     body = TAG_RE.sub("", page)
     out = []
 
     def take(s: str) -> None:
         s = re.sub(r"\s+", " ", html.unescape(s)).strip()
+        # 網址不翻：國家／子分類頁的 canonical 帶著中文路徑（/subcategories/取樣與磁帶/）
+        if "://" in s or s.startswith(("/", "#")):
+            return
         if s and CJK.search(s) and s not in out and len(s) < 4000:
             out.append(s)
 
@@ -221,7 +228,9 @@ def cmd_extract() -> int:
 
 # ── 連結與外框 ──────────────────────────────────────────────────
 LINK_RE = re.compile(r'(href|src)="([^"]+)"')
-HEADER_RE = re.compile(r'<header class="site-header">.*?</header>', re.S)
+# 中文頁的標頭＋緊接的 banner 條：英文標頭自己就帶 banner，兩份都留會多一條
+HEADER_RE = re.compile(r'<header class="site-header">.*?</header>'
+                       r'(?:\s*<div class="site-banner"[^>]*></div>)?', re.S)
 FOOTER_RE = re.compile(r'<footer class="site-footer">.*?</footer>', re.S)
 BACKTOP_RE = re.compile(r'aria-label="回頂部"')
 
@@ -346,6 +355,8 @@ def cmd_build() -> int:
             key = re.sub(r"\s+", " ", html.unescape(raw)).strip()
             if not key or not CJK.search(key):
                 return raw
+            if "://" in key or key.startswith(("/", "#")):
+                return raw          # 網址（canonical、og:url）原樣留著
             val = table.get(key)
             # 空字串＝還沒翻，不能當成譯文：那會把整段文字換成空白
             if not val:
@@ -363,6 +374,8 @@ def cmd_build() -> int:
             return "\x00%d\x00" % (len(slots) - 1)
 
         body = TAG_RE.sub(hide, body)
+        # 導覽列等一下會換成英文版，先藏起來——不然語言選單的中文字會被算成「待翻」
+        body = HEADER_RE.sub(hide, body)
         body = TEXT_NODE.sub(lambda m: ">" + conv(m.group(1)) + "<", body)
         body = ATTR.sub(lambda m: m.group(0).split("=")[0] + '="' + conv(m.group(1)) + '"', body)
         body = re.sub(r"\x00(\d+)\x00", lambda m: slots[int(m.group(1))], body)
