@@ -9,6 +9,7 @@ import { engine, pedalSpans } from './engine.js';
 import { PRESETS, DRUM_NAMES, noteName } from './synth.js';
 import { toast } from './util.js';
 import { cssVar } from './theme.js';
+import { showMenu } from './menu.js';
 
 const KEYS_W = 64, VEL_H = 64, PED_H = 22, RULER_H = 18, LOW = 0, HIGH = 127;
 const BLACK = new Set([1, 3, 6, 8, 10]);
@@ -27,6 +28,23 @@ const SCALES = {
 const SCALE_NAMES = [['major', '大調'], ['minor', '自然小調'], ['harmonic', '和聲小調'], ['penta', '五聲音階'], ['blues', '藍調音階']];
 const PC = ['C', 'C♯', 'D', 'D♯', 'E', 'F', 'F♯', 'G', 'G♯', 'A', 'A♯', 'B'];
 
+// 工具列的圖示（16×16 線條圖，顏色吃 currentColor）與旁邊顯示的短名稱
+const TOOL_ICON = {
+  pointer: '<path d="M4.6 2.8l8.6 6.9-3.8.6-1.8 3.8z"/>',
+  pencil: '<path d="M3 13l1-3 7.4-7.4 2 2L6 12z"/><path d="M9.6 4.4l2 2"/>',
+  eraser: '<path d="M3.4 11.4l5-5a1.7 1.7 0 012.4 0l2.3 2.3a1.7 1.7 0 010 2.4l-2.3 2.3H6.2z"/><path d="M6.4 14.4h6.2"/>',
+  scissors: '<circle cx="4.4" cy="12.6" r="1.7"/><circle cx="4.4" cy="3.4" r="1.7"/><path d="M5.8 11.4L13 2.8M5.8 4.6L13 13.2"/>',
+  glue: '<rect x="2.6" y="3.2" width="4.6" height="3.2" rx="1"/><rect x="8.8" y="9.6" width="4.6" height="3.2" rx="1"/><path d="M7.2 4.8h1.6a1.4 1.4 0 011.4 1.4v3.4"/>',
+  mute: '<circle cx="8" cy="8" r="5.2"/><path d="M4.3 11.7L11.7 4.3"/>',
+  velocity: '<path d="M3.4 13.2V8.6M6.8 13.2V4.8M10.2 13.2V7.2M13.6 13.2V9.6"/>',
+};
+const TOOL_SHORT = {
+  pointer: '指標', pencil: '鉛筆', eraser: '橡皮擦', scissors: '剪刀',
+  glue: '膠水', mute: '靜音筆', velocity: '力度筆',
+};
+const TOOL_KEYS = ['pointer', 'pencil', 'eraser', 'scissors', 'glue', 'mute', 'velocity'];
+const toolTitle = k => UI['t' + k[0].toUpperCase() + k.slice(1)];
+
 // 介面字串集中放成單行字串：scripts/daw_i18n_extract.py 只掃得到這種寫法
 const UI = {
   title: '鋼琴捲簾',
@@ -37,6 +55,7 @@ const UI = {
   tGlue: '膠水：選取同音高的音符後合併成一顆長音（5）',
   tMute: '靜音筆：點音符開關靜音（6）',
   tVelocity: '力度筆：上下拖曳改力度（7）',
+  toolsHelp: '工具說明：點一下看每個工具怎麼用，也可以直接切換',
   fx: '量化、人性化、力度、移調、長度、反轉…',
   grid: '格線：新音符與拖曳要對齊的拍長',
   snap: '對齊格線（拖曳時按住 Alt 暫時不對齊）',
@@ -104,14 +123,13 @@ export function initPianoRoll() {
       <span class="pr-info" id="prInfo"></span>
       <div class="spacer"></div>
       <div class="pr-tools" id="prTools">
-        <button type="button" data-tool="pointer" title="${UI.tPointer}">↖</button>
-        <button type="button" data-tool="pencil" title="${UI.tPencil}">✎</button>
-        <button type="button" data-tool="eraser" title="${UI.tEraser}">⌫</button>
-        <button type="button" data-tool="scissors" title="${UI.tScissors}">✂</button>
-        <button type="button" data-tool="glue" title="${UI.tGlue}">⇥⇤</button>
-        <button type="button" data-tool="mute" title="${UI.tMute}">◑</button>
-        <button type="button" data-tool="velocity" title="${UI.tVelocity}">▮</button>
+        ${TOOL_KEYS.map((k, i) => `
+          <button type="button" data-tool="${k}" title="${toolTitle(k)}">
+            <svg viewBox="0 0 16 16" aria-hidden="true">${TOOL_ICON[k]}</svg><i>${i + 1}</i>
+          </button>`).join('')}
       </div>
+      <span class="pr-tool-name" id="prToolName"></span>
+      <button type="button" class="tbtn ghost pr-tool-help" id="prToolHelp" title="${UI.toolsHelp}">?</button>
       <button type="button" class="tbtn" id="prFx" title="${UI.fx}">功能 ▾</button>
       <button type="button" class="tbtn ghost" id="prClose" title="關閉 (Esc)">✕</button>
     </div>
@@ -515,7 +533,22 @@ function bindBar() {
     const b = e.target.closest('button[data-tool]');
     if (b) setTool(b.dataset.tool);
   });
+  // 滑過圖示時，旁邊就顯示那個工具的名字（不用等原生的 tooltip 慢慢跳出來）
+  const nameEl = $('prToolName');
+  if (nameEl) {
+    $('prTools').addEventListener('pointerover', e => {
+      const b = e.target.closest('button[data-tool]');
+      if (b) nameEl.textContent = TOOL_SHORT[b.dataset.tool] || '';
+    });
+    $('prTools').addEventListener('pointerleave', () => { nameEl.textContent = TOOL_SHORT[pr.tool] || ''; });
+  }
   $('prFx').onclick = () => { pr.menuOpen ? closeMenu() : openMenu(); };
+  // 工具說明：列出七個工具（點一下就切換過去）
+  const helpBtn = $('prToolHelp');
+  if (helpBtn) helpBtn.onclick = e => {
+    const r = e.currentTarget.getBoundingClientRect();
+    showMenu(r.left - 150, r.bottom + 2, TOOL_KEYS.map(k => ({ label: toolTitle(k), action: () => setTool(k) })));
+  };
   $('prGrid').onchange = e => { pr.grid = Number(e.target.value); savePrefs(); draw(); };
   $('prSnap').onchange = e => { pr.snap = e.target.checked; savePrefs(); };
   $('prUp').onclick = e => transpose(e.shiftKey ? 12 : 1);
@@ -559,6 +592,8 @@ function syncTools() {
   if (!root) return;
   toolBtns = [...root.querySelectorAll('#prTools button')];
   for (const b of toolBtns) b.classList.toggle('on', b.dataset.tool === pr.tool);
+  const nameEl = $('prToolName');
+  if (nameEl) nameEl.textContent = TOOL_SHORT[pr.tool] || '';
   $('prSnap').checked = !!pr.snap;
   $('prGrid').value = String(pr.grid);
   $('prFollow').classList.toggle('on', pr.follow);

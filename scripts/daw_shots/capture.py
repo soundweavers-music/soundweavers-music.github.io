@@ -615,6 +615,35 @@ for (const a of acts) {
         }
       }
     }
+    else if (key === 'autoheight') {      // 自動化曲線要跟著「這一軌」的高度；控制點要顯示數值
+      const E2 = window.__ERRS || (window.__ERRS = []);
+      const st = window.__daw.store;
+      if (!document.querySelector('.auto-ov')) document.getElementById('btnAuto').click();
+      await sleep(300);
+      st.project.tracks[0].h = 150;
+      st.changed('structure');
+      await sleep(400);
+      const ov = document.querySelector('.auto-ov');
+      if (!ov) E2.push('autoheight: 沒有自動化曲線');
+      else if (Math.abs(Number(ov.getAttribute('height')) - 150) > 4) E2.push('autoheight: 曲線沒有跟著軌道高度（' + ov.getAttribute('height') + '）');
+      const dot = document.querySelector('.auto-pt');
+      if (dot) {
+        dot.dispatchEvent(new PointerEvent('pointermove', { bubbles: true }));
+        await sleep(100);
+        const tip = ov && ov.querySelector('.auto-tip text');
+        if (!tip || !tip.textContent.trim()) E2.push('autoheight: 控制點沒有顯示數值');
+      }
+    }
+    else if (key === 'prhelp') {          // 鋼琴捲簾的工具說明選單
+      const E2 = window.__ERRS || (window.__ERRS = []);
+      const b = document.getElementById('prToolHelp');
+      if (!b) E2.push('prhelp: 找不到工具說明按鈕');
+      else {
+        b.click();
+        await sleep(300);
+        if (!document.querySelector('.ctxmenu')) E2.push('prhelp: 說明選單沒有打開');
+      }
+    }
     else if (key === 'wait') await sleep(Number(arg[0]));
     else if (key === 'eval') { const js = decodeURIComponent(arg.join(':'));
       const fn = function () { (0, eval)(js); }; fn(); LATE.push(fn); }
@@ -743,10 +772,12 @@ SHOT_LIST = {
     "mixer":      ("click:btnMixer", ""),
     "pianoroll":  ("pr,wait:400,eval:document.dispatchEvent(new Event(&quot;daw-theme&quot;))%2Cwindow.dispatchEvent(new Event(&quot;resize&quot;)),wait:600", ""),
     "piano":      ("piano", ""),
+    "piano-help": ("piano,prhelp", ""),
     "master":     ("click:btnMaster", ""),
     "arranger":   ("arr", ""),
     "album":      ("click:btnAlbum", ""),
     "automation": ("click:btnAuto", ""),
+    "auto-height": ("autoheight", ""),
     # 和弦區塊在檢閱器下方，要捲下去才看得到
     "chords":     ("scroll:#inspector:560", ""),
     "chords0":    ("", ""),

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>效果器圖表總覽</title>
+<style>
+  body { background: #101114; color: #dfe1e6; font: 12px ui-monospace, Consolas, monospace; margin: 0; padding: 12px; }
+  h1 { font-size: 14px; color: #8f9dff; margin: 0 0 10px; }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .cell { border: 1px solid #2a2d34; border-radius: 8px; overflow: hidden; background: #17181c; }
+  .cell h3 { margin: 0; padding: 6px 8px; font-size: 11px; font-weight: 600; color: #cfd3da; background: #1d1f25; }
+  .cell .fxvis { border: 0; }
+</style>
+</head>
+<body>
+<h1>效果器圖表總覽（參數驅動；播放時會加即時電平）</h1>
+<div class="grid" id="grid"></div>
+<!-- 伺服器會壓住這張圖，圖表畫好之後才放行，--screenshot 就會等到那時候 -->
+<img src="/__SLOW__" width="1" height="1" alt="" style="position:absolute;left:-9px;top:-9px">
+<script type="module">
+import { FX_TYPES, FX_ORDER, newFx } from './js/effects.js';
+import { fxVisual } from './js/fx-visual.js';
+
+const grid = document.getElementById('grid');
+const SKIP = new Set(['eq', 'tune', 'harm', 'reverb', 'width']);   // 這些有自己的編輯器
+const list = FX_ORDER.filter(t => !SKIP.has(t));
+document.body.style.height = Math.ceil(list.length / 4) * 210 + 'px';
+for (const type of list) {
+  const cell = document.createElement('div');
+  cell.className = 'cell';
+  const h = document.createElement('h3');
+  h.textContent = FX_TYPES[type].name;
+  cell.appendChild(h);
+  const desc = newFx(type);
+  const vis = fxVisual('__none__', desc, type);
+  cell.appendChild(vis);
+  grid.appendChild(cell);
+}
+// 圖表是用 requestAnimationFrame 畫的：等幾張影格再放行截圖
+await new Promise(r => setTimeout(r, 700));
+fetch('/__READY__').catch(() => {});
+</script>
+</body>
+</html>
