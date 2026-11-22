@@ -49,6 +49,46 @@ EXTRA_LINKS = {
     "/tools/daw/learn/": "/en/dawcourse/",
     "/tools/daw/learn": "/en/dawcourse/",
 }
+# /tools/daw/learn/NN/ 是中文的 DAW 課程，英文版是 build_en_courses.py 建的
+# /en/dawcourse/chNN/。同樣的內容不再翻第二份：英文站那邊直接轉址過去。
+for _n in range(1, 25):
+    EXTRA_LINKS["/tools/daw/learn/%02d/" % _n] = "/en/dawcourse/ch%02d/" % _n
+    EXTRA_LINKS["/tools/daw/learn/%02d" % _n] = "/en/dawcourse/ch%02d/" % _n
+
+DAW_LESSON = re.compile(r"tools/daw/learn/(\d+)")
+REDIRECT_KEYS = {"tools__daw__learn"} | {"tools__daw__learn__%02d" % n for n in range(1, 25)}
+
+# 這些區塊已經有專門的英文建置程式（build_en_courses.py）：章節頁在
+# /en/<課程>/chNN/，目錄頁在 /en/<課程>/。不要再翻一份放 /en/<課程>/NN/，
+# 那會變成兩份內容不同的英文頁，而且彼此互相覆蓋。
+EN_COURSE_SLUGS = {"vocal", "digitalmusic", "guitar", "ukulele", "mandolin", "songwriting"}
+for _s in EN_COURSE_SLUGS:
+    REDIRECT_KEYS.add(_s)
+
+# 這些區塊的英文頁由別的建置程式直接寫在「同一條路徑」（/theory/ → /en/theory/），
+# page_i18n 連碰都不能碰：以前沒擋，產生的中文副本把英文頁蓋掉了。
+SAME_PATH_SECTIONS = {"theory"}
+
+
+def redirect_for(rel: str) -> str:
+    """這一頁的英文版不在 /en/<路徑>，而是已經有現成的英文頁 → 轉址目的地。
+
+    回傳空字串＝照正常流程翻成 /en/<同一條路徑>。
+    """
+    d = posixpath.dirname(rel)
+    seg = d.split("/")
+    if d == "tools/daw/learn":
+        return "/en/dawcourse/"
+    m = DAW_LESSON.fullmatch(d)
+    if m:
+        return "/en/dawcourse/ch%02d/" % int(m.group(1))
+    if len(seg) == 1 and seg[0] in EN_COURSE_SLUGS:
+        return "/en/%s/" % seg[0]
+    if len(seg) == 2 and seg[0] in EN_COURSE_SLUGS and seg[1].isdigit():
+        tgt = "/en/%s/ch%02d/" % (seg[0], int(seg[1]))
+        # 英文頁就在同一條路徑（吉他、烏克麗麗、詞曲創作）→ 不是轉址，是「不要碰」
+        return "" if tgt.strip("/") == d else tgt
+    return ""
 
 SKIP_PREFIX = ("en/", "assets/", "vendor/", "manage/", "scripts/")
 
@@ -149,6 +189,9 @@ def cmd_extract() -> int:
     seen, per_page = {}, {}
     total = 0
     for rel in discover_pages():
+        sec = posixpath.dirname(rel).split("/")[0]
+        if sec in EN_COURSE_SLUGS or sec in SAME_PATH_SECTIONS or redirect_for(rel):
+            continue                      # 不翻的頁不要抽，字典才不會白長
         path = OUTPUT / rel
         if not path.exists():
             continue
@@ -246,14 +289,54 @@ def swap_chrome(page: str, dst: Path) -> str:
 
 
 # ── 產生英文頁 ───────────────────────────────────────────────────
+REDIRECT_PAGE = """<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Redirecting…</title>
+<meta name="robots" content="noindex">
+<meta http-equiv="refresh" content="0; url={url}">
+<link rel="canonical" href="https://soundweavers-music.github.io{target}">
+</head>
+<body>
+<p>This page lives in the English course now: <a href="{url}">{target}</a></p>
+</body>
+</html>
+"""
+
+
+def write_redirect(rel: str, target: str) -> None:
+    dst = OUTPUT / "en" / rel
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    here = posixpath.dirname("/en/" + rel)
+    url = posixpath.relpath(target, here)
+    if target.endswith("/") and not url.endswith("/"):
+        url += "/"
+    dst.write_text(REDIRECT_PAGE.replace("{url}", url).replace("{target}", target),
+                   encoding="utf-8")
+
+
 def cmd_build() -> int:
     en = load_en()
     shared = en.get("_shared", {})
-    made = missing_total = 0
+    made = missing_total = redirected = 0
+    skipped: list = []
     for rel in discover_pages():
         src = OUTPUT / rel
         if not src.exists():
             continue
+        target = redirect_for(rel)
+        if target:
+            # 目標頁還沒建出來就不要轉址（不然會轉到 404），也不要退回去生中文頁
+            if (OUTPUT / target.strip("/") / "index.html").exists():
+                write_redirect(rel, target)
+                redirected += 1
+            else:
+                skipped.append(rel)
+            continue
+        sec = posixpath.dirname(rel).split("/")[0]
+        if sec in SAME_PATH_SECTIONS or sec in EN_COURSE_SLUGS:
+            continue          # 課程頁由 build_en_courses.py 負責，這裡一份都不寫
         fig = _key(rel)
         table = dict(shared)
         table.update(en.get(fig, {}))
@@ -304,14 +387,16 @@ def cmd_build() -> int:
         if missing:
             missing_total += len(set(missing))
             print("  %-46s 還有 %d 條沒翻" % (rel, len(set(missing))))
-    print("產生 %d 個英文頁；未翻譯字串 %d 條。" % (made, missing_total))
+    print("產生 %d 個英文頁（另有 %d 頁轉址、%d 頁沒有英文版可轉）；未翻譯字串 %d 條。"
+          % (made, redirected, len(skipped), missing_total))
     return 1 if missing_total else 0
 
 
 def cmd_stats() -> int:
     en = load_en()
     shared = en.get("_shared", {})
-    pages = {k: v for k, v in en.items() if k != "_shared"}
+    # 轉址頁（見 redirect_for）不翻譯，也不該算進待翻
+    pages = {k: v for k, v in en.items() if k != "_shared" and k not in REDIRECT_KEYS}
     done_s = sum(1 for v in shared.values() if v)
     todo_s = len(shared) - done_s
     done_p = sum(1 for t in pages.values() for v in t.values() if v)
