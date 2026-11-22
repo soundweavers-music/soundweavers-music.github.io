@@ -225,11 +225,25 @@ button { cursor: pointer; }
 .ruler-wrap .playhead-cap { position: absolute; bottom: 0; width: 0; height: 0; border-left: 6px solid transparent; border-right: 6px solid transparent;
   border-top: 9px solid var(--playhead); transform: translateX(-6px); pointer-events: none; z-index: 5; }
 
-.thead { height: var(--track-h); display: grid; grid-template-columns: 6px 22px 1fr; align-items: center; gap: 0 6px; padding-right: 6px;
-  border-bottom: 1px solid var(--line); background: var(--bg2); position: relative; }
-.thead.sel { background: var(--sel-bg); }
-.thead .color { height: 100%; }
-.thead .num { color: var(--tx2); font-size: 11px; text-align: right; font-family: var(--mono); }
+/* 軌道標頭：用這一軌的顏色做淡淡的地淡化，選取時整條亮起來 */
+.thead { height: var(--track-h); display: grid; grid-template-columns: 9px 24px 1fr; align-items: center; gap: 0 7px; padding-right: 6px;
+  border-bottom: 1px solid var(--line); position: relative;
+  background: linear-gradient(90deg,
+    color-mix(in srgb, var(--trk, var(--bg2)) 26%, var(--bg2)) 0,
+    color-mix(in srgb, var(--trk, var(--bg2)) 9%, var(--bg2)) 46%,
+    var(--bg2) 100%); }
+.thead:hover { background: linear-gradient(90deg,
+    color-mix(in srgb, var(--trk, var(--bg2)) 34%, var(--bg2)) 0,
+    color-mix(in srgb, var(--trk, var(--bg2)) 13%, var(--bg2)) 52%,
+    var(--bg2) 100%); }
+.thead.sel { background: linear-gradient(90deg,
+    color-mix(in srgb, var(--trk, var(--bg3)) 55%, var(--bg3)) 0,
+    color-mix(in srgb, var(--trk, var(--bg3)) 20%, var(--bg3)) 60%,
+    var(--bg3) 100%); box-shadow: inset 3px 0 0 var(--trk, var(--accent)); }
+.thead .color { height: 100%; border-radius: 0 4px 4px 0;
+  background-image: linear-gradient(180deg, rgba(255,255,255,.35), rgba(0,0,0,.15)) !important; }
+.thead.sel .color { box-shadow: 2px 0 10px -2px var(--trk, var(--accent)); }
+.thead .num { color: color-mix(in srgb, var(--trk, var(--tx2)) 65%, var(--tx1)); font-size: 11px; text-align: right; font-family: var(--mono); font-weight: 600; }
 .thead .body { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
 .thead .name { background: transparent; border: 1px solid transparent; border-radius: 3px; padding: 1px 3px; font-weight: 600; min-width: 0; width: 100%; color: var(--tx0); }
 .thead .name:focus { border-color: var(--accent); background: var(--bg0); outline: none; }
@@ -1130,3 +1144,256 @@ html[lang="en"] .insp-sec > h4, html[lang="en"] .sec-h { letter-spacing: 0; }
 .clip .trans-mark { position: absolute; right: -9px; top: 50%; transform: translateY(-50%); width: 18px; height: 18px;
   border-radius: 50%; background: var(--accent); color: #1b1206; display: grid; place-items: center;
   font-size: 11px; font-weight: 700; z-index: 4; box-shadow: 0 1px 4px rgba(0,0,0,.4); pointer-events: none; }
+
+/* ---------- 追加配色（產生器：work/_gen_themes.py） ---------- */
+/* midnight */
+[data-theme="midnight"] {
+  --bg0: #10131c; --bg1: #1C1F27; --bg2: #262830; --bg3: #31343C; --bg4: #404249;
+  --line: #07090D; --line2: #585A60;
+  --tx0: #EBEDFF; --tx1: #CDD3FF; --tx2: #B1BAFF;
+  --accent: #8f9dff; --accent-soft: #272C45; --accent-faint: #1D2133; --accent-tx: #07090D;
+  --topbar-a: #0C0E15; --topbar-b: #10131c;
+  --btn-a: #404249; --btn-b: #31343C; --btn-hover-a: #57595F; --btn-hover-b: #4A4C53; --btn-active: #1C1F27;
+  --btn-border: #07090D; --btn-hi: rgba(255,255,255,.08); --on-tx: #10131c;
+  --primary-a: #A0ACFF; --primary-b: #8f9dff; --primary-border: #5D66A6; --primary-tx: #06080B;
+  --menu-hover-tx: #06080B;
+  --lcd-bg: #0B0D14; --lcd-tx: #C1C9FF; --lcd-border: #07090D; --lcd-sep: #31343C; --lcd-lbl: #B1BAFF;
+  --sel-bg: #31343C; --sel-line: #62656B;
+  --lane-line: #0D0F16; --lane-sel: rgba(255,255,255,.025);
+  --playhead: #EEF0FF; --playhead-glow: rgba(255,255,255,.45);
+  --menu-bg: #262830; --menu-line: #585A60; --menu-hr: #404249;
+  --toast-bg: #262830; --toast-line: #585A60;
+  --fx-slot-bg: #2C314E; --fx-slot-line: #0A0C12; --fx-slot-tx: #E3E6FF; --fx-slot-hover: #393F65;
+  --panel: #262830; --panel-line: #585A60; --panel-head-a: #31343C; --panel-head-b: #262830; --panel2: #1C1F27; --panel3: #10131c;
+  --deep: #10131c; --card-a: #262830; --card-b: #1C1F27; --well: #1C1F27; --well2: #10131c;
+  --strip-master-bg: #31343C; --strip-master-line: #6F7176; --strip-bus-bg: #262830; --strip-bus-line: #585A60;
+  --knob-a: #5A5D63; --knob-b: #262830; --knob-border: #07090D; --knob-mark: #D2D8FF; --fader-unity: #B1BAFF;
+  --cv-ink: 233,235,255; --cv-ink-k: 1; --cv-bg-a: #1C1F27; --cv-bg-b: #10131c;
+  --cv-tx: #EBEDFF; --cv-tx2: #B1BAFF; --cv-tx3: #2C314E; --cv-tx4: #CDD3FF; --cv-orig: 205,211,255; --cv-lead: 235,237,255;
+  --cv-knob-track: #262830; --cv-knob-cap: #31343C; --cv-knob-mark: #D2D8FF; --cv-node-off: #262830;
+  --cv-tick: #31343C; --cv-tick2: #343A5C; --cv-needle-off: #585A60; --cv-sel: #EEF0FF;
+  --cv-ruler-major: #B1BAFF; --cv-ruler-minor: #585A60; --cv-ruler-tx: #CDD3FF; --cv-ruler-beat: #31343C;
+  --cv-trk-sel: #262830; --cv-trk-a: #10131c; --cv-trk-b: #0F111A; --cv-grid-bar: #31343C; --cv-grid-sub: #1C1F27;
+  --cv-wave: rgba(255,255,255,.82); --cv-midi: rgba(255,255,255,.88); --cv-empty: rgba(255,255,255,.35);
+  --pr-keys-bg: #1C1F27; --pr-row-w: #262830; --pr-row-b: #1C1F27; --pr-row-d: #262830; --pr-row-d2: #10131c; --pr-oct: #404249;
+  --pr-bar: #585A60; --pr-beat: #31343C; --pr-sub: #262830; --pr-num: #B1BAFF;
+  --pr-vel-bg: #10131c; --pr-vel-mid: #31343C; --pr-ped-bg: #1C1F27;
+  --tl-bg: #10131c; --tl-lbl: #1C1F27; --tl-sec: #262830; --tl-sec-on: #363C60; --tl-sec-line: #585A60; --tl-sel: #BCC4FF; --pitch-bg: #10131c;
+  --cv-sel-tx: #10131c;
+}
+/* forest */
+[data-theme="forest"] {
+  --bg0: #101611; --bg1: #1C221D; --bg2: #262B26; --bg3: #313732; --bg4: #404541;
+  --line: #070A08; --line2: #585C58;
+  --tx0: #EAF4E4; --tx1: #CBE4BC; --tx2: #AED697;
+  --accent: #8cc46a; --accent-soft: #263521; --accent-faint: #1C271A; --accent-tx: #070A08;
+  --topbar-a: #0C100D; --topbar-b: #101611;
+  --btn-a: #404541; --btn-b: #313732; --btn-hover-a: #575B58; --btn-hover-b: #4A4F4B; --btn-active: #1C221D;
+  --btn-border: #070A08; --btn-hi: rgba(255,255,255,.08); --on-tx: #101611;
+  --primary-a: #9DCD80; --primary-b: #8cc46a; --primary-border: #5B7F45; --primary-tx: #060907;
+  --menu-hover-tx: #060907;
+  --lcd-bg: #0B0F0C; --lcd-tx: #C0DFAD; --lcd-border: #070A08; --lcd-sep: #313732; --lcd-lbl: #AED697;
+  --sel-bg: #313732; --sel-line: #626763;
+  --lane-line: #0D120E; --lane-sel: rgba(255,255,255,.025);
+  --playhead: #EEF6E9; --playhead-glow: rgba(255,255,255,.45);
+  --menu-bg: #262B26; --menu-line: #585C58; --menu-hr: #404541;
+  --toast-bg: #262B26; --toast-line: #585C58;
+  --fx-slot-bg: #2B3C25; --fx-slot-line: #0A0E0B; --fx-slot-tx: #E2F0DA; --fx-slot-hover: #384E2D;
+  --panel: #262B26; --panel-line: #585C58; --panel-head-a: #313732; --panel-head-b: #262B26; --panel2: #1C221D; --panel3: #101611;
+  --deep: #101611; --card-a: #262B26; --card-b: #1C221D; --well: #1C221D; --well2: #101611;
+  --strip-master-bg: #313732; --strip-master-line: #6F7370; --strip-bus-bg: #262B26; --strip-bus-line: #585C58;
+  --knob-a: #5A5F5B; --knob-b: #262B26; --knob-border: #070A08; --knob-mark: #D1E7C3; --fader-unity: #AED697;
+  --cv-ink: 232,243,225; --cv-ink-k: 1; --cv-bg-a: #1C221D; --cv-bg-b: #101611;
+  --cv-tx: #EAF4E4; --cv-tx2: #AED697; --cv-tx3: #2B3C25; --cv-tx4: #CBE4BC; --cv-orig: 203,228,188; --cv-lead: 234,244,228;
+  --cv-knob-track: #262B26; --cv-knob-cap: #313732; --cv-knob-mark: #D1E7C3; --cv-node-off: #262B26;
+  --cv-tick: #313732; --cv-tick2: #33472A; --cv-needle-off: #585C58; --cv-sel: #EEF6E9;
+  --cv-ruler-major: #AED697; --cv-ruler-minor: #585C58; --cv-ruler-tx: #CBE4BC; --cv-ruler-beat: #313732;
+  --cv-trk-sel: #262B26; --cv-trk-a: #101611; --cv-trk-b: #0F1410; --cv-grid-bar: #313732; --cv-grid-sub: #1C221D;
+  --cv-wave: rgba(255,255,255,.82); --cv-midi: rgba(255,255,255,.88); --cv-empty: rgba(255,255,255,.35);
+  --pr-keys-bg: #1C221D; --pr-row-w: #262B26; --pr-row-b: #1C221D; --pr-row-d: #262B26; --pr-row-d2: #101611; --pr-oct: #404541;
+  --pr-bar: #585C58; --pr-beat: #313732; --pr-sub: #262B26; --pr-num: #AED697;
+  --pr-vel-bg: #101611; --pr-vel-mid: #313732; --pr-ped-bg: #1C221D;
+  --tl-bg: #101611; --tl-lbl: #1C221D; --tl-sec: #262B26; --tl-sec-on: #354A2C; --tl-sec-line: #585C58; --tl-sel: #BADCA6; --pitch-bg: #101611;
+  --cv-sel-tx: #101611;
+}
+/* sunset */
+[data-theme="sunset"] {
+  --bg0: #1a1214; --bg1: #251E20; --bg2: #2F2729; --bg3: #3A3335; --bg4: #484143;
+  --line: #0C0809; --line2: #5F595A;
+  --tx0: #FCEAE2; --tx1: #F8CAB6; --tx2: #F4AD8E;
+  --accent: #f08a5d; --accent-soft: #412821; --accent-faint: #2F1E1B; --accent-tx: #0C0809;
+  --topbar-a: #140E0F; --topbar-b: #1a1214;
+  --btn-a: #484143; --btn-b: #3A3335; --btn-hover-a: #5E585A; --btn-hover-b: #524B4D; --btn-active: #251E20;
+  --btn-border: #0C0809; --btn-hi: rgba(255,255,255,.08); --on-tx: #1a1214;
+  --primary-a: #F29C75; --primary-b: #f08a5d; --primary-border: #9C5A3C; --primary-tx: #0A0708;
+  --menu-hover-tx: #0A0708;
+  --lcd-bg: #120D0E; --lcd-tx: #F7BFA6; --lcd-border: #0C0809; --lcd-sep: #3A3335; --lcd-lbl: #F4AD8E;
+  --sel-bg: #3A3335; --sel-line: #696465;
+  --lane-line: #150E10; --lane-sel: rgba(255,255,255,.025);
+  --playhead: #FDEDE7; --playhead-glow: rgba(255,255,255,.45);
+  --menu-bg: #2F2729; --menu-line: #5F595A; --menu-hr: #484143;
+  --toast-bg: #2F2729; --toast-line: #5F595A;
+  --fx-slot-bg: #492C24; --fx-slot-line: #110C0D; --fx-slot-tx: #FBE2D6; --fx-slot-hover: #5E382B;
+  --panel: #2F2729; --panel-line: #5F595A; --panel-head-a: #3A3335; --panel-head-b: #2F2729; --panel2: #251E20; --panel3: #1a1214;
+  --deep: #1a1214; --card-a: #2F2729; --card-b: #251E20; --well: #251E20; --well2: #1a1214;
+  --strip-master-bg: #3A3335; --strip-master-line: #757072; --strip-bus-bg: #2F2729; --strip-bus-line: #5F595A;
+  --knob-a: #615C5D; --knob-b: #2F2729; --knob-border: #0C0809; --knob-mark: #F9D0BE; --fader-unity: #F4AD8E;
+  --cv-ink: 252,232,223; --cv-ink-k: 1; --cv-bg-a: #251E20; --cv-bg-b: #1a1214;
+  --cv-tx: #FCEAE2; --cv-tx2: #F4AD8E; --cv-tx3: #492C24; --cv-tx4: #F8CAB6; --cv-orig: 248,202,182; --cv-lead: 252,234,226;
+  --cv-knob-track: #2F2729; --cv-knob-cap: #3A3335; --cv-knob-mark: #F9D0BE; --cv-node-off: #2F2729;
+  --cv-tick: #3A3335; --cv-tick2: #563428; --cv-needle-off: #5F595A; --cv-sel: #FDEDE7;
+  --cv-ruler-major: #F4AD8E; --cv-ruler-minor: #5F595A; --cv-ruler-tx: #F8CAB6; --cv-ruler-beat: #3A3335;
+  --cv-trk-sel: #2F2729; --cv-trk-a: #1a1214; --cv-trk-b: #181112; --cv-grid-bar: #3A3335; --cv-grid-sub: #251E20;
+  --cv-wave: rgba(255,255,255,.82); --cv-midi: rgba(255,255,255,.88); --cv-empty: rgba(255,255,255,.35);
+  --pr-keys-bg: #251E20; --pr-row-w: #2F2729; --pr-row-b: #251E20; --pr-row-d: #2F2729; --pr-row-d2: #1a1214; --pr-oct: #484143;
+  --pr-bar: #5F595A; --pr-beat: #3A3335; --pr-sub: #2F2729; --pr-num: #F4AD8E;
+  --pr-vel-bg: #1a1214; --pr-vel-mid: #3A3335; --pr-ped-bg: #251E20;
+  --tl-bg: #1a1214; --tl-lbl: #251E20; --tl-sec: #2F2729; --tl-sec-on: #5A362A; --tl-sec-line: #5F595A; --tl-sel: #F6B99E; --pitch-bg: #1a1214;
+  --cv-sel-tx: #1a1214;
+}
+/* graphite */
+[data-theme="graphite"] {
+  --bg0: #131416; --bg1: #1F2022; --bg2: #28292B; --bg3: #343537; --bg4: #424345;
+  --line: #09090A; --line2: #5A5A5C;
+  --tx0: #F5F6F7; --tx1: #E5E8EC; --tx2: #D7DBE1;
+  --accent: #c6ccd4; --accent-soft: #333538; --accent-faint: #252629; --accent-tx: #09090A;
+  --topbar-a: #0E0F10; --topbar-b: #131416;
+  --btn-a: #424345; --btn-b: #343537; --btn-hover-a: #595A5B; --btn-hover-b: #4C4D4F; --btn-active: #1F2022;
+  --btn-border: #09090A; --btn-hi: rgba(255,255,255,.08); --on-tx: #131416;
+  --primary-a: #CFD4DA; --primary-b: #c6ccd4; --primary-border: #81858A; --primary-tx: #080809;
+  --menu-hover-tx: #080809;
+  --lcd-bg: #0D0E0F; --lcd-tx: #E0E3E7; --lcd-border: #09090A; --lcd-sep: #343537; --lcd-lbl: #D7DBE1;
+  --sel-bg: #343537; --sel-line: #656567;
+  --lane-line: #0F1012; --lane-sel: rgba(255,255,255,.025);
+  --playhead: #F6F7F9; --playhead-glow: rgba(255,255,255,.45);
+  --menu-bg: #28292B; --menu-line: #5A5A5C; --menu-hr: #424345;
+  --toast-bg: #28292B; --toast-line: #5A5A5C;
+  --fx-slot-bg: #3A3C40; --fx-slot-line: #0C0D0E; --fx-slot-tx: #F1F2F4; --fx-slot-hover: #4C4F53;
+  --panel: #28292B; --panel-line: #5A5A5C; --panel-head-a: #343537; --panel-head-b: #28292B; --panel2: #1F2022; --panel3: #131416;
+  --deep: #131416; --card-a: #28292B; --card-b: #1F2022; --well: #1F2022; --well2: #131416;
+  --strip-master-bg: #343537; --strip-master-line: #717273; --strip-bus-bg: #28292B; --strip-bus-line: #5A5A5C;
+  --knob-a: #5D5D5F; --knob-b: #28292B; --knob-border: #09090A; --knob-mark: #E8EBEE; --fader-unity: #D7DBE1;
+  --cv-ink: 244,245,246; --cv-ink-k: 1; --cv-bg-a: #1F2022; --cv-bg-b: #131416;
+  --cv-tx: #F5F6F7; --cv-tx2: #D7DBE1; --cv-tx3: #3A3C40; --cv-tx4: #E5E8EC; --cv-orig: 229,232,236; --cv-lead: 245,246,247;
+  --cv-knob-track: #28292B; --cv-knob-cap: #343537; --cv-knob-mark: #E8EBEE; --cv-node-off: #28292B;
+  --cv-tick: #343537; --cv-tick2: #45484B; --cv-needle-off: #5A5A5C; --cv-sel: #F6F7F9;
+  --cv-ruler-major: #D7DBE1; --cv-ruler-minor: #5A5A5C; --cv-ruler-tx: #E5E8EC; --cv-ruler-beat: #343537;
+  --cv-trk-sel: #28292B; --cv-trk-a: #131416; --cv-trk-b: #111214; --cv-grid-bar: #343537; --cv-grid-sub: #1F2022;
+  --cv-wave: rgba(255,255,255,.82); --cv-midi: rgba(255,255,255,.88); --cv-empty: rgba(255,255,255,.35);
+  --pr-keys-bg: #1F2022; --pr-row-w: #28292B; --pr-row-b: #1F2022; --pr-row-d: #28292B; --pr-row-d2: #131416; --pr-oct: #424345;
+  --pr-bar: #5A5A5C; --pr-beat: #343537; --pr-sub: #28292B; --pr-num: #D7DBE1;
+  --pr-vel-bg: #131416; --pr-vel-mid: #343537; --pr-ped-bg: #1F2022;
+  --tl-bg: #131416; --tl-lbl: #1F2022; --tl-sec: #28292B; --tl-sec-on: #494B4F; --tl-sec-line: #5A5A5C; --tl-sel: #DDE0E5; --pitch-bg: #131416;
+  --cv-sel-tx: #131416;
+}
+/* sakura */
+[data-theme="sakura"] {
+  --bg0: #fff7f8; --bg1: #FFFBFC; --bg2: #FFF9FA; --bg3: #F8F1F1; --bg4: #E8E1E0;
+  --line: #EAE2E1; --line2: #D4CBCA;
+  --tx0: #4B3037; --tx1: #6E4250; --tx2: #925F6F;
+  --accent: #c25b83; --accent-soft: #F5DEE5; --accent-faint: #FAEBEF; --accent-tx: #fff;
+  --topbar-a: #ffffff; --topbar-b: #FFFBFC;
+  --btn-a: #ffffff; --btn-b: #FFF9FA; --btn-hover-a: #ffffff; --btn-hover-b: #F8F1F1; --btn-active: #E8E1E0;
+  --btn-border: #D4CBCA; --btn-hi: rgba(255,255,255,.9); --on-tx: #1E1A18;
+  --primary-a: #CD7999; --primary-b: #c25b83; --primary-border: #88405C; --primary-tx: #fff;
+  --menu-hover-tx: #fff;
+  --lcd-bg: #4F2C37; --lcd-tx: #E4B5C7; --lcd-border: #EAE2E1; --lcd-sep: #D4CBCA; --lcd-lbl: #D794AE;
+  --sel-bg: #F5DEE5; --sel-line: #D184A2;
+  --lane-line: #F8F1F1; --lane-sel: #FBECF0;
+  --playhead: #4B3037; --playhead-glow: rgba(0,0,0,.18);
+  --menu-bg: #ffffff; --menu-line: #D4CBCA; --menu-hr: #E8E1E0;
+  --toast-bg: #ffffff; --toast-line: #D4CBCA;
+  --fx-slot-bg: #F5DEE5; --fx-slot-line: #E4B5C7; --fx-slot-tx: #4B3037; --fx-slot-hover: #EFCEDA;
+  --panel: #FFFBFC; --panel-line: #D4CBCA; --panel-head-a: #ffffff; --panel-head-b: #FFF9FA; --panel2: #FFF9FA; --panel3: #F8F1F1;
+  --deep: #FFFBFC; --card-a: #ffffff; --card-b: #FFF9FA; --well: #FFF9FA; --well2: #ffffff;
+  --strip-master-bg: #F3D8E1; --strip-master-line: #c25b83; --strip-bus-bg: #FFF9FA; --strip-bus-line: #D4CBCA;
+  --knob-a: #ffffff; --knob-b: #D4CBCA; --knob-border: #925F6F; --knob-mark: #4B3037; --fader-unity: #925F6F;
+  --cv-ink: 75,48,55; --cv-ink-k: 1.3; --cv-bg-a: #ffffff; --cv-bg-b: #FFFBFC;
+  --cv-tx: #4B3037; --cv-tx2: #925F6F; --cv-tx3: #B38F9A; --cv-tx4: #6E4250; --cv-orig: 110,66,80; --cv-lead: 75,48,55;
+  --cv-knob-track: #E8E1E0; --cv-knob-cap: #ffffff; --cv-knob-mark: #4B3037; --cv-node-off: #E8E1E0;
+  --cv-tick: #D4CBCA; --cv-tick2: #925F6F; --cv-needle-off: #D4CBCA; --cv-sel: #4B3037;
+  --cv-ruler-major: #6E4250; --cv-ruler-minor: #D4CBCA; --cv-ruler-tx: #4B3037; --cv-ruler-beat: #E8E1E0;
+  --cv-trk-sel: #F6E1E8; --cv-trk-a: #FFF9FA; --cv-trk-b: #FFFBFC; --cv-grid-bar: #D4CBCA; --cv-grid-sub: #F8F1F1;
+  --cv-wave: rgba(40,32,30,.78); --cv-midi: rgba(40,32,30,.85); --cv-empty: rgba(60,50,48,.5);
+  --pr-keys-bg: #F8F1F1; --pr-row-w: #ffffff; --pr-row-b: #FFF9FA; --pr-row-d: #ffffff; --pr-row-d2: #FFF9FA; --pr-oct: #E8E1E0;
+  --pr-bar: #925F6F; --pr-beat: #D4CBCA; --pr-sub: #F8F1F1; --pr-num: #925F6F;
+  --pr-vel-bg: #FFF9FA; --pr-vel-mid: #E8E1E0; --pr-ped-bg: #FFFBFC;
+  --tl-bg: #ffffff; --tl-lbl: #FFF9FA; --tl-sec: #F8F1F1; --tl-sec-on: #F0D0DB; --tl-sec-line: #D4CBCA; --tl-sel: #4B3037; --pitch-bg: #ffffff;
+  --cv-sel-tx: #fff; color-scheme: light;
+}
+/* ocean */
+[data-theme="ocean"] {
+  --bg0: #f3faff; --bg1: #F9FCFF; --bg2: #F6FBFF; --bg3: #F0F3F6; --bg4: #E2E2E3;
+  --line: #E4E3E4; --line2: #D1CCCB;
+  --tx0: #2A3843; --tx1: #344F64; --tx2: #4E6F87;
+  --accent: #2b7fb8; --accent-soft: #D3E6F4; --accent-faint: #E3F0F9; --accent-tx: #fff;
+  --topbar-a: #ffffff; --topbar-b: #F9FCFF;
+  --btn-a: #ffffff; --btn-b: #F6FBFF; --btn-hover-a: #ffffff; --btn-hover-b: #F0F3F6; --btn-active: #E2E2E3;
+  --btn-border: #D1CCCB; --btn-hi: rgba(255,255,255,.9); --on-tx: #1E1A18;
+  --primary-a: #5196C5; --primary-b: #2b7fb8; --primary-border: #1E5981; --primary-tx: #fff;
+  --menu-hover-tx: #fff;
+  --lcd-bg: #213747; --lcd-tx: #A0C5DF; --lcd-border: #E4E3E4; --lcd-sep: #D1CCCB; --lcd-lbl: #75ACD1;
+  --sel-bg: #D3E6F4; --sel-line: #609FCA;
+  --lane-line: #F0F3F6; --lane-sel: #E5F1FA;
+  --playhead: #2A3843; --playhead-glow: rgba(0,0,0,.18);
+  --menu-bg: #ffffff; --menu-line: #D1CCCB; --menu-hr: #E2E2E3;
+  --toast-bg: #ffffff; --toast-line: #D1CCCB;
+  --fx-slot-bg: #D3E6F4; --fx-slot-line: #A0C5DF; --fx-slot-tx: #2A3843; --fx-slot-hover: #BFDAED;
+  --panel: #F9FCFF; --panel-line: #D1CCCB; --panel-head-a: #ffffff; --panel-head-b: #F6FBFF; --panel2: #F6FBFF; --panel3: #F0F3F6;
+  --deep: #F9FCFF; --card-a: #ffffff; --card-b: #F6FBFF; --well: #F6FBFF; --well2: #ffffff;
+  --strip-master-bg: #CBE1F1; --strip-master-line: #2b7fb8; --strip-bus-bg: #F6FBFF; --strip-bus-line: #D1CCCB;
+  --knob-a: #ffffff; --knob-b: #D1CCCB; --knob-border: #4E6F87; --knob-mark: #2A3843; --fader-unity: #4E6F87;
+  --cv-ink: 42,56,67; --cv-ink-k: 1.3; --cv-bg-a: #ffffff; --cv-bg-b: #F9FCFF;
+  --cv-tx: #2A3843; --cv-tx2: #4E6F87; --cv-tx3: #839AAB; --cv-tx4: #344F64; --cv-orig: 52,79,100; --cv-lead: 42,56,67;
+  --cv-knob-track: #E2E2E3; --cv-knob-cap: #ffffff; --cv-knob-mark: #2A3843; --cv-node-off: #E2E2E3;
+  --cv-tick: #D1CCCB; --cv-tick2: #4E6F87; --cv-needle-off: #D1CCCB; --cv-sel: #2A3843;
+  --cv-ruler-major: #344F64; --cv-ruler-minor: #D1CCCB; --cv-ruler-tx: #2A3843; --cv-ruler-beat: #E2E2E3;
+  --cv-trk-sel: #D7E9F5; --cv-trk-a: #F6FBFF; --cv-trk-b: #F9FCFF; --cv-grid-bar: #D1CCCB; --cv-grid-sub: #F0F3F6;
+  --cv-wave: rgba(40,32,30,.78); --cv-midi: rgba(40,32,30,.85); --cv-empty: rgba(60,50,48,.5);
+  --pr-keys-bg: #F0F3F6; --pr-row-w: #ffffff; --pr-row-b: #F6FBFF; --pr-row-d: #ffffff; --pr-row-d2: #F6FBFF; --pr-oct: #E2E2E3;
+  --pr-bar: #4E6F87; --pr-beat: #D1CCCB; --pr-sub: #F0F3F6; --pr-num: #4E6F87;
+  --pr-vel-bg: #F6FBFF; --pr-vel-mid: #E2E2E3; --pr-ped-bg: #F9FCFF;
+  --tl-bg: #ffffff; --tl-lbl: #F6FBFF; --tl-sec: #F0F3F6; --tl-sec-on: #C1DBED; --tl-sec-line: #D1CCCB; --tl-sel: #2A3843; --pitch-bg: #ffffff;
+  --cv-sel-tx: #fff; color-scheme: light;
+}
+/* mint */
+[data-theme="mint"] {
+  --bg0: #f4fbf7; --bg1: #FAFDFB; --bg2: #F7FCF9; --bg3: #F0F4F0; --bg4: #E2E2DF;
+  --line: #E5E3E0; --line2: #D2CCC9;
+  --tx0: #2B3F35; --tx1: #365B4B; --tx2: #4F7D6A;
+  --accent: #2f9d78; --accent-soft: #D4ECE3; --accent-faint: #E4F3ED; --accent-tx: #fff;
+  --topbar-a: #ffffff; --topbar-b: #FAFDFB;
+  --btn-a: #ffffff; --btn-b: #F7FCF9; --btn-hover-a: #ffffff; --btn-hover-b: #F0F4F0; --btn-active: #E2E2DF;
+  --btn-border: #D2CCC9; --btn-hi: rgba(255,255,255,.9); --on-tx: #1E1A18;
+  --primary-a: #54AF90; --primary-b: #2f9d78; --primary-border: #216E54; --primary-tx: #fff;
+  --menu-hover-tx: #fff;
+  --lcd-bg: #224033; --lcd-tx: #A1D3C2; --lcd-border: #E5E3E0; --lcd-sep: #D2CCC9; --lcd-lbl: #78BFA7;
+  --sel-bg: #D4ECE3; --sel-line: #63B69A;
+  --lane-line: #F0F4F0; --lane-sel: #E6F4EE;
+  --playhead: #2B3F35; --playhead-glow: rgba(0,0,0,.18);
+  --menu-bg: #ffffff; --menu-line: #D2CCC9; --menu-hr: #E2E2DF;
+  --toast-bg: #ffffff; --toast-line: #D2CCC9;
+  --fx-slot-bg: #D4ECE3; --fx-slot-line: #A1D3C2; --fx-slot-tx: #2B3F35; --fx-slot-hover: #C1E3D6;
+  --panel: #FAFDFB; --panel-line: #D2CCC9; --panel-head-a: #ffffff; --panel-head-b: #F7FCF9; --panel2: #F7FCF9; --panel3: #F0F4F0;
+  --deep: #FAFDFB; --card-a: #ffffff; --card-b: #F7FCF9; --well: #F7FCF9; --well2: #ffffff;
+  --strip-master-bg: #CDE8DE; --strip-master-line: #2f9d78; --strip-bus-bg: #F7FCF9; --strip-bus-line: #D2CCC9;
+  --knob-a: #ffffff; --knob-b: #D2CCC9; --knob-border: #4F7D6A; --knob-mark: #2B3F35; --fader-unity: #4F7D6A;
+  --cv-ink: 43,63,53; --cv-ink-k: 1.3; --cv-bg-a: #ffffff; --cv-bg-b: #FAFDFB;
+  --cv-tx: #2B3F35; --cv-tx2: #4F7D6A; --cv-tx3: #84A497; --cv-tx4: #365B4B; --cv-orig: 54,91,75; --cv-lead: 43,63,53;
+  --cv-knob-track: #E2E2DF; --cv-knob-cap: #ffffff; --cv-knob-mark: #2B3F35; --cv-node-off: #E2E2DF;
+  --cv-tick: #D2CCC9; --cv-tick2: #4F7D6A; --cv-needle-off: #D2CCC9; --cv-sel: #2B3F35;
+  --cv-ruler-major: #365B4B; --cv-ruler-minor: #D2CCC9; --cv-ruler-tx: #2B3F35; --cv-ruler-beat: #E2E2DF;
+  --cv-trk-sel: #D8EEE5; --cv-trk-a: #F7FCF9; --cv-trk-b: #FAFDFB; --cv-grid-bar: #D2CCC9; --cv-grid-sub: #F0F4F0;
+  --cv-wave: rgba(40,32,30,.78); --cv-midi: rgba(40,32,30,.85); --cv-empty: rgba(60,50,48,.5);
+  --pr-keys-bg: #F0F4F0; --pr-row-w: #ffffff; --pr-row-b: #F7FCF9; --pr-row-d: #ffffff; --pr-row-d2: #F7FCF9; --pr-oct: #E2E2DF;
+  --pr-bar: #4F7D6A; --pr-beat: #D2CCC9; --pr-sub: #F0F4F0; --pr-num: #4F7D6A;
+  --pr-vel-bg: #F7FCF9; --pr-vel-mid: #E2E2DF; --pr-ped-bg: #FAFDFB;
+  --tl-bg: #ffffff; --tl-lbl: #F7FCF9; --tl-sec: #F0F4F0; --tl-sec-on: #C3E4D7; --tl-sec-line: #D2CCC9; --tl-sel: #2B3F35; --pitch-bg: #ffffff;
+  --cv-sel-tx: #fff; color-scheme: light;
+}
+
+/* ---------- 選單色票（配色） ---------- */
+.ctxmenu button.has-swatch { display: flex; align-items: center; gap: 8px; min-width: 210px; }
+.ctxmenu .sw-set { margin-left: auto; display: inline-flex; gap: 3px; }
+.ctxmenu .sw-set i { width: 14px; height: 14px; border-radius: 3px; display: block;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.25); }

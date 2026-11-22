@@ -14,6 +14,12 @@ export function showMenu(x, y, items) {
     b.disabled = !!it.disabled;
     b.textContent = it.label;
     if (it.icon) { b.classList.add('has-icon'); b.insertAdjacentHTML('afterbegin', it.icon); }
+    // 配色選單的色票：三個小方塊
+    if (it.swatch) {
+      b.classList.add('has-swatch');
+      b.insertAdjacentHTML('beforeend',
+        '<span class="sw-set">' + it.swatch.map(c => `<i style="background:${c}"></i>`).join('') + '</span>');
+    }
     if (it.danger) b.style.color = 'var(--err-tx)';
     if (it.key) { const s = document.createElement('span'); s.textContent = it.key; b.appendChild(s); }
     b.addEventListener('click', () => { closeMenu(); it.action(); });
