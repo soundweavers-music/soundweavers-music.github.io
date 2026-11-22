@@ -36,22 +36,24 @@ function build() {
     </div>
     <section class="aiw-pane" data-pane="chords">
       <p class="note">選主唱（音訊）或旋律（MIDI）那一軌，系統會找出調性，再用和弦機率模型（HMM／Viterbi）配出最順的和弦進行，偏好華語流行常見的走法。挑一個版本寫進和弦軌，之後可以在和弦軌上逐格修改。</p>
-      <div class="aiw-row">
+      <div class="aiw-row aiw-fields">
         <label class="f">旋律軌 <select class="aiw-mel"></select></label>
         <label class="f">換和弦的密度 <select class="aiw-per"><option value="1">每小節 1 個</option><option value="2">每小節 2 個</option></select></label>
         <label class="f">調性 <select class="aiw-key"><option value="auto">自動判斷</option>${ROOTS.map((r, i) => `<option value="${i}M">${r} 大調</option>`).join('')}${ROOTS.map((r, i) => `<option value="${i}m">${r} 小調</option>`).join('')}</select></label>
         <button type="button" class="tbtn primary aiw-analyze">分析旋律</button>
       </div>
       <div class="aiw-info note"></div>
+      <h4 class="aiw-h">挑一個版本</h4>
       <div class="aiw-opts"></div>
-      <div class="aiw-row aiw-after" hidden>
+      <div class="aiw-row aiw-acts aiw-after" hidden>
         <button type="button" class="tbtn aiw-play">▶ 從頭播放</button>
         <button type="button" class="tbtn primary aiw-next">下一步：用這組和弦一鍵編曲 →</button>
       </div>
     </section>
     <section class="aiw-pane" data-pane="compose">
       <p class="note">從零寫一首歌的骨架：用華語流行最常見的和弦進行（卡農、1-5-6-4、4-5-3-6 王道…）排出主歌、導歌、副歌，再配一條<b>好唱、安全</b>的主旋律——正拍落在和弦音、多級進、動機重複、句尾落在穩定音。寫進和弦軌與「智慧主旋律」軌之後，可以接著用 ② 一鍵編曲配上伴奏。</p>
-      <div class="aiw-row">
+      <h4 class="aiw-h">歌曲設定</h4>
+      <div class="aiw-row aiw-fields">
         <label class="f">調性 <select class="aic-key">${ROOTS.map((r, i) => `<option value="${i}M">${r} 大調</option>`).join('')}${ROOTS.map((r, i) => `<option value="${i}m">${r} 小調</option>`).join('')}</select></label>
         <label class="f">速度 <input type="number" class="aic-bpm" min="50" max="180" step="1" style="width:64px"></label>
         <label class="f">曲式 <select class="aic-form">${FORMS.map(f => `<option value="${f.id}">${f.name}</option>`).join('')}</select></label>
@@ -61,30 +63,31 @@ function build() {
       </div>
       <div class="aic-progs-h"><b>和弦進行</b><span class="note">每種段落可以自己決定：選「隨機」才會抽籤；選「自己寫」可以輸入簡譜數字（1 5 6m 4）、級數（I V vi IV）或和弦名（C G Am F），用「+」把兩個和弦放進同一小節（例如 4 5+3 6m）</span></div>
       <div class="aic-progs"></div>
-      <div class="aiw-row">
+      <div class="aiw-row aiw-acts">
         <button type="button" class="tbtn primary aic-new">✦ 寫一首新的</button>
         <button type="button" class="tbtn aic-mel" title="和弦不變，只換一條旋律">只換旋律</button>
         <button type="button" class="tbtn aic-prog" title="旋律種子不變，重抽「隨機」的段落（指定的段落不會變）">重抽隨機和弦</button>
         <button type="button" class="tbtn aic-play">▶ 從頭播放</button>
         <span class="note aic-status"></span>
       </div>
-      <div class="aiw-row">
+      <div class="aiw-row aiw-acts">
         <label class="f">配樂風格 <select class="aic-style">${STYLES.map(s => `<option value="${s.id}">${esc(s.name)}</option>`).join('')}</select></label>
         <button type="button" class="tbtn primary aic-all" title="寫和弦與旋律，再用這個風格把整首伴奏配好，一次完成">✦ 一鍵完成（含伴奏）</button>
         <button type="button" class="tbtn aic-wav" title="把目前的專案算成 WAV 下載（長度越長、效果器越多，算得越久）">↓ 輸出成音檔</button>
       </div>
       <div class="aic-sum"></div>
-      <div class="aiw-row aic-after" hidden>
+      <div class="aiw-row aiw-acts aic-after" hidden>
         <button type="button" class="tbtn primary aic-next">下一步：配上伴奏（② 一鍵編曲）→</button>
       </div>
     </section>
     <section class="aiw-pane" data-pane="arrange">
       <p class="note">依<b>和弦軌</b>與下面的<b>段落表</b>，用自動伴奏的風格把整首編成鼓、貝斯、鋼琴、吉他、弦樂、琶音的 MIDI 片段（放進「伴奏-」各軌）。換段落前一小節自動打過門。不喜歡就按「重新產生」換一個版本；每次都可以 Ctrl+Z 復原。</p>
-      <div class="aiw-row">
+      <div class="aiw-row aiw-fields">
         <label class="f">風格 <select class="aiw-style">${STYLES.map(s => `<option value="${s.id}">${esc(s.name)}　${s.bpm} BPM</option>`).join('')}</select></label>
         <label class="f">變化 <span class="aiw-rng"><input type="range" class="aiw-var" min="0" max="100" step="5"><b class="aiw-varv"></b></span></label>
         <label class="f">伴奏音量 <span class="aiw-rng"><input type="range" class="aiw-lvl" min="50" max="100" step="5"><b class="aiw-lvlv"></b></span></label>
       </div>
+      <h4 class="aiw-h">要編哪些聲部</h4>
       <div class="aiw-parts"></div>
       <div class="aiw-plan-h"><b>段落表</b><span class="note aiw-range"></span><div class="spacer"></div>
         <label class="aiw-chk"><input type="checkbox" class="aiw-intro"> 加前奏</label>
@@ -92,7 +95,7 @@ function build() {
         <button type="button" class="tbtn ghost aiw-auto" title="依和弦軌重複的樣式自動判斷主歌、導歌、副歌">自動排段落</button>
         <button type="button" class="tbtn ghost aiw-addsec">＋ 一段</button></div>
       <div class="aiw-plan"></div>
-      <div class="aiw-row">
+      <div class="aiw-row aiw-acts">
         <button type="button" class="tbtn primary aiw-gen">產生編曲</button>
         <button type="button" class="tbtn aiw-regen" title="同樣的設定，換一組過門、經過音與 Voicing">重新產生（換一版）</button>
         <button type="button" class="tbtn aiw-play2">▶ 從頭播放</button>
@@ -295,7 +298,11 @@ function renderOpts() {
       <div class="note">${esc(o.desc)}　共 ${o.chords.length} 個和弦</div>
     </div>`).join('');
   box.querySelectorAll('.aiw-opt').forEach(el => {
-    el.querySelector('.aiw-use').onclick = () => useOption(Number(el.dataset.i));
+    const i = Number(el.dataset.i);
+    el.querySelector('.aiw-use').onclick = e => { e.stopPropagation(); useOption(i); };
+    // 整張卡都可以點（按鈕另外處理），少一次瞄準；寫進和弦軌可以 Ctrl+Z 復原
+    el.title = '點整張卡就把這個版本寫進和弦軌';
+    el.onclick = e => { if (!e.target.closest('button')) useOption(i); };
   });
 }
 
