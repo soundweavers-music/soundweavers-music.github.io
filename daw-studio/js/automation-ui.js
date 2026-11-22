@@ -82,7 +82,8 @@ function decorate() {
       head.querySelector('.body').appendChild(row);
     }
     // ---- 曲線 ----
-    const h = view.trackH;
+    // 每軌可以有自己的高度（拖標頭下緣），要用「這一軌」的高度，曲線才會跟著拉長
+    const h = Math.max(32, Math.round(t.h || view.trackH));
     const w = laneEl.parentElement.offsetWidth;
     const svgNS = 'http://www.w3.org/2000/svg';
     const svg = document.createElementNS(svgNS, 'svg');
@@ -129,9 +130,49 @@ function decorate() {
   }
 }
 
+// 控制點旁邊顯示「這個點是多少 dB」的小標籤（原生 tooltip 太慢，而且拖曳時看不到）
+const SVGNS = 'http://www.w3.org/2000/svg';
+function tipNode(svg) {
+  let g = svg.querySelector('.auto-tip');
+  if (!g) {
+    g = document.createElementNS(SVGNS, 'g');
+    g.setAttribute('class', 'auto-tip');
+    const rect = document.createElementNS(SVGNS, 'rect');
+    rect.setAttribute('rx', '3');
+    const text = document.createElementNS(SVGNS, 'text');
+    g.appendChild(rect); g.appendChild(text);
+    svg.appendChild(g);
+  }
+  return g;
+}
+function showTip(svg, pt, def, h) {
+  if (!pt) return hideTip(svg);
+  const g = tipNode(svg);
+  const x = secToPx(pt.t * spb()), y = toY(def, pt.v, h);
+  const txt = def.fmt(pt.v);
+  const tw = Math.max(40, txt.length * 6.6 + 12);
+  const tx = Math.max(2, Math.min(Number(svg.getAttribute('width')) - tw - 2, x - tw / 2));
+  const ty = y > 26 ? y - 26 : y + 8;
+  const rect = g.querySelector('rect'), text = g.querySelector('text');
+  rect.setAttribute('x', tx); rect.setAttribute('y', ty);
+  rect.setAttribute('width', tw); rect.setAttribute('height', 17);
+  text.setAttribute('x', tx + 6); text.setAttribute('y', ty + 12);
+  text.textContent = txt;
+  g.style.display = '';
+}
+function hideTip(svg) { const g = svg.querySelector('.auto-tip'); if (g) g.style.display = 'none'; }
+
 function bind(svg, t, param, def, L, h) {
   const b = spb();
   const local = e => { const r = svg.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top }; };
+  // 滑過控制點：顯示數值
+  svg.addEventListener('pointermove', e => {
+    if (svg._dragging) return;
+    const pt = e.target._pt;
+    if (pt) { svg.style.cursor = 'grab'; showTip(svg, pt, def, h); }
+    else { if (e.target.tagName !== 'rect' && e.target.tagName !== 'text') svg.style.cursor = 'crosshair'; hideTip(svg); }
+  });
+  svg.addEventListener('pointerleave', () => hideTip(svg));
   svg.addEventListener('pointerdown', e => {
     if (e.button !== 0) return;
     e.stopPropagation(); e.preventDefault();
@@ -150,15 +191,19 @@ function bind(svg, t, param, def, L, h) {
       pt = addPoint(L, beat, fromY(def, y, h));
       if (!L.on) { L.on = true; toast(`已開啟「${t.name}」的${def.label}自動化`); }
     }
+    svg._dragging = true;
+    showTip(svg, pt, def, h);
     const move = ev => {
       const { x, y } = local(ev);
       pt.t = Math.max(0, (ev.shiftKey ? pxToSec(x) : snap(pxToSec(x))) / b);
       pt.v = fromY(def, y, h);
       L.points.sort((a, z) => a.t - z.t);
       redrawOne(svg, t, def, L, h);
+      showTip(svg, pt, def, h);
     };
     const up = () => {
       svg.removeEventListener('pointermove', move); svg.removeEventListener('pointerup', up);
+      svg._dragging = false;
       store.changed('mix');
       if (engine.playing) engine.restartAt(engine.currentTime());
       decorate();

@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>效果器數學驗證</title>
+<style>
+  body { background: #0b0c10; color: #dfe1e6; font: 12px ui-monospace, Consolas, monospace; padding: 16px; }
+  pre { white-space: pre-wrap; line-height: 1.6; }
+  .pass { color: #7df0cd; } .fail { color: #ff8a8a; } .info { color: #8f9dff; }
+</style>
+</head>
+<body>
+<pre id="out">running…</pre>
+<!-- 伺服器會壓住這張圖，測試全部跑完才放行，--dump-dom 就會等到結果 -->
+<img src="/__SLOW__" width="1" height="1" alt="" style="position:absolute;left:-9px;top:-9px">
+<script type="module">
+import { buildFx, ensureFxWorklets, fxLatency, satCurve, distortionCurve, waveFor, FX_TYPES, FX_ORDER, FX_CATS } from './js/effects.js';
+import { PRESETS } from './js/fx-presets.js';
+import { analyzeBreaths } from './js/breath.js';
+import { ensureWorklet as ensureMasteringWorklet } from './js/mastering.js';
+
+const SR = 48000;
+const out = document.getElementById('out');
+const rows = [];
+let fails = 0;
+const log = (cls, s) => { rows.push(`<span class="${cls}">${s}</span>`); out.innerHTML = rows.join('\n'); };
+function check(name, ok, detail) {
+  if (!ok) fails++;
+  log(ok ? 'pass' : 'fail', `${ok ? 'PASS' : 'FAIL'}  ${name}${detail ? '  — ' + detail : ''}`);
+}
+
+// ---------- 量測小工具 ----------
+const db = v => 20 * Math.log10(Math.max(1e-9, v));
+function peak(a, from = 0, to = a.length) { let m = 0; for (let i = from; i < to; i++) m = Math.max(m, Math.abs(a[i])); return m; }
+function rms(a, from = 0, to = a.length) { let s = 0; const n = Math.max(1, to - from); for (let i = from; i < to; i++) s += a[i] * a[i]; return Math.sqrt(s / n); }
+function mag(a, freq, from = 0, to = a.length) {
+  let re = 0, im = 0, n = 0;
+  for (let i = from; i < to; i++) { const ph = 2 * Math.PI * freq * i / SR; re += a[i] * Math.cos(ph); im += a[i] * Math.sin(ph); n++; }
+  return 2 * Math.hypot(re, im) / Math.max(1, n);
+}
+const bufArg = a => ({ getChannelData: () => a, length: a.length, duration: a.length / SR });
+
+async function render(type, params, src, sec = 1, ch = 2) {
+  const oc = new OfflineAudioContext(ch, Math.ceil(SR * sec), SR);
+  await ensureFxWorklets(oc);
+  const desc = { id: 't', type, on: true, params };
+  const fx = buildFx(oc, desc, 120);
+  src(oc, fx.input);
+  fx.output.connect(oc.destination);
+  const buf = await oc.startRendering();
+  return { L: buf.getChannelData(0), R: buf.getChannelData(1), fx, sr: SR };
+}
+function osc(oc, freq, amp = .5, type = 'sine', dest) {
+  const o = oc.createOscillator(), g = oc.createGain();
+  o.type = type; o.frequency.value = freq; g.gain.value = amp;
+  o.connect(g).connect(dest); o.start(0); return o;
+}
+function noise(oc, amp = .3, dest) {
+  const b = oc.createBuffer(1, SR * 8, SR), d = b.getChannelData(0);
+  let seed = 12345;
+  for (let i = 0; i < d.length; i++) { seed = (seed * 1664525 + 1013904223) >>> 0; d[i] = (seed / 2147483648 - 1) * amp; }
+  const s = oc.createBufferSource(); s.buffer = b; s.connect(dest); s.start(0); return s;
+}
+function impulse(oc, dest, at = 0.01, amp = .9) {
+  const b = oc.createBuffer(1, Math.ceil(SR * (at + .05)), SR);
+  b.getChannelData(0)[Math.round(at * SR)] = amp;
+  const s = oc.createBufferSource(); s.buffer = b; s.connect(dest); s.start(0); return s;
+}
+const idx = t => Math.round(t * SR);
+
+// ---------- 資料完整性 ----------
+const missing = FX_ORDER.filter(t => !FX_TYPES[t]);
+check('FX_ORDER 的每個效果器都有定義', missing.length === 0, missing.join(','));
+const catSet = new Set(FX_CATS.flatMap(c => c.types));
+const notInCat = FX_ORDER.filter(t => !catSet.has(t));
+const catDup = FX_ORDER.length !== new Set(FX_ORDER).size;
+check('分類涵蓋所有效果器且沒有重複', notInCat.length === 0 && !catDup, notInCat.join(','));
+// 每個效果的預設值都在合法範圍內
+{
+  const bad = [];
+  for (const t of FX_ORDER) {
+    const T = FX_TYPES[t];
+    for (const [k, d] of Object.entries(T.params)) {
+      if (d.def < d.min || d.def > d.max) bad.push(`${t}.${k}=${d.def}`);
+      if (d.choices && d.choices.length !== d.max - d.min + 1) bad.push(`${t}.${k} choices`);
+    }
+  }
+  check('所有預設值落在 min/max 內、選項數量相符', bad.length === 0, bad.join(', '));
+}
+// 預設值會整組換掉 params，所以每一組的鍵都要跟 FX_TYPES 完全一致（漏一個鍵就會變 undefined）
+{
+  const bad = [];
+  for (const [type, list] of Object.entries(PRESETS)) {
+    if (type === 'eq') continue;                 // EQ 的 bands 另外處理
+    const want = new Set(Object.keys(FX_TYPES[type]?.params || {}));
+    for (const x of list) {
+      const got = new Set(Object.keys(x.params));
+      const miss = [...want].filter(k => !got.has(k));
+      const extra = [...got].filter(k => !want.has(k));
+      if (miss.length || extra.length) bad.push(`${type}／${x.name}：缺 ${miss.join(',')} 多 ${extra.join(',')}`);
+    }
+  }
+  check('每一組預設值的參數鍵都完整', bad.length === 0, bad.join('；'));
+}
+
+// ---------- 1. EQ ----------
+{
+  const params = { output: 0, bands: [
+    { on: true, type: 'highpass', freq: 30, gain: 0, q: .71 },
+    { on: true, type: 'peaking', freq: 1000, gain: 6, q: 1 },
+    { on: false, type: 'peaking', freq: 2000, gain: 0, q: 1 },
+    { on: false, type: 'peaking', freq: 3000, gain: 0, q: 1 },
+    { on: false, type: 'peaking', freq: 4000, gain: 0, q: 1 },
+    { on: false, type: 'peaking', freq: 6000, gain: 0, q: 1 },
+    { on: true, type: 'highshelf', freq: 12000, gain: 0, q: .71 },
+    { on: false, type: 'lowpass', freq: 18000, gain: 0, q: .71 },
+  ] };
+  const { fx } = await render('eq', params, (oc, d) => osc(oc, 1000, .5, 'sine', d), .2);
+  const f = new Float32Array([100, 1000, 10000]);
+  const m = fx.response(f);
+  check('EQ：1 kHz +6 dB 峰值', Math.abs(db(m[1]) - 6) < .3, `${db(m[1]).toFixed(2)} dB`);
+  check('EQ：100 Hz 不受影響', Math.abs(db(m[0])) < .3, `${db(m[0]).toFixed(2)} dB`);
+  check('EQ：10 kHz 不受影響', Math.abs(db(m[2])) < .3, `${db(m[2]).toFixed(2)} dB`);
+  const one = new Float32Array([100]);
+  log('info', `  分段 @100 Hz：HP30 ${db(fx.bandResponse(0, one)[0]).toFixed(2)} dB、peak1k ${db(fx.bandResponse(1, one)[0]).toFixed(2)} dB、shelf12k ${db(fx.bandResponse(6, one)[0]).toFixed(2)} dB`);
+}
+
+// ---------- 2. 壓縮器 ----------
+{
+  // 0 dBFS 正弦、門檻 −20、4:1 → 輸出峰值應低於輸入（動態壓縮）
+  const p = { threshold: -20, ratio: 4, attack: 3, release: 100, knee: 0, makeup: 0 };
+  const r = await render('comp', p, (oc, d) => osc(oc, 500, 1, 'sine', d), .5);
+  const pk = peak(r.L, idx(.2), idx(.45));
+  const inPk = 1;
+  check('壓縮器：0 dBFS 訊號被壓下來', pk < .8, `峰值 ${db(pk).toFixed(2)} dBFS`);
+  // 小訊號（−40 dBFS）幾乎不動作
+  const r2 = await render('comp', p, (oc, d) => osc(oc, 500, .01, 'sine', d), .5);
+  const pk2 = peak(r2.L, idx(.2), idx(.45));
+  check('壓縮器：門檻以下的訊號幾乎不變', Math.abs(db(pk2 / .01)) < 1.5, `${db(pk2 / .01).toFixed(2)} dB vs 輸入`);
+}
+
+// ---------- 2b. 壓縮器／多頻段的延遲 ----------
+{
+  const r = await render('comp', { threshold: 0, ratio: 1, attack: .1, release: 50, knee: 0, makeup: 0 },
+    (oc, d) => impulse(oc, d, .05, .9), .2);
+  let at = -1;
+  for (let i = idx(.05); i < r.L.length; i++) if (Math.abs(r.L[i]) > .05) { at = i; break; }
+  const delayMs = at < 0 ? -1 : (at - idx(.05)) / SR * 1000;
+  log('info', `  DynamicsCompressor 延遲 ≈ ${delayMs.toFixed(2)} ms`);
+}
+
+// ---------- 2c. 多頻段壓縮 ----------
+{
+  const flat = { x1: 120, x2: 2500, attack: 8, release: 150,
+    lowThr: 0, lowRatio: 1, lowGain: 0, midThr: 0, midRatio: 1, midGain: 0,
+    highThr: 0, highRatio: 1, highGain: 0, output: 0 };
+  const ref = await render('utility', { gain: 0, pan: 0, phase: 0, mono: 0 }, (oc, d) => noise(oc, .2, d), .6);
+  const r = await render('mbcomp', flat, (oc, d) => noise(oc, .2, d), .6);
+  // 三頻段相加要平：整體 RMS 跟原訊號一樣（LR4 分頻，分頻點不會凹陷）
+  const a = rms(r.L, idx(.2), idx(.5)), b = rms(ref.L, idx(.2), idx(.5));
+  check('多頻段：不壓縮時是平的（三頻段相加）', Math.abs(db(a / b)) < .4, `${db(a / b).toFixed(2)} dB`);
+  const sine = await render('mbcomp', flat, (oc, d) => osc(oc, 441, .2, 'sine', d), .5);
+  check('多頻段：沒有壓縮時 −14 dB 正弦原樣通過',
+    Math.abs(db(peak(sine.L, idx(.2), idx(.5)) / .2)) < .4, `${db(peak(sine.L, idx(.2), idx(.5)) / .2).toFixed(2)} dB`);
+
+  // 只壓低頻：100 Hz 被壓、3 kHz 不動
+  const p = { ...flat, lowThr: -30, lowRatio: 4 };
+  const lowTone = await render('mbcomp', p, (oc, d) => osc(oc, 100, .5, 'sine', d), .6);
+  const lowDry = await render('mbcomp', flat, (oc, d) => osc(oc, 100, .5, 'sine', d), .6);
+  const cut = db(mag(lowTone.L, 100, idx(.25), idx(.5)) / mag(lowDry.L, 100, idx(.25), idx(.5)));
+  check('多頻段：低頻段壓縮有效', cut < -4, `${cut.toFixed(1)} dB`);
+  const hiTone = await render('mbcomp', p, (oc, d) => osc(oc, 3000, .2, 'sine', d), .6);
+  const hiDry = await render('mbcomp', flat, (oc, d) => osc(oc, 3000, .2, 'sine', d), .6);
+  const keep = db(mag(hiTone.L, 3000, idx(.25), idx(.5)) / mag(hiDry.L, 3000, idx(.25), idx(.5)));
+  check('多頻段：高頻段不受低頻壓縮影響', Math.abs(keep) < .5, `${keep.toFixed(2)} dB`);
+
+  // 分頻點：低頻壓縮時，頻率搬到分頻點以上就不再被壓
+  const at200 = await render('mbcomp', p, (oc, d) => osc(oc, 200, .5, 'sine', d), .6);
+  const at200d = await render('mbcomp', flat, (oc, d) => osc(oc, 200, .5, 'sine', d), .6);
+  const cut2 = db(mag(at200.L, 200, idx(.25), idx(.5)) / mag(at200d.L, 200, idx(.25), idx(.5)));
+  check('多頻段：分頻點以上（200 Hz）不再被低頻段壓', cut2 > cut + 2, `${cut2.toFixed(1)} dB vs ${cut.toFixed(1)} dB`);
+  check('多頻段：延遲 6 ms 已登記', Math.abs(fxLatency({ on: true, type: 'mbcomp', params: flat }) - .006) < 1e-9);
+  check('壓縮器：延遲 6 ms 已登記', Math.abs(fxLatency({ on: true, type: 'comp', params: {} }) - .006) < 1e-9);
+}
+
+// ---------- 3. 限制器 ----------
+{
+  const p = { gain: 12, ceiling: -1, release: 100 };
+  const r = await render('limiter', p, (oc, d) => osc(oc, 1000, .5, 'sine', d), .6);
+  const pk = peak(r.L, idx(.2), idx(.5));
+  check('限制器：輸出峰值不超過上限', db(pk) <= -1 + 1.2, `${db(pk).toFixed(2)} dBFS（上限 −1）`);
+  check('限制器：5 ms 預看延遲已登記', Math.abs(fxLatency({ on: true, type: 'limiter', params: p }) - .005) < 1e-9);
+}
+
+// ---------- 4. 噪音閘（離線也要有效）----------
+{
+  const p = { threshold: -40, ratio: 20, attack: 1, hold: 0, release: 20, range: 60 };
+  const r = await render('gate', p, (oc, d) => {
+    const g = oc.createGain(), o = oc.createOscillator();
+    o.frequency.value = 500; o.connect(g).connect(d);
+    g.gain.setValueAtTime(.3, 0);            // −10 dBFS
+    g.gain.setValueAtTime(.001, .5);         // −60 dBFS
+    o.start(0);
+  }, 1);
+  const loud = peak(r.L, idx(.2), idx(.45)), quiet = peak(r.L, idx(.8), idx(.97));
+  check('噪音閘：worklet 有建立', !!r.fx.worklet, '');
+  check('噪音閘：大聲段保持原樣', Math.abs(db(loud / .3)) < 1.5, `${db(loud / .3).toFixed(2)} dB`);
+  check('噪音閘：小聲段被壓 20 dB 以上', db(quiet / .001) < -20, `${db(quiet / .001).toFixed(1)} dB（相對輸入）`);
+}
+// 舊專案的噪音閘只有 {threshold, release}：新參數要自動補齊，不然面板會顯示 NaN
+{
+  const params = { threshold: -40, release: 120 };
+  await render('gate', params, (oc, d) => osc(oc, 400, .01, 'sine', d), .2);
+  const miss = Object.keys(FX_TYPES.gate.params).filter(k => params[k] === undefined);
+  check('舊專案缺的效果器參數會自動補齊', miss.length === 0, miss.join(','));
+}
+
+// ---------- 5. 瞬態塑形 ----------
+{
+  const p = { attack: 9, sustain: -9, output: 0 };
+  const envSrc = (oc, d) => {
+    const g = oc.createGain(), o = oc.createOscillator();
+    o.frequency.value = 220; o.connect(g).connect(d);
+    g.gain.setValueAtTime(0, 0);
+    g.gain.linearRampToValueAtTime(.5, .005);
+    g.gain.setTargetAtTime(0, .006, .12);
+    o.start(0);
+  };
+  const r = await render('transient', p, envSrc, .8);
+  const dry = await render('transient', { attack: 0, sustain: 0, output: 0 }, envSrc, .8);
+  const a1 = peak(r.L, idx(.004), idx(.012)), a0 = peak(dry.L, idx(.004), idx(.012));
+  const s1 = peak(r.L, idx(.25), idx(.4)), s0 = peak(dry.L, idx(.25), idx(.4));
+  check('瞬態：起音被加強', db(a1 / a0) > 4, `${db(a1 / a0).toFixed(1)} dB`);
+  check('瞬態：延音被壓低', db(s1 / s0) < -4, `${db(s1 / s0).toFixed(1)} dB`);
+}
+
+// ---------- 6. 位元破壞 ----------
+{
+  const p = { bits: 6, rate: 12000, mix: 100, output: 0 };
+  const r = await render('bitcrush', p, (oc, d) => osc(oc, 200, .9, 'sine', d), .3);
+  const seen = new Set();
+  for (let i = idx(.1); i < idx(.2); i++) seen.add(Math.round(r.L[i] * 1e6));
+  const step = 1 / Math.pow(2, p.bits - 1);
+  const allOnGrid = [...seen].every(v => Math.abs(v / 1e6 / step - Math.round(v / 1e6 / step)) < 1e-3);
+  check('位元破壞：輸出落在量化階梯上', allOnGrid, `電平數 ${seen.size}`);
+  // 取樣保持：同一個值連續出現
+  let held = 0;
+  for (let i = idx(.1) + 1; i < idx(.2); i++) if (r.L[i] === r.L[i - 1]) held++;
+  check('位元破壞：有取樣保持（相鄰樣本重複）', held > idx(.05), `${held} 個重複樣本`);
+}
+
+// ---------- 7. 環形調變 ----------
+{
+  const p = { freq: 220, depth: 100, mix: 100 };
+  const r = await render('ringmod', p, (oc, d) => osc(oc, 1000, .5, 'sine', d), .5);
+  const carrier = mag(r.L, 1000, idx(.3), idx(.45));
+  const lo = mag(r.L, 780, idx(.3), idx(.45));
+  const hi = mag(r.L, 1220, idx(.3), idx(.45));
+  check('環形調變：原頻被抑制、邊帶出現', carrier < .02 && lo > .15 && hi > .15,
+    `1k=${carrier.toFixed(3)} 780=${lo.toFixed(3)} 1220=${hi.toFixed(3)}`);
+}
+
+// ---------- 8. 鑲邊：梳狀延遲與回授 ----------
+{
+  const p = { rate: .3, depth: 0, delay: 2.5, feedback: 50, stereo: 0, mix: 100 };
+  const r = await render('flanger', p, (oc, d) => impulse(oc, d, .05, .9), .2);
+  // 回授迴路在 Chrome 裡會多一個 render quantum（128 樣本 ≈ 2.7 ms），第二次在 7.7 ms
+  const t0 = idx(.05 + .0025), t1 = idx(.05 + .0077);
+  const a0 = peak(r.L, t0 - 30, t0 + 30), a1 = peak(r.L, t1 - 60, t1 + 60);
+  check('鑲邊：2.5 ms 後出現第一次延遲', a0 > .5, `${a0.toFixed(2)}`);
+  check('鑲邊：回授 50% → 第二次約一半', Math.abs(db(a1 / a0) + 6) < 3, `${db(a1 / a0).toFixed(1)} dB`);
+}
+
+// ---------- 9. 相位器：全通不改振幅 ----------
+{
+  const p = { rate: .4, freq: 600, depth: 70, feedback: 0, stages: 1, stereo: 90, mix: 50 };
+  const r = await render('phaser', p, (oc, d) => noise(oc, .3, d), .5);
+  const r0 = await render('phaser', { ...p, mix: 0 }, (oc, d) => noise(oc, .3, d), .5);
+  const ratio = rms(r.L) / Math.max(1e-9, rms(r0.L));
+  check('相位器：整體電平變化在合理範圍（乾濕相加）', ratio > .5 && ratio < 2, `×${ratio.toFixed(2)}`);
+}
+
+// ---------- 10. 顫音：調變頻率與深度 ----------
+{
+  const p = { rate: 4, depth: 100, shape: 0, stereo: 0, mix: 100 };
+  const r = await render('tremolo', p, (oc, d) => osc(oc, 500, .5, 'sine', d), 1);
+  // 每 1 ms 的峰值 → 找過零點數量推算 4 Hz
+  const env = [];
+  for (let i = idx(.1); i < idx(.9); i += 48) env.push(peak(r.L, i, Math.min(r.L.length, i + 48)));
+  let crossings = 0;
+  for (let i = 1; i < env.length; i++) if ((env[i - 1] - .25) * (env[i] - .25) < 0) crossings++;
+  const hz = crossings / 2 / .8;
+  check('顫音：調變速度約 4 Hz', Math.abs(hz - 4) < .7, `${hz.toFixed(2)} Hz`);
+  const mx = Math.max(...env), mn = Math.min(...env);
+  check('顫音：深度 100% 會到接近無聲', mn / mx < .15, `最小/最大 = ${(mn / mx).toFixed(2)}`);
+}
+
+// ---------- 11. 自動濾波：高頻被掃掉 ----------
+{
+  const p = { type: 0, freq: 400, q: 2, rate: .5, depth: 0, stereo: 0, mix: 100 };
+  const r = await render('autofilter', p, (oc, d) => noise(oc, .3, d), .5);
+  const r0 = await render('autofilter', { ...p, mix: 0 }, (oc, d) => noise(oc, .3, d), .5);
+  const hi = mag(r.L, 6000, idx(.2), idx(.45)), hi0 = mag(r0.L, 6000, idx(.2), idx(.45));
+  const lo = mag(r.L, 200, idx(.2), idx(.45)), lo0 = mag(r0.L, 200, idx(.2), idx(.45));
+  check('自動濾波：6 kHz 被衰減', db(hi / hi0) < -10, `${db(hi / hi0).toFixed(1)} dB`);
+  check('自動濾波：200 Hz 大致保留', db(lo / lo0) > -6, `${db(lo / lo0).toFixed(1)} dB`);
+}
+
+// ---------- 12. 激勵器：只加高頻泛音 ----------
+{
+  // 低頻（分頻點以下）完全不動
+  const p = { freq: 3000, drive: 9, tone: 0, mix: 100 };
+  const low = await render('exciter', p, (oc, d) => osc(oc, 100, .5, 'sine', d), .5);
+  const low0 = await render('exciter', { ...p, mix: 0 }, (oc, d) => osc(oc, 100, .5, 'sine', d), .5);
+  check('激勵器：分頻點以下的低頻不動',
+    Math.abs(db(mag(low.L, 100, idx(.2), idx(.45)) / mag(low0.L, 100, idx(.2), idx(.45)))) < .2, '');
+  // 分頻點以上的訊號被推入削波 → 出現新的泛音
+  const hi = await render('exciter', { ...p, freq: 1000, mix: 30 }, (oc, d) => osc(oc, 1000, .5, 'sine', d), .5);
+  const h3 = mag(hi.L, 3000, idx(.2), idx(.45));
+  const h5 = mag(hi.L, 5000, idx(.2), idx(.45));
+  check('激勵器：分頻點以上出現新的泛音', h3 > .002 && h5 > 0.0001, `3k=${h3.toFixed(4)} 5k=${h5.toFixed(4)}`);
+}
+
+// ---------- 13. 立體聲延遲：左右分開 ----------
+{
+  const p = { timeL: .5, timeR: 1, feedback: 0, cross: 0, tone: 16000, mix: 100 };
+  const r = await render('stereodelay', p, (oc, d) => impulse(oc, d, .05, .9), .8);
+  const lAt = idx(.05 + .25), rAt = idx(.05 + .5);
+  check('立體聲延遲：左邊 0.25 s 出聲', peak(r.L, lAt - 30, lAt + 30) > .6, `${peak(r.L, lAt - 30, lAt + 30).toFixed(2)}`);
+  check('立體聲延遲：右邊 0.5 s 才出聲', peak(r.R, rAt - 30, rAt + 30) > .6 && peak(r.R, lAt - 30, lAt + 30) < .05, '');
+}
+
+// ---------- 14. Utility ----------
+{
+  const r = await render('utility', { gain: -6, pan: 0, phase: 0, mono: 0 }, (oc, d) => osc(oc, 500, .5, 'sine', d), .3);
+  check('Utility：−6 dB = ×0.501', Math.abs(peak(r.L, idx(.1), idx(.25)) / .5 - .501) < .02,
+    `${(peak(r.L, idx(.1), idx(.25)) / .5).toFixed(3)}`);
+  const rp = await render('utility', { gain: 0, pan: -100, phase: 0, mono: 0 }, (oc, d) => osc(oc, 500, .5, 'sine', d), .3);
+  check('Utility：聲像全左 → 右聲道靜音', peak(rp.R, idx(.1), idx(.25)) < .01, '');
+  const rm = await render('utility', { gain: 0, pan: 0, phase: 0, mono: 1 }, (oc, d) => {
+    const a = oc.createGain(); a.gain.value = .2;
+    const o1 = oc.createOscillator(); o1.frequency.value = 300; o1.connect(a).connect(d); o1.start(0);
+  }, .3);
+  const rn = await render('utility', { gain: 0, pan: 0, phase: 0, mono: 1 }, (oc, d) => {
+    const m = oc.createChannelMerger(2);
+    const o1 = oc.createOscillator(), g1 = oc.createGain(); g1.gain.value = .4; o1.frequency.value = 300;
+    o1.connect(g1).connect(m, 0, 0); o1.connect(g1); g1.connect(m, 0, 1);
+    m.connect(d); o1.start(0);
+  }, .3);
+  check('Utility：單聲道化後左右相同', Math.abs(rms(rn.L) - rms(rn.R)) < 1e-3, '');
+}
+
+// ---------- 15. 延遲：拍長與回授 ----------
+{
+  const p = { time: .5, feedback: 35, tone: 16000, pingpong: 0, mix: 100 };
+  const r = await render('delay', p, (oc, d) => impulse(oc, d, .05, .9), .8);
+  const t1 = idx(.05 + .25), t2 = idx(.05 + .5 + .0027);   // 回授迴路多一個 render quantum
+  const a1 = peak(r.L, t1 - 30, t1 + 30), a2 = peak(r.L, t2 - 200, t2 + 200);
+  check('延遲：0.5 拍 @120 BPM = 250 ms', a1 > .6, `${a1.toFixed(2)}`);
+  // 回授 35% = −9.1 dB，再加上回授路徑的低通對 impulse 的損失，實測約 −12 dB
+  check('延遲：回授 35% → 第二次約 −12 dB', db(a2 / a1) < -8 && db(a2 / a1) > -16, `${db(a2 / a1).toFixed(1)} dB`);
+}
+
+// ---------- 16. 殘響：脈衝響應長度與衰減 ----------
+{
+  const p = { space: 1, size: 2, predelay: 0, damp: 7000, er: 35, mod: 0, width: 100, mix: 100 };
+  const r = await render('reverb', p, (oc, d) => impulse(oc, d, .02, .9), 2.6);
+  const head = rms(r.L, idx(.02), idx(.06));
+  const mid = rms(r.L, idx(1), idx(1.2));
+  const tail = rms(r.L, idx(2.3), idx(2.5));
+  check('殘響：有尾巴', mid > 1e-4, `1 s 處 ${db(mid).toFixed(1)} dB`);
+  check('殘響：尾巴隨時間衰減', mid > tail && tail < head * .1, `頭 ${db(head).toFixed(1)} / 尾 ${db(tail).toFixed(1)} dB`);
+}
+
+// ---------- 17. 飽和／失真：小訊號電平與泛音 ----------
+{
+  const c0 = satCurve(0, 0);
+  const slope0 = Math.abs(c0[2049] - c0[2048]) * 4095 / 2;
+  check('飽和：drive 0 時小訊號增益 ≈ 1', Math.abs(slope0 - 1) < .05, slope0.toFixed(3));
+  const rs = await render('sat', { mode: 0, drive: 0, tone: 0, output: 0, mix: 100 }, (oc, d) => osc(oc, 400, .01, 'sine', d), .3);
+  check('飽和：drive 0 接近直通', Math.abs(db(peak(rs.L, idx(.1), idx(.25)) / .01)) < 1, `${db(peak(rs.L, idx(.1), idx(.25)) / .01).toFixed(2)} dB`);
+  const hAt = async drv => {
+    const x = await render('sat', { mode: 0, drive: drv, tone: 0, output: -drv * .35, mix: 100 }, (oc, d) => osc(oc, 400, .5, 'sine', d), .3);
+    return mag(x.L, 1200, idx(.1), idx(.25)) / Math.max(1e-9, mag(x.L, 400, idx(.1), idx(.25)));
+  };
+  const h0 = await hAt(0), h18 = await hAt(18);
+  check('飽和：drive 越高泛音越多', h18 > h0 * 3, `H2/H1 ${(h0 * 100).toFixed(1)}% → ${(h18 * 100).toFixed(1)}%`);
+  const rd = await render('drive', { drive: 12, tone: 12000, output: 0, mix: 100 }, (oc, d) => osc(oc, 400, .5, 'sine', d), .3);
+  const h = mag(rd.L, 1200, idx(.1), idx(.25)) / mag(rd.L, 400, idx(.1), idx(.25));
+  check('失真：產生明顯的二次諧波', h > .05, `H2/H1 = ${(h * 100).toFixed(1)}%`);
+}
+
+// ---------- 18. 合唱：左右不同 ----------
+{
+  const p = { rate: 1, depth: 4, mix: 100 };
+  const r = await render('chorus', p, (oc, d) => osc(oc, 500, .4, 'sine', d), .5);
+  let diff = 0; for (let i = idx(.2); i < idx(.4); i++) diff += Math.abs(r.L[i] - r.R[i]);
+  check('合唱：左右不同（立體加寬）', diff / idx(.2) > .01, `平均差 ${(diff / idx(.2)).toFixed(4)}`);
+}
+
+// ---------- 19. 去齒音：偵測包絡與線性增益 ----------
+{
+  // 先把偵測鏈單獨接出來量：7 kHz、振幅 0.3 → 整流＋兩級 60 Hz 低通後應該 ≈ 0.64×0.3 = 0.19
+  const oc = new OfflineAudioContext(2, Math.ceil(SR * .4), SR);
+  const o = oc.createOscillator(), g = oc.createGain();
+  o.frequency.value = 7000; g.gain.value = .3;
+  const hp = oc.createBiquadFilter(); hp.type = 'highpass'; hp.frequency.value = 4600;
+  const lp = oc.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 10600;
+  const rect = oc.createWaveShaper();
+  { const n = 2049, c = new Float32Array(n); for (let i = 0; i < n; i++) c[i] = Math.abs(i * 2 / (n - 1) - 1); rect.curve = c; }
+  const e1 = oc.createBiquadFilter(), e2 = oc.createBiquadFilter();
+  e1.type = e2.type = 'lowpass'; e1.frequency.value = e2.frequency.value = 60; e1.Q.value = e2.Q.value = .5;
+  o.connect(g).connect(hp).connect(lp).connect(rect).connect(e1).connect(e2).connect(oc.destination);
+  o.start(0);
+  const b = await oc.startRendering();
+  const env = b.getChannelData(0)[idx(.3)];
+  // 帶通（4.6k–10.6k）在 7 kHz 會略微提升振幅，所以包絡比 0.64×0.3 大一點
+  check('去齒音：偵測包絡在合理範圍', env > .2 && env < .32, `${env.toFixed(3)}（0.64×帶通後的峰值）`);
+}
+{
+  const p = { freq: 7000, range: 1.2, threshold: -30, amount: 12, listen: 0 };
+  const r = await render('deess', p, (oc, d) => osc(oc, 7000, .3, 'sine', d), .6);
+  const r0 = await render('deess', { ...p, amount: 0 }, (oc, d) => osc(oc, 7000, .3, 'sine', d), .6);
+  const over = peak(r.L, idx(.2), idx(.5)) / Math.max(1e-9, peak(r0.L, idx(.2), idx(.5)));
+  const q = await render('deess', p, (oc, d) => osc(oc, 7000, .0005, 'sine', d), .6);
+  const q0 = await render('deess', { ...p, amount: 0 }, (oc, d) => osc(oc, 7000, .0005, 'sine', d), .6);
+  const under = peak(q.L, idx(.2), idx(.5)) / Math.max(1e-9, peak(q0.L, idx(.2), idx(.5)));
+  check('去齒音：大聲的齒音被壓下來', db(over) < -4, `${db(over).toFixed(1)} dB`);
+  check('去齒音：小聲時完全不动（線性增益 1）', Math.abs(db(under)) < .3, `${db(under).toFixed(2)} dB`);
+}
+
+// ---------- 20. 重複載入 limiter 模組（母帶與插入效果器共用同一個 worklet）----------
+{
+  let ok = true, msg = '';
+  try {
+    const oc = new OfflineAudioContext(2, 480, SR);
+    await ensureFxWorklets(oc);          // 這一條會載入 limiter-worklet.js
+    await ensureMasteringWorklet(oc);    // 母帶再要求一次同一個模組
+    await ensureFxWorklets(oc);          // 再要一次也不能炸
+  } catch (e) { ok = false; msg = e.message || String(e); }
+  check('重複載入 limiter-worklet 不會出錯', ok, msg);
+}
+
+// ---------- 21. LFO 相位（PeriodicWave 相位旋轉）----------
+{
+  const oc = new OfflineAudioContext(2, SR * .02, SR);
+  const o = oc.createOscillator();
+  o.setPeriodicWave(waveFor(oc, 'sine', 90)); o.frequency.value = 50;
+  o.connect(oc.destination); o.start(0);
+  const b = await oc.startRendering();
+  const d = b.getChannelData(0);
+  check('LFO：90° 相位的正弦從峰值開始', Math.abs(d[2] - 1) < .05, `第一點 ${d[2].toFixed(3)}`);
+}
+
+// ---------- 診斷：Web Audio 規格裡容易踩的兩個地方 ----------
+{
+  // 二階高通 30 Hz 在 100 Hz 的響應（跟課本值 −0.03 dB 對照）
+  // → 證明「低通／高通的 Q 是 dB」，所以程式裡一律用 qDb() 換算
+  const oc = new OfflineAudioContext(1, 128, SR);
+  const f = oc.createBiquadFilter(); f.type = 'highpass'; f.frequency.value = 30; f.Q.value = .71;
+  const g2 = oc.createBiquadFilter(); g2.type = 'highpass'; g2.frequency.value = 30; g2.Q.value = 20 * Math.log10(.7071);
+  const fr = new Float32Array([100, 1000]), mg = new Float32Array(2), ph = new Float32Array(2), mg2 = new Float32Array(2), ph2 = new Float32Array(2);
+  f.getFrequencyResponse(fr, mg, ph);
+  g2.getFrequencyResponse(fr, mg2, ph2);
+  log('info', `  單顆 HP30 @100 Hz：Q=0.71 → ${db(mg[0]).toFixed(2)} dB；Q=−3.01 dB → ${db(mg2[0]).toFixed(2)} dB`);
+}
+{
+  // 3b) 延遲回授：第二次回音會比「延遲時間 ×2」多一個 render quantum（128 樣本），
+  //     這是 Web Audio 回授迴路的固定成本，量出來記錄在測試裡。
+  const r = await render('delay', { time: .5, feedback: 90, tone: 16000, pingpong: 0, mix: 100 },
+    (oc, d) => impulse(oc, d, .05, .9), 1);
+  let best = 0, bestT = 0;
+  for (let t = .52; t < .60; t += .001) {
+    const v = peak(r.L, idx(t), idx(t + .001));
+    if (v > best) { best = v; bestT = t; }
+  }
+  check('延遲：回授迴路的第二次回音時間合理', best > .05 && bestT < .56, `${bestT.toFixed(3)} s（理想 0.553）`);
+}
+{
+  // 噪音閘單獨用一個很小的訊號（−60 dBFS），應該衰減到 range 的下限
+  const r = await render('gate', { threshold: -40, ratio: 20, attack: 1, hold: 0, release: 50, range: 60 },
+    (oc, d) => osc(oc, 500, .001, 'sine', d), .5);
+  check('噪音閘：持續小聲時衰減到最大', db(peak(r.L, idx(.3), idx(.45))) < -70,
+    `${db(peak(r.L, idx(.3), idx(.45))).toFixed(1)} dBFS（輸入 −60、最大衰減 60）`);
+}
+
+// ---------- 22. 呼吸聲偵測（合成訊號）----------
+{
+  const b = new AudioBuffer({ length: SR * 3, numberOfChannels: 1, sampleRate: SR });
+  const d = b.getChannelData(0);
+  let seed = 12345, lp = 0;
+  const rnd = () => ((seed = (seed * 1664525 + 1013904223) >>> 0) / 2147483648 - 1);
+  for (let i = 0; i < d.length; i++) {
+    const t = i / SR;
+    let v = 0;
+    if (t < .5 || (t >= 1 && t < 2)) v = Math.sin(2 * Math.PI * 220 * t) * .3;   // 歌聲
+    else if (t >= .8 && t < 1) { const w = rnd(); lp = lp * .7 + w * .3; v = lp * .04; }  // 吸氣（低通雜訊）
+    d[i] = v;
+  }
+  const regs = analyzeBreaths(b, 0, 3, { sens: .5 });
+  const hit = regs.some(r => r.start < .93 && r.end > .83);
+  check('呼吸聲：抓到合成的吸氣段', hit,
+    JSON.stringify(regs.map(r => [+r.start.toFixed(2), +r.end.toFixed(2), Math.round(r.relDb)])));
+  check('呼吸聲：沒有把歌聲當成呼吸',
+    !regs.some(r => r.start < .45 || (r.start > 1.05 && r.start < 1.9)), '');
+}
+
+// ---------- 收尾 ----------
+log('info', fails ? `\n共 ${fails} 項失敗` : '\n全部通過');
+document.title = fails ? 'FAIL' : 'PASS';
+fetch('/__READY__').catch(() => {});
+</script>
+</body>
+</html>

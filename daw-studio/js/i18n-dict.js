@@ -1751,5 +1751,15 @@ export const EN = {
  "只會寫入這一軌的<b>音量自動化</b>（不是重新算音訊），套用後會打開自動化檢視，波形上就看得到凹下去的地方。": "Only writes <b>volume automation</b> on this track (no audio re-rendering). Applying turns on the automation view, so you see the dips right on the waveform.",
  "這一軌沒有可以分析的音訊片段": "This track has no audio clips to analyse",
  "沒有勾選任何一段": "Nothing is selected",
- "已把 {n} 段呼吸聲寫進「{name}」的音量自動化（Ctrl+Z 可復原）": "Wrote {n} breaths into the volume automation of “{name}” (Ctrl+Z to undo)"
+ "已把 {n} 段呼吸聲寫進「{name}」的音量自動化（Ctrl+Z 可復原）": "Wrote {n} breaths into the volume automation of “{name}” (Ctrl+Z to undo)",
+ "指標": "Pointer",
+ "鉛筆": "Pencil",
+ "橡皮擦": "Eraser",
+ "剪刀": "Scissors",
+ "膠水": "Glue",
+ "靜音筆": "Mute pen",
+ "力度筆": "Velocity pen",
+ "工具說明：點一下看每個工具怎麼用，也可以直接切換": "Tool help: click to see what each tool does — or switch straight to it",
+ "自動化曲線": "Automation curve",
+ "自動化曲線 (A)：音量、左右、Send 隨時間變化": "Automation (A): volume, pan and sends over time"
 };

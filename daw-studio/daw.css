@@ -449,10 +449,18 @@ dialog .soon { opacity: .45; pointer-events: none; }
 .pr-bar label { display: flex; align-items: center; gap: 4px; white-space: nowrap; }
 /* 工具列（指標、鉛筆、橡皮擦…） */
 .pr-tools { display: flex; gap: 1px; background: var(--bg0); border: 1px solid var(--line2); border-radius: 5px; padding: 2px; }
-.pr-tools button { width: 27px; height: 20px; border: 0; border-radius: 3px; background: transparent; color: var(--tx1);
-  font: 12px/1 ui-monospace, Consolas, monospace; cursor: pointer; padding: 0; }
+.pr-tools button { position: relative; width: 32px; height: 26px; border: 0; border-radius: 3px; background: transparent; color: var(--tx1);
+  cursor: pointer; padding: 0; display: grid; place-items: center; }
+.pr-tools button svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.6;
+  stroke-linecap: round; stroke-linejoin: round; }
+.pr-tools button i { position: absolute; right: 2px; bottom: 1px; font: 8px/1 ui-monospace, Consolas, monospace; font-style: normal; opacity: .5; }
 .pr-tools button:hover { background: var(--bg2); }
 .pr-tools button.on { background: var(--accent); color: #fff; }
+.pr-tools button.on i { opacity: .85; }
+.pr-tool-name { font-size: 11px; color: var(--tx2); min-width: 46px; white-space: nowrap; }
+/* 自動化控制點旁的數值標籤 */
+.auto-tip text { font: 10px ui-monospace, Consolas, monospace; fill: #fff; pointer-events: none; }
+.auto-tip rect { fill: rgba(0, 0, 0, .78); pointer-events: none; }
 .pr-bar2 { gap: 6px; flex-wrap: wrap; padding: 3px 8px; }
 .pr-bar2 .tbtn { height: 22px; font-size: 11px; }
 .pr-body { position: relative; min-height: 0; overflow: hidden; }
