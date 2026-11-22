@@ -308,15 +308,7 @@
           <button type="button" id="lrc-vocal-start" class="lrc-btn lrc-btn--ghost" title="播到歌手開口的地方按下去，前面的前奏就不會排到歌詞">
             設人聲起點（用目前播放位置）
           </button>
-          <label class="lrc-field lrc-field--check">
-            <input type="checkbox" id="lrc-asr">
-            <span>用 AI 聽歌詞對齊（中文，第一次勾選要下載約 251 MB，跟「織音AI自動轉譜」共用）</span>
-          </label>
-          <label class="lrc-field lrc-field--check">
-            <input type="checkbox" id="lrc-vad">
-            <span>用模型判斷人聲（比較準，第一次勾選要下載約 13 MB；不勾就只用音量起伏推測）</span>
-          </label>
-          <p id="lrc-detect-status" class="lrc-status">先載入音檔。偵測會先用音量起伏切出樂句，再按每行的發音字數分配時間；中括號的 [前奏]、[間奏] 這類標記會跳過不排歌詞。前奏沒抓準的話，播到開口處按「設人聲起點」再偵測一次。全部在本機計算。</p>
+          <p id="lrc-detect-status" class="lrc-status">先載入音檔。按「偵測並填入時間」會先請 AI 聽歌詞、把每一行對到真的唱出來的地方（第一次要下載約 251 MB 的模型，跟「織音AI自動轉譜」共用，之後瀏覽器會記住）；模型載入不了或聽不到，才退回用音量起伏切樂句、按字數分配時間。中括號的 [前奏]、[間奏] 這類標記會跳過不排歌詞。全部在本機計算。</p>
         </div>
       </details>
     </section>
@@ -337,7 +329,9 @@
           placeholder="把歌詞貼在這裡，一行一句。若貼上的是已標好時間的 LRC，時間碼會一併讀進來。（Ctrl+Enter 直接載入）"></textarea>
         <div class="lrc-paste-actions">
           <button type="button" id="lrc-load" class="lrc-btn lrc-btn--primary">載入歌詞</button>
-          <button type="button" id="lrc-ai-text" class="lrc-btn" title="手上沒有歌詞？讓 AI 直接聽出歌詞與時間（第一次會下載約 251 MB 的模型）">AI 聽歌詞</button>
+          <button type="button" id="lrc-ai-text" class="lrc-btn" title="手上沒有歌詞？讓 AI 先聽一版初稿（第一次會下載約 251 MB 的模型）">AI 聽歌詞</button>
+          <button type="button" id="lrc-paste-ref" class="lrc-btn lrc-btn--ghost" title="有正式歌詞時用這個：清空框裡 AI 聽的初稿，貼上你的歌詞重新對齊">貼參考歌詞</button>
+          <button type="button" id="lrc-restore-ai" class="lrc-btn lrc-btn--ghost" title="把 AI 聽的初稿放回來" hidden>還原 AI 初版</button>
           <button type="button" id="lrc-tidy" class="lrc-btn" title="去掉空白行與前後空白">整理</button>
           <button type="button" id="lrc-close-paste" class="lrc-btn lrc-btn--ghost">收起</button>
         </div>
@@ -388,7 +382,7 @@
         <span>上傳音檔自動分析節拍與和弦進行，支援指版圖顯示與和弦編輯</span>
       </a>
       <a class="featured-card" href="../tools/daw/" style="background:linear-gradient(135deg,#1f2937,#111827);border:1px solid #374151;color:#e5e7eb;">
-        <strong>🎚️ 織音線上編曲製作</strong>
+        <strong>🎚️ 織音AI線上編曲製作</strong>
         <span>瀏覽器裡的多軌錄音、MIDI 編曲與混音，做好的歌詞時間碼可以搭配成品使用</span>
       </a>
       <a class="featured-card" href="../experience/" style="background:linear-gradient(135deg,#f5f0ff,#ebe0ff);border:1px solid #d5c5fd;">
@@ -439,8 +433,10 @@
     segments: [],     // 偵測到的樂句（會排歌詞的）
     instrSegments: [],// 判定為間奏、不排歌詞的段落
     vocalStart: null, // 手動指定的人聲起點（秒）；null = 交給偵測判斷
-    vadVocals: null,  // 模型判定的人聲區間；null = 還沒跑或沒勾選
     asrTimes: null,   // 語音辨識推出的每行時間；null = 沒跑
+    asrInfo: "",      // 「聽到 N/M 行」這種說明
+    asrBusy: false,   // AI 對齊正在跑（避免連點兩次）
+    aiDraft: null,    // AI 聽出來的初版歌詞（貼自己的歌詞之後還能還原）
     meta: { ti: "", ar: "", al: "", by: "世界聲音" }
   };
 
@@ -465,9 +461,10 @@
     sens: $("#lrc-sens"), sensOut: $("#lrc-sens-out"),
     gap: $("#lrc-gap"), gapOut: $("#lrc-gap-out"),
     analyze: $("#lrc-analyze"), detectStatus: $("#lrc-detect-status"),
-    setVocalStart: $("#lrc-vocal-start"), vad: $("#lrc-vad"), asr: $("#lrc-asr"),
+    setVocalStart: $("#lrc-vocal-start"),
     pasteWrap: $("#lrc-paste-wrap"), paste: $("#lrc-paste"),
     load: $("#lrc-load"), tidy: $("#lrc-tidy"), aiText: $("#lrc-ai-text"),
+    pasteRef: $("#lrc-paste-ref"), restoreAi: $("#lrc-restore-ai"),
     closePaste: $("#lrc-close-paste"), edit: $("#lrc-edit"),
     list: $("#lrc-lines"), empty: $("#lrc-empty"), count: $("#lrc-count"),
     fontUp: $("#lrc-font-up"), fontDown: $("#lrc-font-down"),
@@ -545,6 +542,9 @@
     pushUndo();
     state.lines = parsed.lines;
     state.selected = 0;
+    // 歌詞換了，之前 AI 對齊的結果就不能再用（不然會把舊時間套到新歌詞上）
+    state.asrTimes = null;
+    state.asrInfo = "";
 
     // LRC 檔頭若帶了曲名／演出者，順手填進輸出欄位
     if (parsed.meta.ti) $("#meta-ti").value = parsed.meta.ti;
@@ -589,9 +589,13 @@
     }).then(function (lines) {
       el.aiText.disabled = false;
       if (!lines || !lines.length) { toast("沒有聽出歌詞"); setDetectStatus("沒有聽出歌詞（這首可能是演奏曲）", "error"); return; }
-      el.paste.value = lines.map(function (l) { return fmtStamp(l.time) + l.text; }).join("\n");
+      // 初版歌詞（繁體）：先填進框裡、順便載入。有正式歌詞的話按「貼參考歌詞」蓋掉重來
+      state.aiDraft = lines.map(function (l) { return fmtStamp(l.time) + l.text; }).join("\n");
+      el.paste.value = state.aiDraft;
+      el.restoreAi.hidden = false;
       loadLyrics();
-      setDetectStatus("AI 聽出 " + lines.length + " 句；錯字、斷行都可以直接改，時間再拖一下就更準", "done");
+      setDetectStatus("AI 先聽出 " + lines.length + " 句初版歌詞（斷行照停頓切，錯字與斷行都可以直接改）。"
+        + "手上有正式歌詞的話，按「貼參考歌詞」貼上來、按「偵測並填入時間」就會用你的歌詞重新對齊。", "done");
     }).catch(function (e) {
       el.aiText.disabled = false;
       toast("AI 聽歌詞失敗：" + ((e && e.message) || e));
@@ -609,6 +613,7 @@
   // 歌詞面板開著時不需要「編輯歌詞」，反之亦然
   function syncPasteUI() {
     el.edit.hidden = !el.pasteWrap.hidden;
+    if (el.restoreAi) el.restoreAi.hidden = !state.aiDraft;
   }
 
   function openPasteEditor() {
@@ -707,10 +712,10 @@
     state.segments = [];
     state.instrSegments = [];
     state.vocalStart = null;   // 換歌就忘記上一首手動標的起點
-    state.vadVocals = null;    // 模型判斷的結果也不能沿用
-    state.asrTimes = null;
-    el.vad.checked = false;
-    el.asr.checked = false;
+    state.asrTimes = null;     // AI 對齊的結果也不能沿用
+    state.aiDraft = null;
+    state.asrInfo = "";
+    if (el.restoreAi) el.restoreAi.hidden = true;
     el.setVocalStart.textContent = "設人聲起點（用目前播放位置）";
     el.analyze.disabled = true;
     el.waveEmpty.hidden = false;
@@ -1299,17 +1304,13 @@
     };
   }
 
-  /* ── 模型人聲偵測（ONNX Runtime Web + Silero VAD，選用）───────
-     只有使用者勾選時才會下載：onnxruntime-web 的 wasm（約 10.6 MB）
-     與 Silero VAD 模型（約 2.1 MB）。沒勾選就完全不連外。
-     用的是語音活動偵測（VAD）模型，對「有人在唱」比音量起伏可靠，
-     但它不是專門為唱歌訓練的，混音很滿的段落仍可能判斷不準。      */
+  /* ── ONNX Runtime Web：AI 聽歌詞（Fun-ASR-Nano）要用的推論引擎 ────────
+     第一次按「偵測並填入時間」或「AI 聽歌詞」才下載：onnxruntime-web 的 wasm
+     （約 10.6 MB）與歌詞模型（約 251 MB，跟「織音AI自動轉譜」共用，只會下載一次）。
+     沒有按就完全不連外。                                                */
 
-  var VAD_DIR = new URL("../../assets/vendor/vad/", document.baseURI).href;
-  var VAD_MODEL = "silero-vad.onnx";
-  var VAD_RATE = 16000;
-  var VAD_CHUNK = 512;                      // Silero VAD 固定的 32ms 音框
-  var vadLoading = null;
+  var ORT_DIR = new URL("../../assets/vendor/vad/", document.baseURI).href;
+  var ortLoading = null;
 
   function nextTick() {
     return new Promise(function (resolve) { setTimeout(resolve, 0); });
@@ -1327,18 +1328,18 @@
 
   function ensureOrt() {
     if (window.ort) return Promise.resolve(window.ort);
-    if (vadLoading) return vadLoading;
-    vadLoading = loadScriptOnce(VAD_DIR + "ort.wasm.min.js").then(function () {
+    if (ortLoading) return ortLoading;
+    ortLoading = loadScriptOnce(ORT_DIR + "ort.wasm.min.js").then(function () {
       if (!window.ort) throw new Error("onnxruntime-web 沒有正確載入");
-      window.ort.env.wasm.wasmPaths = VAD_DIR;
+      window.ort.env.wasm.wasmPaths = ORT_DIR;
       window.ort.env.wasm.numThreads = 1;   // GitHub Pages 沒有 COOP/COEP，只能單執行緒
       window.ort.env.wasm.proxy = false;
       return window.ort;
     });
-    return vadLoading;
+    return ortLoading;
   }
 
-  // 降混成單聲道並線性內插到 16 kHz（VAD 只需要這個取樣率）
+  // 降混成單聲道並線性內插到 16 kHz（AI 模型只需要這個取樣率）
   function resampleMono(buffer, targetRate) {
     var left = buffer.getChannelData(0);
     var right = buffer.numberOfChannels > 1 ? buffer.getChannelData(1) : null;
@@ -1355,77 +1356,6 @@
       out[i] = (a + b) * 0.5;
     }
     return out;
-  }
-
-  async function runVad(pcm, onProgress) {
-    var ort = await ensureOrt();
-    var session = await ort.InferenceSession.create(VAD_DIR + VAD_MODEL, {
-      executionProviders: ["wasm"]
-    });
-
-    var total = Math.floor(pcm.length / VAD_CHUNK);
-    var probs = new Float32Array(total);
-    var state = new ort.Tensor("float32", new Float32Array(2 * 128), [2, 1, 128]);
-    var sr = new ort.Tensor("int64", BigInt64Array.from([BigInt(VAD_RATE)]), []);
-
-    var inName = session.inputNames[0];
-    var stateName = session.inputNames[1];
-    var srName = session.inputNames[2];
-    var outName = session.outputNames[0];
-    var nextName = session.outputNames[1];
-
-    for (var i = 0; i < total; i++) {
-      var chunk = new Float32Array(VAD_CHUNK);
-      chunk.set(pcm.subarray(i * VAD_CHUNK, (i + 1) * VAD_CHUNK));
-      var feeds = {};
-      feeds[inName] = new ort.Tensor("float32", chunk, [1, VAD_CHUNK]);
-      feeds[stateName] = state;
-      feeds[srName] = sr;
-
-      var res = await session.run(feeds);
-      probs[i] = res[outName].data[0];
-      state = res[nextName];
-
-      if (i % 200 === 0) {
-        if (onProgress) onProgress(i / Math.max(1, total));
-        await nextTick();
-      }
-    }
-    if (onProgress) onProgress(1);
-    return probs;
-  }
-
-  // 機率曲線 → 有人聲的區間。進入用高門檻、離開用低門檻，避免抖動。
-  function regionsFromProbs(probs, hopSec) {
-    var HI = 0.5, LO = 0.35;
-    var regions = [];
-    var on = false, start = 0, lastAbove = 0;
-
-    for (var i = 0; i < probs.length; i++) {
-      var t = i * hopSec;
-      if (!on) {
-        if (probs[i] >= HI) { on = true; start = t; lastAbove = t; }
-      } else if (probs[i] >= LO) {
-        lastAbove = t;
-      } else if (t - lastAbove >= 0.35) {
-        regions.push({ start: start, end: t });
-        on = false;
-      }
-    }
-    if (on) regions.push({ start: start, end: probs.length * hopSec });
-
-    return regions.filter(function (r) { return r.end - r.start >= 0.4; });
-  }
-
-  function prepareVad() {
-    return Promise.resolve().then(function () {
-      var pcm = resampleMono(state.buffer, VAD_RATE);
-      return runVad(pcm, function (p) {
-        setDetectStatus("模型判斷人聲中… " + Math.round(p * 100) + "%", "analyzing");
-      }).then(function (probs) {
-        return regionsFromProbs(probs, VAD_CHUNK / VAD_RATE);
-      });
-    });
   }
 
 /* Whisper 前端核心（純計算，不含 ONNX）。
@@ -1511,22 +1441,65 @@
     return { anchors: anchors, info: "聽到 " + heard + "/" + state.lines.length + " 行" };
   }
 
-  function analyzeAndFill() {
-    if (!state.lines.length) { setDetectStatus("先把歌詞載入，偵測結果才有地方放。", "warn"); return; }
+  // 把 AI 對齊的結果填進每一行（同時清掉舊的段落標記）
+  function applyAsrTimes() {
+    pushUndo();
+    state.lines.forEach(function (line, i) {
+      line.time = state.asrTimes[i] == null ? null : round2(state.asrTimes[i]);
+    });
+    renderAll();
+    selectLine(0);
+    el.pasteWrap.hidden = true;
+    syncPasteUI();
+    // 波形上的「有人唱／間奏」是音量法算的，AI 對齊不走那條路 → 清掉，不要留上一次的
+    state.segments = [];
+    state.instrSegments = [];
+    drawWave();
+    setDetectStatus("AI 聽歌詞對齊完成（" + (state.asrInfo || "") + "；沒聽到的行照前後推算），邊聽邊微調。", "ok");
+    toast("已填入 " + state.lines.length + " 行時間");
+  }
 
-    // 有 AI 聽歌詞的結果就直接用它，不必再猜
-    if (state.asrTimes && state.asrTimes.length === state.lines.length) {
-      pushUndo();
-      state.lines.forEach(function (line, i) {
-        line.time = state.asrTimes[i] == null ? null : round2(state.asrTimes[i]);
-      });
-      renderAll();
-      selectLine(0);
-      setDetectStatus("AI 聽歌詞已填入時間（" + (state.asrInfo || "") + "；沒聽到的行照前後推算），邊聽邊微調。", "ok");
-      return;
+  // AI 聽歌詞對齊：把目前這份歌詞（貼上的參考歌詞也算）對到音檔上。
+  // 回傳 true = 已經填好；false = 沒有結果，交給音量起伏那條路。
+  async function asrAlignLines() {
+    setDetectStatus("準備歌詞辨識模型（第一次下載約 251 MB，之後瀏覽器會記住）…", "analyzing");
+    try {
+      var out = await runAsr();
+      var times = asrTimesForLines(state.lines, out.anchors);
+      if (!times) {
+        setDetectStatus("AI 沒有在音檔裡聽到這些歌詞（可能不是同一首歌、不是中文，或沒有人聲），改用音量起伏推測。", "warn");
+        return false;
+      }
+      state.asrTimes = times;
+      state.asrInfo = out.info;
+      applyAsrTimes();
+      return true;
+    } catch (err) {
+      console.error(err);
+      state.asrTimes = null;
+      setDetectStatus("歌詞辨識模型載入失敗（" + (err && err.message ? err.message : err) + "），改用音量起伏推測。", "warn");
+      return false;
     }
+  }
 
+  // 主要動作：先請 AI 聽歌詞對齊（最準），真的不行才退回音量起伏。
+  // useAsr=false 只用在「設人聲起點」——那個選項是給音量法用的。
+  async function analyzeAndFill(useAsr) {
+    if (!state.lines.length) { setDetectStatus("先把歌詞載入，偵測結果才有地方放。", "warn"); return; }
+    if (state.asrBusy) return;
+
+    // 已經有 AI 聽出來的結果（剛按過「AI 聽歌詞」）就直接用，不必再跑一次
+    if (state.asrTimes && state.asrTimes.length === state.lines.length) { applyAsrTimes(); return; }
     if (!state.env) { setDetectStatus("音檔還沒解碼完成。", "warn"); return; }
+
+    if (useAsr !== false) {
+      state.asrBusy = true;
+      el.analyze.disabled = true;
+      var done = await asrAlignLines();
+      state.asrBusy = false;
+      el.analyze.disabled = false;
+      if (done) return;
+    }
 
     var sens = parseInt(el.sens.value, 10) / 100;
     var minGap = parseInt(el.gap.value, 10) / 100;
@@ -1536,26 +1509,10 @@
     var rise = onsetRise(db);
     var duration = state.buffer ? state.buffer.duration : state.env.length * HOP_SEC;
 
-    // 有人聲的段落：勾了模型就用模型的判斷，否則用音量起伏推測
     var blocks = detectSegments(state.env, { sensitivity: sens, minGap: minGap });
-    var vocals, holes;
-
-    if (state.vadVocals && state.vadVocals.length) {
-      vocals = state.vadVocals.map(function (r) { return { start: r.start, end: r.end }; });
-      holes = [];
-      var gapCursor = 0;
-      for (var vi = 0; vi < vocals.length; vi++) {
-        if (vocals[vi].start - gapCursor > 0.6) {
-          holes.push({ start: gapCursor, end: vocals[vi].start });
-        }
-        gapCursor = vocals[vi].end;
-      }
-      if ((duration || 0) - gapCursor > 0.6) holes.push({ start: gapCursor, end: duration });
-    } else {
-      var split = refineVocal(blocks, db);
-      vocals = split.vocals;
-      holes = split.holes;
-    }
+    var split = refineVocal(blocks, db);
+    var vocals = split.vocals;
+    var holes = split.holes;
 
     // 手動指定的人聲起點優先：前面的段落一律不排歌詞
     if (state.vocalStart != null) {
@@ -1844,70 +1801,25 @@
     el.gap.addEventListener("input", function () {
       el.gapOut.textContent = (parseInt(el.gap.value, 10) / 100).toFixed(2) + " 秒";
     });
-    el.analyze.addEventListener("click", analyzeAndFill);
-    el.aiText.addEventListener("click", aiFillLyrics);      // 沒有歌詞也能用：AI 直接聽
-
-    // AI 聽歌詞對齊（選用）：勾了才下載 Fun-ASR-Nano（跟自動轉譜共用）
-    el.asr.addEventListener("change", function () {
-      if (!el.asr.checked) {
-        state.asrTimes = null;
-        setDetectStatus("已取消 AI 聽歌詞對齊。", "");
-        return;
-      }
-      if (!state.buffer) { el.asr.checked = false; toast("先選擇音檔"); return; }
-      if (!state.lines.length) { el.asr.checked = false; toast("先載入歌詞"); return; }
-
-      setDetectStatus("準備歌詞辨識模型（第一次下載約 251 MB）…", "analyzing");
-      runAsr().then(function (out) {
-        var times = asrTimesForLines(state.lines, out.anchors);
-        if (!times) {
-          setDetectStatus("AI 沒有在音檔裡聽到這些歌詞（可能不是同一首歌、不是中文，或沒有人聲）。", "warn");
-          return;
-        }
-        state.asrTimes = times;
-        state.asrInfo = out.info;
-        analyzeAndFill();
-      }).catch(function (err) {
-        console.error(err);
-        el.asr.checked = false;
-        state.asrTimes = null;
-        setDetectStatus("歌詞辨識模型載入失敗：" + (err && err.message ? err.message : err), "warn");
-      });
+    el.analyze.addEventListener("click", function () { analyzeAndFill(); });
+    el.aiText.addEventListener("click", aiFillLyrics);      // 沒有歌詞也能用：AI 先聽一版初稿
+    // 有正式歌詞：清掉 AI 初稿、讓使用者直接貼（初稿還留著，可以按「還原 AI 初版」拿回來）
+    el.pasteRef.addEventListener("click", function () {
+      // 框裡原本的東西（AI 初版或剛剛貼的）先留著，貼完還能還原
+      if (!state.aiDraft && el.paste.value.trim()) state.aiDraft = el.paste.value;
+      el.paste.value = "";
+      el.pasteWrap.hidden = false;
+      syncPasteUI();
+      el.paste.focus();
+      setDetectStatus("把正式的歌詞貼進上面的框（一行一句），按「載入歌詞」再按「偵測並填入時間」，就會用你的歌詞重新對齊。AI 初版還在，可以按「還原 AI 初版」拿回來。", "");
     });
-
-    // 模型人聲偵測（選用）：勾了才下載 wasm 與模型
-    el.vad.addEventListener("change", function () {
-      if (!el.vad.checked) {
-        state.vadVocals = null;
-        setDetectStatus("已改回用音量起伏推測。", "");
-        drawWave();
-        return;
-      }
-      if (!state.buffer) {
-        el.vad.checked = false;
-        toast("先選擇音檔");
-        return;
-      }
-      setDetectStatus("準備模型（第一次要下載約 13 MB，之後會快取）…", "analyzing");
-      prepareVad().then(function (regions) {
-        state.vadVocals = regions;
-        if (!regions.length) {
-          setDetectStatus("模型沒有找到清楚的人聲段落，可以改用下面的「設人聲起點」。", "warn");
-          return;
-        }
-        var cover = 0;
-        for (var r = 0; r < regions.length; r++) cover += regions[r].end - regions[r].start;
-        var pct = Math.round((cover / (state.buffer.duration || 1)) * 100);
-        setDetectStatus("模型判定有人聲 " + regions.length + " 段，佔全曲 " + pct +
-          "%，從 " + lrcTime(regions[0].start) + " 開始。", "ok");
-        if (state.lines.length) analyzeAndFill();
-        else drawWave();
-      }).catch(function (err) {
-        console.error(err);
-        el.vad.checked = false;
-        state.vadVocals = null;
-        setDetectStatus("模型載入失敗：" + (err && err.message ? err.message : err), "warn");
-      });
+    el.restoreAi.addEventListener("click", function () {
+      if (!state.aiDraft) return;
+      el.paste.value = state.aiDraft;
+      el.pasteWrap.hidden = false;
+      syncPasteUI();
+      el.paste.focus();
+      toast("已還原 AI 初版歌詞");
     });
 
     // 手動人聲起點：播到歌手開口的地方按一下，前奏就不會被排到歌詞
@@ -1922,7 +1834,7 @@
         el.setVocalStart.textContent = "重設人聲起點（目前 " + lrcTime(state.vocalStart) + "）";
         toast("人聲起點 " + lrcTime(state.vocalStart));
       }
-      if (state.env && state.lines.length) analyzeAndFill();
+      if (state.env && state.lines.length) analyzeAndFill(false);   // 人聲起點只影響音量法
       else drawWave();
     });
 
