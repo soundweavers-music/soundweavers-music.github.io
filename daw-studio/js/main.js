@@ -26,14 +26,14 @@ import { initMasterUi, toggleMaster, masterOpen } from './master-ui.js';
 import { toggleAlbum } from './album-ui.js';
 import { toggleArranger } from './arranger-ui.js';
 import { initAutomationUi, tickAutomation } from './automation-ui.js';
-import { showMenu } from './menu.js';
+import { showMenu, showMenuCols } from './menu.js';
 import { toggleChordLane, detectAndApply, applyChordsToHarmony, applyChordsToTune, clearChords, chordsOf, chordKeyOf, chordLabel, VIEW_NAMES } from './chord-ui.js';
 import { LiveLoudness, TARGETS } from './loudness.js';
 import { pitchShiftClips } from './pitch-render.js';
 import { THEMES, setTheme, currentTheme } from './theme.js';
 import { draw as drawPianoRoll } from './pianoroll.js';
 import { seedDemo } from './demo-project.js';
-import { translateDom, setLang, langPref } from './i18n.js';
+import { translateDom, setLang, langPref, isEN } from './i18n.js';
 
 const $ = id => document.getElementById(id);
 
@@ -464,10 +464,12 @@ const selectAllClips = () => {
   toast(`已選取 ${list.length} 個片段`);
 };
 // 快捷鍵一覽：導覽列上的「快捷鍵」按鈕打開（選單右邊會顯示按鍵）
+// 整份有 40 條，一欄會比螢幕還高，所以排成兩欄（依分組平均分配）
 export function showShortcuts(x, y) {
-  const items = [];
+  const groups = [];
+  let items = [];
   const add = (label, key, hint) => items.push({ label: hint ? `${label}　${hint}` : label, key });
-  const sep = () => items.push('-');
+  const sep = () => { if (items.length) { groups.push(items); items = []; } };
   add('播放／停止', '空白');
   add('回到開頭', 'Enter');
   add('前／後一小節', ', .');
@@ -511,7 +513,16 @@ export function showShortcuts(x, y) {
   add('電腦鍵盤彈奏', 'Ctrl+K');
   add('縮小／放大', '- =');
   add('取消選取／關閉面板', 'Esc');
-  showMenu(x, y, items);
+  sep();
+  // 分兩欄：把每個分組依序塞進「目前比較短」的那一欄
+  const cols = [[], []];
+  const rows = c => c.filter(x => x !== '-').length;
+  for (const g of groups) {
+    const i = rows(cols[0]) <= rows(cols[1]) ? 0 : 1;
+    if (cols[i].length) cols[i].push('-');
+    cols[i].push(...g);
+  }
+  showMenuCols(x, y, cols);
 }
 
 function bindEditMenu() {
@@ -938,7 +949,7 @@ $('btnArranger').onclick = () => toggleArranger();
       '-',
       { label: '配色', disabled: true },
       ...THEMES.map(t => ({
-        label: (t.id === cur ? '✓ ' : '　 ') + t.name,
+        label: (t.id === cur ? '✓ ' : '　 ') + (isEN() ? t.en : t.name),
         swatch: t.sw,
         action: () => setTheme(t.id),
       })),

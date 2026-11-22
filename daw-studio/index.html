@@ -38,13 +38,13 @@
     </div>
     <div class="spacer"></div>
     <div class="group transport">
-      <button class="tbtn" id="btnHome" title="回到開頭 (Enter)"><svg viewBox="0 0 16 16"><path d="M3 3h2v10H3zM13 3v10L6 8z"/></svg></button>
-      <button class="tbtn" id="btnRew" title="倒退一小節 (,)"><svg viewBox="0 0 16 16"><path d="M8 3v10L2 8zM15 3v10L9 8z"/></svg></button>
-      <button class="tbtn" id="btnFwd" title="前進一小節 (.)"><svg viewBox="0 0 16 16"><path d="M8 3v10l6-5zM1 3v10l6-5z"/></svg></button>
-      <button class="tbtn" id="btnStop" title="停止"><svg viewBox="0 0 16 16"><path d="M3 3h10v10H3z"/></svg></button>
-      <button class="tbtn play" id="btnPlay" title="播放／停止 (空白鍵)"><svg viewBox="0 0 16 16"><path d="M4 2l10 6-10 6z"/></svg></button>
-      <button class="tbtn rec" id="btnRec" title="錄音 (R)"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.5"/></svg></button>
-      <button class="tbtn cycle" id="btnCycle" title="循環 (C)"><svg viewBox="0 0 16 16"><path d="M4 5h7V3l3 3-3 3V7H4a1 1 0 00-1 1v1H1V8a3 3 0 013-3zm8 6H5v2l-3-3 3-3v2h7a1 1 0 001-1V7h2v1a3 3 0 01-3 3z"/></svg></button>
+      <button class="tbtn stack" id="btnHome" title="回到開頭 (Enter)"><svg viewBox="0 0 16 16"><path d="M3 3h2v10H3zM13 3v10L6 8z"/></svg><kbd class="k">Enter</kbd></button>
+      <button class="tbtn stack" id="btnRew" title="倒退一小節 (,)"><svg viewBox="0 0 16 16"><path d="M8 3v10L2 8zM15 3v10L9 8z"/></svg><kbd class="k">,</kbd></button>
+      <button class="tbtn stack" id="btnFwd" title="前進一小節 (.)"><svg viewBox="0 0 16 16"><path d="M8 3v10l6-5zM1 3v10l6-5z"/></svg><kbd class="k">.</kbd></button>
+      <button class="tbtn stack" id="btnStop" title="停止"><svg viewBox="0 0 16 16"><path d="M3 3h10v10H3z"/></svg></button>
+      <button class="tbtn play stack" id="btnPlay" title="播放／停止 (空白鍵)"><svg viewBox="0 0 16 16"><path d="M4 2l10 6-10 6z"/></svg><kbd class="k">空白</kbd></button>
+      <button class="tbtn rec stack" id="btnRec" title="錄音 (R)"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.5"/></svg><kbd class="k">R</kbd></button>
+      <button class="tbtn cycle stack" id="btnCycle" title="循環 (C)"><svg viewBox="0 0 16 16"><path d="M4 5h7V3l3 3-3 3V7H4a1 1 0 00-1 1v1H1V8a3 3 0 013-3zm8 6H5v2l-3-3 3-3v2h7a1 1 0 001-1V7h2v1a3 3 0 01-3 3z"/></svg><kbd class="k">C</kbd></button>
     </div>
     <div class="tb-master" id="tbMaster" title="母帶狀態：點一下打開母帶處理視窗">
       <span class="tbm-lbl">母帶</span>
@@ -59,10 +59,10 @@
       <div class="cell"><span class="lbl">拍號</span><select id="sig" aria-label="拍號"><option>2/4</option><option>3/4</option><option selected>4/4</option><option>5/4</option><option>6/4</option><option>7/4</option></select></div>
     </div>
     <div class="group">
-      <button class="tbtn metro" id="btnMetro" title="節拍器 (K)"><svg viewBox="0 0 16 16"><path d="M6 1h4l3 14H3zm1.6 2L5.5 13h5L8.4 3zM8 6l4-3 .6.8L8.6 7z"/></svg></button>
+      <button class="tbtn metro stack" id="btnMetro" title="節拍器 (K)"><svg viewBox="0 0 16 16"><path d="M6 1h4l3 14H3zm1.6 2L5.5 13h5L8.4 3zM8 6l4-3 .6.8L8.6 7z"/></svg><kbd class="k">K</kbd></button>
       <button class="tbtn countin" id="btnCountIn" title="錄音前預備一小節">1234</button>
-      <button class="tbtn snap" id="btnSnap" title="對齊格線 (G)">對齊</button>
-      <button class="tbtn typing" id="btnTyping" title="用電腦鍵盤彈奏選取的 MIDI 軌 (Caps Lock 或 Ctrl+K)：A–; 白鍵、W E T Y U O P 黑鍵、Z/X 換八度、C/V 力度"><svg viewBox="0 0 16 16"><path d="M1 4h14v8H1zm1.5 1.5v5h1.6V8.2h.8v2.3h1.6V8.2h.8v2.3h1.6V8.2h.8v2.3h1.6V8.2h.8v2.3h1.4v-5z"/></svg></button>
+      <button class="tbtn snap" id="btnSnap" title="對齊格線 (G)">對齊<kbd class="k">G</kbd></button>
+      <button class="tbtn typing stack" id="btnTyping" title="用電腦鍵盤彈奏選取的 MIDI 軌 (Caps Lock 或 Ctrl+K)：A–; 白鍵、W E T Y U O P 黑鍵、Z/X 換八度、C/V 力度"><svg viewBox="0 0 16 16"><path d="M1 4h14v8H1zm1.5 1.5v5h1.6V8.2h.8v2.3h1.6V8.2h.8v2.3h1.6V8.2h.8v2.3h1.6V8.2h.8v2.3h1.4v-5z"/></svg><kbd class="k">Ctrl+K</kbd></button>
       <span class="midi-led" id="midiLed" title="MIDI 輸入"></span>
       <div class="midi-tr" id="midiTr" title="MIDI 輸入移調：鍵盤彈的音整體升降（[ ] 半音、Shift+[ ] 八度）。錄進去的就是移調後的音。">
         <button type="button" id="trDown" aria-label="降半音">−</button>
@@ -74,18 +74,18 @@
     <div class="spacer"></div>
     <span class="saveinfo" id="saveInfo"></span>
     <div class="group">
-      <button class="tbtn ghost vb" id="btnInspector" title="檢閱器 (I)"><i>☰</i><span>檢閱器</span></button>
-      <button class="tbtn ghost vb" id="btnMixer" title="混音台 (X)"><i>⫼</i><span>混音台</span></button>
-      <button class="tbtn ghost vb" id="btnPiano" title="鋼琴捲簾 (P)：編輯選取的 MIDI 片段"><i>♪</i><span>鋼琴捲簾</span></button>
-      <button class="tbtn ghost vb" id="btnMaster" title="母帶處理與響度表 (Shift+M)"><i>◎</i><span>母帶</span></button>
+      <button class="tbtn ghost vb" id="btnInspector" title="檢閱器 (I)"><i>☰</i><span>檢閱器</span><kbd class="k">I</kbd></button>
+      <button class="tbtn ghost vb" id="btnMixer" title="混音台 (X)"><i>⫼</i><span>混音台</span><kbd class="k">X</kbd></button>
+      <button class="tbtn ghost vb" id="btnPiano" title="鋼琴捲簾 (P)：編輯選取的 MIDI 片段"><i>♪</i><span>鋼琴捲簾</span><kbd class="k">P</kbd></button>
+      <button class="tbtn ghost vb" id="btnMaster" title="母帶處理與響度表 (Shift+M)"><i>◎</i><span>母帶</span><kbd class="k">⇧M</kbd></button>
       <button class="tbtn ghost vb" id="btnArranger" title="自動伴奏電子琴：左手和弦、段落與過門"><i>♫</i><span>伴奏</span></button>
       <button class="tbtn ghost vb" id="btnAI" title="智慧編曲：旋律自動配和弦、依和弦軌一鍵編成整首伴奏 MIDI"><i>✦</i><span>智慧編曲</span></button>
       <button class="tbtn ghost vb" id="btnAlbum" title="專輯母帶：批次處理多首歌（母帶、統一響度、淡入淡出）"><i>◫</i><span>專輯</span></button>
-      <button class="tbtn ghost vb" id="btnPreview" title="預覽：影片、文字與字幕畫面 (V)"><i>▷</i><span>預覽</span></button>
-      <button class="tbtn ghost vb auto" id="btnAuto" title="自動化曲線 (A)：音量、左右、Send 隨時間變化"><i>∿</i><span>自動化</span></button>
-      <button class="tbtn ghost vb" id="btnChords" title="和弦軌 (H)：顯示偵測或匯入的和弦"><i>♯</i><span>和弦</span></button>
-      <button class="tbtn ghost vb" id="btnKeys" title="快捷鍵一覽"><i>⌘</i><span>快捷鍵</span></button>
-      <button class="tbtn primary" id="btnExport" title="輸出 (Ctrl+E)">輸出</button>
+      <button class="tbtn ghost vb" id="btnPreview" title="預覽：影片、文字與字幕畫面 (V)"><i>▷</i><span>預覽</span><kbd class="k">V</kbd></button>
+      <button class="tbtn ghost vb auto" id="btnAuto" title="自動化曲線 (A)：音量、左右、Send 隨時間變化"><i>∿</i><span>自動化</span><kbd class="k">A</kbd></button>
+      <button class="tbtn ghost vb" id="btnChords" title="和弦軌 (H)：顯示偵測或匯入的和弦"><i>♯</i><span>和弦</span><kbd class="k">H</kbd></button>
+      <button class="tbtn ghost vb" id="btnKeys" title="快捷鍵一覽（複製 Ctrl+C、貼上 Ctrl+V、復原 Ctrl+Z…）"><i>⌘</i><span>快捷鍵</span></button>
+      <button class="tbtn primary" id="btnExport" title="輸出 (Ctrl+E)">輸出<kbd class="k">Ctrl+E</kbd></button>
     </div>
   </header>
 
@@ -120,7 +120,7 @@
     <span>輸入 <span class="imeter"><i id="inMeter"></i></span> <select id="inputSel" class="tbtn ghost" style="height:20px;padding:0 4px;max-width:200px"><option value="">預設麥克風</option></select></span>
     <span id="stLatency"></span>
     <div class="spacer"></div>
-    <span><kbd>空白</kbd> 播放 <kbd>R</kbd> 錄音 <kbd>Ctrl+T</kbd> 切開 <kbd>Del</kbd> 刪除 <kbd>Ctrl+Z</kbd> 復原</span>
+    <span><kbd>空白</kbd> 播放 <kbd>R</kbd> 錄音 <kbd>Ctrl+C</kbd> 複製 <kbd>Ctrl+V</kbd> 貼上 <kbd>Ctrl+T</kbd> 切開 <kbd>Del</kbd> 刪除 <kbd>Ctrl+Z</kbd> 復原 <kbd>Ctrl+S</kbd> 儲存</span>
   </footer>
 </div>
 
