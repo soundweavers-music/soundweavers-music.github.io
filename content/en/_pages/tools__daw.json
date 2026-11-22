@@ -103,8 +103,8 @@
  "緩衝區": "Buffer",
  "緩衝區（延遲）": "Buffer (latency)",
  "縮小 (-)": "Zoom Out (-)",
- "織音線上編曲製作": "Zhiyin Online Arrangement",
- "織音線上編曲製作 — 免安裝、不上傳的瀏覽器 DAW": "Zhiyin online music production — a browser DAW, no install, no upload",
+ "織音AI線上編曲製作": "Zhiyin AI Online Arrangement",
+ "織音AI線上編曲製作 — 免安裝、不上傳的瀏覽器 DAW": "Zhiyin AI online music production — a browser DAW, no install, no upload",
  "自動伴奏電子琴：左手和弦、段落與過門": "Auto-accompaniment keyboard: left-hand chords, sections & fills",
  "自動化": "Automation",
  "自動化曲線 (A)：音量、左右、Send 隨時間變化": "Automation lanes (A): volume, pan and sends changing over time",
@@ -153,5 +153,8 @@
  "＋ 影像": "＋ Video",
  "＋ 音訊": "＋ Audio",
  "，或按某一軌的": ", or press a track's",
- "，把數值調大；比節拍": ", increase the value; compare to the beat"
+ "，把數值調大；比節拍": ", increase the value; compare to the beat",
+ "段落": "Section",
+ "和弦軌 (H)：顯示偵測或匯入的和弦，點一下就能新增或改和弦": "Chord track (H): show the detected or imported chords — click to add or change a chord",
+ "段落軌 (J)：標記前奏、主歌、導歌、副歌、尾奏，智慧編曲會照著段落編": "Section track (J): mark intro, verse, pre-chorus, chorus, outro — Smart Arrangement follows the sections"
 }

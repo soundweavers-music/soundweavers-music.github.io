@@ -2,17 +2,18 @@
 // owner：軌道 id、'bus0' / 'bus1'、'master'
 import { store } from './state.js';
 import { engine } from './engine.js';
-import { FX_TYPES, FX_ORDER, MAX_INSERTS, newFx, fmtParam } from './effects.js';
+import { FX_TYPES, FX_CATS, MAX_INSERTS, newFx, fillFxParams, fmtParam } from './effects.js';
 import { presetsFor } from './fx-presets.js';
 import { eqEditor } from './eq-editor.js';
 import { tuneEditor } from './autotune-ui.js';
 import { harmEditor } from './harmony-ui.js';
 import { widthEditor } from './width-ui.js';
 import { reverbEditor } from './reverb-ui.js';
-import { showMenu } from './menu.js';
+import { mbcompEditor } from './mbcomp-ui.js';
+import { showMenu, showMenuCols } from './menu.js';
 import { fxIcon } from './fx-icons.js';
+import { fxVisual } from './fx-visual.js';
 import { toast, fmtDb } from './util.js';
-import { cssVar, ink } from './theme.js';
 
 const $ = id => document.getElementById(id);
 
@@ -67,17 +68,28 @@ export function insertSlots(owner, compact = false) {
     add.title = '新增插入效果器';
     add.addEventListener('click', e => {
       const r = add.getBoundingClientRect();
-      showMenu(r.left, r.bottom + 2, FX_ORDER.map(type => ({
-        label: FX_TYPES[type].name,
-        icon: fxIcon(type),
-        action: () => {
-          store.checkpoint();
-          const fx = newFx(type);
-          list.push(fx);
-          store.changed('fx');
-          openFxPanel(owner, fx.id);
-        },
-      })));
+      const pick = type => () => {
+        store.checkpoint();
+        const fx = newFx(type);
+        list.push(fx);
+        store.changed('fx');
+        openFxPanel(owner, fx.id);
+      };
+      // 24 種效果器分成好幾欄，選單才不會長到要捲
+      const rows = FX_CATS.reduce((a, c) => a + c.types.length + 1, 0);
+      const per = Math.ceil(rows / 3);
+      const cols = [[]];
+      let n = 0;
+      for (const cat of FX_CATS) {
+        if (n >= per && cols.length < 3) { cols.push([]); n = 0; }
+        cols[cols.length - 1].push({ header: cat.name });
+        n++;
+        for (const type of cat.types) {
+          cols[cols.length - 1].push({ label: FX_TYPES[type].name, icon: fxIcon(type), indent: true, action: pick(type) });
+          n++;
+        }
+      }
+      showMenuCols(r.left, r.bottom + 2, cols);
       e.stopPropagation();
     });
     box.appendChild(add);
@@ -156,6 +168,8 @@ export function openFxPanel(owner, fxId) {
   const list = ownerList(owner);
   const d = list?.find(x => x.id === fxId);
   if (!d) return;
+  fillFxParams(d);          // 舊專案的效果器可能少了新參數，補齊才不會出現 NaN
+
   const old = panels.get(fxId);
   const keepPos = old && { left: old.style.left, top: old.style.top, width: old.style.width, height: old.style.height };
   if (old) closeFxPanel(fxId);
@@ -166,9 +180,9 @@ export function openFxPanel(owner, fxId) {
   panels.set(fxId, panel);
   raise(panel);
   panel.addEventListener('pointerdown', () => raise(panel), true);
-  const wide = d.type === 'eq' || d.type === 'tune' || d.type === 'harm' || d.type === 'reverb' || d.type === 'width';
-  panel.className = 'fx-panel' + (wide ? ' wide' : '')
-    + (d.type === 'tune' ? ' tune' : d.type === 'harm' ? ' harm' : d.type === 'reverb' ? ' reverb' : d.type === 'width' ? ' width' : '');
+  const wide = d.type === 'eq' || d.type === 'tune' || d.type === 'harm' || d.type === 'reverb' || d.type === 'width' || d.type === 'mbcomp';
+  panel.className = 'fx-panel' + (wide ? ' wide' : T.custom ? '' : ' vis')
+    + (d.type === 'tune' ? ' tune' : d.type === 'harm' ? ' harm' : d.type === 'reverb' ? ' reverb' : d.type === 'width' ? ' width' : d.type === 'mbcomp' ? ' mb' : '');
   panel.innerHTML = `
     <div class="fx-head"><span class="fx-title">${T.name}</span><span class="fx-owner"></span>
       <button class="tbtn ghost fx-onoff">${d.on ? '啟用中' : '已停用'}</button><button class="tbtn ghost fx-x" title="關閉 (Esc)">✕</button></div>
@@ -176,10 +190,21 @@ export function openFxPanel(owner, fxId) {
       [...new Set(presets.map(x => x.group))].map(g => `<optgroup label="${g}">${presets.map((x, i) => x.group === g ? `<option value="${i}">${x.name}</option>` : '').join('')}</optgroup>`).join('')
     }</select><span class="fx-tip"></span></div>` : ''}
     <div class="fx-custom"></div>
-    <canvas class="fx-viz" height="90"></canvas>
     <div class="fx-params"></div>
-    ${d.type === 'gate' ? '<p class="fx-note">噪音閘只在即時播放與錄音監聽時作用；輸出檔案時會略過（瀏覽器的離線算圖沒有辦法做門檻開關）。</p>' : ''}
+    ${d.type === 'gate' ? '<p class="fx-note">門檻以下會衰減：擴展比 20:1 等於是硬閘（安靜時幾乎全關）。輸出檔案時也有效。想找門檻就先把「最大衰減」調小一點，聽得見門檻在哪裡再調回去。</p>' : ''}
     ${d.type === 'eq' ? '<p class="fx-note">拖曳圓點：左右改頻率、上下改增益；滾輪改 Q；雙擊歸零或開關。按住 Shift 微調。播放時背景顯示即時頻譜（灰 = 處理前、彩色 = 處理後）。</p>' : ''}
+    ${d.type === 'limiter' ? '<p class="fx-note">5 ms 的預看延遲：增益在峰值<b>還沒到</b>之前就降下來，所以不會削波。放在軌道上會自動補償這段延遲；放在匯流排或母帶上則是整個混音一起晚 5 ms（並聯混音時要注意相位）。上限建議 −1 dBTP，串流平台會再轉檔。</p>' : ''}
+    ${d.type === 'transient' ? '<p class="fx-note">「起音」只改變每個音<b>開頭</b>的力道（鼓的敲擊感、吉他的撥弦），「延音」改變之後的尾巴。兩個都是 ±12 dB，往負的方向就是收掉。</p>' : ''}
+    ${d.type === 'mbcomp' ? '<p class="fx-note">三個頻段各自壓縮：低頻穩住、中頻收一點、高頻只擋峰值。分頻點直接拖曳上面的圓點；三條曲線相加是平的（Linkwitz-Riley 4 階），所以分頻點不會凹陷。每一段右邊的數字是即時衰減量。</p>' : ''}
+    ${d.type === 'flanger' ? '<p class="fx-note">短延遲（0.5–10 ms）被 LFO 來回掃動，與原聲相加形成會移動的梳狀濾波。回授可以負值（−）讓梳狀的高峰換位置。</p>' : ''}
+    ${d.type === 'phaser' ? '<p class="fx-note">一串全通濾波器讓相位隨頻率旋轉，與原聲相加就會出現幾個凹洞（不是梳狀，凹洞少而寬）。階數越多凹洞越多，回授越多凹洞越深。</p>' : ''}
+    ${d.type === 'tremolo' ? '<p class="fx-note">音量週期性的變大變小。立體模式選「左右反相」就變成 Auto-Pan（聲音在左右之間擺）；「左右差 90°」聽起來像繞著頭轉。</p>' : ''}
+    ${d.type === 'autofilter' ? '<p class="fx-note">濾波器的頻率被 LFO 掃動，是電子音樂最常用的動態濾波。共振（Q）拉高會出現「啾」的哨音，注意它會讓某個頻率變大很多。</p>' : ''}
+    ${d.type === 'bitcrush' ? '<p class="fx-note">位元深度降低 → 階梯狀的量化雜訊；取樣率降低 → 高頻的「金屬碎屑」感。兩者合起來是 80 年代取樣器與 Lo-fi 的味道。</p>' : ''}
+    ${d.type === 'ringmod' ? '<p class="fx-note">把輸入乘上一個正弦波，產生「鐘聲、機器人」的聲音。深度 100% 時原本的音高會消失，只剩和音與差音；深度低一點則保留原聲。</p>' : ''}
+    ${d.type === 'exciter' ? '<p class="fx-note">只在高頻加上新的泛音，低頻完全沒有動（濕度 100% 也不會吃掉低頻）。適合人聲、弦樂與已經很滿的混音。</p>' : ''}
+    ${d.type === 'stereodelay' ? '<p class="fx-note">左右各一條延遲，時間分開設定就會有「左邊先、右邊後」的立體回音；交叉回授會讓回音在左右之間彈。</p>' : ''}
+    ${d.type === 'utility' ? '<p class="fx-note">純粹的整理工具：增益、聲像、相位反轉、單聲道化。單聲道化常用在檢查混音（MONO 按鈕聽起來還平衡嗎）。</p>' : ''}
     ${d.type === 'tune' ? `<p class="fx-note">修音延遲約 ${d.params.live ? 16 : 32} ms，播放與輸出時會自動補償、跟伴奏對齊。錄音時開啟這一軌的 <b>I（輸入監聽）</b>可以邊唱邊聽修正後的聲音；錄進去的仍是原聲，之後隨時能改設定。建議放在效果器第一格（EQ、壓縮之前）。<br><b>現場演出</b>請開「現場低延遲」（16 ms，最低音域到 100 Hz）；<b>音符編輯</b>可以針對單一個音指定音高、長度與強度。</p>` : ''}
     ${d.type === 'width' ? '<p class="fx-note">單聲道來源（木吉他、貝斯、單支麥克風的人聲）選 <b>Haas 延遲</b> 或 <b>相位去相關</b>，它會自己生出側向訊號；已經是立體聲的素材可以選 <b>M-S 擴大</b>。低頻保持在中央，單聲道監聽時寬度會消失、不會反相，所以車上音響與手機喇叭都安全。</p>' : ''}
     ${d.type === 'reverb' ? '<p class="fx-note">左邊是空間剖面（音源、聽者、第一次反射），右邊是衰減曲線：綠色是低頻、藍色是高頻，兩條分開就是「高頻衰減」在做的事。放在 <b>Bus</b> 上、濕度 100% 可以讓好幾軌共用同一個空間，比每軌各掛一個省電腦資源。</p>' : ''}
@@ -216,7 +241,7 @@ export function openFxPanel(owner, fxId) {
   if (saved && !keepPos) panel.classList.add('sized');
   if (keepPos) { Object.assign(panel.style, keepPos); if (keepPos.height) panel.classList.add('sized'); }
   else {
-    const w = d.type === 'eq' ? 640 : d.type === 'tune' ? 720 : d.type === 'harm' ? 780 : d.type === 'reverb' ? 620 : d.type === 'width' ? 600 : 420;
+    const w = d.type === 'eq' ? 640 : d.type === 'tune' ? 720 : d.type === 'harm' ? 780 : d.type === 'reverb' ? 620 : d.type === 'width' ? 600 : d.type === 'mbcomp' ? 660 : T.custom ? 420 : 488;
     // 新開的面板錯開一點，不要整個疊在前一個上面
     const n = panels.size - 1, off = (n % 8) * 28;
     panel.style.left = Math.max(10, Math.min(innerWidth - w - 10, innerWidth / 2 - w / 2 + off)) + 'px';
@@ -283,6 +308,12 @@ export function openFxPanel(owner, fxId) {
     panel._eq = ed;
     panel._params = d.params; panel._on = d.on;
   }
+  if (T.custom === 'mbcomp') {
+    const ed = mbcompEditor(owner, d, live => { store.dirty = true; if (live) store.emit('fx-live', {}); else store.changed('fx'); });
+    panel.querySelector('.fx-custom').appendChild(ed);
+    panel._eq = ed;
+    panel._params = d.params; panel._on = d.on;
+  }
   for (const [k, def] of Object.entries(T.params)) {
     if (T.custom) break;   // EQ、人聲修音用自己的編輯器
     const row = document.createElement('label');
@@ -319,79 +350,12 @@ export function openFxPanel(owner, fxId) {
     inp.addEventListener('dblclick', () => { store.checkpoint(); d.params[k] = def.def; inp.value = def.toggle ? def.def : Math.round(toPos(def.def) * 1000); show(); store.changed('fx'); });
     box.appendChild(row);
   }
-  const cv = panel.querySelector('.fx-viz');
-  if (d.type === 'comp' || d.type === 'deess') drawLoop(cv, owner, d, panel);
-  else cv.style.display = 'none';
-}
-
-// 壓縮器／去齒音：左邊轉移曲線（輸入 → 輸出），右邊增益衰減的歷史波形
-function drawLoop(cv, owner, d, panel) {
-  const dpr = devicePixelRatio || 1;
-  const W = cv.clientWidth || 400, H = 110;
-  cv.style.height = H + 'px';
-  cv.width = W * dpr; cv.height = H * dpr;
-  const g = cv.getContext('2d'); g.setTransform(dpr, 0, 0, dpr, 0, 0);
-  const hist = new Float32Array(Math.max(60, Math.floor(W - 130)));
-  let hi = 0, grHold = 0;
-  const frame = () => {
-    if (!panel.isConnected) return;
-    const bg = g.createLinearGradient(0, 0, 0, H); bg.addColorStop(0, cssVar('--cv-bg-a')); bg.addColorStop(1, cssVar('--cv-bg-b'));
-    g.fillStyle = bg; g.fillRect(0, 0, W, H);
-    const inst = engine.ctx && engine.fxInstance(owner, d.id);
-    const P = d.params;
-    const gr = inst?.reduction ? -inst.reduction() : 0;
-    grHold = Math.max(gr, grHold * 0.88);
-    hist[hi = (hi + 1) % hist.length] = gr;
-    // 轉移曲線（只對壓縮器）
-    const S = H - 16, X0 = 10, Y0 = 8;
-    g.strokeStyle = ink(.08); g.strokeRect(X0 + .5, Y0 + .5, S, S);
-    g.beginPath(); g.moveTo(X0, Y0 + S); g.lineTo(X0 + S, Y0); g.strokeStyle = ink(.08); g.stroke();
-    if (d.type === 'comp') {
-      g.beginPath();
-      for (let i = 0; i <= S; i++) {
-        const inDb = -60 + i / S * 60;
-        const k = P.knee / 2;
-        let outDb = inDb;
-        if (inDb > P.threshold + k) outDb = P.threshold + (inDb - P.threshold) / P.ratio;
-        else if (inDb > P.threshold - k && k > 0) { const x = inDb - P.threshold + k; outDb = inDb + (1 / P.ratio - 1) * x * x / (4 * k); }
-        outDb += P.makeup;
-        const y = Y0 + S - (outDb + 60) / 60 * S;
-        i ? g.lineTo(X0 + i, Math.max(Y0, y)) : g.moveTo(X0, y);
-      }
-      const cg = g.createLinearGradient(X0, 0, X0 + S, 0); cg.addColorStop(0, '#35c9a5'); cg.addColorStop(1, '#f5b83d');
-      g.strokeStyle = cg; g.lineWidth = 2; g.stroke(); g.lineWidth = 1;
-      const tx = X0 + (P.threshold + 60) / 60 * S;
-      g.setLineDash([3, 3]); g.strokeStyle = 'rgba(245,184,61,.5)'; g.beginPath(); g.moveTo(tx, Y0); g.lineTo(tx, Y0 + S); g.stroke(); g.setLineDash([]);
-    } else {
-      // 去齒音：左邊畫偵測頻段的位置（對數頻率軸 1k–16k）
-      g.fillStyle = cssVar('--cv-tx2'); g.font = '10px sans-serif'; g.fillText('偵測頻段', X0 + 6, Y0 + 14);
-      const fx2 = f => X0 + Math.log(f / 1000) / Math.log(16) * S;
-      const lo = P.freq / Math.pow(2, P.range / 2), hi2 = P.freq * Math.pow(2, P.range / 2);
-      const bandG = g.createLinearGradient(fx2(lo), 0, fx2(hi2), 0); bandG.addColorStop(0, 'rgba(245,184,61,0)'); bandG.addColorStop(0.5, 'rgba(245,184,61,.55)'); bandG.addColorStop(1, 'rgba(245,184,61,0)');
-      g.fillStyle = bandG; g.fillRect(fx2(lo), Y0 + 20, fx2(hi2) - fx2(lo), S - 34);
-      g.fillStyle = cssVar('--gold-tx'); g.font = '11px ui-monospace'; g.fillText(`${(P.freq / 1000).toFixed(1)}k`, Math.max(X0 + 2, fx2(P.freq) - 12), Y0 + S - 4);
-      g.fillStyle = ink(.3); g.font = '9px ui-monospace';
-      for (const [f, l] of [[2000, '2k'], [4000, '4k'], [8000, '8k']]) g.fillText(l, fx2(f) - 6, Y0 + S - 16);
-    }
-    // 衰減量歷史（紅色由上往下）
-    const hx = X0 + S + 16, hw = W - hx - 10;
-    g.fillStyle = ink(.03); g.fillRect(hx, Y0, hw, S);
-    const grad = g.createLinearGradient(0, Y0, 0, Y0 + S); grad.addColorStop(0, 'rgba(255,107,107,.85)'); grad.addColorStop(1, 'rgba(255,107,107,.2)');
-    g.fillStyle = grad;
-    const n = hist.length;
-    for (let i = 0; i < n; i++) {
-      const v = hist[(hi + 1 + i) % n];
-      if (v <= 0.05) continue;
-      const x = hx + i / n * hw;
-      g.fillRect(x, Y0, Math.max(1, hw / n), Math.min(S, v / 18 * S));
-    }
-    for (const db of [3, 6, 12]) { const y = Y0 + db / 18 * S; g.strokeStyle = ink(.06); g.beginPath(); g.moveTo(hx, y); g.lineTo(hx + hw, y); g.stroke(); g.fillStyle = ink(.3); g.font = '9px ui-monospace'; g.fillText(`-${db}`, hx + hw - 18, y - 2); }
-    g.fillStyle = cssVar('--cv-tx'); g.font = '13px ui-monospace, Consolas';
-    g.fillText(grHold < 0.05 ? '0.0 dB' : `−${grHold.toFixed(1)} dB`, hx + 6, Y0 + 16);
-    if (!engine.playing) { g.fillStyle = cssVar('--cv-tx2'); g.font = '10px sans-serif'; g.fillText('播放時顯示即時衰減量', hx + 6, Y0 + S - 6); }
-    panel._raf = requestAnimationFrame(frame);
-  };
-  frame();
+  // 圖表：EQ／修音／和聲／殘響／寬度有自己的編輯器，其餘都在這裡加一張參數驅動的視覺圖
+  if (!T.custom) {
+    const vis = fxVisual(owner, d, d.type);
+    panel.querySelector('.fx-custom').appendChild(vis);
+    panel._eq = vis; panel._params = d.params; panel._on = d.on;
+  }
 }
 
 // ---------------- Send 旋鈕（檢閱器）----------------

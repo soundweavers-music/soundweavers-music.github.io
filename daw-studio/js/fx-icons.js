@@ -51,6 +51,46 @@ const PATHS = {
   gate: `<path d="M3 12.4V6.6M5.4 12.4V5.4M12.6 12.4V6.8M14.2 12.4V8.6"/>
          <path d="M7.8 12.4v-1.4M10.2 12.4v-.9" stroke-opacity=".35"/>
          <path d="M1.6 9.6h12.8" stroke-dasharray="1.5 1.6" stroke-opacity=".8"/>`,
+  // 限制器：波形撞到天花板就被削平
+  limiter: `<path d="M1.6 8.4c1-2.6 2-2.6 3 0s2 .6 2.4-1.6c.3-2 1.4-2.4 2.3.2.7 1.9 1.6 2 2.5.4.5-.9 1-.9 2.6-.9"/>
+            <path d="M1.6 3.2h12.8" stroke-dasharray="1.6 1.6" stroke-opacity=".85"/>
+            <path d="M2.4 13.4h11.2" stroke-opacity=".3"/>`,
+  // 瞬態：一根尖刺，右邊帶尾巴
+  transient: `<path d="M2.4 12.6V5.2M4.8 12.6V3.2M7.2 12.6V6.4M9.6 12.6V9.2M12 12.6V10.4"/>
+              <path d="M1.4 4.6l1-1.4 1 1.4M1.4 8.6l1-1.4 1 1.4" stroke-opacity=".55"/>`,
+  // 鑲邊：梳狀的尖峰
+  flanger: `<path d="M1.8 12.4V7.4M3.9 12.4V4.4M6 12.4V7.4M8.1 12.4V4.4M10.2 12.4V7.4M12.3 12.4V4.4"/>
+            <path d="M1.8 13.2h12.4" stroke-opacity=".3"/>`,
+  // 相位：幾個凹洞
+  phaser: `<path d="M1.6 6.2c1.4 0 1.8 5.2 3.2 5.2S6.6 6.2 8 6.2s1.6 5.2 3 5.2 1.8-5.2 2.4-5.2"/>
+           <path d="M1.6 3.4h12.8" stroke-dasharray="1.4 1.6" stroke-opacity=".4"/>`,
+  // 顫音：音量上下起伏
+  tremolo: `<path d="M1.6 5.4c1.6 0 1.6 6 3.2 6s1.6-6 3.2-6 1.6 6 3.2 6 1.4-2.4 2.2-2.4"/>
+           <path d="M1.6 13.4h12.8" stroke-opacity=".28"/>`,
+  // 自動濾波：濾波曲線被推來推去
+  autofilter: `<path d="M1.8 5.2h4.4c1.4 0 1.8 8 3.4 8h4.4" stroke-opacity=".9"/>
+               <path d="M1.8 9.2h6.2c1 0 1.4 4.2 2.4 4.2h4" stroke-opacity=".4"/>
+               <path d="M12.6 2.2v3.4M11.4 3.6l1.2-1.4 1.2 1.4" stroke-opacity=".8"/>`,
+  // 位元破壞：階梯
+  bitcrush: `<path d="M1.8 11.6h2V9h2V6.4h2V3.8h2v2.6h2v2.6h2"/>
+            <path d="M1.8 13.4h12.8" stroke-opacity=".28"/>`,
+  // 環形調變：兩條波相乘
+  ringmod: `<path d="M1.8 8c1-3 1.9-3 2.8 0s1.9 3 2.8 0 1.9-3 2.8 0 1.9 3 2.8 0"/>
+            <path d="M1.8 8c1 3 1.9 3 2.8 0s1.9-3 2.8 0 1.9 3 2.8 0 1.9-3 2.8 0" stroke-opacity=".45"/>`,
+  // 激勵器：高頻多出亮亮的泛音
+  exciter: `<path d="M1.8 11.4c1.4-1.4 2.4-1.4 3.4 0s2.2 1.4 3.2 0 2-1.4 3 0"/>
+           <path d="M10.8 8.4V4M12.4 8.4V2.6M14 8.4V5.2" stroke-opacity=".85"/>`,
+  // 立體聲延遲：左右錯開的回音
+  stereodelay: `<path d="M2.4 4.2v4M5 4.2v2.6M7.6 4.2v1.4"/>
+              <path d="M8.4 11.8v-4M11 11.8v-2.6M13.6 11.8V10" stroke-opacity=".75"/>
+              <path d="M1.6 8h12.8" stroke-opacity=".22"/>`,
+  // 工具：推桿與箭頭
+  utility: `<path d="M3.4 12.6V3.4M8 12.6V3.4M12.6 12.6V3.4"/>
+           <path d="M1.8 9h3.2M6.4 6h3.2M11 10.6h3.2" stroke-opacity=".9"/>`,
+  // 多頻段壓縮：三條頻段各自的衰減量（長度不同）
+  mbcomp: `<path d="M1.6 4h12.8M1.6 8h12.8M1.6 12h12.8" stroke-opacity=".28"/>
+           <path d="M1.6 4h4.4M1.6 8h9.2M1.6 12h6.6"/>
+           <path d="M11.4 2.6v2.8M13 2.6v2.8" stroke-opacity=".7"/>`,
 };
 
 export function fxIcon(type) {

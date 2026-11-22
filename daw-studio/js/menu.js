@@ -7,10 +7,18 @@ export function closeMenu() { if (current) { current.remove(); current = null; }
 function renderItems(box, items) {
   for (const it of items) {
     if (it === '-') { box.appendChild(document.createElement('hr')); continue; }
+    if (it.header) {                       // 分類標題（例如效果器選單的「動態」「調變」）
+      const h = document.createElement('div');
+      h.className = 'ctx-head';
+      h.textContent = it.header;
+      box.appendChild(h);
+      continue;
+    }
     const b = document.createElement('button');
     b.type = 'button';
     b.disabled = !!it.disabled;
     b.textContent = it.label;
+    if (it.indent) b.classList.add('indent');
     if (it.icon) { b.classList.add('has-icon'); b.insertAdjacentHTML('afterbegin', it.icon); }
     // 配色選單的色票：三個小方塊（背景、主色、文字）
     if (it.swatch) {

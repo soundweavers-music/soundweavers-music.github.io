@@ -47,7 +47,8 @@ export function sustainedEnd(clip, notes, spans) {
 // 把 MIDI 片段攤平成「專案秒數」的音符：{ s, e, p, v }，已裁掉片段結尾之後的部分；踏板延音已套用
 export function midiEvents(clip, transpose = 0) {
   const b = spb(), c0 = clip.startBeat, len = clip.lengthBeats;
-  const notes = clip.notes.filter(n => n.t < len && n.t >= 0);
+  // 靜音的音符（note.m）不發聲，但留在專案裡
+  const notes = clip.notes.filter(n => n.t < len && n.t >= 0 && !n.m);
   const ends = sustainedEnd(clip, notes, pedalSpans(clip));
   const out = [];
   notes.forEach((n, i) => {
@@ -657,8 +658,13 @@ class Engine {
     }
     const len0 = Math.ceil((end - start + tail) * sr);
     const M0 = opts.mastering ?? p.mastering;
-    // limiter 有 5ms look-ahead：多算這段，最後從開頭裁掉，總長度不變
-    const latComp = opts.masterFx !== false && M0 && M0.on && M0.limiter?.on ? Math.max(1, Math.round(sr * 0.005)) : 0;
+    // 母帶 limiter 有 5 ms look-ahead；母帶插入槽上的 Limiter 也一樣。
+    // 兩者都會讓整個混音晚一點出來，多算這段、最後從開頭裁掉，輸出的時間軸才會對齊。
+    const mstInsertLat = useMasterFx
+      ? (p.masterInserts || []).reduce((a, d) => a + fxLatency(d), 0)
+      : 0;
+    const mLimLat = opts.masterFx !== false && M0 && M0.on && M0.limiter?.on ? 0.005 : 0;
+    const latComp = Math.max(0, Math.round(sr * (mstInsertLat + mLimLat)));
     const oc = new OfflineAudioContext(2, len0 + latComp, sr);
     oc._zyTransport = [{ c: 0, p: start }];   // 離線：ctx 0 秒（輸出端）= 專案 start 秒
     await ensureFxWorklets(oc);

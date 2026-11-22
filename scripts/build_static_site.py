@@ -623,7 +623,7 @@ def site_header(page_path):
       <div class="nav-dropdown">
         <a href="{resolve_url(page_path, '/tools/')}" class="dropdown-trigger">工具</a>
         <div class="dropdown-menu">
-          <a href="{resolve_url(page_path, '/tools/daw/')}">🎚️ 織音線上編曲製作</a>
+          <a href="{resolve_url(page_path, '/tools/daw/')}">🎚️ 織音AI線上編曲製作</a>
           <a href="{resolve_url(page_path, '/tools/fretboard/')}">🎸 世界樂器指版和弦圖</a>
           <a href="{resolve_url(page_path, '/tools/tuner/')}">🎯 線上調音器與節拍器</a>
           <a href="{resolve_url(page_path, '/chord-detection/')}">🎼 織音AI自動轉譜</a>
@@ -1089,7 +1089,7 @@ def build_index(instruments):
             <span>邊聽邊打時間碼，自動偵測句與句的停頓先排好初稿，輸出 .lrc 或 .srt</span>
           </a>
           <a class="featured-card" href="{resolve_url(index_path, '/tools/daw/')}" style="background:linear-gradient(135deg,#1f2937,#111827);border:1px solid #374151;color:#e5e7eb;">
-            <strong>🎚️ 織音線上編曲製作</strong>
+            <strong>🎚️ 織音AI線上編曲製作</strong>
             <span>瀏覽器裡的多軌錄音與混音，16 軌起跳、可存專案與輸出 WAV；音檔不會上傳雲端</span>
           </a>
           <a class="featured-card" href="{resolve_url(index_path, '/experience/')}" style="background:linear-gradient(135deg,#f5f0ff,#ebe0ff);border:1px solid #d5c5fd;">
@@ -2926,13 +2926,13 @@ def build_about_page():
           <li><strong>{link('/experience/', '世界樂器體驗')}</strong>　用虛擬鍵盤試聽各種樂器的音色與音域。</li>
           <li><strong>{link('/tools/tuner/', '線上調音器與節拍器')}</strong>　用麥克風測音高與音分偏差，內建 15 種樂器調弦與節拍器。</li>
           <li><strong>{link('/tools/lrc/', '織音AI歌詞自動辨識')}</strong>　沒有歌詞也能用：AI 直接聽出歌詞與時間，再邊聽邊微調，輸出 .lrc 或 .srt。</li>
-          <li><strong>{link('/tools/daw/', '織音線上編曲製作')}</strong>　免安裝的瀏覽器編曲軟體：多軌錄音、MIDI 編曲、效果器、混音、母帶與輸出。（{link('/tools/daw/guide/', '使用說明')}）</li>
+          <li><strong>{link('/tools/daw/', '織音AI線上編曲製作')}</strong>　免安裝的瀏覽器編曲軟體：多軌錄音、MIDI 編曲、效果器、混音、母帶與輸出。（{link('/tools/daw/guide/', '使用說明')}）</li>
         </ul>
       </div>
     </section>
 
     <section class="about-section">
-      <h2>織音線上編曲製作</h2>
+      <h2>織音AI線上編曲製作</h2>
       <div class="about-text">
         <p>這是一套直接在瀏覽器裡執行的數位音訊工作站（DAW），介面參考專業編曲軟體的工作流程：上方是播放控制與小節時間顯示，中間是多軌時間軸，下方可以切換混音台、鋼琴捲簾與母帶面板。不需要安裝、不需要註冊。</p>
         <p><strong>檔案不會上傳。</strong>這個頁面的安全政策禁止連到其他任何伺服器（Content-Security-Policy 的 <code>connect-src 'self'</code>，只能讀取本站自己的程式檔），而本站是沒有後端的靜態網站，所以你的錄音、匯入的音檔與專案，在技術上就不可能離開你的電腦。專案存成 <code>.zyproj</code> 檔放在你自己的硬碟，瀏覽器另外會自動暫存一份，避免關掉分頁時遺失。</p>
@@ -3517,7 +3517,7 @@ def build_tuner_tool():
 
 
 def build_daw_tool():
-    """Build 織音線上編曲製作 (browser DAW) at /tools/daw/.
+    """Build 織音AI線上編曲製作 (browser DAW) at /tools/daw/.
 
     Unlike the other tools this page is NOT wrapped with ``page()``: a DAW
     needs the whole viewport, so it ships as a full-screen app with its own
@@ -3564,9 +3564,9 @@ def build_daw_tool():
         body = f"""<main class="page daw-guide">
   <section class="hero" style="padding-bottom:12px">
     <p class="eyebrow">Tools · Browser DAW</p>
-    <h1>織音線上編曲製作　使用說明</h1>
+    <h1>織音AI線上編曲製作　使用說明</h1>
     <p class="lead">免安裝的瀏覽器編曲軟體：多軌錄音、MIDI 編曲、效果器、混音、母帶與輸出。所有音訊只在你的電腦上處理。</p>
-    <p><a class="btn btn-primary" href="{resolve_url(gout, '/tools/daw/')}">開啟織音線上編曲製作 →</a>
+    <p><a class="btn btn-primary" href="{resolve_url(gout, '/tools/daw/')}">開啟織音AI線上編曲製作 →</a>
        <a class="btn" href="{resolve_url(gout, '/tools/')}">全部工具</a></p>
   </section>
   <div class="daw-guide-wrap">
@@ -3591,15 +3591,15 @@ def build_daw_tool():
 </style>"""
         build_daw_course(page_dir)
         write(gout, page(
-            "織音線上編曲製作　使用說明", body, gout, extra_head=css,
-            meta_description="織音線上編曲製作的完整使用說明：錄音、MIDI 編曲、SoundFont 音色庫、效果器（EQ、壓縮、去齒音、飽和度）、混音、自動化、人聲伴奏分離、母帶與輸出。",
+            "織音AI線上編曲製作　使用說明", body, gout, extra_head=css,
+            meta_description="織音AI線上編曲製作的完整使用說明：錄音、MIDI 編曲、SoundFont 音色庫、效果器（EQ、壓縮、去齒音、飽和度）、混音、自動化、人聲伴奏分離、母帶與輸出。",
             meta_keywords="DAW,線上編曲,瀏覽器編曲,錄音軟體,混音,母帶,LUFS,MIDI,SoundFont,人聲分離",
         ))
 
 
 # 全站工具清單：/tools/ 總覽頁與各工具頁的「相關工具」都用這一份，新增工具只要改這裡
 TOOLS = [
-    ("/tools/daw/", "🎚️", "織音線上編曲製作", "", "免安裝的瀏覽器編曲軟體：16 軌起跳的多軌錄音、MIDI 編曲與音色庫、效果器、混音、母帶與輸出 WAV／FLAC／MP3。檔案不會上傳。", "/tools/daw/guide/"),
+    ("/tools/daw/", "🎚️", "織音AI線上編曲製作", "", "免安裝的瀏覽器編曲軟體：16 軌起跳的多軌錄音、MIDI 編曲與音色庫、效果器、混音、母帶與輸出 WAV／FLAC／MP3。檔案不會上傳。", "/tools/daw/guide/"),
     ("/chord-detection/", "🎼", "織音AI自動轉譜", "", "上傳歌曲，AI 自動轉成簡譜：旋律、和弦、歌詞一次排好，可即時編輯、播放、移調、列印成出版譜。", "/chord-detection/guide/"),
     ("/tools/tuner/", "🎯", "線上調音器與節拍器", "", "麥克風即時測音高與音分偏差，內建 15 種樂器調弦與參考音，右欄還有節拍器。", "/tools/tuner/guide/"),
     ("/tools/lrc/", "📝", "織音AI歌詞自動辨識", "", "沒有歌詞也能用：AI 直接聽出歌詞與每句的時間，再邊聽邊微調，輸出 .lrc 或 .srt。", "/tools/lrc/guide/"),
@@ -3751,7 +3751,7 @@ def build_daw_course(daw_dir: Path) -> None:
         '<main class="page"><div class="dawc-wrap">'
         '<section class="dawc-hero">'
         '<p class="eyebrow">Tools · Browser DAW</p>'
-        '<h1>織音線上編曲製作　' + str(len(lessons)) + ' 堂課</h1>'
+        '<h1>織音AI線上編曲製作　' + str(len(lessons)) + ' 堂課</h1>'
         '<p class="lead">從看懂畫面到母帶輸出，一堂一個主題，配實際操作截圖與「為什麼」的原理說明。邊看邊開軟體跟著做最快。</p>'
         '<p class="hero-stats" style="text-align:left;margin-top:16px">'
         f'<span><strong>{len(lessons)}</strong> 堂</span>'
@@ -3762,9 +3762,9 @@ def build_daw_course(daw_dir: Path) -> None:
         '</section>'
         f'<div class="dawc-grid">{cards}</div>'
         '</div></main>')
-    write(out_dir / "index.html", page(f"織音線上編曲製作　{len(lessons)} 堂課",
+    write(out_dir / "index.html", page(f"織音AI線上編曲製作　{len(lessons)} 堂課",
         index_body, out_dir / "index.html", extra_head=css,
-        meta_description=f"織音線上編曲製作的 {len(lessons)} 堂課程：畫面總覽、專案與存檔、錄音、MIDI、和弦軌、自動伴奏、EQ、壓縮、人聲修音、和聲、空間效果、混音、自動化、母帶與輸出。",
+        meta_description=f"織音AI線上編曲製作的 {len(lessons)} 堂課程：畫面總覽、專案與存檔、錄音、MIDI、和弦軌、自動伴奏、EQ、壓縮、人聲修音、和聲、空間效果、混音、自動化、母帶與輸出。",
         meta_keywords="DAW,編曲教學,錄音教學,混音教學,母帶,MIDI,人聲修音"))
 
     # 各堂
@@ -3803,7 +3803,7 @@ def build_daw_course(daw_dir: Path) -> None:
             f'<article class="dawc-body">{html_md}</article>'
             + nav +
             '</div></main>')
-        write(d / "index.html", page(f'{l["title"]}｜織音線上編曲製作', body, d / "index.html",
+        write(d / "index.html", page(f'{l["title"]}｜織音AI線上編曲製作', body, d / "index.html",
             extra_head=css, meta_description=l["summary"],
             meta_keywords="DAW,編曲,錄音,混音,MIDI,教學"))
 

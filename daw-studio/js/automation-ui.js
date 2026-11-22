@@ -23,6 +23,11 @@ export function initAutomationUi() {
   store.on('select', later);
 }
 
+// 給其他功能用（例如「去除呼吸聲」寫完自動化後直接把檢視打開）
+export function setAutoView(v) {
+  if (!!v !== on) toggle();
+}
+
 function toggle() {
   on = !on;
   $('btnAuto')?.classList.toggle('on', on);

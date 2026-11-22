@@ -4,6 +4,7 @@ import { PRESETS } from './synth.js';
 import { sfLabel } from './soundbank.js';
 import { separateClip } from './separate.js';
 import { openAiSeparate } from './demucs-ui.js';
+import { openBreathPanel } from './breath-ui.js';
 import { engine } from './engine.js';
 import { recorder } from './recorder.js';
 import { importAudioFiles } from './project-io.js';
@@ -395,6 +396,9 @@ function onHeaderContext(e) {
     { label: '新增音訊軌', action: () => store.addTrack('audio') || toast('最多 32 軌', 'warn') },
     { label: '新增 MIDI 軌', action: () => store.addTrack('midi') || toast('最多 32 軌', 'warn') },
     ...(t.kind === 'midi' ? [{ label: '在播放頭新增 4 小節 MIDI 片段', action: () => addMidiClipAt(t, engine.currentTime()) }] : []),
+    ...(t.clips && t.clips.some(c => c.bufferId)
+      ? [{ label: '去除呼吸聲（整軌）…', action: () => openBreathPanel(t.id) }]
+      : []),
     { label: '換一個顏色', action: () => {
       store.checkpoint();
       const i = TRACK_COLORS.indexOf(t.color);
@@ -963,6 +967,7 @@ function onLanesContext(e) {
       ...(midi ? [] : [
         { label: n > 1 ? `升降音（${n} 個片段）…` : '升降音…', action: () => store.emit('open-pitch', { clipIds: [...store.selection.clipIds] }) },
         { label: '分離人聲／伴奏（簡易版）', disabled: n > 1, action: () => separateClip(id) },
+        { label: '去除呼吸聲…', disabled: n > 1 || !found.bufferId, action: () => openBreathPanel(store.findClip(id).track.id, id) },
         { label: 'AI 分離人聲／伴奏（Demucs）…', disabled: n > 1, action: () => openAiSeparate(id) },
         '-',
         { label: '片段音量 +1 dB', action: () => nudgeGain(1) },

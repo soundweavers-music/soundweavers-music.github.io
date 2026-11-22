@@ -182,7 +182,7 @@ EN_TOOLS = [
     ("/en/experience/", "🎹 World instrument experience"),
     ("/en/tools/tuner/", "🎯 Tuner and metronome"),
     ("/en/tools/lrc/", "📝 AI lyric recognition"),
-    ("/en/tools/daw/", "🎛 Zhiyin online DAW"),
+    ("/en/tools/daw/", "🎛 Zhiyin AI online DAW"),
 ]
 
 
@@ -531,7 +531,7 @@ def build_portal_homepage(instruments):
     </a>
     <a class="portal-card card-tools" href="{resolve_url(index_path, '/tools/daw/')}" style="border-color:var(--accent);">
       <div class="card-icon">🎚️</div>
-      <div class="card-label">織音線上編曲製作</div>
+      <div class="card-label">織音AI線上編曲製作</div>
       <div class="card-desc">免安裝的瀏覽器編曲軟體：16 軌多軌錄音、讀取本機音檔、混音台、存專案、輸出 WAV／分軌。所有音訊只在你的電腦上處理，不會上傳雲端。</div>
       <span class="card-badge badge-new">新工具 beta</span>
     </a>

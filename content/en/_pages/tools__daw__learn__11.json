@@ -27,7 +27,7 @@
  "的軌（鋼琴、吉他或貝斯的 MIDI 軌最準；音訊軌也可以，但會比較糊）。": " (a MIDI track of piano, guitar or bass is the most accurate; an audio track works too but comes out blurrier).",
  "程式會分析每個時間格的音高分布，推測調性，再用「換和弦要付代價」的平滑方式把零碎判斷接成一段一段。": "The program analyses the spread of pitches in each time slot, infers the key, then joins the scattered guesses into stretches by smoothing on the principle that “changing chord costs something”.",
  "第 11 堂：和弦軌——讓整首歌的和聲一眼看懂": "Lesson 11: The chord track — the harmony of a whole song at a glance",
- "第 11 堂：和弦軌——讓整首歌的和聲一眼看懂｜織音線上編曲製作": "Lesson 11: The chord track — the harmony of a whole song at a glance | Zhiyin Online Arrangement",
+ "第 11 堂：和弦軌——讓整首歌的和聲一眼看懂｜織音AI線上編曲製作": "Lesson 11: The chord track — the harmony of a whole song at a glance | Zhiyin AI Online Arrangement",
  "第 12 堂 →": "Lesson 12 →",
  "級數": "Degrees",
  "級數都是": "the degrees are all",

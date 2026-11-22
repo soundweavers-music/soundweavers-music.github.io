@@ -2,6 +2,8 @@
 // 每個效果器實例：{ input, output, set(params), dispose(), meter? }
 // 專案裡存的是 { id, type, on, params }，engine 依這份描述建節點。
 import { uid } from './util.js';
+// 母帶的 limiter 模組（zy-limiter）同時給插入用的 Limiter 效果器使用
+import { ensureWorklet as ensureLimiterWorklet } from './mastering.js';
 
 // 參數描述：給檢閱器自動產生旋鈕/滑桿
 // ---------- 8 段參數 EQ ----------
@@ -170,14 +172,158 @@ export const FX_TYPES = {
     },
   },
   gate: {
-    name: 'Noise Gate 噪音閘', short: 'Gate',
+    name: 'Noise Gate / Expander 噪音閘', short: 'Gate',
     params: {
       threshold: { label: '門檻', min: -80, max: -10, step: 0.5, def: -50, unit: 'dB' },
-      release: { label: '釋放', min: 10, max: 500, step: 1, def: 80, unit: 'ms' },
+      ratio: { label: '擴展比', min: 1, max: 20, step: 0.5, def: 20, unit: ':1' },
+      attack: { label: '起音', min: 0.1, max: 50, step: 0.1, def: 1, unit: 'ms', log: true },
+      hold: { label: '保持', min: 0, max: 300, step: 1, def: 40, unit: 'ms' },
+      release: { label: '釋放', min: 10, max: 2000, step: 1, def: 120, unit: 'ms', log: true },
+      range: { label: '最大衰減', min: 0, max: 80, step: 1, def: 60, unit: 'dB' },
+    },
+  },
+  limiter: {
+    name: 'Limiter 限制器', short: 'Limit',
+    params: {
+      gain: { label: '推入', min: 0, max: 24, step: 0.5, def: 0, unit: 'dB' },
+      ceiling: { label: '上限', min: -12, max: 0, step: 0.1, def: -0.3, unit: 'dBTP' },
+      release: { label: '釋放', min: 5, max: 500, step: 1, def: 120, unit: 'ms', log: true },
+    },
+  },
+  transient: {
+    name: 'Transient 瞬態塑形', short: 'Trans',
+    params: {
+      attack: { label: '起音', min: -12, max: 12, step: 0.5, def: 4, unit: 'dB' },
+      sustain: { label: '延音', min: -12, max: 12, step: 0.5, def: 0, unit: 'dB' },
+      output: { label: '輸出', min: -12, max: 12, step: 0.5, def: 0, unit: 'dB' },
+    },
+  },
+  flanger: {
+    name: 'Flanger 鑲邊', short: 'Flanger',
+    params: {
+      rate: { label: '速度', min: 0.05, max: 8, step: 0.01, def: 0.3, unit: 'Hz', log: true },
+      depth: { label: '深度', min: 0, max: 100, step: 1, def: 60, unit: '%' },
+      delay: { label: '中心延遲', min: 0.5, max: 10, step: 0.1, def: 2.5, unit: 'ms' },
+      feedback: { label: '回授', min: -95, max: 95, step: 1, def: 35, unit: '%' },
+      stereo: { label: '左右相位差', min: 0, max: 180, step: 5, def: 90, unit: '°' },
+      mix: { label: '濕度', min: 0, max: 100, step: 1, def: 50, unit: '%' },
+    },
+  },
+  phaser: {
+    name: 'Phaser 相位器', short: 'Phaser',
+    params: {
+      rate: { label: '速度', min: 0.05, max: 5, step: 0.01, def: 0.4, unit: 'Hz', log: true },
+      freq: { label: '中心頻率', min: 200, max: 2000, step: 10, def: 600, unit: 'Hz', log: true },
+      depth: { label: '掃描深度', min: 0, max: 100, step: 1, def: 70, unit: '%' },
+      feedback: { label: '回授', min: 0, max: 90, step: 1, def: 25, unit: '%' },
+      stages: { label: '階數', min: 0, max: 2, step: 1, def: 1, choices: ['4 階', '6 階', '8 階'] },
+      stereo: { label: '左右相位差', min: 0, max: 180, step: 5, def: 90, unit: '°' },
+      mix: { label: '濕度', min: 0, max: 100, step: 1, def: 50, unit: '%' },
+    },
+  },
+  tremolo: {
+    name: 'Tremolo / Auto-Pan 顫音', short: 'Trem',
+    params: {
+      rate: { label: '速度', min: 0.1, max: 12, step: 0.01, def: 4.5, unit: 'Hz', log: true },
+      depth: { label: '深度', min: 0, max: 100, step: 1, def: 50, unit: '%' },
+      shape: { label: '波形', min: 0, max: 2, step: 1, def: 0, choices: ['正弦', '三角', '方波'] },
+      stereo: { label: '立體模式', min: 0, max: 2, step: 1, def: 0, choices: ['單聲道', '左右反相（Auto-Pan）', '左右差 90°'] },
+      mix: { label: '濕度', min: 0, max: 100, step: 1, def: 100, unit: '%' },
+    },
+  },
+  autofilter: {
+    name: 'Auto Filter 自動濾波', short: 'AutoFlt',
+    params: {
+      type: { label: '類型', min: 0, max: 2, step: 1, def: 0, choices: ['低通', '高通', '帶通'] },
+      freq: { label: '中心頻率', min: 80, max: 12000, step: 1, def: 800, unit: 'Hz', log: true },
+      q: { label: '共振', min: 0.5, max: 20, step: 0.1, def: 6 },
+      rate: { label: '速度', min: 0.05, max: 8, step: 0.01, def: 1.5, unit: 'Hz', log: true },
+      depth: { label: '掃描深度', min: 0, max: 100, step: 1, def: 60, unit: '%' },
+      stereo: { label: '左右相位差', min: 0, max: 180, step: 5, def: 0, unit: '°' },
+      mix: { label: '濕度', min: 0, max: 100, step: 1, def: 100, unit: '%' },
+    },
+  },
+  bitcrush: {
+    name: 'Bitcrusher 位元破壞', short: 'Bit',
+    params: {
+      bits: { label: '位元深度', min: 2, max: 16, step: 1, def: 8, unit: 'bit' },
+      rate: { label: '取樣率', min: 1000, max: 48000, step: 100, def: 12000, unit: 'Hz', log: true },
+      mix: { label: '濕度', min: 0, max: 100, step: 1, def: 100, unit: '%' },
+      output: { label: '輸出', min: -24, max: 6, step: 0.5, def: 0, unit: 'dB' },
+    },
+  },
+  ringmod: {
+    name: 'Ring Mod 環形調變', short: 'Ring',
+    params: {
+      freq: { label: '頻率', min: 20, max: 5000, step: 1, def: 220, unit: 'Hz', log: true },
+      depth: { label: '深度', min: 0, max: 100, step: 1, def: 100, unit: '%' },
+      mix: { label: '濕度', min: 0, max: 100, step: 1, def: 100, unit: '%' },
+    },
+  },
+  exciter: {
+    name: 'Exciter 激勵器', short: 'Exciter',
+    params: {
+      freq: { label: '分頻點', min: 1000, max: 8000, step: 10, def: 3000, unit: 'Hz', log: true },
+      drive: { label: '驅動', min: 0, max: 24, step: 0.5, def: 9, unit: 'dB' },
+      tone: { label: '亮度', min: -12, max: 12, step: 0.5, def: 0, unit: 'dB' },
+      mix: { label: '濕度', min: 0, max: 100, step: 1, def: 40, unit: '%' },
+    },
+  },
+  stereodelay: {
+    name: 'Stereo Delay 立體聲延遲', short: 'StDelay',
+    params: {
+      timeL: { label: '左延遲', min: 0.03125, max: 2, step: 0.03125, def: 0.5, unit: '拍', sync: true },
+      timeR: { label: '右延遲', min: 0.03125, max: 2, step: 0.03125, def: 0.75, unit: '拍', sync: true },
+      feedback: { label: '回授', min: 0, max: 90, step: 1, def: 30, unit: '%' },
+      cross: { label: '交叉回授', min: 0, max: 100, step: 1, def: 0, unit: '%' },
+      tone: { label: '音色', min: 800, max: 16000, step: 100, def: 5000, unit: 'Hz', log: true },
+      mix: { label: '濕度', min: 0, max: 100, step: 1, def: 25, unit: '%' },
+    },
+  },
+  utility: {
+    name: 'Utility 工具（增益／相位）', short: 'Util',
+    params: {
+      gain: { label: '增益', min: -24, max: 24, step: 0.5, def: 0, unit: 'dB' },
+      pan: { label: '聲像', min: -100, max: 100, step: 1, def: 0 },
+      phase: { label: '相位', min: 0, max: 3, step: 1, def: 0, choices: ['正常', '左反相', '右反相', '左右都反相'] },
+      mono: { label: '單聲道化', min: 0, max: 1, step: 1, def: 0, toggle: true },
+    },
+  },
+  mbcomp: {
+    name: 'Multiband Compressor 多頻段壓縮', short: 'MB Comp', custom: 'mbcomp',
+    params: {
+      x1: { label: '低／中分頻', min: 40, max: 400, step: 1, def: 120, unit: 'Hz', log: true },
+      x2: { label: '中／高分頻', min: 1000, max: 12000, step: 10, def: 2500, unit: 'Hz', log: true },
+      attack: { label: '起音', min: 0.1, max: 100, step: 0.1, def: 8, unit: 'ms', log: true },
+      release: { label: '釋放', min: 10, max: 1000, step: 1, def: 150, unit: 'ms', log: true },
+      lowThr: { label: '低頻門檻', min: -60, max: 0, step: 0.5, def: -24, unit: 'dB' },
+      lowRatio: { label: '低頻比例', min: 1, max: 20, step: 0.1, def: 3, unit: ':1' },
+      lowGain: { label: '低頻補償', min: -12, max: 12, step: 0.5, def: 0, unit: 'dB' },
+      midThr: { label: '中頻門檻', min: -60, max: 0, step: 0.5, def: -18, unit: 'dB' },
+      midRatio: { label: '中頻比例', min: 1, max: 20, step: 0.1, def: 4, unit: ':1' },
+      midGain: { label: '中頻補償', min: -12, max: 12, step: 0.5, def: 0, unit: 'dB' },
+      highThr: { label: '高頻門檻', min: -60, max: 0, step: 0.5, def: -18, unit: 'dB' },
+      highRatio: { label: '高頻比例', min: 1, max: 20, step: 0.1, def: 3, unit: ':1' },
+      highGain: { label: '高頻補償', min: -12, max: 12, step: 0.5, def: 0, unit: 'dB' },
+      output: { label: '輸出', min: -18, max: 18, step: 0.5, def: 0, unit: 'dB' },
     },
   },
 };
-export const FX_ORDER = ['tune', 'harm', 'eq', 'comp', 'deess', 'sat', 'pitch', 'width', 'reverb', 'delay', 'chorus', 'drive', 'gate'];
+
+// 分類：新增效果器的選單照這個順序排；FX_ORDER 由分類攤平而來
+export const FX_CATS = [
+  { key: 'vocal', name: '人聲', types: ['tune', 'harm'] },
+  { key: 'eq', name: '等化與濾波', types: ['eq', 'autofilter'] },
+  { key: 'dyn', name: '動態（壓縮／限制／閘）', types: ['comp', 'mbcomp', 'limiter', 'gate', 'transient', 'deess'] },
+  { key: 'dist', name: '破音與音色', types: ['sat', 'drive', 'bitcrush', 'ringmod', 'exciter'] },
+  { key: 'mod', name: '調變（合唱／鑲邊／相位）', types: ['chorus', 'flanger', 'phaser', 'tremolo'] },
+  { key: 'delay', name: '延遲與回音', types: ['delay', 'stereodelay'] },
+  { key: 'space', name: '空間殘響', types: ['reverb'] },
+  { key: 'stereo', name: '立體聲', types: ['width'] },
+  { key: 'pitch', name: '音高', types: ['pitch'] },
+  { key: 'util', name: '工具', types: ['utility'] },
+];
+export const FX_ORDER = FX_CATS.flatMap(c => c.types);
 export const MAX_INSERTS = 6;
 
 export function newFx(type) {
@@ -189,8 +335,24 @@ export function newFx(type) {
   return { id: uid('fx'), type, on: true, params };
 }
 
+// 舊專案的效果器可能少了後來新增的參數（例如噪音閘以前只有門檻與釋放）：
+// 缺的就補預設值，否則面板上的滑桿會顯示 NaN、DSP 也會收到 undefined。
+export function fillFxParams(d) {
+  const T = FX_TYPES[d.type];
+  if (!T || !d.params) return d;
+  for (const [k, def] of Object.entries(T.params)) {
+    if (d.params[k] === undefined) d.params[k] = def.def;
+  }
+  if (d.type === 'eq' && !Array.isArray(d.params.bands)) Object.assign(d.params, migrateEqParams(d.params));
+  if (d.type === 'harm') {
+    const h = harmDefaults();
+    for (const k of Object.keys(h)) if (d.params[k] === undefined) d.params[k] = h[k];
+  }
+  return d;
+}
+
 // 把飽和度曲線依特性產生（輸入 -1..1）
-function satCurve(mode, drive) {
+export function satCurve(mode, drive) {
   const n = 4096, c = new Float32Array(n);
   const k = Math.pow(10, drive / 20);
   for (let i = 0; i < n; i++) {
@@ -204,9 +366,10 @@ function satCurve(mode, drive) {
     }
     c[i] = y;
   }
-  // 正規化：讓 0 dBFS 輸入的輸出峰值接近 1，增益補償交給 output
-  let pk = 0; for (const v of c) pk = Math.max(pk, Math.abs(v));
-  if (pk > 0) for (let i = 0; i < n; i++) c[i] /= pk;
+  // 正規化：除以 x=0 處的斜率，讓「小訊號」的增益維持 1（drive = 0 等於直通）。
+  // 峰值會因此被壓低（這正是飽和該做的事），整體音量再由 post.drive 補償。
+  const mid = Math.floor((n - 1) / 2), slope = Math.abs(c[mid + 1] - c[mid]) * (n - 1) / 2;
+  if (slope > 1e-6) for (let i = 0; i < n; i++) c[i] /= slope;
   return c;
 }
 
@@ -300,12 +463,14 @@ export function impulse(ctx, p) {
   return b;
 }
 
-function distortionCurve(amount) {
-  const n = 2048, c = new Float32Array(n);
-  const k = amount;
+// 失真曲線：tanh(k·x)/k。除以 k 讓「小訊號」的斜率永遠是 1（drive = 0 dB 時接近直通），
+// 峰值則隨 drive 被壓低（= 軟削波），音量再由 post 的補償拉回來。
+export function distortionCurve(amount) {
+  const n = 4096, c = new Float32Array(n);
+  const k = Math.max(1, amount);
   for (let i = 0; i < n; i++) {
-    const x = i * 2 / n - 1;
-    c[i] = ((1 + k) * x) / (1 + k * Math.abs(x));
+    const x = i * 2 / (n - 1) - 1;
+    c[i] = Math.tanh(x * k) / k;
   }
   return c;
 }
@@ -318,8 +483,51 @@ function wetDry(ctx) {
   return { input, output, dry, wet, setMix(pct) { const m = pct / 100; dry.gain.value = Math.cos(m * Math.PI / 2); wet.gain.value = Math.sin(m * Math.PI / 2); } };
 }
 
+// 單聲道來源也要能拆成左右：把節點固定成兩聲道（mono 會複製到兩邊），
+// 否則 ChannelSplitter 的右聲道會是靜音。
+function stereoIn(n) {
+  n.channelCount = 2; n.channelCountMode = 'explicit'; n.channelInterpretation = 'speakers';
+}
+
+// ⚠ Web Audio 的規格：BiquadFilterNode 的 Q 對「低通／高通」是 dB，其他類型才是線性 Q。
+// 介面與教科書用的都是線性 Q，所以在設這兩個類型時要換算；0.7071 → −3.01 dB（Butterworth）。
+export const qDb = q => 20 * Math.log10(Math.max(0.05, q));
+
+// LFO 波形與相位。OscillatorNode 沒有相位參數，所以用 PeriodicWave 的傅立葉係數旋轉相位：
+//   b_n·sin(nθ + nφ) → real[n] = b_n·sin(nφ)、imag[n] = b_n·cos(nφ)
+const SHAPE_COEF = {
+  sine: n => (n === 1 ? 1 : 0),
+  triangle: n => (n % 2 ? (8 / (Math.PI * Math.PI)) * ((((n - 1) / 2) % 2) ? -1 : 1) / (n * n) : 0),
+  square: n => (n % 2 ? 4 / (Math.PI * n) : 0),
+};
+const waveCache = new WeakMap();
+export function waveFor(ctx, shape, phaseDeg) {
+  const key = (shape || 'sine') + '|' + (Math.round(phaseDeg * 2) / 2);
+  let m = waveCache.get(ctx);
+  if (!m) { m = new Map(); waveCache.set(ctx, m); }
+  if (m.has(key)) return m.get(key);
+  const H = 64, real = new Float32Array(H + 1), imag = new Float32Array(H + 1);
+  const ph = (phaseDeg || 0) * Math.PI / 180;
+  const coef = SHAPE_COEF[shape] || SHAPE_COEF.sine;
+  for (let n = 1; n <= H; n++) {
+    const b = coef(n);
+    if (!b) continue;
+    real[n] = b * Math.sin(n * ph); imag[n] = b * Math.cos(n * ph);
+  }
+  const w = ctx.createPeriodicWave(real, imag, { disableNormalization: true });
+  m.set(key, w);
+  return w;
+}
+function lfoNode(ctx, shape = 'sine', phase = 0) {
+  const o = ctx.createOscillator();
+  o.setPeriodicWave(waveFor(ctx, shape, phase));
+  o.frequency.value = 1;
+  return o;
+}
+
 // bpm：Delay 同步用
 export function buildFx(ctx, desc, bpm = 120, info = {}) {
+  fillFxParams(desc);              // 舊專案少的參數先補齊
   const P = desc.params;
   let fx;
   switch (desc.type) {
@@ -341,9 +549,11 @@ export function buildFx(ctx, desc, bpm = 120, info = {}) {
         const nyq = ctx.sampleRate / 2 * 0.98;
         const freq = Math.min(nyq, Math.max(10, b.freq));
         if (!b.on) { f.type = 'peaking'; f.gain.value = 0; f2.type = 'peaking'; f2.gain.value = 0; f.frequency.value = 1000; f2.frequency.value = 1000; return; }
-        f.type = b.type; f.frequency.value = freq; f.Q.value = Math.max(0.1, b.q || 0.71); f.gain.value = b.gain || 0;
+        const q = Math.max(0.1, b.q || 0.71);
+        const isCut = b.type === 'highpass' || b.type === 'lowpass';
+        f.type = b.type; f.frequency.value = freq; f.Q.value = isCut ? qDb(q) : q; f.gain.value = b.gain || 0;
         // 低切／高切的「陡度」：slope 24 就多串一個；其他類型第二個濾波器維持直通
-        if ((b.type === 'highpass' || b.type === 'lowpass') && (b.slope || 12) >= 24) {
+        if (isCut && (b.slope || 12) >= 24) {
           f2.type = b.type; f2.frequency.value = freq; f2.Q.value = f.Q.value;
         } else { f2.type = 'peaking'; f2.gain.value = 0; f2.frequency.value = 1000; }
       };
@@ -381,11 +591,12 @@ export function buildFx(ctx, desc, bpm = 120, info = {}) {
       input.connect(cut).connect(out);
       const det1 = ctx.createBiquadFilter(), det2 = ctx.createBiquadFilter();
       det1.type = 'highpass'; det2.type = 'lowpass';
+      det1.Q.value = det2.Q.value = qDb(0.7071);
       const rect = ctx.createWaveShaper();
       { const n = 2049, c = new Float32Array(n); for (let i = 0; i < n; i++) c[i] = Math.abs(i * 2 / (n - 1) - 1); rect.curve = c; }
       // 包絡平滑：兩級一階低通 ≈ attack/release 約 2 ms / 40 ms 的折衷
       const env1 = ctx.createBiquadFilter(), env2 = ctx.createBiquadFilter();
-      env1.type = env2.type = 'lowpass'; env1.frequency.value = 60; env2.frequency.value = 60; env1.Q.value = env2.Q.value = 0.5;
+      env1.type = env2.type = 'lowpass'; env1.frequency.value = 60; env2.frequency.value = 60; env1.Q.value = env2.Q.value = qDb(0.5);
       // 包絡（線性振幅 0..1）→ 衰減 dB（0 .. -amount）
       const map = ctx.createWaveShaper();
       const toGain = ctx.createGain(); toGain.gain.value = 1;
@@ -417,8 +628,9 @@ export function buildFx(ctx, desc, bpm = 120, info = {}) {
             const th = Math.pow(10, p.threshold / 20) * 0.64;
             for (let i = 0; i < n; i++) {
               const e = Math.abs(i * 2 / (n - 1) - 1);       // WaveShaper 輸入域 -1..1，包絡只會是正的
-              if (e <= th) { c[i] = 0; continue; }
+              if (e <= th) { c[i] = 0; continue; }           // 門檻以下：0 dB = 不衰減
               // 超過門檻幾 dB → 以 3:1 的比例換成衰減，上限 amount
+              // ⚠ BiquadFilterNode.gain 的單位是 dB（不是線性增益），所以這裡直接給負的 dB 值
               const over = 20 * Math.log10(e / th);
               c[i] = -Math.min(p.amount, over * (2 / 3));
             }
@@ -430,8 +642,9 @@ export function buildFx(ctx, desc, bpm = 120, info = {}) {
         reduction() {
           if (!grProbe) return 0;
           grProbe.getFloatTimeDomainData(probeBuf);
-          let m = 0; for (const v of probeBuf) if (v < m) m = v;
-          return m;     // 負值 dB
+          // 這裡讀到的是「線性增益」訊號，換算成 dB 才是衰減量
+          let m = 1; for (const v of probeBuf) if (v < m) m = v;
+          return m > 0.0001 ? 20 * Math.log10(m) : -80;
         },
       };
       break;
@@ -530,7 +743,7 @@ export function buildFx(ctx, desc, bpm = 120, info = {}) {
       const pre = ctx.createGain(), sh = ctx.createWaveShaper(), post = ctx.createGain();
       const hs = ctx.createBiquadFilter(); hs.type = 'highshelf'; hs.frequency.value = 4500;
       // 去直流：真空管模式的不對稱曲線會產生直流偏移
-      const dc = ctx.createBiquadFilter(); dc.type = 'highpass'; dc.frequency.value = 12;
+      const dc = ctx.createBiquadFilter(); dc.type = 'highpass'; dc.frequency.value = 12; dc.Q.value = qDb(0.7071);
       sh.oversample = '4x';
       wd.input.connect(pre).connect(sh).connect(dc).connect(hs).connect(post).connect(wd.wet);
       let last = '';
@@ -564,6 +777,54 @@ export function buildFx(ctx, desc, bpm = 120, info = {}) {
           mk.gain.value = dbg(p.makeup - autoMakeupDb);
         },
         reduction: () => c.reduction,
+      };
+      break;
+    }
+    case 'mbcomp': {
+      // 三頻段：低 / 中 / 高。分頻用 Linkwitz-Riley 4 階（Butterworth 0.7071 × 2 顆串接），
+      // 三個頻段相加的振幅是平的（全通），所以不會在分頻點出現凹陷。
+      const input = ctx.createGain(), out = ctx.createGain();
+      const bq = (type, f) => { const n = ctx.createBiquadFilter(); n.type = type; n.frequency.value = f; n.Q.value = qDb(0.7071); return n; };
+      const mkBand = () => {
+        const comp = ctx.createDynamicsCompressor();
+        const mk = ctx.createGain();
+        comp.knee.value = 6;
+        comp.connect(mk);
+        return { comp, mk };
+      };
+      const lo = mkBand(), midB = mkBand(), hi = mkBand();
+      const lo1 = bq('lowpass', 120), lo2 = bq('lowpass', 120);
+      const midH1 = bq('highpass', 120), midH2 = bq('highpass', 120);
+      const midL1 = bq('lowpass', 2500), midL2 = bq('lowpass', 2500);
+      const hiH1 = bq('highpass', 2500), hiH2 = bq('highpass', 2500);
+      input.connect(lo1); lo1.connect(lo2); lo2.connect(lo.comp); lo.mk.connect(out);
+      input.connect(midH1); midH1.connect(midH2); midH2.connect(midL1); midL1.connect(midL2); midL2.connect(midB.comp); midB.mk.connect(out);
+      input.connect(hiH1); hiH1.connect(hiH2); hiH2.connect(hi.comp); hi.mk.connect(out);
+      const autoMk = (thr, ratio) => 0.6 * (-thr) * (1 - 1 / ratio);
+      fx = {
+        input, output: out, bands: { low: lo, mid: midB, high: hi },
+        set(p) {
+          const f1 = Math.max(40, Math.min(400, p.x1 ?? 120));
+          const f2 = Math.max(f1 * 2, Math.min(12000, p.x2 ?? 2500));
+          for (const f of [lo1, lo2]) f.frequency.value = f1;
+          for (const f of [midH1, midH2]) f.frequency.value = f1;
+          for (const f of [midL1, midL2]) f.frequency.value = f2;
+          for (const f of [hiH1, hiH2]) f.frequency.value = f2;
+          const atk = (p.attack ?? 8) / 1000, rel = (p.release ?? 150) / 1000;
+          for (const [band, thr, ratio, gain] of [
+            [lo, p.lowThr ?? -24, p.lowRatio ?? 3, p.lowGain ?? 0],
+            [midB, p.midThr ?? -18, p.midRatio ?? 4, p.midGain ?? 0],
+            [hi, p.highThr ?? -18, p.highRatio ?? 3, p.highGain ?? 0],
+          ]) {
+            band.comp.threshold.value = thr;
+            band.comp.ratio.value = ratio;
+            band.comp.attack.value = atk;
+            band.comp.release.value = rel;
+            // 扣掉瀏覽器自動加的補償增益，補償完全交給使用者（跟 comp 一樣）
+            band.mk.gain.value = dbg(gain - autoMk(thr, ratio));
+          }
+          out.gain.value = dbg(p.output ?? 0);
+        },
       };
       break;
     }
@@ -623,7 +884,7 @@ export function buildFx(ctx, desc, bpm = 120, info = {}) {
       side.connect(base);
       const sideIn = ctx.createGain();
       base.connect(sideIn); gen.connect(sideIn);
-      const hp = ctx.createBiquadFilter(); hp.type = 'highpass'; hp.Q.value = 0.5;   // 低頻留在中央，比較穩
+      const hp = ctx.createBiquadFilter(); hp.type = 'highpass'; hp.Q.value = qDb(0.5);   // 低頻留在中央，比較穩
       const shelf = ctx.createBiquadFilter(); shelf.type = 'highshelf'; shelf.frequency.value = 6000;
       const wide = ctx.createGain();
       sideIn.connect(hp).connect(shelf).connect(wide);
@@ -695,15 +956,16 @@ export function buildFx(ctx, desc, bpm = 120, info = {}) {
     }
     case 'chorus': {
       const wd = wetDry(ctx);
+      stereoIn(wd.input);
       const split = ctx.createChannelSplitter(2), merge = ctx.createChannelMerger(2);
       const dL = ctx.createDelay(0.05), dR = ctx.createDelay(0.05);
       const lfo = ctx.createOscillator(), gL = ctx.createGain(), gR = ctx.createGain();
-      // 左右 LFO 反相，製造寬度
+      // 左右 LFO 反相（同一個振盪器，右邊乘 −1）→ 兩邊的延遲一前一後，聲音變寬
       const inv = ctx.createGain(); inv.gain.value = -1;
       lfo.connect(gL).connect(dL.delayTime);
       lfo.connect(inv).connect(gR).connect(dR.delayTime);
       wd.input.connect(split);
-      split.connect(dL, 0); split.connect(dR, 1 % 2);
+      split.connect(dL, 0); split.connect(dR, 1);
       dL.connect(merge, 0, 0); dR.connect(merge, 0, 1);
       merge.connect(wd.wet);
       lfo.start();
@@ -728,44 +990,397 @@ export function buildFx(ctx, desc, bpm = 120, info = {}) {
       fx = {
         input: wd.input, output: wd.output,
         set(p) {
-          pre.gain.value = dbg(p.drive / 2);
-          if (p.drive !== lastD) { sh.curve = distortionCurve(dbg(p.drive) - 1 + 0.5); lastD = p.drive; }
-          lp.frequency.value = p.tone; post.gain.value = dbg(p.output);
-          wd.setMix(p.mix);
+          pre.gain.value = 1;
+          if (p.drive !== lastD) { sh.curve = distortionCurve(dbg(p.drive ?? 12)); lastD = p.drive; }
+          lp.frequency.value = p.tone ?? 4000;
+          // 削波讓峰值變低，這裡補回一部分，drive 越大聲越接近原來的大小
+          post.gain.value = dbg((p.output ?? 0) + (p.drive ?? 12) * 0.55);
+          wd.setMix(p.mix ?? 100);
         },
       };
       break;
     }
     case 'gate': {
-      // 用 AudioWorklet 太重；這裡用 Analyser 量電平 + 主執行緒控制增益。
-      // 離線輸出時沒有主執行緒迴圈，改用「門檻以下大幅壓縮」的 expander 近似（DynamicsCompressor 做不到向下擴展，
-      // 所以離線時 gate 以 bypass 處理並在介面註明）。
+      // 放在 AudioWorklet 裡（主執行緒的 setInterval 在離線算圖時不會跑，
+      // 以前的做法導致輸出檔案時整個效果器被跳過）。ratio 20 當成硬閘。
       const input = ctx.createGain(), out = ctx.createGain();
-      input.connect(out);
-      const an = ctx.createAnalyser(); an.fftSize = 512;
-      input.connect(an);
-      const buf = new Float32Array(512);
-      let params = P, timer = null, open = true;
-      const live = typeof ctx.startRendering !== 'function';
-      if (live) {
-        timer = setInterval(() => {
-          an.getFloatTimeDomainData(buf);
-          let pk = 0; for (let i = 0; i < buf.length; i++) pk = Math.max(pk, Math.abs(buf[i]));
-          const db = 20 * Math.log10(pk + 1e-9);
-          const want = db > params.threshold;
-          if (want !== open) {
-            open = want;
-            out.gain.setTargetAtTime(open ? 1 : 0.0001, ctx.currentTime, open ? 0.002 : params.release / 4000);
-          }
-        }, 10);
-      }
+      let node = null;
+      try {
+        node = new AudioWorkletNode(ctx, 'zy-gate', {
+          numberOfInputs: 1, numberOfOutputs: 1, outputChannelCount: [2],
+        });
+        input.connect(node).connect(out);
+      } catch (_) { input.connect(out); }
+      let gr = 0;
+      if (node) node.port.onmessage = e => { if (e.data && typeof e.data.gr === 'number') gr = e.data.gr; };
       fx = {
-        input, output: out, offlineBypass: !live,
-        set(p) { params = p; },
-        dispose() { clearInterval(timer); },
+        input, output: out, worklet: node,
+        set(p) {
+          if (!node) return;
+          const set = (k, d) => node.parameters.get(k).setValueAtTime(p[k] ?? d, 0);
+          set('threshold', -50); set('ratio', 20); set('attack', 1);
+          set('hold', 40); set('release', 120); set('range', 60);
+        },
+        reduction: () => gr,
       };
       break;
     }
+    case 'limiter': {
+      // 母帶那顆 look-ahead limiter（limiter-worklet.js）拿來當插入效果器：
+      // 5 ms 的預看延遲讓增益在峰值到達前就降下來，fxLatency() 會把它補回去。
+      const input = ctx.createGain(), out = ctx.createGain();
+      let node = null;
+      try {
+        node = new AudioWorkletNode(ctx, 'zy-limiter', {
+          numberOfInputs: 1, numberOfOutputs: 1, outputChannelCount: [2],
+        });
+        input.connect(node).connect(out);
+      } catch (_) { input.connect(out); }
+      let gr = 0, lastPoll = -1;
+      if (node) node.port.onmessage = e => { if (e.data && e.data.gr !== undefined) gr = e.data.gr; };
+      fx = {
+        input, output: out, worklet: node,
+        set(p) {
+          if (!node) return;
+          node.parameters.get('gain').value = p.gain ?? 0;
+          node.parameters.get('ceiling').value = p.ceiling ?? -0.3;
+          node.parameters.get('release').value = p.release ?? 120;
+        },
+        reduction() {
+          if (!node) return 0;
+          const t = ctx.currentTime || 0;
+          if (t - lastPoll > 0.1 || lastPoll < 0) { node.port.postMessage('gr'); lastPoll = t; }
+          return gr;
+        },
+      };
+      break;
+    }
+    case 'transient': {
+      const input = ctx.createGain(), out = ctx.createGain();
+      let node = null;
+      try {
+        node = new AudioWorkletNode(ctx, 'zy-transient', {
+          numberOfInputs: 1, numberOfOutputs: 1, outputChannelCount: [2],
+        });
+        input.connect(node).connect(out);
+      } catch (_) { input.connect(out); }
+      fx = {
+        input, output: out, worklet: node,
+        set(p) {
+          if (!node) return;
+          node.parameters.get('attack').value = p.attack ?? 4;
+          node.parameters.get('sustain').value = p.sustain ?? 0;
+          node.parameters.get('output').value = p.output ?? 0;
+        },
+      };
+      break;
+    }
+    case 'bitcrush': {
+      const wd = wetDry(ctx);
+      const out = ctx.createGain();
+      let node = null;
+      try {
+        node = new AudioWorkletNode(ctx, 'zy-bitcrush', {
+          numberOfInputs: 1, numberOfOutputs: 1, outputChannelCount: [2],
+        });
+        wd.input.connect(node).connect(out).connect(wd.wet);
+      } catch (_) { wd.input.connect(wd.wet); }
+      fx = {
+        input: wd.input, output: wd.output, worklet: node, post: out,
+        set(p) {
+          if (node) {
+            node.parameters.get('bits').value = p.bits ?? 8;
+            node.parameters.get('rate').value = p.rate ?? 12000;
+          }
+          out.gain.value = dbg(p.output ?? 0);
+          wd.setMix(p.mix ?? 100);
+        },
+      };
+      break;
+    }
+    case 'ringmod': {
+      const wd = wetDry(ctx);
+      const ring = ctx.createGain(), osc = ctx.createOscillator(), oscG = ctx.createGain();
+      osc.type = 'sine';
+      // 輸入當訊號、振盪器當增益 → 相乘（環形調變）。depth 0 時 gain 固定在 1 = 原聲。
+      ring.gain.value = 0;
+      wd.input.connect(ring).connect(wd.wet);
+      osc.connect(oscG).connect(ring.gain);
+      osc.start();
+      fx = {
+        input: wd.input, output: wd.output, osc: [osc],
+        set(p) {
+          const d = (p.depth ?? 100) / 100;
+          ring.gain.value = 1 - d;
+          oscG.gain.value = d;
+          osc.frequency.value = p.freq ?? 220;
+          wd.setMix(p.mix ?? 100);
+        },
+      };
+      break;
+    }
+    case 'exciter': {
+      // 乾聲全頻保留，另外「加」一份被飽和過的高頻：mix 100% 時低頻完全不動，
+      // 只有分頻點以上多出泛音（音量會跟著多一點，這是激勵器本來的行為）。
+      const input = ctx.createGain(), out = ctx.createGain();
+      const hp1 = ctx.createBiquadFilter(), sh = ctx.createWaveShaper();
+      const hp2 = ctx.createBiquadFilter(), tone = ctx.createBiquadFilter(), wet = ctx.createGain();
+      hp1.type = hp2.type = 'highpass'; hp1.Q.value = hp2.Q.value = qDb(0.7071);
+      tone.type = 'highshelf'; tone.frequency.value = 8000;
+      sh.oversample = '4x';
+      input.connect(out);
+      input.connect(hp1).connect(sh).connect(hp2).connect(tone).connect(wet).connect(out);
+      let lastDrive = null;
+      fx = {
+        input, output: out,
+        set(p) {
+          const f = p.freq ?? 3000, dr = p.drive ?? 9;
+          hp1.frequency.value = f;
+          hp2.frequency.value = f * 0.8;      // 削波產生的低頻邊帶再清一次
+          if (dr !== lastDrive) { sh.curve = satCurve(2, dr); lastDrive = dr; }  // 電晶體的軟膝部
+          tone.gain.value = p.tone ?? 0;
+          wet.gain.value = (p.mix ?? 40) / 100;
+        },
+      };
+      break;
+    }
+    case 'flanger': {
+      const wd = wetDry(ctx);
+      stereoIn(wd.input);
+      const split = ctx.createChannelSplitter(2), merge = ctx.createChannelMerger(2);
+      wd.input.connect(split);
+      const dL = ctx.createDelay(0.05), dR = ctx.createDelay(0.05);
+      const gL = ctx.createGain(), gR = ctx.createGain();
+      const fbL = ctx.createGain(), fbR = ctx.createGain();
+      const lfoL = lfoNode(ctx), lfoR = lfoNode(ctx);
+      lfoL.connect(gL).connect(dL.delayTime);
+      lfoR.connect(gR).connect(dR.delayTime);
+      split.connect(dL, 0);
+      split.connect(dR, 1);
+      dL.connect(fbL).connect(dL);
+      dR.connect(fbR).connect(dR);
+      dL.connect(merge, 0, 0); dR.connect(merge, 0, 1);
+      merge.connect(wd.wet);
+      lfoL.start(); lfoR.start();
+      fx = {
+        input: wd.input, output: wd.output, osc: [lfoL, lfoR], delays: [dL, dR],
+        _phase: null,
+        set(p) {
+          const rate = p.rate ?? 0.3, dep = (p.depth ?? 60) / 100;
+          const centre = Math.max(0.0006, (p.delay ?? 2.5) / 1000);
+          // 擺幅：最多到中心延遲的 90%，保證 delayTime 永遠 ≥ 0.1 ms
+          const swing = centre * 0.9 * dep;
+          lfoL.frequency.value = rate;
+          lfoR.frequency.value = rate;
+          // 換 LFO 相位：重新產生 PeriodicWave（左右差 0–180°）
+          if (fx._phase !== (p.stereo ?? 90)) {
+            fx._phase = p.stereo ?? 90;
+            lfoR.setPeriodicWave(waveFor(ctx, 'sine', fx._phase));
+          }
+          dL.delayTime.value = centre;
+          dR.delayTime.value = centre;
+          gL.gain.value = swing; gR.gain.value = swing;
+          const fb = (p.feedback ?? 35) / 100;
+          fbL.gain.value = fb; fbR.gain.value = fb;
+          wd.setMix(p.mix ?? 50);
+        },
+      };
+      break;
+    }
+    case 'phaser': {
+      const wd = wetDry(ctx);
+      stereoIn(wd.input);
+      const split = ctx.createChannelSplitter(2), merge = ctx.createChannelMerger(2);
+      wd.input.connect(split);
+      const STAGES = 8;
+      const mkChain = () => Array.from({ length: STAGES }, () => {
+        const f = ctx.createBiquadFilter(); f.type = 'allpass'; f.frequency.value = 600; f.Q.value = 0.7; return f;
+      });
+      const cL = mkChain(), cR = mkChain();
+      cL.forEach((f, i) => { if (i) cL[i - 1].connect(f); });
+      cR.forEach((f, i) => { if (i) cR[i - 1].connect(f); });
+      split.connect(cL[0], 0); split.connect(cR[0], 1);
+      cL[STAGES - 1].connect(merge, 0, 0);
+      cR[STAGES - 1].connect(merge, 0, 1);
+      const fbL = ctx.createGain(), fbR = ctx.createGain();
+      cL[STAGES - 1].connect(fbL).connect(cL[0]);
+      cR[STAGES - 1].connect(fbR).connect(cR[0]);
+      const lfoL = lfoNode(ctx), lfoR = lfoNode(ctx);
+      const detL = ctx.createGain(), detR = ctx.createGain();
+      lfoL.connect(detL); lfoR.connect(detR);
+      // detune（音分）：頻率 = 中心 × 2^(detune/1200)。每階都接同一組掃頻訊號。
+      [...cL, ...cR].forEach(f => { detL.connect(f.detune); detR.connect(f.detune); });
+      merge.connect(wd.wet);
+      lfoL.start(); lfoR.start();
+      fx = {
+        input: wd.input, output: wd.output, osc: [lfoL, lfoR], stages: [...cL, ...cR],
+        _phase: null,
+        set(p) {
+          const n = [4, 6, 8][p.stages | 0] ?? 6;
+          const f0 = p.freq ?? 600;
+          // 沒有用到的階：peaking + 0 dB = 完全直通（全通濾波器就算頻率拉到 19 kHz 還是會轉相位）
+          const use = (arr, on) => arr.forEach((f, i) => {
+            if (i < on) { f.type = 'allpass'; f.frequency.value = f0; f.Q.value = 0.7; }
+            else { f.type = 'peaking'; f.frequency.value = 1000; f.Q.value = 0.7; f.gain.value = 0; }
+          });
+          use(cL, n); use(cR, n);
+          const swing = (p.depth ?? 70) / 100 * 3 * 1200;
+          detL.gain.value = swing; detR.gain.value = swing;
+          lfoL.frequency.value = p.rate ?? 0.4;
+          lfoR.frequency.value = p.rate ?? 0.4;
+          if (fx._phase !== (p.stereo ?? 90)) {
+            fx._phase = p.stereo ?? 90;
+            lfoR.setPeriodicWave(waveFor(ctx, 'sine', fx._phase));
+          }
+          const fb = (p.feedback ?? 25) / 100;
+          fbL.gain.value = fb; fbR.gain.value = fb;
+          wd.setMix(p.mix ?? 50);
+        },
+      };
+      break;
+    }
+    case 'tremolo': {
+      const wd = wetDry(ctx);
+      stereoIn(wd.input);
+      const split = ctx.createChannelSplitter(2), merge = ctx.createChannelMerger(2);
+      wd.input.connect(split);
+      const gL = ctx.createGain(), gR = ctx.createGain();
+      split.connect(gL, 0); split.connect(gR, 1);
+      gL.connect(merge, 0, 0); gR.connect(merge, 0, 1);
+      const lfoL = lfoNode(ctx), lfoR = lfoNode(ctx);
+      const ampL = ctx.createGain(), ampR = ctx.createGain();
+      lfoL.connect(ampL).connect(gL.gain);
+      lfoR.connect(ampR).connect(gR.gain);
+      merge.connect(wd.wet);
+      lfoL.start(); lfoR.start();
+      fx = {
+        input: wd.input, output: wd.output, osc: [lfoL, lfoR],
+        _shape: null, _phase: null,
+        set(p) {
+          const rate = p.rate ?? 4.5, d = (p.depth ?? 50) / 100;
+          const shape = ['sine', 'triangle', 'square'][p.shape | 0] || 'sine';
+          const mode = p.stereo | 0;
+          // 立體模式：0 同相、1 反相（Auto-Pan）、2 左右差 90°
+          const ph = mode === 1 ? 180 : mode === 2 ? 90 : 0;
+          if (fx._shape !== shape || fx._phase !== ph) {
+            fx._shape = shape; fx._phase = ph;
+            lfoL.setPeriodicWave(waveFor(ctx, shape, 0));
+            lfoR.setPeriodicWave(waveFor(ctx, shape, ph));
+          }
+          lfoL.frequency.value = rate;
+          lfoR.frequency.value = rate;
+          // 增益中心 1−d、擺幅 d/2 → 0% 不動、100% 在 0 與 1 之間
+          gL.gain.value = 1 - d / 2; gR.gain.value = 1 - d / 2;
+          ampL.gain.value = d / 2; ampR.gain.value = d / 2;
+          wd.setMix(p.mix ?? 100);
+        },
+      };
+      break;
+    }
+    case 'autofilter': {
+      const wd = wetDry(ctx);
+      stereoIn(wd.input);
+      const split = ctx.createChannelSplitter(2), merge = ctx.createChannelMerger(2);
+      wd.input.connect(split);
+      const fL = ctx.createBiquadFilter(), fR = ctx.createBiquadFilter();
+      split.connect(fL, 0); split.connect(fR, 1);
+      fL.connect(merge, 0, 0); fR.connect(merge, 0, 1);
+      const lfoL = lfoNode(ctx), lfoR = lfoNode(ctx);
+      const detL = ctx.createGain(), detR = ctx.createGain();
+      lfoL.connect(detL).connect(fL.detune);
+      lfoR.connect(detR).connect(fR.detune);
+      merge.connect(wd.wet);
+      lfoL.start(); lfoR.start();
+      fx = {
+        input: wd.input, output: wd.output, osc: [lfoL, lfoR], filters: [fL, fR],
+        _phase: null,
+        set(p) {
+          const type = ['lowpass', 'highpass', 'bandpass'][p.type | 0] || 'lowpass';
+          const f0 = p.freq ?? 800, q = p.q ?? 6;
+          // 低通／高通的 Q 是 dB、帶通是線性 Q（Web Audio 規格）
+          const qv = type === 'bandpass' ? q : qDb(q);
+          for (const f of [fL, fR]) { f.type = type; f.frequency.value = f0; f.Q.value = qv; }
+          const rate = p.rate ?? 1.5;
+          lfoL.frequency.value = rate; lfoR.frequency.value = rate;
+          const swing = (p.depth ?? 60) / 100 * 3 * 1200;   // 100% = ±3 八度
+          detL.gain.value = swing; detR.gain.value = swing;
+          if (fx._phase !== (p.stereo ?? 0)) {
+            fx._phase = p.stereo ?? 0;
+            lfoR.setPeriodicWave(waveFor(ctx, 'sine', fx._phase));
+          }
+          wd.setMix(p.mix ?? 100);
+        },
+      };
+      break;
+    }
+    case 'stereodelay': {
+      const wd = wetDry(ctx);
+      stereoIn(wd.input);
+      const split = ctx.createChannelSplitter(2), merge = ctx.createChannelMerger(2);
+      wd.input.connect(split);
+      const dL = ctx.createDelay(4), dR = ctx.createDelay(4);
+      const toneL = ctx.createBiquadFilter(), toneR = ctx.createBiquadFilter();
+      toneL.type = toneR.type = 'lowpass';
+      // 回授矩陣：同一邊 (1−x)、交叉 (x)
+      const selfL = ctx.createGain(), crossL = ctx.createGain(), selfR = ctx.createGain(), crossR = ctx.createGain();
+      split.connect(dL, 0); split.connect(dR, 1);
+      dL.connect(toneL); dR.connect(toneR);
+      toneL.connect(selfL).connect(dL);
+      toneR.connect(crossL).connect(dL);
+      toneR.connect(selfR).connect(dR);
+      toneL.connect(crossR).connect(dR);
+      dL.connect(merge, 0, 0); dR.connect(merge, 0, 1);
+      merge.connect(wd.wet);
+      fx = {
+        input: wd.input, output: wd.output, delays: [dL, dR],
+        set(p) {
+          const beat = 60 / (bpm || 120);
+          const sL = Math.min(4, (p.timeL ?? 0.5) * beat);
+          const sR = Math.min(4, (p.timeR ?? 0.75) * beat);
+          dL.delayTime.value = sL; dR.delayTime.value = sR;
+          const fb = Math.min(0.92, (p.feedback ?? 30) / 100);
+          const x = (p.cross ?? 0) / 100;
+          // 交叉時總回授量不變（x=1 全交叉），避免整體迴路增益爆掉
+          selfL.gain.value = fb * (1 - x); crossL.gain.value = fb * x;
+          selfR.gain.value = fb * (1 - x); crossR.gain.value = fb * x;
+          toneL.frequency.value = p.tone ?? 5000;
+          toneR.frequency.value = p.tone ?? 5000;
+          wd.setMix(p.mix ?? 25);
+        },
+      };
+      break;
+    }
+    case 'utility': {
+      // 左右輸出的係數矩陣：一般 = 直通、單聲道化 = (L+R)/2、相位反轉 = 乘 −1
+      const input = ctx.createGain(), out = ctx.createGain();
+      stereoIn(input);
+      const g = ctx.createGain();
+      const split = ctx.createChannelSplitter(2), merge = ctx.createChannelMerger(2);
+      const ll = ctx.createGain(), lr = ctx.createGain(), rl = ctx.createGain(), rr = ctx.createGain();
+      const panner = ctx.createStereoPanner();
+      input.connect(g).connect(split);
+      split.connect(ll, 0); split.connect(lr, 1);
+      split.connect(rl, 0); split.connect(rr, 1);
+      ll.connect(merge, 0, 0); lr.connect(merge, 0, 0);
+      rl.connect(merge, 0, 1); rr.connect(merge, 0, 1);
+      merge.connect(panner).connect(out);
+      fx = {
+        input, output: out,
+        set(p) {
+          g.gain.value = dbg(p.gain ?? 0);
+          const ph = p.phase | 0;
+          const kL = (ph === 1 || ph === 3) ? -1 : 1;
+          const kR = (ph === 2 || ph === 3) ? -1 : 1;
+          const mono = !!p.mono;
+          const m = mono ? 0.5 : 1, z = mono ? 0.5 : 0;
+          ll.gain.value = m * kL; lr.gain.value = z * kL;
+          rl.gain.value = z * kR; rr.gain.value = m * kR;
+          panner.pan.value = (p.pan ?? 0) / 100;
+        },
+      };
+      break;
+    }
+
     default: {
       const g = ctx.createGain();
       fx = { input: g, output: g, set() {} };
@@ -788,6 +1403,9 @@ export function ensureFxWorklets(ctx) {
     ctx.audioWorklet.addModule(new URL('./pitch-worklet.js', import.meta.url)),
     ctx.audioWorklet.addModule(new URL('./autotune-worklet.js', import.meta.url)),
     ctx.audioWorklet.addModule(new URL('./harmony-worklet.js', import.meta.url)),
+    ctx.audioWorklet.addModule(new URL('./fx-worklet.js', import.meta.url)),
+    // 母帶那顆 limiter 模組：確保 zy-limiter 已註冊（同一個 context 只載一次）
+    ensureLimiterWorklet(ctx),
   ]));
   return fxWorklets.get(ctx);
 }
@@ -802,9 +1420,16 @@ export function fxLatency(d) {
     return d.params.live ? TUNE_LIVE_LATENCY : AUTOTUNE_LATENCY;
   }
   if (d.type === 'harm') return HARMONY_LATENCY;
+  if (d.type === 'limiter') return LIMITER_LATENCY;   // look-ahead 5 ms
+  // 瀏覽器的 DynamicsCompressor 固定有 6 ms 的預看延遲（實測 6.00 ms）
+  if (d.type === 'comp' || d.type === 'mbcomp') return COMP_LATENCY;
   return 0;
 }
-export const WORKLET_FX = new Set(['pitch', 'tune', 'harm']);
+// limiter 的預看延遲：跟 limiter-worklet.js 的 la 一致
+export const LIMITER_LATENCY = 0.005;
+// DynamicsCompressorNode 的固定延遲（Chrome 的 m_preDelayFrames = 6 ms）
+export const COMP_LATENCY = 0.006;
+export const WORKLET_FX = new Set(['pitch', 'tune', 'harm', 'gate', 'limiter', 'transient', 'bitcrush']);
 
 // ---------- Harmony 人聲和聲 ----------
 export const HARMONY_LATENCY = 0.032;
@@ -906,7 +1531,13 @@ export function fmtParam(def, v, bpm) {
     const names = { 0.03125: '1/128', 0.0625: '1/64', 0.125: '1/32', 0.25: '1/16', 0.5: '1/8', 0.75: '1/8.', 1: '1/4', 1.5: '1/4.', 2: '1/2' };
     return (names[v] || `${v} 拍`) + (bpm ? ` · ${Math.round(v * 60000 / bpm)}ms` : '');
   }
-  if (def.unit === 'Hz') return v >= 1000 ? `${(v / 1000).toFixed(v >= 10000 ? 0 : 1)} kHz` : `${Math.round(v)} Hz`;
+  // Hz：1 kHz 以上用 kHz、小數（LFO 的 0.3 Hz）要留小數，不然會顯示成 0 Hz
+  if (def.unit === 'Hz') {
+    if (v >= 1000) return `${(v / 1000).toFixed(v >= 10000 ? 0 : 1)} kHz`;
+    if (v >= 100) return `${Math.round(v)} Hz`;
+    if (v >= 10) return `${v.toFixed(1)} Hz`;
+    return `${v.toFixed(2)} Hz`;
+  }
   const s = Math.abs(v) >= 100 || def.step >= 1 ? Math.round(v) : v.toFixed(def.step < 0.1 ? 2 : 1);
   return `${s}${def.unit ? (def.unit.startsWith(':') ? def.unit : ' ' + def.unit) : ''}`;
 }

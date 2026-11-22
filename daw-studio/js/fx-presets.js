@@ -111,6 +111,81 @@ export const PRESETS = {
     { group: '常用', name: '經典合唱', params: { rate: 0.8, depth: 4, mix: 50 }, tip: '吉他、電鋼琴常用。' },
     { group: '特效', name: '晃動', params: { rate: 3, depth: 6, mix: 60 }, tip: '明顯的搖晃感。' },
   ],
+  gate: [
+    { group: '人聲', name: '人聲：去掉換氣底噪', params: { threshold: -46, ratio: 20, attack: 1, hold: 40, release: 120, range: 40 }, tip: '門檻抓在底噪上面一點；最大衰減 40 dB 留一點自然感。' },
+    { group: '人聲', name: '人聲：硬閘（乾淨）', params: { threshold: -40, ratio: 20, attack: 0.5, hold: 20, release: 60, range: 80 }, tip: '完全安靜，適合電子、K-pop；太硬會聽出「切」的感覺。' },
+    { group: '鼓', name: '大鼓／小鼓：修掉串音', params: { threshold: -30, ratio: 12, attack: 0.3, hold: 25, release: 90, range: 50 }, tip: '只讓打擊的那一下通過，其他麥克風串進來的鼓聲壓下去。' },
+    { group: '樂器', name: '電吉他：雜訊', params: { threshold: -52, ratio: 20, attack: 1, hold: 60, release: 150, range: 60 }, tip: '單線圈拾音器的哼聲。' },
+  ],
+  limiter: [
+    { group: '母帶', name: '串流安全（−1 dBTP）', params: { gain: 3, ceiling: -1, release: 120 }, tip: '平台會再轉檔，留 1 dB 給 true peak。' },
+    { group: '母帶', name: '輕微擋峰值', params: { gain: 0, ceiling: -0.3, release: 80 }, tip: '平常不動作，只接住偶爾爆掉的峰值。' },
+    { group: '匯流排', name: '鼓組：壓平一點', params: { gain: 6, ceiling: -1, release: 60 }, tip: '推 6 dB 進去，鼓組會更結實、更前面。' },
+  ],
+  transient: [
+    { group: '鼓', name: '大鼓：更有打擊感', params: { attack: 6, sustain: -3, output: 0 }, tip: '起音加 6 dB、尾巴收 3 dB → 更「點」。' },
+    { group: '鼓', name: '小鼓：厚實', params: { attack: 2, sustain: 3, output: 0 }, tip: '留一點鼓身。' },
+    { group: '鼓', name: '鼓組：柔化', params: { attack: -4, sustain: 2, output: 0 }, tip: '鈸太吵、整體太刺時先把起音收一點。' },
+    { group: '樂器', name: '木吉他：撥弦更清楚', params: { attack: 4, sustain: 0, output: 0 }, tip: '' },
+    { group: '樂器', name: '貝斯：收掉雜音', params: { attack: 2, sustain: -4, output: 2 }, tip: '延音收掉可以讓低頻不糊。' },
+  ],
+  flanger: [
+    { group: '吉他', name: '經典噴射機', params: { rate: 0.2, depth: 70, delay: 1.8, feedback: 55, stereo: 90, mix: 50 }, tip: '慢速、深回授。' },
+    { group: '常用', name: '輕微金屬感', params: { rate: 0.5, depth: 40, delay: 3, feedback: 20, stereo: 180, mix: 30 }, tip: '' },
+    { group: '特效', name: '負回授（空心感）', params: { rate: 0.15, depth: 80, delay: 2.5, feedback: -60, stereo: 0, mix: 55 }, tip: '回授改成負值，梳狀的峰谷互換，聲音更「空」。' },
+    { group: '特效', name: '快速掃動', params: { rate: 3.5, depth: 45, delay: 1.2, feedback: 30, stereo: 180, mix: 40 }, tip: '' },
+  ],
+  phaser: [
+    { group: '吉他', name: '經典四階', params: { rate: 0.35, freq: 500, depth: 60, feedback: 30, stages: 0, stereo: 90, mix: 50 }, tip: '' },
+    { group: '常用', name: '寬廣（六階）', params: { rate: 0.2, freq: 700, depth: 75, feedback: 20, stages: 1, stereo: 180, mix: 45 }, tip: '' },
+    { group: '合成器', name: '很深（八階）', params: { rate: 0.6, freq: 900, depth: 85, feedback: 55, stages: 2, stereo: 90, mix: 55 }, tip: '' },
+  ],
+  tremolo: [
+    { group: '常用', name: '輕微顫音', params: { rate: 4.5, depth: 35, shape: 0, stereo: 0, mix: 100 }, tip: '' },
+    { group: '常用', name: 'Auto-Pan（左右擺）', params: { rate: 2, depth: 80, shape: 0, stereo: 1, mix: 100 }, tip: '兩個喇叭都聽得到，但聲音會在左右之間移動。' },
+    { group: '復古', name: '方波斷音', params: { rate: 6, depth: 90, shape: 2, stereo: 0, mix: 100 }, tip: '老式電鋼琴的機械顫音。' },
+    { group: '復古', name: '慢速起伏', params: { rate: 0.8, depth: 55, shape: 1, stereo: 2, mix: 100 }, tip: '' },
+  ],
+  autofilter: [
+    { group: '電子', name: '經典掃頻（低通）', params: { type: 0, freq: 600, q: 8, rate: 1, depth: 75, stereo: 0, mix: 100 }, tip: '' },
+    { group: '電子', name: '快速華爾滋', params: { type: 0, freq: 1200, q: 12, rate: 4, depth: 60, stereo: 90, mix: 100 }, tip: 'Trance 常見的快速掃動。' },
+    { group: '常用', name: '高通掃動（加亮）', params: { type: 1, freq: 300, q: 3, rate: 0.5, depth: 55, stereo: 0, mix: 100 }, tip: '' },
+    { group: '常用', name: '輕微呼吸', params: { type: 2, freq: 1500, q: 2, rate: 0.25, depth: 30, stereo: 0, mix: 60 }, tip: '' },
+  ],
+  bitcrush: [
+    { group: 'Lo-fi', name: '8 位元遊戲機', params: { bits: 8, rate: 12000, mix: 100, output: 0 }, tip: '' },
+    { group: 'Lo-fi', name: '電話／無線電', params: { bits: 6, rate: 8000, mix: 100, output: 0 }, tip: '和 EQ 的「電話」預設一起用效果更好。' },
+    { group: 'Lo-fi', name: '很兇的破壞', params: { bits: 3, rate: 4000, mix: 100, output: -4 }, tip: '位元太低會爆音，輸出要先收。' },
+    { group: '質感', name: '只加一點碎屑', params: { bits: 12, rate: 22000, mix: 25, output: 0 }, tip: '平行混入，當成質感而不是效果。' },
+  ],
+  ringmod: [
+    { group: '特效', name: '鐘聲', params: { freq: 440, depth: 100, mix: 100 }, tip: '頻率對到音高就會有金屬鐘聲。' },
+    { group: '特效', name: '機器人', params: { freq: 60, depth: 100, mix: 100 }, tip: '低頻載波，人聲會變成電腦說話。' },
+    { group: '常用', name: '輕微金屬感', params: { freq: 180, depth: 35, mix: 50 }, tip: '' },
+  ],
+  exciter: [
+    { group: '人聲', name: '人聲：空氣感', params: { freq: 4000, drive: 6, tone: 1, mix: 30 }, tip: '只加一點高頻泛音，字尾會更清楚。' },
+    { group: '樂器', name: '木吉他：光澤', params: { freq: 3000, drive: 5, tone: 0.5, mix: 25 }, tip: '' },
+    { group: '整體', name: '混音加亮', params: { freq: 6000, drive: 4, tone: 0, mix: 20 }, tip: '' },
+  ],
+  stereodelay: [
+    { group: '常用', name: '附點八分（立體）', params: { timeL: 0.75, timeR: 0.5, feedback: 30, cross: 0, tone: 5000, mix: 22 }, tip: '左右不同時間，聲音會鋪開。' },
+    { group: '常用', name: '交叉彈跳', params: { timeL: 0.5, timeR: 0.5, feedback: 45, cross: 100, tone: 4500, mix: 25 }, tip: '回音在左右之間彈。' },
+    { group: '特效', name: '長尾巴（寬）', params: { timeL: 1, timeR: 1.5, feedback: 60, cross: 50, tone: 3500, mix: 30 }, tip: '' },
+  ],
+  mbcomp: [
+    { group: '整體', name: '混音黏合（3 頻段）', params: { x1: 120, x2: 2500, attack: 15, release: 200, lowThr: -24, lowRatio: 2.5, lowGain: 0, midThr: -20, midRatio: 3, midGain: 0, highThr: -22, highRatio: 2, highGain: 0, output: 0 }, tip: '低頻穩住、中頻稍微收、高頻只擋峰值，整體更「黏」。' },
+    { group: '整體', name: '廣播／串流（厚實）', params: { x1: 150, x2: 3000, attack: 6, release: 120, lowThr: -30, lowRatio: 4, lowGain: 2, midThr: -24, midRatio: 4, midGain: 1, highThr: -20, highRatio: 3, highGain: 1, output: 0 }, tip: '每個頻段都壓一點，音量更平均、聽起來更大聲。' },
+    { group: '人聲', name: '人聲：穩定低頻＋收齒音', params: { x1: 180, x2: 4500, attack: 5, release: 90, lowThr: -34, lowRatio: 4, lowGain: -2, midThr: -20, midRatio: 3, midGain: 1, highThr: -30, highRatio: 6, highGain: -1, output: 0 }, tip: '分頻點拉高（4.5 kHz）讓高頻段專門處理齒音。' },
+    { group: '鼓', name: '鼓組：低頻收緊', params: { x1: 100, x2: 2000, attack: 3, release: 80, lowThr: -26, lowRatio: 5, lowGain: 1, midThr: -16, midRatio: 2, midGain: 0, highThr: -24, highRatio: 2, highGain: 0, output: 0 }, tip: '大鼓與貝斯的低頻一起被收乾淨，中高頻幾乎不動。' },
+    { group: '貝斯', name: '貝斯：每一顆一樣大', params: { x1: 250, x2: 3000, attack: 8, release: 120, lowThr: -28, lowRatio: 5, lowGain: 2, midThr: -24, midRatio: 4, midGain: 0, highThr: -26, highRatio: 4, highGain: 0, output: 0 }, tip: '' },
+    { group: '母帶', name: '母帶：輕微平衡', params: { x1: 110, x2: 2800, attack: 20, release: 300, lowThr: -20, lowRatio: 1.8, lowGain: 0, midThr: -16, midRatio: 1.6, midGain: 0, highThr: -18, highRatio: 1.6, highGain: 0, output: 0 }, tip: '只做 1–2 dB 的平衡，用來讓整體更整齊。' },
+  ],
+  utility: [
+    { group: '常用', name: '單聲道檢查', params: { gain: 0, pan: 0, phase: 0, mono: 1 }, tip: '按鈕開著就是在聽 MONO，關掉就恢復。' },
+    { group: '常用', name: '左右相位反轉（找問題）', params: { gain: 0, pan: 0, phase: 3, mono: 0 }, tip: '兩邊都反相時，跟其他軌疊在一起會互相抵消 → 用來檢查相位。' },
+    { group: '常用', name: '衰減 6 dB', params: { gain: -6, pan: 0, phase: 0, mono: 0 }, tip: '' },
+  ],
 };
 
 export const presetsFor = type => PRESETS[type] || [];
