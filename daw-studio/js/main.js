@@ -26,6 +26,7 @@ import { initMasterUi, toggleMaster, masterOpen } from './master-ui.js';
 import { toggleAlbum } from './album-ui.js';
 import { toggleArranger } from './arranger-ui.js';
 import { initAutomationUi, tickAutomation } from './automation-ui.js';
+import { openBreathPanel } from './breath-ui.js';
 import { showMenu, showMenuCols } from './menu.js';
 import { toggleChordLane, detectAndApply, applyChordsToHarmony, applyChordsToTune, clearChords, chordsOf, chordKeyOf, chordLabel, VIEW_NAMES } from './chord-ui.js';
 import { toggleSectionLane, clearSections, sectionsOf, secName } from './section-ui.js';
@@ -54,7 +55,7 @@ function syncTopbar() {
   $('btnSnap').classList.toggle('on', p.snap);
   $('btnPlay').classList.toggle('on', engine.playing);
   $('btnRec').classList.toggle('on', recorder.recording);
-  document.title = `${store.dirty ? '● ' : ''}${p.name} — 織音線上編曲製作`;
+  document.title = `${store.dirty ? '● ' : ''}${p.name} — 織音AI線上編曲製作`;
 }
 
 async function togglePlay() {
@@ -1038,7 +1039,7 @@ $('btnArranger').onclick = () => toggleArranger();
   translateDom();          // 非中文語系：整個介面換成英文
 
   // 除錯／課程截圖用的鉤子（不會影響正常操作）
-  window.__daw = { store, engine, view, toggleMixer, togglePiano, toggleMaster, toggleArranger, renderInspector, renderArrange, openPianoRoll, openFxPanel };
+  window.__daw = { store, engine, view, toggleMixer, togglePiano, toggleMaster, toggleArranger, renderInspector, renderArrange, openPianoRoll, openFxPanel, openBreathPanel };
 
   // 站上內建的音色庫：背景抓，抓完把示範專案的鋼琴與貝斯換成 GM 音色。
   // 抓不到就維持原本的合成音色，不影響任何功能。

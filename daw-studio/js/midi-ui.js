@@ -68,7 +68,7 @@ export function exportMidi(clipIds = null) {
     for (const c of t.clips) {
       if (!isMidiClip(c) || (only && !only.has(c.id))) continue;
       for (const n of c.notes) {
-        if (n.t >= c.lengthBeats) continue;
+        if (n.t >= c.lengthBeats || n.m) continue;   // 靜音的音符不匯出
         notes.push({ p: n.p, t: c.startBeat + n.t, d: Math.min(n.d, c.lengthBeats - n.t), v: n.v });
       }
       // 踏板：片段範圍內的事件；片段結尾還踩著就補一個放開

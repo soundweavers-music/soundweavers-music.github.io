@@ -43,7 +43,7 @@ RECTS = {"data": None}
 # 注意：DAW 的 CSP 是 script-src 'self'，行內腳本會被擋掉，所以要放成外部檔案
 HARNESS_TAG = '<script type="module" src="_shot.js"></script>'
 
-HARNESS = """import { newFx } from './js/effects.js';
+HARNESS = """import { newFx, FX_ORDER } from './js/effects.js';
 import { toggleArranger } from './js/arranger-ui.js';
 import { exportAudio } from './js/exporter.js';
 import { engine } from './js/engine.js';
@@ -566,6 +566,55 @@ for (const a of acts) {
       window.__daw.store.changed('fx');
       window.__daw.openFxPanel(t.id, fx.id);
     }
+    else if (key === 'fxmenu') {          // 開「新增效果器」選單，檢查分類標題有沒有出來
+      const E2 = window.__ERRS || (window.__ERRS = []);
+      const b = document.querySelectorAll('.fx-slot.add')[0];
+      if (!b) E2.push('fxmenu: 找不到新增按鈕');
+      else {
+        b.click();
+        await sleep(300);
+        const m = document.querySelector('.ctxmenu.cols');
+        if (!m) E2.push('fxmenu: 選單沒有打開');
+        else if (!m.querySelector('.ctx-head')) E2.push('fxmenu: 沒有分類標題');
+        else if (m.querySelectorAll('button').length < 20) E2.push('fxmenu: 效果器數量不對');
+      }
+    }
+    else if (key === 'breath') {          // 造一段有「歌聲＋吸氣」的音軌，開面板並套用
+      const E2 = window.__ERRS || (window.__ERRS = []);
+      const D2 = window.__daw, st = D2.store;
+      const sr = 48000, len = sr * 3;
+      const buf = new AudioBuffer({ length: len, numberOfChannels: 1, sampleRate: sr });
+      const d = buf.getChannelData(0);
+      let seed = 12345, lp = 0;
+      const rnd = function () { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 2147483648 - 1; };
+      for (let i = 0; i < len; i++) {
+        const t = i / sr;
+        let v = 0;
+        if (t < .5 || (t >= 1 && t < 2)) v = Math.sin(2 * Math.PI * 220 * t) * .3;
+        else if (t >= .8 && t < 1) { const w = rnd(); lp = lp * .7 + w * .3; v = lp * .04; }
+        d[i] = v;
+      }
+      const tr = st.project.tracks.find(function (x) { return x.kind === 'audio'; }) || st.project.tracks[0];
+      st.buffers.set('breathTest', buf);
+      tr.clips.push({ id: 'breathClip', name: '呼吸測試', start: 0, duration: 3, offset: 0, bufferId: 'breathTest', gainDb: 0, fadeIn: 0, fadeOut: 0 });
+      st.changed('structure');
+      D2.openBreathPanel(tr.id);
+      await sleep(600);
+      if (!document.querySelector('.brx-panel')) E2.push('breath: 面板沒有打開');
+      else if (!document.querySelectorAll('.brx-item').length) E2.push('breath: 沒有抓到呼吸段');
+      if (arg[0] !== 'show') {           // 'show' = 只開面板（截圖用）
+        document.querySelector('.brx-apply')?.click();
+        await sleep(400);
+        const L2 = tr.auto && tr.auto.volume;
+        if (!L2 || !L2.points.length) E2.push('breath: 沒有寫入音量自動化');
+        else if (!L2.on) E2.push('breath: 自動化沒有開啟讀取');
+        else {
+          const min = Math.min(...L2.points.map(p => p.v));
+          if (min > -59) E2.push('breath: 沒有 -∞ 的點（實際 ' + min + '）');
+          if (!L2.points.some(p => Math.abs(p.v - (tr.volumeDb ?? 0)) < .01)) E2.push('breath: 沒有回到原本音量的點');
+        }
+      }
+    }
     else if (key === 'wait') await sleep(Number(arg[0]));
     else if (key === 'eval') { const js = decodeURIComponent(arg.join(':'));
       const fn = function () { (0, eval)(js); }; fn(); LATE.push(fn); }
@@ -721,6 +770,30 @@ SHOT_LIST = {
     "fx-comp":    ("fx2:comp", ""),
     "fx-reverb":  ("fx2:reverb", ""),
     "fx-harm":    ("fx2:harm", ""),
+    "fx-sat":     ("fx2:sat", ""),
+    "fx-drive":   ("fx2:drive", ""),
+    "fx-delay":   ("fx2:delay", ""),
+    "fx-chorus":  ("fx2:chorus", ""),
+    "fx-deess":   ("fx2:deess", ""),
+    "fx-pitch":   ("fx2:pitch", ""),
+    "fx-gate":    ("fx2:gate", ""),
+    "fx-limiter": ("fx2:limiter", ""),
+    "fx-transient": ("fx2:transient", ""),
+    "fx-flanger": ("fx2:flanger", ""),
+    "fx-phaser":  ("fx2:phaser", ""),
+    "fx-tremolo": ("fx2:tremolo", ""),
+    "fx-autofilter": ("fx2:autofilter", ""),
+    "fx-bitcrush": ("fx2:bitcrush", ""),
+    "fx-ringmod": ("fx2:ringmod", ""),
+    "fx-exciter": ("fx2:exciter", ""),
+    "fx-stereodelay": ("fx2:stereodelay", ""),
+    "fx-utility": ("fx2:utility", ""),
+    "fx-width":   ("fx2:width", ""),
+    "fx-mbcomp":  ("fx2:mbcomp", ""),
+    "fx-menu":    ("fxmenu", ""),
+    "breath":     ("breath:show", ""),
+    "breath-apply": ("breath", ""),
+    "breath-zoom": ("breath,click:btnZoomIn,click:btnZoomIn,click:btnZoomIn", ""),
     # 對話框
     "dlg-import": ("dlg:dlgExport", ""),
     "dlg-banks":  ("dlg:dlgBanks", ""),

@@ -28,7 +28,8 @@ const dbg = db => Math.pow(10, db / 20);
 // 建立母帶鏈節點；回傳 { input, output, set(m), gr() }
 export function buildMastering(ctx, m) {
   const input = ctx.createGain(), output = ctx.createGain();
-  const hp = ctx.createBiquadFilter(); hp.type = 'highpass'; hp.Q.value = 0.707;
+  // Web Audio 的高通把 Q 當成 dB：0.7071 線性 = −3.01 dB（Butterworth，沒有共振凸起）
+  const hp = ctx.createBiquadFilter(); hp.type = 'highpass'; hp.Q.value = -3.01;
   const lo = ctx.createBiquadFilter(); lo.type = 'lowshelf'; lo.frequency.value = 120;
   const mid = ctx.createBiquadFilter(); mid.type = 'peaking'; mid.frequency.value = 1500; mid.Q.value = 0.7;
   const hi = ctx.createBiquadFilter(); hi.type = 'highshelf'; hi.frequency.value = 9000;
