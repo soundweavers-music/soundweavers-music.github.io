@@ -168,6 +168,14 @@ EN_COURSES = [
     ("/en/ukulele/", "🎶", "Ukulele: Strumming and Fingerstyle"),
     ("/en/dawcourse/", "🎛", "Producing in a DAW"),
 ]
+EN_JOURNEY_SOON = [
+    ("I", "Breath leaves the body"),
+    ("II", "Strings in the arms and in the earth"),
+    ("III", "Strings drawn across the sky"),
+    ("IV", "Faint light from the earth's core and from the hand"),
+    ("V", "The rhythm of cities and stardust"),
+    ("VI", "Keys open a room, many voices reach the square"),
+]
 EN_TOOLS = [
     ("/en/tools/fretboard/", "🎸 Fretboard and chords"),
     ("/en/chord-detection/", "🎼 Chord detection"),
@@ -178,9 +186,13 @@ EN_TOOLS = [
 ]
 
 
-def _en_dropdown(page_path, title, href, items):
-    """英文導覽列的一個下拉選單：跟中文版同一個結構。"""
-    if not items:
+def _en_dropdown(page_path, title, href, items, soon=()):
+    """英文導覽列的一個下拉選單：跟中文版同一個結構。
+
+    `soon` 是還沒建置的條目（中文版用 `.nav-soon` 標「建置中」），只列出來、
+    不做成連結。
+    """
+    if not items and not soon:
         return ""
 
     def link(u, label):
@@ -190,6 +202,10 @@ def _en_dropdown(page_path, title, href, items):
         return '<a href="%s">%s</a>' % (resolve_url(page_path, u), label)
 
     links = "".join(link(u, label) for u, label in items)
+    links += "".join(
+        '<span class="nav-soon">Journey %s | %s'
+        '<span class="nav-soon-tag">In development</span></span>' % (num, escape(name))
+        for num, name in soon)
     return (f'      <div class="nav-dropdown">\n'
             f'        <a href="{resolve_url(page_path, href)}" class="dropdown-trigger">{title}</a>\n'
             f'        <div class="dropdown-menu">\n          {links}\n        </div>\n'
@@ -213,6 +229,9 @@ def site_header_en(page_path):
         ("/en/learn/", "All courses"),
     ] + [(u, "%s %s" % (icon, name)) for u, icon, name in EN_COURSES])
     tools = _en_dropdown(page_path, "Tools", "/en/tools/", EN_TOOLS)
+    journey = _en_dropdown(page_path, "Sound Journey", "/en/sound-journey/", [
+        ("/en/sound-journey/", "The gateway"),
+    ], soon=EN_JOURNEY_SOON)
     about = _en_dropdown(page_path, "About", "/en/about/", [
         ("/en/about/", "About World Sound"),
         ("/en/about/author/", "Author"),
@@ -227,6 +246,7 @@ def site_header_en(page_path):
 {ensembles}
 {courses}
 {tools}
+{journey}
 {about}
       {bss.lang_selector(page_path, "en")}
     </nav>
