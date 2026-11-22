@@ -133,6 +133,20 @@ Chrome 開站顯示「危險網站／可能誘騙你安裝軟體」。查詢 `ht
   記在 `SAME_PATH_SECTIONS`，直接跳過。`extract` 也不再抽這些頁。
 - **合奏與編制百科（40 篇＋分類頁）走 page_i18n**：它沒有 `content/en/` 英文稿，
   所以跟樂器百科、國家頁一樣，中文頁當唯一真相、建置時換字。
+- **導覽列三語切換**：右上角 `<select class="nav-lang">`（繁體中文／简体中文／English），
+  三個語言指向「同一頁」而不是首頁。學英文／簡中頁的目錄名跟中文不一樣
+  （`/vocal/1/` ↔ `/en/vocal/ch01/`、`/tools/daw/learn/03/` ↔ `/en/dawcourse/ch03/`），
+  所以 `build_static_site.lang_links()` 有 `en_url_for()`／`zh_url_for()` 兩個方向的對照，
+  新增課程或改章節資料夾命名時要一起改。
+- **英文導覽列跟中文同一個結構**（`build_vocal_extra.site_header_en`）：下拉選單、
+  色調按鈕、banner 都有；`page_i18n` 換標頭時會連中文頁的 banner 一起吃掉，
+  不然英文頁會多一條。
+- **`/hans/` 簡體版**：`scripts/build_hans.py` 把繁體頁逐字轉字，不另外翻譯。
+  轉字表 `scripts/data/zh_hans_map.json` 是從 OpenCC 的 t2s 產生的（3,751 字，
+  建置時不需要裝套件）。三個坑：**href／src 不能轉**（站上有中文網址）、
+  **相對連結要看指到哪裡**（指到 `/assets/`、`/fonts/` 這種鏡像外的才補一層 `../`，
+  指到鏡像內頁面的不用動）、**page_i18n 要跳過 `/hans/`**，不然它會把簡體頁
+  再翻一次英文（實際發生過，一次多出 2,736 頁）。
 - **`/tools/daw/learn/NN/` 不翻，直接轉址**：那 24 堂的英文版是
   `build_en_courses.py` 建的 `/en/dawcourse/chNN/`，同一門課不再翻第二份。
   `redirect_for()` 會為這些頁產生 `meta refresh` 轉址頁（順帶 canonical），
