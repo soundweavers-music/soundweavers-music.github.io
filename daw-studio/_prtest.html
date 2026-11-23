@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>鋼琴捲簾測試</title>
+<link rel="stylesheet" href="daw.css">
+<style>
+  /* 測試頁自己撐出一個像真的鋼琴捲簾的版面（正式頁面由 .app 的 grid 決定高度） */
+  html, body { margin: 0; background: #111; }
+  #pianoroll { height: 430px; }
+  #toast { position: fixed; left: 8px; top: 8px; }
+</style>
+</head>
+<body>
+<section class="pianoroll" id="pianoroll"></section>
+<div id="toast"></div>
+<pre id="out" style="color:#ccc;font:11px monospace"></pre>
+<script type="module">
+const lines = [];
+const say = s => { lines.push(s); document.getElementById('out').textContent = lines.join('\n'); };
+window.onerror = (m, src, l) => say('WINDOW-ERR ' + m + ' @' + l);
+window.addEventListener('unhandledrejection', e => say('REJECT ' + (e.reason && (e.reason.stack || e.reason.message))));
+
+function assert(cond, name, extra) {
+  say((cond ? 'ok   ' : 'FAIL ') + name + (extra !== undefined ? ' → ' + JSON.stringify(extra) : ''));
+  return cond;
+}
+
+try {
+  const mod = await import('./js/pianoroll.js');
+  const { store, newMidiClip } = await import('./js/state.js');
+  const { engine } = await import('./js/engine.js');
+  const prDraw = () => mod.draw();
+
+  // ---- 建立一條 MIDI 軌＋片段 ----
+  const track = store.addTrack('midi');
+  const clip = newMidiClip(0, 4, []);
+  track.clips.push(clip);
+  store.changed('structure');
+
+  mod.initPianoRoll();
+  mod.open(clip.id);
+  await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+
+  assert(mod.isOpen(), 'init/open 之後面板是開的');
+
+  const wrap = document.getElementById('prScroll');
+  const rect = wrap.getBoundingClientRect();
+  say('wrap rect ' + JSON.stringify({ w: Math.round(rect.width), h: Math.round(rect.height), top: Math.round(rect.top) }));
+  assert(rect.width > 200 && rect.height > 40, '可視區域有大小');
+
+  // 合成指標事件（真的 pointerId 抓不到，程式裡已經 try/catch）
+  let pid = 1;
+  const ev = (type, x, y, opt = {}) => wrap.dispatchEvent(new PointerEvent(type, {
+    clientX: rect.left + x, clientY: rect.top + y, button: 0, buttons: 1,
+    pointerId: pid++, bubbles: true, cancelable: true, ...opt,
+  }));
+
+  // ---- 鉛筆：點空白新增音符 ----
+  document.querySelector('[data-tool=pencil]').click();
+  ev('pointerdown', 40, 100);
+  ev('pointerup', 40, 100);
+  assert(clip.notes.length === 1, '鉛筆點一下新增一個音符', clip.notes.length);
+  const n0 = clip.notes[0];
+  assert(n0 && n0.p > 0 && n0.d > 0, '新音符有音高與長度', n0);
+  assert(Math.abs(n0.t / 0.25 - Math.round(n0.t / 0.25)) < 1e-6, '新音符對齊 1/16 格線', n0 && n0.t);
+
+  // ---- 指標：拖曳音符會移動 ----
+  document.querySelector('[data-tool=pointer]').click();
+  const beforeT = n0.t;
+  ev('pointerdown', 40 + 2, 100);
+  wrap.dispatchEvent(new PointerEvent('pointermove', { clientX: rect.left + 40 + 80, clientY: rect.top + 100, buttons: 1, pointerId: 900, bubbles: true }));
+  wrap.dispatchEvent(new PointerEvent('pointerup', { clientX: rect.left + 40 + 80, clientY: rect.top + 100, pointerId: 900, bubbles: true }));
+  assert(Math.abs(n0.t - (beforeT + 1)) < 1e-6, '拖曳 80px（一拍）把音符往後移', [beforeT, n0.t]);
+
+  // ---- 量化 ----
+  n0.t = 0.31;
+  mod.quantize();
+  assert(Math.abs(n0.t - 0.25) < 1e-6, '量化把 0.31 對到 0.25', n0.t);
+
+  // ---- 移調 ----
+  mod.selectAllNotes();
+  const p0 = n0.p;
+  mod.transpose(2);
+  assert(n0.p === p0 + 2, '移調 +2 半音', [p0, n0.p]);
+  mod.transpose(-2);
+
+  // ---- 複製／貼上 ----
+  mod.copyNotes(false);
+  mod.pasteNotes();
+  assert(clip.notes.length === 2, '貼上多一個音符', clip.notes.length);
+
+  // ---- 靜音：引擎排程要跳過，且選取切換 ----
+  mod.selectAllNotes();
+  mod.toggleMuteSelected();
+  const midiEventsDummy = clip.notes.every(n => !!n.m);
+  assert(midiEventsDummy, '靜音旗標設起來', clip.notes.map(n => !!n.m));
+  mod.selectAllNotes();
+  mod.toggleMuteSelected();
+  assert(clip.notes.every(n => !n.m), '再按一次取消靜音');
+
+  // ---- 剪刀：切開 ----
+  clip.notes.length = 1;
+  const cut = clip.notes[0];
+  cut.t = 0; cut.d = 2; cut.p = 60;
+  mod.selectAllNotes();
+  engine.seek(0.5 * 60 / store.project.bpm);   // 播放頭 0.5 拍
+  mod.splitAtPlayhead();
+  assert(clip.notes.length === 2, '在播放頭切開成兩顆', clip.notes.map(n => [n.t, n.d]));
+  assert(clip.notes.some(n => Math.abs(n.d - 0.5) < 1e-6), '切開的長度正確');
+
+  // ---- 合併 ----
+  mod.selectAllNotes();
+  mod.joinSelected();
+  assert(clip.notes.length === 1 && Math.abs(clip.notes[0].d - 2) < 1e-6, '合併回一顆 2 拍的音', clip.notes.map(n => [n.t, n.d]));
+
+  // ---- 功能選單開得起來，量化按鈕有效 ----
+  document.getElementById('prFx').click();
+  const menuEl = document.getElementById('prMenu');
+  assert(!!menuEl && menuEl.classList.contains('pr-menu'), '功能選單打開（每次都建立新節點）');
+  assert(menuEl.innerHTML.includes('人性化') && menuEl.innerHTML.includes('對齊音階'), '選單區塊都在');
+  const mrect = document.getElementById('prMenu').getBoundingClientRect();
+  assert(mrect.width > 100 && mrect.height > 100, '功能選單有實際大小與位置', [Math.round(mrect.left), Math.round(mrect.top), Math.round(mrect.width), Math.round(mrect.height)]);
+  const qs = document.getElementById('qzStrength');
+  qs.value = '100'; qs.dispatchEvent(new Event('input'));
+  document.getElementById('qzApply').click();
+  assert(document.getElementById('prMenu') === null, '量化後選單關起來（節點移除）');
+
+  // ---- 檢視選項（再開一次選單）----
+  document.getElementById('prFx').click();
+  const vc = document.getElementById('viewColor');
+  vc.value = 'pitch'; vc.dispatchEvent(new Event('change'));
+  const vl = document.getElementById('viewLabel');
+  vl.value = 'vel'; vl.dispatchEvent(new Event('change'));
+  const vr = document.getElementById('viewRowH');
+  vr.value = '18'; vr.dispatchEvent(new Event('input'));
+  await new Promise(r => requestAnimationFrame(r));
+  assert(document.getElementById('prInner').style.height.startsWith(String(128 * 18)), '音高列高度改變（128×18）', document.getElementById('prInner').style.height);
+
+  // ---- 復原後選取要接回來 ----
+  store.checkpoint();
+  const t1 = clip.notes[0].t;
+  clip.notes[0].t = t1 + 1;
+  store.changed('structure');
+  store.undo();
+  mod.draw();
+  mod.deleteNotes();
+  assert(store.findClip(clip.id).clip.notes.length === 0, '復原後選取仍然指著同一顆音符（deleteNotes 有效）', store.findClip(clip.id).clip.notes.length);
+
+  // ---- 鍵盤：先在畫面上點一下，之後的快捷鍵才算數 ----
+  // 正式頁面是 main.js 把 keydown 轉給 handleKey；測試頁沒有 main.js，直接呼叫
+  const key = (k, opt = {}) => {
+    const e = new KeyboardEvent('keydown', { key: k, bubbles: true, cancelable: true, ...opt });
+    document.body.dispatchEvent(e);
+    return mod.handleKey(e);
+  };
+  // 復原會換掉整個專案物件，所以每次動作後都要重新抓片段
+  const live = () => store.findClip(clip.id).clip;
+  const noteCount = () => live().notes.length;
+  const toolOn = sel => document.querySelector(`#prTools button[data-tool=${sel}]`).classList.contains('on');
+  const innerRect = () => document.getElementById('prInner').getBoundingClientRect();
+  const pxBeat = () => Number(String(document.getElementById('prInner').style.width).replace('px', ''))
+    / Math.max(live().lengthBeats + store.project.sigNum * 4, 16);
+  const rowH = () => Number(String(document.getElementById('prInner').style.height).replace('px', '')) / 128;
+  // 某顆音符中間的畫面座標
+  const notePoint = n => {
+    const r = innerRect();
+    return { x: r.left + n.t * pxBeat() + Math.min(20, n.d * pxBeat() / 2), y: r.top + (127 - n.p) * rowH() + rowH() / 2 };
+  };
+
+  live().notes = [{ p: 60, t: 0, d: 1, v: 100 }, { p: 64, t: 1, d: 1, v: 100 }, { p: 67, t: 2, d: 1, v: 100 }];
+  // 先點一下畫面：捲簾取得焦點，之後的鍵盤快捷鍵才歸它
+  ev('pointerdown', 300, 120);
+  ev('pointerup', 300, 120);
+  prDraw();
+  mod.selectAllNotes();
+  key('ArrowUp');
+  assert(live().notes.every(n => n.p >= 61), '方向鍵升半音', live().notes.map(n => n.p));
+  key('ArrowUp', { shiftKey: true });
+  assert(live().notes.every(n => n.p >= 73), 'Shift+方向鍵升八度', live().notes.map(n => n.p));
+  key('ArrowDown', { shiftKey: true });
+  key('ArrowDown');
+
+  // 工具切換（數字鍵）
+  key('3');
+  assert(toolOn('eraser'), '數字鍵 3 切到橡皮擦');
+  key('1');
+  assert(toolOn('pointer'), '數字鍵 1 切回指標');
+
+  // 複製／貼上／刪除
+  const nCount = noteCount();
+  mod.selectAllNotes();
+  key('c', { ctrlKey: true });
+  key('v', { ctrlKey: true });
+  assert(noteCount() === nCount * 2, 'Ctrl+C／Ctrl+V 貼上三顆', noteCount());
+  key('a', { ctrlKey: true });
+  key('Delete');
+  assert(noteCount() === 0, 'Ctrl+A 之後 Delete 全部刪掉', noteCount());
+
+  // ---- 橡皮擦：點一下就刪 ----
+  store.undo();
+  prDraw();
+  assert(noteCount() > 0, '復原拿回音符', noteCount());
+  document.querySelector('[data-tool=eraser]').click();
+  let pt = notePoint(live().notes[0]);
+  const before = noteCount();
+  ev('pointerdown', pt.x - rect.left, pt.y - rect.top);
+  ev('pointerup', pt.x - rect.left, pt.y - rect.top);
+  assert(noteCount() === before - 1, '橡皮擦點音符就刪掉', [before, noteCount()]);
+  document.querySelector('[data-tool=pointer]').click();
+
+  // ---- 右鍵選單 ----
+  pt = notePoint(live().notes[0]);
+  wrap.dispatchEvent(new MouseEvent('contextmenu', { clientX: pt.x, clientY: pt.y, bubbles: true, cancelable: true }));
+  const ctx = document.getElementById('prCtx');
+  assert(!!ctx && ctx.textContent.includes('刪除'), '右鍵選單出現（有刪除項目）', ctx && ctx.textContent);
+  ctx.querySelector('button:last-child').click();
+  assert(noteCount() === before - 2, '右鍵選單刪除有效', noteCount());
+
+  // ---- 剪刀：點音符中間切開 ----
+  document.querySelector('[data-tool=scissors]').click();
+  pt = notePoint(live().notes[0]);
+  const cutBefore = noteCount();
+  ev('pointerdown', pt.x - rect.left, pt.y - rect.top);
+  ev('pointerup', pt.x - rect.left, pt.y - rect.top);
+  assert(noteCount() === cutBefore + 1, '剪刀把一顆切成兩顆', [cutBefore, noteCount()]);
+  document.querySelector('[data-tool=pointer]').click();
+
+  // ---- 力度筆：往上拖變大聲 ----
+  document.querySelector('[data-tool=velocity]').click();
+  pt = notePoint(live().notes[0]);
+  const v0 = live().notes[0].v;
+  wrap.dispatchEvent(new PointerEvent('pointerdown', { clientX: pt.x, clientY: pt.y, button: 0, buttons: 1, pointerId: 55, bubbles: true }));
+  wrap.dispatchEvent(new PointerEvent('pointermove', { clientX: pt.x, clientY: pt.y - 30, buttons: 1, pointerId: 55, bubbles: true }));
+  wrap.dispatchEvent(new PointerEvent('pointerup', { clientX: pt.x, clientY: pt.y - 30, pointerId: 55, bubbles: true }));
+  assert(live().notes[0].v > v0, '力度筆往上拖會變大聲', [v0, live().notes[0].v]);
+  document.querySelector('[data-tool=pointer]').click();
+
+  // ---- 時間尺：點一下把播放頭移過去 ----
+  const ruler = document.getElementById('prRuler');
+  const rr = ruler.getBoundingClientRect();
+  const barPx = pxBeat() * store.project.sigNum;
+  ruler.dispatchEvent(new PointerEvent('pointerdown', { clientX: rr.left + 64 + barPx * 2, clientY: rr.top + 8, button: 0, buttons: 1, pointerId: 66, bubbles: true }));
+  ruler.dispatchEvent(new PointerEvent('pointerup', { clientX: rr.left + 64 + barPx * 2, clientY: rr.top + 8, pointerId: 66, bubbles: true }));
+  const seekBeat = engine.currentTime() / (60 / store.project.bpm);
+  assert(Math.abs(seekBeat - store.project.sigNum * 2) < 0.4, '拖時間尺把播放頭移到第 3 小節', seekBeat);
+
+  // ---- 上／下一個片段 ----
+  const t2 = store.project.tracks.find(t => t.kind === 'midi');
+  const clipB = { id: 'clipB', name: '第二段', startBeat: 16, lengthBeats: 4, notes: [{ p: 62, t: 0, d: 1, v: 90 }] };
+  t2.clips.push(clipB);
+  store.changed('structure');
+  document.getElementById('prClipNext').click();
+  await new Promise(r => requestAnimationFrame(r));
+  assert(mod.currentClipId() === 'clipB', '› 切到下一個 MIDI 片段', mod.currentClipId());
+  document.getElementById('prClipPrev').click();
+  await new Promise(r => requestAnimationFrame(r));
+  assert(mod.currentClipId() === clip.id, '‹ 切回上一個片段', mod.currentClipId());
+  t2.clips = t2.clips.filter(c => c.id !== 'clipB');
+
+  // ---- 踏板列 ----
+  store.undo();   // 把音符拿回來
+  const ped = document.getElementById('prPedCv');
+  const pr2 = ped.getBoundingClientRect();
+  ped.dispatchEvent(new PointerEvent('pointerdown', { clientX: pr2.left + 120, clientY: pr2.top + 8, button: 0, buttons: 1, pointerId: 77, bubbles: true }));
+  ped.dispatchEvent(new PointerEvent('pointerup', { clientX: pr2.left + 120, clientY: pr2.top + 8, pointerId: 77, bubbles: true }));
+  assert(Array.isArray(store.findClip(clip.id).clip.pedal), '踏板列點一下會新增踏板', store.findClip(clip.id).clip.pedal);
+
+  // ---- 刪除全部後關閉 ----
+  store.undo();
+  say('DONE ' + lines.filter(l => l.startsWith('FAIL')).length + ' fails');
+} catch (e) {
+  say('THROW ' + (e && (e.stack || e.message)));
+}
+await fetch('/__RESULT__?' + encodeURIComponent(lines.join('\n')));
+</script>
+</body>
+</html>

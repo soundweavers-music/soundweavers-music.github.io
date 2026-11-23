@@ -354,8 +354,17 @@ def cmd_build() -> int:
         table.update(en.get(fig, {}))
         missing = []
 
+        # 純標點的中文節點（引號、句號）：字典裡不會有，但留在英文頁會很突兀。
+        # 只換「整串都是標點」的節點，正常的句子完全不受影響。
+        PUNCT = {"「": "“", "」": "”", "。": ".", "，": ",", "、": ",", "：": ":", "；": ";",
+                 "！": "!", "？": "?", "（": "(", "）": ")", "　": " "}
+
         def conv(raw: str) -> str:
             key = re.sub(r"\s+", " ", html.unescape(raw)).strip()
+            if key and not CJK.search(key) and any(ch in PUNCT for ch in key):
+                lead = raw[:len(raw) - len(raw.lstrip())]
+                trail = raw[len(raw.rstrip()):]
+                return lead + html.escape("".join(PUNCT.get(ch, ch) for ch in key)) + trail
             if not key or not CJK.search(key):
                 return raw
             if "://" in key or key.startswith(("/", "#")):
