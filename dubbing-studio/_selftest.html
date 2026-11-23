@@ -185,6 +185,93 @@
   try { await D.ttsRun('你好', 1); } catch (e) { noModel = (e && e.message) || String(e); }
   check('AI 配音：沒裝模型時給清楚的說明', /還沒有安裝配音模型/.test(noModel), noModel.slice(0, 40));
 
+  // ---- 口白：分段（take）機制 ----
+  var AC = frame.contentWindow.AudioContext || frame.contentWindow.webkitAudioContext;
+  var actx = new AC();
+  function mkBuf(sec, rate, freq) {
+    var n = Math.round(sec * rate), b = actx.createBuffer(1, n, rate), d = b.getChannelData(0);
+    for (var i = 0; i < n; i++) d[i] = Math.sin(2 * Math.PI * freq * i / rate) * 0.2;
+    return b;
+  }
+  D.ed.takes.length = 0;
+  D.addTake('A', mkBuf(1, 48000, 220));
+  D.addTake('B', mkBuf(0.5, 44100, 330));
+  check('分段：兩段都加進來', D.ed.takes.length === 2, D.ed.takes.length + ' 段');
+  check('分段：接起來的長度正確（1 + 0.25 間隔 + 0.5）',
+    Math.abs(D.ed.buffer.duration - 1.75) < 0.05, D.ed.buffer.duration.toFixed(3) + ' s');
+  check('分段：第二段的起點正確', Math.abs(D.ed.takes[1].off - 1.25) < 0.03, D.ed.takes[1].off.toFixed(3) + ' s');
+  check('分段：不同取樣率會統一', D.ed.buffer.sampleRate === 48000, String(D.ed.buffer.sampleRate));
+  var t0 = D.ed.takes[0]; D.ed.takes[0] = D.ed.takes[1]; D.ed.takes[1] = t0;  // 假裝按了「↑」
+  D.rebuildBuffer();
+  check('分段：順序可以對調', D.ed.takes[0].name === 'B' && Math.abs(D.ed.takes[1].off - 0.75) < 0.03,
+    D.ed.takes[0].name + ' 在前，第二段從 ' + D.ed.takes[1].off.toFixed(2) + ' s');
+
+  // ---- 缺段判斷（哪幾句還沒錄到） ----
+  D.ed.cues = D.parseSubtitle('1\n00:00:00,000 --> 00:00:02,000\n第一句話\n\n2\n00:00:02,000 --> 00:00:04,000\n第二句話\n\n3\n00:00:04,000 --> 00:00:06,000\n第三句話很長一點\n');
+  var cov1 = D.edCoverage([
+    { time: 0.1, end: 1.9, text: '第一句話' },
+    { time: 2.1, end: 3.9, text: '第二句話' }
+  ]);
+  check('缺段：只錄了前兩句 → 缺第 3 句', cov1.missing.length === 1 && cov1.missing[0] === 2,
+    '缺 ' + JSON.stringify(cov1.missing) + '、不像 ' + JSON.stringify(cov1.weak.map(function (w) { return w.i; })));
+  var cov2 = D.edCoverage([
+    { time: 0.1, end: 1.9, text: '第一句話' },
+    { time: 2.1, end: 3.9, text: '第二句話' },
+    { time: 4.1, end: 5.9, text: '第三句話很長一點' }
+  ]);
+  check('缺段：三句都有 → 不缺', cov2.missing.length === 0, JSON.stringify(cov2.missing));
+  var cov3 = D.edCoverage([
+    { time: 0.1, end: 1.9, text: '完全不相干的一段話' }
+  ]);
+  check('缺段：聽到的字不一樣 → 標成「不像」而不是消失',
+    cov3.missing.length + cov3.weak.length === 3, '缺 ' + cov3.missing.length + '、不像 ' + cov3.weak.length);
+
+  // ---- 效果圖跟著主題換色 ----
+  var htmlEl = frame.contentDocument.documentElement;
+  htmlEl.setAttribute('data-theme', 'dark');
+  var pDark = D.fxPalette();
+  D.drawEffects();
+  htmlEl.setAttribute('data-theme', 'light');
+  var pLight = D.fxPalette();
+  D.drawEffects();
+  check('主題：深色／淺色判斷正確', pDark.dark === true && pLight.dark === false);
+  check('主題：圖表底色跟著換', pDark.bg0 !== pLight.bg0, pDark.bg0 + ' vs ' + pLight.bg0);
+  check('主題：文字色跟著換', pDark.dim !== pLight.dim);
+  var cv = frame.contentDocument.getElementById('eqCv');
+  htmlEl.setAttribute('data-theme', 'dark');
+  D.drawEffects();
+  var pxDark = cv.getContext('2d').getImageData(2, cv.height - 3, 1, 1).data;
+  htmlEl.setAttribute('data-theme', 'light');
+  D.drawEffects();
+  var pxLight = cv.getContext('2d').getImageData(2, cv.height - 3, 1, 1).data;
+  check('主題：畫布真的重畫成不同顏色',
+    (pxDark[0] + pxDark[1] + pxDark[2]) < (pxLight[0] + pxLight[1] + pxLight[2]),
+    '深 ' + [pxDark[0], pxDark[1], pxDark[2]].join(',') + ' / 淺 ' + [pxLight[0], pxLight[1], pxLight[2]].join(','));
+
+  // ---- 瀏覽器錄音（無頭 Chrome 用假麥克風） ----
+  var recBtn = frame.contentDocument.getElementById('recBtn');
+  var W2 = frame.contentWindow;
+  if (!W2.navigator.mediaDevices || !W2.navigator.mediaDevices.getUserMedia || !W2.MediaRecorder) {
+    check('錄音：這個瀏覽器不支援（略過）', true, 'skip');
+  } else {
+    var before = D.ed.takes.length;
+    recBtn.click();
+    await new Promise(function (r) { setTimeout(r, 1400); });
+    recBtn.click();
+    for (var tries = 0; tries < 40 && D.ed.takes.length === before; tries++) {
+      await new Promise(function (r) { setTimeout(r, 150); });
+    }
+    var recSt = frame.contentDocument.getElementById('recStatus').textContent;
+    check('錄音：按下錄音→停止後多出一段', D.ed.takes.length === before + 1,
+      D.ed.takes.length + ' 段' + (recSt ? '（' + recSt + '）' : ''));
+    if (D.ed.takes.length > before) {
+      var last = D.ed.takes[D.ed.takes.length - 1];
+      check('錄音：這一段有聲音（假麥克風是 440 Hz 音）', last.buffer.duration > 0.5,
+        fmtSecs(last.buffer.duration));
+    }
+  }
+  function fmtSecs(s) { return s.toFixed(2) + ' s'; }
+
   // ---- WAV ----
   var b = D.wav(new Float32Array(100), 48000);
   check('WAV：檔頭與長度正確', b.byteLength === 44 + 200, b.byteLength + ' bytes');

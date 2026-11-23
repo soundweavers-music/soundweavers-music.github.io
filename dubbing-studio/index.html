@@ -39,6 +39,25 @@
 .db-voice { display: grid; grid-template-columns: 1fr auto; gap: 6px 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--line, #e5e0d8); font-size: 13.5px; }
 .db-voice:last-child { border-bottom: 0; }
 .db-voice small { color: var(--muted, #6b6257); }
+/* 錄音／分段 */
+.rec-on { background: #b3352f !important; border-color: #b3352f !important; color: #fff !important; }
+.rec-on::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #fff; margin-right: 6px; vertical-align: 1px; animation: dbPulse 1s ease-in-out infinite; }
+@keyframes dbPulse { 0%, 100% { opacity: 1 } 50% { opacity: .25 } }
+.take-row { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--line, #e5e0d8); font-size: 13px; }
+.take-row:last-child { border-bottom: 0; }
+.take-row b { color: var(--ink, #2e2820); }
+.take-row small { color: var(--muted, #6b6257); }
+.take-row .take-act { display: flex; gap: 6px; }
+.take-btn { font-size: 12px; padding: 3px 8px; border-radius: 6px; border: 1px solid var(--line-strong, #d6cbc1); background: var(--soft, #f8f5ef); color: var(--ink2, #4c443a); cursor: pointer; }
+.take-btn:hover { border-color: var(--accent, #a0522d); }
+.db-miss { border: 1px solid var(--accent, #a0522d); border-radius: 8px; padding: 12px 14px; margin-top: 10px; background: var(--accent-soft, #f3eae0); font-size: 13.5px; line-height: 1.7; }
+.db-miss b { color: var(--ink, #2e2820); }
+.db-miss ul { margin: 8px 0 0; padding-left: 20px; }
+.db-miss li { margin: 2px 0; }
+.db-miss .big { font-size: 17px; color: var(--ink, #2e2820); }
+.db-miss.ok { border-color: #3f8f5f; background: #eaf5ee; }
+[data-theme="dark"] .db-miss { background: #2b2521; }
+[data-theme="dark"] .db-miss.ok { background: #22302a; }
 .db-note { font-size: 12.5px; color: var(--muted, #6b6257); line-height: 1.7; background: var(--soft, #faf7f1);
   border-radius: 8px; padding: 10px 12px; margin-top: 12px; }
 .db-warn { color: #9a6a17; }
@@ -135,17 +154,24 @@ audio { width: 100%; margin-top: 12px; }
     </div>
 
     <div class="db-card">
-      <h3>1. 口白錄音與字幕稿</h3>
-      <p class="sub">上傳你錄好的口白（WAV／MP3／M4A）與字幕稿（.srt／.lrc）。AI 會先聽出口白裡每一句的位置，再把它剪到字幕上。</p>
-      <div class="db-grid2">
-        <div>
-          <div class="db-drop" id="editAudioDrop">拖入口白錄音檔</div>
-          <input type="file" id="editAudio" accept="audio/*,.wav,.mp3,.m4a" hidden>
-        </div>
-        <div>
-          <div class="db-drop" id="editSubDrop">拖入字幕檔（.srt／.lrc）</div>
-          <input type="file" id="editSub" accept=".srt,.lrc,text/plain" hidden>
-        </div>
+      <h3>1. 口白：錄音（可分段）或丟檔案</h3>
+      <p class="sub">可以直接用麥克風錄，也可以一次丟好幾個錄音檔。<b>可以分次錄</b>：先念一段、按「檢查還缺哪一段」，AI 會聽出你念到哪裡、還缺哪幾句，再照著補錄就好。</p>
+      <div class="db-row">
+        <button class="db-btn" id="recBtn">● 開始錄音</button>
+        <button class="db-btn ghost" id="editPickBtn">選錄音檔（可多選）</button>
+        <span class="db-status" id="recStatus"></span>
+      </div>
+      <div class="db-drop" id="editAudioDrop">也可以把錄音檔拖到這裡（多個檔案會照順序接起來：先拖的念前面）</div>
+      <input type="file" id="editAudio" accept="audio/*,.wav,.mp3,.m4a" multiple hidden>
+      <div class="db-cues" id="takeList"></div>
+      <div class="db-row">
+        <button class="db-btn ghost" id="coverageBtn" disabled>檢查還缺哪一段</button>
+        <span class="db-status" id="covStatus"></span>
+      </div>
+      <div id="missList"></div>
+      <div class="db-row" style="margin-top:10px">
+        <div class="db-drop" id="editSubDrop">拖入字幕檔（.srt／.lrc）或點一下選</div>
+        <input type="file" id="editSub" accept=".srt,.lrc,text/plain" hidden>
       </div>
       <div class="db-row">
         <label class="db-check"><input type="checkbox" id="optDenoise" checked> 降噪</label>
@@ -731,24 +757,170 @@ audio { width: 100%; margin-top: 12px; }
   $("ttsStop").onclick = function () { ttsStopAudio(); stopSpeak(); setStatus($("ttsStatus"), "已停止"); };
 
   // ═══════════════════════ ② 口白剪輯 ═══════════════════════
-  var ed = { buffer: null, cues: [], segs: null, result: null, sr: 44100 };
+  // 口白可以是「好幾段」：每次錄音或每個上傳的檔案都是一段（take），
+  // 依序接起來當成一段口白來看。AI 認過的字會記在該段上，補錄時只認新錄的那段。
+  var ed = { buffer: null, cues: [], segs: null, result: null, sr: 44100, takes: [], lines: null, linesKey: "" };
+  var rec = { mr: null, chunks: [], stream: null, started: 0, tick: null };
 
-  dropZone($("editAudioDrop"), $("editAudio"), "", function (f) {
+  function takesKey() {
+    return ed.takes.map(function (t) { return t.name + ":" + t.buffer.length; }).join("|");
+  }
+  function addTake(name, buffer) {
+    ed.takes.push({ name: name, buffer: buffer, off: 0, phrases: null, text: "" });
+    rebuildBuffer();
+    setStatus($("recStatus"), "已加入第 " + ed.takes.length + " 段：" + name + "（" + fmtT(buffer.duration) + "）");
+  }
+  // 把所有段落接成一段（段與段之間留 0.25 秒空白），並記下每一段在這段的起點
+  function rebuildBuffer() {
+    if (!ed.takes.length) {
+      ed.buffer = null; ed.lines = null; ed.linesKey = "";
+      renderTakes(); ready(); drawEffects();
+      return;
+    }
+    var sr = 0;
+    ed.takes.forEach(function (t) { sr = Math.max(sr, t.buffer.sampleRate); });
+    var gap = Math.round(sr * 0.25);
+    var parts = ed.takes.map(function (t) { return resampleMono(t.buffer, sr); });
+    var total = parts.reduce(function (n, x) { return n + x.length; }, 0) + gap * Math.max(0, parts.length - 1);
+    var out = new Float32Array(total), at = 0;
+    parts.forEach(function (x, i) {
+      ed.takes[i].off = at / sr;
+      out.set(x, at);
+      at += x.length + gap;      // 段與段之間留一點空白（最後一段後面不留）
+    });
+    ed.buffer = {
+      sampleRate: sr, numberOfChannels: 1, length: out.length, duration: out.length / sr,
+      getChannelData: function () { return out; }
+    };
+    ed.sr = sr;
+    ed.lines = null; ed.linesKey = "";
+    renderTakes(); ready(); drawEffects();
+  }
+  function renderTakes() {
+    var box = $("takeList");
+    if (!box) return;
+    if (!ed.takes.length) { box.innerHTML = ""; $("coverageBtn").disabled = true; return; }
+    box.innerHTML = ed.takes.map(function (t, i) {
+      var heard = t.phrases ? (t.text ? String(t.text).slice(0, 60) : "（沒聽到字）") : "還沒辨識";
+      return "<div class='take-row'><span><b>" + (i + 1) + ". " + String(t.name).replace(/[<>&]/g, "") + "</b> " +
+        "<small>" + fmtT(t.buffer.duration) + "・" + (t.buffer.numberOfChannels === 1 ? "單聲道" : t.buffer.numberOfChannels + " 聲道") +
+        "・" + heard + "</small></span><span class='take-act'>" +
+        (i > 0 ? "<button class='take-btn' data-act='up' data-i='" + i + "'>↑</button>" : "") +
+        "<button class='take-btn' data-act='del' data-i='" + i + "'>刪除</button></span></div>";
+    }).join("");
+    box.querySelectorAll(".take-btn").forEach(function (b) {
+      b.onclick = function () {
+        var i = +b.dataset.i;
+        if (b.dataset.act === "del") {
+          ed.takes.splice(i, 1);
+          if (rec.mr) stopRec();
+          rebuildBuffer();
+          setStatus($("recStatus"), "已刪掉第 " + (i + 1) + " 段");
+        } else if (b.dataset.act === "up" && i > 0) {
+          var t = ed.takes[i - 1]; ed.takes[i - 1] = ed.takes[i]; ed.takes[i] = t;
+          rebuildBuffer();
+        }
+      };
+    });
+    $("coverageBtn").disabled = !(ed.takes.length && ed.cues.length);
+  }
+
+  // ── 錄音 ──
+  function stopRec() {
+    if (rec.mr && rec.mr.state !== "inactive") rec.mr.stop();
+    clearInterval(rec.tick);
+  }
+  $("recBtn").onclick = function () {
+    if (rec.mr) { stopRec(); return; }
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia || !window.MediaRecorder) {
+      setStatus($("recStatus"), "這個瀏覽器不能錄音（請用 Chrome／Edge，或改用上傳檔案）", true);
+      return;
+    }
+    setStatus($("recStatus"), "要麥克風權限…");
+    navigator.mediaDevices.getUserMedia({ audio: { channelCount: 1, echoCancellation: true, noiseSuppression: false, autoGainControl: false } })
+      .then(function (stream) {
+        rec.stream = stream; rec.chunks = [];
+        var mr = new MediaRecorder(stream);
+        rec.mr = mr;
+        mr.ondataavailable = function (e) { if (e.data && e.data.size) rec.chunks.push(e.data); };
+        mr.onstop = function () {
+          var type = rec.chunks[0] ? rec.chunks[0].type : "audio/webm";
+          var blob = new Blob(rec.chunks, { type: type });
+          stream.getTracks().forEach(function (t) { t.stop(); });
+          rec.mr = null; rec.stream = null;
+          clearInterval(rec.tick);
+          $("recBtn").textContent = "● 開始錄音";
+          $("recBtn").classList.remove("rec-on");
+          var Ctx = window.AudioContext || window.webkitAudioContext, ctx = new Ctx();
+          var fr = new FileReader();
+          fr.onload = function () {
+            ctx.decodeAudioData(fr.result).then(function (buf) {
+              ctx.close();
+              addTake("錄音 " + (ed.takes.length + 1), buf);
+            }).catch(function (e) { ctx.close(); setStatus($("recStatus"), "這段錄音解不開：" + (e && e.message || e), true); });
+          };
+          fr.onerror = function () { ctx.close(); setStatus($("recStatus"), "讀不到剛錄的音訊", true); };
+          fr.readAsArrayBuffer(blob);
+        };
+        mr.start();
+        rec.started = Date.now();
+        $("recBtn").textContent = "■ 停止錄音（0.0 s）";
+        $("recBtn").classList.add("rec-on");
+        rec.tick = setInterval(function () {
+          $("recBtn").textContent = "■ 停止錄音（" + ((Date.now() - rec.started) / 1000).toFixed(1) + " s）";
+        }, 100);
+        setStatus($("recStatus"), "錄音中…念完按「停止錄音」");
+      })
+      .catch(function (e) {
+        var msg = e && e.name === "NotAllowedError" ? "你按了「不允許」：請點網址列左邊的鎖頭，把麥克風改成允許" :
+          e && e.name === "NotFoundError" ? "這台電腦沒有找到麥克風" : (e && e.message) || String(e);
+        setStatus($("recStatus"), "拿不到麥克風：" + msg, true);
+      });
+  };
+
+  // ── 上傳多個錄音檔 ──
+  function addFiles(files) {
+    if (!files || !files.length) return;
     var Ctx = window.AudioContext || window.webkitAudioContext;
     var ctx = new Ctx();
-    var fr = new FileReader();
-    fr.onload = function () {
-      ctx.decodeAudioData(fr.result).then(function (buf) {
-        ed.buffer = buf; ed.sr = buf.sampleRate;
-        $("editAudioDrop").textContent = f.name + "（" + fmtT(buf.duration) + "・" + buf.numberOfChannels + " 聲道）";
-        $("editAudioDrop").classList.add("ok");
-        ctx.close();
-        ready();
-        drawEffects();
-      }).catch(function (e) { setStatus($("editStatus"), "這個音檔解不開：" + e.message, true); ctx.close(); });
+    var i = 0;
+    var next = function () {
+      if (i >= files.length) { ctx.close(); return; }
+      var f = files[i++];
+      var fr = new FileReader();
+      fr.onload = function () {
+        ctx.decodeAudioData(fr.result).then(function (buf) {
+          ed.takes.push({ name: f.name, buffer: buf, off: 0, phrases: null, text: "" });
+          next();
+        }).catch(function (e) {
+          setStatus($("recStatus"), f.name + " 解不開：" + (e && e.message || e), true);
+          next();
+        });
+      };
+      fr.onerror = next;
+      fr.readAsArrayBuffer(f);
     };
-    fr.readAsArrayBuffer(f);
-  });
+    next();
+    // 全部解完再重算（decodeAudioData 是非同步的，這裡等一個 tick 再重建）
+    var wait = function () {
+      if (i >= files.length) { rebuildBuffer(); return; }
+      setTimeout(wait, 80);
+    };
+    setTimeout(wait, 80);
+  }
+  $("editPickBtn").onclick = function () { $("editAudio").click(); };
+  $("editAudio").onchange = function () { addFiles(Array.prototype.slice.call(this.files)); this.value = ""; };
+  (function () {
+    var drop = $("editAudioDrop");
+    drop.onclick = function () { $("editAudio").click(); };
+    drop.ondragover = function (e) { e.preventDefault(); drop.classList.add("ok"); };
+    drop.ondragleave = function () { drop.classList.remove("ok"); };
+    drop.ondrop = function (e) {
+      e.preventDefault(); drop.classList.remove("ok");
+      addFiles(Array.prototype.slice.call(e.dataTransfer.files || []));
+    };
+  })();
+
   dropZone($("editSubDrop"), $("editSub"), "", function (f) {
     readText(f).then(function (txt) {
       ed.cues = parseSubtitle(txt);
@@ -756,12 +928,90 @@ audio { width: 100%; margin-top: 12px; }
       $("editSubDrop").classList.add("ok");
       renderEditCues();
       ready();
+      renderTakes();
     });
   });
   function ready() {
-    $("editRun").disabled = !(ed.buffer && ed.cues.length);
-    if (ed.buffer && ed.cues.length) setStatus($("editStatus"), "準備好了：口白 " + fmtT(ed.buffer.duration) + "、" + ed.cues.length + " 句字幕");
+    var hasAudio = !!(ed.buffer && ed.buffer.duration > 0.1);
+    $("editRun").disabled = !(hasAudio && ed.cues.length);
+    $("coverageBtn").disabled = !(ed.takes.length && ed.cues.length);
+    if (hasAudio && ed.cues.length) {
+      setStatus($("editStatus"), "準備好了：口白 " + fmtT(ed.buffer.duration) +
+        (ed.takes.length > 1 ? "（" + ed.takes.length + " 段）" : "") + "、" + ed.cues.length + " 句字幕");
+    }
   }
+
+  // 字幕 ↔ 聽到的句子：哪幾句還沒錄到（missing）、哪幾句聽起來不像（weak）
+  function edCoverage(lines) {
+    var map = alignCues(ed.cues, lines);
+    var missing = [], weak = [];
+    ed.cues.forEach(function (c, i) {
+      var j = map[i];
+      if (j < 0) { missing.push(i); return; }
+      var s = sim(c.text, lines[j].text);
+      if (s < 0.34) weak.push({ i: i, score: s });
+    });
+    return { map: map, missing: missing, weak: weak };
+  }
+
+  // ── 檢查覆蓋率：AI 認每一段 → 對字幕 → 看還缺哪幾句 ──
+  $("coverageBtn").onclick = async function () {
+    if (!ed.takes.length || !ed.cues.length) return;
+    $("coverageBtn").disabled = true;
+    $("missList").innerHTML = "";
+    try {
+      var ai = await ensureChordAI();
+      var need = ed.takes.filter(function (t) { return !t.phrases; }).length;
+      setStatus($("covStatus"), need ? "要認 " + need + " 段…" : "重新檢查…");
+      for (var i = 0; i < ed.takes.length; i++) {
+        var t = ed.takes[i];
+        if (!t.phrases) {
+          setStatus($("covStatus"), "認第 " + (i + 1) + " / " + ed.takes.length + " 段…");
+          prog($("editProg"), (i + 0.2) / ed.takes.length * 0.9);
+          var pcm = resampleMono(t.buffer, ASR_RATE);
+          t.phrases = (await ai.transcribeLyrics(pcm, ensureOrt, {
+            download: function (p) { setStatus($("covStatus"), "下載語音辨識模型… " + Math.round(p * 100) + "%（第一次約 251 MB）"); },
+            track: function () { }
+          }) || []).filter(function (l) { return l && l.text && l.end > l.time; });
+          t.text = t.phrases.map(function (l) { return l.text; }).join(" ");
+          renderTakes();
+        }
+      }
+      // 把所有段落接成一串（時間加上該段的起點）
+      var all = [];
+      ed.takes.forEach(function (t) {
+        var off = t.off || 0;
+        t.phrases.forEach(function (l) { all.push({ time: l.time + off, end: l.end + off, text: l.text }); });
+      });
+      ed.lines = all; ed.linesKey = takesKey();
+      var cov = edCoverage(all), missing = cov.missing, weak = cov.weak;
+      prog($("editProg"), -1);
+      var box = $("missList");
+      if (!missing.length && !weak.length) {
+        box.className = "db-miss ok";
+        box.innerHTML = "<b>全部 " + ed.cues.length + " 句都錄到了</b>，可以直接按「開始剪輯」。";
+        setStatus($("covStatus"), "覆蓋 " + ed.cues.length + " / " + ed.cues.length + " 句");
+      } else {
+        box.className = "db-miss";
+        var lines = missing.concat(weak.map(function (w) { return w.i; })).sort(function (a, b) { return a - b; });
+        var title = missing.length
+          ? "還缺 " + missing.length + " 句" + (weak.length ? "，另外 " + weak.length + " 句聽起來不像" : "")
+          : "有 " + weak.length + " 句聽起來不像字幕上的字";
+        box.innerHTML = "<b>" + title + "</b>：照下面的句子補錄一段就好（順序照號碼，補完再按一次檢查）。" +
+          "<ul>" + lines.slice(0, 12).map(function (i) {
+            var c = ed.cues[i];
+            return "<li><b>第 " + (i + 1) + " 句</b> <small>" + fmtT(c.start) + "–" + fmtT(c.end) + "</small><br><span class='big'>" +
+              String(c.text).replace(/[<>&]/g, "") + "</span></li>";
+          }).join("") + "</ul>" + (lines.length > 12 ? "<p>（還有 " + (lines.length - 12) + " 句，先補前面的）</p>" : "");
+        setStatus($("covStatus"), "覆蓋 " + (ed.cues.length - missing.length) + " / " + ed.cues.length + " 句");
+      }
+    } catch (e) {
+      setStatus($("covStatus"), "檢查失敗：" + (e && e.message ? e.message : e), true);
+      prog($("editProg"), -1);
+    } finally {
+      $("coverageBtn").disabled = !(ed.takes.length && ed.cues.length);
+    }
+  };
 
   function renderEditCues() {
     var box = $("editCues");
@@ -1134,22 +1384,47 @@ audio { width: 100%; margin-top: 12px; }
 
   // ───────── 圖表（跟 DAW 的儀表同一個樣子） ─────────
   var FMIN2 = 20, FMAX2 = 20000;
+  // ── 圖表配色：跟著網站主題（html[data-theme]）與系統深色偏好走 ──
+  function cssVar(name, dflt) {
+    var v = getComputedStyle(document.documentElement).getPropertyValue(name);
+    return (v || "").trim() || dflt;
+  }
+  function fxPalette() {
+    var t = document.documentElement.getAttribute("data-theme") || "";
+    var dark = t === "dark" || (!t && window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches);
+    return {
+      dark: dark,
+      bg0: cssVar("--surface", dark ? "#241e1a" : "#ffffff"),
+      bg1: cssVar("--paper", dark ? "#1d1815" : "#fbf8f4"),
+      grid: dark ? "rgba(239,231,223,.10)" : "rgba(61,50,41,.13)",
+      grid2: dark ? "rgba(239,231,223,.05)" : "rgba(61,50,41,.07)",
+      axis: dark ? "rgba(239,231,223,.30)" : "rgba(61,50,41,.34)",
+      text: cssVar("--ink2", dark ? "#c9bdb2" : "#5d4e41"),
+      dim: dark ? "rgba(239,231,223,.58)" : "rgba(61,50,41,.62)",
+      faint: dark ? "rgba(239,231,223,.35)" : "rgba(61,50,41,.38)",
+      knob: dark ? "#241e1a" : "#ffffff",
+      blue: dark ? "#4f9dff" : "#3f7fd0",
+      green: dark ? "#35c9a5" : "#2a8f76",
+      amber: dark ? "#f5b83d" : "#b98314",
+      red: dark ? "#ff6b6b" : "#c94a45"
+    };
+  }
   function cvSetup(cv) {
     if (!cv) return null;
     var dpr = devicePixelRatio || 1;
     var W = cv.clientWidth || 300, H = cv.clientHeight || 92;
     cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
-    var g = cv.getContext("2d");
+    var g = cv.getContext("2d"), P = fxPalette();
     g.setTransform(dpr, 0, 0, dpr, 0, 0);
     var bg = g.createLinearGradient(0, 0, 0, H);
-    bg.addColorStop(0, "#12141a"); bg.addColorStop(1, "#0a0b0e");
+    bg.addColorStop(0, P.bg0); bg.addColorStop(1, P.bg1);
     g.fillStyle = bg; g.fillRect(0, 0, W, H);
-    return { g: g, W: W, H: H };
+    return { g: g, W: W, H: H, P: P };
   }
   function drawEq() {
     var s = cvSetup($("eqCv"));
     if (!s) return;
-    var g = s.g, W = s.W, H = s.H, M = 10;
+    var g = s.g, W = s.W, H = s.H, M = 10, P = s.P;
     var sr = ed.sr || 48000;
     var st = eqStages(eqParams(), sr);
     var xOf = function (f) { return M + Math.log(f / FMIN2) / Math.log(FMAX2 / FMIN2) * (W - M * 2); };
@@ -1157,15 +1432,15 @@ audio { width: 100%; margin-top: 12px; }
     g.font = "9px ui-monospace, Consolas, monospace"; g.textBaseline = "top";
     [100, 1000, 10000].forEach(function (f) {
       var xx = Math.round(xOf(f)) + 0.5;
-      g.strokeStyle = "rgba(255,255,255,.07)";
+      g.strokeStyle = P.grid;
       g.beginPath(); g.moveTo(xx, 4); g.lineTo(xx, H - 4); g.stroke();
-      g.fillStyle = "rgba(255,255,255,.32)"; g.fillText(f >= 1000 ? (f / 1000) + "k" : String(f), xx + 3, H - 12);
+      g.fillStyle = P.faint; g.fillText(f >= 1000 ? (f / 1000) + "k" : String(f), xx + 3, H - 12);
     });
     [-12, -6, 0, 6, 12].forEach(function (d) {
       var yy = Math.round(yOf(d)) + 0.5;
-      g.strokeStyle = d === 0 ? "rgba(255,255,255,.16)" : "rgba(255,255,255,.05)";
+      g.strokeStyle = d === 0 ? P.axis : P.grid2;
       g.beginPath(); g.moveTo(0, yy); g.lineTo(W, yy); g.stroke();
-      if (d === 0) { g.fillStyle = "rgba(255,255,255,.3)"; g.fillText("0", 2, yy - 9); }
+      if (d === 0) { g.fillStyle = P.faint; g.fillText("0", 2, yy - 9); }
     });
     var pts = new Path2D();
     for (var i = 0; i <= 200; i++) {
@@ -1176,27 +1451,27 @@ audio { width: 100%; margin-top: 12px; }
     var fill = new Path2D(pts);
     fill.lineTo(W - M, H / 2); fill.lineTo(M, H / 2); fill.closePath();
     var lg = g.createLinearGradient(M, 0, W - M, 0);
-    lg.addColorStop(0, "#4f9dff"); lg.addColorStop(0.55, "#35c9a5"); lg.addColorStop(1, "#f5b83d");
-    g.globalAlpha = 0.16; g.fillStyle = lg; g.fill(fill); g.globalAlpha = 1;
+    lg.addColorStop(0, P.blue); lg.addColorStop(0.55, P.green); lg.addColorStop(1, P.amber);
+    g.globalAlpha = P.dark ? 0.16 : 0.13; g.fillStyle = lg; g.fill(fill); g.globalAlpha = 1;
     g.strokeStyle = lg; g.lineWidth = 2.2; g.stroke(pts);
     var p = eqParams();
     [[250, p.mud], [3000, p.pres], [9000, p.air]].forEach(function (b) {
       var x = xOf(b[0]), y = yOf(eqMagDb(b[0], st, sr));
-      g.beginPath(); g.arc(x, y, 3.6, 0, Math.PI * 2); g.fillStyle = "#f5b83d"; g.fill();
-      g.strokeStyle = "#0b0c10"; g.lineWidth = 1.2; g.stroke();
-      g.fillStyle = "rgba(255,255,255,.55)"; g.fillText((b[1] > 0 ? "+" : "") + b[1].toFixed(1), x + 6, y - 11);
+      g.beginPath(); g.arc(x, y, 3.6, 0, Math.PI * 2); g.fillStyle = P.amber; g.fill();
+      g.strokeStyle = P.knob; g.lineWidth = 1.2; g.stroke();
+      g.fillStyle = P.dim; g.fillText((b[1] > 0 ? "+" : "") + b[1].toFixed(1), x + 6, y - 11);
     });
-    g.fillStyle = "rgba(255,255,255,.35)"; g.fillText("低頻切點 " + p.hp + " Hz", 4, 4);
+    g.fillStyle = P.faint; g.fillText("低頻切點 " + p.hp + " Hz", 4, 4);
   }
   function drawLoud() {
     var s = cvSetup($("loudCv"));
     if (!s) return;
-    var g = s.g, W = s.W, H = s.H;
+    var g = s.g, W = s.W, H = s.H, P = s.P;
     var target = +$("normTarget").value, ceil = +$("normCeil").value;
     g.font = "9px ui-monospace, Consolas, monospace"; g.textBaseline = "top";
     var levels = ed.buffer ? frameLevels(ed.buffer.getChannelData(0), ed.buffer.sampleRate) : [];
     if (!levels.length) {
-      g.fillStyle = "rgba(255,255,255,.35)"; g.fillText("上傳口白後顯示每一格的電平", 8, H / 2 - 5);
+      g.fillStyle = P.faint; g.fillText("上傳口白後顯示每一格的電平", 8, H / 2 - 5);
       return;
     }
     var yOf = function (db) { return H - 8 - Math.max(0, Math.min(1, (db + 60) / 60)) * (H - 16); };
@@ -1204,19 +1479,21 @@ audio { width: 100%; margin-top: 12px; }
     for (var i = 0; i < bars; i++) {
       var d = levels[Math.floor(i / bars * levels.length)];
       var x = 8 + i / bars * (W - 16);
-      g.fillStyle = "rgba(79,157,255,.45)";
+      g.globalAlpha = P.dark ? 0.45 : 0.55;
+      g.fillStyle = P.blue;
       g.fillRect(x, yOf(d), Math.max(1, (W - 16) / bars - 1), H - 8 - yOf(d));
+      g.globalAlpha = 1;
     }
     var lv = speechLevelDb(levels);
     var gain = Math.max(-30, Math.min(30, target - lv));
     var ty = Math.round(yOf(target)) + 0.5, cy = Math.round(yOf(ceil)) + 0.5;
-    g.setLineDash([4, 4]); g.strokeStyle = "rgba(53,201,165,.9)";
+    g.setLineDash([4, 4]); g.strokeStyle = P.green;
     g.beginPath(); g.moveTo(0, ty); g.lineTo(W, ty); g.stroke();
-    g.strokeStyle = "rgba(255,107,107,.7)";
+    g.strokeStyle = P.red;
     g.beginPath(); g.moveTo(0, cy); g.lineTo(W, cy); g.stroke();
     g.setLineDash([]);
-    g.fillStyle = "rgba(255,255,255,.55)"; g.fillText("目標 " + target + " dB", 8, ty - 11);
-    g.fillStyle = "rgba(255,255,255,.4)"; g.fillText("尖峰 " + ceil.toFixed(1) + " dB", W - 78, cy + 2);
+    g.fillStyle = P.dim; g.fillText("目標 " + target + " dB", 8, ty - 11);
+    g.fillStyle = P.dim; g.fillText("尖峰 " + ceil.toFixed(1) + " dB", W - 78, cy + 2);
     $("loudInfo").textContent = "目前語音電平 " + lv.toFixed(1) + " dB → " +
       (gain > 0 ? "拉大 " : gain < 0 ? "拉小 " : "不動 ") + Math.abs(gain).toFixed(1) + " dB（尖峰 " +
       peakDb(ed.buffer.getChannelData(0)).toFixed(1) + " dB）";
@@ -1224,24 +1501,29 @@ audio { width: 100%; margin-top: 12px; }
   function drawNoise() {
     var s = cvSetup($("dnCv"));
     if (!s) return;
-    var g = s.g, W = s.W, H = s.H;
+    var g = s.g, W = s.W, H = s.H, P = s.P;
     g.font = "9px ui-monospace, Consolas, monospace"; g.textBaseline = "top";
-    if (!ed.buffer) { g.fillStyle = "rgba(255,255,255,.35)"; g.fillText("上傳口白後顯示底噪與語音的比例", 8, H / 2 - 5); return; }
+    if (!ed.buffer) { g.fillStyle = P.faint; g.fillText("上傳口白後顯示底噪與語音的比例", 8, H / 2 - 5); return; }
     var levels = frameLevels(ed.buffer.getChannelData(0), ed.buffer.sampleRate);
     if (!levels.length) return;
     var sorted = levels.slice().sort(function (a, b) { return a - b; });
     var floor = sorted[Math.floor(sorted.length * 0.15)], vocal = sorted[Math.floor(sorted.length * 0.9)];
     var amt = +$("dnAmount").value / 100;
     var yOf = function (db) { return H - 8 - Math.max(0, Math.min(1, (db + 70) / 70)) * (H - 16); };
-    [["底噪", floor, "rgba(255,255,255,.35)"], ["語音", vocal, "rgba(79,157,255,.7)"]].forEach(function (b, i) {
+    g.globalAlpha = P.dark ? 0.35 : 0.32;
+    [["底噪", floor, P.text], ["語音", vocal, P.blue]].forEach(function (b, i) {
       var x = 16 + i * (W / 3.2), w = Math.max(10, W / 6);
       g.fillStyle = b[2]; g.fillRect(x, yOf(b[1]), w, H - 8 - yOf(b[1]));
-      g.fillStyle = "rgba(255,255,255,.5)"; g.fillText(b[0] + " " + b[1].toFixed(0) + " dB", x, yOf(b[1]) - 11);
+      g.globalAlpha = 1;
+      g.fillStyle = P.dim; g.fillText(b[0] + " " + b[1].toFixed(0) + " dB", x, yOf(b[1]) - 11);
+      g.globalAlpha = P.dark ? 0.35 : 0.32;
     });
+    g.globalAlpha = P.dark ? 0.65 : 0.55;
     var after = floor - (3 + 9 * amt);
     var x2 = 16 + 2 * (W / 3.2), w2 = Math.max(10, W / 6);
-    g.fillStyle = "rgba(53,201,165,.65)"; g.fillRect(x2, yOf(after), w2, H - 8 - yOf(after));
-    g.fillStyle = "rgba(255,255,255,.5)"; g.fillText("處理後 " + after.toFixed(0) + " dB", x2, yOf(after) - 11);
+    g.fillStyle = P.green; g.fillRect(x2, yOf(after), w2, H - 8 - yOf(after));
+    g.globalAlpha = 1;
+    g.fillStyle = P.dim; g.fillText("處理後 " + after.toFixed(0) + " dB", x2, yOf(after) - 11);
     $("dnInfo").textContent = "底噪約 " + floor.toFixed(0) + " dB、語音約 " + vocal.toFixed(0) +
       " dB（相差 " + (vocal - floor).toFixed(0) + " dB）。" +
       (vocal - floor < 15 ? "差距不大，降噪效果有限，建議先檢查錄音音量。" : "");
@@ -1249,18 +1531,20 @@ audio { width: 100%; margin-top: 12px; }
   function drawBreath() {
     var s = cvSetup($("brCv"));
     if (!s) return;
-    var g = s.g, W = s.W, H = s.H;
+    var g = s.g, W = s.W, H = s.H, P = s.P;
     g.font = "9px ui-monospace, Consolas, monospace"; g.textBaseline = "top";
-    if (!ed.buffer) { g.fillStyle = "rgba(255,255,255,.35)"; g.fillText("上傳口白後標出偵測到的吸氣位置", 8, H / 2 - 5); return; }
+    if (!ed.buffer) { g.fillStyle = P.faint; g.fillText("上傳口白後標出偵測到的吸氣位置", 8, H / 2 - 5); return; }
     var x = ed.buffer.getChannelData(0);
     var regs = breathRegions(x.length > ed.sr * 60 ? x.subarray(0, ed.sr * 60) : x, ed.buffer.sampleRate);
     var dur = ed.buffer.duration;
-    g.fillStyle = "rgba(255,255,255,.35)"; g.fillRect(8, H / 2 - 2, W - 16, 4);
+    g.fillStyle = P.grid; g.fillRect(8, H / 2 - 2, W - 16, 4);
     regs.forEach(function (r) {
       var a = 8 + r.start / dur * (W - 16), b = 8 + r.end / dur * (W - 16);
-      g.fillStyle = "rgba(255,107,107,.75)"; g.fillRect(a, H / 2 - 8, Math.max(2, b - a), 16);
+      g.globalAlpha = 0.75; g.fillStyle = P.red;
+      g.fillRect(a, H / 2 - 8, Math.max(2, b - a), 16);
+      g.globalAlpha = 1;
     });
-    g.fillStyle = "rgba(255,255,255,.55)";
+    g.fillStyle = P.dim;
     g.fillText(regs.length ? "偵測到 " + regs.length + " 段呼吸聲（套用時壓低 24 dB）" : "沒有偵測到明顯的呼吸聲", 8, 8);
   }
   function drawEffects() {
@@ -1273,6 +1557,17 @@ audio { width: 100%; margin-top: 12px; }
     });
     drawEq(); drawLoud(); drawNoise(); drawBreath();
   }
+  // 換主題（右上角的 🌙／🌤／🎋 或系統深色模式）就重畫一次圖
+  (function () {
+    var redraw = function () { try { drawEffects(); } catch (e) { /* 還沒初始化完就跳過 */ } };
+    new MutationObserver(redraw).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+    if (window.matchMedia) {
+      var mq = matchMedia("(prefers-color-scheme: dark)");
+      if (mq.addEventListener) mq.addEventListener("change", redraw);
+      else if (mq.addListener) mq.addListener(redraw);
+    }
+    window.addEventListener("resize", redraw);
+  })();
   var EQ_PRESETS = {
     voice: { hp: 90, mud: -2, pres: 2, air: 1 },
     flat: { hp: 20, mud: 0, pres: 0, air: 0 },
@@ -1296,17 +1591,23 @@ audio { width: 100%; margin-top: 12px; }
     ed.segs = null; ed.result = null;
     $("editAudioOut").hidden = true; $("editSave").disabled = true;
     try {
-      // 1) AI 聽口白
+      // 1) AI 聽口白（「檢查還缺哪一段」已經認過的話直接沿用）
       prog($("editProg"), 0.02);
-      setStatus($("editStatus"), "準備語音辨識模型…");
-      var ai = await ensureChordAI();
-      var pcm = resampleMono(audio, ASR_RATE);
-      setStatus($("editStatus"), "AI 聽口白中…");
-      var lines = await ai.transcribeLyrics(pcm, ensureOrt, {
-        download: function (p) { prog($("editProg"), 0.02 + p * 0.5); setStatus($("editStatus"), "下載語音辨識模型… " + Math.round(p * 100) + "%（第一次約 251 MB）"); },
-        track: function (p) { prog($("editProg"), 0.52 + p * 0.35); setStatus($("editStatus"), "AI 聽口白… " + Math.round(p * 100) + "%"); }
-      });
-      lines = (lines || []).filter(function (l) { return l && l.text && l.end > l.time; });
+      var lines;
+      if (ed.lines && ed.linesKey === takesKey()) {
+        lines = ed.lines;
+        setStatus($("editStatus"), "用剛才「檢查」時認好的結果…");
+      } else {
+        setStatus($("editStatus"), "準備語音辨識模型…");
+        var ai = await ensureChordAI();
+        var pcm = resampleMono(audio, ASR_RATE);
+        setStatus($("editStatus"), "AI 聽口白中…");
+        lines = await ai.transcribeLyrics(pcm, ensureOrt, {
+          download: function (p) { prog($("editProg"), 0.02 + p * 0.5); setStatus($("editStatus"), "下載語音辨識模型… " + Math.round(p * 100) + "%（第一次約 251 MB）"); },
+          track: function (p) { prog($("editProg"), 0.52 + p * 0.35); setStatus($("editStatus"), "AI 聽口白… " + Math.round(p * 100) + "%"); }
+        });
+        lines = (lines || []).filter(function (l) { return l && l.text && l.end > l.time; });
+      }
       if (!lines.length) throw new Error("沒有聽出口白內容，請確認音檔裡有人聲");
       prog($("editProg"), 0.88);
 
@@ -1417,7 +1718,8 @@ audio { width: 100%; margin-top: 12px; }
   // 測試／除錯用（_selftest.html 會用這個跑驗證）
   window.__dubbing = { parseSubtitle, alignCues, sim, timeStretch, denoise, breathRegions, wav, normText,
     applyEq, eqStages, eqMagDb, biquad, normalizeLoudness, limitPeaks, frameLevels, speechLevelDb, peakDb,
-    ttsPhones, zhNumber, ttsRun, ttsSyllables, ttsPinyin, ttsEnsureModel, ttsSandhi, ttsAI, TTS_SR };
+    ttsPhones, zhNumber, ttsRun, ttsSyllables, ttsPinyin, ttsEnsureModel, ttsSandhi, ttsAI, TTS_SR,
+    fxPalette, ed, addTake, rebuildBuffer, renderTakes, takesKey, ready, drawEffects, edCoverage };
   drawEffects();
   // 語音辨識模型卡（使用者自行下載、存瀏覽器；模型檔不在 repo）
   loadScriptOnce(new URL("../../assets/model-store.js", document.baseURI).href).then(function () {

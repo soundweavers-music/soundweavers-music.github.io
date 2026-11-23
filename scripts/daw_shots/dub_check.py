@@ -69,6 +69,9 @@ def main():
     try:
         proc = subprocess.run(
             [CHROME, "--headless=new", "--disable-gpu", "--no-sandbox", "--mute-audio",
+             # 假麥克風：讓「瀏覽器錄音」那幾項真的跑得起來（不必有裝置、不會跳權限視窗）
+             "--use-fake-device-for-media-stream", "--use-fake-ui-for-media-stream",
+             "--autoplay-policy=no-user-gesture-required",
              "--dump-dom", f"http://127.0.0.1:{PORT}/tools/dubbing/_selftest.html"],
             capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=240,
         )
