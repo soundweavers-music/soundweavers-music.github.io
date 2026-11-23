@@ -44,6 +44,7 @@
  "句初版歌詞（斷行照停頓切，錯字與斷行都可以直接改）。": " lines as a draft (line breaks follow the pauses; fix typos and breaks directly).",
  "句；錯字、斷行都可以直接改，時間再拖一下就更準": "lines; typos and line breaks can be fixed directly, and dragging the timing makes it more accurate",
  "可以按「偵測並填入時間」。": "Press “Detect and fill times”.",
+ "唱歌前先調音、對拍子：麥克風聽音高，節拍器練穩定度": "Tune up and lock the beat before you sing: the tuner listens through the microphone, the metronome keeps you steady.",
  "失敗": "failed",
  "專輯 [al]": "Album [al]",
  "專輯（可留空）": "Album (optional)",
@@ -146,6 +147,7 @@
  "），改用音量起伏推測。": "); falling back to the volume curve.",
  "；沒聽到的行照前後推算），邊聽邊微調。": "; lines it could not hear are interpolated from their neighbours — fine-tune as you listen.",
  "🎚️ 織音AI線上編曲製作": "🎚️ Zhiyin AI online DAW",
+ "🎯 線上調音器與節拍器": "🎯 Online tuner & metronome",
  "🎸 世界樂器指版與和弦圖": "🎸 Fretboard & Chord Charts",
  "🎹 世界樂器體驗": "🎹 Instrument demo",
  "🎼 織音AI自動轉譜": "🎼 Zhiyin AI auto transcription"
