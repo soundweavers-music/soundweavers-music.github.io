@@ -116,16 +116,30 @@ def parse_sections(md: str) -> list[dict]:
             for line in body.split("\n"):
                 if line.startswith("**") and line.rstrip().endswith("**"):
                     break
+                # 下一個標題（`## 2026`、`## 人聲／純音樂分類總表`…）不是簡介的一部分：
+                # 以前一年最後一張專輯會把下一個年度的標題吃進簡介，頁面上就多出一段「## 2025」。
+                if re.match(r"^#{1,6}\s", line):
+                    break
                 keep.append(line)
             paras, cur = [], []
+            flush = lambda: (paras.append("".join(cur)), cur.clear())
             for line in keep:
-                if line.strip():
-                    cur.append(line.strip())
+                t = line.strip()
+                # `>` 開頭是寫給自己的編輯註記（例如「此張後台沒填簡介，已補寫」），不上頁面
+                if t.startswith(">"):
+                    continue
+                # 章節小標（`01｜日常的拾趣…`）自己一段，不要跟後面的句子黏在一起
+                if re.match(r"^\d{1,2}\s*[｜|]", t):
+                    if cur:
+                        flush()
+                    paras.append(t)
+                    continue
+                if t:
+                    cur.append(t)
                 elif cur:
-                    paras.append("".join(cur))
-                    cur = []
+                    flush()
             if cur:
-                paras.append("".join(cur))
+                flush()
             rec["intro"] = [re.sub(r"\s{2,}", " ", p).strip() for p in paras if p.strip()]
         albums.append(rec)
     return albums
