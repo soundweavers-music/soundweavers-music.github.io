@@ -3344,6 +3344,23 @@ function lyricAlignment() {
 // 標點不唱：對齊時仍算一格（停頓），但譜上不寫字
 const SC_PUNCT = /[，。！？、,.!?：:；;「」『』（）()／/]/;
 
+// 沒有逐字時間可以用的句子（AI 說這行沒在唱、或對不上）：照 LRC 的時間把字平均排開，
+// 音高用那一段抓到的音；抓不到就沿用前一個音——一個字都不能掉。
+function addFallbackLyricNotes(line, nextTime, frames, notes) {
+  const chars = Array.from(line.text).filter(ch => !/\s/.test(ch));
+  if (!chars.length) return;
+  const t0 = snapLyricTime(line.time);
+  const t1 = Math.min(Math.max(t0 + 0.3, nextTime), state.duration);
+  const times = syllableTimes(chars.length, t0, t1);
+  for (let k = 0; k < chars.length; k++) {
+    const st = times[k];
+    const en = (k + 1 < chars.length) ? times[k + 1] : Math.min(t1, st + 1.0);
+    let m = dominantMidiInRange(frames, st, Math.max(st + 0.08, en));
+    if (m < 0) m = notes.length ? notes[notes.length - 1].midi : 60;
+    notes.push({ midi: m, start: st, end: Math.max(st + 0.08, en), lyric: SC_PUNCT.test(chars[k]) ? '' : chars[k] });
+  }
+}
+
 function melodyNotesFromLyrics(frames) {
   const notes = [];
   const lines = state.lyrics;
@@ -3354,7 +3371,12 @@ function melodyNotesFromLyrics(frames) {
   if (al) {
     for (let i = 0; i < al.length; i++) {
       const ln = al[i];
-      if (!ln) continue;
+      const nextT = (i + 1 < lines.length) ? snapLyricTime(lines[i + 1].time) : state.duration;
+      if (!ln) {
+        // AI 判定這行沒唱（歌名、詞曲資訊）或對不上：整行的字原本會整個消失，改成照時間排
+        addFallbackLyricNotes(lines[i], nextT, frames, notes);
+        continue;
+      }
       const cs = Array.from(lines[i].text).filter(ch => !/\s/.test(ch));      // 跟 alignLyrics 一樣的字的順序（標點也在裡面）
       ln.forEach((c, q) => {
         const ch = cs[q] || '';
@@ -3372,20 +3394,8 @@ function melodyNotesFromLyrics(frames) {
     return notes;
   }
   for (let i = 0; i < lines.length; i++) {
-    const t0 = snapLyricTime(lines[i].time);
     const nextT = (i + 1 < lines.length) ? snapLyricTime(lines[i + 1].time) : state.duration;
-    const chars = Array.from(lines[i].text).filter(ch => !/\s/.test(ch));
-    if (!chars.length) continue;
-    const t1 = Math.min(Math.max(t0 + 0.3, nextT), state.duration);
-    const times = syllableTimes(chars.length, t0, t1);
-    for (let k = 0; k < chars.length; k++) {
-      const s = times[k];
-      const e = (k + 1 < chars.length) ? times[k + 1] : Math.min(t1, s + 1.0);
-      let m = dominantMidiInRange(frames, s, Math.max(s + 0.08, e));
-      // 這一段抓不到音高（氣音、講話、換氣）→ 沿用前一個音的高度，字不要掉
-      if (m < 0) m = notes.length ? notes[notes.length - 1].midi : 60;
-      notes.push({ midi: m, start: s, end: Math.max(s + 0.08, e), lyric: SC_PUNCT.test(chars[k]) ? '' : chars[k] });
-    }
+    addFallbackLyricNotes(lines[i], nextT, frames, notes);
   }
   return notes;
 }
