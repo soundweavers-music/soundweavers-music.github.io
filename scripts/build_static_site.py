@@ -628,6 +628,7 @@ def site_header(page_path):
           <a href="{resolve_url(page_path, '/tools/tuner/')}">🎯 線上調音器與節拍器</a>
           <a href="{resolve_url(page_path, '/chord-detection/')}">🎼 織音AI自動轉譜</a>
           <a href="{resolve_url(page_path, '/tools/lrc/')}">📝 織音AI歌詞自動辨識</a>
+          <a href="{resolve_url(page_path, '/tools/dubbing/')}">🎙️ 織音AI配音剪輯</a>
         </div>
       </div>
       <div class="nav-dropdown">
@@ -1087,6 +1088,10 @@ def build_index(instruments):
           <a class="featured-card" href="{resolve_url(index_path, '/tools/lrc/')}" style="background:linear-gradient(135deg,#eef6ff,#dbeafe);border:1px solid #bfdbfe;">
             <strong>📝 織音AI歌詞自動辨識</strong>
             <span>邊聽邊打時間碼，自動偵測句與句的停頓先排好初稿，輸出 .lrc 或 .srt</span>
+          </a>
+          <a class="featured-card" href="{resolve_url(index_path, '/tools/dubbing/')}" style="background:linear-gradient(135deg,#fff1f2,#fde7ee);border:1px solid #f5c9d6;">
+            <strong>🎙️ 織音AI配音剪輯</strong>
+            <span>字幕變成配音；錄好的口白自動剪到字幕上，超出時間會調速，附降噪與呼吸處理</span>
           </a>
           <a class="featured-card" href="{resolve_url(index_path, '/tools/daw/')}" style="background:linear-gradient(135deg,#1f2937,#111827);border:1px solid #374151;color:#e5e7eb;">
             <strong>🎚️ 織音AI線上編曲製作</strong>
@@ -2335,6 +2340,7 @@ def build_sitemap(instruments):
                  "/about/", "/theory/", "/vocal/", "/digitalmusic/", "/songwriting/",
                  "/sound-journey/", "/contact/",
                  "/chord-detection/", "/tools/", "/tools/fretboard/", "/tools/fretboard/guide/",
+                 "/tools/dubbing/", "/tools/dubbing/guide/",
                  "/chord-detection/guide/", "/tools/lrc/", "/tools/lrc/guide/", "/tools/daw/", "/tools/daw/guide/",
                  "/tools/tuner/", "/tools/tuner/guide/",
                  "/learn/", "/about/author/", "/about/works/", "/recruit/", "/mandolin/",
@@ -3456,6 +3462,65 @@ def build_lrc_tool():
     ))
 
 
+
+def build_dubbing_tool():
+    """Build 織音AI配音剪輯 at /tools/dubbing/.
+
+    Source is ``dubbing-studio/index.html`` — a self-contained page with inline
+    CSS and JS, the same shape as the LRC studio. Only the ``<style>``, the
+    ``<main>`` contents and the inline ``<script>`` are lifted out; header,
+    nav, footer, SEO and the theme switcher all come from ``page()``.
+
+    The narration audio is decoded and processed in the browser; the speech
+    recognition model is served from ``/assets/chord-ai/`` (same Fun-ASR-Nano
+    weights as the lyric tool) and onnxruntime from ``/assets/vendor/vad/``.
+    """
+    src_path = BASE_DIR / "dubbing-studio" / "index.html"
+    if not src_path.exists():
+        return
+    page_dir = OUTPUT_DIR / "tools" / "dubbing"
+    page_dir.mkdir(parents=True, exist_ok=True)
+    out = page_dir / "index.html"
+
+    raw = src_path.read_text(encoding="utf-8")
+
+    style_m = re.search(r'<style[^>]*>(.*?)</style>', raw, re.DOTALL)
+    inline_css = style_m.group(1).strip() if style_m else ""
+
+    opening = list(re.finditer(r'<main[^>]*>', raw))
+    main_content = ""
+    if opening:
+        start = opening[-1].end()
+        end = raw.find("</main>", start)
+        if end > start:
+            main_content = raw[start:end].strip()
+
+    scripts = re.findall(r'<script>(.*?)</script>', raw, re.DOTALL)
+    inline_js = scripts[-1].strip() if scripts else ""
+
+    csp = (
+        "default-src 'self'; "
+        "img-src 'self' https: data: blob:; "
+        "media-src 'self' blob:; "
+        "style-src 'self' 'unsafe-inline'; "
+        "script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'; "
+        "connect-src 'self'; "
+        "worker-src 'self' blob:; "
+        "base-uri 'self'; form-action 'self'; object-src 'none'"
+    )
+
+    body = f'<main class="page">\n{main_content}\n</main>\n<script>\n{inline_js}\n</script>\n'
+    write(out, page(
+        "織音AI配音剪輯",
+        body,
+        out,
+        extra_head=f"<style>{inline_css}</style>",
+        csp=csp,
+        meta_description="把字幕變成配音，或把錄好的口白剪到字幕上：AI 聽出口白裡每一句的位置、自動切開對齊，超出下一句的時間就自動調速，再順手降噪與處理呼吸聲。音檔只在瀏覽器裡處理，不會上傳。",
+        meta_keywords="AI配音,配音剪輯,口白剪輯,語音合成,TTS,字幕配音,自動對嘴,降噪,呼吸聲,字幕工具",
+    ))
+
+
 def build_tuner_tool():
     """Build 線上調音器與節拍器 at /tools/tuner/.
 
@@ -3599,6 +3664,7 @@ TOOLS = [
     ("/tools/tuner/", "🎯", "線上調音器與節拍器", "", "麥克風即時測音高與音分偏差，內建 15 種樂器調弦與參考音，右欄還有節拍器。", "/tools/tuner/guide/"),
     ("/tools/lrc/", "📝", "織音AI歌詞自動辨識", "", "沒有歌詞也能用：AI 直接聽出歌詞與每句的時間，再邊聽邊微調，輸出 .lrc 或 .srt。", "/tools/lrc/guide/"),
     ("/tools/fretboard/", "🎸", "世界樂器指版與和弦圖", "", "19 種彈撥樂器的調弦法、各調性和弦、指版音位圖與順階和弦。", "/tools/fretboard/guide/"),
+    ("/tools/dubbing/", "🎙️", "織音AI配音剪輯", "", "把字幕變成配音，或把錄好的口白剪到字幕上：AI 聽出每一句、自動對齊與調速，附降噪與呼吸處理。", "/tools/dubbing/guide/"),
 ]
 
 
@@ -3611,6 +3677,8 @@ TOOL_GUIDES = [
      "No lyrics file? AI listens to the vocal and lines up the words, then you nudge them."),
     ("tuner", "/tools/tuner/", "線上調音器與節拍器", "Tuner & Metronome",
      "麥克風即時測音高與音分偏差，15 種樂器調弦、參考音與節拍器。"),
+    ("dubbing", "/tools/dubbing/", "織音AI配音剪輯", "AI Dubbing & Narration Editing",
+     "字幕變成配音，或把錄好的口白剪到字幕上；AI 對齊、自動調速、降噪與呼吸處理。"),
 ]
 
 
@@ -3876,6 +3944,7 @@ def main():
     build_fretboard_tool()
     build_chord_detection_tool()
     build_lrc_tool()
+    build_dubbing_tool()
     build_tuner_tool()
     build_daw_tool()
     build_tools_index()

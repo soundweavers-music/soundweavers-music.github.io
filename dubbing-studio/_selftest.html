@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>配音剪輯：數學驗證</title>
+<style>
+  body { background: #0b0c10; color: #dfe1e6; font: 12px ui-monospace, Consolas, monospace; padding: 16px; }
+  pre { white-space: pre-wrap; line-height: 1.6; }
+  .pass { color: #7df0cd; } .fail { color: #ff8a8a; } .info { color: #8f9dff; }
+</style>
+</head>
+<body>
+<pre id="out">running…</pre>
+<iframe src="/tools/dubbing/" style="width:2px;height:2px;opacity:0;border:0"></iframe>
+<img src="/__SLOW__" width="1" height="1" alt="" style="position:absolute;left:-9px;top:-9px">
+<script>
+(async function () {
+  var out = document.getElementById('out'), rows = [], fails = 0;
+  function log(cls, s) { rows.push('<span class="' + cls + '">' + s + '</span>'); out.innerHTML = rows.join('\n'); }
+  function check(name, ok, detail) {
+    if (!ok) fails++;
+    log(ok ? 'pass' : 'fail', (ok ? 'PASS' : 'FAIL') + '  ' + name + (detail ? '  — ' + detail : ''));
+  }
+  var frame = document.querySelector('iframe');
+  await new Promise(function (r) { frame.onload = r; setTimeout(r, 4000); });
+  await new Promise(function (r) { setTimeout(r, 600); });
+  var D = frame.contentWindow && frame.contentWindow.__dubbing;
+  if (!D) {
+    log('fail', 'FAIL  找不到 __dubbing 除錯鉤子（頁面可能沒載入）');
+    fetch('/__READY__');
+    return;
+  }
+
+  // ---- 字幕解析 ----
+  var srt = '1\n00:00:01,000 --> 00:00:03,500\n第一句話\n\n2\n00:00:04,200 --> 00:00:07,000\n第二句話，長一點。\n';
+  var c1 = D.parseSubtitle(srt);
+  check('SRT：解析 2 句', c1.length === 2, JSON.stringify(c1.map(function (c) { return [c.start, c.end]; })));
+  check('SRT：時間正確', Math.abs(c1[0].start - 1) < 0.01 && Math.abs(c1[1].end - 7) < 0.01);
+
+  var lrc = '[00:01.50]第一句\n[00:04.00]第二句\n';
+  var c2 = D.parseSubtitle(lrc);
+  check('LRC：解析 2 句', c2.length === 2, JSON.stringify(c2.map(function (c) { return [c.start, c.end]; })));
+  check('LRC：沒有時間的下一句會補上結束時間', c2[1] && c2[1].end > c2[1].start);
+
+  // ---- 對齊（字幕 ↔ AI 聽到的句子）----
+  var cues = [
+    { start: 0.5, end: 3, text: '今天我們來聊聊混音' },
+    { start: 3.5, end: 6, text: '首先要認識頻率' },
+    { start: 6.5, end: 9, text: '低頻要乾淨' }
+  ];
+  var heard = [
+    { time: 0.6, end: 2.9, text: '今天我們來聊聊混音' },
+    { time: 3.7, end: 5.6, text: '首先要認識頻率這件事情' },
+    { time: 6.6, end: 8.6, text: '低頻要乾淨一點' }
+  ];
+  var map = D.alignCues(cues, heard);
+  check('對齊：三句都對到正確的 AI 句子', map[0] === 0 && map[1] === 1 && map[2] === 2, JSON.stringify(map));
+  var map2 = D.alignCues([{ start: 0, end: 2, text: '完全不同的內容' }], heard);
+  check('對齊：完全不一樣的字幕仍然會給一個位置（不會整段消失）', map2.length === 1 && map2[0] >= 0, JSON.stringify(map2));
+
+  // ---- WSOLA 變速 ----
+  var sr = 44100, tone = new Float32Array(sr); // 1 秒 440 Hz
+  for (var i = 0; i < tone.length; i++) tone[i] = Math.sin(2 * Math.PI * 440 * i / sr) * 0.5;
+  var st = D.timeStretch(tone, sr, 0.8);
+  check('變速：0.8 倍長度正確', Math.abs(st.length - Math.round(sr * 0.8)) <= 2, st.length + ' vs ' + Math.round(sr * 0.8));
+  // 音高不變：量過零率（440 Hz ≈ 880 次/秒）
+  var zc = 0; for (var k = 1; k < st.length; k++) if ((st[k - 1] < 0) !== (st[k] < 0)) zc++;
+  var hz = zc / 2 / (st.length / sr);
+  check('變速：音高不變（過零率 ≈ 440 Hz）', Math.abs(hz - 440) < 25, hz.toFixed(1) + ' Hz');
+
+  // ---- 降噪 ----
+  var noisy = new Float32Array(sr);
+  var seed = 7;
+  function rnd() { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 2147483648 - 1; }
+  for (var j = 0; j < noisy.length; j++) {
+    var t = j / sr;
+    var speech = (t > 0.2 && t < 0.8) ? Math.sin(2 * Math.PI * 220 * t) * 0.4 : 0;
+    noisy[j] = speech + rnd() * 0.05;
+  }
+  function rms(a, s, e) { var x = 0; for (var i2 = s; i2 < e; i2++) x += a[i2] * a[i2]; return Math.sqrt(x / (e - s)); }
+  var dn = D.denoise(noisy, sr);
+  var n0 = rms(noisy, 0, Math.round(sr * 0.15)), n1 = rms(dn, 0, Math.round(sr * 0.15));
+  var s0 = rms(noisy, Math.round(sr * 0.35), Math.round(sr * 0.65)), s1 = rms(dn, Math.round(sr * 0.35), Math.round(sr * 0.65));
+  check('降噪：只有噪音的地方被壓低', n1 < n0 * 0.75, (n1 / n0).toFixed(2) + '×');
+  check('降噪：有語音的地方保留', s1 > s0 * 0.7, (s1 / s0).toFixed(2) + '×');
+
+  // ---- 呼吸聲偵測 ----
+  var br = new Float32Array(sr * 3), lp = 0;
+  for (var q = 0; q < br.length; q++) {
+    var tt = q / sr, v = 0;
+    if (tt < 0.5 || (tt >= 1 && tt < 2)) v = Math.sin(2 * Math.PI * 220 * tt) * 0.3;
+    else if (tt >= 0.8 && tt < 1) { var w = rnd(); lp = lp * 0.7 + w * 0.3; v = lp * 0.04; }
+    br[q] = v;
+  }
+  var regs = D.breathRegions(br, sr);
+  var hit = regs.some(function (r) { return r.start < 0.93 && r.end > 0.83; });
+  check('呼吸聲：抓到合成的吸氣段', hit, JSON.stringify(regs.map(function (r) { return [+r.start.toFixed(2), +r.end.toFixed(2)]; })));
+  check('呼吸聲：沒有把歌聲當成呼吸', !regs.some(function (r) { return r.start < 0.45; }));
+
+  // ---- WAV ----
+  var b = D.wav(new Float32Array(100), 48000);
+  check('WAV：檔頭與長度正確', b.byteLength === 44 + 200, b.byteLength + ' bytes');
+
+  log('info', fails ? '\n共 ' + fails + ' 項失敗' : '\n全部通過');
+  document.title = fails ? 'FAIL' : 'PASS';
+  fetch('/__READY__').catch(function () {});
+})();
+</script>
+</body>
+</html>
