@@ -3,6 +3,8 @@ __pycache__/
 *.py[cod]
 db.sqlite3
 work/cache/
+# 合併後的 AI 模型（不上傳到 git，放在 GitHub Release 附件）
+work/models/
 outputs/world-instruments-static/
 # evidence & rewrite artifacts (large, resumable, not needed to serve the site)
 work/verify/

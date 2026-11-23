@@ -724,7 +724,13 @@ const tr = (zh, en) => (document.documentElement.lang || '').startsWith('en') ? 
       const EXPECT = 263531902;            // 三塊加起來的大小（只用來算百分比）
       for (let k = 0; k < ASR_PARTS.length; k++) {
         const res = await fetch(ASR_PARTS[k]);
-        if (!res.ok) throw new Error(tr('下載歌詞辨識模型失敗（HTTP ' + res.status + '）', 'Could not download the lyric-recognition model (HTTP ' + res.status + ')'));
+        if (!res.ok) {
+          // 模型檔已經不在 repo 裡（改由使用者自己下載），這裡是「還沒安裝」而不是「下載失敗」
+          if (k === 0 && res.status === 404) throw new Error(tr(
+            '還沒有安裝語音辨識模型：請在「模型」卡片按「下載模型」，下載完再按「選擇已下載的檔案…」選進來，安裝一次就好。',
+            'The speech model is not installed yet: use the model card to download it, then pick the file once. It stays in this browser.'));
+          throw new Error(tr('下載歌詞辨識模型失敗（HTTP ' + res.status + '）', 'Could not download the lyric-recognition model (HTTP ' + res.status + ')'));
+        }
         if (res.body && res.body.getReader) {
           const rd = res.body.getReader(), parts = []; let got = 0;
           for (;;) {
