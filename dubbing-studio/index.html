@@ -296,7 +296,8 @@ audio { width: 100%; margin-top: 12px; }
 (function () {
   "use strict";
   var $ = function (id) { return document.getElementById(id); };
-  var AI_JS = new URL("../chord-detection/chord-ai.js", document.baseURI).href;
+  // 頁面在 /tools/dubbing/，chord-ai.js 在網站根目錄的 /chord-detection/：要往上兩層（../ 只到 /tools/，會 404）
+  var AI_JS = new URL("../../chord-detection/chord-ai.js", document.baseURI).href;
   var ORT_DIR = new URL("../../assets/vendor/vad/", document.baseURI).href;
   var ASSET = new URL("../../assets/", document.baseURI).href;   // 模型倉庫、音素表、拼音工具都在這裡
   var ASR_RATE = 16000;
@@ -2363,7 +2364,7 @@ audio { width: 100%; margin-top: 12px; }
     applyEq, eqStages, eqMagDb, biquad, normalizeLoudness, limitPeaks, frameLevels, speechLevelDb, peakDb,
     ttsPhones, zhNumber, ttsRun, ttsSyllables, ttsPinyin, ttsEnsureModel, ttsSandhi, ttsAI, TTS_SR,
     fxPalette, ed, addTake, rebuildBuffer, renderTakes, takesKey, ready, drawEffects, edCoverage, tts,
-    ov, ovSpec, ovResample, ovExtractSE, ovConvert, ovModels, OV_SR, ttsEnLex, ttsEnWord, ttsTrim, EN_EXTRA, ttsT2S, toHans, OV_SRC_ZH, dehiss };
+    ov, ovSpec, ovResample, ovExtractSE, ovConvert, ovModels, OV_SR, ttsEnLex, ttsEnWord, ttsTrim, EN_EXTRA, ttsT2S, toHans, OV_SRC_ZH, dehiss, AI_JS, ORT_DIR, ASSET };
   drawEffects();
   // 語音辨識模型卡（使用者自行下載、存瀏覽器；模型檔不在 repo）
   loadScriptOnce(new URL("../../assets/model-store.js", document.baseURI).href).then(function () {

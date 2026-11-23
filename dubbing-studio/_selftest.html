@@ -30,6 +30,12 @@
     fetch('/__READY__');
     return;
   }
+  // 頁面在執行時才組出來的網址（建置與 audit_links 都看不到）：每一個都要真的抓得到
+  // 以前 AI_JS 寫成 ../chord-detection/ → /tools/chord-detection/chord-ai.js 404，「開始剪輯」直接失敗
+  for (const [name, url] of [['chord-ai.js', D.AI_JS], ['ort.wasm.min.js', D.ORT_DIR + 'ort.wasm.min.js'], ['model-store.js', D.ASSET + 'model-store.js'], ['zh-t2s.json', D.ASSET + 'tts/zh-t2s.json']]) {
+    let st = 0; try { st = (await fetch(url, { method: 'HEAD' })).status; } catch (e) { st = -1; }
+    check('網址：' + name + ' 抓得到', st === 200, new URL(url).pathname + ' → ' + st);
+  }
 
   // ---- 字幕解析 ----
   var srt = '1\n00:00:01,000 --> 00:00:03,500\n第一句話\n\n2\n00:00:04,200 --> 00:00:07,000\n第二句話，長一點。\n';
