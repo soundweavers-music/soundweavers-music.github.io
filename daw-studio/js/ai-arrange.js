@@ -221,22 +221,42 @@ export function generate(o) {
       const prev = [...chordsOf()].filter(c => c.t < t0).pop() || chordsOf()[0];
       out.push({ t: t0, d: bpb, c: prev });
     }
-    if (out[0].t > t0) { out[0].d += out[0].t - t0; out[0].t = t0; }
+    // 第 1 個和弦比小節線晚（轉譜的預備拍／前導空白）：不要把它往前拉滿整個小節，
+    // 那個區間就留白不伴奏——小節線才對得上實際音樂。
     return out;
   };
   const barChords = bars.map((_, i) => chordsInBar(i));
   const chordFor = (b, beat) => {
     const L = barChords[b];
+    if (!L || !L.length) return null;
     for (const x of L) if (beat >= x.t - 1e-6 && beat < x.t + x.d - 1e-6) return x;
+    if (beat < L[0].t - 1e-6) return null;      // 第一個和弦之前＝留白
     return L[L.length - 1];
   };
   const nextChordAfter = (b, beat) => {
     for (let k = b; k < bars.length; k++) for (const x of barChords[k]) if (x.t > beat + 1e-6) return x.c;
-    return chordFor(b, beat).c;
+    const f = chordFor(b, beat);
+    return f ? f.c : null;
   };
 
   const ctx = { prevVoicing: {} };   // arranger.pitches 用的 voice leading 狀態（跟電子琴分開）
   const out = Object.fromEntries(PARTS.map(pt => [pt.id, []]));
+  // 主旋律：專案裡有「主旋律」（轉譜送過來的 MIDI）就複製一份給鋼琴彈，
+  // 沒有歌聲的段落（前奏、間奏）也聽得到旋律。
+  {
+    const melTracks = store.project.tracks.filter(t => t.kind === 'midi' && !t.arrPart && /主旋律|旋律|melody|lead/i.test(t.name || ''));
+    const a0 = startBar * bpb, a1 = a0 + bars.length * bpb;
+    for (const t of melTracks) {
+      for (const c of t.clips) {
+        if (!Array.isArray(c.notes)) continue;
+        for (const n of c.notes) {
+          const beat = c.startBeat + n.t;
+          if (beat < a0 - 1e-6 || beat >= a1 - 1e-6) continue;
+          out.lead.push({ p: n.p, t: beat, d: Math.max(0.05, Math.min(n.d, a1 - beat)), v: n.v });
+        }
+      }
+    }
+  }
   const arpShift = Math.floor(R() * 3);   // 琶音起點（變化）
   for (let b = 0; b < bars.length; b++) {
     const B = bars[b], S = B.S, t0 = B.bar * bpb;
@@ -276,7 +296,9 @@ export function generate(o) {
       for (const e of events) {
         if (e.t >= bpb - 1e-6) continue;
         const beat = t0 + e.t;
-        const seg = chordFor(b, beat), chord = seg.c;
+        const seg = chordFor(b, beat);
+        if (!seg) continue;                     // 這一段還沒有和弦（預備拍）：不出聲
+        const chord = seg.c;
         // 和弦換了：長音收在換和弦的地方
         let d = e.d;
         if (part.id !== 'drums') d = Math.min(d, seg.t + seg.d - beat);

@@ -211,5 +211,20 @@
  "📄 匯入 .lrc": "📄 Import .lrc",
  "📄 匯入 .lrc 歌詞": "📄 Import .lrc lyrics",
  "🖨 列印": "🖨 Print",
- "🖨 列印／PDF": "🖨 Print / PDF"
+ "🖨 列印／PDF": "🖨 Print / PDF",
+ "自動（歌詞優先）": "Auto (lyrics first)",
+ "自動：有歌詞就用第一句唱出來的字當第 1 小節第 1 拍，沒有歌詞才用和弦變化判斷": "Auto: when there are lyrics, the first sung syllable becomes beat 1 of bar 1; without lyrics the chord changes decide",
+ "依第一句歌詞對齊": "aligned to the first sung line",
+ "依和弦變化判斷": "from chord changes",
+ "手動": "manual",
+ "解碼音檔": "Decoding audio",
+ "偵測節拍": "Detecting the beat",
+ "取音高光譜": "Pitch spectrum",
+ "判斷和弦": "Chord detection",
+ "AI 分離主唱": "AI vocal separation",
+ "抓旋律音高": "Melody pitch",
+ "AI 聽歌詞": "AI lyric recognition",
+ "對齊歌詞與排譜": "Aligning lyrics and laying out the score",
+ "只重新對齊歌詞：旋律、和弦、節拍沿用上次分析結果…": "Re-aligning the lyrics only — melody, chords and beats are reused from the last analysis…",
+ "AI 處理中": "AI working"
 }

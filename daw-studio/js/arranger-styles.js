@@ -18,6 +18,8 @@ export const PARTS = [
   { id: 'guitar', name: '吉他', def: 'aguitar', defVol: -7, color: '#f5b83d' },
   { id: 'strings', name: '弦樂', def: 'strings', defVol: -11, color: '#b58bff' },
   { id: 'arp', name: '琶音', def: 'epiano', defVol: -10, color: '#35c9a5' },
+  // 主旋律：轉譜送過來的「主旋律」MIDI 複製一份給鋼琴彈（對應人聲；沒有歌聲的段落也聽得到旋律）
+  { id: 'lead', name: '主旋律', def: 'piano', defVol: -6, color: '#ffd36b' },
 ];
 
 // short：段落軌上顯示的短名；color：段落軌的顏色
@@ -108,6 +110,12 @@ const G = {
   strumSoft: ev([[0, 1.9, 'D', 78], [2, 1.9, 'D', 66]]),
   strum16: ev([[0, 0.24, 'D', 92], [0.5, 0.24, 'U', 60], [0.75, 0.24, 'D', 66], [1, 0.24, 'D', 84], [1.5, 0.24, 'U', 64], [2, 0.24, 'D', 88], [2.5, 0.24, 'U', 62], [2.75, 0.24, 'U', 58], [3, 0.24, 'D', 82], [3.5, 0.24, 'U', 64]]),
   pick: ev([[0, 0.5, 'P1', 84], [0.5, 0.5, 'P3', 64], [1, 0.5, 'P4', 66], [1.5, 0.5, 'P5', 62], [2, 0.5, 'P2', 76], [2.5, 0.5, 'P3', 62], [3, 0.5, 'P4', 64], [3.5, 0.5, 'P5', 60]]),
+  // 指版頁循環型同一組：數字是弦號（1 = 最高音弦），T = 低音弦。每格一個八分音符。
+  pick53231323: ev([[0, 0.5, 'P5', 84], [0.5, 0.5, 'P3', 64], [1, 0.5, 'P2', 66], [1.5, 0.5, 'P3', 62], [2, 0.5, 'P1', 74], [2.5, 0.5, 'P3', 62], [3, 0.5, 'P2', 64], [3.5, 0.5, 'P3', 60]]),   // T1213121／53231323
+  pick43231323: ev([[0, 0.5, 'P4', 84], [0.5, 0.5, 'P3', 64], [1, 0.5, 'P2', 66], [1.5, 0.5, 'P3', 62], [2, 0.5, 'P1', 74], [2.5, 0.5, 'P3', 62], [3, 0.5, 'P2', 64], [3.5, 0.5, 'P3', 60]]),
+  pickBassAlt: ev([[0, 0.5, 'P5', 86], [0.5, 0.5, 'P3', 62], [1, 0.5, 'P5', 78], [1.5, 0.5, 'P2', 64], [2, 0.5, 'P5', 84], [2.5, 0.5, 'P3', 62], [3, 0.5, 'P5', 78], [3.5, 0.5, 'P2', 64]]),   // T-3-T-2
+  pickT1_23_1: ev([[0, 0.9, 'P5', 86], [1, 0.9, 'P1', 76], [2, 0.9, 'P2', 66], [2, 0.9, 'P3', 66], [3, 0.9, 'P1', 74]]),   // T1(23)1
+  pickFolk8: ev([[0, 0.45, 'P5', 88], [0.5, 0.45, 'P3', 62], [1, 0.45, 'P2', 66], [1.5, 0.45, 'P1', 70], [2, 0.45, 'P5', 82], [2.5, 0.45, 'P3', 62], [3, 0.45, 'P2', 66], [3.5, 0.45, 'P1', 70]]),
   rockPower: ev([[0, 0.45, 'PW', 96], [0.5, 0.45, 'PW', 76], [1, 0.45, 'PW', 84], [1.5, 0.45, 'PW', 76], [2, 0.45, 'PW', 92], [2.5, 0.45, 'PW', 76], [3, 0.45, 'PW', 84], [3.5, 0.45, 'PW', 78]]),
   rnbChop: ev([[1, 0.2, 'H', 78], [3, 0.2, 'H', 78], [3.75, 0.15, 'H', 60]]),
   waltzPick: ev([[0, 0.5, 'P1', 84], [0.5, 0.5, 'P3', 62], [1, 0.5, 'P4', 64], [1.5, 0.5, 'P5', 66], [2, 0.5, 'P4', 60], [2.5, 0.5, 'P3', 58]]),
@@ -145,13 +153,13 @@ const mk = (o) => o;
 
 export const STYLES = [
   {
-    id: 'cballad', name: '華語抒情（8 分鋼琴）', bpm: 72, sig: 4, desc: '慢板抒情歌：主歌鋼琴分解、副歌加鼓與弦樂鋪滿，副歌 2 吉他刷弦。',
+    id: 'cballad', name: '華語抒情（8 分鋼琴）', bpm: 72, sig: 4, desc: '慢板抒情歌：主歌 1 只有貝斯＋吉他指彈（T1213121），主歌 2 進鼓，副歌刷弦＋弦樂鋪滿。',
     sections: {
       intro: mk({ bars: 4, chords: ['I', 'V', 'vi', 'IV'], parts: { keys: K.ballad8, arp: A.sparkle, strings: S.pad }, fill: FILL.soft, endFill: true }),
-      verse1: mk({ parts: { keys: K.ballad8, bass: B.whole, drums: null, strings: null }, fill: FILL.soft }),
-      verse2: mk({ parts: { keys: K.ballad8, bass: B.half, drums: D.balladSoft, guitar: G.pick }, fill: FILL.soft }),
-      pre: mk({ parts: { keys: K.half, bass: B.half, drums: D.balladSoft, strings: S.swell, arp: A.up8 }, fill: FILL.build }),
-      chorus1: mk({ parts: { keys: K.pop, bass: B.balladRun, drums: D.ballad, strings: S.pad, guitar: G.strumSoft }, fill: FILL.tom }),
+      verse1: mk({ parts: { bass: B.whole, guitar: G.pick53231323 }, fill: FILL.soft }),
+      verse2: mk({ parts: { keys: K.ballad8, bass: B.half, drums: D.balladSoft, guitar: G.pick43231323 }, fill: FILL.soft }),
+      pre: mk({ parts: { keys: K.half, bass: B.half, drums: D.balladSoft, strings: S.swell, guitar: G.pickT1_23_1 }, fill: FILL.build }),
+      chorus1: mk({ parts: { keys: K.pop, bass: B.balladRun, drums: D.ballad, strings: S.pad, guitar: G.strum }, fill: FILL.tom }),
       chorus2: mk({ parts: { keys: K.pop, bass: B.balladRun, drums: D.balladBig, strings: S.padHi, guitar: G.strum, arp: A.up16 }, fill: FILL.tom }),
       bridge: mk({ parts: { keys: K.half, bass: B.half, drums: D.ballad, strings: S.padHi, arp: A.up8 }, fill: FILL.build }),
       break: mk({ parts: { drums: FILL.stop, bass: ev([[0, 0.5, 'R', 100]]), keys: ev([[0, 0.5, 'C', 96]]), strings: ev([[0, 1, 'C', 80]]) } }),
@@ -159,11 +167,11 @@ export const STYLES = [
     },
   },
   {
-    id: 'cpop', name: '華語流行（中板 8 Beat）', bpm: 92, sig: 4, desc: '中板流行歌：主歌簡單、副歌開放鈸與 16 分刷弦，標準的「四大天王」到現代流行編曲。',
+    id: 'cpop', name: '華語流行（中板 8 Beat）', bpm: 92, sig: 4, desc: '中板流行歌：主歌 1 指彈不打鼓、主歌 2 進鼓，副歌開放鈸與 16 分刷弦。',
     sections: {
       intro: mk({ bars: 4, chords: ['vi', 'IV', 'I', 'V'], parts: { keys: K.pop, drums: D.pop8, bass: B.pop, arp: A.up16 }, fill: FILL.tom, endFill: true }),
-      verse1: mk({ parts: { keys: K.half, bass: B.half, drums: D.balladSoft, guitar: G.pick }, fill: FILL.soft }),
-      verse2: mk({ parts: { keys: K.pop, bass: B.pop, drums: D.pop8, guitar: G.pick }, fill: FILL.snare }),
+      verse1: mk({ parts: { bass: B.half, guitar: G.pick53231323 }, fill: FILL.soft }),
+      verse2: mk({ parts: { keys: K.half, bass: B.pop, drums: D.balladSoft, guitar: G.pick43231323 }, fill: FILL.snare }),
       pre: mk({ parts: { keys: K.pop, bass: B.pop, drums: D.pop8, strings: S.swell, guitar: G.strumSoft }, fill: FILL.build }),
       chorus1: mk({ parts: { keys: K.pop, bass: B.pop, drums: D.pop8Open, strings: S.pad, guitar: G.strum16 }, fill: FILL.tom }),
       chorus2: mk({ parts: { keys: K.pop, bass: B.pop, drums: D.pop8Open, strings: S.padHi, guitar: G.strum16, arp: A.up16 }, fill: FILL.tom }),
@@ -176,7 +184,7 @@ export const STYLES = [
     id: 'folk', name: '校園民謠（木吉他）', bpm: 96, sig: 4, desc: '木吉他刷弦為主，鈴鼓與鼓框，適合民謠、Coffee shop、自彈自唱。',
     sections: {
       intro: mk({ bars: 2, chords: ['I', 'V'], parts: { guitar: G.pick }, fill: FILL.soft, endFill: false }),
-      verse1: mk({ parts: { guitar: G.pick, bass: B.whole }, fill: FILL.soft }),
+      verse1: mk({ parts: { guitar: G.pick53231323, bass: B.whole }, fill: FILL.soft }),
       verse2: mk({ parts: { guitar: G.strum, bass: B.folk, drums: D.folk }, fill: FILL.soft }),
       pre: mk({ parts: { guitar: G.strum, bass: B.folk, drums: D.folk, keys: K.pad }, fill: FILL.snare }),
       chorus1: mk({ parts: { guitar: G.strum, bass: B.folk, drums: D.folkBig, keys: K.half, strings: S.pad }, fill: FILL.tom }),

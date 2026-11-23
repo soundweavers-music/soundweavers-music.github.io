@@ -151,7 +151,7 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
 @media print {
   .site-header, .site-footer, .upload-zone, .controls-row, #status-msg, .progress-bar,
   .waveform-container, .compact-hero, .key-info, .chart-toolbar, #lyric-status,
-  .playback-cursor, .bar-edit, #grid-row { display: none !important; }
+  .playback-cursor, .bar-edit, #grid-row, .page-bottom-gap { display: none !important; }
   body { background: #fff !important; color: #000 !important; }
   .page { max-width: none !important; padding: 0 !important; margin: 0 !important; }
   .print-only { display: block !important; }
@@ -172,7 +172,9 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
 }
 @page { size: A4; margin: 15mm 12mm; }
 @page score { size: A4; margin: 0; }
-body.print-score #score-view { page: score; }
+/* 譜面用的無邊界頁面掛在 <body> 上：掛在 #score-view 會讓第一頁變成空白頁
+   （頁面名稱不同 → 前面的空內容自己佔一頁）。 */
+body.print-score, body.has-score { page: score; }
 .ai-mode { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0 4px; }
 .ai-opt { display: block; padding: 10px 14px; border: 1px solid var(--line, #ddd); border-radius: 10px; cursor: pointer; font-size: 14px; line-height: 1.5; background: var(--card, #fff); }
 .ai-opt input { margin-right: 4px; }
@@ -229,7 +231,7 @@ body.print-score #score-view { page: score; }
 .sc-play label { display: flex; align-items: center; gap: 4px; cursor: pointer; }
 .sc-play .sc-play-hint { color: var(--muted); font-size: 11.5px; }
 .sc-play .spacer { flex: 1; }
-#ai-progress { position: fixed; left: 50%; bottom: 22px; transform: translate(-50%, 16px); width: min(440px, calc(100vw - 24px));
+#ai-progress { position: fixed; left: 50%; bottom: 22px; transform: translate(-50%, 16px); width: min(520px, calc(100vw - 24px));
   background: var(--surface, #fff); color: var(--ink, #222); border: 1px solid var(--line, #ddd); border-radius: 12px;
   box-shadow: 0 10px 34px rgba(0,0,0,.22); padding: 12px 14px 10px; z-index: 9999; font-size: 13px;
   opacity: 0; pointer-events: none; transition: opacity .18s, transform .18s; }
@@ -242,7 +244,12 @@ body.print-score #score-view { page: score; }
 #ai-progress .aip-bar { height: 8px; border-radius: 4px; background: var(--soft, #eee); overflow: hidden; }
 #ai-progress .aip-fill { height: 100%; width: 0; background: var(--accent, #c4956a); transition: width .25s; }
 #ai-progress .aip-pct { text-align: right; font-size: 12px; color: var(--muted, #888); margin-top: 2px; }
-#ai-progress .aip-done { margin: 4px 0 0; padding-left: 0; list-style: none; color: var(--muted, #888); font-size: 12px; max-height: 96px; overflow: auto; }
+#ai-progress .aip-list { margin: 6px 0 8px; padding: 0; list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 2px 14px; font-size: 12px; color: var(--muted, #999); }
+#ai-progress .aip-list li { display: flex; align-items: center; gap: 6px; }
+#ai-progress .aip-list li .ic { width: 12px; text-align: center; opacity: .8; }
+#ai-progress .aip-list li.done { color: var(--ink, #333); }
+#ai-progress .aip-list li.on { color: var(--ink, #333); font-weight: 600; }
+#ai-progress .aip-list li.on .ic { color: var(--accent, #c4956a); }
 #ai-progress .aip-note { color: var(--muted, #888); font-size: 11px; margin-top: 6px; border-top: 1px dashed var(--line, #ddd); padding-top: 5px; }
 @media print { #ai-progress { display: none !important; } }
 .sc-page .now { fill: rgba(220,90,40,.22); }
@@ -263,22 +270,28 @@ body.print-score #score-view { page: score; }
 .sc-page .hit.now { fill: rgba(220,90,40,.28); }
 .sc-page .barhit.nowbar { fill: rgba(220,90,40,.07); }
 @media print {
-  body.print-score .page > *:not(#chart-container) { display: none !important; }
-  body.print-score #chart-container > *:not(#score-view) { display: none !important; }
-  /* 譜現在放在左右工具列中間（.sc-tools > .sc-stage > .sc-pages）：列印時只留譜 */
-  body.print-score #score-view > *:not(.sc-tools) { display: none !important; }
-  body.print-score .sc-tools { display: block !important; margin: 0 !important; }
-  body.print-score .sc-tools > *:not(.sc-stage) { display: none !important; }
-  body.print-score .sc-stage > *:not(.sc-pages) { display: none !important; }
-  body.print-score #score-view { display: block !important; }
-  body.print-score .sc-pages { background: none !important; padding: 0 !important; gap: 0 !important; display: block !important; zoom: 1 !important; }
-  body.print-score .sc-page { box-shadow: none !important; break-after: page; page-break-after: always; width: 210mm !important; height: 296mm !important; overflow: hidden; margin: 0 !important; }
-  body.print-score .sc-page svg { width: 210mm !important; height: 296mm !important; }
-  body.print-score .page, body.print-score main { padding: 0 !important; margin: 0 !important; max-width: none !important; }
-  body.print-score .site-header, body.print-score .site-footer { display: none !important; }
-  body.print-score .sc-page:last-child { break-after: auto; page-break-after: auto; }
-  body.print-score .sc-page .hit, body.print-score .sc-page .barhit { fill: transparent !important; stroke: none !important; }
-  body.print-score .sc-page .bad { fill: transparent !important; }
+  /* 有譜面的時候，列印只留譜面：
+     - 按譜面工具列的「🖨 列印」→ scPrint() 會加 body.print-score
+     - 直接按 Ctrl+P／瀏覽器列印 → scRender() 加的 body.has-score
+     兩種入口都要乾淨，不然第一頁會是上面那些表單欄位、旁邊還夾著工具列。 */
+  :is(body.print-score, body.has-score) .page > *:not(#chart-container) { display: none !important; }
+  :is(body.print-score, body.has-score) #chart-container > *:not(#score-view) { display: none !important; }
+  /* 譜放在左右工具列中間（.sc-tools > .sc-stage > .sc-pages）：列印時只留譜 */
+  :is(body.print-score, body.has-score) #score-view > *:not(.sc-tools) { display: none !important; }
+  :is(body.print-score, body.has-score) .sc-tools { display: block !important; margin: 0 !important; }
+  :is(body.print-score, body.has-score) .sc-tools > *:not(.sc-stage) { display: none !important; }
+  :is(body.print-score, body.has-score) .sc-stage > *:not(.sc-pages) { display: none !important; }
+  :is(body.print-score, body.has-score) #score-view { display: block !important; }
+  :is(body.print-score, body.has-score) .sc-pages { background: none !important; padding: 0 !important; gap: 0 !important; display: block !important; zoom: 1 !important;
+    line-height: 0 !important; font-size: 0 !important; overflow: hidden !important; }   /* 容器會多出一行的高度，不夾住就會多印一張空白頁 */
+  :is(body.print-score, body.has-score) .page-bottom-gap { display: none !important; }
+  :is(body.print-score, body.has-score) .sc-page { box-shadow: none !important; break-after: page; page-break-after: always; width: 210mm !important; height: 296mm !important; overflow: hidden; margin: 0 !important; }
+  :is(body.print-score, body.has-score) .sc-page svg { width: 210mm !important; height: 296mm !important; }
+  :is(body.print-score, body.has-score) .page, :is(body.print-score, body.has-score) main { padding: 0 !important; margin: 0 !important; max-width: none !important; }
+  :is(body.print-score, body.has-score) .site-header, :is(body.print-score, body.has-score) .site-footer { display: none !important; }
+  :is(body.print-score, body.has-score) .sc-page:last-child { break-after: auto; page-break-after: auto; }
+  :is(body.print-score, body.has-score) .sc-page .hit, :is(body.print-score, body.has-score) .sc-page .barhit { fill: transparent !important; stroke: none !important; }
+  :is(body.print-score, body.has-score) .sc-page .bad { fill: transparent !important; }
 }
 </style>
 </head>
@@ -405,8 +418,8 @@ body.print-score #score-view { page: score; }
 <!-- Grid / beat controls -->
 <div class="controls-row" id="grid-row" style="display:none;">
   <label>拍號 <select id="bpb-select"><option value="4">4/4</option><option value="3">3/4</option></select></label>
-  <label>預備拍 <select id="pickup-select">
-    <option value="auto">自動</option>
+  <label>預備拍 <select id="pickup-select" title="自動：有歌詞就用第一句唱出來的字當第 1 小節第 1 拍，沒有歌詞才用和弦變化判斷">
+    <option value="auto">自動（歌詞優先）</option>
     <option value="0">0 拍</option><option value="1">1 拍</option>
     <option value="2">2 拍</option><option value="3">3 拍</option>
   </select></label>
@@ -630,7 +643,7 @@ body.print-score #score-view { page: score; }
     </nav>
   </div>
 </footer>
-<div style="height: 60px;"></div>
+<div class="page-bottom-gap" style="height: 60px;"></div>
 
 <script>
 // =========================================================================
@@ -756,7 +769,7 @@ let state = {
   autoDownbeat: 0, downbeatShift: 0, gridShiftSec: 0,
   lyrics: [], lyricSegs: {}, lyricOverrides: {}, showLyrics: true, showDegrees: true,
   showDiagrams: false, continuous: false, notation: 'name',
-  pickupOverride: null, lyricSnap: true, chordSize: 15, lyricSize: 14, melodySize: 13, rowGap: 2,
+  pickupOverride: null, trimFront: false, gridFromLyrics: false, lyricSnap: true, chordSize: 15, lyricSize: 14, melodySize: 13, rowGap: 2,
   useLyricAsr: true, lyricAnchors: null, lyricAsrError: null,
   lyricsAuto: false, lyricsAutoFor: null,        // 歌詞是 AI 聽出來的（第一版），匯入 LRC 後改回 false
   showMelody: true, melodyFrames: null, melodySmooth: null, melodyNotes: null,
@@ -843,45 +856,79 @@ function setProgressDone() {
   aiPanelDone();
 }
 
-// ---- AI 進度視窗：跑 AI（分離主唱、抓旋律、下載／聽歌詞）時浮在畫面上，捲到哪裡都看得到 ----
-// 只靠 setProgress／setProgressDone 驅動，所有呼叫點都不用改。一次分析會接連好幾步，
-// 所以 Done 之後等 1.2 秒，期間又有新的進度就繼續開著，不會一閃一閃。
-const AIP = { el: null, t0: 0, step: '', steps: [], closeTimer: 0, tick: 0, hidden: false };
+// ---- AI 進度視窗：所有步驟一次列在同一個框裡 ----
+// 以前是「跑到哪一步才把那一行加進去」，使用者看不到還剩幾步；現在一開始就把
+// 整份步驟表畫出來，完成的打 ✓、正在跑的加亮、還沒到的是灰的。
+const AIP = { el: null, t0: 0, step: '', closeTimer: 0, tick: 0, hidden: false, done: new Set(), extra: [] };
+const AIP_STEPS = [
+  ['decode', '解碼音檔'],
+  ['tempo', '偵測節拍'],
+  ['chroma', '取音高光譜'],
+  ['chords', '判斷和弦'],
+  ['separate', 'AI 分離主唱'],
+  ['melody', '抓旋律音高'],
+  ['lyrics', 'AI 聽歌詞'],
+  ['align', '對齊歌詞與排譜'],
+];
+// 進度文字 → 是哪一步
+function aiStepKey(label) {
+  const t = String(label || '');
+  if (/解碼|讀取音檔|上傳/.test(t)) return 'decode';
+  if (/節拍|速度|BPM/.test(t)) return 'tempo';
+  if (/音高光譜|chroma/i.test(t)) return 'chroma';
+  if (/和弦/.test(t)) return 'chords';
+  if (/分離/.test(t)) return 'separate';
+  if (/旋律/.test(t)) return 'melody';
+  if (/聽歌詞|歌詞辨識|下載歌詞/.test(t)) return 'lyrics';
+  if (/對齊|排譜|調性|移調夾/.test(t)) return 'align';
+  return '';
+}
 function aiPanelEl() {
   if (AIP.el) return AIP.el;
   const d = document.createElement('div');
   d.id = 'ai-progress';
   d.setAttribute('role', 'status'); d.setAttribute('aria-live', 'polite');
   d.innerHTML = '<div class="aip-head"><b>AI 處理中</b><span class="aip-time"></span><button type="button" class="aip-hide" title="先藏起來，處理會繼續">隱藏</button></div>'
-    + '<div class="aip-step"></div><div class="aip-bar"><div class="aip-fill"></div></div><div class="aip-pct"></div><ol class="aip-done"></ol>'
+    + '<ol class="aip-list">' + AIP_STEPS.map(([k, n]) =>
+      '<li data-step="' + k + '"><span class="ic">○</span><span class="lb">' + n + '</span></li>').join('') + '</ol>'
+    + '<div class="aip-step"></div><div class="aip-bar"><div class="aip-fill"></div></div><div class="aip-pct"></div>'
     + '<div class="aip-note">全部在你的電腦上算，音檔不會上傳。第一次會下載 AI 模型，之後瀏覽器會記住。</div>';
   d.querySelector('.aip-hide').addEventListener('click', () => { AIP.hidden = true; d.classList.remove('on'); });
   document.body.appendChild(d);
   AIP.el = d;
   return d;
 }
-// 進度文字「AI 分離主唱… 37%」→ 步驟名稱「AI 分離主唱」＋其餘說明
-function aiStepName(label) { return String(label || '').replace(/[…\.]+\s*\d+%.*$/, '').replace(/\s*\d+%.*$/, '').replace(/[（(].*$/, '').trim(); }
+function aiPanelSync() {
+  const d = AIP.el;
+  if (!d) return;
+  for (const li of d.querySelectorAll('.aip-list li')) {
+    const k = li.dataset.step;
+    const done = AIP.done.has(k), on = k === AIP.step;
+    li.className = done ? 'done' : on ? 'on' : '';
+    li.querySelector('.ic').textContent = done ? '✓' : on ? '●' : '○';
+  }
+}
 function aiPanelUpdate(pct, label) {
   const d = aiPanelEl();
   clearTimeout(AIP.closeTimer);
   if (!d.classList.contains('on') && !AIP.hidden) {
-    if (!AIP.t0) { AIP.t0 = performance.now(); AIP.steps = []; AIP.step = ''; d.querySelector('.aip-done').innerHTML = ''; }
+    if (!AIP.t0) { AIP.t0 = performance.now(); AIP.done = new Set(); AIP.step = ''; }
     d.classList.add('on');
   }
   if (!AIP.t0) AIP.t0 = performance.now();
-  const name = aiStepName(label);
-  if (name && name !== AIP.step) {
-    if (AIP.step) { AIP.steps.push(AIP.step); const li = document.createElement('li'); li.textContent = '✓ ' + AIP.step; d.querySelector('.aip-done').appendChild(li); }
-    AIP.step = name;
+  const key = aiStepKey(label);
+  if (key && key !== AIP.step) {
+    if (AIP.step) AIP.done.add(AIP.step);
+    AIP.step = key;
   }
-  // 步驟說明不帶「… 50%」：那是這一步自己的百分比，跟下面整體進度條不一樣，兩個數字並列會讓人以為算錯
-  d.querySelector('.aip-step').textContent = (label ? String(label).replace(/\s*\d+%\s*$/, '').replace(/…\s*$/, '…') : '') || AIP.step || '處理中…';
+  aiPanelSync();
+  // 這一步自己的細節（例如「AI 分離主唱… 37%」）放在步驟表下面，跟整體進度分開
+  d.querySelector('.aip-step').textContent = (label ? String(label).replace(/\s*\d+%\s*$/, '').replace(/…\s*$/, '…') : '') || '處理中…';
   d.querySelector('.aip-fill').style.width = Math.max(2, Math.min(100, pct)) + '%';
   d.querySelector('.aip-pct').textContent = Math.round(Math.min(100, pct)) + '%';
   if (!AIP.tick) AIP.tick = setInterval(() => {
-    const s = Math.round((performance.now() - AIP.t0) / 1000);
-    d.querySelector('.aip-time').textContent = '已經 ' + (s >= 60 ? Math.floor(s / 60) + ' 分 ' : '') + (s % 60) + ' 秒';
+    const t = Math.round((performance.now() - AIP.t0) / 1000);
+    d.querySelector('.aip-time').textContent = '已經 ' + (t >= 60 ? Math.floor(t / 60) + ' 分 ' : '') + (t % 60) + ' 秒';
   }, 500);
 }
 function aiPanelDone() {
@@ -889,13 +936,14 @@ function aiPanelDone() {
   clearTimeout(AIP.closeTimer);
   AIP.closeTimer = setTimeout(() => {
     const d = AIP.el;
-    if (AIP.step) { const li = document.createElement('li'); li.textContent = '✓ ' + AIP.step; d.querySelector('.aip-done').appendChild(li); }
+    if (AIP.step) { AIP.done.add(AIP.step); AIP.step = ''; }
+    aiPanelSync();
     d.querySelector('.aip-step').textContent = '完成';
     d.querySelector('.aip-fill').style.width = '100%';
     d.querySelector('.aip-pct').textContent = '100%';
     clearInterval(AIP.tick); AIP.tick = 0;
-    AIP.closeTimer = setTimeout(() => { d.classList.remove('on'); AIP.t0 = 0; AIP.step = ''; AIP.steps = []; AIP.hidden = false; }, 1200);
-  }, 1200);
+    AIP.closeTimer = setTimeout(() => { d.classList.remove('on'); AIP.t0 = 0; AIP.done = new Set(); AIP.step = ''; AIP.hidden = false; }, 1600);
+  }, 900);
 }
 
 function setStatus(msg, type) {
@@ -1073,10 +1121,15 @@ async function analyzeWithBrowser() {
     const vocalEnv = computeVocalEnvelope(buffer);
     state.vocalEnv = vocalEnv.env;
     state.vocalHopSec = vocalEnv.hopSec;
+    const low = computeLowBandEnvelope(buffer);
+    state.lowEnv = low.env; state.lowHopSec = low.hopSec;
+    state.firstMusic = firstSoundTime(buffer);
     state.baseBeats = tracked.times;
     state.bpm = bpmFromBeats(tracked.times) || Math.round(tempo.bpm);
     state.gridShiftSec = 0;
     state.downbeatShift = 0;
+    state.trimFront = false;
+    state.gridFromLyrics = false;
     state.beatsPerBar = parseInt(document.getElementById('bpb-select').value, 10) || 4;
     document.getElementById('bpm-input').value = state.bpm;
 
@@ -1188,6 +1241,66 @@ function computeOnsetEnvelope(buffer, hopSize = 512, frameSize = 1024) {
     out[f] = v > 0 ? v : 0;
   }
   return { env: out, hopSec: hopSize / sr };
+}
+
+// 低頻起音包絡：先低通到 160 Hz 以下（大鼓、貝斯），再取能量上升量。
+// 小節第一拍通常有鼓，拿它當「小節線在哪」的證據，比只看和弦變化穩。
+function computeLowBandEnvelope(buffer, hopSize = 512, cutoff = 160) {
+  const samples = buffer.getChannelData(0);
+  const sr = buffer.sampleRate;
+  const nFrames = Math.max(0, Math.floor(samples.length / hopSize));
+  const a = Math.exp(-2 * Math.PI * cutoff / sr);      // 一階低通
+  const rms = new Float32Array(nFrames);
+  let y = 0;
+  for (let f = 0; f < nFrames; f++) {
+    const off = f * hopSize;
+    let s = 0;
+    for (let i = 0; i < hopSize; i++) { y = (1 - a) * (samples[off + i] || 0) + a * y; s += y * y; }
+    rms[f] = Math.sqrt(s / hopSize);
+  }
+  const flux = new Float32Array(nFrames);
+  for (let f = 1; f < nFrames; f++) { const d = rms[f] - rms[f - 1]; flux[f] = d > 0 ? d : 0; }
+  const w = 64, out = new Float32Array(nFrames);
+  let acc = 0;
+  for (let f = 0; f < nFrames; f++) {
+    acc += flux[f];
+    if (f >= w) acc -= flux[f - w];
+    const mean = acc / Math.min(f + 1, w);
+    out[f] = flux[f] - mean * 0.9 > 0 ? flux[f] - mean * 0.9 : 0;
+  }
+  return { env: out, hopSec: hopSize / sr };
+}
+
+function lowEnvAt(t) {
+  const env = state.lowEnv, hop = state.lowHopSec;
+  if (!env || !hop) return 0;
+  const c = Math.round(t / hop), r = Math.max(1, Math.round(0.06 / hop));
+  let m = 0;
+  for (let i = Math.max(0, c - r); i <= Math.min(env.length - 1, c + r); i++) if (env[i] > m) m = env[i];
+  return m;
+}
+
+// 第一個「真的有聲音」的時間（捨掉前面的空白／底噪）。
+// 用音量（RMS）而不是起音包絡：安靜的前奏沒有起音，但它已經在唱了。
+function firstSoundTime(buffer, hop = 512) {
+  const d = buffer.getChannelData(0), sr = buffer.sampleRate;
+  const n = Math.floor(d.length / hop);
+  const rms = new Float32Array(n);
+  let peak = 0;
+  for (let f = 0; f < n; f++) {
+    let s = 0;
+    for (let i = 0; i < hop; i += 2) { const v = d[f * hop + i] || 0; s += v * v; }
+    rms[f] = Math.sqrt(s / (hop / 2));
+    if (rms[f] > peak) peak = rms[f];
+  }
+  if (!(peak > 1e-5)) return null;
+  const thr = Math.max(1e-4, peak * 0.06), need = Math.max(2, Math.round(0.12 * sr / hop));
+  let run = 0;
+  for (let f = 0; f < n; f++) {
+    if (rms[f] > thr) { run++; if (run >= need) return Math.max(0, (f - run + 1) * hop / sr); }
+    else run = 0;
+  }
+  return null;
 }
 
 // 人聲起音包絡：先做一階差分（高通，凸顯子音），再取能量上升量。
@@ -1350,6 +1463,9 @@ function bpmFromBeats(beats) {
 function estimateDownbeatOffset(beats, store, beatsPerBar) {
   const bpb = beatsPerBar || 4;
   if (!beats || beats.length < bpb * 2 || !store) return 0;
+  // 有歌詞就先聽歌詞：第一句唱出來的字幾乎都落在第 1 小節第 1 拍（見下面的說明）
+  const lyricOff = estimateDownbeatFromLyrics(beats, bpb);
+  if (lyricOff != null) return lyricOff;
   // 每個 offset 的分數 = 平均「跨過這條小節線時和弦變化多大」。
   //
   // 絕大多數流行歌的第一拍就是第一小節，所以預設留在 offset 0；只有在
@@ -1366,19 +1482,196 @@ function estimateDownbeatOffset(beats, store, beatsPerBar) {
     }
     scores[off] = n ? s / n : 0;
   }
-  // 實測 11 首華語流行歌的譜面交叉比對後：只要 offset 0 有一點和弦變化
-  // 證據就留在 0。理由是絕大多數錄音都從第一小節第一拍開始，而「每小節
-  // 兩個和弦」的進行（| F G |）會讓 offset 2 的分數偶爾更高——選錯就是
-  // 整份譜偏半小節。真的不是從第一拍開始的歌，用「小節線 ◀拍／拍▶」調。
-  let maxOff = 0, maxScore = 0;
+  // 加上低頻證據：小節第一拍通常有鼓（大鼓／貝斯），把它跟和弦變化一起評分。
+  // 只有明顯比 offset 0 好才換，避免「每小節兩個和弦」的進行把整份譜推歪半小節。
+  const lowScores = new Array(bpb).fill(0);
+  let hasLow = false;
   for (let off = 0; off < bpb; off++) {
-    if (scores[off] > maxScore) { maxScore = scores[off]; maxOff = off; }
+    let sum = 0, n = 0;
+    for (let i = off; i < beats.length; i += bpb) { sum += lowEnvAt(beats[i]); n++; }
+    lowScores[off] = n ? sum / n : 0;
+    if (lowScores[off] > 0) hasLow = true;
   }
-  if (scores[0] > 0.05 * maxScore || scores[0] > 0) return 0;
+  const norm = arr => {
+    let mx = 0;
+    for (const v of arr) if (v > mx) mx = v;
+    return mx > 0 ? arr.map(v => v / mx) : arr.map(() => 0);
+  };
+  const chordN = norm(scores), lowN = hasLow ? norm(lowScores) : new Array(bpb).fill(0);
+  const total = chordN.map((v, i) => v + lowN[i] * 1.2);
+  let maxOff = 0, maxScore = 0;
+  for (let off = 0; off < bpb; off++) if (total[off] > maxScore) { maxScore = total[off]; maxOff = off; }
+  // 要明顯更好（差 0.15 以上）才動：預設留在 0
+  if (maxOff === 0 || total[0] >= maxScore - 0.15) return 0;
   return maxOff;
 }
 
-function groupIntoBars(beats, duration, beatsPerBar = 4, offset = 0) {
+// ---------------------------------------------------------------------------
+// 開頭小節怎麼判斷
+// ---------------------------------------------------------------------------
+// 流行歌的錄音幾乎都是「前奏（整數小節）→ 第 1 小節第 1 拍開始唱」。
+// 所以第一句唱出來的字就是最可靠的小節線證據，比和弦變化可靠：
+// 和弦常常一小節換一次，offset 0 與 2 的分數很接近，容易挑錯半個小節。
+//
+// 判斷順序：
+//   1. 有歌詞時間（匯入 .lrc 或 AI 聽歌詞）→ 第一個字落在哪一拍，那一拍就是小節第一拍；
+//      速度再用「句與句的間隔」修一次（每句通常是 1～4 個整數小節）。
+//   2. 沒有歌詞 → 退回和弦變化（estimateDownbeatOffset 原本的做法）。
+//   3. 使用者調過「預備拍」或按過「◀拍／拍▶」→ 一律以使用者為準，不再自動改。
+// 只認「開頭就是版權字樣」的短行（詞/曲/編曲…）。歌詞裡剛好有「詞」「曲」的句子不能被誤殺。
+const LYRIC_CREDIT = /^(作詞|作曲|詞曲|詞|曲|編曲|製作人|製作|監製|演唱|歌手|混音|母帶|錄音|發行|出版|OP|SP|版權|授權|詞[/／:：．.])/;
+
+// 「詞/曲/某某人」這種不是唱出來的行，不能拿來當小節線證據
+function isCreditLine(text) {
+  const t = String(text || '').trim();
+  if (!t) return true;
+  return t.length <= 20 && LYRIC_CREDIT.test(t);
+}
+
+function sungLyricLines() {
+  const out = (state.lyrics || []).filter(l => l && l.text != null && l.time >= 0 && !isCreditLine(l.text));
+  return out.sort((a, b) => a.time - b.time);
+}
+
+// 第一個字被唱出來的時間（秒）。有 AI 逐字時間就用它，比 LRC 的行時間準。
+function firstSungTime() {
+  const lines = sungLyricLines();
+  if (!lines.length) return null;
+  const anchors = state.lyricAnchors;
+  if (Array.isArray(anchors) && anchors.length) {
+    const all = state.lyrics || [];
+    for (const ln of lines) {
+      const a = anchors[all.indexOf(ln)];
+      if (a && a.t && a.t.length && (a.conf == null || a.conf >= 0.3) && Number.isFinite(a.t[0])) return a.t[0];
+    }
+  }
+  return lines[0].time;
+}
+
+// 每一句歌詞投一票：它踩到的那一拍，是不是小節第一拍。
+// 第一句（唱出來的第一個字）票最重——那就是使用者看到的「歌從哪個小節開始」；
+// 其他句用來驗證（有些歌第一句是預備拍，這時候多數句的票會蓋過它）。
+function lyricDownbeatVote(beats, bpb) {
+  const t0 = firstSungTime();
+  if (t0 == null || !beats || beats.length < bpb) return null;
+  const ivs = [];
+  for (let i = 1; i < beats.length; i++) ivs.push(beats[i] - beats[i - 1]);
+  const period = medianOf(ivs);
+  if (!(period > 0)) return null;
+  const lines = sungLyricLines();
+  const score = new Array(bpb).fill(0);
+  let total = 0, firstIdx = -1;
+  lines.forEach((ln, k) => {
+    const t = k === 0 ? t0 : ln.time;
+    let idx = 0;
+    for (let i = 1; i < beats.length; i++) if (Math.abs(beats[i] - t) < Math.abs(beats[idx] - t)) idx = i;
+    if (Math.abs(beats[idx] - t) > period * 0.35) return;      // 這句沒踩在拍上（拖拍／時間不準）→ 不投票
+    if (k === 0) firstIdx = idx;
+    const w = k === 0 ? 3 : 1;
+    score[idx % bpb] += w; total += w;
+  });
+  if (!total || firstIdx < 0) return null;
+  let best = 0;
+  for (let o = 1; o < bpb; o++) if (score[o] > score[best]) best = o;
+  if (score[best] < 2) return null;
+  return { offset: best, firstIdx: firstIdx, period: period, score: score };
+}
+
+function estimateDownbeatFromLyrics(beats, bpb) {
+  const v = lyricDownbeatVote(beats, bpb);
+  return v ? v.offset : null;
+}
+
+// 用「句與句的間隔」校正速度：每句歌詞通常是整數小節（多數是 2 小節）
+function fitTempoFromLyrics(bpb) {
+  const lines = sungLyricLines();
+  if (lines.length < 4) return null;
+  const gaps = [];
+  for (let i = 1; i < lines.length; i++) {
+    const g = lines[i].time - lines[i - 1].time;
+    if (g > 0.5 && g < 30) gaps.push(g);
+  }
+  if (gaps.length < 3) return null;
+  const med = medianOf(gaps);
+  if (!(med > 0)) return null;
+  const barNow = (60 / (state.bpm || 120)) * bpb;
+  const perLine = Math.min(4, Math.max(1, Math.round(med / barNow)));
+  const bpm = (60 * bpb) / (med / perLine);
+  if (!(bpm > 40 && bpm < 240)) return null;
+  // 只修一點點偏差（8% 內）。差太多代表歌詞抓錯或歌真的變速，寧可不要動
+  if (Math.abs(bpm - state.bpm) / state.bpm > 0.08) return null;
+  return { bpm: bpm, perLine: perLine };
+}
+
+// 歌詞出現（匯入 LRC 或 AI 聽歌詞）之後重新決定：速度與第 1 小節
+// 重鋪成等速格線之後，數「有幾句歌詞剛好踩在小節線」——用來確認小節線沒有偏
+function lyricAlignCount(beats, bpb, off) {
+  if (!beats || beats.length <= bpb) return 0;
+  const ivs = [];
+  for (let i = 1; i < beats.length; i++) ivs.push(beats[i] - beats[i - 1]);
+  const period = medianOf(ivs);
+  if (!(period > 0)) return 0;
+  let n = 0;
+  for (const ln of sungLyricLines()) {
+    let idx = 0;
+    for (let i = 1; i < beats.length; i++) if (Math.abs(beats[i] - ln.time) < Math.abs(beats[idx] - ln.time)) idx = i;
+    if (Math.abs(beats[idx] - ln.time) > period * 0.3) continue;
+    if (((idx - off) % bpb + bpb) % bpb === 0) n++;
+  }
+  return n;
+}
+
+// 歌詞出現（匯入 LRC 或 AI 聽歌詞）之後重新決定：速度與第 1 小節
+function syncGridFromLyrics(silent) {
+  if (state.pickupOverride != null) return false;        // 使用者手動調過就尊重
+  if (!state.baseBeats || !state.baseBeats.length) return false;
+  const t0 = firstSungTime();
+  if (t0 == null) return false;
+  const bpb = state.beatsPerBar;
+  const fit = fitTempoFromLyrics(bpb);
+  // 節拍追蹤本身很穩（拍長幾乎固定）才重鋪成等速格線；變速的演奏留給追蹤結果
+  const ivs = [];
+  for (let i = 1; i < state.baseBeats.length; i++) ivs.push(state.baseBeats[i] - state.baseBeats[i - 1]);
+  const med = medianOf(ivs);
+  const steady = med > 0 && medianOf(ivs.map(v => Math.abs(v - med))) / med < 0.12;
+  const worth = fit && steady && Math.abs(fit.bpm - state.bpm) / state.bpm > 0.008;
+
+  if (worth) {
+    // 第一遍：讓第一個字剛好踩在小節線（＝第 1 小節第 1 拍）
+    const interval = 60 / fit.bpm, bar = interval * bpb;
+    let anchor = Math.max(0, t0);
+    regridFromBPM(fit.bpm, anchor % bar);
+    // 第二遍：看看往前往後挪幾拍，能讓最多句歌詞踩在小節線上
+    // （有些歌第一句是預備拍，這時會被挪回正確的小節線）
+    let bestOff = 0, bestN = lyricAlignCount(state.baseBeats, bpb, 0);
+    for (let o = 1; o < bpb; o++) {
+      const n = lyricAlignCount(state.baseBeats, bpb, o);
+      if (n > bestN) { bestN = n; bestOff = o; }
+    }
+    const back = (bpb - bestOff) % bpb;                  // 小節線要在第一個字「前面」幾拍
+    if (back && bestN >= 2) {
+      anchor = Math.max(0, anchor - back * interval);
+      regridFromBPM(fit.bpm, anchor % bar);
+    }
+    state.autoDownbeat = 0;                             // 格線第一拍就是小節線
+  } else {
+    const off = estimateDownbeatFromLyrics(state.baseBeats, bpb);
+    if (off == null) return false;
+    state.autoDownbeat = off;
+  }
+  state.downbeatShift = 0;
+  state.gridFromLyrics = true;
+  applyGrid({ decode: true });
+  if (!silent) {
+    const barSec = (60 / state.bpm) * bpb;
+    setStatus('已依歌詞對齊小節：第 1 小節從 ' + (state.bars[0] ? state.bars[0].start.toFixed(2) : '0') +
+      ' 秒開始，速度 ' + (Math.round(state.bpm * 10) / 10) + ' BPM、前奏約 ' +
+      (Math.round(t0 / barSec * 10) / 10) + ' 小節。要手動改，用上面的「預備拍」與「◀拍／拍▶」。', 'done');
+  }
+  return true;
+}
+
+function groupIntoBars(beats, duration, beatsPerBar = 4, offset = 0, keepFront = false) {
   if (!beats.length) return [{ start: 0, end: Math.min(4, duration || 4), beats: [] }];
   const bars = [];
   for (let i = offset; i < beats.length; i += beatsPerBar) {
@@ -1389,7 +1682,7 @@ function groupIntoBars(beats, duration, beatsPerBar = 4, offset = 0) {
     bars.push({ start: group[0], end, beats: group, beatIdx: i });
   }
   if (!bars.length) bars.push({ start: beats[0], end: duration, beats: [beats[0]], beatIdx: 0 });
-  if (bars[0].start > 1e-6 && beats.length) {
+  if (bars[0].start > 1e-6 && beats.length && !keepFront) {
     const pre = beats.slice(0, Math.min(offset, beats.length)).filter(t => t < bars[0].start - 1e-6);
     if (offset > 0 && pre.length) {
       // 預備拍（anacrusis）：獨立成一個不完整小節，不要併進第一小節，
@@ -2219,7 +2512,14 @@ function applyGrid(opts) {
   const off = (state.pickupOverride != null)
     ? state.pickupOverride
     : ((state.autoDownbeat + state.downbeatShift) % bpb + bpb) % bpb;
-  state.bars = groupIntoBars(beats, duration, bpb, off);
+  state.bars = groupIntoBars(beats, duration, bpb, off, !!state.trimFront);
+  // 前導空音：整首還沒出聲之前的小節直接不畫（第 1 小節＝第一個有聲音的小節）
+  const firstMusic = state.firstMusic;
+  if (firstMusic != null && state.bars.length > 2) {
+    let drop = 0;
+    while (drop + 1 < state.bars.length && state.bars[drop].end <= firstMusic - 1e-3) drop++;
+    if (drop && drop < state.bars.length - 1) state.bars = state.bars.slice(drop);
+  }
   state.pickupBars = (state.bars.length && state.bars[0].pickup) ? 1 : 0;
 
   if (opts.decode !== false || state.beatChords.length !== beats.length) {
@@ -2239,15 +2539,17 @@ function applyGrid(opts) {
   renderChart();
 }
 
-function regridFromBPM(bpm) {
+function regridFromBPM(bpm, phaseArg) {
   const duration = state.duration;
   const interval = 60 / bpm;
-  const phase = state.baseBeats.length ? state.baseBeats[0] % interval : 0;
+  const phase = phaseArg != null ? Math.max(0, phaseArg % interval)
+    : (state.baseBeats.length ? state.baseBeats[0] % interval : 0);
   const beats = [];
   for (let t = phase; t < duration; t += interval) beats.push(t);
   state.baseBeats = beats;
   state.gridShiftSec = 0;
   state.downbeatShift = 0;
+  state.trimFront = phaseArg != null;
   state.autoDownbeat = estimateDownbeatOffset(beats, state.chromaStore, state.beatsPerBar);
   state.bpm = bpm;
 }
@@ -2310,6 +2612,20 @@ function barTotalBeats(idx) {
   return total || state.beatsPerBar;
 }
 
+// 譜上的位置吸到最近的拍：唱在正拍上的字要跟和弦、簡譜同一個 x 位置
+function snapToBeat(t) {
+  const beats = state.beats, bpb = state.beatsPerBar || 4;
+  if (!beats || beats.length < 2 || t == null) return t;
+  let lo = 0, hi = beats.length - 1;
+  while (lo < hi) { const m = (lo + hi) >> 1; if (beats[m] < t) lo = m + 1; else hi = m; }
+  let best = beats[lo];
+  if (lo > 0 && Math.abs(beats[lo - 1] - t) < Math.abs(best - t)) best = beats[lo - 1];
+  const ivs = [];
+  for (let i = 1; i < beats.length; i++) ivs.push(beats[i] - beats[i - 1]);
+  const period = medianOf(ivs) || 0.5;
+  return Math.abs(best - t) <= period * 0.2 ? best : t;
+}
+
 function barCellHtml(idx) {
   const ch = state.chords[idx];
   const parts = barParts(idx);
@@ -2347,7 +2663,7 @@ function barCellHtml(idx) {
       // 長音只畫到這個小節結束（跨小節的部分不要擠在同一格裡畫一長串「– – – –」）
       const beatsLeft = (bar.end - nt.start) / Math.max(1e-6, barDur / (state.beatsPerBar || 4));
       const sym = melodySymbol(nt.beats > beatsLeft + 0.01 ? Object.assign({}, nt, { beats: Math.max(0.25, Math.round(beatsLeft * 4) / 4) }) : nt);
-      const left = Math.max(Math.max(0, ((nt.start - bar.start) / barDur) * 100), lastLeft + MIN_GAP);
+      const left = Math.max(Math.max(0, ((snapToBeat(nt.start) - bar.start) / barDur) * 100), lastLeft + MIN_GAP);
       if (left > 97) continue;
       lastLeft = left;
       const dots = Math.abs(sym.oct) > 0 ? '·'.repeat(Math.min(3, Math.abs(sym.oct))) : '';
@@ -2367,7 +2683,7 @@ function barCellHtml(idx) {
   const barStart = state.bars[idx].start;
   const barDur = Math.max(1e-6, state.bars[idx].end - state.bars[idx].start);
   const lyricHtml = lyricSegs.map(sg =>
-    '<span class="lyric-seg" style="left:' + Math.max(0, Math.min(98, ((sg.t - barStart) / barDur) * 100)).toFixed(2) + '%">'
+    '<span class="lyric-seg" style="left:' + Math.max(0, Math.min(98, ((snapToBeat(sg.t) - barStart) / barDur) * 100)).toFixed(2) + '%">'
     + escapeHtml(sg.text) + '</span>').join('');
   return '<div class="sys-bar' + (ch.isDiatonic ? '' : ' non-dia') + '" data-bar="' + idx + '"'
        + ' onclick="auditionBar(' + idx + ',0)">'
@@ -2540,6 +2856,7 @@ async function loadLRCFile(file) {
   state.lyrics = parseLRC(text);
   state.lyricsAuto = false; state.lyricsAutoFor = null;      // 以 LRC 為準，AI 聽出來的版本退場
   state.lyricAlignKey = null;
+  syncGridFromLyrics(true);                                 // 有歌詞就可以把第 1 小節對到第一個字
   const el = document.getElementById('lyric-status');
   el.style.display = 'block';
   if (!state.lyrics.length) {
@@ -2549,7 +2866,18 @@ async function loadLRCFile(file) {
   }
   el.textContent = `已載入 ${state.lyrics.length} 行歌詞（${file.name}）`;
   el.className = 'status-msg done';
-  if (state.showMelody && state.audioBuffer && detectMode() === 'ai') { await ensureMelody(); return; }   // 會改用 AI 分離主唱重抓旋律
+  // 已經分析過這首歌：旋律、和弦、節拍都還在，只要把新歌詞對到旋律上，
+  // 不要重跑分離主唱／抓旋律／判和弦（那要好幾十秒，而且結果一模一樣）。
+  if (state.melodyFrames && state.melodySmooth && state.audioBuffer) {
+    setStatus('只重新對齊歌詞：旋律、和弦、節拍沿用上次分析結果…', 'analyzing');
+    if (state.melodyEngine === 'ai') await ensureLyricAnchors();   // 逐字時間（有快取就不會重跑）
+    rebuildMelodyNotes();
+    computeLyricSegments();
+    renderChart();
+    setStatus(`歌詞已對上旋律（${state.lyrics.length} 行），旋律與和弦沒有重算。`, 'done');
+    return;
+  }
+  if (state.showMelody && state.audioBuffer && detectMode() === 'ai') { await ensureMelody(); return; }   // 還沒分析過：走完整流程
   if (state.melodySmooth) rebuildMelodyNotes();
   renderChart();
 }
@@ -2933,6 +3261,7 @@ async function ensureAutoLyrics() {
     state.lyrics = lines.map(l => ({ time: l.time, text: l.text, end: l.end }));
     state.lyricsAuto = true; state.lyricsAutoFor = mf;
     state.lyricAnchors = null; state.lyricAnchorsKey = null; state.lyricAlignKey = null;
+    syncGridFromLyrics(true);                               // AI 聽到的第一句也可以用來對小節
     setProgressDone();
     return true;
   } catch (e) {
@@ -3765,11 +4094,13 @@ function buildDawSections() {
     cur = { sec: id || (cur ? cur.sec : 'verse1'), b0: b, b1: b + 1 };
     runs.push(cur);
   }
-  return runs.map(s => ({
-    t: +(bars[s.b0].start / spb).toFixed(3),
-    d: +((bars[s.b1 - 1].end - bars[s.b0].start) / spb).toFixed(3),
-    sec: s.sec,
-  }));
+  // 段落也用小節編號換算（跟和弦一樣扣掉預備拍），不要用秒數
+  const bpb = state.beatsPerBar || 4;
+  const pickupBars = state.pickupBars || 0;
+  return runs.map(s => {
+    const b0 = Math.max(pickupBars, s.b0), b1 = Math.max(b0 + 1, s.b1);
+    return { t: (b0 - pickupBars) * bpb, d: (b1 - b0) * bpb, sec: s.sec, bar: b0 - pickupBars + 1 };
+  });
 }
 
 // 和弦位置用「拍」表示，根音一律寫實際音高（原調，已扣掉移調與 Capo）
@@ -3777,15 +4108,21 @@ function buildDawChords() {
   const spb = 60 / (state.bpm || 120);
   const bpb = state.beatsPerBar || 4;
   const chords = [];
+  // 位置一律用「第幾個小節 × 拍號」算，不要用秒數：
+  // 轉譜的小節線是跟著實際音樂（可能有預備拍、前導空白），秒數換成拍會讓整條和弦軌
+  // 偏掉半拍，跳進編曲工具之後智慧編曲的第一小節就對不上。
+  // 預備拍那一小節（編曲工具裡沒有這種半小節）直接不匯出，讓它空著。
+  const pickupBars = state.pickupBars || 0;
   (state.chords || []).forEach((ch, idx) => {
-    const bar = (state.bars || [])[idx] || {};
-    const startSec = bar.start != null ? bar.start : idx * bpb * spb;
+    const barNo = idx - pickupBars;
+    if (barNo < 0) return;
     const parts = (ch.parts && ch.parts.length) ? ch.parts : [{ root: 0, quality: 'maj', beats: bpb }];
     let acc = 0;
     for (const p of parts) {
       const beats = p.beats || (bpb / parts.length);
       const root = mod12(p.root - (state.transpose || 0) + (state.capo || 0));
-      chords.push({ t: +(startSec / spb + acc).toFixed(3), d: +beats.toFixed(3), root, q: p.quality || 'maj' });
+      chords.push({ t: +(barNo * bpb + acc).toFixed(3), d: +beats.toFixed(3), root, q: p.quality || 'maj',
+        bar: barNo + 1, beat: acc + 1 });
       acc += beats;
     }
   });
@@ -3796,6 +4133,8 @@ function buildDawChords() {
     sigNum: bpb, sigDen: 4,
     key: state.detectedKey != null ? { root: mod12(state.detectedKey), minor: state.detectedMode === 'minor' } : null,
     duration: state.audioBuffer ? +state.audioBuffer.duration.toFixed(3) : null,
+    pickupBars,            // 轉譜的預備拍（半小節）：編曲工具用不到，已經從上面扣掉
+    startBar: 1,
     chords,
     sections: buildDawSections(),   // 段落軌：[{ t:拍, d:拍, sec:'verse1'… }]
   };
@@ -3903,14 +4242,17 @@ const DAW_TONES = { maj: [0, 4, 7], min: [0, 3, 7], '7': [0, 4, 7, 10], maj7: [0
   m7b5: [0, 3, 6, 10], dim: [0, 3, 6], dim7: [0, 3, 6, 9], aug: [0, 4, 8], sus2: [0, 2, 7], sus4: [0, 5, 7] };
 const dawUid = p => p + '_' + Math.random().toString(36).slice(2, 10);
 
-// 譜面（含手動修改）→ 主旋律音符（拍；第 0 拍＝音檔第 0 秒，用每小節實際起點換算）
+// 譜面（含手動修改）→ 主旋律音符（拍）。
+// 位置用「第幾個小節 × 拍號」換算（扣掉預備拍），跟和弦軌、段落軌同一套座標：
+// 編曲工具的第 1 小節＝這裡的第 1 小節，跳過去智慧編曲才不會整體偏掉。
 function dawMelodyNotes() {
   if (!SC.score) return [];
-  const spb = 60 / (state.bpm || 120), bpb = scMeterBeats(SC.score.meta), key = SC.score.meta.key || 0, out = [];
+  const bpb = scMeterBeats(SC.score.meta), key = SC.score.meta.key || 0, out = [];
+  const pickupBars = state.pickupBars || 0;
   SC.score.bars.forEach((bar, b) => {
-    const real = state.bars[b];
-    const barBeat = real ? real.start / spb : (b * bpb);
-    let pos = bar.pickup ? bpb - bar.notes.reduce((a, n) => a + n.dur, 0) : 0;
+    if (b < pickupBars) return;            // 預備拍那一小節不匯出
+    const barBeat = (b - pickupBars) * bpb;
+    let pos = 0;
     bar.notes.forEach(n => {
       const midi = scToMidi(n, key);
       const last = out[out.length - 1];
@@ -3946,10 +4288,15 @@ async function exportToDaw() {
   const sr = buf.sampleRate, spb = 60 / (state.bpm || 120), bpb = state.beatsPerBar || 4;
   const files = [], audio = {}, tracks = [];
   const COLORS = ['#e0785a', '#6a9ad8', '#d6b14a', '#7bbf6a', '#b07ad8', '#5ab5b0'];
+  // 第 1 小節之前的長度（預備拍／前導空白）：音檔前面直接裁掉，
+  // 這樣編曲工具的第 1 小節就是譜的第 1 小節（預備拍留白，不塞東西）
+  const b0 = state.bars && state.bars.length
+    ? (state.bars[state.pickupBars ? 1 : 0] || state.bars[0]).start : 0;
+  const preSec = Math.max(0, Math.min(b0 || 0, buf.duration - 0.5));
   const audioTrack = (name, bufferId, dur, mute, color) => ({
     id: dawUid('trk'), kind: 'audio', name, color, volumeDb: 0, pan: 0, mute, solo: false, arm: false, monitor: false,
     inserts: [], sends: [-60, -60], auto: {}, transpose: 0,
-    clips: [{ id: dawUid('clip'), bufferId, name, start: 0, offset: 0, duration: dur, gainDb: 0, fadeIn: 0, fadeOut: 0 }],
+    clips: [{ id: dawUid('clip'), bufferId, name, start: 0, offset: preSec, duration: Math.max(0.5, dur - preSec), gainDb: 0, fadeIn: 0, fadeOut: 0 }],
   });
   if (sep) {
     const vocal = resampleLinear(sep.x, sep.sr, sr);
@@ -3977,7 +4324,8 @@ async function exportToDaw() {
   const chords = buildDawChords().chords.map(c => ({ t: c.t, d: c.d, root: c.root, q: DAW_Q[c.q] || 'maj' }));
   // 主旋律 MIDI（照譜面）
   const mel = dawMelodyNotes();
-  const endBeat = Math.ceil(buf.duration / spb / bpb) * bpb;
+  const songBars = Math.max(1, (state.bars ? state.bars.length : 0) - (state.pickupBars || 0));
+  const endBeat = songBars * bpb;
   if (mel.length) tracks.push({ id: dawUid('trk'), kind: 'midi', name: '主旋律（簡譜）', color: COLORS[2], volumeDb: -6, pan: 0, mute: false, solo: false, arm: false, monitor: false,
     inserts: [], sends: [-60, -60], auto: {}, transpose: 0, instrument: 'piano',
     clips: [{ id: dawUid('clip'), name: '主旋律', startBeat: 0, lengthBeats: endBeat, notes: mel }] });
@@ -3999,7 +4347,8 @@ async function exportToDaw() {
     chords, chordKey: keyRoot != null ? { key: keyRoot, minor: state.detectedMode === 'minor' } : null,
     chordView: 0, showChords: true, tracks, audio, video: {},
     // 給之後「智慧編曲」用：從哪裡來、歌詞（每行時間）
-    source: { app: 'zhiyin-chords', file: currentFile ? currentFile.name : null, lyrics: state.lyrics.map(l => ({ t: +(l.time / spb).toFixed(3), text: l.text })) },
+    source: { app: 'zhiyin-chords', file: currentFile ? currentFile.name : null, preSec: +preSec.toFixed(3),
+      lyrics: state.lyrics.map(l => ({ t: +Math.max(0, (l.time - preSec) / spb).toFixed(3), text: l.text })) },
   };
   files.unshift({ name: 'project.json', data: new TextEncoder().encode(JSON.stringify(project)) });
   const blob = zipStore(files);
@@ -4023,6 +4372,9 @@ function updateGridHint() {
   el.textContent = 'BPM ' + state.bpm
     + ' · 整首微調 ' + (state.gridShiftSec * 1000).toFixed(0) + ' ms'
     + ' · 小節起點第 ' + (off + 1) + ' 拍（預備拍 ' + off + '）'
+    + (state.pickupOverride == null
+      ? ' · ' + (state.gridFromLyrics ? '依第一句歌詞對齊' : '依和弦變化判斷')
+      : ' · 手動')
     + ' · ' + state.beatsPerBar + '/4';
 }
 
@@ -4173,6 +4525,7 @@ function initUI() {
   // 預備拍：0..3 拍，或交給自動判斷
   document.getElementById('pickup-select').addEventListener('change', function () {
     state.pickupOverride = this.value === 'auto' ? null : parseInt(this.value, 10);
+    if (state.pickupOverride == null) syncGridFromLyrics(true);   // 切回自動：重新依歌詞／和弦判斷
     state.downbeatShift = 0;
     if (!state.chromaStore) return;
     applyGrid({ decode: false, detectKey: false });
@@ -4983,6 +5336,7 @@ function scMultiRests(score) {
 function scRender() {
   const host = document.getElementById('sc-pages');
   if (!host || !SC.score) return;
+  document.body.classList.add('has-score');   // 列印時只留譜面（Ctrl+P 也一樣）
   if (SC.score.meta && SC.score.meta.view === 'staff') return scRenderStaff();   // 同一份資料，換一種畫法
   const sc = SC.score, m = sc.meta, s = (m.scale || 100) / 100;
   const P = SC_PAGE, usable = P.w - P.ml - P.mr;
@@ -5183,7 +5537,7 @@ function scRender() {
         else if (kind === 'dbl') { thin(xx - 3 * s); thin(xx); }
         else thin(xx);
       };
-      if (mk.repStart) bl(x0, 'repStart'); else if (k === 0) { /* 行首不畫線 */ }
+      if (mk.repStart) bl(x0, 'repStart'); else if (k === 0) bl(x0, 'thin');   // 行首也要有小節線
       bl(x1, mk.final ? 'final' : mk.repEnd ? 'repEnd' : mk.dbl ? 'dbl' : 'thin');
       x = x1;
     });
@@ -5471,7 +5825,7 @@ function scRenderStaff() {
         else if (kind === 'dbl') { thin(xx - 3 * s); thin(xx); }
         else thin(xx);
       };
-      if (mk.repStart) bl(x0, 'repStart');
+      if (mk.repStart) bl(x0, 'repStart'); else if (k === 0) bl(x0, 'thin');   // 行首也要有小節線
       bl(x1, mk.final ? 'final' : mk.repEnd ? 'repEnd' : mk.dbl ? 'dbl' : 'thin');
       x = x1;
     });

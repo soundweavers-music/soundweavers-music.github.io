@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>鋼琴捲簾截圖</title>
+<link rel="stylesheet" href="daw.css">
+<style>
+  html, body { margin: 0; background: #111; }
+  #pianoroll { height: 430px; }
+</style>
+</head>
+<body>
+<!-- 這張假圖會讓 load 事件卡住，等 /__go 之後才放行，--screenshot 才拍得到做完的畫面 -->
+<img src="/__ready" alt="" style="display:none">
+<section class="pianoroll" id="pianoroll"></section>
+<script type="module">
+const err = e => { document.title = 'ERR ' + (e && (e.stack || e.message)); };
+try {
+  const { store, newMidiClip } = await import('./js/state.js');
+  const mod = await import('./js/pianoroll.js');
+  const track = store.addTrack('midi');
+  track.name = '鋼琴';
+  const notes = [];
+  // 一段簡單的旋律＋和弦，順便看得到各種長度
+  [[60, 0, 1, 100], [62, 1, 0.5, 80], [64, 1.5, 0.5, 110], [67, 2, 2, 127], [72, 4, 1, 60],
+   [48, 0, 4, 70], [55, 4, 2, 90], [59, 6, 2, 100], [64, 8, 1, 70], [67, 9, 1, 90], [72, 10, 2, 110]]
+    .forEach(([p, t, d, v]) => notes.push({ p, t, d, v }));
+  const clip = newMidiClip(0, 12, notes);
+  clip.notes[3].m = 1;   // 一顆靜音的音符，看虛線
+  track.clips.push(clip);
+  store.changed('structure');
+  mod.initPianoRoll();
+  mod.open(clip.id);
+  await new Promise(r => setTimeout(r, 200));
+  // 選一顆音符，看選取的樣子與資訊列
+  const wrap = document.getElementById('prScroll');
+  const rect = wrap.getBoundingClientRect();
+  wrap.dispatchEvent(new PointerEvent('pointerdown', { clientX: rect.left + 10, clientY: rect.top + 200, button: 0, buttons: 1, pointerId: 3, bubbles: true, shiftKey: true }));
+  wrap.dispatchEvent(new PointerEvent('pointerup', { clientX: rect.left + 10, clientY: rect.top + 200, pointerId: 3, bubbles: true }));
+  document.getElementById('prFx').click();
+  // 多跑幾幀，確認浮動選單不是「還沒重畫」而已
+  const raf = () => new Promise(r => requestAnimationFrame(r));
+  for (let i = 0; i < 12; i++) await raf();
+} catch (e) { err(e); }
+await fetch('/__go');
+</script>
+</body>
+</html>
