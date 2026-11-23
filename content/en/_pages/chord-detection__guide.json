@@ -129,5 +129,15 @@
  "：選樂器、調弦、把位（「自動」只用 C／G 指型），工具會算出 Capo 夾第幾格；譜上的和弦是你實際按的指型。": ": choose an instrument, a tuning and a position (“Auto” uses only C and G shapes) and the tool works out which fret the capo goes on; the chords on the score are the shapes you actually finger.",
  "：點任何一個音就從那裡開始播（可以在上方取消勾選）。": ": click any note and playback starts there (you can untick this above).",
  "：點譜上的和弦，用和弦編輯視窗改（照把位輸入，自動換算回原調）。": ": click a chord on the score and change it in the chord editor (enter it as a shape on the fretboard and it is converted back to the original key).",
- "：點音符選取（Shift＋點選一段），用工具列或鍵盤改：1–7／0 改音、↑↓ 八度、/ 減半、* 加倍、. 附點、# 升、b 降、Delete 刪除、←→ 換音、Enter 改歌詞。": ": click a note to select it (Shift-click for a range), then edit with the toolbar or the keyboard: 1–7 / 0 change the note, ↑↓ the octave, / halves it, * doubles it, . dots it, # sharps it, b flats it, Delete removes it, ←→ moves to another note, Enter edits the lyric."
+ "：點音符選取（Shift＋點選一段），用工具列或鍵盤改：1–7／0 改音、↑↓ 八度、/ 減半、* 加倍、. 附點、# 升、b 降、Delete 刪除、←→ 換音、Enter 改歌詞。": ": click a note to select it (Shift-click for a range), then edit with the toolbar or the keyboard: 1–7 / 0 change the note, ↑↓ the octave, / halves it, * doubles it, . dots it, # sharps it, b flats it, Delete removes it, ←→ moves to another note, Enter edits the lyric.",
+ "整首位移幾拍": "Whole-song shift by beats",
+ "：有些歌的拍子會抓偏一、兩拍，詞和旋律彼此對得上、但整個比小節線慢（或快）幾拍。用節拍列的「位移 ◀ 0 ▶」把整份譜連小節線一起往前／往後挪整數拍，詞和旋律就會回到小節第一拍；按「歸零」還原。": ": some songs get their beat grid off by a beat or two — the lyrics and the melody line up with each other but sit a beat or two behind (or ahead of) the bar lines. Use “Shift ◀ 0 ▶” in the beat row to move the whole chart, bar lines included, by whole beats and the lyrics land back on beat 1; “Reset” undoes it.",
+ "按「🎹": "Press the “🎹 ",
+ "送到編曲工具": "Send to the DAW",
+ "」會先跳出一個面板，讓你確認": "” button and a panel opens first, where you confirm the ",
+ "智慧編曲型態": "smart-arrangement style",
+ "（華語抒情、華語流行、民謠、搖滾、R&B、6/8 抒情）、要哪些聲部（鼓、貝斯、鋼琴、吉他、弦樂、琶音，以及照人聲旋律彈的": " (Mandopop ballad, Mandopop, folk, rock, R&B, 6/8 ballad), which parts you want (drums, bass, piano, guitar, strings, arpeggio, and a ",
+ "主旋律": "lead melody",
+ "）與變化程度，再輸出": " that follows the vocal melody) and how much variation you want, before exporting ",
+ "。專案在「織音AI線上編曲製作」開起來時就會照這個型態把伴奏編好，存檔之後就是專案的一部分，不用再按一次「② 一鍵編曲」。": ". When the project opens in Zhiyin AI Online Arrangement it arranges the accompaniment in that style straight away; once you save, it is part of the project — no need to press “② One-click arrangement” again."
 }
