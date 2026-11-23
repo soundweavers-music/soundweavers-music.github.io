@@ -163,6 +163,13 @@ PAGE = """<!doctype html><meta charset="utf-8"><title>tts check</title>
   check('音色：音色真的往目標移動（目標是低沉的 440 Hz 正弦 → 重心要下降）',
     cConv < cSrc * 0.9 && convSecs < 120,
     '重心 ' + cSrc.toFixed(1) + ' → ' + cConv.toFixed(1) + ' bin、轉換 ' + convSecs.toFixed(1) + ' s');
+  // 第二句：worker（proxy）會把傳進去的 ArrayBuffer 搬走，以前第一句轉完 gSrc／gTgt 就變長度 0，
+  // 第二句丟「Tensor's size(256) does not match data length(0)」。單句測不到，所以要連轉兩句。
+  var conv2err = '';
+  try { await D.ovConvert(srcAudio, D.TTS_SR); } catch (e) { conv2err = (e && e.message) || String(e); }
+  check('音色：連續轉第二句不會壞（音色向量沒有被 worker 搬空）',
+    !conv2err && D.ov.gSrc.length === 256 && D.ov.gTgt.length === 256,
+    conv2err || ('gSrc ' + D.ov.gSrc.length + '、gTgt ' + D.ov.gTgt.length));
   var convBlob = new Blob([D.wav(conv, D.TTS_SR)], { type: 'audio/wav' });
   await fetch('/__SAVE__?name=cloned.wav', { method: 'POST', body: convBlob });
 
