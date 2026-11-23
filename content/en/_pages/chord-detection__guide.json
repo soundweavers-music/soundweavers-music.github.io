@@ -139,5 +139,7 @@
  "（華語抒情、華語流行、民謠、搖滾、R&B、6/8 抒情）、要哪些聲部（鼓、貝斯、鋼琴、吉他、弦樂、琶音，以及照人聲旋律彈的": " (Mandopop ballad, Mandopop, folk, rock, R&B, 6/8 ballad), which parts you want (drums, bass, piano, guitar, strings, arpeggio, and a ",
  "主旋律": "lead melody",
  "）與變化程度，再輸出": " that follows the vocal melody) and how much variation you want, before exporting ",
- "。專案在「織音AI線上編曲製作」開起來時就會照這個型態把伴奏編好，存檔之後就是專案的一部分，不用再按一次「② 一鍵編曲」。": ". When the project opens in Zhiyin AI Online Arrangement it arranges the accompaniment in that style straight away; once you save, it is part of the project — no need to press “② One-click arrangement” again."
+ "。專案在「織音AI線上編曲製作」開起來時就會照這個型態把伴奏編好，存檔之後就是專案的一部分，不用再按一次「② 一鍵編曲」。": ". When the project opens in Zhiyin AI Online Arrangement it arranges the accompaniment in that style straight away; once you save, it is part of the project — no need to press “② One-click arrangement” again.",
+ "拖曳和弦": "Drag chords",
+ "：和弦譜上，一個小節有兩個和弦時，直接用滑鼠拖和弦（或它的右緣）就能移動兩個和弦的分界線，對齊到 16 分音符；拖過的地方會用虛線框起來。一個小節只有一個和弦時，它的位置就是小節線——要調時間請用下面的「小節線 ◀拍／拍▶」或「整首位移」。": ": on the chord chart, when a bar has two chords you can drag a chord (or its right edge) with the mouse to move the boundary between them, snapped to 16th notes; the bar you dragged gets a dashed outline. When a bar has only one chord its position is the bar line itself — use “bar line ◀ / ▶” or “whole-song shift” below to move it in time."
 }
