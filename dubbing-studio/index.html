@@ -48,6 +48,21 @@
 audio { width: 100%; margin-top: 12px; }
 .db-check { display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; color: var(--ink2, #4c443a); }
 .db-k { font-family: var(--mono, ui-monospace, monospace); background: var(--soft, #f4efe6); border-radius: 4px; padding: 1px 5px; font-size: 12px; }
+
+/* 效果區：DAW 風格的深色圖表 */
+.dbx-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 760px) { .dbx-row { grid-template-columns: 1fr; } }
+.dbx-main { border: 1px solid var(--line, #e5e0d8); border-radius: 10px; padding: 10px; background: var(--soft, #faf7f1); }
+.dbx-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 8px; font-size: 13.5px; }
+.dbx-head select { background: var(--surface, #fff); border: 1px solid var(--line2, #d6cfc2); border-radius: 6px; padding: 4px 6px; font-size: 12.5px; color: var(--ink, #2e2820); }
+.dbx-cv { display: block; width: 100%; height: 92px; background: #0a0b0e; border: 1px solid #2a2d34; border-radius: 8px; }
+#eqCv { height: 132px; }
+.dbx-params { display: grid; grid-template-columns: 1fr 1fr; gap: 5px 12px; margin-top: 9px; font-size: 12px; color: var(--muted, #6b6257); }
+.dbx-params label { display: grid; grid-template-columns: 1fr 84px 44px; align-items: center; gap: 5px; }
+.dbx-params input[type=range] { width: 100%; accent-color: var(--accent, #a0522d); }
+.dbx-params span { font-family: var(--mono, ui-monospace, monospace); text-align: right; color: var(--ink2, #4c443a); font-size: 11.5px; }
+.dbx-params.dbx-one { grid-template-columns: 1fr; }
+.dbx-note { font-size: 12px; color: var(--muted, #6b6257); line-height: 1.65; margin-top: 9px; }
 </style>
 </head>
 <body>
@@ -128,13 +143,71 @@ audio { width: 100%; margin-top: 12px; }
     </div>
 
     <div class="db-card">
-      <h3>2. 對照表</h3>
+      <h3>2. 效果（預設就是口白／旁白的建議值）</h3>
+      <p class="sub">剪完之後依序套用：降噪 → 呼吸聲 → EQ → 音量標準化。每一塊都看得到圖，調了就更新。</p>
+
+      <div class="dbx-row">
+        <div class="dbx-main">
+          <div class="dbx-head">
+            <b>EQ 等化</b>
+            <select id="eqPreset">
+              <option value="voice" selected>旁白／人聲（建議）</option>
+              <option value="flat">平直</option>
+              <option value="warm">低沉厚實</option>
+              <option value="bright">明亮清晰</option>
+            </select>
+          </div>
+          <canvas class="dbx-cv" id="eqCv"></canvas>
+          <div class="dbx-params">
+            <label>低頻切點 <input type="range" id="eqHp" min="20" max="200" step="5" value="90"><span></span></label>
+            <label>混濁 250Hz <input type="range" id="eqMud" min="-8" max="4" step="0.5" value="-2"><span></span></label>
+            <label>清晰 3kHz <input type="range" id="eqPres" min="-4" max="8" step="0.5" value="2"><span></span></label>
+            <label>空氣 9kHz <input type="range" id="eqAir" min="-8" max="8" step="0.5" value="1"><span></span></label>
+          </div>
+        </div>
+        <div class="dbx-main">
+          <div class="dbx-head">
+            <b>音量標準化</b>
+            <select id="normTarget">
+              <option value="-18">有聲書／旁白 −18</option>
+              <option value="-16" selected>Podcast −16</option>
+              <option value="-14">YouTube／大聲 −14</option>
+            </select>
+          </div>
+          <canvas class="dbx-cv" id="loudCv"></canvas>
+          <div class="dbx-params dbx-one">
+            <label>尖峰上限 <input type="range" id="normCeil" min="-6" max="-0.3" step="0.1" value="-1"><span></span></label>
+          </div>
+          <div class="dbx-note" id="loudInfo">上傳口白後會顯示目前的語音電平與需要補多少 dB。</div>
+        </div>
+      </div>
+
+      <div class="dbx-row" style="margin-top:14px">
+        <div class="dbx-main">
+          <div class="dbx-head"><b>降噪</b><select id="dnAmount">
+            <option value="20">輕微</option>
+            <option value="60" selected>標準</option>
+            <option value="100">強力</option>
+          </select></div>
+          <canvas class="dbx-cv" id="dnCv"></canvas>
+          <div class="dbx-note" id="dnInfo">譜減降噪：保留一部分底噪，避免「水下感」。強力會把殘留的底噪壓得更低，但可能聽得出處理痕跡。</div>
+        </div>
+        <div class="dbx-main">
+          <div class="dbx-head"><b>呼吸聲</b></div>
+          <canvas class="dbx-cv" id="brCv"></canvas>
+          <div class="dbx-note">偵測「有聲音但不是樂音」的短區段（吸氣、換氣），套用時壓低約 24 dB；上方勾選關掉就不處理。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="db-card">
+      <h3>3. 對照表</h3>
       <p class="sub">每一句：字幕時間、AI 聽到的位置、剪完之後的長度。紅字是可以調速修正的地方。</p>
       <div class="db-cues" id="editCues"></div>
     </div>
 
     <div class="db-card">
-      <h3>3. 試聽與輸出</h3>
+      <h3>4. 試聽與輸出</h3>
       <audio id="editAudioOut" controls hidden></audio>
       <div class="db-row">
         <button class="db-btn ghost" id="editSave" disabled>下載 WAV</button>
@@ -212,6 +285,10 @@ audio { width: 100%; margin-top: 12px; }
   }
 
   // ───────── 分頁 ─────────
+  function showTab(name) {
+    var b = document.querySelector('.db-tab[data-tab="' + name + '"]');
+    if (b) b.click();
+  }
   document.querySelectorAll(".db-tab").forEach(function (b) {
     b.onclick = function () {
       document.querySelectorAll(".db-tab").forEach(function (x) { x.classList.toggle("on", x === b); });
@@ -219,6 +296,8 @@ audio { width: 100%; margin-top: 12px; }
       stopSpeak();
     };
   });
+  // 可以直接連到某個分頁：/tools/dubbing/#edit
+  if (location.hash === "#edit" || location.hash === "#tts") showTab(location.hash.slice(1));
 
   // ───────── 檔案拖放 ─────────
   function dropZone(el, input, accept, onFile) {
@@ -335,6 +414,7 @@ audio { width: 100%; margin-top: 12px; }
         $("editAudioDrop").classList.add("ok");
         ctx.close();
         ready();
+        drawEffects();
       }).catch(function (e) { setStatus($("editStatus"), "這個音檔解不開：" + e.message, true); ctx.close(); });
     };
     fr.readAsArrayBuffer(f);
@@ -500,8 +580,9 @@ audio { width: 100%; margin-top: 12px; }
     return res;
   }
 
-  // 頻譜閘門降噪（STFT 1024 / hop 256）
-  function denoise(x, sr) {
+  // 頻譜閘門降噪（STFT 1024 / hop 256）；amount 0～1 決定譜減的強度
+  function denoise(x, sr, amount) {
+    var amt = amount == null ? 0.5 : Math.max(0, Math.min(1, amount));
     var N = 1024, hop = 256, HALF = N / 2;
     var win = new Float32Array(N);
     for (var i = 0; i < N; i++) win[i] = 0.5 - 0.5 * Math.cos(2 * Math.PI * i / N);
@@ -534,7 +615,7 @@ audio { width: 100%; margin-top: 12px; }
         var m2 = Math.hypot(mr2[b4], mi2[b4]);
         if (m2 < 1e-9) continue;
         // 譜減：保留 20% 底，避免出現「水下感」
-        var keep = Math.max(0.2, 1 - 1.6 * (floorMag[b4] / m2));
+        var keep = Math.max(0.12, 1 - (0.7 + 1.9 * amt) * (floorMag[b4] / m2));
         var g = Math.min(1, keep);
         mr2[b4] *= g; mi2[b4] *= g;
       }
@@ -618,6 +699,275 @@ audio { width: 100%; margin-top: 12px; }
     }).filter(function (r) { return r.end - r.start > 0.05 && r.end - r.start < 0.9; });
   }
 
+  // ───────── 效果：EQ（RBJ biquad） ─────────
+  function biquad(type, f, gainDb, q, sr) {
+    var w0 = 2 * Math.PI * Math.max(10, Math.min(sr * 0.49, f)) / sr;
+    var cw = Math.cos(w0), sw = Math.sin(w0);
+    var A = Math.pow(10, gainDb / 40);
+    var b0, b1, b2, a0, a1, a2;
+    if (type === "highpass") {
+      var al = sw / (2 * q);
+      b0 = (1 + cw) / 2; b1 = -(1 + cw); b2 = (1 + cw) / 2;
+      a0 = 1 + al; a1 = -2 * cw; a2 = 1 - al;
+    } else if (type === "peaking") {
+      var al2 = sw / (2 * q);
+      b0 = 1 + al2 * A; b1 = -2 * cw; b2 = 1 - al2 * A;
+      a0 = 1 + al2 / A; a1 = -2 * cw; a2 = 1 - al2 / A;
+    } else { // highshelf（S = 1）
+      var beta = 2 * Math.sqrt(A) * (sw / 2) * Math.sqrt(2);
+      b0 = A * ((A + 1) + (A - 1) * cw + beta);
+      b1 = -2 * A * ((A - 1) + (A + 1) * cw);
+      b2 = A * ((A + 1) + (A - 1) * cw - beta);
+      a0 = (A + 1) - (A - 1) * cw + beta;
+      a1 = 2 * ((A - 1) - (A + 1) * cw);
+      a2 = (A + 1) - (A - 1) * cw - beta;
+    }
+    return { b0: b0 / a0, b1: b1 / a0, b2: b2 / a0, a1: a1 / a0, a2: a2 / a0 };
+  }
+  function eqParams() {
+    return { hp: +$("eqHp").value, mud: +$("eqMud").value, pres: +$("eqPres").value, air: +$("eqAir").value };
+  }
+  function eqStages(p, sr) {
+    var st = [];
+    if (p.hp > 25) st.push(biquad("highpass", p.hp, 0, 0.7071, sr));
+    if (p.mud !== 0) st.push(biquad("peaking", 250, p.mud, 1.0, sr));
+    if (p.pres !== 0) st.push(biquad("peaking", 3000, p.pres, 0.9, sr));
+    if (p.air !== 0) st.push(biquad("highshelf", 9000, p.air, 0.7071, sr));
+    return st;
+  }
+  function applyEq(x, sr, p) {
+    var st = eqStages(p, sr);
+    if (!st.length) return x.slice();
+    var out = new Float32Array(x.length);
+    out.set(x);
+    st.forEach(function (c) {
+      var x1 = 0, x2 = 0, y1 = 0, y2 = 0;
+      for (var i = 0; i < out.length; i++) {
+        var v = out[i];
+        var y = c.b0 * v + c.b1 * x1 + c.b2 * x2 - c.a1 * y1 - c.a2 * y2;
+        x2 = x1; x1 = v; y2 = y1; y1 = y; out[i] = y;
+      }
+    });
+    return out;
+  }
+  function eqMagDb(f, st, sr) {
+    // w 是「每個取樣點的相位」，要除以取樣率
+    var db = 0, w = 2 * Math.PI * f / (sr || 48000);
+    st.forEach(function (c) {
+      var cw = Math.cos(w), sw = Math.sin(w), c2 = Math.cos(2 * w), s2 = Math.sin(2 * w);
+      var nr = c.b0 + c.b1 * cw + c.b2 * c2, ni = -(c.b1 * sw + c.b2 * s2);
+      var dr = 1 + c.a1 * cw + c.a2 * c2, di = -(c.a1 * sw + c.a2 * s2);
+      db += 10 * Math.log10((nr * nr + ni * ni) / (dr * dr + di * di) || 1e-12);
+    });
+    return db;
+  }
+
+  // ───────── 音量標準化 ─────────
+  function frameLevels(x, sr) {
+    var n = Math.round(sr * 0.05), hop = Math.round(sr * 0.025), out = [];
+    for (var i = 0; i + n <= x.length; i += hop) {
+      var s = 0;
+      for (var k = 0; k < n; k++) s += x[i + k] * x[i + k];
+      out.push(20 * Math.log10(Math.sqrt(s / n) + 1e-9));
+    }
+    return out;
+  }
+  function speechLevelDb(levels) {
+    if (!levels.length) return -60;
+    var sorted = levels.slice().sort(function (a, b) { return a - b; });
+    var p90 = sorted[Math.floor(sorted.length * 0.9)];
+    var act = levels.filter(function (d) { return d > Math.max(-60, p90 - 20); });
+    if (!act.length) return -60;
+    var lin = 0;
+    act.forEach(function (d) { lin += Math.pow(10, d / 10); });
+    return 10 * Math.log10(lin / act.length);
+  }
+  function peakDb(x) {
+    var m = 0;
+    for (var i = 0; i < x.length; i++) { var a = Math.abs(x[i]); if (a > m) m = a; }
+    return 20 * Math.log10(m + 1e-9);
+  }
+  // 前瞻限制器：尖峰不超過 ceiling，釋放 120 ms
+  function limitPeaks(x, sr, ceilingDb) {
+    var ceil = Math.pow(10, ceilingDb / 20);
+    var out = new Float32Array(x.length);
+    var env = 0, rel = Math.exp(-1 / (sr * 0.12));
+    for (var i = 0; i < x.length; i++) {
+      var a = Math.abs(x[i]);
+      env = a > env ? a : rel * env + (1 - rel) * a;
+      var g = env > ceil ? ceil / env : 1;
+      var v = x[i] * g;
+      out[i] = v > ceil ? ceil : v < -ceil ? -ceil : v;
+    }
+    return out;
+  }
+  function normalizeLoudness(x, sr, targetDb, ceilingDb) {
+    var levels = frameLevels(x, sr);
+    var lv = speechLevelDb(levels);
+    var gainDb = Math.max(-30, Math.min(30, targetDb - lv));
+    var g = Math.pow(10, gainDb / 20);
+    var out = new Float32Array(x.length);
+    for (var i = 0; i < x.length; i++) out[i] = x[i] * g;
+    out = limitPeaks(out, sr, ceilingDb);
+    return { data: out, gainDb: gainDb, before: lv, peakBefore: peakDb(x), peakAfter: peakDb(out) };
+  }
+
+  // ───────── 圖表（跟 DAW 的儀表同一個樣子） ─────────
+  var FMIN2 = 20, FMAX2 = 20000;
+  function cvSetup(cv) {
+    if (!cv) return null;
+    var dpr = devicePixelRatio || 1;
+    var W = cv.clientWidth || 300, H = cv.clientHeight || 92;
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    var g = cv.getContext("2d");
+    g.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var bg = g.createLinearGradient(0, 0, 0, H);
+    bg.addColorStop(0, "#12141a"); bg.addColorStop(1, "#0a0b0e");
+    g.fillStyle = bg; g.fillRect(0, 0, W, H);
+    return { g: g, W: W, H: H };
+  }
+  function drawEq() {
+    var s = cvSetup($("eqCv"));
+    if (!s) return;
+    var g = s.g, W = s.W, H = s.H, M = 10;
+    var sr = ed.sr || 48000;
+    var st = eqStages(eqParams(), sr);
+    var xOf = function (f) { return M + Math.log(f / FMIN2) / Math.log(FMAX2 / FMIN2) * (W - M * 2); };
+    var yOf = function (db) { return H / 2 - Math.max(-18, Math.min(18, db)) / 18 * (H / 2 - 8); };
+    g.font = "9px ui-monospace, Consolas, monospace"; g.textBaseline = "top";
+    [100, 1000, 10000].forEach(function (f) {
+      var xx = Math.round(xOf(f)) + 0.5;
+      g.strokeStyle = "rgba(255,255,255,.07)";
+      g.beginPath(); g.moveTo(xx, 4); g.lineTo(xx, H - 4); g.stroke();
+      g.fillStyle = "rgba(255,255,255,.32)"; g.fillText(f >= 1000 ? (f / 1000) + "k" : String(f), xx + 3, H - 12);
+    });
+    [-12, -6, 0, 6, 12].forEach(function (d) {
+      var yy = Math.round(yOf(d)) + 0.5;
+      g.strokeStyle = d === 0 ? "rgba(255,255,255,.16)" : "rgba(255,255,255,.05)";
+      g.beginPath(); g.moveTo(0, yy); g.lineTo(W, yy); g.stroke();
+      if (d === 0) { g.fillStyle = "rgba(255,255,255,.3)"; g.fillText("0", 2, yy - 9); }
+    });
+    var pts = new Path2D();
+    for (var i = 0; i <= 200; i++) {
+      var fr = FMIN2 * Math.pow(FMAX2 / FMIN2, i / 200);
+      var px = M + i / 200 * (W - M * 2), py = yOf(eqMagDb(fr, st, sr));
+      i ? pts.lineTo(px, py) : pts.moveTo(px, py);
+    }
+    var fill = new Path2D(pts);
+    fill.lineTo(W - M, H / 2); fill.lineTo(M, H / 2); fill.closePath();
+    var lg = g.createLinearGradient(M, 0, W - M, 0);
+    lg.addColorStop(0, "#4f9dff"); lg.addColorStop(0.55, "#35c9a5"); lg.addColorStop(1, "#f5b83d");
+    g.globalAlpha = 0.16; g.fillStyle = lg; g.fill(fill); g.globalAlpha = 1;
+    g.strokeStyle = lg; g.lineWidth = 2.2; g.stroke(pts);
+    var p = eqParams();
+    [[250, p.mud], [3000, p.pres], [9000, p.air]].forEach(function (b) {
+      var x = xOf(b[0]), y = yOf(eqMagDb(b[0], st, sr));
+      g.beginPath(); g.arc(x, y, 3.6, 0, Math.PI * 2); g.fillStyle = "#f5b83d"; g.fill();
+      g.strokeStyle = "#0b0c10"; g.lineWidth = 1.2; g.stroke();
+      g.fillStyle = "rgba(255,255,255,.55)"; g.fillText((b[1] > 0 ? "+" : "") + b[1].toFixed(1), x + 6, y - 11);
+    });
+    g.fillStyle = "rgba(255,255,255,.35)"; g.fillText("低頻切點 " + p.hp + " Hz", 4, 4);
+  }
+  function drawLoud() {
+    var s = cvSetup($("loudCv"));
+    if (!s) return;
+    var g = s.g, W = s.W, H = s.H;
+    var target = +$("normTarget").value, ceil = +$("normCeil").value;
+    g.font = "9px ui-monospace, Consolas, monospace"; g.textBaseline = "top";
+    var levels = ed.buffer ? frameLevels(ed.buffer.getChannelData(0), ed.buffer.sampleRate) : [];
+    if (!levels.length) {
+      g.fillStyle = "rgba(255,255,255,.35)"; g.fillText("上傳口白後顯示每一格的電平", 8, H / 2 - 5);
+      return;
+    }
+    var yOf = function (db) { return H - 8 - Math.max(0, Math.min(1, (db + 60) / 60)) * (H - 16); };
+    var bars = Math.min(W - 16, levels.length);
+    for (var i = 0; i < bars; i++) {
+      var d = levels[Math.floor(i / bars * levels.length)];
+      var x = 8 + i / bars * (W - 16);
+      g.fillStyle = "rgba(79,157,255,.45)";
+      g.fillRect(x, yOf(d), Math.max(1, (W - 16) / bars - 1), H - 8 - yOf(d));
+    }
+    var lv = speechLevelDb(levels);
+    var gain = Math.max(-30, Math.min(30, target - lv));
+    var ty = Math.round(yOf(target)) + 0.5, cy = Math.round(yOf(ceil)) + 0.5;
+    g.setLineDash([4, 4]); g.strokeStyle = "rgba(53,201,165,.9)";
+    g.beginPath(); g.moveTo(0, ty); g.lineTo(W, ty); g.stroke();
+    g.strokeStyle = "rgba(255,107,107,.7)";
+    g.beginPath(); g.moveTo(0, cy); g.lineTo(W, cy); g.stroke();
+    g.setLineDash([]);
+    g.fillStyle = "rgba(255,255,255,.55)"; g.fillText("目標 " + target + " dB", 8, ty - 11);
+    g.fillStyle = "rgba(255,255,255,.4)"; g.fillText("尖峰 " + ceil.toFixed(1) + " dB", W - 78, cy + 2);
+    $("loudInfo").textContent = "目前語音電平 " + lv.toFixed(1) + " dB → " +
+      (gain > 0 ? "拉大 " : gain < 0 ? "拉小 " : "不動 ") + Math.abs(gain).toFixed(1) + " dB（尖峰 " +
+      peakDb(ed.buffer.getChannelData(0)).toFixed(1) + " dB）";
+  }
+  function drawNoise() {
+    var s = cvSetup($("dnCv"));
+    if (!s) return;
+    var g = s.g, W = s.W, H = s.H;
+    g.font = "9px ui-monospace, Consolas, monospace"; g.textBaseline = "top";
+    if (!ed.buffer) { g.fillStyle = "rgba(255,255,255,.35)"; g.fillText("上傳口白後顯示底噪與語音的比例", 8, H / 2 - 5); return; }
+    var levels = frameLevels(ed.buffer.getChannelData(0), ed.buffer.sampleRate);
+    if (!levels.length) return;
+    var sorted = levels.slice().sort(function (a, b) { return a - b; });
+    var floor = sorted[Math.floor(sorted.length * 0.15)], vocal = sorted[Math.floor(sorted.length * 0.9)];
+    var amt = +$("dnAmount").value / 100;
+    var yOf = function (db) { return H - 8 - Math.max(0, Math.min(1, (db + 70) / 70)) * (H - 16); };
+    [["底噪", floor, "rgba(255,255,255,.35)"], ["語音", vocal, "rgba(79,157,255,.7)"]].forEach(function (b, i) {
+      var x = 16 + i * (W / 3.2), w = Math.max(10, W / 6);
+      g.fillStyle = b[2]; g.fillRect(x, yOf(b[1]), w, H - 8 - yOf(b[1]));
+      g.fillStyle = "rgba(255,255,255,.5)"; g.fillText(b[0] + " " + b[1].toFixed(0) + " dB", x, yOf(b[1]) - 11);
+    });
+    var after = floor - (3 + 9 * amt);
+    var x2 = 16 + 2 * (W / 3.2), w2 = Math.max(10, W / 6);
+    g.fillStyle = "rgba(53,201,165,.65)"; g.fillRect(x2, yOf(after), w2, H - 8 - yOf(after));
+    g.fillStyle = "rgba(255,255,255,.5)"; g.fillText("處理後 " + after.toFixed(0) + " dB", x2, yOf(after) - 11);
+    $("dnInfo").textContent = "底噪約 " + floor.toFixed(0) + " dB、語音約 " + vocal.toFixed(0) +
+      " dB（相差 " + (vocal - floor).toFixed(0) + " dB）。" +
+      (vocal - floor < 15 ? "差距不大，降噪效果有限，建議先檢查錄音音量。" : "");
+  }
+  function drawBreath() {
+    var s = cvSetup($("brCv"));
+    if (!s) return;
+    var g = s.g, W = s.W, H = s.H;
+    g.font = "9px ui-monospace, Consolas, monospace"; g.textBaseline = "top";
+    if (!ed.buffer) { g.fillStyle = "rgba(255,255,255,.35)"; g.fillText("上傳口白後標出偵測到的吸氣位置", 8, H / 2 - 5); return; }
+    var x = ed.buffer.getChannelData(0);
+    var regs = breathRegions(x.length > ed.sr * 60 ? x.subarray(0, ed.sr * 60) : x, ed.buffer.sampleRate);
+    var dur = ed.buffer.duration;
+    g.fillStyle = "rgba(255,255,255,.35)"; g.fillRect(8, H / 2 - 2, W - 16, 4);
+    regs.forEach(function (r) {
+      var a = 8 + r.start / dur * (W - 16), b = 8 + r.end / dur * (W - 16);
+      g.fillStyle = "rgba(255,107,107,.75)"; g.fillRect(a, H / 2 - 8, Math.max(2, b - a), 16);
+    });
+    g.fillStyle = "rgba(255,255,255,.55)";
+    g.fillText(regs.length ? "偵測到 " + regs.length + " 段呼吸聲（套用時壓低 24 dB）" : "沒有偵測到明顯的呼吸聲", 8, 8);
+  }
+  function drawEffects() {
+    [["eqHp", "Hz"], ["eqMud", "dB"], ["eqPres", "dB"], ["eqAir", "dB"], ["normCeil", "dB"]].forEach(function (p) {
+      var el = $(p[0]);
+      if (el && el.nextElementSibling) {
+        var v = +el.value;
+        el.nextElementSibling.textContent = (p[1] === "Hz" ? v + "Hz" : (v > 0 ? "+" : "") + v.toFixed(1) + "dB");
+      }
+    });
+    drawEq(); drawLoud(); drawNoise(); drawBreath();
+  }
+  var EQ_PRESETS = {
+    voice: { hp: 90, mud: -2, pres: 2, air: 1 },
+    flat: { hp: 20, mud: 0, pres: 0, air: 0 },
+    warm: { hp: 70, mud: 1, pres: 1, air: -2 },
+    bright: { hp: 100, mud: -3, pres: 3, air: 3 }
+  };
+  $("eqPreset").onchange = function () {
+    var p = EQ_PRESETS[this.value];
+    $("eqHp").value = p.hp; $("eqMud").value = p.mud; $("eqPres").value = p.pres; $("eqAir").value = p.air;
+    drawEffects();
+  };
+  ["eqHp", "eqMud", "eqPres", "eqAir", "normTarget", "normCeil", "dnAmount"].forEach(function (id) {
+    var el = $(id); if (el) el.oninput = drawEffects;
+  });
+
   // ── 主流程：辨識 → 對字幕 → 切開 → 變速 → 降噪 → 呼吸 ──
   $("editRun").onclick = async function () {
     var audio = ed.buffer, cues = ed.cues;
@@ -682,15 +1032,18 @@ audio { width: 100%; margin-top: 12px; }
         out[a] *= a / fade; out[out.length - 1 - a] *= a / fade;
       }
 
-      // 4) 降噪（預設開）
+      // 4) 降噪（預設開，強度可選）
       if ($("optDenoise").checked) {
-        setStatus($("editStatus"), "降噪中…");
-        out = denoise(out, SR);
+        var dnAmt = +$("dnAmount").value / 100;
+        setStatus($("editStatus"), "降噪中…（" + (dnAmt < 0.4 ? "輕微" : dnAmt < 0.8 ? "標準" : "強力") + "）");
+        out = denoise(out, SR, dnAmt);
       }
       // 5) 呼吸聲（預設開）：把偵測到的吸氣壓低 24 dB
+      var nBreaths = 0;
       if ($("optBreath").checked) {
         setStatus($("editStatus"), "處理呼吸聲…");
         var regs = breathRegions(out, SR);
+        nBreaths = regs.length;
         regs.forEach(function (r) {
           var s0 = Math.round(r.start * SR), s1 = Math.round(r.end * SR);
           var f2 = Math.round(SR * 0.012);
@@ -702,11 +1055,24 @@ audio { width: 100%; margin-top: 12px; }
           }
         });
       }
+      // 6) EQ（旁白建議值，可調）
+      setStatus($("editStatus"), "EQ 調整…");
+      out = applyEq(out, SR, eqParams());
+      // 7) 音量標準化 ＋ 尖峰限制
+      setStatus($("editStatus"), "音量標準化…");
+      var nrm = normalizeLoudness(out, SR, +$("normTarget").value, +$("normCeil").value);
+      out = nrm.data;
       ed.result = out;
       prog($("editProg"), 1);
       var found = segs.filter(function (s) { return s.found; }).length;
       var fitted = segs.filter(function (s) { return s.stretch > 1.005; }).length;
-      setStatus($("editStatus"), "完成：" + found + "/" + cues.length + " 句對到口白" + (fitted ? "，" + fitted + " 句自動調速" : "") + "（總長 " + fmtT(out.length / SR) + "）");
+      setStatus($("editStatus"), "完成：" + found + "/" + cues.length + " 句對到口白" +
+        (fitted ? "，" + fitted + " 句自動調速" : "") +
+        "；語音電平 " + nrm.before.toFixed(1) + " → " + (+$("normTarget").value).toFixed(0) + " dB（增益 " +
+        (nrm.gainDb > 0 ? "+" : "") + nrm.gainDb.toFixed(1) + " dB）、尖峰 " + nrm.peakAfter.toFixed(1) + " dB" +
+        (nBreaths ? "、處理 " + nBreaths + " 段呼吸聲" : "") +
+        "（總長 " + fmtT(out.length / SR) + "）");
+      drawEffects();
       $("editAudioOut").src = URL.createObjectURL(new Blob([wav(out, SR)], { type: "audio/wav" }));
       $("editAudioOut").hidden = false;
       $("editSave").disabled = false;
@@ -729,7 +1095,9 @@ audio { width: 100%; margin-top: 12px; }
   };
 
   // 測試／除錯用（_selftest.html 會用這個跑驗證）
-  window.__dubbing = { parseSubtitle, alignCues, sim, timeStretch, denoise, breathRegions, wav, normText };
+  window.__dubbing = { parseSubtitle, alignCues, sim, timeStretch, denoise, breathRegions, wav, normText,
+    applyEq, eqStages, eqMagDb, biquad, normalizeLoudness, limitPeaks, frameLevels, speechLevelDb, peakDb };
+  drawEffects();
 
   // 16-bit WAV
   function wav(x, sr) {
