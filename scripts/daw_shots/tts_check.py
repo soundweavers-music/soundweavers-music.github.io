@@ -114,6 +114,23 @@ PAGE = """<!doctype html><meta charset="utf-8"><title>tts check</title>
   check('反應：按「停止」可以取消，不會卡在那裡', /已取消/.test(endStatus) && !renderBtn.classList.contains('busy'),
     endStatus);
 
+  // 3b2. 每句音量一致：各句自己合成會差到 10 dB（第二句突然變小聲），貼進去前要拉齊
+  D.tts.cues = [
+    { start: 0, end: 3, text: '大家好，歡迎收看今天的節目。' },
+    { start: 3, end: 6, text: '今天要介紹的是傳統樂器。' },
+    { start: 6, end: 8, text: '好。' }
+  ];
+  D.ttsAI.cancel = false; D.ttsAI.out = null; renderBtn.disabled = false; renderBtn.click();
+  for (var wk = 0; wk < 600 && (!D.ttsAI.out || renderBtn.classList.contains('busy')); wk++) await new Promise(function (r) { setTimeout(r, 500); });
+  var mix = D.ttsAI.out, lv = [];
+  [[0, 3], [3, 6], [6, 8]].forEach(function (seg) {
+    var e = 0, n = 0;
+    for (var q = Math.round(seg[0] * D.TTS_SR); q < Math.min(mix.length, Math.round(seg[1] * D.TTS_SR)); q++) if (Math.abs(mix[q]) > 0.01) { e += mix[q] * mix[q]; n++; }
+    lv.push(10 * Math.log10(e / Math.max(1, n)));
+  });
+  var spread = Math.max.apply(null, lv) - Math.min.apply(null, lv);
+  check('音量：每句一樣大（差距 < 3 dB）', spread < 3, lv.map(function (v) { return v.toFixed(1); }).join(' / ') + ' dB');
+
   // 3c. 換音色（OpenVoice）：先把兩個模型灌進倉庫，再抽音色、轉一段
   var refBytes = await (await fetch('/__OV_REF__')).arrayBuffer();
   var convBytes = await (await fetch('/__OV_CONV__')).arrayBuffer();

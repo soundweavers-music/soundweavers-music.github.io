@@ -166,6 +166,13 @@
     Object.keys(sylD.tokens).forEach(function (k) { toks[sylD.tokens[k]] = k; });
     return { names: g.ids.map(function (i) { return toks[i]; }), tones: g.tones, warn: g };
   }
+  // 破音字：pinyin-pro 的詞庫是簡體的，繁體要先逐字轉簡體才查得到詞（音樂 → yue4，不是 le4）
+  await D.ttsT2S();
+  var pyOf = function (s) { return frame.contentWindow.pinyinPro.pinyin(D.toHans(s), { toneType: 'num', type: 'array', v: true, neutralToneWithFive: true, nonZh: 'removed' }).join(' '); };
+  var polys = [['音樂', 'yin1 yue4'], ['樂器', 'yue4 qi4'], ['快樂', 'kuai4 le4'], ['還有', 'hai2 you3'], ['彈琴', 'tan2 qin2'], ['銀行', 'yin2 hang2'], ['睡覺', 'shui4 jiao4']];
+  var polyBad = polys.filter(function (p) { return pyOf(p[0]) !== p[1]; }).map(function (p) { return p[0] + '=' + pyOf(p[0]); });
+  check('AI 配音：繁體破音字念對（音樂 yue、快樂 le、還有 hai、彈琴 tan…）', !polyBad.length, polyBad.join('、') || polys.length + ' 個都對');
+  check('AI 配音：繁簡轉換不改長度（讀音才不會錯位）', D.toHans('音樂與樂器，還有彈琴。').length === '音樂與樂器，還有彈琴。'.length);
   var p1 = phones('中文');
   check('AI 配音：中文 → 音素序列', p1.names.join(' ') === 'zh ong w en', p1.names.join(' ') + ' / ' + p1.tones.join(','));
   check('AI 配音：聲調正確（中 1、文 2）', p1.tones.join(',') === '1,1,2,2', p1.tones.join(','));
