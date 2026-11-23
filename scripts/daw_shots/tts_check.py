@@ -25,6 +25,7 @@ import threading
 BASE = pathlib.Path(__file__).resolve().parent.parent.parent
 OUT = BASE / "outputs" / "world-instruments-static"
 MODEL = BASE / "work" / "models" / "tts" / "vits-melo-tts-zh_en" / "model.onnx"
+OV = BASE / "work" / "models" / "openvoice"
 CHROME = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
 PORT = 8798
 WAIT = threading.Event()
@@ -105,6 +106,58 @@ PAGE = """<!doctype html><meta charset="utf-8"><title>tts check</title>
   check('反應：按「停止」可以取消，不會卡在那裡', /已取消/.test(endStatus) && !renderBtn.classList.contains('busy'),
     endStatus);
 
+  // 3c. 換音色（OpenVoice）：先把兩個模型灌進倉庫，再抽音色、轉一段
+  var refBytes = await (await fetch('/__OV_REF__')).arrayBuffer();
+  var convBytes = await (await fetch('/__OV_CONV__')).arrayBuffer();
+  await W.ZhiyinModels.put('openvoice-refenc', refBytes, { size: refBytes.byteLength });
+  await W.ZhiyinModels.put('openvoice-conv', convBytes, { size: convBytes.byteLength });
+  check('音色：兩個模型都裝進瀏覽器', refBytes.byteLength > 1e6 && convBytes.byteLength > 5e7,
+    (refBytes.byteLength / 1048576).toFixed(1) + ' MB + ' + (convBytes.byteLength / 1048576).toFixed(0) + ' MB');
+
+  // 頻譜：440 Hz 正弦在 22.05 kHz 下，能量應該集中在 440*1024/22050 ≈ 20 號 bin
+  var sine = new Float32Array(22050);
+  for (var s = 0; s < sine.length; s++) sine[s] = Math.sin(2 * Math.PI * 440 * s / 22050) * 0.3;
+  var sp = D.ovSpec(sine);
+  var bestBin = 0, bestVal = 0;
+  for (var bi = 0; bi < 513; bi++) {
+    var v = sp.spec[bi * sp.T + 40];
+    if (v > bestVal) { bestVal = v; bestBin = bi; }
+  }
+  check('音色：|STFT| 算得對（440 Hz → 第 20 個 bin）', Math.abs(bestBin - 20) <= 1, 'bin ' + bestBin + '、' + sp.T + ' 格');
+
+  var gTgt = await D.ovExtractSE(sine, 22050);
+  check('音色：抽得出 256 維音色向量', gTgt && gTgt.length === 256 && Math.max.apply(null, Array.from(gTgt)) !== 0,
+    '前三個 ' + Array.from(gTgt).slice(0, 3).map(function (x) { return x.toFixed(3); }).join(', '));
+
+  var srcAudio = a;                          // 剛剛合成的那一句（44.1 kHz）
+  var gSrc = await D.ovExtractSE(srcAudio, D.TTS_SR);
+  D.ov.gSrc = gSrc; D.ov.gTgt = gTgt;
+  var tConv = performance.now();
+  var conv = await D.ovConvert(srcAudio, D.TTS_SR);
+  var convSecs = (performance.now() - tConv) / 1000;
+  function centroidBin(x, sr) {   // 用頁面自己的 |STFT| 算頻譜重心（單位：bin）
+    var s = D.ovSpec(D.ovResample(x, sr, 22050));
+    var num = 0, den = 0;
+    for (var t = 0; t < s.T; t++) {
+      for (var b = 0; b < 513; b++) { var v = s.spec[b * s.T + t]; num += v * b; den += v; }
+    }
+    return den ? num / den : 0;
+  }
+  var sameLen = Math.abs(conv.length - srcAudio.length) / srcAudio.length < 0.02;
+  var rmsConv = 0; for (var r2 = 0; r2 < conv.length; r2++) rmsConv += conv[r2] * conv[r2];
+  rmsConv = Math.sqrt(rmsConv / conv.length);
+  var rmsSrc = 0; for (var r3 = 0; r3 < srcAudio.length; r3++) rmsSrc += srcAudio[r3] * srcAudio[r3];
+  rmsSrc = Math.sqrt(rmsSrc / srcAudio.length);
+  check('音色：轉完長度不變', sameLen, (conv.length / D.TTS_SR).toFixed(2) + ' s vs ' + (srcAudio.length / D.TTS_SR).toFixed(2) + ' s');
+  check('音色：轉完不是靜音、音量接近', rmsConv > 0.01 && Math.abs(rmsConv - rmsSrc) / rmsSrc < 0.5,
+    'RMS ' + rmsSrc.toFixed(4) + ' → ' + rmsConv.toFixed(4));
+  var cSrc = centroidBin(srcAudio, D.TTS_SR), cConv = centroidBin(conv, D.TTS_SR);
+  check('音色：音色真的往目標移動（目標是低沉的 440 Hz 正弦 → 重心要下降）',
+    cConv < cSrc * 0.9 && convSecs < 120,
+    '重心 ' + cSrc.toFixed(1) + ' → ' + cConv.toFixed(1) + ' bin、轉換 ' + convSecs.toFixed(1) + ' s');
+  var convBlob = new Blob([D.wav(conv, D.TTS_SR)], { type: 'audio/wav' });
+  await fetch('/__SAVE__?name=cloned.wav', { method: 'POST', body: convBlob });
+
   // 4. 把音檔傳回本機，方便人耳比對
   var blob = new Blob([D.wav(a, D.TTS_SR)], { type: 'audio/wav' });
   await fetch('/__SAVE__?name=browser.wav', { method: 'POST', body: blob });
@@ -136,6 +189,22 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             WAIT.set()
             self.send_response(204)
             self.end_headers()
+            return
+        if self.path in ("/__OV_REF__", "/__OV_CONV__"):
+            f = OV / ("openvoice_refenc.onnx" if "REF" in self.path else "openvoice_conv.onnx")
+            if not f.exists():
+                self.send_error(404, "no model")
+                return
+            self.send_response(200)
+            self.send_header("Content-Type", "application/octet-stream")
+            self.send_header("Content-Length", str(f.stat().st_size))
+            self.end_headers()
+            with f.open("rb") as fh:
+                while True:
+                    chunk = fh.read(1 << 20)
+                    if not chunk:
+                        break
+                    self.wfile.write(chunk)
             return
         if self.path == "/__MODEL__":
             if not MODEL.exists():

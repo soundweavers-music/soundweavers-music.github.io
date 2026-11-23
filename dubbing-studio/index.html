@@ -123,7 +123,25 @@ audio { width: 100%; margin-top: 12px; }
     </div>
 
     <div class="db-card">
-      <h3>2. 字幕稿</h3>
+      <h3>2. 複製自己的聲音（選用）</h3>
+      <p class="sub">錄一段 <b>6–20 秒</b>自己的聲音（照著隨便念一段話、正常音量、安靜的環境），AI 會抽出你的音色，之後整份配音都用你的聲音念。音色是在這台電腦算的，錄音不會上傳。</p>
+      <div id="ovRefCard"></div>
+      <div id="ovConvCard"></div>
+      <div class="db-row">
+        <button class="db-btn" id="ovRecBtn">● 錄參考音</button>
+        <button class="db-btn ghost" id="ovPickBtn">選參考音檔</button>
+        <input type="file" id="ovFile" accept="audio/*" hidden>
+        <span class="db-status" id="ovStatus"></span>
+      </div>
+      <div class="db-row">
+        <label class="db-check"><input type="checkbox" id="ovUse"> 產生配音時換成我的音色</label>
+        <span class="db-status" id="ovInfo"></span>
+      </div>
+      <div class="db-note">換音色是「重新合成」的延伸：每句先由 MeloTTS 念，再用 OpenVoice 轉成你的音色（22.05 kHz 處理後再升回 44.1 kHz）。一句大約多花 3–6 秒。</div>
+    </div>
+
+    <div class="db-card">
+      <h3>3. 字幕稿</h3>
       <p class="sub">支援 .srt 與 .lrc；每句都要有時間，配音會照這個時間排。</p>
       <div class="db-drop" id="ttsDrop">拖入或點一下選字幕檔（.srt／.lrc）</div>
       <input type="file" id="ttsFile" accept=".srt,.lrc,text/plain" hidden>
@@ -131,7 +149,7 @@ audio { width: 100%; margin-top: 12px; }
     </div>
 
     <div class="db-card">
-      <h3>3. 對時與輸出</h3>
+      <h3>4. 對時與輸出</h3>
       <p class="sub">AI 配音會把每一句塞進字幕給的時間：太長就壓短、太短就放慢，都是<b>重新合成</b>（不是加速播放），所以音高不會變。</p>
       <div class="db-row">
         <button class="db-btn" id="ttsRender" disabled>產生配音（AI）</button>
@@ -683,9 +701,11 @@ audio { width: 100%; margin-top: 12px; }
     var startedAt = performance.now(), perSec = ttsAI.perSec || 0;
     // 每次按「產生配音」給一個新的編號：舊的那一輪就算晚回來，也不會蓋掉新的一輪
     var runId = ttsAI.runId = (ttsAI.runId || 0) + 1;
+    var ovWanted = !!(ov.use && ov.gTgt);
 
     ttsAI.out = null;
     ttsAI.cancel = false;
+    if (ovWanted) setStatus($("ttsStatus"), "用你的音色產生配音（每句會多算 3–6 秒）…");
     ttsSetBusy(true);
     stopSpeak();
 
@@ -738,11 +758,16 @@ audio { width: 100%; margin-top: 12px; }
           return ttsRun(c.text, ls).then(function (again) { return again; });
         }
         return first;
-      }).then(function (r) {
+      }).then(async function (r) {
         if (runId !== ttsAI.runId) return;
         if (ttsAI.cancel) return cancelled();
         var a = r.data, w = r.warn || {};
         warnLatin += w.latin || 0; warnUnknown += w.unknown || 0;
+        if (ovWanted) {
+          // 第一次先記住「原本 AI 女聲」的音色當來源，之後每句換成使用者的音色
+          if (!ov.gSrc) ov.gSrc = await ovExtractSE(a, TTS_SR);
+          a = await ovConvert(a, TTS_SR);
+        }
         ttsPlace(buf, c.start, a);
         var spent = (performance.now() - t1) / 1000;
         perSec = perSec ? perSec * 0.7 + spent * 0.3 : spent;   // 移動平均，用來估還要多久
@@ -782,7 +807,212 @@ audio { width: 100%; margin-top: 12px; }
     setStatus($("ttsStatus"), "已匯出 AI配音.wav（" + (blob.size / 1048576).toFixed(1) + " MB）");
   };
 
-  // 模型卡（同一套模型倉庫），裝好／移除時更新上面的聲音列
+  // ═════════ 聲音複製：OpenVoice V2 音色轉換（MIT） ═════════
+  // 官方的流程（openvoice/api.py）是：|STFT| → enc_q → flow → dec。
+  // 這裡的兩個 ONNX 就是那條路（scripts/export_openvoice_onnx.py 匯出、已和 PyTorch 對過數值）。
+  //   1. openvoice_refenc.onnx：|STFT| → 256 維音色向量
+  //   2. openvoice_conv.onnx ：|STFT| + 來源音色 + 目標音色 → 22.05 kHz 音訊
+  var OV_SR = 22050;
+  var ov = { gTgt: null, gSrc: null, ref: null, refName: "", refenc: null, conv: null, loading: null, use: false };
+
+  function ovResample(x, sr0, sr1) {
+    if (sr0 === sr1) return x;
+    var n = Math.max(1, Math.round(x.length * sr1 / sr0)), step = sr0 / sr1, out = new Float32Array(n);
+    for (var i = 0; i < n; i++) {
+      var p = i * step, i0 = Math.floor(p), i1 = Math.min(x.length - 1, i0 + 1), f = p - i0;
+      out[i] = x[i0] * (1 - f) + x[i1] * f;
+    }
+    return out;
+  }
+
+  // radix-2 FFT（1024 點，直接呼叫，不做快取以外的東西）
+  var fftTab = null;
+  function ovFFT(re, im) {
+    var n = re.length, i, j, k;
+    if (!fftTab || fftTab.n !== n) {
+      var rev = new Uint16Array(n), bits = Math.round(Math.log2(n));
+      for (i = 0; i < n; i++) { var r = 0; for (j = 0; j < bits; j++) r |= ((i >> j) & 1) << (bits - 1 - j); rev[i] = r; }
+      var cos = new Float32Array(n / 2), sin = new Float32Array(n / 2);
+      for (i = 0; i < n / 2; i++) { cos[i] = Math.cos(-2 * Math.PI * i / n); sin[i] = Math.sin(-2 * Math.PI * i / n); }
+      fftTab = { n: n, rev: rev, cos: cos, sin: sin };
+    }
+    for (i = 0; i < n; i++) {
+      j = fftTab.rev[i];
+      if (j > i) { var t = re[i]; re[i] = re[j]; re[j] = t; t = im[i]; im[i] = im[j]; im[j] = t; }
+    }
+    for (var size = 2; size <= n; size <<= 1) {
+      var half = size >> 1, stepT = n / size;
+      for (i = 0; i < n; i += size) {
+        for (j = 0, k = 0; j < half; j++, k += stepT) {
+          var wr = fftTab.cos[k], wi = fftTab.sin[k];
+          var a = i + j, b = a + half;
+          var xr = re[b] * wr - im[b] * wi, xi = re[b] * wi + im[b] * wr;
+          re[b] = re[a] - xr; im[b] = im[a] - xi;
+          re[a] += xr; im[a] += xi;
+        }
+      }
+    }
+  }
+
+  // 音訊（22.05 kHz）→ 線性頻譜 |STFT|（n_fft 1024、hop 256、hann、reflect pad 384），
+  // 排列成 [513 bins][T frames]，跟 PyTorch 的 [1,513,T] 一致
+  function ovSpec(x) {
+    var N = 1024, HOP = 256, PAD = 384, bins = 513;
+    var y = new Float32Array(x.length + PAD * 2), i;
+    for (i = 0; i < PAD; i++) { y[i] = x[Math.min(x.length - 1, PAD - i)]; y[y.length - 1 - i] = x[Math.max(0, x.length - 2 - i)]; }
+    y.set(x, PAD);
+    var frames = Math.floor((y.length - N) / HOP) + 1;
+    var out = new Float32Array(bins * frames);
+    var win = new Float32Array(N), re = new Float32Array(N), im = new Float32Array(N);
+    for (i = 0; i < N; i++) win[i] = 0.5 - 0.5 * Math.cos(2 * Math.PI * i / N);   // 跟 torch.hann_window 一樣（periodic）
+    for (var f = 0; f < frames; f++) {
+      var at = f * HOP;
+      for (i = 0; i < N; i++) { re[i] = y[at + i] * win[i]; im[i] = 0; }
+      ovFFT(re, im);
+      for (i = 0; i < bins; i++) out[i * frames + f] = Math.sqrt(re[i] * re[i] + im[i] * im[i] + 1e-6);
+    }
+    return { spec: out, T: frames };
+  }
+
+  function ovModels() {
+    if (ov.refenc && ov.conv) return Promise.resolve(ov);
+    if (ov.loading) return ov.loading;
+    ov.loading = Promise.all([ensureOrt(), ensureModelStore()]).then(function (r) {
+      var ort = r[0];
+      return Promise.all([window.ZhiyinModels.get("openvoice-refenc"), window.ZhiyinModels.get("openvoice-conv")])
+        .then(function (recs) {
+          if (!recs[0] || !recs[1]) throw new Error("還沒有安裝「OpenVoice 音色抽取／音色轉換」模型（3 MB + 122 MB，兩張卡都要裝）");
+          var opts = { executionProviders: ["wasm"], enableCpuMemArena: false };
+          return Promise.all([
+            ort.InferenceSession.create(new Uint8Array(recs[0].buf), opts),
+            ort.InferenceSession.create(new Uint8Array(recs[1].buf), opts)
+          ]);
+        });
+    }).then(function (s) {
+      ov.refenc = s[0]; ov.conv = s[1];
+      return ov;
+    }).catch(function (e) { ov.loading = null; throw e; });
+    return ov.loading;
+  }
+
+  // 音訊（任意取樣率）→ 256 維音色向量
+  function ovExtractSE(audio, sr) {
+    return ovModels().then(function () {
+      var x = ovResample(audio, sr, OV_SR);
+      var sp = ovSpec(x);
+      var t = new window.ort.Tensor("float32", sp.spec, [1, 513, sp.T]);
+      return ov.refenc.run({ spec: t }).then(function (o) {
+        var g = o.g.data;
+        return new Float32Array(g.length === 256 ? g : g.slice(0, 256));
+      });
+    });
+  }
+
+  // 44.1 kHz 音訊 → 換成 ov.gTgt 的音色 → 44.1 kHz
+  function ovConvert(audio, sr) {
+    if (!ov.gTgt) return Promise.resolve(audio);
+    return ovModels().then(function () {
+      if (!ov.gSrc) throw new Error("還沒有來源音色（先產生過一次配音，或重新按一次「產生配音」）");
+      var x = ovResample(audio, sr, OV_SR);
+      var sp = ovSpec(x), ort = window.ort;
+      var feeds = {
+        spec: new ort.Tensor("float32", sp.spec, [1, 513, sp.T]),
+        g_src: new ort.Tensor("float32", ov.gSrc, [1, 256, 1]),
+        g_tgt: new ort.Tensor("float32", ov.gTgt, [1, 256, 1])
+      };
+      return ov.conv.run(feeds).then(function (o) {
+        var out = o.audio.data;
+        var back = ovResample(out, OV_SR, sr);
+        // 換完音量會掉一點，回到原本的 RMS（只縮放，不改音色）
+        var a = 0, b = 0, i;
+        for (i = 0; i < out.length; i++) a += out[i] * out[i];
+        for (i = 0; i < audio.length; i++) b += audio[i] * audio[i];
+        var rmsIn = Math.sqrt(b / Math.max(1, audio.length)), rmsOut = Math.sqrt(a / Math.max(1, out.length));
+        if (rmsOut > 1e-5) {
+          var gain = Math.max(0.5, Math.min(2.0, rmsIn / rmsOut));
+          for (i = 0; i < back.length; i++) back[i] *= gain;
+        }
+        return back;
+      });
+    });
+  }
+
+  // ── 參考錄音（自己的聲音）──
+  var ovRec = { mr: null, chunks: [], stream: null, started: 0, tick: null };
+  function ovSetRef(buffer, name) {
+    ov.ref = buffer; ov.refName = name; ov.gTgt = null;
+    setStatus($("ovStatus"), "分析音色中…（" + fmtT(buffer.duration) + "）");
+    ovExtractSE(buffer.getChannelData(0), buffer.sampleRate).then(function (g) {
+      ov.gTgt = g;
+      ov.use = true;
+      $("ovUse").checked = true;
+      var ok = buffer.duration >= 3;
+      setStatus($("ovStatus"), (ok ? "音色抓好了：" : "音色抓好了（建議 6–20 秒，太短會不準）：") +
+        (name || "") + "（" + fmtT(buffer.duration) + "）", !ok);
+      $("ovInfo").textContent = "已套用你的音色";
+    }).catch(function (e) {
+      setStatus($("ovStatus"), (e && e.message) || String(e), true);
+    });
+  }
+  function ovDecodeBytes(buf, name) {
+    var Ctx = window.AudioContext || window.webkitAudioContext, ctx = new Ctx();
+    ctx.decodeAudioData(buf).then(function (b) { ctx.close(); ovSetRef(b, name); })
+      .catch(function (e) { ctx.close(); setStatus($("ovStatus"), "這個音檔解不開：" + (e && e.message || e), true); });
+  }
+  $("ovPickBtn").onclick = function () { $("ovFile").click(); };
+  $("ovFile").onchange = function () {
+    var f = this.files && this.files[0];
+    this.value = "";
+    if (!f) return;
+    var fr = new FileReader();
+    fr.onload = function () { ovDecodeBytes(fr.result, f.name); };
+    fr.readAsArrayBuffer(f);
+  };
+  $("ovRecBtn").onclick = function () {
+    if (ovRec.mr) { ovRec.mr.stop(); return; }
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia || !window.MediaRecorder) {
+      setStatus($("ovStatus"), "這個瀏覽器不能錄音，請改用「選參考音檔」", true);
+      return;
+    }
+    navigator.mediaDevices.getUserMedia({ audio: { channelCount: 1, echoCancellation: true, noiseSuppression: true, autoGainControl: true } })
+      .then(function (stream) {
+        ovRec.stream = stream; ovRec.chunks = [];
+        var mr = new MediaRecorder(stream);
+        ovRec.mr = mr;
+        mr.ondataavailable = function (e) { if (e.data && e.data.size) ovRec.chunks.push(e.data); };
+        mr.onstop = function () {
+          var blob = new Blob(ovRec.chunks, { type: ovRec.chunks[0] ? ovRec.chunks[0].type : "audio/webm" });
+          stream.getTracks().forEach(function (t) { t.stop(); });
+          ovRec.mr = null; clearInterval(ovRec.tick);
+          $("ovRecBtn").textContent = "● 錄參考音";
+          $("ovRecBtn").classList.remove("rec-on");
+          var fr = new FileReader();
+          fr.onload = function () { ovDecodeBytes(fr.result, "參考錄音"); };
+          fr.readAsArrayBuffer(blob);
+        };
+        mr.start();
+        ovRec.started = Date.now();
+        $("ovRecBtn").textContent = "■ 停止（0.0 s）";
+        $("ovRecBtn").classList.add("rec-on");
+        setStatus($("ovStatus"), "錄音中…念 6–20 秒，念完按停止");
+        ovRec.tick = setInterval(function () {
+          $("ovRecBtn").textContent = "■ 停止（" + ((Date.now() - ovRec.started) / 1000).toFixed(1) + " s）";
+        }, 100);
+      })
+      .catch(function (e) {
+        setStatus($("ovStatus"), "拿不到麥克風：" + (e && e.name === "NotAllowedError" ? "請在網址列左邊的鎖頭允許麥克風" : (e && e.message) || e), true);
+      });
+  };
+  $("ovUse").onchange = function () {
+    ov.use = this.checked;
+    if (this.checked && !ov.gTgt) {
+      this.checked = false; ov.use = false;
+      setStatus($("ovInfo"), "先錄一段參考音或選一個音檔", true);
+      return;
+    }
+    $("ovInfo").textContent = this.checked ? "已套用你的音色" : "目前用原本的 AI 女聲";
+  };
+
   function renderAiVoiceState() {
     var el = $("ttsAIVoiceState");
     if (!el) return;
@@ -801,6 +1031,8 @@ audio { width: 100%; margin-top: 12px; }
   });
   ensureModelStore().then(function (ZM) {
     if ($("ttsModelCard")) ZM.mount($("ttsModelCard"), "melotts-zh");
+    if ($("ovRefCard")) ZM.mount($("ovRefCard"), "openvoice-refenc");
+    if ($("ovConvCard")) ZM.mount($("ovConvCard"), "openvoice-conv");
     renderAiVoiceState();
   }).catch(function () { /* 沒有模型卡也能用系統語音預覽 */ });
 
@@ -1776,7 +2008,8 @@ audio { width: 100%; margin-top: 12px; }
   window.__dubbing = { parseSubtitle, alignCues, sim, timeStretch, denoise, breathRegions, wav, normText,
     applyEq, eqStages, eqMagDb, biquad, normalizeLoudness, limitPeaks, frameLevels, speechLevelDb, peakDb,
     ttsPhones, zhNumber, ttsRun, ttsSyllables, ttsPinyin, ttsEnsureModel, ttsSandhi, ttsAI, TTS_SR,
-    fxPalette, ed, addTake, rebuildBuffer, renderTakes, takesKey, ready, drawEffects, edCoverage, tts };
+    fxPalette, ed, addTake, rebuildBuffer, renderTakes, takesKey, ready, drawEffects, edCoverage, tts,
+    ov, ovSpec, ovResample, ovExtractSE, ovConvert, ovModels, OV_SR };
   drawEffects();
   // 語音辨識模型卡（使用者自行下載、存瀏覽器；模型檔不在 repo）
   loadScriptOnce(new URL("../../assets/model-store.js", document.baseURI).href).then(function () {

@@ -16,5 +16,23 @@
     "url": "https://github.com/soundweavers-music/soundweavers-music.github.io/releases/download/models-v1/melotts_zh_en.onnx",
     "license": "MIT（MyShell MeloTTS，sherpa-onnx 轉檔）",
     "note": "「AI 配音」用：把字幕念成聲音。取樣率 44.1 kHz、單一中文女聲、可調語速。"
+  },
+  "openvoice-conv": {
+    "name": "OpenVoice 音色轉換",
+    "file": "openvoice_conv.onnx",
+    "size": 128054658,
+    "sha256": "9d123c093e8277877526c441f49a7686a8242d1f4c36f91c879a25e3b1987da6",
+    "url": "https://github.com/soundweavers-music/soundweavers-music.github.io/releases/download/models-v1/openvoice_conv.onnx",
+    "license": "OpenVoice V2（MyShell，MIT；2024-04 起免費商用）",
+    "note": "「複製自己的聲音」用：把配音換成你的音色。取樣率 22.05 kHz；由 scripts/export_openvoice_onnx.py 從官方 checkpoint 匯出，已與 PyTorch 數值對過。"
+  },
+  "openvoice-refenc": {
+    "name": "OpenVoice 音色抽取",
+    "file": "openvoice_refenc.onnx",
+    "size": 3258514,
+    "sha256": "19d5991c18aa55d00ce42dc8fa6370c7859f9176ca2a9de5c2efae32eb884d28",
+    "url": "https://github.com/soundweavers-music/soundweavers-music.github.io/releases/download/models-v1/openvoice_refenc.onnx",
+    "license": "OpenVoice V2（MyShell，MIT）",
+    "note": "從你的參考錄音抽出 256 維音色向量（3 MB）。跟「OpenVoice 音色轉換」一起用。"
   }
 }
