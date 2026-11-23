@@ -1,0 +1,11 @@
+{
+  "funasr-nano": {
+    "name": "Fun-ASR-Nano 語音辨識",
+    "file": "funasr_nano.onnx",
+    "size": 263531902,
+    "sha256": "9dc6e72aa8bc6f5966cf2857a0ce3a425b1d72e91500e147d66329f407c017a1",
+    "url": "https://huggingface.co/soundweavers-music/ai-models/resolve/main/funasr_nano.onnx",
+    "license": "Apache-2.0（FunAudioLLM）",
+    "note": "歌詞自動辨識（/tools/lrc/）與配音剪輯（/tools/dubbing/）共用同一顆模型。"
+  }
+}

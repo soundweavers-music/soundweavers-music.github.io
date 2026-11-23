@@ -4041,6 +4041,11 @@ def main():
     chord_ai = BASE_DIR / "assets" / "chord-ai"
     if chord_ai.exists():
         shutil.copytree(str(chord_ai), str(OUTPUT_DIR / "assets" / "chord-ai"), dirs_exist_ok=True)
+    # 本機 AI 模型倉庫：模型檔由使用者自行下載（Hugging Face），這裡只發佈小工具與清單
+    for fname in ("model-store.js", "ai-models.json"):
+        f_src = BASE_DIR / "assets" / fname
+        if f_src.exists():
+            shutil.copy2(str(f_src), str(OUTPUT_DIR / "assets" / fname))
     write(OUTPUT_DIR / ".nojekyll", "")
     # Copy Google Search Console verification file to output root
     gsc_file = BASE_DIR / "googled81b331c3a5b66a0.html"
