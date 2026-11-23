@@ -1048,5 +1048,7 @@
  "：前奏的和弦與段落已經在譜裡（第 1 小節就是第 1 小節，預備拍留白），帶進來的段落有絕對小節，直接對得上。段落軌有標前奏／尾奏時就照段落軌，這兩個勾選框會變灰。": ": the intro chords and sections are already in the chart (bar 1 is bar 1, the pickup stays blank), and the imported sections carry absolute bar numbers, so they line up directly. When the section track has an intro or outro marked, those two checkboxes go grey.",
  "結果寫進和弦軌（從第 5 小節開始，前面留給前奏）、「": "The result goes into the chord track (starting at bar 5, leaving the first bars for the intro), the “",
  "」軌，以及": "” track, and the ",
- "（曲式的段落會一併標好，② 一鍵編曲就會照著編）；按「": " (the song-form sections are marked too, so ② One-click arrangement follows them); press “"
+ "（曲式的段落會一併標好，② 一鍵編曲就會照著編）；按「": " (the song-form sections are marked too, so ② One-click arrangement follows them); press “",
+ "從「織音AI自動轉譜」送過來的專案": "Projects sent from “Zhiyin AI auto transcription”",
+ "：那邊按「送到編曲工具」時已經選好型態，這裡開起來會直接照那個型態把伴奏編好（「伴奏-」各軌，含主旋律）；不喜歡就按「重新產生」或改段落軌再編一次。": ": you already picked the style there via “Send to the DAW”, so opening it here arranges the accompaniment straight away (the “伴奏-” tracks, lead melody included); if you do not like it, press “Regenerate” or edit the section track and arrange again."
 }

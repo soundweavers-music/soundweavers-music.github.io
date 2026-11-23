@@ -438,6 +438,12 @@ body.print-score, body.has-score { page: score; }
     <span style="margin-left:8px;">整首微調</span>
     <button class="btn ghost small" id="btn-shift-minus" title="全部往前提早 20 毫秒">−20ms</button>
     <button class="btn ghost small" id="btn-shift-plus" title="全部往後延 20 毫秒">＋20ms</button>
+    <span style="margin-left:8px;" title="整份譜連小節線往後／往前挪幾拍。有些歌的拍子抓錯一兩拍，詞和旋律會整體慢（或快）幾拍，用這個對回來">位移</span>
+    <button class="btn ghost small" id="btn-beatshift-prev" title="整份譜往前挪一拍">◀</button>
+    <input type="number" id="beat-shift" value="0" step="1" style="width:46px;text-align:center;" title="目前位移幾拍（負數＝往前）">
+    <button class="btn ghost small" id="btn-beatshift-next" title="整份譜往後挪一拍">▶</button>
+    <span style="font-size:11px;color:var(--muted);">拍</span>
+    <button class="btn ghost small" id="btn-beatshift-reset" title="位移歸零">歸零</button>
   </div>
   <span id="grid-hint" style="font-size:11px;color:var(--muted);"></span>
 </div>
@@ -769,7 +775,7 @@ let state = {
   autoDownbeat: 0, downbeatShift: 0, gridShiftSec: 0,
   lyrics: [], lyricSegs: {}, lyricOverrides: {}, showLyrics: true, showDegrees: true,
   showDiagrams: false, continuous: false, notation: 'name',
-  pickupOverride: null, trimFront: false, gridFromLyrics: false, lyricSnap: true, chordSize: 15, lyricSize: 14, melodySize: 13, rowGap: 2,
+  pickupOverride: null, trimFront: false, gridFromLyrics: false, beatShift: 0, lyricSnap: true, chordSize: 15, lyricSize: 14, melodySize: 13, rowGap: 2,
   useLyricAsr: true, lyricAnchors: null, lyricAsrError: null,
   lyricsAuto: false, lyricsAutoFor: null,        // 歌詞是 AI 聽出來的（第一版），匯入 LRC 後改回 false
   showMelody: true, melodyFrames: null, melodySmooth: null, melodyNotes: null,
@@ -1128,6 +1134,7 @@ async function analyzeWithBrowser() {
     state.bpm = bpmFromBeats(tracked.times) || Math.round(tempo.bpm);
     state.gridShiftSec = 0;
     state.downbeatShift = 0;
+    state.beatShift = 0;
     state.trimFront = false;
     state.gridFromLyrics = false;
     state.beatsPerBar = parseInt(document.getElementById('bpb-select').value, 10) || 4;
@@ -2504,8 +2511,17 @@ function applyGrid(opts) {
   const duration = state.duration;
   const bpb = state.beatsPerBar;
 
+  // 整首位移：節拍追蹤抓錯一兩拍時，連小節線一起往前／往後挪整數拍，
+  // 詞和旋律就會回到小節線上（比手動改每個和弦快得多）
+  let beatShiftSec = 0;
+  if (state.beatShift) {
+    const ivs = [];
+    for (let i = 1; i < state.baseBeats.length; i++) ivs.push(state.baseBeats[i] - state.baseBeats[i - 1]);
+    const period = medianOf(ivs) || (60 / (state.bpm || 120));
+    beatShiftSec = state.beatShift * period;
+  }
   const beats = state.baseBeats
-    .map(t => t + state.gridShiftSec)
+    .map(t => t + state.gridShiftSec + beatShiftSec)
     .filter(t => t >= 0 && t < duration);
   state.beats = beats;
 
@@ -4266,7 +4282,72 @@ function dawMelodyNotes() {
   return out.map(({ _tie, ...n }) => ({ ...n, d: +Math.max(0.1, n.d * 0.95).toFixed(4) }));
 }
 
-async function exportToDaw() {
+// 「送到編曲工具」的面板：先確認智慧編曲的型態（風格、聲部、變化），再輸出專案。
+// 專案檔裡會帶一個 arrange 欄位，編曲工具開起來就照這個型態把伴奏編好。
+const DAW_STYLES = [
+  { id: 'cballad', name: '華語抒情（8 分鋼琴）', desc: '主歌 1 指彈不打鼓、副歌刷弦＋弦樂' },
+  { id: 'cpop', name: '華語流行（中板 8 Beat）', desc: '主歌指彈、副歌開放鈸與 16 分刷弦' },
+  { id: 'folk', name: '校園民謠（木吉他）', desc: '木吉他刷弦與鈴鼓，適合自彈自唱' },
+  { id: 'rock', name: '流行搖滾（8 Beat Rock）', desc: '八分貝斯、強力和弦，副歌疊音鈸' },
+  { id: 'rnb', name: 'R&B／靈魂樂', desc: '切分貝斯、電鋼琴，副歌加弦樂' },
+  { id: 'waltz', name: '6/8 抒情（搖擺慢歌）', desc: '三拍子，要配 3/4 拍的專案' },
+];
+const DAW_PARTS = [
+  ['drums', '鼓'], ['bass', '貝斯'], ['keys', '鋼琴'], ['guitar', '吉他'],
+  ['strings', '弦樂'], ['arp', '琶音'], ['lead', '主旋律'],
+];
+
+function openDawExport() {
+  if (!state.audioBuffer || !state.chords.length) {
+    setStatus('先上傳歌曲、等分析完成，才能送到編曲工具。', 'error');
+    return;
+  }
+  const old = document.getElementById('dlg-daw');
+  if (old) old.remove();
+  const styleOpts = DAW_STYLES.map(s =>
+    '<option value="' + s.id + '">' + s.name + '　—　' + s.desc + '</option>').join('');
+  const partsHtml = DAW_PARTS.map(([id, name]) =>
+    '<label style="display:inline-flex;align-items:center;gap:4px;margin:0 12px 6px 0;">'
+    + '<input type="checkbox" data-part="' + id + '" checked> ' + name + '</label>').join('');
+  const d = document.createElement('div');
+  d.id = 'dlg-daw';
+  d.innerHTML = '<div style="position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:900"></div>'
+    + '<div role="dialog" aria-modal="true" style="position:fixed;z-index:901;left:50%;top:50%;transform:translate(-50%,-50%);'
+    + 'width:min(560px,calc(100vw - 32px));background:var(--surface,#fff);color:var(--ink,#222);border:1px solid var(--line,#ddd);'
+    + 'border-radius:12px;box-shadow:0 24px 60px rgba(0,0,0,.3);padding:18px 20px;">'
+    + '<h3 style="margin:0 0 6px;font-size:16px;">送到編曲工具</h3>'
+    + '<p style="margin:0 0 12px;font-size:12px;line-height:1.7;color:var(--muted,#777);">'
+    + '專案檔會包含人聲、伴奏（預設靜音）、主旋律 MIDI、和弦軌、段落軌與速度。'
+    + '在「織音AI線上編曲製作」開起來之後，會照下面選的型態直接把伴奏編好（鼓、貝斯、鋼琴、吉他、弦樂…）。</p>'
+    + '<label style="display:block;font-size:12px;margin-bottom:4px;">智慧編曲型態</label>'
+    + '<select id="dlg-daw-style" style="width:100%;padding:6px;border:1px solid var(--line,#ddd);border-radius:8px;font-size:13px;">' + styleOpts + '</select>'
+    + '<div style="font-size:12px;margin:12px 0 4px;">聲部</div>'
+    + '<div style="font-size:13px;">' + partsHtml + '</div>'
+    + '<div style="font-size:12px;margin:10px 0 4px;">變化 <b id="dlg-daw-varv">50%</b>'
+    + '<input type="range" id="dlg-daw-var" min="0" max="100" value="50" style="width:100%;"></div>'
+    + '<div style="display:flex;gap:8px;justify-content:flex-end;margin-top:14px;">'
+    + '<button type="button" id="dlg-daw-cancel" class="btn ghost small">取消</button>'
+    + '<button type="button" id="dlg-daw-ok" class="btn small">輸出專案</button></div>'
+    + '</div>';
+  document.body.appendChild(d);
+  const close = () => d.remove();
+  d.querySelector('#dlg-daw-cancel').onclick = close;
+  d.querySelector('div[style*="inset:0"]').onclick = close;
+  d.querySelector('#dlg-daw-var').oninput = e => {
+    d.querySelector('#dlg-daw-varv').textContent = e.target.value + '%';
+  };
+  d.querySelector('#dlg-daw-ok').onclick = () => {
+    const styleId = d.querySelector('#dlg-daw-style').value;
+    const parts = {};
+    d.querySelectorAll('input[data-part]').forEach(cb => { parts[cb.dataset.part] = cb.checked; });
+    if (!Object.values(parts).some(Boolean)) { setStatus('至少要勾一個聲部', 'error'); return; }
+    const variation = Number(d.querySelector('#dlg-daw-var').value) / 100;
+    close();
+    exportToDaw({ styleId, parts, variation });
+  };
+}
+
+async function exportToDaw(opts) {
   if (!state.audioBuffer || !state.chords.length) { setStatus('先上傳歌曲、等分析完成，才能送到編曲工具。', 'error'); return; }
   const buf = state.audioBuffer;
   // 還沒有 AI 分離的人聲（沒匯入歌詞就不會跑 Spleeter）→ 現在跑
@@ -4347,6 +4428,15 @@ async function exportToDaw() {
     chords, chordKey: keyRoot != null ? { key: keyRoot, minor: state.detectedMode === 'minor' } : null,
     chordView: 0, showChords: true, tracks, audio, video: {},
     // 給之後「智慧編曲」用：從哪裡來、歌詞（每行時間）
+    // 智慧編曲的型態：編曲工具開起來照這個把伴奏編好（見 daw-studio/js/project-io.js）
+    arrange: opts ? {
+      styleId: opts.styleId,
+      styleName: (DAW_STYLES.find(x => x.id === opts.styleId) || {}).name || '',
+      parts: opts.parts,
+      variation: opts.variation,
+      level: 0.8,
+      seed: 7,
+    } : null,
     source: { app: 'zhiyin-chords', file: currentFile ? currentFile.name : null, preSec: +preSec.toFixed(3),
       lyrics: state.lyrics.map(l => ({ t: +Math.max(0, (l.time - preSec) / spb).toFixed(3), text: l.text })) },
   };
@@ -4357,7 +4447,8 @@ async function exportToDaw() {
   const mb = (blob.size / 1048576).toFixed(0);
   setStatus(`已下載編曲工具專案檔（${mb} MB）：打開「織音AI線上編曲製作」→ 檔案 → 開啟，選這個 .zyproj。`
     + (sep ? '裡面有人聲、伴奏（預設靜音）、' : '這首分不出人聲，裡面是原曲（預設靜音）、')
-    + `主旋律 MIDI、和弦軌與和弦 MIDI，速度 ${project.bpm} BPM。`, 'done');
+    + `主旋律 MIDI、和弦軌與和弦 MIDI，速度 ${project.bpm} BPM。`
+    + (project.arrange ? `開起來會直接照「${project.arrange.styleName.replace(/（.*$/, '')}」把伴奏編好。` : ''), 'done');
 }
 
 // =========================================================================
@@ -4370,6 +4461,7 @@ function updateGridHint() {
     ? state.pickupOverride
     : ((state.autoDownbeat + state.downbeatShift) % state.beatsPerBar + state.beatsPerBar) % state.beatsPerBar;
   el.textContent = 'BPM ' + state.bpm
+    + (state.beatShift ? ' · 位移 ' + (state.beatShift > 0 ? '+' : '') + state.beatShift + ' 拍' : '')
     + ' · 整首微調 ' + (state.gridShiftSec * 1000).toFixed(0) + ' ms'
     + ' · 小節起點第 ' + (off + 1) + ' 拍（預備拍 ' + off + '）'
     + (state.pickupOverride == null
@@ -4392,6 +4484,18 @@ function nudgeDownbeat(dir, step) {
   applyGrid({ decode: false, detectKey: false });
   updateGridHint();
   setStatus('小節起點移到第 ' + (state.pickupOverride + 1) + ' 拍（預備拍 ' + state.pickupOverride + '）', '');
+}
+
+// 整首位移：連小節線一起挪整數拍（詞和旋律會一起回到小節線上）
+function setBeatShift(n) {
+  if (!state.chromaStore) return;
+  const v = Math.max(-64, Math.min(64, Math.round(n) || 0));
+  state.beatShift = v;
+  const inp = document.getElementById('beat-shift');
+  if (inp) inp.value = String(v);
+  applyGrid({ decode: true, detectKey: false });
+  updateGridHint();
+  setStatus(v === 0 ? '整首位移歸零' : '整首' + (v > 0 ? '往後' : '往前') + '挪 ' + Math.abs(v) + ' 拍', '');
 }
 
 function nudgeGridShift(delta) {
@@ -4578,6 +4682,11 @@ function initUI() {
   document.getElementById('btn-half-next').addEventListener('click', () => nudgeDownbeat(1, Math.max(1, Math.floor(state.beatsPerBar / 2))));
   document.getElementById('btn-shift-minus').addEventListener('click', () => nudgeGridShift(-0.02));
   document.getElementById('btn-shift-plus').addEventListener('click', () => nudgeGridShift(0.02));
+  document.getElementById('btn-beatshift-prev').addEventListener('click', () => setBeatShift(state.beatShift - 1));
+  document.getElementById('btn-beatshift-next').addEventListener('click', () => setBeatShift(state.beatShift + 1));
+  document.getElementById('btn-beatshift-reset').addEventListener('click', () => setBeatShift(0));
+  document.getElementById('beat-shift').addEventListener('change', function () { setBeatShift(parseInt(this.value, 10) || 0); });
+  document.getElementById('beat-shift').addEventListener('keydown', e => e.stopPropagation());
 
   document.getElementById('btn-recalc-bpm').addEventListener('click', function() {
     const bpm = parseInt(document.getElementById('bpm-input').value, 10);
@@ -6003,7 +6112,7 @@ function scAction(act) {
       if (!confirm('捨棄這份譜的所有手動修改，用目前的偵測結果重新產生？（可以按 ↶ 復原）')) return;
       return scEdit(() => { const meta = SC.score.meta; SC.score = scBuildFromDetection(); Object.assign(SC.score.meta, meta, { key: SC.score.meta.key }); SC.sel = null; SC.selEnd = null; });
     case 'print': return scPrint();
-    case 'daw': return exportToDaw();
+    case 'daw': return openDawExport();
   }
 }
 

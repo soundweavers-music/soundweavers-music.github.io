@@ -95,6 +95,36 @@ export async function openProjectFile(file, handle = null) {
   store.replaceProject(doc, buffers, meta);
   fileHandle = handle;
   toast(`已開啟：${doc.name}`);
+  await applyEmbeddedArrangement(doc);
+}
+
+// 轉譜工具（「送到編曲工具」）匯出的專案會帶 project.arrange：
+// 開起來就照那個型態把伴奏編好（鼓、貝斯、鋼琴、吉他、弦樂、琶音、主旋律），
+// 之後存檔就是專案的一部分，不用再手動按一次「② 一鍵編曲」。
+export async function applyEmbeddedArrangement(doc) {
+  const opt = doc && doc.arrange;
+  const proj = store.project;
+  if (proj) delete proj.arrange;                       // 只套用一次
+  if (!opt || !proj || !Array.isArray(proj.chords) || !proj.chords.length) return 0;
+  try {
+    const ai = await import('./ai-arrange.js');
+    const range = ai.chordRange();
+    if (!range) return 0;
+    const plan = ai.planFromSections() || ai.planWithBars(ai.autoPlan(range, {}), opt.styleId);
+    const res = ai.generate({
+      styleId: opt.styleId, plan,
+      variation: opt.variation == null ? 0.5 : opt.variation,
+      seed: opt.seed || 7, parts: opt.parts, level: opt.level == null ? 0.8 : opt.level,
+    });
+    if (!res || !res.clips || !Object.keys(res.clips).length) return 0;
+    const n = ai.applyArrangement(res, { seed: opt.seed || 7, styleId: opt.styleId, styleName: opt.styleName || '' });
+    store.dirty = true;
+    toast(`已照「${String(opt.styleName || '智慧編曲').replace(/（.*$/, '')}」編好伴奏：${res.bars} 小節、${n} 個音（在「伴奏-」各軌）`);
+    return n;
+  } catch (e) {
+    console.warn('自動編曲失敗', e);
+    return 0;
+  }
 }
 
 export async function pickAndOpenProject() {
