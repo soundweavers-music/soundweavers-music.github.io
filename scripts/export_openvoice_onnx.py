@@ -1,4 +1,4 @@
-"""把 OpenVoice V2 的「音色轉換器」匯出成兩個 ONNX，讓瀏覽器能換音色（複製自己的聲音）。
+﻿"""把 OpenVoice V2 的「音色轉換器」匯出成兩個 ONNX，讓瀏覽器能換音色（複製自己的聲音）。
 
 兩個模型
 --------
@@ -72,7 +72,9 @@ class ConvWrap(torch.nn.Module):
         self.model = model
 
     def forward(self, spec, g_src, g_tgt):
-        t = torch.tensor([spec.shape[-1]], dtype=torch.long)
+        # 長度一定要從 spec 的 shape「算」出來：寫成 torch.tensor([spec.shape[-1]]) 的話，
+        # trace 會把它凍成匯出時的常數（200 格 = 2.32 秒），超過的部分被遮罩掉 → 每句 2 秒多之後變成噪音。
+        t = torch._shape_as_tensor(spec)[2:3].long()
         audio = self.model.voice_conversion(spec, t, sid_src=g_src, sid_tgt=g_tgt, tau=0.0)[0]
         return audio
 
@@ -145,6 +147,17 @@ def check(ref_out, conv_out, spec, g1, g2):
     a2 = c.run(None, {"spec": spec2, "g_src": g1, "g_tgt": g2})[0]
     print(f"voice_conversion：T={T2} → 音訊 {tuple(a2.shape)}（應該是 {T2*256} 個取樣）")
     ok = ok and a2.shape[-1] == T2 * 256
+    # 只看長度不夠：要跟 PyTorch 比「比匯出時更長」的輸入，數值也要一樣
+    model = build_model()[0]
+    for TL in (331, 900):
+        sl = torch.rand(1, 513, TL) * 5
+        with torch.no_grad():
+            want = ConvWrap(model)(sl, torch.tensor(g1.tolist()), torch.tensor(g2.tolist()))
+        want = np.array(want.tolist(), dtype=np.float32)
+        got = c.run(None, {"spec": np.array(sl.tolist(), dtype=np.float32), "g_src": g1, "g_tgt": g2})[0]
+        dl = np.abs(got - want).max() / (np.abs(want).max() + 1e-9)
+        print(f"voice_conversion：T={TL}（{TL*256/22050:.1f} 秒）數值對 PyTorch 相對差 {dl:.2e}")
+        ok = ok and dl < 1e-3
     return ok
 
 

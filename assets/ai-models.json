@@ -20,8 +20,8 @@
   "openvoice-conv": {
     "name": "OpenVoice 音色轉換",
     "file": "openvoice_conv.onnx",
-    "size": 128054658,
-    "sha256": "9d123c093e8277877526c441f49a7686a8242d1f4c36f91c879a25e3b1987da6",
+    "size": 128055296,
+    "sha256": "0f455c6f48c4bba397a6fb61dab86aced13cee86fc6b8d2dde656ecb40f39de3",
     "url": "https://github.com/soundweavers-music/soundweavers-music.github.io/releases/download/models-v1/openvoice_conv.onnx",
     "license": "OpenVoice V2（MyShell，MIT；2024-04 起免費商用）",
     "note": "「複製自己的聲音」用：把配音換成你的音色。取樣率 22.05 kHz；由 scripts/export_openvoice_onnx.py 從官方 checkpoint 匯出，已與 PyTorch 數值對過。"

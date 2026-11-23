@@ -61,6 +61,10 @@
   function sha256(buf) {
     return crypto.subtle.digest("SHA-256", buf).then(hex);
   }
+  // 存著的模型是不是舊版：清單的 sha256 換了（模型修正後重新上傳），而存的那份記錄的雜湊不一樣
+  function isStale(rec, entry) {
+    return !!(rec && entry && entry.sha256 && rec.meta && rec.meta.sha256 && rec.meta.sha256 !== entry.sha256);
+  }
   function manifest() {
     return fetch(MANIFEST).then(function (r) { return r.ok ? r.json() : {}; });
   }
@@ -117,8 +121,16 @@
       stateEl.textContent = txt;
       stateEl.className = "zmodel-state" + (cls ? " " + cls : "");
     }
-    function render(has) {
+    function render(has, stale) {
       if (!entry) return;
+      if (has && stale) {
+        setState("要更新", "busy");
+        delB.hidden = false;
+        pick.classList.add("primary");
+        if (entry.url) { getA.hidden = false; getA.href = entry.url; getA.textContent = "下載新版（" + fmtSize(entry.size) + "）"; }
+        note.innerHTML = "這個瀏覽器裡的是<b>舊版</b>模型（已修正錯誤）。請按上面的連結下載新版，再按「選擇已下載的檔案…」選進來，會直接取代舊版。";
+        return;
+      }
       setState(has ? "已安裝" : "未安裝", has ? "ok" : "");
       delB.hidden = !has;
       pick.classList.toggle("primary", !has);
@@ -136,7 +148,7 @@
       nameEl.textContent = entry.name || key;
       metaEl.textContent = [entry.size ? fmtSize(entry.size) : "", entry.license || ""].filter(Boolean).join("・");
       return get(key).then(function (rec) {
-        render(!!rec);
+        render(!!rec, isStale(rec, entry));
         pick.onclick = function () { fileIn.click(); };
         delB.onclick = function () {
           if (!confirm("要把這個模型從瀏覽器移除嗎？下次使用要重新下載。")) return;
@@ -179,5 +191,5 @@
     });
   }
 
-  window.ZhiyinModels = { get: get, put: put, del: del, sha256: sha256, manifest: manifest, mount: mount };
+  window.ZhiyinModels = { get: get, put: put, del: del, sha256: sha256, manifest: manifest, mount: mount, isStale: isStale };
 })();

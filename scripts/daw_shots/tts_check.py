@@ -170,6 +170,23 @@ PAGE = """<!doctype html><meta charset="utf-8"><title>tts check</title>
   check('音色：連續轉第二句不會壞（音色向量沒有被 worker 搬空）',
     !conv2err && D.ov.gSrc.length === 256 && D.ov.gTgt.length === 256,
     conv2err || ('gSrc ' + D.ov.gSrc.length + '、gTgt ' + D.ov.gTgt.length));
+  // 長句：舊版 ONNX 把長度凍在 200 格（2.32 秒），之後整段變成固定音量的噪音。3 秒的句子量不出來，要 8 秒的。
+  var longR = await D.ttsRun('今天我們要來介紹世界各地的傳統樂器，從印度的西塔琴到非洲的卡林巴琴，每一種都有自己獨特的聲音和故事。', 1);
+  var longC = await D.ovConvert(longR.data, D.TTS_SR);
+  function envCorr(x, y) {   // 0.25 秒一格的音量起伏，轉換前後要跟著走
+    var w = Math.round(D.TTS_SR * 0.25), ex = [], ey = [], p, q;
+    for (p = Math.round(D.TTS_SR * 2.5); p + w <= Math.min(x.length, y.length); p += w) {
+      var a = 0, b = 0; for (q = p; q < p + w; q++) { a += x[q] * x[q]; b += y[q] * y[q]; }
+      ex.push(Math.sqrt(a / w)); ey.push(Math.sqrt(b / w));
+    }
+    var mx = ex.reduce(function (s, v) { return s + v; }, 0) / ex.length, my = ey.reduce(function (s, v) { return s + v; }, 0) / ey.length;
+    var sxy = 0, sxx = 0, syy = 0;
+    for (p = 0; p < ex.length; p++) { sxy += (ex[p] - mx) * (ey[p] - my); sxx += (ex[p] - mx) * (ex[p] - mx); syy += (ey[p] - my) * (ey[p] - my); }
+    return sxy / Math.sqrt(sxx * syy + 1e-12);
+  }
+  var lc = envCorr(longR.data, longC);
+  check('音色：長句（' + (longR.data.length / D.TTS_SR).toFixed(1) + ' 秒）2.5 秒之後還是人聲，不會變噪音',
+    longR.data.length / D.TTS_SR > 6 && lc > 0.6, '2.5 秒後音量起伏相關 ' + lc.toFixed(2) + '（舊版約 0）');
   var convBlob = new Blob([D.wav(conv, D.TTS_SR)], { type: 'audio/wav' });
   await fetch('/__SAVE__?name=cloned.wav', { method: 'POST', body: convBlob });
 

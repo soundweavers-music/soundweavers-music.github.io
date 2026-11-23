@@ -1138,9 +1138,14 @@ audio { width: 100%; margin-top: 12px; }
     if (ov.loading) return ov.loading;
     ov.loading = Promise.all([ensureOrt(), ensureModelStore()]).then(function (r) {
       var ort = r[0];
-      return Promise.all([window.ZhiyinModels.get("openvoice-refenc"), window.ZhiyinModels.get("openvoice-conv")])
+      return Promise.all([window.ZhiyinModels.get("openvoice-refenc"), window.ZhiyinModels.get("openvoice-conv"),
+        window.ZhiyinModels.manifest()])
         .then(function (recs) {
           if (!recs[0] || !recs[1]) throw new Error("還沒有安裝「OpenVoice 音色抽取／音色轉換」模型（3 MB + 122 MB，兩張卡都要裝）");
+          // 舊版的音色轉換模型每句 2.3 秒之後會變成噪音；裝的是舊版就不要用，請使用者更新
+          var isStale = window.ZhiyinModels.isStale || function () { return false; };
+          if (isStale(recs[1], (recs[2] || {})["openvoice-conv"]))
+            throw new Error("你裝的「OpenVoice 音色轉換」是舊版（每句 2 秒多之後會變成噪音）。請到它的模型卡按「下載新版」，再選進來更新一次。");
           var opts = { executionProviders: ["wasm"], enableCpuMemArena: false };
           return Promise.all([
             ort.InferenceSession.create(new Uint8Array(recs[0].buf), opts),
