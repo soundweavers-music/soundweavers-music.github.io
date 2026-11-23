@@ -171,9 +171,9 @@ def upload_hf(path: pathlib.Path, repo: str) -> str:
 
 
 # ── 清單 ────────────────────────────────────────────────────────────────
-def update_manifest(url: str, size: int, sha: str) -> None:
+def update_manifest(url: str, size: int, sha: str, key: str = MODEL_KEY) -> None:
     data = json.loads(MANIFEST.read_text(encoding="utf-8"))
-    entry = data.setdefault(MODEL_KEY, {})
+    entry = data.setdefault(key, {})
     entry["file"] = FILE_NAME
     entry["size"] = size
     entry["sha256"] = sha
@@ -184,6 +184,12 @@ def update_manifest(url: str, size: int, sha: str) -> None:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
+    ap.add_argument("--file", default=None,
+                    help="直接上傳這個檔案（不從分塊合併；用於 TTS 等單一檔案模型）")
+    ap.add_argument("--asset", default=None,
+                    help="Release 附件名稱（預設用檔名）")
+    ap.add_argument("--key", default=MODEL_KEY,
+                    help=f"要更新 assets/ai-models.json 裡的哪一個模型（預設 {MODEL_KEY}）")
     ap.add_argument("--out", default=None,
                     help="合併後的檔案路徑（預設 work/models/funasr_nano.onnx）")
     ap.add_argument("--dry-run", action="store_true", help="只合併與驗證，不上傳")
@@ -195,19 +201,29 @@ def main() -> int:
                     help="Hugging Face repo（只有 --huggingface 會用到）")
     args = ap.parse_args()
 
-    out = pathlib.Path(args.out) if args.out else BASE / "work" / "models" / FILE_NAME
-    print("合併 3 個分塊…")
-    size, sha = merge(out)
-    print(f"  檔案 {out}")
-    print(f"  大小 {size:,} bytes（預期 {EXPECTED_SIZE:,}）")
+    global FILE_NAME
+    if args.file:
+        out = pathlib.Path(args.file)
+        if not out.exists():
+            raise SystemExit(f"找不到 {out}")
+        size = out.stat().st_size
+        sha = hashlib.sha256(out.read_bytes()).hexdigest()
+        print(f"上傳檔案 {out}")
+    else:
+        out = pathlib.Path(args.out) if args.out else BASE / "work" / "models" / FILE_NAME
+        print("合併 3 個分塊…")
+        size, sha = merge(out)
+        if size != EXPECTED_SIZE or sha != EXPECTED_SHA:
+            print("！合併結果與預期不符，先不要上傳", file=sys.stderr)
+            return 1
+    if args.asset:
+        FILE_NAME = args.asset
+    print(f"  大小 {size:,} bytes")
     print(f"  sha256 {sha}")
-    if size != EXPECTED_SIZE or sha != EXPECTED_SHA:
-        print("！合併結果與預期不符，先不要上傳", file=sys.stderr)
-        return 1
 
     if args.dry_run:
         print("dry-run：沒有上傳")
-        if not args.keep:
+        if not args.keep and not args.file:
             out.unlink(missing_ok=True)
         return 0
 
@@ -231,12 +247,11 @@ def main() -> int:
             return 1
         url = upload_release(out, tag, token)
 
-    update_manifest(url, size, sha)
+    update_manifest(url, size, sha, args.key)
     print("下載網址：")
     print(f"  {url}")
-    print("接下來重新建站（python scripts/build_static_site.py），"
-          "確認後就可以把 assets/chord-ai/funasr_nano.onnx.part* 從 repo 移除（git rm）。")
-    if not args.keep:
+    print("接下來重新建站：python scripts/build_static_site.py")
+    if not args.keep and not args.file:
         out.unlink(missing_ok=True)
     return 0
 

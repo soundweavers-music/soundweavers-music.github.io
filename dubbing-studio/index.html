@@ -81,15 +81,21 @@ audio { width: 100%; margin-top: 12px; }
   <!-- ───────── ① AI 配音 ───────── -->
   <section class="db-panel on" id="pane-tts">
     <div class="db-card">
+      <h3>0. 配音模型（第一次使用要安裝）</h3>
+      <p class="sub">AI 配音用的是 MeloTTS 中文模型（約 163 MB，MIT 授權），下載一次、存在這個瀏覽器裡，之後不用再下載；檔案不會上傳到任何地方。</p>
+      <div id="ttsModelCard"></div>
+    </div>
+
+    <div class="db-card">
       <h3>1. 選聲音</h3>
-      <p class="sub">先用系統語音<b>預覽對時</b>；AI 聲音模型（Kokoro 中文 8 聲、MeloTTS＋OpenVoice 複製你自己的聲音）正在接進來，模型一樣是下載到這個瀏覽器、檔案不上傳。</p>
+      <p class="sub">裝好模型就是下面這個 AI 女聲；系統語音只是還沒裝模型時，用來先確認<b>每一句的長度與斷句</b>對不對。</p>
       <div id="ttsVoices"></div>
       <div class="db-row">
         <button class="db-btn ghost" id="ttsTest">試聽這聲音</button>
         <span class="db-status" id="ttsVoiceStatus"></span>
       </div>
       <div class="db-note">
-        <b>複製自己的聲音</b>（下一版）：上傳 6–20 秒自己的錄音，或直接線上錄——錄的時候照著畫面上的參考字幕念，AI 會用這段聲音當音色。<span class="db-warn">需要下載 MeloTTS＋OpenVoice 模型（約 400 MB，MIT 授權），第一次使用時下載。</span>
+        <b>複製自己的聲音</b>（下一版）：上傳 6–20 秒自己的錄音，或直接線上錄——錄的時候照著畫面上的參考字幕念，AI 會用這段聲音當音色。<span class="db-warn">需要再下載 OpenVoice 音色模型（MIT 授權）。</span>
       </div>
     </div>
 
@@ -103,14 +109,20 @@ audio { width: 100%; margin-top: 12px; }
 
     <div class="db-card">
       <h3>3. 對時與輸出</h3>
-      <p class="sub">預覽會照字幕長度調整語速（每句最多 ±35%）；真正的 AI 配音接上之後，太長的句子會用不改變音高的方式壓短。</p>
+      <p class="sub">AI 配音會把每一句塞進字幕給的時間：太長就壓短、太短就放慢，都是<b>重新合成</b>（不是加速播放），所以音高不會變。</p>
       <div class="db-row">
-        <button class="db-btn" id="ttsPreview" disabled>▶ 預覽配音（系統語音）</button>
+        <button class="db-btn" id="ttsRender" disabled>產生配音（AI）</button>
+        <button class="db-btn ghost" id="ttsPlay" disabled>▶ 播放</button>
+        <button class="db-btn ghost" id="ttsExport" disabled>匯出 WAV</button>
         <button class="db-btn ghost" id="ttsStop" disabled>■ 停止</button>
         <span class="db-status" id="ttsStatus"></span>
       </div>
       <div class="db-progress" id="ttsProg"><i></i></div>
-      <div class="db-note">輸出音檔（WAV）要等 AI 聲音模型接好；現在可以用系統語音先確認<b>每一句的長度與斷句</b>對不對。</div>
+      <div class="db-row">
+        <label class="db-check">最多把一句壓短 <input type="number" id="ttsMaxFit" value="30" min="0" max="60" step="5" style="width:56px"> %</label>
+        <label class="db-check">最多放慢 <input type="number" id="ttsMaxSlow" value="25" min="0" max="60" step="5" style="width:56px"> %</label>
+      </div>
+      <div class="db-note">還沒裝模型時，可以用系統語音<b>預覽對時</b>：<button class="db-btn ghost" id="ttsPreview" disabled style="margin-top:6px">▶ 預覽（系統語音，不能輸出）</button></div>
     </div>
   </section>
 
@@ -229,6 +241,7 @@ audio { width: 100%; margin-top: 12px; }
   var $ = function (id) { return document.getElementById(id); };
   var AI_JS = new URL("../chord-detection/chord-ai.js", document.baseURI).href;
   var ORT_DIR = new URL("../../assets/vendor/vad/", document.baseURI).href;
+  var ASSET = new URL("../../assets/", document.baseURI).href;   // 模型倉庫、音素表、拼音工具都在這裡
   var ASR_RATE = 16000;
 
   // ───────── 共用：字幕解析 ─────────
@@ -285,6 +298,17 @@ audio { width: 100%; margin-top: 12px; }
     });
   }
   function setStatus(el, msg, err) { el.textContent = msg || ""; el.className = "db-status" + (err ? " err" : ""); }
+  // 同一支外部腳本只載一次（onnxruntime、模型倉庫、拼音工具共用）
+  var loadScripting = {};
+  function loadScriptOnce(src) {
+    if (loadScripting[src]) return loadScripting[src];
+    loadScripting[src] = new Promise(function (res, rej) {
+      var s = document.createElement("script");
+      s.src = src; s.onload = function () { res(); }; s.onerror = function () { rej(new Error("載入 " + src + " 失敗")); };
+      document.head.appendChild(s);
+    });
+    return loadScripting[src];
+  }
   function prog(el, p) {
     el.classList.toggle("on", p >= 0);
     el.querySelector("i").style.width = Math.max(0, Math.min(100, p * 100)) + "%";
@@ -328,8 +352,14 @@ audio { width: 100%; margin-top: 12px; }
   }
   function renderVoices() {
     var box = $("ttsVoices"), vs = sysVoices();
-    if (!vs.length) { box.innerHTML = '<p class="sub">這個瀏覽器沒有回報系統語音；Chrome 通常有「Google 國語（臺灣）」。等語音清單載入後會出現在這裡。</p>'; return; }
-    box.innerHTML = "";
+    var aiRow = '<div class="db-voice"><span><b>MeloTTS 中文女聲</b> <small>AI 配音・44.1 kHz・會輸出成音檔</small></span>' +
+      '<span class="zmodel-state" id="ttsAIVoiceState">檢查中…</span></div>';
+    if (!vs.length) {
+      box.innerHTML = aiRow + '<p class="sub" style="margin-top:8px">這個瀏覽器沒有回報系統語音（不影響 AI 配音）；Chrome 通常有「Google 國語（臺灣）」可以拿來預覽對時。</p>';
+      renderAiVoiceState();
+      return;
+    }
+    box.innerHTML = aiRow;
     vs.forEach(function (v, i) {
       var row = document.createElement("label");
       row.className = "db-voice";
@@ -367,6 +397,7 @@ audio { width: 100%; margin-top: 12px; }
     }).join("");
     box.innerHTML = "<table><thead><tr><th>#</th><th>時間</th><th>長度</th><th>字幕</th><th>字數</th></tr></thead><tbody>" + rows + "</tbody></table>";
     $("ttsPreview").disabled = false;
+    renderAiVoiceState();     // 模型裝好（或移除）時，AI 配音鈕的狀態跟著更新
     setStatus($("ttsStatus"), "共 " + tts.cues.length + " 句・總長 " + fmtT(tts.cues[tts.cues.length - 1].end));
   }
 
@@ -404,7 +435,300 @@ audio { width: 100%; margin-top: 12px; }
     };
     next();
   };
-  $("ttsStop").onclick = function () { stopSpeak(); setStatus($("ttsStatus"), "已停止"); };
+  // ═════════ AI 配音引擎：MeloTTS 中文（vits-melo-tts-zh_en，MIT） ═════════
+  // 文字 →（pinyin-pro）拼音 →（assets/tts/zh-syllables.json）音素 id → ONNX → 44.1 kHz 音訊
+  // 參數已用 Python 參考實作對過 sherpa-onnx：同一句 3.09 s vs 3.15 s、音素序列一致。
+  var TTS_SR = 44100;
+  var ttsAI = { syl: null, sylP: null, sess: null, loading: null, out: null, src: null, ctx: null };
+
+  function ensureModelStore() {
+    if (window.ZhiyinModels) return Promise.resolve(window.ZhiyinModels);
+    return loadScriptOnce(ASSET + "model-store.js").then(function () {
+      if (!window.ZhiyinModels) throw new Error("模型倉庫沒有正確載入");
+      return window.ZhiyinModels;
+    });
+  }
+  function ttsSyllables() {
+    if (ttsAI.syl) return Promise.resolve(ttsAI.syl);
+    if (!ttsAI.sylP) ttsAI.sylP = fetch(ASSET + "tts/zh-syllables.json").then(function (r) {
+      if (!r.ok) throw new Error("讀不到音素表（HTTP " + r.status + "）");
+      return r.json();
+    }).then(function (d) { ttsAI.syl = d; return d; });
+    return ttsAI.sylP;
+  }
+  function ttsPinyin() {
+    if (window.pinyinPro) return Promise.resolve(window.pinyinPro);
+    return loadScriptOnce(ASSET + "vendor/pinyin/pinyin-pro.js").then(function () {
+      if (!window.pinyinPro) throw new Error("拼音工具沒有正確載入");
+      return window.pinyinPro;
+    });
+  }
+
+  // 阿拉伯數字 → 中文讀法（0–9999 夠用；更長的逐位念）
+  var CN_D = "零一二三四五六七八九";
+  function zhNumber(s) {
+    var m = /^(\d+)(?:\.(\d+))?$/.exec(s);
+    if (!m) return s;
+    var n = parseInt(m[1], 10), out = "";
+    if (n > 9999) { out = m[1].split("").map(function (d) { return CN_D[+d]; }).join(""); } else {
+      var units = [[1000, "千"], [100, "百"], [10, "十"]], rest = n, zero = false;
+      if (n === 0) out = "零";
+      units.forEach(function (u) {
+        var q = Math.floor(rest / u[0]); rest %= u[0];
+        if (q) { out += (out && zero ? "零" : "") + (u[0] === 10 && q === 1 && !out ? "十" : CN_D[q] + u[1]); zero = false; }
+        else if (out) zero = true;
+      });
+      if (rest) out += (zero && out ? "零" : "") + CN_D[rest];
+    }
+    if (m[2]) out += "點" + m[2].split("").map(function (d) { return CN_D[+d]; }).join("");
+    return out;
+  }
+
+  // 三聲連讀、不、一的變調（MeloTTS 的訓練資料是詞級的，這裡用字級規則近似）
+  function ttsSandhi(list) {
+    for (var i = 0; i < list.length; i++) {
+      var cur = list[i], nxt = list[i + 1];
+      if (!nxt) break;
+      if (cur.syl === "bu" && cur.tone === 4 && nxt.tone === 4) cur.tone = 2;
+      else if (cur.syl === "yi" && cur.tone === 1) cur.tone = nxt.tone === 4 ? 2 : (nxt.tone === 5 ? 1 : 4);
+      else if (cur.tone === 3 && nxt.tone === 3) cur.tone = 2;
+    }
+    return list;
+  }
+
+  // 一段文字 → 音素 id 與聲調（MeloTTS 的輸入）
+  function ttsPhones(text, d) {
+    var tok = d.tokens, SYL = d.syllables, PUNC = d.punc || {}, py = window.pinyinPro;
+    var ids = [], tones = [], latin = 0, unknown = 0;
+
+    function pushSy(s) {                       // s = {syl, tone}
+      var ph = SYL[s.syl];
+      if (!ph) { unknown++; return; }
+      for (var k = 0; k < ph.length; k++) {
+        var id = tok[ph[k]];
+        if (id === undefined) { unknown++; return; }
+        ids.push(id); tones.push(s.tone);
+      }
+    }
+    function runZh(run) {
+      var arr;
+      try {
+        arr = py.pinyin(run, { toneType: "num", type: "array", v: true, neutralToneWithFive: true, nonZh: "removed" });
+      } catch (e) { arr = null; }
+      if (!arr || arr.length !== run.length) {  // 長度對不上就逐字問，避免整句錯位
+        arr = run.split("").map(function (ch) {
+          try { return py.pinyin(ch, { toneType: "num", v: true, neutralToneWithFive: true })[0] || ""; } catch (e) { return ""; }
+        });
+      }
+      var list = [];
+      for (var i = 0; i < arr.length; i++) {
+        var m = /^([a-zA-Zv\u00fc:]+)([0-5])?$/.exec(String(arr[i] || ""));
+        if (!m) { unknown++; continue; }
+        var syl = m[1].replace(/\u00fc/g, "v").replace(/u:/g, "u").toLowerCase();
+        list.push({ syl: syl, tone: m[2] ? +m[2] || 5 : 5 });
+      }
+      ttsSandhi(list).forEach(pushSy);
+    }
+
+    var i = 0;
+    while (i < text.length) {
+      var ch = text[i];
+      if (/[\u4e00-\u9fff]/.test(ch)) {
+        var j = i;
+        while (j < text.length && /[\u4e00-\u9fff]/.test(text[j])) j++;
+        runZh(text.slice(i, j));
+        i = j;
+      } else if (/[0-9]/.test(ch)) {
+        var k = i;
+        while (k < text.length && /[0-9.]/.test(text[k])) k++;
+        runZh(zhNumber(text.slice(i, k)));
+        i = k;
+      } else if (/[A-Za-z]/.test(ch)) {
+        var w = i;
+        while (w < text.length && /[A-Za-z']/.test(text[w])) w++;
+        latin++; i = w;                        // 英文單字還沒接（要 MeloTTS 的英文詞典）
+      } else {
+        var p = PUNC[ch];
+        if (p && tok[p] !== undefined) { ids.push(tok[p]); tones.push(7); }
+        i++;
+      }
+    }
+    return { ids: ids, tones: tones, latin: latin, unknown: unknown };
+  }
+
+  function ttsEnsureModel() {
+    if (ttsAI.sess) return Promise.resolve(ttsAI.sess);
+    if (ttsAI.loading) return ttsAI.loading;
+    ttsAI.loading = Promise.all([ensureOrt(), ttsSyllables(), ttsPinyin(), ensureModelStore()])
+      .then(function (r) {
+        return window.ZhiyinModels.get("melotts-zh").then(function (rec) {
+          if (!rec || !rec.buf) throw new Error("還沒有安裝配音模型：請在「配音模型」卡片按「下載模型」，下載完再按「選擇已下載的檔案…」安裝一次。");
+          return r[0].InferenceSession.create(new Uint8Array(rec.buf),
+            { executionProviders: ["wasm"], enableCpuMemArena: false });
+        });
+      })
+      .then(function (sess) { ttsAI.sess = sess; return sess; })
+      .catch(function (e) { ttsAI.loading = null; throw e; });
+    return ttsAI.loading;
+  }
+
+  // 一句話 → Float32Array（44.1 kHz）。lengthScale > 1 變慢、< 1 變快（重新合成，音高不變）
+  function ttsRun(text, lengthScale) {
+    return ttsEnsureModel().then(function (sess) {
+      var d = ttsAI.syl;
+      var seq = ttsPhones(text, d);
+      if (!seq.ids.length) throw new Error("這一句沒有可以念的中文（目前只支援中文與數字）");
+      var x = [0], tn = [0], i;
+      for (i = 0; i < seq.ids.length; i++) { x.push(seq.ids[i], 0); tn.push(seq.tones[i], 0); }
+      var ort = window.ort, n = x.length;
+      var big = function (arr) { return BigInt64Array.from(arr.map(function (v) { return BigInt(v); })); };
+      var feeds = {
+        x: new ort.Tensor("int64", big(x), [1, n]),
+        x_lengths: new ort.Tensor("int64", big([n]), [1]),
+        tones: new ort.Tensor("int64", big(tn), [1, n]),
+        sid: new ort.Tensor("int64", big([1]), [1]),
+        noise_scale: new ort.Tensor("float32", Float32Array.from([0.667]), [1]),
+        length_scale: new ort.Tensor("float32", Float32Array.from([lengthScale || 1]), [1]),
+        noise_scale_w: new ort.Tensor("float32", Float32Array.from([0.8]), [1])
+      };
+      return sess.run(feeds).then(function (o) { return { data: o.y.data, warn: seq }; });
+    });
+  }
+
+  // 把一句的音訊貼進整首（頭尾 12 ms 淡入淡出，避免爆音）
+  function ttsPlace(buf, startSec, a) {
+    var at = Math.round(startSec * TTS_SR), n = a.length, fade = Math.min(529, Math.floor(n / 2));
+    for (var i = 0; i < n; i++) {
+      var idx = at + i;
+      if (idx < 0 || idx >= buf.length) continue;
+      var g = 1;
+      if (i < fade) g = i / fade; else if (i > n - fade) g = (n - i) / fade;
+      buf[idx] += a[i] * g;
+    }
+    return at + n;
+  }
+
+  function ttsStopAudio() {
+    if (ttsAI.src) { try { ttsAI.src.stop(); } catch (e) { /* 已經停了 */ } ttsAI.src = null; }
+  }
+  function ttsPlayBuffer(buf) {
+    ttsStopAudio();
+    stopSpeak();
+    var AC = window.AudioContext || window.webkitAudioContext;
+    if (!ttsAI.ctx) ttsAI.ctx = new AC();
+    if (ttsAI.ctx.state === "suspended") ttsAI.ctx.resume();
+    var ab = ttsAI.ctx.createBuffer(1, buf.length, TTS_SR);
+    ab.copyToChannel(buf, 0);
+    var src = ttsAI.ctx.createBufferSource();
+    src.buffer = ab; src.connect(ttsAI.ctx.destination);
+    src.onended = function () { ttsAI.src = null; setStatus($("ttsStatus"), "播放結束"); };
+    src.start();
+    ttsAI.src = src;
+  }
+
+  var ttsBusy = false;
+  function ttsSetBusy(b) {
+    ttsBusy = b;
+    $("ttsRender").disabled = b || !tts.cues.length;
+    $("ttsPlay").disabled = b || !ttsAI.out;
+    $("ttsExport").disabled = b || !ttsAI.out;
+  }
+
+  $("ttsRender").onclick = function () {
+    if (!tts.cues.length) return;
+    var maxFit = Math.min(60, Math.max(0, +$("ttsMaxFit").value || 0)) / 100;
+    var maxSlow = Math.min(60, Math.max(0, +$("ttsMaxSlow").value || 0)) / 100;
+    var cues = tts.cues.slice();
+    var total = Math.ceil((cues[cues.length - 1].end + 0.4) * TTS_SR);
+    var buf = new Float32Array(total);
+    var i = 0, warnLatin = 0, warnUnknown = 0, adjusted = 0;
+
+    ttsAI.out = null;
+    ttsSetBusy(true);
+    stopSpeak();
+
+    function fail(e) {
+      ttsSetBusy(false);
+      setStatus($("ttsStatus"), (e && e.message) || String(e), true);
+      prog($("ttsProg"), 0);
+    }
+    function step() {
+      if (i >= cues.length) return done();
+      var c = cues[i], target = Math.max(0.2, c.end - c.start);
+      setStatus($("ttsStatus"), "第 " + (i + 1) + " / " + cues.length + " 句：合成中…");
+      prog($("ttsProg"), i / cues.length);
+      ttsRun(c.text, 1).then(function (first) {
+        var dur = first.data.length / TTS_SR;
+        var ratio = dur / target;                       // >1 表示原本太長
+        var ls = Math.min(1 + maxSlow, Math.max(1 - maxFit, ratio));
+        ls = Math.max(0.4, Math.min(2.5, ls));
+        if (Math.abs(ls - 1) > 0.04 && Math.abs(ratio - 1) > 0.04) {
+          adjusted++;
+          return ttsRun(c.text, ls).then(function (again) { return again; });
+        }
+        return first;
+      }).then(function (r) {
+        var a = r.data, w = r.warn || {};
+        warnLatin += w.latin || 0; warnUnknown += w.unknown || 0;
+        var end = ttsPlace(buf, c.start, a);
+        var over = end / TTS_SR - (c.end + 0.05);
+        i++;
+        prog($("ttsProg"), i / cues.length);
+        if (over > 0.05) warnUnknown += 0;              // 超出一點點就算了（下一句會蓋過去）
+        step();
+      }).catch(fail);
+    }
+    function done() {
+      ttsAI.out = buf;
+      ttsSetBusy(false);
+      var secs = buf.length / TTS_SR;
+      var msg = "完成：" + cues.length + " 句、" + fmtT(secs) + "（調整了 " + adjusted + " 句的長度）";
+      if (warnLatin) msg += "；" + warnLatin + " 個英文單字還沒接，先跳過";
+      if (warnUnknown) msg += "；" + warnUnknown + " 個字查不到讀音，先跳過";
+      setStatus($("ttsStatus"), msg, warnLatin || warnUnknown);
+    }
+    step();
+  };
+
+  $("ttsPlay").onclick = function () {
+    if (!ttsAI.out) return;
+    ttsPlayBuffer(ttsAI.out);
+    setStatus($("ttsStatus"), "播放中…（" + fmtT(ttsAI.out.length / TTS_SR) + "）");
+  };
+  $("ttsExport").onclick = function () {
+    if (!ttsAI.out) return;
+    var blob = new Blob([wav(ttsAI.out, TTS_SR)], { type: "audio/wav" });
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "AI配音.wav";
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 4000);
+    setStatus($("ttsStatus"), "已匯出 AI配音.wav（" + (blob.size / 1048576).toFixed(1) + " MB）");
+  };
+
+  // 模型卡（同一套模型倉庫），裝好／移除時更新上面的聲音列
+  function renderAiVoiceState() {
+    var el = $("ttsAIVoiceState");
+    if (!el) return;
+    ensureModelStore().then(function (ZM) { return ZM.get("melotts-zh"); }).then(function (rec) {
+      el.textContent = rec ? "已安裝" : "未安裝";
+      el.className = "zmodel-state" + (rec ? " ok" : "");
+      $("ttsRender").disabled = !rec || !tts.cues.length;
+    }).catch(function () { el.textContent = ""; });
+  }
+  document.addEventListener("zhiyin-model-changed", function (e) {
+    if (e.detail && e.detail.key === "melotts-zh") {
+      ttsAI.sess = null; ttsAI.loading = null; ttsAI.out = null;
+      ttsSetBusy(false);
+      renderAiVoiceState();
+    }
+  });
+  ensureModelStore().then(function (ZM) {
+    if ($("ttsModelCard")) ZM.mount($("ttsModelCard"), "melotts-zh");
+    renderAiVoiceState();
+  }).catch(function () { /* 沒有模型卡也能用系統語音預覽 */ });
+
+  $("ttsStop").onclick = function () { ttsStopAudio(); stopSpeak(); setStatus($("ttsStatus"), "已停止"); };
 
   // ═══════════════════════ ② 口白剪輯 ═══════════════════════
   var ed = { buffer: null, cues: [], segs: null, result: null, sr: 44100 };
@@ -466,16 +790,6 @@ audio { width: 100%; margin-top: 12px; }
       out[i] = v / n;
     }
     return out;
-  }
-  var loadScripting = {};
-  function loadScriptOnce(src) {
-    if (loadScripting[src]) return loadScripting[src];
-    loadScripting[src] = new Promise(function (res, rej) {
-      var s = document.createElement("script");
-      s.src = src; s.onload = function () { res(); }; s.onerror = function () { rej(new Error("載入 " + src + " 失敗")); };
-      document.head.appendChild(s);
-    });
-    return loadScripting[src];
   }
   var ortLoading = null;
   function ensureOrt() {
@@ -1102,7 +1416,8 @@ audio { width: 100%; margin-top: 12px; }
 
   // 測試／除錯用（_selftest.html 會用這個跑驗證）
   window.__dubbing = { parseSubtitle, alignCues, sim, timeStretch, denoise, breathRegions, wav, normText,
-    applyEq, eqStages, eqMagDb, biquad, normalizeLoudness, limitPeaks, frameLevels, speechLevelDb, peakDb };
+    applyEq, eqStages, eqMagDb, biquad, normalizeLoudness, limitPeaks, frameLevels, speechLevelDb, peakDb,
+    ttsPhones, zhNumber, ttsRun, ttsSyllables, ttsPinyin, ttsEnsureModel, ttsSandhi, ttsAI, TTS_SR };
   drawEffects();
   // 語音辨識模型卡（使用者自行下載、存瀏覽器；模型檔不在 repo）
   loadScriptOnce(new URL("../../assets/model-store.js", document.baseURI).href).then(function () {

@@ -7,5 +7,14 @@
     "url": "https://github.com/soundweavers-music/soundweavers-music.github.io/releases/download/models-v1/funasr_nano.onnx",
     "license": "Apache-2.0（FunAudioLLM）",
     "note": "歌詞自動辨識（/tools/lrc/）與配音剪輯（/tools/dubbing/）共用同一顆模型。"
+  },
+  "melotts-zh": {
+    "name": "MeloTTS 中文配音（zh_en）",
+    "file": "melotts_zh_en.onnx",
+    "size": 170429550,
+    "sha256": "bf30582eb1b012250a35b1a4a80e7dfbcf8485e7bb9de0d95efbbeef0e4ad86d",
+    "url": "https://github.com/soundweavers-music/soundweavers-music.github.io/releases/download/models-v1/melotts_zh_en.onnx",
+    "license": "MIT（MyShell MeloTTS，sherpa-onnx 轉檔）",
+    "note": "「AI 配音」用：把字幕念成聲音。取樣率 44.1 kHz、單一中文女聲、可調語速。"
   }
 }

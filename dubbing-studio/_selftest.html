@@ -152,6 +152,39 @@
   var card2 = f2.contentDocument && f2.contentDocument.querySelector('#lrc-model-card.zmodel');
   check('歌詞工具：有模型卡', !!card2, card2 ? card2.querySelector('.zmodel-state').textContent : '');
 
+  // ---- AI 配音：文字 → 音素（MeloTTS） ----
+  var sylD = await D.ttsSyllables();
+  check('AI 配音：音素表載入', !!sylD && !!sylD.syllables && !!sylD.tokens, '音節 ' + Object.keys(sylD.syllables || {}).length);
+  check('AI 配音：中文音節拆得對（中 → zh ong、綠 → l v、而 → EE er）',
+    String(sylD.syllables.zhong) === 'zh,ong' && String(sylD.syllables.lv) === 'l,v' &&
+    String(sylD.syllables.er) === 'EE,er',
+    JSON.stringify([sylD.syllables.zhong, sylD.syllables.lv, sylD.syllables.er]));
+  await D.ttsPinyin();
+  check('AI 配音：拼音工具載入', !!(frame.contentWindow.pinyinPro && frame.contentWindow.pinyinPro.pinyin));
+  function phones(s) {
+    var g = D.ttsPhones(s, sylD), toks = [];
+    Object.keys(sylD.tokens).forEach(function (k) { toks[sylD.tokens[k]] = k; });
+    return { names: g.ids.map(function (i) { return toks[i]; }), tones: g.tones, warn: g };
+  }
+  var p1 = phones('中文');
+  check('AI 配音：中文 → 音素序列', p1.names.join(' ') === 'zh ong w en', p1.names.join(' ') + ' / ' + p1.tones.join(','));
+  check('AI 配音：聲調正確（中 1、文 2）', p1.tones.join(',') === '1,1,2,2', p1.tones.join(','));
+  var p2 = phones('你好');
+  check('AI 配音：三聲連讀變調（你 3 → 2）', p2.tones.join(',') === '2,2,3,3', p2.tones.join(','));
+  var p3 = phones('你說，');
+  check('AI 配音：標點變成停頓音素', p3.names[p3.names.length - 1] === ',' && p3.tones[p3.tones.length - 1] === 7,
+    p3.names.join(' ') + ' / ' + p3.tones.join(','));
+  var p4 = phones('2026');
+  check('AI 配音：數字念成中文（2026 → 二千零二十六）', p4.names.length >= 10 && p4.warn.latin === 0, p4.names.join(' '));
+  check('AI 配音：數字讀法文字正確', D.zhNumber('2026') === '二千零二十六' && D.zhNumber('105') === '一百零五' &&
+    D.zhNumber('10') === '十' && D.zhNumber('0') === '零',
+    [D.zhNumber('2026'), D.zhNumber('105'), D.zhNumber('10'), D.zhNumber('0')].join(' / '));
+  var p5 = phones('hello 你好');
+  check('AI 配音：英文單字先跳過（不會亂念）', p5.warn.latin === 1 && p5.names.length === 4, 'latin=' + p5.warn.latin);
+  var noModel = '';
+  try { await D.ttsRun('你好', 1); } catch (e) { noModel = (e && e.message) || String(e); }
+  check('AI 配音：沒裝模型時給清楚的說明', /還沒有安裝配音模型/.test(noModel), noModel.slice(0, 40));
+
   // ---- WAV ----
   var b = D.wav(new Float32Array(100), 48000);
   check('WAV：檔頭與長度正確', b.byteLength === 44 + 200, b.byteLength + ' bytes');

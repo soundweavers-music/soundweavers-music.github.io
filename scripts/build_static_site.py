@@ -4041,11 +4041,15 @@ def main():
     chord_ai = BASE_DIR / "assets" / "chord-ai"
     if chord_ai.exists():
         shutil.copytree(str(chord_ai), str(OUTPUT_DIR / "assets" / "chord-ai"), dirs_exist_ok=True)
-    # 本機 AI 模型倉庫：模型檔由使用者自行下載（Hugging Face），這裡只發佈小工具與清單
+    # 本機 AI 模型倉庫：模型檔由使用者自行下載（GitHub Release 附件），這裡只發佈小工具與清單
     for fname in ("model-store.js", "ai-models.json"):
         f_src = BASE_DIR / "assets" / fname
         if f_src.exists():
             shutil.copy2(str(f_src), str(OUTPUT_DIR / "assets" / fname))
+    # AI 配音用的音素表（拼音音節 → MeloTTS 音素，由 scripts/build_tts_assets.py 產生）
+    tts_assets = BASE_DIR / "assets" / "tts"
+    if tts_assets.exists():
+        shutil.copytree(str(tts_assets), str(OUTPUT_DIR / "assets" / "tts"), dirs_exist_ok=True)
     write(OUTPUT_DIR / ".nojekyll", "")
     # Copy Google Search Console verification file to output root
     gsc_file = BASE_DIR / "googled81b331c3a5b66a0.html"
