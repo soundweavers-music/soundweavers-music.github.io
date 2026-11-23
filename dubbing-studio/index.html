@@ -672,6 +672,69 @@ audio { width: 100%; margin-top: 12px; }
     return list;
   }
 
+  // 模型詞典沒收的常見品牌／網路用語（ARPAbet；聲調 7=子音、9=主重音、10=次重音、8=輕音）
+  var EN_EXTRA = {
+    youtube: "y uw t uw b|7 9 7 10 7", youtuber: "y uw t uw b er|7 9 7 10 7 8",
+    google: "g uw g ah l|7 9 7 8 7", instagram: "ih n s t ah g r ae m|9 7 7 7 8 7 7 10 7",
+    netflix: "n eh t f l ih k s|7 9 7 7 7 10 7 7", tiktok: "t ih k t aa k|7 9 7 7 10 7",
+    wifi: "w ay f ay|7 9 7 10", podcast: "p aa d k ae s t|7 9 7 7 10 7 7",
+    vlog: "v l aa g|7 7 9 7", blog: "b l aa g|7 7 9 7", vlogger: "v l aa g er|7 7 9 7 8",
+    hashtag: "hh ae sh t ae g|7 9 7 7 10 7", spotify: "s p aa t ah f ay|7 7 9 7 8 7 10",
+    emoji: "ih m ow jh iy|8 7 9 7 8", selfie: "s eh l f iy|7 9 7 7 8",
+    twitter: "t w ih t er|7 7 9 7 8", facebook: "f ey s b uh k|7 9 7 7 10 7",
+    iphone: "ay f ow n|9 7 10 7", ipad: "ay p ae d|9 7 10 7", ios: "ay ow eh s|10 10 9 7",
+    chatgpt: "ch ae t jh iy p iy t iy|7 9 7 7 10 7 10 7 9", openai: "ow p ah n ey ay|9 7 8 7 10 9",
+    linkedin: "l ih ng k t ih n|7 9 7 7 7 10 7", whatsapp: "w aa t s ae p|7 9 7 7 10 7",
+    airpods: "eh r p aa d z|9 7 7 10 7 7", macbook: "m ae k b uh k|7 9 7 7 10 7",
+    wechat: "w iy ch ae t|7 9 7 10 7", app: "ae p|9 7", apps: "ae p s|9 7 7",
+    online: "aa n l ay n|10 7 7 9 7", offline: "ao f l ay n|10 7 7 9 7"
+  };
+  // 全大寫時要一個字母一個字母念的縮寫（AI 不是「I」、TV 不是「tv」）
+  var EN_ACRONYM = { ai: 1, tv: 1, dj: 1, mv: 1, pc: 1, ceo: 1, usb: 1, gps: 1, diy: 1, nba: 1, cd: 1, dvd: 1,
+    vr: 1, ar: 1, ui: 1, ux: 1, id: 1, ig: 1, fb: 1, yt: 1, kol: 1, npc: 1, pr: 1, mc: 1, bgm: 1, cpu: 1, gpu: 1,
+    usa: 1, uk: 1, eu: 1, nasa: 0, vip: 1, sop: 1, kpi: 1, api: 1, pdf: 1, ppt: 1, url: 1, sms: 1, atm: 1 };
+
+  // 一個英文字 → 詞典條目串列（"音素|聲調"）；回傳 {list, spelled}
+  function ttsEnWord(orig, EN) {
+    var low = orig.toLowerCase().replace(/['’]s$/, "").replace(/['’\-]/g, "");
+    if (!low) return { list: [], spelled: false };
+    var allCaps = orig.length > 1 && orig === orig.toUpperCase();
+    // 字母名：詞典裡的 "a" 是冠詞的 ah，念字母時要用 ey
+    var spell = function (s) { return s.split("").map(function (ch) { return ch === "a" ? "ey|9" : EN[ch]; }).filter(Boolean); };
+    if (allCaps && EN_ACRONYM[low]) return { list: spell(low), spelled: false };
+    if (EN_EXTRA[low]) return { list: [EN_EXTRA[low]], spelled: false };
+    if (EN[low]) return { list: [EN[low]], spelled: false };
+    // 大小寫邊界拆開：YouTube → You + Tube、iPhone → i + Phone、ChatGPT → Chat + GPT
+    var parts = orig.match(/[A-Z]+(?![a-z])|[A-Z]?[a-z]+/g) || [];
+    if (parts.length > 1) {
+      var acc = [], sp = false;
+      parts.forEach(function (p) { var r = ttsEnWord(p, EN); acc = acc.concat(r.list); sp = sp || r.spelled; });
+      return { list: acc, spelled: sp };
+    }
+    // 全大寫又查不到（例如 GPT、HTML）→ 念字母，這是正確念法
+    if (allCaps && low.length <= 5) return { list: spell(low), spelled: false };
+    // 複合字：拆成詞典裡的字，片段越少越好（facebook → face + book）；
+    // 單一字母可以用但很貴，全部只能拆成字母時才算「逐字母念」
+    var n = low.length, best = [0], from = [-1], i, j;
+    for (i = 1; i <= n; i++) {
+      best[i] = Infinity;
+      for (j = Math.max(0, i - 20); j < i; j++) {
+        if (best[j] === Infinity) continue;
+        var piece = low.slice(j, i), cost;
+        if (i - j >= 3 && EN[piece]) cost = 1;
+        else if (i - j === 2 && EN[piece] && /[aeiouy]/.test(piece)) cost = 1.6;
+        else if (i - j === 1 && EN[piece]) cost = 3;
+        else continue;
+        if (best[j] + cost < best[i]) { best[i] = best[j] + cost; from[i] = j; }
+      }
+    }
+    if (best[n] === Infinity) return { list: [], spelled: true };
+    var pieces = [];
+    for (i = n; i > 0; i = from[i]) pieces.unshift(low.slice(from[i], i));
+    var letters = pieces.filter(function (p) { return p.length === 1; }).length;
+    return { list: pieces.map(function (p) { return EN[p]; }), spelled: letters * 2 > pieces.length };
+  }
+
   // 一段文字 → 音素 id 與聲調（MeloTTS 的輸入）
   function ttsPhones(text, d) {
     var tok = d.tokens, SYL = d.syllables, PUNC = d.punc || {}, py = window.pinyinPro;
@@ -733,19 +796,11 @@ audio { width: 100%; margin-top: 12px; }
       } else if (/[A-Za-z]/.test(ch)) {
         var w = i;
         while (w < text.length && /[A-Za-z'’\-]/.test(text[w])) w++;
-        var word = text.slice(i, w).toLowerCase().replace(/['’]s$/, "");
+        var res = ttsEnWord(text.slice(i, w), EN);
         i = w;
-        var hit = EN[word];
-        if (hit) {
-          pushEn(hit);
-        } else {
-          // 詞典裡沒有（YouTube、iPhone、品牌名…）：逐字母念，跟一般 TTS 一樣
-          latin++;
-          for (var lw = 0; lw < word.length; lw++) {
-            var letter = EN[word[lw]];
-            if (letter) pushEn(letter); else unknown++;
-          }
-        }
+        if (res.spelled) latin++;
+        if (!res.list.length) unknown++;
+        res.list.forEach(pushEn);
       } else {
         var p = PUNC[ch];
         if (p && tok[p] !== undefined) { ids.push(tok[p]); tones.push(7); }
@@ -800,14 +855,26 @@ audio { width: 100%; margin-top: 12px; }
     });
   }
 
-  // 把一句的音訊貼進整首（頭尾 12 ms 淡入淡出，避免爆音）
-  function ttsPlace(buf, startSec, a) {
-    var at = Math.round(startSec * TTS_SR), n = a.length, fade = Math.min(529, Math.floor(n / 2));
+  // 把模型前後多吐出來的靜音切掉（保留 40 ms，不會吃到子音）
+  function ttsTrim(a) {
+    var peak = 0, i;
+    for (i = 0; i < a.length; i++) if (Math.abs(a[i]) > peak) peak = Math.abs(a[i]);
+    var th = Math.max(0.004, peak * 0.03), keep = Math.round(TTS_SR * 0.04);
+    var s = 0, e = a.length - 1;
+    while (s < a.length && Math.abs(a[s]) < th) s++;
+    while (e > s && Math.abs(a[e]) < th) e--;
+    if (s >= e) return a;
+    return a.slice(Math.max(0, s - keep), Math.min(a.length, e + 1 + keep));
+  }
+
+  // 把一句的音訊貼進整首（頭 6 ms、尾 20 ms 淡入淡出，避免爆音）
+  function ttsPlace(buf, at, a) {
+    var n = a.length, fin = Math.min(265, n >> 2), fout = Math.min(882, n >> 2);
     for (var i = 0; i < n; i++) {
       var idx = at + i;
       if (idx < 0 || idx >= buf.length) continue;
       var g = 1;
-      if (i < fade) g = i / fade; else if (i > n - fade) g = (n - i) / fade;
+      if (i < fin) g = i / fin; else if (i > n - fout) g = (n - i) / fout;
       buf[idx] += a[i] * g;
     }
     return at + n;
@@ -847,9 +914,9 @@ audio { width: 100%; margin-top: 12px; }
     var maxFit = Math.min(60, Math.max(0, +$("ttsMaxFit").value || 0)) / 100;
     var maxSlow = Math.min(60, Math.max(0, +$("ttsMaxSlow").value || 0)) / 100;
     var cues = tts.cues.slice();
-    var total = Math.ceil((cues[cues.length - 1].end + 0.4) * TTS_SR);
-    var buf = new Float32Array(total);
-    var i = 0, warnLatin = 0, warnUnknown = 0, adjusted = 0;
+    // 每句算好先放在 segs，全部好了再一次貼：句子太長時會把後面的句子往後推，總長度事先不知道
+    var segs = [], cursor = 0, GAP = Math.round(TTS_SR * 0.06);
+    var i = 0, warnLatin = 0, warnUnknown = 0, adjusted = 0, pushed = 0;
     var startedAt = performance.now(), perSec = ttsAI.perSec || 0;
     // 每次按「產生配音」給一個新的編號：舊的那一輪就算晚回來，也不會蓋掉新的一輪
     var runId = ttsAI.runId = (ttsAI.runId || 0) + 1;
@@ -900,27 +967,35 @@ audio { width: 100%; margin-top: 12px; }
       var c = cues[i], target = Math.max(0.2, c.end - c.start);
       var t1 = performance.now();
       prog($("ttsProg"), (i + 0.25) / cues.length);      // 每句一開始就先讓進度條動一下
+      // 能用的長度：到下一句開始為止（沒有下一句就用這句自己的長度）
+      var nxt = cues[i + 1], room = Math.max(0.2, (nxt ? nxt.start : c.end) - c.start);
       ttsRun(c.text, 1).then(function (first) {
-        var dur = first.data.length / TTS_SR;
-        var ratio = dur / target;                       // >1 表示原本太長
-        var ls = Math.min(1 + maxSlow, Math.max(1 - maxFit, ratio));
+        var dur = ttsTrim(first.data).length / TTS_SR;
+        // length_scale 是「長度倍率」：要變短就 < 1、要變長就 > 1。
+        // 以前直接拿 dur/target 當倍率，太長的句子反而被放慢，蓋到下一句 → 兩句疊在一起、接縫爆音。
+        var want = dur > room ? room / dur : target / dur;
+        var ls = Math.min(1 + maxSlow, Math.max(1 - maxFit, want));
         ls = Math.max(0.4, Math.min(2.5, ls));
-        if (Math.abs(ls - 1) > 0.04 && Math.abs(ratio - 1) > 0.04) {
+        if (Math.abs(ls - 1) > 0.04) {
           adjusted++;
-          return ttsRun(c.text, ls).then(function (again) { return again; });
+          return ttsRun(c.text, ls);
         }
         return first;
       }).then(async function (r) {
         if (runId !== ttsAI.runId) return;
         if (ttsAI.cancel) return cancelled();
-        var a = r.data, w = r.warn || {};
+        var a = ttsTrim(r.data), w = r.warn || {};
         warnLatin += w.latin || 0; warnUnknown += w.unknown || 0;
         if (ovWanted) {
           // 第一次先記住「原本 AI 女聲」的音色當來源，之後每句換成使用者的音色
           if (!ov.gSrc) ov.gSrc = await ovExtractSE(a, TTS_SR);
           a = await ovConvert(a, TTS_SR);
         }
-        ttsPlace(buf, c.start, a);
+        // 絕對不和上一句重疊：上一句還沒講完，這句就等它講完再開始
+        var at = Math.round(c.start * TTS_SR);
+        if (at < cursor + (segs.length ? GAP : 0)) { at = cursor + (segs.length ? GAP : 0); pushed++; }
+        segs.push({ at: at, a: a });
+        cursor = at + a.length;
         var spent = (performance.now() - t1) / 1000;
         perSec = perSec ? perSec * 0.7 + spent * 0.3 : spent;   // 移動平均，用來估還要多久
         ttsAI.perSec = perSec;
@@ -931,12 +1006,20 @@ audio { width: 100%; margin-top: 12px; }
     }
     function done() {
       stopTick();
+      var lastEnd = cues.length ? cues[cues.length - 1].end : 0;
+      var buf = new Float32Array(Math.max(cursor, Math.ceil(lastEnd * TTS_SR)) + Math.round(TTS_SR * 0.4));
+      segs.forEach(function (s) { ttsPlace(buf, s.at, s.a); });
+      // 保險：峰值超過 -0.5 dBFS 就整體壓下來（不做硬截斷，硬截斷就是破音）
+      var pk = 0, q;
+      for (q = 0; q < buf.length; q++) if (Math.abs(buf[q]) > pk) pk = Math.abs(buf[q]);
+      if (pk > 0.944) for (q = 0; q < buf.length; q++) buf[q] *= 0.944 / pk;
       ttsAI.out = buf;
       ttsSetBusy(false);
       var secs = buf.length / TTS_SR;
       var msg = "完成：" + cues.length + " 句、" + fmtT(secs) + "（調整了 " + adjusted + " 句的長度，花了 " +
         fmtT((performance.now() - startedAt) / 1000) + "）";
-      if (warnLatin) msg += "；" + warnLatin + " 個英文詞典沒有的字用字母念（YouTube → Y-O-U…）";
+      if (pushed) msg += "；" + pushed + " 句因為上一句還沒講完，往後延了一點（不會疊在一起）";
+      if (warnLatin) msg += "；" + warnLatin + " 個英文字詞典查不到，用字母念";
       if (warnUnknown) msg += "；" + warnUnknown + " 個字查不到讀音，先跳過";
       setStatus($("ttsStatus"), msg, warnLatin || warnUnknown);
     }
@@ -967,12 +1050,36 @@ audio { width: 100%; margin-top: 12px; }
   var OV_SR = 22050;
   var ov = { gTgt: null, gSrc: null, ref: null, refName: "", refenc: null, conv: null, loading: null, use: false };
 
+  // 重新取樣：加窗 sinc 低通內插（Blackman 窗、16 個零交越）。
+  // 以前用線性內插，22.05 → 44.1 kHz 時 11–22 kHz 的鏡像頻率只壓掉 6 dB，
+  // 實測成品 11 kHz 以上的能量比原始 AI 聲音高 30 dB —— 聽起來就是「破破的、沙沙的」。
+  var rsTab = {};
   function ovResample(x, sr0, sr1) {
     if (sr0 === sr1) return x;
     var n = Math.max(1, Math.round(x.length * sr1 / sr0)), step = sr0 / sr1, out = new Float32Array(n);
+    var ZC = 16, OS = 512;                                // 半邊 16 個零交越、表格 512 倍超取樣
+    var fc = Math.min(1, sr1 / sr0) * 0.96;                // 截止頻率（以輸入 Nyquist 為 1）
+    var half = Math.ceil(ZC / fc), key = fc.toFixed(5);
+    var tab = rsTab[key];
+    if (!tab) {
+      tab = new Float32Array(half * OS + 2);
+      for (var t = 0; t < tab.length; t++) {
+        var u = t / OS, s = u === 0 ? 1 : Math.sin(Math.PI * fc * u) / (Math.PI * fc * u);
+        var w = u >= half ? 0 : 0.42 + 0.5 * Math.cos(Math.PI * u / half) + 0.08 * Math.cos(2 * Math.PI * u / half);
+        tab[t] = fc * s * w;
+      }
+      rsTab[key] = tab;
+    }
+    var last = x.length - 1;
     for (var i = 0; i < n; i++) {
-      var p = i * step, i0 = Math.floor(p), i1 = Math.min(x.length - 1, i0 + 1), f = p - i0;
-      out[i] = x[i0] * (1 - f) + x[i1] * f;
+      var p = i * step, c = Math.floor(p), acc = 0;
+      for (var k = c - half + 1; k <= c + half; k++) {
+        var d = Math.abs(p - k) * OS, di = d | 0;
+        if (di >= tab.length - 1) continue;
+        var h = tab[di] + (tab[di + 1] - tab[di]) * (d - di);
+        acc += (k < 0 || k > last ? 0 : x[k]) * h;
+      }
+      out[i] = acc;
     }
     return out;
   }
@@ -2165,7 +2272,7 @@ audio { width: 100%; margin-top: 12px; }
     applyEq, eqStages, eqMagDb, biquad, normalizeLoudness, limitPeaks, frameLevels, speechLevelDb, peakDb,
     ttsPhones, zhNumber, ttsRun, ttsSyllables, ttsPinyin, ttsEnsureModel, ttsSandhi, ttsAI, TTS_SR,
     fxPalette, ed, addTake, rebuildBuffer, renderTakes, takesKey, ready, drawEffects, edCoverage, tts,
-    ov, ovSpec, ovResample, ovExtractSE, ovConvert, ovModels, OV_SR, ttsEnLex };
+    ov, ovSpec, ovResample, ovExtractSE, ovConvert, ovModels, OV_SR, ttsEnLex, ttsEnWord, ttsTrim, EN_EXTRA };
   drawEffects();
   // 語音辨識模型卡（使用者自行下載、存瀏覽器；模型檔不在 repo）
   loadScriptOnce(new URL("../../assets/model-store.js", document.baseURI).href).then(function () {

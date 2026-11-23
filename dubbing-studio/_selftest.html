@@ -189,11 +189,18 @@
   var e2 = phones('OK');
   check('英文：OK 照詞典念（ow k ey）', e2.names.join(' ') === 'ow k ey', e2.names.join(' '));
   var e3 = phones('YouTube');
-  check('英文：詞典沒有的字逐字母念', e3.warn.latin === 1 && e3.names.length >= 10,
-    e3.names.length + ' 個音素、' + e3.warn.latin + ' 個拼字');
+  check('英文：YouTube 念成單字（y uw t uw b），不是 Y-O-U-T-U-B-E', e3.names.join(' ') === 'y uw t uw b' && e3.warn.latin === 0,
+    e3.names.join(' ') + '、' + e3.warn.latin + ' 個拼字');
+  var e3b = phones('iPhone'), e3c = phones('facebook'), e3d = phones('AI'), e3e = phones('GPT');
+  check('英文：大小寫／複合字拆開念（iPhone、facebook）',
+    e3b.names.join(' ') === 'ay f ow n' && e3c.names.join(' ') === 'f ey s b uh k', e3b.names.join(' ') + ' ／ ' + e3c.names.join(' '));
+  check('英文：全大寫縮寫念字母（AI = ey ay、GPT = jh iy p iy t iy）',
+    e3d.names.join(' ') === 'ey ay' && e3e.names.join(' ') === 'jh iy p iy t iy', e3d.names.join(' ') + ' ／ ' + e3e.names.join(' '));
   var e4 = phones('這是 Podcast 的測試');
-  check('英文：中英混排都念得出來（Podcast 逐字母）',
-    e4.names.length > 10 && e4.warn.latin === 1 && e4.names.indexOf('sh') >= 0, e4.names.join(' '));
+  check('英文：中英混排都念得出來（Podcast 念成單字）',
+    e4.names.join(' ').indexOf('p aa d k ae s t') >= 0 && e4.warn.latin === 0 && e4.names.indexOf('sh') >= 0, e4.names.join(' '));
+  var e5 = phones('Xqzwv');
+  check('英文：真的查不到的亂碼才逐字母念', e5.warn.latin === 1 && e5.names.length >= 8, e5.names.length + ' 個音素');
 
   var noModel = '';
   try { await D.ttsRun('你好', 1); } catch (e) { noModel = (e && e.message) || String(e); }
