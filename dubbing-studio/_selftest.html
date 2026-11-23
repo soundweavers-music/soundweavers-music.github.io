@@ -97,6 +97,39 @@
   check('呼吸聲：抓到合成的吸氣段', hit, JSON.stringify(regs.map(function (r) { return [+r.start.toFixed(2), +r.end.toFixed(2)]; })));
   check('呼吸聲：沒有把歌聲當成呼吸', !regs.some(function (r) { return r.start < 0.45; }));
 
+  // ---- EQ ----
+  function sine(amp, f, sec) {
+    var n = Math.round(sr * (sec || 1)), a = new Float32Array(n);
+    for (var i = 0; i < n; i++) a[i] = Math.sin(2 * Math.PI * f * i / sr) * amp;
+    return a;
+  }
+  function rms2(a, s, e) { var x = 0; for (var i = s; i < e; i++) x += a[i] * a[i]; return Math.sqrt(x / (e - s)); }
+  var p = { hp: 90, mud: -2, pres: 6, air: 1 };
+  var t3 = sine(0.2, 3000), e3 = D.applyEq(t3, sr, p);
+  var db3 = 20 * Math.log10(rms2(e3, 8000, 40000) / rms2(t3, 8000, 40000));
+  check('EQ：3 kHz 峰值 +6 dB', Math.abs(db3 - 6) < 0.6, db3.toFixed(2) + ' dB');
+  var mag3 = D.eqMagDb(3000, D.eqStages(p, sr), sr);
+  check('EQ：響應圖與實際處理一致', Math.abs(mag3 - db3) < 0.5, mag3.toFixed(2) + ' vs ' + db3.toFixed(2));
+  var p2 = { hp: 200, mud: -2, pres: 6, air: 1 };
+  var t100 = sine(0.2, 100), e100 = D.applyEq(t100, sr, p2);
+  var db100 = 20 * Math.log10(rms2(e100, 8000, 40000) / rms2(t100, 8000, 40000));
+  check('EQ：低頻切點 200 Hz 把 100 Hz 壓下來', db100 < -8, db100.toFixed(1) + ' dB');
+
+  // ---- 音量標準化 ----
+  var quiet = sine(0.02, 220), loud = sine(0.7, 220);
+  var nq = D.normalizeLoudness(quiet, sr, -16, -1);
+  var lvq = D.speechLevelDb(D.frameLevels(nq.data, sr));
+  check('標準化：太小聲會被拉大', nq.gainDb > 10, '+' + nq.gainDb.toFixed(1) + ' dB');
+  check('標準化：拉大後接近目標 −16 dB', Math.abs(lvq + 16) < 1.5, lvq.toFixed(1) + ' dB');
+  var nl = D.normalizeLoudness(loud, sr, -16, -1);
+  check('標準化：太大聲會被拉小', nl.gainDb < 0, nl.gainDb.toFixed(1) + ' dB');
+  check('標準化：尖峰不超過上限', D.peakDb(nl.data) <= -1 + 0.3, D.peakDb(nl.data).toFixed(2) + ' dB');
+
+  // ---- 降噪強度 ----
+  var dnLow = D.denoise(noisy, sr, 0.2), dnHigh = D.denoise(noisy, sr, 1);
+  var rl = rms(dnLow, 0, Math.round(sr * 0.15)), rh = rms(dnHigh, 0, Math.round(sr * 0.15));
+  check('降噪：強力比輕微壓得更多', rh < rl * 0.85, (rh / rl).toFixed(2) + '×');
+
   // ---- WAV ----
   var b = D.wav(new Float32Array(100), 48000);
   check('WAV：檔頭與長度正確', b.byteLength === 44 + 200, b.byteLength + ' bytes');
