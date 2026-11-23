@@ -130,6 +130,28 @@
   var rl = rms(dnLow, 0, Math.round(sr * 0.15)), rh = rms(dnHigh, 0, Math.round(sr * 0.15));
   check('降噪：強力比輕微壓得更多', rh < rl * 0.85, (rh / rl).toFixed(2) + '×');
 
+  // ---- 模型倉庫（IndexedDB + sha256）----
+  var ZM = frame.contentWindow.ZhiyinModels;
+  check('模型倉庫：有載入', !!(ZM && ZM.get && ZM.put && ZM.sha256));
+  if (ZM) {
+    var hh = await ZM.sha256(new TextEncoder().encode('abc').buffer);
+    check('模型倉庫：sha256 正確', hh === 'ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad', hh.slice(0, 12) + '…');
+    var rec = await ZM.get('funasr-nano');
+    check('模型倉庫：測試環境沒有安裝模型', !rec);
+    var card = frame.contentDocument.querySelector('#modelCard.zmodel');
+    check('模型倉庫：口白剪輯頁有模型卡', !!card, card ? card.querySelector('.zmodel-state').textContent : '');
+  }
+
+  // ---- 歌詞工具也要有模型卡 ----
+  var f2 = document.createElement('iframe');
+  f2.src = '/tools/lrc/';
+  f2.style.cssText = 'width:2px;height:2px;opacity:0;border:0';
+  document.body.appendChild(f2);
+  await new Promise(function (r) { f2.onload = r; setTimeout(r, 4000); });
+  await new Promise(function (r) { setTimeout(r, 1200); });
+  var card2 = f2.contentDocument && f2.contentDocument.querySelector('#lrc-model-card.zmodel');
+  check('歌詞工具：有模型卡', !!card2, card2 ? card2.querySelector('.zmodel-state').textContent : '');
+
   // ---- WAV ----
   var b = D.wav(new Float32Array(100), 48000);
   check('WAV：檔頭與長度正確', b.byteLength === 44 + 200, b.byteLength + ' bytes');

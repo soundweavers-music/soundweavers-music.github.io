@@ -308,7 +308,9 @@
           <button type="button" id="lrc-vocal-start" class="lrc-btn lrc-btn--ghost" title="播到歌手開口的地方按下去，前面的前奏就不會排到歌詞">
             設人聲起點（用目前播放位置）
           </button>
-          <p id="lrc-detect-status" class="lrc-status">先載入音檔。按「偵測並填入時間」會先請 AI 聽歌詞、把每一行對到真的唱出來的地方（第一次要下載約 251 MB 的模型，跟「織音AI自動轉譜」共用，之後瀏覽器會記住）；模型載入不了或聽不到，才退回用音量起伏切樂句、按字數分配時間。中括號的 [前奏]、[間奏] 這類標記會跳過不排歌詞。全部在本機計算。</p>
+          <p id="lrc-detect-status" class="lrc-status">先載入音檔。按「偵測並填入時間」會先請 AI 聽歌詞、把每一行對到真的唱出來的地方（第一次要先安裝約 251 MB 的模型，跟「織音AI自動轉譜」與配音剪輯共用，存在這個瀏覽器裡）；模型載入不了或聽不到，才退回用音量起伏切樂句、按字數分配時間。中括號的 [前奏]、[間奏] 這類標記會跳過不排歌詞。全部在本機計算。</p>
+          <!-- 語音辨識模型：使用者自行下載一次，存在瀏覽器（assets/model-store.js） -->
+          <div id="lrc-model-card"></div>
         </div>
       </details>
     </section>
@@ -464,6 +466,8 @@
     setVocalStart: $("#lrc-vocal-start"),
     pasteWrap: $("#lrc-paste-wrap"), paste: $("#lrc-paste"),
     load: $("#lrc-load"), tidy: $("#lrc-tidy"), aiText: $("#lrc-ai-text"),
+  // 語音辨識模型：使用者自行下載一次、存進瀏覽器（assets/model-store.js）
+  modelCard: $("#lrc-model-card"),
     pasteRef: $("#lrc-paste-ref"), restoreAi: $("#lrc-restore-ai"),
     closePaste: $("#lrc-close-paste"), edit: $("#lrc-edit"),
     list: $("#lrc-lines"), empty: $("#lrc-empty"), count: $("#lrc-count"),
@@ -1925,6 +1929,10 @@
     el.sensOut.textContent = el.sens.value;
     el.gapOut.textContent = (parseInt(el.gap.value, 10) / 100).toFixed(2) + " 秒";
     updateClock();
+    // 語音辨識模型卡（使用者自行下載、存瀏覽器；模型檔不在 repo）
+    loadScriptOnce(new URL("../../assets/model-store.js", document.baseURI).href).then(function () {
+      if (window.ZhiyinModels) window.ZhiyinModels.mount(el.modelCard, "funasr-nano");
+    }).catch(function () { /* 沒有模型卡也能用（repo 裡還有分塊時會直接下載） */ });
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);

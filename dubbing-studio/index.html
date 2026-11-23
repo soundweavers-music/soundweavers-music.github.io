@@ -117,6 +117,12 @@ audio { width: 100%; margin-top: 12px; }
   <!-- ───────── ② 口白剪輯 ───────── -->
   <section class="db-panel" id="pane-edit">
     <div class="db-card">
+      <h3>0. 語音辨識模型（第一次使用要安裝）</h3>
+      <p class="sub">AI 要聽懂口白用的是語音辨識模型（約 251 MB），跟「織音AI歌詞自動辨識」共用同一顆；下載一次、存在這個瀏覽器裡。</p>
+      <div id="modelCard"></div>
+    </div>
+
+    <div class="db-card">
       <h3>1. 口白錄音與字幕稿</h3>
       <p class="sub">上傳你錄好的口白（WAV／MP3／M4A）與字幕稿（.srt／.lrc）。AI 會先聽出口白裡每一句的位置，再把它剪到字幕上。</p>
       <div class="db-grid2">
@@ -1098,6 +1104,10 @@ audio { width: 100%; margin-top: 12px; }
   window.__dubbing = { parseSubtitle, alignCues, sim, timeStretch, denoise, breathRegions, wav, normText,
     applyEq, eqStages, eqMagDb, biquad, normalizeLoudness, limitPeaks, frameLevels, speechLevelDb, peakDb };
   drawEffects();
+  // 語音辨識模型卡（使用者自行下載、存瀏覽器；模型檔不在 repo）
+  loadScriptOnce(new URL("../../assets/model-store.js", document.baseURI).href).then(function () {
+    if (window.ZhiyinModels) window.ZhiyinModels.mount($("modelCard"), "funasr-nano");
+  }).catch(function () { /* 沒有模型卡也能用（repo 裡還有分塊時會直接下載） */ });
 
   // 16-bit WAV
   function wav(x, sr) {

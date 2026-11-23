@@ -1,0 +1,183 @@
+// 本機 AI 模型倉庫（IndexedDB）
+//  - 模型檔不進 repo（GitHub 有大小限制、Pages 也有 1 GB 上限），由使用者自己下載一次，
+//    選進這個頁面後驗證 sha256、存進瀏覽器；之後工具直接從這裡讀，不會再連到任何伺服器。
+//  - 用法：ZhiyinModels.mount(containerEl, 'funasr-nano')
+//    chord-ai.js 也會用 ZhiyinModels.get('funasr-nano') 優先讀這裡的模型。
+(function () {
+  "use strict";
+  var DB_NAME = "zhiyin-ai-models", STORE = "models", VERSION = 1;
+  var BASE = document.currentScript ? new URL(".", document.currentScript.src) : new URL("/assets/", location.origin);
+  var MANIFEST = new URL("ai-models.json", BASE);
+  var dbp = null;
+
+  function db() {
+    if (dbp) return dbp;
+    dbp = new Promise(function (res, rej) {
+      var r = indexedDB.open(DB_NAME, VERSION);
+      r.onupgradeneeded = function () {
+        var d = r.result;
+        if (!d.objectStoreNames.contains(STORE)) d.createObjectStore(STORE);
+      };
+      r.onsuccess = function () { res(r.result); };
+      r.onerror = function () { rej(r.error); };
+    });
+    return dbp;
+  }
+  function tx(mode) {
+    return db().then(function (d) { return d.transaction(STORE, mode).objectStore(STORE); });
+  }
+  function get(name) {
+    return tx("readonly").then(function (s) {
+      return new Promise(function (res, rej) {
+        var q = s.get(name);
+        q.onsuccess = function () { res(q.result || null); };
+        q.onerror = function () { rej(q.error); };
+      });
+    });
+  }
+  function put(name, buf, meta) {
+    return tx("readwrite").then(function (s) {
+      return new Promise(function (res, rej) {
+        var q = s.put({ buf: buf, meta: meta || {}, at: Date.now() }, name);
+        q.onsuccess = function () { res(true); };
+        q.onerror = function () { rej(q.error); };
+      });
+    });
+  }
+  function del(name) {
+    return tx("readwrite").then(function (s) {
+      return new Promise(function (res, rej) {
+        var q = s.delete(name);
+        q.onsuccess = function () { res(true); };
+        q.onerror = function () { rej(q.error); };
+      });
+    });
+  }
+  function hex(buf) {
+    return Array.prototype.map.call(new Uint8Array(buf), function (b) {
+      return ("0" + b.toString(16)).slice(-2);
+    }).join("");
+  }
+  function sha256(buf) {
+    return crypto.subtle.digest("SHA-256", buf).then(hex);
+  }
+  function manifest() {
+    return fetch(MANIFEST).then(function (r) { return r.ok ? r.json() : {}; });
+  }
+
+  // ── 介面 ──
+  var CSS = '' +
+    '.zmodel{border:1px solid var(--line,#e5e0d8);border-radius:10px;background:var(--surface,#fff);padding:14px 16px;margin:14px 0;font-size:13.5px;color:var(--ink2,#4c443a)}' +
+    '.zmodel-top{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}' +
+    '.zmodel-top b{color:var(--ink,#2e2820)}' +
+    '.zmodel-meta{color:var(--muted,#6b6257);font-size:12px}' +
+    '.zmodel-state{margin-left:auto;font-size:12px;border-radius:999px;padding:2px 10px;background:var(--soft,#f4efe6);color:var(--muted,#6b6257)}' +
+    '.zmodel-state.ok{background:#e8f6ec;color:#2f6b3f}' +
+    '.zmodel-state.busy{background:#fdf2dc;color:#8a5a12}' +
+    '.zmodel-act{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}' +
+    '.zmodel-btn,.zmodel-a{font-size:13px;border-radius:7px;padding:7px 12px;border:1px solid var(--line2,#d6cfc2);background:var(--soft,#f8f5ef);color:var(--ink,#2e2820);text-decoration:none;cursor:pointer}' +
+    '.zmodel-btn.primary,.zmodel-a.primary{background:var(--accent,#a0522d);border-color:var(--accent,#a0522d);color:#fff}' +
+    '.zmodel-btn[disabled]{opacity:.45;cursor:not-allowed}' +
+    '.zmodel-note{margin:10px 0 0;font-size:12px;color:var(--muted,#6b6257);line-height:1.6}';
+  var styled = false;
+  function style() {
+    if (styled) return;
+    styled = true;
+    var s = document.createElement("style");
+    s.textContent = CSS;
+    document.head.appendChild(s);
+  }
+  function fmtSize(n) {
+    return n >= 1048576 ? (n / 1048576).toFixed(1) + " MB" : Math.round(n / 1024) + " KB";
+  }
+
+  // 生成一張「模型卡」：狀態、下載連結、選檔、移除
+  function mount(el, key) {
+    if (!el) return Promise.resolve(null);
+    style();
+    el.classList.add("zmodel");
+    el.innerHTML = '' +
+      '<div class="zmodel-top"><b class="zmodel-name">模型</b><span class="zmodel-meta"></span>' +
+      '<span class="zmodel-state">檢查中…</span></div>' +
+      '<div class="zmodel-act">' +
+      '  <a class="zmodel-a primary zmodel-get" target="_blank" rel="noopener" hidden>下載模型</a>' +
+      '  <button type="button" class="zmodel-btn zmodel-pick">選擇已下載的檔案…</button>' +
+      '  <button type="button" class="zmodel-btn zmodel-del" hidden>移除模型</button>' +
+      '</div>' +
+      '<p class="zmodel-note"></p>' +
+      '<input type="file" class="zmodel-file" accept=".onnx,application/octet-stream" hidden>';
+
+    var q = function (s) { return el.querySelector(s); };
+    var stateEl = q(".zmodel-state"), nameEl = q(".zmodel-name"), metaEl = q(".zmodel-meta");
+    var getA = q(".zmodel-get"), pick = q(".zmodel-pick"), delB = q(".zmodel-del");
+    var note = q(".zmodel-note"), fileIn = q(".zmodel-file");
+    var entry = null;
+
+    function setState(txt, cls) {
+      stateEl.textContent = txt;
+      stateEl.className = "zmodel-state" + (cls ? " " + cls : "");
+    }
+    function render(has) {
+      if (!entry) return;
+      setState(has ? "已安裝" : "未安裝", has ? "ok" : "");
+      delB.hidden = !has;
+      pick.classList.toggle("primary", !has);
+      if (entry.url) { getA.hidden = false; getA.href = entry.url; getA.textContent = "下載模型（" + fmtSize(entry.size) + "）"; }
+      note.innerHTML = has
+        ? "模型存在這個瀏覽器裡（IndexedDB），下次開啟不用再下載。要換版本或清空間可以按「移除模型」。"
+        : "第一次使用時下載一次就好：按上面的連結下載，再按「選擇已下載的檔案…」選進來。" +
+          (entry.sha256 ? "<br>檔案驗證：SHA-256 必須是 <code>" + entry.sha256.slice(0, 16) + "…</code>，不符會拒絕安裝。" : "") +
+          (entry.note ? "<br>" + entry.note : "");
+    }
+
+    return manifest().then(function (all) {
+      entry = all[key];
+      if (!entry) { setState("沒有這個模型", ""); note.textContent = "ai-models.json 裡找不到 " + key; return null; }
+      nameEl.textContent = entry.name || key;
+      metaEl.textContent = [entry.size ? fmtSize(entry.size) : "", entry.license || ""].filter(Boolean).join("・");
+      return get(key).then(function (rec) {
+        render(!!rec);
+        pick.onclick = function () { fileIn.click(); };
+        delB.onclick = function () {
+          if (!confirm("要把這個模型從瀏覽器移除嗎？下次使用要重新下載。")) return;
+          setState("移除中…", "busy");
+          del(key).then(function () { render(false); document.dispatchEvent(new CustomEvent("zhiyin-model-changed", { detail: { key: key, installed: false } })); });
+        };
+        fileIn.onchange = function () {
+          var f = fileIn.files && fileIn.files[0];
+          fileIn.value = "";
+          if (!f) return;
+          if (entry.size && f.size !== entry.size) {
+            alert("檔案大小不對：拿到 " + fmtSize(f.size) + "，應該是 " + fmtSize(entry.size) + "。\n請確認下載完整（或不要解壓縮）。");
+            return;
+          }
+          setState("驗證中…", "busy");
+          var fr = new FileReader();
+          fr.onerror = function () { setState("讀取失敗", ""); };
+          fr.onload = function () {
+            var buf = fr.result;
+            sha256(buf).then(function (h) {
+              if (entry.sha256 && h !== entry.sha256) {
+                setState("驗證不符", "");
+                alert("SHA-256 不符，這個檔案不是預期的模型（或下載壞了）。\n預期：" + entry.sha256 + "\n拿到：" + h);
+                return;
+              }
+              setState("安裝中…", "busy");
+              put(key, buf, { size: buf.byteLength, sha256: h }).then(function () {
+                render(true);
+                document.dispatchEvent(new CustomEvent("zhiyin-model-changed", { detail: { key: key, installed: true } }));
+              }).catch(function (e) {
+                setState("安裝失敗", "");
+                alert("存不進瀏覽器（可能是空間不足）：" + (e && e.message ? e.message : e));
+              });
+            });
+          };
+          fr.readAsArrayBuffer(f);
+        };
+        return { get: get, entry: entry };
+      });
+    });
+  }
+
+  window.ZhiyinModels = { get: get, put: put, del: del, sha256: sha256, manifest: manifest, mount: mount };
+})();

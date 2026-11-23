@@ -706,6 +706,19 @@ const tr = (zh, en) => (document.documentElement.lang || '').startsWith('en') ? 
       const cj = await fetch(ASR_BASE + 'funasr_nano_chars.json');
       if (!cj.ok) throw new Error(tr('下載歌詞字表失敗（HTTP ' + cj.status + '）', 'Could not download the lyric vocabulary (HTTP ' + cj.status + ')'));
       asrChars = await cj.json();
+      // 使用者自己下載、存在瀏覽器裡的模型優先（模型檔已不放在 repo，見 assets/ai-models.json）
+      let fromStore = null;
+      try {
+        if (window.ZhiyinModels && window.ZhiyinModels.get) {
+          const rec = await window.ZhiyinModels.get('funasr-nano');
+          if (rec && rec.buf && rec.buf.byteLength > 1024 * 1024) fromStore = new Uint8Array(rec.buf);
+        }
+      } catch (e) { /* 讀不到就退回 repo 裡的分塊（還沒移除時） */ }
+      if (fromStore) {
+        if (onProgress) onProgress(1, fromStore.length);
+        asrSess = await ort.InferenceSession.create(fromStore, { executionProviders: ['wasm'], enableCpuMemArena: false });
+        return asrSess;
+      }
       // 邊下載邊回報進度（251 MB 在慢網路上要好幾分鐘；以前每塊下載完才更新一次，看起來像沒反應）
       const bufs = []; let total = 0;
       const EXPECT = 263531902;            // 三塊加起來的大小（只用來算百分比）
