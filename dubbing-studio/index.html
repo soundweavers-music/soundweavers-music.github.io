@@ -162,6 +162,7 @@ audio { width: 100%; margin-top: 12px; }
       <div class="db-row">
         <label class="db-check">最多把一句壓短 <input type="number" id="ttsMaxFit" value="30" min="0" max="60" step="5" style="width:56px"> %</label>
         <label class="db-check">最多放慢 <input type="number" id="ttsMaxSlow" value="25" min="0" max="60" step="5" style="width:56px"> %</label>
+        <label class="db-check" title="AI 聲碼器在字的尾音會留一層 2 kHz 以上的沙沙聲（像電波），只在聲音變小的地方壓掉，不動說話主體與 s／sh 子音"><input type="checkbox" id="ttsDehiss" checked> 去掉尾音的電波聲</label>
       </div>
       <div class="db-note">不想裝模型？也可以直接用<b>系統語音</b>：
         <div class="db-row" style="margin-top:6px">
@@ -932,6 +933,7 @@ audio { width: 100%; margin-top: 12px; }
     if (!tts.cues.length) return;
     var maxFit = Math.min(60, Math.max(0, +$("ttsMaxFit").value || 0)) / 100;
     var maxSlow = Math.min(60, Math.max(0, +$("ttsMaxSlow").value || 0)) / 100;
+    var dehissOn = !$("ttsDehiss") || $("ttsDehiss").checked;
     var cues = tts.cues.slice();
     // 每句算好先放在 segs，全部好了再一次貼：句子太長時會把後面的句子往後推，總長度事先不知道
     var segs = [], cursor = 0, GAP = Math.round(TTS_SR * 0.06);
@@ -1012,6 +1014,8 @@ audio { width: 100%; margin-top: 12px; }
         }
         // 每句各自合成，音量會差到 10 dB（實測 0.027～0.084）→ 第二句突然變小聲。
         // 每句先拉到同一個「說話音量」（-20 dBFS，只算有聲音的部分），再限制峰值，句與句聽起來一樣大。
+        // 先去尾音電波聲、再拉音量（反過來的話，小聲的句子被放大時連沙沙聲一起放大）
+        if (dehissOn) a = dehiss(a, TTS_SR, 14);
         a = normalizeLoudness(a, TTS_SR, -20, -1.5).data;
         // 絕對不和上一句重疊：上一句還沒講完，這句就等它講完再開始
         var at = Math.round(c.start * TTS_SR);
@@ -1813,6 +1817,63 @@ audio { width: 100%; margin-top: 12px; }
     for (var j = 0; j < im.length; j++) im[j] = -im[j];
   }
 
+  // 尾音去電波聲：VITS 聲碼器在字尾（聲音變小的地方）會留一層 2 kHz 以上的寬頻沙沙聲。
+  // 一般譜減要靠「安靜段」估噪音，但 AI 句子幾乎沒有安靜段，會把人聲當噪音切掉。
+  // 這裡改成：每格看它比整句說話音量低多少，越低就把 2 kHz 以上壓越多（最多 depth dB，
+  // 4 kHz 以上壓滿）；響的地方、以及高頻為主的 s／sh／x 子音不動。增益在時間上快壓慢放，避免抽吸聲。
+  // 離線原型（work/tts_probe/tailgate.py）實測：尾音高頻 -42 → -54 dB，說話主體的高頻比例不變。
+  function dehiss(x, sr, depthDb) {
+    var N = 1024, H = 256, HALF = N / 2, depth = depthDb == null ? 14 : depthDb;
+    if (x.length < N) return x;
+    var win = new Float32Array(N), i, b, f;
+    for (i = 0; i < N; i++) win[i] = 0.5 - 0.5 * Math.cos(2 * Math.PI * i / N);
+    var len = x.length + 2 * N, nf = Math.floor((len - N) / H) + 1;
+    var pad = new Float32Array(len); pad.set(x, N);
+    var bHz = sr / N, bLo = Math.ceil(2000 / bHz);
+    var lev = new Float32Array(nf), hr = new Float32Array(nf);
+    var re = new Float64Array(N), im = new Float64Array(N);
+    var specR = [], specI = [];
+    for (f = 0; f < nf; f++) {
+      for (i = 0; i < N; i++) { re[i] = pad[f * H + i] * win[i]; im[i] = 0; }
+      fft(re, im);
+      var tot = 0, hi = 0, sr2 = new Float32Array(HALF + 1), si2 = new Float32Array(HALF + 1);
+      for (b = 0; b <= HALF; b++) {
+        var p = re[b] * re[b] + im[b] * im[b];
+        tot += p; if (b >= bLo) hi += p;
+        sr2[b] = re[b]; si2[b] = im[b];
+      }
+      specR.push(sr2); specI.push(si2);
+      lev[f] = 10 * Math.log10(tot + 1e-12); hr[f] = hi / (tot + 1e-12);
+    }
+    // 整句的說話音量：只看最大值往下 40 dB 內的格子，取第 80 百分位
+    var mx = -Infinity; for (f = 0; f < nf; f++) if (lev[f] > mx) mx = lev[f];
+    var act = []; for (f = 0; f < nf; f++) if (lev[f] > mx - 40) act.push(lev[f]);
+    act.sort(function (a, c) { return a - c; });
+    var ref = act[Math.floor(act.length * 0.8)] || mx;
+    var out = new Float32Array(len), nrm = new Float32Array(len), sm = 0;
+    var ramp = new Float32Array(HALF + 1);
+    for (b = 0; b <= HALF; b++) ramp[b] = Math.max(0, Math.min(1, (b * bHz - 2000) / 2000));
+    for (f = 0; f < nf; f++) {
+      var amt = Math.max(0, Math.min(1, (ref - lev[f] - 6) / 18));
+      if (hr[f] > 0.6 && lev[f] > ref - 20) amt = 0;           // s／sh／x：保留
+      sm = amt < sm ? amt : sm + (amt - sm) * 0.35;             // 快壓、慢放
+      var R = specR[f], I = specI[f];
+      for (b = 0; b <= HALF; b++) {
+        var g = sm > 0 && ramp[b] > 0 ? Math.pow(10, -depth * sm * ramp[b] / 20) : 1;
+        re[b] = R[b] * g; im[b] = I[b] * g;
+        if (b > 0 && b < HALF) { re[N - b] = re[b]; im[N - b] = -im[b]; }
+      }
+      fftInv(re, im);
+      for (i = 0; i < N; i++) {
+        out[f * H + i] += (re[i] / N) * win[i];
+        nrm[f * H + i] += win[i] * win[i];
+      }
+    }
+    var res = new Float32Array(x.length);
+    for (i = 0; i < x.length; i++) { var nn = nrm[i + N]; res[i] = nn > 1e-6 ? out[i + N] / nn : 0; }
+    return res;
+  }
+
   // 呼吸聲：能量比語音小、頻譜平坦度高的短區段（跟 DAW 的偵測同一個做法）
   function breathRegions(x, sr) {
     var N = 2048, hop = Math.round(sr * 0.01);
@@ -2302,7 +2363,7 @@ audio { width: 100%; margin-top: 12px; }
     applyEq, eqStages, eqMagDb, biquad, normalizeLoudness, limitPeaks, frameLevels, speechLevelDb, peakDb,
     ttsPhones, zhNumber, ttsRun, ttsSyllables, ttsPinyin, ttsEnsureModel, ttsSandhi, ttsAI, TTS_SR,
     fxPalette, ed, addTake, rebuildBuffer, renderTakes, takesKey, ready, drawEffects, edCoverage, tts,
-    ov, ovSpec, ovResample, ovExtractSE, ovConvert, ovModels, OV_SR, ttsEnLex, ttsEnWord, ttsTrim, EN_EXTRA, ttsT2S, toHans, OV_SRC_ZH };
+    ov, ovSpec, ovResample, ovExtractSE, ovConvert, ovModels, OV_SR, ttsEnLex, ttsEnWord, ttsTrim, EN_EXTRA, ttsT2S, toHans, OV_SRC_ZH, dehiss };
   drawEffects();
   // 語音辨識模型卡（使用者自行下載、存瀏覽器；模型檔不在 repo）
   loadScriptOnce(new URL("../../assets/model-store.js", document.baseURI).href).then(function () {

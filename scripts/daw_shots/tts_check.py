@@ -114,6 +114,28 @@ PAGE = """<!doctype html><meta charset="utf-8"><title>tts check</title>
   check('反應：按「停止」可以取消，不會卡在那裡', /已取消/.test(endStatus) && !renderBtn.classList.contains('busy'),
     endStatus);
 
+  // 3b1. 尾音電波聲：字尾（比說話音量低 20–45 dB 的格子）3 kHz 以上的能量要降，說話主體不能變
+  var hissIn = a, hissOut = D.dehiss(a, D.TTS_SR, 14);
+  function bandTail(x) {
+    var sp = D.ovSpec(D.ovResample(x, D.TTS_SR, 22050)), T2 = sp.T, lv = [], hf = [];
+    for (var t = 0; t < T2; t++) {
+      var tot = 0, hi = 0;
+      for (var b = 0; b < 513; b++) { var v = sp.spec[b * T2 + t]; v *= v; tot += v; if (b >= 140) hi += v; }  // 140 bin ≈ 3 kHz
+      lv.push(10 * Math.log10(tot + 1e-12)); hf.push(10 * Math.log10(hi + 1e-12));
+    }
+    var srt = lv.slice().sort(function (p, q) { return p - q; }), top = srt[Math.floor(srt.length * 0.9)];
+    var ts = 0, tn = 0, ls = 0, ln = 0;
+    for (t = 0; t < T2; t++) {
+      if (lv[t] < top - 20 && lv[t] > top - 45) { ts += hf[t] - top; tn++; }
+      if (lv[t] > top - 10) { ls += hf[t] - lv[t]; ln++; }
+    }
+    return { tail: ts / Math.max(1, tn), loud: ls / Math.max(1, ln) };
+  }
+  var bi = bandTail(hissIn), bo = bandTail(hissOut);
+  check('音質：尾音電波聲壓低 ≥ 6 dB、說話主體高頻比例變化 < 1 dB',
+    bi.tail - bo.tail >= 6 && Math.abs(bi.loud - bo.loud) < 1,
+    '尾音 ' + bi.tail.toFixed(1) + ' → ' + bo.tail.toFixed(1) + ' dB、主體 ' + bi.loud.toFixed(1) + ' → ' + bo.loud.toFixed(1) + ' dB');
+
   // 3b2. 每句音量一致：各句自己合成會差到 10 dB（第二句突然變小聲），貼進去前要拉齊
   D.tts.cues = [
     { start: 0, end: 3, text: '大家好，歡迎收看今天的節目。' },
