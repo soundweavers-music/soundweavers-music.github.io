@@ -1092,10 +1092,6 @@ def build_index(instruments):
             <strong>🎚️ 織音AI線上編曲製作</strong>
             <span>瀏覽器裡的多軌錄音與混音，16 軌起跳、可存專案與輸出 WAV；音檔不會上傳雲端</span>
           </a>
-          <a class="featured-card" href="{resolve_url(index_path, '/experience/')}" style="background:linear-gradient(135deg,#f5f0ff,#ebe0ff);border:1px solid #d5c5fd;">
-            <strong>🎹 世界樂器體驗</strong>
-            <span>用虛擬鍵盤試聽鋼琴、吉他、小提琴、琵琶等樂器的音色與音域</span>
-          </a>
         </div>
       </section>
 
@@ -2337,7 +2333,7 @@ def build_sitemap(instruments):
     for path in ["/", "/instruments/", "/categories/", "/categories/single-instrument/",
                  "/countries/", "/ensembles/", "/subcategories/", "/map/",
                  "/about/", "/theory/", "/vocal/", "/digitalmusic/", "/songwriting/",
-                 "/sound-journey/", "/experience/", "/contact/",
+                 "/sound-journey/", "/contact/",
                  "/chord-detection/", "/tools/", "/tools/fretboard/", "/tools/fretboard/guide/",
                  "/chord-detection/guide/", "/tools/lrc/", "/tools/lrc/guide/", "/tools/daw/", "/tools/daw/guide/",
                  "/tools/tuner/", "/tools/tuner/guide/",
@@ -2923,7 +2919,6 @@ def build_about_page():
         <ul class="about-index">
           <li><strong>{link('/tools/fretboard/', '世界樂器指版與和弦圖')}</strong>　19 種彈撥樂器的調弦、和弦與指版音位。</li>
           <li><strong>{link('/chord-detection/', '織音AI自動轉譜')}</strong>　上傳歌曲，AI 自動轉成簡譜（旋律＋和弦＋歌詞），可即時編輯、播放、列印成出版譜；檔案不會離開你的電腦。</li>
-          <li><strong>{link('/experience/', '世界樂器體驗')}</strong>　用虛擬鍵盤試聽各種樂器的音色與音域。</li>
           <li><strong>{link('/tools/tuner/', '線上調音器與節拍器')}</strong>　用麥克風測音高與音分偏差，內建 15 種樂器調弦與節拍器。</li>
           <li><strong>{link('/tools/lrc/', '織音AI歌詞自動辨識')}</strong>　沒有歌詞也能用：AI 直接聽出歌詞與時間，再邊聽邊微調，輸出 .lrc 或 .srt。</li>
           <li><strong>{link('/tools/daw/', '織音AI線上編曲製作')}</strong>　免安裝的瀏覽器編曲軟體：多軌錄音、MIDI 編曲、效果器、混音、母帶與輸出。（{link('/tools/daw/guide/', '使用說明')}）</li>
@@ -3425,7 +3420,7 @@ def build_lrc_tool():
             main_content = raw[start:end].strip()
 
     # 來源檔放在 /lrc-studio/，但成品在 /tools/lrc/，所以「相關工具」的相對連結要重算
-    for target in ("/tools/fretboard/", "/chord-detection/", "/experience/", "/tools/daw/"):
+    for target in ("/tools/fretboard/", "/chord-detection/", "/tools/daw/"):
         main_content = main_content.replace(
             f'href="..{target}"',
             f'href="{resolve_url(page_dir / "index.html", target)}"',
@@ -3498,7 +3493,7 @@ def build_tuner_tool():
 
     # 來源檔在 /tuner-studio/，成品在 /tools/tuner/，主內容裡的相對連結要重算
     for target in ("/tools/fretboard/", "/tools/daw/", "/chord-detection/",
-                   "/theory/", "/tools/lrc/", "/experience/"):
+                   "/theory/", "/tools/lrc/"):
         main_content = main_content.replace(
             f'href="..{target}"', f'href="{resolve_url(out, target)}"')
 
@@ -3843,21 +3838,7 @@ def build_tools_index():
 .tool-guide{border-top:1px solid var(--line,#e5e0d8);padding:10px 20px;font-size:14px;text-decoration:none}
 </style>"""
     write(out, page("工具", body, out, extra_head=css,
-                    meta_description="世界聲音的線上音樂工具：瀏覽器編曲軟體、織音AI自動轉譜、LRC 歌詞工作室、指版和弦圖、樂器體驗。全部在瀏覽器裡執行，檔案不上傳。"))
-
-
-def build_experience_page():
-    """/tools/experience/ is the old address of 世界樂器體驗; redirect it to /experience/.
-
-    The page itself (virtual keyboard) is written by build_vocal_extra.py at /experience/.
-    """
-    out = OUTPUT_DIR / "tools" / "experience" / "index.html"
-    target = resolve_url(out, "/experience/")
-    write(out, f'''<!doctype html>
-<html lang="zh-Hant">
-<head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url={target}"><link rel="canonical" href="{canonical_for(OUTPUT_DIR / "experience" / "index.html")}"><meta name="robots" content="noindex"><title>世界樂器體驗</title></head>
-<body><a href="{target}">前往世界樂器體驗</a></body>
-</html>''')
+                    meta_description="世界聲音的線上音樂工具：瀏覽器編曲軟體、織音AI自動轉譜、LRC 歌詞工作室、指版和弦圖。全部在瀏覽器裡執行，檔案不上傳。"))
 
 
 def main():
@@ -3898,7 +3879,6 @@ def main():
     build_tuner_tool()
     build_daw_tool()
     build_tools_index()
-    build_experience_page()
     # Copy sitemap and robots.txt to project root for local development
     shutil.copy2(OUTPUT_DIR / "sitemap.xml", BASE_DIR / "sitemap.xml")
     shutil.copy2(OUTPUT_DIR / "robots.txt", BASE_DIR / "robots.txt")
@@ -3907,13 +3887,7 @@ def main():
         src_root = OUTPUT_DIR / root_fname
         if src_root.exists():
             shutil.copy2(str(src_root), str(BASE_DIR / root_fname))
-    # Mirror generated tool pages to the project root. Never rmtree root tools/:
-    # tools/fretboard/index.html there is the hand-maintained source.
-    for sync_dir in ["tools/experience", "experience"]:
-        src_dir = OUTPUT_DIR / sync_dir
-        if src_dir.exists():
-            shutil.copytree(str(src_dir), str(BASE_DIR / sync_dir), dirs_exist_ok=True)
-    # Sync assets to project root (tracked by git for direct access)
+    # Mirror assets to the project root (tools/fretboard/ there is hand-maintained source)
     root_assets = BASE_DIR / "assets"
     root_assets.mkdir(parents=True, exist_ok=True)
     out_assets = OUTPUT_DIR / "assets"
