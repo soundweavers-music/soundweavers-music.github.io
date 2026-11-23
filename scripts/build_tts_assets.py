@@ -26,6 +26,7 @@ from pypinyin import Style, pinyin
 BASE = pathlib.Path(__file__).resolve().parent.parent
 MODEL_DIR = BASE / "work" / "models" / "tts" / "vits-melo-tts-zh_en"
 OUT = BASE / "assets" / "tts" / "zh-syllables.json"
+OUT_EN = BASE / "assets" / "tts" / "en-lexicon.json"
 
 INITIALS = ["zh", "ch", "sh", "b", "p", "m", "f", "d", "t", "n", "l", "g",
             "k", "h", "j", "q", "x", "r", "z", "c", "s", "y", "w"]
@@ -86,6 +87,30 @@ def main() -> int:
             syl = ini + fin
             if syl not in syllables and all(p in tokens for p in (ini, fin)):
                 syllables.setdefault(syl, [ini, fin])
+
+    # ── 英文詞典（模型自己就有：英文單字 → ARPAbet 音素 + 該模型訓練用的 tone 值）──
+    # 中文稿常夾英文（YouTube、App、OK…），把它接上去才不會整段跳過。
+    en: dict[str, str] = {}
+    for line in lex_path.read_text(encoding="utf-8").splitlines():
+        f = line.split(" ")
+        if len(f) < 3:
+            continue
+        w = f[0]
+        if not re.fullmatch(r"[A-Za-z][A-Za-z'\-.]*", w):
+            continue
+        rest, n = f[1:], (len(f) - 1) // 2
+        phones, tones = rest[:n], rest[n:]
+        if not phones or not all(p in tokens for p in phones):
+            continue
+        key = w.lower()
+        if key not in en:                      # 同一個字多筆就取第一筆（詞典裡是常用讀法在前）
+            en[key] = " ".join(phones) + "|" + " ".join(tones)
+    OUT_EN.parent.mkdir(parents=True, exist_ok=True)
+    OUT_EN.write_text(json.dumps(
+        {"_comment": "MeloTTS zh_en 內建的英文詞典（音素|tone 值）；由 scripts/build_tts_assets.py 產生",
+         "words": en},
+        ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    print(f"英文詞典 {len(en)} 個字 → {OUT_EN.relative_to(BASE)}（{OUT_EN.stat().st_size/1024/1024:.1f} MB）")
 
     data = {
         "_comment": "MeloTTS zh（vits-melo-tts-zh_en）的拼音音節→音素表；由 scripts/build_tts_assets.py 產生",

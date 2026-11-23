@@ -181,6 +181,20 @@
     [D.zhNumber('2026'), D.zhNumber('105'), D.zhNumber('10'), D.zhNumber('0')].join(' / '));
   var p5 = phones('hello 你好');
   check('AI 配音：英文單字先跳過（不會亂念）', p5.warn.latin === 1 && p5.names.length === 4, 'latin=' + p5.warn.latin);
+  // ---- AI 配音：英文（模型內建的英文詞典） ----
+  var enLex = await D.ttsEnLex();
+  check('英文：詞典載入', !!enLex && !!enLex.hello, Object.keys(enLex || {}).length + ' 個字');
+  var e1 = phones('hello');
+  check('英文：hello 照詞典念（hh ah l ow）', e1.names.join(' ') === 'hh ah l ow', e1.names.join(' ') + ' / ' + e1.tones.join(','));
+  var e2 = phones('OK');
+  check('英文：OK 照詞典念（ow k ey）', e2.names.join(' ') === 'ow k ey', e2.names.join(' '));
+  var e3 = phones('YouTube');
+  check('英文：詞典沒有的字逐字母念', e3.warn.latin === 1 && e3.names.length >= 10,
+    e3.names.length + ' 個音素、' + e3.warn.latin + ' 個拼字');
+  var e4 = phones('這是 Podcast 的測試');
+  check('英文：中英混排都念得出來（Podcast 逐字母）',
+    e4.names.length > 10 && e4.warn.latin === 1 && e4.names.indexOf('sh') >= 0, e4.names.join(' '));
+
   var noModel = '';
   try { await D.ttsRun('你好', 1); } catch (e) { noModel = (e && e.message) || String(e); }
   check('AI 配音：沒裝模型時給清楚的說明', /還沒有安裝配音模型/.test(noModel), noModel.slice(0, 40));

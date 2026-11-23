@@ -72,6 +72,14 @@ PAGE = """<!doctype html><meta charset="utf-8"><title>tts check</title>
   check('介面：合成時主執行緒最長停頓 < 0.5 秒', maxGap < 500,
     gaps.length ? '計時器跑了 ' + ticks + ' 次、最長停頓 ' + maxGap.toFixed(0) + ' ms' : '整段都沒跑到計時器（畫面會像當機）');
 
+  // 2a2. 中英混排（英文走模型內建的英文詞典）
+  var mixed = await D.ttsRun('這一段有 APP 和 OK 兩個英文字。', 1);
+  var mixedSecs = mixed.data.length / D.TTS_SR;
+  var mixedRms = 0; for (var mi = 0; mi < mixed.data.length; mi++) mixedRms += mixed.data[mi] * mixed.data[mi];
+  mixedRms = Math.sqrt(mixedRms / mixed.data.length);
+  check('英文：中英混排合成得出來（不會跳過英文字）', mixedSecs > 1.0 && mixedSecs < 8 && mixedRms > 0.01,
+    mixedSecs.toFixed(2) + ' 秒、RMS ' + mixedRms.toFixed(3));
+
   // 2b. 暖機後一句要多久（第一次包含模型載入與 wasm 編譯）
   t0 = performance.now();
   var warm = await D.ttsRun('這一段用來量速度，字幕越長就越久。', 1);

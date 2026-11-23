@@ -504,6 +504,15 @@ audio { width: 100%; margin-top: 12px; }
     }).then(function (d) { ttsAI.syl = d; return d; });
     return ttsAI.sylP;
   }
+  // 英文詞典（模型內建，119k 個字）：只在稿子裡真的出現英文時才下載
+  function ttsEnLex() {
+    if (ttsAI.en) return Promise.resolve(ttsAI.en);
+    if (!ttsAI.enP) ttsAI.enP = fetch(ASSET + "tts/en-lexicon.json").then(function (r) {
+      if (!r.ok) throw new Error("讀不到英文詞典（HTTP " + r.status + "）");
+      return r.json();
+    }).then(function (d) { ttsAI.en = d.words || {}; return ttsAI.en; });
+    return ttsAI.enP;
+  }
   function ttsPinyin() {
     if (window.pinyinPro) return Promise.resolve(window.pinyinPro);
     return loadScriptOnce(ASSET + "vendor/pinyin/pinyin-pro.js").then(function () {
@@ -547,7 +556,18 @@ audio { width: 100%; margin-top: 12px; }
   // 一段文字 → 音素 id 與聲調（MeloTTS 的輸入）
   function ttsPhones(text, d) {
     var tok = d.tokens, SYL = d.syllables, PUNC = d.punc || {}, py = window.pinyinPro;
+    var EN = ttsAI.en || {};
     var ids = [], tones = [], latin = 0, unknown = 0;
+
+    // 英文詞典的一筆是「音素|tone 值」，原樣送進模型（tone 值就是它訓練時用的 7/8/9/10）
+    function pushEn(entry) {
+      var p = entry.split("|"), ph = p[0].split(" "), tn = (p[1] || "").split(" ");
+      for (var k = 0; k < ph.length; k++) {
+        var id = tok[ph[k]];
+        if (id === undefined) { unknown++; continue; }
+        ids.push(id); tones.push(+tn[k] || 7);
+      }
+    }
 
     function pushSy(s) {                       // s = {syl, tone}
       var ph = SYL[s.syl];
@@ -593,8 +613,20 @@ audio { width: 100%; margin-top: 12px; }
         i = k;
       } else if (/[A-Za-z]/.test(ch)) {
         var w = i;
-        while (w < text.length && /[A-Za-z']/.test(text[w])) w++;
-        latin++; i = w;                        // 英文單字還沒接（要 MeloTTS 的英文詞典）
+        while (w < text.length && /[A-Za-z'’\-]/.test(text[w])) w++;
+        var word = text.slice(i, w).toLowerCase().replace(/['’]s$/, "");
+        i = w;
+        var hit = EN[word];
+        if (hit) {
+          pushEn(hit);
+        } else {
+          // 詞典裡沒有（YouTube、iPhone、品牌名…）：逐字母念，跟一般 TTS 一樣
+          latin++;
+          for (var lw = 0; lw < word.length; lw++) {
+            var letter = EN[word[lw]];
+            if (letter) pushEn(letter); else unknown++;
+          }
+        }
       } else {
         var p = PUNC[ch];
         if (p && tok[p] !== undefined) { ids.push(tok[p]); tones.push(7); }
@@ -627,10 +659,11 @@ audio { width: 100%; margin-top: 12px; }
 
   // 一句話 → Float32Array（44.1 kHz）。lengthScale > 1 變慢、< 1 變快（重新合成，音高不變）
   function ttsRun(text, lengthScale) {
-    return ttsEnsureModel().then(function (sess) {
-      var d = ttsAI.syl;
+    return Promise.all([ttsEnsureModel(),
+      /[A-Za-z]/.test(text) ? ttsEnLex() : null]).then(function (r) {
+      var sess = r[0], d = ttsAI.syl;
       var seq = ttsPhones(text, d);
-      if (!seq.ids.length) throw new Error("這一句沒有可以念的中文（目前只支援中文與數字）");
+      if (!seq.ids.length) throw new Error("這一句沒有可以念的字（支援中文、英文與數字）");
       var x = [0], tn = [0], i;
       for (i = 0; i < seq.ids.length; i++) { x.push(seq.ids[i], 0); tn.push(seq.tones[i], 0); }
       var ort = window.ort, n = x.length;
@@ -784,7 +817,7 @@ audio { width: 100%; margin-top: 12px; }
       var secs = buf.length / TTS_SR;
       var msg = "完成：" + cues.length + " 句、" + fmtT(secs) + "（調整了 " + adjusted + " 句的長度，花了 " +
         fmtT((performance.now() - startedAt) / 1000) + "）";
-      if (warnLatin) msg += "；" + warnLatin + " 個英文單字還沒接，先跳過";
+      if (warnLatin) msg += "；" + warnLatin + " 個英文詞典沒有的字用字母念（YouTube → Y-O-U…）";
       if (warnUnknown) msg += "；" + warnUnknown + " 個字查不到讀音，先跳過";
       setStatus($("ttsStatus"), msg, warnLatin || warnUnknown);
     }
@@ -2009,7 +2042,7 @@ audio { width: 100%; margin-top: 12px; }
     applyEq, eqStages, eqMagDb, biquad, normalizeLoudness, limitPeaks, frameLevels, speechLevelDb, peakDb,
     ttsPhones, zhNumber, ttsRun, ttsSyllables, ttsPinyin, ttsEnsureModel, ttsSandhi, ttsAI, TTS_SR,
     fxPalette, ed, addTake, rebuildBuffer, renderTakes, takesKey, ready, drawEffects, edCoverage, tts,
-    ov, ovSpec, ovResample, ovExtractSE, ovConvert, ovModels, OV_SR };
+    ov, ovSpec, ovResample, ovExtractSE, ovConvert, ovModels, OV_SR, ttsEnLex };
   drawEffects();
   // 語音辨識模型卡（使用者自行下載、存瀏覽器；模型檔不在 repo）
   loadScriptOnce(new URL("../../assets/model-store.js", document.baseURI).href).then(function () {
