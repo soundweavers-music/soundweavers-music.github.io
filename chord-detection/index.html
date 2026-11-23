@@ -58,7 +58,9 @@ body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background:
 .sys-bar.non-dia::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: #f59e0b; }
 .sys-bar.non-dia .chord .cname { color: #b45309; }
 .chord-line { position: relative; height: calc(var(--chord-size, 15px) * 1.7); margin-bottom: var(--row-gap, 2px); }
-.chord { position: absolute; top: 0; padding: 0 2px; overflow: hidden; white-space: nowrap; cursor: pointer; border-radius: 4px; }
+.chord { position: absolute; top: 0; padding: 0 2px; overflow: hidden; white-space: nowrap; cursor: grab; border-radius: 4px; }
+.sys-bar.dragging .chord { cursor: grabbing; }
+.sys-bar.dragging { outline: 2px dashed var(--accent, #a0522d); outline-offset: -2px; }
 .chord .cname { font-size: var(--chord-size, 17px); font-weight: 800; line-height: 1.15; }
 .chord .cdeg { font-size: 10px; color: var(--muted); margin-left: 4px; }
 .chord .cdia { display: block; line-height: 0; margin-top: 2px; }
@@ -2866,6 +2868,25 @@ function parseLRC(text) {
   return lines;
 }
 
+// 已經分析過這首歌：只把目前這份歌詞重新對到旋律、譜面與和弦譜上（不重跑分離主唱／抓旋律／判和弦）
+async function reapplyLyricsOnly() {
+  setStatus('只重新對齊歌詞：旋律、和弦、節拍沿用上次分析結果…', 'analyzing');
+  if (state.melodyEngine === 'ai') await ensureLyricAnchors();   // 逐字時間（有快取就不會重跑）
+  rebuildMelodyNotes();
+  computeLyricSegments();
+  renderChart();
+  // 譜面（簡譜編輯）是另一份資料，也要重排一次，不然看起來像「匯入沒生效」
+  if (typeof SC !== 'undefined' && SC.score && typeof scEdit === 'function') {
+    const meta = SC.score.meta;
+    scEdit(() => {
+      SC.score = scBuildFromDetection();
+      Object.assign(SC.score.meta, meta, { key: SC.score.meta.key });
+      SC.sel = null; SC.selEnd = null;
+    });
+  }
+  setStatus(`歌詞已對上旋律（${state.lyrics.length} 行），譜面與和弦譜都換成新歌詞了；旋律與和弦沒有重算。`, 'done');
+}
+
 async function loadLRCFile(file) {
   const buf = await file.arrayBuffer();
   const text = decodeText(buf);
@@ -2885,12 +2906,7 @@ async function loadLRCFile(file) {
   // 已經分析過這首歌：旋律、和弦、節拍都還在，只要把新歌詞對到旋律上，
   // 不要重跑分離主唱／抓旋律／判和弦（那要好幾十秒，而且結果一模一樣）。
   if (state.melodyFrames && state.melodySmooth && state.audioBuffer) {
-    setStatus('只重新對齊歌詞：旋律、和弦、節拍沿用上次分析結果…', 'analyzing');
-    if (state.melodyEngine === 'ai') await ensureLyricAnchors();   // 逐字時間（有快取就不會重跑）
-    rebuildMelodyNotes();
-    computeLyricSegments();
-    renderChart();
-    setStatus(`歌詞已對上旋律（${state.lyrics.length} 行），旋律與和弦沒有重算。`, 'done');
+    await reapplyLyricsOnly();
     return;
   }
   if (state.showMelody && state.audioBuffer && detectMode() === 'ai') { await ensureMelody(); return; }   // 還沒分析過：走完整流程
@@ -3344,6 +3360,14 @@ function melodyNotesFromLyrics(frames) {
         const ch = cs[q] || '';
         notes.push({ midi: c.midi, start: c.t, end: Math.max(c.t + 0.08, c.end), lyric: SC_PUNCT.test(ch) ? '' : ch });
       });
+      // AI 逐字對齊只回傳「聽得到」的字（氣音、假音可能漏），後面的字不能因此整串不見
+      if (cs.length > ln.length && notes.length) {
+        const last = notes[notes.length - 1];
+        for (let q = ln.length; q < cs.length; q++) {
+          // 用最後一個字的音高往上補幾個音，時間沿用（避免同一個字重複、也留著順序）
+          notes.push({ midi: last.midi, start: last.start, end: last.end, lyric: SC_PUNCT.test(cs[q]) ? '' : cs[q] });
+        }
+      }
     }
     return notes;
   }
@@ -3357,8 +3381,9 @@ function melodyNotesFromLyrics(frames) {
     for (let k = 0; k < chars.length; k++) {
       const s = times[k];
       const e = (k + 1 < chars.length) ? times[k + 1] : Math.min(t1, s + 1.0);
-      const m = dominantMidiInRange(frames, s, Math.max(s + 0.08, e));
-      if (m < 0) continue;
+      let m = dominantMidiInRange(frames, s, Math.max(s + 0.08, e));
+      // 這一段抓不到音高（氣音、講話、換氣）→ 沿用前一個音的高度，字不要掉
+      if (m < 0) m = notes.length ? notes[notes.length - 1].midi : 60;
       notes.push({ midi: m, start: s, end: Math.max(s + 0.08, e), lyric: SC_PUNCT.test(chars[k]) ? '' : chars[k] });
     }
   }
@@ -3888,6 +3913,74 @@ function openEditModal(idx) {
 function closeEditModal() {
   document.getElementById('edit-modal').style.display = 'none';
   editingBarIdx = -1;
+}
+
+let chartDragMoved = false;   // 剛剛拖過和弦：接下來那個 click 不要當成「點小節試聽」
+
+// 拖曳和弦：把兩個相鄰和弦的分界線左右移（四分音符對齊）。
+// 一個小節只有一個和弦時，位置就等於小節線，要用「小節線 ◀拍／拍▶」或「位移」調。
+function chartChordDrag(e) {
+  const seg = e.target.closest ? e.target.closest('.chord') : null;
+  if (!seg) return false;
+  const barEl = seg.closest('.sys-bar');
+  const line = seg.closest('.chord-line');
+  if (!barEl || !line) return false;
+  const idx = Number(barEl.dataset.bar);
+  const orig = state.originalChords && state.originalChords[idx];
+  const parts = orig && Array.isArray(orig.parts) ? orig.parts : (state.chords[idx] && state.chords[idx].parts);
+  if (!parts || !parts.length) return false;
+  const bpb = state.beatsPerBar || 4;
+  const total = barTotalBeats(idx);
+  // 這個和弦是第幾個
+  const acc = Number(seg.dataset.beat) || 0;
+  let k = 0, cur = 0;
+  for (let i = 0; i < parts.length; i++) { if (Math.abs(cur - acc) < 1e-6) { k = i; break; } cur += parts[i].beats || 1; }
+  if (parts.length < 2) {
+    setStatus('這一小節只有一個和弦：它的位置就是小節線。要調時間請用「小節線 ◀拍／拍▶」或「位移」，要換和弦按 ✏。', '');
+    return true;
+  }
+  e.preventDefault();
+  const rect = line.getBoundingClientRect();
+  const beatAt = clientX => Math.max(0.25, Math.min(bpb - 0.25,
+    Math.round(((clientX - rect.left) / Math.max(1, rect.width)) * bpb * 4) / 4));
+  const backup = parts.map(x => x.beats);
+  let moved = false;
+  const x0 = e.clientX;
+  const move = ev => {
+    if (!moved && Math.abs(ev.clientX - x0) < 3) return;   // 只是點一下：照常試聽
+    moved = true;
+    chartDragMoved = true;
+    const beat = beatAt(ev.clientX);
+    const starts = [];
+    let acc2 = 0;
+    for (let i = 0; i < parts.length; i++) { starts.push(acc2); acc2 += backup[i]; }
+    if (k < parts.length - 1) {
+      // 拖的是分界線：這個和弦變長／變短，下一個吸收
+      const b = Math.max(starts[k] + 0.25, Math.min(starts[k + 1] + backup[k + 1] - 0.25, beat));
+      parts[k].beats = +(b - starts[k]).toFixed(4);
+      parts[k + 1].beats = +(backup[k] + backup[k + 1] - parts[k].beats).toFixed(4);
+    } else {
+      // 最後一個和弦：拖的是前面那條分界線
+      const b = Math.max(starts[k - 1] + 0.25, Math.min(starts[k] - 0.25, beat));
+      parts[k - 1].beats = +(b - starts[k - 1]).toFixed(4);
+      parts[k].beats = +(backup[k - 1] + backup[k] - parts[k - 1].beats).toFixed(4);
+    }
+    buildDisplayChords();
+    renderChart();
+    const el = document.querySelector('.sys-bar[data-bar="' + idx + '"]');
+    if (el) el.classList.add('dragging');
+  };
+  const up = () => {
+    window.removeEventListener('pointermove', move);
+    window.removeEventListener('pointerup', up);
+    const el = document.querySelector('.sys-bar[data-bar="' + idx + '"]');
+    if (el) el.classList.remove('dragging');
+    if (typeof scSyncChordsFromState === 'function') scSyncChordsFromState(idx);
+    setStatus('第 ' + (idx + 1 - state.pickupBars) + ' 小節的和弦分界調好了（' + parts.map(p => p.beats + ' 拍').join(' + ') + '）', '');
+  };
+  window.addEventListener('pointermove', move);
+  window.addEventListener('pointerup', up);
+  return true;
 }
 
 // 把「畫面上看到的那個和弦」寫回該小節；座標換回原調：
@@ -4625,6 +4718,18 @@ function initUI() {
     applyChartSizes();
   });
   applyChartSizes();
+
+  // 和弦可以拖：拖的是「兩個和弦的分界線」；拖動過就把後面的點擊吃掉（不然會觸發試聽）
+  const chartEl = document.getElementById('chart');
+  if (chartEl) {
+    chartEl.addEventListener('pointerdown', e => { chartChordDrag(e); });
+    chartEl.addEventListener('click', e => {
+      if (!chartDragMoved) return;
+      chartDragMoved = false;
+      e.preventDefault();
+      e.stopPropagation();
+    }, true);
+  }
 
   // 預備拍：0..3 拍，或交給自動判斷
   document.getElementById('pickup-select').addEventListener('change', function () {
