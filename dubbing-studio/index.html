@@ -39,6 +39,10 @@
 .db-voice { display: grid; grid-template-columns: 1fr auto; gap: 6px 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--line, #e5e0d8); font-size: 13.5px; }
 .db-voice:last-child { border-bottom: 0; }
 .db-voice small { color: var(--muted, #6b6257); }
+/* 產生中的按鈕：讓它看起來在動，不然會以為當機 */
+.db-btn.busy { position: relative; overflow: hidden; cursor: progress; }
+.db-btn.busy::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,.45), transparent); transform: translateX(-100%); animation: dbSweep 1.4s linear infinite; }
+@keyframes dbSweep { to { transform: translateX(100%) } }
 /* 錄音／分段 */
 .rec-on { background: #b3352f !important; border-color: #b3352f !important; color: #fff !important; }
 .rec-on::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #fff; margin-right: 6px; vertical-align: 1px; animation: dbPulse 1s ease-in-out infinite; }
@@ -409,7 +413,7 @@ audio { width: 100%; margin-top: 12px; }
   function stopSpeak() {
     if (window.speechSynthesis) speechSynthesis.cancel();
     tts.previewing = false;
-    $("ttsStop").disabled = true;
+    $("ttsStop").disabled = !ttsBusy;        // 產生配音還在跑的話，停止鈕要留著
     $("ttsPreview").disabled = tts.cues.length === 0;
   }
 
@@ -589,8 +593,13 @@ audio { width: 100%; margin-top: 12px; }
       .then(function (r) {
         return window.ZhiyinModels.get("melotts-zh").then(function (rec) {
           if (!rec || !rec.buf) throw new Error("還沒有安裝配音模型：請在「配音模型」卡片按「下載模型」，下載完再按「選擇已下載的檔案…」安裝一次。");
-          return r[0].InferenceSession.create(new Uint8Array(rec.buf),
-            { executionProviders: ["wasm"], enableCpuMemArena: false });
+          var ort = r[0], bytes = new Uint8Array(rec.buf);
+          var opts = { executionProviders: ["wasm"], enableCpuMemArena: false };
+          return ort.InferenceSession.create(bytes, opts).catch(function (e) {
+            // worker（proxy）在某些瀏覽器／設定下開不起來：退回主執行緒，至少還能用
+            ort.env.wasm.proxy = false;
+            return ort.InferenceSession.create(bytes, opts);
+          });
         });
       })
       .then(function (sess) { ttsAI.sess = sess; return sess; })
@@ -656,6 +665,9 @@ audio { width: 100%; margin-top: 12px; }
   function ttsSetBusy(b) {
     ttsBusy = b;
     $("ttsRender").disabled = b || !tts.cues.length;
+    $("ttsRender").textContent = b ? "產生中…（按「停止」可以取消）" : "產生配音（AI）";
+    $("ttsRender").classList.toggle("busy", b);
+    $("ttsStop").disabled = !b && !tts.previewing;   // 產生中要能按停止
     $("ttsPlay").disabled = b || !ttsAI.out;
     $("ttsExport").disabled = b || !ttsAI.out;
   }
@@ -668,21 +680,54 @@ audio { width: 100%; margin-top: 12px; }
     var total = Math.ceil((cues[cues.length - 1].end + 0.4) * TTS_SR);
     var buf = new Float32Array(total);
     var i = 0, warnLatin = 0, warnUnknown = 0, adjusted = 0;
+    var startedAt = performance.now(), perSec = ttsAI.perSec || 0;
+    // 每次按「產生配音」給一個新的編號：舊的那一輪就算晚回來，也不會蓋掉新的一輪
+    var runId = ttsAI.runId = (ttsAI.runId || 0) + 1;
 
     ttsAI.out = null;
+    ttsAI.cancel = false;
     ttsSetBusy(true);
     stopSpeak();
 
+    // 每 0.4 秒更新一次：進行到第幾句、已用多久、預估還要多久（推論在 worker，畫面不會凍）
+    function tick() {
+      var el = (performance.now() - startedAt) / 1000;
+      var left = perSec ? Math.max(0, perSec * (cues.length - i) - (el - i * perSec)) : 0;
+      var txt = "第 " + Math.min(i + 1, cues.length) + " / " + cues.length + " 句：合成中…（已用 " + fmtT(el);
+      if (i >= 1 && perSec) txt += "，每句約 " + perSec.toFixed(1) + " 秒、還要約 " + fmtT(left);
+      setStatus($("ttsStatus"), txt + "）");
+    }
+    clearInterval(ttsAI.ticker);
+    ttsAI.ticker = setInterval(tick, 400);
+    if (!ttsAI.sess) setStatus($("ttsStatus"), "第一次使用要先把模型載進記憶體（幾十秒，之後就快了）…");
+
+    function stopTick() { clearInterval(ttsAI.ticker); ttsAI.ticker = null; }
+    // 按「停止」時立刻反應（不等手上那一句算完）：停掉計時、解鎖按鈕、說已取消
+    ttsAI.onCancel = function () {
+      stopTick();
+      ttsSetBusy(false);
+      prog($("ttsProg"), -1);
+      setStatus($("ttsStatus"), "已取消（已經算好的 " + i + " 句沒有留著）");
+    };
     function fail(e) {
+      stopTick();
       ttsSetBusy(false);
       setStatus($("ttsStatus"), (e && e.message) || String(e), true);
       prog($("ttsProg"), 0);
     }
+    function cancelled() {
+      stopTick();
+      ttsSetBusy(false);
+      prog($("ttsProg"), -1);
+      setStatus($("ttsStatus"), "已取消（已經算好的 " + i + " 句沒有留著）");
+    }
     function step() {
+      if (runId !== ttsAI.runId) return;                 // 已經被新的一輪取代
+      if (ttsAI.cancel) return cancelled();
       if (i >= cues.length) return done();
       var c = cues[i], target = Math.max(0.2, c.end - c.start);
-      setStatus($("ttsStatus"), "第 " + (i + 1) + " / " + cues.length + " 句：合成中…");
-      prog($("ttsProg"), i / cues.length);
+      var t1 = performance.now();
+      prog($("ttsProg"), (i + 0.25) / cues.length);      // 每句一開始就先讓進度條動一下
       ttsRun(c.text, 1).then(function (first) {
         var dur = first.data.length / TTS_SR;
         var ratio = dur / target;                       // >1 表示原本太長
@@ -694,21 +739,26 @@ audio { width: 100%; margin-top: 12px; }
         }
         return first;
       }).then(function (r) {
+        if (runId !== ttsAI.runId) return;
+        if (ttsAI.cancel) return cancelled();
         var a = r.data, w = r.warn || {};
         warnLatin += w.latin || 0; warnUnknown += w.unknown || 0;
-        var end = ttsPlace(buf, c.start, a);
-        var over = end / TTS_SR - (c.end + 0.05);
+        ttsPlace(buf, c.start, a);
+        var spent = (performance.now() - t1) / 1000;
+        perSec = perSec ? perSec * 0.7 + spent * 0.3 : spent;   // 移動平均，用來估還要多久
+        ttsAI.perSec = perSec;
         i++;
         prog($("ttsProg"), i / cues.length);
-        if (over > 0.05) warnUnknown += 0;              // 超出一點點就算了（下一句會蓋過去）
         step();
-      }).catch(fail);
+      }).catch(function (e) { if (runId === ttsAI.runId) fail(e); });
     }
     function done() {
+      stopTick();
       ttsAI.out = buf;
       ttsSetBusy(false);
       var secs = buf.length / TTS_SR;
-      var msg = "完成：" + cues.length + " 句、" + fmtT(secs) + "（調整了 " + adjusted + " 句的長度）";
+      var msg = "完成：" + cues.length + " 句、" + fmtT(secs) + "（調整了 " + adjusted + " 句的長度，花了 " +
+        fmtT((performance.now() - startedAt) / 1000) + "）";
       if (warnLatin) msg += "；" + warnLatin + " 個英文單字還沒接，先跳過";
       if (warnUnknown) msg += "；" + warnUnknown + " 個字查不到讀音，先跳過";
       setStatus($("ttsStatus"), msg, warnLatin || warnUnknown);
@@ -754,7 +804,12 @@ audio { width: 100%; margin-top: 12px; }
     renderAiVoiceState();
   }).catch(function () { /* 沒有模型卡也能用系統語音預覽 */ });
 
-  $("ttsStop").onclick = function () { ttsStopAudio(); stopSpeak(); setStatus($("ttsStatus"), "已停止"); };
+  $("ttsStop").onclick = function () {
+    ttsAI.cancel = true;                       // 產生配音跑到一半也停得下來
+    ttsStopAudio(); stopSpeak();
+    if (ttsAI.onCancel) { ttsAI.onCancel(); ttsAI.onCancel = null; }
+    else setStatus($("ttsStatus"), "已停止");
+  };
 
   // ═══════════════════════ ② 口白剪輯 ═══════════════════════
   // 口白可以是「好幾段」：每次錄音或每個上傳的檔案都是一段（take），
@@ -1049,7 +1104,9 @@ audio { width: 100%; margin-top: 12px; }
       if (!window.ort) throw new Error("onnxruntime-web 沒有正確載入");
       window.ort.env.wasm.wasmPaths = ORT_DIR;
       window.ort.env.wasm.numThreads = 1;
-      window.ort.env.wasm.proxy = false;
+      // 推論丟到 worker（onnxruntime 自己的 proxy worker）：不然一整句要算 7 秒，
+      // 這 7 秒主執行緒完全被佔住，畫面不會動、按鈕也不理人，看起來就像當機。
+      window.ort.env.wasm.proxy = true;
       return window.ort;
     });
     return ortLoading;
@@ -1719,7 +1776,7 @@ audio { width: 100%; margin-top: 12px; }
   window.__dubbing = { parseSubtitle, alignCues, sim, timeStretch, denoise, breathRegions, wav, normText,
     applyEq, eqStages, eqMagDb, biquad, normalizeLoudness, limitPeaks, frameLevels, speechLevelDb, peakDb,
     ttsPhones, zhNumber, ttsRun, ttsSyllables, ttsPinyin, ttsEnsureModel, ttsSandhi, ttsAI, TTS_SR,
-    fxPalette, ed, addTake, rebuildBuffer, renderTakes, takesKey, ready, drawEffects, edCoverage };
+    fxPalette, ed, addTake, rebuildBuffer, renderTakes, takesKey, ready, drawEffects, edCoverage, tts };
   drawEffects();
   // 語音辨識模型卡（使用者自行下載、存瀏覽器；模型檔不在 repo）
   loadScriptOnce(new URL("../../assets/model-store.js", document.baseURI).href).then(function () {

@@ -61,6 +61,16 @@ PAGE = """<!doctype html><meta charset="utf-8"><title>tts check</title>
   check('合成：長度與 Python 參考一致（3.09 秒 ±20%）', secs > 2.4 && secs < 3.8, secs.toFixed(2) + ' 秒');
   check('合成：不是靜音', rms > 0.01 && peak > 0.05, 'RMS ' + rms.toFixed(4) + '、峰值 ' + peak.toFixed(3));
 
+  // 2a. 合成時主執行緒會不會被卡住（卡住 = 使用者以為當機）
+  var gaps = [], ticks = 0, last = performance.now();
+  var timer = setInterval(function () { var n = performance.now(); gaps.push(n - last); last = n; ticks++; }, 50);
+  await D.ttsRun('這一句專門用來量主執行緒會不會被卡住。', 1);
+  clearInterval(timer);
+  var maxGap = gaps.length ? Math.max.apply(null, gaps) : Infinity;
+  var secs2 = (performance.now() - last) / 1000;
+  check('介面：合成時主執行緒最長停頓 < 0.5 秒', maxGap < 500,
+    gaps.length ? '計時器跑了 ' + ticks + ' 次、最長停頓 ' + maxGap.toFixed(0) + ' ms' : '整段都沒跑到計時器（畫面會像當機）');
+
   // 2b. 暖機後一句要多久（第一次包含模型載入與 wasm 編譯）
   t0 = performance.now();
   var warm = await D.ttsRun('這一段用來量速度，字幕越長就越久。', 1);
@@ -72,6 +82,28 @@ PAGE = """<!doctype html><meta charset="utf-8"><title>tts check</title>
   var slow = await D.ttsRun('今天天氣很好', 1.4), fast = await D.ttsRun('今天天氣很好', 0.8);
   check('語速：length_scale 1.4 比 0.8 長', slow.data.length > fast.data.length * 1.4,
     (slow.data.length / D.TTS_SR).toFixed(2) + ' s vs ' + (fast.data.length / D.TTS_SR).toFixed(2) + ' s');
+
+  // 3b. 按下去有反應：進度會動、可以取消
+  var doc = frame.contentDocument;
+  D.tts.cues = [
+    { start: 0, end: 2.0, text: '第一句話' },
+    { start: 2.0, end: 4.0, text: '第二句話' },
+    { start: 4.0, end: 6.0, text: '第三句話' }
+  ];
+  var renderBtn = doc.getElementById('ttsRender'), stopBtn = doc.getElementById('ttsStop');
+  renderBtn.disabled = false;
+  D.ttsAI.cancel = false;
+  renderBtn.click();
+  await new Promise(function (r) { setTimeout(r, 1500); });
+  var midStatus = doc.getElementById('ttsStatus').textContent;
+  var busyText = renderBtn.textContent;
+  check('反應：按下去馬上顯示進度與已用時間', /已用/.test(midStatus), midStatus);
+  check('反應：按鈕變成「產生中」', /產生中/.test(busyText), busyText);
+  stopBtn.click();
+  await new Promise(function (r) { setTimeout(r, 800); });
+  var endStatus = doc.getElementById('ttsStatus').textContent;
+  check('反應：按「停止」可以取消，不會卡在那裡', /已取消/.test(endStatus) && !renderBtn.classList.contains('busy'),
+    endStatus);
 
   // 4. 把音檔傳回本機，方便人耳比對
   var blob = new Blob([D.wav(a, D.TTS_SR)], { type: 'audio/wav' });
