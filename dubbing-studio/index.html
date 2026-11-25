@@ -2422,8 +2422,16 @@ audio { width: 100%; margin-top: 12px; }
       box.hidden = !wantV5;
       window.ttsV5Prepare().then(function (eng) {
         eng.setEngine(wantV5);
-        $("v5EngineStatus").textContent = wantV5 ? (eng.hasRef() ? "V5 就緒" : "請先設定參考音") : "";
-      }).catch(function (err) { $("v5EngineStatus").textContent = err.message; });
+        if (!wantV5) { $("v5EngineStatus").textContent = ""; return; }
+        return eng.warmup().then(function () {
+          var pf = eng.preflight();
+          $("v5EngineStatus").textContent = pf.ok ? "V5 就緒" : pf.problems.join("；");
+          $("v5EngineStatus").className = "db-status" + (pf.ok ? "" : " warn");
+        });
+      }).catch(function (err) {
+        $("v5EngineStatus").textContent = (err.stage ? "【" + err.stage + "】" : "") + err.message;
+        $("v5EngineStatus").className = "db-status warn";
+      });
     });
     var apply = $("v5RefApply");
     if (apply) apply.onclick = function () {
