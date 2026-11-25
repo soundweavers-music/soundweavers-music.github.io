@@ -2420,6 +2420,13 @@ audio { width: 100%; margin-top: 12px; }
       if (!e.target || e.target.name !== "ttsEngine") return;
       var wantV5 = e.target.value === "v5";
       box.hidden = !wantV5;
+      if (wantV5 && !V5.ready) {
+        $("v5EngineStatus").textContent = "V5 模型還沒安裝：請在上方「V5 模型組」按「到 Release 頁面下載」，" +
+          "載完再按「選擇已下載的檔案（可多選）」把十個檔案一次選進來。";
+        $("v5EngineStatus").className = "db-status warn";
+        $("v5ModelCard").scrollIntoView({ block: "center" });
+        return;
+      }
       window.ttsV5Prepare().then(function (eng) {
         eng.setEngine(wantV5);
         if (!wantV5) { $("v5EngineStatus").textContent = ""; return; }
