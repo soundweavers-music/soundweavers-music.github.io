@@ -62,7 +62,7 @@
 
   function lib() {
     if (S.lib) return S.lib;
-    S.lib = loadScript(new URL("../model-store.js", ASSET).href)
+    S.lib = loadScript(new URL("../../model-store.js", ASSET).href)
       .then(ensureOrt)
       .then(function () { return loadScript(ASSET + "g2p.js"); })
       .then(function () { return loadScript(ASSET + "audio.js"); })
