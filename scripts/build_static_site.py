@@ -632,6 +632,13 @@ def site_header(page_path):
         </div>
       </div>
       <div class="nav-dropdown">
+        <a href="{resolve_url(page_path, '/news/')}" class="dropdown-trigger">音樂新聞</a>
+        <div class="dropdown-menu">
+          <a href="{resolve_url(page_path, '/news/')}">📰 每日音樂科技播報</a>
+          <a href="https://soundweavers-musicnews.github.io/news/" target="_blank" rel="noopener">前往子網站</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
         <a href="{resolve_url(page_path, '/sound-journey/')}" class="dropdown-trigger">聲音旅圖</a>
         <div class="dropdown-menu">
           <a href="{resolve_url(page_path, '/sound-journey/')}">旅圖門口</a>
@@ -3463,6 +3470,59 @@ def build_lrc_tool():
 
 
 
+NEWS_ORIGIN = "https://soundweavers-musicnews.github.io"
+NEWS_PATH = "/news/"
+
+
+def build_news_page():
+    """Build 音樂新聞 at /news/ —— 載入隔壁織音人的子網站（soundweavers-musicnews）。
+
+    做法：把子網站的 HTML 抓下來，塞進同源 iframe 的 srcdoc，並在裡面
+      (1) 用 <base> 把相對網址指回子網站，資源才找得到
+      (2) 藏掉子網站自己的站頭／頁尾（只留內容）
+    srcdoc 的 iframe 與母頁同源，所以可以量高度自動撐開。
+    子網站有送 Access-Control-Allow-Origin: *，所以抓得到。
+    """
+    csp = (
+        "default-src 'self'; "
+        "img-src 'self' https: data:; "
+        "style-src 'self' 'unsafe-inline' " + NEWS_ORIGIN + "; "
+        "script-src 'self' 'unsafe-inline' " + NEWS_ORIGIN + "; "
+        "connect-src 'self' " + NEWS_ORIGIN + "; "
+        "font-src 'self' https: data:; media-src 'self' https: blob:; "
+        "worker-src 'self' blob:; "
+        "frame-src 'self' " + NEWS_ORIGIN + " https://www.youtube-nocookie.com https://www.youtube.com; "
+        "base-uri 'self'; form-action 'self'; object-src 'none'"
+    )
+    out = OUTPUT_DIR / "news" / "index.html"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    embed_src = resolve_url(out, "/assets/news-embed.js")
+    body = '''
+    <main class="wrap">
+      <section class="page-intro">
+        <h1>音樂新聞</h1>
+        <p>隔壁織音人的每日音樂科技播報：自動整理最新的音樂科技產品、AI 音訊技術與製作教學，
+           搭配 30 秒手繪動畫短影片與技術分析。</p>
+        <p class="muted">這一頁直接顯示子網站
+           <a href="https://soundweavers-musicnews.github.io/news/" target="_blank" rel="noopener">soundweavers-musicnews</a>
+           的內容（只保留內容區，不重複它的站頭與頁尾）。</p>
+      </section>
+      <div id="newsFrameBox" data-src="https://soundweavers-musicnews.github.io/news/">
+        <p class="muted" id="newsStatus">正在載入新聞…</p>
+      </div>
+      <p class="muted">載入不到時，可以直接開
+        <a href="https://soundweavers-musicnews.github.io/news/" target="_blank" rel="noopener">原網站</a>。</p>
+    </main>
+    <script src="__EMBED_SRC__"></script>
+    '''
+    body = body.replace("__EMBED_SRC__", embed_src)
+    html = page("音樂新聞｜每日音樂科技播報", body, out,
+                meta_description="隔壁織音人的每日音樂科技播報：最新音樂科技產品、AI 音訊技術與製作教學，搭配 30 秒手繪動畫與技術分析。",
+                csp=csp)
+    out.write_text(html, encoding="utf-8")
+    print("Built 音樂新聞 at /news/")
+
+
 def build_dubbing_tool():
     """Build 織音AI配音剪輯 at /tools/dubbing/.
 
@@ -3924,6 +3984,7 @@ def main():
     build_index(instruments)
     build_map_page(instruments)
     build_about_page()
+    build_news_page()
     build_recruit_page()
     build_learn_page()
     build_sound_journey_pages()
@@ -3976,6 +4037,10 @@ def main():
     learn_js = BASE_DIR / "assets" / "learn-search.js"
     if learn_js.exists():
         write(OUTPUT_DIR / "assets" / "learn-search.js", learn_js.read_text(encoding="utf-8"))
+    # /news/ 用來嵌子網站的程式
+    news_js = BASE_DIR / "assets" / "news-embed.js"
+    if news_js.exists():
+        write(OUTPUT_DIR / "assets" / "news-embed.js", news_js.read_text(encoding="utf-8"))
     # Copy the bundled CJK serif so @font-face in site-refresh.css resolves
     font_src = BASE_DIR / "fonts"
     if font_src.exists():
