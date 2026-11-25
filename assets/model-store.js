@@ -85,6 +85,8 @@
     '.zmodel-list{list-style:none;margin:10px 0 0;padding:0;font-size:12.5px}' +
     '.zmodel-item{display:flex;justify-content:space-between;gap:10px;padding:3px 0;border-bottom:1px dashed var(--line,#e5e0d8)}' +
     '.zmodel-item:last-child{border-bottom:0}' +
+    '.zmodel-item-right{display:flex;gap:10px;align-items:baseline}' +
+    '.zmodel-item-get{color:var(--accent,#a0522d);text-decoration:none;font-size:12.5px}' +
     '.zmodel-item-state{color:var(--muted,#6b6257)}' +
     '.zmodel-item-state.ok{color:#2f6b3f}' +
     '.zmodel-note{margin:10px 0 0;font-size:12px;color:var(--muted,#6b6257);line-height:1.6}';
@@ -206,6 +208,8 @@
       '<span class="zmodel-meta"></span><span class="zmodel-state zmodel-set-state">檢查中…</span></div>' +
       '<ul class="zmodel-list"></ul>' +
       '<div class="zmodel-act">' +
+      '  <a class="zmodel-a primary zmodel-rel" target="_blank" rel="noopener" hidden>到 Release 頁面下載</a>' +
+      '  <button type="button" class="zmodel-btn ghost zmodel-copy" hidden>複製全部下載連結</button>' +
       '  <button type="button" class="zmodel-btn primary zmodel-pick-set">選擇已下載的檔案（可多選）…</button>' +
       '  <button type="button" class="zmodel-btn zmodel-del-set" hidden>全部移除</button>' +
       '</div>' +
@@ -227,8 +231,13 @@
         totalBytes += e.size || 0;
         var li = document.createElement("li");
         li.className = "zmodel-item";
-        li.innerHTML = '<span class="zmodel-item-name"></span><span class="zmodel-item-state"></span>';
+        li.innerHTML = '<span class="zmodel-item-name"></span>' +
+          '<span class="zmodel-item-right"><a class="zmodel-item-get" target="_blank" rel="noopener">下載</a>' +
+          '<span class="zmodel-item-state"></span></span>';
         li.querySelector(".zmodel-item-name").textContent = e.name || k;
+        var a = li.querySelector(".zmodel-item-get");
+        if (e.url) { a.href = e.url; a.textContent = "下載（" + fmtSize(e.size) + "）"; }
+        else a.hidden = true;
         listEl.appendChild(li);
         get(k).then(function (r) {
           var ok = !!r, stale = isStale(r, e);
@@ -248,8 +257,8 @@
         delB.hidden = done === 0;
         noteEl.innerHTML = done === keys.length
           ? "整組都在這個瀏覽器裡（IndexedDB），下次開啟不用再下載。總共 " + fmt(totalBytes) + "。"
-          : "第一次要下載 " + keys.length + " 個檔案（共 " + fmt(totalBytes) + "）。到 Release 頁面全部下載後，" +
-            "按上面的按鈕一次全選進來即可。";
+          : "第一次要下載 " + keys.length + " 個檔案（共 " + fmt(totalBytes) + "）。" +
+            "按每一列的「下載」，或用上面的「到 Release 頁面下載」；全部載完後按「選擇已下載的檔案（可多選）」一次選進來。";
         document.dispatchEvent(new CustomEvent("zhiyin-model-changed", { detail: { group: group, ready: done === keys.length } }));
       });
     }
@@ -259,6 +268,21 @@
       if (!keys.length) { stateEl.textContent = "找不到這組模型"; return null; }
       keys.forEach(function (k) { entries[k] = all[k]; });
       refresh();
+
+      var relA = q(".zmodel-rel"), copyB = q(".zmodel-copy");
+      var firstUrl = (entries[keys[0]] || {}).url || "";
+      if (firstUrl) {
+        relA.href = firstUrl.replace(/\/releases\/download\/[^/]+\/.*$/, "/releases");
+        relA.hidden = false;
+        copyB.hidden = false;
+        copyB.onclick = function () {
+          var txt = keys.map(function (k) { return entries[k].url; }).filter(Boolean).join("
+");
+          (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject())
+            .then(function () { copyB.textContent = "已複製 " + keys.length + " 個連結"; })
+            .catch(function () { prompt("複製下面這些連結：", txt); });
+        };
+      }
 
       pickB.onclick = function () { fileIn.click(); };
       fileIn.onchange = function () {
