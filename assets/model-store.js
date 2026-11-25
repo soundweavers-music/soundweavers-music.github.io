@@ -82,6 +82,11 @@
     '.zmodel-btn,.zmodel-a{font-size:13px;border-radius:7px;padding:7px 12px;border:1px solid var(--line2,#d6cfc2);background:var(--soft,#f8f5ef);color:var(--ink,#2e2820);text-decoration:none;cursor:pointer}' +
     '.zmodel-btn.primary,.zmodel-a.primary{background:var(--accent,#a0522d);border-color:var(--accent,#a0522d);color:#fff}' +
     '.zmodel-btn[disabled]{opacity:.45;cursor:not-allowed}' +
+    '.zmodel-list{list-style:none;margin:10px 0 0;padding:0;font-size:12.5px}' +
+    '.zmodel-item{display:flex;justify-content:space-between;gap:10px;padding:3px 0;border-bottom:1px dashed var(--line,#e5e0d8)}' +
+    '.zmodel-item:last-child{border-bottom:0}' +
+    '.zmodel-item-state{color:var(--muted,#6b6257)}' +
+    '.zmodel-item-state.ok{color:#2f6b3f}' +
     '.zmodel-note{margin:10px 0 0;font-size:12px;color:var(--muted,#6b6257);line-height:1.6}';
   var styled = false;
   function style() {
@@ -191,5 +196,108 @@
     });
   }
 
-  window.ZhiyinModels = { get: get, put: put, del: del, sha256: sha256, manifest: manifest, mount: mount, isStale: isStale };
+  // 一次裝一整組模型（例如 V5 的十張圖）：一份清單、一次選檔、逐檔對到清單裡的名字
+  function mountSet(el, group, opts) {
+    if (!el) return Promise.resolve(null);
+    style();
+    el.classList.add("zmodel");
+    el.innerHTML = '' +
+      '<div class="zmodel-top"><b class="zmodel-name">' + ((opts && opts.title) || "模型組") + '</b>' +
+      '<span class="zmodel-meta"></span><span class="zmodel-state zmodel-set-state">檢查中…</span></div>' +
+      '<ul class="zmodel-list"></ul>' +
+      '<div class="zmodel-act">' +
+      '  <button type="button" class="zmodel-btn primary zmodel-pick-set">選擇已下載的檔案（可多選）…</button>' +
+      '  <button type="button" class="zmodel-btn zmodel-del-set" hidden>全部移除</button>' +
+      '</div>' +
+      '<p class="zmodel-note"></p>' +
+      '<input type="file" class="zmodel-file-set" multiple accept=".onnx" hidden>';
+
+    var q = function (s) { return el.querySelector(s); };
+    var stateEl = q(".zmodel-set-state"), listEl = q(".zmodel-list"), noteEl = q(".zmodel-note");
+    var pickB = q(".zmodel-pick-set"), delB = q(".zmodel-del-set"), fileIn = q(".zmodel-file-set");
+    var entries = {}, keys = [];
+
+    function fmt(n) { return n >= 1048576 ? (n / 1048576).toFixed(0) + " MB" : Math.round(n / 1024) + " KB"; }
+
+    function refresh() {
+      var have = 0, bytes = 0, totalBytes = 0;
+      listEl.innerHTML = "";
+      keys.forEach(function (k) {
+        var e = entries[k], rec = null;
+        totalBytes += e.size || 0;
+        var li = document.createElement("li");
+        li.className = "zmodel-item";
+        li.innerHTML = '<span class="zmodel-item-name"></span><span class="zmodel-item-state"></span>';
+        li.querySelector(".zmodel-item-name").textContent = e.name || k;
+        listEl.appendChild(li);
+        get(k).then(function (r) {
+          var ok = !!r, stale = isStale(r, e);
+          if (ok && !stale) { have++; bytes += e.size || 0; }
+          var st = li.querySelector(".zmodel-item-state");
+          st.textContent = ok ? (stale ? "舊版" : "已安裝") : "缺";
+          st.className = "zmodel-item-state" + (ok && !stale ? " ok" : "");
+          if (have + 1 === 0) return;
+          stateEl.textContent = have === keys.length ? "已就緒" : ("缺 " + (keys.length - have) + " 個");
+          stateEl.className = "zmodel-state zmodel-set-state" + (have === keys.length ? " ok" : "");
+        });
+      });
+      Promise.all(keys.map(function (k) { return get(k); })).then(function (recs) {
+        var done = recs.filter(function (r, i) { return r && !isStale(r, entries[keys[i]]); }).length;
+        stateEl.textContent = done === keys.length ? "已就緒" : ("缺 " + (keys.length - done) + " 個");
+        stateEl.className = "zmodel-state zmodel-set-state" + (done === keys.length ? " ok" : "");
+        delB.hidden = done === 0;
+        noteEl.innerHTML = done === keys.length
+          ? "整組都在這個瀏覽器裡（IndexedDB），下次開啟不用再下載。總共 " + fmt(totalBytes) + "。"
+          : "第一次要下載 " + keys.length + " 個檔案（共 " + fmt(totalBytes) + "）。到 Release 頁面全部下載後，" +
+            "按上面的按鈕一次全選進來即可。";
+        document.dispatchEvent(new CustomEvent("zhiyin-model-changed", { detail: { group: group, ready: done === keys.length } }));
+      });
+    }
+
+    return manifest().then(function (all) {
+      keys = Object.keys(all).filter(function (k) { return all[k].group === group; });
+      if (!keys.length) { stateEl.textContent = "找不到這組模型"; return null; }
+      keys.forEach(function (k) { entries[k] = all[k]; });
+      refresh();
+
+      pickB.onclick = function () { fileIn.click(); };
+      fileIn.onchange = function () {
+        var files = Array.prototype.slice.call(fileIn.files || []);
+        fileIn.value = "";
+        if (!files.length) return;
+        stateEl.textContent = "安裝中…";
+        var chain = Promise.resolve(), done = 0, skipped = 0;
+        files.forEach(function (f) {
+          chain = chain.then(function () {
+            var key = keys.filter(function (k) { return entries[k].file === f.name; })[0];
+            if (!key) { skipped++; return; }
+            var e = entries[key];
+            if (e.size && f.size !== e.size) { alert(f.name + " 大小不對：" + fmt(f.size) + "，應該是 " + fmt(e.size)); return; }
+            return new Promise(function (res) {
+              var fr = new FileReader();
+              fr.onload = function () {
+                sha256(fr.result).then(function (h) {
+                  if (e.sha256 && h !== e.sha256) { alert(f.name + " 的 SHA-256 不符，跳過。"); res(); return; }
+                  put(key, fr.result, { size: f.size, sha256: h }).then(function () { done++; res(); });
+                });
+              };
+              fr.onerror = function () { res(); };
+              fr.readAsArrayBuffer(f);
+            });
+          });
+        });
+        chain.then(function () {
+          refresh();
+          if (skipped) alert("有 " + skipped + " 個檔案不在這組清單裡，已忽略。");
+        });
+      };
+      delB.onclick = function () {
+        if (!confirm("要把整組模型從瀏覽器移除嗎？下次使用要重新下載。")) return;
+        Promise.all(keys.map(function (k) { return del(k); })).then(refresh);
+      };
+      return { keys: keys };
+    });
+  }
+
+  window.ZhiyinModels = { get: get, put: put, del: del, sha256: sha256, manifest: manifest, mount: mount, mountSet: mountSet, isStale: isStale };
 })();
