@@ -153,7 +153,7 @@
       entry = all[key];
       if (!entry) { setState("沒有這個模型", ""); note.textContent = "ai-models.json 裡找不到 " + key; return null; }
       nameEl.textContent = entry.name || key;
-      metaEl.textContent = [entry.size ? fmtSize(entry.size) : "", entry.license || ""].filter(Boolean).join("・");
+      metaEl.textContent = [entry.size ? fmtSize(entry.size) : "", entry.license || ""].filter(Boolean).join(String.fromCharCode(10));
       return get(key).then(function (rec) {
         render(!!rec, isStale(rec, entry));
         pick.onclick = function () { fileIn.click(); };
@@ -276,8 +276,7 @@
         relA.hidden = false;
         copyB.hidden = false;
         copyB.onclick = function () {
-          var txt = keys.map(function (k) { return entries[k].url; }).filter(Boolean).join("
-");
+          var txt = keys.map(function (k) { return entries[k].url; }).filter(Boolean).join(String.fromCharCode(10));
           (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject())
             .then(function () { copyB.textContent = "已複製 " + keys.length + " 個連結"; })
             .catch(function () { prompt("複製下面這些連結：", txt); });
