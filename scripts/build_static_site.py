@@ -631,13 +631,7 @@ def site_header(page_path):
           <a href="{resolve_url(page_path, '/tools/dubbing/')}">🎙️ 織音AI配音剪輯</a>
         </div>
       </div>
-      <div class="nav-dropdown">
-        <a href="{resolve_url(page_path, '/news/')}" class="dropdown-trigger">音樂新聞</a>
-        <div class="dropdown-menu">
-          <a href="{resolve_url(page_path, '/news/')}">📰 每日音樂科技播報</a>
-          <a href="https://soundweavers-musicnews.github.io/news/" target="_blank" rel="noopener">前往子網站</a>
-        </div>
-      </div>
+      <a href="{resolve_url(page_path, '/news/')}">音樂新聞</a>
       <div class="nav-dropdown">
         <a href="{resolve_url(page_path, '/sound-journey/')}" class="dropdown-trigger">聲音旅圖</a>
         <div class="dropdown-menu">
