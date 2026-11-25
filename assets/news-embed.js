@@ -51,8 +51,8 @@
 
   var HIDE = "<style>" +
     "header.site-header,.site-header,nav.site-nav,footer.site-footer,.site-footer{display:none!important}" +
-    "body{padding-top:0!important;margin:0}" +
-    "main.container{max-width:none!important;padding:0!important}" +
+    "body{padding-top:0!important;margin:0;background:transparent}" +
+    "main.container{max-width:100%!important}" +
     "</style>";
 
   fetch(NEWS, { credentials: "omit" })
@@ -67,7 +67,7 @@
       var f = document.createElement("iframe");
       f.title = "音樂新聞";
       f.setAttribute("loading", "lazy");
-      f.style.cssText = "width:100%;border:0;display:block;min-height:800px";
+      f.style.cssText = "width:100%;max-width:1040px;margin:0 auto;border:0;display:block;min-height:800px";
       f.srcdoc = injected;
 
       var fit = function () {

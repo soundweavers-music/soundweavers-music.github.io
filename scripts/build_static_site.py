@@ -3498,20 +3498,10 @@ def build_news_page():
     out.parent.mkdir(parents=True, exist_ok=True)
     embed_src = resolve_url(out, "/assets/news-embed.js")
     body = '''
-    <main class="wrap">
-      <section class="page-intro">
-        <h1>音樂新聞</h1>
-        <p>隔壁織音人的每日音樂科技播報：自動整理最新的音樂科技產品、AI 音訊技術與製作教學，
-           搭配 30 秒手繪動畫短影片與技術分析。</p>
-        <p class="muted">這一頁直接顯示子網站
-           <a href="https://soundweavers-musicnews.github.io/news/" target="_blank" rel="noopener">soundweavers-musicnews</a>
-           的內容（只保留內容區，不重複它的站頭與頁尾）。</p>
-      </section>
-      <div id="newsFrameBox" data-src="https://soundweavers-musicnews.github.io/news/">
+    <main class="wrap news-page">
+      <div id="newsFrameBox" class="news-frame-box" data-src="https://soundweavers-musicnews.github.io/news/">
         <p class="muted" id="newsStatus">正在載入新聞…</p>
       </div>
-      <p class="muted">載入不到時，可以直接開
-        <a href="https://soundweavers-musicnews.github.io/news/" target="_blank" rel="noopener">原網站</a>。</p>
     </main>
     <script src="__EMBED_SRC__"></script>
     '''
