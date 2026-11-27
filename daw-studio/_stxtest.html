@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><title>速度／對齊 面板自測</title>
+<link rel="stylesheet" href="daw.css">
+<style>body{background:#111;color:#ddd;font-family:system-ui;padding:16px}</style>
+</head><body>
+<h3>速度／人聲對齊 自測</h3>
+<pre id="log"></pre>
+<script type="module">
+import { store, newProject, newTrack } from './js/state.js';
+import { uid, computePeaks } from './js/util.js';
+import { wsola, envelope, bestOffset, openStretchPanel, openAlignPanel } from './js/stretch-ui.js';
+
+const log = (...a) => { document.getElementById('log').textContent += a.join(' ') + '\n'; };
+window.__result = { steps: [] };
+function step(name, ok, extra) { window.__result.steps.push({ name, ok, extra }); log((ok ? '✓ ' : '✗ ') + name + (extra ? ' — ' + extra : '')); }
+
+// 造一段 2 秒的測試音（正弦 + 節拍），放進專案
+const sr = 44100;
+const buf = new AudioBuffer({ numberOfChannels: 1, length: sr * 2, sampleRate: sr });
+const ch = buf.getChannelData(0);
+// 用「不規則的雜訊爆點」而不是正弦——週期性訊號會讓對齊出現多個等高的峰
+let seed = 12345;
+const rnd = () => (seed = (seed * 1103515245 + 12345) & 0x7fffffff) / 0x7fffffff;
+for (let i = 0; i < ch.length; i++) ch[i] = 0;
+for (let k = 0; k < 14; k++) {
+  const at = Math.floor(rnd() * (ch.length - sr * 0.06));
+  const len = Math.floor(sr * (0.02 + rnd() * 0.04));
+  for (let j = 0; j < len; j++) ch[at + j] += (rnd() * 2 - 1) * 0.5;
+}
+store.project = newProject();
+store.project.tracks.length = 0;
+const t1 = newTrack(0, 'audio'); t1.name = '人聲';
+const t2 = newTrack(1, 'audio'); t2.name = '伴奏';
+store.project.tracks.push(t1, t2);
+const bufId2 = uid('buf');
+store.buffers.set(bufId2, buf);
+store.bufferMeta.set(bufId2, { name: 'ref.wav', peaks: computePeaks(buf) });
+const ref = new AudioBuffer({ numberOfChannels: 1, length: sr * 2, sampleRate: sr });
+const rc = ref.getChannelData(0);
+const lag = Math.round(sr * 0.3);
+for (let i = lag; i < rc.length; i++) rc[i] = ch[i - lag];
+store.buffers.set(bufId2, ref);
+store.bufferMeta.set(bufId2, { name: 'ref.wav', peaks: computePeaks(ref) });
+t2.clips.push({ id: uid('clip'), name: '伴奏.wav（延遲 0.3 秒）', bufferId: bufId2, start: 0, duration: 2, offset: 0 });
+store.buffers.set('b1', buf);
+store.bufferMeta.set('b1', { name: 'vocal.wav', peaks: computePeaks(buf) });
+const clip = { id: uid('clip'), name: '人聲.wav', bufferId: 'b1', start: 0.35, duration: 1.5, offset: 0.2 };
+t1.clips.push(clip);
+
+// ⓪ bestOffset 單元測試
+const fakeRef = { env: new Float32Array(200), hopSec: 0.01 };
+const fakeTgt = { env: new Float32Array(200), hopSec: 0.01 };
+for (let i = 0; i < 200; i++) fakeTgt.env[i] = (i % 17 === 0) ? 1 : 0.02;
+for (let i = 30; i < 200; i++) fakeRef.env[i] = fakeTgt.env[i - 30];
+const bo = bestOffset(fakeRef, fakeTgt);
+step('bestOffset 抓到 +30 格（=300 ms）', Math.abs(bo.seconds - 0.3) < 0.03, bo.seconds.toFixed(3) + 's，相似度 ' + bo.score.toFixed(2));
+
+// ① WSOLA
+const stretched = wsola(ch, 0.5);
+step('WSOLA 長度減半', Math.abs(stretched.length - ch.length / 2) < 3, `${ch.length} → ${stretched.length}`);
+
+// ② 速度面板
+try {
+  openStretchPanel(clip.id);
+  const el = document.querySelector('.stx-panel');
+  step('速度面板打開', !!el);
+  step('面板有滑桿', !!el.querySelector('.stx-slider'));
+  step('面板有套用鍵', !!el.querySelector('.stx-apply'));
+  const before = clip.duration;
+  el.querySelector('.stx-slider').value = 200;
+  el.querySelector('.stx-slider').dispatchEvent(new Event('input'));
+  el.querySelector('.stx-apply').click();
+  await new Promise(r => setTimeout(r, 400));
+  step('套用後長度變短', clip.duration < before - 0.05, `${before.toFixed(2)}s → ${clip.duration.toFixed(2)}s`);
+  step('片段名稱有標記', /×2\.00/.test(clip.name), clip.name);
+} catch (e) { step('速度面板', false, e.message); }
+
+// ③ 對齊面板（用一個沒被伸縮過的新片段，才不會被 ② 影響）
+try {
+  const buf3 = new AudioBuffer({ numberOfChannels: 1, length: sr * 2, sampleRate: sr });
+  buf3.copyToChannel(ch.slice(), 0);
+  store.buffers.set('b3', buf3);
+  store.bufferMeta.set('b3', { name: 'vocal2.wav', peaks: computePeaks(buf3) });
+  const clip2 = { id: uid('clip'), name: '人聲2.wav', bufferId: 'b3', start: 0, duration: 2, offset: 0 };
+  t1.clips.push(clip2);
+  openAlignPanel(clip2.id);
+  const el = document.querySelector('.stx-panel');
+  step('對齊面板打開', !!el);
+  step('有參考下拉', el.querySelector('.stx-ref').options.length >= 2, el.querySelector('.stx-ref').options.length + ' 個選項');
+  const sel = el.querySelector('.stx-ref');
+  const idx = Array.from(sel.options).findIndex(o => o.textContent.indexOf('伴奏') >= 0);
+  sel.value = String(idx);
+  sel.dispatchEvent(new Event('change'));
+  el.querySelector('.stx-detect').click();
+  await new Promise(r => setTimeout(r, 100));
+  const offv = el.querySelector('.stx-off').textContent;
+  const ms = parseInt(offv, 10);
+  step('自動對齊抓到約 300 ms', Math.abs(Math.abs(ms) - 300) < 80, offv);
+  const beforeStart = clip2.start;
+  el.querySelector('.stx-apply').click();
+  await new Promise(r => setTimeout(r, 300));
+  step('套用後片段被移動', clip2.start !== beforeStart, `start ${beforeStart} → ${clip2.start.toFixed(3)}`);
+} catch (e) { step('對齊面板', false, e.message); }
+
+window.__done = true;
+</script>
+</body></html>

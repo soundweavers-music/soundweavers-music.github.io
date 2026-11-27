@@ -5,6 +5,7 @@ import { sfLabel } from './soundbank.js';
 import { separateClip } from './separate.js';
 import { openAiSeparate } from './demucs-ui.js';
 import { openBreathPanel } from './breath-ui.js';
+import { openStretchPanel, openAlignPanel } from './stretch-ui.js';
 import { engine } from './engine.js';
 import { recorder } from './recorder.js';
 import { importAudioFiles } from './project-io.js';
@@ -966,6 +967,8 @@ function onLanesContext(e) {
       { label: '複製一份接在後面', key: 'Ctrl+D', action: duplicateSelected },
       ...(midi ? [] : [
         { label: n > 1 ? `升降音（${n} 個片段）…` : '升降音…', action: () => store.emit('open-pitch', { clipIds: [...store.selection.clipIds] }) },
+        { label: '調整速度（時間伸縮）…', disabled: n > 1 || !found.bufferId, action: () => openStretchPanel(id) },
+        { label: '人聲對齊…（以另一軌／MIDI／節拍為參考）', disabled: n > 1 || !found.bufferId, action: () => openAlignPanel(id) },
         { label: '分離人聲／伴奏（簡易版）', disabled: n > 1, action: () => separateClip(id) },
         { label: '去除呼吸聲…', disabled: n > 1 || !found.bufferId, action: () => openBreathPanel(store.findClip(id).track.id, id) },
         { label: 'AI 分離人聲／伴奏（Demucs）…', disabled: n > 1, action: () => openAiSeparate(id) },

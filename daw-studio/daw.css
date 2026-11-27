@@ -730,9 +730,9 @@ a.tbtn { text-decoration: none; }
 /* ---------- Auto Tune 人聲修音 ---------- */
 .fx-panel.tune { width: 720px; }
 .atx { display: grid; gap: 10px; padding: 12px; background: radial-gradient(120% 80% at 0% 0%, rgba(53,201,165,.08), transparent 60%), radial-gradient(120% 80% at 100% 0%, rgba(181,139,255,.08), transparent 60%), var(--deep); }
-.atx-top { display: grid; grid-template-columns: 210px 1fr; gap: 10px; }
+.atx-top { display: grid; grid-template-columns: 236px 1fr; gap: 10px; }
 .atx-tuner { position: relative; background: linear-gradient(var(--tuner-a), var(--tuner-b)); border: 1px solid var(--line2); border-radius: 10px; padding: 6px 6px 8px; box-shadow: inset 0 1px 0 var(--inset-hi); }
-.atx-meter { display: block; width: 100%; height: 118px; }
+.atx-meter { display: block; width: 100%; height: 126px; }
 .atx-note { display: grid; justify-items: center; gap: 2px; margin-top: -4px; }
 .atx-note b { font-size: 26px; font-weight: 700; letter-spacing: .02em; color: var(--tx1); font-family: var(--mono); text-shadow: 0 0 14px currentColor; transition: color .15s; }
 .atx-note span { font-size: 10.5px; color: var(--tx2); font-family: var(--mono); white-space: nowrap; }
@@ -744,6 +744,28 @@ a.tbtn { text-decoration: none; }
 .atx-keysel label { display: flex; align-items: center; gap: 6px; }
 .atx-keysel select { background: var(--bg0); border: 1px solid var(--line2); border-radius: 5px; padding: 4px 6px; color: var(--tx0); }
 .atx-keysel .atx-detect { height: 28px; }
+.atx-keysel .atx-refp { width: 60px; background: var(--bg0); border: 1px solid var(--line2); border-radius: 5px; padding: 3px 5px; color: var(--tx0); font-family: var(--mono); font-size: 11.5px; }
+/* 修正量錶：這次實際把音高拉了多少 */
+.atx-corr { display: grid; gap: 2px; margin-top: 7px; }
+.atx-corrhead { display: flex; justify-content: space-between; align-items: baseline; font-size: 10px; color: var(--tx2); }
+.atx-corrhead em { font-style: normal; color: var(--val-tx); font-family: var(--mono); }
+.atx-corrbar { display: block; width: 100%; height: 22px; }
+/* 狀態膠囊 */
+.atx-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.atx-chip { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--line2); background: var(--bg0); font-size: 10.5px; }
+.atx-chip b { font-weight: 500; color: var(--tx2); }
+.atx-chip i { font-style: normal; color: var(--tx0); font-family: var(--mono); }
+/* MIDI 控制 */
+.atx-midibtn { height: 28px; padding: 0 12px; border-radius: 14px; border: 1px solid var(--line2); background: var(--bg0); color: var(--tx1); font-size: 12px; cursor: pointer; }
+.atx-midibtn:hover { border-color: var(--accent); }
+.atx-midibtn.on { background: linear-gradient(#5b8cff, #2f57b8); border-color: #5b8cff; color: #f2f6ff; font-weight: 700; }
+/* 圖例 */
+.atx-legend { position: absolute; top: 6px; right: 8px; display: flex; align-items: center; gap: 5px; font-size: 10px; color: var(--tx2); pointer-events: none; background: rgba(0,0,0,.30); padding: 2px 8px; border-radius: 999px; }
+.atx-legend i { display: inline-block; width: 12px; height: 2px; border-radius: 1px; margin-left: 5px; }
+.atx-legend i:first-child { margin-left: 0; }
+.atx-legend .atx-lo { background: var(--cv-orig); }
+.atx-legend .atx-lc { background: #4f9dff; }
+.atx-legend .atx-lt { background: #3fd88a; }
 .atx-piano { position: relative; height: 74px; display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; padding: 3px; background: var(--piano-bg); border-radius: 7px; border: 1px solid var(--line2); }
 .atx-k { position: relative; border: 0; padding: 0 0 5px; cursor: pointer; font-size: 9.5px; display: flex; align-items: flex-end; justify-content: center; transition: background .12s, box-shadow .12s; }
 .atx-k.w { background: linear-gradient(#d9dbe0, #b8bbc3); color: #555; border-radius: 0 0 4px 4px; }
@@ -753,7 +775,7 @@ a.tbtn { text-decoration: none; }
 .atx-k.root::after { content: ''; position: absolute; top: 5px; left: 50%; width: 6px; height: 6px; margin-left: -3px; border-radius: 50%; background: #f5b83d; box-shadow: 0 0 6px #f5b83d; }
 .atx-k:hover { filter: brightness(1.08); }
 .atx-k span { pointer-events: none; }
-.atx-knobs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.atx-knobs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
 .atx-knob { display: grid; justify-items: center; gap: 1px; padding: 8px 4px 6px; background: linear-gradient(var(--card-a), var(--card-b)); border: 1px solid var(--line2); border-radius: 10px; }
 .atx-knob canvas { cursor: ns-resize; touch-action: none; }
 .atx-knob b { font-size: 12px; color: var(--tx0); font-weight: 600; margin-top: 2px; }
@@ -2000,3 +2022,21 @@ dialog input[type=checkbox], dialog input[type=radio],
 .ctxmenu .sw-set i { width: 15px; height: 15px; border-radius: 4px; display: block;
   box-shadow: inset 0 0 0 1px rgba(0,0,0,.28); }
 .ctxmenu .sw-set { display: inline-flex; gap: 3px; }
+
+/* ── 速度／人聲對齊面板（js/stretch-ui.js） ─────────────────── */
+.stx-panel { position: fixed; z-index: 132; background: var(--panel); border: 1px solid var(--panel-line); border-radius: 10px; box-shadow: 0 18px 50px var(--shadow-a); overflow: hidden; }
+.stx-head { display: flex; align-items: center; gap: 8px; padding: 8px 10px; background: linear-gradient(var(--panel-head-a), var(--panel-head-b)); border-bottom: 1px solid var(--line); cursor: move; }
+.stx-title { font-weight: 700; }
+.stx-owner { color: var(--tx2); font-size: 11px; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.stx-body { padding: 10px 12px 12px; display: grid; gap: 8px; }
+.stx-cv { display: block; width: 100%; background: #0b0c10; border-radius: 8px; border: 1px solid var(--line); }
+.stx-row { display: flex; align-items: center; gap: 10px; font-size: 12px; color: var(--tx1); }
+.stx-lab { min-width: 96px; color: var(--tx2); }
+.stx-lab b { color: var(--tx0); font-variant-numeric: tabular-nums; }
+.stx-slider, .stx-offr, .stx-ratr { flex: 1; accent-color: var(--accent, #6ea8ff); }
+.stx-presets { gap: 6px; }
+.stx-presets .tbtn { padding: 3px 8px; font-size: 11.5px; }
+.stx-note { margin: 2px 0 0; font-size: 11.5px; color: var(--tx2); line-height: 1.6; }
+.stx-note b { color: var(--tx0); font-variant-numeric: tabular-nums; }
+.stx-actions { display: flex; gap: 8px; justify-content: flex-end; padding-top: 4px; }
+.stx-ref { flex: 1; background: var(--field, #16181d); color: var(--tx0); border: 1px solid var(--panel-line); border-radius: 6px; padding: 4px 6px; font-size: 12px; }
