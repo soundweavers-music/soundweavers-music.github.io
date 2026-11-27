@@ -5,22 +5,26 @@ import { TUNE_SCALES, TUNE_RANGES, NOTE_NAMES_ZH, scaleMask } from './effects.js
 import { detectKeyFromTrack } from './keydetect.js';
 import { toast } from './util.js';
 import { openNoteEditor } from './note-editor.js';
+import { addInputHook } from './midi-input.js';
 import { cssVar, ink } from './theme.js';
 
 const BLACK = new Set([1, 3, 6, 8, 10]);
 const noteOf = m => NOTE_NAMES_ZH[((Math.round(m) % 12) + 12) % 12] + (Math.floor(Math.round(m) / 12) - 1);
 
+// i18n 抽取器只掃得到「單行引號字串」，所以新字串集中在這裡再插進樣板
+const UI = { tuneable: '可修音', mode: '工作模式', corr: '修正量' };
+
 // 修正速度的刻度：0~400 ms，左邊機械、右邊自然
 const RETUNE_LABEL = ms => (ms <= 5 ? '機械（T-Pain）' : ms <= 25 ? '快速' : ms <= 70 ? '自然' : ms <= 150 ? '柔和' : '非常柔和');
 
 export const TUNE_PRESETS = [
-  { name: '自然修音（推薦）', p: { retune: 45, amount: 100, vibrato: 70 }, tip: '幾乎聽不出處理痕跡，保留歌手原本的顫音與滑音。' },
-  { name: '輕微修正', p: { retune: 90, amount: 60, vibrato: 85 }, tip: '只把偏得比較多的音拉回來一點。' },
-  { name: '流行（緊）', p: { retune: 18, amount: 100, vibrato: 40 }, tip: '現代流行歌常見的乾淨、準確感。' },
-  { name: '機械音（T-Pain）', p: { retune: 0, amount: 100, vibrato: 0 }, tip: '音高瞬間跳到音階音，經典的電子人聲效果。' },
-  { name: '慢歌／抒情', p: { retune: 120, amount: 100, vibrato: 90 }, tip: '長音慢慢被拉準，保留情感的起伏。' },
-  { name: '饒舌／說唱', p: { retune: 30, amount: 70, vibrato: 30 }, tip: '說唱段落不要修太多，只讓旋律句準一點。' },
-  { name: '現場演出（低延遲）', p: { live: 1, retune: 8, amount: 100, vibrato: 25, mix: 100 }, tip: '16 ms 延遲，邊唱邊聽幾乎沒有回音感；最低音域到 100 Hz。' },
+  { name: '自然修音（推薦）', p: { retune: 45, amount: 100, vibrato: 70, humanize: 35, flex: 25 }, tip: '幾乎聽不出處理痕跡：保留顫音、長音留一點自然漂移，接近準的音不硬拉。' },
+  { name: '輕微修正', p: { retune: 90, amount: 60, vibrato: 85, humanize: 45, flex: 45 }, tip: '只把偏得比較多的音拉回來一點，表情幾乎原封不動。' },
+  { name: '流行（緊）', p: { retune: 18, amount: 100, vibrato: 40, humanize: 0, flex: 0 }, tip: '現代流行歌常見的乾淨、準確感。' },
+  { name: '機械音（T-Pain）', p: { retune: 0, amount: 100, vibrato: 0, humanize: 0, flex: 0 }, tip: '音高瞬間跳到音階音，經典的電子人聲效果。' },
+  { name: '慢歌／抒情', p: { retune: 120, amount: 100, vibrato: 90, humanize: 55, flex: 40 }, tip: '長音慢慢被拉準，保留情感的起伏。' },
+  { name: '饒舌／說唱', p: { retune: 30, amount: 70, vibrato: 30, humanize: 25, flex: 60 }, tip: '說唱段落不要修太多，只讓旋律句準一點。' },
+  { name: '現場演出（低延遲）', p: { live: 1, retune: 8, amount: 100, vibrato: 25, humanize: 0, flex: 0, mix: 100 }, tip: '16 ms 延遲，邊唱邊聽幾乎沒有回音感；最低音域到 100 Hz。' },
 ];
 
 export function tuneEditor(owner, desc, onChange) {
@@ -30,22 +34,39 @@ export function tuneEditor(owner, desc, onChange) {
   root.className = 'atx';
   root.innerHTML = `
     <div class="atx-top">
-      <div class="atx-tuner"><canvas class="atx-meter"></canvas>
-        <div class="atx-note"><b>—</b><span>—</span></div></div>
-      <div class="atx-graph"><canvas class="atx-cv"></canvas><div class="atx-hint">播放或開啟輸入監聽（I）時顯示即時音高</div></div>
+      <div class="atx-tuner">
+        <canvas class="atx-meter"></canvas>
+        <div class="atx-note"><b>—</b><span>—</span></div>
+        <div class="atx-corr">
+          <div class="atx-corrhead"><span>${UI.corr}</span><em>±0 cent</em></div>
+          <canvas class="atx-corrbar"></canvas>
+        </div>
+      </div>
+      <div class="atx-graph">
+        <canvas class="atx-cv"></canvas>
+        <div class="atx-hint">播放或開啟輸入監聽（I）時顯示即時音高</div>
+        <div class="atx-legend"><i class="atx-lo"></i>原聲<i class="atx-lc"></i>修正後<i class="atx-lt"></i>目標音</div>
+      </div>
     </div>
     <div class="atx-mid">
       <div class="atx-keysel">
         <label>主音 <select class="atx-key">${NOTE_NAMES_ZH.map((n, i) => `<option value="${i}">${n}</option>`).join('')}</select></label>
         <label>音階 <select class="atx-scale">${TUNE_SCALES.map((s, i) => `<option value="${i}">${s.name}</option>`).join('')}</select></label>
-        <button type="button" class="tbtn atx-detect" title="分析這一軌（或整首）的音，推測調性">🔍 偵測調性</button>
+        <label title="整把樂器不是以 440 Hz 調音時，改這裡（415–466）">參考 A4 <input type="number" class="atx-refp" min="415" max="466" step="1" value="440"> Hz</label>
         <label>音域 <select class="atx-range">${TUNE_RANGES.map((r, i) => `<option value="${i}">${r.name}</option>`).join('')}</select></label>
+        <button type="button" class="tbtn atx-detect" title="分析這一軌（或整首）的音，推測調性">🔍 偵測調性</button>
       </div>
       <div class="atx-piano"></div>
+      <div class="atx-chips">
+        <span class="atx-chip"><b>${UI.tuneable}</b><i class="atx-c-notes">—</i></span>
+        <span class="atx-chip"><b>${UI.mode}</b><i class="atx-c-mode">標準</i></span>
+        <span class="atx-chip"><b>MIDI 控制</b><i class="atx-c-midi">關</i></span>
+      </div>
     </div>
     <div class="atx-knobs"></div>
     <div class="atx-live">
       <button type="button" class="atx-livebtn"></button>
+      <button type="button" class="atx-midibtn" title="開啟後，用 MIDI 鍵盤彈一個音就能把它加進／移出可修音的音（不會發出聲音）">MIDI 控制：關</button>
       <span class="atx-livehint"></span>
     </div>
     <div class="atx-notes">
@@ -60,9 +81,10 @@ export function tuneEditor(owner, desc, onChange) {
   const $ = s => root.querySelector(s);
 
   // ---------- 音階 ----------
-  const keySel = $('.atx-key'), scaleSel = $('.atx-scale'), rangeSel = $('.atx-range');
+  const keySel = $('.atx-key'), scaleSel = $('.atx-scale'), rangeSel = $('.atx-range'), refInp = $('.atx-refp');
   keySel.value = P.key; scaleSel.value = P.scale; rangeSel.value = P.range;
-  for (const el of [keySel, scaleSel, rangeSel]) el.addEventListener('keydown', e => e.stopPropagation());
+  refInp.value = P.refp || 440;
+  for (const el of [keySel, scaleSel, rangeSel, refInp]) el.addEventListener('keydown', e => e.stopPropagation());
   const applyScale = () => {
     const m = scaleMask(P.key, P.scale);
     if (m !== null) P.mask = m;
@@ -70,6 +92,10 @@ export function tuneEditor(owner, desc, onChange) {
   keySel.onchange = () => { store.checkpoint(); P.key = +keySel.value; if (P.scale === 9) P.scale = 0, scaleSel.value = 0; applyScale(); changed(); };
   scaleSel.onchange = () => { store.checkpoint(); P.scale = +scaleSel.value; applyScale(); changed(); };
   rangeSel.onchange = () => { store.checkpoint(); P.range = +rangeSel.value; changed(); };
+  refInp.onchange = () => {
+    const v = Math.max(415, Math.min(466, Math.round(+refInp.value || 440)));
+    store.checkpoint(); P.refp = v; refInp.value = v; changed();
+  };
 
   const piano = $('.atx-piano');
   function renderPiano() {
@@ -114,12 +140,51 @@ export function tuneEditor(owner, desc, onChange) {
     finally { btn.disabled = false; btn.textContent = '🔍 偵測調性'; }
   };
 
+  // ---------- 狀態列 ----------
+  const chipNotes = $('.atx-c-notes'), chipMode = $('.atx-c-mode'), chipMidi = $('.atx-c-midi');
+  const maskCount = () => { let n = 0; for (let i = 0; i < 12; i++) if ((P.mask >> i) & 1) n++; return n; };
+  function syncChips() {
+    chipNotes.textContent = `${maskCount()} / 12 音`;
+    chipMode.textContent = P.live ? '現場 16 ms' : '標準 32 ms';
+    chipMidi.textContent = midiOn ? '開' : '關';
+  }
+
+  // ---------- MIDI 控制：用 MIDI 鍵盤點音符加入／排除可修音的音 ----------
+  let midiOn = false, unhook = null;
+  const midiBtn = $('.atx-midibtn');
+  const toggleMidi = on => {
+    midiOn = on;
+    if (unhook) { unhook(); unhook = null; }
+    if (on) {
+      unhook = addInputHook({
+        // 回傳 true = 這個音被吃掉（不會發聲、也不會錄進去）
+        note(down, key) {
+          if (!down) return true;
+          const pc = ((key % 12) + 12) % 12;
+          store.checkpoint();
+          P.mask ^= 1 << pc;
+          if (!P.mask) P.mask = 1 << pc;
+          if (scaleMask(P.key, P.scale) !== P.mask) { P.scale = 9; scaleSel.value = 9; }
+          renderPiano(); changed();
+          toast(`${NOTE_NAMES_ZH[pc]}：${(P.mask >> pc) & 1 ? '加入' : '排除'}可修音的音`);
+          return true;
+        },
+      });
+    }
+    midiBtn.textContent = on ? 'MIDI 控制：開' : 'MIDI 控制：關';
+    midiBtn.classList.toggle('on', on);
+    syncChips();
+  };
+  midiBtn.onclick = () => toggleMidi(!midiOn);
+
   // ---------- 旋鈕 ----------
   const knobsBox = $('.atx-knobs');
   const knobs = [
     { k: 'retune', label: '修正速度', min: 0, max: 400, fmt: v => `${Math.round(v)} ms`, sub: RETUNE_LABEL, curve: 2 },
     { k: 'amount', label: '修正強度', min: 0, max: 100, fmt: v => `${Math.round(v)}%`, sub: v => (v >= 95 ? '完全' : v >= 50 ? '大部分' : '輕微') },
     { k: 'vibrato', label: '保留顫音', min: 0, max: 100, fmt: v => `${Math.round(v)}%`, sub: v => (v >= 70 ? '保留原味' : v >= 30 ? '部分保留' : '拉平') },
+    { k: 'humanize', label: '人性化', min: 0, max: 100, fmt: v => `${Math.round(v)}%`, sub: v => (v >= 60 ? '很自然' : v >= 25 ? '一點漂移' : '關') },
+    { k: 'flex', label: '彈性修音', min: 0, max: 100, fmt: v => `${Math.round(v)}%`, sub: v => (v >= 60 ? '接近準就不拉' : v >= 25 ? '小幅讓步' : '硬拉') },
     { k: 'mix', label: '濕度', min: 0, max: 100, fmt: v => `${Math.round(v)}%`, sub: v => (v >= 99 ? '' : '混入原聲') },
   ];
   const kEls = {};
@@ -157,7 +222,7 @@ export function tuneEditor(owner, desc, onChange) {
       cv.addEventListener('pointermove', mv); cv.addEventListener('pointerup', up);
     });
     cv.addEventListener('wheel', e => { e.preventDefault(); P[K.k] = Math.round(fromT(toT(P[K.k]) + (e.deltaY < 0 ? 0.03 : -0.03))); draw(); live(); clearTimeout(cv._t); cv._t = setTimeout(changed, 250); }, { passive: false });
-    cv.addEventListener('dblclick', () => { store.checkpoint(); P[K.k] = { retune: 40, amount: 100, vibrato: 60, mix: 100 }[K.k]; draw(); changed(); });
+    cv.addEventListener('dblclick', () => { store.checkpoint(); P[K.k] = { retune: 40, amount: 100, vibrato: 60, humanize: 0, flex: 0, mix: 100 }[K.k]; draw(); changed(); });
     knobsBox.appendChild(w);
   }
 
@@ -168,6 +233,7 @@ export function tuneEditor(owner, desc, onChange) {
     const b = e.target.closest('button'); if (!b) return;
     store.checkpoint();
     Object.assign(P, TUNE_PRESETS[+b.dataset.i].p);
+    refInp.value = P.refp || 440;
     Object.values(kEls).forEach(f => f()); syncLive(); changed();
     toast(TUNE_PRESETS[+b.dataset.i].tip);
   };
@@ -181,6 +247,7 @@ export function tuneEditor(owner, desc, onChange) {
     liveHint.textContent = on
       ? '延遲 16 ms（標準 32 ms），適合邊唱邊聽；最低音域到 100 Hz。'
       : '標準 32 ms：音域完整、修正品質最好。';
+    syncChips();
   };
   liveBtn.onclick = () => {
     store.checkpoint(); P.live = P.live ? 0 : 1; syncLive(); changed();
@@ -218,7 +285,7 @@ export function tuneEditor(owner, desc, onChange) {
   const syncSel = () => {};
 
   function live() { store.dirty = true; store.emit('fx-live', {}); }
-  function changed() { onChange(false); renderPiano(); }
+  function changed() { onChange(false); renderPiano(); syncChips(); }
 
   // ---------- 即時顯示 ----------
   const hist = [];                    // { t, v, mi, out, tgt }
@@ -231,40 +298,69 @@ export function tuneEditor(owner, desc, onChange) {
     if (inst && inst.onPitch) unsub = inst.onPitch(d => { d._at = performance.now(); last = d; hist.push(d); if (hist.length > 600) hist.shift(); });
   };
   const meter = $('.atx-meter'), cv = $('.atx-cv'), noteEl = $('.atx-note'), hint = $('.atx-hint');
+  const corr = $('.atx-corrbar'), corrEm = $('.atx-corr em');
   let needle = 0;
   function frame() {
     if (!root.isConnected) { if (unsub) unsub(); return; }
     attach();
     const dpr = devicePixelRatio || 1;
-    // 調音表
+    // 調音錶：三段色帶（準／接近／偏）＋指針
     {
-      const W = meter.clientWidth || 200, H = meter.clientHeight || 120;
+      const W = meter.clientWidth || 220, H = meter.clientHeight || 132;
       meter.width = W * dpr; meter.height = H * dpr;
       const g = meter.getContext('2d'); g.setTransform(dpr, 0, 0, dpr, 0, 0);
-      const cx = W / 2, cy = H - 14, R = Math.min(W / 2 - 12, H - 26);
-      const A = Math.PI * 0.32;
-      // 刻度：±50 cent
+      g.clearRect(0, 0, W, H);
+      const cx = W / 2, cy = H - 16, R = Math.min(W / 2 - 14, H - 30);
+      const A = Math.PI * 0.36;
+      const ang = c => -Math.PI / 2 + c / 50 * A;
+      // 色帶：±8 cent 綠、±25 黃、之外紅
+      const zones = [[-50, -25, '#ff6b6b'], [-25, -8, '#f5d33d'], [-8, 8, '#3fd88a'], [8, 25, '#f5d33d'], [25, 50, '#ff6b6b']];
+      for (const [a0, a1, col] of zones) {
+        g.strokeStyle = col; g.globalAlpha = 0.5; g.lineWidth = 7; g.lineCap = 'butt';
+        g.beginPath(); g.arc(cx, cy, R - 5, ang(a0), ang(a1)); g.stroke();
+      }
+      g.globalAlpha = 1;
       for (let c = -50; c <= 50; c += 5) {
-        const a = -Math.PI / 2 + c / 50 * A, big = c % 25 === 0;
-        g.strokeStyle = c === 0 ? cssVar('--cv-good') : big ? cssVar('--cv-tick2') : cssVar('--cv-tick');
-        g.lineWidth = c === 0 ? 3 : big ? 2 : 1;
-        g.beginPath(); g.moveTo(cx + Math.cos(a) * (R - (big ? 14 : 8)), cy + Math.sin(a) * (R - (big ? 14 : 8))); g.lineTo(cx + Math.cos(a) * R, cy + Math.sin(a) * R); g.stroke();
+        const a = ang(c), big = c % 25 === 0;
+        g.strokeStyle = c === 0 ? cssVar('--cv-tick2') : cssVar('--cv-tick');
+        g.lineWidth = c === 0 ? 2 : 1;
+        const r0 = R - (big ? 17 : 12);
+        g.beginPath(); g.moveTo(cx + Math.cos(a) * r0, cy + Math.sin(a) * r0); g.lineTo(cx + Math.cos(a) * R, cy + Math.sin(a) * R); g.stroke();
       }
       g.fillStyle = cssVar('--cv-tick2'); g.font = '9px ui-monospace'; g.textAlign = 'center';
-      for (const c of [-50, -25, 25, 50]) { const a = -Math.PI / 2 + c / 50 * A; g.fillText((c > 0 ? '+' : '') + c, cx + Math.cos(a) * (R + 9), cy + Math.sin(a) * (R + 9) + 3); }
+      for (const c of [-50, -25, 25, 50]) { const a = ang(c); g.fillText((c > 0 ? '+' : '') + c, cx + Math.cos(a) * (R + 10), cy + Math.sin(a) * (R + 10) + 3); }
       const voiced = last && last.v && performance.now() - (last._at || 0) < 400;
       const cents = voiced ? (last.mi - last.tgt) * 100 : 0;
       needle += ((voiced ? Math.max(-50, Math.min(50, cents)) : 0) - needle) * 0.25;
-      const a = -Math.PI / 2 + needle / 50 * A;
+      const a = ang(needle);
       const col = Math.abs(needle) < 8 ? '#3fd88a' : Math.abs(needle) < 25 ? '#f5d33d' : '#ff6b6b';
-      // 指針光暈
-      g.shadowColor = col; g.shadowBlur = voiced ? 12 : 0;
-      g.strokeStyle = voiced ? col : cssVar('--cv-needle-off'); g.lineWidth = 3; g.lineCap = 'round';
-      g.beginPath(); g.moveTo(cx, cy); g.lineTo(cx + Math.cos(a) * (R - 4), cy + Math.sin(a) * (R - 4)); g.stroke();
-      g.shadowBlur = 0; g.fillStyle = cssVar('--cv-tx'); g.beginPath(); g.arc(cx, cy, 4, 0, Math.PI * 2); g.fill();
+      g.shadowColor = col; g.shadowBlur = voiced ? 14 : 0;
+      g.strokeStyle = voiced ? col : cssVar('--cv-needle-off'); g.lineWidth = 3.5; g.lineCap = 'round';
+      g.beginPath(); g.moveTo(cx, cy); g.lineTo(cx + Math.cos(a) * (R - 11), cy + Math.sin(a) * (R - 11)); g.stroke();
+      g.shadowBlur = 0; g.fillStyle = cssVar('--cv-tx'); g.beginPath(); g.arc(cx, cy, 5, 0, Math.PI * 2); g.fill();
       noteEl.querySelector('b').textContent = voiced ? noteOf(last.tgt) : '—';
       noteEl.querySelector('b').style.color = voiced ? col : '';
       noteEl.querySelector('span').textContent = voiced ? `${cents > 0 ? '+' : ''}${cents.toFixed(0)} cent → 修正到 ${noteOf(last.tgt)}` : (engine.playing ? '（無聲／子音）' : '等待聲音…');
+    }
+    // 修正量錶：實際把音高拉了多少（輸入 → 輸出）
+    if (corr && corr.isConnected) {
+      const W = corr.clientWidth || 220, H = corr.clientHeight || 24;
+      corr.width = W * dpr; corr.height = H * dpr;
+      const g = corr.getContext('2d'); g.setTransform(dpr, 0, 0, dpr, 0, 0);
+      g.clearRect(0, 0, W, H);
+      const mid = W / 2;
+      g.fillStyle = ink(.07); g.fillRect(0, H / 2 - 4, W, 8);
+      for (const f of [0.25, 0.75]) { g.fillStyle = ink(.12); g.fillRect(Math.round(W * f), H / 2 - 6, 1, 12); }
+      g.fillStyle = ink(.3); g.fillRect(mid, H / 2 - 7, 1, 14);
+      const voiced = last && last.v && performance.now() - (last._at || 0) < 400;
+      const shift = voiced ? (last.out - last.mi) * 100 : 0;
+      const k = Math.max(-50, Math.min(50, shift)) / 50;
+      const col = shift >= 0 ? '#4f9dff' : '#f78fc3';
+      const x1 = mid + k * (W / 2 - 3);
+      g.fillStyle = col;
+      g.fillRect(Math.min(mid, x1), H / 2 - 4, Math.abs(x1 - mid), 8);
+      g.beginPath(); g.arc(x1, H / 2, 4, 0, Math.PI * 2); g.fill();
+      corrEm.textContent = voiced ? `${shift > 0 ? '+' : ''}${shift.toFixed(0)} cent` : '±0 cent';
     }
     // 音高曲線
     {
@@ -302,14 +398,28 @@ export function tuneEditor(owner, desc, onChange) {
         g.shadowColor = glow || 'transparent'; g.shadowBlur = glow ? 10 : 0;
         g.stroke(); g.shadowBlur = 0;
       };
+      // 修正後曲線下的漸層，走勢看得更清楚
+      const area = g.createLinearGradient(0, 0, 0, H);
+      area.addColorStop(0, 'rgba(79,157,255,.20)'); area.addColorStop(1, 'rgba(79,157,255,0)');
+      g.beginPath(); let pen0 = false, xf0 = 0, xf1 = 0;
+      for (const h of vis) {
+        if (!h.v) { pen0 = false; continue; }
+        const x = xOf(h.t), y = yOf(h.out);
+        if (!pen0) { g.moveTo(x, y); xf0 = x; pen0 = true; } else g.lineTo(x, y);
+        xf1 = x;
+      }
+      if (pen0) { g.lineTo(xf1, H); g.lineTo(xf0, H); g.closePath(); g.fillStyle = area; g.fill(); }
       line('mi', `rgba(${cssVar('--cv-orig')},.55)`, 1.5);                   // 原本唱的
       const lg = g.createLinearGradient(0, 0, W, 0); lg.addColorStop(0, '#35c9a5'); lg.addColorStop(0.6, '#4f9dff'); lg.addColorStop(1, '#f78fc3');
       line('out', lg, 2.6, 'rgba(79,157,255,.8)');               // 修正後
+      // 目標音高：綠色虛線
+      if (last && last.v && performance.now() - (last._at || 0) < 900) {
+        const yt = Math.round(yOf(last.tgt)) + 0.5;
+        g.strokeStyle = 'rgba(63,216,138,.45)'; g.setLineDash([5, 5]); g.lineWidth = 1;
+        g.beginPath(); g.moveTo(34, yt); g.lineTo(W, yt); g.stroke(); g.setLineDash([]);
+      }
       // 現在位置
       g.fillStyle = ink(.15); g.fillRect(W - 1, 0, 1, H);
-      g.font = '10px sans-serif'; g.textAlign = 'right';
-      g.fillStyle = `rgba(${cssVar('--cv-orig')},.8)`; g.fillText('— 原聲', W - 70, 12);
-      g.fillStyle = '#4f9dff'; g.fillText('— 修正後', W - 8, 12);
     }
     drawNotes();
     raf = requestAnimationFrame(frame);
@@ -318,11 +428,12 @@ export function tuneEditor(owner, desc, onChange) {
   Object.values(kEls).forEach(f => f());
   syncSel();
   raf = requestAnimationFrame(frame);
-  root._dispose = () => { cancelAnimationFrame(raf); if (unsub) unsub(); };
+  root._dispose = () => { cancelAnimationFrame(raf); if (unsub) unsub(); if (unhook) unhook(); };
   root._openNotes = openEd;
   root._refresh = () => {
     keySel.value = P.key; scaleSel.value = P.scale; rangeSel.value = P.range;
-    renderPiano(); Object.values(kEls).forEach(f => f()); syncLive(); syncSel();
+    refInp.value = P.refp || 440;
+    renderPiano(); Object.values(kEls).forEach(f => f()); syncLive(); syncSel(); syncChips();
   };
   return root;
 }

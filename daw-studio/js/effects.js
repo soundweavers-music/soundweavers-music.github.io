@@ -68,6 +68,9 @@ export const FX_TYPES = {
       retune: { label: '修正速度', min: 0, max: 400, step: 1, def: 40, unit: 'ms' },
       amount: { label: '修正強度', min: 0, max: 100, step: 1, def: 100, unit: '%' },
       vibrato: { label: '保留顫音', min: 0, max: 100, step: 1, def: 60, unit: '%' },
+      humanize: { label: '人性化', min: 0, max: 100, step: 1, def: 0, unit: '%' },
+      flex: { label: '彈性修音', min: 0, max: 100, step: 1, def: 0, unit: '%' },
+      refp: { label: '參考音高', min: 415, max: 466, step: 0.5, def: 440, unit: 'Hz' },
       range: { label: '音域', min: 0, max: 3, step: 1, def: 0 },
       mix: { label: '濕度', min: 0, max: 100, step: 1, def: 100, unit: '%' },
       live: { label: '現場低延遲', min: 0, max: 1, step: 1, def: 0, toggle: true },
@@ -677,10 +680,12 @@ export function buildFx(ctx, desc, bpm = 120, info = {}) {
             const R = TUNE_RANGES[p.range | 0] || TUNE_RANGES[0];
             const set = (k, v) => node.parameters.get(k).setValueAtTime(v, 0);
             set('mask', p.mask); set('retune', p.retune); set('amount', p.amount / 100); set('vibrato', p.vibrato / 100);
+            set('humanize', (p.humanize ?? 0) / 100); set('flex', (p.flex ?? 0) / 100); set('refp', p.refp || 440);
             set('fmin', R.fmin); set('fmax', R.fmax);
             // 手動編輯的音符（時間軸上的絕對秒數）
             const notes = p.notesOn === false ? [] : (p.notes || []);
-            const sig = notes.map(n => `${n.s.toFixed(3)}:${n.e.toFixed(3)}:${n.midi}:${n.amt ?? 1}`).join(',');
+            const sig = notes.map(n => `${n.s.toFixed(3)}:${n.e.toFixed(3)}:${n.midi}:${n.amt ?? 1}:${n.flat ? 1 : 0}:${n.slide || 0}:`
+              + (n.curve || []).map(p => `${p.t.toFixed(2)}/${Math.round(p.c)}`).join(';')).join(',');
             if (sig !== lastNotes) { node.port.postMessage({ notes }); lastNotes = sig; }
           }
           wd.setMix(p.mix);

@@ -18,6 +18,12 @@ class AutoTune extends AudioWorkletProcessor {
       { name: 'retune', defaultValue: 40, minValue: 0, maxValue: 1000, automationRate: 'k-rate' },   // ms
       { name: 'amount', defaultValue: 1, minValue: 0, maxValue: 1, automationRate: 'k-rate' },
       { name: 'vibrato', defaultValue: 0.6, minValue: 0, maxValue: 1, automationRate: 'k-rate' },
+      // 人性化：長音的中心音高跟得慢一點，再加一點極慢的漂移，避免整顆音鎖死在音階上
+      { name: 'humanize', defaultValue: 0, minValue: 0, maxValue: 1, automationRate: 'k-rate' },
+      // 彈性修音（Flex-Tune）：已經很接近目標音時不要硬拉，保留演唱表情
+      { name: 'flex', defaultValue: 0, minValue: 0, maxValue: 1, automationRate: 'k-rate' },
+      // 參考音高：A4 的頻率（415–466 Hz），整把樂器不是 440 時用
+      { name: 'refp', defaultValue: 440, minValue: 415, maxValue: 466, automationRate: 'k-rate' },
       { name: 'fmin', defaultValue: 70, minValue: 50, maxValue: 400, automationRate: 'k-rate' },
       { name: 'fmax', defaultValue: 1000, minValue: 200, maxValue: 1500, automationRate: 'k-rate' },
     ];
@@ -122,6 +128,19 @@ class AutoTune extends AudioWorkletProcessor {
 
   allowed(mask, k) { return (mask >> (((k % 12) + 12) % 12)) & 1; }
 
+  // 音符內部的音高曲線：cv = [{t: 0–1, c: cents}]（已排序），回傳這個位置的 cents 偏移
+  curveCents(cv, proj, note) {
+    const x = Math.max(0, Math.min(1, (proj - note.s) / Math.max(1e-6, note.e - note.s)));
+    if (cv.length === 1) return cv[0].c;
+    let i = 0;
+    while (i < cv.length - 1 && cv[i + 1].t <= x) i++;
+    const a = cv[i], b = cv[i + 1];
+    if (!b) return a.c;
+    const span = b.t - a.t;
+    const w = span > 1e-9 ? Math.max(0, Math.min(1, (x - a.t) / span)) : 0;
+    return a.c + (b.c - a.c) * w;
+  }
+
   // ctx 時刻 → 專案秒數（用 engine 送來的對照表；找不到就回 null）
   projectOf(c) {
     const S = this.segs;
@@ -199,29 +218,68 @@ class AutoTune extends AudioWorkletProcessor {
     const f = this.detect(fminEff, params.fmax[0]);
     const blkSec = len / sr;
     const mask = Math.round(params.mask[0]);
+    const refp = params.refp[0] || 440;
     if (f > 0) {
-      const raw = 69 + 12 * Math.log2(f / 440);
+      const raw = 69 + 12 * Math.log2(f / refp);
       if (!this.voiced) { this.h3 = [raw, raw, raw]; this.center = raw; this.shift = 0; this.cur = -1; }
       this.h3.shift(); this.h3.push(raw);
       const s3 = this.h3.slice().sort((a, b) => a - b);
       const mi = s3[1];
+      const hum = params.humanize[0];
       // 換音（跳超過顫音幅度）時中心直接跟上，否則慢速中心會落後，造成換音瞬間修過頭
       if (Math.abs(mi - this.center) > 0.8) this.center = mi;
-      else this.center += (mi - this.center) * (1 - Math.exp(-blkSec / 0.12));
+      else this.center += (mi - this.center) * (1 - Math.exp(-blkSec / (0.12 + 0.45 * hum)));
       const vib = params.vibrato[0];
-      const ref = mi + vib * (this.center - mi);
+      let ref = mi + vib * (this.center - mi);
+      if (hum > 0) {
+        // 人性化：極慢的隨機漂移（最多 ±12 cent），讓長音不會被鎖死在音階正中央。
+        // 係數 115 是照「一階低通隨機漫步」推的：衰減 0.992 時要這麼大的擾動，穩態標準差才會到 0.7。
+        this.hw = (this.hw || 0) * (1 - Math.min(0.5, blkSec * 3)) + (Math.random() - 0.5) * blkSec * 115;
+        this.hw = Math.max(-1, Math.min(1, this.hw));
+        ref += this.hw * hum * 0.12;
+      }
       // 手動編輯過這一段 → 直接以編輯的音高為目標（不受音階遮罩與遲滯影響）
       // 輸入訊號比輸出早 L 秒進來，所以要查「輸入所在」的專案位置
       const proj = this.projectOf(currentTime);
-      const note = proj == null ? null : this.noteAt(proj + this.L / sr);
-      const tgt = note ? note.midi : this.nearest(ref, mask);
-      const amt = params.amount[0] * (note ? Math.max(0, Math.min(1, note.amt ?? 1)) : 1);
+      const at = proj == null ? null : proj + this.L / sr;
+      const note = at == null ? null : this.noteAt(at);
+      // 換音符時記下進入時間與上一個目標音（滑音要從這裡滑過去）
+      if (note !== this.curNote) {
+        this.prevTgt = this.lastTgt === undefined ? null : this.lastTgt;
+        this.curNote = note; this.noteT = at;
+      }
+      let tgt, amt;
+      if (note) {
+        tgt = note.midi;
+        // 音高曲線：音符內部的起伏（手繪的）；平直化的音忽略曲線
+        const cv = !note.flat && note.curve;
+        if (cv && cv.length && at != null) tgt = note.midi + this.curveCents(cv, at, note) / 100;
+        // 平直化（Make Curve）：完全修正、而且不受顫音影響 → 整顆音拉成平的
+        amt = note.flat ? 1 : params.amount[0] * Math.max(0, Math.min(1, note.amt ?? 1));
+        const sl = note.slide || 0;
+        if (sl > 0 && this.prevTgt != null && at != null) {
+          const w = Math.max(0, Math.min(1, (at - this.noteT) / sl));
+          tgt = this.prevTgt + (note.midi - this.prevTgt) * w;
+        }
+        if (note.flat) ref = mi;
+      } else {
+        tgt = this.nearest(ref, mask);
+        const flex = params.flex[0];
+        let fs = 1;
+        if (flex > 0) {
+          // 彈性修音：離目標音越近，修得越少（0 = 完全不理，1 = ±50 cent 內不硬拉）
+          const w = flex * 0.5;
+          const k = Math.min(1, Math.abs(ref - tgt) / w);
+          fs = k * k * (3 - 2 * k);
+        }
+        amt = params.amount[0] * fs;
+      }
       let st = (tgt - ref) * amt;
       st = Math.max(-12, Math.min(12, st));
       const rt = params.retune[0];
       const a = rt <= 0.5 ? 1 : 1 - Math.exp(-blkSec * 1000 / rt);
       this.shift += (st - this.shift) * a;
-      this.Pin = sr / Math.pow(2, (mi - 69) / 12) / 440;
+      this.Pin = sr / Math.pow(2, (mi - 69) / 12) / refp;
       this.voiced = true;
       this.lastMidi = mi; this.lastTgt = tgt;
     } else {

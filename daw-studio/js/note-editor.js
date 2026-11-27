@@ -13,6 +13,8 @@ const BLACK = new Set([1, 3, 6, 8, 10]);
 const open = new Map();   // fx id → 視窗
 const KEY_W = 46, RULER_H = 22;
 const SIZE_KEY = 'zhiyin-daw-noteed-size';
+// i18n 抽取器只掃得到「單行引號字串」，新字串集中在這裡再插進樣板
+const UI = { flat: '平直化', quant: '對齊節拍', grid: '格線', curve: '曲線', curveClear: '清空曲線' };
 
 export function openNoteEditor(owner, desc, onChange) {
   if (open.has(desc.id)) { const w = open.get(desc.id); w.style.zIndex = ++zTop; return w; }
@@ -35,6 +37,10 @@ function build(owner, desc, onChange) {
         <span class="sep"></span>
         <button type="button" class="tbtn ghost nted-snap" title="選取的音符對齊到音階（沒選 = 全部）">對齊音階</button>
         <button type="button" class="tbtn ghost nted-reset" title="選取的音符回到原本唱的音高（沒選 = 全部）">回到原音</button>
+        <button type="button" class="tbtn ghost nted-flat" title="平直化：整顆音拉成平的（不看顫音、強度 100%）。再按一次取消">${UI.flat}</button>
+        <button type="button" class="tbtn ghost nted-merge" title="把選取的音合併成一個（範圍取聯集、音高按長度加權平均）（M）">合併</button>
+        <button type="button" class="tbtn ghost nted-curve" title="曲線工具：在音符上拖曳＝畫音高起伏；拖曳圓點＝調整；雙擊圓點＝刪除">${UI.curve}</button>
+        <button type="button" class="tbtn ghost nted-curvec" title="清空選取的音（沒選 = 全部）的音高曲線">${UI.curveClear}</button>
         <button type="button" class="tbtn ghost nted-split" title="在播放頭的位置切開選取的音符（或在音符上雙擊）">切開</button>
         <button type="button" class="tbtn ghost nted-del" title="刪除選取的音符（Delete）">刪除</button>
         <span class="sep"></span>
@@ -54,6 +60,11 @@ function build(owner, desc, onChange) {
       <span class="nted-sel">沒有選取</span>
       <label>音高 <input type="number" class="nted-pitch" step="0.1" title="選取音符相對原音的移調（半音）"> 半音</label>
       <label>修正強度 <input type="range" class="nted-amt" min="0" max="100" step="1"><b class="nted-amtv"></b></label>
+      <label title="這個音進來時，從上一個音滑過來要幾毫秒（0 = 直接跳到該音）">滑音 <input type="number" class="nted-slide" step="10" min="0" max="300"> ms</label>
+      <label title="對齊節拍用的格線">${UI.grid} <select class="nted-grid">
+        <option value="4">1/4 拍</option><option value="8">1/8 拍</option><option value="16">1/16 拍</option><option value="3">1/8 三連</option>
+      </select></label>
+      <button type="button" class="tbtn ghost nted-quant" title="把選取的音（沒選 = 全部）的起音與結束對齊到格線（Q）">${UI.quant}</button>
       <span class="nted-hint">拖曳音符移動　拖左右邊緣改長度　空白處拖曳框選　雙擊切開　↑↓ 半音（Shift 10 cent）　Delete 刪除　滾輪捲動、Ctrl+滾輪縮放時間、Alt+滾輪縮放音高　點時間尺跳到該處</span>
     </div>
     <div class="nted-grip" title="拖曳改變大小"></div>`;
@@ -95,6 +106,7 @@ function build(owner, desc, onChange) {
   // ---- 檢視範圍 ----
   const V = { t0: 0, t1: 10, lo: 48, hi: 76 };   // 秒、MIDI
   let follow = true;
+  let curveMode = false;                          // 曲線工具（在音符上畫音高起伏）
   const W = () => body.clientWidth, H = () => body.clientHeight;
   const xOf = t => KEY_W + (t - V.t0) / (V.t1 - V.t0) * (W() - KEY_W);
   const tOf = x => V.t0 + (x - KEY_W) / (W() - KEY_W) * (V.t1 - V.t0);
@@ -210,13 +222,44 @@ function build(owner, desc, onChange) {
         g.beginPath(); g.moveTo(x + 3, yOf(n.orig)); g.lineTo(x + 3, y); g.stroke(); g.setLineDash([]);
         g.fillStyle = 'rgba(247,143,195,.18)'; g.fillRect(x, yOf(n.orig) - hh / 2, x2 - x, hh);
       }
+      const base = on ? '#ffd36b' : moved ? '#f78fc3' : '#4f9dff';
       g.globalAlpha = 0.35 + 0.65 * amt;
-      g.fillStyle = on ? '#ffd36b' : moved ? '#f78fc3' : '#4f9dff';
+      if (on) { g.shadowColor = 'rgba(255,211,107,.65)'; g.shadowBlur = 10; }
+      g.fillStyle = base;
       g.beginPath();
       if (g.roundRect) g.roundRect(x, y - hh / 2, Math.max(3, x2 - x), hh, Math.min(5, (x2 - x) / 2)); else g.rect(x, y - hh / 2, Math.max(3, x2 - x), hh);
       g.fill();
+      g.shadowBlur = 0;
       g.globalAlpha = 1;
       g.strokeStyle = on ? '#fff' : 'rgba(0,0,0,.35)'; g.lineWidth = on ? 1.5 : 1; g.stroke();
+      // 上緣亮線：方塊看起來有厚度
+      if (x2 - x > 3 && hh > 5) { g.fillStyle = 'rgba(255,255,255,.30)'; g.fillRect(x + 1.5, y - hh / 2 + 1.2, Math.max(1, x2 - x - 3), 1.4); }
+      // 平直化：正中間一條實線
+      if (n.flat && x2 - x > 6) { g.fillStyle = 'rgba(11,12,15,.55)'; g.fillRect(x + 2, y - 1, Math.max(2, x2 - x - 4), 2); }
+      // 滑音：左邊一個小斜坡
+      if (n.slide > 0 && x2 - x > 12 && hh > 8) {
+        g.strokeStyle = 'rgba(255,255,255,.8)'; g.lineWidth = 1.5;
+        g.beginPath(); g.moveTo(x + 1.5, y + hh / 2 - 1.5); g.lineTo(x + 8, y - hh / 2 + 1.5); g.stroke();
+      }
+      // 音高曲線：音符內部的起伏（手繪的）
+      if (n.curve && n.curve.length && !n.flat) {
+        const cw = Math.max(1, x2 - x);
+        g.strokeStyle = on ? '#fff' : '#ffd36b'; g.lineWidth = 1.8;
+        g.beginPath();
+        n.curve.forEach((p, k) => {
+          const px = x + cw * p.t, py = y - (p.c / 100) * rh;
+          k ? g.lineTo(px, py) : g.moveTo(px, py);
+        });
+        g.stroke();
+        if (on || curveMode) {
+          for (const p of n.curve) {
+            const px = x + cw * p.t, py = y - (p.c / 100) * rh;
+            g.beginPath(); g.arc(px, py, 2.8, 0, Math.PI * 2);
+            g.fillStyle = '#ffd36b'; g.fill();
+            g.strokeStyle = 'rgba(0,0,0,.55)'; g.lineWidth = 1; g.stroke();
+          }
+        }
+      }
       if (x2 - x > 34 && hh >= 10) {
         g.fillStyle = '#0b0c0f'; g.textAlign = 'left';
         const cents = moved ? ` ${n.midi - n.orig > 0 ? '+' : ''}${(n.midi - n.orig).toFixed(1)}` : '';
@@ -270,12 +313,72 @@ function build(owner, desc, onChange) {
     }
     return null;
   };
+  // 曲線上的控制點（回傳音符索引與第幾個點）
+  const hitPt = (x, y) => {
+    const all = notes(), rh = rowH();
+    for (let i = all.length - 1; i >= 0; i--) {
+      const n = all[i]; if (!n.curve || !n.curve.length) continue;
+      const x1 = xOf(n.s), cw = Math.max(1, xOf(n.e) - x1), y0 = yOf(n.midi);
+      for (let j = 0; j < n.curve.length; j++) {
+        const p = n.curve[j];
+        const px = x1 + cw * p.t, py = y0 - (p.c / 100) * rh;
+        if (Math.hypot(x - px, y - py) < 7) return { i, j };
+      }
+    }
+    return null;
+  };
+  // 拖曳一個曲線控制點
+  const dragPt = ({ i, j }, e, r) => {
+    const n = notes()[i]; if (!n || !n.curve || !n.curve[j]) return;
+    store.checkpoint();
+    const p = n.curve[j];
+    const mv = ev => {
+      const px = ev.clientX - r.left, py = ev.clientY - r.top;
+      p.t = Math.max(0, Math.min(1, (tOf(px) - n.s) / Math.max(1e-6, n.e - n.s)));
+      p.c = Math.round((yOf(n.midi) - py) / rowH() * 100);
+      n.curve.sort((a, b) => a.t - b.t);
+      live();
+    };
+    const up = () => { cv.removeEventListener('pointermove', mv); cv.removeEventListener('pointerup', up); changed(); };
+    cv.addEventListener('pointermove', mv); cv.addEventListener('pointerup', up);
+  };
+  // 在音符上畫曲線（從按下那一點開始，往右一個點一個點加）
+  const drawOn = (ni, x0, y0, r) => {
+    const n = notes()[ni]; if (!n) return;
+    store.checkpoint();
+    sel = new Set([ni]);
+    n.flat = 0;
+    n.curve = [];
+    const add = (px, py) => {
+      const t = Math.max(0, Math.min(1, (tOf(px) - n.s) / Math.max(1e-6, n.e - n.s)));
+      const c = Math.round((yOf(n.midi) - py) / rowH() * 100);
+      const arr = n.curve;
+      const lastP = arr[arr.length - 1];
+      if (lastP && t <= lastP.t) { lastP.t = t; lastP.c = c; return; }
+      if (lastP && Math.abs(t - lastP.t) < 0.004) { lastP.c = c; return; }
+      arr.push({ t, c });
+      if (arr.length > 96) arr.splice(1, 1);
+    };
+    add(x0, y0);
+    const mv = ev => { add(ev.clientX - r.left, ev.clientY - r.top); live(); };
+    const up = () => {
+      cv.removeEventListener('pointermove', mv); cv.removeEventListener('pointerup', up);
+      n.curve.sort((a, b) => a.t - b.t);
+      changed();
+    };
+    cv.addEventListener('pointermove', mv); cv.addEventListener('pointerup', up);
+  };
 
   // ---- 滑鼠 ----
   cv.addEventListener('pointermove', e => {
     if (e.buttons) return;
     const r = cv.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
     hover = y > RULER_H && x > KEY_W ? hit(x, y) : null;
+    if (curveMode) {
+      const hp = hitPt(x, y);
+      cv.style.cursor = y < RULER_H ? 'pointer' : hp ? 'move' : hover ? 'crosshair' : 'default';
+      return;
+    }
     cv.style.cursor = y < RULER_H ? 'pointer' : hover ? (hover.edge ? 'ew-resize' : 'grab') : x < KEY_W ? 'default' : 'crosshair';
   });
   cv.addEventListener('pointerleave', () => { hover = null; });
@@ -286,6 +389,12 @@ function build(owner, desc, onChange) {
     if (x < KEY_W || e.button !== 0) return;
     const h = hit(x, y);
     cv.setPointerCapture(e.pointerId);
+    // 曲線工具：拖控制點＝調整、在音符上拖＝畫線（邊緣仍可改長度）
+    if (curveMode && !(h && h.edge)) {
+      const hp = hitPt(x, y);
+      if (hp) { dragPt(hp, e, r); return; }
+      if (h) { drawOn(h.i, x, y, r); return; }
+    }
     if (!h) {
       if (!e.shiftKey) sel.clear();
       marquee = { x0: x, y0: y, x1: x, y1: y, base: new Set(sel) };
@@ -331,6 +440,12 @@ function build(owner, desc, onChange) {
   // 雙擊：在該位置切開
   cv.addEventListener('dblclick', e => {
     const r = cv.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
+    const hp = hitPt(x, y);
+    if (hp && curveMode) {                     // 曲線工具：雙擊控制點＝刪除
+      store.checkpoint();
+      notes()[hp.i].curve.splice(hp.j, 1);
+      changed(); return;
+    }
     const h = hit(x, y); if (!h) return;
     splitAt(h.i, tOf(x));
   });
@@ -362,6 +477,8 @@ function build(owner, desc, onChange) {
     else if ((k === 'a' || k === 'A') && (e.ctrlKey || e.metaKey)) { sel = new Set(notes().map((_, i) => i)); e.preventDefault(); }
     else if ((k === 'z' || k === 'Z') && (e.ctrlKey || e.metaKey)) { e.shiftKey ? store.redo() : store.undo(); e.preventDefault(); }
     else if (k === 'f' || k === 'F') { fit(); }
+    else if (k === 'm' || k === 'M') { merge(); e.preventDefault(); }
+    else if (k === 'q' || k === 'Q') { $('.nted-quant').click(); e.preventDefault(); }
     else if (k === ' ') { engine.playing ? engine.stop() : engine.play(); e.preventDefault(); }
     else if (k === 'Escape') { if (sel.size) sel.clear(); else win._close(); }
   });
@@ -406,7 +523,77 @@ function build(owner, desc, onChange) {
   };
   $('.nted-reset').onclick = () => {
     const l = targets(); if (!l.length) return;
-    store.checkpoint(); l.forEach(n => { if (n.orig != null) n.midi = n.orig; n.amt = 1; }); changed();
+    store.checkpoint(); l.forEach(n => { if (n.orig != null) n.midi = n.orig; n.amt = 1; n.flat = 0; }); changed();
+  };
+
+  // 平直化（Make Curve）：整顆音拉成平的——worklet 收到 flat 就不看顫音、強度當 100%
+  $('.nted-flat').onclick = () => {
+    const l = targets(); if (!l.length) return;
+    store.checkpoint();
+    const to = !l.every(n => n.flat);
+    l.forEach(n => { n.flat = to ? 1 : 0; if (to) n.amt = 1; });
+    changed();
+    toast(to ? `已把 ${l.length} 個音拉平` : '已取消平直化');
+  };
+
+  // 合併（Note Merging）：範圍取聯集，音高按長度加權平均
+  const merge = () => {
+    const idx = [...sel].sort((a, b) => a - b);
+    if (idx.length < 2) { toast('先選取兩個以上的音（拖曳框選，或 Shift 點選）', 'warn'); return; }
+    const all = notes();
+    const list = idx.map(i => all[i]).filter(Boolean).sort((a, b) => a.s - b.s);
+    if (list.length < 2) return;
+    store.checkpoint();
+    let wsum = 0, acc = 0;
+    for (const n of list) { const w = Math.max(0.01, n.e - n.s); wsum += w; acc += n.midi * w; }
+    const merged = {
+      s: list[0].s, e: Math.max(...list.map(n => n.e)),
+      midi: Math.round(acc / wsum * 10) / 10,
+      orig: list[0].orig ?? list[0].midi, amt: 1, slide: list[0].slide || 0,
+    };
+    if (list.every(n => n.flat)) merged.flat = 1;
+    const rm = new Set(list);
+    P.notes = all.filter(n => !rm.has(n));
+    P.notes.push(merged);
+    P.notes.sort((a, b) => a.s - b.s);
+    sel = new Set([P.notes.indexOf(merged)]);
+    changed();
+    toast(`已合併 ${list.length} 個音`);
+  };
+  $('.nted-merge').onclick = merge;
+
+  // 曲線工具（Draw Tool）：在音符上拖曳畫音高起伏
+  const curveBtn = $('.nted-curve');
+  curveBtn.onclick = () => {
+    curveMode = !curveMode;
+    curveBtn.classList.toggle('on', curveMode);
+    toast(curveMode ? '曲線工具：在音符上拖曳畫音高起伏（雙擊圓點刪除）' : '回到一般編輯');
+    draw();
+  };
+  $('.nted-curvec').onclick = () => {
+    const l = targets(); if (!l.length) return;
+    store.checkpoint();
+    l.forEach(n => { n.curve = null; });
+    changed();
+    toast('已清空音高曲線');
+  };
+
+  // 對齊節拍（Timing Correction）
+  const gridSel = $('.nted-grid');
+  $('.nted-quant').onclick = () => {
+    const l = targets(); if (!l.length) return;
+    const div = +gridSel.value || 8;
+    const spb = 60 / (store.project.bpm || 120);
+    const step = spb / div;
+    store.checkpoint();
+    for (const n of l) {
+      const s = Math.max(0, Math.round(n.s / step) * step);
+      let e = Math.round(n.e / step) * step;
+      if (e <= s) e = s + step;
+      n.s = s; n.e = e;
+    }
+    resort(); changed();
+    toast(`已把 ${l.length} 個音對齊到 ${div === 3 ? '1/8 三連' : `1/${div} 拍`}`);
   };
   const onChk = $('.nted-on input');
   onChk.checked = P.notesOn !== false;
@@ -440,23 +627,36 @@ function build(owner, desc, onChange) {
   };
 
   // ---- 底部：選取音符的數值 ----
-  const pitchInp = $('.nted-pitch'), amtInp = $('.nted-amt'), amtV = $('.nted-amtv'), selInfo = $('.nted-sel');
-  [pitchInp, amtInp].forEach(el => el.addEventListener('keydown', e => e.stopPropagation()));
+  const pitchInp = $('.nted-pitch'), amtInp = $('.nted-amt'), amtV = $('.nted-amtv'), selInfo = $('.nted-sel'), slideInp = $('.nted-slide');
+  [pitchInp, amtInp, slideInp].forEach(el => el.addEventListener('keydown', e => e.stopPropagation()));
   let lastFoot = '';
   function syncFoot() {
     const l = selected();
-    const sig = l.map(n => n.midi + ':' + (n.amt ?? 1)).join(',') + '|' + notes().length;
+    const sig = l.map(n => n.midi + ':' + (n.amt ?? 1) + ':' + (n.flat ? 1 : 0) + ':' + (n.slide || 0)).join(',') + '|' + notes().length;
     if (sig === lastFoot) return;
     lastFoot = sig;
-    pitchInp.disabled = amtInp.disabled = !l.length;
-    if (!l.length) { selInfo.textContent = `${notes().length} 個音 · 沒有選取`; pitchInp.value = ''; amtV.textContent = ''; return; }
+    pitchInp.disabled = amtInp.disabled = slideInp.disabled = !l.length;
+    if (!l.length) { selInfo.textContent = `${notes().length} 個音 · 沒有選取`; pitchInp.value = ''; amtV.textContent = ''; slideInp.value = ''; return; }
     const d = l.map(n => n.midi - (n.orig ?? n.midi)), same = d.every(v => Math.abs(v - d[0]) < 0.01);
-    selInfo.textContent = l.length === 1 ? `選取 ${noteOf(l[0].midi)}（原本 ${noteOf(l[0].orig ?? l[0].midi)}）· ${(l[0].e - l[0].s).toFixed(2)} 秒` : `選取 ${l.length} 個音`;
+    const tags = [];
+    if (l.every(n => n.flat)) tags.push('平直');
+    if (l.some(n => n.slide > 0)) tags.push(`滑音 ${Math.round((l.find(n => n.slide > 0)?.slide || 0) * 1000)} ms`);
+    selInfo.textContent = (l.length === 1 ? `選取 ${noteOf(l[0].midi)}（原本 ${noteOf(l[0].orig ?? l[0].midi)}）· ${(l[0].e - l[0].s).toFixed(2)} 秒` : `選取 ${l.length} 個音`) + (tags.length ? ' · ' + tags.join(' · ') : '');
     if (document.activeElement !== pitchInp) pitchInp.value = same ? d[0].toFixed(1) : '';
     const a = Math.round((l[0].amt ?? 1) * 100);
     if (document.activeElement !== amtInp) amtInp.value = a;
     amtV.textContent = a + '%';
+    if (document.activeElement !== slideInp) slideInp.value = Math.round((l[0].slide || 0) * 1000);
   }
+  // 滑音（Pitch Transition）：這個音進來時從上一個音滑過來
+  slideInp.addEventListener('change', () => {
+    const l = selected(); if (!l.length) return;
+    const ms = Math.max(0, Math.min(300, Math.round(+slideInp.value || 0)));
+    store.checkpoint();
+    l.forEach(n => { n.slide = ms / 1000; });
+    changed();
+    toast(ms ? `滑音 ${ms} ms` : '滑音已關閉');
+  });
   pitchInp.addEventListener('change', () => {
     const l = selected(); if (!l.length || pitchInp.value === '') return;
     store.checkpoint(); const d = +pitchInp.value;
