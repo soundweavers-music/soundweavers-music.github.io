@@ -1051,6 +1051,12 @@ a.tbtn { text-decoration: none; }
 .nted-hthumb { position: absolute; top: 1px; bottom: 1px; min-width: 20px; border-radius: 5px; background: var(--accent); opacity: .8; cursor: grab; }
 .nted-hthumb:hover { opacity: 1; }
 .nted-hthumb:active { cursor: grabbing; opacity: 1; }
+/* 右側縱向滾動條：看其他音高 */
+.nted-vscroll { position: absolute; right: 8px; top: 36px; bottom: 22px; width: 12px; background: rgba(0, 0, 0, .42); border: 1px solid var(--line2); border-radius: 6px; cursor: pointer; z-index: 2; }
+.nted-vscroll[hidden] { display: none; }
+.nted-vthumb { position: absolute; left: 1px; right: 1px; min-height: 20px; border-radius: 5px; background: var(--accent); opacity: .8; cursor: grab; }
+.nted-vthumb:hover { opacity: 1; }
+.nted-vthumb:active { cursor: grabbing; opacity: 1; }
 .nted-foot .tbtn:disabled { opacity: .35; cursor: default; }
 .nted-on { display: flex; align-items: center; gap: 4px; color: var(--tx1); font-size: 11.5px; cursor: pointer; }
 .nted-head .spacer { flex: 1; }

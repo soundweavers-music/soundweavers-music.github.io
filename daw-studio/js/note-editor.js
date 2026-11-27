@@ -11,7 +11,7 @@ import { toast } from './util.js';
 const noteOf = m => NOTE_NAMES_ZH[((Math.round(m) % 12) + 12) % 12] + (Math.floor(Math.round(m) / 12) - 1);
 const BLACK = new Set([1, 3, 6, 8, 10]);
 const open = new Map();   // fx id → 視窗
-const KEY_W = 46, RULER_H = 22;
+const KEY_W = 46, RULER_H = 30;
 const SIZE_KEY = 'zhiyin-daw-noteed-size';
 // i18n 抽取器只掃得到「單行引號字串」，新字串集中在這裡再插進樣板
 const UI = {
@@ -76,6 +76,7 @@ function build(owner, desc, onChange) {
       </div>
       <div class="nted-legend"><i class="nted-lo"></i>${UI.orig}<i class="nted-lc"></i>${UI.fixed}</div>
       <div class="nted-hscroll" title="拖曳看整首的其他段落"><div class="nted-hthumb"></div></div>
+      <div class="nted-vscroll" title="拖曳看其他音高"><div class="nted-vthumb"></div></div>
     </div>
     <div class="nted-foot">
       <span class="nted-cur">—</span>
@@ -95,6 +96,7 @@ function build(owner, desc, onChange) {
   const cv = $('.nted-cv'), body = $('.nted-body');
   const undoBtn = $('.nted-undo'), redoBtn = $('.nted-redo'), curEl = $('.nted-cur');
   const hscroll = $('.nted-hscroll'), hthumb = $('.nted-hthumb');
+  const vscroll = $('.nted-vscroll'), vthumb = $('.nted-vthumb');
   $('.nted-trk').textContent = store.track(owner)?.name || '';
   open.set(desc.id, win);
 
@@ -178,6 +180,34 @@ function build(owner, desc, onChange) {
     hthumb.style.width = tw + 'px';
     hthumb.style.left = Math.round(Math.max(0, Math.min(w - tw, (V.t0 / total) * w))) + 'px';
   }
+  // 音高的可捲動範圍：所有音符（含原音）再往上下各留 12 個半音
+  const pitchRange = () => {
+    const all = notes();
+    let lo = 48, hi = 76;
+    if (all.length) {
+      lo = Math.min(...all.map(n => Math.min(n.midi, n.orig ?? n.midi))) - 12;
+      hi = Math.max(...all.map(n => Math.max(n.midi, n.orig ?? n.midi))) + 12;
+    }
+    return [Math.max(12, Math.floor(lo)), Math.min(120, Math.ceil(hi))];
+  };
+  // 右側縱向滾動條
+  function syncVScroll() {
+    const [lo, hi] = pitchRange();
+    const total = hi - lo, span = V.hi - V.lo;
+    const need = span < total - 1e-6;
+    vscroll.hidden = !need;
+    if (!need) return;
+    const h = vscroll.clientHeight || 1;
+    const th = Math.max(20, h * span / total);
+    vthumb.style.height = th + 'px';
+    vthumb.style.top = Math.round(Math.max(0, Math.min(h - th, (hi - V.hi) / total * h))) + 'px';
+  }
+  const panP = d => {
+    const [lo, hi] = pitchRange(), span = V.hi - V.lo;
+    const nlo = Math.max(lo, Math.min(hi - span, V.lo + d));
+    V.lo = nlo; V.hi = nlo + span;
+    draw();
+  };
   const zoomT = (k, at) => {
     const c = at ?? (V.t0 + V.t1) / 2, span = Math.max(0.25, Math.min(1200, (V.t1 - V.t0) * k));
     const f = (c - V.t0) / (V.t1 - V.t0);
@@ -244,7 +274,23 @@ function build(owner, desc, onChange) {
     const st = steps.find(s => s * px > 70) || 120;
     for (let t = Math.ceil(V.t0 / st) * st; t <= V.t1; t += st) {
       const x = Math.round(xOf(t)) + 0.5;
-      g.strokeStyle = ink(.07); g.beginPath(); g.moveTo(x, RULER_H); g.lineTo(x, h); g.stroke();
+      g.strokeStyle = ink(.06); g.beginPath(); g.moveTo(x, RULER_H); g.lineTo(x, h); g.stroke();
+    }
+    // 拍與小節格線（專案 BPM）：小節線亮、拍線淡
+    const bpmNow = store.project.bpm || 120, sigNow = store.project.sigNum || 4;
+    const spb = 60 / bpmNow, barSec = spb * sigNow;
+    if (spb * px > 5) {
+      for (let i = Math.floor(V.t0 / spb) - 1; i <= Math.ceil(V.t1 / spb) + 1; i++) {
+        const t = i * spb;
+        if (t < V.t0 - 1e-6 || t > V.t1) continue;
+        const isBar = ((i % sigNow) + sigNow) % sigNow === 0;
+        if (!isBar && spb * px < 9) continue;
+        const x = Math.round(xOf(t)) + 0.5;
+        g.strokeStyle = isBar ? 'rgba(120,190,255,.28)' : 'rgba(120,190,255,.11)';
+        g.lineWidth = isBar ? 1.4 : 1;
+        g.beginPath(); g.moveTo(x, RULER_H); g.lineTo(x, h); g.stroke();
+      }
+      g.lineWidth = 1;
     }
     // 波形
     const bg = buildBg();
@@ -287,10 +333,12 @@ function build(owner, desc, onChange) {
         g.strokeStyle = 'rgba(255,255,255,.8)'; g.lineWidth = 1.5;
         g.beginPath(); g.moveTo(x + 1.5, y + hh / 2 - 1.5); g.lineTo(x + 8, y - hh / 2 + 1.5); g.stroke();
       }
-      if (x2 - x > 34 && hh >= 10) {
+      if (x2 - x > 40 && hh >= 10) {
         g.fillStyle = '#0b0c0f'; g.textAlign = 'left';
-        const cents = moved ? ` ${n.midi - n.orig > 0 ? '+' : ''}${(n.midi - n.orig).toFixed(1)}` : '';
-        g.fillText(noteOf(n.midi) + cents, x + 5, y + 0.5);
+        // 音分：這個音被移動了多少 cent（原音 → 目標）
+        const off = n.orig != null ? Math.round((n.midi - n.orig) * 100) : 0;
+        const tag = Math.abs(off) >= 5 ? ` ${off > 0 ? '+' : ''}${off}¢` : '';
+        g.fillText(noteOf(n.midi) + tag, x + 5, y + 0.5);
       }
       if (hover && hover.i === i && hover.edge) { g.fillStyle = '#fff'; g.fillRect(hover.edge < 0 ? x : x2 - 3, y - hh / 2, 3, hh); }
     });
@@ -351,14 +399,25 @@ function build(owner, desc, onChange) {
       if ((P.mask >> pc) & 1) { g.fillStyle = pc === P.key ? '#3fd88a' : 'rgba(63,216,138,.55)'; g.fillRect(KEY_W - 5, y + 1, 3, rh - 2); }
       if (rh >= 9 && (pc === 0 || rh >= 13)) { g.fillStyle = BLACK.has(pc) ? '#aaa' : '#333'; g.font = `${Math.min(10, rh - 2)}px ui-monospace`; g.textAlign = 'left'; g.fillText(noteOf(m), 3, y + rh / 2); }
     }
-    // 時間尺
+    // 時間尺：上排小節編號、下排秒數
     g.fillStyle = cssVar('--cv-bg-a'); g.fillRect(0, 0, w, RULER_H);
     g.fillStyle = ink(.12); g.fillRect(0, RULER_H - 1, w, 1);
-    g.fillStyle = cssVar('--cv-tx2'); g.font = '10px ui-monospace'; g.textAlign = 'left'; g.textBaseline = 'alphabetic';
+    g.font = '10px ui-monospace'; g.textAlign = 'left'; g.textBaseline = 'alphabetic';
+    if (barSec > 0 && barSec * px > 34) {
+      g.fillStyle = 'rgba(120,190,255,.9)';
+      for (let i = Math.floor(V.t0 / barSec) - 1; i <= Math.ceil(V.t1 / barSec) + 1; i++) {
+        const t = i * barSec;
+        if (t < V.t0 || t > V.t1) continue;
+        const x = xOf(t);
+        g.fillRect(x, 2, 1, 8);
+        g.fillText(`${i + 1}`, x + 3, 10);
+      }
+    }
+    g.fillStyle = cssVar('--cv-tx2');
     for (let t = Math.ceil(V.t0 / st) * st; t <= V.t1; t += st) {
       const x = xOf(t);
       const lbl = t >= 60 ? `${Math.floor(t / 60)}:${(t % 60).toFixed(st < 1 ? 1 : 0).padStart(st < 1 ? 4 : 2, '0')}` : `${st < 1 ? t.toFixed(st < 0.5 ? 2 : 1) : t.toFixed(0)}s`;
-      g.fillRect(x, RULER_H - 6, 1, 5); g.fillText(lbl, x + 3, 14);
+      g.fillRect(x, RULER_H - 7, 1, 6); g.fillText(lbl, x + 3, RULER_H - 4);
     }
     // 播放頭
     const pos = engine.currentTime();
@@ -370,6 +429,7 @@ function build(owner, desc, onChange) {
     syncFoot();
     syncUndo();
     syncHScroll();
+    syncVScroll();
   }
 
   function syncUndo() {
@@ -691,6 +751,25 @@ function build(owner, desc, onChange) {
     panTo(c - span / 2);
   });
 
+  // 右側縱向滾動條：拉大的時候拖它看其他音高
+  vthumb.addEventListener('pointerdown', e => {
+    e.preventDefault(); e.stopPropagation();
+    try { vthumb.setPointerCapture(e.pointerId); } catch (_) { /* noop */ }
+    const [lo, hi] = pitchRange(), total = hi - lo;
+    const h = vscroll.clientHeight || 1;
+    const y0 = e.clientY, lo0 = V.lo;
+    const mv = ev => panP(lo0 - (ev.clientY - y0) / h * total);
+    const up = () => { vthumb.removeEventListener('pointermove', mv); vthumb.removeEventListener('pointerup', up); };
+    vthumb.addEventListener('pointermove', mv); vthumb.addEventListener('pointerup', up);
+  });
+  vscroll.addEventListener('pointerdown', e => {
+    if (e.target === vthumb) return;
+    const r = vscroll.getBoundingClientRect(), [lo, hi] = pitchRange(), total = hi - lo;
+    const span = V.hi - V.lo;
+    const c = hi - (e.clientY - r.top) / Math.max(1, r.height) * total;
+    panP(c - span / 2 - V.lo);
+  });
+
   // 左側：音高縮放
   $('.nted-zp').onclick = () => { zoomP(0.7); draw(); };
   $('.nted-zm').onclick = () => { zoomP(1.5); draw(); };
@@ -763,7 +842,9 @@ function build(owner, desc, onChange) {
     const tags = [];
     if (l.every(n => n.flat)) tags.push('平直');
     if (l.some(n => n.slide > 0)) tags.push(`滑音 ${Math.round((l.find(n => n.slide > 0)?.slide || 0) * 1000)} ms`);
-    selInfo.textContent = (l.length === 1 ? `選取 ${noteOf(l[0].midi)}（原本 ${noteOf(l[0].orig ?? l[0].midi)}）· ${(l[0].e - l[0].s).toFixed(2)} 秒` : `選取 ${l.length} 個音`) + (tags.length ? ' · ' + tags.join(' · ') : '');
+    selInfo.textContent = (l.length === 1
+      ? `選取 ${noteOf(l[0].midi)}（原本 ${noteOf(l[0].orig ?? l[0].midi)}）· ${(l[0].e - l[0].s).toFixed(2)} 秒`
+      : `選取 ${l.length} 個音 · 下面數值套用到全部`) + (tags.length ? ' · ' + tags.join(' · ') : '');
     if (document.activeElement !== pitchInp) pitchInp.value = same ? d[0].toFixed(1) : '';
     const a = Math.round((l[0].amt ?? 1) * 100);
     if (document.activeElement !== amtInp) amtInp.value = a;
@@ -779,11 +860,15 @@ function build(owner, desc, onChange) {
     changed();
     toast(ms ? `滑音 ${ms} ms` : '滑音已關閉');
   });
-  pitchInp.addEventListener('change', () => {
+  // 音高欄位：改了就即時套用到「所有選取的音」（各自相對於自己的原音）
+  const applyPitch = () => {
     const l = selected(); if (!l.length || pitchInp.value === '') return;
-    store.checkpoint(); const d = +pitchInp.value;
-    l.forEach(n => { n.midi = Math.round(((n.orig ?? n.midi) + d) * 10) / 10; }); changed();
-  });
+    const d = +pitchInp.value;
+    l.forEach(n => { n.midi = Math.round(((n.orig ?? n.midi) + d) * 10) / 10; });
+  };
+  pitchInp.addEventListener('focus', () => { if (sel.size) store.checkpoint(); });
+  pitchInp.addEventListener('input', () => { applyPitch(); live(); });
+  pitchInp.addEventListener('change', () => { applyPitch(); changed(); });
   amtInp.addEventListener('pointerdown', () => store.checkpoint());
   amtInp.addEventListener('input', () => { selected().forEach(n => { n.amt = +amtInp.value / 100; }); amtV.textContent = amtInp.value + '%'; live(); });
   amtInp.addEventListener('change', () => changed());
