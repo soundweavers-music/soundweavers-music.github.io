@@ -133,8 +133,69 @@
     return out;
   }
 
+  // ── fp16 ↔ fp32 ────────────────────────────────────
+  // onnxruntime-web 的 float16 tensor 就是 Uint16Array 的位元；模型吐 fp16 時
+  // 拿到的值是「半精度位元」不是數字，要自己轉回來，不然 0.5 會變成 15360。
+  function toF16(a) {
+    var out = new Uint16Array(a.length);
+    for (var i = 0; i < a.length; i++) {
+      var x = a[i], sign = x < 0 ? 0x8000 : 0;
+      x = Math.abs(x);
+      if (x === 0) { out[i] = sign; continue; }
+      if (!isFinite(x)) { out[i] = sign | 0x7c00; continue; }
+      var e = Math.floor(Math.log(x) / Math.LN2);
+      if (e < -14) { var sub = Math.round(x / Math.pow(2, -24)); out[i] = sign | (sub >= 1024 ? 0x0400 : sub); continue; }
+      if (e > 15) { out[i] = sign | 0x7c00; continue; }
+      var m = Math.round((x / Math.pow(2, e) - 1) * 1024);
+      if (m === 1024) { m = 0; e++; }
+      out[i] = sign | ((e + 15) << 10) | m;
+    }
+    return out;
+  }
+
+  var POW2 = new Float32Array(32);
+  for (var pe = 0; pe < 32; pe++) POW2[pe] = Math.pow(2, pe - 15);
+
+  function fromF16(u) {
+    var out = new Float32Array(u.length);
+    for (var i = 0; i < u.length; i++) {
+      var h = u[i], s = (h & 0x8000) ? -1 : 1, ex = (h >> 10) & 0x1f, m = h & 0x3ff;
+      if (ex === 0) out[i] = s * m * 5.960464477539063e-8;          // 次正規 / ±0
+      else if (ex === 31) out[i] = m ? NaN : s * Infinity;           // Inf / NaN
+      else out[i] = s * (1 + m / 1024) * POW2[ex];
+    }
+    return out;
+  }
+
+  // onnxruntime-web 對 float16 有兩種表示，兩個都要吃：
+  //   新版（Chrome 有 Float16Array）：tensor.data 是 Float16Array，值是數字
+  //   舊版：tensor.data 是 Uint16Array，值是半精度位元
+  function isF16(a) {
+    if (!a) return false;
+    if (a.constructor === Uint16Array) return true;
+    return typeof Float16Array !== "undefined" && a instanceof Float16Array;
+  }
+
+  // 任何一種 float16 表示 → Uint16Array 位元（丟給 ORT 當 float16 輸入用這個）
+  function bits16(a) {
+    if (a.constructor === Uint16Array) return a;
+    if (typeof Float16Array !== "undefined" && a instanceof Float16Array) {
+      return new Uint16Array(a.buffer.slice(a.byteOffset, a.byteOffset + a.byteLength));
+    }
+    return toF16(a);
+  }
+
+  // 任何一種 float16 表示 → Float32Array 數字
+  function toF32(a) {
+    if (a.constructor === Float32Array) return a;
+    if (typeof Float16Array !== "undefined" && a instanceof Float16Array) return Float32Array.from(a);
+    if (a.constructor === Uint16Array) return fromF16(a);
+    return Float32Array.from(a);
+  }
+
   root.V5Audio = {
     fft: fft, dft: dft, stftMag: stftMag, melSpectrogram: melSpectrogram,
     normSpec: normSpec, resample: resample, hann: hann,
+    toF16: toF16, fromF16: fromF16, isF16: isF16, bits16: bits16, toF32: toF32,
   };
 })(typeof window !== "undefined" ? window : globalThis);

@@ -68,6 +68,12 @@
     if (S.lib) return S.lib;
     S.lib = loadScript(new URL("../../model-store.js", ASSET).href)
       .then(ensureOrt)
+      // G2P 的內建字表只有 4851 個字（訓練語料的拼音表），其餘靠 pinyin-pro 補。
+      // 以前只有 MeloTTS 那條路會載它，選 V5 又沒用過 MeloTTS 的人一按就炸
+      // 「Cannot read properties of undefined (reading 'pinyin')」。
+      .then(function () {
+        return root.pinyinPro ? null : loadScript(new URL("../../vendor/pinyin/pinyin-pro.js", ASSET).href);
+      })
       .then(function () { return loadScript(ASSET + "g2p.js"); })
       .then(function () { return loadScript(ASSET + "audio.js"); })
       .then(function () { return loadScript(ASSET + "engine.js"); })
@@ -118,24 +124,32 @@
     return { ok: problems.length === 0, problems: problems };
   }
 
-  // Float32 → fp16（與 numpy 對過：20011 個樣本有 20009 個位元完全相同，1 個差 1 ulp）
-  function toF16(a) {
-    var out = new Uint16Array(a.length);
-    for (var i = 0; i < a.length; i++) {
-      var x = a[i], sign = x < 0 ? 0x8000 : 0;
-      x = Math.abs(x);
-      if (x === 0) { out[i] = sign; continue; }
-      if (!isFinite(x)) { out[i] = sign | 0x7c00; continue; }
-      var e = Math.floor(Math.log(x) / Math.LN2);
-      if (e < -14) { var sub = Math.round(x / Math.pow(2, -24)); out[i] = sign | (sub >= 1024 ? 0x0400 : sub); continue; }
-      if (e > 15) { out[i] = sign | 0x7c00; continue; }
-      var m = Math.round((x / Math.pow(2, e) - 1) * 1024);
-      if (m === 1024) { m = 0; e++; }
-      out[i] = sign | ((e + 15) << 10) | m;
+  // AudioBuffer → 單聲道 Float32Array
+  function monoOf(ab) {
+    var n = ab.length, ch = ab.numberOfChannels, mono = new Float32Array(n);
+    for (var c = 0; c < ch; c++) {
+      var d = ab.getChannelData(c);
+      for (var i = 0; i < n; i++) mono[i] += d[i] / ch;
     }
-    return out;
+    return mono;
   }
-  function f16(t, dims) { return new ORT.Tensor("float16", t instanceof Uint16Array ? t : toF16(t), dims); }
+
+  // fp16 轉換在 audio.js（與 numpy 對過：20011 個樣本有 20009 個位元完全相同，1 個差 1 ulp）
+  function f16(t, dims) { return new ORT.Tensor("float16", root.V5Audio.bits16(t), dims); }
+  function f32(t, dims) { return new ORT.Tensor("float32", root.V5Audio.toF32(t), dims); }
+
+  // HuBERT 吐 [1, T, 768]（時間在前）；V5 其餘會吃 ssl 的圖（extract_latent、
+  // AR 的 ssl_content）都要 [1, 768, T]。不動元素位元，所以 fp16/fp32 都適用。
+  function chanFirst(data, dims) {
+    var d = dims;
+    if (d.length === 3 && d[2] === 768 && d[1] !== 768) {
+      var T = d[1], C = d[2], out = new data.constructor(T * C);
+      for (var i = 0; i < T; i++)
+        for (var c = 0; c < C; c++) out[c * T + i] = data[i * C + c];
+      return { data: out, dims: [d[0], C, T] };
+    }
+    return { data: data, dims: [d[0], d[1], d[2]] };
+  }
 
   function bertOf(text) {
     var ids = [101], i;
@@ -147,7 +161,8 @@
       })
       .catch(function (e) { if (e.stage) throw e; fail("BERT", "RoBERTa 推論失敗：" + (e.message || e)); })
       .then(function (o) {
-        return { hidden: o.hidden.data, T: o.hidden.dims[1] - 2, D: o.hidden.dims[2] };
+        // roberta 是 fp16 圖：輸出要轉成一般數字才能用
+        return { hidden: root.V5Audio.toF32(o.hidden.data), T: o.hidden.dims[1] - 2, D: o.hidden.dims[2] };
       });
   }
 
@@ -156,15 +171,17 @@
       fail("BERT", "文字長度 " + h.T + " 與音素對應表 " + word2ph.length + " 不一致（這句可能有 BERT 不認得的符號）");
     }
     var P = word2ph.reduce(function (a, b) { return a + b; }, 0);
-    var out = new Float32Array(h.D * P), k = 0, i, r, d;
+    // 版面是「音素在前」：[P, 1024]（ar_enc 的 ref_bert / text_bert 就是這個形狀，
+    // 每個音素連續 1024 個數字）。以前寫成 [1024, P] 是轉置的，AR 會吃進錯位的特徵。
+    var out = new Float32Array(P * h.D), k = 0, i, r, d;
     for (i = 0; i < h.T; i++) {
       var off = (i + 1) * h.D;
       for (r = 0; r < word2ph[i]; r++) {
-        for (d = 0; d < h.D; d++) out[d * P + k] = h.hidden[off + d];
+        for (d = 0; d < h.D; d++) out[k * h.D + d] = h.hidden[off + d];
         k++;
       }
     }
-    return { data: out, dims: [1, h.D, P] };
+    return { data: out, dims: [P, h.D] };
   }
 
   function setRef(file, text) {
@@ -174,25 +191,46 @@
     return lib()
       .then(function () { return file.arrayBuffer(); })
       .then(function (buf) {
-        var Ctx = root.AudioContext || root.webkitAudioContext;
-        return new Ctx().decodeAudioData(buf).catch(function () { fail("參考音", "這個音檔解不開，換一個 wav 或 mp3"); });
-      })
-      .then(function (ab) {
-        var n = ab.length, ch = ab.numberOfChannels;
-        if (n < ab.sampleRate * 2) fail("參考音", "參考音只有 " + (n / ab.sampleRate).toFixed(1) + " 秒，請用 3–10 秒");
-        var mono = new Float32Array(n);
-        for (var c = 0; c < ch; c++) {
-          var d = ab.getChannelData(c);
-          for (var i = 0; i < n; i++) mono[i] += d[i] / ch;
+        // 直接照要用的取樣率解碼（WebAudio 的重取樣比我們的線性插值好得多）。
+        // 以前是「先解成 48k、再用線性插值轉回 16k」，實測會讓 HuBERT 特徵劣化
+        // （ssl 最大誤差 5.8、語意碼有幾個不同），AR 的韻律就抓不到收尾。
+        var OAC = root.OfflineAudioContext || root.webkitOfflineAudioContext;
+        if (!OAC) {
+          var Ctx = root.AudioContext || root.webkitAudioContext;
+          return new Ctx().decodeAudioData(buf.slice(0)).then(function (ab) {
+            var m = monoOf(ab);
+            return [{ mono: root.V5Audio.resample(m, ab.sampleRate, 16000), rate: 16000, sec: m.length / ab.sampleRate },
+                    { mono: root.V5Audio.resample(m, ab.sampleRate, 32000), rate: 32000, sec: m.length / ab.sampleRate }];
+          });
         }
-        var w16 = root.V5Audio.resample(mono, ab.sampleRate, 16000);
-        var w32 = root.V5Audio.resample(mono, ab.sampleRate, 32000);
+        var dec = function (rate) {
+          return new OAC(1, 1, rate).decodeAudioData(buf.slice(0)).then(function (ab) {
+            return { mono: monoOf(ab), rate: rate, sec: ab.length / ab.sampleRate };
+          });
+        };
+        return Promise.all([dec(16000), dec(32000)]);
+      })
+      .catch(function (e) {
+        if (e && e.stage) throw e;
+        fail("參考音", "這個音檔解不開，換一個 wav 或 mp3");
+      })
+      .then(function (abs) {
+        var w16 = abs[0].mono, w32 = abs[1].mono;
+        if (abs[0].sec < 2) fail("參考音", "參考音只有 " + abs[0].sec.toFixed(1) + " 秒，請用 3–10 秒");
+        // TTS.py 的 _set_prompt_semantic 會先把 16 kHz 音檔尾端補 0.3 秒的零再過 HuBERT。
+        // 少這段會讓語意碼少約 8 個、ssl 少 15 幀，AR 的韻律模型就抓不到收尾。
+        var w16p = new Float32Array(w16.length + 4800);
+        w16p.set(w16);
         S.ref = { text: text, w32: w32 };
         return session("hubert")
-          .then(function (s) { return s.run({ wav: f16(w16, [1, w16.length]) }); })
+          .then(function (s) { return s.run({ wav: f16(w16p, [1, w16p.length]) }); })
           .catch(function (e) { if (e.stage) throw e; fail("音色", "HuBERT 推論失敗：" + (e.message || e)); })
           .then(function (o) {
-            S.ref.ssl = o.hidden.data; S.ref.sslDims = o.hidden.dims;
+            // hubert 吐 [1,T,768]，後面每一張圖都要 [1,768,T]
+            var ssl = chanFirst(o.hidden.data, o.hidden.dims);
+            S.ref.sslDims = ssl.dims;
+            S.ref.ssl = root.V5Audio.bits16(ssl.data);     // extract_latent 吃 fp16 位元
+            S.ref.ssl32 = root.V5Audio.toF32(ssl.data);    // AR 吃 fp32 數字
             drop(["hubert"]);
             return session("extract_latent");
           })
@@ -206,14 +244,18 @@
           })
           .then(function (s) { return s.run({ refer: f16(S.ref.spec.data, S.ref.spec.dims) }); })
           .then(function (o) {
-            S.ref.ge = o.ge;
+            // refenc 是 fp16 圖，但 decode_encp 的 ge 輸入是 fp32 → 這裡就轉好
+            S.ref.ge = f32(o.ge.data, o.ge.dims);
             drop(["refenc"]);
-            return bertOf(text);
-          })
-          .then(function (h) {
             var g = root.G2P.run(text);
             if (!g.ids.length) fail("參考音", "文字稿裡沒有可以念的字");
             S.ref.phones = g.ids;
+            // BERT 要吃 G2P 正規化後（簡體）的文本：roberta 的詞表是簡體，
+            // 拿繁體原文去查會整句變 [UNK]，AR 收到一堆一樣的向量 → 亂念到撞上限。
+            return bertOf(g.norm);
+          })
+          .then(function (h) {
+            var g = root.G2P.run(text);
             S.ref.bert = expand(h, g.word2ph);
             drop(["roberta"]);
             return true;
@@ -238,7 +280,7 @@
         var tgtBert = expand(h, g.word2ph);
         drop(["roberta"]);
         return root.V5Engine.arLoop(
-          { ref: S.ref.bert.data, tgt: tgtBert.data, ssl: S.ref.ssl },
+          { ref: S.ref.bert.data, tgt: tgtBert.data, ssl: S.ref.ssl32 },
           { ref: S.ref.phones, tgt: tgt },
           S.ref.codes, null, 400);
       })
@@ -277,6 +319,7 @@
     warmup: lib,
     setRef: setRef,
     run: run,
-    toF16: toF16
+    toF16: function (a) { return root.V5Audio.toF16(a); },
+    state: function () { return S; }         // 除錯／驗證用
   };
 })(window);
