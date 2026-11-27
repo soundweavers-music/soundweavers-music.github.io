@@ -75,6 +75,7 @@ function build(owner, desc, onChange) {
         <button type="button" class="nted-zr" title="音高範圍重設">⟲</button>
       </div>
       <div class="nted-legend"><i class="nted-lo"></i>${UI.orig}<i class="nted-lc"></i>${UI.fixed}</div>
+      <div class="nted-hscroll" title="拖曳看整首的其他段落"><div class="nted-hthumb"></div></div>
     </div>
     <div class="nted-foot">
       <span class="nted-cur">—</span>
@@ -93,6 +94,7 @@ function build(owner, desc, onChange) {
   const $ = s => win.querySelector(s);
   const cv = $('.nted-cv'), body = $('.nted-body');
   const undoBtn = $('.nted-undo'), redoBtn = $('.nted-redo'), curEl = $('.nted-cur');
+  const hscroll = $('.nted-hscroll'), hthumb = $('.nted-hthumb');
   $('.nted-trk').textContent = store.track(owner)?.name || '';
   open.set(desc.id, win);
 
@@ -158,6 +160,24 @@ function build(owner, desc, onChange) {
     if (hi - lo < 12) { const c = (hi + lo) / 2; lo = c - 6; hi = c + 6; }
     V.lo = Math.max(12, Math.floor(lo)); V.hi = Math.min(120, Math.ceil(hi));
   };
+  // 整首的長度（片段尾端與音符尾端取大的）
+  const contentEnd = () => {
+    let z = 0;
+    for (const c of store.track(owner)?.clips || []) z = Math.max(z, c.start + c.duration);
+    for (const n of notes()) z = Math.max(z, n.e);
+    return Math.max(z, 1);
+  };
+  // 底部橫向滾動條：目前看得到的區間佔全曲多少
+  function syncHScroll() {
+    const total = contentEnd(), span = V.t1 - V.t0;
+    const need = span < total - 1e-6;
+    hscroll.hidden = !need;
+    if (!need) return;
+    const w = hscroll.clientWidth || 1;
+    const tw = Math.max(20, w * span / total);
+    hthumb.style.width = tw + 'px';
+    hthumb.style.left = Math.round(Math.max(0, Math.min(w - tw, (V.t0 / total) * w))) + 'px';
+  }
   const zoomT = (k, at) => {
     const c = at ?? (V.t0 + V.t1) / 2, span = Math.max(0.25, Math.min(1200, (V.t1 - V.t0) * k));
     const f = (c - V.t0) / (V.t1 - V.t0);
@@ -349,6 +369,7 @@ function build(owner, desc, onChange) {
     }
     syncFoot();
     syncUndo();
+    syncHScroll();
   }
 
   function syncUndo() {
@@ -646,6 +667,29 @@ function build(owner, desc, onChange) {
     changed();
     toast('已清空音高曲線');
   };
+
+  // 底部橫向滾動條：拉大的時候拖它跑全曲
+  const panTo = t0 => {
+    const total = contentEnd(), span = V.t1 - V.t0;
+    V.t0 = Math.max(0, Math.min(Math.max(0, total - span), t0));
+    V.t1 = V.t0 + span;
+    follow = false; syncFollow(); draw();
+  };
+  hthumb.addEventListener('pointerdown', e => {
+    e.preventDefault(); e.stopPropagation();
+    try { hthumb.setPointerCapture(e.pointerId); } catch (_) { /* noop */ }
+    const w = hscroll.clientWidth || 1, total = contentEnd();
+    const x0 = e.clientX, t00 = V.t0;
+    const mv = ev => panTo(t00 + (ev.clientX - x0) / w * total);
+    const up = () => { hthumb.removeEventListener('pointermove', mv); hthumb.removeEventListener('pointerup', up); };
+    hthumb.addEventListener('pointermove', mv); hthumb.addEventListener('pointerup', up);
+  });
+  hscroll.addEventListener('pointerdown', e => {
+    if (e.target === hthumb) return;
+    const r = hscroll.getBoundingClientRect(), total = contentEnd(), span = V.t1 - V.t0;
+    const c = (e.clientX - r.left) / Math.max(1, r.width) * total;
+    panTo(c - span / 2);
+  });
 
   // 左側：音高縮放
   $('.nted-zp').onclick = () => { zoomP(0.7); draw(); };
