@@ -214,7 +214,18 @@ async function liveTest() {
   const master = engine.masterLevels();
   const state = engine.ctx ? engine.ctx.state : 'none';
   engine.stop();
-  return { meter, master, state };
+  // 虛擬鋼琴走的路徑：startVoice（即時起音、放開才收），量按著時與放開後的電平
+  const { startVoice } = await import('./js/synth.js');
+  await new Promise(r => setTimeout(r, 400));
+  const strip = engine.strips.get(t.id);
+  const v = startVoice(engine.ctx, strip.input, 'zy:pno.grand', 60, 110, engine.ctx.currentTime, {});
+  let held = 0;
+  for (let i = 0; i < 6; i++) { await new Promise(r => setTimeout(r, 100)); held = Math.max(held, engine.trackMeter(t.id)[0]); }
+  v.release(engine.ctx.currentTime);
+  // 電平表有緩降（每讀一次 ×0.94），所以要連續讀一陣子才是真的「現在」的電平
+  let after = 0;
+  for (let i = 0; i < 40; i++) { await new Promise(r => setTimeout(r, 50)); after = engine.trackMeter(t.id)[0]; }
+  return { meter, master, state, kb: { held, after } };
 }
 
 (async () => {

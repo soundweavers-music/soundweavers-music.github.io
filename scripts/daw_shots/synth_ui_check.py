@@ -21,9 +21,10 @@ BASE = pathlib.Path(__file__).resolve().parent.parent.parent
 CHROME = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
 SRC = BASE / "daw-studio" / "index.html"
 EN = os.environ.get("DAW_SHOT_LANG") == "en"
-OUT = BASE / "work" / "daw-shots" / ("synth-picker-en.png" if EN else "synth-picker.png")
+OUT = BASE / "work" / "daw-shots" / (("synth-picker-en" if EN else "synth-picker") + ("-open" if "--open" in sys.argv else "") + ".png")
 
 HARNESS = """import './_zyshot-lang.js';
+window.__KEEP_OPEN = %s;
 import './js/main.js';
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 window.__errs = [];
@@ -41,12 +42,18 @@ window.addEventListener('unhandledrejection', e => window.__errs.push(String(e.r
   const items = document.querySelectorAll('#dlgSynth .zy-item');
   items[3]?.click();                    // 選一個音色並試聽
   await sleep(300);
-  document.getElementById('zyUse')?.click();
-  await sleep(600);
+  // 虛擬鋼琴：按一個鍵（應該亮起來），截圖時保持按著
+  const key = document.querySelector('#zyKb [data-m="60"]');
+  const r = key?.getBoundingClientRect();
+  key?.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true, clientX: r.left + 5, clientY: r.bottom - 10 }));
+  await sleep(400);
+  window.__kbOn = document.querySelectorAll('#zyKb .on').length;
+  window.__arts = document.querySelectorAll('#dlgSynth .zy-art svg').length;
+  if (!window.__KEEP_OPEN) { document.getElementById('zyUse')?.click(); await sleep(600); }
   const list = items.length;
   const cats = document.querySelectorAll('#dlgSynth .zy-cats button').length;
   const macros = document.querySelectorAll('.zy-macros input').length;
-  document.title = `OK ${list} items / ${cats} cats / ${macros} macros / err ${window.__errs.length}`;
+  document.body.dataset.zyResult = `OK ${list} items / ${cats} cats / ${macros} macros / art ${window.__arts} / key ${window.__kbOn} / err ${window.__errs.length} ${window.__errs.join('|').slice(0, 200)}`;
 })();
 """
 
@@ -60,7 +67,8 @@ def main():
     # 語言要在 main.js 之前設定，而且 CSP 擋行內腳本，所以放成另一個模組（先 import 先執行）
     (BASE / "daw-studio" / "_zyshot-lang.js").write_text(
         "try { localStorage.setItem('zhiyin-daw-lang', '%s'); } catch (e) {}\n" % lang, encoding="utf-8")
-    (BASE / "daw-studio" / "_zyshot.js").write_text(HARNESS, encoding="utf-8")
+    keep = "true" if "--open" in sys.argv else "false"
+    (BASE / "daw-studio" / "_zyshot.js").write_text(HARNESS.replace("%s", keep, 1), encoding="utf-8")
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
     profile = tempfile.mkdtemp(prefix="zyshot")
@@ -73,9 +81,11 @@ def main():
         (BASE / "daw-studio" / "_zyshot.html").as_uri(),
     ]
     r = subprocess.run(cmd, capture_output=True, text=True, timeout=180)
+    # 第二次跑同一頁、改成輸出 DOM，才讀得到 document.title（截圖模式拿不到）
+    r2 = subprocess.run(cmd[:-2] + ["--dump-dom", cmd[-1]], capture_output=True, text=True, timeout=180, encoding="utf-8", errors="replace")
     title = ""
-    for line in (r.stderr or "").splitlines():
-        m = re.search(r"<title>(.*?)</title>", line)
+    for line in ((r2.stdout or "") + (r.stderr or "")).splitlines():
+        m = re.search(r"<title>(.*?)</title>", line) or re.search(r'data-zy-result="([^"]*)"', line)
         if m:
             title = m.group(1)
     print("title:", title or "(沒有抓到)")

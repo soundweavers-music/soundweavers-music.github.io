@@ -82,7 +82,7 @@ function applyMacros(p, m) {
     uni: thick > 0 ? Math.max(o.uni || 1, 2) : (o.uni || 1),
   }));
   if (grit) out.drive = Math.max(0, (p.drive || 0) + grit * 0.35);
-  if (fine) out.osc = (out.osc || p.osc).map(o => Object.assign({}, o, { cents: (o.cents || 0) + fine * 50 }));
+  if (fine) out.tune = (p.tune || 0) + fine * 50;     // 整個音（含撥弦、分音）一起移
   return out;
 }
 
@@ -110,6 +110,10 @@ export function zyTail(patchId, synth) {
   let t = Math.max(p.amp.r * 1.6, 0);
   if (!p.amp.s) t = Math.max(t, p.amp.d * 1.6 + p.amp.r);
   if (p.str && p.str.lvl) t = Math.max(t, Math.min(8, p.str.decay * 1.2));
+  if (p.modes) {
+    const ds = [(p.modes.d || 0) * 1.2].concat((p.modes.list || []).map(e => e[2] || 0));
+    t = Math.max(t, Math.min(8, Math.max(...ds) * 0.8 + p.amp.r));
+  }
   if (p.noise) t = Math.max(t, (p.noise.d || 0) + (p.noise.r || 0));
   return Math.min(10, t + 0.15);
 }

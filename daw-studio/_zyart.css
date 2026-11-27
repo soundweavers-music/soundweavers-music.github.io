@@ -1,0 +1,7 @@
+body{background:#121316;color:#ddd;font:12px sans-serif;margin:8px}
+.g{display:grid;gap:8px}
+.c{background:#1b1c20;border-radius:6px;padding:4px;text-align:center}
+.c svg{display:block;margin:0 auto}
+.big .c svg{width:240px;height:150px}.small .c svg{width:56px;height:35px}
+.big{grid-template-columns:repeat(6,250px)}.small{grid-template-columns:repeat(16,90px)}
+#err{color:#f66;font-size:16px}

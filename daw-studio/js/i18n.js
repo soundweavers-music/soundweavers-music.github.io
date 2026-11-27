@@ -102,7 +102,8 @@ export function ruleSamples() {
 }
 
 function tr(text) {
-  const s = text.trim();
+  // HTML 裡換行縮排的段落，文字節點會帶「換行＋空白」；字典的鍵是收成一個空格的
+  const s = text.trim().replace(/\s*\n\s*/g, ' ');
   if (!s) return null;
   // 已經翻過的就不再處理，避免 MutationObserver 自己觸發自己
   if (!CJK.test(s)) return null;

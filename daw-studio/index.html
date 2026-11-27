@@ -197,7 +197,15 @@
         <button type="button" class="tbtn ghost" id="zyTry">試聽</button>
       </div>
       <div id="zyCats" class="zy-cats"></div>
-      <div id="zyList" class="zy-list"></div>
+      <div class="zy-main">
+        <div id="zyList" class="zy-list"></div>
+        <aside class="zy-prev" id="zyPrev"></aside>
+      </div>
+      <div class="zy-kb-bar"><span>虛擬鋼琴</span>
+        <button type="button" class="tbtn ghost" id="zyOctDn" title="低八度（Z）">◀</button><b id="zyOct">C3–C5</b>
+        <button type="button" class="tbtn ghost" id="zyOctUp" title="高八度（X）">▶</button>
+        <em>點琴鍵下方比較大聲；電腦鍵盤 A–; 白鍵、W E T Y U O P 黑鍵</em></div>
+      <div id="zyKb" class="zy-kb" aria-label="虛擬鋼琴"></div>
       <p class="note">音色是在你的電腦上即時算出來的（波表、FM、撥弦物理模型、共振峰），不需要音色庫檔案。
         挑好之後按下方「套用」，軌道就能用這個音色彈奏、錄音與輸出。</p>
     </div>

@@ -80,6 +80,8 @@ def main():
     if lv and "error" not in lv:
         print("live playback: ctx %s, track meter %.3f / %.3f, master %.3f\n"
               % (lv.get("state"), lv["meter"][0], lv["meter"][1], max(lv["master"])))
+        if lv.get("kb"):
+            print("virtual piano (startVoice): held %.3f, 1.5s after release %.3f\n" % (lv["kb"]["held"], lv["kb"]["after"]))
     elif lv:
         print("live playback FAILED:", lv["error"])
     if data.get("project"):
