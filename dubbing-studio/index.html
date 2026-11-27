@@ -62,6 +62,18 @@
 .db-miss.ok { border-color: #3f8f5f; background: #eaf5ee; }
 [data-theme="dark"] .db-miss { background: #2b2521; }
 [data-theme="dark"] .db-miss.ok { background: #22302a; }
+/* 引擎選擇：兩張大一點的卡片，讓「先選引擎」看起來就是第一步 */
+.db-engines { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+@media (max-width: 700px) { .db-engines { grid-template-columns: 1fr; } }
+.db-engine { display: flex; align-items: flex-start; gap: 9px; cursor: pointer; padding: 12px 13px;
+  border: 1px solid var(--line, #e5e0d8); border-radius: 10px; background: var(--surface, #fff); line-height: 1.5; }
+.db-engine.on { border-color: var(--accent, #a0522d); box-shadow: inset 0 0 0 1px var(--accent, #a0522d); }
+.db-engine input { margin-top: 3px; accent-color: var(--accent, #a0522d); }
+.db-engine-txt { display: grid; gap: 2px; flex: 1; }
+.db-engine-txt b { font-size: 14px; color: var(--ink, #2e2820); }
+.db-engine-txt small { font-size: 12px; color: var(--muted, #6b6257); }
+.db-engine .db-status { align-self: center; }
+.db-step { color: var(--accent, #a0522d); font-weight: 700; margin-right: 2px; }
 .db-note { font-size: 12.5px; color: var(--muted, #6b6257); line-height: 1.7; background: var(--soft, #faf7f1);
   border-radius: 8px; padding: 10px 12px; margin-top: 12px; }
 .db-warn { color: #9a6a17; }
@@ -103,36 +115,53 @@ audio { width: 100%; margin-top: 12px; }
 
   <!-- ───────── ① AI 配音 ───────── -->
   <section class="db-panel on" id="pane-tts">
-    <div class="db-card">
-      <h3>0. 配音模型（第一次使用要安裝）</h3>
-      <p class="sub">AI 配音用的是 MeloTTS 中文模型（約 163 MB，MIT 授權），下載一次、存在這個瀏覽器裡，之後不用再下載；檔案不會上傳到任何地方。</p>
+    <div class="db-card" id="enginePickCard">
+      <h3>先選引擎</h3>
+      <p class="sub">兩個引擎做出來的是同一份配音（字幕 → 聲音），差別在下載大小、速度，以及像不像真人。
+      選好之後，下面只會留下這個引擎要做的步驟，沒選到的東西不會擋你的路。</p>
+      <div class="db-engines">
+        <label class="db-engine on" id="engineMelo">
+          <input type="radio" name="ttsEngine" value="melo" checked>
+          <span class="db-engine-txt"><b>MeloTTS 中文女聲</b>
+            <small>下載 163 MB・純 CPU 也跑得動・聲音穩定，聽得出是合成聲</small></span>
+          <span class="db-status" id="meloEngineState"></span>
+        </label>
+        <label class="db-engine" id="engineV5">
+          <input type="radio" name="ttsEngine" value="v5">
+          <span class="db-engine-txt"><b>V5 進階引擎（實驗）</b>
+            <small>下載 2.3 GB・建議有獨立顯卡・最接近真人，要先給一段參考音</small></span>
+          <span class="db-status" id="v5EngineState"></span>
+        </label>
+      </div>
+      <div class="db-note" id="engineNote"></div>
+    </div>
+
+    <div class="db-card" data-engine="melo">
+      <h3><span class="db-step">1.</span> 安裝 MeloTTS 模型</h3>
+      <p class="sub">MeloTTS 中文模型約 163 MB（MIT 授權），下載一次、存在這個瀏覽器裡，之後不用再下載；檔案不會上傳到任何地方。</p>
       <div id="ttsModelCard"></div>
     </div>
 
-    <div class="db-card">
-      <h3>0b. 進階引擎 V5（實驗）</h3>
-      <p class="sub">MeloTTS 是預設引擎，聲音穩定、下載小（163 MB）。<b>V5</b> 的聲音更接近真人（GPT-SoVITS V5，turbo 4 步），
-      但整組模型約 <b>2.3 GB</b>，而且推理量大——<b>建議有獨立顯卡的電腦</b>，純 CPU 會很慢。</p>
+    <div class="db-card" data-engine="v5" hidden>
+      <h3><span class="db-step">1.</span> 安裝 V5 的十個檔案，再給一段參考音</h3>
+      <p class="sub"><b>V5</b>（GPT-SoVITS V5，turbo 4 步）整組模型約 <b>2.3 GB</b>，推理量大——<b>建議有獨立顯卡的電腦</b>，純 CPU 會很慢。
+      它不像 MeloTTS 有固定音色，而是<b>拿你給的參考音當音色</b>：3–10 秒的音檔，加上這段音說了什麼（韻律模型要兩者一起才會有聲音）。</p>
       <div id="v5ModelCard"></div>
-      <div class="db-row" id="v5EngineRow" hidden>
-        <label><input type="radio" name="ttsEngine" value="melo" checked> 用 MeloTTS</label>
-        <label><input type="radio" name="ttsEngine" value="v5"> 用 V5（實驗）</label>
+      <div class="db-row" style="margin-top:12px">
+        <label class="db-btn ghost">① 選參考音（3–10 秒）<input type="file" id="v5RefFile" accept="audio/*" hidden></label>
+        <span class="db-status" id="v5RefStatus">尚未設定</span>
+      </div>
+      <textarea id="v5RefText" rows="3" style="width:100%" placeholder="② 這段參考音說了什麼？請照實打字（可以先用上面的「② 口白剪輯」或歌詞辨識轉出來）——文字稿跟音檔對不上，V5 會沒有聲音。"></textarea>
+      <div class="db-row">
+        <button class="db-btn" id="v5RefApply">③ 套用參考音</button>
         <span class="db-status" id="v5EngineStatus"></span>
       </div>
-      <div id="v5RefBox" hidden>
-        <div class="db-row">
-          <label class="db-btn ghost">選參考音（3–10 秒）<input type="file" id="v5RefFile" accept="audio/*" hidden></label>
-          <span class="db-status" id="v5RefStatus">尚未設定</span>
-        </div>
-        <textarea id="v5RefText" rows="3" style="width:100%" placeholder="這段參考音說了什麼？V5 需要它的文字稿（可以先用「② 口白剪輯」或歌詞辨識轉出來）。"></textarea>
-        <div class="db-row"><button class="db-btn" id="v5RefApply">套用參考音</button></div>
-      </div>
-      <div class="db-note">V5 需要一段<b>參考音</b>當音色來源：選 3–10 秒的音檔，並填上它說了什麼——V5 的韻律模型要兩者一起才會有聲音。</div>
+      <div class="db-note">套用參考音時會先把音色算起來（幾十秒），算完才算真的可以輸出。之後按「產生配音（AI）」就會用這段聲音念你的字幕。</div>
     </div>
 
-    <div class="db-card">
-      <h3>1. 選聲音</h3>
-      <p class="sub">裝好模型就是下面這個 AI 女聲；也可以選系統語音（不用下載），在「4. 對時與輸出」用「用系統語音輸出 WAV」存成音檔。</p>
+    <div class="db-card" data-engine="melo">
+      <h3><span class="db-step">2.</span> 選聲音（MeloTTS）</h3>
+      <p class="sub">裝好模型就是下面這個 AI 女聲；也可以選系統語音（不用下載），在下面「對時與輸出」用「用系統語音輸出 WAV」存成音檔。</p>
       <div id="ttsVoices"></div>
       <div class="db-row">
         <button class="db-btn ghost" id="ttsTest">試聽這聲音</button>
@@ -143,8 +172,8 @@ audio { width: 100%; margin-top: 12px; }
       </div>
     </div>
 
-    <div class="db-card">
-      <h3>2. 複製自己的聲音（選用）</h3>
+    <div class="db-card" data-engine="melo">
+      <h3><span class="db-step">3.</span> 複製自己的聲音（選用，MeloTTS 用）</h3>
       <p class="sub">錄一段 <b>6–20 秒</b>自己的聲音（照著隨便念一段話、正常音量、安靜的環境），AI 會抽出你的音色，之後整份配音都用你的聲音念。音色是在這台電腦算的，錄音不會上傳。</p>
       <div id="ovRefCard"></div>
       <div id="ovConvCard"></div>
@@ -162,7 +191,7 @@ audio { width: 100%; margin-top: 12px; }
     </div>
 
     <div class="db-card">
-      <h3>3. 字幕稿</h3>
+      <h3><span class="db-step">4.</span> 字幕稿</h3>
       <p class="sub">支援 .srt 與 .lrc；每句都要有時間，配音會照這個時間排。</p>
       <div class="db-drop" id="ttsDrop">拖入或點一下選字幕檔（.srt／.lrc）</div>
       <input type="file" id="ttsFile" accept=".srt,.lrc,text/plain" hidden>
@@ -170,8 +199,9 @@ audio { width: 100%; margin-top: 12px; }
     </div>
 
     <div class="db-card">
-      <h3>4. 對時與輸出</h3>
-      <p class="sub">AI 配音會把每一句塞進字幕給的時間：太長就壓短、太短就放慢，都是<b>重新合成</b>（不是加速播放），所以音高不會變。</p>
+      <h3><span class="db-step">5.</span> 對時與輸出</h3>
+      <p class="sub">AI 配音會把每一句塞進字幕給的時間，而且<b>音高都不會變</b>：MeloTTS 是重新合成（改變語速）；
+      V5 重新合成太貴，改成拿到波形之後<b>調速不變調</b>。</p>
       <div class="db-row">
         <button class="db-btn" id="ttsRender" disabled>產生配音（AI）</button>
         <button class="db-btn ghost" id="ttsPlay" disabled>▶ 播放</button>
@@ -179,6 +209,7 @@ audio { width: 100%; margin-top: 12px; }
         <button class="db-btn ghost" id="ttsStop" disabled>■ 停止</button>
         <span class="db-status" id="ttsStatus"></span>
       </div>
+      <div class="db-status" id="ttsGate" style="margin-top:8px"></div>
       <div class="db-progress" id="ttsProg"><i></i></div>
       <div class="db-row">
         <label class="db-check">最多把一句壓短 <input type="number" id="ttsMaxFit" value="30" min="0" max="60" step="5" style="width:56px"> %</label>
@@ -487,6 +518,7 @@ audio { width: 100%; margin-top: 12px; }
       $("ttsDrop").textContent = f.name + "（" + tts.cues.length + " 句）";
       $("ttsDrop").classList.add("ok");
       renderTtsCues();
+      refreshGate();
       if (!tts.cues.length) setStatus($("ttsStatus"), "這個檔案沒有讀到帶時間的字幕，請確認是 .srt 或 .lrc。", true);
     });
   });
@@ -875,7 +907,11 @@ audio { width: 100%; margin-top: 12px; }
 
   // 一句話 → Float32Array（44.1 kHz）。lengthScale > 1 變慢、< 1 變快（重新合成，音高不變）
   function ttsRun(text, lengthScale) {
-    if (window.V5Integration && window.V5Integration.enabled()) return window.V5Integration.run(text);
+    if (v5On()) {
+      // V5 一次就吐整句波形（44.1 kHz），而且不吃 length_scale——長度由它的韻律模型決定。
+      // 要壓進字幕時間，只能在拿到波形之後調速（見「產生配音」裡的 v5Scale）。
+      return window.V5Integration.run(text).then(function (a) { return { data: a, warn: {} }; });
+    }
     return Promise.all([ttsEnsureModel(),
       /[A-Za-z]/.test(text) ? ttsEnLex() : null]).then(function (r) {
       var sess = r[0], d = ttsAI.syl;
@@ -944,7 +980,7 @@ audio { width: 100%; margin-top: 12px; }
   var ttsBusy = false;
   function ttsSetBusy(b) {
     ttsBusy = b;
-    $("ttsRender").disabled = b || !tts.cues.length;
+    refreshGate();
     $("ttsRender").textContent = b ? "產生中…（按「停止」可以取消）" : "產生配音（AI）";
     $("ttsRender").classList.toggle("busy", b);
     $("ttsStop").disabled = !b && !tts.previewing;   // 產生中要能按停止
@@ -964,7 +1000,8 @@ audio { width: 100%; margin-top: 12px; }
     var startedAt = performance.now(), perSec = ttsAI.perSec || 0;
     // 每次按「產生配音」給一個新的編號：舊的那一輪就算晚回來，也不會蓋掉新的一輪
     var runId = ttsAI.runId = (ttsAI.runId || 0) + 1;
-    var ovWanted = !!(ov.use && ov.gTgt);
+    // OpenVoice 是「MeloTTS 念 → 轉成你的音色」；V5 的音色本來就來自參考音，再轉一次只會壞掉
+    var ovWanted = !!(ov.use && ov.gTgt) && !v5On();
 
     ttsAI.out = null;
     ttsAI.cancel = false;
@@ -1021,6 +1058,8 @@ audio { width: 100%; margin-top: 12px; }
         var ls = Math.min(1 + maxSlow, Math.max(1 - maxFit, want));
         ls = Math.max(0.4, Math.min(2.5, ls));
         if (Math.abs(ls - 1) > 0.04) {
+          // V5 重新合成的成本很高，而且它不吃 length_scale；改成拿到波形後調速
+          if (v5On()) { first.v5Scale = ls; return first; }
           adjusted++;
           return ttsRun(c.text, ls);
         }
@@ -1030,6 +1069,7 @@ audio { width: 100%; margin-top: 12px; }
         if (ttsAI.cancel) return cancelled();
         var a = ttsTrim(r.data), w = r.warn || {};
         warnLatin += w.latin || 0; warnUnknown += w.unknown || 0;
+        if (r.v5Scale) { a = timeStretch(a, TTS_SR, r.v5Scale); adjusted++; }   // V5：調速不變調
         if (ovWanted) {
           // 來源音色固定用官方的 MeloTTS 中文女聲向量（OV_SRC_ZH），每句換成使用者的音色
           if (!ov.gSrc) ov.gSrc = OV_SRC_ZH;
@@ -1337,9 +1377,10 @@ audio { width: 100%; margin-top: 12px; }
     var el = $("ttsAIVoiceState");
     if (!el) return;
     ensureModelStore().then(function (ZM) { return ZM.get("melotts-zh"); }).then(function (rec) {
+      meloReady = !!rec;
       el.textContent = rec ? "已安裝" : "未安裝";
       el.className = "zmodel-state" + (rec ? " ok" : "");
-      $("ttsRender").disabled = !rec || !tts.cues.length;
+      refreshGate();
     }).catch(function () { el.textContent = ""; });
   }
   document.addEventListener("zhiyin-model-changed", function (e) {
@@ -2393,72 +2434,153 @@ audio { width: 100%; margin-top: 12px; }
     if (window.ZhiyinModels) window.ZhiyinModels.mount($("modelCard"), "funasr-nano");
   }).catch(function () { /* 沒有模型卡也能用（repo 裡還有分塊時會直接下載） */ });
 
-  // ── V5 進階引擎（實驗）：整組十張 ONNX ＋ 1.8 MB 音素資產 ──
-  var V5 = { ready: false, engine: null };
+  // ── 引擎選擇：MeloTTS / V5 ──
+  // 選了就只留這個引擎要的步驟；「產生配音」能不能按也看這裡。
+  // （以前這個門檻只看 MeloTTS 有沒有裝，所以只裝了 V5 的人按鈕永遠打不開。）
+  var engine = "melo";
+  var meloReady = false;
+  var V5 = { ready: false, engine: null, hasRef: false };
   window.__v5 = V5;
+
+  function v5On() {
+    return engine === "v5" && !!(window.V5Integration && window.V5Integration.enabled());
+  }
+
+  // 「產生配音」的門檻：這個引擎準備好了沒 ＋ 有沒有字幕；順便把還缺什麼講出來
+  function refreshGate() {
+    var wantV5 = engine === "v5";
+    var ready = wantV5 ? !!(V5.ready && V5.hasRef) : meloReady;
+    if ($("ttsRender")) $("ttsRender").disabled = !!(ttsBusy || !ready || !tts.cues.length);
+    var miss = [];
+    if (wantV5) {
+      if (!V5.ready) miss.push("安裝 V5 的十個模型檔");
+      else if (!V5.hasRef) miss.push("選好參考音、填文字稿，再按「套用參考音」");
+    } else if (!meloReady) miss.push("安裝 MeloTTS 模型");
+    if (!tts.cues.length) miss.push("載入字幕稿");
+    var g = $("ttsGate");
+    if (g) {
+      g.textContent = miss.length ? "還缺：" + miss.join("、") + "。" : "都齊了 — 按「產生配音（AI）」就會輸出整份配音。";
+      g.className = "db-status" + (miss.length ? " warn" : "");
+    }
+    if ($("meloEngineState")) $("meloEngineState").textContent = meloReady ? "已安裝" : "未安裝";
+    if ($("v5EngineState")) {
+      $("v5EngineState").textContent = !V5.ready ? "未安裝" : (V5.hasRef ? "可輸出" : "缺參考音");
+    }
+  }
+
+  // 卡片編號跟著「這個引擎實際要做幾步」重排（隱藏的卡片不佔號）
+  function renumberSteps() {
+    var n = 1;
+    Array.prototype.forEach.call(document.querySelectorAll("#pane-tts .db-card"), function (c) {
+      if (c.hidden || c.id === "enginePickCard") return;
+      var s = c.querySelector(".db-step");
+      if (s) s.textContent = (n++) + ".";
+    });
+  }
+
+  function applyEngine() {
+    var wantV5 = engine === "v5";
+    Array.prototype.forEach.call(document.querySelectorAll("#pane-tts .db-card[data-engine]"), function (c) {
+      c.hidden = c.getAttribute("data-engine") !== (wantV5 ? "v5" : "melo");
+    });
+    if ($("engineMelo")) $("engineMelo").classList.toggle("on", !wantV5);
+    if ($("engineV5")) $("engineV5").classList.toggle("on", wantV5);
+    var note = $("engineNote");
+    if (note) note.innerHTML = wantV5
+      ? "V5 的流程：① 十個模型檔裝進瀏覽器 → ② 選一段 3–10 秒的參考音、填上它說了什麼 → ③ 載入字幕 → ④ 按「產生配音」。音色由參考音決定，換一段參考音就是換一個聲音。"
+      : "MeloTTS 的流程：① 安裝模型（163 MB，裝一次就好）→ ② 載入字幕 → ③ 按「產生配音」。不需要參考音，聲音固定是中文女聲；想換成自己的聲音，可以到下面「複製自己的聲音」設定。";
+    if (wantV5) prepareV5(); else if (window.V5Integration) window.V5Integration.setEngine(false);
+    renumberSteps();
+    refreshGate();
+  }
+
+  // 切到 V5：先把引擎（onnxruntime＋音素表）載起來，再檢查還缺什麼
+  function prepareV5() {
+    var st = $("v5EngineStatus");
+    if (!st) return;
+    if (!V5.ready) {
+      st.textContent = "V5 模型還沒安裝：在上面那張卡片按「到 Release 頁面下載」，十個檔案都載好後按「選擇已下載的檔案（可多選）」一次選進來。";
+      st.className = "db-status warn";
+      return;
+    }
+    if (V5.engine) { V5.engine.setEngine(true); refreshGate(); return; }
+    st.textContent = "載入引擎（onnxruntime ＋ 音素表，第一次要幾秒）…";
+    st.className = "db-status";
+    window.ttsV5Prepare().then(function (eng) {
+      eng.setEngine(true);
+      return eng.warmup().then(function () {
+        // 「還沒設定參考音」由下面那張卡片自己講，這裡不重複
+        var probs = eng.preflight().problems.filter(function (p) { return p.indexOf("參考音") < 0; });
+        st.textContent = probs.length ? probs.join("；") : (V5.hasRef ? "V5 就緒" : "引擎就緒，接著套用參考音");
+        st.className = "db-status" + (probs.length ? " warn" : "");
+        refreshGate();
+      });
+    }).catch(function (err) {
+      st.textContent = (err.stage ? "【" + err.stage + "】" : "") + err.message;
+      st.className = "db-status warn";
+    });
+  }
+
   loadScriptOnce(new URL("../../assets/model-store.js", document.baseURI).href).then(function () {
     if (!window.ZhiyinModels) return;
-    window.ZhiyinModels.mountSet($("v5ModelCard"), "v5", { title: "V5 模型組（十個檔案）" }).then(function () {
-      $("v5EngineRow").hidden = false;
-    });
+    window.ZhiyinModels.mountSet($("v5ModelCard"), "v5", { title: "V5 模型組（十個檔案）" });
     document.addEventListener("zhiyin-model-changed", function (e) {
-      if (e.detail && e.detail.group === "v5") {
-        V5.ready = !!e.detail.ready;
-        $("v5EngineStatus").textContent = V5.ready ? "已就緒" : "";
+      if (!e.detail || e.detail.group !== "v5") return;
+      var was = V5.ready;
+      V5.ready = !!e.detail.ready;
+      if (!V5.ready) {
+        V5.hasRef = false;
+        if (window.V5Integration) window.V5Integration.setEngine(false);
+      } else if (!was && engine === "v5") {
+        prepareV5();
       }
+      refreshGate();
     });
   }).catch(function () { /* 沒有模型卡時 V5 就不能用，MeloTTS 照常 */ });
 
-  // V5 的實際合成入口。前端（Worker）流程見 assets/tts/v5/engine.js：
-  //   G2P.run(text) → bertFeatures → refEncode → arLoop → decodeEncp → cfm → vocode
-  // 這裡只負責把模型從倉庫取出來交給引擎，逐句合成要接在 ttsAI 的那條迴圈上。
-  // 引擎切換與參考音
-  (function () {
-    var row = $("v5EngineRow"), box = $("v5RefBox");
-    if (!row) return;
-    row.addEventListener("change", function (e) {
-      if (!e.target || e.target.name !== "ttsEngine") return;
-      var wantV5 = e.target.value === "v5";
-      box.hidden = !wantV5;
-      if (wantV5 && !V5.ready) {
-        $("v5EngineStatus").textContent = "V5 模型還沒安裝：請在上方「V5 模型組」按「到 Release 頁面下載」，" +
-          "載完再按「選擇已下載的檔案（可多選）」把十個檔案一次選進來。";
-        $("v5EngineStatus").className = "db-status warn";
-        $("v5ModelCard").scrollIntoView({ block: "center" });
-        return;
-      }
-      window.ttsV5Prepare().then(function (eng) {
-        eng.setEngine(wantV5);
-        if (!wantV5) { $("v5EngineStatus").textContent = ""; return; }
-        return eng.warmup().then(function () {
-          var pf = eng.preflight();
-          $("v5EngineStatus").textContent = pf.ok ? "V5 就緒" : pf.problems.join("；");
-          $("v5EngineStatus").className = "db-status" + (pf.ok ? "" : " warn");
-        });
-      }).catch(function (err) {
-        $("v5EngineStatus").textContent = (err.stage ? "【" + err.stage + "】" : "") + err.message;
-        $("v5EngineStatus").className = "db-status warn";
-      });
+  // 引擎選擇：選完就只留那個引擎的步驟
+  Array.prototype.forEach.call(document.querySelectorAll('input[name="ttsEngine"]'), function (r) {
+    r.addEventListener("change", function () {
+      if (!r.checked) return;
+      engine = r.value === "v5" ? "v5" : "melo";
+      applyEngine();
     });
-    var apply = $("v5RefApply");
-    if (apply) apply.onclick = function () {
-      var f = $("v5RefFile").files && $("v5RefFile").files[0];
-      var txt = ($("v5RefText").value || "").trim();
-      if (!f) { $("v5RefStatus").textContent = "請先選一個音檔"; return; }
-      if (!txt) { $("v5RefStatus").textContent = "請填參考音的文字稿"; return; }
-      $("v5RefStatus").textContent = "處理中…";
-      window.ttsV5Prepare()
-        .then(function (eng) { return eng.setRef(f, txt); })
-        .then(function () { $("v5RefStatus").textContent = "參考音已設定"; $("v5EngineStatus").textContent = "V5 就緒"; })
-        .catch(function (err) { $("v5RefStatus").textContent = "失敗：" + err.message; });
-    };
-  })();
+  });
+
+  // 參考音：V5 的音色來源（音檔 ＋ 它的文字稿）
+  var v5Apply = $("v5RefApply");
+  if (v5Apply) v5Apply.onclick = function () {
+    var f = $("v5RefFile").files && $("v5RefFile").files[0];
+    var txt = ($("v5RefText").value || "").trim();
+    if (!f) { $("v5RefStatus").textContent = "請先選一個音檔（3–10 秒）"; $("v5RefStatus").className = "db-status warn"; return; }
+    if (!txt) { $("v5RefStatus").textContent = "請填參考音的文字稿（照它實際說的話打）"; $("v5RefStatus").className = "db-status warn"; return; }
+    $("v5RefStatus").textContent = "處理中…（先算音色，要幾十秒）";
+    $("v5RefStatus").className = "db-status";
+    window.ttsV5Prepare()
+      .then(function (eng) { V5.engine = eng; eng.setEngine(true); return eng.setRef(f, txt); })
+      .then(function () {
+        V5.hasRef = true;
+        $("v5RefStatus").textContent = "參考音已設定（" + txt.length + " 個字）";
+        $("v5RefStatus").className = "db-status";
+        $("v5EngineStatus").textContent = "V5 就緒";
+        $("v5EngineStatus").className = "db-status";
+        refreshGate();
+      })
+      .catch(function (err) {
+        V5.hasRef = false;
+        $("v5RefStatus").textContent = "失敗：" + (err && err.message ? err.message : err);
+        $("v5RefStatus").className = "db-status warn";
+        refreshGate();
+      });
+  };
 
   window.ttsV5Prepare = function () {
     if (!V5.ready) return Promise.reject(new Error("V5 模型還沒安裝"));
     return loadScriptOnce(new URL("../../assets/tts/v5/integration.js", document.baseURI).href)
       .then(function () { V5.engine = window.V5Integration; return V5.engine; });
   };
+
+  applyEngine();
 
   // 16-bit WAV
   function wav(x, sr) {
