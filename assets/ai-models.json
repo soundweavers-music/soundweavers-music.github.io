@@ -36,11 +36,11 @@
   "note": "從你的參考錄音抽出 256 維音色向量（3 MB）。跟「OpenVoice 音色轉換」一起用。"
  },
  "v5-roberta": {
-  "name": "V5 文字特徵 RoBERTa（fp16）",
-  "file": "roberta_fp16.onnx",
-  "size": 624140488,
-  "sha256": "ff81670048af6d16e65c421ae669b2b01cb542ce2e9033a423d372845df255c6",
-  "url": "https://github.com/soundweavers-music/soundweavers-music.github.io/releases/download/models-v2/roberta_fp16.onnx",
+  "name": "V5 韻律模型 RoBERTa（int8）",
+  "file": "roberta_i8.onnx",
+  "size": 314574025,
+  "sha256": "3b6988ba3b646f34297fa652e24295a5fac56e8101a243a5b73293b58f1868c8",
+  "url": "https://github.com/soundweavers-music/soundweavers-music.github.io/releases/download/models-v2/roberta_i8.onnx",
   "license": "GPT-SoVITS / chinese-roberta-wwm-ext-large（MIT）",
   "group": "v5"
  },
@@ -54,11 +54,11 @@
   "group": "v5"
  },
  "v5-dit": {
-  "name": "V5 聲學模型 DiT 單步（fp16）",
-  "file": "v5_step_fp16x.onnx",
-  "size": 677398711,
-  "sha256": "780417e8e4b2abf41d913dfb8423555e0c007e0c74fa934650fc54d8559fccdb",
-  "url": "https://github.com/soundweavers-music/soundweavers-music.github.io/releases/download/models-v2/v5_step_fp16x.onnx",
+  "name": "V5 聲學模型 DiT（int8）",
+  "file": "v5_step_i8.onnx",
+  "size": 361550831,
+  "sha256": "5b08a7ab68f89b57cdf9660b2e94a92918be95231a6aee4903d0d6c8096f2a87",
+  "url": "https://github.com/soundweavers-music/soundweavers-music.github.io/releases/download/models-v2/v5_step_i8.onnx",
   "license": "GPT-SoVITS V5 turbo（MIT）",
   "group": "v5"
  },
@@ -99,20 +99,20 @@
   "group": "v5"
  },
  "v5-ar-fsdec": {
-  "name": "V5 韻律模型第一步（fp32）",
-  "file": "ar_fsdec.onnx",
-  "size": 307512441,
-  "sha256": "c8cd6afedee0dda25c9aa2477e32caa5b222cc1aa52d43cd63509a44d786d555",
-  "url": "https://github.com/soundweavers-music/soundweavers-music.github.io/releases/download/models-v2/ar_fsdec.onnx",
+  "name": "V5 韻律模型 第一段解碼器（int8）",
+  "file": "ar_fsdec_i8.onnx",
+  "size": 78273372,
+  "sha256": "69372ec079198d8e2e548bac208182034a191275f78bbc2ee870da39e3c4205c",
+  "url": "https://github.com/soundweavers-music/soundweavers-music.github.io/releases/download/models-v2/ar_fsdec_i8.onnx",
   "license": "GPT-SoVITS s1（MIT）",
   "group": "v5"
  },
  "v5-ar-sdec": {
-  "name": "V5 韻律模型續步（fp32）",
-  "file": "ar_sdec.onnx",
-  "size": 307575963,
-  "sha256": "d0caab52aaa86db79e84bb23aeb25dfb0c6fdce69bde43fe5e8763c8ec45932e",
-  "url": "https://github.com/soundweavers-music/soundweavers-music.github.io/releases/download/models-v2/ar_sdec.onnx",
+  "name": "V5 韻律模型 解碼器（int8）",
+  "file": "ar_sdec_i8.onnx",
+  "size": 78362456,
+  "sha256": "f45b179675b249bd966bab89ab3013e7814e577f48a4574ab490fac531f2f073",
+  "url": "https://github.com/soundweavers-music/soundweavers-music.github.io/releases/download/models-v2/ar_sdec_i8.onnx",
   "license": "GPT-SoVITS s1（MIT）",
   "group": "v5"
  },

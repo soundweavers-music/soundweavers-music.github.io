@@ -151,7 +151,7 @@
     if (!root.ZhiyinModels) problems.push("模型倉庫沒有載入（請重新整理頁面）");
     if (!root.V5Engine) problems.push("引擎還沒載入（切到 V5 時會自動載）");
     var mem = navigator.deviceMemory || 0;
-    if (mem && mem < 8) problems.push("這台電腦記憶體約 " + mem + " GB，V5 建議 16 GB 以上");
+    if (mem && mem < 6) problems.push("這台電腦記憶體約 " + mem + " GB，V5 建議 8 GB 以上");
     if (!S.ref) problems.push("還沒設定參考音（3–10 秒的音檔 ＋ 它的文字稿）");
     return { ok: problems.length === 0, problems: problems };
   }
@@ -189,7 +189,14 @@
     ids.push(102);
     return session("roberta")
       .then(function (s) {
-        return s.run({ input_ids: new ORT.Tensor("int64", BigInt64Array.from(ids.map(BigInt)), [1, ids.length]) });
+        var feeds = { input_ids: new ORT.Tensor("int64", BigInt64Array.from(ids.map(BigInt)), [1, ids.length]) };
+        // fp16 那張匯出時只留 input_ids；fp32／int8 那張多一個 attention_mask。
+        if (s.inputNames && s.inputNames.indexOf("attention_mask") >= 0) {
+          var m = new BigInt64Array(ids.length);
+          m.fill(1n);
+          feeds.attention_mask = new ORT.Tensor("int64", m, [1, ids.length]);
+        }
+        return s.run(feeds);
       })
       .catch(function (e) { if (e.stage) throw e; fail("BERT", "RoBERTa 推論失敗：" + (e.message || e)); })
       .then(function (o) {

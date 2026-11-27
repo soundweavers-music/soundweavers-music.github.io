@@ -33,6 +33,23 @@
     return root.V5Audio.toF32(a);
   }
 
+  // 同一張圖可能出 fp16 版，也可能是 int8／fp32 版（int8 量化過去的 I/O 是 fp32）。
+  // 不要寫死：讀 ORT 給的輸入型別，決定要餵半精度位元還是一般 float32。
+  function dtypeOf(sess, name) {
+    var md = sess.inputMetadata, i;
+    if (!md) return '';
+    if (Array.isArray(md)) {
+      for (i = 0; i < md.length; i++) if (md[i] && md[i].name === name) return String(md[i].type || '');
+      return '';
+    }
+    return md[name] ? String(md[name].type || '') : '';
+  }
+  // 預設 fp16（線上目前的圖）；型別說 float／float32 才餵一般浮點
+  function wantsF32(sess, name) {
+    var t = dtypeOf(sess, name);
+    return t === 'float' || t === 'float32';
+  }
+
   async function session(name, path, opts) {
     if (SESS[name]) return SESS[name];
     if (CFG && CFG.sessionProvider) {          // 由呼叫端提供（例如從瀏覽器模型倉庫）
@@ -235,13 +252,15 @@
       for (let c = 0; c < 100; c++) px.set(prompt.data.subarray(c * pl, c * pl + pl), c * T);
 
       const d = 1 / V5.STEPS;
+      const inF32 = wantsF32(s, 'x');
+      const t32 = (a, dims) => inF32 ? new ORT.Tensor('float32', a, dims) : half(a, dims);
       for (let j = 0; j < V5.STEPS; j++) {
         const v = (await s.run({
-          x: half(x, [1, 100, T]),
-          prompt_x: half(px, [1, 100, T]),
+          x: t32(x, [1, 100, T]),
+          prompt_x: t32(px, [1, 100, T]),
           x_lens: new ORT.Tensor('int64', BigInt64Array.from([BigInt(T)]), [1]),
-          time: half(Float32Array.from([j * d]), [1]),
-          mu: half(mu.data, [1, D, T]),
+          time: t32(Float32Array.from([j * d]), [1]),
+          mu: t32(mu.data, [1, D, T]),
         })).v;
         const vd = unhalf(v.data);                  // [1,T,100]（fp16 位元 → 數字）
         for (let c = 0; c < 100; c++)
@@ -271,7 +290,8 @@
     const k = (SPEC.MAX - SPEC.MIN) / 2;
     for (let i = 0; i < mel.data.length; i++) y[i] = (mel.data[i] + 1) * k + SPEC.MIN;
     const s = await session('vocoder', paths && paths.vocoder);
-    const out = await s.run({ mel: half(y, mel.dims) });
+    const t = wantsF32(s, 'mel') ? new ORT.Tensor('float32', y, mel.dims) : half(y, mel.dims);
+    const out = await s.run({ mel: t });
     return unhalf(out.wav.data);                    // 48 kHz（fp16 位元 → 數字）
   }
 
