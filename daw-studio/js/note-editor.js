@@ -3,7 +3,7 @@
 // 資料：desc.params.notes = [{ s, e, midi, orig, amt }]（專案秒數）；改動經 onChange 通知 effects 送進 worklet。
 import { store, isMidiClip } from './state.js';
 import { engine } from './engine.js';
-import { detectNotes } from './note-detect.js';
+import { detectNotes, detectFrames, mergeNotes } from './note-detect.js';
 import { NOTE_NAMES_ZH } from './effects.js';
 import { cssVar, ink } from './theme.js';
 import { toast } from './util.js';
@@ -14,7 +14,10 @@ const open = new Map();   // fx id → 視窗
 const KEY_W = 46, RULER_H = 22;
 const SIZE_KEY = 'zhiyin-daw-noteed-size';
 // i18n 抽取器只掃得到「單行引號字串」，新字串集中在這裡再插進樣板
-const UI = { flat: '平直化', quant: '對齊節拍', grid: '格線', curve: '曲線', curveClear: '清空曲線' };
+const UI = {
+  flat: '平直化', quant: '對齊節拍', grid: '格線', curve: '曲線', curveClear: '清空曲線',
+  sel: '選取', del: '刪除', pitch: '音高', orig: '原聲', fixed: '修正後',
+};
 
 export function openNoteEditor(owner, desc, onChange) {
   if (open.has(desc.id)) { const w = open.get(desc.id); w.style.zIndex = ++zTop; return w; }
@@ -33,13 +36,21 @@ function build(owner, desc, onChange) {
     <div class="nted-head">
       <b>音符編輯</b><span class="nted-trk"></span>
       <div class="nted-tools">
+        <div class="nted-modes">
+          <button type="button" class="tbtn ghost nted-tool on" data-tool="select" title="選取／移動：點音符選取、左右拖曳移動、拖左右邊緣改長度、空白處拖曳框選">▖ ${UI.sel}</button>
+          <button type="button" class="tbtn ghost nted-tool" data-tool="curve" title="畫曲線：在音符上拖曳＝畫音高起伏；拖圓點＝調整；雙擊圓點＝刪除">✎ ${UI.curve}</button>
+          <button type="button" class="tbtn ghost nted-tool" data-tool="erase" title="刪除：點音符刪掉音符、點曲線圓點刪掉那一個點">⌫ ${UI.del}</button>
+        </div>
+        <span class="sep"></span>
+        <button type="button" class="tbtn ghost nted-undo" title="復原（Ctrl+Z）">↶</button>
+        <button type="button" class="tbtn ghost nted-redo" title="重做（Ctrl+Shift+Z）">↷</button>
+        <span class="sep"></span>
         <button type="button" class="tbtn nted-analyze" title="分析這一軌的音訊，切成一顆一顆的音符（會取代目前的音符）">分析這一軌</button>
         <span class="sep"></span>
         <button type="button" class="tbtn ghost nted-snap" title="選取的音符對齊到音階（沒選 = 全部）">對齊音階</button>
         <button type="button" class="tbtn ghost nted-reset" title="選取的音符回到原本唱的音高（沒選 = 全部）">回到原音</button>
         <button type="button" class="tbtn ghost nted-flat" title="平直化：整顆音拉成平的（不看顫音、強度 100%）。再按一次取消">${UI.flat}</button>
         <button type="button" class="tbtn ghost nted-merge" title="把選取的音合併成一個（範圍取聯集、音高按長度加權平均）（M）">合併</button>
-        <button type="button" class="tbtn ghost nted-curve" title="曲線工具：在音符上拖曳＝畫音高起伏；拖曳圓點＝調整；雙擊圓點＝刪除">${UI.curve}</button>
         <button type="button" class="tbtn ghost nted-curvec" title="清空選取的音（沒選 = 全部）的音高曲線">${UI.curveClear}</button>
         <button type="button" class="tbtn ghost nted-split" title="在播放頭的位置切開選取的音符（或在音符上雙擊）">切開</button>
         <button type="button" class="tbtn ghost nted-del" title="刪除選取的音符（Delete）">刪除</button>
@@ -55,8 +66,18 @@ function build(owner, desc, onChange) {
       <button type="button" class="tbtn ghost nted-max" title="最大化／還原">▢</button>
       <button type="button" class="tbtn ghost nted-x" title="關閉 (Esc)">✕</button>
     </div>
-    <div class="nted-body"><canvas class="nted-cv" tabindex="0"></canvas></div>
+    <div class="nted-body">
+      <canvas class="nted-cv" tabindex="0"></canvas>
+      <div class="nted-zoom">
+        <button type="button" class="nted-zp" title="音高放大（Alt+滾輪）">＋</button>
+        <span>${UI.pitch}</span>
+        <button type="button" class="nted-zm" title="音高縮小（Alt+滾輪）">－</button>
+        <button type="button" class="nted-zr" title="音高範圍重設">⟲</button>
+      </div>
+      <div class="nted-legend"><i class="nted-lo"></i>${UI.orig}<i class="nted-lc"></i>${UI.fixed}</div>
+    </div>
     <div class="nted-foot">
+      <span class="nted-cur">—</span>
       <span class="nted-sel">沒有選取</span>
       <label>音高 <input type="number" class="nted-pitch" step="0.1" title="選取音符相對原音的移調（半音）"> 半音</label>
       <label>修正強度 <input type="range" class="nted-amt" min="0" max="100" step="1"><b class="nted-amtv"></b></label>
@@ -71,6 +92,7 @@ function build(owner, desc, onChange) {
   document.body.appendChild(win);
   const $ = s => win.querySelector(s);
   const cv = $('.nted-cv'), body = $('.nted-body');
+  const undoBtn = $('.nted-undo'), redoBtn = $('.nted-redo'), curEl = $('.nted-cur');
   $('.nted-trk').textContent = store.track(owner)?.name || '';
   open.set(desc.id, win);
 
@@ -106,7 +128,7 @@ function build(owner, desc, onChange) {
   // ---- 檢視範圍 ----
   const V = { t0: 0, t1: 10, lo: 48, hi: 76 };   // 秒、MIDI
   let follow = true;
-  let curveMode = false;                          // 曲線工具（在音符上畫音高起伏）
+  let tool = 'select';                            // select｜curve（畫音高曲線）｜erase（刪除）
   const W = () => body.clientWidth, H = () => body.clientHeight;
   const xOf = t => KEY_W + (t - V.t0) / (V.t1 - V.t0) * (W() - KEY_W);
   const tOf = x => V.t0 + (x - KEY_W) / (W() - KEY_W) * (V.t1 - V.t0);
@@ -128,6 +150,14 @@ function build(owner, desc, onChange) {
     if (hi - lo < 12) { const c = (hi + lo) / 2; lo = c - 6; hi = c + 6; }
     Object.assign(V, { t0, t1: Math.max(t1, t0 + 1), lo: Math.floor(lo), hi: Math.ceil(hi) });
   };
+  // 只重設音高範圍（左側「⟲」）
+  const fitV = () => {
+    const all = notes();
+    let lo = 52, hi = 76;
+    if (all.length) { lo = Math.min(...all.map(n => Math.min(n.midi, n.orig ?? n.midi))) - 3; hi = Math.max(...all.map(n => Math.max(n.midi, n.orig ?? n.midi))) + 3; }
+    if (hi - lo < 12) { const c = (hi + lo) / 2; lo = c - 6; hi = c + 6; }
+    V.lo = Math.max(12, Math.floor(lo)); V.hi = Math.min(120, Math.ceil(hi));
+  };
   const zoomT = (k, at) => {
     const c = at ?? (V.t0 + V.t1) / 2, span = Math.max(0.25, Math.min(1200, (V.t1 - V.t0) * k));
     const f = (c - V.t0) / (V.t1 - V.t0);
@@ -147,22 +177,24 @@ function build(owner, desc, onChange) {
   syncFollow();
 
   // ---- 波形與原始音高曲線（背景）----
-  let bgCache = null;   // { key, pitch: [{t, m}], peaks: [{t, v}] }
+  let bgCache = null;   // { key, pitch: [{s,e,m}], trace: [{t,m}], peaks: [{t, v}] }
   const buildBg = () => {
     const t = store.track(owner);
     const key = (t?.clips || []).map(c => c.id + c.start + c.offset + c.duration).join('|');
     if (bgCache && bgCache.key === key) return bgCache;
-    const pitch = [], peaks = [];
+    const pitch = [], trace = [], peaks = [];
     for (const c of t?.clips || []) {
       if (isMidiClip(c)) continue;
       const b = store.buffers.get(c.bufferId); if (!b) continue;
       const d = b.getChannelData(0), sr = b.sampleRate, step = Math.round(sr * 0.01);
       const s0 = Math.floor(c.offset * sr), s1 = Math.min(b.length, Math.floor((c.offset + c.duration) * sr));
       for (let i = s0; i < s1; i += step) { let m = 0; for (let k = i; k < Math.min(s1, i + step); k += 4) m = Math.max(m, Math.abs(d[k])); peaks.push({ t: c.start + (i - s0) / sr, v: m }); }
-      // 原始音高：用 detectNotes 的格子太粗，這裡直接用它的偵測結果畫成段落即可
-      for (const n of detectNotes(b, c.offset, Math.min(c.duration, 600))) pitch.push({ s: c.start + n.s, e: c.start + n.e, m: n.midi });
+      // 逐格音高只算一次：一份畫「原本唱的音高曲線」，一份併成音符
+      const frames = detectFrames(b, c.offset, Math.min(c.duration, 600));
+      for (const fr of frames) if (fr.midi > 0) trace.push({ t: c.start + fr.t, m: fr.midi });
+      for (const n of mergeNotes(frames)) pitch.push({ s: c.start + n.s, e: c.start + n.e, m: n.midi });
     }
-    bgCache = { key, pitch, peaks };
+    bgCache = { key, pitch, trace, peaks };
     return bgCache;
   };
 
@@ -203,13 +235,7 @@ function build(owner, desc, onChange) {
       const x = xOf(p.t), v = p.v * amp;
       g.fillRect(x, mid - v, Math.max(1, px * 0.01), v * 2);
     }
-    // 原本唱的音（細線）
-    g.strokeStyle = `rgba(${cssVar('--cv-orig')},.45)`; g.lineWidth = 1.5;
-    for (const p of bg.pitch) {
-      if (p.e < V.t0 || p.s > V.t1) continue;
-      g.beginPath(); g.moveTo(xOf(p.s), yOf(p.m)); g.lineTo(xOf(p.e), yOf(p.m)); g.stroke();
-    }
-    // 音符
+    // 音符（方塊）。音高曲線與目標線要等方塊畫完再畫，不然會被蓋掉
     const all = notes();
     g.font = '11px ui-monospace, Consolas'; g.textBaseline = 'middle';
     all.forEach((n, i) => {
@@ -241,31 +267,53 @@ function build(owner, desc, onChange) {
         g.strokeStyle = 'rgba(255,255,255,.8)'; g.lineWidth = 1.5;
         g.beginPath(); g.moveTo(x + 1.5, y + hh / 2 - 1.5); g.lineTo(x + 8, y - hh / 2 + 1.5); g.stroke();
       }
-      // 音高曲線：音符內部的起伏（手繪的）
-      if (n.curve && n.curve.length && !n.flat) {
-        const cw = Math.max(1, x2 - x);
-        g.strokeStyle = on ? '#fff' : '#ffd36b'; g.lineWidth = 1.8;
-        g.beginPath();
-        n.curve.forEach((p, k) => {
-          const px = x + cw * p.t, py = y - (p.c / 100) * rh;
-          k ? g.lineTo(px, py) : g.moveTo(px, py);
-        });
-        g.stroke();
-        if (on || curveMode) {
-          for (const p of n.curve) {
-            const px = x + cw * p.t, py = y - (p.c / 100) * rh;
-            g.beginPath(); g.arc(px, py, 2.8, 0, Math.PI * 2);
-            g.fillStyle = '#ffd36b'; g.fill();
-            g.strokeStyle = 'rgba(0,0,0,.55)'; g.lineWidth = 1; g.stroke();
-          }
-        }
-      }
       if (x2 - x > 34 && hh >= 10) {
         g.fillStyle = '#0b0c0f'; g.textAlign = 'left';
         const cents = moved ? ` ${n.midi - n.orig > 0 ? '+' : ''}${(n.midi - n.orig).toFixed(1)}` : '';
         g.fillText(noteOf(n.midi) + cents, x + 5, y + 0.5);
       }
       if (hover && hover.i === i && hover.edge) { g.fillStyle = '#fff'; g.fillRect(hover.edge < 0 ? x : x2 - 3, y - hh / 2, 3, hh); }
+    });
+    // 原本唱的音高曲線（逐格偵測；斷音處斷開）— 畫在方塊上面才看得到
+    g.strokeStyle = `rgba(${cssVar('--cv-orig')},.85)`; g.lineWidth = 1.7; g.lineJoin = 'round';
+    g.beginPath();
+    { let pen = false, lastT = -1;
+      for (const fr of bg.trace) {
+        if (fr.t < V.t0 - 2 || fr.t > V.t1 + 2) { pen = false; continue; }
+        if (lastT >= 0 && fr.t - lastT > 0.08) pen = false;
+        const px = xOf(fr.t), py = yOf(fr.m);
+        pen ? g.lineTo(px, py) : g.moveTo(px, py);
+        pen = true; lastT = fr.t;
+      }
+    }
+    g.stroke();
+    // 修正後（目標音高）：平的音是一條水平線，畫過曲線就沿著曲線
+    all.forEach((n, i) => {
+      if (n.e < V.t0 || n.s > V.t1) return;
+      const x = xOf(n.s), x2 = xOf(n.e), y = yOf(n.midi);
+      const on = sel.has(i), cw = Math.max(1, x2 - x);
+      const path = () => {
+        g.beginPath();
+        if (n.curve && n.curve.length && !n.flat) {
+          n.curve.forEach((p, k) => { const px = x + cw * p.t, py = y - (p.c / 100) * rh; k ? g.lineTo(px, py) : g.moveTo(px, py); });
+        } else {
+          const yy = Math.round(y) + 0.5; g.moveTo(x, yy); g.lineTo(x2, yy);
+        }
+      };
+      // 先描一層暗邊，亮線壓在彩色方塊上才看得清楚
+      g.strokeStyle = 'rgba(0,0,0,.55)'; g.lineWidth = (n.flat ? 2.6 : 2) + 2.4;
+      path(); g.stroke();
+      g.strokeStyle = on ? '#fff' : n.flat ? '#ffd36b' : '#4ed0ff';
+      g.lineWidth = n.flat ? 2.6 : 2;
+      path(); g.stroke();
+      if (n.curve && n.curve.length && !n.flat && (on || tool === 'curve')) {
+        for (const p of n.curve) {
+          const px = x + cw * p.t, py = y - (p.c / 100) * rh;
+          g.beginPath(); g.arc(px, py, 2.8, 0, Math.PI * 2);
+          g.fillStyle = '#ffd36b'; g.fill();
+          g.strokeStyle = 'rgba(0,0,0,.55)'; g.lineWidth = 1; g.stroke();
+        }
+      }
     });
     // 框選
     if (marquee) {
@@ -300,6 +348,12 @@ function build(owner, desc, onChange) {
       g.fillText('按上方「分析這一軌」，把錄音切成一顆一顆的音符', KEY_W + (w - KEY_W) / 2, RULER_H + (h - RULER_H) / 2);
     }
     syncFoot();
+    syncUndo();
+  }
+
+  function syncUndo() {
+    if (undoBtn) undoBtn.disabled = !store.undoStack?.length;
+    if (redoBtn) redoBtn.disabled = !store.redoStack?.length;
   }
 
   // ---- 命中測試 ----
@@ -373,10 +427,15 @@ function build(owner, desc, onChange) {
   cv.addEventListener('pointermove', e => {
     if (e.buttons) return;
     const r = cv.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
+    if (curEl) curEl.textContent = (y > RULER_H && x > KEY_W) ? `${noteOf(mOf(y))} · ${tOf(x).toFixed(2)}s` : '—';
     hover = y > RULER_H && x > KEY_W ? hit(x, y) : null;
-    if (curveMode) {
+    if (tool === 'curve') {
       const hp = hitPt(x, y);
       cv.style.cursor = y < RULER_H ? 'pointer' : hp ? 'move' : hover ? 'crosshair' : 'default';
+      return;
+    }
+    if (tool === 'erase') {
+      cv.style.cursor = hitPt(x, y) || hover ? 'not-allowed' : 'default';
       return;
     }
     cv.style.cursor = y < RULER_H ? 'pointer' : hover ? (hover.edge ? 'ew-resize' : 'grab') : x < KEY_W ? 'default' : 'crosshair';
@@ -389,8 +448,15 @@ function build(owner, desc, onChange) {
     if (x < KEY_W || e.button !== 0) return;
     const h = hit(x, y);
     cv.setPointerCapture(e.pointerId);
+    // 刪除工具：點曲線圓點刪那一點、點音符刪整個音
+    if (tool === 'erase') {
+      const hp = hitPt(x, y);
+      if (hp) { store.checkpoint(); notes()[hp.i].curve.splice(hp.j, 1); changed(); return; }
+      if (h) { sel = new Set([h.i]); del(); return; }
+      return;
+    }
     // 曲線工具：拖控制點＝調整、在音符上拖＝畫線（邊緣仍可改長度）
-    if (curveMode && !(h && h.edge)) {
+    if (tool === 'curve' && !(h && h.edge)) {
       const hp = hitPt(x, y);
       if (hp) { dragPt(hp, e, r); return; }
       if (h) { drawOn(h.i, x, y, r); return; }
@@ -441,7 +507,7 @@ function build(owner, desc, onChange) {
   cv.addEventListener('dblclick', e => {
     const r = cv.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
     const hp = hitPt(x, y);
-    if (hp && curveMode) {                     // 曲線工具：雙擊控制點＝刪除
+    if (hp && tool === 'curve') {               // 曲線工具：雙擊控制點＝刪除
       store.checkpoint();
       notes()[hp.i].curve.splice(hp.j, 1);
       changed(); return;
@@ -562,14 +628,17 @@ function build(owner, desc, onChange) {
   };
   $('.nted-merge').onclick = merge;
 
-  // 曲線工具（Draw Tool）：在音符上拖曳畫音高起伏
-  const curveBtn = $('.nted-curve');
-  curveBtn.onclick = () => {
-    curveMode = !curveMode;
-    curveBtn.classList.toggle('on', curveMode);
-    toast(curveMode ? '曲線工具：在音符上拖曳畫音高起伏（雙擊圓點刪除）' : '回到一般編輯');
+  // 工具列：選取／曲線／刪除（游標形狀也會跟著換）
+  const toolBtns = [...win.querySelectorAll('.nted-tool')];
+  const setTool = t => {
+    tool = t;
+    for (const b of toolBtns) b.classList.toggle('on', b.dataset.tool === t);
+    if (t === 'curve') toast('曲線工具：在音符上拖曳畫音高起伏（雙擊圓點刪除）');
+    else if (t === 'erase') toast('刪除工具：點音符刪音符、點圓點刪掉那一點');
     draw();
   };
+  for (const b of toolBtns) b.onclick = () => setTool(b.dataset.tool);
+
   $('.nted-curvec').onclick = () => {
     const l = targets(); if (!l.length) return;
     store.checkpoint();
@@ -577,6 +646,15 @@ function build(owner, desc, onChange) {
     changed();
     toast('已清空音高曲線');
   };
+
+  // 左側：音高縮放
+  $('.nted-zp').onclick = () => { zoomP(0.7); draw(); };
+  $('.nted-zm').onclick = () => { zoomP(1.5); draw(); };
+  $('.nted-zr').onclick = () => { fitV(); draw(); };
+
+  // 復原／重做
+  undoBtn.onclick = () => { if (store.undo()) changed(); };
+  redoBtn.onclick = () => { if (store.redo()) changed(); };
 
   // 對齊節拍（Timing Correction）
   const gridSel = $('.nted-grid');

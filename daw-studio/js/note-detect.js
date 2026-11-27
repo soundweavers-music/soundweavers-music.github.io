@@ -5,7 +5,8 @@
 const NAMES = ['C', 'C♯', 'D', 'E♭', 'E', 'F', 'F♯', 'G', 'A♭', 'A', 'B♭', 'B'];
 export const midiName = m => NAMES[((Math.round(m) % 12) + 12) % 12] + (Math.floor(Math.round(m) / 12) - 1);
 
-export function detectNotes(buf, startSec = 0, durSec = Infinity, opts = {}) {
+// 逐格音高（每 20 ms 一格）：畫「原本唱的音高曲線」用，也給 mergeNotes 併成音符
+export function detectFrames(buf, startSec = 0, durSec = Infinity, opts = {}) {
   const sr = buf.sampleRate;
   const fmin = opts.fmin ?? 70, fmax = opts.fmax ?? 1100;
   const gate = opts.gate ?? 0.0075;          // 低於這個 RMS 當作沒聲音
@@ -54,7 +55,11 @@ export function detectNotes(buf, startSec = 0, durSec = Infinity, opts = {}) {
     frames.push({ t: (p * D) / sr, midi: 69 + 12 * Math.log2(f / 440), conf: d[best], rms });
   }
 
-  // 合併成音符：音高連續、能量連續就視為同一顆
+  return frames;
+}
+
+// 把逐格音高合併成音符：音高連續、能量連續就視為同一顆
+export function mergeNotes(frames) {
   const notes = [];
   let cur = null;
   const push = () => {
@@ -76,4 +81,9 @@ export function detectNotes(buf, startSec = 0, durSec = Infinity, opts = {}) {
   }
   push();
   return notes;
+}
+
+// 舊介面：一次拿到音符
+export function detectNotes(buf, startSec = 0, durSec = Infinity, opts = {}) {
+  return mergeNotes(detectFrames(buf, startSec, durSec, opts));
 }

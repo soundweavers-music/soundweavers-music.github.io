@@ -596,6 +596,37 @@ dialog.wide { width: min(640px, 94vw); }
 .thead .inst.sf { color: var(--sf-tx); background: var(--ok-bg); border-color: var(--ok-line); }
 .thead .inst.missing { color: var(--warn-tx); background: rgba(245,184,61,.12); border-color: rgba(245,184,61,.35); }
 
+/* ---------- 織音合成器：音色瀏覽器、音色調整 ---------- */
+.zy-body { max-height: 74vh; }
+.zy-top { display: flex; gap: 8px; }
+.zy-search { flex: 1; background: var(--bg0); border: 1px solid var(--line2); border-radius: 5px; padding: 6px 9px; color: var(--tx0); font-size: 12.5px; }
+.zy-search:focus { outline: none; border-color: var(--accent); }
+.zy-cats { display: flex; flex-wrap: wrap; gap: 4px; }
+.zy-cats button { background: var(--bg1); border: 1px solid var(--line2); color: var(--tx1); border-radius: 14px; padding: 3px 10px; font-size: 12px; cursor: pointer; display: flex; gap: 5px; align-items: center; }
+.zy-cats button i { font-style: normal; font-size: 10px; color: var(--tx2); }
+.zy-cats button:hover { border-color: var(--accent); }
+.zy-cats button.on { background: var(--accent); border-color: var(--accent); color: var(--accent-tx); }
+.zy-cats button.on i { color: var(--accent-tx); opacity: .8; }
+.zy-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(196px, 1fr)); gap: 5px; max-height: 46vh; overflow: auto; padding: 2px; }
+.zy-item { display: grid; grid-template-columns: 1fr auto; gap: 1px 6px; text-align: left; background: var(--bg1); border: 1px solid var(--line); border-radius: 6px; padding: 6px 9px; cursor: pointer; color: var(--tx0); }
+.zy-item b { font-weight: 600; font-size: 12.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.zy-item span { grid-column: 1; font-size: 10.5px; color: var(--tx2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.zy-item em { grid-row: 1 / span 2; grid-column: 2; align-self: center; font-style: normal; font-size: 10px; color: var(--tx2); white-space: nowrap; }
+.zy-item:hover { border-color: var(--line2); background: var(--bg2); }
+.zy-item.on { border-color: var(--accent); background: var(--accent-soft); }
+.zy-item.on b { color: var(--accent); }
+.zy-empty { color: var(--tx2); padding: 12px; }
+.zy-macros h4 { display: flex; align-items: center; gap: 6px; white-space: nowrap; }
+.zy-macros .zy-hint { color: var(--tx2); font-size: 10.5px; }
+.zy-macros .zy-reset { margin-left: auto; background: none; border: 1px solid var(--line2); color: var(--tx2); border-radius: 4px; font-size: 10px; padding: 1px 6px; cursor: pointer; }
+.zy-macros .zy-reset:hover { color: var(--tx0); border-color: var(--accent); }
+/* 兩欄、每欄「名稱在上、旋鈕在下」：中英文都排得下，不會擠在一起 */
+.zy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 10px; }
+.zy-grid label { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 0 4px; font-size: 10.5px; color: var(--tx1); }
+.zy-grid label span { grid-column: 1 / -1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.zy-grid input[type=range] { width: 100%; height: 14px; accent-color: var(--accent); cursor: ew-resize; }
+.zy-grid output { font-family: var(--mono); font-size: 10px; color: var(--tx2); text-align: right; }
+
 /* ---------- 第 4 階段：母帶、自動化 ---------- */
 .master-panel { background: var(--bg1); border-top: 1px solid var(--line); height: 330px; display: grid; grid-template-rows: auto 1fr; min-height: 0; }
 .master-panel.hidden { display: none; }
@@ -998,6 +1029,23 @@ a.tbtn { text-decoration: none; }
 .nted-tools .tbtn, .nted-head > .tbtn { height: 26px; font-size: 11.5px; }
 .nted-tools .sep { width: 1px; height: 18px; background: var(--line2); margin: 0 4px; }
 .nted-tools .tbtn.on { background: var(--accent); color: #fff; border-color: var(--accent); }
+/* 工具切換（選取／曲線／刪除） */
+.nted-modes { display: flex; gap: 3px; padding: 2px; border: 1px solid var(--line2); border-radius: 7px; }
+.nted-modes .tbtn { border: 0; border-radius: 5px; height: 24px; }
+.nted-modes .tbtn:not(.on):hover { background: var(--bg2); }
+/* 左側音高縮放 */
+.nted-zoom { position: absolute; left: 52px; top: 30px; display: grid; gap: 3px; background: rgba(12, 12, 14, .72); border: 1px solid var(--line2); border-radius: 8px; padding: 3px; z-index: 2; }
+.nted-zoom button { width: 26px; height: 22px; border: 1px solid var(--line2); border-radius: 5px; background: var(--bg1); color: var(--tx1); font-size: 12px; line-height: 1; cursor: pointer; }
+.nted-zoom button:hover { border-color: var(--accent); color: var(--tx0); }
+.nted-zoom span { font-size: 9px; color: var(--tx2); text-align: center; letter-spacing: .05em; }
+/* 圖例：原聲／修正後 */
+.nted-legend { position: absolute; top: 26px; right: 8px; display: flex; align-items: center; gap: 5px; font-size: 10px; color: var(--tx2); background: rgba(12, 12, 14, .6); padding: 2px 8px; border-radius: 999px; pointer-events: none; }
+.nted-legend i { display: inline-block; width: 12px; height: 2px; margin-left: 5px; border-radius: 1px; }
+.nted-legend i:first-child { margin-left: 0; }
+.nted-legend .nted-lo { background: rgb(230, 150, 120); }
+.nted-legend .nted-lc { background: #4ed0ff; }
+.nted-cur { font-family: var(--mono); font-size: 10.5px; color: var(--tx2); min-width: 78px; }
+.nted-foot .tbtn:disabled { opacity: .35; cursor: default; }
 .nted-on { display: flex; align-items: center; gap: 4px; color: var(--tx1); font-size: 11.5px; cursor: pointer; }
 .nted-head .spacer { flex: 1; }
 .nted-body { position: relative; min-height: 0; overflow: hidden; }
