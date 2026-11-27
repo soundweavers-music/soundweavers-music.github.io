@@ -3,6 +3,7 @@
 import { store, isMidiClip, spb, recordingClips } from './state.js';
 import { dbToGain } from './util.js';
 import { startVoice, scheduleNote, releaseTail } from './synth.js';
+import { ensureZYWorklet } from './zy-synth.js';
 import { buildChain, chainShape, ensureFxWorklets, fxLatency, WORKLET_FX } from './effects.js';
 import { ensureWorklet, buildMastering, defaultMastering } from './mastering.js';
 import { isActive, schedule as autoSchedule, AUTO_PARAMS, valueAt as valueAtBeat } from './automation.js';
@@ -232,6 +233,8 @@ class Engine {
       // 升降音等需要 AudioWorklet 的效果器：載入完成後，把用到它們的鏈重建一次（載入前先直通）
       ensureFxWorklets(c).then(() => { this.fxReady = true; this.rebuildWorkletChains(); })
         .catch(e => console.warn('fx worklet failed', e));
+      // 織音合成器：先載入，第一次彈奏才不會退回舊的內建音色
+      await ensureZYWorklet(c).catch(e => console.warn('zy synth worklet failed', e));
       store.on('change', ({ kind }) => {
         if (kind === 'structure') this.syncStrips();
         else if (kind === 'mix') this.applyMix();
@@ -480,7 +483,7 @@ class Engine {
         seg.i++;
         if (at < ctxNow - 0.02) continue;   // 已經錯過（分頁在背景）就跳過
         const endPos = Math.min(e.e, seg.posEnd);
-        const v = scheduleNote(this.ctx, e.strip.input, e.track.instrument, e.p, e.v, Math.max(at, ctxNow), endPos - e.s);
+        const v = scheduleNote(this.ctx, e.strip.input, e.track.instrument, e.p, e.v, Math.max(at, ctxNow), endPos - e.s, { synth: e.track.synth });
         this.voices.add(v);
       }
     }
@@ -497,7 +500,7 @@ class Engine {
     const key = trackId + ':' + midi;
     this.live.get(key)?.release(this.ctx.currentTime);
     this.live.set(key, startVoice(this.ctx, strip.input, t.instrument || 'piano',
-      Math.max(0, Math.min(127, midi + (t.transpose || 0))), vel, this.ctx.currentTime));
+      Math.max(0, Math.min(127, midi + (t.transpose || 0))), vel, this.ctx.currentTime, { synth: t.synth }));
   }
 
   noteOff(trackId, midi) {
@@ -517,7 +520,7 @@ class Engine {
     await this.ensure();
     const t = store.track(trackId), strip = this.strips.get(trackId);
     if (t && strip) scheduleNote(this.ctx, strip.input, t.instrument || 'piano',
-      Math.max(0, Math.min(127, midi + (t.transpose || 0))), vel, this.ctx.currentTime + 0.005, dur);
+      Math.max(0, Math.min(127, midi + (t.transpose || 0))), vel, this.ctx.currentTime + 0.005, dur, { synth: t.synth });
   }
 
   async play(from = this.position, opts = {}) {
@@ -641,7 +644,7 @@ class Engine {
     const useBuses = opts.buses !== false;
     // 尾巴長度：MIDI 釋音、殘響、延遲回授（tail 明確給 0 就不加，例如輸出循環區間）
     if (opts.tail === undefined || opts.tail > 0) {
-      for (const t of p.tracks) if (t.kind === 'midi' && t.clips.length) tail = Math.max(tail, releaseTail(t.instrument));
+      for (const t of p.tracks) if (t.kind === 'midi' && t.clips.length) tail = Math.max(tail, releaseTail(t.instrument, { synth: t.synth }));
       let fxTail = 0;
       const scan = list => (list || []).forEach(d => {
         if (!d.on) return;
@@ -668,6 +671,7 @@ class Engine {
     const oc = new OfflineAudioContext(2, len0 + latComp, sr);
     oc._zyTransport = [{ c: 0, p: start }];   // 離線：ctx 0 秒（輸出端）= 專案 start 秒
     await ensureFxWorklets(oc);
+    await ensureZYWorklet(oc).catch(() => {});   // 織音合成器的音色要在離線環境也算得出來
     // 與即時播放相同的訊號路徑：tracks → (buses) → master 插入效果器 → master fader
     const master = oc.createGain();
     master.gain.value = dbToGain(opts.masterGainDb ?? p.masterDb);
@@ -702,7 +706,7 @@ class Engine {
         if (isMidiClip(clip)) {
           for (const e of midiEvents(clip, t.transpose || 0)) {
             if (e.s < start + lat - 1e-6 || e.s >= end) continue;
-            scheduleNote(oc, strip.input, t.instrument, e.p, e.v, e.s - start - lat, Math.min(e.e, end) - e.s);
+            scheduleNote(oc, strip.input, t.instrument, e.p, e.v, e.s - start - lat, Math.min(e.e, end) - e.s, { synth: t.synth });
           }
         } else {
           // 專案時間 x 要在 ctx 的 (x − start − lat) 送進效果器，出來時剛好在 (x − start)。
@@ -719,6 +723,9 @@ class Engine {
         oc.suspend(at).then(() => { try { opts.onProgress(i / steps); } catch (_) {} return oc.resume(); }).catch(() => {});
       }
     }
+    // 織音合成器是 AudioWorklet：音符跟音色都是先用 postMessage 送進它的佇列，
+    // 離線算圖一啟動就會一路算到底、中間不讓路，所以先等一拍讓佇列送達（否則整軌會靜音）。
+    await new Promise(r => setTimeout(r, 40));
     const out = await oc.startRendering();
     // limiter 有 5ms look-ahead 延遲：把開頭這段裁掉，輸出檔才會跟時間軸對齊
     if (latComp) {

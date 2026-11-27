@@ -27,10 +27,17 @@ export function setLang(v) {
   location.reload();
 }
 
+// 執行期補充的對照表：音色名稱這種「由資料產生」的字串不可能全部收進字典，
+// 由各自的模組註冊進來（例如織音合成器的 232 個音色名）。
+const EXTRA = new Map();
+export function registerTerms(map) {
+  for (const k of Object.keys(map)) if (map[k] && map[k] !== k) EXTRA.set(k, map[k]);
+}
+
 // 單一字串翻譯（給 JS 內動態組字用）
 export function t(zh) {
   if (LANG !== 'en') return zh;
-  return EN[zh] || zh;
+  return EN[zh] || EXTRA.get(zh) || zh;
 }
 
 // 帶數字、名稱的字串（音量 -12.0 dB、音訊 3、已暫存 下午09:12…）不可能逐條收進字典，
@@ -78,6 +85,12 @@ const RULES = [
   { re: /^已排好 (\d+) 段並寫進段落軌；要改就在尺規下方的段落軌上點$/, sample: '已排好 5 段並寫進段落軌；要改就在尺規下方的段落軌上點',
     fn: (m, n) => `Planned ${n} sections and wrote them into the section track — click a section to change it` },
   { re: /^已把 (\d+) 段寫進段落軌$/, fn: (m, n) => `Wrote ${n} sections into the section track`, sample: '已把 5 段寫進段落軌' },
+  // 織音合成器（音色清單是資料產生的，不能逐條收進字典）
+  { re: /^織音・(.+)$/, fn: (m, g) => `Zhiyin · ${t(g)}`, sample: '織音・鋼琴' },
+  { re: /^內建 (\S+) 種音色，即時合成、不用下載$/, sample: '內建 232 種音色，即時合成、不用下載',
+    fn: (m, n) => `${n} instruments, synthesised live — nothing to download` },
+  { re: /^套用「(.+)」$/, fn: (m, n) => `Apply "${t(n)}"`, sample: '套用「平台鋼琴」' },
+  { re: /^音色改成「(.+)」$/, fn: (m, n) => `Instrument changed to "${t(n)}"`, sample: '音色改成「平台鋼琴」' },
 ];
 
 // 給 scripts/daw_i18n_test.py 用：字典的鍵與每條規則的樣本
@@ -94,9 +107,10 @@ function tr(text) {
   // 已經翻過的就不再處理，避免 MutationObserver 自己觸發自己
   if (!CJK.test(s)) return null;
   if (EN[s]) return EN[s];
+  if (EXTRA.has(s)) return EXTRA.get(s);
   // 選單會在前面加「✓ 」或全角空白表示目前選項：拆掉再查，查到了再放回去
   const m = s.match(/^([✓　\s]+)(.+)$/);
-  if (m && EN[m[2].trim()]) return m[1] + EN[m[2].trim()];
+  if (m && (EN[m[2].trim()] || EXTRA.has(m[2].trim()))) return m[1] + (EN[m[2].trim()] || EXTRA.get(m[2].trim()));
   const bare = m ? m[2].trim() : s;
   for (const { re, fn } of RULES) {
     const hit = bare.match(re);

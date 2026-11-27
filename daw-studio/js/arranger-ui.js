@@ -2,7 +2,7 @@
 import { store } from './state.js';
 import { engine } from './engine.js';
 import { arranger, chordLabel, PARTS, SECTIONS, STYLES } from './arranger.js';
-import { PRESETS, PRESET_GROUPS } from './synth.js';
+import { PRESETS, PRESET_GROUPS, instName } from './synth.js';
 import { listBanks, sfInstrumentId } from './soundbank.js';
 import { addInputHook, noteOn as kbOn, noteOff as kbOff, midiState, setFallbackTrack } from './midi-input.js';
 import { toast } from './util.js';
@@ -192,7 +192,7 @@ function renderParts() {
     const row = document.createElement('div');
     row.className = 'arr-part' + (arranger.partOn[p.id] ? '' : ' off');
     row.style.setProperty('--pc', p.color);
-    const opts = PRESET_GROUPS.map(g => `<optgroup label="${g}">${Object.entries(PRESETS).filter(([, P]) => P.group === g).map(([id, P]) => `<option value="${id}">${P.name}</option>`).join('')}</optgroup>`).join('')
+    const opts = PRESET_GROUPS.map(g => `<optgroup label="${g}">${Object.entries(PRESETS).filter(([, P]) => P.group === g).map(([id]) => `<option value="${id}">${instName(id)}</option>`).join('')}</optgroup>`).join('')
       + banks.map(b => `<optgroup label="SoundFont：${b.name}">${(b.presets || []).filter(x => (p.id === 'drums') === x.drums).slice(0, 200).map(x => `<option value="${sfInstrumentId(b.id, x.idx)}">${x.program + 1}. ${x.name}</option>`).join('')}</optgroup>`).join('');
     row.innerHTML = `<button type="button" class="pw" title="開／關這個聲部">${arranger.partOn[p.id] ? '●' : '○'}</button><b>${p.name}</b>
       <select class="inst">${opts}</select>

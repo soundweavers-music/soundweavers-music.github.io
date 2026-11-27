@@ -342,7 +342,7 @@ class Arranger {
       // 力度留 headroom：滿載時（吉他 6 弦＋鋼琴 5 音）也不會把總和推破 0 dBFS
       const vel = clamp(Math.round(e.v * (pid === 'guitar' && e.r === 'U' ? 0.85 : 1) * this.dyn() * this.level), 1, 104);
       const p = clamp(n + (tr.transpose || 0), 0, 127);
-      const v = scheduleNote(engine.ctx, strip.input, tr.instrument || 'piano', p, vel, at + strum, Math.max(0.03, dur - strum));
+      const v = scheduleNote(engine.ctx, strip.input, tr.instrument || 'piano', p, vel, at + strum, Math.max(0.03, dur - strum), { synth: tr.synth });
       v._hold = hold;
       this.voices.add(v);
       if (this.rec) this.recordNote(pid, p, vel, at + strum, dur - strum);
@@ -456,7 +456,7 @@ class Arranger {
   // 試聽一個和弦（UI 用）
   preview(partId, midi) {
     const tr = this.track(partId); const strip = tr && engine.strips.get(tr.id);
-    if (strip) startVoice(engine.ctx, strip.input, tr.instrument, midi, 90, engine.ctx.currentTime).release(engine.ctx.currentTime + 0.4);
+    if (strip) startVoice(engine.ctx, strip.input, tr.instrument, midi, 90, engine.ctx.currentTime, { synth: tr.synth }).release(engine.ctx.currentTime + 0.4);
   }
 }
 

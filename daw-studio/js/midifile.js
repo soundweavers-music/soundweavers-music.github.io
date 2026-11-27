@@ -1,5 +1,6 @@
 // Standard MIDI File 讀寫（format 0 / 1），只處理編曲需要的事件：
 // note on/off、tempo、拍號、program change、軌道名稱；其他事件略過。
+import { ZY_PATCHES } from './zy-patches.js';
 
 // ---------- 讀取 ----------
 export function parseMidi(arrayBuffer) {
@@ -96,10 +97,20 @@ export function parseMidi(arrayBuffer) {
   };
 }
 
-// GM program（0–127）→ 內建音色
+// GM program（0–127）→ 織音合成器的音色：同一號碼有很多個，取清單裡的第一個；
+// 沒對到的號碼再退回下面的舊版對照表（至少聽得到接近的東西）。
+const GM_TO_PATCH = new Map();
+for (const p of ZY_PATCHES) if (!p.drum && !GM_TO_PATCH.has(p.gm)) GM_TO_PATCH.set(p.gm, 'zy:' + p.id);
+
 export function presetForProgram(prog, drums) {
-  if (drums) return 'drums';
-  if (prog == null) return 'piano';
+  if (drums) return 'zy:drm.ac';
+  if (prog == null) return 'zy:pno.grand';
+  const hit = GM_TO_PATCH.get(prog);
+  if (hit) return hit;
+  return legacyPresetForProgram(prog);
+}
+
+function legacyPresetForProgram(prog) {
   if (prog <= 3) return 'piano';
   if (prog <= 5) return 'epiano';
   if (prog <= 7) return 'piano';

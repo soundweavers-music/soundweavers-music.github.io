@@ -17,6 +17,7 @@ import { fmtTime, fmtBars, toast, uid } from './util.js';
 import { isMidiClip, clipStart, clipDur } from './state.js';
 import { initPianoRoll, open as openPianoRoll, close as closePianoRoll, isOpen as pianoOpen, handleKey as pianoKey, tick as pianoTick } from './pianoroll.js';
 import { initMidiUi, instrumentSection, midiStatusSection, exportMidi } from './midi-ui.js';
+import { initZYUI, macrosSection } from './zy-ui.js';
 import { handleTypingKey, setTyping, midiState, allOff as midiAllOff, setTranspose, midiInputs, setEnabledInputs, setMidiEnabled, initWebMidi } from './midi-input.js';
 import { addMidiClipAt } from './arrange.js';
 import { initBankUi, sfSection } from './bank-ui.js';
@@ -278,7 +279,12 @@ function renderInspector() {
   nm.addEventListener('keydown', e => e.stopPropagation());
   nm.addEventListener('change', () => { store.checkpoint(); t.name = nm.value.trim() || t.name; store.changed('structure'); });
   sec.querySelector('#insColor').addEventListener('change', e => { store.checkpoint(); t.color = e.target.value; store.changed('structure'); });
-  if (t.kind === 'midi') { box.appendChild(instrumentSection(t)); box.appendChild(sfSection(t)); box.appendChild(midiStatusSection()); box.appendChild(inputVelSection(t)); box.appendChild(transposeSection(t)); }
+  if (t.kind === 'midi') {
+    box.appendChild(instrumentSection(t));
+    // 織音合成器的音色才有「音色調整」旋鈕
+    if (typeof t.instrument === 'string' && t.instrument.startsWith('zy:')) box.appendChild(macrosSection(t));
+    box.appendChild(sfSection(t)); box.appendChild(midiStatusSection()); box.appendChild(inputVelSection(t)); box.appendChild(transposeSection(t));
+  }
   // 影片／文字／字幕軌只有畫面，沒有音訊處理
   if (t.kind === 'video' || t.kind === 'text' || t.kind === 'sub') {
     const vs = videoSettings();
@@ -898,6 +904,7 @@ async function boot() {
   initMixer();
   initPianoRoll();
   initMidiUi();
+  initZYUI();
   initBankUi();
   initMasterUi();
   initAutomationUi();
@@ -1064,9 +1071,16 @@ $('btnArranger').onclick = () => toggleArranger();
       }
     }
     window.__dawArrangerInst = map;
-    for (const t of store.project.tracks) if (t.arrPart && map[t.arrPart]) t.instrument = map[t.arrPart];
+    // 伴奏聲部的預設音色換成音色庫版本；但使用者自己挑過織音音色的不要蓋掉
+    for (const t of store.project.tracks) {
+      if (!t.arrPart || !map[t.arrPart]) continue;
+      if (typeof t.instrument === 'string' && t.instrument.startsWith('zy:')) continue;
+      t.instrument = map[t.arrPart];
+    }
     for (const t of store.project.tracks) {
       if (t.kind !== 'midi' || t.arrPart) continue;
+      // 已經指定織音合成器音色的軌道不要被內建音色庫蓋掉
+      if (typeof t.instrument === 'string' && t.instrument.startsWith('zy:')) continue;
       if (t.name === '鋼琴' && map.keys) t.instrument = map.keys;
       if (t.name === '貝斯' && map.bass) t.instrument = map.bass;
     }

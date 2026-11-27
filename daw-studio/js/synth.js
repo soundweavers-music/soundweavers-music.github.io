@@ -6,6 +6,10 @@
 //   startVoice(ctx, dest, presetId, midi, vel, when) → voice（voice.release(t)、voice.end）
 //   scheduleNote(ctx, dest, presetId, midi, vel, when, dur)  一次排好起訖
 
+import { isZY, zyVoice, zyTail } from './zy-synth.js';
+import { ZY_PATCHES, ZY_CATS } from './zy-patches.js';
+import { isEN } from './i18n.js';
+
 const midiHz = m => 440 * Math.pow(2, (m - 69) / 12);
 
 // 依諧波振幅建 PeriodicWave，每個 ctx 快取一次
@@ -68,6 +72,14 @@ export const PRESETS = {
 };
 export const PRESET_GROUPS = ['鍵盤', '吉他', '弦樂', '合成器', '貝斯', '打擊', '鼓'];
 export const DEFAULT_PRESET = 'piano';
+
+// 織音合成器的音色掛進同一份清單：檢閱器、自動伴奏、鋼琴捲簾、MIDI 匯出都直接看得到。
+// 清單裡只放「名字／分類」，真正的參數在 zy-patches.js，聲音由 worklet 算。
+for (const p of ZY_PATCHES) {
+  PRESETS['zy:' + p.id] = { name: p.name, nameEn: p.nameEn, group: '織音・' + p.cat, drum: !!p.drum, zy: true, gm: p.gm };
+}
+// 織音的分類排在最前面（新專案的預設音色都從這裡挑）
+for (const c of ZY_CATS) PRESET_GROUPS.unshift('織音・' + c);
 
 
 // GM 鼓位名稱（鋼琴捲簾左側顯示）
@@ -258,7 +270,14 @@ function drumVoice(ctx, dest, midi, vel, when) {
 let sfHook = null;
 export function setSoundFontHook(h) { sfHook = h; }
 
-export function startVoice(ctx, dest, presetId, midi, vel, when) {
+// opts.synth：這一軌的音色巨集（檢閱器上的旋鈕），只有織音合成器的音色會用到
+export function startVoice(ctx, dest, presetId, midi, vel, when, opts) {
+  if (isZY(presetId)) {
+    const v = zyVoice(ctx, dest, presetId.slice(3), midi, vel, when, opts && opts.synth);
+    if (v) return v;
+    // worklet 還沒載入（極少數情況）：鼓組用內建鼓、其他用鋼琴代打，至少聽得到
+    presetId = PRESETS[presetId]?.drum ? 'drums' : DEFAULT_PRESET;
+  }
   if (sfHook && typeof presetId === 'string' && presetId.startsWith('sf:')) {
     const v = sfHook.voice(ctx, dest, presetId, midi, vel, when);
     if (v) return v;
@@ -269,19 +288,27 @@ export function startVoice(ctx, dest, presetId, midi, vel, when) {
   return P.drum ? drumVoice(ctx, dest, midi, vel, when) : melodicVoice(ctx, dest, P, midi, vel, when);
 }
 
-export function scheduleNote(ctx, dest, presetId, midi, vel, when, dur) {
-  const v = startVoice(ctx, dest, presetId, midi, vel, when);
+export function scheduleNote(ctx, dest, presetId, midi, vel, when, dur, opts) {
+  const v = startVoice(ctx, dest, presetId, midi, vel, when, opts);
   v.release(when + Math.max(0.01, dur));
   return v;
 }
 
 // 音色的釋音尾巴長度（離線輸出要多算這麼久）
-export function releaseTail(presetId) {
+export function releaseTail(presetId, opts) {
+  if (isZY(presetId)) return zyTail(presetId.slice(3), opts && opts.synth);
   if (sfHook && typeof presetId === 'string' && presetId.startsWith('sf:')) return sfHook.tail(presetId) ?? 1.5;
   const P = PRESETS[presetId];
   if (!P || P.drum) return 1.2;
   return Math.max(P.amp.r * 1.6, P.amp.s === 0 ? P.amp.d * 1.6 : 0) + 0.1;
 }
+
+// 音色顯示名稱（英文介面用音色的英文名）
+export const instName = id => {
+  const P = PRESETS[id];
+  if (!P) return '';
+  return isEN() && P.nameEn ? P.nameEn : P.name;
+};
 
 export const NOTE_NAMES = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
 export const noteName = m => NOTE_NAMES[m % 12] + (Math.floor(m / 12) - 1);

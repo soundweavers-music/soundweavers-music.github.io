@@ -1,7 +1,8 @@
 // MIDI 相關的介面接線：.mid 匯入／匯出、檢閱器音色選單、Web MIDI 狀態燈、電腦鍵盤彈奏開關
 import { store, newTrack, newMidiClip, isMidiClip, MAX_TRACKS } from './state.js';
 import { engine } from './engine.js';
-import { PRESETS, PRESET_GROUPS } from './synth.js';
+import { PRESETS, PRESET_GROUPS, instName } from './synth.js';
+import { openSynthPicker, macrosSection } from './zy-ui.js';
 import { parseMidi, writeMidi, presetForProgram, PROGRAM_FOR_PRESET } from './midifile.js';
 import { initWebMidi, midiState, setTyping, targetTrack, setTranspose } from './midi-input.js';
 import { downloadBlob, toast } from './util.js';
@@ -84,7 +85,7 @@ export function exportMidi(clipIds = null) {
     let channel = drums ? 9 : ch++;
     if (channel === 9 && !drums) channel = ch++;
     if (channel > 15) channel = 15;
-    tracks.push({ name: t.name, channel, program: PROGRAM_FOR_PRESET[t.instrument] ?? 0, notes, pedal });
+    tracks.push({ name: t.name, channel, program: PRESETS[t.instrument]?.gm ?? PROGRAM_FOR_PRESET[t.instrument] ?? 0, notes, pedal });
   }
   if (!tracks.length) { toast('沒有可匯出的 MIDI 音符', 'warn'); return false; }
   const blob = writeMidi({ bpm: p.bpm, sigNum: p.sigNum, sigDen: p.sigDen, tracks });
@@ -98,12 +99,14 @@ export function instrumentSection(t) {
   const sec = document.createElement('div');
   sec.className = 'sec';
   const opts = PRESET_GROUPS.map(g => `<optgroup label="${g}">${
-    Object.entries(PRESETS).filter(([, P]) => P.group === g).map(([id, P]) => `<option value="${id}">${P.name}</option>`).join('')
+    Object.entries(PRESETS).filter(([, P]) => P.group === g)
+      .map(([id]) => `<option value="${id}">${instName(id)}</option>`).join('')
   }</optgroup>`).join('');
   sec.innerHTML = `<h4 style="margin-top:0">音色</h4>
     <div class="row"><select class="inst-sel">${opts}</select></div>
+    <div class="row"><button class="tbtn primary" data-a="browse" style="width:100%;height:26px">🎹 瀏覽織音合成器音色</button></div>
     <div class="row"><button class="tbtn" data-a="try" style="width:100%;height:24px">試聽</button></div>
-    <p class="midi-status">內建合成音色，不需要下載。想要更真實的樂器聲，可以在下方載入 SoundFont 音色庫。</p>`;
+    <p class="midi-status">織音合成器的音色都在這台電腦上即時算出來，不用下載。想要取樣樂器，可以在下方載入 SoundFont 音色庫。</p>`;
   const sel = sec.querySelector('select');
   if (!PRESETS[t.instrument]) sel.insertAdjacentHTML('afterbegin', '<option value="" disabled>（正在使用 SoundFont 音色）</option>');
   sel.value = PRESETS[t.instrument] ? t.instrument : '';
@@ -112,11 +115,12 @@ export function instrumentSection(t) {
     store.checkpoint();
     t.instrument = sel.value;
     // 軌道名稱還是預設名或音色名時，跟著換
-    const oldNames = new Set(Object.values(PRESETS).map(P => P.name));
-    if (/^MIDI \d+$/.test(t.name) || oldNames.has(t.name)) t.name = PRESETS[sel.value].name;
+    const oldNames = new Set(Object.keys(PRESETS).map(id => instName(id)));
+    if (/^MIDI \d+$/.test(t.name) || oldNames.has(t.name)) t.name = instName(sel.value);
     store.changed('structure');
     engine.audition(t.id, PRESETS[sel.value].drum ? 38 : 60, 100, 0.5);
   });
+  sec.querySelector('[data-a=browse]').onclick = () => openSynthPicker(t.id);
   sec.querySelector('[data-a=try]').onclick = () => {
     const P = PRESETS[t.instrument] || { drum: /:128:|drum/i.test(t.instrument) };
     const seq = P.drum ? [36, 42, 38, 42, 36, 36, 38, 46] : [60, 64, 67, 72];

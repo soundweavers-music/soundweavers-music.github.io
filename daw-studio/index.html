@@ -188,6 +188,23 @@
   </form>
 </dialog>
 
+<dialog id="dlgSynth" class="wide">
+  <form method="dialog">
+    <header>織音合成器<span style="color:var(--tx2);font-weight:400">內建 <b id="zyCount">200+</b> 種音色，即時合成、不用下載</span></header>
+    <div class="dbody zy-body">
+      <div class="zy-top">
+        <input id="zySearch" class="zy-search" type="search" placeholder="搜尋：鋼琴、弦樂、808、箏…" aria-label="搜尋音色">
+        <button type="button" class="tbtn ghost" id="zyTry">試聽</button>
+      </div>
+      <div id="zyCats" class="zy-cats"></div>
+      <div id="zyList" class="zy-list"></div>
+      <p class="note">音色是在你的電腦上即時算出來的（波表、FM、撥弦物理模型、共振峰），不需要音色庫檔案。
+        挑好之後按下方「套用」，軌道就能用這個音色彈奏、錄音與輸出。</p>
+    </div>
+    <footer><button class="tbtn ghost" value="cancel">取消</button><button class="tbtn primary" value="ok" id="zyUse">套用</button></footer>
+  </form>
+</dialog>
+
 <dialog id="dlgPitch">
   <form method="dialog">
     <header>升降音（片段）<span style="color:var(--tx2);font-weight:400">長度不變、只改音高</span></header>

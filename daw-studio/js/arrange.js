@@ -1,6 +1,6 @@
 // 編排視窗：尺規、格線、軌道標頭、片段（移動／修剪／淡入淡出／框選）、拖放匯入
 import { store, isMidiClip, clipStart, clipDur, setClipStart, newMidiClip, spb } from './state.js';
-import { PRESETS } from './synth.js';
+import { PRESETS, instName } from './synth.js';
 import { sfLabel } from './soundbank.js';
 import { separateClip } from './separate.js';
 import { openAiSeparate } from './demucs-ui.js';
@@ -353,7 +353,7 @@ function instLabel(t) {
   const sf = sfLabel(t.instrument);
   const esc = s => String(s).replace(/[<>&"]/g, '');
   if (sf) return `<span class="inst sf${sf.ready ? '' : ' missing'}" title="SoundFont：${esc(sf.bank)}${sf.ready ? '' : '（尚未載入，用內建音色代替）'}">${esc(sf.preset)}</span>`;
-  return `<span class="inst" title="音色（在檢閱器更換）">${PRESETS[t.instrument]?.name || ''}</span>`;
+  return `<span class="inst" title="音色（在檢閱器更換）">${PRESETS[t.instrument] ? instName(t.instrument) : ''}</span>`;
 }
 
 export function toggleTrackFlag(t, flag, exclusive = false) {
