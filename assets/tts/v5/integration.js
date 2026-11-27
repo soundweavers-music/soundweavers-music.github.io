@@ -20,6 +20,7 @@
   var SAMPLE_RATE = 44100;
   var EOS = 1024;                 // s1v3 的 config：vocab_size 1025、EOS 1024（已核對過）
   var SR_48 = 48000;
+  var CANDIDATES = 2;             // 每次合成抽幾個候選再挑（多一個約多 80% 時間）
 
   var ORT = null;                 // onnxruntime-web（JSEP 版才支援 fp16）
   var S = {
@@ -154,6 +155,32 @@
     if (mem && mem < 6) problems.push("這台電腦記憶體約 " + mem + " GB，V5 建議 8 GB 以上");
     if (!S.ref) problems.push("還沒設定參考音（3–10 秒的音檔 ＋ 它的文字稿）");
     return { ok: problems.length === 0, problems: problems };
+  }
+
+  // ── 候選挑選 ──────────────────────────────────────────
+  // 亮度代理：一階差分的能量比（≒ 頻譜重心的平方）。比跑 FFT 便宜，挑候選夠用。
+  function brightness(w) {
+    var e = 0, d = 0, prev = w[0] || 0;
+    for (var i = 1; i < w.length; i++) {
+      var v = w[i], dv = v - prev;
+      e += v * v; d += dv * dv; prev = v;
+    }
+    return e > 0 ? d / e : 0;
+  }
+  function rmsOf(w) {
+    var s = 0;
+    for (var i = 0; i < w.length; i++) s += w[i] * w[i];
+    return Math.sqrt(s / Math.max(1, w.length));
+  }
+  // 先剔掉明顯太小聲的（聽起來就是不清楚），再從剩下的挑最亮的
+  function pickBest(list) {
+    if (!list.length) throw new Error("沒有合成出任何候選");
+    var stats = list.map(function (w) { return { w: w, rms: rmsOf(w), br: brightness(w) }; });
+    var maxRms = 0;
+    stats.forEach(function (s) { if (s.rms > maxRms) maxRms = s.rms; });
+    var ok = stats.filter(function (s) { return s.rms >= maxRms * 0.7; });
+    ok.sort(function (a, b) { return b.br - a.br; });
+    return ok[0].w;
   }
 
   // AudioBuffer → 單聲道 Float32Array
@@ -312,17 +339,45 @@
   function one(text) {
     var g = root.G2P.run(text);
     if (!g.ids.length) return Promise.reject(new Error("這一句沒有可以念的字"));
-    var tgt = g.ids, feaRef = null;
+    var tgt = g.ids, tgtBert = null;
 
     return bertOf(g.norm)
       .then(function (h) {
-        var tgtBert = expand(h, g.word2ph);
+        tgtBert = expand(h, g.word2ph);
         drop(["roberta"]);
-        return root.V5Engine.arLoop(
-          { ref: S.ref.bert.data, tgt: tgtBert.data, ssl: S.ref.ssl32 },
-          { ref: S.ref.phones, tgt: tgt },
-          S.ref.codes, null, 400);
       })
+      .catch(function (e) { if (e.stage) throw e; fail("BERT", "目標句的 BERT 特徵失敗：" + (e.message || e)); })
+      .then(function () {
+        var melRef = root.V5Audio.melSpectrogram(S.ref.w32, S.melBasis, 100, 641);
+        var promptMel = { data: root.V5Audio.normSpec(melRef.data), dims: melRef.dims };
+        // 一次抽兩個「完整候選」再挑。實測同一句的兩次可以差到高頻能量 0.036 vs 0.100、
+        // 音量差四成——抽到又暗又小聲的那次就是「糊」。韻律（AR）與聲學（CFM）都是隨機的，
+        // 所以兩個階段都要重抽，而且 AR 抽不出東西時也順便換一次。
+        var cands = [], lastErr = null, i = 0;
+        var step = function () {
+          if (i++ >= CANDIDATES) {
+            if (!cands.length) throw lastErr || new Error("這一輪沒有合成出任何候選");
+            return pickBest(cands);
+          }
+          return oneShot(tgtBert, tgt, promptMel)
+            .then(function (w) { cands.push(w); return step(); })
+            .catch(function (e) { lastErr = e; return step(); });
+        };
+        return step();
+      })
+      .then(function (wav48) {
+        drop(["decode_encp", "dit", "vocoder"]);
+        return root.V5Audio.resample(wav48, SR_48, SAMPLE_RATE);
+      });
+  }
+
+  // 一個候選：AR → 解碼 → CFM → 聲碼器
+  function oneShot(tgtBert, tgt, promptMel) {
+    var feaRef = null;
+    return root.V5Engine.arLoop(
+      { ref: S.ref.bert.data, tgt: tgtBert.data, ssl: S.ref.ssl32 },
+      { ref: S.ref.phones, tgt: tgt },
+      S.ref.codes, null, 400)
       .catch(function (e) { if (e.stage) throw e; fail("AR", "韻律模型推論失敗：" + (e.message || e)); })
       .then(function (tokens) {
         if (!tokens.length) {
@@ -334,19 +389,11 @@
           .then(function (fr) { feaRef = fr; return root.V5Engine.decodeEncp(tokens, tgt, S.ref.ge); });
       })
       .catch(function (e) { if (e.stage) throw e; fail("解碼", "語意碼轉特徵失敗：" + (e.message || e)); })
-      .then(function (feaTodo) {
-        var melRef = root.V5Audio.melSpectrogram(S.ref.w32, S.melBasis, 100, 641);
-        var norm = root.V5Audio.normSpec(melRef.data);
-        return root.V5Engine.cfm(feaRef, feaTodo, { data: norm, dims: melRef.dims });
-      })
+      .then(function (feaTodo) { return root.V5Engine.cfm(feaRef, feaTodo, promptMel); })
       .catch(function (e) { if (e.stage) throw e; fail("聲學", "DiT 合成失敗：" + (e.message || e) +
         "（若是記憶體不足，請關掉其他分頁再試）"); })
       .then(function (mel) { return root.V5Engine.vocode(mel); })
-      .catch(function (e) { if (e.stage) throw e; fail("聲碼器", "波形合成失敗：" + (e.message || e)); })
-      .then(function (wav48) {
-        drop(["decode_encp", "dit", "vocoder"]);
-        return root.V5Audio.resample(wav48, SR_48, SAMPLE_RATE);
-      });
+      .catch(function (e) { if (e.stage) throw e; fail("聲碼器", "波形合成失敗：" + (e.message || e)); });
   }
 
   root.V5Integration = {
@@ -358,6 +405,10 @@
     warmup: lib,
     setRef: setRef,
     run: run,
+    candidates: function (n) {          // 除錯／實驗用：改每次抽幾個候選
+      if (n) CANDIDATES = Math.max(1, Math.min(4, n | 0));
+      return CANDIDATES;
+    },
     toF16: function (a) { return root.V5Audio.toF16(a); },
     state: function () { return S; }         // 除錯／驗證用
   };

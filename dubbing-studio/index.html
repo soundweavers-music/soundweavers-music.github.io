@@ -145,7 +145,8 @@ audio { width: 100%; margin-top: 12px; }
     <div class="db-card" data-engine="v5" hidden>
       <h3><span class="db-step">1.</span> 安裝 V5 的十個檔案，再給一段參考音</h3>
       <p class="sub"><b>V5</b>（GPT-SoVITS V5，turbo 4 步）整組模型約 <b>1.3 GB</b>（已量化成 int8，8 GB 記憶體的機器也跑得動），推理量大——有獨立顯卡會快很多，純 CPU 會慢。
-      它不像 MeloTTS 有固定音色，而是<b>拿你給的參考音當音色</b>：3–10 秒的音檔，加上這段音說了什麼（韻律模型要兩者一起才會有聲音）。</p>
+      它不像 MeloTTS 有固定音色，而是<b>拿你給的參考音當音色</b>：3–10 秒的音檔，加上這段音說了什麼（韻律模型要兩者一起才會有聲音）。
+      因為韻律與聲學模型每次都是隨機取樣，同一句的清晰度會有落差（實測高頻能量差到 2.8 倍），所以每句會<b>合成兩個候選、自動挑比較清楚的那個</b>（時間約多四成）。</p>
       <div id="v5ModelCard"></div>
       <div class="db-row" style="margin-top:12px">
         <label class="db-btn ghost">① 選參考音（3–10 秒）<input type="file" id="v5RefFile" accept="audio/*" hidden></label>
