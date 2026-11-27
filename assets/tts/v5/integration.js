@@ -99,12 +99,44 @@
     return S.lib;
   }
 
+  function pause(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+  function dropAll() {
+    root.V5Engine.sessions().forEach(function (n) {
+      try { root.V5Engine.dispose(n); } catch (e) { /* 已經沒了就算 */ }
+    });
+  }
+
+  // 大圖（roberta 595 MB、DiT 646 MB）在 wasm 上很容易把記憶體撐爆，而 ORT 只會丟
+  // 一句「Aborted()」——看不出是哪裡出錯。這裡先把它圖全部放掉、等瀏覽器回收一輪再試，
+  // 還是不行才回報，而且訊息要講清楚是記憶體。
+  function createSession(bytes, key) {
+    var mk = function () {
+      return ORT.InferenceSession.create(bytes, { executionProviders: ["wasm"] });
+    };
+    // 大圖先把它圖放掉再建，尖峰記憶體才不會疊在一起（roberta 595 MB 就是這樣爆的）
+    var pre = bytes.length > 400e6
+      ? function () { dropAll(); return pause(300); }
+      : function () { return Promise.resolve(); };
+    return pre().then(mk).catch(function (e) {
+      var msg = String((e && e.message) || e);
+      if (!/abort|alloc|memory|grow|range/i.test(msg)) throw e;
+      dropAll();
+      return pause(400).then(function () { if (root.gc) root.gc(); return pause(400); }).then(mk)
+        .catch(function (e2) {
+          var m2 = String((e2 && e2.message) || e2);
+          fail("模型", "「" + key + "」載入失敗：" + m2 + "。這張圖 " +
+            (bytes.length / 1e6).toFixed(0) + " MB，出現 Aborted() 幾乎都是記憶體不夠——" +
+            "請關掉其他分頁（尤其是本站其他工具）再試一次，或改用 MeloTTS。");
+        });
+    });
+  }
+
   function provide(name) {
     var key = S.model[name];
     if (!key) return Promise.reject(new Error("引擎要了不認得的模型：" + name));
     return root.ZhiyinModels.get(key).then(function (rec) {
       if (!rec || !rec.buf) fail("模型", "「" + key + "」還沒安裝——請在 V5 卡片把十個檔案一次選進來");
-      return ORT.InferenceSession.create(new Uint8Array(rec.buf), { executionProviders: ["wasm"] });
+      return createSession(new Uint8Array(rec.buf), key);
     }).catch(function (e) {
       if (e && e.stage) throw e;
       fail("模型", "「" + key + "」載入失敗：" + (e && e.message ? e.message : e));
