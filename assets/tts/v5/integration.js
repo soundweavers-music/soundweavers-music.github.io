@@ -12,7 +12,11 @@
 (function (root) {
   "use strict";
 
-  var ASSET = new URL("v5/", document.currentScript ? document.currentScript.src : document.baseURI).href;
+  // 本檔就在 assets/tts/v5/ 裡，ASSET 要解析成「這一支腳本所在的資料夾」。
+  // 注意別寫成 new URL("v5/", script.src)：相對網址是對「integration.js 的上一層」解析，
+  // 會變成 assets/tts/v5/v5/，於是 model-store.js 一路歪成 assets/tts/model-store.js（404）。
+  var SELF = document.currentScript && document.currentScript.src;
+  var ASSET = SELF ? new URL(".", SELF).href : new URL("../../assets/tts/v5/", document.baseURI).href;
   var SAMPLE_RATE = 44100;
   var EOS = 1024;                 // s1v3 的 config：vocab_size 1025、EOS 1024（已核對過）
   var SR_48 = 48000;
