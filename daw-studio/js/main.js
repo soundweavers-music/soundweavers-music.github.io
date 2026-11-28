@@ -29,6 +29,7 @@ import { toggleAlbum } from './album-ui.js';
 import { toggleArranger } from './arranger-ui.js';
 import { initAutomationUi, tickAutomation } from './automation-ui.js';
 import { openBreathPanel } from './breath-ui.js';
+import { toggleSmartMix } from './smartmix-ui.js';
 import { showMenu, showMenuCols } from './menu.js';
 import { toggleChordLane, detectAndApply, applyChordsToHarmony, applyChordsToTune, clearChords, chordsOf, chordKeyOf, chordLabel, VIEW_NAMES } from './chord-ui.js';
 import { toggleSectionLane, clearSections, sectionsOf, secName } from './section-ui.js';

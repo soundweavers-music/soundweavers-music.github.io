@@ -2143,3 +2143,28 @@ dialog input[type=checkbox], dialog input[type=radio],
 @keyframes lp-slide { from { transform: translateX(-100%); } to { transform: translateX(290%); } }
 .lp-step { grid-column: 1 / -1; font-size: 11px; color: var(--tx2); }
 @media (prefers-reduced-motion: reduce) { .lp-indet > i { animation: none; width: 100%; opacity: .5; } }
+
+/* ── 智慧混音（smartmix-ui）──────────────────────────────── */
+.smx-win { width: min(920px, 94vw); }
+.smx-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px 14px; }
+.smx-sliders { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 8px 22px; }
+.smx-slide { display: grid; grid-template-columns: 1fr 90px 30px; align-items: center; gap: 6px; }
+.smx-slide > span { font-size: 12.5px; color: var(--tx1); }
+.smx-slide input[type=range] { width: 100%; }
+.smx-slide > em { font-style: normal; font-variant-numeric: tabular-nums; color: var(--accent); text-align: right; }
+.smx-slide > small { grid-column: 1 / -1; color: var(--tx2); font-size: 10.5px; }
+.smx-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px; }
+.smx-card { background: var(--bg1); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; display: grid; gap: 6px; }
+.smx-card-h { display: flex; align-items: center; gap: 8px; }
+.smx-kind { font-size: 10.5px; padding: 1px 8px; border-radius: 999px; background: color-mix(in srgb, var(--accent) 16%, transparent); color: var(--accent); }
+.smx-kind.bass { background: color-mix(in srgb, #6b8fbf 18%, transparent); color: #6b8fbf; }
+.smx-kind.drums { background: color-mix(in srgb, #c07a5a 18%, transparent); color: #b06a4a; }
+.smx-nums { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 11.5px; color: var(--tx2); }
+.smx-nums b { color: var(--tx0); font-variant-numeric: tabular-nums; }
+.smx-sub { font-size: 11px; color: var(--tx2); }
+.smx-lines { display: grid; gap: 6px; }
+.smx-line { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; background: var(--bg1);
+  border: 1px solid var(--line); border-radius: 8px; padding: 7px 11px; font-size: 12px; }
+.smx-tag { font-size: 10.5px; color: var(--tx2); border: 1px solid var(--line); border-radius: 999px; padding: 0 7px; }
+.smx-chain { margin-left: auto; color: var(--accent); }
+.smx-notes { margin: 4px 0 0; padding-left: 18px; color: var(--tx2); font-size: 11.5px; display: grid; gap: 3px; }
