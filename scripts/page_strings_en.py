@@ -3634,7 +3634,7 @@ EN: dict[str, dict[str, str]] = {
         "：Harmony 效果器切成「依和弦」，和聲只會落在和弦音上。": ": set the Harmony effect to “by chord” and the harmony notes land only on chord tones.",
         "：Intro 前奏、主歌 A、主歌 B、導歌 Pre、副歌 1、副歌 2、間奏／橋段、Break 停頓、Ending 尾奏。": ": Intro, Verse A, Verse B, Pre-chorus, Chorus 1, Chorus 2, Interlude / Bridge, Break, Ending.",
         "：I、vi、IV、V（換調也看得懂功能）": ": Roman numerals — I, vi, IV, V; the function still reads the same when the key changes",
-        "：Salamander Grand Piano（Yamaha C5），作者 Alexander Holm，授權 CC BY 3.0，本站已抽稀成 7 MB 的 sf2。": ": Salamander Grand Piano (Yamaha C5) by Alexander Holm, CC BY 3.0; this site has thinned it to a 7 MB sf2.",
+        "：Salamander Grand Piano（Yamaha C5），作者 Alexander Holm，授權 CC BY 3.0。本站從原始錄音挑出 30 個音 × 4 層力度、保留真實的衰減（不循環），做成 65 MB 的 sf2；第一次開啟會下載一次，之後存在你的電腦裡。": ": Salamander Grand Piano (Yamaha C5) by Alexander Holm, CC BY 3.0. This site takes 30 notes × 4 velocity layers from the original recordings, keeping their real decay (no loops), as a 65 MB sf2; it downloads once on first use and is then stored on your computer.",
         "：Sonatina Symphonic Orchestra（小提琴、中提琴、大提琴、低音提琴），CC0 公有領域，本站抽稀成 3 MB 的 sf2。": ": Sonatina Symphonic Orchestra (violin, viola, cello, double bass), CC0 public domain, thinned to a 3 MB sf2 here.",
         "：「和弦進行」區每種段落（主歌、導歌、副歌、橋段）各有一個選單——": ": in the “chord progression” area each section type (verse, pre-chorus, chorus, bridge) has its own menu —",
         "：一條垂直線代表完全單聲道、橫向散開代表立體、貼近水平代表左右反相。右邊顯示": ": a vertical line means fully mono, spreading sideways means stereo, and lying near the horizontal means the sides are out of phase. On the right the—",

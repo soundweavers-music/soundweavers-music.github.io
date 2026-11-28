@@ -36,7 +36,7 @@ export function parseSF2(arrayBuffer) {
       let p = o + 12; const end = o + 8 + size;
       while (p + 8 <= end) {
         const cid = fourcc(p), csz = dv.getUint32(p + 4, true);
-        if (type === 'INFO' && (cid === 'INAM' || cid === 'ICOP' || cid === 'ieng' || cid === 'ifil')) {
+        if (type === 'INFO' && (cid === 'INAM' || cid === 'ICOP' || cid === 'ieng' || cid === 'ifil' || cid === 'ICMT')) {
           info[cid] = cid === 'ifil' ? `${dv.getUint16(p + 8, true)}.${dv.getUint16(p + 10, true)}` : cstr(p + 8, csz);
         } else chunks[cid] = { off: p + 8, size: csz };
         p += 8 + csz + (csz & 1);
@@ -99,7 +99,12 @@ export function parseSF2(arrayBuffer) {
   }).sort((a, b) => a.bank - b.bank || a.preset - b.preset);
 
   const smpl = new Int16Array(arrayBuffer, chunks.smpl.off, Math.floor(chunks.smpl.size / 2));
+  // 播放音量：ICMT 裡寫「gain=+11.0dB」就整份放大（SF2 的衰減只能減、不能加，
+  // 取樣又已經正規化到滿格，所以要大聲只能靠播放端；本站自己做的音色庫才會寫這個）
+  const gm = /\bgain=([+-]?\d+(?:\.\d+)?)dB\b/.exec(info.ICMT || '');
+  const gainDb = gm ? Math.max(-24, Math.min(24, Number(gm[1]))) : 0;
   return {
+    gain: Math.pow(10, gainDb / 20),
     name: info.INAM || '未命名音色庫', copyright: info.ICOP || '', version: info.ifil || '',
     presets, instruments, samples: shdr.slice(0, -1), smpl,
   };
@@ -196,7 +201,7 @@ export function sf2Voice(ctx, dest, sf, presetIdx, key, vel, when) {
     const pan = ctx.createStereoPanner();
     pan.pan.value = r.pan;
     src.connect(g).connect(pan).connect(dest);
-    const peak = vgain * dbg(r.attenuation) * 0.8;
+    const peak = vgain * dbg(r.attenuation) * 0.8 * (sf.gain || 1);
     const sus = peak * dbg(r.sustainDb);
     const p = g.gain;
     p.setValueAtTime(0, when);
