@@ -13,9 +13,12 @@
 <script src="js/theme-boot.js"></script>
 <script src="../assets/vendor/jszip.min.js" defer></script>
 <script type="module" src="js/main.js"></script>
-  <link id="builtinPiano" rel="prefetch" as="fetch" href="../assets/daw-bank/builtin-piano.sf2" crossorigin="anonymous">
-  <link id="builtinStrings" rel="prefetch" as="fetch" href="../assets/daw-bank/builtin-strings.sf2" crossorigin="anonymous">
-  <link id="builtinBank" rel="prefetch" as="fetch" href="../assets/daw-bank/builtin-gm.sf2" crossorigin="anonymous">
+  <!-- 內建音色庫的網址：只是「放網址的地方」（建置時 ../ 會改寫成絕對路徑）。
+       不用 rel=prefetch：瀏覽器會自己再下載一次，而且不管這台電腦是不是已經存了（每次開頁面多抓 65 MB）。
+       真正的下載交給 soundbank.js（有進度條、會先看本機有沒有）。 -->
+  <link id="builtinPiano" rel="alternate" type="application/x-soundfont" href="../assets/daw-bank/builtin-piano.sf2">
+  <link id="builtinStrings" rel="alternate" type="application/x-soundfont" href="../assets/daw-bank/builtin-strings.sf2">
+  <link id="builtinBank" rel="alternate" type="application/x-soundfont" href="../assets/daw-bank/builtin-gm.sf2">
 </head>
 <body>
 <div class="app" id="app">

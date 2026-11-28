@@ -4058,9 +4058,15 @@ def main():
         # 只發布裁切後的內建版；完整的 GeneralUser GS 留在本機（授權與大小）
         dst = OUTPUT_DIR / "assets" / "daw-bank"
         dst.mkdir(parents=True, exist_ok=True)
+        manifest = {}
         for f in dawbank.glob("*.sf2"):
             if f.name.startswith("builtin"):
                 shutil.copy2(str(f), str(dst / f.name))
+                manifest[f.name] = f.stat().st_size
+        # 每份音色庫「真正」的大小：GitHub Pages 會把 .sf2 用 gzip 傳，Content-Length 是壓縮後的，
+        # 連 Range 請求也是壓縮後的位元組，所以瀏覽器沒辦法從回應知道真實大小。
+        # DAW 靠這份清單判斷「這台電腦存的那份是不是最新版」以及進度條的分母。
+        write(dst / "banks.json", json.dumps(manifest, sort_keys=True) + "\n")
     # 英文工具頁的即時翻譯器（/en/tools/… 會載入它）
     i18n_rt = BASE_DIR / "assets" / "i18n-runtime.js"
     if i18n_rt.exists():

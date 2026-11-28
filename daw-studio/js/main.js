@@ -22,7 +22,8 @@ import { handleTypingKey, setTyping, midiState, allOff as midiAllOff, setTranspo
 import { addMidiClipAt } from './arrange.js';
 import { initBankUi, sfSection } from './bank-ui.js';
 import { insertsSection, sendSection, closeFxPanel, openFxPanel } from './fx-ui.js';
-import { loadBuiltinBank, findProgram, sfInstrumentId } from './soundbank.js';
+import { loadBuiltinBank, findProgram, sfInstrumentId, niceName, restoreBanks, listBanks } from './soundbank.js';
+import { loading } from './loading.js';
 import { initMasterUi, toggleMaster, masterOpen } from './master-ui.js';
 import { toggleAlbum } from './album-ui.js';
 import { toggleArranger } from './arranger-ui.js';
@@ -1058,9 +1059,15 @@ $('btnArranger').onclick = () => toggleArranger();
   const GM = { drums: [0, 0, 128], bass: [33, 0], keys: [0, 0], guitar: [25, 0], strings: [48, 0], arp: [4, 0] };
   (async () => {
     const ids = [];
-    for (const [link, label] of [[pianoLink, 'Salamander Piano'], [stringsLink, 'Sonatina Strings'], [bankLink, 'GeneralUser GS']]) {
-      if (!link || !link.href) continue;
-      try { ids.push(await loadBuiltinBank(link.href, label)); } catch (e) { /* 抓不到就跳過 */ }
+    // 先等「從這台電腦還原」跑完：已經有的就不用排隊（面板上只會有「讀出來」那一行）。
+    // 要下載的才先全部登記成「排隊中」，進度面板一開始就知道總共有幾份。
+    await restoreBanks().catch(() => {});
+    const have = label => listBanks().some(b => b.status === 'ready' && (b.name || '').startsWith(label));
+    const todo = [[pianoLink, 'Salamander Piano'], [stringsLink, 'Sonatina Strings'], [bankLink, 'GeneralUser GS']]
+      .filter(([link]) => link && link.href)
+      .map(([link, label]) => [link, label, have(label) ? null : loading.begin(niceName(label), '排隊中')]);
+    for (const [link, label, job] of todo) {
+      try { ids.push(await loadBuiltinBank(link.href, label, job)); } catch (e) { if (job) job.fail('沒有載入，先用合成音色'); }
     }
     if (!ids.length) return;
     const map = {};

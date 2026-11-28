@@ -5,6 +5,7 @@ import { parseSF2, sf2Voice, maxRelease } from './sf2.js';
 import { store } from './state.js';
 import { toast } from './util.js';
 import { setSoundFontHook } from './synth.js';
+import { loading, fetchWithProgress, bytesText } from './loading.js';
 
 const DB = 'zhiyin-daw-banks', VER = 1;
 const banks = new Map();   // id -> { id, name, size, presets, sf(解析後), status }
@@ -96,29 +97,63 @@ export async function addBankFile(file) {
  * 站上內建的音色庫：第一次用到才抓（不擋開頁），抓完走跟手動選檔一樣的路徑，
  * 所以一樣會存進 IndexedDB，第二次開啟直接從快取還原。
  */
-export async function loadBuiltinBank(url, label) {
-  // 同名（Salamander Piano／Sonatina Strings…）的舊版一律先清掉：
-  // 音色庫的 id 是「檔名 + 大小」，檔案一改大小就會變成新 id，
-  // 不清掉的話清單裡會同時出現新舊兩份。
-  const stale = [...banks.entries()].filter(([, b]) => (b.name || '').startsWith(label));
-  for (const [id, b] of stale) {
-    banks.delete(id);
+// banks.json：{ "builtin-piano.sf2": 位元組數, … }，抓不到就回 0（＝有存的就用存的）
+let manifest = null;
+async function realSize(url) {
+  try {
+    if (!manifest) {
+      const u = new URL('banks.json', new URL(url, location.href));
+      const r = await fetch(u, { cache: 'no-cache' });
+      manifest = r.ok ? await r.json() : {};
+    }
+  } catch (e) { manifest = {}; }
+  const name = new URL(url, location.href).pathname.split('/').pop();
+  return Number(manifest[name]) || 0;
+}
+
+// 進度面板上的名字（使用者看得懂的那種）
+const NICE = { 'Salamander Piano': '內建鋼琴', 'Sonatina Strings': '內建弦樂', 'GeneralUser GS': '內建音色庫（GM）' };
+const niceName = n => NICE[Object.keys(NICE).find(k => (n || '').startsWith(k))] || n;
+
+// job：外面先登記好的進度項目（排隊中），沒給就自己開一個
+export async function loadBuiltinBank(url, label, job0) {
+  await restoreBanks().catch(() => {});
+  // 這份檔案真正多大（banks.json，建置時產生）：跟瀏覽器裡存的那份一樣大＝同一版，直接用。
+  // 不能問伺服器：GitHub Pages 用 gzip 傳 .sf2，回應裡的大小都是壓縮後的。
+  // （以前這裡把同名的「全部」刪掉再重抓，等於每次開頁面都重新下載一次）
+  const size = await realSize(url);
+  const same = [...banks.values()].filter(b => (b.name || '').startsWith(label));
+  const keep = same.find(b => b.status === 'ready' && (!size || b.size === size));
+  // 舊版（大小不同）才清掉：音色庫的 id 是「檔名 + 大小」，不清的話清單裡會新舊兩份
+  for (const b of same) {
+    if (b === keep) continue;
+    banks.delete(b.id);
     try {
       const db = await idb();
-      await tx(db, 'readwrite', s => s.delete(id));
+      await tx(db, 'readwrite', s2 => s2.delete(b.id));
       db.close();
     } catch (e) { /* 快取刪不掉就算了，至少清單裡不會重複 */ }
   }
-  if (stale.length) emit();
-  for (const b of banks.values()) {
-    if (b.builtin && b.status === 'ready') return b.id;
+  if (same.length > (keep ? 1 : 0)) emit();
+  if (keep) { keep.builtin = true; if (job0) job0.done('這台電腦已經有了'); return keep.id; }   // 已存的是最新版
+
+  const job = job0 || loading.begin(niceName(label), '下載中');
+  job.step('下載中', 0);
+  let ab;
+  try {
+    ab = await fetchWithProgress(url, job, { cache: 'force-cache' }, size);
+  } catch (e) {
+    job.fail('下載失敗，先用合成音色');
+    throw e;
   }
-  const res = await fetch(url, { cache: 'force-cache' });
-  if (!res.ok) throw new Error('HTTP ' + res.status);
-  const ab = await res.arrayBuffer();
+  job.step('解開音色中');
+  // 讓面板先畫出「解開中」再開始（解析會佔住主執行緒一下）
+  await new Promise(r => setTimeout(r, 30));
   const file = new File([ab], (label || 'builtin') + '.sf2', { type: 'application/octet-stream' });
   const before = new Set(banks.keys());
-  const id = await addBankFile(file);
+  let id;
+  try { id = await addBankFile(file); } catch (e) { job.fail('檔案讀不出來'); throw e; }
+  job.done('好了');
   const added = [...banks.keys()].find(k => !before.has(k)) || id;
   const entry = banks.get(added);
   if (entry) entry.builtin = true;
@@ -133,7 +168,12 @@ export function findProgram(bankId, program, bank) {
   return b.presets.findIndex(pr => (pr.program ?? -1) === program && (pr.bank ?? 0) === want);
 }
 
-export async function restoreBanks() {
+// 開頁時的還原只跑一次；內建音色庫要等它跑完，才知道「這台電腦已經有了、不用再下載」
+let restoring = null;
+export { niceName };
+export function restoreBanks() { return restoring || (restoring = restoreBanksOnce()); }
+
+async function restoreBanksOnce() {
   let db;
   try { db = await idb(); } catch (_) { return; }
   const keys = await tx(db, 'readonly', s => s.getAllKeys());
@@ -143,15 +183,21 @@ export async function restoreBanks() {
   }
   emit();
   for (const id of keys || []) {
+    const job = loading.begin(niceName(id.replace(/_\d+$/, '').replace(/_/g, ' ')), '從這台電腦讀出來');
     try {
       const rec = await tx(db, 'readonly', s => s.get(id));
       const e = banks.get(id);
       e.name = rec.name; e.size = rec.size;
+      job.step('解開音色中');
+      job.progress(null, bytesText(rec.size));
+      await new Promise(r => setTimeout(r, 30));
       const sf = parseSF2(rec.data);
       sf.id = id;
       e.sf = sf; e.presets = presetList(sf); e.status = 'ready';
+      job.done();
     } catch (err) {
       const e = banks.get(id); e.status = 'error'; e.error = err.message;
+      job.fail('讀不出來');
     }
     emit();
   }
