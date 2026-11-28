@@ -76,20 +76,6 @@ def ellipse(cx, cy, rx, ry, fill=INK, stroke="none", sw=1.4, rotate=-20):
             f'stroke="{stroke}" stroke-width="{sw}" transform="rotate({rotate} {cx:.1f} {cy:.1f})"/>')
 
 
-def arrow(x1, y1, x2, y2, color=ACCENT, sw=1.6, dash=None, head=8.0):
-    """帶箭頭的直線。箭頭畫在 (x2, y2)，方向就是線的方向。"""
-    ang = math.atan2(y2 - y1, x2 - x1)
-    bx, by = x2 - head * 0.85 * math.cos(ang), y2 - head * 0.85 * math.sin(ang)
-    parts = [line(x1, y1, bx, by, color, sw, dash)]
-    hx1 = x2 - head * math.cos(ang - 0.38)
-    hy1 = y2 - head * math.sin(ang - 0.38)
-    hx2 = x2 - head * math.cos(ang + 0.38)
-    hy2 = y2 - head * math.sin(ang + 0.38)
-    parts.append(f'<polygon points="{x2:.1f},{y2:.1f} {hx1:.1f},{hy1:.1f} '
-                 f'{hx2:.1f},{hy2:.1f}" fill="{color}"/>')
-    return "".join(parts)
-
-
 def arc_arrow(x1, y1, cx, cy, x2, y2, color=ACCENT, sw=1.6, head=8.0):
     """二次曲線的箭頭，箭頭切線對齊曲線末端。"""
     dx, dy = x2 - cx, y2 - cy
@@ -761,13 +747,15 @@ def fig_timbre_families():
 # 第二批：每一節再補一張，把抽象的說法畫成看得見的東西
 # ═══════════════════════════════════════════════════════════════
 
-def arrow(x1, y1, x2, y2, color=ACCENT, sw=1.5, head=7.5):
+def arrow(x1, y1, x2, y2, color=ACCENT, sw=1.5, head=7.5, dash=None):
+    """帶箭頭的直線；箭頭畫在 (x2, y2)，方向就是線的方向。"""
     ang = math.atan2(y2 - y1, x2 - x1)
     a1 = (x2 - head * math.cos(ang - 0.42), y2 - head * math.sin(ang - 0.42))
     a2 = (x2 - head * math.cos(ang + 0.42), y2 - head * math.sin(ang + 0.42))
-    return (line(x1, y1, x2, y2, color, sw)
-            + path("M%.1f %.1f L%.1f %.1f L%.1f %.1f" % (a1[0], a1[1], x2, y2, a2[0], a2[1]),
-                   stroke=color, sw=sw))
+    body = line(x1, y1, x2 - head * 0.8 * math.cos(ang), y2 - head * 0.8 * math.sin(ang),
+                color, sw, dash)
+    return body + ('<polygon points="%.1f,%.1f %.1f,%.1f %.1f,%.1f" fill="%s"/>'
+                   % (x2, y2, a1[0], a1[1], a2[0], a2[1], color))
 
 
 # ── 21. 聲音是空氣的疏密波（1.1） ───────────────────────────

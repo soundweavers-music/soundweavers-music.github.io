@@ -40,5 +40,5 @@
 <text x="528.0" y="268.0" font-size="10" text-anchor="start" fill="#8a8078" font-weight="400">five lines and a clef</text>
 <text x="528.0" y="286.0" font-size="10" text-anchor="start" fill="#8a8078" font-weight="400">pitch and rhythm both written clearly</text>
 <text x="528.0" y="304.0" font-size="10" text-anchor="start" fill="#8a8078" font-weight="400">instruments and voices both</text>
-<line x1="60.0" y1="336.0" x2="700.0" y2="336.0" stroke="#8a8078" stroke-width="1.2"/><path d="M693.2 339.1 L700.0 336.0 L693.2 332.9" fill="none" stroke="#8a8078" stroke-width="1.2"/>
+<line x1="60.0" y1="336.0" x2="694.0" y2="336.0" stroke="#8a8078" stroke-width="1.2"/><polygon points="700.0,336.0 693.2,339.1 693.2,332.9" fill="#8a8078"/>
 </svg>
