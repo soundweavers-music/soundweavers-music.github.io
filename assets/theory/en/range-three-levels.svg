@@ -1,7 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 350" width="100%" role="img" aria-label="A range is not a line, but three layers">
+<style>line,path,polyline{stroke-linecap:round;stroke-linejoin:round}text{font-family:'Source Han Serif TW',serif}</style>
 <rect width="760" height="350" fill="#f7f3ee"/>
-<text x="28.0" y="40.0" font-size="19" text-anchor="start" fill="#2b2722" font-weight="700">A range is not a line, but three layers</text>
-<text x="28.0" y="62.0" font-size="12.5" text-anchor="start" fill="#8a8078" font-weight="400">Theoretical, practical, comfortable: one instrument, three kinds of limit</text>
+<rect x="14" y="76" width="732" height="258" rx="14" fill="#fff" stroke="#d9d2c9" stroke-width="1"/>
+<text x="30.0" y="40.0" font-size="19" text-anchor="start" fill="#2b2722" font-weight="700">A range is not a line, but three layers</text>
+<text x="30.0" y="62.0" font-size="12.5" text-anchor="start" fill="#8a8078" font-weight="400">Theoretical, practical, comfortable: one instrument, three kinds of limit</text>
 <text x="28.0" y="126.0" font-size="12.5" text-anchor="start" fill="#2b2722" font-weight="700">theoretical range</text>
 <text x="28.0" y="144.0" font-size="9.5" text-anchor="start" fill="#8a8078" font-weight="400">the page and the instrument both allow it</text>
 <rect x="258.8" y="118.0" width="422.4" height="24.0" rx="5" fill="#e7d9c8" stroke="none" stroke-width="1.4"/>
@@ -12,5 +14,5 @@
 <text x="28.0" y="264.0" font-size="9.5" text-anchor="start" fill="#8a8078" font-weight="400">where you can stay a long time</text>
 <rect x="408.4" y="238.0" width="140.8" height="24.0" rx="5" fill="#A67C52" stroke="none" stroke-width="1.4"/>
 <text x="28.0" y="308.0" font-size="11.5" text-anchor="start" fill="#A67C52" font-weight="700">The further in, the longer you can stay; put the climax at the top of the comfortable band, not the limit</text>
-<text x="28.0" y="332.0" font-size="11.5" text-anchor="start" fill="#8a8078" font-weight="400">The numbers vary by instrument, model and player; what matters is how the three layers relate</text>
+<text x="30.0" y="328.0" font-size="11" text-anchor="start" fill="#8a8078" font-weight="400">The numbers vary by instrument, model and player; what matters is how the three layers relate</text>
 </svg>

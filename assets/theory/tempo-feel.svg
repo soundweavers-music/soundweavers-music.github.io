@@ -1,7 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" width="100%" role="img" aria-label="速度是活的，不是節拍器上的數字">
+<style>line,path,polyline{stroke-linecap:round;stroke-linejoin:round}text{font-family:'Source Han Serif TW',serif}</style>
 <rect width="760" height="320" fill="#f7f3ee"/>
-<text x="28.0" y="40.0" font-size="19" text-anchor="start" fill="#2b2722" font-weight="700">速度是活的，不是節拍器上的數字</text>
-<text x="28.0" y="62.0" font-size="12.5" text-anchor="start" fill="#8a8078" font-weight="400">同樣標 BPM 120，機器與人的差別在「每一拍之間怎麼分配」</text>
+<rect x="14" y="76" width="732" height="228" rx="14" fill="#fff" stroke="#d9d2c9" stroke-width="1"/>
+<text x="30.0" y="40.0" font-size="19" text-anchor="start" fill="#2b2722" font-weight="700">速度是活的，不是節拍器上的數字</text>
+<text x="30.0" y="62.0" font-size="12.5" text-anchor="start" fill="#8a8078" font-weight="400">同樣標 BPM 120，機器與人的差別在「每一拍之間怎麼分配」</text>
 <text x="28.0" y="100.0" font-size="12" text-anchor="start" fill="#2b2722" font-weight="700">節拍器：每一拍間隔一模一樣</text>
 <text x="20.0" y="118.0" font-size="10" text-anchor="start" fill="#8a8078" font-weight="400">適合練習，不適合演奏</text>
 <line x1="140.0" y1="130.0" x2="140.0" y2="168.0" stroke="#2b2722" stroke-width="1.6"/>

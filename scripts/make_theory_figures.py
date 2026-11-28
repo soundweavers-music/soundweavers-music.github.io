@@ -153,18 +153,45 @@ def staff_chord(cx, y0, steps, gap=9, acc=None, color=INK, acc_color=ACCENT,
     return "".join(parts)
 
 
+
+def note_glyph(cx, cy, dur, color=INK):
+    """畫單一音符：1=全、2=二分、4=四分、8=八分、16=十六分。"""
+    if dur == 1:
+        return ellipse(cx, cy, 8.2, 5.8, "none", color, 1.8, rotate=-22)
+    filled = dur >= 4
+    body = [ellipse(cx, cy, 7.8, 5.6, color if filled else "none", color, 1.8, rotate=-22)]
+    up = cy > 0
+    sx = cx + 6.4
+    body.append(line(sx, cy - 1, sx, cy - 32, color, 1.6))
+    flags = {2: 0, 4: 0, 8: 1, 16: 2}.get(dur, 0)
+    for k in range(flags):
+        fy = cy - 32 + k * 8
+        body.append(path("M %.1f %.1f q 10 6 9 16" % (sx, fy), color, "none", 2.0))
+    return "".join(body)
+
+
 def frame(w, h, title, subtitle, body, note=None):
+    """統一的版面：標題、副標、內容區白卡、頁尾小字。
+
+    卡片讓整組圖有一致的外框；stroke-linecap 讓所有細線（五線譜、折線）
+    收邊變圓，看起來比直角乾淨。
+    """
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="100%" '
         f'role="img" aria-label="{esc(title)}">',
+        "<style>line,path,polyline{stroke-linecap:round;stroke-linejoin:round}"
+        "text{font-family:'Source Han Serif TW',serif}</style>",
         f'<rect width="{w}" height="{h}" fill="{SOFT}"/>',
-        text(28, 40, title, 19, weight="700"),
+        # 內容白卡
+        f'<rect x="14" y="76" width="{w - 28}" height="{h - 92}" rx="14" fill="#fff" '
+        f'stroke="{LINE}" stroke-width="1"/>',
+        text(30, 40, title, 19, weight="700"),
     ]
     if subtitle:
-        parts.append(text(28, 62, subtitle, 12.5, color=MUTED))
+        parts.append(text(30, 62, subtitle, 12.5, color=MUTED))
     parts.extend(body)
     if note:
-        parts.append(text(28, h - 18, note, 11.5, color=MUTED))
+        parts.append(text(30, h - 22, note, 11, color=MUTED))
     parts.append("</svg>")
     return "\n".join(parts)
 
@@ -195,7 +222,7 @@ def fig_frequency():
         body.append(text(28, y + 28, label, 12, color=MUTED))
         body.append(line(210, y, 700, y, LINE, 1))
     body.append(line(210, 80, 210, 255, MUTED, 1.2, "4 5"))
-    body.append(text(210, 72, "時間 →", 11.5, "middle", MUTED))
+    body.append(text(210, 96, "時間 →", 11.5, "middle", MUTED))
     body.append(text(455, 272, "同樣的時間裡，振動次數越多 → 音越高", 13, "middle", INK))
     write("frequency-wave.svg", frame(W, H, "頻率決定音高", "同一個時間長度內，波形來回幾次就是幾赫茲（Hz）", body))
 
@@ -334,24 +361,24 @@ def fig_grand_staff():
 
 # ── 7. 音符時值 ──────────────────────────────────────────────
 def fig_note_values():
-    W, H = 760, 386
+    W, H = 760, 400
     body = []
-    body.append(text(40, 96, "一個全音符 = 4 拍（4/4 拍下）", 12.5, INK, "700"))
-    bars = [("全音符", 4, "4 拍"), ("二分音符", 2, "2 拍"), ("四分音符", 1, "1 拍"),
-            ("八分音符", 0.5, "半拍"), ("十六分音符", 0.25, "1/4 拍")]
-    y = 130
-    for name, beats, label in bars:
-        w = 400 * (beats / 4.0)
-        body.append(rect(200, y - 12, w, 20, ACCENT, ACCENT, 3))
-        body.append(text(190, y + 3, name, 12, "end", INK, "700"))
-        body.append(text(200 + w + 10, y + 3, label, 11.5, MUTED))
-        y += 32
-    body.append(text(40, 292, "拍號決定「一拍」是什麼音符：", 12, INK, "700"))
-    body.append(text(40, 314, "4/4 → 四分音符為一拍", 11.5, MUTED))
-    body.append(text(40, 334, "6/8 → 八分音符為一拍", 11.5, MUTED))
-    body.append(text(40, 354, "2/2 → 二分音符為一拍", 11.5, MUTED))
+    body.append(text(34, 100, "一個全音符 = 4 拍（4/4 拍下）", 12.5, INK, "700"))
+    bars = [("全音符", 1, 4, "4 拍"), ("二分音符", 2, 2, "2 拍"), ("四分音符", 4, 1, "1 拍"),
+            ("八分音符", 8, 0.5, "半拍"), ("十六分音符", 16, 0.25, "1/4 拍")]
+    y = 138
+    for name, dur, beats, label in bars:
+        w = 360 * (beats / 4.0)
+        body.append(note_glyph(96, y, dur))
+        body.append(text(120, y + 4, name, 11.5, "start", INK, "700"))
+        body.append(rect(230, y - 11, w, 20, "#f2e7da", ACCENT, 10, 1.0))
+        body.append(text(238 + w, y + 4, label, 10.5, MUTED))
+        y += 36
+    body.append(line(34, 322, 726, 322, LINE, 1))
+    body.append(text(34, 344, "拍號決定「一拍」是哪一種音符：4/4 → 四分音符、6/8 → 八分音符、2/2 → 二分音符。",
+                     11, MUTED))
     write("note-values.svg", frame(W, H, "音符的時值：倍數關係",
-                                   "每一種音符都是上一種的一半長", body))
+                                   "每一種音符都是上一種的一半長；符頭空心或實心、符尾幾條，都是線索", body))
 
 
 # ── 8. 單拍子與複拍子 ────────────────────────────────────────
@@ -589,7 +616,7 @@ def fig_sh_taxonomy():
 
 # ── 16. 六大聲部音域 ──────────────────────────────────────
 def fig_voice_ranges():
-    W, H = 760, 340
+    W, H = 760, 366
     body = []
     lo, hi = 65.0, 1100.0
     x0, x1 = 230, 690

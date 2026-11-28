@@ -1,7 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 260" width="100%" role="img" aria-label="鋼琴的音域">
+<style>line,path,polyline{stroke-linecap:round;stroke-linejoin:round}text{font-family:'Source Han Serif TW',serif}</style>
 <rect width="760" height="260" fill="#f7f3ee"/>
-<text x="28.0" y="40.0" font-size="19" text-anchor="start" fill="#2b2722" font-weight="700">鋼琴的音域</text>
-<text x="28.0" y="62.0" font-size="12.5" text-anchor="start" fill="#8a8078" font-weight="400">同一個八度裡頻率加倍，所以聽起來「像同一個音」</text>
+<rect x="14" y="76" width="732" height="168" rx="14" fill="#fff" stroke="#d9d2c9" stroke-width="1"/>
+<text x="30.0" y="40.0" font-size="19" text-anchor="start" fill="#2b2722" font-weight="700">鋼琴的音域</text>
+<text x="30.0" y="62.0" font-size="12.5" text-anchor="start" fill="#8a8078" font-weight="400">同一個八度裡頻率加倍，所以聽起來「像同一個音」</text>
 <rect x="90.0" y="92.0" width="610.0" height="52.0" rx="4" fill="#f7f3ee" stroke="#d9d2c9" stroke-width="1.4"/>
 <line x1="90.0" y1="92.0" x2="90.0" y2="144.0" stroke="#8a8078" stroke-width="1"/>
 <circle cx="90.0" cy="152.0" r="3.2" fill="#A67C52" stroke="none" stroke-width="1.4"/>

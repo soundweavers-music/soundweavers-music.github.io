@@ -1,7 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 450" width="100%" role="img" aria-label="五度圈：所有調的地圖">
+<style>line,path,polyline{stroke-linecap:round;stroke-linejoin:round}text{font-family:'Source Han Serif TW',serif}</style>
 <rect width="760" height="450" fill="#f7f3ee"/>
-<text x="28.0" y="40.0" font-size="19" text-anchor="start" fill="#2b2722" font-weight="700">五度圈：所有調的地圖</text>
-<text x="28.0" y="62.0" font-size="12.5" text-anchor="start" fill="#8a8078" font-weight="400">順時針每走一格多一個升號，逆時針多一個降號；對面的調相差六個記號</text>
+<rect x="14" y="76" width="732" height="358" rx="14" fill="#fff" stroke="#d9d2c9" stroke-width="1"/>
+<text x="30.0" y="40.0" font-size="19" text-anchor="start" fill="#2b2722" font-weight="700">五度圈：所有調的地圖</text>
+<text x="30.0" y="62.0" font-size="12.5" text-anchor="start" fill="#8a8078" font-weight="400">順時針每走一格多一個升號，逆時針多一個降號；對面的調相差六個記號</text>
 <circle cx="380.0" cy="232.0" r="116.0" fill="#fff" stroke="#d9d2c9" stroke-width="1.6"/>
 <circle cx="380.0" cy="232.0" r="62.0" fill="#f7f3ee" stroke="#d9d2c9" stroke-width="1.2"/>
 <text x="380.0" y="226.0" font-size="14" text-anchor="middle" fill="#A67C52" font-weight="700">五度圈</text>

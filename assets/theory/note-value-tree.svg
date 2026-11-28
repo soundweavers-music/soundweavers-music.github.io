@@ -1,7 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340" width="100%" role="img" aria-label="音符時值：每一級都砍一半">
+<style>line,path,polyline{stroke-linecap:round;stroke-linejoin:round}text{font-family:'Source Han Serif TW',serif}</style>
 <rect width="760" height="340" fill="#f7f3ee"/>
-<text x="28.0" y="40.0" font-size="19" text-anchor="start" fill="#2b2722" font-weight="700">音符時值：每一級都砍一半</text>
-<text x="28.0" y="62.0" font-size="12.5" text-anchor="start" fill="#8a8078" font-weight="400">一條等長的小節，越往下分就越短；符尾的數量就是「被切了幾次」</text>
+<rect x="14" y="76" width="732" height="248" rx="14" fill="#fff" stroke="#d9d2c9" stroke-width="1"/>
+<text x="30.0" y="40.0" font-size="19" text-anchor="start" fill="#2b2722" font-weight="700">音符時值：每一級都砍一半</text>
+<text x="30.0" y="62.0" font-size="12.5" text-anchor="start" fill="#8a8078" font-weight="400">一條等長的小節，越往下分就越短；符尾的數量就是「被切了幾次」</text>
 <rect x="150.0" y="108.0" width="556.0" height="30.0" rx="3" fill="#A67C52" stroke="#d9d2c9" stroke-width="1.2"/>
 <text x="28.0" y="120.0" font-size="12.5" text-anchor="start" fill="#2b2722" font-weight="700">全音符</text>
 <text x="28.0" y="136.0" font-size="10" text-anchor="start" fill="#8a8078" font-weight="400">4 拍</text>
