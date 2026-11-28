@@ -1,54 +1,70 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" width="100%" role="img" aria-label="Figured bass: shorthand for inversions">
-<rect width="760" height="320" fill="#f7f3ee"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 350" width="100%" role="img" aria-label="Figured bass: shorthand for inversions">
+<rect width="760" height="350" fill="#f7f3ee"/>
 <text x="28.0" y="40.0" font-size="19" text-anchor="start" fill="#2b2722" font-weight="700">Figured bass: shorthand for inversions</text>
 <text x="28.0" y="62.0" font-size="12.5" text-anchor="start" fill="#8a8078" font-weight="400">Seventh chords have four positions; change the bass, change the figures</text>
-<rect x="40.0" y="104.0" width="158.0" height="176.0" rx="10" fill="#fff" stroke="#d9d2c9" stroke-width="1.4"/>
-<text x="119.0" y="128.0" font-size="11.5" text-anchor="middle" fill="#2b2722" font-weight="700">Root position</text>
-<text x="119.0" y="166.0" font-size="24" text-anchor="middle" fill="#A67C52" font-weight="700">7</text>
-<circle cx="119.0" cy="236.0" r="10.0" fill="#A67C52" stroke="#A67C52" stroke-width="1.2"/>
-<text x="119.0" y="239.5" font-size="8.5" text-anchor="middle" fill="#fff" font-weight="400">C</text>
-<circle cx="119.0" cy="216.0" r="10.0" fill="#f7f3ee" stroke="#d9d2c9" stroke-width="1.2"/>
-<text x="119.0" y="219.5" font-size="8.5" text-anchor="middle" fill="#2b2722" font-weight="400">E</text>
-<circle cx="119.0" cy="196.0" r="10.0" fill="#f7f3ee" stroke="#d9d2c9" stroke-width="1.2"/>
-<text x="119.0" y="199.5" font-size="8.5" text-anchor="middle" fill="#2b2722" font-weight="400">G</text>
-<circle cx="119.0" cy="176.0" r="10.0" fill="#f7f3ee" stroke="#d9d2c9" stroke-width="1.2"/>
-<text x="119.0" y="179.5" font-size="8.5" text-anchor="middle" fill="#2b2722" font-weight="400">B</text>
-<text x="119.0" y="268.0" font-size="9" text-anchor="middle" fill="#8a8078" font-weight="400">Bass is the root</text>
-<rect x="220.0" y="104.0" width="158.0" height="176.0" rx="10" fill="#fff" stroke="#d9d2c9" stroke-width="1.4"/>
-<text x="299.0" y="128.0" font-size="11.5" text-anchor="middle" fill="#2b2722" font-weight="700">First inversion</text>
-<text x="299.0" y="166.0" font-size="24" text-anchor="middle" fill="#A67C52" font-weight="700">6/5</text>
-<circle cx="299.0" cy="236.0" r="10.0" fill="#A67C52" stroke="#A67C52" stroke-width="1.2"/>
-<text x="299.0" y="239.5" font-size="8.5" text-anchor="middle" fill="#fff" font-weight="400">E</text>
-<circle cx="299.0" cy="216.0" r="10.0" fill="#f7f3ee" stroke="#d9d2c9" stroke-width="1.2"/>
-<text x="299.0" y="219.5" font-size="8.5" text-anchor="middle" fill="#2b2722" font-weight="400">G</text>
-<circle cx="299.0" cy="196.0" r="10.0" fill="#f7f3ee" stroke="#d9d2c9" stroke-width="1.2"/>
-<text x="299.0" y="199.5" font-size="8.5" text-anchor="middle" fill="#2b2722" font-weight="400">B</text>
-<circle cx="299.0" cy="176.0" r="10.0" fill="#f7f3ee" stroke="#d9d2c9" stroke-width="1.2"/>
-<text x="299.0" y="179.5" font-size="8.5" text-anchor="middle" fill="#2b2722" font-weight="400">C</text>
-<text x="299.0" y="268.0" font-size="9" text-anchor="middle" fill="#8a8078" font-weight="400">Bass is the third</text>
-<rect x="400.0" y="104.0" width="158.0" height="176.0" rx="10" fill="#fff" stroke="#d9d2c9" stroke-width="1.4"/>
-<text x="479.0" y="128.0" font-size="11.5" text-anchor="middle" fill="#2b2722" font-weight="700">Second inversion</text>
-<text x="479.0" y="166.0" font-size="24" text-anchor="middle" fill="#A67C52" font-weight="700">4/3</text>
-<circle cx="479.0" cy="236.0" r="10.0" fill="#A67C52" stroke="#A67C52" stroke-width="1.2"/>
-<text x="479.0" y="239.5" font-size="8.5" text-anchor="middle" fill="#fff" font-weight="400">G</text>
-<circle cx="479.0" cy="216.0" r="10.0" fill="#f7f3ee" stroke="#d9d2c9" stroke-width="1.2"/>
-<text x="479.0" y="219.5" font-size="8.5" text-anchor="middle" fill="#2b2722" font-weight="400">B</text>
-<circle cx="479.0" cy="196.0" r="10.0" fill="#f7f3ee" stroke="#d9d2c9" stroke-width="1.2"/>
-<text x="479.0" y="199.5" font-size="8.5" text-anchor="middle" fill="#2b2722" font-weight="400">C</text>
-<circle cx="479.0" cy="176.0" r="10.0" fill="#f7f3ee" stroke="#d9d2c9" stroke-width="1.2"/>
-<text x="479.0" y="179.5" font-size="8.5" text-anchor="middle" fill="#2b2722" font-weight="400">E</text>
-<text x="479.0" y="268.0" font-size="9" text-anchor="middle" fill="#8a8078" font-weight="400">Bass is the fifth</text>
-<rect x="580.0" y="104.0" width="158.0" height="176.0" rx="10" fill="#fff" stroke="#d9d2c9" stroke-width="1.4"/>
-<text x="659.0" y="128.0" font-size="11.5" text-anchor="middle" fill="#2b2722" font-weight="700">Third inversion</text>
-<text x="659.0" y="166.0" font-size="24" text-anchor="middle" fill="#A67C52" font-weight="700">4/2</text>
-<circle cx="659.0" cy="236.0" r="10.0" fill="#A67C52" stroke="#A67C52" stroke-width="1.2"/>
-<text x="659.0" y="239.5" font-size="8.5" text-anchor="middle" fill="#fff" font-weight="400">B</text>
-<circle cx="659.0" cy="216.0" r="10.0" fill="#f7f3ee" stroke="#d9d2c9" stroke-width="1.2"/>
-<text x="659.0" y="219.5" font-size="8.5" text-anchor="middle" fill="#2b2722" font-weight="400">C</text>
-<circle cx="659.0" cy="196.0" r="10.0" fill="#f7f3ee" stroke="#d9d2c9" stroke-width="1.2"/>
-<text x="659.0" y="199.5" font-size="8.5" text-anchor="middle" fill="#2b2722" font-weight="400">E</text>
-<circle cx="659.0" cy="176.0" r="10.0" fill="#f7f3ee" stroke="#d9d2c9" stroke-width="1.2"/>
-<text x="659.0" y="179.5" font-size="8.5" text-anchor="middle" fill="#2b2722" font-weight="400">G</text>
-<text x="659.0" y="268.0" font-size="9" text-anchor="middle" fill="#8a8078" font-weight="400">Bass is the seventh</text>
-<text x="28.0" y="306.0" font-size="11" text-anchor="start" fill="#8a8078" font-weight="400">Figures show which intervals remain above the bass, not beats—6/5 means first inversion.</text>
+<rect x="40.0" y="100.0" width="158.0" height="196.0" rx="10" fill="#fff" stroke="#d9d2c9" stroke-width="1.4"/>
+<text x="119.0" y="124.0" font-size="11.5" text-anchor="middle" fill="#2b2722" font-weight="700">Root position</text>
+<text x="119.0" y="154.0" font-size="22" text-anchor="middle" fill="#A67C52" font-weight="700">7</text>
+<line x1="54.0" y1="262.0" x2="128.0" y2="262.0" stroke="#2b2722" stroke-width="0.9"/>
+<line x1="54.0" y1="252.0" x2="128.0" y2="252.0" stroke="#2b2722" stroke-width="0.9"/>
+<line x1="54.0" y1="242.0" x2="128.0" y2="242.0" stroke="#2b2722" stroke-width="0.9"/>
+<line x1="54.0" y1="232.0" x2="128.0" y2="232.0" stroke="#2b2722" stroke-width="0.9"/>
+<line x1="54.0" y1="222.0" x2="128.0" y2="222.0" stroke="#2b2722" stroke-width="0.9"/>
+<circle cx="64.0" cy="242.0" r="8.0" fill="none" stroke="#A67C52" stroke-width="1.1"/>
+<text x="64.0" y="246.0" font-size="8" text-anchor="middle" fill="#A67C52" font-weight="700">G</text>
+<line x1="82.0" y1="272.0" x2="102.0" y2="272.0" stroke="#2b2722" stroke-width="1.2"/><ellipse cx="92.0" cy="272.0" rx="6.6" ry="4.8" fill="#A67C52" stroke="#A67C52" stroke-width="1.5" transform="rotate(-24 92.0 272.0)"/><ellipse cx="92.0" cy="262.0" rx="6.6" ry="4.8" fill="#2b2722" stroke="#2b2722" stroke-width="1.5" transform="rotate(-24 92.0 262.0)"/><ellipse cx="92.0" cy="252.0" rx="6.6" ry="4.8" fill="#2b2722" stroke="#2b2722" stroke-width="1.5" transform="rotate(-24 92.0 252.0)"/><ellipse cx="92.0" cy="242.0" rx="6.6" ry="4.8" fill="#2b2722" stroke="#2b2722" stroke-width="1.5" transform="rotate(-24 92.0 242.0)"/><line x1="98.2" y1="241.0" x2="98.2" y2="242.0" stroke="#2b2722" stroke-width="1.4"/>
+<text x="136.0" y="275.0" font-size="8" text-anchor="start" fill="#A67C52" font-weight="700">C4</text>
+<text x="136.0" y="265.0" font-size="8" text-anchor="start" fill="#8a8078" font-weight="400">E4</text>
+<text x="136.0" y="255.0" font-size="8" text-anchor="start" fill="#8a8078" font-weight="400">G4</text>
+<text x="136.0" y="245.0" font-size="8" text-anchor="start" fill="#8a8078" font-weight="400">B4</text>
+<text x="119.0" y="286.0" font-size="9" text-anchor="middle" fill="#8a8078" font-weight="400">Bass is the root</text>
+<rect x="220.0" y="100.0" width="158.0" height="196.0" rx="10" fill="#fff" stroke="#d9d2c9" stroke-width="1.4"/>
+<text x="299.0" y="124.0" font-size="11.5" text-anchor="middle" fill="#2b2722" font-weight="700">First inversion</text>
+<text x="299.0" y="154.0" font-size="22" text-anchor="middle" fill="#A67C52" font-weight="700">6/5</text>
+<line x1="234.0" y1="262.0" x2="308.0" y2="262.0" stroke="#2b2722" stroke-width="0.9"/>
+<line x1="234.0" y1="252.0" x2="308.0" y2="252.0" stroke="#2b2722" stroke-width="0.9"/>
+<line x1="234.0" y1="242.0" x2="308.0" y2="242.0" stroke="#2b2722" stroke-width="0.9"/>
+<line x1="234.0" y1="232.0" x2="308.0" y2="232.0" stroke="#2b2722" stroke-width="0.9"/>
+<line x1="234.0" y1="222.0" x2="308.0" y2="222.0" stroke="#2b2722" stroke-width="0.9"/>
+<circle cx="244.0" cy="242.0" r="8.0" fill="none" stroke="#A67C52" stroke-width="1.1"/>
+<text x="244.0" y="246.0" font-size="8" text-anchor="middle" fill="#A67C52" font-weight="700">G</text>
+<ellipse cx="272.0" cy="262.0" rx="6.6" ry="4.8" fill="#A67C52" stroke="#A67C52" stroke-width="1.5" transform="rotate(-24 272.0 262.0)"/><ellipse cx="272.0" cy="252.0" rx="6.6" ry="4.8" fill="#2b2722" stroke="#2b2722" stroke-width="1.5" transform="rotate(-24 272.0 252.0)"/><ellipse cx="272.0" cy="242.0" rx="6.6" ry="4.8" fill="#2b2722" stroke="#2b2722" stroke-width="1.5" transform="rotate(-24 272.0 242.0)"/><ellipse cx="272.0" cy="237.0" rx="6.6" ry="4.8" fill="#2b2722" stroke="#2b2722" stroke-width="1.5" transform="rotate(-24 272.0 237.0)"/><line x1="278.2" y1="236.0" x2="278.2" y2="232.0" stroke="#2b2722" stroke-width="1.4"/>
+<text x="316.0" y="265.0" font-size="8" text-anchor="start" fill="#A67C52" font-weight="700">E4</text>
+<text x="316.0" y="255.0" font-size="8" text-anchor="start" fill="#8a8078" font-weight="400">G4</text>
+<text x="316.0" y="245.0" font-size="8" text-anchor="start" fill="#8a8078" font-weight="400">B4</text>
+<text x="328.0" y="240.0" font-size="8" text-anchor="start" fill="#8a8078" font-weight="400">C5</text>
+<text x="299.0" y="286.0" font-size="9" text-anchor="middle" fill="#8a8078" font-weight="400">Bass is the third</text>
+<rect x="400.0" y="100.0" width="158.0" height="196.0" rx="10" fill="#fff" stroke="#d9d2c9" stroke-width="1.4"/>
+<text x="479.0" y="124.0" font-size="11.5" text-anchor="middle" fill="#2b2722" font-weight="700">Second inversion</text>
+<text x="479.0" y="154.0" font-size="22" text-anchor="middle" fill="#A67C52" font-weight="700">4/3</text>
+<line x1="414.0" y1="262.0" x2="488.0" y2="262.0" stroke="#2b2722" stroke-width="0.9"/>
+<line x1="414.0" y1="252.0" x2="488.0" y2="252.0" stroke="#2b2722" stroke-width="0.9"/>
+<line x1="414.0" y1="242.0" x2="488.0" y2="242.0" stroke="#2b2722" stroke-width="0.9"/>
+<line x1="414.0" y1="232.0" x2="488.0" y2="232.0" stroke="#2b2722" stroke-width="0.9"/>
+<line x1="414.0" y1="222.0" x2="488.0" y2="222.0" stroke="#2b2722" stroke-width="0.9"/>
+<circle cx="424.0" cy="242.0" r="8.0" fill="none" stroke="#A67C52" stroke-width="1.1"/>
+<text x="424.0" y="246.0" font-size="8" text-anchor="middle" fill="#A67C52" font-weight="700">G</text>
+<ellipse cx="452.0" cy="252.0" rx="6.6" ry="4.8" fill="#A67C52" stroke="#A67C52" stroke-width="1.5" transform="rotate(-24 452.0 252.0)"/><ellipse cx="452.0" cy="242.0" rx="6.6" ry="4.8" fill="#2b2722" stroke="#2b2722" stroke-width="1.5" transform="rotate(-24 452.0 242.0)"/><ellipse cx="452.0" cy="237.0" rx="6.6" ry="4.8" fill="#2b2722" stroke="#2b2722" stroke-width="1.5" transform="rotate(-24 452.0 237.0)"/><ellipse cx="452.0" cy="227.0" rx="6.6" ry="4.8" fill="#2b2722" stroke="#2b2722" stroke-width="1.5" transform="rotate(-24 452.0 227.0)"/><line x1="458.2" y1="226.0" x2="458.2" y2="222.0" stroke="#2b2722" stroke-width="1.4"/>
+<text x="496.0" y="255.0" font-size="8" text-anchor="start" fill="#A67C52" font-weight="700">G4</text>
+<text x="496.0" y="245.0" font-size="8" text-anchor="start" fill="#8a8078" font-weight="400">B4</text>
+<text x="508.0" y="240.0" font-size="8" text-anchor="start" fill="#8a8078" font-weight="400">C5</text>
+<text x="496.0" y="230.0" font-size="8" text-anchor="start" fill="#8a8078" font-weight="400">E5</text>
+<text x="479.0" y="286.0" font-size="9" text-anchor="middle" fill="#8a8078" font-weight="400">Bass is the fifth</text>
+<rect x="580.0" y="100.0" width="158.0" height="196.0" rx="10" fill="#fff" stroke="#d9d2c9" stroke-width="1.4"/>
+<text x="659.0" y="124.0" font-size="11.5" text-anchor="middle" fill="#2b2722" font-weight="700">Third inversion</text>
+<text x="659.0" y="154.0" font-size="22" text-anchor="middle" fill="#A67C52" font-weight="700">4/2</text>
+<line x1="594.0" y1="262.0" x2="668.0" y2="262.0" stroke="#2b2722" stroke-width="0.9"/>
+<line x1="594.0" y1="252.0" x2="668.0" y2="252.0" stroke="#2b2722" stroke-width="0.9"/>
+<line x1="594.0" y1="242.0" x2="668.0" y2="242.0" stroke="#2b2722" stroke-width="0.9"/>
+<line x1="594.0" y1="232.0" x2="668.0" y2="232.0" stroke="#2b2722" stroke-width="0.9"/>
+<line x1="594.0" y1="222.0" x2="668.0" y2="222.0" stroke="#2b2722" stroke-width="0.9"/>
+<circle cx="604.0" cy="242.0" r="8.0" fill="none" stroke="#A67C52" stroke-width="1.1"/>
+<text x="604.0" y="246.0" font-size="8" text-anchor="middle" fill="#A67C52" font-weight="700">G</text>
+<ellipse cx="632.0" cy="242.0" rx="6.6" ry="4.8" fill="#A67C52" stroke="#A67C52" stroke-width="1.5" transform="rotate(-24 632.0 242.0)"/><ellipse cx="632.0" cy="237.0" rx="6.6" ry="4.8" fill="#2b2722" stroke="#2b2722" stroke-width="1.5" transform="rotate(-24 632.0 237.0)"/><ellipse cx="632.0" cy="227.0" rx="6.6" ry="4.8" fill="#2b2722" stroke="#2b2722" stroke-width="1.5" transform="rotate(-24 632.0 227.0)"/><ellipse cx="632.0" cy="217.0" rx="6.6" ry="4.8" fill="#2b2722" stroke="#2b2722" stroke-width="1.5" transform="rotate(-24 632.0 217.0)"/><line x1="638.2" y1="216.0" x2="638.2" y2="212.0" stroke="#2b2722" stroke-width="1.4"/>
+<text x="676.0" y="245.0" font-size="8" text-anchor="start" fill="#A67C52" font-weight="700">B4</text>
+<text x="688.0" y="240.0" font-size="8" text-anchor="start" fill="#8a8078" font-weight="400">C5</text>
+<text x="676.0" y="230.0" font-size="8" text-anchor="start" fill="#8a8078" font-weight="400">E5</text>
+<text x="676.0" y="220.0" font-size="8" text-anchor="start" fill="#8a8078" font-weight="400">G5</text>
+<text x="659.0" y="286.0" font-size="9" text-anchor="middle" fill="#8a8078" font-weight="400">Bass is the seventh</text>
+<text x="28.0" y="330.0" font-size="11" text-anchor="start" fill="#8a8078" font-weight="400">Figures show which intervals remain above the bass, not beats—6/5 means first inversion.</text>
 </svg>

@@ -210,6 +210,10 @@ Chrome 開站顯示「危險網站／可能誘騙你安裝軟體」。查詢 `ht
 - **修掉一個真的 bug**：`build_theory_pages()` 解析時 `num` 被章號覆蓋，階段頁網址
   變成最後一章的號碼（`/theory/4/`、`/theory/9/`…）。現在階段目錄就是
   `/theory/1/`–`/theory/8/`（英文 `/en/theory/1/`–`8/`）。
+- **圖的方向與細節**：`make_theory_figures.py` 新增 `arrow()`／`arc_arrow()`／`staff()`／
+  `staff_chord()` 等工具——所有箭頭都畫出箭頭尖（轉調圖、功能和聲、副屬和弦、五度圈），
+  和弦圖改成真正的五線譜（符頭、共同符桿、加線、升降記號、音名標籤）。旋律小音階
+  補了「上行／下行」兩列，方向箭頭分得出來。改完要跑 `audit_figure_overlap.py theory`。
 - **對抗審查改成多引擎**：`scripts/factcheck_musictheory.py` 現在跑 `fast`＋`expert`
   兩顆引擎 × 四個角度（事實／數字／教學／記譜），同一處錯誤用 quote 去重、標出是哪顆
   引擎抓到的。**兩個坑**：這個 proxy 的 expert 後端若自己送 `thinking` 大預算會 400／

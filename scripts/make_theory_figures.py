@@ -76,6 +76,97 @@ def ellipse(cx, cy, rx, ry, fill=INK, stroke="none", sw=1.4, rotate=-20):
             f'stroke="{stroke}" stroke-width="{sw}" transform="rotate({rotate} {cx:.1f} {cy:.1f})"/>')
 
 
+def arrow(x1, y1, x2, y2, color=ACCENT, sw=1.6, dash=None, head=8.0):
+    """帶箭頭的直線。箭頭畫在 (x2, y2)，方向就是線的方向。"""
+    ang = math.atan2(y2 - y1, x2 - x1)
+    bx, by = x2 - head * 0.85 * math.cos(ang), y2 - head * 0.85 * math.sin(ang)
+    parts = [line(x1, y1, bx, by, color, sw, dash)]
+    hx1 = x2 - head * math.cos(ang - 0.38)
+    hy1 = y2 - head * math.sin(ang - 0.38)
+    hx2 = x2 - head * math.cos(ang + 0.38)
+    hy2 = y2 - head * math.sin(ang + 0.38)
+    parts.append(f'<polygon points="{x2:.1f},{y2:.1f} {hx1:.1f},{hy1:.1f} '
+                 f'{hx2:.1f},{hy2:.1f}" fill="{color}"/>')
+    return "".join(parts)
+
+
+def arc_arrow(x1, y1, cx, cy, x2, y2, color=ACCENT, sw=1.6, head=8.0):
+    """二次曲線的箭頭，箭頭切線對齊曲線末端。"""
+    dx, dy = x2 - cx, y2 - cy
+    ang = math.atan2(dy, dx)
+    ex, ey = x2 - head * 0.7 * math.cos(ang), y2 - head * 0.7 * math.sin(ang)
+    out = [path("M %.1f %.1f Q %.1f %.1f %.1f %.1f" % (x1, y1, cx, cy, ex, ey),
+                color, "none", sw)]
+    hx1 = x2 - head * math.cos(ang - 0.38)
+    hy1 = y2 - head * math.sin(ang - 0.38)
+    hx2 = x2 - head * math.cos(ang + 0.38)
+    hy2 = y2 - head * math.sin(ang + 0.38)
+    out.append(f'<polygon points="{x2:.1f},{y2:.1f} {hx1:.1f},{hy1:.1f} '
+               f'{hx2:.1f},{hy2:.1f}" fill="{color}"/>')
+    return "".join(out)
+
+
+def notehead(cx, cy, color=INK, filled=True, r=7.4):
+    """實心／空心符頭，稍微傾斜，比正圓更像樂譜。"""
+    return ellipse(cx, cy, r, r * 0.72, color if filled else SOFT, color, 1.5, rotate=-24)
+
+
+def note(cx, cy, up=True, length=34, color=INK, filled=True):
+    """符頭＋符桿。up=True 符桿在右側往上。"""
+    body = [notehead(cx, cy, color, filled)]
+    if up:
+        body.append(line(cx + 6.6, cy - 1.2, cx + 6.6, cy - length, color, 1.5))
+    else:
+        body.append(line(cx - 6.6, cy + 1.2, cx - 6.6, cy + length, color, 1.5))
+    return "".join(body)
+
+
+def staff(x0, x1, y0, gap=11, n=5, color=INK, sw=1.0):
+    """五線譜。y0 是最下面那一條線。"""
+    return [line(x0, y0 - i * gap, x1, y0 - i * gap, color, sw) for i in range(n)]
+
+
+def staff_y(y0, gap, step):
+    """staff step → y。step 0＝最下面那條線，往上每半格 +0.5。"""
+    return y0 - step * gap / 2.0
+
+
+def ledger(cx, y, w=22, color=INK):
+    return line(cx - w / 2, y, cx + w / 2, y, color, 1.2)
+
+
+def staff_chord(cx, y0, steps, gap=9, acc=None, color=INK, acc_color=ACCENT,
+                stem_up=True, top_color=None):
+    """在五線譜上畫一組和弦音：符頭、共同符桿、加線、升降記號。
+
+    steps 以最下面那條線（高音譜號的 E4）為 0，往上每半格 +0.5；
+    高音譜號常用的音：C4=-2、D4=-1、E4=0、F4=1、G4=2、A4=3、B4=4、C5=5。
+    """
+    parts = []
+    ys = [staff_y(y0, gap, s) for s in steps]
+    for s, y in zip(steps, ys):
+        if s <= -2 or s >= 10:
+            parts.append(ledger(cx, y, 20))
+    if acc:
+        for s, y in zip(steps, ys):
+            a = acc.get(s)
+            if a:
+                parts.append(text(cx - 12, y + 3.5, a, 10.5, "middle", acc_color, "700"))
+    for k, (s, y) in enumerate(zip(steps, ys)):
+        fill = color
+        if top_color and k == 0:
+            fill = top_color
+        parts.append(notehead(cx, y, fill, filled=True, r=6.6))
+    # 一根符桿串起整個和弦
+    low, high = min(ys), max(ys)
+    sx = cx + 6.2 if stem_up else cx - 6.2
+    if stem_up:
+        parts.append(line(sx, low - 1, sx, high - 30, color, 1.4))
+    else:
+        parts.append(line(sx, high + 1, sx, low + 30, color, 1.4))
+    return "".join(parts)
+
+
 def frame(w, h, title, subtitle, body, note=None):
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="100%" '
@@ -1636,6 +1727,25 @@ def fig_circle_of_fifths():
     body.append(circle(cx, cy, 62, SOFT, LINE, 1.2))
     body.append(text(cx, cy - 6, "五度圈", 14, "middle", ACCENT, "700"))
     body.append(text(cx, cy + 16, "順時針 = 升號 +1", 9.5, "middle", MUTED))
+
+    def ring_arrow(a0, a1, rad, color):
+        """沿著圓畫一段弧＋箭頭；箭頭在 a1，方向沿著圓的切線。"""
+        x0_, y0_ = cx + rad * math.cos(a0), cy + rad * math.sin(a0)
+        x1_, y1_ = cx + rad * math.cos(a1), cy + rad * math.sin(a1)
+        sweep = 1 if a1 > a0 else 0
+        large = 1 if abs(a1 - a0) > math.pi else 0
+        out = [path("M %.1f %.1f A %.1f %.1f 0 %d %d %.1f %.1f"
+                    % (x0_, y0_, rad, rad, large, sweep, x1_, y1_), color, "none", 1.8)]
+        # 箭頭：以 a1 為尖點，往後退 0.36 弧度取兩個底角
+        p1 = (x1_ + 10 * math.cos(a1 + 0.36), y1_ + 10 * math.sin(a1 + 0.36))
+        p2 = (x1_ + 10 * math.cos(a1 - 0.36), y1_ + 10 * math.sin(a1 - 0.36))
+        out.append(f'<polygon points="{x1_:.1f},{y1_:.1f} {p1[0]:.1f},{p1[1]:.1f} '
+                   f'{p2[0]:.1f},{p2[1]:.1f}" fill="{color}"/>')
+        return "".join(out)
+
+    # 右半圈順時針（升號變多）、左半圈逆時針（降號變多）
+    body.append(ring_arrow(-1.05, 1.05, r - 6, ACCENT))
+    body.append(ring_arrow(math.pi + 1.05, math.pi - 1.05, r - 6, MUTED))
     for i, (name, marks) in enumerate(keys):
         a = -math.pi / 2 + i * 2 * math.pi / 12
         x = cx + math.cos(a) * (r + 46)
@@ -1650,33 +1760,52 @@ def fig_circle_of_fifths():
                                         "順時針每走一格多一個升號，逆時針多一個降號；對面的調相差六個記號", body))
 
 
-# ── 三種小音階 ───────────────────────────────────────────────
+# ── 三種小音階（含上下行） ───────────────────────────────────
 def fig_minor_scales():
-    W, H = 760, 360
+    W, H = 760, 500
     body = []
     rows = [
         ("自然小音階", ["A", "B", "C", "D", "E", "F", "G", "A"],
-         ["全", "半", "全", "全", "半", "全", "全"], "柔和的標準版"),
+         ["全", "半", "全", "全", "半", "全", "全"], "柔和的標準版", True),
         ("和聲小音階", ["A", "B", "C", "D", "E", "F", "G♯", "A"],
-         ["全", "半", "全", "全", "半", "增2", "半"], "第七音升高，V–i 才有力道"),
-        ("旋律小音階（上行）", ["A", "B", "C", "D", "E", "F♯", "G♯", "A"],
-         ["全", "半", "全", "全", "全", "全", "半"], "下行時再還原成自然小音階"),
+         ["全", "半", "全", "全", "半", "增2", "半"], "第七音升高，V–i 才有力道", True),
+        ("旋律小音階：上行", ["A", "B", "C", "D", "E", "F♯", "G♯", "A"],
+         ["全", "半", "全", "全", "全", "全", "半"], "第六、第七音一起升高", True),
+        ("旋律小音階：下行", ["A", "G", "F", "E", "D", "C", "B", "A"],
+         ["全", "全", "半", "全", "全", "半", "全"], "回到自然小音階（F、G 還原）", False),
     ]
-    for i, (name, notes, steps, desc) in enumerate(rows):
-        top = 118 + i * 82
-        body.append(text(28, top + 18, name, 12, weight="700"))
-        body.append(text(20, top + 34, desc, 9.5, color=MUTED))
-        for k, (nm, st) in enumerate(zip(notes, steps + [""])):
-            x = 250 + k * 58
-            body.append(circle(x, top + 8, 14, "#fff" if st != "增2" else "#f2e0cc",
-                               ACCENT if nm.endswith("♯") else LINE, 1.4))
-            body.append(text(x, top + 13, nm, 11, "middle", ACCENT if nm.endswith("♯") else INK))
-            if st:
-                body.append(text(x + 29, top - 2, st, 9, "middle",
-                                 ACCENT if st in ("半", "增2") else MUTED))
-    body.append(text(28, 344, "小調的三種版本不是三個調，而是同一條音階的三種用法。", 11, color=MUTED))
-    write("minor-scales.svg", frame(W, H, "小調的三種面貌",
-                                   "自然小調、和聲小調、旋律小調——差別只在第六與第七個音", body))
+    x0, step = 250, 62
+    for i, (name, notes, steps, desc, up) in enumerate(rows):
+        top = 126 + i * 94
+        body.append(text(28, top + 4, name, 12.5, weight="700"))
+        body.append(text(20, top + 20, desc, 9.5, color=MUTED))
+        # 方向箭頭：上行由左往右、下行由右往左
+        ax0, ax1 = x0 - 24, x0 + 7 * step + 24
+        if up:
+            body.append(arrow(ax0, top - 30, ax1, top - 30, MUTED, 1.2, head=7))
+            body.append(text(ax0 - 4, top - 34, "上行", 9, "end", MUTED))
+        else:
+            body.append(arrow(ax1, top - 30, ax0, top - 30, MUTED, 1.2, head=7))
+            body.append(text(ax1 + 4, top - 34, "下行", 9, "start", MUTED))
+        for k, nm in enumerate(notes):
+            x = x0 + k * step
+            if k < len(steps):
+                mid = x + step / 2
+                col = ACCENT if steps[k] in ("半", "增2") else MUTED
+                body.append(line(mid, top + 2, mid, top + 6, col, 1.2))
+                body.append(text(mid, top - 4, steps[k], 9, "middle", col,
+                                 "700" if steps[k] in ("半", "增2") else "400"))
+            altered = nm.endswith("♯")
+            body.append(circle(x, top + 16, 13, "#f2e0cc" if altered else "#fff",
+                               ACCENT if altered else LINE, 1.5))
+            body.append(text(x, top + 20.5, nm, 10.5, "middle", ACCENT if altered else INK,
+                             "700" if altered else "400"))
+        # 音與音之間的連線（看得出是一條階梯）
+        body.append(line(x0, top + 16, x0 + 7 * step, top + 16, LINE, 1, "3 4"))
+    body.append(text(28, 486, "四列都是 A 小調：只有第六、第七個音在變——上行升高、下行還原。",
+                     11, color=MUTED))
+    write("minor-scales.svg", frame(W, H, "小調的三種面貌（含上下行）",
+                                   "自然、和聲、旋律小調；旋律小調上行與下行的音不一樣", body))
 
 
 # ── 關係調與平行調 ───────────────────────────────────────────
@@ -1795,81 +1924,90 @@ def fig_pentatonic_blues():
 
 # ── 四種三和弦 ───────────────────────────────────────────────
 def fig_triad_types():
-    W, H = 760, 350
+    W, H = 760, 390
     body = []
+    # (名稱, 記號, 五線譜上的位置 C4/E4/G4 = -2/0/2, 升降記號, 半音結構, 聽感)
     cards = [
-        ("大三和弦", "C", ["C", "E", "G"], "4 + 3", "亮、穩、最常見", ACCENT),
-        ("小三和弦", "Cm", ["C", "E♭", "G"], "3 + 4", "暗、柔、抒情", INK),
-        ("增三和弦", "Caug", ["C", "E", "G♯"], "4 + 4", "懸浮、不安、過門", MUTED),
-        ("減三和弦", "Cdim", ["C", "E♭", "G♭"], "3 + 3", "極不穩定，必須解決", MUTED),
+        ("大三和弦", "C", {}, "4 + 3", "亮、穩、最常見", ACCENT),
+        ("小三和弦", "Cm", {0: "♭"}, "3 + 4", "暗、柔、抒情", INK),
+        ("增三和弦", "Caug", {2: "♯"}, "4 + 4", "懸浮、不安、過門", MUTED),
+        ("減三和弦", "Cdim", {0: "♭", 2: "♭"}, "3 + 3", "極不穩定，必須解決", MUTED),
     ]
-    for i, (name, sym, notes, struct, feel, col) in enumerate(cards):
+    for i, (name, sym, acc, struct, feel, col) in enumerate(cards):
         x = 30 + i * 182
-        body.append(rect(x, 100, 166, 216, "#fff", LINE, 10))
-        body.append(text(x + 83, 124, name, 12.5, "middle", weight="700"))
-        body.append(text(x + 83, 142, sym, 11, "middle", color=ACCENT, weight="700"))
-        for j, nm in enumerate(reversed(notes)):   # 五度畫在上面、根音在最下面
-            y = 168 + j * 26
-            body.append(circle(x + 83, y, 13, "#f2e0cc" if "♭" in nm or "♯" in nm else SOFT,
-                               LINE, 1.2))
-            body.append(text(x + 83, y + 4, nm, 10.5, "middle", INK))
-        body.append(text(x + 83, 256, struct, 11, "middle", ACCENT, "700"))
-        body.append(text(x + 83, 278, "%s" % feel, 9.5, "middle", color=MUTED))
-        body.append(text(x + 83, 302, "根音＋三度＋五度", 9, "middle", MUTED))
-    body.append(text(28, 336, "三和弦只差中間那個三度與上面的五度——兩個音就決定了整個顏色。", 11, color=MUTED))
+        body.append(rect(x, 96, 166, 246, "#fff", LINE, 10))
+        body.append(text(x + 83, 120, name, 12.5, "middle", weight="700"))
+        body.append(text(x + 83, 138, sym, 11, "middle", color=ACCENT, weight="700"))
+        y0 = 262
+        for k in range(5):
+            body.append(line(x + 30, y0 - k * 13.5, x + 110, y0 - k * 13.5, INK, 0.9))
+        body.append(circle(x + 42, y0 - 27, 9.5, "none", ACCENT, 1.2))
+        body.append(text(x + 42, y0 - 23, "G", 9, "middle", ACCENT, "700"))
+        body.append(staff_chord(x + 84, y0, [-2, 0, 2], gap=13.5, acc=acc))
+        # 把三個音的名字標在旁邊，才看得出哪個音被升／降
+        for st, nm in ((-2, "C"), (0, "E" + acc.get(0, "")), (2, "G" + acc.get(2, ""))):
+            body.append(text(x + 120, staff_y(y0, 13.5, st) + 3.5, nm, 9, "start",
+                             ACCENT if acc.get(st) else MUTED, "700" if acc.get(st) else "400"))
+        body.append(text(x + 83, 306, struct, 11, "middle", ACCENT, "700"))
+        body.append(text(x + 83, 324, feel, 9.5, "middle", color=MUTED))
+        body.append(text(x + 83, 340, "根音＋三度＋五度", 8.5, "middle", MUTED))
+    body.append(text(28, 372, "三和弦只差中間那個三度與上面的五度——兩個音就決定了整個顏色。", 11,
+                     color=MUTED))
     write("triad-types.svg", frame(W, H, "四種三和弦：兩層三度的排列組合",
                                    "大加小＝大，小加大＝小，大加大＝增，小加小＝減", body))
 
 
 # ── 七和弦 ───────────────────────────────────────────────────
 def fig_seventh_chords():
-    W, H = 760, 380
+    W, H = 760, 420
     body = []
     rows = [
-        ("大七 Cmaj7", ["C", "E", "G", "B"], "4 + 3 + 4", "明亮、夢幻"),
-        ("屬七 C7", ["C", "E", "G", "B♭"], "4 + 3 + 3", "有張力、想解決"),
-        ("小七 Cm7", ["C", "E♭", "G", "B♭"], "3 + 4 + 3", "柔和、爵士標配"),
-        ("半減 Cm7♭5", ["C", "E♭", "G♭", "B♭"], "3 + 3 + 4", "陰暗但不崩塌"),
-        ("減七 Cdim7", ["C", "E♭", "G♭", "B♭♭"], "3 + 3 + 3", "極度不穩定"),
+        ("大七 Cmaj7", {}, "4 + 3 + 4", "明亮、夢幻"),
+        ("屬七 C7", {4: "♭"}, "4 + 3 + 3", "有張力、想解決"),
+        ("小七 Cm7", {0: "♭", 4: "♭"}, "3 + 4 + 3", "柔和、爵士標配"),
+        ("半減 Cm7♭5", {0: "♭", 2: "♭", 4: "♭"}, "3 + 3 + 4", "陰暗但不崩塌"),
+        ("減七 Cdim7", {0: "♭", 2: "♭", 4: "♭♭"}, "3 + 3 + 3", "極度不穩定"),
     ]
-    for i, (name, notes, struct, feel) in enumerate(rows):
-        y = 112 + i * 52
-        body.append(text(28, y + 4, name, 11.5, weight="700"))
-        for k, nm in enumerate(notes):
-            x = 190 + k * 44
-            hot = nm.endswith("♭") or nm.endswith("♭♭")
-            body.append(circle(x, y, 14, "#f2e0cc" if hot else "#fff",
-                               ACCENT if hot else LINE, 1.3))
-            body.append(text(x, y + 4, nm, 10, "middle", ACCENT if hot else INK))
-        body.append(text(400, y + 4, struct, 11, color=ACCENT))
-        body.append(text(520, y + 4, feel, 10, color=MUTED))
-    body.append(text(28, 366, "七和弦的張力來源是七度音：小七度想往下解決，大七度則是顏色。", 11, color=MUTED))
+    for i, (name, acc, struct, feel) in enumerate(rows):
+        top = 118 + i * 58
+        body.append(text(28, top + 4, name, 11.5, weight="700"))
+        for k in range(5):
+            body.append(line(180, top + 22 - k * 10, 300, top + 22 - k * 10, INK, 0.9))
+        body.append(staff_chord(250, top + 22, [-2, 0, 2, 4], gap=10, acc=acc))
+        body.append(text(330, top + 4, struct, 11, color=ACCENT))
+        body.append(text(430, top + 4, feel, 10, color=MUTED))
+    body.append(text(28, 406, "七和弦的張力來源是七度音：小七度想往下解決，大七度則是顏色。", 11, color=MUTED))
     write("seventh-chords.svg", frame(W, H, "五種常見七和弦",
                                       "在三和弦上再疊一個三度，就是第四個音；它的高度決定整個和弦的性格", body))
 
 
 # ── 轉位與斜線和弦 ───────────────────────────────────────────
 def fig_chord_inversions():
-    W, H = 760, 320
+    W, H = 760, 340
     body = []
+    # 低音（最下面那個音）用強調色畫出來
     cards = [
-        ("原位", "C", ["C", "E", "G"], "C 在最低 → 最落地"),
-        ("第一轉位", "C/E", ["E", "G", "C"], "E 在最低 → 輕、前進"),
-        ("第二轉位", "C/G", ["G", "C", "E"], "G 在最低 → 懸著、待解決"),
+        ("原位", "C", [-2, 0, 2], "低音＝根音 C → 最落地"),
+        ("第一轉位", "C/E", [0, 2, 5], "低音＝三度 E → 輕、前進"),
+        ("第二轉位", "C/G", [2, 5, 7], "低音＝五度 G → 懸著、待解決"),
     ]
-    for i, (name, sym, notes, feel) in enumerate(cards):
+    for i, (name, sym, steps, feel) in enumerate(cards):
         x = 40 + i * 240
-        body.append(rect(x, 104, 214, 178, "#fff", LINE, 10))
-        body.append(text(x + 107, 130, name, 12, "middle", weight="700"))
-        body.append(text(x + 107, 150, sym, 12.5, "middle", ACCENT, "700"))
-        for j, nm in enumerate(notes):
-            y = 246 - j * 26
-            hot = j == 0
-            body.append(circle(x + 107, y, 13, ACCENT if hot else SOFT,
-                               ACCENT if hot else LINE, 1.4))
-            body.append(text(x + 107, y + 4, nm, 10.5, "middle", "#fff" if hot else INK))
-        body.append(text(x + 107, 274, feel, 9.5, "middle", color=MUTED))
-    body.append(text(28, 306, "同樣三個音，最低音換人，功能就從「落地」變成「過渡」或「懸空」。", 11,
+        body.append(rect(x, 100, 214, 190, "#fff", LINE, 10))
+        body.append(text(x + 107, 126, name, 12, "middle", weight="700"))
+        body.append(text(x + 107, 146, sym, 12.5, "middle", ACCENT, "700"))
+        for k in range(5):
+            body.append(line(x + 22, 250 - k * 11, x + 108, 250 - k * 11, INK, 0.9))
+        body.append(circle(x + 34, 228, 8.5, "none", ACCENT, 1.2))
+        body.append(text(x + 34, 232, "G", 8.5, "middle", ACCENT, "700"))
+        body.append(staff_chord(x + 66, 250, steps, gap=11, top_color=ACCENT))
+        names = {-2: "C4", 0: "E4", 2: "G4", 4: "B4", 5: "C5", 7: "E5", 9: "G5"}
+        for st in steps:
+            body.append(text(x + 116, staff_y(250, 11, st) + 3.5, names.get(st, ""), 9,
+                             "start", ACCENT if st == steps[0] else MUTED,
+                             "700" if st == steps[0] else "400"))
+        body.append(text(x + 107, 286, feel, 9.5, "middle", color=MUTED))
+    body.append(text(28, 318, "同樣三個音，最低音換人，功能就從「落地」變成「過渡」或「懸空」。", 11,
                      color=MUTED))
     write("chord-inversions.svg", frame(W, H, "轉位：誰在最低音",
                                         "斜線和弦的意思就是「和弦／低音」，例如 C/E＝C 和弦、低音彈 E", body))
@@ -1877,26 +2015,36 @@ def fig_chord_inversions():
 
 # ── 數字低音 ─────────────────────────────────────────────────
 def fig_figured_bass():
-    W, H = 760, 320
+    W, H = 760, 350
     body = []
     cols = [
-        ("原位", "7", ["C", "E", "G", "B"], "低音是根音"),
-        ("第一轉位", "6/5", ["E", "G", "B", "C"], "低音是三度"),
-        ("第二轉位", "4/3", ["G", "B", "C", "E"], "低音是五度"),
-        ("第三轉位", "4/2", ["B", "C", "E", "G"], "低音是七度"),
+        ("原位", "7", [-2, 0, 2, 4], "低音是根音"),
+        ("第一轉位", "6/5", [0, 2, 4, 5], "低音是三度"),
+        ("第二轉位", "4/3", [2, 4, 5, 7], "低音是五度"),
+        ("第三轉位", "4/2", [4, 5, 7, 9], "低音是七度"),
     ]
-    for i, (name, num, notes, desc) in enumerate(cols):
+    for i, (name, num, steps, desc) in enumerate(cols):
         x = 40 + i * 180
-        body.append(rect(x, 104, 158, 176, "#fff", LINE, 10))
-        body.append(text(x + 79, 128, name, 11.5, "middle", weight="700"))
-        body.append(text(x + 79, 166, num, 24, "middle", ACCENT, "700"))
-        for j, nm in enumerate(notes):
-            y = 236 - j * 20
-            body.append(circle(x + 79, y, 10, ACCENT if j == 0 else SOFT,
-                               ACCENT if j == 0 else LINE, 1.2))
-            body.append(text(x + 79, y + 3.5, nm, 8.5, "middle", "#fff" if j == 0 else INK))
-        body.append(text(x + 79, 268, desc, 9, "middle", color=MUTED))
-    body.append(text(28, 306, "數字代表「低音上方還剩哪些音程」，不是拍數——看到 6/5 就是第一轉位。", 11,
+        body.append(rect(x, 100, 158, 196, "#fff", LINE, 10))
+        body.append(text(x + 79, 124, name, 11.5, "middle", weight="700"))
+        body.append(text(x + 79, 154, num, 22, "middle", ACCENT, "700"))
+        for k in range(5):
+            body.append(line(x + 14, 262 - k * 10, x + 88, 262 - k * 10, INK, 0.9))
+        body.append(circle(x + 24, 242, 8, "none", ACCENT, 1.1))
+        body.append(text(x + 24, 246, "G", 8, "middle", ACCENT, "700"))
+        body.append(staff_chord(x + 52, 262, steps, gap=10, top_color=ACCENT))
+        names = {-2: "C4", 0: "E4", 2: "G4", 4: "B4", 5: "C5", 7: "E5", 9: "G5"}
+        prev_y = None
+        for st in steps:
+            yy = staff_y(262, 10, st) + 3
+            # 相鄰太近的音名交錯排，不然 B4 與 C5 會疊在一起
+            lx = x + 96 + (12 if prev_y is not None and abs(yy - prev_y) < 9 else 0)
+            prev_y = yy
+            body.append(text(lx, yy, names.get(st, ""), 8,
+                             "start", ACCENT if st == steps[0] else MUTED,
+                             "700" if st == steps[0] else "400"))
+        body.append(text(x + 79, 286, desc, 9, "middle", color=MUTED))
+    body.append(text(28, 330, "數字代表「低音上方還剩哪些音程」，不是拍數——看到 6/5 就是第一轉位。", 11,
                      color=MUTED))
     write("figured-bass.svg", frame(W, H, "數字低音：轉位的速記法",
                                     "七和弦有四個位置；低音換人，數字就跟著換", body))
@@ -1937,10 +2085,11 @@ def fig_harmonic_function():
         body.append(text(x + 100, 132, name, 12.5, "middle", col, "700"))
         body.append(text(x + 100, 158, chords, 11, "middle", INK))
         body.append(text(x + 100, 182, feel, 9.5, "middle", color=MUTED))
-    for x1, x2, label in [(240, 280, "→"), (480, 520, "→")]:
-        body.append(text((x1 + x2) / 2, 156, label, 16, "middle", ACCENT, "700"))
-    body.append(path("M 620 206 Q 380 268 140 206", ACCENT, "none", 1.4))
-    body.append(text(380, 250, "D → T：回家", 10.5, "middle", ACCENT))
+    for x1, x2 in [(242, 278), (482, 518)]:
+        body.append(arrow(x1, 152, x2, 152, ACCENT, 1.8, head=9))
+    # 回家：由 D 的底邊繞回 T 的底邊，箭頭停在 T 下方
+    body.append(arc_arrow(600, 204, 380, 288, 160, 204, ACCENT, 1.7, head=9))
+    body.append(text(380, 276, "D → T：回家", 10.5, "middle", ACCENT, "700"))
     body.append(text(28, 300, "常見的路徑是 T → S → D → T；也可以省略成 T → D → T。", 11.5))
     body.append(text(28, 324, "反過來走（D → S）會削弱終止的力道，流行歌常用它製造「倒退感」。", 11,
                      color=MUTED))
@@ -1986,7 +2135,7 @@ def fig_secondary_dominants():
             body.append(rect(24, y - 20, 712, 34, "#fff", "none", 8))
         body.append(text(40, y, sym, 12, color=ACCENT, weight="700"))
         body.append(text(130, y, chord, 11))
-        body.append(text(360, y, "→", 12, "middle", ACCENT))
+        body.append(arrow(336, y - 4, 386, y - 4, ACCENT, 1.6, head=8))
         body.append(text(400, y, target, 12, weight="700"))
         body.append(text(470, y, why, 10, color=MUTED))
     body.append(text(28, 316, "副屬和弦會帶進調外的音（D7 的 F♯、E7 的 G♯），那個「亮一下」就是它。", 11,
@@ -2003,19 +2152,25 @@ def fig_modulation_map():
     body.append(circle(cx, cy, 46, "#f2e0cc", ACCENT, 2))
     body.append(text(cx, cy - 2, "C", 20, "middle", ACCENT, "700"))
     body.append(text(cx, cy + 18, "主音", 9, "middle", MUTED))
-    # 四條路徑：右、左、上、下
+    # 四條路徑：右、左、上、下；箭頭一律由 C 指向目的地
     spots = [
-        (cx + 210, cy - 10, "G 大調", "共同和弦 Am"),
-        (cx - 210, cy - 10, "F 大調", "共同和弦 Dm"),
-        (cx, cy - 110, "A 小調", "關係小調"),
-        (cx, cy + 110, "D 大調", "副屬 A7"),
+        (cx + 190, cy, "G 大調", "共同和弦 Am"),
+        (cx - 190, cy, "F 大調", "共同和弦 Dm"),
+        (cx, cy - 108, "A 小調", "關係小調"),
+        (cx, cy + 108, "D 大調", "副屬 A7"),
     ]
     for x, y, name, why in spots:
-        body.append(rect(x - 66, y - 22, 132, 44, "#fff", LINE, 9))
+        body.append(rect(x - 66, y - 22, 132, 44, "#fff", LINE, 10))
         body.append(text(x, y - 2, name, 11.5, "middle", weight="700"))
         body.append(text(x, y + 15, why, 9, "middle", color=MUTED))
     for x, y, *_ in spots:
-        body.append(line(cx, cy, x, y, ACCENT, 1.2, "5 4"))
+        # 從 C 的圓邊出發，停在外框前，箭頭方向就是「從 C 轉過去」
+        dx, dy = x - cx, y - cy
+        dist = math.hypot(dx, dy) or 1
+        ux, uy = dx / dist, dy / dist
+        sx, sy = cx + ux * 48, cy + uy * 48
+        ex, ey = x - ux * 72, y - uy * 28
+        body.append(arrow(sx, sy, ex, ey, ACCENT, 1.6, head=9))
     body.append(text(28, 326, "轉調的三種做法：共同和弦、副屬和弦宣告、突然搬家（流行歌最愛）。", 11,
                      color=MUTED))
     write("modulation-map.svg", frame(W, H, "轉調：從 C 出發的四條路",

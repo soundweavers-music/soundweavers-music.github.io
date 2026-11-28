@@ -5,23 +5,23 @@
 <rect x="24.0" y="98.0" width="712.0" height="34.0" rx="8" fill="#fff" stroke="none" stroke-width="1.4"/>
 <text x="40.0" y="118.0" font-size="12" text-anchor="start" fill="#A67C52" font-weight="700">V/V</text>
 <text x="130.0" y="118.0" font-size="11" text-anchor="start" fill="#2b2722" font-weight="400">D7（D–F♯–A–C）</text>
-<text x="360.0" y="118.0" font-size="12" text-anchor="middle" fill="#A67C52" font-weight="400">→</text>
+<line x1="336.0" y1="114.0" x2="386.0" y2="114.0" stroke="#A67C52" stroke-width="1.6"/><path d="M378.7 117.3 L386.0 114.0 L378.7 110.7" fill="none" stroke="#A67C52" stroke-width="1.6"/>
 <text x="400.0" y="118.0" font-size="12" text-anchor="start" fill="#2b2722" font-weight="700">G</text>
 <text x="470.0" y="118.0" font-size="10" text-anchor="start" fill="#8a8078" font-weight="400">把 G 暫時當主音</text>
 <text x="40.0" y="168.0" font-size="12" text-anchor="start" fill="#A67C52" font-weight="700">V/vi</text>
 <text x="130.0" y="168.0" font-size="11" text-anchor="start" fill="#2b2722" font-weight="400">E7（E–G♯–B–D）</text>
-<text x="360.0" y="168.0" font-size="12" text-anchor="middle" fill="#A67C52" font-weight="400">→</text>
+<line x1="336.0" y1="164.0" x2="386.0" y2="164.0" stroke="#A67C52" stroke-width="1.6"/><path d="M378.7 167.3 L386.0 164.0 L378.7 160.7" fill="none" stroke="#A67C52" stroke-width="1.6"/>
 <text x="400.0" y="168.0" font-size="12" text-anchor="start" fill="#2b2722" font-weight="700">Am</text>
 <text x="470.0" y="168.0" font-size="10" text-anchor="start" fill="#8a8078" font-weight="400">把 Am 暫時當主音</text>
 <rect x="24.0" y="198.0" width="712.0" height="34.0" rx="8" fill="#fff" stroke="none" stroke-width="1.4"/>
 <text x="40.0" y="218.0" font-size="12" text-anchor="start" fill="#A67C52" font-weight="700">V/ii</text>
 <text x="130.0" y="218.0" font-size="11" text-anchor="start" fill="#2b2722" font-weight="400">A7（A–C♯–E–G）</text>
-<text x="360.0" y="218.0" font-size="12" text-anchor="middle" fill="#A67C52" font-weight="400">→</text>
+<line x1="336.0" y1="214.0" x2="386.0" y2="214.0" stroke="#A67C52" stroke-width="1.6"/><path d="M378.7 217.3 L386.0 214.0 L378.7 210.7" fill="none" stroke="#A67C52" stroke-width="1.6"/>
 <text x="400.0" y="218.0" font-size="12" text-anchor="start" fill="#2b2722" font-weight="700">Dm</text>
 <text x="470.0" y="218.0" font-size="10" text-anchor="start" fill="#8a8078" font-weight="400">把 Dm 暫時當主音</text>
 <text x="40.0" y="268.0" font-size="12" text-anchor="start" fill="#A67C52" font-weight="700">V/IV</text>
 <text x="130.0" y="268.0" font-size="11" text-anchor="start" fill="#2b2722" font-weight="400">C7（C–E–G–B♭）</text>
-<text x="360.0" y="268.0" font-size="12" text-anchor="middle" fill="#A67C52" font-weight="400">→</text>
+<line x1="336.0" y1="264.0" x2="386.0" y2="264.0" stroke="#A67C52" stroke-width="1.6"/><path d="M378.7 267.3 L386.0 264.0 L378.7 260.7" fill="none" stroke="#A67C52" stroke-width="1.6"/>
 <text x="400.0" y="268.0" font-size="12" text-anchor="start" fill="#2b2722" font-weight="700">F</text>
 <text x="470.0" y="268.0" font-size="10" text-anchor="start" fill="#8a8078" font-weight="400">把 F 暫時當主音</text>
 <text x="28.0" y="316.0" font-size="11" text-anchor="start" fill="#8a8078" font-weight="400">副屬和弦會帶進調外的音（D7 的 F♯、E7 的 G♯），那個「亮一下」就是它。</text>
