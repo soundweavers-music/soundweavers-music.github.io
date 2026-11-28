@@ -54,8 +54,8 @@ export function collectTrackAudio(track, maxSec = 90) {
   if (dur < 1) return null;
   const len = Math.max(1, Math.round(dur * sr));
   const nCh = Math.min(2, Math.max(...clips.map(c => store.buffers.get(c.bufferId).numberOfChannels)));
-  const ctx = new OfflineAudioContext(nCh, len, sr);
-  const out = ctx.createBuffer(nCh, len, sr);
+  // 直接建 AudioBuffer，不要每個軌都開一個 OfflineAudioContext（開太多會卡）
+  const out = new AudioBuffer({ length: len, numberOfChannels: nCh, sampleRate: sr });
   for (const c of clips) {
     const src = store.buffers.get(c.bufferId);
     const from = Math.max(0, c.offset || 0);
@@ -304,7 +304,7 @@ export function makePlan(prefs, items) {
       gain = -3.5 - 2 * (1 - p.dynamics);
     } else {
       chain = instrumentChain(p, f);
-      gain = -5.5 - 3 * p.vocal + 1.5 * (1 - p.low);
+      gain = -4.5 - 2.2 * p.vocal + 1.2 * (1 - p.low);
       if (it.kind === 'instrument' && /pad|弦|synth|合成/i.test(it.name)) {
         sendA = clamp(-22 + 8 * bus, -26, -12);
       }
