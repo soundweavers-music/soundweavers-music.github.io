@@ -59,13 +59,14 @@ function presetList(sf) {
 function makeId(name, size) { return (name + '_' + size).replace(/[^\w.-]+/g, '_').slice(0, 60); }
 
 // 從使用者選的檔案載入
-export async function addBankFile(file) {
+// version：內建音色庫的版本（banks.json 的內容雜湊），跟資料一起存，下次開頁面拿來比
+export async function addBankFile(file, version) {
   if (!/\.sf2$/i.test(file.name)) {
     if (/\.sf3$/i.test(file.name)) throw new Error('.sf3 是壓縮格式，目前不支援，請下載同一套音色庫的 .sf2 版本');
     throw new Error('請選擇 .sf2 檔案');
   }
   const id = makeId(file.name.replace(/\.sf2$/i, ''), file.size);
-  const entry = { id, name: file.name.replace(/\.sf2$/i, ''), size: file.size, status: 'loading' };
+  const entry = { id, name: file.name.replace(/\.sf2$/i, ''), size: file.size, status: 'loading', version: version || '' };
   banks.set(id, entry); emit();
   try {
     const ab = await file.arrayBuffer();
@@ -77,7 +78,7 @@ export async function addBankFile(file) {
     // 存進 IndexedDB，下次開頁面不用重選；空間不夠就只在這次使用
     try {
       const db = await idb();
-      await tx(db, 'readwrite', s => s.put({ id, name: entry.name, size: file.size, data: ab, savedAt: Date.now() }, id));
+      await tx(db, 'readwrite', s => s.put({ id, name: entry.name, size: file.size, version: entry.version, data: ab, savedAt: Date.now() }, id));
       db.close();
       entry.persisted = true;
     } catch (e) {
@@ -97,9 +98,11 @@ export async function addBankFile(file) {
  * 站上內建的音色庫：第一次用到才抓（不擋開頁），抓完走跟手動選檔一樣的路徑，
  * 所以一樣會存進 IndexedDB，第二次開啟直接從快取還原。
  */
-// banks.json：{ "builtin-piano.sf2": 位元組數, … }，抓不到就回 0（＝有存的就用存的）
+// banks.json：{ "builtin-piano.sf2": { "size": 位元組數, "sha": 內容雜湊前 16 碼 }, … }
+// 抓不到就回 {}（＝有存的就用存的）。舊格式（只有數字）也看得懂。
+// 為什麼要雜湊：修正走音的那一版跟壞掉的那一版「大小一模一樣」，只比大小的話已經下載過的人永遠拿不到修正。
 let manifest = null;
-async function realSize(url) {
+async function bankInfo(url) {
   try {
     if (!manifest) {
       const u = new URL('banks.json', new URL(url, location.href));
@@ -108,7 +111,8 @@ async function realSize(url) {
     }
   } catch (e) { manifest = {}; }
   const name = new URL(url, location.href).pathname.split('/').pop();
-  return Number(manifest[name]) || 0;
+  const m = manifest[name];
+  return typeof m === 'number' ? { size: m, sha: '' } : { size: Number(m && m.size) || 0, sha: (m && m.sha) || '' };
 }
 
 // 進度面板上的名字（使用者看得懂的那種）
@@ -121,9 +125,10 @@ export async function loadBuiltinBank(url, label, job0) {
   // 這份檔案真正多大（banks.json，建置時產生）：跟瀏覽器裡存的那份一樣大＝同一版，直接用。
   // 不能問伺服器：GitHub Pages 用 gzip 傳 .sf2，回應裡的大小都是壓縮後的。
   // （以前這裡把同名的「全部」刪掉再重抓，等於每次開頁面都重新下載一次）
-  const size = await realSize(url);
+  const { size, sha } = await bankInfo(url);
   const same = [...banks.values()].filter(b => (b.name || '').startsWith(label));
-  const keep = same.find(b => b.status === 'ready' && (!size || b.size === size));
+  // 同一版＝大小一樣、而且（清單有雜湊的話）雜湊也一樣；清單抓不到就沿用已存的
+  const keep = same.find(b => b.status === 'ready' && (!size || b.size === size) && (!sha || b.version === sha));
   // 舊版（大小不同）才清掉：音色庫的 id 是「檔名 + 大小」，不清的話清單裡會新舊兩份
   for (const b of same) {
     if (b === keep) continue;
@@ -141,7 +146,8 @@ export async function loadBuiltinBank(url, label, job0) {
   job.step('下載中', 0);
   let ab;
   try {
-    ab = await fetchWithProgress(url, job, { cache: 'force-cache' }, size);
+    // 有雜湊就把它放進網址：瀏覽器的 HTTP 快取裡如果還留著舊版，不會被拿出來用
+    ab = await fetchWithProgress(sha ? url + (url.includes('?') ? '&' : '?') + 'v=' + sha : url, job, { cache: sha ? 'default' : 'force-cache' }, size);
   } catch (e) {
     job.fail('下載失敗，先用合成音色');
     throw e;
@@ -152,7 +158,7 @@ export async function loadBuiltinBank(url, label, job0) {
   const file = new File([ab], (label || 'builtin') + '.sf2', { type: 'application/octet-stream' });
   const before = new Set(banks.keys());
   let id;
-  try { id = await addBankFile(file); } catch (e) { job.fail('檔案讀不出來'); throw e; }
+  try { id = await addBankFile(file, sha); } catch (e) { job.fail('檔案讀不出來'); throw e; }
   job.done('好了');
   const added = [...banks.keys()].find(k => !before.has(k)) || id;
   const entry = banks.get(added);
@@ -187,7 +193,7 @@ async function restoreBanksOnce() {
     try {
       const rec = await tx(db, 'readonly', s => s.get(id));
       const e = banks.get(id);
-      e.name = rec.name; e.size = rec.size;
+      e.name = rec.name; e.size = rec.size; e.version = rec.version || '';
       job.step('解開音色中');
       job.progress(null, bytesText(rec.size));
       await new Promise(r => setTimeout(r, 30));

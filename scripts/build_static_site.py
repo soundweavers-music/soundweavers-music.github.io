@@ -4062,7 +4062,9 @@ def main():
         for f in dawbank.glob("*.sf2"):
             if f.name.startswith("builtin"):
                 shutil.copy2(str(f), str(dst / f.name))
-                manifest[f.name] = f.stat().st_size
+                # 大小＋內容雜湊：大小一樣但內容改了（例如修正走音）也要讓已下載過的人重新抓
+                manifest[f.name] = {"size": f.stat().st_size,
+                                    "sha": hashlib.sha256(f.read_bytes()).hexdigest()[:16]}
         # 每份音色庫「真正」的大小：GitHub Pages 會把 .sf2 用 gzip 傳，Content-Length 是壓縮後的，
         # 連 Range 請求也是壓縮後的位元組，所以瀏覽器沒辦法從回應知道真實大小。
         # DAW 靠這份清單判斷「這台電腦存的那份是不是最新版」以及進度條的分母。

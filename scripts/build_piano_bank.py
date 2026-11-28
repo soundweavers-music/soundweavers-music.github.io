@@ -67,7 +67,7 @@ def read_sfz(sfz):
             m = re.search(r"([A-G]#?)(\d)v(\d+)\.wav$", cur["sample"].replace("\\", "/"))
             if m:
                 out[(cur["sample"].replace("\\", "/"), int(m.group(3)))] = (
-                    int(cur["lokey"]), int(cur["hikey"]), int(cur.get("pitch_keycenter", cur["lokey"])),
+                    int(cur["lokey"]), int(cur["hikey"]), int(cur["pitch_keycenter"]) if "pitch_keycenter" in cur else None,
                     int(cur["hivel"]) if "hivel" in cur else None)
     return out
 
@@ -192,11 +192,23 @@ def main():
         raise SystemExit("SFZ 裡沒讀到取樣區塊")
     wavdir = sfz.parent
     # 每個根音的 key 範圍（同一個根音在各力度層相同）
+    # 根音一律用檔名的音名算（C4 = 60），不信 SFZ 的 pitch_keycenter：
+    # 原作者的 SFZ 只有 C4 那一組沒寫 pitch_keycenter（SFZ 規範預設 60，所以原版沒事），
+    # 2026-11-28 第一版拿 lokey（59）頂替 → 中央 C 附近三個鍵整整高半音。
     roots = {}
     for (fn, layer), (lo, hi, kc, _hv) in regions.items():
         name = pathlib.Path(fn).stem.split("v")[0]
-        roots[name] = (lo, hi, kc)
+        root = midi_of(name)
+        if kc is not None and kc != root:
+            print(f"  注意：{name} 的 SFZ pitch_keycenter={kc}，跟檔名的 {root} 不一樣，用檔名的")
+        if not (lo <= root <= hi):
+            raise SystemExit(f"{name} 的根音 {root} 不在它負責的鍵範圍 {lo}–{hi} 裡，SFZ 跟檔名對不上")
+        roots[name] = (lo, hi, root)
     names = sorted(roots, key=midi_of)
+    # 再檢查一次：每個鍵都剛好由一個根音負責、根音彼此不重複
+    covered = sorted(k for n in names for k in range(roots[n][0], roots[n][1] + 1))
+    if covered != list(range(covered[0], covered[-1] + 1)):
+        raise SystemExit(f"鍵的範圍有洞或重疊：{covered}")
     print(f"{len(names)} 個根音：{names[0]}–{names[-1]}")
 
     layers = vel_ranges(regions)
