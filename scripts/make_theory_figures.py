@@ -154,6 +154,28 @@ def staff_chord(cx, y0, steps, gap=9, acc=None, color=INK, acc_color=ACCENT,
 
 
 
+
+def keyboard(x, y, w, h, white=7, start=0, highlight=None, black="#3b352d"):
+    """畫一段鋼琴鍵盤。white＝白鍵數，start＝從第幾個白鍵開始（0＝C）。
+
+    回傳 (svg, 每個白鍵中心的 x 座標清單)，畫標籤時很好用。
+    """
+    highlight = highlight or {}
+    kw = w / white
+    parts = []
+    for i in range(white):
+        px = x + i * kw
+        fill = highlight.get(i, "#fff")
+        parts.append(rect(px, y, kw - 0.8, h, fill, LINE, 1.2, 0.9))
+    pattern = {0, 1, 3, 4, 5}          # 一個八度裡黑鍵的位置（相對 C）
+    for i in range(white - 1):
+        if (start + i) % 7 in pattern:
+            px = x + (i + 1) * kw - kw * 0.32
+            parts.append(rect(px, y, kw * 0.64, h * 0.6, black, "none", 1.5))
+    centers = [x + (i + 0.5) * kw for i in range(white)]
+    return "".join(parts), centers
+
+
 def note_glyph(cx, cy, dur, color=INK):
     """畫單一音符：1=全、2=二分、4=四分、8=八分、16=十六分。"""
     if dur == 1:
@@ -229,28 +251,19 @@ def fig_frequency():
 
 # ── 2. 鋼琴音域 ──────────────────────────────────────────────
 def fig_piano_range():
-    W, H = 760, 260
+    W, H = 760, 300
     body = []
-    x0, x1 = 90, 700
-    top = 118
-
-    def hz_to_x(f):
-        lo, hi = math.log2(27.5), math.log2(4186.0)
-        return x0 + (math.log2(f) - lo) / (hi - lo) * (x1 - x0)
-
-    body.append(rect(x0, top - 26, x1 - x0, 52, SOFT, LINE, 4))
-    for f, name in [(27.5, "A0"), (65.4, "C2"), (261.6, "C4"), (1046.5, "C6"), (4186.0, "C8")]:
-        x = hz_to_x(f)
-        body.append(line(x, top - 26, x, top + 26, MUTED, 1))
-        body.append(circle(x, top + 34, 3.2, ACCENT))
-        body.append(text(x, top + 52, name, 11.5, "middle", INK))
-        body.append(text(x, top + 68, ("%.0f Hz" % f), 10.5, "middle", MUTED))
-    body.append(text(28, top - 6, "低", 14, weight="700"))
-    body.append(text(28, top + 12, "27.5 Hz", 12, color=ACCENT))
-    body.append(text(732, top - 6, "高", 14, "end", weight="700"))
-    body.append(text(732, top + 12, "4186 Hz", 12, "end", color=ACCENT))
-    body.append(text(395, 88, "鋼琴 88 鍵的音域：A0 到 C8，約 7 個八度", 13, "middle", INK))
-    body.append(text(395, 232, "橫軸是對數刻度——每個八度（頻率加倍）佔一樣寬", 11.5, "middle", MUTED))
+    x0, top, wh = 60, 128, 84
+    body.append(text(30, 100, "鋼琴 88 鍵：A0 到 C8，約 7 個八度", 12.5, weight="700"))
+    keys, centers = keyboard(x0, top, 640, wh, white=52, start=5)
+    body.append(keys)
+    for octave in range(1, 9):
+        white_index = octave * 7 - 5          # 該八度的 C（從 A0 起算）
+        if 0 <= white_index < 52:
+            x = centers[white_index]
+            body.append(text(x, top + wh + 18, "C%d" % octave, 10, "middle", MUTED))
+    body.append(text(30, 252, "最左邊是 A0（27.5 Hz），最右邊是 C8（4186 Hz）。", 11))
+    body.append(text(30, 274, "橫軸是對數刻度——每升一個八度，頻率加倍，所以聽起來「像同一個音」。", 11, MUTED))
     write("piano-range.svg", frame(W, H, "鋼琴的音域", "同一個八度裡頻率加倍，所以聽起來「像同一個音」", body))
 
 
@@ -392,7 +405,7 @@ def fig_meter():
         cx = x
         for g in groups:
             for i in range(g):
-                body.append(circle(cx + 16, y, 9, SOFT, ACCENT, 1.8))
+                body.append(circle(cx + 16, y, 10, "#f2e0cc", ACCENT, 1.6))
                 cx += 30
             cx += 14
             body.append(line(cx - 12, y - 16, cx - 12, y + 16, LINE, 1.2))
@@ -531,27 +544,26 @@ def fig_bass_notes():
 
 # ── 13. 科學音高與鍵盤 ─────────────────────────────────────
 def fig_scientific_pitch():
-    W, H = 760, 330
+    W, H = 760, 390
     body = []
-    x0, kw, top, wh = 50, 41, 96, 84
-    whites = ["C4", "D4", "E4", "F4", "G4", "A4", "B4", "C5",
-              "D5", "E5", "F5", "G5", "A5", "B5"]
-    for i, nm in enumerate(whites):
-        body.append(rect(x0 + i * kw, top, kw - 1, wh, "#fff", LINE, 2))
-    for i in [0, 1, 3, 4, 5, 7, 8, 10, 11]:
-        body.append(rect(x0 + (i + 1) * kw - 13, top, 26, wh * 0.62, INK, "none", 2))
-    for i, nm in enumerate(whites):
-        if nm.startswith("C") or nm in ("A4", "B5"):
-            body.append(text(x0 + i * kw + kw / 2, top + wh + 18, nm, 9.5, "middle", MUTED))
-    body.append(line(x0 + kw, top - 6, x0 + kw, top, ACCENT, 1))
-    body.append(text(x0 + kw, top - 14, "C♯／D♭ 同一個鍵", 10, "middle", ACCENT))
-    body.append(text(x0 + 5 * kw + kw / 2, top - 14, "A4＝440 Hz", 10, "middle", ACCENT))
-    body.append(text(x0 + kw / 2, top + wh + 34, "中央 C", 9.5, "middle", ACCENT))
+    x0, top, wh = 48, 118, 96
+    n_white = 15                                  # C4 到 C6
+    keys, centers = keyboard(x0, top, 660, wh, white=n_white,
+                             highlight={0: "#f2e0cc", 7: "#f7efe2"})
+    body.append(keys)
+    names = ["C4", "D4", "E4", "F4", "G4", "A4", "B4", "C5", "D5", "E5", "F5", "G5", "A5", "B5", "C6"]
+    for i, nm in enumerate(names):
+        col = ACCENT if nm in ("C4", "C5", "C6", "A4") else INK
+        body.append(text(centers[i], top + wh + 18, nm, 9.5, "middle", col,
+                         "700" if nm in ("C4", "C5", "C6", "A4") else "400"))
+    body.append(text(centers[0], top + wh + 36, "中央 C", 9.5, "middle", ACCENT, "700"))
+    body.append(text(centers[9], top + wh + 36, "A4 = 440 Hz", 9.5, "middle", ACCENT, "700"))
+    body.append(arrow(centers[1], top - 16, centers[2], top - 16, MUTED, 1.2, head=6))
+    body.append(text((centers[1] + centers[2]) / 2, top - 24, "同一個黑鍵：C♯／D♭", 9.5, "middle", MUTED))
 
-    body.append(text(28, 240, "科學音高＝音名＋八度數字。C4 是中央 C，所以中央 C 上方的 A 就叫 A4。", 12))
-    body.append(text(28, 264, "同一個黑鍵有兩個名字：從 C 往上升叫 C♯，從 D 往下降叫 D♭——", 11.5, color=MUTED))
-    body.append(text(28, 286, "聲音完全一樣，寫哪一個取決於它所在的調性。", 11.5, color=MUTED))
-    body.append(text(28, 312, "頻率：C4 261.63 Hz　A4 440 Hz　C5 523.25 Hz（每升八度就乘以 2）", 11.5, color=MUTED))
+    body.append(text(30, 276, "科學音高＝音名＋八度數字。C4 是中央 C，它上方的 A 就叫 A4。", 11.5))
+    body.append(text(30, 298, "同一個黑鍵有兩個名字：從 C 往上升叫 C♯，從 D 往下降叫 D♭——聲音一樣，寫法不同。", 11, MUTED))
+    body.append(text(30, 320, "頻率：C4 261.63 Hz　A4 440 Hz　C5 523.25 Hz（每升一個八度就乘以 2）", 11, MUTED))
     write("scientific-pitch.svg", frame(W, H, "科學音高：音名加上八度數字",
                                        "同一顆鍵在不同調性裡會有不同的寫法", body))
 
