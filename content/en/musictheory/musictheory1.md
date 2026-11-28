@@ -1,10 +1,10 @@
-# Stage 1: Sound and Beat
+# Stage 1: Sound, Timbre and Beat
 
-Put the score down for a moment. This stage is about using your ears: feeling how high or low a sound is, and learning to keep a steady pulse with the music.
+Put the score down for a moment. This stage is about listening: hearing how high a sound is, what it is made of, and keeping a steady pulse with the music.
 
 Two things you deal with every day and rarely think about: **where does sound come from?** and **what is that pulse that makes you want to tap your foot?**
 
-Over the next four chapters we start from the physics of sound, move through how notes got their names, then step into music's frame of time and feel what beat and tempo do. This isn't a course in memorising arithmetic. It's a chance to open your ears again.
+Starting from vibration, we first see that pitch and timbre are two faces of the same thing. Then we look at how notes got their names, and finally step into music's frame of time to feel what beat and tempo do. This is not a course in memorising arithmetic. It is a chance to open your ears again.
 
 ## Chapter 1: Where Sound Comes From — Frequency and Pitch
 
@@ -69,7 +69,55 @@ In music, that explains why sounds in this range are the easiest to hear and ide
 
 ![Equal-loudness curves at 40, 60 and 80 phon](/assets/theory/en/equal-loudness.svg)
 
-## Chapter 2: Naming the Steps of Sound — Basic Notes and the Pitch System
+## Chapter 2: Why You Can Tell a Violin from a Flute on the Same Note — Timbre and the Harmonic Series
+
+In the last chapter, we said that pitch is determined by how fast something vibrates. Now think about one thing: a violin and a flute play the A above middle C (A4, 440 Hz) at the same time. The two notes have exactly the same pitch, but why can you tell at once which is the violin and which is the flute?
+
+The answer is not in the frequency. It is in “what else is inside” the frequency.
+
+### **2.1 The third dimension beyond pitch and volume: timbre**
+
+Sound has three basic properties: **pitch** (how fast it vibrates), **volume** (how large the vibration is), and **timbre**. We are already familiar with the first two, but timbre is hard to explain in one sentence—we usually can only describe it as “bright,” “dark,” “thick,” “thin,” “woody,” or “metallic.”
+
+This weakness of adjectives comes from the fact that timbre is not a single number. It is a whole recipe: the strength of the harmonics, the speed of the attack, the place of resonance, and even a little noise all count. This chapter first covers the most important item—the harmonic series.
+
+### **2.2 One string vibrates in many segments at once: the harmonic series**
+
+Pluck a guitar string, and it looks like the whole string is moving up and down. But physically, the string is also vibrating in lengths of one-half, one-third, one-quarter, one-fifth, and so on. The whole string vibrating produces the **fundamental**. The parts vibrating produce a series of **harmonics** that are higher and weaker than the fundamental.
+
+These frequencies are not random. They form a very clean sequence of whole numbers. **The frequency of the nth harmonic (partial) = fundamental frequency × n**—note that this uses harmonic numbering: the fundamental is the 1st harmonic, while the “1st overtone” means the one above the fundamental (that is, the 2nd harmonic). Both ways of speaking are used. When you read an “overtone number,” first check where it starts counting.
+
+Take A4 (440 Hz) as an example: the 2nd harmonic is 880 Hz, the 3rd harmonic is 1320 Hz, the 4th harmonic is 1760 Hz, and so on upward. In terms of intervals: the 2nd harmonic to the fundamental is a **perfect octave** (2:1). Then, “compared with the previous harmonic,” the intervals are in order a perfect fifth (3:2), a perfect fourth (4:3), a major third (5:4), and a minor third (6:5).—Every comparison here is between adjacent harmonics, not each harmonic against the fundamental.
+
+![Natural harmonic series: frequencies and ratios of the first six harmonics](/assets/theory/en/harmonic-series.svg)
+
+There is a side effect worth remembering: the 7th harmonic (7 times the frequency) is about thirty cents lower than the corresponding note on the piano (a minor seventh)—it is not out of tune; the harmonic series is simply not the same as twelve-tone equal temperament. We will come back to settle this in Stage 8.
+
+### **2.3 The recipe of harmonics determines the instrument’s character**
+
+For the same A4, the violin and the flute both have a fundamental of 440 Hz. The difference is **how loud the 2nd, 3rd, 4th, and 5th harmonics each are**.
+
+- When the harmonics are concentrated in the first few (2, 3, 4), the sound is round and warm, close to a “pure” tone.
+- When the higher harmonics are especially strong, the sound seems bright, sharp, and penetrating—this is also why brass sounds suddenly “brighten” when played harder, or when a singer pushes the voice to its limit. Conversely, adding a mute usually suppresses the high frequencies, so the sound becomes darker and duller.
+- When a small band of frequencies is especially amplified by the body of the instrument or the tube, it forms a **formant**. In the human voice, it is the position of the formants that lets you tell “ah” from “ee,” even at the same pitch.
+
+Besides the balance of harmonics, sound also has a “shape in time”—the **envelope**: how long the attack takes, how it decays, whether it sustains, and how long it rings after release. A piano starts decaying as soon as it is struck. Strings can be bowed continuously. The two may look very similar on a spectrum plot, but your ears will never confuse them.
+
+![Two instruments at the same pitch: harmonic strength and attack envelope are both different](/assets/theory/en/timbre-envelope.svg)
+
+### **2.4 The harmonic series also quietly sets the scale**
+
+The earliest “harmony” humans discovered is actually the harmonic series. The simpler the frequency ratio between two notes (2:1, 3:2, 4:3), the more their harmonics overlap, and the more blended they sound.
+
+So the scale was not invented out of thin air: write down the harmonic series of a string, remove the octave (2:1) that is “the same pitch,” and the first new note that appears is a fifth (3:2). Stack fifths upward, and you get tuning by cycle of fifths—China’s sanfen sunyi method and ancient Greece’s Pythagorean tuning are actually doing the same thing. The twelve-tone equal temperament we use now takes another path: divide the octave directly into 12 equal parts, so every key can transpose freely. The cost is that, apart from the octave, every interval deviates a little from the natural ratios of the harmonic series (the major third is off by about 14 cents).
+
+For now, just remember this order: **the harmonic series is given by physics; the scale is chosen by people.**
+
+### **2.5 Try it now**
+
+Find a quiet place and use headphones to listen to two versions of the same melody: one for solo piano, one for string ensemble. Ignore the melody. Pay attention only to “the material quality of the same note.” You will find that you have actually been doing this all along—you just did not have a name for it before.
+
+## Chapter 3: Naming the Steps of Sound — Basic Notes and the Pitch System
 
 In the last chapter we saw that between 20 Hz and 20,000 Hz there are countless possible frequencies. It's like an endless ruler with no markings on it, full of pitches that differ by the smallest amounts.
 
@@ -79,7 +127,7 @@ But if we want to play music together, we can't say to a guitarist: "Hey, play m
 
 To solve the communication problem, our ancestors did something remarkable. Out of infinite frequency they chose pitches at specific distances and fixed them in place, like carving one step after another into a smooth slope. That is a **scale**. And once you have stairs, of course every step needs a name. Those are **note names**.
 
-### 2.1 Letters and Solfège, One to One: the Basic Notes
+### 3.1 Letters and Solfège, One to One: the Basic Notes
 
 In the Western system we took seven of the most basic notes, and those seven form the combination you know best. To make them easy to remember and easy to write, seven Latin letters name these seven basic notes:
 
@@ -97,7 +145,7 @@ Those letters may look unfamiliar, but if I give them their other names you coul
 
 So when you see a C on a piano score, the sound in your mouth is do. These seven basic notes are the foundation of all Western music theory. Countless symphonies, moving pop love songs and high-energy rock all begin with these seven notes.
 
-### 2.2 Measuring the Gaps Between Steps: Whole Tones and Semitones
+### 3.2 Measuring the Gaps Between Steps: Whole Tones and Semitones
 
 When you sing up C–D–E–F–G–A–B (do–re–mi–fa–sol–la–si), it feels like climbing stairs, one step at a time. A staircase of seven notes like this is called the **natural major scale**. Start it on C and you get the one everybody knows, the C major scale.
 
@@ -125,7 +173,7 @@ Remember the pattern **whole, whole, semitone, whole, whole, whole, semitone** a
 
 ![One octave spread out as 12 semitones, with the whole-tone and semitone gaps marked](/assets/theory/en/whole-half-step.svg)
 
-### 2.3 Scientific Pitch Notation: A Language the Whole World Shares
+### 3.3 Scientific Pitch Notation: A Language the Whole World Shares
 
 With C–D–E–F–G–A–B settled, a new problem turns up.
 
@@ -141,7 +189,7 @@ To fix this, musicians and scientists invented **scientific pitch notation**. Th
 
 Since then, 440 Hz has been music's Greenwich Mean Time. Before an orchestra goes on stage, the oboist plays one long note for everyone to tune to, and that note is A4 = 440 Hz. But music is alive, and the standard has shifted constantly through history. In Bach's Baroque era the A was about 415 Hz, which sounds about a semitone below today's standard.
 
-## Chapter 3: The Heartbeat of Music — What a Beat Is
+## Chapter 4: The Heartbeat of Music — What a Beat Is
 
 In the first two chapters we explored sound's "space" — high and low. Now we move into music's other dimension: time.
 
@@ -151,7 +199,7 @@ If music is a painting, pitch (melody and harmony) is the colour on it, and time
 
 In this chapter we look at the smallest unit of musical time: the **beat**.
 
-### 3.1 What Is a Beat? The Invisible Pulse of Music
+### 4.1 What Is a Beat? The Invisible Pulse of Music
 
 You can think of the beat as music's heartbeat. Western music theory defines it as **a regular pulse that appears in music**.
 
@@ -159,7 +207,7 @@ Put on your headphones and play your favourite pop song. Your head starts noddin
 
 The beat is a strange physical and psychological thing. Often it isn't a sound any instrument plays; it's a steady force running behind the music. Like the heartbeat in your body, it needs no effort of yours to control — it simply goes thump, thump, thump. That regular pulse is the skeleton of musical time. It lets your brain predict when the next sound will arrive.
 
-### 3.2 Beat vs Rhythm: Stop Mixing Them Up
+### 4.2 Beat vs Rhythm: Stop Mixing Them Up
 
 In everyday speech many people use beat and rhythm as if they were the same word ("this song's rhythm is so fast!" — what they actually mean is tempo). In music theory the two mean completely different things.
 
@@ -172,7 +220,7 @@ To sum up: the beat is an invisible frame, and rhythm is the real sound of diffe
 
 ![The beat is a steady grid; rhythm is the pattern of long and short notes laid on it](/assets/theory/en/beat-vs-rhythm.svg)
 
-### 3.3 Why Music Makes You Move: Strong Beats and Weak Beats
+### 4.3 Why Music Makes You Move: Strong Beats and Weak Beats
 
 If every beat had the same force (like a clock ticking: tick, tick, tick, tick), we'd find it mechanical and lifeless after a while.
 
@@ -186,7 +234,7 @@ Do you feel the groove appear, like the intro of a pop song? The hard "boom!" on
 
 ![Where accents fall on the beat, compared with accents shifted off it by syncopation](/assets/theory/en/syncopation.svg)
 
-### 3.4 How Different Beat Groupings Feel
+### 4.4 How Different Beat Groupings Feel
 
 How beats group into strong and weak patterns decides a song's personality. Different numbers of beats per group feel completely different in the body:
 
@@ -194,7 +242,7 @@ How beats group into strong and weak patterns decides a song's personality. Diff
 2. **Three beats (strong–weak–weak):** one cycle every three beats. Three has a strange, lopsided beauty. Because the accent only comes back every third beat (strong–weak–weak), it breaks the square marching feel of two and creates a sense of turning, swaying, almost floating. The waltz is built on three. Picture the dance floor: "oom-pah-pah, oom-pah-pah", all elegance.  
 3. **Four beats (strong–weak–medium strong–weak):** as above, this is the ruler of modern pop, rock and R&B. It keeps the stability of two but is richer and roomier, giving the singer and the drummer space to fill in syncopation. It is the most popular beat framework in the world.
 
-## Chapter 4: Tempo — Feeling the Flow of Time
+## Chapter 5: Tempo — Feeling the Flow of Time
 
 Last chapter we built the frame of the beat and saw how strong and weak beats alternate. Now we bolt an engine onto that frame, to decide how fast it moves.
 
@@ -202,7 +250,7 @@ How fast the beat runs is what music calls **tempo**.
 
 Tempo is the catalyst of musical mood. Take the same melody built from C–D–E–F–G. Play it very slowly and it can sound like a solemn chant; play it very fast and it turns at once into a circus entrance tune. Understanding how tempo works is the key to expressing musical feeling.
 
-### 4.1 The Modern Standard: BPM (Beats Per Minute)
+### 5.1 The Modern Standard: BPM (Beats Per Minute)
 
 In modern music — pop, electronic and film scores — we measure tempo with a very precise mathematical unit, **BPM (beats per minute)**.
 
@@ -214,7 +262,7 @@ The calculation is simple: how many beats fall inside one minute (60 seconds).
 
 **🏃‍♂️ BPM and your heartbeat.** Did you know that your emotional response to music has a lot to do with BPM and your own heart rate? A relaxed adult's heart beats about 60–80 times a minute, so a ballad around BPM 70 makes the body feel calm and at ease. Running at the gym, your heart may climb to 130–150, and if your headphones are playing a fast dance track at BPM 140 your body feels strong and your feet start landing on the rhythm by themselves. That is the science behind workout playlists choosing high-BPM songs.
 
-### 4.2 The Romance of Classical Music: Italian Tempo Terms
+### 5.2 The Romance of Classical Music: Italian Tempo Terms
 
 BPM is very precise, but two or three hundred years ago the metronome either hadn't been invented or wasn't accurate enough. So how did a composer — Mozart, Beethoven — tell a performer how fast the piece should go?
 
@@ -243,7 +291,7 @@ We have accurate metronomes now to give reference numbers, but these Italian wor
    * **Reference tempo**: about 168–200 BPM.  
    * **What it feels like**: this is already very fast — your fingers have to fly over the keys to keep up. Presto usually expresses extreme excitement, frenzy, or a tense chase in a story. And if it is a wilder prestissimo, you are truly testing the limits of human muscle.
 
-### 4.3 Tempo Breathes; It Isn't a Machine
+### 5.3 Tempo Breathes; It Isn't a Machine
 
 Now that you know BPM and the Italian terms, here is one last secret about tempo as we close this stage: **in real performance, tempo usually breathes.**
 

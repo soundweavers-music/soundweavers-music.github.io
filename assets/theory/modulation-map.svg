@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340" width="100%" role="img" aria-label="轉調：從 C 出發的四條路">
+<rect width="760" height="340" fill="#f7f3ee"/>
+<text x="28.0" y="40.0" font-size="19" text-anchor="start" fill="#2b2722" font-weight="700">轉調：從 C 出發的四條路</text>
+<text x="28.0" y="62.0" font-size="12.5" text-anchor="start" fill="#8a8078" font-weight="400">近系調彼此只差一個記號，轉起來最不痛</text>
+<circle cx="380.0" cy="190.0" r="46.0" fill="#f2e0cc" stroke="#A67C52" stroke-width="2"/>
+<text x="380.0" y="188.0" font-size="20" text-anchor="middle" fill="#A67C52" font-weight="700">C</text>
+<text x="380.0" y="208.0" font-size="9" text-anchor="middle" fill="#8a8078" font-weight="400">主音</text>
+<rect x="524.0" y="158.0" width="132.0" height="44.0" rx="9" fill="#fff" stroke="#d9d2c9" stroke-width="1.4"/>
+<text x="590.0" y="178.0" font-size="11.5" text-anchor="middle" fill="#2b2722" font-weight="700">G 大調</text>
+<text x="590.0" y="195.0" font-size="9" text-anchor="middle" fill="#8a8078" font-weight="400">共同和弦 Am</text>
+<rect x="104.0" y="158.0" width="132.0" height="44.0" rx="9" fill="#fff" stroke="#d9d2c9" stroke-width="1.4"/>
+<text x="170.0" y="178.0" font-size="11.5" text-anchor="middle" fill="#2b2722" font-weight="700">F 大調</text>
+<text x="170.0" y="195.0" font-size="9" text-anchor="middle" fill="#8a8078" font-weight="400">共同和弦 Dm</text>
+<rect x="314.0" y="58.0" width="132.0" height="44.0" rx="9" fill="#fff" stroke="#d9d2c9" stroke-width="1.4"/>
+<text x="380.0" y="78.0" font-size="11.5" text-anchor="middle" fill="#2b2722" font-weight="700">A 小調</text>
+<text x="380.0" y="95.0" font-size="9" text-anchor="middle" fill="#8a8078" font-weight="400">關係小調</text>
+<rect x="314.0" y="278.0" width="132.0" height="44.0" rx="9" fill="#fff" stroke="#d9d2c9" stroke-width="1.4"/>
+<text x="380.0" y="298.0" font-size="11.5" text-anchor="middle" fill="#2b2722" font-weight="700">D 大調</text>
+<text x="380.0" y="315.0" font-size="9" text-anchor="middle" fill="#8a8078" font-weight="400">副屬 A7</text>
+<line x1="380.0" y1="190.0" x2="590.0" y2="180.0" stroke="#A67C52" stroke-width="1.2" stroke-dasharray="5 4"/>
+<line x1="380.0" y1="190.0" x2="170.0" y2="180.0" stroke="#A67C52" stroke-width="1.2" stroke-dasharray="5 4"/>
+<line x1="380.0" y1="190.0" x2="380.0" y2="80.0" stroke="#A67C52" stroke-width="1.2" stroke-dasharray="5 4"/>
+<line x1="380.0" y1="190.0" x2="380.0" y2="300.0" stroke="#A67C52" stroke-width="1.2" stroke-dasharray="5 4"/>
+<text x="28.0" y="326.0" font-size="11" text-anchor="start" fill="#8a8078" font-weight="400">轉調的三種做法：共同和弦、副屬和弦宣告、突然搬家（流行歌最愛）。</text>
+</svg>

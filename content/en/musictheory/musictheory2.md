@@ -1,20 +1,20 @@
 # Stage 2: Reading the Staff
 
-Get to know the treble and bass clefs, and match what your ears just heard to exact positions on the page.
+Turning what your ears hear into those small black dots on five lines.
 
-In Stage 1 we learned to use our ears: to feel how high or low a frequency is, and to feel the pull of a beat. But if we want to write down a melody we hear in our head and hand it to someone a hundred years from now, we need a visual tool—something that draws invisible sound onto paper, precisely.
+In Stage 1 we learned to feel pitch and pulse by ear. But the moment you want to keep a song, or hand it to someone else to play, you need a visual system everyone can read. Europe took about a thousand years to grow the one we use.
 
-In the world of music, that great invention is **the staff and the clef**.
+These five chapters unlock the staff's three keys one by one: the clef tells you which note a line is, accidentals tell you a note has been adjusted, and scientific pitch plus the standard tuning note let instruments around the world speak on the same reference. After these chapters, the staff stops being a cipher and becomes a map with coordinates.
 
-Over the next five chapters we travel through time to see how people in the ancient world invented notation, and then we teach you, hand by hand, how to read the three most important keys on the staff: the treble clef, the bass clef and the alto clef. Get your eyes ready. We are about to start *seeing* music.
+One reminder: notation is only ever an approximation of sound. It cannot capture breath, timbre or a slight slide — but learn to read it first, and you will be in a position to notice what it leaves out.
 
-## Chapter 5: Music's Visual Code — the Origin and Evolution of the Clef
+## Chapter 6: Music's Visual Code — the Origin and Evolution of the Clef
 
 Open any modern score and the first thing you see is those five parallel lines, and the ornate symbol drawn at the far left: the clef. To many beginners the staff looks like some kind of alien code. But in fact this system is what humans arrived at after more than a thousand years and countless rounds of revision—the most perfect design, the one that best matches how human eyes actually see.
 
 ![Which line each of the three clefs points to](/assets/theory/en/clefs.svg)
 
-### 5.1 The age of singing from memory, and the birth of neumes
+### 6.1 The age of singing from memory, and the birth of neumes
 
 Let's turn the clock back more than a thousand years, to medieval Europe. In the churches of the time, monks had to sing chant—Gregorian chant—every day. Back then there were **no scores at all**. Every melody was passed on by ear: an older monk sang a phrase, a younger monk sang it back, and then fixed it in his memory for good. Imagine memorising the melodies of several hundred chants. What an enormous job—and how easy to get one wrong.
 
@@ -22,7 +22,7 @@ Around the 9th century, someone finally had had enough. Monks began drawing simp
 
 Neume symbols are very simple. They can only tell you the *direction* of a melody. A stroke going up means sing higher here; a wave going down means the note falls. **The fatal weakness of neumes**: they cannot show an exact pitch. They tell you the melody goes up or down, but up by one whole tone? Or up by a leap of five notes? Neumes cannot show that at all. So if you had never heard the song, you could not possibly sing it from neumes alone. They were at best a prompt card for waking up a memory.
 
-### 5.2 A revolution: Guido d'Arezzo and the four-line staff
+### 6.2 A revolution: Guido d'Arezzo and the four-line staff
 
 Then came the 11th century, and a genuine prodigy in music history: the Italian music theorist **Guido d'Arezzo**. To solve the problem of monks learning to sing too slowly, he invented something that changed the world: **drawing lines**.
 
@@ -34,7 +34,7 @@ What a piece of visual translation this was. Time runs left to right; pitch runs
 
 ![The three stages of notation: neumes, the four-line staff, the five-line staff](/assets/theory/en/notation-history.svg)
 
-### 5.3 Why do we need a clef? It is a decoding key
+### 6.3 Why do we need a clef? It is a decoding key
 
 Good—we have five lines, and notes drawn high and low on them. But is that enough? Imagine a staff with a note drawn on the bottom line. Is that note do, or re, or sol?
 
@@ -48,11 +48,11 @@ Once the clef pins down what one line is, every other line and space can be work
 
 Next we meet the three keys modern music uses most: the treble clef, the bass clef and the alto clef.
 
-## Chapter 6: The Most Familiar View in Modern Music — the Treble Clef (G Clef)
+## Chapter 7: The Most Familiar View in Modern Music — the Treble Clef (G Clef)
 
 Stop a person in the street at random and ask them to draw a symbol for "music". Nine out of ten will draw a curling, elegant spiral. That symbol is the one we all know: the **treble clef**.
 
-### 6.1 The secret life of the G clef: it is really a letter
+### 7.1 The secret life of the G clef: it is really a letter
 
 The treble clef looks like a piece of fine art. But did you know it is really a letter of the alphabet, stretched out of shape?
 
@@ -60,7 +60,7 @@ In early music, people simply wrote a letter on one line of the staff to tell th
 
 From the Middle Ages into the Renaissance, monks copying scores made the letter G fancier and fancier for beauty's sake: first a flourish, then a lengthened tail, and finally a big loop in the middle. Several hundred years later, that G has become the ornate shape we see now.
 
-### 6.2 The secret job of the spiral: locating G4
+### 7.2 The secret job of the spiral: locating G4
 
 Since the treble clef comes from the letter G, its job naturally has to do with the note G.
 
@@ -82,7 +82,7 @@ Once the second line is locked as G, the whole universe of the staff falls into 
 
 ![Treble clef: the note names of the five lines and four spaces](/assets/theory/en/treble-clef-notes.svg)
 
-### 6.3 The territory of the treble clef: range and the instruments that use it
+### 7.3 The territory of the treble clef: range and the instruments that use it
 
 The treble clef covers roughly from middle C (C4) upward. When needed, ledger lines below the staff record lower notes, and above the staff it runs all the way into very high ranges. This matches the upper-middle frequencies the human ear identifies most easily.
 
@@ -98,13 +98,13 @@ Which instruments and voices use the treble clef? Almost anything with a bright,
 
 ![Where the treble clef sits on the staff, its usual range and the instruments that use it](/assets/theory/en/treble-territory.svg)
 
-## Chapter 7: The Foundation of the Low Register — the Bass Clef (F Clef)
+## Chapter 8: The Foundation of the Low Register — the Bass Clef (F Clef)
 
 Now that you know the treble clef, you might ask: if it works so well, why not use the treble clef everywhere? Why invent other clefs just to torment students?
 
 It comes down to a physical limit of the staff: the nightmare of ledger lines.
 
-### 7.1 Why do we need another key?
+### 8.1 Why do we need another key?
 
 A staff has only five lines. It holds about an octave and a little more comfortably. What happens if an instrument sounds low (a cello, say) and we insist on notating it in the treble clef?
 
@@ -112,7 +112,7 @@ The bottom line of the treble clef is E. To draw a really low note we would have
 
 To rescue players of low instruments, musicians brought out a second key, one made to unlock the low register. It is the **bass clef**.
 
-### 7.2 Decoding the F clef: the bullseye between two dots
+### 8.2 Decoding the F clef: the bullseye between two dots
 
 Like the treble clef, the bass clef evolved from a letter. Its ancestor is the **letter F**, which is why its formal name in music theory is the **F clef**.
 
@@ -135,7 +135,7 @@ Now that we know the fourth line is the low F, we can start working it out again
 
 ![Bass clef: the note names of the five lines and four spaces](/assets/theory/en/bass-clef-notes.svg)
 
-### 7.3 The territory of the bass clef: the orchestra's firm foundation
+### 8.3 The territory of the bass clef: the orchestra's firm foundation
 
 The bass clef mostly covers middle C and everything below it, diving deep into the thick, low end of the sound world. In a symphony orchestra or a pop band, bass-clef instruments usually carry the foundation of the harmony, or provide a steady root for the rhythm.
 
@@ -150,13 +150,13 @@ Common instruments that use the bass clef include:
 
 ![Where the bass clef sits on the staff, its usual range and the instruments that use it](/assets/theory/en/bass-territory.svg)
 
-## Chapter 8: The Flexible Midpoint — the Alto Clef (C Clef) and the Grand Staff
+## Chapter 9: The Flexible Midpoint — the Alto Clef (C Clef) and the Grand Staff
 
 With the treble clef (G) holding the sky and the bass clef (F) holding the ground, the world of the staff looks complete. But there is a group of instruments stuck in the middle, neither high nor low, and they are in trouble.
 
 ![The grand staff and the position of middle C](/assets/theory/en/grand-staff.svg)
 
-### 8.1 Stuck in the middle: the viola's problem
+### 9.1 Stuck in the middle: the viola's problem
 
 In a symphony orchestra there is an instrument called the **viola**. Its timbre is warm and full, and its range sits right between the treble and the bass (roughly straddling middle C).
 
@@ -164,7 +164,7 @@ Which is awkward. If violists use the treble clef, then when they play low notes
 
 For these mid-range instruments, musicians kept a third key with a long history: the **alto clef**.
 
-### 8.2 The C clef that moves
+### 9.2 The C clef that moves
 
 The **C clef** evolved from the letter C, and it is a clef that can move: whichever line its point sits on, that line is middle C. The version that puts the point on the third line is the subject of this chapter, the **alto clef**.
 
@@ -181,7 +181,7 @@ The beauty of the C clef is its flexibility. It is the clearest statement of the
 
 ![Where middle C falls when the C clef sits on the first, third and fourth lines](/assets/theory/en/alto-clef.svg)
 
-### 8.3 The pianist's view of the universe: the grand staff
+### 9.3 The pianist's view of the universe: the grand staff
 
 Now we have the G clef and the F clef. What happens if we combine them? The result is the ultimate tool, built for keyboards and any instrument with a huge range: the **grand staff**.
 
@@ -196,13 +196,13 @@ Below the treble staff and above the bass staff there seems to be a gap. But dra
 
 So the treble staff and the bass staff are not two parallel universes. They are one continuous whole. Middle C is like an invisible bridge, stitching high and low perfectly together. When a pianist reads a grand staff, they are not reading two separate lines of music. They are reading one vast universe that pivots on middle C and extends without limit up and down.
 
-## Chapter 9: Pinning Down Every Note — Accidentals, Scientific Pitch and the Standard Pitch
+## Chapter 10: Pinning Down Every Note — Accidentals, Scientific Pitch and the Standard Pitch
 
 By now you can read every line and space on the staff, and you know where C-D-E-F-G-A-B live. But walk up to a piano and you run into a huge blind spot.
 
 Every line and space on the staff corresponds to a **white key** on the piano. So how do we write those **black keys** that sit between the white ones? For that we have to bring in symbols that modify pitch: accidentals.
 
-### 9.1 The magic that changes pitch: accidentals
+### 10.1 The magic that changes pitch: accidentals
 
 To write on the staff those semitones that sit between the white keys (usually the black keys on a piano), musicians invented three very important symbols:
 
@@ -212,7 +212,7 @@ To write on the staff those semitones that sit between the white keys (usually t
 
 ![What the sharp, flat and natural each do](/assets/theory/en/accidentals.svg)
 
-### 9.2 Why does one key need two names? (Enharmonic equivalence)
+### 10.2 Why does one key need two names? (Enharmonic equivalence)
 
 Here is a logic problem that regularly defeats beginners. Look at C and D on the piano. Between them sits one black key.
 
@@ -229,7 +229,7 @@ Music is a language too. In harmonic theory, a note plays a different role depen
 
 So enharmonic equivalence exists to keep the harmony inside music logically rigorous. Bach's *The Well-Tempered Clavier* (1722) took this system to its peak. One thing needs to be said: what Bach used was well temperament, in which the twelve keys each had a slightly different colour, not the later equal temperament that divides the octave into twelve identical semitones. Either way, both let you move freely into any key at all, and enharmonic equivalence is the inevitable result of that system.
 
-### 9.3 The modern scientific benchmark: scientific pitch notation and the international standard pitch
+### 10.3 The modern scientific benchmark: scientific pitch notation and the international standard pitch
 
 As music reached the modern era, synthesizers, recording engineering and acoustics software became common. Engineers and musicians found that saying "the A in the treble clef" was still too vague. We need a naming system as precise as coordinates, one that works across instruments.
 

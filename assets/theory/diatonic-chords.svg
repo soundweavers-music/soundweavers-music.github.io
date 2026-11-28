@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 350" width="100%" role="img" aria-label="大調的七個順階和弦">
+<rect width="760" height="350" fill="#f7f3ee"/>
+<text x="28.0" y="40.0" font-size="19" text-anchor="start" fill="#2b2722" font-weight="700">大調的七個順階和弦</text>
+<text x="28.0" y="62.0" font-size="12.5" text-anchor="start" fill="#8a8078" font-weight="400">全部由同一個調的音疊出來，性質的排列是固定的</text>
+<rect x="26.0" y="112.0" width="92.0" height="130.0" rx="10" fill="#f2e0cc" stroke="#d9d2c9" stroke-width="1.4"/>
+<text x="72.0" y="142.0" font-size="15" text-anchor="middle" fill="#A67C52" font-weight="700">I</text>
+<text x="72.0" y="174.0" font-size="12.5" text-anchor="middle" fill="#2b2722" font-weight="700">C</text>
+<text x="72.0" y="202.0" font-size="9.5" text-anchor="middle" fill="#8a8078" font-weight="400">大三和弦</text>
+<text x="72.0" y="228.0" font-size="10" text-anchor="middle" fill="#8a8078" font-weight="400">1</text>
+<rect x="130.0" y="112.0" width="92.0" height="130.0" rx="10" fill="#fff" stroke="#d9d2c9" stroke-width="1.4"/>
+<text x="176.0" y="142.0" font-size="15" text-anchor="middle" fill="#A67C52" font-weight="700">ii</text>
+<text x="176.0" y="174.0" font-size="12.5" text-anchor="middle" fill="#2b2722" font-weight="700">Dm</text>
+<text x="176.0" y="202.0" font-size="9.5" text-anchor="middle" fill="#8a8078" font-weight="400">小三和弦</text>
+<text x="176.0" y="228.0" font-size="10" text-anchor="middle" fill="#8a8078" font-weight="400">2</text>
+<rect x="234.0" y="112.0" width="92.0" height="130.0" rx="10" fill="#fff" stroke="#d9d2c9" stroke-width="1.4"/>
+<text x="280.0" y="142.0" font-size="15" text-anchor="middle" fill="#A67C52" font-weight="700">iii</text>
+<text x="280.0" y="174.0" font-size="12.5" text-anchor="middle" fill="#2b2722" font-weight="700">Em</text>
+<text x="280.0" y="202.0" font-size="9.5" text-anchor="middle" fill="#8a8078" font-weight="400">小三和弦</text>
+<text x="280.0" y="228.0" font-size="10" text-anchor="middle" fill="#8a8078" font-weight="400">3</text>
+<rect x="338.0" y="112.0" width="92.0" height="130.0" rx="10" fill="#f2e0cc" stroke="#d9d2c9" stroke-width="1.4"/>
+<text x="384.0" y="142.0" font-size="15" text-anchor="middle" fill="#A67C52" font-weight="700">IV</text>
+<text x="384.0" y="174.0" font-size="12.5" text-anchor="middle" fill="#2b2722" font-weight="700">F</text>
+<text x="384.0" y="202.0" font-size="9.5" text-anchor="middle" fill="#8a8078" font-weight="400">大三和弦</text>
+<text x="384.0" y="228.0" font-size="10" text-anchor="middle" fill="#8a8078" font-weight="400">4</text>
+<rect x="442.0" y="112.0" width="92.0" height="130.0" rx="10" fill="#f2e0cc" stroke="#d9d2c9" stroke-width="1.4"/>
+<text x="488.0" y="142.0" font-size="15" text-anchor="middle" fill="#A67C52" font-weight="700">V</text>
+<text x="488.0" y="174.0" font-size="12.5" text-anchor="middle" fill="#2b2722" font-weight="700">G</text>
+<text x="488.0" y="202.0" font-size="9.5" text-anchor="middle" fill="#8a8078" font-weight="400">大三和弦</text>
+<text x="488.0" y="228.0" font-size="10" text-anchor="middle" fill="#8a8078" font-weight="400">5</text>
+<rect x="546.0" y="112.0" width="92.0" height="130.0" rx="10" fill="#fff" stroke="#d9d2c9" stroke-width="1.4"/>
+<text x="592.0" y="142.0" font-size="15" text-anchor="middle" fill="#A67C52" font-weight="700">vi</text>
+<text x="592.0" y="174.0" font-size="12.5" text-anchor="middle" fill="#2b2722" font-weight="700">Am</text>
+<text x="592.0" y="202.0" font-size="9.5" text-anchor="middle" fill="#8a8078" font-weight="400">小三和弦</text>
+<text x="592.0" y="228.0" font-size="10" text-anchor="middle" fill="#8a8078" font-weight="400">6</text>
+<rect x="650.0" y="112.0" width="92.0" height="130.0" rx="10" fill="#efe4d6" stroke="#d9d2c9" stroke-width="1.4"/>
+<text x="696.0" y="142.0" font-size="15" text-anchor="middle" fill="#A67C52" font-weight="700">vii°</text>
+<text x="696.0" y="174.0" font-size="12.5" text-anchor="middle" fill="#2b2722" font-weight="700">Bdim</text>
+<text x="696.0" y="202.0" font-size="9.5" text-anchor="middle" fill="#8a8078" font-weight="400">減三和弦</text>
+<text x="696.0" y="228.0" font-size="10" text-anchor="middle" fill="#8a8078" font-weight="400">7</text>
+<text x="28.0" y="274.0" font-size="11.5" text-anchor="start" fill="#2b2722" font-weight="400">排列永遠是：大、小、小、大、大、小、減——所有大調都一樣。</text>
+<text x="28.0" y="296.0" font-size="11" text-anchor="start" fill="#8a8078" font-weight="400">把小寫換成小三和弦、° 換成減三和弦，級數就能跨調使用。</text>
+<text x="28.0" y="320.0" font-size="11" text-anchor="start" fill="#8a8078" font-weight="400">小調的順階是：小、減、大、小、大（或小）、大、大。</text>
+</svg>

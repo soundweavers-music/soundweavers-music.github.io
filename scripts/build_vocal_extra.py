@@ -482,8 +482,8 @@ def build_portal_homepage(instruments):
     </a>
     <a class="portal-card card-theory" href="{resolve_url(index_path, '/theory/')}">
       <div class="card-icon">🎼</div>
-      <div class="card-label">樂理基礎</div>
-      <div class="card-desc">認識譜號、節拍、拍號、音調、音域與發聲原理，系統了解音樂理論的基礎知識。</div>
+      <div class="card-label">音樂理論</div>
+      <div class="card-desc">聲音物理、五線譜、節奏、音程、音階、和弦與和聲、旋律曲式到樂器合奏，八個階段四十章，把樂理從聽覺一路教到能自己寫和弦進行。</div>
       <span class="card-badge badge-ready">已上線</span>
     </a>
     <a class="portal-card card-mandolin" href="{resolve_url(index_path, '/mandolin/')}">
@@ -961,7 +961,7 @@ def build_about_page_extra():
 
 
 def build_theory_pages(lang="zh"):
-    """Build the music theory course: 前言 + 5 階段總覽 + 一頁一章（共 20 章）。
+    """Build the music theory course: 前言 + 8 階段總覽 + 一頁一章（共 40 章）。
 
     來源仍是 content/musictheory/*.md；`## 第 N 章` 切成一章一頁，
     章節之間有上一章／下一章，階段頁只留導言與章節清單，不再重複全文。
@@ -990,10 +990,12 @@ def build_theory_pages(lang="zh"):
     preface = None
     for fpath in sorted(theory_dir.glob("*.md")):
         raw = fpath.read_text(encoding="utf-8")
-        num = int(fpath.stem.replace("musictheory", ""))
+        # 階段目錄用檔名編號（1…8）；章號另外算，不能共用同一個變數——
+        # 以前章號會蓋掉階段編號，階段頁就變成 /theory/4/、/theory/9/ 這種怪網址。
+        stage_num = int(fpath.stem.replace("musictheory", ""))
         first = raw.strip().split("\n")[0]
         title = first.lstrip("#").strip().strip("*")
-        if num == 0:
+        if stage_num == 0:
             preface = {"title": title, "raw": raw.split("\n", 1)[1].strip() if "\n" in raw else raw}
             continue
         parts = _re.split(r"(?m)^## ", raw)
@@ -1005,9 +1007,9 @@ def build_theory_pages(lang="zh"):
             m = _re.search(r"第\s*(\d+)\s*章|Chapter\s+(\d+)", head)
             if not m:
                 continue
-            num = int(m.group(1) or m.group(2))
-            chapters.append({"num": num, "title": head, "body": body.strip()})
-        stages.append({"num": num, "title": title, "intro": intro, "chapters": chapters})
+            ch_num = int(m.group(1) or m.group(2))
+            chapters.append({"num": ch_num, "title": head, "body": body.strip()})
+        stages.append({"num": stage_num, "title": title, "intro": intro, "chapters": chapters})
 
     stages.sort(key=lambda s: s["num"])
     flat = [c for s in stages for c in s["chapters"]]
@@ -1028,12 +1030,12 @@ def build_theory_pages(lang="zh"):
 
     trunc = 40 if lang == "en" else 14
     L = {
-        "course": "Music Theory" if lang == "en" else "音樂理論基礎",
-        "page_title": "%s · Music Theory" if lang == "en" else "%s｜音樂理論基礎",
+        "course": "Music Theory" if lang == "en" else "音樂理論",
+        "page_title": "%s · Music Theory" if lang == "en" else "%s｜音樂理論",
         "stage_label": "Stage" if lang == "en" else "階段",
         "before": "Before We Start" if lang == "en" else "開始之前",
         "before_t": "The basic vocabulary" if lang == "en" else "基礎名詞介紹",
-        "back": "Back to Music Theory" if lang == "en" else "回音樂理論基礎",
+        "back": "Back to Music Theory" if lang == "en" else "回音樂理論",
         "go": "Go to the preface" if lang == "en" else "前往前言",
         "ch_count": "chapters" if lang == "en" else "章",
         "ch_word": "Chapter %d" if lang == "en" else "第 %d 章",
@@ -1042,14 +1044,17 @@ def build_theory_pages(lang="zh"):
         "nav_next": "Chapter %d %s →" if lang == "en" else "第 %d 章 %s →",
         "hours": "about <strong>%s</strong> hours" if lang == "en"
                  else "建議約 <strong>%s</strong> 小時",
-        "lead": ("From the physics of sound through beat, the staff and time signatures to "
-                 "instrument families and ensembles. Five stages, twenty chapters, one page "
-                 "each, with diagrams.") if lang == "en" else
-                ("從聲音的物理、節拍、五線譜、拍號，一路到樂器分類與合奏。"
-                 "五個階段、二十章，每章一頁，附示意圖。"),
-        "meta": ("Music Theory: sound, beat, the staff, time signatures, instrument families "
-                 "and ensembles—five stages, twenty chapters.") if lang == "en" else
-                ("音樂理論基礎：聲音、節拍、五線譜、拍號、樂器分類與合奏，共五階段二十章。"),
+        "lead": ("From the physics of sound through beat, the staff and time signatures, "
+                 "intervals, scales, chords and harmony, melody and form, to instrument "
+                 "families and ensembles. Eight stages, forty chapters, one page each, "
+                 "with diagrams.") if lang == "en" else
+                ("從聲音的物理、五線譜、節奏，一路到音程、音階、和弦與和聲，"
+                 "再到旋律、曲式、樂器與合奏。八個階段、四十章，每章一頁，附示意圖。"),
+        "meta": ("Music Theory: sound, beat, the staff, time signatures, intervals, scales, "
+                 "chords and harmony, melody and form, instrument families and "
+                 "ensembles—eight stages, forty chapters.") if lang == "en" else
+                ("音樂理論：聲音、五線譜、節奏、音程、音階、和弦與和聲、旋律與曲式、"
+                 "樂器與合奏，共八階段四十章。"),
     }
 
     def md(text: str) -> str:
@@ -1221,6 +1226,32 @@ def build_theory_pages(lang="zh"):
     write(out_dir / "index.html", page(L["course"], index, out_dir / "index.html",
                                        extra_head=css,
                                        meta_description=L["meta"], lang=lang))
+
+    # 中文先擴編、英文還沒翻完時，語言切換選單會連到不存在的 /en/theory/chN/。
+    # 這裡替「英文稿還沒有的章」鋪一層轉址頁，指回英文課程首頁，避免 404。
+    if lang == "zh":
+        en_dir = CONTENT_DIR / "en" / "musictheory"
+        en_nums = set()
+        if en_dir.exists():
+            for f in en_dir.glob("*.md"):
+                for part in _re.split(r"(?m)^##\s+", f.read_text(encoding="utf-8"))[1:]:
+                    m = _re.search(r"(?i)chapter\s+(\d+)", part.partition("\n")[0])
+                    if m:
+                        en_nums.add(int(m.group(1)))
+        for ch in flat:
+            if ch["num"] in en_nums:
+                continue
+            sdir = OUTPUT_DIR / "en" / "theory" / ("ch%d" % ch["num"])
+            sdir.mkdir(parents=True, exist_ok=True)
+            write(sdir / "index.html",
+                  '<!doctype html><meta charset="utf-8">'
+                  '<meta http-equiv="refresh" content="0;url=%s">'
+                  '<link rel="canonical" href="%s">'
+                  '<title>Music Theory</title><p><a href="%s">Music Theory</a></p>'
+                  % (resolve_url(sdir / "index.html", "/en/theory/"),
+                     resolve_url(sdir / "index.html", "/en/theory/"),
+                     resolve_url(sdir / "index.html", "/en/theory/")))
+
     print("  Built theory course: %d stages, %d chapters" % (len(stages), len(flat)))
 
 

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 364" width="100%" role="img" aria-label="Four textures">
+<rect width="760" height="364" fill="#f7f3ee"/>
+<text x="28.0" y="40.0" font-size="19" text-anchor="start" fill="#2b2722" font-weight="700">Four textures</text>
+<text x="28.0" y="62.0" font-size="12.5" text-anchor="start" fill="#8a8078" font-weight="400">Same melody, stacked differently, sounds like a different piece</text>
+<rect x="30.0" y="104.0" width="340.0" height="100.0" rx="10" fill="#fff" stroke="#d9d2c9" stroke-width="1.4"/>
+<text x="46.0" y="128.0" font-size="12" text-anchor="start" fill="#2b2722" font-weight="700">Monophony</text>
+<text x="46.0" y="146.0" font-size="9" text-anchor="start" fill="#8a8078" font-weight="400">One melody, sung or played in unison</text>
+<line x1="50.0" y1="176.0" x2="330.0" y2="176.0" stroke="#A67C52" stroke-width="2"/>
+<circle cx="190.0" cy="176.0" r="5.0" fill="#A67C52" stroke="none" stroke-width="1"/>
+<rect x="400.0" y="104.0" width="340.0" height="100.0" rx="10" fill="#fff" stroke="#d9d2c9" stroke-width="1.4"/>
+<text x="416.0" y="128.0" font-size="12" text-anchor="start" fill="#2b2722" font-weight="700">Polyphony</text>
+<text x="416.0" y="146.0" font-size="9" text-anchor="start" fill="#8a8078" font-weight="400">Independent melodies at once (canon, fugue)</text>
+<line x1="420.0" y1="176.0" x2="700.0" y2="176.0" stroke="#A67C52" stroke-width="2"/>
+<line x1="420.0" y1="190.0" x2="700.0" y2="190.0" stroke="#6B8FBF" stroke-width="2"/>
+<circle cx="490.0" cy="176.0" r="4.0" fill="#A67C52" stroke="none" stroke-width="1"/>
+<circle cx="630.0" cy="190.0" r="4.0" fill="#6B8FBF" stroke="none" stroke-width="1"/>
+<rect x="30.0" y="220.0" width="340.0" height="100.0" rx="10" fill="#fff" stroke="#d9d2c9" stroke-width="1.4"/>
+<text x="46.0" y="244.0" font-size="12" text-anchor="start" fill="#2b2722" font-weight="700">Homophony</text>
+<text x="46.0" y="262.0" font-size="9" text-anchor="start" fill="#8a8078" font-weight="400">Melody + chordal accompaniment (pop song)</text>
+<line x1="50.0" y1="286.0" x2="330.0" y2="286.0" stroke="#A67C52" stroke-width="2"/>
+<rect x="70.0" y="296.0" width="26.0" height="12.0" rx="3" fill="#f2e0cc" stroke="#A67C52" stroke-width="1"/>
+<rect x="114.0" y="296.0" width="26.0" height="12.0" rx="3" fill="#f2e0cc" stroke="#A67C52" stroke-width="1"/>
+<rect x="158.0" y="296.0" width="26.0" height="12.0" rx="3" fill="#f2e0cc" stroke="#A67C52" stroke-width="1"/>
+<rect x="202.0" y="296.0" width="26.0" height="12.0" rx="3" fill="#f2e0cc" stroke="#A67C52" stroke-width="1"/>
+<rect x="246.0" y="296.0" width="26.0" height="12.0" rx="3" fill="#f2e0cc" stroke="#A67C52" stroke-width="1"/>
+<rect x="290.0" y="296.0" width="26.0" height="12.0" rx="3" fill="#f2e0cc" stroke="#A67C52" stroke-width="1"/>
+<rect x="400.0" y="220.0" width="340.0" height="100.0" rx="10" fill="#fff" stroke="#d9d2c9" stroke-width="1.4"/>
+<text x="416.0" y="244.0" font-size="12" text-anchor="start" fill="#2b2722" font-weight="700">Heterophony</text>
+<text x="416.0" y="262.0" font-size="9" text-anchor="start" fill="#8a8078" font-weight="400">Same melody, each adds ornaments (Chinese music, gamelan)</text>
+<line x1="420.0" y1="292.0" x2="700.0" y2="292.0" stroke="#A67C52" stroke-width="2"/>
+<path d="M 430 304 q 10 -8 20 0 q 10 8 20 0 q 10 -8 20 0" fill="none" stroke="#6B8FBF" stroke-width="1.6"/>
+<path d="M 480 304 q 10 -8 20 0 q 10 8 20 0 q 10 -8 20 0" fill="none" stroke="#6B8FBF" stroke-width="1.6"/>
+<text x="28.0" y="348.0" font-size="11" text-anchor="start" fill="#8a8078" font-weight="400">To judge texture, ask one thing: is your ear following one line, or hearing several?</text>
+</svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340" width="100%" role="img" aria-label="Four Basic Song Forms">
+<rect width="760" height="340" fill="#f7f3ee"/>
+<text x="28.0" y="40.0" font-size="19" text-anchor="start" fill="#2b2722" font-weight="700">Four Basic Song Forms</text>
+<text x="28.0" y="62.0" font-size="12.5" text-anchor="start" fill="#8a8078" font-weight="400">Label sections with letters to see a song&#x27;s skeleton at a glance</text>
+<text x="28.0" y="126.0" font-size="12" text-anchor="start" fill="#2b2722" font-weight="700">Strophic (A)</text>
+<rect x="160.0" y="112.0" width="66.0" height="30.0" rx="5" fill="#fff" stroke="#A67C52" stroke-width="1.6"/>
+<text x="193.0" y="132.0" font-size="13" text-anchor="middle" fill="#A67C52" font-weight="700">A</text>
+<text x="560.0" y="132.0" font-size="10" text-anchor="start" fill="#8a8078" font-weight="400">Same section repeated</text>
+<text x="28.0" y="180.0" font-size="12" text-anchor="start" fill="#2b2722" font-weight="700">Binary (AB)</text>
+<rect x="160.0" y="166.0" width="66.0" height="30.0" rx="5" fill="#fff" stroke="#A67C52" stroke-width="1.6"/>
+<text x="193.0" y="186.0" font-size="13" text-anchor="middle" fill="#A67C52" font-weight="700">A</text>
+<rect x="234.0" y="166.0" width="66.0" height="30.0" rx="5" fill="#fff" stroke="#6B8FBF" stroke-width="1.6"/>
+<text x="267.0" y="186.0" font-size="13" text-anchor="middle" fill="#6B8FBF" font-weight="700">B</text>
+<text x="560.0" y="186.0" font-size="10" text-anchor="start" fill="#8a8078" font-weight="400">Out, never back</text>
+<text x="28.0" y="234.0" font-size="12" text-anchor="start" fill="#2b2722" font-weight="700">Ternary (ABA)</text>
+<rect x="160.0" y="220.0" width="66.0" height="30.0" rx="5" fill="#fff" stroke="#A67C52" stroke-width="1.6"/>
+<text x="193.0" y="240.0" font-size="13" text-anchor="middle" fill="#A67C52" font-weight="700">A</text>
+<rect x="234.0" y="220.0" width="66.0" height="30.0" rx="5" fill="#fff" stroke="#6B8FBF" stroke-width="1.6"/>
+<text x="267.0" y="240.0" font-size="13" text-anchor="middle" fill="#6B8FBF" font-weight="700">B</text>
+<rect x="308.0" y="220.0" width="66.0" height="30.0" rx="5" fill="#fff" stroke="#A67C52" stroke-width="1.6"/>
+<text x="341.0" y="240.0" font-size="13" text-anchor="middle" fill="#A67C52" font-weight="700">A</text>
+<text x="560.0" y="240.0" font-size="10" text-anchor="start" fill="#8a8078" font-weight="400">Out and back, most balanced</text>
+<text x="28.0" y="288.0" font-size="12" text-anchor="start" fill="#2b2722" font-weight="700">Rondo</text>
+<rect x="160.0" y="274.0" width="66.0" height="30.0" rx="5" fill="#fff" stroke="#A67C52" stroke-width="1.6"/>
+<text x="193.0" y="294.0" font-size="13" text-anchor="middle" fill="#A67C52" font-weight="700">A</text>
+<rect x="234.0" y="274.0" width="66.0" height="30.0" rx="5" fill="#fff" stroke="#6B8FBF" stroke-width="1.6"/>
+<text x="267.0" y="294.0" font-size="13" text-anchor="middle" fill="#6B8FBF" font-weight="700">B</text>
+<rect x="308.0" y="274.0" width="66.0" height="30.0" rx="5" fill="#fff" stroke="#A67C52" stroke-width="1.6"/>
+<text x="341.0" y="294.0" font-size="13" text-anchor="middle" fill="#A67C52" font-weight="700">A</text>
+<rect x="382.0" y="274.0" width="66.0" height="30.0" rx="5" fill="#fff" stroke="#b08d9a" stroke-width="1.6"/>
+<text x="415.0" y="294.0" font-size="13" text-anchor="middle" fill="#b08d9a" font-weight="700">C</text>
+<rect x="456.0" y="274.0" width="66.0" height="30.0" rx="5" fill="#fff" stroke="#A67C52" stroke-width="1.6"/>
+<text x="489.0" y="294.0" font-size="13" text-anchor="middle" fill="#A67C52" font-weight="700">A</text>
+<text x="560.0" y="294.0" font-size="10" text-anchor="start" fill="#8a8078" font-weight="400">Keeps returning to A</text>
+<text x="28.0" y="324.0" font-size="11" text-anchor="start" fill="#8a8078" font-weight="400">Pop version: intro → verse → chorus → verse → chorus → bridge → chorus → outro.</text>
+</svg>

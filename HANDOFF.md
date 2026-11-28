@@ -13,7 +13,7 @@ Repo：soundweavers-music/soundweavers-music.github.io（`main` 推上去就會�
  ├─ instruments/*.md            833 件樂器（frontmatter + 各節）
  ├─ sound-journey/              聲音旅圖文章
  ├─ vocal/  digitalmusic/       人聲、錄音後製課程
- ├─ musictheory/                樂理五階段
+ ├─ musictheory/                音樂理論八階段（40 章）
  ├─ mandolin/NN.md + _index.json   曼陀林 22 章（由 prepare_mandolin.py 產生）
  └─ 曼陀林知識全書/               原稿（docx + 原圖，gitignore，不進 repo）
         │
@@ -187,6 +187,33 @@ Chrome 開站顯示「危險網站／可能誘騙你安裝軟體」。查詢 `ht
   `stats` 也不算它們。少翻 1,237 條、也少 24 頁內容不同的重複頁。
 - **進度查詢**：`python scripts/page_i18n.py stats`。
 - **建置**：`python scripts/page_i18n.py build`，沒翻完會回傳非零。
+
+### 2026-11-28（樂理改成「音樂理論」：8 階段 40 章）
+
+- **課名改為「音樂理論」**（原本「樂理基礎」）：`build_vocal_extra.build_theory_pages()`
+  的 `L["course"]`、`course_hours.COURSES`、首頁卡片、`/learn/`、`/about/`、
+  英文頁字典 `content/en/_pages/index.html.json`／`learn.json` 都一起改。改字串時
+  **英文頁的字典鍵是中文原文**，鍵沒跟著改就會掉回中文（這次就是這樣抓到的）。
+- **8 階段、40 章，難度排序**：聲音與節拍(1–5) → 五線譜(6–10) → 時值與拍號(11–15)
+  → 音程(16–18) → 音階與調(19–23) → 和弦與和聲(24–29) → 旋律曲式對位(30–33)
+  → 樂器人聲與合奏(34–40)。新寫 20 章（2、11、16–33）與改寫 40 章；舊章只重編號。
+- **重排工具**：`work/theory_split.py` 把舊檔拆成 `work/theory_parts/oldNN.md`，
+  新章寫成 `newNN.md`，`work/assemble_theory.py` 的 `MANIFEST` 是唯一順序來源，
+  組檔時順便把 `### 9.2` 這種小節號換成新章號。兩支都是 `work/` 底下的一次性工具
+  （不進版控），要再重排就照同樣的流程。
+- **圖 46 → 77 張**：`make_theory_figures.py` 新增 31 張（音色包絡、音符時值樹、
+  附點與連音線、休止符、三連音、度數、音程品質尺、轉位、協和度、大調配方、調號順序、
+  五度圈、三種小音階、關係調／平行調、移調樂器、教會調式、五聲與藍調、四種三和弦、
+  七和弦、轉位、數字低音、順階和弦、功能、終止式、副屬和弦、轉調地圖、動機樂句、
+  旋律輪廓、曲式、對位、織體）。`harmonic-series.svg` 與 `world-tunings.svg` 兩張舊圖
+  原本沒被任何章節引用，現在分別放進第 2 章與第 40 章。
+- **修掉一個真的 bug**：`build_theory_pages()` 解析時 `num` 被章號覆蓋，階段頁網址
+  變成最後一章的號碼（`/theory/4/`、`/theory/9/`…）。現在階段目錄就是
+  `/theory/1/`–`/theory/8/`（英文 `/en/theory/1/`–`8/`）。
+- **對抗審查改成多引擎**：`scripts/factcheck_musictheory.py` 現在跑 `fast`＋`expert`
+  兩顆引擎 × 四個角度（事實／數字／教學／記譜），同一處錯誤用 quote 去重、標出是哪顆
+  引擎抓到的。**兩個坑**：這個 proxy 的 expert 後端若自己送 `thinking` 大預算會 400／
+  timeout，拿掉參數它反而會自己帶 thinking；`--new-only` 只審這次新寫的章節。
 
 ### 2026-11-21（英文版：樂理 20 章＋整條管線）
 

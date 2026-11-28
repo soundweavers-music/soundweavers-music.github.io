@@ -1,20 +1,80 @@
-# Stage 3: How Long a Note Lasts
+# Stage 3: Note Lengths and Grouping
 
-Learn to read time signatures, do the arithmetic, and know exactly how long each little black note has to be sung and how long it stays silent.
+How long each note lasts, how long a silence lasts, and how a run of beats gets grouped.
 
-In the stages before this one, we learned to draw the high and low of sound onto the staff. But the reason music is called "the art of time" is that every sound has to move along the long river of time.
+In the first two stages we learned to draw pitch on the staff. But music is called "the art of time" because every sound has to move through it. We need a precise system that tells a player: how long does this Do last? How long does that Re rest? Where do you stamp hard, and where do you skip lightly?
 
-We need a perfect mathematical system to tell the performer: how long does this Do get held? How long does that Re rest? Where do you stamp your foot down hard? Where do you skip lightly past?
+These five chapters start with how long a note is, then move to how beats are grouped — the same four beats feel completely different as 2+2, 3+1 or a single group of four. From there we go to the turning of a waltz, the sway of compound time, and the off-balance limp of 5/4 and 7/8.
 
-Over the next four chapters we crack the "time code" written on the staff. We start with the structure of the time signature, and travel all the way to the spin of a waltz, the groove of rock, and even the dangerous tension of asymmetric metre. Have your metronome ready — let's start cutting up time.
+## Chapter 11: How Long to Sing a Note — Note Values, Dots, Ties, and Rests
 
-## Chapter 10: The Visual Skeleton of Rhythm — The Structure and Meaning of the Time Signature
+Play or sing the same pitch for one beat, then for two beats, and it sounds like two completely different things. You've already dealt with "how high." Now you deal with "how long"—and "how long" is the raw material of rhythm.
+
+### **11.1 The Note Family: Every Division Cuts It in Half**
+
+The way notes look on the staff is actually a very economical design: **each step down cuts the length in half**.
+
+- **Whole note**: a hollow oval, no stem = 4 beats
+- **Half note**: a hollow oval with a stem = 2 beats
+- **Quarter note**: a filled oval with a stem = 1 beat
+- **Eighth note**: one flag = half a beat
+- **Sixteenth note**: two flags = a quarter beat
+
+A half note is "a whole note cut in half"; a quarter note cuts it in half again. Flags start only at the eighth note: one flag = half of a quarter note; two flags = half again. So just remember "each extra flag cuts the length in half," and you don't have to memorize the names by rote.
+
+![Multiplicative relationships of note values: each split cuts the length in half](/assets/theory/en/note-value-tree.svg)
+
+Note one thing: these beat counts assume 4/4 time. A quarter note does not always equal one second—**it equals "one beat," and how long a beat lasts is set by tempo** (the BPM you dealt with earlier). The same quarter note might last nearly a second in a slow song and only 0.3 seconds in a fast one.
+
+### **11.2 Dots: Add Half the Original Length Again**
+
+A half note has only 2 beats, but sometimes you need a 3-beat note between a half note and a whole note. You don't have to invent a new note; just add a small dot on the right: **a dot adds half of the original length again**.
+
+- Dotted half note = 2 + 1 = 3 beats
+- Dotted quarter note = 1 + 0.5 = 1.5 beats
+- Dotted eighth note = 0.5 + 0.25 = 0.75 beats
+
+You will occasionally see two dots (double dot). That means "original + half + quarter," for example 1 + 0.5 + 0.25 = 1.75 beats. It is rare in practice, but you will run into it in classical scores.
+
+![Dots and ties: two ways to lengthen a note](/assets/theory/en/dotted-tie.svg)
+
+If a single dotted note cannot make the length you need—for example, 2.5 beats (a dotted half note is 3 beats, a dotted quarter note is 1.5 beats; neither is 2.5)—dots cannot help. Use a **tie**: connect two notes of the same pitch with a curved line. Add their lengths and sound only once—2.5 beats can be written as "2 beats + half a beat, with a line between them." Ties across a barline are normal, especially in syncopation.
+
+### **11.3 Rests: The Half That Doesn't Count as Sound**
+
+In music, "no sound" is also part of rhythm. The rest family corresponds exactly to the note family; only the shapes differ: a whole rest hangs below the fourth line, a half rest sits on the third line, and a quarter rest looks like a lightning symbol. **The length relationships are exactly the same: each step down cuts the length in half.**
+
+![The rest family corresponds one-to-one with the note family](/assets/theory/en/rest-values.svg)
+
+The mistake beginners make most often is treating rests as "nothing to worry about." But in an ensemble, a rest is a precise time window—when you stop and when you enter matter as much as when you play. The rhythm section (drums, bass) locks in so precisely because it counts rests, not just sounds.
+
+### **11.4 Triplets: A Length Outside the Family**
+
+Sometimes the length you need is exactly not "half of a half." For example, in four beats you want to divide one beat into three equal parts—the note family has no such length.
+
+So people invented the **tuplet**. The most common is the **triplet**: fit three equal notes into the same time unit ("three parts in the time of two"; the marking usually shows a "3"). In 4/4 time, one triplet takes one beat, and each of the three notes takes one third of a beat.
+
+![Triplets: dividing one beat into three parts; the marking usually shows a 3](/assets/theory/en/tuplets.svg)
+
+Triplets are where jazz, blues, and rock get their flavor. Note this: **even triplets are not swing**. Swing thinks of a beat as three parts but takes only the first and third (long–short, about 2:1); only then does it sound like it "swings." First you need to play triplets evenly; only then can you make them swing. And in 6/8, a meter already divided into three, you instead get a "duplet" (two notes in the time of three); the logic is exactly symmetrical.
+
+### **11.5 Do It Now**
+
+Turn on the metronome and set it to 60 BPM (one beat per second). Count along on a single note:
+
+1. First play or sing quarter notes, one note per beat.
+2. Switch to eighth notes, two notes per beat.
+3. Switch to triplets, three notes per beat, saying "one–two–three, one–two–three" out loud.
+
+Being able to switch steadily among these three densities is harder than reading the page, and more useful.
+
+## Chapter 12: The Visual Skeleton of Rhythm — The Structure and Meaning of the Time Signature
 
 When you are handed a brand-new score, your eyes work like a scanner, starting at the far left of the staff and sweeping right. You will see three very important symbols. They are the piece's "settings screen for the rules of the game", and the order they appear in is absolutely fixed in every score in the world. No compromise, ever.
 
 ![The multiples that relate the note values: each smaller value is half of the one before](/assets/theory/en/note-values.svg)
 
-### 10.1 The prime spot on the staff: where the time signature sits
+### 12.1 The prime spot on the staff: where the time signature sits
 
 The order of the three at the start of a score goes like this:
 
@@ -24,7 +84,7 @@ The order of the three at the start of a score goes like this:
 
 **The time signature always stands after the clef and the key signature.** Why that order? Picture it this way: the clef defines the "venue" (the absolute pitch of the staff); the key signature decides the "weather and surroundings" (the harmonic atmosphere of the song); and last, the time signature lays down the "pace and the rules for moving forward" inside that venue (how many beats each bar holds, which note counts as one beat). Once the venue and the conditions are set, time can officially start to flow.
 
-### 10.2 The fence that cuts time up: what is a bar?
+### 12.2 The fence that cuts time up: what is a bar?
 
 Before we unpack the time signature, we have to meet the tool the staff uses to cut up time: the **bar line**.
 
@@ -34,7 +94,7 @@ Why draw bar lines at all? Imagine reading a novel with no punctuation and no pa
 
 ![Bar lines, a time signature and a final bar line in 4/4](/assets/theory/en/bar-measure.svg)
 
-### 10.3 Breaking the code: what the top and bottom numbers really mean
+### 12.3 Breaking the code: what the top and bottom numbers really mean
 
 A time signature looks a lot like a fraction from maths, but forget the idea of a fraction at once. In a time signature the two numbers mean completely different things, and they are not there to be divided.
 
@@ -66,13 +126,13 @@ Let's use that logic to read a few of the most common time signatures:
 
 That is the iron law of how time signatures work. With these rules in place, no matter how complex the melody or how fancy the syncopation, if you add up the length of every note in a bar, the total will come out exactly equal to the length the time signature lays down. That is the most rigorous mathematical beauty in the world of music.
 
-## Chapter 11: A Regular, Even Stride — Simple Time and Its Common Uses
+## Chapter 13: A Regular, Even Stride — Simple Time and Its Common Uses
 
 Now that we can read a time signature, we enter the first great family of metre: **simple time**.
 
 In the history of human music, simple time is the most intuitive kind, the kind the brain absorbs most easily, and the kind used most often. From the nursery rhymes you sang as a child to the pop hits on the charts right now, more than 90% are built on the frame of simple time.
 
-### 11.1 What is simple time? The absolute rule of dividing in two
+### 13.1 What is simple time? The absolute rule of dividing in two
 
 The core test for whether a time signature is simple time is this: **can its one beat be cut naturally and evenly into two halves?**
 
@@ -84,7 +144,7 @@ There are three common kinds of simple time: two-beat (2/4), three-beat (3/4) an
 
 ![Where the accents fall in 2/4, 3/4 and 4/4](/assets/theory/en/simple-meters.svg)
 
-### 11.2 2/4: the army march and the village revelry
+### 13.2 2/4: the army march and the village revelry
 
 **Structure decoded:** a quarter note per beat, two beats per bar. **Stress pattern:** **strong — weak** | **strong — weak**
 
@@ -92,7 +152,7 @@ There are three common kinds of simple time: two-beat (2/4), three-beat (3/4) an
 
 **Musical situations and uses:** Because of its perfect left-right symmetry, 2/4 was born for walking. **2/4 is one of the most classic march time signatures**, and many army marching tunes use it. Picture a column on the march: "left foot (strong) — right foot (weak), left foot (strong) — right foot (weak)". The powerful first beat tells the soldiers when to plant the left foot hard on the ground, and that is what keeps the whole column marching as one. Beyond the army, plenty of cheerful, lively European folk dances — the polka, for instance — and energetic country music are very fond of 2/4 too. Its rhythm is tight, and it gives you a warm, uninhibited feeling, as if you wanted to jump up and spin on the spot.
 
-### 11.3 3/4: the spinning skirt and the elegant loss of balance
+### 13.3 3/4: the spinning skirt and the elegant loss of balance
 
 3/4 is the only member of the common simple-time family whose cycle runs on an odd number of beats. That means if you try to stamp 3/4 with your feet, you will find that the accented foot is different each time (left-right-left, right-left-right). That break with left-right symmetry — that "loss of balance" — is exactly what makes 3/4 so attractive.
 
@@ -100,7 +160,7 @@ There are three common kinds of simple time: two-beat (2/4), three-beat (3/4) an
 
 ![The same chord progression under a different metre gives a different groove](/assets/theory/en/accompaniment.svg)
 
-### 11.4 4/4: the undisputed ruler of modern music
+### 13.4 4/4: the undisputed ruler of modern music
 
 **Structure decoded:** a quarter note per beat, four beats per bar. **Stress pattern:** **strong — weak — secondary strong — weak** | **strong — weak — secondary strong — weak**
 
@@ -114,7 +174,7 @@ Why is 4/4 so popular? Because it is a perfect compromise. It has the steadiness
 
 Go back to the Middle Ages. The church at the time held that the number 3 stood for the Christian Trinity (Father, Son and Holy Spirit), the holiest and most perfect number in the world. So triple time was called "Tempus perfectum", perfect time, and was notated with a **perfect circle (O)**. By contrast, duple or quadruple time, which was not triple, was considered "imperfect". Since it was imperfect, the circle lost a piece and became a **broken semicircle (C)**. As history went on, that broken semicircle stayed in use and became the symbol for modern 4/4. Musicians in the English-speaking world, wanting an easy explanation, then read it as Common Time.
 
-## Chapter 12: Swaying, Flowing Groove — Compound Time Explained
+## Chapter 14: Swaying, Flowing Groove — Compound Time Explained
 
 Once we were used to the square, "one splits into two" feel of simple time, musicians began to feel it was too rigid. Could we stuff three little steps into one big beat? Make the music sound less like a robot walking and more like a boat gliding smoothly across water?
 
@@ -122,7 +182,7 @@ Once we were used to the square, "one splits into two" feel of simple time, musi
 
 And so compound time was born. This is the place where a lot of people studying theory for the first time get stuck, but once you grasp the logic underneath, you will find that compound time is the most attractive, most flowing invention in all of music.
 
-### 12.1 The soul of compound time: what is a dotted note?
+### 14.1 The soul of compound time: what is a dotted note?
 
 Before we go into compound time, we have to meet a small symbol that can work magic on time: the **dot**.
 
@@ -138,7 +198,7 @@ That is the core secret of compound time. In simple time, our one beat is an "or
 
 ![A dotted note: the original length plus half of it again](/assets/theory/en/dotted-note.svg)
 
-### 12.2 Taking apart the great 6/8 myth
+### 14.2 Taking apart the great 6/8 myth
 
 Speaking of compound time, the most representative and the most easily misunderstood example is **6/8**.
 
@@ -166,7 +226,7 @@ Put together, it comes out like this: **"one**-two-three, **two**-two-three | **
 
 Do you feel something rising and falling like an ocean swell, or like someone swaying unsteadily after a couple of drinks? That is the magic of 6/8.
 
-### 12.3 The final showdown: 3/4 vs. 6/8, what is the difference really?
+### 14.3 The final showdown: 3/4 vs. 6/8, what is the difference really?
 
 This is bound to be on any music exam. Mathematically, 3/4 holds six eighth notes, and 6/8 holds six eighth notes too. Their bars are exactly the same total length, so what on earth is different?
 
@@ -186,13 +246,13 @@ Apart from 6/8, other compound time signatures are common too:
 * **9/8**: three big beats per bar (3+3+3).
 * **12/8**: four big beats per bar (3+3+3+3). This is extremely common in the blues, in early R&B and in gospel, and it gives a four-beat frame a thick, lazy swing.
 
-## Chapter 13: Special Time Magic — Cut Time and Asymmetric Time Signatures
+## Chapter 15: Special Time Magic — Cut Time and Asymmetric Time Signatures
 
 We have already studied the square simple time signatures (4/4, 2/4, 3/4), and the swaying compound ones (6/8, 12/8). Those two families cover the great majority of the world's music.
 
 But the magic book of music still holds a few very special, even rather dangerous time signatures. When composers need an extremely tight tempo, or want to create a tension that makes you hold your breath, they bring these special weapons out. In this chapter we open up the secrets of cut time and of asymmetric time signatures.
 
-### 13.1 Visual relief and a tight stride: cut time (2/2)
+### 15.1 Visual relief and a tight stride: cut time (2/2)
 
 In classical music (especially fast orchestral movements) and in Broadway musicals you will often meet a time signature like this: **2/2**. Sometimes it is not written as numbers but drawn as a **"C" cut down the middle by a vertical line** (like a pill sliced in half). This symbol is called **alla breve**, or, in common speech, **cut time**.
 
@@ -208,7 +268,7 @@ That way, instead of counting "1-2-3-4" in your head every bar, you only count t
 
 ![The same run of notes grouped under 4/4 and under 2/2](/assets/theory/en/two-two.svg)
 
-### 13.2 Breaking symmetry, the dangerous tension: irregular time signatures
+### 15.2 Breaking symmetry, the dangerous tension: irregular time signatures
 
 Up to now the top numbers we have met have been 2, 3, 4, 6, 9 and 12, and all of them group evenly. But what if we set the number of beats in a bar to a number that cannot be split into groups of equal length?
 

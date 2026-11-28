@@ -42,7 +42,7 @@ CJK = re.compile(r"[一-鿿]")
 COURSES = [
     ("vocal", "人聲與歌唱", "vocal", "vocal_ch*.md", 2.0),
     ("digitalmusic", "錄音後製", "digitalmusic", "digitalmusic*.md", 2.0),
-    ("theory", "樂理基礎", "musictheory", "musictheory*.md", 2.0),
+    ("theory", "音樂理論", "musictheory", "musictheory*.md", 2.0),
     ("mandolin", "曼陀林專區", "mandolin", "*.md", None),
     ("guitar", "流行吉他彈唱指南", "guitar", "[0-9]*.md", 2.0),
     ("ukulele", "烏克麗麗流行彈唱與演奏指南", "ukulele", "[0-9]*.md", 2.0),

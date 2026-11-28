@@ -25,7 +25,7 @@ INDEX = OUTPUT / "assets" / "learn-index.json"
 COURSES = [
     ("vocal", "人聲與歌唱"),
     ("digitalmusic", "錄音後製"),
-    ("theory", "樂理基礎"),
+    ("theory", "音樂理論"),
     ("mandolin", "曼陀林專區"),
     ("guitar", "流行吉他彈唱指南"),
     ("ukulele", "烏克麗麗"),
