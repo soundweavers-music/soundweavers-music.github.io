@@ -11,7 +11,8 @@
 //   noise {lvl,pink,hp,lp,bp,q,a,d,s,r,vel}                 frm {v,v2,morph,q,lvl} 共振峰（母音）
 //   lfo[] {to,rate,depth,delay,shape}                       penv {amt,d} 音高包絡（音分）
 //   drive 軟削波    gain 輸出音量    pan 立體聲位置    kit 鼓組型號
-//   modes {n,B,tilt,pos,d,dk,vt,list,beat,lvl}             分音表（鋼琴弦、鐘、木琴）
+//   modes {n,B,tilt,pos,d,dk,vt,list,beat,lvl}             分音表（鐘、木琴）
+//   piano {bright,hard,felt,unison,long,ring,Bmul,pos,thump,knock,longit,strings,lvl}  平台鋼琴模型（1 = Steinway D）
 //   str  {bright,ring,pos,decay,buzz,course}                波導弦（撥弦位置、琴橋沙聲、複弦）
 //   body [[頻率,Q,dB],…] 琴身共鳴   jit 隨機飄移（音分）   post 削波後的喇叭低通   tune 整體音分
 //
@@ -34,13 +35,14 @@ const BASE = {
 //   管樂＝各自的諧波比例＋跟著音高走的氣音＋管身共鳴。
 // body: [[頻率, Q, dB], …] 是「聲音指紋」：小提琴、中提琴、大提琴的差別主要就在這裡。
 const TPL = {
+  // 平台鋼琴：worklet 的 buildPiano（Steinway D274 的文獻量測值：不諧和係數、擊弦點、
+  // 毛氈槌的非線性、三弦耦合的雙段衰減、縱波分音、制音器）。這裡只放「個性」差異。
   piano: {
-    amp: { a: 0.001, d: 6, s: 1, r: 0.38 }, vcurve: 1.5, kdecay: 1, gain: 0.85,
-    flt: { type: 'lp', f: 7500, q: 0.5, key: 0.35, env: 0, vel: 1.0 },
-    modes: { n: 26, B: 0.00038, Bk: 1.0, tilt: 0.8, pos: 0.12, d: 6.5, dk: 0.3, vt: 0.8, lvl: 0.3,
-      beat: [[1.4, 0.9, 0.42], [-0.8, 0.55, 0.85]] },
-    noise: { lvl: 0.05, lp: 900, d: 0.016, vel: 0.8 },
-    body: [[110, 2, 2.5], [260, 1.6, 2], [820, 1.2, 1.5]],
+    amp: { a: 0.0005, d: 60, s: 1, r: 0.5 }, vcurve: 1.0, kdecay: 0, gain: 0.85,
+    flt: { type: 'lp', f: 18000, q: 0.5, key: 0, env: 0, vel: 0 },
+    piano: {},
+    // 共鳴板＋琴身：低頻輻射差、300 Hz–1 kHz 最有效率、2.5 kHz 以上漸弱（Giordano；Suzuki）
+    body: [[95, 1.4, 1.5], [180, 2.2, 2.5], [390, 1.6, 2], [700, 1.3, 1.5], [1400, 1.2, 0.5], [3600, 1, -2.5]],
   },
   ep: {
     amp: { a: 0.002, d: 3.0, s: 0.0, r: 0.35 }, vcurve: 1.3, kdecay: 0.8, gain: 0.7,
@@ -192,39 +194,41 @@ const BODY = {
 // 每個音 2～3 根弦微微不同音 → 拍音與「先快後慢」的雙段衰減。彈越輕高分音越少。
 P('pno.grand', '鋼琴', '平台鋼琴', 'Grand Piano', 0, 'piano', {});
 P('pno.concert', '鋼琴', '演奏廳鋼琴', 'Concert Grand', 0, 'piano', {
-  modes: { n: 32, d: 8.5, B: 0.0003, tilt: 0.75, lvl: 0.3 },
-  body: [[90, 2, 3], [220, 1.6, 2.5], [700, 1.2, 1.5], [2800, 1.5, 1.5]],
+  // 同一台 D274、整音師把弦調得更齊、槌子整得稍硬：尾音更長、更「唱」
+  piano: { unison: 0.7, long: 1.2, bright: 1.1, hard: 0.15 },
+  body: [[95, 1.4, 2], [180, 2.2, 3], [390, 1.6, 2], [700, 1.3, 1.5], [1400, 1.2, 1], [3600, 1, -1.5]],
 });
 P('pno.bright', '鋼琴', '明亮平台鋼琴', 'Bright Grand', 1, 'piano', {
-  modes: { tilt: 0.55, vt: 0.45, pos: 0.1 }, flt: { f: 12000 }, noise: { lvl: 0.06, lp: 2500 },
-  body: [[110, 2, 1.5], [3000, 1.4, 4]],
+  // 流行／爵士錄音常見：槌子打過硬化劑、麥克風貼近 → 起音亮、會「穿」
+  piano: { hard: 0.8, bright: 1.35, knock: 1.6 }, body: [[180, 2, 1.5], [700, 1.3, 1], [3200, 1.2, 3]],
 });
 P('pno.upright', '鋼琴', '直立鋼琴', 'Upright Piano', 0, 'piano', {
-  modes: { B: 0.0009, d: 4.2, tilt: 0.85, beat: [[2.6, 0.9, 0.4], [-1.6, 0.6, 0.8]] },
-  body: [[180, 2.5, 4], [480, 2, 3], [1300, 2, -2]], noise: { lvl: 0.08, lp: 1200 },
+  // 弦短得多 → 不諧和係數大約是平台的 2～3 倍、尾音短、弦較不齊；共鳴板小、低音薄
+  piano: { Bmul: 2.6, long: 0.55, unison: 1.7, pos: 1.1, thump: 1.6 },
+  body: [[160, 2.5, 3], [420, 2, 3], [900, 1.6, 1], [1800, 2, -2]],
 });
 P('pno.felt', '鋼琴', '毛氈鋼琴', 'Felt Piano', 0, 'piano', {
-  // 槌子包了一層厚毛氈：高分音幾乎沒有、只剩溫溫的「咚」
-  modes: { tilt: 1.6, vt: 1.2, d: 5, pos: 0.16 }, flt: { f: 1700, key: 0.5, vel: 0.6 },
-  noise: { lvl: 0.12, lp: 500, d: 0.035, vel: 0.5 }, amp: { r: 0.6 },
+  // 槌子與弦之間夾一層毛氈（「弱音踏板」的那種）：接觸時間變 3 倍、高音幾乎沒有，機械聲很近
+  piano: { felt: 3.2, bright: 0.45, thump: 2.2, knock: 0.2, long: 0.8 }, amp: { r: 0.7 },
 });
 P('pno.honky', '鋼琴', '走音酒吧鋼琴', 'Honky Tonk', 3, 'piano', {
-  modes: { B: 0.0008, d: 4, beat: [[17, 1, 0.9], [-13, 0.85, 0.8]] }, body: [[200, 2.5, 4], [520, 2, 3]],
+  // 老直立琴、弦之間差 10～20 音分沒調
+  piano: { Bmul: 2.4, long: 0.5, unison: 22, thump: 1.4 }, body: [[180, 2.5, 4], [520, 2, 3], [1600, 2, -2]],
 });
 P('pno.lofi', '鋼琴', '錄音帶鋼琴', 'Lo-fi Piano', 0, 'piano', {
-  modes: { tilt: 1.1, d: 5 }, post: 3200, drive: 0.12, jit: 7, jitA: 0.01,
-  lfo: [{ to: 'pitch', rate: 0.55, depth: 0.09 }], amp: { r: 0.5 },
+  piano: { bright: 0.8, long: 0.8, unison: 1.4 }, post: 3200, drive: 0.12, jit: 7, jitA: 0.01,
+  lfo: [{ to: 'pitch', rate: 0.55, depth: 0.09 }], amp: { r: 0.6 },
 });
 P('pno.toy', '鋼琴', '玩具鋼琴', 'Toy Piano', 8, 'piano', {
   // 玩具鋼琴敲的是一根根金屬棒（懸臂樑）：分音 1 : 6.27 : 17.5，叮叮的
-  modes: { n: 0, list: [[1, 1, 1.3], [6.27, 0.5, 0.35], [17.55, 0.18, 0.08]], beat: [], vt: 0.4, lvl: 0.5 },
+  piano: undefined, modes: { n: 0, list: [[1, 1, 1.3], [6.27, 0.5, 0.35], [17.55, 0.18, 0.08]], beat: [], vt: 0.4, lvl: 0.5 },
   flt: { f: 12000, key: 0 }, noise: { lvl: 0.18, hp: 3000, d: 0.008 }, body: [[700, 3, 5]], kdecay: 0.6,
 });
 P('pno.crystal', '鋼琴', '水晶鋼琴', 'Crystal Piano', 0, 'piano', {
-  modes: { tilt: 0.7 }, osc: [{ w: 'sin', lvl: 0.3, oct: 2, decay: 2.6, fm: { ratio: 3.5, idx: 0.6, d: 0.6 } }, { w: 'sin', lvl: 0.16, oct: 3, cents: 5, decay: 1.6 }],
+  piano: { bright: 1.15 }, osc: [{ w: 'sin', lvl: 0.22, oct: 2, decay: 2.6, fm: { ratio: 3.5, idx: 0.6, d: 0.6 } }, { w: 'sin', lvl: 0.12, oct: 3, cents: 5, decay: 1.6 }],
 });
 P('pno.fm', '鋼琴', 'FM 鋼琴', 'FM Piano', 2, 'piano', {
-  modes: undefined, amp: { a: 0.001, d: 2.8, s: 0, r: 0.4 }, body: [],
+  piano: undefined, amp: { a: 0.001, d: 2.8, s: 0, r: 0.4 }, body: [],
   osc: [{ w: 'sin', lvl: 0.42, fm: { ratio: 1, idx: 2.2, d: 0.6, vel: 1 } }, { w: 'sin', lvl: 0.16, fm: { ratio: 3, idx: 1.4, d: 0.2 }, decay: 0.6 }],
 });
 P('pno.pad', '鋼琴', '鋼琴＋弦樂', 'Piano & Strings', 0, 'piano', {
@@ -233,7 +237,7 @@ P('pno.pad', '鋼琴', '鋼琴＋弦樂', 'Piano & Strings', 0, 'piano', {
 });
 P('pno.prep', '鋼琴', '預置鋼琴', 'Prepared Piano', 0, 'piano', {
   // 弦上夾了螺絲、橡皮：分音嚴重不諧和、衰減很快，帶金屬噠噠聲
-  modes: { n: 12, B: 0.02, d: 1.2, dk: 0.8, list: [[1.37, 0.5, 0.6], [2.13, 0.4, 0.4], [3.71, 0.3, 0.25]] },
+  piano: undefined, modes: { n: 12, B: 0.02, d: 1.2, dk: 0.8, list: [[1.37, 0.5, 0.6], [2.13, 0.4, 0.4], [3.71, 0.3, 0.25]] },
   noise: { lvl: 0.18, bp: 2200, q: 3, d: 0.06 }, body: [[300, 3, 3]],
 });
 

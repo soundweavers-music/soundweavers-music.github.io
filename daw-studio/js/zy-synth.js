@@ -110,6 +110,7 @@ export function zyTail(patchId, synth) {
   let t = Math.max(p.amp.r * 1.6, 0);
   if (!p.amp.s) t = Math.max(t, p.amp.d * 1.6 + p.amp.r);
   if (p.str && p.str.lvl) t = Math.max(t, Math.min(8, p.str.decay * 1.2));
+  if (p.piano) t = Math.max(t, 0.8);      // 鋼琴放開後交給制音器（約 0.4 s），最高音區沒有制音器
   if (p.modes) {
     const ds = [(p.modes.d || 0) * 1.2].concat((p.modes.list || []).map(e => e[2] || 0));
     t = Math.max(t, Math.min(8, Math.max(...ds) * 0.8 + p.amp.r));

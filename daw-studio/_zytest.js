@@ -135,7 +135,7 @@ async function renderOne(p) {
   } else {
     scheduleNote(oc, dest, id, 60, 100, 0, 1.5);
   }
-  await new Promise(r => setTimeout(r, 30));   // 讓 worklet 先把訊息收進去（離線環境不會自動讓路）
+  await new Promise(r => setTimeout(r, 60));   // 讓 worklet 先把訊息收進去（離線環境不會自動讓路）
   const buf = await oc.startRendering();
   const pk = peakOf(buf);
   if (window.__zyRaw && window.__zyRaw.length < 3) {

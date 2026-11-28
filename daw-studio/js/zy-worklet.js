@@ -93,7 +93,8 @@ class Env {
     this.s = clamp(s, 0, 1);
     this.kR = 1 - Math.exp(-3 / Math.max(1, r * sr));
   }
-  on() { this.v = 0; this.st = this.incA >= 1 ? 2 : 1; }
+  // 起音短到不到一個樣本時直接從 1 開始（以前從 0 進衰減段，會被當成「已經結束」）
+  on() { if (this.incA >= 1) { this.v = 1; this.st = 2; } else { this.v = 0; this.st = 1; } }
   off(fast, sr) {
     if (this.st === 4) return;
     if (fast) this.kR = 1 - Math.exp(-3 / (0.012 * (sr || 48000)));
@@ -194,6 +195,143 @@ function buildModes(M, f0, vk, kd, sr, midi) {
   const norm = (M.lvl ?? 0.5) / Math.max(1e-6, Math.sqrt(e2));
   for (const m of out) { m.g *= norm; m.ge *= norm; m.cw = Math.cos(m.w); m.sw = Math.sin(m.w); }
   return out;
+}
+
+// ─────────────────── 演奏會平台鋼琴（以 Steinway D274 的文獻量測值為準）───────────────────
+// 每一個數字都有出處，改之前先看 daw-studio/PIANO-NOTES.md。
+//
+//   ‧ 不諧和係數 B（Conklin 1996, JASA 100(3)：Steinway D 實測）：
+//       中音 C4 ≈ 3.8e-4；往高音每八度約 ×2.9（弦越短越粗越硬）；
+//       低音因為纏銅線的低音弦，反而在 C2 附近降到 ≈ 1.2e-4，再往最低音又升一點
+//       → 對數座標下是 U 形，這裡用分段內插。
+//   ‧ 擊弦點：琴弦長度的 1/7～1/9（Steinway 設計值，低音 1/8、高音漸短到 1/12）
+//     → 第 n 個分音的激發量乘 |sin(nπ·pos)|，所以第 8 分音附近有個「洞」。
+//   ‧ 槌子（Hall 1987；Stulov 1995）：毛氈的剛度隨壓縮量上升（F ∝ y^p，p≈2.3～3.5）。
+//     結果是頻譜的「拐點」隨力度上升：pp 時 ~1 kHz 以上很快沒了、ff 時延到 4～5 kHz。
+//     槌子接觸時間 ~4 ms（低音、pp）到 ~0.7 ms（高音、ff）→ 分音 n 的激發
+//     ≈ 1 / (1 + (n·f0·Tc)^q)，Tc 是接觸時間。
+//   ‧ 雙段衰減（Weinreich 1977, JASA 62；Askenfelt 1990）：三根弦耦合 → 垂直極化
+//     的同相模態把能量很快交給琴橋（快段），之後剩下互相抵銷的模態慢慢衰減（慢段）。
+//     C4 的實測：快段 t60 ≈ 2～3 s，慢段 ≈ 15～25 s；高音 C7 縮短到 ~1 s／~3 s。
+//     另外水平極化的模態不太耦合到琴橋，衰減更慢、比較小聲。
+//   ‧ 弦之間的微失諧：調音師刻意留 ~0.3～1 音分 → 拍音與「歌唱」的尾音。
+//   ‧ 縱波分音（Conklin 1999, JASA 105(1)）：低音弦被敲時伸縮，產生一組不在泛音列
+//     上的「縱波」頻率，是低音金屬味的來源。約在 f ≈ 14～20 倍基頻（C2 以下才明顯）。
+//   ‧ 共鳴板（Giordano 1998, Suzuki 1986）：模態很密，低於 ~200 Hz 的地方較稀疏，
+//     整體在 ~300 Hz–1 kHz 最有效率，~2.5 kHz 以上逐漸下降。用一組固定共振當 body。
+//   ‧ 起音雜音：槌柄＋鍵盤底的「咚」(~80–250 Hz)、槌子撞弦的高頻，力度越大越明顯。
+//   ‧ 制音器：放開琴鍵時，毛氈碰弦 → 高分音先被吃掉、再整體收掉（約 0.1～0.4 s）；
+//     A6 以上本來就沒有制音器。
+const PIANO_B = [[21, 2.3e-4], [28, 1.4e-4], [36, 1.2e-4], [43, 1.6e-4], [48, 2.1e-4],
+  [55, 2.9e-4], [60, 3.8e-4], [67, 7.0e-4], [72, 1.1e-3], [79, 2.4e-3], [84, 3.9e-3],
+  [91, 8.5e-3], [96, 1.4e-2], [108, 4.0e-2]];
+function pianoB(midi) {
+  const T = PIANO_B;
+  if (midi <= T[0][0]) return T[0][1];
+  for (let i = 1; i < T.length; i++) {
+    if (midi <= T[i][0]) {
+      const [m0, b0] = T[i - 1], [m1, b1] = T[i];
+      const t = (midi - m0) / (m1 - m0);
+      return Math.exp(Math.log(b0) + (Math.log(b1) - Math.log(b0)) * t);
+    }
+  }
+  return T[T.length - 1][1];
+}
+// 各音區的「t60（秒）」：快段／慢段（Askenfelt & Jansson；Bank 2000 量測整理）
+const PIANO_T60 = [[21, 9, 45], [36, 6, 32], [48, 4.2, 24], [60, 2.8, 18], [72, 1.7, 10],
+  [84, 0.9, 4.5], [96, 0.45, 1.8], [108, 0.2, 0.7]];
+function pianoT60(midi) {
+  const T = PIANO_T60;
+  if (midi <= T[0][0]) return [T[0][1], T[0][2]];
+  for (let i = 1; i < T.length; i++) {
+    if (midi <= T[i][0]) {
+      const a = T[i - 1], b = T[i];
+      const t = (midi - a[0]) / (b[0] - a[0]);
+      return [Math.exp(Math.log(a[1]) + Math.log(b[1] / a[1]) * t), Math.exp(Math.log(a[2]) + Math.log(b[2] / a[2]) * t)];
+    }
+  }
+  const z = T[T.length - 1]; return [z[1], z[2]];
+}
+// 每個音幾根弦：A0–約 B0 一根、C1–約 F♯2 兩根、其餘三根（Steinway D）
+const pianoStrings = midi => (midi < 24 ? 1 : midi < 43 ? 2 : 3);
+
+// 產生一個鋼琴音的分音（回傳給 Voice 用的 modes 陣列）
+//   P.piano = { bright, hard, unison, long, lvl, hammerPos, felt, ... } 都是 0～1 的「個性」調整，
+//   預設 = 文獻上的 Steinway D。
+function buildPiano(P, midi, vel, sr, voiceSeed) {
+  const Q = P.piano || {};
+  const f0 = 440 * Math.pow(2, (midi - 69 + (P.tune || 0) / 100) / 12);
+  const v = clamp(vel / 127, 0.02, 1);
+  const B = pianoB(midi) * (Q.Bmul ?? 1);
+  const [tFast, tSlow] = pianoT60(midi);
+  const tl = Q.long ?? 1;
+  // 擊弦位置：低音 1/8，往高音縮短到 1/12（Steinway 的 strike line）
+  const pos = (Q.pos ?? 1) * (midi < 60 ? 1 / 8 : 1 / (8 + 4 * clamp((midi - 60) / 40, 0, 1)));
+  // 槌子接觸時間：低音、輕彈長；高音、重彈短（Askenfelt & Jansson 1991 的量測曲線）
+  const felt = Q.felt ?? 1;               // >1 = 毛氈更軟（felt piano）
+  // Askenfelt & Jansson 1991：中音 C4 接觸時間 pp ≈ 4 ms、mf ≈ 2 ms、ff ≈ 0.8 ms（約 ∝ v^-0.8）
+  const tc = felt * 0.0021 * Math.pow(2, -(midi - 60) / (midi > 60 ? 34 : 26)) * Math.pow(v / 0.63, -(midi > 60 ? 0.95 : 0.8)) * (Q.hard ? 1 / (1 + Q.hard) : 1);
+  // 拐點之後的斜率：pp 很陡（毛氈軟、像低通）、ff 變緩（毛氈被壓硬、高頻保留）
+  const q = 3.2 - 1.6 * Math.pow(v, 1.3) * (Q.bright ?? 1);
+  const nStr = Q.strings ?? pianoStrings(midi);
+  // 弦的失諧（音分）：調音師留的 ±0.3～1 音分；unison 越大越像沒調好的老琴
+  const un = (Q.unison ?? 1) * (0.35 + 0.5 * clamp((midi - 30) / 60, 0, 1));
+  const detune = nStr === 1 ? [0] : nStr === 2 ? [-un, un] : [-un, un * 0.25, un * 1.1];
+  const fmax = Math.min(sr * 0.44, 18000);
+  const nMax = clamp(Math.floor(fmax / f0), 1, midi < 40 ? 70 : midi < 60 ? 50 : 32);
+  const out = [];
+  let e2 = 0;
+  const rnd = makeNoise(voiceSeed);
+  for (let k = 1; k <= nMax; k++) {
+    const r = k * Math.sqrt(1 + B * k * k);
+    const fk = f0 * r;
+    if (fk > fmax) break;
+    // 激發：擊弦位置的梳狀 × 槌子的低通（拐點 1/tc）× 弦本身 1/k
+    let g = Math.abs(Math.sin(Math.PI * k * pos)) + 0.02;
+    // 槌子的低通：拐點 1/tc 之後以 q 的斜率下降，但不會真的「沒有」——
+    // 毛氈的表層總是硬的，pp 也還有一點點高分音（約 -45～-60 dB），不是靜音
+    const hx = fk * tc * 1.8;
+    g *= Math.max(1 / (1 + Math.pow(hx, Math.max(1.1, q))), 0.004 / (1 + hx * hx * 0.25));
+    g *= 1 / Math.pow(k, 0.55);
+    // 共鳴板的效率：太低（<~120 Hz）的分音輻射差，所以低音的基音本來就弱
+    g *= fk < 120 ? Math.pow(fk / 120, 0.9) : 1;
+    if (g < 2e-5) continue;
+    // 分音 k 的衰減：頻率越高越快（空氣與弦內阻尼 ∝ f 與 f²）
+    const damp = 1 + 0.00018 * fk + 2.5e-8 * fk * fk;
+    const tf = tFast * tl / damp, ts = tSlow * tl / Math.pow(damp, 0.45);
+    for (let s = 0; s < nStr; s++) {
+      const cents = detune[s] + (rnd.white() * 0.12);
+      const f = fk * Math.pow(2, cents / 1200);
+      // 每根弦：快段（垂直、耦合到琴橋）＋慢段（剩下的、水平極化）
+      // 慢段的比例：弦越多越大（三根弦的反相模態）；Weinreich 的量測約 -12～-20 dB
+      // Weinreich：餘音（aftersound）比起音低約 15～25 dB → 振幅 ~6～18%；
+      // 高音弦的耦合比較強，餘音比例更小
+      const slowAmt = (nStr === 1 ? 0.05 : 0.11) * (Q.ring ?? 1) * clamp(1.25 - (midi - 48) / 80, 0.45, 1.25);
+      const gs = g / nStr;
+      out.push(mode(f, gs * (1 - slowAmt), tf, sr, out.length));
+      out.push(mode(f * (1 + 0.00004 * (s + 1)), gs * slowAmt, ts, sr, out.length));
+      e2 += gs * gs;
+    }
+  }
+  // 縱波分音（低音的金屬「噹」）：Conklin 量到大約在 f0 的 14～20 倍附近，與基音無整數關係
+  if (midi < 48 && (Q.longit ?? 1) > 0) {
+    const fl = f0 * (17.3 - (midi - 21) * 0.12);
+    const gl = 0.035 * (Q.longit ?? 1) * v * v;
+    for (const m of [1, 2]) {
+      if (fl * m > fmax) break;
+      out.push(mode(fl * m, gl / m, 0.35 * tl, sr, out.length));
+      e2 += (gl / m) * (gl / m) * 0.1;
+    }
+  }
+  const norm = (Q.lvl ?? 0.42) / Math.max(1e-6, Math.sqrt(e2));
+  for (const m of out) { m.g *= norm; m.ge = m.g; }
+  return { modes: out, f0, tc };
+}
+function mode(f, g, t60, sr, i) {
+  const ph0 = i * 2.39996;
+  const w = 2 * Math.PI * f / sr;
+  return { f, g, ge: g, rr: Math.pow(0.001, 1 / (Math.max(0.01, t60) * sr)), atk: 0,
+    re: Math.cos(ph0), im: Math.sin(ph0), w, cw: Math.cos(w), sw: Math.sin(w) };
 }
 
 // ─────────────────── 撥弦／擊弦：數位波導（Karplus-Strong 改良版）───────────────────
@@ -400,6 +538,24 @@ class Voice {
     // 模態合成（分音表）
     this.modes = P.modes ? buildModes(P.modes, f0, this.vk, this.kd, sr, midi) : null;
     this.modeGain = 1;
+    // 平台鋼琴：專用的物理參數模型（見 buildPiano）
+    this.piano = null;
+    if (P.piano) {
+      const pz = buildPiano(P, midi, vel, sr, (midi * 7349 + vel * 31 + 11) >>> 0);
+      this.modes = pz.modes;
+      const Q = P.piano;
+      // 起音雜音：琴鍵撞到底（keybed，~120 Hz 的悶「咚」）＋槌子撞弦（寬頻、很短），力度越大越明顯
+      const vv = vel / 127;
+      this.piano = {
+        thump: new SVF(), knock: new SVF(), nz: makeNoise((midi * 92821 + 5) >>> 0),
+        tg: (Q.thump ?? 1) * 0.06 * vv * vv, kg: (Q.knock ?? 1) * 0.05 * Math.pow(vv, 2.2),
+        tk: Math.pow(0.001, 1 / (0.05 * sr)), kk: Math.pow(0.001, 1 / (0.012 * sr)), te: 1, ke: 1,
+        // 制音器：A6（midi 93）以上沒有制音器 → 放開也會一直響
+        damped: midi < 93 && !Q.noDamper, rel: 0, relRate: 0, hiCut: 1,
+      };
+      this.piano.thump.set(110 + midi * 0.6, 1.2, sr);
+      this.piano.knock.set(Math.min(sr * 0.4, 2200 + midi * 40), 0.8, sr);
+    }
 
     // 琴身／管身共鳴：固定頻率（不跟音高走）→ 每種樂器自己的「聲音指紋」
     //   body: [[頻率, Q, 增益 dB], …]；帶通的中心增益是 Q，所以除掉，中心點才剛好是指定的 dB
@@ -413,7 +569,7 @@ class Voice {
     if (this.post2) this.post2.set(P.post, 0.6, sr);
     this.jit = P.jit ? { c: P.jit, a: (P.jitA ?? P.jit * 0.02), v: 0, t: 0, src: makeNoise((midi * 6151 + 3) >>> 0) } : null;
     // 只有「自己會衰減」的聲源（撥弦、分音）時，聲音掉到聽不到就提早結束，不用等放開琴鍵
-    this.selfDecay = !(P.osc && P.osc.length) && !(P.sub && P.sub.lvl) && !!(this.strs || this.modes)
+    this.selfDecay = !(P.osc && P.osc.length) && !(P.sub && P.sub.lvl) && !!(this.strs || this.modes || this.piano)
       && !(P.noise && P.noise.lvl && (P.noise.s || 0) > 0);
     this.blkPk = 0;
 
@@ -557,6 +713,20 @@ class Voice {
   off(fast) {
     if (this.released) return;
     this.released = true;
+    if (this.piano && !fast) {
+      // 制音器：高分音先被毛氈吃掉（0.05～0.1 s）、低分音較慢（0.2～0.4 s）
+      if (!this.piano.damped) return;      // 最高音區沒有制音器：讓弦自然衰減
+      const sr = this.sr;
+      for (const m of this.modes) {
+        const t = clamp(0.38 * Math.pow(m.f / 200, -0.45), 0.04, 0.5);
+        m.rr = Math.min(m.rr, Math.pow(0.001, 1 / (t * sr)));
+      }
+      // 制音器碰弦的那一下「嘶」
+      this.piano.ke = 0.25; this.piano.kg *= 0.5;
+      this.amp.off(false, sr);
+      this.amp.kR = 1 - Math.exp(-3 / (0.6 * sr));    // 包絡只做保險，聲音的收尾交給分音
+      return;
+    }
     this.amp.off(fast, this.sr);
     this.flt.off(fast, this.sr);
     if (this.noise) this.noise.env.off(fast, this.sr);
@@ -656,8 +826,10 @@ class Voice {
         }
         // 每 4096 個樣本把向量長度拉回來（避免浮點誤差累積），順便丟掉已經聽不到的分音
         if ((life & 4095) === 0) {
+          // 每個分音自己記「應該剩多少」（amp × rr^4096），制音器中途改 rr 也不會算錯
           for (const m of modes) {
-            const want = Math.pow(m.rr, life);
+            const want = (m.amp ?? 1) * Math.pow(m.rr, 4096);
+            m.amp = want;
             const r = Math.hypot(m.re, m.im); if (r > 0) { const t = want / r; m.re *= t; m.im *= t; }
             m.alive = want * m.g > 1e-5;
           }
@@ -665,6 +837,16 @@ class Voice {
         }
         mv *= this.modeGain;
         x += mv; xr += mv;
+      }
+      if (this.piano) {
+        const Pz = this.piano;
+        if (Pz.te > 1e-4 || Pz.ke > 1e-4) {
+          const w = Pz.nz.white();
+          Pz.thump.tick(w); Pz.knock.tick(w);
+          const z = Pz.thump.band * Pz.te * Pz.tg + Pz.knock.band * Pz.ke * Pz.kg;
+          Pz.te *= Pz.tk; Pz.ke *= Pz.kk;
+          x += z; xr += z;
+        }
       }
 
       // ── 雜訊
